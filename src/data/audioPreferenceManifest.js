@@ -1,6 +1,7 @@
 import { getKimiCleanAudio } from "./kimiCleanAudioManifest.js";
 import { importedVocabularyMediaManifest } from "./importedVocabularyMediaManifest.js";
 import { kimiVocabulary500AudioPreferences } from "./kimiVocabulary500AudioPreferences.js";
+import { kimiHighQualityMediaStyleAudioTasks } from "./generated/kimiHighQualityMediaStyleManifest.generated.js";
 import { initialSoundWordBank } from "../content/initialSounds/initialSoundWordBank.js";
 import { initialSoundAudioMediaIds } from "../content/initialSounds/initialSoundImportedMediaStatus.js";
 
@@ -412,6 +413,17 @@ export const audioPreferenceManifest = Object.fromEntries([
         notes: "Approved imported vocabulary audio from the strict missing-media repair pack."
       })
     ]),
+  ...kimiHighQualityMediaStyleAudioTasks.map(task => [
+    task.targetWord,
+    approvedPreference({
+      key: task.targetWord,
+      word: task.targetWord,
+      category: "words",
+      fallbackPath: task.path,
+      source: "kimi_high_quality_media_style_2026_06_05",
+      notes: "Approved Kimi high-quality media style exact-word audio imported for assessment language skills."
+    })
+  ]),
   ...Object.entries(approvedAssessmentWordAudioOverrides).map(([word, fallbackPath]) => [
     word,
     approvedPreference({

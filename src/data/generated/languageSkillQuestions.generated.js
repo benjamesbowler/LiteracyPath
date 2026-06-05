@@ -57,7 +57,10 @@ export const languageSkillQuestions = [
         "text": "baby",
         "word": "baby",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/baby.mp3",
+        "audioPath": "/audio/vocabulary/baby.mp3",
+        "audioUrl": "/audio/vocabulary/baby.mp3"
       }
     ],
     "choices": [
@@ -106,7 +109,10 @@ export const languageSkillQuestions = [
         "text": "baby",
         "word": "baby",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/baby.mp3",
+        "audioPath": "/audio/vocabulary/baby.mp3",
+        "audioUrl": "/audio/vocabulary/baby.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -153,7 +159,10 @@ export const languageSkillQuestions = [
         "text": "baby",
         "word": "baby",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/baby.mp3",
+        "audioPath": "/audio/vocabulary/baby.mp3",
+        "audioUrl": "/audio/vocabulary/baby.mp3"
       },
       {
         "label": "bag",
@@ -202,7 +211,10 @@ export const languageSkillQuestions = [
         "text": "baby",
         "word": "baby",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/baby.mp3",
+        "audioPath": "/audio/vocabulary/baby.mp3",
+        "audioUrl": "/audio/vocabulary/baby.mp3"
       },
       {
         "label": "bag",
@@ -293,7 +305,10 @@ export const languageSkillQuestions = [
         "text": "baby",
         "word": "baby",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/baby.mp3",
+        "audioPath": "/audio/vocabulary/baby.mp3",
+        "audioUrl": "/audio/vocabulary/baby.mp3"
       }
     ],
     "choices": [
@@ -342,7 +357,10 @@ export const languageSkillQuestions = [
         "text": "baby",
         "word": "baby",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/baby.mp3",
+        "audioPath": "/audio/vocabulary/baby.mp3",
+        "audioUrl": "/audio/vocabulary/baby.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -389,7 +407,10 @@ export const languageSkillQuestions = [
         "text": "baby",
         "word": "baby",
         "correct": true,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/baby.mp3",
+        "audioPath": "/audio/vocabulary/baby.mp3",
+        "audioUrl": "/audio/vocabulary/baby.mp3"
       },
       {
         "label": "bag",
@@ -438,7 +459,10 @@ export const languageSkillQuestions = [
         "text": "baby",
         "word": "baby",
         "correct": true,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/baby.mp3",
+        "audioPath": "/audio/vocabulary/baby.mp3",
+        "audioUrl": "/audio/vocabulary/baby.mp3"
       },
       {
         "label": "bag",
@@ -1582,6 +1606,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
+    "imageUrl": "/images/assessment/language/variants/homophones-homonyms/be-bee-01.webp",
     "mediaTarget": "workbook:nouns:bee",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -2241,7 +2267,10 @@ export const languageSkillQuestions = [
         "text": "boy",
         "word": "boy",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/boy.mp3",
+        "audioPath": "/audio/vocabulary/boy.mp3",
+        "audioUrl": "/audio/vocabulary/boy.mp3"
       },
       {
         "label": "boot",
@@ -2290,7 +2319,10 @@ export const languageSkillQuestions = [
         "text": "boy",
         "word": "boy",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/boy.mp3",
+        "audioPath": "/audio/vocabulary/boy.mp3",
+        "audioUrl": "/audio/vocabulary/boy.mp3"
       },
       {
         "label": "boot",
@@ -2381,7 +2413,10 @@ export const languageSkillQuestions = [
         "text": "boy",
         "word": "boy",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/boy.mp3",
+        "audioPath": "/audio/vocabulary/boy.mp3",
+        "audioUrl": "/audio/vocabulary/boy.mp3"
       }
     ],
     "choices": [
@@ -2430,7 +2465,10 @@ export const languageSkillQuestions = [
         "text": "boy",
         "word": "boy",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/boy.mp3",
+        "audioPath": "/audio/vocabulary/boy.mp3",
+        "audioUrl": "/audio/vocabulary/boy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -2477,7 +2515,10 @@ export const languageSkillQuestions = [
         "text": "boy",
         "word": "boy",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/boy.mp3",
+        "audioPath": "/audio/vocabulary/boy.mp3",
+        "audioUrl": "/audio/vocabulary/boy.mp3"
       },
       {
         "label": "branch",
@@ -2526,7 +2567,10 @@ export const languageSkillQuestions = [
         "text": "boy",
         "word": "boy",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/boy.mp3",
+        "audioPath": "/audio/vocabulary/boy.mp3",
+        "audioUrl": "/audio/vocabulary/boy.mp3"
       },
       {
         "label": "branch",
@@ -2617,7 +2661,10 @@ export const languageSkillQuestions = [
         "text": "boy",
         "word": "boy",
         "correct": true,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/boy.mp3",
+        "audioPath": "/audio/vocabulary/boy.mp3",
+        "audioUrl": "/audio/vocabulary/boy.mp3"
       }
     ],
     "choices": [
@@ -2666,7 +2713,10 @@ export const languageSkillQuestions = [
         "text": "boy",
         "word": "boy",
         "correct": true,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/boy.mp3",
+        "audioPath": "/audio/vocabulary/boy.mp3",
+        "audioUrl": "/audio/vocabulary/boy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -11032,7 +11082,10 @@ export const languageSkillQuestions = [
         "text": "school",
         "word": "school",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/school.mp3",
+        "audioPath": "/audio/vocabulary/school.mp3",
+        "audioUrl": "/audio/vocabulary/school.mp3"
       },
       {
         "label": "road",
@@ -11081,7 +11134,10 @@ export const languageSkillQuestions = [
         "text": "school",
         "word": "school",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/school.mp3",
+        "audioPath": "/audio/vocabulary/school.mp3",
+        "audioUrl": "/audio/vocabulary/school.mp3"
       },
       {
         "label": "road",
@@ -11128,7 +11184,10 @@ export const languageSkillQuestions = [
         "text": "school",
         "word": "school",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/school.mp3",
+        "audioPath": "/audio/vocabulary/school.mp3",
+        "audioUrl": "/audio/vocabulary/school.mp3"
       },
       {
         "label": "seed",
@@ -11177,7 +11236,10 @@ export const languageSkillQuestions = [
         "text": "school",
         "word": "school",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/school.mp3",
+        "audioPath": "/audio/vocabulary/school.mp3",
+        "audioUrl": "/audio/vocabulary/school.mp3"
       },
       {
         "label": "seed",
@@ -11268,7 +11330,10 @@ export const languageSkillQuestions = [
         "text": "school",
         "word": "school",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/school.mp3",
+        "audioPath": "/audio/vocabulary/school.mp3",
+        "audioUrl": "/audio/vocabulary/school.mp3"
       },
       {
         "label": "seed",
@@ -11317,7 +11382,10 @@ export const languageSkillQuestions = [
         "text": "school",
         "word": "school",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/school.mp3",
+        "audioPath": "/audio/vocabulary/school.mp3",
+        "audioUrl": "/audio/vocabulary/school.mp3"
       },
       {
         "label": "seed",
@@ -11364,7 +11432,10 @@ export const languageSkillQuestions = [
         "text": "school",
         "word": "school",
         "correct": true,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/school.mp3",
+        "audioPath": "/audio/vocabulary/school.mp3",
+        "audioUrl": "/audio/vocabulary/school.mp3"
       },
       {
         "label": "seed",
@@ -11413,7 +11484,10 @@ export const languageSkillQuestions = [
         "text": "school",
         "word": "school",
         "correct": true,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/school.mp3",
+        "audioPath": "/audio/vocabulary/school.mp3",
+        "audioUrl": "/audio/vocabulary/school.mp3"
       },
       {
         "label": "seed",
@@ -12000,7 +12074,10 @@ export const languageSkillQuestions = [
         "text": "stick",
         "word": "stick",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/stick.mp3",
+        "audioPath": "/audio/vocabulary/stick.mp3",
+        "audioUrl": "/audio/vocabulary/stick.mp3"
       },
       {
         "label": "sock",
@@ -12049,7 +12126,10 @@ export const languageSkillQuestions = [
         "text": "stick",
         "word": "stick",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/stick.mp3",
+        "audioPath": "/audio/vocabulary/stick.mp3",
+        "audioUrl": "/audio/vocabulary/stick.mp3"
       },
       {
         "label": "sock",
@@ -12096,7 +12176,10 @@ export const languageSkillQuestions = [
         "text": "stick",
         "word": "stick",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/stick.mp3",
+        "audioPath": "/audio/vocabulary/stick.mp3",
+        "audioUrl": "/audio/vocabulary/stick.mp3"
       },
       {
         "label": "stone",
@@ -12145,7 +12228,10 @@ export const languageSkillQuestions = [
         "text": "stick",
         "word": "stick",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/stick.mp3",
+        "audioPath": "/audio/vocabulary/stick.mp3",
+        "audioUrl": "/audio/vocabulary/stick.mp3"
       },
       {
         "label": "stone",
@@ -12236,7 +12322,10 @@ export const languageSkillQuestions = [
         "text": "stick",
         "word": "stick",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/stick.mp3",
+        "audioPath": "/audio/vocabulary/stick.mp3",
+        "audioUrl": "/audio/vocabulary/stick.mp3"
       },
       {
         "label": "stone",
@@ -12285,7 +12374,10 @@ export const languageSkillQuestions = [
         "text": "stick",
         "word": "stick",
         "correct": false,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/stick.mp3",
+        "audioPath": "/audio/vocabulary/stick.mp3",
+        "audioUrl": "/audio/vocabulary/stick.mp3"
       },
       {
         "label": "stone",
@@ -12332,7 +12424,10 @@ export const languageSkillQuestions = [
         "text": "stick",
         "word": "stick",
         "correct": true,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/stick.mp3",
+        "audioPath": "/audio/vocabulary/stick.mp3",
+        "audioUrl": "/audio/vocabulary/stick.mp3"
       },
       {
         "label": "stone",
@@ -12381,7 +12476,10 @@ export const languageSkillQuestions = [
         "text": "stick",
         "word": "stick",
         "correct": true,
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "audio": "/audio/vocabulary/stick.mp3",
+        "audioPath": "/audio/vocabulary/stick.mp3",
+        "audioUrl": "/audio/vocabulary/stick.mp3"
       },
       {
         "label": "stone",
@@ -12420,6 +12518,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/nouns/stick-01.webp",
+    "imageUrl": "/images/assessment/language/variants/nouns/stick-01.webp",
     "mediaTarget": "workbook:nouns:stick",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -13316,7 +13416,10 @@ export const languageSkillQuestions = [
         "text": "add",
         "word": "add",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/add.mp3",
+        "audioPath": "/audio/vocabulary/add.mp3",
+        "audioUrl": "/audio/vocabulary/add.mp3"
       },
       {
         "label": "wait",
@@ -13324,7 +13427,10 @@ export const languageSkillQuestions = [
         "text": "wait",
         "word": "wait",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wait.mp3",
+        "audioPath": "/audio/vocabulary/wait.mp3",
+        "audioUrl": "/audio/vocabulary/wait.mp3"
       },
       {
         "label": "wake",
@@ -13332,7 +13438,10 @@ export const languageSkillQuestions = [
         "text": "wake",
         "word": "wake",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wake.mp3",
+        "audioPath": "/audio/vocabulary/wake.mp3",
+        "audioUrl": "/audio/vocabulary/wake.mp3"
       },
       {
         "label": "walk",
@@ -13340,7 +13449,10 @@ export const languageSkillQuestions = [
         "text": "walk",
         "word": "walk",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/walk.mp3",
+        "audioPath": "/audio/vocabulary/walk.mp3",
+        "audioUrl": "/audio/vocabulary/walk.mp3"
       }
     ],
     "choices": [
@@ -13356,7 +13468,10 @@ export const languageSkillQuestions = [
         "text": "add",
         "word": "add",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/add.mp3",
+        "audioPath": "/audio/vocabulary/add.mp3",
+        "audioUrl": "/audio/vocabulary/add.mp3"
       },
       {
         "label": "wait",
@@ -13364,7 +13479,10 @@ export const languageSkillQuestions = [
         "text": "wait",
         "word": "wait",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wait.mp3",
+        "audioPath": "/audio/vocabulary/wait.mp3",
+        "audioUrl": "/audio/vocabulary/wait.mp3"
       },
       {
         "label": "wake",
@@ -13372,7 +13490,10 @@ export const languageSkillQuestions = [
         "text": "wake",
         "word": "wake",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wake.mp3",
+        "audioPath": "/audio/vocabulary/wake.mp3",
+        "audioUrl": "/audio/vocabulary/wake.mp3"
       },
       {
         "label": "walk",
@@ -13380,7 +13501,10 @@ export const languageSkillQuestions = [
         "text": "walk",
         "word": "walk",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/walk.mp3",
+        "audioPath": "/audio/vocabulary/walk.mp3",
+        "audioUrl": "/audio/vocabulary/walk.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -13416,7 +13540,10 @@ export const languageSkillQuestions = [
         "text": "wake",
         "word": "wake",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wake.mp3",
+        "audioPath": "/audio/vocabulary/wake.mp3",
+        "audioUrl": "/audio/vocabulary/wake.mp3"
       },
       {
         "label": "walk",
@@ -13424,7 +13551,10 @@ export const languageSkillQuestions = [
         "text": "walk",
         "word": "walk",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/walk.mp3",
+        "audioPath": "/audio/vocabulary/walk.mp3",
+        "audioUrl": "/audio/vocabulary/walk.mp3"
       },
       {
         "label": "wash",
@@ -13443,7 +13573,10 @@ export const languageSkillQuestions = [
         "text": "answer",
         "word": "answer",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/answer.mp3",
+        "audioPath": "/audio/vocabulary/answer.mp3",
+        "audioUrl": "/audio/vocabulary/answer.mp3"
       }
     ],
     "choices": [
@@ -13459,7 +13592,10 @@ export const languageSkillQuestions = [
         "text": "wake",
         "word": "wake",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wake.mp3",
+        "audioPath": "/audio/vocabulary/wake.mp3",
+        "audioUrl": "/audio/vocabulary/wake.mp3"
       },
       {
         "label": "walk",
@@ -13467,7 +13603,10 @@ export const languageSkillQuestions = [
         "text": "walk",
         "word": "walk",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/walk.mp3",
+        "audioPath": "/audio/vocabulary/walk.mp3",
+        "audioUrl": "/audio/vocabulary/walk.mp3"
       },
       {
         "label": "wash",
@@ -13486,12 +13625,17 @@ export const languageSkillQuestions = [
         "text": "answer",
         "word": "answer",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/answer.mp3",
+        "audioPath": "/audio/vocabulary/answer.mp3",
+        "audioUrl": "/audio/vocabulary/answer.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/answer-reply-01.webp",
+    "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/answer-reply-01.webp",
     "mediaTarget": "workbook:verbs:answer",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -13542,7 +13686,10 @@ export const languageSkillQuestions = [
         "text": "ask",
         "word": "ask",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/ask.mp3",
+        "audioPath": "/audio/vocabulary/ask.mp3",
+        "audioUrl": "/audio/vocabulary/ask.mp3"
       },
       {
         "label": "walk",
@@ -13550,7 +13697,10 @@ export const languageSkillQuestions = [
         "text": "walk",
         "word": "walk",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/walk.mp3",
+        "audioPath": "/audio/vocabulary/walk.mp3",
+        "audioUrl": "/audio/vocabulary/walk.mp3"
       }
     ],
     "choices": [
@@ -13588,7 +13738,10 @@ export const languageSkillQuestions = [
         "text": "ask",
         "word": "ask",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/ask.mp3",
+        "audioPath": "/audio/vocabulary/ask.mp3",
+        "audioUrl": "/audio/vocabulary/ask.mp3"
       },
       {
         "label": "walk",
@@ -13596,12 +13749,17 @@ export const languageSkillQuestions = [
         "text": "walk",
         "word": "walk",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/walk.mp3",
+        "audioPath": "/audio/vocabulary/walk.mp3",
+        "audioUrl": "/audio/vocabulary/walk.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/ask-question-01.webp",
+    "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/ask-question-01.webp",
     "mediaTarget": "workbook:verbs:ask",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -13754,7 +13912,10 @@ export const languageSkillQuestions = [
         "text": "bathe",
         "word": "bathe",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bathe.mp3",
+        "audioPath": "/audio/vocabulary/bathe.mp3",
+        "audioUrl": "/audio/vocabulary/bathe.mp3"
       },
       {
         "label": "watch",
@@ -13784,7 +13945,10 @@ export const languageSkillQuestions = [
         "text": "wear",
         "word": "wear",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wear.mp3",
+        "audioPath": "/audio/vocabulary/wear.mp3",
+        "audioUrl": "/audio/vocabulary/wear.mp3"
       }
     ],
     "choices": [
@@ -13800,7 +13964,10 @@ export const languageSkillQuestions = [
         "text": "bathe",
         "word": "bathe",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bathe.mp3",
+        "audioPath": "/audio/vocabulary/bathe.mp3",
+        "audioUrl": "/audio/vocabulary/bathe.mp3"
       },
       {
         "label": "watch",
@@ -13830,12 +13997,17 @@ export const languageSkillQuestions = [
         "text": "wear",
         "word": "wear",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wear.mp3",
+        "audioPath": "/audio/vocabulary/wear.mp3",
+        "audioUrl": "/audio/vocabulary/wear.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/bathe-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/bathe-01.webp",
     "mediaTarget": "workbook:verbs:bathe",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -13875,7 +14047,10 @@ export const languageSkillQuestions = [
         "text": "wear",
         "word": "wear",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wear.mp3",
+        "audioPath": "/audio/vocabulary/wear.mp3",
+        "audioUrl": "/audio/vocabulary/wear.mp3"
       },
       {
         "label": "whisper",
@@ -13883,7 +14058,10 @@ export const languageSkillQuestions = [
         "text": "whisper",
         "word": "whisper",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/whisper.mp3",
+        "audioPath": "/audio/vocabulary/whisper.mp3",
+        "audioUrl": "/audio/vocabulary/whisper.mp3"
       },
       {
         "label": "bend",
@@ -13921,7 +14099,10 @@ export const languageSkillQuestions = [
         "text": "wear",
         "word": "wear",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wear.mp3",
+        "audioPath": "/audio/vocabulary/wear.mp3",
+        "audioUrl": "/audio/vocabulary/wear.mp3"
       },
       {
         "label": "whisper",
@@ -13929,7 +14110,10 @@ export const languageSkillQuestions = [
         "text": "whisper",
         "word": "whisper",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/whisper.mp3",
+        "audioPath": "/audio/vocabulary/whisper.mp3",
+        "audioUrl": "/audio/vocabulary/whisper.mp3"
       },
       {
         "label": "bend",
@@ -13976,7 +14160,10 @@ export const languageSkillQuestions = [
         "text": "whisper",
         "word": "whisper",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/whisper.mp3",
+        "audioPath": "/audio/vocabulary/whisper.mp3",
+        "audioUrl": "/audio/vocabulary/whisper.mp3"
       },
       {
         "label": "write",
@@ -13995,7 +14182,10 @@ export const languageSkillQuestions = [
         "text": "bounce",
         "word": "bounce",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bounce.mp3",
+        "audioPath": "/audio/vocabulary/bounce.mp3",
+        "audioUrl": "/audio/vocabulary/bounce.mp3"
       },
       {
         "label": "wear",
@@ -14003,7 +14193,10 @@ export const languageSkillQuestions = [
         "text": "wear",
         "word": "wear",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wear.mp3",
+        "audioPath": "/audio/vocabulary/wear.mp3",
+        "audioUrl": "/audio/vocabulary/wear.mp3"
       }
     ],
     "choices": [
@@ -14019,7 +14212,10 @@ export const languageSkillQuestions = [
         "text": "whisper",
         "word": "whisper",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/whisper.mp3",
+        "audioPath": "/audio/vocabulary/whisper.mp3",
+        "audioUrl": "/audio/vocabulary/whisper.mp3"
       },
       {
         "label": "write",
@@ -14038,7 +14234,10 @@ export const languageSkillQuestions = [
         "text": "bounce",
         "word": "bounce",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bounce.mp3",
+        "audioPath": "/audio/vocabulary/bounce.mp3",
+        "audioUrl": "/audio/vocabulary/bounce.mp3"
       },
       {
         "label": "wear",
@@ -14046,12 +14245,17 @@ export const languageSkillQuestions = [
         "text": "wear",
         "word": "wear",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wear.mp3",
+        "audioPath": "/audio/vocabulary/wear.mp3",
+        "audioUrl": "/audio/vocabulary/wear.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/bounce-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/bounce-01.webp",
     "mediaTarget": "workbook:verbs:bounce",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -14091,7 +14295,10 @@ export const languageSkillQuestions = [
         "text": "bring",
         "word": "bring",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bring.mp3",
+        "audioPath": "/audio/vocabulary/bring.mp3",
+        "audioUrl": "/audio/vocabulary/bring.mp3"
       },
       {
         "label": "whisper",
@@ -14099,7 +14306,10 @@ export const languageSkillQuestions = [
         "text": "whisper",
         "word": "whisper",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/whisper.mp3",
+        "audioPath": "/audio/vocabulary/whisper.mp3",
+        "audioUrl": "/audio/vocabulary/whisper.mp3"
       },
       {
         "label": "write",
@@ -14137,7 +14347,10 @@ export const languageSkillQuestions = [
         "text": "bring",
         "word": "bring",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bring.mp3",
+        "audioPath": "/audio/vocabulary/bring.mp3",
+        "audioUrl": "/audio/vocabulary/bring.mp3"
       },
       {
         "label": "whisper",
@@ -14145,7 +14358,10 @@ export const languageSkillQuestions = [
         "text": "whisper",
         "word": "whisper",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/whisper.mp3",
+        "audioPath": "/audio/vocabulary/whisper.mp3",
+        "audioUrl": "/audio/vocabulary/whisper.mp3"
       },
       {
         "label": "write",
@@ -14329,7 +14545,10 @@ export const languageSkillQuestions = [
         "text": "arrange",
         "word": "arrange",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/arrange.mp3",
+        "audioPath": "/audio/vocabulary/arrange.mp3",
+        "audioUrl": "/audio/vocabulary/arrange.mp3"
       },
       {
         "label": "build",
@@ -14337,7 +14556,10 @@ export const languageSkillQuestions = [
         "text": "build",
         "word": "build",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/build.mp3",
+        "audioPath": "/audio/vocabulary/build.mp3",
+        "audioUrl": "/audio/vocabulary/build.mp3"
       }
     ],
     "choices": [
@@ -14372,7 +14594,10 @@ export const languageSkillQuestions = [
         "text": "arrange",
         "word": "arrange",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/arrange.mp3",
+        "audioPath": "/audio/vocabulary/arrange.mp3",
+        "audioUrl": "/audio/vocabulary/arrange.mp3"
       },
       {
         "label": "build",
@@ -14380,7 +14605,10 @@ export const languageSkillQuestions = [
         "text": "build",
         "word": "build",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/build.mp3",
+        "audioPath": "/audio/vocabulary/build.mp3",
+        "audioUrl": "/audio/vocabulary/build.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -14416,7 +14644,10 @@ export const languageSkillQuestions = [
         "text": "arrange",
         "word": "arrange",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/arrange.mp3",
+        "audioPath": "/audio/vocabulary/arrange.mp3",
+        "audioUrl": "/audio/vocabulary/arrange.mp3"
       },
       {
         "label": "balance",
@@ -14424,7 +14655,10 @@ export const languageSkillQuestions = [
         "text": "balance",
         "word": "balance",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/balance.mp3",
+        "audioPath": "/audio/vocabulary/balance.mp3",
+        "audioUrl": "/audio/vocabulary/balance.mp3"
       },
       {
         "label": "call",
@@ -14459,7 +14693,10 @@ export const languageSkillQuestions = [
         "text": "arrange",
         "word": "arrange",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/arrange.mp3",
+        "audioPath": "/audio/vocabulary/arrange.mp3",
+        "audioUrl": "/audio/vocabulary/arrange.mp3"
       },
       {
         "label": "balance",
@@ -14467,7 +14704,10 @@ export const languageSkillQuestions = [
         "text": "balance",
         "word": "balance",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/balance.mp3",
+        "audioPath": "/audio/vocabulary/balance.mp3",
+        "audioUrl": "/audio/vocabulary/balance.mp3"
       },
       {
         "label": "call",
@@ -14522,7 +14762,10 @@ export const languageSkillQuestions = [
         "text": "borrow",
         "word": "borrow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/borrow.mp3",
+        "audioPath": "/audio/vocabulary/borrow.mp3",
+        "audioUrl": "/audio/vocabulary/borrow.mp3"
       },
       {
         "label": "carry",
@@ -14530,7 +14773,10 @@ export const languageSkillQuestions = [
         "text": "carry",
         "word": "carry",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/carry.mp3",
+        "audioPath": "/audio/vocabulary/carry.mp3",
+        "audioUrl": "/audio/vocabulary/carry.mp3"
       },
       {
         "label": "arrange",
@@ -14538,7 +14784,10 @@ export const languageSkillQuestions = [
         "text": "arrange",
         "word": "arrange",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/arrange.mp3",
+        "audioPath": "/audio/vocabulary/arrange.mp3",
+        "audioUrl": "/audio/vocabulary/arrange.mp3"
       },
       {
         "label": "balance",
@@ -14546,7 +14795,10 @@ export const languageSkillQuestions = [
         "text": "balance",
         "word": "balance",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/balance.mp3",
+        "audioPath": "/audio/vocabulary/balance.mp3",
+        "audioUrl": "/audio/vocabulary/balance.mp3"
       }
     ],
     "choices": [
@@ -14562,7 +14814,10 @@ export const languageSkillQuestions = [
         "text": "borrow",
         "word": "borrow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/borrow.mp3",
+        "audioPath": "/audio/vocabulary/borrow.mp3",
+        "audioUrl": "/audio/vocabulary/borrow.mp3"
       },
       {
         "label": "carry",
@@ -14570,7 +14825,10 @@ export const languageSkillQuestions = [
         "text": "carry",
         "word": "carry",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/carry.mp3",
+        "audioPath": "/audio/vocabulary/carry.mp3",
+        "audioUrl": "/audio/vocabulary/carry.mp3"
       },
       {
         "label": "arrange",
@@ -14578,7 +14836,10 @@ export const languageSkillQuestions = [
         "text": "arrange",
         "word": "arrange",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/arrange.mp3",
+        "audioPath": "/audio/vocabulary/arrange.mp3",
+        "audioUrl": "/audio/vocabulary/arrange.mp3"
       },
       {
         "label": "balance",
@@ -14586,7 +14847,10 @@ export const languageSkillQuestions = [
         "text": "balance",
         "word": "balance",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/balance.mp3",
+        "audioPath": "/audio/vocabulary/balance.mp3",
+        "audioUrl": "/audio/vocabulary/balance.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -14633,7 +14897,10 @@ export const languageSkillQuestions = [
         "text": "balance",
         "word": "balance",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/balance.mp3",
+        "audioPath": "/audio/vocabulary/balance.mp3",
+        "audioUrl": "/audio/vocabulary/balance.mp3"
       },
       {
         "label": "borrow",
@@ -14641,7 +14908,10 @@ export const languageSkillQuestions = [
         "text": "borrow",
         "word": "borrow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/borrow.mp3",
+        "audioPath": "/audio/vocabulary/borrow.mp3",
+        "audioUrl": "/audio/vocabulary/borrow.mp3"
       },
       {
         "label": "cheer",
@@ -14679,7 +14949,10 @@ export const languageSkillQuestions = [
         "text": "balance",
         "word": "balance",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/balance.mp3",
+        "audioPath": "/audio/vocabulary/balance.mp3",
+        "audioUrl": "/audio/vocabulary/balance.mp3"
       },
       {
         "label": "borrow",
@@ -14687,7 +14960,10 @@ export const languageSkillQuestions = [
         "text": "borrow",
         "word": "borrow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/borrow.mp3",
+        "audioPath": "/audio/vocabulary/borrow.mp3",
+        "audioUrl": "/audio/vocabulary/borrow.mp3"
       },
       {
         "label": "cheer",
@@ -14734,7 +15010,10 @@ export const languageSkillQuestions = [
         "text": "borrow",
         "word": "borrow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/borrow.mp3",
+        "audioPath": "/audio/vocabulary/borrow.mp3",
+        "audioUrl": "/audio/vocabulary/borrow.mp3"
       },
       {
         "label": "cheer",
@@ -14753,7 +15032,10 @@ export const languageSkillQuestions = [
         "text": "collect",
         "word": "collect",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/collect.mp3",
+        "audioPath": "/audio/vocabulary/collect.mp3",
+        "audioUrl": "/audio/vocabulary/collect.mp3"
       },
       {
         "label": "chase",
@@ -14761,7 +15043,10 @@ export const languageSkillQuestions = [
         "text": "chase",
         "word": "chase",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/chase.mp3",
+        "audioPath": "/audio/vocabulary/chase.mp3",
+        "audioUrl": "/audio/vocabulary/chase.mp3"
       }
     ],
     "choices": [
@@ -14777,7 +15062,10 @@ export const languageSkillQuestions = [
         "text": "borrow",
         "word": "borrow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/borrow.mp3",
+        "audioPath": "/audio/vocabulary/borrow.mp3",
+        "audioUrl": "/audio/vocabulary/borrow.mp3"
       },
       {
         "label": "cheer",
@@ -14796,7 +15084,10 @@ export const languageSkillQuestions = [
         "text": "collect",
         "word": "collect",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/collect.mp3",
+        "audioPath": "/audio/vocabulary/collect.mp3",
+        "audioUrl": "/audio/vocabulary/collect.mp3"
       },
       {
         "label": "chase",
@@ -14804,7 +15095,10 @@ export const languageSkillQuestions = [
         "text": "chase",
         "word": "chase",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/chase.mp3",
+        "audioPath": "/audio/vocabulary/chase.mp3",
+        "audioUrl": "/audio/vocabulary/chase.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -14840,7 +15134,10 @@ export const languageSkillQuestions = [
         "text": "collect",
         "word": "collect",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/collect.mp3",
+        "audioPath": "/audio/vocabulary/collect.mp3",
+        "audioUrl": "/audio/vocabulary/collect.mp3"
       },
       {
         "label": "compare",
@@ -14848,7 +15145,10 @@ export const languageSkillQuestions = [
         "text": "compare",
         "word": "compare",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/compare.mp3",
+        "audioPath": "/audio/vocabulary/compare.mp3",
+        "audioUrl": "/audio/vocabulary/compare.mp3"
       },
       {
         "label": "choose",
@@ -14856,7 +15156,10 @@ export const languageSkillQuestions = [
         "text": "choose",
         "word": "choose",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/choose.mp3",
+        "audioPath": "/audio/vocabulary/choose.mp3",
+        "audioUrl": "/audio/vocabulary/choose.mp3"
       },
       {
         "label": "cheer",
@@ -14883,7 +15186,10 @@ export const languageSkillQuestions = [
         "text": "collect",
         "word": "collect",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/collect.mp3",
+        "audioPath": "/audio/vocabulary/collect.mp3",
+        "audioUrl": "/audio/vocabulary/collect.mp3"
       },
       {
         "label": "compare",
@@ -14891,7 +15197,10 @@ export const languageSkillQuestions = [
         "text": "compare",
         "word": "compare",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/compare.mp3",
+        "audioPath": "/audio/vocabulary/compare.mp3",
+        "audioUrl": "/audio/vocabulary/compare.mp3"
       },
       {
         "label": "choose",
@@ -14899,7 +15208,10 @@ export const languageSkillQuestions = [
         "text": "choose",
         "word": "choose",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/choose.mp3",
+        "audioPath": "/audio/vocabulary/choose.mp3",
+        "audioUrl": "/audio/vocabulary/choose.mp3"
       },
       {
         "label": "cheer",
@@ -14946,7 +15258,10 @@ export const languageSkillQuestions = [
         "text": "connect",
         "word": "connect",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/connect.mp3",
+        "audioPath": "/audio/vocabulary/connect.mp3",
+        "audioUrl": "/audio/vocabulary/connect.mp3"
       },
       {
         "label": "clean",
@@ -14965,7 +15280,10 @@ export const languageSkillQuestions = [
         "text": "collect",
         "word": "collect",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/collect.mp3",
+        "audioPath": "/audio/vocabulary/collect.mp3",
+        "audioUrl": "/audio/vocabulary/collect.mp3"
       },
       {
         "label": "compare",
@@ -14973,7 +15291,10 @@ export const languageSkillQuestions = [
         "text": "compare",
         "word": "compare",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/compare.mp3",
+        "audioPath": "/audio/vocabulary/compare.mp3",
+        "audioUrl": "/audio/vocabulary/compare.mp3"
       }
     ],
     "choices": [
@@ -14989,7 +15310,10 @@ export const languageSkillQuestions = [
         "text": "connect",
         "word": "connect",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/connect.mp3",
+        "audioPath": "/audio/vocabulary/connect.mp3",
+        "audioUrl": "/audio/vocabulary/connect.mp3"
       },
       {
         "label": "clean",
@@ -15008,7 +15332,10 @@ export const languageSkillQuestions = [
         "text": "collect",
         "word": "collect",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/collect.mp3",
+        "audioPath": "/audio/vocabulary/collect.mp3",
+        "audioUrl": "/audio/vocabulary/collect.mp3"
       },
       {
         "label": "compare",
@@ -15016,7 +15343,10 @@ export const languageSkillQuestions = [
         "text": "compare",
         "word": "compare",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/compare.mp3",
+        "audioPath": "/audio/vocabulary/compare.mp3",
+        "audioUrl": "/audio/vocabulary/compare.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -15063,7 +15393,10 @@ export const languageSkillQuestions = [
         "text": "compare",
         "word": "compare",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/compare.mp3",
+        "audioPath": "/audio/vocabulary/compare.mp3",
+        "audioUrl": "/audio/vocabulary/compare.mp3"
       },
       {
         "label": "connect",
@@ -15071,7 +15404,10 @@ export const languageSkillQuestions = [
         "text": "connect",
         "word": "connect",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/connect.mp3",
+        "audioPath": "/audio/vocabulary/connect.mp3",
+        "audioUrl": "/audio/vocabulary/connect.mp3"
       },
       {
         "label": "copy",
@@ -15079,7 +15415,10 @@ export const languageSkillQuestions = [
         "text": "copy",
         "word": "copy",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/copy.mp3",
+        "audioPath": "/audio/vocabulary/copy.mp3",
+        "audioUrl": "/audio/vocabulary/copy.mp3"
       }
     ],
     "choices": [
@@ -15106,7 +15445,10 @@ export const languageSkillQuestions = [
         "text": "compare",
         "word": "compare",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/compare.mp3",
+        "audioPath": "/audio/vocabulary/compare.mp3",
+        "audioUrl": "/audio/vocabulary/compare.mp3"
       },
       {
         "label": "connect",
@@ -15114,7 +15456,10 @@ export const languageSkillQuestions = [
         "text": "connect",
         "word": "connect",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/connect.mp3",
+        "audioPath": "/audio/vocabulary/connect.mp3",
+        "audioUrl": "/audio/vocabulary/connect.mp3"
       },
       {
         "label": "copy",
@@ -15122,7 +15467,10 @@ export const languageSkillQuestions = [
         "text": "copy",
         "word": "copy",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/copy.mp3",
+        "audioPath": "/audio/vocabulary/copy.mp3",
+        "audioUrl": "/audio/vocabulary/copy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -15158,7 +15506,10 @@ export const languageSkillQuestions = [
         "text": "connect",
         "word": "connect",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/connect.mp3",
+        "audioPath": "/audio/vocabulary/connect.mp3",
+        "audioUrl": "/audio/vocabulary/connect.mp3"
       },
       {
         "label": "copy",
@@ -15166,7 +15517,10 @@ export const languageSkillQuestions = [
         "text": "copy",
         "word": "copy",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/copy.mp3",
+        "audioPath": "/audio/vocabulary/copy.mp3",
+        "audioUrl": "/audio/vocabulary/copy.mp3"
       },
       {
         "label": "cover",
@@ -15174,7 +15528,10 @@ export const languageSkillQuestions = [
         "text": "cover",
         "word": "cover",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/cover.mp3",
+        "audioPath": "/audio/vocabulary/cover.mp3",
+        "audioUrl": "/audio/vocabulary/cover.mp3"
       },
       {
         "label": "close",
@@ -15182,7 +15539,10 @@ export const languageSkillQuestions = [
         "text": "close",
         "word": "close",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/close.mp3",
+        "audioPath": "/audio/vocabulary/close.mp3",
+        "audioUrl": "/audio/vocabulary/close.mp3"
       }
     ],
     "choices": [
@@ -15198,7 +15558,10 @@ export const languageSkillQuestions = [
         "text": "connect",
         "word": "connect",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/connect.mp3",
+        "audioPath": "/audio/vocabulary/connect.mp3",
+        "audioUrl": "/audio/vocabulary/connect.mp3"
       },
       {
         "label": "copy",
@@ -15206,7 +15569,10 @@ export const languageSkillQuestions = [
         "text": "copy",
         "word": "copy",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/copy.mp3",
+        "audioPath": "/audio/vocabulary/copy.mp3",
+        "audioUrl": "/audio/vocabulary/copy.mp3"
       },
       {
         "label": "cover",
@@ -15214,7 +15580,10 @@ export const languageSkillQuestions = [
         "text": "cover",
         "word": "cover",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/cover.mp3",
+        "audioPath": "/audio/vocabulary/cover.mp3",
+        "audioUrl": "/audio/vocabulary/cover.mp3"
       },
       {
         "label": "close",
@@ -15222,7 +15591,10 @@ export const languageSkillQuestions = [
         "text": "close",
         "word": "close",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/close.mp3",
+        "audioPath": "/audio/vocabulary/close.mp3",
+        "audioUrl": "/audio/vocabulary/close.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -15258,7 +15630,10 @@ export const languageSkillQuestions = [
         "text": "cover",
         "word": "cover",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/cover.mp3",
+        "audioPath": "/audio/vocabulary/cover.mp3",
+        "audioUrl": "/audio/vocabulary/cover.mp3"
       },
       {
         "label": "decorate",
@@ -15266,7 +15641,10 @@ export const languageSkillQuestions = [
         "text": "decorate",
         "word": "decorate",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/decorate.mp3",
+        "audioPath": "/audio/vocabulary/decorate.mp3",
+        "audioUrl": "/audio/vocabulary/decorate.mp3"
       },
       {
         "label": "color",
@@ -15274,7 +15652,10 @@ export const languageSkillQuestions = [
         "text": "color",
         "word": "color",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/color.mp3",
+        "audioPath": "/audio/vocabulary/color.mp3",
+        "audioUrl": "/audio/vocabulary/color.mp3"
       },
       {
         "label": "copy",
@@ -15282,7 +15663,10 @@ export const languageSkillQuestions = [
         "text": "copy",
         "word": "copy",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/copy.mp3",
+        "audioPath": "/audio/vocabulary/copy.mp3",
+        "audioUrl": "/audio/vocabulary/copy.mp3"
       }
     ],
     "choices": [
@@ -15298,7 +15682,10 @@ export const languageSkillQuestions = [
         "text": "cover",
         "word": "cover",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/cover.mp3",
+        "audioPath": "/audio/vocabulary/cover.mp3",
+        "audioUrl": "/audio/vocabulary/cover.mp3"
       },
       {
         "label": "decorate",
@@ -15306,7 +15693,10 @@ export const languageSkillQuestions = [
         "text": "decorate",
         "word": "decorate",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/decorate.mp3",
+        "audioPath": "/audio/vocabulary/decorate.mp3",
+        "audioUrl": "/audio/vocabulary/decorate.mp3"
       },
       {
         "label": "color",
@@ -15314,7 +15704,10 @@ export const languageSkillQuestions = [
         "text": "color",
         "word": "color",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/color.mp3",
+        "audioPath": "/audio/vocabulary/color.mp3",
+        "audioUrl": "/audio/vocabulary/color.mp3"
       },
       {
         "label": "copy",
@@ -15322,12 +15715,17 @@ export const languageSkillQuestions = [
         "text": "copy",
         "word": "copy",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/copy.mp3",
+        "audioPath": "/audio/vocabulary/copy.mp3",
+        "audioUrl": "/audio/vocabulary/copy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/color-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/color-01.webp",
     "mediaTarget": "workbook:verbs:color",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -15356,7 +15754,10 @@ export const languageSkillQuestions = [
         "text": "describe",
         "word": "describe",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/describe.mp3",
+        "audioPath": "/audio/vocabulary/describe.mp3",
+        "audioUrl": "/audio/vocabulary/describe.mp3"
       },
       {
         "label": "come",
@@ -15375,7 +15776,10 @@ export const languageSkillQuestions = [
         "text": "cover",
         "word": "cover",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/cover.mp3",
+        "audioPath": "/audio/vocabulary/cover.mp3",
+        "audioUrl": "/audio/vocabulary/cover.mp3"
       },
       {
         "label": "decorate",
@@ -15383,7 +15787,10 @@ export const languageSkillQuestions = [
         "text": "decorate",
         "word": "decorate",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/decorate.mp3",
+        "audioPath": "/audio/vocabulary/decorate.mp3",
+        "audioUrl": "/audio/vocabulary/decorate.mp3"
       }
     ],
     "choices": [
@@ -15399,7 +15806,10 @@ export const languageSkillQuestions = [
         "text": "describe",
         "word": "describe",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/describe.mp3",
+        "audioPath": "/audio/vocabulary/describe.mp3",
+        "audioUrl": "/audio/vocabulary/describe.mp3"
       },
       {
         "label": "come",
@@ -15418,7 +15828,10 @@ export const languageSkillQuestions = [
         "text": "cover",
         "word": "cover",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/cover.mp3",
+        "audioPath": "/audio/vocabulary/cover.mp3",
+        "audioUrl": "/audio/vocabulary/cover.mp3"
       },
       {
         "label": "decorate",
@@ -15426,12 +15839,17 @@ export const languageSkillQuestions = [
         "text": "decorate",
         "word": "decorate",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/decorate.mp3",
+        "audioPath": "/audio/vocabulary/decorate.mp3",
+        "audioUrl": "/audio/vocabulary/decorate.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/come-go-01.webp",
+    "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/come-go-01.webp",
     "mediaTarget": "workbook:verbs:come",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -15471,7 +15889,10 @@ export const languageSkillQuestions = [
         "text": "decorate",
         "word": "decorate",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/decorate.mp3",
+        "audioPath": "/audio/vocabulary/decorate.mp3",
+        "audioUrl": "/audio/vocabulary/decorate.mp3"
       },
       {
         "label": "describe",
@@ -15479,7 +15900,10 @@ export const languageSkillQuestions = [
         "text": "describe",
         "word": "describe",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/describe.mp3",
+        "audioPath": "/audio/vocabulary/describe.mp3",
+        "audioUrl": "/audio/vocabulary/describe.mp3"
       },
       {
         "label": "discover",
@@ -15487,7 +15911,10 @@ export const languageSkillQuestions = [
         "text": "discover",
         "word": "discover",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/discover.mp3",
+        "audioPath": "/audio/vocabulary/discover.mp3",
+        "audioUrl": "/audio/vocabulary/discover.mp3"
       }
     ],
     "choices": [
@@ -15514,7 +15941,10 @@ export const languageSkillQuestions = [
         "text": "decorate",
         "word": "decorate",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/decorate.mp3",
+        "audioPath": "/audio/vocabulary/decorate.mp3",
+        "audioUrl": "/audio/vocabulary/decorate.mp3"
       },
       {
         "label": "describe",
@@ -15522,7 +15952,10 @@ export const languageSkillQuestions = [
         "text": "describe",
         "word": "describe",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/describe.mp3",
+        "audioPath": "/audio/vocabulary/describe.mp3",
+        "audioUrl": "/audio/vocabulary/describe.mp3"
       },
       {
         "label": "discover",
@@ -15530,7 +15963,10 @@ export const languageSkillQuestions = [
         "text": "discover",
         "word": "discover",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/discover.mp3",
+        "audioPath": "/audio/vocabulary/discover.mp3",
+        "audioUrl": "/audio/vocabulary/discover.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -15566,7 +16002,10 @@ export const languageSkillQuestions = [
         "text": "describe",
         "word": "describe",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/describe.mp3",
+        "audioPath": "/audio/vocabulary/describe.mp3",
+        "audioUrl": "/audio/vocabulary/describe.mp3"
       },
       {
         "label": "discover",
@@ -15574,7 +16013,10 @@ export const languageSkillQuestions = [
         "text": "discover",
         "word": "discover",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/discover.mp3",
+        "audioPath": "/audio/vocabulary/discover.mp3",
+        "audioUrl": "/audio/vocabulary/discover.mp3"
       },
       {
         "label": "divide",
@@ -15582,7 +16024,10 @@ export const languageSkillQuestions = [
         "text": "divide",
         "word": "divide",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/divide.mp3",
+        "audioPath": "/audio/vocabulary/divide.mp3",
+        "audioUrl": "/audio/vocabulary/divide.mp3"
       },
       {
         "label": "count",
@@ -15590,7 +16035,10 @@ export const languageSkillQuestions = [
         "text": "count",
         "word": "count",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/count.mp3",
+        "audioPath": "/audio/vocabulary/count.mp3",
+        "audioUrl": "/audio/vocabulary/count.mp3"
       }
     ],
     "choices": [
@@ -15606,7 +16054,10 @@ export const languageSkillQuestions = [
         "text": "describe",
         "word": "describe",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/describe.mp3",
+        "audioPath": "/audio/vocabulary/describe.mp3",
+        "audioUrl": "/audio/vocabulary/describe.mp3"
       },
       {
         "label": "discover",
@@ -15614,7 +16065,10 @@ export const languageSkillQuestions = [
         "text": "discover",
         "word": "discover",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/discover.mp3",
+        "audioPath": "/audio/vocabulary/discover.mp3",
+        "audioUrl": "/audio/vocabulary/discover.mp3"
       },
       {
         "label": "divide",
@@ -15622,7 +16076,10 @@ export const languageSkillQuestions = [
         "text": "divide",
         "word": "divide",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/divide.mp3",
+        "audioPath": "/audio/vocabulary/divide.mp3",
+        "audioUrl": "/audio/vocabulary/divide.mp3"
       },
       {
         "label": "count",
@@ -15630,7 +16087,10 @@ export const languageSkillQuestions = [
         "text": "count",
         "word": "count",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/count.mp3",
+        "audioPath": "/audio/vocabulary/count.mp3",
+        "audioUrl": "/audio/vocabulary/count.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -15666,7 +16126,10 @@ export const languageSkillQuestions = [
         "text": "divide",
         "word": "divide",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/divide.mp3",
+        "audioPath": "/audio/vocabulary/divide.mp3",
+        "audioUrl": "/audio/vocabulary/divide.mp3"
       },
       {
         "label": "explain",
@@ -15674,7 +16137,10 @@ export const languageSkillQuestions = [
         "text": "explain",
         "word": "explain",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/explain.mp3",
+        "audioPath": "/audio/vocabulary/explain.mp3",
+        "audioUrl": "/audio/vocabulary/explain.mp3"
       },
       {
         "label": "crawl",
@@ -15693,7 +16159,10 @@ export const languageSkillQuestions = [
         "text": "discover",
         "word": "discover",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/discover.mp3",
+        "audioPath": "/audio/vocabulary/discover.mp3",
+        "audioUrl": "/audio/vocabulary/discover.mp3"
       }
     ],
     "choices": [
@@ -15709,7 +16178,10 @@ export const languageSkillQuestions = [
         "text": "divide",
         "word": "divide",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/divide.mp3",
+        "audioPath": "/audio/vocabulary/divide.mp3",
+        "audioUrl": "/audio/vocabulary/divide.mp3"
       },
       {
         "label": "explain",
@@ -15717,7 +16189,10 @@ export const languageSkillQuestions = [
         "text": "explain",
         "word": "explain",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/explain.mp3",
+        "audioPath": "/audio/vocabulary/explain.mp3",
+        "audioUrl": "/audio/vocabulary/explain.mp3"
       },
       {
         "label": "crawl",
@@ -15736,7 +16211,10 @@ export const languageSkillQuestions = [
         "text": "discover",
         "word": "discover",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/discover.mp3",
+        "audioPath": "/audio/vocabulary/discover.mp3",
+        "audioUrl": "/audio/vocabulary/discover.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -15772,7 +16250,10 @@ export const languageSkillQuestions = [
         "text": "explore",
         "word": "explore",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/explore.mp3",
+        "audioPath": "/audio/vocabulary/explore.mp3",
+        "audioUrl": "/audio/vocabulary/explore.mp3"
       },
       {
         "label": "cross",
@@ -15780,7 +16261,10 @@ export const languageSkillQuestions = [
         "text": "cross",
         "word": "cross",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/cross.mp3",
+        "audioPath": "/audio/vocabulary/cross.mp3",
+        "audioUrl": "/audio/vocabulary/cross.mp3"
       },
       {
         "label": "divide",
@@ -15788,7 +16272,10 @@ export const languageSkillQuestions = [
         "text": "divide",
         "word": "divide",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/divide.mp3",
+        "audioPath": "/audio/vocabulary/divide.mp3",
+        "audioUrl": "/audio/vocabulary/divide.mp3"
       },
       {
         "label": "explain",
@@ -15796,7 +16283,10 @@ export const languageSkillQuestions = [
         "text": "explain",
         "word": "explain",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/explain.mp3",
+        "audioPath": "/audio/vocabulary/explain.mp3",
+        "audioUrl": "/audio/vocabulary/explain.mp3"
       }
     ],
     "choices": [
@@ -15812,7 +16302,10 @@ export const languageSkillQuestions = [
         "text": "explore",
         "word": "explore",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/explore.mp3",
+        "audioPath": "/audio/vocabulary/explore.mp3",
+        "audioUrl": "/audio/vocabulary/explore.mp3"
       },
       {
         "label": "cross",
@@ -15820,7 +16313,10 @@ export const languageSkillQuestions = [
         "text": "cross",
         "word": "cross",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/cross.mp3",
+        "audioPath": "/audio/vocabulary/cross.mp3",
+        "audioUrl": "/audio/vocabulary/cross.mp3"
       },
       {
         "label": "divide",
@@ -15828,7 +16324,10 @@ export const languageSkillQuestions = [
         "text": "divide",
         "word": "divide",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/divide.mp3",
+        "audioPath": "/audio/vocabulary/divide.mp3",
+        "audioUrl": "/audio/vocabulary/divide.mp3"
       },
       {
         "label": "explain",
@@ -15836,7 +16335,10 @@ export const languageSkillQuestions = [
         "text": "explain",
         "word": "explain",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/explain.mp3",
+        "audioPath": "/audio/vocabulary/explain.mp3",
+        "audioUrl": "/audio/vocabulary/explain.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -15883,7 +16385,10 @@ export const languageSkillQuestions = [
         "text": "explain",
         "word": "explain",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/explain.mp3",
+        "audioPath": "/audio/vocabulary/explain.mp3",
+        "audioUrl": "/audio/vocabulary/explain.mp3"
       },
       {
         "label": "explore",
@@ -15891,7 +16396,10 @@ export const languageSkillQuestions = [
         "text": "explore",
         "word": "explore",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/explore.mp3",
+        "audioPath": "/audio/vocabulary/explore.mp3",
+        "audioUrl": "/audio/vocabulary/explore.mp3"
       },
       {
         "label": "finish",
@@ -15899,7 +16407,10 @@ export const languageSkillQuestions = [
         "text": "finish",
         "word": "finish",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/finish.mp3",
+        "audioPath": "/audio/vocabulary/finish.mp3",
+        "audioUrl": "/audio/vocabulary/finish.mp3"
       }
     ],
     "choices": [
@@ -15926,7 +16437,10 @@ export const languageSkillQuestions = [
         "text": "explain",
         "word": "explain",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/explain.mp3",
+        "audioPath": "/audio/vocabulary/explain.mp3",
+        "audioUrl": "/audio/vocabulary/explain.mp3"
       },
       {
         "label": "explore",
@@ -15934,7 +16448,10 @@ export const languageSkillQuestions = [
         "text": "explore",
         "word": "explore",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/explore.mp3",
+        "audioPath": "/audio/vocabulary/explore.mp3",
+        "audioUrl": "/audio/vocabulary/explore.mp3"
       },
       {
         "label": "finish",
@@ -15942,7 +16459,10 @@ export const languageSkillQuestions = [
         "text": "finish",
         "word": "finish",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/finish.mp3",
+        "audioPath": "/audio/vocabulary/finish.mp3",
+        "audioUrl": "/audio/vocabulary/finish.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -15978,7 +16498,10 @@ export const languageSkillQuestions = [
         "text": "explore",
         "word": "explore",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/explore.mp3",
+        "audioPath": "/audio/vocabulary/explore.mp3",
+        "audioUrl": "/audio/vocabulary/explore.mp3"
       },
       {
         "label": "finish",
@@ -15986,7 +16509,10 @@ export const languageSkillQuestions = [
         "text": "finish",
         "word": "finish",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/finish.mp3",
+        "audioPath": "/audio/vocabulary/finish.mp3",
+        "audioUrl": "/audio/vocabulary/finish.mp3"
       },
       {
         "label": "gather",
@@ -15994,7 +16520,10 @@ export const languageSkillQuestions = [
         "text": "gather",
         "word": "gather",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/gather.mp3",
+        "audioPath": "/audio/vocabulary/gather.mp3",
+        "audioUrl": "/audio/vocabulary/gather.mp3"
       },
       {
         "label": "cut",
@@ -16021,7 +16550,10 @@ export const languageSkillQuestions = [
         "text": "explore",
         "word": "explore",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/explore.mp3",
+        "audioPath": "/audio/vocabulary/explore.mp3",
+        "audioUrl": "/audio/vocabulary/explore.mp3"
       },
       {
         "label": "finish",
@@ -16029,7 +16561,10 @@ export const languageSkillQuestions = [
         "text": "finish",
         "word": "finish",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/finish.mp3",
+        "audioPath": "/audio/vocabulary/finish.mp3",
+        "audioUrl": "/audio/vocabulary/finish.mp3"
       },
       {
         "label": "gather",
@@ -16037,7 +16572,10 @@ export const languageSkillQuestions = [
         "text": "gather",
         "word": "gather",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/gather.mp3",
+        "audioPath": "/audio/vocabulary/gather.mp3",
+        "audioUrl": "/audio/vocabulary/gather.mp3"
       },
       {
         "label": "cut",
@@ -16084,7 +16622,10 @@ export const languageSkillQuestions = [
         "text": "gather",
         "word": "gather",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/gather.mp3",
+        "audioPath": "/audio/vocabulary/gather.mp3",
+        "audioUrl": "/audio/vocabulary/gather.mp3"
       },
       {
         "label": "glue",
@@ -16092,7 +16633,10 @@ export const languageSkillQuestions = [
         "text": "glue",
         "word": "glue",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/glue.mp3",
+        "audioPath": "/audio/vocabulary/glue.mp3",
+        "audioUrl": "/audio/vocabulary/glue.mp3"
       },
       {
         "label": "dance",
@@ -16100,7 +16644,10 @@ export const languageSkillQuestions = [
         "text": "dance",
         "word": "dance",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/dance.mp3",
+        "audioPath": "/audio/vocabulary/dance.mp3",
+        "audioUrl": "/audio/vocabulary/dance.mp3"
       },
       {
         "label": "finish",
@@ -16108,7 +16655,10 @@ export const languageSkillQuestions = [
         "text": "finish",
         "word": "finish",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/finish.mp3",
+        "audioPath": "/audio/vocabulary/finish.mp3",
+        "audioUrl": "/audio/vocabulary/finish.mp3"
       }
     ],
     "choices": [
@@ -16124,7 +16674,10 @@ export const languageSkillQuestions = [
         "text": "gather",
         "word": "gather",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/gather.mp3",
+        "audioPath": "/audio/vocabulary/gather.mp3",
+        "audioUrl": "/audio/vocabulary/gather.mp3"
       },
       {
         "label": "glue",
@@ -16132,7 +16685,10 @@ export const languageSkillQuestions = [
         "text": "glue",
         "word": "glue",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/glue.mp3",
+        "audioPath": "/audio/vocabulary/glue.mp3",
+        "audioUrl": "/audio/vocabulary/glue.mp3"
       },
       {
         "label": "dance",
@@ -16140,7 +16696,10 @@ export const languageSkillQuestions = [
         "text": "dance",
         "word": "dance",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/dance.mp3",
+        "audioPath": "/audio/vocabulary/dance.mp3",
+        "audioUrl": "/audio/vocabulary/dance.mp3"
       },
       {
         "label": "finish",
@@ -16148,7 +16707,10 @@ export const languageSkillQuestions = [
         "text": "finish",
         "word": "finish",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/finish.mp3",
+        "audioPath": "/audio/vocabulary/finish.mp3",
+        "audioUrl": "/audio/vocabulary/finish.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -16206,7 +16768,10 @@ export const languageSkillQuestions = [
         "text": "gather",
         "word": "gather",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/gather.mp3",
+        "audioPath": "/audio/vocabulary/gather.mp3",
+        "audioUrl": "/audio/vocabulary/gather.mp3"
       },
       {
         "label": "glue",
@@ -16214,7 +16779,10 @@ export const languageSkillQuestions = [
         "text": "glue",
         "word": "glue",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/glue.mp3",
+        "audioPath": "/audio/vocabulary/glue.mp3",
+        "audioUrl": "/audio/vocabulary/glue.mp3"
       }
     ],
     "choices": [
@@ -16252,7 +16820,10 @@ export const languageSkillQuestions = [
         "text": "gather",
         "word": "gather",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/gather.mp3",
+        "audioPath": "/audio/vocabulary/gather.mp3",
+        "audioUrl": "/audio/vocabulary/gather.mp3"
       },
       {
         "label": "glue",
@@ -16260,7 +16831,10 @@ export const languageSkillQuestions = [
         "text": "glue",
         "word": "glue",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/glue.mp3",
+        "audioPath": "/audio/vocabulary/glue.mp3",
+        "audioUrl": "/audio/vocabulary/glue.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -16307,7 +16881,10 @@ export const languageSkillQuestions = [
         "text": "glue",
         "word": "glue",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/glue.mp3",
+        "audioPath": "/audio/vocabulary/glue.mp3",
+        "audioUrl": "/audio/vocabulary/glue.mp3"
       },
       {
         "label": "guess",
@@ -16326,7 +16903,10 @@ export const languageSkillQuestions = [
         "text": "invite",
         "word": "invite",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/invite.mp3",
+        "audioPath": "/audio/vocabulary/invite.mp3",
+        "audioUrl": "/audio/vocabulary/invite.mp3"
       }
     ],
     "choices": [
@@ -16353,7 +16933,10 @@ export const languageSkillQuestions = [
         "text": "glue",
         "word": "glue",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/glue.mp3",
+        "audioPath": "/audio/vocabulary/glue.mp3",
+        "audioUrl": "/audio/vocabulary/glue.mp3"
       },
       {
         "label": "guess",
@@ -16372,7 +16955,10 @@ export const languageSkillQuestions = [
         "text": "invite",
         "word": "invite",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/invite.mp3",
+        "audioPath": "/audio/vocabulary/invite.mp3",
+        "audioUrl": "/audio/vocabulary/invite.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -16419,7 +17005,10 @@ export const languageSkillQuestions = [
         "text": "invite",
         "word": "invite",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/invite.mp3",
+        "audioPath": "/audio/vocabulary/invite.mp3",
+        "audioUrl": "/audio/vocabulary/invite.mp3"
       },
       {
         "label": "join",
@@ -16468,7 +17057,10 @@ export const languageSkillQuestions = [
         "text": "invite",
         "word": "invite",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/invite.mp3",
+        "audioPath": "/audio/vocabulary/invite.mp3",
+        "audioUrl": "/audio/vocabulary/invite.mp3"
       },
       {
         "label": "join",
@@ -16537,7 +17129,10 @@ export const languageSkillQuestions = [
         "text": "label",
         "word": "label",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/label.mp3",
+        "audioPath": "/audio/vocabulary/label.mp3",
+        "audioUrl": "/audio/vocabulary/label.mp3"
       },
       {
         "label": "drive",
@@ -16545,7 +17140,10 @@ export const languageSkillQuestions = [
         "text": "drive",
         "word": "drive",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/drive.mp3",
+        "audioPath": "/audio/vocabulary/drive.mp3",
+        "audioUrl": "/audio/vocabulary/drive.mp3"
       },
       {
         "label": "invite",
@@ -16553,7 +17151,10 @@ export const languageSkillQuestions = [
         "text": "invite",
         "word": "invite",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/invite.mp3",
+        "audioPath": "/audio/vocabulary/invite.mp3",
+        "audioUrl": "/audio/vocabulary/invite.mp3"
       }
     ],
     "choices": [
@@ -16580,7 +17181,10 @@ export const languageSkillQuestions = [
         "text": "label",
         "word": "label",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/label.mp3",
+        "audioPath": "/audio/vocabulary/label.mp3",
+        "audioUrl": "/audio/vocabulary/label.mp3"
       },
       {
         "label": "drive",
@@ -16588,7 +17192,10 @@ export const languageSkillQuestions = [
         "text": "drive",
         "word": "drive",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/drive.mp3",
+        "audioPath": "/audio/vocabulary/drive.mp3",
+        "audioUrl": "/audio/vocabulary/drive.mp3"
       },
       {
         "label": "invite",
@@ -16596,7 +17203,10 @@ export const languageSkillQuestions = [
         "text": "invite",
         "word": "invite",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/invite.mp3",
+        "audioPath": "/audio/vocabulary/invite.mp3",
+        "audioUrl": "/audio/vocabulary/invite.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -16632,7 +17242,10 @@ export const languageSkillQuestions = [
         "text": "measure",
         "word": "measure",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/measure.mp3",
+        "audioPath": "/audio/vocabulary/measure.mp3",
+        "audioUrl": "/audio/vocabulary/measure.mp3"
       },
       {
         "label": "drop",
@@ -16662,7 +17275,10 @@ export const languageSkillQuestions = [
         "text": "label",
         "word": "label",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/label.mp3",
+        "audioPath": "/audio/vocabulary/label.mp3",
+        "audioUrl": "/audio/vocabulary/label.mp3"
       }
     ],
     "choices": [
@@ -16678,7 +17294,10 @@ export const languageSkillQuestions = [
         "text": "measure",
         "word": "measure",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/measure.mp3",
+        "audioPath": "/audio/vocabulary/measure.mp3",
+        "audioUrl": "/audio/vocabulary/measure.mp3"
       },
       {
         "label": "drop",
@@ -16708,7 +17327,10 @@ export const languageSkillQuestions = [
         "text": "label",
         "word": "label",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/label.mp3",
+        "audioPath": "/audio/vocabulary/label.mp3",
+        "audioUrl": "/audio/vocabulary/label.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -16744,7 +17366,10 @@ export const languageSkillQuestions = [
         "text": "eat",
         "word": "eat",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/eat.mp3",
+        "audioPath": "/audio/vocabulary/eat.mp3",
+        "audioUrl": "/audio/vocabulary/eat.mp3"
       },
       {
         "label": "label",
@@ -16752,7 +17377,10 @@ export const languageSkillQuestions = [
         "text": "label",
         "word": "label",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/label.mp3",
+        "audioPath": "/audio/vocabulary/label.mp3",
+        "audioUrl": "/audio/vocabulary/label.mp3"
       },
       {
         "label": "measure",
@@ -16760,7 +17388,10 @@ export const languageSkillQuestions = [
         "text": "measure",
         "word": "measure",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/measure.mp3",
+        "audioPath": "/audio/vocabulary/measure.mp3",
+        "audioUrl": "/audio/vocabulary/measure.mp3"
       },
       {
         "label": "notice",
@@ -16768,7 +17399,10 @@ export const languageSkillQuestions = [
         "text": "notice",
         "word": "notice",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/notice.mp3",
+        "audioPath": "/audio/vocabulary/notice.mp3",
+        "audioUrl": "/audio/vocabulary/notice.mp3"
       }
     ],
     "choices": [
@@ -16784,7 +17418,10 @@ export const languageSkillQuestions = [
         "text": "eat",
         "word": "eat",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/eat.mp3",
+        "audioPath": "/audio/vocabulary/eat.mp3",
+        "audioUrl": "/audio/vocabulary/eat.mp3"
       },
       {
         "label": "label",
@@ -16792,7 +17429,10 @@ export const languageSkillQuestions = [
         "text": "label",
         "word": "label",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/label.mp3",
+        "audioPath": "/audio/vocabulary/label.mp3",
+        "audioUrl": "/audio/vocabulary/label.mp3"
       },
       {
         "label": "measure",
@@ -16800,7 +17440,10 @@ export const languageSkillQuestions = [
         "text": "measure",
         "word": "measure",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/measure.mp3",
+        "audioPath": "/audio/vocabulary/measure.mp3",
+        "audioUrl": "/audio/vocabulary/measure.mp3"
       },
       {
         "label": "notice",
@@ -16808,7 +17451,10 @@ export const languageSkillQuestions = [
         "text": "notice",
         "word": "notice",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/notice.mp3",
+        "audioPath": "/audio/vocabulary/notice.mp3",
+        "audioUrl": "/audio/vocabulary/notice.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -16844,7 +17490,10 @@ export const languageSkillQuestions = [
         "text": "measure",
         "word": "measure",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/measure.mp3",
+        "audioPath": "/audio/vocabulary/measure.mp3",
+        "audioUrl": "/audio/vocabulary/measure.mp3"
       },
       {
         "label": "notice",
@@ -16852,7 +17501,10 @@ export const languageSkillQuestions = [
         "text": "notice",
         "word": "notice",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/notice.mp3",
+        "audioPath": "/audio/vocabulary/notice.mp3",
+        "audioUrl": "/audio/vocabulary/notice.mp3"
       },
       {
         "label": "pack",
@@ -16860,7 +17512,10 @@ export const languageSkillQuestions = [
         "text": "pack",
         "word": "pack",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/pack.mp3",
+        "audioPath": "/audio/vocabulary/pack.mp3",
+        "audioUrl": "/audio/vocabulary/pack.mp3"
       },
       {
         "label": "fall",
@@ -16868,7 +17523,10 @@ export const languageSkillQuestions = [
         "text": "fall",
         "word": "fall",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fall.mp3",
+        "audioPath": "/audio/vocabulary/fall.mp3",
+        "audioUrl": "/audio/vocabulary/fall.mp3"
       }
     ],
     "choices": [
@@ -16884,7 +17542,10 @@ export const languageSkillQuestions = [
         "text": "measure",
         "word": "measure",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/measure.mp3",
+        "audioPath": "/audio/vocabulary/measure.mp3",
+        "audioUrl": "/audio/vocabulary/measure.mp3"
       },
       {
         "label": "notice",
@@ -16892,7 +17553,10 @@ export const languageSkillQuestions = [
         "text": "notice",
         "word": "notice",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/notice.mp3",
+        "audioPath": "/audio/vocabulary/notice.mp3",
+        "audioUrl": "/audio/vocabulary/notice.mp3"
       },
       {
         "label": "pack",
@@ -16900,7 +17564,10 @@ export const languageSkillQuestions = [
         "text": "pack",
         "word": "pack",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/pack.mp3",
+        "audioPath": "/audio/vocabulary/pack.mp3",
+        "audioUrl": "/audio/vocabulary/pack.mp3"
       },
       {
         "label": "fall",
@@ -16908,7 +17575,10 @@ export const languageSkillQuestions = [
         "text": "fall",
         "word": "fall",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fall.mp3",
+        "audioPath": "/audio/vocabulary/fall.mp3",
+        "audioUrl": "/audio/vocabulary/fall.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -16944,7 +17614,10 @@ export const languageSkillQuestions = [
         "text": "pack",
         "word": "pack",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/pack.mp3",
+        "audioPath": "/audio/vocabulary/pack.mp3",
+        "audioUrl": "/audio/vocabulary/pack.mp3"
       },
       {
         "label": "practice",
@@ -16952,7 +17625,10 @@ export const languageSkillQuestions = [
         "text": "practice",
         "word": "practice",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/practice.mp3",
+        "audioPath": "/audio/vocabulary/practice.mp3",
+        "audioUrl": "/audio/vocabulary/practice.mp3"
       },
       {
         "label": "feed",
@@ -16971,7 +17647,10 @@ export const languageSkillQuestions = [
         "text": "notice",
         "word": "notice",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/notice.mp3",
+        "audioPath": "/audio/vocabulary/notice.mp3",
+        "audioUrl": "/audio/vocabulary/notice.mp3"
       }
     ],
     "choices": [
@@ -16987,7 +17666,10 @@ export const languageSkillQuestions = [
         "text": "pack",
         "word": "pack",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/pack.mp3",
+        "audioPath": "/audio/vocabulary/pack.mp3",
+        "audioUrl": "/audio/vocabulary/pack.mp3"
       },
       {
         "label": "practice",
@@ -16995,7 +17677,10 @@ export const languageSkillQuestions = [
         "text": "practice",
         "word": "practice",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/practice.mp3",
+        "audioPath": "/audio/vocabulary/practice.mp3",
+        "audioUrl": "/audio/vocabulary/practice.mp3"
       },
       {
         "label": "feed",
@@ -17014,7 +17699,10 @@ export const languageSkillQuestions = [
         "text": "notice",
         "word": "notice",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/notice.mp3",
+        "audioPath": "/audio/vocabulary/notice.mp3",
+        "audioUrl": "/audio/vocabulary/notice.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -17050,7 +17738,10 @@ export const languageSkillQuestions = [
         "text": "pretend",
         "word": "pretend",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/pretend.mp3",
+        "audioPath": "/audio/vocabulary/pretend.mp3",
+        "audioUrl": "/audio/vocabulary/pretend.mp3"
       },
       {
         "label": "find",
@@ -17069,7 +17760,10 @@ export const languageSkillQuestions = [
         "text": "pack",
         "word": "pack",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/pack.mp3",
+        "audioPath": "/audio/vocabulary/pack.mp3",
+        "audioUrl": "/audio/vocabulary/pack.mp3"
       },
       {
         "label": "practice",
@@ -17077,7 +17771,10 @@ export const languageSkillQuestions = [
         "text": "practice",
         "word": "practice",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/practice.mp3",
+        "audioPath": "/audio/vocabulary/practice.mp3",
+        "audioUrl": "/audio/vocabulary/practice.mp3"
       }
     ],
     "choices": [
@@ -17093,7 +17790,10 @@ export const languageSkillQuestions = [
         "text": "pretend",
         "word": "pretend",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/pretend.mp3",
+        "audioPath": "/audio/vocabulary/pretend.mp3",
+        "audioUrl": "/audio/vocabulary/pretend.mp3"
       },
       {
         "label": "find",
@@ -17112,7 +17812,10 @@ export const languageSkillQuestions = [
         "text": "pack",
         "word": "pack",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/pack.mp3",
+        "audioPath": "/audio/vocabulary/pack.mp3",
+        "audioUrl": "/audio/vocabulary/pack.mp3"
       },
       {
         "label": "practice",
@@ -17120,12 +17823,17 @@ export const languageSkillQuestions = [
         "text": "practice",
         "word": "practice",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/practice.mp3",
+        "audioPath": "/audio/vocabulary/practice.mp3",
+        "audioUrl": "/audio/vocabulary/practice.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/find-discover-01.webp",
+    "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/find-discover-01.webp",
     "mediaTarget": "workbook:verbs:find",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -17165,7 +17873,10 @@ export const languageSkillQuestions = [
         "text": "practice",
         "word": "practice",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/practice.mp3",
+        "audioPath": "/audio/vocabulary/practice.mp3",
+        "audioUrl": "/audio/vocabulary/practice.mp3"
       },
       {
         "label": "pretend",
@@ -17173,7 +17884,10 @@ export const languageSkillQuestions = [
         "text": "pretend",
         "word": "pretend",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/pretend.mp3",
+        "audioPath": "/audio/vocabulary/pretend.mp3",
+        "audioUrl": "/audio/vocabulary/pretend.mp3"
       },
       {
         "label": "remember",
@@ -17181,7 +17895,10 @@ export const languageSkillQuestions = [
         "text": "remember",
         "word": "remember",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/remember.mp3",
+        "audioPath": "/audio/vocabulary/remember.mp3",
+        "audioUrl": "/audio/vocabulary/remember.mp3"
       }
     ],
     "choices": [
@@ -17208,7 +17925,10 @@ export const languageSkillQuestions = [
         "text": "practice",
         "word": "practice",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/practice.mp3",
+        "audioPath": "/audio/vocabulary/practice.mp3",
+        "audioUrl": "/audio/vocabulary/practice.mp3"
       },
       {
         "label": "pretend",
@@ -17216,7 +17936,10 @@ export const languageSkillQuestions = [
         "text": "pretend",
         "word": "pretend",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/pretend.mp3",
+        "audioPath": "/audio/vocabulary/pretend.mp3",
+        "audioUrl": "/audio/vocabulary/pretend.mp3"
       },
       {
         "label": "remember",
@@ -17224,7 +17947,10 @@ export const languageSkillQuestions = [
         "text": "remember",
         "word": "remember",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/remember.mp3",
+        "audioPath": "/audio/vocabulary/remember.mp3",
+        "audioUrl": "/audio/vocabulary/remember.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -17260,7 +17986,10 @@ export const languageSkillQuestions = [
         "text": "pretend",
         "word": "pretend",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/pretend.mp3",
+        "audioPath": "/audio/vocabulary/pretend.mp3",
+        "audioUrl": "/audio/vocabulary/pretend.mp3"
       },
       {
         "label": "remember",
@@ -17268,7 +17997,10 @@ export const languageSkillQuestions = [
         "text": "remember",
         "word": "remember",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/remember.mp3",
+        "audioPath": "/audio/vocabulary/remember.mp3",
+        "audioUrl": "/audio/vocabulary/remember.mp3"
       },
       {
         "label": "repeat",
@@ -17276,7 +18008,10 @@ export const languageSkillQuestions = [
         "text": "repeat",
         "word": "repeat",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/repeat.mp3",
+        "audioPath": "/audio/vocabulary/repeat.mp3",
+        "audioUrl": "/audio/vocabulary/repeat.mp3"
       },
       {
         "label": "fix",
@@ -17303,7 +18038,10 @@ export const languageSkillQuestions = [
         "text": "pretend",
         "word": "pretend",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/pretend.mp3",
+        "audioPath": "/audio/vocabulary/pretend.mp3",
+        "audioUrl": "/audio/vocabulary/pretend.mp3"
       },
       {
         "label": "remember",
@@ -17311,7 +18049,10 @@ export const languageSkillQuestions = [
         "text": "remember",
         "word": "remember",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/remember.mp3",
+        "audioPath": "/audio/vocabulary/remember.mp3",
+        "audioUrl": "/audio/vocabulary/remember.mp3"
       },
       {
         "label": "repeat",
@@ -17319,7 +18060,10 @@ export const languageSkillQuestions = [
         "text": "repeat",
         "word": "repeat",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/repeat.mp3",
+        "audioPath": "/audio/vocabulary/repeat.mp3",
+        "audioUrl": "/audio/vocabulary/repeat.mp3"
       },
       {
         "label": "fix",
@@ -17366,7 +18110,10 @@ export const languageSkillQuestions = [
         "text": "repeat",
         "word": "repeat",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/repeat.mp3",
+        "audioPath": "/audio/vocabulary/repeat.mp3",
+        "audioUrl": "/audio/vocabulary/repeat.mp3"
       },
       {
         "label": "rescue",
@@ -17385,7 +18132,10 @@ export const languageSkillQuestions = [
         "text": "fly",
         "word": "fly",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fly.mp3",
+        "audioPath": "/audio/vocabulary/fly.mp3",
+        "audioUrl": "/audio/vocabulary/fly.mp3"
       },
       {
         "label": "remember",
@@ -17393,7 +18143,10 @@ export const languageSkillQuestions = [
         "text": "remember",
         "word": "remember",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/remember.mp3",
+        "audioPath": "/audio/vocabulary/remember.mp3",
+        "audioUrl": "/audio/vocabulary/remember.mp3"
       }
     ],
     "choices": [
@@ -17409,7 +18162,10 @@ export const languageSkillQuestions = [
         "text": "repeat",
         "word": "repeat",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/repeat.mp3",
+        "audioPath": "/audio/vocabulary/repeat.mp3",
+        "audioUrl": "/audio/vocabulary/repeat.mp3"
       },
       {
         "label": "rescue",
@@ -17428,7 +18184,10 @@ export const languageSkillQuestions = [
         "text": "fly",
         "word": "fly",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fly.mp3",
+        "audioPath": "/audio/vocabulary/fly.mp3",
+        "audioUrl": "/audio/vocabulary/fly.mp3"
       },
       {
         "label": "remember",
@@ -17436,7 +18195,10 @@ export const languageSkillQuestions = [
         "text": "remember",
         "word": "remember",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/remember.mp3",
+        "audioPath": "/audio/vocabulary/remember.mp3",
+        "audioUrl": "/audio/vocabulary/remember.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -17472,7 +18234,10 @@ export const languageSkillQuestions = [
         "text": "return",
         "word": "return",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/return.mp3",
+        "audioPath": "/audio/vocabulary/return.mp3",
+        "audioUrl": "/audio/vocabulary/return.mp3"
       },
       {
         "label": "fold",
@@ -17480,7 +18245,10 @@ export const languageSkillQuestions = [
         "text": "fold",
         "word": "fold",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fold.mp3",
+        "audioPath": "/audio/vocabulary/fold.mp3",
+        "audioUrl": "/audio/vocabulary/fold.mp3"
       },
       {
         "label": "repeat",
@@ -17488,7 +18256,10 @@ export const languageSkillQuestions = [
         "text": "repeat",
         "word": "repeat",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/repeat.mp3",
+        "audioPath": "/audio/vocabulary/repeat.mp3",
+        "audioUrl": "/audio/vocabulary/repeat.mp3"
       },
       {
         "label": "rescue",
@@ -17515,7 +18286,10 @@ export const languageSkillQuestions = [
         "text": "return",
         "word": "return",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/return.mp3",
+        "audioPath": "/audio/vocabulary/return.mp3",
+        "audioUrl": "/audio/vocabulary/return.mp3"
       },
       {
         "label": "fold",
@@ -17523,7 +18297,10 @@ export const languageSkillQuestions = [
         "text": "fold",
         "word": "fold",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fold.mp3",
+        "audioPath": "/audio/vocabulary/fold.mp3",
+        "audioUrl": "/audio/vocabulary/fold.mp3"
       },
       {
         "label": "repeat",
@@ -17531,7 +18308,10 @@ export const languageSkillQuestions = [
         "text": "repeat",
         "word": "repeat",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/repeat.mp3",
+        "audioPath": "/audio/vocabulary/repeat.mp3",
+        "audioUrl": "/audio/vocabulary/repeat.mp3"
       },
       {
         "label": "rescue",
@@ -17548,6 +18328,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/fold-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/fold-01.webp",
     "mediaTarget": "workbook:verbs:fold",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -17576,7 +18358,10 @@ export const languageSkillQuestions = [
         "text": "follow",
         "word": "follow",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/follow.mp3",
+        "audioPath": "/audio/vocabulary/follow.mp3",
+        "audioUrl": "/audio/vocabulary/follow.mp3"
       },
       {
         "label": "rescue",
@@ -17595,7 +18380,10 @@ export const languageSkillQuestions = [
         "text": "return",
         "word": "return",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/return.mp3",
+        "audioPath": "/audio/vocabulary/return.mp3",
+        "audioUrl": "/audio/vocabulary/return.mp3"
       },
       {
         "label": "search",
@@ -17603,7 +18391,10 @@ export const languageSkillQuestions = [
         "text": "search",
         "word": "search",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/search.mp3",
+        "audioPath": "/audio/vocabulary/search.mp3",
+        "audioUrl": "/audio/vocabulary/search.mp3"
       }
     ],
     "choices": [
@@ -17619,7 +18410,10 @@ export const languageSkillQuestions = [
         "text": "follow",
         "word": "follow",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/follow.mp3",
+        "audioPath": "/audio/vocabulary/follow.mp3",
+        "audioUrl": "/audio/vocabulary/follow.mp3"
       },
       {
         "label": "rescue",
@@ -17638,7 +18432,10 @@ export const languageSkillQuestions = [
         "text": "return",
         "word": "return",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/return.mp3",
+        "audioPath": "/audio/vocabulary/return.mp3",
+        "audioUrl": "/audio/vocabulary/return.mp3"
       },
       {
         "label": "search",
@@ -17646,7 +18443,10 @@ export const languageSkillQuestions = [
         "text": "search",
         "word": "search",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/search.mp3",
+        "audioPath": "/audio/vocabulary/search.mp3",
+        "audioUrl": "/audio/vocabulary/search.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -17682,7 +18482,10 @@ export const languageSkillQuestions = [
         "text": "return",
         "word": "return",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/return.mp3",
+        "audioPath": "/audio/vocabulary/return.mp3",
+        "audioUrl": "/audio/vocabulary/return.mp3"
       },
       {
         "label": "search",
@@ -17690,7 +18493,10 @@ export const languageSkillQuestions = [
         "text": "search",
         "word": "search",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/search.mp3",
+        "audioPath": "/audio/vocabulary/search.mp3",
+        "audioUrl": "/audio/vocabulary/search.mp3"
       },
       {
         "label": "separate",
@@ -17698,7 +18504,10 @@ export const languageSkillQuestions = [
         "text": "separate",
         "word": "separate",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/separate.mp3",
+        "audioPath": "/audio/vocabulary/separate.mp3",
+        "audioUrl": "/audio/vocabulary/separate.mp3"
       },
       {
         "label": "give",
@@ -17706,7 +18515,10 @@ export const languageSkillQuestions = [
         "text": "give",
         "word": "give",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/give.mp3",
+        "audioPath": "/audio/vocabulary/give.mp3",
+        "audioUrl": "/audio/vocabulary/give.mp3"
       }
     ],
     "choices": [
@@ -17722,7 +18534,10 @@ export const languageSkillQuestions = [
         "text": "return",
         "word": "return",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/return.mp3",
+        "audioPath": "/audio/vocabulary/return.mp3",
+        "audioUrl": "/audio/vocabulary/return.mp3"
       },
       {
         "label": "search",
@@ -17730,7 +18545,10 @@ export const languageSkillQuestions = [
         "text": "search",
         "word": "search",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/search.mp3",
+        "audioPath": "/audio/vocabulary/search.mp3",
+        "audioUrl": "/audio/vocabulary/search.mp3"
       },
       {
         "label": "separate",
@@ -17738,7 +18556,10 @@ export const languageSkillQuestions = [
         "text": "separate",
         "word": "separate",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/separate.mp3",
+        "audioPath": "/audio/vocabulary/separate.mp3",
+        "audioUrl": "/audio/vocabulary/separate.mp3"
       },
       {
         "label": "give",
@@ -17746,12 +18567,17 @@ export const languageSkillQuestions = [
         "text": "give",
         "word": "give",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/give.mp3",
+        "audioPath": "/audio/vocabulary/give.mp3",
+        "audioUrl": "/audio/vocabulary/give.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/give-offer-01.webp",
+    "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/give-offer-01.webp",
     "mediaTarget": "workbook:verbs:give",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -17780,7 +18606,10 @@ export const languageSkillQuestions = [
         "text": "separate",
         "word": "separate",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/separate.mp3",
+        "audioPath": "/audio/vocabulary/separate.mp3",
+        "audioUrl": "/audio/vocabulary/separate.mp3"
       },
       {
         "label": "solve",
@@ -17788,7 +18617,10 @@ export const languageSkillQuestions = [
         "text": "solve",
         "word": "solve",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/solve.mp3",
+        "audioPath": "/audio/vocabulary/solve.mp3",
+        "audioUrl": "/audio/vocabulary/solve.mp3"
       },
       {
         "label": "go",
@@ -17807,7 +18639,10 @@ export const languageSkillQuestions = [
         "text": "search",
         "word": "search",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/search.mp3",
+        "audioPath": "/audio/vocabulary/search.mp3",
+        "audioUrl": "/audio/vocabulary/search.mp3"
       }
     ],
     "choices": [
@@ -17823,7 +18658,10 @@ export const languageSkillQuestions = [
         "text": "separate",
         "word": "separate",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/separate.mp3",
+        "audioPath": "/audio/vocabulary/separate.mp3",
+        "audioUrl": "/audio/vocabulary/separate.mp3"
       },
       {
         "label": "solve",
@@ -17831,7 +18669,10 @@ export const languageSkillQuestions = [
         "text": "solve",
         "word": "solve",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/solve.mp3",
+        "audioPath": "/audio/vocabulary/solve.mp3",
+        "audioUrl": "/audio/vocabulary/solve.mp3"
       },
       {
         "label": "go",
@@ -17850,12 +18691,17 @@ export const languageSkillQuestions = [
         "text": "search",
         "word": "search",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/search.mp3",
+        "audioPath": "/audio/vocabulary/search.mp3",
+        "audioUrl": "/audio/vocabulary/search.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/come-go-01.webp",
+    "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/come-go-01.webp",
     "mediaTarget": "workbook:verbs:go",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -17884,7 +18730,10 @@ export const languageSkillQuestions = [
         "text": "sprinkle",
         "word": "sprinkle",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/sprinkle.mp3",
+        "audioPath": "/audio/vocabulary/sprinkle.mp3",
+        "audioUrl": "/audio/vocabulary/sprinkle.mp3"
       },
       {
         "label": "grow",
@@ -17892,7 +18741,10 @@ export const languageSkillQuestions = [
         "text": "grow",
         "word": "grow",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/grow.mp3",
+        "audioPath": "/audio/vocabulary/grow.mp3",
+        "audioUrl": "/audio/vocabulary/grow.mp3"
       },
       {
         "label": "separate",
@@ -17900,7 +18752,10 @@ export const languageSkillQuestions = [
         "text": "separate",
         "word": "separate",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/separate.mp3",
+        "audioPath": "/audio/vocabulary/separate.mp3",
+        "audioUrl": "/audio/vocabulary/separate.mp3"
       },
       {
         "label": "solve",
@@ -17908,7 +18763,10 @@ export const languageSkillQuestions = [
         "text": "solve",
         "word": "solve",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/solve.mp3",
+        "audioPath": "/audio/vocabulary/solve.mp3",
+        "audioUrl": "/audio/vocabulary/solve.mp3"
       }
     ],
     "choices": [
@@ -17924,7 +18782,10 @@ export const languageSkillQuestions = [
         "text": "sprinkle",
         "word": "sprinkle",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/sprinkle.mp3",
+        "audioPath": "/audio/vocabulary/sprinkle.mp3",
+        "audioUrl": "/audio/vocabulary/sprinkle.mp3"
       },
       {
         "label": "grow",
@@ -17932,7 +18793,10 @@ export const languageSkillQuestions = [
         "text": "grow",
         "word": "grow",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/grow.mp3",
+        "audioPath": "/audio/vocabulary/grow.mp3",
+        "audioUrl": "/audio/vocabulary/grow.mp3"
       },
       {
         "label": "separate",
@@ -17940,7 +18804,10 @@ export const languageSkillQuestions = [
         "text": "separate",
         "word": "separate",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/separate.mp3",
+        "audioPath": "/audio/vocabulary/separate.mp3",
+        "audioUrl": "/audio/vocabulary/separate.mp3"
       },
       {
         "label": "solve",
@@ -17948,7 +18815,10 @@ export const languageSkillQuestions = [
         "text": "solve",
         "word": "solve",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/solve.mp3",
+        "audioPath": "/audio/vocabulary/solve.mp3",
+        "audioUrl": "/audio/vocabulary/solve.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -17995,7 +18865,10 @@ export const languageSkillQuestions = [
         "text": "solve",
         "word": "solve",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/solve.mp3",
+        "audioPath": "/audio/vocabulary/solve.mp3",
+        "audioUrl": "/audio/vocabulary/solve.mp3"
       },
       {
         "label": "sprinkle",
@@ -18003,7 +18876,10 @@ export const languageSkillQuestions = [
         "text": "sprinkle",
         "word": "sprinkle",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/sprinkle.mp3",
+        "audioPath": "/audio/vocabulary/sprinkle.mp3",
+        "audioUrl": "/audio/vocabulary/sprinkle.mp3"
       },
       {
         "label": "stretch",
@@ -18011,7 +18887,10 @@ export const languageSkillQuestions = [
         "text": "stretch",
         "word": "stretch",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/stretch.mp3",
+        "audioPath": "/audio/vocabulary/stretch.mp3",
+        "audioUrl": "/audio/vocabulary/stretch.mp3"
       }
     ],
     "choices": [
@@ -18038,7 +18917,10 @@ export const languageSkillQuestions = [
         "text": "solve",
         "word": "solve",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/solve.mp3",
+        "audioPath": "/audio/vocabulary/solve.mp3",
+        "audioUrl": "/audio/vocabulary/solve.mp3"
       },
       {
         "label": "sprinkle",
@@ -18046,7 +18928,10 @@ export const languageSkillQuestions = [
         "text": "sprinkle",
         "word": "sprinkle",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/sprinkle.mp3",
+        "audioPath": "/audio/vocabulary/sprinkle.mp3",
+        "audioUrl": "/audio/vocabulary/sprinkle.mp3"
       },
       {
         "label": "stretch",
@@ -18054,7 +18939,10 @@ export const languageSkillQuestions = [
         "text": "stretch",
         "word": "stretch",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/stretch.mp3",
+        "audioPath": "/audio/vocabulary/stretch.mp3",
+        "audioUrl": "/audio/vocabulary/stretch.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -18090,7 +18978,10 @@ export const languageSkillQuestions = [
         "text": "sprinkle",
         "word": "sprinkle",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/sprinkle.mp3",
+        "audioPath": "/audio/vocabulary/sprinkle.mp3",
+        "audioUrl": "/audio/vocabulary/sprinkle.mp3"
       },
       {
         "label": "stretch",
@@ -18098,7 +18989,10 @@ export const languageSkillQuestions = [
         "text": "stretch",
         "word": "stretch",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/stretch.mp3",
+        "audioPath": "/audio/vocabulary/stretch.mp3",
+        "audioUrl": "/audio/vocabulary/stretch.mp3"
       },
       {
         "label": "travel",
@@ -18106,7 +19000,10 @@ export const languageSkillQuestions = [
         "text": "travel",
         "word": "travel",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/travel.mp3",
+        "audioPath": "/audio/vocabulary/travel.mp3",
+        "audioUrl": "/audio/vocabulary/travel.mp3"
       },
       {
         "label": "help",
@@ -18114,7 +19011,10 @@ export const languageSkillQuestions = [
         "text": "help",
         "word": "help",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/help.mp3",
+        "audioPath": "/audio/vocabulary/help.mp3",
+        "audioUrl": "/audio/vocabulary/help.mp3"
       }
     ],
     "choices": [
@@ -18130,7 +19030,10 @@ export const languageSkillQuestions = [
         "text": "sprinkle",
         "word": "sprinkle",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/sprinkle.mp3",
+        "audioPath": "/audio/vocabulary/sprinkle.mp3",
+        "audioUrl": "/audio/vocabulary/sprinkle.mp3"
       },
       {
         "label": "stretch",
@@ -18138,7 +19041,10 @@ export const languageSkillQuestions = [
         "text": "stretch",
         "word": "stretch",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/stretch.mp3",
+        "audioPath": "/audio/vocabulary/stretch.mp3",
+        "audioUrl": "/audio/vocabulary/stretch.mp3"
       },
       {
         "label": "travel",
@@ -18146,7 +19052,10 @@ export const languageSkillQuestions = [
         "text": "travel",
         "word": "travel",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/travel.mp3",
+        "audioPath": "/audio/vocabulary/travel.mp3",
+        "audioUrl": "/audio/vocabulary/travel.mp3"
       },
       {
         "label": "help",
@@ -18154,7 +19063,10 @@ export const languageSkillQuestions = [
         "text": "help",
         "word": "help",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/help.mp3",
+        "audioPath": "/audio/vocabulary/help.mp3",
+        "audioUrl": "/audio/vocabulary/help.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -18190,7 +19102,10 @@ export const languageSkillQuestions = [
         "text": "travel",
         "word": "travel",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/travel.mp3",
+        "audioPath": "/audio/vocabulary/travel.mp3",
+        "audioUrl": "/audio/vocabulary/travel.mp3"
       },
       {
         "label": "visit",
@@ -18209,7 +19124,10 @@ export const languageSkillQuestions = [
         "text": "hide",
         "word": "hide",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hide.mp3",
+        "audioPath": "/audio/vocabulary/hide.mp3",
+        "audioUrl": "/audio/vocabulary/hide.mp3"
       },
       {
         "label": "stretch",
@@ -18217,7 +19135,10 @@ export const languageSkillQuestions = [
         "text": "stretch",
         "word": "stretch",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/stretch.mp3",
+        "audioPath": "/audio/vocabulary/stretch.mp3",
+        "audioUrl": "/audio/vocabulary/stretch.mp3"
       }
     ],
     "choices": [
@@ -18233,7 +19154,10 @@ export const languageSkillQuestions = [
         "text": "travel",
         "word": "travel",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/travel.mp3",
+        "audioPath": "/audio/vocabulary/travel.mp3",
+        "audioUrl": "/audio/vocabulary/travel.mp3"
       },
       {
         "label": "visit",
@@ -18252,7 +19176,10 @@ export const languageSkillQuestions = [
         "text": "hide",
         "word": "hide",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hide.mp3",
+        "audioPath": "/audio/vocabulary/hide.mp3",
+        "audioUrl": "/audio/vocabulary/hide.mp3"
       },
       {
         "label": "stretch",
@@ -18260,7 +19187,10 @@ export const languageSkillQuestions = [
         "text": "stretch",
         "word": "stretch",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/stretch.mp3",
+        "audioPath": "/audio/vocabulary/stretch.mp3",
+        "audioUrl": "/audio/vocabulary/stretch.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -18296,7 +19226,10 @@ export const languageSkillQuestions = [
         "text": "wonder",
         "word": "wonder",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wonder.mp3",
+        "audioPath": "/audio/vocabulary/wonder.mp3",
+        "audioUrl": "/audio/vocabulary/wonder.mp3"
       },
       {
         "label": "hit",
@@ -18315,7 +19248,10 @@ export const languageSkillQuestions = [
         "text": "travel",
         "word": "travel",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/travel.mp3",
+        "audioPath": "/audio/vocabulary/travel.mp3",
+        "audioUrl": "/audio/vocabulary/travel.mp3"
       },
       {
         "label": "visit",
@@ -18342,7 +19278,10 @@ export const languageSkillQuestions = [
         "text": "wonder",
         "word": "wonder",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wonder.mp3",
+        "audioPath": "/audio/vocabulary/wonder.mp3",
+        "audioUrl": "/audio/vocabulary/wonder.mp3"
       },
       {
         "label": "hit",
@@ -18361,7 +19300,10 @@ export const languageSkillQuestions = [
         "text": "travel",
         "word": "travel",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/travel.mp3",
+        "audioPath": "/audio/vocabulary/travel.mp3",
+        "audioUrl": "/audio/vocabulary/travel.mp3"
       },
       {
         "label": "visit",
@@ -18408,7 +19350,10 @@ export const languageSkillQuestions = [
         "text": "hold",
         "word": "hold",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hold.mp3",
+        "audioPath": "/audio/vocabulary/hold.mp3",
+        "audioUrl": "/audio/vocabulary/hold.mp3"
       },
       {
         "label": "visit",
@@ -18427,7 +19372,10 @@ export const languageSkillQuestions = [
         "text": "wonder",
         "word": "wonder",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wonder.mp3",
+        "audioPath": "/audio/vocabulary/wonder.mp3",
+        "audioUrl": "/audio/vocabulary/wonder.mp3"
       },
       {
         "label": "add",
@@ -18435,7 +19383,10 @@ export const languageSkillQuestions = [
         "text": "add",
         "word": "add",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/add.mp3",
+        "audioPath": "/audio/vocabulary/add.mp3",
+        "audioUrl": "/audio/vocabulary/add.mp3"
       }
     ],
     "choices": [
@@ -18451,7 +19402,10 @@ export const languageSkillQuestions = [
         "text": "hold",
         "word": "hold",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hold.mp3",
+        "audioPath": "/audio/vocabulary/hold.mp3",
+        "audioUrl": "/audio/vocabulary/hold.mp3"
       },
       {
         "label": "visit",
@@ -18470,7 +19424,10 @@ export const languageSkillQuestions = [
         "text": "wonder",
         "word": "wonder",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wonder.mp3",
+        "audioPath": "/audio/vocabulary/wonder.mp3",
+        "audioUrl": "/audio/vocabulary/wonder.mp3"
       },
       {
         "label": "add",
@@ -18478,7 +19435,10 @@ export const languageSkillQuestions = [
         "text": "add",
         "word": "add",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/add.mp3",
+        "audioPath": "/audio/vocabulary/add.mp3",
+        "audioUrl": "/audio/vocabulary/add.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -18514,7 +19474,10 @@ export const languageSkillQuestions = [
         "text": "wonder",
         "word": "wonder",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wonder.mp3",
+        "audioPath": "/audio/vocabulary/wonder.mp3",
+        "audioUrl": "/audio/vocabulary/wonder.mp3"
       },
       {
         "label": "add",
@@ -18522,7 +19485,10 @@ export const languageSkillQuestions = [
         "text": "add",
         "word": "add",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/add.mp3",
+        "audioPath": "/audio/vocabulary/add.mp3",
+        "audioUrl": "/audio/vocabulary/add.mp3"
       },
       {
         "label": "answer",
@@ -18530,7 +19496,10 @@ export const languageSkillQuestions = [
         "text": "answer",
         "word": "answer",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/answer.mp3",
+        "audioPath": "/audio/vocabulary/answer.mp3",
+        "audioUrl": "/audio/vocabulary/answer.mp3"
       },
       {
         "label": "hop",
@@ -18557,7 +19526,10 @@ export const languageSkillQuestions = [
         "text": "wonder",
         "word": "wonder",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wonder.mp3",
+        "audioPath": "/audio/vocabulary/wonder.mp3",
+        "audioUrl": "/audio/vocabulary/wonder.mp3"
       },
       {
         "label": "add",
@@ -18565,7 +19537,10 @@ export const languageSkillQuestions = [
         "text": "add",
         "word": "add",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/add.mp3",
+        "audioPath": "/audio/vocabulary/add.mp3",
+        "audioUrl": "/audio/vocabulary/add.mp3"
       },
       {
         "label": "answer",
@@ -18573,7 +19548,10 @@ export const languageSkillQuestions = [
         "text": "answer",
         "word": "answer",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/answer.mp3",
+        "audioPath": "/audio/vocabulary/answer.mp3",
+        "audioUrl": "/audio/vocabulary/answer.mp3"
       },
       {
         "label": "hop",
@@ -18620,7 +19598,10 @@ export const languageSkillQuestions = [
         "text": "answer",
         "word": "answer",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/answer.mp3",
+        "audioPath": "/audio/vocabulary/answer.mp3",
+        "audioUrl": "/audio/vocabulary/answer.mp3"
       },
       {
         "label": "ask",
@@ -18628,7 +19609,10 @@ export const languageSkillQuestions = [
         "text": "ask",
         "word": "ask",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/ask.mp3",
+        "audioPath": "/audio/vocabulary/ask.mp3",
+        "audioUrl": "/audio/vocabulary/ask.mp3"
       },
       {
         "label": "hug",
@@ -18636,7 +19620,10 @@ export const languageSkillQuestions = [
         "text": "hug",
         "word": "hug",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hug.mp3",
+        "audioPath": "/audio/vocabulary/hug.mp3",
+        "audioUrl": "/audio/vocabulary/hug.mp3"
       },
       {
         "label": "add",
@@ -18644,7 +19631,10 @@ export const languageSkillQuestions = [
         "text": "add",
         "word": "add",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/add.mp3",
+        "audioPath": "/audio/vocabulary/add.mp3",
+        "audioUrl": "/audio/vocabulary/add.mp3"
       }
     ],
     "choices": [
@@ -18660,7 +19650,10 @@ export const languageSkillQuestions = [
         "text": "answer",
         "word": "answer",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/answer.mp3",
+        "audioPath": "/audio/vocabulary/answer.mp3",
+        "audioUrl": "/audio/vocabulary/answer.mp3"
       },
       {
         "label": "ask",
@@ -18668,7 +19661,10 @@ export const languageSkillQuestions = [
         "text": "ask",
         "word": "ask",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/ask.mp3",
+        "audioPath": "/audio/vocabulary/ask.mp3",
+        "audioUrl": "/audio/vocabulary/ask.mp3"
       },
       {
         "label": "hug",
@@ -18676,7 +19672,10 @@ export const languageSkillQuestions = [
         "text": "hug",
         "word": "hug",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hug.mp3",
+        "audioPath": "/audio/vocabulary/hug.mp3",
+        "audioUrl": "/audio/vocabulary/hug.mp3"
       },
       {
         "label": "add",
@@ -18684,7 +19683,10 @@ export const languageSkillQuestions = [
         "text": "add",
         "word": "add",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/add.mp3",
+        "audioPath": "/audio/vocabulary/add.mp3",
+        "audioUrl": "/audio/vocabulary/add.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -18742,7 +19744,10 @@ export const languageSkillQuestions = [
         "text": "answer",
         "word": "answer",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/answer.mp3",
+        "audioPath": "/audio/vocabulary/answer.mp3",
+        "audioUrl": "/audio/vocabulary/answer.mp3"
       },
       {
         "label": "ask",
@@ -18750,7 +19755,10 @@ export const languageSkillQuestions = [
         "text": "ask",
         "word": "ask",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/ask.mp3",
+        "audioPath": "/audio/vocabulary/ask.mp3",
+        "audioUrl": "/audio/vocabulary/ask.mp3"
       }
     ],
     "choices": [
@@ -18788,7 +19796,10 @@ export const languageSkillQuestions = [
         "text": "answer",
         "word": "answer",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/answer.mp3",
+        "audioPath": "/audio/vocabulary/answer.mp3",
+        "audioUrl": "/audio/vocabulary/answer.mp3"
       },
       {
         "label": "ask",
@@ -18796,7 +19807,10 @@ export const languageSkillQuestions = [
         "text": "ask",
         "word": "ask",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/ask.mp3",
+        "audioPath": "/audio/vocabulary/ask.mp3",
+        "audioUrl": "/audio/vocabulary/ask.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -18843,7 +19857,10 @@ export const languageSkillQuestions = [
         "text": "ask",
         "word": "ask",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/ask.mp3",
+        "audioPath": "/audio/vocabulary/ask.mp3",
+        "audioUrl": "/audio/vocabulary/ask.mp3"
       },
       {
         "label": "bake",
@@ -18862,7 +19879,10 @@ export const languageSkillQuestions = [
         "text": "bathe",
         "word": "bathe",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bathe.mp3",
+        "audioPath": "/audio/vocabulary/bathe.mp3",
+        "audioUrl": "/audio/vocabulary/bathe.mp3"
       }
     ],
     "choices": [
@@ -18889,7 +19909,10 @@ export const languageSkillQuestions = [
         "text": "ask",
         "word": "ask",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/ask.mp3",
+        "audioPath": "/audio/vocabulary/ask.mp3",
+        "audioUrl": "/audio/vocabulary/ask.mp3"
       },
       {
         "label": "bake",
@@ -18908,7 +19931,10 @@ export const languageSkillQuestions = [
         "text": "bathe",
         "word": "bathe",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bathe.mp3",
+        "audioPath": "/audio/vocabulary/bathe.mp3",
+        "audioUrl": "/audio/vocabulary/bathe.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -18955,7 +19981,10 @@ export const languageSkillQuestions = [
         "text": "bathe",
         "word": "bathe",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bathe.mp3",
+        "audioPath": "/audio/vocabulary/bathe.mp3",
+        "audioUrl": "/audio/vocabulary/bathe.mp3"
       },
       {
         "label": "bend",
@@ -19004,7 +20033,10 @@ export const languageSkillQuestions = [
         "text": "bathe",
         "word": "bathe",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bathe.mp3",
+        "audioPath": "/audio/vocabulary/bathe.mp3",
+        "audioUrl": "/audio/vocabulary/bathe.mp3"
       },
       {
         "label": "bend",
@@ -19073,7 +20105,10 @@ export const languageSkillQuestions = [
         "text": "bounce",
         "word": "bounce",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bounce.mp3",
+        "audioPath": "/audio/vocabulary/bounce.mp3",
+        "audioUrl": "/audio/vocabulary/bounce.mp3"
       },
       {
         "label": "learn",
@@ -19081,7 +20116,10 @@ export const languageSkillQuestions = [
         "text": "learn",
         "word": "learn",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/learn.mp3",
+        "audioPath": "/audio/vocabulary/learn.mp3",
+        "audioUrl": "/audio/vocabulary/learn.mp3"
       },
       {
         "label": "bathe",
@@ -19089,7 +20127,10 @@ export const languageSkillQuestions = [
         "text": "bathe",
         "word": "bathe",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bathe.mp3",
+        "audioPath": "/audio/vocabulary/bathe.mp3",
+        "audioUrl": "/audio/vocabulary/bathe.mp3"
       }
     ],
     "choices": [
@@ -19116,7 +20157,10 @@ export const languageSkillQuestions = [
         "text": "bounce",
         "word": "bounce",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bounce.mp3",
+        "audioPath": "/audio/vocabulary/bounce.mp3",
+        "audioUrl": "/audio/vocabulary/bounce.mp3"
       },
       {
         "label": "learn",
@@ -19124,7 +20168,10 @@ export const languageSkillQuestions = [
         "text": "learn",
         "word": "learn",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/learn.mp3",
+        "audioPath": "/audio/vocabulary/learn.mp3",
+        "audioUrl": "/audio/vocabulary/learn.mp3"
       },
       {
         "label": "bathe",
@@ -19132,7 +20179,10 @@ export const languageSkillQuestions = [
         "text": "bathe",
         "word": "bathe",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bathe.mp3",
+        "audioPath": "/audio/vocabulary/bathe.mp3",
+        "audioUrl": "/audio/vocabulary/bathe.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -19168,7 +20218,10 @@ export const languageSkillQuestions = [
         "text": "bring",
         "word": "bring",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bring.mp3",
+        "audioPath": "/audio/vocabulary/bring.mp3",
+        "audioUrl": "/audio/vocabulary/bring.mp3"
       },
       {
         "label": "lift",
@@ -19198,7 +20251,10 @@ export const languageSkillQuestions = [
         "text": "bounce",
         "word": "bounce",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bounce.mp3",
+        "audioPath": "/audio/vocabulary/bounce.mp3",
+        "audioUrl": "/audio/vocabulary/bounce.mp3"
       }
     ],
     "choices": [
@@ -19214,7 +20270,10 @@ export const languageSkillQuestions = [
         "text": "bring",
         "word": "bring",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bring.mp3",
+        "audioPath": "/audio/vocabulary/bring.mp3",
+        "audioUrl": "/audio/vocabulary/bring.mp3"
       },
       {
         "label": "lift",
@@ -19244,7 +20303,10 @@ export const languageSkillQuestions = [
         "text": "bounce",
         "word": "bounce",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bounce.mp3",
+        "audioPath": "/audio/vocabulary/bounce.mp3",
+        "audioUrl": "/audio/vocabulary/bounce.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -19280,7 +20342,10 @@ export const languageSkillQuestions = [
         "text": "listen",
         "word": "listen",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/listen.mp3",
+        "audioPath": "/audio/vocabulary/listen.mp3",
+        "audioUrl": "/audio/vocabulary/listen.mp3"
       },
       {
         "label": "bounce",
@@ -19288,7 +20353,10 @@ export const languageSkillQuestions = [
         "text": "bounce",
         "word": "bounce",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bounce.mp3",
+        "audioPath": "/audio/vocabulary/bounce.mp3",
+        "audioUrl": "/audio/vocabulary/bounce.mp3"
       },
       {
         "label": "bring",
@@ -19296,7 +20364,10 @@ export const languageSkillQuestions = [
         "text": "bring",
         "word": "bring",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bring.mp3",
+        "audioPath": "/audio/vocabulary/bring.mp3",
+        "audioUrl": "/audio/vocabulary/bring.mp3"
       },
       {
         "label": "brush",
@@ -19323,7 +20394,10 @@ export const languageSkillQuestions = [
         "text": "listen",
         "word": "listen",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/listen.mp3",
+        "audioPath": "/audio/vocabulary/listen.mp3",
+        "audioUrl": "/audio/vocabulary/listen.mp3"
       },
       {
         "label": "bounce",
@@ -19331,7 +20405,10 @@ export const languageSkillQuestions = [
         "text": "bounce",
         "word": "bounce",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bounce.mp3",
+        "audioPath": "/audio/vocabulary/bounce.mp3",
+        "audioUrl": "/audio/vocabulary/bounce.mp3"
       },
       {
         "label": "bring",
@@ -19339,7 +20416,10 @@ export const languageSkillQuestions = [
         "text": "bring",
         "word": "bring",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bring.mp3",
+        "audioPath": "/audio/vocabulary/bring.mp3",
+        "audioUrl": "/audio/vocabulary/bring.mp3"
       },
       {
         "label": "brush",
@@ -19386,7 +20466,10 @@ export const languageSkillQuestions = [
         "text": "bring",
         "word": "bring",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bring.mp3",
+        "audioPath": "/audio/vocabulary/bring.mp3",
+        "audioUrl": "/audio/vocabulary/bring.mp3"
       },
       {
         "label": "brush",
@@ -19405,7 +20488,10 @@ export const languageSkillQuestions = [
         "text": "build",
         "word": "build",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/build.mp3",
+        "audioPath": "/audio/vocabulary/build.mp3",
+        "audioUrl": "/audio/vocabulary/build.mp3"
       },
       {
         "label": "look",
@@ -19413,7 +20499,10 @@ export const languageSkillQuestions = [
         "text": "look",
         "word": "look",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/look.mp3",
+        "audioPath": "/audio/vocabulary/look.mp3",
+        "audioUrl": "/audio/vocabulary/look.mp3"
       }
     ],
     "choices": [
@@ -19429,7 +20518,10 @@ export const languageSkillQuestions = [
         "text": "bring",
         "word": "bring",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/bring.mp3",
+        "audioPath": "/audio/vocabulary/bring.mp3",
+        "audioUrl": "/audio/vocabulary/bring.mp3"
       },
       {
         "label": "brush",
@@ -19448,7 +20540,10 @@ export const languageSkillQuestions = [
         "text": "build",
         "word": "build",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/build.mp3",
+        "audioPath": "/audio/vocabulary/build.mp3",
+        "audioUrl": "/audio/vocabulary/build.mp3"
       },
       {
         "label": "look",
@@ -19456,7 +20551,10 @@ export const languageSkillQuestions = [
         "text": "look",
         "word": "look",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/look.mp3",
+        "audioPath": "/audio/vocabulary/look.mp3",
+        "audioUrl": "/audio/vocabulary/look.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -19492,7 +20590,10 @@ export const languageSkillQuestions = [
         "text": "build",
         "word": "build",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/build.mp3",
+        "audioPath": "/audio/vocabulary/build.mp3",
+        "audioUrl": "/audio/vocabulary/build.mp3"
       },
       {
         "label": "call",
@@ -19541,7 +20642,10 @@ export const languageSkillQuestions = [
         "text": "build",
         "word": "build",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/build.mp3",
+        "audioPath": "/audio/vocabulary/build.mp3",
+        "audioUrl": "/audio/vocabulary/build.mp3"
       },
       {
         "label": "call",
@@ -19580,6 +20684,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/make-create-01.webp",
+    "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/make-create-01.webp",
     "mediaTarget": "workbook:verbs:make",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -19608,7 +20714,10 @@ export const languageSkillQuestions = [
         "text": "carry",
         "word": "carry",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/carry.mp3",
+        "audioPath": "/audio/vocabulary/carry.mp3",
+        "audioUrl": "/audio/vocabulary/carry.mp3"
       },
       {
         "label": "march",
@@ -19627,7 +20736,10 @@ export const languageSkillQuestions = [
         "text": "build",
         "word": "build",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/build.mp3",
+        "audioPath": "/audio/vocabulary/build.mp3",
+        "audioUrl": "/audio/vocabulary/build.mp3"
       },
       {
         "label": "call",
@@ -19654,7 +20766,10 @@ export const languageSkillQuestions = [
         "text": "carry",
         "word": "carry",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/carry.mp3",
+        "audioPath": "/audio/vocabulary/carry.mp3",
+        "audioUrl": "/audio/vocabulary/carry.mp3"
       },
       {
         "label": "march",
@@ -19673,7 +20788,10 @@ export const languageSkillQuestions = [
         "text": "build",
         "word": "build",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/build.mp3",
+        "audioPath": "/audio/vocabulary/build.mp3",
+        "audioUrl": "/audio/vocabulary/build.mp3"
       },
       {
         "label": "call",
@@ -19742,7 +20860,10 @@ export const languageSkillQuestions = [
         "text": "carry",
         "word": "carry",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/carry.mp3",
+        "audioPath": "/audio/vocabulary/carry.mp3",
+        "audioUrl": "/audio/vocabulary/carry.mp3"
       },
       {
         "label": "catch",
@@ -19791,7 +20912,10 @@ export const languageSkillQuestions = [
         "text": "carry",
         "word": "carry",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/carry.mp3",
+        "audioPath": "/audio/vocabulary/carry.mp3",
+        "audioUrl": "/audio/vocabulary/carry.mp3"
       },
       {
         "label": "catch",
@@ -19838,7 +20962,10 @@ export const languageSkillQuestions = [
         "text": "carry",
         "word": "carry",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/carry.mp3",
+        "audioPath": "/audio/vocabulary/carry.mp3",
+        "audioUrl": "/audio/vocabulary/carry.mp3"
       },
       {
         "label": "catch",
@@ -19857,7 +20984,10 @@ export const languageSkillQuestions = [
         "text": "chase",
         "word": "chase",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/chase.mp3",
+        "audioPath": "/audio/vocabulary/chase.mp3",
+        "audioUrl": "/audio/vocabulary/chase.mp3"
       },
       {
         "label": "move",
@@ -19865,7 +20995,10 @@ export const languageSkillQuestions = [
         "text": "move",
         "word": "move",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/move.mp3",
+        "audioPath": "/audio/vocabulary/move.mp3",
+        "audioUrl": "/audio/vocabulary/move.mp3"
       }
     ],
     "choices": [
@@ -19881,7 +21014,10 @@ export const languageSkillQuestions = [
         "text": "carry",
         "word": "carry",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/carry.mp3",
+        "audioPath": "/audio/vocabulary/carry.mp3",
+        "audioUrl": "/audio/vocabulary/carry.mp3"
       },
       {
         "label": "catch",
@@ -19900,7 +21036,10 @@ export const languageSkillQuestions = [
         "text": "chase",
         "word": "chase",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/chase.mp3",
+        "audioPath": "/audio/vocabulary/chase.mp3",
+        "audioUrl": "/audio/vocabulary/chase.mp3"
       },
       {
         "label": "move",
@@ -19908,7 +21047,10 @@ export const languageSkillQuestions = [
         "text": "move",
         "word": "move",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/move.mp3",
+        "audioPath": "/audio/vocabulary/move.mp3",
+        "audioUrl": "/audio/vocabulary/move.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -19944,7 +21086,10 @@ export const languageSkillQuestions = [
         "text": "chase",
         "word": "chase",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/chase.mp3",
+        "audioPath": "/audio/vocabulary/chase.mp3",
+        "audioUrl": "/audio/vocabulary/chase.mp3"
       },
       {
         "label": "choose",
@@ -19952,7 +21097,10 @@ export const languageSkillQuestions = [
         "text": "choose",
         "word": "choose",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/choose.mp3",
+        "audioPath": "/audio/vocabulary/choose.mp3",
+        "audioUrl": "/audio/vocabulary/choose.mp3"
       },
       {
         "label": "open",
@@ -19990,7 +21138,10 @@ export const languageSkillQuestions = [
         "text": "chase",
         "word": "chase",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/chase.mp3",
+        "audioPath": "/audio/vocabulary/chase.mp3",
+        "audioUrl": "/audio/vocabulary/chase.mp3"
       },
       {
         "label": "choose",
@@ -19998,7 +21149,10 @@ export const languageSkillQuestions = [
         "text": "choose",
         "word": "choose",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/choose.mp3",
+        "audioPath": "/audio/vocabulary/choose.mp3",
+        "audioUrl": "/audio/vocabulary/choose.mp3"
       },
       {
         "label": "open",
@@ -20078,7 +21232,10 @@ export const languageSkillQuestions = [
         "text": "chase",
         "word": "chase",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/chase.mp3",
+        "audioPath": "/audio/vocabulary/chase.mp3",
+        "audioUrl": "/audio/vocabulary/chase.mp3"
       },
       {
         "label": "choose",
@@ -20086,7 +21243,10 @@ export const languageSkillQuestions = [
         "text": "choose",
         "word": "choose",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/choose.mp3",
+        "audioPath": "/audio/vocabulary/choose.mp3",
+        "audioUrl": "/audio/vocabulary/choose.mp3"
       }
     ],
     "choices": [
@@ -20124,7 +21284,10 @@ export const languageSkillQuestions = [
         "text": "chase",
         "word": "chase",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/chase.mp3",
+        "audioPath": "/audio/vocabulary/chase.mp3",
+        "audioUrl": "/audio/vocabulary/chase.mp3"
       },
       {
         "label": "choose",
@@ -20132,7 +21295,10 @@ export const languageSkillQuestions = [
         "text": "choose",
         "word": "choose",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/choose.mp3",
+        "audioPath": "/audio/vocabulary/choose.mp3",
+        "audioUrl": "/audio/vocabulary/choose.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -20179,7 +21345,10 @@ export const languageSkillQuestions = [
         "text": "choose",
         "word": "choose",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/choose.mp3",
+        "audioPath": "/audio/vocabulary/choose.mp3",
+        "audioUrl": "/audio/vocabulary/choose.mp3"
       },
       {
         "label": "clean",
@@ -20228,7 +21397,10 @@ export const languageSkillQuestions = [
         "text": "choose",
         "word": "choose",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/choose.mp3",
+        "audioPath": "/audio/vocabulary/choose.mp3",
+        "audioUrl": "/audio/vocabulary/choose.mp3"
       },
       {
         "label": "clean",
@@ -20308,7 +21480,10 @@ export const languageSkillQuestions = [
         "text": "close",
         "word": "close",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/close.mp3",
+        "audioPath": "/audio/vocabulary/close.mp3",
+        "audioUrl": "/audio/vocabulary/close.mp3"
       },
       {
         "label": "plant",
@@ -20357,7 +21532,10 @@ export const languageSkillQuestions = [
         "text": "close",
         "word": "close",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/close.mp3",
+        "audioPath": "/audio/vocabulary/close.mp3",
+        "audioUrl": "/audio/vocabulary/close.mp3"
       },
       {
         "label": "plant",
@@ -20404,7 +21582,10 @@ export const languageSkillQuestions = [
         "text": "close",
         "word": "close",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/close.mp3",
+        "audioPath": "/audio/vocabulary/close.mp3",
+        "audioUrl": "/audio/vocabulary/close.mp3"
       },
       {
         "label": "color",
@@ -20412,7 +21593,10 @@ export const languageSkillQuestions = [
         "text": "color",
         "word": "color",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/color.mp3",
+        "audioPath": "/audio/vocabulary/color.mp3",
+        "audioUrl": "/audio/vocabulary/color.mp3"
       },
       {
         "label": "play",
@@ -20420,7 +21604,10 @@ export const languageSkillQuestions = [
         "text": "play",
         "word": "play",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/play.mp3",
+        "audioPath": "/audio/vocabulary/play.mp3",
+        "audioUrl": "/audio/vocabulary/play.mp3"
       },
       {
         "label": "climb",
@@ -20447,7 +21634,10 @@ export const languageSkillQuestions = [
         "text": "close",
         "word": "close",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/close.mp3",
+        "audioPath": "/audio/vocabulary/close.mp3",
+        "audioUrl": "/audio/vocabulary/close.mp3"
       },
       {
         "label": "color",
@@ -20455,7 +21645,10 @@ export const languageSkillQuestions = [
         "text": "color",
         "word": "color",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/color.mp3",
+        "audioPath": "/audio/vocabulary/color.mp3",
+        "audioUrl": "/audio/vocabulary/color.mp3"
       },
       {
         "label": "play",
@@ -20463,7 +21656,10 @@ export const languageSkillQuestions = [
         "text": "play",
         "word": "play",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/play.mp3",
+        "audioPath": "/audio/vocabulary/play.mp3",
+        "audioUrl": "/audio/vocabulary/play.mp3"
       },
       {
         "label": "climb",
@@ -20480,6 +21676,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/play-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/play-01.webp",
     "mediaTarget": "workbook:verbs:play",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -20519,7 +21717,10 @@ export const languageSkillQuestions = [
         "text": "point",
         "word": "point",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/point.mp3",
+        "audioPath": "/audio/vocabulary/point.mp3",
+        "audioUrl": "/audio/vocabulary/point.mp3"
       },
       {
         "label": "close",
@@ -20527,7 +21728,10 @@ export const languageSkillQuestions = [
         "text": "close",
         "word": "close",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/close.mp3",
+        "audioPath": "/audio/vocabulary/close.mp3",
+        "audioUrl": "/audio/vocabulary/close.mp3"
       },
       {
         "label": "color",
@@ -20535,7 +21739,10 @@ export const languageSkillQuestions = [
         "text": "color",
         "word": "color",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/color.mp3",
+        "audioPath": "/audio/vocabulary/color.mp3",
+        "audioUrl": "/audio/vocabulary/color.mp3"
       }
     ],
     "choices": [
@@ -20562,7 +21769,10 @@ export const languageSkillQuestions = [
         "text": "point",
         "word": "point",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/point.mp3",
+        "audioPath": "/audio/vocabulary/point.mp3",
+        "audioUrl": "/audio/vocabulary/point.mp3"
       },
       {
         "label": "close",
@@ -20570,7 +21780,10 @@ export const languageSkillQuestions = [
         "text": "close",
         "word": "close",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/close.mp3",
+        "audioPath": "/audio/vocabulary/close.mp3",
+        "audioUrl": "/audio/vocabulary/close.mp3"
       },
       {
         "label": "color",
@@ -20578,7 +21791,10 @@ export const languageSkillQuestions = [
         "text": "color",
         "word": "color",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/color.mp3",
+        "audioPath": "/audio/vocabulary/color.mp3",
+        "audioUrl": "/audio/vocabulary/color.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -20625,7 +21841,10 @@ export const languageSkillQuestions = [
         "text": "color",
         "word": "color",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/color.mp3",
+        "audioPath": "/audio/vocabulary/color.mp3",
+        "audioUrl": "/audio/vocabulary/color.mp3"
       },
       {
         "label": "come",
@@ -20674,7 +21893,10 @@ export const languageSkillQuestions = [
         "text": "color",
         "word": "color",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/color.mp3",
+        "audioPath": "/audio/vocabulary/color.mp3",
+        "audioUrl": "/audio/vocabulary/color.mp3"
       },
       {
         "label": "come",
@@ -20754,7 +21976,10 @@ export const languageSkillQuestions = [
         "text": "count",
         "word": "count",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/count.mp3",
+        "audioPath": "/audio/vocabulary/count.mp3",
+        "audioUrl": "/audio/vocabulary/count.mp3"
       },
       {
         "label": "pull",
@@ -20803,7 +22028,10 @@ export const languageSkillQuestions = [
         "text": "count",
         "word": "count",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/count.mp3",
+        "audioPath": "/audio/vocabulary/count.mp3",
+        "audioUrl": "/audio/vocabulary/count.mp3"
       },
       {
         "label": "pull",
@@ -20850,7 +22078,10 @@ export const languageSkillQuestions = [
         "text": "count",
         "word": "count",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/count.mp3",
+        "audioPath": "/audio/vocabulary/count.mp3",
+        "audioUrl": "/audio/vocabulary/count.mp3"
       },
       {
         "label": "crawl",
@@ -20899,7 +22130,10 @@ export const languageSkillQuestions = [
         "text": "count",
         "word": "count",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/count.mp3",
+        "audioPath": "/audio/vocabulary/count.mp3",
+        "audioUrl": "/audio/vocabulary/count.mp3"
       },
       {
         "label": "crawl",
@@ -20968,7 +22202,10 @@ export const languageSkillQuestions = [
         "text": "cross",
         "word": "cross",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/cross.mp3",
+        "audioPath": "/audio/vocabulary/cross.mp3",
+        "audioUrl": "/audio/vocabulary/cross.mp3"
       },
       {
         "label": "put",
@@ -20976,7 +22213,10 @@ export const languageSkillQuestions = [
         "text": "put",
         "word": "put",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/put.mp3",
+        "audioPath": "/audio/vocabulary/put.mp3",
+        "audioUrl": "/audio/vocabulary/put.mp3"
       },
       {
         "label": "count",
@@ -20984,7 +22224,10 @@ export const languageSkillQuestions = [
         "text": "count",
         "word": "count",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/count.mp3",
+        "audioPath": "/audio/vocabulary/count.mp3",
+        "audioUrl": "/audio/vocabulary/count.mp3"
       },
       {
         "label": "crawl",
@@ -21011,7 +22254,10 @@ export const languageSkillQuestions = [
         "text": "cross",
         "word": "cross",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/cross.mp3",
+        "audioPath": "/audio/vocabulary/cross.mp3",
+        "audioUrl": "/audio/vocabulary/cross.mp3"
       },
       {
         "label": "put",
@@ -21019,7 +22265,10 @@ export const languageSkillQuestions = [
         "text": "put",
         "word": "put",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/put.mp3",
+        "audioPath": "/audio/vocabulary/put.mp3",
+        "audioUrl": "/audio/vocabulary/put.mp3"
       },
       {
         "label": "count",
@@ -21027,7 +22276,10 @@ export const languageSkillQuestions = [
         "text": "count",
         "word": "count",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/count.mp3",
+        "audioPath": "/audio/vocabulary/count.mp3",
+        "audioUrl": "/audio/vocabulary/count.mp3"
       },
       {
         "label": "crawl",
@@ -21044,6 +22296,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/put-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/put-01.webp",
     "mediaTarget": "workbook:verbs:put",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -21094,7 +22348,10 @@ export const languageSkillQuestions = [
         "text": "cross",
         "word": "cross",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/cross.mp3",
+        "audioPath": "/audio/vocabulary/cross.mp3",
+        "audioUrl": "/audio/vocabulary/cross.mp3"
       },
       {
         "label": "cry",
@@ -21143,7 +22400,10 @@ export const languageSkillQuestions = [
         "text": "cross",
         "word": "cross",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/cross.mp3",
+        "audioPath": "/audio/vocabulary/cross.mp3",
+        "audioUrl": "/audio/vocabulary/cross.mp3"
       },
       {
         "label": "cry",
@@ -21190,7 +22450,10 @@ export const languageSkillQuestions = [
         "text": "cross",
         "word": "cross",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/cross.mp3",
+        "audioPath": "/audio/vocabulary/cross.mp3",
+        "audioUrl": "/audio/vocabulary/cross.mp3"
       },
       {
         "label": "cry",
@@ -21220,7 +22483,10 @@ export const languageSkillQuestions = [
         "text": "rest",
         "word": "rest",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/rest.mp3",
+        "audioPath": "/audio/vocabulary/rest.mp3",
+        "audioUrl": "/audio/vocabulary/rest.mp3"
       }
     ],
     "choices": [
@@ -21236,7 +22502,10 @@ export const languageSkillQuestions = [
         "text": "cross",
         "word": "cross",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/cross.mp3",
+        "audioPath": "/audio/vocabulary/cross.mp3",
+        "audioUrl": "/audio/vocabulary/cross.mp3"
       },
       {
         "label": "cry",
@@ -21266,7 +22535,10 @@ export const languageSkillQuestions = [
         "text": "rest",
         "word": "rest",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/rest.mp3",
+        "audioPath": "/audio/vocabulary/rest.mp3",
+        "audioUrl": "/audio/vocabulary/rest.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -21313,7 +22585,10 @@ export const languageSkillQuestions = [
         "text": "dance",
         "word": "dance",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/dance.mp3",
+        "audioPath": "/audio/vocabulary/dance.mp3",
+        "audioUrl": "/audio/vocabulary/dance.mp3"
       },
       {
         "label": "ride",
@@ -21362,7 +22637,10 @@ export const languageSkillQuestions = [
         "text": "dance",
         "word": "dance",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/dance.mp3",
+        "audioPath": "/audio/vocabulary/dance.mp3",
+        "audioUrl": "/audio/vocabulary/dance.mp3"
       },
       {
         "label": "ride",
@@ -21453,7 +22731,10 @@ export const languageSkillQuestions = [
         "text": "dance",
         "word": "dance",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/dance.mp3",
+        "audioPath": "/audio/vocabulary/dance.mp3",
+        "audioUrl": "/audio/vocabulary/dance.mp3"
       }
     ],
     "choices": [
@@ -21502,7 +22783,10 @@ export const languageSkillQuestions = [
         "text": "dance",
         "word": "dance",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/dance.mp3",
+        "audioPath": "/audio/vocabulary/dance.mp3",
+        "audioUrl": "/audio/vocabulary/dance.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -21549,7 +22833,10 @@ export const languageSkillQuestions = [
         "text": "dance",
         "word": "dance",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/dance.mp3",
+        "audioPath": "/audio/vocabulary/dance.mp3",
+        "audioUrl": "/audio/vocabulary/dance.mp3"
       },
       {
         "label": "dig",
@@ -21598,7 +22885,10 @@ export const languageSkillQuestions = [
         "text": "dance",
         "word": "dance",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/dance.mp3",
+        "audioPath": "/audio/vocabulary/dance.mp3",
+        "audioUrl": "/audio/vocabulary/dance.mp3"
       },
       {
         "label": "dig",
@@ -21689,7 +22979,10 @@ export const languageSkillQuestions = [
         "text": "say",
         "word": "say",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/say.mp3",
+        "audioPath": "/audio/vocabulary/say.mp3",
+        "audioUrl": "/audio/vocabulary/say.mp3"
       }
     ],
     "choices": [
@@ -21738,7 +23031,10 @@ export const languageSkillQuestions = [
         "text": "say",
         "word": "say",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/say.mp3",
+        "audioPath": "/audio/vocabulary/say.mp3",
+        "audioUrl": "/audio/vocabulary/say.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -21785,7 +23081,10 @@ export const languageSkillQuestions = [
         "text": "drive",
         "word": "drive",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/drive.mp3",
+        "audioPath": "/audio/vocabulary/drive.mp3",
+        "audioUrl": "/audio/vocabulary/drive.mp3"
       },
       {
         "label": "see",
@@ -21793,7 +23092,10 @@ export const languageSkillQuestions = [
         "text": "see",
         "word": "see",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/see.mp3",
+        "audioPath": "/audio/vocabulary/see.mp3",
+        "audioUrl": "/audio/vocabulary/see.mp3"
       },
       {
         "label": "draw",
@@ -21831,7 +23133,10 @@ export const languageSkillQuestions = [
         "text": "drive",
         "word": "drive",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/drive.mp3",
+        "audioPath": "/audio/vocabulary/drive.mp3",
+        "audioUrl": "/audio/vocabulary/drive.mp3"
       },
       {
         "label": "see",
@@ -21839,7 +23144,10 @@ export const languageSkillQuestions = [
         "text": "see",
         "word": "see",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/see.mp3",
+        "audioPath": "/audio/vocabulary/see.mp3",
+        "audioUrl": "/audio/vocabulary/see.mp3"
       },
       {
         "label": "draw",
@@ -21856,6 +23164,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/look-see-01.webp",
+    "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/look-see-01.webp",
     "mediaTarget": "workbook:verbs:see",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -21917,7 +23227,10 @@ export const languageSkillQuestions = [
         "text": "drive",
         "word": "drive",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/drive.mp3",
+        "audioPath": "/audio/vocabulary/drive.mp3",
+        "audioUrl": "/audio/vocabulary/drive.mp3"
       }
     ],
     "choices": [
@@ -21966,7 +23279,10 @@ export const languageSkillQuestions = [
         "text": "drive",
         "word": "drive",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/drive.mp3",
+        "audioPath": "/audio/vocabulary/drive.mp3",
+        "audioUrl": "/audio/vocabulary/drive.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -22013,7 +23329,10 @@ export const languageSkillQuestions = [
         "text": "drive",
         "word": "drive",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/drive.mp3",
+        "audioPath": "/audio/vocabulary/drive.mp3",
+        "audioUrl": "/audio/vocabulary/drive.mp3"
       },
       {
         "label": "drop",
@@ -22032,7 +23351,10 @@ export const languageSkillQuestions = [
         "text": "eat",
         "word": "eat",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/eat.mp3",
+        "audioPath": "/audio/vocabulary/eat.mp3",
+        "audioUrl": "/audio/vocabulary/eat.mp3"
       }
     ],
     "choices": [
@@ -22059,7 +23381,10 @@ export const languageSkillQuestions = [
         "text": "drive",
         "word": "drive",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/drive.mp3",
+        "audioPath": "/audio/vocabulary/drive.mp3",
+        "audioUrl": "/audio/vocabulary/drive.mp3"
       },
       {
         "label": "drop",
@@ -22078,7 +23403,10 @@ export const languageSkillQuestions = [
         "text": "eat",
         "word": "eat",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/eat.mp3",
+        "audioPath": "/audio/vocabulary/eat.mp3",
+        "audioUrl": "/audio/vocabulary/eat.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -22125,7 +23453,10 @@ export const languageSkillQuestions = [
         "text": "eat",
         "word": "eat",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/eat.mp3",
+        "audioPath": "/audio/vocabulary/eat.mp3",
+        "audioUrl": "/audio/vocabulary/eat.mp3"
       },
       {
         "label": "fall",
@@ -22133,7 +23464,10 @@ export const languageSkillQuestions = [
         "text": "fall",
         "word": "fall",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fall.mp3",
+        "audioPath": "/audio/vocabulary/fall.mp3",
+        "audioUrl": "/audio/vocabulary/fall.mp3"
       },
       {
         "label": "sing",
@@ -22141,7 +23475,10 @@ export const languageSkillQuestions = [
         "text": "sing",
         "word": "sing",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/sing.mp3",
+        "audioPath": "/audio/vocabulary/sing.mp3",
+        "audioUrl": "/audio/vocabulary/sing.mp3"
       }
     ],
     "choices": [
@@ -22168,7 +23505,10 @@ export const languageSkillQuestions = [
         "text": "eat",
         "word": "eat",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/eat.mp3",
+        "audioPath": "/audio/vocabulary/eat.mp3",
+        "audioUrl": "/audio/vocabulary/eat.mp3"
       },
       {
         "label": "fall",
@@ -22176,7 +23516,10 @@ export const languageSkillQuestions = [
         "text": "fall",
         "word": "fall",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fall.mp3",
+        "audioPath": "/audio/vocabulary/fall.mp3",
+        "audioUrl": "/audio/vocabulary/fall.mp3"
       },
       {
         "label": "sing",
@@ -22184,7 +23527,10 @@ export const languageSkillQuestions = [
         "text": "sing",
         "word": "sing",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/sing.mp3",
+        "audioPath": "/audio/vocabulary/sing.mp3",
+        "audioUrl": "/audio/vocabulary/sing.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -22220,7 +23566,10 @@ export const languageSkillQuestions = [
         "text": "fall",
         "word": "fall",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fall.mp3",
+        "audioPath": "/audio/vocabulary/fall.mp3",
+        "audioUrl": "/audio/vocabulary/fall.mp3"
       },
       {
         "label": "feed",
@@ -22250,7 +23599,10 @@ export const languageSkillQuestions = [
         "text": "eat",
         "word": "eat",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/eat.mp3",
+        "audioPath": "/audio/vocabulary/eat.mp3",
+        "audioUrl": "/audio/vocabulary/eat.mp3"
       }
     ],
     "choices": [
@@ -22266,7 +23618,10 @@ export const languageSkillQuestions = [
         "text": "fall",
         "word": "fall",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fall.mp3",
+        "audioPath": "/audio/vocabulary/fall.mp3",
+        "audioUrl": "/audio/vocabulary/fall.mp3"
       },
       {
         "label": "feed",
@@ -22296,7 +23651,10 @@ export const languageSkillQuestions = [
         "text": "eat",
         "word": "eat",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/eat.mp3",
+        "audioPath": "/audio/vocabulary/eat.mp3",
+        "audioUrl": "/audio/vocabulary/eat.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -22354,7 +23712,10 @@ export const languageSkillQuestions = [
         "text": "fall",
         "word": "fall",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fall.mp3",
+        "audioPath": "/audio/vocabulary/fall.mp3",
+        "audioUrl": "/audio/vocabulary/fall.mp3"
       },
       {
         "label": "feed",
@@ -22403,7 +23764,10 @@ export const languageSkillQuestions = [
         "text": "fall",
         "word": "fall",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fall.mp3",
+        "audioPath": "/audio/vocabulary/fall.mp3",
+        "audioUrl": "/audio/vocabulary/fall.mp3"
       },
       {
         "label": "feed",
@@ -22709,7 +24073,10 @@ export const languageSkillQuestions = [
         "text": "fly",
         "word": "fly",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fly.mp3",
+        "audioPath": "/audio/vocabulary/fly.mp3",
+        "audioUrl": "/audio/vocabulary/fly.mp3"
       },
       {
         "label": "smell",
@@ -22758,7 +24125,10 @@ export const languageSkillQuestions = [
         "text": "fly",
         "word": "fly",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fly.mp3",
+        "audioPath": "/audio/vocabulary/fly.mp3",
+        "audioUrl": "/audio/vocabulary/fly.mp3"
       },
       {
         "label": "smell",
@@ -22816,7 +24186,10 @@ export const languageSkillQuestions = [
         "text": "fold",
         "word": "fold",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fold.mp3",
+        "audioPath": "/audio/vocabulary/fold.mp3",
+        "audioUrl": "/audio/vocabulary/fold.mp3"
       },
       {
         "label": "smile",
@@ -22846,7 +24219,10 @@ export const languageSkillQuestions = [
         "text": "fly",
         "word": "fly",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fly.mp3",
+        "audioPath": "/audio/vocabulary/fly.mp3",
+        "audioUrl": "/audio/vocabulary/fly.mp3"
       }
     ],
     "choices": [
@@ -22862,7 +24238,10 @@ export const languageSkillQuestions = [
         "text": "fold",
         "word": "fold",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fold.mp3",
+        "audioPath": "/audio/vocabulary/fold.mp3",
+        "audioUrl": "/audio/vocabulary/fold.mp3"
       },
       {
         "label": "smile",
@@ -22892,7 +24271,10 @@ export const languageSkillQuestions = [
         "text": "fly",
         "word": "fly",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fly.mp3",
+        "audioPath": "/audio/vocabulary/fly.mp3",
+        "audioUrl": "/audio/vocabulary/fly.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -22939,7 +24321,10 @@ export const languageSkillQuestions = [
         "text": "fly",
         "word": "fly",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fly.mp3",
+        "audioPath": "/audio/vocabulary/fly.mp3",
+        "audioUrl": "/audio/vocabulary/fly.mp3"
       },
       {
         "label": "fold",
@@ -22947,7 +24332,10 @@ export const languageSkillQuestions = [
         "text": "fold",
         "word": "fold",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fold.mp3",
+        "audioPath": "/audio/vocabulary/fold.mp3",
+        "audioUrl": "/audio/vocabulary/fold.mp3"
       },
       {
         "label": "follow",
@@ -22955,7 +24343,10 @@ export const languageSkillQuestions = [
         "text": "follow",
         "word": "follow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/follow.mp3",
+        "audioPath": "/audio/vocabulary/follow.mp3",
+        "audioUrl": "/audio/vocabulary/follow.mp3"
       }
     ],
     "choices": [
@@ -22982,7 +24373,10 @@ export const languageSkillQuestions = [
         "text": "fly",
         "word": "fly",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fly.mp3",
+        "audioPath": "/audio/vocabulary/fly.mp3",
+        "audioUrl": "/audio/vocabulary/fly.mp3"
       },
       {
         "label": "fold",
@@ -22990,7 +24384,10 @@ export const languageSkillQuestions = [
         "text": "fold",
         "word": "fold",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fold.mp3",
+        "audioPath": "/audio/vocabulary/fold.mp3",
+        "audioUrl": "/audio/vocabulary/fold.mp3"
       },
       {
         "label": "follow",
@@ -22998,7 +24395,10 @@ export const languageSkillQuestions = [
         "text": "follow",
         "word": "follow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/follow.mp3",
+        "audioPath": "/audio/vocabulary/follow.mp3",
+        "audioUrl": "/audio/vocabulary/follow.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -23034,7 +24434,10 @@ export const languageSkillQuestions = [
         "text": "fold",
         "word": "fold",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fold.mp3",
+        "audioPath": "/audio/vocabulary/fold.mp3",
+        "audioUrl": "/audio/vocabulary/fold.mp3"
       },
       {
         "label": "follow",
@@ -23042,7 +24445,10 @@ export const languageSkillQuestions = [
         "text": "follow",
         "word": "follow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/follow.mp3",
+        "audioPath": "/audio/vocabulary/follow.mp3",
+        "audioUrl": "/audio/vocabulary/follow.mp3"
       },
       {
         "label": "give",
@@ -23050,7 +24456,10 @@ export const languageSkillQuestions = [
         "text": "give",
         "word": "give",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/give.mp3",
+        "audioPath": "/audio/vocabulary/give.mp3",
+        "audioUrl": "/audio/vocabulary/give.mp3"
       },
       {
         "label": "speak",
@@ -23077,7 +24486,10 @@ export const languageSkillQuestions = [
         "text": "fold",
         "word": "fold",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fold.mp3",
+        "audioPath": "/audio/vocabulary/fold.mp3",
+        "audioUrl": "/audio/vocabulary/fold.mp3"
       },
       {
         "label": "follow",
@@ -23085,7 +24497,10 @@ export const languageSkillQuestions = [
         "text": "follow",
         "word": "follow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/follow.mp3",
+        "audioPath": "/audio/vocabulary/follow.mp3",
+        "audioUrl": "/audio/vocabulary/follow.mp3"
       },
       {
         "label": "give",
@@ -23093,7 +24508,10 @@ export const languageSkillQuestions = [
         "text": "give",
         "word": "give",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/give.mp3",
+        "audioPath": "/audio/vocabulary/give.mp3",
+        "audioUrl": "/audio/vocabulary/give.mp3"
       },
       {
         "label": "speak",
@@ -23140,7 +24558,10 @@ export const languageSkillQuestions = [
         "text": "give",
         "word": "give",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/give.mp3",
+        "audioPath": "/audio/vocabulary/give.mp3",
+        "audioUrl": "/audio/vocabulary/give.mp3"
       },
       {
         "label": "go",
@@ -23170,7 +24591,10 @@ export const languageSkillQuestions = [
         "text": "follow",
         "word": "follow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/follow.mp3",
+        "audioPath": "/audio/vocabulary/follow.mp3",
+        "audioUrl": "/audio/vocabulary/follow.mp3"
       }
     ],
     "choices": [
@@ -23186,7 +24610,10 @@ export const languageSkillQuestions = [
         "text": "give",
         "word": "give",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/give.mp3",
+        "audioPath": "/audio/vocabulary/give.mp3",
+        "audioUrl": "/audio/vocabulary/give.mp3"
       },
       {
         "label": "go",
@@ -23216,7 +24643,10 @@ export const languageSkillQuestions = [
         "text": "follow",
         "word": "follow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/follow.mp3",
+        "audioPath": "/audio/vocabulary/follow.mp3",
+        "audioUrl": "/audio/vocabulary/follow.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -23252,7 +24682,10 @@ export const languageSkillQuestions = [
         "text": "grow",
         "word": "grow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/grow.mp3",
+        "audioPath": "/audio/vocabulary/grow.mp3",
+        "audioUrl": "/audio/vocabulary/grow.mp3"
       },
       {
         "label": "stand",
@@ -23271,7 +24704,10 @@ export const languageSkillQuestions = [
         "text": "give",
         "word": "give",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/give.mp3",
+        "audioPath": "/audio/vocabulary/give.mp3",
+        "audioUrl": "/audio/vocabulary/give.mp3"
       },
       {
         "label": "go",
@@ -23298,7 +24734,10 @@ export const languageSkillQuestions = [
         "text": "grow",
         "word": "grow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/grow.mp3",
+        "audioPath": "/audio/vocabulary/grow.mp3",
+        "audioUrl": "/audio/vocabulary/grow.mp3"
       },
       {
         "label": "stand",
@@ -23317,7 +24756,10 @@ export const languageSkillQuestions = [
         "text": "give",
         "word": "give",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/give.mp3",
+        "audioPath": "/audio/vocabulary/give.mp3",
+        "audioUrl": "/audio/vocabulary/give.mp3"
       },
       {
         "label": "go",
@@ -23386,7 +24828,10 @@ export const languageSkillQuestions = [
         "text": "grow",
         "word": "grow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/grow.mp3",
+        "audioPath": "/audio/vocabulary/grow.mp3",
+        "audioUrl": "/audio/vocabulary/grow.mp3"
       },
       {
         "label": "hang",
@@ -23435,7 +24880,10 @@ export const languageSkillQuestions = [
         "text": "grow",
         "word": "grow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/grow.mp3",
+        "audioPath": "/audio/vocabulary/grow.mp3",
+        "audioUrl": "/audio/vocabulary/grow.mp3"
       },
       {
         "label": "hang",
@@ -23482,7 +24930,10 @@ export const languageSkillQuestions = [
         "text": "grow",
         "word": "grow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/grow.mp3",
+        "audioPath": "/audio/vocabulary/grow.mp3",
+        "audioUrl": "/audio/vocabulary/grow.mp3"
       },
       {
         "label": "hang",
@@ -23501,7 +24952,10 @@ export const languageSkillQuestions = [
         "text": "help",
         "word": "help",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/help.mp3",
+        "audioPath": "/audio/vocabulary/help.mp3",
+        "audioUrl": "/audio/vocabulary/help.mp3"
       },
       {
         "label": "stay",
@@ -23509,7 +24963,10 @@ export const languageSkillQuestions = [
         "text": "stay",
         "word": "stay",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/stay.mp3",
+        "audioPath": "/audio/vocabulary/stay.mp3",
+        "audioUrl": "/audio/vocabulary/stay.mp3"
       }
     ],
     "choices": [
@@ -23525,7 +24982,10 @@ export const languageSkillQuestions = [
         "text": "grow",
         "word": "grow",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/grow.mp3",
+        "audioPath": "/audio/vocabulary/grow.mp3",
+        "audioUrl": "/audio/vocabulary/grow.mp3"
       },
       {
         "label": "hang",
@@ -23544,7 +25004,10 @@ export const languageSkillQuestions = [
         "text": "help",
         "word": "help",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/help.mp3",
+        "audioPath": "/audio/vocabulary/help.mp3",
+        "audioUrl": "/audio/vocabulary/help.mp3"
       },
       {
         "label": "stay",
@@ -23552,7 +25015,10 @@ export const languageSkillQuestions = [
         "text": "stay",
         "word": "stay",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/stay.mp3",
+        "audioPath": "/audio/vocabulary/stay.mp3",
+        "audioUrl": "/audio/vocabulary/stay.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -23588,7 +25054,10 @@ export const languageSkillQuestions = [
         "text": "help",
         "word": "help",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/help.mp3",
+        "audioPath": "/audio/vocabulary/help.mp3",
+        "audioUrl": "/audio/vocabulary/help.mp3"
       },
       {
         "label": "hide",
@@ -23596,7 +25065,10 @@ export const languageSkillQuestions = [
         "text": "hide",
         "word": "hide",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hide.mp3",
+        "audioPath": "/audio/vocabulary/hide.mp3",
+        "audioUrl": "/audio/vocabulary/hide.mp3"
       },
       {
         "label": "stop",
@@ -23634,7 +25106,10 @@ export const languageSkillQuestions = [
         "text": "help",
         "word": "help",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/help.mp3",
+        "audioPath": "/audio/vocabulary/help.mp3",
+        "audioUrl": "/audio/vocabulary/help.mp3"
       },
       {
         "label": "hide",
@@ -23642,7 +25117,10 @@ export const languageSkillQuestions = [
         "text": "hide",
         "word": "hide",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hide.mp3",
+        "audioPath": "/audio/vocabulary/hide.mp3",
+        "audioUrl": "/audio/vocabulary/hide.mp3"
       },
       {
         "label": "stop",
@@ -23722,7 +25200,10 @@ export const languageSkillQuestions = [
         "text": "help",
         "word": "help",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/help.mp3",
+        "audioPath": "/audio/vocabulary/help.mp3",
+        "audioUrl": "/audio/vocabulary/help.mp3"
       },
       {
         "label": "hide",
@@ -23730,7 +25211,10 @@ export const languageSkillQuestions = [
         "text": "hide",
         "word": "hide",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hide.mp3",
+        "audioPath": "/audio/vocabulary/hide.mp3",
+        "audioUrl": "/audio/vocabulary/hide.mp3"
       }
     ],
     "choices": [
@@ -23768,7 +25252,10 @@ export const languageSkillQuestions = [
         "text": "help",
         "word": "help",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/help.mp3",
+        "audioPath": "/audio/vocabulary/help.mp3",
+        "audioUrl": "/audio/vocabulary/help.mp3"
       },
       {
         "label": "hide",
@@ -23776,7 +25263,10 @@ export const languageSkillQuestions = [
         "text": "hide",
         "word": "hide",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hide.mp3",
+        "audioPath": "/audio/vocabulary/hide.mp3",
+        "audioUrl": "/audio/vocabulary/hide.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -23823,7 +25313,10 @@ export const languageSkillQuestions = [
         "text": "hide",
         "word": "hide",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hide.mp3",
+        "audioPath": "/audio/vocabulary/hide.mp3",
+        "audioUrl": "/audio/vocabulary/hide.mp3"
       },
       {
         "label": "hit",
@@ -23842,7 +25335,10 @@ export const languageSkillQuestions = [
         "text": "hold",
         "word": "hold",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hold.mp3",
+        "audioPath": "/audio/vocabulary/hold.mp3",
+        "audioUrl": "/audio/vocabulary/hold.mp3"
       }
     ],
     "choices": [
@@ -23869,7 +25365,10 @@ export const languageSkillQuestions = [
         "text": "hide",
         "word": "hide",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hide.mp3",
+        "audioPath": "/audio/vocabulary/hide.mp3",
+        "audioUrl": "/audio/vocabulary/hide.mp3"
       },
       {
         "label": "hit",
@@ -23888,7 +25387,10 @@ export const languageSkillQuestions = [
         "text": "hold",
         "word": "hold",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hold.mp3",
+        "audioPath": "/audio/vocabulary/hold.mp3",
+        "audioUrl": "/audio/vocabulary/hold.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -23935,7 +25437,10 @@ export const languageSkillQuestions = [
         "text": "hold",
         "word": "hold",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hold.mp3",
+        "audioPath": "/audio/vocabulary/hold.mp3",
+        "audioUrl": "/audio/vocabulary/hold.mp3"
       },
       {
         "label": "hop",
@@ -23984,7 +25489,10 @@ export const languageSkillQuestions = [
         "text": "hold",
         "word": "hold",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hold.mp3",
+        "audioPath": "/audio/vocabulary/hold.mp3",
+        "audioUrl": "/audio/vocabulary/hold.mp3"
       },
       {
         "label": "hop",
@@ -24012,6 +25520,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/give-take-01.webp",
+    "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/give-take-01.webp",
     "mediaTarget": "workbook:verbs:take",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -24051,7 +25561,10 @@ export const languageSkillQuestions = [
         "text": "hug",
         "word": "hug",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hug.mp3",
+        "audioPath": "/audio/vocabulary/hug.mp3",
+        "audioUrl": "/audio/vocabulary/hug.mp3"
       },
       {
         "label": "talk",
@@ -24059,7 +25572,10 @@ export const languageSkillQuestions = [
         "text": "talk",
         "word": "talk",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/talk.mp3",
+        "audioPath": "/audio/vocabulary/talk.mp3",
+        "audioUrl": "/audio/vocabulary/talk.mp3"
       },
       {
         "label": "hold",
@@ -24067,7 +25583,10 @@ export const languageSkillQuestions = [
         "text": "hold",
         "word": "hold",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hold.mp3",
+        "audioPath": "/audio/vocabulary/hold.mp3",
+        "audioUrl": "/audio/vocabulary/hold.mp3"
       }
     ],
     "choices": [
@@ -24094,7 +25613,10 @@ export const languageSkillQuestions = [
         "text": "hug",
         "word": "hug",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hug.mp3",
+        "audioPath": "/audio/vocabulary/hug.mp3",
+        "audioUrl": "/audio/vocabulary/hug.mp3"
       },
       {
         "label": "talk",
@@ -24102,7 +25624,10 @@ export const languageSkillQuestions = [
         "text": "talk",
         "word": "talk",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/talk.mp3",
+        "audioPath": "/audio/vocabulary/talk.mp3",
+        "audioUrl": "/audio/vocabulary/talk.mp3"
       },
       {
         "label": "hold",
@@ -24110,7 +25635,10 @@ export const languageSkillQuestions = [
         "text": "hold",
         "word": "hold",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hold.mp3",
+        "audioPath": "/audio/vocabulary/hold.mp3",
+        "audioUrl": "/audio/vocabulary/hold.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -24179,7 +25707,10 @@ export const languageSkillQuestions = [
         "text": "hug",
         "word": "hug",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hug.mp3",
+        "audioPath": "/audio/vocabulary/hug.mp3",
+        "audioUrl": "/audio/vocabulary/hug.mp3"
       }
     ],
     "choices": [
@@ -24228,7 +25759,10 @@ export const languageSkillQuestions = [
         "text": "hug",
         "word": "hug",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hug.mp3",
+        "audioPath": "/audio/vocabulary/hug.mp3",
+        "audioUrl": "/audio/vocabulary/hug.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -24264,7 +25798,10 @@ export const languageSkillQuestions = [
         "text": "taste",
         "word": "taste",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/taste.mp3",
+        "audioPath": "/audio/vocabulary/taste.mp3",
+        "audioUrl": "/audio/vocabulary/taste.mp3"
       },
       {
         "label": "hug",
@@ -24272,7 +25809,10 @@ export const languageSkillQuestions = [
         "text": "hug",
         "word": "hug",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hug.mp3",
+        "audioPath": "/audio/vocabulary/hug.mp3",
+        "audioUrl": "/audio/vocabulary/hug.mp3"
       },
       {
         "label": "jump",
@@ -24310,7 +25850,10 @@ export const languageSkillQuestions = [
         "text": "taste",
         "word": "taste",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/taste.mp3",
+        "audioPath": "/audio/vocabulary/taste.mp3",
+        "audioUrl": "/audio/vocabulary/taste.mp3"
       },
       {
         "label": "hug",
@@ -24318,7 +25861,10 @@ export const languageSkillQuestions = [
         "text": "hug",
         "word": "hug",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hug.mp3",
+        "audioPath": "/audio/vocabulary/hug.mp3",
+        "audioUrl": "/audio/vocabulary/hug.mp3"
       },
       {
         "label": "jump",
@@ -24346,6 +25892,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/taste-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/taste-01.webp",
     "mediaTarget": "workbook:verbs:taste",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -24509,7 +26057,10 @@ export const languageSkillQuestions = [
         "text": "learn",
         "word": "learn",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/learn.mp3",
+        "audioPath": "/audio/vocabulary/learn.mp3",
+        "audioUrl": "/audio/vocabulary/learn.mp3"
       },
       {
         "label": "think",
@@ -24517,7 +26068,10 @@ export const languageSkillQuestions = [
         "text": "think",
         "word": "think",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/think.mp3",
+        "audioPath": "/audio/vocabulary/think.mp3",
+        "audioUrl": "/audio/vocabulary/think.mp3"
       },
       {
         "label": "kick",
@@ -24555,7 +26109,10 @@ export const languageSkillQuestions = [
         "text": "learn",
         "word": "learn",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/learn.mp3",
+        "audioPath": "/audio/vocabulary/learn.mp3",
+        "audioUrl": "/audio/vocabulary/learn.mp3"
       },
       {
         "label": "think",
@@ -24563,7 +26120,10 @@ export const languageSkillQuestions = [
         "text": "think",
         "word": "think",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/think.mp3",
+        "audioPath": "/audio/vocabulary/think.mp3",
+        "audioUrl": "/audio/vocabulary/think.mp3"
       },
       {
         "label": "kick",
@@ -24643,7 +26203,10 @@ export const languageSkillQuestions = [
         "text": "learn",
         "word": "learn",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/learn.mp3",
+        "audioPath": "/audio/vocabulary/learn.mp3",
+        "audioUrl": "/audio/vocabulary/learn.mp3"
       }
     ],
     "choices": [
@@ -24692,7 +26255,10 @@ export const languageSkillQuestions = [
         "text": "learn",
         "word": "learn",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/learn.mp3",
+        "audioPath": "/audio/vocabulary/learn.mp3",
+        "audioUrl": "/audio/vocabulary/learn.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -24728,7 +26294,10 @@ export const languageSkillQuestions = [
         "text": "tickle",
         "word": "tickle",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/tickle.mp3",
+        "audioPath": "/audio/vocabulary/tickle.mp3",
+        "audioUrl": "/audio/vocabulary/tickle.mp3"
       },
       {
         "label": "learn",
@@ -24736,7 +26305,10 @@ export const languageSkillQuestions = [
         "text": "learn",
         "word": "learn",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/learn.mp3",
+        "audioPath": "/audio/vocabulary/learn.mp3",
+        "audioUrl": "/audio/vocabulary/learn.mp3"
       },
       {
         "label": "lift",
@@ -24755,7 +26327,10 @@ export const languageSkillQuestions = [
         "text": "listen",
         "word": "listen",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/listen.mp3",
+        "audioPath": "/audio/vocabulary/listen.mp3",
+        "audioUrl": "/audio/vocabulary/listen.mp3"
       }
     ],
     "choices": [
@@ -24771,7 +26346,10 @@ export const languageSkillQuestions = [
         "text": "tickle",
         "word": "tickle",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/tickle.mp3",
+        "audioPath": "/audio/vocabulary/tickle.mp3",
+        "audioUrl": "/audio/vocabulary/tickle.mp3"
       },
       {
         "label": "learn",
@@ -24779,7 +26357,10 @@ export const languageSkillQuestions = [
         "text": "learn",
         "word": "learn",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/learn.mp3",
+        "audioPath": "/audio/vocabulary/learn.mp3",
+        "audioUrl": "/audio/vocabulary/learn.mp3"
       },
       {
         "label": "lift",
@@ -24798,12 +26379,17 @@ export const languageSkillQuestions = [
         "text": "listen",
         "word": "listen",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/listen.mp3",
+        "audioPath": "/audio/vocabulary/listen.mp3",
+        "audioUrl": "/audio/vocabulary/listen.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/tickle-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/tickle-01.webp",
     "mediaTarget": "workbook:verbs:tickle",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -24843,7 +26429,10 @@ export const languageSkillQuestions = [
         "text": "listen",
         "word": "listen",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/listen.mp3",
+        "audioPath": "/audio/vocabulary/listen.mp3",
+        "audioUrl": "/audio/vocabulary/listen.mp3"
       },
       {
         "label": "look",
@@ -24851,7 +26440,10 @@ export const languageSkillQuestions = [
         "text": "look",
         "word": "look",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/look.mp3",
+        "audioPath": "/audio/vocabulary/look.mp3",
+        "audioUrl": "/audio/vocabulary/look.mp3"
       },
       {
         "label": "touch",
@@ -24859,7 +26451,10 @@ export const languageSkillQuestions = [
         "text": "touch",
         "word": "touch",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/touch.mp3",
+        "audioPath": "/audio/vocabulary/touch.mp3",
+        "audioUrl": "/audio/vocabulary/touch.mp3"
       }
     ],
     "choices": [
@@ -24886,7 +26481,10 @@ export const languageSkillQuestions = [
         "text": "listen",
         "word": "listen",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/listen.mp3",
+        "audioPath": "/audio/vocabulary/listen.mp3",
+        "audioUrl": "/audio/vocabulary/listen.mp3"
       },
       {
         "label": "look",
@@ -24894,7 +26492,10 @@ export const languageSkillQuestions = [
         "text": "look",
         "word": "look",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/look.mp3",
+        "audioPath": "/audio/vocabulary/look.mp3",
+        "audioUrl": "/audio/vocabulary/look.mp3"
       },
       {
         "label": "touch",
@@ -24902,7 +26503,10 @@ export const languageSkillQuestions = [
         "text": "touch",
         "word": "touch",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/touch.mp3",
+        "audioPath": "/audio/vocabulary/touch.mp3",
+        "audioUrl": "/audio/vocabulary/touch.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -24938,7 +26542,10 @@ export const languageSkillQuestions = [
         "text": "look",
         "word": "look",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/look.mp3",
+        "audioPath": "/audio/vocabulary/look.mp3",
+        "audioUrl": "/audio/vocabulary/look.mp3"
       },
       {
         "label": "make",
@@ -24957,7 +26564,10 @@ export const languageSkillQuestions = [
         "text": "try",
         "word": "try",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/try.mp3",
+        "audioPath": "/audio/vocabulary/try.mp3",
+        "audioUrl": "/audio/vocabulary/try.mp3"
       },
       {
         "label": "listen",
@@ -24965,7 +26575,10 @@ export const languageSkillQuestions = [
         "text": "listen",
         "word": "listen",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/listen.mp3",
+        "audioPath": "/audio/vocabulary/listen.mp3",
+        "audioUrl": "/audio/vocabulary/listen.mp3"
       }
     ],
     "choices": [
@@ -24981,7 +26594,10 @@ export const languageSkillQuestions = [
         "text": "look",
         "word": "look",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/look.mp3",
+        "audioPath": "/audio/vocabulary/look.mp3",
+        "audioUrl": "/audio/vocabulary/look.mp3"
       },
       {
         "label": "make",
@@ -25000,7 +26616,10 @@ export const languageSkillQuestions = [
         "text": "try",
         "word": "try",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/try.mp3",
+        "audioPath": "/audio/vocabulary/try.mp3",
+        "audioUrl": "/audio/vocabulary/try.mp3"
       },
       {
         "label": "listen",
@@ -25008,7 +26627,10 @@ export const languageSkillQuestions = [
         "text": "listen",
         "word": "listen",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/listen.mp3",
+        "audioPath": "/audio/vocabulary/listen.mp3",
+        "audioUrl": "/audio/vocabulary/listen.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -25066,7 +26688,10 @@ export const languageSkillQuestions = [
         "text": "look",
         "word": "look",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/look.mp3",
+        "audioPath": "/audio/vocabulary/look.mp3",
+        "audioUrl": "/audio/vocabulary/look.mp3"
       },
       {
         "label": "make",
@@ -25115,7 +26740,10 @@ export const languageSkillQuestions = [
         "text": "look",
         "word": "look",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/look.mp3",
+        "audioPath": "/audio/vocabulary/look.mp3",
+        "audioUrl": "/audio/vocabulary/look.mp3"
       },
       {
         "label": "make",
@@ -25308,7 +26936,10 @@ export const languageSkillQuestions = [
         "text": "move",
         "word": "move",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/move.mp3",
+        "audioPath": "/audio/vocabulary/move.mp3",
+        "audioUrl": "/audio/vocabulary/move.mp3"
       },
       {
         "label": "wait",
@@ -25316,7 +26947,10 @@ export const languageSkillQuestions = [
         "text": "wait",
         "word": "wait",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wait.mp3",
+        "audioPath": "/audio/vocabulary/wait.mp3",
+        "audioUrl": "/audio/vocabulary/wait.mp3"
       }
     ],
     "choices": [
@@ -25354,7 +26988,10 @@ export const languageSkillQuestions = [
         "text": "move",
         "word": "move",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/move.mp3",
+        "audioPath": "/audio/vocabulary/move.mp3",
+        "audioUrl": "/audio/vocabulary/move.mp3"
       },
       {
         "label": "wait",
@@ -25362,7 +26999,10 @@ export const languageSkillQuestions = [
         "text": "wait",
         "word": "wait",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wait.mp3",
+        "audioPath": "/audio/vocabulary/wait.mp3",
+        "audioUrl": "/audio/vocabulary/wait.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -25398,7 +27038,10 @@ export const languageSkillQuestions = [
         "text": "move",
         "word": "move",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/move.mp3",
+        "audioPath": "/audio/vocabulary/move.mp3",
+        "audioUrl": "/audio/vocabulary/move.mp3"
       },
       {
         "label": "open",
@@ -25417,7 +27060,10 @@ export const languageSkillQuestions = [
         "text": "wake",
         "word": "wake",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wake.mp3",
+        "audioPath": "/audio/vocabulary/wake.mp3",
+        "audioUrl": "/audio/vocabulary/wake.mp3"
       },
       {
         "label": "mix",
@@ -25444,7 +27090,10 @@ export const languageSkillQuestions = [
         "text": "move",
         "word": "move",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/move.mp3",
+        "audioPath": "/audio/vocabulary/move.mp3",
+        "audioUrl": "/audio/vocabulary/move.mp3"
       },
       {
         "label": "open",
@@ -25463,7 +27112,10 @@ export const languageSkillQuestions = [
         "text": "wake",
         "word": "wake",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wake.mp3",
+        "audioPath": "/audio/vocabulary/wake.mp3",
+        "audioUrl": "/audio/vocabulary/wake.mp3"
       },
       {
         "label": "mix",
@@ -25480,6 +27132,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/wake-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/wake-01.webp",
     "mediaTarget": "workbook:verbs:wake",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -25519,7 +27173,10 @@ export const languageSkillQuestions = [
         "text": "walk",
         "word": "walk",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/walk.mp3",
+        "audioPath": "/audio/vocabulary/walk.mp3",
+        "audioUrl": "/audio/vocabulary/walk.mp3"
       },
       {
         "label": "move",
@@ -25527,7 +27184,10 @@ export const languageSkillQuestions = [
         "text": "move",
         "word": "move",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/move.mp3",
+        "audioPath": "/audio/vocabulary/move.mp3",
+        "audioUrl": "/audio/vocabulary/move.mp3"
       },
       {
         "label": "open",
@@ -25565,7 +27225,10 @@ export const languageSkillQuestions = [
         "text": "walk",
         "word": "walk",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/walk.mp3",
+        "audioPath": "/audio/vocabulary/walk.mp3",
+        "audioUrl": "/audio/vocabulary/walk.mp3"
       },
       {
         "label": "move",
@@ -25573,7 +27236,10 @@ export const languageSkillQuestions = [
         "text": "move",
         "word": "move",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/move.mp3",
+        "audioPath": "/audio/vocabulary/move.mp3",
+        "audioUrl": "/audio/vocabulary/move.mp3"
       },
       {
         "label": "open",
@@ -25879,7 +27545,10 @@ export const languageSkillQuestions = [
         "text": "play",
         "word": "play",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/play.mp3",
+        "audioPath": "/audio/vocabulary/play.mp3",
+        "audioUrl": "/audio/vocabulary/play.mp3"
       },
       {
         "label": "wave",
@@ -25928,7 +27597,10 @@ export const languageSkillQuestions = [
         "text": "play",
         "word": "play",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/play.mp3",
+        "audioPath": "/audio/vocabulary/play.mp3",
+        "audioUrl": "/audio/vocabulary/play.mp3"
       },
       {
         "label": "wave",
@@ -25986,7 +27658,10 @@ export const languageSkillQuestions = [
         "text": "point",
         "word": "point",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/point.mp3",
+        "audioPath": "/audio/vocabulary/point.mp3",
+        "audioUrl": "/audio/vocabulary/point.mp3"
       },
       {
         "label": "wear",
@@ -25994,7 +27669,10 @@ export const languageSkillQuestions = [
         "text": "wear",
         "word": "wear",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wear.mp3",
+        "audioPath": "/audio/vocabulary/wear.mp3",
+        "audioUrl": "/audio/vocabulary/wear.mp3"
       },
       {
         "label": "plant",
@@ -26013,7 +27691,10 @@ export const languageSkillQuestions = [
         "text": "play",
         "word": "play",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/play.mp3",
+        "audioPath": "/audio/vocabulary/play.mp3",
+        "audioUrl": "/audio/vocabulary/play.mp3"
       }
     ],
     "choices": [
@@ -26029,7 +27710,10 @@ export const languageSkillQuestions = [
         "text": "point",
         "word": "point",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/point.mp3",
+        "audioPath": "/audio/vocabulary/point.mp3",
+        "audioUrl": "/audio/vocabulary/point.mp3"
       },
       {
         "label": "wear",
@@ -26037,7 +27721,10 @@ export const languageSkillQuestions = [
         "text": "wear",
         "word": "wear",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wear.mp3",
+        "audioPath": "/audio/vocabulary/wear.mp3",
+        "audioUrl": "/audio/vocabulary/wear.mp3"
       },
       {
         "label": "plant",
@@ -26056,7 +27743,10 @@ export const languageSkillQuestions = [
         "text": "play",
         "word": "play",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/play.mp3",
+        "audioPath": "/audio/vocabulary/play.mp3",
+        "audioUrl": "/audio/vocabulary/play.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -26092,7 +27782,10 @@ export const languageSkillQuestions = [
         "text": "whisper",
         "word": "whisper",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/whisper.mp3",
+        "audioPath": "/audio/vocabulary/whisper.mp3",
+        "audioUrl": "/audio/vocabulary/whisper.mp3"
       },
       {
         "label": "play",
@@ -26100,7 +27793,10 @@ export const languageSkillQuestions = [
         "text": "play",
         "word": "play",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/play.mp3",
+        "audioPath": "/audio/vocabulary/play.mp3",
+        "audioUrl": "/audio/vocabulary/play.mp3"
       },
       {
         "label": "point",
@@ -26108,7 +27804,10 @@ export const languageSkillQuestions = [
         "text": "point",
         "word": "point",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/point.mp3",
+        "audioPath": "/audio/vocabulary/point.mp3",
+        "audioUrl": "/audio/vocabulary/point.mp3"
       },
       {
         "label": "pour",
@@ -26135,7 +27834,10 @@ export const languageSkillQuestions = [
         "text": "whisper",
         "word": "whisper",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/whisper.mp3",
+        "audioPath": "/audio/vocabulary/whisper.mp3",
+        "audioUrl": "/audio/vocabulary/whisper.mp3"
       },
       {
         "label": "play",
@@ -26143,7 +27845,10 @@ export const languageSkillQuestions = [
         "text": "play",
         "word": "play",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/play.mp3",
+        "audioPath": "/audio/vocabulary/play.mp3",
+        "audioUrl": "/audio/vocabulary/play.mp3"
       },
       {
         "label": "point",
@@ -26151,7 +27856,10 @@ export const languageSkillQuestions = [
         "text": "point",
         "word": "point",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/point.mp3",
+        "audioPath": "/audio/vocabulary/point.mp3",
+        "audioUrl": "/audio/vocabulary/point.mp3"
       },
       {
         "label": "pour",
@@ -26168,6 +27876,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/whisper-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/whisper-01.webp",
     "mediaTarget": "workbook:verbs:whisper",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -26196,7 +27906,10 @@ export const languageSkillQuestions = [
         "text": "point",
         "word": "point",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/point.mp3",
+        "audioPath": "/audio/vocabulary/point.mp3",
+        "audioUrl": "/audio/vocabulary/point.mp3"
       },
       {
         "label": "pour",
@@ -26245,7 +27958,10 @@ export const languageSkillQuestions = [
         "text": "point",
         "word": "point",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/point.mp3",
+        "audioPath": "/audio/vocabulary/point.mp3",
+        "audioUrl": "/audio/vocabulary/point.mp3"
       },
       {
         "label": "pour",
@@ -26438,7 +28154,10 @@ export const languageSkillQuestions = [
         "text": "put",
         "word": "put",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/put.mp3",
+        "audioPath": "/audio/vocabulary/put.mp3",
+        "audioUrl": "/audio/vocabulary/put.mp3"
       },
       {
         "label": "zip",
@@ -26484,7 +28203,10 @@ export const languageSkillQuestions = [
         "text": "put",
         "word": "put",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/put.mp3",
+        "audioPath": "/audio/vocabulary/put.mp3",
+        "audioUrl": "/audio/vocabulary/put.mp3"
       },
       {
         "label": "zip",
@@ -26550,7 +28272,10 @@ export const languageSkillQuestions = [
         "text": "arrange",
         "word": "arrange",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/arrange.mp3",
+        "audioPath": "/audio/vocabulary/arrange.mp3",
+        "audioUrl": "/audio/vocabulary/arrange.mp3"
       },
       {
         "label": "push",
@@ -26569,7 +28294,10 @@ export const languageSkillQuestions = [
         "text": "put",
         "word": "put",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/put.mp3",
+        "audioPath": "/audio/vocabulary/put.mp3",
+        "audioUrl": "/audio/vocabulary/put.mp3"
       },
       {
         "label": "read",
@@ -26596,7 +28324,10 @@ export const languageSkillQuestions = [
         "text": "arrange",
         "word": "arrange",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/arrange.mp3",
+        "audioPath": "/audio/vocabulary/arrange.mp3",
+        "audioUrl": "/audio/vocabulary/arrange.mp3"
       },
       {
         "label": "push",
@@ -26615,7 +28346,10 @@ export const languageSkillQuestions = [
         "text": "put",
         "word": "put",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/put.mp3",
+        "audioPath": "/audio/vocabulary/put.mp3",
+        "audioUrl": "/audio/vocabulary/put.mp3"
       },
       {
         "label": "read",
@@ -26632,6 +28366,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/arrange-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/arrange-01.webp",
     "mediaTarget": "workbook:verbs:arrange",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -26660,7 +28396,10 @@ export const languageSkillQuestions = [
         "text": "put",
         "word": "put",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/put.mp3",
+        "audioPath": "/audio/vocabulary/put.mp3",
+        "audioUrl": "/audio/vocabulary/put.mp3"
       },
       {
         "label": "read",
@@ -26679,7 +28418,10 @@ export const languageSkillQuestions = [
         "text": "rest",
         "word": "rest",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/rest.mp3",
+        "audioPath": "/audio/vocabulary/rest.mp3",
+        "audioUrl": "/audio/vocabulary/rest.mp3"
       },
       {
         "label": "balance",
@@ -26687,7 +28429,10 @@ export const languageSkillQuestions = [
         "text": "balance",
         "word": "balance",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/balance.mp3",
+        "audioPath": "/audio/vocabulary/balance.mp3",
+        "audioUrl": "/audio/vocabulary/balance.mp3"
       }
     ],
     "choices": [
@@ -26703,7 +28448,10 @@ export const languageSkillQuestions = [
         "text": "put",
         "word": "put",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/put.mp3",
+        "audioPath": "/audio/vocabulary/put.mp3",
+        "audioUrl": "/audio/vocabulary/put.mp3"
       },
       {
         "label": "read",
@@ -26722,7 +28470,10 @@ export const languageSkillQuestions = [
         "text": "rest",
         "word": "rest",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/rest.mp3",
+        "audioPath": "/audio/vocabulary/rest.mp3",
+        "audioUrl": "/audio/vocabulary/rest.mp3"
       },
       {
         "label": "balance",
@@ -26730,12 +28481,17 @@ export const languageSkillQuestions = [
         "text": "balance",
         "word": "balance",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/balance.mp3",
+        "audioPath": "/audio/vocabulary/balance.mp3",
+        "audioUrl": "/audio/vocabulary/balance.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/balance-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/balance-01.webp",
     "mediaTarget": "workbook:verbs:balance",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -26764,7 +28520,10 @@ export const languageSkillQuestions = [
         "text": "rest",
         "word": "rest",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/rest.mp3",
+        "audioPath": "/audio/vocabulary/rest.mp3",
+        "audioUrl": "/audio/vocabulary/rest.mp3"
       },
       {
         "label": "ride",
@@ -26783,7 +28542,10 @@ export const languageSkillQuestions = [
         "text": "borrow",
         "word": "borrow",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/borrow.mp3",
+        "audioPath": "/audio/vocabulary/borrow.mp3",
+        "audioUrl": "/audio/vocabulary/borrow.mp3"
       },
       {
         "label": "read",
@@ -26810,7 +28572,10 @@ export const languageSkillQuestions = [
         "text": "rest",
         "word": "rest",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/rest.mp3",
+        "audioPath": "/audio/vocabulary/rest.mp3",
+        "audioUrl": "/audio/vocabulary/rest.mp3"
       },
       {
         "label": "ride",
@@ -26829,7 +28594,10 @@ export const languageSkillQuestions = [
         "text": "borrow",
         "word": "borrow",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/borrow.mp3",
+        "audioPath": "/audio/vocabulary/borrow.mp3",
+        "audioUrl": "/audio/vocabulary/borrow.mp3"
       },
       {
         "label": "read",
@@ -26846,6 +28614,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/borrow-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/borrow-01.webp",
     "mediaTarget": "workbook:verbs:borrow",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -26896,7 +28666,10 @@ export const languageSkillQuestions = [
         "text": "rest",
         "word": "rest",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/rest.mp3",
+        "audioPath": "/audio/vocabulary/rest.mp3",
+        "audioUrl": "/audio/vocabulary/rest.mp3"
       },
       {
         "label": "ride",
@@ -26945,7 +28718,10 @@ export const languageSkillQuestions = [
         "text": "rest",
         "word": "rest",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/rest.mp3",
+        "audioPath": "/audio/vocabulary/rest.mp3",
+        "audioUrl": "/audio/vocabulary/rest.mp3"
       },
       {
         "label": "ride",
@@ -26992,7 +28768,10 @@ export const languageSkillQuestions = [
         "text": "collect",
         "word": "collect",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/collect.mp3",
+        "audioPath": "/audio/vocabulary/collect.mp3",
+        "audioUrl": "/audio/vocabulary/collect.mp3"
       },
       {
         "label": "ride",
@@ -27041,7 +28820,10 @@ export const languageSkillQuestions = [
         "text": "collect",
         "word": "collect",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/collect.mp3",
+        "audioPath": "/audio/vocabulary/collect.mp3",
+        "audioUrl": "/audio/vocabulary/collect.mp3"
       },
       {
         "label": "ride",
@@ -27080,6 +28862,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/collect-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/collect-01.webp",
     "mediaTarget": "workbook:verbs:collect",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -27130,7 +28914,10 @@ export const languageSkillQuestions = [
         "text": "say",
         "word": "say",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/say.mp3",
+        "audioPath": "/audio/vocabulary/say.mp3",
+        "audioUrl": "/audio/vocabulary/say.mp3"
       },
       {
         "label": "compare",
@@ -27138,7 +28925,10 @@ export const languageSkillQuestions = [
         "text": "compare",
         "word": "compare",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/compare.mp3",
+        "audioPath": "/audio/vocabulary/compare.mp3",
+        "audioUrl": "/audio/vocabulary/compare.mp3"
       }
     ],
     "choices": [
@@ -27176,7 +28966,10 @@ export const languageSkillQuestions = [
         "text": "say",
         "word": "say",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/say.mp3",
+        "audioPath": "/audio/vocabulary/say.mp3",
+        "audioUrl": "/audio/vocabulary/say.mp3"
       },
       {
         "label": "compare",
@@ -27184,7 +28977,10 @@ export const languageSkillQuestions = [
         "text": "compare",
         "word": "compare",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/compare.mp3",
+        "audioPath": "/audio/vocabulary/compare.mp3",
+        "audioUrl": "/audio/vocabulary/compare.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -27220,7 +29016,10 @@ export const languageSkillQuestions = [
         "text": "say",
         "word": "say",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/say.mp3",
+        "audioPath": "/audio/vocabulary/say.mp3",
+        "audioUrl": "/audio/vocabulary/say.mp3"
       },
       {
         "label": "see",
@@ -27228,7 +29027,10 @@ export const languageSkillQuestions = [
         "text": "see",
         "word": "see",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/see.mp3",
+        "audioPath": "/audio/vocabulary/see.mp3",
+        "audioUrl": "/audio/vocabulary/see.mp3"
       },
       {
         "label": "connect",
@@ -27236,7 +29038,10 @@ export const languageSkillQuestions = [
         "text": "connect",
         "word": "connect",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/connect.mp3",
+        "audioPath": "/audio/vocabulary/connect.mp3",
+        "audioUrl": "/audio/vocabulary/connect.mp3"
       },
       {
         "label": "run",
@@ -27263,7 +29068,10 @@ export const languageSkillQuestions = [
         "text": "say",
         "word": "say",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/say.mp3",
+        "audioPath": "/audio/vocabulary/say.mp3",
+        "audioUrl": "/audio/vocabulary/say.mp3"
       },
       {
         "label": "see",
@@ -27271,7 +29079,10 @@ export const languageSkillQuestions = [
         "text": "see",
         "word": "see",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/see.mp3",
+        "audioPath": "/audio/vocabulary/see.mp3",
+        "audioUrl": "/audio/vocabulary/see.mp3"
       },
       {
         "label": "connect",
@@ -27279,7 +29090,10 @@ export const languageSkillQuestions = [
         "text": "connect",
         "word": "connect",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/connect.mp3",
+        "audioPath": "/audio/vocabulary/connect.mp3",
+        "audioUrl": "/audio/vocabulary/connect.mp3"
       },
       {
         "label": "run",
@@ -27296,6 +29110,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/connect-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/connect-01.webp",
     "mediaTarget": "workbook:verbs:connect",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -27335,7 +29151,10 @@ export const languageSkillQuestions = [
         "text": "copy",
         "word": "copy",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/copy.mp3",
+        "audioPath": "/audio/vocabulary/copy.mp3",
+        "audioUrl": "/audio/vocabulary/copy.mp3"
       },
       {
         "label": "say",
@@ -27343,7 +29162,10 @@ export const languageSkillQuestions = [
         "text": "say",
         "word": "say",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/say.mp3",
+        "audioPath": "/audio/vocabulary/say.mp3",
+        "audioUrl": "/audio/vocabulary/say.mp3"
       },
       {
         "label": "see",
@@ -27351,7 +29173,10 @@ export const languageSkillQuestions = [
         "text": "see",
         "word": "see",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/see.mp3",
+        "audioPath": "/audio/vocabulary/see.mp3",
+        "audioUrl": "/audio/vocabulary/see.mp3"
       }
     ],
     "choices": [
@@ -27378,7 +29203,10 @@ export const languageSkillQuestions = [
         "text": "copy",
         "word": "copy",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/copy.mp3",
+        "audioPath": "/audio/vocabulary/copy.mp3",
+        "audioUrl": "/audio/vocabulary/copy.mp3"
       },
       {
         "label": "say",
@@ -27386,7 +29214,10 @@ export const languageSkillQuestions = [
         "text": "say",
         "word": "say",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/say.mp3",
+        "audioPath": "/audio/vocabulary/say.mp3",
+        "audioUrl": "/audio/vocabulary/say.mp3"
       },
       {
         "label": "see",
@@ -27394,12 +29225,17 @@ export const languageSkillQuestions = [
         "text": "see",
         "word": "see",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/see.mp3",
+        "audioPath": "/audio/vocabulary/see.mp3",
+        "audioUrl": "/audio/vocabulary/see.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/copy-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/copy-01.webp",
     "mediaTarget": "workbook:verbs:copy",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -27428,7 +29264,10 @@ export const languageSkillQuestions = [
         "text": "cover",
         "word": "cover",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/cover.mp3",
+        "audioPath": "/audio/vocabulary/cover.mp3",
+        "audioUrl": "/audio/vocabulary/cover.mp3"
       },
       {
         "label": "see",
@@ -27436,7 +29275,10 @@ export const languageSkillQuestions = [
         "text": "see",
         "word": "see",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/see.mp3",
+        "audioPath": "/audio/vocabulary/see.mp3",
+        "audioUrl": "/audio/vocabulary/see.mp3"
       },
       {
         "label": "share",
@@ -27474,7 +29316,10 @@ export const languageSkillQuestions = [
         "text": "cover",
         "word": "cover",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/cover.mp3",
+        "audioPath": "/audio/vocabulary/cover.mp3",
+        "audioUrl": "/audio/vocabulary/cover.mp3"
       },
       {
         "label": "see",
@@ -27482,7 +29327,10 @@ export const languageSkillQuestions = [
         "text": "see",
         "word": "see",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/see.mp3",
+        "audioPath": "/audio/vocabulary/see.mp3",
+        "audioUrl": "/audio/vocabulary/see.mp3"
       },
       {
         "label": "share",
@@ -27510,6 +29358,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/cover-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/cover-01.webp",
     "mediaTarget": "workbook:verbs:cover",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -27560,7 +29410,10 @@ export const languageSkillQuestions = [
         "text": "sing",
         "word": "sing",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/sing.mp3",
+        "audioPath": "/audio/vocabulary/sing.mp3",
+        "audioUrl": "/audio/vocabulary/sing.mp3"
       },
       {
         "label": "decorate",
@@ -27568,7 +29421,10 @@ export const languageSkillQuestions = [
         "text": "decorate",
         "word": "decorate",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/decorate.mp3",
+        "audioPath": "/audio/vocabulary/decorate.mp3",
+        "audioUrl": "/audio/vocabulary/decorate.mp3"
       }
     ],
     "choices": [
@@ -27606,7 +29462,10 @@ export const languageSkillQuestions = [
         "text": "sing",
         "word": "sing",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/sing.mp3",
+        "audioPath": "/audio/vocabulary/sing.mp3",
+        "audioUrl": "/audio/vocabulary/sing.mp3"
       },
       {
         "label": "decorate",
@@ -27614,12 +29473,17 @@ export const languageSkillQuestions = [
         "text": "decorate",
         "word": "decorate",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/decorate.mp3",
+        "audioPath": "/audio/vocabulary/decorate.mp3",
+        "audioUrl": "/audio/vocabulary/decorate.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/decorate-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/decorate-01.webp",
     "mediaTarget": "workbook:verbs:decorate",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -27648,7 +29512,10 @@ export const languageSkillQuestions = [
         "text": "sing",
         "word": "sing",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/sing.mp3",
+        "audioPath": "/audio/vocabulary/sing.mp3",
+        "audioUrl": "/audio/vocabulary/sing.mp3"
       },
       {
         "label": "sit",
@@ -27667,7 +29534,10 @@ export const languageSkillQuestions = [
         "text": "describe",
         "word": "describe",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/describe.mp3",
+        "audioPath": "/audio/vocabulary/describe.mp3",
+        "audioUrl": "/audio/vocabulary/describe.mp3"
       },
       {
         "label": "show",
@@ -27694,7 +29564,10 @@ export const languageSkillQuestions = [
         "text": "sing",
         "word": "sing",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/sing.mp3",
+        "audioPath": "/audio/vocabulary/sing.mp3",
+        "audioUrl": "/audio/vocabulary/sing.mp3"
       },
       {
         "label": "sit",
@@ -27713,7 +29586,10 @@ export const languageSkillQuestions = [
         "text": "describe",
         "word": "describe",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/describe.mp3",
+        "audioPath": "/audio/vocabulary/describe.mp3",
+        "audioUrl": "/audio/vocabulary/describe.mp3"
       },
       {
         "label": "show",
@@ -27730,6 +29606,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/describe-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/describe-01.webp",
     "mediaTarget": "workbook:verbs:describe",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -27769,7 +29647,10 @@ export const languageSkillQuestions = [
         "text": "discover",
         "word": "discover",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/discover.mp3",
+        "audioPath": "/audio/vocabulary/discover.mp3",
+        "audioUrl": "/audio/vocabulary/discover.mp3"
       },
       {
         "label": "sing",
@@ -27777,7 +29658,10 @@ export const languageSkillQuestions = [
         "text": "sing",
         "word": "sing",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/sing.mp3",
+        "audioPath": "/audio/vocabulary/sing.mp3",
+        "audioUrl": "/audio/vocabulary/sing.mp3"
       },
       {
         "label": "sit",
@@ -27815,7 +29699,10 @@ export const languageSkillQuestions = [
         "text": "discover",
         "word": "discover",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/discover.mp3",
+        "audioPath": "/audio/vocabulary/discover.mp3",
+        "audioUrl": "/audio/vocabulary/discover.mp3"
       },
       {
         "label": "sing",
@@ -27823,7 +29710,10 @@ export const languageSkillQuestions = [
         "text": "sing",
         "word": "sing",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/sing.mp3",
+        "audioPath": "/audio/vocabulary/sing.mp3",
+        "audioUrl": "/audio/vocabulary/sing.mp3"
       },
       {
         "label": "sit",
@@ -27840,6 +29730,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/antonyms-synonyms/find-discover-01.webp",
+    "imageUrl": "/images/assessment/language/variants/antonyms-synonyms/find-discover-01.webp",
     "mediaTarget": "workbook:verbs:discover",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -27868,7 +29760,10 @@ export const languageSkillQuestions = [
         "text": "divide",
         "word": "divide",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/divide.mp3",
+        "audioPath": "/audio/vocabulary/divide.mp3",
+        "audioUrl": "/audio/vocabulary/divide.mp3"
       },
       {
         "label": "sit",
@@ -27917,7 +29812,10 @@ export const languageSkillQuestions = [
         "text": "divide",
         "word": "divide",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/divide.mp3",
+        "audioPath": "/audio/vocabulary/divide.mp3",
+        "audioUrl": "/audio/vocabulary/divide.mp3"
       },
       {
         "label": "sit",
@@ -27956,6 +29854,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/divide-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/divide-01.webp",
     "mediaTarget": "workbook:verbs:divide",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -28017,7 +29917,10 @@ export const languageSkillQuestions = [
         "text": "explain",
         "word": "explain",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/explain.mp3",
+        "audioPath": "/audio/vocabulary/explain.mp3",
+        "audioUrl": "/audio/vocabulary/explain.mp3"
       }
     ],
     "choices": [
@@ -28066,7 +29969,10 @@ export const languageSkillQuestions = [
         "text": "explain",
         "word": "explain",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/explain.mp3",
+        "audioPath": "/audio/vocabulary/explain.mp3",
+        "audioUrl": "/audio/vocabulary/explain.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -28124,7 +30030,10 @@ export const languageSkillQuestions = [
         "text": "explore",
         "word": "explore",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/explore.mp3",
+        "audioPath": "/audio/vocabulary/explore.mp3",
+        "audioUrl": "/audio/vocabulary/explore.mp3"
       },
       {
         "label": "sleep",
@@ -28173,7 +30082,10 @@ export const languageSkillQuestions = [
         "text": "explore",
         "word": "explore",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/explore.mp3",
+        "audioPath": "/audio/vocabulary/explore.mp3",
+        "audioUrl": "/audio/vocabulary/explore.mp3"
       },
       {
         "label": "sleep",
@@ -28190,6 +30102,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/explore-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/explore-01.webp",
     "mediaTarget": "workbook:verbs:explore",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -28229,7 +30143,10 @@ export const languageSkillQuestions = [
         "text": "finish",
         "word": "finish",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/finish.mp3",
+        "audioPath": "/audio/vocabulary/finish.mp3",
+        "audioUrl": "/audio/vocabulary/finish.mp3"
       },
       {
         "label": "slide",
@@ -28278,7 +30195,10 @@ export const languageSkillQuestions = [
         "text": "finish",
         "word": "finish",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/finish.mp3",
+        "audioPath": "/audio/vocabulary/finish.mp3",
+        "audioUrl": "/audio/vocabulary/finish.mp3"
       },
       {
         "label": "slide",
@@ -28336,7 +30256,10 @@ export const languageSkillQuestions = [
         "text": "gather",
         "word": "gather",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/gather.mp3",
+        "audioPath": "/audio/vocabulary/gather.mp3",
+        "audioUrl": "/audio/vocabulary/gather.mp3"
       },
       {
         "label": "smell",
@@ -28385,7 +30308,10 @@ export const languageSkillQuestions = [
         "text": "gather",
         "word": "gather",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/gather.mp3",
+        "audioPath": "/audio/vocabulary/gather.mp3",
+        "audioUrl": "/audio/vocabulary/gather.mp3"
       },
       {
         "label": "smell",
@@ -28424,6 +30350,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/gather-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/gather-01.webp",
     "mediaTarget": "workbook:verbs:gather",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -28485,7 +30413,10 @@ export const languageSkillQuestions = [
         "text": "glue",
         "word": "glue",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/glue.mp3",
+        "audioPath": "/audio/vocabulary/glue.mp3",
+        "audioUrl": "/audio/vocabulary/glue.mp3"
       }
     ],
     "choices": [
@@ -28534,12 +30465,17 @@ export const languageSkillQuestions = [
         "text": "glue",
         "word": "glue",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/glue.mp3",
+        "audioPath": "/audio/vocabulary/glue.mp3",
+        "audioUrl": "/audio/vocabulary/glue.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/glue-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/glue-01.webp",
     "mediaTarget": "workbook:verbs:glue",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -28703,7 +30639,10 @@ export const languageSkillQuestions = [
         "text": "invite",
         "word": "invite",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/invite.mp3",
+        "audioPath": "/audio/vocabulary/invite.mp3",
+        "audioUrl": "/audio/vocabulary/invite.mp3"
       },
       {
         "label": "speak",
@@ -28752,7 +30691,10 @@ export const languageSkillQuestions = [
         "text": "invite",
         "word": "invite",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/invite.mp3",
+        "audioPath": "/audio/vocabulary/invite.mp3",
+        "audioUrl": "/audio/vocabulary/invite.mp3"
       },
       {
         "label": "speak",
@@ -28780,6 +30722,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/invite-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/invite-01.webp",
     "mediaTarget": "workbook:verbs:invite",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -28954,7 +30898,10 @@ export const languageSkillQuestions = [
         "text": "stay",
         "word": "stay",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/stay.mp3",
+        "audioPath": "/audio/vocabulary/stay.mp3",
+        "audioUrl": "/audio/vocabulary/stay.mp3"
       },
       {
         "label": "label",
@@ -28962,7 +30909,10 @@ export const languageSkillQuestions = [
         "text": "label",
         "word": "label",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/label.mp3",
+        "audioPath": "/audio/vocabulary/label.mp3",
+        "audioUrl": "/audio/vocabulary/label.mp3"
       }
     ],
     "choices": [
@@ -29000,7 +30950,10 @@ export const languageSkillQuestions = [
         "text": "stay",
         "word": "stay",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/stay.mp3",
+        "audioPath": "/audio/vocabulary/stay.mp3",
+        "audioUrl": "/audio/vocabulary/stay.mp3"
       },
       {
         "label": "label",
@@ -29008,12 +30961,17 @@ export const languageSkillQuestions = [
         "text": "label",
         "word": "label",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/label.mp3",
+        "audioPath": "/audio/vocabulary/label.mp3",
+        "audioUrl": "/audio/vocabulary/label.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/label-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/label-01.webp",
     "mediaTarget": "workbook:verbs:label",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -29042,7 +31000,10 @@ export const languageSkillQuestions = [
         "text": "stay",
         "word": "stay",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/stay.mp3",
+        "audioPath": "/audio/vocabulary/stay.mp3",
+        "audioUrl": "/audio/vocabulary/stay.mp3"
       },
       {
         "label": "stop",
@@ -29061,7 +31022,10 @@ export const languageSkillQuestions = [
         "text": "measure",
         "word": "measure",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/measure.mp3",
+        "audioPath": "/audio/vocabulary/measure.mp3",
+        "audioUrl": "/audio/vocabulary/measure.mp3"
       },
       {
         "label": "start",
@@ -29088,7 +31052,10 @@ export const languageSkillQuestions = [
         "text": "stay",
         "word": "stay",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/stay.mp3",
+        "audioPath": "/audio/vocabulary/stay.mp3",
+        "audioUrl": "/audio/vocabulary/stay.mp3"
       },
       {
         "label": "stop",
@@ -29107,7 +31074,10 @@ export const languageSkillQuestions = [
         "text": "measure",
         "word": "measure",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/measure.mp3",
+        "audioPath": "/audio/vocabulary/measure.mp3",
+        "audioUrl": "/audio/vocabulary/measure.mp3"
       },
       {
         "label": "start",
@@ -29165,7 +31135,10 @@ export const languageSkillQuestions = [
         "text": "notice",
         "word": "notice",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/notice.mp3",
+        "audioPath": "/audio/vocabulary/notice.mp3",
+        "audioUrl": "/audio/vocabulary/notice.mp3"
       },
       {
         "label": "stay",
@@ -29173,7 +31146,10 @@ export const languageSkillQuestions = [
         "text": "stay",
         "word": "stay",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/stay.mp3",
+        "audioPath": "/audio/vocabulary/stay.mp3",
+        "audioUrl": "/audio/vocabulary/stay.mp3"
       },
       {
         "label": "stop",
@@ -29211,7 +31187,10 @@ export const languageSkillQuestions = [
         "text": "notice",
         "word": "notice",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/notice.mp3",
+        "audioPath": "/audio/vocabulary/notice.mp3",
+        "audioUrl": "/audio/vocabulary/notice.mp3"
       },
       {
         "label": "stay",
@@ -29219,7 +31198,10 @@ export const languageSkillQuestions = [
         "text": "stay",
         "word": "stay",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/stay.mp3",
+        "audioPath": "/audio/vocabulary/stay.mp3",
+        "audioUrl": "/audio/vocabulary/stay.mp3"
       },
       {
         "label": "stop",
@@ -29236,6 +31218,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/notice-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/notice-01.webp",
     "mediaTarget": "workbook:verbs:notice",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -29264,7 +31248,10 @@ export const languageSkillQuestions = [
         "text": "pack",
         "word": "pack",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/pack.mp3",
+        "audioPath": "/audio/vocabulary/pack.mp3",
+        "audioUrl": "/audio/vocabulary/pack.mp3"
       },
       {
         "label": "stop",
@@ -29313,7 +31300,10 @@ export const languageSkillQuestions = [
         "text": "pack",
         "word": "pack",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/pack.mp3",
+        "audioPath": "/audio/vocabulary/pack.mp3",
+        "audioUrl": "/audio/vocabulary/pack.mp3"
       },
       {
         "label": "stop",
@@ -29352,6 +31342,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/pack-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/pack-01.webp",
     "mediaTarget": "workbook:verbs:pack",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -29413,7 +31405,10 @@ export const languageSkillQuestions = [
         "text": "practice",
         "word": "practice",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/practice.mp3",
+        "audioPath": "/audio/vocabulary/practice.mp3",
+        "audioUrl": "/audio/vocabulary/practice.mp3"
       }
     ],
     "choices": [
@@ -29462,12 +31457,17 @@ export const languageSkillQuestions = [
         "text": "practice",
         "word": "practice",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/practice.mp3",
+        "audioPath": "/audio/vocabulary/practice.mp3",
+        "audioUrl": "/audio/vocabulary/practice.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/practice-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/practice-01.webp",
     "mediaTarget": "workbook:verbs:practice",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -29507,7 +31507,10 @@ export const languageSkillQuestions = [
         "text": "talk",
         "word": "talk",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/talk.mp3",
+        "audioPath": "/audio/vocabulary/talk.mp3",
+        "audioUrl": "/audio/vocabulary/talk.mp3"
       },
       {
         "label": "pretend",
@@ -29515,7 +31518,10 @@ export const languageSkillQuestions = [
         "text": "pretend",
         "word": "pretend",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/pretend.mp3",
+        "audioPath": "/audio/vocabulary/pretend.mp3",
+        "audioUrl": "/audio/vocabulary/pretend.mp3"
       },
       {
         "label": "swing",
@@ -29553,7 +31559,10 @@ export const languageSkillQuestions = [
         "text": "talk",
         "word": "talk",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/talk.mp3",
+        "audioPath": "/audio/vocabulary/talk.mp3",
+        "audioUrl": "/audio/vocabulary/talk.mp3"
       },
       {
         "label": "pretend",
@@ -29561,7 +31570,10 @@ export const languageSkillQuestions = [
         "text": "pretend",
         "word": "pretend",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/pretend.mp3",
+        "audioPath": "/audio/vocabulary/pretend.mp3",
+        "audioUrl": "/audio/vocabulary/pretend.mp3"
       },
       {
         "label": "swing",
@@ -29578,6 +31590,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/pretend-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/pretend-01.webp",
     "mediaTarget": "workbook:verbs:pretend",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -29617,7 +31631,10 @@ export const languageSkillQuestions = [
         "text": "remember",
         "word": "remember",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/remember.mp3",
+        "audioPath": "/audio/vocabulary/remember.mp3",
+        "audioUrl": "/audio/vocabulary/remember.mp3"
       },
       {
         "label": "take",
@@ -29636,7 +31653,10 @@ export const languageSkillQuestions = [
         "text": "talk",
         "word": "talk",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/talk.mp3",
+        "audioPath": "/audio/vocabulary/talk.mp3",
+        "audioUrl": "/audio/vocabulary/talk.mp3"
       }
     ],
     "choices": [
@@ -29663,7 +31683,10 @@ export const languageSkillQuestions = [
         "text": "remember",
         "word": "remember",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/remember.mp3",
+        "audioPath": "/audio/vocabulary/remember.mp3",
+        "audioUrl": "/audio/vocabulary/remember.mp3"
       },
       {
         "label": "take",
@@ -29682,12 +31705,17 @@ export const languageSkillQuestions = [
         "text": "talk",
         "word": "talk",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/talk.mp3",
+        "audioPath": "/audio/vocabulary/talk.mp3",
+        "audioUrl": "/audio/vocabulary/talk.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/remember-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/remember-01.webp",
     "mediaTarget": "workbook:verbs:remember",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -29716,7 +31744,10 @@ export const languageSkillQuestions = [
         "text": "repeat",
         "word": "repeat",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/repeat.mp3",
+        "audioPath": "/audio/vocabulary/repeat.mp3",
+        "audioUrl": "/audio/vocabulary/repeat.mp3"
       },
       {
         "label": "talk",
@@ -29724,7 +31755,10 @@ export const languageSkillQuestions = [
         "text": "talk",
         "word": "talk",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/talk.mp3",
+        "audioPath": "/audio/vocabulary/talk.mp3",
+        "audioUrl": "/audio/vocabulary/talk.mp3"
       },
       {
         "label": "tap",
@@ -29743,7 +31777,10 @@ export const languageSkillQuestions = [
         "text": "taste",
         "word": "taste",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/taste.mp3",
+        "audioPath": "/audio/vocabulary/taste.mp3",
+        "audioUrl": "/audio/vocabulary/taste.mp3"
       }
     ],
     "choices": [
@@ -29759,7 +31796,10 @@ export const languageSkillQuestions = [
         "text": "repeat",
         "word": "repeat",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/repeat.mp3",
+        "audioPath": "/audio/vocabulary/repeat.mp3",
+        "audioUrl": "/audio/vocabulary/repeat.mp3"
       },
       {
         "label": "talk",
@@ -29767,7 +31807,10 @@ export const languageSkillQuestions = [
         "text": "talk",
         "word": "talk",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/talk.mp3",
+        "audioPath": "/audio/vocabulary/talk.mp3",
+        "audioUrl": "/audio/vocabulary/talk.mp3"
       },
       {
         "label": "tap",
@@ -29786,12 +31829,17 @@ export const languageSkillQuestions = [
         "text": "taste",
         "word": "taste",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/taste.mp3",
+        "audioPath": "/audio/vocabulary/taste.mp3",
+        "audioUrl": "/audio/vocabulary/taste.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/repeat-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/repeat-01.webp",
     "mediaTarget": "workbook:verbs:repeat",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -29831,7 +31879,10 @@ export const languageSkillQuestions = [
         "text": "taste",
         "word": "taste",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/taste.mp3",
+        "audioPath": "/audio/vocabulary/taste.mp3",
+        "audioUrl": "/audio/vocabulary/taste.mp3"
       },
       {
         "label": "teach",
@@ -29880,7 +31931,10 @@ export const languageSkillQuestions = [
         "text": "taste",
         "word": "taste",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/taste.mp3",
+        "audioPath": "/audio/vocabulary/taste.mp3",
+        "audioUrl": "/audio/vocabulary/taste.mp3"
       },
       {
         "label": "teach",
@@ -29949,7 +32003,10 @@ export const languageSkillQuestions = [
         "text": "think",
         "word": "think",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/think.mp3",
+        "audioPath": "/audio/vocabulary/think.mp3",
+        "audioUrl": "/audio/vocabulary/think.mp3"
       },
       {
         "label": "return",
@@ -29957,7 +32014,10 @@ export const languageSkillQuestions = [
         "text": "return",
         "word": "return",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/return.mp3",
+        "audioPath": "/audio/vocabulary/return.mp3",
+        "audioUrl": "/audio/vocabulary/return.mp3"
       },
       {
         "label": "taste",
@@ -29965,7 +32025,10 @@ export const languageSkillQuestions = [
         "text": "taste",
         "word": "taste",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/taste.mp3",
+        "audioPath": "/audio/vocabulary/taste.mp3",
+        "audioUrl": "/audio/vocabulary/taste.mp3"
       }
     ],
     "choices": [
@@ -29992,7 +32055,10 @@ export const languageSkillQuestions = [
         "text": "think",
         "word": "think",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/think.mp3",
+        "audioPath": "/audio/vocabulary/think.mp3",
+        "audioUrl": "/audio/vocabulary/think.mp3"
       },
       {
         "label": "return",
@@ -30000,7 +32066,10 @@ export const languageSkillQuestions = [
         "text": "return",
         "word": "return",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/return.mp3",
+        "audioPath": "/audio/vocabulary/return.mp3",
+        "audioUrl": "/audio/vocabulary/return.mp3"
       },
       {
         "label": "taste",
@@ -30008,12 +32077,17 @@ export const languageSkillQuestions = [
         "text": "taste",
         "word": "taste",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/taste.mp3",
+        "audioPath": "/audio/vocabulary/taste.mp3",
+        "audioUrl": "/audio/vocabulary/taste.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/prefixes-suffixes/return-01.webp",
+    "imageUrl": "/images/assessment/language/variants/prefixes-suffixes/return-01.webp",
     "mediaTarget": "workbook:verbs:return",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -30053,7 +32127,10 @@ export const languageSkillQuestions = [
         "text": "search",
         "word": "search",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/search.mp3",
+        "audioPath": "/audio/vocabulary/search.mp3",
+        "audioUrl": "/audio/vocabulary/search.mp3"
       },
       {
         "label": "teach",
@@ -30072,7 +32149,10 @@ export const languageSkillQuestions = [
         "text": "think",
         "word": "think",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/think.mp3",
+        "audioPath": "/audio/vocabulary/think.mp3",
+        "audioUrl": "/audio/vocabulary/think.mp3"
       }
     ],
     "choices": [
@@ -30099,7 +32179,10 @@ export const languageSkillQuestions = [
         "text": "search",
         "word": "search",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/search.mp3",
+        "audioPath": "/audio/vocabulary/search.mp3",
+        "audioUrl": "/audio/vocabulary/search.mp3"
       },
       {
         "label": "teach",
@@ -30118,12 +32201,17 @@ export const languageSkillQuestions = [
         "text": "think",
         "word": "think",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/think.mp3",
+        "audioPath": "/audio/vocabulary/think.mp3",
+        "audioUrl": "/audio/vocabulary/think.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/search-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/search-01.webp",
     "mediaTarget": "workbook:verbs:search",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -30152,7 +32240,10 @@ export const languageSkillQuestions = [
         "text": "separate",
         "word": "separate",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/separate.mp3",
+        "audioPath": "/audio/vocabulary/separate.mp3",
+        "audioUrl": "/audio/vocabulary/separate.mp3"
       },
       {
         "label": "think",
@@ -30160,7 +32251,10 @@ export const languageSkillQuestions = [
         "text": "think",
         "word": "think",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/think.mp3",
+        "audioPath": "/audio/vocabulary/think.mp3",
+        "audioUrl": "/audio/vocabulary/think.mp3"
       },
       {
         "label": "throw",
@@ -30179,7 +32273,10 @@ export const languageSkillQuestions = [
         "text": "tickle",
         "word": "tickle",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/tickle.mp3",
+        "audioPath": "/audio/vocabulary/tickle.mp3",
+        "audioUrl": "/audio/vocabulary/tickle.mp3"
       }
     ],
     "choices": [
@@ -30195,7 +32292,10 @@ export const languageSkillQuestions = [
         "text": "separate",
         "word": "separate",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/separate.mp3",
+        "audioPath": "/audio/vocabulary/separate.mp3",
+        "audioUrl": "/audio/vocabulary/separate.mp3"
       },
       {
         "label": "think",
@@ -30203,7 +32303,10 @@ export const languageSkillQuestions = [
         "text": "think",
         "word": "think",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/think.mp3",
+        "audioPath": "/audio/vocabulary/think.mp3",
+        "audioUrl": "/audio/vocabulary/think.mp3"
       },
       {
         "label": "throw",
@@ -30222,12 +32325,17 @@ export const languageSkillQuestions = [
         "text": "tickle",
         "word": "tickle",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/tickle.mp3",
+        "audioPath": "/audio/vocabulary/tickle.mp3",
+        "audioUrl": "/audio/vocabulary/tickle.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/separate-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/separate-01.webp",
     "mediaTarget": "workbook:verbs:separate",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -30267,7 +32375,10 @@ export const languageSkillQuestions = [
         "text": "tickle",
         "word": "tickle",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/tickle.mp3",
+        "audioPath": "/audio/vocabulary/tickle.mp3",
+        "audioUrl": "/audio/vocabulary/tickle.mp3"
       },
       {
         "label": "touch",
@@ -30275,7 +32386,10 @@ export const languageSkillQuestions = [
         "text": "touch",
         "word": "touch",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/touch.mp3",
+        "audioPath": "/audio/vocabulary/touch.mp3",
+        "audioUrl": "/audio/vocabulary/touch.mp3"
       },
       {
         "label": "solve",
@@ -30283,7 +32397,10 @@ export const languageSkillQuestions = [
         "text": "solve",
         "word": "solve",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/solve.mp3",
+        "audioPath": "/audio/vocabulary/solve.mp3",
+        "audioUrl": "/audio/vocabulary/solve.mp3"
       }
     ],
     "choices": [
@@ -30310,7 +32427,10 @@ export const languageSkillQuestions = [
         "text": "tickle",
         "word": "tickle",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/tickle.mp3",
+        "audioPath": "/audio/vocabulary/tickle.mp3",
+        "audioUrl": "/audio/vocabulary/tickle.mp3"
       },
       {
         "label": "touch",
@@ -30318,7 +32438,10 @@ export const languageSkillQuestions = [
         "text": "touch",
         "word": "touch",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/touch.mp3",
+        "audioPath": "/audio/vocabulary/touch.mp3",
+        "audioUrl": "/audio/vocabulary/touch.mp3"
       },
       {
         "label": "solve",
@@ -30326,12 +32449,17 @@ export const languageSkillQuestions = [
         "text": "solve",
         "word": "solve",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/solve.mp3",
+        "audioPath": "/audio/vocabulary/solve.mp3",
+        "audioUrl": "/audio/vocabulary/solve.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/solve-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/solve-01.webp",
     "mediaTarget": "workbook:verbs:solve",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -30360,7 +32488,10 @@ export const languageSkillQuestions = [
         "text": "touch",
         "word": "touch",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/touch.mp3",
+        "audioPath": "/audio/vocabulary/touch.mp3",
+        "audioUrl": "/audio/vocabulary/touch.mp3"
       },
       {
         "label": "try",
@@ -30368,7 +32499,10 @@ export const languageSkillQuestions = [
         "text": "try",
         "word": "try",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/try.mp3",
+        "audioPath": "/audio/vocabulary/try.mp3",
+        "audioUrl": "/audio/vocabulary/try.mp3"
       },
       {
         "label": "sprinkle",
@@ -30376,7 +32510,10 @@ export const languageSkillQuestions = [
         "text": "sprinkle",
         "word": "sprinkle",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/sprinkle.mp3",
+        "audioPath": "/audio/vocabulary/sprinkle.mp3",
+        "audioUrl": "/audio/vocabulary/sprinkle.mp3"
       },
       {
         "label": "tickle",
@@ -30384,7 +32521,10 @@ export const languageSkillQuestions = [
         "text": "tickle",
         "word": "tickle",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/tickle.mp3",
+        "audioPath": "/audio/vocabulary/tickle.mp3",
+        "audioUrl": "/audio/vocabulary/tickle.mp3"
       }
     ],
     "choices": [
@@ -30400,7 +32540,10 @@ export const languageSkillQuestions = [
         "text": "touch",
         "word": "touch",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/touch.mp3",
+        "audioPath": "/audio/vocabulary/touch.mp3",
+        "audioUrl": "/audio/vocabulary/touch.mp3"
       },
       {
         "label": "try",
@@ -30408,7 +32551,10 @@ export const languageSkillQuestions = [
         "text": "try",
         "word": "try",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/try.mp3",
+        "audioPath": "/audio/vocabulary/try.mp3",
+        "audioUrl": "/audio/vocabulary/try.mp3"
       },
       {
         "label": "sprinkle",
@@ -30416,7 +32562,10 @@ export const languageSkillQuestions = [
         "text": "sprinkle",
         "word": "sprinkle",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/sprinkle.mp3",
+        "audioPath": "/audio/vocabulary/sprinkle.mp3",
+        "audioUrl": "/audio/vocabulary/sprinkle.mp3"
       },
       {
         "label": "tickle",
@@ -30424,12 +32573,17 @@ export const languageSkillQuestions = [
         "text": "tickle",
         "word": "tickle",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/tickle.mp3",
+        "audioPath": "/audio/vocabulary/tickle.mp3",
+        "audioUrl": "/audio/vocabulary/tickle.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/sprinkle-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/sprinkle-01.webp",
     "mediaTarget": "workbook:verbs:sprinkle",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -30469,7 +32623,10 @@ export const languageSkillQuestions = [
         "text": "stretch",
         "word": "stretch",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/stretch.mp3",
+        "audioPath": "/audio/vocabulary/stretch.mp3",
+        "audioUrl": "/audio/vocabulary/stretch.mp3"
       },
       {
         "label": "touch",
@@ -30477,7 +32634,10 @@ export const languageSkillQuestions = [
         "text": "touch",
         "word": "touch",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/touch.mp3",
+        "audioPath": "/audio/vocabulary/touch.mp3",
+        "audioUrl": "/audio/vocabulary/touch.mp3"
       },
       {
         "label": "try",
@@ -30485,7 +32645,10 @@ export const languageSkillQuestions = [
         "text": "try",
         "word": "try",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/try.mp3",
+        "audioPath": "/audio/vocabulary/try.mp3",
+        "audioUrl": "/audio/vocabulary/try.mp3"
       }
     ],
     "choices": [
@@ -30512,7 +32675,10 @@ export const languageSkillQuestions = [
         "text": "stretch",
         "word": "stretch",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/stretch.mp3",
+        "audioPath": "/audio/vocabulary/stretch.mp3",
+        "audioUrl": "/audio/vocabulary/stretch.mp3"
       },
       {
         "label": "touch",
@@ -30520,7 +32686,10 @@ export const languageSkillQuestions = [
         "text": "touch",
         "word": "touch",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/touch.mp3",
+        "audioPath": "/audio/vocabulary/touch.mp3",
+        "audioUrl": "/audio/vocabulary/touch.mp3"
       },
       {
         "label": "try",
@@ -30528,12 +32697,17 @@ export const languageSkillQuestions = [
         "text": "try",
         "word": "try",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/try.mp3",
+        "audioPath": "/audio/vocabulary/try.mp3",
+        "audioUrl": "/audio/vocabulary/try.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/stretch-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/stretch-01.webp",
     "mediaTarget": "workbook:verbs:stretch",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -30562,7 +32736,10 @@ export const languageSkillQuestions = [
         "text": "travel",
         "word": "travel",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/travel.mp3",
+        "audioPath": "/audio/vocabulary/travel.mp3",
+        "audioUrl": "/audio/vocabulary/travel.mp3"
       },
       {
         "label": "try",
@@ -30570,7 +32747,10 @@ export const languageSkillQuestions = [
         "text": "try",
         "word": "try",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/try.mp3",
+        "audioPath": "/audio/vocabulary/try.mp3",
+        "audioUrl": "/audio/vocabulary/try.mp3"
       },
       {
         "label": "turn",
@@ -30608,7 +32788,10 @@ export const languageSkillQuestions = [
         "text": "travel",
         "word": "travel",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/travel.mp3",
+        "audioPath": "/audio/vocabulary/travel.mp3",
+        "audioUrl": "/audio/vocabulary/travel.mp3"
       },
       {
         "label": "try",
@@ -30616,7 +32799,10 @@ export const languageSkillQuestions = [
         "text": "try",
         "word": "try",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/try.mp3",
+        "audioPath": "/audio/vocabulary/try.mp3",
+        "audioUrl": "/audio/vocabulary/try.mp3"
       },
       {
         "label": "turn",
@@ -30644,6 +32830,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/travel-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/travel-01.webp",
     "mediaTarget": "workbook:verbs:travel",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -30694,7 +32882,10 @@ export const languageSkillQuestions = [
         "text": "wait",
         "word": "wait",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wait.mp3",
+        "audioPath": "/audio/vocabulary/wait.mp3",
+        "audioUrl": "/audio/vocabulary/wait.mp3"
       },
       {
         "label": "visit",
@@ -30743,7 +32934,10 @@ export const languageSkillQuestions = [
         "text": "wait",
         "word": "wait",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wait.mp3",
+        "audioPath": "/audio/vocabulary/wait.mp3",
+        "audioUrl": "/audio/vocabulary/wait.mp3"
       },
       {
         "label": "visit",
@@ -30790,7 +32984,10 @@ export const languageSkillQuestions = [
         "text": "wait",
         "word": "wait",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wait.mp3",
+        "audioPath": "/audio/vocabulary/wait.mp3",
+        "audioUrl": "/audio/vocabulary/wait.mp3"
       },
       {
         "label": "wake",
@@ -30798,7 +32995,10 @@ export const languageSkillQuestions = [
         "text": "wake",
         "word": "wake",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wake.mp3",
+        "audioPath": "/audio/vocabulary/wake.mp3",
+        "audioUrl": "/audio/vocabulary/wake.mp3"
       },
       {
         "label": "wonder",
@@ -30806,7 +33006,10 @@ export const languageSkillQuestions = [
         "text": "wonder",
         "word": "wonder",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wonder.mp3",
+        "audioPath": "/audio/vocabulary/wonder.mp3",
+        "audioUrl": "/audio/vocabulary/wonder.mp3"
       },
       {
         "label": "use",
@@ -30833,7 +33036,10 @@ export const languageSkillQuestions = [
         "text": "wait",
         "word": "wait",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wait.mp3",
+        "audioPath": "/audio/vocabulary/wait.mp3",
+        "audioUrl": "/audio/vocabulary/wait.mp3"
       },
       {
         "label": "wake",
@@ -30841,7 +33047,10 @@ export const languageSkillQuestions = [
         "text": "wake",
         "word": "wake",
         "correct": false,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wake.mp3",
+        "audioPath": "/audio/vocabulary/wake.mp3",
+        "audioUrl": "/audio/vocabulary/wake.mp3"
       },
       {
         "label": "wonder",
@@ -30849,7 +33058,10 @@ export const languageSkillQuestions = [
         "text": "wonder",
         "word": "wonder",
         "correct": true,
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/wonder.mp3",
+        "audioPath": "/audio/vocabulary/wonder.mp3",
+        "audioUrl": "/audio/vocabulary/wonder.mp3"
       },
       {
         "label": "use",
@@ -30866,6 +33078,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/verbs/wonder-01.webp",
+    "imageUrl": "/images/assessment/language/variants/verbs/wonder-01.webp",
     "mediaTarget": "workbook:verbs:wonder",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -30894,7 +33108,10 @@ export const languageSkillQuestions = [
         "text": "narrow",
         "word": "narrow",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/narrow.mp3",
+        "audioPath": "/audio/vocabulary/narrow.mp3",
+        "audioUrl": "/audio/vocabulary/narrow.mp3"
       },
       {
         "label": "big",
@@ -30913,7 +33130,10 @@ export const languageSkillQuestions = [
         "text": "huge",
         "word": "huge",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/huge.mp3",
+        "audioPath": "/audio/vocabulary/huge.mp3",
+        "audioUrl": "/audio/vocabulary/huge.mp3"
       },
       {
         "label": "wide",
@@ -30921,7 +33141,10 @@ export const languageSkillQuestions = [
         "text": "wide",
         "word": "wide",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/wide.mp3",
+        "audioPath": "/audio/vocabulary/wide.mp3",
+        "audioUrl": "/audio/vocabulary/wide.mp3"
       }
     ],
     "choices": [
@@ -30937,7 +33160,10 @@ export const languageSkillQuestions = [
         "text": "narrow",
         "word": "narrow",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/narrow.mp3",
+        "audioPath": "/audio/vocabulary/narrow.mp3",
+        "audioUrl": "/audio/vocabulary/narrow.mp3"
       },
       {
         "label": "big",
@@ -30956,7 +33182,10 @@ export const languageSkillQuestions = [
         "text": "huge",
         "word": "huge",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/huge.mp3",
+        "audioPath": "/audio/vocabulary/huge.mp3",
+        "audioUrl": "/audio/vocabulary/huge.mp3"
       },
       {
         "label": "wide",
@@ -30964,7 +33193,10 @@ export const languageSkillQuestions = [
         "text": "wide",
         "word": "wide",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/wide.mp3",
+        "audioPath": "/audio/vocabulary/wide.mp3",
+        "audioUrl": "/audio/vocabulary/wide.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -31011,7 +33243,10 @@ export const languageSkillQuestions = [
         "text": "wide",
         "word": "wide",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/wide.mp3",
+        "audioPath": "/audio/vocabulary/wide.mp3",
+        "audioUrl": "/audio/vocabulary/wide.mp3"
       },
       {
         "label": "narrow",
@@ -31019,7 +33254,10 @@ export const languageSkillQuestions = [
         "text": "narrow",
         "word": "narrow",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/narrow.mp3",
+        "audioPath": "/audio/vocabulary/narrow.mp3",
+        "audioUrl": "/audio/vocabulary/narrow.mp3"
       },
       {
         "label": "thin",
@@ -31057,7 +33295,10 @@ export const languageSkillQuestions = [
         "text": "wide",
         "word": "wide",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/wide.mp3",
+        "audioPath": "/audio/vocabulary/wide.mp3",
+        "audioUrl": "/audio/vocabulary/wide.mp3"
       },
       {
         "label": "narrow",
@@ -31065,7 +33306,10 @@ export const languageSkillQuestions = [
         "text": "narrow",
         "word": "narrow",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/narrow.mp3",
+        "audioPath": "/audio/vocabulary/narrow.mp3",
+        "audioUrl": "/audio/vocabulary/narrow.mp3"
       },
       {
         "label": "thin",
@@ -31112,7 +33356,10 @@ export const languageSkillQuestions = [
         "text": "narrow",
         "word": "narrow",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/narrow.mp3",
+        "audioPath": "/audio/vocabulary/narrow.mp3",
+        "audioUrl": "/audio/vocabulary/narrow.mp3"
       },
       {
         "label": "thin",
@@ -31131,7 +33378,10 @@ export const languageSkillQuestions = [
         "text": "thick",
         "word": "thick",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/thick.mp3",
+        "audioPath": "/audio/vocabulary/thick.mp3",
+        "audioUrl": "/audio/vocabulary/thick.mp3"
       },
       {
         "label": "little",
@@ -31158,7 +33408,10 @@ export const languageSkillQuestions = [
         "text": "narrow",
         "word": "narrow",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/narrow.mp3",
+        "audioPath": "/audio/vocabulary/narrow.mp3",
+        "audioUrl": "/audio/vocabulary/narrow.mp3"
       },
       {
         "label": "thin",
@@ -31177,7 +33430,10 @@ export const languageSkillQuestions = [
         "text": "thick",
         "word": "thick",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/thick.mp3",
+        "audioPath": "/audio/vocabulary/thick.mp3",
+        "audioUrl": "/audio/vocabulary/thick.mp3"
       },
       {
         "label": "little",
@@ -31194,6 +33450,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/little-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/little-01.webp",
     "mediaTarget": "workbook:adjectives:little",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -31222,7 +33480,10 @@ export const languageSkillQuestions = [
         "text": "thick",
         "word": "thick",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/thick.mp3",
+        "audioPath": "/audio/vocabulary/thick.mp3",
+        "audioUrl": "/audio/vocabulary/thick.mp3"
       },
       {
         "label": "hot",
@@ -31241,7 +33502,10 @@ export const languageSkillQuestions = [
         "text": "large",
         "word": "large",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/large.mp3",
+        "audioPath": "/audio/vocabulary/large.mp3",
+        "audioUrl": "/audio/vocabulary/large.mp3"
       },
       {
         "label": "thin",
@@ -31268,7 +33532,10 @@ export const languageSkillQuestions = [
         "text": "thick",
         "word": "thick",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/thick.mp3",
+        "audioPath": "/audio/vocabulary/thick.mp3",
+        "audioUrl": "/audio/vocabulary/thick.mp3"
       },
       {
         "label": "hot",
@@ -31287,7 +33554,10 @@ export const languageSkillQuestions = [
         "text": "large",
         "word": "large",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/large.mp3",
+        "audioPath": "/audio/vocabulary/large.mp3",
+        "audioUrl": "/audio/vocabulary/large.mp3"
       },
       {
         "label": "thin",
@@ -31304,6 +33574,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/large-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/large-01.webp",
     "mediaTarget": "workbook:adjectives:large",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -31354,7 +33626,10 @@ export const languageSkillQuestions = [
         "text": "thick",
         "word": "thick",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/thick.mp3",
+        "audioPath": "/audio/vocabulary/thick.mp3",
+        "audioUrl": "/audio/vocabulary/thick.mp3"
       },
       {
         "label": "hot",
@@ -31403,7 +33678,10 @@ export const languageSkillQuestions = [
         "text": "thick",
         "word": "thick",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/thick.mp3",
+        "audioPath": "/audio/vocabulary/thick.mp3",
+        "audioUrl": "/audio/vocabulary/thick.mp3"
       },
       {
         "label": "hot",
@@ -31483,7 +33761,10 @@ export const languageSkillQuestions = [
         "text": "warm",
         "word": "warm",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/warm.mp3",
+        "audioPath": "/audio/vocabulary/warm.mp3",
+        "audioUrl": "/audio/vocabulary/warm.mp3"
       }
     ],
     "choices": [
@@ -31532,7 +33813,10 @@ export const languageSkillQuestions = [
         "text": "warm",
         "word": "warm",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/warm.mp3",
+        "audioPath": "/audio/vocabulary/warm.mp3",
+        "audioUrl": "/audio/vocabulary/warm.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -31579,7 +33863,10 @@ export const languageSkillQuestions = [
         "text": "warm",
         "word": "warm",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/warm.mp3",
+        "audioPath": "/audio/vocabulary/warm.mp3",
+        "audioUrl": "/audio/vocabulary/warm.mp3"
       },
       {
         "label": "cool",
@@ -31587,7 +33874,10 @@ export const languageSkillQuestions = [
         "text": "cool",
         "word": "cool",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/cool.mp3",
+        "audioPath": "/audio/vocabulary/cool.mp3",
+        "audioUrl": "/audio/vocabulary/cool.mp3"
       },
       {
         "label": "long",
@@ -31625,7 +33915,10 @@ export const languageSkillQuestions = [
         "text": "warm",
         "word": "warm",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/warm.mp3",
+        "audioPath": "/audio/vocabulary/warm.mp3",
+        "audioUrl": "/audio/vocabulary/warm.mp3"
       },
       {
         "label": "cool",
@@ -31633,7 +33926,10 @@ export const languageSkillQuestions = [
         "text": "cool",
         "word": "cool",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/cool.mp3",
+        "audioPath": "/audio/vocabulary/cool.mp3",
+        "audioUrl": "/audio/vocabulary/cool.mp3"
       },
       {
         "label": "long",
@@ -31680,7 +33976,10 @@ export const languageSkillQuestions = [
         "text": "cool",
         "word": "cool",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/cool.mp3",
+        "audioPath": "/audio/vocabulary/cool.mp3",
+        "audioUrl": "/audio/vocabulary/cool.mp3"
       },
       {
         "label": "wet",
@@ -31699,7 +33998,10 @@ export const languageSkillQuestions = [
         "text": "tiny",
         "word": "tiny",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/tiny.mp3",
+        "audioPath": "/audio/vocabulary/tiny.mp3",
+        "audioUrl": "/audio/vocabulary/tiny.mp3"
       },
       {
         "label": "warm",
@@ -31707,7 +34009,10 @@ export const languageSkillQuestions = [
         "text": "warm",
         "word": "warm",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/warm.mp3",
+        "audioPath": "/audio/vocabulary/warm.mp3",
+        "audioUrl": "/audio/vocabulary/warm.mp3"
       }
     ],
     "choices": [
@@ -31723,7 +34028,10 @@ export const languageSkillQuestions = [
         "text": "cool",
         "word": "cool",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/cool.mp3",
+        "audioPath": "/audio/vocabulary/cool.mp3",
+        "audioUrl": "/audio/vocabulary/cool.mp3"
       },
       {
         "label": "wet",
@@ -31742,7 +34050,10 @@ export const languageSkillQuestions = [
         "text": "tiny",
         "word": "tiny",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/tiny.mp3",
+        "audioPath": "/audio/vocabulary/tiny.mp3",
+        "audioUrl": "/audio/vocabulary/tiny.mp3"
       },
       {
         "label": "warm",
@@ -31750,7 +34061,10 @@ export const languageSkillQuestions = [
         "text": "warm",
         "word": "warm",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/warm.mp3",
+        "audioPath": "/audio/vocabulary/warm.mp3",
+        "audioUrl": "/audio/vocabulary/warm.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -31797,7 +34111,10 @@ export const languageSkillQuestions = [
         "text": "huge",
         "word": "huge",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/huge.mp3",
+        "audioPath": "/audio/vocabulary/huge.mp3",
+        "audioUrl": "/audio/vocabulary/huge.mp3"
       },
       {
         "label": "cool",
@@ -31805,7 +34122,10 @@ export const languageSkillQuestions = [
         "text": "cool",
         "word": "cool",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/cool.mp3",
+        "audioPath": "/audio/vocabulary/cool.mp3",
+        "audioUrl": "/audio/vocabulary/cool.mp3"
       },
       {
         "label": "wet",
@@ -31843,7 +34163,10 @@ export const languageSkillQuestions = [
         "text": "huge",
         "word": "huge",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/huge.mp3",
+        "audioPath": "/audio/vocabulary/huge.mp3",
+        "audioUrl": "/audio/vocabulary/huge.mp3"
       },
       {
         "label": "cool",
@@ -31851,7 +34174,10 @@ export const languageSkillQuestions = [
         "text": "cool",
         "word": "cool",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/cool.mp3",
+        "audioPath": "/audio/vocabulary/cool.mp3",
+        "audioUrl": "/audio/vocabulary/cool.mp3"
       },
       {
         "label": "wet",
@@ -31898,7 +34224,10 @@ export const languageSkillQuestions = [
         "text": "wide",
         "word": "wide",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/wide.mp3",
+        "audioPath": "/audio/vocabulary/wide.mp3",
+        "audioUrl": "/audio/vocabulary/wide.mp3"
       },
       {
         "label": "wet",
@@ -31947,7 +34276,10 @@ export const languageSkillQuestions = [
         "text": "wide",
         "word": "wide",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/wide.mp3",
+        "audioPath": "/audio/vocabulary/wide.mp3",
+        "audioUrl": "/audio/vocabulary/wide.mp3"
       },
       {
         "label": "wet",
@@ -32049,7 +34381,10 @@ export const languageSkillQuestions = [
         "text": "narrow",
         "word": "narrow",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/narrow.mp3",
+        "audioPath": "/audio/vocabulary/narrow.mp3",
+        "audioUrl": "/audio/vocabulary/narrow.mp3"
       }
     ],
     "choices": [
@@ -32098,12 +34433,17 @@ export const languageSkillQuestions = [
         "text": "narrow",
         "word": "narrow",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/narrow.mp3",
+        "audioPath": "/audio/vocabulary/narrow.mp3",
+        "audioUrl": "/audio/vocabulary/narrow.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/narrow-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/narrow-01.webp",
     "mediaTarget": "workbook:adjectives:narrow",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -32143,7 +34483,10 @@ export const languageSkillQuestions = [
         "text": "smooth",
         "word": "smooth",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/smooth.mp3",
+        "audioPath": "/audio/vocabulary/smooth.mp3",
+        "audioUrl": "/audio/vocabulary/smooth.mp3"
       },
       {
         "label": "thin",
@@ -32192,7 +34535,10 @@ export const languageSkillQuestions = [
         "text": "smooth",
         "word": "smooth",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/smooth.mp3",
+        "audioPath": "/audio/vocabulary/smooth.mp3",
+        "audioUrl": "/audio/vocabulary/smooth.mp3"
       },
       {
         "label": "thin",
@@ -32250,7 +34596,10 @@ export const languageSkillQuestions = [
         "text": "rough",
         "word": "rough",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/rough.mp3",
+        "audioPath": "/audio/vocabulary/rough.mp3",
+        "audioUrl": "/audio/vocabulary/rough.mp3"
       },
       {
         "label": "thick",
@@ -32258,7 +34607,10 @@ export const languageSkillQuestions = [
         "text": "thick",
         "word": "thick",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/thick.mp3",
+        "audioPath": "/audio/vocabulary/thick.mp3",
+        "audioUrl": "/audio/vocabulary/thick.mp3"
       },
       {
         "label": "hard",
@@ -32277,7 +34629,10 @@ export const languageSkillQuestions = [
         "text": "smooth",
         "word": "smooth",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/smooth.mp3",
+        "audioPath": "/audio/vocabulary/smooth.mp3",
+        "audioUrl": "/audio/vocabulary/smooth.mp3"
       }
     ],
     "choices": [
@@ -32293,7 +34648,10 @@ export const languageSkillQuestions = [
         "text": "rough",
         "word": "rough",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/rough.mp3",
+        "audioPath": "/audio/vocabulary/rough.mp3",
+        "audioUrl": "/audio/vocabulary/rough.mp3"
       },
       {
         "label": "thick",
@@ -32301,7 +34659,10 @@ export const languageSkillQuestions = [
         "text": "thick",
         "word": "thick",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/thick.mp3",
+        "audioPath": "/audio/vocabulary/thick.mp3",
+        "audioUrl": "/audio/vocabulary/thick.mp3"
       },
       {
         "label": "hard",
@@ -32320,7 +34681,10 @@ export const languageSkillQuestions = [
         "text": "smooth",
         "word": "smooth",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/smooth.mp3",
+        "audioPath": "/audio/vocabulary/smooth.mp3",
+        "audioUrl": "/audio/vocabulary/smooth.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -32367,7 +34731,10 @@ export const languageSkillQuestions = [
         "text": "smooth",
         "word": "smooth",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/smooth.mp3",
+        "audioPath": "/audio/vocabulary/smooth.mp3",
+        "audioUrl": "/audio/vocabulary/smooth.mp3"
       },
       {
         "label": "rough",
@@ -32375,7 +34742,10 @@ export const languageSkillQuestions = [
         "text": "rough",
         "word": "rough",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/rough.mp3",
+        "audioPath": "/audio/vocabulary/rough.mp3",
+        "audioUrl": "/audio/vocabulary/rough.mp3"
       },
       {
         "label": "clean",
@@ -32413,7 +34783,10 @@ export const languageSkillQuestions = [
         "text": "smooth",
         "word": "smooth",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/smooth.mp3",
+        "audioPath": "/audio/vocabulary/smooth.mp3",
+        "audioUrl": "/audio/vocabulary/smooth.mp3"
       },
       {
         "label": "rough",
@@ -32421,7 +34794,10 @@ export const languageSkillQuestions = [
         "text": "rough",
         "word": "rough",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/rough.mp3",
+        "audioPath": "/audio/vocabulary/rough.mp3",
+        "audioUrl": "/audio/vocabulary/rough.mp3"
       },
       {
         "label": "clean",
@@ -32468,7 +34844,10 @@ export const languageSkillQuestions = [
         "text": "rough",
         "word": "rough",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/rough.mp3",
+        "audioPath": "/audio/vocabulary/rough.mp3",
+        "audioUrl": "/audio/vocabulary/rough.mp3"
       },
       {
         "label": "clean",
@@ -32517,7 +34896,10 @@ export const languageSkillQuestions = [
         "text": "rough",
         "word": "rough",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/rough.mp3",
+        "audioPath": "/audio/vocabulary/rough.mp3",
+        "audioUrl": "/audio/vocabulary/rough.mp3"
       },
       {
         "label": "clean",
@@ -32608,7 +34990,10 @@ export const languageSkillQuestions = [
         "text": "warm",
         "word": "warm",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/warm.mp3",
+        "audioPath": "/audio/vocabulary/warm.mp3",
+        "audioUrl": "/audio/vocabulary/warm.mp3"
       },
       {
         "label": "clean",
@@ -32657,7 +35042,10 @@ export const languageSkillQuestions = [
         "text": "warm",
         "word": "warm",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/warm.mp3",
+        "audioPath": "/audio/vocabulary/warm.mp3",
+        "audioUrl": "/audio/vocabulary/warm.mp3"
       },
       {
         "label": "clean",
@@ -32704,7 +35092,10 @@ export const languageSkillQuestions = [
         "text": "old",
         "word": "old",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/old.mp3",
+        "audioPath": "/audio/vocabulary/old.mp3",
+        "audioUrl": "/audio/vocabulary/old.mp3"
       },
       {
         "label": "cool",
@@ -32712,7 +35103,10 @@ export const languageSkillQuestions = [
         "text": "cool",
         "word": "cool",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/cool.mp3",
+        "audioPath": "/audio/vocabulary/cool.mp3",
+        "audioUrl": "/audio/vocabulary/cool.mp3"
       },
       {
         "label": "dirty",
@@ -32750,7 +35144,10 @@ export const languageSkillQuestions = [
         "text": "old",
         "word": "old",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/old.mp3",
+        "audioPath": "/audio/vocabulary/old.mp3",
+        "audioUrl": "/audio/vocabulary/old.mp3"
       },
       {
         "label": "cool",
@@ -32758,7 +35155,10 @@ export const languageSkillQuestions = [
         "text": "cool",
         "word": "cool",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/cool.mp3",
+        "audioPath": "/audio/vocabulary/cool.mp3",
+        "audioUrl": "/audio/vocabulary/cool.mp3"
       },
       {
         "label": "dirty",
@@ -32838,7 +35238,10 @@ export const languageSkillQuestions = [
         "text": "old",
         "word": "old",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/old.mp3",
+        "audioPath": "/audio/vocabulary/old.mp3",
+        "audioUrl": "/audio/vocabulary/old.mp3"
       },
       {
         "label": "young",
@@ -32887,7 +35290,10 @@ export const languageSkillQuestions = [
         "text": "old",
         "word": "old",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/old.mp3",
+        "audioPath": "/audio/vocabulary/old.mp3",
+        "audioUrl": "/audio/vocabulary/old.mp3"
       },
       {
         "label": "young",
@@ -32934,7 +35340,10 @@ export const languageSkillQuestions = [
         "text": "old",
         "word": "old",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/old.mp3",
+        "audioPath": "/audio/vocabulary/old.mp3",
+        "audioUrl": "/audio/vocabulary/old.mp3"
       },
       {
         "label": "young",
@@ -32983,7 +35392,10 @@ export const languageSkillQuestions = [
         "text": "old",
         "word": "old",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/old.mp3",
+        "audioPath": "/audio/vocabulary/old.mp3",
+        "audioUrl": "/audio/vocabulary/old.mp3"
       },
       {
         "label": "young",
@@ -33300,7 +35712,10 @@ export const languageSkillQuestions = [
         "text": "smooth",
         "word": "smooth",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/smooth.mp3",
+        "audioPath": "/audio/vocabulary/smooth.mp3",
+        "audioUrl": "/audio/vocabulary/smooth.mp3"
       },
       {
         "label": "dark",
@@ -33349,7 +35764,10 @@ export const languageSkillQuestions = [
         "text": "smooth",
         "word": "smooth",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/smooth.mp3",
+        "audioPath": "/audio/vocabulary/smooth.mp3",
+        "audioUrl": "/audio/vocabulary/smooth.mp3"
       },
       {
         "label": "dark",
@@ -33440,7 +35858,10 @@ export const languageSkillQuestions = [
         "text": "lightweight",
         "word": "lightweight",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/lightweight.mp3",
+        "audioPath": "/audio/vocabulary/lightweight.mp3",
+        "audioUrl": "/audio/vocabulary/lightweight.mp3"
       },
       {
         "label": "rough",
@@ -33448,7 +35869,10 @@ export const languageSkillQuestions = [
         "text": "rough",
         "word": "rough",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/rough.mp3",
+        "audioPath": "/audio/vocabulary/rough.mp3",
+        "audioUrl": "/audio/vocabulary/rough.mp3"
       }
     ],
     "choices": [
@@ -33486,7 +35910,10 @@ export const languageSkillQuestions = [
         "text": "lightweight",
         "word": "lightweight",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/lightweight.mp3",
+        "audioPath": "/audio/vocabulary/lightweight.mp3",
+        "audioUrl": "/audio/vocabulary/lightweight.mp3"
       },
       {
         "label": "rough",
@@ -33494,7 +35921,10 @@ export const languageSkillQuestions = [
         "text": "rough",
         "word": "rough",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/rough.mp3",
+        "audioPath": "/audio/vocabulary/rough.mp3",
+        "audioUrl": "/audio/vocabulary/rough.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -33530,7 +35960,10 @@ export const languageSkillQuestions = [
         "text": "lightweight",
         "word": "lightweight",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/lightweight.mp3",
+        "audioPath": "/audio/vocabulary/lightweight.mp3",
+        "audioUrl": "/audio/vocabulary/lightweight.mp3"
       },
       {
         "label": "fast",
@@ -33579,7 +36012,10 @@ export const languageSkillQuestions = [
         "text": "lightweight",
         "word": "lightweight",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/lightweight.mp3",
+        "audioPath": "/audio/vocabulary/lightweight.mp3",
+        "audioUrl": "/audio/vocabulary/lightweight.mp3"
       },
       {
         "label": "fast",
@@ -33670,7 +36106,10 @@ export const languageSkillQuestions = [
         "text": "lightweight",
         "word": "lightweight",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/lightweight.mp3",
+        "audioPath": "/audio/vocabulary/lightweight.mp3",
+        "audioUrl": "/audio/vocabulary/lightweight.mp3"
       },
       {
         "label": "fast",
@@ -33719,7 +36158,10 @@ export const languageSkillQuestions = [
         "text": "lightweight",
         "word": "lightweight",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/lightweight.mp3",
+        "audioPath": "/audio/vocabulary/lightweight.mp3",
+        "audioUrl": "/audio/vocabulary/lightweight.mp3"
       },
       {
         "label": "fast",
@@ -33923,7 +36365,10 @@ export const languageSkillQuestions = [
         "text": "old",
         "word": "old",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/old.mp3",
+        "audioPath": "/audio/vocabulary/old.mp3",
+        "audioUrl": "/audio/vocabulary/old.mp3"
       }
     ],
     "choices": [
@@ -33972,7 +36417,10 @@ export const languageSkillQuestions = [
         "text": "old",
         "word": "old",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/old.mp3",
+        "audioPath": "/audio/vocabulary/old.mp3",
+        "audioUrl": "/audio/vocabulary/old.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -34289,7 +36737,10 @@ export const languageSkillQuestions = [
         "text": "angry",
         "word": "angry",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/angry.mp3",
+        "audioPath": "/audio/vocabulary/angry.mp3",
+        "audioUrl": "/audio/vocabulary/angry.mp3"
       }
     ],
     "choices": [
@@ -34338,7 +36789,10 @@ export const languageSkillQuestions = [
         "text": "angry",
         "word": "angry",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/angry.mp3",
+        "audioPath": "/audio/vocabulary/angry.mp3",
+        "audioUrl": "/audio/vocabulary/angry.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -34385,7 +36839,10 @@ export const languageSkillQuestions = [
         "text": "angry",
         "word": "angry",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/angry.mp3",
+        "audioPath": "/audio/vocabulary/angry.mp3",
+        "audioUrl": "/audio/vocabulary/angry.mp3"
       },
       {
         "label": "kind",
@@ -34393,7 +36850,10 @@ export const languageSkillQuestions = [
         "text": "kind",
         "word": "kind",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/kind.mp3",
+        "audioPath": "/audio/vocabulary/kind.mp3",
+        "audioUrl": "/audio/vocabulary/kind.mp3"
       },
       {
         "label": "light",
@@ -34431,7 +36891,10 @@ export const languageSkillQuestions = [
         "text": "angry",
         "word": "angry",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/angry.mp3",
+        "audioPath": "/audio/vocabulary/angry.mp3",
+        "audioUrl": "/audio/vocabulary/angry.mp3"
       },
       {
         "label": "kind",
@@ -34439,7 +36902,10 @@ export const languageSkillQuestions = [
         "text": "kind",
         "word": "kind",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/kind.mp3",
+        "audioPath": "/audio/vocabulary/kind.mp3",
+        "audioUrl": "/audio/vocabulary/kind.mp3"
       },
       {
         "label": "light",
@@ -34486,7 +36952,10 @@ export const languageSkillQuestions = [
         "text": "kind",
         "word": "kind",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/kind.mp3",
+        "audioPath": "/audio/vocabulary/kind.mp3",
+        "audioUrl": "/audio/vocabulary/kind.mp3"
       },
       {
         "label": "gentle",
@@ -34494,7 +36963,10 @@ export const languageSkillQuestions = [
         "text": "gentle",
         "word": "gentle",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/gentle.mp3",
+        "audioPath": "/audio/vocabulary/gentle.mp3",
+        "audioUrl": "/audio/vocabulary/gentle.mp3"
       },
       {
         "label": "heavy",
@@ -34513,7 +36985,10 @@ export const languageSkillQuestions = [
         "text": "angry",
         "word": "angry",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/angry.mp3",
+        "audioPath": "/audio/vocabulary/angry.mp3",
+        "audioUrl": "/audio/vocabulary/angry.mp3"
       }
     ],
     "choices": [
@@ -34529,7 +37004,10 @@ export const languageSkillQuestions = [
         "text": "kind",
         "word": "kind",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/kind.mp3",
+        "audioPath": "/audio/vocabulary/kind.mp3",
+        "audioUrl": "/audio/vocabulary/kind.mp3"
       },
       {
         "label": "gentle",
@@ -34537,7 +37015,10 @@ export const languageSkillQuestions = [
         "text": "gentle",
         "word": "gentle",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/gentle.mp3",
+        "audioPath": "/audio/vocabulary/gentle.mp3",
+        "audioUrl": "/audio/vocabulary/gentle.mp3"
       },
       {
         "label": "heavy",
@@ -34556,7 +37037,10 @@ export const languageSkillQuestions = [
         "text": "angry",
         "word": "angry",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/angry.mp3",
+        "audioPath": "/audio/vocabulary/angry.mp3",
+        "audioUrl": "/audio/vocabulary/angry.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -34592,7 +37076,10 @@ export const languageSkillQuestions = [
         "text": "brave",
         "word": "brave",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brave.mp3",
+        "audioPath": "/audio/vocabulary/brave.mp3",
+        "audioUrl": "/audio/vocabulary/brave.mp3"
       },
       {
         "label": "lightweight",
@@ -34600,7 +37087,10 @@ export const languageSkillQuestions = [
         "text": "lightweight",
         "word": "lightweight",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/lightweight.mp3",
+        "audioPath": "/audio/vocabulary/lightweight.mp3",
+        "audioUrl": "/audio/vocabulary/lightweight.mp3"
       },
       {
         "label": "kind",
@@ -34608,7 +37098,10 @@ export const languageSkillQuestions = [
         "text": "kind",
         "word": "kind",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/kind.mp3",
+        "audioPath": "/audio/vocabulary/kind.mp3",
+        "audioUrl": "/audio/vocabulary/kind.mp3"
       },
       {
         "label": "gentle",
@@ -34616,7 +37109,10 @@ export const languageSkillQuestions = [
         "text": "gentle",
         "word": "gentle",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/gentle.mp3",
+        "audioPath": "/audio/vocabulary/gentle.mp3",
+        "audioUrl": "/audio/vocabulary/gentle.mp3"
       }
     ],
     "choices": [
@@ -34632,7 +37128,10 @@ export const languageSkillQuestions = [
         "text": "brave",
         "word": "brave",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brave.mp3",
+        "audioPath": "/audio/vocabulary/brave.mp3",
+        "audioUrl": "/audio/vocabulary/brave.mp3"
       },
       {
         "label": "lightweight",
@@ -34640,7 +37139,10 @@ export const languageSkillQuestions = [
         "text": "lightweight",
         "word": "lightweight",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/lightweight.mp3",
+        "audioPath": "/audio/vocabulary/lightweight.mp3",
+        "audioUrl": "/audio/vocabulary/lightweight.mp3"
       },
       {
         "label": "kind",
@@ -34648,7 +37150,10 @@ export const languageSkillQuestions = [
         "text": "kind",
         "word": "kind",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/kind.mp3",
+        "audioPath": "/audio/vocabulary/kind.mp3",
+        "audioUrl": "/audio/vocabulary/kind.mp3"
       },
       {
         "label": "gentle",
@@ -34656,12 +37161,17 @@ export const languageSkillQuestions = [
         "text": "gentle",
         "word": "gentle",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/gentle.mp3",
+        "audioPath": "/audio/vocabulary/gentle.mp3",
+        "audioUrl": "/audio/vocabulary/gentle.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/lightweight-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/lightweight-01.webp",
     "mediaTarget": "workbook:adjectives:lightweight",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -34701,7 +37211,10 @@ export const languageSkillQuestions = [
         "text": "gentle",
         "word": "gentle",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/gentle.mp3",
+        "audioPath": "/audio/vocabulary/gentle.mp3",
+        "audioUrl": "/audio/vocabulary/gentle.mp3"
       },
       {
         "label": "brave",
@@ -34709,7 +37222,10 @@ export const languageSkillQuestions = [
         "text": "brave",
         "word": "brave",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brave.mp3",
+        "audioPath": "/audio/vocabulary/brave.mp3",
+        "audioUrl": "/audio/vocabulary/brave.mp3"
       },
       {
         "label": "shy",
@@ -34717,7 +37233,10 @@ export const languageSkillQuestions = [
         "text": "shy",
         "word": "shy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/shy.mp3",
+        "audioPath": "/audio/vocabulary/shy.mp3",
+        "audioUrl": "/audio/vocabulary/shy.mp3"
       }
     ],
     "choices": [
@@ -34744,7 +37263,10 @@ export const languageSkillQuestions = [
         "text": "gentle",
         "word": "gentle",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/gentle.mp3",
+        "audioPath": "/audio/vocabulary/gentle.mp3",
+        "audioUrl": "/audio/vocabulary/gentle.mp3"
       },
       {
         "label": "brave",
@@ -34752,7 +37274,10 @@ export const languageSkillQuestions = [
         "text": "brave",
         "word": "brave",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brave.mp3",
+        "audioPath": "/audio/vocabulary/brave.mp3",
+        "audioUrl": "/audio/vocabulary/brave.mp3"
       },
       {
         "label": "shy",
@@ -34760,7 +37285,10 @@ export const languageSkillQuestions = [
         "text": "shy",
         "word": "shy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/shy.mp3",
+        "audioPath": "/audio/vocabulary/shy.mp3",
+        "audioUrl": "/audio/vocabulary/shy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -34796,7 +37324,10 @@ export const languageSkillQuestions = [
         "text": "brave",
         "word": "brave",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brave.mp3",
+        "audioPath": "/audio/vocabulary/brave.mp3",
+        "audioUrl": "/audio/vocabulary/brave.mp3"
       },
       {
         "label": "shy",
@@ -34804,7 +37335,10 @@ export const languageSkillQuestions = [
         "text": "shy",
         "word": "shy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/shy.mp3",
+        "audioPath": "/audio/vocabulary/shy.mp3",
+        "audioUrl": "/audio/vocabulary/shy.mp3"
       },
       {
         "label": "funny",
@@ -34812,7 +37346,10 @@ export const languageSkillQuestions = [
         "text": "funny",
         "word": "funny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/funny.mp3",
+        "audioPath": "/audio/vocabulary/funny.mp3",
+        "audioUrl": "/audio/vocabulary/funny.mp3"
       },
       {
         "label": "slow",
@@ -34839,7 +37376,10 @@ export const languageSkillQuestions = [
         "text": "brave",
         "word": "brave",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brave.mp3",
+        "audioPath": "/audio/vocabulary/brave.mp3",
+        "audioUrl": "/audio/vocabulary/brave.mp3"
       },
       {
         "label": "shy",
@@ -34847,7 +37387,10 @@ export const languageSkillQuestions = [
         "text": "shy",
         "word": "shy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/shy.mp3",
+        "audioPath": "/audio/vocabulary/shy.mp3",
+        "audioUrl": "/audio/vocabulary/shy.mp3"
       },
       {
         "label": "funny",
@@ -34855,7 +37398,10 @@ export const languageSkillQuestions = [
         "text": "funny",
         "word": "funny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/funny.mp3",
+        "audioPath": "/audio/vocabulary/funny.mp3",
+        "audioUrl": "/audio/vocabulary/funny.mp3"
       },
       {
         "label": "slow",
@@ -34902,7 +37448,10 @@ export const languageSkillQuestions = [
         "text": "funny",
         "word": "funny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/funny.mp3",
+        "audioPath": "/audio/vocabulary/funny.mp3",
+        "audioUrl": "/audio/vocabulary/funny.mp3"
       },
       {
         "label": "silly",
@@ -34910,7 +37459,10 @@ export const languageSkillQuestions = [
         "text": "silly",
         "word": "silly",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/silly.mp3",
+        "audioPath": "/audio/vocabulary/silly.mp3",
+        "audioUrl": "/audio/vocabulary/silly.mp3"
       },
       {
         "label": "loud",
@@ -34929,7 +37481,10 @@ export const languageSkillQuestions = [
         "text": "shy",
         "word": "shy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/shy.mp3",
+        "audioPath": "/audio/vocabulary/shy.mp3",
+        "audioUrl": "/audio/vocabulary/shy.mp3"
       }
     ],
     "choices": [
@@ -34945,7 +37500,10 @@ export const languageSkillQuestions = [
         "text": "funny",
         "word": "funny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/funny.mp3",
+        "audioPath": "/audio/vocabulary/funny.mp3",
+        "audioUrl": "/audio/vocabulary/funny.mp3"
       },
       {
         "label": "silly",
@@ -34953,7 +37511,10 @@ export const languageSkillQuestions = [
         "text": "silly",
         "word": "silly",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/silly.mp3",
+        "audioPath": "/audio/vocabulary/silly.mp3",
+        "audioUrl": "/audio/vocabulary/silly.mp3"
       },
       {
         "label": "loud",
@@ -34972,7 +37533,10 @@ export const languageSkillQuestions = [
         "text": "shy",
         "word": "shy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/shy.mp3",
+        "audioPath": "/audio/vocabulary/shy.mp3",
+        "audioUrl": "/audio/vocabulary/shy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -35008,7 +37572,10 @@ export const languageSkillQuestions = [
         "text": "serious",
         "word": "serious",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/serious.mp3",
+        "audioPath": "/audio/vocabulary/serious.mp3",
+        "audioUrl": "/audio/vocabulary/serious.mp3"
       },
       {
         "label": "quiet",
@@ -35027,7 +37594,10 @@ export const languageSkillQuestions = [
         "text": "funny",
         "word": "funny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/funny.mp3",
+        "audioPath": "/audio/vocabulary/funny.mp3",
+        "audioUrl": "/audio/vocabulary/funny.mp3"
       },
       {
         "label": "silly",
@@ -35035,7 +37605,10 @@ export const languageSkillQuestions = [
         "text": "silly",
         "word": "silly",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/silly.mp3",
+        "audioPath": "/audio/vocabulary/silly.mp3",
+        "audioUrl": "/audio/vocabulary/silly.mp3"
       }
     ],
     "choices": [
@@ -35051,7 +37624,10 @@ export const languageSkillQuestions = [
         "text": "serious",
         "word": "serious",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/serious.mp3",
+        "audioPath": "/audio/vocabulary/serious.mp3",
+        "audioUrl": "/audio/vocabulary/serious.mp3"
       },
       {
         "label": "quiet",
@@ -35070,7 +37646,10 @@ export const languageSkillQuestions = [
         "text": "funny",
         "word": "funny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/funny.mp3",
+        "audioPath": "/audio/vocabulary/funny.mp3",
+        "audioUrl": "/audio/vocabulary/funny.mp3"
       },
       {
         "label": "silly",
@@ -35078,7 +37657,10 @@ export const languageSkillQuestions = [
         "text": "silly",
         "word": "silly",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/silly.mp3",
+        "audioPath": "/audio/vocabulary/silly.mp3",
+        "audioUrl": "/audio/vocabulary/silly.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -35125,7 +37707,10 @@ export const languageSkillQuestions = [
         "text": "silly",
         "word": "silly",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/silly.mp3",
+        "audioPath": "/audio/vocabulary/silly.mp3",
+        "audioUrl": "/audio/vocabulary/silly.mp3"
       },
       {
         "label": "serious",
@@ -35133,7 +37718,10 @@ export const languageSkillQuestions = [
         "text": "serious",
         "word": "serious",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/serious.mp3",
+        "audioPath": "/audio/vocabulary/serious.mp3",
+        "audioUrl": "/audio/vocabulary/serious.mp3"
       },
       {
         "label": "safe",
@@ -35141,7 +37729,10 @@ export const languageSkillQuestions = [
         "text": "safe",
         "word": "safe",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/safe.mp3",
+        "audioPath": "/audio/vocabulary/safe.mp3",
+        "audioUrl": "/audio/vocabulary/safe.mp3"
       }
     ],
     "choices": [
@@ -35168,7 +37759,10 @@ export const languageSkillQuestions = [
         "text": "silly",
         "word": "silly",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/silly.mp3",
+        "audioPath": "/audio/vocabulary/silly.mp3",
+        "audioUrl": "/audio/vocabulary/silly.mp3"
       },
       {
         "label": "serious",
@@ -35176,7 +37770,10 @@ export const languageSkillQuestions = [
         "text": "serious",
         "word": "serious",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/serious.mp3",
+        "audioPath": "/audio/vocabulary/serious.mp3",
+        "audioUrl": "/audio/vocabulary/serious.mp3"
       },
       {
         "label": "safe",
@@ -35184,7 +37781,10 @@ export const languageSkillQuestions = [
         "text": "safe",
         "word": "safe",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/safe.mp3",
+        "audioPath": "/audio/vocabulary/safe.mp3",
+        "audioUrl": "/audio/vocabulary/safe.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -35220,7 +37820,10 @@ export const languageSkillQuestions = [
         "text": "serious",
         "word": "serious",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/serious.mp3",
+        "audioPath": "/audio/vocabulary/serious.mp3",
+        "audioUrl": "/audio/vocabulary/serious.mp3"
       },
       {
         "label": "safe",
@@ -35228,7 +37831,10 @@ export const languageSkillQuestions = [
         "text": "safe",
         "word": "safe",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/safe.mp3",
+        "audioPath": "/audio/vocabulary/safe.mp3",
+        "audioUrl": "/audio/vocabulary/safe.mp3"
       },
       {
         "label": "careful",
@@ -35236,7 +37842,10 @@ export const languageSkillQuestions = [
         "text": "careful",
         "word": "careful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/careful.mp3",
+        "audioPath": "/audio/vocabulary/careful.mp3",
+        "audioUrl": "/audio/vocabulary/careful.mp3"
       },
       {
         "label": "sad",
@@ -35263,7 +37872,10 @@ export const languageSkillQuestions = [
         "text": "serious",
         "word": "serious",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/serious.mp3",
+        "audioPath": "/audio/vocabulary/serious.mp3",
+        "audioUrl": "/audio/vocabulary/serious.mp3"
       },
       {
         "label": "safe",
@@ -35271,7 +37883,10 @@ export const languageSkillQuestions = [
         "text": "safe",
         "word": "safe",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/safe.mp3",
+        "audioPath": "/audio/vocabulary/safe.mp3",
+        "audioUrl": "/audio/vocabulary/safe.mp3"
       },
       {
         "label": "careful",
@@ -35279,7 +37894,10 @@ export const languageSkillQuestions = [
         "text": "careful",
         "word": "careful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/careful.mp3",
+        "audioPath": "/audio/vocabulary/careful.mp3",
+        "audioUrl": "/audio/vocabulary/careful.mp3"
       },
       {
         "label": "sad",
@@ -35326,7 +37944,10 @@ export const languageSkillQuestions = [
         "text": "careful",
         "word": "careful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/careful.mp3",
+        "audioPath": "/audio/vocabulary/careful.mp3",
+        "audioUrl": "/audio/vocabulary/careful.mp3"
       },
       {
         "label": "messy",
@@ -35334,7 +37955,10 @@ export const languageSkillQuestions = [
         "text": "messy",
         "word": "messy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/messy.mp3",
+        "audioPath": "/audio/vocabulary/messy.mp3",
+        "audioUrl": "/audio/vocabulary/messy.mp3"
       },
       {
         "label": "angry",
@@ -35342,7 +37966,10 @@ export const languageSkillQuestions = [
         "text": "angry",
         "word": "angry",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/angry.mp3",
+        "audioPath": "/audio/vocabulary/angry.mp3",
+        "audioUrl": "/audio/vocabulary/angry.mp3"
       },
       {
         "label": "safe",
@@ -35350,7 +37977,10 @@ export const languageSkillQuestions = [
         "text": "safe",
         "word": "safe",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/safe.mp3",
+        "audioPath": "/audio/vocabulary/safe.mp3",
+        "audioUrl": "/audio/vocabulary/safe.mp3"
       }
     ],
     "choices": [
@@ -35366,7 +37996,10 @@ export const languageSkillQuestions = [
         "text": "careful",
         "word": "careful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/careful.mp3",
+        "audioPath": "/audio/vocabulary/careful.mp3",
+        "audioUrl": "/audio/vocabulary/careful.mp3"
       },
       {
         "label": "messy",
@@ -35374,7 +38007,10 @@ export const languageSkillQuestions = [
         "text": "messy",
         "word": "messy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/messy.mp3",
+        "audioPath": "/audio/vocabulary/messy.mp3",
+        "audioUrl": "/audio/vocabulary/messy.mp3"
       },
       {
         "label": "angry",
@@ -35382,7 +38018,10 @@ export const languageSkillQuestions = [
         "text": "angry",
         "word": "angry",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/angry.mp3",
+        "audioPath": "/audio/vocabulary/angry.mp3",
+        "audioUrl": "/audio/vocabulary/angry.mp3"
       },
       {
         "label": "safe",
@@ -35390,12 +38029,17 @@ export const languageSkillQuestions = [
         "text": "safe",
         "word": "safe",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/safe.mp3",
+        "audioPath": "/audio/vocabulary/safe.mp3",
+        "audioUrl": "/audio/vocabulary/safe.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/angry-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/angry-01.webp",
     "mediaTarget": "workbook:adjectives:angry",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -35424,7 +38068,10 @@ export const languageSkillQuestions = [
         "text": "neat",
         "word": "neat",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/neat.mp3",
+        "audioPath": "/audio/vocabulary/neat.mp3",
+        "audioUrl": "/audio/vocabulary/neat.mp3"
       },
       {
         "label": "kind",
@@ -35432,7 +38079,10 @@ export const languageSkillQuestions = [
         "text": "kind",
         "word": "kind",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/kind.mp3",
+        "audioPath": "/audio/vocabulary/kind.mp3",
+        "audioUrl": "/audio/vocabulary/kind.mp3"
       },
       {
         "label": "careful",
@@ -35440,7 +38090,10 @@ export const languageSkillQuestions = [
         "text": "careful",
         "word": "careful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/careful.mp3",
+        "audioPath": "/audio/vocabulary/careful.mp3",
+        "audioUrl": "/audio/vocabulary/careful.mp3"
       },
       {
         "label": "messy",
@@ -35448,7 +38101,10 @@ export const languageSkillQuestions = [
         "text": "messy",
         "word": "messy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/messy.mp3",
+        "audioPath": "/audio/vocabulary/messy.mp3",
+        "audioUrl": "/audio/vocabulary/messy.mp3"
       }
     ],
     "choices": [
@@ -35464,7 +38120,10 @@ export const languageSkillQuestions = [
         "text": "neat",
         "word": "neat",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/neat.mp3",
+        "audioPath": "/audio/vocabulary/neat.mp3",
+        "audioUrl": "/audio/vocabulary/neat.mp3"
       },
       {
         "label": "kind",
@@ -35472,7 +38131,10 @@ export const languageSkillQuestions = [
         "text": "kind",
         "word": "kind",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/kind.mp3",
+        "audioPath": "/audio/vocabulary/kind.mp3",
+        "audioUrl": "/audio/vocabulary/kind.mp3"
       },
       {
         "label": "careful",
@@ -35480,7 +38142,10 @@ export const languageSkillQuestions = [
         "text": "careful",
         "word": "careful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/careful.mp3",
+        "audioPath": "/audio/vocabulary/careful.mp3",
+        "audioUrl": "/audio/vocabulary/careful.mp3"
       },
       {
         "label": "messy",
@@ -35488,7 +38153,10 @@ export const languageSkillQuestions = [
         "text": "messy",
         "word": "messy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/messy.mp3",
+        "audioPath": "/audio/vocabulary/messy.mp3",
+        "audioUrl": "/audio/vocabulary/messy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -35524,7 +38192,10 @@ export const languageSkillQuestions = [
         "text": "gentle",
         "word": "gentle",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/gentle.mp3",
+        "audioPath": "/audio/vocabulary/gentle.mp3",
+        "audioUrl": "/audio/vocabulary/gentle.mp3"
       },
       {
         "label": "messy",
@@ -35532,7 +38203,10 @@ export const languageSkillQuestions = [
         "text": "messy",
         "word": "messy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/messy.mp3",
+        "audioPath": "/audio/vocabulary/messy.mp3",
+        "audioUrl": "/audio/vocabulary/messy.mp3"
       },
       {
         "label": "neat",
@@ -35540,7 +38214,10 @@ export const languageSkillQuestions = [
         "text": "neat",
         "word": "neat",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/neat.mp3",
+        "audioPath": "/audio/vocabulary/neat.mp3",
+        "audioUrl": "/audio/vocabulary/neat.mp3"
       },
       {
         "label": "round",
@@ -35567,7 +38244,10 @@ export const languageSkillQuestions = [
         "text": "gentle",
         "word": "gentle",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/gentle.mp3",
+        "audioPath": "/audio/vocabulary/gentle.mp3",
+        "audioUrl": "/audio/vocabulary/gentle.mp3"
       },
       {
         "label": "messy",
@@ -35575,7 +38255,10 @@ export const languageSkillQuestions = [
         "text": "messy",
         "word": "messy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/messy.mp3",
+        "audioPath": "/audio/vocabulary/messy.mp3",
+        "audioUrl": "/audio/vocabulary/messy.mp3"
       },
       {
         "label": "neat",
@@ -35583,7 +38266,10 @@ export const languageSkillQuestions = [
         "text": "neat",
         "word": "neat",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/neat.mp3",
+        "audioPath": "/audio/vocabulary/neat.mp3",
+        "audioUrl": "/audio/vocabulary/neat.mp3"
       },
       {
         "label": "round",
@@ -35630,7 +38316,10 @@ export const languageSkillQuestions = [
         "text": "neat",
         "word": "neat",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/neat.mp3",
+        "audioPath": "/audio/vocabulary/neat.mp3",
+        "audioUrl": "/audio/vocabulary/neat.mp3"
       },
       {
         "label": "round",
@@ -35649,7 +38338,10 @@ export const languageSkillQuestions = [
         "text": "square",
         "word": "square",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/square.mp3",
+        "audioPath": "/audio/vocabulary/square.mp3",
+        "audioUrl": "/audio/vocabulary/square.mp3"
       },
       {
         "label": "brave",
@@ -35657,7 +38349,10 @@ export const languageSkillQuestions = [
         "text": "brave",
         "word": "brave",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brave.mp3",
+        "audioPath": "/audio/vocabulary/brave.mp3",
+        "audioUrl": "/audio/vocabulary/brave.mp3"
       }
     ],
     "choices": [
@@ -35673,7 +38368,10 @@ export const languageSkillQuestions = [
         "text": "neat",
         "word": "neat",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/neat.mp3",
+        "audioPath": "/audio/vocabulary/neat.mp3",
+        "audioUrl": "/audio/vocabulary/neat.mp3"
       },
       {
         "label": "round",
@@ -35692,7 +38390,10 @@ export const languageSkillQuestions = [
         "text": "square",
         "word": "square",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/square.mp3",
+        "audioPath": "/audio/vocabulary/square.mp3",
+        "audioUrl": "/audio/vocabulary/square.mp3"
       },
       {
         "label": "brave",
@@ -35700,7 +38401,10 @@ export const languageSkillQuestions = [
         "text": "brave",
         "word": "brave",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brave.mp3",
+        "audioPath": "/audio/vocabulary/brave.mp3",
+        "audioUrl": "/audio/vocabulary/brave.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -35736,7 +38440,10 @@ export const languageSkillQuestions = [
         "text": "square",
         "word": "square",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/square.mp3",
+        "audioPath": "/audio/vocabulary/square.mp3",
+        "audioUrl": "/audio/vocabulary/square.mp3"
       },
       {
         "label": "flat",
@@ -35755,7 +38462,10 @@ export const languageSkillQuestions = [
         "text": "shy",
         "word": "shy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/shy.mp3",
+        "audioPath": "/audio/vocabulary/shy.mp3",
+        "audioUrl": "/audio/vocabulary/shy.mp3"
       },
       {
         "label": "round",
@@ -35782,7 +38492,10 @@ export const languageSkillQuestions = [
         "text": "square",
         "word": "square",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/square.mp3",
+        "audioPath": "/audio/vocabulary/square.mp3",
+        "audioUrl": "/audio/vocabulary/square.mp3"
       },
       {
         "label": "flat",
@@ -35801,7 +38514,10 @@ export const languageSkillQuestions = [
         "text": "shy",
         "word": "shy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/shy.mp3",
+        "audioPath": "/audio/vocabulary/shy.mp3",
+        "audioUrl": "/audio/vocabulary/shy.mp3"
       },
       {
         "label": "round",
@@ -35848,7 +38564,10 @@ export const languageSkillQuestions = [
         "text": "curved",
         "word": "curved",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/curved.mp3",
+        "audioPath": "/audio/vocabulary/curved.mp3",
+        "audioUrl": "/audio/vocabulary/curved.mp3"
       },
       {
         "label": "funny",
@@ -35856,7 +38575,10 @@ export const languageSkillQuestions = [
         "text": "funny",
         "word": "funny",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/funny.mp3",
+        "audioPath": "/audio/vocabulary/funny.mp3",
+        "audioUrl": "/audio/vocabulary/funny.mp3"
       },
       {
         "label": "square",
@@ -35864,7 +38586,10 @@ export const languageSkillQuestions = [
         "text": "square",
         "word": "square",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/square.mp3",
+        "audioPath": "/audio/vocabulary/square.mp3",
+        "audioUrl": "/audio/vocabulary/square.mp3"
       },
       {
         "label": "flat",
@@ -35891,7 +38616,10 @@ export const languageSkillQuestions = [
         "text": "curved",
         "word": "curved",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/curved.mp3",
+        "audioPath": "/audio/vocabulary/curved.mp3",
+        "audioUrl": "/audio/vocabulary/curved.mp3"
       },
       {
         "label": "funny",
@@ -35899,7 +38627,10 @@ export const languageSkillQuestions = [
         "text": "funny",
         "word": "funny",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/funny.mp3",
+        "audioPath": "/audio/vocabulary/funny.mp3",
+        "audioUrl": "/audio/vocabulary/funny.mp3"
       },
       {
         "label": "square",
@@ -35907,7 +38638,10 @@ export const languageSkillQuestions = [
         "text": "square",
         "word": "square",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/square.mp3",
+        "audioPath": "/audio/vocabulary/square.mp3",
+        "audioUrl": "/audio/vocabulary/square.mp3"
       },
       {
         "label": "flat",
@@ -35924,6 +38658,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/funny-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/funny-01.webp",
     "mediaTarget": "workbook:adjectives:funny",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -35952,7 +38688,10 @@ export const languageSkillQuestions = [
         "text": "silly",
         "word": "silly",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/silly.mp3",
+        "audioPath": "/audio/vocabulary/silly.mp3",
+        "audioUrl": "/audio/vocabulary/silly.mp3"
       },
       {
         "label": "flat",
@@ -35971,7 +38710,10 @@ export const languageSkillQuestions = [
         "text": "curved",
         "word": "curved",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/curved.mp3",
+        "audioPath": "/audio/vocabulary/curved.mp3",
+        "audioUrl": "/audio/vocabulary/curved.mp3"
       },
       {
         "label": "straight",
@@ -35979,7 +38721,10 @@ export const languageSkillQuestions = [
         "text": "straight",
         "word": "straight",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/straight.mp3",
+        "audioPath": "/audio/vocabulary/straight.mp3",
+        "audioUrl": "/audio/vocabulary/straight.mp3"
       }
     ],
     "choices": [
@@ -35995,7 +38740,10 @@ export const languageSkillQuestions = [
         "text": "silly",
         "word": "silly",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/silly.mp3",
+        "audioPath": "/audio/vocabulary/silly.mp3",
+        "audioUrl": "/audio/vocabulary/silly.mp3"
       },
       {
         "label": "flat",
@@ -36014,7 +38762,10 @@ export const languageSkillQuestions = [
         "text": "curved",
         "word": "curved",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/curved.mp3",
+        "audioPath": "/audio/vocabulary/curved.mp3",
+        "audioUrl": "/audio/vocabulary/curved.mp3"
       },
       {
         "label": "straight",
@@ -36022,12 +38773,17 @@ export const languageSkillQuestions = [
         "text": "straight",
         "word": "straight",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/straight.mp3",
+        "audioPath": "/audio/vocabulary/straight.mp3",
+        "audioUrl": "/audio/vocabulary/straight.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/silly-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/silly-01.webp",
     "mediaTarget": "workbook:adjectives:silly",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -36056,7 +38812,10 @@ export const languageSkillQuestions = [
         "text": "curved",
         "word": "curved",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/curved.mp3",
+        "audioPath": "/audio/vocabulary/curved.mp3",
+        "audioUrl": "/audio/vocabulary/curved.mp3"
       },
       {
         "label": "straight",
@@ -36064,7 +38823,10 @@ export const languageSkillQuestions = [
         "text": "straight",
         "word": "straight",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/straight.mp3",
+        "audioPath": "/audio/vocabulary/straight.mp3",
+        "audioUrl": "/audio/vocabulary/straight.mp3"
       },
       {
         "label": "red",
@@ -36083,7 +38845,10 @@ export const languageSkillQuestions = [
         "text": "serious",
         "word": "serious",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/serious.mp3",
+        "audioPath": "/audio/vocabulary/serious.mp3",
+        "audioUrl": "/audio/vocabulary/serious.mp3"
       }
     ],
     "choices": [
@@ -36099,7 +38864,10 @@ export const languageSkillQuestions = [
         "text": "curved",
         "word": "curved",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/curved.mp3",
+        "audioPath": "/audio/vocabulary/curved.mp3",
+        "audioUrl": "/audio/vocabulary/curved.mp3"
       },
       {
         "label": "straight",
@@ -36107,7 +38875,10 @@ export const languageSkillQuestions = [
         "text": "straight",
         "word": "straight",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/straight.mp3",
+        "audioPath": "/audio/vocabulary/straight.mp3",
+        "audioUrl": "/audio/vocabulary/straight.mp3"
       },
       {
         "label": "red",
@@ -36126,12 +38897,17 @@ export const languageSkillQuestions = [
         "text": "serious",
         "word": "serious",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/serious.mp3",
+        "audioPath": "/audio/vocabulary/serious.mp3",
+        "audioUrl": "/audio/vocabulary/serious.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/serious-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/serious-01.webp",
     "mediaTarget": "workbook:adjectives:serious",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -36182,7 +38958,10 @@ export const languageSkillQuestions = [
         "text": "safe",
         "word": "safe",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/safe.mp3",
+        "audioPath": "/audio/vocabulary/safe.mp3",
+        "audioUrl": "/audio/vocabulary/safe.mp3"
       },
       {
         "label": "straight",
@@ -36190,7 +38969,10 @@ export const languageSkillQuestions = [
         "text": "straight",
         "word": "straight",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/straight.mp3",
+        "audioPath": "/audio/vocabulary/straight.mp3",
+        "audioUrl": "/audio/vocabulary/straight.mp3"
       }
     ],
     "choices": [
@@ -36228,7 +39010,10 @@ export const languageSkillQuestions = [
         "text": "safe",
         "word": "safe",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/safe.mp3",
+        "audioPath": "/audio/vocabulary/safe.mp3",
+        "audioUrl": "/audio/vocabulary/safe.mp3"
       },
       {
         "label": "straight",
@@ -36236,12 +39021,17 @@ export const languageSkillQuestions = [
         "text": "straight",
         "word": "straight",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/straight.mp3",
+        "audioPath": "/audio/vocabulary/straight.mp3",
+        "audioUrl": "/audio/vocabulary/straight.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/safe-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/safe-01.webp",
     "mediaTarget": "workbook:adjectives:safe",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -36281,7 +39071,10 @@ export const languageSkillQuestions = [
         "text": "careful",
         "word": "careful",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/careful.mp3",
+        "audioPath": "/audio/vocabulary/careful.mp3",
+        "audioUrl": "/audio/vocabulary/careful.mp3"
       },
       {
         "label": "red",
@@ -36330,7 +39123,10 @@ export const languageSkillQuestions = [
         "text": "careful",
         "word": "careful",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/careful.mp3",
+        "audioPath": "/audio/vocabulary/careful.mp3",
+        "audioUrl": "/audio/vocabulary/careful.mp3"
       },
       {
         "label": "red",
@@ -36358,6 +39154,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/careful-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/careful-01.webp",
     "mediaTarget": "workbook:adjectives:careful",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -36386,7 +39184,10 @@ export const languageSkillQuestions = [
         "text": "messy",
         "word": "messy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/messy.mp3",
+        "audioPath": "/audio/vocabulary/messy.mp3",
+        "audioUrl": "/audio/vocabulary/messy.mp3"
       },
       {
         "label": "blue",
@@ -36435,7 +39236,10 @@ export const languageSkillQuestions = [
         "text": "messy",
         "word": "messy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/messy.mp3",
+        "audioPath": "/audio/vocabulary/messy.mp3",
+        "audioUrl": "/audio/vocabulary/messy.mp3"
       },
       {
         "label": "blue",
@@ -36474,6 +39278,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/messy-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/messy-01.webp",
     "mediaTarget": "workbook:adjectives:messy",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -36535,7 +39341,10 @@ export const languageSkillQuestions = [
         "text": "neat",
         "word": "neat",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/neat.mp3",
+        "audioPath": "/audio/vocabulary/neat.mp3",
+        "audioUrl": "/audio/vocabulary/neat.mp3"
       }
     ],
     "choices": [
@@ -36584,7 +39393,10 @@ export const languageSkillQuestions = [
         "text": "neat",
         "word": "neat",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/neat.mp3",
+        "audioPath": "/audio/vocabulary/neat.mp3",
+        "audioUrl": "/audio/vocabulary/neat.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -36631,7 +39443,10 @@ export const languageSkillQuestions = [
         "text": "purple",
         "word": "purple",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/purple.mp3",
+        "audioPath": "/audio/vocabulary/purple.mp3",
+        "audioUrl": "/audio/vocabulary/purple.mp3"
       },
       {
         "label": "round",
@@ -36680,7 +39495,10 @@ export const languageSkillQuestions = [
         "text": "purple",
         "word": "purple",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/purple.mp3",
+        "audioPath": "/audio/vocabulary/purple.mp3",
+        "audioUrl": "/audio/vocabulary/purple.mp3"
       },
       {
         "label": "round",
@@ -36738,7 +39556,10 @@ export const languageSkillQuestions = [
         "text": "pink",
         "word": "pink",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/pink.mp3",
+        "audioPath": "/audio/vocabulary/pink.mp3",
+        "audioUrl": "/audio/vocabulary/pink.mp3"
       },
       {
         "label": "square",
@@ -36746,7 +39567,10 @@ export const languageSkillQuestions = [
         "text": "square",
         "word": "square",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/square.mp3",
+        "audioPath": "/audio/vocabulary/square.mp3",
+        "audioUrl": "/audio/vocabulary/square.mp3"
       },
       {
         "label": "orange",
@@ -36765,7 +39589,10 @@ export const languageSkillQuestions = [
         "text": "purple",
         "word": "purple",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/purple.mp3",
+        "audioPath": "/audio/vocabulary/purple.mp3",
+        "audioUrl": "/audio/vocabulary/purple.mp3"
       }
     ],
     "choices": [
@@ -36781,7 +39608,10 @@ export const languageSkillQuestions = [
         "text": "pink",
         "word": "pink",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/pink.mp3",
+        "audioPath": "/audio/vocabulary/pink.mp3",
+        "audioUrl": "/audio/vocabulary/pink.mp3"
       },
       {
         "label": "square",
@@ -36789,7 +39619,10 @@ export const languageSkillQuestions = [
         "text": "square",
         "word": "square",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/square.mp3",
+        "audioPath": "/audio/vocabulary/square.mp3",
+        "audioUrl": "/audio/vocabulary/square.mp3"
       },
       {
         "label": "orange",
@@ -36808,7 +39641,10 @@ export const languageSkillQuestions = [
         "text": "purple",
         "word": "purple",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/purple.mp3",
+        "audioPath": "/audio/vocabulary/purple.mp3",
+        "audioUrl": "/audio/vocabulary/purple.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -36855,7 +39691,10 @@ export const languageSkillQuestions = [
         "text": "purple",
         "word": "purple",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/purple.mp3",
+        "audioPath": "/audio/vocabulary/purple.mp3",
+        "audioUrl": "/audio/vocabulary/purple.mp3"
       },
       {
         "label": "pink",
@@ -36863,7 +39702,10 @@ export const languageSkillQuestions = [
         "text": "pink",
         "word": "pink",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/pink.mp3",
+        "audioPath": "/audio/vocabulary/pink.mp3",
+        "audioUrl": "/audio/vocabulary/pink.mp3"
       },
       {
         "label": "brown",
@@ -36871,7 +39713,10 @@ export const languageSkillQuestions = [
         "text": "brown",
         "word": "brown",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brown.mp3",
+        "audioPath": "/audio/vocabulary/brown.mp3",
+        "audioUrl": "/audio/vocabulary/brown.mp3"
       }
     ],
     "choices": [
@@ -36898,7 +39743,10 @@ export const languageSkillQuestions = [
         "text": "purple",
         "word": "purple",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/purple.mp3",
+        "audioPath": "/audio/vocabulary/purple.mp3",
+        "audioUrl": "/audio/vocabulary/purple.mp3"
       },
       {
         "label": "pink",
@@ -36906,7 +39754,10 @@ export const languageSkillQuestions = [
         "text": "pink",
         "word": "pink",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/pink.mp3",
+        "audioPath": "/audio/vocabulary/pink.mp3",
+        "audioUrl": "/audio/vocabulary/pink.mp3"
       },
       {
         "label": "brown",
@@ -36914,7 +39765,10 @@ export const languageSkillQuestions = [
         "text": "brown",
         "word": "brown",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brown.mp3",
+        "audioPath": "/audio/vocabulary/brown.mp3",
+        "audioUrl": "/audio/vocabulary/brown.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -36950,7 +39804,10 @@ export const languageSkillQuestions = [
         "text": "pink",
         "word": "pink",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/pink.mp3",
+        "audioPath": "/audio/vocabulary/pink.mp3",
+        "audioUrl": "/audio/vocabulary/pink.mp3"
       },
       {
         "label": "brown",
@@ -36958,7 +39815,10 @@ export const languageSkillQuestions = [
         "text": "brown",
         "word": "brown",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brown.mp3",
+        "audioPath": "/audio/vocabulary/brown.mp3",
+        "audioUrl": "/audio/vocabulary/brown.mp3"
       },
       {
         "label": "black",
@@ -36977,7 +39837,10 @@ export const languageSkillQuestions = [
         "text": "curved",
         "word": "curved",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/curved.mp3",
+        "audioPath": "/audio/vocabulary/curved.mp3",
+        "audioUrl": "/audio/vocabulary/curved.mp3"
       }
     ],
     "choices": [
@@ -36993,7 +39856,10 @@ export const languageSkillQuestions = [
         "text": "pink",
         "word": "pink",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/pink.mp3",
+        "audioPath": "/audio/vocabulary/pink.mp3",
+        "audioUrl": "/audio/vocabulary/pink.mp3"
       },
       {
         "label": "brown",
@@ -37001,7 +39867,10 @@ export const languageSkillQuestions = [
         "text": "brown",
         "word": "brown",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brown.mp3",
+        "audioPath": "/audio/vocabulary/brown.mp3",
+        "audioUrl": "/audio/vocabulary/brown.mp3"
       },
       {
         "label": "black",
@@ -37020,12 +39889,17 @@ export const languageSkillQuestions = [
         "text": "curved",
         "word": "curved",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/curved.mp3",
+        "audioPath": "/audio/vocabulary/curved.mp3",
+        "audioUrl": "/audio/vocabulary/curved.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/curved-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/curved-01.webp",
     "mediaTarget": "workbook:adjectives:curved",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -37076,7 +39950,10 @@ export const languageSkillQuestions = [
         "text": "straight",
         "word": "straight",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/straight.mp3",
+        "audioPath": "/audio/vocabulary/straight.mp3",
+        "audioUrl": "/audio/vocabulary/straight.mp3"
       },
       {
         "label": "brown",
@@ -37084,7 +39961,10 @@ export const languageSkillQuestions = [
         "text": "brown",
         "word": "brown",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brown.mp3",
+        "audioPath": "/audio/vocabulary/brown.mp3",
+        "audioUrl": "/audio/vocabulary/brown.mp3"
       }
     ],
     "choices": [
@@ -37122,7 +40002,10 @@ export const languageSkillQuestions = [
         "text": "straight",
         "word": "straight",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/straight.mp3",
+        "audioPath": "/audio/vocabulary/straight.mp3",
+        "audioUrl": "/audio/vocabulary/straight.mp3"
       },
       {
         "label": "brown",
@@ -37130,12 +40013,17 @@ export const languageSkillQuestions = [
         "text": "brown",
         "word": "brown",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brown.mp3",
+        "audioPath": "/audio/vocabulary/brown.mp3",
+        "audioUrl": "/audio/vocabulary/brown.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/straight-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/straight-01.webp",
     "mediaTarget": "workbook:adjectives:straight",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -37321,7 +40209,10 @@ export const languageSkillQuestions = [
         "text": "gold",
         "word": "gold",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/gold.mp3",
+        "audioPath": "/audio/vocabulary/gold.mp3",
+        "audioUrl": "/audio/vocabulary/gold.mp3"
       }
     ],
     "choices": [
@@ -37370,7 +40261,10 @@ export const languageSkillQuestions = [
         "text": "gold",
         "word": "gold",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/gold.mp3",
+        "audioPath": "/audio/vocabulary/gold.mp3",
+        "audioUrl": "/audio/vocabulary/gold.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -37417,7 +40311,10 @@ export const languageSkillQuestions = [
         "text": "gold",
         "word": "gold",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/gold.mp3",
+        "audioPath": "/audio/vocabulary/gold.mp3",
+        "audioUrl": "/audio/vocabulary/gold.mp3"
       },
       {
         "label": "silver",
@@ -37425,7 +40322,10 @@ export const languageSkillQuestions = [
         "text": "silver",
         "word": "silver",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/silver.mp3",
+        "audioPath": "/audio/vocabulary/silver.mp3",
+        "audioUrl": "/audio/vocabulary/silver.mp3"
       },
       {
         "label": "green",
@@ -37463,7 +40363,10 @@ export const languageSkillQuestions = [
         "text": "gold",
         "word": "gold",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/gold.mp3",
+        "audioPath": "/audio/vocabulary/gold.mp3",
+        "audioUrl": "/audio/vocabulary/gold.mp3"
       },
       {
         "label": "silver",
@@ -37471,7 +40374,10 @@ export const languageSkillQuestions = [
         "text": "silver",
         "word": "silver",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/silver.mp3",
+        "audioPath": "/audio/vocabulary/silver.mp3",
+        "audioUrl": "/audio/vocabulary/silver.mp3"
       },
       {
         "label": "green",
@@ -37518,7 +40424,10 @@ export const languageSkillQuestions = [
         "text": "silver",
         "word": "silver",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/silver.mp3",
+        "audioPath": "/audio/vocabulary/silver.mp3",
+        "audioUrl": "/audio/vocabulary/silver.mp3"
       },
       {
         "label": "sweet",
@@ -37526,7 +40435,10 @@ export const languageSkillQuestions = [
         "text": "sweet",
         "word": "sweet",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sweet.mp3",
+        "audioPath": "/audio/vocabulary/sweet.mp3",
+        "audioUrl": "/audio/vocabulary/sweet.mp3"
       },
       {
         "label": "yellow",
@@ -37545,7 +40457,10 @@ export const languageSkillQuestions = [
         "text": "gold",
         "word": "gold",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/gold.mp3",
+        "audioPath": "/audio/vocabulary/gold.mp3",
+        "audioUrl": "/audio/vocabulary/gold.mp3"
       }
     ],
     "choices": [
@@ -37561,7 +40476,10 @@ export const languageSkillQuestions = [
         "text": "silver",
         "word": "silver",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/silver.mp3",
+        "audioPath": "/audio/vocabulary/silver.mp3",
+        "audioUrl": "/audio/vocabulary/silver.mp3"
       },
       {
         "label": "sweet",
@@ -37569,7 +40487,10 @@ export const languageSkillQuestions = [
         "text": "sweet",
         "word": "sweet",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sweet.mp3",
+        "audioPath": "/audio/vocabulary/sweet.mp3",
+        "audioUrl": "/audio/vocabulary/sweet.mp3"
       },
       {
         "label": "yellow",
@@ -37588,7 +40509,10 @@ export const languageSkillQuestions = [
         "text": "gold",
         "word": "gold",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/gold.mp3",
+        "audioPath": "/audio/vocabulary/gold.mp3",
+        "audioUrl": "/audio/vocabulary/gold.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -37646,7 +40570,10 @@ export const languageSkillQuestions = [
         "text": "silver",
         "word": "silver",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/silver.mp3",
+        "audioPath": "/audio/vocabulary/silver.mp3",
+        "audioUrl": "/audio/vocabulary/silver.mp3"
       },
       {
         "label": "sweet",
@@ -37654,7 +40581,10 @@ export const languageSkillQuestions = [
         "text": "sweet",
         "word": "sweet",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sweet.mp3",
+        "audioPath": "/audio/vocabulary/sweet.mp3",
+        "audioUrl": "/audio/vocabulary/sweet.mp3"
       }
     ],
     "choices": [
@@ -37692,7 +40622,10 @@ export const languageSkillQuestions = [
         "text": "silver",
         "word": "silver",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/silver.mp3",
+        "audioPath": "/audio/vocabulary/silver.mp3",
+        "audioUrl": "/audio/vocabulary/silver.mp3"
       },
       {
         "label": "sweet",
@@ -37700,7 +40633,10 @@ export const languageSkillQuestions = [
         "text": "sweet",
         "word": "sweet",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sweet.mp3",
+        "audioPath": "/audio/vocabulary/sweet.mp3",
+        "audioUrl": "/audio/vocabulary/sweet.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -37736,7 +40672,10 @@ export const languageSkillQuestions = [
         "text": "purple",
         "word": "purple",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/purple.mp3",
+        "audioPath": "/audio/vocabulary/purple.mp3",
+        "audioUrl": "/audio/vocabulary/purple.mp3"
       },
       {
         "label": "sweet",
@@ -37744,7 +40683,10 @@ export const languageSkillQuestions = [
         "text": "sweet",
         "word": "sweet",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sweet.mp3",
+        "audioPath": "/audio/vocabulary/sweet.mp3",
+        "audioUrl": "/audio/vocabulary/sweet.mp3"
       },
       {
         "label": "sour",
@@ -37763,7 +40705,10 @@ export const languageSkillQuestions = [
         "text": "salty",
         "word": "salty",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/salty.mp3",
+        "audioPath": "/audio/vocabulary/salty.mp3",
+        "audioUrl": "/audio/vocabulary/salty.mp3"
       }
     ],
     "choices": [
@@ -37779,7 +40724,10 @@ export const languageSkillQuestions = [
         "text": "purple",
         "word": "purple",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/purple.mp3",
+        "audioPath": "/audio/vocabulary/purple.mp3",
+        "audioUrl": "/audio/vocabulary/purple.mp3"
       },
       {
         "label": "sweet",
@@ -37787,7 +40735,10 @@ export const languageSkillQuestions = [
         "text": "sweet",
         "word": "sweet",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sweet.mp3",
+        "audioPath": "/audio/vocabulary/sweet.mp3",
+        "audioUrl": "/audio/vocabulary/sweet.mp3"
       },
       {
         "label": "sour",
@@ -37806,7 +40757,10 @@ export const languageSkillQuestions = [
         "text": "salty",
         "word": "salty",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/salty.mp3",
+        "audioPath": "/audio/vocabulary/salty.mp3",
+        "audioUrl": "/audio/vocabulary/salty.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -37853,7 +40807,10 @@ export const languageSkillQuestions = [
         "text": "salty",
         "word": "salty",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/salty.mp3",
+        "audioPath": "/audio/vocabulary/salty.mp3",
+        "audioUrl": "/audio/vocabulary/salty.mp3"
       },
       {
         "label": "fresh",
@@ -37872,7 +40829,10 @@ export const languageSkillQuestions = [
         "text": "pink",
         "word": "pink",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/pink.mp3",
+        "audioPath": "/audio/vocabulary/pink.mp3",
+        "audioUrl": "/audio/vocabulary/pink.mp3"
       }
     ],
     "choices": [
@@ -37899,7 +40859,10 @@ export const languageSkillQuestions = [
         "text": "salty",
         "word": "salty",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/salty.mp3",
+        "audioPath": "/audio/vocabulary/salty.mp3",
+        "audioUrl": "/audio/vocabulary/salty.mp3"
       },
       {
         "label": "fresh",
@@ -37918,7 +40881,10 @@ export const languageSkillQuestions = [
         "text": "pink",
         "word": "pink",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/pink.mp3",
+        "audioPath": "/audio/vocabulary/pink.mp3",
+        "audioUrl": "/audio/vocabulary/pink.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -37965,7 +40931,10 @@ export const languageSkillQuestions = [
         "text": "stale",
         "word": "stale",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/stale.mp3",
+        "audioPath": "/audio/vocabulary/stale.mp3",
+        "audioUrl": "/audio/vocabulary/stale.mp3"
       },
       {
         "label": "brown",
@@ -37973,7 +40942,10 @@ export const languageSkillQuestions = [
         "text": "brown",
         "word": "brown",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brown.mp3",
+        "audioPath": "/audio/vocabulary/brown.mp3",
+        "audioUrl": "/audio/vocabulary/brown.mp3"
       },
       {
         "label": "salty",
@@ -37981,7 +40953,10 @@ export const languageSkillQuestions = [
         "text": "salty",
         "word": "salty",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/salty.mp3",
+        "audioPath": "/audio/vocabulary/salty.mp3",
+        "audioUrl": "/audio/vocabulary/salty.mp3"
       }
     ],
     "choices": [
@@ -38008,7 +40983,10 @@ export const languageSkillQuestions = [
         "text": "stale",
         "word": "stale",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/stale.mp3",
+        "audioPath": "/audio/vocabulary/stale.mp3",
+        "audioUrl": "/audio/vocabulary/stale.mp3"
       },
       {
         "label": "brown",
@@ -38016,7 +40994,10 @@ export const languageSkillQuestions = [
         "text": "brown",
         "word": "brown",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brown.mp3",
+        "audioPath": "/audio/vocabulary/brown.mp3",
+        "audioUrl": "/audio/vocabulary/brown.mp3"
       },
       {
         "label": "salty",
@@ -38024,7 +41005,10 @@ export const languageSkillQuestions = [
         "text": "salty",
         "word": "salty",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/salty.mp3",
+        "audioPath": "/audio/vocabulary/salty.mp3",
+        "audioUrl": "/audio/vocabulary/salty.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -38060,7 +41044,10 @@ export const languageSkillQuestions = [
         "text": "early",
         "word": "early",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/early.mp3",
+        "audioPath": "/audio/vocabulary/early.mp3",
+        "audioUrl": "/audio/vocabulary/early.mp3"
       },
       {
         "label": "black",
@@ -38090,7 +41077,10 @@ export const languageSkillQuestions = [
         "text": "stale",
         "word": "stale",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/stale.mp3",
+        "audioPath": "/audio/vocabulary/stale.mp3",
+        "audioUrl": "/audio/vocabulary/stale.mp3"
       }
     ],
     "choices": [
@@ -38106,7 +41096,10 @@ export const languageSkillQuestions = [
         "text": "early",
         "word": "early",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/early.mp3",
+        "audioPath": "/audio/vocabulary/early.mp3",
+        "audioUrl": "/audio/vocabulary/early.mp3"
       },
       {
         "label": "black",
@@ -38136,7 +41129,10 @@ export const languageSkillQuestions = [
         "text": "stale",
         "word": "stale",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/stale.mp3",
+        "audioPath": "/audio/vocabulary/stale.mp3",
+        "audioUrl": "/audio/vocabulary/stale.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -38183,7 +41179,10 @@ export const languageSkillQuestions = [
         "text": "stale",
         "word": "stale",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/stale.mp3",
+        "audioPath": "/audio/vocabulary/stale.mp3",
+        "audioUrl": "/audio/vocabulary/stale.mp3"
       },
       {
         "label": "early",
@@ -38191,7 +41190,10 @@ export const languageSkillQuestions = [
         "text": "early",
         "word": "early",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/early.mp3",
+        "audioPath": "/audio/vocabulary/early.mp3",
+        "audioUrl": "/audio/vocabulary/early.mp3"
       },
       {
         "label": "late",
@@ -38199,7 +41201,10 @@ export const languageSkillQuestions = [
         "text": "late",
         "word": "late",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/late.mp3",
+        "audioPath": "/audio/vocabulary/late.mp3",
+        "audioUrl": "/audio/vocabulary/late.mp3"
       }
     ],
     "choices": [
@@ -38226,7 +41231,10 @@ export const languageSkillQuestions = [
         "text": "stale",
         "word": "stale",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/stale.mp3",
+        "audioPath": "/audio/vocabulary/stale.mp3",
+        "audioUrl": "/audio/vocabulary/stale.mp3"
       },
       {
         "label": "early",
@@ -38234,7 +41242,10 @@ export const languageSkillQuestions = [
         "text": "early",
         "word": "early",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/early.mp3",
+        "audioPath": "/audio/vocabulary/early.mp3",
+        "audioUrl": "/audio/vocabulary/early.mp3"
       },
       {
         "label": "late",
@@ -38242,7 +41253,10 @@ export const languageSkillQuestions = [
         "text": "late",
         "word": "late",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/late.mp3",
+        "audioPath": "/audio/vocabulary/late.mp3",
+        "audioUrl": "/audio/vocabulary/late.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -38278,7 +41292,10 @@ export const languageSkillQuestions = [
         "text": "early",
         "word": "early",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/early.mp3",
+        "audioPath": "/audio/vocabulary/early.mp3",
+        "audioUrl": "/audio/vocabulary/early.mp3"
       },
       {
         "label": "late",
@@ -38286,7 +41303,10 @@ export const languageSkillQuestions = [
         "text": "late",
         "word": "late",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/late.mp3",
+        "audioPath": "/audio/vocabulary/late.mp3",
+        "audioUrl": "/audio/vocabulary/late.mp3"
       },
       {
         "label": "first",
@@ -38324,7 +41344,10 @@ export const languageSkillQuestions = [
         "text": "early",
         "word": "early",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/early.mp3",
+        "audioPath": "/audio/vocabulary/early.mp3",
+        "audioUrl": "/audio/vocabulary/early.mp3"
       },
       {
         "label": "late",
@@ -38332,7 +41355,10 @@ export const languageSkillQuestions = [
         "text": "late",
         "word": "late",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/late.mp3",
+        "audioPath": "/audio/vocabulary/late.mp3",
+        "audioUrl": "/audio/vocabulary/late.mp3"
       },
       {
         "label": "first",
@@ -38401,7 +41427,10 @@ export const languageSkillQuestions = [
         "text": "last",
         "word": "last",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/last.mp3",
+        "audioPath": "/audio/vocabulary/last.mp3",
+        "audioUrl": "/audio/vocabulary/last.mp3"
       },
       {
         "label": "gold",
@@ -38409,7 +41438,10 @@ export const languageSkillQuestions = [
         "text": "gold",
         "word": "gold",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/gold.mp3",
+        "audioPath": "/audio/vocabulary/gold.mp3",
+        "audioUrl": "/audio/vocabulary/gold.mp3"
       },
       {
         "label": "late",
@@ -38417,7 +41449,10 @@ export const languageSkillQuestions = [
         "text": "late",
         "word": "late",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/late.mp3",
+        "audioPath": "/audio/vocabulary/late.mp3",
+        "audioUrl": "/audio/vocabulary/late.mp3"
       }
     ],
     "choices": [
@@ -38444,7 +41479,10 @@ export const languageSkillQuestions = [
         "text": "last",
         "word": "last",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/last.mp3",
+        "audioPath": "/audio/vocabulary/last.mp3",
+        "audioUrl": "/audio/vocabulary/last.mp3"
       },
       {
         "label": "gold",
@@ -38452,7 +41490,10 @@ export const languageSkillQuestions = [
         "text": "gold",
         "word": "gold",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/gold.mp3",
+        "audioPath": "/audio/vocabulary/gold.mp3",
+        "audioUrl": "/audio/vocabulary/gold.mp3"
       },
       {
         "label": "late",
@@ -38460,12 +41501,17 @@ export const languageSkillQuestions = [
         "text": "late",
         "word": "late",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/late.mp3",
+        "audioPath": "/audio/vocabulary/late.mp3",
+        "audioUrl": "/audio/vocabulary/late.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/gold-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/gold-01.webp",
     "mediaTarget": "workbook:adjectives:gold",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -38505,7 +41551,10 @@ export const languageSkillQuestions = [
         "text": "silver",
         "word": "silver",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/silver.mp3",
+        "audioPath": "/audio/vocabulary/silver.mp3",
+        "audioUrl": "/audio/vocabulary/silver.mp3"
       },
       {
         "label": "first",
@@ -38524,7 +41573,10 @@ export const languageSkillQuestions = [
         "text": "last",
         "word": "last",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/last.mp3",
+        "audioPath": "/audio/vocabulary/last.mp3",
+        "audioUrl": "/audio/vocabulary/last.mp3"
       }
     ],
     "choices": [
@@ -38551,7 +41603,10 @@ export const languageSkillQuestions = [
         "text": "silver",
         "word": "silver",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/silver.mp3",
+        "audioPath": "/audio/vocabulary/silver.mp3",
+        "audioUrl": "/audio/vocabulary/silver.mp3"
       },
       {
         "label": "first",
@@ -38570,12 +41625,17 @@ export const languageSkillQuestions = [
         "text": "last",
         "word": "last",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/last.mp3",
+        "audioPath": "/audio/vocabulary/last.mp3",
+        "audioUrl": "/audio/vocabulary/last.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/silver-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/silver-01.webp",
     "mediaTarget": "workbook:adjectives:silver",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -38604,7 +41664,10 @@ export const languageSkillQuestions = [
         "text": "sweet",
         "word": "sweet",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sweet.mp3",
+        "audioPath": "/audio/vocabulary/sweet.mp3",
+        "audioUrl": "/audio/vocabulary/sweet.mp3"
       },
       {
         "label": "last",
@@ -38612,7 +41675,10 @@ export const languageSkillQuestions = [
         "text": "last",
         "word": "last",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/last.mp3",
+        "audioPath": "/audio/vocabulary/last.mp3",
+        "audioUrl": "/audio/vocabulary/last.mp3"
       },
       {
         "label": "full",
@@ -38650,7 +41716,10 @@ export const languageSkillQuestions = [
         "text": "sweet",
         "word": "sweet",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sweet.mp3",
+        "audioPath": "/audio/vocabulary/sweet.mp3",
+        "audioUrl": "/audio/vocabulary/sweet.mp3"
       },
       {
         "label": "last",
@@ -38658,7 +41727,10 @@ export const languageSkillQuestions = [
         "text": "last",
         "word": "last",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/last.mp3",
+        "audioPath": "/audio/vocabulary/last.mp3",
+        "audioUrl": "/audio/vocabulary/last.mp3"
       },
       {
         "label": "full",
@@ -38862,7 +41934,10 @@ export const languageSkillQuestions = [
         "text": "salty",
         "word": "salty",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/salty.mp3",
+        "audioPath": "/audio/vocabulary/salty.mp3",
+        "audioUrl": "/audio/vocabulary/salty.mp3"
       },
       {
         "label": "empty",
@@ -38911,7 +41986,10 @@ export const languageSkillQuestions = [
         "text": "salty",
         "word": "salty",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/salty.mp3",
+        "audioPath": "/audio/vocabulary/salty.mp3",
+        "audioUrl": "/audio/vocabulary/salty.mp3"
       },
       {
         "label": "empty",
@@ -38928,6 +42006,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/salty-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/salty-01.webp",
     "mediaTarget": "workbook:adjectives:salty",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -38956,7 +42036,10 @@ export const languageSkillQuestions = [
         "text": "same",
         "word": "same",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/same.mp3",
+        "audioPath": "/audio/vocabulary/same.mp3",
+        "audioUrl": "/audio/vocabulary/same.mp3"
       },
       {
         "label": "fresh",
@@ -39005,7 +42088,10 @@ export const languageSkillQuestions = [
         "text": "same",
         "word": "same",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/same.mp3",
+        "audioPath": "/audio/vocabulary/same.mp3",
+        "audioUrl": "/audio/vocabulary/same.mp3"
       },
       {
         "label": "fresh",
@@ -39074,7 +42160,10 @@ export const languageSkillQuestions = [
         "text": "stale",
         "word": "stale",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/stale.mp3",
+        "audioPath": "/audio/vocabulary/stale.mp3",
+        "audioUrl": "/audio/vocabulary/stale.mp3"
       },
       {
         "label": "closed",
@@ -39093,7 +42182,10 @@ export const languageSkillQuestions = [
         "text": "same",
         "word": "same",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/same.mp3",
+        "audioPath": "/audio/vocabulary/same.mp3",
+        "audioUrl": "/audio/vocabulary/same.mp3"
       },
       {
         "label": "different",
@@ -39101,7 +42193,10 @@ export const languageSkillQuestions = [
         "text": "different",
         "word": "different",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/different.mp3",
+        "audioPath": "/audio/vocabulary/different.mp3",
+        "audioUrl": "/audio/vocabulary/different.mp3"
       }
     ],
     "choices": [
@@ -39117,7 +42212,10 @@ export const languageSkillQuestions = [
         "text": "stale",
         "word": "stale",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/stale.mp3",
+        "audioPath": "/audio/vocabulary/stale.mp3",
+        "audioUrl": "/audio/vocabulary/stale.mp3"
       },
       {
         "label": "closed",
@@ -39136,7 +42234,10 @@ export const languageSkillQuestions = [
         "text": "same",
         "word": "same",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/same.mp3",
+        "audioPath": "/audio/vocabulary/same.mp3",
+        "audioUrl": "/audio/vocabulary/same.mp3"
       },
       {
         "label": "different",
@@ -39144,12 +42245,17 @@ export const languageSkillQuestions = [
         "text": "different",
         "word": "different",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/different.mp3",
+        "audioPath": "/audio/vocabulary/different.mp3",
+        "audioUrl": "/audio/vocabulary/different.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/stale-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/stale-01.webp",
     "mediaTarget": "workbook:adjectives:stale",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -39178,7 +42284,10 @@ export const languageSkillQuestions = [
         "text": "same",
         "word": "same",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/same.mp3",
+        "audioPath": "/audio/vocabulary/same.mp3",
+        "audioUrl": "/audio/vocabulary/same.mp3"
       },
       {
         "label": "different",
@@ -39186,7 +42295,10 @@ export const languageSkillQuestions = [
         "text": "different",
         "word": "different",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/different.mp3",
+        "audioPath": "/audio/vocabulary/different.mp3",
+        "audioUrl": "/audio/vocabulary/different.mp3"
       },
       {
         "label": "good",
@@ -39194,7 +42306,10 @@ export const languageSkillQuestions = [
         "text": "good",
         "word": "good",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/good.mp3",
+        "audioPath": "/audio/vocabulary/good.mp3",
+        "audioUrl": "/audio/vocabulary/good.mp3"
       },
       {
         "label": "early",
@@ -39202,7 +42317,10 @@ export const languageSkillQuestions = [
         "text": "early",
         "word": "early",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/early.mp3",
+        "audioPath": "/audio/vocabulary/early.mp3",
+        "audioUrl": "/audio/vocabulary/early.mp3"
       }
     ],
     "choices": [
@@ -39218,7 +42336,10 @@ export const languageSkillQuestions = [
         "text": "same",
         "word": "same",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/same.mp3",
+        "audioPath": "/audio/vocabulary/same.mp3",
+        "audioUrl": "/audio/vocabulary/same.mp3"
       },
       {
         "label": "different",
@@ -39226,7 +42347,10 @@ export const languageSkillQuestions = [
         "text": "different",
         "word": "different",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/different.mp3",
+        "audioPath": "/audio/vocabulary/different.mp3",
+        "audioUrl": "/audio/vocabulary/different.mp3"
       },
       {
         "label": "good",
@@ -39234,7 +42358,10 @@ export const languageSkillQuestions = [
         "text": "good",
         "word": "good",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/good.mp3",
+        "audioPath": "/audio/vocabulary/good.mp3",
+        "audioUrl": "/audio/vocabulary/good.mp3"
       },
       {
         "label": "early",
@@ -39242,12 +42369,17 @@ export const languageSkillQuestions = [
         "text": "early",
         "word": "early",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/early.mp3",
+        "audioPath": "/audio/vocabulary/early.mp3",
+        "audioUrl": "/audio/vocabulary/early.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/early-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/early-01.webp",
     "mediaTarget": "workbook:adjectives:early",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -39276,7 +42408,10 @@ export const languageSkillQuestions = [
         "text": "good",
         "word": "good",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/good.mp3",
+        "audioPath": "/audio/vocabulary/good.mp3",
+        "audioUrl": "/audio/vocabulary/good.mp3"
       },
       {
         "label": "better",
@@ -39284,7 +42419,10 @@ export const languageSkillQuestions = [
         "text": "better",
         "word": "better",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/better.mp3",
+        "audioPath": "/audio/vocabulary/better.mp3",
+        "audioUrl": "/audio/vocabulary/better.mp3"
       },
       {
         "label": "late",
@@ -39292,7 +42430,10 @@ export const languageSkillQuestions = [
         "text": "late",
         "word": "late",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/late.mp3",
+        "audioPath": "/audio/vocabulary/late.mp3",
+        "audioUrl": "/audio/vocabulary/late.mp3"
       },
       {
         "label": "different",
@@ -39300,7 +42441,10 @@ export const languageSkillQuestions = [
         "text": "different",
         "word": "different",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/different.mp3",
+        "audioPath": "/audio/vocabulary/different.mp3",
+        "audioUrl": "/audio/vocabulary/different.mp3"
       }
     ],
     "choices": [
@@ -39316,7 +42460,10 @@ export const languageSkillQuestions = [
         "text": "good",
         "word": "good",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/good.mp3",
+        "audioPath": "/audio/vocabulary/good.mp3",
+        "audioUrl": "/audio/vocabulary/good.mp3"
       },
       {
         "label": "better",
@@ -39324,7 +42471,10 @@ export const languageSkillQuestions = [
         "text": "better",
         "word": "better",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/better.mp3",
+        "audioPath": "/audio/vocabulary/better.mp3",
+        "audioUrl": "/audio/vocabulary/better.mp3"
       },
       {
         "label": "late",
@@ -39332,7 +42482,10 @@ export const languageSkillQuestions = [
         "text": "late",
         "word": "late",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/late.mp3",
+        "audioPath": "/audio/vocabulary/late.mp3",
+        "audioUrl": "/audio/vocabulary/late.mp3"
       },
       {
         "label": "different",
@@ -39340,7 +42493,10 @@ export const languageSkillQuestions = [
         "text": "different",
         "word": "different",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/different.mp3",
+        "audioPath": "/audio/vocabulary/different.mp3",
+        "audioUrl": "/audio/vocabulary/different.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -39376,7 +42532,10 @@ export const languageSkillQuestions = [
         "text": "best",
         "word": "best",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/best.mp3",
+        "audioPath": "/audio/vocabulary/best.mp3",
+        "audioUrl": "/audio/vocabulary/best.mp3"
       },
       {
         "label": "first",
@@ -39395,7 +42554,10 @@ export const languageSkillQuestions = [
         "text": "good",
         "word": "good",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/good.mp3",
+        "audioPath": "/audio/vocabulary/good.mp3",
+        "audioUrl": "/audio/vocabulary/good.mp3"
       },
       {
         "label": "better",
@@ -39403,7 +42565,10 @@ export const languageSkillQuestions = [
         "text": "better",
         "word": "better",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/better.mp3",
+        "audioPath": "/audio/vocabulary/better.mp3",
+        "audioUrl": "/audio/vocabulary/better.mp3"
       }
     ],
     "choices": [
@@ -39419,7 +42584,10 @@ export const languageSkillQuestions = [
         "text": "best",
         "word": "best",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/best.mp3",
+        "audioPath": "/audio/vocabulary/best.mp3",
+        "audioUrl": "/audio/vocabulary/best.mp3"
       },
       {
         "label": "first",
@@ -39438,7 +42606,10 @@ export const languageSkillQuestions = [
         "text": "good",
         "word": "good",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/good.mp3",
+        "audioPath": "/audio/vocabulary/good.mp3",
+        "audioUrl": "/audio/vocabulary/good.mp3"
       },
       {
         "label": "better",
@@ -39446,7 +42617,10 @@ export const languageSkillQuestions = [
         "text": "better",
         "word": "better",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/better.mp3",
+        "audioPath": "/audio/vocabulary/better.mp3",
+        "audioUrl": "/audio/vocabulary/better.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -39482,7 +42656,10 @@ export const languageSkillQuestions = [
         "text": "last",
         "word": "last",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/last.mp3",
+        "audioPath": "/audio/vocabulary/last.mp3",
+        "audioUrl": "/audio/vocabulary/last.mp3"
       },
       {
         "label": "better",
@@ -39490,7 +42667,10 @@ export const languageSkillQuestions = [
         "text": "better",
         "word": "better",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/better.mp3",
+        "audioPath": "/audio/vocabulary/better.mp3",
+        "audioUrl": "/audio/vocabulary/better.mp3"
       },
       {
         "label": "best",
@@ -39498,7 +42678,10 @@ export const languageSkillQuestions = [
         "text": "best",
         "word": "best",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/best.mp3",
+        "audioPath": "/audio/vocabulary/best.mp3",
+        "audioUrl": "/audio/vocabulary/best.mp3"
       },
       {
         "label": "easy",
@@ -39506,7 +42689,10 @@ export const languageSkillQuestions = [
         "text": "easy",
         "word": "easy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/easy.mp3",
+        "audioPath": "/audio/vocabulary/easy.mp3",
+        "audioUrl": "/audio/vocabulary/easy.mp3"
       }
     ],
     "choices": [
@@ -39522,7 +42708,10 @@ export const languageSkillQuestions = [
         "text": "last",
         "word": "last",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/last.mp3",
+        "audioPath": "/audio/vocabulary/last.mp3",
+        "audioUrl": "/audio/vocabulary/last.mp3"
       },
       {
         "label": "better",
@@ -39530,7 +42719,10 @@ export const languageSkillQuestions = [
         "text": "better",
         "word": "better",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/better.mp3",
+        "audioPath": "/audio/vocabulary/better.mp3",
+        "audioUrl": "/audio/vocabulary/better.mp3"
       },
       {
         "label": "best",
@@ -39538,7 +42730,10 @@ export const languageSkillQuestions = [
         "text": "best",
         "word": "best",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/best.mp3",
+        "audioPath": "/audio/vocabulary/best.mp3",
+        "audioUrl": "/audio/vocabulary/best.mp3"
       },
       {
         "label": "easy",
@@ -39546,7 +42741,10 @@ export const languageSkillQuestions = [
         "text": "easy",
         "word": "easy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/easy.mp3",
+        "audioPath": "/audio/vocabulary/easy.mp3",
+        "audioUrl": "/audio/vocabulary/easy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -39582,7 +42780,10 @@ export const languageSkillQuestions = [
         "text": "best",
         "word": "best",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/best.mp3",
+        "audioPath": "/audio/vocabulary/best.mp3",
+        "audioUrl": "/audio/vocabulary/best.mp3"
       },
       {
         "label": "easy",
@@ -39590,7 +42791,10 @@ export const languageSkillQuestions = [
         "text": "easy",
         "word": "easy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/easy.mp3",
+        "audioPath": "/audio/vocabulary/easy.mp3",
+        "audioUrl": "/audio/vocabulary/easy.mp3"
       },
       {
         "label": "harder",
@@ -39598,7 +42802,10 @@ export const languageSkillQuestions = [
         "text": "harder",
         "word": "harder",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/harder.mp3",
+        "audioPath": "/audio/vocabulary/harder.mp3",
+        "audioUrl": "/audio/vocabulary/harder.mp3"
       },
       {
         "label": "full",
@@ -39625,7 +42832,10 @@ export const languageSkillQuestions = [
         "text": "best",
         "word": "best",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/best.mp3",
+        "audioPath": "/audio/vocabulary/best.mp3",
+        "audioUrl": "/audio/vocabulary/best.mp3"
       },
       {
         "label": "easy",
@@ -39633,7 +42843,10 @@ export const languageSkillQuestions = [
         "text": "easy",
         "word": "easy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/easy.mp3",
+        "audioPath": "/audio/vocabulary/easy.mp3",
+        "audioUrl": "/audio/vocabulary/easy.mp3"
       },
       {
         "label": "harder",
@@ -39641,7 +42854,10 @@ export const languageSkillQuestions = [
         "text": "harder",
         "word": "harder",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/harder.mp3",
+        "audioPath": "/audio/vocabulary/harder.mp3",
+        "audioUrl": "/audio/vocabulary/harder.mp3"
       },
       {
         "label": "full",
@@ -39688,7 +42904,10 @@ export const languageSkillQuestions = [
         "text": "harder",
         "word": "harder",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/harder.mp3",
+        "audioPath": "/audio/vocabulary/harder.mp3",
+        "audioUrl": "/audio/vocabulary/harder.mp3"
       },
       {
         "label": "simple",
@@ -39696,7 +42915,10 @@ export const languageSkillQuestions = [
         "text": "simple",
         "word": "simple",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/simple.mp3",
+        "audioPath": "/audio/vocabulary/simple.mp3",
+        "audioUrl": "/audio/vocabulary/simple.mp3"
       },
       {
         "label": "empty",
@@ -39715,7 +42937,10 @@ export const languageSkillQuestions = [
         "text": "easy",
         "word": "easy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/easy.mp3",
+        "audioPath": "/audio/vocabulary/easy.mp3",
+        "audioUrl": "/audio/vocabulary/easy.mp3"
       }
     ],
     "choices": [
@@ -39731,7 +42956,10 @@ export const languageSkillQuestions = [
         "text": "harder",
         "word": "harder",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/harder.mp3",
+        "audioPath": "/audio/vocabulary/harder.mp3",
+        "audioUrl": "/audio/vocabulary/harder.mp3"
       },
       {
         "label": "simple",
@@ -39739,7 +42967,10 @@ export const languageSkillQuestions = [
         "text": "simple",
         "word": "simple",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/simple.mp3",
+        "audioPath": "/audio/vocabulary/simple.mp3",
+        "audioUrl": "/audio/vocabulary/simple.mp3"
       },
       {
         "label": "empty",
@@ -39758,7 +42989,10 @@ export const languageSkillQuestions = [
         "text": "easy",
         "word": "easy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/easy.mp3",
+        "audioPath": "/audio/vocabulary/easy.mp3",
+        "audioUrl": "/audio/vocabulary/easy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -39794,7 +43028,10 @@ export const languageSkillQuestions = [
         "text": "tricky",
         "word": "tricky",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/tricky.mp3",
+        "audioPath": "/audio/vocabulary/tricky.mp3",
+        "audioUrl": "/audio/vocabulary/tricky.mp3"
       },
       {
         "label": "open",
@@ -39813,7 +43050,10 @@ export const languageSkillQuestions = [
         "text": "harder",
         "word": "harder",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/harder.mp3",
+        "audioPath": "/audio/vocabulary/harder.mp3",
+        "audioUrl": "/audio/vocabulary/harder.mp3"
       },
       {
         "label": "simple",
@@ -39821,7 +43061,10 @@ export const languageSkillQuestions = [
         "text": "simple",
         "word": "simple",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/simple.mp3",
+        "audioPath": "/audio/vocabulary/simple.mp3",
+        "audioUrl": "/audio/vocabulary/simple.mp3"
       }
     ],
     "choices": [
@@ -39837,7 +43080,10 @@ export const languageSkillQuestions = [
         "text": "tricky",
         "word": "tricky",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/tricky.mp3",
+        "audioPath": "/audio/vocabulary/tricky.mp3",
+        "audioUrl": "/audio/vocabulary/tricky.mp3"
       },
       {
         "label": "open",
@@ -39856,7 +43102,10 @@ export const languageSkillQuestions = [
         "text": "harder",
         "word": "harder",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/harder.mp3",
+        "audioPath": "/audio/vocabulary/harder.mp3",
+        "audioUrl": "/audio/vocabulary/harder.mp3"
       },
       {
         "label": "simple",
@@ -39864,7 +43113,10 @@ export const languageSkillQuestions = [
         "text": "simple",
         "word": "simple",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/simple.mp3",
+        "audioPath": "/audio/vocabulary/simple.mp3",
+        "audioUrl": "/audio/vocabulary/simple.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -39911,7 +43163,10 @@ export const languageSkillQuestions = [
         "text": "simple",
         "word": "simple",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/simple.mp3",
+        "audioPath": "/audio/vocabulary/simple.mp3",
+        "audioUrl": "/audio/vocabulary/simple.mp3"
       },
       {
         "label": "tricky",
@@ -39919,7 +43174,10 @@ export const languageSkillQuestions = [
         "text": "tricky",
         "word": "tricky",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/tricky.mp3",
+        "audioPath": "/audio/vocabulary/tricky.mp3",
+        "audioUrl": "/audio/vocabulary/tricky.mp3"
       },
       {
         "label": "near",
@@ -39957,7 +43215,10 @@ export const languageSkillQuestions = [
         "text": "simple",
         "word": "simple",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/simple.mp3",
+        "audioPath": "/audio/vocabulary/simple.mp3",
+        "audioUrl": "/audio/vocabulary/simple.mp3"
       },
       {
         "label": "tricky",
@@ -39965,7 +43226,10 @@ export const languageSkillQuestions = [
         "text": "tricky",
         "word": "tricky",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/tricky.mp3",
+        "audioPath": "/audio/vocabulary/tricky.mp3",
+        "audioUrl": "/audio/vocabulary/tricky.mp3"
       },
       {
         "label": "near",
@@ -40012,7 +43276,10 @@ export const languageSkillQuestions = [
         "text": "tricky",
         "word": "tricky",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/tricky.mp3",
+        "audioPath": "/audio/vocabulary/tricky.mp3",
+        "audioUrl": "/audio/vocabulary/tricky.mp3"
       },
       {
         "label": "near",
@@ -40042,7 +43309,10 @@ export const languageSkillQuestions = [
         "text": "same",
         "word": "same",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/same.mp3",
+        "audioPath": "/audio/vocabulary/same.mp3",
+        "audioUrl": "/audio/vocabulary/same.mp3"
       }
     ],
     "choices": [
@@ -40058,7 +43328,10 @@ export const languageSkillQuestions = [
         "text": "tricky",
         "word": "tricky",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/tricky.mp3",
+        "audioPath": "/audio/vocabulary/tricky.mp3",
+        "audioUrl": "/audio/vocabulary/tricky.mp3"
       },
       {
         "label": "near",
@@ -40088,7 +43361,10 @@ export const languageSkillQuestions = [
         "text": "same",
         "word": "same",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/same.mp3",
+        "audioPath": "/audio/vocabulary/same.mp3",
+        "audioUrl": "/audio/vocabulary/same.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -40135,7 +43411,10 @@ export const languageSkillQuestions = [
         "text": "deep",
         "word": "deep",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/deep.mp3",
+        "audioPath": "/audio/vocabulary/deep.mp3",
+        "audioUrl": "/audio/vocabulary/deep.mp3"
       },
       {
         "label": "different",
@@ -40143,7 +43422,10 @@ export const languageSkillQuestions = [
         "text": "different",
         "word": "different",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/different.mp3",
+        "audioPath": "/audio/vocabulary/different.mp3",
+        "audioUrl": "/audio/vocabulary/different.mp3"
       },
       {
         "label": "near",
@@ -40181,7 +43463,10 @@ export const languageSkillQuestions = [
         "text": "deep",
         "word": "deep",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/deep.mp3",
+        "audioPath": "/audio/vocabulary/deep.mp3",
+        "audioUrl": "/audio/vocabulary/deep.mp3"
       },
       {
         "label": "different",
@@ -40189,7 +43474,10 @@ export const languageSkillQuestions = [
         "text": "different",
         "word": "different",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/different.mp3",
+        "audioPath": "/audio/vocabulary/different.mp3",
+        "audioUrl": "/audio/vocabulary/different.mp3"
       },
       {
         "label": "near",
@@ -40236,7 +43524,10 @@ export const languageSkillQuestions = [
         "text": "shallow",
         "word": "shallow",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/shallow.mp3",
+        "audioPath": "/audio/vocabulary/shallow.mp3",
+        "audioUrl": "/audio/vocabulary/shallow.mp3"
       },
       {
         "label": "good",
@@ -40244,7 +43535,10 @@ export const languageSkillQuestions = [
         "text": "good",
         "word": "good",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/good.mp3",
+        "audioPath": "/audio/vocabulary/good.mp3",
+        "audioUrl": "/audio/vocabulary/good.mp3"
       },
       {
         "label": "far",
@@ -40263,7 +43557,10 @@ export const languageSkillQuestions = [
         "text": "deep",
         "word": "deep",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/deep.mp3",
+        "audioPath": "/audio/vocabulary/deep.mp3",
+        "audioUrl": "/audio/vocabulary/deep.mp3"
       }
     ],
     "choices": [
@@ -40279,7 +43576,10 @@ export const languageSkillQuestions = [
         "text": "shallow",
         "word": "shallow",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/shallow.mp3",
+        "audioPath": "/audio/vocabulary/shallow.mp3",
+        "audioUrl": "/audio/vocabulary/shallow.mp3"
       },
       {
         "label": "good",
@@ -40287,7 +43587,10 @@ export const languageSkillQuestions = [
         "text": "good",
         "word": "good",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/good.mp3",
+        "audioPath": "/audio/vocabulary/good.mp3",
+        "audioUrl": "/audio/vocabulary/good.mp3"
       },
       {
         "label": "far",
@@ -40306,7 +43609,10 @@ export const languageSkillQuestions = [
         "text": "deep",
         "word": "deep",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/deep.mp3",
+        "audioPath": "/audio/vocabulary/deep.mp3",
+        "audioUrl": "/audio/vocabulary/deep.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -40342,7 +43648,10 @@ export const languageSkillQuestions = [
         "text": "better",
         "word": "better",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/better.mp3",
+        "audioPath": "/audio/vocabulary/better.mp3",
+        "audioUrl": "/audio/vocabulary/better.mp3"
       },
       {
         "label": "deep",
@@ -40350,7 +43659,10 @@ export const languageSkillQuestions = [
         "text": "deep",
         "word": "deep",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/deep.mp3",
+        "audioPath": "/audio/vocabulary/deep.mp3",
+        "audioUrl": "/audio/vocabulary/deep.mp3"
       },
       {
         "label": "shallow",
@@ -40358,7 +43670,10 @@ export const languageSkillQuestions = [
         "text": "shallow",
         "word": "shallow",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/shallow.mp3",
+        "audioPath": "/audio/vocabulary/shallow.mp3",
+        "audioUrl": "/audio/vocabulary/shallow.mp3"
       },
       {
         "label": "sharp",
@@ -40366,7 +43681,10 @@ export const languageSkillQuestions = [
         "text": "sharp",
         "word": "sharp",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sharp.mp3",
+        "audioPath": "/audio/vocabulary/sharp.mp3",
+        "audioUrl": "/audio/vocabulary/sharp.mp3"
       }
     ],
     "choices": [
@@ -40382,7 +43700,10 @@ export const languageSkillQuestions = [
         "text": "better",
         "word": "better",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/better.mp3",
+        "audioPath": "/audio/vocabulary/better.mp3",
+        "audioUrl": "/audio/vocabulary/better.mp3"
       },
       {
         "label": "deep",
@@ -40390,7 +43711,10 @@ export const languageSkillQuestions = [
         "text": "deep",
         "word": "deep",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/deep.mp3",
+        "audioPath": "/audio/vocabulary/deep.mp3",
+        "audioUrl": "/audio/vocabulary/deep.mp3"
       },
       {
         "label": "shallow",
@@ -40398,7 +43722,10 @@ export const languageSkillQuestions = [
         "text": "shallow",
         "word": "shallow",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/shallow.mp3",
+        "audioPath": "/audio/vocabulary/shallow.mp3",
+        "audioUrl": "/audio/vocabulary/shallow.mp3"
       },
       {
         "label": "sharp",
@@ -40406,7 +43733,10 @@ export const languageSkillQuestions = [
         "text": "sharp",
         "word": "sharp",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sharp.mp3",
+        "audioPath": "/audio/vocabulary/sharp.mp3",
+        "audioUrl": "/audio/vocabulary/sharp.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -40442,7 +43772,10 @@ export const languageSkillQuestions = [
         "text": "shallow",
         "word": "shallow",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/shallow.mp3",
+        "audioPath": "/audio/vocabulary/shallow.mp3",
+        "audioUrl": "/audio/vocabulary/shallow.mp3"
       },
       {
         "label": "sharp",
@@ -40450,7 +43783,10 @@ export const languageSkillQuestions = [
         "text": "sharp",
         "word": "sharp",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sharp.mp3",
+        "audioPath": "/audio/vocabulary/sharp.mp3",
+        "audioUrl": "/audio/vocabulary/sharp.mp3"
       },
       {
         "label": "dull",
@@ -40458,7 +43794,10 @@ export const languageSkillQuestions = [
         "text": "dull",
         "word": "dull",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/dull.mp3",
+        "audioPath": "/audio/vocabulary/dull.mp3",
+        "audioUrl": "/audio/vocabulary/dull.mp3"
       },
       {
         "label": "best",
@@ -40466,7 +43805,10 @@ export const languageSkillQuestions = [
         "text": "best",
         "word": "best",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/best.mp3",
+        "audioPath": "/audio/vocabulary/best.mp3",
+        "audioUrl": "/audio/vocabulary/best.mp3"
       }
     ],
     "choices": [
@@ -40482,7 +43824,10 @@ export const languageSkillQuestions = [
         "text": "shallow",
         "word": "shallow",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/shallow.mp3",
+        "audioPath": "/audio/vocabulary/shallow.mp3",
+        "audioUrl": "/audio/vocabulary/shallow.mp3"
       },
       {
         "label": "sharp",
@@ -40490,7 +43835,10 @@ export const languageSkillQuestions = [
         "text": "sharp",
         "word": "sharp",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sharp.mp3",
+        "audioPath": "/audio/vocabulary/sharp.mp3",
+        "audioUrl": "/audio/vocabulary/sharp.mp3"
       },
       {
         "label": "dull",
@@ -40498,7 +43846,10 @@ export const languageSkillQuestions = [
         "text": "dull",
         "word": "dull",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/dull.mp3",
+        "audioPath": "/audio/vocabulary/dull.mp3",
+        "audioUrl": "/audio/vocabulary/dull.mp3"
       },
       {
         "label": "best",
@@ -40506,7 +43857,10 @@ export const languageSkillQuestions = [
         "text": "best",
         "word": "best",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/best.mp3",
+        "audioPath": "/audio/vocabulary/best.mp3",
+        "audioUrl": "/audio/vocabulary/best.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -40542,7 +43896,10 @@ export const languageSkillQuestions = [
         "text": "dull",
         "word": "dull",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/dull.mp3",
+        "audioPath": "/audio/vocabulary/dull.mp3",
+        "audioUrl": "/audio/vocabulary/dull.mp3"
       },
       {
         "label": "strong",
@@ -40550,7 +43907,10 @@ export const languageSkillQuestions = [
         "text": "strong",
         "word": "strong",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/strong.mp3",
+        "audioPath": "/audio/vocabulary/strong.mp3",
+        "audioUrl": "/audio/vocabulary/strong.mp3"
       },
       {
         "label": "easy",
@@ -40558,7 +43918,10 @@ export const languageSkillQuestions = [
         "text": "easy",
         "word": "easy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/easy.mp3",
+        "audioPath": "/audio/vocabulary/easy.mp3",
+        "audioUrl": "/audio/vocabulary/easy.mp3"
       },
       {
         "label": "sharp",
@@ -40566,7 +43929,10 @@ export const languageSkillQuestions = [
         "text": "sharp",
         "word": "sharp",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sharp.mp3",
+        "audioPath": "/audio/vocabulary/sharp.mp3",
+        "audioUrl": "/audio/vocabulary/sharp.mp3"
       }
     ],
     "choices": [
@@ -40582,7 +43948,10 @@ export const languageSkillQuestions = [
         "text": "dull",
         "word": "dull",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/dull.mp3",
+        "audioPath": "/audio/vocabulary/dull.mp3",
+        "audioUrl": "/audio/vocabulary/dull.mp3"
       },
       {
         "label": "strong",
@@ -40590,7 +43959,10 @@ export const languageSkillQuestions = [
         "text": "strong",
         "word": "strong",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/strong.mp3",
+        "audioPath": "/audio/vocabulary/strong.mp3",
+        "audioUrl": "/audio/vocabulary/strong.mp3"
       },
       {
         "label": "easy",
@@ -40598,7 +43970,10 @@ export const languageSkillQuestions = [
         "text": "easy",
         "word": "easy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/easy.mp3",
+        "audioPath": "/audio/vocabulary/easy.mp3",
+        "audioUrl": "/audio/vocabulary/easy.mp3"
       },
       {
         "label": "sharp",
@@ -40606,12 +43981,17 @@ export const languageSkillQuestions = [
         "text": "sharp",
         "word": "sharp",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sharp.mp3",
+        "audioPath": "/audio/vocabulary/sharp.mp3",
+        "audioUrl": "/audio/vocabulary/sharp.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/easy-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/easy-01.webp",
     "mediaTarget": "workbook:adjectives:easy",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -40651,7 +44031,10 @@ export const languageSkillQuestions = [
         "text": "harder",
         "word": "harder",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/harder.mp3",
+        "audioPath": "/audio/vocabulary/harder.mp3",
+        "audioUrl": "/audio/vocabulary/harder.mp3"
       },
       {
         "label": "dull",
@@ -40659,7 +44042,10 @@ export const languageSkillQuestions = [
         "text": "dull",
         "word": "dull",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/dull.mp3",
+        "audioPath": "/audio/vocabulary/dull.mp3",
+        "audioUrl": "/audio/vocabulary/dull.mp3"
       },
       {
         "label": "strong",
@@ -40667,7 +44053,10 @@ export const languageSkillQuestions = [
         "text": "strong",
         "word": "strong",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/strong.mp3",
+        "audioPath": "/audio/vocabulary/strong.mp3",
+        "audioUrl": "/audio/vocabulary/strong.mp3"
       }
     ],
     "choices": [
@@ -40694,7 +44083,10 @@ export const languageSkillQuestions = [
         "text": "harder",
         "word": "harder",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/harder.mp3",
+        "audioPath": "/audio/vocabulary/harder.mp3",
+        "audioUrl": "/audio/vocabulary/harder.mp3"
       },
       {
         "label": "dull",
@@ -40702,7 +44094,10 @@ export const languageSkillQuestions = [
         "text": "dull",
         "word": "dull",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/dull.mp3",
+        "audioPath": "/audio/vocabulary/dull.mp3",
+        "audioUrl": "/audio/vocabulary/dull.mp3"
       },
       {
         "label": "strong",
@@ -40710,12 +44105,17 @@ export const languageSkillQuestions = [
         "text": "strong",
         "word": "strong",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/strong.mp3",
+        "audioPath": "/audio/vocabulary/strong.mp3",
+        "audioUrl": "/audio/vocabulary/strong.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/harder-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/harder-01.webp",
     "mediaTarget": "workbook:adjectives:harder",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -40744,7 +44144,10 @@ export const languageSkillQuestions = [
         "text": "simple",
         "word": "simple",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/simple.mp3",
+        "audioPath": "/audio/vocabulary/simple.mp3",
+        "audioUrl": "/audio/vocabulary/simple.mp3"
       },
       {
         "label": "strong",
@@ -40752,7 +44155,10 @@ export const languageSkillQuestions = [
         "text": "strong",
         "word": "strong",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/strong.mp3",
+        "audioPath": "/audio/vocabulary/strong.mp3",
+        "audioUrl": "/audio/vocabulary/strong.mp3"
       },
       {
         "label": "weak",
@@ -40790,7 +44196,10 @@ export const languageSkillQuestions = [
         "text": "simple",
         "word": "simple",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/simple.mp3",
+        "audioPath": "/audio/vocabulary/simple.mp3",
+        "audioUrl": "/audio/vocabulary/simple.mp3"
       },
       {
         "label": "strong",
@@ -40798,7 +44207,10 @@ export const languageSkillQuestions = [
         "text": "strong",
         "word": "strong",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/strong.mp3",
+        "audioPath": "/audio/vocabulary/strong.mp3",
+        "audioUrl": "/audio/vocabulary/strong.mp3"
       },
       {
         "label": "weak",
@@ -40826,6 +44238,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/simple-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/simple-01.webp",
     "mediaTarget": "workbook:adjectives:simple",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -40887,7 +44301,10 @@ export const languageSkillQuestions = [
         "text": "tricky",
         "word": "tricky",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/tricky.mp3",
+        "audioPath": "/audio/vocabulary/tricky.mp3",
+        "audioUrl": "/audio/vocabulary/tricky.mp3"
       }
     ],
     "choices": [
@@ -40936,12 +44353,17 @@ export const languageSkillQuestions = [
         "text": "tricky",
         "word": "tricky",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/tricky.mp3",
+        "audioPath": "/audio/vocabulary/tricky.mp3",
+        "audioUrl": "/audio/vocabulary/tricky.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/tricky-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/tricky-01.webp",
     "mediaTarget": "workbook:adjectives:tricky",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -40981,7 +44403,10 @@ export const languageSkillQuestions = [
         "text": "busy",
         "word": "busy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/busy.mp3",
+        "audioPath": "/audio/vocabulary/busy.mp3",
+        "audioUrl": "/audio/vocabulary/busy.mp3"
       },
       {
         "label": "near",
@@ -41030,7 +44455,10 @@ export const languageSkillQuestions = [
         "text": "busy",
         "word": "busy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/busy.mp3",
+        "audioPath": "/audio/vocabulary/busy.mp3",
+        "audioUrl": "/audio/vocabulary/busy.mp3"
       },
       {
         "label": "near",
@@ -41088,7 +44516,10 @@ export const languageSkillQuestions = [
         "text": "calm",
         "word": "calm",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/calm.mp3",
+        "audioPath": "/audio/vocabulary/calm.mp3",
+        "audioUrl": "/audio/vocabulary/calm.mp3"
       },
       {
         "label": "far",
@@ -41118,7 +44549,10 @@ export const languageSkillQuestions = [
         "text": "busy",
         "word": "busy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/busy.mp3",
+        "audioPath": "/audio/vocabulary/busy.mp3",
+        "audioUrl": "/audio/vocabulary/busy.mp3"
       }
     ],
     "choices": [
@@ -41134,7 +44568,10 @@ export const languageSkillQuestions = [
         "text": "calm",
         "word": "calm",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/calm.mp3",
+        "audioPath": "/audio/vocabulary/calm.mp3",
+        "audioUrl": "/audio/vocabulary/calm.mp3"
       },
       {
         "label": "far",
@@ -41164,7 +44601,10 @@ export const languageSkillQuestions = [
         "text": "busy",
         "word": "busy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/busy.mp3",
+        "audioPath": "/audio/vocabulary/busy.mp3",
+        "audioUrl": "/audio/vocabulary/busy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -41200,7 +44640,10 @@ export const languageSkillQuestions = [
         "text": "deep",
         "word": "deep",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/deep.mp3",
+        "audioPath": "/audio/vocabulary/deep.mp3",
+        "audioUrl": "/audio/vocabulary/deep.mp3"
       },
       {
         "label": "busy",
@@ -41208,7 +44651,10 @@ export const languageSkillQuestions = [
         "text": "busy",
         "word": "busy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/busy.mp3",
+        "audioPath": "/audio/vocabulary/busy.mp3",
+        "audioUrl": "/audio/vocabulary/busy.mp3"
       },
       {
         "label": "calm",
@@ -41216,7 +44662,10 @@ export const languageSkillQuestions = [
         "text": "calm",
         "word": "calm",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/calm.mp3",
+        "audioPath": "/audio/vocabulary/calm.mp3",
+        "audioUrl": "/audio/vocabulary/calm.mp3"
       },
       {
         "label": "noisy",
@@ -41224,7 +44673,10 @@ export const languageSkillQuestions = [
         "text": "noisy",
         "word": "noisy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/noisy.mp3",
+        "audioPath": "/audio/vocabulary/noisy.mp3",
+        "audioUrl": "/audio/vocabulary/noisy.mp3"
       }
     ],
     "choices": [
@@ -41240,7 +44692,10 @@ export const languageSkillQuestions = [
         "text": "deep",
         "word": "deep",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/deep.mp3",
+        "audioPath": "/audio/vocabulary/deep.mp3",
+        "audioUrl": "/audio/vocabulary/deep.mp3"
       },
       {
         "label": "busy",
@@ -41248,7 +44703,10 @@ export const languageSkillQuestions = [
         "text": "busy",
         "word": "busy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/busy.mp3",
+        "audioPath": "/audio/vocabulary/busy.mp3",
+        "audioUrl": "/audio/vocabulary/busy.mp3"
       },
       {
         "label": "calm",
@@ -41256,7 +44714,10 @@ export const languageSkillQuestions = [
         "text": "calm",
         "word": "calm",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/calm.mp3",
+        "audioPath": "/audio/vocabulary/calm.mp3",
+        "audioUrl": "/audio/vocabulary/calm.mp3"
       },
       {
         "label": "noisy",
@@ -41264,7 +44725,10 @@ export const languageSkillQuestions = [
         "text": "noisy",
         "word": "noisy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/noisy.mp3",
+        "audioPath": "/audio/vocabulary/noisy.mp3",
+        "audioUrl": "/audio/vocabulary/noisy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -41300,7 +44764,10 @@ export const languageSkillQuestions = [
         "text": "calm",
         "word": "calm",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/calm.mp3",
+        "audioPath": "/audio/vocabulary/calm.mp3",
+        "audioUrl": "/audio/vocabulary/calm.mp3"
       },
       {
         "label": "noisy",
@@ -41308,7 +44775,10 @@ export const languageSkillQuestions = [
         "text": "noisy",
         "word": "noisy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/noisy.mp3",
+        "audioPath": "/audio/vocabulary/noisy.mp3",
+        "audioUrl": "/audio/vocabulary/noisy.mp3"
       },
       {
         "label": "silent",
@@ -41327,7 +44797,10 @@ export const languageSkillQuestions = [
         "text": "shallow",
         "word": "shallow",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/shallow.mp3",
+        "audioPath": "/audio/vocabulary/shallow.mp3",
+        "audioUrl": "/audio/vocabulary/shallow.mp3"
       }
     ],
     "choices": [
@@ -41343,7 +44816,10 @@ export const languageSkillQuestions = [
         "text": "calm",
         "word": "calm",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/calm.mp3",
+        "audioPath": "/audio/vocabulary/calm.mp3",
+        "audioUrl": "/audio/vocabulary/calm.mp3"
       },
       {
         "label": "noisy",
@@ -41351,7 +44827,10 @@ export const languageSkillQuestions = [
         "text": "noisy",
         "word": "noisy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/noisy.mp3",
+        "audioPath": "/audio/vocabulary/noisy.mp3",
+        "audioUrl": "/audio/vocabulary/noisy.mp3"
       },
       {
         "label": "silent",
@@ -41370,12 +44849,17 @@ export const languageSkillQuestions = [
         "text": "shallow",
         "word": "shallow",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/shallow.mp3",
+        "audioPath": "/audio/vocabulary/shallow.mp3",
+        "audioUrl": "/audio/vocabulary/shallow.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/shallow-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/shallow-01.webp",
     "mediaTarget": "workbook:adjectives:shallow",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -41415,7 +44899,10 @@ export const languageSkillQuestions = [
         "text": "bumpy",
         "word": "bumpy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/bumpy.mp3",
+        "audioPath": "/audio/vocabulary/bumpy.mp3",
+        "audioUrl": "/audio/vocabulary/bumpy.mp3"
       },
       {
         "label": "sharp",
@@ -41423,7 +44910,10 @@ export const languageSkillQuestions = [
         "text": "sharp",
         "word": "sharp",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sharp.mp3",
+        "audioPath": "/audio/vocabulary/sharp.mp3",
+        "audioUrl": "/audio/vocabulary/sharp.mp3"
       },
       {
         "label": "noisy",
@@ -41431,7 +44921,10 @@ export const languageSkillQuestions = [
         "text": "noisy",
         "word": "noisy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/noisy.mp3",
+        "audioPath": "/audio/vocabulary/noisy.mp3",
+        "audioUrl": "/audio/vocabulary/noisy.mp3"
       }
     ],
     "choices": [
@@ -41458,7 +44951,10 @@ export const languageSkillQuestions = [
         "text": "bumpy",
         "word": "bumpy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/bumpy.mp3",
+        "audioPath": "/audio/vocabulary/bumpy.mp3",
+        "audioUrl": "/audio/vocabulary/bumpy.mp3"
       },
       {
         "label": "sharp",
@@ -41466,7 +44962,10 @@ export const languageSkillQuestions = [
         "text": "sharp",
         "word": "sharp",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sharp.mp3",
+        "audioPath": "/audio/vocabulary/sharp.mp3",
+        "audioUrl": "/audio/vocabulary/sharp.mp3"
       },
       {
         "label": "noisy",
@@ -41474,7 +44973,10 @@ export const languageSkillQuestions = [
         "text": "noisy",
         "word": "noisy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/noisy.mp3",
+        "audioPath": "/audio/vocabulary/noisy.mp3",
+        "audioUrl": "/audio/vocabulary/noisy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -41510,7 +45012,10 @@ export const languageSkillQuestions = [
         "text": "slippery",
         "word": "slippery",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/slippery.mp3",
+        "audioPath": "/audio/vocabulary/slippery.mp3",
+        "audioUrl": "/audio/vocabulary/slippery.mp3"
       },
       {
         "label": "dull",
@@ -41518,7 +45023,10 @@ export const languageSkillQuestions = [
         "text": "dull",
         "word": "dull",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/dull.mp3",
+        "audioPath": "/audio/vocabulary/dull.mp3",
+        "audioUrl": "/audio/vocabulary/dull.mp3"
       },
       {
         "label": "silent",
@@ -41537,7 +45045,10 @@ export const languageSkillQuestions = [
         "text": "bumpy",
         "word": "bumpy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/bumpy.mp3",
+        "audioPath": "/audio/vocabulary/bumpy.mp3",
+        "audioUrl": "/audio/vocabulary/bumpy.mp3"
       }
     ],
     "choices": [
@@ -41553,7 +45064,10 @@ export const languageSkillQuestions = [
         "text": "slippery",
         "word": "slippery",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/slippery.mp3",
+        "audioPath": "/audio/vocabulary/slippery.mp3",
+        "audioUrl": "/audio/vocabulary/slippery.mp3"
       },
       {
         "label": "dull",
@@ -41561,7 +45075,10 @@ export const languageSkillQuestions = [
         "text": "dull",
         "word": "dull",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/dull.mp3",
+        "audioPath": "/audio/vocabulary/dull.mp3",
+        "audioUrl": "/audio/vocabulary/dull.mp3"
       },
       {
         "label": "silent",
@@ -41580,12 +45097,17 @@ export const languageSkillQuestions = [
         "text": "bumpy",
         "word": "bumpy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/bumpy.mp3",
+        "audioPath": "/audio/vocabulary/bumpy.mp3",
+        "audioUrl": "/audio/vocabulary/bumpy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/dull-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/dull-01.webp",
     "mediaTarget": "workbook:adjectives:dull",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -41614,7 +45136,10 @@ export const languageSkillQuestions = [
         "text": "strong",
         "word": "strong",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/strong.mp3",
+        "audioPath": "/audio/vocabulary/strong.mp3",
+        "audioUrl": "/audio/vocabulary/strong.mp3"
       },
       {
         "label": "bumpy",
@@ -41622,7 +45147,10 @@ export const languageSkillQuestions = [
         "text": "bumpy",
         "word": "bumpy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/bumpy.mp3",
+        "audioPath": "/audio/vocabulary/bumpy.mp3",
+        "audioUrl": "/audio/vocabulary/bumpy.mp3"
       },
       {
         "label": "slippery",
@@ -41630,7 +45158,10 @@ export const languageSkillQuestions = [
         "text": "slippery",
         "word": "slippery",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/slippery.mp3",
+        "audioPath": "/audio/vocabulary/slippery.mp3",
+        "audioUrl": "/audio/vocabulary/slippery.mp3"
       },
       {
         "label": "sticky",
@@ -41638,7 +45169,10 @@ export const languageSkillQuestions = [
         "text": "sticky",
         "word": "sticky",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sticky.mp3",
+        "audioPath": "/audio/vocabulary/sticky.mp3",
+        "audioUrl": "/audio/vocabulary/sticky.mp3"
       }
     ],
     "choices": [
@@ -41654,7 +45188,10 @@ export const languageSkillQuestions = [
         "text": "strong",
         "word": "strong",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/strong.mp3",
+        "audioPath": "/audio/vocabulary/strong.mp3",
+        "audioUrl": "/audio/vocabulary/strong.mp3"
       },
       {
         "label": "bumpy",
@@ -41662,7 +45199,10 @@ export const languageSkillQuestions = [
         "text": "bumpy",
         "word": "bumpy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/bumpy.mp3",
+        "audioPath": "/audio/vocabulary/bumpy.mp3",
+        "audioUrl": "/audio/vocabulary/bumpy.mp3"
       },
       {
         "label": "slippery",
@@ -41670,7 +45210,10 @@ export const languageSkillQuestions = [
         "text": "slippery",
         "word": "slippery",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/slippery.mp3",
+        "audioPath": "/audio/vocabulary/slippery.mp3",
+        "audioUrl": "/audio/vocabulary/slippery.mp3"
       },
       {
         "label": "sticky",
@@ -41678,7 +45221,10 @@ export const languageSkillQuestions = [
         "text": "sticky",
         "word": "sticky",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sticky.mp3",
+        "audioPath": "/audio/vocabulary/sticky.mp3",
+        "audioUrl": "/audio/vocabulary/sticky.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -41714,7 +45260,10 @@ export const languageSkillQuestions = [
         "text": "slippery",
         "word": "slippery",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/slippery.mp3",
+        "audioPath": "/audio/vocabulary/slippery.mp3",
+        "audioUrl": "/audio/vocabulary/slippery.mp3"
       },
       {
         "label": "sticky",
@@ -41722,7 +45271,10 @@ export const languageSkillQuestions = [
         "text": "sticky",
         "word": "sticky",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sticky.mp3",
+        "audioPath": "/audio/vocabulary/sticky.mp3",
+        "audioUrl": "/audio/vocabulary/sticky.mp3"
       },
       {
         "label": "fluffy",
@@ -41730,7 +45282,10 @@ export const languageSkillQuestions = [
         "text": "fluffy",
         "word": "fluffy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/fluffy.mp3",
+        "audioPath": "/audio/vocabulary/fluffy.mp3",
+        "audioUrl": "/audio/vocabulary/fluffy.mp3"
       },
       {
         "label": "weak",
@@ -41757,7 +45312,10 @@ export const languageSkillQuestions = [
         "text": "slippery",
         "word": "slippery",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/slippery.mp3",
+        "audioPath": "/audio/vocabulary/slippery.mp3",
+        "audioUrl": "/audio/vocabulary/slippery.mp3"
       },
       {
         "label": "sticky",
@@ -41765,7 +45323,10 @@ export const languageSkillQuestions = [
         "text": "sticky",
         "word": "sticky",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sticky.mp3",
+        "audioPath": "/audio/vocabulary/sticky.mp3",
+        "audioUrl": "/audio/vocabulary/sticky.mp3"
       },
       {
         "label": "fluffy",
@@ -41773,7 +45334,10 @@ export const languageSkillQuestions = [
         "text": "fluffy",
         "word": "fluffy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/fluffy.mp3",
+        "audioPath": "/audio/vocabulary/fluffy.mp3",
+        "audioUrl": "/audio/vocabulary/fluffy.mp3"
       },
       {
         "label": "weak",
@@ -41820,7 +45384,10 @@ export const languageSkillQuestions = [
         "text": "fluffy",
         "word": "fluffy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/fluffy.mp3",
+        "audioPath": "/audio/vocabulary/fluffy.mp3",
+        "audioUrl": "/audio/vocabulary/fluffy.mp3"
       },
       {
         "label": "fuzzy",
@@ -41828,7 +45395,10 @@ export const languageSkillQuestions = [
         "text": "fuzzy",
         "word": "fuzzy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/fuzzy.mp3",
+        "audioPath": "/audio/vocabulary/fuzzy.mp3",
+        "audioUrl": "/audio/vocabulary/fuzzy.mp3"
       },
       {
         "label": "rich",
@@ -41847,7 +45417,10 @@ export const languageSkillQuestions = [
         "text": "sticky",
         "word": "sticky",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sticky.mp3",
+        "audioPath": "/audio/vocabulary/sticky.mp3",
+        "audioUrl": "/audio/vocabulary/sticky.mp3"
       }
     ],
     "choices": [
@@ -41863,7 +45436,10 @@ export const languageSkillQuestions = [
         "text": "fluffy",
         "word": "fluffy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/fluffy.mp3",
+        "audioPath": "/audio/vocabulary/fluffy.mp3",
+        "audioUrl": "/audio/vocabulary/fluffy.mp3"
       },
       {
         "label": "fuzzy",
@@ -41871,7 +45447,10 @@ export const languageSkillQuestions = [
         "text": "fuzzy",
         "word": "fuzzy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/fuzzy.mp3",
+        "audioPath": "/audio/vocabulary/fuzzy.mp3",
+        "audioUrl": "/audio/vocabulary/fuzzy.mp3"
       },
       {
         "label": "rich",
@@ -41890,7 +45469,10 @@ export const languageSkillQuestions = [
         "text": "sticky",
         "word": "sticky",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sticky.mp3",
+        "audioPath": "/audio/vocabulary/sticky.mp3",
+        "audioUrl": "/audio/vocabulary/sticky.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -41926,7 +45508,10 @@ export const languageSkillQuestions = [
         "text": "spotted",
         "word": "spotted",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/spotted.mp3",
+        "audioPath": "/audio/vocabulary/spotted.mp3",
+        "audioUrl": "/audio/vocabulary/spotted.mp3"
       },
       {
         "label": "poor",
@@ -41945,7 +45530,10 @@ export const languageSkillQuestions = [
         "text": "fluffy",
         "word": "fluffy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/fluffy.mp3",
+        "audioPath": "/audio/vocabulary/fluffy.mp3",
+        "audioUrl": "/audio/vocabulary/fluffy.mp3"
       },
       {
         "label": "fuzzy",
@@ -41953,7 +45541,10 @@ export const languageSkillQuestions = [
         "text": "fuzzy",
         "word": "fuzzy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/fuzzy.mp3",
+        "audioPath": "/audio/vocabulary/fuzzy.mp3",
+        "audioUrl": "/audio/vocabulary/fuzzy.mp3"
       }
     ],
     "choices": [
@@ -41969,7 +45560,10 @@ export const languageSkillQuestions = [
         "text": "spotted",
         "word": "spotted",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/spotted.mp3",
+        "audioPath": "/audio/vocabulary/spotted.mp3",
+        "audioUrl": "/audio/vocabulary/spotted.mp3"
       },
       {
         "label": "poor",
@@ -41988,7 +45582,10 @@ export const languageSkillQuestions = [
         "text": "fluffy",
         "word": "fluffy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/fluffy.mp3",
+        "audioPath": "/audio/vocabulary/fluffy.mp3",
+        "audioUrl": "/audio/vocabulary/fluffy.mp3"
       },
       {
         "label": "fuzzy",
@@ -41996,7 +45593,10 @@ export const languageSkillQuestions = [
         "text": "fuzzy",
         "word": "fuzzy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/fuzzy.mp3",
+        "audioPath": "/audio/vocabulary/fuzzy.mp3",
+        "audioUrl": "/audio/vocabulary/fuzzy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -42032,7 +45632,10 @@ export const languageSkillQuestions = [
         "text": "busy",
         "word": "busy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/busy.mp3",
+        "audioPath": "/audio/vocabulary/busy.mp3",
+        "audioUrl": "/audio/vocabulary/busy.mp3"
       },
       {
         "label": "fuzzy",
@@ -42040,7 +45643,10 @@ export const languageSkillQuestions = [
         "text": "fuzzy",
         "word": "fuzzy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/fuzzy.mp3",
+        "audioPath": "/audio/vocabulary/fuzzy.mp3",
+        "audioUrl": "/audio/vocabulary/fuzzy.mp3"
       },
       {
         "label": "spotted",
@@ -42048,7 +45654,10 @@ export const languageSkillQuestions = [
         "text": "spotted",
         "word": "spotted",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/spotted.mp3",
+        "audioPath": "/audio/vocabulary/spotted.mp3",
+        "audioUrl": "/audio/vocabulary/spotted.mp3"
       },
       {
         "label": "striped",
@@ -42056,7 +45665,10 @@ export const languageSkillQuestions = [
         "text": "striped",
         "word": "striped",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/striped.mp3",
+        "audioPath": "/audio/vocabulary/striped.mp3",
+        "audioUrl": "/audio/vocabulary/striped.mp3"
       }
     ],
     "choices": [
@@ -42072,7 +45684,10 @@ export const languageSkillQuestions = [
         "text": "busy",
         "word": "busy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/busy.mp3",
+        "audioPath": "/audio/vocabulary/busy.mp3",
+        "audioUrl": "/audio/vocabulary/busy.mp3"
       },
       {
         "label": "fuzzy",
@@ -42080,7 +45695,10 @@ export const languageSkillQuestions = [
         "text": "fuzzy",
         "word": "fuzzy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/fuzzy.mp3",
+        "audioPath": "/audio/vocabulary/fuzzy.mp3",
+        "audioUrl": "/audio/vocabulary/fuzzy.mp3"
       },
       {
         "label": "spotted",
@@ -42088,7 +45706,10 @@ export const languageSkillQuestions = [
         "text": "spotted",
         "word": "spotted",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/spotted.mp3",
+        "audioPath": "/audio/vocabulary/spotted.mp3",
+        "audioUrl": "/audio/vocabulary/spotted.mp3"
       },
       {
         "label": "striped",
@@ -42096,12 +45717,17 @@ export const languageSkillQuestions = [
         "text": "striped",
         "word": "striped",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/striped.mp3",
+        "audioPath": "/audio/vocabulary/striped.mp3",
+        "audioUrl": "/audio/vocabulary/striped.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/busy-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/busy-01.webp",
     "mediaTarget": "workbook:adjectives:busy",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -42130,7 +45756,10 @@ export const languageSkillQuestions = [
         "text": "spotted",
         "word": "spotted",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/spotted.mp3",
+        "audioPath": "/audio/vocabulary/spotted.mp3",
+        "audioUrl": "/audio/vocabulary/spotted.mp3"
       },
       {
         "label": "striped",
@@ -42138,7 +45767,10 @@ export const languageSkillQuestions = [
         "text": "striped",
         "word": "striped",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/striped.mp3",
+        "audioPath": "/audio/vocabulary/striped.mp3",
+        "audioUrl": "/audio/vocabulary/striped.mp3"
       },
       {
         "label": "plain",
@@ -42157,7 +45789,10 @@ export const languageSkillQuestions = [
         "text": "calm",
         "word": "calm",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/calm.mp3",
+        "audioPath": "/audio/vocabulary/calm.mp3",
+        "audioUrl": "/audio/vocabulary/calm.mp3"
       }
     ],
     "choices": [
@@ -42173,7 +45808,10 @@ export const languageSkillQuestions = [
         "text": "spotted",
         "word": "spotted",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/spotted.mp3",
+        "audioPath": "/audio/vocabulary/spotted.mp3",
+        "audioUrl": "/audio/vocabulary/spotted.mp3"
       },
       {
         "label": "striped",
@@ -42181,7 +45819,10 @@ export const languageSkillQuestions = [
         "text": "striped",
         "word": "striped",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/striped.mp3",
+        "audioPath": "/audio/vocabulary/striped.mp3",
+        "audioUrl": "/audio/vocabulary/striped.mp3"
       },
       {
         "label": "plain",
@@ -42200,7 +45841,10 @@ export const languageSkillQuestions = [
         "text": "calm",
         "word": "calm",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/calm.mp3",
+        "audioPath": "/audio/vocabulary/calm.mp3",
+        "audioUrl": "/audio/vocabulary/calm.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -42247,7 +45891,10 @@ export const languageSkillQuestions = [
         "text": "colorful",
         "word": "colorful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/colorful.mp3",
+        "audioPath": "/audio/vocabulary/colorful.mp3",
+        "audioUrl": "/audio/vocabulary/colorful.mp3"
       },
       {
         "label": "noisy",
@@ -42255,7 +45902,10 @@ export const languageSkillQuestions = [
         "text": "noisy",
         "word": "noisy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/noisy.mp3",
+        "audioPath": "/audio/vocabulary/noisy.mp3",
+        "audioUrl": "/audio/vocabulary/noisy.mp3"
       },
       {
         "label": "striped",
@@ -42263,7 +45913,10 @@ export const languageSkillQuestions = [
         "text": "striped",
         "word": "striped",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/striped.mp3",
+        "audioPath": "/audio/vocabulary/striped.mp3",
+        "audioUrl": "/audio/vocabulary/striped.mp3"
       }
     ],
     "choices": [
@@ -42290,7 +45943,10 @@ export const languageSkillQuestions = [
         "text": "colorful",
         "word": "colorful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/colorful.mp3",
+        "audioPath": "/audio/vocabulary/colorful.mp3",
+        "audioUrl": "/audio/vocabulary/colorful.mp3"
       },
       {
         "label": "noisy",
@@ -42298,7 +45954,10 @@ export const languageSkillQuestions = [
         "text": "noisy",
         "word": "noisy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/noisy.mp3",
+        "audioPath": "/audio/vocabulary/noisy.mp3",
+        "audioUrl": "/audio/vocabulary/noisy.mp3"
       },
       {
         "label": "striped",
@@ -42306,7 +45965,10 @@ export const languageSkillQuestions = [
         "text": "striped",
         "word": "striped",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/striped.mp3",
+        "audioPath": "/audio/vocabulary/striped.mp3",
+        "audioUrl": "/audio/vocabulary/striped.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -42342,7 +46004,10 @@ export const languageSkillQuestions = [
         "text": "clear",
         "word": "clear",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/clear.mp3",
+        "audioPath": "/audio/vocabulary/clear.mp3",
+        "audioUrl": "/audio/vocabulary/clear.mp3"
       },
       {
         "label": "silent",
@@ -42372,7 +46037,10 @@ export const languageSkillQuestions = [
         "text": "colorful",
         "word": "colorful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/colorful.mp3",
+        "audioPath": "/audio/vocabulary/colorful.mp3",
+        "audioUrl": "/audio/vocabulary/colorful.mp3"
       }
     ],
     "choices": [
@@ -42388,7 +46056,10 @@ export const languageSkillQuestions = [
         "text": "clear",
         "word": "clear",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/clear.mp3",
+        "audioPath": "/audio/vocabulary/clear.mp3",
+        "audioUrl": "/audio/vocabulary/clear.mp3"
       },
       {
         "label": "silent",
@@ -42418,7 +46089,10 @@ export const languageSkillQuestions = [
         "text": "colorful",
         "word": "colorful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/colorful.mp3",
+        "audioPath": "/audio/vocabulary/colorful.mp3",
+        "audioUrl": "/audio/vocabulary/colorful.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -42454,7 +46128,10 @@ export const languageSkillQuestions = [
         "text": "bumpy",
         "word": "bumpy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/bumpy.mp3",
+        "audioPath": "/audio/vocabulary/bumpy.mp3",
+        "audioUrl": "/audio/vocabulary/bumpy.mp3"
       },
       {
         "label": "colorful",
@@ -42462,7 +46139,10 @@ export const languageSkillQuestions = [
         "text": "colorful",
         "word": "colorful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/colorful.mp3",
+        "audioPath": "/audio/vocabulary/colorful.mp3",
+        "audioUrl": "/audio/vocabulary/colorful.mp3"
       },
       {
         "label": "clear",
@@ -42470,7 +46150,10 @@ export const languageSkillQuestions = [
         "text": "clear",
         "word": "clear",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/clear.mp3",
+        "audioPath": "/audio/vocabulary/clear.mp3",
+        "audioUrl": "/audio/vocabulary/clear.mp3"
       },
       {
         "label": "cloudy",
@@ -42478,7 +46161,10 @@ export const languageSkillQuestions = [
         "text": "cloudy",
         "word": "cloudy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/cloudy.mp3",
+        "audioPath": "/audio/vocabulary/cloudy.mp3",
+        "audioUrl": "/audio/vocabulary/cloudy.mp3"
       }
     ],
     "choices": [
@@ -42494,7 +46180,10 @@ export const languageSkillQuestions = [
         "text": "bumpy",
         "word": "bumpy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/bumpy.mp3",
+        "audioPath": "/audio/vocabulary/bumpy.mp3",
+        "audioUrl": "/audio/vocabulary/bumpy.mp3"
       },
       {
         "label": "colorful",
@@ -42502,7 +46191,10 @@ export const languageSkillQuestions = [
         "text": "colorful",
         "word": "colorful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/colorful.mp3",
+        "audioPath": "/audio/vocabulary/colorful.mp3",
+        "audioUrl": "/audio/vocabulary/colorful.mp3"
       },
       {
         "label": "clear",
@@ -42510,7 +46202,10 @@ export const languageSkillQuestions = [
         "text": "clear",
         "word": "clear",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/clear.mp3",
+        "audioPath": "/audio/vocabulary/clear.mp3",
+        "audioUrl": "/audio/vocabulary/clear.mp3"
       },
       {
         "label": "cloudy",
@@ -42518,7 +46213,10 @@ export const languageSkillQuestions = [
         "text": "cloudy",
         "word": "cloudy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/cloudy.mp3",
+        "audioPath": "/audio/vocabulary/cloudy.mp3",
+        "audioUrl": "/audio/vocabulary/cloudy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -42554,7 +46252,10 @@ export const languageSkillQuestions = [
         "text": "clear",
         "word": "clear",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/clear.mp3",
+        "audioPath": "/audio/vocabulary/clear.mp3",
+        "audioUrl": "/audio/vocabulary/clear.mp3"
       },
       {
         "label": "cloudy",
@@ -42562,7 +46263,10 @@ export const languageSkillQuestions = [
         "text": "cloudy",
         "word": "cloudy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/cloudy.mp3",
+        "audioPath": "/audio/vocabulary/cloudy.mp3",
+        "audioUrl": "/audio/vocabulary/cloudy.mp3"
       },
       {
         "label": "rainy",
@@ -42570,7 +46274,10 @@ export const languageSkillQuestions = [
         "text": "rainy",
         "word": "rainy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/rainy.mp3",
+        "audioPath": "/audio/vocabulary/rainy.mp3",
+        "audioUrl": "/audio/vocabulary/rainy.mp3"
       },
       {
         "label": "slippery",
@@ -42578,7 +46285,10 @@ export const languageSkillQuestions = [
         "text": "slippery",
         "word": "slippery",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/slippery.mp3",
+        "audioPath": "/audio/vocabulary/slippery.mp3",
+        "audioUrl": "/audio/vocabulary/slippery.mp3"
       }
     ],
     "choices": [
@@ -42594,7 +46304,10 @@ export const languageSkillQuestions = [
         "text": "clear",
         "word": "clear",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/clear.mp3",
+        "audioPath": "/audio/vocabulary/clear.mp3",
+        "audioUrl": "/audio/vocabulary/clear.mp3"
       },
       {
         "label": "cloudy",
@@ -42602,7 +46315,10 @@ export const languageSkillQuestions = [
         "text": "cloudy",
         "word": "cloudy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/cloudy.mp3",
+        "audioPath": "/audio/vocabulary/cloudy.mp3",
+        "audioUrl": "/audio/vocabulary/cloudy.mp3"
       },
       {
         "label": "rainy",
@@ -42610,7 +46326,10 @@ export const languageSkillQuestions = [
         "text": "rainy",
         "word": "rainy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/rainy.mp3",
+        "audioPath": "/audio/vocabulary/rainy.mp3",
+        "audioUrl": "/audio/vocabulary/rainy.mp3"
       },
       {
         "label": "slippery",
@@ -42618,12 +46337,17 @@ export const languageSkillQuestions = [
         "text": "slippery",
         "word": "slippery",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/slippery.mp3",
+        "audioPath": "/audio/vocabulary/slippery.mp3",
+        "audioUrl": "/audio/vocabulary/slippery.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/slippery-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/slippery-01.webp",
     "mediaTarget": "workbook:adjectives:slippery",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -42652,7 +46376,10 @@ export const languageSkillQuestions = [
         "text": "rainy",
         "word": "rainy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/rainy.mp3",
+        "audioPath": "/audio/vocabulary/rainy.mp3",
+        "audioUrl": "/audio/vocabulary/rainy.mp3"
       },
       {
         "label": "sunny",
@@ -42660,7 +46387,10 @@ export const languageSkillQuestions = [
         "text": "sunny",
         "word": "sunny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sunny.mp3",
+        "audioPath": "/audio/vocabulary/sunny.mp3",
+        "audioUrl": "/audio/vocabulary/sunny.mp3"
       },
       {
         "label": "sticky",
@@ -42668,7 +46398,10 @@ export const languageSkillQuestions = [
         "text": "sticky",
         "word": "sticky",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sticky.mp3",
+        "audioPath": "/audio/vocabulary/sticky.mp3",
+        "audioUrl": "/audio/vocabulary/sticky.mp3"
       },
       {
         "label": "cloudy",
@@ -42676,7 +46409,10 @@ export const languageSkillQuestions = [
         "text": "cloudy",
         "word": "cloudy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/cloudy.mp3",
+        "audioPath": "/audio/vocabulary/cloudy.mp3",
+        "audioUrl": "/audio/vocabulary/cloudy.mp3"
       }
     ],
     "choices": [
@@ -42692,7 +46428,10 @@ export const languageSkillQuestions = [
         "text": "rainy",
         "word": "rainy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/rainy.mp3",
+        "audioPath": "/audio/vocabulary/rainy.mp3",
+        "audioUrl": "/audio/vocabulary/rainy.mp3"
       },
       {
         "label": "sunny",
@@ -42700,7 +46439,10 @@ export const languageSkillQuestions = [
         "text": "sunny",
         "word": "sunny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sunny.mp3",
+        "audioPath": "/audio/vocabulary/sunny.mp3",
+        "audioUrl": "/audio/vocabulary/sunny.mp3"
       },
       {
         "label": "sticky",
@@ -42708,7 +46450,10 @@ export const languageSkillQuestions = [
         "text": "sticky",
         "word": "sticky",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sticky.mp3",
+        "audioPath": "/audio/vocabulary/sticky.mp3",
+        "audioUrl": "/audio/vocabulary/sticky.mp3"
       },
       {
         "label": "cloudy",
@@ -42716,12 +46461,17 @@ export const languageSkillQuestions = [
         "text": "cloudy",
         "word": "cloudy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/cloudy.mp3",
+        "audioPath": "/audio/vocabulary/cloudy.mp3",
+        "audioUrl": "/audio/vocabulary/cloudy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/sticky-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/sticky-01.webp",
     "mediaTarget": "workbook:adjectives:sticky",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -42750,7 +46500,10 @@ export const languageSkillQuestions = [
         "text": "windy",
         "word": "windy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/windy.mp3",
+        "audioPath": "/audio/vocabulary/windy.mp3",
+        "audioUrl": "/audio/vocabulary/windy.mp3"
       },
       {
         "label": "fluffy",
@@ -42758,7 +46511,10 @@ export const languageSkillQuestions = [
         "text": "fluffy",
         "word": "fluffy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/fluffy.mp3",
+        "audioPath": "/audio/vocabulary/fluffy.mp3",
+        "audioUrl": "/audio/vocabulary/fluffy.mp3"
       },
       {
         "label": "rainy",
@@ -42766,7 +46522,10 @@ export const languageSkillQuestions = [
         "text": "rainy",
         "word": "rainy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/rainy.mp3",
+        "audioPath": "/audio/vocabulary/rainy.mp3",
+        "audioUrl": "/audio/vocabulary/rainy.mp3"
       },
       {
         "label": "sunny",
@@ -42774,7 +46533,10 @@ export const languageSkillQuestions = [
         "text": "sunny",
         "word": "sunny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sunny.mp3",
+        "audioPath": "/audio/vocabulary/sunny.mp3",
+        "audioUrl": "/audio/vocabulary/sunny.mp3"
       }
     ],
     "choices": [
@@ -42790,7 +46552,10 @@ export const languageSkillQuestions = [
         "text": "windy",
         "word": "windy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/windy.mp3",
+        "audioPath": "/audio/vocabulary/windy.mp3",
+        "audioUrl": "/audio/vocabulary/windy.mp3"
       },
       {
         "label": "fluffy",
@@ -42798,7 +46563,10 @@ export const languageSkillQuestions = [
         "text": "fluffy",
         "word": "fluffy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/fluffy.mp3",
+        "audioPath": "/audio/vocabulary/fluffy.mp3",
+        "audioUrl": "/audio/vocabulary/fluffy.mp3"
       },
       {
         "label": "rainy",
@@ -42806,7 +46574,10 @@ export const languageSkillQuestions = [
         "text": "rainy",
         "word": "rainy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/rainy.mp3",
+        "audioPath": "/audio/vocabulary/rainy.mp3",
+        "audioUrl": "/audio/vocabulary/rainy.mp3"
       },
       {
         "label": "sunny",
@@ -42814,7 +46585,10 @@ export const languageSkillQuestions = [
         "text": "sunny",
         "word": "sunny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sunny.mp3",
+        "audioPath": "/audio/vocabulary/sunny.mp3",
+        "audioUrl": "/audio/vocabulary/sunny.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -42850,7 +46624,10 @@ export const languageSkillQuestions = [
         "text": "fuzzy",
         "word": "fuzzy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/fuzzy.mp3",
+        "audioPath": "/audio/vocabulary/fuzzy.mp3",
+        "audioUrl": "/audio/vocabulary/fuzzy.mp3"
       },
       {
         "label": "sunny",
@@ -42858,7 +46635,10 @@ export const languageSkillQuestions = [
         "text": "sunny",
         "word": "sunny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sunny.mp3",
+        "audioPath": "/audio/vocabulary/sunny.mp3",
+        "audioUrl": "/audio/vocabulary/sunny.mp3"
       },
       {
         "label": "windy",
@@ -42866,7 +46646,10 @@ export const languageSkillQuestions = [
         "text": "windy",
         "word": "windy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/windy.mp3",
+        "audioPath": "/audio/vocabulary/windy.mp3",
+        "audioUrl": "/audio/vocabulary/windy.mp3"
       },
       {
         "label": "snowy",
@@ -42874,7 +46657,10 @@ export const languageSkillQuestions = [
         "text": "snowy",
         "word": "snowy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/snowy.mp3",
+        "audioPath": "/audio/vocabulary/snowy.mp3",
+        "audioUrl": "/audio/vocabulary/snowy.mp3"
       }
     ],
     "choices": [
@@ -42890,7 +46676,10 @@ export const languageSkillQuestions = [
         "text": "fuzzy",
         "word": "fuzzy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/fuzzy.mp3",
+        "audioPath": "/audio/vocabulary/fuzzy.mp3",
+        "audioUrl": "/audio/vocabulary/fuzzy.mp3"
       },
       {
         "label": "sunny",
@@ -42898,7 +46687,10 @@ export const languageSkillQuestions = [
         "text": "sunny",
         "word": "sunny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sunny.mp3",
+        "audioPath": "/audio/vocabulary/sunny.mp3",
+        "audioUrl": "/audio/vocabulary/sunny.mp3"
       },
       {
         "label": "windy",
@@ -42906,7 +46698,10 @@ export const languageSkillQuestions = [
         "text": "windy",
         "word": "windy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/windy.mp3",
+        "audioPath": "/audio/vocabulary/windy.mp3",
+        "audioUrl": "/audio/vocabulary/windy.mp3"
       },
       {
         "label": "snowy",
@@ -42914,12 +46709,17 @@ export const languageSkillQuestions = [
         "text": "snowy",
         "word": "snowy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/snowy.mp3",
+        "audioPath": "/audio/vocabulary/snowy.mp3",
+        "audioUrl": "/audio/vocabulary/snowy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/fuzzy-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/fuzzy-01.webp",
     "mediaTarget": "workbook:adjectives:fuzzy",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -42948,7 +46748,10 @@ export const languageSkillQuestions = [
         "text": "windy",
         "word": "windy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/windy.mp3",
+        "audioPath": "/audio/vocabulary/windy.mp3",
+        "audioUrl": "/audio/vocabulary/windy.mp3"
       },
       {
         "label": "snowy",
@@ -42956,7 +46759,10 @@ export const languageSkillQuestions = [
         "text": "snowy",
         "word": "snowy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/snowy.mp3",
+        "audioPath": "/audio/vocabulary/snowy.mp3",
+        "audioUrl": "/audio/vocabulary/snowy.mp3"
       },
       {
         "label": "sleepy",
@@ -42964,7 +46770,10 @@ export const languageSkillQuestions = [
         "text": "sleepy",
         "word": "sleepy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sleepy.mp3",
+        "audioPath": "/audio/vocabulary/sleepy.mp3",
+        "audioUrl": "/audio/vocabulary/sleepy.mp3"
       },
       {
         "label": "spotted",
@@ -42972,7 +46781,10 @@ export const languageSkillQuestions = [
         "text": "spotted",
         "word": "spotted",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/spotted.mp3",
+        "audioPath": "/audio/vocabulary/spotted.mp3",
+        "audioUrl": "/audio/vocabulary/spotted.mp3"
       }
     ],
     "choices": [
@@ -42988,7 +46800,10 @@ export const languageSkillQuestions = [
         "text": "windy",
         "word": "windy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/windy.mp3",
+        "audioPath": "/audio/vocabulary/windy.mp3",
+        "audioUrl": "/audio/vocabulary/windy.mp3"
       },
       {
         "label": "snowy",
@@ -42996,7 +46811,10 @@ export const languageSkillQuestions = [
         "text": "snowy",
         "word": "snowy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/snowy.mp3",
+        "audioPath": "/audio/vocabulary/snowy.mp3",
+        "audioUrl": "/audio/vocabulary/snowy.mp3"
       },
       {
         "label": "sleepy",
@@ -43004,7 +46822,10 @@ export const languageSkillQuestions = [
         "text": "sleepy",
         "word": "sleepy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sleepy.mp3",
+        "audioPath": "/audio/vocabulary/sleepy.mp3",
+        "audioUrl": "/audio/vocabulary/sleepy.mp3"
       },
       {
         "label": "spotted",
@@ -43012,12 +46833,17 @@ export const languageSkillQuestions = [
         "text": "spotted",
         "word": "spotted",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/spotted.mp3",
+        "audioPath": "/audio/vocabulary/spotted.mp3",
+        "audioUrl": "/audio/vocabulary/spotted.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/spotted-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/spotted-01.webp",
     "mediaTarget": "workbook:adjectives:spotted",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -43046,7 +46872,10 @@ export const languageSkillQuestions = [
         "text": "sleepy",
         "word": "sleepy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sleepy.mp3",
+        "audioPath": "/audio/vocabulary/sleepy.mp3",
+        "audioUrl": "/audio/vocabulary/sleepy.mp3"
       },
       {
         "label": "awake",
@@ -43054,7 +46883,10 @@ export const languageSkillQuestions = [
         "text": "awake",
         "word": "awake",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/awake.mp3",
+        "audioPath": "/audio/vocabulary/awake.mp3",
+        "audioUrl": "/audio/vocabulary/awake.mp3"
       },
       {
         "label": "striped",
@@ -43062,7 +46894,10 @@ export const languageSkillQuestions = [
         "text": "striped",
         "word": "striped",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/striped.mp3",
+        "audioPath": "/audio/vocabulary/striped.mp3",
+        "audioUrl": "/audio/vocabulary/striped.mp3"
       },
       {
         "label": "snowy",
@@ -43070,7 +46905,10 @@ export const languageSkillQuestions = [
         "text": "snowy",
         "word": "snowy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/snowy.mp3",
+        "audioPath": "/audio/vocabulary/snowy.mp3",
+        "audioUrl": "/audio/vocabulary/snowy.mp3"
       }
     ],
     "choices": [
@@ -43086,7 +46924,10 @@ export const languageSkillQuestions = [
         "text": "sleepy",
         "word": "sleepy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sleepy.mp3",
+        "audioPath": "/audio/vocabulary/sleepy.mp3",
+        "audioUrl": "/audio/vocabulary/sleepy.mp3"
       },
       {
         "label": "awake",
@@ -43094,7 +46935,10 @@ export const languageSkillQuestions = [
         "text": "awake",
         "word": "awake",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/awake.mp3",
+        "audioPath": "/audio/vocabulary/awake.mp3",
+        "audioUrl": "/audio/vocabulary/awake.mp3"
       },
       {
         "label": "striped",
@@ -43102,7 +46946,10 @@ export const languageSkillQuestions = [
         "text": "striped",
         "word": "striped",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/striped.mp3",
+        "audioPath": "/audio/vocabulary/striped.mp3",
+        "audioUrl": "/audio/vocabulary/striped.mp3"
       },
       {
         "label": "snowy",
@@ -43110,7 +46957,10 @@ export const languageSkillQuestions = [
         "text": "snowy",
         "word": "snowy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/snowy.mp3",
+        "audioPath": "/audio/vocabulary/snowy.mp3",
+        "audioUrl": "/audio/vocabulary/snowy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -43146,7 +46996,10 @@ export const languageSkillQuestions = [
         "text": "friendly",
         "word": "friendly",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/friendly.mp3",
+        "audioPath": "/audio/vocabulary/friendly.mp3",
+        "audioUrl": "/audio/vocabulary/friendly.mp3"
       },
       {
         "label": "plain",
@@ -43165,7 +47018,10 @@ export const languageSkillQuestions = [
         "text": "sleepy",
         "word": "sleepy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sleepy.mp3",
+        "audioPath": "/audio/vocabulary/sleepy.mp3",
+        "audioUrl": "/audio/vocabulary/sleepy.mp3"
       },
       {
         "label": "awake",
@@ -43173,7 +47029,10 @@ export const languageSkillQuestions = [
         "text": "awake",
         "word": "awake",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/awake.mp3",
+        "audioPath": "/audio/vocabulary/awake.mp3",
+        "audioUrl": "/audio/vocabulary/awake.mp3"
       }
     ],
     "choices": [
@@ -43189,7 +47048,10 @@ export const languageSkillQuestions = [
         "text": "friendly",
         "word": "friendly",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/friendly.mp3",
+        "audioPath": "/audio/vocabulary/friendly.mp3",
+        "audioUrl": "/audio/vocabulary/friendly.mp3"
       },
       {
         "label": "plain",
@@ -43208,7 +47070,10 @@ export const languageSkillQuestions = [
         "text": "sleepy",
         "word": "sleepy",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sleepy.mp3",
+        "audioPath": "/audio/vocabulary/sleepy.mp3",
+        "audioUrl": "/audio/vocabulary/sleepy.mp3"
       },
       {
         "label": "awake",
@@ -43216,7 +47081,10 @@ export const languageSkillQuestions = [
         "text": "awake",
         "word": "awake",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/awake.mp3",
+        "audioPath": "/audio/vocabulary/awake.mp3",
+        "audioUrl": "/audio/vocabulary/awake.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -43252,7 +47120,10 @@ export const languageSkillQuestions = [
         "text": "colorful",
         "word": "colorful",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/colorful.mp3",
+        "audioPath": "/audio/vocabulary/colorful.mp3",
+        "audioUrl": "/audio/vocabulary/colorful.mp3"
       },
       {
         "label": "awake",
@@ -43260,7 +47131,10 @@ export const languageSkillQuestions = [
         "text": "awake",
         "word": "awake",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/awake.mp3",
+        "audioPath": "/audio/vocabulary/awake.mp3",
+        "audioUrl": "/audio/vocabulary/awake.mp3"
       },
       {
         "label": "friendly",
@@ -43268,7 +47142,10 @@ export const languageSkillQuestions = [
         "text": "friendly",
         "word": "friendly",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/friendly.mp3",
+        "audioPath": "/audio/vocabulary/friendly.mp3",
+        "audioUrl": "/audio/vocabulary/friendly.mp3"
       },
       {
         "label": "lonely",
@@ -43276,7 +47153,10 @@ export const languageSkillQuestions = [
         "text": "lonely",
         "word": "lonely",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/lonely.mp3",
+        "audioPath": "/audio/vocabulary/lonely.mp3",
+        "audioUrl": "/audio/vocabulary/lonely.mp3"
       }
     ],
     "choices": [
@@ -43292,7 +47172,10 @@ export const languageSkillQuestions = [
         "text": "colorful",
         "word": "colorful",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/colorful.mp3",
+        "audioPath": "/audio/vocabulary/colorful.mp3",
+        "audioUrl": "/audio/vocabulary/colorful.mp3"
       },
       {
         "label": "awake",
@@ -43300,7 +47183,10 @@ export const languageSkillQuestions = [
         "text": "awake",
         "word": "awake",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/awake.mp3",
+        "audioPath": "/audio/vocabulary/awake.mp3",
+        "audioUrl": "/audio/vocabulary/awake.mp3"
       },
       {
         "label": "friendly",
@@ -43308,7 +47194,10 @@ export const languageSkillQuestions = [
         "text": "friendly",
         "word": "friendly",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/friendly.mp3",
+        "audioPath": "/audio/vocabulary/friendly.mp3",
+        "audioUrl": "/audio/vocabulary/friendly.mp3"
       },
       {
         "label": "lonely",
@@ -43316,12 +47205,17 @@ export const languageSkillQuestions = [
         "text": "lonely",
         "word": "lonely",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/lonely.mp3",
+        "audioPath": "/audio/vocabulary/lonely.mp3",
+        "audioUrl": "/audio/vocabulary/lonely.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/colorful-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/colorful-01.webp",
     "mediaTarget": "workbook:adjectives:colorful",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -43350,7 +47244,10 @@ export const languageSkillQuestions = [
         "text": "friendly",
         "word": "friendly",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/friendly.mp3",
+        "audioPath": "/audio/vocabulary/friendly.mp3",
+        "audioUrl": "/audio/vocabulary/friendly.mp3"
       },
       {
         "label": "lonely",
@@ -43358,7 +47255,10 @@ export const languageSkillQuestions = [
         "text": "lonely",
         "word": "lonely",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/lonely.mp3",
+        "audioPath": "/audio/vocabulary/lonely.mp3",
+        "audioUrl": "/audio/vocabulary/lonely.mp3"
       },
       {
         "label": "careless",
@@ -43366,7 +47266,10 @@ export const languageSkillQuestions = [
         "text": "careless",
         "word": "careless",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/careless.mp3",
+        "audioPath": "/audio/vocabulary/careless.mp3",
+        "audioUrl": "/audio/vocabulary/careless.mp3"
       },
       {
         "label": "clear",
@@ -43374,7 +47277,10 @@ export const languageSkillQuestions = [
         "text": "clear",
         "word": "clear",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/clear.mp3",
+        "audioPath": "/audio/vocabulary/clear.mp3",
+        "audioUrl": "/audio/vocabulary/clear.mp3"
       }
     ],
     "choices": [
@@ -43390,7 +47296,10 @@ export const languageSkillQuestions = [
         "text": "friendly",
         "word": "friendly",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/friendly.mp3",
+        "audioPath": "/audio/vocabulary/friendly.mp3",
+        "audioUrl": "/audio/vocabulary/friendly.mp3"
       },
       {
         "label": "lonely",
@@ -43398,7 +47307,10 @@ export const languageSkillQuestions = [
         "text": "lonely",
         "word": "lonely",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/lonely.mp3",
+        "audioPath": "/audio/vocabulary/lonely.mp3",
+        "audioUrl": "/audio/vocabulary/lonely.mp3"
       },
       {
         "label": "careless",
@@ -43406,7 +47318,10 @@ export const languageSkillQuestions = [
         "text": "careless",
         "word": "careless",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/careless.mp3",
+        "audioPath": "/audio/vocabulary/careless.mp3",
+        "audioUrl": "/audio/vocabulary/careless.mp3"
       },
       {
         "label": "clear",
@@ -43414,7 +47329,10 @@ export const languageSkillQuestions = [
         "text": "clear",
         "word": "clear",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/clear.mp3",
+        "audioPath": "/audio/vocabulary/clear.mp3",
+        "audioUrl": "/audio/vocabulary/clear.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -43450,7 +47368,10 @@ export const languageSkillQuestions = [
         "text": "careless",
         "word": "careless",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/careless.mp3",
+        "audioPath": "/audio/vocabulary/careless.mp3",
+        "audioUrl": "/audio/vocabulary/careless.mp3"
       },
       {
         "label": "helpful",
@@ -43458,7 +47379,10 @@ export const languageSkillQuestions = [
         "text": "helpful",
         "word": "helpful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/helpful.mp3",
+        "audioPath": "/audio/vocabulary/helpful.mp3",
+        "audioUrl": "/audio/vocabulary/helpful.mp3"
       },
       {
         "label": "cloudy",
@@ -43466,7 +47390,10 @@ export const languageSkillQuestions = [
         "text": "cloudy",
         "word": "cloudy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/cloudy.mp3",
+        "audioPath": "/audio/vocabulary/cloudy.mp3",
+        "audioUrl": "/audio/vocabulary/cloudy.mp3"
       },
       {
         "label": "lonely",
@@ -43474,7 +47401,10 @@ export const languageSkillQuestions = [
         "text": "lonely",
         "word": "lonely",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/lonely.mp3",
+        "audioPath": "/audio/vocabulary/lonely.mp3",
+        "audioUrl": "/audio/vocabulary/lonely.mp3"
       }
     ],
     "choices": [
@@ -43490,7 +47420,10 @@ export const languageSkillQuestions = [
         "text": "careless",
         "word": "careless",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/careless.mp3",
+        "audioPath": "/audio/vocabulary/careless.mp3",
+        "audioUrl": "/audio/vocabulary/careless.mp3"
       },
       {
         "label": "helpful",
@@ -43498,7 +47431,10 @@ export const languageSkillQuestions = [
         "text": "helpful",
         "word": "helpful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/helpful.mp3",
+        "audioPath": "/audio/vocabulary/helpful.mp3",
+        "audioUrl": "/audio/vocabulary/helpful.mp3"
       },
       {
         "label": "cloudy",
@@ -43506,7 +47442,10 @@ export const languageSkillQuestions = [
         "text": "cloudy",
         "word": "cloudy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/cloudy.mp3",
+        "audioPath": "/audio/vocabulary/cloudy.mp3",
+        "audioUrl": "/audio/vocabulary/cloudy.mp3"
       },
       {
         "label": "lonely",
@@ -43514,12 +47453,17 @@ export const languageSkillQuestions = [
         "text": "lonely",
         "word": "lonely",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/lonely.mp3",
+        "audioPath": "/audio/vocabulary/lonely.mp3",
+        "audioUrl": "/audio/vocabulary/lonely.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/cloudy-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/cloudy-01.webp",
     "mediaTarget": "workbook:adjectives:cloudy",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -43548,7 +47492,10 @@ export const languageSkillQuestions = [
         "text": "honest",
         "word": "honest",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/honest.mp3",
+        "audioPath": "/audio/vocabulary/honest.mp3",
+        "audioUrl": "/audio/vocabulary/honest.mp3"
       },
       {
         "label": "rainy",
@@ -43556,7 +47503,10 @@ export const languageSkillQuestions = [
         "text": "rainy",
         "word": "rainy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/rainy.mp3",
+        "audioPath": "/audio/vocabulary/rainy.mp3",
+        "audioUrl": "/audio/vocabulary/rainy.mp3"
       },
       {
         "label": "careless",
@@ -43564,7 +47514,10 @@ export const languageSkillQuestions = [
         "text": "careless",
         "word": "careless",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/careless.mp3",
+        "audioPath": "/audio/vocabulary/careless.mp3",
+        "audioUrl": "/audio/vocabulary/careless.mp3"
       },
       {
         "label": "helpful",
@@ -43572,7 +47525,10 @@ export const languageSkillQuestions = [
         "text": "helpful",
         "word": "helpful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/helpful.mp3",
+        "audioPath": "/audio/vocabulary/helpful.mp3",
+        "audioUrl": "/audio/vocabulary/helpful.mp3"
       }
     ],
     "choices": [
@@ -43588,7 +47544,10 @@ export const languageSkillQuestions = [
         "text": "honest",
         "word": "honest",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/honest.mp3",
+        "audioPath": "/audio/vocabulary/honest.mp3",
+        "audioUrl": "/audio/vocabulary/honest.mp3"
       },
       {
         "label": "rainy",
@@ -43596,7 +47555,10 @@ export const languageSkillQuestions = [
         "text": "rainy",
         "word": "rainy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/rainy.mp3",
+        "audioPath": "/audio/vocabulary/rainy.mp3",
+        "audioUrl": "/audio/vocabulary/rainy.mp3"
       },
       {
         "label": "careless",
@@ -43604,7 +47566,10 @@ export const languageSkillQuestions = [
         "text": "careless",
         "word": "careless",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/careless.mp3",
+        "audioPath": "/audio/vocabulary/careless.mp3",
+        "audioUrl": "/audio/vocabulary/careless.mp3"
       },
       {
         "label": "helpful",
@@ -43612,12 +47577,17 @@ export const languageSkillQuestions = [
         "text": "helpful",
         "word": "helpful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/helpful.mp3",
+        "audioPath": "/audio/vocabulary/helpful.mp3",
+        "audioUrl": "/audio/vocabulary/helpful.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/rainy-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/rainy-01.webp",
     "mediaTarget": "workbook:adjectives:rainy",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -43646,7 +47616,10 @@ export const languageSkillQuestions = [
         "text": "sunny",
         "word": "sunny",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sunny.mp3",
+        "audioPath": "/audio/vocabulary/sunny.mp3",
+        "audioUrl": "/audio/vocabulary/sunny.mp3"
       },
       {
         "label": "helpful",
@@ -43654,7 +47627,10 @@ export const languageSkillQuestions = [
         "text": "helpful",
         "word": "helpful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/helpful.mp3",
+        "audioPath": "/audio/vocabulary/helpful.mp3",
+        "audioUrl": "/audio/vocabulary/helpful.mp3"
       },
       {
         "label": "honest",
@@ -43662,7 +47638,10 @@ export const languageSkillQuestions = [
         "text": "honest",
         "word": "honest",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/honest.mp3",
+        "audioPath": "/audio/vocabulary/honest.mp3",
+        "audioUrl": "/audio/vocabulary/honest.mp3"
       },
       {
         "label": "patient",
@@ -43670,7 +47649,10 @@ export const languageSkillQuestions = [
         "text": "patient",
         "word": "patient",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/patient.mp3",
+        "audioPath": "/audio/vocabulary/patient.mp3",
+        "audioUrl": "/audio/vocabulary/patient.mp3"
       }
     ],
     "choices": [
@@ -43686,7 +47668,10 @@ export const languageSkillQuestions = [
         "text": "sunny",
         "word": "sunny",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sunny.mp3",
+        "audioPath": "/audio/vocabulary/sunny.mp3",
+        "audioUrl": "/audio/vocabulary/sunny.mp3"
       },
       {
         "label": "helpful",
@@ -43694,7 +47679,10 @@ export const languageSkillQuestions = [
         "text": "helpful",
         "word": "helpful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/helpful.mp3",
+        "audioPath": "/audio/vocabulary/helpful.mp3",
+        "audioUrl": "/audio/vocabulary/helpful.mp3"
       },
       {
         "label": "honest",
@@ -43702,7 +47690,10 @@ export const languageSkillQuestions = [
         "text": "honest",
         "word": "honest",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/honest.mp3",
+        "audioPath": "/audio/vocabulary/honest.mp3",
+        "audioUrl": "/audio/vocabulary/honest.mp3"
       },
       {
         "label": "patient",
@@ -43710,12 +47701,17 @@ export const languageSkillQuestions = [
         "text": "patient",
         "word": "patient",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/patient.mp3",
+        "audioPath": "/audio/vocabulary/patient.mp3",
+        "audioUrl": "/audio/vocabulary/patient.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/sunny-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/sunny-01.webp",
     "mediaTarget": "workbook:adjectives:sunny",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -43744,7 +47740,10 @@ export const languageSkillQuestions = [
         "text": "honest",
         "word": "honest",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/honest.mp3",
+        "audioPath": "/audio/vocabulary/honest.mp3",
+        "audioUrl": "/audio/vocabulary/honest.mp3"
       },
       {
         "label": "patient",
@@ -43752,7 +47751,10 @@ export const languageSkillQuestions = [
         "text": "patient",
         "word": "patient",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/patient.mp3",
+        "audioPath": "/audio/vocabulary/patient.mp3",
+        "audioUrl": "/audio/vocabulary/patient.mp3"
       },
       {
         "label": "polite",
@@ -43760,7 +47762,10 @@ export const languageSkillQuestions = [
         "text": "polite",
         "word": "polite",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/polite.mp3",
+        "audioPath": "/audio/vocabulary/polite.mp3",
+        "audioUrl": "/audio/vocabulary/polite.mp3"
       },
       {
         "label": "windy",
@@ -43768,7 +47773,10 @@ export const languageSkillQuestions = [
         "text": "windy",
         "word": "windy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/windy.mp3",
+        "audioPath": "/audio/vocabulary/windy.mp3",
+        "audioUrl": "/audio/vocabulary/windy.mp3"
       }
     ],
     "choices": [
@@ -43784,7 +47792,10 @@ export const languageSkillQuestions = [
         "text": "honest",
         "word": "honest",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/honest.mp3",
+        "audioPath": "/audio/vocabulary/honest.mp3",
+        "audioUrl": "/audio/vocabulary/honest.mp3"
       },
       {
         "label": "patient",
@@ -43792,7 +47803,10 @@ export const languageSkillQuestions = [
         "text": "patient",
         "word": "patient",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/patient.mp3",
+        "audioPath": "/audio/vocabulary/patient.mp3",
+        "audioUrl": "/audio/vocabulary/patient.mp3"
       },
       {
         "label": "polite",
@@ -43800,7 +47814,10 @@ export const languageSkillQuestions = [
         "text": "polite",
         "word": "polite",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/polite.mp3",
+        "audioPath": "/audio/vocabulary/polite.mp3",
+        "audioUrl": "/audio/vocabulary/polite.mp3"
       },
       {
         "label": "windy",
@@ -43808,12 +47825,17 @@ export const languageSkillQuestions = [
         "text": "windy",
         "word": "windy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/windy.mp3",
+        "audioPath": "/audio/vocabulary/windy.mp3",
+        "audioUrl": "/audio/vocabulary/windy.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/windy-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/windy-01.webp",
     "mediaTarget": "workbook:adjectives:windy",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -43842,7 +47864,10 @@ export const languageSkillQuestions = [
         "text": "polite",
         "word": "polite",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/polite.mp3",
+        "audioPath": "/audio/vocabulary/polite.mp3",
+        "audioUrl": "/audio/vocabulary/polite.mp3"
       },
       {
         "label": "proud",
@@ -43850,7 +47875,10 @@ export const languageSkillQuestions = [
         "text": "proud",
         "word": "proud",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/proud.mp3",
+        "audioPath": "/audio/vocabulary/proud.mp3",
+        "audioUrl": "/audio/vocabulary/proud.mp3"
       },
       {
         "label": "snowy",
@@ -43858,7 +47886,10 @@ export const languageSkillQuestions = [
         "text": "snowy",
         "word": "snowy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/snowy.mp3",
+        "audioPath": "/audio/vocabulary/snowy.mp3",
+        "audioUrl": "/audio/vocabulary/snowy.mp3"
       },
       {
         "label": "patient",
@@ -43866,7 +47897,10 @@ export const languageSkillQuestions = [
         "text": "patient",
         "word": "patient",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/patient.mp3",
+        "audioPath": "/audio/vocabulary/patient.mp3",
+        "audioUrl": "/audio/vocabulary/patient.mp3"
       }
     ],
     "choices": [
@@ -43882,7 +47916,10 @@ export const languageSkillQuestions = [
         "text": "polite",
         "word": "polite",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/polite.mp3",
+        "audioPath": "/audio/vocabulary/polite.mp3",
+        "audioUrl": "/audio/vocabulary/polite.mp3"
       },
       {
         "label": "proud",
@@ -43890,7 +47927,10 @@ export const languageSkillQuestions = [
         "text": "proud",
         "word": "proud",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/proud.mp3",
+        "audioPath": "/audio/vocabulary/proud.mp3",
+        "audioUrl": "/audio/vocabulary/proud.mp3"
       },
       {
         "label": "snowy",
@@ -43898,7 +47938,10 @@ export const languageSkillQuestions = [
         "text": "snowy",
         "word": "snowy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/snowy.mp3",
+        "audioPath": "/audio/vocabulary/snowy.mp3",
+        "audioUrl": "/audio/vocabulary/snowy.mp3"
       },
       {
         "label": "patient",
@@ -43906,12 +47949,17 @@ export const languageSkillQuestions = [
         "text": "patient",
         "word": "patient",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/patient.mp3",
+        "audioPath": "/audio/vocabulary/patient.mp3",
+        "audioUrl": "/audio/vocabulary/patient.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/snowy-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/snowy-01.webp",
     "mediaTarget": "workbook:adjectives:snowy",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -43940,7 +47988,10 @@ export const languageSkillQuestions = [
         "text": "thankful",
         "word": "thankful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/thankful.mp3",
+        "audioPath": "/audio/vocabulary/thankful.mp3",
+        "audioUrl": "/audio/vocabulary/thankful.mp3"
       },
       {
         "label": "sleepy",
@@ -43948,7 +47999,10 @@ export const languageSkillQuestions = [
         "text": "sleepy",
         "word": "sleepy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sleepy.mp3",
+        "audioPath": "/audio/vocabulary/sleepy.mp3",
+        "audioUrl": "/audio/vocabulary/sleepy.mp3"
       },
       {
         "label": "polite",
@@ -43956,7 +48010,10 @@ export const languageSkillQuestions = [
         "text": "polite",
         "word": "polite",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/polite.mp3",
+        "audioPath": "/audio/vocabulary/polite.mp3",
+        "audioUrl": "/audio/vocabulary/polite.mp3"
       },
       {
         "label": "proud",
@@ -43964,7 +48021,10 @@ export const languageSkillQuestions = [
         "text": "proud",
         "word": "proud",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/proud.mp3",
+        "audioPath": "/audio/vocabulary/proud.mp3",
+        "audioUrl": "/audio/vocabulary/proud.mp3"
       }
     ],
     "choices": [
@@ -43980,7 +48040,10 @@ export const languageSkillQuestions = [
         "text": "thankful",
         "word": "thankful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/thankful.mp3",
+        "audioPath": "/audio/vocabulary/thankful.mp3",
+        "audioUrl": "/audio/vocabulary/thankful.mp3"
       },
       {
         "label": "sleepy",
@@ -43988,7 +48051,10 @@ export const languageSkillQuestions = [
         "text": "sleepy",
         "word": "sleepy",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/sleepy.mp3",
+        "audioPath": "/audio/vocabulary/sleepy.mp3",
+        "audioUrl": "/audio/vocabulary/sleepy.mp3"
       },
       {
         "label": "polite",
@@ -43996,7 +48062,10 @@ export const languageSkillQuestions = [
         "text": "polite",
         "word": "polite",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/polite.mp3",
+        "audioPath": "/audio/vocabulary/polite.mp3",
+        "audioUrl": "/audio/vocabulary/polite.mp3"
       },
       {
         "label": "proud",
@@ -44004,12 +48073,17 @@ export const languageSkillQuestions = [
         "text": "proud",
         "word": "proud",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/proud.mp3",
+        "audioPath": "/audio/vocabulary/proud.mp3",
+        "audioUrl": "/audio/vocabulary/proud.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/sleepy-01.webp",
     "mediaTarget": "workbook:adjectives:sleepy",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -44038,7 +48112,10 @@ export const languageSkillQuestions = [
         "text": "awake",
         "word": "awake",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/awake.mp3",
+        "audioPath": "/audio/vocabulary/awake.mp3",
+        "audioUrl": "/audio/vocabulary/awake.mp3"
       },
       {
         "label": "proud",
@@ -44046,7 +48123,10 @@ export const languageSkillQuestions = [
         "text": "proud",
         "word": "proud",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/proud.mp3",
+        "audioPath": "/audio/vocabulary/proud.mp3",
+        "audioUrl": "/audio/vocabulary/proud.mp3"
       },
       {
         "label": "thankful",
@@ -44054,7 +48134,10 @@ export const languageSkillQuestions = [
         "text": "thankful",
         "word": "thankful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/thankful.mp3",
+        "audioPath": "/audio/vocabulary/thankful.mp3",
+        "audioUrl": "/audio/vocabulary/thankful.mp3"
       },
       {
         "label": "big",
@@ -44081,7 +48164,10 @@ export const languageSkillQuestions = [
         "text": "awake",
         "word": "awake",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/awake.mp3",
+        "audioPath": "/audio/vocabulary/awake.mp3",
+        "audioUrl": "/audio/vocabulary/awake.mp3"
       },
       {
         "label": "proud",
@@ -44089,7 +48175,10 @@ export const languageSkillQuestions = [
         "text": "proud",
         "word": "proud",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/proud.mp3",
+        "audioPath": "/audio/vocabulary/proud.mp3",
+        "audioUrl": "/audio/vocabulary/proud.mp3"
       },
       {
         "label": "thankful",
@@ -44097,7 +48186,10 @@ export const languageSkillQuestions = [
         "text": "thankful",
         "word": "thankful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/thankful.mp3",
+        "audioPath": "/audio/vocabulary/thankful.mp3",
+        "audioUrl": "/audio/vocabulary/thankful.mp3"
       },
       {
         "label": "big",
@@ -44114,6 +48206,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/awake-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/awake-01.webp",
     "mediaTarget": "workbook:adjectives:awake",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -44142,7 +48236,10 @@ export const languageSkillQuestions = [
         "text": "thankful",
         "word": "thankful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/thankful.mp3",
+        "audioPath": "/audio/vocabulary/thankful.mp3",
+        "audioUrl": "/audio/vocabulary/thankful.mp3"
       },
       {
         "label": "big",
@@ -44172,7 +48269,10 @@ export const languageSkillQuestions = [
         "text": "friendly",
         "word": "friendly",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/friendly.mp3",
+        "audioPath": "/audio/vocabulary/friendly.mp3",
+        "audioUrl": "/audio/vocabulary/friendly.mp3"
       }
     ],
     "choices": [
@@ -44188,7 +48288,10 @@ export const languageSkillQuestions = [
         "text": "thankful",
         "word": "thankful",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/thankful.mp3",
+        "audioPath": "/audio/vocabulary/thankful.mp3",
+        "audioUrl": "/audio/vocabulary/thankful.mp3"
       },
       {
         "label": "big",
@@ -44218,12 +48321,17 @@ export const languageSkillQuestions = [
         "text": "friendly",
         "word": "friendly",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/friendly.mp3",
+        "audioPath": "/audio/vocabulary/friendly.mp3",
+        "audioUrl": "/audio/vocabulary/friendly.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/friendly-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/friendly-01.webp",
     "mediaTarget": "workbook:adjectives:friendly",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -44274,7 +48382,10 @@ export const languageSkillQuestions = [
         "text": "lonely",
         "word": "lonely",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/lonely.mp3",
+        "audioPath": "/audio/vocabulary/lonely.mp3",
+        "audioUrl": "/audio/vocabulary/lonely.mp3"
       },
       {
         "label": "big",
@@ -44323,7 +48434,10 @@ export const languageSkillQuestions = [
         "text": "lonely",
         "word": "lonely",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/lonely.mp3",
+        "audioPath": "/audio/vocabulary/lonely.mp3",
+        "audioUrl": "/audio/vocabulary/lonely.mp3"
       },
       {
         "label": "big",
@@ -44340,6 +48454,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/lonely-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/lonely-01.webp",
     "mediaTarget": "workbook:adjectives:lonely",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -44368,7 +48484,10 @@ export const languageSkillQuestions = [
         "text": "large",
         "word": "large",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/large.mp3",
+        "audioPath": "/audio/vocabulary/large.mp3",
+        "audioUrl": "/audio/vocabulary/large.mp3"
       },
       {
         "label": "careless",
@@ -44376,7 +48495,10 @@ export const languageSkillQuestions = [
         "text": "careless",
         "word": "careless",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/careless.mp3",
+        "audioPath": "/audio/vocabulary/careless.mp3",
+        "audioUrl": "/audio/vocabulary/careless.mp3"
       },
       {
         "label": "small",
@@ -44414,7 +48536,10 @@ export const languageSkillQuestions = [
         "text": "large",
         "word": "large",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/large.mp3",
+        "audioPath": "/audio/vocabulary/large.mp3",
+        "audioUrl": "/audio/vocabulary/large.mp3"
       },
       {
         "label": "careless",
@@ -44422,7 +48547,10 @@ export const languageSkillQuestions = [
         "text": "careless",
         "word": "careless",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/careless.mp3",
+        "audioPath": "/audio/vocabulary/careless.mp3",
+        "audioUrl": "/audio/vocabulary/careless.mp3"
       },
       {
         "label": "small",
@@ -44450,6 +48578,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/careless-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/careless-01.webp",
     "mediaTarget": "workbook:adjectives:careless",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -44478,7 +48608,10 @@ export const languageSkillQuestions = [
         "text": "helpful",
         "word": "helpful",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/helpful.mp3",
+        "audioPath": "/audio/vocabulary/helpful.mp3",
+        "audioUrl": "/audio/vocabulary/helpful.mp3"
       },
       {
         "label": "little",
@@ -44497,7 +48630,10 @@ export const languageSkillQuestions = [
         "text": "large",
         "word": "large",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/large.mp3",
+        "audioPath": "/audio/vocabulary/large.mp3",
+        "audioUrl": "/audio/vocabulary/large.mp3"
       },
       {
         "label": "tall",
@@ -44524,7 +48660,10 @@ export const languageSkillQuestions = [
         "text": "helpful",
         "word": "helpful",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/helpful.mp3",
+        "audioPath": "/audio/vocabulary/helpful.mp3",
+        "audioUrl": "/audio/vocabulary/helpful.mp3"
       },
       {
         "label": "little",
@@ -44543,7 +48682,10 @@ export const languageSkillQuestions = [
         "text": "large",
         "word": "large",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/large.mp3",
+        "audioPath": "/audio/vocabulary/large.mp3",
+        "audioUrl": "/audio/vocabulary/large.mp3"
       },
       {
         "label": "tall",
@@ -44560,6 +48702,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/helpful-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/helpful-01.webp",
     "mediaTarget": "workbook:adjectives:helpful",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -44588,7 +48732,10 @@ export const languageSkillQuestions = [
         "text": "large",
         "word": "large",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/large.mp3",
+        "audioPath": "/audio/vocabulary/large.mp3",
+        "audioUrl": "/audio/vocabulary/large.mp3"
       },
       {
         "label": "tall",
@@ -44618,7 +48765,10 @@ export const languageSkillQuestions = [
         "text": "honest",
         "word": "honest",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/honest.mp3",
+        "audioPath": "/audio/vocabulary/honest.mp3",
+        "audioUrl": "/audio/vocabulary/honest.mp3"
       }
     ],
     "choices": [
@@ -44634,7 +48784,10 @@ export const languageSkillQuestions = [
         "text": "large",
         "word": "large",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/large.mp3",
+        "audioPath": "/audio/vocabulary/large.mp3",
+        "audioUrl": "/audio/vocabulary/large.mp3"
       },
       {
         "label": "tall",
@@ -44664,12 +48817,17 @@ export const languageSkillQuestions = [
         "text": "honest",
         "word": "honest",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/honest.mp3",
+        "audioPath": "/audio/vocabulary/honest.mp3",
+        "audioUrl": "/audio/vocabulary/honest.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/honest-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/honest-01.webp",
     "mediaTarget": "workbook:adjectives:honest",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -44720,7 +48878,10 @@ export const languageSkillQuestions = [
         "text": "patient",
         "word": "patient",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/patient.mp3",
+        "audioPath": "/audio/vocabulary/patient.mp3",
+        "audioUrl": "/audio/vocabulary/patient.mp3"
       },
       {
         "label": "tall",
@@ -44769,7 +48930,10 @@ export const languageSkillQuestions = [
         "text": "patient",
         "word": "patient",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/patient.mp3",
+        "audioPath": "/audio/vocabulary/patient.mp3",
+        "audioUrl": "/audio/vocabulary/patient.mp3"
       },
       {
         "label": "tall",
@@ -44786,6 +48950,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/patient-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/patient-01.webp",
     "mediaTarget": "workbook:adjectives:patient",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -44814,7 +48980,10 @@ export const languageSkillQuestions = [
         "text": "tiny",
         "word": "tiny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/tiny.mp3",
+        "audioPath": "/audio/vocabulary/tiny.mp3",
+        "audioUrl": "/audio/vocabulary/tiny.mp3"
       },
       {
         "label": "polite",
@@ -44822,7 +48991,10 @@ export const languageSkillQuestions = [
         "text": "polite",
         "word": "polite",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/polite.mp3",
+        "audioPath": "/audio/vocabulary/polite.mp3",
+        "audioUrl": "/audio/vocabulary/polite.mp3"
       },
       {
         "label": "short",
@@ -44860,7 +49032,10 @@ export const languageSkillQuestions = [
         "text": "tiny",
         "word": "tiny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/tiny.mp3",
+        "audioPath": "/audio/vocabulary/tiny.mp3",
+        "audioUrl": "/audio/vocabulary/tiny.mp3"
       },
       {
         "label": "polite",
@@ -44868,7 +49043,10 @@ export const languageSkillQuestions = [
         "text": "polite",
         "word": "polite",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/polite.mp3",
+        "audioPath": "/audio/vocabulary/polite.mp3",
+        "audioUrl": "/audio/vocabulary/polite.mp3"
       },
       {
         "label": "short",
@@ -44896,6 +49074,8 @@ export const languageSkillQuestions = [
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/polite-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/polite-01.webp",
     "mediaTarget": "workbook:adjectives:polite",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",
@@ -44924,7 +49104,10 @@ export const languageSkillQuestions = [
         "text": "proud",
         "word": "proud",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/proud.mp3",
+        "audioPath": "/audio/vocabulary/proud.mp3",
+        "audioUrl": "/audio/vocabulary/proud.mp3"
       },
       {
         "label": "long",
@@ -44943,7 +49126,10 @@ export const languageSkillQuestions = [
         "text": "tiny",
         "word": "tiny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/tiny.mp3",
+        "audioPath": "/audio/vocabulary/tiny.mp3",
+        "audioUrl": "/audio/vocabulary/tiny.mp3"
       },
       {
         "label": "huge",
@@ -44951,7 +49137,10 @@ export const languageSkillQuestions = [
         "text": "huge",
         "word": "huge",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/huge.mp3",
+        "audioPath": "/audio/vocabulary/huge.mp3",
+        "audioUrl": "/audio/vocabulary/huge.mp3"
       }
     ],
     "choices": [
@@ -44967,7 +49156,10 @@ export const languageSkillQuestions = [
         "text": "proud",
         "word": "proud",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/proud.mp3",
+        "audioPath": "/audio/vocabulary/proud.mp3",
+        "audioUrl": "/audio/vocabulary/proud.mp3"
       },
       {
         "label": "long",
@@ -44986,7 +49178,10 @@ export const languageSkillQuestions = [
         "text": "tiny",
         "word": "tiny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/tiny.mp3",
+        "audioPath": "/audio/vocabulary/tiny.mp3",
+        "audioUrl": "/audio/vocabulary/tiny.mp3"
       },
       {
         "label": "huge",
@@ -44994,7 +49189,10 @@ export const languageSkillQuestions = [
         "text": "huge",
         "word": "huge",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/huge.mp3",
+        "audioPath": "/audio/vocabulary/huge.mp3",
+        "audioUrl": "/audio/vocabulary/huge.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -45030,7 +49228,10 @@ export const languageSkillQuestions = [
         "text": "tiny",
         "word": "tiny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/tiny.mp3",
+        "audioPath": "/audio/vocabulary/tiny.mp3",
+        "audioUrl": "/audio/vocabulary/tiny.mp3"
       },
       {
         "label": "huge",
@@ -45038,7 +49239,10 @@ export const languageSkillQuestions = [
         "text": "huge",
         "word": "huge",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/huge.mp3",
+        "audioPath": "/audio/vocabulary/huge.mp3",
+        "audioUrl": "/audio/vocabulary/huge.mp3"
       },
       {
         "label": "wide",
@@ -45046,7 +49250,10 @@ export const languageSkillQuestions = [
         "text": "wide",
         "word": "wide",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/wide.mp3",
+        "audioPath": "/audio/vocabulary/wide.mp3",
+        "audioUrl": "/audio/vocabulary/wide.mp3"
       },
       {
         "label": "thankful",
@@ -45054,7 +49261,10 @@ export const languageSkillQuestions = [
         "text": "thankful",
         "word": "thankful",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/thankful.mp3",
+        "audioPath": "/audio/vocabulary/thankful.mp3",
+        "audioUrl": "/audio/vocabulary/thankful.mp3"
       }
     ],
     "choices": [
@@ -45070,7 +49280,10 @@ export const languageSkillQuestions = [
         "text": "tiny",
         "word": "tiny",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/tiny.mp3",
+        "audioPath": "/audio/vocabulary/tiny.mp3",
+        "audioUrl": "/audio/vocabulary/tiny.mp3"
       },
       {
         "label": "huge",
@@ -45078,7 +49291,10 @@ export const languageSkillQuestions = [
         "text": "huge",
         "word": "huge",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/huge.mp3",
+        "audioPath": "/audio/vocabulary/huge.mp3",
+        "audioUrl": "/audio/vocabulary/huge.mp3"
       },
       {
         "label": "wide",
@@ -45086,7 +49302,10 @@ export const languageSkillQuestions = [
         "text": "wide",
         "word": "wide",
         "correct": false,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/wide.mp3",
+        "audioPath": "/audio/vocabulary/wide.mp3",
+        "audioUrl": "/audio/vocabulary/wide.mp3"
       },
       {
         "label": "thankful",
@@ -45094,12 +49313,17 @@ export const languageSkillQuestions = [
         "text": "thankful",
         "word": "thankful",
         "correct": true,
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/thankful.mp3",
+        "audioPath": "/audio/vocabulary/thankful.mp3",
+        "audioUrl": "/audio/vocabulary/thankful.mp3"
       }
     ],
     "formatType": "GRAMMAR_SENTENCE_FIT",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "questionType": "ixl_template",
+    "imagePath": "/images/assessment/language/variants/adjectives/thankful-01.webp",
+    "imageUrl": "/images/assessment/language/variants/adjectives/thankful-01.webp",
     "mediaTarget": "workbook:adjectives:thankful",
     "source": "skill_word_bank_workbook",
     "sourceSheet": "Nouns Verbs Adjectives",

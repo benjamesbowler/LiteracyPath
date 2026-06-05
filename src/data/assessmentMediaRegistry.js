@@ -12,6 +12,10 @@ import {
   rhymingAssessmentImageVariants
 } from "./generated/assessmentImageVariants.generated.js";
 import {
+  kimiHighQualityMediaStyleImageTasks,
+  kimiHighQualityMediaStyleAudioTasks
+} from "./generated/kimiHighQualityMediaStyleManifest.generated.js";
+import {
   HFW_WORDS_1_25,
   HFW_WORDS_26_50,
   HFW_WORDS_51_75,
@@ -423,6 +427,42 @@ function recordsFromHfwBaseImages() {
   );
 }
 
+function imageRoleForKimiHighQualityTask(task = {}) {
+  if (task.skillId === "prepositions") return "preposition_scene";
+  if (task.skillId === "hfw_1_25" || task.skillId === "hfw_26_50" || task.skillId === "hfw_51_75" || task.skillId === "hfw_76_100") return "hfw_scene";
+  if (task.skillId === "rhyming") return "rhyming_target";
+  return "grammar_pos";
+}
+
+function recordsFromKimiHighQualityMediaStyle() {
+  return [
+    ...kimiHighQualityMediaStyleImageTasks.map(task => ({
+      ...createRecord({
+        mediaType: "image",
+        path: task.path,
+        targetWord: task.targetWord,
+        skillTags: [task.skillId],
+        imageRole: imageRoleForKimiHighQualityTask(task),
+        visualVariantGroup: `kimi-high-quality:${task.skillId}:${normalizeToken(task.pair || task.targetWord)}`,
+        sourceManifest: "kimiHighQualityMediaStyleManifest",
+        notes: task.reason
+      }),
+      id: `image:${task.path}:${normalizeToken(task.targetWord)}`
+    })),
+    ...kimiHighQualityMediaStyleAudioTasks.map(task =>
+      createRecord({
+        mediaType: "audio",
+        path: task.path,
+        targetWord: task.targetWord,
+        audioType: "whole_word",
+        visualVariantGroup: `kimi-high-quality-audio:${normalizeToken(task.targetWord)}`,
+        sourceManifest: "kimiHighQualityMediaStyleManifest",
+        notes: task.reason
+      })
+    )
+  ];
+}
+
 let cachedRegistry = null;
 
 export function getAssessmentMediaRegistry() {
@@ -435,7 +475,8 @@ export function getAssessmentMediaRegistry() {
       ...recordsFromLegacyInitialSoundImages(),
       ...recordsFromHfwBaseImages(),
       ...recordsFromHfwVariants(),
-      ...recordsFromRhymingVariants()
+      ...recordsFromRhymingVariants(),
+      ...recordsFromKimiHighQualityMediaStyle()
     ].filter(record => {
       if (!record?.path) return false;
       return record.mediaType === "image" ? IMAGE_EXTENSIONS.test(record.path) : AUDIO_EXTENSIONS.test(record.path);
