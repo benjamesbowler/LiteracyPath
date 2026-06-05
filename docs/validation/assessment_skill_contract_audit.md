@@ -1,12 +1,12 @@
 # Assessment Skill Contract Audit
 
-Generated: 2026-06-04T05:49:02.100Z
+Generated: 2026-06-05T03:12:33.122Z
 
 Round size: 15
 Complete contracts: rhyming, short_vowel_discrimination, hfw_1_25, hfw_26_50, hfw_51_75, hfw_76_100
-Incomplete contracts: initial_sounds, final_sounds, cvc_short_vowels, blends, digraphs, long_vowels_silent_e, vowel_teams, r_controlled, nouns, verbs, adjectives, prepositions, plurals, antonyms_synonyms
-Passing complete contracts: rhyming, short_vowel_discrimination
-Failing skills: initial_sounds, final_sounds, cvc_short_vowels, hfw_1_25, hfw_26_50, hfw_51_75, hfw_76_100, blends, digraphs, long_vowels_silent_e, vowel_teams, r_controlled, nouns, verbs, adjectives, prepositions, plurals, antonyms_synonyms
+Incomplete contracts: initial_sounds, final_sounds, cvc_short_vowels, blends, digraphs, long_vowels_silent_e, vowel_teams, r_controlled, nouns, verbs, adjectives, prepositions, plurals, prefixes_suffixes, antonyms_synonyms, homophones_homonyms
+Passing complete contracts: rhyming, short_vowel_discrimination, hfw_1_25, hfw_26_50, hfw_51_75, hfw_76_100
+Failing skills: initial_sounds, final_sounds, cvc_short_vowels, blends, digraphs, long_vowels_silent_e, vowel_teams, r_controlled, nouns, verbs, adjectives, prepositions, plurals, prefixes_suffixes, antonyms_synonyms, homophones_homonyms
 
 ## Summary
 
@@ -15,23 +15,25 @@ Failing skills: initial_sounds, final_sounds, cvc_short_vowels, hfw_1_25, hfw_26
 | initial_sounds | Initial Sounds | contract_incomplete_needs_formal_phase_map | 178 | 108 | 0 | no | 0/4 | 1 |
 | final_sounds | Final Sounds | contract_incomplete_needs_formal_phase_map | 529 | 379 | 0 | no | 0/4 | 1 |
 | rhyming | Rhyming | complete | 910 | 496 | 496 | yes | 4/4 | 0 |
-| cvc_short_vowels | CVC and Short Vowels | contract_incomplete_needs_formal_phase_map | 456 | 395 | 0 | no | 0/4 | 1 |
-| short_vowel_discrimination | Short Vowel Discrimination | complete | 469 | 232 | 232 | yes | 4/4 | 0 |
-| hfw_1_25 | High-Frequency Words 1-25 | complete | 258 | 100 | 100 | yes | 0/4 | 129 |
-| hfw_26_50 | High-Frequency Words 26-50 | complete | 259 | 100 | 100 | yes | 0/4 | 129 |
-| hfw_51_75 | High-Frequency Words 51-75 | complete | 100 | 100 | 100 | yes | 0/4 | 129 |
-| hfw_76_100 | High-Frequency Words 76-100 | complete | 100 | 100 | 100 | yes | 0/4 | 129 |
+| cvc_short_vowels | CVC and Short Vowels | contract_incomplete_needs_formal_phase_map | 456 | 394 | 0 | no | 0/4 | 1 |
+| short_vowel_discrimination | Short Vowel Discrimination | complete | 469 | 230 | 230 | yes | 4/4 | 0 |
+| hfw_1_25 | High-Frequency Words 1-25 | complete | 689 | 530 | 530 | yes | 4/4 | 0 |
+| hfw_26_50 | High-Frequency Words 26-50 | complete | 685 | 526 | 526 | yes | 4/4 | 0 |
+| hfw_51_75 | High-Frequency Words 51-75 | complete | 329 | 329 | 329 | yes | 4/4 | 0 |
+| hfw_76_100 | High-Frequency Words 76-100 | complete | 229 | 229 | 229 | yes | 4/4 | 0 |
 | blends | Blends | contract_incomplete_needs_formal_phase_map | 257 | 100 | 0 | no | 0/4 | 1 |
 | digraphs | Digraphs | contract_incomplete_needs_formal_phase_map | 259 | 120 | 0 | no | 0/4 | 1 |
 | long_vowels_silent_e | Long Vowels / Silent E | contract_incomplete_needs_formal_phase_map | 227 | 106 | 0 | no | 0/4 | 1 |
 | vowel_teams | Vowel Teams | contract_incomplete_needs_formal_phase_map | 116 | 116 | 0 | no | 0/4 | 1 |
 | r_controlled | R-Controlled Vowels | contract_incomplete_needs_formal_phase_map | 118 | 118 | 0 | no | 0/4 | 1 |
-| nouns | Nouns | contract_incomplete_needs_formal_phase_map | 214 | 100 | 0 | no | 0/4 | 1 |
-| verbs | Verbs | contract_incomplete_needs_formal_phase_map | 220 | 100 | 0 | no | 0/4 | 1 |
-| adjectives | Adjectives | contract_incomplete_needs_formal_phase_map | 221 | 100 | 0 | no | 0/4 | 1 |
-| prepositions | Prepositions of Place | contract_incomplete_needs_formal_phase_map | 103 | 103 | 0 | no | 0/4 | 1 |
-| plurals | Plurals | contract_incomplete_needs_formal_phase_map | 104 | 104 | 0 | no | 0/4 | 1 |
-| antonyms_synonyms | Antonyms / Synonyms | contract_incomplete_needs_formal_phase_map | 110 | 110 | 0 | no | 0/4 | 1 |
+| nouns | Nouns | contract_incomplete_needs_formal_phase_map | 322 | 208 | 0 | no | 0/4 | 1 |
+| verbs | Verbs | contract_incomplete_needs_formal_phase_map | 379 | 237 | 0 | no | 0/4 | 1 |
+| adjectives | Adjectives | contract_incomplete_needs_formal_phase_map | 352 | 210 | 0 | no | 0/4 | 1 |
+| prepositions | Prepositions of Place | contract_incomplete_needs_formal_phase_map | 303 | 303 | 0 | no | 0/4 | 1 |
+| plurals | Plurals | contract_incomplete_needs_formal_phase_map | 136 | 136 | 0 | no | 0/4 | 1 |
+| prefixes_suffixes | Prefixes / Suffixes | contract_incomplete_needs_formal_phase_map | 317 | 317 | 0 | no | 0/4 | 1 |
+| antonyms_synonyms | Antonyms / Synonyms | contract_incomplete_needs_formal_phase_map | 212 | 212 | 0 | no | 0/4 | 1 |
+| homophones_homonyms | Homophones / Homonyms | contract_incomplete_needs_formal_phase_map | 162 | 162 | 0 | no | 0/4 | 1 |
 
 ## Phase Detail
 
@@ -55,24 +57,24 @@ Failing skills: initial_sounds, final_sounds, cvc_short_vowels, hfw_1_25, hfw_26
 | cvc_short_vowels | L2P2 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
 | short_vowel_discrimination | L1P1 | 39 | 15 | 15/15 | 15/15 | 5/5 | none | 0 |
 | short_vowel_discrimination | L1P2 | 47 | 15 | 15/15 | 15/15 | 5/5 | none | 0 |
-| short_vowel_discrimination | L2P1 | 46 | 15 | 15/15 | 15/15 | 5/5 | none | 0 |
+| short_vowel_discrimination | L2P1 | 44 | 15 | 15/15 | 15/15 | 5/5 | none | 0 |
 | short_vowel_discrimination | L2P2 | 100 | 15 | 15/15 | 15/15 | 5/5 | none | 0 |
-| hfw_1_25 | L1P1 | 25 | 15 | 15/15 | 13/15 | 25/25 | none | 1 |
-| hfw_1_25 | L1P2 | 25 | 15 | 15/15 | 13/15 | 25/25 | none | 1 |
-| hfw_1_25 | L2P1 | 25 | 15 | 15/15 | 13/15 | 25/25 | none | 1 |
-| hfw_1_25 | L2P2 | 25 | 15 | 15/15 | 13/15 | 25/25 | none | 1 |
-| hfw_26_50 | L1P1 | 25 | 15 | 15/15 | 13/15 | 25/25 | none | 1 |
-| hfw_26_50 | L1P2 | 25 | 15 | 15/15 | 13/15 | 25/25 | none | 1 |
-| hfw_26_50 | L2P1 | 25 | 15 | 15/15 | 13/15 | 25/25 | none | 1 |
-| hfw_26_50 | L2P2 | 25 | 15 | 15/15 | 13/15 | 25/25 | none | 1 |
-| hfw_51_75 | L1P1 | 25 | 15 | 15/15 | 13/15 | 25/25 | none | 1 |
-| hfw_51_75 | L1P2 | 25 | 15 | 15/15 | 13/15 | 25/25 | none | 1 |
-| hfw_51_75 | L2P1 | 25 | 15 | 15/15 | 13/15 | 25/25 | none | 1 |
-| hfw_51_75 | L2P2 | 25 | 15 | 15/15 | 13/15 | 25/25 | none | 1 |
-| hfw_76_100 | L1P1 | 25 | 15 | 15/15 | 13/15 | 25/25 | none | 1 |
-| hfw_76_100 | L1P2 | 25 | 15 | 15/15 | 13/15 | 25/25 | none | 1 |
-| hfw_76_100 | L2P1 | 25 | 15 | 15/15 | 13/15 | 25/25 | none | 1 |
-| hfw_76_100 | L2P2 | 25 | 15 | 15/15 | 13/15 | 25/25 | none | 1 |
+| hfw_1_25 | L1P1 | 133 | 15 | 15/15 | 15/15 | 25/25 | none | 0 |
+| hfw_1_25 | L1P2 | 133 | 15 | 15/15 | 15/15 | 25/25 | none | 0 |
+| hfw_1_25 | L2P1 | 132 | 15 | 15/15 | 15/15 | 25/25 | none | 0 |
+| hfw_1_25 | L2P2 | 132 | 15 | 15/15 | 15/15 | 25/25 | none | 0 |
+| hfw_26_50 | L1P1 | 129 | 15 | 15/15 | 15/15 | 25/25 | none | 0 |
+| hfw_26_50 | L1P2 | 134 | 15 | 15/15 | 15/15 | 25/25 | none | 0 |
+| hfw_26_50 | L2P1 | 133 | 15 | 15/15 | 15/15 | 25/25 | none | 0 |
+| hfw_26_50 | L2P2 | 130 | 15 | 15/15 | 15/15 | 25/25 | none | 0 |
+| hfw_51_75 | L1P1 | 83 | 15 | 15/15 | 15/15 | 25/25 | none | 0 |
+| hfw_51_75 | L1P2 | 83 | 15 | 15/15 | 15/15 | 25/25 | none | 0 |
+| hfw_51_75 | L2P1 | 83 | 15 | 15/15 | 15/15 | 25/25 | none | 0 |
+| hfw_51_75 | L2P2 | 80 | 15 | 15/15 | 15/15 | 25/25 | none | 0 |
+| hfw_76_100 | L1P1 | 57 | 15 | 15/15 | 15/15 | 25/25 | none | 0 |
+| hfw_76_100 | L1P2 | 60 | 15 | 15/15 | 15/15 | 25/25 | none | 0 |
+| hfw_76_100 | L2P1 | 57 | 15 | 15/15 | 15/15 | 25/25 | none | 0 |
+| hfw_76_100 | L2P2 | 55 | 15 | 15/15 | 15/15 | 25/25 | none | 0 |
 | blends | L1P1 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
 | blends | L1P2 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
 | blends | L2P1 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
@@ -113,10 +115,18 @@ Failing skills: initial_sounds, final_sounds, cvc_short_vowels, hfw_1_25, hfw_26
 | plurals | L1P2 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
 | plurals | L2P1 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
 | plurals | L2P2 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
+| prefixes_suffixes | L1P1 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
+| prefixes_suffixes | L1P2 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
+| prefixes_suffixes | L2P1 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
+| prefixes_suffixes | L2P2 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
 | antonyms_synonyms | L1P1 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
 | antonyms_synonyms | L1P2 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
 | antonyms_synonyms | L2P1 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
 | antonyms_synonyms | L2P2 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
+| homophones_homonyms | L1P1 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
+| homophones_homonyms | L1P2 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
+| homophones_homonyms | L2P1 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
+| homophones_homonyms | L2P2 | 0 | 15 | 0/15 | 0/15 | 0/0 | none | 1 |
 
 ## Failure Table
 
@@ -125,522 +135,6 @@ Failing skills: initial_sounds, final_sounds, cvc_short_vowels, hfw_1_25, hfw_26
 | initial_sounds | Initial Sounds | initial_sounds: contract_incomplete_needs_formal_phase_map |
 | final_sounds | Final Sounds | final_sounds: contract_incomplete_needs_formal_phase_map |
 | cvc_short_vowels | CVC and Short Vowels | cvc_short_vowels: contract_incomplete_needs_formal_phase_map |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: the::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_01_the_l1_cloze, hfw_hfw-1-25_26_the_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: to::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_02_to_l1_cloze, hfw_hfw-1-25_27_to_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: and::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_03_and_l1_cloze, hfw_hfw-1-25_28_and_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: a::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_04_a_l1_cloze, hfw_hfw-1-25_29_a_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: i::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_05_i_l1_cloze, hfw_hfw-1-25_30_i_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: you::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_06_you_l1_cloze, hfw_hfw-1-25_31_you_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: it::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_07_it_l1_cloze, hfw_hfw-1-25_32_it_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: in::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_08_in_l1_cloze, hfw_hfw-1-25_33_in_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: said::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_09_said_l1_cloze, hfw_hfw-1-25_34_said_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: for::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_10_for_l1_cloze, hfw_hfw-1-25_35_for_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: up::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_11_up_l1_cloze, hfw_hfw-1-25_36_up_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: look::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_12_look_l1_cloze, hfw_hfw-1-25_37_look_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: is::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_13_is_l1_cloze, hfw_hfw-1-25_38_is_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: go::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_14_go_l1_cloze, hfw_hfw-1-25_39_go_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: we::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_15_we_l1_cloze, hfw_hfw-1-25_40_we_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: little::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_16_little_l1_cloze, hfw_hfw-1-25_41_little_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: can::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_17_can_l1_cloze, hfw_hfw-1-25_42_can_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: see::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_18_see_l1_cloze, hfw_hfw-1-25_43_see_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: me::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_19_me_l1_cloze, hfw_hfw-1-25_44_me_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: my::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_20_my_l1_cloze, hfw_hfw-1-25_45_my_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: on::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_21_on_l1_cloze, hfw_hfw-1-25_46_on_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: one::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_22_one_l1_cloze, hfw_hfw-1-25_47_one_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: big::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_23_big_l1_cloze, hfw_hfw-1-25_48_big_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: come::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_24_come_l1_cloze, hfw_hfw-1-25_49_come_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: like::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-1-25_25_like_l1_cloze, hfw_hfw-1-25_50_like_l1_cloze_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: the::HFW_LETTER_BUILD :: hfw_hfw-1-25_01_the_l2_build, hfw_hfw-1-25_26_the_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: to::HFW_LETTER_BUILD :: hfw_hfw-1-25_02_to_l2_build, hfw_hfw-1-25_27_to_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: and::HFW_LETTER_BUILD :: hfw_hfw-1-25_03_and_l2_build, hfw_hfw-1-25_28_and_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: a::HFW_LETTER_BUILD :: hfw_hfw-1-25_04_a_l2_build, hfw_hfw-1-25_29_a_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: i::HFW_LETTER_BUILD :: hfw_hfw-1-25_05_i_l2_build, hfw_hfw-1-25_30_i_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: you::HFW_LETTER_BUILD :: hfw_hfw-1-25_06_you_l2_build, hfw_hfw-1-25_31_you_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: it::HFW_LETTER_BUILD :: hfw_hfw-1-25_07_it_l2_build, hfw_hfw-1-25_32_it_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: in::HFW_LETTER_BUILD :: hfw_hfw-1-25_08_in_l2_build, hfw_hfw-1-25_33_in_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: said::HFW_LETTER_BUILD :: hfw_hfw-1-25_09_said_l2_build, hfw_hfw-1-25_34_said_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: for::HFW_LETTER_BUILD :: hfw_hfw-1-25_10_for_l2_build, hfw_hfw-1-25_35_for_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: up::HFW_LETTER_BUILD :: hfw_hfw-1-25_11_up_l2_build, hfw_hfw-1-25_36_up_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: look::HFW_LETTER_BUILD :: hfw_hfw-1-25_12_look_l2_build, hfw_hfw-1-25_37_look_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: is::HFW_LETTER_BUILD :: hfw_hfw-1-25_13_is_l2_build, hfw_hfw-1-25_38_is_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: go::HFW_LETTER_BUILD :: hfw_hfw-1-25_14_go_l2_build, hfw_hfw-1-25_39_go_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: we::HFW_LETTER_BUILD :: hfw_hfw-1-25_15_we_l2_build, hfw_hfw-1-25_40_we_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: little::HFW_LETTER_BUILD :: hfw_hfw-1-25_16_little_l2_build, hfw_hfw-1-25_41_little_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: can::HFW_LETTER_BUILD :: hfw_hfw-1-25_17_can_l2_build, hfw_hfw-1-25_42_can_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: see::HFW_LETTER_BUILD :: hfw_hfw-1-25_18_see_l2_build, hfw_hfw-1-25_43_see_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: me::HFW_LETTER_BUILD :: hfw_hfw-1-25_19_me_l2_build, hfw_hfw-1-25_44_me_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: my::HFW_LETTER_BUILD :: hfw_hfw-1-25_20_my_l2_build, hfw_hfw-1-25_45_my_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: on::HFW_LETTER_BUILD :: hfw_hfw-1-25_21_on_l2_build, hfw_hfw-1-25_46_on_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: one::HFW_LETTER_BUILD :: hfw_hfw-1-25_22_one_l2_build, hfw_hfw-1-25_47_one_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: big::HFW_LETTER_BUILD :: hfw_hfw-1-25_23_big_l2_build, hfw_hfw-1-25_48_big_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: come::HFW_LETTER_BUILD :: hfw_hfw-1-25_24_come_l2_build, hfw_hfw-1-25_49_come_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | target/template reused 2 times: like::HFW_LETTER_BUILD :: hfw_hfw-1-25_25_like_l2_build, hfw_hfw-1-25_50_like_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/the.webp :: hfw_hfw-1-25_01_the_l1_cloze, hfw_hfw-1-25_26_the_l1_cloze_v2, hfw_hfw-1-25_01_the_l2_build, hfw_hfw-1-25_26_the_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/to.webp :: hfw_hfw-1-25_02_to_l1_cloze, hfw_hfw-1-25_27_to_l1_cloze_v2, hfw_hfw-1-25_02_to_l2_build, hfw_hfw-1-25_27_to_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/and.webp :: hfw_hfw-1-25_03_and_l1_cloze, hfw_hfw-1-25_28_and_l1_cloze_v2, hfw_hfw-1-25_03_and_l2_build, hfw_hfw-1-25_28_and_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/a.webp :: hfw_hfw-1-25_04_a_l1_cloze, hfw_hfw-1-25_29_a_l1_cloze_v2, hfw_hfw-1-25_04_a_l2_build, hfw_hfw-1-25_29_a_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/i.webp :: hfw_hfw-1-25_05_i_l1_cloze, hfw_hfw-1-25_30_i_l1_cloze_v2, hfw_hfw-1-25_05_i_l2_build, hfw_hfw-1-25_30_i_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/you.webp :: hfw_hfw-1-25_06_you_l1_cloze, hfw_hfw-1-25_31_you_l1_cloze_v2, hfw_hfw-1-25_06_you_l2_build, hfw_hfw-1-25_31_you_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/it.webp :: hfw_hfw-1-25_07_it_l1_cloze, hfw_hfw-1-25_32_it_l1_cloze_v2, hfw_hfw-1-25_07_it_l2_build, hfw_hfw-1-25_32_it_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/in.webp :: hfw_hfw-1-25_08_in_l1_cloze, hfw_hfw-1-25_33_in_l1_cloze_v2, hfw_hfw-1-25_08_in_l2_build, hfw_hfw-1-25_33_in_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/said.webp :: hfw_hfw-1-25_09_said_l1_cloze, hfw_hfw-1-25_34_said_l1_cloze_v2, hfw_hfw-1-25_09_said_l2_build, hfw_hfw-1-25_34_said_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/for.webp :: hfw_hfw-1-25_10_for_l1_cloze, hfw_hfw-1-25_35_for_l1_cloze_v2, hfw_hfw-1-25_10_for_l2_build, hfw_hfw-1-25_35_for_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/up.webp :: hfw_hfw-1-25_11_up_l1_cloze, hfw_hfw-1-25_36_up_l1_cloze_v2, hfw_hfw-1-25_11_up_l2_build, hfw_hfw-1-25_36_up_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/look.webp :: hfw_hfw-1-25_12_look_l1_cloze, hfw_hfw-1-25_37_look_l1_cloze_v2, hfw_hfw-1-25_12_look_l2_build, hfw_hfw-1-25_37_look_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/is.webp :: hfw_hfw-1-25_13_is_l1_cloze, hfw_hfw-1-25_38_is_l1_cloze_v2, hfw_hfw-1-25_13_is_l2_build, hfw_hfw-1-25_38_is_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/go.webp :: hfw_hfw-1-25_14_go_l1_cloze, hfw_hfw-1-25_39_go_l1_cloze_v2, hfw_hfw-1-25_14_go_l2_build, hfw_hfw-1-25_39_go_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/we.webp :: hfw_hfw-1-25_15_we_l1_cloze, hfw_hfw-1-25_40_we_l1_cloze_v2, hfw_hfw-1-25_15_we_l2_build, hfw_hfw-1-25_40_we_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/little.webp :: hfw_hfw-1-25_16_little_l1_cloze, hfw_hfw-1-25_41_little_l1_cloze_v2, hfw_hfw-1-25_16_little_l2_build, hfw_hfw-1-25_41_little_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/can.webp :: hfw_hfw-1-25_17_can_l1_cloze, hfw_hfw-1-25_42_can_l1_cloze_v2, hfw_hfw-1-25_17_can_l2_build, hfw_hfw-1-25_42_can_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/see.webp :: hfw_hfw-1-25_18_see_l1_cloze, hfw_hfw-1-25_43_see_l1_cloze_v2, hfw_hfw-1-25_18_see_l2_build, hfw_hfw-1-25_43_see_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/me.webp :: hfw_hfw-1-25_19_me_l1_cloze, hfw_hfw-1-25_44_me_l1_cloze_v2, hfw_hfw-1-25_19_me_l2_build, hfw_hfw-1-25_44_me_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/my.webp :: hfw_hfw-1-25_20_my_l1_cloze, hfw_hfw-1-25_45_my_l1_cloze_v2, hfw_hfw-1-25_20_my_l2_build, hfw_hfw-1-25_45_my_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/on.webp :: hfw_hfw-1-25_21_on_l1_cloze, hfw_hfw-1-25_46_on_l1_cloze_v2, hfw_hfw-1-25_21_on_l2_build, hfw_hfw-1-25_46_on_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/one.webp :: hfw_hfw-1-25_22_one_l1_cloze, hfw_hfw-1-25_47_one_l1_cloze_v2, hfw_hfw-1-25_22_one_l2_build, hfw_hfw-1-25_47_one_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/big.webp :: hfw_hfw-1-25_23_big_l1_cloze, hfw_hfw-1-25_48_big_l1_cloze_v2, hfw_hfw-1-25_23_big_l2_build, hfw_hfw-1-25_48_big_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/come.webp :: hfw_hfw-1-25_24_come_l1_cloze, hfw_hfw-1-25_49_come_l1_cloze_v2, hfw_hfw-1-25_24_come_l2_build, hfw_hfw-1-25_49_come_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | primary image reused 4 times: /images/assessment/hfw/like.webp :: hfw_hfw-1-25_25_like_l1_cloze, hfw_hfw-1-25_50_like_l1_cloze_v2, hfw_hfw-1-25_25_like_l2_build, hfw_hfw-1-25_50_like_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: i see dog::the :: hfw_hfw-1-25_01_the_l1_cloze, hfw_hfw-1-25_26_the_l1_cloze_v2, hfw_hfw-1-25_01_the_l2_build, hfw_hfw-1-25_26_the_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: we go school::to :: hfw_hfw-1-25_02_to_l1_cloze, hfw_hfw-1-25_27_to_l1_cloze_v2, hfw_hfw-1-25_02_to_l2_build, hfw_hfw-1-25_27_to_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: mom i read::and :: hfw_hfw-1-25_03_and_l1_cloze, hfw_hfw-1-25_28_and_l1_cloze_v2, hfw_hfw-1-25_03_and_l2_build, hfw_hfw-1-25_28_and_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: i see cat::a :: hfw_hfw-1-25_04_a_l1_cloze, hfw_hfw-1-25_29_a_l1_cloze_v2, hfw_hfw-1-25_04_a_l2_build, hfw_hfw-1-25_29_a_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: can read::i :: hfw_hfw-1-25_05_i_l1_cloze, hfw_hfw-1-25_30_i_l1_cloze_v2, hfw_hfw-1-25_05_i_l2_build, hfw_hfw-1-25_30_i_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: can jump::you :: hfw_hfw-1-25_06_you_l1_cloze, hfw_hfw-1-25_31_you_l1_cloze_v2, hfw_hfw-1-25_06_you_l2_build, hfw_hfw-1-25_31_you_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: i found::it :: hfw_hfw-1-25_07_it_l1_cloze, hfw_hfw-1-25_32_it_l1_cloze_v2, hfw_hfw-1-25_07_it_l2_build, hfw_hfw-1-25_32_it_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: the toy is the box::in :: hfw_hfw-1-25_08_in_l1_cloze, hfw_hfw-1-25_33_in_l1_cloze_v2, hfw_hfw-1-25_08_in_l2_build, hfw_hfw-1-25_33_in_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: dad yes::said :: hfw_hfw-1-25_09_said_l1_cloze, hfw_hfw-1-25_34_said_l1_cloze_v2, hfw_hfw-1-25_09_said_l2_build, hfw_hfw-1-25_34_said_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: this book is you::for :: hfw_hfw-1-25_10_for_l1_cloze, hfw_hfw-1-25_35_for_l1_cloze_v2, hfw_hfw-1-25_10_for_l2_build, hfw_hfw-1-25_35_for_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: look at the kite::up :: hfw_hfw-1-25_11_up_l1_cloze, hfw_hfw-1-25_36_up_l1_cloze_v2, hfw_hfw-1-25_11_up_l2_build, hfw_hfw-1-25_36_up_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: at the bird::look :: hfw_hfw-1-25_12_look_l1_cloze, hfw_hfw-1-25_37_look_l1_cloze_v2, hfw_hfw-1-25_12_look_l2_build, hfw_hfw-1-25_37_look_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: the sun hot::is :: hfw_hfw-1-25_13_is_l1_cloze, hfw_hfw-1-25_38_is_l1_cloze_v2, hfw_hfw-1-25_13_is_l2_build, hfw_hfw-1-25_38_is_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: we home::go :: hfw_hfw-1-25_14_go_l1_cloze, hfw_hfw-1-25_39_go_l1_cloze_v2, hfw_hfw-1-25_14_go_l2_build, hfw_hfw-1-25_39_go_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: can help::we :: hfw_hfw-1-25_15_we_l1_cloze, hfw_hfw-1-25_40_we_l1_cloze_v2, hfw_hfw-1-25_15_we_l2_build, hfw_hfw-1-25_40_we_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: the bug is::little :: hfw_hfw-1-25_16_little_l1_cloze, hfw_hfw-1-25_41_little_l1_cloze_v2, hfw_hfw-1-25_16_little_l2_build, hfw_hfw-1-25_41_little_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: we swim::can :: hfw_hfw-1-25_17_can_l1_cloze, hfw_hfw-1-25_42_can_l1_cloze_v2, hfw_hfw-1-25_17_can_l2_build, hfw_hfw-1-25_42_can_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: i a red ball::see :: hfw_hfw-1-25_18_see_l1_cloze, hfw_hfw-1-25_43_see_l1_cloze_v2, hfw_hfw-1-25_18_see_l2_build, hfw_hfw-1-25_43_see_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: come with::me :: hfw_hfw-1-25_19_me_l1_cloze, hfw_hfw-1-25_44_me_l1_cloze_v2, hfw_hfw-1-25_19_me_l2_build, hfw_hfw-1-25_44_me_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: this is hat::my :: hfw_hfw-1-25_20_my_l1_cloze, hfw_hfw-1-25_45_my_l1_cloze_v2, hfw_hfw-1-25_20_my_l2_build, hfw_hfw-1-25_45_my_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: the cup is the table::on :: hfw_hfw-1-25_21_on_l1_cloze, hfw_hfw-1-25_46_on_l1_cloze_v2, hfw_hfw-1-25_21_on_l2_build, hfw_hfw-1-25_46_on_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: i have apple::one :: hfw_hfw-1-25_22_one_l1_cloze, hfw_hfw-1-25_47_one_l1_cloze_v2, hfw_hfw-1-25_22_one_l2_build, hfw_hfw-1-25_47_one_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: the box is::big :: hfw_hfw-1-25_23_big_l1_cloze, hfw_hfw-1-25_48_big_l1_cloze_v2, hfw_hfw-1-25_23_big_l2_build, hfw_hfw-1-25_48_big_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: please here::come :: hfw_hfw-1-25_24_come_l1_cloze, hfw_hfw-1-25_49_come_l1_cloze_v2, hfw_hfw-1-25_24_come_l2_build, hfw_hfw-1-25_49_come_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | prompt/answer reused 4 times: i this book::like :: hfw_hfw-1-25_25_like_l1_cloze, hfw_hfw-1-25_50_like_l1_cloze_v2, hfw_hfw-1-25_25_like_l2_build, hfw_hfw-1-25_50_like_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: the::HFW_LETTER_BUILD::i see dog::the::/images/assessment/hfw/the.webp :: hfw_hfw-1-25_01_the_l2_build, hfw_hfw-1-25_26_the_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: to::HFW_LETTER_BUILD::we go school::to::/images/assessment/hfw/to.webp :: hfw_hfw-1-25_02_to_l2_build, hfw_hfw-1-25_27_to_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: and::HFW_LETTER_BUILD::mom i read::and::/images/assessment/hfw/and.webp :: hfw_hfw-1-25_03_and_l2_build, hfw_hfw-1-25_28_and_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: a::HFW_LETTER_BUILD::i see cat::a::/images/assessment/hfw/a.webp :: hfw_hfw-1-25_04_a_l2_build, hfw_hfw-1-25_29_a_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: i::HFW_LETTER_BUILD::can read::i::/images/assessment/hfw/i.webp :: hfw_hfw-1-25_05_i_l2_build, hfw_hfw-1-25_30_i_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: you::HFW_LETTER_BUILD::can jump::you::/images/assessment/hfw/you.webp :: hfw_hfw-1-25_06_you_l2_build, hfw_hfw-1-25_31_you_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: it::HFW_LETTER_BUILD::i found::it::/images/assessment/hfw/it.webp :: hfw_hfw-1-25_07_it_l2_build, hfw_hfw-1-25_32_it_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: in::HFW_LETTER_BUILD::the toy is the box::in::/images/assessment/hfw/in.webp :: hfw_hfw-1-25_08_in_l2_build, hfw_hfw-1-25_33_in_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: said::HFW_LETTER_BUILD::dad yes::said::/images/assessment/hfw/said.webp :: hfw_hfw-1-25_09_said_l2_build, hfw_hfw-1-25_34_said_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: for::HFW_LETTER_BUILD::this book is you::for::/images/assessment/hfw/for.webp :: hfw_hfw-1-25_10_for_l2_build, hfw_hfw-1-25_35_for_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: up::HFW_LETTER_BUILD::look at the kite::up::/images/assessment/hfw/up.webp :: hfw_hfw-1-25_11_up_l2_build, hfw_hfw-1-25_36_up_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: look::HFW_LETTER_BUILD::at the bird::look::/images/assessment/hfw/look.webp :: hfw_hfw-1-25_12_look_l2_build, hfw_hfw-1-25_37_look_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: is::HFW_LETTER_BUILD::the sun hot::is::/images/assessment/hfw/is.webp :: hfw_hfw-1-25_13_is_l2_build, hfw_hfw-1-25_38_is_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: go::HFW_LETTER_BUILD::we home::go::/images/assessment/hfw/go.webp :: hfw_hfw-1-25_14_go_l2_build, hfw_hfw-1-25_39_go_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: we::HFW_LETTER_BUILD::can help::we::/images/assessment/hfw/we.webp :: hfw_hfw-1-25_15_we_l2_build, hfw_hfw-1-25_40_we_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: little::HFW_LETTER_BUILD::the bug is::little::/images/assessment/hfw/little.webp :: hfw_hfw-1-25_16_little_l2_build, hfw_hfw-1-25_41_little_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: can::HFW_LETTER_BUILD::we swim::can::/images/assessment/hfw/can.webp :: hfw_hfw-1-25_17_can_l2_build, hfw_hfw-1-25_42_can_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: see::HFW_LETTER_BUILD::i a red ball::see::/images/assessment/hfw/see.webp :: hfw_hfw-1-25_18_see_l2_build, hfw_hfw-1-25_43_see_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: me::HFW_LETTER_BUILD::come with::me::/images/assessment/hfw/me.webp :: hfw_hfw-1-25_19_me_l2_build, hfw_hfw-1-25_44_me_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: my::HFW_LETTER_BUILD::this is hat::my::/images/assessment/hfw/my.webp :: hfw_hfw-1-25_20_my_l2_build, hfw_hfw-1-25_45_my_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: on::HFW_LETTER_BUILD::the cup is the table::on::/images/assessment/hfw/on.webp :: hfw_hfw-1-25_21_on_l2_build, hfw_hfw-1-25_46_on_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: one::HFW_LETTER_BUILD::i have apple::one::/images/assessment/hfw/one.webp :: hfw_hfw-1-25_22_one_l2_build, hfw_hfw-1-25_47_one_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: big::HFW_LETTER_BUILD::the box is::big::/images/assessment/hfw/big.webp :: hfw_hfw-1-25_23_big_l2_build, hfw_hfw-1-25_48_big_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: come::HFW_LETTER_BUILD::please here::come::/images/assessment/hfw/come.webp :: hfw_hfw-1-25_24_come_l2_build, hfw_hfw-1-25_49_come_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | question content reused 2 times: like::HFW_LETTER_BUILD::i this book::like::/images/assessment/hfw/like.webp :: hfw_hfw-1-25_25_like_l2_build, hfw_hfw-1-25_50_like_l2_build_v2 |
-| hfw_1_25 | High-Frequency Words 1-25 | L1P1: retry simulation after 3 wrong answers only built 13/15 without repeating correctly answered questions |
-| hfw_1_25 | High-Frequency Words 1-25 | L1P2: retry simulation after 3 wrong answers only built 13/15 without repeating correctly answered questions |
-| hfw_1_25 | High-Frequency Words 1-25 | L2P1: retry simulation after 3 wrong answers only built 13/15 without repeating correctly answered questions |
-| hfw_1_25 | High-Frequency Words 1-25 | L2P2: retry simulation after 3 wrong answers only built 13/15 without repeating correctly answered questions |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: down::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_01_down_l1_cloze, hfw_hfw-26-50_26_down_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: not::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_02_not_l1_cloze, hfw_hfw-26-50_27_not_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: play::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_03_play_l1_cloze, hfw_hfw-26-50_28_play_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: all::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_04_all_l1_cloze, hfw_hfw-26-50_29_all_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: are::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_05_are_l1_cloze, hfw_hfw-26-50_30_are_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: as::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_06_as_l1_cloze, hfw_hfw-26-50_31_as_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: be::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_07_be_l1_cloze, hfw_hfw-26-50_32_be_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: but::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_08_but_l1_cloze, hfw_hfw-26-50_33_but_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: came::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_09_came_l1_cloze, hfw_hfw-26-50_34_came_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: from::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_10_from_l1_cloze, hfw_hfw-26-50_35_from_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: have::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_11_have_l1_cloze, hfw_hfw-26-50_36_have_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: he::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_12_he_l1_cloze, hfw_hfw-26-50_37_he_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: she::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_13_she_l1_cloze, hfw_hfw-26-50_38_she_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: they::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_14_they_l1_cloze, hfw_hfw-26-50_39_they_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: was::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_15_was_l1_cloze, hfw_hfw-26-50_40_was_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: with::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_16_with_l1_cloze, hfw_hfw-26-50_41_with_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: that::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_17_that_l1_cloze, hfw_hfw-26-50_42_that_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: then::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_18_then_l1_cloze, hfw_hfw-26-50_43_then_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: this::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_19_this_l1_cloze, hfw_hfw-26-50_44_this_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: what::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_20_what_l1_cloze, hfw_hfw-26-50_45_what_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: when::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_21_when_l1_cloze, hfw_hfw-26-50_46_when_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: where::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_22_where_l1_cloze, hfw_hfw-26-50_47_where_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: will::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_23_will_l1_cloze, hfw_hfw-26-50_48_will_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: help::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_24_help_l1_cloze, hfw_hfw-26-50_49_help_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: make::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-26-50_25_make_l1_cloze, hfw_hfw-26-50_50_make_l1_cloze_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: down::HFW_LETTER_BUILD :: hfw_hfw-26-50_01_down_l2_build, hfw_hfw-26-50_26_down_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: not::HFW_LETTER_BUILD :: hfw_hfw-26-50_02_not_l2_build, hfw_hfw-26-50_27_not_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: play::HFW_LETTER_BUILD :: hfw_hfw-26-50_03_play_l2_build, hfw_hfw-26-50_28_play_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: all::HFW_LETTER_BUILD :: hfw_hfw-26-50_04_all_l2_build, hfw_hfw-26-50_29_all_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: are::HFW_LETTER_BUILD :: hfw_hfw-26-50_05_are_l2_build, hfw_hfw-26-50_30_are_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: as::HFW_LETTER_BUILD :: hfw_hfw-26-50_06_as_l2_build, hfw_hfw-26-50_31_as_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: be::HFW_LETTER_BUILD :: hfw_hfw-26-50_07_be_l2_build, hfw_hfw-26-50_32_be_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: but::HFW_LETTER_BUILD :: hfw_hfw-26-50_08_but_l2_build, hfw_hfw-26-50_33_but_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: came::HFW_LETTER_BUILD :: hfw_hfw-26-50_09_came_l2_build, hfw_hfw-26-50_34_came_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: from::HFW_LETTER_BUILD :: hfw_hfw-26-50_10_from_l2_build, hfw_hfw-26-50_35_from_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: have::HFW_LETTER_BUILD :: hfw_hfw-26-50_11_have_l2_build, hfw_hfw-26-50_36_have_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: he::HFW_LETTER_BUILD :: hfw_hfw-26-50_12_he_l2_build, hfw_hfw-26-50_37_he_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: she::HFW_LETTER_BUILD :: hfw_hfw-26-50_13_she_l2_build, hfw_hfw-26-50_38_she_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: they::HFW_LETTER_BUILD :: hfw_hfw-26-50_14_they_l2_build, hfw_hfw-26-50_39_they_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: was::HFW_LETTER_BUILD :: hfw_hfw-26-50_15_was_l2_build, hfw_hfw-26-50_40_was_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: with::HFW_LETTER_BUILD :: hfw_hfw-26-50_16_with_l2_build, hfw_hfw-26-50_41_with_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: that::HFW_LETTER_BUILD :: hfw_hfw-26-50_17_that_l2_build, hfw_hfw-26-50_42_that_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: then::HFW_LETTER_BUILD :: hfw_hfw-26-50_18_then_l2_build, hfw_hfw-26-50_43_then_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: this::HFW_LETTER_BUILD :: hfw_hfw-26-50_19_this_l2_build, hfw_hfw-26-50_44_this_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: what::HFW_LETTER_BUILD :: hfw_hfw-26-50_20_what_l2_build, hfw_hfw-26-50_45_what_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: when::HFW_LETTER_BUILD :: hfw_hfw-26-50_21_when_l2_build, hfw_hfw-26-50_46_when_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: where::HFW_LETTER_BUILD :: hfw_hfw-26-50_22_where_l2_build, hfw_hfw-26-50_47_where_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: will::HFW_LETTER_BUILD :: hfw_hfw-26-50_23_will_l2_build, hfw_hfw-26-50_48_will_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: help::HFW_LETTER_BUILD :: hfw_hfw-26-50_24_help_l2_build, hfw_hfw-26-50_49_help_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | target/template reused 2 times: make::HFW_LETTER_BUILD :: hfw_hfw-26-50_25_make_l2_build, hfw_hfw-26-50_50_make_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/down.webp :: hfw_hfw-26-50_01_down_l1_cloze, hfw_hfw-26-50_26_down_l1_cloze_v2, hfw_hfw-26-50_01_down_l2_build, hfw_hfw-26-50_26_down_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/not.webp :: hfw_hfw-26-50_02_not_l1_cloze, hfw_hfw-26-50_27_not_l1_cloze_v2, hfw_hfw-26-50_02_not_l2_build, hfw_hfw-26-50_27_not_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/play.webp :: hfw_hfw-26-50_03_play_l1_cloze, hfw_hfw-26-50_28_play_l1_cloze_v2, hfw_hfw-26-50_03_play_l2_build, hfw_hfw-26-50_28_play_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/all.webp :: hfw_hfw-26-50_04_all_l1_cloze, hfw_hfw-26-50_29_all_l1_cloze_v2, hfw_hfw-26-50_04_all_l2_build, hfw_hfw-26-50_29_all_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/are.webp :: hfw_hfw-26-50_05_are_l1_cloze, hfw_hfw-26-50_30_are_l1_cloze_v2, hfw_hfw-26-50_05_are_l2_build, hfw_hfw-26-50_30_are_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/as.webp :: hfw_hfw-26-50_06_as_l1_cloze, hfw_hfw-26-50_31_as_l1_cloze_v2, hfw_hfw-26-50_06_as_l2_build, hfw_hfw-26-50_31_as_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/be.webp :: hfw_hfw-26-50_07_be_l1_cloze, hfw_hfw-26-50_32_be_l1_cloze_v2, hfw_hfw-26-50_07_be_l2_build, hfw_hfw-26-50_32_be_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/but.webp :: hfw_hfw-26-50_08_but_l1_cloze, hfw_hfw-26-50_33_but_l1_cloze_v2, hfw_hfw-26-50_08_but_l2_build, hfw_hfw-26-50_33_but_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/came.webp :: hfw_hfw-26-50_09_came_l1_cloze, hfw_hfw-26-50_34_came_l1_cloze_v2, hfw_hfw-26-50_09_came_l2_build, hfw_hfw-26-50_34_came_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/from.webp :: hfw_hfw-26-50_10_from_l1_cloze, hfw_hfw-26-50_35_from_l1_cloze_v2, hfw_hfw-26-50_10_from_l2_build, hfw_hfw-26-50_35_from_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/have.webp :: hfw_hfw-26-50_11_have_l1_cloze, hfw_hfw-26-50_36_have_l1_cloze_v2, hfw_hfw-26-50_11_have_l2_build, hfw_hfw-26-50_36_have_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/he.webp :: hfw_hfw-26-50_12_he_l1_cloze, hfw_hfw-26-50_37_he_l1_cloze_v2, hfw_hfw-26-50_12_he_l2_build, hfw_hfw-26-50_37_he_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/she.webp :: hfw_hfw-26-50_13_she_l1_cloze, hfw_hfw-26-50_38_she_l1_cloze_v2, hfw_hfw-26-50_13_she_l2_build, hfw_hfw-26-50_38_she_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/they.webp :: hfw_hfw-26-50_14_they_l1_cloze, hfw_hfw-26-50_39_they_l1_cloze_v2, hfw_hfw-26-50_14_they_l2_build, hfw_hfw-26-50_39_they_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/was.webp :: hfw_hfw-26-50_15_was_l1_cloze, hfw_hfw-26-50_40_was_l1_cloze_v2, hfw_hfw-26-50_15_was_l2_build, hfw_hfw-26-50_40_was_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/with.webp :: hfw_hfw-26-50_16_with_l1_cloze, hfw_hfw-26-50_41_with_l1_cloze_v2, hfw_hfw-26-50_16_with_l2_build, hfw_hfw-26-50_41_with_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/that.webp :: hfw_hfw-26-50_17_that_l1_cloze, hfw_hfw-26-50_42_that_l1_cloze_v2, hfw_hfw-26-50_17_that_l2_build, hfw_hfw-26-50_42_that_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/then.webp :: hfw_hfw-26-50_18_then_l1_cloze, hfw_hfw-26-50_43_then_l1_cloze_v2, hfw_hfw-26-50_18_then_l2_build, hfw_hfw-26-50_43_then_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/this.webp :: hfw_hfw-26-50_19_this_l1_cloze, hfw_hfw-26-50_44_this_l1_cloze_v2, hfw_hfw-26-50_19_this_l2_build, hfw_hfw-26-50_44_this_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/what.webp :: hfw_hfw-26-50_20_what_l1_cloze, hfw_hfw-26-50_45_what_l1_cloze_v2, hfw_hfw-26-50_20_what_l2_build, hfw_hfw-26-50_45_what_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/when.webp :: hfw_hfw-26-50_21_when_l1_cloze, hfw_hfw-26-50_46_when_l1_cloze_v2, hfw_hfw-26-50_21_when_l2_build, hfw_hfw-26-50_46_when_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/where.webp :: hfw_hfw-26-50_22_where_l1_cloze, hfw_hfw-26-50_47_where_l1_cloze_v2, hfw_hfw-26-50_22_where_l2_build, hfw_hfw-26-50_47_where_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/will.webp :: hfw_hfw-26-50_23_will_l1_cloze, hfw_hfw-26-50_48_will_l1_cloze_v2, hfw_hfw-26-50_23_will_l2_build, hfw_hfw-26-50_48_will_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/help.webp :: hfw_hfw-26-50_24_help_l1_cloze, hfw_hfw-26-50_49_help_l1_cloze_v2, hfw_hfw-26-50_24_help_l2_build, hfw_hfw-26-50_49_help_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | primary image reused 4 times: /images/assessment/hfw/make.webp :: hfw_hfw-26-50_25_make_l1_cloze, hfw_hfw-26-50_50_make_l1_cloze_v2, hfw_hfw-26-50_25_make_l2_build, hfw_hfw-26-50_50_make_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: sit here::down :: hfw_hfw-26-50_01_down_l1_cloze, hfw_hfw-26-50_26_down_l1_cloze_v2, hfw_hfw-26-50_01_down_l2_build, hfw_hfw-26-50_26_down_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: i am done::not :: hfw_hfw-26-50_02_not_l1_cloze, hfw_hfw-26-50_27_not_l1_cloze_v2, hfw_hfw-26-50_02_not_l2_build, hfw_hfw-26-50_27_not_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: we outside::play :: hfw_hfw-26-50_03_play_l1_cloze, hfw_hfw-26-50_28_play_l1_cloze_v2, hfw_hfw-26-50_03_play_l2_build, hfw_hfw-26-50_28_play_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: the kids read::all :: hfw_hfw-26-50_04_all_l1_cloze, hfw_hfw-26-50_29_all_l1_cloze_v2, hfw_hfw-26-50_04_all_l2_build, hfw_hfw-26-50_29_all_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: they here::are :: hfw_hfw-26-50_05_are_l1_cloze, hfw_hfw-26-50_30_are_l1_cloze_v2, hfw_hfw-26-50_05_are_l2_build, hfw_hfw-26-50_30_are_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: run fast as you can::as :: hfw_hfw-26-50_06_as_l1_cloze, hfw_hfw-26-50_31_as_l1_cloze_v2, hfw_hfw-26-50_06_as_l2_build, hfw_hfw-26-50_31_as_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: i will kind::be :: hfw_hfw-26-50_07_be_l1_cloze, hfw_hfw-26-50_32_be_l1_cloze_v2, hfw_hfw-26-50_07_be_l2_build, hfw_hfw-26-50_32_be_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: i ran i stopped::but :: hfw_hfw-26-50_08_but_l1_cloze, hfw_hfw-26-50_33_but_l1_cloze_v2, hfw_hfw-26-50_08_but_l2_build, hfw_hfw-26-50_33_but_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: he home::came :: hfw_hfw-26-50_09_came_l1_cloze, hfw_hfw-26-50_34_came_l1_cloze_v2, hfw_hfw-26-50_09_came_l2_build, hfw_hfw-26-50_34_came_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: this note is mom::from :: hfw_hfw-26-50_10_from_l1_cloze, hfw_hfw-26-50_35_from_l1_cloze_v2, hfw_hfw-26-50_10_from_l2_build, hfw_hfw-26-50_35_from_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: i a book::have :: hfw_hfw-26-50_11_have_l1_cloze, hfw_hfw-26-50_36_have_l1_cloze_v2, hfw_hfw-26-50_11_have_l2_build, hfw_hfw-26-50_36_have_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: has a hat::he :: hfw_hfw-26-50_12_he_l1_cloze, hfw_hfw-26-50_37_he_l1_cloze_v2, hfw_hfw-26-50_12_he_l2_build, hfw_hfw-26-50_37_he_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: can read::she :: hfw_hfw-26-50_13_she_l1_cloze, hfw_hfw-26-50_38_she_l1_cloze_v2, hfw_hfw-26-50_13_she_l2_build, hfw_hfw-26-50_38_she_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: are ready::they :: hfw_hfw-26-50_14_they_l1_cloze, hfw_hfw-26-50_39_they_l1_cloze_v2, hfw_hfw-26-50_14_they_l2_build, hfw_hfw-26-50_39_they_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: it fun::was :: hfw_hfw-26-50_15_was_l1_cloze, hfw_hfw-26-50_40_was_l1_cloze_v2, hfw_hfw-26-50_15_was_l2_build, hfw_hfw-26-50_40_was_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: read me::with :: hfw_hfw-26-50_16_with_l1_cloze, hfw_hfw-26-50_41_with_l1_cloze_v2, hfw_hfw-26-50_16_with_l2_build, hfw_hfw-26-50_41_with_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: i like book::that :: hfw_hfw-26-50_17_that_l1_cloze, hfw_hfw-26-50_42_that_l1_cloze_v2, hfw_hfw-26-50_17_that_l2_build, hfw_hfw-26-50_42_that_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: we read we write::then :: hfw_hfw-26-50_18_then_l1_cloze, hfw_hfw-26-50_43_then_l1_cloze_v2, hfw_hfw-26-50_18_then_l2_build, hfw_hfw-26-50_43_then_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: is my bag::this :: hfw_hfw-26-50_19_this_l1_cloze, hfw_hfw-26-50_44_this_l1_cloze_v2, hfw_hfw-26-50_19_this_l2_build, hfw_hfw-26-50_44_this_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: is that::what :: hfw_hfw-26-50_20_what_l1_cloze, hfw_hfw-26-50_45_what_l1_cloze_v2, hfw_hfw-26-50_20_what_l2_build, hfw_hfw-26-50_45_what_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: do we go::when :: hfw_hfw-26-50_21_when_l1_cloze, hfw_hfw-26-50_46_when_l1_cloze_v2, hfw_hfw-26-50_21_when_l2_build, hfw_hfw-26-50_46_when_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: is my hat::where :: hfw_hfw-26-50_22_where_l1_cloze, hfw_hfw-26-50_47_where_l1_cloze_v2, hfw_hfw-26-50_22_where_l2_build, hfw_hfw-26-50_47_where_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: i read::will :: hfw_hfw-26-50_23_will_l1_cloze, hfw_hfw-26-50_48_will_l1_cloze_v2, hfw_hfw-26-50_23_will_l2_build, hfw_hfw-26-50_48_will_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: i can you::help :: hfw_hfw-26-50_24_help_l1_cloze, hfw_hfw-26-50_49_help_l1_cloze_v2, hfw_hfw-26-50_24_help_l2_build, hfw_hfw-26-50_49_help_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | prompt/answer reused 4 times: i can lunch::make :: hfw_hfw-26-50_25_make_l1_cloze, hfw_hfw-26-50_50_make_l1_cloze_v2, hfw_hfw-26-50_25_make_l2_build, hfw_hfw-26-50_50_make_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: down::HFW_LETTER_BUILD::sit here::down::/images/assessment/hfw/down.webp :: hfw_hfw-26-50_01_down_l2_build, hfw_hfw-26-50_26_down_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: not::HFW_LETTER_BUILD::i am done::not::/images/assessment/hfw/not.webp :: hfw_hfw-26-50_02_not_l2_build, hfw_hfw-26-50_27_not_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: play::HFW_LETTER_BUILD::we outside::play::/images/assessment/hfw/play.webp :: hfw_hfw-26-50_03_play_l2_build, hfw_hfw-26-50_28_play_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: all::HFW_LETTER_BUILD::the kids read::all::/images/assessment/hfw/all.webp :: hfw_hfw-26-50_04_all_l2_build, hfw_hfw-26-50_29_all_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: are::HFW_LETTER_BUILD::they here::are::/images/assessment/hfw/are.webp :: hfw_hfw-26-50_05_are_l2_build, hfw_hfw-26-50_30_are_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: as::HFW_LETTER_BUILD::run fast as you can::as::/images/assessment/hfw/as.webp :: hfw_hfw-26-50_06_as_l2_build, hfw_hfw-26-50_31_as_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: be::HFW_LETTER_BUILD::i will kind::be::/images/assessment/hfw/be.webp :: hfw_hfw-26-50_07_be_l2_build, hfw_hfw-26-50_32_be_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: but::HFW_LETTER_BUILD::i ran i stopped::but::/images/assessment/hfw/but.webp :: hfw_hfw-26-50_08_but_l2_build, hfw_hfw-26-50_33_but_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: came::HFW_LETTER_BUILD::he home::came::/images/assessment/hfw/came.webp :: hfw_hfw-26-50_09_came_l2_build, hfw_hfw-26-50_34_came_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: from::HFW_LETTER_BUILD::this note is mom::from::/images/assessment/hfw/from.webp :: hfw_hfw-26-50_10_from_l2_build, hfw_hfw-26-50_35_from_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: have::HFW_LETTER_BUILD::i a book::have::/images/assessment/hfw/have.webp :: hfw_hfw-26-50_11_have_l2_build, hfw_hfw-26-50_36_have_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: he::HFW_LETTER_BUILD::has a hat::he::/images/assessment/hfw/he.webp :: hfw_hfw-26-50_12_he_l2_build, hfw_hfw-26-50_37_he_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: she::HFW_LETTER_BUILD::can read::she::/images/assessment/hfw/she.webp :: hfw_hfw-26-50_13_she_l2_build, hfw_hfw-26-50_38_she_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: they::HFW_LETTER_BUILD::are ready::they::/images/assessment/hfw/they.webp :: hfw_hfw-26-50_14_they_l2_build, hfw_hfw-26-50_39_they_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: was::HFW_LETTER_BUILD::it fun::was::/images/assessment/hfw/was.webp :: hfw_hfw-26-50_15_was_l2_build, hfw_hfw-26-50_40_was_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: with::HFW_LETTER_BUILD::read me::with::/images/assessment/hfw/with.webp :: hfw_hfw-26-50_16_with_l2_build, hfw_hfw-26-50_41_with_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: that::HFW_LETTER_BUILD::i like book::that::/images/assessment/hfw/that.webp :: hfw_hfw-26-50_17_that_l2_build, hfw_hfw-26-50_42_that_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: then::HFW_LETTER_BUILD::we read we write::then::/images/assessment/hfw/then.webp :: hfw_hfw-26-50_18_then_l2_build, hfw_hfw-26-50_43_then_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: this::HFW_LETTER_BUILD::is my bag::this::/images/assessment/hfw/this.webp :: hfw_hfw-26-50_19_this_l2_build, hfw_hfw-26-50_44_this_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: what::HFW_LETTER_BUILD::is that::what::/images/assessment/hfw/what.webp :: hfw_hfw-26-50_20_what_l2_build, hfw_hfw-26-50_45_what_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: when::HFW_LETTER_BUILD::do we go::when::/images/assessment/hfw/when.webp :: hfw_hfw-26-50_21_when_l2_build, hfw_hfw-26-50_46_when_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: where::HFW_LETTER_BUILD::is my hat::where::/images/assessment/hfw/where.webp :: hfw_hfw-26-50_22_where_l2_build, hfw_hfw-26-50_47_where_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: will::HFW_LETTER_BUILD::i read::will::/images/assessment/hfw/will.webp :: hfw_hfw-26-50_23_will_l2_build, hfw_hfw-26-50_48_will_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: help::HFW_LETTER_BUILD::i can you::help::/images/assessment/hfw/help.webp :: hfw_hfw-26-50_24_help_l2_build, hfw_hfw-26-50_49_help_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | question content reused 2 times: make::HFW_LETTER_BUILD::i can lunch::make::/images/assessment/hfw/make.webp :: hfw_hfw-26-50_25_make_l2_build, hfw_hfw-26-50_50_make_l2_build_v2 |
-| hfw_26_50 | High-Frequency Words 26-50 | L1P1: retry simulation after 3 wrong answers only built 13/15 without repeating correctly answered questions |
-| hfw_26_50 | High-Frequency Words 26-50 | L1P2: retry simulation after 3 wrong answers only built 13/15 without repeating correctly answered questions |
-| hfw_26_50 | High-Frequency Words 26-50 | L2P1: retry simulation after 3 wrong answers only built 13/15 without repeating correctly answered questions |
-| hfw_26_50 | High-Frequency Words 26-50 | L2P2: retry simulation after 3 wrong answers only built 13/15 without repeating correctly answered questions |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: after::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_01_after_l1_cloze, hfw_hfw-51-75_26_after_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: again::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_02_again_l1_cloze, hfw_hfw-51-75_27_again_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: an::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_03_an_l1_cloze, hfw_hfw-51-75_28_an_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: any::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_04_any_l1_cloze, hfw_hfw-51-75_29_any_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: around::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_05_around_l1_cloze, hfw_hfw-51-75_30_around_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: ask::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_06_ask_l1_cloze, hfw_hfw-51-75_31_ask_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: away::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_07_away_l1_cloze, hfw_hfw-51-75_32_away_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: before::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_08_before_l1_cloze, hfw_hfw-51-75_33_before_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: by::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_09_by_l1_cloze, hfw_hfw-51-75_34_by_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: could::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_10_could_l1_cloze, hfw_hfw-51-75_35_could_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: every::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_11_every_l1_cloze, hfw_hfw-51-75_36_every_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: find::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_12_find_l1_cloze, hfw_hfw-51-75_37_find_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: fly::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_13_fly_l1_cloze, hfw_hfw-51-75_38_fly_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: found::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_14_found_l1_cloze, hfw_hfw-51-75_39_found_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: funny::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_15_funny_l1_cloze, hfw_hfw-51-75_40_funny_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: give::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_16_give_l1_cloze, hfw_hfw-51-75_41_give_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: going::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_17_going_l1_cloze, hfw_hfw-51-75_42_going_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: had::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_18_had_l1_cloze, hfw_hfw-51-75_43_had_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: has::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_19_has_l1_cloze, hfw_hfw-51-75_44_has_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: her::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_20_her_l1_cloze, hfw_hfw-51-75_45_her_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: here::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_21_here_l1_cloze, hfw_hfw-51-75_46_here_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: him::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_22_him_l1_cloze, hfw_hfw-51-75_47_him_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: his::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_23_his_l1_cloze, hfw_hfw-51-75_48_his_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: how::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_24_how_l1_cloze, hfw_hfw-51-75_49_how_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: into::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-51-75_25_into_l1_cloze, hfw_hfw-51-75_50_into_l1_cloze_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: after::HFW_LETTER_BUILD :: hfw_hfw-51-75_01_after_l2_build, hfw_hfw-51-75_26_after_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: again::HFW_LETTER_BUILD :: hfw_hfw-51-75_02_again_l2_build, hfw_hfw-51-75_27_again_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: an::HFW_LETTER_BUILD :: hfw_hfw-51-75_03_an_l2_build, hfw_hfw-51-75_28_an_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: any::HFW_LETTER_BUILD :: hfw_hfw-51-75_04_any_l2_build, hfw_hfw-51-75_29_any_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: around::HFW_LETTER_BUILD :: hfw_hfw-51-75_05_around_l2_build, hfw_hfw-51-75_30_around_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: ask::HFW_LETTER_BUILD :: hfw_hfw-51-75_06_ask_l2_build, hfw_hfw-51-75_31_ask_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: away::HFW_LETTER_BUILD :: hfw_hfw-51-75_07_away_l2_build, hfw_hfw-51-75_32_away_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: before::HFW_LETTER_BUILD :: hfw_hfw-51-75_08_before_l2_build, hfw_hfw-51-75_33_before_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: by::HFW_LETTER_BUILD :: hfw_hfw-51-75_09_by_l2_build, hfw_hfw-51-75_34_by_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: could::HFW_LETTER_BUILD :: hfw_hfw-51-75_10_could_l2_build, hfw_hfw-51-75_35_could_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: every::HFW_LETTER_BUILD :: hfw_hfw-51-75_11_every_l2_build, hfw_hfw-51-75_36_every_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: find::HFW_LETTER_BUILD :: hfw_hfw-51-75_12_find_l2_build, hfw_hfw-51-75_37_find_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: fly::HFW_LETTER_BUILD :: hfw_hfw-51-75_13_fly_l2_build, hfw_hfw-51-75_38_fly_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: found::HFW_LETTER_BUILD :: hfw_hfw-51-75_14_found_l2_build, hfw_hfw-51-75_39_found_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: funny::HFW_LETTER_BUILD :: hfw_hfw-51-75_15_funny_l2_build, hfw_hfw-51-75_40_funny_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: give::HFW_LETTER_BUILD :: hfw_hfw-51-75_16_give_l2_build, hfw_hfw-51-75_41_give_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: going::HFW_LETTER_BUILD :: hfw_hfw-51-75_17_going_l2_build, hfw_hfw-51-75_42_going_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: had::HFW_LETTER_BUILD :: hfw_hfw-51-75_18_had_l2_build, hfw_hfw-51-75_43_had_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: has::HFW_LETTER_BUILD :: hfw_hfw-51-75_19_has_l2_build, hfw_hfw-51-75_44_has_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: her::HFW_LETTER_BUILD :: hfw_hfw-51-75_20_her_l2_build, hfw_hfw-51-75_45_her_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: here::HFW_LETTER_BUILD :: hfw_hfw-51-75_21_here_l2_build, hfw_hfw-51-75_46_here_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: him::HFW_LETTER_BUILD :: hfw_hfw-51-75_22_him_l2_build, hfw_hfw-51-75_47_him_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: his::HFW_LETTER_BUILD :: hfw_hfw-51-75_23_his_l2_build, hfw_hfw-51-75_48_his_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: how::HFW_LETTER_BUILD :: hfw_hfw-51-75_24_how_l2_build, hfw_hfw-51-75_49_how_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | target/template reused 2 times: into::HFW_LETTER_BUILD :: hfw_hfw-51-75_25_into_l2_build, hfw_hfw-51-75_50_into_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/after.webp :: hfw_hfw-51-75_01_after_l1_cloze, hfw_hfw-51-75_26_after_l1_cloze_v2, hfw_hfw-51-75_01_after_l2_build, hfw_hfw-51-75_26_after_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/again.webp :: hfw_hfw-51-75_02_again_l1_cloze, hfw_hfw-51-75_27_again_l1_cloze_v2, hfw_hfw-51-75_02_again_l2_build, hfw_hfw-51-75_27_again_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/an.webp :: hfw_hfw-51-75_03_an_l1_cloze, hfw_hfw-51-75_28_an_l1_cloze_v2, hfw_hfw-51-75_03_an_l2_build, hfw_hfw-51-75_28_an_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/any.webp :: hfw_hfw-51-75_04_any_l1_cloze, hfw_hfw-51-75_29_any_l1_cloze_v2, hfw_hfw-51-75_04_any_l2_build, hfw_hfw-51-75_29_any_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/around.webp :: hfw_hfw-51-75_05_around_l1_cloze, hfw_hfw-51-75_30_around_l1_cloze_v2, hfw_hfw-51-75_05_around_l2_build, hfw_hfw-51-75_30_around_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/ask.webp :: hfw_hfw-51-75_06_ask_l1_cloze, hfw_hfw-51-75_31_ask_l1_cloze_v2, hfw_hfw-51-75_06_ask_l2_build, hfw_hfw-51-75_31_ask_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/away.webp :: hfw_hfw-51-75_07_away_l1_cloze, hfw_hfw-51-75_32_away_l1_cloze_v2, hfw_hfw-51-75_07_away_l2_build, hfw_hfw-51-75_32_away_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/before.webp :: hfw_hfw-51-75_08_before_l1_cloze, hfw_hfw-51-75_33_before_l1_cloze_v2, hfw_hfw-51-75_08_before_l2_build, hfw_hfw-51-75_33_before_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/by.webp :: hfw_hfw-51-75_09_by_l1_cloze, hfw_hfw-51-75_34_by_l1_cloze_v2, hfw_hfw-51-75_09_by_l2_build, hfw_hfw-51-75_34_by_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/could.webp :: hfw_hfw-51-75_10_could_l1_cloze, hfw_hfw-51-75_35_could_l1_cloze_v2, hfw_hfw-51-75_10_could_l2_build, hfw_hfw-51-75_35_could_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/every.webp :: hfw_hfw-51-75_11_every_l1_cloze, hfw_hfw-51-75_36_every_l1_cloze_v2, hfw_hfw-51-75_11_every_l2_build, hfw_hfw-51-75_36_every_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/find.webp :: hfw_hfw-51-75_12_find_l1_cloze, hfw_hfw-51-75_37_find_l1_cloze_v2, hfw_hfw-51-75_12_find_l2_build, hfw_hfw-51-75_37_find_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/fly.webp :: hfw_hfw-51-75_13_fly_l1_cloze, hfw_hfw-51-75_38_fly_l1_cloze_v2, hfw_hfw-51-75_13_fly_l2_build, hfw_hfw-51-75_38_fly_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/found.webp :: hfw_hfw-51-75_14_found_l1_cloze, hfw_hfw-51-75_39_found_l1_cloze_v2, hfw_hfw-51-75_14_found_l2_build, hfw_hfw-51-75_39_found_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/funny.webp :: hfw_hfw-51-75_15_funny_l1_cloze, hfw_hfw-51-75_40_funny_l1_cloze_v2, hfw_hfw-51-75_15_funny_l2_build, hfw_hfw-51-75_40_funny_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/give.webp :: hfw_hfw-51-75_16_give_l1_cloze, hfw_hfw-51-75_41_give_l1_cloze_v2, hfw_hfw-51-75_16_give_l2_build, hfw_hfw-51-75_41_give_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/going.webp :: hfw_hfw-51-75_17_going_l1_cloze, hfw_hfw-51-75_42_going_l1_cloze_v2, hfw_hfw-51-75_17_going_l2_build, hfw_hfw-51-75_42_going_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/had.webp :: hfw_hfw-51-75_18_had_l1_cloze, hfw_hfw-51-75_43_had_l1_cloze_v2, hfw_hfw-51-75_18_had_l2_build, hfw_hfw-51-75_43_had_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/has.webp :: hfw_hfw-51-75_19_has_l1_cloze, hfw_hfw-51-75_44_has_l1_cloze_v2, hfw_hfw-51-75_19_has_l2_build, hfw_hfw-51-75_44_has_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/her.webp :: hfw_hfw-51-75_20_her_l1_cloze, hfw_hfw-51-75_45_her_l1_cloze_v2, hfw_hfw-51-75_20_her_l2_build, hfw_hfw-51-75_45_her_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/here.webp :: hfw_hfw-51-75_21_here_l1_cloze, hfw_hfw-51-75_46_here_l1_cloze_v2, hfw_hfw-51-75_21_here_l2_build, hfw_hfw-51-75_46_here_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/him.webp :: hfw_hfw-51-75_22_him_l1_cloze, hfw_hfw-51-75_47_him_l1_cloze_v2, hfw_hfw-51-75_22_him_l2_build, hfw_hfw-51-75_47_him_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/his.webp :: hfw_hfw-51-75_23_his_l1_cloze, hfw_hfw-51-75_48_his_l1_cloze_v2, hfw_hfw-51-75_23_his_l2_build, hfw_hfw-51-75_48_his_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/how.webp :: hfw_hfw-51-75_24_how_l1_cloze, hfw_hfw-51-75_49_how_l1_cloze_v2, hfw_hfw-51-75_24_how_l2_build, hfw_hfw-51-75_49_how_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | primary image reused 4 times: /images/assessment/hfw/into.webp :: hfw_hfw-51-75_25_into_l1_cloze, hfw_hfw-51-75_50_into_l1_cloze_v2, hfw_hfw-51-75_25_into_l2_build, hfw_hfw-51-75_50_into_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: we eat class::after :: hfw_hfw-51-75_01_after_l1_cloze, hfw_hfw-51-75_26_after_l1_cloze_v2, hfw_hfw-51-75_01_after_l2_build, hfw_hfw-51-75_26_after_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: read it::again :: hfw_hfw-51-75_02_again_l1_cloze, hfw_hfw-51-75_27_again_l1_cloze_v2, hfw_hfw-51-75_02_again_l2_build, hfw_hfw-51-75_27_again_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: i see egg::an :: hfw_hfw-51-75_03_an_l1_cloze, hfw_hfw-51-75_28_an_l1_cloze_v2, hfw_hfw-51-75_03_an_l2_build, hfw_hfw-51-75_28_an_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: do you have crayons::any :: hfw_hfw-51-75_04_any_l1_cloze, hfw_hfw-51-75_29_any_l1_cloze_v2, hfw_hfw-51-75_04_any_l2_build, hfw_hfw-51-75_29_any_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: we walk the tree::around :: hfw_hfw-51-75_05_around_l1_cloze, hfw_hfw-51-75_30_around_l1_cloze_v2, hfw_hfw-51-75_05_around_l2_build, hfw_hfw-51-75_30_around_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: i will mom::ask :: hfw_hfw-51-75_06_ask_l1_cloze, hfw_hfw-51-75_31_ask_l1_cloze_v2, hfw_hfw-51-75_06_ask_l2_build, hfw_hfw-51-75_31_ask_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: the bird flew::away :: hfw_hfw-51-75_07_away_l1_cloze, hfw_hfw-51-75_32_away_l1_cloze_v2, hfw_hfw-51-75_07_away_l2_build, hfw_hfw-51-75_32_away_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: wash hands lunch::before :: hfw_hfw-51-75_08_before_l1_cloze, hfw_hfw-51-75_33_before_l1_cloze_v2, hfw_hfw-51-75_08_before_l2_build, hfw_hfw-51-75_33_before_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: sit me::by :: hfw_hfw-51-75_09_by_l1_cloze, hfw_hfw-51-75_34_by_l1_cloze_v2, hfw_hfw-51-75_09_by_l2_build, hfw_hfw-51-75_34_by_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: i help::could :: hfw_hfw-51-75_10_could_l1_cloze, hfw_hfw-51-75_35_could_l1_cloze_v2, hfw_hfw-51-75_10_could_l2_build, hfw_hfw-51-75_35_could_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: read day::every :: hfw_hfw-51-75_11_every_l1_cloze, hfw_hfw-51-75_36_every_l1_cloze_v2, hfw_hfw-51-75_11_every_l2_build, hfw_hfw-51-75_36_every_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: can you it::find :: hfw_hfw-51-75_12_find_l1_cloze, hfw_hfw-51-75_37_find_l1_cloze_v2, hfw_hfw-51-75_12_find_l2_build, hfw_hfw-51-75_37_find_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: birds can::fly :: hfw_hfw-51-75_13_fly_l1_cloze, hfw_hfw-51-75_38_fly_l1_cloze_v2, hfw_hfw-51-75_13_fly_l2_build, hfw_hfw-51-75_38_fly_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: i my hat::found :: hfw_hfw-51-75_14_found_l1_cloze, hfw_hfw-51-75_39_found_l1_cloze_v2, hfw_hfw-51-75_14_found_l2_build, hfw_hfw-51-75_39_found_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: that joke is::funny :: hfw_hfw-51-75_15_funny_l1_cloze, hfw_hfw-51-75_40_funny_l1_cloze_v2, hfw_hfw-51-75_15_funny_l2_build, hfw_hfw-51-75_40_funny_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: please me one::give :: hfw_hfw-51-75_16_give_l1_cloze, hfw_hfw-51-75_41_give_l1_cloze_v2, hfw_hfw-51-75_16_give_l2_build, hfw_hfw-51-75_41_give_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: we are home::going :: hfw_hfw-51-75_17_going_l1_cloze, hfw_hfw-51-75_42_going_l1_cloze_v2, hfw_hfw-51-75_17_going_l2_build, hfw_hfw-51-75_42_going_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: i fun::had :: hfw_hfw-51-75_18_had_l1_cloze, hfw_hfw-51-75_43_had_l1_cloze_v2, hfw_hfw-51-75_18_had_l2_build, hfw_hfw-51-75_43_had_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: she a book::has :: hfw_hfw-51-75_19_has_l1_cloze, hfw_hfw-51-75_44_has_l1_cloze_v2, hfw_hfw-51-75_19_has_l2_build, hfw_hfw-51-75_44_has_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: this is bag::her :: hfw_hfw-51-75_20_her_l1_cloze, hfw_hfw-51-75_45_her_l1_cloze_v2, hfw_hfw-51-75_20_her_l2_build, hfw_hfw-51-75_45_her_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: come now::here :: hfw_hfw-51-75_21_here_l1_cloze, hfw_hfw-51-75_46_here_l1_cloze_v2, hfw_hfw-51-75_21_here_l2_build, hfw_hfw-51-75_46_here_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: i can help::him :: hfw_hfw-51-75_22_him_l1_cloze, hfw_hfw-51-75_47_him_l1_cloze_v2, hfw_hfw-51-75_22_him_l2_build, hfw_hfw-51-75_47_him_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: that is cap::his :: hfw_hfw-51-75_23_his_l1_cloze, hfw_hfw-51-75_48_his_l1_cloze_v2, hfw_hfw-51-75_23_his_l2_build, hfw_hfw-51-75_48_his_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: did you do it::how :: hfw_hfw-51-75_24_how_l1_cloze, hfw_hfw-51-75_49_how_l1_cloze_v2, hfw_hfw-51-75_24_how_l2_build, hfw_hfw-51-75_49_how_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | prompt/answer reused 4 times: put it the bag::into :: hfw_hfw-51-75_25_into_l1_cloze, hfw_hfw-51-75_50_into_l1_cloze_v2, hfw_hfw-51-75_25_into_l2_build, hfw_hfw-51-75_50_into_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: after::HFW_LETTER_BUILD::we eat class::after::/images/assessment/hfw/after.webp :: hfw_hfw-51-75_01_after_l2_build, hfw_hfw-51-75_26_after_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: again::HFW_LETTER_BUILD::read it::again::/images/assessment/hfw/again.webp :: hfw_hfw-51-75_02_again_l2_build, hfw_hfw-51-75_27_again_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: an::HFW_LETTER_BUILD::i see egg::an::/images/assessment/hfw/an.webp :: hfw_hfw-51-75_03_an_l2_build, hfw_hfw-51-75_28_an_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: any::HFW_LETTER_BUILD::do you have crayons::any::/images/assessment/hfw/any.webp :: hfw_hfw-51-75_04_any_l2_build, hfw_hfw-51-75_29_any_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: around::HFW_LETTER_BUILD::we walk the tree::around::/images/assessment/hfw/around.webp :: hfw_hfw-51-75_05_around_l2_build, hfw_hfw-51-75_30_around_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: ask::HFW_LETTER_BUILD::i will mom::ask::/images/assessment/hfw/ask.webp :: hfw_hfw-51-75_06_ask_l2_build, hfw_hfw-51-75_31_ask_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: away::HFW_LETTER_BUILD::the bird flew::away::/images/assessment/hfw/away.webp :: hfw_hfw-51-75_07_away_l2_build, hfw_hfw-51-75_32_away_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: before::HFW_LETTER_BUILD::wash hands lunch::before::/images/assessment/hfw/before.webp :: hfw_hfw-51-75_08_before_l2_build, hfw_hfw-51-75_33_before_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: by::HFW_LETTER_BUILD::sit me::by::/images/assessment/hfw/by.webp :: hfw_hfw-51-75_09_by_l2_build, hfw_hfw-51-75_34_by_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: could::HFW_LETTER_BUILD::i help::could::/images/assessment/hfw/could.webp :: hfw_hfw-51-75_10_could_l2_build, hfw_hfw-51-75_35_could_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: every::HFW_LETTER_BUILD::read day::every::/images/assessment/hfw/every.webp :: hfw_hfw-51-75_11_every_l2_build, hfw_hfw-51-75_36_every_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: find::HFW_LETTER_BUILD::can you it::find::/images/assessment/hfw/find.webp :: hfw_hfw-51-75_12_find_l2_build, hfw_hfw-51-75_37_find_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: fly::HFW_LETTER_BUILD::birds can::fly::/images/assessment/hfw/fly.webp :: hfw_hfw-51-75_13_fly_l2_build, hfw_hfw-51-75_38_fly_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: found::HFW_LETTER_BUILD::i my hat::found::/images/assessment/hfw/found.webp :: hfw_hfw-51-75_14_found_l2_build, hfw_hfw-51-75_39_found_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: funny::HFW_LETTER_BUILD::that joke is::funny::/images/assessment/hfw/funny.webp :: hfw_hfw-51-75_15_funny_l2_build, hfw_hfw-51-75_40_funny_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: give::HFW_LETTER_BUILD::please me one::give::/images/assessment/hfw/give.webp :: hfw_hfw-51-75_16_give_l2_build, hfw_hfw-51-75_41_give_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: going::HFW_LETTER_BUILD::we are home::going::/images/assessment/hfw/going.webp :: hfw_hfw-51-75_17_going_l2_build, hfw_hfw-51-75_42_going_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: had::HFW_LETTER_BUILD::i fun::had::/images/assessment/hfw/had.webp :: hfw_hfw-51-75_18_had_l2_build, hfw_hfw-51-75_43_had_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: has::HFW_LETTER_BUILD::she a book::has::/images/assessment/hfw/has.webp :: hfw_hfw-51-75_19_has_l2_build, hfw_hfw-51-75_44_has_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: her::HFW_LETTER_BUILD::this is bag::her::/images/assessment/hfw/her.webp :: hfw_hfw-51-75_20_her_l2_build, hfw_hfw-51-75_45_her_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: here::HFW_LETTER_BUILD::come now::here::/images/assessment/hfw/here.webp :: hfw_hfw-51-75_21_here_l2_build, hfw_hfw-51-75_46_here_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: him::HFW_LETTER_BUILD::i can help::him::/images/assessment/hfw/him.webp :: hfw_hfw-51-75_22_him_l2_build, hfw_hfw-51-75_47_him_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: his::HFW_LETTER_BUILD::that is cap::his::/images/assessment/hfw/his.webp :: hfw_hfw-51-75_23_his_l2_build, hfw_hfw-51-75_48_his_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: how::HFW_LETTER_BUILD::did you do it::how::/images/assessment/hfw/how.webp :: hfw_hfw-51-75_24_how_l2_build, hfw_hfw-51-75_49_how_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | question content reused 2 times: into::HFW_LETTER_BUILD::put it the bag::into::/images/assessment/hfw/into.webp :: hfw_hfw-51-75_25_into_l2_build, hfw_hfw-51-75_50_into_l2_build_v2 |
-| hfw_51_75 | High-Frequency Words 51-75 | L1P1: retry simulation after 3 wrong answers only built 13/15 without repeating correctly answered questions |
-| hfw_51_75 | High-Frequency Words 51-75 | L1P2: retry simulation after 3 wrong answers only built 13/15 without repeating correctly answered questions |
-| hfw_51_75 | High-Frequency Words 51-75 | L2P1: retry simulation after 3 wrong answers only built 13/15 without repeating correctly answered questions |
-| hfw_51_75 | High-Frequency Words 51-75 | L2P2: retry simulation after 3 wrong answers only built 13/15 without repeating correctly answered questions |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: just::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_01_just_l1_cloze, hfw_hfw-76-100_26_just_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: know::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_02_know_l1_cloze, hfw_hfw-76-100_27_know_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: let::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_03_let_l1_cloze, hfw_hfw-76-100_28_let_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: live::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_04_live_l1_cloze, hfw_hfw-76-100_29_live_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: made::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_05_made_l1_cloze, hfw_hfw-76-100_30_made_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: may::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_06_may_l1_cloze, hfw_hfw-76-100_31_may_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: must::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_07_must_l1_cloze, hfw_hfw-76-100_32_must_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: new::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_08_new_l1_cloze, hfw_hfw-76-100_33_new_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: now::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_09_now_l1_cloze, hfw_hfw-76-100_34_now_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: of::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_10_of_l1_cloze, hfw_hfw-76-100_35_of_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: old::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_11_old_l1_cloze, hfw_hfw-76-100_36_old_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: once::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_12_once_l1_cloze, hfw_hfw-76-100_37_once_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: open::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_13_open_l1_cloze, hfw_hfw-76-100_38_open_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: our::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_14_our_l1_cloze, hfw_hfw-76-100_39_our_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: out::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_15_out_l1_cloze, hfw_hfw-76-100_40_out_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: over::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_16_over_l1_cloze, hfw_hfw-76-100_41_over_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: please::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_17_please_l1_cloze, hfw_hfw-76-100_42_please_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: pretty::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_18_pretty_l1_cloze, hfw_hfw-76-100_43_pretty_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: put::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_19_put_l1_cloze, hfw_hfw-76-100_44_put_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: read::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_20_read_l1_cloze, hfw_hfw-76-100_45_read_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: round::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_21_round_l1_cloze, hfw_hfw-76-100_46_round_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: some::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_22_some_l1_cloze, hfw_hfw-76-100_47_some_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: take::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_23_take_l1_cloze, hfw_hfw-76-100_48_take_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: thank::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_24_thank_l1_cloze, hfw_hfw-76-100_49_thank_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: yes::HFW_IMAGE_CONTEXT_CLOZE :: hfw_hfw-76-100_25_yes_l1_cloze, hfw_hfw-76-100_50_yes_l1_cloze_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: just::HFW_LETTER_BUILD :: hfw_hfw-76-100_01_just_l2_build, hfw_hfw-76-100_26_just_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: know::HFW_LETTER_BUILD :: hfw_hfw-76-100_02_know_l2_build, hfw_hfw-76-100_27_know_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: let::HFW_LETTER_BUILD :: hfw_hfw-76-100_03_let_l2_build, hfw_hfw-76-100_28_let_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: live::HFW_LETTER_BUILD :: hfw_hfw-76-100_04_live_l2_build, hfw_hfw-76-100_29_live_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: made::HFW_LETTER_BUILD :: hfw_hfw-76-100_05_made_l2_build, hfw_hfw-76-100_30_made_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: may::HFW_LETTER_BUILD :: hfw_hfw-76-100_06_may_l2_build, hfw_hfw-76-100_31_may_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: must::HFW_LETTER_BUILD :: hfw_hfw-76-100_07_must_l2_build, hfw_hfw-76-100_32_must_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: new::HFW_LETTER_BUILD :: hfw_hfw-76-100_08_new_l2_build, hfw_hfw-76-100_33_new_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: now::HFW_LETTER_BUILD :: hfw_hfw-76-100_09_now_l2_build, hfw_hfw-76-100_34_now_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: of::HFW_LETTER_BUILD :: hfw_hfw-76-100_10_of_l2_build, hfw_hfw-76-100_35_of_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: old::HFW_LETTER_BUILD :: hfw_hfw-76-100_11_old_l2_build, hfw_hfw-76-100_36_old_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: once::HFW_LETTER_BUILD :: hfw_hfw-76-100_12_once_l2_build, hfw_hfw-76-100_37_once_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: open::HFW_LETTER_BUILD :: hfw_hfw-76-100_13_open_l2_build, hfw_hfw-76-100_38_open_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: our::HFW_LETTER_BUILD :: hfw_hfw-76-100_14_our_l2_build, hfw_hfw-76-100_39_our_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: out::HFW_LETTER_BUILD :: hfw_hfw-76-100_15_out_l2_build, hfw_hfw-76-100_40_out_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: over::HFW_LETTER_BUILD :: hfw_hfw-76-100_16_over_l2_build, hfw_hfw-76-100_41_over_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: please::HFW_LETTER_BUILD :: hfw_hfw-76-100_17_please_l2_build, hfw_hfw-76-100_42_please_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: pretty::HFW_LETTER_BUILD :: hfw_hfw-76-100_18_pretty_l2_build, hfw_hfw-76-100_43_pretty_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: put::HFW_LETTER_BUILD :: hfw_hfw-76-100_19_put_l2_build, hfw_hfw-76-100_44_put_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: read::HFW_LETTER_BUILD :: hfw_hfw-76-100_20_read_l2_build, hfw_hfw-76-100_45_read_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: round::HFW_LETTER_BUILD :: hfw_hfw-76-100_21_round_l2_build, hfw_hfw-76-100_46_round_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: some::HFW_LETTER_BUILD :: hfw_hfw-76-100_22_some_l2_build, hfw_hfw-76-100_47_some_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: take::HFW_LETTER_BUILD :: hfw_hfw-76-100_23_take_l2_build, hfw_hfw-76-100_48_take_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: thank::HFW_LETTER_BUILD :: hfw_hfw-76-100_24_thank_l2_build, hfw_hfw-76-100_49_thank_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | target/template reused 2 times: yes::HFW_LETTER_BUILD :: hfw_hfw-76-100_25_yes_l2_build, hfw_hfw-76-100_50_yes_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/just.webp :: hfw_hfw-76-100_01_just_l1_cloze, hfw_hfw-76-100_26_just_l1_cloze_v2, hfw_hfw-76-100_01_just_l2_build, hfw_hfw-76-100_26_just_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/know.webp :: hfw_hfw-76-100_02_know_l1_cloze, hfw_hfw-76-100_27_know_l1_cloze_v2, hfw_hfw-76-100_02_know_l2_build, hfw_hfw-76-100_27_know_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/let.webp :: hfw_hfw-76-100_03_let_l1_cloze, hfw_hfw-76-100_28_let_l1_cloze_v2, hfw_hfw-76-100_03_let_l2_build, hfw_hfw-76-100_28_let_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/live.webp :: hfw_hfw-76-100_04_live_l1_cloze, hfw_hfw-76-100_29_live_l1_cloze_v2, hfw_hfw-76-100_04_live_l2_build, hfw_hfw-76-100_29_live_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/made.webp :: hfw_hfw-76-100_05_made_l1_cloze, hfw_hfw-76-100_30_made_l1_cloze_v2, hfw_hfw-76-100_05_made_l2_build, hfw_hfw-76-100_30_made_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/may.webp :: hfw_hfw-76-100_06_may_l1_cloze, hfw_hfw-76-100_31_may_l1_cloze_v2, hfw_hfw-76-100_06_may_l2_build, hfw_hfw-76-100_31_may_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/must.webp :: hfw_hfw-76-100_07_must_l1_cloze, hfw_hfw-76-100_32_must_l1_cloze_v2, hfw_hfw-76-100_07_must_l2_build, hfw_hfw-76-100_32_must_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/new.webp :: hfw_hfw-76-100_08_new_l1_cloze, hfw_hfw-76-100_33_new_l1_cloze_v2, hfw_hfw-76-100_08_new_l2_build, hfw_hfw-76-100_33_new_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/now.webp :: hfw_hfw-76-100_09_now_l1_cloze, hfw_hfw-76-100_34_now_l1_cloze_v2, hfw_hfw-76-100_09_now_l2_build, hfw_hfw-76-100_34_now_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/of.webp :: hfw_hfw-76-100_10_of_l1_cloze, hfw_hfw-76-100_35_of_l1_cloze_v2, hfw_hfw-76-100_10_of_l2_build, hfw_hfw-76-100_35_of_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/old.webp :: hfw_hfw-76-100_11_old_l1_cloze, hfw_hfw-76-100_36_old_l1_cloze_v2, hfw_hfw-76-100_11_old_l2_build, hfw_hfw-76-100_36_old_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/once.webp :: hfw_hfw-76-100_12_once_l1_cloze, hfw_hfw-76-100_37_once_l1_cloze_v2, hfw_hfw-76-100_12_once_l2_build, hfw_hfw-76-100_37_once_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/open.webp :: hfw_hfw-76-100_13_open_l1_cloze, hfw_hfw-76-100_38_open_l1_cloze_v2, hfw_hfw-76-100_13_open_l2_build, hfw_hfw-76-100_38_open_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/our.webp :: hfw_hfw-76-100_14_our_l1_cloze, hfw_hfw-76-100_39_our_l1_cloze_v2, hfw_hfw-76-100_14_our_l2_build, hfw_hfw-76-100_39_our_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/out.webp :: hfw_hfw-76-100_15_out_l1_cloze, hfw_hfw-76-100_40_out_l1_cloze_v2, hfw_hfw-76-100_15_out_l2_build, hfw_hfw-76-100_40_out_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/over.webp :: hfw_hfw-76-100_16_over_l1_cloze, hfw_hfw-76-100_41_over_l1_cloze_v2, hfw_hfw-76-100_16_over_l2_build, hfw_hfw-76-100_41_over_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/please.webp :: hfw_hfw-76-100_17_please_l1_cloze, hfw_hfw-76-100_42_please_l1_cloze_v2, hfw_hfw-76-100_17_please_l2_build, hfw_hfw-76-100_42_please_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/pretty.webp :: hfw_hfw-76-100_18_pretty_l1_cloze, hfw_hfw-76-100_43_pretty_l1_cloze_v2, hfw_hfw-76-100_18_pretty_l2_build, hfw_hfw-76-100_43_pretty_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/put.webp :: hfw_hfw-76-100_19_put_l1_cloze, hfw_hfw-76-100_44_put_l1_cloze_v2, hfw_hfw-76-100_19_put_l2_build, hfw_hfw-76-100_44_put_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/read.webp :: hfw_hfw-76-100_20_read_l1_cloze, hfw_hfw-76-100_45_read_l1_cloze_v2, hfw_hfw-76-100_20_read_l2_build, hfw_hfw-76-100_45_read_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/round.webp :: hfw_hfw-76-100_21_round_l1_cloze, hfw_hfw-76-100_46_round_l1_cloze_v2, hfw_hfw-76-100_21_round_l2_build, hfw_hfw-76-100_46_round_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/some.webp :: hfw_hfw-76-100_22_some_l1_cloze, hfw_hfw-76-100_47_some_l1_cloze_v2, hfw_hfw-76-100_22_some_l2_build, hfw_hfw-76-100_47_some_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/take.webp :: hfw_hfw-76-100_23_take_l1_cloze, hfw_hfw-76-100_48_take_l1_cloze_v2, hfw_hfw-76-100_23_take_l2_build, hfw_hfw-76-100_48_take_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/thank.webp :: hfw_hfw-76-100_24_thank_l1_cloze, hfw_hfw-76-100_49_thank_l1_cloze_v2, hfw_hfw-76-100_24_thank_l2_build, hfw_hfw-76-100_49_thank_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | primary image reused 4 times: /images/assessment/hfw/yes.webp :: hfw_hfw-76-100_25_yes_l1_cloze, hfw_hfw-76-100_50_yes_l1_cloze_v2, hfw_hfw-76-100_25_yes_l2_build, hfw_hfw-76-100_50_yes_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: i saw it::just :: hfw_hfw-76-100_01_just_l1_cloze, hfw_hfw-76-100_26_just_l1_cloze_v2, hfw_hfw-76-100_01_just_l2_build, hfw_hfw-76-100_26_just_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: i that word::know :: hfw_hfw-76-100_02_know_l1_cloze, hfw_hfw-76-100_27_know_l1_cloze_v2, hfw_hfw-76-100_02_know_l2_build, hfw_hfw-76-100_27_know_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: me try::let :: hfw_hfw-76-100_03_let_l1_cloze, hfw_hfw-76-100_28_let_l1_cloze_v2, hfw_hfw-76-100_03_let_l2_build, hfw_hfw-76-100_28_let_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: we here::live :: hfw_hfw-76-100_04_live_l1_cloze, hfw_hfw-76-100_29_live_l1_cloze_v2, hfw_hfw-76-100_04_live_l2_build, hfw_hfw-76-100_29_live_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: we a fort::made :: hfw_hfw-76-100_05_made_l1_cloze, hfw_hfw-76-100_30_made_l1_cloze_v2, hfw_hfw-76-100_05_made_l2_build, hfw_hfw-76-100_30_made_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: you go::may :: hfw_hfw-76-100_06_may_l1_cloze, hfw_hfw-76-100_31_may_l1_cloze_v2, hfw_hfw-76-100_06_may_l2_build, hfw_hfw-76-100_31_may_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: we stop::must :: hfw_hfw-76-100_07_must_l1_cloze, hfw_hfw-76-100_32_must_l1_cloze_v2, hfw_hfw-76-100_07_must_l2_build, hfw_hfw-76-100_32_must_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: i have a book::new :: hfw_hfw-76-100_08_new_l1_cloze, hfw_hfw-76-100_33_new_l1_cloze_v2, hfw_hfw-76-100_08_new_l2_build, hfw_hfw-76-100_33_new_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: read it::now :: hfw_hfw-76-100_09_now_l1_cloze, hfw_hfw-76-100_34_now_l1_cloze_v2, hfw_hfw-76-100_09_now_l2_build, hfw_hfw-76-100_34_now_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: one them ran::of :: hfw_hfw-76-100_10_of_l1_cloze, hfw_hfw-76-100_35_of_l1_cloze_v2, hfw_hfw-76-100_10_of_l2_build, hfw_hfw-76-100_35_of_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: this book is::old :: hfw_hfw-76-100_11_old_l1_cloze, hfw_hfw-76-100_36_old_l1_cloze_v2, hfw_hfw-76-100_11_old_l2_build, hfw_hfw-76-100_36_old_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: read it::once :: hfw_hfw-76-100_12_once_l1_cloze, hfw_hfw-76-100_37_once_l1_cloze_v2, hfw_hfw-76-100_12_once_l2_build, hfw_hfw-76-100_37_once_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: please the door::open :: hfw_hfw-76-100_13_open_l1_cloze, hfw_hfw-76-100_38_open_l1_cloze_v2, hfw_hfw-76-100_13_open_l2_build, hfw_hfw-76-100_38_open_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: this is class::our :: hfw_hfw-76-100_14_our_l1_cloze, hfw_hfw-76-100_39_our_l1_cloze_v2, hfw_hfw-76-100_14_our_l2_build, hfw_hfw-76-100_39_our_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: go to play::out :: hfw_hfw-76-100_15_out_l1_cloze, hfw_hfw-76-100_40_out_l1_cloze_v2, hfw_hfw-76-100_15_out_l2_build, hfw_hfw-76-100_40_out_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: jump the line::over :: hfw_hfw-76-100_16_over_l1_cloze, hfw_hfw-76-100_41_over_l1_cloze_v2, hfw_hfw-76-100_16_over_l2_build, hfw_hfw-76-100_41_over_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: help me::please :: hfw_hfw-76-100_17_please_l1_cloze, hfw_hfw-76-100_42_please_l1_cloze_v2, hfw_hfw-76-100_17_please_l2_build, hfw_hfw-76-100_42_please_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: the flower is::pretty :: hfw_hfw-76-100_18_pretty_l1_cloze, hfw_hfw-76-100_43_pretty_l1_cloze_v2, hfw_hfw-76-100_18_pretty_l2_build, hfw_hfw-76-100_43_pretty_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: it here::put :: hfw_hfw-76-100_19_put_l1_cloze, hfw_hfw-76-100_44_put_l1_cloze_v2, hfw_hfw-76-100_19_put_l2_build, hfw_hfw-76-100_44_put_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: we books::read :: hfw_hfw-76-100_20_read_l1_cloze, hfw_hfw-76-100_45_read_l1_cloze_v2, hfw_hfw-76-100_20_read_l2_build, hfw_hfw-76-100_45_read_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: the coin is::round :: hfw_hfw-76-100_21_round_l1_cloze, hfw_hfw-76-100_46_round_l1_cloze_v2, hfw_hfw-76-100_21_round_l2_build, hfw_hfw-76-100_46_round_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: i want water::some :: hfw_hfw-76-100_22_some_l1_cloze, hfw_hfw-76-100_47_some_l1_cloze_v2, hfw_hfw-76-100_22_some_l2_build, hfw_hfw-76-100_47_some_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: one card::take :: hfw_hfw-76-100_23_take_l1_cloze, hfw_hfw-76-100_48_take_l1_cloze_v2, hfw_hfw-76-100_23_take_l2_build, hfw_hfw-76-100_48_take_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: you for helping::thank :: hfw_hfw-76-100_24_thank_l1_cloze, hfw_hfw-76-100_49_thank_l1_cloze_v2, hfw_hfw-76-100_24_thank_l2_build, hfw_hfw-76-100_49_thank_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | prompt/answer reused 4 times: i said::yes :: hfw_hfw-76-100_25_yes_l1_cloze, hfw_hfw-76-100_50_yes_l1_cloze_v2, hfw_hfw-76-100_25_yes_l2_build, hfw_hfw-76-100_50_yes_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: just::HFW_LETTER_BUILD::i saw it::just::/images/assessment/hfw/just.webp :: hfw_hfw-76-100_01_just_l2_build, hfw_hfw-76-100_26_just_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: know::HFW_LETTER_BUILD::i that word::know::/images/assessment/hfw/know.webp :: hfw_hfw-76-100_02_know_l2_build, hfw_hfw-76-100_27_know_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: let::HFW_LETTER_BUILD::me try::let::/images/assessment/hfw/let.webp :: hfw_hfw-76-100_03_let_l2_build, hfw_hfw-76-100_28_let_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: live::HFW_LETTER_BUILD::we here::live::/images/assessment/hfw/live.webp :: hfw_hfw-76-100_04_live_l2_build, hfw_hfw-76-100_29_live_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: made::HFW_LETTER_BUILD::we a fort::made::/images/assessment/hfw/made.webp :: hfw_hfw-76-100_05_made_l2_build, hfw_hfw-76-100_30_made_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: may::HFW_LETTER_BUILD::you go::may::/images/assessment/hfw/may.webp :: hfw_hfw-76-100_06_may_l2_build, hfw_hfw-76-100_31_may_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: must::HFW_LETTER_BUILD::we stop::must::/images/assessment/hfw/must.webp :: hfw_hfw-76-100_07_must_l2_build, hfw_hfw-76-100_32_must_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: new::HFW_LETTER_BUILD::i have a book::new::/images/assessment/hfw/new.webp :: hfw_hfw-76-100_08_new_l2_build, hfw_hfw-76-100_33_new_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: now::HFW_LETTER_BUILD::read it::now::/images/assessment/hfw/now.webp :: hfw_hfw-76-100_09_now_l2_build, hfw_hfw-76-100_34_now_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: of::HFW_LETTER_BUILD::one them ran::of::/images/assessment/hfw/of.webp :: hfw_hfw-76-100_10_of_l2_build, hfw_hfw-76-100_35_of_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: old::HFW_LETTER_BUILD::this book is::old::/images/assessment/hfw/old.webp :: hfw_hfw-76-100_11_old_l2_build, hfw_hfw-76-100_36_old_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: once::HFW_LETTER_BUILD::read it::once::/images/assessment/hfw/once.webp :: hfw_hfw-76-100_12_once_l2_build, hfw_hfw-76-100_37_once_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: open::HFW_LETTER_BUILD::please the door::open::/images/assessment/hfw/open.webp :: hfw_hfw-76-100_13_open_l2_build, hfw_hfw-76-100_38_open_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: our::HFW_LETTER_BUILD::this is class::our::/images/assessment/hfw/our.webp :: hfw_hfw-76-100_14_our_l2_build, hfw_hfw-76-100_39_our_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: out::HFW_LETTER_BUILD::go to play::out::/images/assessment/hfw/out.webp :: hfw_hfw-76-100_15_out_l2_build, hfw_hfw-76-100_40_out_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: over::HFW_LETTER_BUILD::jump the line::over::/images/assessment/hfw/over.webp :: hfw_hfw-76-100_16_over_l2_build, hfw_hfw-76-100_41_over_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: please::HFW_LETTER_BUILD::help me::please::/images/assessment/hfw/please.webp :: hfw_hfw-76-100_17_please_l2_build, hfw_hfw-76-100_42_please_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: pretty::HFW_LETTER_BUILD::the flower is::pretty::/images/assessment/hfw/pretty.webp :: hfw_hfw-76-100_18_pretty_l2_build, hfw_hfw-76-100_43_pretty_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: put::HFW_LETTER_BUILD::it here::put::/images/assessment/hfw/put.webp :: hfw_hfw-76-100_19_put_l2_build, hfw_hfw-76-100_44_put_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: read::HFW_LETTER_BUILD::we books::read::/images/assessment/hfw/read.webp :: hfw_hfw-76-100_20_read_l2_build, hfw_hfw-76-100_45_read_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: round::HFW_LETTER_BUILD::the coin is::round::/images/assessment/hfw/round.webp :: hfw_hfw-76-100_21_round_l2_build, hfw_hfw-76-100_46_round_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: some::HFW_LETTER_BUILD::i want water::some::/images/assessment/hfw/some.webp :: hfw_hfw-76-100_22_some_l2_build, hfw_hfw-76-100_47_some_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: take::HFW_LETTER_BUILD::one card::take::/images/assessment/hfw/take.webp :: hfw_hfw-76-100_23_take_l2_build, hfw_hfw-76-100_48_take_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: thank::HFW_LETTER_BUILD::you for helping::thank::/images/assessment/hfw/thank.webp :: hfw_hfw-76-100_24_thank_l2_build, hfw_hfw-76-100_49_thank_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | question content reused 2 times: yes::HFW_LETTER_BUILD::i said::yes::/images/assessment/hfw/yes.webp :: hfw_hfw-76-100_25_yes_l2_build, hfw_hfw-76-100_50_yes_l2_build_v2 |
-| hfw_76_100 | High-Frequency Words 76-100 | L1P1: retry simulation after 3 wrong answers only built 13/15 without repeating correctly answered questions |
-| hfw_76_100 | High-Frequency Words 76-100 | L1P2: retry simulation after 3 wrong answers only built 13/15 without repeating correctly answered questions |
-| hfw_76_100 | High-Frequency Words 76-100 | L2P1: retry simulation after 3 wrong answers only built 13/15 without repeating correctly answered questions |
-| hfw_76_100 | High-Frequency Words 76-100 | L2P2: retry simulation after 3 wrong answers only built 13/15 without repeating correctly answered questions |
 | blends | Blends | blends: contract_incomplete_needs_formal_phase_map |
 | digraphs | Digraphs | digraphs: contract_incomplete_needs_formal_phase_map |
 | long_vowels_silent_e | Long Vowels / Silent E | long_vowels_silent_e: contract_incomplete_needs_formal_phase_map |
@@ -651,4 +145,6 @@ Failing skills: initial_sounds, final_sounds, cvc_short_vowels, hfw_1_25, hfw_26
 | adjectives | Adjectives | adjectives: contract_incomplete_needs_formal_phase_map |
 | prepositions | Prepositions of Place | prepositions: contract_incomplete_needs_formal_phase_map |
 | plurals | Plurals | plurals: contract_incomplete_needs_formal_phase_map |
+| prefixes_suffixes | Prefixes / Suffixes | prefixes_suffixes: contract_incomplete_needs_formal_phase_map |
 | antonyms_synonyms | Antonyms / Synonyms | antonyms_synonyms: contract_incomplete_needs_formal_phase_map |
+| homophones_homonyms | Homophones / Homonyms | homophones_homonyms: contract_incomplete_needs_formal_phase_map |

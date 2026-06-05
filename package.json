@@ -66,7 +66,9 @@
     "audit:skill-word-bank": "node tools/auditSkillWordBankWorkbook.js",
     "audit:skill-question-depth": "node tools/auditSkillQuestionDepthFromWorkbook.js",
     "prioritize:workbook-media": "node tools/prioritizeWorkbookMediaNeeds.js",
-    "check:new-media-reachability": "node tools/auditNewMediaReachability.js"
+    "check:new-media-reachability": "node tools/auditNewMediaReachability.js",
+    "generate:hfw-assessment-questions": "node tools/generateHfwAssessmentQuestions.js",
+    "check:hfw-true-variation": "node tools/checkHfwTrueVariation.js"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",

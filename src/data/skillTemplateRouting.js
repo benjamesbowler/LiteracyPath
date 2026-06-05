@@ -11,6 +11,7 @@ import {
   LONG_VOWELS_ALLOWED_FORMATS,
   getLongVowelsRuntimeEligibilityIssues
 } from "./longVowelsRuntimeEligibility.js";
+import { HFW_ALLOWED_FORMATS as HFW_ALLOWED_FORMAT_LIST } from "./hfwAssessmentFormatConfig.js";
 
 const normalize = value =>
   String(value || "")
@@ -19,10 +20,7 @@ const normalize = value =>
     .replace(/[^a-z0-9]+/g, "_")
     .replace(/^_+|_+$/g, "");
 
-const HFW_ALLOWED_FORMATS = new Set([
-  "HFW_IMAGE_CONTEXT_CLOZE",
-  "HFW_LETTER_BUILD"
-]);
+const HFW_ALLOWED_FORMATS = new Set(HFW_ALLOWED_FORMAT_LIST);
 
 const GRAMMAR_ALLOWED_FORMATS = new Set([
   "GRAMMAR_IMAGE_CHOICE",

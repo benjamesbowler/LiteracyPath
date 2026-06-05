@@ -13,6 +13,7 @@ import {
   HFW_WORDS_51_75,
   HFW_WORDS_76_100
 } from "./highFrequencyWordBands.js";
+import { getHfwAllowedFormatsForPhase } from "./hfwAssessmentFormatConfig.js";
 import { BEGINNING_BLEND_PATTERNS, ALL_BLEND_PATTERNS } from "./blendPatternData.js";
 import { ALL_DIGRAPH_PATTERNS } from "./digraphPatternData.js";
 import { SILENT_E_PATTERNS, LONG_VOWEL_TEAM_PATTERNS } from "./longVowelPatternData.js";
@@ -82,32 +83,32 @@ function hfwPhaseRequirements(words) {
       phase: 1,
       requiredTargets: normalizedWords,
       requiredTargetType: "sight_word",
-      allowedFormats: ["HFW_IMAGE_CONTEXT_CLOZE"],
-      notes: "Primary no-audio image-context cloze variant for every word in the band."
+      allowedFormats: getHfwAllowedFormatsForPhase(1, 1),
+      notes: "Direct no-audio recognition variants for every word in the band."
     }),
     L1P2: makePhase({
       level: 1,
       phase: 2,
       requiredTargets: normalizedWords,
       requiredTargetType: "sight_word",
-      allowedFormats: ["HFW_IMAGE_CONTEXT_CLOZE"],
-      notes: "Second no-audio image-context cloze variant for every word in the band."
+      allowedFormats: getHfwAllowedFormatsForPhase(1, 2),
+      notes: "Easier no-audio sentence/cloze variants for every word in the band."
     }),
     L2P1: makePhase({
       level: 2,
       phase: 1,
       requiredTargets: normalizedWords,
       requiredTargetType: "sight_word",
-      allowedFormats: ["HFW_LETTER_BUILD"],
-      notes: "Primary letter-build spelling variant for every word in the band."
+      allowedFormats: getHfwAllowedFormatsForPhase(2, 1),
+      notes: "Harder no-audio direct recognition variants for every word in the band."
     }),
     L2P2: makePhase({
       level: 2,
       phase: 2,
       requiredTargets: normalizedWords,
       requiredTargetType: "sight_word",
-      allowedFormats: ["HFW_LETTER_BUILD"],
-      notes: "Second letter-build spelling variant for every word in the band."
+      allowedFormats: getHfwAllowedFormatsForPhase(2, 2),
+      notes: "Harder no-audio sentence/cloze variants for every word in the band."
     })
   };
 }
@@ -184,7 +185,7 @@ function hfwContract(skillId, displayName, words) {
     fakeCompoundsNonWordsMustFail: true,
     obscureWordsMustFail: true,
     phases: hfwPhaseRequirements(words),
-    notes: "HFW live assessment is deliberately no-audio. Every use of a word must have a genuinely distinct sentence/context image; answer shuffling does not count as a new question."
+    notes: "HFW live assessment is deliberately no-audio. Direct recognition and cloze phases must use genuinely distinct prompt/content/image variants; answer shuffling does not count as a new question."
   });
 }
 
@@ -340,12 +341,28 @@ export const assessmentSkillContracts = [
     notes: "Plural contracts need a formal phase map of plural patterns before this can pass."
   }),
   incompleteContract({
+    skillId: "prefixes_suffixes",
+    displayName: "Prefixes / Suffixes",
+    aliases: ["prefixes", "suffixes", "prefix_suffix", "prefixes and suffixes"],
+    allowedWordPatterns: ["common_prefix", "common_suffix", "grade_appropriate_morphology"],
+    forbiddenPatterns: ["obscure_morpheme", "fake_prefixed_word", "fake_suffixed_word"],
+    notes: "Workbook rows exist, but current generated/runtime rows are concentrated in one phase. Needs a committed 2x2 prefix/suffix phase map before this can pass."
+  }),
+  incompleteContract({
     skillId: "antonyms_synonyms",
     displayName: "Antonyms / Synonyms",
     aliases: ["antonyms", "synonyms", "antonyms and synonyms"],
     allowedWordPatterns: ["grade_appropriate_antonym", "grade_appropriate_synonym"],
     forbiddenPatterns: ["obscure_word_pair", "ambiguous_word_pair"],
     notes: "Antonym/synonym contracts need formal category and phase targets before this can pass."
+  }),
+  incompleteContract({
+    skillId: "homophones_homonyms",
+    displayName: "Homophones / Homonyms",
+    aliases: ["homophones", "homonyms", "homophones and homonyms"],
+    allowedWordPatterns: ["common_homophone_set", "clear_context_sentence"],
+    forbiddenPatterns: ["ambiguous_context", "obscure_homophone", "adult_or_inappropriate_context"],
+    notes: "Workbook sets exist, but current generated rows are sentence/context-light and concentrated in one phase. Needs a formal 2x2 context map before this can pass."
   })
 ];
 

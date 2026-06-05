@@ -1,0 +1,138 @@
+[
+  {
+    "skillId": "hfw_1_25",
+    "runtime": 689,
+    "selectable": 530,
+    "bandWords": 25,
+    "uniqueTargets": 25,
+    "uniqueTemplates": 60,
+    "uniquePrompts": 530,
+    "uniqueImages": 530,
+    "uniqueAnswerSets": 135,
+    "phaseCounts": {
+      "L1P1": 133,
+      "L1P2": 133,
+      "L2P1": 132,
+      "L2P2": 132
+    },
+    "retrySafeReplacementCounts": {
+      "L1P1": 12,
+      "L1P2": 12,
+      "L2P1": 12,
+      "L2P2": 12
+    },
+    "duplicateGroups": {
+      "content": 0,
+      "targetTemplate": 0,
+      "targetImage": 0,
+      "promptAnswer": 0
+    },
+    "invalidFormats": 0,
+    "clozeIssues": 0,
+    "directIssues": 0,
+    "missingMedia": 0,
+    "failures": []
+  },
+  {
+    "skillId": "hfw_26_50",
+    "runtime": 685,
+    "selectable": 526,
+    "bandWords": 25,
+    "uniqueTargets": 25,
+    "uniqueTemplates": 60,
+    "uniquePrompts": 526,
+    "uniqueImages": 526,
+    "uniqueAnswerSets": 104,
+    "phaseCounts": {
+      "L1P1": 129,
+      "L1P2": 134,
+      "L2P1": 133,
+      "L2P2": 130
+    },
+    "retrySafeReplacementCounts": {
+      "L1P1": 12,
+      "L1P2": 12,
+      "L2P1": 12,
+      "L2P2": 12
+    },
+    "duplicateGroups": {
+      "content": 0,
+      "targetTemplate": 0,
+      "targetImage": 0,
+      "promptAnswer": 0
+    },
+    "invalidFormats": 0,
+    "clozeIssues": 0,
+    "directIssues": 0,
+    "missingMedia": 0,
+    "failures": []
+  },
+  {
+    "skillId": "hfw_51_75",
+    "runtime": 329,
+    "selectable": 329,
+    "bandWords": 25,
+    "uniqueTargets": 25,
+    "uniqueTemplates": 60,
+    "uniquePrompts": 329,
+    "uniqueImages": 329,
+    "uniqueAnswerSets": 94,
+    "phaseCounts": {
+      "L1P1": 83,
+      "L1P2": 83,
+      "L2P1": 83,
+      "L2P2": 80
+    },
+    "retrySafeReplacementCounts": {
+      "L1P1": 12,
+      "L1P2": 12,
+      "L2P1": 12,
+      "L2P2": 12
+    },
+    "duplicateGroups": {
+      "content": 0,
+      "targetTemplate": 0,
+      "targetImage": 0,
+      "promptAnswer": 0
+    },
+    "invalidFormats": 0,
+    "clozeIssues": 0,
+    "directIssues": 0,
+    "missingMedia": 0,
+    "failures": []
+  },
+  {
+    "skillId": "hfw_76_100",
+    "runtime": 229,
+    "selectable": 229,
+    "bandWords": 25,
+    "uniqueTargets": 25,
+    "uniqueTemplates": 60,
+    "uniquePrompts": 229,
+    "uniqueImages": 229,
+    "uniqueAnswerSets": 91,
+    "phaseCounts": {
+      "L1P1": 57,
+      "L1P2": 60,
+      "L2P1": 57,
+      "L2P2": 55
+    },
+    "retrySafeReplacementCounts": {
+      "L1P1": 12,
+      "L1P2": 12,
+      "L2P1": 12,
+      "L2P2": 12
+    },
+    "duplicateGroups": {
+      "content": 0,
+      "targetTemplate": 0,
+      "targetImage": 0,
+      "promptAnswer": 0
+    },
+    "invalidFormats": 0,
+    "clozeIssues": 0,
+    "directIssues": 0,
+    "missingMedia": 0,
+    "failures": []
+  }
+]

@@ -8,11 +8,13 @@ import {
   isHighFrequencyWordSkill,
   normalizeHfwSkillId
 } from "./highFrequencyWordBands.js";
+import {
+  HFW_ALLOWED_FORMATS as HFW_ALLOWED_FORMAT_LIST,
+  isHfwClozeFormat,
+  isHfwDirectRecognitionFormat
+} from "./hfwAssessmentFormatConfig.js";
 
-const HFW_ALLOWED_FORMATS = new Set([
-  "HFW_IMAGE_CONTEXT_CLOZE",
-  "HFW_LETTER_BUILD"
-]);
+const HFW_ALLOWED_FORMATS = new Set(HFW_ALLOWED_FORMAT_LIST);
 
 const HFW_BLOCKED_FORMATS = new Set([
   "SHORT_VOWEL_WORD",
@@ -148,7 +150,9 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   if (HFW_BLOCKED_FORMATS.has(format)) issues.push(`${format} is not an HFW-safe template`);
   if (!HFW_ALLOWED_FORMATS.has(format)) issues.push(`${format} is not in the HFW allowlist`);
   if (PHONICS_PROMPT_PATTERN.test(promptText)) issues.push("prompt is phonics/picture-matching, not HFW recognition");
-  if (WEAK_HFW_PROMPT_PATTERN.test(visiblePromptText)) issues.push("weak text-only find-the-word prompt is blocked");
+  if (WEAK_HFW_PROMPT_PATTERN.test(visiblePromptText) && !isHfwDirectRecognitionFormat(format)) {
+    issues.push("weak text-only find-the-word prompt is blocked");
+  }
   if (itemType && itemType !== "sight_word") issues.push(`itemType is ${itemType}, not sight_word`);
   if (!primaryWord) {
     issues.push("missing target HFW word");
@@ -158,10 +162,20 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   if (format !== "HFW_LETTER_BUILD" && optionValues.length !== 4) {
     issues.push(`HFW live questions require exactly 4 answer options, found ${optionValues.length}`);
   }
-  if (["HFW_AUDIO_FIND_WORD", "LISTEN_FIND_WORD", "HFW_SENTENCE_CLOZE", "SENTENCE_CLOZE", "CLOZE_CHOICE", "HFW_IMAGE_CONTEXT_CLOZE"].includes(format)) {
+  if (isHfwDirectRecognitionFormat(format) || isHfwClozeFormat(format)) {
     const nonHfwOptions = optionWords.filter(word => !ALL_HFW_WORD_SET.has(word));
     if (nonHfwOptions.length) {
       issues.push(`non-HFW answer options: ${[...new Set(nonHfwOptions)].join(", ")}`);
+    }
+  }
+
+  if (isHfwDirectRecognitionFormat(format)) {
+    if (answer && answer !== primaryWord) issues.push(`correct answer "${answer}" does not match target word "${primaryWord}"`);
+    if (audioPath) issues.push("direct-recognition HFW questions must not include audio");
+    if (!imagePath) {
+      issues.push("direct-recognition HFW question needs a context image");
+    } else if (pathExists && !pathExists(imagePath)) {
+      issues.push(`image file does not exist: ${imagePath}`);
     }
   }
 
@@ -179,7 +193,7 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
     }
   }
 
-  if (["HFW_SENTENCE_CLOZE", "SENTENCE_CLOZE", "CLOZE_CHOICE", "HFW_IMAGE_CONTEXT_CLOZE"].includes(format)) {
+  if (isHfwClozeFormat(format)) {
     const blankCount = (sentence.match(/___/g) || []).length;
     if (blankCount !== 1) issues.push(`sentence cloze needs exactly one blank, found ${blankCount}`);
     if (answer && answer !== primaryWord) issues.push(`correct answer "${answer}" does not match target word "${primaryWord}"`);
@@ -200,7 +214,7 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
     }
   }
 
-  if (format === "HFW_IMAGE_CONTEXT_CLOZE") {
+  if (isHfwClozeFormat(format)) {
     if (!imagePath) {
       issues.push("image-context HFW question needs a context image");
     } else if (pathExists && !pathExists(imagePath)) {

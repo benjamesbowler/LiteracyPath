@@ -65,6 +65,8 @@ function cloneUsage(usage) {
     audioPaths: [...usage.audioPaths],
     targetWords: [...usage.targetWords],
     contentKeys: [...usage.contentKeys],
+    templateKeys: [...usage.templateKeys],
+    promptKeys: [...usage.promptKeys],
     correctQuestionIds: [...usage.correctQuestionIds]
   });
 }
@@ -123,10 +125,14 @@ function markResolvedUsed(usage, question = {}) {
   const audio = getPrimaryAudio(question);
   const target = inferAssessmentQuestionTargetWord(question);
   const contentKey = getQuestionMediaContentKey(question);
+  const template = getTemplateKey(question);
+  const prompt = getPromptKey(question);
   if (image) usage.imagePaths.add(image);
   if (audio) usage.audioPaths.add(audio);
   if (target) usage.targetWords.add(target);
   if (contentKey) usage.contentKeys.add(contentKey);
+  if (template) usage.templateKeys.add(template);
+  if (prompt) usage.promptKeys.add(prompt);
 }
 
 function scoreResolvedQuestion(question, usage) {
@@ -134,17 +140,33 @@ function scoreResolvedQuestion(question, usage) {
   const audio = getPrimaryAudio(question);
   const contentKey = getQuestionMediaContentKey(question);
   const target = inferAssessmentQuestionTargetWord(question);
+  const template = getTemplateKey(question);
+  const prompt = getPromptKey(question);
   return (
     (contentKey && usage.contentKeys.has(contentKey) ? 1000 : 0) +
     (image && usage.imagePaths.has(image) ? 120 : 0) +
     (audio && usage.audioPaths.has(audio) ? 80 : 0) +
-    (target && usage.targetWords.has(target) ? 12 : 0)
+    (template && usage.templateKeys?.has(template) ? 60 : 0) +
+    (prompt && usage.promptKeys?.has(prompt) ? 45 : 0) +
+    (target && usage.targetWords.has(target) ? 700 : 0)
+  );
+}
+
+function scoreRoundRepeat(question, roundUsage) {
+  const target = inferAssessmentQuestionTargetWord(question);
+  const template = getTemplateKey(question);
+  const prompt = getPromptKey(question);
+  return (
+    (target && roundUsage.targetWords.has(target) ? 5000 : 0) +
+    (template && roundUsage.templateKeys.has(template) ? 450 : 0) +
+    (prompt && roundUsage.promptKeys.has(prompt) ? 350 : 0)
   );
 }
 
 function pickRound(pool, context) {
   const selected = [];
   const failures = [];
+  const roundUsage = createAssessmentSessionMediaUsage();
   const candidates = shuffleDeterministic(pool, `${context.skillId}:${context.sessionIndex}:${context.phase.key}`);
 
   while (selected.length < ROUND_SIZE && selected.length < candidates.length) {
@@ -158,7 +180,7 @@ function pickRound(pool, context) {
         phase: context.phase.phase,
         sessionUsage: previewUsage
       });
-      const score = scoreResolvedQuestion(resolved, context.sessionUsage);
+      const score = scoreResolvedQuestion(resolved, context.sessionUsage) + scoreRoundRepeat(resolved, roundUsage);
       const issues = validateResolvedQuestionMedia(resolved);
       const ranked = { candidate, resolved, score, issues };
       if (!best || ranked.score < best.score || (ranked.score === best.score && String(resolved.id).localeCompare(String(best.resolved.id)) < 0)) {
@@ -173,6 +195,7 @@ function pickRound(pool, context) {
       sessionUsage: context.sessionUsage
     });
     markResolvedUsed(context.sessionUsage, resolved);
+    markResolvedUsed(roundUsage, resolved);
     const issues = validateResolvedQuestionMedia(resolved);
     if (issues.length) failures.push({ questionId: resolved.id, issues });
     selected.push(resolved);
