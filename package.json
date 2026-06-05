@@ -68,7 +68,16 @@
     "prioritize:workbook-media": "node tools/prioritizeWorkbookMediaNeeds.js",
     "check:new-media-reachability": "node tools/auditNewMediaReachability.js",
     "generate:hfw-assessment-questions": "node tools/generateHfwAssessmentQuestions.js",
-    "check:hfw-true-variation": "node tools/checkHfwTrueVariation.js"
+    "check:hfw-true-variation": "node tools/checkHfwTrueVariation.js",
+    "audit:hfw-curated-source": "node tools/auditHfwCuratedSentenceSource.js",
+    "export:hfw-review": "node tools/exportHfwQuestionReviewWorkbook.js",
+    "import:hfw-review": "node tools/importHfwQuestionReviewWorkbook.js",
+    "audit:hfw-review": "node tools/auditHfwReviewStatus.js",
+    "audit:app-image-inventory": "node tools/auditAppImageInventory.js",
+    "build:image-qa-contact-sheets": "node tools/buildImageQaContactSheets.js",
+    "check:image-qa-heuristics": "node tools/checkImageQaHeuristics.js",
+    "import:image-qa-review": "node tools/importImageQaReview.js",
+    "kimi:image-qa-replacements": "node tools/generateImageQaKimiReplacementRequests.js"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",

@@ -20,6 +20,14 @@ import {
   getMultiplePlausibleHfwAnswerIssues,
   getWeakGenericHfwPromptIssues
 } from "./hfwQualityRules.js";
+import {
+  hfwQuestionReviewBlockedIds
+} from "./generated/hfwQuestionReviewBlocklist.generated.js";
+import {
+  hfwCuratedSentenceContentKeys,
+  hfwCuratedSentenceIds,
+  hfwCuratedSentenceTextKeys
+} from "./generated/hfwCuratedSentences.generated.js";
 
 const HFW_ALLOWED_FORMATS = new Set(HFW_ALLOWED_FORMAT_LIST);
 
@@ -121,6 +129,29 @@ function getOptionValues(question = {}) {
     .filter(Boolean);
 }
 
+function curatedTextKey(question = {}, primaryWord = "") {
+  const visibleSentence = String(question.visibleSentenceWithBlank || question.sentence || question.passage || question.context || "");
+  const fullSentence = String(question.sentenceText || question.fullSentence || question.spokenPrompt || question.audioText || "");
+  return [normalizeHfwSkillId(getQuestionSkillText(question)), primaryWord, visibleSentence, fullSentence].join("::").toLowerCase();
+}
+
+function getCuratedSourceIssues(question = {}, primaryWord = "") {
+  const issues = [];
+  const source = String(question.source || question.approvedSource || "").toLowerCase();
+  if (!/(workbook|curated)/.test(source)) issues.push("HFW sentence question source is not workbook/curated");
+  if (!question.sentenceId) issues.push("HFW sentence question missing sentenceId");
+  if (question.sentenceId && !hfwCuratedSentenceIds.has(question.sentenceId)) {
+    issues.push(`sentenceId ${question.sentenceId} is not in curated workbook sentence bank`);
+  }
+  if (question.curatedContentKey && !hfwCuratedSentenceContentKeys.has(question.curatedContentKey)) {
+    issues.push("curatedContentKey is not in curated workbook sentence bank");
+  }
+  if (!hfwCuratedSentenceTextKeys.has(curatedTextKey(question, primaryWord))) {
+    issues.push("sentence text does not match curated workbook sentence bank");
+  }
+  return issues;
+}
+
 function getQuestionSkillText(question = {}) {
   return [question.skillId, question.skillName, question.skill, question.stage].filter(Boolean).join(" ");
 }
@@ -153,6 +184,9 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
 
   if (declaredQuestionBand && declaredQuestionBand !== bandId) {
     issues.push(`belongs to ${declaredQuestionBand}, not ${bandId}`);
+  }
+  if (hfwQuestionReviewBlockedIds.has(String(question.id || ""))) {
+    issues.push("blocked by HFW teacher review");
   }
   if (HFW_BLOCKED_FORMATS.has(format)) issues.push(`${format} is not an HFW-safe template`);
   if (!HFW_ALLOWED_FORMATS.has(format)) issues.push(`${format} is not in the HFW allowlist`);
@@ -200,6 +234,7 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   }
 
   if (isHfwClozeFormat(format)) {
+    for (const issue of getCuratedSourceIssues(question, primaryWord)) issues.push(issue);
     const blankCount = (sentence.match(/___/g) || []).length;
     if (blankCount !== 1) issues.push(`sentence cloze needs exactly one blank, found ${blankCount}`);
     if (answer && answer !== primaryWord) issues.push(`correct answer "${answer}" does not match target word "${primaryWord}"`);
@@ -221,6 +256,7 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
       : [];
     const visibleSentence = String(question.visibleSentenceWithBlank || question.sentence || question.passage || question.context || "");
     const fullSentence = String(question.sentenceText || question.fullSentence || question.spokenPrompt || question.audioText || "");
+    for (const issue of getCuratedSourceIssues(question, primaryWord)) issues.push(issue);
     const blankCount = (visibleSentence.match(/___/g) || []).length;
     if (blankCount !== 1) issues.push(`sentence-spell needs exactly one visible blank, found ${blankCount}`);
     for (const phrase of getHfwFillerPhraseHits(visibleSentence)) {

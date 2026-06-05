@@ -2,14 +2,25 @@ import path from "node:path";
 
 import { ALL_HFW_WORD_SET, normalizeHfwSkillId } from "../src/data/highFrequencyWordBands.js";
 import {
+  hfwCuratedSentences,
+  hfwCuratedSentenceContentKeys,
+  hfwCuratedSentenceIds,
+  hfwCuratedSentenceTextKeys
+} from "../src/data/generated/hfwCuratedSentences.generated.js";
+import {
   isHfwClozeFormat,
-  isHfwDirectRecognitionFormat
+  isHfwDirectRecognitionFormat,
+  isHfwSentenceSpellFormat
 } from "../src/data/hfwAssessmentFormatConfig.js";
 import {
+  HFW_ZERO_TOLERANCE_FILLER_PHRASES,
+  getHfwFillerPhraseHits,
   getMultiplePlausibleHfwAnswerIssues,
-  getWeakGenericHfwPromptIssues
+  getWeakGenericHfwPromptIssues,
+  normalizeHfwText
 } from "../src/data/hfwQualityRules.js";
 import {
+  buildRuntimeQuestionsForSkill,
   getQuestionSkillLabel,
   normalizeWord,
   repoRoot,
@@ -42,6 +53,42 @@ function getFormat(question = {}) {
   return String(question.formatType || question.templateType || question.questionType || "").toUpperCase();
 }
 
+function getSkillId(question = {}) {
+  return String(question.skillId || question.assessmentSkillId || "").trim();
+}
+
+function getSentenceWithBlank(question = {}) {
+  return String(question.visibleSentenceWithBlank || question.sentence || question.passage || question.context || "");
+}
+
+function getFullSentence(question = {}) {
+  return String(question.sentenceText || question.fullSentence || question.spokenPrompt || question.audioText || "");
+}
+
+function curatedTextKey(question = {}) {
+  return [getSkillId(question), getAnswer(question), getSentenceWithBlank(question), getFullSentence(question)].join("::").toLowerCase();
+}
+
+function curatedSourceIssues(question = {}) {
+  const issues = [];
+  const source = String(question.source || question.approvedSource || "").toLowerCase();
+  if (!/(workbook|curated)/.test(source)) issues.push("source_not_workbook_curated");
+  if (!question.sentenceId) issues.push("missing_sentence_id");
+  if (question.sentenceId && !hfwCuratedSentenceIds.has(question.sentenceId)) issues.push("sentence_id_not_curated");
+  if (!question.curatedContentKey) {
+    issues.push("missing_curated_content_key");
+  } else if (!hfwCuratedSentenceContentKeys.has(question.curatedContentKey)) {
+    issues.push("curated_content_key_not_curated");
+  }
+  if (!hfwCuratedSentenceTextKeys.has(curatedTextKey(question))) issues.push("sentence_text_not_curated");
+  return issues;
+}
+
+function isHfwSentenceQuestion(question = {}) {
+  const format = getFormat(question);
+  return isHfwClozeFormat(format) || isHfwSentenceSpellFormat(format);
+}
+
 function promptTargetsSpecificWord(question = {}) {
   const prompt = normalizeWord(getPrompt(question));
   const answer = getAnswer(question);
@@ -59,8 +106,59 @@ function isGenericHfwPrompt(question = {}) {
 
 const rows = [];
 const failures = [];
+const sourceRows = [];
+const bandRows = [];
 
 for (const skillId of hfwSkills) {
+  const rawSentenceQuestions = buildRuntimeQuestionsForSkill(skillId).filter(isHfwSentenceQuestion);
+  const curatedRows = hfwCuratedSentences.filter(row => row.skillId === skillId);
+  const rawSourceIssues = rawSentenceQuestions
+    .map(question => ({ question, issues: curatedSourceIssues(question) }))
+    .filter(row => row.issues.length);
+  const rawBannedPhraseRows = rawSentenceQuestions
+    .map(question => ({ question, phrases: getHfwFillerPhraseHits(question) }))
+    .filter(row => row.phrases.some(phrase => HFW_ZERO_TOLERANCE_FILLER_PHRASES.has(phrase)));
+  const rawWeakGenericRows = rawSentenceQuestions
+    .map(question => ({ question, issues: getWeakGenericHfwPromptIssues(question) }))
+    .filter(row => row.issues.length);
+
+  for (const row of rawSourceIssues) {
+    const issue = `${row.question.id}: ${row.issues.join("; ")}`;
+    failures.push(issue);
+    sourceRows.push({
+      skillId,
+      id: row.question.id,
+      answer: getAnswer(row.question),
+      sentence: getSentenceWithBlank(row.question),
+      issues: row.issues,
+      action: "blocked; HFW sentence questions must come from curated workbook sentence bank"
+    });
+  }
+  for (const row of rawBannedPhraseRows) {
+    const issue = `${row.question.id}: banned phrase ${row.phrases.join(", ")}`;
+    failures.push(issue);
+    sourceRows.push({
+      skillId,
+      id: row.question.id,
+      answer: getAnswer(row.question),
+      sentence: getSentenceWithBlank(row.question),
+      issues: row.phrases.map(phrase => `banned_phrase:${normalizeHfwText(phrase)}`),
+      action: "blocked; banned HFW filler phrase"
+    });
+  }
+  for (const row of rawWeakGenericRows) {
+    const issue = `${row.question.id}: weak generic HFW sentence ${row.issues.join("; ")}`;
+    failures.push(issue);
+    sourceRows.push({
+      skillId,
+      id: row.question.id,
+      answer: getAnswer(row.question),
+      sentence: getSentenceWithBlank(row.question),
+      issues: row.issues,
+      action: "blocked; sentence frame must be workbook-approved and specific"
+    });
+  }
+
   for (const question of selectableRuntimeQuestionsForSkill(skillId)) {
     const format = getFormat(question);
     if (isHfwDirectRecognitionFormat(format)) continue;
@@ -99,6 +197,16 @@ for (const skillId of hfwSkills) {
       });
     }
   }
+
+  bandRows.push({
+    skillId,
+    curatedWorkbookRows: curatedRows.length,
+    rawSentenceQuestions: rawSentenceQuestions.length,
+    rawSourceFailures: rawSourceIssues.length,
+    rawBannedPhraseFailures: rawBannedPhraseRows.length,
+    rawWeakGenericFailures: rawWeakGenericRows.length,
+    selectableQuestions: selectableRuntimeQuestionsForSkill(skillId).length
+  });
 }
 
 const report = [
@@ -109,7 +217,8 @@ const report = [
   "## Summary",
   "",
   `- HFW skills checked: ${hfwSkills.join(", ")}`,
-  `- Ambiguous active runtime questions: ${failures.length}`,
+  `- Ambiguous active runtime questions: ${rows.length}`,
+  `- Non-workbook/raw source failures: ${sourceRows.length}`,
   "",
   "## Rule",
   "",
@@ -125,17 +234,33 @@ const report = [
     ].join("\n")
     : "None.",
   "",
+  "## Curated Source Checks",
+  "",
+  sourceRows.length
+    ? [
+      "| Skill | Question ID | Answer | Issues | Action |",
+      "| --- | --- | --- | --- | --- |",
+      ...sourceRows.map(row => `| ${row.skillId} | ${row.id} | ${row.answer} | ${row.issues.join("; ")} | ${row.action} |`)
+    ].join("\n")
+    : "None.",
+  "",
   "## Runtime Bands",
   "",
-  ...hfwSkills.map(skillId => {
-    const count = selectableRuntimeQuestionsForSkill(skillId).length;
-    return `- ${getQuestionSkillLabel({ skillId }) || normalizeHfwSkillId(skillId)}: ${count} selectable questions`;
-  }),
+  ...bandRows.map(row => `- ${getQuestionSkillLabel({ skillId: row.skillId }) || normalizeHfwSkillId(row.skillId)}: ${row.selectableQuestions} selectable, ${row.curatedWorkbookRows} curated workbook rows, ${row.rawSentenceQuestions} raw sentence questions`),
   ""
 ];
 
 writeFile(path.join(repoRoot, "docs/validation/hfw_distractor_ambiguity_audit.md"), report.join("\n"));
+writeFile(path.join(repoRoot, "docs/validation/hfw_distractor_ambiguity_audit.json"), `${JSON.stringify({
+  generatedBy: "npm run check:hfw-distractor-ambiguity",
+  hfwSkills,
+  bandRows,
+  ambiguousRows: rows,
+  curatedSourceRows: sourceRows,
+  failures
+}, null, 2)}\n`);
 console.log("Wrote docs/validation/hfw_distractor_ambiguity_audit.md");
+console.log("Wrote docs/validation/hfw_distractor_ambiguity_audit.json");
 
 if (failures.length) {
   failures.forEach(failure => console.error(`- ${failure}`));
