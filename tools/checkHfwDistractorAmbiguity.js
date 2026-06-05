@@ -2,6 +2,14 @@ import path from "node:path";
 
 import { ALL_HFW_WORD_SET, normalizeHfwSkillId } from "../src/data/highFrequencyWordBands.js";
 import {
+  isHfwClozeFormat,
+  isHfwDirectRecognitionFormat
+} from "../src/data/hfwAssessmentFormatConfig.js";
+import {
+  getMultiplePlausibleHfwAnswerIssues,
+  getWeakGenericHfwPromptIssues
+} from "../src/data/hfwQualityRules.js";
+import {
   getQuestionSkillLabel,
   normalizeWord,
   repoRoot,
@@ -30,6 +38,10 @@ function getAnswer(question = {}) {
   return normalizeWord(question.correctAnswer || question.answer || question.targetWord || question.itemKey || "");
 }
 
+function getFormat(question = {}) {
+  return String(question.formatType || question.templateType || question.questionType || "").toUpperCase();
+}
+
 function promptTargetsSpecificWord(question = {}) {
   const prompt = normalizeWord(getPrompt(question));
   const answer = getAnswer(question);
@@ -50,23 +62,40 @@ const failures = [];
 
 for (const skillId of hfwSkills) {
   for (const question of selectableRuntimeQuestionsForSkill(skillId)) {
+    const format = getFormat(question);
+    if (isHfwDirectRecognitionFormat(format)) continue;
+
     const options = getOptions(question);
     const hfwOptions = options.filter(word => ALL_HFW_WORD_SET.has(word));
     const genericPrompt = isGenericHfwPrompt(question);
     const explanation = String(question.explanation || question.teachingTip || question.feedback || "").toLowerCase();
     const genericExplanation = explanation.includes("this is a high-frequency word") && hfwOptions.length > 1;
     const sameBandGenericDistractors = genericPrompt && hfwOptions.length > 1;
+    const plausibleAnswerIssues = isHfwClozeFormat(format) ? getMultiplePlausibleHfwAnswerIssues(question) : [];
+    const weakGenericIssues = isHfwClozeFormat(format) ? getWeakGenericHfwPromptIssues(question) : [];
 
-    if (sameBandGenericDistractors || genericExplanation) {
-      const issue = `${question.id}: generic HFW wording with valid HFW options (${hfwOptions.join(", ")})`;
+    if (sameBandGenericDistractors || genericExplanation || plausibleAnswerIssues.length || weakGenericIssues.length) {
+      const issue = `${question.id}: ${[
+        sameBandGenericDistractors || genericExplanation ? `generic HFW wording with valid HFW options (${hfwOptions.join(", ")})` : "",
+        ...plausibleAnswerIssues,
+        ...weakGenericIssues
+      ].filter(Boolean).join("; ")}`;
       failures.push(issue);
       rows.push({
         skillId,
         id: question.id,
+        format,
         prompt: getPrompt(question),
         answer: getAnswer(question),
         hfwOptions,
-        action: "blocked by validator; prompt must target a specific word or use non-HFW distractors"
+        issues: [
+          sameBandGenericDistractors || genericExplanation ? "generic_hfw_prompt" : "",
+          ...plausibleAnswerIssues,
+          ...weakGenericIssues
+        ].filter(Boolean),
+        action: isHfwClozeFormat(format)
+          ? "blocked by validator; cloze prompt must make one answer uniquely correct"
+          : "blocked by validator; prompt must target a specific word or use non-HFW distractors"
       });
     }
   }
@@ -84,7 +113,7 @@ const report = [
   "",
   "## Rule",
   "",
-  "If a prompt asks generically for a high-frequency word, distractors must not also be valid HFWs. Word-recognition questions should instead target a specific word, such as `Find the word: the`.",
+  "If a non-direct prompt asks generically for a high-frequency word, distractors must not also be valid HFWs. Direct word-recognition formats are allowed to use HFW options because they explicitly target one printed word.",
   "",
   "## Flagged Items",
   "",
@@ -92,7 +121,7 @@ const report = [
     ? [
       "| Skill | Question ID | Answer | Valid HFW options | Action |",
       "| --- | --- | --- | --- | --- |",
-      ...rows.map(row => `| ${row.skillId} | ${row.id} | ${row.answer} | ${row.hfwOptions.join(", ")} | ${row.action} |`)
+      ...rows.map(row => `| ${row.skillId} | ${row.id} | ${row.answer} | ${row.hfwOptions.join(", ")} | ${row.issues.join("; ")} → ${row.action} |`)
     ].join("\n")
     : "None.",
   "",

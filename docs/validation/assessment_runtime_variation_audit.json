@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-05T04:15:21.954Z",
+  "generatedAt": "2026-06-05T06:57:25.068Z",
   "passed": true,
   "sessionsSimulatedPerSkill": 10,
   "roundSize": 15,
@@ -5790,9 +5790,9 @@
     },
     {
       "skillId": "hfw_1_25",
-      "selectableQuestions": 530,
+      "selectableQuestions": 529,
       "static": {
-        "uniqueImages": 530,
+        "uniqueImages": 529,
         "uniqueAudio": 0,
         "topImages": [
           {
@@ -5971,14 +5971,14 @@
         "dominantImageCount": 10
       },
       "improvement": {
-        "uniqueImagesDelta": -470,
+        "uniqueImagesDelta": -469,
         "dominantImageRepeatDelta": 9
       },
       "phaseResults": [
         {
           "sessionIndex": 0,
           "phase": "L1P1",
-          "poolSize": 133,
+          "poolSize": 132,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 0,
@@ -6038,7 +6038,7 @@
         {
           "sessionIndex": 1,
           "phase": "L1P1",
-          "poolSize": 133,
+          "poolSize": 132,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 0,
@@ -6098,7 +6098,7 @@
         {
           "sessionIndex": 2,
           "phase": "L1P1",
-          "poolSize": 133,
+          "poolSize": 132,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 0,
@@ -6158,7 +6158,7 @@
         {
           "sessionIndex": 3,
           "phase": "L1P1",
-          "poolSize": 133,
+          "poolSize": 132,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 0,
@@ -6218,7 +6218,7 @@
         {
           "sessionIndex": 4,
           "phase": "L1P1",
-          "poolSize": 133,
+          "poolSize": 132,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 0,
@@ -6278,7 +6278,7 @@
         {
           "sessionIndex": 5,
           "phase": "L1P1",
-          "poolSize": 133,
+          "poolSize": 132,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 0,
@@ -6338,7 +6338,7 @@
         {
           "sessionIndex": 6,
           "phase": "L1P1",
-          "poolSize": 133,
+          "poolSize": 132,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 0,
@@ -6398,7 +6398,7 @@
         {
           "sessionIndex": 7,
           "phase": "L1P1",
-          "poolSize": 133,
+          "poolSize": 132,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 0,
@@ -6458,7 +6458,7 @@
         {
           "sessionIndex": 8,
           "phase": "L1P1",
-          "poolSize": 133,
+          "poolSize": 132,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 0,
@@ -6518,7 +6518,7 @@
         {
           "sessionIndex": 9,
           "phase": "L1P1",
-          "poolSize": 133,
+          "poolSize": 132,
           "selected": 15,
           "uniqueImages": 15,
           "uniqueAudio": 0,

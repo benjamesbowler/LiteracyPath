@@ -15,6 +15,11 @@ import {
   isHfwDirectRecognitionFormat,
   isHfwSentenceSpellFormat
 } from "./hfwAssessmentFormatConfig.js";
+import {
+  getHfwFillerPhraseHits,
+  getMultiplePlausibleHfwAnswerIssues,
+  getWeakGenericHfwPromptIssues
+} from "./hfwQualityRules.js";
 
 const HFW_ALLOWED_FORMATS = new Set(HFW_ALLOWED_FORMAT_LIST);
 
@@ -198,6 +203,8 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
     const blankCount = (sentence.match(/___/g) || []).length;
     if (blankCount !== 1) issues.push(`sentence cloze needs exactly one blank, found ${blankCount}`);
     if (answer && answer !== primaryWord) issues.push(`correct answer "${answer}" does not match target word "${primaryWord}"`);
+    for (const issue of getWeakGenericHfwPromptIssues(question)) issues.push(issue);
+    for (const issue of getMultiplePlausibleHfwAnswerIssues(question)) issues.push(issue);
     const optionSet = new Set(optionWords);
     for (const [first, second] of AMBIGUOUS_ARTICLE_CHOICE_PAIRS) {
       if (optionSet.has(first) && optionSet.has(second)) {
@@ -216,6 +223,9 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
     const fullSentence = String(question.sentenceText || question.fullSentence || question.spokenPrompt || question.audioText || "");
     const blankCount = (visibleSentence.match(/___/g) || []).length;
     if (blankCount !== 1) issues.push(`sentence-spell needs exactly one visible blank, found ${blankCount}`);
+    for (const phrase of getHfwFillerPhraseHits(visibleSentence)) {
+      issues.push(`filler_phrase_reuse:${phrase}`);
+    }
     if (!fullSentence || !normalizeWord(fullSentence).split(/\s+/).includes(primaryWord)) {
       issues.push(`sentence-spell audio text must include target word "${primaryWord}"`);
     }

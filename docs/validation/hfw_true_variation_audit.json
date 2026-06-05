@@ -2,15 +2,15 @@
   {
     "skillId": "hfw_1_25",
     "runtime": 689,
-    "selectable": 530,
+    "selectable": 529,
     "bandWords": 25,
     "uniqueTargets": 25,
     "uniqueTemplates": 96,
     "uniquePrompts": 529,
-    "uniqueImages": 530,
-    "uniqueAnswerSets": 112,
+    "uniqueImages": 529,
+    "uniqueAnswerSets": 104,
     "phaseCounts": {
-      "L1P1": 133,
+      "L1P1": 132,
       "L1P2": 133,
       "L2P1": 132,
       "L2P2": 132
@@ -25,8 +25,11 @@
       "content": 0,
       "targetTemplate": 0,
       "targetImage": 0,
-      "promptAnswer": 0
+      "promptAnswer": 0,
+      "repeatedSentenceFrame": 0,
+      "answerOrderOnlyVariants": 0
     },
+    "fillerPhraseReuse": [],
     "invalidFormats": 0,
     "clozeIssues": 0,
     "directAnswerLeakage": 0,
@@ -43,7 +46,7 @@
     "uniqueTemplates": 96,
     "uniquePrompts": 525,
     "uniqueImages": 525,
-    "uniqueAnswerSets": 86,
+    "uniqueAnswerSets": 90,
     "phaseCounts": {
       "L1P1": 128,
       "L1P2": 134,
@@ -60,8 +63,11 @@
       "content": 0,
       "targetTemplate": 0,
       "targetImage": 0,
-      "promptAnswer": 0
+      "promptAnswer": 0,
+      "repeatedSentenceFrame": 0,
+      "answerOrderOnlyVariants": 0
     },
+    "fillerPhraseReuse": [],
     "invalidFormats": 0,
     "clozeIssues": 0,
     "directAnswerLeakage": 0,
@@ -76,9 +82,9 @@
     "bandWords": 25,
     "uniqueTargets": 25,
     "uniqueTemplates": 96,
-    "uniquePrompts": 328,
+    "uniquePrompts": 329,
     "uniqueImages": 329,
-    "uniqueAnswerSets": 64,
+    "uniqueAnswerSets": 59,
     "phaseCounts": {
       "L1P1": 83,
       "L1P2": 83,
@@ -95,8 +101,11 @@
       "content": 0,
       "targetTemplate": 0,
       "targetImage": 0,
-      "promptAnswer": 0
+      "promptAnswer": 0,
+      "repeatedSentenceFrame": 0,
+      "answerOrderOnlyVariants": 0
     },
+    "fillerPhraseReuse": [],
     "invalidFormats": 0,
     "clozeIssues": 0,
     "directAnswerLeakage": 0,
@@ -130,8 +139,11 @@
       "content": 0,
       "targetTemplate": 0,
       "targetImage": 0,
-      "promptAnswer": 0
+      "promptAnswer": 0,
+      "repeatedSentenceFrame": 0,
+      "answerOrderOnlyVariants": 0
     },
+    "fillerPhraseReuse": [],
     "invalidFormats": 0,
     "clozeIssues": 0,
     "directAnswerLeakage": 0,

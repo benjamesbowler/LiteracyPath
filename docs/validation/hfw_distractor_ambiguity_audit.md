@@ -17,7 +17,7 @@ None.
 
 ## Runtime Bands
 
-- hfw_1_25: 530 selectable questions
+- hfw_1_25: 529 selectable questions
 - hfw_26_50: 525 selectable questions
 - hfw_51_75: 329 selectable questions
 - hfw_76_100: 229 selectable questions

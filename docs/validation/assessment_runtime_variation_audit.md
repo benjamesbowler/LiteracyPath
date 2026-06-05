@@ -1,6 +1,6 @@
 # Assessment Runtime Variation Audit
 
-Generated: 2026-06-05T04:15:21.954Z
+Generated: 2026-06-05T06:57:25.068Z
 Status: PASS
 
 ## Skill Results
@@ -11,7 +11,7 @@ Status: PASS
 | rhyming | 466 | 417 | 237 | 4 | 8 | 0 |
 | cvc_short_vowels | 416 | 119 | 112 | 8 | 10 | 0 |
 | short_vowel_discrimination | 238 | 154 | 153 | 5 | 10 | 0 |
-| hfw_1_25 | 530 | 530 | 60 | 1 | 10 | 0 |
+| hfw_1_25 | 529 | 529 | 60 | 1 | 10 | 0 |
 | hfw_26_50 | 525 | 525 | 60 | 1 | 10 | 0 |
 | hfw_51_75 | 329 | 329 | 60 | 1 | 10 | 0 |
 | hfw_76_100 | 229 | 229 | 60 | 1 | 10 | 0 |

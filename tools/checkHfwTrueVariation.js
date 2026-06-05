@@ -19,6 +19,14 @@ import {
   selectableRuntimeQuestionsForSkill,
   writeFile
 } from "./phonicsRuntimeUtils.js";
+import {
+  HFW_FILLER_REUSE_THRESHOLD,
+  HFW_ZERO_TOLERANCE_FILLER_PHRASES,
+  getHfwFillerPhraseHits,
+  getMultiplePlausibleHfwAnswerIssues,
+  getWeakGenericHfwPromptIssues,
+  normalizeHfwSentenceFrame
+} from "../src/data/hfwQualityRules.js";
 
 const HFW_SKILL_IDS = ["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"];
 const PHASE_KEYS = ["L1P1", "L1P2", "L2P1", "L2P2"];
@@ -117,6 +125,20 @@ function answerSetKey(question = {}) {
   return optionWords(question).sort().join("|");
 }
 
+function sentenceFrameKey(question = {}) {
+  return `${targetOf(question)}::${normalizeHfwSentenceFrame(question.sentence || question.visibleSentenceWithBlank || question.context || "")}`;
+}
+
+function answerOrderOnlyKey(question = {}) {
+  return [
+    targetOf(question),
+    formatOf(question),
+    promptContext(question),
+    answerOf(question),
+    answerSetKey(question)
+  ].join("::");
+}
+
 function duplicateGroups(items, keyFn) {
   const groups = new Map();
   for (const item of items) {
@@ -147,6 +169,8 @@ function clozeIssues(question = {}) {
   if (new Set(options).size !== options.length) issues.push("duplicate choices");
   if (!answer || !options.includes(answer)) issues.push("answer missing from choices");
   if (sameAmbiguityGroup(answer, options)) issues.push("same ambiguity group choices");
+  issues.push(...getWeakGenericHfwPromptIssues(question));
+  issues.push(...getMultiplePlausibleHfwAnswerIssues(question));
   return issues;
 }
 
@@ -220,6 +244,8 @@ for (const skillId of HFW_SKILL_IDS) {
   const duplicateTargetTemplate = duplicateGroups(selectable, targetTemplateKey);
   const duplicateTargetImage = duplicateGroups(selectable, targetImageKey);
   const duplicatePromptAnswer = duplicateGroups(selectable, promptAnswerKey);
+  const repeatedSentenceFrames = duplicateGroups(selectable, sentenceFrameKey).filter(([, rows]) => rows.length > 2);
+  const answerOrderOnlyVariants = duplicateGroups(selectable, answerOrderOnlyKey);
   const missingMedia = selectable.filter(question => !primaryImage(question) || !publicPathExists(primaryImage(question)));
   const invalidFormatRows = selectable.filter(question => !getHfwAllowedFormatsForPhase(levelOf(question), phaseOf(question)).includes(formatOf(question)));
   const clozeIssueRows = selectable
@@ -231,6 +257,21 @@ for (const skillId of HFW_SKILL_IDS) {
   const sentenceSpellIssueRows = selectable
     .map(question => ({ question, issues: sentenceSpellIssues(question) }))
     .filter(row => row.issues.length);
+  const fillerPhraseGroups = new Map();
+  for (const question of selectable) {
+    for (const phrase of getHfwFillerPhraseHits(question)) {
+      const rows = fillerPhraseGroups.get(phrase) || [];
+      rows.push(question);
+      fillerPhraseGroups.set(phrase, rows);
+    }
+  }
+  const fillerPhraseRows = [...fillerPhraseGroups.entries()]
+    .map(([phrase, rows]) => ({
+      phrase,
+      rows,
+      isFailure: HFW_ZERO_TOLERANCE_FILLER_PHRASES.has(phrase) || rows.length > HFW_FILLER_REUSE_THRESHOLD
+    }))
+    .filter(row => row.isFailure);
 
   const phaseCounts = {};
   const retryCounts = {};
@@ -254,10 +295,13 @@ for (const skillId of HFW_SKILL_IDS) {
     ...duplicateTargetTemplate.map(([key, rows]) => `target/template reused ${rows.length} times: ${key}`),
     ...duplicateTargetImage.map(([key, rows]) => `target/image reused ${rows.length} times: ${key}`),
     ...duplicatePromptAnswer.map(([key, rows]) => `prompt/answer reused ${rows.length} times: ${key}`),
+    ...repeatedSentenceFrames.map(([key, rows]) => `repeated_sentence_frame ${rows.length} times: ${key}`),
+    ...answerOrderOnlyVariants.map(([key, rows]) => `answer_order_only_variants ${rows.length} times: ${key}`),
     ...missingMedia.map(question => `missing media: ${questionId(question)}`),
     ...invalidFormatRows.map(question => `invalid phase format: ${questionId(question)} ${formatOf(question)}`),
-    ...clozeIssueRows.map(row => `ambiguous cloze: ${questionId(row.question)} (${row.issues.join(", ")})`),
-    ...directIssueRows.map(row => `direct answer leakage: ${questionId(row.question)} (${row.issues.join(", ")})`),
+    ...clozeIssueRows.map(row => `multiple_plausible_answers: ${questionId(row.question)} (${row.issues.join(", ")})`),
+    ...fillerPhraseRows.map(row => `filler_phrase_reuse: "${row.phrase}" used ${row.rows.length} times by ${row.rows.map(questionId).slice(0, 10).join(", ")}${row.rows.length > 10 ? "..." : ""}`),
+    ...directIssueRows.map(row => `direct_answer_leakage: ${questionId(row.question)} (${row.issues.join(", ")})`),
     ...sentenceSpellIssueRows.map(row => `sentence spell issue: ${questionId(row.question)} (${row.issues.join(", ")})`),
     ...PHASE_KEYS.filter(phaseKey => phaseCounts[phaseKey] < ROUND_LENGTH).map(phaseKey => `${phaseKey} below ${ROUND_LENGTH} selectable questions`),
     ...PHASE_KEYS.filter(phaseKey => retryCounts[phaseKey] < REPLACEMENTS_NEEDED).map(phaseKey => `${phaseKey} has only ${retryCounts[phaseKey]}/${REPLACEMENTS_NEEDED} retry-safe replacements`)
@@ -303,8 +347,17 @@ for (const skillId of HFW_SKILL_IDS) {
       content: duplicateContent.length,
       targetTemplate: duplicateTargetTemplate.length,
       targetImage: duplicateTargetImage.length,
-      promptAnswer: duplicatePromptAnswer.length
+      promptAnswer: duplicatePromptAnswer.length,
+      repeatedSentenceFrame: repeatedSentenceFrames.length,
+      answerOrderOnlyVariants: answerOrderOnlyVariants.length
     },
+    fillerPhraseReuse: fillerPhraseRows.map(row => ({
+      phrase: row.phrase,
+      uses: row.rows.length,
+      questionIds: row.rows.map(questionId),
+      targetWords: [...new Set(row.rows.map(targetOf).filter(Boolean))],
+      skillBand: skillId
+    })),
     invalidFormats: invalidFormatRows.length,
     clozeIssues: clozeIssueRows.length,
     directAnswerLeakage: directIssueRows.length,
@@ -318,6 +371,15 @@ const markdown = [
   "# HFW True Variation Audit",
   "",
   "Generated by `npm run check:hfw-true-variation`.",
+  "",
+  "## Categories",
+  "",
+  "- direct_answer_leakage",
+  "- filler_phrase_reuse",
+  "- repeated_sentence_frame",
+  "- multiple_plausible_answers",
+  "- weak_generic_prompt",
+  "- answer_order_only_variants",
   "",
   "## Summary",
   "",
@@ -347,6 +409,21 @@ const markdown = [
   "## Phase Detail",
   "",
   table(["Skill", "Phase", "Selectable", "Sampled Round", "Retry-Safe Replacements", "Targets", "Templates"], phaseRows),
+  "",
+  "## Filler Phrase Reuse",
+  "",
+  reports.some(report => report.fillerPhraseReuse.length)
+    ? table(
+      ["Skill Band", "Phrase", "Uses", "Target Words", "Affected Question IDs"],
+      reports.flatMap(report => report.fillerPhraseReuse.map(row => [
+        row.skillBand,
+        row.phrase,
+        row.uses,
+        row.targetWords.join(", "),
+        row.questionIds.slice(0, 20).join(", ") + (row.questionIds.length > 20 ? ", ..." : "")
+      ]))
+    )
+    : "None.",
   "",
   "## Failures",
   "",
