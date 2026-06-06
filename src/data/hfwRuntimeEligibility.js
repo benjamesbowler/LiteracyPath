@@ -35,6 +35,10 @@ import {
   getAssessmentMediaByPath
 } from "./assessmentMediaRegistry.js";
 import { isHfwQuestionImagePairApproved } from "./hfwQuestionImageReview.js";
+import {
+  isMediaPairingApproved,
+  isMediaPairingQuarantined
+} from "./mediaQaReviewStatus.js";
 
 const HFW_ALLOWED_FORMATS = new Set(HFW_ALLOWED_FORMAT_LIST);
 
@@ -179,7 +183,16 @@ function hfwImagePolicyIssues(question = {}, primaryWord = "") {
   const imagePath = question.imagePath || question.imageUrl || question.image || "";
   const policy = String(question.imagePolicy || question.hfwImagePolicy || "no_image").trim();
   if (!imagePath) return issues;
-  if (!isHfwQuestionImagePairApproved(question, imagePath)) {
+  const pairing = {
+    area: "assessment",
+    skillId: question.skillId || question.assessmentSkillId || "",
+    questionId: approvedQuestionId(question),
+    imagePath
+  };
+  if (isMediaPairingQuarantined(pairing)) {
+    issues.push(`HFW sentence image pairing is quarantined: ${imagePath}`);
+  }
+  if (!(isHfwQuestionImagePairApproved(question, imagePath) || isMediaPairingApproved(pairing))) {
     issues.push(`HFW sentence image lacks exact question-image QA approval: ${imagePath}`);
   }
   if (!policy) issues.push("HFW sentence image is present but imagePolicy is missing");

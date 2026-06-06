@@ -14,6 +14,10 @@ import {
   isHfwQuestionImagePairApproved,
   stripHfwQuestionImageFields
 } from "./hfwQuestionImageReview.js";
+import {
+  isMediaPairingApproved,
+  isMediaPairingQuarantined
+} from "./mediaQaReviewStatus.js";
 import { isGraphemeChoiceQuestion } from "../utils/assessmentChoiceIntent.js";
 
 function answerValue(value) {
@@ -198,17 +202,20 @@ export function resolveQuestionMediaDynamically(question = {}, context = {}) {
   const imageRole = roleForQuestion(question, skillId);
   const resolvedMedia = { image: null, audio: null, warnings: [] };
   const out = { ...question, skillId: question.skillId || skillId, targetWord: question.targetWord || targetWord };
+  const questionId = out.approvedQuestionId || out.questionId || out.id || "";
 
   if (isHfwSentenceQuestion(out, skillId)) {
     const existingImage = currentImagePath(out);
     const existingImageRecord = existingImage ? getAssessmentMediaByPath(existingImage, "image") : null;
     const policy = String(out.imagePolicy || out.hfwImagePolicy || "no_image").trim() || "no_image";
-    const approvedExactPair = Boolean(existingImage && isHfwQuestionImagePairApproved(out, existingImage));
+    const pairing = { area: "assessment", skillId, questionId, imagePath: existingImage };
+    const approvedExactPair = Boolean(existingImage && (isHfwQuestionImagePairApproved(out, existingImage) || isMediaPairingApproved(pairing)));
+    const quarantinedExactPair = Boolean(existingImage && isMediaPairingQuarantined(pairing));
     const allowedPolicy = ["verified_cartoon_target_scene", "verified_cartoon_sentence_scene"].includes(policy);
     const allowedRole = ["verified_cartoon_target_scene", "verified_cartoon_sentence_scene", "verified_target_scene", "verified_sentence_scene"].includes(existingImageRecord?.imageRole);
     const allowedQa = existingImageRecord?.available && !["review_needed", "blocked", "rejected", "deprecated"].includes(existingImageRecord?.qaStatus);
     const allowedStyle = existingImageRecord?.styleType !== "photorealistic";
-    if (approvedExactPair && allowedPolicy && allowedRole && allowedQa && allowedStyle) {
+    if (!quarantinedExactPair && approvedExactPair && allowedPolicy && allowedRole && allowedQa && allowedStyle) {
       resolvedMedia.image = existingImageRecord;
       markUsed(sessionUsage, out, resolvedMedia);
       return {
@@ -262,10 +269,21 @@ export function resolveQuestionMediaDynamically(question = {}, context = {}) {
     role: imageRole,
     level,
     phase
-  });
+  }).filter(record => !isMediaPairingQuarantined({
+    area: "assessment",
+    skillId,
+    questionId,
+    imagePath: record.path
+  }));
   const existingImage = currentImagePath(question);
   const existingImageRecord = existingImage ? getAssessmentMediaByPath(existingImage, "image") : null;
-  const existingImageUsable = Boolean(existingImageRecord?.available && existingImageRecord.normalizedWord === targetWord);
+  const existingImageQuarantined = Boolean(existingImage && isMediaPairingQuarantined({
+    area: "assessment",
+    skillId,
+    questionId,
+    imagePath: existingImage
+  }));
+  const existingImageUsable = Boolean(!existingImageQuarantined && existingImageRecord?.available && existingImageRecord.normalizedWord === targetWord);
   const existingImageUsed = Boolean(sessionUsage?.imagePaths?.has(existingImage));
   const chosenImage = imageCandidates.length
     ? pickLeastRecentlyUsedMedia({ candidates: imageCandidates, sessionUsage, studentUsage, mediaType: "image", role: imageRole })
@@ -283,6 +301,9 @@ export function resolveQuestionMediaDynamically(question = {}, context = {}) {
     resolvedMedia.image = chosenImage;
   } else if (existingImageUsable) {
     resolvedMedia.image = existingImageRecord;
+  } else if (existingImageQuarantined) {
+    Object.assign(out, stripHfwQuestionImageFields(out));
+    resolvedMedia.warnings.push(`image_pairing_quarantined:${existingImage}`);
   } else if (existingImage && !isAssessmentMediaApproved(existingImage, "image")) {
     resolvedMedia.warnings.push(`image_not_registry_approved:${existingImage}`);
   }

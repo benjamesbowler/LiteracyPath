@@ -6,6 +6,10 @@ import {
   isHfwQuestionImagePairApproved,
   stripHfwQuestionImageFields
 } from "./hfwQuestionImageReview.js";
+import {
+  isMediaPairingApproved,
+  isMediaPairingQuarantined
+} from "./mediaQaReviewStatus.js";
 import { getLexiconEntry } from "../content/lexicon/masterWordLexicon.js";
 import { isGraphemeChoiceQuestion } from "../utils/assessmentChoiceIntent.js";
 
@@ -352,6 +356,7 @@ function isHfwSentenceSkill(skillId = "") {
 export function enrichQuestionWithExistingMedia(question = {}) {
   const skillId = normalizeSkillId(question.skillId || question.skill || question.skillName || "");
   if (isHfwSentenceSkill(skillId)) {
+    const questionId = question.approvedQuestionId || question.questionId || question.id || "";
     const existingImage = firstPath(
       question.imagePath,
       question.imageUrl,
@@ -362,7 +367,8 @@ export function enrichQuestionWithExistingMedia(question = {}) {
       question.targetImageUrl,
       question.targetImage
     );
-    if (!existingImage || !isHfwQuestionImagePairApproved(question, existingImage)) {
+    const pairing = { area: "assessment", skillId, questionId, imagePath: existingImage };
+    if (!existingImage || isMediaPairingQuarantined(pairing) || !(isHfwQuestionImagePairApproved(question, existingImage) || isMediaPairingApproved(pairing))) {
       return stripHfwQuestionImageFields({
         ...question,
         imageRequired: false,
@@ -394,8 +400,18 @@ export function enrichQuestionWithExistingMedia(question = {}) {
     const targetImage = shouldReplaceExistingTargetImage(targetWord, existingImage)
       ? targetAsset.image
       : existingImage || targetAsset.image;
-    enriched.imageUrl = targetImage;
-    enriched.imagePath = targetImage;
+    const imageQuarantined = targetImage && isMediaPairingQuarantined({
+      area: "assessment",
+      skillId,
+      questionId: enriched.approvedQuestionId || enriched.questionId || enriched.id || "",
+      imagePath: targetImage
+    });
+    if (!imageQuarantined) {
+      enriched.imageUrl = targetImage;
+      enriched.imagePath = targetImage;
+    } else {
+      Object.assign(enriched, stripHfwQuestionImageFields(enriched));
+    }
     if (!suppressAudio) {
       const existingAudio = firstPath(enriched.audioPath, enriched.audioUrl, enriched.audio);
       const approvedAudio = getApprovedAudioPath(targetWord, existingAudio) || targetAsset.audio;

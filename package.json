@@ -57,6 +57,8 @@
     "audit:assessment-integrity": "node tools/auditAssessmentSkillIntegrity.js",
     "audit:lexicon": "node scripts/auditLexicon.js",
     "check:answer-choice-image-completeness": "node tools/checkAnswerChoiceImageCompleteness.js",
+    "build:media-qa-review": "node tools/buildUnifiedMediaQaReviewData.js",
+    "export:media-qa-quarantine": "node tools/exportMediaQaQuarantineReport.js",
     "check:grammar-image-coverage": "node tools/checkGrammarImageCoverage.js",
     "check:second-block-skill-depth": "node tools/checkSecondBlockSkillMediaDepth.js",
     "check:k3-word-bank-media": "node tools/checkK3WordBankMediaCoverage.js",

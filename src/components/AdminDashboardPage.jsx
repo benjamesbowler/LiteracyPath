@@ -44,6 +44,7 @@ import {
   readHfwQuestionImageReviewOverrides,
   updateHfwQuestionImageReviewOverride
 } from "../data/hfwQuestionImageReview.js";
+import { MediaQaReviewPage } from "./admin/MediaQaReviewPage.jsx";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
 const GUIDED_IMAGE_QA_RESET_KEY = "lpGuidedReadingImageQaResetVersion";
@@ -1420,13 +1421,9 @@ export function AdminDashboardPage({
   function openAdminQaPage(page) {
     setAdminQaPage(page);
     if (typeof window !== "undefined") {
-      const path = page === "images"
-        ? "/admin/media/images"
-        : page === "audio"
-          ? "/admin/media/audio"
-          : page === "guidedReadingImages"
-            ? "/admin/guided-reading/image-qa"
-            : "/";
+      const path = page === "mediaReview" || ["images", "audio", "guidedReadingImages", "hfwQuestionImages"].includes(page)
+        ? "/admin/media-review"
+        : "/";
       window.history.pushState({}, "", path);
     }
   }
@@ -1561,28 +1558,14 @@ export function AdminDashboardPage({
       { id: "archive", label: "Assessment Archive", count: assessmentHistory.length },
       { id: "signups", label: "Signup Requests", count: pendingAccountsWarning ? null : visibleSignupCount },
       { id: "guidedInsight", label: "Guided Reading Insight", count: guidedReadingInsight.active },
-      { id: "guidedMediaQa", label: "Guided Reading Media QA", count: (guidedReadingImageTextQa.needsManualReviewCount || 0) + (guidedReadingImageTextQa.needsReplacementCount || 0) + (guidedReadingWordAudioCoverage.uniqueWordsMissingAudio || 0) },
       { id: "coverage", label: "Content Coverage", count: filteredCoverage.length },
-      { id: "assessmentAudio", label: "Assessment Audio", count: assessmentAudioCoverage.summary?.replacementNeededCount || 0 },
       { id: "teachers", label: "Teachers", count: teachers.length },
       { id: "classes", label: "Classes", count: classes.length },
       { id: "students", label: "Students", count: students.length }
     ];
 
-  if (adminQaPage === "images") {
-    return <MediaQaPage mediaType="image" questions={mediaQuestions} onBack={() => openAdminQaPage("dashboard")} />;
-  }
-
-  if (adminQaPage === "audio") {
-    return <MediaQaPage mediaType="audio" questions={mediaQuestions} onBack={() => openAdminQaPage("dashboard")} />;
-  }
-
-  if (adminQaPage === "guidedReadingImages") {
-    return <GuidedReadingImageQaPage onBack={() => openAdminQaPage("dashboard")} />;
-  }
-
-  if (adminQaPage === "hfwQuestionImages") {
-    return <HfwQuestionImageQaPage onBack={() => openAdminQaPage("dashboard")} />;
+  if (adminQaPage === "mediaReview" || ["images", "audio", "guidedReadingImages", "hfwQuestionImages"].includes(adminQaPage)) {
+    return <MediaQaReviewPage onBack={() => openAdminQaPage("dashboard")} />;
   }
 
   return (
@@ -1633,20 +1616,9 @@ export function AdminDashboardPage({
             </button>
           ))}
           {!isTeacherMode && (
-            <>
-              <button onClick={() => openAdminQaPage("images")} type="button">
-                <span>Image QA</span>
-              </button>
-              <button onClick={() => openAdminQaPage("audio")} type="button">
-                <span>Audio QA</span>
-              </button>
-              <button onClick={() => openAdminQaPage("guidedReadingImages")} type="button">
-                <span>Guided Reading Image QA</span>
-              </button>
-              <button onClick={() => openAdminQaPage("hfwQuestionImages")} type="button">
-                <span>HFW Question Image QA</span>
-              </button>
-            </>
+            <button onClick={() => openAdminQaPage("mediaReview")} type="button">
+              <span>Media QA Review</span>
+            </button>
           )}
         </nav>
       </section>
@@ -1671,16 +1643,8 @@ export function AdminDashboardPage({
                 <strong>{section.count}</strong>
               </button>
             ))}
-            <button className="admin-overview-card" onClick={() => openAdminQaPage("images")} type="button">
-              <span>Image QA</span>
-              <strong>Open</strong>
-            </button>
-            <button className="admin-overview-card" onClick={() => openAdminQaPage("audio")} type="button">
-              <span>Audio QA</span>
-              <strong>Open</strong>
-            </button>
-            <button className="admin-overview-card" onClick={() => openAdminQaPage("guidedReadingImages")} type="button">
-              <span>Guided Reading Image QA</span>
+            <button className="admin-overview-card" onClick={() => openAdminQaPage("mediaReview")} type="button">
+              <span>Media QA Review</span>
               <strong>Open</strong>
             </button>
           </div>
