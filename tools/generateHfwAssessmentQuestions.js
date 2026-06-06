@@ -65,7 +65,7 @@ function commonFields(row = {}) {
     targetWord: row.targetWord,
     answer: row.correctAnswer,
     correctAnswer: row.correctAnswer,
-    itemKey: `${row.targetWord}_${row.questionId}`,
+    itemKey: row.targetWord,
     mediaTarget: `approved-hfw:${row.questionId}`,
     source: "approved_hfw_workbook",
     approvedSource: "approved_hfw_workbook",

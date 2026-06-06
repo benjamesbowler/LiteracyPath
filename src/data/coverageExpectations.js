@@ -8,6 +8,7 @@ import {
   LONG_VOWEL_TEAM_PATTERNS,
   SILENT_E_PATTERNS
 } from "./longVowelPatternData.js";
+import { hfwApprovedWordsBySkill } from "./generated/hfwApprovedQuestionBank.generated.js";
 
 export const initialSoundExpectedItemKeys = [
   "a",
@@ -240,18 +241,42 @@ export const coverageExpectations = {
     note: "Rhyming Level 1 uses simple short-vowel CVC rime families. Level 2 adds harder rimes, blends, digraphs, vowel teams, and r-controlled families. Level 2 ank/unk are held out until two image-backed rhyme words exist for each family."
   },
   hfw_1_25: {
+    itemType: "sight_word",
+    itemKeys: hfwApprovedWordsBySkill.hfw_1_25,
+    levels: {
+      1: hfwApprovedWordsBySkill.hfw_1_25,
+      2: hfwApprovedWordsBySkill.hfw_1_25
+    },
     total: 25,
     unit: "words"
   },
   hfw_26_50: {
+    itemType: "sight_word",
+    itemKeys: hfwApprovedWordsBySkill.hfw_26_50,
+    levels: {
+      1: hfwApprovedWordsBySkill.hfw_26_50,
+      2: hfwApprovedWordsBySkill.hfw_26_50
+    },
     total: 25,
     unit: "words"
   },
   hfw_51_75: {
+    itemType: "sight_word",
+    itemKeys: hfwApprovedWordsBySkill.hfw_51_75,
+    levels: {
+      1: hfwApprovedWordsBySkill.hfw_51_75,
+      2: hfwApprovedWordsBySkill.hfw_51_75
+    },
     total: 25,
     unit: "words"
   },
   hfw_76_100: {
+    itemType: "sight_word",
+    itemKeys: hfwApprovedWordsBySkill.hfw_76_100,
+    levels: {
+      1: hfwApprovedWordsBySkill.hfw_76_100,
+      2: hfwApprovedWordsBySkill.hfw_76_100
+    },
     total: 25,
     unit: "words"
   },

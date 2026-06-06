@@ -2355,7 +2355,7 @@ export function CheckpointDecisionPage({
 
         <div className="checkpoint-detail-grid">
           <section>
-            <h3>Covered this round</h3>
+            <h3>Learned correctly</h3>
             {checkpoint.coveredThisRound.length > 0 ? (
               <div className="word-chip-row">
                 {checkpoint.coveredThisRound.map(item => (
@@ -2363,46 +2363,20 @@ export function CheckpointDecisionPage({
                 ))}
               </div>
             ) : (
-              <p className="muted-text">No item keys were recorded for this round.</p>
+              <p className="muted-text">No correct words were recorded for this round.</p>
             )}
           </section>
 
           <section>
-            <h3>Already covered before this round</h3>
-            {checkpoint.alreadyMastered?.length > 0 ? (
+            <h3>Words to practise</h3>
+            {checkpoint.missedThisRound?.length > 0 ? (
               <div className="word-chip-row">
-                {checkpoint.alreadyMastered.map(item => (
-                  <span className="word-chip mastered" key={item}>{item}</span>
-                ))}
-              </div>
-            ) : (
-              <p className="muted-text">No prior coverage was recorded for this skill.</p>
-            )}
-          </section>
-
-          <section>
-            <h3>Total covered</h3>
-            {checkpoint.totalCoveredItems?.length > 0 ? (
-              <div className="word-chip-row">
-                {checkpoint.totalCoveredItems.map(item => (
-                  <span className="word-chip mastered" key={item}>{item}</span>
-                ))}
-              </div>
-            ) : (
-              <p className="muted-text">Coverage will appear after this round saves.</p>
-            )}
-          </section>
-
-          <section>
-            <h3>Still to cover</h3>
-            {checkpoint.remainingItems.length > 0 ? (
-              <div className="word-chip-row">
-                {checkpoint.remainingItems.map(item => (
+                {checkpoint.missedThisRound.map(item => (
                   <span className="word-chip" key={item}>{item}</span>
                 ))}
               </div>
             ) : (
-              <p className="muted-text">All configured items for this skill are covered.</p>
+              <p className="muted-text">No missed words this round.</p>
             )}
           </section>
 

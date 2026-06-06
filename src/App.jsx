@@ -5031,7 +5031,29 @@ export default function App() {
 
   function formatCoverageKeyLabel(key) {
     const [, itemKey = key] = String(key).split("::");
-    return itemKey;
+    const cleanKey = String(itemKey || "")
+      .replace(/_hfw_curated_.+$/i, "")
+      .replace(/_hfw_[0-9_]+_sentences$/i, "")
+      .replace(/^short_([aeiou])$/i, "short $1")
+      .replace(/_/g, " ")
+      .trim();
+    return cleanKey.toLowerCase() === "i" ? "I" : cleanKey;
+  }
+
+  function formatAnswerRecordItemLabel(record = {}) {
+    const metadata = inferAnswerRecordMetadata(record);
+    const itemKey = metadata?.itemKey || record.itemKey || record.targetWord || record.correct || record.diagnosticTarget || record.chosen || "";
+    const itemType = metadata?.itemType || record.itemType || "";
+    return formatCoverageKeyLabel(itemType ? getItemMasteryStateKeyForValues(itemKey, itemType) : itemKey);
+  }
+
+  function getRoundItemLabels(records = [], { correctOnly = null } = {}) {
+    return Array.from(new Set(
+      records
+        .filter(record => correctOnly === null || Boolean(record.isCorrect) === correctOnly)
+        .map(formatAnswerRecordItemLabel)
+        .filter(Boolean)
+    ));
   }
 
   function buildCheckpointDecision(stage, stageIndex, nextRound, nextRoundItemKeys, passed, nextRoundCorrectItemKeys = []) {
@@ -5064,6 +5086,8 @@ export default function App() {
         .filter(record => Number(record.itemLevel || currentLevel) === currentLevel)
         .map(record => record.targetWord)
         .filter(Boolean);
+      const learnedCorrectly = getRoundItemLabels(stageRecords, { correctOnly: true });
+      const missedThisRound = getRoundItemLabels(stageRecords, { correctOnly: false });
       const reviewLetters = coveredThisRound.filter(letter => alreadyCovered.has(letter));
       const score = nextRound.filter(Boolean).length;
       const coverageComplete = remainingItems.length === 0;
@@ -5085,9 +5109,10 @@ export default function App() {
         passed: effectivePassed,
         accuracyPassed: passed,
         coverageComplete,
-        blockedPassReason: !coverageComplete ? `Great accuracy. Keep going to cover: ${remainingItems.join(", ")}.` : "",
+        blockedPassReason: "",
         nextSkillLabel: skillTree[stageIndex + 1]?.label || "",
-        coveredThisRound,
+        coveredThisRound: learnedCorrectly,
+        missedThisRound,
         alreadyMastered: Array.from(alreadyCovered).filter(letter => !coveredThisRound.includes(letter)),
         totalCoveredItems: Array.from(totalMastered),
         remainingItems,
@@ -5136,10 +5161,12 @@ export default function App() {
           ? ` Content gap: ${depth.contentGaps.map(gap => `${gap.target} has ${gap.availableWordCount}/${gap.requiredWordCount} distinct usable words`).join("; ")}.`
           : "";
         const blockedPassReason = !coverageComplete
-          ? `Great accuracy. Keep going to cover: ${missingCoverage.join(", ")}.`
+          ? ""
           : !depthComplete
-            ? `Great accuracy. Level 2 stays locked until each Level 1 sound has ${FINAL_SOUND_LEVEL_ONE_REQUIRED_CORRECT} correct answers across ${FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS} different words and at least ${FINAL_SOUND_LEVEL_ONE_REQUIRED_SUCCESSFUL_ROUNDS} successful rounds. Still needs practice: ${stillNeedsPractice.join(", ") || "round depth"}.${contentGapText}`
+            ? `Level 2 opens after each Level 1 sound has ${FINAL_SOUND_LEVEL_ONE_REQUIRED_CORRECT} correct answers across ${FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS} different words and at least ${FINAL_SOUND_LEVEL_ONE_REQUIRED_SUCCESSFUL_ROUNDS} successful rounds.${contentGapText}`
             : "";
+        const learnedCorrectly = getRoundItemLabels(currentRoundRecords, { correctOnly: true });
+        const missedThisRound = getRoundItemLabels(currentRoundRecords, { correctOnly: false });
 
         return {
           skillId: stage.id,
@@ -5154,7 +5181,8 @@ export default function App() {
           coverageComplete,
           blockedPassReason,
           nextSkillLabel: skillTree[stageIndex + 1]?.label || "",
-          coveredThisRound: Array.from(new Set(currentRoundRecords.map(getFinalSoundTargetFromEvidence).filter(Boolean))),
+          coveredThisRound: learnedCorrectly,
+          missedThisRound,
           alreadyMastered: previousDepth.coveredTargets.filter(target => !currentRoundRecords.map(getFinalSoundTargetFromEvidence).includes(target)),
           totalCoveredItems: depth.coveredTargets,
           remainingItems: missingCoverage.length ? missingCoverage : stillNeedsPractice,
@@ -5222,6 +5250,8 @@ export default function App() {
     const totalCoveredItems = Array.from(coveredKeys)
       .map(formatCoverageKeyLabel)
       .slice(0, 60);
+    const learnedCorrectly = getRoundItemLabels(currentRoundRecords, { correctOnly: true });
+    const missedThisRound = getRoundItemLabels(currentRoundRecords, { correctOnly: false });
     const coverageComplete = expectedKeys.length
       ? expectedKeys.every(key => coveredKeys.has(key))
       : true;
@@ -5239,11 +5269,10 @@ export default function App() {
       passed: effectivePassed,
       accuracyPassed: passed,
       coverageComplete,
-      blockedPassReason: !coverageComplete && remainingItems.length
-        ? `Great accuracy. Keep going to cover: ${remainingItems.join(", ")}.`
-        : "",
+      blockedPassReason: "",
       nextSkillLabel: skillTree[stageIndex + 1]?.label || "",
-      coveredThisRound,
+      coveredThisRound: learnedCorrectly.length ? learnedCorrectly : coveredThisRound,
+      missedThisRound,
       alreadyMastered,
       totalCoveredItems,
       remainingItems,
