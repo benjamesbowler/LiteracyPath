@@ -39,6 +39,7 @@ import {
   isMediaPairingApproved,
   isMediaPairingQuarantined
 } from "./mediaQaReviewStatus.js";
+import { isHfwSpellingQuestion } from "./isHfwSpellingQuestion.js";
 
 const HFW_ALLOWED_FORMATS = new Set(HFW_ALLOWED_FORMAT_LIST);
 
@@ -255,6 +256,7 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   const pathExists = typeof options.pathExists === "function" ? options.pathExists : null;
   const audioPath = question.audioPath || question.audioUrl || question.audio || "";
   const imagePath = question.imagePath || question.imageUrl || question.image || "";
+  const isSentenceSpellQuestion = isHfwSentenceSpellFormat(format) || (format !== "HFW_LETTER_BUILD" && isHfwSpellingQuestion(question));
   const letterTiles = Array.isArray(question.letterTiles) && question.letterTiles.length
     ? question.letterTiles
     : question.soundTiles;
@@ -282,7 +284,7 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   } else if (!approvedBandSet.has(primaryWord) && !bandSet?.has(primaryWord)) {
     issues.push(`target word "${primaryWord}" is outside approved ${bandId}`);
   }
-  if (!isHfwSentenceSpellFormat(format) && format !== "HFW_LETTER_BUILD" && optionValues.length !== 4) {
+  if (!isSentenceSpellQuestion && format !== "HFW_LETTER_BUILD" && optionValues.length !== 4) {
     issues.push(`HFW live questions require exactly 4 answer options, found ${optionValues.length}`);
   }
   if (isHfwDirectRecognitionFormat(format) || isHfwClozeFormat(format)) {
@@ -335,7 +337,7 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
     }
   }
 
-  if (isHfwSentenceSpellFormat(format)) {
+  if (isSentenceSpellQuestion) {
     const targetLetters = primaryWord.split("");
     const tileLetters = (letterTiles || []).map(value => String(value || "").toLowerCase());
     const correctLetterSequence = Array.isArray(question.correctLetterSequence)

@@ -14,6 +14,10 @@ import {
   isHfwDirectRecognitionFormat,
   isHfwSentenceSpellFormat
 } from "../src/data/hfwAssessmentFormatConfig.js";
+import {
+  getHfwSpellingQuestionIssues,
+  isHfwSpellingQuestion
+} from "../src/data/isHfwSpellingQuestion.js";
 import { getHfwBandWords, normalizeHfwSkillId } from "../src/data/highFrequencyWordBands.js";
 import {
   buildRuntimeQuestionsForSkill,
@@ -122,7 +126,7 @@ function assert(condition, message) {
 }
 
 function validateQuestionChoices(skillId, question, phaseLabel) {
-  if (isHfwSentenceSpellFormat(formatOf(question))) return;
+  if (isHfwSentenceSpellFormat(formatOf(question)) || isHfwSpellingQuestion(question)) return;
   const id = question.id || question.questionId || "(missing id)";
   const choices = choicesOf(question).map(choiceValue).filter(Boolean);
   const answer = answerOf(question);
@@ -146,7 +150,9 @@ function validateRuntimeQuestion(skillId, question) {
 
   assert(allowedFormats.includes(format), `${skillId}/${id}: ${phaseLabel} format ${format} is outside phase allowlist`);
   assert(question.disableAudio === true, `${skillId}/${id}: ${phaseLabel} disableAudio must suppress target-word audio for ${format}`);
-  assert(Boolean(imagePath), `${skillId}/${id}: ${phaseLabel} missing image path`);
+  assert(question.source === "approved_hfw_workbook", `${skillId}/${id}: ${phaseLabel} source must be approved_hfw_workbook`);
+  assert(question.approvedQuestionId || question.questionId, `${skillId}/${id}: ${phaseLabel} missing approved workbook question id`);
+  if (question.imageRequired !== false) assert(Boolean(imagePath), `${skillId}/${id}: ${phaseLabel} missing image path`);
   if (imagePath) assert(publicPathExists(imagePath), `${skillId}/${id}: ${phaseLabel} image does not exist: ${imagePath}`);
   validateQuestionChoices(skillId, question, phaseLabel);
 
@@ -159,17 +165,20 @@ function validateRuntimeQuestion(skillId, question) {
     assert((sentence.match(/___/g) || []).length === 1, `${skillId}/${id}: ${phaseLabel} cloze needs exactly one blank`);
     assert(!hasAmbiguousArticleChoices(question), `${skillId}/${id}: ${phaseLabel} choices contain mutually plausible article answers`);
   }
-  if (isHfwSentenceSpellFormat(format)) {
+  if (isHfwSentenceSpellFormat(format) || isHfwSpellingQuestion(question)) {
     const sentence = String(question.visibleSentenceWithBlank || question.sentence || question.context || "");
     const audioText = String(question.sentenceAudio || question.sentenceText || question.fullSentence || question.spokenPrompt || "");
     const tiles = Array.isArray(question.letterTiles) && question.letterTiles.length ? question.letterTiles : question.soundTiles;
     const sequence = Array.isArray(question.correctLetterSequence) ? question.correctLetterSequence.join("") : "";
     const answer = answerOf(question);
+    const spellingIssues = getHfwSpellingQuestionIssues(question);
     assert(level === 2, `${skillId}/${id}: sentence spell format must be level 2`);
+    assert(isHfwSpellingQuestion(question), `${skillId}/${id}: ${phaseLabel} must route to HFW letter-build spelling panel`);
     assert((sentence.match(/___/g) || []).length === 1, `${skillId}/${id}: ${phaseLabel} sentence spell needs exactly one visible blank`);
     assert(audioText && normalizeWord(audioText).split(/\s+/).includes(answer), `${skillId}/${id}: ${phaseLabel} sentence spell needs sentence audio text with the answer in context`);
     assert(sequence === answer, `${skillId}/${id}: ${phaseLabel} correctLetterSequence must spell ${answer}`);
-    assert(Array.isArray(tiles) && tiles.length === 12, `${skillId}/${id}: ${phaseLabel} sentence spell needs 12 letter tiles`);
+    assert(Array.isArray(tiles) && tiles.length >= answer.length, `${skillId}/${id}: ${phaseLabel} sentence spell needs enough letter tiles to spell ${answer}`);
+    assert(spellingIssues.length === 0, `${skillId}/${id}: ${phaseLabel} HFW spelling panel readiness issues: ${spellingIssues.join("; ")}`);
   }
 }
 

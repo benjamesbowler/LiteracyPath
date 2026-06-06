@@ -23,6 +23,7 @@ import {
 import { summarizeAssessmentHistory } from "../data/assessmentHistoryStore.js";
 import { getFinalSoundsLevel1QuestionIssues } from "../data/earlyPhonicsValidation.js";
 import { getTargetObjectImage } from "../utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
+import { isHfwSpellingQuestion } from "../data/isHfwSpellingQuestion.js";
 import { AssessmentAudioButton } from "./assessment/AssessmentAudioButton.jsx";
 import { HfwLetterBuildPanel } from "./assessment/HfwLetterBuildPanel.jsx";
 
@@ -788,9 +789,7 @@ function isHfwAudioFindWordQuestion(question = {}) {
 }
 
 function isHfwLetterBuildQuestion(question = {}) {
-  const skillId = String(question?.skillId || "").toLowerCase();
-  const format = String(question?.formatType || question?.templateType || "").toUpperCase();
-  return skillId.startsWith("hfw_") && (format === "HFW_LETTER_BUILD" || format.startsWith("HFW_SENTENCE_SPELL"));
+  return isHfwSpellingQuestion(question);
 }
 
 function isGrammarSentenceFitQuestion(question = {}) {
@@ -2818,7 +2817,8 @@ export function AssessmentPage({
     currentQuestion?.questionType === "visual_card_choice" &&
     !isGraphemeChoiceQuestion(currentQuestion);
   const isIxlStyleTemplate =
-    currentQuestion?.questionType === "ixl_template";
+    currentQuestion?.questionType === "ixl_template" ||
+    isHfwLetterBuildQuestion(currentQuestion);
   const isFinalSoundsEndingItem = isFinalSoundsEndingQuestion(currentQuestion);
   const isGraphemeChoiceItem = isGraphemeChoiceQuestion(currentQuestion);
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);

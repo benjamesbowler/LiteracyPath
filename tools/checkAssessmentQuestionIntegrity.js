@@ -18,9 +18,14 @@ import {
   isListenAndFindWordQuestion
 } from "../src/data/listenAndFindAssets.js";
 import { getEarlySkillRuntimeEligibilityIssues } from "../src/utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
+import {
+  getHfwSpellingQuestionIssues,
+  isHfwSpellingQuestionCandidate
+} from "../src/data/isHfwSpellingQuestion.js";
 
 const reportPath = path.join(repoRoot, "docs", "validation", "assessment_question_integrity_audit.md");
 const guidedReadingReplacementPath = path.join(repoRoot, "docs", "assets", "guided_reading_page_replacement_queue.md");
+const HFW_SKILL_IDS = ["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"];
 
 function optionValue(option) {
   if (option && typeof option === "object") {
@@ -185,6 +190,17 @@ const shortVowelRuntimeFailures = shortVowelSelectable
     ]
   }))
   .filter(row => row.issues.length);
+const hfwSpellingCandidates = HFW_SKILL_IDS.flatMap(skillId =>
+  selectableRuntimeQuestionsForSkill(skillId)
+    .filter(isHfwSpellingQuestionCandidate)
+    .map(question => ({ skillId, question }))
+);
+const hfwSpellingFailures = hfwSpellingCandidates
+  .map(row => ({
+    ...row,
+    issues: getHfwSpellingQuestionIssues(row.question)
+  }))
+  .filter(row => row.issues.length);
 const blockedAudioCandidates = activeQuestions
   .map(question => ({ question, issues: audioIssues(question) }))
   .filter(row => row.issues.length);
@@ -203,6 +219,12 @@ const guidedRowsMarkdown = guidedRows.length
     )
   : ["| none | none | none | none | none | No guided reading pages currently need replacement. |"];
 
+const hfwSpellingRowsMarkdown = hfwSpellingFailures.length
+  ? hfwSpellingFailures.map(row =>
+      `| ${row.skillId} | ${row.question.id || row.question.questionId || "(missing)"} | ${targetWord(row.question)} | ${row.issues.join("; ").replace(/\|/g, "\\|")} |`
+    )
+  : ["| none | none | none | All HFW spelling rows are ready for the letter-build panel. |"];
+
 const report = [
   "# Assessment Question Integrity Audit",
   "",
@@ -216,6 +238,8 @@ const report = [
   `- CVC selectable runtime failures: ${cvcRuntimeFailures.length}`,
   `- Short Vowel Discrimination selectable runtime questions checked: ${shortVowelSelectable.length}`,
   `- Short Vowel Discrimination selectable runtime failures: ${shortVowelRuntimeFailures.length}`,
+  `- HFW spelling panel rows checked: ${hfwSpellingCandidates.length}`,
+  `- HFW spelling panel readiness failures: ${hfwSpellingFailures.length}`,
   `- Active candidates blocked by unapproved audio: ${blockedAudioCandidates.length}`,
   `- Guided Reading pages marked for replacement / QA failed: ${guidedRows.length}`,
   "",
@@ -224,6 +248,12 @@ const report = [
   "| Question ID | Source | Skill | Target | Issues |",
   "|---|---|---|---|---|",
   ...questionRows,
+  "",
+  "## HFW Spelling Panel Readiness",
+  "",
+  "| Skill | Question ID | Target | Issues |",
+  "|---|---|---|---|",
+  ...hfwSpellingRowsMarkdown,
   "",
   "## Guided Reading Pages Needing Replacement",
   "",
@@ -251,7 +281,7 @@ const replacementDoc = [
 
 writeFile(guidedReadingReplacementPath, `${replacementDoc.join("\n")}\n`);
 
-if (questionFailures.length || cvcRuntimeFailures.length || shortVowelRuntimeFailures.length) {
+if (questionFailures.length || cvcRuntimeFailures.length || shortVowelRuntimeFailures.length || hfwSpellingFailures.length) {
   console.error(`Assessment question integrity failures: ${questionFailures.length}`);
   questionFailures.slice(0, 30).forEach(row => {
     console.error(`- ${row.question.id || "(missing)"}: ${row.issues.join("; ")}`);
@@ -261,6 +291,9 @@ if (questionFailures.length || cvcRuntimeFailures.length || shortVowelRuntimeFai
   }
   if (shortVowelRuntimeFailures.length) {
     console.error(`Short Vowel Discrimination selectable runtime failures: ${shortVowelRuntimeFailures.length}`);
+  }
+  if (hfwSpellingFailures.length) {
+    console.error(`HFW spelling panel readiness failures: ${hfwSpellingFailures.length}`);
   }
   process.exit(1);
 }
