@@ -2,6 +2,10 @@ import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 import { getChildAudioPath, getChildWordAsset } from "./childAssets.js";
 import { getImportedVocabularyMedia } from "./importedVocabularyMediaManifest.js";
 import { resolveQuestionMediaDynamically } from "./assessmentMediaPicker.js";
+import {
+  isHfwQuestionImagePairApproved,
+  stripHfwQuestionImageFields
+} from "./hfwQuestionImageReview.js";
 import { getLexiconEntry } from "../content/lexicon/masterWordLexicon.js";
 import { isGraphemeChoiceQuestion } from "../utils/assessmentChoiceIntent.js";
 
@@ -341,8 +345,35 @@ function shouldBuildImageCards(question = {}, skillId = "") {
   return Array.isArray(choices) && choices.length > 0;
 }
 
+function isHfwSentenceSkill(skillId = "") {
+  return /^hfw_\d+_\d+$/.test(skillId);
+}
+
 export function enrichQuestionWithExistingMedia(question = {}) {
   const skillId = normalizeSkillId(question.skillId || question.skill || question.skillName || "");
+  if (isHfwSentenceSkill(skillId)) {
+    const existingImage = firstPath(
+      question.imagePath,
+      question.imageUrl,
+      question.image,
+      question.primaryImage,
+      question.questionImage,
+      question.targetImagePath,
+      question.targetImageUrl,
+      question.targetImage
+    );
+    if (!existingImage || !isHfwQuestionImagePairApproved(question, existingImage)) {
+      return stripHfwQuestionImageFields({
+        ...question,
+        imageRequired: false,
+        imagePolicy: "no_image",
+        hfwImagePolicy: "none",
+        hfwImageQaStatus: existingImage ? "not_approved_exact_pair" : "no_image_required"
+      });
+    }
+    return question;
+  }
+
   const inferredTargetWord = inferTargetWord(question);
   const answerWord = normalizeWord(answerValue(question.correctAnswer || question.answer));
   const importedMediaWord = [inferredTargetWord, answerWord]

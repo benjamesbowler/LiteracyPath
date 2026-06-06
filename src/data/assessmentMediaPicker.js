@@ -6,6 +6,14 @@ import {
   normalizeAssessmentMediaWord,
   normalizeAssessmentSkillId
 } from "./assessmentMediaRegistry.js";
+import {
+  isHfwClozeFormat,
+  isHfwSentenceSpellFormat
+} from "./hfwAssessmentFormatConfig.js";
+import {
+  isHfwQuestionImagePairApproved,
+  stripHfwQuestionImageFields
+} from "./hfwQuestionImageReview.js";
 import { isGraphemeChoiceQuestion } from "../utils/assessmentChoiceIntent.js";
 
 function answerValue(value) {
@@ -154,6 +162,12 @@ function currentAudioPath(question = {}) {
   return normalizePath(question.audioPath || question.audioUrl || question.audio || "");
 }
 
+function isHfwSentenceQuestion(question = {}, skillId = "") {
+  const normalizedSkillId = normalizeAssessmentSkillId(skillId || question.skillId || question.skill || question.skillName || "");
+  const format = String(question.formatType || question.templateType || question.questionType || "").toUpperCase();
+  return normalizedSkillId.startsWith("hfw_") && (isHfwClozeFormat(format) || isHfwSentenceSpellFormat(format));
+}
+
 function markUsed(usage, question = {}, resolved = {}) {
   if (!usage) return;
   const image = resolved.image?.path || currentImagePath(question);
@@ -184,6 +198,62 @@ export function resolveQuestionMediaDynamically(question = {}, context = {}) {
   const imageRole = roleForQuestion(question, skillId);
   const resolvedMedia = { image: null, audio: null, warnings: [] };
   const out = { ...question, skillId: question.skillId || skillId, targetWord: question.targetWord || targetWord };
+
+  if (isHfwSentenceQuestion(out, skillId)) {
+    const existingImage = currentImagePath(out);
+    const existingImageRecord = existingImage ? getAssessmentMediaByPath(existingImage, "image") : null;
+    const policy = String(out.imagePolicy || out.hfwImagePolicy || "no_image").trim() || "no_image";
+    const approvedExactPair = Boolean(existingImage && isHfwQuestionImagePairApproved(out, existingImage));
+    const allowedPolicy = ["verified_cartoon_target_scene", "verified_cartoon_sentence_scene"].includes(policy);
+    const allowedRole = ["verified_cartoon_target_scene", "verified_cartoon_sentence_scene", "verified_target_scene", "verified_sentence_scene"].includes(existingImageRecord?.imageRole);
+    const allowedQa = existingImageRecord?.available && !["review_needed", "blocked", "rejected", "deprecated"].includes(existingImageRecord?.qaStatus);
+    const allowedStyle = existingImageRecord?.styleType !== "photorealistic";
+    if (approvedExactPair && allowedPolicy && allowedRole && allowedQa && allowedStyle) {
+      resolvedMedia.image = existingImageRecord;
+      markUsed(sessionUsage, out, resolvedMedia);
+      return {
+        ...out,
+        imageRequired: false,
+        hfwImageQaStatus: "approved",
+        assessmentMediaResolved: true,
+        assessmentMediaResolution: {
+          targetWord,
+          skillId,
+          imageRole: existingImageRecord?.imageRole || imageRole,
+          requiredAudioType: "",
+          imagePath: existingImage,
+          audioPath: "",
+          imageAssetId: existingImageRecord?.id || "",
+          audioAssetId: "",
+          warnings: []
+        }
+      };
+    }
+
+    const stripped = stripHfwQuestionImageFields({
+      ...out,
+      imageRequired: false,
+      imagePolicy: "no_image",
+      hfwImagePolicy: "none",
+      hfwImageQaStatus: existingImage ? "not_approved_exact_pair" : "no_image_required"
+    });
+    markUsed(sessionUsage, stripped, resolvedMedia);
+    return {
+      ...stripped,
+      assessmentMediaResolved: true,
+      assessmentMediaResolution: {
+        targetWord,
+        skillId,
+        imageRole: "",
+        requiredAudioType: "",
+        imagePath: "",
+        audioPath: "",
+        imageAssetId: "",
+        audioAssetId: "",
+        warnings: []
+      }
+    };
+  }
 
   const imageCandidates = getApprovedMediaForTarget({
     word: targetWord,
@@ -268,6 +338,26 @@ export function validateResolvedQuestionMedia(question = {}, resolvedMedia = que
   const audioPath = resolvedMedia.audioPath || currentAudioPath(question);
   const imageRecord = imagePath ? getAssessmentMediaByPath(imagePath, "image") : null;
   const audioRecord = audioPath ? getAssessmentMediaByPath(audioPath, "audio") : null;
+  if (isHfwSentenceQuestion(question, skillId)) {
+    const policy = String(question.imagePolicy || question.hfwImagePolicy || "").trim();
+    if (imagePath && !isHfwQuestionImagePairApproved(question, imagePath)) {
+      issues.push(`HFW sentence image lacks exact question-image QA approval: ${imagePath}`);
+    }
+    if (imagePath && !policy) issues.push("HFW sentence image is present but imagePolicy is missing");
+    if (["no_image", "none", ""].includes(policy) && imagePath) issues.push("HFW sentence imagePolicy is no_image but image media is present");
+    if (imagePath && !["verified_cartoon_target_scene", "verified_cartoon_sentence_scene"].includes(policy)) {
+      issues.push(`HFW sentence image policy is not verified: ${policy || "(missing)"}`);
+    }
+    if (imagePath && imageRecord?.imageRole && !["verified_cartoon_target_scene", "verified_cartoon_sentence_scene", "verified_target_scene", "verified_sentence_scene"].includes(imageRecord.imageRole)) {
+      issues.push(`HFW sentence image role is not verified: ${imageRecord.imageRole}`);
+    }
+    if (imagePath && imageRecord?.styleType === "photorealistic") {
+      issues.push(`HFW sentence image is photorealistic: ${imagePath}`);
+    }
+    if (imagePath && ["review_needed", "blocked", "rejected", "deprecated"].includes(imageRecord?.qaStatus)) {
+      issues.push(`HFW sentence image QA status is not approved: ${imageRecord?.qaStatus || "unknown"}`);
+    }
+  }
   if (imagePath && (!imageRecord?.available || imageRecord.normalizedWord !== targetWord)) {
     issues.push(`image does not resolve approved exact-target media: ${imagePath}`);
   }

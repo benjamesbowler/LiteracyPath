@@ -34,6 +34,7 @@ import {
 import {
   getAssessmentMediaByPath
 } from "./assessmentMediaRegistry.js";
+import { isHfwQuestionImagePairApproved } from "./hfwQuestionImageReview.js";
 
 const HFW_ALLOWED_FORMATS = new Set(HFW_ALLOWED_FORMAT_LIST);
 
@@ -178,6 +179,9 @@ function hfwImagePolicyIssues(question = {}, primaryWord = "") {
   const imagePath = question.imagePath || question.imageUrl || question.image || "";
   const policy = String(question.imagePolicy || question.hfwImagePolicy || "no_image").trim();
   if (!imagePath) return issues;
+  if (!isHfwQuestionImagePairApproved(question, imagePath)) {
+    issues.push(`HFW sentence image lacks exact question-image QA approval: ${imagePath}`);
+  }
   if (!policy) issues.push("HFW sentence image is present but imagePolicy is missing");
   if ((policy || "no_image") === "no_image" || policy === "none") issues.push("HFW sentence imagePolicy is no_image but image media is present");
   if (!["verified_cartoon_target_scene", "verified_cartoon_sentence_scene"].includes(policy)) {

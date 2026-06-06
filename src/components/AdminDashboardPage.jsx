@@ -37,6 +37,13 @@ import {
 import assessmentAudioCoverage from "../content/assessments/assessmentAudioCoverageSummary.generated.json";
 import guidedReadingImageTextQa from "../content/guidedReading/imageTextArtifactSummary.generated.json";
 import guidedReadingWordAudioCoverage from "../content/guidedReading/wordAudioCoverageSummary.generated.json";
+import {
+  HFW_QUESTION_IMAGE_QA_STATUSES,
+  HFW_QUESTION_IMAGE_REJECTION_REASONS,
+  mergeHfwQuestionImageReviewRows,
+  readHfwQuestionImageReviewOverrides,
+  updateHfwQuestionImageReviewOverride
+} from "../data/hfwQuestionImageReview.js";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
 const GUIDED_IMAGE_QA_RESET_KEY = "lpGuidedReadingImageQaResetVersion";
@@ -780,6 +787,189 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
   );
 }
 
+function hfwQuestionImageQaToCsv(rows = []) {
+  const headers = [
+    "questionId",
+    "skillId",
+    "level",
+    "phase",
+    "targetWord",
+    "qaStatus",
+    "rejectionReason",
+    "reviewerNotes",
+    "currentImagePath",
+    "sentenceWithBlank",
+    "fullSentence",
+    "correctAnswer",
+    "answerChoices"
+  ];
+  return [
+    headers.join(","),
+    ...rows.map(row => [
+      row.questionId,
+      row.skillId,
+      row.level,
+      row.phase,
+      row.targetWord,
+      row.qaStatus,
+      row.rejectionReason,
+      row.reviewerNotes,
+      row.currentImagePath,
+      row.sentenceWithBlank,
+      row.fullSentence,
+      row.correctAnswer,
+      (row.answerChoices || []).join(" | ")
+    ].map(csvEscape).join(","))
+  ].join("\n");
+}
+
+function HfwQuestionImageQaPage({ onBack }) {
+  const [overrides, setOverrides] = useState(() => readHfwQuestionImageReviewOverrides());
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [bandFilter, setBandFilter] = useState("all");
+  const [search, setSearch] = useState("");
+  const rows = useMemo(() => mergeHfwQuestionImageReviewRows(overrides), [overrides]);
+  const counts = useMemo(() => rows.reduce((summary, row) => {
+    summary.all += 1;
+    summary[row.qaStatus] = (summary[row.qaStatus] || 0) + 1;
+    if (row.currentImagePath) summary.with_image += 1;
+    return summary;
+  }, { all: 0, with_image: 0 }), [rows]);
+  const bandOptions = useMemo(() => [...new Set(rows.map(row => row.skillId).filter(Boolean))].sort(), [rows]);
+  const visibleRows = rows.filter(row => {
+    const q = search.toLowerCase().trim();
+    const matchesSearch = !q || [
+      row.questionId,
+      row.skillId,
+      row.targetWord,
+      row.fullSentence,
+      row.sentenceWithBlank,
+      row.currentImagePath
+    ].some(value => String(value || "").toLowerCase().includes(q));
+    const matchesStatus = statusFilter === "all" || row.qaStatus === statusFilter || (statusFilter === "with_image" && row.currentImagePath);
+    const matchesBand = bandFilter === "all" || row.skillId === bandFilter;
+    return matchesSearch && matchesStatus && matchesBand;
+  });
+
+  function applyReview(row, patch) {
+    const next = updateHfwQuestionImageReviewOverride(row, patch);
+    setOverrides(next);
+  }
+
+  function exportRows(format) {
+    const base = "literacypath-hfw-question-image-qa";
+    if (format === "csv") downloadTextFile(`${base}.csv`, hfwQuestionImageQaToCsv(visibleRows), "text/csv");
+    if (format === "json") downloadTextFile(`${base}.json`, JSON.stringify(visibleRows, null, 2), "application/json");
+  }
+
+  return (
+    <main className="admin-dashboard page-stack media-qa-page">
+      <section className="card page-stack">
+        <div className="admin-header">
+          <div>
+            <h2>HFW Question Image QA</h2>
+            <p className="muted-text">
+              Review exact HFW question/image pairings. No approval means the student runtime shows no image.
+            </p>
+          </div>
+          <div className="button-row admin-controls">
+            <button className="report-button" onClick={onBack} type="button">Admin Dashboard</button>
+            <button className="report-button" onClick={() => exportRows("csv")} type="button">Export visible CSV</button>
+            <button className="report-button" onClick={() => exportRows("json")} type="button">Export visible JSON</button>
+          </div>
+        </div>
+        <div className="media-qa-rules">
+          <span>exact questionId + imagePath approval only</span>
+          <span>wrong image is worse than no image</span>
+          <span>no random fallback images</span>
+          <span>no photorealism</span>
+          <span>no embedded text/watermarks/logos</span>
+        </div>
+      </section>
+
+      <section className="report-panel page-stack">
+        <div className="media-qa-status-tabs" role="tablist" aria-label="HFW image QA status filters">
+          {["all", ...HFW_QUESTION_IMAGE_QA_STATUSES, "with_image"].map(status => (
+            <button
+              className={statusFilter === status ? "active" : ""}
+              key={status}
+              onClick={() => setStatusFilter(status)}
+              type="button"
+            >
+              {statusLabel(status)} <span>{counts[status] || 0}</span>
+            </button>
+          ))}
+        </div>
+        <div className="admin-content-filters">
+          <input value={search} onChange={event => setSearch(event.target.value)} placeholder="Search question, sentence, target, or image path" type="search" />
+          <select value={statusFilter} onChange={event => setStatusFilter(event.target.value)}>
+            <option value="all">All statuses</option>
+            {HFW_QUESTION_IMAGE_QA_STATUSES.map(status => <option key={status} value={status}>{statusLabel(status)}</option>)}
+            <option value="with_image">With current image</option>
+          </select>
+          <select value={bandFilter} onChange={event => setBandFilter(event.target.value)}>
+            <option value="all">All HFW bands</option>
+            {bandOptions.map(band => <option key={band} value={band}>{band}</option>)}
+          </select>
+        </div>
+      </section>
+
+      <section className="media-qa-grid">
+        {visibleRows.map(row => (
+          <article className={`media-qa-card status-${row.qaStatus}`} key={`${row.questionId}-${row.currentImagePath || "no-image"}`}>
+            {row.currentImagePath ? (
+              <img alt={`${row.questionId} current HFW pairing`} src={row.currentImagePath} />
+            ) : (
+              <div className="teacher-chart-empty">No image assigned</div>
+            )}
+            <div>
+              <h3>{row.targetWord} · {row.questionId}</h3>
+              <p>{row.skillId} · Level {row.level} Phase {row.phase}</p>
+              <span>{statusLabel(row.qaStatus)}</span>
+              <small><strong>Sentence:</strong> {row.sentenceWithBlank}</small>
+              <small><strong>Full:</strong> {row.fullSentence}</small>
+              <small><strong>Choices:</strong> {(row.answerChoices || []).join(", ") || "letter tiles"}</small>
+              <small><strong>Correct:</strong> {row.correctAnswer}</small>
+              <small><strong>Image path:</strong> {row.currentImagePath || "none"}</small>
+              <small><strong>Policy:</strong> {row.imagePolicy || "no_image"}</small>
+            </div>
+            <div className="media-qa-card-actions">
+              <button disabled={!row.currentImagePath} onClick={() => applyReview(row, { qaStatus: "approved", rejectionReason: "", reviewerNotes: row.reviewerNotes || "" })} type="button">
+                Approve image for this exact question
+              </button>
+              <button disabled={!row.currentImagePath} onClick={() => applyReview(row, { qaStatus: "rejected", rejectionReason: row.rejectionReason || "image_does_not_match_sentence" })} type="button">
+                Reject image
+              </button>
+              <button onClick={() => applyReview(row, { qaStatus: "no_image_required", rejectionReason: "", reviewerNotes: row.reviewerNotes || "" })} type="button">
+                No image needed
+              </button>
+              <button onClick={() => applyReview(row, { qaStatus: "needs_kimi", rejectionReason: row.rejectionReason || "image_does_not_match_sentence" })} type="button">
+                Needs Kimi replacement
+              </button>
+              <label>
+                Rejection reason
+                <select value={row.rejectionReason || ""} onChange={event => applyReview(row, { rejectionReason: event.target.value })}>
+                  <option value="">Choose reason</option>
+                  {HFW_QUESTION_IMAGE_REJECTION_REASONS.map(reason => <option key={reason} value={reason}>{statusLabel(reason)}</option>)}
+                </select>
+              </label>
+              <label>
+                Reviewer notes
+                <textarea
+                  onChange={event => applyReview(row, { reviewerNotes: event.target.value })}
+                  placeholder="Add teacher QA notes"
+                  rows={3}
+                  value={row.reviewerNotes || ""}
+                />
+              </label>
+            </div>
+          </article>
+        ))}
+      </section>
+    </main>
+  );
+}
+
 function GuidedReadingImageQaPage({ onBack }) {
   const [overrides, setOverrides] = useState(() => readGuidedImageQaOverrides());
   const [levelOverrides, setLevelOverrides] = useState(() => readGuidedReadingLevelOverrides());
@@ -1391,6 +1581,10 @@ export function AdminDashboardPage({
     return <GuidedReadingImageQaPage onBack={() => openAdminQaPage("dashboard")} />;
   }
 
+  if (adminQaPage === "hfwQuestionImages") {
+    return <HfwQuestionImageQaPage onBack={() => openAdminQaPage("dashboard")} />;
+  }
+
   return (
     <main className={isTeacherMode ? "admin-dashboard teacher-dashboard page-stack" : "admin-dashboard page-stack"}>
       <section className="card page-stack">
@@ -1448,6 +1642,9 @@ export function AdminDashboardPage({
               </button>
               <button onClick={() => openAdminQaPage("guidedReadingImages")} type="button">
                 <span>Guided Reading Image QA</span>
+              </button>
+              <button onClick={() => openAdminQaPage("hfwQuestionImages")} type="button">
+                <span>HFW Question Image QA</span>
               </button>
             </>
           )}
