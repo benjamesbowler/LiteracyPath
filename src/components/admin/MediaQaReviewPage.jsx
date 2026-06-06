@@ -85,6 +85,17 @@ function buildAreaOptions(items = []) {
     .sort((a, b) => a.sort.localeCompare(b.sort));
 }
 
+function reviewQuestionText(row = {}) {
+  return row.text || row.question || row.prompt || row.bookTitle || "No question text listed.";
+}
+
+function reviewAnswerText(row = {}) {
+  if (row.correctAnswer) return row.correctAnswer;
+  if (row.targetWord) return row.targetWord;
+  if (row.answerChoices?.length > 0) return row.answerChoices.join(", ");
+  return "No answer listed.";
+}
+
 export function MediaQaReviewPage({ onBack }) {
   const [overrides, setOverrides] = useState(() => readMediaQaReviewOverrides());
   const [areaFilter, setAreaFilter] = useState("all");
@@ -200,23 +211,21 @@ export function MediaQaReviewPage({ onBack }) {
 
       <section className="media-qa-grid">
         {visibleRows.map(row => (
-          <article className={`media-qa-card status-${row.status}`} key={row.reviewId}>
+          <article className={`media-qa-card media-qa-review-card status-${row.status}`} key={row.reviewId}>
             {row.imagePath ? (
               <img alt={row.targetWord || row.text || row.imagePath} src={row.imagePath} />
             ) : (
               <div className="teacher-chart-empty">No image currently used</div>
             )}
-            <div>
-              <h3>{row.displaySkillName || areaLabel(row.area)}</h3>
-              <p>{areaLabel(row.area)}{row.level ? ` · Level ${row.level}` : ""}{row.phase ? ` · Phase ${row.phase}` : ""}</p>
-              <span>{statusLabel(row.status)}</span>
-              {row.bookTitle && <small><strong>Book:</strong> {row.bookTitle}{row.pageNumber ? ` · Page ${row.pageNumber}` : ""}</small>}
-              {(row.questionId || row.pageId) && <small><strong>{row.questionId ? "Question" : "Page"}:</strong> {row.questionId || row.pageId}</small>}
-              {row.targetWord && <small><strong>Target:</strong> {row.targetWord}</small>}
-              {row.text && <small><strong>Text:</strong> {row.text}</small>}
-              {row.answerChoices?.length > 0 && <small><strong>Choices:</strong> {row.answerChoices.join(", ")}</small>}
-              {row.correctAnswer && <small><strong>Correct:</strong> {row.correctAnswer}</small>}
-              <small><strong>Image path:</strong> {row.imagePath || "none"}</small>
+            <div className="media-qa-review-content">
+              <p className="media-qa-review-line">
+                <strong>Question</strong>
+                <span>{reviewQuestionText(row)}</span>
+              </p>
+              <p className="media-qa-review-line">
+                <strong>Answer</strong>
+                <span>{reviewAnswerText(row)}</span>
+              </p>
             </div>
             <div className="media-qa-card-actions">
               <button disabled={!row.imagePath && row.area !== "assessment"} onClick={() => decide(row, "approved")} type="button">
