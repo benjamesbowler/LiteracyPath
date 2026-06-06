@@ -3,7 +3,6 @@ import {
   getAudioPreferenceStatus
 } from "./audioPreferenceManifest.js";
 import {
-  ALL_HFW_WORD_SET,
   getHfwBandSet,
   isHighFrequencyWordSkill,
   normalizeHfwSkillId
@@ -16,6 +15,7 @@ import {
   isHfwSentenceSpellFormat
 } from "./hfwAssessmentFormatConfig.js";
 import {
+  HFW_ZERO_TOLERANCE_FILLER_PHRASES,
   getHfwFillerPhraseHits,
   getMultiplePlausibleHfwAnswerIssues,
   getWeakGenericHfwPromptIssues
@@ -24,10 +24,16 @@ import {
   hfwQuestionReviewBlockedIds
 } from "./generated/hfwQuestionReviewBlocklist.generated.js";
 import {
-  hfwCuratedSentenceContentKeys,
-  hfwCuratedSentenceIds,
-  hfwCuratedSentenceTextKeys
-} from "./generated/hfwCuratedSentences.generated.js";
+  hfwApprovedQuestionContentKeys,
+  hfwApprovedQuestionIds,
+  hfwApprovedQuestionTextKeys,
+  hfwApprovedWordSet,
+  hfwApprovedWordSetsBySkill,
+  hfwApprovedRowsByQuestionId
+} from "./generated/hfwApprovedQuestionBank.generated.js";
+import {
+  getAssessmentMediaByPath
+} from "./assessmentMediaRegistry.js";
 
 const HFW_ALLOWED_FORMATS = new Set(HFW_ALLOWED_FORMAT_LIST);
 
@@ -129,25 +135,73 @@ function getOptionValues(question = {}) {
     .filter(Boolean);
 }
 
-function curatedTextKey(question = {}, primaryWord = "") {
+function approvedQuestionId(question = {}) {
+  return String(question.approvedQuestionId || question.questionId || question.id || "");
+}
+
+function approvedTextKey(question = {}, primaryWord = "") {
   const visibleSentence = String(question.visibleSentenceWithBlank || question.sentence || question.passage || question.context || "");
   const fullSentence = String(question.sentenceText || question.fullSentence || question.spokenPrompt || question.audioText || "");
   return [normalizeHfwSkillId(getQuestionSkillText(question)), primaryWord, visibleSentence, fullSentence].join("::").toLowerCase();
 }
 
-function getCuratedSourceIssues(question = {}, primaryWord = "") {
+function getApprovedSourceIssues(question = {}, primaryWord = "") {
   const issues = [];
   const source = String(question.source || question.approvedSource || "").toLowerCase();
-  if (!/(workbook|curated)/.test(source)) issues.push("HFW sentence question source is not workbook/curated");
-  if (!question.sentenceId) issues.push("HFW sentence question missing sentenceId");
-  if (question.sentenceId && !hfwCuratedSentenceIds.has(question.sentenceId)) {
-    issues.push(`sentenceId ${question.sentenceId} is not in curated workbook sentence bank`);
+  const questionId = approvedQuestionId(question);
+  const approvedRow = hfwApprovedRowsByQuestionId.get(questionId);
+  if (source !== "approved_hfw_workbook") issues.push("HFW sentence question source is not approved_hfw_workbook");
+  if (!questionId) issues.push("HFW sentence question missing approved questionId");
+  if (questionId && !hfwApprovedQuestionIds.has(questionId)) {
+    issues.push(`questionId ${questionId} is not in approved HFW workbook bank`);
   }
-  if (question.curatedContentKey && !hfwCuratedSentenceContentKeys.has(question.curatedContentKey)) {
-    issues.push("curatedContentKey is not in curated workbook sentence bank");
+  if (question.approvedContentKey && !hfwApprovedQuestionContentKeys.has(question.approvedContentKey)) {
+    issues.push("approvedContentKey is not in approved HFW workbook bank");
   }
-  if (!hfwCuratedSentenceTextKeys.has(curatedTextKey(question, primaryWord))) {
-    issues.push("sentence text does not match curated workbook sentence bank");
+  if (question.contentKey && !hfwApprovedQuestionContentKeys.has(question.contentKey)) {
+    issues.push("contentKey is not in approved HFW workbook bank");
+  }
+  if (!hfwApprovedQuestionTextKeys.has(approvedTextKey(question, primaryWord))) {
+    issues.push("sentence text does not match approved HFW workbook bank");
+  }
+  if (approvedRow && approvedRow.targetWord !== primaryWord) {
+    issues.push(`target word "${primaryWord}" does not match approved row target "${approvedRow.targetWord}"`);
+  }
+  if (approvedRow && Number(approvedRow.level) !== (Number(question.level || question.difficultyLevel) >= 2 ? 2 : 1)) {
+    issues.push("question level does not match approved workbook row");
+  }
+  return issues;
+}
+
+function hfwImagePolicyIssues(question = {}, primaryWord = "") {
+  const issues = [];
+  const imagePath = question.imagePath || question.imageUrl || question.image || "";
+  const policy = String(question.imagePolicy || question.hfwImagePolicy || "no_image").trim();
+  if (!imagePath) return issues;
+  if (!policy) issues.push("HFW sentence image is present but imagePolicy is missing");
+  if ((policy || "no_image") === "no_image" || policy === "none") issues.push("HFW sentence imagePolicy is no_image but image media is present");
+  if (!["verified_cartoon_target_scene", "verified_cartoon_sentence_scene"].includes(policy)) {
+    issues.push(`HFW sentence image policy is not verified: ${policy || "(missing)"}`);
+  }
+  const record = getAssessmentMediaByPath(imagePath, "image");
+  if (!record) {
+    issues.push(`HFW sentence image is not in assessment media registry: ${imagePath}`);
+    return issues;
+  }
+  if (record.normalizedWord !== primaryWord && policy === "verified_cartoon_target_scene") {
+    issues.push(`HFW verified target scene image target "${record.normalizedWord}" does not match "${primaryWord}"`);
+  }
+  if (!["verified_cartoon_target_scene", "verified_cartoon_sentence_scene", "verified_target_scene", "verified_sentence_scene"].includes(record.imageRole)) {
+    issues.push(`HFW sentence image role is not verified: ${record.imageRole || "unknown"}`);
+  }
+  if (record.styleType === "photorealistic") {
+    issues.push(`HFW sentence image is photorealistic: ${imagePath}`);
+  }
+  if (["review_needed", "blocked", "rejected", "deprecated"].includes(record.qaStatus)) {
+    issues.push(`HFW sentence image QA status is not approved: ${record.qaStatus}`);
+  }
+  if (!record.available) {
+    issues.push(`HFW sentence image is not available for assessment runtime: ${imagePath}`);
   }
   return issues;
 }
@@ -163,6 +217,7 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
 
   const issues = [];
   const bandSet = getHfwBandSet(bandId);
+  const approvedBandSet = hfwApprovedWordSetsBySkill[bandId] || new Set();
   const format = getFormat(question);
   const itemType = String(question.itemType || question.type || "").toLowerCase();
   const promptText = getPromptText(question);
@@ -170,7 +225,12 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   const questionWords = getQuestionWords(question);
   const optionWords = getOptionWords(question);
   const optionValues = getOptionValues(question);
-  const primaryWord = questionWords.find(word => bandSet?.has(word)) || questionWords[0] || "";
+  const primaryWord =
+    questionWords.find(word => approvedBandSet.has(word)) ||
+    questionWords.find(word => bandSet?.has(word)) ||
+    normalizeWord(question.targetWord || question.correctAnswer || question.answer || "") ||
+    questionWords[0] ||
+    "";
   const declaredQuestionBand = normalizeHfwSkillId(getQuestionSkillText(question));
   const promptWords = normalizeWord(visiblePromptText).split(/\s+/).filter(Boolean);
   const answer = normalizeWord(question.correctAnswer || question.answer || "");
@@ -190,22 +250,28 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   }
   if (HFW_BLOCKED_FORMATS.has(format)) issues.push(`${format} is not an HFW-safe template`);
   if (!HFW_ALLOWED_FORMATS.has(format)) issues.push(`${format} is not in the HFW allowlist`);
-  if (PHONICS_PROMPT_PATTERN.test(promptText)) issues.push("prompt is phonics/picture-matching, not HFW recognition");
+  const sourceIsApprovedHfwWorkbook = String(question.source || question.approvedSource || "").toLowerCase() === "approved_hfw_workbook";
+  const promptForPhonicsCheck = sourceIsApprovedHfwWorkbook
+    ? [question.prompt, question.question].filter(Boolean).join(" ")
+    : promptText;
+  if (PHONICS_PROMPT_PATTERN.test(promptForPhonicsCheck)) {
+    issues.push("prompt is phonics/picture-matching, not HFW recognition");
+  }
   if (WEAK_HFW_PROMPT_PATTERN.test(visiblePromptText)) issues.push("direct answer-leaking HFW prompt is blocked");
   for (const leakageIssue of getHfwDirectAnswerLeakageIssues(question)) issues.push(leakageIssue);
   if (itemType && itemType !== "sight_word") issues.push(`itemType is ${itemType}, not sight_word`);
   if (!primaryWord) {
     issues.push("missing target HFW word");
-  } else if (!bandSet?.has(primaryWord)) {
-    issues.push(`target word "${primaryWord}" is outside ${bandId}`);
+  } else if (!approvedBandSet.has(primaryWord) && !bandSet?.has(primaryWord)) {
+    issues.push(`target word "${primaryWord}" is outside approved ${bandId}`);
   }
   if (!isHfwSentenceSpellFormat(format) && format !== "HFW_LETTER_BUILD" && optionValues.length !== 4) {
     issues.push(`HFW live questions require exactly 4 answer options, found ${optionValues.length}`);
   }
   if (isHfwDirectRecognitionFormat(format) || isHfwClozeFormat(format)) {
-    const nonHfwOptions = optionWords.filter(word => !ALL_HFW_WORD_SET.has(word));
+    const nonHfwOptions = optionWords.filter(word => !hfwApprovedWordSet.has(word));
     if (nonHfwOptions.length) {
-      issues.push(`non-HFW answer options: ${[...new Set(nonHfwOptions)].join(", ")}`);
+      issues.push(`answer options outside approved HFW bank: ${[...new Set(nonHfwOptions)].join(", ")}`);
     }
   }
 
@@ -214,7 +280,7 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
     if (audioPath) issues.push("direct-recognition HFW questions must not include audio");
     if (!imagePath) {
       issues.push("direct-recognition HFW question needs a context image");
-    } else if (pathExists && !pathExists(imagePath)) {
+    } else if (imagePath && pathExists && !pathExists(imagePath)) {
       issues.push(`image file does not exist: ${imagePath}`);
     }
   }
@@ -234,7 +300,11 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   }
 
   if (isHfwClozeFormat(format)) {
-    for (const issue of getCuratedSourceIssues(question, primaryWord)) issues.push(issue);
+    for (const issue of getApprovedSourceIssues(question, primaryWord)) issues.push(issue);
+    for (const issue of hfwImagePolicyIssues(question, primaryWord)) issues.push(issue);
+    if ((Number(question.level || question.difficultyLevel) >= 2 ? 2 : 1) !== 1) {
+      issues.push("approved HFW level 1 cloze format is used outside level 1");
+    }
     const blankCount = (sentence.match(/___/g) || []).length;
     if (blankCount !== 1) issues.push(`sentence cloze needs exactly one blank, found ${blankCount}`);
     if (answer && answer !== primaryWord) issues.push(`correct answer "${answer}" does not match target word "${primaryWord}"`);
@@ -256,10 +326,14 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
       : [];
     const visibleSentence = String(question.visibleSentenceWithBlank || question.sentence || question.passage || question.context || "");
     const fullSentence = String(question.sentenceText || question.fullSentence || question.spokenPrompt || question.audioText || "");
-    for (const issue of getCuratedSourceIssues(question, primaryWord)) issues.push(issue);
+    for (const issue of getApprovedSourceIssues(question, primaryWord)) issues.push(issue);
+    for (const issue of hfwImagePolicyIssues(question, primaryWord)) issues.push(issue);
+    if ((Number(question.level || question.difficultyLevel) >= 2 ? 2 : 1) !== 2) {
+      issues.push("approved HFW listen-and-spell format is used outside level 2");
+    }
     const blankCount = (visibleSentence.match(/___/g) || []).length;
     if (blankCount !== 1) issues.push(`sentence-spell needs exactly one visible blank, found ${blankCount}`);
-    for (const phrase of getHfwFillerPhraseHits(visibleSentence)) {
+    for (const phrase of getHfwFillerPhraseHits(visibleSentence).filter(phrase => !sourceIsApprovedHfwWorkbook || HFW_ZERO_TOLERANCE_FILLER_PHRASES.has(phrase))) {
       issues.push(`filler_phrase_reuse:${phrase}`);
     }
     if (!fullSentence || !normalizeWord(fullSentence).split(/\s+/).includes(primaryWord)) {
@@ -268,8 +342,8 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
     if (correctLetterSequence.join("") !== primaryWord) {
       issues.push(`correctLetterSequence does not spell "${primaryWord}"`);
     }
-    if (!Array.isArray(letterTiles) || letterTiles.length !== 12) {
-      issues.push(`sentence-spell HFW questions need exactly 12 letter tiles, found ${letterTiles?.length || 0}`);
+    if (!Array.isArray(letterTiles) || letterTiles.length < targetLetters.length) {
+      issues.push(`sentence-spell HFW questions need enough letter tiles to spell target, found ${letterTiles?.length || 0}`);
     }
     const available = tileLetters.reduce((counts, letter) => ({
       ...counts,
@@ -285,9 +359,9 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
     if (!question.sentenceAudio && !question.spokenPrompt && !question.audioText) {
       issues.push("sentence-spell needs sentence audio text");
     }
-    if (!imagePath) {
+    if (question.imageRequired !== false && !imagePath) {
       issues.push("sentence-spell HFW question needs a context image");
-    } else if (pathExists && !pathExists(imagePath)) {
+    } else if (imagePath && pathExists && !pathExists(imagePath)) {
       issues.push(`image file does not exist: ${imagePath}`);
     }
   }
@@ -302,9 +376,9 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   }
 
   if (isHfwClozeFormat(format)) {
-    if (!imagePath) {
+    if (question.imageRequired !== false && !imagePath) {
       issues.push("image-context HFW question needs a context image");
-    } else if (pathExists && !pathExists(imagePath)) {
+    } else if (imagePath && pathExists && !pathExists(imagePath)) {
       issues.push(`image file does not exist: ${imagePath}`);
     }
   }

@@ -1,42 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import {
-  HFW_FORMATS_BY_PHASE,
-  hfwPhaseKey
-} from "../src/data/hfwAssessmentFormatConfig.js";
-import { HFW_WORD_BANDS } from "../src/data/highFrequencyWordBands.js";
-import {
-  hfwAssessmentImageVariants
-} from "../src/data/generated/assessmentImageVariants.generated.js";
-import {
-  hfwCuratedSentences
-} from "../src/data/generated/hfwCuratedSentences.generated.js";
+import { hfwApprovedQuestionBank } from "../src/data/generated/hfwApprovedQuestionBank.generated.js";
 import {
   getMultiplePlausibleHfwAnswerIssues,
-  normalizeHfwSentenceFrame,
-  normalizeHfwText
+  getWeakGenericHfwPromptIssues
 } from "../src/data/hfwQualityRules.js";
-import {
-  hfwQuestionReviewBlockedContentKeys,
-  hfwQuestionReviewBlockedIds,
-  hfwQuestionReviewBlockedSentenceFrames
-} from "../src/data/generated/hfwQuestionReviewBlocklist.generated.js";
 
 const outputPath = path.join("src", "data", "generated", "hfwAssessmentQuestions.generated.js");
-
-const ambiguityGroups = [
-  ["come", "go"],
-  ["look", "see"],
-  ["make", "do"],
-  ["said", "say"],
-  ["has", "have"],
-  ["a", "an", "the"],
-  ["this", "that", "it"],
-  ["my", "your", "his", "her", "our", "their"],
-  ["is", "are", "was", "were"],
-  ["to", "in", "on", "of", "for", "with", "by", "into", "out", "over", "around", "before", "after"]
-];
+const strictRuntimeRejectPattern = /Tap the word|Find the word|Which word says|When the train slowed|When the ball bounced|before snack|with a smile|may choose a book|truck stopped by the gate/i;
 
 function normalizeWord(value = "") {
   return String(value || "")
@@ -46,40 +18,11 @@ function normalizeWord(value = "") {
     .trim();
 }
 
-function slug(value = "") {
-  return normalizeWord(value).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+function skillLabel(skillId = "") {
+  return `High-Frequency Words ${String(skillId).replace("hfw_", "").replace("_", "-")}`;
 }
 
-function deterministicHash(value = "") {
-  return Array.from(String(value)).reduce((hash, char) => ((hash << 5) - hash + char.charCodeAt(0)) | 0, 0);
-}
-
-function phaseFromSentence(row = {}) {
-  if (Number(row.level) && Number(row.phase)) {
-    return {
-      level: Number(row.level) >= 2 ? 2 : 1,
-      phase: Number(row.phase) === 2 ? 2 : 1
-    };
-  }
-  const number = Number(row.sentenceNumber) || 1;
-  if (number <= 5) return { level: 1, phase: 1 };
-  if (number <= 10) return { level: 1, phase: 2 };
-  if (number <= 15) return { level: 2, phase: 1 };
-  return { level: 2, phase: 2 };
-}
-
-function forbiddenDistractors(target, sentence = "") {
-  const forbidden = new Set([target]);
-  const sentenceWords = new Set(normalizeWord(sentence).split(/\s+/).filter(Boolean));
-  for (const word of sentenceWords) forbidden.add(word);
-  const group = ambiguityGroups.find(words => words.includes(target));
-  if (group) {
-    for (const word of group) forbidden.add(word);
-  }
-  return forbidden;
-}
-
-function optionObjects(values, target) {
+function optionObjects(values = [], target = "") {
   return values.map(value => ({
     label: value,
     value,
@@ -89,204 +32,145 @@ function optionObjects(values, target) {
   }));
 }
 
-function answerOptions({ target, bandWords, sentence = "", seed = 0 }) {
-  const forbidden = forbiddenDistractors(target, sentence);
-  const ranked = bandWords
-    .map(normalizeWord)
-    .filter(Boolean)
-    .filter(word => !forbidden.has(word))
-    .map(word => ({
-      word,
-      sort: (word.charCodeAt(0) * 17 + word.length * 7 + seed) % 101
-    }))
-    .sort((a, b) => a.sort - b.sort || a.word.localeCompare(b.word))
-    .map(item => item.word);
-  const selected = [];
-  for (const word of ranked) {
-    const trialQuestion = {
-      answer: target,
-      targetWord: target,
-      sentence,
-      answerOptions: [target, ...selected, word]
-    };
-    if (!selected.includes(word) && !getMultiplePlausibleHfwAnswerIssues(trialQuestion).length) {
-      selected.push(word);
-    }
-    if (selected.length === 3) break;
+function hasUsableLetterTiles(row = {}) {
+  const available = (row.letterTiles || []).reduce((counts, letter) => {
+    counts[letter] = (counts[letter] || 0) + 1;
+    return counts;
+  }, {});
+  for (const letter of String(row.targetWord || "").split("")) {
+    if (!available[letter]) return false;
+    available[letter] -= 1;
   }
-  const fallbackWords = bandWords.map(normalizeWord).filter(word => word && word !== target && !selected.includes(word) && !forbidden.has(word));
-  for (const word of fallbackWords) {
-    if (selected.length >= 3) break;
-    selected.push(word);
-  }
-  const values = [target, ...selected].slice(0, 4);
-  const rotateBy = Math.abs(seed) % values.length;
-  return optionObjects([...values.slice(rotateBy), ...values.slice(0, rotateBy)], target);
+  return true;
 }
 
-function buildLetterTiles(word, seed = 0) {
-  const alphabet = "etaoinshrdlucmfwypvbgkqjxz";
-  const targetLetters = String(word || "").toLowerCase().replace(/[^a-z]/g, "").split("");
-  const tiles = [...targetLetters];
-  let index = Math.abs(Number(seed) || 0);
-  while (tiles.length < 12) {
-    tiles.push(alphabet[index % alphabet.length]);
-    index += 5;
-  }
-  return tiles
-    .map((letter, tileIndex) => ({ letter, sortKey: (tileIndex * 7 + seed) % 17 }))
-    .sort((a, b) => a.sortKey - b.sortKey || a.letter.localeCompare(b.letter))
-    .map(item => item.letter);
-}
-
-function imagePathFor({ skillId, target, level, phase, seed }) {
-  const phaseKey = `l${level}p${phase}`;
-  const paths = hfwAssessmentImageVariants[skillId]?.[target]?.[phaseKey] || [];
-  if (!paths.length) return "";
-  return paths[Math.abs(seed) % paths.length];
-}
-
-function reviewContentKey({ target, format, sentence, options = [], imagePath = "" }) {
-  return [
-    target,
-    String(format || "").toUpperCase(),
-    normalizeHfwText(sentence),
-    target,
-    options.map(option => normalizeWord(option.value || option)).sort().join("|"),
-    imagePath
-  ].filter(Boolean).join("::");
-}
-
-function isBlockedByTeacherReview({ id, target, format, sentence, options = [], imagePath = "" }) {
-  if (hfwQuestionReviewBlockedIds.has(id)) return true;
-  if (hfwQuestionReviewBlockedSentenceFrames.has(`${target}::${normalizeHfwSentenceFrame(sentence)}`)) return true;
-  return hfwQuestionReviewBlockedContentKeys.has(reviewContentKey({
-    target,
-    format,
-    sentence,
-    options,
-    imagePath
-  }));
-}
-
-function questionForSentence(row, index, ordinalInTargetPhase = 0) {
-  const target = normalizeWord(row.targetWord);
-  const skillId = row.skillId;
-  const bandWords = HFW_WORD_BANDS[skillId] || [];
-  if (!target || !skillId || !bandWords.includes(target)) return null;
-  const { level, phase } = phaseFromSentence(row);
-  const isSpell = level >= 2;
-  const phaseKeyValue = hfwPhaseKey(level, phase);
-  const formats = HFW_FORMATS_BY_PHASE[phaseKeyValue] || [];
-  const seed = Number(row.sentenceNumber || row.sourceRow || index + 1);
-  const formatSeed = deterministicHash(`${skillId}:${target}:${phaseKeyValue}`) + ordinalInTargetPhase;
-  const format = formats[Math.abs(formatSeed) % Math.max(formats.length, 1)] || `HFW_SENTENCE_${isSpell ? "SPELL" : "CLOZE"}_${phaseKeyValue}_01`;
-  const id = `hfw_curated_${skillId}_${slug(target)}_${phaseKeyValue.toLowerCase()}_${String(seed).padStart(3, "0")}`;
-  const sentence = String(row.sentenceWithBlank || "").trim();
-  const fullSentence = String(row.fullSentence || "").trim();
-  const imagePath = imagePathFor({ skillId, target, level, phase, seed });
-  const common = {
-    id,
-    skillId,
-    assessmentSkillId: skillId,
-    skillName: `High-Frequency Words ${skillId.replace("hfw_", "").replace("_", "-")}`,
-    level,
-    phase,
-    difficultyLevel: level,
+function commonFields(row = {}) {
+  return {
+    id: row.questionId,
+    questionId: row.questionId,
+    approvedQuestionId: row.questionId,
+    skillId: row.skillId,
+    assessmentSkillId: row.skillId,
+    skillName: skillLabel(row.skillId),
+    band: row.band,
+    level: row.level,
+    phase: row.phase,
+    difficultyLevel: row.level,
     itemType: "sight_word",
     disableAudio: true,
     noAudio: true,
-    itemKey: `${target}_${row.sentenceId}`,
-    targetWord: target,
-    answer: target,
-    correctAnswer: target,
-    imagePath,
-    imageUrl: imagePath,
-    mediaTarget: `hfw-curated:${skillId}:${target}:${row.sentenceId}`,
-    source: "workbook_curated",
-    approvedSource: "workbook",
-    sentenceId: row.sentenceId,
-    curatedContentKey: row.contentKey,
+    imageRequired: false,
+    imagePolicy: row.imagePolicy,
+    hfwImagePolicy: row.imagePolicy === "no_image" ? "none" : row.imagePolicy,
+    targetWord: row.targetWord,
+    answer: row.correctAnswer,
+    correctAnswer: row.correctAnswer,
+    itemKey: `${row.targetWord}_${row.questionId}`,
+    mediaTarget: `approved-hfw:${row.questionId}`,
+    source: "approved_hfw_workbook",
+    approvedSource: "approved_hfw_workbook",
+    sourceWorkbook: row.sourceWorkbook,
     sourceSheet: row.sourceSheet,
     sourceRow: row.sourceRow,
-    formatType: format,
-    templateType: format
+    sourceStatus: row.sourceStatus,
+    fullSentence: row.fullSentence,
+    sentenceText: row.fullSentence,
+    sentence: row.sentenceWithBlank,
+    visibleSentenceWithBlank: row.sentenceWithBlank,
+    context: row.sentenceWithBlank,
+    approvedContentKey: row.contentKey,
+    contentKey: row.contentKey,
+    workbookContentKey: row.workbookContentKey,
+    templateKey: row.templateKey,
+    runtimeTemplateKey: row.templateKey,
+    formatType: row.templateKey,
+    templateType: row.templateKey,
+    imagePrompt: row.imagePrompt,
+    cartoonImageNeeded: row.cartoonImageNeeded,
+    workbookImagePolicy: row.workbookImagePolicy,
+    imageUseRule: row.imageUseRule
   };
+}
 
-  if (!sentence || !fullSentence || (sentence.match(/___/g) || []).length !== 1) return null;
+function questionForApprovedRow(row = {}) {
+  const target = normalizeWord(row.targetWord);
+  if (!row.questionId || !target || row.correctAnswer !== target) return null;
+  if (!row.fullSentence || !row.sentenceWithBlank || (row.sentenceWithBlank.match(/___/g) || []).length !== 1) return null;
+  if (strictRuntimeRejectPattern.test([
+    row.prompt,
+    row.sentenceWithBlank,
+    row.fullSentence
+  ].filter(Boolean).join(" "))) return null;
 
-  if (isSpell) {
-    if (isBlockedByTeacherReview({ id, target, format, sentence, options: [], imagePath })) return null;
-    const tiles = buildLetterTiles(target, seed);
-    const prompt = "Listen to the sentence. Spell the word that fits.";
+  const common = commonFields(row);
+  if (row.level === 2 || row.questionType === "hfw_sentence_spell") {
+    if (!hasUsableLetterTiles(row)) return null;
+    const prompt = row.prompt || "Listen to the sentence. Spell the missing word.";
     return {
       ...common,
       questionType: "hfw_sentence_spell",
       prompt,
       question: prompt,
-      context: sentence,
-      sentence,
-      visibleSentenceWithBlank: sentence,
-      sentenceText: fullSentence,
-      fullSentence,
-      spokenPrompt: fullSentence,
-      sentenceAudio: fullSentence,
-      audioText: fullSentence,
-      correctLetterSequence: target.split(""),
-      letterTiles: tiles,
-      soundTiles: tiles,
-      distractorLetters: tiles.filter((letter, tileIndex) => !target[tileIndex] || letter !== target[tileIndex])
+      spokenPrompt: row.fullSentence,
+      sentenceAudio: row.fullSentence,
+      audioText: row.fullSentence,
+      letterTiles: row.letterTiles,
+      soundTiles: row.letterTiles,
+      correctLetterSequence: row.correctLetterSequence,
+      distractorLetters: row.letterTiles.filter(letter => !row.correctLetterSequence.includes(letter))
     };
   }
 
-  const options = answerOptions({ target, bandWords, sentence, seed });
-  if (options.length !== 4) return null;
-  if (isBlockedByTeacherReview({ id, target, format, sentence, options, imagePath })) return null;
-  const prompt = phase === 2
-    ? "Read the sentence. Choose the word that fits."
-    : "Choose the word that completes the sentence.";
+  const options = row.answerChoices || [];
+  if (options.length !== 4 || !options.includes(target)) return null;
+  const prompt = row.prompt || "Read the sentence. Choose the word that fits.";
+  const trialQuestion = {
+    ...common,
+    source: "approved_hfw_workbook",
+    approvedSource: "approved_hfw_workbook",
+    answerOptions: options,
+    options,
+    choices: options
+  };
+  if (getMultiplePlausibleHfwAnswerIssues(trialQuestion).length) return null;
+  if (getWeakGenericHfwPromptIssues(trialQuestion).length) return null;
   return {
     ...common,
     questionType: "multiple_choice",
     prompt,
     question: prompt,
-    sentence,
-    visibleSentenceWithBlank: sentence,
-    fullSentence,
-    context: sentence,
-    choices: options.map(option => option.value),
-    answerOptions: options,
-    options
+    choices: options,
+    answerOptions: optionObjects(options, target),
+    options: optionObjects(options, target)
   };
 }
 
-function generateQuestions() {
-  const counters = new Map();
-  return hfwCuratedSentences
-    .map((row, index) => {
-      const target = normalizeWord(row.targetWord);
-      const { level, phase } = phaseFromSentence(row);
-      const phaseKeyValue = hfwPhaseKey(level, phase);
-      const counterKey = `${row.skillId}:${target}:${phaseKeyValue}`;
-      const ordinal = counters.get(counterKey) || 0;
-      counters.set(counterKey, ordinal + 1);
-      return questionForSentence(row, index, ordinal);
-    })
-    .filter(Boolean);
-}
+const questions = hfwApprovedQuestionBank
+  .map(questionForApprovedRow)
+  .filter(Boolean);
 
-const questions = generateQuestions();
-fs.writeFileSync(outputPath, `// Generated by tools/generateHfwAssessmentQuestions.js from hfwCuratedSentences.generated.js. Do not hand-edit.\n\nexport const hfwAssessmentQuestions = ${JSON.stringify(questions, null, 2)};\n`);
+fs.writeFileSync(
+  outputPath,
+  `// Generated by tools/generateHfwAssessmentQuestions.js from hfwApprovedQuestionBank.generated.js. Do not hand-edit.\n\nexport const hfwAssessmentQuestions = ${JSON.stringify(questions, null, 2)};\n`
+);
+
+const skillIds = [...new Set(hfwApprovedQuestionBank.map(row => row.skillId))].sort();
 console.log(JSON.stringify({
   generated: outputPath,
-  source: "src/data/generated/hfwCuratedSentences.generated.js",
+  source: "src/data/generated/hfwApprovedQuestionBank.generated.js",
+  approvedRows: hfwApprovedQuestionBank.length,
   questions: questions.length,
-  bySkill: Object.fromEntries(Object.keys(HFW_WORD_BANDS).map(skillId => [
+  rejectedRows: hfwApprovedQuestionBank.length - questions.length,
+  bySkill: Object.fromEntries(skillIds.map(skillId => [
     skillId,
     questions.filter(question => question.skillId === skillId).length
   ])),
-  clozeBySkill: Object.fromEntries(Object.keys(HFW_WORD_BANDS).map(skillId => [
+  level1BySkill: Object.fromEntries(skillIds.map(skillId => [
     skillId,
-    questions.filter(question => question.skillId === skillId && question.questionType === "multiple_choice").length
+    questions.filter(question => question.skillId === skillId && question.level === 1).length
+  ])),
+  level2BySkill: Object.fromEntries(skillIds.map(skillId => [
+    skillId,
+    questions.filter(question => question.skillId === skillId && question.level === 2).length
   ]))
 }, null, 2));
