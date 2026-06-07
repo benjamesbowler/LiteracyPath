@@ -3117,6 +3117,11 @@ body {
   border-color: rgba(245, 158, 11, 0.34);
 }
 
+.media-qa-card.selected {
+  border-color: rgba(59, 130, 246, 0.55);
+  box-shadow: 0 12px 28px rgba(59, 130, 246, 0.16);
+}
+
 .media-qa-select {
   display: inline-flex;
   gap: 8px;
@@ -3183,6 +3188,10 @@ body {
   font-weight: 850;
 }
 
+.media-qa-card-actions button:only-child {
+  grid-column: 1 / -1;
+}
+
 .media-qa-card-actions button.danger,
 .report-button.danger {
   border-color: rgba(194, 65, 75, 0.32);
@@ -3192,6 +3201,69 @@ body {
 
 .media-qa-review-card {
   grid-template-rows: minmax(150px, 210px) minmax(88px, auto) auto;
+}
+
+.media-qa-card-select {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  width: fit-content;
+  color: var(--lp-color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.media-qa-card .media-qa-card-select span {
+  display: inline;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.media-qa-review-mode,
+.media-qa-bulk-review-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.media-qa-review-mode button,
+.media-qa-bulk-review-bar button {
+  min-height: 34px;
+  padding: 7px 12px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--lp-color-text-strong);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.media-qa-review-mode button.active,
+.media-qa-bulk-review-bar button:not(:disabled):hover,
+.media-qa-bulk-review-bar button:not(:disabled):focus-visible {
+  border-color: rgba(59, 130, 246, 0.36);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.media-qa-bulk-review-bar {
+  padding: 10px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.media-qa-bulk-review-bar span {
+  color: var(--lp-color-text-muted);
+  font-size: 0.8rem;
+  font-weight: 900;
 }
 
 .media-qa-review-card img,

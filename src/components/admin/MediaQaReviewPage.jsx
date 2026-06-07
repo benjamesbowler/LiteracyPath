@@ -8,6 +8,10 @@ import {
 } from "../../data/mediaQaReviewStatus.js";
 
 const REVIEW_BATCH_SIZE = 24;
+const REVIEW_MODES = {
+  individual: "individual",
+  multiselect: "multiselect"
+};
 
 function statusLabel(status = "") {
   if (status === "approved") return "Approved";
@@ -97,6 +101,14 @@ function reviewAnswerText(row = {}) {
   return "No answer listed.";
 }
 
+function canApproveRow(row = {}) {
+  return Boolean(row.imagePath) || row.area === "assessment";
+}
+
+function canQuarantineRow(row = {}) {
+  return Boolean(row.imagePath);
+}
+
 export function MediaQaReviewPage({ onBack }) {
   const [baseItems, setBaseItems] = useState(null);
   const [loadError, setLoadError] = useState("");
@@ -106,6 +118,8 @@ export function MediaQaReviewPage({ onBack }) {
   const [guidedBookFilter, setGuidedBookFilter] = useState("all");
   const [search, setSearch] = useState("");
   const [visibleLimit, setVisibleLimit] = useState(REVIEW_BATCH_SIZE);
+  const [reviewMode, setReviewMode] = useState(REVIEW_MODES.individual);
+  const [selectedReviewIds, setSelectedReviewIds] = useState(() => new Set());
   const rows = useMemo(() => (
     baseItems ? mergeMediaQaReviewItems(baseItems, overrides) : []
   ), [baseItems, overrides]);
@@ -139,6 +153,15 @@ export function MediaQaReviewPage({ onBack }) {
     return matchesSearch && matchesArea && matchesStatus && matchesGuidedBook;
   }), [areaFilter, guidedBookFilter, rows, search, statusFilter]);
   const displayedRows = useMemo(() => visibleRows.slice(0, visibleLimit), [visibleLimit, visibleRows]);
+  const selectedRows = useMemo(() => visibleRows.filter(row => selectedReviewIds.has(row.reviewId)), [selectedReviewIds, visibleRows]);
+  const selectedApproveCount = selectedRows.filter(canApproveRow).length;
+  const selectedQuarantineCount = selectedRows.filter(canQuarantineRow).length;
+  const displayedSelectableRows = displayedRows.filter(row => canApproveRow(row) || canQuarantineRow(row));
+  const displayedSelectableIds = displayedSelectableRows.map(row => row.reviewId);
+  const selectedDisplayedCount = displayedSelectableIds.filter(reviewId => selectedReviewIds.has(reviewId)).length;
+  const allDisplayedSelected =
+    displayedSelectableIds.length > 0 &&
+    selectedDisplayedCount === displayedSelectableIds.length;
   const isLoading = baseItems === null && !loadError;
 
   useEffect(() => {
@@ -157,11 +180,59 @@ export function MediaQaReviewPage({ onBack }) {
 
   useEffect(() => {
     setVisibleLimit(REVIEW_BATCH_SIZE);
+    setSelectedReviewIds(new Set());
   }, [areaFilter, guidedBookFilter, search, statusFilter]);
 
   function decide(row, status) {
     const next = applyMediaQaDecision(row, status, row.notes || "");
     setOverrides(next);
+    setSelectedReviewIds(previous => {
+      if (!previous.has(row.reviewId)) return previous;
+      const nextIds = new Set(previous);
+      nextIds.delete(row.reviewId);
+      return nextIds;
+    });
+  }
+
+  function setMode(mode) {
+    setReviewMode(mode);
+    setSelectedReviewIds(new Set());
+  }
+
+  function toggleSelected(row) {
+    setSelectedReviewIds(previous => {
+      const next = new Set(previous);
+      if (next.has(row.reviewId)) {
+        next.delete(row.reviewId);
+      } else {
+        next.add(row.reviewId);
+      }
+      return next;
+    });
+  }
+
+  function toggleDisplayedSelection() {
+    setSelectedReviewIds(previous => {
+      const next = new Set(previous);
+      if (allDisplayedSelected) {
+        displayedSelectableIds.forEach(reviewId => next.delete(reviewId));
+      } else {
+        displayedSelectableIds.forEach(reviewId => next.add(reviewId));
+      }
+      return next;
+    });
+  }
+
+  function applyBulkDecision(status) {
+    const actionFilter = status === "approved" ? canApproveRow : canQuarantineRow;
+    const actionableRows = selectedRows.filter(actionFilter);
+    if (!actionableRows.length) return;
+    let nextOverrides = overrides;
+    for (const row of actionableRows) {
+      nextOverrides = applyMediaQaDecision(row, status, row.notes || "");
+    }
+    setOverrides(nextOverrides);
+    setSelectedReviewIds(new Set());
   }
 
   function exportVisibleCsv() {
@@ -239,11 +310,73 @@ export function MediaQaReviewPage({ onBack }) {
         ) : (
           <p className="muted-text">Showing {displayedRows.length} of {visibleRows.length} filtered review items.</p>
         )}
+        <div className="media-qa-review-mode" role="group" aria-label="Media QA review mode">
+          <button
+            className={reviewMode === REVIEW_MODES.individual ? "active" : ""}
+            onClick={() => setMode(REVIEW_MODES.individual)}
+            type="button"
+          >
+            Individual
+          </button>
+          <button
+            className={reviewMode === REVIEW_MODES.multiselect ? "active" : ""}
+            onClick={() => setMode(REVIEW_MODES.multiselect)}
+            type="button"
+          >
+            Multiselect
+          </button>
+        </div>
+        {reviewMode === REVIEW_MODES.multiselect && (
+          <div className="media-qa-bulk-review-bar">
+            <button
+              className="report-button"
+              disabled={displayedSelectableIds.length === 0}
+              onClick={toggleDisplayedSelection}
+              type="button"
+            >
+              {allDisplayedSelected ? "Clear shown" : "Select shown"}
+            </button>
+            <span>{selectedRows.length} selected</span>
+            <button
+              disabled={selectedApproveCount === 0}
+              onClick={() => applyBulkDecision("approved")}
+              type="button"
+            >
+              YES selected ({selectedApproveCount})
+            </button>
+            <button
+              disabled={selectedQuarantineCount === 0}
+              onClick={() => applyBulkDecision("quarantined")}
+              type="button"
+            >
+              NO selected ({selectedQuarantineCount})
+            </button>
+          </div>
+        )}
       </section>
 
       <section className="media-qa-grid">
         {displayedRows.map(row => (
-          <article className={`media-qa-card media-qa-review-card status-${row.status}`} key={row.reviewId}>
+          <article
+            className={[
+              "media-qa-card",
+              "media-qa-review-card",
+              `status-${row.status}`,
+              selectedReviewIds.has(row.reviewId) ? "selected" : ""
+            ].filter(Boolean).join(" ")}
+            key={row.reviewId}
+          >
+            {reviewMode === REVIEW_MODES.multiselect && (
+              <label className="media-qa-card-select">
+                <input
+                  checked={selectedReviewIds.has(row.reviewId)}
+                  disabled={!canApproveRow(row) && !canQuarantineRow(row)}
+                  onChange={() => toggleSelected(row)}
+                  type="checkbox"
+                />
+                <span>Select</span>
+              </label>
+            )}
             {row.imagePath ? (
               <img alt={row.targetWord || row.text || row.imagePath} src={row.imagePath} />
             ) : (
@@ -260,12 +393,20 @@ export function MediaQaReviewPage({ onBack }) {
               </p>
             </div>
             <div className="media-qa-card-actions">
-              <button disabled={!row.imagePath && row.area !== "assessment"} onClick={() => decide(row, "approved")} type="button">
-                YES
-              </button>
-              <button disabled={!row.imagePath} onClick={() => decide(row, "quarantined")} type="button">
-                NO
-              </button>
+              {reviewMode === REVIEW_MODES.individual ? (
+                <>
+                  <button disabled={!canApproveRow(row)} onClick={() => decide(row, "approved")} type="button">
+                    YES
+                  </button>
+                  <button disabled={!canQuarantineRow(row)} onClick={() => decide(row, "quarantined")} type="button">
+                    NO
+                  </button>
+                </>
+              ) : (
+                <button disabled={!canApproveRow(row) && !canQuarantineRow(row)} onClick={() => toggleSelected(row)} type="button">
+                  {selectedReviewIds.has(row.reviewId) ? "Selected" : "Select"}
+                </button>
+              )}
             </div>
           </article>
         ))}
