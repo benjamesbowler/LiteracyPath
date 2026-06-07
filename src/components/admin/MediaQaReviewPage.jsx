@@ -1,12 +1,13 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { skillTree } from "../../skillTree.js";
-import { mediaQaReviewItems } from "../../data/generated/mediaQaReviewItems.generated.js";
 import {
   MEDIA_QA_REVIEW_STATUSES,
   applyMediaQaDecision,
   mergeMediaQaReviewItems,
   readMediaQaReviewOverrides
 } from "../../data/mediaQaReviewStatus.js";
+
+const REVIEW_BATCH_SIZE = 24;
 
 function statusLabel(status = "") {
   if (status === "approved") return "Approved";
@@ -97,12 +98,17 @@ function reviewAnswerText(row = {}) {
 }
 
 export function MediaQaReviewPage({ onBack }) {
+  const [baseItems, setBaseItems] = useState(null);
+  const [loadError, setLoadError] = useState("");
   const [overrides, setOverrides] = useState(() => readMediaQaReviewOverrides());
   const [areaFilter, setAreaFilter] = useState("all");
   const [statusFilter, setStatusFilter] = useState("pending");
   const [guidedBookFilter, setGuidedBookFilter] = useState("all");
   const [search, setSearch] = useState("");
-  const rows = useMemo(() => mergeMediaQaReviewItems(mediaQaReviewItems, overrides), [overrides]);
+  const [visibleLimit, setVisibleLimit] = useState(REVIEW_BATCH_SIZE);
+  const rows = useMemo(() => (
+    baseItems ? mergeMediaQaReviewItems(baseItems, overrides) : []
+  ), [baseItems, overrides]);
   const areaOptions = useMemo(() => buildAreaOptions(rows), [rows]);
   const guidedBookOptions = useMemo(() => Array.from(new Set(
     rows
@@ -115,7 +121,7 @@ export function MediaQaReviewPage({ onBack }) {
     summary[row.status] = (summary[row.status] || 0) + 1;
     return summary;
   }, { all: 0 }), [rows]);
-  const visibleRows = rows.filter(row => {
+  const visibleRows = useMemo(() => rows.filter(row => {
     const q = search.toLowerCase().trim();
     const matchesSearch = !q || [
       row.displaySkillName,
@@ -131,7 +137,27 @@ export function MediaQaReviewPage({ onBack }) {
     const matchesStatus = statusFilter === "all" || row.status === statusFilter;
     const matchesGuidedBook = areaFilter !== "guided_reading" || guidedBookFilter === "all" || row.bookTitle === guidedBookFilter;
     return matchesSearch && matchesArea && matchesStatus && matchesGuidedBook;
-  });
+  }), [areaFilter, guidedBookFilter, rows, search, statusFilter]);
+  const displayedRows = useMemo(() => visibleRows.slice(0, visibleLimit), [visibleLimit, visibleRows]);
+  const isLoading = baseItems === null && !loadError;
+
+  useEffect(() => {
+    let cancelled = false;
+    import("../../data/generated/mediaQaReviewItems.generated.js")
+      .then(module => {
+        if (!cancelled) setBaseItems(module.mediaQaReviewItems || []);
+      })
+      .catch(error => {
+        if (!cancelled) setLoadError(error?.message || "Unable to load media QA review data.");
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    setVisibleLimit(REVIEW_BATCH_SIZE);
+  }, [areaFilter, guidedBookFilter, search, statusFilter]);
 
   function decide(row, status) {
     const next = applyMediaQaDecision(row, status, row.notes || "");
@@ -154,7 +180,7 @@ export function MediaQaReviewPage({ onBack }) {
           </div>
           <div className="button-row admin-controls">
             <button className="report-button" onClick={onBack} type="button">Admin Dashboard</button>
-            <button className="report-button" onClick={exportVisibleCsv} type="button">Export visible CSV</button>
+            <button className="report-button" disabled={isLoading || visibleRows.length === 0} onClick={exportVisibleCsv} type="button">Export visible CSV</button>
           </div>
         </div>
         <div className="media-qa-rules">
@@ -206,11 +232,17 @@ export function MediaQaReviewPage({ onBack }) {
             </button>
           ))}
         </div>
-        <p className="muted-text">Showing {visibleRows.length} of {rows.length} review items.</p>
+        {isLoading ? (
+          <p className="muted-text">Loading review items...</p>
+        ) : loadError ? (
+          <p className="message">Media QA review data could not load: {loadError}</p>
+        ) : (
+          <p className="muted-text">Showing {displayedRows.length} of {visibleRows.length} filtered review items.</p>
+        )}
       </section>
 
       <section className="media-qa-grid">
-        {visibleRows.map(row => (
+        {displayedRows.map(row => (
           <article className={`media-qa-card media-qa-review-card status-${row.status}`} key={row.reviewId}>
             {row.imagePath ? (
               <img alt={row.targetWord || row.text || row.imagePath} src={row.imagePath} />
@@ -238,6 +270,17 @@ export function MediaQaReviewPage({ onBack }) {
           </article>
         ))}
       </section>
+      {!isLoading && !loadError && visibleRows.length > displayedRows.length && (
+        <div className="button-row media-qa-load-more-row">
+          <button
+            className="report-button"
+            onClick={() => setVisibleLimit(limit => limit + REVIEW_BATCH_SIZE)}
+            type="button"
+          >
+            Show next {Math.min(REVIEW_BATCH_SIZE, visibleRows.length - displayedRows.length)}
+          </button>
+        </div>
+      )}
     </main>
   );
 }
