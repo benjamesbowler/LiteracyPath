@@ -4,6 +4,7 @@ import { enrichInitialSoundPairQuestion } from "./initialSoundPairAssets.js";
 import { enrichListenAndFindWordQuestion } from "./listenAndFindAssets.js";
 import { enrichQuestionWithExistingMedia } from "./questionMediaResolver.js";
 import { isRuntimeEligibleHfwQuestion } from "./hfwRuntimeEligibility.js";
+import { normalizeRhymingQuestionChoices } from "./rhymingDistractors.js";
 
 import { masteryCoreQuestions } from "./masteryCoreQuestions.js";
 import { masteryExtraQuestions } from "./masteryExtraQuestions.js";
@@ -247,13 +248,13 @@ function normalizeQuestion(question = {}, source = "", sourceIndex = 0) {
     enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question))
   );
   const skillId = getQuestionSkillId(enriched);
-  return {
+  return normalizeRhymingQuestionChoices({
     ...enriched,
     skillId: runtimeSkillIdFor(skillId) || enriched.skillId || enriched.skill_id || "",
     assessmentSkillId: skillId,
     _source: source,
     _sourceIndex: sourceIndex
-  };
+  });
 }
 
 function dedupeQuestions(questions = []) {

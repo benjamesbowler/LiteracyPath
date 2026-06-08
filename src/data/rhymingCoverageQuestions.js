@@ -5,6 +5,7 @@ import {
   rhymingPhaseItemKeysByLevel
 } from "./coverageExpectations.js";
 import { rhymeGroups } from "./rhymeGroups.js";
+import { buildRhymingDistractors } from "./rhymingDistractors.js";
 import { makeVisualCardChoiceQuestion } from "./visualQuestionAssets.js";
 
 const levelOneFamilies = new Set(rhymingExpectedItemKeys);
@@ -25,60 +26,8 @@ function hasWordImage(word) {
   return Boolean(asset?.image || asset?.fallbackImage);
 }
 
-function firstVowel(word = "") {
-  return String(word || "").toLowerCase().match(/[aeiou]/)?.[0] || "";
-}
-
-function wordRime(word = "") {
-  const value = String(word || "").toLowerCase();
-  const index = value.search(/[aeiou]/);
-  return index === -1 ? value.slice(1) : value.slice(index);
-}
-
 function usableWordsForFamily(family) {
   return (rhymeGroups[family] || []).filter(hasWordImage);
-}
-
-function distractorsForFamily(family, count, variantIndex) {
-  const targetVowel = firstVowel(family);
-  const otherFamilies = Object.entries(rhymeGroups)
-    .filter(([otherFamily]) => otherFamily !== family)
-    .map(([otherFamily, words]) => [
-      otherFamily,
-      words.filter(hasWordImage)
-    ])
-    .filter(([, words]) => words.length > 0);
-  const start = variantIndex % Math.max(1, otherFamilies.length);
-  const rotated = otherFamilies.slice(start).concat(otherFamilies.slice(0, start))
-    .sort(([familyA], [familyB]) =>
-      Number(firstVowel(familyB) === targetVowel) - Number(firstVowel(familyA) === targetVowel)
-    );
-  const selected = [];
-  const usedInitials = new Set();
-  const usedRimes = new Set();
-  const usedVowels = new Set();
-
-  for (const [, words] of rotated) {
-    const word = words
-      .slice()
-      .sort((a, b) => {
-        const score = item => (
-          (usedInitials.has(item[0]) ? 0 : 8) +
-          (usedRimes.has(wordRime(item)) ? 0 : 8) +
-          (usedVowels.has(firstVowel(item)) ? 0 : 4) +
-          (targetVowel && firstVowel(item) === targetVowel ? 16 : 0)
-        );
-        return score(b) - score(a);
-      })[0];
-    if (!word || selected.includes(word)) continue;
-    selected.push(word);
-    usedInitials.add(word[0]);
-    usedRimes.add(wordRime(word));
-    usedVowels.add(firstVowel(word));
-    if (selected.length >= count) break;
-  }
-
-  return selected;
 }
 
 function pictureVariantsForFamily(family) {
@@ -90,7 +39,14 @@ function pictureVariantsForFamily(family) {
     const rhymingAnswers = words.filter(word => word !== targetWord);
 
     rhymingAnswers.forEach((answer, answerIndex) => {
-      const distractors = distractorsForFamily(family, 3, variants.length + answerIndex);
+      const distractors = buildRhymingDistractors({
+        targetWord,
+        answer,
+        family,
+        count: 3,
+        variantIndex: variants.length + answerIndex,
+        requireImages: true
+      });
       if (distractors.length < 3) return;
       variants.push({
         targetWord,
@@ -102,7 +58,15 @@ function pictureVariantsForFamily(family) {
 
     if (rhymingAnswers.length >= 2) {
       const answers = rhymingAnswers.slice(0, 2);
-      const distractors = distractorsForFamily(family, 2, variants.length + targetIndex);
+      const distractors = buildRhymingDistractors({
+        targetWord,
+        answer: answers[0],
+        family,
+        count: 2,
+        variantIndex: variants.length + targetIndex,
+        requireImages: true,
+        exclude: answers
+      });
       if (distractors.length >= 2) {
         variants.push({
           targetWord,
