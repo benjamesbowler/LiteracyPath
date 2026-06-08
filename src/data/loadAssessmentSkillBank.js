@@ -3,7 +3,6 @@ import { resolveAssessmentSkillId } from "./assessmentSkillMapping.js";
 import { enrichInitialSoundPairQuestion } from "./initialSoundPairAssets.js";
 import { enrichListenAndFindWordQuestion } from "./listenAndFindAssets.js";
 import { enrichQuestionWithExistingMedia } from "./questionMediaResolver.js";
-import { isRuntimeEligibleHfwQuestion } from "./hfwRuntimeEligibility.js";
 import { normalizeRhymingQuestionChoices } from "./rhymingDistractors.js";
 
 import { masteryCoreQuestions } from "./masteryCoreQuestions.js";
@@ -40,18 +39,6 @@ import { qbAssess_rc } from "./qbAssess_rc.js";
 import { qbAssess_inf } from "./qbAssess_inf.js";
 import { qbFillGaps } from "./qbFillGaps.js";
 import { generatedQuestions } from "./generatedQuestions.js";
-import { generatedEarlySkillQuestions } from "./generated/earlySkillQuestions.generated.js";
-import { hfwAssessmentQuestions } from "./generated/hfwAssessmentQuestions.generated.js";
-import { firstTenSkillTopUpQuestions } from "./generated/firstTenSkillTopUpQuestions.generated.js";
-import { secondBlockSkillTopUpQuestions } from "./generated/secondBlockSkillTopUpQuestions.generated.js";
-import { blendsAssessmentQuestions } from "./generated/blendsAssessmentQuestions.generated.js";
-import { digraphsAssessmentQuestions } from "./generated/digraphsAssessmentQuestions.generated.js";
-import { longVowelsAssessmentQuestions } from "./generated/longVowelsAssessmentQuestions.generated.js";
-import { vowelTeamsVarietyQuestions } from "./generated/vowelTeamsVarietyQuestions.generated.js";
-import { grammarAssessmentQuestions } from "./generated/grammarAssessmentQuestions.generated.js";
-import { languageSkillQuestions } from "./generated/languageSkillQuestions.generated.js";
-import { skillLevelGapQuestions } from "./generated/skillLevelGapQuestions.generated.js";
-import { hfwLevel2Questions } from "./generated/hfwLevel2Questions.generated.js";
 import { assessmentQaReplacementQuestions } from "./assessmentQaReplacementQuestions.js";
 import { highQualityComprehensionReplacementQuestions } from "./highQualityComprehensionReplacements.js";
 import { fixSentenceQuestions } from "./fixSentenceQuestions.js";
@@ -139,6 +126,46 @@ const RUNTIME_SKILL_IDS = {
 };
 
 const GRAMMAR_SENTENCE_FIT_SKILLS = new Set(["nouns", "verbs", "adjectives", "adverbs"]);
+const EARLY_PHONICS_GENERATED_SKILLS = new Set([
+  "final_sounds",
+  "rhyming",
+  "cvc_short_vowels",
+  "short_vowel_discrimination"
+]);
+const HFW_SKILLS = new Set(["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"]);
+const REPLACEMENT_PHONICS_SKILLS = new Set([
+  "blends",
+  "digraphs",
+  "long_vowels_silent_e",
+  "long_vowels",
+  "vowel_teams",
+  "r_controlled_vowels",
+  "r_controlled"
+]);
+const LANGUAGE_SKILLS = new Set([
+  "nouns",
+  "verbs",
+  "adjectives",
+  "prepositions_of_place",
+  "prepositions",
+  "plurals",
+  "prefixes_suffixes",
+  "prefix_suffix",
+  "antonyms_synonyms",
+  "homophones_homonyms",
+  "homophones"
+]);
+const COMPREHENSION_SKILLS = new Set([
+  "sentence_comprehension",
+  "key_details",
+  "sequencing",
+  "main_idea",
+  "inference",
+  "cause_effect",
+  "context_clues",
+  "theme_higher_comprehension",
+  "theme"
+]);
 
 function hasQuestionImage(question = {}) {
   return Boolean(
@@ -174,15 +201,6 @@ const QUESTION_BANKS = [
   ["kimiDataset7RuntimeQuestions", kimiDataset7RuntimeQuestions],
   ["ixlStyleSeedQuestions", ixlStyleSeedQuestions],
   ["safeContentExpansionQuestions", safeContentExpansionQuestions],
-  ["hfwAssessmentQuestions", hfwAssessmentQuestions],
-  ["firstTenSkillTopUpQuestions", firstTenSkillTopUpQuestions],
-  ["secondBlockSkillTopUpQuestions", secondBlockSkillTopUpQuestions],
-  ["blendsAssessmentQuestions", blendsAssessmentQuestions],
-  ["digraphsAssessmentQuestions", digraphsAssessmentQuestions],
-  ["longVowelsAssessmentQuestions", longVowelsAssessmentQuestions],
-  ["vowelTeamsVarietyQuestions", vowelTeamsVarietyQuestions],
-  ["grammarAssessmentQuestions", grammarAssessmentQuestions],
-  ["languageSkillQuestions", languageSkillQuestions],
   ["templateQuestions", templateQuestions],
   ["templateExpansion", templateExpansion],
   ["templateExpansion2", templateExpansion2],
@@ -205,9 +223,6 @@ const QUESTION_BANKS = [
   ["qbAssess_rc", qbAssess_rc],
   ["qbAssess_inf", qbAssess_inf],
   ["qbFillGaps", qbFillGaps],
-  ["generatedEarlySkillQuestions", generatedEarlySkillQuestions],
-  ["skillLevelGapQuestions", skillLevelGapQuestions],
-  ["hfwLevel2Questions", hfwLevel2Questions],
   ["assessmentQaReplacementQuestions", assessmentQaReplacementQuestions],
   ["highQualityComprehensionReplacementQuestions", highQualityComprehensionReplacementQuestions],
   ["generatedQuestions", generatedQuestions],
@@ -215,7 +230,9 @@ const QUESTION_BANKS = [
   ["templateComprehensionAdvanced", templateComprehensionAdvanced]
 ];
 
-let allAssessmentQuestions = null;
+const dynamicBankCache = new Map();
+const skillBankCache = new Map();
+let baseAssessmentQuestions = null;
 
 function normalizeSkillId(value = "") {
   const normalized = String(value || "")
@@ -257,6 +274,105 @@ function normalizeQuestion(question = {}, source = "", sourceIndex = 0) {
   });
 }
 
+function normalizeQuestionBank(source, bank = []) {
+  return bank.map((question, index) => normalizeQuestion(question, source, index));
+}
+
+function getBaseAssessmentQuestions() {
+  if (!baseAssessmentQuestions) {
+    baseAssessmentQuestions = dedupeQuestions(
+      QUESTION_BANKS.flatMap(([source, bank]) => normalizeQuestionBank(source, bank))
+    );
+  }
+  return baseAssessmentQuestions;
+}
+
+function shouldLoadForSkill(skillId, aliases = []) {
+  return aliases.some(alias => normalizeSkillId(alias) === skillId || runtimeSkillIdFor(alias) === skillId);
+}
+
+const DYNAMIC_BANK_LOADERS = [
+  {
+    source: "generatedEarlySkillQuestions",
+    shouldLoad: skillId => EARLY_PHONICS_GENERATED_SKILLS.has(skillId),
+    load: () => import("./generated/earlySkillQuestions.generated.js").then(module => module.generatedEarlySkillQuestions)
+  },
+  {
+    source: "hfwAssessmentQuestions",
+    shouldLoad: skillId => HFW_SKILLS.has(skillId),
+    load: () => import("./generated/hfwAssessmentQuestions.generated.js").then(module => module.hfwAssessmentQuestions)
+  },
+  {
+    source: "hfwLevel2Questions",
+    shouldLoad: skillId => HFW_SKILLS.has(skillId),
+    load: () => import("./generated/hfwLevel2Questions.generated.js").then(module => module.hfwLevel2Questions)
+  },
+  {
+    source: "firstTenSkillTopUpQuestions",
+    shouldLoad: skillId => skillId === "blends",
+    load: () => import("./generated/firstTenSkillTopUpQuestions.generated.js").then(module => module.firstTenSkillTopUpQuestions)
+  },
+  {
+    source: "secondBlockSkillTopUpQuestions",
+    shouldLoad: skillId => LANGUAGE_SKILLS.has(skillId) || REPLACEMENT_PHONICS_SKILLS.has(skillId),
+    load: () => import("./generated/secondBlockSkillTopUpQuestions.generated.js").then(module => module.secondBlockSkillTopUpQuestions)
+  },
+  {
+    source: "blendsAssessmentQuestions",
+    shouldLoad: skillId => skillId === "blends",
+    load: () => import("./generated/blendsAssessmentQuestions.generated.js").then(module => module.blendsAssessmentQuestions)
+  },
+  {
+    source: "digraphsAssessmentQuestions",
+    shouldLoad: skillId => skillId === "digraphs",
+    load: () => import("./generated/digraphsAssessmentQuestions.generated.js").then(module => module.digraphsAssessmentQuestions)
+  },
+  {
+    source: "longVowelsAssessmentQuestions",
+    shouldLoad: skillId => shouldLoadForSkill(skillId, ["long_vowels", "long_vowels_silent_e"]),
+    load: () => import("./generated/longVowelsAssessmentQuestions.generated.js").then(module => module.longVowelsAssessmentQuestions)
+  },
+  {
+    source: "vowelTeamsVarietyQuestions",
+    shouldLoad: skillId => skillId === "vowel_teams",
+    load: () => import("./generated/vowelTeamsVarietyQuestions.generated.js").then(module => module.vowelTeamsVarietyQuestions)
+  },
+  {
+    source: "grammarAssessmentQuestions",
+    shouldLoad: skillId => ["nouns", "verbs", "adjectives"].includes(skillId),
+    load: () => import("./generated/grammarAssessmentQuestions.generated.js").then(module => module.grammarAssessmentQuestions)
+  },
+  {
+    source: "languageSkillQuestions",
+    shouldLoad: skillId => LANGUAGE_SKILLS.has(skillId),
+    load: () => import("./generated/languageSkillQuestions.generated.js").then(module => module.languageSkillQuestions)
+  },
+  {
+    source: "skillLevelGapQuestions",
+    shouldLoad: skillId =>
+      EARLY_PHONICS_GENERATED_SKILLS.has(skillId) ||
+      HFW_SKILLS.has(skillId) ||
+      REPLACEMENT_PHONICS_SKILLS.has(skillId) ||
+      LANGUAGE_SKILLS.has(skillId) ||
+      COMPREHENSION_SKILLS.has(skillId),
+    load: () => import("./generated/skillLevelGapQuestions.generated.js").then(module => module.skillLevelGapQuestions)
+  }
+];
+
+async function loadDynamicBank(loader) {
+  if (!dynamicBankCache.has(loader.source)) {
+    dynamicBankCache.set(loader.source, loader.load().then(bank => normalizeQuestionBank(loader.source, bank || [])));
+  }
+  return dynamicBankCache.get(loader.source);
+}
+
+async function loadDynamicBanksForSkill(skillId = "") {
+  const normalizedSkillId = normalizeSkillId(skillId);
+  const loaders = DYNAMIC_BANK_LOADERS.filter(loader => loader.shouldLoad(normalizedSkillId));
+  const banks = await Promise.all(loaders.map(loadDynamicBank));
+  return banks.flat();
+}
+
 function dedupeQuestions(questions = []) {
   const seen = new Set();
   return questions.filter(question => {
@@ -289,15 +405,14 @@ export function getAssessmentSkillIdsForGroup(groupId = "") {
 }
 
 export async function loadAssessmentSkillBank(skillId = "") {
-  if (!allAssessmentQuestions) {
-    allAssessmentQuestions = dedupeQuestions(
-      QUESTION_BANKS.flatMap(([source, bank]) =>
-        bank.map((question, index) => normalizeQuestion(question, source, index))
-      )
-    );
-  }
-
   const normalizedSkillId = normalizeSkillId(skillId);
+  if (skillBankCache.has(normalizedSkillId)) return skillBankCache.get(normalizedSkillId);
+
+  const dynamicQuestions = await loadDynamicBanksForSkill(normalizedSkillId);
+  const allAssessmentQuestions = dedupeQuestions([
+    ...getBaseAssessmentQuestions(),
+    ...dynamicQuestions
+  ]);
   const runtimeSkillId = runtimeSkillIdFor(normalizedSkillId);
   const questions = allAssessmentQuestions.filter(question =>
     question.assessmentSkillId === normalizedSkillId ||
@@ -305,15 +420,28 @@ export async function loadAssessmentSkillBank(skillId = "") {
     normalizeSkillId(question.skillId) === runtimeSkillId
   );
   if (GRAMMAR_SENTENCE_FIT_SKILLS.has(normalizedSkillId)) {
-    return questions.filter(isGrammarSentenceFitRuntimeQuestion);
+    const filtered = questions.filter(isGrammarSentenceFitRuntimeQuestion);
+    skillBankCache.set(normalizedSkillId, filtered);
+    return filtered;
   }
+  skillBankCache.set(normalizedSkillId, questions);
   return questions;
+}
+
+export function preloadAssessmentSkillBank(skillId = "") {
+  void loadAssessmentSkillBank(skillId);
+}
+
+export async function loadAssessmentBanksForSkills(skillIds = []) {
+  const banks = await Promise.all(skillIds.map(skillId => loadAssessmentSkillBank(skillId)));
+  return dedupeQuestions(banks.flat());
 }
 
 export async function loadHfwAssessmentBank(skillId = "") {
   const normalizedSkillId = normalizeSkillId(skillId);
   if (getAssessmentSkillGroup(normalizedSkillId) !== "hfw") return [];
   const questions = await loadAssessmentSkillBank(normalizedSkillId);
+  const { isRuntimeEligibleHfwQuestion } = await import("./hfwRuntimeEligibility.js");
   return questions.filter(question => isRuntimeEligibleHfwQuestion(question, normalizedSkillId));
 }
 

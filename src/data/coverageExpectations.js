@@ -8,7 +8,7 @@ import {
   LONG_VOWEL_TEAM_PATTERNS,
   SILENT_E_PATTERNS
 } from "./longVowelPatternData.js";
-import { hfwApprovedWordsBySkill } from "./generated/hfwApprovedQuestionBank.generated.js";
+import { hfwApprovedWordsBySkill } from "./hfwApprovedCoverageWords.js";
 
 export const initialSoundExpectedItemKeys = [
   "a",

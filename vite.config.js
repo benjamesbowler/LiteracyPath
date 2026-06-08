@@ -65,6 +65,20 @@ export default defineConfig({
             return 'audio-manifest'
           }
           if (
+            id.includes('/node_modules/exceljs') ||
+            id.includes('/node_modules/jszip') ||
+            id.includes('/node_modules/file-saver')
+          ) {
+            return 'report-export-libs'
+          }
+          if (
+            id.includes('/src/data/generated/hfwAssessmentQuestions.generated') ||
+            id.includes('/src/data/generated/hfwLevel2Questions.generated') ||
+            id.includes('/src/data/generated/hfwApprovedQuestionBank.generated')
+          ) {
+            return 'generated-hfw-banks'
+          }
+          if (
             id.includes('/src/data/generated/earlySkillQuestions.generated') ||
             id.includes('/src/data/generated/finalSounds.generated') ||
             id.includes('/src/data/generated/cvc.generated') ||
@@ -72,6 +86,30 @@ export default defineConfig({
             id.includes('/src/data/generated/shortVowel.generated')
           ) {
             return 'generated-early-skills'
+          }
+          if (
+            id.includes('/src/data/generated/languageSkillQuestions.generated') ||
+            id.includes('/src/data/generated/grammarAssessmentQuestions.generated') ||
+            id.includes('/src/data/generated/secondBlockSkillTopUpQuestions.generated')
+          ) {
+            return 'generated-language-banks'
+          }
+          if (
+            id.includes('/src/data/generated/skillLevelGapQuestions.generated') ||
+            id.includes('/src/data/generated/blendsAssessmentQuestions.generated') ||
+            id.includes('/src/data/generated/digraphsAssessmentQuestions.generated') ||
+            id.includes('/src/data/generated/longVowelsAssessmentQuestions.generated') ||
+            id.includes('/src/data/generated/vowelTeamsVarietyQuestions.generated') ||
+            id.includes('/src/data/generated/firstTenSkillTopUpQuestions.generated')
+          ) {
+            return 'generated-assessment-banks'
+          }
+          if (
+            id.includes('/src/data/assessmentMedia') ||
+            id.includes('/src/data/questionMediaResolver') ||
+            id.includes('/src/data/generated/media')
+          ) {
+            return 'assessment-media-registry'
           }
           if (
             id.includes('/src/data/guidedReadingBooks') ||

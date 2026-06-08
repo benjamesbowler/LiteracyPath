@@ -48,6 +48,7 @@
     "check:checkpoint-coverage": "node tools/checkCheckpointCoverage.js",
     "check:bundle-size": "node tools/checkBundleSize.js",
     "check:assessment-bank-loader": "node tools/checkAssessmentSkillBankLoader.js",
+    "audit:startup-imports": "node tools/auditStartupAssessmentImports.js",
     "check:assessment-question-integrity": "node tools/checkAssessmentQuestionIntegrity.js",
     "check:hfw-runtime-smoke": "node tools/checkHfwRuntimeSmoke.js",
     "check:hfw-distractor-ambiguity": "node tools/checkHfwDistractorAmbiguity.js",

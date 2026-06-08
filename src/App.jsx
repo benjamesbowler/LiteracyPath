@@ -77,7 +77,6 @@ import {
   isFinalSoundsLevel1Question,
   isValidFinalSoundWordForEarlyLevel
 } from "./data/earlyPhonicsValidation";
-import { getHfwRuntimeEligibilityIssues } from "./data/hfwRuntimeEligibility";
 import { getBlendsRuntimeEligibilityIssues } from "./data/blendsRuntimeEligibility";
 import { getDigraphsRuntimeEligibilityIssues } from "./data/digraphsRuntimeEligibility";
 import { getLongVowelsRuntimeEligibilityIssues } from "./data/longVowelsRuntimeEligibility";
@@ -115,16 +114,6 @@ import { qbAssess_rc } from "./data/qbAssess_rc";
 import { qbAssess_inf } from "./data/qbAssess_inf";
 import { qbFillGaps } from "./data/qbFillGaps";
 import { generatedQuestions } from "./data/generatedQuestions";
-import { generatedEarlySkillQuestions } from "./data/generated/earlySkillQuestions.generated.js";
-import { hfwAssessmentQuestions } from "./data/generated/hfwAssessmentQuestions.generated.js";
-import { blendsAssessmentQuestions } from "./data/generated/blendsAssessmentQuestions.generated.js";
-import { digraphsAssessmentQuestions } from "./data/generated/digraphsAssessmentQuestions.generated.js";
-import { longVowelsAssessmentQuestions } from "./data/generated/longVowelsAssessmentQuestions.generated.js";
-import { vowelTeamsVarietyQuestions } from "./data/generated/vowelTeamsVarietyQuestions.generated.js";
-import { grammarAssessmentQuestions } from "./data/generated/grammarAssessmentQuestions.generated.js";
-import { languageSkillQuestions } from "./data/generated/languageSkillQuestions.generated.js";
-import { skillLevelGapQuestions } from "./data/generated/skillLevelGapQuestions.generated.js";
-import { hfwLevel2Questions } from "./data/generated/hfwLevel2Questions.generated.js";
 import { assessmentQaReplacementQuestions } from "./data/assessmentQaReplacementQuestions";
 import { isLevelOneContentQualityAllowed } from "./data/levelOneContentQuality";
 import { highQualityComprehensionReplacementQuestions } from "./data/highQualityComprehensionReplacements";
@@ -210,6 +199,7 @@ const AdminDashboardPage = lazy(() =>
 
 let audioManifestModulePromise = null;
 let guidedReadingBooksModulePromise = null;
+let assessmentSkillBankLoaderModulePromise = null;
 
 function loadAudioManifestModule() {
   if (!audioManifestModulePromise) {
@@ -225,8 +215,24 @@ function loadGuidedReadingBooksModule() {
   return guidedReadingBooksModulePromise;
 }
 
+function loadAssessmentSkillBankLoaderModule() {
+  if (!assessmentSkillBankLoaderModulePromise) {
+    assessmentSkillBankLoaderModulePromise = import("./data/loadAssessmentSkillBank");
+  }
+  return assessmentSkillBankLoaderModulePromise;
+}
+
+let finishedReportPageModulePromise = null;
+
+function loadFinishedReportPageModule() {
+  if (!finishedReportPageModulePromise) {
+    finishedReportPageModulePromise = import("@/components/FinishedReportPage");
+  }
+  return finishedReportPageModulePromise;
+}
+
 const FinishedReportPage = lazy(() =>
-  import("@/components/FinishedReportPage").then(module => ({
+  loadFinishedReportPageModule().then(module => ({
     default: module.FinishedReportPage
   }))
 );
@@ -931,7 +937,7 @@ function findQuestionForAnswerRecord(record) {
   const stage = record.stage || record.skill || "";
   if (!promptAnswerSignature) return "";
 
-  return allQuestions.find(question =>
+  return runtimeQuestionCache.find(question =>
     (skillTree[getStageIndex(question)]?.label || question.skill) === stage &&
     getRuntimeQuestionPromptAnswerSignature(question) === promptAnswerSignature
   );
@@ -1236,7 +1242,7 @@ function buildChildLearningEvidence(answerRows = [], itemMasteryRows = [], table
   };
 }
 
-function isQuestionValid(q) {
+function isQuestionValid(q, options = {}) {
   if (!q) return false;
   if (!q.id || !q.skill || !getQuestionPrompt(q) || !getQuestionAnswer(q)) return false;
 
@@ -1253,8 +1259,10 @@ function isQuestionValid(q) {
     const candidateStageIndex = getStageIndex(q);
     const candidateStage = skillTree[candidateStageIndex];
     if (isHfwStage(candidateStage)) {
-      const hfwIssues = getHfwRuntimeEligibilityIssues(q, candidateStage.id);
-      if (hfwIssues.length > 0 || !isQuestionAllowedForSkill(q, candidateStage.id)) return false;
+      const hfwIssues = options.getHfwRuntimeEligibilityIssues
+        ? options.getHfwRuntimeEligibilityIssues(q, candidateStage.id)
+        : [];
+      if (hfwIssues.length > 0 || !isQuestionAllowedForSkill(q, candidateStage.id, options)) return false;
     }
     return Array.isArray(tiles) &&
       tiles.length >= 2 &&
@@ -1272,7 +1280,9 @@ function isQuestionValid(q) {
   const candidateStage = skillTree[candidateStageIndex];
   const candidateSkillId = normalizeEarlySkillId(candidateStage?.id || q.skillId || q.skill);
   if (isHfwStage(candidateStage)) {
-    const hfwIssues = getHfwRuntimeEligibilityIssues(q, candidateStage.id);
+    const hfwIssues = options.getHfwRuntimeEligibilityIssues
+      ? options.getHfwRuntimeEligibilityIssues(q, candidateStage.id)
+      : [];
     if (hfwIssues.length > 0) return false;
   }
   if (candidateStage?.id === "blends") {
@@ -1416,63 +1426,60 @@ function keepRuntimeQuestion(question = {}) {
   return isGeneratedReplacementQuestion(question);
 }
 
-const allQuestions = dedupeQuestionsByRuntimeSignature([
-  ...masteryCoreQuestions,
-  ...masteryExtraQuestions,
-  ...initialSoundCoverageQuestions,
-  ...finalSoundCoverageQuestions,
-  ...rhymingCoverageQuestions,
-  ...cvcShortVowelExpansionQuestions,
-  ...shortVowelDiscriminationPhase2Questions,
-  ...contentExpansionPass3Questions,
-  ...targetedContentRecoveryQuestions,
-  ...kimiDataset7RuntimeQuestions,
-  ...ixlStyleSeedQuestions,
-  ...safeContentExpansionQuestions,
-  ...hfwAssessmentQuestions,
-  ...blendsAssessmentQuestions,
-  ...digraphsAssessmentQuestions,
-  ...longVowelsAssessmentQuestions,
-  ...vowelTeamsVarietyQuestions,
-  ...grammarAssessmentQuestions,
-  ...languageSkillQuestions,
-  ...templateQuestions,
-  ...templateExpansion,
-  ...templateExpansion2,
-  ...templateExpansion3,
-  ...templateExpansion4,
-  ...templateExpansion5,
-  ...templateExpansion6,
-  ...templateExpansion7,
-  ...questionBankExpansion8,
-  ...questionBankExpansion9,
-  ...questionBankExpansion10,
-  ...questionBankExpansion11,
-  ...questionBankExpansion12,
-  ...questionBankExpansion13,
-  ...questionBankExpansion14,
-  ...qbAssess_svd,
-  ...qbAssess_hfw1,
-  ...qbAssess_hfw2,
-  ...qbAssess_sc,
-  ...qbAssess_rc,
-  ...qbAssess_inf,
-  ...qbFillGaps,
-  ...generatedEarlySkillQuestions,
-  ...skillLevelGapQuestions,
-  ...hfwLevel2Questions,
-  ...assessmentQaReplacementQuestions,
-  ...highQualityComprehensionReplacementQuestions,
-  ...generatedQuestions,
-  ...fixSentenceQuestions,
-  ...templateComprehensionAdvanced
-].map((question, index) =>
-  applyQuestionFormatMetadata(applyItemMetadata(
-    enrichQuestionWithExistingMedia(enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(normalizeContentQuestion(
-      normalizeAssessmentAudioRoles(normalizeAssessmentQuestion(question, null, index))
-    ))))
-  ))
-).filter(isQuestionValid).filter(keepRuntimeQuestion));
+const STARTUP_QUESTION_BANKS = [
+  masteryCoreQuestions,
+  masteryExtraQuestions,
+  initialSoundCoverageQuestions,
+  finalSoundCoverageQuestions,
+  rhymingCoverageQuestions,
+  cvcShortVowelExpansionQuestions,
+  shortVowelDiscriminationPhase2Questions,
+  contentExpansionPass3Questions,
+  targetedContentRecoveryQuestions,
+  kimiDataset7RuntimeQuestions,
+  ixlStyleSeedQuestions,
+  safeContentExpansionQuestions,
+  templateQuestions,
+  templateExpansion,
+  templateExpansion2,
+  templateExpansion3,
+  templateExpansion4,
+  templateExpansion5,
+  templateExpansion6,
+  templateExpansion7,
+  questionBankExpansion8,
+  questionBankExpansion9,
+  questionBankExpansion10,
+  questionBankExpansion11,
+  questionBankExpansion12,
+  questionBankExpansion13,
+  questionBankExpansion14,
+  qbAssess_svd,
+  qbAssess_sc,
+  qbAssess_rc,
+  qbAssess_inf,
+  qbFillGaps,
+  assessmentQaReplacementQuestions,
+  highQualityComprehensionReplacementQuestions,
+  generatedQuestions,
+  fixSentenceQuestions,
+  templateComprehensionAdvanced
+];
+
+function prepareRuntimeQuestionBank(questions = [], options = {}) {
+  return dedupeQuestionsByRuntimeSignature(
+    questions.map((question, index) =>
+      applyQuestionFormatMetadata(applyItemMetadata(
+        enrichQuestionWithExistingMedia(enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(normalizeContentQuestion(
+          normalizeAssessmentAudioRoles(normalizeAssessmentQuestion(question, null, index))
+        ))))
+      ))
+    )
+  ).filter(question => isQuestionValid(question, options)).filter(keepRuntimeQuestion);
+}
+
+const startupQuestions = prepareRuntimeQuestionBank(STARTUP_QUESTION_BANKS.flat());
+let runtimeQuestionCache = startupQuestions;
 
 const configuredCoverageTotals = coverageExpectations;
 
@@ -1504,7 +1511,7 @@ function getCoverageItemKeysForStage(stage, { finalSoundLevel = null, level = nu
 
   const keys = new Set();
 
-  allQuestions.forEach(question => {
+  runtimeQuestionCache.forEach(question => {
     if (getStageIndex(question) !== skillTree.findIndex(item => item.id === stage.id)) return;
 
     const metadata = inferItemMetadata(question);
@@ -1662,7 +1669,7 @@ function buildQuestionBankCoverage(questions = []) {
   return Array.from(rowsBySkill.values()).sort((a, b) => a.skill.localeCompare(b.skill));
 }
 
-const questionBankCoverageSnapshot = buildQuestionBankCoverage(allQuestions);
+const startupQuestionBankCoverageSnapshot = buildQuestionBankCoverage(startupQuestions);
 
 const letterAssessmentOrder = [
   "m", "T", "b", "S", "a", "F", "d", "R", "p", "E", "g", "H", "c",
@@ -1745,6 +1752,8 @@ export default function App() {
   const [guidedReadingRecords, setGuidedReadingRecords] = useState({});
   const [itemMastery, setItemMastery] = useState({});
   const [itemSessionSeen, setItemSessionSeen] = useState({});
+  const [allQuestions, setAllQuestions] = useState(startupQuestions);
+  const [reportSkillMasterySummary, setReportSkillMasterySummary] = useState([]);
   const [checkpointDecision, setCheckpointDecision] = useState(null);
   const [resetProgressDialogOpen, setResetProgressDialogOpen] = useState(false);
   const [resettingProgress, setResettingProgress] = useState(false);
@@ -1754,6 +1763,9 @@ export default function App() {
   const answerHistoryRef = useRef(answerHistory);
   const roundItemKeysRef = useRef(roundItemKeys);
   const roundQuestionIdsRef = useRef(roundQuestionIds);
+  const allQuestionsRef = useRef(startupQuestions);
+  const loadedAssessmentSkillBanksRef = useRef(new Set());
+  const assessmentSkillBankPromisesRef = useRef(new Map());
   const assessmentMediaUsageRef = useRef(createAssessmentSessionMediaUsage());
   const initialSoundRoundQueueRef = useRef([]);
   const initialSoundRoundMetaRef = useRef(null);
@@ -1781,7 +1793,7 @@ export default function App() {
     allQuestions.filter(q =>
       getStageIndex(q) === currentSkillIndex
     ),
-  [currentSkillIndex]);
+  [allQuestions, currentSkillIndex]);
 
   const weaknessSnapshot = useMemo(() =>
     calculateWeaknessSnapshot(answerHistory),
@@ -1790,9 +1802,64 @@ export default function App() {
   const teacherId =
     teacherUser?.id || null;
 
+  async function getRuntimeQuestionValidationOptions(skillId = "") {
+    if (!isHighFrequencyWordSkill(skillId)) return {};
+    const { getHfwRuntimeEligibilityIssues } = await import("./data/hfwRuntimeEligibility");
+    return { getHfwRuntimeEligibilityIssues };
+  }
+
+  async function loadRuntimeQuestionsForSkill(skillOrStageId = "") {
+    const skillId = normalizeRuntimeSkillId(skillOrStageId);
+    if (!skillId || loadedAssessmentSkillBanksRef.current.has(skillId)) {
+      return allQuestionsRef.current;
+    }
+
+    if (!assessmentSkillBankPromisesRef.current.has(skillId)) {
+      const loadPromise = (async () => {
+        const [loaderModule, validationOptions] = await Promise.all([
+          loadAssessmentSkillBankLoaderModule(),
+          getRuntimeQuestionValidationOptions(skillId)
+        ]);
+        const bank = await loaderModule.loadAssessmentSkillBank(skillId);
+        const preparedQuestions = prepareRuntimeQuestionBank(bank, validationOptions);
+        const nextQuestions = dedupeQuestionsByRuntimeSignature([
+          ...allQuestionsRef.current,
+          ...preparedQuestions
+        ]);
+        allQuestionsRef.current = nextQuestions;
+        runtimeQuestionCache = nextQuestions;
+        setAllQuestions(nextQuestions);
+        loadedAssessmentSkillBanksRef.current.add(skillId);
+        return nextQuestions;
+      })().finally(() => {
+        assessmentSkillBankPromisesRef.current.delete(skillId);
+      });
+      assessmentSkillBankPromisesRef.current.set(skillId, loadPromise);
+    }
+
+    return assessmentSkillBankPromisesRef.current.get(skillId);
+  }
+
+  function preloadAssessmentShellForStage(stage = currentStage) {
+    if (!stage?.id) return;
+    void loadAssessmentSkillBankLoaderModule()
+      .then(module => module.preloadAssessmentSkillBank(stage.id));
+    void loadFinishedReportPageModule();
+  }
+
   useEffect(() => {
     answerHistoryRef.current = answerHistory;
   }, [answerHistory]);
+
+  useEffect(() => {
+    allQuestionsRef.current = allQuestions;
+    runtimeQuestionCache = allQuestions;
+  }, [allQuestions]);
+
+  useEffect(() => {
+    if (!nameSaved || !currentStage?.id) return;
+    preloadAssessmentShellForStage(currentStage);
+  }, [nameSaved, currentStage?.id]);
 
   useEffect(() => {
     setAssessmentHistory(teacherId ? loadAssessmentAttempts({ teacherId }) : []);
@@ -2239,32 +2306,16 @@ export default function App() {
     return isAdmin || teacherAccountStatus === "approved";
   }
 
-  async function loadTeacherAccountStatus(userId = teacherId, email = teacherUser?.email, adminAccess = isAdmin) {
-    if (!userId) {
-      setTeacherAccountStatus("signed_out");
-      setTeacherAccountRecord(null);
-      return "signed_out";
-    }
-
-    if (adminAccess) {
-      setTeacherAccountStatus("approved");
-      setTeacherAccountRecord({
-        user_id: userId,
-        email,
-        role: "admin",
-        status: "approved",
-        approval_status: "approved",
-        admin: true
-      });
-      return "approved";
-    }
-
-    const { data, error } = await supabase
+  async function fetchTeacherAccountRecord(userId) {
+    return supabase
       .from("pending_teacher_accounts")
       .select("id, user_id, email, username, display_name, name, role, status, approval_status, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
       .eq("user_id", userId)
       .maybeSingle();
+  }
 
+  async function applyTeacherAccountStatusResult(userId, email, result = {}) {
+    const { data, error } = result;
     if (error) {
       if (!isApprovalSchemaError(error)) {
         console.warn("Teacher account status check failed.", error);
@@ -2314,6 +2365,29 @@ export default function App() {
     return nextStatus;
   }
 
+  async function loadTeacherAccountStatus(userId = teacherId, email = teacherUser?.email, adminAccess = isAdmin) {
+    if (!userId) {
+      setTeacherAccountStatus("signed_out");
+      setTeacherAccountRecord(null);
+      return "signed_out";
+    }
+
+    if (adminAccess) {
+      setTeacherAccountStatus("approved");
+      setTeacherAccountRecord({
+        user_id: userId,
+        email,
+        role: "admin",
+        status: "approved",
+        approval_status: "approved",
+        admin: true
+      });
+      return "approved";
+    }
+
+    return applyTeacherAccountStatusResult(userId, email, await fetchTeacherAccountRecord(userId));
+  }
+
   async function initializeTeacherAccountAccess(userId = teacherId) {
     if (!userId) return;
 
@@ -2342,13 +2416,17 @@ export default function App() {
       if (import.meta.env.DEV) {
         console.debug("Account access check started.", { userId, checkSeq });
       }
-      const adminAccess = await withAccountCheckTimeout(checkAdminStatus(userId), "Admin status check");
+      const [adminAccess, accountResult] = await Promise.all([
+        withAccountCheckTimeout(checkAdminStatus(userId), "Admin status check"),
+        withAccountCheckTimeout(fetchTeacherAccountRecord(userId), "Teacher account status check")
+      ]);
       if (accountAccessCheckSeqRef.current !== checkSeq) return;
 
-      await withAccountCheckTimeout(
-        loadTeacherAccountStatus(userId, teacherUser?.email, adminAccess),
-        "Teacher account status check"
-      );
+      if (adminAccess) {
+        await loadTeacherAccountStatus(userId, teacherUser?.email, true);
+      } else {
+        await applyTeacherAccountStatusResult(userId, teacherUser?.email, accountResult);
+      }
 
       if (import.meta.env.DEV) {
         console.debug("Account access check completed.", { userId, checkSeq });
@@ -3636,7 +3714,7 @@ export default function App() {
     if (!stage || !step) return false;
     const stageIndex = skillTree.findIndex(item => item.id === stage.id);
     const requiresExplicitPhase = hasConfiguredPhaseCoverage(stage, step);
-    return allQuestions.filter(question =>
+    return allQuestionsRef.current.filter(question =>
       getStageIndex(question) === stageIndex &&
       !isQuestionBlockedByMediaQa(question) &&
       getAssessmentQuestionLevel(stage, question) === Number(step.level || 1) &&
@@ -3813,7 +3891,7 @@ export default function App() {
   }
 
   function getFinalSoundsLevelOneAvailableQuestions() {
-    return allQuestions.filter(question =>
+    return allQuestionsRef.current.filter(question =>
       question.skillId === "final_sounds" &&
       !isQuestionBlockedByMediaQa(question) &&
       getFinalSoundQuestionLevel(question) === 1 &&
@@ -3846,7 +3924,7 @@ export default function App() {
         : buildInitialSoundRoundQueue().items;
     }
 
-    const stageQuestions = allQuestions.filter(q => getStageIndex(q) === stageIndex && !isQuestionBlockedByMediaQa(q));
+    const stageQuestions = allQuestionsRef.current.filter(q => getStageIndex(q) === stageIndex && !isQuestionBlockedByMediaQa(q));
     const pathStep = getNextAssessmentPathStep(stage);
     const levelFilteredStageQuestions = stageQuestions.filter(question =>
       getAssessmentQuestionLevel(stage, question) === pathStep.level
@@ -3978,7 +4056,7 @@ export default function App() {
       const correctMemory = getCorrectStageRepeatMemory(weakness.stage);
 
       const matches =
-        allQuestions.filter(question => {
+        allQuestionsRef.current.filter(question => {
           const stageIndex = getStageIndex(question);
           const stage = skillTree[stageIndex];
 
@@ -4153,7 +4231,7 @@ export default function App() {
     const currentRoundQuestionIds = new Set(roundQuestionIdsRef.current);
     const currentRoundTargetWords = new Set(
       roundQuestionIdsRef.current
-        .map(id => allQuestions.find(item => item.id === id))
+        .map(id => allQuestionsRef.current.find(item => item.id === id))
         .filter(Boolean)
         .map(getQuestionTargetWord)
         .filter(Boolean)
@@ -4262,7 +4340,7 @@ export default function App() {
 
   function getCurrentRoundQuestionObjects() {
     return roundQuestionIdsRef.current
-      .map(id => allQuestions.find(item => item.id === id))
+      .map(id => allQuestionsRef.current.find(item => item.id === id))
       .filter(Boolean);
   }
 
@@ -4845,7 +4923,7 @@ export default function App() {
   }
 
   function getItemMasterySnapshot() {
-    const trackedItems = allQuestions
+    const trackedItems = allQuestionsRef.current
       .map(question => inferItemMetadata(question))
       .filter(Boolean)
       .map(metadata => getItemMasteryStateKey(metadata.itemKey, metadata.itemType));
@@ -6799,10 +6877,22 @@ export default function App() {
   }
 
 
-  function startAssessment(stageIndex = currentSkillIndex) {
+  async function startAssessment(stageIndex = currentSkillIndex) {
     answerInFlightRef.current = false;
     const nextStageIndex = Number.isFinite(stageIndex) ? stageIndex : currentSkillIndex;
     const nextStage = skillTree[nextStageIndex] || currentStage;
+    setAssessmentTransitioning(true);
+    setMessage(`Loading ${nextStage.label}...`);
+    preloadAssessmentShellForStage(nextStage);
+    try {
+      await loadRuntimeQuestionsForSkill(nextStage.id);
+    } catch (error) {
+      console.warn("Could not load assessment skill bank.", { skillId: nextStage.id, error });
+      setAssessmentTransitioning(false);
+      setMessage("Could not load this assessment. Please try again.");
+      return;
+    }
+
     initialSoundRoundQueueRef.current = [];
     initialSoundRoundMetaRef.current = null;
     const previewQuestions = isInitialSoundsStage(nextStage)
@@ -6840,11 +6930,27 @@ export default function App() {
       studentId,
       currentSkill: stage.label
     });
-    startAssessment(stageIndex);
+    void startAssessment(stageIndex);
   }
 
-  function startTargetedReview() {
+  async function startTargetedReview() {
     answerInFlightRef.current = false;
+    assessmentActiveRef.current = true;
+    setAssessmentTransitioning(true);
+    setMessage("Loading review questions...");
+    void loadFinishedReportPageModule();
+    const attemptedStageIds = [
+      ...new Set(
+        answerHistoryRef.current
+          .map(record => skillTree.find(stage => stage.label === record.stage || stage.id === record.skillId)?.id)
+          .filter(Boolean)
+      )
+    ];
+    try {
+      await Promise.all(attemptedStageIds.map(loadRuntimeQuestionsForSkill));
+    } catch (error) {
+      console.warn("Could not load targeted review banks.", error);
+    }
     setAssessmentMode("targetedReview");
     setFeedback(null);
     setCurrentQuestion(null);
@@ -6864,6 +6970,7 @@ export default function App() {
   function endAssessment() {
     answerInFlightRef.current = false;
     assessmentActiveRef.current = false; // cancel any pending auto-advance timeouts
+    void loadFinishedReportPageModule();
     setCurrentQuestion(null);
     setFeedback(null);
     setCheckpointDecision(null);
@@ -6897,13 +7004,13 @@ export default function App() {
 
   function continueCheckpointSkill() {
     const stageIndex = checkpointDecision?.skillIndex ?? currentSkillIndex;
-    startAssessment(stageIndex);
+    void startAssessment(stageIndex);
   }
 
   function reviewInitialSoundLevelOne() {
     initialSoundForcedLevelRef.current = 1;
     const stageIndex = skillTree.findIndex(stage => stage.id === "initial_sounds");
-    startAssessment(stageIndex === -1 ? currentSkillIndex : stageIndex);
+    void startAssessment(stageIndex === -1 ? currentSkillIndex : stageIndex);
   }
 
   function moveToNextCheckpointSkill() {
@@ -6911,12 +7018,12 @@ export default function App() {
       (checkpointDecision?.skillIndex ?? currentSkillIndex) + 1,
       skillTree.length - 1
     );
-    startAssessment(nextStageIndex);
+    void startAssessment(nextStageIndex);
   }
 
   function retryCheckpointSkill() {
     const stageIndex = checkpointDecision?.skillIndex ?? currentSkillIndex;
-    startAssessment(stageIndex);
+    void startAssessment(stageIndex);
   }
 
 
@@ -7062,6 +7169,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   }
 
   function viewReport() {
+    void loadFinishedReportPageModule();
     setShowReport(true);
     setAppView(APP_VIEWS.FINISHED);
   }
@@ -7082,19 +7190,54 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     return rows;
   }, [appView, assessmentHistory, studentId]);
 
-  const reportSkillMasterySummary = useMemo(() => {
-    if (appView !== APP_VIEWS.REPORTS && appView !== APP_VIEWS.FINISHED) return [];
-    const start = typeof performance !== "undefined" ? performance.now() : Date.now();
-    const rows = buildSkillMasterySummary();
-    if (import.meta.env.DEV && appView === APP_VIEWS.REPORTS) {
-      const duration = Math.round((typeof performance !== "undefined" ? performance.now() : Date.now()) - start);
-      console.debug("[Reports] skill mastery summary", {
-        durationMs: duration,
-        rows: rows.length
-      });
+  useEffect(() => {
+    if (appView !== APP_VIEWS.REPORTS && appView !== APP_VIEWS.FINISHED) {
+      setReportSkillMasterySummary([]);
+      return undefined;
     }
-    return rows;
+
+    let cancelled = false;
+    const run = () => {
+      const start = typeof performance !== "undefined" ? performance.now() : Date.now();
+      const rows = buildSkillMasterySummary();
+      if (cancelled) return;
+      setReportSkillMasterySummary(rows);
+      if (import.meta.env.DEV && appView === APP_VIEWS.REPORTS) {
+        const duration = Math.round((typeof performance !== "undefined" ? performance.now() : Date.now()) - start);
+        console.debug("[Reports] skill mastery summary", {
+          durationMs: duration,
+          rows: rows.length
+        });
+      }
+    };
+
+    if (typeof window !== "undefined" && typeof window.requestIdleCallback === "function") {
+      const idleId = window.requestIdleCallback(run, { timeout: 600 });
+      return () => {
+        cancelled = true;
+        window.cancelIdleCallback(idleId);
+      };
+    }
+
+    const timeoutId = window.setTimeout(run, 0);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+    };
   }, [appView, itemMastery, answerHistory]);
+
+  const coverageSnapshot = useMemo(() =>
+    buildCoverageSnapshot(itemMastery, {
+      enabled: DEBUG_ASSESSMENT_COVERAGE,
+      studentId
+    }),
+  [itemMastery, studentId]);
+
+  const questionBankCoverage = useMemo(() =>
+    allQuestions === startupQuestions
+      ? startupQuestionBankCoverageSnapshot
+      : buildQuestionBankCoverage(allQuestions),
+  [allQuestions]);
 
   if (!authReady) {
     return (
@@ -7252,7 +7395,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   const roundCorrect = calculateRoundCorrect(roundAnswers);
   const roundProgress = calculateRoundProgress(roundAnswers, ROUND_LENGTH);
   const accuracy = calculateAccuracy({ totalAnswered, correctAnswered });
-  const questionBankCoverage = questionBankCoverageSnapshot;
   const isFocusedAssessment = isFocusedAssessmentView(appView);
   const appShellClassName = [
     "app",
@@ -7422,10 +7564,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             startTargetedReview={startTargetedReview}
             weaknessSnapshot={weaknessSnapshot}
             itemMasterySnapshot={getItemMasterySnapshot()}
-            coverageSnapshot={buildCoverageSnapshot(itemMastery, {
-              enabled: DEBUG_ASSESSMENT_COVERAGE,
-              studentId
-            })}
+            coverageSnapshot={coverageSnapshot}
             setAppView={setAppView}
             switchStudent={switchStudent}
             openResetStudentProgress={() => setResetProgressDialogOpen(true)}
@@ -7450,10 +7589,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             setFeedback={setFeedback}
             setMessage={setMessage}
             mastery={mastery}
-            coverageSnapshot={buildCoverageSnapshot(itemMastery, {
-              enabled: DEBUG_ASSESSMENT_COVERAGE,
-              studentId
-            })}
+            coverageSnapshot={coverageSnapshot}
             startAssessment={startAssessment}
           />
         </PageBoundary>
@@ -7642,10 +7778,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               skillTree={skillTree}
               currentStageQuestions={currentStageQuestions}
               mastery={mastery}
-              coverageSnapshot={buildCoverageSnapshot(itemMastery, {
-                enabled: DEBUG_ASSESSMENT_COVERAGE,
-                studentId
-              })}
+              coverageSnapshot={coverageSnapshot}
               skillMasterySummary={reportSkillMasterySummary}
               allowPassageAudio={allowPassageAudio}
               setAllowPassageAudio={setAllowPassageAudio}

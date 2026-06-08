@@ -1,4 +1,3 @@
-import { getHfwRuntimeEligibilityIssues } from "./hfwRuntimeEligibility.js";
 import {
   BLENDS_ALLOWED_FORMATS,
   getBlendsRuntimeEligibilityIssues
@@ -258,7 +257,7 @@ function getComprehensionRuntimeEligibilityIssues(question = {}, stageId = "") {
   return [...new Set(issues)];
 }
 
-export function getQuestionRoutingIssue(question = {}, stageId = "") {
+export function getQuestionRoutingIssue(question = {}, stageId = "", options = {}) {
   const rule = getSkillRoutingRule(stageId);
   if (!rule) return "";
 
@@ -273,8 +272,8 @@ export function getQuestionRoutingIssue(question = {}, stageId = "") {
   if (stageId === "rhyming" && (promptLooksLikeInitialSound(question) || promptLooksLikeEndingSound(question))) {
     return "initial/final-sound prompt is not allowed in Rhyming";
   }
-  if (rule.sightWordsOnly) {
-    const hfwIssues = getHfwRuntimeEligibilityIssues(question, stageId);
+  if (rule.sightWordsOnly && options.getHfwRuntimeEligibilityIssues) {
+    const hfwIssues = options.getHfwRuntimeEligibilityIssues(question, stageId);
     if (hfwIssues.length) return `High-Frequency Words routing violation: ${hfwIssues.join("; ")}`;
   }
   if (rule.blendsOnly) {
@@ -300,8 +299,8 @@ export function getQuestionRoutingIssue(question = {}, stageId = "") {
   return "";
 }
 
-export function isQuestionAllowedForSkill(question = {}, stageId = "") {
-  return !getQuestionRoutingIssue(question, stageId);
+export function isQuestionAllowedForSkill(question = {}, stageId = "", options = {}) {
+  return !getQuestionRoutingIssue(question, stageId, options);
 }
 
 export function isSingleTemplateSkill(stageId = "") {

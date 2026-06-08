@@ -1,0 +1,111 @@
+{
+  "generatedAt": "2026-06-08T02:38:16.531Z",
+  "startupFiles": [
+    "src/App.jsx",
+    "src/data/loadAssessmentSkillBank.js",
+    "src/data/coverageExpectations.js",
+    "src/data/skillTemplateRouting.js",
+    "src/data/questionMediaResolver.js",
+    "src/data/assessmentMediaPicker.js"
+  ],
+  "riskyStaticGeneratedAssessmentImports": [],
+  "dynamicAssessmentBanks": [
+    {
+      "file": "src/data/generated/earlySkillQuestions.generated.js",
+      "stats": {
+        "bytes": 533,
+        "lines": 13
+      },
+      "loading": "dynamic via loadAssessmentSkillBank(skillId)"
+    },
+    {
+      "file": "src/data/generated/hfwAssessmentQuestions.generated.js",
+      "stats": {
+        "bytes": 1967752,
+        "lines": 58346
+      },
+      "loading": "dynamic via loadAssessmentSkillBank(skillId)"
+    },
+    {
+      "file": "src/data/generated/hfwLevel2Questions.generated.js",
+      "stats": {
+        "bytes": 133104,
+        "lines": 5335
+      },
+      "loading": "dynamic via loadAssessmentSkillBank(skillId)"
+    },
+    {
+      "file": "src/data/generated/firstTenSkillTopUpQuestions.generated.js",
+      "stats": {
+        "bytes": 85904,
+        "lines": 3306
+      },
+      "loading": "dynamic via loadAssessmentSkillBank(skillId)"
+    },
+    {
+      "file": "src/data/generated/secondBlockSkillTopUpQuestions.generated.js",
+      "stats": {
+        "bytes": 576612,
+        "lines": 20373
+      },
+      "loading": "dynamic via loadAssessmentSkillBank(skillId)"
+    },
+    {
+      "file": "src/data/generated/blendsAssessmentQuestions.generated.js",
+      "stats": {
+        "bytes": 164649,
+        "lines": 5617
+      },
+      "loading": "dynamic via loadAssessmentSkillBank(skillId)"
+    },
+    {
+      "file": "src/data/generated/digraphsAssessmentQuestions.generated.js",
+      "stats": {
+        "bytes": 9001,
+        "lines": 241
+      },
+      "loading": "dynamic via loadAssessmentSkillBank(skillId)"
+    },
+    {
+      "file": "src/data/generated/longVowelsAssessmentQuestions.generated.js",
+      "stats": {
+        "bytes": 8052,
+        "lines": 192
+      },
+      "loading": "dynamic via loadAssessmentSkillBank(skillId)"
+    },
+    {
+      "file": "src/data/generated/vowelTeamsVarietyQuestions.generated.js",
+      "stats": {
+        "bytes": 4408,
+        "lines": 112
+      },
+      "loading": "dynamic via loadAssessmentSkillBank(skillId)"
+    },
+    {
+      "file": "src/data/generated/grammarAssessmentQuestions.generated.js",
+      "stats": {
+        "bytes": 19194,
+        "lines": 454
+      },
+      "loading": "dynamic via loadAssessmentSkillBank(skillId)"
+    },
+    {
+      "file": "src/data/generated/languageSkillQuestions.generated.js",
+      "stats": {
+        "bytes": 3153094,
+        "lines": 118933
+      },
+      "loading": "dynamic via loadAssessmentSkillBank(skillId)"
+    },
+    {
+      "file": "src/data/generated/skillLevelGapQuestions.generated.js",
+      "stats": {
+        "bytes": 2365367,
+        "lines": 76564
+      },
+      "loading": "dynamic via loadAssessmentSkillBank(skillId)"
+    }
+  ],
+  "pass": true
+}
