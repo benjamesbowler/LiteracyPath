@@ -2,6 +2,12 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  activeRuntimeSourceFiles,
+  bannedRuntimePhrases,
+  isFakeTextCardImage,
+  legacyCandidateFiles
+} from "../src/data/sourceOfTruthRegistry.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
@@ -43,11 +49,18 @@ const GENERATED_NOISE_PATTERNS = [
   /^docs\/assets\/story_quest_asset_audit\.md$/i,
   /^src\/data\/generated\/.*\.js$/i
 ];
+const RUNTIME_ENTRY_FILES = [
+  "src/App.jsx",
+  "src/data/loadAssessmentSkillBank.js",
+  "tools/phonicsRuntimeUtils.js"
+];
+const IMPORT_RE = /import\s+(?:[\s\S]*?\s+from\s+)?["']([^"']+)["']|import\(["']([^"']+)["']\)|require\(["']([^"']+)["']\)/g;
 
 function runGit(args) {
   return execFileSync("git", args, {
     cwd: repoRoot,
     encoding: "utf8",
+    maxBuffer: 32 * 1024 * 1024,
     stdio: ["ignore", "pipe", "pipe"]
   });
 }
@@ -197,6 +210,56 @@ function collectGitContext() {
     untracked: new Set(untracked),
     allGitPaths: [...new Set([...tracked, ...untracked])].sort()
   };
+}
+
+function readRepoText(filePath) {
+  try {
+    return fs.readFileSync(path.join(repoRoot, filePath), "utf8");
+  } catch {
+    return "";
+  }
+}
+
+function resolveLocalImport(importer, specifier) {
+  if (!specifier) return "";
+  const normalizedSpecifier = specifier.startsWith("@/")
+    ? specifier.replace(/^@\//, "src/")
+    : specifier;
+  if (!normalizedSpecifier.startsWith(".") && !normalizedSpecifier.startsWith("src/")) return "";
+  const base = normalizedSpecifier.startsWith("src/")
+    ? path.join(repoRoot, normalizedSpecifier)
+    : path.resolve(repoRoot, path.dirname(importer), normalizedSpecifier);
+  const candidates = [
+    base,
+    `${base}.js`,
+    `${base}.jsx`,
+    `${base}.json`,
+    path.join(base, "index.js")
+  ];
+  const found = candidates.find(candidate => fs.existsSync(candidate));
+  return found ? normalizePath(path.relative(repoRoot, found)) : "";
+}
+
+function collectStaticImports(filePath) {
+  const text = readRepoText(filePath);
+  const imports = [];
+  let match;
+  while ((match = IMPORT_RE.exec(text))) {
+    const specifier = match[1] || match[2] || match[3] || "";
+    const resolved = resolveLocalImport(filePath, specifier);
+    if (resolved) imports.push(resolved);
+  }
+  return imports;
+}
+
+function packageScriptTargets() {
+  const packageJson = JSON.parse(readRepoText("package.json") || "{}");
+  return Object.entries(packageJson.scripts || {}).flatMap(([scriptName, command]) =>
+    [...String(command).matchAll(/\bnode\s+([^\s]+)/g)].map(match => ({
+      scriptName,
+      target: normalizePath(match[1])
+    }))
+  );
 }
 
 function walkFilesAndDirs(relativeDir = ".") {
@@ -425,6 +488,65 @@ function main() {
 
     if (filePath.startsWith("docs/implementation/") && gitContext.untracked.has(filePath)) {
       addFinding(warnings, "warning", filePath, "Untracked implementation doc.", `git add ${filePath} or rm -f ${filePath}`);
+    }
+  }
+
+  for (const { scriptName, target } of packageScriptTargets()) {
+    if (!fs.existsSync(path.join(repoRoot, target))) {
+      addFinding(
+        failures,
+        "failure",
+        target,
+        `Package script "${scriptName}" points to a missing file.`,
+        "Create the script file, correct package.json, or remove the stale script."
+      );
+    }
+  }
+
+  for (const runtimeFile of RUNTIME_ENTRY_FILES) {
+    for (const imported of collectStaticImports(runtimeFile)) {
+      if (legacyCandidateFiles.has(imported) || /\/(?:archive|legacy)\//i.test(imported)) {
+        addFinding(
+          failures,
+          "failure",
+          runtimeFile,
+          `Runtime entry imports legacy/archive source: ${imported}.`,
+          "Remove the runtime import or move it behind validation-only tooling."
+        );
+      }
+    }
+  }
+
+  for (const filePath of activeRuntimeSourceFiles) {
+    const text = readRepoText(filePath);
+    if (!text) continue;
+    const phrase = bannedRuntimePhrases.find(item => text.toLowerCase().includes(item.toLowerCase()));
+    if (phrase) {
+      addFinding(
+        warnings,
+        "warning",
+        filePath,
+        `Runtime source contains banned phrase "${phrase}".`,
+        "Review whether this is validation-only text or selectable content."
+      );
+    }
+    if (isFakeTextCardImage(text)) {
+      addFinding(
+        warnings,
+        "warning",
+        filePath,
+        "Runtime source contains inline SVG/text-card image data.",
+        "Ensure source-of-truth guards block this from selectable runtime."
+      );
+    }
+    if (/photorealistic/i.test(text)) {
+      addFinding(
+        warnings,
+        "warning",
+        filePath,
+        "Runtime source mentions photorealistic assessment imagery.",
+        "Review asset style and QA status."
+      );
     }
   }
 

@@ -100,15 +100,12 @@ import { templateExpansion5 } from "./data/templateExpansion5";
 import { templateExpansion6 } from "./data/templateExpansion6";
 import { templateExpansion7 } from "./data/templateExpansion7";
 import { questionBankExpansion8 } from "./data/questionBankExpansion8";
-import { questionBankExpansion9 } from "./data/questionBankExpansion9";
 import { questionBankExpansion10 } from "./data/questionBankExpansion10";
 import { questionBankExpansion11 } from "./data/questionBankExpansion11";
 import { questionBankExpansion12 } from "./data/questionBankExpansion12";
 import { questionBankExpansion13 } from "./data/questionBankExpansion13";
 import { questionBankExpansion14 } from "./data/questionBankExpansion14";
 import { qbAssess_svd } from "./data/qbAssess_svd";
-import { qbAssess_hfw1 } from "./data/qbAssess_hfw1";
-import { qbAssess_hfw2 } from "./data/qbAssess_hfw2";
 import { qbAssess_sc } from "./data/qbAssess_sc";
 import { qbAssess_rc } from "./data/qbAssess_rc";
 import { qbAssess_inf } from "./data/qbAssess_inf";
@@ -124,6 +121,7 @@ import { shortAEchoCavesQuestions } from "./data/childActivityModels";
 import { getApprovedAudioPath, getPreferredAudioPath } from "./data/audioPreferenceManifest";
 import { getChildWordAsset } from "./data/childAssets";
 import { isMediaQaRuntimeAllowed, isQuestionBlockedByMediaQa } from "./data/mediaQaManifest";
+import { getRuntimeSourceIssues } from "./data/sourceOfTruthRegistry";
 import {
   applyQuestionFormatMetadata,
   getQuestionFormatMetadata,
@@ -1448,7 +1446,6 @@ const STARTUP_QUESTION_BANKS = [
   templateExpansion6,
   templateExpansion7,
   questionBankExpansion8,
-  questionBankExpansion9,
   questionBankExpansion10,
   questionBankExpansion11,
   questionBankExpansion12,
@@ -1475,7 +1472,10 @@ function prepareRuntimeQuestionBank(questions = [], options = {}) {
         ))))
       ))
     )
-  ).filter(question => isQuestionValid(question, options)).filter(keepRuntimeQuestion);
+  )
+    .filter(question => getRuntimeSourceIssues(question).length === 0)
+    .filter(question => isQuestionValid(question, options))
+    .filter(keepRuntimeQuestion);
 }
 
 const startupQuestions = prepareRuntimeQuestionBank(STARTUP_QUESTION_BANKS.flat());

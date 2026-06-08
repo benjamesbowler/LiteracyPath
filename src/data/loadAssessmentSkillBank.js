@@ -4,6 +4,10 @@ import { enrichInitialSoundPairQuestion } from "./initialSoundPairAssets.js";
 import { enrichListenAndFindWordQuestion } from "./listenAndFindAssets.js";
 import { enrichQuestionWithExistingMedia } from "./questionMediaResolver.js";
 import { normalizeRhymingQuestionChoices } from "./rhymingDistractors.js";
+import {
+  getRuntimeSourceIssues,
+  sourceFileByBankName
+} from "./sourceOfTruthRegistry.js";
 
 import { masteryCoreQuestions } from "./masteryCoreQuestions.js";
 import { masteryExtraQuestions } from "./masteryExtraQuestions.js";
@@ -25,15 +29,12 @@ import { templateExpansion5 } from "./templateExpansion5.js";
 import { templateExpansion6 } from "./templateExpansion6.js";
 import { templateExpansion7 } from "./templateExpansion7.js";
 import { questionBankExpansion8 } from "./questionBankExpansion8.js";
-import { questionBankExpansion9 } from "./questionBankExpansion9.js";
 import { questionBankExpansion10 } from "./questionBankExpansion10.js";
 import { questionBankExpansion11 } from "./questionBankExpansion11.js";
 import { questionBankExpansion12 } from "./questionBankExpansion12.js";
 import { questionBankExpansion13 } from "./questionBankExpansion13.js";
 import { questionBankExpansion14 } from "./questionBankExpansion14.js";
 import { qbAssess_svd } from "./qbAssess_svd.js";
-import { qbAssess_hfw1 } from "./qbAssess_hfw1.js";
-import { qbAssess_hfw2 } from "./qbAssess_hfw2.js";
 import { qbAssess_sc } from "./qbAssess_sc.js";
 import { qbAssess_rc } from "./qbAssess_rc.js";
 import { qbAssess_inf } from "./qbAssess_inf.js";
@@ -210,15 +211,12 @@ const QUESTION_BANKS = [
   ["templateExpansion6", templateExpansion6],
   ["templateExpansion7", templateExpansion7],
   ["questionBankExpansion8", questionBankExpansion8],
-  ["questionBankExpansion9", questionBankExpansion9],
   ["questionBankExpansion10", questionBankExpansion10],
   ["questionBankExpansion11", questionBankExpansion11],
   ["questionBankExpansion12", questionBankExpansion12],
   ["questionBankExpansion13", questionBankExpansion13],
   ["questionBankExpansion14", questionBankExpansion14],
   ["qbAssess_svd", qbAssess_svd],
-  ["qbAssess_hfw1", qbAssess_hfw1],
-  ["qbAssess_hfw2", qbAssess_hfw2],
   ["qbAssess_sc", qbAssess_sc],
   ["qbAssess_rc", qbAssess_rc],
   ["qbAssess_inf", qbAssess_inf],
@@ -270,6 +268,7 @@ function normalizeQuestion(question = {}, source = "", sourceIndex = 0) {
     skillId: runtimeSkillIdFor(skillId) || enriched.skillId || enriched.skill_id || "",
     assessmentSkillId: skillId,
     _source: source,
+    _sourceFile: sourceFileByBankName[source] || "",
     _sourceIndex: sourceIndex
   });
 }
@@ -415,9 +414,12 @@ export async function loadAssessmentSkillBank(skillId = "") {
   ]);
   const runtimeSkillId = runtimeSkillIdFor(normalizedSkillId);
   const questions = allAssessmentQuestions.filter(question =>
-    question.assessmentSkillId === normalizedSkillId ||
-    normalizeSkillId(question.skillId) === normalizedSkillId ||
-    normalizeSkillId(question.skillId) === runtimeSkillId
+    (
+      question.assessmentSkillId === normalizedSkillId ||
+      normalizeSkillId(question.skillId) === normalizedSkillId ||
+      normalizeSkillId(question.skillId) === runtimeSkillId
+    ) &&
+    getRuntimeSourceIssues(question).length === 0
   );
   if (GRAMMAR_SENTENCE_FIT_SKILLS.has(normalizedSkillId)) {
     const filtered = questions.filter(isGrammarSentenceFitRuntimeQuestion);

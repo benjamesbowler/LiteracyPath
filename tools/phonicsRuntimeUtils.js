@@ -23,7 +23,6 @@ import { templateExpansion5 } from "../src/data/templateExpansion5.js";
 import { templateExpansion6 } from "../src/data/templateExpansion6.js";
 import { templateExpansion7 } from "../src/data/templateExpansion7.js";
 import { questionBankExpansion8 } from "../src/data/questionBankExpansion8.js";
-import { questionBankExpansion9 } from "../src/data/questionBankExpansion9.js";
 import { questionBankExpansion10 } from "../src/data/questionBankExpansion10.js";
 import { questionBankExpansion11 } from "../src/data/questionBankExpansion11.js";
 import { questionBankExpansion12 } from "../src/data/questionBankExpansion12.js";
@@ -54,6 +53,10 @@ import { enrichQuestionWithExistingMedia } from "../src/data/questionMediaResolv
 import { getQuestionSignature } from "../src/questionRepeatGuards.js";
 import { getRhymeGroup } from "../src/data/rhymeGroups.js";
 import { getQuestionRoutingIssue } from "../src/data/skillTemplateRouting.js";
+import {
+  getRuntimeSourceIssues,
+  sourceFileByBankName
+} from "../src/data/sourceOfTruthRegistry.js";
 import { getHfwRuntimeEligibilityIssues, isRuntimeEligibleHfwQuestion } from "../src/data/hfwRuntimeEligibility.js";
 import {
   getBlendsRuntimeEligibilityIssues,
@@ -110,7 +113,6 @@ const questionBanks = [
   ["templateExpansion6", templateExpansion6],
   ["templateExpansion7", templateExpansion7],
   ["questionBankExpansion8", questionBankExpansion8],
-  ["questionBankExpansion9", questionBankExpansion9],
   ["questionBankExpansion10", questionBankExpansion10],
   ["questionBankExpansion11", questionBankExpansion11],
   ["questionBankExpansion12", questionBankExpansion12],
@@ -312,6 +314,7 @@ function getCanonicalAssessmentLevel(question = {}) {
 }
 
 function keepRuntimeQuestion(question = {}) {
+  if (getRuntimeSourceIssues(question).length > 0) return false;
   const skillId = getCanonicalAssessmentSkillId(question);
   if (!isLevelOneContentQualityAllowed(question)) return false;
   if (!REPLACED_LEGACY_ASSESSMENT_SKILLS.has(skillId)) return true;
@@ -502,6 +505,7 @@ export function loadCoreQuestionPool() {
     bank.map((question, index) => ({
       ...enrichQuestionWithExistingMedia(enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question))),
       _source: source,
+      _sourceFile: sourceFileByBankName[source] || "",
       _sourceIndex: index
     }))
   );
@@ -564,6 +568,8 @@ export function isImageEssential(question = {}) {
 
 export function questionFilterReason(question = {}) {
   if (question.active === false) return "inactive";
+  const sourceIssues = getRuntimeSourceIssues(question);
+  if (sourceIssues.length) return `source not approved: ${sourceIssues.join("; ")}`;
   const skillId = getCoreSkillId(question);
   if (skillId) {
     const routeIssue = getQuestionRoutingIssue(question, skillId);

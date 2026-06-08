@@ -22,6 +22,8 @@
     "check:media-quality": "node tools/checkMediaQualityManifest.js",
     "check:media-overwrite-risk": "node tools/checkMediaOverwriteRisk.js",
     "check:repo-hygiene": "node tools/checkRepoHygiene.js",
+    "audit:repo-data-sources": "node tools/auditRepoDataSources.js",
+    "check:approved-runtime-sources": "node tools/checkRuntimeUsesOnlyApprovedSources.js",
     "check:assessment-preload-coverage": "node tools/checkAssessmentPreloadCoverage.js",
     "check:assessment-active-media-sizes": "node tools/checkAssessmentActiveMediaSizes.js",
     "check:assessment-media-sizes": "node tools/checkAssessmentMediaSizes.js",
