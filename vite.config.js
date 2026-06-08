@@ -105,6 +105,12 @@ export default defineConfig({
             return 'generated-assessment-banks'
           }
           if (
+            id.includes('/src/data/generated/hfwCuratedSentences.generated') ||
+            id.includes('/src/data/generated/skillWordBank.generated')
+          ) {
+            return 'generated-word-banks'
+          }
+          if (
             id.includes('/src/data/assessmentMedia') ||
             id.includes('/src/data/questionMediaResolver') ||
             id.includes('/src/data/generated/media')

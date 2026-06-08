@@ -26,18 +26,6 @@ import {
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
 import { normalize, shuffleArray } from "./utils/assessmentRoundBuilder";
 
-import { masteryCoreQuestions } from "./data/masteryCoreQuestions";
-import { masteryExtraQuestions } from "./data/masteryExtraQuestions";
-import { initialSoundCoverageQuestions } from "./data/initialSoundCoverageQuestions";
-import { finalSoundCoverageQuestions } from "./data/finalSoundCoverageQuestions";
-import { rhymingCoverageQuestions } from "./data/rhymingCoverageQuestions";
-import { cvcShortVowelExpansionQuestions } from "./data/cvcShortVowelExpansionQuestions";
-import { shortVowelDiscriminationPhase2Questions } from "./data/shortVowelDiscriminationPhase2Questions";
-import { contentExpansionPass3Questions } from "./data/contentExpansionPass3Questions";
-import { targetedContentRecoveryQuestions } from "./data/targetedContentRecoveryQuestions";
-import { kimiDataset7RuntimeQuestions } from "./data/kimiDataset7RuntimeQuestions";
-import { ixlStyleSeedQuestions } from "./data/ixlStyleSeedQuestions";
-import { safeContentExpansionQuestions } from "./data/safeContentExpansionQuestions";
 import {
   coverageExpectations,
   finalSoundLevelOneAllowedItemKeys,
@@ -91,33 +79,8 @@ import {
   FINAL_SOUND_LEVEL_ONE_REQUIRED_UNIQUE_WORDS
 } from "./data/finalSoundMasteryDepth";
 
-import { templateQuestions } from "./data/templateQuestions";
-import { templateExpansion } from "./data/templateExpansion";
-import { templateExpansion2 } from "./data/templateExpansion2";
-import { templateExpansion3 } from "./data/templateExpansion3";
-import { templateExpansion4 } from "./data/templateExpansion4";
-import { templateExpansion5 } from "./data/templateExpansion5";
-import { templateExpansion6 } from "./data/templateExpansion6";
-import { templateExpansion7 } from "./data/templateExpansion7";
-import { questionBankExpansion8 } from "./data/questionBankExpansion8";
-import { questionBankExpansion10 } from "./data/questionBankExpansion10";
-import { questionBankExpansion11 } from "./data/questionBankExpansion11";
-import { questionBankExpansion12 } from "./data/questionBankExpansion12";
-import { questionBankExpansion13 } from "./data/questionBankExpansion13";
-import { questionBankExpansion14 } from "./data/questionBankExpansion14";
-import { qbAssess_svd } from "./data/qbAssess_svd";
-import { qbAssess_sc } from "./data/qbAssess_sc";
-import { qbAssess_rc } from "./data/qbAssess_rc";
-import { qbAssess_inf } from "./data/qbAssess_inf";
-import { qbFillGaps } from "./data/qbFillGaps";
-import { generatedQuestions } from "./data/generatedQuestions";
-import { assessmentQaReplacementQuestions } from "./data/assessmentQaReplacementQuestions";
 import { isLevelOneContentQualityAllowed } from "./data/levelOneContentQuality";
-import { highQualityComprehensionReplacementQuestions } from "./data/highQualityComprehensionReplacements";
-import { fixSentenceQuestions } from "./data/fixSentenceQuestions";
-import { templateComprehensionAdvanced } from "./data/templateComprehensionAdvanced";
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
-import { shortAEchoCavesQuestions } from "./data/childActivityModels";
 import { getApprovedAudioPath, getPreferredAudioPath } from "./data/audioPreferenceManifest";
 import { getChildWordAsset } from "./data/childAssets";
 import { isMediaQaRuntimeAllowed, isQuestionBlockedByMediaQa } from "./data/mediaQaManifest";
@@ -1156,9 +1119,7 @@ const echoCavesMissionMap = [
   { id: "mastery", label: "Deep Crystal Mastery", matches: questionId => questionId.includes("mastery") }
 ];
 
-const echoCavesWords = Array.from(
-  new Set(shortAEchoCavesQuestions.map(question => normalizeItemKey(question.targetWord)).filter(Boolean))
-).sort();
+const echoCavesWords = ["bag", "bat", "cap", "cat", "hat", "man", "map", "nap", "pan"];
 
 function buildChildLearningEvidence(answerRows = [], itemMasteryRows = [], tableMissing = false) {
   if (tableMissing) {
@@ -1424,45 +1385,6 @@ function keepRuntimeQuestion(question = {}) {
   return isGeneratedReplacementQuestion(question);
 }
 
-const STARTUP_QUESTION_BANKS = [
-  masteryCoreQuestions,
-  masteryExtraQuestions,
-  initialSoundCoverageQuestions,
-  finalSoundCoverageQuestions,
-  rhymingCoverageQuestions,
-  cvcShortVowelExpansionQuestions,
-  shortVowelDiscriminationPhase2Questions,
-  contentExpansionPass3Questions,
-  targetedContentRecoveryQuestions,
-  kimiDataset7RuntimeQuestions,
-  ixlStyleSeedQuestions,
-  safeContentExpansionQuestions,
-  templateQuestions,
-  templateExpansion,
-  templateExpansion2,
-  templateExpansion3,
-  templateExpansion4,
-  templateExpansion5,
-  templateExpansion6,
-  templateExpansion7,
-  questionBankExpansion8,
-  questionBankExpansion10,
-  questionBankExpansion11,
-  questionBankExpansion12,
-  questionBankExpansion13,
-  questionBankExpansion14,
-  qbAssess_svd,
-  qbAssess_sc,
-  qbAssess_rc,
-  qbAssess_inf,
-  qbFillGaps,
-  assessmentQaReplacementQuestions,
-  highQualityComprehensionReplacementQuestions,
-  generatedQuestions,
-  fixSentenceQuestions,
-  templateComprehensionAdvanced
-];
-
 function prepareRuntimeQuestionBank(questions = [], options = {}) {
   return dedupeQuestionsByRuntimeSignature(
     questions.map((question, index) =>
@@ -1478,7 +1400,7 @@ function prepareRuntimeQuestionBank(questions = [], options = {}) {
     .filter(keepRuntimeQuestion);
 }
 
-const startupQuestions = prepareRuntimeQuestionBank(STARTUP_QUESTION_BANKS.flat());
+const startupQuestions = [];
 let runtimeQuestionCache = startupQuestions;
 
 const configuredCoverageTotals = coverageExpectations;
@@ -1669,8 +1591,6 @@ function buildQuestionBankCoverage(questions = []) {
   return Array.from(rowsBySkill.values()).sort((a, b) => a.skill.localeCompare(b.skill));
 }
 
-const startupQuestionBankCoverageSnapshot = buildQuestionBankCoverage(startupQuestions);
-
 const letterAssessmentOrder = [
   "m", "T", "b", "S", "a", "F", "d", "R", "p", "E", "g", "H", "c",
   "M", "t", "B", "s", "A", "f", "D", "r", "P", "e", "G", "h", "C",
@@ -1766,6 +1686,7 @@ export default function App() {
   const allQuestionsRef = useRef(startupQuestions);
   const loadedAssessmentSkillBanksRef = useRef(new Set());
   const assessmentSkillBankPromisesRef = useRef(new Map());
+  const assessmentWarmupStartedRef = useRef(false);
   const assessmentMediaUsageRef = useRef(createAssessmentSessionMediaUsage());
   const initialSoundRoundQueueRef = useRef([]);
   const initialSoundRoundMetaRef = useRef(null);
@@ -1842,8 +1763,9 @@ export default function App() {
 
   function preloadAssessmentShellForStage(stage = currentStage) {
     if (!stage?.id) return;
-    void loadAssessmentSkillBankLoaderModule()
-      .then(module => module.preloadAssessmentSkillBank(stage.id));
+    void loadRuntimeQuestionsForSkill(stage.id).catch(error => {
+      console.warn("Could not preload assessment skill bank.", { skillId: stage.id, error });
+    });
     void loadFinishedReportPageModule();
   }
 
@@ -1860,6 +1782,39 @@ export default function App() {
     if (!nameSaved || !currentStage?.id) return;
     preloadAssessmentShellForStage(currentStage);
   }, [nameSaved, currentStage?.id]);
+
+  useEffect(() => {
+    if (!authReady || !teacherId || assessmentWarmupStartedRef.current) return;
+    if (!isAdmin && teacherAccountStatus !== "approved") return;
+
+    assessmentWarmupStartedRef.current = true;
+    let cancelled = false;
+    const warmAssessmentBanks = async () => {
+      for (const stage of skillTree) {
+        if (cancelled) return;
+        try {
+          await loadRuntimeQuestionsForSkill(stage.id);
+        } catch (error) {
+          console.warn("Could not warm assessment skill bank.", { skillId: stage.id, error });
+        }
+      }
+    };
+    const startWarmup = () => {
+      void warmAssessmentBanks();
+    };
+    const idleHandle = typeof window.requestIdleCallback === "function"
+      ? window.requestIdleCallback(startWarmup, { timeout: 2500 })
+      : window.setTimeout(startWarmup, 1200);
+
+    return () => {
+      cancelled = true;
+      if (typeof window.cancelIdleCallback === "function" && typeof idleHandle === "number") {
+        window.cancelIdleCallback(idleHandle);
+      } else {
+        window.clearTimeout(idleHandle);
+      }
+    };
+  }, [authReady, teacherId, teacherAccountStatus, isAdmin]);
 
   useEffect(() => {
     setAssessmentHistory(teacherId ? loadAssessmentAttempts({ teacherId }) : []);
@@ -7234,9 +7189,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   [itemMastery, studentId]);
 
   const questionBankCoverage = useMemo(() =>
-    allQuestions === startupQuestions
-      ? startupQuestionBankCoverageSnapshot
-      : buildQuestionBankCoverage(allQuestions),
+    buildQuestionBankCoverage(allQuestions),
   [allQuestions]);
 
   if (!authReady) {
