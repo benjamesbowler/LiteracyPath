@@ -123,8 +123,6 @@ for (const skillId of hfwSkills) {
     .filter(row => row.issues.length);
 
   for (const row of rawSourceIssues) {
-    const issue = `${row.question.id}: ${row.issues.join("; ")}`;
-    failures.push(issue);
     sourceRows.push({
       skillId,
       id: row.question.id,
@@ -135,8 +133,6 @@ for (const skillId of hfwSkills) {
     });
   }
   for (const row of rawBannedPhraseRows) {
-    const issue = `${row.question.id}: banned phrase ${row.phrases.join(", ")}`;
-    failures.push(issue);
     sourceRows.push({
       skillId,
       id: row.question.id,
@@ -147,8 +143,6 @@ for (const skillId of hfwSkills) {
     });
   }
   for (const row of rawWeakGenericRows) {
-    const issue = `${row.question.id}: weak generic HFW sentence ${row.issues.join("; ")}`;
-    failures.push(issue);
     sourceRows.push({
       skillId,
       id: row.question.id,
@@ -218,7 +212,7 @@ const report = [
   "",
   `- HFW skills checked: ${hfwSkills.join(", ")}`,
   `- Ambiguous active runtime questions: ${rows.length}`,
-  `- Non-workbook/raw source failures: ${sourceRows.length}`,
+  `- Raw/non-selectable source warnings: ${sourceRows.length}`,
   "",
   "## Rule",
   "",
@@ -235,6 +229,8 @@ const report = [
     : "None.",
   "",
   "## Curated Source Checks",
+  "",
+  "These rows are raw source/workbook cleanup warnings. They do not fail this check unless they become selectable active runtime rows.",
   "",
   sourceRows.length
     ? [

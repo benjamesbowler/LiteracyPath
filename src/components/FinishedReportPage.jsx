@@ -163,7 +163,7 @@ export function FinishedReportPage({
   const hasGuidedReadingRecords = Object.keys(guidedReadingRecords || {}).length > 0;
 
   return (
-    <div className="report-panel page-stack">
+    <div className="report-panel page-stack finished-report-panel">
       <h2>Finished Report</h2>
 
       <div className="button-row">

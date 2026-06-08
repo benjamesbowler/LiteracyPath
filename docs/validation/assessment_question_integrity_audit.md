@@ -1,16 +1,18 @@
 # Assessment Question Integrity Audit
 
-Generated: 2026-06-03T11:23:43.867Z
+Generated: 2026-06-08T03:55:06.429Z
 
 ## Summary
 
-- Active runtime question candidates checked: 5943
+- Active runtime question candidates checked: 7228
 - Active question integrity failures: 0
-- CVC selectable runtime questions checked: 447
+- CVC selectable runtime questions checked: 410
 - CVC selectable runtime failures: 0
-- Short Vowel Discrimination selectable runtime questions checked: 39
+- Short Vowel Discrimination selectable runtime questions checked: 239
 - Short Vowel Discrimination selectable runtime failures: 0
-- Active candidates blocked by unapproved audio: 17
+- HFW spelling panel rows checked: 299
+- HFW spelling panel readiness failures: 0
+- Active candidates blocked by unapproved audio: 369
 - Guided Reading pages marked for replacement / QA failed: 1
 
 ## Active Question Failures
@@ -18,6 +20,12 @@ Generated: 2026-06-03T11:23:43.867Z
 | Question ID | Source | Skill | Target | Issues |
 |---|---|---|---|---|
 | none | none | none | none | No active runtime question integrity failures found. |
+
+## HFW Spelling Panel Readiness
+
+| Skill | Question ID | Target | Issues |
+|---|---|---|---|
+| none | none | none | All HFW spelling rows are ready for the letter-build panel. |
 
 ## Guided Reading Pages Needing Replacement
 

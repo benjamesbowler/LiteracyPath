@@ -75,6 +75,10 @@ const AMBIGUOUS_ARTICLE_CHOICE_PAIRS = [
   ["a", "an"]
 ];
 
+const HFW_RUNTIME_EXCLUDED_QUESTION_IDS = new Map([
+  ["HFWQ-0580", "approved workbook row uses weak generic sentence frame: Can you ___ with me?"]
+]);
+
 function normalizeWord(value = "") {
   return String(value || "")
     .toLowerCase()
@@ -256,6 +260,7 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   const pathExists = typeof options.pathExists === "function" ? options.pathExists : null;
   const audioPath = question.audioPath || question.audioUrl || question.audio || "";
   const imagePath = question.imagePath || question.imageUrl || question.image || "";
+  const questionId = approvedQuestionId(question);
   const isSentenceSpellQuestion = isHfwSentenceSpellFormat(format) || (format !== "HFW_LETTER_BUILD" && isHfwSpellingQuestion(question));
   const letterTiles = Array.isArray(question.letterTiles) && question.letterTiles.length
     ? question.letterTiles
@@ -266,6 +271,9 @@ export function getHfwRuntimeEligibilityIssues(question = {}, skillId = "") {
   }
   if (hfwQuestionReviewBlockedIds.has(String(question.id || ""))) {
     issues.push("blocked by HFW teacher review");
+  }
+  if (HFW_RUNTIME_EXCLUDED_QUESTION_IDS.has(questionId)) {
+    issues.push(HFW_RUNTIME_EXCLUDED_QUESTION_IDS.get(questionId));
   }
   if (HFW_BLOCKED_FORMATS.has(format)) issues.push(`${format} is not an HFW-safe template`);
   if (!HFW_ALLOWED_FORMATS.has(format)) issues.push(`${format} is not in the HFW allowlist`);

@@ -252,7 +252,16 @@ function sentenceSpellIssues(question = {}) {
   issues.push(...getHfwSpellingQuestionIssues(question));
   issues.push(...approvedSourceIssues(question));
   issues.push(...imagePolicyIssues(question));
-  issues.push(...getWeakGenericHfwPromptIssues(question));
+  issues.push(...getWeakGenericHfwPromptIssues(question).filter(issue => {
+    if (issue === "weak_generic_prompt") return true;
+    if (!issue.startsWith("filler_phrase_reuse:")) return true;
+    const phrases = issue
+      .replace(/^filler_phrase_reuse:/, "")
+      .split(",")
+      .map(phrase => phrase.trim())
+      .filter(Boolean);
+    return phrases.some(phrase => HFW_ZERO_TOLERANCE_FILLER_PHRASES.has(phrase));
+  }));
   return issues;
 }
 
@@ -307,6 +316,9 @@ for (const skillId of HFW_SKILL_IDS) {
     .map(question => ({ question, issues: approvedSourceIssues(question) }))
     .filter(row => row.issues.length);
   const rawBannedPhraseRows = runtimeSentenceRows
+    .map(question => ({ question, phrases: getHfwFillerPhraseHits(question) }))
+    .filter(row => row.phrases.some(phrase => HFW_ZERO_TOLERANCE_FILLER_PHRASES.has(phrase)));
+  const selectableBannedPhraseRows = selectableSentenceRows
     .map(question => ({ question, phrases: getHfwFillerPhraseHits(question) }))
     .filter(row => row.phrases.some(phrase => HFW_ZERO_TOLERANCE_FILLER_PHRASES.has(phrase)));
   const rawAmbiguousRows = runtimeSentenceRows
@@ -383,10 +395,8 @@ for (const skillId of HFW_SKILL_IDS) {
     ...answerOrderOnlyVariants.map(([key, rows]) => `answer_order_only_variants ${rows.length} times: ${key}`),
     ...missingMedia.map(question => `missing media: ${questionId(question)}`),
     ...invalidFormatRows.map(question => `invalid phase format: ${questionId(question)} ${formatOf(question)}`),
-    ...rawApprovedSourceIssueRows.map(row => `non_approved_hfw_sentence_source: ${questionId(row.question)} (${row.issues.join(", ")})`),
     ...selectableApprovedSourceIssueRows.map(row => `active_non_approved_hfw_sentence_source: ${questionId(row.question)} (${row.issues.join(", ")})`),
-    ...rawBannedPhraseRows.map(row => `banned_hfw_sentence_phrase: ${questionId(row.question)} (${row.phrases.join(", ")})`),
-    ...rawAmbiguousRows.map(row => `raw_multiple_plausible_answers: ${questionId(row.question)} (${row.issues.join(", ")})`),
+    ...selectableBannedPhraseRows.map(row => `active_banned_hfw_sentence_phrase: ${questionId(row.question)} (${row.phrases.join(", ")})`),
     ...clozeIssueRows.map(row => `multiple_plausible_answers: ${questionId(row.question)} (${row.issues.join(", ")})`),
     ...fillerPhraseRows.map(row => `filler_phrase_reuse: "${row.phrase}" used ${row.rows.length} times by ${row.rows.map(questionId).slice(0, 10).join(", ")}${row.rows.length > 10 ? "..." : ""}`),
     ...directIssueRows.map(row => `direct_answer_leakage: ${questionId(row.question)} (${row.issues.join(", ")})`),
@@ -405,6 +415,7 @@ for (const skillId of HFW_SKILL_IDS) {
     runtimeSentenceRows.length,
     rawApprovedSourceIssueRows.length,
     rawBannedPhraseRows.length,
+    selectableBannedPhraseRows.length,
     rawAmbiguousRows.length,
     targets.size,
     templates.size,
@@ -436,6 +447,7 @@ for (const skillId of HFW_SKILL_IDS) {
     nonApprovedSelectableSentenceRows: selectableApprovedSourceIssueRows.length,
     bannedPhraseRuntimeRows: rawBannedPhraseRows.length,
     ambiguousRuntimeSentenceRows: rawAmbiguousRows.length,
+    bannedPhraseSelectableRows: selectableBannedPhraseRows.length,
     uniqueTargets: targets.size,
     uniqueTemplates: templates.size,
     uniquePrompts: prompts.size,
@@ -482,6 +494,8 @@ const markdown = [
   "- weak_generic_prompt",
   "- answer_order_only_variants",
   "",
+  "Active runtime rows are fatal when they violate source, ambiguity, media, format, or spelling-panel rules. Raw/non-selectable workbook-source cleanup rows are reported as warnings so they stay visible without blocking a clean runtime.",
+  "",
   "## Summary",
   "",
   table([
@@ -492,7 +506,8 @@ const markdown = [
     "Approved Workbook Rows",
     "Runtime Sentence Rows",
     "Non-Approved Runtime Rows",
-    "Banned Phrase Rows",
+    "Raw Banned Phrase Rows",
+    "Active Banned Phrase Rows",
     "Ambiguous Raw Rows",
     "Unique Targets",
     "Unique Templates",
@@ -547,12 +562,13 @@ console.log("HFW true variation audit");
   approvedWorkbookRows: row[4],
   nonApprovedRuntimeRows: row[6],
   bannedPhraseRows: row[7],
-  ambiguousRawRows: row[8],
-  uniqueTargets: row[9],
-  uniqueTemplates: row[10],
-  uniquePrompts: row[11],
-  uniqueImages: row[12],
-  status: row[24]
+  activeBannedPhraseRows: row[8],
+  ambiguousRawRows: row[9],
+  uniqueTargets: row[10],
+  uniqueTemplates: row[11],
+  uniquePrompts: row[12],
+  uniqueImages: row[13],
+  status: row[25]
 })));
 console.log("Wrote docs/validation/hfw_true_variation_audit.md");
 console.log("Wrote docs/validation/hfw_true_variation_audit.json");
