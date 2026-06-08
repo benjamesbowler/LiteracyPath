@@ -2855,7 +2855,7 @@ export function AssessmentPage({
   const isPairSelection =
     ["initial_sound_pair", "final_sound_pair", "rhyme_pair"].includes(currentQuestion?.questionType);
   const isVisualCardChoice =
-    currentQuestion?.questionType === "visual_card_choice" &&
+    (currentQuestion?.questionType === "visual_card_choice" || isRhymingPictureQuestion(currentQuestion)) &&
     !isGraphemeChoiceQuestion(currentQuestion);
   const isIxlStyleTemplate =
     currentQuestion?.questionType === "ixl_template" ||

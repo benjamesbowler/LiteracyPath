@@ -4470,16 +4470,29 @@ select:focus {
 
 .assessment-main-image-wrap {
   position: relative;
+  display: grid;
+  grid-template-rows: minmax(0, auto) auto;
+  justify-items: center;
+  align-items: start;
+  gap: 10px;
   min-height: clamp(130px, 20vh, 210px);
+  max-height: none;
+  overflow: visible;
 }
 
 .assessment-main-image {
   max-height: clamp(125px, 20vh, 190px) !important;
+  border-radius: 8px;
 }
 
 .rhyming-target-word {
   display: block;
-  margin-top: 6px;
+  width: min(100%, 320px);
+  margin-top: 0;
+  padding: 8px 10px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 8px;
+  background: #ffffff;
   color: var(--lp-color-text-strong);
   font-size: clamp(22px, 3vw, 34px);
   line-height: 1.05;
@@ -4855,6 +4868,16 @@ select:focus {
   max-width: 100%;
   max-height: clamp(140px, 28vh, 240px);
   object-fit: contain;
+}
+
+.image-box.assessment-main-image-wrap {
+  display: grid;
+  grid-template-rows: minmax(0, auto) auto;
+  justify-items: center;
+  align-items: start;
+  gap: 10px;
+  max-height: none;
+  overflow: visible;
 }
 
 .ixl-template-panel {

@@ -40,7 +40,11 @@ const SHORT_VOWEL_ALLOWED_FORMATS = new Set([
   "LISTEN_CHOOSE_VOWEL",
   "PICTURE_TO_PRINT_MATCH"
 ]);
+export const LOW_VALUE_CVC_EXCLUSIONS = new Set([
+  "bid"
+]);
 const SHORT_VOWEL_FORBIDDEN_WORDS = new Set([
+  ...LOW_VALUE_CVC_EXCLUSIONS,
   "yen"
 ]);
 const SHORT_VOWEL_GRAPHEME_CHOICES = new Set(["a", "e", "i", "o", "u"]);
@@ -154,6 +158,21 @@ function addShortVowelDiscriminationIssues(question = {}, issues = []) {
       issues.push("Short Vowel Discrimination picture choices must be simple lowercase words");
     }
   }
+}
+
+function addCvcShortVowelIssues(question = {}, issues = []) {
+  const optionTokens = [...new Set(getAnswerOptionTokens(question))];
+  const targetWord = getTargetWord(question);
+
+  if (targetWord && LOW_VALUE_CVC_EXCLUSIONS.has(targetWord)) {
+    issues.push(`CVC target word "${targetWord}" is excluded from active assessment runtime`);
+  }
+
+  optionTokens.forEach(option => {
+    if (LOW_VALUE_CVC_EXCLUSIONS.has(option)) {
+      issues.push(`CVC answer option "${option}" is excluded from active assessment runtime`);
+    }
+  });
 }
 
 function getQuestionText(question = {}) {
@@ -373,6 +392,10 @@ export function getEarlySkillRuntimeEligibilityIssues(question = {}, context = {
     if (!hasRuntimeTargetImage(question, context)) {
       issues.push("Short Vowel Discrimination question is missing a real target-word object image");
     }
+  }
+
+  if (skillId === "cvc_short_vowels") {
+    addCvcShortVowelIssues(question, issues);
   }
 
   if (question.hideWrittenLabels === true && !hasRuntimeImage(question, context)) {

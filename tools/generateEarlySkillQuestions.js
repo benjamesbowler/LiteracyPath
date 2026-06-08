@@ -20,6 +20,7 @@ import {
   rhymingExpectedItemKeys,
   rhymingLevelTwoExpectedItemKeys
 } from "../src/data/coverageExpectations.js";
+import { LOW_VALUE_CVC_EXCLUSIONS } from "../src/utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
@@ -33,6 +34,7 @@ const splitOutputFiles = {
 };
 
 const FORBIDDEN_EARLY_CHOICE_WORDS = new Set([
+  ...LOW_VALUE_CVC_EXCLUSIONS,
   "yen"
 ]);
 

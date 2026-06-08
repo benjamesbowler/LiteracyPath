@@ -22,6 +22,7 @@ import {
   uniqueRuntimeQuestions
 } from "./skillLevelDepthShared.js";
 import { publicPathExists, repoRoot } from "./phonicsRuntimeUtils.js";
+import { LOW_VALUE_CVC_EXCLUSIONS } from "../src/utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
 
 const generatedPath = path.join(repoRoot, "src", "data", "generated", "skillLevelGapQuestions.generated.js");
 const manifestPath = path.join(docsValidationDir, "skill_level_gap_questions_generation.json");
@@ -30,6 +31,7 @@ const GENERATED_SOURCE = "skill_level_depth_gap_generator";
 const PHASE_BUFFER_SIZE = SKILL_LEVEL_DEPTH_TARGETS.phaseBufferSize || Math.ceil(SKILL_LEVEL_DEPTH_TARGETS.phaseSize * 1.5);
 const SHORT_VOWEL_LABELS = ["short_a", "short_e", "short_i", "short_o", "short_u"];
 const FORBIDDEN_EARLY_CHOICE_WORDS = new Set([
+  ...LOW_VALUE_CVC_EXCLUSIONS,
   "yen"
 ]);
 const SINGLE_LETTER_SOUNDS = "abcdefghijklmnopqrstuvwxyz".split("");
@@ -82,6 +84,67 @@ function rotate(items, offset) {
   if (!items.length) return [];
   const start = offset % items.length;
   return items.slice(start).concat(items.slice(0, start));
+}
+
+function firstVowel(word = "") {
+  return normalize(word).match(/[aeiou]/)?.[0] || "";
+}
+
+function wordRime(word = "") {
+  const value = normalize(word).replace(/[^a-z]/g, "");
+  const index = value.search(/[aeiou]/);
+  return index === -1 ? value.slice(1) : value.slice(index);
+}
+
+function scoreRhymingDistractor(entry, selected, target, correct) {
+  const word = entry.word;
+  const targetLength = target.word.length || correct.word.length;
+  const lengthDelta = Math.abs(word.length - targetLength);
+  const usedInitials = new Set(selected.map(item => item.word[0]));
+  const usedFamilies = new Set(selected.map(item => getRhymeGroup(item.word)).filter(Boolean));
+  const candidateFamily = getRhymeGroup(word);
+  let score = 0;
+
+  if (lengthDelta === 0) score += 34;
+  else if (lengthDelta === 1) score += 24;
+  else if (lengthDelta === 2) score += 8;
+  if (word.length <= 5) score += 18;
+  if (firstVowel(word) && firstVowel(word) !== firstVowel(target.word)) score += 10;
+  if (wordRime(word).length === wordRime(target.word).length) score += 8;
+  if (entry.isConcrete) score += 8;
+  if (entry.isImageable) score += 8;
+  if (!usedInitials.has(word[0])) score += 14;
+  if (candidateFamily && !usedFamilies.has(candidateFamily)) score += 10;
+
+  return score;
+}
+
+function rhymingDistractorEntries({ target, correct, family, round, count = 3 }) {
+  const targetLength = target.word.length || correct.word.length;
+  const candidates = lexicon.filter(item => {
+    if (item.word === target.word || item.word === correct.word) return false;
+    if (!item.isConcrete || !item.isImageable) return false;
+    if (!publicPathExists(item.imagePath)) return false;
+    if (getRhymeGroup(item.word) === family || item.phonics?.rimeFamily === family) return false;
+    if (targetLength <= 5 && item.word.length > 5) return false;
+    return /^[a-z]+$/.test(item.word);
+  });
+  const rotated = rotate(candidates, round * 7);
+  const selected = [];
+
+  while (selected.length < count && selected.length < rotated.length) {
+    const next = rotated
+      .filter(item => !selected.some(selectedItem => selectedItem.word === item.word))
+      .sort((a, b) =>
+        scoreRhymingDistractor(b, selected, target, correct) -
+        scoreRhymingDistractor(a, selected, target, correct) ||
+        a.word.localeCompare(b.word)
+      )[0];
+    if (!next) break;
+    selected.push(next);
+  }
+
+  return selected;
 }
 
 const BLOCKED_RUNTIME_MEDIA_TOKEN = /(?:blank|placeholder|fallback|missing|unavailable|coming-soon)/i;
@@ -318,9 +381,7 @@ function makeRhymingQuestions(level, needed) {
       const rhymes = items.filter(item => item.word !== target.word);
       if (!rhymes.length) continue;
       const correct = rhymes[0];
-      const distractors = lexicon
-        .filter(item => item.word !== target.word && item.word !== correct.word && item.phonics?.rimeFamily !== family && item.isConcrete)
-        .slice(round * 4, round * 4 + 6);
+      const distractors = rhymingDistractorEntries({ target, correct, family, round });
       const cards = [correct, ...distractors].slice(0, 4);
       if (cards.length !== 4) continue;
       questions.push(baseQuestion({
@@ -337,6 +398,7 @@ function makeRhymingQuestions(level, needed) {
         itemType: "rhyming_family",
         itemKey: family,
         extra: {
+          questionType: "visual_card_choice",
           rimeFamily: family,
           targetImageUrl: target.imagePath,
           imageUrl: target.imagePath,

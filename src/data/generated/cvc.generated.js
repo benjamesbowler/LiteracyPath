@@ -7,6 +7,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_A_01",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -61,6 +62,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_A_01",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in b_d.",
@@ -117,6 +119,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_A_01",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -171,6 +174,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_A_02",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -225,6 +229,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_A_02",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in b_g.",
@@ -281,6 +286,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_A_02",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -335,6 +341,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_A_03",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -389,6 +396,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_A_03",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in b_t.",
@@ -445,6 +453,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_A_03",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -499,6 +508,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_A_04",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -553,6 +563,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_A_04",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in c_b.",
@@ -609,6 +620,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_A_04",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -663,6 +675,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_A_05",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -717,6 +730,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_A_05",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in c_n.",
@@ -773,6 +787,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_A_05",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -827,6 +842,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_A_06",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -881,6 +897,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_A_06",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in c_p.",
@@ -937,6 +954,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_A_06",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -985,12 +1003,180 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_cap"
   },
   {
-    "id": "gen_cvc_short_a_dab_6_vowel",
+    "id": "gen_cvc_short_a_cat_6_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_A_07",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "short_vowel_word",
+    "prompt": "Which word has the short a sound?",
+    "question": "Which word has the short a sound?",
+    "spokenPrompt": "Which word has the short a sound?",
+    "audioText": "cat",
+    "targetWord": "cat",
+    "correctAnswer": "cat",
+    "answer": "cat",
+    "choices": [
+      "cat",
+      "dig",
+      "gum",
+      "hen"
+    ],
+    "answerOptions": [
+      "cat",
+      "dig",
+      "gum",
+      "hen"
+    ],
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
+    "audioKey": "cat",
+    "audioUrl": "/audio/child-mode/clean-human/words/cat.mp3",
+    "audioPath": "/audio/child-mode/clean-human/words/cat.mp3",
+    "phonicsPattern": "short_a",
+    "targetSound": "short_a",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_a",
+    "itemKey": "short_a",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "tags": [
+      "generated",
+      "cvc",
+      "short-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_cat"
+  },
+  {
+    "id": "gen_cvc_short_a_cat_6_missing",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 1,
+    "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_A_07",
+    "formatType": "MISSING_VOWEL_CVC",
+    "questionType": "missing_vowel_cvc",
+    "prompt": "Choose the missing vowel in c_t.",
+    "question": "Choose the missing vowel in c_t.",
+    "spokenPrompt": "Choose the missing vowel in c_t.",
+    "audioText": "cat",
+    "targetWord": "cat",
+    "correctAnswer": "a",
+    "answer": "a",
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "imageKey": "cat",
+    "imageUrl": "/images/child-mode/cvc/cat.png",
+    "imagePath": "/images/child-mode/cvc/cat.png",
+    "audioKey": "cat",
+    "audioUrl": "/audio/child-mode/clean-human/words/cat.mp3",
+    "audioPath": "/audio/child-mode/clean-human/words/cat.mp3",
+    "phonicsPattern": "short_a",
+    "targetSound": "short_a",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_a",
+    "itemKey": "short_a",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "tags": [
+      "generated",
+      "cvc",
+      "missing-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_cat"
+  },
+  {
+    "id": "gen_cvc_short_a_cat_6_picture",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 1,
+    "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_A_07",
+    "formatType": "PICTURE_TO_PRINT_MATCH",
+    "questionType": "picture_to_print_match",
+    "prompt": "Pick the word that matches the picture.",
+    "question": "Pick the word that matches the picture.",
+    "spokenPrompt": "Pick the word that matches the picture.",
+    "audioText": "cat",
+    "targetWord": "cat",
+    "correctAnswer": "cat",
+    "answer": "cat",
+    "choices": [
+      "cat",
+      "dig",
+      "gum",
+      "hen"
+    ],
+    "answerOptions": [
+      "cat",
+      "dig",
+      "gum",
+      "hen"
+    ],
+    "imageKey": "cat",
+    "imageUrl": "/images/child-mode/cvc/cat.png",
+    "imagePath": "/images/child-mode/cvc/cat.png",
+    "audioKey": "cat",
+    "audioUrl": "/audio/child-mode/clean-human/words/cat.mp3",
+    "audioPath": "/audio/child-mode/clean-human/words/cat.mp3",
+    "phonicsPattern": "short_a",
+    "targetSound": "short_a",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_a",
+    "itemKey": "short_a",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "tags": [
+      "generated",
+      "cvc",
+      "picture-word"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_cat"
+  },
+  {
+    "id": "gen_cvc_short_a_dab_7_vowel",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 2,
+    "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_A_08",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -1026,9 +1212,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -1039,12 +1225,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_dab"
   },
   {
-    "id": "gen_cvc_short_a_dab_6_missing",
+    "id": "gen_cvc_short_a_dab_7_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_A_08",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in d_b.",
@@ -1082,9 +1269,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -1095,12 +1282,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_dab"
   },
   {
-    "id": "gen_cvc_short_a_dab_6_picture",
+    "id": "gen_cvc_short_a_dab_7_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_A_08",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -1136,9 +1324,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -1149,12 +1337,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_dab"
   },
   {
-    "id": "gen_cvc_short_a_dad_7_vowel",
+    "id": "gen_cvc_short_a_dad_8_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_A_01",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -1166,15 +1355,15 @@ export const cvcGeneratedQuestions = [
     "answer": "dad",
     "choices": [
       "dad",
-      "cot",
+      "cup",
       "fin",
-      "gum"
+      "hen"
     ],
     "answerOptions": [
       "dad",
-      "cot",
+      "cup",
       "fin",
-      "gum"
+      "hen"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1190,9 +1379,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -1203,12 +1392,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_dad"
   },
   {
-    "id": "gen_cvc_short_a_dad_7_missing",
+    "id": "gen_cvc_short_a_dad_8_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_A_01",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in d_d.",
@@ -1246,9 +1436,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -1259,12 +1449,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_dad"
   },
   {
-    "id": "gen_cvc_short_a_dad_7_picture",
+    "id": "gen_cvc_short_a_dad_8_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_A_01",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -1276,15 +1467,15 @@ export const cvcGeneratedQuestions = [
     "answer": "dad",
     "choices": [
       "dad",
-      "cot",
+      "cup",
       "fin",
-      "gum"
+      "hen"
     ],
     "answerOptions": [
       "dad",
-      "cot",
+      "cup",
       "fin",
-      "gum"
+      "hen"
     ],
     "imageKey": "dad",
     "imageUrl": "/media/vocabulary/images/dad.webp",
@@ -1300,9 +1491,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -1313,12 +1504,125 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_dad"
   },
   {
-    "id": "gen_cvc_short_a_fan_8_vowel",
+    "id": "gen_cvc_short_a_dam_9_missing",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 2,
+    "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_A_02",
+    "formatType": "MISSING_VOWEL_CVC",
+    "questionType": "missing_vowel_cvc",
+    "prompt": "Choose the missing vowel in d_m.",
+    "question": "Choose the missing vowel in d_m.",
+    "spokenPrompt": "Choose the missing vowel in d_m.",
+    "audioText": "",
+    "targetWord": "dam",
+    "correctAnswer": "a",
+    "answer": "a",
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "imageKey": "dam",
+    "imageUrl": "/media/vocabulary/images/dam.webp",
+    "imagePath": "/media/vocabulary/images/dam.webp",
+    "audioKey": "",
+    "audioUrl": "",
+    "audioPath": "",
+    "phonicsPattern": "short_a",
+    "targetSound": "short_a",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_a",
+    "itemKey": "short_a",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
+    "tags": [
+      "generated",
+      "cvc",
+      "missing-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_dam"
+  },
+  {
+    "id": "gen_cvc_short_a_dam_9_picture",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 2,
+    "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_A_02",
+    "formatType": "PICTURE_TO_PRINT_MATCH",
+    "questionType": "picture_to_print_match",
+    "prompt": "Pick the word that matches the picture.",
+    "question": "Pick the word that matches the picture.",
+    "spokenPrompt": "Pick the word that matches the picture.",
+    "audioText": "",
+    "targetWord": "dam",
+    "correctAnswer": "dam",
+    "answer": "dam",
+    "choices": [
+      "dam",
+      "cup",
+      "fin",
+      "hen"
+    ],
+    "answerOptions": [
+      "dam",
+      "cup",
+      "fin",
+      "hen"
+    ],
+    "imageKey": "dam",
+    "imageUrl": "/media/vocabulary/images/dam.webp",
+    "imagePath": "/media/vocabulary/images/dam.webp",
+    "audioKey": "",
+    "audioUrl": "",
+    "audioPath": "",
+    "phonicsPattern": "short_a",
+    "targetSound": "short_a",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_a",
+    "itemKey": "short_a",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
+    "tags": [
+      "generated",
+      "cvc",
+      "picture-word"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_dam"
+  },
+  {
+    "id": "gen_cvc_short_a_fan_10_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_A_03",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -1330,14 +1634,14 @@ export const cvcGeneratedQuestions = [
     "answer": "fan",
     "choices": [
       "fan",
-      "cup",
       "dig",
+      "gum",
       "hen"
     ],
     "answerOptions": [
       "fan",
-      "cup",
       "dig",
+      "gum",
       "hen"
     ],
     "imageKey": "",
@@ -1355,8 +1659,8 @@ export const cvcGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -1367,12 +1671,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_fan"
   },
   {
-    "id": "gen_cvc_short_a_fan_8_missing",
+    "id": "gen_cvc_short_a_fan_10_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_A_03",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in f_n.",
@@ -1411,8 +1716,8 @@ export const cvcGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -1423,12 +1728,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_fan"
   },
   {
-    "id": "gen_cvc_short_a_fan_8_picture",
+    "id": "gen_cvc_short_a_fan_10_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_A_03",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -1440,14 +1746,14 @@ export const cvcGeneratedQuestions = [
     "answer": "fan",
     "choices": [
       "fan",
-      "cup",
       "dig",
+      "gum",
       "hen"
     ],
     "answerOptions": [
       "fan",
-      "cup",
       "dig",
+      "gum",
       "hen"
     ],
     "imageKey": "fan",
@@ -1465,8 +1771,8 @@ export const cvcGeneratedQuestions = [
     "itemType": "short_vowel",
     "distractorType": "contrast",
     "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -1477,12 +1783,125 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_fan"
   },
   {
-    "id": "gen_cvc_short_a_ham_9_vowel",
+    "id": "gen_cvc_short_a_gap_11_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
     "level": 2,
+    "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_A_04",
+    "formatType": "MISSING_VOWEL_CVC",
+    "questionType": "missing_vowel_cvc",
+    "prompt": "Choose the missing vowel in g_p.",
+    "question": "Choose the missing vowel in g_p.",
+    "spokenPrompt": "Choose the missing vowel in g_p.",
+    "audioText": "",
+    "targetWord": "gap",
+    "correctAnswer": "a",
+    "answer": "a",
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "imageKey": "gap",
+    "imageUrl": "/media/vocabulary/images/gap.webp",
+    "imagePath": "/media/vocabulary/images/gap.webp",
+    "audioKey": "",
+    "audioUrl": "",
+    "audioPath": "",
+    "phonicsPattern": "short_a",
+    "targetSound": "short_a",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_a",
+    "itemKey": "short_a",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "tags": [
+      "generated",
+      "cvc",
+      "missing-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_gap"
+  },
+  {
+    "id": "gen_cvc_short_a_gap_11_picture",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 2,
+    "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_A_04",
+    "formatType": "PICTURE_TO_PRINT_MATCH",
+    "questionType": "picture_to_print_match",
+    "prompt": "Pick the word that matches the picture.",
+    "question": "Pick the word that matches the picture.",
+    "spokenPrompt": "Pick the word that matches the picture.",
+    "audioText": "",
+    "targetWord": "gap",
+    "correctAnswer": "gap",
+    "answer": "gap",
+    "choices": [
+      "gap",
+      "dig",
+      "hen",
+      "jug"
+    ],
+    "answerOptions": [
+      "gap",
+      "dig",
+      "hen",
+      "jug"
+    ],
+    "imageKey": "gap",
+    "imageUrl": "/media/vocabulary/images/gap.webp",
+    "imagePath": "/media/vocabulary/images/gap.webp",
+    "audioKey": "",
+    "audioUrl": "",
+    "audioPath": "",
+    "phonicsPattern": "short_a",
+    "targetSound": "short_a",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_a",
+    "itemKey": "short_a",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "tags": [
+      "generated",
+      "cvc",
+      "picture-word"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_gap"
+  },
+  {
+    "id": "gen_cvc_short_a_ham_12_vowel",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_A_05",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -1494,15 +1913,15 @@ export const cvcGeneratedQuestions = [
     "answer": "ham",
     "choices": [
       "ham",
-      "cup",
-      "dig",
-      "jet"
+      "dog",
+      "fin",
+      "gum"
     ],
     "answerOptions": [
       "ham",
-      "cup",
-      "dig",
-      "jet"
+      "dog",
+      "fin",
+      "gum"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1518,9 +1937,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -1531,12 +1950,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_ham"
   },
   {
-    "id": "gen_cvc_short_a_ham_9_missing",
+    "id": "gen_cvc_short_a_ham_12_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_A_05",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in h_m.",
@@ -1574,9 +1994,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -1587,12 +2007,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_ham"
   },
   {
-    "id": "gen_cvc_short_a_ham_9_picture",
+    "id": "gen_cvc_short_a_ham_12_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_A_05",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -1604,15 +2025,15 @@ export const cvcGeneratedQuestions = [
     "answer": "ham",
     "choices": [
       "ham",
-      "cup",
-      "dig",
-      "jet"
+      "dog",
+      "fin",
+      "gum"
     ],
     "answerOptions": [
       "ham",
-      "cup",
-      "dig",
-      "jet"
+      "dog",
+      "fin",
+      "gum"
     ],
     "imageKey": "ham",
     "imageUrl": "/images/child-mode/short-a/ham.png",
@@ -1628,9 +2049,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -1641,12 +2062,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_ham"
   },
   {
-    "id": "gen_cvc_short_a_hat_10_vowel",
+    "id": "gen_cvc_short_a_hat_13_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_A_06",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -1658,15 +2080,15 @@ export const cvcGeneratedQuestions = [
     "answer": "hat",
     "choices": [
       "hat",
-      "dig",
-      "gum",
-      "jet"
+      "dog",
+      "fin",
+      "gum"
     ],
     "answerOptions": [
       "hat",
-      "dig",
-      "gum",
-      "jet"
+      "dog",
+      "fin",
+      "gum"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1682,9 +2104,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -1695,12 +2117,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_hat"
   },
   {
-    "id": "gen_cvc_short_a_hat_10_missing",
+    "id": "gen_cvc_short_a_hat_13_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_A_06",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in h_t.",
@@ -1738,9 +2161,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -1751,12 +2174,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_hat"
   },
   {
-    "id": "gen_cvc_short_a_hat_10_picture",
+    "id": "gen_cvc_short_a_hat_13_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_A_06",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -1768,15 +2192,15 @@ export const cvcGeneratedQuestions = [
     "answer": "hat",
     "choices": [
       "hat",
-      "dig",
-      "gum",
-      "jet"
+      "dog",
+      "fin",
+      "gum"
     ],
     "answerOptions": [
       "hat",
-      "dig",
-      "gum",
-      "jet"
+      "dog",
+      "fin",
+      "gum"
     ],
     "imageKey": "hat",
     "imageUrl": "/images/child-mode/cvc/hat.png",
@@ -1792,9 +2216,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -1805,12 +2229,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_hat"
   },
   {
-    "id": "gen_cvc_short_a_jam_11_vowel",
+    "id": "gen_cvc_short_a_jam_14_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_A_07",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -1822,15 +2247,15 @@ export const cvcGeneratedQuestions = [
     "answer": "jam",
     "choices": [
       "jam",
-      "dig",
-      "gum",
-      "hen"
+      "dot",
+      "fin",
+      "gum"
     ],
     "answerOptions": [
       "jam",
-      "dig",
-      "gum",
-      "hen"
+      "dot",
+      "fin",
+      "gum"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -1846,9 +2271,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -1859,12 +2284,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_jam"
   },
   {
-    "id": "gen_cvc_short_a_jam_11_missing",
+    "id": "gen_cvc_short_a_jam_14_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_A_07",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in j_m.",
@@ -1902,9 +2328,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -1915,12 +2341,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_jam"
   },
   {
-    "id": "gen_cvc_short_a_jam_11_picture",
+    "id": "gen_cvc_short_a_jam_14_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_A_07",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -1932,15 +2359,15 @@ export const cvcGeneratedQuestions = [
     "answer": "jam",
     "choices": [
       "jam",
-      "dig",
-      "gum",
-      "hen"
+      "dot",
+      "fin",
+      "gum"
     ],
     "answerOptions": [
       "jam",
-      "dig",
-      "gum",
-      "hen"
+      "dot",
+      "fin",
+      "gum"
     ],
     "imageKey": "jam",
     "imageUrl": "/images/child-mode/short-a/jam.png",
@@ -1956,9 +2383,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -1969,12 +2396,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_jam"
   },
   {
-    "id": "gen_cvc_short_a_lab_12_vowel",
+    "id": "gen_cvc_short_a_lab_15_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_A_08",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -1986,15 +2414,15 @@ export const cvcGeneratedQuestions = [
     "answer": "lab",
     "choices": [
       "lab",
-      "dog",
+      "dug",
       "fin",
-      "gum"
+      "hen"
     ],
     "answerOptions": [
       "lab",
-      "dog",
+      "dug",
       "fin",
-      "gum"
+      "hen"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -2010,9 +2438,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -2023,12 +2451,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_lab"
   },
   {
-    "id": "gen_cvc_short_a_lab_12_missing",
+    "id": "gen_cvc_short_a_lab_15_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_A_08",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in l_b.",
@@ -2066,9 +2495,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -2079,12 +2508,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_lab"
   },
   {
-    "id": "gen_cvc_short_a_lab_12_picture",
+    "id": "gen_cvc_short_a_lab_15_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_A_08",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -2096,15 +2526,15 @@ export const cvcGeneratedQuestions = [
     "answer": "lab",
     "choices": [
       "lab",
-      "dog",
+      "dug",
       "fin",
-      "gum"
+      "hen"
     ],
     "answerOptions": [
       "lab",
-      "dog",
+      "dug",
       "fin",
-      "gum"
+      "hen"
     ],
     "imageKey": "lab",
     "imageUrl": "/media/final-sounds/images/b/lab.webp",
@@ -2120,9 +2550,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -2133,12 +2563,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_lab"
   },
   {
-    "id": "gen_cvc_short_a_lap_13_vowel",
+    "id": "gen_cvc_short_a_lap_16_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_A_01",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -2150,15 +2581,15 @@ export const cvcGeneratedQuestions = [
     "answer": "lap",
     "choices": [
       "lap",
-      "dog",
       "fin",
-      "gum"
+      "gum",
+      "hen"
     ],
     "answerOptions": [
       "lap",
-      "dog",
       "fin",
-      "gum"
+      "gum",
+      "hen"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -2174,9 +2605,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -2187,12 +2618,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_lap"
   },
   {
-    "id": "gen_cvc_short_a_lap_13_missing",
+    "id": "gen_cvc_short_a_lap_16_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_A_01",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in l_p.",
@@ -2230,9 +2662,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -2243,12 +2675,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_lap"
   },
   {
-    "id": "gen_cvc_short_a_lap_13_picture",
+    "id": "gen_cvc_short_a_lap_16_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_A_01",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -2260,15 +2693,15 @@ export const cvcGeneratedQuestions = [
     "answer": "lap",
     "choices": [
       "lap",
-      "dog",
       "fin",
-      "gum"
+      "gum",
+      "hen"
     ],
     "answerOptions": [
       "lap",
-      "dog",
       "fin",
-      "gum"
+      "gum",
+      "hen"
     ],
     "imageKey": "lap",
     "imageUrl": "/media/vocabulary/images/lap.webp",
@@ -2284,9 +2717,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -2297,12 +2730,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_lap"
   },
   {
-    "id": "gen_cvc_short_a_mad_14_vowel",
+    "id": "gen_cvc_short_a_mad_17_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_A_02",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -2314,15 +2748,15 @@ export const cvcGeneratedQuestions = [
     "answer": "mad",
     "choices": [
       "mad",
-      "dot",
       "fin",
-      "gum"
+      "gum",
+      "hen"
     ],
     "answerOptions": [
       "mad",
-      "dot",
       "fin",
-      "gum"
+      "gum",
+      "hen"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -2338,9 +2772,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -2351,12 +2785,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_mad"
   },
   {
-    "id": "gen_cvc_short_a_mad_14_missing",
+    "id": "gen_cvc_short_a_mad_17_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_A_02",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in m_d.",
@@ -2394,9 +2829,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -2407,12 +2842,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_mad"
   },
   {
-    "id": "gen_cvc_short_a_mad_14_picture",
+    "id": "gen_cvc_short_a_mad_17_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_A_02",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -2424,15 +2860,15 @@ export const cvcGeneratedQuestions = [
     "answer": "mad",
     "choices": [
       "mad",
-      "dot",
       "fin",
-      "gum"
+      "gum",
+      "hen"
     ],
     "answerOptions": [
       "mad",
-      "dot",
       "fin",
-      "gum"
+      "gum",
+      "hen"
     ],
     "imageKey": "mad",
     "imageUrl": "/media/vocabulary/images/mad.webp",
@@ -2448,9 +2884,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -2461,12 +2897,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_mad"
   },
   {
-    "id": "gen_cvc_short_a_man_15_vowel",
+    "id": "gen_cvc_short_a_man_18_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_A_03",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -2478,15 +2915,15 @@ export const cvcGeneratedQuestions = [
     "answer": "man",
     "choices": [
       "man",
-      "dug",
-      "fin",
-      "hen"
+      "gum",
+      "hen",
+      "kid"
     ],
     "answerOptions": [
       "man",
-      "dug",
-      "fin",
-      "hen"
+      "gum",
+      "hen",
+      "kid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -2502,9 +2939,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -2515,12 +2952,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_man"
   },
   {
-    "id": "gen_cvc_short_a_man_15_missing",
+    "id": "gen_cvc_short_a_man_18_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_A_03",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in m_n.",
@@ -2558,9 +2996,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -2571,12 +3009,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_man"
   },
   {
-    "id": "gen_cvc_short_a_man_15_picture",
+    "id": "gen_cvc_short_a_man_18_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_A_03",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -2588,15 +3027,15 @@ export const cvcGeneratedQuestions = [
     "answer": "man",
     "choices": [
       "man",
-      "dug",
-      "fin",
-      "hen"
+      "gum",
+      "hen",
+      "kid"
     ],
     "answerOptions": [
       "man",
-      "dug",
-      "fin",
-      "hen"
+      "gum",
+      "hen",
+      "kid"
     ],
     "imageKey": "man",
     "imageUrl": "/images/child-mode/cvc/man.png",
@@ -2612,9 +3051,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -2625,12 +3064,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_man"
   },
   {
-    "id": "gen_cvc_short_a_mat_16_vowel",
+    "id": "gen_cvc_short_a_mat_19_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_A_04",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -2642,15 +3082,15 @@ export const cvcGeneratedQuestions = [
     "answer": "mat",
     "choices": [
       "mat",
-      "fin",
       "gum",
-      "hen"
+      "hen",
+      "kid"
     ],
     "answerOptions": [
       "mat",
-      "fin",
       "gum",
-      "hen"
+      "hen",
+      "kid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -2666,9 +3106,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -2679,12 +3119,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_mat"
   },
   {
-    "id": "gen_cvc_short_a_mat_16_missing",
+    "id": "gen_cvc_short_a_mat_19_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_A_04",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in m_t.",
@@ -2722,9 +3163,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -2735,12 +3176,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_mat"
   },
   {
-    "id": "gen_cvc_short_a_mat_16_picture",
+    "id": "gen_cvc_short_a_mat_19_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_A_04",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -2752,15 +3194,15 @@ export const cvcGeneratedQuestions = [
     "answer": "mat",
     "choices": [
       "mat",
-      "fin",
       "gum",
-      "hen"
+      "hen",
+      "kid"
     ],
     "answerOptions": [
       "mat",
-      "fin",
       "gum",
-      "hen"
+      "hen",
+      "kid"
     ],
     "imageKey": "mat",
     "imageUrl": "/images/child-mode/initial-sounds/mat.png",
@@ -2776,9 +3218,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -2789,12 +3231,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_mat"
   },
   {
-    "id": "gen_cvc_short_a_nap_17_vowel",
+    "id": "gen_cvc_short_a_nap_20_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_A_05",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -2806,15 +3249,15 @@ export const cvcGeneratedQuestions = [
     "answer": "nap",
     "choices": [
       "nap",
-      "fin",
       "gum",
-      "hen"
+      "hen",
+      "kid"
     ],
     "answerOptions": [
       "nap",
-      "fin",
       "gum",
-      "hen"
+      "hen",
+      "kid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -2830,9 +3273,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -2843,12 +3286,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_nap"
   },
   {
-    "id": "gen_cvc_short_a_nap_17_missing",
+    "id": "gen_cvc_short_a_nap_20_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_A_05",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in n_p.",
@@ -2886,9 +3330,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -2899,12 +3343,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_nap"
   },
   {
-    "id": "gen_cvc_short_a_nap_17_picture",
+    "id": "gen_cvc_short_a_nap_20_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_A_05",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -2916,15 +3361,15 @@ export const cvcGeneratedQuestions = [
     "answer": "nap",
     "choices": [
       "nap",
-      "fin",
       "gum",
-      "hen"
+      "hen",
+      "kid"
     ],
     "answerOptions": [
       "nap",
-      "fin",
       "gum",
-      "hen"
+      "hen",
+      "kid"
     ],
     "imageKey": "nap",
     "imageUrl": "/images/child-mode/cvc/nap.png",
@@ -2940,9 +3385,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -2953,12 +3398,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_nap"
   },
   {
-    "id": "gen_cvc_short_a_pad_18_vowel",
+    "id": "gen_cvc_short_a_pad_21_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_A_06",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -2970,14 +3416,14 @@ export const cvcGeneratedQuestions = [
     "answer": "pad",
     "choices": [
       "pad",
-      "gum",
       "hen",
+      "jug",
       "kid"
     ],
     "answerOptions": [
       "pad",
-      "gum",
       "hen",
+      "jug",
       "kid"
     ],
     "imageKey": "",
@@ -2994,9 +3440,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -3007,12 +3453,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pad"
   },
   {
-    "id": "gen_cvc_short_a_pad_18_missing",
+    "id": "gen_cvc_short_a_pad_21_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_A_06",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in p_d.",
@@ -3050,9 +3497,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -3063,12 +3510,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pad"
   },
   {
-    "id": "gen_cvc_short_a_pad_18_picture",
+    "id": "gen_cvc_short_a_pad_21_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_A_06",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -3080,14 +3528,14 @@ export const cvcGeneratedQuestions = [
     "answer": "pad",
     "choices": [
       "pad",
-      "gum",
       "hen",
+      "jug",
       "kid"
     ],
     "answerOptions": [
       "pad",
-      "gum",
       "hen",
+      "jug",
       "kid"
     ],
     "imageKey": "pad",
@@ -3104,9 +3552,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -3117,12 +3565,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pad"
   },
   {
-    "id": "gen_cvc_short_a_pan_19_vowel",
+    "id": "gen_cvc_short_a_pan_22_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_A_07",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -3134,15 +3583,15 @@ export const cvcGeneratedQuestions = [
     "answer": "pan",
     "choices": [
       "pan",
-      "gum",
-      "hen",
-      "kid"
+      "hit",
+      "jet",
+      "log"
     ],
     "answerOptions": [
       "pan",
-      "gum",
-      "hen",
-      "kid"
+      "hit",
+      "jet",
+      "log"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3158,9 +3607,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -3171,12 +3620,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pan"
   },
   {
-    "id": "gen_cvc_short_a_pan_19_missing",
+    "id": "gen_cvc_short_a_pan_22_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_A_07",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in p_n.",
@@ -3214,9 +3664,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -3227,12 +3677,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pan"
   },
   {
-    "id": "gen_cvc_short_a_pan_19_picture",
+    "id": "gen_cvc_short_a_pan_22_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_A_07",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -3244,15 +3695,15 @@ export const cvcGeneratedQuestions = [
     "answer": "pan",
     "choices": [
       "pan",
-      "gum",
-      "hen",
-      "kid"
+      "hit",
+      "jet",
+      "log"
     ],
     "answerOptions": [
       "pan",
-      "gum",
-      "hen",
-      "kid"
+      "hit",
+      "jet",
+      "log"
     ],
     "imageKey": "pan",
     "imageUrl": "/images/child-mode/cvc/pan.png",
@@ -3268,9 +3719,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -3281,12 +3732,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pan"
   },
   {
-    "id": "gen_cvc_short_a_rag_20_vowel",
+    "id": "gen_cvc_short_a_rag_23_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_A_08",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -3298,15 +3750,15 @@ export const cvcGeneratedQuestions = [
     "answer": "rag",
     "choices": [
       "rag",
-      "gum",
-      "hen",
-      "kid"
+      "hit",
+      "jet",
+      "log"
     ],
     "answerOptions": [
       "rag",
-      "gum",
-      "hen",
-      "kid"
+      "hit",
+      "jet",
+      "log"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3322,9 +3774,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -3335,12 +3787,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_rag"
   },
   {
-    "id": "gen_cvc_short_a_rag_20_missing",
+    "id": "gen_cvc_short_a_rag_23_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_A_08",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in r_g.",
@@ -3378,9 +3831,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -3391,12 +3844,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_rag"
   },
   {
-    "id": "gen_cvc_short_a_rag_20_picture",
+    "id": "gen_cvc_short_a_rag_23_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_A_08",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -3408,15 +3862,15 @@ export const cvcGeneratedQuestions = [
     "answer": "rag",
     "choices": [
       "rag",
-      "gum",
-      "hen",
-      "kid"
+      "hit",
+      "jet",
+      "log"
     ],
     "answerOptions": [
       "rag",
-      "gum",
-      "hen",
-      "kid"
+      "hit",
+      "jet",
+      "log"
     ],
     "imageKey": "rag",
     "imageUrl": "/media/vocabulary/images/rag.webp",
@@ -3432,9 +3886,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -3445,12 +3899,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_rag"
   },
   {
-    "id": "gen_cvc_short_a_ram_21_vowel",
+    "id": "gen_cvc_short_a_ram_24_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_A_01",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -3462,14 +3917,14 @@ export const cvcGeneratedQuestions = [
     "answer": "ram",
     "choices": [
       "ram",
-      "hen",
-      "jug",
+      "hop",
+      "jet",
       "kid"
     ],
     "answerOptions": [
       "ram",
-      "hen",
-      "jug",
+      "hop",
+      "jet",
       "kid"
     ],
     "imageKey": "",
@@ -3486,9 +3941,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -3499,12 +3954,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_ram"
   },
   {
-    "id": "gen_cvc_short_a_ram_21_missing",
+    "id": "gen_cvc_short_a_ram_24_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_A_01",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in r_m.",
@@ -3542,9 +3998,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -3555,12 +4011,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_ram"
   },
   {
-    "id": "gen_cvc_short_a_ram_21_picture",
+    "id": "gen_cvc_short_a_ram_24_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_A_01",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -3572,14 +4029,14 @@ export const cvcGeneratedQuestions = [
     "answer": "ram",
     "choices": [
       "ram",
-      "hen",
-      "jug",
+      "hop",
+      "jet",
       "kid"
     ],
     "answerOptions": [
       "ram",
-      "hen",
-      "jug",
+      "hop",
+      "jet",
       "kid"
     ],
     "imageKey": "ram",
@@ -3596,9 +4053,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -3609,12 +4066,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_ram"
   },
   {
-    "id": "gen_cvc_short_a_rat_22_vowel",
+    "id": "gen_cvc_short_a_rat_25_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_A_02",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -3626,15 +4084,15 @@ export const cvcGeneratedQuestions = [
     "answer": "rat",
     "choices": [
       "rat",
-      "hit",
+      "hot",
       "jet",
-      "log"
+      "kid"
     ],
     "answerOptions": [
       "rat",
-      "hit",
+      "hot",
       "jet",
-      "log"
+      "kid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3650,9 +4108,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -3663,12 +4121,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_rat"
   },
   {
-    "id": "gen_cvc_short_a_rat_22_missing",
+    "id": "gen_cvc_short_a_rat_25_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_A_02",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in r_t.",
@@ -3706,9 +4165,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -3719,12 +4178,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_rat"
   },
   {
-    "id": "gen_cvc_short_a_rat_22_picture",
+    "id": "gen_cvc_short_a_rat_25_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_A_02",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -3736,15 +4196,15 @@ export const cvcGeneratedQuestions = [
     "answer": "rat",
     "choices": [
       "rat",
-      "hit",
+      "hot",
       "jet",
-      "log"
+      "kid"
     ],
     "answerOptions": [
       "rat",
-      "hit",
+      "hot",
       "jet",
-      "log"
+      "kid"
     ],
     "imageKey": "rat",
     "imageUrl": "/images/child-mode/initial-sounds/rat.png",
@@ -3760,9 +4220,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -3773,12 +4233,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_rat"
   },
   {
-    "id": "gen_cvc_short_a_sad_23_vowel",
+    "id": "gen_cvc_short_a_sad_26_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_A_03",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -3790,15 +4251,15 @@ export const cvcGeneratedQuestions = [
     "answer": "sad",
     "choices": [
       "sad",
-      "hit",
+      "hut",
       "jet",
-      "log"
+      "kid"
     ],
     "answerOptions": [
       "sad",
-      "hit",
+      "hut",
       "jet",
-      "log"
+      "kid"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3814,9 +4275,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -3827,12 +4288,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_sad"
   },
   {
-    "id": "gen_cvc_short_a_sad_23_missing",
+    "id": "gen_cvc_short_a_sad_26_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_A_03",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in s_d.",
@@ -3870,9 +4332,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -3883,12 +4345,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_sad"
   },
   {
-    "id": "gen_cvc_short_a_sad_23_picture",
+    "id": "gen_cvc_short_a_sad_26_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_A_03",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -3900,15 +4363,15 @@ export const cvcGeneratedQuestions = [
     "answer": "sad",
     "choices": [
       "sad",
-      "hit",
+      "hut",
       "jet",
-      "log"
+      "kid"
     ],
     "answerOptions": [
       "sad",
-      "hit",
+      "hut",
       "jet",
-      "log"
+      "kid"
     ],
     "imageKey": "sad",
     "imageUrl": "/media/rhyming/images/sad.webp",
@@ -3924,9 +4387,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -3937,12 +4400,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_sad"
   },
   {
-    "id": "gen_cvc_short_a_sap_24_vowel",
+    "id": "gen_cvc_short_a_sap_27_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_A_04",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -3954,15 +4418,15 @@ export const cvcGeneratedQuestions = [
     "answer": "sap",
     "choices": [
       "sap",
-      "hop",
       "jet",
-      "kid"
+      "kid",
+      "log"
     ],
     "answerOptions": [
       "sap",
-      "hop",
       "jet",
-      "kid"
+      "kid",
+      "log"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -3978,9 +4442,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -3991,12 +4455,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_sap"
   },
   {
-    "id": "gen_cvc_short_a_sap_24_missing",
+    "id": "gen_cvc_short_a_sap_27_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_A_04",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in s_p.",
@@ -4034,9 +4499,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -4047,12 +4512,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_sap"
   },
   {
-    "id": "gen_cvc_short_a_sap_24_picture",
+    "id": "gen_cvc_short_a_sap_27_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_A_04",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -4064,15 +4530,15 @@ export const cvcGeneratedQuestions = [
     "answer": "sap",
     "choices": [
       "sap",
-      "hop",
       "jet",
-      "kid"
+      "kid",
+      "log"
     ],
     "answerOptions": [
       "sap",
-      "hop",
       "jet",
-      "kid"
+      "kid",
+      "log"
     ],
     "imageKey": "sap",
     "imageUrl": "/media/vocabulary/images/sap.webp",
@@ -4088,9 +4554,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -4101,12 +4567,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_sap"
   },
   {
-    "id": "gen_cvc_short_a_tab_25_vowel",
+    "id": "gen_cvc_short_a_tab_28_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_A_05",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -4118,15 +4585,15 @@ export const cvcGeneratedQuestions = [
     "answer": "tab",
     "choices": [
       "tab",
-      "hot",
-      "jet",
-      "kid"
+      "jug",
+      "kid",
+      "leg"
     ],
     "answerOptions": [
       "tab",
-      "hot",
-      "jet",
-      "kid"
+      "jug",
+      "kid",
+      "leg"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4142,9 +4609,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -4155,12 +4622,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_tab"
   },
   {
-    "id": "gen_cvc_short_a_tab_25_missing",
+    "id": "gen_cvc_short_a_tab_28_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_A_05",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in t_b.",
@@ -4198,9 +4666,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -4211,12 +4679,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_tab"
   },
   {
-    "id": "gen_cvc_short_a_tab_25_picture",
+    "id": "gen_cvc_short_a_tab_28_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_A_05",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -4228,15 +4697,15 @@ export const cvcGeneratedQuestions = [
     "answer": "tab",
     "choices": [
       "tab",
-      "hot",
-      "jet",
-      "kid"
+      "jug",
+      "kid",
+      "leg"
     ],
     "answerOptions": [
       "tab",
-      "hot",
-      "jet",
-      "kid"
+      "jug",
+      "kid",
+      "leg"
     ],
     "imageKey": "tab",
     "imageUrl": "/media/vocabulary/images/tab.webp",
@@ -4252,9 +4721,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -4265,12 +4734,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_tab"
   },
   {
-    "id": "gen_cvc_short_a_tag_26_vowel",
+    "id": "gen_cvc_short_a_tag_29_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_A_06",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -4282,15 +4752,15 @@ export const cvcGeneratedQuestions = [
     "answer": "tag",
     "choices": [
       "tag",
-      "hut",
-      "jet",
-      "kid"
+      "kid",
+      "leg",
+      "mop"
     ],
     "answerOptions": [
       "tag",
-      "hut",
-      "jet",
-      "kid"
+      "kid",
+      "leg",
+      "mop"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4306,9 +4776,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -4319,12 +4789,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_tag"
   },
   {
-    "id": "gen_cvc_short_a_tag_26_missing",
+    "id": "gen_cvc_short_a_tag_29_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_A_06",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in t_g.",
@@ -4362,9 +4833,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -4375,12 +4846,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_tag"
   },
   {
-    "id": "gen_cvc_short_a_tag_26_picture",
+    "id": "gen_cvc_short_a_tag_29_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_A_06",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -4392,15 +4864,15 @@ export const cvcGeneratedQuestions = [
     "answer": "tag",
     "choices": [
       "tag",
-      "hut",
-      "jet",
-      "kid"
+      "kid",
+      "leg",
+      "mop"
     ],
     "answerOptions": [
       "tag",
-      "hut",
-      "jet",
-      "kid"
+      "kid",
+      "leg",
+      "mop"
     ],
     "imageKey": "tag",
     "imageUrl": "/media/rhyming/images/tag.webp",
@@ -4416,9 +4888,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -4429,12 +4901,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_tag"
   },
   {
-    "id": "gen_cvc_short_a_tap_27_vowel",
+    "id": "gen_cvc_short_a_tap_30_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_A_07",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -4446,15 +4919,15 @@ export const cvcGeneratedQuestions = [
     "answer": "tap",
     "choices": [
       "tap",
-      "jet",
-      "kid",
-      "log"
+      "leg",
+      "mop",
+      "pig"
     ],
     "answerOptions": [
       "tap",
-      "jet",
-      "kid",
-      "log"
+      "leg",
+      "mop",
+      "pig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4470,9 +4943,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -4483,12 +4956,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_tap"
   },
   {
-    "id": "gen_cvc_short_a_tap_27_missing",
+    "id": "gen_cvc_short_a_tap_30_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_A_07",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in t_p.",
@@ -4526,9 +5000,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -4539,12 +5013,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_tap"
   },
   {
-    "id": "gen_cvc_short_a_tap_27_picture",
+    "id": "gen_cvc_short_a_tap_30_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_A_07",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -4556,15 +5031,15 @@ export const cvcGeneratedQuestions = [
     "answer": "tap",
     "choices": [
       "tap",
-      "jet",
-      "kid",
-      "log"
+      "leg",
+      "mop",
+      "pig"
     ],
     "answerOptions": [
       "tap",
-      "jet",
-      "kid",
-      "log"
+      "leg",
+      "mop",
+      "pig"
     ],
     "imageKey": "tap",
     "imageUrl": "/images/child-mode/initial-sounds/tap.png",
@@ -4580,9 +5055,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -4593,12 +5068,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_tap"
   },
   {
-    "id": "gen_cvc_short_a_van_28_vowel",
+    "id": "gen_cvc_short_a_van_31_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_A_08",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -4610,15 +5086,15 @@ export const cvcGeneratedQuestions = [
     "answer": "van",
     "choices": [
       "van",
-      "jug",
-      "kid",
-      "leg"
+      "leg",
+      "mop",
+      "pig"
     ],
     "answerOptions": [
       "van",
-      "jug",
-      "kid",
-      "leg"
+      "leg",
+      "mop",
+      "pig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4634,9 +5110,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -4647,12 +5123,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_van"
   },
   {
-    "id": "gen_cvc_short_a_van_28_missing",
+    "id": "gen_cvc_short_a_van_31_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_A_08",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in v_n.",
@@ -4690,9 +5167,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -4703,12 +5180,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_van"
   },
   {
-    "id": "gen_cvc_short_a_van_28_picture",
+    "id": "gen_cvc_short_a_van_31_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_A_08",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -4720,15 +5198,15 @@ export const cvcGeneratedQuestions = [
     "answer": "van",
     "choices": [
       "van",
-      "jug",
-      "kid",
-      "leg"
+      "leg",
+      "mop",
+      "pig"
     ],
     "answerOptions": [
       "van",
-      "jug",
-      "kid",
-      "leg"
+      "leg",
+      "mop",
+      "pig"
     ],
     "imageKey": "van",
     "imageUrl": "/images/child-mode/initial-sounds/van.png",
@@ -4744,9 +5222,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -4757,12 +5235,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_van"
   },
   {
-    "id": "gen_cvc_short_a_wag_29_vowel",
+    "id": "gen_cvc_short_a_wag_32_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_A_01",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -4774,15 +5253,15 @@ export const cvcGeneratedQuestions = [
     "answer": "wag",
     "choices": [
       "wag",
-      "kid",
-      "leg",
-      "mop"
+      "lid",
+      "men",
+      "pop"
     ],
     "answerOptions": [
       "wag",
-      "kid",
-      "leg",
-      "mop"
+      "lid",
+      "men",
+      "pop"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4798,9 +5277,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -4811,12 +5290,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_wag"
   },
   {
-    "id": "gen_cvc_short_a_wag_29_missing",
+    "id": "gen_cvc_short_a_wag_32_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_A_01",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in w_g.",
@@ -4854,9 +5334,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -4867,12 +5347,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_wag"
   },
   {
-    "id": "gen_cvc_short_a_wag_29_picture",
+    "id": "gen_cvc_short_a_wag_32_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_A_01",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -4884,15 +5365,15 @@ export const cvcGeneratedQuestions = [
     "answer": "wag",
     "choices": [
       "wag",
-      "kid",
-      "leg",
-      "mop"
+      "lid",
+      "men",
+      "pop"
     ],
     "answerOptions": [
       "wag",
-      "kid",
-      "leg",
-      "mop"
+      "lid",
+      "men",
+      "pop"
     ],
     "imageKey": "wag",
     "imageUrl": "/media/vocabulary/images/wag.webp",
@@ -4908,9 +5389,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -4921,12 +5402,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_wag"
   },
   {
-    "id": "gen_cvc_short_a_yak_30_vowel",
+    "id": "gen_cvc_short_a_yak_33_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_A_02",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short a sound?",
@@ -4938,15 +5420,15 @@ export const cvcGeneratedQuestions = [
     "answer": "yak",
     "choices": [
       "yak",
-      "leg",
-      "mop",
-      "pig"
+      "lip",
+      "men",
+      "pop"
     ],
     "answerOptions": [
       "yak",
-      "leg",
-      "mop",
-      "pig"
+      "lip",
+      "men",
+      "pop"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -4962,9 +5444,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -4975,12 +5457,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_yak"
   },
   {
-    "id": "gen_cvc_short_a_yak_30_missing",
+    "id": "gen_cvc_short_a_yak_33_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_A_02",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in y_k.",
@@ -5018,9 +5501,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -5031,12 +5514,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_yak"
   },
   {
-    "id": "gen_cvc_short_a_yak_30_picture",
+    "id": "gen_cvc_short_a_yak_33_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_A_02",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -5048,15 +5532,15 @@ export const cvcGeneratedQuestions = [
     "answer": "yak",
     "choices": [
       "yak",
-      "leg",
-      "mop",
-      "pig"
+      "lip",
+      "men",
+      "pop"
     ],
     "answerOptions": [
       "yak",
-      "leg",
-      "mop",
-      "pig"
+      "lip",
+      "men",
+      "pop"
     ],
     "imageKey": "yak",
     "imageUrl": "/images/child-mode/initial-sounds/yak.png",
@@ -5072,9 +5556,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_a",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -5091,6 +5575,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_E_01",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short e sound?",
@@ -5145,6 +5630,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_E_01",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in d_n.",
@@ -5201,6 +5687,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_E_01",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -5255,6 +5742,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_E_02",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short e sound?",
@@ -5309,6 +5797,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_E_02",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in g_m.",
@@ -5365,6 +5854,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_E_02",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -5419,6 +5909,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_E_03",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short e sound?",
@@ -5473,6 +5964,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_E_03",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in h_n.",
@@ -5529,6 +6021,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_E_03",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -5583,6 +6076,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_E_04",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short e sound?",
@@ -5637,6 +6131,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_E_04",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in j_t.",
@@ -5693,6 +6188,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_E_04",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -5747,6 +6243,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_E_05",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short e sound?",
@@ -5801,6 +6298,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_E_05",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in l_g.",
@@ -5857,6 +6355,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_E_05",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -5905,12 +6404,125 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_leg"
   },
   {
-    "id": "gen_cvc_short_e_peg_5_vowel",
+    "id": "gen_cvc_short_e_men_5_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
     "level": 2,
+    "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_E_06",
+    "formatType": "MISSING_VOWEL_CVC",
+    "questionType": "missing_vowel_cvc",
+    "prompt": "Choose the missing vowel in m_n.",
+    "question": "Choose the missing vowel in m_n.",
+    "spokenPrompt": "Choose the missing vowel in m_n.",
+    "audioText": "",
+    "targetWord": "men",
+    "correctAnswer": "e",
+    "answer": "e",
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "imageKey": "men",
+    "imageUrl": "/media/vocabulary/images/men.webp",
+    "imagePath": "/media/vocabulary/images/men.webp",
+    "audioKey": "",
+    "audioUrl": "",
+    "audioPath": "",
+    "phonicsPattern": "short_e",
+    "targetSound": "short_e",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_e",
+    "itemKey": "short_e",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
+    "tags": [
+      "generated",
+      "cvc",
+      "missing-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_men"
+  },
+  {
+    "id": "gen_cvc_short_e_men_5_picture",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 2,
+    "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_E_06",
+    "formatType": "PICTURE_TO_PRINT_MATCH",
+    "questionType": "picture_to_print_match",
+    "prompt": "Pick the word that matches the picture.",
+    "question": "Pick the word that matches the picture.",
+    "spokenPrompt": "Pick the word that matches the picture.",
+    "audioText": "",
+    "targetWord": "men",
+    "correctAnswer": "men",
+    "answer": "men",
+    "choices": [
+      "men",
+      "bin",
+      "cap",
+      "dog"
+    ],
+    "answerOptions": [
+      "men",
+      "bin",
+      "cap",
+      "dog"
+    ],
+    "imageKey": "men",
+    "imageUrl": "/media/vocabulary/images/men.webp",
+    "imagePath": "/media/vocabulary/images/men.webp",
+    "audioKey": "",
+    "audioUrl": "",
+    "audioPath": "",
+    "phonicsPattern": "short_e",
+    "targetSound": "short_e",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_e",
+    "itemKey": "short_e",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
+    "tags": [
+      "generated",
+      "cvc",
+      "picture-word"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_men"
+  },
+  {
+    "id": "gen_cvc_short_e_peg_6_vowel",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_E_07",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short e sound?",
@@ -5922,15 +6534,15 @@ export const cvcGeneratedQuestions = [
     "answer": "peg",
     "choices": [
       "peg",
-      "bin",
+      "bug",
       "cap",
-      "dog"
+      "dig"
     ],
     "answerOptions": [
       "peg",
-      "bin",
+      "bug",
       "cap",
-      "dog"
+      "dig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -5946,9 +6558,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -5959,12 +6571,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_peg"
   },
   {
-    "id": "gen_cvc_short_e_peg_5_missing",
+    "id": "gen_cvc_short_e_peg_6_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_E_07",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in p_g.",
@@ -6002,9 +6615,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -6015,12 +6628,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_peg"
   },
   {
-    "id": "gen_cvc_short_e_peg_5_picture",
+    "id": "gen_cvc_short_e_peg_6_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_E_07",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -6032,15 +6646,15 @@ export const cvcGeneratedQuestions = [
     "answer": "peg",
     "choices": [
       "peg",
-      "bin",
+      "bug",
       "cap",
-      "dog"
+      "dig"
     ],
     "answerOptions": [
       "peg",
-      "bin",
+      "bug",
       "cap",
-      "dog"
+      "dig"
     ],
     "imageKey": "peg",
     "imageUrl": "/media/vocabulary/images/peg.webp",
@@ -6056,9 +6670,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -6069,12 +6683,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_peg"
   },
   {
-    "id": "gen_cvc_short_e_pen_6_vowel",
+    "id": "gen_cvc_short_e_pen_7_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_E_08",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short e sound?",
@@ -6086,13 +6701,13 @@ export const cvcGeneratedQuestions = [
     "answer": "pen",
     "choices": [
       "pen",
-      "bug",
+      "bun",
       "cap",
       "dig"
     ],
     "answerOptions": [
       "pen",
-      "bug",
+      "bun",
       "cap",
       "dig"
     ],
@@ -6110,9 +6725,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -6123,12 +6738,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pen"
   },
   {
-    "id": "gen_cvc_short_e_pen_6_missing",
+    "id": "gen_cvc_short_e_pen_7_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_E_08",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in p_n.",
@@ -6166,9 +6782,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -6179,12 +6795,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pen"
   },
   {
-    "id": "gen_cvc_short_e_pen_6_picture",
+    "id": "gen_cvc_short_e_pen_7_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_E_08",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -6196,13 +6813,13 @@ export const cvcGeneratedQuestions = [
     "answer": "pen",
     "choices": [
       "pen",
-      "bug",
+      "bun",
       "cap",
       "dig"
     ],
     "answerOptions": [
       "pen",
-      "bug",
+      "bun",
       "cap",
       "dig"
     ],
@@ -6220,9 +6837,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -6233,12 +6850,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pen"
   },
   {
-    "id": "gen_cvc_short_e_pet_7_vowel",
+    "id": "gen_cvc_short_e_pet_8_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_E_01",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short e sound?",
@@ -6250,13 +6868,13 @@ export const cvcGeneratedQuestions = [
     "answer": "pet",
     "choices": [
       "pet",
-      "bun",
+      "bus",
       "cap",
       "dig"
     ],
     "answerOptions": [
       "pet",
-      "bun",
+      "bus",
       "cap",
       "dig"
     ],
@@ -6274,9 +6892,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -6287,12 +6905,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pet"
   },
   {
-    "id": "gen_cvc_short_e_pet_7_missing",
+    "id": "gen_cvc_short_e_pet_8_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_E_01",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in p_t.",
@@ -6330,9 +6949,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -6343,12 +6962,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pet"
   },
   {
-    "id": "gen_cvc_short_e_pet_7_picture",
+    "id": "gen_cvc_short_e_pet_8_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_E_01",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -6360,13 +6980,13 @@ export const cvcGeneratedQuestions = [
     "answer": "pet",
     "choices": [
       "pet",
-      "bun",
+      "bus",
       "cap",
       "dig"
     ],
     "answerOptions": [
       "pet",
-      "bun",
+      "bus",
       "cap",
       "dig"
     ],
@@ -6384,9 +7004,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -6397,12 +7017,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pet"
   },
   {
-    "id": "gen_cvc_short_e_red_8_vowel",
+    "id": "gen_cvc_short_e_red_9_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_E_02",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short e sound?",
@@ -6414,15 +7035,15 @@ export const cvcGeneratedQuestions = [
     "answer": "red",
     "choices": [
       "red",
-      "bus",
       "cap",
-      "dig"
+      "dig",
+      "gum"
     ],
     "answerOptions": [
       "red",
-      "bus",
       "cap",
-      "dig"
+      "dig",
+      "gum"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -6438,9 +7059,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -6451,12 +7072,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_red"
   },
   {
-    "id": "gen_cvc_short_e_red_8_missing",
+    "id": "gen_cvc_short_e_red_9_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_E_02",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in r_d.",
@@ -6494,9 +7116,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -6507,12 +7129,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_red"
   },
   {
-    "id": "gen_cvc_short_e_red_8_picture",
+    "id": "gen_cvc_short_e_red_9_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_E_02",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -6524,15 +7147,15 @@ export const cvcGeneratedQuestions = [
     "answer": "red",
     "choices": [
       "red",
-      "bus",
       "cap",
-      "dig"
+      "dig",
+      "gum"
     ],
     "answerOptions": [
       "red",
-      "bus",
       "cap",
-      "dig"
+      "dig",
+      "gum"
     ],
     "imageKey": "red",
     "imageUrl": "/images/child-mode/short-e/red.png",
@@ -6548,9 +7171,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -6561,12 +7184,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_red"
   },
   {
-    "id": "gen_cvc_short_e_ten_9_vowel",
+    "id": "gen_cvc_short_e_ten_10_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_E_03",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short e sound?",
@@ -6602,9 +7226,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -6615,12 +7239,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_ten"
   },
   {
-    "id": "gen_cvc_short_e_ten_9_missing",
+    "id": "gen_cvc_short_e_ten_10_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_E_03",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in t_n.",
@@ -6658,9 +7283,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -6671,12 +7296,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_ten"
   },
   {
-    "id": "gen_cvc_short_e_ten_9_picture",
+    "id": "gen_cvc_short_e_ten_10_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_E_03",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -6712,9 +7338,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -6725,12 +7351,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_ten"
   },
   {
-    "id": "gen_cvc_short_e_web_10_vowel",
+    "id": "gen_cvc_short_e_web_11_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_E_04",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short e sound?",
@@ -6766,9 +7393,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -6779,12 +7406,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_web"
   },
   {
-    "id": "gen_cvc_short_e_web_10_missing",
+    "id": "gen_cvc_short_e_web_11_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_E_04",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in w_b.",
@@ -6822,9 +7450,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -6835,12 +7463,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_web"
   },
   {
-    "id": "gen_cvc_short_e_web_10_picture",
+    "id": "gen_cvc_short_e_web_11_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_E_04",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -6876,9 +7505,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -6889,12 +7518,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_web"
   },
   {
-    "id": "gen_cvc_short_e_wet_11_vowel",
+    "id": "gen_cvc_short_e_wet_12_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_E_05",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short e sound?",
@@ -6906,13 +7536,13 @@ export const cvcGeneratedQuestions = [
     "answer": "wet",
     "choices": [
       "wet",
-      "cap",
+      "cat",
       "dig",
       "gum"
     ],
     "answerOptions": [
       "wet",
-      "cap",
+      "cat",
       "dig",
       "gum"
     ],
@@ -6930,9 +7560,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -6943,12 +7573,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_wet"
   },
   {
-    "id": "gen_cvc_short_e_wet_11_missing",
+    "id": "gen_cvc_short_e_wet_12_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_E_05",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in w_t.",
@@ -6986,9 +7617,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -6999,12 +7630,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_wet"
   },
   {
-    "id": "gen_cvc_short_e_wet_11_picture",
+    "id": "gen_cvc_short_e_wet_12_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_E_05",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -7016,13 +7648,13 @@ export const cvcGeneratedQuestions = [
     "answer": "wet",
     "choices": [
       "wet",
-      "cap",
+      "cat",
       "dig",
       "gum"
     ],
     "answerOptions": [
       "wet",
-      "cap",
+      "cat",
       "dig",
       "gum"
     ],
@@ -7040,9 +7672,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_e",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -7053,176 +7685,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_wet"
   },
   {
-    "id": "gen_cvc_short_e_yen_12_vowel",
-    "skillId": "cvc_short_vowels",
-    "skillName": "CVC and Short Vowels",
-    "skill": "CVC and Short Vowels",
-    "level": 1,
-    "templateType": "SHORT_VOWEL_WORD",
-    "formatType": "SHORT_VOWEL_WORD",
-    "questionType": "short_vowel_word",
-    "prompt": "Which word has the short e sound?",
-    "question": "Which word has the short e sound?",
-    "spokenPrompt": "Which word has the short e sound?",
-    "audioText": "yen",
-    "targetWord": "yen",
-    "correctAnswer": "yen",
-    "answer": "yen",
-    "choices": [
-      "yen",
-      "cot",
-      "dig",
-      "fan"
-    ],
-    "answerOptions": [
-      "yen",
-      "cot",
-      "dig",
-      "fan"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "yen",
-    "audioUrl": "/media/vocabulary/audio/yen.mp3",
-    "audioPath": "/media/vocabulary/audio/yen.mp3",
-    "phonicsPattern": "short_e",
-    "targetSound": "short_e",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "short_e",
-    "itemKey": "short_e",
-    "itemType": "short_vowel",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "tags": [
-      "generated",
-      "cvc",
-      "short-vowel"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_yen"
-  },
-  {
-    "id": "gen_cvc_short_e_yen_12_missing",
-    "skillId": "cvc_short_vowels",
-    "skillName": "CVC and Short Vowels",
-    "skill": "CVC and Short Vowels",
-    "level": 1,
-    "templateType": "MISSING_VOWEL_CVC",
-    "formatType": "MISSING_VOWEL_CVC",
-    "questionType": "missing_vowel_cvc",
-    "prompt": "Choose the missing vowel in y_n.",
-    "question": "Choose the missing vowel in y_n.",
-    "spokenPrompt": "Choose the missing vowel in y_n.",
-    "audioText": "yen",
-    "targetWord": "yen",
-    "correctAnswer": "e",
-    "answer": "e",
-    "choices": [
-      "a",
-      "e",
-      "i",
-      "o",
-      "u"
-    ],
-    "answerOptions": [
-      "a",
-      "e",
-      "i",
-      "o",
-      "u"
-    ],
-    "imageKey": "yen",
-    "imageUrl": "/media/vocabulary/images/yen.webp",
-    "imagePath": "/media/vocabulary/images/yen.webp",
-    "audioKey": "yen",
-    "audioUrl": "/media/vocabulary/audio/yen.mp3",
-    "audioPath": "/media/vocabulary/audio/yen.mp3",
-    "phonicsPattern": "short_e",
-    "targetSound": "short_e",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "short_e",
-    "itemKey": "short_e",
-    "itemType": "short_vowel",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "tags": [
-      "generated",
-      "cvc",
-      "missing-vowel"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_yen"
-  },
-  {
-    "id": "gen_cvc_short_e_yen_12_picture",
-    "skillId": "cvc_short_vowels",
-    "skillName": "CVC and Short Vowels",
-    "skill": "CVC and Short Vowels",
-    "level": 1,
-    "templateType": "PICTURE_TO_PRINT_MATCH",
-    "formatType": "PICTURE_TO_PRINT_MATCH",
-    "questionType": "picture_to_print_match",
-    "prompt": "Pick the word that matches the picture.",
-    "question": "Pick the word that matches the picture.",
-    "spokenPrompt": "Pick the word that matches the picture.",
-    "audioText": "yen",
-    "targetWord": "yen",
-    "correctAnswer": "yen",
-    "answer": "yen",
-    "choices": [
-      "yen",
-      "cot",
-      "dig",
-      "fan"
-    ],
-    "answerOptions": [
-      "yen",
-      "cot",
-      "dig",
-      "fan"
-    ],
-    "imageKey": "yen",
-    "imageUrl": "/media/vocabulary/images/yen.webp",
-    "imagePath": "/media/vocabulary/images/yen.webp",
-    "audioKey": "yen",
-    "audioUrl": "/media/vocabulary/audio/yen.mp3",
-    "audioPath": "/media/vocabulary/audio/yen.mp3",
-    "phonicsPattern": "short_e",
-    "targetSound": "short_e",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "short_e",
-    "itemKey": "short_e",
-    "itemType": "short_vowel",
-    "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "tags": [
-      "generated",
-      "cvc",
-      "picture-word"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_yen"
-  },
-  {
     "id": "gen_cvc_short_i_bib_0_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_I_01",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -7277,6 +7746,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_I_01",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in b_b.",
@@ -7333,6 +7803,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_I_01",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -7381,122 +7852,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_bib"
   },
   {
-    "id": "gen_cvc_short_i_bid_1_vowel",
+    "id": "gen_cvc_short_i_big_1_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
-    "formatType": "SHORT_VOWEL_WORD",
-    "questionType": "short_vowel_word",
-    "prompt": "Which word has the short i sound?",
-    "question": "Which word has the short i sound?",
-    "spokenPrompt": "Which word has the short i sound?",
-    "audioText": "bid",
-    "targetWord": "bid",
-    "correctAnswer": "bid",
-    "answer": "bid",
-    "choices": [
-      "bid",
-      "cap",
-      "dog",
-      "gum"
-    ],
-    "answerOptions": [
-      "bid",
-      "cap",
-      "dog",
-      "gum"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "bid",
-    "audioUrl": "/audio/child-mode/words/bid.mp3",
-    "audioPath": "/audio/child-mode/words/bid.mp3",
-    "phonicsPattern": "short_i",
-    "targetSound": "short_i",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "short_i",
-    "itemKey": "short_i",
-    "itemType": "short_vowel",
-    "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
-    "tags": [
-      "generated",
-      "cvc",
-      "short-vowel"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_bid"
-  },
-  {
-    "id": "gen_cvc_short_i_bid_1_missing",
-    "skillId": "cvc_short_vowels",
-    "skillName": "CVC and Short Vowels",
-    "skill": "CVC and Short Vowels",
-    "level": 2,
-    "templateType": "MISSING_VOWEL_CVC",
-    "formatType": "MISSING_VOWEL_CVC",
-    "questionType": "missing_vowel_cvc",
-    "prompt": "Choose the missing vowel in b_d.",
-    "question": "Choose the missing vowel in b_d.",
-    "spokenPrompt": "Choose the missing vowel in b_d.",
-    "audioText": "bid",
-    "targetWord": "bid",
-    "correctAnswer": "i",
-    "answer": "i",
-    "choices": [
-      "a",
-      "e",
-      "i",
-      "o",
-      "u"
-    ],
-    "answerOptions": [
-      "a",
-      "e",
-      "i",
-      "o",
-      "u"
-    ],
-    "imageKey": "",
-    "imageUrl": "",
-    "imagePath": "",
-    "audioKey": "bid",
-    "audioUrl": "/audio/child-mode/words/bid.mp3",
-    "audioPath": "/audio/child-mode/words/bid.mp3",
-    "phonicsPattern": "short_i",
-    "targetSound": "short_i",
-    "targetFinalSound": "",
-    "finalSoundType": "",
-    "coverageTarget": "short_i",
-    "itemKey": "short_i",
-    "itemType": "short_vowel",
-    "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
-    "tags": [
-      "generated",
-      "cvc",
-      "missing-vowel"
-    ],
-    "active": true,
-    "qaStatus": "approved",
-    "sourceLexiconId": "lex_bid"
-  },
-  {
-    "id": "gen_cvc_short_i_big_2_vowel",
-    "skillId": "cvc_short_vowels",
-    "skillName": "CVC and Short Vowels",
-    "skill": "CVC and Short Vowels",
-    "level": 1,
-    "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_I_02",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -7532,9 +7894,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -7545,12 +7907,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_big"
   },
   {
-    "id": "gen_cvc_short_i_big_2_missing",
+    "id": "gen_cvc_short_i_big_1_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_I_02",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in b_g.",
@@ -7588,9 +7951,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -7601,12 +7964,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_big"
   },
   {
-    "id": "gen_cvc_short_i_big_2_picture",
+    "id": "gen_cvc_short_i_big_1_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_I_02",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -7642,9 +8006,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -7655,12 +8019,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_big"
   },
   {
-    "id": "gen_cvc_short_i_bin_3_vowel",
+    "id": "gen_cvc_short_i_bin_2_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_I_03",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -7696,9 +8061,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -7709,12 +8074,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_bin"
   },
   {
-    "id": "gen_cvc_short_i_bin_3_missing",
+    "id": "gen_cvc_short_i_bin_2_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_I_03",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in b_n.",
@@ -7752,9 +8118,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -7765,12 +8131,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_bin"
   },
   {
-    "id": "gen_cvc_short_i_bin_3_picture",
+    "id": "gen_cvc_short_i_bin_2_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_I_03",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -7806,9 +8173,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -7819,12 +8186,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_bin"
   },
   {
-    "id": "gen_cvc_short_i_dig_4_vowel",
+    "id": "gen_cvc_short_i_dig_3_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_I_04",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -7836,13 +8204,13 @@ export const cvcGeneratedQuestions = [
     "answer": "dig",
     "choices": [
       "dig",
-      "bun",
+      "bug",
       "cap",
       "hen"
     ],
     "answerOptions": [
       "dig",
-      "bun",
+      "bug",
       "cap",
       "hen"
     ],
@@ -7860,9 +8228,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -7873,12 +8241,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_dig"
   },
   {
-    "id": "gen_cvc_short_i_dig_4_missing",
+    "id": "gen_cvc_short_i_dig_3_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_I_04",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in d_g.",
@@ -7916,9 +8285,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -7929,12 +8298,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_dig"
   },
   {
-    "id": "gen_cvc_short_i_dig_4_picture",
+    "id": "gen_cvc_short_i_dig_3_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_I_04",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -7946,13 +8316,13 @@ export const cvcGeneratedQuestions = [
     "answer": "dig",
     "choices": [
       "dig",
-      "bun",
+      "bug",
       "cap",
       "hen"
     ],
     "answerOptions": [
       "dig",
-      "bun",
+      "bug",
       "cap",
       "hen"
     ],
@@ -7970,9 +8340,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -7983,12 +8353,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_dig"
   },
   {
-    "id": "gen_cvc_short_i_dip_5_vowel",
+    "id": "gen_cvc_short_i_dip_4_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_I_05",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -8000,13 +8371,13 @@ export const cvcGeneratedQuestions = [
     "answer": "dip",
     "choices": [
       "dip",
-      "bus",
+      "bun",
       "cap",
       "hen"
     ],
     "answerOptions": [
       "dip",
-      "bus",
+      "bun",
       "cap",
       "hen"
     ],
@@ -8024,9 +8395,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -8037,12 +8408,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_dip"
   },
   {
-    "id": "gen_cvc_short_i_dip_5_missing",
+    "id": "gen_cvc_short_i_dip_4_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_I_05",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in d_p.",
@@ -8080,9 +8452,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -8093,12 +8465,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_dip"
   },
   {
-    "id": "gen_cvc_short_i_dip_5_picture",
+    "id": "gen_cvc_short_i_dip_4_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_I_05",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -8110,13 +8483,13 @@ export const cvcGeneratedQuestions = [
     "answer": "dip",
     "choices": [
       "dip",
-      "bus",
+      "bun",
       "cap",
       "hen"
     ],
     "answerOptions": [
       "dip",
-      "bus",
+      "bun",
       "cap",
       "hen"
     ],
@@ -8134,9 +8507,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -8147,12 +8520,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_dip"
   },
   {
-    "id": "gen_cvc_short_i_fig_6_vowel",
+    "id": "gen_cvc_short_i_fig_5_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_I_06",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -8164,15 +8538,15 @@ export const cvcGeneratedQuestions = [
     "answer": "fig",
     "choices": [
       "fig",
+      "bus",
       "cap",
-      "dog",
-      "gum"
+      "dog"
     ],
     "answerOptions": [
       "fig",
+      "bus",
       "cap",
-      "dog",
-      "gum"
+      "dog"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8188,9 +8562,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -8201,12 +8575,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_fig"
   },
   {
-    "id": "gen_cvc_short_i_fig_6_missing",
+    "id": "gen_cvc_short_i_fig_5_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_I_06",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in f_g.",
@@ -8244,9 +8619,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -8257,12 +8632,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_fig"
   },
   {
-    "id": "gen_cvc_short_i_fig_6_picture",
+    "id": "gen_cvc_short_i_fig_5_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_I_06",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -8274,15 +8650,15 @@ export const cvcGeneratedQuestions = [
     "answer": "fig",
     "choices": [
       "fig",
+      "bus",
       "cap",
-      "dog",
-      "gum"
+      "dog"
     ],
     "answerOptions": [
       "fig",
+      "bus",
       "cap",
-      "dog",
-      "gum"
+      "dog"
     ],
     "imageKey": "fig",
     "imageUrl": "/media/vocabulary/images/fig.webp",
@@ -8298,9 +8674,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -8311,12 +8687,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_fig"
   },
   {
-    "id": "gen_cvc_short_i_fin_7_vowel",
+    "id": "gen_cvc_short_i_fin_6_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_I_07",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -8352,9 +8729,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -8365,12 +8742,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_fin"
   },
   {
-    "id": "gen_cvc_short_i_fin_7_missing",
+    "id": "gen_cvc_short_i_fin_6_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_I_07",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in f_n.",
@@ -8408,9 +8786,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -8421,12 +8799,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_fin"
   },
   {
-    "id": "gen_cvc_short_i_fin_7_picture",
+    "id": "gen_cvc_short_i_fin_6_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_I_07",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -8462,9 +8841,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -8475,12 +8854,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_fin"
   },
   {
-    "id": "gen_cvc_short_i_hip_8_vowel",
+    "id": "gen_cvc_short_i_hip_7_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_I_08",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -8516,9 +8896,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -8529,12 +8909,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_hip"
   },
   {
-    "id": "gen_cvc_short_i_hip_8_missing",
+    "id": "gen_cvc_short_i_hip_7_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_I_08",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in h_p.",
@@ -8572,9 +8953,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -8585,12 +8966,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_hip"
   },
   {
-    "id": "gen_cvc_short_i_hip_8_picture",
+    "id": "gen_cvc_short_i_hip_7_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_I_08",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -8626,9 +9008,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -8639,12 +9021,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_hip"
   },
   {
-    "id": "gen_cvc_short_i_hit_9_vowel",
+    "id": "gen_cvc_short_i_hit_8_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_I_01",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -8656,15 +9039,15 @@ export const cvcGeneratedQuestions = [
     "answer": "hit",
     "choices": [
       "hit",
-      "cot",
-      "dug",
-      "fan"
+      "cap",
+      "dog",
+      "gum"
     ],
     "answerOptions": [
       "hit",
-      "cot",
-      "dug",
-      "fan"
+      "cap",
+      "dog",
+      "gum"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8680,9 +9063,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -8693,12 +9076,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_hit"
   },
   {
-    "id": "gen_cvc_short_i_hit_9_missing",
+    "id": "gen_cvc_short_i_hit_8_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_I_01",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in h_t.",
@@ -8736,9 +9120,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -8749,12 +9133,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_hit"
   },
   {
-    "id": "gen_cvc_short_i_hit_9_picture",
+    "id": "gen_cvc_short_i_hit_8_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_I_01",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -8766,15 +9151,15 @@ export const cvcGeneratedQuestions = [
     "answer": "hit",
     "choices": [
       "hit",
-      "cot",
-      "dug",
-      "fan"
+      "cap",
+      "dog",
+      "gum"
     ],
     "answerOptions": [
       "hit",
-      "cot",
-      "dug",
-      "fan"
+      "cap",
+      "dog",
+      "gum"
     ],
     "imageKey": "hit",
     "imageUrl": "/images/child-mode/initial-sounds/hit.png",
@@ -8790,9 +9175,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -8803,12 +9188,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_hit"
   },
   {
-    "id": "gen_cvc_short_i_kid_10_vowel",
+    "id": "gen_cvc_short_i_kid_9_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_I_02",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -8820,15 +9206,15 @@ export const cvcGeneratedQuestions = [
     "answer": "kid",
     "choices": [
       "kid",
-      "cot",
-      "dug",
-      "fan"
+      "cat",
+      "dog",
+      "gum"
     ],
     "answerOptions": [
       "kid",
-      "cot",
-      "dug",
-      "fan"
+      "cat",
+      "dog",
+      "gum"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8844,9 +9230,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -8857,12 +9243,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_kid"
   },
   {
-    "id": "gen_cvc_short_i_kid_10_missing",
+    "id": "gen_cvc_short_i_kid_9_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_I_02",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in k_d.",
@@ -8900,9 +9287,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -8913,12 +9300,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_kid"
   },
   {
-    "id": "gen_cvc_short_i_kid_10_picture",
+    "id": "gen_cvc_short_i_kid_9_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_I_02",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -8930,15 +9318,15 @@ export const cvcGeneratedQuestions = [
     "answer": "kid",
     "choices": [
       "kid",
-      "cot",
-      "dug",
-      "fan"
+      "cat",
+      "dog",
+      "gum"
     ],
     "answerOptions": [
       "kid",
-      "cot",
-      "dug",
-      "fan"
+      "cat",
+      "dog",
+      "gum"
     ],
     "imageKey": "kid",
     "imageUrl": "/images/child-mode/initial-sounds/kid.png",
@@ -8954,9 +9342,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -8967,12 +9355,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_kid"
   },
   {
-    "id": "gen_cvc_short_i_kit_11_vowel",
+    "id": "gen_cvc_short_i_kit_10_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_I_03",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -8984,15 +9373,15 @@ export const cvcGeneratedQuestions = [
     "answer": "kit",
     "choices": [
       "kit",
-      "cup",
-      "dog",
-      "fan"
+      "cot",
+      "dam",
+      "gum"
     ],
     "answerOptions": [
       "kit",
-      "cup",
-      "dog",
-      "fan"
+      "cot",
+      "dam",
+      "gum"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -9008,9 +9397,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -9021,12 +9410,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_kit"
   },
   {
-    "id": "gen_cvc_short_i_kit_11_missing",
+    "id": "gen_cvc_short_i_kit_10_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_I_03",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in k_t.",
@@ -9064,9 +9454,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -9077,12 +9467,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_kit"
   },
   {
-    "id": "gen_cvc_short_i_kit_11_picture",
+    "id": "gen_cvc_short_i_kit_10_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_I_03",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -9094,15 +9485,15 @@ export const cvcGeneratedQuestions = [
     "answer": "kit",
     "choices": [
       "kit",
-      "cup",
-      "dog",
-      "fan"
+      "cot",
+      "dam",
+      "gum"
     ],
     "answerOptions": [
       "kit",
-      "cup",
-      "dog",
-      "fan"
+      "cot",
+      "dam",
+      "gum"
     ],
     "imageKey": "kit",
     "imageUrl": "/media/vocabulary/images/kit.webp",
@@ -9118,9 +9509,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -9131,12 +9522,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_kit"
   },
   {
-    "id": "gen_cvc_short_i_lid_12_vowel",
+    "id": "gen_cvc_short_i_lid_11_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_I_04",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -9148,15 +9540,15 @@ export const cvcGeneratedQuestions = [
     "answer": "lid",
     "choices": [
       "lid",
-      "cup",
-      "dog",
-      "fan"
+      "cot",
+      "dam",
+      "gum"
     ],
     "answerOptions": [
       "lid",
-      "cup",
-      "dog",
-      "fan"
+      "cot",
+      "dam",
+      "gum"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -9172,9 +9564,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -9185,12 +9577,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_lid"
   },
   {
-    "id": "gen_cvc_short_i_lid_12_missing",
+    "id": "gen_cvc_short_i_lid_11_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_I_04",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in l_d.",
@@ -9228,9 +9621,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -9241,12 +9634,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_lid"
   },
   {
-    "id": "gen_cvc_short_i_lid_12_picture",
+    "id": "gen_cvc_short_i_lid_11_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_I_04",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -9258,15 +9652,15 @@ export const cvcGeneratedQuestions = [
     "answer": "lid",
     "choices": [
       "lid",
-      "cup",
-      "dog",
-      "fan"
+      "cot",
+      "dam",
+      "gum"
     ],
     "answerOptions": [
       "lid",
-      "cup",
-      "dog",
-      "fan"
+      "cot",
+      "dam",
+      "gum"
     ],
     "imageKey": "lid",
     "imageUrl": "/images/child-mode/short-i/lid.png",
@@ -9282,9 +9676,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -9295,12 +9689,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_lid"
   },
   {
-    "id": "gen_cvc_short_i_lip_13_vowel",
+    "id": "gen_cvc_short_i_lip_12_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_I_05",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -9312,22 +9707,22 @@ export const cvcGeneratedQuestions = [
     "answer": "lip",
     "choices": [
       "lip",
-      "dog",
-      "fan",
-      "gum"
+      "cup",
+      "dam",
+      "hen"
     ],
     "answerOptions": [
       "lip",
-      "dog",
-      "fan",
-      "gum"
+      "cup",
+      "dam",
+      "hen"
     ],
     "imageKey": "",
     "imageUrl": "",
     "imagePath": "",
     "audioKey": "lip",
-    "audioUrl": "/media/vocabulary/audio/lip.mp3",
-    "audioPath": "/media/vocabulary/audio/lip.mp3",
+    "audioUrl": "/audio/child-mode/clean-human/words/lip.mp3",
+    "audioPath": "/audio/child-mode/clean-human/words/lip.mp3",
     "phonicsPattern": "short_i",
     "targetSound": "short_i",
     "targetFinalSound": "",
@@ -9336,9 +9731,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -9349,12 +9744,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_lip"
   },
   {
-    "id": "gen_cvc_short_i_lip_13_missing",
+    "id": "gen_cvc_short_i_lip_12_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_I_05",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in l_p.",
@@ -9379,11 +9775,11 @@ export const cvcGeneratedQuestions = [
       "u"
     ],
     "imageKey": "lip",
-    "imageUrl": "/media/rhyming/images/lip.webp",
-    "imagePath": "/media/rhyming/images/lip.webp",
+    "imageUrl": "/media/vocabulary/images/lip.webp",
+    "imagePath": "/media/vocabulary/images/lip.webp",
     "audioKey": "lip",
-    "audioUrl": "/media/vocabulary/audio/lip.mp3",
-    "audioPath": "/media/vocabulary/audio/lip.mp3",
+    "audioUrl": "/audio/child-mode/clean-human/words/lip.mp3",
+    "audioPath": "/audio/child-mode/clean-human/words/lip.mp3",
     "phonicsPattern": "short_i",
     "targetSound": "short_i",
     "targetFinalSound": "",
@@ -9392,9 +9788,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -9405,12 +9801,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_lip"
   },
   {
-    "id": "gen_cvc_short_i_lip_13_picture",
+    "id": "gen_cvc_short_i_lip_12_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_I_05",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -9422,22 +9819,22 @@ export const cvcGeneratedQuestions = [
     "answer": "lip",
     "choices": [
       "lip",
-      "dog",
-      "fan",
-      "gum"
+      "cup",
+      "dam",
+      "hen"
     ],
     "answerOptions": [
       "lip",
-      "dog",
-      "fan",
-      "gum"
+      "cup",
+      "dam",
+      "hen"
     ],
     "imageKey": "lip",
-    "imageUrl": "/media/rhyming/images/lip.webp",
-    "imagePath": "/media/rhyming/images/lip.webp",
+    "imageUrl": "/media/vocabulary/images/lip.webp",
+    "imagePath": "/media/vocabulary/images/lip.webp",
     "audioKey": "lip",
-    "audioUrl": "/media/vocabulary/audio/lip.mp3",
-    "audioPath": "/media/vocabulary/audio/lip.mp3",
+    "audioUrl": "/audio/child-mode/clean-human/words/lip.mp3",
+    "audioPath": "/audio/child-mode/clean-human/words/lip.mp3",
     "phonicsPattern": "short_i",
     "targetSound": "short_i",
     "targetFinalSound": "",
@@ -9446,9 +9843,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "phaseTarget": "level_1_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -9459,12 +9856,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_lip"
   },
   {
-    "id": "gen_cvc_short_i_pig_14_vowel",
+    "id": "gen_cvc_short_i_pig_13_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_I_06",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -9476,15 +9874,15 @@ export const cvcGeneratedQuestions = [
     "answer": "pig",
     "choices": [
       "pig",
-      "dog",
-      "fan",
-      "gum"
+      "cup",
+      "dam",
+      "hen"
     ],
     "answerOptions": [
       "pig",
-      "dog",
-      "fan",
-      "gum"
+      "cup",
+      "dam",
+      "hen"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -9500,9 +9898,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -9513,12 +9911,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pig"
   },
   {
-    "id": "gen_cvc_short_i_pig_14_missing",
+    "id": "gen_cvc_short_i_pig_13_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_I_06",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in p_g.",
@@ -9556,9 +9955,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -9569,12 +9968,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pig"
   },
   {
-    "id": "gen_cvc_short_i_pig_14_picture",
+    "id": "gen_cvc_short_i_pig_13_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_I_06",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -9586,15 +9986,15 @@ export const cvcGeneratedQuestions = [
     "answer": "pig",
     "choices": [
       "pig",
-      "dog",
-      "fan",
-      "gum"
+      "cup",
+      "dam",
+      "hen"
     ],
     "answerOptions": [
       "pig",
-      "dog",
-      "fan",
-      "gum"
+      "cup",
+      "dam",
+      "hen"
     ],
     "imageKey": "pig",
     "imageUrl": "/images/child-mode/short-i/pig.png",
@@ -9610,9 +10010,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -9623,12 +10023,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pig"
   },
   {
-    "id": "gen_cvc_short_i_pin_15_vowel",
+    "id": "gen_cvc_short_i_pin_14_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_I_07",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -9640,15 +10041,15 @@ export const cvcGeneratedQuestions = [
     "answer": "pin",
     "choices": [
       "pin",
-      "dog",
-      "fan",
-      "gum"
+      "dam",
+      "gum",
+      "hen"
     ],
     "answerOptions": [
       "pin",
-      "dog",
-      "fan",
-      "gum"
+      "dam",
+      "gum",
+      "hen"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -9664,9 +10065,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -9677,12 +10078,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pin"
   },
   {
-    "id": "gen_cvc_short_i_pin_15_missing",
+    "id": "gen_cvc_short_i_pin_14_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_I_07",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in p_n.",
@@ -9720,9 +10122,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
+    "difficulty": 1,
     "assessmentPhase": 2,
-    "phaseTarget": "level_2_phase_2",
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -9733,12 +10135,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pin"
   },
   {
-    "id": "gen_cvc_short_i_pin_15_picture",
+    "id": "gen_cvc_short_i_pin_14_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_I_07",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -9750,15 +10153,15 @@ export const cvcGeneratedQuestions = [
     "answer": "pin",
     "choices": [
       "pin",
-      "dog",
-      "fan",
-      "gum"
+      "dam",
+      "gum",
+      "hen"
     ],
     "answerOptions": [
       "pin",
-      "dog",
-      "fan",
-      "gum"
+      "dam",
+      "gum",
+      "hen"
     ],
     "imageKey": "pin",
     "imageUrl": "/images/child-mode/minimal-pairs/pin.png",
@@ -9766,6 +10169,118 @@ export const cvcGeneratedQuestions = [
     "audioKey": "pin",
     "audioUrl": "/audio/child-mode/clean-human/words/pin.mp3",
     "audioPath": "/audio/child-mode/clean-human/words/pin.mp3",
+    "phonicsPattern": "short_i",
+    "targetSound": "short_i",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_i",
+    "itemKey": "short_i",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "tags": [
+      "generated",
+      "cvc",
+      "picture-word"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_pin"
+  },
+  {
+    "id": "gen_cvc_short_i_pit_15_missing",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 2,
+    "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_I_08",
+    "formatType": "MISSING_VOWEL_CVC",
+    "questionType": "missing_vowel_cvc",
+    "prompt": "Choose the missing vowel in p_t.",
+    "question": "Choose the missing vowel in p_t.",
+    "spokenPrompt": "Choose the missing vowel in p_t.",
+    "audioText": "",
+    "targetWord": "pit",
+    "correctAnswer": "i",
+    "answer": "i",
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "imageKey": "pit",
+    "imageUrl": "/media/vocabulary/images/pit.webp",
+    "imagePath": "/media/vocabulary/images/pit.webp",
+    "audioKey": "",
+    "audioUrl": "",
+    "audioPath": "",
+    "phonicsPattern": "short_i",
+    "targetSound": "short_i",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_i",
+    "itemKey": "short_i",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "tags": [
+      "generated",
+      "cvc",
+      "missing-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_pit"
+  },
+  {
+    "id": "gen_cvc_short_i_pit_15_picture",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 2,
+    "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_I_08",
+    "formatType": "PICTURE_TO_PRINT_MATCH",
+    "questionType": "picture_to_print_match",
+    "prompt": "Pick the word that matches the picture.",
+    "question": "Pick the word that matches the picture.",
+    "spokenPrompt": "Pick the word that matches the picture.",
+    "audioText": "",
+    "targetWord": "pit",
+    "correctAnswer": "pit",
+    "answer": "pit",
+    "choices": [
+      "pit",
+      "dam",
+      "gum",
+      "hen"
+    ],
+    "answerOptions": [
+      "pit",
+      "dam",
+      "gum",
+      "hen"
+    ],
+    "imageKey": "pit",
+    "imageUrl": "/media/vocabulary/images/pit.webp",
+    "imagePath": "/media/vocabulary/images/pit.webp",
+    "audioKey": "",
+    "audioUrl": "",
+    "audioPath": "",
     "phonicsPattern": "short_i",
     "targetSound": "short_i",
     "targetFinalSound": "",
@@ -9784,7 +10299,7 @@ export const cvcGeneratedQuestions = [
     ],
     "active": true,
     "qaStatus": "approved",
-    "sourceLexiconId": "lex_pin"
+    "sourceLexiconId": "lex_pit"
   },
   {
     "id": "gen_cvc_short_i_rib_16_vowel",
@@ -9793,6 +10308,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_I_01",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -9804,15 +10320,15 @@ export const cvcGeneratedQuestions = [
     "answer": "rib",
     "choices": [
       "rib",
-      "dog",
-      "fan",
-      "gum"
+      "dam",
+      "gum",
+      "hen"
     ],
     "answerOptions": [
       "rib",
-      "dog",
-      "fan",
-      "gum"
+      "dam",
+      "gum",
+      "hen"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -9847,6 +10363,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_I_01",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in r_b.",
@@ -9903,6 +10420,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_I_01",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -9914,15 +10432,15 @@ export const cvcGeneratedQuestions = [
     "answer": "rib",
     "choices": [
       "rib",
-      "dog",
-      "fan",
-      "gum"
+      "dam",
+      "gum",
+      "hen"
     ],
     "answerOptions": [
       "rib",
-      "dog",
-      "fan",
-      "gum"
+      "dam",
+      "gum",
+      "hen"
     ],
     "imageKey": "rib",
     "imageUrl": "/media/vocabulary/images/rib.webp",
@@ -9957,6 +10475,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_I_02",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -9968,13 +10487,13 @@ export const cvcGeneratedQuestions = [
     "answer": "sip",
     "choices": [
       "sip",
-      "dot",
+      "dog",
       "fan",
       "gum"
     ],
     "answerOptions": [
       "sip",
-      "dot",
+      "dog",
       "fan",
       "gum"
     ],
@@ -10011,6 +10530,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_I_02",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in s_p.",
@@ -10067,6 +10587,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_I_02",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -10078,13 +10599,13 @@ export const cvcGeneratedQuestions = [
     "answer": "sip",
     "choices": [
       "sip",
-      "dot",
+      "dog",
       "fan",
       "gum"
     ],
     "answerOptions": [
       "sip",
-      "dot",
+      "dog",
       "fan",
       "gum"
     ],
@@ -10121,6 +10642,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_I_03",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -10132,15 +10654,15 @@ export const cvcGeneratedQuestions = [
     "answer": "sit",
     "choices": [
       "sit",
-      "dug",
+      "dog",
       "fan",
-      "hen"
+      "gum"
     ],
     "answerOptions": [
       "sit",
-      "dug",
+      "dog",
       "fan",
-      "hen"
+      "gum"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -10175,6 +10697,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_I_03",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in s_t.",
@@ -10231,6 +10754,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_I_03",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -10242,15 +10766,15 @@ export const cvcGeneratedQuestions = [
     "answer": "sit",
     "choices": [
       "sit",
-      "dug",
+      "dog",
       "fan",
-      "hen"
+      "gum"
     ],
     "answerOptions": [
       "sit",
-      "dug",
+      "dog",
       "fan",
-      "hen"
+      "gum"
     ],
     "imageKey": "sit",
     "imageUrl": "/images/child-mode/short-i/sit.png",
@@ -10285,6 +10809,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_I_04",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short i sound?",
@@ -10296,15 +10821,15 @@ export const cvcGeneratedQuestions = [
     "answer": "wig",
     "choices": [
       "wig",
+      "dot",
       "fan",
-      "gum",
-      "hen"
+      "gum"
     ],
     "answerOptions": [
       "wig",
+      "dot",
       "fan",
-      "gum",
-      "hen"
+      "gum"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -10339,6 +10864,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_I_04",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in w_g.",
@@ -10395,6 +10921,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_I_04",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -10406,15 +10933,15 @@ export const cvcGeneratedQuestions = [
     "answer": "wig",
     "choices": [
       "wig",
+      "dot",
       "fan",
-      "gum",
-      "hen"
+      "gum"
     ],
     "answerOptions": [
       "wig",
+      "dot",
       "fan",
-      "gum",
-      "hen"
+      "gum"
     ],
     "imageKey": "wig",
     "imageUrl": "/images/child-mode/short-i/wig.png",
@@ -10443,18 +10970,241 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_wig"
   },
   {
-    "id": "gen_cvc_short_i_zip_20_missing",
+    "id": "gen_cvc_short_i_win_20_vowel",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 1,
+    "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_I_05",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "short_vowel_word",
+    "prompt": "Which word has the short i sound?",
+    "question": "Which word has the short i sound?",
+    "spokenPrompt": "Which word has the short i sound?",
+    "audioText": "win",
+    "targetWord": "win",
+    "correctAnswer": "win",
+    "answer": "win",
+    "choices": [
+      "win",
+      "dug",
+      "fan",
+      "hen"
+    ],
+    "answerOptions": [
+      "win",
+      "dug",
+      "fan",
+      "hen"
+    ],
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
+    "audioKey": "win",
+    "audioUrl": "/media/vocabulary/audio/win.mp3",
+    "audioPath": "/media/vocabulary/audio/win.mp3",
+    "phonicsPattern": "short_i",
+    "targetSound": "short_i",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_i",
+    "itemKey": "short_i",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "tags": [
+      "generated",
+      "cvc",
+      "short-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_win"
+  },
+  {
+    "id": "gen_cvc_short_i_win_20_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_I_05",
+    "formatType": "MISSING_VOWEL_CVC",
+    "questionType": "missing_vowel_cvc",
+    "prompt": "Choose the missing vowel in w_n.",
+    "question": "Choose the missing vowel in w_n.",
+    "spokenPrompt": "Choose the missing vowel in w_n.",
+    "audioText": "win",
+    "targetWord": "win",
+    "correctAnswer": "i",
+    "answer": "i",
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "imageKey": "win",
+    "imageUrl": "/media/vocabulary/images/win.webp",
+    "imagePath": "/media/vocabulary/images/win.webp",
+    "audioKey": "win",
+    "audioUrl": "/media/vocabulary/audio/win.mp3",
+    "audioPath": "/media/vocabulary/audio/win.mp3",
+    "phonicsPattern": "short_i",
+    "targetSound": "short_i",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_i",
+    "itemKey": "short_i",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "tags": [
+      "generated",
+      "cvc",
+      "missing-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_win"
+  },
+  {
+    "id": "gen_cvc_short_i_win_20_picture",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 1,
+    "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_I_05",
+    "formatType": "PICTURE_TO_PRINT_MATCH",
+    "questionType": "picture_to_print_match",
+    "prompt": "Pick the word that matches the picture.",
+    "question": "Pick the word that matches the picture.",
+    "spokenPrompt": "Pick the word that matches the picture.",
+    "audioText": "win",
+    "targetWord": "win",
+    "correctAnswer": "win",
+    "answer": "win",
+    "choices": [
+      "win",
+      "dug",
+      "fan",
+      "hen"
+    ],
+    "answerOptions": [
+      "win",
+      "dug",
+      "fan",
+      "hen"
+    ],
+    "imageKey": "win",
+    "imageUrl": "/media/vocabulary/images/win.webp",
+    "imagePath": "/media/vocabulary/images/win.webp",
+    "audioKey": "win",
+    "audioUrl": "/media/vocabulary/audio/win.mp3",
+    "audioPath": "/media/vocabulary/audio/win.mp3",
+    "phonicsPattern": "short_i",
+    "targetSound": "short_i",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_i",
+    "itemKey": "short_i",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "tags": [
+      "generated",
+      "cvc",
+      "picture-word"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_win"
+  },
+  {
+    "id": "gen_cvc_short_i_zip_21_vowel",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 2,
+    "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_I_06",
+    "formatType": "SHORT_VOWEL_WORD",
+    "questionType": "short_vowel_word",
+    "prompt": "Which word has the short i sound?",
+    "question": "Which word has the short i sound?",
+    "spokenPrompt": "Which word has the short i sound?",
+    "audioText": "zip",
+    "targetWord": "zip",
+    "correctAnswer": "zip",
+    "answer": "zip",
+    "choices": [
+      "zip",
+      "fan",
+      "gum",
+      "hen"
+    ],
+    "answerOptions": [
+      "zip",
+      "fan",
+      "gum",
+      "hen"
+    ],
+    "imageKey": "",
+    "imageUrl": "",
+    "imagePath": "",
+    "audioKey": "zip",
+    "audioUrl": "/audio/vocabulary/zip.mp3",
+    "audioPath": "/audio/vocabulary/zip.mp3",
+    "phonicsPattern": "short_i",
+    "targetSound": "short_i",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_i",
+    "itemKey": "short_i",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 2,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
+    "tags": [
+      "generated",
+      "cvc",
+      "short-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_zip"
+  },
+  {
+    "id": "gen_cvc_short_i_zip_21_missing",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 2,
+    "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_I_06",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in z_p.",
     "question": "Choose the missing vowel in z_p.",
     "spokenPrompt": "Choose the missing vowel in z_p.",
-    "audioText": "",
+    "audioText": "zip",
     "targetWord": "zip",
     "correctAnswer": "i",
     "answer": "i",
@@ -10475,9 +11225,9 @@ export const cvcGeneratedQuestions = [
     "imageKey": "zip",
     "imageUrl": "/images/child-mode/short-i/zip.png",
     "imagePath": "/images/child-mode/short-i/zip.png",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
+    "audioKey": "zip",
+    "audioUrl": "/audio/vocabulary/zip.mp3",
+    "audioPath": "/audio/vocabulary/zip.mp3",
     "phonicsPattern": "short_i",
     "targetSound": "short_i",
     "targetFinalSound": "",
@@ -10486,9 +11236,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -10499,39 +11249,40 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_zip"
   },
   {
-    "id": "gen_cvc_short_i_zip_20_picture",
+    "id": "gen_cvc_short_i_zip_21_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_I_06",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
     "question": "Pick the word that matches the picture.",
     "spokenPrompt": "Pick the word that matches the picture.",
-    "audioText": "",
+    "audioText": "zip",
     "targetWord": "zip",
     "correctAnswer": "zip",
     "answer": "zip",
     "choices": [
       "zip",
+      "fan",
       "gum",
-      "ham",
-      "jet"
+      "hen"
     ],
     "answerOptions": [
       "zip",
+      "fan",
       "gum",
-      "ham",
-      "jet"
+      "hen"
     ],
     "imageKey": "zip",
     "imageUrl": "/images/child-mode/short-i/zip.png",
     "imagePath": "/images/child-mode/short-i/zip.png",
-    "audioKey": "",
-    "audioUrl": "",
-    "audioPath": "",
+    "audioKey": "zip",
+    "audioUrl": "/audio/vocabulary/zip.mp3",
+    "audioPath": "/audio/vocabulary/zip.mp3",
     "phonicsPattern": "short_i",
     "targetSound": "short_i",
     "targetFinalSound": "",
@@ -10540,9 +11291,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_i",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -10559,6 +11310,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_O_01",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short o sound?",
@@ -10613,6 +11365,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_O_01",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in c_b.",
@@ -10669,6 +11422,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_O_01",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -10723,6 +11477,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_O_02",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short o sound?",
@@ -10777,6 +11532,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_O_02",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in c_t.",
@@ -10833,6 +11589,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_O_02",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -10887,6 +11644,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_O_03",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short o sound?",
@@ -10941,6 +11699,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_O_03",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in d_g.",
@@ -10997,6 +11756,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_O_03",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -11051,6 +11811,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_O_04",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short o sound?",
@@ -11105,6 +11866,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_O_04",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in d_t.",
@@ -11161,6 +11923,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_O_04",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -11215,6 +11978,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_O_05",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short o sound?",
@@ -11269,6 +12033,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_O_05",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in h_p.",
@@ -11325,6 +12090,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_O_05",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -11379,6 +12145,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_O_06",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short o sound?",
@@ -11433,6 +12200,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_O_06",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in h_t.",
@@ -11489,6 +12257,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_O_06",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -11543,6 +12312,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_O_07",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short o sound?",
@@ -11597,6 +12367,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_O_07",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in l_g.",
@@ -11653,6 +12424,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_O_07",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -11707,6 +12479,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_O_08",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short o sound?",
@@ -11761,6 +12534,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_O_08",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in m_p.",
@@ -11817,6 +12591,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_O_08",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -11865,12 +12640,125 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_mop"
   },
   {
-    "id": "gen_cvc_short_o_pot_8_vowel",
+    "id": "gen_cvc_short_o_pop_8_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
     "level": 1,
+    "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_O_01",
+    "formatType": "MISSING_VOWEL_CVC",
+    "questionType": "missing_vowel_cvc",
+    "prompt": "Choose the missing vowel in p_p.",
+    "question": "Choose the missing vowel in p_p.",
+    "spokenPrompt": "Choose the missing vowel in p_p.",
+    "audioText": "",
+    "targetWord": "pop",
+    "correctAnswer": "o",
+    "answer": "o",
+    "choices": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "answerOptions": [
+      "a",
+      "e",
+      "i",
+      "o",
+      "u"
+    ],
+    "imageKey": "pop",
+    "imageUrl": "/media/vocabulary/images/pop.webp",
+    "imagePath": "/media/vocabulary/images/pop.webp",
+    "audioKey": "",
+    "audioUrl": "",
+    "audioPath": "",
+    "phonicsPattern": "short_o",
+    "targetSound": "short_o",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_o",
+    "itemKey": "short_o",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "tags": [
+      "generated",
+      "cvc",
+      "missing-vowel"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_pop"
+  },
+  {
+    "id": "gen_cvc_short_o_pop_8_picture",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 1,
+    "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_O_01",
+    "formatType": "PICTURE_TO_PRINT_MATCH",
+    "questionType": "picture_to_print_match",
+    "prompt": "Pick the word that matches the picture.",
+    "question": "Pick the word that matches the picture.",
+    "spokenPrompt": "Pick the word that matches the picture.",
+    "audioText": "",
+    "targetWord": "pop",
+    "correctAnswer": "pop",
+    "answer": "pop",
+    "choices": [
+      "pop",
+      "bus",
+      "cap",
+      "dig"
+    ],
+    "answerOptions": [
+      "pop",
+      "bus",
+      "cap",
+      "dig"
+    ],
+    "imageKey": "pop",
+    "imageUrl": "/media/vocabulary/images/pop.webp",
+    "imagePath": "/media/vocabulary/images/pop.webp",
+    "audioKey": "",
+    "audioUrl": "",
+    "audioPath": "",
+    "phonicsPattern": "short_o",
+    "targetSound": "short_o",
+    "targetFinalSound": "",
+    "finalSoundType": "",
+    "coverageTarget": "short_o",
+    "itemKey": "short_o",
+    "itemType": "short_vowel",
+    "distractorType": "contrast",
+    "difficulty": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "tags": [
+      "generated",
+      "cvc",
+      "picture-word"
+    ],
+    "active": true,
+    "qaStatus": "approved",
+    "sourceLexiconId": "lex_pop"
+  },
+  {
+    "id": "gen_cvc_short_o_pot_9_vowel",
+    "skillId": "cvc_short_vowels",
+    "skillName": "CVC and Short Vowels",
+    "skill": "CVC and Short Vowels",
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_O_02",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short o sound?",
@@ -11882,15 +12770,15 @@ export const cvcGeneratedQuestions = [
     "answer": "pot",
     "choices": [
       "pot",
-      "bus",
       "cap",
-      "dig"
+      "dig",
+      "gum"
     ],
     "answerOptions": [
       "pot",
-      "bus",
       "cap",
-      "dig"
+      "dig",
+      "gum"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -11906,9 +12794,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_o",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -11919,12 +12807,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pot"
   },
   {
-    "id": "gen_cvc_short_o_pot_8_missing",
+    "id": "gen_cvc_short_o_pot_9_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_O_02",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in p_t.",
@@ -11962,9 +12851,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_o",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -11975,12 +12864,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pot"
   },
   {
-    "id": "gen_cvc_short_o_pot_8_picture",
+    "id": "gen_cvc_short_o_pot_9_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_O_02",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -11992,15 +12882,15 @@ export const cvcGeneratedQuestions = [
     "answer": "pot",
     "choices": [
       "pot",
-      "bus",
       "cap",
-      "dig"
+      "dig",
+      "gum"
     ],
     "answerOptions": [
       "pot",
-      "bus",
       "cap",
-      "dig"
+      "dig",
+      "gum"
     ],
     "imageKey": "pot",
     "imageUrl": "/images/child-mode/cvc/pot.png",
@@ -12016,9 +12906,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_o",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
+    "phaseTarget": "level_2_phase_1",
     "tags": [
       "generated",
       "cvc",
@@ -12029,12 +12919,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_pot"
   },
   {
-    "id": "gen_cvc_short_o_rod_9_vowel",
+    "id": "gen_cvc_short_o_rod_10_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_O_03",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short o sound?",
@@ -12070,9 +12961,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_o",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -12083,12 +12974,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_rod"
   },
   {
-    "id": "gen_cvc_short_o_rod_9_missing",
+    "id": "gen_cvc_short_o_rod_10_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_O_03",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in r_d.",
@@ -12126,9 +13018,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_o",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -12139,12 +13031,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_rod"
   },
   {
-    "id": "gen_cvc_short_o_rod_9_picture",
+    "id": "gen_cvc_short_o_rod_10_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 2,
+    "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_O_03",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -12180,9 +13073,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_o",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 2,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
+    "difficulty": 1,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -12193,12 +13086,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_rod"
   },
   {
-    "id": "gen_cvc_short_o_top_10_vowel",
+    "id": "gen_cvc_short_o_top_11_vowel",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_O_04",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short o sound?",
@@ -12234,9 +13128,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_o",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -12247,12 +13141,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_top"
   },
   {
-    "id": "gen_cvc_short_o_top_10_missing",
+    "id": "gen_cvc_short_o_top_11_missing",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_O_04",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in t_p.",
@@ -12290,9 +13185,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_o",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -12303,12 +13198,13 @@ export const cvcGeneratedQuestions = [
     "sourceLexiconId": "lex_top"
   },
   {
-    "id": "gen_cvc_short_o_top_10_picture",
+    "id": "gen_cvc_short_o_top_11_picture",
     "skillId": "cvc_short_vowels",
     "skillName": "CVC and Short Vowels",
     "skill": "CVC and Short Vowels",
-    "level": 1,
+    "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_O_04",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -12344,9 +13240,9 @@ export const cvcGeneratedQuestions = [
     "itemKey": "short_o",
     "itemType": "short_vowel",
     "distractorType": "contrast",
-    "difficulty": 1,
+    "difficulty": 2,
     "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
+    "phaseTarget": "level_2_phase_2",
     "tags": [
       "generated",
       "cvc",
@@ -12363,6 +13259,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_U_01",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -12417,6 +13314,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_U_01",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in b_g.",
@@ -12473,6 +13371,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_U_01",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -12527,6 +13426,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_U_02",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -12581,6 +13481,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_U_02",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in b_n.",
@@ -12637,6 +13538,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_U_02",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -12691,6 +13593,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_U_03",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -12745,6 +13648,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_U_03",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in b_s.",
@@ -12801,6 +13705,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_U_03",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -12855,6 +13760,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_U_04",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -12867,14 +13773,14 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "cub",
       "big",
-      "dog",
-      "fan"
+      "dam",
+      "hen"
     ],
     "answerOptions": [
       "cub",
       "big",
-      "dog",
-      "fan"
+      "dam",
+      "hen"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -12909,6 +13815,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_U_04",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in c_b.",
@@ -12965,6 +13872,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_U_04",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -12977,14 +13885,14 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "cub",
       "big",
-      "dog",
-      "fan"
+      "dam",
+      "hen"
     ],
     "answerOptions": [
       "cub",
       "big",
-      "dog",
-      "fan"
+      "dam",
+      "hen"
     ],
     "imageKey": "cub",
     "imageUrl": "/media/final-sounds/images/b/cub.webp",
@@ -13019,6 +13927,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_U_05",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -13031,14 +13940,14 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "cup",
       "big",
-      "dog",
-      "fan"
+      "dam",
+      "hen"
     ],
     "answerOptions": [
       "cup",
       "big",
-      "dog",
-      "fan"
+      "dam",
+      "hen"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -13073,6 +13982,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_U_05",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in c_p.",
@@ -13129,6 +14039,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_U_05",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -13141,14 +14052,14 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "cup",
       "big",
-      "dog",
-      "fan"
+      "dam",
+      "hen"
     ],
     "answerOptions": [
       "cup",
       "big",
-      "dog",
-      "fan"
+      "dam",
+      "hen"
     ],
     "imageKey": "cup",
     "imageUrl": "/images/child-mode/short-u/cup.png",
@@ -13183,6 +14094,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_U_06",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -13237,6 +14149,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_U_06",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in d_g.",
@@ -13293,6 +14206,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_U_06",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -13347,6 +14261,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_U_07",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -13401,6 +14316,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_U_07",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in f_n.",
@@ -13457,6 +14373,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_U_07",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -13511,6 +14428,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_U_08",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -13565,6 +14483,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_U_08",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in g_m.",
@@ -13621,6 +14540,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_U_08",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -13675,6 +14595,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_U_01",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -13729,6 +14650,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_U_01",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in h_t.",
@@ -13785,6 +14707,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_U_01",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -13839,6 +14762,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_U_02",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -13850,15 +14774,15 @@ export const cvcGeneratedQuestions = [
     "answer": "jug",
     "choices": [
       "jug",
-      "cot",
+      "cat",
       "dig",
-      "fan"
+      "hen"
     ],
     "answerOptions": [
       "jug",
-      "cot",
+      "cat",
       "dig",
-      "fan"
+      "hen"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -13893,6 +14817,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_U_02",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in j_g.",
@@ -13949,6 +14874,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_U_02",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -13960,15 +14886,15 @@ export const cvcGeneratedQuestions = [
     "answer": "jug",
     "choices": [
       "jug",
-      "cot",
+      "cat",
       "dig",
-      "fan"
+      "hen"
     ],
     "answerOptions": [
       "jug",
-      "cot",
+      "cat",
       "dig",
-      "fan"
+      "hen"
     ],
     "imageKey": "jug",
     "imageUrl": "/images/child-mode/initial-sounds/jug.png",
@@ -14003,6 +14929,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_U_03",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -14015,14 +14942,14 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "mud",
       "cot",
-      "dig",
-      "fan"
+      "dam",
+      "fin"
     ],
     "answerOptions": [
       "mud",
       "cot",
-      "dig",
-      "fan"
+      "dam",
+      "fin"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -14057,6 +14984,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_U_03",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in m_d.",
@@ -14113,6 +15041,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_U_03",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -14125,14 +15054,14 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "mud",
       "cot",
-      "dig",
-      "fan"
+      "dam",
+      "fin"
     ],
     "answerOptions": [
       "mud",
       "cot",
-      "dig",
-      "fan"
+      "dam",
+      "fin"
     ],
     "imageKey": "mud",
     "imageUrl": "/images/child-mode/short-u/mud.png",
@@ -14167,6 +15096,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_U_04",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -14178,15 +15108,15 @@ export const cvcGeneratedQuestions = [
     "answer": "mug",
     "choices": [
       "mug",
-      "dig",
-      "fan",
-      "hen"
+      "cot",
+      "dam",
+      "fin"
     ],
     "answerOptions": [
       "mug",
-      "dig",
-      "fan",
-      "hen"
+      "cot",
+      "dam",
+      "fin"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -14221,6 +15151,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_U_04",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in m_g.",
@@ -14277,6 +15208,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_U_04",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -14288,15 +15220,15 @@ export const cvcGeneratedQuestions = [
     "answer": "mug",
     "choices": [
       "mug",
-      "dig",
-      "fan",
-      "hen"
+      "cot",
+      "dam",
+      "fin"
     ],
     "answerOptions": [
       "mug",
-      "dig",
-      "fan",
-      "hen"
+      "cot",
+      "dam",
+      "fin"
     ],
     "imageKey": "mug",
     "imageUrl": "/images/child-mode/cvc/mug.png",
@@ -14331,6 +15263,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_U_05",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -14342,14 +15275,14 @@ export const cvcGeneratedQuestions = [
     "answer": "pup",
     "choices": [
       "pup",
-      "dig",
-      "fan",
+      "dam",
+      "fin",
       "hen"
     ],
     "answerOptions": [
       "pup",
-      "dig",
-      "fan",
+      "dam",
+      "fin",
       "hen"
     ],
     "imageKey": "",
@@ -14385,6 +15318,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_U_05",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in p_p.",
@@ -14441,6 +15375,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_U_05",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -14452,14 +15387,14 @@ export const cvcGeneratedQuestions = [
     "answer": "pup",
     "choices": [
       "pup",
-      "dig",
-      "fan",
+      "dam",
+      "fin",
       "hen"
     ],
     "answerOptions": [
       "pup",
-      "dig",
-      "fan",
+      "dam",
+      "fin",
       "hen"
     ],
     "imageKey": "pup",
@@ -14495,6 +15430,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_U_06",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -14506,14 +15442,14 @@ export const cvcGeneratedQuestions = [
     "answer": "rub",
     "choices": [
       "rub",
-      "dig",
-      "fan",
+      "dam",
+      "fin",
       "hen"
     ],
     "answerOptions": [
       "rub",
-      "dig",
-      "fan",
+      "dam",
+      "fin",
       "hen"
     ],
     "imageKey": "",
@@ -14549,6 +15485,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_U_06",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in r_b.",
@@ -14605,6 +15542,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_U_06",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -14616,14 +15554,14 @@ export const cvcGeneratedQuestions = [
     "answer": "rub",
     "choices": [
       "rub",
-      "dig",
-      "fan",
+      "dam",
+      "fin",
       "hen"
     ],
     "answerOptions": [
       "rub",
-      "dig",
-      "fan",
+      "dam",
+      "fin",
       "hen"
     ],
     "imageKey": "rub",
@@ -14659,6 +15597,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_U_07",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -14670,14 +15609,14 @@ export const cvcGeneratedQuestions = [
     "answer": "rug",
     "choices": [
       "rug",
-      "dig",
-      "fan",
+      "dam",
+      "fin",
       "hen"
     ],
     "answerOptions": [
       "rug",
-      "dig",
-      "fan",
+      "dam",
+      "fin",
       "hen"
     ],
     "imageKey": "",
@@ -14713,6 +15652,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_U_07",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in r_g.",
@@ -14769,6 +15709,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_U_07",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -14780,14 +15721,14 @@ export const cvcGeneratedQuestions = [
     "answer": "rug",
     "choices": [
       "rug",
-      "dig",
-      "fan",
+      "dam",
+      "fin",
       "hen"
     ],
     "answerOptions": [
       "rug",
-      "dig",
-      "fan",
+      "dam",
+      "fin",
       "hen"
     ],
     "imageKey": "rug",
@@ -14823,6 +15764,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_U_08",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -14834,13 +15776,13 @@ export const cvcGeneratedQuestions = [
     "answer": "run",
     "choices": [
       "run",
-      "dog",
+      "dig",
       "fan",
       "hen"
     ],
     "answerOptions": [
       "run",
-      "dog",
+      "dig",
       "fan",
       "hen"
     ],
@@ -14877,6 +15819,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_U_08",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in r_n.",
@@ -14933,6 +15876,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_U_08",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -14944,13 +15888,13 @@ export const cvcGeneratedQuestions = [
     "answer": "run",
     "choices": [
       "run",
-      "dog",
+      "dig",
       "fan",
       "hen"
     ],
     "answerOptions": [
       "run",
-      "dog",
+      "dig",
       "fan",
       "hen"
     ],
@@ -14987,6 +15931,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P1_SHORT_U_01",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -14998,13 +15943,13 @@ export const cvcGeneratedQuestions = [
     "answer": "sub",
     "choices": [
       "sub",
-      "dog",
+      "dig",
       "fan",
       "hen"
     ],
     "answerOptions": [
       "sub",
-      "dog",
+      "dig",
       "fan",
       "hen"
     ],
@@ -15041,6 +15986,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P1_SHORT_U_01",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in s_b.",
@@ -15097,6 +16043,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P1_SHORT_U_01",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -15108,13 +16055,13 @@ export const cvcGeneratedQuestions = [
     "answer": "sub",
     "choices": [
       "sub",
-      "dog",
+      "dig",
       "fan",
       "hen"
     ],
     "answerOptions": [
       "sub",
-      "dog",
+      "dig",
       "fan",
       "hen"
     ],
@@ -15151,6 +16098,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P1_SHORT_U_02",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -15162,13 +16110,13 @@ export const cvcGeneratedQuestions = [
     "answer": "sun",
     "choices": [
       "sun",
-      "dot",
+      "dog",
       "fan",
       "hen"
     ],
     "answerOptions": [
       "sun",
-      "dot",
+      "dog",
       "fan",
       "hen"
     ],
@@ -15205,6 +16153,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P1_SHORT_U_02",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in s_n.",
@@ -15261,6 +16210,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P1_SHORT_U_02",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -15272,13 +16222,13 @@ export const cvcGeneratedQuestions = [
     "answer": "sun",
     "choices": [
       "sun",
-      "dot",
+      "dog",
       "fan",
       "hen"
     ],
     "answerOptions": [
       "sun",
-      "dot",
+      "dog",
       "fan",
       "hen"
     ],
@@ -15315,6 +16265,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L1_P2_SHORT_U_03",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -15326,15 +16277,15 @@ export const cvcGeneratedQuestions = [
     "answer": "tub",
     "choices": [
       "tub",
+      "dog",
       "fan",
-      "hen",
-      "kid"
+      "hen"
     ],
     "answerOptions": [
       "tub",
+      "dog",
       "fan",
-      "hen",
-      "kid"
+      "hen"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -15369,6 +16320,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L1_P2_SHORT_U_03",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in t_b.",
@@ -15425,6 +16377,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 1,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L1_P2_SHORT_U_03",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -15436,15 +16389,15 @@ export const cvcGeneratedQuestions = [
     "answer": "tub",
     "choices": [
       "tub",
+      "dog",
       "fan",
-      "hen",
-      "kid"
+      "hen"
     ],
     "answerOptions": [
       "tub",
+      "dog",
       "fan",
-      "hen",
-      "kid"
+      "hen"
     ],
     "imageKey": "tub",
     "imageUrl": "/images/child-mode/initial-sounds/tub.png",
@@ -15479,6 +16432,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "SHORT_VOWEL_WORD",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_WORD_L2_P2_SHORT_U_04",
     "formatType": "SHORT_VOWEL_WORD",
     "questionType": "short_vowel_word",
     "prompt": "Which word has the short u sound?",
@@ -15490,15 +16444,15 @@ export const cvcGeneratedQuestions = [
     "answer": "tug",
     "choices": [
       "tug",
-      "fin",
-      "ham",
-      "jet"
+      "dot",
+      "fan",
+      "hen"
     ],
     "answerOptions": [
       "tug",
-      "fin",
-      "ham",
-      "jet"
+      "dot",
+      "fan",
+      "hen"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -15533,6 +16487,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "MISSING_VOWEL_CVC",
+    "runtimeTemplateKey": "HEAR_WORD_SEE_IMAGE_CHOOSE_MIDDLE_VOWEL_L2_P2_SHORT_U_04",
     "formatType": "MISSING_VOWEL_CVC",
     "questionType": "missing_vowel_cvc",
     "prompt": "Choose the missing vowel in t_g.",
@@ -15589,6 +16544,7 @@ export const cvcGeneratedQuestions = [
     "skill": "CVC and Short Vowels",
     "level": 2,
     "templateType": "PICTURE_TO_PRINT_MATCH",
+    "runtimeTemplateKey": "HEAR_SHORT_VOWEL_CHOOSE_CVC_IMAGE_WORD_L2_P2_SHORT_U_04",
     "formatType": "PICTURE_TO_PRINT_MATCH",
     "questionType": "picture_to_print_match",
     "prompt": "Pick the word that matches the picture.",
@@ -15600,15 +16556,15 @@ export const cvcGeneratedQuestions = [
     "answer": "tug",
     "choices": [
       "tug",
-      "fin",
-      "ham",
-      "jet"
+      "dot",
+      "fan",
+      "hen"
     ],
     "answerOptions": [
       "tug",
-      "fin",
-      "ham",
-      "jet"
+      "dot",
+      "fan",
+      "hen"
     ],
     "imageKey": "tug",
     "imageUrl": "/media/vocabulary/images/tug.webp",

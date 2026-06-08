@@ -1,4 +1,5 @@
 import { getChildWordAsset } from "./childAssets.js";
+import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 import { getRhymeGroup, rhymeGroups } from "./rhymeGroups.js";
 
 function normalizeWord(value = "") {
@@ -51,6 +52,23 @@ function optionWords(question = {}) {
     .filter(Boolean);
 }
 
+function wordCard(word = "", correctAnswers = []) {
+  const cleanWord = normalizeWord(word);
+  const asset = getChildWordAsset(cleanWord);
+  return {
+    id: cleanWord,
+    word: cleanWord,
+    label: cleanWord,
+    value: cleanWord,
+    image: asset?.image || asset?.fallbackImage || "",
+    imageUrl: asset?.image || asset?.fallbackImage || "",
+    audio: getApprovedAudioPath(cleanWord, asset?.audio || ""),
+    alt: asset?.alt || `Picture for ${cleanWord}`,
+    source: asset?.source || "existing",
+    isCorrect: correctAnswers.includes(cleanWord)
+  };
+}
+
 export function buildRhymingDistractors({
   targetWord = "",
   answer = "",
@@ -85,7 +103,7 @@ export function buildRhymingDistractors({
           score:
             (Math.abs(word.length - targetLength) === 0 ? 40 : 0) +
             (Math.abs(word.length - targetLength) === 1 ? 22 : 0) +
-            (firstVowel(word) === targetVowel ? 18 : 0) +
+            (firstVowel(word) !== targetVowel ? 18 : 0) +
             (word.length <= 4 ? 8 : 0) +
             (wordRime(word).length === wordRime(target || correct).length ? 4 : 0)
         }))
@@ -145,11 +163,14 @@ export function normalizeRhymingQuestionChoices(question = {}) {
   if (distractors.length < 3) return question;
 
   const choices = [answer, ...distractors];
+  const imageCards = choices.map(choice => wordCard(choice, [answer]));
+  const hasCompleteImageCards = imageCards.every(card => card.image);
   return {
     ...question,
     answer,
     correctAnswer: question.correctAnswer || answer,
     choices,
-    answerOptions: choices
+    answerOptions: hasCompleteImageCards ? imageCards : choices,
+    imageCards: hasCompleteImageCards ? imageCards : []
   };
 }
