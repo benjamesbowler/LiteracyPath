@@ -520,7 +520,37 @@ export const audioPreferenceManifest = Object.fromEntries([
       word,
       ...config
     })
-  ])
+  ]),
+  [
+    "blue",
+    approvedPreference({
+      key: "blue",
+      word: "blue",
+      category: "words",
+      fallbackPath: "/audio/child-mode/clean-human/words/blue.mp3",
+      deprecatedAudioPaths: [
+        wordAudioPath("blue"),
+        "/audio/assessment/long-vowels/blue.mp3",
+        "/guided-reading/audio/words/blue.mp3"
+      ],
+      source: "clean-human words",
+      notes: "Approved clean-human exact-word replacement for active assessment playback."
+    })
+  ],
+  [
+    "hfw:blue",
+    approvedPreference({
+      key: "hfw:blue",
+      word: "blue",
+      category: "hfw",
+      fallbackPath: "/audio/child-mode/clean-human/hfw/blue.mp3",
+      deprecatedAudioPaths: [
+        "/audio/child-mode/hfw/blue.mp3"
+      ],
+      source: "clean-human hfw",
+      notes: "Approved clean-human HFW replacement for active assessment playback."
+    })
+  ]
 ]);
 
 const pathToPreference = new Map();
