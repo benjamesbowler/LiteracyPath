@@ -404,6 +404,17 @@ function posCard(row, part, withAudio = false) {
   };
 }
 
+function posOption(row, part, withAudio = false) {
+  return {
+    id: `second_${part}_${row.slug}_text`,
+    word: row.word,
+    label: row.word,
+    value: row.word,
+    partOfSpeech: part,
+    ...(withAudio && row.audioPath ? { audio: row.audioPath, audioPath: row.audioPath, audioUrl: row.audioPath } : {})
+  };
+}
+
 function makeGrammar(rows, part, skillName) {
   const l1Pool = partRows(rows, part);
   const l2Pool = partRows(rows, part, { requireAudio: true });
@@ -418,35 +429,37 @@ function makeGrammar(rows, part, skillName) {
   const questions = [];
   l1Targets.forEach((row, index) => {
     const distractorParts = ["noun", "verb", "adjective"].filter(item => item !== part);
-    const distractors = distractorParts.flatMap((dPart, dIndex) => rotate(pools[dPart], index * 3 + dIndex).slice(0, dIndex === 0 ? 2 : 1).map(item => posCard(item, dPart)));
-    const cards = rotate([posCard(row, part), ...distractors].slice(0, 4), index);
+    const distractors = distractorParts.flatMap((dPart, dIndex) => rotate(pools[dPart], index * 3 + dIndex).slice(0, dIndex === 0 ? 2 : 1).map(item => posOption(item, dPart)));
+    const options = rotate([posOption(row, part), ...distractors].slice(0, 4), index);
     questions.push(baseQuestion({
       id: `second_${part}s_l1_${String(index + 1).padStart(2, "0")}_${row.slug}`,
       skillId: `${part}s`,
       skillName,
       level: 1,
-      templateType: "GRAMMAR_IMAGE_CHOICE",
+      templateType: "GRAMMAR_SENTENCE_FIT",
       targetWord: row.word,
       imagePath: posImagePath(row.word, part) || row.imagePath,
       source: GRAMMAR_SOURCE,
       extra: {
-        questionType: "visual_card_choice",
-        prompt: `Choose the ${part}.`,
-        question: `Choose the ${part}.`,
-        choices: cards.map(card => card.value),
-        imageCards: cards,
+        questionType: "ixl_template",
+        prompt: `Choose the ${part} that best fits the sentence.`,
+        question: `Choose the ${part} that best fits the sentence.`,
+        sentence: sentenceFor(row.word, part),
+        choices: options.map(option => option.value),
+        answerOptions: options,
         correctAnswer: row.word,
         answer: row.word,
         itemType: `grammar_${part}`,
         itemKey: row.word,
         partOfSpeech: part,
+        requireOptionAudio: false,
         disableAudio: true,
-        explanation: `${row.word} is a ${part}.`
+        explanation: `${row.word} makes the sentence make sense.`
       }
     }));
   });
   l2Targets.forEach((row, index) => {
-    const options = rotate(l2Targets.filter(item => item.word !== row.word), index * 5).slice(0, 3).concat(row).sort((a, b) => a.word.localeCompare(b.word)).map(item => posCard(item, part, true));
+    const options = rotate(l2Targets.filter(item => item.word !== row.word), index * 5).slice(0, 3).concat(row).sort((a, b) => a.word.localeCompare(b.word)).map(item => posOption(item, part, true));
     questions.push(baseQuestion({
       id: `second_${part}s_l2_${String(index + 1).padStart(2, "0")}_${row.slug}`,
       skillId: `${part}s`,
@@ -476,9 +489,9 @@ function makeGrammar(rows, part, skillName) {
 }
 
 function sentenceFor(word, part) {
-  if (part === "noun") return `The ___ is in the picture.`;
-  if (part === "verb") return `They can ___ together.`;
-  return `The picture shows something ___.`;
+  if (part === "noun") return `This is the ___.`;
+  if (part === "verb") return `They ___.`;
+  return `It is ___.`;
 }
 
 const PREPOSITIONS = ["above", "below", "behind", "beside", "between", "near", "over", "through", "across", "against", "along", "among", "around", "outside"];

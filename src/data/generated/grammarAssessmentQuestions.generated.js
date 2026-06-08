@@ -2,7 +2,6 @@ import { getApprovedAudioPath } from "../audioPreferenceManifest.js";
 import { getChildWordAsset } from "../childAssets.js";
 
 const SOURCE = "grammar_replacement_2026_06";
-const FORMAT_IMAGE_CHOICE = "GRAMMAR_IMAGE_CHOICE";
 const FORMAT_SENTENCE_FIT = "GRAMMAR_SENTENCE_FIT";
 
 const skillConfigs = {
@@ -346,20 +345,20 @@ function sentenceOptions(partOfSpeech, answer, index) {
     .map(word => sentenceOptionFor(word, partOfSpeech));
 }
 
-function withAnswerPosition(cards, answer, index) {
-  const ordered = rotate(cards, index);
-  if (ordered.some(card => card.value === answer)) return ordered;
-  return cards;
+function sentenceFor(partOfSpeech) {
+  if (partOfSpeech === "noun") return "This is the ___.";
+  if (partOfSpeech === "verb") return "They ___.";
+  return "It is ___.";
 }
 
 function makeLevelOneQuestion(config, target, index) {
   const [word, , scene] = target;
-  const distractors = levelOneDistractors(config.partOfSpeech, index)
-    .map(([distractor, part]) => cardFor(distractor, part, ""));
-  const cards = withAnswerPosition([
-    cardFor(word, config.partOfSpeech, scene),
-    ...distractors
-  ], word, index);
+  const optionRows = [
+    ...levelOneDistractors(config.partOfSpeech, index),
+    [word, config.partOfSpeech]
+  ].slice(0, 4);
+  const options = rotate(optionRows, index).map(([option, optionPart]) => sentenceOptionFor(option, optionPart));
+  const imagePath = imageFor(word, config.partOfSpeech);
 
   return {
     id: `grammar_${config.skillId}_l1_${String(index + 1).padStart(3, "0")}`,
@@ -372,28 +371,34 @@ function makeLevelOneQuestion(config, target, index) {
     assessmentLevel: 1,
     assessmentPhase: index < 15 ? 1 : 2,
     phaseTarget: `level_1_phase_${index < 15 ? 1 : 2}`,
-    questionType: "visual_card_choice",
-    templateType: FORMAT_IMAGE_CHOICE,
-    formatType: FORMAT_IMAGE_CHOICE,
-    prompt: config.prompt,
-    question: config.prompt,
+    questionType: "ixl_template",
+    templateType: FORMAT_SENTENCE_FIT,
+    formatType: FORMAT_SENTENCE_FIT,
+    prompt: config.sentencePrompt,
+    question: config.sentencePrompt,
+    sentence: sentenceFor(config.partOfSpeech),
     targetWord: word,
+    imagePath,
+    imageUrl: imagePath,
+    targetImage: imagePath,
+    targetImageAlt: scene,
     correctAnswer: word,
     answer: word,
-    choices: cards.map(card => card.value),
-    imageCards: cards,
+    choices: options.map(option => option.value),
+    answerOptions: options,
     itemType: config.itemType,
     itemKey: word,
     partOfSpeech: config.partOfSpeech,
+    requireOptionAudio: true,
     disableAudio: true,
     source: SOURCE,
     active: true,
-    explanation: `${word} is a ${config.partOfSpeech}.`
+    explanation: `${word} makes the sentence make sense.`
   };
 }
 
 function makeLevelTwoQuestion(config, target, index) {
-  const [word, sentence, scene] = target;
+  const [word, , scene] = target;
   const options = sentenceOptions(config.partOfSpeech, word, index);
   const imagePath = imageFor(word, config.partOfSpeech);
 
@@ -413,7 +418,7 @@ function makeLevelTwoQuestion(config, target, index) {
     formatType: FORMAT_SENTENCE_FIT,
     prompt: config.sentencePrompt,
     question: config.sentencePrompt,
-    sentence,
+    sentence: sentenceFor(config.partOfSpeech),
     targetWord: word,
     imagePath,
     imageUrl: imagePath,

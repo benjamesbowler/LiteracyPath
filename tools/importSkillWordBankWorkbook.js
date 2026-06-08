@@ -800,9 +800,9 @@ function withPartOfSpeechOptionMedia(options, partOfSpeech, skillId) {
 }
 
 function sentenceTemplateFor(partOfSpeech, word) {
-  if (partOfSpeech === "noun") return `The ___ is in the picture.`;
-  if (partOfSpeech === "verb") return `They can ___.`;
-  return `The picture is ___.`;
+  if (partOfSpeech === "noun") return `This is the ___.`;
+  if (partOfSpeech === "verb") return `They ___.`;
+  return `It is ___.`;
 }
 
 function runtimeTemplateKey(...parts) {

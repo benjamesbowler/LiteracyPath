@@ -137,6 +137,30 @@ const RUNTIME_SKILL_IDS = {
   theme_higher_comprehension: "theme"
 };
 
+const GRAMMAR_SENTENCE_FIT_SKILLS = new Set(["nouns", "verbs", "adjectives", "adverbs"]);
+
+function hasQuestionImage(question = {}) {
+  return Boolean(
+    question.imagePath ||
+    question.imageUrl ||
+    question.targetImage ||
+    question.targetImagePath ||
+    question.targetImageUrl ||
+    question.image
+  );
+}
+
+function isGrammarSentenceFitRuntimeQuestion(question = {}) {
+  const format = String(question.formatType || question.templateType || "").toUpperCase();
+  const answerOptions = Array.isArray(question.answerOptions) ? question.answerOptions : [];
+  return (
+    format === "GRAMMAR_SENTENCE_FIT" &&
+    question.questionType === "ixl_template" &&
+    hasQuestionImage(question) &&
+    answerOptions.length === 4
+  );
+}
+
 const QUESTION_BANKS = [
   ["masteryCoreQuestions", masteryCoreQuestions],
   ["masteryExtraQuestions", masteryExtraQuestions],
@@ -274,11 +298,15 @@ export async function loadAssessmentSkillBank(skillId = "") {
 
   const normalizedSkillId = normalizeSkillId(skillId);
   const runtimeSkillId = runtimeSkillIdFor(normalizedSkillId);
-  return allAssessmentQuestions.filter(question =>
+  const questions = allAssessmentQuestions.filter(question =>
     question.assessmentSkillId === normalizedSkillId ||
     normalizeSkillId(question.skillId) === normalizedSkillId ||
     normalizeSkillId(question.skillId) === runtimeSkillId
   );
+  if (GRAMMAR_SENTENCE_FIT_SKILLS.has(normalizedSkillId)) {
+    return questions.filter(isGrammarSentenceFitRuntimeQuestion);
+  }
+  return questions;
 }
 
 export async function loadHfwAssessmentBank(skillId = "") {
