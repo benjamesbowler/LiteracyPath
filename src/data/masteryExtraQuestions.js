@@ -105,9 +105,9 @@ export const masteryExtraQuestions = [
     "spokenPrompt": "Which word starts like fish?",
     "choices": [
       "fan",
-      "sun",
-      "dog",
-      "map"
+      "mat",
+      "bug",
+      "lip"
     ],
     "answer": "fan"
   },
@@ -121,9 +121,9 @@ export const masteryExtraQuestions = [
     "spokenPrompt": "Which word starts like goat?",
     "choices": [
       "gum",
-      "sun",
-      "fish",
-      "map"
+      "cap",
+      "hen",
+      "tap"
     ],
     "answer": "gum"
   },
@@ -137,9 +137,9 @@ export const masteryExtraQuestions = [
     "spokenPrompt": "Which word starts like dog?",
     "choices": [
       "dig",
-      "sun",
-      "fish",
-      "map"
+      "hat",
+      "log",
+      "pin"
     ],
     "answer": "dig"
   },
@@ -153,9 +153,9 @@ export const masteryExtraQuestions = [
     "spokenPrompt": "Which word starts like leaf?",
     "choices": [
       "log",
-      "sun",
-      "fish",
-      "dog"
+      "pan",
+      "cub",
+      "sit"
     ],
     "answer": "log"
   },
@@ -169,9 +169,9 @@ export const masteryExtraQuestions = [
     "spokenPrompt": "Which word starts like rabbit?",
     "choices": [
       "run",
-      "sun",
-      "fish",
-      "dog"
+      "bed",
+      "top",
+      "mud"
     ],
     "answer": "run"
   },
@@ -185,9 +185,9 @@ export const masteryExtraQuestions = [
     "spokenPrompt": "Which word starts like hat?",
     "choices": [
       "ham",
-      "sun",
-      "fish",
-      "dog"
+      "net",
+      "cup",
+      "rag"
     ],
     "answer": "ham"
   },

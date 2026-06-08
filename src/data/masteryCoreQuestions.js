@@ -43,7 +43,7 @@ export const masteryCoreQuestions = [
     "choices": [
       "red",
       "bad",
-      "big",
+      "bog",
       "bud"
     ],
     "answer": "red"

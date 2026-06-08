@@ -470,7 +470,12 @@ function GrammarSentenceFitQuestion({ currentQuestion, answerQuestion, speakText
     ...normalizeAnswerOption(option),
     media: getAnswerOptionMedia(option)
   }));
-  const sentence = currentQuestion.sentence || "";
+  const sentence =
+    currentQuestion.sentenceWithBlank ||
+    currentQuestion.visibleSentenceWithBlank ||
+    currentQuestion.sentence ||
+    currentQuestion.context ||
+    "";
   const [beforeBlank, afterBlank = ""] = sentence.split("___");
 
   useEffect(() => {

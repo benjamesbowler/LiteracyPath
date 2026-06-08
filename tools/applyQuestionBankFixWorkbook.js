@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { languageSkillQuestions } from "../src/data/generated/languageSkillQuestions.generated.js";
 import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
 import { getChildWordAsset } from "../src/data/childAssets.js";
+import { sceneForPrepositionQuestion } from "../src/data/prepositionClozeScenes.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
@@ -69,7 +70,7 @@ const FALLBACK_VERB_ROWS = {
   stop: ["The car will ___ at the red light.", "The car will stop at the red light.", "stop | pencil | fuzzy | river"],
   swing: ["The child will ___ at the playground.", "The child will swing at the playground.", "swing | basket | clean | moon"],
   take: ["The child will ___ a book from the shelf.", "The child will take a book from the shelf.", "take | chair | silver | garden"],
-  teach: ["The teacher will ___ the class a song.", "The teacher will teach the class a song.", "teach | spoon | orange | road"],
+  teach: ["The instructor will ___ the class a new song.", "The instructor will teach the class a new song.", "teach | spoon | orange | road"],
   use: ["The child will ___ a pencil to write.", "The child will use a pencil to write.", "use | window | sour | basket"],
   visit: ["The family will ___ the zoo.", "The family will visit the zoo.", "visit | button | cold | pencil"],
   watch: ["The child will ___ the bird fly.", "The child will watch the bird fly.", "watch | table | bumpy | river"],
@@ -88,7 +89,7 @@ const FALLBACK_ADJECTIVE_ROWS = {
   gray: ["The storm cloud is ___.", "The storm cloud is gray.", "gray | gentle | sticky | sour"],
   green: ["The leaf is ___.", "The leaf is green.", "green | polite | bumpy | loud"],
   huge: ["The elephant is ___ beside the mouse.", "The elephant is huge beside the mouse.", "huge | sour | careful | striped"],
-  large: ["The large box is ___ enough for the blanket.", "The large box is large enough for the blanket.", "large | sticky | polite | salty"],
+  large: ["The box is ___ enough to hold all the books.", "The box is large enough to hold all the books.", "large | sticky | polite | salty"],
   last: ["The final runner came ___ in the race.", "The final runner came last in the race.", "last | fuzzy | sour | square"],
   lightweight: ["The empty backpack feels ___ to carry.", "The empty backpack feels lightweight to carry.", "lightweight | noisy | striped | sour"],
   little: ["The kitten is ___ beside the big dog.", "The kitten is little beside the big dog.", "little | salty | careful | striped"],
@@ -101,7 +102,7 @@ const FALLBACK_ADJECTIVE_ROWS = {
   red: ["The apple is ___.", "The apple is red.", "red | careful | bumpy | noisy"],
   rich: ["The chocolate cake tastes ___ and sweet.", "The chocolate cake tastes rich and sweet.", "rich | square | noisy | polite"],
   sharp: ["The pencil point is ___.", "The pencil point is sharp.", "sharp | cloudy | polite | soft"],
-  silent: ["The library is ___ during reading time.", "The library is silent during reading time.", "silent | sticky | orange | sour"],
+  silent: ["The room went ___ when the music stopped.", "The room went silent when the music stopped.", "silent | sticky | orange | sour"],
   simple: ["The puzzle with two pieces is ___.", "The puzzle with two pieces is simple.", "simple | rainy | striped | noisy"],
   snowy: ["The day is ___ with falling snow.", "The day is snowy with falling snow.", "snowy | sticky | polite | square"],
   sunny: ["The day is ___ with bright sun.", "The day is sunny with bright sun.", "sunny | sticky | square | polite"],
@@ -120,6 +121,12 @@ const INITIAL_REPLACEMENTS = {
   armchair: { target: "apple", answer: "a", choices: ["a", "m", "s", "t"], letters: ["a", "m", "s", "t"] },
   artichoke: { target: "apple", answer: "a", choices: ["a", "b", "c", "d"], letters: ["a", "b", "c", "d"] },
   asparagus: { target: "ant", answer: "a", choices: ["a", "b", "c", "d"], letters: ["a", "b", "c", "d"] }
+};
+
+const GRAMMAR_SENTENCE_OVERRIDES = {
+  bake: ["Mum will ___ a loaf of bread in the oven.", "Mum will bake a loaf of bread in the oven."],
+  slide: ["The child will ___ down the hill at the park.", "The child will slide down the hill at the park."],
+  leaf: ["The ___ was shaped like a hand.", "The leaf was shaped like a hand."]
 };
 
 function readWorkbookRows() {
@@ -222,6 +229,9 @@ function optionFactory(question) {
 }
 
 function repairGrammarQuestion(question, row, partOfSpeech) {
+  const override = GRAMMAR_SENTENCE_OVERRIDES[row.answer] || GRAMMAR_SENTENCE_OVERRIDES[row.target];
+  const sentence = override?.[0] || row.sentence;
+  const fullSentence = override?.[1] || row.fullSentence;
   const makeOption = optionFactory(question);
   const choices = row.choices.slice(0, 4);
   const answerOptions = choices.map(choice => makeOption(choice, choice === row.answer, partOfSpeech));
@@ -232,10 +242,10 @@ function repairGrammarQuestion(question, row, partOfSpeech) {
     questionType: "GRAMMAR_SENTENCE_FIT",
     prompt: row.prompt,
     question: row.prompt,
-    spokenPrompt: `${row.fullSentence} Choose the word that fits.`,
-    sentence: row.sentence,
-    sentenceWithBlank: row.sentence,
-    fullSentence: row.fullSentence,
+    spokenPrompt: `${fullSentence} Choose the word that fits.`,
+    sentence,
+    sentenceWithBlank: sentence,
+    fullSentence,
     targetWord: row.target,
     correctAnswer: row.answer,
     answer: row.answer,
@@ -248,17 +258,26 @@ function repairGrammarQuestion(question, row, partOfSpeech) {
 }
 
 function repairPreposition(question) {
-  const prompt = "Where is it?";
+  const answer = String(question.answer || question.targetWord || "").toLowerCase();
+  const rowNumber = Number(String(question.id || "").match(/_(\d+)$/)?.[1] || 0);
+  const scene = sceneForPrepositionQuestion(answer, rowNumber);
+  const sentence = scene?.sentence || `The object is ___ the scene.`;
+  const fullSentence = scene?.fullSentence || `The object is ${answer} the scene.`;
+  const imagePath = scene?.imagePath || question.imagePath || question.imageUrl;
+  const prompt = "Choose the word that fits the sentence.";
   return {
     ...question,
     prompt,
     question: prompt,
-    spokenPrompt: "Where is it? Choose the word that tells where.",
-    sentence: "Choose the word that tells where the object is.",
-    sentenceWithBlank: "",
-    fullSentence: "",
-    questionType: "PREPOSITION_IMAGE_POSITION",
-    templateType: "PREPOSITION_IMAGE_POSITION"
+    spokenPrompt: `${fullSentence} Choose the word that fits.`,
+    sentence,
+    sentenceWithBlank: sentence,
+    visibleSentenceWithBlank: sentence,
+    fullSentence,
+    imagePath,
+    imageUrl: imagePath,
+    questionType: "PREPOSITION_IMAGE_SENTENCE_FIT",
+    templateType: "PREPOSITION_IMAGE_SENTENCE_FIT"
   };
 }
 

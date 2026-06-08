@@ -14,6 +14,7 @@ const fail = message => failures.push(message);
 const byId = (rows, id) => rows.find(row => row.id === id);
 const same = (actual, expected) => JSON.stringify(actual) === JSON.stringify(expected);
 const choiceValue = choice => String(choice?.value || choice?.word || choice?.label || choice || "").toLowerCase();
+const escapeRegExp = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 const genericGrammarFrames = new Set([
   "This is the ___.",
@@ -33,8 +34,16 @@ languageSkillQuestions.forEach(question => {
   if (question.skillId === "prepositions_of_place") {
     const answer = String(question.answer || question.correctAnswer || "").toLowerCase();
     const prompt = `${question.prompt || ""} ${question.question || ""}`.toLowerCase();
-    if (answer && new RegExp(`\\b${answer.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`).test(prompt)) {
+    const sentence = String(question.sentenceWithBlank || question.sentence || "");
+    if (answer && new RegExp(`\\b${escapeRegExp(answer)}\\b`).test(prompt)) {
       fail(`${question.id}: preposition prompt contains the answer word`);
+    }
+    if (!sentence.includes("___")) fail(`${question.id}: preposition row has no cloze sentence`);
+    if (/^where is it\??$/i.test(String(question.prompt || question.question || "").trim())) {
+      fail(`${question.id}: preposition row still uses generic Where is it prompt`);
+    }
+    if (answer === "between" && !/\bbetween\b.+\b(and|two)\b/i.test(String(question.fullSentence || sentence))) {
+      fail(`${question.id}: between sentence does not name two reference objects`);
     }
   }
   if (question.skillId === "homophones_homonyms") {
@@ -60,7 +69,7 @@ if (core001?.question !== "Find the word: cat.") fail("core_cvc_001 prompt was n
 if (!same(core001?.choices, ["cat", "bat", "cap", "can"])) fail("core_cvc_001 choices are not workbook-approved");
 
 const core003 = byId(masteryCoreQuestions, "core_cvc_003");
-if (!same(core003?.choices, ["red", "bad", "big", "bud"])) fail("core_cvc_003 choices are not workbook-approved");
+if (!same(core003?.choices, ["red", "bad", "bog", "bud"])) fail("core_cvc_003 choices are not workbook-approved");
 
 const core006 = byId(masteryCoreQuestions, "core_cvc_006");
 if (!same(core006?.choices, ["cup", "cap", "cop", "cot"])) fail("core_cvc_006 still has weak/nonword choices");
@@ -71,10 +80,40 @@ const expectedInitialExtras = {
   extra_initial_3: ["tub", "dog", "cap", "rig"],
   extra_initial_4: ["pan", "bug", "sit", "dot"],
   extra_initial_5: ["bat", "cup", "hid", "log"],
-  extra_initial_6: ["nap", "bit", "dog", "sun"]
+  extra_initial_6: ["nap", "bit", "dog", "sun"],
+  extra_initial_7: ["fan", "mat", "bug", "lip"],
+  extra_initial_8: ["gum", "cap", "hen", "tap"],
+  extra_initial_9: ["dig", "hat", "log", "pin"],
+  extra_initial_10: ["log", "pan", "cub", "sit"],
+  extra_initial_11: ["run", "bed", "top", "mud"],
+  extra_initial_12: ["ham", "net", "cup", "rag"]
 };
 Object.entries(expectedInitialExtras).forEach(([id, choices]) => {
   if (!same(byId(masteryExtraQuestions, id)?.choices, choices)) fail(`${id}: repeated initial-sound distractors remain`);
+});
+
+const expectedSentenceRows = {
+  workbook_verbs_bake_111: "Mum will ___ a loaf of bread in the oven.",
+  workbook_verbs_slide_193: "The child will ___ down the hill at the park.",
+  workbook_verbs_teach_209: "The instructor will ___ the class a new song.",
+  workbook_adjectives_large_270: "The box is ___ enough to hold all the books.",
+  workbook_adjectives_silent_371: "The room went ___ when the music stopped.",
+  workbook_nouns_leaf_69: "The ___ was shaped like a hand."
+};
+Object.entries(expectedSentenceRows).forEach(([id, expectedSentence]) => {
+  const question = byId(languageSkillQuestions, id);
+  if (question?.sentence !== expectedSentence) fail(`${id}: sentence was not replaced exactly`);
+});
+
+const prepositionRows = languageSkillQuestions.filter(question => question.skillId === "prepositions_of_place");
+const prepositionImagesByAnswer = new Map();
+prepositionRows.forEach(question => {
+  const answer = String(question.answer || "").toLowerCase();
+  if (!prepositionImagesByAnswer.has(answer)) prepositionImagesByAnswer.set(answer, new Set());
+  prepositionImagesByAnswer.get(answer).add(question.imagePath || question.imageUrl || "");
+});
+prepositionImagesByAnswer.forEach((images, answer) => {
+  if (images.size < 3) fail(`preposition ${answer}: fewer than 3 distinct scene images`);
 });
 
 const forbiddenInitialTargets = new Set(["almond", "anteater", "armchair", "artichoke", "asparagus"]);

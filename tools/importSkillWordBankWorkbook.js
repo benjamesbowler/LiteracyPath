@@ -8,6 +8,7 @@ import {
   HFW_FORMATS_BY_PHASE,
   hfwPhaseKey
 } from "../src/data/hfwAssessmentFormatConfig.js";
+import { sceneForPrepositionQuestion } from "../src/data/prepositionClozeScenes.js";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const workbookPath = path.join(repoRoot, "docs/imports/LiteracyPath_K5_Skill_Word_Bank_Through_Homophones.xlsx");
@@ -799,10 +800,27 @@ function withPartOfSpeechOptionMedia(options, partOfSpeech, skillId) {
   });
 }
 
+const POS_SENTENCE_OVERRIDES = {
+  bake: ["Mum will ___ a loaf of bread in the oven.", "Mum will bake a loaf of bread in the oven."],
+  slide: ["The child will ___ down the hill at the park.", "The child will slide down the hill at the park."],
+  teach: ["The instructor will ___ the class a new song.", "The instructor will teach the class a new song."],
+  large: ["The box is ___ enough to hold all the books.", "The box is large enough to hold all the books."],
+  silent: ["The room went ___ when the music stopped.", "The room went silent when the music stopped."],
+  leaf: ["The ___ was shaped like a hand.", "The leaf was shaped like a hand."]
+};
+
 function sentenceTemplateFor(partOfSpeech, word) {
-  if (partOfSpeech === "noun") return `This is the ___.`;
-  if (partOfSpeech === "verb") return `They ___.`;
-  return `It is ___.`;
+  const override = POS_SENTENCE_OVERRIDES[word];
+  if (override) return override[0];
+  if (partOfSpeech === "noun") return `The picture shows a ___.`;
+  if (partOfSpeech === "verb") return `The child will ___ today.`;
+  return `The picture looks ___.`;
+}
+
+function fullSentenceFor(partOfSpeech, word) {
+  const override = POS_SENTENCE_OVERRIDES[word];
+  if (override) return override[1];
+  return sentenceTemplateFor(partOfSpeech, word).replace("___", word);
 }
 
 function runtimeTemplateKey(...parts) {
@@ -829,6 +847,8 @@ function generateLanguageQuestions(data) {
       item.skillId
     );
     if (options.length !== 4) continue;
+    const sentence = sentenceTemplateFor(item.partOfSpeech, item.targetWord);
+    const fullSentence = fullSentenceFor(item.partOfSpeech, item.targetWord);
     questions.push({
       id: `workbook_${item.skillId}_${slugWord(item.targetWord)}_${index}`,
       skillId: item.skillId,
@@ -844,7 +864,9 @@ function generateLanguageQuestions(data) {
       correctAnswer: item.targetWord,
       prompt: `Choose the ${item.partOfSpeech} that best fits the sentence.`,
       question: `Choose the ${item.partOfSpeech} that best fits the sentence.`,
-      sentence: sentenceTemplateFor(item.partOfSpeech, item.targetWord),
+      sentence,
+      sentenceWithBlank: sentence,
+      fullSentence,
       answerOptions: options,
       choices: options.map(option => option.value),
       options,
@@ -856,7 +878,8 @@ function generateLanguageQuestions(data) {
       mediaTarget: `workbook:${item.skillId}:${slugWord(item.targetWord)}`,
       source: "skill_word_bank_workbook",
       sourceSheet: item.sourceSheet,
-      sourceRow: item.sourceRow
+      sourceRow: item.sourceRow,
+      spokenPrompt: `${fullSentence} Choose the word that fits.`
     });
   }
 
@@ -864,7 +887,9 @@ function generateLanguageQuestions(data) {
   for (const [index, item] of data.prepositionQuestions.entries()) {
     const options = makeLanguageOptions(item.targetWord, prepositionPool, index);
     if (options.length !== 4) continue;
-    const imagePath = pickMediaPath(item.targetWord, item.skillId, "image", languageImageRole(item.skillId, item.itemType || "preposition"));
+    const scene = sceneForPrepositionQuestion(item.targetWord, index);
+    const imagePath = scene?.imagePath || pickMediaPath(item.targetWord, item.skillId, "image", languageImageRole(item.skillId, item.itemType || "preposition"));
+    const prompt = "Choose the word that fits the sentence.";
     questions.push({
       id: `workbook_prepositions_${slugWord(item.targetWord)}_${index}`,
       skillId: "prepositions_of_place",
@@ -877,22 +902,26 @@ function generateLanguageQuestions(data) {
       targetWord: item.targetWord,
       answer: item.targetWord,
       correctAnswer: item.targetWord,
-      prompt: item.prompt || "Choose the preposition that fits.",
-      question: item.prompt || "Choose the preposition that fits.",
-      sentence: item.prompt,
+      prompt,
+      question: prompt,
+      sentence: scene?.sentence || item.prompt || "",
+      sentenceWithBlank: scene?.sentence || item.prompt || "",
+      visibleSentenceWithBlank: scene?.sentence || item.prompt || "",
+      fullSentence: scene?.fullSentence || "",
       answerOptions: options,
       choices: options.map(option => option.value),
       options,
       formatType: "PREPOSITION_TEXT_CHOICE",
-      templateType: "WORKBOOK_PREPOSITION_TEXT_CHOICE",
+      templateType: "PREPOSITION_IMAGE_SENTENCE_FIT",
       runtimeTemplateKey: runtimeTemplateKey("preposition", item.level, item.phase, item.targetWord, index),
-      questionType: "PREPOSITION_TEXT_CHOICE",
+      questionType: "PREPOSITION_IMAGE_SENTENCE_FIT",
       imagePath: imagePath || undefined,
       imageUrl: imagePath || undefined,
       mediaTarget: `workbook:prepositions:${slugWord(item.targetWord)}:${index}`,
       source: "skill_word_bank_workbook",
       sourceSheet: item.sourceSheet,
-      sourceRow: item.sourceRow
+      sourceRow: item.sourceRow,
+      spokenPrompt: scene?.fullSentence ? `${scene.fullSentence} Choose the word that fits.` : `${prompt}`
     });
   }
 

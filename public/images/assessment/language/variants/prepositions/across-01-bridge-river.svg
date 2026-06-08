@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="The bridge goes across the river.">
+  <rect width="800" height="600" fill="#fffaf0"/>
+  <rect x="0" y="455" width="800" height="145" fill="#edf2d0"/>
+  <circle cx="660" cy="92" r="44" fill="#fbd38d"/>
+  <rect x="82" y="330" width="230" height="112" rx="20" fill="#2f855a" opacity="0.9"/>
+  <rect x="460" y="250" width="150" height="190" rx="18" fill="#2b6cb0" opacity="0.85"/>
+  <circle cx="238" cy="230" r="68" fill="#f7c948"/>
+  <circle cx="224" cy="214" r="11" fill="#1a202c"/>
+  <circle cx="258" cy="214" r="11" fill="#1a202c"/>
+  <path d="M215 248 Q240 270 270 248" fill="none" stroke="#1a202c" stroke-width="10" stroke-linecap="round"/>
+  <path d="M170 190 l42 -54 l34 60" fill="#f7c948" stroke="#1a202c" stroke-width="6" opacity="0.9"/>
+  <path d="M282 190 l42 -54 l34 60" fill="#f7c948" stroke="#1a202c" stroke-width="6" opacity="0.9"/>
+  <rect x="140" y="294" width="205" height="55" rx="26" fill="#ffffff" opacity="0.7"/>
+  <path d="M96 450 C210 375 290 385 400 450 S604 528 720 430" fill="none" stroke="#2f855a" stroke-width="16" stroke-linecap="round" opacity="0.65"/>
+  <circle cx="560" cy="170" r="38" fill="#ffffff" opacity="0.85"/>
+  <circle cx="600" cy="176" r="46" fill="#ffffff" opacity="0.85"/>
+  <circle cx="640" cy="170" r="36" fill="#ffffff" opacity="0.85"/>
+</svg>
