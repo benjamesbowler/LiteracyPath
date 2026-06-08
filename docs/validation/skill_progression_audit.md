@@ -10,8 +10,10 @@ Date: 2026-05-25
 
 ## Warnings
 
-- Ending Sounds L1 round 2: reused recent IDs gen_final_l1_t_wet_20_sound.
-- Ending Sounds L1 round 2: reused recent words cup, wet.
+- Ending Sounds L1 round 2: reused recent IDs gen_final_l1_n_hen_7_sound.
+- Ending Sounds L1 round 2: reused recent words hen.
+- Ending Sounds L1 round 3: reused recent IDs qb12_fs_016.
+- Ending Sounds L1 round 3: reused recent words bed, fan.
 - Ending Sounds L2 round 2: reused recent IDs kimi7_final_b_1.
 - Ending Sounds L2 round 2: reused recent words desk, crab.
 - Ending Sounds L2 round 3: reused recent IDs kimi7_final_b_1.
@@ -21,13 +23,11 @@ Date: 2026-05-25
 - Rhyming Words L1 round 3: reused recent IDs ixl_rhyming_picture_28, ixl_rhyming_picture_24.
 - Rhyming Words L1 round 3: reused recent words rain, chair.
 - Rhyming Words L2 round 3: reused recent words back.
-- Short Vowels L1 round 2: reused recent words map, dog, cat.
-- Short Vowels L1 round 3: reused recent IDs gen_short_vowel_u_rub_72_listen.
-- Short Vowels L1 round 3: reused recent words pan, map, pin, rub.
-- Short Vowels L2 round 2: reused recent IDs gen_short_vowel_e_wet_91_listen, gen_short_vowel_e_red_69_listen, gen_short_vowel_i_zip_95_listen, gen_short_vowel_e_peg_59_listen.
-- Short Vowels L2 round 2: reused recent words wet, red, zip, peg.
-- Short Vowels L2 round 3: reused recent IDs gen_short_vowel_u_bun_7_listen, gen_short_vowel_o_dot_23_listen, gen_short_vowel_e_wet_91_listen, gen_short_vowel_e_peg_59_listen, gen_short_vowel_o_log_49_listen.
-- Short Vowels L2 round 3: reused recent words bun, dot, wet, peg, log.
+- Short Vowels L1 round 2: reused recent words web, sun.
+- Short Vowels L1 round 3: reused recent IDs gap_short_vowel_discrimination_l1_bow_3.
+- Short Vowels L1 round 3: reused recent words sun, bow.
+- Short Vowels L2 round 2: reused recent words tug, lap, peg.
+- Short Vowels L2 round 3: reused recent words pet.
 - Blends L1 round 2: reused recent IDs ixl_blend_sound_28, p3_blend_word_sp_8, ixl_blend_sound_24.
 - Blends L1 round 2: reused recent words black, brush, clap, crab, drum, flag, frog, slide, snake, spin, train, tree, star, blue.
 - Blends L1 round 3: reused recent IDs ixl_blend_sound_3, p3_blend_word_br_12, recovery_blend_sound_cr_crab, recovery_blend_card_fl_flag, ixl_blend_sound_24.
@@ -43,12 +43,12 @@ Date: 2026-05-25
 - Digraphs L2 round 2: reused recent words whisker, clock, shark, shell.
 - Digraphs L2 round 3: reused recent IDs digraphs_l2_01_ch_chair, digraphs_l2_38_wh_white.
 - Digraphs L2 round 3: reused recent words chair, white.
-- Long Vowels and Silent E L1 round 2: reused recent IDs long_vowels_l1_30_u_e_cute, long_vowels_l1_29_u_e_huge, long_vowels_l1_22_o_e_rose, long_vowels_l1_21_o_e_cone, long_vowels_l1_06_a_e_grape, long_vowels_l1_25_u_e_cube, long_vowels_l1_26_u_e_flute.
-- Long Vowels and Silent E L1 round 2: reused recent words cute, huge, rose, cone, grape, cube, flute.
-- Long Vowels and Silent E L1 round 3: reused recent IDs long_vowels_l1_25_u_e_cube, long_vowels_l1_28_u_e_tube, long_vowels_l1_29_u_e_huge, long_vowels_l1_22_o_e_rose, long_vowels_l1_06_a_e_grape, long_vowels_l1_08_e_e_these.
-- Long Vowels and Silent E L1 round 3: reused recent words cube, tube, huge, rose, grape, these.
-- Long Vowels and Silent E L2 round 3: reused recent IDs long_vowels_l2_21_ea_leaf, long_vowels_l2_29_eigh_eight, long_vowels_l2_09_ew_dew, long_vowels_l2_15_igh_light, long_vowels_l2_24_ow_bowl, long_vowels_l2_05_y_sky.
-- Long Vowels and Silent E L2 round 3: reused recent words leaf, eight, dew, light, bowl, sky.
+- Long Vowels and Silent E L1 round 2: reused recent IDs long_vowels_l1_12_i_e_five, long_vowels_l1_17_o_e_rope, long_vowels_l1_01_a_e_cake, long_vowels_l1_13_i_e_slide, long_vowels_l1_23_u_e_flute, long_vowels_l1_20_o_e_bone, long_vowels_l1_03_a_e_gate.
+- Long Vowels and Silent E L1 round 2: reused recent words five, rope, cake, slide, flute, bone, gate.
+- Long Vowels and Silent E L1 round 3: reused recent IDs long_vowels_l1_08_e_e_these, long_vowels_l1_25_u_e_tube, long_vowels_l1_15_i_e_smile, long_vowels_l1_06_a_e_grape, long_vowels_l1_12_i_e_five, long_vowels_l1_04_a_e_plane, long_vowels_l1_20_o_e_bone.
+- Long Vowels and Silent E L1 round 3: reused recent words these, tube, smile, grape, five, plane, bone.
+- Long Vowels and Silent E L2 round 3: reused recent IDs long_vowels_l2_15_e_e_concrete, long_vowels_l2_13_ee_tree, long_vowels_l2_31_eigh_eight, long_vowels_l2_07_ie_pie, long_vowels_l2_12_oo_spoon.
+- Long Vowels and Silent E L2 round 3: reused recent words concrete, tree, eight, pie, spoon.
 - CVC Words L1 round 2: reused recent words bag.
 - CVC Words L1 round 3: reused recent words bag.
 - CVC Words L2 round 2: reused recent IDs gen_cvc_short_i_fig_5_picture, gen_cvc_short_e_pen_7_missing, gen_cvc_short_a_mat_19_missing.
@@ -90,15 +90,15 @@ Date: 2026-05-25
 ## Ending Sounds
 
 - Skill ID: ending_sounds
-- Media-complete items: 381
+- Media-complete items: 380
 - Media-complete targets: 26
 - Blocked expected targets: none
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 8/8 | b, d, g, l, m, n, p, t, l, g, g, d, t, n, b | bib, lid, bag, owl, ram, pin, cup, hot, curl, log, dog, dad, wet, sun, lab |
-| L1 R2 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, g, b, t, g, b, p, t | web, pad, jug, nail, ham, lawn, pup, cot, mug, dab, dot, rag, cab, cup, wet |
-| L1 R3 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, n, m, n, b, b, g, p | crab, red, rug, seal, yam, win, top, bat, pin, gem, bin, bulb, curb, bag, hip |
+| L1 R1 | 1 | 15 | 8/8 | b, d, g, l, m, n, p, t, t, t, b, t, n, t, p | crab, pad, bag, curl, jam, pin, cup, hit, sit, cart, rub, jet, hen, cot, map |
+| L1 R2 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, g, n, g, n, d, t, b | curb, bed, fig, jewel, gum, fan, mop, pot, log, bun, pig, hen, sad, hot, orb |
+| L1 R3 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, t, d, t, d, n, p, d | cob, rod, dog, fossil, ram, man, cap, hut, pet, bed, jet, red, fan, harp, dad |
 | L2 R1 | 1 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | crab, sock, mud, leaf, raft, bag, desk, ball, bull, belt, farm, lamp, rain, sand, building |
 | L2 R2 | 2 | 15 | 15/15 | nk, nt, p, r, rk, s, sh, sk, st, t, th, b, ck, d, f | ink, tent, cap, car, park, bus, brush, desk, chest, jet, moth, crab, duck, red, roof |
 | L2 R3 | 3 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | crab, rock, seed, leaf, soft, dog, snake, whale, drill, quilt, ham, lamp, ten, almond, king |
@@ -122,18 +122,18 @@ Date: 2026-05-25
 ## Short Vowels
 
 - Skill ID: short_vowels
-- Media-complete items: 218
+- Media-complete items: 314
 - Media-complete targets: 5
 - Blocked expected targets: none
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 5/5 | short a, short e, short i, short o, short u, short o, short u, short a, short u, short e, short i, short a, short e, short o, short a | bad, jet, bib, dog, nut, log, run, can, sun, red, wig, map, pen, hop, cat |
-| L1 R2 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short e, short e, short i, short a, short i, short e, short o, short a, short a, short a | rat, den, dig, cot, rub, web, net, pin, map, sit, bed, dog, cat, cap, pan |
-| L1 R3 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short u, short a, short u, short a, short o, short e, short e, short a, short i, short u | bat, gem, fin, sock, mud, cup, lab, run, pan, log, jet, pen, map, pin, rub |
-| L2 R1 | 1 | 15 | 5/5 | short a, short e, short i, short o, short u, short e, short o, short i, short i, short a, short a, short e, short a, short u, short a | jam, red, hit, hot, tug, peg, cob, pin, zip, sad, cab, wet, ram, cub, wag |
-| L2 R2 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short i, short a, short e, short e, short i, short o, short e, short e, short e, short a | man, hen, bin, log, bun, win, bag, wet, red, zip, dot, den, peg, pet, pad |
-| L2 R3 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short u, short u, short a, short o, short e, short a, short a, short e, short o, short a | tap, gem, bib, top, sub, bun, tug, tab, dot, wet, ham, jam, peg, log, fan |
+| L1 R1 | 1 | 15 | 5/5 | short a, short e, short i, short o, short u, short u, short a, short a, short a, short o, short o, short u, short u, short e, short o | pan, web, ship, sock, mud, cup, bag, hat, bad, mop, cot, dug, sun, den, pot |
+| L1 R2 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short i, short o, short a, short u, short e, short a, short u, short o, short u, short i | nap, pen, fish, log, bug, wig, shop, cat, rub, web, rat, sun, bow, mug, lip |
+| L1 R3 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short u, short e, short u, short a, short u, short e, short a, short e, short o, short a | rag, jet, sit, hop, fun, cub, bed, gum, bat, sun, leg, mad, red, bow, pan |
+| L2 R1 | 1 | 15 | 5/5 | short a, short e, short i, short o, short u, short o, short u, short e, short i, short a, short e, short a, short i, short e, short i | lap, red, fin, log, mug, hot, tug, gem, sip, cab, wet, man, lid, peg, pin |
+| L2 R2 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short o, short u, short u, short a, short a, short a, short o, short e, short a, short e | cap, pet, zip, rod, bun, cob, tug, rug, tab, lap, jam, mop, hen, dab, peg |
+| L2 R3 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short u, short i, short a, short a, short e, short i, short e, short a, short u, short i | wag, den, kit, dot, cub, sub, lid, man, cab, gem, bin, pet, sad, mug, hit |
 
 ## Blends
 
@@ -167,18 +167,18 @@ Date: 2026-05-25
 ## Long Vowels and Silent E
 
 - Skill ID: long_vowels
-- Media-complete items: 60
+- Media-complete items: 59
 - Media-complete targets: 20
 - Blocked expected targets: a_e, e_e, i_e, o_e, u_e
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 5/5 | a e, e e, i e, o e, u e, e e, o e, u e, u e, e e, o e, u e, u e, i e, a e | gate, concrete, prize, cone, mule, scene, rose, cube, flute, complete, note, cute, huge, smile, grape |
-| L1 R2 | 3 | 15 | 5/5 | a e, e e, i e, o e, u e, u e, u e, o e, a e, o e, a e, u e, e e, i e, u e | plane, theme, five, bone, tube, cute, huge, rose, cake, cone, grape, cube, these, kite, flute |
-| L1 R3 | 3 | 15 | 5/5 | a e, e e, i e, o e, u e, o e, u e, u e, i e, i e, o e, a e, u e, e e, a e | snake, pete, bike, home, cube, note, tube, huge, smile, slide, rose, grape, mule, these, lake |
-| L2 R1 | 1 | 15 | 15/15 | ai, ay, ea, ee, eigh, ew, ie, igh, oa, oe, oo, ow, ue, ui, y | train, play, beach, tree, sleigh, chew, tie, night, goat, doe, moon, snow, blue, suit, fly |
-| L2 R2 | 3 | 15 | 15/15 | ai, ay, ea, ee, eigh, ew, ie, igh, oa, oe, oo, ow, ue, ui, y | rain, tray, leaf, sheep, eight, dew, pie, light, boat, toe, spoon, bowl, glue, fruit, sky |
-| L2 R3 | 3 | 15 | 15/15 | ai, ay, ea, ee, eigh, ew, ie, igh, oa, oe, oo, ow, ue, ui, y | train, play, leaf, tree, eight, dew, tie, light, goat, doe, moon, bowl, blue, suit, sky |
+| L1 R1 | 1 | 15 | 5/5 | a e, e e, i e, o e, u e, u e, i e, u e, u e, u e, o e, a e, o e, e e, i e | gate, scene, five, bone, cube, flute, prize, huge, mule, cute, rope, cake, cone, theme, slide |
+| L1 R2 | 3 | 15 | 5/5 | a e, e e, i e, o e, u e, a e, i e, o e, a e, a e, i e, i e, u e, o e, a e | grape, these, smile, home, tube, snake, five, rope, cake, plane, bike, slide, flute, bone, gate |
+| L1 R3 | 3 | 15 | 5/5 | a e, e e, i e, o e, u e, i e, a e, o e, o e, i e, i e, a e, u e, u e, o e | lake, these, kite, note, tube, smile, grape, rose, cone, prize, five, plane, cute, cube, bone |
+| L2 R1 | 1 | 15 | 15/15 | ai, ay, e e, ea, ee, eigh, ew, ie, igh, oa, oe, oo, ow, ue, ui | train, play, complete, leaf, sheep, sleigh, chew, tie, night, goat, toe, moon, snow, glue, suit |
+| L2 R2 | 2 | 15 | 15/15 | y, ai, ay, e e, ea, ee, eigh, ew, ie, igh, oa, oe, oo, ow, ue | fly, rain, tray, concrete, beach, tree, eight, dew, pie, light, boat, doe, spoon, bowl, blue |
+| L2 R3 | 3 | 15 | 15/15 | ai, ay, e e, ea, ee, eigh, ew, ie, igh, oa, oe, oo, ow, ue, ui | train, play, concrete, leaf, tree, eight, chew, pie, night, goat, toe, spoon, snow, glue, fruit |
 
 ## CVC Words
 

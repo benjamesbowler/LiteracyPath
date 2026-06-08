@@ -860,7 +860,7 @@ export const templateExpansion7 = [
     "choices": [
       "bed",
       "bad",
-      "bid",
+      "big",
       "web"
     ],
     "answer": "bed"

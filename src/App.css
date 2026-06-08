@@ -5154,8 +5154,8 @@ select:focus {
   }
 
   .rhyming-assessment-layout .assessment-main-image-wrap {
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-rows: minmax(0, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) minmax(1.35em, auto);
     gap: 10px;
   }
 

@@ -1434,7 +1434,7 @@ export const generatedQuestions = [
     "choices": [
       "bed",
       "bad",
-      "bid",
+      "bun",
       "bud"
     ],
     "answer": "bed",

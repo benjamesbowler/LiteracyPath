@@ -5,13 +5,13 @@ export const masteryCoreQuestions = [
     "skill": "cvc words",
     "difficulty": 1,
     "passage": "",
-    "question": "Listen and find the word.",
+    "question": "Find the word: cat.",
     "spokenPrompt": "Find the word cat.",
     "choices": [
       "cat",
+      "bat",
       "cap",
-      "cot",
-      "cut"
+      "can"
     ],
     "answer": "cat",
     "imagePath": "/images/general/cat_sleeping.png"
@@ -43,7 +43,7 @@ export const masteryCoreQuestions = [
     "choices": [
       "red",
       "bad",
-      "bid",
+      "big",
       "bud"
     ],
     "answer": "red"
@@ -92,7 +92,7 @@ export const masteryCoreQuestions = [
       "cup",
       "cap",
       "cop",
-      "cip"
+      "cot"
     ],
     "answer": "cup"
   }

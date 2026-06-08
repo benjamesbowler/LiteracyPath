@@ -69,7 +69,7 @@ const shortVowelTargets = [
   ["short_a", "map", ["map", "mop", "mug", "mat"]],
   ["short_a", "cap", ["cap", "cup", "cop", "cat"]],
   ["short_a", "pan", ["pan", "pen", "pin", "pot"]],
-  ["short_e", "bed", ["bed", "bad", "bid", "bud"]],
+  ["short_e", "bed", ["bed", "bad", "big", "bud"]],
   ["short_e", "red", ["red", "rat", "rug", "bed"]],
   ["short_e", "pen", ["pen", "pan", "pin", "bed"]],
   ["short_e", "net", ["net", "nut", "not", "nap"]],

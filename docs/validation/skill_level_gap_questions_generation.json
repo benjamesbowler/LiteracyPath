@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-01T06:01:44.879Z",
+  "generatedAt": "2026-06-08T03:19:17.050Z",
   "source": "skill_level_depth_gap_generator",
-  "totalQuestions": 1603,
+  "totalQuestions": 1397,
   "summary": [
     {
       "skillId": "initial_sounds",
@@ -15,63 +15,23 @@
       "skillId": "rhyming",
       "skillName": "Rhyming",
       "level": 2,
-      "startingCount": 21,
-      "generated": 33,
-      "requested": 33
-    },
-    {
-      "skillId": "cvc_short_vowels",
-      "skillName": "CVC Short Vowels",
-      "level": 2,
-      "startingCount": 0,
-      "generated": 54,
-      "requested": 54
+      "startingCount": 43,
+      "generated": 11,
+      "requested": 11
     },
     {
       "skillId": "short_vowel_discrimination",
       "skillName": "Short Vowel Discrimination",
-      "level": 2,
-      "startingCount": 0,
-      "generated": 54,
-      "requested": 54
-    },
-    {
-      "skillId": "hfw_51_75",
-      "skillName": "High-Frequency Words 51-75",
       "level": 1,
-      "startingCount": 30,
-      "generated": 24,
-      "requested": 24
-    },
-    {
-      "skillId": "hfw_51_75",
-      "skillName": "High-Frequency Words 51-75",
-      "level": 2,
-      "startingCount": 30,
-      "generated": 24,
-      "requested": 24
-    },
-    {
-      "skillId": "hfw_76_100",
-      "skillName": "High-Frequency Words 76-100",
-      "level": 1,
-      "startingCount": 30,
-      "generated": 24,
-      "requested": 24
-    },
-    {
-      "skillId": "hfw_76_100",
-      "skillName": "High-Frequency Words 76-100",
-      "level": 2,
-      "startingCount": 30,
-      "generated": 24,
-      "requested": 24
+      "startingCount": 39,
+      "generated": 15,
+      "requested": 15
     },
     {
       "skillId": "vowel_teams",
       "skillName": "Vowel Teams",
       "level": 1,
-      "startingCount": 0,
+      "startingCount": 15,
       "generated": 46,
       "requested": 46
     },
@@ -79,7 +39,7 @@
       "skillId": "vowel_teams",
       "skillName": "Vowel Teams",
       "level": 2,
-      "startingCount": 0,
+      "startingCount": 37,
       "generated": 46,
       "requested": 46
     },
@@ -87,15 +47,15 @@
       "skillId": "r_controlled_vowels",
       "skillName": "R-Controlled Vowels",
       "level": 1,
-      "startingCount": 30,
-      "generated": 24,
-      "requested": 24
+      "startingCount": 25,
+      "generated": 29,
+      "requested": 29
     },
     {
       "skillId": "prepositions_of_place",
       "skillName": "Prepositions of Place",
       "level": 1,
-      "startingCount": 0,
+      "startingCount": 229,
       "generated": 46,
       "requested": 46
     },
@@ -103,7 +63,7 @@
       "skillId": "prepositions_of_place",
       "skillName": "Prepositions of Place",
       "level": 2,
-      "startingCount": 0,
+      "startingCount": 28,
       "generated": 46,
       "requested": 46
     },
@@ -111,7 +71,7 @@
       "skillId": "plurals",
       "skillName": "Plurals",
       "level": 1,
-      "startingCount": 0,
+      "startingCount": 24,
       "generated": 46,
       "requested": 46
     },
@@ -119,7 +79,7 @@
       "skillId": "plurals",
       "skillName": "Plurals",
       "level": 2,
-      "startingCount": 0,
+      "startingCount": 62,
       "generated": 46,
       "requested": 46
     },
@@ -135,7 +95,7 @@
       "skillId": "prefixes_suffixes",
       "skillName": "Prefixes and Suffixes",
       "level": 2,
-      "startingCount": 0,
+      "startingCount": 225,
       "generated": 46,
       "requested": 46
     },
@@ -143,7 +103,7 @@
       "skillId": "antonyms_synonyms",
       "skillName": "Antonyms and Synonyms",
       "level": 1,
-      "startingCount": 0,
+      "startingCount": 27,
       "generated": 46,
       "requested": 46
     },
@@ -151,7 +111,7 @@
       "skillId": "antonyms_synonyms",
       "skillName": "Antonyms and Synonyms",
       "level": 2,
-      "startingCount": 0,
+      "startingCount": 125,
       "generated": 46,
       "requested": 46
     },
@@ -167,7 +127,7 @@
       "skillId": "homophones_homonyms",
       "skillName": "Homophones and Homonyms",
       "level": 2,
-      "startingCount": 0,
+      "startingCount": 70,
       "generated": 46,
       "requested": 46
     },

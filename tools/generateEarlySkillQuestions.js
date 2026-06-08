@@ -38,6 +38,15 @@ const FORBIDDEN_EARLY_CHOICE_WORDS = new Set([
   "yen"
 ]);
 
+const FAMILIAR_RHYME_DISTRACTOR_WORDS = [
+  "dog", "sun", "tip", "bed", "fog", "cup", "big", "hot",
+  "leg", "mud", "pin", "box", "jam", "wet", "hop", "fed",
+  "zip", "bug", "mop", "den", "cap", "log", "fit", "nut",
+  "sip", "fin", "sit", "fig", "pan", "van", "bat", "cab",
+  "web", "red", "hill", "duck", "bell", "sock", "gum", "ten",
+  "lid", "map"
+];
+
 function normalize(value = "") {
   return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
 }
@@ -208,18 +217,22 @@ function balancedRhymeOptions(correct, distractorPool, options = {}) {
   const selected = [];
   const usedFamilies = new Set();
   const rotated = byRotatingIndex(distractorPool, options.seed || 0);
+  const correctFamily = getRhymeGroup(correct);
+  const correctTail = String(correct || "").slice(-2);
+  const safeDistractor = word => {
+    if (!word || word === correct) return false;
+    const family = getRhymeGroup(word);
+    if (!family || family === options.family || family === correctFamily) return false;
+    if (correctTail && String(word).slice(-2) === correctTail) return false;
+    return true;
+  };
 
   while (selected.length < 3) {
-    const next = rotated
-      .filter(word => !selected.includes(word))
-      .filter(word => {
-        const family = getRhymeGroup(word);
-        return family && family !== options.family && !usedFamilies.has(family);
-      })
-      .sort((a, b) =>
-        scoreDistractorWord(b, selected, correct, { requireImage: true, preferSameVowel: true }) -
-        scoreDistractorWord(a, selected, correct, { requireImage: true, preferSameVowel: true })
-      )[0];
+    const next = rotated.find(word => {
+      if (selected.includes(word)) return false;
+      const family = getRhymeGroup(word);
+      return safeDistractor(word) && !usedFamilies.has(family);
+    });
     if (!next) break;
     selected.push(next);
     usedFamilies.add(getRhymeGroup(next));
@@ -227,7 +240,7 @@ function balancedRhymeOptions(correct, distractorPool, options = {}) {
 
   if (selected.length < 3) {
     for (const word of rotated) {
-      if (word === correct || selected.includes(word)) continue;
+      if (selected.includes(word) || !safeDistractor(word)) continue;
       selected.push(word);
       if (selected.length >= 3) break;
     }
@@ -540,6 +553,12 @@ function generateShortVowelDiscriminationQuestions(entries) {
   return cvcEntries.slice(0, 180).flatMap((entry, index) => {
     const level = index % 2 === 0 ? 1 : 2;
     const phase = Math.floor(index / 2) % 2 === 0 ? 1 : 2;
+    const contrastEntries = cvcEntries.filter(item => item.medialVowel !== entry.medialVowel);
+    const wordOptions = balancedCvcOptions(entry, contrastEntries, {
+      seed: index,
+      requireImage: true,
+      preferDifferentVowel: true
+    });
     return [
       makeBase({
         id: `gen_short_vowel_${entry.medialVowel}_${normalize(entry.lowercaseWord)}_${index}_listen`,
@@ -561,6 +580,27 @@ function generateShortVowelDiscriminationQuestions(entries) {
         sourceLexiconId: entry.id,
         itemType: "short_vowel",
         tags: ["generated", "short-vowel-discrimination", "listen-vowel"]
+      }),
+      makeBase({
+        id: `gen_short_vowel_${entry.medialVowel}_${normalize(entry.lowercaseWord)}_${index}_picture`,
+        skillId: "short_vowel_discrimination",
+        skillName: "Short Vowel Discrimination",
+        level,
+        phase,
+        templateType: "PICTURE_TO_PRINT_MATCH",
+        prompt: "Pick the word that matches the picture.",
+        spokenPrompt: "Pick the word that matches the picture.",
+        targetWord: entry.lowercaseWord,
+        correctAnswer: entry.lowercaseWord,
+        answerOptions: wordOptions,
+        coverageTarget: `short_${entry.medialVowel}`,
+        phonicsPattern: `short_${entry.medialVowel}`,
+        imageUrl: getEntryImageUrl(entry),
+        audioText: entry.lowercaseWord,
+        audioUrl: getEntryAudioUrl(entry),
+        sourceLexiconId: entry.id,
+        itemType: "short_vowel",
+        tags: ["generated", "short-vowel-discrimination", "picture-word"]
       })
     ];
   });
@@ -569,17 +609,39 @@ function generateShortVowelDiscriminationQuestions(entries) {
 function generateRhymingQuestions(entries) {
   const out = [];
   const entryByWord = new Map(entries.map(entry => [entry.lowercaseWord, entry]));
+  const rhymingImageCard = (word, correctAnswer) => {
+    const entry = entryByWord.get(word);
+    const image = entry ? getEntryImageUrl(entry) : "";
+    return {
+      id: `rhyme_card_${normalize(word)}`,
+      word,
+      value: word,
+      label: word,
+      image,
+      imageUrl: image,
+      imagePath: image,
+      alt: `Picture for ${word}`,
+      isCorrect: word === correctAnswer
+    };
+  };
   const familyLevels = [
     ...rhymingExpectedItemKeys.map(family => [family, 1]),
     ...rhymingLevelTwoExpectedItemKeys.map(family => [family, 2])
   ];
 
-  familyLevels.forEach(([family, level]) => {
+  familyLevels.forEach(([family, level], familyIndex) => {
     const words = rhymeGroups[family] || [];
     const available = words.map(word => entryByWord.get(word)).filter(entry => entry && hasImage(entry));
-    const distractorPool = entries
+    const generatedDistractorPool = entries
       .filter(entry => hasImage(entry) && getRhymeGroup(entry.lowercaseWord) && getRhymeGroup(entry.lowercaseWord) !== family)
       .map(entry => entry.lowercaseWord);
+    const distractorPool = [
+      ...FAMILIAR_RHYME_DISTRACTOR_WORDS.filter(word => {
+        const entry = entryByWord.get(word);
+        return entry && hasImage(entry) && getRhymeGroup(word) && getRhymeGroup(word) !== family;
+      }),
+      ...generatedDistractorPool
+    ];
 
     available.forEach((entry, index) => {
       const rhymeWords = available.map(item => item.lowercaseWord).filter(word => word !== entry.lowercaseWord);
@@ -587,16 +649,19 @@ function generateRhymingQuestions(entries) {
         const phase = (index + rhymeIndex) % 2 === 0 ? 1 : 2;
         const options = balancedRhymeOptions(rhymeWord, distractorPool, {
           family,
-          seed: index + rhymeIndex
+          seed: familyIndex * 17 + index * 5 + rhymeIndex * 11
         });
-        out.push(makeBase({
+        const imageCards = options.map(word => rhymingImageCard(word, rhymeWord));
+        if (imageCards.length !== 4 || !imageCards.every(card => card.image)) return;
+        const question = makeBase({
           id: `gen_rhyme_${family}_${normalize(entry.lowercaseWord)}_${normalize(rhymeWord)}_${index}_${rhymeIndex}`,
           skillId: "rhyming",
           skillName: "Rhyming",
           level,
           phase,
-          templateType: rhymeIndex % 2 === 0 ? "READ_FIND_RHYME" : "LISTEN_FIND_RHYME",
+          templateType: "RHYMING_PICTURE",
           prompt: `Which word rhymes with ${entry.word}?`,
+          spokenPrompt: `Which word rhymes with ${entry.word}?`,
           targetWord: entry.lowercaseWord,
           correctAnswer: rhymeWord,
           answerOptions: options,
@@ -607,7 +672,16 @@ function generateRhymingQuestions(entries) {
           sourceLexiconId: entry.id,
           itemType: "rhyming_family",
           tags: ["generated", "rhyming", "same-rime"]
-        }));
+        });
+        out.push({
+          ...question,
+          questionType: "visual_card_choice",
+          choices: options,
+          answerOptions: imageCards,
+          imageCards,
+          requiredSelections: 1,
+          correctAnswers: [rhymeWord]
+        });
       });
     });
   });

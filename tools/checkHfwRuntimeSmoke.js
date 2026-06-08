@@ -41,6 +41,7 @@ const failures = [];
 const summaryRows = [];
 const detailRows = [];
 const sampleRows = [];
+const audioPolicyRows = [];
 
 function escapeMarkdown(value = "") {
   return String(value ?? "").replace(/\n/g, "<br>").replace(/\|/g, "\\|");
@@ -208,6 +209,13 @@ for (const skillId of HFW_SKILL_IDS) {
   const audioPathRows = selectableQuestions.filter(question => getQuestionAudioPaths(question).length > 0);
   const answerOptionAudioRows = selectableQuestions.filter(hasAnswerOptionAudio);
   const audioFormatRows = selectableQuestions.filter(question => AUDIO_FORMAT_PATTERN.test(formatOf(question)));
+  const levelOneClozeRows = levelOne.filter(question => isHfwClozeFormat(formatOf(question)));
+  const levelTwoSpellRows = levelTwo.filter(question => isHfwSentenceSpellFormat(formatOf(question)) || isHfwSpellingQuestion(question));
+  const levelTwoMissingSentenceAudioTextRows = levelTwoSpellRows.filter(question => {
+    const text = String(question.sentenceAudio || question.sentenceText || question.fullSentence || question.spokenPrompt || question.audioText || "");
+    return !text || !normalizeWord(text).split(/\s+/).includes(answerOf(question));
+  });
+  const levelTwoQuestionAudioPathRows = levelTwoSpellRows.filter(question => getQuestionAudioPaths(question).length > 0 || hasAudioField(question));
   const invalidSkillRows = selectableQuestions.filter(question => !HFW_SKILL_IDS.includes(question.skillId) && !HFW_SKILL_IDS.includes(question.assessmentSkillId));
   const disabledAudioRows = selectableQuestions.filter(question => question.disableAudio !== true);
   const hfwEligibilityRows = selectableQuestions
@@ -263,6 +271,17 @@ for (const skillId of HFW_SKILL_IDS) {
     ...levelOneRound.slice(0, 3).map(question => [skillId, "Level 1", question.id || question.questionId, formatOf(question), getQuestionTargetWord(question)]),
     ...levelTwoRound.slice(0, 3).map(question => [skillId, "Level 2", question.id || question.questionId, formatOf(question), getQuestionTargetWord(question)])
   );
+
+  audioPolicyRows.push([
+    skillId,
+    levelOneClozeRows.length,
+    "no",
+    levelTwoSpellRows.length,
+    "no",
+    levelTwoMissingSentenceAudioTextRows.length,
+    levelTwoQuestionAudioPathRows.length,
+    "0"
+  ]);
 }
 
 const markdown = [
@@ -305,6 +324,21 @@ const markdown = [
     "Skill ID Issues",
     "Eligibility Issues"
   ], detailRows),
+  "",
+  "## HFW Audio Policy",
+  "",
+  "HFW workbook runtime is intentionally text-only for active rows. Level 1 cloze rows and Level 2 sentence-spell rows require sentence text/context, not playable sentence audio files. Active rows should keep `disableAudio: true` and expose no audio paths.",
+  "",
+  table([
+    "Skill",
+    "Level 1 Cloze Rows",
+    "L1 Playable Audio Required",
+    "Level 2 Spell Rows",
+    "L2 Playable Audio Required",
+    "Missing Sentence Text Rows",
+    "Unexpected Audio Path Rows",
+    "Kimi Audio Requests Required"
+  ], audioPolicyRows),
   "",
   "## Sample Round Seeds",
   "",

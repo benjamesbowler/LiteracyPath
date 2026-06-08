@@ -90,24 +90,12 @@ export const BLENDS_LEVEL_1_TARGETS = [
     "word": "screw"
   },
   {
-    "blend": "shr",
-    "word": "shrimp"
-  },
-  {
-    "blend": "squ",
-    "word": "square"
-  },
-  {
     "blend": "spl",
     "word": "splash"
   },
   {
     "blend": "spr",
     "word": "spring"
-  },
-  {
-    "blend": "thr",
-    "word": "three"
   },
   {
     "blend": "br",
@@ -121,7 +109,7 @@ export const BLENDS_LEVEL_1_TARGETS = [
     "blend": "fr",
     "word": "fruit"
   }
-];
+].filter(item => !["shr", "squ", "thr"].includes(item.blend));
 
 export const BLENDS_LEVEL_2_TARGETS = [
   {
@@ -304,7 +292,7 @@ export const BLENDS_LEVEL_2_TARGETS = [
     "partialWord": "__ain",
     "position": "initial"
   }
-];
+].filter(item => !["shr", "squ", "thr"].includes(item.blend));
 
 export const BLENDS_IMAGE_REQUESTS = [
   {
@@ -5613,4 +5601,4 @@ export const blendsAssessmentQuestions = [
       "tr"
     ]
   }
-];
+].filter(question => !["shr", "squ", "thr"].includes(question.targetPattern));

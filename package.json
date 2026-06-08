@@ -67,6 +67,7 @@
     "check:k3-word-bank-media": "node tools/checkK3WordBankMediaCoverage.js",
     "audit:assessment-media-registry": "node tools/auditAssessmentMediaRegistry.js",
     "check:assessment-runtime-variation": "node tools/checkAssessmentRuntimeVariation.js",
+    "check:question-bank-fix-guide": "node tools/checkQuestionBankFixGuideCompliance.js",
     "import:skill-word-bank": "node tools/importSkillWordBankWorkbook.js",
     "import:approved-hfw-bank": "node tools/importApprovedHfwQuestionBank.js",
     "audit:skill-word-bank": "node tools/auditSkillWordBankWorkbook.js",

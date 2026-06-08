@@ -208,7 +208,7 @@ addRows("exp7_short_vowel", [
 
 addRows("exp7_cvc", [
   ["cat", ["cap", "cot", "cut"]],
-  ["bed", ["bad", "bid", "web"]],
+  ["bed", ["bad", "big", "web"]],
   ["hop", ["hip", "hap", "hup"]],
   ["mud", ["mad", "mid", "mop"]],
   ["fin", ["fan", "fun", "fog"]],

@@ -1,0 +1,216 @@
+{
+  "generatedAt": "2026-06-08T06:29:51.090Z",
+  "failures": [],
+  "skills": [
+    {
+      "skillId": "initial_sounds",
+      "questions": 141,
+      "imageChoiceQuestions": 140,
+      "imageChoiceRows": 467,
+      "failures": 0
+    },
+    {
+      "skillId": "final_sounds",
+      "questions": 547,
+      "imageChoiceQuestions": 164,
+      "imageChoiceRows": 656,
+      "failures": 0
+    },
+    {
+      "skillId": "rhyming",
+      "questions": 783,
+      "imageChoiceQuestions": 738,
+      "imageChoiceRows": 5560,
+      "failures": 0
+    },
+    {
+      "skillId": "cvc_short_vowels",
+      "questions": 500,
+      "imageChoiceQuestions": 308,
+      "imageChoiceRows": 1473,
+      "failures": 0
+    },
+    {
+      "skillId": "short_vowel_discrimination",
+      "questions": 555,
+      "imageChoiceQuestions": 336,
+      "imageChoiceRows": 1288,
+      "failures": 0
+    },
+    {
+      "skillId": "hfw_1_25",
+      "questions": 150,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "hfw_26_50",
+      "questions": 150,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "hfw_51_75",
+      "questions": 150,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "hfw_76_100",
+      "questions": 148,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "blends",
+      "questions": 304,
+      "imageChoiceQuestions": 107,
+      "imageChoiceRows": 608,
+      "failures": 0
+    },
+    {
+      "skillId": "digraphs",
+      "questions": 309,
+      "imageChoiceQuestions": 99,
+      "imageChoiceRows": 536,
+      "failures": 0
+    },
+    {
+      "skillId": "long_vowels",
+      "questions": 237,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "vowel_teams",
+      "questions": 282,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "r_controlled",
+      "questions": 161,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "nouns",
+      "questions": 100,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "verbs",
+      "questions": 56,
+      "imageChoiceQuestions": 2,
+      "imageChoiceRows": 8,
+      "failures": 0
+    },
+    {
+      "skillId": "adjectives",
+      "questions": 56,
+      "imageChoiceQuestions": 3,
+      "imageChoiceRows": 12,
+      "failures": 0
+    },
+    {
+      "skillId": "prepositions",
+      "questions": 488,
+      "imageChoiceQuestions": 30,
+      "imageChoiceRows": 120,
+      "failures": 0
+    },
+    {
+      "skillId": "plurals",
+      "questions": 362,
+      "imageChoiceQuestions": 18,
+      "imageChoiceRows": 72,
+      "failures": 0
+    },
+    {
+      "skillId": "prefix_suffix",
+      "questions": 475,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "antonyms_synonyms",
+      "questions": 390,
+      "imageChoiceQuestions": 20,
+      "imageChoiceRows": 80,
+      "failures": 0
+    },
+    {
+      "skillId": "homophones",
+      "questions": 299,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "sentence_comprehension",
+      "questions": 293,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "key_details",
+      "questions": 360,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "sequencing",
+      "questions": 202,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "main_idea",
+      "questions": 200,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "inference",
+      "questions": 262,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "cause_effect",
+      "questions": 206,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "context_clues",
+      "questions": 218,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    },
+    {
+      "skillId": "theme",
+      "questions": 217,
+      "imageChoiceQuestions": 0,
+      "imageChoiceRows": 0,
+      "failures": 0
+    }
+  ]
+}

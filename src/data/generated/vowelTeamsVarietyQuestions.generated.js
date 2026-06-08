@@ -22,7 +22,7 @@ const VOWEL_TEAM_PATTERNS = [
 
 const LEVEL_TWO_ITEMS = [
   ["grapefruit", "ui", "/media/vocabulary/images/grapefruit.webp", "/media/vocabulary/audio/grapefruit.mp3", "a grapefruit cut in half on a table"],
-  ["kiwifruit", "ui", "/media/initial-sounds/images/k/kiwifruit.webp", "/media/initial-sounds/audio/k/kiwifruit.mp3", "a whole kiwifruit and a sliced kiwifruit"],
+  ["suit", "ui", "/images/assessment/long-vowels/suit.webp", "/audio/assessment/long-vowels/suit.mp3", "a suit jacket hanging neatly"],
   ["newt", "ew", "/media/initial-sounds/images/n/newt.webp", "/media/initial-sounds/audio/n/newt.mp3", "a small newt on a rock"],
   ["boy", "oy", "/images/generated/boy_afraid.png", "/guided-reading/audio/words/boy.mp3", "a young boy"],
   ["nightlight", "igh", "/media/initial-sounds/images/n/nightlight.webp", "/media/initial-sounds/audio/n/nightlight.mp3", "a small nightlight glowing in a room"],

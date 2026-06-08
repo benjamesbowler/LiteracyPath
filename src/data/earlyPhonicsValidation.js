@@ -27,7 +27,7 @@ const ALLOWED_Q_WORDS = new Set(["queen", "quilt", "quiz", "quick"]);
 
 const INVALID_FINAL_ENDINGS = [
   "ck", "sh", "ch", "th", "ng",
-  "nd", "st", "mp", "sk", "nt", "lk", "rk", "rn", "rm", "rd", "ft", "pt", "lt", "ld",
+  "nd", "st", "mp", "sk", "nt", "lk", "rk", "rn", "rm", "rd", "ft", "pt", "lt", "ld", "lb",
   "ll", "ss", "ff", "zz"
 ];
 const AMBIGUOUS_FINAL_WORDS = new Set([

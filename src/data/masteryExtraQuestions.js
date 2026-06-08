@@ -9,9 +9,9 @@ export const masteryExtraQuestions = [
     "spokenPrompt": "Which word starts like moon?",
     "choices": [
       "map",
-      "sun",
-      "fish",
-      "dog"
+      "bat",
+      "pin",
+      "log"
     ],
     "answer": "map"
   },
@@ -25,9 +25,9 @@ export const masteryExtraQuestions = [
     "spokenPrompt": "Which word starts like sun?",
     "choices": [
       "sock",
-      "moon",
-      "fish",
-      "dog"
+      "mat",
+      "fig",
+      "hut"
     ],
     "answer": "sock"
   },
@@ -41,9 +41,9 @@ export const masteryExtraQuestions = [
     "spokenPrompt": "Which word starts like top?",
     "choices": [
       "tub",
-      "sun",
-      "fish",
-      "dog"
+      "dog",
+      "cap",
+      "rig"
     ],
     "answer": "tub"
   },
@@ -57,9 +57,9 @@ export const masteryExtraQuestions = [
     "spokenPrompt": "Which word starts like pig?",
     "choices": [
       "pan",
-      "sun",
-      "fish",
-      "dog"
+      "bug",
+      "sit",
+      "dot"
     ],
     "answer": "pan"
   },
@@ -73,9 +73,9 @@ export const masteryExtraQuestions = [
     "spokenPrompt": "Which word starts like ball?",
     "choices": [
       "bat",
-      "sun",
-      "fish",
-      "dog"
+      "cup",
+      "hid",
+      "log"
     ],
     "answer": "bat"
   },
@@ -89,9 +89,9 @@ export const masteryExtraQuestions = [
     "spokenPrompt": "Which word starts like nest?",
     "choices": [
       "nap",
-      "sun",
-      "fish",
-      "dog"
+      "bit",
+      "dog",
+      "sun"
     ],
     "answer": "nap"
   },

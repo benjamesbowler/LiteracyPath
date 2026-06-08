@@ -91,7 +91,7 @@ const cvcWords = [
   ["short_a", "cat", ["cat", "cot", "cut", "kit"]],
   ["short_a", "bag", ["bag", "bug", "big", "bed"]],
   ["short_a", "map", ["map", "mop", "mug", "man"]],
-  ["short_e", "bed", ["bed", "bad", "bid", "bud"]],
+  ["short_e", "bed", ["bed", "bad", "big", "bud"]],
   ["short_e", "pen", ["pen", "pan", "pin", "bed"]],
   ["short_e", "red", ["red", "ram", "rug", "bed"]],
   ["short_i", "pig", ["pig", "pan", "pen", "pot"]],

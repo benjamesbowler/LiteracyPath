@@ -1,32 +1,27 @@
 # Skill Level Gap Question Generation
 
-Generated: 2026-06-01T06:01:44.881Z
+Generated: 2026-06-08T03:19:17.052Z
 
-Generated questions: 1603
+Generated questions: 1397
 
 | Skill | Level | Starting Count | Requested | Generated |
 |---|---:|---:|---:|---:|
 | Initial Sounds | 2 | 0 | 54 | 54 |
-| Rhyming | 2 | 21 | 33 | 33 |
-| CVC Short Vowels | 2 | 0 | 54 | 54 |
-| Short Vowel Discrimination | 2 | 0 | 54 | 54 |
-| High-Frequency Words 51-75 | 1 | 30 | 24 | 24 |
-| High-Frequency Words 51-75 | 2 | 30 | 24 | 24 |
-| High-Frequency Words 76-100 | 1 | 30 | 24 | 24 |
-| High-Frequency Words 76-100 | 2 | 30 | 24 | 24 |
-| Vowel Teams | 1 | 0 | 46 | 46 |
-| Vowel Teams | 2 | 0 | 46 | 46 |
-| R-Controlled Vowels | 1 | 30 | 24 | 24 |
-| Prepositions of Place | 1 | 0 | 46 | 46 |
-| Prepositions of Place | 2 | 0 | 46 | 46 |
-| Plurals | 1 | 0 | 46 | 46 |
-| Plurals | 2 | 0 | 46 | 46 |
+| Rhyming | 2 | 43 | 11 | 11 |
+| Short Vowel Discrimination | 1 | 39 | 15 | 15 |
+| Vowel Teams | 1 | 15 | 46 | 46 |
+| Vowel Teams | 2 | 37 | 46 | 46 |
+| R-Controlled Vowels | 1 | 25 | 29 | 29 |
+| Prepositions of Place | 1 | 229 | 46 | 46 |
+| Prepositions of Place | 2 | 28 | 46 | 46 |
+| Plurals | 1 | 24 | 46 | 46 |
+| Plurals | 2 | 62 | 46 | 46 |
 | Prefixes and Suffixes | 1 | 0 | 46 | 46 |
-| Prefixes and Suffixes | 2 | 0 | 46 | 46 |
-| Antonyms and Synonyms | 1 | 0 | 46 | 46 |
-| Antonyms and Synonyms | 2 | 0 | 46 | 46 |
+| Prefixes and Suffixes | 2 | 225 | 46 | 46 |
+| Antonyms and Synonyms | 1 | 27 | 46 | 46 |
+| Antonyms and Synonyms | 2 | 125 | 46 | 46 |
 | Homophones and Homonyms | 1 | 0 | 46 | 46 |
-| Homophones and Homonyms | 2 | 0 | 46 | 46 |
+| Homophones and Homonyms | 2 | 70 | 46 | 46 |
 | Sentence Comprehension | 1 | 0 | 46 | 46 |
 | Sentence Comprehension | 2 | 0 | 46 | 46 |
 | Key Details | 1 | 0 | 46 | 46 |
