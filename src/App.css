@@ -3314,6 +3314,124 @@ body {
   padding: 4px 0 18px;
 }
 
+.question-flag-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.question-flag-controls label {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  color: var(--lp-color-text-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.question-flag-controls input {
+  width: 13px;
+  height: 13px;
+}
+
+.question-flag-review-list {
+  display: grid;
+  gap: 14px;
+}
+
+.question-flag-review-card {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+}
+
+.question-flag-review-card header {
+  display: grid;
+  gap: 4px;
+}
+
+.question-flag-review-card header span {
+  width: fit-content;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 0.74rem;
+  font-weight: 900;
+}
+
+.question-flag-review-card header strong {
+  color: var(--lp-color-text-strong);
+  font-size: 1rem;
+}
+
+.question-flag-review-card header small,
+.flagged-question-images figcaption {
+  color: var(--lp-color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.flagged-question-preview {
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 16px;
+  background: #f8fafc;
+}
+
+.flagged-question-sentence {
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.flagged-question-images,
+.flagged-question-choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.flagged-question-images figure,
+.flagged-question-choices article {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 8px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.flagged-question-images img,
+.flagged-question-choices img {
+  width: 100%;
+  max-height: 150px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.flagged-question-choices article.correct {
+  border-color: rgba(34, 197, 94, 0.38);
+  background: rgba(240, 253, 244, 0.8);
+}
+
+.flagged-question-choices strong {
+  color: var(--lp-color-text-strong);
+  font-size: 0.86rem;
+}
+
 .qa-delete-modal-backdrop {
   position: fixed;
   inset: 0;

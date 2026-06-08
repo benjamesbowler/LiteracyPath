@@ -44,7 +44,8 @@ import {
   readHfwQuestionImageReviewOverrides,
   updateHfwQuestionImageReviewOverride
 } from "../data/hfwQuestionImageReview.js";
-import { MediaQaReviewPage } from "./admin/MediaQaReviewPage.jsx";
+import { QuestionFlagReviewPage } from "./admin/QuestionFlagReviewPage.jsx";
+import { resetRetiredMediaQaReviewStorage } from "../data/questionFlagStore.js";
 
 const GUIDED_IMAGE_QA_STORAGE_KEY = "lpGuidedReadingImageQa";
 const GUIDED_IMAGE_QA_RESET_KEY = "lpGuidedReadingImageQaResetVersion";
@@ -1189,6 +1190,7 @@ export function AdminDashboardPage({
     if (window.location.pathname.includes("/admin/media/images")) return "images";
     if (window.location.pathname.includes("/admin/media/audio")) return "audio";
     if (window.location.pathname.includes("/admin/guided-reading/image-qa")) return "guidedReadingImages";
+    if (window.location.pathname.includes("/admin/question-flags")) return "questionFlags";
     return "dashboard";
   });
   const [activeSection, setActiveSection] = useState(isTeacherMode ? "teacherOverview" : "overview");
@@ -1219,6 +1221,7 @@ export function AdminDashboardPage({
   }
 
   useEffect(() => {
+    resetRetiredMediaQaReviewStorage();
     refreshSavedElReports();
   }, [teacherStorageId]);
 
@@ -1421,8 +1424,8 @@ export function AdminDashboardPage({
   function openAdminQaPage(page) {
     setAdminQaPage(page);
     if (typeof window !== "undefined") {
-      const path = page === "mediaReview" || ["images", "audio", "guidedReadingImages", "hfwQuestionImages"].includes(page)
-        ? "/admin/media-review"
+      const path = page === "questionFlags"
+        ? "/admin/question-flags"
         : "/";
       window.history.pushState({}, "", path);
     }
@@ -1564,8 +1567,8 @@ export function AdminDashboardPage({
       { id: "students", label: "Students", count: students.length }
     ];
 
-  if (adminQaPage === "mediaReview" || ["images", "audio", "guidedReadingImages", "hfwQuestionImages"].includes(adminQaPage)) {
-    return <MediaQaReviewPage onBack={() => openAdminQaPage("dashboard")} />;
+  if (adminQaPage === "questionFlags") {
+    return <QuestionFlagReviewPage onBack={() => openAdminQaPage("dashboard")} />;
   }
 
   return (
@@ -1616,8 +1619,8 @@ export function AdminDashboardPage({
             </button>
           ))}
           {!isTeacherMode && (
-            <button onClick={() => openAdminQaPage("mediaReview")} type="button">
-              <span>Media QA Review</span>
+            <button onClick={() => openAdminQaPage("questionFlags")} type="button">
+              <span>Question Flags</span>
             </button>
           )}
         </nav>
@@ -1643,8 +1646,8 @@ export function AdminDashboardPage({
                 <strong>{section.count}</strong>
               </button>
             ))}
-            <button className="admin-overview-card" onClick={() => openAdminQaPage("mediaReview")} type="button">
-              <span>Media QA Review</span>
+            <button className="admin-overview-card" onClick={() => openAdminQaPage("questionFlags")} type="button">
+              <span>Question Flags</span>
               <strong>Open</strong>
             </button>
           </div>

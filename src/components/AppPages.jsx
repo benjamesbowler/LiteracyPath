@@ -24,6 +24,7 @@ import { summarizeAssessmentHistory } from "../data/assessmentHistoryStore.js";
 import { getFinalSoundsLevel1QuestionIssues } from "../data/earlyPhonicsValidation.js";
 import { getTargetObjectImage } from "../utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
 import { isHfwSpellingQuestion } from "../data/isHfwSpellingQuestion.js";
+import { addQuestionFlag } from "../data/questionFlagStore.js";
 import { AssessmentAudioButton } from "./assessment/AssessmentAudioButton.jsx";
 import { HfwLetterBuildPanel } from "./assessment/HfwLetterBuildPanel.jsx";
 
@@ -735,6 +736,46 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
           );
         })}
       </div>
+    </div>
+  );
+}
+
+function QuestionFlagControls({ currentQuestion, currentStage, visiblePrompt }) {
+  const [flaggedTypes, setFlaggedTypes] = useState(() => new Set());
+
+  useEffect(() => {
+    setFlaggedTypes(new Set());
+  }, [currentQuestion?.id]);
+
+  function flag(type) {
+    addQuestionFlag({
+      flagType: type,
+      question: currentQuestion,
+      stage: currentStage,
+      visiblePrompt
+    });
+    setFlaggedTypes(previous => new Set([...previous, type]));
+  }
+
+  if (!currentQuestion) return null;
+
+  return (
+    <div className="question-flag-controls" aria-label="Flag this question for review">
+      {[
+        ["image", "Flag image"],
+        ["question", "Flag question"]
+      ].map(([type, label]) => (
+        <label key={type}>
+          <input
+            checked={flaggedTypes.has(type)}
+            onChange={event => {
+              if (event.target.checked) flag(type);
+            }}
+            type="checkbox"
+          />
+          <span>{flaggedTypes.has(type) ? `${label} sent` : label}</span>
+        </label>
+      ))}
     </div>
   );
 }
@@ -3205,6 +3246,11 @@ export function AssessmentPage({
                 })}
               </div>
             )}
+            <QuestionFlagControls
+              currentQuestion={currentQuestion}
+              currentStage={safeCurrentStage}
+              visiblePrompt={visiblePrompt}
+            />
           </motion.div>
         )}
       </AnimatePresence>

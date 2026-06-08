@@ -267,19 +267,6 @@ function rotate(items, offset) {
   return [...items.slice(start), ...items.slice(0, start)];
 }
 
-function svgDataUri({ word, partOfSpeech, scene }) {
-  const colorByPart = {
-    noun: ["#f7c948", "#3b2f13"],
-    verb: ["#4fc3a1", "#12352d"],
-    adjective: ["#7aa7ff", "#10264d"]
-  };
-  const [accent, ink] = colorByPart[partOfSpeech] || colorByPart.noun;
-  const title = word.replace(/\b\w/g, char => char.toUpperCase());
-  const detail = String(scene || `${partOfSpeech} picture`).slice(0, 44);
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" role="img" aria-label="${title}"><rect width="360" height="260" rx="24" fill="#fff8ea"/><circle cx="80" cy="72" r="42" fill="${accent}"/><rect x="54" y="132" width="252" height="62" rx="20" fill="#ffffff" stroke="${accent}" stroke-width="8"/><path d="M74 198c44-42 77-42 121 0 31-31 61-34 91-8" fill="none" stroke="${ink}" stroke-width="12" stroke-linecap="round"/><text x="180" y="103" text-anchor="middle" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="${ink}">${title}</text><text x="180" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#4c5564">${detail}</text></svg>`;
-  return `data:image/svg+xml,${encodeURIComponent(svg)}`;
-}
-
 function approvedAudioFor(word) {
   const normalized = slug(word);
   const asset = getChildWordAsset(normalized);
@@ -299,8 +286,9 @@ function approvedAudioFor(word) {
   return "";
 }
 
-function imageFor(word, partOfSpeech, scene = "") {
-  return grammarImageOverrides[partOfSpeech]?.[slug(word)] || svgDataUri({ word, partOfSpeech, scene });
+function imageFor(word, partOfSpeech) {
+  const normalized = slug(word);
+  return grammarImageOverrides[partOfSpeech]?.[normalized] || getChildWordAsset(normalized)?.image || "";
 }
 
 function cardFor(word, partOfSpeech, scene = "", withAudio = false) {
@@ -315,6 +303,18 @@ function cardFor(word, partOfSpeech, scene = "", withAudio = false) {
     image,
     imagePath: image,
     alt: `${word} ${partOfSpeech} card`,
+    ...(audio ? { audio, audioPath: audio, audioUrl: audio } : {})
+  };
+}
+
+function sentenceOptionFor(word, partOfSpeech) {
+  const audio = approvedAudioFor(word);
+  return {
+    id: `${partOfSpeech}-${slug(word)}-text`,
+    word,
+    label: word,
+    value: word,
+    partOfSpeech,
     ...(audio ? { audio, audioPath: audio, audioUrl: audio } : {})
   };
 }
@@ -343,7 +343,7 @@ function sentenceOptions(partOfSpeech, answer, index) {
     .slice(0, 3)
     .concat(answer)
     .sort((a, b) => rotate([a, b], index).join("").localeCompare(rotate([b, a], index).join("")))
-    .map(word => cardFor(word, partOfSpeech, "", true));
+    .map(word => sentenceOptionFor(word, partOfSpeech));
 }
 
 function withAnswerPosition(cards, answer, index) {
@@ -395,6 +395,7 @@ function makeLevelOneQuestion(config, target, index) {
 function makeLevelTwoQuestion(config, target, index) {
   const [word, sentence, scene] = target;
   const options = sentenceOptions(config.partOfSpeech, word, index);
+  const imagePath = imageFor(word, config.partOfSpeech);
 
   return {
     id: `grammar_${config.skillId}_l2_${String(index + 1).padStart(3, "0")}`,
@@ -414,9 +415,9 @@ function makeLevelTwoQuestion(config, target, index) {
     question: config.sentencePrompt,
     sentence,
     targetWord: word,
-    imagePath: svgDataUri({ word, partOfSpeech: config.partOfSpeech, scene }),
-    imageUrl: svgDataUri({ word, partOfSpeech: config.partOfSpeech, scene }),
-    targetImage: svgDataUri({ word, partOfSpeech: config.partOfSpeech, scene }),
+    imagePath,
+    imageUrl: imagePath,
+    targetImage: imagePath,
     targetImageAlt: scene,
     correctAnswer: word,
     answer: word,
