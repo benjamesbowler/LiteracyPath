@@ -26,7 +26,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "bread",
       "shake",
@@ -96,7 +96,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "brave",
       "artist",
@@ -166,7 +166,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "fly",
       "brown",
@@ -236,7 +236,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "market",
       "mum",
@@ -306,7 +306,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "station",
       "dance",
@@ -376,7 +376,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "fell",
       "crisp",
@@ -446,7 +446,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The puppy is ___.",
     "choices": [
       "cute",
       "bat",
@@ -516,7 +516,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "bell",
       "book",
@@ -586,7 +586,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "bug",
       "predict",
@@ -656,7 +656,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "reads",
       "fierce",
@@ -726,7 +726,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "fluffy",
       "cup",
@@ -796,7 +796,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "duck",
       "egg",
@@ -866,7 +866,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "foot",
       "swayed",
@@ -936,7 +936,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The drum is ___ when it is hit.",
     "choices": [
       "loud",
       "food",
@@ -1006,7 +1006,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "swayed",
       "new",
@@ -1076,7 +1076,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "cook",
       "noisy",
@@ -1146,7 +1146,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "old",
       "cloud",
@@ -1216,7 +1216,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "playful",
       "hair",
@@ -1286,7 +1286,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "head",
       "hen",
@@ -1356,7 +1356,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "knee",
       "fly",
@@ -1426,7 +1426,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The flower is ___.",
     "choices": [
       "hand",
       "baked",
@@ -1496,7 +1496,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "share",
       "rough",
@@ -1566,7 +1566,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "sharp",
       "men",
@@ -1636,7 +1636,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "pear",
       "pen",
@@ -1706,7 +1706,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "rice",
       "builds",
@@ -1776,7 +1776,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "dance",
       "smelly",
@@ -1846,7 +1846,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "smooth",
       "sky",
@@ -1916,7 +1916,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "builds",
       "sour",
@@ -1986,7 +1986,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "sun",
       "toast",
@@ -2056,7 +2056,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "child",
       "observe",
@@ -2126,7 +2126,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "predict",
       "striped",
@@ -2196,7 +2196,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "strong",
       "baby",
@@ -2266,7 +2266,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "girl",
       "grape",
@@ -2336,7 +2336,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "belt",
       "bird",
@@ -2406,7 +2406,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "desk",
       "dirt",
@@ -2476,7 +2476,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "farmer",
       "drive",
@@ -2546,7 +2546,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The puppy is ___.",
     "choices": [
       "cute",
       "loud",
@@ -2615,7 +2615,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The drum is ___ when it is hit.",
     "choices": [
       "cute",
       "loud",
@@ -2684,7 +2684,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the adjective that best fits the sentence.",
     "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "It is ___.",
+    "sentence": "The pictured object looks ___.",
     "choices": [
       "cute",
       "loud",
@@ -7719,7 +7719,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The child points to the ___ in the picture.",
     "choices": [
       "sat",
       "shake",
@@ -7789,7 +7789,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The child points to the ___ in the picture.",
     "choices": [
       "artist",
       "ate",
@@ -7859,7 +7859,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The child carried a backpack on his ___.",
     "choices": [
       "swayed",
       "brown",
@@ -7929,7 +7929,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The ___ holds the school books.",
     "choices": [
       "purple",
       "bag",
@@ -7999,7 +7999,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The player swings the ___.",
     "choices": [
       "bat",
       "bake",
@@ -8069,7 +8069,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The ___ stands near the tree.",
     "choices": [
       "count",
       "drive",
@@ -8139,7 +8139,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The child sleeps in the ___.",
     "choices": [
       "fly",
       "fierce",
@@ -8209,7 +8209,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The ___ rings at the end of class.",
     "choices": [
       "huge",
       "bell",
@@ -8279,7 +8279,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The student reads the ___.",
     "choices": [
       "book",
       "write",
@@ -8349,7 +8349,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The muddy ___ sits by the door.",
     "choices": [
       "ate",
       "baked",
@@ -8419,7 +8419,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The toys are inside the ___.",
     "choices": [
       "builds",
       "smelly",
@@ -8489,7 +8489,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The ___ crawls on the leaf.",
     "choices": [
       "square",
       "bug",
@@ -8559,7 +8559,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The child points to the ___ in the picture.",
     "choices": [
       "blow",
       "builds",
@@ -8629,7 +8629,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The child points to the ___ in the picture.",
     "choices": [
       "dance",
       "fierce",
@@ -8699,7 +8699,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The child points to the ___ in the picture.",
     "choices": [
       "huge",
       "market",
@@ -8769,7 +8769,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The child points to the ___ in the picture.",
     "choices": [
       "mum",
       "hung",
@@ -8839,7 +8839,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The child points to the ___ in the picture.",
     "choices": [
       "melt",
       "observe",
@@ -8909,7 +8909,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The child points to the ___ in the picture.",
     "choices": [
       "predict",
       "smelly",
@@ -8979,7 +8979,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The child points to the ___ in the picture.",
     "choices": [
       "square",
       "station",
@@ -9049,7 +9049,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The child points to the ___ in the picture.",
     "choices": [
       "ticket",
       "rises",
@@ -9119,7 +9119,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The child carried a backpack on his ___.",
     "choices": [
       "back",
       "bag",
@@ -9199,7 +9199,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The ___ holds the school books.",
     "choices": [
       "bag",
       "book",
@@ -9279,7 +9279,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The player swings the ___.",
     "choices": [
       "bat",
       "cat",
@@ -9359,7 +9359,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The ___ stands near the tree.",
     "choices": [
       "bear",
       "duck",
@@ -9439,7 +9439,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The child sleeps in the ___.",
     "choices": [
       "bag",
       "bat",
@@ -9519,7 +9519,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The ___ rings at the end of class.",
     "choices": [
       "bell",
       "boot",
@@ -9599,7 +9599,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The student reads the ___.",
     "choices": [
       "book",
       "coat",
@@ -9679,7 +9679,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The muddy ___ sits by the door.",
     "choices": [
       "boot",
       "egg",
@@ -9759,7 +9759,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The toys are inside the ___.",
     "choices": [
       "bat",
       "bear",
@@ -9839,7 +9839,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The ___ crawls on the leaf.",
     "choices": [
       "boot",
       "box",
@@ -9919,7 +9919,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The child wears a ___ on his head.",
     "choices": [
       "cap",
       "cup",
@@ -9999,7 +9999,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The ___ naps on the mat.",
     "choices": [
       "back",
       "cat",
@@ -10079,7 +10079,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The ___ hangs on the hook.",
     "choices": [
       "bear",
       "bed",
@@ -10159,7 +10159,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The ___ holds cold water.",
     "choices": [
       "box",
       "bug",
@@ -10239,7 +10239,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The ___ reads a story.",
     "choices": [
       "cup",
       "dad",
@@ -10319,7 +10319,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The ___ runs in the yard.",
     "choices": [
       "back",
       "bag",
@@ -10399,7 +10399,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The ___ swims in the pond.",
     "choices": [
       "bed",
       "bell",
@@ -10479,7 +10479,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The ___ sits in the nest.",
     "choices": [
       "bug",
       "cap",
@@ -10559,7 +10559,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The child covers one ___.",
     "choices": [
       "dad",
       "dog",
@@ -10639,7 +10639,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the noun that best fits the sentence.",
     "question": "Choose the noun that best fits the sentence.",
-    "sentence": "This is the ___.",
+    "sentence": "The ___ hides in the grass.",
     "choices": [
       "back",
       "bag",
@@ -16153,7 +16153,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The children ___ lunch together.",
     "choices": [
       "ate",
       "artist",
@@ -16223,7 +16223,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "market",
       "mum",
@@ -16293,7 +16293,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "station",
       "fierce",
@@ -16363,7 +16363,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "huge",
       "blow",
@@ -16433,7 +16433,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "builds",
       "bat",
@@ -16503,7 +16503,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "bell",
       "book",
@@ -16573,7 +16573,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The family will ___ dinner.",
     "choices": [
       "hand",
       "brown",
@@ -16643,7 +16643,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "bug",
       "smelly",
@@ -16713,7 +16713,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "square",
       "dance",
@@ -16783,7 +16783,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "drew",
       "cup",
@@ -16853,7 +16853,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "duck",
       "egg",
@@ -16923,7 +16923,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "foot",
       "brown",
@@ -16993,7 +16993,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "purple",
       "flew",
@@ -17063,7 +17063,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "girl",
       "grape",
@@ -17133,7 +17133,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "hung",
       "hair",
@@ -17203,7 +17203,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "head",
       "hen",
@@ -17273,7 +17273,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "knee",
       "fierce",
@@ -17343,7 +17343,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "huge",
       "melt",
@@ -17413,7 +17413,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "observe",
       "men",
@@ -17483,7 +17483,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "pear",
       "pen",
@@ -17553,7 +17553,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "rice",
       "smelly",
@@ -17623,7 +17623,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "square",
       "predict",
@@ -17693,7 +17693,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "raised",
       "sky",
@@ -17763,7 +17763,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "sun",
       "toast",
@@ -17833,7 +17833,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "child",
       "brown",
@@ -17903,7 +17903,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "purple",
       "repair",
@@ -17973,7 +17973,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "rises",
       "baby",
@@ -18043,7 +18043,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "belt",
       "bird",
@@ -18113,7 +18113,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "bread",
       "fierce",
@@ -18183,7 +18183,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "huge",
       "sat",
@@ -18253,7 +18253,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "shake",
       "cloud",
@@ -18323,7 +18323,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The class will ___ a song.",
     "choices": [
       "purple",
       "sing",
@@ -18393,7 +18393,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "desk",
       "dirt",
@@ -18463,7 +18463,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "farmer",
       "smelly",
@@ -18533,7 +18533,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "square",
       "swayed",
@@ -18603,7 +18603,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "walked",
       "food",
@@ -18673,7 +18673,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The children ___ lunch together.",
     "choices": [
       "ate",
       "bake",
@@ -18753,7 +18753,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The family will ___ bread.",
     "choices": [
       "ate",
       "bake",
@@ -18833,7 +18833,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The children ___ the blocks.",
     "choices": [
       "ate",
       "bake",
@@ -18913,7 +18913,7 @@ export const secondBlockSkillTopUpQuestions = [
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "They ___.",
+    "sentence": "The student will ___ a sentence.",
     "choices": [
       "ate",
       "bake",
@@ -20213,8 +20213,8 @@ export const secondBlockSkillTopUpQuestions = [
     "imageUrl": "/images/child-mode/blends/blue.png",
     "targetImage": "/images/child-mode/blends/blue.png",
     "targetImagePath": "/images/child-mode/blends/blue.png",
-    "audioPath": "/audio/child-mode/words/blue.mp3",
-    "audioUrl": "/audio/child-mode/words/blue.mp3",
+    "audioPath": "/audio/child-mode/clean-human/words/blue.mp3",
+    "audioUrl": "/audio/child-mode/clean-human/words/blue.mp3",
     "audioText": "blue",
     "audioKey": "blue",
     "active": true,

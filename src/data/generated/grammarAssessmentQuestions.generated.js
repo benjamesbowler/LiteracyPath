@@ -345,10 +345,12 @@ function sentenceOptions(partOfSpeech, answer, index) {
     .map(word => sentenceOptionFor(word, partOfSpeech));
 }
 
-function sentenceFor(partOfSpeech) {
-  if (partOfSpeech === "noun") return "This is the ___.";
-  if (partOfSpeech === "verb") return "They ___.";
-  return "It is ___.";
+function sentenceFor(partOfSpeech, answer) {
+  const target = targetSets[partOfSpeech]?.find(([word]) => word === answer);
+  if (target?.[1]) return target[1];
+  if (partOfSpeech === "noun") return "Choose the ___ that fits the picture.";
+  if (partOfSpeech === "verb") return "The child will ___ in the picture.";
+  return "The pictured object looks ___.";
 }
 
 function makeLevelOneQuestion(config, target, index) {
@@ -376,7 +378,7 @@ function makeLevelOneQuestion(config, target, index) {
     formatType: FORMAT_SENTENCE_FIT,
     prompt: config.sentencePrompt,
     question: config.sentencePrompt,
-    sentence: sentenceFor(config.partOfSpeech),
+    sentence: sentenceFor(config.partOfSpeech, word),
     targetWord: word,
     imagePath,
     imageUrl: imagePath,
@@ -418,7 +420,7 @@ function makeLevelTwoQuestion(config, target, index) {
     formatType: FORMAT_SENTENCE_FIT,
     prompt: config.sentencePrompt,
     question: config.sentencePrompt,
-    sentence: sentenceFor(config.partOfSpeech),
+    sentence: sentenceFor(config.partOfSpeech, word),
     targetWord: word,
     imagePath,
     imageUrl: imagePath,

@@ -7,6 +7,7 @@ import { longVowelsAssessmentQuestions } from "../src/data/generated/longVowelsA
 import { vowelTeamsVarietyQuestions } from "../src/data/generated/vowelTeamsVarietyQuestions.generated.js";
 import { blendsAssessmentQuestions } from "../src/data/generated/blendsAssessmentQuestions.generated.js";
 import { getRhymeGroup } from "../src/data/rhymeGroups.js";
+import { selectableRuntimeQuestionsForSkill } from "./phonicsRuntimeUtils.js";
 
 const failures = [];
 const fail = message => failures.push(message);
@@ -15,6 +16,9 @@ const same = (actual, expected) => JSON.stringify(actual) === JSON.stringify(exp
 const choiceValue = choice => String(choice?.value || choice?.word || choice?.label || choice || "").toLowerCase();
 
 const genericGrammarFrames = new Set([
+  "This is the ___.",
+  "It is ___.",
+  "They ___.",
   "The ___ is in the picture.",
   "They can ___.",
   "The picture is ___."
@@ -40,6 +44,15 @@ languageSkillQuestions.forEach(question => {
       fail(`${question.id}: homophone choices are not a same-set pair/triple`);
     }
   }
+});
+
+["nouns", "verbs", "adjectives"].forEach(skillId => {
+  selectableRuntimeQuestionsForSkill(skillId).forEach(question => {
+    const sentence = question.sentence || question.sentenceWithBlank || "";
+    if (genericGrammarFrames.has(sentence)) {
+      fail(`${question.id}: active runtime ${skillId} generic grammar frame remains`);
+    }
+  });
 });
 
 const core001 = byId(masteryCoreQuestions, "core_cvc_001");

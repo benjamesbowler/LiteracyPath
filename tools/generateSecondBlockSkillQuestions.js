@@ -488,10 +488,127 @@ function makeGrammar(rows, part, skillName) {
   return questions;
 }
 
+const NOUN_SENTENCES = {
+  back: "The child carried a backpack on his ___.",
+  bag: "The ___ holds the school books.",
+  bat: "The player swings the ___.",
+  bear: "The ___ stands near the tree.",
+  bed: "The child sleeps in the ___.",
+  bell: "The ___ rings at the end of class.",
+  book: "The student reads the ___.",
+  boot: "The muddy ___ sits by the door.",
+  box: "The toys are inside the ___.",
+  bug: "The ___ crawls on the leaf.",
+  cap: "The child wears a ___ on his head.",
+  cat: "The ___ naps on the mat.",
+  coat: "The ___ hangs on the hook.",
+  cup: "The ___ holds cold water.",
+  dad: "The ___ reads a story.",
+  dog: "The ___ runs in the yard.",
+  duck: "The ___ swims in the pond.",
+  egg: "The ___ sits in the nest.",
+  eye: "The child covers one ___.",
+  fox: "The ___ hides in the grass.",
+  hand: "The child raises a ___.",
+  hat: "The ___ is on the chair.",
+  hill: "The ___ rises behind the house.",
+  leg: "The table has one broken ___.",
+  map: "The ___ shows the road.",
+  moon: "The ___ shines at night.",
+  nose: "The clown has a red ___.",
+  pen: "The child writes with a ___.",
+  pig: "The ___ rolls in the mud.",
+  ring: "The ___ shines on her finger.",
+  rock: "The ___ sits beside the path.",
+  ship: "The ___ sails on the water.",
+  shoe: "The ___ is under the bed.",
+  sock: "The ___ is in the laundry basket.",
+  star: "The ___ shines in the sky.",
+  sun: "The ___ warms the playground.",
+  tree: "The ___ grows beside the house.",
+  wall: "The picture hangs on the ___.",
+  wing: "The bird flaps its ___."
+};
+
+const VERB_SENTENCES = {
+  ate: "The children ___ lunch together.",
+  bake: "The family will ___ bread.",
+  share: "The children ___ the blocks.",
+  write: "The student will ___ a sentence.",
+  add: "The student will ___ two blocks.",
+  answer: "The child will ___ the question.",
+  ask: "The student will ___ for help.",
+  build: "The children ___ a tower.",
+  call: "The child will ___ a friend.",
+  carry: "The child will ___ the bag.",
+  catch: "The player will ___ the ball.",
+  clean: "The child will ___ the table.",
+  climb: "The child will ___ the ladder.",
+  color: "The student will ___ the picture.",
+  cook: "The family will ___ dinner.",
+  count: "The child will ___ the blocks.",
+  cut: "The child will ___ the paper.",
+  draw: "The student will ___ a star.",
+  drink: "The child will ___ water.",
+  drop: "The child will ___ the ball.",
+  eat: "The children ___ a snack.",
+  find: "The child will ___ the missing sock.",
+  help: "The student will ___ a friend.",
+  jump: "The child will ___ over the rope.",
+  kick: "The player will ___ the ball.",
+  laugh: "The friends ___ at the joke.",
+  listen: "The class will ___ to the story.",
+  look: "The child will ___ at the picture.",
+  make: "The children ___ a card.",
+  paint: "The student will ___ a flower.",
+  play: "The children ___ in the park.",
+  read: "The child will ___ a book.",
+  ride: "The child will ___ a bike.",
+  run: "The child can ___ fast.",
+  sing: "The class will ___ a song.",
+  sit: "The child will ___ on the chair.",
+  sleep: "The baby will ___ in the crib.",
+  swim: "The child will ___ in the pool.",
+  walk: "The family will ___ to school.",
+  wash: "The child will ___ her hands."
+};
+
+const ADJECTIVE_SENTENCES = {
+  big: "The elephant is ___ beside the mouse.",
+  red: "The apple is ___.",
+  black: "The night sky is ___.",
+  blue: "The sky is ___.",
+  sad: "The child feels ___ after losing the toy.",
+  hot: "The soup is ___.",
+  cold: "The ice is ___.",
+  fast: "The race car is ___.",
+  slow: "The turtle is ___.",
+  small: "The bug is ___ on the leaf.",
+  wet: "The dog is ___ after the rain.",
+  dry: "The towel is ___ in the basket.",
+  clean: "The plate is ___ after washing.",
+  dirty: "The boots are ___ after the walk.",
+  hard: "The rock is ___.",
+  soft: "The pillow is ___.",
+  long: "The rope is ___.",
+  short: "The pencil is ___.",
+  tall: "The tree is ___.",
+  round: "The ball is ___.",
+  white: "The snow is ___.",
+  green: "The leaf is ___.",
+  yellow: "The banana is ___.",
+  loud: "The drum is ___ when it is hit.",
+  quiet: "The library is ___ during reading time.",
+  cute: "The puppy is ___.",
+  funny: "The joke is ___.",
+  orange: "The pumpkin is ___.",
+  purple: "The flower is ___."
+};
+
 function sentenceFor(word, part) {
-  if (part === "noun") return `This is the ___.`;
-  if (part === "verb") return `They ___.`;
-  return `It is ___.`;
+  if (part === "noun") return NOUN_SENTENCES[word] || `The child points to the ___ in the picture.`;
+  if (part === "verb") return VERB_SENTENCES[word] || `The child will ___ in the picture.`;
+  return ADJECTIVE_SENTENCES[word] || `The pictured object looks ___.`;
 }
 
 const PREPOSITIONS = ["above", "below", "behind", "beside", "between", "near", "over", "through", "across", "against", "along", "among", "around", "outside"];
