@@ -1022,10 +1022,6 @@ function isMissingItemMasteryTableError(error) {
   return isMissingTableError(error, "item_mastery");
 }
 
-function isMissingChildModeAnswersTableError(error) {
-  return isMissingTableError(error, "child_mode_answers");
-}
-
 function isInvalidRefreshTokenError(error) {
   return /invalid refresh token|refresh token not found/i.test(error?.message || "");
 }
@@ -1109,95 +1105,6 @@ function calculateWeaknessSnapshot(answerHistory) {
     strongest,
     needsPractice,
     suggestedNextFocus: needsPractice[0] || null
-  };
-}
-
-const echoCavesMissionMap = [
-  { id: "intro", label: "The Crystal Hum", matches: questionId => questionId.includes("intro") },
-  { id: "practice", label: "Rumble's Lost Crystals", matches: questionId => questionId.includes("practice-") },
-  { id: "mixed", label: "The Four Tunnel Crystals", matches: questionId => questionId.includes("mixed") },
-  { id: "mastery", label: "Deep Crystal Mastery", matches: questionId => questionId.includes("mastery") }
-];
-
-const echoCavesWords = ["bag", "bat", "cap", "cat", "hat", "man", "map", "nap", "pan"];
-
-function buildChildLearningEvidence(answerRows = [], itemMasteryRows = [], tableMissing = false) {
-  if (tableMissing) {
-    return {
-      tableMissing: true,
-      worldsPlayed: [],
-      missionsCompleted: [],
-      attempted: 0,
-      correct: 0,
-      recentAccuracy: null,
-      masteredWords: [],
-      focus: "Practice data is not available yet.",
-      supportNeeds: [],
-      lastPlayed: null,
-      masteryChips: echoCavesWords.map(word => ({ word, status: "not-attempted" }))
-    };
-  }
-
-  const childRows = (answerRows || []).filter(row =>
-    (row.source || "child_mode").includes("child_mode")
-  );
-  const attemptedWords = new Set(childRows.map(row => normalizeItemKey(row.item_key || row.target_word)).filter(Boolean));
-  const childMasteryRows = (itemMasteryRows || []).filter(row =>
-    attemptedWords.has(normalizeItemKey(row.item_key)) &&
-    (row.item_type === "cvc_word" || row.item_type?.includes("child_mode"))
-  );
-
-  const attempted = childRows.length;
-  const correct = childRows.filter(row => row.is_correct).length;
-  const recent = childRows.slice(-10);
-  const recentCorrect = recent.filter(row => row.is_correct).length;
-  const missedRows = childRows.filter(row => !row.is_correct);
-  const masteredWords = childMasteryRows
-    .filter(row => row.mastered)
-    .map(row => normalizeItemKey(row.item_key))
-    .filter(Boolean)
-    .sort();
-  const masteredSet = new Set(masteredWords);
-  const allChipWords = Array.from(new Set([...echoCavesWords, ...attemptedWords])).sort();
-  const lastPlayed = childRows.length
-    ? childRows[childRows.length - 1].answered_at
-    : null;
-  const supportNeeds = [];
-
-  if (missedRows.some(row =>
-    /[eo]/.test(normalizeItemKey(row.selected_answer || "")) &&
-    /a/.test(normalizeItemKey(row.correct_answer || row.target_word || ""))
-  )) {
-    supportNeeds.push("Confuses short-a and short-o/short-e contrasts");
-  }
-
-  if (missedRows.length > 0) {
-    supportNeeds.push("Short-A vowel discrimination");
-  }
-
-  const missionsCompleted = echoCavesMissionMap
-    .filter(mission => childRows.some(row => mission.matches(row.question_id || "")))
-    .map(mission => mission.label);
-
-  return {
-    tableMissing: false,
-    worldsPlayed: attempted > 0 ? ["Phonics Lab"] : [],
-    missionsCompleted,
-    attempted,
-    correct,
-    recentAccuracy: recent.length ? Math.round((recentCorrect / recent.length) * 100) : null,
-    masteredWords,
-    focus: supportNeeds[0] || (attempted > 0 ? "Ready for more phonics practice" : "No phonics practice yet"),
-    supportNeeds,
-    lastPlayed,
-    masteryChips: allChipWords.map(word => ({
-      word,
-      status: masteredSet.has(word)
-        ? "mastered"
-        : attemptedWords.has(word)
-          ? "practicing"
-          : "not-attempted"
-    }))
   };
 }
 
@@ -1617,9 +1524,6 @@ export default function App() {
   const [roundQuestionIds, setRoundQuestionIds] = useState([]);
   const [usedByStage, setUsedByStage] = useState({});
   const [mastery, setMastery] = useState({});
-  const [childLearningEvidence, setChildLearningEvidence] = useState(() =>
-    buildChildLearningEvidence()
-  );
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [feedback, setFeedback] = useState(null);
   const [assessmentTransitioning, setAssessmentTransitioning] = useState(false);
@@ -1887,7 +1791,6 @@ export default function App() {
     setRoundQuestionIds([]);
     setUsedByStage({});
     setMastery({});
-    setChildLearningEvidence(buildChildLearningEvidence());
     setCurrentQuestion(null);
     setFeedback(null);
     setAssessmentTransitioning(false);
@@ -3125,7 +3028,6 @@ export default function App() {
       setNameSaved(false);
       setAnswerHistory([]);
       setItemMastery({});
-      setChildLearningEvidence(buildChildLearningEvidence());
       setItemSessionSeen({});
       setMastery({});
       setRoundAnswers([]);
@@ -3230,7 +3132,6 @@ export default function App() {
       setNameSaved(false);
       setAnswerHistory([]);
       setItemMastery({});
-      setChildLearningEvidence(buildChildLearningEvidence());
       setItemSessionSeen({});
       setMastery({});
       setRoundAnswers([]);
@@ -3266,7 +3167,6 @@ export default function App() {
     setAnswerHistory([]);
     setItemMastery({});
     setItemSessionSeen({});
-    setChildLearningEvidence(buildChildLearningEvidence());
 
     if (clearFormalAssessments) {
       setLetterIndex(0);
@@ -3309,8 +3209,7 @@ export default function App() {
       "mastery",
       "item_mastery",
       "assessment_attempts",
-      "el_assessment_reports",
-      "child_mode_answers"
+      "el_assessment_reports"
     ]) {
       const error = await deleteStudentProgressRows(tableName, studentId);
       if (error) errors.push(error);
@@ -3408,22 +3307,6 @@ export default function App() {
       console.error("Load item mastery error:", itemMasteryError);
     }
 
-    const { data: childAnswerRows, error: childAnswerError } = await supabase
-      .from("child_mode_answers")
-      .select("*")
-      .eq("teacher_id", teacherId)
-      .eq("student_id", selectedStudentId)
-      .order("answered_at", { ascending: true });
-
-    const childAnswersTableMissing = isMissingChildModeAnswersTableError(childAnswerError);
-
-    if (childAnswerError && !childAnswersTableMissing) {
-      console.error("Load child mode answers error:", childAnswerError);
-    }
-
-    setChildLearningEvidence(
-      buildChildLearningEvidence(childAnswerRows || [], itemMasteryRows || [], childAnswersTableMissing)
-    );
     setGuidedReadingRecords(loadGuidedReadingRecords(selectedStudentId));
 
     const rebuiltItemMastery = {};
@@ -4799,82 +4682,6 @@ export default function App() {
       console.warn("Assessment attempt archive save failed.", error);
       return enrichedAttempt;
     }
-  }
-
-  async function saveChildModeAnswerToSupabase(record) {
-    if (!studentId || !teacherId || !record?.questionId) return;
-
-    try {
-      const { error } = await supabase
-        .from("child_mode_answers")
-        .insert({
-          source: "child_mode",
-          student_id: studentId,
-          class_id: selectedClassId,
-          teacher_id: teacherId,
-          question_id: record.questionId,
-          target_word: record.targetWord,
-          item_key: record.itemKey,
-          item_type: record.itemType,
-          format_type: record.formatType,
-          is_correct: record.isCorrect,
-          selected_answer: record.selectedAnswer,
-          correct_answer: record.correctAnswer,
-          answered_at: record.timestamp
-        });
-
-      if (error && !isMissingChildModeAnswersTableError(error)) {
-        console.warn("Child Mode answer save failed; continuing play.", error);
-      }
-    } catch (error) {
-      console.warn("Child Mode answer save failed; continuing play.", error);
-    }
-  }
-
-  function recordChildModeAnswer(record) {
-    const targetWord = normalizeItemKey(record?.targetWord || record?.correctAnswer || "");
-    if (!targetWord) return;
-
-    const timestamp = record.timestamp || new Date().toISOString();
-    const itemType = "cvc_word";
-    const itemKey = targetWord;
-    const formatType = record.formatType || "UNKNOWN";
-    const correctAnswer = record.correctAnswer || targetWord;
-    const selectedAnswer = record.selectedAnswer || "";
-    const isCorrect = Boolean(record.isCorrect);
-
-    const childModeRecord = {
-      questionId: record.questionId,
-      targetWord,
-      itemKey,
-      itemType,
-      formatType,
-      isCorrect,
-      selectedAnswer,
-      correctAnswer,
-      timestamp
-    };
-
-    saveChildModeAnswerToSupabase(childModeRecord);
-
-    updateItemMastery(
-      {
-        id: record.questionId,
-        skill: "CVC and Short Vowels",
-        question: record.prompt || "Phonics practice",
-        prompt: record.prompt || "Phonics practice",
-        answer: correctAnswer,
-        audioText: record.audioText || targetWord,
-        spokenPrompt: record.spokenPrompt || targetWord,
-        diagnosticTarget: targetWord,
-        itemKey,
-        itemType,
-        formatType,
-        masteryStage: "child_mode_echo_caves_short_a",
-        source: "child_mode"
-      },
-      isCorrect
-    );
   }
 
   function getItemMasterySnapshot() {
@@ -7369,8 +7176,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           goToSkills={() => setAppView(APP_VIEWS.SKILLS)}
           goToElAssessments={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
           goToGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
-          goToTeacherDashboard={() => setAppView(APP_VIEWS.TEACHER_DASHBOARD)}
           goToLearn={() => setAppView(APP_VIEWS.LEARN)}
+          goToTeacherDashboard={() => setAppView(APP_VIEWS.TEACHER_DASHBOARD)}
           goToTools={() => setAppView(APP_VIEWS.TOOLS)}
           switchStudent={switchStudent}
           viewReport={viewReport}
@@ -7484,17 +7291,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </PageBoundary>
       )}
 
-      {appView === APP_VIEWS.LEARN && (
-        <PageBoundary resetKey="learn">
-          <Suspense fallback={<LazyPageFallback label="Loading Story Quest Adventures..." />}>
-            <LearnAreaPage assessmentSummary={summarizeAssessmentHistory(assessmentHistory, {
-              students: studentList.map(row => ({ ...row, className: getSelectedClassName(classList, row.class_id, "") })),
-              classes: classList
-            })} progressScopeKey={studentId || studentName || "default"} />
-          </Suspense>
-        </PageBoundary>
-      )}
-
       {appView === APP_VIEWS.OVERVIEW && nameSaved && (
         <PageBoundary resetKey={`overview-${studentId}`}>
           <StudentOverviewPage
@@ -7573,6 +7369,14 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             speakText={speakText}
             viewReports={() => setAppView(APP_VIEWS.REPORTS)}
           />
+        </PageBoundary>
+      )}
+
+      {appView === APP_VIEWS.LEARN && nameSaved && (
+        <PageBoundary resetKey={`learn-${studentId}`}>
+          <Suspense fallback={<LazyPageFallback label="Loading Story Quest..." />}>
+            <LearnAreaPage progressScopeKey={studentId || studentName || "default"} />
+          </Suspense>
         </PageBoundary>
       )}
 
@@ -7742,8 +7546,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               exportLetterAssessment={exportLetterAssessment}
               exportPatternAssessment={exportPatternAssessment}
               guidedReadingRecords={guidedReadingRecords}
-              openGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
               storyQuestProgressScopeKey={studentId || studentName || "default"}
+              openGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
               returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}
             />
           </Suspense>

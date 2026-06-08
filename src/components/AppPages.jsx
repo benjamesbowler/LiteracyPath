@@ -241,8 +241,11 @@ export function TopNavigation({
             </button>
 
             <button
+              aria-label={getStudentActionLabel("Story Quest Adventures")}
               className={appView === "learn" ? "nav-button primary" : "nav-button"}
               onClick={goToLearn}
+              disabled={!nameSaved}
+              title={needsStudentTitle}
             >
               Story Quest Adventures
             </button>

@@ -506,41 +506,6 @@ export const childPhraseAudio = {
   "you found it": "/audio/child-mode/phrases/you-found-it.mp3"
 };
 
-export const childModeUiAssets = {
-  caveButtonPanel: "/images/child-mode/ui/cave_button_panel.png",
-  caveRewardIcon: "/images/child-mode/ui/cave_reward_icon.png",
-  crystalShards: "/images/child-mode/ui/crystal_shards.png",
-  crystalSparkleParticles: "/images/child-mode/ui/crystal_sparkle_particles.png",
-  floatingCrystal: "/images/child-mode/ui/floating_crystal.png",
-  glowBurst: "/images/child-mode/ui/glow_burst.png",
-  magicalParticles: "/images/child-mode/ui/magical_particles.png",
-  masteryBadge: "/images/child-mode/ui/mastery_badge.png",
-  rewardStar: "/images/child-mode/ui/reward_star.png",
-  successSparkle: "/images/child-mode/ui/success_sparkle.png"
-};
-
-export const echoCavesAssets = {
-  background: "/images/child-mode/echo-caves/cave-background.png",
-  crystalCluster: "/images/child-mode/echo-caves/crystal-cluster.png",
-  crystalIcon: "/images/child-mode/echo-caves/crystal-icon.png",
-  missionCardBackground: "/images/child-mode/echo-caves/mission-card-bg.png",
-  rewardBadge: "/images/child-mode/echo-caves/reward-badge.png",
-  sparkleParticles: "/images/child-mode/echo-caves/sparkle-particles.png",
-  steppingStones: "/images/child-mode/echo-caves/stepping-stones.png",
-  tunnelEntrance: "/images/child-mode/echo-caves/tunnel-entrance.png",
-  uiPanelBackground: "/images/child-mode/echo-caves/ui-panel-bg.png"
-};
-
-export const rumbleAssets = {
-  celebrating: "/images/child-mode/rumble/rumble-celebrating.png",
-  encouraging: "/images/child-mode/rumble/rumble-encouraging.png",
-  excited: "/images/child-mode/rumble/rumble-excited.png",
-  happy: "/images/child-mode/rumble/rumble-happy.png",
-  idle: "/images/child-mode/rumble/rumble-idle.png",
-  listening: "/images/child-mode/rumble/rumble-listening.png",
-  pointing: "/images/child-mode/rumble/rumble-pointing.png"
-};
-
 export function getChildWordAsset(word) {
   const key = normalizeAssetKey(word);
   const localAsset = childWordAssets[key];
