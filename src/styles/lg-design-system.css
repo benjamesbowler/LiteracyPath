@@ -1,0 +1,972 @@
+/*
+ * Literacy Guide — Design System Overrides
+ * Drop this import at the TOP of App.css, after the Google Fonts @import.
+ * These rules replace the old warm-blue palette with the new teal brand system.
+ *
+ * @import './styles/lg-design-system.css';  ← add this line to App.css line 2
+ */
+
+/* ─── 1. Brand tokens ──────────────────────────────────────────────────────── */
+:root {
+  /* Primary brand — teal (replaces indigo #4f63d7) */
+  --lp-color-primary:        #0C6B65;
+  --lp-color-primary-strong: #084E4A;
+  --lp-color-primary-soft:   #E3F4F2;
+
+  /* Success — slightly brighter than old teal */
+  --lp-color-success:        #15803D;
+  --lp-color-success-soft:   #F0FDF4;
+  --lp-color-success-text:   #14532D;
+  --lp-color-teal-text:      #084E4A;
+
+  /* Warning / danger unchanged — already good */
+  --lp-color-warning:        #B45309;
+  --lp-color-warning-soft:   #FEF3C7;
+  --lp-color-danger:         #B91C1C;
+  --lp-color-danger-soft:    #FEF2F2;
+
+  /* Surfaces — remove warm tint, use clean cool-white */
+  --lp-color-surface:              #ffffff;
+  --lp-color-surface-warm:         #ffffff;
+  --lp-color-surface-subtle:       #F8FAFC;
+  --lp-color-background:           #F1F5F9;
+  --lp-color-background-warm:      #F1F5F9;
+  --lp-color-background-warm-strong: #F1F5F9;
+
+  /* Borders — slightly cooler */
+  --lp-color-border:        #E2E8F0;
+  --lp-color-border-strong: #CBD5E1;
+  --lp-color-border-subtle: #E2E8F0;
+
+  /* Shadows — remove warm tint, lighter */
+  --lp-shadow-card: 0 1px 4px rgba(15, 23, 42, 0.06), 0 4px 16px rgba(15, 23, 42, 0.06);
+  --lp-shadow-nav:  0 1px 3px rgba(15, 23, 42, 0.08);
+  --lp-shadow-soft: 0 4px 24px rgba(15, 23, 42, 0.08);
+  --lp-shadow-focus: 0 0 0 3px rgba(12, 107, 101, 0.22);
+
+  /* Radius — flatten cards significantly */
+  --lp-radius-sm:   4px;
+  --lp-radius-md:   6px;
+  --lp-radius-lg:   8px;
+  --lp-radius-xl:   10px;
+  --lp-radius-card: 10px;
+  --lp-radius-pill: 999px;
+
+  /* Sidebar */
+  --lg-sidebar-width-open:      200px;
+  --lg-sidebar-width-collapsed: 52px;
+  --lg-sidebar-bg:              #0F172A;
+  --lg-sidebar-item-active-bg:  rgba(12, 107, 101, 0.3);
+  --lg-sidebar-item-hover-bg:   rgba(255, 255, 255, 0.07);
+  --lg-sidebar-transition:      0.22s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Skill-domain accent colours (used on tiles, section headers, chips) */
+  --lg-domain-phonological:       #0C6B65;
+  --lg-domain-phonological-soft:  #E3F4F2;
+  --lg-domain-phonological-mid:   #C0E6E3;
+  --lg-domain-phonics:            #2563EB;
+  --lg-domain-phonics-soft:       #EFF6FF;
+  --lg-domain-phonics-mid:        #BFDBFE;
+  --lg-domain-hfw:                #B45309;
+  --lg-domain-hfw-soft:           #FEF3C7;
+  --lg-domain-hfw-mid:            #FDE68A;
+  --lg-domain-grammar:            #6D28D9;
+  --lg-domain-grammar-soft:       #F5F3FF;
+  --lg-domain-grammar-mid:        #DDD6FE;
+  --lg-domain-reading:            #15803D;
+  --lg-domain-reading-soft:       #F0FDF4;
+  --lg-domain-reading-mid:        #BBF7D0;
+}
+
+/* ─── 2. Page background — replace warm gradient with flat cool-white ──────── */
+body {
+  background: var(--lp-color-background) !important;
+}
+
+/* ─── 3. App shell — add room for sidebar ──────────────────────────────────── */
+.lg-app-shell {
+  display: flex;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.lg-content-area {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Old .app max-width — loosen when sidebar is present */
+.lg-app-shell .app {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ─── 4. Sidebar ────────────────────────────────────────────────────────────── */
+.lg-sidebar {
+  width: var(--lg-sidebar-width-open);
+  flex-shrink: 0;
+  background: var(--lg-sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  transition: width var(--lg-sidebar-transition);
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 20;
+}
+
+.lg-sidebar.collapsed {
+  width: var(--lg-sidebar-width-collapsed);
+}
+
+/* Sidebar top: logo + toggle button */
+.lg-sb-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 10px 12px;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+  min-width: 0;
+  gap: 6px;
+}
+
+.lg-sb-logo-mark {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.lg-sb-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  background: var(--lp-color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lg-sb-icon img,
+.lg-sb-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.lg-sb-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.15s ease;
+  letter-spacing: -0.01em;
+}
+
+.lg-sidebar.collapsed .lg-sb-name {
+  opacity: 0;
+  width: 0;
+}
+
+/* Toggle button */
+.lg-sb-toggle {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.45);
+  transition: background 0.15s, color 0.15s;
+  padding: 0;
+}
+
+.lg-sb-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.lg-sb-toggle-icon {
+  font-size: 15px;
+  transition: transform var(--lg-sidebar-transition);
+  display: block;
+  line-height: 1;
+}
+
+.lg-sidebar.collapsed .lg-sb-toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* Class label */
+.lg-sb-class {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 10px 12px 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.15s ease, height 0.22s ease, padding 0.22s ease;
+}
+
+.lg-sidebar.collapsed .lg-sb-class {
+  opacity: 0;
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Nav list */
+.lg-sb-nav {
+  flex: 1;
+  padding: 4px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+}
+
+.lg-sb-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 8px;
+  border-radius: 7px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  text-align: left;
+  width: 100%;
+  white-space: nowrap;
+  position: relative;
+  transition: background 0.12s, color 0.12s;
+  min-height: 0 !important;
+}
+
+.lg-sb-item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.lg-sb-item-icon svg,
+.lg-sb-toggle-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  display: block;
+}
+
+.lg-sb-item-label {
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.15s ease;
+  font-size: 13px;
+}
+
+.lg-sidebar.collapsed .lg-sb-item-label {
+  opacity: 0;
+  width: 0;
+}
+
+.lg-sb-item.active {
+  background: var(--lg-sidebar-item-active-bg);
+  color: #ffffff;
+}
+
+.lg-sb-item.active .lg-sb-item-icon {
+  color: #5DCAA5;
+}
+
+.lg-sb-item:hover:not(.active) {
+  background: var(--lg-sidebar-item-hover-bg);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.lg-sb-item:disabled {
+  cursor: not-allowed;
+  opacity: 0.38;
+}
+
+.lg-sb-item:disabled:hover {
+  background: none;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Tooltip — shown in collapsed state on hover */
+.lg-sb-tooltip {
+  display: none;
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: #1E293B;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 100;
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+}
+
+.lg-sb-tooltip::before {
+  content: '';
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-right-color: #1E293B;
+}
+
+.lg-sidebar.collapsed .lg-sb-item:hover .lg-sb-tooltip {
+  display: block;
+}
+
+/* Footer */
+.lg-sb-footer {
+  padding: 8px 6px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+/* ─── 5. Top bar (replaces sticky .top-nav inside sidebar layout) ────────────── */
+.lg-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 18px;
+  background: var(--lp-color-surface);
+  border-bottom: 1px solid var(--lp-color-border);
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.lg-topbar-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--lp-color-text-strong);
+  margin: 0;
+}
+
+.lg-topbar-sub {
+  font-size: 12px;
+  color: var(--lp-color-text-muted);
+  margin-top: 2px;
+}
+
+.lg-topbar-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ─── 6. Metric cards — coloured left-border pattern ────────────────────────── */
+.lg-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.lg-metric-card {
+  background: var(--lp-color-surface);
+  border: 1px solid var(--lp-color-border);
+  border-left: 3px solid currentColor;
+  border-radius: var(--lp-radius-lg);
+  padding: 11px 13px;
+}
+
+.lg-metric-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--lp-color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.lg-metric-value {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+  color: currentColor;
+}
+
+.lg-metric-sub {
+  font-size: 11px;
+  color: var(--lp-color-text-muted);
+  margin-top: 3px;
+}
+
+/* Metric colour modifiers */
+.lg-metric-teal    { color: var(--lp-color-primary); }
+.lg-metric-green   { color: #15803D; }
+.lg-metric-amber   { color: var(--lp-color-warning); }
+.lg-metric-red     { color: var(--lp-color-danger); }
+.lg-metric-blue    { color: #2563EB; }
+.lg-metric-purple  { color: #6D28D9; }
+.lg-metric-neutral { color: var(--lp-color-text-muted); }
+
+/* ─── 7. Skill tiles — domain-coloured ───────────────────────────────────────── */
+.lg-domain-section {
+  margin-bottom: 16px;
+}
+
+.lg-domain-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.lg-domain-pip {
+  width: 22px;
+  height: 3px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.lg-domain-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lg-skill-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px;
+}
+
+.lg-skill-tile {
+  background: var(--lp-color-surface);
+  border: 1px solid var(--lp-color-border);
+  border-left: 3px solid currentColor;
+  border-radius: var(--lp-radius-lg);
+  padding: 10px 11px;
+}
+
+.lg-skill-tile-num  { font-size: 10px; color: var(--lp-color-text-muted); margin-bottom: 2px; }
+.lg-skill-tile-name { font-size: 12.5px; font-weight: 700; color: var(--lp-color-text-strong); margin-bottom: 5px; }
+.lg-skill-tile-score { font-size: 22px; font-weight: 800; line-height: 1; color: currentColor; }
+.lg-skill-tile-sub  { font-size: 10px; color: var(--lp-color-text-muted); margin-top: 3px; }
+
+/* Tile colour modifiers (inherit from domain) */
+.lg-tile-phonological { color: var(--lg-domain-phonological); }
+.lg-tile-phonics      { color: var(--lg-domain-phonics); }
+.lg-tile-hfw          { color: var(--lg-domain-hfw); }
+.lg-tile-grammar      { color: var(--lg-domain-grammar); }
+.lg-tile-reading      { color: var(--lg-domain-reading); }
+
+/* Status overrides on tiles */
+.lg-tile-mastered   { color: #15803D; }
+.lg-tile-developing { color: var(--lp-color-warning); }
+.lg-tile-support    { color: var(--lp-color-danger); }
+
+/* ─── 8. Status badges — icon + pill pattern ─────────────────────────────────── */
+.lg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: var(--lp-radius-pill);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.lg-badge-icon {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.lg-badge-on-track {
+  background: #BBF7D0;
+  color: #14532D;
+}
+
+.lg-badge-developing {
+  background: #FDE68A;
+  color: #78350F;
+}
+
+.lg-badge-needs-support {
+  background: #FECACA;
+  color: #7F1D1D;
+}
+
+.lg-badge-not-started {
+  background: var(--lp-color-border);
+  color: var(--lp-color-text-muted);
+}
+
+/* ─── 9. Domain progress bars (class report) ────────────────────────────────── */
+.lg-domain-bar-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 36px auto;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.lg-domain-bar-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.lg-domain-bar-track {
+  height: 7px;
+  border-radius: 999px;
+  background: var(--lp-color-border);
+  overflow: hidden;
+}
+
+.lg-domain-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.lg-domain-bar-pct {
+  font-size: 12px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.lg-domain-bar-badges {
+  display: flex;
+  gap: 4px;
+}
+
+.lg-count-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 4px;
+  min-width: 22px;
+  text-align: center;
+}
+
+.lg-count-green  { background: #F0FDF4; color: #15803D; }
+.lg-count-amber  { background: #FEF3C7; color: #B45309; }
+.lg-count-red    { background: #FEF2F2; color: #B91C1C; }
+
+/* ─── 10. Section panels ─────────────────────────────────────────────────────── */
+.lg-panel {
+  background: var(--lp-color-surface);
+  border: 1px solid var(--lp-color-border);
+  border-radius: var(--lp-radius-card);
+  padding: 14px 16px;
+}
+
+.lg-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.lg-panel-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--lp-color-text-strong);
+  margin: 0;
+}
+
+.lg-panel-sub {
+  font-size: 12px;
+  color: var(--lp-color-text-muted);
+  margin: 2px 0 0;
+}
+
+.lg-section-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--lp-color-text-muted);
+  margin-bottom: 8px;
+}
+
+/* ─── 11. Focus callout ──────────────────────────────────────────────────────── */
+.lg-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 11px 13px;
+  border-radius: var(--lp-radius-lg);
+  border: 1px solid;
+  border-left-width: 3px;
+}
+
+.lg-callout-danger {
+  background: var(--lp-color-danger-soft);
+  border-color: #FECACA;
+  border-left-color: var(--lp-color-danger);
+}
+
+.lg-callout-warning {
+  background: var(--lp-color-warning-soft);
+  border-color: var(--lg-domain-hfw-mid);
+  border-left-color: var(--lp-color-warning);
+}
+
+.lg-callout-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.lg-callout-danger .lg-callout-icon  { color: var(--lp-color-danger); }
+.lg-callout-warning .lg-callout-icon { color: var(--lp-color-warning); }
+
+.lg-callout strong {
+  font-size: 13px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.lg-callout-danger strong  { color: var(--lp-color-danger); }
+.lg-callout-warning strong { color: var(--lp-color-warning); }
+
+.lg-callout p {
+  font-size: 12px;
+  color: var(--lp-color-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ─── 12. Student header bar (individual report) ─────────────────────────────── */
+.lg-student-header {
+  background: var(--lp-color-primary);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.lg-student-header-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.lg-student-header-sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.62);
+  margin-top: 3px;
+}
+
+.lg-student-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* ─── 13. EL assessment cards ────────────────────────────────────────────────── */
+.lg-el-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.lg-el-card {
+  background: var(--lg-domain-phonics-soft);
+  border: 1px solid var(--lg-domain-phonics-mid);
+  border-radius: var(--lp-radius-lg);
+  padding: 11px 12px;
+}
+
+.lg-el-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--lg-domain-phonics);
+  margin-bottom: 4px;
+}
+
+.lg-el-score {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--lg-domain-phonics);
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.lg-el-note {
+  font-size: 11px;
+  color: var(--lp-color-text-muted);
+  margin-top: 5px;
+}
+
+/* ─── 14. Growth chart delta badge ───────────────────────────────────────────── */
+.lg-delta-up {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #F0FDF4;
+  color: #15803D;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.lg-delta-down {
+  background: #FEF2F2;
+  color: #B91C1C;
+}
+
+/* ─── 15. Next session plan ──────────────────────────────────────────────────── */
+.lg-next-plan {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.lg-plan-card {
+  border: 1px solid var(--lp-color-border);
+  border-left: 3px solid;
+  border-radius: var(--lp-radius-lg);
+  padding: 11px 12px;
+}
+
+.lg-plan-card-focus  { border-left-color: var(--lp-color-primary); }
+.lg-plan-card-wins   { border-left-color: #15803D; }
+.lg-plan-card-flags  { border-left-color: var(--lp-color-warning); }
+
+.lg-plan-card h5 {
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0 0 7px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--lp-color-border);
+}
+
+.lg-plan-card-focus h5 { color: var(--lp-color-primary); }
+.lg-plan-card-wins h5  { color: #15803D; }
+.lg-plan-card-flags h5 { color: var(--lp-color-warning); }
+
+.lg-plan-item {
+  font-size: 12px;
+  color: var(--lp-color-text-muted);
+  padding: 3px 0;
+  border-bottom: 1px solid var(--lp-color-border-subtle);
+  line-height: 1.4;
+}
+
+.lg-plan-item:last-child {
+  border-bottom: none;
+}
+
+/* ─── 16. Student progress grid (class report) ───────────────────────────────── */
+.lg-progress-grid-wrap {
+  overflow-x: auto;
+}
+
+.lg-progress-grid {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.lg-progress-grid th {
+  padding: 5px 6px;
+  text-align: center;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--lp-color-text-muted);
+  border-bottom: 1px solid var(--lp-color-border);
+  background: var(--lp-color-surface-subtle);
+  white-space: nowrap;
+}
+
+.lg-progress-grid th.lg-name-col {
+  text-align: left;
+  background: var(--lp-color-surface-subtle);
+}
+
+.lg-progress-grid td {
+  padding: 3px 4px;
+  text-align: center;
+  border-bottom: 1px solid var(--lp-color-border-subtle);
+}
+
+.lg-progress-grid td.lg-name-cell {
+  text-align: left;
+  padding-left: 10px;
+  font-weight: 700;
+  color: var(--lp-color-text-strong);
+  white-space: nowrap;
+}
+
+.lg-grid-cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 24px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.lg-cell-mastered  { background: #F0FDF4; color: #15803D; }
+.lg-cell-developing { background: #FEF3C7; color: #92400E; }
+.lg-cell-support   { background: #FEF2F2; color: #991B1B; }
+.lg-cell-none      { background: var(--lp-color-border); color: var(--lp-color-text-subtle); }
+
+/* ─── 17. Button overrides — flatten from gradient/pill to clean rect ─────────── */
+.lg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 7px 14px;
+  border-radius: var(--lp-radius-lg);
+  font-family: var(--lp-font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.lg-btn-primary {
+  background: var(--lp-color-primary);
+  color: #ffffff;
+  border-color: var(--lp-color-primary-strong);
+}
+
+.lg-btn-primary:hover:not(:disabled) {
+  background: var(--lp-color-primary-strong);
+}
+
+.lg-btn-secondary {
+  background: var(--lp-color-surface);
+  color: var(--lp-color-text-strong);
+  border-color: var(--lp-color-border-strong);
+}
+
+.lg-btn-secondary:hover:not(:disabled) {
+  border-color: var(--lp-color-primary);
+  color: var(--lp-color-primary);
+}
+
+.lg-btn-ghost {
+  background: transparent;
+  color: var(--lp-color-text-muted);
+  border-color: transparent;
+}
+
+.lg-btn-ghost:hover:not(:disabled) {
+  background: var(--lp-color-primary-soft);
+  color: var(--lp-color-primary);
+}
+
+/* ─── 18. Override the old main-button gradient ───────────────────────────────── */
+.app:not(.assessment-app) .main-button,
+.auth-shell .main-button,
+.save-name-button {
+  border-radius: var(--lp-radius-lg) !important;
+  background: var(--lp-color-primary) !important;
+  border-color: var(--lp-color-primary-strong) !important;
+  box-shadow: none !important;
+}
+
+.app:not(.assessment-app) .main-button:hover:not(:disabled),
+.auth-shell .main-button:hover:not(:disabled) {
+  background: var(--lp-color-primary-strong) !important;
+  transform: none !important;
+}
+
+/* ─── 19. Override old card radius and warm surface ──────────────────────────── */
+.hero,
+.card,
+.report-panel,
+.teacher-panel {
+  background: var(--lp-color-surface) !important;
+  border-radius: var(--lp-radius-card) !important;
+  box-shadow: var(--lp-shadow-card) !important;
+}
+
+/* ─── 20. Teacher dashboard hero — remove warm gradient ─────────────────────── */
+.teacher-overview-hero,
+.teacher-page-header,
+.teacher-primary-action,
+.overview-start-panel {
+  background: var(--lp-color-surface) !important;
+}
+
+/* ─── 21. Tab bar overrides — teal active state ─────────────────────────────── */
+.teacher-tabs button.active {
+  color: var(--lp-color-primary) !important;
+}
+
+/* ─── 22. Focus ring — teal ──────────────────────────────────────────────────── */
+input:focus,
+select:focus,
+button:focus-visible {
+  box-shadow: var(--lp-shadow-focus) !important;
+  border-color: var(--lp-color-primary) !important;
+}
+
+/* ─── 23. Skill map tiles — domain colour through data attribute ─────────────── */
+.skill-map-tile.passed {
+  background: var(--lg-domain-phonological-soft);
+  border-color: var(--lg-domain-phonological-mid);
+}
+
+.skill-map-tile.current,
+.skill-map-tile.attempted {
+  background: var(--lg-domain-phonics-soft);
+  border-color: var(--lg-domain-phonics-mid);
+}
+
+/* ─── 24. Guided reading submenu — teal active ───────────────────────────────── */
+.guided-reading-submenu button.active {
+  background: var(--lp-color-primary);
+}

@@ -12205,6 +12205,40 @@ select:focus {
   margin-top: 8px;
 }
 
+.el-chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.el-item-chip {
+  align-items: center;
+  border-radius: 5px;
+  display: inline-flex;
+  font-family: var(--lp-font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  justify-content: center;
+  min-width: 32px;
+  padding: 3px 7px;
+}
+
+.el-chip-known {
+  background: #F0FDF4;
+  color: #14532D;
+}
+
+.el-chip-partial {
+  background: #FEF3C7;
+  color: #78350F;
+}
+
+.el-chip-unknown {
+  background: #FEF2F2;
+  color: #7F1D1D;
+}
+
 .student-report-skill-tile > span {
   color: #475569;
   display: block;
@@ -12618,6 +12652,12 @@ select:focus {
 
   .student-report-section-band {
     margin: 12px 0;
+  }
+
+  .el-item-chip {
+    font-size: 10px;
+    min-width: 26px;
+    padding: 2px 5px;
   }
 }
 

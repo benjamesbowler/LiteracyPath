@@ -292,9 +292,9 @@ function ElAssessmentSection({ cards }) {
             <p>{card.hasData ? `${card.accuracy}% · ${status.label.toUpperCase()}` : "Not assessed"}</p>
             {card.hasData && card.items?.length > 0 && (
               <div className="el-chip-grid">
-                {card.items.map(item => (
+                {card.items.map((item, index) => (
                   <ElItemChip
-                    key={item.label}
+                    key={`${card.title}-${item.label}-${index}`}
                     label={item.label}
                     known={item.known}
                     partial={item.partial}
@@ -325,7 +325,10 @@ function groupSkillRows(rows = []) {
 }
 
 function SkillTile({ row }) {
-  const hasData = row.attempts > 0 || row.status === "passed";
+  const hasData =
+    row.attempts > 0 ||
+    row.status === "passed" ||
+    (row.coverage?.mastered > 0 && row.coverage?.total > 0);
   const status = statusFromAccuracy(row.accuracy, hasData);
   const scoreText = row.checkpointHistory.at(-1)?.score || row.checkpointScore;
   const unit = row.coverage?.unit || "items";
@@ -713,9 +716,8 @@ export function FinishedReportPage({
 
   const elCards = useMemo(() => buildElAssessmentCards({
     letterAssessment,
-    patternAssessment,
-    model
-  }), [letterAssessment, patternAssessment, model]);
+    patternAssessment
+  }), [letterAssessment, patternAssessment]);
   const correctWordRows = guidedReadingWordRows.filter(row => row.status === "Read Correctly").slice(0, 30);
   const generatedDate = new Date().toLocaleDateString(undefined, {
     month: "short",
