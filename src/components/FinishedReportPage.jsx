@@ -1,20 +1,61 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { storyQuests } from "../data/storyQuests.js";
 import {
-  formatStoryQuestDate,
+  buildStudentReportModel,
+  formatItemLabel,
+  formatReportDate,
+  getSkillArea
+} from "../data/reportingSystem.js";
+import {
   loadStoryQuestProgress,
   summarizeStoryQuestProgress
 } from "../utils/storyQuestProgress.js";
 
-function formatGuidedReadingDate(value) {
-  if (!value) return "Not yet";
-  const date = new Date(value);
-  if (!Number.isFinite(date.getTime())) return "Not yet";
-  return date.toLocaleDateString(undefined, {
-    month: "short",
-    day: "numeric",
-    year: "numeric"
-  });
+const STATUS_TEXT = {
+  on_track: "On Track",
+  developing: "Developing",
+  needs_support: "Needs Support",
+  not_started: "Not Assessed"
+};
+
+const STATUS_RULES = {
+  mastered: { label: "Mastered", className: "mastered" },
+  developing: { label: "Developing", className: "developing" },
+  needs_support: { label: "Needs Support", className: "needs-support" },
+  not_assessed: { label: "Not assessed", className: "not-assessed" }
+};
+
+const AREA_ORDER = [
+  "Phonological Awareness",
+  "Phonics",
+  "High-Frequency Words",
+  "Grammar / Language",
+  "Guided Reading"
+];
+
+function clampPercent(value) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric)) return 0;
+  return Math.max(0, Math.min(100, Math.round(numeric)));
+}
+
+function statusFromAccuracy(accuracy, hasData = true) {
+  if (!hasData) return STATUS_RULES.not_assessed;
+  if (accuracy >= 80) return STATUS_RULES.mastered;
+  if (accuracy >= 60) return STATUS_RULES.developing;
+  return STATUS_RULES.needs_support;
+}
+
+function formatDate(value) {
+  return formatReportDate(value);
+}
+
+function normaliseList(values = []) {
+  return Array.from(new Set(values.filter(Boolean).map(value => String(value).trim()).filter(Boolean)));
+}
+
+function formatClassLabel(value = "") {
+  return value || "Class not linked";
 }
 
 function getGuidedReadingNoteRows(summary = {}) {
@@ -39,31 +80,19 @@ function buildGuidedReadingReportRows(records = {}, module = {}) {
       const progress = module.getGuidedReadingProgress?.(book, { ...record, bookId }) || {};
       const summary = summariesByBook.get(bookId) || module.summarizeGuidedReadingRecord?.(record) || {};
       const readCount = Math.max(Number(progress.readCount || record.readCount || 0), progress.completed ? 1 : 0);
-      const notes = getGuidedReadingNoteRows(summary);
-      const latestAccuracy = Number(summary.accuracy || 0);
 
       return {
         bookId,
         title: book.title || record.title || bookId,
         level: book.level || record.level || progress.level || "",
-        type: module.formatGuidedReadingType?.(book.type || record.type || progress.type || "") || book.type || record.type || "",
         lastReadAt: progress.lastReadAt || record.lastReadAt || record.completedAt || record.updatedAt || "",
         readCount,
-        rereadCount: Math.max(0, readCount - 1),
-        latestAccuracy,
-        correctCount: Number(summary.correct || 0),
-        supportCount: Number(summary.support || 0),
-        attempted: Number(summary.attempted || 0),
-        correctWords: summary.correctWords || [],
+        latestAccuracy: Number(summary.accuracy || 0),
         supportWords: summary.supportWords || [],
-        notes,
+        correctWords: summary.correctWords || [],
+        notes: getGuidedReadingNoteRows(summary),
         pagesRead: Number(progress.completedPages || record.completedPages || 0),
-        totalPages: Number(progress.totalPages || record.totalPages || book.pages?.length || 0),
-        trendText: readCount > 1
-          ? `${readCount} reads recorded · latest ${latestAccuracy}%`
-          : readCount === 1
-            ? "First read"
-            : "Opened, not completed"
+        attempted: Number(summary.attempted || 0)
       };
     })
     .filter(row =>
@@ -80,39 +109,483 @@ function buildGuidedReadingReportRows(records = {}, module = {}) {
     );
 }
 
+function SectionBand({ accent = "#0D7A73", children, subtitle, title }) {
+  return (
+    <div className="student-report-section-band" style={{ "--section-accent": accent }}>
+      <div className="student-report-section-stripe" aria-hidden="true"></div>
+      <div>
+        <h2>{title}</h2>
+        {subtitle && <p>{subtitle}</p>}
+      </div>
+      {children}
+    </div>
+  );
+}
+
+function ReportActions({ exportCSVData, returnToTeacherDashboard, startAssessment }) {
+  return (
+    <div className="student-report-actions screen-only">
+      <button className="main-button" onClick={startAssessment} type="button">Start Assessment</button>
+      <button className="report-button primary-export" onClick={() => window.print()} type="button">Export Report</button>
+      {exportCSVData && (
+        <button className="report-button csv-link" onClick={exportCSVData} type="button">Download Data (CSV)</button>
+      )}
+      {returnToTeacherDashboard && (
+        <button className="report-button" onClick={returnToTeacherDashboard} type="button">Teacher Dashboard</button>
+      )}
+    </div>
+  );
+}
+
+function StatusCallout({ snapshot }) {
+  return (
+    <section className={`student-report-status-callout ${snapshot.status.id}`}>
+      <div>
+        <strong>{STATUS_TEXT[snapshot.status.id] || snapshot.status.label}</strong>
+        <span>{snapshot.status.description}</span>
+      </div>
+      <p>Last active: <strong>{snapshot.lastActive || "No saved activity"}</strong></p>
+    </section>
+  );
+}
+
+function SnapshotGrid({ model, skillTotal }) {
+  const metrics = [
+    ["Overall Accuracy", `${model.snapshot.accuracy}%`, "accuracy"],
+    ["Current Skill", model.snapshot.currentSkill, "skill"],
+    ["Skills Passed", `${model.snapshot.skillsPassed} / ${skillTotal}`, "skills"],
+    ["Questions Answered", model.snapshot.totalAnswered, "answered"]
+  ];
+  return (
+    <section className="student-report-snapshot-grid">
+      {metrics.map(([label, value, role]) => (
+        <article className={`snapshot-metric ${role}`} key={label}>
+          <span>{label}</span>
+          <strong>{value}</strong>
+        </article>
+      ))}
+    </section>
+  );
+}
+
+function buildElAssessmentCards({ letterAssessment = [], patternAssessment = [], model }) {
+  const nameTotal = letterAssessment.length || 52;
+  const soundTotal = letterAssessment.length || 52;
+  const namesKnown = letterAssessment.filter(item => item.knowsName).length;
+  const soundsKnown = letterAssessment.filter(item => item.knowsSound).length;
+  const missingNames = letterAssessment.filter(item => !item.knowsName).map(item => item.letter).slice(0, 6);
+  const missingSounds = letterAssessment.filter(item => !item.knowsSound).map(item => `/${String(item.letter || "").toLowerCase()}/`).slice(0, 6);
+  const initialSoundRow = model.skillMapRows.find(row =>
+    row.skillId === "initial_sounds" ||
+    String(row.label || "").toLowerCase().includes("initial")
+  );
+  const patternTotal = patternAssessment.length ? patternAssessment.length * 2 : 0;
+  const patternCorrect = patternAssessment.reduce((sum, item) =>
+    sum + Number(Boolean(item.soundCorrect)) + Number(Boolean(item.wordCorrect)), 0);
+  const missingPatterns = patternAssessment
+    .filter(item => !item.soundCorrect || !item.wordCorrect)
+    .map(item => item.pattern)
+    .slice(0, 6);
+
+  const initialAccuracy = initialSoundRow?.attempts ? initialSoundRow.accuracy : 0;
+  const initialTotal = initialSoundRow?.coverage?.total || initialSoundRow?.checkpointHistory?.at(-1)?.score?.split("/")?.[1] || 0;
+  const initialCorrect = initialSoundRow?.coverage?.mastered || initialSoundRow?.checkpointHistory?.at(-1)?.score?.split("/")?.[0] || 0;
+  const initialNeeds = initialSoundRow?.itemGroups?.needsSupport?.map(row => row.label).slice(0, 6) || [];
+
+  return [
+    {
+      title: "Letter Names",
+      correct: namesKnown,
+      total: nameTotal,
+      accuracy: nameTotal ? clampPercent((namesKnown / nameTotal) * 100) : 0,
+      hasData: letterAssessment.length > 0,
+      detail: missingNames.length ? `Needs work: ${missingNames.join(", ")}` : "Needs work: none"
+    },
+    {
+      title: "Letter Sounds",
+      correct: soundsKnown,
+      total: soundTotal,
+      accuracy: soundTotal ? clampPercent((soundsKnown / soundTotal) * 100) : 0,
+      hasData: letterAssessment.length > 0,
+      detail: missingSounds.length ? `Needs work: ${missingSounds.join(", ")}` : "Needs work: none"
+    },
+    {
+      title: "Initial Sounds",
+      correct: initialCorrect,
+      total: initialTotal,
+      accuracy: initialAccuracy,
+      hasData: Boolean(initialSoundRow?.attempts),
+      detail: initialNeeds.length ? `Needs work: ${initialNeeds.join(", ")}` : "Needs work: none"
+    },
+    {
+      title: "Phonics Patterns",
+      correct: patternCorrect,
+      total: patternTotal,
+      accuracy: patternTotal ? clampPercent((patternCorrect / patternTotal) * 100) : 0,
+      hasData: patternAssessment.length > 0,
+      detail: missingPatterns.length ? `Needs work: ${missingPatterns.join(", ")}` : "Needs work: none"
+    }
+  ];
+}
+
+function ElAssessmentSection({ cards }) {
+  const hasAny = cards.some(card => card.hasData);
+  if (!hasAny) {
+    return (
+      <div className="student-report-muted-card">
+        No EL assessment recorded yet. Run an EL assessment to populate this section.
+      </div>
+    );
+  }
+
+  return (
+    <div className="student-report-el-grid">
+      {cards.map(card => {
+        const status = statusFromAccuracy(card.accuracy, card.hasData);
+        return (
+          <article className={`el-card ${status.className}`} key={card.title}>
+            <h3>{card.title}</h3>
+            <strong>{card.total ? `${card.correct} / ${card.total}` : "Not assessed"}</strong>
+            <p>{card.hasData ? `${card.accuracy}% · ${status.label.toUpperCase()}` : "Not assessed"}</p>
+            <small>{card.detail}</small>
+          </article>
+        );
+      })}
+    </div>
+  );
+}
+
+function groupSkillRows(rows = []) {
+  const grouped = new Map();
+  rows.forEach(row => {
+    const key = row.skillArea || "Other";
+    if (!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push(row);
+  });
+  return Array.from(grouped.entries())
+    .sort(([a], [b]) => {
+      const ai = AREA_ORDER.indexOf(a);
+      const bi = AREA_ORDER.indexOf(b);
+      return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi) || a.localeCompare(b);
+    });
+}
+
+function SkillTile({ row }) {
+  const hasData = row.attempts > 0 || row.status === "passed";
+  const status = statusFromAccuracy(row.accuracy, hasData);
+  const scoreText = row.checkpointHistory.at(-1)?.score || row.checkpointScore;
+  const unit = row.coverage?.unit || "items";
+  const total = row.coverage?.total || scoreText?.split("/")?.[1] || 0;
+  const mastered = row.coverage?.mastered || scoreText?.split("/")?.[0] || 0;
+
+  return (
+    <article className={`student-report-skill-tile ${status.className}`} style={{ "--skill-accent": row.skillAreaColor || "#0D7A73" }}>
+      <span>{row.index + 1}.&nbsp; <strong>{row.label}</strong></span>
+      <b>{hasData ? `${row.accuracy}%` : "—"}</b>
+      <small>{total ? `${mastered}/${total} ${unit}` : "No item evidence"} · {status.label}</small>
+    </article>
+  );
+}
+
+function SkillSetSection({ rows }) {
+  return (
+    <div className="student-report-skill-groups">
+      {groupSkillRows(rows).map(([area, areaRows]) => {
+        const areaMeta = getSkillArea({ skillName: area });
+        return (
+          <section className="student-report-skill-group" key={area}>
+            <h3 style={{ color: areaMeta.color }}>{area}</h3>
+            <div className="student-report-skill-rule" style={{ "--area-color": areaMeta.color }}></div>
+            <div className="student-report-skill-grid">
+              {areaRows.map(row => <SkillTile key={row.skillId} row={row} />)}
+            </div>
+          </section>
+        );
+      })}
+    </div>
+  );
+}
+
+function GrowthChart({ model }) {
+  const points = model.progressPoints.slice(-8);
+  if (points.length < 2) {
+    return (
+      <div className="student-report-muted-card">
+        Complete two or more assessments to see progress over time.
+      </div>
+    );
+  }
+
+  const width = 700;
+  const height = 230;
+  const left = 54;
+  const right = 18;
+  const top = 24;
+  const bottom = 38;
+  const plotWidth = width - left - right;
+  const plotHeight = height - top - bottom;
+  const maxX = Math.max(1, points.length - 1);
+  const latest = points.at(-1);
+  const first = points[0];
+  const line = points.map((point, index) => {
+    const x = left + (index / maxX) * plotWidth;
+    const y = top + (1 - clampPercent(point.value) / 100) * plotHeight;
+    return { ...point, x, y };
+  });
+  const path = line.map((point, index) => `${index === 0 ? "M" : "L"} ${point.x.toFixed(1)} ${point.y.toFixed(1)}`).join(" ");
+  const latestArea = latest.skillArea?.color || "#2563EB";
+
+  return (
+    <div className="student-report-growth-card">
+      <div className="growth-card-top">
+        <p>{latest.skillArea?.label || "Skill"} ({latest.skillName}) — {points.length} checkpoints recorded</p>
+        {model.sameSkillDelta !== null && (
+          <span className={`growth-delta ${model.sameSkillDelta >= 0 ? "positive" : "negative"}`}>
+            {model.sameSkillDelta >= 0 ? "+" : ""}{model.sameSkillDelta}% since last round
+          </span>
+        )}
+      </div>
+      <svg className="student-report-growth-svg" viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Assessment accuracy per checkpoint">
+        {[100, 80, 60, 40, 20].map(value => {
+          const y = top + (1 - value / 100) * plotHeight;
+          return (
+            <g key={value}>
+              <text x={left - 8} y={y + 5} textAnchor="end">{value}%</text>
+              <line x1={left} x2={width - right} y1={y} y2={y} />
+            </g>
+          );
+        })}
+        {line.map(point => (
+          <text key={`${point.completedAt}-label`} x={point.x} y={height - 8} textAnchor="middle">{point.label}</text>
+        ))}
+        <path d={path} style={{ stroke: latestArea }} />
+        {line.map(point => (
+          <circle key={`${point.completedAt}-dot`} cx={point.x} cy={point.y} r="6" style={{ fill: point.skillArea?.color || latestArea }}>
+            <title>{`${point.skillName}: ${point.value}% on ${point.label}`}</title>
+          </circle>
+        ))}
+      </svg>
+      <p className="growth-summary">
+        {model.snapshot.studentName} moved from {first.value}% on {first.label} to {latest.value}% on {latest.label}
+        {latest.skillName ? `, most recently on ${latest.skillName}.` : "."}
+      </p>
+    </div>
+  );
+}
+
+function LearnedSection({ correctWordRows, model }) {
+  const mastered = model.itemGroups.mastered || [];
+  const sightWords = mastered.filter(row =>
+    String(row.itemType || "").includes("sight") ||
+    String(row.itemType || "").includes("hfw") ||
+    String(row.skillName || "").toLowerCase().includes("high-frequency")
+  );
+  const sounds = mastered.filter(row =>
+    String(row.itemType || "").includes("sound") ||
+    String(row.itemType || "").includes("rhyme") ||
+    String(row.itemType || "").includes("letter") ||
+    String(row.itemType || "").includes("vowel")
+  );
+  const fallbackSight = sightWords.length ? sightWords : mastered.filter(row => row.label && !String(row.itemType || "").includes("sound")).slice(0, 60);
+  const fallbackSounds = sounds.length ? sounds : mastered.slice(0, 30);
+
+  return (
+    <div className="student-report-learned-grid">
+      <article className="student-report-learned-card words">
+        <h3>Sight Words Mastered ({fallbackSight.length})</h3>
+        <ChipTextList items={fallbackSight.map(row => row.label)} limit={60} />
+      </article>
+      <article className="student-report-learned-card sounds">
+        <h3>Sounds Mastered ({fallbackSounds.length})</h3>
+        <ChipTextList items={fallbackSounds.map(row => row.label)} limit={60} />
+      </article>
+      <article className="student-report-learned-card mastered">
+        <h3>Guided Reading — Words Read Correctly (recent books)</h3>
+        <ChipTextList
+          items={correctWordRows.map(row => `${row.word} (${row.title}, p.${row.page})`)}
+          limit={30}
+        />
+      </article>
+    </div>
+  );
+}
+
+function ChipTextList({ items = [], limit = 60 }) {
+  const list = normaliseList(items);
+  const visible = list.slice(0, limit);
+  return (
+    <p className="student-report-chip-text">
+      {visible.length ? visible.map(item => <span key={item}>{item}</span>) : <em>None recorded yet</em>}
+      {list.length > visible.length && <strong>+{list.length - visible.length} more</strong>}
+    </p>
+  );
+}
+
+function getTeachingNote(row, recommendations = {}) {
+  const match = (recommendations.focusItems || []).find(item =>
+    item.itemType === row.itemType && item.itemKey === row.itemKey
+  );
+  if (match?.teachingNote) return match.teachingNote;
+  const examples = normaliseList([...(row.missedExamples || []), ...(row.examples || [])]).slice(0, 4);
+  return examples.length
+    ? `Practise with ${examples.join(", ")}.`
+    : `Practise ${row.label || formatItemLabel(row.itemType, row.itemKey)} in a short mixed review.`;
+}
+
+function SupportSection({ model }) {
+  const rows = (model.itemGroups.needsSupport || [])
+    .filter(row => row.accuracy < 60)
+    .sort((a, b) => a.accuracy - b.accuracy || a.label.localeCompare(b.label))
+    .slice(0, 15);
+
+  if (!rows.length) {
+    return <div className="student-report-muted-card">No items below 60% accuracy are currently recorded.</div>;
+  }
+
+  return (
+    <div className="student-report-support-table-wrap">
+      <table className="student-report-support-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Skill Area</th>
+            <th>Score</th>
+            <th>Teaching Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map(row => {
+            const area = getSkillArea({ skillId: row.skillId, skillName: row.skillName });
+            return (
+              <tr key={`${row.itemType}-${row.itemKey}`}>
+                <td>{row.label}</td>
+                <td>{area.label} — {row.skillName}</td>
+                <td><strong>{row.correct}/{row.attempts} · {row.accuracy}%</strong></td>
+                <td>{getTeachingNote(row, model.recommendations)}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function GuidedReadingSection({ guidedReadingReportRows, storyQuestSummary }) {
+  const storyRows = storyQuestSummary.rows || [];
+  const storyWords = normaliseList(storyRows.flatMap(row => row.words || [])).sort((a, b) => a.localeCompare(b));
+
+  return (
+    <div className="student-report-reading-stack">
+      {guidedReadingReportRows.length ? (
+        <div className="student-report-reading-table-wrap">
+          <table className="student-report-reading-table">
+            <thead>
+              <tr>
+                <th>Book</th>
+                <th>Level</th>
+                <th>Reads</th>
+                <th>Accuracy</th>
+                <th>Support Words</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {guidedReadingReportRows.slice(0, 8).map(row => (
+                <tr key={row.bookId}>
+                  <td>{row.title}</td>
+                  <td>{row.level || "—"}</td>
+                  <td>{row.readCount}</td>
+                  <td className={row.latestAccuracy >= 80 ? "score-good" : row.latestAccuracy >= 60 ? "score-mid" : "score-low"}>
+                    {row.latestAccuracy || 0}%
+                  </td>
+                  <td>{row.supportWords.length ? row.supportWords.slice(0, 8).join(", ") : "none"}</td>
+                  <td>{row.notes[0]?.note || "No notes recorded."}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <div className="student-report-muted-card">No guided reading record saved yet.</div>
+      )}
+
+      <article className="story-vocabulary-card">
+        <h3>Story Quest — Vocabulary Collected</h3>
+        {storyRows.length ? (
+          <>
+            {storyRows.slice(0, 3).map(row => (
+              <p key={row.questId}>
+                <strong>{row.title}</strong> · {row.stars || row.starCount || (row.completed ? 1 : 0)} stars · {row.status}
+              </p>
+            ))}
+            <ChipTextList items={storyWords} limit={40} />
+          </>
+        ) : (
+          <p>No Story Quest vocabulary collected yet.</p>
+        )}
+      </article>
+    </div>
+  );
+}
+
+function NextSessionPlan({ model }) {
+  return (
+    <div className="student-report-next-grid">
+      <article className="student-report-next-card recommended">
+        <h3>Recommended Focus</h3>
+        <h4>{model.recommendations.recommendedSkill}</h4>
+        <p>{model.recommendations.reason}</p>
+        <strong>Focus items:</strong>
+        {(model.recommendations.focusItems || []).slice(0, 3).map(item => (
+          <p key={`${item.itemType}-${item.itemKey}`}><b>{item.label}</b> — {item.teachingNote}</p>
+        ))}
+        {!model.recommendations.focusItems?.length && <p>Start with a short checkpoint to gather fresh evidence.</p>}
+      </article>
+      <article className="student-report-next-card quick">
+        <h3>Quick Wins ✓</h3>
+        {(model.recommendations.quickWins || []).length ? (
+          <ul>{model.recommendations.quickWins.map(item => <li key={item}>{item}</li>)}</ul>
+        ) : (
+          <p>No quick wins recorded yet.</p>
+        )}
+      </article>
+      <article className="student-report-next-card caution">
+        <h3>Caution Flags !</h3>
+        {(model.recommendations.cautionFlags || []).length ? (
+          <ul>{model.recommendations.cautionFlags.map(item => <li key={item}>{item}</li>)}</ul>
+        ) : (
+          <p>No caution flags at this time.</p>
+        )}
+      </article>
+    </div>
+  );
+}
+
 export function FinishedReportPage({
   startAssessment,
-  keepPracticingSkill,
-  goToOverview,
   studentName,
+  className = "",
   totalAnswered,
   accuracy,
   currentStage,
   currentSkillIndex,
-  setCurrentSkillIndex,
-  setRoundAnswers,
-  setCurrentQuestion,
-  setFeedback,
-  setMessage,
   skillTree,
   currentStageQuestions,
   mastery,
   coverageSnapshot,
   skillMasterySummary = [],
-  allowPassageAudio,
-  setAllowPassageAudio,
-  exportData,
+  itemMastery = {},
+  assessmentHistory = [],
   exportCSVData,
   letterAssessment = [],
   patternAssessment = [],
-  exportLetterAssessment,
-  exportPatternAssessment,
   guidedReadingRecords = {},
-  openGuidedReading,
   storyQuestProgressScopeKey = "default",
   returnToTeacherDashboard
 }) {
   const [guidedReadingReportRows, setGuidedReadingReportRows] = useState([]);
+  const [guidedReadingWordRows, setGuidedReadingWordRows] = useState([]);
   const [storyQuestSummary, setStoryQuestSummary] = useState(() =>
     summarizeStoryQuestProgress(loadStoryQuestProgress(storyQuestProgressScopeKey), storyQuests)
   );
@@ -120,6 +593,7 @@ export function FinishedReportPage({
   useEffect(() => {
     if (!Object.keys(guidedReadingRecords || {}).length) {
       setGuidedReadingReportRows([]);
+      setGuidedReadingWordRows([]);
       return undefined;
     }
 
@@ -127,6 +601,7 @@ export function FinishedReportPage({
     import("../data/guidedReadingBooks").then(module => {
       if (!cancelled) {
         setGuidedReadingReportRows(buildGuidedReadingReportRows(guidedReadingRecords, module));
+        setGuidedReadingWordRows(module.getGuidedReadingWordStatusRows?.(guidedReadingRecords) || []);
       }
     });
 
@@ -142,321 +617,102 @@ export function FinishedReportPage({
     ));
   }, [storyQuestProgressScopeKey]);
 
-  const latestCheckpointIndex = Math.max(
-    -1,
-    currentSkillIndex - 1,
-    ...skillTree
-      .map((stage, index) => mastery[stage.id]?.mastered ? index : -1)
-      .filter(index => index !== -1)
-  );
-  const latestCheckpointStage = skillTree[latestCheckpointIndex];
-  const latestCheckpointCoverage = latestCheckpointStage
-    ? coverageSnapshot?.[latestCheckpointStage.id]
-    : null;
-  const latestCheckpointIncomplete =
-    latestCheckpointCoverage &&
-    latestCheckpointCoverage.mastered < latestCheckpointCoverage.total;
-  const hasAssessmentData =
-    totalAnswered > 0 ||
-    skillMasterySummary.some(summary => summary.masteredCount > 0) ||
-    Object.values(mastery || {}).some(value => value?.lastTotal || value?.mastered);
-  const hasGuidedReadingRecords = Object.keys(guidedReadingRecords || {}).length > 0;
+  const model = useMemo(() => buildStudentReportModel({
+    studentName,
+    className,
+    totalAnswered,
+    accuracy,
+    currentStage,
+    currentSkillIndex,
+    skillTree,
+    currentStageQuestions,
+    mastery,
+    coverageSnapshot,
+    skillMasterySummary,
+    itemMastery,
+    assessmentHistory,
+    guidedReadingReportRows,
+    storyQuestSummary
+  }), [
+    studentName,
+    className,
+    totalAnswered,
+    accuracy,
+    currentStage,
+    currentSkillIndex,
+    skillTree,
+    currentStageQuestions,
+    mastery,
+    coverageSnapshot,
+    skillMasterySummary,
+    itemMastery,
+    assessmentHistory,
+    guidedReadingReportRows,
+    storyQuestSummary
+  ]);
+
+  const elCards = useMemo(() => buildElAssessmentCards({
+    letterAssessment,
+    patternAssessment,
+    model
+  }), [letterAssessment, patternAssessment, model]);
+  const correctWordRows = guidedReadingWordRows.filter(row => row.status === "Read Correctly").slice(0, 30);
+  const generatedDate = new Date().toLocaleDateString(undefined, {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  });
 
   return (
-    <div className="report-panel page-stack finished-report-panel">
-      <h2>Finished Report</h2>
+    <div className="student-report-shell">
+      <ReportActions
+        exportCSVData={exportCSVData}
+        returnToTeacherDashboard={returnToTeacherDashboard}
+        startAssessment={startAssessment}
+      />
 
-      <div className="button-row">
-        <button className="main-button" onClick={startAssessment}>
-          Enter Full Screen Assessment
-        </button>
-
-        {returnToTeacherDashboard && (
-          <button className="report-button" onClick={returnToTeacherDashboard} type="button">
-            Return to Teacher Dashboard
-          </button>
-        )}
-
-        <button className="report-button" onClick={goToOverview}>
-          Student Overview
-        </button>
-      </div>
-
-      <p><strong>Student:</strong> {studentName || "Unnamed student"}</p>
-      <p><strong>Total answered:</strong> {totalAnswered}</p>
-      <p><strong>Accuracy:</strong> {accuracy}%</p>
-      <p><strong>Current focus:</strong> {currentStage.label}</p>
-
-      {!hasAssessmentData && (
-        <section className="report-empty-state">
-          <strong>No assessment data yet.</strong>
-          <p>Start the first assessment to populate checkpoints, accuracy, and mastered items.</p>
-          <button className="main-button" onClick={startAssessment} type="button">
-            Start First Assessment
-          </button>
-        </section>
-      )}
-
-      {guidedReadingReportRows.length > 0 && (
-        <section className="guided-reading-detail-report">
-          <div className="guided-reading-detail-header">
-            <div>
-              <h3>Guided Reading</h3>
-              <p>Locally saved book progress, rereads, word markings, and teacher notes for this student.</p>
-            </div>
-            <span>{guidedReadingReportRows.length} book{guidedReadingReportRows.length === 1 ? "" : "s"}</span>
-          </div>
-
-          <div className="guided-reading-detail-list">
-            {guidedReadingReportRows.map(item => (
-              <article key={item.bookId}>
-                <div className="guided-reading-detail-title">
-                  <strong>{item.title}</strong>
-                  <span>{[item.level ? `Level ${item.level}` : "", item.type].filter(Boolean).join(" · ") || "Guided Reading"}</span>
-                </div>
-
-                <div className="guided-reading-detail-grid">
-                  <span>Last read: {formatGuidedReadingDate(item.lastReadAt)}</span>
-                  <span>Reads: {item.readCount}</span>
-                  <span>Rereads: {item.rereadCount}</span>
-                  <span>Latest accuracy: {item.latestAccuracy}%</span>
-                  <span>Read correctly: {item.correctCount}</span>
-                  <span>Needs support: {item.supportCount}</span>
-                  <span>Notes: {item.notes.length}</span>
-                  {item.totalPages > 0 && <span>Pages: {item.pagesRead}/{item.totalPages}</span>}
-                </div>
-
-                <p className="guided-reading-trend-text">
-                  Reread trend: {item.trendText}
-                </p>
-
-                {(item.correctWords.length > 0 || item.supportWords.length > 0) && (
-                  <div className="guided-reading-word-summary">
-                    <span>{item.correctWords.length ? `Read correctly: ${item.correctWords.slice(0, 10).join(", ")}` : "No green words marked"}</span>
-                    <span>{item.supportWords.length ? `Support: ${item.supportWords.slice(0, 10).join(", ")}` : "No support words marked"}</span>
-                  </div>
-                )}
-
-                {item.notes.length > 0 && (
-                  <details className="guided-reading-notes-detail">
-                    <summary>{item.notes.length} teacher note{item.notes.length === 1 ? "" : "s"}</summary>
-                    <div>
-                      {item.notes.map(note => (
-                        <p key={`${item.bookId}-${note.label}-${note.note}`}>
-                          <strong>{note.label}:</strong> {note.note}
-                        </p>
-                      ))}
-                    </div>
-                  </details>
-                )}
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {!hasGuidedReadingRecords && openGuidedReading && (
-        <section className="report-empty-state">
-          <strong>No guided reading records yet.</strong>
-          <p>Open Guided Reading to begin saving book progress and conference notes.</p>
-          <button className="report-button" onClick={openGuidedReading} type="button">
-            Open Guided Reading
-          </button>
-        </section>
-      )}
-
-      <section className="story-quest-report-section">
-        <div className="story-quest-report-header">
-          <div>
-            <h3>Story Quest Adventures</h3>
-            <p>Local reading-adventure progress for this student.</p>
-          </div>
-          <span>Most recent: {formatStoryQuestDate(storyQuestSummary.mostRecentActivityAt)}</span>
+      <article className="student-report-document" aria-label={`Individual student report for ${model.snapshot.studentName}`}>
+        <div className="student-report-page-top">
+          <span>LiteracyPath · Individual Student Report</span>
+          <span>{model.snapshot.studentName} · {formatClassLabel(model.snapshot.className)}</span>
         </div>
 
-        {storyQuestSummary.rows.length > 0 ? (
-          <>
-            <div className="story-quest-report-metrics" aria-label="Story Quest summary">
-              <span><strong>{storyQuestSummary.completedCount}</strong> completed</span>
-              <span><strong>{storyQuestSummary.inProgressCount}</strong> in progress</span>
-              <span><strong>{storyQuestSummary.totalWordsFound}</strong> words found</span>
-            </div>
-            <div className="story-quest-report-list">
-              {storyQuestSummary.rows.map(row => (
-                <article key={row.questId}>
-                  <div className="story-quest-report-title">
-                    <strong>{row.title}</strong>
-                    <span>{[row.levelLabel, row.series].filter(Boolean).join(" · ") || "Story Quest"}</span>
-                  </div>
-                  <div className="story-quest-report-detail">
-                    <span>{row.status}</span>
-                    <span>Last activity: {formatStoryQuestDate(row.lastActivityAt)}</span>
-                    <span>Completed: {formatStoryQuestDate(row.completedAt)}</span>
-                    <span>Words: {row.wordCount}/{row.targetWordCount || row.wordCount}</span>
-                    {row.visitedPageCount > 0 && <span>Pages visited: {row.visitedPageCount}</span>}
-                  </div>
-                  {row.words.length > 0 && (
-                    <p className="story-quest-report-words">
-                      Words found: {row.words.slice(0, 10).join(", ")}
-                      {row.words.length > 10 ? "..." : ""}
-                    </p>
-                  )}
-                </article>
-              ))}
-            </div>
-          </>
-        ) : (
-          <div className="report-empty-state compact">
-            <strong>No Story Quest progress yet.</strong>
-            <p>Open Story Quest Adventures and start a story to build reading-adventure progress.</p>
-          </div>
-        )}
-      </section>
+        <header className="student-report-hero">
+          <span>Individual Student Report</span>
+          <h1>{model.snapshot.studentName}</h1>
+          <p>{formatClassLabel(model.snapshot.className)} · Generated {generatedDate}</p>
+        </header>
 
-      <label>
-        <strong>Set start skill: </strong>
-        <select
-          value={currentSkillIndex}
-          onChange={e => {
-            setCurrentSkillIndex(Number(e.target.value));
-            setRoundAnswers([]);
-            setCurrentQuestion(null);
-            setFeedback(null);
-            setMessage("Start skill changed.");
-          }}
-        >
-          {skillTree.map((stage, index) => (
-            <option key={stage.id} value={index}>
-              {index + 1}. {stage.label}
-            </option>
-          ))}
-        </select>
-      </label>
-      <p><strong>Available questions in this skill:</strong> {currentStageQuestions.length}</p>
-      <p><strong>Checkpoint rule:</strong> 9/10 correct to unlock the next skill.</p>
+        <StatusCallout snapshot={model.snapshot} />
 
-      {latestCheckpointStage && mastery[latestCheckpointStage.id]?.mastered && (
-        <section className="checkpoint-complete-panel">
-          <div>
-            <h3>Checkpoint Passed</h3>
-            <p>
-              {latestCheckpointIncomplete
-                ? "Checkpoint passed. Student may move forward, but this skill is not fully covered yet."
-                : "Checkpoint passed and item coverage is complete for the tracked items in this skill."}
-            </p>
-            {latestCheckpointCoverage && (
-              <div className="coverage-card compact">
-                <div className="coverage-card-header">
-                  <strong>{latestCheckpointStage.label} Coverage</strong>
-                  <span>{latestCheckpointCoverage.mastered}/{latestCheckpointCoverage.total} {latestCheckpointCoverage.unit} mastered</span>
-                </div>
-                <div className="coverage-bar secondary" aria-label={`${latestCheckpointStage.label} coverage progress`}>
-                  <span style={{ width: `${latestCheckpointCoverage.total ? Math.round((latestCheckpointCoverage.mastered / latestCheckpointCoverage.total) * 100) : 0}%` }}></span>
-                </div>
-              </div>
-            )}
-          </div>
+        <SectionBand title="Student Snapshot" subtitle="Key metrics at a glance" />
+        <SnapshotGrid model={model} skillTotal={skillTree.length} />
 
-          <div className="button-row">
-            <button className="main-button" onClick={() => startAssessment(currentSkillIndex)} type="button">
-              Move to Next Skill
-            </button>
-            <button
-              className="report-button"
-              onClick={() => keepPracticingSkill(latestCheckpointIndex)}
-              type="button"
-            >
-              Keep Practicing This Skill
-            </button>
-          </div>
-        </section>
-      )}
+        <SectionBand title="EL Assessments" subtitle="Formal early literacy assessment results" accent="#2563EB" />
+        <ElAssessmentSection cards={elCards} />
 
-      <h3>Skill Checkpoints and Coverage</h3>
+        <SectionBand title="Skill-Set Assessments" subtitle="Checkpoint results across all assessed skill areas" />
+        <SkillSetSection rows={model.skillMapRows} />
 
-      {skillTree.map((stage, index) => {
-        const data = mastery[stage.id];
-        const coverage = coverageSnapshot?.[stage.id] || {
-          mastered: 0,
-          total: 0,
-          unit: "items"
-        };
-        const checkpointPercent = data?.lastTotal
-          ? Math.round((data.lastScore / data.lastTotal) * 100)
-          : 0;
-        const coveragePercent = coverage.total
-          ? Math.round((coverage.mastered / coverage.total) * 100)
-          : 0;
+        <SectionBand title="Growth Over Time" subtitle="Assessment accuracy per checkpoint round — most recent on the right" />
+        <GrowthChart model={model} />
 
-        return (
-          <div className="skill-row" key={stage.id}>
-            <span>{index + 1}. {stage.label}</span>
-            <span>{data?.mastered ? "Checkpoint Passed" : index === currentSkillIndex ? "Current Checkpoint" : "Locked"}</span>
-            <span className="skill-row-progress">
-              <span>Checkpoint: {data ? `${data.lastScore}/${data.lastTotal}` : "-"}</span>
-              <span className="mini-progress-bar"><span style={{ width: `${checkpointPercent}%` }}></span></span>
-            </span>
-            <span className="skill-row-progress">
-              <span>Coverage: {coverage.mastered}/{coverage.total} {coverage.unit} mastered</span>
-              <span className="mini-progress-bar secondary"><span style={{ width: `${coveragePercent}%` }}></span></span>
-            </span>
-          </div>
-        );
-      })}
+        <SectionBand title="Words, Sounds & Skills Learned" subtitle="Items at Mastered level only" accent="#16A34A" />
+        <LearnedSection correctWordRows={correctWordRows} model={model} />
 
-      <section className="mastery-detail-panel">
-        <h3>Mastered Words and Items</h3>
-        <div className="mastery-detail-list">
-          {skillMasterySummary
-            .filter(summary => summary.masteredCount > 0)
-            .map(summary => (
-              <article key={summary.skillId}>
-                <strong>{summary.skillName}</strong>
-                <span>{summary.displayText}</span>
-              </article>
-            ))}
-          {skillMasterySummary.every(summary => summary.masteredCount === 0) && (
-            <p>Item-level word lists will build from new correct answers.</p>
-          )}
-        </div>
-      </section>
+        <SectionBand title="Areas Needing Support" subtitle="Items below 60% accuracy — prioritised by widest gap" accent="#DC2626" />
+        <SupportSection model={model} />
 
-      <label className="teacher-toggle">
-        <input
-          type="checkbox"
-          checked={allowPassageAudio}
-          onChange={() => setAllowPassageAudio(!allowPassageAudio)}
-        />
-        Allow passage audio
-      </label>
+        <SectionBand title="Guided Reading & Story Quest" subtitle="Book progress, conference notes, and vocabulary" accent="#16A34A" />
+        <GuidedReadingSection guidedReadingReportRows={guidedReadingReportRows} storyQuestSummary={storyQuestSummary} />
 
-      <div className="button-row export-actions">
-        <button className="report-button" onClick={exportData}>
-          Export Text Report
-        </button>
+        <SectionBand title="Next Session Plan" subtitle={`Recommended focus for ${model.snapshot.studentName}'s next teaching session`} />
+        <NextSessionPlan model={model} />
 
-        <button className="report-button" onClick={exportCSVData}>
-          Export Excel CSV
-        </button>
-
-        {letterAssessment.length > 0 && (
-          <button className="report-button" onClick={exportLetterAssessment} type="button">
-            Export Letter Excel
-          </button>
-        )}
-
-        {patternAssessment.length > 0 && (
-          <button className="report-button" onClick={exportPatternAssessment} type="button">
-            Export Pattern Excel
-          </button>
-        )}
-
-        {returnToTeacherDashboard && (
-          <button className="report-button" onClick={returnToTeacherDashboard} type="button">
-            Return to Teacher Dashboard
-          </button>
-        )}
-      </div>
+        <footer className="student-report-footer">
+          Generated by LiteracyPath · Report covers saved assessment sessions to {generatedDate} · For teacher use only
+        </footer>
+      </article>
     </div>
   );
 }
