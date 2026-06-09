@@ -310,7 +310,7 @@ function FocusGroups({ groups = [] }) {
   );
 }
 
-function FormalClassReportDocument({ model }) {
+export function FormalClassReportDocument({ model }) {
   const generated = formatClassReportDate(model.generatedAt);
   const metricRows = [
     ["Avg Accuracy", `${model.snapshot.averageAccuracy}%`, "teal"],

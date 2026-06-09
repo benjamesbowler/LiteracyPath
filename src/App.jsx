@@ -7179,6 +7179,11 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             assessmentHistory={reportsAssessmentHistory}
             skillMasterySummary={reportSkillMasterySummary}
             exportReadingReport={exportReadingReport}
+            classList={classList}
+            selectedClassId={selectedClassId}
+            setSelectedClassId={setSelectedClassId}
+            students={studentList}
+            teacherName={teacherUser?.email || ""}
           />
         </PageBoundary>
       )}

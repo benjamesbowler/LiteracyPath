@@ -20,6 +20,7 @@ import {
   isGraphemeChoiceQuestion
 } from "../utils/assessmentChoiceIntent";
 import { summarizeAssessmentHistory } from "../data/assessmentHistoryStore.js";
+import { buildClassReportModel } from "../data/reportingSystem.js";
 import { getFinalSoundsLevel1QuestionIssues } from "../data/earlyPhonicsValidation.js";
 import { getTargetObjectImage } from "../utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
 import { isHfwSpellingQuestion } from "../data/isHfwSpellingQuestion.js";
@@ -28,6 +29,12 @@ import { AssessmentAudioButton } from "./assessment/AssessmentAudioButton.jsx";
 import { HfwLetterBuildPanel } from "./assessment/HfwLetterBuildPanel.jsx";
 
 export { AuthPage } from "./AuthPage.jsx";
+
+const FormalClassReportDocument = lazy(() =>
+  import("./AdminDashboardPage.jsx").then(module => ({
+    default: module.FormalClassReportDocument
+  }))
+);
 
 const COMPREHENSION_PASSAGE_SKILL_IDS = new Set([
   "sentence_comprehension",
@@ -1466,10 +1473,16 @@ export function TeacherReportsPage({
   guidedReadingRecords = {},
   assessmentHistory = [],
   skillMasterySummary = [],
-  exportReadingReport
+  exportReadingReport,
+  classList = [],
+  selectedClassId = "",
+  setSelectedClassId,
+  students = [],
+  teacherName = ""
 }) {
   const [detailsReady, setDetailsReady] = useState(false);
   const [dateRange, setDateRange] = useState("last90");
+  const [reportTab, setReportTab] = useState("student");
   const [guidedReadingReportHelpers, setGuidedReadingReportHelpers] = useState(null);
   const reportsLoadStartRef = useRef(0);
 
@@ -1599,6 +1612,17 @@ export function TeacherReportsPage({
     readingProgress.inProgressBooks.length > 0 ||
     readingProgress.totalRereads > 0
   );
+  const effectiveSelectedClassId = selectedClassId || classList[0]?.id || "";
+  const classReportingModel = useMemo(() =>
+    buildClassReportModel({
+      students,
+      classes: classList,
+      assessmentHistory: filteredAssessmentHistory,
+      classId: effectiveSelectedClassId,
+      teacherName
+    }),
+  [students, classList, filteredAssessmentHistory, effectiveSelectedClassId, teacherName]);
+  const getClassOptionLabel = cls => cls.name || cls.className || cls.class_name || "Class";
 
   useEffect(() => {
     if (!detailsReady || !import.meta.env.DEV) return;
@@ -1615,8 +1639,8 @@ export function TeacherReportsPage({
       <section className="teacher-page-header">
         <div>
           <p className="panel-label">Reports</p>
-          <h2>{studentName || "Student"} Reports</h2>
-          <p>Review assessment results and export files from one focused report area.</p>
+          <h2>Reports</h2>
+          <p>Review student and class progress from one focused report area.</p>
         </div>
         <label className="report-filter-control">
           <span>Date range</span>
@@ -1627,9 +1651,32 @@ export function TeacherReportsPage({
         </label>
       </section>
 
-      <section className="teacher-action-panel-grid">
+      <div className="teacher-tabs reports-tab-switcher" role="tablist" aria-label="Report type">
+        <button
+          role="tab"
+          type="button"
+          className={reportTab === "student" ? "active" : ""}
+          aria-selected={reportTab === "student"}
+          onClick={() => setReportTab("student")}
+        >
+          Student Report
+        </button>
+        <button
+          role="tab"
+          type="button"
+          className={reportTab === "class" ? "active" : ""}
+          aria-selected={reportTab === "class"}
+          onClick={() => setReportTab("class")}
+        >
+          Class Report
+        </button>
+      </div>
+
+      {reportTab === "student" && (
+      <section className="teacher-action-panel-grid" role="tabpanel" aria-label="Student Report">
         <article className="teacher-action-panel">
           <h3>Student Report</h3>
+          {studentName && <p className="panel-label">{studentName}</p>}
           {hasAssessmentData ? (
             <p>
               {assessmentSummary.attempts
@@ -1774,6 +1821,34 @@ export function TeacherReportsPage({
           )}
         </article>
       </section>
+      )}
+
+      {reportTab === "class" && (
+        <section className="class-report-workspace" role="tabpanel" aria-label="Class Report">
+          <div className="class-report-print-actions class-report-view-controls screen-only">
+            <label>
+              Class
+              <select
+                value={effectiveSelectedClassId}
+                onChange={event => setSelectedClassId?.(event.target.value || null)}
+                disabled={classList.length === 0}
+              >
+                {classList.length === 0 ? (
+                  <option value="">No classes yet</option>
+                ) : classList.map(cls => (
+                  <option key={cls.id} value={cls.id}>{getClassOptionLabel(cls)}</option>
+                ))}
+              </select>
+            </label>
+            <button className="lp-button lp-button-primary" onClick={() => window.print()} type="button">
+              Export Class PDF
+            </button>
+          </div>
+          <Suspense fallback={<div className="teacher-action-panel">Loading class report...</div>}>
+            <FormalClassReportDocument model={classReportingModel} />
+          </Suspense>
+        </section>
+      )}
     </div>
   );
 }

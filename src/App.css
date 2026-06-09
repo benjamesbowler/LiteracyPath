@@ -1228,7 +1228,7 @@ body {
 
 .teacher-start-grid {
   display: grid;
-  grid-template-columns: minmax(260px, 1.1fr) minmax(280px, 1.2fr) minmax(220px, 0.9fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 12px;
   align-items: stretch;
 }
@@ -1263,12 +1263,19 @@ body {
 }
 
 .teacher-primary-action {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   gap: 12px;
-  align-items: center;
+  align-items: flex-start;
   border-color: #c7d2fe;
   background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);
+}
+
+.teacher-primary-action .lp-button {
+  width: 100%;
+  align-self: stretch;
+  margin-top: auto;
 }
 
 .teacher-primary-action p {
@@ -1316,8 +1323,8 @@ body {
 }
 
 .teacher-tabs button {
-  min-height: 34px !important;
-  padding: 7px 12px !important;
+  min-height: 40px !important;
+  padding: 9px 12px !important;
   border-radius: 9px !important;
   background: transparent !important;
   color: var(--lp-color-text-muted) !important;
@@ -1506,6 +1513,11 @@ body {
     linear-gradient(135deg, #fffdf8 0%, #f7f8ff 100%);
 }
 
+.teacher-page-header > div:only-child {
+  flex: 1;
+  text-align: center;
+}
+
 .teacher-page-header h2,
 .teacher-page-header p,
 .teacher-action-panel h3,
@@ -1554,6 +1566,11 @@ body {
   border: 1px solid var(--color-border-soft);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.92);
+}
+
+.teacher-action-panel .lp-button:last-child,
+.teacher-action-panel .teacher-action-list:last-child {
+  margin-top: auto;
 }
 
 .teacher-action-panel h3 {
@@ -6420,6 +6437,7 @@ select:focus {
 }
 
 .class-report-workspace {
+  display: grid;
   gap: 16px;
 }
 
