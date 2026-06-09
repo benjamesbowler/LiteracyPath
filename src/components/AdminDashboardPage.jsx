@@ -19,6 +19,7 @@ import {
   exportAssessmentAttemptsCsv,
   summarizeAssessmentHistory
 } from "../data/assessmentHistoryStore";
+import { getGuidedReadingStorageKey } from "../appState/studentSessionHelpers.js";
 import { buildClassReportModel } from "../data/reportingSystem.js";
 import {
   deleteSavedElAssessmentReport,
@@ -1476,7 +1477,10 @@ export function AdminDashboardPage({
   assessmentHistory = [],
   dashboardMode = "admin",
   teacherId = "",
-  message
+  message,
+  onLoadStudent,
+  onSwitchStudent,
+  onViewStudentReport
 }) {
   const isTeacherMode = dashboardMode === "teacher";
   const [skillFilter, setSkillFilter] = useState("all");
@@ -1497,6 +1501,7 @@ export function AdminDashboardPage({
   const [exportNotice, setExportNotice] = useState("");
   const [selectedElClassId, setSelectedElClassId] = useState("");
   const [selectedElStudentId, setSelectedElStudentId] = useState("");
+  const [reportView, setReportView] = useState("class");
   const [savedElReports, setSavedElReports] = useState([]);
   const [showReviewedSignupAccounts, setShowReviewedSignupAccounts] = useState(false);
   const teacherStorageId = teacherId || "local";
@@ -1516,6 +1521,7 @@ export function AdminDashboardPage({
     (isTeacherMode ? "Teacher" : "Teacher");
   const elClassStudents = students.filter(student => !selectedClassId || student.classId === selectedClassId || student.class_id === selectedClassId);
   const selectedStudent = elClassStudents.find(student => student.id === selectedElStudentId) || elClassStudents[0] || students[0] || null;
+  const activeReportView = isTeacherMode ? reportView : "class";
 
   function refreshSavedElReports() {
     setSavedElReports(getSavedElAssessmentReports({ teacherId: teacherStorageId }));
@@ -1606,6 +1612,42 @@ export function AdminDashboardPage({
       recommendations
     };
   }, []);
+  const guidedReadingLog = useMemo(() => {
+    if (typeof window === "undefined") return [];
+    const rows = [];
+
+    students.forEach(student => {
+      const key = getGuidedReadingStorageKey({ teacherId, studentId: student.id });
+      if (!key) return;
+
+      try {
+        const records = JSON.parse(window.localStorage.getItem(key) || "{}");
+        Object.entries(records || {}).forEach(([bookId, record = {}]) => {
+          const readCount = Number(record.readCount || (record.completedPages > 0 ? 1 : 0) || 0);
+          if (readCount === 0 && !record.completedAt) return;
+
+          rows.push({
+            studentId: student.id,
+            studentName: student.name,
+            className: student.className || "Class not linked",
+            bookId,
+            bookTitle: record.title || bookId,
+            level: record.level || "?",
+            readCount,
+            lastReadAt: record.lastReadAt || record.completedAt || record.updatedAt || "",
+            accuracy: record.accuracy != null ? Math.round(record.accuracy) : null
+          });
+        });
+      } catch {
+        /* Ignore corrupt or unavailable local guided-reading records. */
+      }
+    });
+
+    return rows.sort((a, b) =>
+      String(b.lastReadAt).localeCompare(String(a.lastReadAt)) ||
+      a.studentName.localeCompare(b.studentName)
+    );
+  }, [students, teacherId]);
   const assessmentSummary = useMemo(() =>
     summarizeAssessmentHistory(assessmentHistory, { students, classes }),
   [assessmentHistory, students, classes]);
@@ -1912,6 +1954,11 @@ export function AdminDashboardPage({
               <h3>Overview</h3>
               <p className="muted-text">A quick view of class activity and the most common teacher tasks.</p>
             </div>
+            {onSwitchStudent && (
+              <button className="lp-button lp-button-secondary" onClick={onSwitchStudent} type="button">
+                Switch Student
+              </button>
+            )}
           </div>
           <div className="teacher-report-metrics">
             <article>
@@ -1942,7 +1989,7 @@ export function AdminDashboardPage({
             </button>
             <button className="admin-overview-card" onClick={() => setActiveSection("guidedReading")} type="button">
               <span>Guided Reading Data</span>
-              <strong>{guidedReadingInsight.active}</strong>
+              <strong>{guidedReadingLog.length}</strong>
             </button>
             <button className="admin-overview-card" onClick={() => setActiveSection("exports")} type="button">
               <span>Export Data</span>
@@ -1970,13 +2017,35 @@ export function AdminDashboardPage({
         <section className="report-panel page-stack admin-section admin-section-panel">
           <div className="admin-section-heading">
             <div>
-              <h3>Class Report</h3>
-              <p className="muted-text">Whole-class progress summary. Export as PDF or Excel.</p>
+              <h3>Reports</h3>
+              <p className="muted-text">Open whole-class reporting or a full individual student report.</p>
             </div>
           </div>
           {exportNotice && <p className="message">{exportNotice}</p>}
 
-          <div className="class-report-print-actions screen-only">
+          <div className="class-report-print-actions screen-only class-report-view-controls">
+            {isTeacherMode && (
+              <div className="teacher-tabs" role="tablist">
+                <button
+                  className={activeReportView === "class" ? "active" : ""}
+                  onClick={() => setReportView("class")}
+                  role="tab"
+                  aria-selected={activeReportView === "class"}
+                  type="button"
+                >
+                  Class Report
+                </button>
+                <button
+                  className={activeReportView === "individual" ? "active" : ""}
+                  onClick={() => setReportView("individual")}
+                  role="tab"
+                  aria-selected={activeReportView === "individual"}
+                  type="button"
+                >
+                  Individual Report
+                </button>
+              </div>
+            )}
             <label>
               Class
               <select
@@ -1994,17 +2063,60 @@ export function AdminDashboardPage({
                 ))}
               </select>
             </label>
-            <button className="lp-button lp-button-primary primary-export" onClick={() => window.print()} type="button">
-              Export Class PDF
-            </button>
-            <button className="lp-button lp-button-secondary" onClick={handleClassElAssessmentExport} type="button">
-              Export Class Excel
-            </button>
+            {activeReportView === "individual" && (
+              <label>
+                Student
+                <select
+                  disabled={elClassStudents.length === 0}
+                  onChange={event => setSelectedElStudentId(event.target.value)}
+                  value={selectedElStudentId || elClassStudents[0]?.id || ""}
+                >
+                  {elClassStudents.length === 0 ? (
+                    <option value="">No students</option>
+                  ) : elClassStudents.map(student => (
+                    <option key={student.id} value={student.id}>{student.name}</option>
+                  ))}
+                </select>
+              </label>
+            )}
+            {activeReportView === "class" && (
+              <>
+                <button className="lp-button lp-button-primary primary-export" onClick={() => window.print()} type="button">
+                  Export Class PDF
+                </button>
+                <button className="lp-button lp-button-secondary" onClick={handleClassElAssessmentExport} type="button">
+                  Export Class Excel
+                </button>
+              </>
+            )}
+            {activeReportView === "individual" && onViewStudentReport && (
+              <button
+                className="lp-button lp-button-primary"
+                disabled={!selectedElStudentId && elClassStudents.length === 0}
+                onClick={() => {
+                  const id = selectedElStudentId || elClassStudents[0]?.id;
+                  const name = elClassStudents.find(student => student.id === id)?.name || "";
+                  if (id) onViewStudentReport(id, name);
+                }}
+                type="button"
+              >
+                Open Student Report -&gt;
+              </button>
+            )}
           </div>
 
-          <div className="class-report-workspace">
-            <FormalClassReportDocument model={classReportingModel} />
-          </div>
+          {activeReportView === "class" && (
+            <div className="class-report-workspace">
+              <FormalClassReportDocument model={classReportingModel} />
+            </div>
+          )}
+
+          {activeReportView === "individual" && (
+            <div className="student-report-muted-card">
+              <p>Select a class and student above, then click <strong>Open Student Report -&gt;</strong></p>
+              <p>The full individual report will open in the main view.</p>
+            </div>
+          )}
 
           {savedElReports.length > 0 && (
             <div className="teacher-report-card">
@@ -2216,37 +2328,52 @@ export function AdminDashboardPage({
           <div className="admin-section-heading">
             <div>
               <h3>Guided Reading</h3>
-              <p className="muted-text">Book availability and export tools for guided reading completion history.</p>
+              <p className="muted-text">
+                Books read per student across all classes.
+                {guidedReadingLog.length > 0
+                  ? ` ${guidedReadingLog.length} reading session(s) recorded.`
+                  : " No reading records yet."}
+              </p>
             </div>
             <button className="lp-button lp-button-secondary" onClick={handleGuidedReadingCompletionExport} type="button">
-              Export Guided Reading Completion Excel
+              Export Excel
             </button>
           </div>
           {exportNotice && <p className="message">{exportNotice}</p>}
-          <div className="guided-insight-grid">
-            <article>
-              <strong>Visible books</strong>
-              <span>{guidedReadingInsight.active}/{guidedReadingInsight.total}</span>
-            </article>
-            <article>
-              <strong>Levels</strong>
-              {Object.entries(guidedReadingInsight.byLevel).map(([level, count]) => (
-                <span key={level}>Level {level}: {count}</span>
-              ))}
-            </article>
-            <article>
-              <strong>Top patterns</strong>
-              {Object.entries(guidedReadingInsight.patternCounts).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([pattern, count]) => (
-                <span key={pattern}>{pattern.replace(/-/g, " ")}: {count}</span>
-              ))}
-            </article>
-          </div>
-          <div className="guided-insight-recommendations">
-            <strong>Sample recommendations</strong>
-            {guidedReadingInsight.recommendations.slice(0, 6).map(item => (
-              <span key={item.book.id}>{item.book.title} · Level {item.book.level} · {item.reasons.slice(0, 2).join(" · ")}</span>
-            ))}
-          </div>
+          {guidedReadingLog.length === 0 ? (
+            <p className="muted-text">
+              No guided reading records yet. Open Guided Reading with a student to start saving book progress.
+            </p>
+          ) : (
+            <div className="admin-table-wrap teacher-scroll-panel">
+              <table className="dashboard-table admin-table admin-responsive-table">
+                <thead>
+                  <tr>
+                    <th>Student</th>
+                    <th>Class</th>
+                    <th>Book</th>
+                    <th>Level</th>
+                    <th>Times read</th>
+                    <th>Accuracy</th>
+                    <th>Last read</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {guidedReadingLog.map((row, index) => (
+                    <tr key={`${row.studentId}-${row.bookId}-${index}`}>
+                      <td data-label="Student">{row.studentName}</td>
+                      <td data-label="Class">{row.className}</td>
+                      <td data-label="Book">{row.bookTitle}</td>
+                      <td data-label="Level">{row.level !== "?" ? `Level ${row.level}` : "-"}</td>
+                      <td data-label="Times read">{row.readCount}</td>
+                      <td data-label="Accuracy">{row.accuracy != null ? `${row.accuracy}%` : "-"}</td>
+                      <td data-label="Last read">{row.lastReadAt ? new Date(row.lastReadAt).toLocaleDateString() : "-"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </section>
       )}
 
@@ -2886,23 +3013,45 @@ export function AdminDashboardPage({
       <section className="report-panel page-stack admin-section admin-section-panel">
         <h3>Students</h3>
         <div className="admin-table-wrap teacher-scroll-panel">
-          <table className="dashboard-table admin-table">
+          <table className="dashboard-table admin-table admin-responsive-table">
             <thead>
               <tr>
                 <th>Student</th>
                 <th>Class</th>
                 <th>Teacher</th>
                 <th>Created</th>
+                {onLoadStudent && <th>Load</th>}
                 <th>Delete</th>
               </tr>
             </thead>
             <tbody>
               {students.map(row => (
                 <tr key={row.id}>
-                  <td data-label="Name">{row.name}</td>
+                  <td data-label="Name">
+                    {onLoadStudent ? (
+                      <button
+                        className="lp-button lp-button-secondary compact-table-action"
+                        onClick={() => onLoadStudent(row.id, row.name)}
+                        type="button"
+                      >
+                        {row.name}
+                      </button>
+                    ) : row.name}
+                  </td>
                   <td data-label="Class">{row.className}</td>
                   <td data-label="Teacher">{row.teacher_id}</td>
                   <td data-label="Created">{row.created_at ? new Date(row.created_at).toLocaleDateString() : ""}</td>
+                  {onLoadStudent && (
+                    <td data-label="Load">
+                      <button
+                        className="lp-button lp-button-primary compact-table-action"
+                        onClick={() => onLoadStudent(row.id, row.name)}
+                        type="button"
+                      >
+                        Load -&gt;
+                      </button>
+                    </td>
+                  )}
                   <td data-label="Delete">
                     <button className="reset-button" onClick={() => deleteStudent(row.id, row.name)} type="button">
                       Delete Student

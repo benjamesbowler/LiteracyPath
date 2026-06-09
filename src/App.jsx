@@ -7309,6 +7309,15 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               dashboardMode="teacher"
               teacherId={teacherId}
               message={message}
+              onLoadStudent={async (id, name) => {
+                await loadStudentProgress(id, name);
+                setAppView(APP_VIEWS.OVERVIEW);
+              }}
+              onSwitchStudent={nameSaved ? switchStudent : undefined}
+              onViewStudentReport={async (id, name) => {
+                await loadStudentProgress(id, name);
+                setAppView(APP_VIEWS.FINISHED);
+              }}
             />
           </Suspense>
         </PageBoundary>
