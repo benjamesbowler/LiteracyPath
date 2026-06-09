@@ -10180,7 +10180,7 @@ select:focus {
   }
 
   .guided-reading-reader-open .guided-reader-shell {
-    height: calc(100dvh - 12px);
+    height: calc(100dvh - 12px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
     min-height: 0;
   }
 
@@ -10237,8 +10237,10 @@ select:focus {
   }
 
   .assessment-shell {
+    height: calc(100vh - 20px);
+    height: calc(100dvh - 20px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
     min-height: calc(100vh - 20px);
-    min-height: calc(100dvh - 20px);
+    min-height: calc(100dvh - 20px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
     gap: 6px;
   }
 
@@ -10491,8 +10493,8 @@ select:focus {
 
   .guided-reading-reader-open .guided-reader-shell {
     width: 100%;
-    max-width: calc(100vw - 8px);
-    height: calc(100dvh - 8px);
+    max-width: calc(100vw - 8px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+    height: calc(100dvh - 8px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
     min-height: 0;
   }
 
@@ -10500,7 +10502,10 @@ select:focus {
     width: 100vw;
     max-width: none;
     height: 100dvh;
-    padding: 6px;
+    padding-top: calc(6px + env(safe-area-inset-top, 0px));
+    padding-right: calc(6px + env(safe-area-inset-right, 0px));
+    padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+    padding-left: calc(6px + env(safe-area-inset-left, 0px));
   }
 
   .guided-reading-reader-open .guided-reader-card {

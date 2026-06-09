@@ -542,13 +542,18 @@
 }
 
 .story-quest-reader.fullscreen {
-  width: 100vw;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  width: 100%;
   max-width: none;
-  height: 100vh;
   height: 100dvh;
   max-height: none;
-  margin: 0;
   padding: clamp(8px, 1.4vw, 14px);
+  padding-top: calc(clamp(8px, 1.4vw, 14px) + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(clamp(8px, 1.4vw, 14px) + env(safe-area-inset-bottom, 0px));
+  padding-left: calc(clamp(8px, 1.4vw, 14px) + env(safe-area-inset-left, 0px));
+  padding-right: calc(clamp(8px, 1.4vw, 14px) + env(safe-area-inset-right, 0px));
   border-radius: 0;
   background: var(--lp-color-background-warm-strong);
   grid-template-rows: auto auto minmax(0, 1fr) auto auto;
@@ -950,7 +955,10 @@
   }
 
   .story-quest-reader.fullscreen {
-    padding: 6px;
+    padding-top: calc(6px + env(safe-area-inset-top, 0px));
+    padding-right: calc(6px + env(safe-area-inset-right, 0px));
+    padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+    padding-left: calc(6px + env(safe-area-inset-left, 0px));
     grid-template-rows: auto auto minmax(92px, 0.9fr) auto auto auto auto;
     gap: 5px;
   }
@@ -1039,6 +1047,10 @@
   max-height: none;
   margin: 0;
   padding: clamp(6px, 1.2dvh, 12px) clamp(8px, 1.2vw, 14px);
+  padding-top: calc(clamp(6px, 1.2dvh, 12px) + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(clamp(6px, 1.2dvh, 12px) + env(safe-area-inset-bottom, 0px));
+  padding-left: calc(clamp(8px, 1.2vw, 14px) + env(safe-area-inset-left, 0px));
+  padding-right: calc(clamp(8px, 1.2vw, 14px) + env(safe-area-inset-right, 0px));
   border: 0;
   border-radius: 0;
   background: var(--lp-color-background-warm-strong);
@@ -1255,7 +1267,10 @@
   .story-quest-reader:fullscreen {
     grid-template-rows: auto auto minmax(0, 1fr) auto auto auto;
     gap: 5px;
-    padding: 6px;
+    padding-top: calc(6px + env(safe-area-inset-top, 0px));
+    padding-right: calc(6px + env(safe-area-inset-right, 0px));
+    padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
+    padding-left: calc(6px + env(safe-area-inset-left, 0px));
   }
 
   .story-quest-reader.fullscreen .story-quest-header-actions,
