@@ -31,6 +31,18 @@ const GRAMMAR_REPLACEMENT_SOURCES = new Set([
   "skill_word_bank_workbook"
 ]);
 
+const COMPREHENSION_SKILLS = new Set([
+  "sentence_comprehension",
+  "key_details",
+  "sequencing",
+  "main_idea",
+  "inference",
+  "cause_effect",
+  "context_clues",
+  "theme",
+  "theme_higher_comprehension"
+]);
+
 export const APPROVED_SIGHT_WORDS = new Set([
   "a", "again", "after", "all", "am", "an", "and", "any", "are", "around", "as", "ask", "asked", "away",
   "be", "before", "big", "blue", "but", "by", "came", "can", "cold", "come", "could", "down", "every",
@@ -138,11 +150,49 @@ const ROUTING_RULES = {
     allowedFormats: new Set(["COMPREHENSION"]),
     comprehensionSkill: "key_details",
     singleTemplate: false
+  },
+  sequencing: {
+    allowedFormats: new Set(["COMPREHENSION"]),
+    comprehensionSkill: "sequencing",
+    singleTemplate: false
+  },
+  main_idea: {
+    allowedFormats: new Set(["COMPREHENSION"]),
+    comprehensionSkill: "main_idea",
+    singleTemplate: false
+  },
+  inference: {
+    allowedFormats: new Set(["COMPREHENSION"]),
+    comprehensionSkill: "inference",
+    singleTemplate: false
+  },
+  cause_effect: {
+    allowedFormats: new Set(["COMPREHENSION"]),
+    comprehensionSkill: "cause_effect",
+    singleTemplate: false
+  },
+  context_clues: {
+    allowedFormats: new Set(["COMPREHENSION"]),
+    comprehensionSkill: "context_clues",
+    singleTemplate: false
+  },
+  theme: {
+    allowedFormats: new Set(["COMPREHENSION"]),
+    comprehensionSkill: "theme",
+    singleTemplate: false
   }
 };
 
 export function getQuestionRoutingFormat(question = {}) {
   const format = String(question.templateType || question.formatType || question.questionType || "UNKNOWN").toUpperCase();
+  const skillId = normalize(question.assessmentSkillId || question.skillId || question.skill || "");
+  if (
+    (format === "UNKNOWN" || format === "MULTIPLE_CHOICE") &&
+    COMPREHENSION_SKILLS.has(skillId) &&
+    question.passage
+  ) {
+    return "COMPREHENSION";
+  }
   if ((format === "UNKNOWN" || format === "MULTIPLE_CHOICE") && promptLooksLikeEndingSound(question)) {
     return "ENDING_SOUND_WORD_MATCH";
   }
@@ -233,18 +283,24 @@ function getComprehensionRuntimeEligibilityIssues(question = {}, stageId = "") {
   const choices = Array.isArray(question.choices) ? question.choices : [];
   const answer = String(question.answer || question.correctAnswer || "");
   const allText = `${passage} ${prompt}`.toLowerCase();
+  const idLevelMatch = String(question.id || "").match(/_l([123])_/i);
+  const passageLevel = idLevelMatch
+    ? Number(idLevelMatch[1])
+    : Number(question.level || question.assessmentLevel || question.difficulty || 1) >= 5
+      ? 3
+      : Number(question.level || question.assessmentLevel || question.difficulty || 1) >= 4
+        ? 2
+        : 1;
+  const minSentences = passageLevel >= 3 ? 3 : passageLevel === 2 ? 2 : 1;
+  const minWords = passageLevel >= 3 ? 28 : passageLevel === 2 ? 18 : 6;
 
   if (!passage) issues.push("comprehension questions need a passage");
-  if (countSentences(passage) < 3) issues.push("comprehension passage must have at least three sentences");
-  if (countWords(passage) < 28) issues.push("comprehension passage is too short");
+  if (countSentences(passage) < minSentences) issues.push(`comprehension passage must have at least ${minSentences} sentence${minSentences === 1 ? "" : "s"}`);
+  if (countWords(passage) < minWords) issues.push("comprehension passage is too short");
   if (/\bchoose the word that completes\b/i.test(prompt)) issues.push("cloze prompt is not comprehension");
   if (allText.includes("___")) issues.push("blank-fill cloze text is not comprehension");
   if (choices.length !== 4) issues.push("comprehension questions need exactly four answer choices");
   if (!answer || !choices.map(choice => String(choice)).includes(answer)) issues.push("correct answer is missing from choices");
-  if (!(question.imagePath || question.imageUrl || question.targetImage || question.targetImagePath)) {
-    issues.push("comprehension questions need a context image");
-  }
-
   if (stageId === "key_details") {
     if (String(question.id || "").startsWith("gap_key_details_")) {
       issues.push("generated key-details template bank is blocked");

@@ -29,6 +29,74 @@ import { HfwLetterBuildPanel } from "./assessment/HfwLetterBuildPanel.jsx";
 
 export { AuthPage } from "./AuthPage.jsx";
 
+const COMPREHENSION_PASSAGE_SKILL_IDS = new Set([
+  "sentence_comprehension",
+  "key_details",
+  "sequencing",
+  "main_idea",
+  "inference",
+  "cause_effect",
+  "context_clues",
+  "theme",
+  "theme_higher_comprehension"
+]);
+
+function normalizeSkillId(value = "") {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+}
+
+function isComprehensionPassageQuestion(question = {}) {
+  const skillId = normalizeSkillId(question.assessmentSkillId || question.skillId || question.skill || "");
+  return COMPREHENSION_PASSAGE_SKILL_IDS.has(skillId) && Boolean(String(question.passage || "").trim());
+}
+
+function countPassageSentences(text = "") {
+  return (String(text || "").match(/[.!?]+/g) || []).length;
+}
+
+function ComprehensionPassageCard({ text, currentQuestion }) {
+  const [passageExpanded, setPassageExpanded] = useState(true);
+  const sentenceCount = countPassageSentences(text);
+  const questionDepth = Number(currentQuestion.level || currentQuestion.difficulty || 1);
+  const canTogglePassage = questionDepth >= 3 && sentenceCount >= 5;
+  const isLongPassage = sentenceCount >= 6;
+
+  return (
+    <div className="passage-wrap assessment-passage-card comprehension-passage-card">
+      <div className="comprehension-passage-header">
+        <strong>Passage</strong>
+        <div className="comprehension-passage-actions">
+          {isLongPassage && (
+            <span className="comprehension-passage-length">
+              {sentenceCount} sentences
+            </span>
+          )}
+          {canTogglePassage && (
+            <button
+              className="passage-toggle"
+              onClick={() => setPassageExpanded(expanded => !expanded)}
+              type="button"
+              aria-expanded={passageExpanded}
+            >
+              {passageExpanded ? "Hide passage" : "Show passage again"}
+            </button>
+          )}
+        </div>
+      </div>
+
+      {(!canTogglePassage || passageExpanded) ? (
+        <p className="passage comprehension-passage-text">{text}</p>
+      ) : (
+        <p className="comprehension-passage-collapsed">Passage hidden</p>
+      )}
+    </div>
+  );
+}
+
 function FixSentenceQuestion({ currentQuestion, answerQuestion }) {
   const [selectedTiles, setSelectedTiles] = useState([]);
 
@@ -684,6 +752,7 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
 
   const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
   const isHfwLetterBuildItem = isHfwLetterBuildQuestion(currentQuestion);
+  const isComprehensionPassageItem = isComprehensionPassageQuestion(currentQuestion);
   const isHfwQuestion = String(currentQuestion.skillId || "").toLowerCase().startsWith("hfw_");
   const stimulusAudioText = currentQuestion.audioText || currentQuestion.targetWord || currentQuestion.answer;
   const approvedStimulusAudioPath = isHfwQuestion
@@ -722,6 +791,8 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
   if (!isHfwLetterBuildItem) addVisiblePassageText(currentQuestion.passage);
   if (!isGrammarSentenceFit && !isHfwLetterBuildItem) addVisiblePassageText(currentQuestion.sentence || currentQuestion.context);
   const hasMainImage = isListenChooseVowel || isShortVowelWordChoice
+    ? false
+    : isComprehensionPassageItem
     ? false
     : isRhymingPictureItem
     ? Boolean(stimulusImage)
@@ -812,11 +883,27 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
         </div>
       )}
 
-      {visiblePassageTexts.map(text => (
-        <div className="passage-wrap assessment-passage-card" key={text}>
-          <p className="passage">{text}</p>
-        </div>
-      ))}
+      {visiblePassageTexts.map(text => {
+        const isPrimaryComprehensionPassage =
+          isComprehensionPassageItem &&
+          text === String(currentQuestion.passage || "").trim();
+
+        if (isPrimaryComprehensionPassage) {
+          return (
+            <ComprehensionPassageCard
+              key={`${currentQuestion.id || "question"}-${text}`}
+              text={text}
+              currentQuestion={currentQuestion}
+            />
+          );
+        }
+
+        return (
+          <div className="passage-wrap assessment-passage-card" key={text}>
+            <p className="passage">{text}</p>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -2343,6 +2430,7 @@ export function AssessmentPage({
   const isShortVowelWordChoiceItem = isShortVowelWordChoiceQuestion(currentQuestion);
   const isListenChooseVowelItem = isListenChooseVowelQuestion(currentQuestion);
   const isGrammarSentenceFitItem = isGrammarSentenceFitQuestion(currentQuestion);
+  const isComprehensionPassageItem = isComprehensionPassageQuestion(currentQuestion);
   const isHfwSkillItem = String(safeSkillId || "").toLowerCase().startsWith("hfw_");
   const renderAssessmentTopbar = () => (
     <div className="assessment-topbar">
@@ -2590,6 +2678,7 @@ export function AssessmentPage({
   const showTextChoiceAudio =
     (!isListenAndFindWord || isShortVowelWordChoiceItem) &&
     !String(safeSkillId || "").toLowerCase().startsWith("hfw_") &&
+    !isComprehensionPassageItem &&
     !isPairSelection &&
     !isVisualCardChoice &&
     !isIxlStyleTemplate &&
@@ -2619,7 +2708,8 @@ export function AssessmentPage({
               isFinalSoundsEndingItem ? "final-sounds-ending-assessment-card" : "",
               isGraphemeChoiceItem ? "grapheme-choice-assessment-card" : "",
               isShortVowelWordChoiceItem ? "short-vowel-word-choice-card" : "",
-              isListenChooseVowelItem ? "short-vowel-listen-choice-card" : ""
+              isListenChooseVowelItem ? "short-vowel-listen-choice-card" : "",
+              isComprehensionPassageItem ? "comprehension-assessment-layout" : ""
             ].filter(Boolean).join(" ")}
             key={currentQuestion.id}
             initial={{ scale: 0.96, opacity: 0 }}
@@ -2678,7 +2768,9 @@ export function AssessmentPage({
               />
             ) : (
               <div className={[
-                isListenAndFindWord && !isShortVowelWordChoiceItem ? "choices visual-word-choices assessment-answer-grid" : "choices assessment-answer-grid",
+                isComprehensionPassageItem
+                  ? "choices comprehension-choice-list"
+                  : isListenAndFindWord && !isShortVowelWordChoiceItem ? "choices visual-word-choices assessment-answer-grid" : "choices assessment-answer-grid",
                 isShortVowelWordChoiceItem ? "short-vowel-word-choice-grid" : "",
                 isListenChooseVowelItem ? "vowel-choice-grid" : "",
                 isGraphemeChoiceItem ? "grapheme-choice-grid final-sounds-grapheme-grid" : ""
@@ -2687,13 +2779,17 @@ export function AssessmentPage({
                   const choiceImage = currentQuestion.choiceImages?.[choice.value] || currentQuestion.choiceImages?.[choice.label] || {};
                   const choiceButtonClassName = [
                     isListenAndFindWord && !isShortVowelWordChoiceItem ? "choice-button visual-word-choice assessment-answer-card" : "choice-button assessment-answer-card",
+                    isComprehensionPassageItem ? "comprehension-choice-button" : "",
                     isShortVowelWordChoiceItem ? "short-vowel-word-choice-button" : "",
                     isGraphemeChoiceItem ? "grapheme-choice-button final-sound-choice-button final-sound-grapheme-option" : ""
                   ].filter(Boolean).join(" ");
 
                   return (
                   <div
-                    className={isListenAndFindWord && !isShortVowelWordChoiceItem ? "choice-wrap visual-word-choice-wrap" : "choice-wrap"}
+                    className={[
+                      isListenAndFindWord && !isShortVowelWordChoiceItem ? "choice-wrap visual-word-choice-wrap" : "choice-wrap",
+                      isComprehensionPassageItem ? "comprehension-choice-wrap" : ""
+                    ].filter(Boolean).join(" ")}
                     key={index}
                   >
                     {showTextChoiceAudio && (
@@ -2708,6 +2804,7 @@ export function AssessmentPage({
                     <button
                       className={choiceButtonClassName}
                       onClick={() => answerQuestion(choice.value)}
+                      type="button"
                     >
                       {isListenAndFindWord && !isShortVowelWordChoiceItem && !isGraphemeChoiceItem && choiceImage.image && (
                         <img

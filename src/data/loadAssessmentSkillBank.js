@@ -38,6 +38,9 @@ import { qbAssess_svd } from "./qbAssess_svd.js";
 import { qbAssess_sc } from "./qbAssess_sc.js";
 import { qbAssess_rc } from "./qbAssess_rc.js";
 import { qbAssess_inf } from "./qbAssess_inf.js";
+import { qbAssess_main_idea } from "./qbAssess_main_idea.js";
+import { qbAssess_cause_effect } from "./qbAssess_cause_effect.js";
+import { qbAssess_sequencing } from "./qbAssess_sequencing.js";
 import { qbFillGaps } from "./qbFillGaps.js";
 import { generatedQuestions } from "./generatedQuestions.js";
 import { assessmentQaReplacementQuestions } from "./assessmentQaReplacementQuestions.js";
@@ -167,6 +170,11 @@ const COMPREHENSION_SKILLS = new Set([
   "theme_higher_comprehension",
   "theme"
 ]);
+const AUTHORED_COMPREHENSION_BANKS = new Set([
+  "qbAssess_main_idea",
+  "qbAssess_cause_effect",
+  "qbAssess_sequencing"
+]);
 
 function hasQuestionImage(question = {}) {
   return Boolean(
@@ -220,6 +228,9 @@ const QUESTION_BANKS = [
   ["qbAssess_sc", qbAssess_sc],
   ["qbAssess_rc", qbAssess_rc],
   ["qbAssess_inf", qbAssess_inf],
+  ["qbAssess_main_idea", qbAssess_main_idea],
+  ["qbAssess_cause_effect", qbAssess_cause_effect],
+  ["qbAssess_sequencing", qbAssess_sequencing],
   ["qbFillGaps", qbFillGaps],
   ["assessmentQaReplacementQuestions", assessmentQaReplacementQuestions],
   ["highQualityComprehensionReplacementQuestions", highQualityComprehensionReplacementQuestions],
@@ -263,8 +274,12 @@ function normalizeQuestion(question = {}, source = "", sourceIndex = 0) {
     enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(question))
   );
   const skillId = getQuestionSkillId(enriched);
+  const approvedSource = AUTHORED_COMPREHENSION_BANKS.has(source)
+    ? "high_quality_comprehension_replacement_2026_06"
+    : enriched.source;
   return normalizeRhymingQuestionChoices({
     ...enriched,
+    source: approvedSource || enriched.source,
     skillId: runtimeSkillIdFor(skillId) || enriched.skillId || enriched.skill_id || "",
     assessmentSkillId: skillId,
     _source: source,

@@ -167,6 +167,108 @@
   padding: 12px 14px;
 }
 
+.assessment-card.comprehension-assessment-layout {
+  gap: clamp(12px, 1.8vh, 18px);
+  max-width: min(980px, 100%);
+}
+
+.assessment-card.comprehension-assessment-layout .assessment-stimulus {
+  place-items: stretch;
+}
+
+.assessment-card .comprehension-passage-card {
+  display: grid;
+  gap: 10px;
+  width: min(840px, 100%);
+  max-height: min(38vh, 360px);
+  padding: clamp(12px, 1.5vw, 16px);
+  border: 1px solid rgba(55, 83, 88, 0.18);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: inset 4px 0 0 rgba(46, 125, 122, 0.35), 0 10px 24px rgba(22, 34, 51, 0.06);
+  overflow-y: auto;
+}
+
+.comprehension-passage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--lp-color-text-strong);
+  font-size: 13px;
+}
+
+.comprehension-passage-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.comprehension-passage-length {
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: #eef8f6;
+  color: #2b625f;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.passage-toggle {
+  min-height: 30px;
+  padding: 4px 9px;
+  border: 1px solid rgba(79, 99, 215, 0.26);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--lp-color-primary-strong);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.assessment-card .comprehension-passage-text {
+  margin: 0;
+  padding: 0;
+  color: var(--lp-color-text-strong);
+  font-size: clamp(16px, 1.7vw, 19px);
+  line-height: 1.55;
+}
+
+.comprehension-passage-collapsed {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: var(--lp-color-text-muted);
+  font-weight: 800;
+}
+
+.assessment-card .comprehension-choice-list {
+  display: grid;
+  grid-template-columns: 1fr !important;
+  gap: 10px;
+  width: min(840px, 100%);
+  margin: 0 auto;
+}
+
+.comprehension-choice-wrap {
+  display: block;
+  width: 100%;
+}
+
+.assessment-card .comprehension-choice-button {
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 58px;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.assessment-card .comprehension-choice-button span {
+  line-height: 1.28;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+
 .assessment-card .choice-button.final-sound-choice-button {
   align-items: center;
   display: flex;
