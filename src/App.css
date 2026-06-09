@@ -12671,6 +12671,9 @@ select:focus {
   .admin-dashboard:has(.formal-class-report-document) > .card,
   .admin-dashboard:has(.formal-class-report-document) .class-report-print-actions,
   .admin-dashboard:has(.formal-class-report-document) .detailed-report-workspace,
+  .admin-dashboard:has(.formal-class-report-document) .report-panel > .admin-section-heading,
+  .admin-dashboard:has(.formal-class-report-document) .report-panel > .message,
+  .admin-dashboard:has(.formal-class-report-document) .report-panel > .teacher-report-card,
   .admin-dashboard:has(.formal-class-report-document) .teacher-dashboard-redesign > .admin-section-heading,
   .admin-dashboard:has(.formal-class-report-document) .teacher-dashboard-redesign > .message,
   .admin-dashboard:has(.formal-class-report-document) .teacher-dashboard-redesign > .teacher-report-card:not(.class-report-workspace) {
