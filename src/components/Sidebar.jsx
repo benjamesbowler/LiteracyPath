@@ -93,7 +93,7 @@ const NAV_ITEMS = [
   },
   {
     id: "learn",
-    label: "Learn",
+    label: "Story Quests",
     icon: "learn",
     views: [APP_VIEWS.LEARN],
     requiresStudent: true,

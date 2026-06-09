@@ -107,7 +107,7 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
 
   if (activeQuest) {
     return (
-      <main className="learn-area-page story-quest-learn-page" aria-label="Story Quest Adventures">
+      <main className="learn-area-page story-quest-learn-page" aria-label="Story Quests">
         <StoryQuestPlayer
           initialPageId={activeQuestInitialPageId}
           onComplete={(progressPatch = {}) => updateQuestProgress(activeQuest.id, {
@@ -127,11 +127,11 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
   }
 
   return (
-    <main className="learn-area-page story-quest-learn-page page-stack" aria-label="Story Quest Adventures">
+    <main className="learn-area-page story-quest-learn-page page-stack" aria-label="Story Quests">
       <section className="learn-story-quest-library card">
         <div className="learn-story-quest-copy">
           <span className="story-quest-kicker">Read</span>
-          <h2>Story Quest Adventures</h2>
+          <h2>Story Quests</h2>
           <p>Read bright guided stories, hear each page, and choose what happens next.</p>
         </div>
 
