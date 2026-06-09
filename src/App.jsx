@@ -18,11 +18,10 @@ import {
   ResetStudentProgressDialog,
   SkillsProgressPage,
   StudentOverviewPage,
-  StudentSelectPage,
-  TeacherReportsPage,
-  TeacherSettingsToolsPage
+  TeacherReportsPage
 } from "./components/AppPages";
 import { Sidebar } from "./components/Sidebar.jsx";
+import { TeacherDashboardPage } from "./components/TeacherDashboardPage.jsx";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
 import { normalize, shuffleArray } from "./utils/assessmentRoundBuilder";
 
@@ -1514,7 +1513,6 @@ export default function App() {
   const [selectedClassId, setSelectedClassId] = useState(null);
   const [newClassName, setNewClassName] = useState("");
   const [classDashboard, setClassDashboard] = useState([]);
-  const [showClassDashboard, setShowClassDashboard] = useState(false);
   const [appView, setAppView] = useState(APP_VIEWS.SELECT);
   const [profileLoaded, setProfileLoaded] = useState(false);
   const [nameSaved, setNameSaved] = useState(false);
@@ -1782,7 +1780,6 @@ export default function App() {
     setSelectedClassId(null);
     setNewClassName("");
     setClassDashboard([]);
-    setShowClassDashboard(false);
     setAppView(APP_VIEWS.SELECT);
     setNameSaved(false);
     setCurrentSkillIndex(0);
@@ -2899,7 +2896,6 @@ export default function App() {
 
     if (studentIds.length === 0) {
       setClassDashboard([]);
-      setShowClassDashboard(true);
       return;
     }
 
@@ -2973,175 +2969,6 @@ export default function App() {
       });
 
     setClassDashboard(rows);
-    setShowClassDashboard(true);
-  }
-
-  async function deleteStudent(selectedStudentId, selectedStudentName = "this student") {
-    if (!teacherId || !selectedStudentId) return;
-    if (!studentList.some(student => student.id === selectedStudentId)) {
-      setMessage("You can only delete students assigned to your account.");
-      return;
-    }
-
-    const confirmed = window.confirm(
-      `Delete ${selectedStudentName}? This removes the student and their assessment records.`
-    );
-
-    if (!confirmed) return;
-
-    const { error: answersError } = await supabase
-      .from("answers")
-      .delete()
-      .eq("teacher_id", teacherId)
-      .eq("student_id", selectedStudentId);
-
-    const { error: masteryError } = await supabase
-      .from("mastery")
-      .delete()
-      .eq("teacher_id", teacherId)
-      .eq("student_id", selectedStudentId);
-
-    const { error: itemMasteryError } = await supabase
-      .from("item_mastery")
-      .delete()
-      .eq("teacher_id", teacherId)
-      .eq("student_id", selectedStudentId);
-
-    const { error: studentError } = await supabase
-      .from("students")
-      .delete()
-      .eq("teacher_id", teacherId)
-      .eq("id", selectedStudentId);
-
-    const blockingItemMasteryError =
-      itemMasteryError && !isMissingItemMasteryTableError(itemMasteryError);
-
-    if (answersError || masteryError || blockingItemMasteryError || studentError) {
-      console.error("Delete student error:", answersError || masteryError || blockingItemMasteryError || studentError);
-      setMessage("Could not delete student.");
-      return;
-    }
-
-    if (studentId === selectedStudentId) {
-      setStudentId(null);
-      setStudentName("");
-      setNameSaved(false);
-      setAnswerHistory([]);
-      setItemMastery({});
-      setItemSessionSeen({});
-      setMastery({});
-      setRoundAnswers([]);
-      setCurrentQuestion(null);
-      setFeedback(null);
-      setAppView(APP_VIEWS.SELECT);
-    }
-
-    await loadStudents(selectedClassId);
-    await loadClassDashboard(selectedClassId);
-    setMessage(`Deleted ${selectedStudentName}.`);
-  }
-
-  async function deleteClass(classId = selectedClassId) {
-    if (!teacherId || !classId) return;
-    if (!classList.some(cls => cls.id === classId)) {
-      setMessage("You can only delete classes assigned to your account.");
-      return;
-    }
-
-    const className =
-      classList.find(cls => cls.id === classId)?.name || "this class";
-
-    const confirmed = window.confirm(
-      `Delete ${className}? This removes the class, students, answers, and mastery records.`
-    );
-
-    if (!confirmed) return;
-
-    const { data: students, error: studentsError } = await supabase
-      .from("students")
-      .select("id")
-      .eq("teacher_id", teacherId)
-      .eq("class_id", classId);
-
-    if (studentsError) {
-      console.error("Delete class student lookup error:", studentsError);
-      setMessage("Could not delete class.");
-      return;
-    }
-
-    const studentIds =
-      (students || []).map(student => student.id);
-
-    if (studentIds.length > 0) {
-      const { error: answersError } = await supabase
-        .from("answers")
-        .delete()
-        .eq("teacher_id", teacherId)
-        .in("student_id", studentIds);
-
-      const { error: masteryError } = await supabase
-        .from("mastery")
-        .delete()
-        .eq("teacher_id", teacherId)
-        .in("student_id", studentIds);
-
-      const { error: itemMasteryError } = await supabase
-        .from("item_mastery")
-        .delete()
-        .eq("teacher_id", teacherId)
-        .in("student_id", studentIds);
-
-      const blockingItemMasteryError =
-        itemMasteryError && !isMissingItemMasteryTableError(itemMasteryError);
-
-      if (answersError || masteryError || blockingItemMasteryError) {
-        console.error("Delete class data error:", answersError || masteryError || blockingItemMasteryError);
-        setMessage("Could not delete class data.");
-        return;
-      }
-    }
-
-    const { error: deleteStudentsError } = await supabase
-      .from("students")
-      .delete()
-      .eq("teacher_id", teacherId)
-      .eq("class_id", classId);
-
-    const { error: deleteClassError } = await supabase
-      .from("classes")
-      .delete()
-      .eq("teacher_id", teacherId)
-      .eq("id", classId);
-
-    if (deleteStudentsError || deleteClassError) {
-      console.error("Delete class error:", deleteStudentsError || deleteClassError);
-      setMessage("Could not delete class.");
-      return;
-    }
-
-    if (selectedClassId === classId) {
-      setSelectedClassId(null);
-      setStudentList([]);
-      setClassDashboard([]);
-      setShowClassDashboard(false);
-    }
-
-    if (studentId && studentIds.includes(studentId)) {
-      setStudentId(null);
-      setStudentName("");
-      setNameSaved(false);
-      setAnswerHistory([]);
-      setItemMastery({});
-      setItemSessionSeen({});
-      setMastery({});
-      setRoundAnswers([]);
-      setCurrentQuestion(null);
-      setFeedback(null);
-      setAppView(APP_VIEWS.SELECT);
-    }
-
-    await loadClasses();
-    setMessage(`Deleted ${className}.`);
   }
 
   function resetCurrentStudentLocalProgress({ clearFormalAssessments = false } = {}) {
@@ -3369,8 +3196,8 @@ export default function App() {
   }
 
 
-  async function saveStudentName() {
-    const clean = studentName.trim();
+  async function createStudentForSelectedClass(name) {
+    const clean = String(name || "").trim();
     if (!clean) return;
 
     if (!teacherId) {
@@ -3378,42 +3205,37 @@ export default function App() {
       return;
     }
 
-    if (!studentId) {
-      if (!selectedClassId) {
-        setMessage("Please select or create a class first.");
-        return;
-      }
-
-      const { data, error } = await supabase
-        .from("students")
-        .insert({
-          name: clean,
-          class_id: selectedClassId,
-          teacher_id: teacherId
-        })
-        .select()
-        .single();
-
-      if (error) {
-        console.error("Supabase student save error:", error);
-        setMessage("Student saved locally, but cloud save failed.");
-        return;
-      }
-
-      resetCurrentStudentLocalProgress({ clearFormalAssessments: true });
-      setStudentId(data.id);
-      setStudentName(data.name || clean);
-      setGuidedReadingRecords({});
-      setNameSaved(true);
-      setCurrentSkillIndex(0);
-      setAppView(APP_VIEWS.OVERVIEW);
-      await loadStudents(selectedClassId);
-      setMessage(`Student created and selected: ${data.name || clean}`);
+    if (!selectedClassId) {
+      setMessage("Please select or create a class first.");
       return;
     }
 
-    setStudentName(clean);
+    const { data, error } = await supabase
+      .from("students")
+      .insert({
+        name: clean,
+        class_id: selectedClassId,
+        teacher_id: teacherId
+      })
+      .select()
+      .single();
+
+    if (error) {
+      console.error("Supabase student save error:", error);
+      setMessage("Student saved locally, but cloud save failed.");
+      return;
+    }
+
+    resetCurrentStudentLocalProgress({ clearFormalAssessments: true });
+    setStudentId(data.id);
+    setStudentName(data.name || clean);
+    setGuidedReadingRecords({});
     setNameSaved(true);
+    setCurrentSkillIndex(0);
+    setAppView(APP_VIEWS.OVERVIEW);
+    await loadStudents(selectedClassId);
+    await loadClassDashboard(selectedClassId);
+    setMessage(`Student created and selected: ${data.name || clean}`);
   }
 
   function isInitialSoundsStage(stage) {
@@ -6954,7 +6776,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     setCurrentQuestion(null);
     setFeedback(null);
     setMessage("");
-    setShowClassDashboard(false);
     setAppView(APP_VIEWS.SELECT);
     loadClasses();
     loadStudents(selectedClassId);
@@ -7022,6 +6843,14 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   const questionBankCoverage = useMemo(() =>
     buildQuestionBankCoverage(allQuestions),
   [allQuestions]);
+
+  useEffect(() => {
+    if (!authReady || !teacherUser) return;
+    if (!isTeacherAccountApproved()) return;
+    if (appView === APP_VIEWS.SELECT) {
+      setAppView(APP_VIEWS.TEACHER_DASHBOARD);
+    }
+  }, [appView, authReady, teacherAccountStatus, teacherUser, isAdmin]);
 
   if (!authReady) {
     return (
@@ -7200,7 +7029,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           goToLearn={() => setAppView(APP_VIEWS.LEARN)}
           goToReports={() => setAppView(APP_VIEWS.REPORTS)}
           goToTeacherDashboard={() => setAppView(APP_VIEWS.TEACHER_DASHBOARD)}
-          goToTools={() => setAppView(APP_VIEWS.TOOLS)}
           teacherEmail={teacherUser.email}
           logOutTeacher={logOutTeacher}
           isAdmin={isAdmin}
@@ -7210,45 +7038,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       <div className="lg-content-area">
       <div className={appShellClassName}>
       {showConfetti && !prefersReducedMotion && <Confetti recycle={false} numberOfPieces={90} />}
-
-      {!isFocusedAssessment && appView === APP_VIEWS.SELECT && (
-        <motion.div
-          className="hero"
-          initial={{ y: -12, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-        >
-          <h1>Reading Mastery</h1>
-          <p>Structured EL-style reading skill progression</p>
-
-          {appView === APP_VIEWS.SELECT && !nameSaved && (
-            <StudentSelectPage
-              classList={classList}
-              selectedClassId={selectedClassId}
-              setSelectedClassId={setSelectedClassId}
-              setStudentList={setStudentList}
-              loadStudents={loadStudents}
-              newClassName={newClassName}
-              setNewClassName={setNewClassName}
-              createClass={createClass}
-              loadClassDashboard={loadClassDashboard}
-              studentList={studentList}
-              loadingStudents={loadingStudents}
-              loadStudentProgress={loadStudentProgress}
-              studentName={studentName}
-              setStudentName={setStudentName}
-              saveStudentName={saveStudentName}
-              showClassDashboard={showClassDashboard}
-              classDashboard={classDashboard}
-              skillTree={skillTree}
-              setShowClassDashboard={setShowClassDashboard}
-              deleteClass={deleteClass}
-              deleteStudent={deleteStudent}
-            />
-          )}
-
-          {nameSaved && <h2>Student: {studentName}</h2>}
-        </motion.div>
-      )}
 
       {appView === APP_VIEWS.ADMIN_DASHBOARD && isAdmin && (
         <PageBoundary resetKey="admin-dashboard">
@@ -7275,51 +7064,29 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </PageBoundary>
       )}
 
-      {appView === APP_VIEWS.TEACHER_DASHBOARD && (
+      {(appView === APP_VIEWS.TEACHER_DASHBOARD || appView === APP_VIEWS.SELECT) && (
         <PageBoundary resetKey="teacher-dashboard">
-          <Suspense fallback={<LazyPageFallback label="Loading teacher dashboard..." />}>
-            <AdminDashboardPage
-              teachers={[]}
-              classes={classList.map(row => ({
-                ...row,
-                teacher_id: teacherId,
-                studentCount: row.id === selectedClassId ? studentList.length : ""
-              }))}
-              students={studentList.map(row => ({
-                ...row,
-                teacher_id: teacherId,
-                className: getSelectedClassName(classList, row.class_id)
-              }))}
-              pendingAccounts={[]}
-              loading={false}
-              refreshDashboard={() => {
-                loadClasses();
-                if (selectedClassId) {
-                  loadStudents(selectedClassId);
-                  loadClassDashboard(selectedClassId);
-                }
-                setAssessmentHistory(teacherId ? loadAssessmentAttempts({ teacherId }) : []);
-              }}
-              deleteClass={deleteClass}
-              deleteStudent={deleteStudent}
-              updateTeacherAccountStatus={null}
-              questionBankCoverage={questionBankCoverage}
-              mediaQuestions={[]}
-              assessmentHistory={assessmentHistory}
-              dashboardMode="teacher"
-              teacherId={teacherId}
-              message={message}
-              onLoadStudent={async (id, name) => {
-                await loadStudentProgress(id, name);
-                setAppView(APP_VIEWS.OVERVIEW);
-              }}
-              onSwitchStudent={nameSaved ? switchStudent : undefined}
-              onViewStudentReport={async (id, name) => {
-                await loadStudentProgress(id, name);
-                setAppView(APP_VIEWS.FINISHED);
-              }}
-            />
-          </Suspense>
+          <TeacherDashboardPage
+            classList={classList}
+            selectedClassId={selectedClassId}
+            setSelectedClassId={setSelectedClassId}
+            setStudentList={setStudentList}
+            studentList={studentList}
+            loadingStudents={loadingStudents}
+            loadStudents={loadStudents}
+            onLoadStudent={async (id, name) => {
+              await loadStudentProgress(id, name);
+              setAppView(APP_VIEWS.OVERVIEW);
+            }}
+            createClass={createClass}
+            newClassName={newClassName}
+            setNewClassName={setNewClassName}
+            createStudent={createStudentForSelectedClass}
+            classDashboard={classDashboard}
+            loadClassDashboard={loadClassDashboard}
+            skillTree={skillTree}
+            message={message}
+          />
         </PageBoundary>
       )}
 
@@ -7346,13 +7113,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             weaknessSnapshot={weaknessSnapshot}
             itemMasterySnapshot={getItemMasterySnapshot()}
             coverageSnapshot={coverageSnapshot}
-            setAppView={setAppView}
             switchStudent={switchStudent}
             openResetStudentProgress={() => setResetProgressDialogOpen(true)}
-            letterAssessment={letterAssessment}
-            patternAssessment={patternAssessment}
-            exportLetterAssessment={exportLetterAssessment}
-            exportPatternAssessment={exportPatternAssessment}
             isAdmin={isAdmin}
           />
         </PageBoundary>
@@ -7382,11 +7144,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             studentName={studentName}
             startLetterAssessment={() => setAppView(APP_VIEWS.LETTERS)}
             startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
-            openGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
-            letterAssessment={letterAssessment}
-            patternAssessment={patternAssessment}
-            exportLetterAssessment={exportLetterAssessment}
-            exportPatternAssessment={exportPatternAssessment}
           />
         </PageBoundary>
       )}
@@ -7418,29 +7175,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             studentName={studentName}
             startAssessment={startAssessment}
             viewFinishedReport={() => setAppView(APP_VIEWS.FINISHED)}
-            openGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
             guidedReadingRecords={guidedReadingRecords}
             assessmentHistory={reportsAssessmentHistory}
             skillMasterySummary={reportSkillMasterySummary}
-            exportData={exportData}
-            exportCSVData={exportCSVData}
             exportReadingReport={exportReadingReport}
-            letterAssessment={letterAssessment}
-            patternAssessment={patternAssessment}
-            exportLetterAssessment={exportLetterAssessment}
-            exportPatternAssessment={exportPatternAssessment}
-          />
-        </PageBoundary>
-      )}
-
-      {appView === APP_VIEWS.TOOLS && nameSaved && (
-        <PageBoundary resetKey={`tools-${studentId}`}>
-          <TeacherSettingsToolsPage
-            studentName={studentName}
-            switchStudent={switchStudent}
-            openResetStudentProgress={() => setResetProgressDialogOpen(true)}
-            isAdmin={isAdmin}
-            itemMasterySnapshot={getItemMasterySnapshot()}
           />
         </PageBoundary>
       )}

@@ -1,5 +1,4 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
-import logomarkUrl from "../assets/logomark.svg";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import "../styles/assessment.css";
 import { getApprovedAudioPath } from "../data/audioPreferenceManifest";
@@ -112,193 +111,6 @@ function FixSentenceQuestion({ currentQuestion, answerQuestion }) {
         </button>
       </div>
     </div>
-  );
-}
-
-export function TopNavigation({
-  appView,
-  nameSaved,
-  studentName,
-  currentStage,
-  goToOverview,
-  goToSkills,
-  goToElAssessments,
-  goToGuidedReading,
-  goToTeacherDashboard,
-  goToLearn,
-  goToTools,
-  switchStudent,
-  viewReport,
-  teacherEmail,
-  logOutTeacher,
-  isAdmin,
-  openAdminDashboard
-}) {
-  const activeStep =
-    appView === "letters" || appView === "advancedPhonics" ? "assessment" : appView;
-  const infoItems = [
-    { id: "section", label: activeStep === "select" ? "Class/Student Select" : "Teacher Mode", active: true },
-    {
-      id: "teacher",
-      label: teacherEmail || "Signed in",
-      onClick: goToTeacherDashboard,
-      ariaLabel: "Open Teacher Dashboard"
-    },
-    {
-      id: "student",
-      label: nameSaved ? studentName || "Unnamed student" : "No student selected",
-      onClick: nameSaved ? goToOverview : null,
-      ariaLabel: nameSaved ? "Open Student Overview" : undefined
-    },
-    ...(nameSaved && currentStage ? [{
-      id: "stage",
-      label: currentStage.label,
-      onClick: goToSkills,
-      ariaLabel: "Open Skills"
-    }] : [])
-  ];
-  const needsStudentTitle = nameSaved ? undefined : "Select a student first";
-  const getStudentActionLabel = (label) => (
-    nameSaved ? undefined : `${label} unavailable. Select a student first.`
-  );
-
-  return (
-    <nav className="top-nav" aria-label="Teacher navigation">
-      <div className="top-nav-identity">
-        <img src={logomarkUrl} alt="Literacy Guide" className="top-nav-logo" aria-hidden="true" />
-        <div className="breadcrumb" aria-label="Current teacher context">
-        {infoItems.map((item, index) => (
-          <span
-            className={
-              item.active
-                ? "breadcrumb-step active"
-                : "breadcrumb-step"
-            }
-            key={item.id}
-          >
-            {item.onClick ? (
-              <button
-                aria-label={item.ariaLabel}
-                className="breadcrumb-button"
-                onClick={item.onClick}
-                type="button"
-              >
-                <span className="breadcrumb-label">{item.label}</span>
-              </button>
-            ) : (
-              <span className="breadcrumb-label">{item.label}</span>
-            )}
-            {index < infoItems.length - 1 && (
-              <span className="breadcrumb-separator">/</span>
-            )}
-          </span>
-        ))}
-        </div>
-      </div>
-
-      <div className="top-nav-actions">
-        <div className="top-nav-group" role="group" aria-label="Student navigation">
-          <span className="top-nav-group-label">Student</span>
-          <div className="top-nav-group-actions">
-            <button
-              aria-label={getStudentActionLabel("Student Overview")}
-              className={appView === "overview" ? "nav-button primary" : "nav-button"}
-              onClick={goToOverview}
-              disabled={!nameSaved}
-              title={needsStudentTitle}
-            >
-              Student Overview
-            </button>
-
-            <button
-              aria-label={getStudentActionLabel("Skills")}
-              className={appView === "skills" ? "nav-button primary" : "nav-button"}
-              onClick={goToSkills}
-              disabled={!nameSaved}
-              title={needsStudentTitle}
-            >
-              Skills
-            </button>
-
-            <button
-              aria-label={getStudentActionLabel("EL Assessments")}
-              className={appView === "elAssessments" ? "nav-button primary" : "nav-button"}
-              onClick={goToElAssessments}
-              disabled={!nameSaved}
-              title={needsStudentTitle}
-            >
-              EL Assessments
-            </button>
-
-            <button
-              aria-label={getStudentActionLabel("Guided Reading")}
-              className={appView === "guidedReading" ? "nav-button primary" : "nav-button"}
-              onClick={goToGuidedReading}
-              disabled={!nameSaved}
-              title={needsStudentTitle}
-            >
-              Guided Reading
-            </button>
-
-            <button
-              aria-label={getStudentActionLabel("Story Quests")}
-              className={appView === "learn" ? "nav-button primary" : "nav-button"}
-              onClick={goToLearn}
-              disabled={!nameSaved}
-              title={needsStudentTitle}
-            >
-              Story Quests
-            </button>
-          </div>
-        </div>
-
-        <div className="top-nav-group" role="group" aria-label="Teacher navigation actions">
-          <span className="top-nav-group-label">Teacher</span>
-          <div className="top-nav-group-actions">
-            <button
-              className={appView === "teacherDashboard" ? "nav-button primary" : "nav-button"}
-              onClick={goToTeacherDashboard}
-            >
-              Teacher Dashboard
-            </button>
-
-            <button
-              aria-label={getStudentActionLabel("Tools")}
-              className={appView === "tools" ? "nav-button primary" : "nav-button"}
-              onClick={goToTools}
-              disabled={!nameSaved}
-              title={needsStudentTitle}
-            >
-              Tools
-            </button>
-          </div>
-        </div>
-
-        {isAdmin && (
-          <div className="top-nav-group" role="group" aria-label="Admin navigation">
-            <span className="top-nav-group-label">Admin</span>
-            <div className="top-nav-group-actions">
-              <button className="nav-button" onClick={openAdminDashboard}>
-                Admin Dashboard
-              </button>
-            </div>
-          </div>
-        )}
-
-        <div className="top-nav-group account" role="group" aria-label="Account actions">
-          <span className="top-nav-group-label">Account</span>
-          <div className="top-nav-group-actions">
-            <button className="nav-button" onClick={switchStudent}>
-              Switch Student
-            </button>
-
-            <button className="nav-button" onClick={logOutTeacher}>
-              Log Out
-            </button>
-          </div>
-        </div>
-      </div>
-    </nav>
   );
 }
 
@@ -1137,208 +949,6 @@ export function AdminDashboardPage({
   );
 }
 
-export function StudentSelectPage({
-  classList,
-  selectedClassId,
-  setSelectedClassId,
-  setStudentList,
-  loadStudents,
-  newClassName,
-  setNewClassName,
-  createClass,
-  loadClassDashboard,
-  studentList,
-  loadingStudents,
-  loadStudentProgress,
-  studentName,
-  setStudentName,
-  saveStudentName,
-  showClassDashboard,
-  classDashboard,
-  skillTree,
-  setShowClassDashboard,
-  deleteClass,
-  deleteStudent
-}) {
-  return (
-    <div className="page-stack">
-      <div className="name-entry page-stack">
-        <h3>Select Class</h3>
-
-        <select
-          value={selectedClassId || ""}
-          onChange={e => {
-            const id = e.target.value || null;
-            setSelectedClassId(id);
-            setStudentList([]);
-            if (id) loadStudents(id);
-          }}
-        >
-          <option value="">Choose class</option>
-
-          {classList.map(cls => (
-            <option key={cls.id} value={cls.id}>
-              {cls.name}
-            </option>
-          ))}
-        </select>
-
-        <h3>Create New Class</h3>
-
-        <div className="class-action-grid">
-          <input
-            className="class-name-input"
-            autoComplete="off"
-            value={newClassName}
-            placeholder="Enter class name"
-            onChange={e => setNewClassName(e.target.value)}
-            onKeyDown={e => {
-              if (e.key === "Enter") createClass();
-            }}
-          />
-
-          <button className="save-name-button class-action-button" onClick={createClass}>
-            Create Class
-          </button>
-
-          {selectedClassId && (
-            <button
-              className="report-button class-action-button"
-              onClick={() => loadClassDashboard(selectedClassId)}
-            >
-              View Class Dashboard
-            </button>
-          )}
-
-          {selectedClassId && (
-            <button
-              className="reset-button class-action-button"
-              onClick={() => deleteClass(selectedClassId)}
-            >
-              Delete Class
-            </button>
-          )}
-        </div>
-
-        {selectedClassId && (
-          <>
-            <h3>Select Student</h3>
-
-            <select
-              value=""
-              onChange={e => {
-                const selected =
-                  studentList.find(s => s.id === e.target.value);
-
-                if (selected) {
-                  loadStudentProgress(selected.id, selected.name);
-                }
-              }}
-            >
-              <option value="">
-                {loadingStudents ? "Loading students..." : "Choose existing student"}
-              </option>
-
-              {studentList.map(student => (
-                <option key={student.id} value={student.id}>
-                  {student.name}
-                </option>
-              ))}
-            </select>
-
-            <h3>Create New Student</h3>
-          </>
-        )}
-
-        <input
-          autoComplete="off"
-          value={studentName}
-          placeholder={selectedClassId ? "Enter new student name" : "Select a class first"}
-          disabled={!selectedClassId}
-          onChange={e => setStudentName(e.target.value)}
-          onKeyDown={e => {
-            if (e.key === "Enter") saveStudentName();
-          }}
-        />
-
-        <button
-          className="save-name-button"
-          onClick={saveStudentName}
-          disabled={!selectedClassId}
-        >
-          Create Student
-        </button>
-      </div>
-
-      {showClassDashboard && (
-        <div className="report-panel page-stack">
-          <h2>Class Dashboard</h2>
-
-          {classDashboard.length === 0 ? (
-            <p>No students in this class yet.</p>
-          ) : (
-            <table className="dashboard-table">
-              <thead>
-                <tr>
-                  <th>Student</th>
-                  <th>Answered</th>
-                  <th>Accuracy</th>
-                  <th>Checkpoints</th>
-                  <th>Current Skill</th>
-                  <th>Last Active</th>
-                  <th>Open</th>
-                  <th>Delete</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {classDashboard.map(row => (
-                  <tr key={row.id}>
-                    <td>{row.name}</td>
-                    <td>{row.answered}</td>
-                    <td>{row.accuracy}%</td>
-                    <td>{row.masteredCount}/{skillTree.length}</td>
-                    <td>{row.currentSkill}</td>
-                    <td>{row.lastActive}</td>
-                    <td>
-                      <button
-                        className="report-button"
-                        onClick={() => {
-                          loadStudentProgress(row.id, row.name);
-                          setShowClassDashboard(false);
-                        }}
-                      >
-                        Open
-                      </button>
-                    </td>
-                    <td>
-                      <button
-                        className="reset-button"
-                        onClick={() => deleteStudent(row.id, row.name)}
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
-
-          <div className="button-row">
-            <button
-              className="reset-button"
-              onClick={() => setShowClassDashboard(false)}
-            >
-              Close Dashboard
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
 export function StudentOverviewPage({
   studentName,
   currentSkillIndex,
@@ -1360,13 +970,8 @@ export function StudentOverviewPage({
   weaknessSnapshot,
   itemMasterySnapshot,
   coverageSnapshot,
-  setAppView,
   switchStudent,
   openResetStudentProgress,
-  letterAssessment = [],
-  patternAssessment = [],
-  exportLetterAssessment,
-  exportPatternAssessment,
   isAdmin = false
 }) {
   const strongestAreas =
@@ -1472,9 +1077,6 @@ export function StudentOverviewPage({
         <div className="teacher-quick-actions" aria-label="Quick actions">
           <button className="lp-button lp-button-secondary" onClick={switchStudent}>
             Switch Student
-          </button>
-          <button className="lp-button lp-button-secondary" onClick={() => setAppView("finished")}>
-            View Report
           </button>
           <button
             className="lp-button lp-button-danger-outline"
@@ -1706,8 +1308,7 @@ export function SkillsProgressPage({
 export function ELAssessmentsPage({
   studentName,
   startLetterAssessment,
-  startAdvancedPhonicsAssessment,
-  openGuidedReading
+  startAdvancedPhonicsAssessment
 }) {
   return (
     <div className="teacher-product-page">
@@ -1736,16 +1337,6 @@ export function ELAssessmentsPage({
           <div className="teacher-action-list">
             <button className="lp-button lp-button-secondary" onClick={startAdvancedPhonicsAssessment}>
               Start Advanced Phonics
-            </button>
-          </div>
-        </article>
-
-        <article className="teacher-action-panel">
-          <h3>Guided Reading</h3>
-          <p>Listen to a student read an original sample book, mark word reading, and record teacher notes.</p>
-          <div className="teacher-action-list">
-            <button className="lp-button lp-button-secondary" onClick={openGuidedReading} type="button">
-              Open Guided Reading
             </button>
           </div>
         </article>
@@ -1785,17 +1376,10 @@ export function TeacherReportsPage({
   studentName,
   startAssessment,
   viewFinishedReport,
-  openGuidedReading,
   guidedReadingRecords = {},
   assessmentHistory = [],
   skillMasterySummary = [],
-  exportData,
-  exportCSVData,
-  exportReadingReport,
-  letterAssessment = [],
-  patternAssessment = [],
-  exportLetterAssessment,
-  exportPatternAssessment
+  exportReadingReport
 }) {
   const [detailsReady, setDetailsReady] = useState(false);
   const [dateRange, setDateRange] = useState("last90");
@@ -2007,10 +1591,7 @@ export function TeacherReportsPage({
           ) : !hasReadingData ? (
             <div className="report-empty-state">
               <strong>No guided reading records yet.</strong>
-              <p>Open Guided Reading to begin saving book progress and conference notes.</p>
-              <button className="lp-button lp-button-secondary" onClick={openGuidedReading} type="button">
-                Open Guided Reading
-              </button>
+              <p>Guided reading records will appear here after book progress and conference notes are saved.</p>
             </div>
           ) : (
             <>
@@ -2037,9 +1618,6 @@ export function TeacherReportsPage({
             <button className="lp-button lp-button-primary" onClick={exportReadingReport} type="button">
               Export Reading Report
             </button>
-            <button className="lp-button lp-button-secondary" onClick={openGuidedReading} type="button">
-              Open Guided Reading
-            </button>
           </div>
         </article>
 
@@ -2060,7 +1638,7 @@ export function TeacherReportsPage({
           ) : (
             <div className="report-empty-state compact">
               <strong>No words marked green yet.</strong>
-              <p>Open Guided Reading and mark words read correctly during a conference.</p>
+              <p>Words read correctly will appear here after guided reading conferences are saved.</p>
             </div>
           )}
         </article>
@@ -2104,120 +1682,11 @@ export function TeacherReportsPage({
           ) : (
             <div className="report-empty-state compact">
               <strong>No guided reading records yet.</strong>
-              <p>Open Guided Reading to save the first book record for this student.</p>
-              <button className="lp-button lp-button-secondary" onClick={openGuidedReading} type="button">
-                Open Guided Reading
-              </button>
+              <p>Conference notes will appear here after the first book record is saved for this student.</p>
             </div>
           )}
         </article>
-
-        <article className="teacher-action-panel">
-          <h3>Exports</h3>
-          <p>Download adaptive and formal assessment exports without changing student progress.</p>
-          <div className="teacher-action-list">
-            <button className="lp-button lp-button-secondary" onClick={exportData}>
-              Export Text Report
-            </button>
-            <button className="lp-button lp-button-secondary" onClick={exportCSVData}>
-              Export Excel CSV
-            </button>
-            {letterAssessment.length > 0 && (
-              <button className="lp-button lp-button-secondary" onClick={exportLetterAssessment} type="button">
-                Export Letter Excel
-              </button>
-            )}
-            {patternAssessment.length > 0 && (
-              <button className="lp-button lp-button-secondary" onClick={exportPatternAssessment} type="button">
-                Export Pattern Excel
-              </button>
-            )}
-          </div>
-        </article>
       </section>
-    </div>
-  );
-}
-
-export function TeacherSettingsToolsPage({
-  studentName,
-  switchStudent,
-  openResetStudentProgress,
-  isAdmin,
-  itemMasterySnapshot
-}) {
-  const itemSnapshot = itemMasterySnapshot || {
-    mastered: [],
-    attempting: [],
-    evidence: [],
-    unseenCount: 0,
-    trackedCount: 0
-  };
-  const formatItemLabel = item =>
-    item.itemKey + " (" + item.itemType.replace(/_/g, " ") + ", " + item.correct + "/" + item.attempts + ")";
-
-  return (
-    <div className="teacher-product-page">
-      <section className="teacher-page-header">
-        <div>
-          <p className="panel-label">Settings / Tools</p>
-          <h2>Student Tools</h2>
-          <p>Manage the selected student without mixing tools into the assessment dashboard.</p>
-        </div>
-      </section>
-
-      <section className="teacher-action-panel-grid">
-        <article className="teacher-action-panel">
-          <h3>Student</h3>
-          <p>Current student: {studentName || "Unnamed student"}</p>
-          <div className="teacher-action-list">
-            <button className="lp-button lp-button-secondary" onClick={switchStudent}>
-              Switch Student
-            </button>
-            <button className="lp-button lp-button-danger-outline" onClick={openResetStudentProgress} type="button">
-              Reset Student Progress
-            </button>
-          </div>
-        </article>
-      </section>
-
-      {isAdmin && (
-        <section className="admin-tools-stack">
-          <details className="item-mastery-debug">
-            <summary>Developer item mastery snapshot</summary>
-            <div className="item-mastery-grid">
-              <div>
-                <strong>Mastered items</strong>
-                {itemSnapshot.mastered.length > 0 ? (
-                  <ul>
-                    {itemSnapshot.mastered.map(item => (
-                      <li key={item.itemType + "-" + item.itemKey}>{formatItemLabel(item)}</li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p>No mastered item records yet.</p>
-                )}
-              </div>
-              <div>
-                <strong>Attempting items</strong>
-                {itemSnapshot.attempting.length > 0 ? (
-                  <ul>
-                    {itemSnapshot.attempting.map(item => (
-                      <li key={item.itemType + "-" + item.itemKey}>{formatItemLabel(item)}</li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p>No item attempts recorded yet.</p>
-                )}
-              </div>
-              <div>
-                <strong>Coverage</strong>
-                <p>{itemSnapshot.unseenCount} unseen of {itemSnapshot.trackedCount} tracked runtime items.</p>
-              </div>
-            </div>
-          </details>
-        </section>
-      )}
     </div>
   );
 }

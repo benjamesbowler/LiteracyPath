@@ -1434,6 +1434,65 @@ body {
   box-shadow: var(--shadow-card);
 }
 
+.teacher-dashboard-page {
+  gap: 16px;
+}
+
+.teacher-dashboard-controls,
+.teacher-dashboard-roster {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--lp-color-border-subtle);
+  border-radius: 8px;
+  background: var(--lp-color-surface);
+}
+
+.teacher-dashboard-controls {
+  grid-template-columns: minmax(220px, 0.8fr) minmax(280px, 1.2fr);
+  align-items: end;
+}
+
+.teacher-dashboard-create {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.teacher-dashboard-create.student-create {
+  width: min(520px, 100%);
+}
+
+.teacher-dashboard-control {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.teacher-dashboard-control span {
+  color: var(--lp-color-text-muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.teacher-dashboard-control select,
+.teacher-dashboard-control input {
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 10px;
+  border: 1px solid var(--lp-color-border-strong);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--lp-color-text-strong);
+}
+
+.teacher-roster-table td:last-child,
+.teacher-roster-table th:last-child {
+  width: 96px;
+  text-align: right;
+}
+
 .teacher-page-header {
   display: flex;
   align-items: center;
@@ -10154,6 +10213,11 @@ select:focus {
 
   .class-action-grid .class-name-input {
     grid-column: 1 / -1;
+  }
+
+  .teacher-dashboard-controls,
+  .teacher-dashboard-create {
+    grid-template-columns: 1fr;
   }
 
   .weakness-grid,

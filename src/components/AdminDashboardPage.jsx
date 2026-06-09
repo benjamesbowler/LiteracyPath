@@ -1845,8 +1845,7 @@ export function AdminDashboardPage({
       { id: "reports", label: "Reports", count: savedElReports.length },
       { id: "guidedReading", label: "Guided Reading", count: guidedReadingInsight.active },
       { id: "assessmentProgress", label: "Assessment", count: assessmentHistory.length },
-      { id: "hfw", label: "HFW", count: hfwAssessedCount },
-      { id: "exports", label: "Exports", count: null }
+      { id: "hfw", label: "HFW", count: hfwAssessedCount }
     ]
     : [
       { id: "overview", label: "Overview", count: null },
@@ -1990,10 +1989,6 @@ export function AdminDashboardPage({
             <button className="admin-overview-card" onClick={() => setActiveSection("guidedReading")} type="button">
               <span>Guided Reading Data</span>
               <strong>{guidedReadingLog.length}</strong>
-            </button>
-            <button className="admin-overview-card" onClick={() => setActiveSection("exports")} type="button">
-              <span>Export Data</span>
-              <strong>Open</strong>
             </button>
           </div>
           <div className="teacher-report-grid">
@@ -2425,48 +2420,6 @@ export function AdminDashboardPage({
                 ))}
               </tbody>
             </table>
-          </div>
-        </section>
-      )}
-
-      {isTeacherMode && activeSection === "exports" && (
-        <section className="report-panel page-stack admin-section admin-section-panel">
-          <div className="admin-section-heading">
-            <div>
-              <h3>Exports</h3>
-              <p className="muted-text">Generate files only when you click an export button.</p>
-            </div>
-          </div>
-          {exportNotice && <p className="message">{exportNotice}</p>}
-          <div className="teacher-report-grid">
-            <article className="teacher-report-card">
-              <h4>Assessment History</h4>
-              <div className="teacher-action-list">
-                <button className="lp-button lp-button-secondary" disabled={assessmentHistory.length === 0} onClick={() => downloadTextFile("assessment-history.csv", exportAssessmentAttemptsCsv(assessmentHistory), "text/csv")} type="button">
-                  Export CSV
-                </button>
-                <button className="lp-button lp-button-secondary" disabled={assessmentHistory.length === 0} onClick={() => downloadTextFile("assessment-history.json", JSON.stringify(assessmentHistory, null, 2), "application/json")} type="button">
-                  Export JSON
-                </button>
-              </div>
-            </article>
-            <article className="teacher-report-card">
-              <h4>EL Reports</h4>
-              <div className="teacher-action-list">
-                <button className="lp-button lp-button-secondary" disabled={elClassStudents.length === 0} onClick={handleStudentElAssessmentExport} type="button">
-                  Export Student EL Assessment Excel
-                </button>
-                <button className="lp-button lp-button-secondary" onClick={handleClassElAssessmentExport} type="button">
-                  Export Class EL Assessment Excel
-                </button>
-              </div>
-            </article>
-            <article className="teacher-report-card">
-              <h4>Guided Reading</h4>
-              <button className="lp-button lp-button-secondary" onClick={handleGuidedReadingCompletionExport} type="button">
-                Export Guided Reading Completion Excel
-              </button>
-            </article>
           </div>
         </section>
       )}

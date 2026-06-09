@@ -49,11 +49,6 @@ const ICONS = {
       <path d="M4 4h9v2H6v12h7v2H4V4Zm11.6 4.4L20.2 13l-4.6 4.6-1.4-1.4 2.2-2.2H10v-2h6.4l-2.2-2.2 1.4-1.4Z" />
     </svg>
   ),
-  settings: (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M10.8 3h2.4l.5 2.4c.5.2 1 .4 1.4.6l2.1-1.3 1.7 1.7-1.3 2.1c.3.5.5.9.6 1.4l2.4.5v2.4l-2.4.5c-.2.5-.4 1-.6 1.4l1.3 2.1-1.7 1.7-2.1-1.3c-.5.3-.9.5-1.4.6l-.5 2.4h-2.4l-.5-2.4c-.5-.2-1-.4-1.4-.6l-2.1 1.3-1.7-1.7 1.3-2.1c-.3-.5-.5-.9-.6-1.4l-2.4-.5v-2.4l2.4-.5c.2-.5.4-1 .6-1.4L5.1 6.4l1.7-1.7L8.9 6c.5-.3.9-.5 1.4-.6L10.8 3Zm1.2 7.2a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6Z" />
-    </svg>
-  ),
   chevron: (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M14.7 6.3 9 12l5.7 5.7-1.4 1.4L6.9 12l6.4-7.1 1.4 1.4Z" />
@@ -119,7 +114,6 @@ export function Sidebar({
   goToLearn,
   goToReports,
   goToTeacherDashboard,
-  goToTools,
   logOutTeacher,
   isAdmin,
   openAdminDashboard,
@@ -221,7 +215,7 @@ export function Sidebar({
         )}
       </nav>
 
-      {/* ── Footer: teacher info + settings ── */}
+      {/* ── Footer: teacher info ── */}
       <div className="lg-sb-footer">
         {teacherEmail && (
           <button
@@ -238,15 +232,6 @@ export function Sidebar({
             </span>
           </button>
         )}
-        <button
-          className="lg-sb-item"
-          onClick={goToTools}
-          title={collapsed ? "Settings" : undefined}
-        >
-          <span className="lg-sb-item-icon">{ICONS.settings}</span>
-          <span className="lg-sb-item-label">Settings</span>
-          <span className="lg-sb-tooltip" aria-hidden="true">Settings</span>
-        </button>
       </div>
     </aside>
   );
