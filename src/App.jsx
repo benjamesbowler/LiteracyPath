@@ -7156,7 +7156,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             guidedReadingRecords={guidedReadingRecords}
             saveGuidedReadingRecord={saveGuidedReadingRecord}
             speakText={speakText}
-            viewReports={() => setAppView(APP_VIEWS.REPORTS)}
           />
         </PageBoundary>
       )}

@@ -468,8 +468,7 @@ export function GuidedReadingPage({
   saveGuidedReadingRecord,
   speakText,
   launchBookId = "",
-  onLaunchBookHandled = null,
-  viewReports
+  onLaunchBookHandled = null
 }) {
   const [selectedBookId, setSelectedBookId] = useState(() => getRuntimeGuidedReadingBooks()[0]?.id || "");
   const [selectedLibraryType, setSelectedLibraryType] = useState("");
@@ -1237,12 +1236,6 @@ export function GuidedReadingPage({
             <h2>{studentName || "Student"} Reading Library</h2>
             <p>Guided Reading books are temporarily paused while the page images and app text are regenerated to match correctly.</p>
           </div>
-
-          <div className="teacher-action-list">
-            <button className="lp-button lp-button-secondary" onClick={viewReports} type="button">
-              Reports
-            </button>
-          </div>
         </section>
 
         <section className="guided-reader-empty">
@@ -1278,12 +1271,6 @@ export function GuidedReadingPage({
           <p className="panel-label">Guided Reading</p>
           <h2>{studentName || "Student"} Reading Library</h2>
           <p>Choose a guided reading book to listen, read, reread, and capture teacher notes.</p>
-        </div>
-
-        <div className="teacher-action-list">
-          <button className="lp-button lp-button-secondary" onClick={viewReports} type="button">
-            Reports
-          </button>
         </div>
       </section>
 
@@ -1747,9 +1734,6 @@ export function GuidedReadingPage({
               setShowSummary(false);
             }} type="button">
               Continue Marking
-            </button>
-            <button className="lp-button lp-button-secondary" onClick={viewReports} type="button">
-              View Reports
             </button>
             <button className="lp-button lp-button-secondary" onClick={closeReader} type="button">
               Back to Library

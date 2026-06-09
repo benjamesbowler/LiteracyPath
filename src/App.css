@@ -1468,7 +1468,13 @@ body {
 }
 
 .teacher-dashboard-create.student-create {
-  width: min(520px, 100%);
+  width: min(640px, 100%);
+  align-items: end;
+  grid-template-columns: minmax(260px, 1fr) auto;
+}
+
+.teacher-dashboard-create.student-create .lp-button {
+  min-height: 44px !important;
 }
 
 .teacher-dashboard-control {

@@ -40,7 +40,6 @@ function resolveStoryQuestLevel(quest = {}) {
 export function LearnAreaPage({ progressScopeKey = "default" }) {
   const [activeQuestId, setActiveQuestId] = useState("");
   const [selectedQuestId, setSelectedQuestId] = useState("");
-  const [expandedWordsQuestId, setExpandedWordsQuestId] = useState("");
   const [selectedLevelKey, setSelectedLevelKey] = useState("A");
   const [questProgress, setQuestProgress] = useState(() => loadStoryQuestProgress(progressScopeKey));
   const [questProgressScope, setQuestProgressScope] = useState(progressScopeKey);
@@ -89,11 +88,6 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
     setSelectedQuestId(questId);
     updateQuestProgress(questId, {});
     setActiveQuestId(questId);
-  }
-
-  function toggleQuestWords(questId) {
-    setSelectedQuestId(questId);
-    setExpandedWordsQuestId(previousQuestId => (previousQuestId === questId ? "" : questId));
   }
 
   function jumpToLevel(levelKey) {
@@ -176,18 +170,11 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
                   const questDetails = [quest.series, (quest.characters || []).join(", ")]
                     .filter(Boolean)
                     .join(" - ");
-                  const wordsVisible = expandedWordsQuestId === quest.id;
-                  const wordPreviewPanelId = `story-quest-words-${quest.id}`;
-                  const questWordCards = quest.wordCards || [];
                   const questTargetWords = quest.targetWords || [];
 
                   return (
                     <article
-                      className={
-                        selectedQuestId === quest.id || wordsVisible
-                          ? "learn-story-quest-card selected"
-                          : "learn-story-quest-card"
-                      }
+                      className={selectedQuestId === quest.id ? "learn-story-quest-card selected" : "learn-story-quest-card"}
                       key={quest.id}
                       onFocus={() => setSelectedQuestId(quest.id)}
                       onMouseEnter={() => setSelectedQuestId(quest.id)}
@@ -216,48 +203,10 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
                         </div>
                       </div>
                       <div className="learn-story-quest-actions">
-                        <button
-                          aria-controls={wordPreviewPanelId}
-                          aria-expanded={wordsVisible}
-                          className="lp-button lp-button-secondary"
-                          onClick={() => toggleQuestWords(quest.id)}
-                          type="button"
-                        >
-                          {wordsVisible ? "Hide Words" : "Show Words"}
-                        </button>
                         <button className="lp-button lp-button-primary" onClick={() => startQuest(quest.id)} type="button">
                           {actionLabel}
                         </button>
                       </div>
-
-                      {wordsVisible && (
-                        <div className="learn-story-inline-words" id={wordPreviewPanelId}>
-                          <div className="learn-story-inline-words-header">
-                            <strong>Words in {quest.title}</strong>
-                            <span>{questWordCards.length || questTargetWords.length} word{(questWordCards.length || questTargetWords.length) === 1 ? "" : "s"}</span>
-                          </div>
-                          {questWordCards.length > 0 && (
-                            <div className="learn-story-word-card-grid">
-                              {questWordCards.map(card => (
-                                <article className="learn-story-word-card" key={card.word}>
-                                  <img alt={card.word} decoding="async" loading="lazy" src={card.imageUrl} />
-                                  <strong>{card.word}</strong>
-                                </article>
-                              ))}
-                            </div>
-                          )}
-                          {!questWordCards.length && questTargetWords.length > 0 && (
-                            <div className="learn-story-word-preview expanded" aria-label={`${quest.title} word preview`}>
-                              {questTargetWords.map(word => (
-                                <span key={word}>{word}</span>
-                              ))}
-                            </div>
-                          )}
-                          {!questWordCards.length && !questTargetWords.length && (
-                            <p className="learn-story-empty-words">No word preview available.</p>
-                          )}
-                        </div>
-                      )}
                     </article>
                   );
                 })}
