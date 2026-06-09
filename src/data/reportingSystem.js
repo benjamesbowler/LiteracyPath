@@ -542,9 +542,13 @@ export function buildStudentReportModel({
     const skillRecords = records.filter(record => record.skillId === stage.id || record.skillName === stage.label);
     const total = skillRecords.reduce((sum, record) => sum + record.totalQuestions, 0);
     const skillCorrect = skillRecords.reduce((sum, record) => sum + record.correctCount, 0);
-    const skillAccuracy = total ? clampPercent((skillCorrect / total) * 100) : 0;
     const data = mastery?.[stage.id] || null;
     const coverage = coverageSnapshot?.[stage.id] || { mastered: 0, total: 0, unit: "items" };
+    const skillAccuracy = total
+      ? clampPercent((skillCorrect / total) * 100)
+      : coverage.total
+        ? clampPercent((coverage.mastered / coverage.total) * 100)
+        : 0;
     const skillItems = itemRows.filter(row => row.skillId === stage.id || row.skillName === stage.label);
     const area = getSkillArea(stage);
     return {

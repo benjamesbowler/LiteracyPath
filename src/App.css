@@ -1,41 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Inter:wght@400;500;600;700;800&family=Lexend:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lexend:wght@400;500;600;700&display=swap');
+@import './styles/lg-design-system.css';
 
 :root {
-  --lp-color-primary: #4f63d7;
-  --lp-color-primary-strong: #3347b0;
-  --lp-color-primary-soft: #eef2ff;
+  --lp-color-primary: #0C6B65;
+  --lp-color-primary-strong: #084E4A;
+  --lp-color-primary-soft: #E3F4F2;
   --lp-color-accent-warm: #d68a11;
   --lp-color-accent-warm-soft: #fff7e8;
-  --lp-color-success: #159a8a;
-  --lp-color-success-soft: #e7f7f3;
-  --lp-color-success-text: #1a5c55;
+  --lp-color-success: #15803D;
+  --lp-color-success-soft: #F0FDF4;
+  --lp-color-success-text: #14532D;
   --lp-color-teal-text: var(--lp-color-success-text);
-  --lp-color-warning: #c98218;
-  --lp-color-warning-soft: #fff5df;
-  --lp-color-danger: #c2414b;
-  --lp-color-danger-soft: #fff1f2;
+  --lp-color-warning: #B45309;
+  --lp-color-warning-soft: #FEF3C7;
+  --lp-color-danger: #B91C1C;
+  --lp-color-danger-soft: #FEF2F2;
   --lp-color-text: #172033;
   --lp-color-text-strong: #101828;
   --lp-color-text-muted: #667085;
   --lp-color-text-subtle: #98a2b3;
   --lp-color-surface: #ffffff;
-  --lp-color-surface-warm: #fffdf8;
-  --lp-color-surface-subtle: #f9fafb;
-  --lp-color-background: #f7f8fb;
-  --lp-color-background-warm: #fcf7ef;
-  --lp-color-background-warm-strong: #fff8f0;
-  --lp-color-border: #e3e8ef;
-  --lp-color-border-strong: #d0d5dd;
-  --lp-color-border-subtle: #e4e7ec;
-  --lp-shadow-card: 0 10px 32px rgba(22, 34, 51, 0.08);
-  --lp-shadow-nav: 0 8px 26px rgba(22, 34, 51, 0.07);
-  --lp-shadow-soft: 0 14px 42px rgba(48, 37, 18, 0.08);
-  --lp-shadow-focus: 0 0 0 4px rgba(79, 99, 215, 0.14);
-  --lp-radius-sm: 6px;
-  --lp-radius-md: 8px;
-  --lp-radius-lg: 12px;
-  --lp-radius-xl: 16px;
-  --lp-radius-card: 22px;
+  --lp-color-surface-warm: #ffffff;
+  --lp-color-surface-subtle: #F8FAFC;
+  --lp-color-background: #F1F5F9;
+  --lp-color-background-warm: #F1F5F9;
+  --lp-color-background-warm-strong: #F1F5F9;
+  --lp-color-border: #E2E8F0;
+  --lp-color-border-strong: #CBD5E1;
+  --lp-color-border-subtle: #E2E8F0;
+  --lp-shadow-card: 0 1px 4px rgba(15, 23, 42, 0.06), 0 4px 16px rgba(15, 23, 42, 0.06);
+  --lp-shadow-nav: 0 1px 3px rgba(15, 23, 42, 0.08);
+  --lp-shadow-soft: 0 4px 24px rgba(15, 23, 42, 0.08);
+  --lp-shadow-focus: 0 0 0 3px rgba(12, 107, 101, 0.22);
+  --lp-radius-sm: 4px;
+  --lp-radius-md: 6px;
+  --lp-radius-lg: 8px;
+  --lp-radius-xl: 10px;
+  --lp-radius-card: 10px;
   --lp-radius-pill: 999px;
   --lp-font-ui: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --lp-font-reading: Lexend, "Atkinson Hyperlegible", Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -91,20 +92,23 @@ body,
 body {
   margin: 0;
   font-family: var(--lp-font-ui);
-  background:
-    radial-gradient(circle at top left, rgba(255, 246, 230, 0.86), transparent 36rem),
-    radial-gradient(circle at 90% 8%, rgba(231, 247, 243, 0.58), transparent 28rem),
-    linear-gradient(180deg, var(--lp-color-background-warm) 0%, var(--lp-color-background) 52%);
+  background: var(--lp-color-background);
   color: var(--lp-color-text);
 }
 
 .app {
-  max-width: 1120px;
+  max-width: none;
   margin: 0 auto;
   padding: 16px 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.app.no-sidebar,
+.app.auth-shell {
+  max-width: 1120px;
+  margin-inline: auto;
 }
 
 .app > * {

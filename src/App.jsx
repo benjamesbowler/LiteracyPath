@@ -20,9 +20,9 @@ import {
   StudentOverviewPage,
   StudentSelectPage,
   TeacherReportsPage,
-  TeacherSettingsToolsPage,
-  TopNavigation
+  TeacherSettingsToolsPage
 } from "./components/AppPages";
+import { Sidebar } from "./components/Sidebar.jsx";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
 import { normalize, shuffleArray } from "./utils/assessmentRoundBuilder";
 
@@ -1550,7 +1550,7 @@ export default function App() {
   const [totalAnswered, setTotalAnswered] = useState(0);
   const [correctAnswered, setCorrectAnswered] = useState(0);
   const [showConfetti, setShowConfetti] = useState(false);
-  const [showReport, setShowReport] = useState(false);
+  const [, setShowReport] = useState(false);
   const [allowPassageAudio, setAllowPassageAudio] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
@@ -2701,7 +2701,7 @@ export default function App() {
     }
 
     setAuthPassword("");
-    setAuthMessage("Your account request has been submitted. An administrator must approve your account before you can use LiteracyPath.");
+    setAuthMessage("Your account request has been submitted. An administrator must approve your account before you can use Literacy Guide.");
   }
 
   async function logInTeacher() {
@@ -6500,6 +6500,36 @@ export default function App() {
     downloadBlob(blob, `${safeName}_reading_data_${today}.csv`);
   }
 
+  async function exportStudentAssessmentWorkbook() {
+    if (!studentId) {
+      setMessage("Choose a student before exporting the student Excel report.");
+      return;
+    }
+    try {
+      const { exportStudentElAssessmentExcel } = await import("./utils/exportElAssessmentExcel.js");
+      await exportStudentElAssessmentExcel({
+        assessmentHistory,
+        students: [
+          ...studentList,
+          {
+            id: studentId,
+            name: studentName || "Unnamed student",
+            classId: selectedClassId
+          }
+        ],
+        classes: classList,
+        studentId,
+        classId: selectedClassId || "",
+        teacherId: teacherId || "local",
+        guidedReadingRecords
+      });
+      setMessage("Student Excel report exported.");
+    } catch (error) {
+      console.error("Student Excel report export failed:", error);
+      setMessage("Could not export the student Excel report.");
+    }
+  }
+
   async function exportReadingReport() {
     try {
       const {
@@ -6514,7 +6544,7 @@ export default function App() {
       const filenameDate = formatExportDateForFilename(new Date());
       const filename = `${safeExportFilename(studentLabel)} - ${filenameDate} - Reading Report.xlsx`;
 
-      workbook.creator = "LiteracyPath";
+      workbook.creator = "Literacy Guide";
       workbook.created = new Date();
 
       const summarySheet = workbook.addWorksheet("Summary");
@@ -6930,14 +6960,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     loadStudents(selectedClassId);
   }
 
-  function viewReport() {
-    void loadFinishedReportPageModule();
-    setShowReport(true);
-    setAppView(APP_VIEWS.FINISHED);
-  }
-
   const reportsAssessmentHistory = useMemo(() => {
-    if (appView !== APP_VIEWS.REPORTS) return [];
+    if (appView !== APP_VIEWS.REPORTS && appView !== APP_VIEWS.FINISHED) return [];
     const start = typeof performance !== "undefined" ? performance.now() : Date.now();
     const rows = assessmentHistory.filter(record => !studentId || record.studentId === studentId);
     if (import.meta.env.DEV) {
@@ -7020,7 +7044,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           >
             {/* Decorative beam arcs — references the lighthouse without being literal */}
             <svg className="auth-hero-deco" aria-hidden="true" viewBox="0 0 480 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g opacity="0.045" stroke="#4f63d7" strokeLinecap="round">
+              <g opacity="0.045" stroke="#0C6B65" strokeLinecap="round">
                 <path d="M480 0 Q240 200 0 400" strokeWidth="1"/>
                 <path d="M480 0 Q260 180 20 400" strokeWidth="1"/>
                 <path d="M480 0 Q280 160 40 400" strokeWidth="1"/>
@@ -7134,10 +7158,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               </h2>
               <p className="muted-text">
                 {isSetupRequired
-                  ? "LiteracyPath requires the signup approval table before this account can enter the app. Ask an admin to apply the signup approval schema."
+                  ? "Literacy Guide requires the signup approval table before this account can enter the app. Ask an admin to apply the signup approval schema."
                   : isRejected
                     ? "This account request was rejected. Please contact your school administrator if you think this is a mistake."
-                    : "Your account request has been submitted. An administrator must approve your account before you can use LiteracyPath."}
+                    : "Your account request has been submitted. An administrator must approve your account before you can use Literacy Guide."}
               </p>
               {teacherAccountRecord?.username && (
                 <p className="muted-text">Username: {teacherAccountRecord.username}</p>
@@ -7158,35 +7182,34 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   const isFocusedAssessment = isFocusedAssessmentView(appView);
   const appShellClassName = [
     "app",
-    isFocusedAssessment ? "assessment-app" : ""
+    isFocusedAssessment ? "assessment-app no-sidebar" : ""
   ].filter(Boolean).join(" ");
 
   return (
     <ErrorBoundary resetKey={`app-shell-${appView}-${studentId || "none"}`} fallback={<PageErrorFallback />}>
-    <div className={appShellClassName}>
-      {showConfetti && !prefersReducedMotion && <Confetti recycle={false} numberOfPieces={90} />}
-
+    <div className={`lg-app-shell${isFocusedAssessment ? " no-sidebar" : ""}`}>
       {!isFocusedAssessment && (
-        <TopNavigation
+        <Sidebar
           appView={appView}
           nameSaved={nameSaved}
           studentName={studentName}
-          currentStage={currentStage}
+          className={getSelectedClassName(classList, selectedClassId)}
           goToOverview={goToOverview}
-          goToSkills={() => setAppView(APP_VIEWS.SKILLS)}
           goToElAssessments={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
           goToGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
           goToLearn={() => setAppView(APP_VIEWS.LEARN)}
+          goToReports={() => setAppView(APP_VIEWS.REPORTS)}
           goToTeacherDashboard={() => setAppView(APP_VIEWS.TEACHER_DASHBOARD)}
           goToTools={() => setAppView(APP_VIEWS.TOOLS)}
-          switchStudent={switchStudent}
-          viewReport={viewReport}
           teacherEmail={teacherUser.email}
           logOutTeacher={logOutTeacher}
           isAdmin={isAdmin}
           openAdminDashboard={openAdminDashboard}
         />
       )}
+      <div className="lg-content-area">
+      <div className={appShellClassName}>
+      {showConfetti && !prefersReducedMotion && <Confetti recycle={false} numberOfPieces={90} />}
 
       {!isFocusedAssessment && appView === APP_VIEWS.SELECT && (
         <motion.div
@@ -7523,6 +7546,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               startTargetedReview={startTargetedReview}
               goToOverview={goToOverview}
               studentName={studentName}
+              className={getSelectedClassName(classList, selectedClassId)}
               totalAnswered={totalAnswered}
               accuracy={accuracy}
               currentStage={currentStage}
@@ -7537,10 +7561,13 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               mastery={mastery}
               coverageSnapshot={coverageSnapshot}
               skillMasterySummary={reportSkillMasterySummary}
+              itemMastery={itemMastery}
+              assessmentHistory={reportsAssessmentHistory}
               allowPassageAudio={allowPassageAudio}
               setAllowPassageAudio={setAllowPassageAudio}
               exportData={exportData}
               exportCSVData={exportCSVData}
+              exportStudentExcel={exportStudentAssessmentWorkbook}
               letterAssessment={letterAssessment}
               patternAssessment={patternAssessment}
               exportLetterAssessment={exportLetterAssessment}
@@ -7565,6 +7592,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           </button>
         </div>
       )}
+      </div>
+      </div>
     </div>
     </ErrorBoundary>
   );

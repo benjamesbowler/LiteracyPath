@@ -45,6 +45,56 @@ function statusFromAccuracy(accuracy, hasData = true) {
   return STATUS_RULES.needs_support;
 }
 
+function getSnapshotBadgeClass(statusId = "") {
+  switch (statusId) {
+    case "on_track":
+      return "lg-badge-on-track";
+    case "developing":
+      return "lg-badge-developing";
+    case "needs_support":
+      return "lg-badge-needs-support";
+    default:
+      return "lg-badge-not-started";
+  }
+}
+
+function getMetricClass(role = "") {
+  switch (role) {
+    case "accuracy":
+      return "lg-metric-teal";
+    case "skill":
+      return "lg-metric-blue";
+    case "skills":
+      return "lg-metric-green";
+    case "answered":
+      return "lg-metric-purple";
+    default:
+      return "lg-metric-neutral";
+  }
+}
+
+function getSkillTileDomainClass(row = {}) {
+  const value = `${row.skillArea || ""} ${row.skillName || ""}`.toLowerCase();
+  if (value.includes("phonological")) return "lg-tile-phonological";
+  if (value.includes("high-frequency")) return "lg-tile-hfw";
+  if (value.includes("grammar") || value.includes("language")) return "lg-tile-grammar";
+  if (value.includes("guided reading") || value.includes("reading")) return "lg-tile-reading";
+  return "lg-tile-phonics";
+}
+
+function getSkillTileStatusClass(statusClassName = "") {
+  switch (statusClassName) {
+    case "mastered":
+      return "lg-tile-mastered";
+    case "developing":
+      return "lg-tile-developing";
+    case "needs-support":
+      return "lg-tile-support";
+    default:
+      return "";
+  }
+}
+
 function normaliseList(values = []) {
   return Array.from(new Set(values.filter(Boolean).map(value => String(value).trim()).filter(Boolean)));
 }
@@ -136,7 +186,10 @@ function StatusCallout({ snapshot }) {
   return (
     <section className={`student-report-status-callout ${snapshot.status.id}`}>
       <div>
-        <strong>{STATUS_TEXT[snapshot.status.id] || snapshot.status.label}</strong>
+        <strong className={`lg-badge ${getSnapshotBadgeClass(snapshot.status.id)}`}>
+          <span className="lg-badge-icon" aria-hidden="true">{snapshot.status.id === "needs_support" ? "!" : "✓"}</span>
+          {STATUS_TEXT[snapshot.status.id] || snapshot.status.label}
+        </strong>
         <span>{snapshot.status.description}</span>
       </div>
       <p>Last active: <strong>{snapshot.lastActive || "No saved activity"}</strong></p>
@@ -152,40 +205,38 @@ function SnapshotGrid({ model, skillTotal }) {
     ["Questions Answered", model.snapshot.totalAnswered, "answered"]
   ];
   return (
-    <section className="student-report-snapshot-grid">
+    <section className="student-report-snapshot-grid lg-metric-grid">
       {metrics.map(([label, value, role]) => (
-        <article className={`snapshot-metric ${role}`} key={label}>
-          <span>{label}</span>
-          <strong>{value}</strong>
+        <article className={`snapshot-metric ${role} lg-metric-card ${getMetricClass(role)}`} key={label}>
+          <span className="lg-metric-label">{label}</span>
+          <strong className="lg-metric-value">{value}</strong>
         </article>
       ))}
     </section>
   );
 }
 
-function buildElAssessmentCards({ letterAssessment = [], patternAssessment = [], model }) {
-  const nameTotal = letterAssessment.length || 52;
-  const soundTotal = letterAssessment.length || 52;
-  const namesKnown = letterAssessment.filter(item => item.knowsName).length;
-  const soundsKnown = letterAssessment.filter(item => item.knowsSound).length;
-  const missingNames = letterAssessment.filter(item => !item.knowsName).map(item => item.letter).slice(0, 6);
-  const missingSounds = letterAssessment.filter(item => !item.knowsSound).map(item => `/${String(item.letter || "").toLowerCase()}/`).slice(0, 6);
-  const initialSoundRow = model.skillMapRows.find(row =>
-    row.skillId === "initial_sounds" ||
-    String(row.label || "").toLowerCase().includes("initial")
-  );
+function buildElAssessmentCards({ letterAssessment = [], patternAssessment = [] }) {
+  const nameItems = letterAssessment.map(item => ({
+    label: item.letter,
+    known: Boolean(item.knowsName)
+  }));
+  const soundItems = letterAssessment.map(item => ({
+    label: `/${String(item.letter || "").toLowerCase()}/`,
+    known: Boolean(item.knowsSound)
+  }));
+  const namesKnown = nameItems.filter(item => item.known).length;
+  const soundsKnown = soundItems.filter(item => item.known).length;
+  const nameTotal = nameItems.length || 52;
+  const soundTotal = soundItems.length || 52;
+  const patternItems = patternAssessment.map(item => ({
+    label: item.pattern,
+    known: Boolean(item.soundCorrect && item.wordCorrect),
+    partial: Boolean(item.soundCorrect || item.wordCorrect) && !Boolean(item.soundCorrect && item.wordCorrect)
+  }));
   const patternTotal = patternAssessment.length ? patternAssessment.length * 2 : 0;
   const patternCorrect = patternAssessment.reduce((sum, item) =>
     sum + Number(Boolean(item.soundCorrect)) + Number(Boolean(item.wordCorrect)), 0);
-  const missingPatterns = patternAssessment
-    .filter(item => !item.soundCorrect || !item.wordCorrect)
-    .map(item => item.pattern)
-    .slice(0, 6);
-
-  const initialAccuracy = initialSoundRow?.attempts ? initialSoundRow.accuracy : 0;
-  const initialTotal = initialSoundRow?.coverage?.total || initialSoundRow?.checkpointHistory?.at(-1)?.score?.split("/")?.[1] || 0;
-  const initialCorrect = initialSoundRow?.coverage?.mastered || initialSoundRow?.checkpointHistory?.at(-1)?.score?.split("/")?.[0] || 0;
-  const initialNeeds = initialSoundRow?.itemGroups?.needsSupport?.map(row => row.label).slice(0, 6) || [];
 
   return [
     {
@@ -194,7 +245,7 @@ function buildElAssessmentCards({ letterAssessment = [], patternAssessment = [],
       total: nameTotal,
       accuracy: nameTotal ? clampPercent((namesKnown / nameTotal) * 100) : 0,
       hasData: letterAssessment.length > 0,
-      detail: missingNames.length ? `Needs work: ${missingNames.join(", ")}` : "Needs work: none"
+      items: nameItems
     },
     {
       title: "Letter Sounds",
@@ -202,15 +253,7 @@ function buildElAssessmentCards({ letterAssessment = [], patternAssessment = [],
       total: soundTotal,
       accuracy: soundTotal ? clampPercent((soundsKnown / soundTotal) * 100) : 0,
       hasData: letterAssessment.length > 0,
-      detail: missingSounds.length ? `Needs work: ${missingSounds.join(", ")}` : "Needs work: none"
-    },
-    {
-      title: "Initial Sounds",
-      correct: initialCorrect,
-      total: initialTotal,
-      accuracy: initialAccuracy,
-      hasData: Boolean(initialSoundRow?.attempts),
-      detail: initialNeeds.length ? `Needs work: ${initialNeeds.join(", ")}` : "Needs work: none"
+      items: soundItems
     },
     {
       title: "Phonics Patterns",
@@ -218,9 +261,14 @@ function buildElAssessmentCards({ letterAssessment = [], patternAssessment = [],
       total: patternTotal,
       accuracy: patternTotal ? clampPercent((patternCorrect / patternTotal) * 100) : 0,
       hasData: patternAssessment.length > 0,
-      detail: missingPatterns.length ? `Needs work: ${missingPatterns.join(", ")}` : "Needs work: none"
+      items: patternItems
     }
   ];
+}
+
+function ElItemChip({ label, known, partial = false }) {
+  const cls = known ? "el-chip-known" : partial ? "el-chip-partial" : "el-chip-unknown";
+  return <span className={`el-item-chip ${cls}`}>{label}</span>;
 }
 
 function ElAssessmentSection({ cards }) {
@@ -234,15 +282,26 @@ function ElAssessmentSection({ cards }) {
   }
 
   return (
-    <div className="student-report-el-grid">
+    <div className="student-report-el-grid lg-el-grid">
       {cards.map(card => {
         const status = statusFromAccuracy(card.accuracy, card.hasData);
         return (
-          <article className={`el-card ${status.className}`} key={card.title}>
-            <h3>{card.title}</h3>
-            <strong>{card.total ? `${card.correct} / ${card.total}` : "Not assessed"}</strong>
+          <article className={`el-card ${status.className} lg-el-card`} key={card.title}>
+            <h3 className="lg-el-label">{card.title}</h3>
+            <strong className="lg-el-score">{card.total ? `${card.correct} / ${card.total}` : "Not assessed"}</strong>
             <p>{card.hasData ? `${card.accuracy}% · ${status.label.toUpperCase()}` : "Not assessed"}</p>
-            <small>{card.detail}</small>
+            {card.hasData && card.items?.length > 0 && (
+              <div className="el-chip-grid">
+                {card.items.map(item => (
+                  <ElItemChip
+                    key={item.label}
+                    label={item.label}
+                    known={item.known}
+                    partial={item.partial}
+                  />
+                ))}
+              </div>
+            )}
           </article>
         );
       })}
@@ -274,10 +333,14 @@ function SkillTile({ row }) {
   const mastered = row.coverage?.mastered || scoreText?.split("/")?.[0] || 0;
 
   return (
-    <article className={`student-report-skill-tile ${status.className}`} style={{ "--skill-accent": row.skillAreaColor || "#0D7A73" }}>
-      <span>{row.index + 1}.&nbsp; <strong>{row.label}</strong></span>
-      <b>{hasData ? `${row.accuracy}%` : "—"}</b>
-      <small>{total ? `${mastered}/${total} ${unit}` : "No item evidence"} · {status.label}</small>
+    <article
+      className={`student-report-skill-tile ${status.className} lg-skill-tile ${getSkillTileDomainClass(row)} ${getSkillTileStatusClass(status.className)}`}
+      style={{ "--skill-accent": row.skillAreaColor || "#0D7A73" }}
+    >
+      <span className="lg-skill-tile-num">{row.index + 1}</span>
+      <strong className="lg-skill-tile-name">{row.label}</strong>
+      <b className="lg-skill-tile-score">{hasData ? `${row.accuracy}%` : "—"}</b>
+      <small className="lg-skill-tile-sub">{total ? `${mastered}/${total} ${unit}` : "No item evidence"} · {status.label}</small>
     </article>
   );
 }
@@ -288,10 +351,12 @@ function SkillSetSection({ rows }) {
       {groupSkillRows(rows).map(([area, areaRows]) => {
         const areaMeta = getSkillArea({ skillName: area });
         return (
-          <section className="student-report-skill-group" key={area}>
-            <h3 style={{ color: areaMeta.color }}>{area}</h3>
-            <div className="student-report-skill-rule" style={{ "--area-color": areaMeta.color }}></div>
-            <div className="student-report-skill-grid">
+          <section className="student-report-skill-group lg-domain-section" key={area}>
+            <div className="lg-domain-header">
+              <div className="student-report-skill-rule lg-domain-pip" style={{ "--area-color": areaMeta.color, background: areaMeta.color }}></div>
+              <h3 className="lg-domain-label" style={{ color: areaMeta.color }}>{area}</h3>
+            </div>
+            <div className="student-report-skill-grid lg-skill-tiles">
               {areaRows.map(row => <SkillTile key={row.skillId} row={row} />)}
             </div>
           </section>
@@ -526,8 +591,8 @@ function GuidedReadingSection({ guidedReadingReportRows, storyQuestSummary }) {
 
 function NextSessionPlan({ model }) {
   return (
-    <div className="student-report-next-grid">
-      <article className="student-report-next-card recommended">
+    <div className="student-report-next-grid lg-next-plan">
+      <article className="student-report-next-card recommended lg-plan-card lg-plan-card-focus">
         <h3>Recommended Focus</h3>
         <h4>{model.recommendations.recommendedSkill}</h4>
         <p>{model.recommendations.reason}</p>
@@ -537,7 +602,7 @@ function NextSessionPlan({ model }) {
         ))}
         {!model.recommendations.focusItems?.length && <p>Start with a short checkpoint to gather fresh evidence.</p>}
       </article>
-      <article className="student-report-next-card quick">
+      <article className="student-report-next-card quick lg-plan-card lg-plan-card-wins">
         <h3>Quick Wins ✓</h3>
         {(model.recommendations.quickWins || []).length ? (
           <ul>{model.recommendations.quickWins.map(item => <li key={item}>{item}</li>)}</ul>
@@ -545,7 +610,7 @@ function NextSessionPlan({ model }) {
           <p>No quick wins recorded yet.</p>
         )}
       </article>
-      <article className="student-report-next-card caution">
+      <article className="student-report-next-card caution lg-plan-card lg-plan-card-flags">
         <h3>Caution Flags !</h3>
         {(model.recommendations.cautionFlags || []).length ? (
           <ul>{model.recommendations.cautionFlags.map(item => <li key={item}>{item}</li>)}</ul>
@@ -672,10 +737,12 @@ export function FinishedReportPage({
           <span>{model.snapshot.studentName} · {formatClassLabel(model.snapshot.className)}</span>
         </div>
 
-        <header className="student-report-hero">
-          <span>Individual Student Report</span>
-          <h1>{model.snapshot.studentName}</h1>
-          <p>{formatClassLabel(model.snapshot.className)} · Generated {generatedDate}</p>
+        <header className="student-report-hero lg-student-header">
+          <div>
+            <span>Individual Student Report</span>
+            <h1 className="lg-student-header-name">{model.snapshot.studentName}</h1>
+            <p className="lg-student-header-sub">{formatClassLabel(model.snapshot.className)} · Generated {generatedDate}</p>
+          </div>
         </header>
 
         <StatusCallout snapshot={model.snapshot} />
