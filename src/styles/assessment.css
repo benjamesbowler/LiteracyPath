@@ -129,8 +129,17 @@
   margin-bottom: 10px;
 }
 
+.assessment-card .image-box.assessment-main-image-wrap {
+  max-height: none;
+  overflow: visible;
+}
+
 .assessment-card .question-image {
   max-height: clamp(125px, 22vh, 200px);
+}
+
+.assessment-card .image-box.assessment-main-image-wrap .question-image {
+  height: auto;
 }
 
 .assessment-card .passage {

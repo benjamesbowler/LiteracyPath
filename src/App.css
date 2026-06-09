@@ -4134,19 +4134,21 @@ select:focus {
 
 .visual-word-choice {
   display: grid;
-  grid-template-rows: minmax(72px, 1fr) auto;
+  grid-template-rows: minmax(0, auto) auto;
   gap: 8px;
   min-height: clamp(118px, 18vh, 168px) !important;
   padding: 10px !important;
-  align-items: stretch;
+  align-content: center;
+  align-items: center;
   justify-items: center;
   font-size: clamp(18px, 2.4vw, 24px);
   font-weight: 800;
+  overflow: visible;
 }
 
 .visual-word-choice-image {
   width: 100%;
-  height: 100%;
+  height: auto;
   min-height: 72px;
   max-height: 118px;
   object-fit: contain;
@@ -4188,8 +4190,9 @@ select:focus {
 
 .initial-sound-image-button {
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  align-items: stretch;
+  grid-template-rows: minmax(0, auto) auto;
+  align-content: center;
+  align-items: center;
   justify-items: center;
   min-height: 112px;
   padding: 8px;
@@ -4198,12 +4201,14 @@ select:focus {
   background: linear-gradient(180deg, #ffffff, #fbf7ef) !important;
   color: var(--lp-color-text-strong) !important;
   gap: 8px;
+  overflow: visible;
 }
 
 .initial-sound-image-button img {
   width: 100%;
-  height: clamp(96px, 18vh, 155px);
+  height: auto;
   min-height: 0;
+  max-height: clamp(96px, 18vh, 155px);
   object-fit: contain;
 }
 
@@ -4287,8 +4292,9 @@ select:focus {
 
 .visual-assessment-card-button {
   display: grid;
-  grid-template-rows: minmax(0, 1fr) minmax(1.35em, auto);
-  align-items: stretch;
+  grid-template-rows: minmax(0, auto) minmax(1.35em, auto);
+  align-content: center;
+  align-items: center;
   justify-items: center;
   gap: 8px;
   min-height: clamp(132px, 21vh, 190px);
@@ -4299,13 +4305,14 @@ select:focus {
   color: var(--lp-color-text-strong) !important;
   font-size: clamp(18px, 2.2vw, 24px);
   font-weight: 800;
+  overflow: visible;
 }
 
 .visual-assessment-card-button img {
   width: 100%;
-  height: clamp(82px, 15vh, 132px);
+  height: auto;
   min-height: 0;
-  max-height: 100%;
+  max-height: clamp(82px, 15vh, 132px);
   object-fit: contain;
 }
 
@@ -4322,7 +4329,8 @@ select:focus {
 }
 
 .rhyming-answer-card .visual-assessment-card-button img {
-  height: clamp(102px, 17vh, 150px);
+  height: auto;
+  max-height: clamp(102px, 17vh, 150px);
 }
 
 .assessment-question-layout {
@@ -4372,12 +4380,13 @@ select:focus {
 
 .rhyming-assessment-layout .assessment-main-image-wrap {
   display: grid;
-  grid-template-rows: minmax(0, 1fr) minmax(1.35em, auto);
+  grid-template-rows: minmax(0, auto) minmax(1.35em, auto);
+  align-content: center;
   align-items: center;
   justify-items: center;
   gap: clamp(8px, 1.2vh, 14px);
   width: 100%;
-  height: 100%;
+  height: auto;
   min-height: 0;
   max-height: none;
   margin: 0;
@@ -4386,10 +4395,11 @@ select:focus {
 }
 
 .rhyming-assessment-layout .assessment-main-image {
+  display: block;
   width: 100%;
   max-width: min(100%, 320px);
-  height: clamp(140px, 29vh, 270px);
-  max-height: none !important;
+  height: auto;
+  max-height: clamp(140px, 29vh, 270px) !important;
   object-fit: contain;
 }
 
@@ -4424,16 +4434,18 @@ select:focus {
   min-width: 0;
   min-height: 0;
   height: 100%;
-  grid-template-rows: minmax(0, 1fr) minmax(1.35em, auto);
+  grid-template-rows: minmax(0, auto) minmax(1.35em, auto);
+  align-content: center;
+  align-items: center;
   gap: 6px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .rhyming-assessment-layout .rhyming-answer-card .visual-assessment-card-button img {
   width: 100%;
-  height: clamp(82px, 19vh, 170px);
+  height: auto;
   min-height: 0;
-  max-height: 100%;
+  max-height: clamp(82px, 19vh, 170px);
   object-fit: contain;
 }
 
@@ -4672,7 +4684,8 @@ select:focus {
 }
 
 .short-vowel-ixl-answer-button img {
-  height: clamp(72px, 14vh, 118px);
+  height: auto;
+  max-height: clamp(72px, 14vh, 118px);
   max-width: min(170px, 100%);
   object-fit: contain;
 }
@@ -4993,10 +5006,12 @@ select:focus {
 
 .ixl-answer-card.image-card .ixl-answer-button {
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  align-items: stretch;
+  grid-template-rows: minmax(0, auto) auto;
+  align-content: center;
+  align-items: center;
   justify-items: center;
   min-height: clamp(112px, 18vh, 168px);
+  overflow: visible;
 }
 
 .ixl-answer-card.image-card .ixl-answer-button img {
@@ -5124,11 +5139,13 @@ select:focus {
 
   .ixl-answer-button img {
     max-width: 240px;
-    height: clamp(96px, 15vh, 136px);
+    height: auto;
+    max-height: clamp(96px, 15vh, 136px);
   }
 
   .short-vowel-word-choice-card .ixl-answer-button img {
-    height: clamp(76px, 13vh, 112px);
+    height: auto;
+    max-height: clamp(76px, 13vh, 112px);
     max-width: min(168px, 100%);
   }
 
@@ -5145,7 +5162,8 @@ select:focus {
   }
 
   .visual-assessment-card-button img {
-    height: clamp(120px, 18vh, 180px);
+    height: auto;
+    max-height: clamp(120px, 18vh, 180px);
   }
 
   .ixl-answer-button strong,
@@ -5167,12 +5185,13 @@ select:focus {
 
   .rhyming-assessment-layout .assessment-main-image-wrap {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(0, 1fr) minmax(1.35em, auto);
+    grid-template-rows: minmax(0, auto) minmax(1.35em, auto);
     gap: 10px;
   }
 
   .rhyming-assessment-layout .assessment-main-image {
-    height: clamp(86px, 19vh, 150px);
+    height: auto;
+    max-height: clamp(86px, 19vh, 150px) !important;
   }
 
   .rhyming-assessment-layout .rhyming-target-word {
@@ -5180,7 +5199,8 @@ select:focus {
   }
 
   .rhyming-assessment-layout .rhyming-answer-card .visual-assessment-card-button img {
-    height: clamp(70px, 13vh, 118px);
+    height: auto;
+    max-height: clamp(70px, 13vh, 118px);
   }
 }
 
@@ -5304,7 +5324,8 @@ select:focus {
 .ixl-answer-button img {
   width: 100%;
   max-width: 180px;
-  height: clamp(92px, 18vh, 150px);
+  height: auto;
+  max-height: clamp(92px, 18vh, 150px);
   object-fit: contain;
 }
 
@@ -5603,7 +5624,7 @@ select:focus {
 
 .final-sounds-pair-panel {
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, auto) auto;
   gap: 8px;
   flex: 1 1 auto;
   min-height: 0;
@@ -5616,7 +5637,7 @@ select:focus {
 }
 
 .final-sounds-pair-card {
-  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, auto) auto;
   gap: 6px;
   padding: clamp(6px, 1vw, 9px);
   min-height: 0;
@@ -5629,7 +5650,8 @@ select:focus {
 }
 
 .final-sounds-pair-image-button img {
-  height: clamp(70px, 12vh, 105px);
+  height: auto;
+  max-height: clamp(70px, 12vh, 105px);
 }
 
 .final-sounds-pair-image-button strong {
@@ -10372,7 +10394,8 @@ select:focus {
   }
 
   .final-sounds-pair-image-button img {
-    height: clamp(56px, 10vh, 78px);
+    height: auto;
+    max-height: clamp(56px, 10vh, 78px);
   }
 
   .final-sounds-pair-card .initial-sound-card-audio {
@@ -10385,12 +10408,13 @@ select:focus {
   }
 
   .ixl-answer-button img {
-    height: clamp(76px, 14vh, 110px);
+    height: auto;
+    max-height: clamp(76px, 14vh, 110px);
   }
 
   .assessment-card .visual-word-choice {
     min-height: 118px !important;
-    grid-template-rows: minmax(70px, 1fr) auto;
+    grid-template-rows: minmax(0, auto) auto;
   }
 
   .visual-word-choice-image {
@@ -10399,7 +10423,7 @@ select:focus {
   }
 
   .initial-sound-card {
-    grid-template-rows: minmax(78px, 1fr) auto;
+    grid-template-rows: minmax(0, auto) auto;
     padding: 8px;
   }
 
@@ -10408,11 +10432,12 @@ select:focus {
   }
 
   .initial-sound-image-button img {
-    height: 76px;
+    height: auto;
+    max-height: 76px;
   }
 
   .visual-assessment-card {
-    grid-template-rows: minmax(78px, 1fr) auto;
+    grid-template-rows: minmax(0, auto) auto;
     padding: 8px;
   }
 
@@ -10421,7 +10446,8 @@ select:focus {
   }
 
   .visual-assessment-card-button img {
-    height: 74px;
+    height: auto;
+    max-height: 74px;
   }
 
   .assessment-stimulus {
