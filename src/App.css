@@ -150,13 +150,13 @@ body {
 .assessment-app {
   width: 100%;
   max-width: none;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
   padding: 8px 10px;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
-  overflow-x: hidden;
+  overflow: hidden;
   background:
     radial-gradient(circle at 12% 8%, rgba(21, 154, 138, 0.13), transparent 26%),
     radial-gradient(circle at 92% 10%, rgba(255, 247, 232, 0.82), transparent 24%),
@@ -1523,8 +1523,12 @@ body {
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 0;
-  overflow: auto;
+  overflow: hidden;
   padding: 14px;
+  padding-top: calc(14px + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  padding-left: calc(14px + env(safe-area-inset-left, 0px));
+  padding-right: calc(14px + env(safe-area-inset-right, 0px));
   background:
     radial-gradient(circle at top left, rgba(199, 210, 254, 0.24), transparent 32%),
     linear-gradient(180deg, #fffaf0 0%, #f8fafc 100%);
@@ -2145,8 +2149,8 @@ body {
 
 .guided-reading-reader-open .guided-reader-shell {
   height: calc(100vh - 28px);
-  height: calc(100dvh - 28px);
-  min-height: 560px;
+  height: calc(100dvh - 28px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  min-height: 0;
   align-items: stretch;
 }
 
@@ -2160,6 +2164,10 @@ body {
   height: 100dvh;
   min-height: 0;
   padding: 12px;
+  padding-top: calc(12px + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  padding-left: calc(12px + env(safe-area-inset-left, 0px));
+  padding-right: calc(12px + env(safe-area-inset-right, 0px));
   background: #f8fafc;
   overflow: hidden;
 }
