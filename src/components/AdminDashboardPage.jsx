@@ -19,6 +19,7 @@ import {
   exportAssessmentAttemptsCsv,
   summarizeAssessmentHistory
 } from "../data/assessmentHistoryStore";
+import { buildClassReportModel } from "../data/reportingSystem.js";
 import {
   DEFAULT_REPORT_SECTIONS,
   buildIndividualStudentDetailedReport,
@@ -112,6 +113,306 @@ function getSkillStatusClass(accuracy, attempts = 0) {
   if (accuracy >= 85) return "mastered";
   if (accuracy >= 65) return "developing";
   return "support";
+}
+
+function formatClassReportDate(value) {
+  if (!value) return "No date yet";
+  const date = new Date(value);
+  if (!Number.isFinite(date.getTime())) return "No date yet";
+  return date.toLocaleDateString(undefined, {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  });
+}
+
+function shortClassReportSkillName(value = "") {
+  return String(value || "")
+    .replace("High-Frequency Words", "HFW")
+    .replace("Long Vowels / Silent E", "Long Vowels")
+    .replace("CVC / Short Vowels", "CVC");
+}
+
+function ClassReportPage({ children, className = "", model, pageNumber }) {
+  const teacherLabel = model.teacherName || "Teacher";
+  const generated = formatClassReportDate(model.generatedAt);
+  return (
+    <section className={`formal-class-report-page ${className}`}>
+      <div className="formal-class-report-running-header">
+        <span>LiteracyPath · Class Report</span>
+        <span>{model.className} · {teacherLabel}</span>
+      </div>
+      <div className="formal-class-report-page-body">
+        {children}
+      </div>
+      <div className="formal-class-report-running-footer">
+        <span>{pageNumber ? `Page ${pageNumber}` : ""}</span>
+        <span>Generated {generated}</span>
+      </div>
+    </section>
+  );
+}
+
+function ClassReportSectionBand({ title, subtitle, accent = "#0b6e68", children }) {
+  return (
+    <section className="formal-class-report-section-band" style={{ "--class-section-accent": accent }}>
+      <div className="formal-class-report-section-stripe" aria-hidden="true"></div>
+      <div>
+        <h3>{title}</h3>
+        {subtitle && <p>{subtitle}</p>}
+        {children}
+      </div>
+    </section>
+  );
+}
+
+function ClassReportMetric({ label, value, tone = "teal" }) {
+  return (
+    <article className={`formal-class-report-metric ${tone}`}>
+      <span>{label}</span>
+      <strong>{value}</strong>
+    </article>
+  );
+}
+
+function ClassGrowthSummary({ rows = [] }) {
+  if (!rows.length) {
+    return <div className="formal-class-report-empty">No class growth data yet.</div>;
+  }
+  return (
+    <div className="formal-class-growth-list">
+      {rows.slice(0, 8).map((row, index) => (
+        <div className={`formal-class-growth-row tone-${index % 6}`} key={row.canonicalSkillName || row.skillName}>
+          <div>
+            <strong>{row.skillName}</strong>
+            <span>{row.mastered}/{row.developing}/{row.needsSupport}</span>
+          </div>
+          <div className="formal-class-growth-track" aria-label={`${row.skillName} ${row.accuracy}%`}>
+            <span style={{ width: `${Math.max(4, row.accuracy)}%` }}></span>
+          </div>
+          <b>{row.accuracy}%</b>
+          <em>{row.delta > 0 ? `+${row.delta}` : row.delta}</em>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ClassReportTable({ columns = [], rows = [], emptyText = "No report data yet.", tone = "teal" }) {
+  return (
+    <div className="formal-class-report-table-wrap">
+      <table className={`formal-class-report-table ${tone}`}>
+        <thead>
+          <tr>
+            {columns.map(column => <th key={column.key}>{column.label}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.length ? rows.map((row, index) => (
+            <tr key={row.id || row.skill || row.studentId || `${row.label}-${index}`}>
+              {columns.map(column => (
+                <td data-label={column.label} key={column.key}>
+                  {column.render ? column.render(row, index) : row[column.key]}
+                </td>
+              ))}
+            </tr>
+          )) : (
+            <tr>
+              <td colSpan={columns.length}>{emptyText}</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function StudentProgressGrid({ model }) {
+  const skillColumns = model.heatmap.slice(0, 8);
+  const heatmapByStudent = new Map(model.studentRows.map(student => [student.studentId, new Map()]));
+  model.heatmap.forEach(skill => {
+    skill.cells.forEach(cell => {
+      heatmapByStudent.get(cell.studentId)?.set(skill.skillName, cell);
+    });
+  });
+
+  return (
+    <div className="formal-class-progress-grid-wrap">
+      <div className="formal-class-progress-legend">
+        <span className="mastered">Mastered</span>
+        <span className="developing">Developing</span>
+        <span className="needs-support">Needs Support</span>
+        <span className="not-assessed">Not Assessed</span>
+      </div>
+      <table className="formal-class-progress-grid">
+        <thead>
+          <tr>
+            <th>Student</th>
+            {skillColumns.map(skill => (
+              <th key={skill.skillName}>{shortClassReportSkillName(skill.displaySkillName)}</th>
+            ))}
+            <th>Reading</th>
+          </tr>
+        </thead>
+        <tbody>
+          {model.studentRows.length ? model.studentRows.map(student => {
+            const bySkill = heatmapByStudent.get(student.studentId) || new Map();
+            return (
+              <tr key={student.studentId}>
+                <td>
+                  <strong>{student.studentName}</strong>
+                  <span>{student.accuracy}% overall</span>
+                </td>
+                {skillColumns.map(skill => {
+                  const cell = bySkill.get(skill.skillName);
+                  const statusId = cell?.statusId || "not_assessed";
+                  return (
+                    <td key={`${student.studentId}-${skill.skillName}`}>
+                      <span className={`formal-class-progress-cell ${statusId}`}>
+                        {cell?.attempts ? `${cell.accuracy}%` : "-"}
+                      </span>
+                    </td>
+                  );
+                })}
+                <td>
+                  <span className="formal-class-progress-cell not_assessed">NR</span>
+                </td>
+              </tr>
+            );
+          }) : (
+            <tr>
+              <td colSpan={skillColumns.length + 2}>No students are available for this class report yet.</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+      {model.heatmap.length > skillColumns.length && (
+        <p className="formal-class-report-note">Showing the first {skillColumns.length} assessed skill columns on screen. Excel export includes the full assessment matrix.</p>
+      )}
+    </div>
+  );
+}
+
+function FocusGroups({ groups = [] }) {
+  if (!groups.length) {
+    return <div className="formal-class-report-empty">No shared focus groups are suggested yet.</div>;
+  }
+  return (
+    <div className="formal-class-focus-groups">
+      {groups.slice(0, 4).map((group, index) => (
+        <article className={`formal-class-focus-card ${group.style || "teal"}`} key={`${group.focus}-${index}`}>
+          <span>{group.groupName || `Group ${index + 1}`}</span>
+          <h4>{group.focus}</h4>
+          <strong>Students:</strong>
+          <ul>
+            {group.students.map(student => <li key={student}>{student}</li>)}
+          </ul>
+          <p>Suggested activity:</p>
+          <b>{group.suggestedActivity}</b>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function FormalClassReportDocument({ model }) {
+  const generated = formatClassReportDate(model.generatedAt);
+  const metricRows = [
+    ["Avg Accuracy", `${model.snapshot.averageAccuracy}%`, "teal"],
+    ["On Track", `${model.snapshot.onTrack}/${model.snapshot.totalStudents}`, "green"],
+    ["Developing", `${model.snapshot.developing}/${model.snapshot.totalStudents}`, "amber"],
+    ["Needs Support", `${model.snapshot.needsSupport}/${model.snapshot.totalStudents}`, "red"],
+    ["Avg Reading Level", model.snapshot.avgReadingLevel, "green"],
+    ["Avg Reading Accuracy", model.snapshot.avgReadingAccuracy === null ? "Not recorded" : `${model.snapshot.avgReadingAccuracy}%`, "teal"],
+    ["Skills at Class Mastery", `${model.snapshot.skillsAtClassMastery}/${model.snapshot.totalSkillsAssessed}`, "blue"],
+    ["Most Urgent Focus", model.snapshot.mostUrgentFocus, "red"]
+  ];
+
+  return (
+    <article className="formal-class-report-document" aria-label={`Class report for ${model.className}`}>
+      <ClassReportPage model={model} pageNumber={1}>
+        <header className="formal-class-report-hero">
+          <span>Class Report</span>
+          <h1>{model.className}</h1>
+          <p>{model.teacherName || "Teacher"} · {model.snapshot.totalStudents} Students · Generated {generated}</p>
+        </header>
+        <ClassReportSectionBand title="Class Snapshot" subtitle="Whole-class assessment position across saved LiteracyPath checkpoints.">
+          <div className="formal-class-report-metrics">
+            {metricRows.map(([label, value, tone]) => (
+              <ClassReportMetric key={label} label={label} value={value} tone={tone} />
+            ))}
+          </div>
+        </ClassReportSectionBand>
+        <ClassReportSectionBand title="Growth by Skill Area" subtitle="Class average, change over available attempts, and mastered/developing/support counts." accent="#2563eb">
+          <ClassGrowthSummary rows={model.growthAreas} />
+        </ClassReportSectionBand>
+      </ClassReportPage>
+
+      <ClassReportPage model={model} pageNumber={2}>
+        <ClassReportSectionBand title="Skills at Class Mastery Level" subtitle="Areas where the class is ready to maintain, apply, or extend." accent="#15803d">
+          <ClassReportTable
+            tone="green"
+            columns={[
+              { key: "skill", label: "Skill" },
+              { key: "classAccuracy", label: "Class Avg", render: row => `${row.classAccuracy}%` },
+              { key: "mastered", label: "Mastered" },
+              { key: "developing", label: "Developing" },
+              { key: "needsSupport", label: "Support" },
+              { key: "note", label: "Note" }
+            ]}
+            rows={model.masteryRows}
+            emptyText="No assessed skill has reached class mastery yet."
+          />
+        </ClassReportSectionBand>
+        <ClassReportSectionBand title="Areas Needing Whole-Class Focus" subtitle="Prioritised from low class accuracy and numbers of students needing support." accent="#b91c1c">
+          <ClassReportTable
+            tone="red"
+            columns={[
+              { key: "skill", label: "Skill" },
+              { key: "classAccuracy", label: "Class Avg", render: row => `${row.classAccuracy}%` },
+              { key: "students", label: "Students", render: row => row.students.join(", ") || "No named support group yet" },
+              { key: "suggestedAction", label: "Suggested Action" }
+            ]}
+            rows={model.focusRows}
+            emptyText="No whole-class focus area is currently above the support threshold."
+          />
+        </ClassReportSectionBand>
+      </ClassReportPage>
+
+      <ClassReportPage model={model} pageNumber={3}>
+        <ClassReportSectionBand title="Student Progress Grid" subtitle="Fast scan of each student by assessed skill." accent="#1e293b">
+          <StudentProgressGrid model={model} />
+        </ClassReportSectionBand>
+      </ClassReportPage>
+
+      <ClassReportPage model={model} pageNumber={4}>
+        <ClassReportSectionBand title="Reading Summary" subtitle="Guided reading rows will populate here when reading records are included in this class report feed." accent="#15803d">
+          <ClassReportTable
+            tone="green"
+            columns={[
+              { key: "studentName", label: "Student" },
+              { key: "level", label: "Level" },
+              { key: "reads", label: "Reads" },
+              { key: "accuracy", label: "Accuracy", render: row => row.accuracy === null ? "Not recorded" : `${row.accuracy}%` },
+              { key: "trend", label: "Trend" },
+              { key: "note", label: "Note" }
+            ]}
+            rows={model.readingRows}
+            emptyText="No guided reading records are available for this report yet."
+          />
+        </ClassReportSectionBand>
+      </ClassReportPage>
+
+      <ClassReportPage model={model} pageNumber={5}>
+        <ClassReportSectionBand title="Suggested Focus Groups" subtitle="Auto-generated from shared skill gaps · 2-5 students per group" accent="#6d28d9">
+          <FocusGroups groups={model.groups} />
+        </ClassReportSectionBand>
+        <footer className="formal-class-report-final-footer">
+          Generated by LiteracyPath · {model.className} · {model.teacherName || "Teacher"} · {generated} · For teacher use only
+        </footer>
+      </ClassReportPage>
+    </article>
+  );
 }
 
 function mediaQaToCsv(records) {
@@ -1213,6 +1514,19 @@ export function AdminDashboardPage({
   const [reportDateEnd, setReportDateEnd] = useState("");
   const teacherStorageId = teacherId || "local";
   const selectedClassId = selectedElClassId || classes[0]?.id || "";
+  const selectedClassRow = classes.find(row => row.id === selectedClassId) || {};
+  const selectedClassTeacherId = selectedClassRow.teacher_id || selectedClassRow.teacherId || teacherId || "";
+  const classReportTeacher = teachers.find(row =>
+    row.id === selectedClassTeacherId ||
+    row.teacherId === selectedClassTeacherId ||
+    row.user_id === selectedClassTeacherId
+  ) || {};
+  const classReportTeacherName =
+    classReportTeacher.name ||
+    classReportTeacher.full_name ||
+    classReportTeacher.displayName ||
+    classReportTeacher.email ||
+    (isTeacherMode ? "Teacher" : "Teacher");
   const elClassStudents = students.filter(student => !selectedClassId || student.classId === selectedClassId || student.class_id === selectedClassId);
   const selectedStudent = elClassStudents.find(student => student.id === selectedElStudentId) || elClassStudents[0] || students[0] || null;
 
@@ -1417,6 +1731,15 @@ export function AdminDashboardPage({
       dateRange: detailedDateRange
     }),
   [students, classes, assessmentHistory, teacherStorageId, selectedClassId, reportDateStart, reportDateEnd]);
+  const classReportingModel = useMemo(() =>
+    buildClassReportModel({
+      students,
+      classes,
+      assessmentHistory,
+      classId: selectedClassId,
+      teacherName: classReportTeacherName
+    }),
+  [students, classes, assessmentHistory, selectedClassId, classReportTeacherName]);
   const teacherHints = detailedReportType === "class"
     ? classDetailedReport.recommendations.hints
     : individualDetailedReport.recommendations.hints;
@@ -1727,6 +2050,34 @@ export function AdminDashboardPage({
             </div>
           </div>
           {exportNotice && <p className="message">{exportNotice}</p>}
+
+          <div className="class-report-print-actions screen-only">
+            <label>
+              Class
+              <select
+                disabled={classes.length === 0}
+                onChange={event => {
+                  setSelectedElClassId(event.target.value);
+                  setSelectedElStudentId("");
+                }}
+                value={selectedClassId}
+              >
+                {classes.length === 0 ? <option value="">No classes yet</option> : classes.map(row => (
+                  <option key={row.id} value={row.id}>{row.name}</option>
+                ))}
+              </select>
+            </label>
+            <button className="lp-button lp-button-secondary primary-export" onClick={() => window.print()} type="button">
+              Export Class Report
+            </button>
+            <button className="lp-button lp-button-secondary" onClick={handleClassElAssessmentExport} type="button">
+              Export Class Excel
+            </button>
+          </div>
+
+          <div className="class-report-workspace">
+            <FormalClassReportDocument model={classReportingModel} />
+          </div>
 
           <div className="teacher-report-card detailed-report-workspace">
             <div className="admin-section-heading">

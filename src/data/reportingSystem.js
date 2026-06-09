@@ -49,6 +49,38 @@ const SKILL_AREA_RULES = [
   }
 ];
 
+const CLASS_REPORT_SKILL_ORDER = [
+  "Initial Sounds",
+  "Final Sounds",
+  "Rhyming",
+  "CVC and Short Vowels",
+  "Short Vowel Discrimination",
+  "Blends",
+  "Digraphs",
+  "Long Vowels and Silent E",
+  "High-Frequency Words 1-25",
+  "High-Frequency Words 26-50",
+  "High-Frequency Words 51-100",
+  "Grammar and Language"
+];
+
+const CLASS_REPORT_SKILL_ALIASES = [
+  { label: "Initial Sounds", match: value => /initial/.test(value) },
+  { label: "Final Sounds", match: value => /final|ending/.test(value) },
+  { label: "Rhyming", match: value => /rhym/.test(value) },
+  { label: "CVC / Short Vowels", canonical: "CVC and Short Vowels", match: value => /cvc|short vowel/.test(value) && !/discrimination/.test(value) },
+  { label: "Short Vowel Discrimination", match: value => /short vowel.*discrimination|discrimination.*short vowel/.test(value) },
+  { label: "Blends", match: value => /blend/.test(value) },
+  { label: "Digraphs", match: value => /digraph|ch|sh|th/.test(value) },
+  { label: "Long Vowels / Silent E", canonical: "Long Vowels and Silent E", match: value => /long vowel|silent e/.test(value) },
+  { label: "HFW 1-25", canonical: "High-Frequency Words 1-25", match: value => /(hfw|high.frequency|sight).*1.*25|1-25/.test(value) },
+  { label: "HFW 26-50", canonical: "High-Frequency Words 26-50", match: value => /(hfw|high.frequency|sight).*26.*50|26-50/.test(value) },
+  { label: "HFW 51-100", canonical: "High-Frequency Words 51-100", match: value => /(hfw|high.frequency|sight).*51.*100|51-100/.test(value) },
+  { label: "Grammar & Language", canonical: "Grammar and Language", match: value => /grammar|language|noun|verb|adjective|preposition/.test(value) }
+];
+
+const CLASS_REPORT_GROUP_STYLES = ["red", "amber", "orange", "green"];
+
 export function getSkillArea(skill = {}) {
   const value = `${skill.skillId || skill.id || ""} ${skill.skillName || skill.label || skill.name || ""}`;
   return SKILL_AREA_RULES.find(rule => rule.match(value)) || {
@@ -76,6 +108,64 @@ function clampPercent(value) {
   const number = Number(value || 0);
   if (!Number.isFinite(number)) return 0;
   return Math.max(0, Math.min(100, Math.round(number)));
+}
+
+function average(values = []) {
+  const numeric = values.map(Number).filter(Number.isFinite);
+  return numeric.length ? clampPercent(numeric.reduce((sum, value) => sum + value, 0) / numeric.length) : 0;
+}
+
+function getClassStudentId(student = {}) {
+  return student.id || student.studentId || "";
+}
+
+function getClassId(student = {}) {
+  return student.classId || student.class_id || "";
+}
+
+function getClassNameById(classes = [], classId = "", fallback = "") {
+  return classes.find(row => row.id === classId)?.name || fallback;
+}
+
+function formatSkillForClassReport(skillName = "") {
+  const value = String(skillName || "").toLowerCase();
+  const alias = CLASS_REPORT_SKILL_ALIASES.find(row => row.match(value));
+  return {
+    label: alias?.label || skillName || "Assessment",
+    canonical: alias?.canonical || alias?.label || skillName || "Assessment"
+  };
+}
+
+function classReportSkillSortValue(skillName = "") {
+  const formatted = formatSkillForClassReport(skillName);
+  const index = CLASS_REPORT_SKILL_ORDER.indexOf(formatted.canonical);
+  return index === -1 ? CLASS_REPORT_SKILL_ORDER.length : index;
+}
+
+function getClassReportStatusId(accuracy = 0, attempts = 0) {
+  if (!attempts) return "not_assessed";
+  if (accuracy >= 80) return "mastered";
+  if (accuracy >= 60) return "developing";
+  return "needs_support";
+}
+
+function getClassReportStatusLabel(statusId = "") {
+  if (statusId === "mastered") return "Mastered";
+  if (statusId === "developing") return "Developing";
+  if (statusId === "needs_support") return "Needs support";
+  return "Not assessed";
+}
+
+function getClassReportActivity(point = {}) {
+  const label = String(point.label || point.skillName || "").toLowerCase();
+  if (/digraph|ch|sh|th/.test(label)) return "Multisensory ch/sh/th sort + tracing";
+  if (/blend|fl|pl|cl|bl|str/.test(label)) return "Letter tile building: fl, pl, cl, bl, str";
+  if (/hfw|high-frequency|sight/.test(label)) return "Word wall rotation + sentence writing";
+  if (/rhyme|rhym/.test(label)) return "Build rhyme families with picture cards";
+  if (/short vowel|cvc/.test(label)) return "Build and read CVC word chains";
+  if (/initial|final/.test(label)) return "Sound sort, say, tap, and mark";
+  if (/reading/.test(label)) return "Introduce next-level texts with pre-teaching";
+  return point.itemType ? teachingNoteForItem(point) : `Model, guided try, then independent review for ${point.skillName || point.label || "the focus skill"}.`;
 }
 
 export function formatReportDate(value) {
@@ -536,26 +626,55 @@ export function buildStudentReportModel({
   };
 }
 
-export function buildClassReportModel({ students = [], classes = [], assessmentHistory = [], classId = "" } = {}) {
-  const classStudents = students.filter(student => !classId || student.classId === classId || student.class_id === classId);
-  const records = assessmentHistory.map(normalizeAssessmentAttempt).filter(record => !classId || record.classId === classId);
-  const studentsById = new Map(classStudents.map(student => [student.id, student]));
+export function buildClassReportModel({ students = [], classes = [], assessmentHistory = [], classId = "", teacherName = "" } = {}) {
+  const classStudents = students.filter(student => !classId || getClassId(student) === classId);
+  const classStudentIds = new Set(classStudents.map(getClassStudentId).filter(Boolean));
+  const records = assessmentHistory
+    .map(normalizeAssessmentAttempt)
+    .filter(record => {
+      if (!classId) return true;
+      if (record.classId === classId) return true;
+      return classStudentIds.has(record.studentId);
+    })
+    .sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
+  const studentsById = new Map(classStudents.map(student => [getClassStudentId(student), student]));
+  const className = classId
+    ? getClassNameById(classes, classId, "Selected class")
+    : "All classes";
+  const totalQuestions = records.reduce((sum, record) => sum + record.totalQuestions, 0);
+  const correctCount = records.reduce((sum, record) => sum + record.correctCount, 0);
+  const latestAssessmentDate = records.map(record => record.completedAt).filter(Boolean).sort().at(-1) || "";
+
+  const skillNames = Array.from(new Set(records.map(record => record.skillName).filter(Boolean)))
+    .sort((a, b) => classReportSkillSortValue(a) - classReportSkillSortValue(b) || a.localeCompare(b));
+
   const studentRows = classStudents.map(student => {
-    const studentRecords = records.filter(record => record.studentId === student.id);
+    const studentId = getClassStudentId(student);
+    const studentRecords = records.filter(record => record.studentId === studentId);
     const total = studentRecords.reduce((sum, record) => sum + record.totalQuestions, 0);
     const correct = studentRecords.reduce((sum, record) => sum + record.correctCount, 0);
     const accuracy = total ? clampPercent((correct / total) * 100) : 0;
+    const latest = studentRecords.at(-1) || null;
     return {
-      studentId: student.id,
+      studentId,
       studentName: student.name || student.studentName || "Student",
-      className: classes.find(row => row.id === (student.classId || student.class_id))?.name || student.className || "",
+      className: getClassNameById(classes, getClassId(student), student.className || ""),
       attempts: studentRecords.length,
+      totalQuestions: total,
+      correctCount: correct,
       accuracy,
       status: getAccuracyStatus(accuracy, studentRecords.length > 0),
-      latestDate: studentRecords.at(-1)?.completedAt || "",
+      latestDate: latest?.completedAt || "",
+      currentLevel: latest?.skillName || "No data yet",
       supportSkills: Array.from(new Set(studentRecords.filter(record => !record.passed || record.accuracy < 70).map(record => record.skillName))).slice(0, 4)
     };
+  }).sort((a, b) => {
+    const statusOrder = { needs_support: 0, developing: 1, on_track: 2, not_started: 3 };
+    return (statusOrder[a.status.id] ?? 4) - (statusOrder[b.status.id] ?? 4) ||
+      a.accuracy - b.accuracy ||
+      a.studentName.localeCompare(b.studentName);
   });
+
   const statusDistribution = ["on_track", "developing", "needs_support", "not_started"].map(statusId => {
     const rows = studentRows.filter(row => row.status.id === statusId);
     return {
@@ -566,43 +685,95 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
     };
   });
 
-  const skillNames = Array.from(new Set(records.map(record => record.skillName).filter(Boolean))).sort();
   const heatmap = skillNames.map(skillName => {
+    const formattedSkill = formatSkillForClassReport(skillName);
     const cells = studentRows.map(student => {
       const skillRecords = records.filter(record => record.studentId === student.studentId && record.skillName === skillName);
       const total = skillRecords.reduce((sum, record) => sum + record.totalQuestions, 0);
       const correct = skillRecords.reduce((sum, record) => sum + record.correctCount, 0);
       const accuracy = total ? clampPercent((correct / total) * 100) : 0;
+      const statusId = getClassReportStatusId(accuracy, skillRecords.length);
       return {
         studentId: student.studentId,
         studentName: student.studentName,
         attempts: skillRecords.length,
         accuracy,
+        statusId,
+        statusLabel: getClassReportStatusLabel(statusId),
         status: getAccuracyStatus(accuracy, skillRecords.length > 0)
       };
     });
+    const attemptedCells = cells.filter(cell => cell.attempts);
     return {
       skillName,
+      displaySkillName: formattedSkill.label,
+      canonicalSkillName: formattedSkill.canonical,
+      skillArea: getSkillArea({ skillName }).label,
       cells,
-      classAccuracy: cells.some(cell => cell.attempts)
-        ? clampPercent(cells.reduce((sum, cell) => sum + cell.accuracy, 0) / Math.max(1, cells.filter(cell => cell.attempts).length))
-        : 0
+      classAccuracy: attemptedCells.length ? average(attemptedCells.map(cell => cell.accuracy)) : 0,
+      masteredCount: cells.filter(cell => cell.statusId === "mastered").length,
+      developingCount: cells.filter(cell => cell.statusId === "developing").length,
+      needsSupportCount: cells.filter(cell => cell.statusId === "needs_support").length,
+      notAssessedCount: cells.filter(cell => cell.statusId === "not_assessed").length
     };
   });
 
+  const growthAreas = heatmap.map(row => {
+    const skillRecords = records.filter(record => record.skillName === row.skillName);
+    const sorted = [...skillRecords].sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
+    const firstWindow = sorted.slice(0, Math.max(1, Math.ceil(sorted.length / 2)));
+    const latestWindow = sorted.slice(Math.max(0, sorted.length - firstWindow.length));
+    const firstAccuracy = firstWindow.length ? average(firstWindow.map(record => record.accuracy)) : 0;
+    const latestAccuracy = latestWindow.length ? average(latestWindow.map(record => record.accuracy)) : row.classAccuracy;
+    return {
+      skillName: row.displaySkillName,
+      canonicalSkillName: row.canonicalSkillName,
+      accuracy: row.classAccuracy,
+      delta: sorted.length >= 2 ? latestAccuracy - firstAccuracy : 0,
+      mastered: row.masteredCount,
+      developing: row.developingCount,
+      needsSupport: row.needsSupportCount
+    };
+  });
+
+  const masteryRows = heatmap
+    .filter(row => row.classAccuracy >= 80 || row.masteredCount >= Math.max(1, Math.ceil(classStudents.length * 0.7)))
+    .sort((a, b) => b.classAccuracy - a.classAccuracy || b.masteredCount - a.masteredCount)
+    .slice(0, 8)
+    .map(row => ({
+      skill: row.displaySkillName,
+      classAccuracy: row.classAccuracy,
+      mastered: row.masteredCount,
+      developing: row.developingCount,
+      needsSupport: row.needsSupportCount,
+      note: row.needsSupportCount ? `${row.needsSupportCount} student(s) still need review.` : "Class-level mastery is secure."
+    }));
+
+  const focusRows = heatmap
+    .filter(row => row.cells.some(cell => cell.attempts) && (row.classAccuracy < 70 || row.needsSupportCount > 0))
+    .sort((a, b) => b.needsSupportCount - a.needsSupportCount || a.classAccuracy - b.classAccuracy)
+    .slice(0, 8)
+    .map(row => ({
+      skill: row.displaySkillName,
+      classAccuracy: row.classAccuracy,
+      students: row.cells.filter(cell => cell.statusId === "needs_support").map(cell => cell.studentName),
+      suggestedAction: getClassReportActivity(row)
+    }));
+
   const weakPoints = heatmap
     .map(row => ({
-      skillName: row.skillName,
-      studentCount: row.cells.filter(cell => cell.attempts && cell.accuracy < 70).length,
-      students: row.cells.filter(cell => cell.attempts && cell.accuracy < 70).map(cell => cell.studentName),
+      skillName: row.displaySkillName,
+      studentCount: row.needsSupportCount,
+      students: row.cells.filter(cell => cell.statusId === "needs_support").map(cell => cell.studentName),
       classAccuracy: row.classAccuracy
     }))
     .filter(row => classStudents.length && row.studentCount / classStudents.length >= 0.3)
     .sort((a, b) => b.studentCount - a.studentCount || a.classAccuracy - b.classAccuracy)
     .slice(0, 8);
+
   const itemRowsByStudent = new Map(classStudents.map(student => [
-    student.id,
-    normalizeItemMasteryRows({}, records.filter(record => record.studentId === student.id))
+    getClassStudentId(student),
+    normalizeItemMasteryRows({}, records.filter(record => record.studentId === getClassStudentId(student)))
   ]));
   const itemWeakMap = new Map();
   itemRowsByStudent.forEach((rows, studentId) => {
@@ -637,51 +808,73 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
     .filter(item => classStudents.length && item.affectedStudents.length / classStudents.length >= 0.3)
     .sort((a, b) => b.affectedCount - a.affectedCount || a.averageAccuracy - b.averageAccuracy)
     .slice(0, 12);
+
   const assigned = new Set();
-  const groups = (weakItems.length ? weakItems : weakPoints).map(point => {
+  const groups = (weakItems.length ? weakItems : weakPoints).map((point, index) => {
     const studentNames = point.affectedStudents || point.students || [];
-    const names = studentNames.filter(name => !assigned.has(name)).slice(0, 4);
+    const names = studentNames.filter(name => !assigned.has(name)).slice(0, 5);
     names.forEach(name => assigned.add(name));
     const focusLabel = point.label || point.skillName;
     return {
+      groupName: `Group ${index + 1}`,
       focus: focusLabel,
-      skill: point.skillName,
+      skill: point.skillName || focusLabel,
       students: names,
       reason: `${point.affectedCount || point.studentCount} student(s) below 70%.`,
-      suggestedActivity: point.itemType
-        ? teachingNoteForItem(point)
-        : `Review ${point.skillName} with a short model, guided try, and independent try.`
+      suggestedActivity: getClassReportActivity(point),
+      style: CLASS_REPORT_GROUP_STYLES[index % CLASS_REPORT_GROUP_STYLES.length]
     };
-  }).filter(group => group.students.length >= 2);
-  const totalQuestions = records.reduce((sum, record) => sum + record.totalQuestions, 0);
-  const correctCount = records.reduce((sum, record) => sum + record.correctCount, 0);
-  const latestAssessmentDate = records
-    .map(record => record.completedAt)
-    .filter(Boolean)
-    .sort()
-    .at(-1) || "";
+  }).filter(group => group.students.length >= 2).slice(0, 4);
+
   const currentSkillCounts = studentRows.reduce((map, row) => {
     const latest = records.filter(record => record.studentId === row.studentId).sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt)).at(-1);
     if (!latest?.skillName) return map;
-    map[latest.skillName] = (map[latest.skillName] || 0) + 1;
+    const display = formatSkillForClassReport(latest.skillName).label;
+    map[display] = (map[display] || 0) + 1;
     return map;
   }, {});
+  const readingRows = studentRows.map(row => ({
+    studentId: row.studentId,
+    studentName: row.studentName,
+    level: "Not recorded",
+    reads: 0,
+    accuracy: null,
+    trend: "No guided reading record",
+    status: row.attempts ? row.status.id : "not_started",
+    note: "Guided reading records are not included in this report feed yet."
+  }));
+  const assessedStudentCount = studentRows.filter(row => row.attempts > 0).length;
+  const averageAccuracy = totalQuestions ? clampPercent((correctCount / totalQuestions) * 100) : 0;
+  const mostUrgentFocus = focusRows[0]?.skill || weakItems[0]?.skillName || weakPoints[0]?.skillName || "No class focus yet";
 
   return {
-    className: classId ? classes.find(row => row.id === classId)?.name || "Selected class" : "All classes",
+    className,
+    teacherName,
+    generatedAt: new Date().toISOString(),
     snapshot: {
       totalStudents: classStudents.length,
-      assessedStudents: studentRows.filter(row => row.attempts > 0).length,
+      assessedStudents: assessedStudentCount,
       activeThisWeek: studentRows.filter(row => row.latestDate && (Date.now() - new Date(row.latestDate).getTime()) / 86400000 <= 7).length,
       attempts: records.length,
-      averageAccuracy: totalQuestions ? clampPercent((correctCount / totalQuestions) * 100) : 0,
+      averageAccuracy,
+      onTrack: studentRows.filter(row => row.status.id === "on_track").length,
+      developing: studentRows.filter(row => row.status.id === "developing").length,
       needsSupport: studentRows.filter(row => row.status.id === "needs_support").length,
+      avgReadingLevel: "Not recorded",
+      avgReadingAccuracy: null,
+      skillsAtClassMastery: masteryRows.length,
+      totalSkillsAssessed: heatmap.filter(row => row.cells.some(cell => cell.attempts)).length,
+      mostUrgentFocus,
       latestAssessmentDate,
       mostCommonCurrentSkill: Object.entries(currentSkillCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || "No data yet",
       statusDistribution
     },
     studentRows,
     heatmap,
+    growthAreas,
+    masteryRows,
+    focusRows,
+    readingRows,
     weakPoints,
     weakItems,
     groups,
