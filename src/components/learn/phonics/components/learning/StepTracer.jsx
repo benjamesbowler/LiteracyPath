@@ -4,18 +4,58 @@ import { usePhonicsAudio } from "../../../../../hooks/usePhonicsAudio";
 import AudioButton from "../AudioButton";
 import PhonicsButton from "../PhonicsButton";
 
-const THRESHOLD = 28;
-const COMPLETION_THRESHOLD = 80;
+const SVG_NS = "http://www.w3.org/2000/svg";
+const THRESHOLD = 22;
+const STROKE_COMPLETION_PERCENT = 90;
+const TOTAL_TRACE_SAMPLES = 200;
+const MIN_SAMPLES_PER_STROKE = 24;
+
+function splitTraceSubpaths(tracePath = "") {
+  return String(tracePath || "")
+    .split(/(?=M)/)
+    .map(path => path.trim())
+    .filter(Boolean);
+}
+
+function sampleSubpath(pathData, sampleCount) {
+  const path = document.createElementNS(SVG_NS, "path");
+  path.setAttribute("d", pathData);
+  const length = path.getTotalLength();
+  const points = [];
+
+  for (let index = 0; index <= sampleCount; index += 1) {
+    const point = path.getPointAtLength((index / sampleCount) * length);
+    points.push({ x: point.x, y: point.y });
+  }
+
+  return {
+    length,
+    points
+  };
+}
+
+function calculateStrokeProgress(strokes, visitedSets) {
+  if (!strokes.length) return { progress: 0, allComplete: false };
+
+  const coverages = strokes.map((stroke, strokeIndex) => {
+    const total = stroke.points.length || 1;
+    return Math.min(100, (visitedSets[strokeIndex]?.size || 0) / total * 100);
+  });
+
+  return {
+    progress: Math.round(coverages.reduce((sum, coverage) => sum + coverage, 0) / coverages.length),
+    allComplete: coverages.every(coverage => coverage >= STROKE_COMPLETION_PERCENT)
+  };
+}
 
 const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   const svgRef = useRef(null);
   const canvasRef = useRef(null);
-  const pathRef = useRef(null);
-  const visitedRef = useRef(new Set());
-  const pointsRef = useRef([]);
-  const totalPointsRef = useRef(0);
+  const visitedByStrokeRef = useRef([]);
+  const strokesRef = useRef([]);
   const isDrawingRef = useRef(false);
   const lastCanvasPoint = useRef(null);
+  const traceDonePlayedRef = useRef(false);
   const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const { play: playTraceDone } = usePhonicsAudio("/audio/child-mode/clean-human/phrases/amazing-work.mp3", "Amazing work");
@@ -30,23 +70,24 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   }, []);
 
   useEffect(() => {
-    const path = pathRef.current;
-    if (!path) return;
+    const subpaths = splitTraceSubpaths(tracePath);
+    const sampledSubpaths = subpaths.map(pathData =>
+      sampleSubpath(pathData, MIN_SAMPLES_PER_STROKE)
+    );
+    const totalLength = sampledSubpaths.reduce((sum, stroke) => sum + stroke.length, 0) || 1;
+    const strokeCount = sampledSubpaths.length || 1;
+    const remainingSamples = Math.max(0, TOTAL_TRACE_SAMPLES - (strokeCount * MIN_SAMPLES_PER_STROKE));
+    const strokes = sampledSubpaths.map((stroke, index) => {
+      const proportionalSamples = Math.round((stroke.length / totalLength) * remainingSamples);
+      const sampleCount = MIN_SAMPLES_PER_STROKE + proportionalSamples;
+      return sampleSubpath(subpaths[index], sampleCount);
+    });
 
-    const length = path.getTotalLength();
-    const samples = 200;
-    const points = [];
-
-    for (let index = 0; index <= samples; index += 1) {
-      const point = path.getPointAtLength((index / samples) * length);
-      points.push({ x: point.x, y: point.y });
-    }
-
-    pointsRef.current = points;
-    totalPointsRef.current = points.length;
-    visitedRef.current.clear();
+    strokesRef.current = strokes;
+    visitedByStrokeRef.current = strokes.map(() => new Set());
     setProgress(0);
     setIsComplete(false);
+    traceDonePlayedRef.current = false;
     clearCanvas();
     lastCanvasPoint.current = null;
   }, [clearCanvas, tracePath]);
@@ -75,25 +116,33 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   }, []);
 
   const markProgress = useCallback((svgX, svgY) => {
-    const points = pointsRef.current;
+    const strokes = strokesRef.current;
+    const visitedSets = visitedByStrokeRef.current;
     let hit = false;
 
-    for (let index = 0; index < points.length; index += 1) {
-      const dx = points[index].x - svgX;
-      const dy = points[index].y - svgY;
-      if (Math.sqrt(dx * dx + dy * dy) < THRESHOLD) {
-        for (let offset = -3; offset <= 3; offset += 1) {
-          const nearbyIndex = index + offset;
-          if (nearbyIndex >= 0 && nearbyIndex < points.length) {
-            visitedRef.current.add(nearbyIndex);
+    strokes.forEach((stroke, strokeIndex) => {
+      const visitedSet = visitedSets[strokeIndex];
+      if (!visitedSet) return;
+
+      for (let index = 0; index < stroke.points.length; index += 1) {
+        const dx = stroke.points[index].x - svgX;
+        const dy = stroke.points[index].y - svgY;
+        if (Math.sqrt(dx * dx + dy * dy) < THRESHOLD) {
+          for (let offset = -1; offset <= 1; offset += 1) {
+            const nearbyIndex = index + offset;
+            if (nearbyIndex >= 0 && nearbyIndex < stroke.points.length) {
+              visitedSet.add(nearbyIndex);
+            }
           }
+          hit = true;
         }
-        hit = true;
       }
-    }
+    });
 
     if (hit) {
-      setProgress(Math.min(100, Math.round((visitedRef.current.size / totalPointsRef.current) * 100)));
+      const { progress: nextProgress, allComplete } = calculateStrokeProgress(strokes, visitedSets);
+      setProgress(nextProgress);
+      if (allComplete) setIsComplete(true);
     }
   }, []);
 
@@ -176,16 +225,17 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   }, [handlePointerUp]);
 
   useEffect(() => {
-    if (progress >= COMPLETION_THRESHOLD && !isComplete) {
-      setIsComplete(true);
+    if (isComplete && !traceDonePlayedRef.current) {
+      traceDonePlayedRef.current = true;
       playTraceDone();
     }
-  }, [isComplete, playTraceDone, progress]);
+  }, [isComplete, playTraceDone]);
 
   const handleReset = useCallback(() => {
-    visitedRef.current.clear();
+    visitedByStrokeRef.current = strokesRef.current.map(() => new Set());
     setProgress(0);
     setIsComplete(false);
+    traceDonePlayedRef.current = false;
     isDrawingRef.current = false;
     lastCanvasPoint.current = null;
     clearCanvas();
@@ -242,7 +292,6 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
               strokeLinejoin="round"
               strokeDasharray="14 10"
             />
-            <path ref={pathRef} d={tracePath} fill="none" stroke="none" strokeWidth="1" />
           </svg>
 
           <canvas

@@ -7713,20 +7713,31 @@ select:focus {
 }
 
 .learn-area-page {
+  width: min(100%, 1540px);
+  height: calc(100dvh - 132px);
+  min-height: 620px;
   max-width: 1380px;
   margin: 0 auto;
+  overflow: hidden;
+  padding: 0;
   color: #172033;
   background: #f6f8fb;
 }
 
 .learn-area-page.phonics-learn-page {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 0;
+  height: auto;
+  max-width: none;
   width: 100%;
   gap: 0;
   padding: 0;
+  margin: 0;
   background: none;
   border: none;
+  overflow: hidden;
 }
 
 .learn-hero {
@@ -11638,12 +11649,6 @@ select:focus {
   font-weight: 900;
 }
 
-.learn-area-page {
-  width: min(100%, 1540px);
-  min-height: calc(100dvh - 150px);
-  padding: 0;
-}
-
 .learn-browser {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
@@ -12013,15 +12018,6 @@ select:focus {
     align-items: stretch;
     flex-direction: column;
   }
-}
-
-/* Learn repair pass: make the Learn page an app-like single-screen workspace,
-   and let full-screen lessons use the whole viewport with only minimal controls. */
-.learn-area-page {
-  width: min(100%, 1540px);
-  height: calc(100dvh - 132px);
-  min-height: 620px;
-  overflow: hidden;
 }
 
 .learn-browser {
