@@ -2718,6 +2718,196 @@ export const kimiCleanAudioAssets = [
     "status": "approved",
     "voiceStyle": "calm friendly adult female, clear kindergarten pace, British-neutral accent",
     "notes": "Initial sound vocabulary word"
+  },
+  {
+    "key": "chop",
+    "textSpoken": "chop",
+    "audio": "/media/vocabulary/audio/chop.mp3",
+    "category": "words",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; spoken once as a complete word, not letter by letter."
+  },
+  {
+    "key": "dip",
+    "textSpoken": "dip",
+    "audio": "/media/vocabulary/audio/dip.mp3",
+    "category": "words",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; spoken once as a complete word, not letter by letter."
+  },
+  {
+    "key": "excellent-listening",
+    "textSpoken": "Excellent listening.",
+    "audio": "/audio/child-mode/clean-human/phrases/excellent-listening.mp3",
+    "category": "phrases",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; warm generic assessment phrase."
+  },
+  {
+    "key": "great-job",
+    "textSpoken": "Great job!",
+    "audio": "/audio/child-mode/clean-human/phrases/great-job.mp3",
+    "category": "phrases",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; warm generic assessment phrase."
+  },
+  {
+    "key": "lip",
+    "textSpoken": "lip",
+    "audio": "/audio/child-mode/clean-human/words/lip.mp3",
+    "category": "words",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; spoken once as a complete word, not letter by letter."
+  },
+  {
+    "key": "listen-and-find",
+    "textSpoken": "Listen and find.",
+    "audio": "/audio/child-mode/clean-human/phrases/listen-and-find.mp3",
+    "category": "phrases",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; warm generic assessment phrase."
+  },
+  {
+    "key": "listen-carefully",
+    "textSpoken": "Listen carefully.",
+    "audio": "/audio/child-mode/clean-human/phrases/listen-carefully.mp3",
+    "category": "phrases",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; warm generic assessment phrase."
+  },
+  {
+    "key": "mop",
+    "textSpoken": "mop",
+    "audio": "/audio/child-mode/clean-human/words/mop.mp3",
+    "category": "words",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; spoken once as a complete word, not letter by letter."
+  },
+  {
+    "key": "oar",
+    "textSpoken": "oar",
+    "audio": "/media/vocabulary/audio/oar.mp3",
+    "category": "words",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; spoken once as a complete word, not letter by letter."
+  },
+  {
+    "key": "rid",
+    "textSpoken": "rid",
+    "audio": "/media/vocabulary/audio/rid.mp3",
+    "category": "words",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; spoken once as a complete word, not letter by letter."
+  },
+  {
+    "key": "rig",
+    "textSpoken": "rig",
+    "audio": "/media/vocabulary/audio/rig.mp3",
+    "category": "words",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; spoken once as a complete word, not letter by letter."
+  },
+  {
+    "key": "rip",
+    "textSpoken": "rip",
+    "audio": "/media/vocabulary/audio/rip.mp3",
+    "category": "words",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; spoken once as a complete word, not letter by letter."
+  },
+  {
+    "key": "seed",
+    "textSpoken": "seed",
+    "audio": "/audio/child-mode/clean-human/words/seed.mp3",
+    "category": "words",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; spoken once as a complete word, not letter by letter."
+  },
+  {
+    "key": "sip",
+    "textSpoken": "sip",
+    "audio": "/media/vocabulary/audio/sip.mp3",
+    "category": "words",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; spoken once as a complete word, not letter by letter."
+  },
+  {
+    "key": "sit",
+    "textSpoken": "sit",
+    "audio": "/audio/child-mode/clean-human/words/sit.mp3",
+    "category": "words",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; spoken once as a complete word, not letter by letter."
+  },
+  {
+    "key": "try-again",
+    "textSpoken": "Try again.",
+    "audio": "/audio/child-mode/clean-human/phrases/try-again.mp3",
+    "category": "phrases",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; warm generic assessment phrase."
+  },
+  {
+    "key": "which-word-matches",
+    "textSpoken": "Which word matches?",
+    "audio": "/audio/child-mode/clean-human/phrases/which-word-matches.mp3",
+    "category": "phrases",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; warm generic assessment phrase."
+  },
+  {
+    "key": "you-found-it",
+    "textSpoken": "You found it!",
+    "audio": "/audio/child-mode/clean-human/phrases/you-found-it.mp3",
+    "category": "phrases",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; warm generic assessment phrase."
+  },
+  {
+    "key": "zip",
+    "textSpoken": "zip",
+    "audio": "/audio/child-mode/clean-human/words/zip.mp3",
+    "category": "words",
+    "source": "kimi_audio_rerecord_2026_06",
+    "status": "approved",
+    "voiceStyle": "British female teacher voice, warm, natural, phonics-teacher cadence",
+    "notes": "Audio remake pack replacement; spoken once as a complete word, not letter by letter."
   }
 ];
 

@@ -46,7 +46,7 @@ function cleanAudioPath(key, category, fallbackPath) {
   return clean.audio || fallbackPath;
 }
 
-const blockedCleanAudioKeys = new Set(["zip"]);
+const blockedCleanAudioKeys = new Set([]);
 
 function approvedPreference({ key, word = key, category, fallbackPath, source, notes, deprecatedAudioPaths = [], reviewNeededPaths = [] }) {
   const preferredAudioPath = cleanAudioPath(key, category, fallbackPath);
@@ -166,7 +166,6 @@ const quarantinedWordAudio = {
   pot: ["pot-kimi3"],
   shell: ["shell-kimi3"],
   ship: ["ship-kimi3"],
-  sit: ["sit-kimi3"],
   snake: ["snake-kimi3", "snake-kimi4"],
   sock: ["sock-kimi3"],
   star: ["star-kimi3"],
@@ -176,13 +175,7 @@ const quarantinedWordAudio = {
   wig: ["wig-kimi3"]
 };
 
-const quarantinedPhraseAudio = {
-  "excellent-listening": ["excellent-listening-kimi3"],
-  "great-job": ["great-job-kimi3"],
-  "try-again": ["try-again-kimi3"],
-  "which-word-matches": ["which-word-matches-kimi3"],
-  "you-found-it": ["you-found-it-kimi3"]
-};
+const quarantinedPhraseAudio = {};
 
 const activeReviewNeededWordAudio = {
   fan: {
@@ -206,21 +199,6 @@ const activeReviewNeededWordAudio = {
     reviewNeededPaths: [wordAudioPath("bud-kimi3")],
     source: "Bud Audio File.zip import",
     notes: "Clean bud audio imported on 2026-05-28. Bud image remains blocked from live assessment use until a clear unopened flower bud replacement is QA-approved."
-  },
-  zip: {
-    fallbackPath: "/audio/vocabulary/zip.mp3",
-    deprecatedAudioPaths: [
-      wordAudioPath("zip"),
-      "/audio/child-mode/clean-human/words/zip.mp3",
-      "/media/vocabulary/audio/zip.mp3"
-    ],
-    reviewNeededPaths: [
-      wordAudioPath("zip"),
-      "/audio/child-mode/clean-human/words/zip.mp3",
-      "/media/vocabulary/audio/zip.mp3"
-    ],
-    source: "Kimi_Agent_These Still Need Finishing import",
-    notes: "Approved replacement imported on 2026-06-05. Older zip recordings remain quarantined after live review found separated-letter pronunciation."
   }
 };
 
@@ -259,13 +237,33 @@ const approvedGuidedReadingVocabularyAudio = {
 };
 
 const approvedAssessmentWordAudioOverrides = {
+  chop: "/media/vocabulary/audio/chop.mp3",
+  dip: "/media/vocabulary/audio/dip.mp3",
   lip: "/audio/child-mode/clean-human/words/lip.mp3",
-  sip: "/audio/child-mode/clean-human/phrases/sip.mp3"
+  mop: "/audio/child-mode/clean-human/words/mop.mp3",
+  oar: "/media/vocabulary/audio/oar.mp3",
+  rid: "/media/vocabulary/audio/rid.mp3",
+  rig: "/media/vocabulary/audio/rig.mp3",
+  rip: "/media/vocabulary/audio/rip.mp3",
+  seed: "/audio/child-mode/clean-human/words/seed.mp3",
+  sip: "/media/vocabulary/audio/sip.mp3",
+  sit: "/audio/child-mode/clean-human/words/sit.mp3",
+  zip: "/audio/child-mode/clean-human/words/zip.mp3"
 };
 
 const approvedAssessmentWordAudioOverrideReviewPaths = {
-  lip: ["/media/vocabulary/audio/lip.mp3", "/media/rhyming/audio/lip.mp3"],
-  sip: ["/media/vocabulary/audio/sip.mp3"]
+  lip: ["/media/rhyming/audio/lip.mp3"],
+  mop: [wordAudioPath("mop")],
+  seed: [wordAudioPath("seed"), "/media/initial-sounds/audio/s/seed.mp3"],
+  sit: [wordAudioPath("sit"), wordAudioPath("sit-kimi3")],
+  zip: [
+    wordAudioPath("zip"),
+    "/audio/child-mode/clean-human/phrases/zip.mp3",
+    "/audio/vocabulary/zip.mp3",
+    "/guided-reading/audio/words/zip.mp3",
+    "/media/initial-sounds/audio/z/zip.mp3",
+    "/media/vocabulary/audio/zip.mp3"
+  ]
 };
 
 const approvedLowerSkillInstructionAudio = [
@@ -435,19 +433,22 @@ export const audioPreferenceManifest = Object.fromEntries([
       notes: "Approved Kimi high-quality media style exact-word audio imported for assessment language skills."
     })
   ]),
-  ...Object.entries(approvedAssessmentWordAudioOverrides).map(([word, fallbackPath]) => [
-    word,
-    approvedPreference({
-      key: word,
+  ...Object.entries(approvedAssessmentWordAudioOverrides).map(([word, fallbackPath]) => {
+    const reviewPaths = approvedAssessmentWordAudioOverrideReviewPaths[word] || [];
+    return [
       word,
-      category: "words",
-      fallbackPath,
-      deprecatedAudioPaths: approvedAssessmentWordAudioOverrideReviewPaths[word] || [`/media/vocabulary/audio/${word}.mp3`],
-      reviewNeededPaths: approvedAssessmentWordAudioOverrideReviewPaths[word] || [`/media/vocabulary/audio/${word}.mp3`],
-      source: "live assessment audio review",
-      notes: "Approved clean exact-word replacement for active assessment playback; older vocabulary audio is blocked because live testing showed separated phoneme/letter playback."
-    })
-  ]),
+      approvedPreference({
+        key: word,
+        word,
+        category: "words",
+        fallbackPath,
+        deprecatedAudioPaths: reviewPaths,
+        reviewNeededPaths: reviewPaths,
+        source: "kimi_audio_rerecord_2026_06",
+        notes: "Approved exact-word audio remake replacement for active assessment playback."
+      })
+    ];
+  }),
   ...approvedHfwAudioKeys.map(word => [
     `hfw:${word}`,
     approvedPreference({
