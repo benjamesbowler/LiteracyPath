@@ -3413,7 +3413,10 @@ export default function App() {
 
   async function updateStudentSymbolPassword(studentRowId, sequence, selectedStudentName = "student") {
     if (!teacherId || !studentRowId || !/^[1-9]{3}$/.test(sequence)) return;
-    const { error } = await supabase
+    // No teacher_id filter here: RLS already restricts writes to the
+    // student's own teacher or an app admin. Filtering by teacher_id made
+    // admin edits silently update zero rows while still reporting success.
+    const { data, error } = await supabase
       .from("students")
       .update({
         symbol_password: sequence,
@@ -3423,11 +3426,11 @@ export default function App() {
         last_failed_login_at: null
       })
       .eq("id", studentRowId)
-      .eq("teacher_id", teacherId);
+      .select("id");
 
-    if (error) {
+    if (error || !data?.length) {
       console.error("Could not update student symbol password.", error);
-      setMessage("Could not change that login password.");
+      setMessage("Could not change that login password. You may not have access to this student.");
       return;
     }
 
@@ -3439,7 +3442,7 @@ export default function App() {
     if (!teacherId || !studentRowId) return;
     if (!window.confirm(`Reset ${selectedStudentName}'s login pictures? They will choose new pictures next time.`)) return;
 
-    const { error } = await supabase
+    const { data, error } = await supabase
       .from("students")
       .update({
         symbol_password: null,
@@ -3449,11 +3452,11 @@ export default function App() {
         last_failed_login_at: null
       })
       .eq("id", studentRowId)
-      .eq("teacher_id", teacherId);
+      .select("id");
 
-    if (error) {
+    if (error || !data?.length) {
       console.error("Could not reset student symbol password.", error);
-      setMessage("Could not reset that login password.");
+      setMessage("Could not reset that login password. You may not have access to this student.");
       return;
     }
 
@@ -7505,7 +7508,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     );
   }
 
-  if (teacherAccountStatus === "checking" && !profileLoaded) {
+  if (sessionMode !== "student" && teacherAccountStatus === "checking" && !profileLoaded) {
     return (
       <PageBoundary resetKey="checking-account">
         <div className="app">
@@ -7517,7 +7520,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     );
   }
 
-  if (!isTeacherAccountApproved()) {
+  if (sessionMode !== "student" && !isTeacherAccountApproved()) {
     const status = normalizeApprovalStatus(teacherAccountRecord, teacherAccountStatus);
     const isRejected = status === "rejected" || status === "disabled";
     const isSetupRequired = status === "approval_setup_required";

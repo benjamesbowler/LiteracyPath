@@ -9,6 +9,8 @@ export function AuthPage({
   setAuthUsername,
   authDisplayName,
   setAuthDisplayName,
+  authSchoolName,
+  setAuthSchoolName,
   authLoading,
   authMessage,
   signUpTeacher,
@@ -68,6 +70,16 @@ export function AuthPage({
               value={authDisplayName}
               placeholder="Ms. Rivera"
               onChange={event => setAuthDisplayName(event.target.value)}
+              type="text"
+            />
+          </label>
+          <label className="auth-field">
+            <strong>School</strong>
+            <input
+              autoComplete="organization"
+              value={authSchoolName}
+              placeholder="School name"
+              onChange={event => setAuthSchoolName(event.target.value)}
               type="text"
             />
           </label>
