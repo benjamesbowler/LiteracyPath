@@ -1673,7 +1673,7 @@ export function TeacherReportsPage({
       </div>
 
       {reportTab === "student" && (
-      <section className="teacher-action-panel-grid" role="tabpanel" aria-label="Student Report">
+      <section className="teacher-action-panel-grid student-report-panel-grid" role="tabpanel" aria-label="Student Report">
         <article className="teacher-action-panel">
           <h3>Student Report</h3>
           {studentName && <p className="panel-label">{studentName}</p>}
@@ -1718,8 +1718,8 @@ export function TeacherReportsPage({
           </button>
         </article>
 
-        <article className="teacher-action-panel">
-          <h3>Reading Report</h3>
+        <article className="teacher-action-panel student-reading-report-panel">
+          <h3>Books Read</h3>
           {!readingProgress ? (
             <p className="muted-text">Loading guided reading summary...</p>
           ) : !hasReadingData ? (
@@ -1728,22 +1728,14 @@ export function TeacherReportsPage({
               <p>Guided reading records will appear here after book progress and conference notes are saved.</p>
             </div>
           ) : (
-            <>
-              <p>
-                {readingProgress.totalBooksRead} books completed · {readingProgress.inProgressBooks.length} in progress · {readingProgress.totalRereads} rereads
-              </p>
-              <div className="guided-reading-report-mini">
-                <span>Non-Fiction: {readingProgress.nonfictionCount}</span>
-                <span>Latest: {readingProgress.latestReadingDate ? new Date(readingProgress.latestReadingDate).toLocaleDateString() : "Not yet"}</span>
-              </div>
-            </>
+            <p>{readingProgress.totalBooksRead} book{readingProgress.totalBooksRead === 1 ? "" : "s"} read.</p>
           )}
           {readingProgress?.completedBooks.length > 0 && (
             <div className="reading-report-table compact">
               {readingProgress.completedBooks.slice(0, 6).map(row => (
                 <article key={row.bookId}>
                   <strong>{row.title}</strong>
-                  <span>Level {row.level} · {guidedReadingReportHelpers.formatGuidedReadingType(row.type)} · read {row.readCount}x</span>
+                  <span>Level {row.level || "-"}</span>
                 </article>
               ))}
             </div>
@@ -1755,7 +1747,7 @@ export function TeacherReportsPage({
           </div>
         </article>
 
-        <article className="teacher-action-panel">
+        <article className="teacher-action-panel student-correct-words-panel">
           <h3>Words Read Correctly</h3>
           {!guidedReadingDetailsReady ? (
             <p className="muted-text">Loading word records...</p>
@@ -1777,49 +1769,51 @@ export function TeacherReportsPage({
           )}
         </article>
 
-        <article className="teacher-action-panel">
-          <h3>Words Needing Support</h3>
-          {!guidedReadingDetailsReady ? (
-            <p className="muted-text">Loading support words...</p>
-          ) : orangeWordRows.length > 0 ? (
-            <div className="guided-record-list compact">
-              {orangeWordRows.map(row => (
-                <article key={`${row.bookId}-${row.page}-${row.word}-${row.date}-orange`}>
-                  <strong>{row.word}</strong>
-                  <span>{row.title} · Level {row.level} · Page {row.page}</span>
-                  <span>Count: {row.count}</span>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <div className="report-empty-state compact">
-              <strong>No support words marked yet.</strong>
-              <p>Support-word notes will appear after Guided Reading conferences.</p>
-            </div>
-          )}
-        </article>
+        <div className="teacher-action-panel-stack student-guided-report-stack">
+          <article className="teacher-action-panel student-support-words-panel">
+            <h3>Words Needing Support</h3>
+            {!guidedReadingDetailsReady ? (
+              <p className="muted-text">Loading support words...</p>
+            ) : orangeWordRows.length > 0 ? (
+              <div className="guided-record-list compact">
+                {orangeWordRows.map(row => (
+                  <article key={`${row.bookId}-${row.page}-${row.word}-${row.date}-orange`}>
+                    <strong>{row.word}</strong>
+                    <span>{row.title} · Level {row.level} · Page {row.page}</span>
+                    <span>Count: {row.count}</span>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <div className="report-empty-state compact">
+                <strong>No support words marked yet.</strong>
+                <p>Support-word notes will appear after Guided Reading conferences.</p>
+              </div>
+            )}
+          </article>
 
-        <article className="teacher-action-panel">
-          <h3>Guided Reading Conference Notes</h3>
-          {!guidedReadingDetailsReady ? (
-            <p className="muted-text">Loading conference notes...</p>
-          ) : guidedSummaries.length > 0 ? (
-            <div className="guided-record-list compact">
-              {guidedSummaries.slice(0, 12).map(item => (
-                <article key={item.bookId}>
-                  <strong>{item.title}</strong>
-                  <span>{item.correct}/{item.attempted} correct · {item.accuracy}%</span>
-                  <span>{item.supportWords.length ? `Support: ${item.supportWords.join(", ")}` : "No support words marked"}</span>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <div className="report-empty-state compact">
-              <strong>No guided reading records yet.</strong>
-              <p>Conference notes will appear here after the first book record is saved for this student.</p>
-            </div>
-          )}
-        </article>
+          <article className="teacher-action-panel student-guided-notes-panel">
+            <h3>Guided Reading Conference Notes</h3>
+            {!guidedReadingDetailsReady ? (
+              <p className="muted-text">Loading conference notes...</p>
+            ) : guidedSummaries.length > 0 ? (
+              <div className="guided-record-list compact">
+                {guidedSummaries.slice(0, 6).map(item => (
+                  <article key={item.bookId}>
+                    <strong>{item.title}</strong>
+                    <span>{item.correct}/{item.attempted} correct · {item.accuracy}%</span>
+                    <span>{item.supportWords.length ? `Support: ${item.supportWords.join(", ")}` : "No support words marked"}</span>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <div className="report-empty-state compact">
+                <strong>No guided reading records yet.</strong>
+                <p>Conference notes will appear here after the first book record is saved for this student.</p>
+              </div>
+            )}
+          </article>
+        </div>
       </section>
       )}
 

@@ -142,7 +142,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 12px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .learn-story-quest-card {
@@ -300,10 +300,12 @@
 
 .learn-story-quest-card {
   grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
   padding: 18px;
   align-items: stretch;
   background: linear-gradient(180deg, var(--lp-color-surface) 0%, var(--lp-color-surface-warm) 100%);
   box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
+  height: 100%;
 }
 
 .learn-story-quest-card.selected {
@@ -316,6 +318,7 @@
   flex-wrap: wrap;
   justify-content: stretch;
   gap: 8px;
+  margin-top: auto;
 }
 
 .learn-story-quest-actions .lp-button {
@@ -333,6 +336,7 @@
 .learn-story-quest-card-copy {
   display: grid;
   gap: 7px;
+  align-content: start;
   min-width: 0;
 }
 
@@ -342,6 +346,12 @@
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
+}
+
+.learn-story-word-preview {
+  max-height: 92px;
+  overflow: hidden;
+  align-content: flex-start;
 }
 
 .learn-story-word-preview span,
@@ -357,6 +367,16 @@
   color: var(--lp-color-success-text);
   font-family: var(--lp-font-reading);
   font-weight: 800;
+}
+
+.learn-story-word-preview span {
+  min-height: 26px;
+  padding: 3px 8px;
+  font-size: clamp(0.72rem, 0.9vw, 0.95rem);
+  line-height: 1.05;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .story-quest-status {

@@ -4626,10 +4626,16 @@ export default function App() {
       const configured = configuredCoverageTotals[stage.id];
       const unit = configured?.unit || (stage.label.toLowerCase().includes("word") ? "words/items" : "items");
       const visibleGroups = groups.slice(0, 12);
-      const detail = visibleGroups.map(group =>
-        group.words.length
+      const formatGroupSummary = group => {
+        if (stage.id === "initial_sounds") return group.label.replace(/^\/|\/$/g, "");
+        if (stage.id === "final_sounds") return group.label.replace(/^\/|\/$/g, "");
+        if (stage.id === "rhyming") return group.label;
+        return group.words.length
           ? `${group.label} (${group.words.join(", ")})`
-          : group.label
+          : group.label;
+      };
+      const detail = visibleGroups.map(group =>
+        formatGroupSummary(group)
       ).join(", ");
       const moreCount = Math.max(0, groups.length - visibleGroups.length);
 

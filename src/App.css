@@ -1563,6 +1563,29 @@ body {
   gap: 12px;
 }
 
+.student-report-panel-grid {
+  grid-template-columns:
+    minmax(280px, 1fr)
+    minmax(240px, 1fr)
+    minmax(240px, 1fr)
+    minmax(240px, 1fr);
+  align-items: stretch;
+}
+
+.teacher-action-panel-stack {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.student-guided-report-stack {
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.student-guided-report-stack .teacher-action-panel {
+  min-height: 0;
+}
+
 .teacher-action-panel {
   min-width: 0;
   display: flex;
@@ -1976,6 +1999,70 @@ body {
 .guided-library-breadcrumb button:hover {
   background: var(--color-primary-soft) !important;
   color: var(--color-primary) !important;
+}
+
+.guided-completed-strip {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.guided-completed-strip > span {
+  flex: 0 0 auto;
+  color: var(--lp-color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.guided-completed-strip > div {
+  display: flex;
+  min-width: 0;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.guided-completed-strip button {
+  display: block;
+  flex: 0 0 auto;
+  width: 52px;
+  height: 52px;
+  min-height: 0 !important;
+  overflow: hidden;
+  padding: 0 !important;
+  border: 1px solid var(--color-border-soft) !important;
+  border-radius: 10px !important;
+  background: #ffffff !important;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+}
+
+.guided-completed-strip .guided-book-cover,
+.guided-completed-strip .guided-book-generated-cover {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.guided-completed-strip .guided-book-generated-cover {
+  gap: 2px;
+  padding: 4px;
+}
+
+.guided-completed-strip .guided-book-generated-cover span,
+.guided-completed-strip .guided-book-generated-cover small {
+  display: none;
+}
+
+.guided-completed-strip .guided-book-generated-cover strong {
+  font-size: 0.58rem;
+  line-height: 1.05;
+  -webkit-line-clamp: 3;
 }
 
 .guided-category-grid,
@@ -3011,6 +3098,28 @@ body {
   justify-self: start;
   max-width: 100%;
   white-space: normal;
+}
+
+@media (max-width: 1260px) {
+  .student-report-panel-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .growth-bar-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .growth-bar-label {
+    white-space: normal;
+  }
+
+  .guided-completed-strip {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
 .story-quest-report-section {
@@ -12591,6 +12700,181 @@ select:focus {
   padding: 14px;
 }
 
+.growth-section {
+  display: grid;
+  gap: 14px;
+}
+
+.growth-section-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.growth-skill-selector {
+  display: grid;
+  gap: 4px;
+  min-width: min(340px, 100%);
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.growth-skill-selector select {
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #0f172a;
+  font: inherit;
+}
+
+.growth-all-skills-chart,
+.growth-el-summary-card,
+.growth-single-point-card {
+  display: grid;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 14px;
+}
+
+.growth-all-skills-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.growth-key-item::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+.growth-key-item.attempted::before {
+  background: #0d7a73;
+}
+
+.growth-key-item.not-started::before {
+  background: #e5e7eb;
+}
+
+.growth-bar-list {
+  display: grid;
+  gap: 7px;
+}
+
+.growth-bar-row {
+  display: grid;
+  grid-template-columns: minmax(160px, 240px) minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.growth-bar-label {
+  min-width: 0;
+  overflow: hidden;
+  color: #0f172a;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.growth-bar-track {
+  position: relative;
+  min-width: 0;
+  height: 24px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.growth-bar-fill {
+  height: 100%;
+  min-width: 3px;
+}
+
+.growth-bar-row.not-started .growth-bar-fill {
+  min-width: 0;
+}
+
+.growth-bar-pct {
+  position: absolute;
+  inset: 0 8px 0 auto;
+  display: inline-flex;
+  align-items: center;
+  color: #0f172a;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.growth-el-item-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.growth-el-item {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 9px;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #0f172a;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.growth-el-item.correct {
+  border-color: #16a34a;
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.growth-el-item.partial {
+  border-color: #d97706;
+  background: #fffbeb;
+  color: #92400e;
+}
+
+.growth-el-item.incorrect {
+  border-color: #dc2626;
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.growth-single-point-card strong {
+  color: #0f172a;
+  font-size: 16px;
+}
+
+.growth-single-point-card span {
+  color: #475569;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.growth-passed {
+  color: #166534 !important;
+}
+
+.growth-not-passed {
+  color: #92400e !important;
+}
+
 .growth-card-top,
 .growth-summary {
   align-items: center;
@@ -12608,6 +12892,14 @@ select:focus {
   color: #0d7a73;
   font-size: 13px;
   font-weight: 800;
+}
+
+.growth-delta.positive {
+  color: #166534;
+}
+
+.growth-delta.negative {
+  color: #b91c1c;
 }
 
 .student-report-growth-svg {

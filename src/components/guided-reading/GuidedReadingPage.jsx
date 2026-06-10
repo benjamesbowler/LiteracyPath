@@ -1226,6 +1226,9 @@ export function GuidedReadingPage({
   }
 
   const recordSummaries = summarizeGuidedReadingRecords(guidedReadingRecords);
+  const completedLibraryBooks = getRuntimeGuidedReadingBooks()
+    .filter(book => getGuidedReadingProgress(book, guidedReadingRecords[book.id]).completed)
+    .slice(0, 8);
 
   if (!selectedBook) {
     return (
@@ -1274,21 +1277,10 @@ export function GuidedReadingPage({
         </div>
       </section>
 
-      {!readerOpen && (
+      {!readerOpen && (selectedLibraryType || selectedLibraryLevel) && (
       <section className="guided-library-breadcrumb" aria-label="Guided reading library path">
-        <button
-          className={!selectedLibraryType ? "active" : ""}
-          onClick={() => {
-            setSelectedLibraryType("");
-            setSelectedLibraryLevel("");
-          }}
-          type="button"
-        >
-          Guided Reading
-        </button>
         {selectedLibraryType && (
           <>
-            <span>/</span>
             <button
               className={!selectedLibraryLevel ? "active" : ""}
               onClick={() => setSelectedLibraryLevel("")}
@@ -1305,6 +1297,19 @@ export function GuidedReadingPage({
           </>
         )}
       </section>
+      )}
+
+      {!readerOpen && completedLibraryBooks.length > 0 && (
+        <section className="guided-completed-strip" aria-label="Books already read">
+          <span>Already read</span>
+          <div>
+            {completedLibraryBooks.map(book => (
+              <button key={book.id} onClick={() => changeBook(book.id)} type="button" title={`${book.title} · Level ${book.level}`}>
+                <GuidedBookCover book={book} />
+              </button>
+            ))}
+          </div>
+        </section>
       )}
 
       {!readerOpen && (

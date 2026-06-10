@@ -369,12 +369,121 @@ function SkillSetSection({ rows }) {
   );
 }
 
-function GrowthChart({ model }) {
-  const points = model.progressPoints.slice(-8);
-  if (points.length < 2) {
+function GrowthSection({ model, letterAssessment = [], patternAssessment = [] }) {
+  const [selectedSkillId, setSelectedSkillId] = useState("");
+  const skillRows = model.skillMapRows || [];
+  const skillsWithHistory = skillRows.filter(row => (row.checkpointHistory || []).length > 0);
+  const dropdownOptions = [
+    { value: "", label: "All Skills (overview)" },
+    ...skillsWithHistory.map(row => ({
+      value: row.skillId,
+      label: `${row.index + 1}. ${row.label} (${row.checkpointHistory.length} round${row.checkpointHistory.length === 1 ? "" : "s"})`
+    })),
+    ...(letterAssessment.length > 0
+      ? [{ value: "el_letter", label: "EL: Letter Name & Sound" }]
+      : []),
+    ...(patternAssessment.length > 0
+      ? [{ value: "el_pattern", label: "EL: Advanced Phonics" }]
+      : [])
+  ];
+  const selectedRow = selectedSkillId
+    ? skillRows.find(row => row.skillId === selectedSkillId)
+    : null;
+
+  return (
+    <div className="growth-section">
+      <div className="growth-section-controls screen-only">
+        <label className="growth-skill-selector">
+          <span>Skill</span>
+          <select value={selectedSkillId} onChange={event => setSelectedSkillId(event.target.value)}>
+            {dropdownOptions.map(option => (
+              <option key={option.value} value={option.value}>{option.label}</option>
+            ))}
+          </select>
+        </label>
+      </div>
+
+      {!selectedSkillId && <AllSkillsBarChart rows={skillRows} />}
+      {selectedSkillId === "el_letter" && (
+        <ElSkillSummary
+          title="EL: Letter Name & Sound"
+          records={letterAssessment}
+          getAccuracy={item => Math.round((((item.knowsName ? 1 : 0) + (item.knowsSound ? 1 : 0)) / 2) * 100)}
+          getLabel={item => item.letter || ""}
+        />
+      )}
+      {selectedSkillId === "el_pattern" && (
+        <ElSkillSummary
+          title="EL: Advanced Phonics"
+          records={patternAssessment}
+          getAccuracy={item => Math.round((((item.soundCorrect ? 1 : 0) + (item.wordCorrect ? 1 : 0)) / 2) * 100)}
+          getLabel={item => item.pattern || ""}
+        />
+      )}
+      {selectedRow && <SkillLineChart row={selectedRow} />}
+    </div>
+  );
+}
+
+function AllSkillsBarChart({ rows = [] }) {
+  if (!rows.length) {
+    return <div className="student-report-muted-card">No skill rows are available yet.</div>;
+  }
+
+  return (
+    <div className="growth-all-skills-chart">
+      <div className="growth-all-skills-key">
+        <span className="growth-key-item attempted">Attempted</span>
+        <span className="growth-key-item not-started">Not started yet</span>
+      </div>
+      <div className="growth-bar-list" role="list">
+        {rows.map(row => {
+          const hasData = (row.checkpointHistory || []).length > 0 || row.attempts > 0;
+          const pct = clampPercent(row.accuracy);
+          return (
+            <div
+              className={`growth-bar-row${hasData ? "" : " not-started"}`}
+              key={row.skillId}
+              role="listitem"
+              aria-label={`${row.label}: ${hasData ? `${pct}%` : "not started"}`}
+            >
+              <span className="growth-bar-label" title={row.label}>
+                {row.index + 1}. {row.label}
+              </span>
+              <div className="growth-bar-track">
+                <div
+                  className="growth-bar-fill"
+                  style={{
+                    "--bar-width": `${pct}%`,
+                    width: hasData ? `${pct}%` : "0%",
+                    background: hasData ? (row.skillAreaColor || "#0C6B65") : "#e5e7eb"
+                  }}
+                />
+                <span className="growth-bar-pct">{hasData ? `${pct}%` : "Not started"}</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function SkillLineChart({ row }) {
+  const points = row.checkpointHistory || [];
+  if (!points.length) {
+    return <div className="student-report-muted-card">No checkpoint rounds recorded for {row.label} yet.</div>;
+  }
+  if (points.length === 1) {
+    const point = points[0];
     return (
-      <div className="student-report-muted-card">
-        Complete two or more assessments to see progress over time.
+      <div className="growth-single-point-card">
+        <strong>{row.label}</strong>
+        <span>1 round completed - {point.accuracy}% ({point.score})</span>
+        <span className={point.passed ? "growth-passed" : "growth-not-passed"}>
+          {point.passed ? "Checkpoint passed" : "Checkpoint not yet passed"}
+        </span>
+        <p className="growth-summary muted-text">Complete a second round to see a progress line.</p>
       </div>
     );
   }
@@ -388,27 +497,29 @@ function GrowthChart({ model }) {
   const plotWidth = width - left - right;
   const plotHeight = height - top - bottom;
   const maxX = Math.max(1, points.length - 1);
-  const latest = points.at(-1);
-  const first = points[0];
+  const color = row.skillAreaColor || "#0C6B65";
   const line = points.map((point, index) => {
     const x = left + (index / maxX) * plotWidth;
-    const y = top + (1 - clampPercent(point.value) / 100) * plotHeight;
-    return { ...point, x, y };
+    const y = top + (1 - clampPercent(point.accuracy) / 100) * plotHeight;
+    const label = point.date
+      ? new Date(point.date).toLocaleDateString(undefined, { month: "short", day: "numeric" })
+      : `Round ${index + 1}`;
+    return { ...point, x, y, label };
   });
   const path = line.map((point, index) => `${index === 0 ? "M" : "L"} ${point.x.toFixed(1)} ${point.y.toFixed(1)}`).join(" ");
-  const latestArea = latest.skillArea?.color || "#2563EB";
+  const first = line[0];
+  const latest = line.at(-1);
+  const delta = clampPercent(latest.accuracy) - clampPercent(first.accuracy);
 
   return (
     <div className="student-report-growth-card">
       <div className="growth-card-top">
-        <p>{latest.skillArea?.label || "Skill"} ({latest.skillName}) — {points.length} checkpoints recorded</p>
-        {model.sameSkillDelta !== null && (
-          <span className={`growth-delta ${model.sameSkillDelta >= 0 ? "positive" : "negative"}`}>
-            {model.sameSkillDelta >= 0 ? "+" : ""}{model.sameSkillDelta}% since last round
-          </span>
-        )}
+        <p><strong>{row.label}</strong> - {points.length} checkpoint rounds</p>
+        <span className={`growth-delta ${delta >= 0 ? "positive" : "negative"}`}>
+          {delta >= 0 ? "+" : ""}{delta}% since first round
+        </span>
       </div>
-      <svg className="student-report-growth-svg" viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Assessment accuracy per checkpoint">
+      <svg className="student-report-growth-svg" viewBox={`0 0 ${width} ${height}`} role="img" aria-label={`${row.label} checkpoint accuracy`}>
         {[100, 80, 60, 40, 20].map(value => {
           const y = top + (1 - value / 100) * plotHeight;
           return (
@@ -418,20 +529,60 @@ function GrowthChart({ model }) {
             </g>
           );
         })}
-        {line.map(point => (
-          <text key={`${point.completedAt}-label`} x={point.x} y={height - 8} textAnchor="middle">{point.label}</text>
+        {line.map((point, index) => (
+          <text key={`${point.label}-${index}`} x={point.x} y={height - 8} textAnchor="middle">{point.label}</text>
         ))}
-        <path d={path} style={{ stroke: latestArea }} />
-        {line.map(point => (
-          <circle key={`${point.completedAt}-dot`} cx={point.x} cy={point.y} r="6" style={{ fill: point.skillArea?.color || latestArea }}>
-            <title>{`${point.skillName}: ${point.value}% on ${point.label}`}</title>
+        <path d={path} style={{ stroke: color }} />
+        {line.map((point, index) => (
+          <circle
+            key={`${point.label}-dot-${index}`}
+            cx={point.x}
+            cy={point.y}
+            r="6"
+            style={{ fill: point.passed ? color : "#fff", stroke: color, strokeWidth: 2 }}
+          >
+            <title>{`${point.label}: ${point.accuracy}% (${point.score})${point.passed ? " passed" : ""}`}</title>
           </circle>
         ))}
       </svg>
       <p className="growth-summary">
-        {model.snapshot.studentName} moved from {first.value}% on {first.label} to {latest.value}% on {latest.label}
-        {latest.skillName ? `, most recently on ${latest.skillName}.` : "."}
+        {row.label}: {first.accuracy}% on round 1 to {latest.accuracy}% on round {points.length}
+        {latest.passed ? " - checkpoint passed" : ""}
       </p>
+    </div>
+  );
+}
+
+function ElSkillSummary({ title, records = [], getAccuracy, getLabel }) {
+  if (!records.length) {
+    return <div className="student-report-muted-card">No {title} data recorded yet.</div>;
+  }
+  const fullyCorrect = records.filter(item => getAccuracy(item) >= 100).length;
+  const overallPct = Math.round((fullyCorrect / records.length) * 100);
+
+  return (
+    <div className="growth-el-summary-card">
+      <div className="growth-card-top">
+        <p><strong>{title}</strong> - {records.length} items assessed</p>
+        <span className="growth-delta positive">{overallPct}% overall</span>
+      </div>
+      <div className="growth-el-item-grid" role="list">
+        {records.map((item, index) => {
+          const accuracy = getAccuracy(item);
+          const label = getLabel(item);
+          return (
+            <div
+              key={`${label}-${index}`}
+              className={`growth-el-item ${accuracy >= 100 ? "correct" : accuracy >= 50 ? "partial" : "incorrect"}`}
+              role="listitem"
+              title={`${label}: ${accuracy}%`}
+            >
+              {label}
+            </div>
+          );
+        })}
+      </div>
+      <p className="growth-summary muted-text">{fullyCorrect} of {records.length} items fully correct.</p>
     </div>
   );
 }
@@ -758,8 +909,8 @@ export function FinishedReportPage({
         <SectionBand title="Skill-Set Assessments" subtitle="Checkpoint results across all assessed skill areas" />
         <SkillSetSection rows={model.skillMapRows} />
 
-        <SectionBand title="Growth Over Time" subtitle="Assessment accuracy per checkpoint round — most recent on the right" />
-        <GrowthChart model={model} />
+        <SectionBand title="Growth Over Time" subtitle="Default view shows all skills. Use the dropdown to view checkpoint progress for a specific skill." />
+        <GrowthSection model={model} letterAssessment={letterAssessment} patternAssessment={patternAssessment} />
 
         <SectionBand title="Words, Sounds & Skills Learned" subtitle="Items at Mastered level only" accent="#16A34A" />
         <LearnedSection correctWordRows={correctWordRows} model={model} />
