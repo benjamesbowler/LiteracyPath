@@ -188,6 +188,146 @@ body {
   width: 0;
 }
 
+/* Reporting and dashboard fixes */
+.lg-app-shell .teacher-dashboard-page .teacher-dashboard-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.lg-app-shell .teacher-dashboard-page .teacher-dashboard-create {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.lg-app-shell .teacher-dashboard-page .teacher-dashboard-control {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lg-app-shell .teacher-dashboard-page .teacher-dashboard-control span {
+  color: var(--text-muted, #6b7280);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.lg-app-shell .teacher-dashboard-page .teacher-dashboard-control select,
+.lg-app-shell .teacher-dashboard-page .teacher-dashboard-control input {
+  min-width: 180px;
+  height: 40px;
+  min-height: 40px;
+  padding: 0 10px;
+  border: 1.5px solid var(--border, #e5e7eb);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.lg-app-shell .teacher-dashboard-page .teacher-dashboard-create .lp-button {
+  align-self: flex-end;
+  height: 40px;
+  min-height: 40px !important;
+  margin-bottom: 0;
+}
+
+.lg-app-shell .teacher-dashboard-page .student-create {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.growth-axis-label {
+  fill: #374151;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.growth-axis-sublabel {
+  fill: #9ca3af;
+  font-size: 10px;
+}
+
+.student-report-document .sounds-progress-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.student-report-document .sounds-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.student-report-document .sounds-progress-label {
+  min-width: 190px;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.student-report-document .sounds-progress-track {
+  flex: 1;
+  height: 14px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #f3f4f6;
+}
+
+.student-report-document .sounds-progress-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.4s ease;
+}
+
+.student-report-document .sounds-progress-fill.level1 {
+  background: #0c6b65;
+}
+
+.student-report-document .sounds-progress-fill.level2 {
+  background: #4f46e5;
+}
+
+.student-report-document .sounds-progress-count {
+  min-width: 50px;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: right;
+}
+
+@media (max-width: 720px) {
+  .lg-app-shell .teacher-dashboard-page .teacher-dashboard-controls,
+  .lg-app-shell .teacher-dashboard-page .teacher-dashboard-create,
+  .lg-app-shell .teacher-dashboard-page .student-create {
+    align-items: stretch;
+  }
+
+  .lg-app-shell .teacher-dashboard-page .teacher-dashboard-control,
+  .lg-app-shell .teacher-dashboard-page .teacher-dashboard-create .lp-button {
+    width: 100%;
+  }
+
+  .student-report-document .sounds-progress-row {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .student-report-document .sounds-progress-label,
+  .student-report-document .sounds-progress-count {
+    min-width: 0;
+    text-align: left;
+  }
+}
+
 /* Toggle button */
 .lg-sb-toggle {
   flex-shrink: 0;

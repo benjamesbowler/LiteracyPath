@@ -31,6 +31,7 @@ const AREA_ORDER = [
   "Grammar / Language",
   "Guided Reading"
 ];
+const EMPTY_REPORT_ROWS = [];
 
 function clampPercent(value) {
   const numeric = Number(value);
@@ -232,7 +233,7 @@ function buildElAssessmentCards({ letterAssessment = [], patternAssessment = [] 
   const patternItems = patternAssessment.map(item => ({
     label: item.pattern,
     known: Boolean(item.soundCorrect && item.wordCorrect),
-    partial: Boolean(item.soundCorrect || item.wordCorrect) && !Boolean(item.soundCorrect && item.wordCorrect)
+    partial: Boolean(item.soundCorrect || item.wordCorrect) && !(item.soundCorrect && item.wordCorrect)
   }));
   const patternTotal = patternAssessment.length ? patternAssessment.length * 2 : 0;
   const patternCorrect = patternAssessment.reduce((sum, item) =>
@@ -377,14 +378,16 @@ function GrowthSection({ model, letterAssessment = [], patternAssessment = [] })
     { value: "", label: "All Skills (overview)" },
     ...skillsWithHistory.map(row => ({
       value: row.skillId,
-      label: `${row.index + 1}. ${row.label} (${row.checkpointHistory.length} round${row.checkpointHistory.length === 1 ? "" : "s"})`
+      label: `${row.index + 1}. ${row.label} (${row.checkpointHistory.length} attempt${row.checkpointHistory.length === 1 ? "" : "s"})`
     })),
-    ...(letterAssessment.length > 0
-      ? [{ value: "el_letter", label: "EL: Letter Name & Sound" }]
-      : []),
-    ...(patternAssessment.length > 0
-      ? [{ value: "el_pattern", label: "EL: Advanced Phonics" }]
-      : [])
+    {
+      value: "el_letter",
+      label: `EL: Letter Name & Sound${letterAssessment.length ? ` (${letterAssessment.length} items)` : " — not yet assessed"}`
+    },
+    {
+      value: "el_pattern",
+      label: `EL: Advanced Phonics${patternAssessment.length ? ` (${patternAssessment.length} items)` : " — not yet assessed"}`
+    }
   ];
   const selectedRow = selectedSkillId
     ? skillRows.find(row => row.skillId === selectedSkillId)
@@ -474,37 +477,30 @@ function SkillLineChart({ row }) {
   if (!points.length) {
     return <div className="student-report-muted-card">No checkpoint rounds recorded for {row.label} yet.</div>;
   }
-  if (points.length === 1) {
-    const point = points[0];
-    return (
-      <div className="growth-single-point-card">
-        <strong>{row.label}</strong>
-        <span>1 round completed - {point.accuracy}% ({point.score})</span>
-        <span className={point.passed ? "growth-passed" : "growth-not-passed"}>
-          {point.passed ? "Checkpoint passed" : "Checkpoint not yet passed"}
-        </span>
-        <p className="growth-summary muted-text">Complete a second round to see a progress line.</p>
-      </div>
-    );
-  }
 
   const width = 700;
   const height = 230;
   const left = 54;
   const right = 18;
   const top = 24;
-  const bottom = 38;
+  const bottom = 50;
   const plotWidth = width - left - right;
   const plotHeight = height - top - bottom;
   const maxX = Math.max(1, points.length - 1);
   const color = row.skillAreaColor || "#0C6B65";
   const line = points.map((point, index) => {
-    const x = left + (index / maxX) * plotWidth;
+    const x = left + (points.length === 1 ? plotWidth / 2 : (index / maxX) * plotWidth);
     const y = top + (1 - clampPercent(point.accuracy) / 100) * plotHeight;
-    const label = point.date
+    const attemptDate = point.date
       ? new Date(point.date).toLocaleDateString(undefined, { month: "short", day: "numeric" })
-      : `Round ${index + 1}`;
-    return { ...point, x, y, label };
+      : null;
+    return {
+      ...point,
+      x,
+      y,
+      label: `Attempt ${index + 1}`,
+      sublabel: attemptDate || ""
+    };
   });
   const path = line.map((point, index) => `${index === 0 ? "M" : "L"} ${point.x.toFixed(1)} ${point.y.toFixed(1)}`).join(" ");
   const first = line[0];
@@ -514,7 +510,7 @@ function SkillLineChart({ row }) {
   return (
     <div className="student-report-growth-card">
       <div className="growth-card-top">
-        <p><strong>{row.label}</strong> - {points.length} checkpoint rounds</p>
+        <p><strong>{row.label}</strong> - {points.length} checkpoint attempt{points.length === 1 ? "" : "s"}</p>
         <span className={`growth-delta ${delta >= 0 ? "positive" : "negative"}`}>
           {delta >= 0 ? "+" : ""}{delta}% since first round
         </span>
@@ -525,14 +521,19 @@ function SkillLineChart({ row }) {
           return (
             <g key={value}>
               <text x={left - 8} y={y + 5} textAnchor="end">{value}%</text>
-              <line x1={left} x2={width - right} y1={y} y2={y} />
+              <line x1={left} x2={width - right} y1={y} y2={y} stroke="#e2e8f0" />
             </g>
           );
         })}
         {line.map((point, index) => (
-          <text key={`${point.label}-${index}`} x={point.x} y={height - 8} textAnchor="middle">{point.label}</text>
+          <g key={`xlabel-${index}`}>
+            <text x={point.x} y={height - 20} textAnchor="middle" className="growth-axis-label">{point.label}</text>
+            {point.sublabel && (
+              <text x={point.x} y={height - 6} textAnchor="middle" className="growth-axis-sublabel">{point.sublabel}</text>
+            )}
+          </g>
         ))}
-        <path d={path} style={{ stroke: color }} />
+        <path d={path} fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ stroke: color }} />
         {line.map((point, index) => (
           <circle
             key={`${point.label}-dot-${index}`}
@@ -546,8 +547,9 @@ function SkillLineChart({ row }) {
         ))}
       </svg>
       <p className="growth-summary">
-        {row.label}: {first.accuracy}% on round 1 to {latest.accuracy}% on round {points.length}
-        {latest.passed ? " - checkpoint passed" : ""}
+        {row.label}: {first.accuracy}% on attempt 1
+        {points.length > 1 ? ` → ${latest.accuracy}% on attempt ${points.length}` : " (1 attempt recorded so far)"}
+        {latest.passed ? " — checkpoint passed" : ""}
       </p>
     </div>
   );
@@ -589,42 +591,93 @@ function ElSkillSummary({ title, records = [], getAccuracy, getLabel }) {
 
 function LearnedSection({ correctWordRows, model }) {
   const mastered = model.itemGroups.mastered || [];
-  const sightWords = mastered.filter(row =>
-    String(row.itemType || "").includes("sight") ||
-    String(row.itemType || "").includes("hfw") ||
-    String(row.skillName || "").toLowerCase().includes("high-frequency")
-  );
+  const hfwAssessmentWords = mastered
+    .filter(row => row.itemType === "sight_word")
+    .map(row => row.label || row.itemKey)
+    .filter(Boolean);
+  const guidedReadingCorrectWords = correctWordRows.map(row => row.word).filter(Boolean);
+  const allSightWords = Array.from(new Set([...hfwAssessmentWords, ...guidedReadingCorrectWords]))
+    .sort((a, b) => a.localeCompare(b));
   const sounds = mastered.filter(row =>
-    String(row.itemType || "").includes("sound") ||
-    String(row.itemType || "").includes("rhyme") ||
-    String(row.itemType || "").includes("letter") ||
-    String(row.itemType || "").includes("vowel")
+    row.itemType === "initial_sound" ||
+    row.itemType === "final_sound" ||
+    row.itemType === "rhyming_family" ||
+    row.itemType === "short_vowel" ||
+    row.itemType === "letter_sound" ||
+    row.itemType === "phonics_pattern"
   );
-  const fallbackSight = sightWords.length ? sightWords : mastered.filter(row => row.label && !String(row.itemType || "").includes("sound")).slice(0, 60);
-  const fallbackSounds = sounds.length ? sounds : mastered.slice(0, 30);
+  const letterNames = mastered.filter(row => row.itemType === "letter_name");
+  const soundsAndLetterNames = [...sounds, ...letterNames];
 
   return (
     <div className="student-report-learned-grid">
       <article className="student-report-learned-card words">
-        <h3>Sight Words Mastered ({fallbackSight.length})</h3>
-        <ChipTextList items={fallbackSight.map(row => row.label)} limit={60} />
+        <h3>Sight Words Mastered ({allSightWords.length})</h3>
+        <ChipTextList items={allSightWords} limit={Infinity} />
       </article>
       <article className="student-report-learned-card sounds">
-        <h3>Sounds Mastered ({fallbackSounds.length})</h3>
-        <ChipTextList items={fallbackSounds.map(row => row.label)} limit={60} />
+        <h3>Sounds / Letter Names Mastered ({soundsAndLetterNames.length})</h3>
+        <SoundsProgressChart sounds={sounds} letterNames={letterNames} />
+        <ChipTextList items={soundsAndLetterNames.map(row => row.label || row.itemKey)} limit={Infinity} />
       </article>
       <article className="student-report-learned-card mastered">
         <h3>Guided Reading — Words Read Correctly (recent books)</h3>
         <ChipTextList
           items={correctWordRows.map(row => `${row.word} (${row.title}, p.${row.page})`)}
-          limit={30}
+          limit={Infinity}
         />
       </article>
     </div>
   );
 }
 
-function ChipTextList({ items = [], limit = 60 }) {
+function SoundsProgressChart({ sounds = [], letterNames = [] }) {
+  const level1Items = sounds.filter(row =>
+    row.itemType === "initial_sound" ||
+    row.itemType === "rhyming_family" ||
+    row.itemType === "short_vowel"
+  );
+  const level2Items = sounds
+    .filter(row =>
+      row.itemType === "final_sound" ||
+      row.itemType === "letter_sound" ||
+      row.itemType === "phonics_pattern"
+    )
+    .concat(letterNames);
+  const level1Total = 25;
+  const level2Total = Math.max(level2Items.length + 5, 26);
+  const level1Pct = Math.min(100, Math.round((level1Items.length / level1Total) * 100));
+  const level2Pct = Math.min(100, level2Items.length ? Math.round((level2Items.length / level2Total) * 100) : 0);
+
+  return (
+    <div className="sounds-progress-chart" aria-label="Sounds mastery by level">
+      <div className="sounds-progress-row">
+        <span className="sounds-progress-label">Level 1 Sounds</span>
+        <div className="sounds-progress-track">
+          <div
+            className="sounds-progress-fill level1"
+            style={{ width: `${level1Pct}%` }}
+            aria-label={`${level1Items.length} of ${level1Total} Level 1 sounds mastered`}
+          />
+        </div>
+        <span className="sounds-progress-count">{level1Items.length}/{level1Total}</span>
+      </div>
+      <div className="sounds-progress-row">
+        <span className="sounds-progress-label">Level 2 Sounds / Letter Names</span>
+        <div className="sounds-progress-track">
+          <div
+            className="sounds-progress-fill level2"
+            style={{ width: `${level2Pct}%` }}
+            aria-label={`${level2Items.length} of ${level2Total} Level 2 items mastered`}
+          />
+        </div>
+        <span className="sounds-progress-count">{level2Items.length}/{level2Total}</span>
+      </div>
+    </div>
+  );
+}
+
+function ChipTextList({ items = [], limit = Infinity }) {
   const list = normaliseList(items);
   const visible = list.slice(0, limit);
   return (
@@ -800,16 +853,15 @@ export function FinishedReportPage({
 }) {
   const [guidedReadingReportRows, setGuidedReadingReportRows] = useState([]);
   const [guidedReadingWordRows, setGuidedReadingWordRows] = useState([]);
-  const [storyQuestSummary, setStoryQuestSummary] = useState(() =>
-    summarizeStoryQuestProgress(loadStoryQuestProgress(storyQuestProgressScopeKey), storyQuests)
-  );
+  const hasGuidedReadingRecords = Object.keys(guidedReadingRecords || {}).length > 0;
+  const activeGuidedReadingReportRows = hasGuidedReadingRecords ? guidedReadingReportRows : EMPTY_REPORT_ROWS;
+  const activeGuidedReadingWordRows = hasGuidedReadingRecords ? guidedReadingWordRows : EMPTY_REPORT_ROWS;
+  const storyQuestSummary = useMemo(() =>
+    summarizeStoryQuestProgress(loadStoryQuestProgress(storyQuestProgressScopeKey), storyQuests),
+  [storyQuestProgressScopeKey]);
 
   useEffect(() => {
-    if (!Object.keys(guidedReadingRecords || {}).length) {
-      setGuidedReadingReportRows([]);
-      setGuidedReadingWordRows([]);
-      return undefined;
-    }
+    if (!hasGuidedReadingRecords) return undefined;
 
     let cancelled = false;
     import("../data/guidedReadingBooks").then(module => {
@@ -822,14 +874,7 @@ export function FinishedReportPage({
     return () => {
       cancelled = true;
     };
-  }, [guidedReadingRecords]);
-
-  useEffect(() => {
-    setStoryQuestSummary(summarizeStoryQuestProgress(
-      loadStoryQuestProgress(storyQuestProgressScopeKey),
-      storyQuests
-    ));
-  }, [storyQuestProgressScopeKey]);
+  }, [guidedReadingRecords, hasGuidedReadingRecords]);
 
   const model = useMemo(() => buildStudentReportModel({
     studentName,
@@ -845,7 +890,7 @@ export function FinishedReportPage({
     skillMasterySummary,
     itemMastery,
     assessmentHistory,
-    guidedReadingReportRows,
+    guidedReadingReportRows: activeGuidedReadingReportRows,
     storyQuestSummary
   }), [
     studentName,
@@ -861,7 +906,7 @@ export function FinishedReportPage({
     skillMasterySummary,
     itemMastery,
     assessmentHistory,
-    guidedReadingReportRows,
+    activeGuidedReadingReportRows,
     storyQuestSummary
   ]);
 
@@ -869,7 +914,7 @@ export function FinishedReportPage({
     letterAssessment,
     patternAssessment
   }), [letterAssessment, patternAssessment]);
-  const correctWordRows = guidedReadingWordRows.filter(row => row.status === "Read Correctly").slice(0, 30);
+  const correctWordRows = activeGuidedReadingWordRows.filter(row => row.status === "Read Correctly");
   const generatedDate = new Date().toLocaleDateString(undefined, {
     month: "short",
     day: "numeric",
@@ -919,7 +964,7 @@ export function FinishedReportPage({
         <SupportSection model={model} />
 
         <SectionBand title="Guided Reading & Story Quest" subtitle="Book progress, conference notes, and vocabulary" accent="#16A34A" />
-        <GuidedReadingSection guidedReadingReportRows={guidedReadingReportRows} storyQuestSummary={storyQuestSummary} />
+        <GuidedReadingSection guidedReadingReportRows={activeGuidedReadingReportRows} storyQuestSummary={storyQuestSummary} />
 
         <SectionBand title="Next Session Plan" subtitle={`Recommended focus for ${model.snapshot.studentName}'s next teaching session`} />
         <NextSessionPlan model={model} />
