@@ -36,9 +36,14 @@ export function TeacherDashboardPage({
   updateStudentSymbolPassword,
   resetStudentSymbolPassword,
   startStudentLogin,
+  schoolName = "",
+  hasSchool = false,
+  saveSchool,
   message
 }) {
   const [newStudentName, setNewStudentName] = useState("");
+  const [editingSchool, setEditingSchool] = useState(false);
+  const [schoolDraft, setSchoolDraft] = useState("");
   const [visiblePasswords, setVisiblePasswords] = useState({});
   const [editingStudent, setEditingStudent] = useState(null);
   const [editingSequence, setEditingSequence] = useState("");
@@ -154,6 +159,60 @@ export function TeacherDashboardPage({
             Create Class
           </button>
         </div>
+
+        {saveSchool && (
+          <div className="teacher-dashboard-school">
+            {!editingSchool ? (
+              <p className={hasSchool ? "teacher-school-summary" : "teacher-school-summary teacher-school-missing"}>
+                {hasSchool
+                  ? <>School: <strong>{schoolName || "..."}</strong></>
+                  : "No school set yet - students need a school to use child login."}
+                <button
+                  className="text-button"
+                  onClick={() => {
+                    setSchoolDraft(schoolName || "");
+                    setEditingSchool(true);
+                  }}
+                  type="button"
+                >
+                  {hasSchool ? "Change" : "Set school"}
+                </button>
+              </p>
+            ) : (
+              <div className="teacher-dashboard-create teacher-school-edit">
+                <label className="teacher-dashboard-control">
+                  <span>School</span>
+                  <input
+                    autoComplete="organization"
+                    value={schoolDraft}
+                    placeholder="Enter school name"
+                    onChange={event => setSchoolDraft(event.target.value)}
+                    onKeyDown={event => {
+                      if (event.key === "Enter" && schoolDraft.trim()) {
+                        saveSchool(schoolDraft);
+                        setEditingSchool(false);
+                      }
+                    }}
+                  />
+                </label>
+                <button
+                  className="lp-button lp-button-primary"
+                  disabled={!schoolDraft.trim()}
+                  onClick={() => {
+                    saveSchool(schoolDraft);
+                    setEditingSchool(false);
+                  }}
+                  type="button"
+                >
+                  Save School
+                </button>
+                <button className="lp-button lp-button-secondary" onClick={() => setEditingSchool(false)} type="button">
+                  Cancel
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </section>
 
       <section className="teacher-dashboard-roster" aria-label="Students">

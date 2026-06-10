@@ -1744,6 +1744,7 @@ export default function App() {
   const [authMessage, setAuthMessage] = useState("");
   const [teacherAccountStatus, setTeacherAccountStatus] = useState("signed_out");
   const [teacherAccountRecord, setTeacherAccountRecord] = useState(null);
+  const [teacherSchoolName, setTeacherSchoolName] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
   const [adminStatusError, setAdminStatusError] = useState(null);
   const [adminTeachers, setAdminTeachers] = useState([]);
@@ -3115,8 +3116,27 @@ export default function App() {
     setAuthMessage("");
   }
 
-  async function saveTeacherSchool() {
-    const schoolName = authSchoolName.trim();
+  useEffect(() => {
+    let cancelled = false;
+    const schoolId = teacherAccountRecord?.school_id;
+    const namePromise = schoolId
+      ? supabase
+          .from("schools")
+          .select("name")
+          .eq("id", schoolId)
+          .maybeSingle()
+          .then(({ data }) => data?.name || "")
+      : Promise.resolve("");
+    namePromise.then(name => {
+      if (!cancelled) setTeacherSchoolName(name);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [teacherAccountRecord?.school_id]);
+
+  async function saveTeacherSchool(overrideName) {
+    const schoolName = (typeof overrideName === "string" ? overrideName : authSchoolName).trim();
     if (!teacherId || !schoolName) {
       setAuthMessage("Enter your school.");
       return;
@@ -3139,11 +3159,12 @@ export default function App() {
       .maybeSingle();
 
     if (!error) {
+      // Keep all of this teacher's classes on their current school so
+      // students can always find them through the child login flow.
       await supabase
         .from("classes")
         .update({ school_id: schoolId })
-        .eq("teacher_id", teacherId)
-        .is("school_id", null);
+        .eq("teacher_id", teacherId);
     }
 
     setAuthLoading(false);
@@ -7687,6 +7708,9 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               setEntryMode("student");
               setAppView(APP_VIEWS.STUDENT_LOGIN);
             }}
+            schoolName={teacherSchoolName}
+            hasSchool={Boolean(teacherAccountRecord?.school_id)}
+            saveSchool={saveTeacherSchool}
             message={message}
           />
         </PageBoundary>

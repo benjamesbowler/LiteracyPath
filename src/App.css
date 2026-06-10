@@ -114,17 +114,16 @@ body {
 
 .student-entry-hero {
   display: grid;
-  gap: 28px;
+  gap: 36px;
   text-align: center;
 }
 
 .student-entry-logo {
-  height: 74px;
+  height: 64px;
   width: auto;
   margin-inline: auto;
 }
 
-.student-entry-copy h1,
 .student-flow-header h1 {
   margin: 0;
   color: var(--lp-color-text-strong);
@@ -133,26 +132,92 @@ body {
   line-height: 1;
 }
 
+.student-entry-copy {
+  display: grid;
+  gap: 8px;
+}
+
+.student-entry-copy h1 {
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font-family: var(--lp-font-reading);
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.student-entry-copy p {
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-size: clamp(15px, 2vw, 17px);
+}
+
 .student-entry-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 380px));
+  justify-content: center;
   gap: 20px;
 }
 
 .student-entry-card {
-  min-height: 220px;
-  border: 2px solid var(--lp-color-border);
-  border-radius: 18px;
-  background: #ffffff;
+  min-height: 280px;
+  padding: 32px 28px;
+  border: 1px solid var(--lp-color-border);
+  border-radius: 16px;
+  background: var(--lp-color-surface);
   box-shadow: var(--lp-shadow-card);
   color: var(--lp-color-text-strong);
-  font-family: Fredoka, var(--lp-font-reading);
-  font-size: clamp(28px, 4vw, 46px);
-  font-weight: 800;
+  font-family: var(--lp-font-ui);
   display: grid;
-  place-items: center;
+  grid-template-rows: auto auto 1fr auto;
+  justify-items: center;
+  align-content: start;
   gap: 12px;
   cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.student-entry-card:hover {
+  border-color: var(--lp-color-primary);
+  box-shadow: var(--lp-shadow-soft);
+  transform: translateY(-2px);
+}
+
+.student-entry-visual {
+  display: grid;
+  place-items: center;
+  height: 112px;
+}
+
+.student-entry-card-title {
+  font-family: var(--lp-font-reading);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--lp-color-text-strong);
+}
+
+.student-entry-card-text {
+  max-width: 280px;
+  color: var(--lp-color-text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.student-entry-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border-radius: var(--lp-radius-pill);
+  background: var(--lp-color-primary);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.student-entry-card:hover .student-entry-card-cta {
+  background: var(--lp-color-primary-strong);
 }
 
 .student-entry-card:focus-visible,
@@ -163,27 +228,18 @@ body {
   outline-offset: 4px;
 }
 
-.student-primary-entry {
-  border-color: #2f9e62;
-  background: #f0fdf4;
-}
-
 .student-entry-card img {
-  width: min(38vw, 190px);
-  max-height: 150px;
+  width: auto;
+  max-height: 112px;
   object-fit: contain;
 }
 
 .student-entry-adult-icon {
-  width: 112px;
-  height: 112px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 24px;
   background: var(--lp-color-primary-soft);
   color: var(--lp-color-primary);
-  font-family: var(--lp-font-reading);
-  font-size: 40px;
 }
 
 .student-flow-card {
@@ -1903,9 +1959,9 @@ body {
 }
 
 .teacher-dashboard-create.student-create {
-  width: min(560px, 100%);
-  grid-template-columns: minmax(240px, 270px) max-content;
-  align-items: flex-end;
+  width: 100%;
+  grid-template-columns: minmax(240px, 270px) repeat(3, max-content);
+  align-items: end;
 }
 
 .teacher-dashboard-create.student-create .lp-button {
@@ -1916,6 +1972,33 @@ body {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
   margin: 0 !important;
+}
+
+.teacher-dashboard-school {
+  grid-column: 1 / -1;
+  padding-top: 4px;
+  border-top: 1px solid var(--lp-color-border-subtle);
+}
+
+.teacher-school-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+}
+
+.teacher-school-summary strong {
+  color: var(--lp-color-text-strong);
+}
+
+.teacher-school-missing {
+  color: var(--lp-color-danger);
+}
+
+.teacher-school-edit {
+  grid-template-columns: minmax(240px, 270px) repeat(2, max-content);
 }
 
 .teacher-dashboard-control {
@@ -1937,6 +2020,7 @@ body {
   width: 100%;
   height: 42px;
   min-height: 42px;
+  margin: 0; /* cancel global `input, select` margin that broke row alignment */
   padding: 8px 10px;
   border: 1px solid var(--lp-color-border-strong);
   border-radius: 8px;
