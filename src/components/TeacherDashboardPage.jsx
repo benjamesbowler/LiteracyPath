@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
 function formatLastActive(value) {
-  if (!value || value === "No activity yet") return "No activity yet";
+  if (!value) return "No activity yet";
   const date = new Date(value);
   if (!Number.isFinite(date.getTime())) return String(value);
 
@@ -51,7 +51,7 @@ export function TeacherDashboardPage({
         accuracy: dashboardRow.accuracy ?? null,
         masteredCount: dashboardRow.masteredCount ?? 0,
         currentSkill: dashboardRow.currentSkill || "Not started",
-        lastActive: dashboardRow.lastActive || student.lastActive || student.updated_at || student.created_at || "No activity yet"
+        lastActive: dashboardRow.lastActive || student.lastActive || student.updated_at || student.created_at || null
       };
     }),
     [dashboardById, studentList]

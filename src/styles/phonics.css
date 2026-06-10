@@ -165,28 +165,17 @@
 
 .phonics-letter-card.locked .phonics-letter-status {
   color: #98a1a6;
-  font-size: 0;
 }
 
-.phonics-letter-card.locked .phonics-letter-status::before {
-  content: "";
+.phonics-letter-status svg {
   display: block;
-  width: 12px;
-  height: 10px;
-  border: 2px solid currentColor;
-  border-radius: 2px;
-}
-
-.phonics-letter-card.locked .phonics-letter-status::after {
-  content: "";
-  position: absolute;
-  left: 2px;
-  top: -7px;
-  width: 8px;
-  height: 8px;
-  border: 2px solid currentColor;
-  border-bottom: 0;
-  border-radius: 8px 8px 0 0;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.4;
 }
 
 .phonics-status-dot,

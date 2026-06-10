@@ -55,7 +55,7 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
       </motion.div>
 
       <motion.p className="phonics-sound-text" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }}>
-        {lesson.phonicSound} - {lesson.letter}
+        {lesson.letter} {lesson.letter.toLowerCase()}
       </motion.p>
 
       <motion.div className="phonics-sound-button-group" initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }}>

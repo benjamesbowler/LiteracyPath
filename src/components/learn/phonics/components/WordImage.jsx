@@ -18,6 +18,8 @@ export function WordImage({ src, word, className = "" }) {
       alt={word}
       className={className}
       onError={() => setFailed(true)}
+      loading="lazy"
+      decoding="async"
       draggable={false}
     />
   );

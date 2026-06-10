@@ -1,26 +1,63 @@
+import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
+import { getChildWordAsset } from "./childAssets.js";
+
 /**
  * @typedef {{ word: string, image: string, audio: string, phonemeBreakdown: string }} PhonicsWord
- * @typedef {{ letter: string, phonicSound: string, phonicAudio: string, letterNameAudio: string, words: PhonicsWord[], distractors: PhonicsWord[], traceSVG: string }} LetterLesson
+ * @typedef {{ letter: string, phonicSound: string, phonicAudio: string, letterNameAudio: string, words: PhonicsWord[], distractors: PhonicsWord[], traceSVG: string, matchPrompt?: string }} LetterLesson
  */
 
+const PHONIC_AUDIO_BY_LETTER = {
+  A: "/audio/child-mode/clean-human/graphemes/short_vowels/short_a.mp3",
+  B: "/audio/child-mode/clean-human/graphemes/consonants/b.mp3",
+  C: "/audio/child-mode/clean-human/graphemes/consonants/c.mp3",
+  D: "/audio/child-mode/clean-human/graphemes/consonants/d.mp3",
+  E: "/audio/child-mode/clean-human/graphemes/short_vowels/short_e.mp3",
+  F: "/audio/child-mode/clean-human/graphemes/consonants/f.mp3",
+  G: "/audio/child-mode/clean-human/graphemes/consonants/g.mp3",
+  H: "/audio/child-mode/clean-human/graphemes/consonants/h.mp3",
+  I: "/audio/child-mode/clean-human/graphemes/short_vowels/short_i.mp3",
+  J: "/audio/child-mode/clean-human/graphemes/consonants/j.mp3",
+  L: "/audio/child-mode/clean-human/graphemes/consonants/l.mp3",
+  M: "/audio/child-mode/clean-human/graphemes/consonants/m.mp3",
+  N: "/audio/child-mode/clean-human/graphemes/consonants/n.mp3",
+  O: "/audio/child-mode/clean-human/graphemes/short_vowels/short_o.mp3",
+  P: "/audio/child-mode/clean-human/graphemes/consonants/p.mp3",
+  R: "/audio/child-mode/clean-human/graphemes/consonants/r.mp3",
+  S: "/audio/child-mode/clean-human/graphemes/consonants/s.mp3",
+  T: "/audio/child-mode/clean-human/graphemes/consonants/t.mp3",
+  U: "/audio/child-mode/clean-human/graphemes/short_vowels/short_u.mp3",
+  V: "/audio/child-mode/clean-human/graphemes/consonants/v.mp3",
+  W: "/audio/child-mode/clean-human/graphemes/consonants/w.mp3",
+  Y: "/audio/child-mode/clean-human/graphemes/consonants/y.mp3",
+  Z: "/audio/child-mode/clean-human/graphemes/consonants/z.mp3"
+};
+
 function word(w, phoneme) {
+  const asset = getChildWordAsset(w) || {};
+  const fallbackImage = `/phonics/images/${w}.png`;
+  const fallbackAudio = `/phonics/audio/words/${w}.mp3`;
+  const approvedAudio = getApprovedAudioPath(w, asset.audio || fallbackAudio);
+
   return {
     word: w,
-    image: `/phonics/images/${w}.png`,
-    audio: `/phonics/audio/words/${w}.mp3`,
+    image: asset.image || asset.fallbackImage || fallbackImage,
+    audio: approvedAudio || asset.audio || fallbackAudio,
     phonemeBreakdown: phoneme
   };
 }
 
-function letter(l, sound, words, distractors, traceSVG) {
+function letter(l, sound, words, distractors, traceSVG, options = {}) {
+  const upperLetter = String(l || "").toUpperCase();
+
   return {
     letter: l,
     phonicSound: sound,
-    phonicAudio: `/phonics/audio/letters/${l.toLowerCase()}-sound.mp3`,
+    phonicAudio: PHONIC_AUDIO_BY_LETTER[upperLetter] || `/phonics/audio/letters/${l.toLowerCase()}-sound.mp3`,
     letterNameAudio: `/phonics/audio/letters/${l.toLowerCase()}-name.mp3`,
     words,
     distractors,
-    traceSVG
+    traceSVG,
+    ...options
   };
 }
 
@@ -35,7 +72,7 @@ export const lessons = [
         [word("apple",      "a-a-apple"),
          word("ant",        "a-a-ant"),
          word("axe",        "a-a-axe"),
-         word("arrow",      "a-a-arrow")],
+         word("ark",        "a-a-ark")],
         [word("ball",  "b-b-ball"),
          word("cup",   "c-c-cup"),
          word("dog",   "d-d-dog"),
@@ -58,8 +95,8 @@ export const lessons = [
       letter("C", "c-c-c",
         [word("cat",        "c-c-cat"),
          word("cup",        "c-c-cup"),
-         word("cow",        "c-c-cow"),
-         word("car",        "c-c-car")],
+         word("car",        "c-c-car"),
+         word("cap",        "c-c-cap")],
         [word("dog",    "d-d-dog"),
          word("egg",    "e-e-egg"),
          word("fox",    "f-f-fox"),
@@ -71,7 +108,7 @@ export const lessons = [
         [word("dog",        "d-d-dog"),
          word("duck",       "d-d-duck"),
          word("drum",       "d-d-drum"),
-         word("door",       "d-d-door")],
+         word("dig",        "d-d-dig")],
         [word("egg",    "e-e-egg"),
          word("fox",    "f-f-fox"),
          word("goat",   "g-g-goat"),
@@ -82,8 +119,7 @@ export const lessons = [
       letter("E", "e-e-e",
         [word("egg",        "e-e-egg"),
          word("elephant",   "e-e-elephant"),
-         word("eagle",      "e-e-eagle"),
-         word("elbow",      "e-e-elbow")],
+         word("envelope",   "e-e-envelope")],
         [word("fox",    "f-f-fox"),
          word("goat",   "g-g-goat"),
          word("hat",    "h-h-hat"),
@@ -105,9 +141,9 @@ export const lessons = [
 
       letter("G", "g-g-g",
         [word("goat",       "g-g-goat"),
-         word("grapes",     "g-g-grapes"),
          word("gate",       "g-g-gate"),
-         word("girl",       "g-g-girl")],
+         word("girl",       "g-g-girl"),
+         word("gum",        "g-g-gum")],
         [word("hat",    "h-h-hat"),
          word("ink",    "i-i-ink"),
          word("jam",    "j-j-jam"),
@@ -130,8 +166,7 @@ export const lessons = [
       letter("I", "i-i-i",
         [word("ink",        "i-i-ink"),
          word("insect",     "i-i-insect"),
-         word("igloo",      "i-i-igloo"),
-         word("iron",       "i-i-iron")],
+         word("igloo",      "i-i-igloo")],
         [word("jam",    "j-j-jam"),
          word("kite",   "k-k-kite"),
          word("lion",   "l-l-lion"),
@@ -141,9 +176,9 @@ export const lessons = [
 
       letter("J", "j-j-j",
         [word("jam",        "j-j-jam"),
-         word("jar",        "j-j-jar"),
          word("jug",        "j-j-jug"),
-         word("jet",        "j-j-jet")],
+         word("jet",        "j-j-jet"),
+         word("jog",        "j-j-jog")],
         [word("kite",   "k-k-kite"),
          word("lion",   "l-l-lion"),
          word("moon",   "m-m-moon"),
@@ -155,11 +190,11 @@ export const lessons = [
         [word("kite",       "k-k-kite"),
          word("key",        "k-k-key"),
          word("king",       "k-k-king"),
-         word("koala",      "k-k-koala")],
+         word("kid",        "k-k-kid")],
         [word("lion",   "l-l-lion"),
          word("moon",   "m-m-moon"),
          word("net",    "n-n-net"),
-         word("owl",    "o-o-owl")],
+         word("pig",    "p-p-pig")],
         "M 120 80 L 120 320 M 280 80 L 120 200 L 280 320"
       ),
 
@@ -170,18 +205,18 @@ export const lessons = [
          word("log",        "l-l-log")],
         [word("moon",   "m-m-moon"),
          word("net",    "n-n-net"),
-         word("owl",    "o-o-owl"),
+         word("pan",    "p-p-pan"),
          word("pig",    "p-p-pig")],
         "M 120 80 L 120 320 L 290 320"
       ),
 
       letter("M", "m-m-m",
         [word("moon",       "m-m-moon"),
-         word("mouse",      "m-m-mouse"),
          word("map",        "m-m-map"),
-         word("mug",        "m-m-mug")],
+         word("mug",        "m-m-mug"),
+         word("man",        "m-m-man")],
         [word("net",    "n-n-net"),
-         word("owl",    "o-o-owl"),
+         word("ox",     "o-o-ox"),
          word("pig",    "p-p-pig"),
          word("queen",  "qu-qu-queen")],
         "M 100 320 L 100 80 L 200 200 L 300 80 L 300 320"
@@ -189,35 +224,34 @@ export const lessons = [
 
       letter("N", "n-n-n",
         [word("net",        "n-n-net"),
-         word("nest",       "n-n-nest"),
          word("nose",       "n-n-nose"),
-         word("nut",        "n-n-nut")],
-        [word("owl",    "o-o-owl"),
+         word("nap",        "n-n-nap")],
+        [word("ox",     "o-o-ox"),
          word("pig",    "p-p-pig"),
          word("queen",  "qu-qu-queen"),
-         word("rabbit", "r-r-rabbit")],
+         word("rat",    "r-r-rat")],
         "M 120 320 L 120 80 L 280 320 L 280 80"
       ),
 
       letter("O", "o-o-o",
-        [word("owl",        "o-o-owl"),
-         word("octopus",    "o-o-octopus"),
+        [word("octopus",    "o-o-octopus"),
          word("orange",     "o-o-orange"),
-         word("otter",      "o-o-otter")],
+         word("ox",         "o-o-ox"),
+         word("oil",        "o-o-oil")],
         [word("pig",    "p-p-pig"),
          word("queen",  "qu-qu-queen"),
-         word("rabbit", "r-r-rabbit"),
+         word("rat",    "r-r-rat"),
          word("snake",  "s-s-snake")],
         "M 200 60 Q 310 60 310 200 Q 310 340 200 340 Q 90 340 90 200 Q 90 60 200 60"
       ),
 
       letter("P", "p-p-p",
         [word("pig",        "p-p-pig"),
-         word("parrot",     "p-p-parrot"),
          word("pen",        "p-p-pen"),
-         word("pan",        "p-p-pan")],
+         word("pan",        "p-p-pan"),
+         word("pot",        "p-p-pot")],
         [word("queen",  "qu-qu-queen"),
-         word("rabbit", "r-r-rabbit"),
+         word("rat",    "r-r-rat"),
          word("snake",  "s-s-snake"),
          word("tiger",  "t-t-tiger")],
         "M 120 80 L 120 320 M 120 80 L 235 80 Q 295 80 295 155 Q 295 230 120 230"
@@ -226,9 +260,8 @@ export const lessons = [
       letter("Q", "qu-qu-qu",
         [word("queen",      "qu-qu-queen"),
          word("quilt",      "qu-qu-quilt"),
-         word("quail",      "qu-qu-quail"),
          word("quiz",       "qu-qu-quiz")],
-        [word("rabbit", "r-r-rabbit"),
+        [word("rat",    "r-r-rat"),
          word("snake",  "s-s-snake"),
          word("tiger",  "t-t-tiger"),
          word("umbrella","u-u-umbrella")],
@@ -236,10 +269,10 @@ export const lessons = [
       ),
 
       letter("R", "r-r-r",
-        [word("rabbit",     "r-r-rabbit"),
-         word("rocket",     "r-r-rocket"),
-         word("rose",       "r-r-rose"),
-         word("ring",       "r-r-ring")],
+        [word("ring",       "r-r-ring"),
+         word("rat",        "r-r-rat"),
+         word("rug",        "r-r-rug"),
+         word("run",        "r-r-run")],
         [word("snake",  "s-s-snake"),
          word("tiger",  "t-t-tiger"),
          word("umbrella","u-u-umbrella"),
@@ -273,9 +306,9 @@ export const lessons = [
 
       letter("U", "u-u-u",
         [word("umbrella",   "u-u-umbrella"),
-         word("urchin",     "u-u-urchin"),
-         word("unicorn",    "u-u-unicorn"),
-         word("uniform",    "u-u-uniform")],
+         word("up",         "u-u-up"),
+         word("under",      "u-u-under"),
+         word("uncle",      "u-u-uncle")],
         [word("van",    "v-v-van"),
          word("whale",  "wh-wh-whale"),
          word("yak",    "y-y-yak"),
@@ -287,7 +320,7 @@ export const lessons = [
         [word("van",        "v-v-van"),
          word("vest",       "v-v-vest"),
          word("vase",       "v-v-vase"),
-         word("vine",       "v-v-vine")],
+         word("vet",        "v-v-vet")],
         [word("whale",  "wh-wh-whale"),
          word("yak",    "y-y-yak"),
          word("zebra",  "z-z-zebra"),
@@ -297,9 +330,9 @@ export const lessons = [
 
       letter("W", "w-w-w",
         [word("whale",      "wh-wh-whale"),
-         word("wolf",       "w-w-wolf"),
          word("web",        "w-w-web"),
-         word("worm",       "w-w-worm")],
+         word("worm",       "w-w-worm"),
+         word("wig",        "w-w-wig")],
         [word("yak",    "y-y-yak"),
          word("zebra",  "z-z-zebra"),
          word("apple",  "a-a-apple"),
@@ -308,22 +341,23 @@ export const lessons = [
       ),
 
       letter("X", "x-x-x",
-        [word("xylophone",  "x-x-xylophone"),
-         word("x-ray",      "x-x-x-ray"),
-         word("fox",        "f-f-fox"),
-         word("box",        "b-b-box")],
+        [word("fox",        "fo-x"),
+         word("box",        "bo-x"),
+         word("fix",        "fi-x"),
+         word("ox",         "o-x")],
         [word("yak",    "y-y-yak"),
          word("zebra",  "z-z-zebra"),
          word("apple",  "a-a-apple"),
          word("ball",   "b-b-ball")],
-        "M 120 80 L 280 320 M 280 80 L 120 320"
+        "M 120 80 L 280 320 M 280 80 L 120 320",
+        { matchPrompt: "Find all the words with the X sound!" }
       ),
 
       letter("Y", "y-y-y",
         [word("yak",        "y-y-yak"),
          word("yarn",       "y-y-yarn"),
          word("yo-yo",      "y-y-yo-yo"),
-         word("yacht",      "y-y-yacht")],
+         word("yawn",       "y-y-yawn")],
         [word("zebra",  "z-z-zebra"),
          word("apple",  "a-a-apple"),
          word("ball",   "b-b-ball"),
@@ -334,7 +368,6 @@ export const lessons = [
       letter("Z", "z-z-z",
         [word("zebra",      "z-z-zebra"),
          word("zip",        "z-z-zip"),
-         word("zero",       "z-z-zero"),
          word("zoo",        "z-z-zoo")],
         [word("apple",  "a-a-apple"),
          word("ball",   "b-b-ball"),

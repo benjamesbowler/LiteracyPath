@@ -1,18 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Howl, Howler } from "howler";
+import { speakWithBrowser } from "../utils/audio/speakWithBrowser.js";
 
 const soundCache = new Map();
 const failedSources = new Set();
 
 function speakFallback(text) {
-  if (!text || typeof window === "undefined" || !window.speechSynthesis) return false;
-
-  window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.rate = 0.85;
-  utterance.pitch = 1.1;
-  window.speechSynthesis.speak(utterance);
-  return true;
+  return speakWithBrowser(text, { rate: 0.85, pitch: 1.1 });
 }
 
 function getHowl(src) {

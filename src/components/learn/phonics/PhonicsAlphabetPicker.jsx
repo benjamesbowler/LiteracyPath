@@ -73,7 +73,12 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
               <span className="phonics-letter-status" aria-hidden="true">
                 {status === "completed" && "✓"}
                 {status === "inprogress" && <span className="phonics-status-pulse" />}
-                {status === "locked" && "Lock"}
+                {status === "locked" && (
+                  <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+                    <path d="M7 10V8a5 5 0 0 1 10 0v2" />
+                    <rect x="5" y="10" width="14" height="10" rx="2" />
+                  </svg>
+                )}
                 {status === "default" && <span className="phonics-status-dot" />}
               </span>
             </motion.button>

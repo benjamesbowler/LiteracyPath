@@ -8,6 +8,12 @@ export function PhonicsLearnTab({ progressScopeKey = "default" }) {
   const [progress, setProgress] = useState(() => loadPhonicsProgress(progressScopeKey));
 
   function handleSelectLetter(letter) {
+    const updated = {
+      ...progress,
+      [letter]: progress[letter] === "completed" ? "completed" : "inprogress"
+    };
+    setProgress(updated);
+    savePhonicsProgress(progressScopeKey, updated);
     setActiveLetter(letter);
   }
 

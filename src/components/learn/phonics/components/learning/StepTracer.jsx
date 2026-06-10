@@ -18,7 +18,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   const lastCanvasPoint = useRef(null);
   const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
-  const { play: playTraceDone } = usePhonicsAudio("/phonics/audio/sfx/trace-done.mp3", "Great tracing");
+  const { play: playTraceDone } = usePhonicsAudio("/audio/child-mode/clean-human/phrases/amazing-work.mp3", "Amazing work");
   const tracePath = lesson.traceSVG;
 
   const clearCanvas = useCallback(() => {

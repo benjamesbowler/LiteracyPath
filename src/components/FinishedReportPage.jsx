@@ -3,6 +3,7 @@ import { storyQuests } from "../data/storyQuests.js";
 import {
   buildStudentReportModel,
   formatItemLabel,
+  getAccuracyStatus,
   getSkillArea
 } from "../data/reportingSystem.js";
 import {
@@ -40,10 +41,11 @@ function clampPercent(value) {
 }
 
 function statusFromAccuracy(accuracy, hasData = true) {
-  if (!hasData) return STATUS_RULES.not_assessed;
-  if (accuracy >= 80) return STATUS_RULES.mastered;
-  if (accuracy >= 60) return STATUS_RULES.developing;
-  return STATUS_RULES.needs_support;
+  const status = getAccuracyStatus(accuracy, hasData);
+  if (status.id === "on_track") return STATUS_RULES.mastered;
+  if (status.id === "developing") return STATUS_RULES.developing;
+  if (status.id === "needs_support") return STATUS_RULES.needs_support;
+  return STATUS_RULES.not_assessed;
 }
 
 function getSnapshotBadgeClass(statusId = "") {

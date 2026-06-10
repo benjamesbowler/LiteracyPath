@@ -138,8 +138,6 @@ let audioManifestModulePromise = null;
 let guidedReadingBooksModulePromise = null;
 let assessmentSkillBankLoaderModulePromise = null;
 let assessmentMediaPickerModulePromise = null;
-let audioPreferenceModulePromise = null;
-let mediaQaModulePromise = null;
 
 function loadAudioManifestModule() {
   if (!audioManifestModulePromise) {
@@ -160,20 +158,6 @@ function loadAssessmentSkillBankLoaderModule() {
     assessmentSkillBankLoaderModulePromise = import("./data/loadAssessmentSkillBank");
   }
   return assessmentSkillBankLoaderModulePromise;
-}
-
-function loadAudioPreferenceModule() {
-  if (!audioPreferenceModulePromise) {
-    audioPreferenceModulePromise = import("./data/audioPreferenceManifest");
-  }
-  return audioPreferenceModulePromise;
-}
-
-function loadMediaQaModule() {
-  if (!mediaQaModulePromise) {
-    mediaQaModulePromise = import("./data/mediaQaManifest");
-  }
-  return mediaQaModulePromise;
 }
 
 function loadAssessmentMediaPickerModule() {
@@ -5452,19 +5436,9 @@ export default function App() {
         audioPath
       });
     }
-    const {
-      getApprovedAudioPath,
-      getPreferredAudioPath
-    } = await loadAudioPreferenceModule();
-    const {
-      isMediaQaRuntimeAllowed
-    } = await loadMediaQaModule();
-    const preferredAudioPath = requireApprovedAudio
-      ? getApprovedAudioPath(text, audioPath)
-      : getPreferredAudioPath(text, audioPath);
+    const preferredAudioPath = audioPath || "";
 
     if (requireApprovedAudio && !preferredAudioPath) return;
-    if (preferredAudioPath && !isMediaQaRuntimeAllowed(preferredAudioPath, "audio", options)) return;
 
     if (preferredAudioPath) {
       try {
@@ -5489,8 +5463,7 @@ export default function App() {
     if (requireApprovedAudio) return;
 
     if (audioEntry?.path) {
-      const preferredManifestPath = getPreferredAudioPath(text, audioEntry.path);
-      if (preferredManifestPath && !isMediaQaRuntimeAllowed(preferredManifestPath, "audio", options)) return;
+      const preferredManifestPath = audioEntry.path;
       const audioPaths = audioEntry.kinds?.includes("choice")
         ? [`/audio/choices/${audioKey}.mp3`, preferredManifestPath]
         : [preferredManifestPath];

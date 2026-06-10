@@ -1,7 +1,6 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import "../styles/assessment.css";
-import { getApprovedAudioPath } from "../data/audioPreferenceManifest";
 import {
   getTargetWordAudioPath,
   SHORT_VOWEL_LISTEN_PROMPT
@@ -47,6 +46,10 @@ const COMPREHENSION_PASSAGE_SKILL_IDS = new Set([
   "theme",
   "theme_higher_comprehension"
 ]);
+
+function getApprovedAudioPath(_text = "", audioPath = "") {
+  return audioPath || "";
+}
 
 function normalizeSkillId(value = "") {
   return String(value || "")
@@ -237,7 +240,7 @@ function PairSelectionQuestion({ currentQuestion, answerQuestion, speakText }) {
                 aria-label={`Select picture for ${label}`}
                 type="button"
               >
-                <img src={image} alt={card.alt || `Picture for ${label}`} />
+                <img src={image} alt={card.alt || `Picture for ${label}`} loading="lazy" decoding="async" />
                 {!currentQuestion.hideWrittenLabels && <strong>{label}</strong>}
               </button>
 
@@ -317,7 +320,7 @@ function VisualCardChoiceQuestion({ currentQuestion, answerQuestion, speakText }
                 type="button"
               >
                 {image && (
-                  <img src={image} alt={card.alt || `Picture for ${label}`} />
+                  <img src={image} alt={card.alt || `Picture for ${label}`} loading="lazy" decoding="async" />
                 )}
                 {!currentQuestion.hideWrittenLabels && <strong>{label}</strong>}
               </button>
@@ -614,7 +617,7 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
                 type="button"
               >
                 {!isGraphemeChoiceItem && image && (
-                  <img src={image} alt={rawOption.alt || rawOption.imageAlt || `Picture for ${label}`} />
+                  <img src={image} alt={rawOption.alt || rawOption.imageAlt || `Picture for ${label}`} loading="lazy" decoding="async" />
                 )}
                 <strong>{label}</strong>
               </button>
@@ -845,6 +848,8 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
               src={card.image}
               alt={card.alt || `Picture for ${card.word}`}
               className="prompt-image-card"
+              loading="lazy"
+              decoding="async"
             />
           ))}
         </div>
@@ -856,6 +861,8 @@ function AssessmentStimulus({ currentQuestion, isListenAndFindWord, isPairSelect
             src={stimulusImage}
               alt={isRhymingPictureItem ? `Picture for ${currentQuestion.targetWord}` : isFinalSoundsEndingItem ? "Picture for the listening word" : "question visual"}
               className="question-image assessment-main-image"
+              loading="lazy"
+              decoding="async"
             />
           {isRhymingPictureItem && currentQuestion.targetWord && (
             <strong className="rhyming-target-word">{currentQuestion.targetWord}</strong>
@@ -1532,8 +1539,18 @@ export function TeacherReportsPage({
 
   const filteredAssessmentHistory = useMemo(() => {
     if (dateRange === "all") return assessmentHistory;
-    const cutoff = new Date();
-    cutoff.setDate(cutoff.getDate() - 90);
+    const now = new Date();
+    let cutoff = null;
+
+    if (dateRange === "schoolYear") {
+      cutoff = new Date(now.getFullYear(), 7, 1);
+      if (now < cutoff) cutoff = new Date(now.getFullYear() - 1, 7, 1);
+    } else {
+      const days = { last30: 30, last90: 90 }[dateRange] || 90;
+      cutoff = new Date(now);
+      cutoff.setDate(cutoff.getDate() - days);
+    }
+
     return assessmentHistory.filter(record => {
       const completedAt = new Date(record.completedAt || record.date || 0);
       return Number.isFinite(completedAt.getTime()) && completedAt >= cutoff;
@@ -1646,7 +1663,9 @@ export function TeacherReportsPage({
         <label className="report-filter-control">
           <span>Date range</span>
           <select value={dateRange} onChange={event => setDateRange(event.target.value)}>
+            <option value="last30">Last 30 days</option>
             <option value="last90">Last 90 days</option>
+            <option value="schoolYear">This school year</option>
             <option value="all">All time</option>
           </select>
         </label>
@@ -2576,7 +2595,7 @@ export function AssessmentPage({
                     const card = feedback.support.cardsByWord?.[word];
                     return card ? (
                       <figure key={word}>
-                        <img src={card.image} alt={card.alt || `Picture for ${word}`} />
+                        <img src={card.image} alt={card.alt || `Picture for ${word}`} loading="lazy" decoding="async" />
                       </figure>
                     ) : null;
                   })}
@@ -2590,7 +2609,7 @@ export function AssessmentPage({
                     const card = feedback.support.cardsByWord?.[word];
                     return card ? (
                       <figure key={word}>
-                        <img src={card.image} alt={card.alt || `Picture for ${word}`} />
+                        <img src={card.image} alt={card.alt || `Picture for ${word}`} loading="lazy" decoding="async" />
                       </figure>
                     ) : null;
                   })}
@@ -2881,6 +2900,8 @@ export function AssessmentPage({
                           src={choiceImage.image}
                           alt={choiceImage.alt || `Picture for ${choice.label}`}
                           className="visual-word-choice-image"
+                          loading="lazy"
+                          decoding="async"
                         />
                       )}
                       <span>{choice.label}</span>

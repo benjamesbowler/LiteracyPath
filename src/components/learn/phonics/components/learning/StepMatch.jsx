@@ -18,27 +18,32 @@ function shuffleTiles(words, distractors) {
   return allTiles;
 }
 
+function getTileKey(tile) {
+  return `${tile.word.word}-${tile.isCorrect ? "target" : "distractor"}`;
+}
+
 const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
-  const { play: playCorrect } = usePhonicsAudio("/phonics/audio/sfx/correct.mp3", "Correct");
-  const { play: playIncorrect } = usePhonicsAudio("/phonics/audio/sfx/incorrect.mp3", "Try again");
-  const { play: playYay } = usePhonicsAudio("/phonics/audio/sfx/yay.mp3", "You found them all");
+  const { play: playCorrect } = usePhonicsAudio("/audio/child-mode/clean-human/phrases/great-job.mp3", "Great job");
+  const { play: playIncorrect } = usePhonicsAudio("/audio/child-mode/clean-human/phrases/try-again.mp3", "Try again");
+  const { play: playYay } = usePhonicsAudio("/audio/child-mode/clean-human/phrases/you-found-it.mp3", "You found it");
   const tiles = useMemo(() => shuffleTiles(lesson.words, lesson.distractors), [lesson.distractors, lesson.words]);
-  const [flipStates, setFlipStates] = useState(() => Object.fromEntries(tiles.map(tile => [tile.word.word, "default"])));
+  const [flipStates, setFlipStates] = useState(() => Object.fromEntries(tiles.map(tile => [getTileKey(tile), "default"])));
   const [foundCount, setFoundCount] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const remaining = lesson.words.length - foundCount;
 
   const handleTileClick = useCallback((tile) => {
-    const currentState = flipStates[tile.word.word];
+    const tileKey = getTileKey(tile);
+    const currentState = flipStates[tileKey];
     if (currentState !== "default" || isComplete) return;
 
     if (tile.isCorrect) {
       playCorrect();
-      setFlipStates(previous => ({ ...previous, [tile.word.word]: "correct" }));
+      setFlipStates(previous => ({ ...previous, [tileKey]: "correct" }));
       setFoundCount(previous => previous + 1);
     } else {
       playIncorrect();
-      setFlipStates(previous => ({ ...previous, [tile.word.word]: "incorrect" }));
+      setFlipStates(previous => ({ ...previous, [tileKey]: "incorrect" }));
     }
   }, [flipStates, isComplete, playCorrect, playIncorrect]);
 
@@ -55,7 +60,7 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
   }, [foundCount, isComplete, lesson.words.length, onComplete, playYay]);
 
   const handleRestart = useCallback(() => {
-    setFlipStates(Object.fromEntries(tiles.map(tile => [tile.word.word, "default"])));
+    setFlipStates(Object.fromEntries(tiles.map(tile => [getTileKey(tile), "default"])));
     setFoundCount(0);
     setIsComplete(false);
   }, [tiles]);
@@ -69,7 +74,7 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
       className="phonics-step phonics-step-match"
     >
       <motion.div className="phonics-step-heading" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}>
-        <h2>Find all the words that start with {lesson.letter}!</h2>
+        <h2>{lesson.matchPrompt || `Find all the words that start with ${lesson.letter}!`}</h2>
       </motion.div>
 
       <motion.div className="phonics-found-counter" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -79,9 +84,12 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
       </motion.div>
 
       <motion.div className="phonics-match-grid" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-        {tiles.map((tile, index) => (
+        {tiles.map((tile, index) => {
+          const tileKey = getTileKey(tile);
+
+          return (
           <motion.div
-            key={tile.word.word}
+            key={tileKey}
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4 + index * 0.05, type: "spring", stiffness: 250, damping: 18 }}
@@ -89,12 +97,13 @@ const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
             <WordTile
               word={tile.word.word}
               image={tile.word.image}
-              state={flipStates[tile.word.word]}
+              state={flipStates[tileKey]}
               onClick={() => handleTileClick(tile)}
-              disabled={flipStates[tile.word.word] !== "default" || isComplete}
+              disabled={flipStates[tileKey] !== "default" || isComplete}
             />
           </motion.div>
-        ))}
+          );
+        })}
       </motion.div>
 
       <AnimatePresence mode="wait">
