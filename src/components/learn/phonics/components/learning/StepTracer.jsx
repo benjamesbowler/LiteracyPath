@@ -1,5 +1,5 @@
 import { memo, useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { usePhonicsAudio } from "../../../../../hooks/usePhonicsAudio";
 import AudioButton from "../AudioButton";
 import PhonicsButton from "../PhonicsButton";
@@ -37,10 +37,7 @@ function sampleSubpath(pathData, sampleCount) {
 function calculateStrokeProgress(strokes, visitedSets) {
   if (!strokes.length) return { progress: 0, allComplete: false };
 
-  const coverages = strokes.map((stroke, strokeIndex) => {
-    const total = stroke.points.length || 1;
-    return Math.min(100, (visitedSets[strokeIndex]?.size || 0) / total * 100);
-  });
+  const coverages = getStrokeCoverages(strokes, visitedSets);
 
   return {
     progress: Math.round(coverages.reduce((sum, coverage) => sum + coverage, 0) / coverages.length),
@@ -48,17 +45,44 @@ function calculateStrokeProgress(strokes, visitedSets) {
   };
 }
 
+function getStrokeCoverages(strokes, visitedSets) {
+  return strokes.map((stroke, strokeIndex) => {
+    const total = stroke.points.length || 1;
+    return Math.min(100, (visitedSets[strokeIndex]?.size || 0) / total * 100);
+  });
+}
+
+function getHintGeometry(stroke) {
+  const points = stroke?.points || [];
+  const start = points[0] || { x: 0, y: 0 };
+  const arrowStart = points[Math.min(3, points.length - 1)] || start;
+  const arrowEnd = points[Math.min(8, points.length - 1)] || arrowStart;
+  const angle = Math.atan2(arrowEnd.y - arrowStart.y, arrowEnd.x - arrowStart.x) * 180 / Math.PI;
+  return { start, arrowStart, angle };
+}
+
 const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   const svgRef = useRef(null);
   const canvasRef = useRef(null);
+  const demoFrameRef = useRef(null);
   const visitedByStrokeRef = useRef([]);
   const strokesRef = useRef([]);
   const isDrawingRef = useRef(false);
   const lastCanvasPoint = useRef(null);
   const traceDonePlayedRef = useRef(false);
   const [progress, setProgress] = useState(0);
+  const [strokeCoverages, setStrokeCoverages] = useState([]);
+  const [renderStrokes, setRenderStrokes] = useState([]);
+  const [demoActive, setDemoActive] = useState(false);
+  const [demoDone, setDemoDone] = useState(false);
+  const [demoStrokeIndex, setDemoStrokeIndex] = useState(0);
+  const [demoStrokeProgress, setDemoStrokeProgress] = useState(0);
+  const [demoMarker, setDemoMarker] = useState(null);
+  const [demoVoiceText, setDemoVoiceText] = useState("");
   const [isComplete, setIsComplete] = useState(false);
   const { play: playTraceDone } = usePhonicsAudio("/audio/child-mode/clean-human/phrases/amazing-work.mp3", "Amazing work");
+  const { play: playDemoVoice } = usePhonicsAudio("", demoVoiceText);
+  const reduceMotion = useReducedMotion();
   const tracePath = lesson.traceSVG;
 
   const clearCanvas = useCallback(() => {
@@ -80,17 +104,73 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
     const strokes = sampledSubpaths.map((stroke, index) => {
       const proportionalSamples = Math.round((stroke.length / totalLength) * remainingSamples);
       const sampleCount = MIN_SAMPLES_PER_STROKE + proportionalSamples;
-      return sampleSubpath(subpaths[index], sampleCount);
+      return {
+        pathData: subpaths[index],
+        ...sampleSubpath(subpaths[index], sampleCount)
+      };
     });
 
     strokesRef.current = strokes;
     visitedByStrokeRef.current = strokes.map(() => new Set());
+    setRenderStrokes(strokes);
+    setStrokeCoverages(strokes.map(() => 0));
     setProgress(0);
     setIsComplete(false);
+    setDemoDone(Boolean(reduceMotion));
+    setDemoActive(!reduceMotion && strokes.length > 0);
+    setDemoStrokeIndex(0);
+    setDemoStrokeProgress(0);
+    setDemoMarker(strokes[0]?.points?.[0] || null);
     traceDonePlayedRef.current = false;
     clearCanvas();
     lastCanvasPoint.current = null;
-  }, [clearCanvas, tracePath]);
+  }, [clearCanvas, reduceMotion, tracePath]);
+
+  useEffect(() => {
+    if (!demoVoiceText) return;
+    playDemoVoice();
+  }, [demoVoiceText, playDemoVoice]);
+
+  useEffect(() => {
+    if (!demoActive || !renderStrokes.length) return undefined;
+
+    setDemoVoiceText("Watch first. Start at the top!");
+    const strokeDuration = 900;
+    const pauseDuration = 220;
+    const perStrokeDuration = strokeDuration + pauseDuration;
+    const startedAt = performance.now();
+
+    const animate = now => {
+      const elapsed = now - startedAt;
+      const rawStrokeIndex = Math.floor(elapsed / perStrokeDuration);
+      const nextStrokeIndex = Math.min(rawStrokeIndex, renderStrokes.length - 1);
+      const strokeElapsed = elapsed - rawStrokeIndex * perStrokeDuration;
+      const nextProgress = Math.min(1, strokeElapsed / strokeDuration);
+      const stroke = renderStrokes[nextStrokeIndex];
+      const pointIndex = Math.min(stroke.points.length - 1, Math.round(nextProgress * (stroke.points.length - 1)));
+
+      setDemoStrokeIndex(nextStrokeIndex);
+      setDemoStrokeProgress(nextProgress);
+      setDemoMarker(stroke.points[pointIndex] || stroke.points[0] || null);
+
+      if (elapsed >= renderStrokes.length * perStrokeDuration) {
+        setDemoActive(false);
+        setDemoDone(true);
+        setDemoStrokeProgress(1);
+        setDemoVoiceText("Now you try!");
+        return;
+      }
+
+      demoFrameRef.current = requestAnimationFrame(animate);
+    };
+
+    demoFrameRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (demoFrameRef.current) cancelAnimationFrame(demoFrameRef.current);
+      demoFrameRef.current = null;
+    };
+  }, [demoActive, renderStrokes]);
 
   const toSVGCoords = useCallback((clientX, clientY) => {
     const svg = svgRef.current;
@@ -140,7 +220,9 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
     });
 
     if (hit) {
+      const coverages = getStrokeCoverages(strokes, visitedSets);
       const { progress: nextProgress, allComplete } = calculateStrokeProgress(strokes, visitedSets);
+      setStrokeCoverages(coverages);
       setProgress(nextProgress);
       if (allComplete) setIsComplete(true);
     }
@@ -176,12 +258,13 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   }, [toCanvasCoords]);
 
   const handlePointerDown = useCallback((clientX, clientY) => {
+    if (!demoDone || demoActive) return;
     isDrawingRef.current = true;
     lastCanvasPoint.current = null;
     const svgPoint = toSVGCoords(clientX, clientY);
     if (svgPoint) markProgress(svgPoint.x, svgPoint.y);
     drawOnCanvas(clientX, clientY);
-  }, [drawOnCanvas, markProgress, toSVGCoords]);
+  }, [demoActive, demoDone, drawOnCanvas, markProgress, toSVGCoords]);
 
   const handlePointerMove = useCallback((clientX, clientY) => {
     if (!isDrawingRef.current) return;
@@ -234,12 +317,30 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   const handleReset = useCallback(() => {
     visitedByStrokeRef.current = strokesRef.current.map(() => new Set());
     setProgress(0);
+    setStrokeCoverages(strokesRef.current.map(() => 0));
     setIsComplete(false);
     traceDonePlayedRef.current = false;
     isDrawingRef.current = false;
     lastCanvasPoint.current = null;
     clearCanvas();
   }, [clearCanvas]);
+
+  const handleReplayDemo = useCallback(() => {
+    if (!renderStrokes.length) return;
+    setDemoDone(false);
+    setDemoActive(true);
+    setDemoStrokeIndex(0);
+    setDemoStrokeProgress(0);
+    setDemoMarker(renderStrokes[0]?.points?.[0] || null);
+  }, [renderStrokes]);
+
+  const handleSkipDemo = useCallback(() => {
+    if (demoFrameRef.current) cancelAnimationFrame(demoFrameRef.current);
+    demoFrameRef.current = null;
+    setDemoActive(false);
+    setDemoDone(true);
+    setDemoVoiceText("Now you try!");
+  }, []);
 
   return (
     <motion.div
@@ -273,7 +374,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
         </svg>
 
         <div
-          className="phonics-trace-pad"
+          className={`phonics-trace-pad ${demoDone && !demoActive ? "" : "demo-active"}`}
           onMouseDown={onMouseDown}
           onMouseMove={onMouseMove}
           onMouseUp={onMouseUp}
@@ -292,6 +393,46 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
               strokeLinejoin="round"
               strokeDasharray="14 10"
             />
+            <g className="phonics-trace-demo-layer" aria-hidden="true">
+              {renderStrokes.map((stroke, index) => (
+                <path
+                  key={`demo-${stroke.pathData}-${index}`}
+                  d={stroke.pathData}
+                  fill="none"
+                  stroke="#4D96FF"
+                  strokeWidth="18"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeDasharray={stroke.length}
+                  strokeDashoffset={
+                    index < demoStrokeIndex
+                      ? 0
+                      : index === demoStrokeIndex
+                        ? stroke.length * (1 - demoStrokeProgress)
+                        : stroke.length
+                  }
+                />
+              ))}
+              {demoActive && demoMarker && (
+                <circle className="phonics-trace-demo-marker" cx={demoMarker.x} cy={demoMarker.y} r="15" />
+              )}
+            </g>
+            <g className="phonics-trace-hints" aria-hidden="true">
+              {renderStrokes.map((stroke, index) => {
+                const { start, arrowStart, angle } = getHintGeometry(stroke);
+                const faded = (strokeCoverages[index] || 0) >= 80;
+                return (
+                  <g className={faded ? "is-faded" : ""} key={`hint-${stroke.pathData}-${index}`}>
+                    <circle cx={start.x} cy={start.y} r="17" />
+                    <text x={start.x} y={start.y + 6}>{index + 1}</text>
+                    <path
+                      d="M -12 -8 L 12 0 L -12 8 Z"
+                      transform={`translate(${arrowStart.x} ${arrowStart.y}) rotate(${angle})`}
+                    />
+                  </g>
+                );
+              })}
+            </g>
           </svg>
 
           <canvas
@@ -321,6 +462,14 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
             <motion.p key="done" className="success" initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }}>
               Great job!
             </motion.p>
+          ) : demoActive ? (
+            <motion.p key="demo" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              Watch first...
+            </motion.p>
+          ) : !demoDone ? (
+            <motion.p key="demo-ready" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              Watch the strokes, then try.
+            </motion.p>
           ) : (
             <motion.p key="hint" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               Trace the dotted lines! ({progress}%)
@@ -331,6 +480,16 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
 
       <div className="phonics-step-actions">
         <AudioButton src={lesson.letterNameAudio} fallbackText={`Letter ${lesson.letter}`} size={56} />
+        {!demoDone && (
+          <PhonicsButton variant="secondary" size="small" onClick={handleSkipDemo}>
+            Skip
+          </PhonicsButton>
+        )}
+        {demoDone && !isComplete && (
+          <PhonicsButton variant="secondary" size="small" onClick={handleReplayDemo}>
+            Show me
+          </PhonicsButton>
+        )}
         <AnimatePresence>
           {isComplete && (
             <motion.div

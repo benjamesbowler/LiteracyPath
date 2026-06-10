@@ -341,8 +341,16 @@
   user-select: none;
 }
 
+.phonics-trace-pad.demo-active {
+  cursor: default;
+}
+
 .phonics-trace-pad:active {
   cursor: grabbing;
+}
+
+.phonics-trace-pad.demo-active:active {
+  cursor: default;
 }
 
 .phonics-trace-svg {
@@ -360,6 +368,60 @@
   height: 100%;
   border-radius: inherit;
   pointer-events: none;
+}
+
+.phonics-trace-demo-layer,
+.phonics-trace-hints {
+  pointer-events: none;
+}
+
+.phonics-trace-demo-layer path {
+  opacity: 0.72;
+  transition: stroke-dashoffset 0.08s linear;
+}
+
+.phonics-trace-demo-marker {
+  fill: var(--phonics-coral);
+  stroke: #ffffff;
+  stroke-width: 5;
+  filter: drop-shadow(0 4px 6px rgba(45, 52, 54, 0.28));
+}
+
+.phonics-trace-hints g {
+  opacity: 0.96;
+  transition: opacity 0.2s ease;
+}
+
+.phonics-trace-hints g.is-faded {
+  opacity: 0.18;
+}
+
+.phonics-trace-hints circle {
+  fill: var(--phonics-sun-yellow);
+  stroke: #ffffff;
+  stroke-width: 4;
+}
+
+.phonics-trace-hints text {
+  fill: var(--phonics-ink);
+  font: 900 18px var(--phonics-font-display);
+  text-anchor: middle;
+}
+
+.phonics-trace-hints path {
+  fill: var(--phonics-coral);
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phonics-trace-demo-layer {
+    display: none;
+  }
+
+  .phonics-trace-hints g {
+    transition: none;
+  }
 }
 
 .phonics-complete-flash {

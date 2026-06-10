@@ -332,11 +332,12 @@ function SkillTile({ row }) {
     row.attempts > 0 ||
     row.status === "passed" ||
     (row.coverage?.mastered > 0 && row.coverage?.total > 0);
-  const status = statusFromAccuracy(row.accuracy, hasData);
   const scoreText = row.checkpointHistory.at(-1)?.score || row.checkpointScore;
   const unit = row.coverage?.unit || "items";
   const total = row.coverage?.total || scoreText?.split("/")?.[1] || 0;
   const mastered = row.coverage?.mastered || scoreText?.split("/")?.[0] || 0;
+  const coveragePercent = clampPercent(row.coveragePercent || 0);
+  const status = statusFromAccuracy(coveragePercent, hasData);
 
   return (
     <article
@@ -345,7 +346,7 @@ function SkillTile({ row }) {
     >
       <span className="lg-skill-tile-num">{row.index + 1}</span>
       <strong className="lg-skill-tile-name">{row.label}</strong>
-      <b className="lg-skill-tile-score">{hasData ? `${row.accuracy}%` : "—"}</b>
+      <b className="lg-skill-tile-score">{hasData ? `${coveragePercent}%` : "—"}</b>
       <small className="lg-skill-tile-sub">{total ? `${mastered}/${total} ${unit}` : "No item evidence"} · {status.label}</small>
     </article>
   );
@@ -443,36 +444,60 @@ function GrowthSection({ model, letterAssessment = [], patternAssessment = [] })
 }
 
 function AllSkillsBarChart({ rows = [], letterAssessment = [], patternAssessment = [] }) {
+  const formatLevelCoverage = row => {
+    const l1 = row.coverageLevel1 || row.coverage?.level1 || { mastered: 0, total: row.coverage?.total || 0 };
+    const l2 = row.coverageLevel2 || row.coverage?.level2 || { mastered: 0, total: 0 };
+    if (!l2.total) return `L1 ${l1.mastered || 0}/${l1.total || 0}`;
+    return `L1 ${l1.mastered || 0}/${l1.total || 0} · L2 ${l2.mastered || 0}/${l2.total || 0}`;
+  };
+
   return (
     <div className="growth-all-skills-chart">
       <div className="growth-all-skills-key">
-        <span className="growth-key-item attempted">Attempted</span>
-        <span className="growth-key-item not-started">Not started yet</span>
+        <span className="growth-key-item level-one">Level 1 mastery</span>
+        <span className="growth-key-item level-two">Level 2 mastery</span>
       </div>
       <div className="growth-bar-list" role="list">
         {rows.map(row => {
-          const hasData = (row.checkpointHistory || []).length > 0 || row.attempts > 0;
-          const pct = clampPercent(row.accuracy);
+          const hasData = (row.checkpointHistory || []).length > 0 || row.attempts > 0 || (row.coverage?.mastered || 0) > 0;
+          const l1 = row.coverageLevel1 || row.coverage?.level1 || { mastered: 0, total: row.coverage?.total || 0 };
+          const l2 = row.coverageLevel2 || row.coverage?.level2 || { mastered: 0, total: 0 };
+          const hasLevel2 = (l2.total || 0) > 0;
+          const level1Width = hasLevel2
+            ? clampPercent(((l1.mastered || 0) / Math.max(1, l1.total || 0)) * 50)
+            : clampPercent(((l1.mastered || 0) / Math.max(1, l1.total || 0)) * 100);
+          const level2Width = hasLevel2
+            ? clampPercent(((l2.mastered || 0) / Math.max(1, l2.total || 0)) * 50)
+            : 0;
+          const coverageLabel = formatLevelCoverage(row);
           return (
             <div
               className={`growth-bar-row${hasData ? "" : " not-started"}`}
               key={row.skillId}
               role="listitem"
-              aria-label={`${row.label}: ${hasData ? `${pct}%` : "not started"}`}
+              aria-label={`${row.label}: ${hasData ? coverageLabel : "not started"}`}
             >
               <span className="growth-bar-label" title={row.label}>
                 {row.index + 1}. {row.label}
               </span>
               <div className="growth-bar-track">
+                {hasLevel2 && <span className="growth-bar-midpoint" aria-hidden="true" />}
                 <div
-                  className="growth-bar-fill"
+                  className="growth-bar-fill growth-bar-fill-l1"
                   style={{
-                    "--bar-width": `${pct}%`,
-                    width: hasData ? `${pct}%` : "0%",
-                    background: hasData ? (row.skillAreaColor || "#0C6B65") : "#e5e7eb"
+                    width: hasData ? `${level1Width}%` : "0%"
                   }}
                 />
-                <span className="growth-bar-pct">{hasData ? `${pct}%` : "Not started"}</span>
+                {hasLevel2 && (
+                  <div
+                    className="growth-bar-fill growth-bar-fill-l2"
+                    style={{
+                      left: "50%",
+                      width: hasData ? `${level2Width}%` : "0%"
+                    }}
+                  />
+                )}
+                <span className="growth-bar-pct">{hasData ? coverageLabel : "Not started"}</span>
               </div>
             </div>
           );

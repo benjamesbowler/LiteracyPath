@@ -187,7 +187,7 @@ export function getAccuracyStatus(accuracy = 0, hasData = true) {
       description: "No assessment evidence yet."
     };
   }
-  if (accuracy > 80) {
+  if (accuracy >= 80) {
     return {
       id: "on_track",
       label: STATUS_LABELS.on_track,
@@ -546,9 +546,9 @@ export function buildStudentReportModel({
     const coverage = coverageSnapshot?.[stage.id] || { mastered: 0, total: 0, unit: "items" };
     const skillAccuracy = total
       ? clampPercent((skillCorrect / total) * 100)
-      : coverage.total
-        ? clampPercent((coverage.mastered / coverage.total) * 100)
-        : 0;
+      : 0;
+    const coverageLevel1 = coverage.level1 || { mastered: coverage.mastered || 0, total: coverage.total || 0 };
+    const coverageLevel2 = coverage.level2 || { mastered: 0, total: 0 };
     const skillItems = itemRows.filter(row => row.skillId === stage.id || row.skillName === stage.label);
     const area = getSkillArea(stage);
     return {
@@ -563,6 +563,8 @@ export function buildStudentReportModel({
       status: data?.mastered ? "passed" : index === currentSkillIndex ? "current" : skillRecords.length ? "attempted" : index < currentSkillIndex ? "ready" : "not_started",
       checkpointScore: data?.lastTotal ? `${data.lastScore}/${data.lastTotal}` : "Not attempted",
       coverage,
+      coverageLevel1,
+      coverageLevel2,
       coveragePercent: coverage.total ? clampPercent((coverage.mastered / coverage.total) * 100) : 0,
       latestDate: skillRecords.at(-1)?.completedAt || "",
       checkpointHistory: skillRecords.map(record => ({

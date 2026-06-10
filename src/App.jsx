@@ -637,7 +637,7 @@ function normalizeAssessmentQuestion(rawQuestion, fallbackSkillId = null, index 
   };
 }
 
-function AssessmentErrorBoundary({ children, resetKey, returnToStudentOverview }) {
+function AssessmentErrorBoundary({ children, resetKey, returnToStudentOverview, isTransient = false }) {
   return (
     <ErrorBoundary
       logLabel="Assessment screen crashed before fallback."
@@ -645,11 +645,20 @@ function AssessmentErrorBoundary({ children, resetKey, returnToStudentOverview }
       fallback={({ error }) => (
         <main className="assessment-shell">
           <div className="card assessment-card">
-            <h2>Something went wrong loading this assessment.</h2>
-            {import.meta.env.DEV && <p>{error.message}</p>}
-            <button className="main-button" onClick={returnToStudentOverview} type="button">
-              Return to Student Overview
-            </button>
+            {isTransient ? (
+              <>
+                <h2>Preparing next question...</h2>
+                {import.meta.env.DEV && <p className="muted-text">{error.message}</p>}
+              </>
+            ) : (
+              <>
+                <h2>Something went wrong loading this assessment.</h2>
+                {import.meta.env.DEV && <p>{error.message}</p>}
+                <button className="main-button" onClick={returnToStudentOverview} type="button">
+                  Return to Student Overview
+                </button>
+              </>
+            )}
           </div>
         </main>
       )}
@@ -1441,30 +1450,77 @@ function getItemMasteryStateKeyForValues(itemKey, itemType) {
   return normalizeItemKey(itemType) + "::" + normalizeItemKey(itemKey);
 }
 
-function buildCoverageSnapshot(itemMasteryRows = {}, debugContext = null) {
+function buildCoverageSnapshot(itemMasteryRows = {}, debugContext = null, answerRecords = []) {
   const rowsByKey = new Map(
     Object.values(itemMasteryRows || {}).map(row => [
       getItemMasteryStateKeyForValues(row.itemKey, row.itemType),
       row
     ])
   );
+  const recordLevelsBySkillAndKey = new Map();
+
+  (answerRecords || []).forEach(record => {
+    const metadata = record.itemKey && record.itemType
+      ? { itemKey: record.itemKey, itemType: record.itemType }
+      : inferItemMetadata({
+        itemKey: record.itemKey,
+        itemType: record.itemType,
+        skill: record.skill || record.stage,
+        question: record.question || record.diagnosticTarget,
+        passage: record.passage,
+        answer: record.correct,
+        diagnosticTarget: record.diagnosticTarget
+      });
+    if (!metadata?.itemKey || !metadata?.itemType) return;
+    const skillId = record.skillId || skillTree.find(stage => stage.label === record.stage)?.id || "";
+    if (!skillId) return;
+    const key = getItemMasteryStateKeyForValues(metadata.itemKey, metadata.itemType);
+    const mapKey = `${skillId}::${key}`;
+    const levels = recordLevelsBySkillAndKey.get(mapKey) || new Set();
+    levels.add(Number(record.itemLevel || record.level || 1) >= 2 ? 2 : 1);
+    recordLevelsBySkillAndKey.set(mapKey, levels);
+  });
+
+  const isMasteredAtLevel = (stage, key, level) => {
+    const row = rowsByKey.get(key);
+    if (!row?.mastered) return false;
+    const evidenceLevels = recordLevelsBySkillAndKey.get(`${stage.id}::${key}`);
+    if (!evidenceLevels) return Number(level || 1) === 1;
+    return evidenceLevels.has(Number(level || 1) >= 2 ? 2 : 1);
+  };
+
+  const countLevelCoverage = (stage, level) => {
+    const keys = getCoverageItemKeysForStage(stage, { level });
+    const masteredKeys = Array.from(keys).filter(key => isMasteredAtLevel(stage, key, level));
+    return {
+      mastered: masteredKeys.length,
+      total: keys.size,
+      masteredKeys
+    };
+  };
 
   return skillTree.reduce((snapshot, stage) => {
-    const runtimeKeys = getCoverageItemKeysForStage(stage);
     const configured = configuredCoverageTotals[stage.id];
-    const total = configured?.total || runtimeKeys.size;
+    const hasLevelInventory = Boolean(configured?.levels);
+    const level1 = countLevelCoverage(stage, 1);
+    const level2 = hasLevelInventory
+      ? countLevelCoverage(stage, 2)
+      : { mastered: 0, total: 0, masteredKeys: [] };
+    const runtimeKeys = hasLevelInventory
+      ? new Set([...level1.masteredKeys, ...level2.masteredKeys])
+      : getCoverageItemKeysForStage(stage);
+    const total = hasLevelInventory ? level1.total + level2.total : (configured?.total || runtimeKeys.size);
     const unit = configured?.unit || (stage.label.toLowerCase().includes("word") ? "words" : "items");
-    const masteredKeys = Array.from(runtimeKeys).filter(key => {
-      const row = rowsByKey.get(key);
-      return row?.mastered || row?.correct > 0;
-    });
-    const mastered = masteredKeys.length;
+    const masteredKeys = hasLevelInventory
+      ? [...level1.masteredKeys, ...level2.masteredKeys]
+      : Array.from(runtimeKeys).filter(key => rowsByKey.get(key)?.mastered);
+    const mastered = hasLevelInventory ? level1.mastered + level2.mastered : masteredKeys.length;
 
     if (debugContext?.enabled) {
       debugAssessmentCoverage("coverage calculation", {
         studentId: debugContext.studentId,
         skill: stage.label,
-        expectedItemTypes: Array.from(new Set(Array.from(runtimeKeys).map(key => key.split("::")[0]))),
+        expectedItemTypes: Array.from(new Set(Array.from(getCoverageItemKeysForStage(stage)).map(key => key.split("::")[0]))),
         masteredRowCount: mastered,
         masteredItemKeys: masteredKeys.map(key => key.split("::")[1])
       });
@@ -1474,6 +1530,14 @@ function buildCoverageSnapshot(itemMasteryRows = {}, debugContext = null) {
       mastered: Math.min(mastered, total),
       total,
       unit,
+      level1: {
+        mastered: Math.min(level1.mastered, level1.total),
+        total: level1.total
+      },
+      level2: {
+        mastered: Math.min(level2.mastered, level2.total),
+        total: level2.total
+      },
       inferred: !configured
     };
 
@@ -4528,11 +4592,7 @@ export default function App() {
     const eligibility = isMasteryEligible(evidence, metadata.itemType, metadata.itemKey);
     const baseMastered = attempts >= 4 && correct >= 3 && isCorrect && sessionsSeen >= 2;
     const isAssessmentEvidence = (source.source || "assessment") === "assessment";
-    const mastered = Boolean(
-      previous?.mastered ||
-      (isAssessmentEvidence && isCorrect) ||
-      (baseMastered && eligibility.eligible)
-    );
+    const mastered = Boolean(previous?.mastered || (isAssessmentEvidence && baseMastered && eligibility.eligible));
     const stageIndex = getStageIndex(source);
     const stage = skillTree[stageIndex];
 
@@ -6423,6 +6483,9 @@ export default function App() {
         "Date",
         "Student",
         "Skill",
+        "Coverage Level 1",
+        "Coverage Level 2",
+        "Coverage Total",
         "Diagnostic Target",
         "Question",
         "Student Answer",
@@ -6430,12 +6493,27 @@ export default function App() {
         "Result"
       ]
     ];
+    const formatCoveragePart = part =>
+      part?.total ? `${part.mastered || 0}/${part.total}` : "";
+    const getCoverageForExport = item => {
+      const skillId = item.skillId || skillTree.find(stage => stage.label === (item.stage || item.skill))?.id || "";
+      const coverage = coverageSnapshot?.[skillId] || {};
+      return {
+        level1: formatCoveragePart(coverage.level1),
+        level2: formatCoveragePart(coverage.level2),
+        total: coverage.total ? `${coverage.mastered || 0}/${coverage.total}` : ""
+      };
+    };
 
     answerHistory.forEach(item => {
+      const coverage = getCoverageForExport(item);
       rows.push([
         formatExportValue(item.date),
         studentName || "Unnamed student",
         formatExportValue(item.stage || item.skill),
+        coverage.level1,
+        coverage.level2,
+        coverage.total,
         formatExportValue(item.diagnosticTarget),
         buildQuestionExportText(item),
         formatExportValue(item.chosen),
@@ -6983,8 +7061,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     buildCoverageSnapshot(itemMastery, {
       enabled: DEBUG_ASSESSMENT_COVERAGE,
       studentId
-    }),
-  [itemMastery, studentId]);
+    }, answerHistory),
+  [itemMastery, studentId, answerHistory]);
 
   const questionBankCoverage = useMemo(() =>
     buildQuestionBankCoverage(allQuestions),
@@ -7405,6 +7483,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
                   : `skill-${currentSkillIndex}`
           }:${currentSkillIndex}:${appView}`}
           returnToStudentOverview={goToOverview}
+          isTransient={assessmentTransitioning || Boolean(feedback)}
         >
           <AssessmentPage
             currentQuestion={currentQuestion}

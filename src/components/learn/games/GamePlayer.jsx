@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useRef, useState } from "react";
 import { GAME_LIST } from "../../../data/learnGamesData";
-import { cancelSpeech } from "../../../utils/learnGamesAudio";
+import { cancelSpeech, speak } from "../../../utils/learnGamesAudio";
 import { cancelGameSfx } from "../../../utils/audio/gameSfx";
 import {
   clearActiveLearnGamesProgressScope,
@@ -31,16 +31,14 @@ export function GamePlayer({
   const [showQuit, setShowQuit] = useState(false);
   const [completed, setCompleted] = useState(false);
   const wasFullscreenRef = useRef(false);
-  const resultSavedRef = useRef(false);
   const GameComponent = LEARN_GAMES[game.id];
 
   useEffect(() => {
     setActiveLearnGamesProgressScope(progressScopeKey);
     wasFullscreenRef.current = Boolean(document.fullscreenElement);
 
-    const player = document.querySelector(".lg-game-player");
-    if (player?.requestFullscreen && !document.fullscreenElement) {
-      player.requestFullscreen().catch(() => {});
+    if (document.documentElement?.requestFullscreen && !document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
     }
 
     return () => {
@@ -53,9 +51,11 @@ export function GamePlayer({
     };
   }, [progressScopeKey]);
 
+  useEffect(() => {
+    if (!soundEnabled) cancelSpeech();
+  }, [soundEnabled]);
+
   function handleComplete(stars, finalScore, wordsCompleted) {
-    if (resultSavedRef.current) return;
-    resultSavedRef.current = true;
     setCompleted(true);
     const nextProgress = saveLearnGameResult(progressScopeKey, game.id, stars, finalScore || score, wordsCompleted);
     onProgressChange?.(nextProgress);
@@ -80,6 +80,15 @@ export function GamePlayer({
         </div>
         <div className="lg-game-player-actions">
           <span className="lg-game-score">{score} pts</span>
+          <button
+            type="button"
+            className="lg-phinny-help"
+            onClick={() => soundEnabled && speak(`${game.title}. ${game.description}`)}
+            aria-label="Hear game instructions"
+            title="Hear game instructions"
+          >
+            <img src="/images/learn-games/phinny-waving.png" alt="" />
+          </button>
           <SoundToggle enabled={soundEnabled} onToggle={() => onSoundEnabledChange(!soundEnabled)} />
           <button type="button" className="lg-game-close" onClick={requestClose} aria-label="Close game">
             <CloseIcon />
