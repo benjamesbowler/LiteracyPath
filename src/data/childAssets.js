@@ -40,8 +40,9 @@ const blockedAssessmentImageAssetNotes = {
 };
 const blockedAssessmentImageAssetKeys = new Set(Object.keys(blockedAssessmentImageAssetNotes));
 
-function blockAssessmentImageIfNeeded(key, asset) {
+function blockAssessmentImageIfNeeded(key, asset, { allowBlockedAssessmentImage = false } = {}) {
   if (!asset || !blockedAssessmentImageAssetKeys.has(key)) return asset;
+  if (allowBlockedAssessmentImage) return asset;
   return {
     ...asset,
     image: "",
@@ -506,7 +507,7 @@ export const childPhraseAudio = {
   "you found it": "/audio/child-mode/phrases/you-found-it.mp3"
 };
 
-export function getChildWordAsset(word) {
+export function getChildWordAsset(word, options = {}) {
   const key = normalizeAssetKey(word);
   const localAsset = childWordAssets[key];
   const kimiAsset = kimiAssets2WordAssets[key];
@@ -526,13 +527,13 @@ export function getChildWordAsset(word) {
     const resolvedAsset = kimi4Asset
       ? { ...kimi4Asset, audio: getPreferredAudioPath(key, kimi4Asset.audio) }
       : null;
-    return blockAssessmentImageIfNeeded(key, resolvedAsset);
+    return blockAssessmentImageIfNeeded(key, resolvedAsset, options);
   }
   if (!localAsset && !kimiAsset && kimi3Asset && !kimi4Asset && !vocabularyAsset) {
-    return blockAssessmentImageIfNeeded(key, { ...kimi3Asset, audio: getPreferredAudioPath(key, kimi3Asset.audio) });
+    return blockAssessmentImageIfNeeded(key, { ...kimi3Asset, audio: getPreferredAudioPath(key, kimi3Asset.audio) }, options);
   }
   if (!localAsset && kimiAsset && !kimi3Asset && !kimi4Asset && !vocabularyAsset) {
-    return blockAssessmentImageIfNeeded(key, { ...kimiAsset, audio: getPreferredAudioPath(key, kimiAsset.audio) });
+    return blockAssessmentImageIfNeeded(key, { ...kimiAsset, audio: getPreferredAudioPath(key, kimiAsset.audio) }, options);
   }
   if (!localAsset && (kimiAsset || kimi3Asset || kimi4Asset || vocabularyAsset)) {
     return blockAssessmentImageIfNeeded(key, {
@@ -541,10 +542,10 @@ export function getChildWordAsset(word) {
       audio: getPreferredAudioPath(key, kimiAsset?.audio || kimi3Asset?.audio || kimi4Asset?.audio || vocabularyAsset?.audio),
       fallbackImage: kimiAsset?.fallbackImage || kimi3Asset?.image || kimi4Asset?.image || vocabularyAsset?.image || kimi3Asset?.fallbackImage || kimi4Asset?.fallbackImage || vocabularyAsset?.fallbackImage,
       source: kimiAsset?.source || kimi3Asset?.source || kimi4Asset?.source || vocabularyAsset?.source
-    });
+    }, options);
   }
   if (localAsset && !kimiAsset && !kimi3Asset && !kimi4Asset && !vocabularyAsset) {
-    return blockAssessmentImageIfNeeded(key, { ...localAsset, audio: getPreferredAudioPath(key, localAsset.audio) });
+    return blockAssessmentImageIfNeeded(key, { ...localAsset, audio: getPreferredAudioPath(key, localAsset.audio) }, options);
   }
 
   return blockAssessmentImageIfNeeded(key, {
@@ -553,7 +554,7 @@ export function getChildWordAsset(word) {
     audio: getPreferredAudioPath(key, localAsset.audio || kimiAsset?.audio || kimi3Asset?.audio || kimi4Asset?.audio || vocabularyAsset?.audio),
     fallbackImage: localAsset.fallbackImage || kimiAsset?.image || kimi3Asset?.image || kimi4Asset?.image || vocabularyAsset?.image || kimiAsset?.fallbackImage || kimi3Asset?.fallbackImage || kimi4Asset?.fallbackImage || vocabularyAsset?.fallbackImage,
     source: localAsset.source || kimiAsset?.source || kimi3Asset?.source || kimi4Asset?.source || vocabularyAsset?.source
-  });
+  }, options);
 }
 
 export function getChildAudioPath(text) {

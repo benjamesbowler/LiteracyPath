@@ -1,0 +1,56 @@
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { getChildWordAsset } from "../../../../data/childAssets";
+import { getCvcWordParts, getGraphemeAudioPath } from "../../../../data/cvcWordFamilies";
+import { usePhonicsAudio } from "../../../../hooks/usePhonicsAudio";
+
+export const CVC_SOUND_DELAY = 720;
+
+export function makeCvcWordModel(word, family) {
+  const asset = getChildWordAsset(word, { allowBlockedAssessmentImage: true }) || {};
+  const { onset, rimeLetters } = getCvcWordParts(word, family.rime);
+  const letters = [...onset.split(""), ...rimeLetters].filter(Boolean);
+
+  return {
+    word,
+    image: asset.image || asset.fallbackImage || "",
+    audio: asset.audio || "",
+    alt: asset.alt || `Picture for ${word}`,
+    letters
+  };
+}
+
+export function makeCvcWordModels(words, family) {
+  return words.map(word => makeCvcWordModel(word, family));
+}
+
+export function useCvcSoundCue() {
+  const [cue, setCue] = useState({ src: "", fallbackText: "", id: 0 });
+  const { play, isPlaying } = usePhonicsAudio(cue.src, cue.fallbackText);
+
+  useEffect(() => {
+    if (cue.id) play();
+  }, [cue.id, play]);
+
+  const playCue = useCallback((src, fallbackText) => {
+    setCue({ src: src || "", fallbackText: fallbackText || "", id: Date.now() + Math.random() });
+  }, []);
+
+  return { playCue, isPlaying };
+}
+
+export function useCvcWordModels(words, family) {
+  return useMemo(() => makeCvcWordModels(words, family), [family, words]);
+}
+
+export function getLetterAudio(letter, family) {
+  return getGraphemeAudioPath(letter, letter === family.vowel ? family.vowel : "");
+}
+
+export function shuffleItems(items) {
+  const copy = [...items];
+  for (let index = copy.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
+  }
+  return copy;
+}
