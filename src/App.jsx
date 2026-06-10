@@ -45,11 +45,6 @@ import {
   hasCompleteInitialSoundPairAssets,
   isInitialSoundQuestion
 } from "./data/initialSoundPairAssets";
-import { enrichQuestionWithExistingMedia } from "./data/questionMediaResolver";
-import {
-  createAssessmentSessionMediaUsage,
-  resolveQuestionMediaDynamically
-} from "./data/assessmentMediaPicker";
 import {
   hasCompletePairSelectionAssets,
   isPairSelectionQuestion,
@@ -80,9 +75,6 @@ import {
 
 import { isLevelOneContentQualityAllowed } from "./data/levelOneContentQuality";
 import { advancedPhonicsPatterns } from "./data/advancedPhonicsPatterns";
-import { getApprovedAudioPath, getPreferredAudioPath } from "./data/audioPreferenceManifest";
-import { getChildWordAsset } from "./data/childAssets";
-import { isMediaQaRuntimeAllowed, isQuestionBlockedByMediaQa } from "./data/mediaQaManifest";
 import { getRuntimeSourceIssues } from "./data/sourceOfTruthRegistry";
 import {
   applyQuestionFormatMetadata,
@@ -90,7 +82,6 @@ import {
   isMasteryEligible
 } from "./questionFormatFramework";
 import { isAssessmentContentValid } from "./assessmentContentValidation";
-import { prepareNaturalSpeechText } from "./audioSpeechPolicy";
 import { getRhymeGroup } from "./data/rhymeGroups";
 import {
   buildInitialSoundsProgressFromAnswerHistory,
@@ -148,6 +139,7 @@ import {
   preloadQuestionMedia,
   preloadQuestionMediaBatch
 } from "./utils/preloadQuestionMedia.js";
+import { speakWithBrowser as speakWithBrowserFallback } from "./utils/audio/speakWithBrowser.js";
 
 // dynamic mastery system
 
@@ -160,6 +152,9 @@ const AdminDashboardPage = lazy(() =>
 let audioManifestModulePromise = null;
 let guidedReadingBooksModulePromise = null;
 let assessmentSkillBankLoaderModulePromise = null;
+let assessmentMediaPickerModulePromise = null;
+let audioPreferenceModulePromise = null;
+let mediaQaModulePromise = null;
 
 function loadAudioManifestModule() {
   if (!audioManifestModulePromise) {
@@ -182,6 +177,27 @@ function loadAssessmentSkillBankLoaderModule() {
   return assessmentSkillBankLoaderModulePromise;
 }
 
+function loadAudioPreferenceModule() {
+  if (!audioPreferenceModulePromise) {
+    audioPreferenceModulePromise = import("./data/audioPreferenceManifest");
+  }
+  return audioPreferenceModulePromise;
+}
+
+function loadMediaQaModule() {
+  if (!mediaQaModulePromise) {
+    mediaQaModulePromise = import("./data/mediaQaManifest");
+  }
+  return mediaQaModulePromise;
+}
+
+function loadAssessmentMediaPickerModule() {
+  if (!assessmentMediaPickerModulePromise) {
+    assessmentMediaPickerModulePromise = import("./data/assessmentMediaPicker");
+  }
+  return assessmentMediaPickerModulePromise;
+}
+
 let finishedReportPageModulePromise = null;
 
 function loadFinishedReportPageModule() {
@@ -200,6 +216,12 @@ const FinishedReportPage = lazy(() =>
 const LearnAreaPage = lazy(() =>
   import("@/components/LearnAreaPage").then(module => ({
     default: module.LearnAreaPage
+  }))
+);
+
+const PhonicsLearnPage = lazy(() =>
+  import("@/components/PhonicsLearnPage").then(module => ({
+    default: module.PhonicsLearnPage
   }))
 );
 
@@ -335,11 +357,6 @@ function getWordRime(value = "") {
   return index === -1 ? word.slice(1) : word.slice(index);
 }
 
-function hasChildWordImage(word = "") {
-  const asset = getChildWordAsset(word);
-  return Boolean(asset?.image || asset?.fallbackImage);
-}
-
 function isShortVowelWordCategoryQuestion(question = {}) {
   const skillId = String(question.skillId || question.skill || question.skillName || "").toLowerCase();
   const format = String(question.formatType || question.templateType || "").toUpperCase();
@@ -373,9 +390,8 @@ function getShortVowelTarget(question = {}, answer = "") {
 
 function buildShortVowelWordOption(word, existingOption = {}) {
   const cleanWord = String(word || "").toLowerCase().trim();
-  const asset = getChildWordAsset(cleanWord);
-  const image = existingOption.image || existingOption.imageUrl || existingOption.imagePath || asset?.image || asset?.fallbackImage || "";
-  const audio = getApprovedAudioPath(cleanWord, existingOption.audio || existingOption.audioUrl || existingOption.audioPath || asset?.audio || "");
+  const image = existingOption.image || existingOption.imageUrl || existingOption.imagePath || "";
+  const audio = existingOption.audio || existingOption.audioUrl || existingOption.audioPath || "";
   return {
     ...existingOption,
     word: existingOption.word || cleanWord,
@@ -385,7 +401,7 @@ function buildShortVowelWordOption(word, existingOption = {}) {
     imageUrl: existingOption.imageUrl || image,
     audio,
     audioUrl: existingOption.audioUrl || audio,
-    alt: existingOption.alt || asset?.alt || `Picture for ${cleanWord}`
+    alt: existingOption.alt || `Picture for ${cleanWord}`
   };
 }
 
@@ -424,7 +440,7 @@ function normalizeShortVowelWordCategoryOptions(rawQuestion = {}, answerOptions 
         const selectedInitials = new Set(normalizedOptions.map(item => item.value[0]));
         const selectedRimes = new Set(normalizedOptions.map(item => getWordRime(item.value)));
         return (
-          (hasChildWordImage(word) ? 8 : 0) +
+          (option.image || option.imageUrl || option.imagePath ? 8 : 0) +
           (selectedInitials.has(word[0]) ? 0 : 6) +
           (selectedRimes.has(getWordRime(word)) ? 0 : 6)
         );
@@ -1271,6 +1287,20 @@ const REPLACED_LEGACY_ASSESSMENT_SKILLS = new Set([
   "theme_higher_comprehension"
 ]);
 
+const MEDIA_QA_BLOCKING_STATUSES = new Set([
+  "rejected",
+  "blocked",
+  "needs_kimi",
+  "deleted",
+  "needs_media_replacement",
+  "needs_image_replacement",
+  "needs_audio_replacement"
+]);
+
+function isQuestionBlockedByMediaQa(question = {}) {
+  return MEDIA_QA_BLOCKING_STATUSES.has(question.qaStatus);
+}
+
 function normalizeRuntimeSkillId(value = "") {
   return String(value || "")
     .toLowerCase()
@@ -1295,9 +1325,9 @@ function prepareRuntimeQuestionBank(questions = [], options = {}) {
   return dedupeQuestionsByRuntimeSignature(
     questions.map((question, index) =>
       applyQuestionFormatMetadata(applyItemMetadata(
-        enrichQuestionWithExistingMedia(enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(normalizeContentQuestion(
+        enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(normalizeContentQuestion(
           normalizeAssessmentAudioRoles(normalizeAssessmentQuestion(question, null, index))
-        ))))
+        )))
       ))
     )
   )
@@ -1439,7 +1469,7 @@ function buildQuestionBankCoverage(questions = []) {
     existing.difficulties[difficulty] = (existing.difficulties[difficulty] || 0) + 1;
     if (pattern) existing.patterns[pattern] = (existing.patterns[pattern] || 0) + 1;
     if (needsImage && !question.imagePath) existing.missingImage += 1;
-    if (needsAudio && !getApprovedAudioPath(question.audioText || question.targetWord || question.answer, question.audioPath || "")) {
+    if (needsAudio && !(question.audioPath || question.audioUrl || question.audio)) {
       existing.missingAudio += 1;
     }
 
@@ -1589,7 +1619,8 @@ export default function App() {
   const loadedAssessmentSkillBanksRef = useRef(new Set());
   const assessmentSkillBankPromisesRef = useRef(new Map());
   const assessmentWarmupStartedRef = useRef(false);
-  const assessmentMediaUsageRef = useRef(createAssessmentSessionMediaUsage());
+  const assessmentMediaPickerRef = useRef(null);
+  const assessmentMediaUsageRef = useRef(null);
   const initialSoundRoundQueueRef = useRef([]);
   const initialSoundRoundMetaRef = useRef(null);
   const initialSoundForcedLevelRef = useRef(null);
@@ -1629,6 +1660,22 @@ export default function App() {
     if (!isHighFrequencyWordSkill(skillId)) return {};
     const { getHfwRuntimeEligibilityIssues } = await import("./data/hfwRuntimeEligibility");
     return { getHfwRuntimeEligibilityIssues };
+  }
+
+  async function ensureAssessmentMediaPicker() {
+    if (!assessmentMediaPickerRef.current) {
+      assessmentMediaPickerRef.current = await loadAssessmentMediaPickerModule();
+    }
+    if (!assessmentMediaUsageRef.current) {
+      assessmentMediaUsageRef.current = assessmentMediaPickerRef.current.createAssessmentSessionMediaUsage();
+    }
+    return assessmentMediaPickerRef.current;
+  }
+
+  function resetAssessmentMediaUsage() {
+    assessmentMediaUsageRef.current = assessmentMediaPickerRef.current
+      ? assessmentMediaPickerRef.current.createAssessmentSessionMediaUsage()
+      : null;
   }
 
   async function loadRuntimeQuestionsForSkill(skillOrStageId = "") {
@@ -2364,7 +2411,7 @@ export default function App() {
     const [classesResult, studentsResult, answersResult, pendingAccountsResult] = await Promise.all([
       supabase.from("classes").select("id, name, teacher_id, created_at").order("created_at", { ascending: false }),
       supabase.from("students").select("id, name, class_id, teacher_id, created_at").order("created_at", { ascending: false }),
-      supabase.from("answers").select("id, teacher_id, student_id"),
+      supabase.from("answers").select("teacher_id"),
       supabase
         .from("pending_teacher_accounts")
         .select("id, user_id, email, username, display_name, name, role, status, approval_status, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
@@ -2901,7 +2948,7 @@ export default function App() {
 
     const { data: answers, error: answersError } = await supabase
       .from("answers")
-      .select("*")
+      .select("student_id, is_correct, answered_at")
       .eq("teacher_id", teacherId)
       .in("student_id", studentIds)
       .order("answered_at", { ascending: true });
@@ -2964,7 +3011,7 @@ export default function App() {
           accuracy,
           masteredCount: mastered.length,
           currentSkill: firstUnmastered?.label || "Completed",
-          lastActive: lastAnswer?.answered_at || "No activity yet"
+          lastActive: lastAnswer?.answered_at || null
         };
       });
 
@@ -4168,12 +4215,14 @@ export default function App() {
       }
     }
 
-    const mediaResolvedQuestion = resolveQuestionMediaDynamically(normalizedQuestion, {
-      skillId: stage?.id || fallbackSkillId,
-      level: normalizedQuestion.level || normalizedQuestion.difficulty || 1,
-      phase: normalizedQuestion.phase || normalizedQuestion.assessmentPhase || 1,
-      sessionUsage: assessmentMediaUsageRef.current
-    });
+    const mediaResolvedQuestion = assessmentMediaPickerRef.current?.resolveQuestionMediaDynamically
+      ? assessmentMediaPickerRef.current.resolveQuestionMediaDynamically(normalizedQuestion, {
+        skillId: stage?.id || fallbackSkillId,
+        level: normalizedQuestion.level || normalizedQuestion.difficulty || 1,
+        phase: normalizedQuestion.phase || normalizedQuestion.assessmentPhase || 1,
+        sessionUsage: assessmentMediaUsageRef.current
+      })
+      : normalizedQuestion;
 
     const preparedChoices = Array.isArray(mediaResolvedQuestion.choices)
       ? (isPairSelectionQuestion(mediaResolvedQuestion) ? mediaResolvedQuestion.choices : shuffleArray(mediaResolvedQuestion.choices))
@@ -5084,7 +5133,7 @@ export default function App() {
         setRoundQuestionIds([]);
         roundItemKeysRef.current = [];
         roundQuestionIdsRef.current = [];
-        assessmentMediaUsageRef.current = createAssessmentSessionMediaUsage();
+        resetAssessmentMediaUsage();
         setTimeout(() => {
           answerInFlightRef.current = false;
           setAppView(APP_VIEWS.FINISHED);
@@ -5164,7 +5213,7 @@ export default function App() {
       setRoundQuestionIds([]);
       roundItemKeysRef.current = [];
       roundQuestionIdsRef.current = [];
-      assessmentMediaUsageRef.current = createAssessmentSessionMediaUsage();
+      resetAssessmentMediaUsage();
       setCurrentQuestion(null);
       setFeedback(null);
       setAssessmentTransitioning(false);
@@ -5311,24 +5360,8 @@ export default function App() {
   }
 
   function speakWithBrowser(text) {
-    if (!text) return;
-
-    if (!window.speechSynthesis || typeof SpeechSynthesisUtterance === "undefined") {
+    if (!speakWithBrowserFallback(text, { rate: 0.85, pitch: 1 })) {
       console.warn("Browser speech synthesis is unavailable.");
-      return;
-    }
-
-    try {
-      window.speechSynthesis.cancel();
-
-      const utterance = new SpeechSynthesisUtterance(prepareNaturalSpeechText(text));
-      utterance.rate = 0.85;
-      utterance.pitch = 1;
-      utterance.lang = "en-US";
-
-      window.speechSynthesis.speak(utterance);
-    } catch (error) {
-      console.warn("Browser speech synthesis failed.", error);
     }
   }
 
@@ -5347,6 +5380,13 @@ export default function App() {
         audioPath
       });
     }
+    const {
+      getApprovedAudioPath,
+      getPreferredAudioPath
+    } = await loadAudioPreferenceModule();
+    const {
+      isMediaQaRuntimeAllowed
+    } = await loadMediaQaModule();
     const preferredAudioPath = requireApprovedAudio
       ? getApprovedAudioPath(text, audioPath)
       : getPreferredAudioPath(text, audioPath);
@@ -5385,9 +5425,8 @@ export default function App() {
 
       try {
         for (const audioPath of audioPaths) {
-          const response = await fetch(audioPath, { method: "HEAD" });
-
-          if (response.ok) {
+          if (!audioPath) continue;
+          try {
             if (window.speechSynthesis) {
               window.speechSynthesis.cancel();
             }
@@ -5395,6 +5434,8 @@ export default function App() {
             const audio = new Audio(audioPath);
             await audio.play();
             return;
+          } catch {
+            // Try the next known manifest path before falling back to browser speech.
           }
         }
       } catch (error) {
@@ -6505,7 +6546,10 @@ export default function App() {
     setMessage(`Loading ${nextStage.label}...`);
     preloadAssessmentShellForStage(nextStage);
     try {
-      await loadRuntimeQuestionsForSkill(nextStage.id);
+      await Promise.all([
+        loadRuntimeQuestionsForSkill(nextStage.id),
+        ensureAssessmentMediaPicker()
+      ]);
     } catch (error) {
       console.warn("Could not load assessment skill bank.", { skillId: nextStage.id, error });
       setAssessmentTransitioning(false);
@@ -6538,7 +6582,7 @@ export default function App() {
     setRoundQuestionIds([]);
     roundItemKeysRef.current = [];
     roundQuestionIdsRef.current = [];
-    assessmentMediaUsageRef.current = createAssessmentSessionMediaUsage();
+    resetAssessmentMediaUsage();
     setMessage("");
     setAppView(APP_VIEWS.ASSESSMENT);
     pickQuestion("mastery", 0, nextStageIndex);
@@ -6567,7 +6611,10 @@ export default function App() {
       )
     ];
     try {
-      await Promise.all(attemptedStageIds.map(loadRuntimeQuestionsForSkill));
+      await Promise.all([
+        ensureAssessmentMediaPicker(),
+        ...attemptedStageIds.map(loadRuntimeQuestionsForSkill)
+      ]);
     } catch (error) {
       console.warn("Could not load targeted review banks.", error);
     }
@@ -6581,7 +6628,7 @@ export default function App() {
     setRoundQuestionIds([]);
     initialSoundRoundQueueRef.current = [];
     initialSoundRoundMetaRef.current = null;
-    assessmentMediaUsageRef.current = createAssessmentSessionMediaUsage();
+    resetAssessmentMediaUsage();
     setMessage("");
     setAppView(APP_VIEWS.ASSESSMENT);
     pickQuestion("targetedReview", 0);
@@ -6598,7 +6645,7 @@ export default function App() {
     setRoundQuestionIds([]);
     initialSoundRoundQueueRef.current = [];
     initialSoundRoundMetaRef.current = null;
-    assessmentMediaUsageRef.current = createAssessmentSessionMediaUsage();
+    resetAssessmentMediaUsage();
     setShowReport(true);
     setAppView(APP_VIEWS.FINISHED);
   }
@@ -7033,6 +7080,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           goToElAssessments={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
           goToGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
           goToLearn={() => setAppView(APP_VIEWS.LEARN)}
+          goToPhonicsLearn={() => setAppView(APP_VIEWS.PHONICS_LEARN)}
           goToReports={() => setAppView(APP_VIEWS.REPORTS)}
           goToTeacherDashboard={() => setAppView(APP_VIEWS.TEACHER_DASHBOARD)}
           teacherEmail={teacherUser.email}
@@ -7169,7 +7217,15 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       {appView === APP_VIEWS.LEARN && nameSaved && (
         <PageBoundary resetKey={`learn-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading Story Quest..." />}>
-            <LearnAreaPage progressScopeKey={studentId || studentName || "default"} />
+            <LearnAreaPage key={studentId || studentName || "default"} progressScopeKey={studentId || studentName || "default"} />
+          </Suspense>
+        </PageBoundary>
+      )}
+
+      {appView === APP_VIEWS.PHONICS_LEARN && nameSaved && (
+        <PageBoundary resetKey={`phonics-learn-${studentId}`}>
+          <Suspense fallback={<LazyPageFallback label="Loading Learn..." />}>
+            <PhonicsLearnPage progressScopeKey={studentId || studentName || "default"} />
           </Suspense>
         </PageBoundary>
       )}

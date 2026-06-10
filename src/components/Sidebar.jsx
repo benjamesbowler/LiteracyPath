@@ -94,6 +94,13 @@ const NAV_ITEMS = [
     requiresStudent: true,
   },
   {
+    id: "phonics",
+    label: "Learn",
+    icon: "el",
+    views: [APP_VIEWS.PHONICS_LEARN],
+    requiresStudent: true,
+  },
+  {
     id: "reports",
     label: "Reports",
     icon: "reports",
@@ -112,6 +119,7 @@ export function Sidebar({
   goToElAssessments,
   goToGuidedReading,
   goToLearn,
+  goToPhonicsLearn,
   goToReports,
   goToTeacherDashboard,
   logOutTeacher,
@@ -142,6 +150,7 @@ export function Sidebar({
       case "el":          return goToElAssessments?.();
       case "reading":     return goToGuidedReading?.();
       case "learn":       return goToLearn?.();
+      case "phonics":     return goToPhonicsLearn?.();
       case "reports":     return goToReports?.();
       default:            return null;
     }

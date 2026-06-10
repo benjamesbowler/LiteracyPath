@@ -219,8 +219,8 @@ body {
 .lg-app-shell .teacher-dashboard-page .teacher-dashboard-control select,
 .lg-app-shell .teacher-dashboard-page .teacher-dashboard-control input {
   min-width: 180px;
-  height: 40px;
-  min-height: 40px;
+  height: 42px;
+  min-height: 42px;
   padding: 0 10px;
   border: 1.5px solid var(--border, #e5e7eb);
   border-radius: 8px;
@@ -229,9 +229,11 @@ body {
 
 .lg-app-shell .teacher-dashboard-page .teacher-dashboard-create .lp-button {
   align-self: flex-end;
-  height: 40px;
-  min-height: 40px !important;
+  height: 42px;
+  min-height: 42px !important;
   margin-bottom: 0;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .lg-app-shell .teacher-dashboard-page .student-create {
