@@ -1,4 +1,3 @@
-import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 import {
   initialSoundExpectedItemKeys,
   finalSoundExpectedItemKeys,
@@ -306,7 +305,7 @@ export function getAudioPronunciationIssues(question = {}) {
   const audioText = normalizePhonicsText(question.audioText || "");
   const audioKey = normalizePhonicsText(question.audioKey || "");
   const audioPath = String(question.audioPath || question.audioUrl || "");
-  const approvedAudio = getApprovedAudioPath(word || audioText, audioPath);
+  const approvedAudio = audioPath;
 
   if (!word) {
     issues.push("word-listening format is missing targetWord");

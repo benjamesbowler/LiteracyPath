@@ -1,6 +1,6 @@
 # Repo Hygiene Audit
 
-Date: 2026-06-03T02:19:15.340Z
+Date: 2026-06-10T06:35:06.278Z
 
 This guardrail reports temporary, preview, stale request, generated, or accidental files that may be risky to commit. It does not delete or restore anything.
 
@@ -8,20 +8,23 @@ This guardrail reports temporary, preview, stale request, generated, or accident
 
 | Metric | Count |
 | --- | --- |
-| Failures | 0 |
-| Warnings | 33 |
-| Ignored/allowed items | 799 |
-| Git status entries | 7 |
-| Tracked files inspected | 13450 |
-| Untracked files inspected | 3 |
+| Failures | 2 |
+| Warnings | 64 |
+| Ignored/allowed items | 817 |
+| Git status entries | 101 |
+| Tracked files inspected | 19492 |
+| Untracked files inspected | 185 |
 
 ## Result
 
-PASS
+FAIL
 
 ## Failures
 
-_None._
+| Path | Reason | Suggested cleanup |
+| --- | --- | --- |
+| docs/.DS_Store | .DS_Store file found. | rm -f docs/.DS_Store |
+| supabase/.DS_Store | .DS_Store file found. | rm -f supabase/.DS_Store |
 
 ## Warnings
 
@@ -29,9 +32,11 @@ _None._
 | --- | --- | --- |
 | docs/assets/complete_media_replacement_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/final_sounds_b_media_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
+| docs/assets/kimi_approved_hfw_missing_cartoon_media_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_audio_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_blends_image_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_digraphs_media_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
+| docs/assets/kimi_dino_pals_v2_missing_audio_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_first_facts_21_25_missing_word_audio_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_first_facts_clean_page_audio_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_guided_reading_cover_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
@@ -39,27 +44,56 @@ _None._
 | docs/assets/kimi_guided_reading_unique_word_audio_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_hfw_bad_audio_replacement_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_hfw_image_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
+| docs/assets/kimi_hfw_question_image_replacement_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
+| docs/assets/kimi_hfw_unique_scene_variants_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_image_replacement_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_image_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_initial_sounds_media_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
+| docs/assets/kimi_language_skill_unique_scene_variants_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_learn_area_image_audio_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_learn_area_missing_visuals_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_long_vowels_media_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
+| docs/assets/kimi_master_missing_media_request_2026-06-05.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
+| docs/assets/kimi_media_qa_replacement_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_media_replacement_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
+| docs/assets/kimi_missing_k3_word_bank_media_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_missing_skill_media_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_missing_whole_book_audio_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_next_asset_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_question_asset_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_rejected_image_replacement_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
+| docs/assets/kimi_rhyming_unique_variant_media_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
+| docs/assets/kimi_story_quest_dewdrop_flint_lost_glow_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
+| docs/assets/kimi_story_quest_luna_burrow_star_shell_door_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_strict_media_replacement_request.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/kimi_strict_missing_media_import_report.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/missing_media_report.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/next_kimi_media_request_from_skill_audit.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
-| docs/implementation/teacher_created_interactive_learn_decks.md | Untracked implementation doc. | git add docs/implementation/teacher_created_interactive_learn_decks.md or rm -f docs/implementation/teacher_created_interactive_learn_decks.md |
+| docs/validation/approved_runtime_sources_audit.json | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/approved_runtime_sources_audit.json |
+| docs/validation/approved_runtime_sources_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/approved_runtime_sources_audit.md |
+| docs/validation/assessment_question_integrity_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/assessment_question_integrity_audit.md |
+| docs/validation/distractor_onset_giveaway_audit.json | Generated/audit file has unstaged working-tree noise. | rm -f docs/validation/distractor_onset_giveaway_audit.json |
+| docs/validation/distractor_onset_giveaway_audit.md | Generated/audit file has unstaged working-tree noise. | rm -f docs/validation/distractor_onset_giveaway_audit.md |
+| docs/validation/early_skill_generated_bank_check.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/early_skill_generated_bank_check.md |
+| docs/validation/generated_early_skill_question_bank.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/generated_early_skill_question_bank.md |
 | docs/validation/media_overwrite_risk_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/media_overwrite_risk_audit.md |
+| docs/validation/rhyming_formal_progression_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/rhyming_formal_progression_audit.md |
+| docs/validation/skill_bank_master_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/skill_bank_master_audit.md |
+| src/data/generated/blendsAssessmentQuestions.generated.js | Generated/audit file has unstaged working-tree noise. | git restore src/data/generated/blendsAssessmentQuestions.generated.js |
+| src/data/generated/cvc.generated.js | Generated/audit file has unstaged working-tree noise. | git restore src/data/generated/cvc.generated.js |
+| src/data/generated/finalSounds.generated.js | Generated/audit file has unstaged working-tree noise. | git restore src/data/generated/finalSounds.generated.js |
+| src/data/generated/firstTenSkillTopUpQuestions.generated.js | Generated/audit file has unstaged working-tree noise. | git restore src/data/generated/firstTenSkillTopUpQuestions.generated.js |
+| src/data/generated/shortVowel.generated.js | Generated/audit file has unstaged working-tree noise. | git restore src/data/generated/shortVowel.generated.js |
+| src/data/generated/hfwApprovedQuestionBank.generated.js | Runtime source contains banned phrase "may choose a book". | Review whether this is validation-only text or selectable content. |
+| src/data/assessmentMediaPicker.js | Runtime source mentions photorealistic assessment imagery. | Review asset style and QA status. |
+| src/data/hfwQuestionImageReview.js | Runtime source mentions photorealistic assessment imagery. | Review asset style and QA status. |
 | public/learn-decks/cycle-01/lesson-01/Cycle-01-Lesson-01.pptx | Large file over 20 MB: 27.3 MB. | Review before committing. |
 | public/learn-decks/cycle-01/lesson-02/Cycle-01-Lesson-02.pptx | Large file over 20 MB: 25.0 MB. | Review before committing. |
 | public/learn-decks/cycle-01/lesson-03/Cycle-01-Lesson-03.pptx | Large file over 20 MB: 20.1 MB. | Review before committing. |
+| src/data/generated/mediaQaReviewItems.generated.js | Large file over 5 MB outside approved media folders: 10.3 MB. | Review before committing. |
+| docs/validation/app_image_inventory_audit.json | Large file over 5 MB outside approved media folders: 7.7 MB. | Review before committing. |
+| src/data/generated/skillWordBank.generated.js | Large file over 5 MB outside approved media folders: 6.8 MB. | Review before committing. |
+| docs/validation/repo_data_source_audit.json | Large file over 5 MB outside approved media folders: 6.4 MB. | Review before committing. |
 
 ## Ignored Or Allowed Items
 
@@ -407,6 +441,10 @@ _None._
 | public/guided-reading/regen/pages/gr-e-50-page-04.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/guided-reading/regen/pages/gr-e-50-page-05.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/guided-reading/regen/pages/gr-e-50-page-06.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/assessment/hfw/variants/replacement-2026-06-05/hfw_51_75/hfw_workbook_hfw_51_75_into_s08.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/assessment/hfw/variants/replacement-2026-06-05/hfw_51_75/hfw_workbook_hfw_51_75_into_s15.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/assessment/hfw/variants/replacement-2026-06-05/hfw_51_75/hfw_workbook_hfw_51_75_into_s16.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/assessment/hfw/variants/replacement-2026-06-05/hfw_51_75/hfw_workbook_hfw_51_75_into_s17.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/blends/black.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/blends/blue.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/blends/clap.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
@@ -774,6 +812,19 @@ _None._
 | public/images/generated/boy_afraid.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/generated/goat_inside_barn.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/generated/riddle_box.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/learn-games/icon-blend-build.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/learn-games/icon-cvc-builder.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/learn-games/icon-pop-word.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/learn-games/icon-reading-race.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/learn-games/icon-rhyme-time.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/learn-games/icon-sight-memory.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/learn-games/icon-sound-slide.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/learn-games/icon-word-fishing.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/learn-games/icon-word-hopscotch.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/learn-games/icon-word-train.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/learn-games/phinny-cat.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/learn-games/phinny-celebrating.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| public/images/learn-games/phinny-waving.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/prepositions/ball_on_chair.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/prepositions/bear_behind_tree.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/prepositions/bird_above_tree.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
@@ -864,7 +915,9 @@ _None._
 | public/media/learn/images/cycle-23/sing.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/media/learn/images/cycle-23/song.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/media/learn/images/cycle-23/sung.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
+| docs/assets/kimi_story_quest_last_two_books_image_redo_request.md | Approved active request document for current Story Quest image replacement pass. | Allowed. |
 
 ## Safe Cleanup Examples
 
-_None needed._
+- rm -f docs/.DS_Store
+- rm -f supabase/.DS_Store

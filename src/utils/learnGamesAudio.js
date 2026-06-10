@@ -2,6 +2,7 @@ import { Howl, Howler } from "howler";
 import { getLetterSoundCue } from "../components/learn/phonics/cvc/cvcHelpers";
 
 const howlCache = new Map();
+const MAX_HOWL_CACHE_ENTRIES = 24;
 const VOWEL_SOUND_TEXT = {
   a: "ah",
   e: "eh",
@@ -21,10 +22,34 @@ function slugify(value) {
 
 function getHowl(src) {
   if (!src) return null;
-  if (!howlCache.has(src)) {
-    howlCache.set(src, new Howl({ src: [src], html5: true, volume: 1 }));
+  if (howlCache.has(src)) {
+    const cached = howlCache.get(src);
+    howlCache.delete(src);
+    howlCache.set(src, cached);
+    return cached;
   }
-  return howlCache.get(src);
+
+  const howl = new Howl({ src: [src], html5: isLongAudioSource(src), volume: 1 });
+  howlCache.set(src, howl);
+  evictOldestHowlIfNeeded();
+  return howl;
+}
+
+function isLongAudioSource(src = "") {
+  return /guided-reading|passage|story|sentence|sentences|instructions/i.test(src);
+}
+
+function evictOldestHowlIfNeeded() {
+  while (howlCache.size > MAX_HOWL_CACHE_ENTRIES) {
+    const [oldestSrc, oldestHowl] = howlCache.entries().next().value || [];
+    if (!oldestSrc) return;
+    howlCache.delete(oldestSrc);
+    try {
+      oldestHowl.unload();
+    } catch {
+      // Ignore eviction cleanup failures.
+    }
+  }
 }
 
 function playAudio(src) {
@@ -96,12 +121,23 @@ export async function speakWord(word, options = {}) {
   if (!played) speakWithBrowser(word, options);
 }
 
-export function speak(text, options = {}) {
+export async function speak(text, options = {}) {
   const value = String(text || "").trim();
   if (!value) return;
   if (/^[a-z]+$/i.test(value)) {
     speakWord(value, options);
     return;
   }
+  const slug = slugify(value);
+  const played = await playFirstAvailable([
+    `/audio/learn-games/instructions/${slug}.mp3`,
+    `/audio/learn-games/sentences/${slug}.mp3`,
+    `/audio/child-mode/phrases/${slug}.mp3`
+  ]);
+  if (played) return;
   speakWithBrowser(value, options);
+}
+
+export function getLearnGamesAudioCacheSizeForDebug() {
+  return howlCache.size;
 }

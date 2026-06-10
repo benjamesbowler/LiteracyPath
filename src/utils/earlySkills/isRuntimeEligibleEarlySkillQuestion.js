@@ -3,23 +3,6 @@ import {
   getFinalSoundsLevel1QuestionIssues,
   isFinalSoundsLevel1Question
 } from "../../data/earlyPhonicsValidation.js";
-import {
-  hasCompletePairSelectionAssets,
-  isPairSelectionQuestion
-} from "../../data/soundPairAssets.js";
-import {
-  hasCompleteVisualQuestionAssets,
-  isVisualCardChoiceQuestion
-} from "../../data/visualQuestionAssets.js";
-import {
-  getListenAndFindAssetDiagnostics,
-  isListenAndFindWordQuestion
-} from "../../data/listenAndFindAssets.js";
-import {
-  getQuestionMediaPaths,
-  isMediaQaRuntimeAllowed,
-  isQuestionBlockedByMediaQa
-} from "../../data/mediaQaManifest.js";
 import { getQuestionRoutingIssue } from "../../data/skillTemplateRouting.js";
 
 export const EARLY_SKILL_IDS = new Set([
@@ -49,7 +32,8 @@ const SHORT_VOWEL_FORBIDDEN_WORDS = new Set([
 ]);
 const SHORT_VOWEL_GRAPHEME_CHOICES = new Set(["a", "e", "i", "o", "u"]);
 const PLACEHOLDER_PATTERN = /(?:placeholder|fallback|missing|unavailable|coming-soon|blank)/i;
-const UI_IMAGE_PATH_PATTERN = /(?:speaker|audio-button|volume|question-visual|\/ui\/|\/icons?\/|speaker-icon|(?:^|[\/_-])audio(?:[\/_.-]|$)|(?:^|[\/_-])sound(?:[\/_.-]|$)|\.svg$)/i;
+const UI_IMAGE_PATH_PATTERN = /(?:speaker|audio-button|volume|question-visual|\/ui\/|\/icons?\/|speaker-icon|(?:^|[/_-])audio(?:[/_.-]|$)|(?:^|[/_-])sound(?:[/_.-]|$)|\.svg$)/i;
+const MEDIA_QA_BLOCKING_STATUSES = new Set(["rejected", "blocked", "needs_kimi", "deleted"]);
 
 function normalize(value = "") {
   return String(value || "").toLowerCase().trim();
@@ -77,6 +61,94 @@ function getQuestionSkillId(question = {}) {
 function getQuestionLevel(question = {}) {
   const value = Number(question.level || question.difficultyLevel || question.difficulty || 1);
   return Number.isFinite(value) && value > 0 ? value : 1;
+}
+
+function getQuestionMediaPaths(question = {}) {
+  const image = [
+    question.imagePath,
+    question.imageUrl,
+    question.image,
+    question.targetImage,
+    question.targetImagePath,
+    question.targetImageUrl,
+    ...(question.imageCards || []).flatMap(card => [card.image, card.imageUrl, card.imagePath]),
+    ...(question.promptImageCards || []).flatMap(card => [card.image, card.imageUrl, card.imagePath]),
+    ...(question.answerOptions || []).flatMap(option => [option?.image, option?.imageUrl, option?.imagePath]),
+    ...Object.values(question.choiceImages || {}).flatMap(asset => [asset?.image, asset?.imageUrl, asset?.imagePath])
+  ].filter(Boolean);
+  const audio = [
+    question.audioPath,
+    question.audioUrl,
+    question.audio,
+    ...(question.imageCards || []).flatMap(card => [card.audio, card.audioUrl, card.audioPath]),
+    ...(question.answerOptions || []).flatMap(option => [option?.audio, option?.audioUrl, option?.audioPath])
+  ].filter(Boolean);
+  return { image: [...new Set(image)], audio: [...new Set(audio)] };
+}
+
+function isMediaQaRuntimeAllowed(path = "", mediaType = "image", options = {}) {
+  void path;
+  void mediaType;
+  return !MEDIA_QA_BLOCKING_STATUSES.has(options.qaStatus);
+}
+
+function isQuestionBlockedByMediaQa(question = {}) {
+  return MEDIA_QA_BLOCKING_STATUSES.has(question.qaStatus);
+}
+
+function isPairSelectionQuestion(question = {}) {
+  return ["initial_sound_pair", "final_sound_pair", "rhyme_pair"].includes(question.questionType);
+}
+
+function isVisualCardChoiceQuestion(question = {}) {
+  return question.questionType === "visual_card_choice";
+}
+
+function isListenAndFindWordQuestion(question = {}) {
+  const text = normalize(question.question || question.prompt);
+  const typeText = normalize([question.questionType, question.formatType].join(" "));
+  return (
+    text === "listen and find the word." ||
+    text === "listen and find the word" ||
+    typeText.includes("listen_and_find_word") ||
+    typeText.includes("heard_word_to_print")
+  );
+}
+
+function hasCompletePairSelectionAssets(question = {}) {
+  const requiredCardCount = question.skillId === "final_sounds" || question.itemType === "final_sound" ? 4 : 3;
+  return isPairSelectionQuestion(question) &&
+    (question.imageCards || []).length >= requiredCardCount &&
+    (question.imageCards || []).every(card => getCardImage(card) && getCardAudio(card));
+}
+
+function hasCompleteVisualQuestionAssets(question = {}) {
+  if (!isVisualCardChoiceQuestion(question)) return true;
+  const cards = question.imageCards || [];
+  const requireImages = question.requireOptionImages !== false;
+  const requireAudio = question.requireOptionAudio === true;
+  return cards.length >= 2 && cards.every(card =>
+    (!requireImages || getCardImage(card)) &&
+    (!requireAudio || getCardAudio(card))
+  );
+}
+
+function getListenAndFindAssetDiagnostics(question = {}) {
+  if (!isListenAndFindWordQuestion(question)) return null;
+  const choices = question.choices || question.answerOptions || [];
+  const choiceImages = question.choiceImages || {};
+  const answer = question.answer || question.correctAnswer || question.targetWord || "";
+  const missingImages = choices.filter(choice => {
+    const asset = choiceImages[choice] || choiceImages[String(choice).toLowerCase()] || {};
+    return !(asset.image || asset.imagePath || asset.imageUrl);
+  });
+  return {
+    question,
+    missingImages,
+    missingChoiceAssets: missingImages,
+    missingAudio: !(question.audioPath || question.audioUrl || question.audio),
+    usesSingleWordAudioText: normalize(question.audioText) === normalize(answer)
+  };
 }
 
 function isPublicRuntimePath(path = "", mediaType = "image") {

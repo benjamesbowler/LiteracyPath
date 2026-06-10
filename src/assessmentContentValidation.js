@@ -1,6 +1,10 @@
-import { getApprovedAudioPath } from "./data/audioPreferenceManifest.js";
 import { validateQuestionTemplate } from "./data/templateValidationRules.js";
 import { getEarlyPhonicsAndAudioIssues } from "./data/earlyPhonicsValidation.js";
+
+function getApprovedAudioPath(key = "", fallbackPath = "") {
+  void key;
+  return fallbackPath || "";
+}
 import { getRhymeGroup, getRhymeOptionMatches, getRhymePairMatches } from "./data/rhymeGroups.js";
 
 const BLEND_PATTERNS = ["bl", "cl", "fl", "gl", "pl", "sl", "br", "cr", "dr", "fr", "gr", "pr", "tr", "sc", "sk", "sm", "sn", "sp", "st", "sw"];

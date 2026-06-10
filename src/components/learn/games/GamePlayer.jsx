@@ -30,6 +30,7 @@ export function GamePlayer({
   const [score, setScore] = useState(0);
   const [showQuit, setShowQuit] = useState(false);
   const [completed, setCompleted] = useState(false);
+  const [progressStatus, setProgressStatus] = useState({ current: 0, total: 1 });
   const wasFullscreenRef = useRef(false);
   const GameComponent = LEARN_GAMES[game.id];
 
@@ -61,6 +62,13 @@ export function GamePlayer({
     onProgressChange?.(nextProgress);
   }
 
+  function handleProgressUpdate(current, total) {
+    setProgressStatus({
+      current: Math.max(0, Number(current) || 0),
+      total: Math.max(1, Number(total) || 1)
+    });
+  }
+
   function requestClose() {
     if (completed) {
       onClose();
@@ -72,11 +80,21 @@ export function GamePlayer({
   if (!GameComponent) return null;
 
   return (
-    <div className="lg-game-player" role="dialog" aria-modal="true" aria-label={game.title}>
+    <div
+      className="lg-game-player"
+      role="dialog"
+      aria-modal="true"
+      aria-label={game.title}
+      style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft }}
+    >
       <header className="lg-game-player-header">
-        <div>
+        <div className="lg-game-title-chip">
           <strong>{game.title}</strong>
           <span>{difficulty}</span>
+        </div>
+        <div className="lg-game-header-meter" aria-label={`${Math.min(progressStatus.current, progressStatus.total)} of ${progressStatus.total}`}>
+          <div><i style={{ width: `${Math.min(100, (progressStatus.current / progressStatus.total) * 100)}%` }} /></div>
+          <span>{Math.min(progressStatus.current, progressStatus.total)}/{progressStatus.total}</span>
         </div>
         <div className="lg-game-player-actions">
           <span className="lg-game-score">{score} pts</span>
@@ -101,6 +119,7 @@ export function GamePlayer({
           <GameComponent
             difficulty={difficulty}
             onScoreUpdate={setScore}
+            onProgressUpdate={handleProgressUpdate}
             onComplete={handleComplete}
             isSoundEnabled={soundEnabled}
           />

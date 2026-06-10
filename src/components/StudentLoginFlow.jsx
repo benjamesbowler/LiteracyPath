@@ -167,7 +167,17 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
       schoolId: result.school_id || selectedSchool?.id,
       expiresAt: Date.now() + 12 * 60 * 60 * 1000
     };
-    onSessionStart?.(session);
+    if (!session.token || !session.studentId) {
+      console.error("Student session missing token or id.", result);
+      setStatus(`Login worked but no session was returned (token=${session.token ? "yes" : "MISSING"}, student=${session.studentId ? "yes" : "MISSING"}).`);
+      return;
+    }
+    try {
+      onSessionStart?.(session);
+    } catch (error) {
+      console.error("Could not start student session.", error);
+      setStatus(`Could not open the app: ${error?.message || error}`);
+    }
   }
 
   async function submitLogin(nextSequence) {
@@ -290,6 +300,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
         )}
 
         {status && <p className="student-flow-status">{status}</p>}
+        <p className="student-flow-build-stamp" style={{ margin: 0, color: "#98a2b3", fontSize: 11, textAlign: "center" }}>v10.6-debug</p>
         <div className="student-flow-footer">
           {step !== "school" && (
             <button className="student-flow-back" onClick={() => {

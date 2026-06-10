@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { getApprovedAudioPath } from "../../data/audioPreferenceManifest";
 import {
   getTargetWordAudioPath,
   isGenericInstructionAudioPath
@@ -18,7 +17,7 @@ export function AssessmentAudioButton({
   const feedbackTimerRef = useRef(null);
   const approvedAudioPath = audioRole === "target_word"
     ? getTargetWordAudioPath(text, audioPath)
-    : getApprovedAudioPath(text, audioPath);
+    : audioPath;
 
   useEffect(() => {
     return () => {

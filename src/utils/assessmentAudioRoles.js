@@ -1,5 +1,3 @@
-import { getApprovedAudioPath } from "../data/audioPreferenceManifest.js";
-
 export const SHORT_VOWEL_LISTEN_PROMPT = "Listen to the word. What vowel sound can you hear?";
 
 const VOWEL_CHOICES = ["a", "e", "i", "o", "u"];
@@ -37,11 +35,8 @@ export function getTargetWordAudioPath(targetWord = "", fallbackPath = "") {
   const cleanTarget = String(targetWord || "").trim();
   if (!cleanTarget) return "";
 
-  const approvedTargetPath = getApprovedAudioPath(cleanTarget, "");
-  if (approvedTargetPath) return approvedTargetPath;
-
   if (!isGenericInstructionAudioPath(fallbackPath)) {
-    return getApprovedAudioPath(cleanTarget, fallbackPath);
+    return fallbackPath || "";
   }
 
   return "";

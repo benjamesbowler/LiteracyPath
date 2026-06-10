@@ -1,7 +1,6 @@
 import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
 import { getChildAudioPath, getChildWordAsset } from "./childAssets.js";
 import { getImportedVocabularyMedia } from "./importedVocabularyMediaManifest.js";
-import { resolveQuestionMediaDynamically } from "./assessmentMediaPicker.js";
 import {
   isHfwQuestionImagePairApproved,
   stripHfwQuestionImageFields
@@ -304,14 +303,18 @@ function optionImagePath(option = {}) {
 
 function stripOptionImage(option = {}) {
   if (!option || typeof option !== "object") return option;
-  const { image, imageUrl, imagePath, media, ...rest } = option;
+  const rest = { ...option };
+  delete rest.image;
+  delete rest.imageUrl;
+  delete rest.imagePath;
+  const media = rest.media;
+  delete rest.media;
+
   if (media && typeof media === "object") {
-    const {
-      image: mediaImage,
-      imageUrl: mediaImageUrl,
-      imagePath: mediaImagePath,
-      ...restMedia
-    } = media;
+    const restMedia = { ...media };
+    delete restMedia.image;
+    delete restMedia.imageUrl;
+    delete restMedia.imagePath;
     return Object.keys(restMedia).length ? { ...rest, media: restMedia } : rest;
   }
   return rest;
@@ -448,5 +451,5 @@ export function enrichQuestionWithExistingMedia(question = {}) {
     }
   }
 
-  return resolveQuestionMediaDynamically(enriched, { skillId });
+  return enriched;
 }

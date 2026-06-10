@@ -527,7 +527,7 @@ function buildClassRecommendations(matrices = [], studentReports = []) {
 
 export function formatDetailedReportAsText(report = {}) {
   const lines = [
-    "LiteracyPath Individual Student Report",
+    "Literacy Guide Individual Student Report",
     `Student: ${report.studentName || "Unknown Student"}`,
     `Class: ${report.className || "Unknown Class"}`,
     `Generated: ${formatDate(report.generatedAt)}`,

@@ -2044,7 +2044,11 @@ export default function App() {
     setNameSaved(true);
     setAppView(APP_VIEWS.STUDENT_HOME);
     setMessage("");
-    configureProgressSync({ ...session, mode: "student" });
+    try {
+      configureProgressSync({ ...session, mode: "student" });
+    } catch (error) {
+      console.warn("Could not configure progress sync for student session.", error);
+    }
     try {
       localStorage.setItem(STUDENT_SESSION_STORAGE_KEY, JSON.stringify(session));
     } catch {

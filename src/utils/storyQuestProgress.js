@@ -1,3 +1,5 @@
+import { queueProgressSave } from "./progressSync.js";
+
 const STORY_QUEST_PROGRESS_STORAGE_KEY = "literacyPath.storyQuestProgress.v1";
 
 export function storyQuestProgressStorageKey(progressScopeKey = "default") {
@@ -17,6 +19,9 @@ export function saveStoryQuestProgress(progressScopeKey = "default", progress = 
   if (typeof window === "undefined") return;
   try {
     window.localStorage.setItem(storyQuestProgressStorageKey(progressScopeKey), JSON.stringify(progress));
+    Object.entries(progress || {}).forEach(([questId, payload]) => {
+      queueProgressSave("story_quests", questId, { v: 1, ...payload }, { scopeKey: progressScopeKey });
+    });
   } catch {
     // Story Quest progress is helpful report context, but it should never block reading.
   }

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from "react";
+import { Suspense, useState } from "react";
 import { loadCvcProgress, saveCvcProgress } from "../../../utils/cvcProgress";
 import { loadPhonicsProgress, savePhonicsProgress } from "../../../utils/phonicsProgress";
 import { PhonicsAlphabetPicker } from "./PhonicsAlphabetPicker";
@@ -6,8 +6,9 @@ import { CvcLearningFlow } from "./cvc/CvcLearningFlow";
 import { useCvcSoundCue } from "./cvc/cvcHelpers";
 import { WorkshopFamilyPicker } from "./cvc/WorkshopFamilyPicker";
 import { PhonicsLearningFlow } from "./PhonicsLearningFlow";
+import { lazyWithRetry } from "../../../utils/lazyWithRetry";
 
-const GameArcadeHub = lazy(() => import("../games/GameArcadeHub").then(module => ({
+const GameArcadeHub = lazyWithRetry(() => import("../games/GameArcadeHub").then(module => ({
   default: module.GameArcadeHub
 })));
 

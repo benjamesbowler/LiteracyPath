@@ -36,7 +36,7 @@ create policy "App admins can update schools"
 
 create or replace function public.find_or_create_school(p_name text)
 returns table (id uuid, name text)
-language plpgsql security definer set search_path = public
+language plpgsql security definer set search_path = public, extensions
 as $$
 declare
   v_clean text := btrim(coalesce(p_name, ''));
@@ -220,7 +220,7 @@ $$;
 
 create or replace function public.student_set_password(p_student_id uuid, p_sequence text)
 returns json
-language plpgsql security definer set search_path = public
+language plpgsql security definer set search_path = public, extensions
 as $$
 declare
   v_student public.students;
@@ -258,7 +258,7 @@ $$;
 
 create or replace function public.student_login(p_student_id uuid, p_sequence text)
 returns json
-language plpgsql security definer set search_path = public
+language plpgsql security definer set search_path = public, extensions
 as $$
 declare
   v_student public.students;
@@ -328,7 +328,7 @@ create or replace function public.student_save_progress(
   p_token text, p_area text, p_key text, p_payload jsonb
 )
 returns json
-language plpgsql security definer set search_path = public
+language plpgsql security definer set search_path = public, extensions
 as $$
 declare
   v_student public.students;
@@ -354,7 +354,7 @@ create or replace function public.student_log_activity(
   p_token text, p_area text, p_item_id text, p_event text, p_payload jsonb default null
 )
 returns json
-language plpgsql security definer set search_path = public
+language plpgsql security definer set search_path = public, extensions
 as $$
 declare
   v_student public.students;

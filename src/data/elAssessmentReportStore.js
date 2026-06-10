@@ -220,6 +220,62 @@ function buildPatternDetailRows(records = [], students = [], classes = []) {
     .sort((a, b) => a.studentName.localeCompare(b.studentName) || a.pattern.localeCompare(b.pattern));
 }
 
+function buildGuidedReadingExportSection(records = {}) {
+  const bookRows = Object.entries(records || {}).map(([bookId, record = {}]) => {
+    const pages = Object.values(record.pages || {});
+    const correctWords = [];
+    const supportWords = [];
+    const notes = [];
+    let correct = 0;
+    let support = 0;
+
+    pages.forEach((page = {}, index) => {
+      if (page.note) notes.push(`Page ${index + 1}: ${page.note}`);
+      Object.entries(page.wordMarks || {}).forEach(([wordIndex, mark]) => {
+        const word = page.words?.[wordIndex] || page.wordTexts?.[wordIndex] || "";
+        if (!word) return;
+        if (mark === "correct") {
+          correct += 1;
+          correctWords.push(String(word).toLowerCase());
+        }
+        if (mark === "support") {
+          support += 1;
+          supportWords.push(String(word).toLowerCase());
+        }
+      });
+    });
+    if (record.wholeBookNote) notes.unshift(`Book: ${record.wholeBookNote}`);
+    const attempted = correct + support;
+    const latestAccuracy = attempted ? Math.round((correct / attempted) * 100) : 0;
+    return {
+      bookId,
+      title: record.title || bookId,
+      level: record.level || "",
+      type: record.type || "",
+      readCount: Number(record.readCount || (record.completed ? 1 : 0)),
+      latestAccuracy,
+      lastReadAt: record.lastReadAt || record.completedAt || record.updatedAt || "",
+      correctWords: uniq(correctWords).slice(0, 30),
+      supportWords: uniq(supportWords).slice(0, 30),
+      notes
+    };
+  }).filter(row =>
+    row.readCount ||
+    row.correctWords.length ||
+    row.supportWords.length ||
+    row.notes.length ||
+    row.lastReadAt
+  );
+
+  const totalAttempts = bookRows.reduce((sum, row) => sum + row.latestAccuracy, 0);
+  return {
+    bookRows,
+    totalBooks: bookRows.length,
+    averageAccuracy: bookRows.length ? Math.round(totalAttempts / bookRows.length) : 0,
+    totalRereads: bookRows.reduce((sum, row) => sum + Math.max(0, Number(row.readCount || 0) - 1), 0)
+  };
+}
+
 function buildAdvancedPhonicsSummary(records = []) {
   const advancedRecords = records.filter(isAdvancedPhonicsRecord)
     .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt));
@@ -281,27 +337,35 @@ function buildAttemptRows(records = []) {
       attemptId: record.attemptId,
       date: record.completedAt,
       skill: record.skillName,
-      level: `L${record.skillLevel || 1} P${record.skillPhase || 1}`,
+      level: record.skillLevel || 1,
+      phase: record.skillPhase || 1,
       questions: record.totalQuestions,
       correct: record.correctCount,
       accuracy: record.accuracy,
+      passed: Boolean(record.passed || record.status === "mastered"),
       status: record.status || (record.passed ? "mastered" : "needs_retry"),
+      itemsMastered: record.masteredItems || [],
       itemsCovered: record.itemKeysCovered || [],
-      missedItems: record.missedItems || []
+      missedItems: record.missedItems || [],
+      notes: record.passed ? "Checkpoint passed." : "Needs more evidence."
     }));
 }
 
 function buildProgressRows(records = []) {
   const sorted = records.slice().sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
   const mastered = new Set();
-  return sorted.map(record => {
+  return sorted.map((record, index) => {
     if (record.passed || record.status === "mastered") mastered.add(record.skillName);
+    const recent = sorted.slice(Math.max(0, index - 4), index + 1);
     return {
       date: record.completedAt,
       skill: record.skillName,
       accuracy: record.accuracy,
+      rollingAverage: average(recent.map(item => item.accuracy)),
       masteredSkillCount: mastered.size,
-      level: `L${record.skillLevel || 1} P${record.skillPhase || 1}`,
+      level: record.skillLevel || 1,
+      phase: record.skillPhase || 1,
+      checkpointPassed: Boolean(record.passed || record.status === "mastered"),
       notes: record.passed ? "Mastered or passed" : "Needs more evidence"
     };
   });
@@ -386,6 +450,7 @@ export function buildStudentElAssessmentReportData({
   studentId = "",
   classId = "",
   teacherId = "",
+  guidedReadingRecords = {},
   previousReports = []
 } = {}) {
   const allRecords = normalizeRecords(assessmentHistory);
@@ -429,6 +494,7 @@ export function buildStudentElAssessmentReportData({
     advancedPhonics,
     patternDetailRows: advancedPhonics.patternRows,
     formalAssessments,
+    guidedReading: buildGuidedReadingExportSection(guidedReadingRecords),
     fileName: `el-assessment-student-${slugify(studentName)}-${formatDate(generatedAt)}.xlsx`,
     schemaVersion: EL_REPORT_SCHEMA_VERSION
   };

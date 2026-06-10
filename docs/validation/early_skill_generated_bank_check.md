@@ -1,6 +1,6 @@
 # Early Skill Generated Bank Check
 
-Generated: 2026-06-08T06:27:51.748Z
+Generated: 2026-06-10T05:41:51.686Z
 
 ## Generated File Counts
 
@@ -65,7 +65,7 @@ Generated: 2026-06-08T06:27:51.748Z
 ## Final Sounds
 
 - Skill ID: final_sounds
-- Runtime/generated items checked: 461
+- Runtime/generated items checked: 462
 - Minimum expected: 200
 - Required targets: b, d, g, l, m, n, p, t, sh, th, ll, ng, nd, nk, st, sk, ft, lt
 - Covered targets: d, g, k, l, m, n, p, r, s, t, b, sh, ck, ng, nd, nt, mp, rk, sk, ll, f, th, nk, st, ft, lt
@@ -77,7 +77,7 @@ Generated: 2026-06-08T06:27:51.748Z
 
 | Template | Count |
 | --- | ---: |
-| ENDING_SOUND | 293 |
+| ENDING_SOUND | 294 |
 | ENDING_SOUND_WORD_MATCH | 88 |
 | FINAL_SOUND_PAIR_SELECT | 74 |
 | multiple_choice | 6 |
@@ -94,7 +94,7 @@ Generated: 2026-06-08T06:27:51.748Z
 | ft | 8 |
 | g | 40 |
 | k | 9 |
-| l | 21 |
+| l | 22 |
 | ll | 27 |
 | lt | 4 |
 | m | 19 |
@@ -117,7 +117,7 @@ Generated: 2026-06-08T06:27:51.748Z
 ## CVC Short Vowels
 
 - Skill ID: cvc_short_vowels
-- Runtime/generated items checked: 410
+- Runtime/generated items checked: 412
 - Minimum expected: 250
 - Required targets: short_a, short_e, short_i, short_o, short_u
 - Covered targets: bag, bat, bed, cap, cat, cup, dog, dot, fin, hat, jam, leg, log, man, map, mud, mug, nap, pen, pig, pot, ram, red, sit, sun, wig, lid, short_a, short_e, short_i, short_o, short_u, pan, pin, web, jet, fish, sock, duck, fox, bug
@@ -131,7 +131,7 @@ Generated: 2026-06-08T06:27:51.748Z
 | --- | ---: |
 | COMPLETE_WORD | 15 |
 | HEARD_WORD_TO_PRINT_MINIMAL_PAIR | 54 |
-| MISSING_VOWEL_CVC | 114 |
+| MISSING_VOWEL_CVC | 116 |
 | PICTURE_TO_PRINT_MATCH | 102 |
 | PUT_SOUNDS_IN_ORDER | 29 |
 | SHORT_VOWEL_WORD | 96 |
@@ -172,7 +172,7 @@ Generated: 2026-06-08T06:27:51.748Z
 | pot | 2 |
 | ram | 2 |
 | red | 1 |
-| short_a | 101 |
+| short_a | 103 |
 | short_e | 41 |
 | short_i | 68 |
 | short_o | 38 |

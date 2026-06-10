@@ -310,7 +310,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
   const workbook = new ExcelJS.Workbook();
   const data = buildGuidedReadingCompletionWorkbookData(options);
 
-  workbook.creator = "LiteracyPath";
+  workbook.creator = "Literacy Guide";
   workbook.created = new Date();
 
   const summarySheet = workbook.addWorksheet(GUIDED_READING_COMPLETION_SHEETS.summary);

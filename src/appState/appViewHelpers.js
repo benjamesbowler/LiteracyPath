@@ -8,6 +8,7 @@ const FOCUSED_ASSESSMENT_VIEWS = new Set([
 ]);
 
 const PRIMARY_SHELL_VIEWS = new Set([
+  APP_VIEWS.SELECT,
   APP_VIEWS.ADMIN_DASHBOARD,
   APP_VIEWS.TEACHER_DASHBOARD,
   APP_VIEWS.LEARN,
@@ -15,20 +16,22 @@ const PRIMARY_SHELL_VIEWS = new Set([
   APP_VIEWS.SKILLS,
   APP_VIEWS.EL_ASSESSMENTS,
   APP_VIEWS.GUIDED_READING,
-  APP_VIEWS.REPORTS,
-  APP_VIEWS.TOOLS
+  APP_VIEWS.PHONICS_LEARN,
+  APP_VIEWS.REPORTS
 ]);
 
 const FOOTER_HIDDEN_VIEWS = new Set([
+  APP_VIEWS.SELECT,
   APP_VIEWS.OVERVIEW,
   APP_VIEWS.SKILLS,
   APP_VIEWS.EL_ASSESSMENTS,
   APP_VIEWS.GUIDED_READING,
+  APP_VIEWS.PHONICS_LEARN,
   APP_VIEWS.REPORTS,
-  APP_VIEWS.TOOLS,
   APP_VIEWS.ADMIN_DASHBOARD,
   APP_VIEWS.TEACHER_DASHBOARD,
-  APP_VIEWS.LEARN
+  APP_VIEWS.LEARN,
+  APP_VIEWS.FINISHED
 ]);
 
 export function isFocusedAssessmentView(appView) {
@@ -44,9 +47,12 @@ export function shouldShowFooterUtilityActions({ appView, isFocusedAssessment = 
 }
 
 export function getRestoredAppView({ restoredStudentId, storedAppView } = {}) {
-  return restoredStudentId ? storedAppView || APP_VIEWS.OVERVIEW : APP_VIEWS.SELECT;
+  if (!restoredStudentId) return APP_VIEWS.SELECT;
+  if (storedAppView === "tools") return APP_VIEWS.OVERVIEW;
+  return Object.values(APP_VIEWS).includes(storedAppView) ? storedAppView : APP_VIEWS.OVERVIEW;
 }
 
 export function getPersistedAppView({ studentId, appView } = {}) {
-  return studentId ? appView : APP_VIEWS.SELECT;
+  if (!studentId) return APP_VIEWS.SELECT;
+  return Object.values(APP_VIEWS).includes(appView) ? appView : APP_VIEWS.OVERVIEW;
 }

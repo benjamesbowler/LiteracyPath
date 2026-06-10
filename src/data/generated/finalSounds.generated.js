@@ -4818,8 +4818,8 @@ export const finalSoundsGeneratedQuestions = [
     "imageUrl": "/media/vocabulary/images/sip.webp",
     "imagePath": "/media/vocabulary/images/sip.webp",
     "audioKey": "sip",
-    "audioUrl": "/audio/child-mode/clean-human/phrases/sip.mp3",
-    "audioPath": "/audio/child-mode/clean-human/phrases/sip.mp3",
+    "audioUrl": "/media/vocabulary/audio/sip.mp3",
+    "audioPath": "/media/vocabulary/audio/sip.mp3",
     "phonicsPattern": "p",
     "targetSound": "p",
     "targetFinalSound": "p",
@@ -5038,8 +5038,8 @@ export const finalSoundsGeneratedQuestions = [
     "imageUrl": "/images/child-mode/short-i/zip.png",
     "imagePath": "/images/child-mode/short-i/zip.png",
     "audioKey": "zip",
-    "audioUrl": "/audio/vocabulary/zip.mp3",
-    "audioPath": "/audio/vocabulary/zip.mp3",
+    "audioUrl": "/audio/child-mode/clean-human/words/zip.mp3",
+    "audioPath": "/audio/child-mode/clean-human/words/zip.mp3",
     "phonicsPattern": "p",
     "targetSound": "p",
     "targetFinalSound": "p",
@@ -6235,14 +6235,14 @@ export const finalSoundsGeneratedQuestions = [
     "choices": [
       "ash",
       "above",
-      "accordion",
-      "acorn"
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "ash",
       "above",
-      "accordion",
-      "acorn"
+      "beachball",
+      "chicken"
     ],
     "imageKey": "ash",
     "imageUrl": "/media/vocabulary/images/ash.webp",
@@ -6344,15 +6344,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "brush",
     "choices": [
       "brush",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beachball",
+      "bib"
     ],
     "answerOptions": [
       "brush",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beachball",
+      "bib"
     ],
     "imageKey": "brush",
     "imageUrl": "/images/child-mode/initial-sounds/brush.png",
@@ -6399,15 +6399,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "cash",
     "choices": [
       "cash",
-      "above",
-      "accordion",
-      "acorn"
+      "cab",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "cash",
-      "above",
-      "accordion",
-      "acorn"
+      "cab",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "cash",
     "imageUrl": "/media/vocabulary/images/cash.webp",
@@ -6509,15 +6509,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "dish",
     "choices": [
       "dish",
-      "above",
-      "accordion",
-      "acorn"
+      "dab",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "dish",
-      "above",
-      "accordion",
-      "acorn"
+      "dab",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "dish",
     "imageUrl": "/images/child-mode/initial-sounds/dish.png",
@@ -6619,15 +6619,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "fish",
     "choices": [
       "fish",
-      "above",
-      "accordion",
-      "acorn"
+      "factory",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "fish",
-      "above",
-      "accordion",
-      "acorn"
+      "factory",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "fish",
     "imageUrl": "/images/child-mode/cvc/fish.png",
@@ -6729,15 +6729,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "goldfish",
     "choices": [
       "goldfish",
-      "above",
-      "accordion",
-      "acorn"
+      "gain",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "goldfish",
-      "above",
-      "accordion",
-      "acorn"
+      "gain",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "goldfish",
     "imageUrl": "/media/initial-sounds/images/g/goldfish.webp",
@@ -6839,15 +6839,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "hairbrush",
     "choices": [
       "hairbrush",
-      "above",
-      "accordion",
-      "acorn"
+      "hairpin",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "hairbrush",
-      "above",
-      "accordion",
-      "acorn"
+      "hairpin",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "hairbrush",
     "imageUrl": "/media/initial-sounds/images/h/hairbrush.webp",
@@ -6949,15 +6949,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "jellyfish",
     "choices": [
       "jellyfish",
-      "above",
-      "accordion",
-      "acorn"
+      "jacket",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "jellyfish",
-      "above",
-      "accordion",
-      "acorn"
+      "jacket",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "jellyfish",
     "imageUrl": "/media/initial-sounds/images/j/jellyfish.webp",
@@ -7059,15 +7059,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "leash",
     "choices": [
       "leash",
-      "above",
-      "accordion",
-      "acorn"
+      "lab",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "leash",
-      "above",
-      "accordion",
-      "acorn"
+      "lab",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "leash",
     "imageUrl": "/media/vocabulary/images/leash.webp",
@@ -7169,15 +7169,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "paintbrush",
     "choices": [
       "paintbrush",
-      "above",
-      "accordion",
-      "acorn"
+      "pad",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "paintbrush",
-      "above",
-      "accordion",
-      "acorn"
+      "pad",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "paintbrush",
     "imageUrl": "/media/initial-sounds/images/p/paintbrush.webp",
@@ -7279,15 +7279,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "push",
     "choices": [
       "push",
-      "above",
-      "accordion",
-      "acorn"
+      "pad",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "push",
-      "above",
-      "accordion",
-      "acorn"
+      "pad",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "push",
     "imageUrl": "/media/vocabulary/images/push.webp",
@@ -7389,15 +7389,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "toothbrush",
     "choices": [
       "toothbrush",
-      "above",
-      "accordion",
-      "acorn"
+      "tab",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "toothbrush",
-      "above",
-      "accordion",
-      "acorn"
+      "tab",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "toothbrush",
     "imageUrl": "/media/initial-sounds/images/t/toothbrush.webp",
@@ -7499,15 +7499,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "trash",
     "choices": [
       "trash",
-      "above",
-      "accordion",
-      "acorn"
+      "tab",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "trash",
-      "above",
-      "accordion",
-      "acorn"
+      "tab",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "trash",
     "imageUrl": "/media/vocabulary/images/trash.webp",
@@ -7609,15 +7609,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "wash",
     "choices": [
       "wash",
-      "above",
-      "accordion",
-      "acorn"
+      "waffle",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "wash",
-      "above",
-      "accordion",
-      "acorn"
+      "waffle",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "wash",
     "imageUrl": "/media/vocabulary/images/wash.webp",
@@ -7719,15 +7719,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "booth",
     "choices": [
       "booth",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beachball",
+      "bib"
     ],
     "answerOptions": [
       "booth",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beachball",
+      "bib"
     ],
     "imageKey": "booth",
     "imageUrl": "/media/vocabulary/images/booth.webp",
@@ -7829,15 +7829,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "moth",
     "choices": [
       "moth",
-      "above",
-      "accordion",
-      "acorn"
+      "macaroni",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "moth",
-      "above",
-      "accordion",
-      "acorn"
+      "macaroni",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "moth",
     "imageUrl": "/media/vocabulary/images/moth.webp",
@@ -7939,15 +7939,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "path",
     "choices": [
       "path",
-      "above",
-      "accordion",
-      "acorn"
+      "pad",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "path",
-      "above",
-      "accordion",
-      "acorn"
+      "pad",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "path",
     "imageUrl": "/media/vocabulary/images/path.webp",
@@ -8049,15 +8049,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "sloth",
     "choices": [
       "sloth",
-      "above",
-      "accordion",
-      "acorn"
+      "sack",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "sloth",
-      "above",
-      "accordion",
-      "acorn"
+      "sack",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "sloth",
     "imageUrl": "/media/vocabulary/images/sloth.webp",
@@ -8159,15 +8159,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "teeth",
     "choices": [
       "teeth",
-      "above",
-      "accordion",
-      "acorn"
+      "tab",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "teeth",
-      "above",
-      "accordion",
-      "acorn"
+      "tab",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "teeth",
     "imageUrl": "/media/vocabulary/images/teeth.webp",
@@ -8269,15 +8269,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "tooth",
     "choices": [
       "tooth",
-      "above",
-      "accordion",
-      "acorn"
+      "tab",
+      "beachball",
+      "chicken"
     ],
     "answerOptions": [
       "tooth",
-      "above",
-      "accordion",
-      "acorn"
+      "tab",
+      "beachball",
+      "chicken"
     ],
     "imageKey": "tooth",
     "imageUrl": "/media/initial-sounds/images/t/tooth.webp",
@@ -8379,15 +8379,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "baseball",
     "choices": [
       "baseball",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "answerOptions": [
       "baseball",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "imageKey": "baseball",
     "imageUrl": "/media/initial-sounds/images/b/baseball.webp",
@@ -8489,15 +8489,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "basketball",
     "choices": [
       "basketball",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "answerOptions": [
       "basketball",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "imageKey": "basketball",
     "imageUrl": "/media/vocabulary/images/basketball.webp",
@@ -8599,15 +8599,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "beachball",
     "choices": [
       "beachball",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "answerOptions": [
       "beachball",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "imageKey": "beachball",
     "imageUrl": "/media/vocabulary/images/beachball.webp",
@@ -8709,15 +8709,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "bell",
     "choices": [
       "bell",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "answerOptions": [
       "bell",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "imageKey": "bell",
     "imageUrl": "/images/child-mode/initial-sounds/bell.png",
@@ -8819,15 +8819,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "bull",
     "choices": [
       "bull",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "answerOptions": [
       "bull",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "imageKey": "bull",
     "imageUrl": "/media/vocabulary/images/bull.webp",
@@ -8929,15 +8929,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "cowbell",
     "choices": [
       "cowbell",
-      "above",
-      "accordion",
-      "acorn"
+      "cab",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "cowbell",
-      "above",
-      "accordion",
-      "acorn"
+      "cab",
+      "beach",
+      "chicken"
     ],
     "imageKey": "cowbell",
     "imageUrl": "/media/vocabulary/images/cowbell.webp",
@@ -9039,15 +9039,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "doll",
     "choices": [
       "doll",
-      "above",
-      "accordion",
-      "acorn"
+      "dab",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "doll",
-      "above",
-      "accordion",
-      "acorn"
+      "dab",
+      "beach",
+      "chicken"
     ],
     "imageKey": "doll",
     "imageUrl": "/media/initial-sounds/images/d/doll.webp",
@@ -9149,15 +9149,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "drill",
     "choices": [
       "drill",
-      "above",
-      "accordion",
-      "acorn"
+      "dab",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "drill",
-      "above",
-      "accordion",
-      "acorn"
+      "dab",
+      "beach",
+      "chicken"
     ],
     "imageKey": "drill",
     "imageUrl": "/media/vocabulary/images/drill.webp",
@@ -9259,15 +9259,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "eggshell",
     "choices": [
       "eggshell",
+      "eagle",
       "above",
-      "accordion",
-      "acorn"
+      "bib"
     ],
     "answerOptions": [
       "eggshell",
+      "eagle",
       "above",
-      "accordion",
-      "acorn"
+      "bib"
     ],
     "imageKey": "eggshell",
     "imageUrl": "/media/vocabulary/images/eggshell.webp",
@@ -9314,15 +9314,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "fall",
     "choices": [
       "fall",
-      "above",
-      "accordion",
-      "acorn"
+      "factory",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "fall",
-      "above",
-      "accordion",
-      "acorn"
+      "factory",
+      "beach",
+      "chicken"
     ],
     "imageKey": "fall",
     "imageUrl": "/media/vocabulary/images/fall.webp",
@@ -9369,15 +9369,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "fell",
     "choices": [
       "fell",
-      "above",
-      "accordion",
-      "acorn"
+      "factory",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "fell",
-      "above",
-      "accordion",
-      "acorn"
+      "factory",
+      "beach",
+      "chicken"
     ],
     "imageKey": "fell",
     "imageUrl": "/media/vocabulary/images/fell.webp",
@@ -9479,15 +9479,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "football",
     "choices": [
       "football",
-      "above",
-      "accordion",
-      "acorn"
+      "factory",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "football",
-      "above",
-      "accordion",
-      "acorn"
+      "factory",
+      "beach",
+      "chicken"
     ],
     "imageKey": "football",
     "imageUrl": "/media/initial-sounds/images/f/football.webp",
@@ -9589,15 +9589,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "full",
     "choices": [
       "full",
-      "above",
-      "accordion",
-      "acorn"
+      "factory",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "full",
-      "above",
-      "accordion",
-      "acorn"
+      "factory",
+      "beach",
+      "chicken"
     ],
     "imageKey": "full",
     "imageUrl": "/media/vocabulary/images/full.webp",
@@ -9699,15 +9699,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "grill",
     "choices": [
       "grill",
-      "above",
-      "accordion",
-      "acorn"
+      "gain",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "grill",
-      "above",
-      "accordion",
-      "acorn"
+      "gain",
+      "beach",
+      "chicken"
     ],
     "imageKey": "grill",
     "imageUrl": "/media/vocabulary/images/grill.webp",
@@ -9754,15 +9754,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "bang",
     "choices": [
       "bang",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "answerOptions": [
       "bang",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "imageKey": "bang",
     "imageUrl": "/media/learn/images/cycle-23/bang.png",
@@ -9864,15 +9864,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "building",
     "choices": [
       "building",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "answerOptions": [
       "building",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "imageKey": "building",
     "imageUrl": "/media/initial-sounds/images/b/building.webp",
@@ -9974,15 +9974,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "earring",
     "choices": [
       "earring",
+      "eagle",
       "above",
-      "accordion",
-      "acorn"
+      "bib"
     ],
     "answerOptions": [
       "earring",
+      "eagle",
       "above",
-      "accordion",
-      "acorn"
+      "bib"
     ],
     "imageKey": "earring",
     "imageUrl": "/media/vocabulary/images/earring.webp",
@@ -10029,15 +10029,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "gong",
     "choices": [
       "gong",
-      "above",
-      "accordion",
-      "acorn"
+      "gain",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "gong",
-      "above",
-      "accordion",
-      "acorn"
+      "gain",
+      "beach",
+      "chicken"
     ],
     "imageKey": "gong",
     "imageUrl": "/media/learn/images/cycle-23/gong.png",
@@ -10084,15 +10084,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "hang",
     "choices": [
       "hang",
-      "above",
-      "accordion",
-      "acorn"
+      "hairbrush",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "hang",
-      "above",
-      "accordion",
-      "acorn"
+      "hairbrush",
+      "beach",
+      "chicken"
     ],
     "imageKey": "hang",
     "imageUrl": "/media/learn/images/cycle-23/hang.png",
@@ -10194,15 +10194,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "king",
     "choices": [
       "king",
-      "above",
-      "accordion",
-      "acorn"
+      "kangaroo",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "king",
-      "above",
-      "accordion",
-      "acorn"
+      "kangaroo",
+      "beach",
+      "chicken"
     ],
     "imageKey": "king",
     "imageUrl": "/images/child-mode/initial-sounds/king.png",
@@ -10304,15 +10304,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "long",
     "choices": [
       "long",
-      "above",
-      "accordion",
-      "acorn"
+      "lab",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "long",
-      "above",
-      "accordion",
-      "acorn"
+      "lab",
+      "beach",
+      "chicken"
     ],
     "imageKey": "long",
     "imageUrl": "/media/vocabulary/images/long.webp",
@@ -10359,15 +10359,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "rang",
     "choices": [
       "rang",
-      "above",
-      "accordion",
-      "acorn"
+      "rabbit",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "rang",
-      "above",
-      "accordion",
-      "acorn"
+      "rabbit",
+      "beach",
+      "chicken"
     ],
     "imageKey": "rang",
     "imageUrl": "/media/learn/images/cycle-23/rang.png",
@@ -10469,15 +10469,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "ring",
     "choices": [
       "ring",
-      "above",
-      "accordion",
-      "acorn"
+      "rabbit",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "ring",
-      "above",
-      "accordion",
-      "acorn"
+      "rabbit",
+      "beach",
+      "chicken"
     ],
     "imageKey": "ring",
     "imageUrl": "/images/child-mode/initial-sounds/ring.png",
@@ -10524,15 +10524,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "song",
     "choices": [
       "song",
-      "above",
-      "accordion",
-      "acorn"
+      "sack",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "song",
-      "above",
-      "accordion",
-      "acorn"
+      "sack",
+      "beach",
+      "chicken"
     ],
     "imageKey": "song",
     "imageUrl": "/media/learn/images/cycle-23/song.png",
@@ -10634,15 +10634,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "spring",
     "choices": [
       "spring",
-      "above",
-      "accordion",
-      "acorn"
+      "sack",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "spring",
-      "above",
-      "accordion",
-      "acorn"
+      "sack",
+      "beach",
+      "chicken"
     ],
     "imageKey": "spring",
     "imageUrl": "/media/vocabulary/images/spring.webp",
@@ -10744,15 +10744,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "swing",
     "choices": [
       "swing",
-      "above",
-      "accordion",
-      "acorn"
+      "sack",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "swing",
-      "above",
-      "accordion",
-      "acorn"
+      "sack",
+      "beach",
+      "chicken"
     ],
     "imageKey": "swing",
     "imageUrl": "/media/vocabulary/images/swing.webp",
@@ -10854,15 +10854,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "unpacking",
     "choices": [
       "unpacking",
+      "ukulele",
       "above",
-      "accordion",
-      "acorn"
+      "beach"
     ],
     "answerOptions": [
       "unpacking",
+      "ukulele",
       "above",
-      "accordion",
-      "acorn"
+      "beach"
     ],
     "imageKey": "unpacking",
     "imageUrl": "/media/initial-sounds/images/u/unpacking.webp",
@@ -10964,15 +10964,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "wing",
     "choices": [
       "wing",
-      "above",
-      "accordion",
-      "acorn"
+      "waffle",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "wing",
-      "above",
-      "accordion",
-      "acorn"
+      "waffle",
+      "beach",
+      "chicken"
     ],
     "imageKey": "wing",
     "imageUrl": "/media/vocabulary/images/wing.webp",
@@ -11075,14 +11075,14 @@ export const finalSoundsGeneratedQuestions = [
     "choices": [
       "almond",
       "above",
-      "accordion",
-      "acorn"
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "almond",
       "above",
-      "accordion",
-      "acorn"
+      "beach",
+      "chicken"
     ],
     "imageKey": "almond",
     "imageUrl": "/media/vocabulary/images/almond.webp",
@@ -11185,14 +11185,14 @@ export const finalSoundsGeneratedQuestions = [
     "choices": [
       "around",
       "above",
-      "accordion",
-      "acorn"
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "around",
       "above",
-      "accordion",
-      "acorn"
+      "beach",
+      "chicken"
     ],
     "imageKey": "around",
     "imageUrl": "/media/vocabulary/images/around.webp",
@@ -11294,15 +11294,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "behind",
     "choices": [
       "behind",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "answerOptions": [
       "behind",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "imageKey": "behind",
     "imageUrl": "/media/vocabulary/images/behind.webp",
@@ -11404,15 +11404,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "bend",
     "choices": [
       "bend",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "answerOptions": [
       "bend",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "imageKey": "bend",
     "imageUrl": "/media/vocabulary/images/bend.webp",
@@ -11514,15 +11514,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "bookend",
     "choices": [
       "bookend",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "answerOptions": [
       "bookend",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "imageKey": "bookend",
     "imageUrl": "/media/vocabulary/images/bookend.webp",
@@ -11624,15 +11624,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "diamond",
     "choices": [
       "diamond",
-      "above",
-      "accordion",
-      "acorn"
+      "dab",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "diamond",
-      "above",
-      "accordion",
-      "acorn"
+      "dab",
+      "beach",
+      "chicken"
     ],
     "imageKey": "diamond",
     "imageUrl": "/media/initial-sounds/images/d/diamond.webp",
@@ -11734,15 +11734,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "hand",
     "choices": [
       "hand",
-      "above",
-      "accordion",
-      "acorn"
+      "hairbrush",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "hand",
-      "above",
-      "accordion",
-      "acorn"
+      "hairbrush",
+      "beach",
+      "chicken"
     ],
     "imageKey": "hand",
     "imageUrl": "/images/child-mode/initial-sounds/hand.png",
@@ -11844,15 +11844,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "island",
     "choices": [
       "island",
+      "ice",
       "above",
-      "accordion",
-      "acorn"
+      "beach"
     ],
     "answerOptions": [
       "island",
+      "ice",
       "above",
-      "accordion",
-      "acorn"
+      "beach"
     ],
     "imageKey": "island",
     "imageUrl": "/media/initial-sounds/images/i/island.webp",
@@ -11954,15 +11954,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "nightstand",
     "choices": [
       "nightstand",
-      "above",
-      "accordion",
-      "acorn"
+      "nail",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "nightstand",
-      "above",
-      "accordion",
-      "acorn"
+      "nail",
+      "beach",
+      "chicken"
     ],
     "imageKey": "nightstand",
     "imageUrl": "/media/vocabulary/images/nightstand.webp",
@@ -12064,15 +12064,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "playground",
     "choices": [
       "playground",
-      "above",
-      "accordion",
-      "acorn"
+      "pail",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "playground",
-      "above",
-      "accordion",
-      "acorn"
+      "pail",
+      "beach",
+      "chicken"
     ],
     "imageKey": "playground",
     "imageUrl": "/media/initial-sounds/images/p/playground.webp",
@@ -12174,15 +12174,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "pond",
     "choices": [
       "pond",
-      "above",
-      "accordion",
-      "acorn"
+      "pail",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "pond",
-      "above",
-      "accordion",
-      "acorn"
+      "pail",
+      "beach",
+      "chicken"
     ],
     "imageKey": "pond",
     "imageUrl": "/media/initial-sounds/images/p/pond.webp",
@@ -12284,15 +12284,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "quicksand",
     "choices": [
       "quicksand",
+      "quail",
       "above",
-      "accordion",
-      "acorn"
+      "beach"
     ],
     "answerOptions": [
       "quicksand",
+      "quail",
       "above",
-      "accordion",
-      "acorn"
+      "beach"
     ],
     "imageKey": "quicksand",
     "imageUrl": "/media/initial-sounds/images/q/quicksand.webp",
@@ -12394,15 +12394,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "round",
     "choices": [
       "round",
-      "above",
-      "accordion",
-      "acorn"
+      "rabbit",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "round",
-      "above",
-      "accordion",
-      "acorn"
+      "rabbit",
+      "beach",
+      "chicken"
     ],
     "imageKey": "round",
     "imageUrl": "/media/vocabulary/images/round.webp",
@@ -12504,15 +12504,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "sand",
     "choices": [
       "sand",
-      "above",
-      "accordion",
-      "acorn"
+      "sack",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "sand",
-      "above",
-      "accordion",
-      "acorn"
+      "sack",
+      "beach",
+      "chicken"
     ],
     "imageKey": "sand",
     "imageUrl": "/media/initial-sounds/images/s/sand.webp",
@@ -12614,15 +12614,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "stand",
     "choices": [
       "stand",
-      "above",
-      "accordion",
-      "acorn"
+      "sack",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "stand",
-      "above",
-      "accordion",
-      "acorn"
+      "sack",
+      "beach",
+      "chicken"
     ],
     "imageKey": "stand",
     "imageUrl": "/media/vocabulary/images/stand.webp",
@@ -12724,15 +12724,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "underground",
     "choices": [
       "underground",
+      "ukulele",
       "above",
-      "accordion",
-      "acorn"
+      "beach"
     ],
     "answerOptions": [
       "underground",
+      "ukulele",
       "above",
-      "accordion",
-      "acorn"
+      "beach"
     ],
     "imageKey": "underground",
     "imageUrl": "/media/initial-sounds/images/u/underground.webp",
@@ -12779,15 +12779,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "bank",
     "choices": [
       "bank",
-      "above",
-      "accordion",
-      "acorn"
+      "closed",
+      "beach",
+      "bib"
     ],
     "answerOptions": [
       "bank",
-      "above",
-      "accordion",
-      "acorn"
+      "closed",
+      "beach",
+      "bib"
     ],
     "imageKey": "bank",
     "imageUrl": "/media/vocabulary/images/bank.webp",
@@ -12889,15 +12889,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "drink",
     "choices": [
       "drink",
-      "above",
-      "accordion",
-      "acorn"
+      "dab",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "drink",
-      "above",
-      "accordion",
-      "acorn"
+      "dab",
+      "beach",
+      "chicken"
     ],
     "imageKey": "drink",
     "imageUrl": "/media/vocabulary/images/drink.webp",
@@ -12999,15 +12999,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "ink",
     "choices": [
       "ink",
+      "ice",
       "above",
-      "accordion",
-      "acorn"
+      "beach"
     ],
     "answerOptions": [
       "ink",
+      "ice",
       "above",
-      "accordion",
-      "acorn"
+      "beach"
     ],
     "imageKey": "ink",
     "imageUrl": "/images/child-mode/initial-sounds/ink.png",
@@ -13054,15 +13054,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "pink",
     "choices": [
       "pink",
-      "above",
-      "accordion",
-      "acorn"
+      "pad",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "pink",
-      "above",
-      "accordion",
-      "acorn"
+      "pad",
+      "beach",
+      "chicken"
     ],
     "imageKey": "pink",
     "imageUrl": "/media/vocabulary/images/pink.webp",
@@ -13109,15 +13109,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "sink",
     "choices": [
       "sink",
-      "above",
-      "accordion",
-      "acorn"
+      "sad",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "sink",
-      "above",
-      "accordion",
-      "acorn"
+      "sad",
+      "beach",
+      "chicken"
     ],
     "imageKey": "sink",
     "imageUrl": "/media/vocabulary/images/sink.webp",
@@ -13219,15 +13219,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "chest",
     "choices": [
       "chest",
-      "above",
-      "accordion",
-      "acorn"
+      "cab",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "chest",
-      "above",
-      "accordion",
-      "acorn"
+      "cab",
+      "beach",
+      "chicken"
     ],
     "imageKey": "chest",
     "imageUrl": "/media/vocabulary/images/chest.webp",
@@ -13329,15 +13329,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "dust",
     "choices": [
       "dust",
-      "above",
-      "accordion",
-      "acorn"
+      "dab",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "dust",
-      "above",
-      "accordion",
-      "acorn"
+      "dab",
+      "beach",
+      "chicken"
     ],
     "imageKey": "dust",
     "imageUrl": "/media/vocabulary/images/dust.webp",
@@ -13439,15 +13439,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "fast",
     "choices": [
       "fast",
-      "above",
-      "accordion",
-      "acorn"
+      "factory",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "fast",
-      "above",
-      "accordion",
-      "acorn"
+      "factory",
+      "beach",
+      "chicken"
     ],
     "imageKey": "fast",
     "imageUrl": "/media/vocabulary/images/fast.webp",
@@ -13549,15 +13549,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "forest",
     "choices": [
       "forest",
-      "above",
-      "accordion",
-      "acorn"
+      "factory",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "forest",
-      "above",
-      "accordion",
-      "acorn"
+      "factory",
+      "beach",
+      "chicken"
     ],
     "imageKey": "forest",
     "imageUrl": "/media/vocabulary/images/forest.webp",
@@ -13659,15 +13659,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "frost",
     "choices": [
       "frost",
-      "above",
-      "accordion",
-      "acorn"
+      "factory",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "frost",
-      "above",
-      "accordion",
-      "acorn"
+      "factory",
+      "beach",
+      "chicken"
     ],
     "imageKey": "frost",
     "imageUrl": "/media/vocabulary/images/frost.webp",
@@ -13769,15 +13769,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "goalpost",
     "choices": [
       "goalpost",
-      "above",
-      "accordion",
-      "acorn"
+      "gain",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "goalpost",
-      "above",
-      "accordion",
-      "acorn"
+      "gain",
+      "beach",
+      "chicken"
     ],
     "imageKey": "goalpost",
     "imageUrl": "/media/initial-sounds/images/g/goalpost.webp",
@@ -13879,15 +13879,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "nest",
     "choices": [
       "nest",
-      "above",
-      "accordion",
-      "acorn"
+      "nail",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "nest",
-      "above",
-      "accordion",
-      "acorn"
+      "nail",
+      "beach",
+      "chicken"
     ],
     "imageKey": "nest",
     "imageUrl": "/media/initial-sounds/images/n/nest.webp",
@@ -13989,15 +13989,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "vest",
     "choices": [
       "vest",
-      "above",
-      "accordion",
-      "acorn"
+      "vacation",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "vest",
-      "above",
-      "accordion",
-      "acorn"
+      "vacation",
+      "beach",
+      "chicken"
     ],
     "imageKey": "vest",
     "imageUrl": "/images/child-mode/initial-sounds/vest.png",
@@ -14099,15 +14099,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "violinist",
     "choices": [
       "violinist",
-      "above",
-      "accordion",
-      "acorn"
+      "vacation",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "violinist",
-      "above",
-      "accordion",
-      "acorn"
+      "vacation",
+      "beach",
+      "chicken"
     ],
     "imageKey": "violinist",
     "imageUrl": "/media/initial-sounds/images/v/violinist.webp",
@@ -14209,15 +14209,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "desk",
     "choices": [
       "desk",
-      "above",
-      "accordion",
-      "acorn"
+      "dab",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "desk",
-      "above",
-      "accordion",
-      "acorn"
+      "dab",
+      "beach",
+      "chicken"
     ],
     "imageKey": "desk",
     "imageUrl": "/images/child-mode/initial-sounds/desk.png",
@@ -14319,15 +14319,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "kiosk",
     "choices": [
       "kiosk",
-      "above",
-      "accordion",
-      "acorn"
+      "kangaroo",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "kiosk",
-      "above",
-      "accordion",
-      "acorn"
+      "kangaroo",
+      "beach",
+      "chicken"
     ],
     "imageKey": "kiosk",
     "imageUrl": "/media/initial-sounds/images/k/kiosk.webp",
@@ -14429,15 +14429,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "mask",
     "choices": [
       "mask",
-      "above",
-      "accordion",
-      "acorn"
+      "macaroni",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "mask",
-      "above",
-      "accordion",
-      "acorn"
+      "macaroni",
+      "beach",
+      "chicken"
     ],
     "imageKey": "mask",
     "imageUrl": "/media/vocabulary/images/mask.webp",
@@ -14539,15 +14539,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "whisk",
     "choices": [
       "whisk",
-      "above",
-      "accordion",
-      "acorn"
+      "waffle",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "whisk",
-      "above",
-      "accordion",
-      "acorn"
+      "waffle",
+      "beach",
+      "chicken"
     ],
     "imageKey": "whisk",
     "imageUrl": "/media/vocabulary/images/whisk.webp",
@@ -14649,15 +14649,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "gift",
     "choices": [
       "gift",
-      "above",
-      "accordion",
-      "acorn"
+      "gain",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "gift",
-      "above",
-      "accordion",
-      "acorn"
+      "gain",
+      "beach",
+      "chicken"
     ],
     "imageKey": "gift",
     "imageUrl": "/media/initial-sounds/images/g/gift.webp",
@@ -14759,15 +14759,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "lift",
     "choices": [
       "lift",
-      "above",
-      "accordion",
-      "acorn"
+      "lab",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "lift",
-      "above",
-      "accordion",
-      "acorn"
+      "lab",
+      "beach",
+      "chicken"
     ],
     "imageKey": "lift",
     "imageUrl": "/media/vocabulary/images/lift.webp",
@@ -14869,15 +14869,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "raft",
     "choices": [
       "raft",
-      "above",
-      "accordion",
-      "acorn"
+      "raccoon",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "raft",
-      "above",
-      "accordion",
-      "acorn"
+      "raccoon",
+      "beach",
+      "chicken"
     ],
     "imageKey": "raft",
     "imageUrl": "/media/vocabulary/images/raft.webp",
@@ -14979,15 +14979,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "soft",
     "choices": [
       "soft",
-      "above",
-      "accordion",
-      "acorn"
+      "sack",
+      "beach",
+      "chicken"
     ],
     "answerOptions": [
       "soft",
-      "above",
-      "accordion",
-      "acorn"
+      "sack",
+      "beach",
+      "chicken"
     ],
     "imageKey": "soft",
     "imageUrl": "/media/vocabulary/images/soft.webp",
@@ -15089,15 +15089,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "belt",
     "choices": [
       "belt",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "answerOptions": [
       "belt",
-      "above",
-      "accordion",
-      "acorn"
+      "clock",
+      "beach",
+      "bib"
     ],
     "imageKey": "belt",
     "imageUrl": "/media/vocabulary/images/belt.webp",
@@ -15199,15 +15199,15 @@ export const finalSoundsGeneratedQuestions = [
     "answer": "quilt",
     "choices": [
       "quilt",
+      "quail",
       "above",
-      "accordion",
-      "acorn"
+      "beach"
     ],
     "answerOptions": [
       "quilt",
+      "quail",
       "above",
-      "accordion",
-      "acorn"
+      "beach"
     ],
     "imageKey": "quilt",
     "imageUrl": "/images/child-mode/initial-sounds/quilt.png",

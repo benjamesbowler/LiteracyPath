@@ -128,7 +128,7 @@ export const firstTenSkillTopUpQuestions = [
       "clapping",
       "blow",
       "blur",
-      "brag"
+      "flew"
     ],
     "answerOptions": [
       {
@@ -144,8 +144,8 @@ export const firstTenSkillTopUpQuestions = [
         "label": "blur"
       },
       {
-        "value": "brag",
-        "label": "brag"
+        "value": "flew",
+        "label": "flew"
       }
     ],
     "imageCards": [
@@ -177,13 +177,13 @@ export const firstTenSkillTopUpQuestions = [
         "alt": "Picture for blur"
       },
       {
-        "id": "blend_topup_card_brag",
-        "word": "brag",
-        "value": "brag",
-        "image": "/media/vocabulary/images/brag.webp",
-        "imagePath": "/media/vocabulary/images/brag.webp",
-        "imageUrl": "/media/vocabulary/images/brag.webp",
-        "alt": "Picture for brag"
+        "id": "blend_topup_card_flew",
+        "word": "flew",
+        "value": "flew",
+        "image": "/media/vocabulary/images/flew.webp",
+        "imagePath": "/media/vocabulary/images/flew.webp",
+        "imageUrl": "/media/vocabulary/images/flew.webp",
+        "alt": "Picture for flew"
       }
     ],
     "correctAnswer": "clapping",
@@ -228,7 +228,7 @@ export const firstTenSkillTopUpQuestions = [
       "flew",
       "brain",
       "bran",
-      "brand"
+      "clapping"
     ],
     "answerOptions": [
       {
@@ -244,8 +244,8 @@ export const firstTenSkillTopUpQuestions = [
         "label": "bran"
       },
       {
-        "value": "brand",
-        "label": "brand"
+        "value": "clapping",
+        "label": "clapping"
       }
     ],
     "imageCards": [
@@ -277,13 +277,13 @@ export const firstTenSkillTopUpQuestions = [
         "alt": "Picture for bran"
       },
       {
-        "id": "blend_topup_card_brand",
-        "word": "brand",
-        "value": "brand",
-        "image": "/media/vocabulary/images/brand.webp",
-        "imagePath": "/media/vocabulary/images/brand.webp",
-        "imageUrl": "/media/vocabulary/images/brand.webp",
-        "alt": "Picture for brand"
+        "id": "blend_topup_card_clapping",
+        "word": "clapping",
+        "value": "clapping",
+        "image": "/media/vocabulary/images/clapping.webp",
+        "imagePath": "/media/vocabulary/images/clapping.webp",
+        "imageUrl": "/media/vocabulary/images/clapping.webp",
+        "alt": "Picture for clapping"
       }
     ],
     "correctAnswer": "flew",
@@ -328,7 +328,7 @@ export const firstTenSkillTopUpQuestions = [
       "glad",
       "brat",
       "brave",
-      "breeze"
+      "clapping"
     ],
     "answerOptions": [
       {
@@ -344,8 +344,8 @@ export const firstTenSkillTopUpQuestions = [
         "label": "brave"
       },
       {
-        "value": "breeze",
-        "label": "breeze"
+        "value": "clapping",
+        "label": "clapping"
       }
     ],
     "imageCards": [
@@ -377,13 +377,13 @@ export const firstTenSkillTopUpQuestions = [
         "alt": "Picture for brave"
       },
       {
-        "id": "blend_topup_card_breeze",
-        "word": "breeze",
-        "value": "breeze",
-        "image": "/media/vocabulary/images/breeze.webp",
-        "imagePath": "/media/vocabulary/images/breeze.webp",
-        "imageUrl": "/media/vocabulary/images/breeze.webp",
-        "alt": "Picture for breeze"
+        "id": "blend_topup_card_clapping",
+        "word": "clapping",
+        "value": "clapping",
+        "image": "/media/vocabulary/images/clapping.webp",
+        "imagePath": "/media/vocabulary/images/clapping.webp",
+        "imageUrl": "/media/vocabulary/images/clapping.webp",
+        "alt": "Picture for clapping"
       }
     ],
     "correctAnswer": "glad",
@@ -428,7 +428,7 @@ export const firstTenSkillTopUpQuestions = [
       "plain",
       "brief",
       "brighter",
-      "bring"
+      "clapping"
     ],
     "answerOptions": [
       {
@@ -444,8 +444,8 @@ export const firstTenSkillTopUpQuestions = [
         "label": "brighter"
       },
       {
-        "value": "bring",
-        "label": "bring"
+        "value": "clapping",
+        "label": "clapping"
       }
     ],
     "imageCards": [
@@ -477,13 +477,13 @@ export const firstTenSkillTopUpQuestions = [
         "alt": "Picture for brighter"
       },
       {
-        "id": "blend_topup_card_bring",
-        "word": "bring",
-        "value": "bring",
-        "image": "/media/vocabulary/images/bring.webp",
-        "imagePath": "/media/vocabulary/images/bring.webp",
-        "imageUrl": "/media/vocabulary/images/bring.webp",
-        "alt": "Picture for bring"
+        "id": "blend_topup_card_clapping",
+        "word": "clapping",
+        "value": "clapping",
+        "image": "/media/vocabulary/images/clapping.webp",
+        "imagePath": "/media/vocabulary/images/clapping.webp",
+        "imageUrl": "/media/vocabulary/images/clapping.webp",
+        "alt": "Picture for clapping"
       }
     ],
     "correctAnswer": "plain",
@@ -528,7 +528,7 @@ export const firstTenSkillTopUpQuestions = [
       "slam",
       "broke",
       "brother",
-      "brute"
+      "clapping"
     ],
     "answerOptions": [
       {
@@ -544,8 +544,8 @@ export const firstTenSkillTopUpQuestions = [
         "label": "brother"
       },
       {
-        "value": "brute",
-        "label": "brute"
+        "value": "clapping",
+        "label": "clapping"
       }
     ],
     "imageCards": [
@@ -577,13 +577,13 @@ export const firstTenSkillTopUpQuestions = [
         "alt": "Picture for brother"
       },
       {
-        "id": "blend_topup_card_brute",
-        "word": "brute",
-        "value": "brute",
-        "image": "/media/vocabulary/images/brute.webp",
-        "imagePath": "/media/vocabulary/images/brute.webp",
-        "imageUrl": "/media/vocabulary/images/brute.webp",
-        "alt": "Picture for brute"
+        "id": "blend_topup_card_clapping",
+        "word": "clapping",
+        "value": "clapping",
+        "image": "/media/vocabulary/images/clapping.webp",
+        "imagePath": "/media/vocabulary/images/clapping.webp",
+        "imageUrl": "/media/vocabulary/images/clapping.webp",
+        "alt": "Picture for clapping"
       }
     ],
     "correctAnswer": "slam",
@@ -628,7 +628,7 @@ export const firstTenSkillTopUpQuestions = [
       "brag",
       "crazy",
       "cream",
-      "crew"
+      "blend"
     ],
     "answerOptions": [
       {
@@ -644,8 +644,8 @@ export const firstTenSkillTopUpQuestions = [
         "label": "cream"
       },
       {
-        "value": "crew",
-        "label": "crew"
+        "value": "blend",
+        "label": "blend"
       }
     ],
     "imageCards": [
@@ -677,13 +677,13 @@ export const firstTenSkillTopUpQuestions = [
         "alt": "Picture for cream"
       },
       {
-        "id": "blend_topup_card_crew",
-        "word": "crew",
-        "value": "crew",
-        "image": "/media/vocabulary/images/crew.webp",
-        "imagePath": "/media/vocabulary/images/crew.webp",
-        "imageUrl": "/media/vocabulary/images/crew.webp",
-        "alt": "Picture for crew"
+        "id": "blend_topup_card_blend",
+        "word": "blend",
+        "value": "blend",
+        "image": "/media/vocabulary/images/blend.webp",
+        "imagePath": "/media/vocabulary/images/blend.webp",
+        "imageUrl": "/media/vocabulary/images/blend.webp",
+        "alt": "Picture for blend"
       }
     ],
     "correctAnswer": "brag",
@@ -828,7 +828,7 @@ export const firstTenSkillTopUpQuestions = [
       "drag",
       "close",
       "clown",
-      "clue"
+      "blend"
     ],
     "answerOptions": [
       {
@@ -844,8 +844,8 @@ export const firstTenSkillTopUpQuestions = [
         "label": "clown"
       },
       {
-        "value": "clue",
-        "label": "clue"
+        "value": "blend",
+        "label": "blend"
       }
     ],
     "imageCards": [
@@ -877,13 +877,13 @@ export const firstTenSkillTopUpQuestions = [
         "alt": "Picture for clown"
       },
       {
-        "id": "blend_topup_card_clue",
-        "word": "clue",
-        "value": "clue",
-        "image": "/media/vocabulary/images/clue.webp",
-        "imagePath": "/media/vocabulary/images/clue.webp",
-        "imageUrl": "/media/vocabulary/images/clue.webp",
-        "alt": "Picture for clue"
+        "id": "blend_topup_card_blend",
+        "word": "blend",
+        "value": "blend",
+        "image": "/media/vocabulary/images/blend.webp",
+        "imagePath": "/media/vocabulary/images/blend.webp",
+        "imageUrl": "/media/vocabulary/images/blend.webp",
+        "alt": "Picture for blend"
       }
     ],
     "correctAnswer": "drag",
@@ -928,7 +928,7 @@ export const firstTenSkillTopUpQuestions = [
       "free",
       "crack",
       "craft",
-      "cram"
+      "blend"
     ],
     "answerOptions": [
       {
@@ -944,8 +944,8 @@ export const firstTenSkillTopUpQuestions = [
         "label": "craft"
       },
       {
-        "value": "cram",
-        "label": "cram"
+        "value": "blend",
+        "label": "blend"
       }
     ],
     "imageCards": [
@@ -977,13 +977,13 @@ export const firstTenSkillTopUpQuestions = [
         "alt": "Picture for craft"
       },
       {
-        "id": "blend_topup_card_cram",
-        "word": "cram",
-        "value": "cram",
-        "image": "/media/vocabulary/images/cram.webp",
-        "imagePath": "/media/vocabulary/images/cram.webp",
-        "imageUrl": "/media/vocabulary/images/cram.webp",
-        "alt": "Picture for cram"
+        "id": "blend_topup_card_blend",
+        "word": "blend",
+        "value": "blend",
+        "image": "/media/vocabulary/images/blend.webp",
+        "imagePath": "/media/vocabulary/images/blend.webp",
+        "imageUrl": "/media/vocabulary/images/blend.webp",
+        "alt": "Picture for blend"
       }
     ],
     "correctAnswer": "free",
@@ -1028,7 +1028,7 @@ export const firstTenSkillTopUpQuestions = [
       "grabbing",
       "crash",
       "crazy",
-      "cream"
+      "blend"
     ],
     "answerOptions": [
       {
@@ -1044,8 +1044,8 @@ export const firstTenSkillTopUpQuestions = [
         "label": "crazy"
       },
       {
-        "value": "cream",
-        "label": "cream"
+        "value": "blend",
+        "label": "blend"
       }
     ],
     "imageCards": [
@@ -1077,13 +1077,13 @@ export const firstTenSkillTopUpQuestions = [
         "alt": "Picture for crazy"
       },
       {
-        "id": "blend_topup_card_cream",
-        "word": "cream",
-        "value": "cream",
-        "image": "/media/vocabulary/images/cream.webp",
-        "imagePath": "/media/vocabulary/images/cream.webp",
-        "imageUrl": "/media/vocabulary/images/cream.webp",
-        "alt": "Picture for cream"
+        "id": "blend_topup_card_blend",
+        "word": "blend",
+        "value": "blend",
+        "image": "/media/vocabulary/images/blend.webp",
+        "imagePath": "/media/vocabulary/images/blend.webp",
+        "imageUrl": "/media/vocabulary/images/blend.webp",
+        "alt": "Picture for blend"
       }
     ],
     "correctAnswer": "grabbing",
@@ -1128,7 +1128,7 @@ export const firstTenSkillTopUpQuestions = [
       "pram",
       "crew",
       "cried",
-      "crisp"
+      "blend"
     ],
     "answerOptions": [
       {
@@ -1144,8 +1144,8 @@ export const firstTenSkillTopUpQuestions = [
         "label": "cried"
       },
       {
-        "value": "crisp",
-        "label": "crisp"
+        "value": "blend",
+        "label": "blend"
       }
     ],
     "imageCards": [
@@ -1177,13 +1177,13 @@ export const firstTenSkillTopUpQuestions = [
         "alt": "Picture for cried"
       },
       {
-        "id": "blend_topup_card_crisp",
-        "word": "crisp",
-        "value": "crisp",
-        "image": "/media/vocabulary/images/crisp.webp",
-        "imagePath": "/media/vocabulary/images/crisp.webp",
-        "imageUrl": "/media/vocabulary/images/crisp.webp",
-        "alt": "Picture for crisp"
+        "id": "blend_topup_card_blend",
+        "word": "blend",
+        "value": "blend",
+        "image": "/media/vocabulary/images/blend.webp",
+        "imagePath": "/media/vocabulary/images/blend.webp",
+        "imageUrl": "/media/vocabulary/images/blend.webp",
+        "alt": "Picture for blend"
       }
     ],
     "correctAnswer": "pram",
@@ -1328,7 +1328,7 @@ export const firstTenSkillTopUpQuestions = [
       "scare",
       "dream",
       "drew",
-      "drive"
+      "blend"
     ],
     "answerOptions": [
       {
@@ -1344,8 +1344,8 @@ export const firstTenSkillTopUpQuestions = [
         "label": "drew"
       },
       {
-        "value": "drive",
-        "label": "drive"
+        "value": "blend",
+        "label": "blend"
       }
     ],
     "imageCards": [
@@ -1377,13 +1377,13 @@ export const firstTenSkillTopUpQuestions = [
         "alt": "Picture for drew"
       },
       {
-        "id": "blend_topup_card_drive",
-        "word": "drive",
-        "value": "drive",
-        "image": "/media/vocabulary/images/drive.webp",
-        "imagePath": "/media/vocabulary/images/drive.webp",
-        "imageUrl": "/media/vocabulary/images/drive.webp",
-        "alt": "Picture for drive"
+        "id": "blend_topup_card_blend",
+        "word": "blend",
+        "value": "blend",
+        "image": "/media/vocabulary/images/blend.webp",
+        "imagePath": "/media/vocabulary/images/blend.webp",
+        "imageUrl": "/media/vocabulary/images/blend.webp",
+        "alt": "Picture for blend"
       }
     ],
     "correctAnswer": "scare",
@@ -1528,7 +1528,7 @@ export const firstTenSkillTopUpQuestions = [
       "snack",
       "flight",
       "float",
-      "flow"
+      "blend"
     ],
     "answerOptions": [
       {
@@ -1544,8 +1544,8 @@ export const firstTenSkillTopUpQuestions = [
         "label": "float"
       },
       {
-        "value": "flow",
-        "label": "flow"
+        "value": "blend",
+        "label": "blend"
       }
     ],
     "imageCards": [
@@ -1577,13 +1577,13 @@ export const firstTenSkillTopUpQuestions = [
         "alt": "Picture for float"
       },
       {
-        "id": "blend_topup_card_flow",
-        "word": "flow",
-        "value": "flow",
-        "image": "/media/vocabulary/images/flow.webp",
-        "imagePath": "/media/vocabulary/images/flow.webp",
-        "imageUrl": "/media/vocabulary/images/flow.webp",
-        "alt": "Picture for flow"
+        "id": "blend_topup_card_blend",
+        "word": "blend",
+        "value": "blend",
+        "image": "/media/vocabulary/images/blend.webp",
+        "imagePath": "/media/vocabulary/images/blend.webp",
+        "imageUrl": "/media/vocabulary/images/blend.webp",
+        "alt": "Picture for blend"
       }
     ],
     "correctAnswer": "snack",
@@ -1628,7 +1628,7 @@ export const firstTenSkillTopUpQuestions = [
       "smaller",
       "free",
       "freeze",
-      "friend"
+      "blend"
     ],
     "answerOptions": [
       {
@@ -1644,8 +1644,8 @@ export const firstTenSkillTopUpQuestions = [
         "label": "freeze"
       },
       {
-        "value": "friend",
-        "label": "friend"
+        "value": "blend",
+        "label": "blend"
       }
     ],
     "imageCards": [
@@ -1677,13 +1677,13 @@ export const firstTenSkillTopUpQuestions = [
         "alt": "Picture for freeze"
       },
       {
-        "id": "blend_topup_card_friend",
-        "word": "friend",
-        "value": "friend",
-        "image": "/media/vocabulary/images/friend.webp",
-        "imagePath": "/media/vocabulary/images/friend.webp",
-        "imageUrl": "/media/vocabulary/images/friend.webp",
-        "alt": "Picture for friend"
+        "id": "blend_topup_card_blend",
+        "word": "blend",
+        "value": "blend",
+        "image": "/media/vocabulary/images/blend.webp",
+        "imagePath": "/media/vocabulary/images/blend.webp",
+        "imageUrl": "/media/vocabulary/images/blend.webp",
+        "alt": "Picture for blend"
       }
     ],
     "correctAnswer": "smaller",
@@ -1828,7 +1828,7 @@ export const firstTenSkillTopUpQuestions = [
       "stair",
       "glow",
       "glum",
-      "grabbing"
+      "blend"
     ],
     "answerOptions": [
       {
@@ -1844,8 +1844,8 @@ export const firstTenSkillTopUpQuestions = [
         "label": "glum"
       },
       {
-        "value": "grabbing",
-        "label": "grabbing"
+        "value": "blend",
+        "label": "blend"
       }
     ],
     "imageCards": [
@@ -1877,13 +1877,13 @@ export const firstTenSkillTopUpQuestions = [
         "alt": "Picture for glum"
       },
       {
-        "id": "blend_topup_card_grabbing",
-        "word": "grabbing",
-        "value": "grabbing",
-        "image": "/media/vocabulary/images/grabbing.webp",
-        "imagePath": "/media/vocabulary/images/grabbing.webp",
-        "imageUrl": "/media/vocabulary/images/grabbing.webp",
-        "alt": "Picture for grabbing"
+        "id": "blend_topup_card_blend",
+        "word": "blend",
+        "value": "blend",
+        "image": "/media/vocabulary/images/blend.webp",
+        "imagePath": "/media/vocabulary/images/blend.webp",
+        "imageUrl": "/media/vocabulary/images/blend.webp",
+        "alt": "Picture for blend"
       }
     ],
     "correctAnswer": "stair",
@@ -1928,7 +1928,7 @@ export const firstTenSkillTopUpQuestions = [
       "sweet",
       "grade",
       "gram",
-      "grand"
+      "blend"
     ],
     "answerOptions": [
       {
@@ -1944,8 +1944,8 @@ export const firstTenSkillTopUpQuestions = [
         "label": "gram"
       },
       {
-        "value": "grand",
-        "label": "grand"
+        "value": "blend",
+        "label": "blend"
       }
     ],
     "imageCards": [
@@ -1977,13 +1977,13 @@ export const firstTenSkillTopUpQuestions = [
         "alt": "Picture for gram"
       },
       {
-        "id": "blend_topup_card_grand",
-        "word": "grand",
-        "value": "grand",
-        "image": "/media/vocabulary/images/grand.webp",
-        "imagePath": "/media/vocabulary/images/grand.webp",
-        "imageUrl": "/media/vocabulary/images/grand.webp",
-        "alt": "Picture for grand"
+        "id": "blend_topup_card_blend",
+        "word": "blend",
+        "value": "blend",
+        "image": "/media/vocabulary/images/blend.webp",
+        "imagePath": "/media/vocabulary/images/blend.webp",
+        "imageUrl": "/media/vocabulary/images/blend.webp",
+        "alt": "Picture for blend"
       }
     ],
     "correctAnswer": "sweet",

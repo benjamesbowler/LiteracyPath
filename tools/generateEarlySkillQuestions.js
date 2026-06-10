@@ -152,6 +152,26 @@ function wordRime(word = "") {
   return index === -1 ? value.slice(1) : value.slice(index);
 }
 
+function wordOnset(word = "") {
+  return String(word || "").toLowerCase().replace(/[^a-z]/g, "").slice(0, 1);
+}
+
+function hasOddOneOutOnsetGiveaway(correct, distractors = []) {
+  if (!correct || distractors.length < 3) return false;
+  const correctOnset = wordOnset(correct);
+  const distractorOnsets = distractors.map(wordOnset).filter(Boolean);
+  return Boolean(
+    correctOnset &&
+    distractorOnsets.length === 3 &&
+    new Set(distractorOnsets).size === 1 &&
+    distractorOnsets[0] !== correctOnset
+  );
+}
+
+function hasEnoughDistractorOnsetVariety(distractors = []) {
+  return new Set(distractors.map(wordOnset).filter(Boolean)).size >= 2;
+}
+
 function hasChildWordImage(word = "") {
   const asset = getChildWordAsset(word);
   return Boolean(asset?.image || asset?.fallbackImage);
@@ -180,8 +200,34 @@ function scoreDistractorWord(word, selected, correct, options = {}) {
   if (options.preferDifferentVowel && vowel !== firstVowel(correct)) score += 8;
   if (options.preferSameVowel && vowel === firstVowel(correct)) score += 14;
   if (options.requireImage && hasChildWordImage(word)) score += 5;
+  if (options.preferCorrectOnsetDistractor && initial && initial === wordOnset(correct)) score += 20;
+  if (options.preferTargetOnsetDistractor && initial && initial === wordOnset(options.targetWord)) score += 16;
 
   return score;
+}
+
+function repairOnsetGiveaway(correct, selected, candidates, options = {}) {
+  let repaired = [...selected];
+  const available = candidates.filter(word => word !== correct && !repaired.includes(word));
+
+  const needsRepair = () =>
+    hasOddOneOutOnsetGiveaway(correct, repaired) ||
+    (repaired.length >= 3 && !hasEnoughDistractorOnsetVariety(repaired));
+
+  if (!needsRepair()) return repaired;
+
+  const replacement = available
+    .filter(word => {
+      const trial = [word, ...repaired.slice(1)];
+      return !hasOddOneOutOnsetGiveaway(correct, trial) && hasEnoughDistractorOnsetVariety(trial);
+    })
+    .sort((a, b) =>
+      scoreDistractorWord(b, repaired, correct, options) -
+      scoreDistractorWord(a, repaired, correct, options)
+    )[0];
+
+  if (replacement) repaired = [replacement, ...repaired.slice(1)];
+  return repaired;
 }
 
 function balancedWordOptions(correct, pool, options = {}) {
@@ -203,7 +249,10 @@ function balancedWordOptions(correct, pool, options = {}) {
     selected.push(next);
   }
 
-  return unique([correct, ...selected]).slice(0, count);
+  const repaired = count === 4
+    ? repairOnsetGiveaway(correct, selected, candidates, options)
+    : selected;
+  return unique([correct, ...repaired]).slice(0, count);
 }
 
 function balancedCvcOptions(entry, poolEntries, options = {}) {
@@ -219,6 +268,8 @@ function balancedRhymeOptions(correct, distractorPool, options = {}) {
   const rotated = byRotatingIndex(distractorPool, options.seed || 0);
   const correctFamily = getRhymeGroup(correct);
   const correctTail = String(correct || "").slice(-2);
+  const correctOnset = wordOnset(correct);
+  const targetOnset = wordOnset(options.targetWord);
   const safeDistractor = word => {
     if (!word || word === correct) return false;
     const family = getRhymeGroup(word);
@@ -226,27 +277,51 @@ function balancedRhymeOptions(correct, distractorPool, options = {}) {
     if (correctTail && String(word).slice(-2) === correctTail) return false;
     return true;
   };
+  const candidateWords = unique(rotated.filter(safeDistractor));
+  const scoreRhymeDistractor = (word, current = []) => {
+    const onset = wordOnset(word);
+    const currentOnsets = new Set(current.map(wordOnset));
+    const family = getRhymeGroup(word);
+    let score = scoreDistractorWord(word, current, correct, {
+      ...options,
+      preferCorrectOnsetDistractor: true,
+      preferTargetOnsetDistractor: true
+    });
+
+    if (correctOnset && onset === correctOnset && !currentOnsets.has(correctOnset)) score += 60;
+    if (targetOnset && onset === targetOnset && !currentOnsets.has(targetOnset)) score += 48;
+    if (onset && !currentOnsets.has(onset)) score += 18;
+    if (family && !usedFamilies.has(family)) score += 12;
+    return score;
+  };
 
   while (selected.length < 3) {
-    const next = rotated.find(word => {
+    const next = candidateWords
+      .filter(word => {
       if (selected.includes(word)) return false;
       const family = getRhymeGroup(word);
       return safeDistractor(word) && !usedFamilies.has(family);
-    });
+      })
+      .sort((a, b) => scoreRhymeDistractor(b, selected) - scoreRhymeDistractor(a, selected))[0];
     if (!next) break;
     selected.push(next);
     usedFamilies.add(getRhymeGroup(next));
   }
 
   if (selected.length < 3) {
-    for (const word of rotated) {
+    for (const word of candidateWords.sort((a, b) => scoreRhymeDistractor(b, selected) - scoreRhymeDistractor(a, selected))) {
       if (selected.includes(word) || !safeDistractor(word)) continue;
       selected.push(word);
       if (selected.length >= 3) break;
     }
   }
 
-  return unique([correct, ...selected]).slice(0, 4);
+  const repaired = repairOnsetGiveaway(correct, selected, candidateWords, {
+    ...options,
+    preferCorrectOnsetDistractor: true,
+    preferTargetOnsetDistractor: true
+  });
+  return unique([correct, ...repaired]).slice(0, 4);
 }
 
 function makeBase({
@@ -370,7 +445,10 @@ function generateFinalSoundQuestions(entries) {
           .map(item => item.lowercaseWord);
         const soundOptions = optionWords(target, targets.filter(item => item !== target), 4);
         const anchor = finalSoundAnchors[target.at(-1)];
-        const wordOptions = optionWords(entry.lowercaseWord, contrastWords.filter(word => word !== anchor), 4);
+        const wordOptions = balancedWordOptions(entry.lowercaseWord, contrastWords.filter(word => word !== anchor), {
+          seed: index,
+          preferCorrectOnsetDistractor: true
+        });
         if (entry.lowercaseWord === anchor) return;
         const wordMatchPrompt = target.length === 1 && anchor
           ? `Which word ends the same as ${anchor}?`
@@ -649,6 +727,7 @@ function generateRhymingQuestions(entries) {
         const phase = (index + rhymeIndex) % 2 === 0 ? 1 : 2;
         const options = balancedRhymeOptions(rhymeWord, distractorPool, {
           family,
+          targetWord: entry.lowercaseWord,
           seed: familyIndex * 17 + index * 5 + rhymeIndex * 11
         });
         const imageCards = options.map(word => rhymingImageCard(word, rhymeWord));

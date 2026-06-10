@@ -116,6 +116,12 @@ export const childWordAssets = {
     fallbackImage: "/images/objects/book.svg",
     alt: "A book"
   }),
+  bread: wordAsset({
+    word: "bread",
+    image: "/media/vocabulary/images/bread.webp",
+    audio: "/media/vocabulary/audio/bread.mp3",
+    alt: "Bread"
+  }),
   bud: wordAsset({
     word: "bud",
     image: "/images/child-mode/cvc/bud.png",
@@ -147,6 +153,12 @@ export const childWordAssets = {
     fallbackImage: "/images/cvc/cat.svg",
     alt: "A cat"
   }),
+  can: wordAsset({
+    word: "can",
+    image: "/media/vocabulary/images/can.webp",
+    audio: "/media/vocabulary/audio/can.mp3",
+    alt: "A can"
+  }),
   chair: childModeWordAsset({
     word: "chair",
     folder: "digraphs"
@@ -155,6 +167,12 @@ export const childWordAssets = {
     word: "cloud",
     folder: "blends",
     audio: false
+  }),
+  clock: wordAsset({
+    word: "clock",
+    image: "/media/vocabulary/images/clock.webp",
+    audio: "/audio/child-mode/clean-human/words/clock.mp3",
+    alt: "A clock"
   }),
   coat: wordAsset({
     word: "coat",
@@ -188,6 +206,12 @@ export const childWordAssets = {
     audio: "/audio/child-mode/words/dog.mp3",
     fallbackImage: "/images/objects/dog.svg",
     alt: "A dog"
+  }),
+  dress: wordAsset({
+    word: "dress",
+    image: "/media/vocabulary/images/dress.webp",
+    audio: "/media/vocabulary/audio/dress.mp3",
+    alt: "A dress"
   }),
   drum: childModeWordAsset({
     word: "drum",
@@ -224,6 +248,12 @@ export const childWordAssets = {
     word: "fin",
     folder: "short-i"
   }),
+  fig: wordAsset({
+    word: "fig",
+    image: "/media/vocabulary/images/fig.webp",
+    audio: "/media/vocabulary/audio/fig.mp3",
+    alt: "A fig"
+  }),
   fish: wordAsset({
     word: "fish",
     image: "/images/child-mode/cvc/fish.png",
@@ -243,6 +273,18 @@ export const childWordAssets = {
   frog: childModeWordAsset({
     word: "frog",
     folder: "blends"
+  }),
+  fun: wordAsset({
+    word: "fun",
+    image: "/media/vocabulary/images/fun.webp",
+    audio: "/media/vocabulary/audio/fun.mp3",
+    alt: "Children having fun"
+  }),
+  glass: wordAsset({
+    word: "glass",
+    image: "/media/vocabulary/images/glass.webp",
+    audio: "/media/vocabulary/audio/glass.mp3",
+    alt: "A glass"
   }),
   goat: wordAsset({
     word: "goat",
@@ -367,6 +409,12 @@ export const childWordAssets = {
     folder: "minimal-pairs",
     audio: false
   }),
+  plant: wordAsset({
+    word: "plant",
+    image: "/media/vocabulary/images/plant.webp",
+    audio: "/media/vocabulary/audio/plant.mp3",
+    alt: "A plant"
+  }),
   pot: wordAsset({
     word: "pot",
     image: "/images/child-mode/cvc/pot.png",
@@ -397,6 +445,12 @@ export const childWordAssets = {
   shell: childModeWordAsset({
     word: "shell",
     folder: "digraphs"
+  }),
+  shirt: wordAsset({
+    word: "shirt",
+    image: "/media/vocabulary/images/shirt.webp",
+    audio: "/media/vocabulary/audio/shirt.mp3",
+    alt: "A shirt"
   }),
   ship: childModeWordAsset({
     word: "ship",
@@ -429,6 +483,12 @@ export const childWordAssets = {
   star: childModeWordAsset({
     word: "star",
     folder: "blends"
+  }),
+  stamp: wordAsset({
+    word: "stamp",
+    image: "/media/vocabulary/images/stamp.webp",
+    audio: "/audio/child-mode/clean-human/words/stamp.mp3",
+    alt: "A stamp"
   }),
   sun: wordAsset({
     word: "sun",

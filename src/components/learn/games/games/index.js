@@ -1,14 +1,14 @@
-import { lazy } from "react";
+import { lazyWithRetry } from "../../../../utils/lazyWithRetry.js";
 
 export const LEARN_GAMES = {
-  "cvc-word-builder": lazy(() => import("./CVCWordBuilder.jsx")),
-  "sight-word-memory": lazy(() => import("./SightWordMemory.jsx")),
-  "sound-slide": lazy(() => import("./SoundSlide.jsx")),
-  "blend-and-build": lazy(() => import("./BlendAndBuild.jsx")),
-  "rhyme-time": lazy(() => import("./RhymeTime.jsx")),
-  "sight-word-fishing": lazy(() => import("./SightWordFishing.jsx")),
-  "cvc-train": lazy(() => import("./CVCTrain.jsx")),
-  "pop-the-word": lazy(() => import("./PopTheWord.jsx")),
-  "word-hopscotch": lazy(() => import("./WordHopscotch.jsx")),
-  "reading-race": lazy(() => import("./ReadingRace.jsx"))
+  "cvc-word-builder": lazyWithRetry(() => import("./CVCWordBuilder.jsx")),
+  "sight-word-memory": lazyWithRetry(() => import("./SightWordMemory.jsx")),
+  "sound-slide": lazyWithRetry(() => import("./SoundSlide.jsx")),
+  "blend-and-build": lazyWithRetry(() => import("./BlendAndBuild.jsx")),
+  "rhyme-time": lazyWithRetry(() => import("./RhymeTime.jsx")),
+  "sight-word-fishing": lazyWithRetry(() => import("./SightWordFishing.jsx")),
+  "cvc-train": lazyWithRetry(() => import("./CVCTrain.jsx")),
+  "pop-the-word": lazyWithRetry(() => import("./PopTheWord.jsx")),
+  "word-hopscotch": lazyWithRetry(() => import("./WordHopscotch.jsx")),
+  "reading-race": lazyWithRetry(() => import("./ReadingRace.jsx"))
 };

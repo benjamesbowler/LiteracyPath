@@ -1,18 +1,18 @@
 # Assessment Question Integrity Audit
 
-Generated: 2026-06-08T23:21:34.020Z
+Generated: 2026-06-10T06:35:44.345Z
 
 ## Summary
 
-- Active runtime question candidates checked: 7319
+- Active runtime question candidates checked: 7349
 - Active question integrity failures: 0
-- CVC selectable runtime questions checked: 410
+- CVC selectable runtime questions checked: 412
 - CVC selectable runtime failures: 0
-- Short Vowel Discrimination selectable runtime questions checked: 334
+- Short Vowel Discrimination selectable runtime questions checked: 336
 - Short Vowel Discrimination selectable runtime failures: 0
 - HFW spelling panel rows checked: 299
 - HFW spelling panel readiness failures: 0
-- Active candidates blocked by unapproved audio: 270
+- Active candidates blocked by unapproved audio: 272
 - Guided Reading pages marked for replacement / QA failed: 1
 
 ## Active Question Failures

@@ -10,6 +10,7 @@ import {
   loadStoryQuestProgress,
   summarizeStoryQuestProgress
 } from "../utils/storyQuestProgress.js";
+import { importWithRetry } from "../utils/lazyWithRetry.js";
 
 const STATUS_TEXT = {
   on_track: "On Track",
@@ -956,7 +957,7 @@ export function FinishedReportPage({
     if (!hasGuidedReadingRecords) return undefined;
 
     let cancelled = false;
-    import("../data/guidedReadingBooks").then(module => {
+    importWithRetry(() => import("../data/guidedReadingBooks")).then(module => {
       if (!cancelled) {
         setGuidedReadingReportRows(buildGuidedReadingReportRows(guidedReadingRecords, module));
         setGuidedReadingWordRows(module.getGuidedReadingWordStatusRows?.(guidedReadingRecords) || []);

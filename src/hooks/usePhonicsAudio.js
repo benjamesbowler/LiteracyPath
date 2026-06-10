@@ -5,6 +5,7 @@ import { speakWithBrowser } from "../utils/audio/speakWithBrowser.js";
 const soundCache = new Map();
 const failedSources = new Set();
 const GENERATED_PHONEME_PREFIX = "generated:phoneme:";
+const MAX_SOUND_CACHE_ENTRIES = 24;
 
 const generatedVowelFormants = {
   short_a: { f0: 190, formants: [[750, 0.95], [1700, 0.55], [2450, 0.28]] },
@@ -89,13 +90,16 @@ function playGeneratedPhoneme(src, onEnd) {
 
 function getHowl(src) {
   if (soundCache.has(src)) {
-    return soundCache.get(src);
+    const cached = soundCache.get(src);
+    soundCache.delete(src);
+    soundCache.set(src, cached);
+    return cached;
   }
 
   const howl = new Howl({
     src: [src],
     format: ["mp3"],
-    html5: true,
+    html5: isLongAudioSource(src),
     preload: true
   });
 
@@ -103,7 +107,25 @@ function getHowl(src) {
   howl.on("playerror", () => failedSources.add(src));
 
   soundCache.set(src, howl);
+  evictOldestHowlIfNeeded();
   return howl;
+}
+
+function isLongAudioSource(src = "") {
+  return /guided-reading|passage|story|sentence|sentences|instructions/i.test(src);
+}
+
+function evictOldestHowlIfNeeded() {
+  while (soundCache.size > MAX_SOUND_CACHE_ENTRIES) {
+    const [oldestSrc, oldestHowl] = soundCache.entries().next().value || [];
+    if (!oldestSrc) return;
+    soundCache.delete(oldestSrc);
+    try {
+      oldestHowl.unload();
+    } catch {
+      // Eviction should never break playback.
+    }
+  }
 }
 
 export function usePhonicsAudio(src, fallbackText) {
@@ -207,4 +229,8 @@ export function usePhonicsAudio(src, fallbackText) {
 
 export function preloadPhonicsAudio(src) {
   if (src) getHowl(src);
+}
+
+export function getPhonicsAudioCacheSizeForDebug() {
+  return soundCache.size;
 }

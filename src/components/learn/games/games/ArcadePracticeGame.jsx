@@ -1,42 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { CVC_WORDS, RHYMING_PAIRS, SENTENCES, SIGHT_WORDS, WORD_FAMILIES } from "../../../../data/learnGamesData";
+import { getChildWordAsset } from "../../../../data/childAssets";
 import { speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
 import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz, playTrainWhistle } from "../../../../utils/audio/gameSfx";
 import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../shared/ProgressStars.jsx";
-
-const WORD_IMAGES = {
-  cat: "🐱",
-  dog: "🐶",
-  sun: "☀️",
-  hat: "🎩",
-  bat: "🦇",
-  car: "🚗",
-  pen: "✏️",
-  bed: "🛏️",
-  red: "🔴",
-  bus: "🚌",
-  cup: "☕",
-  bug: "🐞",
-  run: "🏃",
-  box: "📦",
-  fox: "🦊",
-  map: "🗺️",
-  lip: "👄",
-  leg: "🦵",
-  pig: "🐷",
-  top: "🔝",
-  fish: "🐟",
-  frog: "🐸",
-  crab: "🦀",
-  tree: "🌳",
-  star: "⭐",
-  flag: "🚩",
-  sock: "🧦",
-  train: "🚂",
-  plant: "🌱",
-  clock: "🕰️"
-};
 
 const DISTRACTOR_LETTERS = "abcdefghijklmnopqrstuvwxyz".split("");
 
@@ -88,11 +56,34 @@ function GameComplete({ title, stars, score, onRestart }) {
   );
 }
 
+function WordImageCard({ word }) {
+  const asset = getChildWordAsset(word, { allowBlockedAssessmentImage: true });
+  const src = asset?.image || asset?.fallbackImage || `/images/cvc/${word}.svg`;
+  if (!src) return null;
+
+  return (
+    <div className="lg-game-picture">
+      <img src={src} alt={asset?.alt || `Picture for ${word}`} loading="lazy" decoding="async" width="120" height="120" />
+    </div>
+  );
+}
+
+function RaceMarker() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 48 28" focusable="false">
+      <path d="M7 20h25c5 0 9-3 11-8l1-3-8 2-7-7H16l-5 7H5c-2 0-4 2-4 4s2 5 6 5Z" />
+      <circle cx="14" cy="21" r="4" />
+      <circle cx="34" cy="21" r="4" />
+    </svg>
+  );
+}
+
 export function ArcadePracticeGame({
   title,
   mode,
   difficulty = "easy",
   onScoreUpdate,
+  onProgressUpdate,
   onComplete,
   isSoundEnabled = true
 }) {
@@ -145,6 +136,15 @@ export function ArcadePracticeGame({
   useEffect(() => {
     onScoreUpdate?.(score);
   }, [onScoreUpdate, score]);
+
+  useEffect(() => {
+    const total = mode === "rhyme"
+      ? gameState.pairTotal
+      : mode === "family"
+        ? gameState.total
+        : totalRounds;
+    onProgressUpdate?.(mode === "rhyme" || mode === "family" ? correct : round + 1, total || 1);
+  }, [correct, gameState.pairTotal, gameState.total, mode, onProgressUpdate, round, totalRounds]);
 
   function addScore(amount, sfx = playCorrectChime) {
     setScore(current => current + amount);
@@ -320,10 +320,9 @@ function BuildGame({ title, variant, state, round, setRound, correct, setCorrect
 
   return (
     <section className={`lg-game-stage lg-game-${variant || "build"}`}>
-      <h2>{title}</h2>
       <p>{variant === "slide" ? "Touch each sound, then blend the word." : variant === "train" ? "Load the train in sound order." : "Build the word you hear."}</p>
       <button type="button" className="lg-game-audio" onClick={() => speakWord(targetWord)}>Hear word</button>
-      <div className="lg-game-picture" aria-hidden="true">{WORD_IMAGES[targetWord] || "🔤"}</div>
+      <WordImageCard word={targetWord} />
       <div className="lg-game-slots" aria-label="Word letters">
         {targetWord.split("").map((letter, index) => (
           <span key={`${letter}-${index}`} className={answer[index] ? "filled" : ""}>
@@ -379,7 +378,6 @@ function MatchGame({ title, mode, state, isSoundEnabled, correct, setCorrect, ad
 
   return (
     <section className="lg-game-stage">
-      <h2>{title}</h2>
       <p>{mode === "memory" ? "Find the matching sight words." : "Find the rhyming words."}</p>
       <div className={`lg-card-grid ${mode === "memory" ? "memory" : "rhyme"}`}>
         {cards.map(card => {
@@ -422,7 +420,6 @@ function FamilyGame({ title, state, isSoundEnabled, correct, setCorrect, addScor
 
   return (
     <section className="lg-game-stage">
-      <h2>{title}</h2>
       <p>Pick a beginning sound to build each word family.</p>
       <div className="lg-family-tabs">
         {state.familyIds.map(familyId => (
@@ -474,7 +471,6 @@ function TargetGame({ title, state, round, setRound, correct, setCorrect, addSco
 
   return (
     <section className="lg-game-stage lg-target-stage">
-      <h2>{title}</h2>
       <p>Listen, then tap the matching word.</p>
       <button type="button" className="lg-game-audio" onClick={() => speakWord(target)}>Hear word</button>
       <div className="lg-floating-options">
@@ -522,7 +518,6 @@ function SentenceGame({ title, state, round, setRound, correct, setCorrect, addS
 
   return (
     <section className="lg-game-stage">
-      <h2>{title}</h2>
       <p>Hop on the next word in the sentence.</p>
       <button type="button" className="lg-game-audio" onClick={() => speak(sentence)}>Hear sentence</button>
       <div className="lg-sentence-path">
@@ -571,10 +566,9 @@ function QuizGame({ title, state, round, setRound, correct, setCorrect, addScore
 
   return (
     <section className="lg-game-stage lg-race-stage">
-      <h2>{title}</h2>
       <p>Read the sentence and choose the focus word.</p>
       <button type="button" className="lg-game-audio" onClick={() => speak(sentence)}>Hear sentence</button>
-      <div className="lg-race-track"><span style={{ width: `${Math.max(8, (correct / totalRounds) * 100)}%` }}>🏎️</span></div>
+      <div className="lg-race-track"><span style={{ width: `${Math.max(8, (correct / totalRounds) * 100)}%` }}><RaceMarker /></span></div>
       <div className="lg-reading-sentence">{sentence}</div>
       <div className="lg-hop-grid">
         {options.map((word, index) => (

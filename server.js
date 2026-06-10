@@ -9,6 +9,15 @@ const app = express();
 
 app.use(cors());
 app.use(express.json({ limit: "10mb" }));
+const mediaCacheOptions = {
+  immutable: false,
+  maxAge: "7d"
+};
+
+app.use("/images", express.static("public/images", mediaCacheOptions));
+app.use("/audio", express.static("public/audio", mediaCacheOptions));
+app.use("/guided-reading", express.static("public/guided-reading", mediaCacheOptions));
+app.use("/media", express.static("public/media", mediaCacheOptions));
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,

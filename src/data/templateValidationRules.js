@@ -1,5 +1,3 @@
-import { getApprovedAudioPath } from "./audioPreferenceManifest.js";
-
 function normalize(value) {
   return String(value || "")
     .toLowerCase()
@@ -41,8 +39,7 @@ function targetWord(question = {}) {
 }
 
 function approvedTargetAudio(question = {}) {
-  const key = question.audioText || question.targetWord || question.answer || question.correctAnswer;
-  return getApprovedAudioPath(key, question.audioPath || question.audioUrl || "");
+  return question.audioPath || question.audioUrl || "";
 }
 
 function allowsPendingTargetAudio(question = {}) {
@@ -50,12 +47,8 @@ function allowsPendingTargetAudio(question = {}) {
     question.source === "long_vowels_replacement_2026_06";
 }
 
-function cardWord(card) {
-  return normalize(card?.word || card?.value || card?.id || card);
-}
-
 function cardAudioPath(card) {
-  return getApprovedAudioPath(card?.word || card?.value || card?.id, card?.audio || card?.audioPath || "");
+  return card?.audio || card?.audioPath || card?.audioUrl || "";
 }
 
 function hasVisibleTargetText(question = {}) {

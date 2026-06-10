@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ocean-teal: #008080;
+    --coral: #FF7F50;
+    --golden: #FFC857;
+    --soft-cream: #FFFDF7;
+    --deep-teal: #005555;
+    --dark-text: #2A1A10;
+    --dark-teal-text: #003333;
+    --light-text: #FFFFFF;
+    --muted-text: #888888;
+    --border-light: #E8E0D0;
+    --overlay-bg: #008080;
+    --success-green: #4CAF50;
+    --error-red: #FF5252;
+    --correct-glow: #A4E5A4;
+    --wrong-glow: #FFB0B0;
+    --blush: #FFF0E0;
+    --mint: #DFFFE0;
+    --lavender: #E8E0FF;
+    --lemon: #FFF9C4;
+    --sky: #D0EFFF;
+    --peach: #FFE4D0;
+    --frost: #E0F5FF;
+    --sage: #E0FFE0;
+    --sands: #FFF3E0;
+    --petal: #FFE0E8;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #FFFDF7;
+    font-family: 'Nunito', sans-serif;
+    color: #2A1A10;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: '"Fredoka One"', cursive;
+  }
+  .font-body {
+    font-family: 'Nunito', sans-serif;
+  }
+}

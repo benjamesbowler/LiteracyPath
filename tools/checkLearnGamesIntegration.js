@@ -1,5 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
+import { CVC_WORDS, RHYMING_PAIRS, WORD_FAMILIES } from "../src/data/learnGamesData.js";
+import { getChildWordAsset } from "../src/data/childAssets.js";
 
 const root = process.cwd();
 const requiredFiles = [
@@ -34,6 +36,11 @@ const forbiddenRuntimeRoots = [
   "src/utils/learnGamesAudio.js",
   "src/utils/learnGamesProgress.js"
 ];
+const allowedLearnGameHexes = new Set([
+  "#E2725B", "#FBEDEA", "#D97706", "#FEF3C7", "#7C5CBF", "#F1EDFA",
+  "#3B82C4", "#EAF2FA", "#2F9E62", "#EAF7F0", "#0F172A", "#475569",
+  "#334155", "#64748B", "#166534", "#CBD5E1", "#FECACA", "#ffffff"
+]);
 
 const missing = requiredFiles.filter(file => !fs.existsSync(path.join(root, file)));
 if (missing.length) {
@@ -42,6 +49,7 @@ if (missing.length) {
 }
 
 const offenders = [];
+const emojiOffenders = [];
 for (const relativePath of forbiddenRuntimeRoots) {
   const absolutePath = path.join(root, relativePath);
   const files = fs.statSync(absolutePath).isDirectory()
@@ -54,6 +62,9 @@ for (const relativePath of forbiddenRuntimeRoots) {
     if (source.includes("Phonics app extension")) {
       offenders.push(path.relative(root, file));
     }
+    if (/[\u{1F300}-\u{1FAFF}]/u.test(source)) {
+      emojiOffenders.push(path.relative(root, file));
+    }
   }
 }
 
@@ -62,4 +73,34 @@ if (offenders.length) {
   process.exit(1);
 }
 
-console.log("Learn Games integration guard passed.");
+if (emojiOffenders.length) {
+  console.error(`Emoji found in Learn Games runtime files:\n${emojiOffenders.map(file => `- ${file}`).join("\n")}`);
+  process.exit(1);
+}
+
+const learnGamesCss = fs.readFileSync(path.join(root, "src/styles/learn-games.css"), "utf8");
+const rawHexes = [...learnGamesCss.matchAll(/#[0-9a-fA-F]{3,8}\b/g)].map(match => match[0]);
+const disallowedHexes = [...new Set(rawHexes.filter(hex => !allowedLearnGameHexes.has(hex)))];
+if (disallowedHexes.length) {
+  console.error(`Disallowed raw hex colors in learn-games.css:\n${disallowedHexes.map(hex => `- ${hex}`).join("\n")}`);
+  process.exit(1);
+}
+
+const gameWords = new Set([
+  ...Object.values(CVC_WORDS).flat(),
+  ...RHYMING_PAIRS.flat(),
+  ...Object.values(WORD_FAMILIES).flat()
+]);
+const missingWordImages = [...gameWords].filter(word => {
+  const asset = getChildWordAsset(word, { allowBlockedAssessmentImage: true });
+  const image = asset?.image || asset?.fallbackImage || `/images/cvc/${word}.svg`;
+  const normalized = image.startsWith("/") ? image.slice(1) : image;
+  return !fs.existsSync(path.join(root, "public", normalized));
+});
+
+if (missingWordImages.length) {
+  console.error(`Learn Games word image coverage missing ${missingWordImages.length} word(s): ${missingWordImages.join(", ")}`);
+  process.exit(1);
+}
+
+console.log(`Learn Games integration guard passed. Word image coverage: ${gameWords.size - missingWordImages.length}/${gameWords.size}.`);

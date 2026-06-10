@@ -72,11 +72,31 @@ export default defineConfig({
             return 'report-export-libs'
           }
           if (
+            id.includes('/src/utils/answerOptions') ||
+            id.includes('/src/utils/assessmentChoiceIntent') ||
+            id.includes('/src/data/hfwAssessmentFormatConfig') ||
+            id.includes('/src/data/highFrequencyWordBands')
+          ) {
+            return 'assessment-shared-utils'
+          }
+          if (
+            id.includes('/src/content/initialSounds/initialSoundWordBank')
+          ) {
+            return 'initial-sound-word-bank'
+          }
+          if (
             id.includes('/src/data/generated/hfwAssessmentQuestions.generated') ||
             id.includes('/src/data/generated/hfwLevel2Questions.generated') ||
             id.includes('/src/data/generated/hfwApprovedQuestionBank.generated')
           ) {
             return 'generated-hfw-banks'
+          }
+          if (
+            id.includes('/src/data/blendPatternData') ||
+            id.includes('/src/data/digraphPatternData') ||
+            id.includes('/src/data/longVowelPatternData')
+          ) {
+            return 'assessment-pattern-data'
           }
           if (
             id.includes('/src/data/generated/earlySkillQuestions.generated') ||
@@ -109,13 +129,6 @@ export default defineConfig({
             id.includes('/src/data/generated/skillWordBank.generated')
           ) {
             return 'generated-word-banks'
-          }
-          if (
-            id.includes('/src/data/assessmentMedia') ||
-            id.includes('/src/data/questionMediaResolver') ||
-            id.includes('/src/data/generated/media')
-          ) {
-            return 'assessment-media-registry'
           }
           if (
             id.includes('/src/data/guidedReadingBooks') ||
