@@ -1467,6 +1467,12 @@ body {
   align-items: end;
 }
 
+.teacher-dashboard-create .lp-button {
+  height: 42px !important;
+  min-height: 42px !important;
+  align-self: end;
+}
+
 .teacher-dashboard-create.student-create {
   width: min(640px, 100%);
   align-items: end;
@@ -1474,7 +1480,9 @@ body {
 }
 
 .teacher-dashboard-create.student-create .lp-button {
-  min-height: 44px !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  align-self: end;
 }
 
 .teacher-dashboard-control {
@@ -7699,6 +7707,16 @@ select:focus {
   margin: 0 auto;
   color: #172033;
   background: #f6f8fb;
+}
+
+.learn-area-page.phonics-learn-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0;
+  padding: 0;
+  background: none;
+  border: none;
 }
 
 .learn-hero {

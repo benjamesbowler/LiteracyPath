@@ -373,13 +373,19 @@ function SkillSetSection({ rows }) {
 function GrowthSection({ model, letterAssessment = [], patternAssessment = [] }) {
   const [selectedSkillId, setSelectedSkillId] = useState("");
   const skillRows = model.skillMapRows || [];
-  const skillsWithHistory = skillRows.filter(row => (row.checkpointHistory || []).length > 0);
   const dropdownOptions = [
     { value: "", label: "All Skills (overview)" },
-    ...skillsWithHistory.map(row => ({
-      value: row.skillId,
-      label: `${row.index + 1}. ${row.label} (${row.checkpointHistory.length} attempt${row.checkpointHistory.length === 1 ? "" : "s"})`
-    })),
+    ...skillRows.map(row => {
+      const history = row.checkpointHistory || [];
+      return {
+        value: row.skillId,
+        label: `${row.index + 1}. ${row.label}${
+          history.length
+            ? ` (${history.length} attempt${history.length === 1 ? "" : "s"})`
+            : " — not yet attempted"
+        }`
+      };
+    }),
     {
       value: "el_letter",
       label: `EL: Letter Name & Sound${letterAssessment.length ? ` (${letterAssessment.length} items)` : " — not yet assessed"}`
@@ -406,7 +412,13 @@ function GrowthSection({ model, letterAssessment = [], patternAssessment = [] })
         </label>
       </div>
 
-      {!selectedSkillId && <AllSkillsBarChart rows={skillRows} />}
+      {!selectedSkillId && (
+        <AllSkillsBarChart
+          rows={skillRows}
+          letterAssessment={letterAssessment}
+          patternAssessment={patternAssessment}
+        />
+      )}
       {selectedSkillId === "el_letter" && (
         <ElSkillSummary
           title="EL: Letter Name & Sound"
@@ -428,11 +440,7 @@ function GrowthSection({ model, letterAssessment = [], patternAssessment = [] })
   );
 }
 
-function AllSkillsBarChart({ rows = [] }) {
-  if (!rows.length) {
-    return <div className="student-report-muted-card">No skill rows are available yet.</div>;
-  }
-
+function AllSkillsBarChart({ rows = [], letterAssessment = [], patternAssessment = [] }) {
   return (
     <div className="growth-all-skills-chart">
       <div className="growth-all-skills-key">
@@ -467,6 +475,63 @@ function AllSkillsBarChart({ rows = [] }) {
             </div>
           );
         })}
+        {(() => {
+          const namesKnown = letterAssessment.filter(item => item.knowsName).length;
+          const soundsKnown = letterAssessment.filter(item => item.knowsSound).length;
+          const elTotal = letterAssessment.length * 2 || 52;
+          const elCorrect = namesKnown + soundsKnown;
+          const pct = elTotal ? clampPercent((elCorrect / elTotal) * 100) : 0;
+          const hasData = letterAssessment.length > 0;
+          return (
+            <div
+              key="el-letter-growth-bar"
+              className={`growth-bar-row${hasData ? "" : " not-started"}`}
+              role="listitem"
+              aria-label={`EL: Letter Name & Sound: ${hasData ? `${pct}%` : "not assessed"}`}
+            >
+              <span className="growth-bar-label">EL: Letter Name & Sound</span>
+              <div className="growth-bar-track">
+                <div
+                  className="growth-bar-fill"
+                  style={{
+                    width: hasData ? `${pct}%` : "0%",
+                    background: hasData ? "#2563EB" : "#e5e7eb"
+                  }}
+                />
+                <span className="growth-bar-pct">{hasData ? `${pct}%` : "Not assessed"}</span>
+              </div>
+            </div>
+          );
+        })()}
+        {(() => {
+          const patternTotal = patternAssessment.length * 2 || 0;
+          const patternCorrect = patternAssessment.reduce(
+            (sum, item) => sum + (item.soundCorrect ? 1 : 0) + (item.wordCorrect ? 1 : 0),
+            0
+          );
+          const pct = patternTotal ? clampPercent((patternCorrect / patternTotal) * 100) : 0;
+          const hasData = patternAssessment.length > 0;
+          return (
+            <div
+              key="el-pattern-growth-bar"
+              className={`growth-bar-row${hasData ? "" : " not-started"}`}
+              role="listitem"
+              aria-label={`EL: Advanced Phonics: ${hasData ? `${pct}%` : "not assessed"}`}
+            >
+              <span className="growth-bar-label">EL: Advanced Phonics</span>
+              <div className="growth-bar-track">
+                <div
+                  className="growth-bar-fill"
+                  style={{
+                    width: hasData ? `${pct}%` : "0%",
+                    background: hasData ? "#7C3AED" : "#e5e7eb"
+                  }}
+                />
+                <span className="growth-bar-pct">{hasData ? `${pct}%` : "Not assessed"}</span>
+              </div>
+            </div>
+          );
+        })()}
       </div>
     </div>
   );
