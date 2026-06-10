@@ -65,14 +65,14 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
       </div>
 
       <div className="lg-game-grid">
-        {GAME_LIST.map(game => {
+        {GAME_LIST.map((game, index) => {
           const gameProgress = getLearnGameProgress(progress, game.id);
           return (
             <button
               key={game.id}
               type="button"
               className="lg-game-card"
-              style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft }}
+              style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft, "--card-index": index }}
               onClick={() => setActiveGame(game)}
             >
               <span className="lg-game-card-art" aria-hidden="true">

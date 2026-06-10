@@ -789,6 +789,108 @@
   color: #ffffff;
 }
 
+/* ─── Animation layer ──────────────────────────────────────────────────────── */
+
+@keyframes lg-pop {
+  0% { transform: scale(0.6); }
+  62% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+@keyframes lg-shake-kf {
+  0%, 100% { transform: translateX(0); }
+  22% { transform: translateX(-9px); }
+  44% { transform: translateX(8px); }
+  66% { transform: translateX(-5px); }
+  88% { transform: translateX(3px); }
+}
+
+@keyframes lg-card-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes lg-rise-in {
+  from { opacity: 0; transform: translateY(18px) scale(0.92); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes lg-star-bounce {
+  0% { opacity: 0; transform: scale(0) rotate(-30deg); }
+  60% { opacity: 1; transform: scale(1.35) rotate(8deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes lg-mascot-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+.lg-game-stage-shell {
+  display: contents;
+}
+
+.lg-game-stage-shell.lg-shake .lg-game-stage {
+  animation: lg-shake-kf 360ms ease-out;
+}
+
+/* Correct-answer pops: triggered automatically when these classes appear */
+.lg-game-slots span.filled,
+.lg-match-card.matched,
+.lg-built-words span,
+.lg-sentence-path span.done {
+  animation: lg-pop 260ms ease-out;
+}
+
+/* Arcade cards drift in one after another */
+.lg-game-card {
+  animation: lg-card-in 380ms ease-out backwards;
+  animation-delay: calc(var(--card-index, 0) * 45ms);
+}
+
+/* Tap squash on all child-facing tiles and buttons */
+.lg-game-letter-bank button:active,
+.lg-match-card:active,
+.lg-hop-grid button:active,
+.lg-floating-options button:active,
+.lg-family-tabs button:active,
+.lg-game-card:active,
+.lg-game-primary:active,
+.lg-game-audio:active {
+  transform: scale(0.94);
+}
+
+/* Celebration choreography */
+.lg-game-complete {
+  animation: lg-rise-in 420ms cubic-bezier(0.34, 1.4, 0.64, 1) backwards;
+}
+
+.lg-game-complete img {
+  animation: lg-mascot-bob 2.4s ease-in-out 700ms infinite;
+}
+
+.lg-game-complete .lg-progress-stars span {
+  animation: lg-star-bounce 480ms cubic-bezier(0.34, 1.5, 0.64, 1) backwards;
+}
+
+.lg-game-complete .lg-progress-stars span:nth-child(1) { animation-delay: 250ms; }
+.lg-game-complete .lg-progress-stars span:nth-child(2) { animation-delay: 480ms; }
+.lg-game-complete .lg-progress-stars span:nth-child(3) { animation-delay: 710ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lg-game-stage-shell.lg-shake .lg-game-stage,
+  .lg-game-slots span.filled,
+  .lg-match-card.matched,
+  .lg-built-words span,
+  .lg-sentence-path span.done,
+  .lg-game-card,
+  .lg-game-complete,
+  .lg-game-complete img,
+  .lg-game-complete .lg-progress-stars span {
+    animation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .lg-game-card,
   .lg-game-header-meter i,

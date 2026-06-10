@@ -94,6 +94,7 @@ export function ArcadePracticeGame({
   const [completed, setCompleted] = useState(false);
   const [stars, setStars] = useState(0);
   const [version, setVersion] = useState(0);
+  const [shaking, setShaking] = useState(false);
 
   const totalRounds = difficulty === "hard" ? 10 : difficulty === "medium" ? 8 : 6;
 
@@ -153,6 +154,7 @@ export function ArcadePracticeGame({
 
   function miss() {
     setWrongs(current => current + 1);
+    setShaking(true);
     if (isSoundEnabled) playSoftBuzz();
   }
 
@@ -178,8 +180,9 @@ export function ArcadePracticeGame({
     return <GameComplete title={title} stars={stars} score={score} onRestart={restart} />;
   }
 
+  let stage;
   if (mode === "memory" || mode === "rhyme") {
-    return (
+    stage = (
       <MatchGame
         title={title}
         mode={mode}
@@ -192,10 +195,8 @@ export function ArcadePracticeGame({
         finish={finish}
       />
     );
-  }
-
-  if (mode === "family") {
-    return (
+  } else if (mode === "family") {
+    stage = (
       <FamilyGame
         title={title}
         state={gameState}
@@ -207,10 +208,8 @@ export function ArcadePracticeGame({
         finish={finish}
       />
     );
-  }
-
-  if (mode === "sentence") {
-    return (
+  } else if (mode === "sentence") {
+    stage = (
       <SentenceGame
         title={title}
         state={gameState}
@@ -224,10 +223,8 @@ export function ArcadePracticeGame({
         isSoundEnabled={isSoundEnabled}
       />
     );
-  }
-
-  if (mode === "quiz") {
-    return (
+  } else if (mode === "quiz") {
+    stage = (
       <QuizGame
         title={title}
         state={gameState}
@@ -242,12 +239,27 @@ export function ArcadePracticeGame({
         totalRounds={totalRounds}
       />
     );
-  }
-
-  if (mode === "target") {
-    return (
+  } else if (mode === "target") {
+    stage = (
       <TargetGame
         title={title}
+        state={gameState}
+        round={round}
+        setRound={setRound}
+        correct={correct}
+        setCorrect={setCorrect}
+        addScore={addScore}
+        miss={miss}
+        finish={finish}
+        isSoundEnabled={isSoundEnabled}
+        totalRounds={totalRounds}
+      />
+    );
+  } else {
+    stage = (
+      <BuildGame
+        title={title}
+        variant={mode}
         state={gameState}
         round={round}
         setRound={setRound}
@@ -263,20 +275,12 @@ export function ArcadePracticeGame({
   }
 
   return (
-    <BuildGame
-      title={title}
-      variant={mode}
-      state={gameState}
-      round={round}
-      setRound={setRound}
-      correct={correct}
-      setCorrect={setCorrect}
-      addScore={addScore}
-      miss={miss}
-      finish={finish}
-      isSoundEnabled={isSoundEnabled}
-      totalRounds={totalRounds}
-    />
+    <div
+      className={`lg-game-stage-shell${shaking ? " lg-shake" : ""}`}
+      onAnimationEnd={() => setShaking(false)}
+    >
+      {stage}
+    </div>
   );
 }
 
