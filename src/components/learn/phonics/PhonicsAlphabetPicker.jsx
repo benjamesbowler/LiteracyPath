@@ -1,0 +1,94 @@
+import { useMemo } from "react";
+import { motion } from "framer-motion";
+import { getAllLetters, getAvailableLetters } from "../../../data/phonicsLessons";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.025,
+      delayChildren: 0.3
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { scale: 0, opacity: 0 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 22
+    }
+  }
+};
+
+export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
+  const letters = useMemo(() => getAllLetters(), []);
+  const availableLetters = useMemo(() => new Set(getAvailableLetters()), []);
+  const completedCount = Object.values(progress).filter(status => status === "completed").length;
+  const totalLetters = letters.length;
+
+  function getStatus(letter) {
+    if (!availableLetters.has(letter)) return "locked";
+    return progress[letter] || "default";
+  }
+
+  function handleLetterClick(letter, status) {
+    if (status === "locked") return;
+    onSelectLetter(letter);
+  }
+
+  return (
+    <div className="phonics-picker">
+      <motion.h1 initial={{ y: -15, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
+        Pick a Letter to Learn!
+      </motion.h1>
+
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: [0.6, 1, 0.6] }}>
+        Tap a letter to start learning!
+      </motion.p>
+
+      <motion.div variants={containerVariants} initial="hidden" animate="visible" className="phonics-letter-grid">
+        {letters.map(letter => {
+          const status = getStatus(letter);
+          const isClickable = status !== "locked";
+
+          return (
+            <motion.button
+              key={letter}
+              variants={cardVariants}
+              whileHover={isClickable ? { scale: 1.08 } : {}}
+              whileTap={isClickable ? { scale: 0.95 } : {}}
+              onClick={() => handleLetterClick(letter, status)}
+              disabled={!isClickable}
+              className={`phonics-letter-card ${status}`}
+              aria-label={`Letter ${letter}${status === "locked" ? " locked" : ""}`}
+              type="button"
+            >
+              <span className="phonics-letter-symbol">{letter}</span>
+              <span className="phonics-letter-status" aria-hidden="true">
+                {status === "completed" && "✓"}
+                {status === "inprogress" && <span className="phonics-status-pulse" />}
+                {status === "locked" && "Lock"}
+                {status === "default" && <span className="phonics-status-dot" />}
+              </span>
+            </motion.button>
+          );
+        })}
+      </motion.div>
+
+      <motion.div className="phonics-picker-progress" initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
+        <span>{completedCount}/{totalLetters} letters learned</span>
+        <span className="phonics-picker-stars" aria-hidden="true">
+          {Array.from({ length: 3 }).map((_, index) => (
+            <span key={index}>{index < Math.floor((completedCount / totalLetters) * 3) ? "★" : "☆"}</span>
+          ))}
+        </span>
+      </motion.div>
+    </div>
+  );
+}

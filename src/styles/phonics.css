@@ -1,0 +1,815 @@
+:root {
+  --phonics-ocean-blue: #4d96ff;
+  --phonics-sun-yellow: #ffd93d;
+  --phonics-sky-green: #6bcb77;
+  --phonics-coral: #ff6b6b;
+  --phonics-lavender: #9b5de5;
+  --phonics-peach: #ffcb77;
+  --phonics-cloud: #fff9f0;
+  --phonics-ink: #2d3436;
+  --phonics-soft-ink: #636e72;
+  --phonics-font-display: "Fredoka", "Nunito", sans-serif;
+  --phonics-font-body: "Nunito", system-ui, sans-serif;
+}
+
+.learn-tab-bar {
+  display: inline-flex;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 6px;
+  border: 1px solid rgba(45, 52, 54, 0.12);
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+.learn-tab {
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--phonics-soft-ink);
+  cursor: pointer;
+  font: 800 0.95rem var(--phonics-font-body);
+  padding: 10px 16px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.learn-tab:hover {
+  transform: translateY(-1px);
+}
+
+.learn-tab.active {
+  background: var(--phonics-ocean-blue);
+  color: #ffffff;
+}
+
+.phonics-tab-shell {
+  width: 100%;
+  min-height: min(760px, calc(100vh - 220px));
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 217, 61, 0.2), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(77, 150, 255, 0.18), transparent 32%),
+    var(--phonics-cloud);
+  padding: clamp(18px, 4vw, 40px);
+  overflow: hidden;
+}
+
+.phonics-picker,
+.phonics-learning-flow,
+.phonics-step {
+  width: 100%;
+  font-family: var(--phonics-font-body);
+  color: var(--phonics-ink);
+}
+
+.phonics-picker {
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.phonics-picker h1,
+.phonics-step-heading h2,
+.phonics-celebration-card h2 {
+  margin: 0;
+  font-family: var(--phonics-font-display);
+  letter-spacing: 0;
+}
+
+.phonics-picker h1 {
+  color: var(--phonics-ink);
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.05;
+  text-align: center;
+}
+
+.phonics-picker > p,
+.phonics-step-heading p,
+.phonics-instruction {
+  margin: 0;
+  color: var(--phonics-soft-ink);
+  font: 700 1.1rem var(--phonics-font-body);
+  text-align: center;
+}
+
+.phonics-letter-grid {
+  width: 100%;
+  max-width: 720px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.phonics-letter-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  aspect-ratio: 1;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--phonics-peach);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 4px 0 #e5b860;
+  color: var(--phonics-ink);
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.phonics-letter-card.completed {
+  border-color: var(--phonics-sky-green);
+  background: rgba(107, 203, 119, 0.12);
+  box-shadow: 0 4px 0 #5ab868;
+}
+
+.phonics-letter-card.inprogress {
+  border-color: var(--phonics-ocean-blue);
+  background: rgba(77, 150, 255, 0.08);
+  box-shadow: 0 4px 0 #3a7dd9;
+}
+
+.phonics-letter-card.locked {
+  border-color: #d7dce0;
+  background: #eef1f3;
+  box-shadow: none;
+  color: #98a1a6;
+  cursor: not-allowed;
+  filter: grayscale(0.2);
+  opacity: 0.72;
+}
+
+.phonics-letter-symbol {
+  font: 800 clamp(2.1rem, 7vw, 4rem) var(--phonics-font-display);
+  line-height: 1;
+}
+
+.phonics-letter-status {
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  min-width: 16px;
+  min-height: 16px;
+  color: var(--phonics-sky-green);
+  font: 900 1rem var(--phonics-font-body);
+}
+
+.phonics-letter-card.locked .phonics-letter-status {
+  color: #98a1a6;
+  font-size: 0;
+}
+
+.phonics-letter-card.locked .phonics-letter-status::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 10px;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+}
+
+.phonics-letter-card.locked .phonics-letter-status::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: -7px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid currentColor;
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+}
+
+.phonics-status-dot,
+.phonics-status-pulse {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--phonics-peach);
+}
+
+.phonics-status-pulse {
+  background: var(--phonics-ocean-blue);
+  animation: phonicsPulse 1.5s infinite;
+}
+
+.phonics-picker-progress {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  gap: 12px;
+  border: 2px solid var(--phonics-peach);
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 3px 12px rgba(45, 52, 54, 0.1);
+  color: var(--phonics-soft-ink);
+  font: 800 1rem var(--phonics-font-body);
+  padding: 10px 22px;
+}
+
+.phonics-picker-stars {
+  color: var(--phonics-sun-yellow);
+  font-size: 1.25rem;
+}
+
+.phonics-learning-flow {
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.phonics-flow-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.phonics-flow-header > div {
+  grid-column: 2;
+  justify-self: center;
+}
+
+.phonics-back-button,
+.phonics-shuffle-button {
+  border: 0;
+  border-radius: 999px;
+  background: var(--phonics-ocean-blue);
+  box-shadow: 0 4px 0 #3a7dd9;
+  color: #ffffff;
+  cursor: pointer;
+  font: 800 1rem var(--phonics-font-body);
+  padding: 12px 18px;
+}
+
+.phonics-flow-step {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.phonics-progress-bar,
+.phonics-progress-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.phonics-progress-segment {
+  position: relative;
+  width: clamp(54px, 12vw, 128px);
+  height: 12px;
+  overflow: hidden;
+  border: 2px solid var(--phonics-peach);
+  border-radius: 999px;
+  background: var(--phonics-cloud);
+}
+
+.phonics-progress-segment span {
+  position: absolute;
+  inset: 0;
+  transform-origin: left;
+  border-radius: inherit;
+  background: var(--phonics-sky-green);
+}
+
+.phonics-progress-segment.complete {
+  border-color: var(--phonics-sky-green);
+  background: var(--phonics-sky-green);
+}
+
+.phonics-progress-segment.complete span {
+  background: var(--phonics-sun-yellow);
+}
+
+.phonics-progress-star {
+  color: var(--phonics-peach);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.phonics-progress-star.complete {
+  color: var(--phonics-sun-yellow);
+}
+
+.phonics-step {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.phonics-step-heading {
+  text-align: center;
+}
+
+.phonics-step-heading h2 {
+  color: var(--phonics-ink);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.1;
+}
+
+.phonics-trace-wrap {
+  position: relative;
+  width: min(340px, 74vw);
+  height: min(340px, 74vw);
+}
+
+.phonics-trace-ring {
+  pointer-events: none;
+  position: absolute;
+  inset: -14px;
+  z-index: 1;
+  width: calc(100% + 28px);
+  height: calc(100% + 28px);
+}
+
+.phonics-trace-pad {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 4px dashed var(--phonics-peach);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 14px 28px rgba(45, 52, 54, 0.14);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.phonics-trace-pad:active {
+  cursor: grabbing;
+}
+
+.phonics-trace-svg {
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.phonics-complete-flash {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: var(--phonics-sun-yellow);
+}
+
+.phonics-step-status,
+.phonics-match-hint {
+  min-height: 32px;
+  color: var(--phonics-soft-ink);
+  font: 800 1.2rem var(--phonics-font-body);
+  text-align: center;
+}
+
+.phonics-step-status p,
+.phonics-match-hint {
+  margin: 0;
+}
+
+.phonics-step-status p,
+.phonics-step-status.success {
+  color: var(--phonics-sky-green);
+  font-family: var(--phonics-font-display);
+  font-size: 1.65rem;
+}
+
+.phonics-step-actions,
+.phonics-inline-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.phonics-button {
+  min-width: 200px;
+  min-height: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font: 900 1.35rem var(--phonics-font-body);
+  padding: 12px 22px;
+  user-select: none;
+}
+
+.phonics-button-primary {
+  background: var(--phonics-sun-yellow);
+  box-shadow: 0 4px 0 #e5c435;
+  color: var(--phonics-ink);
+}
+
+.phonics-button-secondary {
+  background: var(--phonics-ocean-blue);
+  box-shadow: 0 4px 0 #3a7dd9;
+  color: #ffffff;
+}
+
+.phonics-button-small {
+  min-width: 120px;
+  min-height: 48px;
+  font-size: 1rem;
+}
+
+.phonics-wide-button {
+  width: 100%;
+  min-width: 0;
+}
+
+.phonics-audio-button,
+.phonics-sound-button {
+  --phonics-audio-size: 80px;
+  position: relative;
+  width: var(--phonics-audio-size);
+  height: var(--phonics-audio-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  background: var(--phonics-ocean-blue);
+  box-shadow: 0 7px 18px rgba(77, 150, 255, 0.28);
+  color: #ffffff;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.phonics-audio-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--phonics-ocean-blue);
+  opacity: 0.38;
+  animation: phonicsRing 1.6s infinite;
+}
+
+.phonics-audio-pulse-secondary {
+  opacity: 0.2;
+}
+
+.phonics-audio-bars {
+  display: flex;
+  align-items: end;
+  gap: 3px;
+}
+
+.phonics-audio-bars span {
+  width: 4px;
+  height: 10px;
+  border-radius: 999px;
+  background: #ffffff;
+}
+
+.phonics-speaker-icon,
+.phonics-sound-button > span:last-child,
+.phonics-mini-audio-dot {
+  font-size: 0;
+}
+
+.phonics-speaker-icon::before,
+.phonics-sound-button > span:last-child::before,
+.phonics-mini-audio-dot::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 18px;
+  clip-path: polygon(0 35%, 35% 35%, 72% 0, 72% 100%, 35% 65%, 0 65%);
+  background: currentColor;
+}
+
+.phonics-step-listen {
+  gap: 18px;
+}
+
+.phonics-big-letter {
+  color: var(--phonics-ocean-blue);
+  font: 900 clamp(8rem, 22vw, 12.5rem) / 0.86 var(--phonics-font-display);
+  text-shadow: 0 8px 0 rgba(77, 150, 255, 0.18);
+}
+
+.phonics-sound-text,
+.phonics-is-for {
+  margin: 0;
+  color: var(--phonics-soft-ink);
+  font: 800 clamp(1.75rem, 5vw, 2.4rem) var(--phonics-font-display);
+  text-align: center;
+}
+
+.phonics-sound-button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--phonics-sun-yellow);
+  font: 900 1rem var(--phonics-font-body);
+}
+
+.phonics-sound-button {
+  --phonics-audio-size: 112px;
+  background: var(--phonics-sun-yellow);
+  box-shadow: 0 6px 0 #e5c435;
+}
+
+.phonics-sound-button > span:first-child {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--phonics-sun-yellow);
+}
+
+.phonics-is-for {
+  color: var(--phonics-ink);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.phonics-listen-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(130px, 160px));
+  gap: 16px;
+  justify-content: center;
+}
+
+.phonics-listen-card {
+  position: relative;
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+  overflow: hidden;
+  border: 3px solid var(--phonics-peach);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 10px 20px rgba(45, 52, 54, 0.12);
+  cursor: pointer;
+}
+
+.phonics-word-image-wrap {
+  display: flex;
+  height: 70%;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.phonics-word-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.phonics-word-label {
+  display: flex;
+  height: 30%;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid rgba(45, 52, 54, 0.1);
+  background: rgba(255, 249, 240, 0.7);
+  color: var(--phonics-ink);
+  font: 900 1.25rem var(--phonics-font-display);
+  text-transform: capitalize;
+}
+
+.phonics-mini-audio-dot {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(77, 150, 255, 0.94);
+  color: #ffffff;
+}
+
+.phonics-match-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(136px, 180px));
+  gap: 14px;
+  justify-content: center;
+}
+
+.phonics-found-counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--phonics-ocean-blue);
+  font: 900 1.35rem var(--phonics-font-body);
+}
+
+.phonics-found-counter span {
+  color: var(--phonics-sun-yellow);
+}
+
+.phonics-word-tile {
+  width: min(180px, 20vw);
+  min-width: 136px;
+  aspect-ratio: 1;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 600px;
+}
+
+.phonics-word-tile:disabled {
+  cursor: default;
+}
+
+.phonics-word-tile-inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.phonics-word-tile-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 3px solid var(--phonics-ink);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 10px 18px rgba(45, 52, 54, 0.16);
+  backface-visibility: hidden;
+}
+
+.phonics-word-tile-back {
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
+}
+
+.phonics-word-tile-back.correct {
+  background: rgba(107, 203, 119, 0.25);
+}
+
+.phonics-word-tile-back.incorrect {
+  background: var(--phonics-coral);
+}
+
+.phonics-tile-result {
+  color: var(--phonics-sky-green);
+  font: 900 4rem var(--phonics-font-display);
+}
+
+.phonics-word-tile-back.incorrect .phonics-tile-result {
+  color: #ffffff;
+}
+
+.phonics-celebration-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 16px;
+}
+
+.phonics-celebration-card {
+  width: min(400px, 100%);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.32);
+  padding: 32px;
+  text-align: center;
+}
+
+.phonics-celebration-stars {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  color: var(--phonics-sun-yellow);
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.phonics-celebration-card h2 {
+  color: var(--phonics-sun-yellow);
+  font-size: clamp(2.5rem, 10vw, 3.2rem);
+}
+
+.phonics-celebration-card p {
+  margin: 8px 0 28px;
+  color: var(--phonics-ink);
+  font: 800 1.25rem var(--phonics-font-body);
+}
+
+.phonics-celebration-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@keyframes phonicsRing {
+  0% {
+    opacity: 0.38;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.45);
+  }
+}
+
+@keyframes phonicsPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+@media (min-width: 760px) {
+  .phonics-letter-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 760px) {
+  .learn-tab-bar {
+    align-self: stretch;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .learn-tab {
+    padding-inline: 10px;
+  }
+
+  .phonics-tab-shell {
+    padding: 16px 12px;
+  }
+
+  .phonics-flow-header {
+    grid-template-columns: 1fr;
+  }
+
+  .phonics-flow-header > div {
+    grid-column: 1;
+  }
+
+  .phonics-back-button {
+    justify-self: start;
+  }
+
+  .phonics-progress-bar {
+    gap: 6px;
+  }
+
+  .phonics-progress-step {
+    gap: 6px;
+  }
+
+  .phonics-listen-grid,
+  .phonics-match-grid {
+    grid-template-columns: repeat(2, minmax(128px, 1fr));
+    width: 100%;
+  }
+
+  .phonics-word-tile {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 430px) {
+  .phonics-letter-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .phonics-picker-progress,
+  .phonics-step-actions,
+  .phonics-inline-actions {
+    width: 100%;
+  }
+
+  .phonics-button,
+  .phonics-shuffle-button {
+    width: 100%;
+    min-width: 0;
+  }
+}

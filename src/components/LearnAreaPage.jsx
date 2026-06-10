@@ -1,6 +1,8 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import { storyQuests } from "../data/storyQuests.js";
 import { loadStoryQuestProgress, saveStoryQuestProgress } from "../utils/storyQuestProgress.js";
+import "../styles/phonics.css";
+import { PhonicsLearnTab } from "./learn/phonics/PhonicsLearnTab";
 import { StoryQuestPlayer } from "./StoryQuestPlayer.jsx";
 
 const STORY_QUEST_LEVELS = [
@@ -38,6 +40,7 @@ function resolveStoryQuestLevel(quest = {}) {
 }
 
 export function LearnAreaPage({ progressScopeKey = "default" }) {
+  const [learnTab, setLearnTab] = useState("phonics");
   const [activeQuestId, setActiveQuestId] = useState("");
   const [selectedQuestId, setSelectedQuestId] = useState("");
   const [selectedLevelKey, setSelectedLevelKey] = useState("A");
@@ -122,6 +125,34 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
 
   return (
     <main className="learn-area-page story-quest-learn-page page-stack" aria-label="Story Quests">
+      <div className="learn-tab-bar" role="tablist" aria-label="Learn area sections">
+        <button
+          role="tab"
+          aria-selected={learnTab === "phonics"}
+          className={learnTab === "phonics" ? "learn-tab active" : "learn-tab"}
+          onClick={() => setLearnTab("phonics")}
+          type="button"
+        >
+          Phonics
+        </button>
+        <button
+          role="tab"
+          aria-selected={learnTab === "stories"}
+          className={learnTab === "stories" ? "learn-tab active" : "learn-tab"}
+          onClick={() => setLearnTab("stories")}
+          type="button"
+        >
+          Story Quests
+        </button>
+      </div>
+
+      {learnTab === "phonics" && (
+        <section className="phonics-tab-shell" aria-label="Phonics">
+          <PhonicsLearnTab key={progressScopeKey} progressScopeKey={progressScopeKey} />
+        </section>
+      )}
+
+      {learnTab === "stories" && (
       <section className="learn-story-quest-library card">
         <div className="learn-story-quest-copy">
           <span className="story-quest-kicker">Read</span>
@@ -215,6 +246,7 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
           ))}
         </div>
       </section>
+      )}
     </main>
   );
 }
