@@ -75,16 +75,18 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
               style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft }}
               onClick={() => setActiveGame(game)}
             >
-              <span className="lg-game-card-icon"><img src={game.icon} alt="" /></span>
+              <span className="lg-game-card-art" aria-hidden="true">
+                <img src={game.icon} alt="" />
+              </span>
               <span className="lg-game-card-copy">
                 <strong>{game.title}</strong>
                 <em>{game.description}</em>
               </span>
               <span className="lg-game-card-meta">
-                <span>{game.skill}</span>
+                <span className="lg-game-skill">{game.skill}</span>
                 <ProgressStars stars={gameProgress.stars || 0} />
-                <b aria-hidden="true">Play ›</b>
               </span>
+              <span className="lg-game-play" aria-hidden="true">Play</span>
             </button>
           );
         })}
