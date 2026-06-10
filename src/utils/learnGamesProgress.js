@@ -1,3 +1,5 @@
+import { queueProgressSave } from "./progressSync.js";
+
 const STORAGE_PREFIX = "literacy-guide-learn-games";
 const DEFAULT_SCOPE = "default";
 
@@ -32,11 +34,13 @@ export function loadLearnGamesProgress(progressScopeKey = DEFAULT_SCOPE) {
 
 export function saveLearnGamesProgress(progressScopeKey = DEFAULT_SCOPE, progress = baseState()) {
   if (typeof window === "undefined") return;
-  window.localStorage.setItem(storageKey(progressScopeKey), JSON.stringify({
+  const next = {
     ...baseState(),
     ...progress,
     games: progress.games || {}
-  }));
+  };
+  window.localStorage.setItem(storageKey(progressScopeKey), JSON.stringify(next));
+  queueProgressSave("learn_games", "__all__", { v: 1, ...next }, { scopeKey: progressScopeKey });
 }
 
 export function saveLearnGamesSettings(progressScopeKey = DEFAULT_SCOPE, settings = {}) {

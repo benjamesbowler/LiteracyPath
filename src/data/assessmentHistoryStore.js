@@ -48,6 +48,35 @@ function normalizeKey(value) {
     .replace(/^_+|_+$/g, "");
 }
 
+function buildWeeklyAccuracySummary(records = []) {
+  const weeks = new Map();
+  records.forEach(record => {
+    if (!record.completedAt) return;
+    const date = new Date(record.completedAt);
+    if (!Number.isFinite(date.getTime())) return;
+    const day = date.getUTCDay() || 7;
+    const monday = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() - day + 1));
+    const key = monday.toISOString().slice(0, 10);
+    const row = weeks.get(key) || {
+      weekStart: key,
+      attempts: 0,
+      correct: 0,
+      total: 0
+    };
+    row.attempts += 1;
+    row.correct += record.correctCount;
+    row.total += record.totalQuestions;
+    weeks.set(key, row);
+  });
+
+  return Array.from(weeks.values())
+    .sort((a, b) => a.weekStart.localeCompare(b.weekStart))
+    .map(row => ({
+      ...row,
+      accuracy: row.total ? Math.round((row.correct / row.total) * 100) : 0
+    }));
+}
+
 function cleanWord(value) {
   return String(value || "")
     .toLowerCase()
@@ -453,7 +482,9 @@ export function buildAssessmentAttemptRecord({
 }
 
 export function summarizeAssessmentHistory(records = [], { students = [], classes = [] } = {}) {
-  const normalized = records.map(normalizeAssessmentAttempt);
+  const normalized = records
+    .map(normalizeAssessmentAttempt)
+    .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt));
   const studentById = new Map(students.map(student => [student.id, student]));
   const classById = new Map(classes.map(row => [row.id, row]));
   const skillMap = new Map();
@@ -511,6 +542,7 @@ export function summarizeAssessmentHistory(records = [], { students = [], classe
     latestAttempt: normalized[0] || null,
     skills,
     students: studentsSummary,
+    weeklyAccuracy: buildWeeklyAccuracySummary(normalized),
     strongestSkills: [...skills].sort((a, b) => b.accuracy - a.accuracy).slice(0, 3),
     weakestSkills: [...skills].filter(skill => skill.total > 0).sort((a, b) => a.accuracy - b.accuracy).slice(0, 5),
     studentsNeedingSupport: studentsSummary.filter(student => student.accuracy < 70 || student.supportSkills.length > 0).slice(0, 8),

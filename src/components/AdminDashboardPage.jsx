@@ -30,6 +30,7 @@ import {
   exportClassElAssessmentExcel,
   exportStudentElAssessmentExcel
 } from "../utils/exportElAssessmentExcel.js";
+import { importWithRetry } from "../utils/lazyWithRetry.js";
 import assessmentAudioCoverage from "../content/assessments/assessmentAudioCoverageSummary.generated.json";
 import guidedReadingImageTextQa from "../content/guidedReading/imageTextArtifactSummary.generated.json";
 import guidedReadingWordAudioCoverage from "../content/guidedReading/wordAudioCoverageSummary.generated.json";
@@ -773,7 +774,7 @@ function MediaQaPage({ mediaType, questions = [], onBack }) {
 
   useEffect(() => {
     let cancelled = false;
-    import("../data/publicMediaInventory").then(module => {
+    importWithRetry(() => import("../data/publicMediaInventory")).then(module => {
       if (!cancelled) setMediaInventory(module.publicMediaInventory || []);
     });
     return () => {
@@ -1758,7 +1759,7 @@ export function AdminDashboardPage({
   async function handleGuidedReadingCompletionExport() {
     setExportNotice("");
     try {
-      const { exportGuidedReadingCompletionExcel } = await import("../utils/exportGuidedReadingCompletionExcel.js");
+      const { exportGuidedReadingCompletionExcel } = await importWithRetry(() => import("../utils/exportGuidedReadingCompletionExcel.js"));
       const data = await exportGuidedReadingCompletionExcel({
         students,
         classes,

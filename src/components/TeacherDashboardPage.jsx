@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { SymbolPasswordPad, SymbolSequence } from "./SymbolPasswordPad.jsx";
 
 function formatLastActive(value) {
   if (!value) return "No activity yet";
@@ -32,9 +33,15 @@ export function TeacherDashboardPage({
   classDashboard = [],
   loadClassDashboard,
   skillTree = [],
+  updateStudentSymbolPassword,
+  resetStudentSymbolPassword,
+  startStudentLogin,
   message
 }) {
   const [newStudentName, setNewStudentName] = useState("");
+  const [visiblePasswords, setVisiblePasswords] = useState({});
+  const [editingStudent, setEditingStudent] = useState(null);
+  const [editingSequence, setEditingSequence] = useState("");
   const loadStudentsRef = useRef(loadStudents);
   const loadClassDashboardRef = useRef(loadClassDashboard);
   const selectedClass = classList.find(row => row.id === selectedClassId) || null;
@@ -79,6 +86,30 @@ export function TeacherDashboardPage({
     if (!clean) return;
     await createStudent?.(clean);
     setNewStudentName("");
+  }
+
+  function printLoginCards() {
+    const printableRows = studentRows
+      .map(row => {
+        const password = row.symbol_password
+          ? row.symbol_password.split("").map(digit => `picture ${digit}`).join(" - ")
+          : "Not set yet";
+        return `${selectedClass?.name || "Class"} | ${row.name} | ${password}`;
+      })
+      .join("\n");
+    const win = window.open("", "student-login-cards", "width=900,height=700");
+    if (!win) return;
+    win.document.write(`
+      <html><head><title>Login Cards</title><style>
+        body{font-family:Arial,sans-serif;padding:24px}
+        pre{white-space:pre-wrap;font-size:18px;line-height:1.7}
+      </style></head><body>
+      <h1>${selectedClass?.name || "Class"} Login Cards</h1>
+      <pre>${printableRows}</pre>
+      </body></html>
+    `);
+    win.document.close();
+    win.print();
   }
 
   return (
@@ -154,6 +185,12 @@ export function TeacherDashboardPage({
             <button className="lp-button lp-button-secondary" onClick={handleCreateStudent} type="button">
               Create Student
             </button>
+            <button className="lp-button lp-button-secondary" onClick={printLoginCards} type="button">
+              Print login cards
+            </button>
+            <button className="lp-button lp-button-primary" onClick={startStudentLogin} type="button">
+              Student login
+            </button>
           </div>
         )}
 
@@ -177,6 +214,7 @@ export function TeacherDashboardPage({
                   <th>Name</th>
                   <th>Current Skill</th>
                   <th>Progress</th>
+                  <th>Login</th>
                   <th>Last Active</th>
                   <th>Open</th>
                 </tr>
@@ -191,6 +229,25 @@ export function TeacherDashboardPage({
                         ? `${row.masteredCount}/${skillTree.length} mastered - ${row.accuracy}% accuracy`
                         : "Not started"}
                     </td>
+                    <td>
+                      <div className="teacher-login-cell">
+                        <SymbolSequence sequence={row.symbol_password || ""} hidden={!visiblePasswords[row.id]} size={20} />
+                        <div className="teacher-login-actions">
+                          <button className="text-button" onClick={() => setVisiblePasswords(previous => ({ ...previous, [row.id]: !previous[row.id] }))} type="button">
+                            {visiblePasswords[row.id] ? "Hide" : "Show"}
+                          </button>
+                          <button className="text-button" onClick={() => {
+                            setEditingStudent(row);
+                            setEditingSequence("");
+                          }} type="button">
+                            Change
+                          </button>
+                          <button className="text-button" onClick={() => resetStudentSymbolPassword?.(row.id, row.name)} type="button">
+                            Reset
+                          </button>
+                        </div>
+                      </div>
+                    </td>
                     <td>{formatLastActive(row.lastActive)}</td>
                     <td>
                       <button className="lp-button lp-button-secondary" onClick={() => onLoadStudent?.(row.id, row.name)} type="button">
@@ -204,6 +261,26 @@ export function TeacherDashboardPage({
           </div>
         )}
       </section>
+      {editingStudent && (
+        <div className="symbol-password-modal" role="dialog" aria-modal="true" aria-label={`Change password for ${editingStudent.name}`}>
+          <div className="symbol-password-modal-card">
+            <h3>Change {editingStudent.name}'s pictures</h3>
+            <p className="muted-text">This child gate is teacher-visible by design; real data protection remains in the signed-in teacher account.</p>
+            <SymbolPasswordPad
+              value={editingSequence}
+              onChange={setEditingSequence}
+              onComplete={async sequence => {
+                await updateStudentSymbolPassword?.(editingStudent.id, sequence, editingStudent.name);
+                setEditingStudent(null);
+                setEditingSequence("");
+              }}
+            />
+            <button className="report-button" onClick={() => setEditingStudent(null)} type="button">
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

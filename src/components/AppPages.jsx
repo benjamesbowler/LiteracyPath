@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import "../styles/assessment.css";
 import {
@@ -26,10 +26,11 @@ import { isHfwSpellingQuestion } from "../data/isHfwSpellingQuestion.js";
 import { addQuestionFlag } from "../data/questionFlagStore.js";
 import { AssessmentAudioButton } from "./assessment/AssessmentAudioButton.jsx";
 import { HfwLetterBuildPanel } from "./assessment/HfwLetterBuildPanel.jsx";
+import { importWithRetry, lazyWithRetry } from "../utils/lazyWithRetry.js";
 
 export { AuthPage } from "./AuthPage.jsx";
 
-const FormalClassReportDocument = lazy(() =>
+const FormalClassReportDocument = lazyWithRetry(() =>
   import("./AdminDashboardPage.jsx").then(module => ({
     default: module.FormalClassReportDocument
   }))
@@ -1447,7 +1448,7 @@ export function ELAssessmentsPage({
   );
 }
 
-const LazyGuidedReadingPage = lazy(() =>
+const LazyGuidedReadingPage = lazyWithRetry(() =>
   import("./guided-reading/GuidedReadingPage.jsx").then(module => ({
     default: module.GuidedReadingPage
   }))
@@ -1520,7 +1521,7 @@ export function TeacherReportsPage({
     if (!detailsReady || guidedReadingReportHelpers) return undefined;
 
     let cancelled = false;
-    import("../data/guidedReadingBooks").then(module => {
+    importWithRetry(() => import("../data/guidedReadingBooks")).then(module => {
       if (cancelled) return;
       setGuidedReadingReportHelpers({
         formatGuidedReadingType: module.formatGuidedReadingType,
@@ -2655,8 +2656,7 @@ export function AssessmentPage({
 
   const hasValidAssessmentTransitionState =
     Boolean(feedback) ||
-    Boolean(isAssessmentTransitioning) ||
-    (roundAnswers.length > 0 && !message);
+    Boolean(isAssessmentTransitioning);
   const shouldShowAssessmentLoadingState =
     !currentQuestion && !hasValidAssessmentTransitionState;
 

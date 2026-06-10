@@ -467,6 +467,7 @@ export function GuidedReadingPage({
   guidedReadingRecords = {},
   saveGuidedReadingRecord,
   speakText,
+  mode = "teacher",
   launchBookId = "",
   onLaunchBookHandled = null
 }) {
@@ -527,6 +528,7 @@ export function GuidedReadingPage({
   const allPagesHaveAudio = Boolean(selectedBook?.pages?.length) &&
     selectedBook.pages.every(item => Boolean(getGuidedReadingPageAudioPath(item)));
   const canReadWholeBook = Boolean(fullBookAudioPath || allPagesHaveAudio);
+  const isStudentMode = mode === "student";
 
   useEffect(() => {
     if (!readerOpen || !selectedBook || !page) return;
@@ -653,6 +655,17 @@ export function GuidedReadingPage({
   useEffect(() => {
     if (readerOpen) setTeacherNotesOpen(false);
   }, [readerOpen, selectedBookId]);
+
+  useEffect(() => {
+    if (isStudentMode && readingMode === "marking") {
+      const timeoutId = window.setTimeout(() => {
+        setReadingMode("reading");
+        setTeacherNotesOpen(false);
+      }, 0);
+      return () => window.clearTimeout(timeoutId);
+    }
+    return undefined;
+  }, [isStudentMode, readingMode]);
 
   useEffect(() => {
     if (!readerOpen) return;
@@ -1217,7 +1230,7 @@ export function GuidedReadingPage({
     const word = (page.words || [])[wordIndex] || (pageAnalysis?.words?.[wordIndex] ? { text: pageAnalysis.words[wordIndex] } : null);
     if (!word) return;
 
-    if (readingMode === "marking" && !event.altKey) {
+    if (!isStudentMode && readingMode === "marking" && !event.altKey) {
       cycleWordMark(wordIndex);
       return;
     }
@@ -1273,7 +1286,7 @@ export function GuidedReadingPage({
         <div>
           <p className="panel-label">Guided Reading</p>
           <h2>{studentName || "Student"} Reading Library</h2>
-          <p>Choose a guided reading book to listen, read, reread, and capture teacher notes.</p>
+          <p>{isStudentMode ? "Choose a book to listen, read, and reread." : "Choose a guided reading book to listen, read, reread, and capture teacher notes."}</p>
         </div>
       </section>
 
@@ -1480,7 +1493,7 @@ export function GuidedReadingPage({
                     Auto-advance
                   </label>
                 )}
-                {!isReaderFullscreen && (
+                {!isStudentMode && !isReaderFullscreen && (
                   <button className="lp-button lp-button-secondary" onClick={() => setTeacherNotesOpen(value => !value)} type="button">
                     Teacher Notes
                   </button>
@@ -1521,18 +1534,20 @@ export function GuidedReadingPage({
                 >
                   Reading Mode
                 </button>
-                <button
+                {!isStudentMode && <button
                   className={readingMode === "marking" ? "active" : ""}
                   onClick={() => setReadingMode("marking")}
                   type="button"
                 >
                   Marking Mode
-                </button>
+                </button>}
               </div>
               <p>
                 {readingMode === "reading"
                   ? "Tap a word to hear it when approved word audio is available."
-                  : "Tap words to cycle neutral, read correctly, and needs support. Alt-click a word to hear it."}
+                  : isStudentMode
+                    ? "Tap words to hear them."
+                    : "Tap words to cycle neutral, read correctly, and needs support. Alt-click a word to hear it."}
               </p>
             </div>}
 
@@ -1609,7 +1624,7 @@ export function GuidedReadingPage({
                     <p className="guided-complete-message">Book completed. You can finish again to record a reread.</p>
                   )}
 
-                  {!isReaderFullscreen && readingMode === "marking" && (
+                  {!isStudentMode && !isReaderFullscreen && readingMode === "marking" && (
                     <div className="guided-mark-legend" aria-label="Word marking legend">
                       <span><b className="legend-dot correct"></b> Read correctly</span>
                       <span><b className="legend-dot support"></b> Needs support</span>
@@ -1617,7 +1632,7 @@ export function GuidedReadingPage({
                     </div>
                   )}
 
-                  {!isReaderFullscreen && <details className="guided-note-drawer">
+                  {!isStudentMode && !isReaderFullscreen && <details className="guided-note-drawer">
                     <summary>Page notes</summary>
                     <label className="guided-note-field">
                       <strong>Page note</strong>
@@ -1629,7 +1644,7 @@ export function GuidedReadingPage({
                     </label>
                   </details>}
 
-                  {!isReaderFullscreen && <details className="guided-note-drawer">
+                  {!isStudentMode && !isReaderFullscreen && <details className="guided-note-drawer">
                     <summary>Comprehension prompts</summary>
                     <div className="guided-comprehension-prompts">
                       {(enrichedSelectedBook?.comprehensionQuestionSeeds || []).map(prompt => (
@@ -1668,7 +1683,7 @@ export function GuidedReadingPage({
             </div>}
           </div>
 
-          {!isReaderFullscreen && <aside className={teacherNotesOpen ? "guided-notes-panel open" : "guided-notes-panel"} aria-hidden={!teacherNotesOpen}>
+          {!isStudentMode && !isReaderFullscreen && <aside className={teacherNotesOpen ? "guided-notes-panel open" : "guided-notes-panel"} aria-hidden={!teacherNotesOpen}>
             <div className="guided-notes-header">
               <h3>Teacher Notes</h3>
               <button className="lp-button lp-button-secondary" onClick={() => setTeacherNotesOpen(false)} type="button">

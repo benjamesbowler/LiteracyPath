@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import Confetti from "react-confetti";
 import { motion, useReducedMotion } from "framer-motion";
 import "./App.css";
@@ -22,6 +22,9 @@ import {
 } from "./components/AppPages";
 import { Sidebar } from "./components/Sidebar.jsx";
 import { TeacherDashboardPage } from "./components/TeacherDashboardPage.jsx";
+import { StudentEntryPage } from "./components/StudentEntryPage.jsx";
+import { StudentHomePage } from "./components/StudentHomePage.jsx";
+import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
 import { normalize, shuffleArray } from "./utils/assessmentRoundBuilder";
 
@@ -125,10 +128,17 @@ import {
   preloadQuestionMediaBatch
 } from "./utils/preloadQuestionMedia.js";
 import { speakWithBrowser as speakWithBrowserFallback } from "./utils/audio/speakWithBrowser.js";
+import { DYNAMIC_IMPORT_ERROR_EVENT, importWithRetry, lazyWithRetry } from "./utils/lazyWithRetry.js";
+import {
+  clearProgressSyncSession,
+  configureProgressSync,
+  hydrateCloudProgress,
+  queueProgressSave
+} from "./utils/progressSync.js";
 
 // dynamic mastery system
 
-const AdminDashboardPage = lazy(() =>
+const AdminDashboardPage = lazyWithRetry(() =>
   import("@/components/AdminDashboardPage").then(module => ({
     default: module.AdminDashboardPage
   }))
@@ -138,31 +148,54 @@ let audioManifestModulePromise = null;
 let guidedReadingBooksModulePromise = null;
 let assessmentSkillBankLoaderModulePromise = null;
 let assessmentMediaPickerModulePromise = null;
+const STUDENT_SESSION_STORAGE_KEY = "lp-student-session-v1";
+const STUDENT_ALLOWED_VIEWS = new Set([
+  APP_VIEWS.STUDENT_HOME,
+  APP_VIEWS.PHONICS_LEARN,
+  APP_VIEWS.LEARN,
+  APP_VIEWS.GUIDED_READING
+]);
 
 function loadAudioManifestModule() {
   if (!audioManifestModulePromise) {
-    audioManifestModulePromise = import("./data/audioManifest");
+    audioManifestModulePromise = importWithRetry(() => import("./data/audioManifest"))
+      .catch(error => {
+        audioManifestModulePromise = null;
+        throw error;
+      });
   }
   return audioManifestModulePromise;
 }
 
 function loadGuidedReadingBooksModule() {
   if (!guidedReadingBooksModulePromise) {
-    guidedReadingBooksModulePromise = import("./data/guidedReadingBooks");
+    guidedReadingBooksModulePromise = importWithRetry(() => import("./data/guidedReadingBooks"))
+      .catch(error => {
+        guidedReadingBooksModulePromise = null;
+        throw error;
+      });
   }
   return guidedReadingBooksModulePromise;
 }
 
 function loadAssessmentSkillBankLoaderModule() {
   if (!assessmentSkillBankLoaderModulePromise) {
-    assessmentSkillBankLoaderModulePromise = import("./data/loadAssessmentSkillBank");
+    assessmentSkillBankLoaderModulePromise = importWithRetry(() => import("./data/loadAssessmentSkillBank"))
+      .catch(error => {
+        assessmentSkillBankLoaderModulePromise = null;
+        throw error;
+      });
   }
   return assessmentSkillBankLoaderModulePromise;
 }
 
 function loadAssessmentMediaPickerModule() {
   if (!assessmentMediaPickerModulePromise) {
-    assessmentMediaPickerModulePromise = import("./data/assessmentMediaPicker");
+    assessmentMediaPickerModulePromise = importWithRetry(() => import("./data/assessmentMediaPicker"))
+      .catch(error => {
+        assessmentMediaPickerModulePromise = null;
+        throw error;
+      });
   }
   return assessmentMediaPickerModulePromise;
 }
@@ -171,24 +204,28 @@ let finishedReportPageModulePromise = null;
 
 function loadFinishedReportPageModule() {
   if (!finishedReportPageModulePromise) {
-    finishedReportPageModulePromise = import("@/components/FinishedReportPage");
+    finishedReportPageModulePromise = importWithRetry(() => import("@/components/FinishedReportPage"))
+      .catch(error => {
+        finishedReportPageModulePromise = null;
+        throw error;
+      });
   }
   return finishedReportPageModulePromise;
 }
 
-const FinishedReportPage = lazy(() =>
+const FinishedReportPage = lazyWithRetry(() =>
   loadFinishedReportPageModule().then(module => ({
     default: module.FinishedReportPage
   }))
 );
 
-const LearnAreaPage = lazy(() =>
+const LearnAreaPage = lazyWithRetry(() =>
   import("@/components/LearnAreaPage").then(module => ({
     default: module.LearnAreaPage
   }))
 );
 
-const PhonicsLearnPage = lazy(() =>
+const PhonicsLearnPage = lazyWithRetry(() =>
   import("@/components/PhonicsLearnPage").then(module => ({
     default: module.PhonicsLearnPage
   }))
@@ -198,6 +235,20 @@ function LazyPageFallback({ label = "Loading..." }) {
   return (
     <div className="card page-card page-stack lazy-page-fallback">
       <h2>{label}</h2>
+    </div>
+  );
+}
+
+function NewVersionAvailableCard({ message = "A new version is available." }) {
+  return (
+    <div className="app">
+      <div className="card page-card page-stack auth-card">
+        <h2>New version available</h2>
+        <p>{message}</p>
+        <button className="main-button" type="button" onClick={() => window.location.reload()}>
+          Reload
+        </button>
+      </div>
     </div>
   );
 }
@@ -690,7 +741,7 @@ function buildQuestionExportText(item = {}) {
 }
 
 async function createExcelWorkbook() {
-  const module = await import("exceljs");
+  const module = await importWithRetry(() => import("exceljs"));
   const ExcelJS = module.default || module["module.exports"] || module;
 
   if (!ExcelJS?.Workbook) {
@@ -1677,11 +1728,17 @@ export default function App() {
   const [assessmentTransitioning, setAssessmentTransitioning] = useState(false);
   const [message, setMessage] = useState("");
   const [teacherUser, setTeacherUser] = useState(null);
+  const [sessionMode, setSessionMode] = useState("teacher");
+  const [studentSession, setStudentSession] = useState(null);
+  const [entryMode, setEntryMode] = useState("entry");
   const [authReady, setAuthReady] = useState(false);
+  const [authReconnecting, setAuthReconnecting] = useState(false);
+  const [chunkLoadFailure, setChunkLoadFailure] = useState(null);
   const [authEmail, setAuthEmail] = useState("");
   const [authPassword, setAuthPassword] = useState("");
   const [authUsername, setAuthUsername] = useState("");
   const [authDisplayName, setAuthDisplayName] = useState("");
+  const [authSchoolName, setAuthSchoolName] = useState("");
   const [authMode, setAuthMode] = useState("login");
   const [authLoading, setAuthLoading] = useState(false);
   const [authMessage, setAuthMessage] = useState("");
@@ -1765,6 +1822,26 @@ export default function App() {
     return () => document.removeEventListener("fullscreenchange", syncFullscreenState);
   }, []);
 
+  useEffect(() => {
+    const handleDynamicImportFailure = event => {
+      setChunkLoadFailure(event.detail?.message || "A new version is available.");
+    };
+
+    window.addEventListener(DYNAMIC_IMPORT_ERROR_EVENT, handleDynamicImportFailure);
+    return () => window.removeEventListener(DYNAMIC_IMPORT_ERROR_EVENT, handleDynamicImportFailure);
+  }, []);
+
+  useEffect(() => {
+    if (authReady) return undefined;
+    const timeoutId = window.setTimeout(() => {
+      setAuthReconnecting(true);
+      setAuthMessage("Still reconnecting. You can continue while the session finishes loading.");
+      setAuthReady(true);
+    }, 6000);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [authReady]);
+
   function enterLearnFullscreen() {
     setLearnFullscreen(true);
     document.documentElement.requestFullscreen?.().catch(() => {});
@@ -1826,7 +1903,7 @@ export default function App() {
 
   async function getRuntimeQuestionValidationOptions(skillId = "") {
     if (!isHighFrequencyWordSkill(skillId)) return {};
-    const { getHfwRuntimeEligibilityIssues } = await import("./data/hfwRuntimeEligibility");
+    const { getHfwRuntimeEligibilityIssues } = await importWithRetry(() => import("./data/hfwRuntimeEligibility"));
     return { getHfwRuntimeEligibilityIssues };
   }
 
@@ -1956,6 +2033,77 @@ export default function App() {
   const profileStorageKey =
     getTeacherProfileStorageKey(teacherId);
 
+  function applyStudentSession(session) {
+    if (!session?.token || !session?.studentId) return;
+    setSessionMode("student");
+    setStudentSession(session);
+    setStudentId(session.studentId);
+    setStudentName(session.studentName || "Reader");
+    setSelectedClassId(session.classId || null);
+    setNameSaved(true);
+    setAppView(APP_VIEWS.STUDENT_HOME);
+    setMessage("");
+    configureProgressSync({ ...session, mode: "student" });
+    try {
+      localStorage.setItem(STUDENT_SESSION_STORAGE_KEY, JSON.stringify(session));
+    } catch {
+      // Student session restore is a convenience; RPC token validation still happens server-side.
+    }
+    void hydrateCloudProgress({ ...session, mode: "student" }).catch(error => {
+      console.warn("Could not hydrate student cloud progress.", error);
+    });
+  }
+
+  function restoreStudentSession() {
+    try {
+      const session = JSON.parse(localStorage.getItem(STUDENT_SESSION_STORAGE_KEY) || "null");
+      if (!session?.token || !session?.studentId) return false;
+      if (session.expiresAt && Date.now() > Number(session.expiresAt)) {
+        localStorage.removeItem(STUDENT_SESSION_STORAGE_KEY);
+        return false;
+      }
+      applyStudentSession(session);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  function logOutStudent() {
+    if (window.confirm("Are you leaving?")) {
+      try {
+        localStorage.removeItem(STUDENT_SESSION_STORAGE_KEY);
+      } catch {
+        // Ignore local storage failures.
+      }
+      clearProgressSyncSession();
+      setSessionMode("teacher");
+      setStudentSession(null);
+      setStudentId(null);
+      setStudentName("");
+      setSelectedClassId(null);
+      setNameSaved(false);
+      setGuidedReadingRecords({});
+      setAppView(teacherUser ? APP_VIEWS.TEACHER_DASHBOARD : APP_VIEWS.ENTRY);
+      setEntryMode(teacherUser ? "teacher" : "entry");
+    }
+  }
+
+  useEffect(() => {
+    if (!authReady || teacherUser || studentSession) return;
+    const timeoutId = window.setTimeout(() => restoreStudentSession(), 0);
+    return () => window.clearTimeout(timeoutId);
+  }, [authReady, teacherUser, studentSession]);
+
+  useEffect(() => {
+    if (sessionMode !== "student") return;
+    if (!STUDENT_ALLOWED_VIEWS.has(appView)) {
+      const timeoutId = window.setTimeout(() => setAppView(APP_VIEWS.STUDENT_HOME), 0);
+      return () => window.clearTimeout(timeoutId);
+    }
+    return undefined;
+  }, [sessionMode, appView]);
+
   function getGuidedReadingStorageKey(selectedStudentId = studentId) {
     // TODO(guided-reading-persistence): Move these records into Supabase once a stable table/schema is approved.
     return getGuidedReadingStorageKeyForSession({ teacherId, studentId: selectedStudentId });
@@ -1983,6 +2131,7 @@ export default function App() {
       };
       const key = getGuidedReadingStorageKey(studentId);
       if (key) localStorage.setItem(key, JSON.stringify(next));
+      queueProgressSave("guided_reading", bookId, { v: 1, ...record }, { scopeKey: studentId });
       return next;
     });
   }
@@ -2157,6 +2306,11 @@ export default function App() {
 
     setProfileLoaded(false);
 
+    if (sessionMode === "student") {
+      setProfileLoaded(true);
+      return;
+    }
+
     if (!teacherId || !profileStorageKey) {
       clearTeacherState();
       setProfileLoaded(true);
@@ -2257,7 +2411,7 @@ export default function App() {
     }
 
     setProfileLoaded(true);
-  }, [authReady, teacherId, profileStorageKey, teacherAccountStatus, isAdmin]);
+  }, [authReady, teacherId, profileStorageKey, teacherAccountStatus, isAdmin, sessionMode]);
 
   useEffect(() => {
     if (!profileLoaded || !profileStorageKey) return;
@@ -2367,6 +2521,7 @@ export default function App() {
       role: "pending",
       status: "pending",
       approval_status: "pending",
+      school_id: overrides.school_id || metadata.school_id || null,
       created_at: overrides.created_at || now,
       requested_at: overrides.requested_at || now
     };
@@ -2379,7 +2534,7 @@ export default function App() {
   async function fetchTeacherAccountRecord(userId) {
     return supabase
       .from("pending_teacher_accounts")
-      .select("id, user_id, email, username, display_name, name, role, status, approval_status, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
+      .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
       .eq("user_id", userId)
       .maybeSingle();
   }
@@ -2405,7 +2560,7 @@ export default function App() {
       const { data: insertedRecord, error: insertError } = await supabase
         .from("pending_teacher_accounts")
         .upsert(pendingRecord, { onConflict: "user_id" })
-        .select("id, user_id, email, username, display_name, name, role, status, approval_status, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
+        .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
         .maybeSingle();
 
       if (!insertError) {
@@ -2577,12 +2732,12 @@ export default function App() {
     setAdminLoading(true);
 
     const [classesResult, studentsResult, answersResult, pendingAccountsResult] = await Promise.all([
-      supabase.from("classes").select("id, name, teacher_id, created_at").order("created_at", { ascending: false }),
-      supabase.from("students").select("id, name, class_id, teacher_id, created_at").order("created_at", { ascending: false }),
+      supabase.from("classes").select("id, name, teacher_id, school_id, created_at").order("created_at", { ascending: false }),
+      supabase.from("students").select("id, name, class_id, teacher_id, symbol_password, created_at").order("created_at", { ascending: false }),
       supabase.from("answers").select("teacher_id"),
       supabase
         .from("pending_teacher_accounts")
-        .select("id, user_id, email, username, display_name, name, role, status, approval_status, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
+        .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
         .order("created_at", { ascending: false })
     ]);
 
@@ -2804,7 +2959,7 @@ export default function App() {
       .from("pending_teacher_accounts")
       .update(statusUpdate)
       .eq("id", accountId)
-      .select("id, user_id, email, username, display_name, name, role, status, approval_status, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
+      .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
       .maybeSingle();
 
     if (error) {
@@ -2827,8 +2982,13 @@ export default function App() {
     const email = authEmail.trim();
     const username = authUsername.trim().toLowerCase();
     const displayName = authDisplayName.trim();
+    const schoolName = authSchoolName.trim();
     if (!email || !authPassword) {
       setAuthMessage("Enter an email and password.");
+      return;
+    }
+    if (!schoolName) {
+      setAuthMessage("Enter your school.");
       return;
     }
     if (!username) {
@@ -2843,6 +3003,15 @@ export default function App() {
     setAuthLoading(true);
     setAuthMessage("");
     freshAuthActionRef.current = true;
+
+    const { data: schoolRows, error: schoolError } = await supabase.rpc("find_or_create_school", { p_name: schoolName });
+    const schoolId = schoolRows?.[0]?.id || null;
+    if (schoolError || !schoolId) {
+      setAuthLoading(false);
+      freshAuthActionRef.current = false;
+      setAuthMessage("Could not save that school yet. Try again.");
+      return;
+    }
 
     const { data: existingUsername, error: usernameLookupError } = await supabase
       .from("pending_teacher_accounts")
@@ -2868,7 +3037,8 @@ export default function App() {
         data: {
           account_status: "pending",
           username,
-          display_name: displayName
+          display_name: displayName,
+          school_id: schoolId
         }
       }
     });
@@ -2895,12 +3065,13 @@ export default function App() {
     if (newUserId) {
       const pendingRecord = buildPendingAccountRecord(newUserId, email, {
         username,
-        display_name: displayName || username
+        display_name: displayName || username,
+        school_id: schoolId
       });
       const { data: pendingAccount, error: notificationError } = await supabase
         .from("pending_teacher_accounts")
         .upsert(pendingRecord, { onConflict: "user_id" })
-        .select("id, user_id, email, username, display_name, name, role, status, approval_status, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
+        .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
         .maybeSingle();
 
       if (notificationError) {
@@ -2942,6 +3113,49 @@ export default function App() {
 
     setAuthPassword("");
     setAuthMessage("");
+  }
+
+  async function saveTeacherSchool() {
+    const schoolName = authSchoolName.trim();
+    if (!teacherId || !schoolName) {
+      setAuthMessage("Enter your school.");
+      return;
+    }
+
+    setAuthLoading(true);
+    const { data: schoolRows, error: schoolError } = await supabase.rpc("find_or_create_school", { p_name: schoolName });
+    const schoolId = schoolRows?.[0]?.id || null;
+    if (schoolError || !schoolId) {
+      setAuthLoading(false);
+      setAuthMessage("Could not save that school yet.");
+      return;
+    }
+
+    const { data, error } = await supabase
+      .from("pending_teacher_accounts")
+      .update({ school_id: schoolId })
+      .eq("user_id", teacherId)
+      .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
+      .maybeSingle();
+
+    if (!error) {
+      await supabase
+        .from("classes")
+        .update({ school_id: schoolId })
+        .eq("teacher_id", teacherId)
+        .is("school_id", null);
+    }
+
+    setAuthLoading(false);
+    if (error) {
+      setAuthMessage("Could not save that school yet.");
+      return;
+    }
+
+    setTeacherAccountRecord(data || { ...teacherAccountRecord, school_id: schoolId });
+    setAuthMessage("");
+    setMessage("School saved.");
+    await loadClasses();
   }
 
   async function requestPasswordReset() {
@@ -3014,7 +3228,7 @@ export default function App() {
 
     const { data, error } = await supabase
       .from("classes")
-      .select("id, name, created_at")
+      .select("id, name, school_id, created_at")
       .eq("teacher_id", teacherId)
       .order("name", { ascending: true });
 
@@ -3038,7 +3252,7 @@ export default function App() {
 
     const { data, error } = await supabase
       .from("classes")
-      .insert({ name: clean, teacher_id: teacherId })
+      .insert({ name: clean, teacher_id: teacherId, school_id: teacherAccountRecord?.school_id || null })
       .select()
       .single();
 
@@ -3066,7 +3280,7 @@ export default function App() {
 
     const { data, error } = await supabase
       .from("students")
-      .select("id, name, class_id, created_at")
+      .select("id, name, class_id, created_at, symbol_password")
       .eq("teacher_id", teacherId)
       .eq("class_id", classId)
       .order("name", { ascending: true });
@@ -3186,6 +3400,56 @@ export default function App() {
     setClassDashboard(rows);
   }
 
+  async function updateStudentSymbolPassword(studentRowId, sequence, selectedStudentName = "student") {
+    if (!teacherId || !studentRowId || !/^[1-9]{3}$/.test(sequence)) return;
+    const { error } = await supabase
+      .from("students")
+      .update({
+        symbol_password: sequence,
+        password_set_at: new Date().toISOString(),
+        password_updated_by: teacherId,
+        failed_login_count: 0,
+        last_failed_login_at: null
+      })
+      .eq("id", studentRowId)
+      .eq("teacher_id", teacherId);
+
+    if (error) {
+      console.error("Could not update student symbol password.", error);
+      setMessage("Could not change that login password.");
+      return;
+    }
+
+    await loadStudents(selectedClassId);
+    setMessage(`Login pictures updated for ${selectedStudentName}.`);
+  }
+
+  async function resetStudentSymbolPassword(studentRowId, selectedStudentName = "student") {
+    if (!teacherId || !studentRowId) return;
+    if (!window.confirm(`Reset ${selectedStudentName}'s login pictures? They will choose new pictures next time.`)) return;
+
+    const { error } = await supabase
+      .from("students")
+      .update({
+        symbol_password: null,
+        password_set_at: null,
+        password_updated_by: teacherId,
+        failed_login_count: 0,
+        last_failed_login_at: null
+      })
+      .eq("id", studentRowId)
+      .eq("teacher_id", teacherId);
+
+    if (error) {
+      console.error("Could not reset student symbol password.", error);
+      setMessage("Could not reset that login password.");
+      return;
+    }
+
+    await loadStudents(selectedClassId);
+    setMessage(`Login pictures reset for ${selectedStudentName}.`);
+  }
+
   function resetCurrentStudentLocalProgress({ clearFormalAssessments = false } = {}) {
     answerInFlightRef.current = false;
     answerHistoryRef.current = [];
@@ -3284,6 +3548,17 @@ export default function App() {
 
   async function loadStudentProgress(selectedStudentId, selectedStudentName) {
     answerInFlightRef.current = false;
+    const progressSyncSession = {
+      mode: "teacher",
+      studentId: selectedStudentId,
+      studentName: selectedStudentName,
+      classId: selectedClassId,
+      teacherId
+    };
+    configureProgressSync(progressSyncSession);
+    void hydrateCloudProgress(progressSyncSession).catch(error => {
+      console.warn("Could not hydrate teacher-selected cloud progress.", error);
+    });
     setStudentId(selectedStudentId);
     setStudentName(selectedStudentName);
     setNameSaved(true);
@@ -6546,7 +6821,7 @@ export default function App() {
       return;
     }
     try {
-      const { exportStudentElAssessmentExcel } = await import("./utils/exportElAssessmentExcel.js");
+      const { exportStudentElAssessmentExcel } = await importWithRetry(() => import("./utils/exportElAssessmentExcel.js"));
       await exportStudentElAssessmentExcel({
         assessmentHistory,
         students: [
@@ -7076,6 +7351,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     }
   }, [appView, authReady, teacherAccountStatus, teacherUser, isAdmin]);
 
+  if (chunkLoadFailure) {
+    return <NewVersionAvailableCard message={chunkLoadFailure} />;
+  }
+
   if (!authReady) {
     return (
       <div className="app">
@@ -7086,10 +7365,40 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     );
   }
 
-  if (!teacherUser) {
+  if (!teacherUser && sessionMode !== "student" && authMode !== "resetPassword" && entryMode === "entry") {
+    return (
+      <PageBoundary resetKey="entry">
+        <StudentEntryPage
+          onStudent={() => {
+            setEntryMode("student");
+            setAppView(APP_VIEWS.STUDENT_LOGIN);
+          }}
+          onTeacher={() => setEntryMode("teacher")}
+        />
+      </PageBoundary>
+    );
+  }
+
+  if (!teacherUser && sessionMode !== "student" && authMode !== "resetPassword" && entryMode === "student") {
+    return (
+      <PageBoundary resetKey="student-login">
+        <StudentLoginFlow
+          onTeacherEntry={() => setEntryMode("teacher")}
+          onSessionStart={applyStudentSession}
+        />
+      </PageBoundary>
+    );
+  }
+
+  if (!teacherUser && sessionMode !== "student") {
     return (
       <PageBoundary resetKey={`auth-${authMode}`}>
         <div className="app auth-shell login-auth-shell">
+          {authReconnecting && (
+            <div className="message auth-reconnect-banner">
+              Reconnecting to your teacher session in the background.
+            </div>
+          )}
           <motion.div
             className="hero auth-hero"
             initial={{ y: -12, opacity: 0 }}
@@ -7142,6 +7451,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             setAuthUsername={setAuthUsername}
             authDisplayName={authDisplayName}
             setAuthDisplayName={setAuthDisplayName}
+            authSchoolName={authSchoolName}
+            setAuthSchoolName={setAuthSchoolName}
             authLoading={authLoading}
             authMessage={authMessage}
             signUpTeacher={signUpTeacher}
@@ -7169,6 +7480,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             setAuthUsername={setAuthUsername}
             authDisplayName={authDisplayName}
             setAuthDisplayName={setAuthDisplayName}
+            authSchoolName={authSchoolName}
+            setAuthSchoolName={setAuthSchoolName}
             authLoading={authLoading}
             authMessage={authMessage}
             signUpTeacher={signUpTeacher}
@@ -7229,13 +7542,44 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     );
   }
 
+  if (sessionMode !== "student" && teacherUser && !isAdmin && !teacherAccountRecord?.school_id) {
+    return (
+      <PageBoundary resetKey="teacher-school">
+        <div className="app auth-shell">
+          <div className="card page-card page-stack auth-card">
+            <div className="auth-heading">
+              <h2>Set your school</h2>
+              <p className="muted-text">Students use school, class, and name to find their login.</p>
+            </div>
+            <label className="auth-field">
+              <strong>School</strong>
+              <input
+                autoComplete="organization"
+                value={authSchoolName}
+                placeholder="School name"
+                onChange={event => setAuthSchoolName(event.target.value)}
+                type="text"
+              />
+            </label>
+            <button className="main-button" disabled={authLoading} onClick={saveTeacherSchool} type="button">
+              Save School
+            </button>
+            {authMessage && <p className="message auth-message">{authMessage}</p>}
+          </div>
+        </div>
+      </PageBoundary>
+    );
+  }
+
   const roundCorrect = calculateRoundCorrect(roundAnswers);
   const roundProgress = calculateRoundProgress(roundAnswers, ROUND_LENGTH);
   const accuracy = calculateAccuracy({ totalAnswered, correctAnswered });
   const isFocusedAssessment = isFocusedAssessmentView(appView);
-  const isFocusedShell = isFocusedAssessment || (isLearnView && learnFullscreen);
+  const isStudentMode = sessionMode === "student";
+  const isFocusedShell = isStudentMode || appView === APP_VIEWS.STUDENT_LOGIN || isFocusedAssessment || (isLearnView && learnFullscreen);
   const appShellClassName = [
     "app",
+    isStudentMode ? "student-mode-app no-sidebar" : "",
     isFocusedAssessment ? "assessment-app no-sidebar" : "",
     isLearnView && learnFullscreen ? "learn-fullscreen-app no-sidebar" : ""
   ].filter(Boolean).join(" ");
@@ -7266,7 +7610,31 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       <div className={appShellClassName}>
       {showConfetti && !prefersReducedMotion && <Confetti recycle={false} numberOfPieces={90} />}
 
-      {appView === APP_VIEWS.ADMIN_DASHBOARD && isAdmin && (
+      {appView === APP_VIEWS.STUDENT_LOGIN && (
+        <PageBoundary resetKey="student-login-sandbox">
+          <StudentLoginFlow
+            onTeacherEntry={() => {
+              setEntryMode("teacher");
+              setAppView(teacherUser ? APP_VIEWS.TEACHER_DASHBOARD : APP_VIEWS.ENTRY);
+            }}
+            onSessionStart={applyStudentSession}
+          />
+        </PageBoundary>
+      )}
+
+      {isStudentMode && appView === APP_VIEWS.STUDENT_HOME && (
+        <PageBoundary resetKey={`student-home-${studentId}`}>
+          <StudentHomePage
+            studentName={studentName}
+            onOpenPhonicsLearn={() => setAppView(APP_VIEWS.PHONICS_LEARN)}
+            onOpenStoryQuests={() => setAppView(APP_VIEWS.LEARN)}
+            onOpenGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
+            onLogout={logOutStudent}
+          />
+        </PageBoundary>
+      )}
+
+      {sessionMode !== "student" && appView === APP_VIEWS.ADMIN_DASHBOARD && isAdmin && (
         <PageBoundary resetKey="admin-dashboard">
           <Suspense fallback={<LazyPageFallback label="Loading admin dashboard..." />}>
             <AdminDashboardPage
@@ -7291,7 +7659,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </PageBoundary>
       )}
 
-      {(appView === APP_VIEWS.TEACHER_DASHBOARD || appView === APP_VIEWS.SELECT) && (
+      {sessionMode !== "student" && (appView === APP_VIEWS.TEACHER_DASHBOARD || appView === APP_VIEWS.SELECT) && (
         <PageBoundary resetKey="teacher-dashboard">
           <TeacherDashboardPage
             classList={classList}
@@ -7312,6 +7680,13 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             classDashboard={classDashboard}
             loadClassDashboard={loadClassDashboard}
             skillTree={skillTree}
+            updateStudentSymbolPassword={updateStudentSymbolPassword}
+            resetStudentSymbolPassword={resetStudentSymbolPassword}
+            startStudentLogin={() => {
+              setSessionMode("teacher");
+              setEntryMode("student");
+              setAppView(APP_VIEWS.STUDENT_LOGIN);
+            }}
             message={message}
           />
         </PageBoundary>
@@ -7380,6 +7755,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           <GuidedReadingPage
             studentId={studentId}
             studentName={studentName}
+            mode={sessionMode === "student" ? "student" : "teacher"}
             guidedReadingRecords={guidedReadingRecords}
             saveGuidedReadingRecord={saveGuidedReadingRecord}
             speakText={speakText}
@@ -7428,7 +7804,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </PageBoundary>
       )}
 
-      {shouldShowDashboardSummary({ appView, isFocusedAssessment: isFocusedShell }) && (
+      {sessionMode !== "student" && shouldShowDashboardSummary({ appView, isFocusedAssessment: isFocusedShell }) && (
         <DashboardSummary
           currentSkillIndex={currentSkillIndex}
           skillTree={skillTree}
@@ -7574,7 +7950,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </PageBoundary>
       )}
 
-      {shouldShowFooterUtilityActions({ appView, isFocusedAssessment: isFocusedShell }) && (
+      {sessionMode !== "student" && shouldShowFooterUtilityActions({ appView, isFocusedAssessment: isFocusedShell }) && (
         <div className="footer-utility-actions">
           <button className="report-button" onClick={switchStudent}>
             Switch Student

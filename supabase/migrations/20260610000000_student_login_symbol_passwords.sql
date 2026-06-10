@@ -34,6 +34,28 @@ create policy "App admins can update schools"
   on public.schools for update to authenticated
   using (public.is_app_admin(auth.uid()));
 
+create or replace function public.find_or_create_school(p_name text)
+returns table (id uuid, name text)
+language plpgsql security definer set search_path = public
+as $$
+declare
+  v_clean text := btrim(coalesce(p_name, ''));
+  v_id uuid;
+  v_name text;
+begin
+  if v_clean = '' then
+    raise exception 'school_required';
+  end if;
+
+  insert into public.schools (name)
+  values (v_clean)
+  on conflict (name_normalized) do update set name = public.schools.name
+  returning public.schools.id, public.schools.name into v_id, v_name;
+
+  return query select v_id, v_name;
+end;
+$$;
+
 -- ─── 2. Column additions ─────────────────────────────────────────────────────
 
 alter table public.pending_teacher_accounts
@@ -228,7 +250,8 @@ begin
   return json_build_object(
     'ok', true, 'token', v_token,
     'student_id', v_student.id, 'student_name', v_student.name,
-    'class_id', v_student.class_id, 'teacher_id', v_student.teacher_id
+    'class_id', v_student.class_id, 'teacher_id', v_student.teacher_id,
+    'school_id', (select c.school_id from public.classes c where c.id = v_student.class_id)
   );
 end;
 $$;
@@ -277,7 +300,8 @@ begin
   return json_build_object(
     'ok', true, 'token', v_token,
     'student_id', v_student.id, 'student_name', v_student.name,
-    'class_id', v_student.class_id, 'teacher_id', v_student.teacher_id
+    'class_id', v_student.class_id, 'teacher_id', v_student.teacher_id,
+    'school_id', (select c.school_id from public.classes c where c.id = v_student.class_id)
   );
 end;
 $$;
@@ -350,6 +374,7 @@ $$;
 -- ─── 7. Grants: anon may call the student RPCs and nothing else ─────────────
 
 grant execute on function public.student_list_schools() to anon, authenticated;
+grant execute on function public.find_or_create_school(text) to anon, authenticated;
 grant execute on function public.student_list_classes(uuid) to anon, authenticated;
 grant execute on function public.student_list_students(uuid) to anon, authenticated;
 grant execute on function public.student_set_password(uuid, text) to anon, authenticated;
