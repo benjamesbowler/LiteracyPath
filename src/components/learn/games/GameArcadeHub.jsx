@@ -76,7 +76,17 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
               onClick={() => setActiveGame(game)}
             >
               <span className="lg-game-card-art" aria-hidden="true">
-                <img src={game.icon} alt="" />
+                <img
+                  src={`/images/learn-games/art/${game.id}.png`}
+                  alt=""
+                  className="lg-game-art-full"
+                  onError={event => {
+                    // No generated artwork yet for this game - fall back to its icon.
+                    event.currentTarget.onerror = null;
+                    event.currentTarget.src = game.icon;
+                    event.currentTarget.className = "lg-game-art-icon";
+                  }}
+                />
               </span>
               <span className="lg-game-card-copy">
                 <strong>{game.title}</strong>
