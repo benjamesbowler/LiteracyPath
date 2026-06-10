@@ -39,21 +39,6 @@ import {
   getAssessmentSkillLabel,
   resolveAssessmentSkillId
 } from "./data/assessmentSkillMapping";
-import { enrichListenAndFindWordQuestion, getListenAndFindAssetDiagnostics } from "./data/listenAndFindAssets";
-import {
-  enrichInitialSoundPairQuestion,
-  hasCompleteInitialSoundPairAssets,
-  isInitialSoundQuestion
-} from "./data/initialSoundPairAssets";
-import {
-  hasCompletePairSelectionAssets,
-  isPairSelectionQuestion,
-  normalizePairSelectionAnswer
-} from "./data/soundPairAssets";
-import {
-  hasCompleteVisualQuestionAssets,
-  isVisualCardChoiceQuestion
-} from "./data/visualQuestionAssets";
 import {
   getFinalSoundsLevel1QuestionIssues,
   isFinalSoundsLevel1Question,
@@ -337,6 +322,93 @@ function normalizeTemplateOption(option) {
     label: option.label || option.word || option.value,
     value: option.value || option.word || option.label
   };
+}
+
+function getQuestionCards(question = {}) {
+  return Array.isArray(question.imageCards) ? question.imageCards : [];
+}
+
+function isListenAndFindWordQuestion(question = {}) {
+  const text = String(question.question || question.prompt || "").toLowerCase().trim();
+  const typeText = String([question.questionType, question.formatType].join(" ")).toLowerCase();
+  return (
+    text === "listen and find the word." ||
+    text === "listen and find the word" ||
+    typeText.includes("listen_and_find_word") ||
+    typeText.includes("heard_word_to_print")
+  );
+}
+
+function getListenAndFindAssetDiagnostics(question = {}) {
+  if (!isListenAndFindWordQuestion(question)) return null;
+  const choices = question.choices || question.answerOptions || [];
+  const choiceImages = question.choiceImages || {};
+  const missingImages = choices.filter(choice => {
+    const asset = choiceImages[choice] || choiceImages[String(choice).toLowerCase()] || {};
+    return !(asset.image || asset.imagePath || asset.imageUrl);
+  });
+
+  return {
+    missingImages,
+    missingChoiceAssets: missingImages,
+    missingAudio: !(question.audioPath || question.audioUrl || question.audio),
+    usesSingleWordAudioText: normalize(question.audioText) === normalize(question.answer || question.correctAnswer || question.targetWord)
+  };
+}
+
+function isInitialSoundQuestion(question = {}) {
+  return normalize(question.itemType) === "initial_sound" ||
+    normalize(question.skillId || question.skill || question.skillName).includes("initial");
+}
+
+function isInitialSoundPairQuestion(question = {}) {
+  return question.questionType === "initial_sound_pair";
+}
+
+function hasCompleteInitialSoundPairAssets(question = {}) {
+  const cards = getQuestionCards(question);
+  return isInitialSoundPairQuestion(question) &&
+    cards.length >= 3 &&
+    cards.every(card => (card.image || card.imagePath || card.imageUrl) && (card.audio || card.audioPath || card.audioUrl));
+}
+
+function isPairSelectionQuestion(question = {}) {
+  return [
+    "initial_sound_pair",
+    "final_sound_pair",
+    "rhyme_pair"
+  ].includes(question.questionType);
+}
+
+function normalizePairSelectionAnswer(value) {
+  return (Array.isArray(value) ? value : String(value || "").split("|"))
+    .map(normalize)
+    .filter(Boolean)
+    .sort()
+    .join("|");
+}
+
+function hasCompletePairSelectionAssets(question = {}) {
+  const cards = getQuestionCards(question);
+  const requiredCardCount = question.skillId === "final_sounds" || question.itemType === "final_sound" ? 4 : 3;
+  return isPairSelectionQuestion(question) &&
+    cards.length >= requiredCardCount &&
+    cards.every(card => (card.image || card.imagePath || card.imageUrl) && (card.audio || card.audioPath || card.audioUrl));
+}
+
+function isVisualCardChoiceQuestion(question = {}) {
+  return question.questionType === "visual_card_choice";
+}
+
+function hasCompleteVisualQuestionAssets(question = {}) {
+  if (!isVisualCardChoiceQuestion(question)) return true;
+  const cards = getQuestionCards(question);
+  const requireImages = question.requireOptionImages !== false;
+  const requireAudio = question.requireOptionAudio === true;
+  return cards.length >= 2 && cards.every(card =>
+    (!requireImages || card.image || card.imagePath || card.imageUrl) &&
+    (!requireAudio || card.audio || card.audioPath || card.audioUrl)
+  );
 }
 
 const SHORT_VOWEL_WORD_BANK = {
@@ -1325,9 +1397,9 @@ function prepareRuntimeQuestionBank(questions = [], options = {}) {
   return dedupeQuestionsByRuntimeSignature(
     questions.map((question, index) =>
       applyQuestionFormatMetadata(applyItemMetadata(
-        enrichInitialSoundPairQuestion(enrichListenAndFindWordQuestion(normalizeContentQuestion(
+        normalizeContentQuestion(
           normalizeAssessmentAudioRoles(normalizeAssessmentQuestion(question, null, index))
-        )))
+        )
       ))
     )
   )
