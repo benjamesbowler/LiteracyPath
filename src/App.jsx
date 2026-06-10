@@ -3143,39 +3143,29 @@ export default function App() {
     }
 
     setAuthLoading(true);
-    const { data: schoolRows, error: schoolError } = await supabase.rpc("find_or_create_school", { p_name: schoolName });
-    const schoolId = schoolRows?.[0]?.id || null;
-    if (schoolError || !schoolId) {
-      setAuthLoading(false);
-      setAuthMessage("Could not save that school yet.");
-      return;
-    }
-
-    const { data, error } = await supabase
-      .from("pending_teacher_accounts")
-      .update({ school_id: schoolId })
-      .eq("user_id", teacherId)
-      .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
-      .maybeSingle();
-
-    if (!error) {
-      // Keep all of this teacher's classes on their current school so
-      // students can always find them through the child login flow.
-      await supabase
-        .from("classes")
-        .update({ school_id: schoolId })
-        .eq("teacher_id", teacherId);
-    }
+    // Security-definer RPC: persists the school on the teacher's account row
+    // (RLS blocks direct updates once approved) and stamps all their classes.
+    const { data: savedRows, error } = await supabase.rpc("teacher_set_school", { p_school_name: schoolName });
+    const saved = savedRows?.[0] || null;
 
     setAuthLoading(false);
-    if (error) {
-      setAuthMessage("Could not save that school yet.");
+
+    if (error || !saved?.school_id) {
+      console.error("Save school failed:", error);
+      const missingFunction = error?.code === "PGRST202" || /teacher_set_school/.test(error?.message || "");
+      setAuthMessage(
+        missingFunction
+          ? "The database needs the latest update before schools can be saved. Apply the teacher_set_school migration."
+          : "Could not save that school yet."
+      );
+      setMessage("Could not save that school yet.");
       return;
     }
 
-    setTeacherAccountRecord(data || { ...teacherAccountRecord, school_id: schoolId });
+    setTeacherAccountRecord({ ...(teacherAccountRecord || {}), school_id: saved.school_id });
+    setTeacherSchoolName(saved.school_name || schoolName);
     setAuthMessage("");
-    setMessage("School saved.");
+    setMessage(`School saved: ${saved.school_name || schoolName}`);
     await loadClasses();
   }
 
