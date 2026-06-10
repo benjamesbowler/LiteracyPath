@@ -3507,23 +3507,25 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: center;
-  padding-top: 8px;
-  border-top: 1px solid var(--color-border-soft);
+  margin-top: auto;
+  padding: 6px 8px;
+  border-top: 1px solid var(--lp-color-border-subtle);
 }
 
 .question-flag-controls label {
   display: inline-flex;
-  gap: 5px;
   align-items: center;
+  gap: 5px;
   color: var(--lp-color-text-muted);
-  font-size: 0.72rem;
-  font-weight: 800;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-.question-flag-controls input {
-  width: 13px;
-  height: 13px;
+.question-flag-controls input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--lp-color-primary);
 }
 
 .question-flag-review-list {
@@ -4176,8 +4178,9 @@ select:focus {
 .assessment-audio-button {
   display: inline-grid;
   place-items: center;
-  min-height: 42px !important;
-  width: 46px;
+  min-height: 44px !important;
+  width: 44px;
+  flex-shrink: 0;
   padding: 6px !important;
   background: linear-gradient(180deg, var(--color-primary-soft), #ffffff) !important;
   color: var(--lp-color-primary-strong) !important;
@@ -4282,10 +4285,11 @@ select:focus {
 
 .choice-button {
   flex: 1;
-  min-height: 66px;
+  min-height: clamp(58px, 9vh, 80px);
   background: linear-gradient(180deg, #ffffff 0%, #fffdf8 100%) !important;
   color: var(--lp-color-text-strong) !important;
   border: 1.5px solid var(--lp-color-border-strong) !important;
+  font-size: clamp(16px, 1.8vw, 20px) !important;
   text-align: center;
   box-shadow: 0 4px 14px rgba(22, 34, 51, 0.05);
 }
@@ -4339,6 +4343,7 @@ select:focus {
 
 .visual-word-choice-image {
   width: 100%;
+  max-width: 160px;
   height: auto;
   min-height: 72px;
   max-height: 118px;
@@ -4364,31 +4369,32 @@ select:focus {
 }
 
 .initial-sound-card {
-  display: grid;
-  grid-template-rows: minmax(112px, 1fr) auto;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
   padding: 10px;
   border: 2px solid rgba(226, 219, 206, 0.95);
-  border-radius: 12px;
+  border-radius: 14px;
   background: #ffffff;
   box-shadow: 0 8px 22px rgba(22, 34, 51, 0.06);
 }
 
 .initial-sound-card.selected {
   border-color: var(--lp-color-primary);
-  box-shadow: 0 0 0 4px rgba(79, 99, 215, 0.14), 0 12px 28px rgba(79, 99, 215, 0.12);
+  box-shadow: 0 0 0 3px rgba(12, 107, 101, 0.18), 0 12px 28px rgba(12, 107, 101, 0.1);
 }
 
 .initial-sound-image-button {
   display: grid;
   grid-template-rows: minmax(0, auto) auto;
+  flex: 1 1 auto;
   align-content: center;
   align-items: center;
   justify-items: center;
-  min-height: 112px;
+  min-height: clamp(120px, 20vh, 180px);
   padding: 8px;
   border: 0 !important;
-  border-radius: 8px;
+  border-radius: 10px !important;
   background: linear-gradient(180deg, #ffffff, #fbf7ef) !important;
   color: var(--lp-color-text-strong) !important;
   gap: 8px;
@@ -4399,7 +4405,7 @@ select:focus {
   width: 100%;
   height: auto;
   min-height: 0;
-  max-height: clamp(96px, 18vh, 155px);
+  max-height: clamp(88px, 16vh, 145px);
   object-fit: contain;
 }
 
@@ -4412,6 +4418,7 @@ select:focus {
 }
 
 .initial-sound-card-audio {
+  align-self: center;
   justify-self: center;
 }
 
@@ -4462,36 +4469,37 @@ select:focus {
 }
 
 .visual-assessment-card {
-  display: grid;
-  grid-template-rows: minmax(108px, 1fr) auto;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
   padding: 10px;
   border: 1.5px solid rgba(226, 219, 206, 0.95);
-  border-radius: 12px;
+  border-radius: 14px;
   background: #ffffff;
   box-shadow: 0 8px 22px rgba(22, 34, 51, 0.06);
 }
 
 .visual-assessment-card.selected {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18), 0 8px 22px rgba(22, 34, 51, 0.08);
+  border-color: var(--lp-color-primary);
+  box-shadow: 0 0 0 3px rgba(12, 107, 101, 0.18), 0 8px 22px rgba(22, 34, 51, 0.08);
 }
 
 .visual-assessment-card.selected .visual-assessment-card-button {
-  background: linear-gradient(180deg, #eff6ff, #ffffff) !important;
+  background: linear-gradient(180deg, var(--lp-color-primary-soft), #ffffff) !important;
 }
 
 .visual-assessment-card-button {
   display: grid;
   grid-template-rows: minmax(0, auto) minmax(1.35em, auto);
+  flex: 1 1 auto;
   align-content: center;
   align-items: center;
   justify-items: center;
   gap: 8px;
-  min-height: clamp(132px, 21vh, 190px);
+  min-height: clamp(120px, 20vh, 180px);
   padding: 8px !important;
   border: 0 !important;
-  border-radius: 8px;
+  border-radius: 10px !important;
   background: linear-gradient(180deg, #ffffff, #fbf7ef) !important;
   color: var(--lp-color-text-strong) !important;
   font-size: clamp(18px, 2.2vw, 24px);
@@ -4503,7 +4511,7 @@ select:focus {
   width: 100%;
   height: auto;
   min-height: 0;
-  max-height: clamp(82px, 15vh, 132px);
+  max-height: clamp(88px, 16vh, 145px);
   object-fit: contain;
 }
 
@@ -4796,7 +4804,7 @@ select:focus {
   display: grid;
   gap: 10px;
   width: min(840px, 100%) !important;
-  max-height: min(38vh, 360px);
+  max-height: min(44vh, 420px);
   padding: clamp(12px, 1.5vw, 16px);
   border: 1px solid rgba(55, 83, 88, 0.18);
   border-radius: 8px;
@@ -5239,9 +5247,12 @@ select:focus {
 
 .ixl-answer-grid {
   display: grid;
-  /* minmax(min(190px,45%),1fr) prevents 2-col layout from exceeding viewport on 375px phones */
-  grid-template-columns: repeat(auto-fit, minmax(min(190px, 45%), 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
+}
+
+.ixl-answer-grid.three-options {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .ixl-answer-grid.four-options,
@@ -5259,7 +5270,7 @@ select:focus {
 .ixl-answer-card {
   position: relative;
   min-width: 0;
-  border-radius: 20px;
+  border-radius: 14px;
 }
 
 .ixl-answer-button {
@@ -5271,8 +5282,8 @@ select:focus {
   justify-content: center;
   gap: 10px;
   padding: 12px;
-  border: 2px solid #d8ddfb;
-  border-radius: 20px;
+  border: 2px solid var(--lp-color-border-strong);
+  border-radius: 10px !important;
   background: #ffffff;
   color: var(--lp-color-text-strong);
   box-shadow: 0 10px 22px rgba(48, 37, 18, 0.08);
@@ -5287,15 +5298,15 @@ select:focus {
 .ixl-answer-grid.letter-options .ixl-answer-button {
   min-height: clamp(72px, 10vh, 96px);
   padding: 14px;
-  border-radius: 22px;
+  border-radius: 14px !important;
   font-size: clamp(2rem, 4.2vw, 3rem);
   font-weight: 950;
   line-height: 1;
 }
 
 .ixl-answer-button:hover {
-  border-color: #8da0f6;
-  background: #f8f9ff;
+  border-color: var(--lp-color-primary);
+  background: var(--lp-color-primary-soft);
 }
 
 .ixl-answer-card.image-card .ixl-answer-button {
@@ -5304,12 +5315,15 @@ select:focus {
   align-content: center;
   align-items: center;
   justify-items: center;
-  min-height: clamp(112px, 18vh, 168px);
+  min-height: clamp(120px, 20vh, 180px);
   overflow: visible;
 }
 
 .ixl-answer-card.image-card .ixl-answer-button img {
+  width: 100%;
+  height: auto;
   min-height: 0;
+  max-height: clamp(88px, 16vh, 145px);
   object-fit: contain;
 }
 
@@ -5354,6 +5368,10 @@ select:focus {
   .assessment-listening-panel,
   .assessment-passage-card {
     width: min(690px, 100%);
+  }
+
+  .assessment-card .comprehension-passage-card {
+    max-height: min(46vh, 460px);
   }
 
   .assessment-main-image-wrap {
@@ -5419,8 +5437,12 @@ select:focus {
     justify-content: center;
   }
 
+  .ixl-answer-grid.three-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .ixl-answer-card.image-card .ixl-answer-button {
-    min-height: clamp(132px, 19vh, 178px);
+    min-height: clamp(120px, 20vh, 180px);
   }
 
   .short-vowel-word-choice-card .ixl-template-panel {
@@ -5434,7 +5456,7 @@ select:focus {
   .ixl-answer-button img {
     max-width: 240px;
     height: auto;
-    max-height: clamp(96px, 15vh, 136px);
+    max-height: clamp(110px, 18vh, 160px);
   }
 
   .short-vowel-word-choice-card .ixl-answer-button img {
@@ -5452,12 +5474,12 @@ select:focus {
   }
 
   .visual-assessment-card-button {
-    min-height: clamp(180px, 24vh, 245px);
+    min-height: clamp(120px, 20vh, 180px);
   }
 
   .visual-assessment-card-button img {
     height: auto;
-    max-height: clamp(120px, 18vh, 180px);
+    max-height: clamp(110px, 18vh, 160px);
   }
 
   .ixl-answer-button strong,
@@ -5658,7 +5680,7 @@ select:focus {
 .sound-order-tile,
 .sound-order-selected-tile {
   min-height: 64px;
-  border: 2px solid #d8ddfb;
+  border: 2px solid var(--lp-color-border-strong);
   border-radius: 18px;
   background: #ffffff;
   color: var(--lp-color-text-strong);
@@ -10690,12 +10712,12 @@ select:focus {
   }
 
   .final-sounds-pair-image-button {
-    min-height: clamp(82px, 15vh, 116px);
+    min-height: clamp(120px, 20vh, 180px);
   }
 
   .final-sounds-pair-image-button img {
     height: auto;
-    max-height: clamp(56px, 10vh, 78px);
+    max-height: clamp(88px, 16vh, 145px);
   }
 
   .final-sounds-pair-card .initial-sound-card-audio {
@@ -10704,12 +10726,12 @@ select:focus {
   }
 
   .ixl-answer-card.image-card .ixl-answer-button {
-    min-height: clamp(116px, 21vh, 160px);
+    min-height: clamp(120px, 20vh, 180px);
   }
 
   .ixl-answer-button img {
     height: auto;
-    max-height: clamp(76px, 14vh, 110px);
+    max-height: clamp(88px, 16vh, 145px);
   }
 
   .assessment-card .visual-word-choice {
@@ -10723,31 +10745,29 @@ select:focus {
   }
 
   .initial-sound-card {
-    grid-template-rows: minmax(0, auto) auto;
     padding: 8px;
   }
 
   .initial-sound-image-button {
-    min-height: 78px;
+    min-height: clamp(120px, 20vh, 180px);
   }
 
   .initial-sound-image-button img {
     height: auto;
-    max-height: 76px;
+    max-height: clamp(88px, 16vh, 145px);
   }
 
   .visual-assessment-card {
-    grid-template-rows: minmax(0, auto) auto;
     padding: 8px;
   }
 
   .visual-assessment-card-button {
-    min-height: 104px;
+    min-height: clamp(120px, 20vh, 180px);
   }
 
   .visual-assessment-card-button img {
     height: auto;
-    max-height: 74px;
+    max-height: clamp(88px, 16vh, 145px);
   }
 
   .assessment-stimulus {
@@ -11174,7 +11194,7 @@ select:focus {
   .assessment-card .choice-button {
     min-height: 52px;
     padding: 8px 10px;
-    font-size: 15px;
+    font-size: clamp(16px, 1.8vw, 20px) !important;
   }
 
   /* Two-column answer grids: force each item to 44% so 2 cols always fit */

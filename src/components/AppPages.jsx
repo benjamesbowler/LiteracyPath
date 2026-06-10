@@ -471,6 +471,7 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
     normalizedAnswerOptions.every(option => option.label.length <= 3);
   const answerGridClassName = [
     "ixl-answer-grid",
+    normalizedAnswerOptions.length === 3 ? "three-options" : "",
     normalizedAnswerOptions.length === 4 ? "four-options" : "",
     hasImageOptions ? "image-options" : "",
     isCompactLetterOptions ? "letter-options" : "",
