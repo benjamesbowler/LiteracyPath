@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { usePhonicsAudio } from "../../../../../hooks/usePhonicsAudio";
 import AudioButton from "../AudioButton";
 import PhonicsButton from "../PhonicsButton";
+import { WordImage } from "../WordImage";
 
 const WordCard = memo(function WordCard({ word, index }) {
   const { play, isPlaying } = usePhonicsAudio(word.audio, word.phonemeBreakdown || word.word);
@@ -24,7 +25,7 @@ const WordCard = memo(function WordCard({ word, index }) {
       type="button"
     >
       <span className="phonics-word-image-wrap">
-        <img src={word.image} alt={word.word} draggable={false} />
+        <WordImage src={word.image} word={word.word} />
       </span>
       <span className="phonics-word-label">{word.word}</span>
       <motion.span className="phonics-mini-audio-dot" animate={isPlaying ? { scale: [1, 1.2, 1] } : {}}>

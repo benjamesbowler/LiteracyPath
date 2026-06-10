@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { motion } from "framer-motion";
+import { WordImage } from "./WordImage";
 
 const WordTile = memo(function WordTile({
   word,
@@ -32,7 +33,7 @@ const WordTile = memo(function WordTile({
       >
         <span className="phonics-word-tile-face phonics-word-tile-front">
           <span className="phonics-word-image-wrap">
-            <img src={image} alt={word} draggable={false} />
+            <WordImage src={image} word={word} />
           </span>
           <span className="phonics-word-label">{word}</span>
         </span>

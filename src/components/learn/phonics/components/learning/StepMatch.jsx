@@ -19,9 +19,9 @@ function shuffleTiles(words, distractors) {
 }
 
 const StepMatch = memo(function StepMatch({ lesson, onComplete }) {
-  const { play: playCorrect } = usePhonicsAudio("/audio/correct.mp3", "Correct");
-  const { play: playIncorrect } = usePhonicsAudio("/audio/incorrect.mp3", "Try again");
-  const { play: playYay } = usePhonicsAudio("/audio/yay.mp3", "You found them all");
+  const { play: playCorrect } = usePhonicsAudio("/phonics/audio/sfx/correct.mp3", "Correct");
+  const { play: playIncorrect } = usePhonicsAudio("/phonics/audio/sfx/incorrect.mp3", "Try again");
+  const { play: playYay } = usePhonicsAudio("/phonics/audio/sfx/yay.mp3", "You found them all");
   const tiles = useMemo(() => shuffleTiles(lesson.words, lesson.distractors), [lesson.distractors, lesson.words]);
   const [flipStates, setFlipStates] = useState(() => Object.fromEntries(tiles.map(tile => [tile.word.word, "default"])));
   const [foundCount, setFoundCount] = useState(0);
