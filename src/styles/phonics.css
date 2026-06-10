@@ -773,9 +773,9 @@
 }
 
 .phonics-island-switcher {
-  width: min(100%, 540px);
+  width: min(100%, 780px);
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -828,6 +828,14 @@
   bottom: 8px;
   width: 20px;
   height: 20px;
+}
+
+.phonics-arcade-loading {
+  display: grid;
+  min-height: 220px;
+  place-items: center;
+  color: var(--phonics-soft-ink);
+  font: 900 1.15rem var(--phonics-font-display);
 }
 
 .cvc-picker,
@@ -1143,6 +1151,10 @@
 
   .phonics-tab-shell {
     padding: 16px 12px;
+  }
+
+  .phonics-island-switcher {
+    grid-template-columns: 1fr;
   }
 
   .phonics-flow-header {

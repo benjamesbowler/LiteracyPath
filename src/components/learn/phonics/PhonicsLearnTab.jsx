@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { loadCvcProgress, saveCvcProgress } from "../../../utils/cvcProgress";
 import { loadPhonicsProgress, savePhonicsProgress } from "../../../utils/phonicsProgress";
 import { PhonicsAlphabetPicker } from "./PhonicsAlphabetPicker";
@@ -7,7 +7,23 @@ import { useCvcSoundCue } from "./cvc/cvcHelpers";
 import { WorkshopFamilyPicker } from "./cvc/WorkshopFamilyPicker";
 import { PhonicsLearningFlow } from "./PhonicsLearningFlow";
 
+const GameArcadeHub = lazy(() => import("../games/GameArcadeHub").then(module => ({
+  default: module.GameArcadeHub
+})));
+
 function IslandIcon({ type }) {
+  if (type === "games") {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 64 64" focusable="false">
+        <rect x="10" y="22" width="44" height="28" rx="10" />
+        <path d="M23 36h10M28 31v10" />
+        <circle cx="42" cy="34" r="2.8" />
+        <circle cx="48" cy="40" r="2.8" />
+        <path d="M24 22c0-8 16-8 16 0" />
+      </svg>
+    );
+  }
+
   if (type === "words") {
     return (
       <svg aria-hidden="true" viewBox="0 0 64 64" focusable="false">
@@ -131,9 +147,22 @@ export function PhonicsLearnTab({ progressScopeKey = "default" }) {
           <span>Words</span>
           {!wordsUnlocked && <IslandLockIcon />}
         </button>
+        <button
+          className={`phonics-island-card ${activeIsland === "games" ? "active" : ""}`}
+          onClick={() => handleIslandClick("games")}
+          type="button"
+          aria-label="Games"
+        >
+          <IslandIcon type="games" />
+          <span>Games</span>
+        </button>
       </div>
 
-      {activeIsland === "words" && wordsUnlocked ? (
+      {activeIsland === "games" ? (
+        <Suspense fallback={<div className="phonics-arcade-loading">Loading games...</div>}>
+          <GameArcadeHub progressScopeKey={progressScopeKey} />
+        </Suspense>
+      ) : activeIsland === "words" && wordsUnlocked ? (
         <WorkshopFamilyPicker
           progress={cvcProgress}
           onSelectFamily={handleSelectFamily}

@@ -56,6 +56,7 @@
     "check:hfw-distractor-ambiguity": "node tools/checkHfwDistractorAmbiguity.js",
     "check:assessment-level1-content-media": "node tools/checkAssessmentLevel1ContentMedia.js",
     "check:phonics-learn-media": "node tools/checkPhonicsLearnMedia.js",
+    "check:learn-games": "node tools/checkLearnGamesIntegration.js",
     "check:cvc-learn-assets": "node tools/checkCvcLearnAssets.js",
     "check:assessment-prompt-audio-quality": "node tools/checkAssessmentPromptAudioQuality.js",
     "expand:skill-banks": "node tools/expandSkillQuestionBank.js --skill all",
