@@ -300,7 +300,6 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
         )}
 
         {status && <p className="student-flow-status">{status}</p>}
-        <p className="student-flow-build-stamp" style={{ margin: 0, color: "#98a2b3", fontSize: 11, textAlign: "center" }}>v10.6-debug</p>
         <div className="student-flow-footer">
           {step !== "school" && (
             <button className="student-flow-back" onClick={() => {

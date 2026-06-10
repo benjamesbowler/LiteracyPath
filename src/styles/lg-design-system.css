@@ -103,8 +103,11 @@ body {
   flex-direction: column;
 }
 
+/* Let long pages scroll vertically; screens that fit are unaffected. */
 .lg-app-shell.no-sidebar .lg-content-area {
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Old .app max-width — loosen when sidebar is present */
@@ -311,6 +314,18 @@ body {
   font-size: 13px;
   font-weight: 700;
   text-align: right;
+}
+
+@media (max-width: 820px) {
+  /* Phones: collapse the sidebar to icons so content gets the width. */
+  .lg-sidebar {
+    width: var(--lg-sidebar-width-collapsed);
+  }
+
+  .lg-sidebar .lg-sb-name {
+    opacity: 0;
+    width: 0;
+  }
 }
 
 @media (max-width: 720px) {

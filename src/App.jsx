@@ -2074,6 +2074,24 @@ export default function App() {
     }
   }
 
+  function exitToTeacherEntry() {
+    // Fully clear any student session first, otherwise the student-mode
+    // guard bounces navigation straight back to student screens.
+    try {
+      localStorage.removeItem(STUDENT_SESSION_STORAGE_KEY);
+    } catch {
+      // Ignore local storage failures.
+    }
+    clearProgressSyncSession();
+    setStudentSession(null);
+    setStudentId(null);
+    setStudentName("");
+    setNameSaved(false);
+    setSessionMode("teacher");
+    setEntryMode("teacher");
+    setAppView(teacherUser ? APP_VIEWS.TEACHER_DASHBOARD : APP_VIEWS.ENTRY);
+  }
+
   function logOutStudent() {
     if (window.confirm("Are you leaving?")) {
       try {
@@ -7401,7 +7419,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     return (
       <PageBoundary resetKey="student-login">
         <StudentLoginFlow
-          onTeacherEntry={() => setEntryMode("teacher")}
+          onTeacherEntry={exitToTeacherEntry}
           onSessionStart={applyStudentSession}
         />
       </PageBoundary>
@@ -7628,13 +7646,25 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       <div className={appShellClassName}>
       {showConfetti && !prefersReducedMotion && <Confetti recycle={false} numberOfPieces={90} />}
 
+      {isStudentMode && appView !== APP_VIEWS.STUDENT_HOME && (
+        <button
+          className="student-home-float"
+          onClick={() => setAppView(APP_VIEWS.STUDENT_HOME)}
+          type="button"
+          aria-label="Back to my home page"
+        >
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 11l9-8 9 8" />
+            <path d="M5 10v10h14V10" />
+          </svg>
+          Home
+        </button>
+      )}
+
       {appView === APP_VIEWS.STUDENT_LOGIN && (
         <PageBoundary resetKey="student-login-sandbox">
           <StudentLoginFlow
-            onTeacherEntry={() => {
-              setEntryMode("teacher");
-              setAppView(teacherUser ? APP_VIEWS.TEACHER_DASHBOARD : APP_VIEWS.ENTRY);
-            }}
+            onTeacherEntry={exitToTeacherEntry}
             onSessionStart={applyStudentSession}
           />
         </PageBoundary>
