@@ -4,6 +4,14 @@ import { getCvcWordParts, getGraphemeAudioPath } from "../../../../data/cvcWordF
 import { usePhonicsAudio } from "../../../../hooks/usePhonicsAudio";
 
 export const CVC_SOUND_DELAY = 720;
+const CVC_VOWELS = new Set(["a", "e", "i", "o", "u"]);
+const VOWEL_SOUND_FALLBACKS = {
+  a: "ah",
+  e: "eh",
+  i: "ih",
+  o: "oh",
+  u: "uh"
+};
 
 export function makeCvcWordModel(word, family) {
   const asset = getChildWordAsset(word, { allowBlockedAssessmentImage: true }) || {};
@@ -44,6 +52,24 @@ export function useCvcWordModels(words, family) {
 
 export function getLetterAudio(letter, family) {
   return getGraphemeAudioPath(letter, letter === family.vowel ? family.vowel : "");
+}
+
+export function getLetterSoundCue(letter, family) {
+  const normalizedLetter = String(letter || "").toLowerCase();
+  const targetVowel = normalizedLetter === family.vowel ? family.vowel : "";
+
+  if (CVC_VOWELS.has(normalizedLetter) || targetVowel) {
+    const vowel = targetVowel || normalizedLetter;
+    return {
+      src: `generated:phoneme:short_${vowel}`,
+      fallbackText: VOWEL_SOUND_FALLBACKS[vowel] || vowel
+    };
+  }
+
+  return {
+    src: getGraphemeAudioPath(normalizedLetter, ""),
+    fallbackText: normalizedLetter
+  };
 }
 
 export function shuffleItems(items) {

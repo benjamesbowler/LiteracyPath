@@ -3,7 +3,15 @@ import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import PhonicsButton from "../PhonicsButton";
 
-const Celebration = memo(function Celebration({ letter, onLearnAnother, onPlayAgain }) {
+const Celebration = memo(function Celebration({
+  letter,
+  title = "Amazing!",
+  subtitle,
+  learnAnotherLabel = "Learn Another Letter",
+  playAgainLabel = "Play Again",
+  onLearnAnother,
+  onPlayAgain
+}) {
   const fireConfetti = useCallback(() => {
     const colors = ["#FFD93D", "#4D96FF", "#9B5DE5", "#95E1D3", "#FF6B6B"];
 
@@ -42,18 +50,18 @@ const Celebration = memo(function Celebration({ letter, onLearnAnother, onPlayAg
         </div>
 
         <motion.h2 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-          Amazing!
+          {title}
         </motion.h2>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          You found all the {letter} words!
+          {subtitle || `You found all the ${letter} words!`}
         </motion.p>
 
         <motion.div className="phonics-celebration-actions" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <PhonicsButton onClick={onLearnAnother} className="phonics-wide-button">
-            Learn Another Letter
+            {learnAnotherLabel}
           </PhonicsButton>
           <PhonicsButton variant="secondary" onClick={onPlayAgain} className="phonics-wide-button">
-            Play Again
+            {playAgainLabel}
           </PhonicsButton>
         </motion.div>
       </motion.div>

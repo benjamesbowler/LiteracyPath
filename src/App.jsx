@@ -1636,6 +1636,7 @@ export default function App() {
   const [showConfetti, setShowConfetti] = useState(false);
   const [, setShowReport] = useState(false);
   const [allowPassageAudio, setAllowPassageAudio] = useState(false);
+  const [learnFullscreen, setLearnFullscreen] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
   const [assessmentMode, setAssessmentMode] =
@@ -1687,6 +1688,53 @@ export default function App() {
   const accountAccessCheckInFlightRef = useRef(false);
   const accountAccessCheckUserIdRef = useRef(null);
   const accountAccessCheckSeqRef = useRef(0);
+  const isLearnView = appView === APP_VIEWS.LEARN || appView === APP_VIEWS.PHONICS_LEARN;
+
+  useEffect(() => {
+    function syncFullscreenState() {
+      if (!document.fullscreenElement) {
+        setLearnFullscreen(false);
+      }
+    }
+
+    document.addEventListener("fullscreenchange", syncFullscreenState);
+    return () => document.removeEventListener("fullscreenchange", syncFullscreenState);
+  }, []);
+
+  function enterLearnFullscreen() {
+    setLearnFullscreen(true);
+    document.documentElement.requestFullscreen?.().catch(() => {});
+  }
+
+  function exitLearnFullscreen() {
+    setLearnFullscreen(false);
+    if (document.fullscreenElement) {
+      document.exitFullscreen?.().catch(() => {});
+    }
+  }
+
+  function toggleLearnFullscreen() {
+    if (learnFullscreen) {
+      exitLearnFullscreen();
+    } else {
+      enterLearnFullscreen();
+    }
+  }
+
+  function renderLearnFullscreenButton() {
+    return (
+      <button
+        className={`learn-fullscreen-toggle${learnFullscreen ? " active" : ""}`}
+        onClick={toggleLearnFullscreen}
+        type="button"
+        aria-label={learnFullscreen ? "Exit full screen" : "Enter full screen"}
+        title={learnFullscreen ? "Exit full screen" : "Full screen"}
+      >
+        <span aria-hidden="true">{learnFullscreen ? "X" : "[]"}</span>
+        <span>{learnFullscreen ? "Exit" : "Full screen"}</span>
+      </button>
+    );
+  }
 
   const currentStage = skillTree[currentSkillIndex];
 
@@ -4730,7 +4778,7 @@ export default function App() {
       })).filter(group => group.label);
       const configured = configuredCoverageTotals[stage.id];
       const unit = configured?.unit || (stage.label.toLowerCase().includes("word") ? "words/items" : "items");
-      const visibleGroups = groups.slice(0, 12);
+      const visibleGroups = stage.id === "initial_sounds" ? groups : groups.slice(0, 12);
       const formatGroupSummary = group => {
         if (stage.id === "initial_sounds") return group.label.replace(/^\/|\/$/g, "");
         if (stage.id === "final_sounds") return group.label.replace(/^\/|\/$/g, "");
@@ -4742,7 +4790,7 @@ export default function App() {
       const detail = visibleGroups.map(group =>
         formatGroupSummary(group)
       ).join(", ");
-      const moreCount = Math.max(0, groups.length - visibleGroups.length);
+      const moreCount = stage.id === "initial_sounds" ? 0 : Math.max(0, groups.length - visibleGroups.length);
 
       return {
         skillId: stage.id,
@@ -7107,15 +7155,17 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   const roundProgress = calculateRoundProgress(roundAnswers, ROUND_LENGTH);
   const accuracy = calculateAccuracy({ totalAnswered, correctAnswered });
   const isFocusedAssessment = isFocusedAssessmentView(appView);
+  const isFocusedShell = isFocusedAssessment || (isLearnView && learnFullscreen);
   const appShellClassName = [
     "app",
-    isFocusedAssessment ? "assessment-app no-sidebar" : ""
+    isFocusedAssessment ? "assessment-app no-sidebar" : "",
+    isLearnView && learnFullscreen ? "learn-fullscreen-app no-sidebar" : ""
   ].filter(Boolean).join(" ");
 
   return (
     <ErrorBoundary resetKey={`app-shell-${appView}-${studentId || "none"}`} fallback={<PageErrorFallback />}>
-    <div className={`lg-app-shell${isFocusedAssessment ? " no-sidebar" : ""}`}>
-      {!isFocusedAssessment && (
+    <div className={`lg-app-shell${isFocusedShell ? " no-sidebar" : ""}${isLearnView && learnFullscreen ? " learn-fullscreen-shell" : ""}`}>
+      {!isFocusedShell && (
         <Sidebar
           appView={appView}
           nameSaved={nameSaved}
@@ -7262,7 +7312,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       {appView === APP_VIEWS.LEARN && nameSaved && (
         <PageBoundary resetKey={`learn-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading Story Quest..." />}>
-            <LearnAreaPage key={studentId || studentName || "default"} progressScopeKey={studentId || studentName || "default"} />
+            <div className="learn-fullscreen-frame">
+              {renderLearnFullscreenButton()}
+              <LearnAreaPage key={studentId || studentName || "default"} progressScopeKey={studentId || studentName || "default"} />
+            </div>
           </Suspense>
         </PageBoundary>
       )}
@@ -7270,7 +7323,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       {appView === APP_VIEWS.PHONICS_LEARN && nameSaved && (
         <PageBoundary resetKey={`phonics-learn-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading Learn..." />}>
-            <PhonicsLearnPage progressScopeKey={studentId || studentName || "default"} />
+            <div className="learn-fullscreen-frame">
+              {renderLearnFullscreenButton()}
+              <PhonicsLearnPage progressScopeKey={studentId || studentName || "default"} />
+            </div>
           </Suspense>
         </PageBoundary>
       )}
@@ -7294,7 +7350,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </PageBoundary>
       )}
 
-      {shouldShowDashboardSummary({ appView, isFocusedAssessment }) && (
+      {shouldShowDashboardSummary({ appView, isFocusedAssessment: isFocusedShell }) && (
         <DashboardSummary
           currentSkillIndex={currentSkillIndex}
           skillTree={skillTree}
@@ -7439,7 +7495,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </PageBoundary>
       )}
 
-      {shouldShowFooterUtilityActions({ appView, isFocusedAssessment }) && (
+      {shouldShowFooterUtilityActions({ appView, isFocusedAssessment: isFocusedShell }) && (
         <div className="footer-utility-actions">
           <button className="report-button" onClick={switchStudent}>
             Switch Student

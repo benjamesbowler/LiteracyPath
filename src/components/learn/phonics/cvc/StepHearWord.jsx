@@ -2,7 +2,7 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import PhonicsButton from "../components/PhonicsButton";
 import { WordImage } from "../components/WordImage";
-import { CVC_SOUND_DELAY, getLetterAudio, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
+import { CVC_SOUND_DELAY, getLetterSoundCue, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
 
 const StepHearWord = memo(function StepHearWord({ family, onComplete }) {
   const words = useCvcWordModels(family.buildWords, family);
@@ -26,7 +26,8 @@ const StepHearWord = memo(function StepHearWord({ family, onComplete }) {
     currentWord.letters.forEach((letter, index) => {
       const timer = setTimeout(() => {
         setActiveLetterIndex(index);
-        playCue(getLetterAudio(letter, family), letter);
+        const cue = getLetterSoundCue(letter, family);
+        playCue(cue.src, cue.fallbackText);
       }, index * CVC_SOUND_DELAY);
       timersRef.current.push(timer);
     });
@@ -86,7 +87,10 @@ const StepHearWord = memo(function StepHearWord({ family, onComplete }) {
             key={`${currentWord.word}-${letter}-${index}`}
             className={`cvc-sound-tile ${activeLetterIndex === index ? "active" : ""}`}
             animate={activeLetterIndex === index ? { scale: [1, 1.16, 1] } : {}}
-            onClick={() => playCue(getLetterAudio(letter, family), letter)}
+            onClick={() => {
+              const cue = getLetterSoundCue(letter, family);
+              playCue(cue.src, cue.fallbackText);
+            }}
             type="button"
             aria-label={`Hear ${letter}`}
           >

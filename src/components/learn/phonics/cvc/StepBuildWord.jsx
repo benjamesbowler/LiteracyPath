@@ -2,7 +2,7 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { WordImage } from "../components/WordImage";
 import Blendy from "./Blendy";
-import { CVC_SOUND_DELAY, getLetterAudio, shuffleItems, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
+import { CVC_SOUND_DELAY, getLetterSoundCue, shuffleItems, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
 
 function getGhostLetter(wordIndex, letter, socketIndex, family) {
   if (wordIndex === 0) return letter;
@@ -56,7 +56,8 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
     currentWord.letters.forEach((letter, index) => {
       const timer = setTimeout(() => {
         setActiveLetterIndex(index);
-        playCue(getLetterAudio(letter, family), letter);
+        const cue = getLetterSoundCue(letter, family);
+        playCue(cue.src, cue.fallbackText);
       }, index * CVC_SOUND_DELAY);
       timersRef.current.push(timer);
     });
@@ -94,7 +95,8 @@ const StepBuildWord = memo(function StepBuildWord({ family, onComplete }) {
 
   const handleTileTap = useCallback((tile) => {
     if (!currentWord || filledLetters.length >= currentWord.letters.length) return;
-    playCue(getLetterAudio(tile.letter, family), tile.letter);
+    const cue = getLetterSoundCue(tile.letter, family);
+    playCue(cue.src, cue.fallbackText);
 
     const expectedLetter = currentWord.letters[filledLetters.length];
     if (tile.letter === expectedLetter) {

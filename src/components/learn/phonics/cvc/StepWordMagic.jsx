@@ -2,7 +2,7 @@ import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { WordImage } from "../components/WordImage";
 import Blendy from "./Blendy";
-import { getLetterAudio, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
+import { getLetterSoundCue, useCvcSoundCue, useCvcWordModels } from "./cvcHelpers";
 
 const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
   const words = useCvcWordModels(family.magicSwaps, family);
@@ -23,7 +23,8 @@ const StepWordMagic = memo(function StepWordMagic({ family, onComplete }) {
     if (!currentWord || !nextWord || isSwapping) return;
     setIsSwapping(true);
     setDepartingOnset(currentWord.letters[0]);
-    playCue(getLetterAudio(nextOnset, family), nextOnset);
+    const cue = getLetterSoundCue(nextOnset, family);
+    playCue(cue.src, cue.fallbackText);
 
     setTimeout(() => {
       setWordIndex(index => index + 1);
