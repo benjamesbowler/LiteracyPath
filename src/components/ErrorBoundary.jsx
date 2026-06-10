@@ -3,22 +3,24 @@ import { Component } from "react";
 export class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
-    this.state = { error: null };
+    this.state = { error: null, resetKey: props.resetKey };
   }
 
   static getDerivedStateFromError(error) {
     return { error };
   }
 
+  static getDerivedStateFromProps(props, state) {
+    if (props.resetKey !== state.resetKey) {
+      return { error: null, resetKey: props.resetKey };
+    }
+
+    return null;
+  }
+
   componentDidCatch(error, info) {
     if (import.meta.env.DEV || this.props.logErrors) {
       console.error(this.props.logLabel || "Error boundary caught render error.", { error, info });
-    }
-  }
-
-  componentDidUpdate(previousProps) {
-    if (previousProps.resetKey !== this.props.resetKey && this.state.error) {
-      this.setState({ error: null });
     }
   }
 

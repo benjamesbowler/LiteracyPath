@@ -2491,6 +2491,7 @@ export function AssessmentPage({
   assessmentMode,
   isAssessmentTransitioning = false
 }) {
+  const hasCurrentQuestion = Boolean(currentQuestion);
   const safeSkillId =
     currentQuestion?.skillId ??
     currentStage?.id ??
@@ -2503,24 +2504,29 @@ export function AssessmentPage({
   const assessmentExit = returnToStudentOverview || endAssessment;
 
   const isListenAndFindWord =
-    currentQuestion?.questionType === "listen_and_find_word" ||
-    isHfwAudioFindWordQuestion(currentQuestion);
+    hasCurrentQuestion && (
+      currentQuestion?.questionType === "listen_and_find_word" ||
+      isHfwAudioFindWordQuestion(currentQuestion)
+    );
   const isPairSelection =
-    ["initial_sound_pair", "final_sound_pair", "rhyme_pair"].includes(currentQuestion?.questionType);
+    hasCurrentQuestion && ["initial_sound_pair", "final_sound_pair", "rhyme_pair"].includes(currentQuestion?.questionType);
   const isVisualCardChoice =
+    hasCurrentQuestion &&
     (currentQuestion?.questionType === "visual_card_choice" || isRhymingPictureQuestion(currentQuestion)) &&
     !isGraphemeChoiceQuestion(currentQuestion);
   const isIxlStyleTemplate =
-    currentQuestion?.questionType === "ixl_template" ||
-    isHfwLetterBuildQuestion(currentQuestion);
-  const isFinalSoundsEndingItem = isFinalSoundsEndingQuestion(currentQuestion);
-  const isGraphemeChoiceItem = isGraphemeChoiceQuestion(currentQuestion);
-  const isRhymingPictureItem = isRhymingPictureQuestion(currentQuestion);
-  const isShortVowelWordChoiceItem = isShortVowelWordChoiceQuestion(currentQuestion);
-  const isListenChooseVowelItem = isListenChooseVowelQuestion(currentQuestion);
-  const isGrammarSentenceFitItem = isGrammarSentenceFitQuestion(currentQuestion);
-  const isComprehensionPassageItem = isComprehensionPassageQuestion(currentQuestion);
-  const isHfwSkillItem = String(safeSkillId || "").toLowerCase().startsWith("hfw_");
+    hasCurrentQuestion && (
+      currentQuestion?.questionType === "ixl_template" ||
+      isHfwLetterBuildQuestion(currentQuestion)
+    );
+  const isFinalSoundsEndingItem = hasCurrentQuestion && isFinalSoundsEndingQuestion(currentQuestion);
+  const isGraphemeChoiceItem = hasCurrentQuestion && isGraphemeChoiceQuestion(currentQuestion);
+  const isRhymingPictureItem = hasCurrentQuestion && isRhymingPictureQuestion(currentQuestion);
+  const isShortVowelWordChoiceItem = hasCurrentQuestion && isShortVowelWordChoiceQuestion(currentQuestion);
+  const isListenChooseVowelItem = hasCurrentQuestion && isListenChooseVowelQuestion(currentQuestion);
+  const isGrammarSentenceFitItem = hasCurrentQuestion && isGrammarSentenceFitQuestion(currentQuestion);
+  const isComprehensionPassageItem = hasCurrentQuestion && isComprehensionPassageQuestion(currentQuestion);
+  const isHfwSkillItem = hasCurrentQuestion && String(safeSkillId || "").toLowerCase().startsWith("hfw_");
   const renderAssessmentTopbar = () => (
     <div className="assessment-topbar">
       <div className="assessment-meta">
