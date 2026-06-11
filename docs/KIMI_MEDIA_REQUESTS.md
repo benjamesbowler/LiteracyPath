@@ -9,13 +9,17 @@ the game card art.
 
 ## Shared style guide (paste this at the top of EVERY image request)
 
-> Children's educational app illustration, ages 4–7. Flat 2D vector style
-> with soft rounded shapes, gentle gradients, and subtle paper-grain
-> texture. Warm and friendly, premium quality like "Teach Your Monster to
-> Read" or "Raz-Kids". Color palette: deep teal #0C6B65, warm amber
-> #D68A11, coral #E2725B, sky blue #3B82C4, leaf green #2F9E62, violet
-> #7C5CBF, cream background #FFF9F0. Soft shadows, no harsh outlines.
-> Absolutely NO text, letters, or numbers in the image. No humans.
+> Children's educational app illustration, ages 4–7 — child-focused but
+> not babyish. Realistic cartoon style: believable proportions, painterly
+> detail, soft lighting, like a modern animated film still. Premium
+> quality like "Teach Your Monster to Read" or "Raz-Kids". Themes:
+> fantasy adventure, friendly sci-fi, and nature. Color palette: deep
+> teal #0C6B65, warm amber #D68A11, coral #E2725B, sky blue #3B82C4,
+> leaf green #2F9E62, violet #7C5CBF, cream #FFF9F0 — used selectively,
+> never all at once, never rainbow arrangements. Absolutely NO text,
+> letters, or numbers in the image. No humans. No faces or expressions
+> on inanimate objects — only animals, dragons, robots, and creatures
+> may have faces.
 
 ---
 
@@ -26,35 +30,35 @@ Format: PNG, 800 x 450 pixels (16:9), full-bleed scene (no transparency)
 
 | Filename | Scene to request |
 |---|---|
-| `cvc-word-builder.png` | A cheerful workbench with colorful wooden blocks being stacked by a small friendly lighthouse character, sparkles around the blocks |
-| `sight-word-memory.png` | Two rows of face-down cards with glowing star backs on a soft table, one card mid-flip, magical light |
-| `sound-slide.png` | A playful playground slide with colorful round tokens sliding down into a basket, motion lines, joyful |
-| `blend-and-build.png` | Three crates in different colors being filled with round tokens by a conveyor belt, factory-of-fun feel |
-| `rhyme-time.png` | Two singing birds on a branch with musical notes floating between them, matching color bows |
-| `sight-word-fishing.png` | A small boat on a friendly pond, fishing rod pulling up a glowing star from the water, fish watching |
-| `cvc-train.png` | A bright cartoon steam train with three colorful empty wagons, puffing heart-shaped smoke, rolling through green hills |
-| `pop-the-word.png` | Floating soap bubbles in different colors over a meadow, one bubble popping with a star burst |
-| `word-hopscotch.png` | A hopscotch course chalked on warm pavement with colorful stepping stones, a small character mid-hop |
-| `reading-race.png` | A racetrack through a storybook landscape with a checkered flag, a friendly snail and rabbit racing |
+| `cvc-word-builder.png` | A young dragon stacking glowing rune stones on a castle workbench, warm torchlight |
+| `sight-word-memory.png` | A wizard's study with two rows of face-down enchanted cards on an oak table, one card mid-flip with magical light spilling out |
+| `sound-slide.png` | A friendly robot sending glowing orbs down a curved chrome slide into a collector basket, soft sci-fi lab |
+| `blend-and-build.png` | A robot workshop where a conveyor belt sorts glowing parts into three colored crates |
+| `rhyme-time.png` | Two songbirds perched on a forest branch at golden hour, musical notes drifting between them |
+| `sight-word-fishing.png` | A bear in a small wooden boat on a calm lake, fishing rod pulling a glowing star from the water, fish visible below the surface |
+| `cvc-train.png` | A bright steam train with three empty wagons crossing a stone viaduct through green hills, puffy white steam |
+| `pop-the-word.png` | Floating magical bubbles drifting over a meadow at dusk, one bursting into a spray of light, fireflies around |
+| `word-hopscotch.png` | A winding path of glowing stepping stones across a forest stream, a fox mid-leap between stones |
+| `reading-race.png` | A rabbit and a tortoise racing along a storybook trail toward a checkered flag, rolling countryside |
 
 ---
 
-## 2. Mascot poses — "Phinny" the lighthouse character (5 images)
+## 2. Mascot poses — "Phinny" (5 images)
 
 Folder: `public/images/learn-games/`
 Format: PNG, 1024 x 1024, transparent background
 
-First, attach the existing `phinny-waving.png` to the request as the
-character reference and add: "Match this exact character design,
-proportions and colors."
+Attach the existing `phinny-waving.png` to the request as the character
+reference and add: "Match this exact character design, proportions and
+colors."
 
 | Filename | Pose |
 |---|---|
-| `phinny-thinking.png` | Tapping chin thoughtfully, eyes up, little question sparkle above head |
+| `phinny-thinking.png` | Tapping chin thoughtfully, eyes up, single star sparkle above head |
 | `phinny-cheering.png` | Both arms up, confetti around, huge happy smile |
 | `phinny-reading.png` | Holding an open book, content expression |
 | `phinny-pointing.png` | Pointing forward encouragingly with one arm |
-| `phinny-sleepy.png` | Yawning with droopy eyes, small "zzz" bubbles (no letters — use star shapes) |
+| `phinny-sleepy.png` | Yawning with droopy eyes, small star shapes drifting above |
 
 ---
 
@@ -65,9 +69,9 @@ Format: PNG, 600 x 400, full-bleed
 
 | Filename | Scene |
 |---|---|
-| `home-learn.png` | A sunny classroom desk with letter blocks and a magnifying glass, inviting |
-| `home-story-quests.png` | An open magical storybook with a tiny path and castle rising out of the pages |
-| `home-guided-reading.png` | A cozy reading nook with cushions, a lamp, and a stack of picture books |
+| `home-learn.png` | A wizard's desk with rune stones, a quill, and a softly glowing crystal, inviting warm light |
+| `home-story-quests.png` | An open ancient book with a miniature path, mountains and a dragon-circled castle rising out of its pages |
+| `home-guided-reading.png` | A cozy treehouse reading nook at dusk with cushions, a lantern, and a stack of adventure books |
 
 ---
 

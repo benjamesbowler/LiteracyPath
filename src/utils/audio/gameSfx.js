@@ -31,26 +31,74 @@ function playTone(frequency, duration, type = "sine", startTime = 0, volume = 0.
   oscillator.stop(context.currentTime + startTime + duration);
 }
 
+// Recorded UI sounds (public/audio/ui). Each falls back to the original
+// synth tones if the file is missing or playback is blocked.
+const soundFileCache = {};
+
+function playSoundFile(name, fallback, volume = 0.55) {
+  if (typeof window === "undefined") return;
+  try {
+    let base = soundFileCache[name];
+    if (!base) {
+      base = new Audio(`/audio/ui/${name}.mp3`);
+      base.preload = "auto";
+      soundFileCache[name] = base;
+    }
+    const sound = base.cloneNode();
+    sound.volume = volume;
+    const result = sound.play();
+    if (result?.catch) result.catch(() => fallback?.());
+  } catch {
+    fallback?.();
+  }
+}
+
 export function playCorrectChime() {
-  playTone(523.25, 0.16, "sine", 0, 0.22);
-  playTone(659.25, 0.16, "sine", 0.12, 0.2);
-  playTone(783.99, 0.22, "sine", 0.24, 0.18);
+  playSoundFile("correct", () => {
+    playTone(523.25, 0.16, "sine", 0, 0.22);
+    playTone(659.25, 0.16, "sine", 0.12, 0.2);
+    playTone(783.99, 0.22, "sine", 0.24, 0.18);
+  });
 }
 
 export function playSoftBuzz() {
-  playTone(180, 0.18, "sawtooth", 0, 0.12);
-  playTone(150, 0.18, "sawtooth", 0.1, 0.1);
+  playSoundFile("incorrect", () => {
+    playTone(180, 0.18, "sawtooth", 0, 0.12);
+    playTone(150, 0.18, "sawtooth", 0.1, 0.1);
+  }, 0.45);
 }
 
 export function playPopSound() {
-  playTone(880, 0.08, "triangle", 0, 0.18);
-  playTone(1320, 0.08, "triangle", 0.04, 0.12);
+  playSoundFile("pop", () => {
+    playTone(880, 0.08, "triangle", 0, 0.18);
+    playTone(1320, 0.08, "triangle", 0.04, 0.12);
+  });
 }
 
 export function playCelebrationFanfare() {
-  [523.25, 659.25, 783.99, 1046.5].forEach((frequency, index) => {
-    playTone(frequency, 0.18, "sine", index * 0.12, 0.18);
+  playSoundFile("complete", () => {
+    [523.25, 659.25, 783.99, 1046.5].forEach((frequency, index) => {
+      playTone(frequency, 0.18, "sine", index * 0.12, 0.18);
+    });
+  }, 0.6);
+}
+
+export function playStarChime() {
+  playSoundFile("star", () => {
+    playTone(1046.5, 0.2, "sine", 0, 0.16);
   });
+}
+
+export function playTapSound() {
+  playSoundFile("tap", null, 0.35);
+}
+
+export function playCardFlip() {
+  playSoundFile("card-flip", null, 0.4);
+}
+
+export function playWhoosh() {
+  playSoundFile("whoosh", null, 0.4);
 }
 
 export function playTrainWhistle() {

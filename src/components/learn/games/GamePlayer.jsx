@@ -115,7 +115,14 @@ export function GamePlayer({
       </header>
 
       <main className="lg-game-player-main">
-        <Suspense fallback={<div className="lg-game-loading">Loading game...</div>}>
+        <Suspense
+          fallback={
+            <div className="lg-game-loading">
+              <img src="/images/learn-games/phinny-thinking.webp" alt="" width="110" height="110" />
+              Loading game...
+            </div>
+          }
+        >
           <GameComponent
             difficulty={difficulty}
             onScoreUpdate={setScore}

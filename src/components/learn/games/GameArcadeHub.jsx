@@ -77,7 +77,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
             >
               <span className="lg-game-card-art" aria-hidden="true">
                 <img
-                  src={`/images/learn-games/art/${game.id}.png`}
+                  src={`/images/learn-games/art/${game.id}.webp`}
                   alt=""
                   className="lg-game-art-full"
                   onError={event => {

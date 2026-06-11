@@ -524,33 +524,54 @@ body {
 }
 
 .student-home-card {
-  min-height: 210px;
-  border: 2px solid var(--lp-color-border);
+  min-height: 230px;
+  border: 1px solid var(--lp-color-border);
   border-radius: 18px;
   background: #ffffff;
   box-shadow: var(--lp-shadow-card);
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 12px;
-  padding: 20px;
+  padding: 0 0 18px;
+  overflow: hidden;
   color: var(--lp-color-text-strong);
   cursor: pointer;
+  text-align: center;
+  transition: transform 140ms ease-out, box-shadow 140ms ease-out, border-color 140ms ease-out;
 }
 
-.student-home-card-icon {
-  width: 72px;
-  height: 72px;
-  border-radius: 18px;
-  display: grid;
-  place-items: center;
-  background: var(--lp-color-primary-soft);
-  color: var(--lp-color-primary);
-  font: 900 22px var(--lp-font-reading);
+.student-home-card:hover {
+  border-color: var(--lp-color-primary);
+  box-shadow: var(--lp-shadow-soft);
+  transform: translateY(-3px);
+}
+
+.student-home-card:active {
+  transform: scale(0.97);
+}
+
+.student-home-card-art {
+  width: 100%;
+  height: 132px;
+  display: block;
+  overflow: hidden;
+}
+
+.student-home-card-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 140ms ease-out;
+}
+
+.student-home-card:hover .student-home-card-art img {
+  transform: scale(1.05);
 }
 
 .student-home-card strong {
   display: block;
-  font: 900 34px var(--lp-font-reading);
+  font: 700 28px var(--lp-font-reading);
 }
 
 .student-home-card small {

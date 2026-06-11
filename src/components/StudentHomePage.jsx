@@ -1,7 +1,9 @@
-function StudentHomeCard({ title, subtitle, icon, onClick }) {
+function StudentHomeCard({ title, subtitle, art, onClick }) {
   return (
     <button className="student-home-card" onClick={onClick} type="button">
-      <span className="student-home-card-icon" aria-hidden="true">{icon}</span>
+      <span className="student-home-card-art" aria-hidden="true">
+        <img src={art} alt="" loading="lazy" />
+      </span>
       <span>
         <strong>{title}</strong>
         <small>{subtitle}</small>
@@ -34,19 +36,19 @@ export function StudentHomePage({
 
       <section className="student-home-grid" aria-label="Student activities">
         <StudentHomeCard
-          icon="Aa"
+          art="/images/learn-games/home/home-learn.webp"
           title="Learn"
           subtitle="Letters and sounds"
           onClick={onOpenPhonicsLearn}
         />
         <StudentHomeCard
-          icon="Book"
+          art="/images/learn-games/home/home-story-quests.webp"
           title="Story Quests"
           subtitle="Read and choose"
           onClick={onOpenStoryQuests}
         />
         <StudentHomeCard
-          icon="Read"
+          art="/images/learn-games/home/home-guided-reading.webp"
           title="Guided Reading"
           subtitle="Books and audio"
           onClick={onOpenGuidedReading}

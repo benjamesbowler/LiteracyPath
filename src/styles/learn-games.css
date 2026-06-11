@@ -479,8 +479,13 @@
 .lg-game-loading {
   display: grid;
   place-items: center;
+  gap: 10px;
   color: #475569;
   font-weight: 600;
+}
+
+.lg-game-loading img {
+  animation: lg-mascot-bob 2s ease-in-out infinite;
 }
 
 .lg-game-stage {
