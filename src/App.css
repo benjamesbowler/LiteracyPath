@@ -127,9 +127,11 @@ body {
 .student-flow-header h1 {
   margin: 0;
   color: var(--lp-color-text-strong);
-  font-family: Fredoka, var(--lp-font-reading);
-  font-size: clamp(36px, 6vw, 64px);
-  line-height: 1;
+  font-family: var(--lp-font-reading);
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
 }
 
 .student-entry-copy {

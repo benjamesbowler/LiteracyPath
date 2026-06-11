@@ -1,15 +1,17 @@
 :root {
-  --phonics-ocean-blue: #4d96ff;
-  --phonics-sun-yellow: #ffd93d;
-  --phonics-sky-green: #6bcb77;
-  --phonics-coral: #ff6b6b;
-  --phonics-lavender: #9b5de5;
-  --phonics-peach: #ffcb77;
-  --phonics-cloud: #fff9f0;
-  --phonics-ink: #2d3436;
-  --phonics-soft-ink: #636e72;
-  --phonics-font-display: "Fredoka", "Nunito", sans-serif;
-  --phonics-font-body: "Nunito", system-ui, sans-serif;
+  /* Professional palette: brand teal with restrained accents.
+     Old candy palette (bright blue/yellow/coral/purple on cream) retired. */
+  --phonics-ocean-blue: #0C6B65;
+  --phonics-sun-yellow: #D68A11;
+  --phonics-sky-green: #2F9E62;
+  --phonics-coral: #E2725B;
+  --phonics-lavender: #7C5CBF;
+  --phonics-peach: #E8B563;
+  --phonics-cloud: #F6F8FA;
+  --phonics-ink: #101828;
+  --phonics-soft-ink: #667085;
+  --phonics-font-display: "Lexend", "Inter", sans-serif;
+  --phonics-font-body: "Inter", system-ui, sans-serif;
 }
 
 .learn-tab-bar {
@@ -54,10 +56,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   border-radius: 0;
-  background:
-    radial-gradient(circle at top left, rgba(255, 217, 61, 0.2), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(77, 150, 255, 0.18), transparent 32%),
-    var(--phonics-cloud);
+  background: var(--phonics-cloud);
   padding: clamp(14px, 3vw, 32px);
   -webkit-overflow-scrolling: touch;
 }
@@ -117,10 +116,10 @@
   aspect-ratio: 1;
   align-items: center;
   justify-content: center;
-  border: 3px solid var(--phonics-peach);
+  border: 1px solid #E2E8F0;
   border-radius: 8px;
   background: #ffffff;
-  box-shadow: 0 4px 0 #e5b860;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 4px 10px rgba(16, 24, 40, 0.06);
   color: var(--phonics-ink);
   cursor: pointer;
   transition: filter 0.2s ease;
@@ -128,14 +127,14 @@
 
 .phonics-letter-card.completed {
   border-color: var(--phonics-sky-green);
-  background: rgba(107, 203, 119, 0.12);
-  box-shadow: 0 4px 0 #5ab868;
+  background: rgba(47, 158, 98, 0.10);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 4px 10px rgba(47, 158, 98, 0.14);
 }
 
 .phonics-letter-card.inprogress {
   border-color: var(--phonics-ocean-blue);
-  background: rgba(77, 150, 255, 0.08);
-  box-shadow: 0 4px 0 #3a7dd9;
+  background: rgba(12, 107, 101, 0.07);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(12, 107, 101, 0.18);
 }
 
 .phonics-letter-card.locked {
@@ -197,7 +196,7 @@
   min-height: 56px;
   align-items: center;
   gap: 12px;
-  border: 2px solid var(--phonics-peach);
+  border: 1px solid #E2E8F0;
   border-radius: 999px;
   background: #ffffff;
   box-shadow: 0 3px 12px rgba(45, 52, 54, 0.1);
@@ -237,7 +236,7 @@
   border: 0;
   border-radius: 999px;
   background: var(--phonics-ocean-blue);
-  box-shadow: 0 4px 0 #3a7dd9;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(12, 107, 101, 0.18);
   color: #ffffff;
   cursor: pointer;
   font: 800 1rem var(--phonics-font-body);
@@ -262,7 +261,7 @@
   width: clamp(54px, 12vw, 128px);
   height: 12px;
   overflow: hidden;
-  border: 2px solid var(--phonics-peach);
+  border: 1px solid #E2E8F0;
   border-radius: 999px;
   background: var(--phonics-cloud);
 }
@@ -332,7 +331,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border: 4px dashed var(--phonics-peach);
+  border: 2px dashed #CBD5E1;
   border-radius: 8px;
   background: #ffffff;
   box-shadow: 0 14px 28px rgba(45, 52, 54, 0.14);
@@ -462,27 +461,27 @@
 
 .phonics-button {
   min-width: 200px;
-  min-height: 64px;
+  min-height: 60px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 0;
   border-radius: 999px;
   cursor: pointer;
-  font: 900 1.35rem var(--phonics-font-body);
+  font: 700 1.2rem var(--phonics-font-body);
   padding: 12px 22px;
   user-select: none;
 }
 
 .phonics-button-primary {
-  background: var(--phonics-sun-yellow);
-  box-shadow: 0 4px 0 #e5c435;
-  color: var(--phonics-ink);
+  background: var(--phonics-ocean-blue);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(12, 107, 101, 0.18);
+  color: #ffffff;
 }
 
 .phonics-button-secondary {
   background: var(--phonics-ocean-blue);
-  box-shadow: 0 4px 0 #3a7dd9;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(12, 107, 101, 0.18);
   color: #ffffff;
 }
 
@@ -509,7 +508,7 @@
   border: 0;
   border-radius: 999px;
   background: var(--phonics-ocean-blue);
-  box-shadow: 0 7px 18px rgba(77, 150, 255, 0.28);
+  box-shadow: 0 7px 18px rgba(12, 107, 101, 0.24);
   color: #ffffff;
   cursor: pointer;
   overflow: visible;
@@ -565,7 +564,7 @@
 .phonics-big-letter {
   color: var(--phonics-ocean-blue);
   font: 900 clamp(6rem, 16vw, 10rem) / 0.9 var(--phonics-font-display);
-  text-shadow: 0 8px 0 rgba(77, 150, 255, 0.18);
+  text-shadow: none;
 }
 
 .phonics-sound-text,
@@ -616,7 +615,7 @@
   height: clamp(140px, 22vw, 190px);
   flex-direction: column;
   overflow: hidden;
-  border: 3px solid var(--phonics-peach);
+  border: 1px solid #E2E8F0;
   border-radius: 8px;
   background: #ffffff;
   box-shadow: 0 10px 20px rgba(45, 52, 54, 0.12);
@@ -675,7 +674,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: rgba(77, 150, 255, 0.94);
+  background: rgba(12, 107, 101, 0.94);
   color: #ffffff;
 }
 
@@ -740,7 +739,7 @@
 }
 
 .phonics-word-tile-back.correct {
-  background: rgba(107, 203, 119, 0.25);
+  background: rgba(47, 158, 98, 0.20);
 }
 
 .phonics-word-tile-back.incorrect {
@@ -848,10 +847,10 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
-  border: 3px solid var(--phonics-peach);
+  border: 1px solid #E2E8F0;
   border-radius: 8px;
   background: #ffffff;
-  box-shadow: 0 4px 0 #e5b860;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 4px 10px rgba(16, 24, 40, 0.06);
   color: var(--phonics-ink);
   cursor: pointer;
   font: 900 1.2rem var(--phonics-font-display);
@@ -859,7 +858,7 @@
 
 .phonics-island-card.active {
   border-color: var(--phonics-ocean-blue);
-  box-shadow: 0 4px 0 #3a7dd9;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(12, 107, 101, 0.18);
 }
 
 .phonics-island-card.locked {
@@ -960,10 +959,10 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  border: 3px solid var(--phonics-peach);
+  border: 1px solid #E2E8F0;
   border-radius: 8px;
   background: #ffffff;
-  box-shadow: 0 4px 0 #e5b860;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 4px 10px rgba(16, 24, 40, 0.06);
   color: var(--phonics-ink);
   cursor: pointer;
   padding: 14px;
@@ -971,14 +970,14 @@
 
 .cvc-family-card.completed {
   border-color: var(--phonics-sky-green);
-  background: rgba(107, 203, 119, 0.12);
-  box-shadow: 0 4px 0 #5ab868;
+  background: rgba(47, 158, 98, 0.10);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 4px 10px rgba(47, 158, 98, 0.14);
 }
 
 .cvc-family-card.inprogress {
   border-color: var(--phonics-ocean-blue);
-  background: rgba(77, 150, 255, 0.08);
-  box-shadow: 0 4px 0 #3a7dd9;
+  background: rgba(12, 107, 101, 0.07);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08), 0 4px 10px rgba(12, 107, 101, 0.18);
 }
 
 .cvc-family-card.locked {
@@ -1117,7 +1116,7 @@
 }
 
 .cvc-sound-tile {
-  border: 3px solid var(--phonics-peach);
+  border: 1px solid #E2E8F0;
   background: #ffffff;
   box-shadow: 0 5px 0 #e5b860;
   color: var(--phonics-ink);
@@ -1127,7 +1126,7 @@
 .cvc-sound-tile.active,
 .cvc-socket.active {
   border-color: var(--phonics-ocean-blue);
-  background: rgba(77, 150, 255, 0.16);
+  background: rgba(12, 107, 101, 0.14);
 }
 
 .cvc-tray-tile.used {

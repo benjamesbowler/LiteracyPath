@@ -45,11 +45,11 @@ export function PhonicsAlphabetPicker({ progress = {}, onSelectLetter }) {
   return (
     <div className="phonics-picker">
       <motion.h1 initial={{ y: -15, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
-        Pick a Letter to Learn!
+        Choose a letter
       </motion.h1>
 
-      <motion.p initial={{ opacity: 0 }} animate={{ opacity: [0.6, 1, 0.6] }}>
-        Tap a letter to start learning!
+      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+        Tap a letter to hear its sound and start practising.
       </motion.p>
 
       <motion.div variants={containerVariants} initial="hidden" animate="visible" className="phonics-letter-grid">
