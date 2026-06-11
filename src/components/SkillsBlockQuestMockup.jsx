@@ -227,7 +227,7 @@ export function SkillsBlockQuestMockup({ studentName = "Reader" }) {
         <aside className="sbq-cycle-panel" aria-label="Cycle path">
           <div className="sbq-panel-heading">
             <span>My Path</span>
-            <strong>{currentIndex + 1}/{playableCycles.length}</strong>
+            <strong>{currentIndex + 1}/{playableCycles.length} stops</strong>
           </div>
           <div className="sbq-path-track" aria-hidden="true">
             <span style={{ width: `${pathProgress}%` }} />
