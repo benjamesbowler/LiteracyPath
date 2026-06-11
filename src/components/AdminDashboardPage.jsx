@@ -520,6 +520,255 @@ function isAdvancedPhonicsAttempt(record = {}) {
     String(record.skillName || "").toLowerCase().includes("advanced phonics");
 }
 
+function getClassId(row = {}) {
+  return row.id || row.classId || row.class_id || "";
+}
+
+function getStudentClassId(row = {}) {
+  return row.classId || row.class_id || "";
+}
+
+function getTeacherId(row = {}) {
+  return row.id || row.teacherId || row.teacher_id || row.user_id || "";
+}
+
+function getClassTeacherId(row = {}) {
+  return row.teacherId || row.teacher_id || row.user_id || "";
+}
+
+function getReadinessStatusClass(status = "") {
+  if (status === "action") return "action";
+  if (status === "review") return "review";
+  return "ready";
+}
+
+function buildReleaseReadinessModel({
+  teachers = [],
+  classes = [],
+  students = [],
+  pendingSignupAccounts = [],
+  pendingAccountsWarning = "",
+  questionBankCoverage = [],
+  mediaQuestions = [],
+  assessmentHistory = [],
+  guidedReadingInsight = {},
+  savedElReports = []
+}) {
+  const classIds = new Set(classes.map(getClassId).filter(Boolean));
+  const teacherIds = new Set(teachers.map(getTeacherId).filter(Boolean));
+  const studentsByClass = students.reduce((map, student) => {
+    const classId = getStudentClassId(student);
+    if (!classId) return map;
+    map.set(classId, (map.get(classId) || 0) + 1);
+    return map;
+  }, new Map());
+  const studentsWithoutClass = students.filter(student => {
+    const classId = getStudentClassId(student);
+    return !classId || !classIds.has(classId);
+  });
+  const emptyClasses = classes.filter(row => {
+    const classId = getClassId(row);
+    const explicitCount = Number(row.studentCount);
+    if (Number.isFinite(explicitCount)) return explicitCount === 0;
+    return !studentsByClass.get(classId);
+  });
+  const unassignedClasses = classes.filter(row => {
+    const classTeacherId = getClassTeacherId(row);
+    return !classTeacherId || (teacherIds.size > 0 && !teacherIds.has(classTeacherId));
+  });
+  const skillsBelowFloor = questionBankCoverage.filter(row =>
+    Number(row.runtimeSelectable ?? row.active ?? row.total ?? 0) < 30
+  );
+  const mediaGapSkills = questionBankCoverage.filter(row =>
+    Number(row.missingImage || 0) > 0 ||
+    Number(row.missingAudio || 0) > 0 ||
+    Number(row.badMedia || 0) > 0
+  );
+  const assessmentAudioIssues =
+    Number(assessmentAudioCoverage.summary?.replacementNeededCount || 0) +
+    Number(assessmentAudioCoverage.summary?.missingCount || 0) +
+    Number(assessmentAudioCoverage.summary?.brokenReferenceCount || 0) +
+    Number(assessmentAudioCoverage.summary?.needsHumanReviewCount || 0);
+  const guidedMediaIssues =
+    Number(guidedReadingInsight.draft || 0) +
+    Number(guidedReadingInsight.missingImages || 0) +
+    Number(guidedReadingInsight.missingText || 0) +
+    Number(guidedReadingWordAudioCoverage.uniqueWordsMissingAudio || 0) +
+    Number(guidedReadingImageTextQa.needsManualReviewCount || 0) +
+    Number(guidedReadingImageTextQa.needsReplacementCount || 0);
+  const actionCount = [
+    pendingAccountsWarning,
+    studentsWithoutClass.length,
+    unassignedClasses.length,
+    skillsBelowFloor.length,
+    assessmentAudioIssues,
+    guidedMediaIssues
+  ].filter(Boolean).length;
+  const reviewCount = [
+    pendingSignupAccounts.length,
+    emptyClasses.length,
+    mediaGapSkills.length,
+    assessmentHistory.length === 0 ? 1 : 0,
+    savedElReports.length === 0 ? 1 : 0
+  ].filter(Boolean).length;
+
+  return {
+    actionCount,
+    reviewCount,
+    summaryCards: [
+      { label: "Release blockers", value: actionCount, status: actionCount ? "action" : "ready" },
+      { label: "Review queue", value: reviewCount, status: reviewCount ? "review" : "ready" },
+      { label: "Runtime questions", value: mediaQuestions.length, status: mediaQuestions.length ? "ready" : "review" },
+      { label: "Saved evidence", value: assessmentHistory.length, status: assessmentHistory.length ? "ready" : "review" }
+    ],
+    checklist: [
+      {
+        label: "Roster cleanup",
+        value: `${studentsWithoutClass.length} unlinked students`,
+        detail: studentsWithoutClass.length ? "Open Students and link or remove the rows before release." : "All loaded students are tied to loaded classes.",
+        status: studentsWithoutClass.length ? "action" : "ready",
+        sectionId: "students"
+      },
+      {
+        label: "Class ownership",
+        value: `${unassignedClasses.length} class owner issues`,
+        detail: unassignedClasses.length ? "Open Classes and confirm each class has a valid teacher owner." : "Every loaded class has an owner reference.",
+        status: unassignedClasses.length ? "action" : "ready",
+        sectionId: "classes"
+      },
+      {
+        label: "Signup queue",
+        value: pendingAccountsWarning ? "Unavailable" : `${pendingSignupAccounts.length} pending`,
+        detail: pendingAccountsWarning || (pendingSignupAccounts.length ? "Approve or reject teacher requests before launch." : "No pending signup requests."),
+        status: pendingAccountsWarning ? "action" : pendingSignupAccounts.length ? "review" : "ready",
+        sectionId: "signups"
+      },
+      {
+        label: "Report exports",
+        value: savedElReports.length ? `${savedElReports.length} saved` : "Ready to generate",
+        detail: assessmentHistory.length ? "PDF, CSV, JSON, and Excel report routes have saved evidence available." : "Complete assessments to populate export-ready reports.",
+        status: assessmentHistory.length ? "ready" : "review",
+        sectionId: "teacherReport"
+      }
+    ],
+    cleanupRows: [
+      { label: "Empty classes", value: emptyClasses.length, sectionId: "classes" },
+      { label: "Students without loaded class", value: studentsWithoutClass.length, sectionId: "students" },
+      { label: "Teacher signup requests", value: pendingAccountsWarning ? "Unavailable" : pendingSignupAccounts.length, sectionId: "signups" },
+      { label: "Saved assessment attempts", value: assessmentHistory.length, sectionId: "archive" }
+    ],
+    qaRows: [
+      {
+        label: "Content coverage",
+        value: `${skillsBelowFloor.length} below floor`,
+        detail: `${mediaGapSkills.length} skills have media gaps or bad media flags.`,
+        status: skillsBelowFloor.length ? "action" : mediaGapSkills.length ? "review" : "ready",
+        sectionId: "coverage"
+      },
+      {
+        label: "Assessment audio",
+        value: `${assessmentAudioIssues} issues`,
+        detail: `${assessmentAudioCoverage.summary?.totalReferences || 0} audio references scanned.`,
+        status: assessmentAudioIssues ? "action" : "ready",
+        sectionId: "assessmentAudio"
+      },
+      {
+        label: "Guided Reading media",
+        value: `${guidedMediaIssues} issues`,
+        detail: `${guidedReadingInsight.active || 0}/${guidedReadingInsight.total || 0} books visible.`,
+        status: guidedMediaIssues ? "review" : "ready",
+        sectionId: "guidedMediaQa"
+      },
+      {
+        label: "Question flags",
+        value: "Review",
+        detail: "Open flagged assessment questions and retire anything unsafe for runtime.",
+        status: "review",
+        sectionId: "questionFlags"
+      }
+    ]
+  };
+}
+
+function ReleaseStatusPill({ status }) {
+  const statusClass = getReadinessStatusClass(status);
+  const label = statusClass === "action" ? "Action" : statusClass === "review" ? "Review" : "Ready";
+  return <span className={`release-status-pill ${statusClass}`}>{label}</span>;
+}
+
+function ReleaseReadinessPanel({ model, onOpenSection, onOpenQuestionFlags }) {
+  const openRow = row => {
+    if (row.sectionId === "questionFlags") {
+      onOpenQuestionFlags?.();
+      return;
+    }
+    onOpenSection?.(row.sectionId);
+  };
+
+  return (
+    <section className="report-panel release-readiness-panel page-stack admin-section admin-section-panel">
+      <div className="admin-section-heading">
+        <div>
+          <h3>Release Readiness</h3>
+          <p className="muted-text">One place to check reporting evidence, admin cleanup, content QA, and launch blockers.</p>
+        </div>
+        <ReleaseStatusPill status={model.actionCount ? "action" : model.reviewCount ? "review" : "ready"} />
+      </div>
+
+      <div className="teacher-report-metrics release-readiness-metrics">
+        {model.summaryCards.map(card => (
+          <article className={`release-metric-card ${getReadinessStatusClass(card.status)}`} key={card.label}>
+            <span>{card.label}</span>
+            <strong>{card.value}</strong>
+          </article>
+        ))}
+      </div>
+
+      <div className="release-readiness-grid">
+        <article className="teacher-report-card release-checklist-card">
+          <h4>Launch Checklist</h4>
+          {model.checklist.map(row => (
+            <button className="release-readiness-row" key={row.label} onClick={() => openRow(row)} type="button">
+              <span>
+                <strong>{row.label}</strong>
+                <small>{row.detail}</small>
+              </span>
+              <b>{row.value}</b>
+              <ReleaseStatusPill status={row.status} />
+            </button>
+          ))}
+        </article>
+
+        <article className="teacher-report-card">
+          <h4>Cleanup Tools</h4>
+          <div className="release-tool-list">
+            {model.cleanupRows.map(row => (
+              <button key={row.label} onClick={() => openRow(row)} type="button">
+                <span>{row.label}</span>
+                <strong>{row.value}</strong>
+              </button>
+            ))}
+          </div>
+        </article>
+
+        <article className="teacher-report-card release-qa-card">
+          <h4>Content QA Workflow</h4>
+          {model.qaRows.map(row => (
+            <button className="release-readiness-row" key={row.label} onClick={() => openRow(row)} type="button">
+              <span>
+                <strong>{row.label}</strong>
+                <small>{row.detail}</small>
+              </span>
+              <b>{row.value}</b>
+              <ReleaseStatusPill status={row.status} />
+            </button>
+          ))}
+        </article>
+      </div>
+    </section>
+  );
+}
+
 function DeleteConfirmationModal({
   pendingDelete,
   confirmationText,
@@ -1463,9 +1712,9 @@ function GuidedReadingImageQaPage({ onBack }) {
 }
 
 export function AdminDashboardPage({
-  teachers,
-  classes,
-  students,
+  teachers = [],
+  classes = [],
+  students = [],
   pendingAccounts = [],
   pendingAccountsWarning = "",
   loading,
@@ -1745,6 +1994,37 @@ export function AdminDashboardPage({
       teacherName: classReportTeacherName
     }),
   [students, classes, assessmentHistory, selectedClassId, classReportTeacherName]);
+  const selectedClassAttempts = assessmentHistory.filter(record =>
+    !selectedClassId ||
+    record.classId === selectedClassId ||
+    record.class_id === selectedClassId
+  );
+  const reportReadinessRows = [
+    {
+      label: "Roster scope",
+      value: `${elClassStudents.length} students`,
+      detail: selectedClassRow.name || "No class selected",
+      status: elClassStudents.length ? "ready" : "review"
+    },
+    {
+      label: "Assessment evidence",
+      value: `${selectedClassAttempts.length} attempts`,
+      detail: "Feeds class snapshot, growth, heatmap, and focus groups.",
+      status: selectedClassAttempts.length ? "ready" : "review"
+    },
+    {
+      label: "Mastery drill-downs",
+      value: `${classReportingModel.growthAreas?.length || 0} skills`,
+      detail: "Included in the on-screen report and exported class packet.",
+      status: classReportingModel.growthAreas?.length ? "ready" : "review"
+    },
+    {
+      label: "Export package",
+      value: "PDF + Excel",
+      detail: savedElReports.length ? `${savedElReports.length} saved EL export(s) in this browser.` : "Generate PDF or Excel from this report screen.",
+      status: "ready"
+    }
+  ];
 
   function openAdminQaPage(page) {
     setAdminQaPage(page);
@@ -1837,6 +2117,18 @@ export function AdminDashboardPage({
   const pendingSignupAccounts = pendingAccounts.filter(isPendingTeacherAccount);
   const reviewedSignupAccounts = pendingAccounts.filter(account => !isPendingTeacherAccount(account));
   const visibleSignupCount = pendingSignupAccounts.length;
+  const releaseReadinessModel = buildReleaseReadinessModel({
+    teachers,
+    classes,
+    students,
+    pendingSignupAccounts,
+    pendingAccountsWarning,
+    questionBankCoverage,
+    mediaQuestions,
+    assessmentHistory,
+    guidedReadingInsight,
+    savedElReports
+  });
 
   const adminSections = isTeacherMode
     ? [
@@ -1850,11 +2142,14 @@ export function AdminDashboardPage({
     ]
     : [
       { id: "overview", label: "Overview", count: null },
+      { id: "release", label: "Release Check", count: releaseReadinessModel.actionCount + releaseReadinessModel.reviewCount },
       { id: "teacherReport", label: "Teacher Reports", count: assessmentHistory.length },
       { id: "archive", label: "Assessment Archive", count: assessmentHistory.length },
       { id: "signups", label: "Signup Requests", count: pendingAccountsWarning ? null : visibleSignupCount },
       { id: "guidedInsight", label: "Guided Reading Insight", count: guidedReadingInsight.active },
+      { id: "guidedMediaQa", label: "Guided Media QA", count: guidedReadingWordAudioCoverage.uniqueWordsMissingAudio || guidedReadingImageTextQa.needsManualReviewCount || 0 },
       { id: "coverage", label: "Content Coverage", count: filteredCoverage.length },
+      { id: "assessmentAudio", label: "Assessment Audio", count: assessmentAudioCoverage.summary?.replacementNeededCount || 0 },
       { id: "teachers", label: "Teachers", count: teachers.length },
       { id: "classes", label: "Classes", count: classes.length },
       { id: "students", label: "Students", count: students.length }
@@ -1947,6 +2242,14 @@ export function AdminDashboardPage({
         </section>
       )}
 
+      {!isTeacherMode && activeSection === "release" && (
+        <ReleaseReadinessPanel
+          model={releaseReadinessModel}
+          onOpenQuestionFlags={() => openAdminQaPage("questionFlags")}
+          onOpenSection={setActiveSection}
+        />
+      )}
+
       {isTeacherMode && activeSection === "teacherOverview" && (
         <section className="report-panel page-stack admin-section admin-section-panel teacher-dashboard-redesign">
           <div className="admin-section-heading">
@@ -2018,6 +2321,41 @@ export function AdminDashboardPage({
             </div>
           </div>
           {exportNotice && <p className="message">{exportNotice}</p>}
+
+          <div className="report-readiness-panel">
+            <div>
+              <h4>Export Readiness</h4>
+              <p className="muted-text">Check the selected class evidence before generating PDF, Excel, or individual report views.</p>
+            </div>
+            <div className="report-readiness-steps">
+              {reportReadinessRows.map(row => (
+                <article className={`report-readiness-step ${getReadinessStatusClass(row.status)}`} key={row.label}>
+                  <span>{row.label}</span>
+                  <strong>{row.value}</strong>
+                  <small>{row.detail}</small>
+                </article>
+              ))}
+            </div>
+            <div className="teacher-action-list report-readiness-actions">
+              <button
+                className="lp-button lp-button-secondary"
+                onClick={() => setActiveSection(isTeacherMode ? "assessmentProgress" : "archive")}
+                type="button"
+              >
+                Open Evidence
+              </button>
+              {onViewStudentReport && (
+                <button
+                  className="lp-button lp-button-secondary"
+                  disabled={!selectedStudent?.id}
+                  onClick={() => selectedStudent?.id && onViewStudentReport(selectedStudent.id, selectedStudent.name || "")}
+                  type="button"
+                >
+                  Open Individual Report
+                </button>
+              )}
+            </div>
+          </div>
 
           <div className="class-report-print-actions screen-only class-report-view-controls">
             {isTeacherMode && (

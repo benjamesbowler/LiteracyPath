@@ -41,6 +41,8 @@ Status: complete in this pass.
 
 ## Section 5: Reports, Admin, Content QA, And Release Readiness
 
+Status: complete in this pass.
+
 - Redesign reports around drill-downs, mastery evidence, and export-ready summaries.
 - Add admin tools for school/class/user cleanup and content QA workflows.
 - Replace truncated report summaries with complete mastered-item lists.

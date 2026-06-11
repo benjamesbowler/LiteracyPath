@@ -5177,7 +5177,6 @@ export default function App() {
       })).filter(group => group.label);
       const configured = configuredCoverageTotals[stage.id];
       const unit = configured?.unit || (stage.label.toLowerCase().includes("word") ? "words/items" : "items");
-      const visibleGroups = stage.id === "initial_sounds" ? groups : groups.slice(0, 12);
       const formatGroupSummary = group => {
         if (stage.id === "initial_sounds") return group.label.replace(/^\/|\/$/g, "");
         if (stage.id === "final_sounds") return group.label.replace(/^\/|\/$/g, "");
@@ -5186,10 +5185,9 @@ export default function App() {
           ? `${group.label} (${group.words.join(", ")})`
           : group.label;
       };
-      const detail = visibleGroups.map(group =>
+      const detail = groups.map(group =>
         formatGroupSummary(group)
       ).join(", ");
-      const moreCount = stage.id === "initial_sounds" ? 0 : Math.max(0, groups.length - visibleGroups.length);
 
       return {
         skillId: stage.id,
@@ -5198,7 +5196,7 @@ export default function App() {
         unit,
         groups,
         displayText: groups.length
-          ? `${stage.label}: ${groups.length} ${unit} mastered - ${detail}${moreCount ? `, + ${moreCount} more` : ""}.`
+          ? `${stage.label}: ${groups.length} ${unit} mastered - ${detail}.`
           : `${stage.label}: no item-level mastery details yet.`
       };
     });

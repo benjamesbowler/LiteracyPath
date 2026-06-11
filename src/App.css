@@ -8708,6 +8708,159 @@ select:focus {
   font-size: 1rem;
 }
 
+.report-readiness-panel,
+.release-readiness-panel {
+  border: 1px solid var(--color-border-soft);
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+  padding: 16px;
+}
+
+.report-readiness-panel {
+  display: grid;
+  gap: 14px;
+}
+
+.report-readiness-panel h4,
+.report-readiness-panel p {
+  margin: 0;
+}
+
+.report-readiness-steps,
+.release-readiness-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.report-readiness-step {
+  border: 1px solid var(--color-border-soft);
+  border-radius: 12px;
+  background: #ffffff;
+  display: grid;
+  gap: 4px;
+  min-height: 112px;
+  padding: 12px;
+}
+
+.report-readiness-step span,
+.release-readiness-row small,
+.release-tool-list span {
+  color: var(--lp-color-text-muted);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.report-readiness-step strong {
+  color: var(--lp-color-text-strong);
+  font-size: 1.2rem;
+}
+
+.report-readiness-step.ready {
+  border-color: rgba(21, 128, 61, 0.22);
+}
+
+.report-readiness-step.review {
+  border-color: rgba(217, 119, 6, 0.3);
+}
+
+.report-readiness-actions {
+  justify-content: flex-start;
+}
+
+.release-readiness-panel {
+  gap: 16px;
+}
+
+.release-readiness-metrics .release-metric-card {
+  border-left: 5px solid #2f6f68;
+}
+
+.release-readiness-metrics .release-metric-card.review {
+  border-left-color: #d97706;
+}
+
+.release-readiness-metrics .release-metric-card.action {
+  border-left-color: #b91c1c;
+}
+
+.release-checklist-card,
+.release-qa-card {
+  grid-column: span 2;
+}
+
+.release-readiness-row,
+.release-tool-list button {
+  align-items: center;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--lp-color-text-strong);
+  cursor: pointer;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  padding: 10px 12px;
+  text-align: left;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+}
+
+.release-readiness-row:hover,
+.release-tool-list button:hover {
+  border-color: #9db8ee;
+  box-shadow: 0 8px 22px rgba(43, 77, 130, 0.12);
+  transform: translateY(-1px);
+}
+
+.release-readiness-row span {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.release-readiness-row b,
+.release-tool-list strong {
+  color: var(--lp-color-text-strong);
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.release-tool-list {
+  display: grid;
+  gap: 10px;
+}
+
+.release-tool-list button {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.release-status-pill {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.76rem;
+  font-weight: 900;
+  justify-content: center;
+  min-width: 62px;
+  padding: 5px 9px;
+}
+
+.release-status-pill.ready {
+  background: var(--color-success-soft);
+  color: #115e59;
+}
+
+.release-status-pill.review {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.release-status-pill.action {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
 .teacher-report-metrics.compact {
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
@@ -11615,6 +11768,25 @@ select:focus {
   .teacher-report-metrics,
   .teacher-report-grid {
     grid-template-columns: 1fr;
+  }
+
+  .report-readiness-steps,
+  .release-readiness-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .release-checklist-card,
+  .release-qa-card {
+    grid-column: auto;
+  }
+
+  .release-readiness-row {
+    grid-template-columns: 1fr;
+  }
+
+  .release-readiness-row b,
+  .release-status-pill {
+    justify-self: start;
   }
 
   .teacher-student-report-list article {
