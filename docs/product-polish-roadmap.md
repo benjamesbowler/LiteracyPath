@@ -23,6 +23,8 @@ Status: complete in this pass.
 
 ## Section 3: Assessment Experience And Checkpoint Reliability
 
+Status: complete in this pass.
+
 - Consolidate assessment loading, transition, retry, and error states into one predictable shell.
 - Add full-screen and fit-to-screen controls for child-facing assessment and phonics flows.
 - Audit audio prompts so sound names, letter names, and vowel sounds are always distinct.

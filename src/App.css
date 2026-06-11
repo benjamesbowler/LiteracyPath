@@ -782,6 +782,11 @@ body {
   margin-inline: auto;
 }
 
+.app.no-sidebar.assessment-app,
+.app.no-sidebar.assessment-fullscreen-app {
+  max-width: none;
+}
+
 .app > * {
   min-width: 0;
 }
@@ -834,6 +839,36 @@ body {
     radial-gradient(circle at 12% 8%, rgba(21, 154, 138, 0.13), transparent 26%),
     radial-gradient(circle at 92% 10%, rgba(255, 247, 232, 0.82), transparent 24%),
     linear-gradient(180deg, #f5fbfb 0%, #fbf8f1 58%, #ffffff 100%);
+}
+
+.assessment-fullscreen-app {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  max-width: none;
+  padding: 0;
+  overflow: hidden;
+}
+
+.assessment-fullscreen-app .assessment-shell,
+.assessment-shell.fullscreen {
+  width: 100%;
+  max-width: none;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 8px;
+}
+
+.assessment-shell.fullscreen .assessment-question-layout {
+  max-height: none;
+}
+
+.assessment-fullscreen-app .assessment-card,
+.assessment-shell.fullscreen .assessment-card {
+  width: min(100%, 1220px);
+  max-width: calc(100vw - 16px);
 }
 
 /* ── Top nav logo ── */
@@ -11701,8 +11736,12 @@ select:focus {
     order: 3;
   }
 
-  .assessment-end-button {
+  .assessment-topbar-actions {
     order: 2;
+    margin-left: auto;
+  }
+
+  .assessment-end-button {
     min-height: 36px;
     padding: 6px 9px;
   }
@@ -12299,7 +12338,17 @@ select:focus {
     padding: 4px 6px;
   }
 
-  /* End assessment button — always fully visible */
+  /* Assessment controls — always fully visible */
+  .assessment-topbar-actions {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .assessment-topbar-actions .report-button,
+  .assessment-topbar-actions .reset-button {
+    flex: 1 1 130px;
+  }
+
   .assessment-end-button {
     font-size: 13px;
     padding: 6px 10px;

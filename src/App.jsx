@@ -695,15 +695,21 @@ function AssessmentErrorBoundary({ children, resetKey, returnToStudentOverview, 
       resetKey={resetKey}
       fallback={({ error }) => (
         <main className="assessment-shell">
-          <div className="card assessment-card">
+          <div className="card assessment-card assessment-loading-card">
             {isTransient ? (
               <>
-                <h2>Preparing next question...</h2>
+                <div className="assessment-loading-mark" aria-hidden="true">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <h2>Next question is getting ready...</h2>
                 {import.meta.env.DEV && <p className="muted-text">{error.message}</p>}
               </>
             ) : (
               <>
-                <h2>Something went wrong loading this assessment.</h2>
+                <h2>Assessment paused.</h2>
+                <p>Please return to the student overview and start this round again.</p>
                 {import.meta.env.DEV && <p>{error.message}</p>}
                 <button className="main-button" onClick={returnToStudentOverview} type="button">
                   Return to Student Overview
@@ -1759,6 +1765,7 @@ export default function App() {
   const [, setShowReport] = useState(false);
   const [allowPassageAudio, setAllowPassageAudio] = useState(false);
   const [learnFullscreen, setLearnFullscreen] = useState(false);
+  const [assessmentFullscreen, setAssessmentFullscreen] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
   const [assessmentMode, setAssessmentMode] =
@@ -1816,6 +1823,7 @@ export default function App() {
     function syncFullscreenState() {
       if (!document.fullscreenElement) {
         setLearnFullscreen(false);
+        setAssessmentFullscreen(false);
       }
     }
 
@@ -1860,6 +1868,26 @@ export default function App() {
       exitLearnFullscreen();
     } else {
       enterLearnFullscreen();
+    }
+  }
+
+  function enterAssessmentFullscreen() {
+    setAssessmentFullscreen(true);
+    document.documentElement.requestFullscreen?.().catch(() => {});
+  }
+
+  function exitAssessmentFullscreen() {
+    setAssessmentFullscreen(false);
+    if (document.fullscreenElement) {
+      document.exitFullscreen?.().catch(() => {});
+    }
+  }
+
+  function toggleAssessmentFullscreen() {
+    if (assessmentFullscreen) {
+      exitAssessmentFullscreen();
+    } else {
+      enterAssessmentFullscreen();
     }
   }
 
@@ -7611,18 +7639,20 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   const roundProgress = calculateRoundProgress(roundAnswers, ROUND_LENGTH);
   const accuracy = calculateAccuracy({ totalAnswered, correctAnswered });
   const isFocusedAssessment = isFocusedAssessmentView(appView);
+  const effectiveAssessmentFullscreen = isFocusedAssessment && assessmentFullscreen;
   const isStudentMode = sessionMode === "student";
   const isFocusedShell = isStudentMode || appView === APP_VIEWS.STUDENT_LOGIN || isFocusedAssessment || (isLearnView && learnFullscreen);
   const appShellClassName = [
     "app",
     isStudentMode ? "student-mode-app no-sidebar" : "",
     isFocusedAssessment ? "assessment-app no-sidebar" : "",
+    effectiveAssessmentFullscreen ? "assessment-fullscreen-app" : "",
     isLearnView && learnFullscreen ? "learn-fullscreen-app no-sidebar" : ""
   ].filter(Boolean).join(" ");
 
   return (
     <ErrorBoundary resetKey={`app-shell-${appView}-${studentId || "none"}`} fallback={<PageErrorFallback />}>
-    <div className={`lg-app-shell${isFocusedShell ? " no-sidebar" : ""}${isLearnView && learnFullscreen ? " learn-fullscreen-shell" : ""}`}>
+    <div className={`lg-app-shell${isFocusedShell ? " no-sidebar" : ""}${isLearnView && learnFullscreen ? " learn-fullscreen-shell" : ""}${effectiveAssessmentFullscreen ? " assessment-fullscreen-shell" : ""}`}>
       {!isFocusedShell && (
         <Sidebar
           appView={appView}
@@ -7931,6 +7961,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             returnToStudentOverview={goToOverview}
             assessmentMode={assessmentMode}
             isAssessmentTransitioning={assessmentTransitioning}
+            assessmentFullscreen={effectiveAssessmentFullscreen}
+            toggleAssessmentFullscreen={toggleAssessmentFullscreen}
           />
         </AssessmentErrorBoundary>
       )}

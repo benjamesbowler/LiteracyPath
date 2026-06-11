@@ -15,6 +15,16 @@
   overflow: hidden;
 }
 
+.assessment-shell.fullscreen {
+  width: 100%;
+  max-width: none;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 8px;
+}
+
 .assessment-topbar {
   position: sticky;
   top: 8px;
@@ -96,13 +106,38 @@
   background: var(--lp-color-primary);
 }
 
+.assessment-topbar-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  margin-left: auto;
+  align-items: center;
+}
+
+.assessment-fullscreen-button,
 .assessment-end-button {
   flex: 0 0 auto;
-  margin-left: auto;
   min-height: 32px;
   padding: 6px 10px;
   border-radius: 9px;
   font-size: 12px;
+}
+
+.assessment-fullscreen-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border-color: rgba(79, 99, 215, 0.24);
+}
+
+.assessment-fullscreen-button.active {
+  background: #172033;
+  color: #ffffff;
+}
+
+.assessment-fullscreen-button span:first-child {
+  min-width: 18px;
+  text-align: center;
 }
 
 .assessment-card,
@@ -122,6 +157,59 @@
   border: 1px solid #d8ddfb;
   border-radius: 24px;
   box-shadow: 0 22px 46px rgba(48, 37, 18, 0.11);
+}
+
+.assessment-loading-card {
+  flex: 1 1 auto;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.assessment-loading-card h2 {
+  margin: 0;
+  color: var(--lp-color-text-strong);
+  font-size: clamp(24px, 3vw, 34px);
+}
+
+.assessment-loading-mark {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  min-height: 18px;
+}
+
+.assessment-loading-mark span {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--lp-color-primary);
+  opacity: 0.35;
+  animation: assessment-loading-pulse 900ms ease-in-out infinite;
+}
+
+.assessment-loading-mark span:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.assessment-loading-mark span:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+@keyframes assessment-loading-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
 }
 
 .assessment-card .image-box {

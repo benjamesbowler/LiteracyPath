@@ -52,6 +52,71 @@ function getApprovedAudioPath(_text = "", audioPath = "") {
   return audioPath || "";
 }
 
+const SHORT_VOWEL_AUDIO_PATHS = {
+  a: "/audio/child-mode/clean-human/graphemes/short_vowels/short_a.mp3",
+  e: "/audio/child-mode/clean-human/graphemes/short_vowels/short_e.mp3",
+  i: "/audio/child-mode/clean-human/graphemes/short_vowels/short_i.mp3",
+  o: "/audio/child-mode/clean-human/graphemes/short_vowels/short_o.mp3",
+  u: "/audio/child-mode/clean-human/graphemes/short_vowels/short_u.mp3"
+};
+
+const CONSONANT_AUDIO_PATHS = Object.fromEntries(
+  "bcdfghjklmnpqrstvwxyz".split("").map(letter => [
+    letter,
+    `/audio/child-mode/clean-human/graphemes/consonants/${letter}.mp3`
+  ])
+);
+
+function getShortVowelLetter(value = "") {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .match(/^(?:short[_\s-]*)?([aeiou])$/)?.[1] || "";
+}
+
+function getPhonemeAudioPath(value = "", fallbackPath = "") {
+  const shortVowel = getShortVowelLetter(value);
+  if (shortVowel) return SHORT_VOWEL_AUDIO_PATHS[shortVowel] || fallbackPath || "";
+
+  const normalized = String(value || "").trim().toLowerCase();
+  if (CONSONANT_AUDIO_PATHS[normalized]) return CONSONANT_AUDIO_PATHS[normalized];
+  if (/^(ch|ck|ff|ft|ll|mp|nd|ng|ph|sh|sk|ss|st|th|wh)$/.test(normalized)) {
+    return `/audio/child-mode/clean-human/graphemes/digraphs_blends/${normalized}.mp3`;
+  }
+
+  return fallbackPath || "";
+}
+
+function normalizeSoundTile(tile) {
+  if (tile && typeof tile === "object") {
+    const media = tile.media && typeof tile.media === "object" ? tile.media : {};
+    const label = String(tile.label ?? tile.text ?? tile.value ?? tile.letter ?? tile.grapheme ?? "").trim();
+    const value = String(tile.value ?? tile.letter ?? tile.grapheme ?? label).trim();
+    const audioHint = String(tile.audioText ?? tile.sound ?? tile.phoneme ?? "").trim() || label || value;
+    const shortVowel = getShortVowelLetter(audioHint) || getShortVowelLetter(value) || getShortVowelLetter(label);
+    const answerValue = shortVowel && /short/i.test(`${label} ${value} ${audioHint}`) ? shortVowel : value;
+    const display = shortVowel ? shortVowel : label || value;
+
+    return {
+      answerValue,
+      audioPath: getPhonemeAudioPath(shortVowel || audioHint || answerValue, media.audio || tile.audioPath || tile.audio || ""),
+      audioText: shortVowel ? shortVowel : audioHint || answerValue,
+      display,
+      label: shortVowel ? `short ${shortVowel}` : label || value
+    };
+  }
+
+  const raw = String(tile ?? "").trim();
+  const shortVowel = getShortVowelLetter(raw);
+  return {
+    answerValue: shortVowel ? shortVowel : raw,
+    audioPath: getPhonemeAudioPath(shortVowel || raw),
+    audioText: shortVowel ? shortVowel : raw,
+    display: shortVowel ? shortVowel : raw,
+    label: shortVowel ? `short ${shortVowel}` : raw
+  };
+}
+
 function normalizeSkillId(value = "") {
   return String(value || "")
     .toLowerCase()
@@ -511,7 +576,14 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
   }
 
   function addTile(tile, index) {
-    setSelectedTiles(previous => [...previous, { tile, index }]);
+    const descriptor = normalizeSoundTile(tile);
+    if (descriptor.audioPath && speakText) {
+      void speakText(descriptor.audioText, descriptor.audioPath, {
+        allowBrowserFallback: false,
+        requireApprovedAudio: true
+      });
+    }
+    setSelectedTiles(previous => [...previous, { tile: descriptor, index }]);
   }
 
   function removeTile(index) {
@@ -521,7 +593,7 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
   if (isSoundOrder) {
     const tiles = currentQuestion.soundTiles || [];
     const selectedIndexes = new Set(selectedTiles.map(item => item.index));
-    const builtWord = selectedTiles.map(item => item.tile).join("");
+    const builtWord = selectedTiles.map(item => item.tile.answerValue).join("");
     const targetLength = String(currentQuestion.correctAnswer || currentQuestion.answer || "").length;
 
     return (
@@ -535,11 +607,12 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
             selectedTiles.map((item, index) => (
               <button
                 className="sound-order-selected-tile"
-                key={`${item.tile}-${item.index}`}
+                key={`${item.tile.answerValue}-${item.index}`}
                 onClick={() => removeTile(index)}
                 type="button"
+                aria-label={`Remove ${item.tile.label}`}
               >
-                {item.tile}
+                {item.tile.display}
               </button>
             ))
           )}
@@ -551,17 +624,21 @@ function IxlStyleTemplateQuestion({ currentQuestion, answerQuestion, speakText }
         </div>
 
         <div className={isHfwLetterBuild ? "sound-order-tile-row hfw-letter-tile-row" : "sound-order-tile-row"}>
-          {tiles.map((tile, index) => (
-            <button
-              className="sound-order-tile"
-              disabled={selectedIndexes.has(index)}
-              key={`${tile}-${index}`}
-              onClick={() => addTile(tile, index)}
-              type="button"
-            >
-              {tile}
-            </button>
-          ))}
+          {tiles.map((tile, index) => {
+            const descriptor = normalizeSoundTile(tile);
+            return (
+              <button
+                className="sound-order-tile"
+                disabled={selectedIndexes.has(index)}
+                key={`${descriptor.answerValue}-${descriptor.label}-${index}`}
+                onClick={() => addTile(tile, index)}
+                type="button"
+                aria-label={`Add ${descriptor.label}`}
+              >
+                {descriptor.display}
+              </button>
+            );
+          })}
         </div>
 
         <div className="button-row ixl-template-actions">
@@ -2490,7 +2567,9 @@ export function AssessmentPage({
   endAssessment,
   returnToStudentOverview,
   assessmentMode,
-  isAssessmentTransitioning = false
+  isAssessmentTransitioning = false,
+  assessmentFullscreen = false,
+  toggleAssessmentFullscreen = null
 }) {
   const hasCurrentQuestion = Boolean(currentQuestion);
   const safeSkillId =
@@ -2528,6 +2607,10 @@ export function AssessmentPage({
   const isGrammarSentenceFitItem = hasCurrentQuestion && isGrammarSentenceFitQuestion(currentQuestion);
   const isComprehensionPassageItem = hasCurrentQuestion && isComprehensionPassageQuestion(currentQuestion);
   const isHfwSkillItem = hasCurrentQuestion && String(safeSkillId || "").toLowerCase().startsWith("hfw_");
+  const assessmentShellClassName = [
+    "assessment-shell",
+    assessmentFullscreen ? "fullscreen" : ""
+  ].filter(Boolean).join(" ");
   const renderAssessmentTopbar = () => (
     <div className="assessment-topbar">
       <div className="assessment-meta">
@@ -2567,9 +2650,49 @@ export function AssessmentPage({
         </div>
       </div>
 
-      <button className="reset-button assessment-end-button" onClick={endAssessment} type="button">
-        End Assessment
-      </button>
+      <div className="assessment-topbar-actions">
+        {toggleAssessmentFullscreen && (
+          <button
+            className={[
+              "report-button",
+              "assessment-fullscreen-button",
+              assessmentFullscreen ? "active" : ""
+            ].filter(Boolean).join(" ")}
+            onClick={toggleAssessmentFullscreen}
+            type="button"
+            aria-label={assessmentFullscreen ? "Exit full screen" : "Enter full screen"}
+            title={assessmentFullscreen ? "Exit full screen" : "Full screen"}
+          >
+            <span aria-hidden="true">{assessmentFullscreen ? "X" : "[]"}</span>
+            <span>{assessmentFullscreen ? "Exit" : "Full screen"}</span>
+          </button>
+        )}
+
+        <button className="reset-button assessment-end-button" onClick={endAssessment} type="button">
+          End Assessment
+        </button>
+      </div>
+    </div>
+  );
+  const renderAssessmentLoadingCard = ({ title = "Getting the assessment ready...", actionLabel = "" } = {}) => (
+    <div className="card assessment-card assessment-loading-card">
+      <div className="assessment-loading-mark" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <h2>{title}</h2>
+      {message && <p className="message">{message}</p>}
+      {actionLabel && (
+        <div className="button-row assessment-start-row">
+          <button className="main-button" onClick={pickQuestion} type="button">
+            {actionLabel}
+          </button>
+          <button className="report-button" onClick={assessmentExit} type="button">
+            Return to Student Overview
+          </button>
+        </div>
+      )}
     </div>
   );
   const renderFeedbackCard = () => feedback ? (
@@ -2662,26 +2785,17 @@ export function AssessmentPage({
 
   if (shouldShowAssessmentLoadingState) {
     return (
-      <main className="assessment-shell">
-        <div className="card assessment-card">
-          <h2>Loading assessment...</h2>
-          {message && <p className="message">{message}</p>}
-          <div className="button-row assessment-start-row">
-            <button className="main-button" onClick={pickQuestion} type="button">
-              {roundAnswers.length === 0 ? "Start Skill Round" : "Next Question"}
-            </button>
-            <button className="report-button" onClick={assessmentExit} type="button">
-              Return to Student Overview
-            </button>
-          </div>
-        </div>
+      <main className={assessmentShellClassName}>
+        {renderAssessmentLoadingCard({
+          actionLabel: roundAnswers.length === 0 ? "Start Skill Round" : "Next Question"
+        })}
       </main>
     );
   }
 
   if (!currentQuestion && feedback) {
     return (
-      <main className="assessment-shell">
+      <main className={assessmentShellClassName}>
         {renderAssessmentTopbar()}
         {renderFeedbackCard()}
       </main>
@@ -2690,11 +2804,9 @@ export function AssessmentPage({
 
   if (!currentQuestion && isAssessmentTransitioning) {
     return (
-      <main className="assessment-shell">
+      <main className={assessmentShellClassName}>
         {renderAssessmentTopbar()}
-        <div className="card assessment-card assessment-transition-card">
-          <h2>Preparing next question...</h2>
-        </div>
+        {renderAssessmentLoadingCard({ title: "Next question is getting ready..." })}
       </main>
     );
   }
@@ -2706,7 +2818,7 @@ export function AssessmentPage({
     });
 
     return (
-      <main className="assessment-shell">
+      <main className={assessmentShellClassName}>
         <div className="card assessment-card">
           <h2>This assessment needs a quick fix.</h2>
           <p>Please return and try again.</p>
@@ -2762,12 +2874,14 @@ export function AssessmentPage({
   }));
   const getChoiceAudioText = choice =>
     isListenChooseVowelItem && /^[aeiou]$/i.test(choice.label)
-      ? `short ${choice.label.toLowerCase()}`
+      ? choice.label.toLowerCase()
       : choice.label;
   const textChoiceAudioPaths = Object.fromEntries(
     normalizedChoices.map(choice => [
       choice.value,
-      getApprovedAudioPath(getChoiceAudioText(choice), choice.media.audio || "")
+      isListenChooseVowelItem
+        ? getPhonemeAudioPath(getChoiceAudioText(choice), choice.media.audio || "")
+        : getApprovedAudioPath(getChoiceAudioText(choice), choice.media.audio || "")
     ])
   );
   const showTextChoiceAudio =
@@ -2781,7 +2895,7 @@ export function AssessmentPage({
     normalizedChoices.every(choice => Boolean(textChoiceAudioPaths[choice.value]));
 
   return (
-    <main className="assessment-shell">
+    <main className={assessmentShellClassName}>
       {renderAssessmentTopbar()}
 
       {!currentQuestion && !feedback && (
