@@ -18,6 +18,9 @@ const words = text =>
       audioPath: wordAudio(word)
     }));
 
+const seriesAudioPath = (seriesId, bookNumber, pageNumber) =>
+  `/guided-reading/series/${seriesId}/book-${String(bookNumber).padStart(2, "0")}/audio/page-${String(pageNumber).padStart(3, "0")}.mp3`;
+
 const seriesPagePath = (seriesId, bookNumber, pageNumber) =>
   `/guided-reading/series/${seriesId}/book-${String(bookNumber).padStart(2, "0")}/page-${String(pageNumber).padStart(3, "0")}.webp`;
 
@@ -34,7 +37,7 @@ const createPage = ({ bookNumber, pageNumber, text, illustrationPrompt }) => ({
   pageNumber,
   text: normalizeReadingText(text),
   image: pagePath(bookNumber, pageNumber),
-  pageAudio: null,
+  audio: seriesAudioPath("bob-and-nan", bookNumber, pageNumber),
   words: words(text),
   illustrationPrompt,
   qaStatus: "approved",
@@ -90,7 +93,7 @@ const createJamesPage = ({ bookNumber, pageNumber, text, illustrationPrompt }) =
   pageNumber,
   text: normalizeReadingText(text),
   image: jamesPagePath(bookNumber, pageNumber),
-  pageAudio: null,
+  audio: seriesAudioPath("james-and-anna", bookNumber, pageNumber),
   words: words(text),
   illustrationPrompt,
   qaStatus: "approved",
@@ -156,7 +159,7 @@ const createAidenPage = ({ bookNumber, pageNumber, text, illustrationPrompt }) =
   pageNumber,
   text: normalizeReadingText(text),
   image: aidenPagePath(bookNumber, pageNumber),
-  pageAudio: null,
+  audio: seriesAudioPath("aiden-and-betty", bookNumber, pageNumber),
   words: words(text),
   illustrationPrompt,
   qaStatus: "approved",
