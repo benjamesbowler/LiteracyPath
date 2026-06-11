@@ -99,8 +99,19 @@ export async function speakPhoneme(letter, options = {}) {
   const cue = getLetterSoundCue(normalizedLetter, { vowel: VOWELS.has(normalizedLetter) ? normalizedLetter : "" });
   const spokenFallback = VOWEL_SOUND_TEXT[normalizedLetter] || normalizedLetter;
 
+  // Vowels: play the real recorded short-vowel sound. The cue marks vowels
+  // as "generated:" which used to skip straight to robotic browser speech
+  // even though proper recordings exist.
+  const candidates = [];
+  if (VOWELS.has(normalizedLetter)) {
+    candidates.push(`/audio/child-mode/clean-human/graphemes/short_vowels/short_${normalizedLetter}.mp3`);
+  }
   if (cue?.src && !cue.src.startsWith("generated:")) {
-    const played = await playFirstAvailable([cue.src]);
+    candidates.push(cue.src);
+  }
+
+  if (candidates.length) {
+    const played = await playFirstAvailable(candidates);
     if (played) return;
   }
 

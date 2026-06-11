@@ -4,6 +4,34 @@ import { speakWithBrowser } from "../utils/audio/speakWithBrowser.js";
 import { SYMBOL_PASSWORD_LENGTH } from "../data/symbolPasswordIcons.js";
 import { SymbolPasswordPad } from "./SymbolPasswordPad.jsx";
 
+// Recorded child-voice prompts (public/audio/ui/voice). Browser speech is
+// only the fallback while a recording is missing.
+const VOICE_LINES = {
+  "pick-your-school": "Pick your school.",
+  "pick-your-class": "Pick your class.",
+  "who-are-you": "Who are you?",
+  "tap-your-pictures": "Tap your three secret pictures.",
+  "choose-your-pictures": "Choose your three secret pictures.",
+  "do-it-again": "Do it again to make sure.",
+  "did-not-match": "Those did not match. Try again.",
+  "try-again": "Try again.",
+  "great-job": "Great job!",
+  "ask-teacher": "Ask your teacher for help."
+};
+
+function speakLine(key, options = {}) {
+  const text = VOICE_LINES[key];
+  if (!text) return;
+  try {
+    const audio = new Audio(`/audio/ui/voice/${key}.mp3`);
+    audio.volume = 0.9;
+    const result = audio.play();
+    if (result?.catch) result.catch(() => speakWithBrowser(text, options));
+  } catch {
+    speakWithBrowser(text, options);
+  }
+}
+
 const SCHOOL_STORAGE_KEY = "lp-student-login-school";
 const CLASS_STORAGE_KEY = "lp-student-login-class";
 
@@ -154,7 +182,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
     setStatus("");
     setLocked(false);
     setStep(row.has_password ? "password" : "setup");
-    speakWithBrowser(row.has_password ? "Tap your three secret pictures." : "Choose your three secret pictures.", { rate: 0.84 });
+    speakLine(row.has_password ? "tap-your-pictures" : "choose-your-pictures", { rate: 0.84 });
   }
 
   function startSession(result = {}) {
@@ -199,7 +227,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
         setStep("setup");
       } else {
         setStatus("Try again!");
-        speakWithBrowser("Try again.", { rate: 0.86 });
+        speakLine("try-again", { rate: 0.86 });
       }
       return;
     }
@@ -213,7 +241,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
       setConfirmSequence("");
       setSetupConfirming(true);
       setStatus("Do it again.");
-      speakWithBrowser("Do it again to make sure.", { rate: 0.84 });
+      speakLine("do-it-again", { rate: 0.84 });
       return;
     }
     if (nextSequence !== setupSequence) {
@@ -221,7 +249,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
       setConfirmSequence("");
       setSetupConfirming(false);
       setStatus("Those did not match. Try again.");
-      speakWithBrowser("Those did not match. Try again.", { rate: 0.84 });
+      speakLine("did-not-match", { rate: 0.84 });
       return;
     }
 
@@ -235,7 +263,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
       setStatus("Ask your teacher for help.");
       return;
     }
-    speakWithBrowser("Great job!", { rate: 0.9 });
+    speakLine("great-job", { rate: 0.9 });
     startSession(data);
   }
 

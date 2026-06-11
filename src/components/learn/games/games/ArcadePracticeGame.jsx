@@ -111,7 +111,11 @@ export function ArcadePracticeGame({
     }
 
     if (mode === "family") {
-      const familyIds = difficulty === "hard" ? ["-AT", "-AN", "-IG", "-OP", "-UN", "-EN"] : difficulty === "medium" ? ["-AT", "-AN", "-IG", "-OP"] : ["-AT", "-AN"];
+      const familyIds = difficulty === "hard"
+        ? ["-AT", "-AN", "-IG", "-OP", "-UN", "-EN", "-ET", "-OT", "-UG", "-IN"].slice(0, 8)
+        : difficulty === "medium"
+          ? ["-AT", "-AN", "-IG", "-OP", "-ET"]
+          : ["-AT", "-AN", "-IG"];
       const words = familyIds.flatMap(familyId => WORD_FAMILIES[familyId].map(word => ({ familyId, word, onset: word.replace(familyId.slice(1).toLowerCase(), "") })));
       return { familyIds, words: shuffle(words), total: words.length };
     }

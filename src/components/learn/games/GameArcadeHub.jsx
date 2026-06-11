@@ -42,8 +42,8 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
           </div>
         </div>
         <div className="lg-arcade-summary">
-          <span><strong>{totals.stars}/30</strong> stars</span>
-          <span><strong>{totals.completed}/10</strong> played</span>
+          <span><strong>{totals.stars}/{GAME_LIST.length * 3}</strong> stars</span>
+          <span><strong>{totals.completed}/{GAME_LIST.length}</strong> played</span>
         </div>
       </div>
 
