@@ -4,6 +4,7 @@ import { getChildWordAsset } from "../../data/childAssets";
 import { speakWithBrowser } from "../../utils/audio/speakWithBrowser.js";
 import { playCorrectChime, playSoftBuzz, playCelebrationFanfare, playStarChime } from "../../utils/audio/gameSfx.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
+import { markMissionDone } from "../../utils/dailyMission.js";
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../learn/games/shared/ProgressStars.jsx";
 import {
@@ -166,6 +167,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
 
   function finishStation(finalCorrect, finalWrongs) {
     const total = rounds.length;
+    markMissionDone(progressScopeKey, "quest");
     if (stationId === "check") {
       const stars = starsForAccuracy(finalCorrect, total, finalWrongs);
       const previous = progress.cycles?.[activeCycle.id] || {};

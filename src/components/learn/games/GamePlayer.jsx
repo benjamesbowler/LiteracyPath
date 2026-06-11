@@ -7,6 +7,7 @@ import {
   saveLearnGameResult,
   setActiveLearnGamesProgressScope
 } from "../../../utils/learnGamesProgress";
+import { markMissionDone } from "../../../utils/dailyMission.js";
 import { SoundToggle } from "./shared/SoundToggle.jsx";
 import { LEARN_GAMES } from "./games/index.js";
 
@@ -63,6 +64,7 @@ export function GamePlayer({
     // take whichever is higher.
     const settledScore = Math.max(Number(finalScore) || 0, Number(score) || 0);
     const nextProgress = saveLearnGameResult(progressScopeKey, game.id, stars, settledScore, wordsCompleted);
+    markMissionDone(progressScopeKey, "game");
     onProgressChange?.(nextProgress);
   }
 

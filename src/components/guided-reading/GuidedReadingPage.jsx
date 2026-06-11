@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { markMissionDone } from "../../utils/dailyMission.js";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   formatGuidedReadingType,
@@ -841,6 +842,7 @@ export function GuidedReadingPage({
       completedPages: selectedBook.pages.length,
       totalPages: selectedBook.pages.length
     });
+    markMissionDone(studentId || studentName || "default", "book");
     setShowSummary(true);
   }
 

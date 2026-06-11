@@ -1,3 +1,12 @@
+import { useEffect, useMemo, useState } from "react";
+import { ConfettiCelebration } from "./learn/games/shared/ConfettiCelebration.jsx";
+import { playCelebrationFanfare } from "../utils/audio/gameSfx.js";
+import {
+  buildDailyMission,
+  getMissionStatus,
+  markMissionCelebrated
+} from "../utils/dailyMission.js";
+
 function StudentHomeCard({ title, subtitle, meta, art, onClick }) {
   return (
     <button className="student-home-card" onClick={onClick} type="button">
@@ -21,14 +30,59 @@ function SignOutIcon() {
   );
 }
 
+function FlameIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="currentColor">
+      <path d="M12 2c1 3-1 4.5-2 6-1.2 1.8-1.6 3.4-.6 5.4-2-.7-3-2-3.2-3.9C4.6 11.6 4 13.5 4 15a8 8 0 0 0 16 0c0-5-4.8-6.7-5-11-1.6 1-2.4 2.6-2 4.6C11.6 6.8 11.3 4.4 12 2Z" />
+    </svg>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+      <path d="m4.5 12.5 5 5 10-11" />
+    </svg>
+  );
+}
+
+const MISSION_TILES = [
+  { kind: "quest", label: "Quest", art: "/images/learn-games/art/cvc-train.webp" },
+  { kind: "book", label: "Book", art: "/images/learn-games/home/home-guided-reading.webp" },
+  { kind: "game", label: "Game", art: "/images/learn-games/home/home-learn.webp" }
+];
+
 export function StudentHomePage({
   studentName,
+  progressScopeKey = "default",
   onOpenPhonicsLearn,
   onOpenSkillsBlockQuest,
   onOpenStoryQuests,
   onOpenGuidedReading,
   onLogout
 }) {
+  // The home page re-mounts on every visit, so reading once at mount keeps
+  // the mission state fresh after each activity.
+  const [status] = useState(() => getMissionStatus(progressScopeKey));
+  const mission = useMemo(() => buildDailyMission(progressScopeKey), [progressScopeKey]);
+  const [showCelebration, setShowCelebration] = useState(false);
+
+  useEffect(() => {
+    if (!status.needsCelebration) return undefined;
+    const timer = window.setTimeout(() => {
+      setShowCelebration(true);
+      playCelebrationFanfare();
+      markMissionCelebrated(progressScopeKey);
+    }, 350);
+    return () => window.clearTimeout(timer);
+  }, [progressScopeKey, status.needsCelebration]);
+
+  const missionTargets = {
+    quest: onOpenSkillsBlockQuest,
+    book: onOpenGuidedReading,
+    game: onOpenPhonicsLearn
+  };
+
   return (
     <main className="student-home-page">
       <header className="student-home-topbar">
@@ -39,47 +93,111 @@ export function StudentHomePage({
           <span className="student-home-eyebrow">Hello</span>
           <strong>{studentName || "Reader"}</strong>
         </div>
+        {status.streak > 0 && (
+          <span className="student-home-streak" title="School-day streak">
+            <FlameIcon />
+            {status.streak} day{status.streak === 1 ? "" : "s"}
+          </span>
+        )}
         <button className="student-home-logout" onClick={onLogout} type="button" aria-label="Log out">
           <SignOutIcon />
           <span>Sign out</span>
         </button>
       </header>
 
-      <section className="student-home-intro" aria-label="Student practice">
-        <h1>Today&apos;s Practice</h1>
-        <p>Letters, stories, and books in one place.</p>
+      <section className="student-mission" aria-label="Today's mission">
+        <div className="student-mission-head">
+          <div>
+            <h1>Today&apos;s Mission</h1>
+            <p>{status.missionComplete ? "All done. Brilliant work - explore anything you like!" : "Three stops. You choose the order."}</p>
+          </div>
+          <div className="student-mission-tracker" aria-label={`${status.doneCount} of 3 complete`}>
+            {MISSION_TILES.map(tile => (
+              <span key={tile.kind} className={status.done[tile.kind] ? "done" : ""} aria-hidden="true">
+                {status.done[tile.kind] ? <CheckIcon /> : null}
+              </span>
+            ))}
+            <strong>{status.doneCount}/3</strong>
+          </div>
+        </div>
+
+        <div className="student-mission-grid">
+          {MISSION_TILES.map(tile => {
+            const item = mission[tile.kind];
+            const done = Boolean(status.done[tile.kind]);
+            return (
+              <button
+                key={tile.kind}
+                type="button"
+                className={`student-mission-tile${done ? " done" : ""}`}
+                onClick={missionTargets[tile.kind]}
+              >
+                <span className="student-mission-art" aria-hidden="true">
+                  <img src={tile.art} alt="" loading="lazy" />
+                  {done && <span className="student-mission-done-badge"><CheckIcon /></span>}
+                </span>
+                <span className="student-mission-copy">
+                  <small>{tile.label}</small>
+                  <strong>{item.title}{item.detail ? ` · ${item.detail}` : ""}</strong>
+                  <em>{item.why}</em>
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </section>
 
-      <section className="student-home-grid" aria-label="Student activities">
-        <StudentHomeCard
-          art="/images/learn-games/home/home-learn.webp"
-          meta="Start here"
-          title="Phonics Practice"
-          subtitle="Letters, words, and games"
-          onClick={onOpenPhonicsLearn}
-        />
-        <StudentHomeCard
-          art="/images/learn-games/art/cvc-train.webp"
-          meta="One big path"
-          title="Skills Quest"
-          subtitle="Sounds, words, and reading runs"
-          onClick={onOpenSkillsBlockQuest}
-        />
-        <StudentHomeCard
-          art="/images/learn-games/home/home-story-quests.webp"
-          meta="Story path"
-          title="Story Quests"
-          subtitle="Read, choose, and collect words"
-          onClick={onOpenStoryQuests}
-        />
-        <StudentHomeCard
-          art="/images/learn-games/home/home-guided-reading.webp"
-          meta="Book shelf"
-          title="Reading Library"
-          subtitle="Listen, read, and reread"
-          onClick={onOpenGuidedReading}
-        />
+      <section className="student-home-explore" aria-label="Explore">
+        <h2>Explore</h2>
+        <div className="student-home-grid">
+          <StudentHomeCard
+            art="/images/learn-games/home/home-learn.webp"
+            meta="Letters and games"
+            title="Phonics Practice"
+            subtitle="Letters, words, and games"
+            onClick={onOpenPhonicsLearn}
+          />
+          <StudentHomeCard
+            art="/images/learn-games/art/cvc-train.webp"
+            meta="One big path"
+            title="Skills Quest"
+            subtitle="Sounds, words, and reading runs"
+            onClick={onOpenSkillsBlockQuest}
+          />
+          <StudentHomeCard
+            art="/images/learn-games/home/home-story-quests.webp"
+            meta="Story path"
+            title="Story Quests"
+            subtitle="Read, choose, and collect words"
+            onClick={onOpenStoryQuests}
+          />
+          <StudentHomeCard
+            art="/images/learn-games/home/home-guided-reading.webp"
+            meta="Book shelf"
+            title="Reading Library"
+            subtitle="Listen, read, and reread"
+            onClick={onOpenGuidedReading}
+          />
+        </div>
       </section>
+
+      {showCelebration && (
+        <div className="student-mission-celebrate" role="dialog" aria-label="Mission complete">
+          <ConfettiCelebration show />
+          <div className="student-mission-celebrate-card">
+            <img src="/images/learn-games/phinny-cheering.webp" alt="" />
+            <h2>Mission complete!</h2>
+            <p>
+              {status.streak > 1
+                ? `That's ${status.streak} school days in a row. See you tomorrow!`
+                : "Your streak starts today. See you tomorrow!"}
+            </p>
+            <button className="main-button" type="button" onClick={() => setShowCelebration(false)}>
+              Keep exploring
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

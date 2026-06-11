@@ -7749,6 +7749,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         <PageBoundary resetKey={`student-home-${studentId}`}>
           <StudentHomePage
             studentName={studentName}
+            progressScopeKey={studentId || studentName || "default"}
             onOpenPhonicsLearn={() => setAppView(APP_VIEWS.PHONICS_LEARN)}
             onOpenSkillsBlockQuest={() => setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST)}
             onOpenStoryQuests={() => setAppView(APP_VIEWS.LEARN)}
