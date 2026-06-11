@@ -49,6 +49,20 @@ function mergePayload(current, incoming) {
   return { ...current, ...incoming };
 }
 
+function normalizeScalarProgressPayload(payload) {
+  if (typeof payload === "string") return payload;
+  if (payload && typeof payload === "object") {
+    if (typeof payload.status === "string") return payload.status;
+    const recovered = Object.keys(payload)
+      .filter(key => /^\d+$/.test(key))
+      .sort((a, b) => Number(a) - Number(b))
+      .map(key => payload[key])
+      .join("");
+    return recovered || payload;
+  }
+  return payload;
+}
+
 function cacheCloudRows(studentId, rows = []) {
   const cache = readJson(CLOUD_ROW_STORAGE_KEY, {});
   cache[studentId] = rows;
@@ -168,12 +182,19 @@ export async function hydrateCloudProgress(session) {
     const storageKey = localProgressStorageKey(row.area, session.studentId);
     if (!storageKey) return;
     const existing = readJson(storageKey, {});
-    const next = row.key === "__all__"
-      ? mergePayload(existing, row.payload)
-      : { ...existing, [row.key]: mergePayload(existing?.[row.key], row.payload) };
+    const next = row.key !== "__all__" && (row.area === "phonics_letters" || row.area === "cvc")
+      ? { ...existing, [row.key]: normalizeScalarProgressPayload(row.payload) }
+      : row.key === "__all__"
+        ? mergePayload(existing, row.payload)
+        : { ...existing, [row.key]: mergePayload(existing?.[row.key], row.payload) };
     writeJson(storageKey, next);
   });
   await flushQueuedProgressWrites(session);
+  if (isBrowser()) {
+    window.dispatchEvent(new CustomEvent("lp-progress-hydrated", {
+      detail: { studentId: session.studentId, rows }
+    }));
+  }
   return rows;
 }
 

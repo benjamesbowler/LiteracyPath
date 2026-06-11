@@ -3249,7 +3249,7 @@ export default function App() {
       return;
     }
 
-    setTeacherAccountRecord({ ...(teacherAccountRecord || {}), school_id: saved.school_id });
+    setTeacherAccountRecord(previous => ({ ...(previous || teacherAccountRecord || {}), school_id: saved.school_id }));
     setTeacherSchoolName(saved.school_name || schoolName);
     setAuthMessage("");
     setMessage(`School saved: ${saved.school_name || schoolName}`);
@@ -7686,6 +7686,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   const isFocusedAssessment = isFocusedAssessmentView(appView);
   const effectiveAssessmentFullscreen = isFocusedAssessment && assessmentFullscreen;
   const isStudentMode = sessionMode === "student";
+  const hasTeacherSchool = Boolean(teacherAccountRecord?.school_id || teacherSchoolName);
   const isFocusedShell = isStudentMode || appView === APP_VIEWS.STUDENT_LOGIN || isFocusedAssessment || (isLearnView && learnFullscreen);
   const appShellClassName = [
     "app",
@@ -7705,7 +7706,9 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           studentName={studentName}
           className={getSelectedClassName(classList, selectedClassId)}
           goToOverview={goToOverview}
+          goToStudentHome={() => setAppView(APP_VIEWS.STUDENT_HOME)}
           goToElAssessments={() => setAppView(APP_VIEWS.EL_ASSESSMENTS)}
+          goToElSkillsQuest={() => setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST)}
           goToGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
           goToLearn={() => setAppView(APP_VIEWS.LEARN)}
           goToPhonicsLearn={() => setAppView(APP_VIEWS.PHONICS_LEARN)}
@@ -7745,7 +7748,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </PageBoundary>
       )}
 
-      {isStudentMode && appView === APP_VIEWS.STUDENT_HOME && (
+      {appView === APP_VIEWS.STUDENT_HOME && nameSaved && (
         <PageBoundary resetKey={`student-home-${studentId}`}>
           <StudentHomePage
             studentName={studentName}
@@ -7754,17 +7757,19 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             onOpenSkillsBlockQuest={() => setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST)}
             onOpenStoryQuests={() => setAppView(APP_VIEWS.LEARN)}
             onOpenGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
-            onLogout={logOutStudent}
+            onLogout={isStudentMode ? logOutStudent : returnToTeacherDashboard}
+            logoutLabel={isStudentMode ? "Sign out" : "Teacher dashboard"}
+            logoutAriaLabel={isStudentMode ? "Log out" : "Return to teacher dashboard"}
           />
         </PageBoundary>
       )}
 
-      {isStudentMode && appView === APP_VIEWS.SKILLS_BLOCK_QUEST && (
+      {appView === APP_VIEWS.SKILLS_BLOCK_QUEST && nameSaved && (
         <PageBoundary resetKey={`skills-block-quest-${studentId}`}>
           <ElSkillsQuest
             studentName={studentName || "Reader"}
             progressScopeKey={studentId || studentName || "default"}
-            onExit={() => setAppView(APP_VIEWS.STUDENT_HOME)}
+            onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.OVERVIEW)}
           />
         </PageBoundary>
       )}
@@ -7825,7 +7830,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               setAppView(APP_VIEWS.STUDENT_LOGIN);
             }}
             schoolName={teacherSchoolName}
-            hasSchool={Boolean(teacherAccountRecord?.school_id)}
+            hasSchool={hasTeacherSchool}
             saveSchool={saveTeacherSchool}
             message={message}
           />

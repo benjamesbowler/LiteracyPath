@@ -34,6 +34,11 @@ const ICONS = {
       <path d="M12 3 2.5 8 12 13l9.5-5L12 3Zm-6 9.2v4.2c0 1.7 3 3.1 6 3.1s6-1.4 6-3.1v-4.2l-6 3.1-6-3.1Z" />
     </svg>
   ),
+  student: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm-7 16c.6-4 3.3-6 7-6s6.4 2 7 6H5Z" />
+    </svg>
+  ),
   phonics: (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M4 19 9 5h2l5 14h-2.4l-1-3H7.4l-1 3H4Zm4.1-5h3.8L10 8.4 8.1 14Z" />
@@ -70,6 +75,13 @@ const NAV_ITEMS = [
     views: [APP_VIEWS.SELECT, APP_VIEWS.TEACHER_DASHBOARD],
   },
   {
+    id: "studentHome",
+    label: "Student Page",
+    icon: "student",
+    views: [APP_VIEWS.STUDENT_HOME],
+    requiresStudent: true,
+  },
+  {
     id: "assessment",
     label: "Checkpoints",
     icon: "assessment",
@@ -86,6 +98,13 @@ const NAV_ITEMS = [
     requiresStudent: true,
   },
   {
+    id: "elSkills",
+    label: "EL Skills",
+    icon: "el",
+    views: [APP_VIEWS.SKILLS_BLOCK_QUEST],
+    requiresStudent: true,
+  },
+  {
     id: "reading",
     label: "Guided Reading",
     icon: "reading",
@@ -94,7 +113,7 @@ const NAV_ITEMS = [
   },
   {
     id: "learn",
-    label: "Practice",
+    label: "Story Quests",
     icon: "learn",
     views: [APP_VIEWS.LEARN],
     requiresStudent: true,
@@ -122,7 +141,9 @@ export function Sidebar({
   className,
   teacherEmail,
   goToOverview,
+  goToStudentHome,
   goToElAssessments,
+  goToElSkillsQuest,
   goToGuidedReading,
   goToLearn,
   goToPhonicsLearn,
@@ -152,8 +173,10 @@ export function Sidebar({
     if (item.requiresStudent && !nameSaved) return null;
     switch (item.id) {
       case "dashboard":   return goToTeacherDashboard?.();
+      case "studentHome": return goToStudentHome?.();
       case "assessment":  return goToOverview?.();
       case "el":          return goToElAssessments?.();
+      case "elSkills":    return goToElSkillsQuest?.();
       case "reading":     return goToGuidedReading?.();
       case "learn":       return goToLearn?.();
       case "phonics":     return goToPhonicsLearn?.();

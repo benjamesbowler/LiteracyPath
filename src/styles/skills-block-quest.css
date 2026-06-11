@@ -1,13 +1,13 @@
 /* EL Skills Quest - polished student-facing styles on the brand system. */
 
 .skills-block-quest {
-  width: min(100%, 980px);
+  width: min(100%, 1220px);
   min-height: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  padding: clamp(14px, 3vw, 28px);
+  gap: 12px;
+  padding: clamp(10px, 1.8vw, 18px);
   color: var(--lp-color-text-strong);
   font-family: var(--lp-font-ui);
 }
@@ -24,20 +24,20 @@
   color: var(--lp-color-primary);
   font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .sbq-top h1 {
   margin: 2px 0 0;
   font-family: var(--lp-font-reading);
-  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
   font-weight: 600;
   line-height: 1.15;
 }
 
 .sbq-sub {
-  margin: 6px 0 0;
+  margin: 4px 0 0;
   color: var(--lp-color-text-muted);
   font-size: 0.95rem;
 }
@@ -76,17 +76,18 @@
 /* ── Cycle map ─────────────────────────────────────────────────────────── */
 .sbq-map {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 8px;
 }
 
 .sbq-map-stop {
   display: grid;
   justify-items: center;
-  gap: 6px;
-  padding: 16px 10px 14px;
+  gap: 4px;
+  min-height: 96px;
+  padding: 10px 8px;
   border: 1px solid var(--lp-color-border);
-  border-radius: 16px;
+  border-radius: 8px;
   background: var(--lp-color-surface);
   box-shadow: var(--lp-shadow-card);
   cursor: pointer;
@@ -100,15 +101,15 @@
 }
 
 .sbq-map-stop strong {
-  width: 44px;
-  height: 44px;
+  width: 34px;
+  height: 34px;
   display: grid;
   place-items: center;
   border-radius: 50%;
   background: var(--lp-color-primary-soft);
   color: var(--lp-color-primary-strong);
   font-family: var(--lp-font-reading);
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -125,17 +126,29 @@
 .sbq-map-stop span {
   color: var(--lp-color-text-strong);
   font-family: var(--lp-font-reading);
-  font-size: 1rem;
+  font-size: 0.86rem;
   font-weight: 600;
+  line-height: 1.15;
+  text-align: center;
 }
 
 .sbq-map-stop em {
   color: var(--lp-color-primary);
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   font-style: normal;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
+}
+
+@media (max-width: 980px) {
+  .sbq-map {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+
+  .sbq-map-stop {
+    min-height: 104px;
+  }
 }
 
 /* ── Stations ──────────────────────────────────────────────────────────── */

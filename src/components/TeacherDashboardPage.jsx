@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { SymbolPasswordPad, SymbolSequence } from "./SymbolPasswordPad.jsx";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import { symbolIconByDigit } from "../data/symbolPasswordIcons.js";
+import logoUrl from "../assets/logo.svg";
 
 function formatLastActive(value) {
   if (!value) return "No activity yet";
@@ -77,6 +78,7 @@ export function TeacherDashboardPage({
   const [rosterFilterIds, setRosterFilterIds] = useState(null);
   const [editingSchool, setEditingSchool] = useState(false);
   const [schoolDraft, setSchoolDraft] = useState("");
+  const [savingSchool, setSavingSchool] = useState(false);
   const [visiblePasswords, setVisiblePasswords] = useState({});
   const [editingStudent, setEditingStudent] = useState(null);
   const [editingSequence, setEditingSequence] = useState("");
@@ -194,6 +196,18 @@ export function TeacherDashboardPage({
     setNewStudentName("");
   }
 
+  async function handleSaveSchool() {
+    const clean = schoolDraft.trim();
+    if (!clean || savingSchool) return;
+    setSavingSchool(true);
+    try {
+      await saveSchool?.(clean);
+      setEditingSchool(false);
+    } finally {
+      setSavingSchool(false);
+    }
+  }
+
   function printLoginCards() {
     const printableRows = studentRows
       .map(row => {
@@ -220,7 +234,10 @@ export function TeacherDashboardPage({
     <div className="teacher-product-page teacher-dashboard-page">
       <section className="teacher-page-header teacher-dashboard-hero">
         <div>
-          <p className="panel-label">Dashboard</p>
+          <div className="teacher-page-brand">
+            <img src={logoUrl} alt="" />
+            <p className="panel-label">Dashboard</p>
+          </div>
           <h2>{selectedClass ? selectedClass.name : "Class roster"}</h2>
           <p>{selectedClass ? "Manage students, logins, progress, and next actions from one place." : "Select or create a class to begin."}</p>
         </div>
@@ -305,24 +322,20 @@ export function TeacherDashboardPage({
                     onChange={setSchoolDraft}
                     onKeyDown={event => {
                       if (event.key === "Enter" && schoolDraft.trim()) {
-                        saveSchool(schoolDraft);
-                        setEditingSchool(false);
+                        handleSaveSchool();
                       }
                     }}
                   />
                 </label>
                 <button
                   className="lp-button lp-button-primary"
-                  disabled={!schoolDraft.trim()}
-                  onClick={() => {
-                    saveSchool(schoolDraft);
-                    setEditingSchool(false);
-                  }}
+                  disabled={!schoolDraft.trim() || savingSchool}
+                  onClick={handleSaveSchool}
                   type="button"
                 >
-                  Save School
+                  {savingSchool ? "Saving..." : "Save School"}
                 </button>
-                <button className="lp-button lp-button-secondary" onClick={() => setEditingSchool(false)} type="button">
+                <button className="lp-button lp-button-secondary" disabled={savingSchool} onClick={() => setEditingSchool(false)} type="button">
                   Cancel
                 </button>
               </div>

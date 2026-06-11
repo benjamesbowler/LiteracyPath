@@ -51,13 +51,13 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: flex-start;
   overflow-y: auto;
   overflow-x: hidden;
   border-radius: 0;
   background: var(--phonics-cloud);
-  padding: clamp(14px, 3vw, 32px);
+  padding: clamp(10px, 1.5vw, 18px);
   -webkit-overflow-scrolling: touch;
 }
 
@@ -70,11 +70,12 @@
 }
 
 .phonics-picker {
-  max-width: 900px;
+  max-width: 1120px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 22px;
+  gap: 12px;
+  margin-inline: auto;
 }
 
 .phonics-picker h1,
@@ -87,7 +88,7 @@
 
 .phonics-picker h1 {
   color: var(--phonics-ink);
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.85rem, 3.4vw, 2.55rem);
   line-height: 1.05;
   text-align: center;
 }
@@ -97,16 +98,16 @@
 .phonics-instruction {
   margin: 0;
   color: var(--phonics-soft-ink);
-  font: 700 1.1rem var(--phonics-font-body);
+  font: 700 clamp(0.92rem, 1.7vw, 1.05rem) var(--phonics-font-body);
   text-align: center;
 }
 
 .phonics-letter-grid {
   width: 100%;
-  max-width: 720px;
+  max-width: 900px;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .phonics-letter-card {
@@ -148,7 +149,7 @@
 }
 
 .phonics-letter-symbol {
-  font: 800 clamp(2.1rem, 7vw, 4rem) var(--phonics-font-display);
+  font: 800 clamp(2rem, 4.6vw, 3.35rem) var(--phonics-font-display);
   line-height: 1;
 }
 
@@ -193,7 +194,7 @@
 
 .phonics-picker-progress {
   display: flex;
-  min-height: 56px;
+  min-height: 44px;
   align-items: center;
   gap: 12px;
   border: 1px solid #E2E8F0;
@@ -201,8 +202,8 @@
   background: #ffffff;
   box-shadow: 0 3px 12px rgba(45, 52, 54, 0.1);
   color: var(--phonics-soft-ink);
-  font: 800 1rem var(--phonics-font-body);
-  padding: 10px 22px;
+  font: 800 0.95rem var(--phonics-font-body);
+  padding: 8px 18px;
 }
 
 .phonics-picker-stars {
@@ -826,21 +827,22 @@
 
 .phonics-island-view {
   width: 100%;
-  max-width: 960px;
+  max-width: 1220px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 18px;
+  align-items: stretch;
+  gap: 12px;
+  margin-inline: auto;
 }
 
 .phonics-practice-overview {
-  width: min(100%, 780px);
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
+  padding: 14px 16px;
   border: 1px solid #E2E8F0;
   border-radius: 12px;
   background: #ffffff;
@@ -854,7 +856,7 @@
 
 .phonics-practice-overview h2 {
   color: var(--phonics-ink);
-  font: 900 clamp(1.35rem, 3vw, 2rem) var(--phonics-font-display);
+  font: 900 clamp(1.35rem, 2.7vw, 1.9rem) var(--phonics-font-display);
   letter-spacing: 0;
 }
 
@@ -875,7 +877,7 @@
   background: rgba(12, 107, 101, 0.1);
   color: var(--phonics-ocean-blue);
   font: 900 0.72rem var(--phonics-font-body);
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -906,7 +908,7 @@
 }
 
 .phonics-unlock-callout {
-  width: min(100%, 780px);
+  width: 100%;
   border-color: rgba(214, 138, 17, 0.28);
   background: rgba(214, 138, 17, 0.1);
   color: #8a4f00;
@@ -914,7 +916,7 @@
 }
 
 .phonics-island-switcher {
-  width: min(100%, 780px);
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
@@ -923,7 +925,7 @@
 .phonics-island-card {
   position: relative;
   display: flex;
-  min-height: 86px;
+  min-height: 72px;
   align-items: center;
   justify-content: center;
   gap: 12px;
@@ -933,7 +935,7 @@
   box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 4px 10px rgba(16, 24, 40, 0.06);
   color: var(--phonics-ink);
   cursor: pointer;
-  font: 900 1.2rem var(--phonics-font-display);
+  font: 900 1.08rem var(--phonics-font-display);
 }
 
 .phonics-island-label {
@@ -971,13 +973,13 @@
 }
 
 .phonics-island-card > span:first-child {
-  font-size: 2.6rem;
+  font-size: 2.25rem;
   line-height: 1;
 }
 
 .phonics-island-card svg {
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
@@ -1296,8 +1298,8 @@
 
 @media (min-width: 760px) {
   .phonics-letter-grid {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 10px;
   }
 }
 
