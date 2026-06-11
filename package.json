@@ -60,6 +60,8 @@
     "check:learn-games": "node tools/checkLearnGamesIntegration.js",
     "check:practice-surface-regressions": "node tools/checkPracticeSurfaceRegressions.js",
     "check:release-readiness-surface": "node tools/checkReleaseReadinessSurface.js",
+    "check:teacher-dashboard-data": "node tools/checkTeacherDashboardDataContracts.js",
+    "check:product-finish-surface": "node tools/checkProductFinishSurface.js",
     "check:cvc-learn-assets": "node tools/checkCvcLearnAssets.js",
     "check:assessment-prompt-audio-quality": "node tools/checkAssessmentPromptAudioQuality.js",
     "expand:skill-banks": "node tools/expandSkillQuestionBank.js --skill all",

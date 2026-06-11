@@ -2025,6 +2025,12 @@ export function AdminDashboardPage({
       status: "ready"
     }
   ];
+  const elFormalEvidenceFields = [
+    { key: "uppercaseName", label: "Uppercase letter name" },
+    { key: "lowercaseName", label: "Lowercase letter name" },
+    { key: "uppercaseSound", label: "Uppercase letter sound" },
+    { key: "lowercaseSound", label: "Lowercase letter sound" }
+  ];
 
   function openAdminQaPage(page) {
     setAdminQaPage(page);
@@ -2136,6 +2142,7 @@ export function AdminDashboardPage({
       { id: "classes", label: "Classes", count: classes.length },
       { id: "students", label: "Students", count: students.length },
       { id: "reports", label: "Reports", count: savedElReports.length },
+      { id: "exports", label: "Exports", count: savedElReports.length },
       { id: "guidedReading", label: "Guided Reading", count: guidedReadingInsight.active },
       { id: "assessmentProgress", label: "Assessment", count: assessmentHistory.length },
       { id: "hfw", label: "HFW", count: hfwAssessedCount }
@@ -2284,6 +2291,10 @@ export function AdminDashboardPage({
           <div className="admin-overview-grid teacher-overview-actions">
             <button className="admin-overview-card" onClick={() => setActiveSection("reports")} type="button">
               <span>View Reports</span>
+              <strong>{savedElReports.length}</strong>
+            </button>
+            <button className="admin-overview-card" onClick={() => setActiveSection("exports")} type="button">
+              <span>Export Center</span>
               <strong>{savedElReports.length}</strong>
             </button>
             <button className="admin-overview-card" onClick={() => setActiveSection("classes")} type="button">
@@ -2476,6 +2487,179 @@ export function AdminDashboardPage({
               ))}
             </div>
           )}
+        </section>
+      )}
+
+      {isTeacherMode && activeSection === "exports" && (
+        <section className="report-panel page-stack admin-section admin-section-panel el-assessment-dashboard-section">
+          <div className="admin-section-heading">
+            <div>
+              <h3>Exports</h3>
+              <p className="muted-text">Download formal assessment, class, student, and guided-reading records from one teacher-facing workspace.</p>
+            </div>
+            <span className="admin-count-pill">{savedElReports.length} saved</span>
+          </div>
+          {exportNotice && <p className="message">{exportNotice}</p>}
+
+          <section className="teacher-report-card">
+            <div className="admin-section-heading">
+              <div>
+                <h4>EL Formal Assessments</h4>
+                <p className="muted-text">Exports include separate letter-name and letter-sound evidence for uppercase and lowercase responses.</p>
+              </div>
+            </div>
+
+            <div className="formal-report-controls">
+              <label>
+                Class
+                <select
+                  disabled={classes.length === 0}
+                  onChange={event => {
+                    setSelectedElClassId(event.target.value);
+                    setSelectedElStudentId("");
+                  }}
+                  value={selectedClassId}
+                >
+                  {classes.length === 0 ? (
+                    <option value="">No classes yet</option>
+                  ) : classes.map(row => (
+                    <option key={row.id} value={row.id}>{row.name}</option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Student
+                <select
+                  disabled={elClassStudents.length === 0}
+                  onChange={event => setSelectedElStudentId(event.target.value)}
+                  value={selectedElStudentId || elClassStudents[0]?.id || ""}
+                >
+                  {elClassStudents.length === 0 ? (
+                    <option value="">No students</option>
+                  ) : elClassStudents.map(student => (
+                    <option key={student.id} value={student.id}>{student.name}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+
+            <div className="teacher-pattern-summary-list formal-evidence-field-list" aria-label="EL formal assessment evidence fields">
+              {elFormalEvidenceFields.map(field => (
+                <span className="teacher-skill-chip" data-field={field.key} key={field.key}>
+                  {field.label}
+                </span>
+              ))}
+            </div>
+
+            <div className="el-assessment-export-row">
+              <article className="el-report-control-column">
+                <h5>Class Package</h5>
+                <p className="muted-text">Class-level workbook with whole-class matrices, skill summaries, and pattern detail.</p>
+                <button
+                  className="lp-button lp-button-primary"
+                  disabled={classes.length === 0}
+                  onClick={handleClassElAssessmentExport}
+                  type="button"
+                >
+                  Export Class Excel
+                </button>
+                <button
+                  className="lp-button lp-button-secondary"
+                  disabled={classes.length === 0}
+                  onClick={() => {
+                    setReportView("class");
+                    setActiveSection("reports");
+                  }}
+                  type="button"
+                >
+                  Open Class Report
+                </button>
+              </article>
+
+              <article className="el-report-control-column">
+                <h5>Student Package</h5>
+                <p className="muted-text">Individual workbook and finished-report handoff for the selected student.</p>
+                <button
+                  className="lp-button lp-button-primary"
+                  disabled={!selectedStudent?.id}
+                  onClick={handleStudentElAssessmentExport}
+                  type="button"
+                >
+                  Export Student Excel
+                </button>
+                {onViewStudentReport && (
+                  <button
+                    className="lp-button lp-button-secondary"
+                    disabled={!selectedStudent?.id}
+                    onClick={() => selectedStudent?.id && onViewStudentReport(selectedStudent.id, selectedStudent.name || "")}
+                    type="button"
+                  >
+                    Open Student Report
+                  </button>
+                )}
+              </article>
+            </div>
+          </section>
+
+          <section className="teacher-report-grid compact">
+            <article className="teacher-report-card">
+              <h4>Guided Reading Completion</h4>
+              <p>{guidedReadingLog.length ? `${guidedReadingLog.length} reading session(s) available for export.` : "No guided reading records have been saved yet."}</p>
+              <button className="lp-button lp-button-secondary" onClick={handleGuidedReadingCompletionExport} type="button">
+                Export Guided Reading Excel
+              </button>
+            </article>
+
+            <article className="teacher-report-card">
+              <h4>Assessment Archive</h4>
+              <p>{assessmentHistory.length ? `${assessmentHistory.length} saved assessment attempt(s) available.` : "No assessment attempts have been saved yet."}</p>
+              <div className="teacher-action-list">
+                <button
+                  className="lp-button lp-button-secondary"
+                  disabled={assessmentHistory.length === 0}
+                  onClick={() => downloadTextFile("assessment-history.csv", exportAssessmentAttemptsCsv(assessmentHistory), "text/csv")}
+                  type="button"
+                >
+                  Export CSV
+                </button>
+                <button
+                  className="lp-button lp-button-secondary"
+                  disabled={assessmentHistory.length === 0}
+                  onClick={() => downloadTextFile("assessment-history.json", JSON.stringify(assessmentHistory, null, 2), "application/json")}
+                  type="button"
+                >
+                  Export JSON
+                </button>
+              </div>
+            </article>
+          </section>
+
+          <section className="teacher-report-card">
+            <h4>Saved EL Reports</h4>
+            {savedElReports.length === 0 ? (
+              <p>No saved EL report downloads in this browser yet.</p>
+            ) : (
+              savedElReports.slice(0, 12).map(report => (
+                <article className="el-saved-report-row" key={report.reportId}>
+                  <div>
+                    <strong>{report.reportType === "individual" ? "Student" : "Class"} EL report</strong>
+                    <span>
+                      {report.studentName || report.className || "Unknown"} · {report.generatedAt ? new Date(report.generatedAt).toLocaleDateString() : ""}
+                    </span>
+                    <small>{report.summary?.totalAssessments || 0} assessments · {report.summary?.averageAccuracy || 0}% average</small>
+                  </div>
+                  <div className="button-row">
+                    <button className="report-button" onClick={() => handleDownloadSavedElReport(report)} type="button">
+                      Download
+                    </button>
+                    <button className="report-button danger" onClick={() => handleDeleteSavedElReport(report.reportId)} type="button">
+                      Delete
+                    </button>
+                  </div>
+                </article>
+              ))
+            )}
+          </section>
         </section>
       )}
 

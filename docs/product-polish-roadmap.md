@@ -1,6 +1,6 @@
 # Product Polish Roadmap
 
-This splits the full-app audit into five implementation sections so each pass can be shipped and checked cleanly.
+This splits the full-app audit into six implementation sections so each pass can be shipped and checked cleanly.
 
 ## Section 1: Foundation, Entry, Login, And Shell
 
@@ -47,3 +47,12 @@ Status: complete in this pass.
 - Add admin tools for school/class/user cleanup and content QA workflows.
 - Replace truncated report summaries with complete mastered-item lists.
 - Finish performance, stability, accessibility, and deployment checks for release.
+
+## Section 6: Teacher Export Center, Product Finish, And Final Contract Closure
+
+Status: complete in this pass.
+
+- Add a dedicated teacher export workspace for formal assessment, guided reading, and archive downloads.
+- Surface EL formal assessment evidence fields clearly in teacher-facing export controls.
+- Close teacher dashboard data-contract gaps that were still failing after the first five passes.
+- Add a final product-finish check so the last polish layer stays protected.

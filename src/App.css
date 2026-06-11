@@ -8875,6 +8875,13 @@ select:focus {
   gap: 8px;
 }
 
+.formal-evidence-field-list {
+  border: 1px solid var(--color-border-soft);
+  border-radius: 12px;
+  background: #f8fafc;
+  padding: 10px;
+}
+
 .teacher-skill-chip {
   border: 1px solid var(--color-border-soft);
   border-radius: 999px;
@@ -8918,6 +8925,11 @@ select:focus {
   align-items: stretch;
   display: grid;
   gap: 10px;
+}
+
+.el-report-control-column h5,
+.el-report-control-column p {
+  margin: 0;
 }
 
 .el-report-control-column label {
