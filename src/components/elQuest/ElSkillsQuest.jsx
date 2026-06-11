@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
 import { getChildWordAsset } from "../../data/childAssets";
 import { speakWithBrowser } from "../../utils/audio/speakWithBrowser.js";
+import { playCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
 import { playCorrectChime, playSoftBuzz, playCelebrationFanfare, playStarChime } from "../../utils/audio/gameSfx.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
 import { markMissionDone } from "../../utils/dailyMission.js";
@@ -44,18 +45,9 @@ function saveQuestProgress(scopeKey, progress) {
 
 function playCue(round) {
   if (!round) return;
-  if (round.audio) {
-    try {
-      const audio = new Audio(round.audio);
-      audio.volume = 0.95;
-      const result = audio.play();
-      if (result?.catch) result.catch(() => speakWithBrowser(round.speechFallback, { rate: 0.84 }));
-      return;
-    } catch {
-      // fall through to speech
-    }
-  }
-  speakWithBrowser(round.speechFallback, { rate: 0.84 });
+  playCueAudio(round.audio, {
+    onUnavailable: () => speakWithBrowser(round.speechFallback, { rate: 0.84 })
+  });
 }
 
 function SpeakerIcon() {
@@ -97,9 +89,7 @@ function BuildRound({ round, onResult }) {
     const next = [...placed, letter];
     setPlaced(next);
     const cue = graphemeAudioPath(letter);
-    if (cue) {
-      try { new Audio(cue).play().catch(() => {}); } catch { /* ignore */ }
-    }
+    if (cue) playCueAudio(cue, { volume: 0.9 });
     if (next.join("") === round.word) {
       window.setTimeout(() => onResult(true), 420);
     }
@@ -170,6 +160,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   }
 
   function finishStation(finalCorrect, finalWrongs) {
+    stopCueAudio();
     const total = rounds.length;
     markMissionDone(progressScopeKey, "quest");
     if (stationId === "check") {

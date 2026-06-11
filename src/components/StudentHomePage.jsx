@@ -8,6 +8,7 @@ import {
 } from "../utils/dailyMission.js";
 import { COMPANIONS, getCompanion, setCompanion, getCollectibles } from "../utils/studentProfile.js";
 import { Gem } from "./Gem.jsx";
+import logoUrl from "../assets/logo.svg";
 
 function StudentHomeCard({ title, subtitle, meta, art, onClick }) {
   return (
@@ -61,7 +62,9 @@ export function StudentHomePage({
   onOpenSkillsBlockQuest,
   onOpenStoryQuests,
   onOpenGuidedReading,
-  onLogout
+  onLogout,
+  logoutLabel = "Sign out",
+  logoutAriaLabel = "Log out"
 }) {
   // The home page re-mounts on every visit, so reading once at mount keeps
   // the mission state fresh after each activity.
@@ -91,6 +94,7 @@ export function StudentHomePage({
   return (
     <main className="student-home-page">
       <header className="student-home-topbar">
+        <img className="student-home-logo" src={logoUrl} alt="Literacy Guide" />
         <button
           className="student-home-avatar"
           type="button"
@@ -111,9 +115,9 @@ export function StudentHomePage({
             {status.streak} day{status.streak === 1 ? "" : "s"}
           </span>
         )}
-        <button className="student-home-logout" onClick={onLogout} type="button" aria-label="Log out">
+        <button className="student-home-logout" onClick={onLogout} type="button" aria-label={logoutAriaLabel}>
           <SignOutIcon />
-          <span>Sign out</span>
+          <span>{logoutLabel}</span>
         </button>
       </header>
 
@@ -179,7 +183,7 @@ export function StudentHomePage({
           <StudentHomeCard
             art="/images/learn-games/home/home-learn.webp"
             meta="Letters and games"
-            title="Phonics Practice"
+            title="Phonics Quest"
             subtitle="Letters, words, and games"
             onClick={onOpenPhonicsLearn}
           />

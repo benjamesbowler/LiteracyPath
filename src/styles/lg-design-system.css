@@ -159,8 +159,8 @@ body {
 }
 
 .lg-sb-icon {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
   border-radius: 7px;
   background: var(--lp-color-primary);
@@ -171,8 +171,8 @@ body {
 
 .lg-sb-icon img,
 .lg-sb-icon svg {
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
 }
 
 .lg-sb-name {

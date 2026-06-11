@@ -652,6 +652,12 @@ body {
   text-transform: uppercase;
 }
 
+.student-home-logo {
+  width: auto;
+  height: 42px;
+  flex: 0 0 auto;
+}
+
 .student-home-avatar {
   width: 54px;
   height: 54px;
@@ -2220,6 +2226,19 @@ body {
   text-align: left;
 }
 
+.teacher-page-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.teacher-page-brand img {
+  width: auto;
+  height: 28px;
+  flex: 0 0 auto;
+}
+
 .teacher-dashboard-context {
   min-width: 0;
   display: grid;
@@ -2600,8 +2619,10 @@ body {
   right: 14px;
   z-index: 20;
   display: inline-flex;
+  width: 44px;
   height: 42px;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   border: 1px solid rgba(37, 99, 235, 0.22);
   border-radius: 8px;
@@ -2610,7 +2631,7 @@ body {
   color: #172033;
   cursor: pointer;
   font-weight: 800;
-  padding: 0 12px;
+  padding: 0;
 }
 
 .learn-fullscreen-toggle.active {
@@ -2623,6 +2644,16 @@ body {
   font-size: 14px;
   line-height: 1;
   text-align: center;
+}
+
+.learn-fullscreen-toggle span:last-child {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .learn-fullscreen-app {
@@ -15535,4 +15566,34 @@ select:focus {
   background: var(--lp-color-accent-warm-soft);
   color: var(--lp-color-text-strong);
   font-size: 14px;
+}
+
+/* ─── Full-screen usage: student surfaces use the whole viewport ───────── */
+
+.student-mission,
+.student-treasures,
+.student-home-explore {
+  width: min(100%, 1280px);
+}
+
+.student-home-page {
+  gap: 14px;
+  padding: clamp(10px, 1.6vw, 18px);
+}
+
+.student-mission {
+  padding: clamp(14px, 2vw, 20px);
+}
+
+.student-mission-art {
+  height: clamp(72px, 9vh, 96px);
+}
+
+.student-home-card {
+  min-height: clamp(170px, 24vh, 230px);
+}
+
+.student-home-card-art,
+.student-mission-art {
+  flex: 0 0 auto;
 }

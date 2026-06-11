@@ -101,7 +101,15 @@ export function cancelSpeech() {
   }
 }
 
+function stopCurrentCues() {
+  Howler.stop();
+  if (typeof window !== "undefined" && window.speechSynthesis) {
+    window.speechSynthesis.cancel();
+  }
+}
+
 export async function speakPhoneme(letter, options = {}) {
+  stopCurrentCues();
   const normalizedLetter = normalizedText(letter).slice(0, 1);
   const cue = getLetterSoundCue(normalizedLetter, { vowel: VOWELS.has(normalizedLetter) ? normalizedLetter : "" });
   const spokenFallback = VOWEL_SOUND_TEXT[normalizedLetter] || normalizedLetter;
@@ -130,6 +138,7 @@ export async function speakPhoneme(letter, options = {}) {
 }
 
 export async function speakWord(word, options = {}) {
+  stopCurrentCues();
   const slug = slugify(word);
   const candidates = [
     `/audio/child-mode/clean-human/words/${slug}.mp3`,
@@ -144,6 +153,7 @@ export async function speakWord(word, options = {}) {
 }
 
 export async function speak(text, options = {}) {
+  stopCurrentCues();
   const value = String(text || "").trim();
   if (!value) return;
   if (/^[a-z]+$/i.test(value)) {

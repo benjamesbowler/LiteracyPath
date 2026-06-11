@@ -437,9 +437,9 @@ function SpaceHubHome({ progress, openZone, openShop, returnToTeacher }) {
 
       <section className="space-hub-hero" aria-label="Space Hub home">
         <div className="space-hub-copy">
-          <p>Read. Practice. Quiz. Earn stars.</p>
+          <p>Read. Quest. Quiz. Earn stars.</p>
           <h1>Space Hub</h1>
-          <span>A calm literacy hub for books, skill practice, quizzes, and planet upgrades.</span>
+          <span>A calm literacy hub for books, skill quests, quizzes, and planet upgrades.</span>
         </div>
         <SpacePlanetProfile progress={progress} />
       </section>
@@ -453,7 +453,7 @@ function SpaceHubHome({ progress, openZone, openShop, returnToTeacher }) {
         <div>
           <span>Recommended next</span>
           <strong>Phonics Lab</strong>
-          <p>Practice a short mission, then spend stars on a planet upgrade.</p>
+          <p>Try a short mission, then spend stars on a planet upgrade.</p>
         </div>
       </section>
 

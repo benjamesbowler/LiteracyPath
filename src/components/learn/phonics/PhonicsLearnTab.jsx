@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { loadCvcProgress, saveCvcProgress } from "../../../utils/cvcProgress";
 import { loadPhonicsProgress, savePhonicsProgress } from "../../../utils/phonicsProgress";
 import { cvcWordFamilies } from "../../../data/cvcWordFamilies";
@@ -64,6 +64,17 @@ export function PhonicsLearnTab({ progressScopeKey = "default" }) {
   const nextStepText = wordsUnlocked
     ? "Choose letters, build short words, or play a review game."
     : `Learn ${lettersToUnlockWords} more letter${lettersToUnlockWords === 1 ? "" : "s"} to unlock Word Workshop.`;
+
+  useEffect(() => {
+    function handleHydrated(event) {
+      if (event.detail?.studentId !== progressScopeKey) return;
+      setProgress(loadPhonicsProgress(progressScopeKey));
+      setCvcProgress(loadCvcProgress(progressScopeKey));
+    }
+
+    window.addEventListener("lp-progress-hydrated", handleHydrated);
+    return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);
+  }, [progressScopeKey]);
 
   function handleSelectLetter(letter) {
     const updated = {
@@ -136,11 +147,11 @@ export function PhonicsLearnTab({ progressScopeKey = "default" }) {
     <div className="phonics-island-view">
       <section className="phonics-practice-overview" aria-label="Phonics practice progress">
         <div>
-          <span className="phonics-practice-kicker">Practice</span>
+          <span className="phonics-practice-kicker">Phonics</span>
           <h2>Letters, Words, Games</h2>
           <p>{nextStepText}</p>
         </div>
-        <div className="phonics-practice-stats" aria-label="Practice totals">
+        <div className="phonics-practice-stats" aria-label="Quest totals">
           <span><strong>{completedLettersCount}/26</strong> letters</span>
           <span><strong>{completedWordFamiliesCount}/{cvcWordFamilies.length}</strong> word nests</span>
         </div>

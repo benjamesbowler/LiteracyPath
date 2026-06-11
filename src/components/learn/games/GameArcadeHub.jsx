@@ -88,7 +88,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
           <span className="lg-section-rule" aria-hidden="true"></span>
           <div>
             <p>Game Arcade</p>
-            <h1 id="lg-arcade-title">Play a short practice game</h1>
+            <h1 id="lg-arcade-title">Play a short quest game</h1>
             <span>Earn stars while reviewing letters, sounds, words, and rhymes.</span>
           </div>
         </div>

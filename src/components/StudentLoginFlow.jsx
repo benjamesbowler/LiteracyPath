@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "../supabaseClient.js";
 import { speakWithBrowser } from "../utils/audio/speakWithBrowser.js";
+import { playCueAudio } from "../utils/audio/cuePlayer.js";
 import { SYMBOL_PASSWORD_LENGTH } from "../data/symbolPasswordIcons.js";
 import { SymbolPasswordPad } from "./SymbolPasswordPad.jsx";
 
@@ -22,14 +23,10 @@ const VOICE_LINES = {
 function speakLine(key, options = {}) {
   const text = VOICE_LINES[key];
   if (!text) return;
-  try {
-    const audio = new Audio(`/audio/ui/voice/${key}.mp3`);
-    audio.volume = 0.9;
-    const result = audio.play();
-    if (result?.catch) result.catch(() => speakWithBrowser(text, options));
-  } catch {
-    speakWithBrowser(text, options);
-  }
+  playCueAudio(`/audio/ui/voice/${key}.mp3`, {
+    volume: 0.9,
+    onUnavailable: () => speakWithBrowser(text, options)
+  });
 }
 
 const SCHOOL_STORAGE_KEY = "lp-student-login-school";

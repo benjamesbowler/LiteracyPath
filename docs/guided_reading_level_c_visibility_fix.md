@@ -1,12 +1,12 @@
 # Guided Reading Visibility Audit
 
-Generated: 2026-05-28T07:49:46.393Z
+Generated: 2026-06-11T11:26:03.009Z
 
 ## Current Policy
 
 Guided Reading now allows all current app-created fiction and nonfiction books for student readers. Old deleted fiction and public-domain books must remain off the readable shelf.
 
-Visible fiction books: 85
+Visible fiction books: 100
 Visible nonfiction books: 76
 
 ## Visible Books
@@ -147,7 +147,7 @@ Visible nonfiction books: 76
 | meadow-pals-06-sleepy-cant-wake-up | Sleepy Can't Wake Up | Fiction | A | approved | 9 | yes | none |
 | meadow-pals-07-noisy-tries-to-be-quiet | Noisy Tries to Be Quiet | Fiction | A | approved | 10 | yes | none |
 | meadow-pals-08-tiny-is-very-small | Tiny is Very Small | Fiction | A | approved | 9 | yes | none |
-| meadow-pals-09-shy-comes-out-to-play | Shy Comes Out to Play | Fiction | A | approved | 9 | yes | none |
+| meadow-pals-09-shy-comes-out-to-play | Shy Comes Out to Play | Fiction | A | approved | 8 | yes | none |
 | meadow-pals-10-giggly-has-the-hiccups | Giggly Has the Hiccups | Fiction | A | approved | 9 | yes | none |
 | meadow-pals-11-brave-climbs-the-hay-bale | Brave Climbs the Hay Bale | Fiction | A | approved | 10 | yes | none |
 | meadow-pals-12-hungry-eats-everything | Hungry Eats Everything | Fiction | A | approved | 7 | yes | none |
@@ -174,6 +174,21 @@ Visible nonfiction books: 76
 | moonwood-tales-c-08 | Burrow Finds a Door | Fiction | C | approved | 13 | yes | none |
 | moonwood-tales-c-09 | Spark's Very Big Sneeze | Fiction | C | approved | 14 | yes | none |
 | moonwood-tales-c-10 | What Luna Forgot | Fiction | C | approved | 14 | yes | none |
+| moonwood-tales-c-11 | Pip and Stone and the Loud Thing | Fiction | C | approved | 12 | yes | none |
+| moonwood-tales-c-12 | Fern and Dewdrop Save the Stream | Fiction | C | approved | 12 | yes | none |
+| moonwood-tales-c-13 | Glimmer and Spark Make a Deal | Fiction | C | approved | 12 | yes | none |
+| moonwood-tales-c-14 | Wren and Flint Get Lost | Fiction | C | approved | 12 | yes | none |
+| moonwood-tales-c-15 | Burrow and Luna and the Old Secret | Fiction | C | approved | 12 | yes | none |
+| moonwood-tales-c-16 | Pip and Glimmer and the Night Watch | Fiction | C | approved | 12 | yes | none |
+| moonwood-tales-c-17 | Fern and Wren and the Wrong Potion | Fiction | C | approved | 12 | yes | none |
+| moonwood-tales-c-18 | Stone and Dewdrop and the Stuck Fish | Fiction | C | approved | 12 | yes | none |
+| moonwood-tales-c-19 | The Missing Magic Seeds | Fiction | C | approved | 12 | yes | none |
+| moonwood-tales-c-20 | The Night the Stars Fell | Fiction | C | approved | 12 | yes | none |
+| moonwood-tales-c-21 | Something Lives in the Hollow Oak | Fiction | C | approved | 12 | yes | none |
+| moonwood-tales-c-22 | The Big Moonwood Race | Fiction | C | approved | 12 | yes | none |
+| moonwood-tales-c-23 | The Fog Marsh Mystery | Fiction | C | approved | 12 | yes | none |
+| moonwood-tales-c-24 | Glimmer Breathes Fire at Last | Fiction | C | approved | 12 | yes | none |
+| moonwood-tales-c-25 | One Night in the Deep Dark | Fiction | C | approved | 12 | yes | none |
 
 ## Result
 
