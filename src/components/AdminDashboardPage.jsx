@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
+import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import {
   buildMediaQaRecords,
   MEDIA_QA_STATUSES,
@@ -1715,6 +1716,8 @@ export function AdminDashboardPage({
   teachers = [],
   classes = [],
   students = [],
+  schools = [],
+  setTeacherSchool,
   pendingAccounts = [],
   pendingAccountsWarning = "",
   loading,
@@ -1734,6 +1737,8 @@ export function AdminDashboardPage({
 }) {
   const isTeacherMode = dashboardMode === "teacher";
   const [skillFilter, setSkillFilter] = useState("all");
+  const [expandedTeacherId, setExpandedTeacherId] = useState("");
+  const [teacherSchoolDraft, setTeacherSchoolDraft] = useState("");
   const [adminQaPage, setAdminQaPage] = useState(() => {
     if (typeof window === "undefined") return "dashboard";
     if (window.location.pathname.includes("/admin/media/images")) return "images";
@@ -2157,6 +2162,7 @@ export function AdminDashboardPage({
       { id: "guidedMediaQa", label: "Guided Media QA", count: guidedReadingWordAudioCoverage.uniqueWordsMissingAudio || guidedReadingImageTextQa.needsManualReviewCount || 0 },
       { id: "coverage", label: "Content Coverage", count: filteredCoverage.length },
       { id: "assessmentAudio", label: "Assessment Audio", count: assessmentAudioCoverage.summary?.replacementNeededCount || 0 },
+      { id: "schools", label: "Schools", count: schools.length },
       { id: "teachers", label: "Teachers", count: teachers.length },
       { id: "classes", label: "Classes", count: classes.length },
       { id: "students", label: "Students", count: students.length }
@@ -3417,9 +3423,54 @@ export function AdminDashboardPage({
       </section>
       )}
 
+      {!isTeacherMode && activeSection === "schools" && (
+      <section className="card page-stack admin-section admin-section-panel">
+        <h3>Schools</h3>
+        <p className="muted-text">Every school registered in the system, with its teachers and classes.</p>
+        {schools.length === 0 ? (
+          <p>No schools registered yet.</p>
+        ) : (
+          <div className="admin-table-wrap">
+            <table className="dashboard-table admin-table">
+              <thead>
+                <tr>
+                  <th>School</th>
+                  <th>Teachers</th>
+                  <th>Classes</th>
+                  <th>Students</th>
+                  <th>Created</th>
+                </tr>
+              </thead>
+              <tbody>
+                {schools.map(school => {
+                  const schoolTeachers = pendingAccounts.filter(account => account.school_id === school.id);
+                  const schoolClasses = classes.filter(row => row.school_id === school.id);
+                  const schoolStudents = schoolClasses.reduce((sum, row) => sum + (row.studentCount || 0), 0);
+                  return (
+                    <tr key={school.id}>
+                      <td data-label="School"><strong>{school.name}</strong></td>
+                      <td data-label="Teachers">
+                        {schoolTeachers.length === 0
+                          ? "0"
+                          : schoolTeachers.map(account => account.display_name || account.username || account.email).join(", ")}
+                      </td>
+                      <td data-label="Classes">{schoolClasses.length}</td>
+                      <td data-label="Students">{schoolStudents}</td>
+                      <td data-label="Created">{school.created_at ? new Date(school.created_at).toLocaleDateString() : "-"}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </section>
+      )}
+
       {!isTeacherMode && activeSection === "teachers" && (
       <section className="card page-stack admin-section admin-section-panel">
         <h3>Teachers</h3>
+        <p className="muted-text">Tap a teacher to see their classes and move them to another school.</p>
         {teachers.length === 0 ? (
           <p>No teacher data loaded.</p>
         ) : (
@@ -3427,23 +3478,89 @@ export function AdminDashboardPage({
             <table className="dashboard-table admin-table">
               <thead>
                 <tr>
+                  <th>Name</th>
                   <th>Email</th>
-                  <th>User ID</th>
+                  <th>School</th>
                   <th>Classes</th>
                   <th>Students</th>
-                  <th>Answers</th>
+                  <th>Details</th>
                 </tr>
               </thead>
               <tbody>
-                {teachers.map(teacher => (
-                  <tr key={teacher.id}>
-                    <td data-label="Email">{teacher.email}</td>
-                    <td data-label="User ID">{teacher.id}</td>
-                    <td data-label="Classes">{teacher.classes}</td>
-                    <td data-label="Students">{teacher.students}</td>
-                    <td data-label="Answers">{teacher.answers}</td>
-                  </tr>
-                ))}
+                {teachers.map(teacher => {
+                  const account = pendingAccounts.find(row => row.user_id === teacher.id);
+                  const school = schools.find(row => row.id === account?.school_id);
+                  const teacherClasses = classes.filter(row => row.teacher_id === teacher.id);
+                  const isExpanded = expandedTeacherId === teacher.id;
+                  return (
+                    <Fragment key={teacher.id}>
+                      <tr>
+                        <td data-label="Name">{account?.display_name || account?.username || "-"}</td>
+                        <td data-label="Email">{teacher.email}</td>
+                        <td data-label="School">{school?.name || <em className="muted-text">No school</em>}</td>
+                        <td data-label="Classes">{teacher.classes}</td>
+                        <td data-label="Students">{teacher.students}</td>
+                        <td data-label="Details">
+                          <button
+                            className="text-button"
+                            type="button"
+                            onClick={() => {
+                              setExpandedTeacherId(isExpanded ? "" : teacher.id);
+                              setTeacherSchoolDraft(school?.name || "");
+                            }}
+                          >
+                            {isExpanded ? "Hide" : "Open"}
+                          </button>
+                        </td>
+                      </tr>
+                      {isExpanded && (
+                        <tr className="admin-teacher-detail-row">
+                          <td colSpan={6}>
+                            <div className="admin-teacher-detail">
+                              <div>
+                                <h4>Classes</h4>
+                                {teacherClasses.length === 0 ? (
+                                  <p className="muted-text">No classes yet.</p>
+                                ) : (
+                                  <ul className="admin-teacher-class-list">
+                                    {teacherClasses.map(row => (
+                                      <li key={row.id}>
+                                        <strong>{row.name}</strong>
+                                        <span>{row.studentCount || 0} student{(row.studentCount || 0) === 1 ? "" : "s"}</span>
+                                        <button className="text-button danger" type="button" onClick={() => deleteClass?.(row.id, row.name)}>
+                                          Delete
+                                        </button>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                )}
+                              </div>
+                              <div>
+                                <h4>School</h4>
+                                <div className="admin-teacher-school-edit">
+                                  <SchoolNameInput
+                                    value={teacherSchoolDraft}
+                                    placeholder="Choose or type a school"
+                                    onChange={setTeacherSchoolDraft}
+                                  />
+                                  <button
+                                    className="lp-button lp-button-primary"
+                                    type="button"
+                                    disabled={!teacherSchoolDraft.trim()}
+                                    onClick={() => setTeacherSchool?.(teacher.id, teacherSchoolDraft)}
+                                  >
+                                    Save School
+                                  </button>
+                                </div>
+                                <p className="muted-text">Moving a teacher also moves all of their classes to the new school.</p>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      )}
+                    </Fragment>
+                  );
+                })}
               </tbody>
             </table>
           </div>

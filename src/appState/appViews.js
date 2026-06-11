@@ -10,6 +10,7 @@ export const APP_VIEWS = {
   REPORTS: "reports",
   LEARN: "learn",
   PHONICS_LEARN: "phonicsLearn",
+  SKILLS_BLOCK_QUEST: "skillsBlockQuest",
   ASSESSMENT: "assessment",
   CHECKPOINT: "checkpoint",
   FINISHED: "finished",

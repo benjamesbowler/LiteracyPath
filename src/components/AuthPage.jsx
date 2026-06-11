@@ -1,3 +1,5 @@
+import { SchoolNameInput } from "./SchoolNameInput.jsx";
+
 export function AuthPage({
   authMode = "login",
   setAuthMode,
@@ -75,13 +77,13 @@ export function AuthPage({
           </label>
           <label className="auth-field">
             <strong>School</strong>
-            <input
+            <SchoolNameInput
               autoComplete="organization"
               value={authSchoolName}
-              placeholder="School name"
-              onChange={event => setAuthSchoolName(event.target.value)}
-              type="text"
+              placeholder="Choose your school or type a new one"
+              onChange={setAuthSchoolName}
             />
+            <span className="muted-text auth-field-hint">If your school is already listed, pick it - don't retype it.</span>
           </label>
         </>
       )}

@@ -24,6 +24,7 @@ function SignOutIcon() {
 export function StudentHomePage({
   studentName,
   onOpenPhonicsLearn,
+  onOpenSkillsBlockQuest,
   onOpenStoryQuests,
   onOpenGuidedReading,
   onLogout
@@ -56,6 +57,13 @@ export function StudentHomePage({
           title="Phonics Practice"
           subtitle="Letters, words, and games"
           onClick={onOpenPhonicsLearn}
+        />
+        <StudentHomeCard
+          art="/images/learn-games/art/cvc-train.webp"
+          meta="One big path"
+          title="Skills Quest"
+          subtitle="Sounds, words, and reading runs"
+          onClick={onOpenSkillsBlockQuest}
         />
         <StudentHomeCard
           art="/images/learn-games/home/home-story-quests.webp"

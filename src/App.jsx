@@ -25,7 +25,9 @@ import { TeacherDashboardPage } from "./components/TeacherDashboardPage.jsx";
 import { StudentEntryPage } from "./components/StudentEntryPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
+import { SchoolNameInput } from "./components/SchoolNameInput.jsx";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
+import { SkillsBlockQuestMockup } from "./components/SkillsBlockQuestMockup.jsx";
 import { normalize, shuffleArray } from "./utils/assessmentRoundBuilder";
 
 import {
@@ -152,6 +154,7 @@ const STUDENT_SESSION_STORAGE_KEY = "lp-student-session-v1";
 const STUDENT_ALLOWED_VIEWS = new Set([
   APP_VIEWS.STUDENT_HOME,
   APP_VIEWS.PHONICS_LEARN,
+  APP_VIEWS.SKILLS_BLOCK_QUEST,
   APP_VIEWS.LEARN,
   APP_VIEWS.GUIDED_READING
 ]);
@@ -1756,6 +1759,7 @@ export default function App() {
   const [adminTeachers, setAdminTeachers] = useState([]);
   const [adminClasses, setAdminClasses] = useState([]);
   const [adminStudents, setAdminStudents] = useState([]);
+  const [adminSchools, setAdminSchools] = useState([]);
   const [adminPendingAccounts, setAdminPendingAccounts] = useState([]);
   const [adminPendingAccountsWarning, setAdminPendingAccountsWarning] = useState("");
   const [adminLoading, setAdminLoading] = useState(false);
@@ -2782,14 +2786,15 @@ export default function App() {
 
     setAdminLoading(true);
 
-    const [classesResult, studentsResult, answersResult, pendingAccountsResult] = await Promise.all([
+    const [classesResult, studentsResult, answersResult, pendingAccountsResult, schoolsResult] = await Promise.all([
       supabase.from("classes").select("id, name, teacher_id, school_id, created_at").order("created_at", { ascending: false }),
       supabase.from("students").select("id, name, class_id, teacher_id, symbol_password, created_at").order("created_at", { ascending: false }),
       supabase.from("answers").select("teacher_id"),
       supabase
         .from("pending_teacher_accounts")
         .select("id, user_id, email, username, display_name, name, role, status, approval_status, school_id, created_at, requested_at, reviewed_at, reviewed_by, approved_at, approved_by, rejected_at, rejected_by, rejection_reason")
-        .order("created_at", { ascending: false })
+        .order("created_at", { ascending: false }),
+      supabase.from("schools").select("id, name, created_at").order("name", { ascending: true })
     ]);
 
     setAdminLoading(false);
@@ -2843,6 +2848,7 @@ export default function App() {
     setAdminClasses(classRows);
     setAdminStudents(studentRows);
     setAdminTeachers(buildTeacherRows(classes, students, answers));
+    setAdminSchools(schoolsResult.error ? [] : schoolsResult.data || []);
     setAdminPendingAccounts(pendingAccountsError ? [] : pendingAccountsResult.data || []);
     setAdminPendingAccountsWarning(pendingAccountsError
       ? "Pending teacher accounts could not be loaded. This does not affect content coverage or student data."
@@ -2917,6 +2923,37 @@ export default function App() {
 
     await loadAdminDashboard();
     setMessage(`Deleted ${selectedStudentName}.`);
+  }
+
+  async function adminSetTeacherSchool(teacherUserId, schoolName) {
+    if (!isAdmin || !teacherUserId || !schoolName?.trim()) return;
+
+    const { data: schoolRows, error: schoolError } = await supabase.rpc("find_or_create_school", { p_name: schoolName.trim() });
+    const schoolId = schoolRows?.[0]?.id || null;
+    if (schoolError || !schoolId) {
+      console.error("Admin set school failed:", schoolError);
+      setMessage("Could not save that school.");
+      return;
+    }
+
+    const { error: accountError } = await supabase
+      .from("pending_teacher_accounts")
+      .update({ school_id: schoolId })
+      .eq("user_id", teacherUserId);
+
+    const { error: classError } = await supabase
+      .from("classes")
+      .update({ school_id: schoolId })
+      .eq("teacher_id", teacherUserId);
+
+    if (accountError || classError) {
+      console.error("Admin set school failed:", accountError || classError);
+      setMessage("Could not move that teacher's school.");
+      return;
+    }
+
+    await loadAdminDashboard();
+    setMessage(`Teacher moved to ${schoolRows[0].name}.`);
   }
 
   async function adminDeleteClass(classId, className = "this class") {
@@ -7405,6 +7442,9 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     buildQuestionBankCoverage(allQuestions),
   [allQuestions]);
 
+  const showSkillsQuestPrototype = typeof window !== "undefined"
+    && new URLSearchParams(window.location.search).has("skillsQuest");
+
   useEffect(() => {
     if (!authReady || !teacherUser) return;
     if (!isTeacherAccountApproved()) return;
@@ -7412,6 +7452,14 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       setAppView(APP_VIEWS.TEACHER_DASHBOARD);
     }
   }, [appView, authReady, teacherAccountStatus, teacherUser, isAdmin]);
+
+  if (showSkillsQuestPrototype) {
+    return (
+      <PageBoundary resetKey="skills-quest-prototype">
+        <SkillsBlockQuestMockup studentName={studentName || "Reader"} />
+      </PageBoundary>
+    );
+  }
 
   if (chunkLoadFailure) {
     return <NewVersionAvailableCard message={chunkLoadFailure} />;
@@ -7615,12 +7663,11 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             </div>
             <label className="auth-field">
               <strong>School</strong>
-              <input
+              <SchoolNameInput
                 autoComplete="organization"
                 value={authSchoolName}
-                placeholder="School name"
-                onChange={event => setAuthSchoolName(event.target.value)}
-                type="text"
+                placeholder="Choose your school or type a new one"
+                onChange={setAuthSchoolName}
               />
             </label>
             <button className="main-button" disabled={authLoading} onClick={saveTeacherSchool} type="button">
@@ -7703,10 +7750,17 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           <StudentHomePage
             studentName={studentName}
             onOpenPhonicsLearn={() => setAppView(APP_VIEWS.PHONICS_LEARN)}
+            onOpenSkillsBlockQuest={() => setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST)}
             onOpenStoryQuests={() => setAppView(APP_VIEWS.LEARN)}
             onOpenGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
             onLogout={logOutStudent}
           />
+        </PageBoundary>
+      )}
+
+      {isStudentMode && appView === APP_VIEWS.SKILLS_BLOCK_QUEST && (
+        <PageBoundary resetKey={`skills-block-quest-${studentId}`}>
+          <SkillsBlockQuestMockup studentName={studentName || "Reader"} />
         </PageBoundary>
       )}
 
@@ -7717,6 +7771,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               teachers={adminTeachers}
               classes={adminClasses}
               students={adminStudents}
+              schools={adminSchools}
+              setTeacherSchool={adminSetTeacherSchool}
               pendingAccounts={adminPendingAccounts}
               pendingAccountsWarning={adminPendingAccountsWarning}
               loading={adminLoading}

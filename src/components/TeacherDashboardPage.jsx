@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { SymbolPasswordPad, SymbolSequence } from "./SymbolPasswordPad.jsx";
+import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import { symbolIconByDigit } from "../data/symbolPasswordIcons.js";
 
 function formatLastActive(value) {
@@ -239,11 +240,11 @@ export function TeacherDashboardPage({
               <div className="teacher-dashboard-create teacher-school-edit">
                 <label className="teacher-dashboard-control">
                   <span>School</span>
-                  <input
+                  <SchoolNameInput
                     autoComplete="organization"
                     value={schoolDraft}
-                    placeholder="Enter school name"
-                    onChange={event => setSchoolDraft(event.target.value)}
+                    placeholder="Choose or type your school"
+                    onChange={setSchoolDraft}
                     onKeyDown={event => {
                       if (event.key === "Enter" && schoolDraft.trim()) {
                         saveSchool(schoolDraft);
