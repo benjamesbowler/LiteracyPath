@@ -1,5 +1,6 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { GAME_LIST } from "../../../data/learnGamesData";
+import { supabase } from "../../../supabaseClient.js";
 import {
   getLearnGameProgress,
   loadLearnGamesProgress,
@@ -12,14 +13,60 @@ import "../../../styles/learn-games.css";
 
 const DIFFICULTIES = ["easy", "medium", "hard"];
 
+function Leaderboard({ refreshSignal }) {
+  const [rows, setRows] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    supabase
+      .rpc("get_game_leaderboard", { p_limit: 5 })
+      .then(({ data, error }) => {
+        if (cancelled) return;
+        if (error || !Array.isArray(data)) {
+          setRows([]);
+          return;
+        }
+        setRows(data.filter(row => (row.total_points || 0) > 0));
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [refreshSignal]);
+
+  if (!rows || rows.length === 0) return null;
+
+  return (
+    <div className="lg-leaderboard" aria-label="High scores">
+      <div className="lg-leaderboard-head">
+        <h2>Top Readers</h2>
+        <span>Points from every game count.</span>
+      </div>
+      <ol className="lg-leaderboard-list">
+        {rows.map((row, index) => (
+          <li key={`${row.student_name}-${index}`} className={index === 0 ? "first" : ""}>
+            <span className="lg-leaderboard-rank" aria-hidden="true">{index + 1}</span>
+            <span className="lg-leaderboard-who">
+              <strong>{row.student_name}</strong>
+              {row.school_name && <em>{row.school_name}</em>}
+            </span>
+            <span className="lg-leaderboard-points">{row.total_points} pts</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
 export function GameArcadeHub({ progressScopeKey = "default" }) {
   const [progress, setProgress] = useState(() => loadLearnGamesProgress(progressScopeKey));
   const [activeGame, setActiveGame] = useState(null);
+  const [leaderboardRefresh, setLeaderboardRefresh] = useState(0);
 
   const totals = useMemo(() => {
     const stars = GAME_LIST.reduce((sum, game) => sum + (getLearnGameProgress(progress, game.id).stars || 0), 0);
     const completed = GAME_LIST.filter(game => (getLearnGameProgress(progress, game.id).stars || 0) > 0).length;
-    return { stars, completed };
+    const points = GAME_LIST.reduce((sum, game) => sum + (getLearnGameProgress(progress, game.id).highScore || 0), 0);
+    return { stars, completed, points };
   }, [progress]);
   const nextGame = useMemo(() => (
     GAME_LIST.find(game => (getLearnGameProgress(progress, game.id).stars || 0) < 3) || GAME_LIST[0]
@@ -46,6 +93,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
           </div>
         </div>
         <div className="lg-arcade-summary">
+          <span className="lg-arcade-points-chip"><strong>{totals.points}</strong> points</span>
           <span><strong>{totals.stars}/{GAME_LIST.length * 3}</strong> stars</span>
           <span><strong>{totals.completed}/{GAME_LIST.length}</strong> played</span>
         </div>
@@ -126,13 +174,18 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
         })}
       </div>
 
+      <Leaderboard refreshSignal={leaderboardRefresh} />
+
       {activeGame && (
         <GamePlayer
           game={activeGame}
           difficulty={progress.difficulty}
           soundEnabled={progress.soundEnabled}
           progressScopeKey={progressScopeKey}
-          onClose={() => setActiveGame(null)}
+          onClose={() => {
+            setActiveGame(null);
+            setLeaderboardRefresh(value => value + 1);
+          }}
           onSoundEnabledChange={setSoundEnabled}
           onProgressChange={setProgress}
         />

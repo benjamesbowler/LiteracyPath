@@ -1180,3 +1180,109 @@
     animation: none;
   }
 }
+
+/* ─── Top Readers leaderboard ─────────────────────────────────────────────── */
+
+.lg-arcade-points-chip {
+  border-color: rgba(124, 92, 191, 0.3) !important;
+  background: var(--lg-accent-violet-soft) !important;
+  color: var(--lg-accent-violet) !important;
+}
+
+.lg-leaderboard {
+  border: 1px solid var(--lg-border);
+  border-radius: 14px;
+  background: var(--lg-surface);
+  box-shadow: var(--lg-shadow);
+  padding: 14px 16px;
+}
+
+.lg-leaderboard-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.lg-leaderboard-head h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.lg-leaderboard-head span {
+  color: #64748B;
+  font-size: 0.8125rem;
+}
+
+.lg-leaderboard-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+
+.lg-leaderboard-list li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border: 1px solid var(--lg-border);
+  border-radius: 10px;
+  background: var(--lg-surface-subtle);
+}
+
+.lg-leaderboard-list li.first {
+  border-color: rgba(217, 119, 6, 0.35);
+  background: var(--lg-accent-amber-soft);
+}
+
+.lg-leaderboard-rank {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--lg-primary-soft);
+  color: var(--lg-primary-strong);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.lg-leaderboard-list li.first .lg-leaderboard-rank {
+  background: var(--lg-accent-amber);
+  color: #ffffff;
+}
+
+.lg-leaderboard-who {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.lg-leaderboard-who strong {
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.lg-leaderboard-who em {
+  color: #64748B;
+  font-size: 0.8125rem;
+  font-style: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lg-leaderboard-points {
+  color: var(--lg-primary-strong);
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}

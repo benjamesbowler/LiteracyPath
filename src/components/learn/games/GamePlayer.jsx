@@ -58,7 +58,11 @@ export function GamePlayer({
 
   function handleComplete(stars, finalScore, wordsCompleted) {
     setCompleted(true);
-    const nextProgress = saveLearnGameResult(progressScopeKey, game.id, stars, finalScore || score, wordsCompleted);
+    // The game reports its score from a stale closure that can miss the
+    // final round's points; our own score state is current by now, so
+    // take whichever is higher.
+    const settledScore = Math.max(Number(finalScore) || 0, Number(score) || 0);
+    const nextProgress = saveLearnGameResult(progressScopeKey, game.id, stars, settledScore, wordsCompleted);
     onProgressChange?.(nextProgress);
   }
 
