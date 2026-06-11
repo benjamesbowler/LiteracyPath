@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-e-47",
+ "questions": [
+  {
+   "prompt": "What does a seed grow into?",
+   "choices": [
+    "a plant",
+    "a frog",
+    "a rock"
+   ],
+   "answer": "a plant",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does a tadpole turn into?",
+   "choices": [
+    "a frog",
+    "a butterfly",
+    "a bird"
+   ],
+   "answer": "a frog",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does a caterpillar become?",
+   "choices": [
+    "a butterfly",
+    "a bee",
+    "a fish"
+   ],
+   "answer": "a butterfly",
+   "kind": "word"
+  }
+ ]
+}

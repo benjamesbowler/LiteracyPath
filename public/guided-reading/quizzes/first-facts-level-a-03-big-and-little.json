@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-03-big-and-little",
+ "questions": [
+  {
+   "prompt": "Which one is big?",
+   "choices": [
+    "the dog",
+    "the bug",
+    "the seed"
+   ],
+   "answer": "the dog",
+   "kind": "word"
+  },
+  {
+   "prompt": "Which one is little?",
+   "choices": [
+    "the crab",
+    "the fish",
+    "the bus"
+   ],
+   "answer": "the crab",
+   "kind": "word"
+  },
+  {
+   "prompt": "What grows from a little seed?",
+   "choices": [
+    "a big tree",
+    "a big bus",
+    "a big hat"
+   ],
+   "answer": "a big tree",
+   "kind": "word"
+  }
+ ]
+}

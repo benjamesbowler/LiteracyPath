@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-a-26",
+ "questions": [
+  {
+   "prompt": "Which one is a pet in this book?",
+   "choices": [
+    "a dog",
+    "a lion",
+    "a whale"
+   ],
+   "answer": "a dog",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does the book say about pets?",
+   "choices": [
+    "pets are fun",
+    "pets are scary",
+    "pets are loud"
+   ],
+   "answer": "pets are fun",
+   "kind": "word"
+  },
+  {
+   "prompt": "Which pet swims?",
+   "choices": [
+    "the fish",
+    "the cat",
+    "the bird"
+   ],
+   "answer": "the fish",
+   "kind": "word"
+  }
+ ]
+}

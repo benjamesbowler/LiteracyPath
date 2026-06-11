@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-d-45",
+ "questions": [
+  {
+   "prompt": "What is the sun?",
+   "choices": [
+    "a big star",
+    "a planet",
+    "a cloud"
+   ],
+   "answer": "a big star",
+   "kind": "word"
+  },
+  {
+   "prompt": "What moves around Earth?",
+   "choices": [
+    "the moon",
+    "the sun",
+    "a jet"
+   ],
+   "answer": "the moon",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who travels to space?",
+   "choices": [
+    "astronauts",
+    "doctors",
+    "chefs"
+   ],
+   "answer": "astronauts",
+   "kind": "word"
+  }
+ ]
+}

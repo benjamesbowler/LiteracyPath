@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-11-at-the-farm",
+ "questions": [
+  {
+   "prompt": "What color is the barn?",
+   "choices": [
+    "red",
+    "blue",
+    "green"
+   ],
+   "answer": "red",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who says peep?",
+   "choices": [
+    "the chick",
+    "the cow",
+    "the pig"
+   ],
+   "answer": "the chick",
+   "kind": "word"
+  },
+  {
+   "prompt": "What runs fast at the farm?",
+   "choices": [
+    "the dog",
+    "the hay",
+    "the barn"
+   ],
+   "answer": "the dog",
+   "kind": "word"
+  }
+ ]
+}

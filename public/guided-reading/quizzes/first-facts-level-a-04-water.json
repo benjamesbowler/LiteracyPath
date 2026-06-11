@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-04-water",
+ "questions": [
+  {
+   "prompt": "What do we do with water?",
+   "choices": [
+    "drink it",
+    "eat it",
+    "wear it"
+   ],
+   "answer": "drink it",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who swims in water?",
+   "choices": [
+    "fish",
+    "cats",
+    "birds"
+   ],
+   "answer": "fish",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who hops in water?",
+   "choices": [
+    "frogs",
+    "dogs",
+    "pigs"
+   ],
+   "answer": "frogs",
+   "kind": "word"
+  }
+ ]
+}

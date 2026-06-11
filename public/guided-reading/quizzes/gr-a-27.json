@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-a-27",
+ "questions": [
+  {
+   "prompt": "What is this book about?",
+   "choices": [
+    "the sun",
+    "the rain",
+    "the moon"
+   ],
+   "answer": "the sun",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does the sun help plants do?",
+   "choices": [
+    "grow",
+    "sleep",
+    "hide"
+   ],
+   "answer": "grow",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does the book call the sun?",
+   "choices": [
+    "our friend",
+    "our pet",
+    "our toy"
+   ],
+   "answer": "our friend",
+   "kind": "word"
+  }
+ ]
+}

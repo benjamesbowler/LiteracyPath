@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-a-08-animals-in-the-ocean",
+ "questions": [
+  {
+   "prompt": "What is the biggest animal?",
+   "choices": [
+    "the whale",
+    "the crab",
+    "the seahorse"
+   ],
+   "answer": "the whale",
+   "kind": "word"
+  },
+  {
+   "prompt": "How many arms does an octopus have?",
+   "choices": [
+    "eight",
+    "two",
+    "five"
+   ],
+   "answer": "eight",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who walks sideways?",
+   "choices": [
+    "the crab",
+    "the dolphin",
+    "the fish"
+   ],
+   "answer": "the crab",
+   "kind": "word"
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-a-28",
+ "questions": [
+  {
+   "prompt": "What color is the apple?",
+   "choices": [
+    "red",
+    "blue",
+    "green"
+   ],
+   "answer": "red",
+   "kind": "word"
+  },
+  {
+   "prompt": "What is blue in this book?",
+   "choices": [
+    "the sky",
+    "the grass",
+    "the sun"
+   ],
+   "answer": "the sky",
+   "kind": "word"
+  },
+  {
+   "prompt": "What color is the cloud?",
+   "choices": [
+    "white",
+    "yellow",
+    "red"
+   ],
+   "answer": "white",
+   "kind": "word"
+  }
+ ]
+}

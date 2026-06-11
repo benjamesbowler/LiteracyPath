@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-a-12-shapes-everywhere",
+ "questions": [
+  {
+   "prompt": "How many sides does a triangle have?",
+   "choices": [
+    "three",
+    "four",
+    "five"
+   ],
+   "answer": "three",
+   "kind": "word"
+  },
+  {
+   "prompt": "How many points does a star have?",
+   "choices": [
+    "five",
+    "three",
+    "ten"
+   ],
+   "answer": "five",
+   "kind": "word"
+  },
+  {
+   "prompt": "What shape is an egg?",
+   "choices": [
+    "an oval",
+    "a square",
+    "a star"
+   ],
+   "answer": "an oval",
+   "kind": "word"
+  }
+ ]
+}

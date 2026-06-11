@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-c-39",
+ "questions": [
+  {
+   "prompt": "What shape is a wheel?",
+   "choices": [
+    "a circle",
+    "a square",
+    "a triangle"
+   ],
+   "answer": "a circle",
+   "kind": "word"
+  },
+  {
+   "prompt": "What shape is a roof?",
+   "choices": [
+    "a triangle",
+    "an oval",
+    "a circle"
+   ],
+   "answer": "a triangle",
+   "kind": "word"
+  },
+  {
+   "prompt": "What shape is an egg?",
+   "choices": [
+    "an oval",
+    "a square",
+    "a rectangle"
+   ],
+   "answer": "an oval",
+   "kind": "word"
+  }
+ ]
+}

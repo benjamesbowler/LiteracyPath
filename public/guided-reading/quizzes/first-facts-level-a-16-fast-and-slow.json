@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-16-fast-and-slow",
+ "questions": [
+  {
+   "prompt": "Which one goes very fast?",
+   "choices": [
+    "the jet",
+    "the snail",
+    "the turtle"
+   ],
+   "answer": "the jet",
+   "kind": "word"
+  },
+  {
+   "prompt": "Which one is slow?",
+   "choices": [
+    "the snail",
+    "the car",
+    "the bus"
+   ],
+   "answer": "the snail",
+   "kind": "word"
+  },
+  {
+   "prompt": "What sound does the car make?",
+   "choices": [
+    "zoom",
+    "moo",
+    "peep"
+   ],
+   "answer": "zoom",
+   "kind": "word"
+  }
+ ]
+}

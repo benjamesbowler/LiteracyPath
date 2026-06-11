@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-18-my-body",
+ "questions": [
+  {
+   "prompt": "What can you do with your ears?",
+   "choices": [
+    "hear",
+    "smell",
+    "clap"
+   ],
+   "answer": "hear",
+   "kind": "word"
+  },
+  {
+   "prompt": "What can you do with your hands?",
+   "choices": [
+    "clap",
+    "smell",
+    "see"
+   ],
+   "answer": "clap",
+   "kind": "word"
+  },
+  {
+   "prompt": "What can you do with your feet?",
+   "choices": [
+    "run",
+    "eat",
+    "hear"
+   ],
+   "answer": "run",
+   "kind": "word"
+  }
+ ]
+}

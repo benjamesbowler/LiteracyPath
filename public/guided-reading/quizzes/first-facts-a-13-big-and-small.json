@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-a-13-big-and-small",
+ "questions": [
+  {
+   "prompt": "Which one is big?",
+   "choices": [
+    "an elephant",
+    "a mouse",
+    "a flower"
+   ],
+   "answer": "an elephant",
+   "kind": "word"
+  },
+  {
+   "prompt": "Which one is small?",
+   "choices": [
+    "a mouse",
+    "a whale",
+    "a bus"
+   ],
+   "answer": "a mouse",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does the book say about all things?",
+   "choices": [
+    "they are special",
+    "they are big",
+    "they are slow"
+   ],
+   "answer": "they are special",
+   "kind": "word"
+  }
+ ]
+}

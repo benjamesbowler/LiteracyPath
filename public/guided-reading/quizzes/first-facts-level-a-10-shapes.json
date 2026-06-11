@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-10-shapes",
+ "questions": [
+  {
+   "prompt": "What shape is a ball?",
+   "choices": [
+    "a circle",
+    "a square",
+    "a triangle"
+   ],
+   "answer": "a circle",
+   "kind": "word"
+  },
+  {
+   "prompt": "What shape is a door?",
+   "choices": [
+    "a rectangle",
+    "a circle",
+    "an oval"
+   ],
+   "answer": "a rectangle",
+   "kind": "word"
+  },
+  {
+   "prompt": "What shape is a slice of pie?",
+   "choices": [
+    "a triangle",
+    "a square",
+    "a circle"
+   ],
+   "answer": "a triangle",
+   "kind": "word"
+  }
+ ]
+}

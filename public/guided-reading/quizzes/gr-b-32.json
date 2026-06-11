@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-b-32",
+ "questions": [
+  {
+   "prompt": "Which one is a fruit?",
+   "choices": [
+    "a banana",
+    "a carrot",
+    "a potato"
+   ],
+   "answer": "a banana",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does the book say fruits are good for?",
+   "choices": [
+    "eating",
+    "throwing",
+    "hiding"
+   ],
+   "answer": "eating",
+   "kind": "word"
+  },
+  {
+   "prompt": "How does the reader feel about fruits?",
+   "choices": [
+    "loves them",
+    "hates them",
+    "fears them"
+   ],
+   "answer": "loves them",
+   "kind": "word"
+  }
+ ]
+}

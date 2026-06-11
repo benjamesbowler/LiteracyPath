@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-a-09-animals-at-night",
+ "questions": [
+  {
+   "prompt": "When do nocturnal animals wake up?",
+   "choices": [
+    "at night",
+    "in the day",
+    "in spring"
+   ],
+   "answer": "at night",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who can see in the dark?",
+   "choices": [
+    "the owl",
+    "the lamb",
+    "the duck"
+   ],
+   "answer": "the owl",
+   "kind": "word"
+  },
+  {
+   "prompt": "What do bats eat?",
+   "choices": [
+    "insects",
+    "grass",
+    "nuts"
+   ],
+   "answer": "insects",
+   "kind": "word"
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-13-fruit",
+ "questions": [
+  {
+   "prompt": "What color is the apple?",
+   "choices": [
+    "red",
+    "purple",
+    "yellow"
+   ],
+   "answer": "red",
+   "kind": "word"
+  },
+  {
+   "prompt": "Which fruit is yellow and soft?",
+   "choices": [
+    "the banana",
+    "the plum",
+    "the grape"
+   ],
+   "answer": "the banana",
+   "kind": "word"
+  },
+  {
+   "prompt": "Which fruit is small and round?",
+   "choices": [
+    "the grape",
+    "the banana",
+    "the apple"
+   ],
+   "answer": "the grape",
+   "kind": "word"
+  }
+ ]
+}

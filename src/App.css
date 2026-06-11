@@ -15309,3 +15309,103 @@ select:focus {
   margin: 0;
   color: var(--lp-color-text-muted);
 }
+
+/* ─── Companion (avatar) ───────────────────────────────────────────────── */
+
+.student-home-avatar {
+  border: 2px solid var(--lp-color-primary-soft);
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+  transition: transform 140ms ease-out, border-color 140ms ease-out;
+}
+
+.student-home-avatar:hover {
+  border-color: var(--lp-color-primary);
+  transform: scale(1.06);
+}
+
+.student-home-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 3px;
+}
+
+.companion-picker {
+  position: fixed;
+  inset: 0;
+  z-index: 1250;
+  display: grid;
+  place-items: center;
+  background: rgba(15, 23, 42, 0.5);
+  padding: 18px;
+}
+
+.companion-picker-card {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  width: min(100%, 540px);
+  padding: clamp(22px, 4vw, 36px);
+  border: 1px solid var(--lp-color-border);
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: var(--lp-shadow-soft);
+  text-align: center;
+}
+
+.companion-picker-card h2 {
+  margin: 0;
+  font: 600 24px var(--lp-font-reading);
+  color: var(--lp-color-text-strong);
+}
+
+.companion-picker-card > p {
+  margin: 0;
+  color: var(--lp-color-text-muted);
+}
+
+.companion-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.companion-grid button {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 12px 8px;
+  border: 1.5px solid var(--lp-color-border);
+  border-radius: 14px;
+  background: var(--lp-color-surface-subtle);
+  cursor: pointer;
+  font: 600 13px var(--lp-font-ui);
+  color: var(--lp-color-text-strong);
+  transition: transform 120ms ease-out, border-color 120ms ease-out;
+}
+
+.companion-grid button:hover {
+  border-color: var(--lp-color-primary);
+  transform: translateY(-2px);
+}
+
+.companion-grid button.active {
+  border-color: var(--lp-color-primary);
+  background: var(--lp-color-primary-soft);
+}
+
+.companion-grid img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+@media (max-width: 560px) {
+  .companion-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -6,6 +6,7 @@ import {
   getMissionStatus,
   markMissionCelebrated
 } from "../utils/dailyMission.js";
+import { COMPANIONS, getCompanion, setCompanion } from "../utils/studentProfile.js";
 
 function StudentHomeCard({ title, subtitle, meta, art, onClick }) {
   return (
@@ -66,6 +67,8 @@ export function StudentHomePage({
   const [status] = useState(() => getMissionStatus(progressScopeKey));
   const mission = useMemo(() => buildDailyMission(progressScopeKey), [progressScopeKey]);
   const [showCelebration, setShowCelebration] = useState(false);
+  const [companion, setCompanionState] = useState(() => getCompanion(progressScopeKey));
+  const [pickingCompanion, setPickingCompanion] = useState(false);
 
   useEffect(() => {
     if (!status.needsCelebration) return undefined;
@@ -86,9 +89,16 @@ export function StudentHomePage({
   return (
     <main className="student-home-page">
       <header className="student-home-topbar">
-        <div className="student-home-avatar" aria-hidden="true">
-          {String(studentName || "S").slice(0, 1).toUpperCase()}
-        </div>
+        <button
+          className="student-home-avatar"
+          type="button"
+          aria-label="Choose your companion"
+          onClick={() => setPickingCompanion(true)}
+        >
+          {companion
+            ? <img src={companion.image} alt="" />
+            : String(studentName || "S").slice(0, 1).toUpperCase()}
+        </button>
         <div>
           <span className="student-home-eyebrow">Hello</span>
           <strong>{studentName || "Reader"}</strong>
@@ -180,6 +190,37 @@ export function StudentHomePage({
           />
         </div>
       </section>
+
+      {(pickingCompanion || !companion) && (
+        <div className="companion-picker" role="dialog" aria-label="Choose your companion">
+          <div className="companion-picker-card">
+            <h2>{companion ? "Change your companion" : "Choose your companion!"}</h2>
+            <p>Your companion learns with you every day.</p>
+            <div className="companion-grid">
+              {COMPANIONS.map(item => (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={companion?.id === item.id ? "active" : ""}
+                  onClick={() => {
+                    setCompanion(progressScopeKey, item.id);
+                    setCompanionState(item);
+                    setPickingCompanion(false);
+                  }}
+                >
+                  <img src={item.image} alt="" loading="lazy" />
+                  <span>{item.name}</span>
+                </button>
+              ))}
+            </div>
+            {companion && (
+              <button className="text-button" type="button" onClick={() => setPickingCompanion(false)}>
+                Keep {companion.name}
+              </button>
+            )}
+          </div>
+        </div>
+      )}
 
       {showCelebration && (
         <div className="student-mission-celebrate" role="dialog" aria-label="Mission complete">

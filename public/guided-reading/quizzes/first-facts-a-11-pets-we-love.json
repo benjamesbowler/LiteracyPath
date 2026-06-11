@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-a-11-pets-we-love",
+ "questions": [
+  {
+   "prompt": "What do cats do when they are happy?",
+   "choices": [
+    "purr",
+    "bark",
+    "quack"
+   ],
+   "answer": "purr",
+   "kind": "word"
+  },
+  {
+   "prompt": "Where does a goldfish swim?",
+   "choices": [
+    "in a tank",
+    "in a cage",
+    "on a wheel"
+   ],
+   "answer": "in a tank",
+   "kind": "word"
+  },
+  {
+   "prompt": "What do all pets need?",
+   "choices": [
+    "food, water, and love",
+    "toys and sweets",
+    "hats and boots"
+   ],
+   "answer": "food, water, and love",
+   "kind": "word"
+  }
+ ]
+}

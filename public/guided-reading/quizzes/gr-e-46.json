@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-e-46",
+ "questions": [
+  {
+   "prompt": "What kind of skin do reptiles have?",
+   "choices": [
+    "dry skin",
+    "wet skin",
+    "furry skin"
+   ],
+   "answer": "dry skin",
+   "kind": "word"
+  },
+  {
+   "prompt": "What do turtles have?",
+   "choices": [
+    "a hard shell",
+    "soft fur",
+    "long wings"
+   ],
+   "answer": "a hard shell",
+   "kind": "word"
+  },
+  {
+   "prompt": "Where do lizards live?",
+   "choices": [
+    "warm places",
+    "cold places",
+    "in the sea"
+   ],
+   "answer": "warm places",
+   "kind": "word"
+  }
+ ]
+}

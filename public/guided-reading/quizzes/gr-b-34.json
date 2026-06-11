@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-b-34",
+ "questions": [
+  {
+   "prompt": "When do we play?",
+   "choices": [
+    "in the day",
+    "at night",
+    "never"
+   ],
+   "answer": "in the day",
+   "kind": "word"
+  },
+  {
+   "prompt": "What is in the sky at night?",
+   "choices": [
+    "the moon",
+    "the sun",
+    "a kite"
+   ],
+   "answer": "the moon",
+   "kind": "word"
+  },
+  {
+   "prompt": "What do we do at night?",
+   "choices": [
+    "sleep",
+    "play",
+    "swim"
+   ],
+   "answer": "sleep",
+   "kind": "word"
+  }
+ ]
+}

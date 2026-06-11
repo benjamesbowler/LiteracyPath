@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-c-37",
+ "questions": [
+  {
+   "prompt": "What can water be?",
+   "choices": [
+    "ice",
+    "wood",
+    "rock"
+   ],
+   "answer": "ice",
+   "kind": "word"
+  },
+  {
+   "prompt": "What do plants need to grow?",
+   "choices": [
+    "water",
+    "candy",
+    "toys"
+   ],
+   "answer": "water",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does the book say about water?",
+   "choices": [
+    "it is important",
+    "it is silly",
+    "it is dry"
+   ],
+   "answer": "it is important",
+   "kind": "word"
+  }
+ ]
+}

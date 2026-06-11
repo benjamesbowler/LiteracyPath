@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-15-baby-animals",
+ "questions": [
+  {
+   "prompt": "What color is the little chick?",
+   "choices": [
+    "yellow",
+    "white",
+    "brown"
+   ],
+   "answer": "yellow",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does the calf drink?",
+   "choices": [
+    "milk",
+    "juice",
+    "tea"
+   ],
+   "answer": "milk",
+   "kind": "word"
+  },
+  {
+   "prompt": "What do little animals do?",
+   "choices": [
+    "grow big",
+    "stay little",
+    "fly away"
+   ],
+   "answer": "grow big",
+   "kind": "word"
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-b-35",
+ "questions": [
+  {
+   "prompt": "Who cooks food?",
+   "choices": [
+    "a chef",
+    "a doctor",
+    "a teacher"
+   ],
+   "answer": "a chef",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who helps sick people?",
+   "choices": [
+    "a doctor",
+    "a chef",
+    "a firefighter"
+   ],
+   "answer": "a doctor",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who keeps us safe?",
+   "choices": [
+    "a police officer",
+    "a chef",
+    "a baby"
+   ],
+   "answer": "a police officer",
+   "kind": "word"
+  }
+ ]
+}

@@ -37,6 +37,7 @@ function localProgressStorageKey(area, scopeKey) {
   if (area === "learn_games") return `literacy-guide-learn-games:${scopeKey || "default"}`;
   if (area === "el_quest") return `lp-el-quest:${scopeKey || "default"}`;
   if (area === "daily_mission") return `lp-daily-mission:${scopeKey || "default"}`;
+  if (area === "profile") return `lp-student-profile:${scopeKey || "default"}`;
   if (area === "guided_reading") return `literacyPath.guidedReadingRecords.${scope}`;
   return "";
 }

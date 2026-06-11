@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-a-06-baby-animals",
+ "questions": [
+  {
+   "prompt": "What is a baby cat called?",
+   "choices": [
+    "a kitten",
+    "a pup",
+    "a calf"
+   ],
+   "answer": "a kitten",
+   "kind": "word"
+  },
+  {
+   "prompt": "What is a baby sheep called?",
+   "choices": [
+    "a lamb",
+    "a chick",
+    "a foal"
+   ],
+   "answer": "a lamb",
+   "kind": "word"
+  },
+  {
+   "prompt": "What can a duckling do?",
+   "choices": [
+    "swim",
+    "purr",
+    "run fast"
+   ],
+   "answer": "swim",
+   "kind": "word"
+  }
+ ]
+}

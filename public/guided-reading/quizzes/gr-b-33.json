@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-b-33",
+ "questions": [
+  {
+   "prompt": "What hits nails?",
+   "choices": [
+    "a hammer",
+    "a saw",
+    "a ruler"
+   ],
+   "answer": "a hammer",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does a saw do?",
+   "choices": [
+    "cuts wood",
+    "makes holes",
+    "turns bolts"
+   ],
+   "answer": "cuts wood",
+   "kind": "word"
+  },
+  {
+   "prompt": "What do tools help us do?",
+   "choices": [
+    "build",
+    "sleep",
+    "sing"
+   ],
+   "answer": "build",
+   "kind": "word"
+  }
+ ]
+}

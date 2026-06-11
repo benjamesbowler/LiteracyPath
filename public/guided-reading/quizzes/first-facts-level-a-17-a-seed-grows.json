@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-17-a-seed-grows",
+ "questions": [
+  {
+   "prompt": "Where do you put the seed?",
+   "choices": [
+    "in the dirt",
+    "in the sky",
+    "in a cup"
+   ],
+   "answer": "in the dirt",
+   "kind": "word"
+  },
+  {
+   "prompt": "What grows down in the soil?",
+   "choices": [
+    "a root",
+    "a leaf",
+    "a bud"
+   ],
+   "answer": "a root",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does the seed become?",
+   "choices": [
+    "a flower",
+    "a rock",
+    "a bug"
+   ],
+   "answer": "a flower",
+   "kind": "word"
+  }
+ ]
+}

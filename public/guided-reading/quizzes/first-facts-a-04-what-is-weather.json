@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-a-04-what-is-weather",
+ "questions": [
+  {
+   "prompt": "What falls from clouds when it rains?",
+   "choices": [
+    "drops",
+    "leaves",
+    "stars"
+   ],
+   "answer": "drops",
+   "kind": "word"
+  },
+  {
+   "prompt": "What do you see after rain?",
+   "choices": [
+    "a rainbow",
+    "snow",
+    "a storm"
+   ],
+   "answer": "a rainbow",
+   "kind": "word"
+  },
+  {
+   "prompt": "What blows hard on a windy day?",
+   "choices": [
+    "the wind",
+    "the sun",
+    "the rain"
+   ],
+   "answer": "the wind",
+   "kind": "word"
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-a-03-little-seeds-grow",
+ "questions": [
+  {
+   "prompt": "Where do you put the seed?",
+   "choices": [
+    "in soil",
+    "in snow",
+    "in a box"
+   ],
+   "answer": "in soil",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does the seed drink?",
+   "choices": [
+    "water",
+    "milk",
+    "honey"
+   ],
+   "answer": "water",
+   "kind": "word"
+  },
+  {
+   "prompt": "What blooms at the end?",
+   "choices": [
+    "a flower",
+    "a tree",
+    "a bug"
+   ],
+   "answer": "a flower",
+   "kind": "word"
+  }
+ ]
+}

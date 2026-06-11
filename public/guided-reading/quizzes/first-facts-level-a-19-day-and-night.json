@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-19-day-and-night",
+ "questions": [
+  {
+   "prompt": "What color is the sky in the day?",
+   "choices": [
+    "blue",
+    "dark",
+    "red"
+   ],
+   "answer": "blue",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who sings in the day?",
+   "choices": [
+    "birds",
+    "stars",
+    "the moon"
+   ],
+   "answer": "birds",
+   "kind": "word"
+  },
+  {
+   "prompt": "What comes out at night?",
+   "choices": [
+    "stars",
+    "the sun",
+    "birds"
+   ],
+   "answer": "stars",
+   "kind": "word"
+  }
+ ]
+}

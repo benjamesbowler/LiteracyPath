@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-01-colors",
+ "questions": [
+  {
+   "prompt": "What color is the frog?",
+   "choices": [
+    "green",
+    "red",
+    "pink"
+   ],
+   "answer": "green",
+   "kind": "word"
+  },
+  {
+   "prompt": "What color is the pig?",
+   "choices": [
+    "pink",
+    "black",
+    "blue"
+   ],
+   "answer": "pink",
+   "kind": "word"
+  },
+  {
+   "prompt": "What is big and yellow?",
+   "choices": [
+    "the sun",
+    "the cat",
+    "the cup"
+   ],
+   "answer": "the sun",
+   "kind": "word"
+  }
+ ]
+}

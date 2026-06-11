@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-a-02-the-four-seasons",
+ "questions": [
+  {
+   "prompt": "When are baby animals born?",
+   "choices": [
+    "in spring",
+    "in winter",
+    "in autumn"
+   ],
+   "answer": "in spring",
+   "kind": "word"
+  },
+  {
+   "prompt": "What do leaves do in autumn?",
+   "choices": [
+    "fall down",
+    "pop up",
+    "turn blue"
+   ],
+   "answer": "fall down",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does the squirrel hide?",
+   "choices": [
+    "nuts",
+    "snow",
+    "flowers"
+   ],
+   "answer": "nuts",
+   "kind": "word"
+  }
+ ]
+}

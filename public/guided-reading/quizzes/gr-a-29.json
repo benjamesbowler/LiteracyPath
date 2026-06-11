@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-a-29",
+ "questions": [
+  {
+   "prompt": "How many eyes do you have?",
+   "choices": [
+    "two",
+    "one",
+    "three"
+   ],
+   "answer": "two",
+   "kind": "word"
+  },
+  {
+   "prompt": "How many noses do you have?",
+   "choices": [
+    "one",
+    "two",
+    "five"
+   ],
+   "answer": "one",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does the book say about your body?",
+   "choices": [
+    "it is amazing",
+    "it is tiny",
+    "it is funny"
+   ],
+   "answer": "it is amazing",
+   "kind": "word"
+  }
+ ]
+}

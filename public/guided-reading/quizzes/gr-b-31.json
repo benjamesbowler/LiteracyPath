@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-b-31",
+ "questions": [
+  {
+   "prompt": "When does it rain in this book?",
+   "choices": [
+    "in spring",
+    "in winter",
+    "in summer"
+   ],
+   "answer": "in spring",
+   "kind": "word"
+  },
+  {
+   "prompt": "What happens in winter?",
+   "choices": [
+    "it snows",
+    "it is hot",
+    "leaves drop"
+   ],
+   "answer": "it snows",
+   "kind": "word"
+  },
+  {
+   "prompt": "How many seasons are there?",
+   "choices": [
+    "four",
+    "two",
+    "ten"
+   ],
+   "answer": "four",
+   "kind": "word"
+  }
+ ]
+}

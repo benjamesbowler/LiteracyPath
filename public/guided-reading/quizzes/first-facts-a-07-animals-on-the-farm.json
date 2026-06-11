@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-a-07-animals-on-the-farm",
+ "questions": [
+  {
+   "prompt": "What does the cow give us?",
+   "choices": [
+    "milk",
+    "wool",
+    "eggs"
+   ],
+   "answer": "milk",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who rolls in the mud?",
+   "choices": [
+    "the pig",
+    "the hen",
+    "the duck"
+   ],
+   "answer": "the pig",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who lays eggs?",
+   "choices": [
+    "the hen",
+    "the horse",
+    "the sheep"
+   ],
+   "answer": "the hen",
+   "kind": "word"
+  }
+ ]
+}

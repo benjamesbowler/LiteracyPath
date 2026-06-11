@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-c-38",
+ "questions": [
+  {
+   "prompt": "What do you see with?",
+   "choices": [
+    "your eyes",
+    "your ears",
+    "your hands"
+   ],
+   "answer": "your eyes",
+   "kind": "word"
+  },
+  {
+   "prompt": "What do you smell with?",
+   "choices": [
+    "your nose",
+    "your tongue",
+    "your feet"
+   ],
+   "answer": "your nose",
+   "kind": "word"
+  },
+  {
+   "prompt": "How many senses do you have?",
+   "choices": [
+    "five",
+    "two",
+    "nine"
+   ],
+   "answer": "five",
+   "kind": "word"
+  }
+ ]
+}

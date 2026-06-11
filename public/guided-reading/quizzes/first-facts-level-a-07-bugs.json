@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-07-bugs",
+ "questions": [
+  {
+   "prompt": "What color is the bee?",
+   "choices": [
+    "yellow",
+    "red",
+    "pink"
+   ],
+   "answer": "yellow",
+   "kind": "word"
+  },
+  {
+   "prompt": "What can an ant do?",
+   "choices": [
+    "dig",
+    "sting",
+    "swim"
+   ],
+   "answer": "dig",
+   "kind": "word"
+  },
+  {
+   "prompt": "Are bugs big or little?",
+   "choices": [
+    "little",
+    "big",
+    "huge"
+   ],
+   "answer": "little",
+   "kind": "word"
+  }
+ ]
+}

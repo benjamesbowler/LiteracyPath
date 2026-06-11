@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-e-48",
+ "questions": [
+  {
+   "prompt": "How many poles does a magnet have?",
+   "choices": [
+    "two",
+    "five",
+    "none"
+   ],
+   "answer": "two",
+   "kind": "word"
+  },
+  {
+   "prompt": "What do magnets pull?",
+   "choices": [
+    "some metals",
+    "wood",
+    "glass"
+   ],
+   "answer": "some metals",
+   "kind": "word"
+  },
+  {
+   "prompt": "What do same poles do?",
+   "choices": [
+    "push apart",
+    "pull together",
+    "melt"
+   ],
+   "answer": "push apart",
+   "kind": "word"
+  }
+ ]
+}

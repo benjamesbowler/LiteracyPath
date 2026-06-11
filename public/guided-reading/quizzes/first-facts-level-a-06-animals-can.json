@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-06-animals-can",
+ "questions": [
+  {
+   "prompt": "What can a dog do?",
+   "choices": [
+    "run",
+    "fly",
+    "sting"
+   ],
+   "answer": "run",
+   "kind": "word"
+  },
+  {
+   "prompt": "What can a bird do?",
+   "choices": [
+    "fly",
+    "dig",
+    "hop"
+   ],
+   "answer": "fly",
+   "kind": "word"
+  },
+  {
+   "prompt": "What can a worm do?",
+   "choices": [
+    "dig",
+    "jump",
+    "swim"
+   ],
+   "answer": "dig",
+   "kind": "word"
+  }
+ ]
+}

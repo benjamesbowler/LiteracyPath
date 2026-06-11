@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-08-my-pet",
+ "questions": [
+  {
+   "prompt": "What does my dog have?",
+   "choices": [
+    "a bed",
+    "a tank",
+    "a cage"
+   ],
+   "answer": "a bed",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who has a tank?",
+   "choices": [
+    "my fish",
+    "my cat",
+    "my rabbit"
+   ],
+   "answer": "my fish",
+   "kind": "word"
+  },
+  {
+   "prompt": "What is my pet?",
+   "choices": [
+    "my friend",
+    "my toy",
+    "my hat"
+   ],
+   "answer": "my friend",
+   "kind": "word"
+  }
+ ]
+}

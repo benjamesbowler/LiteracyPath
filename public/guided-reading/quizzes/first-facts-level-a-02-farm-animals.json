@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-02-farm-animals",
+ "questions": [
+  {
+   "prompt": "What does the pig say?",
+   "choices": [
+    "oink",
+    "moo",
+    "quack"
+   ],
+   "answer": "oink",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who says cluck, cluck?",
+   "choices": [
+    "the hen",
+    "the cow",
+    "the cat"
+   ],
+   "answer": "the hen",
+   "kind": "word"
+  },
+  {
+   "prompt": "Where do the animals live?",
+   "choices": [
+    "a farm",
+    "a zoo",
+    "the sea"
+   ],
+   "answer": "a farm",
+   "kind": "word"
+  }
+ ]
+}

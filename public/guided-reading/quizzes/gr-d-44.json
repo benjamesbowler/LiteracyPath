@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-d-44",
+ "questions": [
+  {
+   "prompt": "Where does a bird live?",
+   "choices": [
+    "in a nest",
+    "in a cave",
+    "in a web"
+   ],
+   "answer": "in a nest",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who sleeps in a cave?",
+   "choices": [
+    "a bear",
+    "a fish",
+    "a spider"
+   ],
+   "answer": "a bear",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does a spider spin?",
+   "choices": [
+    "a web",
+    "a nest",
+    "a pond"
+   ],
+   "answer": "a web",
+   "kind": "word"
+  }
+ ]
+}

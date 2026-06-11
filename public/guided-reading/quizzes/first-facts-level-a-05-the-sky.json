@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-05-the-sky",
+ "questions": [
+  {
+   "prompt": "What is hot in the sky?",
+   "choices": [
+    "the sun",
+    "the moon",
+    "a cloud"
+   ],
+   "answer": "the sun",
+   "kind": "word"
+  },
+  {
+   "prompt": "What glows at night?",
+   "choices": [
+    "the moon",
+    "a jet",
+    "a bird"
+   ],
+   "answer": "the moon",
+   "kind": "word"
+  },
+  {
+   "prompt": "What is white in the sky?",
+   "choices": [
+    "a cloud",
+    "a star",
+    "a bat"
+   ],
+   "answer": "a cloud",
+   "kind": "word"
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-14-the-tree",
+ "questions": [
+  {
+   "prompt": "Is the tree big or little?",
+   "choices": [
+    "big",
+    "little",
+    "flat"
+   ],
+   "answer": "big",
+   "kind": "word"
+  },
+  {
+   "prompt": "What goes down into the ground?",
+   "choices": [
+    "the roots",
+    "the leaves",
+    "the apples"
+   ],
+   "answer": "the roots",
+   "kind": "word"
+  },
+  {
+   "prompt": "What can I pick from the tree?",
+   "choices": [
+    "an apple",
+    "a leaf",
+    "a root"
+   ],
+   "answer": "an apple",
+   "kind": "word"
+  }
+ ]
+}

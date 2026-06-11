@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-d-42",
+ "questions": [
+  {
+   "prompt": "What is Earth?",
+   "choices": [
+    "our home",
+    "a toy",
+    "a star"
+   ],
+   "answer": "our home",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does Earth have?",
+   "choices": [
+    "mountains",
+    "robots",
+    "candy"
+   ],
+   "answer": "mountains",
+   "kind": "word"
+  },
+  {
+   "prompt": "What must we do for Earth?",
+   "choices": [
+    "keep it clean",
+    "paint it",
+    "hide it"
+   ],
+   "answer": "keep it clean",
+   "kind": "word"
+  }
+ ]
+}

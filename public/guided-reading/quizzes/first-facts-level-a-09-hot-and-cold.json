@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-09-hot-and-cold",
+ "questions": [
+  {
+   "prompt": "Is the sun hot or cold?",
+   "choices": [
+    "hot",
+    "cold",
+    "wet"
+   ],
+   "answer": "hot",
+   "kind": "word"
+  },
+  {
+   "prompt": "What is cold and white?",
+   "choices": [
+    "snow",
+    "fire",
+    "soup"
+   ],
+   "answer": "snow",
+   "kind": "word"
+  },
+  {
+   "prompt": "Is the milk hot or cold?",
+   "choices": [
+    "cold",
+    "hot",
+    "dry"
+   ],
+   "answer": "cold",
+   "kind": "word"
+  }
+ ]
+}

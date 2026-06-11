@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-a-05-flowers-and-trees",
+ "questions": [
+  {
+   "prompt": "Which flower is tall and yellow?",
+   "choices": [
+    "a sunflower",
+    "a daisy",
+    "a rose"
+   ],
+   "answer": "a sunflower",
+   "kind": "word"
+  },
+  {
+   "prompt": "What does a rose have?",
+   "choices": [
+    "sharp thorns",
+    "soft wool",
+    "four wings"
+   ],
+   "answer": "sharp thorns",
+   "kind": "word"
+  },
+  {
+   "prompt": "What holds a tree up?",
+   "choices": [
+    "its roots",
+    "its leaves",
+    "its flowers"
+   ],
+   "answer": "its roots",
+   "kind": "word"
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-a-10-bugs-all-around-us",
+ "questions": [
+  {
+   "prompt": "What do bees make?",
+   "choices": [
+    "honey",
+    "webs",
+    "milk"
+   ],
+   "answer": "honey",
+   "kind": "word"
+  },
+  {
+   "prompt": "What is red with black spots?",
+   "choices": [
+    "a ladybird",
+    "a worm",
+    "an ant"
+   ],
+   "answer": "a ladybird",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who lives in the soil?",
+   "choices": [
+    "the worm",
+    "the butterfly",
+    "the bee"
+   ],
+   "answer": "the worm",
+   "kind": "word"
+  }
+ ]
+}

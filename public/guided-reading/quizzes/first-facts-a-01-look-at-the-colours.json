@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-a-01-look-at-the-colours",
+ "questions": [
+  {
+   "prompt": "What colour is the robin?",
+   "choices": [
+    "red",
+    "purple",
+    "green"
+   ],
+   "answer": "red",
+   "kind": "word"
+  },
+  {
+   "prompt": "What colour is the fox?",
+   "choices": [
+    "orange",
+    "blue",
+    "pink"
+   ],
+   "answer": "orange",
+   "kind": "word"
+  },
+  {
+   "prompt": "What colour are the grapes?",
+   "choices": [
+    "purple",
+    "yellow",
+    "red"
+   ],
+   "answer": "purple",
+   "kind": "word"
+  }
+ ]
+}

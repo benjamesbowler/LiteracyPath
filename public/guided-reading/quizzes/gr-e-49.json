@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-e-49",
+ "questions": [
+  {
+   "prompt": "What do we wear on sunny days?",
+   "choices": [
+    "hats",
+    "coats",
+    "boots"
+   ],
+   "answer": "hats",
+   "kind": "word"
+  },
+  {
+   "prompt": "When do we wear boots?",
+   "choices": [
+    "in the rain",
+    "to sleep",
+    "on hot days"
+   ],
+   "answer": "in the rain",
+   "kind": "word"
+  },
+  {
+   "prompt": "What do we wear to sleep?",
+   "choices": [
+    "pajamas",
+    "gloves",
+    "a coat"
+   ],
+   "answer": "pajamas",
+   "kind": "word"
+  }
+ ]
+}

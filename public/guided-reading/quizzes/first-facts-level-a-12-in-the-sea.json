@@ -1,0 +1,35 @@
+{
+ "bookId": "first-facts-level-a-12-in-the-sea",
+ "questions": [
+  {
+   "prompt": "Who swims fast?",
+   "choices": [
+    "the shark",
+    "the turtle",
+    "the crab"
+   ],
+   "answer": "the shark",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who is huge?",
+   "choices": [
+    "the whale",
+    "the crab",
+    "the fish"
+   ],
+   "answer": "the whale",
+   "kind": "word"
+  },
+  {
+   "prompt": "Who swims slow?",
+   "choices": [
+    "the turtle",
+    "the shark",
+    "the seal"
+   ],
+   "answer": "the turtle",
+   "kind": "word"
+  }
+ ]
+}

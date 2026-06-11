@@ -1,0 +1,35 @@
+{
+ "bookId": "gr-e-50",
+ "questions": [
+  {
+   "prompt": "What do we use to hear?",
+   "choices": [
+    "our ears",
+    "our eyes",
+    "our skin"
+   ],
+   "answer": "our ears",
+   "kind": "word"
+  },
+  {
+   "prompt": "What do we use to taste?",
+   "choices": [
+    "our tongue",
+    "our nose",
+    "our hands"
+   ],
+   "answer": "our tongue",
+   "kind": "word"
+  },
+  {
+   "prompt": "What do our senses help us do?",
+   "choices": [
+    "explore",
+    "sleep",
+    "fly"
+   ],
+   "answer": "explore",
+   "kind": "word"
+  }
+ ]
+}
