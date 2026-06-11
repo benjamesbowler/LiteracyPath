@@ -14,6 +14,8 @@ Status: complete in this pass.
 
 ## Section 2: Teacher Dashboard, Classes, And Roster Operations
 
+Status: complete in this pass.
+
 - Turn the dashboard into a command center with clearer current-class context.
 - Finish alignment and density polish for class creation, student creation, login cards, and roster tables.
 - Add clearer empty states for no classes, no students, and setup-required accounts.
