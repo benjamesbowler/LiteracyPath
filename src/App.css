@@ -15138,3 +15138,174 @@ select:focus {
     flex-direction: column;
   }
 }
+
+/* ─── Teacher action cards ─────────────────────────────────────────────── */
+
+.teacher-action-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.teacher-action-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--lp-color-border);
+  border-left-width: 4px;
+  border-radius: 12px;
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+}
+
+.teacher-action-card.warn { border-left-color: var(--lp-color-warning); }
+.teacher-action-card.info { border-left-color: var(--lp-color-primary); }
+.teacher-action-card.good { border-left-color: var(--lp-color-success); }
+
+.teacher-action-card strong {
+  display: block;
+  color: var(--lp-color-text-strong);
+  font-size: 15px;
+}
+
+.teacher-action-card p {
+  margin: 3px 0 0;
+  color: var(--lp-color-text-muted);
+  font-size: 13px;
+}
+
+.teacher-action-card .lp-button {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.teacher-roster-filter-chip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  padding: 8px 14px;
+  border: 1px solid rgba(12, 107, 101, 0.3);
+  border-radius: var(--lp-radius-pill);
+  background: var(--lp-color-primary-soft);
+  color: var(--lp-color-primary-strong);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ─── Book quiz + level-up ─────────────────────────────────────────────── */
+
+.book-quiz,
+.guided-levelup {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: grid;
+  place-items: center;
+  background: rgba(15, 23, 42, 0.5);
+  padding: 18px;
+}
+
+.book-quiz-card,
+.guided-levelup-card {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  width: min(100%, 560px);
+  padding: clamp(22px, 4vw, 36px);
+  border: 1px solid var(--lp-color-border);
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: var(--lp-shadow-soft);
+  text-align: center;
+}
+
+.book-quiz-kicker {
+  margin: 0;
+  color: var(--lp-color-primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.book-quiz-card h3 {
+  margin: 0;
+  font: 600 clamp(20px, 3vw, 26px) var(--lp-font-reading);
+  color: var(--lp-color-text-strong);
+}
+
+.book-quiz-retry {
+  margin: 0;
+  color: var(--lp-color-warning);
+  font-weight: 600;
+}
+
+.book-quiz-loading {
+  margin: 0;
+  color: var(--lp-color-text-muted);
+  font-weight: 600;
+}
+
+.book-quiz-choices {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.book-quiz-choices button {
+  min-width: 110px;
+  min-height: 64px;
+  border: 1.5px solid var(--lp-color-border);
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: var(--lp-shadow-card);
+  color: var(--lp-color-text-strong);
+  cursor: pointer;
+  font: 600 clamp(1.1rem, 2.4vw, 1.5rem) var(--lp-font-reading);
+  padding: 12px 18px;
+  transition: transform 120ms ease-out, border-color 120ms ease-out;
+}
+
+.book-quiz-choices button:hover {
+  border-color: var(--lp-color-primary);
+  transform: translateY(-2px);
+}
+
+.book-quiz-choices button:active {
+  transform: scale(0.95);
+}
+
+.book-quiz-choices.pictures button {
+  padding: 8px;
+}
+
+.book-quiz-choices.pictures img {
+  width: 132px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.book-quiz-result img,
+.guided-levelup-card img {
+  width: min(36vw, 150px);
+}
+
+.book-quiz-result h3 {
+  margin: 0;
+  font: 600 26px var(--lp-font-reading);
+}
+
+.guided-levelup-card h2 {
+  margin: 0;
+  font: 600 28px var(--lp-font-reading);
+}
+
+.guided-levelup-card p {
+  margin: 0;
+  color: var(--lp-color-text-muted);
+}

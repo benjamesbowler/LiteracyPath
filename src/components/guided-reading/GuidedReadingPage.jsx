@@ -1,5 +1,8 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { markMissionDone } from "../../utils/dailyMission.js";
+import { BookQuiz } from "./BookQuiz.jsx";
+import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
+import { playCelebrationFanfare } from "../../utils/audio/gameSfx.js";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   formatGuidedReadingType,
@@ -477,6 +480,8 @@ export function GuidedReadingPage({
   const [selectedLibraryLevel, setSelectedLibraryLevel] = useState("");
   const [pageIndex, setPageIndex] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [levelUp, setLevelUp] = useState(null);
   const [readerOpen, setReaderOpen] = useState(false);
   const [readingMode, setReadingMode] = useState("reading");
   const [highlightedWordIndex, setHighlightedWordIndex] = useState(null);
@@ -843,7 +848,33 @@ export function GuidedReadingPage({
       totalPages: selectedBook.pages.length
     });
     markMissionDone(studentId || studentName || "default", "book");
-    setShowSummary(true);
+    if (isStudentMode) {
+      setShowQuiz(true);
+    } else {
+      setShowSummary(true);
+    }
+  }
+
+  function handleQuizFinish(quizCorrect, quizTotal) {
+    setShowQuiz(false);
+    updateRecord({
+      quizScore: quizCorrect,
+      quizTotal,
+      quizAt: new Date().toISOString()
+    });
+
+    // Level-up: every book of this type + level is now completed.
+    const levelBooks = getGuidedReadingLevelBooks(selectedBook.type, selectedBook.level);
+    const allDone = levelBooks.length > 1 && levelBooks.every(book =>
+      book.id === selectedBook.id ||
+      Boolean(guidedReadingRecords[book.id]?.completed || guidedReadingRecords[book.id]?.completedAt)
+    );
+    if (allDone) {
+      playCelebrationFanfare();
+      setLevelUp({ level: selectedBook.level, count: levelBooks.length });
+    } else {
+      setShowSummary(true);
+    }
   }
 
   function changeBook(bookId) {
@@ -1290,6 +1321,31 @@ export function GuidedReadingPage({
 
   return (
     <div className={guidedReadingPageClassName}>
+      {showQuiz && selectedBook && (
+        <BookQuiz book={selectedBook} onFinish={handleQuizFinish} />
+      )}
+
+      {levelUp && (
+        <div className="guided-levelup" role="dialog" aria-label="Level complete">
+          <ConfettiCelebration show />
+          <div className="guided-levelup-card">
+            <img src="/images/learn-games/phinny-cheering.webp" alt="" />
+            <h2>Level {levelUp.level} complete!</h2>
+            <p>You read all {levelUp.count} books. A new shelf is waiting for you.</p>
+            <button
+              className="main-button"
+              type="button"
+              onClick={() => {
+                setLevelUp(null);
+                setShowSummary(true);
+              }}
+            >
+              Amazing!
+            </button>
+          </div>
+        </div>
+      )}
+
       <section className="teacher-page-header guided-reading-hero">
         <div>
           <p className="panel-label">Guided Reading</p>

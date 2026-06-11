@@ -74,6 +74,7 @@ export function TeacherDashboardPage({
   message
 }) {
   const [newStudentName, setNewStudentName] = useState("");
+  const [rosterFilterIds, setRosterFilterIds] = useState(null);
   const [editingSchool, setEditingSchool] = useState(false);
   const [schoolDraft, setSchoolDraft] = useState("");
   const [visiblePasswords, setVisiblePasswords] = useState({});
@@ -100,6 +101,63 @@ export function TeacherDashboardPage({
     }),
     [dashboardById, studentList]
   );
+  // ── Action cards: turn roster data into one-click next steps ──────────────
+  const actionCards = useMemo(() => {
+    const cards = [];
+
+    // Reteach: 2+ students stuck on the same skill with low accuracy.
+    const struggling = studentRows.filter(row =>
+      row.answered > 0 && row.accuracy !== null && row.accuracy < 70 && row.currentSkill && row.currentSkill !== "Not started"
+    );
+    const bySkill = new Map();
+    struggling.forEach(row => {
+      bySkill.set(row.currentSkill, [...(bySkill.get(row.currentSkill) || []), row]);
+    });
+    const reteach = [...bySkill.entries()].filter(([, rows]) => rows.length >= 2).sort((a, b) => b[1].length - a[1].length)[0];
+    if (reteach) {
+      cards.push({
+        id: "reteach",
+        tone: "warn",
+        title: `Reteach ${reteach[0]}`,
+        detail: `${reteach[1].map(row => row.name).slice(0, 4).join(", ")}${reteach[1].length > 4 ? ` +${reteach[1].length - 4}` : ""} are below 70% on this skill.`,
+        action: "Show group",
+        studentIds: reteach[1].map(row => row.id)
+      });
+    }
+
+    // Nudge: students who haven't started or have gone quiet.
+    const inactive = studentRows.filter(row => row.answered === 0 || !row.lastActive || formatLastActive(row.lastActive).includes("days ago"));
+    if (inactive.length >= 1 && studentRows.length > 1) {
+      cards.push({
+        id: "nudge",
+        tone: "info",
+        title: inactive.some(row => row.answered === 0) ? "Get everyone started" : "Re-engage quiet readers",
+        detail: `${inactive.map(row => row.name).slice(0, 4).join(", ")}${inactive.length > 4 ? ` +${inactive.length - 4}` : ""} ${inactive.length === 1 ? "has" : "have"} little or no recent practice.`,
+        action: "Show students",
+        studentIds: inactive.map(row => row.id)
+      });
+    }
+
+    // Celebrate: the strongest mastery in the class.
+    const star = [...studentRows].filter(row => row.masteredCount > 0).sort((a, b) => b.masteredCount - a.masteredCount)[0];
+    if (star) {
+      cards.push({
+        id: "celebrate",
+        tone: "good",
+        title: `Celebrate ${star.name}`,
+        detail: `${star.masteredCount} skill${star.masteredCount === 1 ? "" : "s"} mastered - worth a shout-out today.`,
+        action: "Open profile",
+        onClick: () => onLoadStudent?.(star.id, star.name)
+      });
+    }
+
+    return cards.slice(0, 3);
+  }, [studentRows, onLoadStudent]);
+
+  const visibleStudentRows = rosterFilterIds
+    ? studentRows.filter(row => rosterFilterIds.includes(row.id))
+    : studentRows;
+
   const skillTotal = skillTree.length;
   const startedCount = studentRows.filter(row => row.answered > 0).length;
   const loginReadyCount = studentRows.filter(row => row.symbol_password).length;
@@ -273,6 +331,38 @@ export function TeacherDashboardPage({
         )}
       </section>
 
+      {selectedClass && actionCards.length > 0 && (
+        <section className="teacher-action-cards" aria-label="Suggested next steps">
+          {actionCards.map(card => (
+            <article key={card.id} className={`teacher-action-card ${card.tone}`}>
+              <div>
+                <strong>{card.title}</strong>
+                <p>{card.detail}</p>
+              </div>
+              <button
+                className="lp-button lp-button-secondary"
+                type="button"
+                onClick={() => {
+                  if (card.onClick) card.onClick();
+                  else if (card.studentIds) setRosterFilterIds(card.studentIds);
+                }}
+              >
+                {card.action}
+              </button>
+            </article>
+          ))}
+        </section>
+      )}
+
+      {rosterFilterIds && (
+        <div className="teacher-roster-filter-chip">
+          <span>Showing {visibleStudentRows.length} of {studentRows.length} students</span>
+          <button className="text-button" type="button" onClick={() => setRosterFilterIds(null)}>
+            Show all
+          </button>
+        </div>
+      )}
+
       <section className="teacher-dashboard-roster" aria-label="Students">
         <div className="teacher-panel-header">
           <div>
@@ -340,7 +430,7 @@ export function TeacherDashboardPage({
                 </tr>
               </thead>
               <tbody>
-                {studentRows.map(row => {
+                {visibleStudentRows.map(row => {
                   const progressPercent = getProgressPercent(row, skillTotal);
                   const loginReady = Boolean(row.symbol_password);
                   return (
