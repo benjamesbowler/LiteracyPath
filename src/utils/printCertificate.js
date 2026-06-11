@@ -1,0 +1,40 @@
+// Opens a print-ready certificate in a new window. Elegant, school-printable.
+export function printCertificate({ studentName = "Reader", achievement = "", detail = "" }) {
+  const win = window.open("", "lp-certificate", "width=900,height=700");
+  if (!win) return;
+  const date = new Date().toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" });
+  win.document.write(`<!doctype html>
+<html><head><title>Certificate</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: landscape; margin: 0; }
+  body { margin: 0; font-family: Inter, sans-serif; }
+  .cert {
+    box-sizing: border-box; width: 100vw; height: 100vh;
+    display: grid; place-content: center; gap: 14px; text-align: center;
+    background:
+      radial-gradient(500px 360px at 10% 0%, rgba(12,107,101,0.10), transparent 60%),
+      radial-gradient(460px 320px at 92% 100%, rgba(214,138,17,0.10), transparent 60%),
+      #FCFDFD;
+    border: 14px solid #0C6B65; outline: 3px solid #D68A11; outline-offset: -22px;
+    padding: 56px;
+  }
+  .kicker { color: #0C6B65; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; font-size: 13px; }
+  h1 { margin: 0; font-family: Lexend, sans-serif; font-weight: 600; font-size: 52px; color: #101828; }
+  .ach { margin: 0; font-family: Lexend, sans-serif; font-size: 24px; color: #0C6B65; font-weight: 600; }
+  .detail { margin: 0; color: #475569; font-size: 16px; }
+  .date { margin-top: 18px; color: #98A2B3; font-size: 13px; }
+  .rule { width: 220px; height: 2px; background: #D68A11; margin: 6px auto; }
+</style></head>
+<body onload="window.print()">
+  <div class="cert">
+    <p class="kicker">Literacy Guide · Certificate of Achievement</p>
+    <h1>${studentName}</h1>
+    <div class="rule"></div>
+    <p class="ach">${achievement}</p>
+    ${detail ? `<p class="detail">${detail}</p>` : ""}
+    <p class="date">${date}</p>
+  </div>
+</body></html>`);
+  win.document.close();
+}

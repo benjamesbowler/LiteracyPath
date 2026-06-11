@@ -15409,3 +15409,130 @@ select:focus {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* ─── Glass design layer ───────────────────────────────────────────────── */
+
+:root {
+  --glass-surface: rgba(255, 255, 255, 0.72);
+  --glass-surface-strong: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.85);
+  --glass-edge: rgba(15, 23, 42, 0.06);
+  --glass-blur: saturate(1.4) blur(18px);
+  --glass-shadow:
+    0 1px 1px rgba(15, 23, 42, 0.03),
+    0 8px 20px rgba(15, 23, 42, 0.06),
+    0 24px 60px rgba(15, 23, 42, 0.08);
+  --mesh-student:
+    radial-gradient(620px 420px at 8% -4%, rgba(12, 107, 101, 0.13), transparent 60%),
+    radial-gradient(540px 380px at 96% 12%, rgba(214, 138, 17, 0.10), transparent 58%),
+    radial-gradient(700px 520px at 50% 110%, rgba(59, 130, 196, 0.08), transparent 62%),
+    linear-gradient(180deg, #FAFBFC 0%, #F2F5F8 100%);
+}
+
+.student-home-page {
+  background: var(--mesh-student);
+}
+
+.student-home-topbar {
+  border: 1px solid var(--glass-edge);
+  border-radius: 18px;
+  background: var(--glass-surface);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow);
+}
+
+.student-mission {
+  border: 1px solid var(--glass-edge);
+  background: var(--glass-surface);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow);
+}
+
+.student-mission-tile,
+.student-home-card {
+  border: 1px solid var(--glass-edge);
+  background: var(--glass-surface-strong);
+  box-shadow:
+    0 1px 1px rgba(15, 23, 42, 0.03),
+    0 6px 16px rgba(15, 23, 42, 0.06);
+}
+
+.student-mission-tile:hover,
+.student-home-card:hover {
+  box-shadow:
+    0 2px 4px rgba(15, 23, 42, 0.04),
+    0 18px 40px rgba(12, 107, 101, 0.14);
+}
+
+.student-mission-celebrate-card,
+.companion-picker-card,
+.book-quiz-card,
+.guided-levelup-card {
+  border: 1px solid var(--glass-border);
+  background: var(--glass-surface-strong);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow);
+}
+
+.student-mission-celebrate,
+.companion-picker,
+.book-quiz,
+.guided-levelup {
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+/* ─── Treasures shelf ──────────────────────────────────────────────────── */
+
+.student-treasures {
+  width: min(100%, 1080px);
+  margin: 0 auto;
+}
+
+.student-treasures h2 {
+  margin: 0 0 10px;
+  color: var(--lp-color-text-muted);
+  font: 600 15px var(--lp-font-ui);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.student-treasures-shelf {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--glass-edge);
+  border-radius: 16px;
+  background: var(--glass-surface);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow);
+}
+
+.student-treasure {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  min-width: 76px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.65);
+  font: 600 11px var(--lp-font-ui);
+  color: var(--lp-color-text-muted);
+}
+
+.sbq-gem-award {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border: 1px solid rgba(214, 138, 17, 0.3);
+  border-radius: var(--lp-radius-pill);
+  background: var(--lp-color-accent-warm-soft);
+  color: var(--lp-color-text-strong);
+  font-size: 14px;
+}

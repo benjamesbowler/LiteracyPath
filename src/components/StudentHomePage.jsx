@@ -6,7 +6,8 @@ import {
   getMissionStatus,
   markMissionCelebrated
 } from "../utils/dailyMission.js";
-import { COMPANIONS, getCompanion, setCompanion } from "../utils/studentProfile.js";
+import { COMPANIONS, getCompanion, setCompanion, getCollectibles } from "../utils/studentProfile.js";
+import { Gem } from "./Gem.jsx";
 
 function StudentHomeCard({ title, subtitle, meta, art, onClick }) {
   return (
@@ -69,6 +70,7 @@ export function StudentHomePage({
   const [showCelebration, setShowCelebration] = useState(false);
   const [companion, setCompanionState] = useState(() => getCompanion(progressScopeKey));
   const [pickingCompanion, setPickingCompanion] = useState(false);
+  const [collectibles] = useState(() => getCollectibles(progressScopeKey));
 
   useEffect(() => {
     if (!status.needsCelebration) return undefined;
@@ -156,6 +158,20 @@ export function StudentHomePage({
           })}
         </div>
       </section>
+
+      {collectibles.length > 0 && (
+        <section className="student-treasures" aria-label="My treasures">
+          <h2>My Treasures</h2>
+          <div className="student-treasures-shelf">
+            {collectibles.map(item => (
+              <div key={item.key} className="student-treasure" title={item.label || item.name}>
+                <Gem color={item.color} size={40} />
+                <span>{item.name}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="student-home-explore" aria-label="Explore">
         <h2>Explore</h2>

@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { markMissionDone } from "../../utils/dailyMission.js";
 import { BookQuiz } from "./BookQuiz.jsx";
+import { printCertificate } from "../../utils/printCertificate.js";
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
 import { playCelebrationFanfare } from "../../utils/audio/gameSfx.js";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -1341,6 +1342,17 @@ export function GuidedReadingPage({
               }}
             >
               Amazing!
+            </button>
+            <button
+              className="text-button"
+              type="button"
+              onClick={() => printCertificate({
+                studentName: studentName || "Reader",
+                achievement: `Finished every Level ${levelUp.level} book`,
+                detail: `${levelUp.count} books read from start to finish`
+              })}
+            >
+              Print certificate
             </button>
           </div>
         </div>

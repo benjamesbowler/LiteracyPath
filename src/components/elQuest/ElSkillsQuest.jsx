@@ -5,6 +5,10 @@ import { speakWithBrowser } from "../../utils/audio/speakWithBrowser.js";
 import { playCorrectChime, playSoftBuzz, playCelebrationFanfare, playStarChime } from "../../utils/audio/gameSfx.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
 import { markMissionDone } from "../../utils/dailyMission.js";
+import { awardCollectible } from "../../utils/studentProfile.js";
+import { printCertificate } from "../../utils/printCertificate.js";
+import { Gem } from "../Gem.jsx";
+import { gemForIndex } from "../../data/gemSet.js";
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../learn/games/shared/ProgressStars.jsx";
 import {
@@ -186,7 +190,14 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
       setProgress(nextProgress);
       saveQuestProgress(progressScopeKey, nextProgress);
       playCelebrationFanfare();
-      setCelebration({ kind: "cycle", stars, correct: finalCorrect, total });
+      const gem = stars > 0
+        ? awardCollectible(progressScopeKey, {
+            key: `cycle-${activeCycle.id}`,
+            ...gemForIndex(activeCycle.cycleNumber || 0),
+            label: `Cycle ${activeCycle.cycleNumber}`
+          })
+        : null;
+      setCelebration({ kind: "cycle", stars, correct: finalCorrect, total, gem });
     } else {
       playStarChime();
       setSessionStations(previous => ({ ...previous, [stationId]: true }));
@@ -263,10 +274,29 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
           <h2>{isCycle ? `Cycle ${activeCycle.cycleNumber} complete!` : "Station done!"}</h2>
           <p>{celebration.correct}/{celebration.total} right</p>
           {isCycle && <ProgressStars stars={celebration.stars} size="lg" />}
+          {isCycle && celebration.gem && (
+            <div className="sbq-gem-award">
+              <Gem color={celebration.gem.color} size={56} />
+              <span>You earned the <strong>{celebration.gem.name}</strong>!</span>
+            </div>
+          )}
           <div className="sbq-celebrate-actions">
             <button className="sbq-primary-button" type="button" onClick={() => setCelebration(null)}>
               {isCycle ? "Back to the map" : "Keep going"}
             </button>
+            {isCycle && celebration.stars === 3 && (
+              <button
+                className="sbq-ghost-button"
+                type="button"
+                onClick={() => printCertificate({
+                  studentName,
+                  achievement: `Completed Cycle ${activeCycle.cycleNumber} with three stars`,
+                  detail: activeCycle.childFriendlyGoal || ""
+                })}
+              >
+                Print certificate
+              </button>
+            )}
             {isCycle && (
               <button
                 className="sbq-ghost-button"

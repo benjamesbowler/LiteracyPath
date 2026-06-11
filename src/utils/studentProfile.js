@@ -41,6 +41,19 @@ export function getCompanion(scope) {
   return COMPANIONS.find(item => item.id === profile.companionId) || null;
 }
 
+export function getCollectibles(scope) {
+  return loadStudentProfile(scope).collectibles || [];
+}
+
+export function awardCollectible(scope, collectible) {
+  const profile = loadStudentProfile(scope);
+  const existing = profile.collectibles || [];
+  if (existing.some(item => item.key === collectible.key)) return null;
+  const next = [...existing, { ...collectible, earnedAt: new Date().toISOString() }];
+  saveStudentProfile(scope, { ...profile, collectibles: next });
+  return collectible;
+}
+
 export function setCompanion(scope, companionId) {
   const profile = loadStudentProfile(scope);
   saveStudentProfile(scope, { ...profile, companionId, companionChosenAt: new Date().toISOString() });
