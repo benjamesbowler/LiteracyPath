@@ -2,56 +2,56 @@
   "bookId": "first-facts-a-01-look-at-the-colours",
   "title": "Look at the Colours!",
   "audioPath": "/guided-reading/nonfiction/first-facts/book-01/audio/full-book.mp3",
-  "syncAccuracy": "estimated",
-  "durationMs": 4230,
+  "syncAccuracy": "explicit",
+  "durationMs": 49031,
   "pageTimings": [
     {
       "pageIndex": 0,
       "pageNumber": 1,
       "startMs": 0,
-      "endMs": 617,
+      "endMs": 24094,
       "text": "Red. A red apple. A red robin."
     },
     {
       "pageIndex": 1,
       "pageNumber": 2,
-      "startMs": 617,
-      "endMs": 1234,
+      "startMs": 24094,
+      "endMs": 28179,
       "text": "Yellow. A yellow sun. A yellow duck."
     },
     {
       "pageIndex": 2,
       "pageNumber": 3,
-      "startMs": 1234,
-      "endMs": 1763,
+      "startMs": 28179,
+      "endMs": 32888,
       "text": "Blue. A blue sky. Blue forget-me-nots."
     },
     {
       "pageIndex": 3,
       "pageNumber": 4,
-      "startMs": 1763,
-      "endMs": 2292,
+      "startMs": 32888,
+      "endMs": 37021,
       "text": "Green. Green grass. A green frog."
     },
     {
       "pageIndex": 4,
       "pageNumber": 5,
-      "startMs": 2292,
-      "endMs": 2909,
+      "startMs": 37021,
+      "endMs": 41850,
       "text": "Orange. An orange fox. An orange pumpkin."
     },
     {
       "pageIndex": 5,
       "pageNumber": 6,
-      "startMs": 2909,
-      "endMs": 3350,
+      "startMs": 41850,
+      "endMs": 45551,
       "text": "Purple. Purple grapes. Purple lavender."
     },
     {
       "pageIndex": 6,
       "pageNumber": 7,
-      "startMs": 3350,
-      "endMs": 4230,
+      "startMs": 45551,
+      "endMs": 49031,
       "text": "Colours are all around us! What colour can you see?"
     }
   ]

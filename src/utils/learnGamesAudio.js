@@ -1,5 +1,12 @@
 import { Howl, Howler } from "howler";
 import { getLetterSoundCue } from "../components/learn/phonics/cvc/cvcHelpers";
+import { AUDIO_FILE_PATHS } from "../data/generated/audioFilePaths.generated.js";
+
+// Only paths that really exist - the host serves the app shell for missing
+// files, which used to stall playback chains and leave games silent.
+function existingAudioPaths(paths) {
+  return paths.filter(p => p && AUDIO_FILE_PATHS.has(p));
+}
 
 const howlCache = new Map();
 const MAX_HOWL_CACHE_ENTRIES = 24;
@@ -68,7 +75,7 @@ function playAudio(src) {
 }
 
 async function playFirstAvailable(paths) {
-  for (const path of paths.filter(Boolean)) {
+  for (const path of existingAudioPaths(paths)) {
     try {
       return await playAudio(path);
     } catch {
@@ -99,12 +106,16 @@ export async function speakPhoneme(letter, options = {}) {
   const cue = getLetterSoundCue(normalizedLetter, { vowel: VOWELS.has(normalizedLetter) ? normalizedLetter : "" });
   const spokenFallback = VOWEL_SOUND_TEXT[normalizedLetter] || normalizedLetter;
 
-  // Vowels: play the real recorded short-vowel sound. The cue marks vowels
-  // as "generated:" which used to skip straight to robotic browser speech
-  // even though proper recordings exist.
+  // Priority: clean pure-phoneme recordings (no letter names, no "short A"
+  // labels) > legacy grapheme recordings > browser speech. The phonemes
+  // folder activates automatically once its files are generated.
   const candidates = [];
   if (VOWELS.has(normalizedLetter)) {
-    candidates.push(`/audio/child-mode/clean-human/graphemes/short_vowels/short_${normalizedLetter}.mp3`);
+    // No legacy fallback here: the old short-vowel recordings say the label
+    // "short A" instead of the sound, which teaches the wrong thing.
+    candidates.push(`/audio/phonemes/short_${normalizedLetter}.mp3`);
+  } else {
+    candidates.push(`/audio/phonemes/${normalizedLetter}.mp3`);
   }
   if (cue?.src && !cue.src.startsWith("generated:")) {
     candidates.push(cue.src);

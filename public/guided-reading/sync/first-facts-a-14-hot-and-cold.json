@@ -2,56 +2,56 @@
   "bookId": "first-facts-a-14-hot-and-cold",
   "title": "Hot and Cold",
   "audioPath": "/guided-reading/nonfiction/first-facts/book-14/audio/full-book.mp3",
-  "syncAccuracy": "estimated",
-  "durationMs": 3606,
+  "syncAccuracy": "explicit",
+  "durationMs": 36079,
   "pageTimings": [
     {
       "pageIndex": 0,
       "pageNumber": 1,
       "startMs": 0,
-      "endMs": 506,
+      "endMs": 13955,
       "text": "The sun is hot. It warms us up."
     },
     {
       "pageIndex": 1,
       "pageNumber": 2,
-      "startMs": 506,
-      "endMs": 949,
+      "startMs": 13955,
+      "endMs": 17056,
       "text": "Fire is hot. Do not touch it!"
     },
     {
       "pageIndex": 2,
       "pageNumber": 3,
-      "startMs": 949,
-      "endMs": 1392,
+      "startMs": 17056,
+      "endMs": 21333,
       "text": "Ice is cold. Snow is cold. Brrr!"
     },
     {
       "pageIndex": 3,
       "pageNumber": 4,
-      "startMs": 1392,
-      "endMs": 1961,
+      "startMs": 21333,
+      "endMs": 25370,
       "text": "Hot food can burn. Let it cool down first."
     },
     {
       "pageIndex": 4,
       "pageNumber": 5,
-      "startMs": 1961,
-      "endMs": 2467,
+      "startMs": 25370,
+      "endMs": 27914,
       "text": "Cold water feels good on a hot day."
     },
     {
       "pageIndex": 5,
       "pageNumber": 6,
-      "startMs": 2467,
-      "endMs": 3036,
+      "startMs": 27914,
+      "endMs": 32215,
       "text": "Hot is warm. Cold is cool. We need both!"
     },
     {
       "pageIndex": 6,
       "pageNumber": 7,
-      "startMs": 3036,
-      "endMs": 3606,
+      "startMs": 32215,
+      "endMs": 36079,
       "text": "What is hot? What is cold? Can you tell?"
     }
   ]

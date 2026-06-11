@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node tools/generateAudioManifest.js",
     "build": "vite build",
     "analyze": "ANALYZE_BUNDLE=true vite build",
     "test:smoke": "playwright test tests/smoke",

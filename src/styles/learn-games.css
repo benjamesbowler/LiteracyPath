@@ -1022,3 +1022,161 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ─── Round 2 polish: memory cards, balloons, compact arcade ──────────────── */
+
+/* Memory/rhyme cards: bigger, colorful card backs, clean reveal */
+.lg-card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(128px, 170px));
+  justify-content: center;
+  gap: 14px;
+}
+
+.lg-match-card {
+  aspect-ratio: 1;
+  min-height: 0;
+  border: 0;
+  background:
+    radial-gradient(rgba(255, 255, 255, 0.13) 2px, transparent 2.6px),
+    linear-gradient(150deg, var(--game-accent) 0%, color-mix(in srgb, var(--game-accent) 72%, #1E293B) 100%);
+  background-size: 20px 20px, cover;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 2.1rem;
+  font-weight: 700;
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--game-accent) 30%, transparent);
+}
+
+.lg-match-card.revealed {
+  background: var(--lg-surface);
+  border: 2px solid var(--game-accent);
+  color: #101828;
+  font-size: 1.5rem;
+}
+
+.lg-match-card.matched {
+  background: var(--lg-accent-green-soft);
+  border: 2px solid var(--lg-accent-green);
+  color: #166534;
+  font-size: 1.5rem;
+  box-shadow: none;
+}
+
+/* Pop the Word: actual balloons that bob gently */
+@keyframes lg-balloon-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+.lg-floating-options {
+  gap: 18px;
+}
+
+.lg-floating-options button {
+  min-width: 104px;
+  min-height: 104px;
+  border: 0;
+  border-radius: 50% 50% 48% 48%;
+  background: radial-gradient(circle at 32% 28%, color-mix(in srgb, var(--game-accent) 40%, #ffffff) 0%, var(--game-accent) 72%);
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--game-accent) 32%, transparent);
+  animation: lg-balloon-bob 3.2s ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+}
+
+.lg-floating-options button:hover {
+  filter: brightness(1.06);
+}
+
+/* In-game readability */
+.lg-game-stage > p {
+  color: #1A2335;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  font-weight: 700;
+}
+
+.lg-game-audio {
+  min-height: 48px;
+  border-radius: var(--lp-radius-pill);
+  font-size: 1rem;
+  padding: 12px 24px;
+}
+
+.lg-game-meter > div {
+  height: 10px;
+  background: #E5EAF0;
+}
+
+/* Arcade fits one screen: tighter header, cards, and gaps */
+.lg-arcade {
+  gap: 12px;
+}
+
+.lg-arcade-header {
+  padding: 12px 18px;
+}
+
+.lg-arcade-title-block h1 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
+
+.lg-arcade-title-block span {
+  margin-top: 2px;
+  font-size: 0.85rem;
+}
+
+.lg-arcade-next {
+  padding: 10px 14px;
+}
+
+.lg-game-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.lg-game-card-art {
+  height: 86px;
+}
+
+.lg-game-card-copy {
+  gap: 3px;
+  padding: 10px 14px 0;
+}
+
+.lg-game-card-copy strong {
+  font-size: 0.98rem;
+}
+
+.lg-game-card-copy em {
+  font-size: 0.8125rem;
+  -webkit-line-clamp: 1;
+}
+
+.lg-game-card-meta {
+  padding: 8px 14px 0;
+}
+
+.lg-game-play {
+  min-height: 36px;
+  margin: 10px 14px 12px;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 900px) {
+  .lg-game-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .lg-game-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lg-floating-options button {
+    animation: none;
+  }
+}

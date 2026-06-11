@@ -2,70 +2,70 @@
   "bookId": "first-facts-a-02-the-four-seasons",
   "title": "The Four Seasons",
   "audioPath": "/guided-reading/nonfiction/first-facts/book-02/audio/full-book.mp3",
-  "syncAccuracy": "estimated",
-  "durationMs": 5262,
+  "syncAccuracy": "explicit",
+  "durationMs": 85783,
   "pageTimings": [
     {
       "pageIndex": 0,
       "pageNumber": 1,
       "startMs": 0,
-      "endMs": 458,
+      "endMs": 42231,
       "text": "This is spring. Flowers pop up. Birds sing."
     },
     {
       "pageIndex": 1,
       "pageNumber": 2,
-      "startMs": 458,
-      "endMs": 1144,
+      "startMs": 42231,
+      "endMs": 48260,
       "text": "In spring, baby animals are born. A lamb skips. A chick hatches."
     },
     {
       "pageIndex": 2,
       "pageNumber": 3,
-      "startMs": 1144,
-      "endMs": 1830,
+      "startMs": 48260,
+      "endMs": 52849,
       "text": "This is summer. The sun is hot. It is a sunny day."
     },
     {
       "pageIndex": 3,
       "pageNumber": 4,
-      "startMs": 1830,
-      "endMs": 2345,
+      "startMs": 52849,
+      "endMs": 58134,
       "text": "In summer, plants grow tall. Bees buzz. Fruit grows."
     },
     {
       "pageIndex": 4,
       "pageNumber": 5,
-      "startMs": 2345,
-      "endMs": 2974,
+      "startMs": 58134,
+      "endMs": 63155,
       "text": "This is autumn. Leaves go red and gold. Leaves fall down."
     },
     {
       "pageIndex": 5,
       "pageNumber": 6,
-      "startMs": 2974,
-      "endMs": 3660,
+      "startMs": 63155,
+      "endMs": 69664,
       "text": "In autumn, animals get ready. A squirrel hides nuts. Birds fly south."
     },
     {
       "pageIndex": 6,
       "pageNumber": 7,
-      "startMs": 3660,
-      "endMs": 4118,
+      "startMs": 69664,
+      "endMs": 74085,
       "text": "This is winter. It is cold. Snow falls."
     },
     {
       "pageIndex": 7,
       "pageNumber": 8,
-      "startMs": 4118,
-      "endMs": 4633,
+      "startMs": 74085,
+      "endMs": 78674,
       "text": "In winter, some animals sleep. We wrap up warm."
     },
     {
       "pageIndex": 8,
       "pageNumber": 9,
-      "startMs": 4633,
-      "endMs": 5262,
+      "startMs": 78674,
+      "endMs": 85783,
       "text": "Four seasons: spring, summer, autumn, winter. Which do you like best?"
     }
   ]

@@ -2,56 +2,56 @@
   "bookId": "first-facts-a-16-push-and-pull",
   "title": "Push and Pull",
   "audioPath": "/guided-reading/nonfiction/first-facts/book-16/audio/full-book.mp3",
-  "syncAccuracy": "estimated",
-  "durationMs": 4302,
+  "syncAccuracy": "explicit",
+  "durationMs": 36641,
   "pageTimings": [
     {
       "pageIndex": 0,
       "pageNumber": 1,
       "startMs": 0,
-      "endMs": 430,
+      "endMs": 13816,
       "text": "A push moves things away. Push!"
     },
     {
       "pageIndex": 1,
       "pageNumber": 2,
-      "startMs": 430,
-      "endMs": 860,
+      "startMs": 13816,
+      "endMs": 17056,
       "text": "A pull brings things closer. Pull!"
     },
     {
       "pageIndex": 2,
       "pageNumber": 3,
-      "startMs": 860,
-      "endMs": 1649,
+      "startMs": 17056,
+      "endMs": 20925,
       "text": "You push a door open. You pull a door open too."
     },
     {
       "pageIndex": 3,
       "pageNumber": 4,
-      "startMs": 1649,
-      "endMs": 2294,
+      "startMs": 20925,
+      "endMs": 24290,
       "text": "You push a swing. The swing goes up high!"
     },
     {
       "pageIndex": 4,
       "pageNumber": 5,
-      "startMs": 2294,
-      "endMs": 2868,
+      "startMs": 24290,
+      "endMs": 27583,
       "text": "You pull a zip. The zip opens up."
     },
     {
       "pageIndex": 5,
       "pageNumber": 6,
-      "startMs": 2868,
-      "endMs": 3657,
+      "startMs": 27583,
+      "endMs": 32244,
       "text": "Magnets push and pull too! A magnet can pull a pin."
     },
     {
       "pageIndex": 6,
       "pageNumber": 7,
-      "startMs": 3657,
-      "endMs": 4302,
+      "startMs": 32244,
+      "endMs": 36641,
       "text": "Push and pull are forces. Forces make things move."
     }
   ]

@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { GAME_LIST } from "../../../data/learnGamesData";
 import { cancelSpeech, speak } from "../../../utils/learnGamesAudio";
 import { cancelGameSfx } from "../../../utils/audio/gameSfx";
@@ -62,12 +62,19 @@ export function GamePlayer({
     onProgressChange?.(nextProgress);
   }
 
-  function handleProgressUpdate(current, total) {
-    setProgressStatus({
+  // Stable identity + no-op on identical values. A fresh callback every
+  // render fed an effect inside the game engine, which re-rendered this
+  // component, which made a fresh callback... an infinite render loop that
+  // froze games and reshuffled answer options every frame.
+  const handleProgressUpdate = useCallback((current, total) => {
+    const next = {
       current: Math.max(0, Number(current) || 0),
       total: Math.max(1, Number(total) || 1)
-    });
-  }
+    };
+    setProgressStatus(previous =>
+      previous.current === next.current && previous.total === next.total ? previous : next
+    );
+  }, []);
 
   function requestClose() {
     if (completed) {

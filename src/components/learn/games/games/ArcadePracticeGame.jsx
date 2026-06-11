@@ -411,7 +411,7 @@ function MatchGame({ title, mode, state, isSoundEnabled, correct, setCorrect, ad
             <button
               key={card.id}
               type="button"
-              className={`lg-match-card ${matchedIds.includes(card.id) ? "matched" : ""}`}
+              className={`lg-match-card ${matchedIds.includes(card.id) ? "matched" : ""}${visible ? " revealed" : ""}`}
               onClick={() => choose(card)}
             >
               {visible ? card.word : "?"}
@@ -567,8 +567,12 @@ function SentenceGame({ title, state, round, setRound, correct, setCorrect, addS
 function QuizGame({ title, state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds }) {
   const sentence = state.sentences[round] || state.sentences[0];
   const answer = sentence.split(/\s+/).find(word => word.length > 3)?.replace(/[.?!]/g, "") || sentence.split(/\s+/)[0];
-  const allWords = state.sentences.join(" ").replace(/[.?!]/g, "").split(/\s+/).filter(word => word.length > 2);
-  const options = useMemo(() => shuffle([answer, ...shuffle(allWords.filter(word => word !== answer)).slice(0, 3)]), [allWords, answer]);
+  // Memo deps must be stable: recomputing allWords inline made the options
+  // reshuffle on every render.
+  const options = useMemo(() => {
+    const allWords = state.sentences.join(" ").replace(/[.?!]/g, "").split(/\s+/).filter(word => word.length > 2);
+    return shuffle([answer, ...shuffle(allWords.filter(word => word !== answer)).slice(0, 3)]);
+  }, [state.sentences, answer]);
 
   useEffect(() => {
     if (isSoundEnabled) speak(sentence);
