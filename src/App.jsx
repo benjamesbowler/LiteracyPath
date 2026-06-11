@@ -27,7 +27,7 @@ import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { SchoolNameInput } from "./components/SchoolNameInput.jsx";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
-import { SkillsBlockQuestMockup } from "./components/SkillsBlockQuestMockup.jsx";
+import { ElSkillsQuest } from "./components/elQuest/ElSkillsQuest.jsx";
 import { normalize, shuffleArray } from "./utils/assessmentRoundBuilder";
 
 import {
@@ -7455,8 +7455,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
   if (showSkillsQuestPrototype) {
     return (
-      <PageBoundary resetKey="skills-quest-prototype">
-        <SkillsBlockQuestMockup studentName={studentName || "Reader"} />
+      <PageBoundary resetKey="skills-quest-preview">
+        <ElSkillsQuest studentName={studentName || "Reader"} progressScopeKey={studentId || "preview"} />
       </PageBoundary>
     );
   }
@@ -7760,7 +7760,11 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
       {isStudentMode && appView === APP_VIEWS.SKILLS_BLOCK_QUEST && (
         <PageBoundary resetKey={`skills-block-quest-${studentId}`}>
-          <SkillsBlockQuestMockup studentName={studentName || "Reader"} />
+          <ElSkillsQuest
+            studentName={studentName || "Reader"}
+            progressScopeKey={studentId || studentName || "default"}
+            onExit={() => setAppView(APP_VIEWS.STUDENT_HOME)}
+          />
         </PageBoundary>
       )}
 

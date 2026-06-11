@@ -35,6 +35,7 @@ function localProgressStorageKey(area, scopeKey) {
   if (area === "phonics_letters") return `lp_phonics_progress_${scopeKey || "default"}`;
   if (area === "cvc") return `lp_cvc_progress_${scopeKey || "default"}`;
   if (area === "learn_games") return `literacy-guide-learn-games:${scopeKey || "default"}`;
+  if (area === "el_quest") return `lp-el-quest:${scopeKey || "default"}`;
   if (area === "guided_reading") return `literacyPath.guidedReadingRecords.${scope}`;
   return "";
 }

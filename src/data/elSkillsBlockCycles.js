@@ -26,7 +26,7 @@ export const EL_LEARN_SECTION_LABELS = {
 
 const DEFAULT_DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
-const LETTER_EXAMPLES = {
+export const LETTER_EXAMPLES = {
   a: ["apple", "ant", "alligator", "ax"],
   m: ["moon", "mouse", "map", "mat"],
   t: ["top", "tap", "tent", "turtle"],
