@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { storyQuests } from "../data/storyQuests.js";
 import { loadStoryQuestProgress, saveStoryQuestProgress } from "../utils/storyQuestProgress.js";
 import { StoryQuestPlayer } from "./StoryQuestPlayer.jsx";
@@ -47,6 +47,34 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
     ...level,
     quests: storyQuests.filter(quest => resolveStoryQuestLevel(quest) === level.key)
   }));
+  const questSummary = useMemo(() => {
+    const completed = storyQuests.filter(quest => questProgress[quest.id]?.completed).length;
+    const inProgress = storyQuests.filter(quest => {
+      const progress = questProgress[quest.id] || {};
+      return progress.opened && !progress.completed;
+    }).length;
+    const foundWords = new Set(
+      storyQuests.flatMap(quest => questProgress[quest.id]?.wordsFound || [])
+        .map(word => String(word).toLowerCase())
+    );
+    const targetWords = new Set(
+      storyQuests.flatMap(quest => quest.targetWords || [])
+        .map(word => String(word).toLowerCase())
+    );
+
+    return {
+      completed,
+      inProgress,
+      foundWords: foundWords.size,
+      targetWords: targetWords.size
+    };
+  }, [questProgress]);
+  const continueQuests = useMemo(() => storyQuests
+    .filter(quest => {
+      const progress = questProgress[quest.id] || {};
+      return progress.opened && !progress.completed;
+    })
+    .slice(0, 3), [questProgress]);
   const activeQuestProgress = activeQuest ? questProgress[activeQuest.id] || {} : {};
   const activeQuestInitialPageId =
     activeQuest && !activeQuestProgress.completed && activeQuestProgress.lastPageId
@@ -120,22 +148,47 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
           <span className="story-quest-kicker">Read</span>
           <h2>Story Quests</h2>
           <p>Read bright guided stories, hear each page, and choose what happens next.</p>
+          <div className="story-quest-library-stats" aria-label="Story Quest progress">
+            <span><strong>{questSummary.completed}</strong> complete</span>
+            <span><strong>{questSummary.inProgress}</strong> in progress</span>
+            <span><strong>{questSummary.foundWords}/{questSummary.targetWords}</strong> words found</span>
+          </div>
         </div>
 
         <div className="learn-story-level-selector" aria-label="Story Quest level menu">
-          {questGroups.map(level => (
-            <button
-              aria-pressed={selectedLevelKey === level.key}
-              className={selectedLevelKey === level.key ? "learn-story-level-button active" : "learn-story-level-button"}
-              key={level.key}
-              onClick={() => jumpToLevel(level.key)}
-              type="button"
-            >
-              <strong>Level {level.key}</strong>
-              <span>{level.quests.length} quest{level.quests.length === 1 ? "" : "s"}</span>
-            </button>
-          ))}
+          {questGroups.map(level => {
+            const completedCount = level.quests.filter(quest => questProgress[quest.id]?.completed).length;
+
+            return (
+              <button
+                aria-pressed={selectedLevelKey === level.key}
+                className={selectedLevelKey === level.key ? "learn-story-level-button active" : "learn-story-level-button"}
+                key={level.key}
+                onClick={() => jumpToLevel(level.key)}
+                type="button"
+              >
+                <strong>Level {level.key}</strong>
+                <span>{completedCount}/{level.quests.length} complete</span>
+              </button>
+            );
+          })}
         </div>
+
+        {continueQuests.length > 0 && (
+          <div className="story-quest-continue-strip" aria-label="Continue Story Quests">
+            <div>
+              <span className="story-quest-kicker">Continue</span>
+              <strong>Pick up your open quests</strong>
+            </div>
+            <div>
+              {continueQuests.map(quest => (
+                <button key={quest.id} onClick={() => startQuest(quest.id)} type="button">
+                  {quest.title}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="learn-story-level-list">
           {questGroups.map(level => (
@@ -155,6 +208,7 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
                   const isCompleted = Boolean(progress.completed);
                   const hasOpened = Boolean(progress.opened);
                   const actionLabel = isCompleted ? "Read Again" : hasOpened ? "Continue" : "Start Reading";
+                  const wordsFoundCount = new Set(progress.wordsFound || []).size;
                   const levelLabel = quest.level && /^[A-Z]$/.test(quest.level)
                     ? `Level ${quest.level}`
                     : resolveStoryQuestLevel(quest) === "A"
@@ -194,6 +248,11 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
                             <span key={word}>{word}</span>
                           ))}
                         </div>
+                        {questTargetWords.length > 0 && (
+                          <span className="story-quest-card-progress">
+                            {wordsFoundCount}/{questTargetWords.length} words found
+                          </span>
+                        )}
                       </div>
                       <div className="learn-story-quest-actions">
                         <button className="lp-button lp-button-primary" onClick={() => startQuest(quest.id)} type="button">

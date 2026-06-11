@@ -621,6 +621,29 @@ body {
   padding: 14px 18px;
 }
 
+.student-home-intro {
+  width: min(100%, 1080px);
+  display: grid;
+  gap: 4px;
+}
+
+.student-home-intro h1,
+.student-home-intro p {
+  margin: 0;
+}
+
+.student-home-intro h1 {
+  color: var(--lp-color-text-strong);
+  font: 900 clamp(32px, 5vw, 52px) var(--lp-font-reading);
+  line-height: 1.02;
+}
+
+.student-home-intro p {
+  color: var(--lp-color-text-muted);
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 850;
+}
+
 .student-home-eyebrow {
   color: var(--lp-color-text-muted);
   font-size: 13px;
@@ -722,9 +745,32 @@ body {
   font: 700 28px var(--lp-font-reading);
 }
 
+.student-home-card-label {
+  display: grid;
+  gap: 4px;
+  padding-inline: 14px;
+}
+
 .student-home-card small {
   color: var(--lp-color-text-muted);
   font-weight: 800;
+}
+
+.student-home-card-meta {
+  width: fit-content;
+  justify-self: center;
+  min-height: 24px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: var(--lp-color-primary-soft);
+  color: var(--lp-color-primary) !important;
+  font-size: 0.76rem;
+  font-weight: 950 !important;
+  text-transform: uppercase;
+}
+
+.student-home-card-subtitle {
+  font-size: 0.95rem;
 }
 
 .student-home-float {
@@ -2719,6 +2765,39 @@ body {
   font-family: var(--lp-font-readable);
 }
 
+.guided-reading-hero {
+  align-items: flex-start;
+}
+
+.guided-reading-mode-pill {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  flex: 0 0 auto;
+  padding: 6px 11px;
+  border: 1px solid rgba(12, 107, 101, 0.24);
+  border-radius: 999px;
+  background: var(--lp-color-success-soft);
+  color: var(--lp-color-success-text);
+  font-size: 0.78rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.guided-reading-mode-pill.compact {
+  min-height: 24px;
+  padding: 3px 8px;
+  font-size: 0.66rem;
+}
+
+.teacher-guided-reading-page .guided-reading-mode-pill {
+  border-color: rgba(79, 99, 215, 0.22);
+  background: var(--lp-color-primary-soft);
+  color: var(--lp-color-primary);
+}
+
 .guided-reading-reader-open {
   position: fixed;
   inset: 0;
@@ -3216,13 +3295,23 @@ body {
   display: inline-grid;
   place-items: center;
   justify-self: center;
-  width: 44px;
+  width: 48px;
   height: 44px;
   border-radius: 14px;
   background: var(--color-primary-soft);
   color: var(--color-primary);
-  font-size: 1.35rem;
+  font-size: 1.05rem;
   font-weight: 950;
+}
+
+.guided-category-icon.fiction {
+  background: var(--lp-color-success-soft);
+  color: var(--lp-color-success-text);
+}
+
+.guided-category-icon.nonfiction {
+  background: var(--lp-color-accent-warm-soft);
+  color: #8a4f00;
 }
 
 .guided-category-card strong,
@@ -3403,6 +3492,23 @@ body {
   overflow-wrap: anywhere;
 }
 
+.guided-book-progress {
+  display: inline-flex;
+  width: fit-content;
+  align-self: center;
+  margin: 0;
+  min-height: 24px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--lp-color-text-muted);
+  font-size: 0.72rem;
+  font-weight: 850;
+}
+
 .guided-reader-shell {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -3482,6 +3588,14 @@ body {
   align-items: start;
   justify-content: space-between;
   margin-bottom: 8px;
+}
+
+.guided-reader-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 2px;
 }
 
 .guided-reader-header h3,
@@ -3646,11 +3760,35 @@ body {
   background: #ffffff;
 }
 
+.guided-reader-modebar.student {
+  border-color: rgba(12, 107, 101, 0.18);
+  background: linear-gradient(180deg, #ffffff 0%, var(--lp-color-success-soft) 100%);
+}
+
 .guided-reader-modebar p {
   margin: 0;
   color: var(--lp-color-text-muted) !important;
   font-size: 0.84rem;
   font-weight: 750;
+}
+
+.guided-student-mode-note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: center;
+}
+
+.guided-student-mode-note strong {
+  color: var(--lp-color-success-text);
+  font-size: 0.9rem;
+  font-weight: 950;
+}
+
+.guided-student-mode-note span {
+  color: var(--lp-color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 800;
 }
 
 .guided-mode-toggle {

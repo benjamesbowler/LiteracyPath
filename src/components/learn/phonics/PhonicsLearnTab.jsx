@@ -1,6 +1,7 @@
 import { Suspense, useState } from "react";
 import { loadCvcProgress, saveCvcProgress } from "../../../utils/cvcProgress";
 import { loadPhonicsProgress, savePhonicsProgress } from "../../../utils/phonicsProgress";
+import { cvcWordFamilies } from "../../../data/cvcWordFamilies";
 import { PhonicsAlphabetPicker } from "./PhonicsAlphabetPicker";
 import { CvcLearningFlow } from "./cvc/CvcLearningFlow";
 import { useCvcSoundCue } from "./cvc/cvcHelpers";
@@ -57,7 +58,12 @@ export function PhonicsLearnTab({ progressScopeKey = "default" }) {
   const [cvcProgress, setCvcProgress] = useState(() => loadCvcProgress(progressScopeKey));
   const { playCue } = useCvcSoundCue();
   const completedLettersCount = Object.values(progress).filter(status => status === "completed").length;
+  const completedWordFamiliesCount = Object.values(cvcProgress).filter(status => status === "completed").length;
   const wordsUnlocked = completedLettersCount >= 6;
+  const lettersToUnlockWords = Math.max(0, 6 - completedLettersCount);
+  const nextStepText = wordsUnlocked
+    ? "Choose letters, build short words, or play a review game."
+    : `Learn ${lettersToUnlockWords} more letter${lettersToUnlockWords === 1 ? "" : "s"} to unlock Word Workshop.`;
 
   function handleSelectLetter(letter) {
     const updated = {
@@ -128,6 +134,18 @@ export function PhonicsLearnTab({ progressScopeKey = "default" }) {
 
   return (
     <div className="phonics-island-view">
+      <section className="phonics-practice-overview" aria-label="Phonics practice progress">
+        <div>
+          <span className="phonics-practice-kicker">Practice</span>
+          <h2>Letters, Words, Games</h2>
+          <p>{nextStepText}</p>
+        </div>
+        <div className="phonics-practice-stats" aria-label="Practice totals">
+          <span><strong>{completedLettersCount}/26</strong> letters</span>
+          <span><strong>{completedWordFamiliesCount}/{cvcWordFamilies.length}</strong> word nests</span>
+        </div>
+      </section>
+
       <div className="phonics-island-switcher" aria-label="Choose Learn area">
         <button
           className={`phonics-island-card ${activeIsland === "letters" ? "active" : ""}`}
@@ -136,7 +154,10 @@ export function PhonicsLearnTab({ progressScopeKey = "default" }) {
           aria-label="Letters"
         >
           <IslandIcon type="letters" />
-          <span>Letters</span>
+          <span className="phonics-island-label">
+            <span>Letters</span>
+            <small>{completedLettersCount}/26 complete</small>
+          </span>
         </button>
         <button
           className={`phonics-island-card ${activeIsland === "words" ? "active" : ""} ${wordsUnlocked ? "" : "locked"}`}
@@ -145,7 +166,10 @@ export function PhonicsLearnTab({ progressScopeKey = "default" }) {
           aria-label={wordsUnlocked ? "Words" : "Words locked. Learn 6 letters first."}
         >
           <IslandIcon type="words" />
-          <span>Words</span>
+          <span className="phonics-island-label">
+            <span>Words</span>
+            <small>{wordsUnlocked ? `${completedWordFamiliesCount}/${cvcWordFamilies.length} built` : `${lettersToUnlockWords} letters to unlock`}</small>
+          </span>
           {!wordsUnlocked && <IslandLockIcon />}
         </button>
         <button
@@ -155,9 +179,18 @@ export function PhonicsLearnTab({ progressScopeKey = "default" }) {
           aria-label="Games"
         >
           <IslandIcon type="games" />
-          <span>Games</span>
+          <span className="phonics-island-label">
+            <span>Games</span>
+            <small>Review stars</small>
+          </span>
         </button>
       </div>
+
+      {!wordsUnlocked && (
+        <div className="phonics-unlock-callout" role="status">
+          Word Workshop unlocks after 6 completed letters.
+        </div>
+      )}
 
       {activeIsland === "games" ? (
         <Suspense fallback={<div className="phonics-arcade-loading">Loading games...</div>}>

@@ -1,33 +1,22 @@
 import fs from "node:fs";
 import path from "node:path";
-import { CVC_WORDS, RHYMING_PAIRS, WORD_FAMILIES } from "../src/data/learnGamesData.js";
+import { CVC_WORDS, GAME_LIST, RHYMING_PAIRS, WORD_FAMILIES } from "../src/data/learnGamesData.js";
 import { getChildWordAsset } from "../src/data/childAssets.js";
 
 const root = process.cwd();
 const requiredFiles = [
   "src/components/learn/games/GameArcadeHub.jsx",
   "src/components/learn/games/GamePlayer.jsx",
+  "src/components/learn/games/games/ArcadePracticeGame.jsx",
+  "src/components/learn/games/games/index.js",
   "src/components/learn/games/games/CVCWordBuilder.jsx",
   "src/components/learn/games/games/SightWordMemory.jsx",
-  "src/components/learn/games/games/SoundSlide.jsx",
   "src/components/learn/games/games/BlendAndBuild.jsx",
-  "src/components/learn/games/games/RhymeTime.jsx",
-  "src/components/learn/games/games/SightWordFishing.jsx",
-  "src/components/learn/games/games/CVCTrain.jsx",
   "src/components/learn/games/games/PopTheWord.jsx",
   "src/components/learn/games/games/WordHopscotch.jsx",
   "src/components/learn/games/games/ReadingRace.jsx",
-  "public/images/learn-games/icon-blend-build.png",
-  "public/images/learn-games/icon-cvc-builder.png",
-  "public/images/learn-games/icon-pop-word.png",
-  "public/images/learn-games/icon-reading-race.png",
-  "public/images/learn-games/icon-rhyme-time.png",
-  "public/images/learn-games/icon-sight-memory.png",
-  "public/images/learn-games/icon-sound-slide.png",
-  "public/images/learn-games/icon-word-fishing.png",
-  "public/images/learn-games/icon-word-hopscotch.png",
-  "public/images/learn-games/icon-word-train.png",
-  "public/images/learn-games/phinny-celebrating.png"
+  "public/images/learn-games/phinny-celebrating.png",
+  ...GAME_LIST.map(game => game.icon.startsWith("/") ? `public${game.icon}` : `public/${game.icon}`)
 ];
 
 const forbiddenRuntimeRoots = [
@@ -91,9 +80,14 @@ const gameWords = new Set([
   ...RHYMING_PAIRS.flat(),
   ...Object.values(WORD_FAMILIES).flat()
 ]);
+const fallbackWordCards = [];
 const missingWordImages = [...gameWords].filter(word => {
   const asset = getChildWordAsset(word, { allowBlockedAssessmentImage: true });
-  const image = asset?.image || asset?.fallbackImage || `/images/cvc/${word}.svg`;
+  const image = asset?.image || asset?.fallbackImage;
+  if (!image) {
+    fallbackWordCards.push(word);
+    return false;
+  }
   const normalized = image.startsWith("/") ? image.slice(1) : image;
   return !fs.existsSync(path.join(root, "public", normalized));
 });
@@ -103,4 +97,4 @@ if (missingWordImages.length) {
   process.exit(1);
 }
 
-console.log(`Learn Games integration guard passed. Word image coverage: ${gameWords.size - missingWordImages.length}/${gameWords.size}.`);
+console.log(`Learn Games integration guard passed. Word image coverage: ${gameWords.size - fallbackWordCards.length}/${gameWords.size}; text fallback cards: ${fallbackWordCards.length}.`);

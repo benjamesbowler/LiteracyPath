@@ -21,6 +21,10 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
     const completed = GAME_LIST.filter(game => (getLearnGameProgress(progress, game.id).stars || 0) > 0).length;
     return { stars, completed };
   }, [progress]);
+  const nextGame = useMemo(() => (
+    GAME_LIST.find(game => (getLearnGameProgress(progress, game.id).stars || 0) < 3) || GAME_LIST[0]
+  ), [progress]);
+  const completedPercent = GAME_LIST.length ? Math.round((totals.completed / GAME_LIST.length) * 100) : 0;
 
   function setDifficulty(difficulty) {
     setProgress(saveLearnGamesSettings(progressScopeKey, { difficulty }));
@@ -37,8 +41,8 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
           <span className="lg-section-rule" aria-hidden="true"></span>
           <div>
             <p>Game Arcade</p>
-            <h1 id="lg-arcade-title">Practice through play</h1>
-            <span>Focused phonics games with classroom-friendly progress tracking.</span>
+            <h1 id="lg-arcade-title">Play a short practice game</h1>
+            <span>Earn stars while reviewing letters, sounds, words, and rhymes.</span>
           </div>
         </div>
         <div className="lg-arcade-summary">
@@ -63,6 +67,26 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
         </div>
         <SoundToggle enabled={progress.soundEnabled} onToggle={() => setSoundEnabled(!progress.soundEnabled)} />
       </div>
+
+      {nextGame && (
+        <div className="lg-arcade-next" aria-label="Recommended game">
+          <div>
+            <p>Recommended next</p>
+            <strong>{nextGame.title}</strong>
+            <span>{nextGame.skill}</span>
+          </div>
+          <div className="lg-arcade-progress-track" aria-label={`${totals.completed} of ${GAME_LIST.length} games played`}>
+            <span style={{ width: `${completedPercent}%` }} />
+          </div>
+          <button
+            className="lg-game-primary"
+            onClick={() => setActiveGame(nextGame)}
+            type="button"
+          >
+            Play Next
+          </button>
+        </div>
+      )}
 
       <div className="lg-game-grid">
         {GAME_LIST.map((game, index) => {

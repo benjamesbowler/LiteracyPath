@@ -28,6 +28,34 @@
   gap: 6px;
 }
 
+.story-quest-library-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.story-quest-library-stats span,
+.story-quest-card-progress {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 4px 9px;
+  border: 1px solid rgba(26, 92, 85, 0.22);
+  border-radius: 999px;
+  background: var(--lp-color-success-soft);
+  color: var(--lp-color-success-text) !important;
+  font-size: 0.8rem;
+  font-weight: 850 !important;
+}
+
+.story-quest-library-stats strong {
+  margin-right: 4px;
+  color: var(--lp-color-text-strong);
+}
+
 .story-quest-kicker {
   color: var(--lp-color-success-text);
   font-size: 0.78rem;
@@ -98,6 +126,43 @@
 
 .learn-story-level-button.active {
   box-shadow: 0 0 0 3px rgba(79, 99, 215, 0.14), 0 10px 24px rgba(15, 23, 42, 0.09);
+}
+
+.story-quest-continue-strip {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid rgba(79, 99, 215, 0.18);
+  border-radius: 10px;
+  background: linear-gradient(180deg, var(--lp-color-primary-soft) 0%, var(--lp-color-surface) 100%);
+}
+
+.story-quest-continue-strip > div:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+.story-quest-continue-strip strong {
+  color: var(--lp-color-text-strong);
+}
+
+.story-quest-continue-strip > div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.story-quest-continue-strip button {
+  min-height: 36px;
+  padding: 7px 11px;
+  border: 1px solid rgba(79, 99, 215, 0.24);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--lp-color-primary);
+  font-weight: 900;
 }
 
 .learn-story-level-list,
@@ -183,6 +248,13 @@
   color: var(--lp-color-text-muted);
   font-size: 0.86rem;
   font-weight: 800;
+}
+
+.story-quest-progress-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  justify-content: space-between;
 }
 
 .story-quest-progress-bar {
@@ -398,6 +470,12 @@
   border-color: rgba(26, 92, 85, 0.32);
   background: var(--lp-color-success-soft);
   color: var(--lp-color-success-text) !important;
+}
+
+.story-quest-card-progress {
+  border-color: rgba(79, 99, 215, 0.2);
+  background: var(--lp-color-primary-soft);
+  color: var(--lp-color-primary-strong) !important;
 }
 
 .story-quest-reader {
@@ -752,6 +830,14 @@
 @media (max-width: 760px) {
   .story-quest-learn-page {
     padding: 6px;
+  }
+
+  .story-quest-continue-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .story-quest-continue-strip > div:last-child {
+    justify-content: flex-start;
   }
 
   .learn-story-level-selector {

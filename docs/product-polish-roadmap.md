@@ -32,6 +32,8 @@ Status: complete in this pass.
 
 ## Section 4: Practice, Phonics, Story Quests, And Guided Reading
 
+Status: complete in this pass.
+
 - Make the child practice areas feel like one coherent student product.
 - Improve activity selection, progress feedback, and return paths.
 - Finish game and phonics layout checks across desktop, tablet, and small screens.

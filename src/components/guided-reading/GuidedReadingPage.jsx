@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   formatGuidedReadingType,
@@ -598,6 +598,11 @@ export function GuidedReadingPage({
   const visibleLibraryBooks = selectedLibraryType && selectedLibraryLevel
     ? getGuidedReadingLevelBooks(selectedLibraryType, selectedLibraryLevel)
     : [];
+  const guidedReadingModeClass = isStudentMode ? "student-guided-reading-page" : "teacher-guided-reading-page";
+  const guidedReadingPageClassName = [
+    readerOpen ? "guided-reading-page guided-reading-reader-open" : "teacher-product-page guided-reading-page",
+    guidedReadingModeClass
+  ].join(" ");
 
   useEffect(() => {
     return () => {
@@ -1245,13 +1250,14 @@ export function GuidedReadingPage({
 
   if (!selectedBook) {
     return (
-      <div className="teacher-product-page guided-reading-page">
-        <section className="teacher-page-header">
+      <div className={`teacher-product-page guided-reading-page ${guidedReadingModeClass}`}>
+        <section className="teacher-page-header guided-reading-hero">
           <div>
             <p className="panel-label">Guided Reading</p>
             <h2>{studentName || "Student"} Reading Library</h2>
             <p>Guided Reading books are temporarily paused while the page images and app text are regenerated to match correctly.</p>
           </div>
+          <span className="guided-reading-mode-pill">{isStudentMode ? "Student reader" : "Teacher tools"}</span>
         </section>
 
         <section className="guided-reader-empty">
@@ -1262,7 +1268,7 @@ export function GuidedReadingPage({
           </p>
         </section>
 
-        {recordSummaries.length > 0 && (
+        {!isStudentMode && recordSummaries.length > 0 && (
           <section className="teacher-action-panel">
             <h3>Saved guided reading summaries</h3>
             <div className="guided-record-list">
@@ -1281,13 +1287,14 @@ export function GuidedReadingPage({
   }
 
   return (
-    <div className={readerOpen ? "guided-reading-page guided-reading-reader-open" : "teacher-product-page guided-reading-page"}>
-      <section className="teacher-page-header">
+    <div className={guidedReadingPageClassName}>
+      <section className="teacher-page-header guided-reading-hero">
         <div>
           <p className="panel-label">Guided Reading</p>
           <h2>{studentName || "Student"} Reading Library</h2>
           <p>{isStudentMode ? "Choose a book to listen, read, and reread." : "Choose a guided reading book to listen, read, reread, and capture teacher notes."}</p>
         </div>
+        <span className="guided-reading-mode-pill">{isStudentMode ? "Student reader" : "Teacher tools"}</span>
       </section>
 
       {!readerOpen && (selectedLibraryType || selectedLibraryLevel) && (
@@ -1339,7 +1346,9 @@ export function GuidedReadingPage({
                 }}
                 type="button"
               >
-                <span className="guided-category-icon">N</span>
+                <span className={`guided-category-icon ${card.type}`}>
+                  {card.type === "nonfiction" ? "NF" : "F"}
+                </span>
                 <strong>{card.label}</strong>
                 <small>{card.count} books · Levels {card.levels.join(", ")}</small>
               </button>
@@ -1375,6 +1384,14 @@ export function GuidedReadingPage({
           <div className="guided-book-grid">
             {visibleLibraryBooks.map(book => {
               const progress = getGuidedReadingProgress(book, guidedReadingRecords[book.id]);
+              const hasStarted = Boolean(progress.lastReadAt || progress.completedPages > 0);
+              const actionLabel = progress.completed
+                ? "Read Again"
+                : hasStarted
+                  ? "Continue"
+                  : isStudentMode
+                    ? "Start Book"
+                    : "Open Book";
 
               return (
                 <article
@@ -1388,12 +1405,15 @@ export function GuidedReadingPage({
                   <div className="guided-book-info">
                     <h3 className="guided-book-title">{book.title}</h3>
                     <p className="guided-book-meta">{book.seriesTitle ? `${book.seriesTitle} · ` : ""}{formatGuidedReadingType(book.type)} · Level {book.level} · {book.pages.length} pages</p>
+                    <p className="guided-book-progress">
+                      {progress.completed ? "Completed" : hasStarted ? `${progress.completedPages}/${book.pages.length} pages read` : "Not started"}
+                    </p>
                     <button
                       className="guided-book-action"
                       onClick={() => changeBook(book.id)}
                       type="button"
                     >
-                      {progress.completed ? "Read Again" : "Read"}
+                      {actionLabel}
                     </button>
                   </div>
                 </article>
@@ -1407,9 +1427,9 @@ export function GuidedReadingPage({
       {!readerOpen && recommendedBooks.length > 0 && (
         <section className="guided-recommendation-panel" aria-label="Guided reading recommendations">
           <div>
-            <p className="panel-label">Adaptive Recommendations</p>
-            <h3>Suggested next reads</h3>
-            <p>Based on phonics patterns, decodable percentage, rereading history, and current review-safe book status.</p>
+            <p className="panel-label">{isStudentMode ? "Up Next" : "Adaptive Recommendations"}</p>
+            <h3>{isStudentMode ? "Try one of these books" : "Suggested next reads"}</h3>
+            <p>{isStudentMode ? "Books matched to recent reading practice." : "Based on phonics patterns, decodable percentage, rereading history, and current review-safe book status."}</p>
           </div>
           <div className="guided-recommendation-list">
             {recommendedBooks.map(item => (
@@ -1436,7 +1456,12 @@ export function GuidedReadingPage({
           <div className="guided-reader-card">
             <div className="guided-reader-header">
               <div>
-                <p className="panel-label">{selectedBook.type} · Level {selectedBook.level}</p>
+                <div className="guided-reader-title-row">
+                  <p className="panel-label">{selectedBook.type} · Level {selectedBook.level}</p>
+                  <span className="guided-reading-mode-pill compact">
+                    {isStudentMode ? "Student reader" : "Teacher conference"}
+                  </span>
+                </div>
                 <h3>{selectedBook.title}</h3>
                 <p>{(selectedBook.targetSkills || selectedBook.recommendedSkillsToReinforce || []).join(" · ")}</p>
               </div>
@@ -1513,7 +1538,7 @@ export function GuidedReadingPage({
                 </button>
                 {!isReaderFullscreen && (
                   <button className="lp-button lp-button-secondary" onClick={closeReader} type="button">
-                    Close Reader
+                    {isStudentMode ? "Back to Library" : "Close Reader"}
                   </button>
                 )}
               </div>
@@ -1525,23 +1550,30 @@ export function GuidedReadingPage({
               </p>
             )}
 
-            {!isReaderFullscreen && <div className="guided-reader-modebar" aria-label="Guided Reading mode">
-              <div className="guided-mode-toggle" role="group" aria-label="Reader mode">
-                <button
-                  className={readingMode === "reading" ? "active" : ""}
-                  onClick={() => setReadingMode("reading")}
-                  type="button"
-                >
-                  Reading Mode
-                </button>
-                {!isStudentMode && <button
-                  className={readingMode === "marking" ? "active" : ""}
-                  onClick={() => setReadingMode("marking")}
-                  type="button"
-                >
-                  Marking Mode
-                </button>}
-              </div>
+            {!isReaderFullscreen && <div className={isStudentMode ? "guided-reader-modebar student" : "guided-reader-modebar"} aria-label="Guided Reading mode">
+              {isStudentMode ? (
+                <div className="guided-student-mode-note">
+                  <strong>Reading mode</strong>
+                  <span>Tap words to hear them.</span>
+                </div>
+              ) : (
+                <div className="guided-mode-toggle" role="group" aria-label="Reader mode">
+                  <button
+                    className={readingMode === "reading" ? "active" : ""}
+                    onClick={() => setReadingMode("reading")}
+                    type="button"
+                  >
+                    Reading Mode
+                  </button>
+                  <button
+                    className={readingMode === "marking" ? "active" : ""}
+                    onClick={() => setReadingMode("marking")}
+                    type="button"
+                  >
+                    Marking Mode
+                  </button>
+                </div>
+              )}
               <p>
                 {readingMode === "reading"
                   ? "Tap a word to hear it when approved word audio is available."
@@ -1734,26 +1766,28 @@ export function GuidedReadingPage({
             </div>
           </div>
 
-          <div className="checkpoint-detail-grid">
-            <section>
-              <h3>Support words</h3>
-              <p>{summary.supportWords.length ? summary.supportWords.join(", ") : "No support words marked."}</p>
-            </section>
-            <section>
-              <h3>Teacher notes</h3>
-              <p>{summary.wholeBookNote || "No whole-book note yet."}</p>
-              {summary.pageNotes.map(item => (
-                <p key={item.page}><strong>Page {item.page}:</strong> {item.note}</p>
-              ))}
-            </section>
-          </div>
+          {!isStudentMode && (
+            <div className="checkpoint-detail-grid">
+              <section>
+                <h3>Support words</h3>
+                <p>{summary.supportWords.length ? summary.supportWords.join(", ") : "No support words marked."}</p>
+              </section>
+              <section>
+                <h3>Teacher notes</h3>
+                <p>{summary.wholeBookNote || "No whole-book note yet."}</p>
+                {summary.pageNotes.map(item => (
+                  <p key={item.page}><strong>Page {item.page}:</strong> {item.note}</p>
+                ))}
+              </section>
+            </div>
+          )}
 
           <div className="teacher-action-list">
             <button className="lp-button lp-button-primary" onClick={() => {
               setReaderOpen(true);
               setShowSummary(false);
             }} type="button">
-              Continue Marking
+              {isStudentMode ? "Read Again" : "Continue Marking"}
             </button>
             <button className="lp-button lp-button-secondary" onClick={closeReader} type="button">
               Back to Library
@@ -1767,7 +1801,7 @@ export function GuidedReadingPage({
         </section>
       )}
 
-      {recordSummaries.length > 0 && (
+      {!isStudentMode && recordSummaries.length > 0 && (
         <section className="teacher-action-panel">
           <h3>Saved guided reading summaries</h3>
           <div className="guided-record-list">

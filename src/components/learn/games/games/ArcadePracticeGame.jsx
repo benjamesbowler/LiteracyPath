@@ -57,13 +57,30 @@ function GameComplete({ title, stars, score, onRestart }) {
 }
 
 function WordImageCard({ word }) {
+  const [failedImageWord, setFailedImageWord] = useState("");
   const asset = getChildWordAsset(word, { allowBlockedAssessmentImage: true });
-  const src = asset?.image || asset?.fallbackImage || `/images/cvc/${word}.svg`;
-  if (!src) return null;
+  const src = asset?.image || asset?.fallbackImage || "";
+  const imageFailed = failedImageWord === word;
+
+  if (!src || imageFailed) {
+    return (
+      <div className="lg-game-picture lg-game-picture-text" aria-label={`Word card for ${word}`}>
+        <span>{word}</span>
+      </div>
+    );
+  }
 
   return (
     <div className="lg-game-picture">
-      <img src={src} alt={asset?.alt || `Picture for ${word}`} loading="lazy" decoding="async" width="120" height="120" />
+      <img
+        src={src}
+        alt={asset?.alt || `Picture for ${word}`}
+        loading="lazy"
+        decoding="async"
+        width="120"
+        height="120"
+        onError={() => setFailedImageWord(word)}
+      />
     </div>
   );
 }

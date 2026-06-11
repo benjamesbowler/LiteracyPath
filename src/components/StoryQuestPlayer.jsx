@@ -65,6 +65,7 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
         .filter(tag => targetWords.has(tag))
     ));
   }, [quest, visitedPageIds]);
+  const targetWordTotal = quest?.targetWords?.length || 0;
   const currentPageWords = (currentPage?.skillTags || [])
     .filter(tag => !["short_a", "hfw_1_25"].includes(String(tag).toLowerCase()))
     .slice(0, 4);
@@ -282,11 +283,11 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
           </div>
           <div className="story-quest-header-actions">
             <button className="lp-button lp-button-secondary" onClick={toggleFullscreen} type="button">
-              {isFullscreen ? "Exit" : "Full"}
+              {isFullscreen ? "Exit Full" : "Full Screen"}
             </button>
             {onExit && (
               <button className="lp-button lp-button-secondary" onClick={exitReader} type="button">
-                Close
+                Back to Library
               </button>
             )}
           </div>
@@ -330,18 +331,24 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
             Restart
           </button>
           <button className="lp-button lp-button-secondary" onClick={toggleFullscreen} type="button">
-            {isFullscreen ? "Exit" : "Full"}
+            {isFullscreen ? "Exit Full" : "Full Screen"}
           </button>
           {onExit && (
             <button className="lp-button lp-button-secondary" onClick={exitReader} type="button">
-              Close
+              Back to Library
             </button>
           )}
         </div>
       </header>
 
-      <div className="story-quest-progress" aria-label={`Page ${currentPageNumber} of ${totalPages}`}>
-        <span>Page {currentPageNumber} of {totalPages}</span>
+      <div
+        className="story-quest-progress"
+        aria-label={`Page ${currentPageNumber} of ${totalPages}. ${foundWords.length} of ${targetWordTotal} target words found.`}
+      >
+        <div className="story-quest-progress-top">
+          <span>Page {currentPageNumber} of {totalPages}</span>
+          <span>{foundWords.length}/{targetWordTotal} words found</span>
+        </div>
         <div className="story-quest-progress-bar">
           <span style={{ width: `${totalPages ? (currentPageNumber / totalPages) * 100 : 0}%` }} />
         </div>
