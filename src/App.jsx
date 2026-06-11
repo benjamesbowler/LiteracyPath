@@ -7466,7 +7466,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
             <div className="auth-hero-main">
               <div className="auth-hero-copy">
-                <h1>Every reader<br/>finds their<br/>path.</h1>
+                <h1>Every reader{" "}<br />finds their{" "}<br />path.</h1>
                 <p>Structured literacy progression for classrooms, reading groups, and guided practice sessions.</p>
               </div>
               <ul className="auth-hero-features" aria-label="Features">

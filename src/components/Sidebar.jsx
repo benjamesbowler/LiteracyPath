@@ -34,6 +34,12 @@ const ICONS = {
       <path d="M12 3 2.5 8 12 13l9.5-5L12 3Zm-6 9.2v4.2c0 1.7 3 3.1 6 3.1s6-1.4 6-3.1v-4.2l-6 3.1-6-3.1Z" />
     </svg>
   ),
+  phonics: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 19 9 5h2l5 14h-2.4l-1-3H7.4l-1 3H4Zm4.1-5h3.8L10 8.4 8.1 14Z" />
+      <path d="M15.5 5h2v14h-2V5Zm3.5 0h1.8L18.4 12l2.7 7h-2l-2.4-6.7L19 5Z" />
+    </svg>
+  ),
   reports: (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M5 20V5h2v15H5Zm4 0v-8h2v8H9Zm4 0V8h2v12h-2Zm4 0v-5h2v5h-2Z" />
@@ -65,7 +71,7 @@ const NAV_ITEMS = [
   },
   {
     id: "assessment",
-    label: "Assessment",
+    label: "Checkpoints",
     icon: "assessment",
     views: [APP_VIEWS.OVERVIEW, APP_VIEWS.SKILLS, APP_VIEWS.ASSESSMENT,
             APP_VIEWS.CHECKPOINT, APP_VIEWS.FINISHED, APP_VIEWS.LETTERS,
@@ -74,29 +80,29 @@ const NAV_ITEMS = [
   },
   {
     id: "el",
-    label: "EL Assessments",
+    label: "EL Checks",
     icon: "el",
     views: [APP_VIEWS.EL_ASSESSMENTS],
     requiresStudent: true,
   },
   {
     id: "reading",
-    label: "Guided reading",
+    label: "Guided Reading",
     icon: "reading",
     views: [APP_VIEWS.GUIDED_READING],
     requiresStudent: true,
   },
   {
     id: "learn",
-    label: "Story Quests",
+    label: "Practice",
     icon: "learn",
     views: [APP_VIEWS.LEARN],
     requiresStudent: true,
   },
   {
     id: "phonics",
-    label: "Learn",
-    icon: "el",
+    label: "Phonics",
+    icon: "phonics",
     views: [APP_VIEWS.PHONICS_LEARN],
     requiresStudent: true,
   },
@@ -160,6 +166,11 @@ export function Sidebar({
     return item.views.includes(appView);
   }
 
+  function getItemTitle(item) {
+    if (item.requiresStudent && !nameSaved) return "Select a student first";
+    return collapsed ? item.label : undefined;
+  }
+
   return (
     <aside
       className={`lg-sidebar${collapsed ? " collapsed" : ""}`}
@@ -199,7 +210,8 @@ export function Sidebar({
             disabled={item.requiresStudent && !nameSaved}
             onClick={() => handleNavClick(item)}
             aria-current={isActive(item) ? "page" : undefined}
-            title={collapsed ? item.label : item.requiresStudent && !nameSaved ? "Select a student first" : undefined}
+            aria-label={item.requiresStudent && !nameSaved ? `${item.label}. Select a student first.` : item.label}
+            title={getItemTitle(item)}
           >
             <span className="lg-sb-item-icon">{ICONS[item.icon]}</span>
             <span className="lg-sb-item-label">{item.label}</span>
@@ -230,6 +242,7 @@ export function Sidebar({
           <button
             className="lg-sb-item"
             onClick={logOutTeacher}
+            aria-label={`Sign out ${teacherEmail}`}
             title={collapsed ? `Sign out (${teacherEmail})` : undefined}
           >
             <span className="lg-sb-item-icon">{ICONS.logout}</span>

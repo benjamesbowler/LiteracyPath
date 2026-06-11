@@ -12,6 +12,14 @@ function StudentHomeCard({ title, subtitle, art, onClick }) {
   );
 }
 
+function SignOutIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 4h9v2H6v12h7v2H4V4Zm11.6 4.4L20.2 13l-4.6 4.6-1.4-1.4 2.2-2.2H10v-2h6.4l-2.2-2.2 1.4-1.4Z" />
+    </svg>
+  );
+}
+
 export function StudentHomePage({
   studentName,
   onOpenPhonicsLearn,
@@ -26,11 +34,12 @@ export function StudentHomePage({
           {String(studentName || "S").slice(0, 1).toUpperCase()}
         </div>
         <div>
-          <span>Hello</span>
+          <span className="student-home-eyebrow">Hello</span>
           <strong>{studentName || "Reader"}</strong>
         </div>
         <button className="student-home-logout" onClick={onLogout} type="button" aria-label="Log out">
-          Door
+          <SignOutIcon />
+          <span>Sign out</span>
         </button>
       </header>
 

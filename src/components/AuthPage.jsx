@@ -23,17 +23,17 @@ export function AuthPage({
   const isSignup = authMode === "signup";
 
   return (
-    <div className="card page-card page-stack auth-card">
+    <div className="card page-card page-stack auth-card" aria-busy={authLoading}>
       <div className="auth-heading">
-        <h2>{isResetPassword ? "Set New Password" : isForgotPassword ? "Reset Password" : isSignup ? "Request Access" : "Teacher Login"}</h2>
+        <h2>{isResetPassword ? "Set new password" : isForgotPassword ? "Reset password" : isSignup ? "Create teacher account" : "Teacher login"}</h2>
         <p className="muted-text">
           {isResetPassword
             ? "Enter a new password for your account."
             : isForgotPassword
-              ? "Enter your email and we will send a Supabase reset link."
+              ? "Enter your email and we will send a password reset link."
               : isSignup
-                ? "Create a teacher account request. An administrator must approve it before access opens."
-                : "Sign in to view only your own classes and student data."}
+                ? "Create an account request for your school. Approval is required before access opens."
+                : "Open your classes, checkpoints, reports, and reading records."}
         </p>
       </div>
 
@@ -110,16 +110,16 @@ export function AuthPage({
         {isForgotPassword ? (
           <>
             <button className="main-button" disabled={authLoading} onClick={requestPasswordReset} type="button">
-              Send Reset Email
+              Send reset email
             </button>
             <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("login")} type="button">
-              Back to Login
+              Back to login
             </button>
           </>
         ) : isResetPassword ? (
           <>
             <button className="main-button" disabled={authLoading} onClick={completePasswordReset} type="button">
-              Update Password
+              Update password
             </button>
             <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("login")} type="button">
               Cancel
@@ -128,20 +128,20 @@ export function AuthPage({
         ) : isSignup ? (
           <>
             <button className="main-button" disabled={authLoading} onClick={signUpTeacher} type="button">
-              Submit Request
+              Submit request
             </button>
             <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("login")} type="button">
-              Back to Login
+              Back to login
             </button>
           </>
         ) : (
           <>
             <button className="main-button" disabled={authLoading} onClick={logInTeacher} type="button">
-              Log In
+              Log in
             </button>
 
             <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("signup")} type="button">
-              Sign Up
+              Create account
             </button>
           </>
         )}
@@ -153,7 +153,7 @@ export function AuthPage({
         </button>
       )}
 
-      {authMessage && <p className="message auth-message">{authMessage}</p>}
+      {authMessage && <p className="message auth-message" role="status" aria-live="polite">{authMessage}</p>}
 
       {!isForgotPassword && !isResetPassword && !isSignup && (
         <p className="auth-footnote">Secure classroom access for teachers and reading specialists.</p>

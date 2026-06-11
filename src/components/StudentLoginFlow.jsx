@@ -34,6 +34,12 @@ function speakLine(key, options = {}) {
 
 const SCHOOL_STORAGE_KEY = "lp-student-login-school";
 const CLASS_STORAGE_KEY = "lp-student-login-class";
+const STEP_ITEMS = [
+  { id: "school", label: "School" },
+  { id: "class", label: "Class" },
+  { id: "student", label: "Name" },
+  { id: "pictures", label: "Pictures" }
+];
 
 function normalizeRows(data) {
   return Array.isArray(data) ? data : [];
@@ -59,12 +65,50 @@ function StepHeader({ title, subtitle }) {
   );
 }
 
-function TileGrid({ rows, onPick, selectedId, renderTitle }) {
+function getProgressStep(step) {
+  if (step === "password" || step === "setup") return "pictures";
+  return step;
+}
+
+function StepProgress({ step }) {
+  const currentIndex = STEP_ITEMS.findIndex(item => item.id === getProgressStep(step));
+  return (
+    <ol className="student-flow-stepper" aria-label="Student sign in steps">
+      {STEP_ITEMS.map((item, index) => {
+        const isCurrent = index === currentIndex;
+        const isComplete = currentIndex > index;
+        return (
+          <li
+            className={`${isCurrent ? "current" : ""}${isComplete ? " complete" : ""}`}
+            key={item.id}
+            aria-current={isCurrent ? "step" : undefined}
+          >
+            <span aria-hidden="true">{isComplete ? "OK" : index + 1}</span>
+            {item.label}
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
+
+function StudentFlowState({ title, detail, loading = false }) {
+  return (
+    <div className={`student-flow-state${loading ? " loading" : ""}`} role="status" aria-live="polite">
+      {loading && <span className="student-flow-spinner" aria-hidden="true" />}
+      <strong>{title}</strong>
+      {detail && <span>{detail}</span>}
+    </div>
+  );
+}
+
+function TileGrid({ rows, onPick, selectedId, renderTitle, disabled = false }) {
   return (
     <div className="student-flow-tile-grid">
       {rows.map(row => (
         <button
           className={row.id === selectedId ? "student-flow-tile selected" : "student-flow-tile"}
+          disabled={disabled}
           key={row.id}
           onClick={() => onPick(row)}
           type="button"
@@ -99,7 +143,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
   const filteredSchools = useMemo(() => {
     const clean = query.trim().toLowerCase();
     if (!clean) return schools;
-    return schools.filter(row => row.name.toLowerCase().includes(clean));
+    return schools.filter(row => String(row.name || "").toLowerCase().includes(clean));
   }, [query, schools]);
 
   useEffect(() => {
@@ -273,34 +317,59 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
         {step === "school" && (
           <>
             <StepHeader title="Pick your school" subtitle="Tap the big tile." />
+            <StepProgress step={step} />
             <input
               className="student-flow-search"
               value={query}
               placeholder="Find school"
               onChange={event => setQuery(event.target.value)}
               type="search"
+              aria-label="Find school"
             />
-            {loading ? <p className="muted-text">Loading...</p> : <TileGrid rows={filteredSchools} selectedId={selectedSchool?.id} onPick={pickSchool} />}
+            {loading ? (
+              <StudentFlowState title="Loading schools" detail="This should only take a moment." loading />
+            ) : filteredSchools.length > 0 ? (
+              <TileGrid rows={filteredSchools} selectedId={selectedSchool?.id} onPick={pickSchool} />
+            ) : schools.length > 0 ? (
+              <StudentFlowState title="No school matches that search" detail="Try a shorter school name." />
+            ) : (
+              <StudentFlowState title="No schools are ready yet" detail="Ask your teacher to finish school setup." />
+            )}
           </>
         )}
 
         {step === "class" && (
           <>
             <StepHeader title="Pick your class" subtitle={selectedSchool?.name} />
-            <TileGrid rows={classes} selectedId={selectedClass?.id} onPick={pickClass} />
+            <StepProgress step={step} />
+            {loading ? (
+              <StudentFlowState title="Loading classes" loading />
+            ) : classes.length > 0 ? (
+              <TileGrid rows={classes} selectedId={selectedClass?.id} onPick={pickClass} />
+            ) : (
+              <StudentFlowState title="No classes are ready yet" detail="Ask your teacher to add your class." />
+            )}
           </>
         )}
 
         {step === "student" && (
           <>
             <StepHeader title="Who are you?" subtitle={selectedClass?.name} />
-            <TileGrid rows={students} selectedId={selectedStudent?.id} onPick={pickStudent} />
+            <StepProgress step={step} />
+            {loading ? (
+              <StudentFlowState title="Loading names" loading />
+            ) : students.length > 0 ? (
+              <TileGrid rows={students} selectedId={selectedStudent?.id} onPick={pickStudent} />
+            ) : (
+              <StudentFlowState title="No students are ready yet" detail="Ask your teacher to add your name." />
+            )}
           </>
         )}
 
         {step === "password" && (
           <>
             <StepHeader title="Tap your pictures" subtitle={selectedStudent?.name} />
+            <StepProgress step={step} />
             {locked ? (
               <div className="student-lockout-card">
                 <h2>Ask your teacher for help</h2>
@@ -318,6 +387,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
               title={setupConfirming ? "Do it again" : "Choose your pictures"}
               subtitle={setupConfirming ? "Tap the same three pictures." : "Pick three secret pictures."}
             />
+            <StepProgress step={step} />
             <SymbolPasswordPad
               value={setupConfirming ? confirmSequence : setupSequence}
               onChange={setupConfirming ? setConfirmSequence : setSetupSequence}
@@ -327,7 +397,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
           </>
         )}
 
-        {status && <p className="student-flow-status">{status}</p>}
+        {status && <p className="student-flow-status" role="status" aria-live="polite">{status}</p>}
         <div className="student-flow-footer">
           {step !== "school" && (
             <button className="student-flow-back" onClick={() => {
