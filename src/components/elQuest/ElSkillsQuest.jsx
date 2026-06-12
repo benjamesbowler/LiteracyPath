@@ -264,7 +264,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
       <main className="skills-block-quest">
         <div className="sbq-celebrate">
           {isCycle && <ConfettiCelebration show={celebration.stars > 0} />}
-          <img src={isCycle ? "/images/learn-games/phinny-cheering.webp" : "/images/learn-games/phinny-pointing.webp"} alt="" />
+          <img src={isCycle ? worldForCycle(activeCycle.cycleNumber).cheer : worldForCycle(activeCycle.cycleNumber).point} alt="" />
           <h2>{isCycle ? `Cycle ${activeCycle.cycleNumber} complete!` : "Station done!"}</h2>
           <p>{celebration.correct}/{celebration.total} right</p>
           {isCycle && <ProgressStars stars={celebration.stars} size="lg" />}

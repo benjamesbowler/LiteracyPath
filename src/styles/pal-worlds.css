@@ -5,7 +5,8 @@
   --pal-accent: #4E8C44;
   --pal-accent-soft: #EAF4E6;
   --pal-deep: #35652E;
-  --pal-banner: url("/guided-reading/series/meadow-pals/book-01/cover.webp");
+  --pal-banner: url("/images/pals/meadow-panorama.webp");
+  --pal-emblem: url("/images/pals/meadow-emblem.webp");
   --pal-mesh:
     radial-gradient(640px 420px at 6% -6%, rgba(94, 160, 82, 0.16), transparent 60%),
     radial-gradient(560px 380px at 96% 12%, rgba(142, 201, 232, 0.14), transparent 58%),
@@ -16,7 +17,8 @@
   --pal-accent: #C2702A;
   --pal-accent-soft: #FBEFE2;
   --pal-deep: #92511B;
-  --pal-banner: url("/guided-reading/series/dino-pals/book-01/cover.webp");
+  --pal-banner: url("/images/pals/dino-panorama.webp");
+  --pal-emblem: url("/images/pals/dino-emblem.webp");
   --pal-mesh:
     radial-gradient(640px 420px at 6% -6%, rgba(217, 136, 65, 0.16), transparent 60%),
     radial-gradient(560px 380px at 96% 12%, rgba(62, 124, 79, 0.13), transparent 58%),
@@ -27,17 +29,14 @@
   --pal-accent: #5E4D9C;
   --pal-accent-soft: #EFEBFA;
   --pal-deep: #443678;
-  --pal-banner: url("/guided-reading/series/moonwood-tales/book-01/cover.webp");
+  --pal-banner: url("/images/pals/moonwood-panorama.webp");
+  --pal-emblem: url("/images/pals/moonwood-emblem.webp");
   --pal-mesh:
     radial-gradient(640px 420px at 6% -6%, rgba(94, 77, 156, 0.15), transparent 60%),
     radial-gradient(560px 380px at 96% 12%, rgba(232, 181, 99, 0.12), transparent 58%),
     linear-gradient(180deg, #FBFAFE 0%, #F1EFF8 100%);
 }
 
-/* Panoramas replace book covers automatically when the files exist. */
-[data-pal-world="meadow"].pal-has-panorama { --pal-banner: url("/images/pals/meadow-panorama.png"); }
-[data-pal-world="dino"].pal-has-panorama { --pal-banner: url("/images/pals/dino-panorama.png"); }
-[data-pal-world="moonwood"].pal-has-panorama { --pal-banner: url("/images/pals/moonwood-panorama.png"); }
 
 /* ── World banner header (arcade, quest, library) ─────────────────────── */
 .pal-world-banner {
@@ -46,7 +45,7 @@
   border: 1px solid rgba(15, 23, 42, 0.06);
   border-radius: 16px;
   background-image:
-    linear-gradient(95deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 46%, rgba(255, 255, 255, 0.30) 100%),
+    linear-gradient(95deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.78) 40%, rgba(255, 255, 255, 0.08) 100%),
     var(--pal-banner);
   background-size: cover;
   background-position: right center;
@@ -68,10 +67,11 @@
 
 .pal-world-chip::before {
   content: "";
-  width: 9px;
-  height: 9px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: var(--pal-accent);
+  background-image: var(--pal-emblem);
+  background-size: cover;
 }
 
 /* ── Token hookups inside a themed surface ────────────────────────────── */

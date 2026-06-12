@@ -7,8 +7,10 @@ export const PAL_WORLDS = {
     accent: "#4E8C44",
     accentSoft: "#EAF4E6",
     deep: "#35652E",
-    banner: "/images/pals/meadow-panorama.png",
-    fallbackBanner: "/guided-reading/series/meadow-pals/book-01/cover.webp"
+    banner: "/images/pals/meadow-panorama.webp",
+    emblem: "/images/pals/meadow-emblem.webp",
+    cheer: "/images/pals/meadow-cheer.webp",
+    point: "/images/pals/meadow-point.webp"
   },
   dino: {
     id: "dino",
@@ -16,8 +18,10 @@ export const PAL_WORLDS = {
     accent: "#C2702A",
     accentSoft: "#FBEFE2",
     deep: "#92511B",
-    banner: "/images/pals/dino-panorama.png",
-    fallbackBanner: "/guided-reading/series/dino-pals/book-01/cover.webp"
+    banner: "/images/pals/dino-panorama.webp",
+    emblem: "/images/pals/dino-emblem.webp",
+    cheer: "/images/pals/dino-cheer.webp",
+    point: "/images/pals/dino-point.webp"
   },
   moonwood: {
     id: "moonwood",
@@ -25,8 +29,10 @@ export const PAL_WORLDS = {
     accent: "#5E4D9C",
     accentSoft: "#EFEBFA",
     deep: "#443678",
-    banner: "/images/pals/moonwood-panorama.png",
-    fallbackBanner: "/guided-reading/series/moonwood-tales/book-01/cover.webp"
+    banner: "/images/pals/moonwood-panorama.webp",
+    emblem: "/images/pals/moonwood-emblem.webp",
+    cheer: "/images/pals/moonwood-cheer.webp",
+    point: "/images/pals/moonwood-point.webp"
   }
 };
 
