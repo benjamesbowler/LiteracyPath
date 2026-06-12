@@ -1426,3 +1426,31 @@
 .lg-game-stage {
   width: min(100%, 880px);
 }
+
+/* ── Memory grid: every card on screen, even on phones ────────────────── */
+.lg-card-grid.memory {
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  gap: 10px;
+}
+
+@media (max-width: 620px) {
+  .lg-card-grid,
+  .lg-card-grid.memory {
+    width: 100%;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .lg-match-card {
+    aspect-ratio: 1;
+    min-width: 0;
+    min-height: 0;
+    padding: 4px;
+    font-size: clamp(0.8rem, 4.2vw, 1.05rem);
+  }
+
+  .lg-game-stage {
+    padding: 18px 10px;
+    gap: 12px;
+  }
+}
