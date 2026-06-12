@@ -6,7 +6,7 @@ import { playCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
 import { playCorrectChime, playSoftBuzz, playCelebrationFanfare, playStarChime } from "../../utils/audio/gameSfx.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
 import { markMissionDone } from "../../utils/dailyMission.js";
-import { awardCollectible } from "../../utils/studentProfile.js";
+import { awardCollectible, getCompanion } from "../../utils/studentProfile.js";
 import { printCertificate } from "../../utils/printCertificate.js";
 import { Gem } from "../Gem.jsx";
 import { gemForIndex } from "../../data/gemSet.js";
@@ -70,6 +70,72 @@ function PictureChoice({ word }) {
       <img src={src} alt="" loading="lazy" onError={() => setFailed(true)} />
       <span className="sbq-choice-caption">{word}</span>
     </>
+  );
+}
+
+// Letter tracing: a big faint letter with a finger-paint canvas on top.
+// Generous by design - any decent amount of tracing counts.
+function TraceRound({ round, onResult }) {
+  const canvasRef = useRef(null);
+  const drawing = useRef(false);
+  const [ink, setInk] = useState(0);
+
+  function pointFrom(event) {
+    const canvas = canvasRef.current;
+    const rect = canvas.getBoundingClientRect();
+    return [
+      ((event.clientX - rect.left) * canvas.width) / rect.width,
+      ((event.clientY - rect.top) * canvas.height) / rect.height
+    ];
+  }
+
+  function paint(event) {
+    if (!drawing.current) return;
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    const [x, y] = pointFrom(event);
+    ctx.fillStyle = "#2F9E62";
+    ctx.beginPath();
+    ctx.arc(x, y, 10, 0, Math.PI * 2);
+    ctx.fill();
+    setInk(value => value + 1);
+  }
+
+  function clearInk() {
+    const canvas = canvasRef.current;
+    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+    setInk(0);
+  }
+
+  return (
+    <div className="sbq-trace">
+      <div className="sbq-trace-stage">
+        <span className="sbq-trace-letter" aria-hidden="true">{round.letter}</span>
+        <canvas
+          ref={canvasRef}
+          width={460}
+          height={300}
+          aria-label={`Trace the letter ${round.letter}`}
+          onPointerDown={event => { drawing.current = true; event.currentTarget.setPointerCapture(event.pointerId); paint(event); }}
+          onPointerMove={paint}
+          onPointerUp={() => { drawing.current = false; }}
+          onPointerCancel={() => { drawing.current = false; }}
+        />
+      </div>
+      <div className="sbq-trace-actions">
+        <button className="sbq-ghost-button" type="button" onClick={clearInk}>
+          Start again
+        </button>
+        <button
+          className="sbq-primary-button"
+          type="button"
+          disabled={ink < 25}
+          onClick={() => onResult(true)}
+        >
+          Done!
+        </button>
+      </div>
+    </div>
   );
 }
 
@@ -260,6 +326,8 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   }
 
   // ── Cycle map ──────────────────────────────────────────────────────────────
+  const travelerImage = getCompanion(progressScopeKey)?.image
+    || `/images/pals/poses/${worldForCycle(recommendedCycle?.cycleNumber || 1).id}-wave.webp`;
   if (!activeCycle) {
     return (
       <main className="skills-block-quest" data-pal-world={worldForCycle(recommendedCycle?.cycleNumber || 1).id}>
@@ -273,23 +341,36 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
             <button className="sbq-ghost-button" type="button" onClick={onExit}>Back</button>
           )}
         </header>
-        <div className="sbq-map" aria-label="Cycle path">
-          {playableCycles.map(cycle => {
+        <div className="sbq-map sbq-journey" aria-label="Cycle journey map">
+          {playableCycles.map((cycle, index) => {
             const cycleProgress = progress.cycles?.[cycle.id];
             const isRecommended = cycle.id === recommendedCycle?.id;
+            const stopWorld = worldForCycle(cycle.cycleNumber);
             return (
-              <button
+              <div
                 key={cycle.id}
-                type="button"
-                className={`sbq-map-stop${cycleProgress?.stars ? " done" : ""}${isRecommended ? " next" : ""}`}
-                data-stop-world={worldForCycle(cycle.cycleNumber).id}
-                style={worldStyle(worldForCycle(cycle.cycleNumber))}
-                onClick={() => openCycle(cycle)}
+                className={`sbq-journey-step${index % 2 ? " right" : " left"}${index === playableCycles.length - 1 ? " last" : ""}`}
               >
-                <strong>{cycle.cycleNumber}</strong>
-                <span>{(cycle.focusLetters || []).map(item => item.grapheme).join(" ") || "Review"}</span>
-                {cycleProgress?.stars ? <ProgressStars stars={cycleProgress.stars} /> : isRecommended ? <em>Start here</em> : null}
-              </button>
+                <button
+                  type="button"
+                  className={`sbq-map-stop${cycleProgress?.stars ? " done" : ""}${isRecommended ? " next" : ""}`}
+                  data-stop-world={stopWorld.id}
+                  style={worldStyle(stopWorld)}
+                  onClick={() => openCycle(cycle)}
+                >
+                  {isRecommended && (
+                    <img
+                      className="sbq-journey-avatar"
+                      src={travelerImage}
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  )}
+                  <strong>{cycle.cycleNumber}</strong>
+                  <span>{(cycle.focusLetters || []).map(item => item.grapheme).join(" ") || "Review"}</span>
+                  {cycleProgress?.stars ? <ProgressStars stars={cycleProgress.stars} /> : isRecommended ? <em>You are here</em> : null}
+                </button>
+              </div>
             );
           })}
         </div>
@@ -426,8 +507,15 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
             Listen
           </button>
 
+          {round.poem && round.poemTitle && <p className="sbq-poem-title">{round.poemTitle}</p>}
+          {round.display && (
+            <div className={`sbq-round-display${round.poem ? " sbq-poem" : ""}`}>{round.display}</div>
+          )}
+
           {round.type === "build" ? (
             <BuildRound key={`${round.word}-${roundIndex}`} round={round} onResult={handleAnswer} />
+          ) : round.type === "trace" ? (
+            <TraceRound key={`${round.letter}-${roundIndex}`} round={round} onResult={handleAnswer} />
           ) : (
             <div className={`sbq-answer-grid ${round.choiceStyle === "picture" ? "pictures" : round.choiceStyle === "letter" ? "letters" : "words"}`}>
               {round.choices.map(choice => (

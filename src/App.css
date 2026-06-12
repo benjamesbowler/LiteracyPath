@@ -15627,3 +15627,40 @@ select:focus {
 .login-auth-shell {
   position: relative;
 }
+
+/* ── Mobile: clear the floating Home pill and tidy the reader toolbar ── */
+@media (max-width: 640px) {
+  .student-home-float {
+    top: 8px;
+    left: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  /* Quest screens start below the float instead of underneath it */
+  .student-mode-app .skills-block-quest {
+    padding-top: 58px;
+  }
+
+  /* Book reader controls: tidy grid, no label wrapping */
+  .guided-page-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    width: 100%;
+  }
+
+  .guided-page-controls .lp-button {
+    min-height: 42px;
+    padding: 6px 8px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .guided-auto-advance-toggle {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+}

@@ -526,3 +526,147 @@
 .sbq-celebrate {
   background: rgba(255, 255, 255, 0.93);
 }
+
+/* ── New station types ─────────────────────────────────────────────────── */
+.sbq-round-display {
+  max-width: 560px;
+  padding: 10px 22px;
+  border-radius: 16px;
+  background: var(--lp-color-primary-soft);
+  color: var(--lp-color-text-strong);
+  font-family: var(--lp-font-reading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+}
+
+.sbq-round-display.sbq-poem {
+  white-space: pre-line;
+  font-size: clamp(1.05rem, 2.4vw, 1.4rem);
+  font-weight: 600;
+  line-height: 1.65;
+  text-align: center;
+  background: #FFFDF4;
+  border: 1px solid rgba(214, 138, 17, 0.30);
+}
+
+.sbq-poem-title {
+  margin: 0;
+  color: var(--lp-color-primary);
+  font-family: var(--lp-font-reading);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.sbq-trace-stage {
+  position: relative;
+  width: min(100%, 460px);
+  border: 2px dashed var(--lp-color-border-strong);
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+.sbq-trace-letter {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(15, 23, 42, 0.14);
+  font-family: var(--lp-font-reading);
+  font-size: clamp(7rem, 24vw, 12rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.sbq-trace-stage canvas {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.sbq-trace-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* ── Journey map: a winding trail of stops with the avatar at "next" ───── */
+.sbq-map.sbq-journey {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: min(100%, 620px);
+  margin-inline: auto;
+  padding: 8px 0 24px;
+}
+
+.sbq-journey-step {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding-bottom: 34px;
+}
+
+.sbq-journey-step.left { justify-content: flex-start; }
+.sbq-journey-step.right { justify-content: flex-end; }
+
+/* Dashed trail connecting each stop to the next */
+.sbq-journey-step::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  width: 38%;
+  height: 32px;
+  border-bottom: 4px dashed color-mix(in srgb, var(--pal-accent, #4E8C44) 45%, transparent);
+}
+
+.sbq-journey-step.left::after {
+  left: 31%;
+  border-right: 4px dashed color-mix(in srgb, var(--pal-accent, #4E8C44) 45%, transparent);
+  border-bottom-right-radius: 26px;
+}
+
+.sbq-journey-step.right::after {
+  right: 31%;
+  border-left: 4px dashed color-mix(in srgb, var(--pal-accent, #4E8C44) 45%, transparent);
+  border-bottom-left-radius: 26px;
+}
+
+.sbq-journey-step.last { padding-bottom: 0; }
+.sbq-journey-step.last::after { display: none; }
+
+.sbq-journey .sbq-map-stop {
+  position: relative;
+  width: min(62%, 300px);
+  min-height: 86px;
+  overflow: visible;
+}
+
+.sbq-journey .sbq-map-stop.next {
+  transform: scale(1.04);
+}
+
+.sbq-journey-avatar {
+  position: absolute;
+  top: -58px;
+  right: -14px;
+  height: 76px;
+  width: auto;
+  filter: drop-shadow(0 5px 10px rgba(15, 23, 42, 0.28));
+  animation: sbq-avatar-hop 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sbq-avatar-hop {
+  0%, 100% { transform: translateY(0); }
+  20% { transform: translateY(-8px); }
+  40% { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sbq-journey-avatar { animation: none; }
+}
