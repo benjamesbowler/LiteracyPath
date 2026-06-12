@@ -1357,3 +1357,72 @@
   min-height: 32px;
   margin: 8px 14px 10px;
 }
+
+/* ── Build games: slots are buttons now (tap to take a letter out) ────── */
+.lg-game-slots button {
+  width: clamp(58px, 10vw, 88px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 2px dashed var(--lg-border-strong);
+  border-radius: var(--lg-radius-tile);
+  background: var(--lg-surface);
+  color: #0F172A;
+  cursor: pointer;
+  font: 600 clamp(1.75rem, 4vw, 3rem) var(--phonics-font-display), sans-serif;
+}
+
+.lg-game-slots button.filled {
+  border-style: solid;
+  border-color: var(--lg-primary);
+  background: var(--lg-primary-soft);
+  animation: lg-pop 260ms ease-out;
+}
+
+.lg-game-slots button.filled:hover {
+  filter: brightness(0.96);
+}
+
+.lg-game-letter-bank button.used {
+  opacity: 0.35;
+  cursor: default;
+  transform: none;
+}
+
+/* Sentence Fix-It */
+.lg-fix-sentence {
+  display: inline-block;
+  line-height: 1.7;
+}
+
+.lg-fix-slot {
+  display: inline-grid;
+  place-items: center;
+  min-width: 2.2em;
+  margin: 0 0.18em;
+  padding: 0.04em 0.4em;
+  border: 2px dashed var(--lg-border-strong);
+  border-radius: 10px;
+  background: var(--lg-surface);
+  color: var(--lg-primary);
+  font-weight: 800;
+}
+
+.lg-fix-slot.solved {
+  border-style: solid;
+  border-color: var(--lg-primary);
+  background: var(--lg-primary-soft);
+  color: #0F172A;
+  animation: lg-pop 260ms ease-out;
+}
+
+/* ── Crisper stage over the vivid book scene ─────────────────────────── */
+.lg-game-stage,
+.lg-game-complete {
+  background: rgba(255, 255, 255, 0.93);
+}
+
+.lg-game-stage {
+  width: min(100%, 880px);
+}

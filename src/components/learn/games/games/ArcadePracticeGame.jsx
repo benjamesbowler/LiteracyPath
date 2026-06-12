@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { CVC_WORDS, RHYMING_PAIRS, SENTENCES, SIGHT_WORDS, WORD_FAMILIES } from "../../../../data/learnGamesData";
+import { CVC_WORDS, RHYMING_PAIRS, SENTENCE_FIX, SENTENCES, SIGHT_WORDS, WORD_FAMILIES } from "../../../../data/learnGamesData";
 import { getChildWordAsset } from "../../../../data/childAssets";
 import { speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
 import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz, playTrainWhistle } from "../../../../utils/audio/gameSfx";
@@ -17,21 +17,20 @@ function shuffle(items) {
   return copy;
 }
 
+/* Each difficulty draws ONLY from its own tier so Hard never serves
+   easy words. Easy = CVC (Level 1 sounds), Medium = digraphs and blends,
+   Hard = clusters and longer words (Level 2 skills). */
 function pickWords(difficulty, limit) {
-  const pool = [
-    ...CVC_WORDS.easy,
-    ...(difficulty !== "easy" ? CVC_WORDS.medium : []),
-    ...(difficulty === "hard" ? CVC_WORDS.hard : [])
-  ];
+  const pool = CVC_WORDS[difficulty] || CVC_WORDS.easy;
   return shuffle(pool).slice(0, limit);
 }
 
 function pickSightWords(difficulty, limit) {
-  const pool = [
-    ...SIGHT_WORDS.level1,
-    ...(difficulty !== "easy" ? SIGHT_WORDS.level2 : []),
-    ...(difficulty === "hard" ? SIGHT_WORDS.level3 : [])
-  ];
+  const pool = difficulty === "hard"
+    ? SIGHT_WORDS.level3
+    : difficulty === "medium"
+      ? SIGHT_WORDS.level2
+      : SIGHT_WORDS.level1;
   return shuffle(pool).slice(0, limit);
 }
 
@@ -56,13 +55,15 @@ function GameComplete({ title, stars, score, onRestart }) {
   );
 }
 
-function WordImageCard({ word }) {
+function WordImageCard({ word, secret = false }) {
   const [failedImageWord, setFailedImageWord] = useState("");
   const asset = getChildWordAsset(word, { allowBlockedAssessmentImage: true });
   const src = asset?.image || asset?.fallbackImage || "";
   const imageFailed = failedImageWord === word;
 
   if (!src || imageFailed) {
+    // In spelling games the text fallback would give the answer away.
+    if (secret) return null;
     return (
       <div className="lg-game-picture lg-game-picture-text" aria-label={`Word card for ${word}`}>
         <span>{word}</span>
@@ -143,8 +144,8 @@ export function ArcadePracticeGame({
     }
 
     if (mode === "quiz") {
-      const source = [...SENTENCES.level1, ...SENTENCES.level2, ...SENTENCES.level3];
-      return { sentences: shuffle(source).slice(0, totalRounds) };
+      const source = SENTENCE_FIX[difficulty] || SENTENCE_FIX.easy;
+      return { fixes: shuffle(source).slice(0, totalRounds) };
     }
 
     if (mode === "target") {
@@ -164,9 +165,11 @@ export function ArcadePracticeGame({
       ? gameState.pairTotal
       : mode === "family"
         ? gameState.total
-        : totalRounds;
+        : mode === "quiz"
+          ? gameState.fixes?.length
+          : totalRounds;
     onProgressUpdate?.(mode === "rhyme" || mode === "family" ? correct : round + 1, total || 1);
-  }, [correct, gameState.pairTotal, gameState.total, mode, onProgressUpdate, round, totalRounds]);
+  }, [correct, gameState.fixes?.length, gameState.pairTotal, gameState.total, mode, onProgressUpdate, round, totalRounds]);
 
   function addScore(amount, sfx = playCorrectChime) {
     setScore(current => current + amount);
@@ -205,7 +208,6 @@ export function ArcadePracticeGame({
   if (mode === "memory" || mode === "rhyme") {
     stage = (
       <MatchGame
-        title={title}
         mode={mode}
         state={gameState}
         isSoundEnabled={isSoundEnabled}
@@ -219,7 +221,6 @@ export function ArcadePracticeGame({
   } else if (mode === "family") {
     stage = (
       <FamilyGame
-        title={title}
         state={gameState}
         isSoundEnabled={isSoundEnabled}
         correct={correct}
@@ -232,7 +233,7 @@ export function ArcadePracticeGame({
   } else if (mode === "sentence") {
     stage = (
       <SentenceGame
-        title={title}
+        key={`s-${version}-${round}`}
         state={gameState}
         round={round}
         setRound={setRound}
@@ -246,8 +247,8 @@ export function ArcadePracticeGame({
     );
   } else if (mode === "quiz") {
     stage = (
-      <QuizGame
-        title={title}
+      <FixGame
+        key={`f-${version}-${round}`}
         state={gameState}
         round={round}
         setRound={setRound}
@@ -263,7 +264,6 @@ export function ArcadePracticeGame({
   } else if (mode === "target") {
     stage = (
       <TargetGame
-        title={title}
         state={gameState}
         round={round}
         setRound={setRound}
@@ -279,7 +279,7 @@ export function ArcadePracticeGame({
   } else {
     stage = (
       <BuildGame
-        title={title}
+        key={`b-${version}-${round}`}
         variant={mode}
         state={gameState}
         round={round}
@@ -305,9 +305,11 @@ export function ArcadePracticeGame({
   );
 }
 
-function BuildGame({ title, variant, state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds }) {
+function BuildGame({ variant, state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds }) {
   const targetWord = state.words[round] || state.words[0];
-  const [answer, setAnswer] = useState([]);
+  // placed = [{ letter, tileIndex }] so duplicate letters keep their own tile.
+  const [placed, setPlaced] = useState([]);
+  const [checking, setChecking] = useState(false);
   const letters = useMemo(() => {
     const targetLetters = targetWord.split("");
     const distractors = shuffle(DISTRACTOR_LETTERS.filter(letter => !targetLetters.includes(letter))).slice(0, variant === "build" ? 3 : 5);
@@ -315,24 +317,24 @@ function BuildGame({ title, variant, state, round, setRound, correct, setCorrect
   }, [targetWord, variant]);
 
   useEffect(() => {
-    setAnswer([]);
     if (isSoundEnabled) speakWord(targetWord);
   }, [isSoundEnabled, targetWord]);
 
-  function choose(letter) {
-    const expected = targetWord[answer.length];
-    if (letter !== expected) {
-      miss();
-      return;
-    }
-    if (isSoundEnabled) speakPhoneme(letter);
-    const nextAnswer = [...answer, letter];
-    setAnswer(nextAnswer);
-    addScore(variant === "train" ? 10 : 8, variant === "train" ? playTrainWhistle : playCorrectChime);
+  const usedTiles = new Set(placed.map(item => item.tileIndex));
 
-    if (nextAnswer.join("") === targetWord) {
+  function placeTile(letter, tileIndex) {
+    if (checking || usedTiles.has(tileIndex) || placed.length >= targetWord.length) return;
+    if (isSoundEnabled) speakPhoneme(letter);
+    const next = [...placed, { letter, tileIndex }];
+    setPlaced(next);
+
+    if (next.length !== targetWord.length) return;
+
+    if (next.map(item => item.letter).join("") === targetWord) {
+      addScore(variant === "train" ? 30 : 25, variant === "train" ? playTrainWhistle : playCorrectChime);
       const nextCorrect = correct + 1;
       setCorrect(nextCorrect);
+      setChecking(true);
       setTimeout(() => {
         if (round + 1 >= totalRounds) {
           finish(nextCorrect);
@@ -340,24 +342,54 @@ function BuildGame({ title, variant, state, round, setRound, correct, setCorrect
           setRound(round + 1);
         }
       }, 550);
+    } else {
+      // Wrong word: shake, tip the letters back out, let them try again.
+      miss();
+      setChecking(true);
+      setTimeout(() => {
+        setPlaced([]);
+        setChecking(false);
+        if (isSoundEnabled) speakWord(targetWord);
+      }, 750);
     }
+  }
+
+  function removeAt(slotIndex) {
+    if (checking || slotIndex >= placed.length) return;
+    setPlaced(current => current.filter((_, index) => index !== slotIndex));
   }
 
   return (
     <section className={`lg-game-stage lg-game-${variant || "build"}`}>
       <p>{variant === "slide" ? "Touch each sound, then blend the word." : variant === "train" ? "Load the train in sound order." : "Build the word you hear."}</p>
       <button type="button" className="lg-game-audio" onClick={() => speakWord(targetWord)}>Hear word</button>
-      <WordImageCard word={targetWord} />
-      <div className="lg-game-slots" aria-label="Word letters">
+      <WordImageCard word={targetWord} secret />
+      <div className="lg-game-slots" aria-label="Word letters. Tap a filled box to take the letter out.">
         {targetWord.split("").map((letter, index) => (
-          <span key={`${letter}-${index}`} className={answer[index] ? "filled" : ""}>
-            {answer[index] || ""}
-          </span>
+          placed[index] ? (
+            <button
+              key={`slot-${index}`}
+              type="button"
+              className="filled"
+              aria-label={`Remove letter ${placed[index].letter}`}
+              onClick={() => removeAt(index)}
+            >
+              {placed[index].letter}
+            </button>
+          ) : (
+            <span key={`slot-${index}`} />
+          )
         ))}
       </div>
       <div className="lg-game-letter-bank">
         {letters.map((letter, index) => (
-          <button key={`${letter}-${index}`} type="button" onClick={() => choose(letter)}>
+          <button
+            key={`${letter}-${index}`}
+            type="button"
+            disabled={usedTiles.has(index)}
+            className={usedTiles.has(index) ? "used" : ""}
+            onClick={() => placeTile(letter, index)}
+          >
             {letter}
           </button>
         ))}
@@ -367,7 +399,7 @@ function BuildGame({ title, variant, state, round, setRound, correct, setCorrect
   );
 }
 
-function MatchGame({ title, mode, state, isSoundEnabled, correct, setCorrect, addScore, miss, finish }) {
+function MatchGame({ mode, state, isSoundEnabled, correct, setCorrect, addScore, miss, finish }) {
   const [selected, setSelected] = useState([]);
   const [matchedIds, setMatchedIds] = useState([]);
   const cards = state.cards;
@@ -424,7 +456,7 @@ function MatchGame({ title, mode, state, isSoundEnabled, correct, setCorrect, ad
   );
 }
 
-function FamilyGame({ title, state, isSoundEnabled, correct, setCorrect, addScore, miss, finish }) {
+function FamilyGame({ state, isSoundEnabled, correct, setCorrect, addScore, finish }) {
   const [built, setBuilt] = useState([]);
   const [activeFamily, setActiveFamily] = useState(state.familyIds[0]);
   const familyWords = state.words.filter(item => item.familyId === activeFamily);
@@ -471,7 +503,7 @@ function FamilyGame({ title, state, isSoundEnabled, correct, setCorrect, addScor
   );
 }
 
-function TargetGame({ title, state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds }) {
+function TargetGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds }) {
   const target = state.words[round] || state.words[0];
   const options = useMemo(() => shuffle([target, ...shuffle(state.words.filter(word => word !== target)).slice(0, 5)]), [state.words, target]);
 
@@ -510,14 +542,13 @@ function TargetGame({ title, state, round, setRound, correct, setCorrect, addSco
   );
 }
 
-function SentenceGame({ title, state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled }) {
+function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled }) {
   const sentence = state.sentences[round] || state.sentences[0];
   const words = sentence.replace(/[.?!]/g, "").split(/\s+/);
   const [position, setPosition] = useState(0);
   const options = useMemo(() => shuffle(words), [sentence]);
 
   useEffect(() => {
-    setPosition(0);
     if (isSoundEnabled) speak(sentence);
   }, [isSoundEnabled, sentence]);
 
@@ -564,49 +595,56 @@ function SentenceGame({ title, state, round, setRound, correct, setCorrect, addS
   );
 }
 
-function QuizGame({ title, state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds }) {
-  const sentence = state.sentences[round] || state.sentences[0];
-  const answer = sentence.split(/\s+/).find(word => word.length > 3)?.replace(/[.?!]/g, "") || sentence.split(/\s+/)[0];
-  // Memo deps must be stable: recomputing allWords inline made the options
-  // reshuffle on every render.
-  const options = useMemo(() => {
-    const allWords = state.sentences.join(" ").replace(/[.?!]/g, "").split(/\s+/).filter(word => word.length > 2);
-    return shuffle([answer, ...shuffle(allWords.filter(word => word !== answer)).slice(0, 3)]);
-  }, [state.sentences, answer]);
+function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled }) {
+  const total = state.fixes.length;
+  const fix = state.fixes[round] || state.fixes[0];
+  const [solved, setSolved] = useState(false);
+  const options = useMemo(() => shuffle(fix.options), [fix]);
 
   useEffect(() => {
-    if (isSoundEnabled) speak(sentence);
-  }, [isSoundEnabled, sentence]);
+    if (isSoundEnabled) speak(fix.say);
+  }, [fix, isSoundEnabled]);
 
-  function choose(word) {
-    if (word !== answer) {
+  function choose(option) {
+    if (solved) return;
+    if (option !== fix.answer) {
       miss();
       return;
     }
+    setSolved(true);
     const nextCorrect = correct + 1;
     setCorrect(nextCorrect);
     addScore(25);
-    if (round + 1 >= totalRounds) {
-      setTimeout(() => finish(nextCorrect), 360);
-    } else {
-      setRound(round + 1);
-    }
+    if (isSoundEnabled) speak(fix.say);
+    setTimeout(() => {
+      if (round + 1 >= total) {
+        finish(nextCorrect);
+      } else {
+        setRound(round + 1);
+      }
+    }, 900);
   }
+
+  const sentenceParts = fix.display.split("___");
 
   return (
     <section className="lg-game-stage lg-race-stage">
-      <p>Read the sentence and choose the focus word.</p>
-      <button type="button" className="lg-game-audio" onClick={() => speak(sentence)}>Hear sentence</button>
-      <div className="lg-race-track"><span style={{ width: `${Math.max(8, (correct / totalRounds) * 100)}%` }}><RaceMarker /></span></div>
-      <div className="lg-reading-sentence">{sentence}</div>
+      <p>{fix.prompt}</p>
+      <button type="button" className="lg-game-audio" onClick={() => speak(fix.say)}>Hear sentence</button>
+      <div className="lg-race-track"><span style={{ width: `${Math.max(8, (correct / total) * 100)}%` }}><RaceMarker /></span></div>
+      <div className="lg-reading-sentence lg-fix-sentence">
+        {sentenceParts[0]}
+        <span className={`lg-fix-slot${solved ? " solved" : ""}`}>{solved ? fix.answer : "?"}</span>
+        {sentenceParts[1] || ""}
+      </div>
       <div className="lg-hop-grid">
-        {options.map((word, index) => (
-          <button key={`${word}-${index}`} type="button" onClick={() => choose(word)}>
-            {word}
+        {options.map((option, index) => (
+          <button key={`${option}-${index}`} type="button" onClick={() => choose(option)}>
+            {option}
           </button>
         ))}
       </div>
-      <GameMeter current={round + 1} total={totalRounds} />
+      <GameMeter current={round + 1} total={total} />
     </section>
   );
 }

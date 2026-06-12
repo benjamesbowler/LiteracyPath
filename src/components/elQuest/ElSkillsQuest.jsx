@@ -74,38 +74,73 @@ function PictureChoice({ word }) {
 }
 
 function BuildRound({ round, onResult }) {
+  // placed = [{ letter, tileIndex }] so duplicate letters keep their own tile.
   const [placed, setPlaced] = useState([]);
+  const [checking, setChecking] = useState(false);
   const letters = useMemo(() => {
     const target = round.word.split("");
     const extras = shuffleItems("aeioustmnp".split("").filter(l => !target.includes(l))).slice(0, 2);
     return shuffleItems([...target, ...extras]);
   }, [round.word]);
 
-  function tapLetter(letter) {
-    const expected = round.word[placed.length];
-    if (letter !== expected) {
-      onResult(false);
-      return;
-    }
-    const next = [...placed, letter];
-    setPlaced(next);
+  const usedTiles = new Set(placed.map(item => item.tileIndex));
+
+  function tapLetter(letter, tileIndex) {
+    if (checking || usedTiles.has(tileIndex) || placed.length >= round.word.length) return;
     const cue = graphemeAudioPath(letter);
     if (cue) playCueAudio(cue, { volume: 0.9 });
-    if (next.join("") === round.word) {
+    const next = [...placed, { letter, tileIndex }];
+    setPlaced(next);
+
+    if (next.length !== round.word.length) return;
+
+    if (next.map(item => item.letter).join("") === round.word) {
+      setChecking(true);
       window.setTimeout(() => onResult(true), 420);
+    } else {
+      // Wrong word: count the miss, tip the letters out, try again.
+      onResult(false);
+      setChecking(true);
+      window.setTimeout(() => {
+        setPlaced([]);
+        setChecking(false);
+      }, 750);
     }
+  }
+
+  function removeAt(slotIndex) {
+    if (checking || slotIndex >= placed.length) return;
+    setPlaced(current => current.filter((_, index) => index !== slotIndex));
   }
 
   return (
     <>
-      <div className="sbq-build-slots" aria-label="Word letters">
+      <div className="sbq-build-slots" aria-label="Word letters. Tap a filled box to take the letter out.">
         {round.word.split("").map((letter, index) => (
-          <span key={`${letter}-${index}`} className={placed[index] ? "filled" : ""}>{placed[index] || ""}</span>
+          placed[index] ? (
+            <button
+              key={`slot-${index}`}
+              type="button"
+              className="filled"
+              aria-label={`Remove letter ${placed[index].letter}`}
+              onClick={() => removeAt(index)}
+            >
+              {placed[index].letter}
+            </button>
+          ) : (
+            <span key={`slot-${index}`} />
+          )
         ))}
       </div>
       <div className="sbq-answer-grid letters" aria-label="Letter choices">
         {letters.map((letter, index) => (
-          <button key={`${letter}-${index}`} type="button" onClick={() => tapLetter(letter)}>
+          <button
+            key={`${letter}-${index}`}
+            type="button"
+            disabled={usedTiles.has(index)}
+            className={usedTiles.has(index) ? "used" : ""}
+            onClick={() => tapLetter(letter, index)}
+          >
             {letter}
           </button>
         ))}

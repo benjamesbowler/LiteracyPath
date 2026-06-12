@@ -201,12 +201,14 @@
 }
 
 .pal-scene-backdrop::after {
+  /* Keep the scene vivid; readability comes from the solid stage card,
+     not from fogging the whole picture. */
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(252, 253, 253, 0.86) 0%, rgba(252, 253, 253, 0.72) 40%, rgba(252, 253, 253, 0.55) 100%);
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  background:
+    radial-gradient(120% 90% at 50% 38%, rgba(252, 253, 253, 0.42) 0%, rgba(252, 253, 253, 0.18) 55%, rgba(252, 253, 253, 0.05) 100%),
+    linear-gradient(180deg, rgba(252, 253, 253, 0.30) 0%, rgba(252, 253, 253, 0.06) 100%);
 }
 
 .lg-game-player .lg-game-player-header,

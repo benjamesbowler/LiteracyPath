@@ -491,3 +491,38 @@
   border-color: rgba(15, 23, 42, 0.06);
   background: rgba(255, 255, 255, 0.85);
 }
+
+/* Build slots are buttons now (tap to take a letter out) */
+.sbq-build-slots button {
+  width: clamp(58px, 9vw, 80px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 2px dashed var(--lp-color-border-strong);
+  border-radius: 14px;
+  background: var(--lp-color-surface);
+  cursor: pointer;
+  font-family: var(--lp-font-reading);
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  font-weight: 600;
+}
+
+.sbq-build-slots button.filled {
+  border-style: solid;
+  border-color: var(--lp-color-primary);
+  background: var(--lp-color-primary-soft);
+}
+
+.sbq-answer-grid button.used,
+.sbq-answer-grid button:disabled {
+  opacity: 0.35;
+  cursor: default;
+  transform: none;
+}
+
+/* Crisper round card over the vivid book scene */
+.sbq-round-card,
+.sbq-celebrate {
+  background: rgba(255, 255, 255, 0.93);
+}
