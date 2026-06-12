@@ -179,7 +179,7 @@ export function PhonicsLearnTab({ progressScopeKey = "default" }) {
           <IslandIcon type="words" />
           <span className="phonics-island-label">
             <span>Words</span>
-            <small>{wordsUnlocked ? `${completedWordFamiliesCount}/${cvcWordFamilies.length} built` : `${lettersToUnlockWords} letters to unlock`}</small>
+            <small>{wordsUnlocked ? `${completedWordFamiliesCount}/${cvcWordFamilies.length} built` : `${lettersToUnlockWords} ${lettersToUnlockWords === 1 ? "letter" : "letters"} to unlock`}</small>
           </span>
           {!wordsUnlocked && <IslandLockIcon />}
         </button>
@@ -196,12 +196,6 @@ export function PhonicsLearnTab({ progressScopeKey = "default" }) {
           </span>
         </button>
       </div>
-
-      {!wordsUnlocked && (
-        <div className="phonics-unlock-callout" role="status">
-          Word Workshop unlocks after 6 completed letters.
-        </div>
-      )}
 
       {activeIsland === "games" ? (
         <Suspense fallback={<div className="phonics-arcade-loading">Loading games...</div>}>

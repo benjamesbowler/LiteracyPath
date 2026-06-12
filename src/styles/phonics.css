@@ -1409,3 +1409,52 @@
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
+
+/* ── One-screen pass: shrink the persistent header stack ─────────────── */
+.phonics-island-view {
+  gap: 10px;
+}
+
+.phonics-practice-overview {
+  padding: 10px 16px;
+}
+
+.phonics-practice-overview h2 {
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+}
+
+.phonics-practice-overview p {
+  font-size: 0.875rem;
+}
+
+.phonics-island-card {
+  min-height: 54px;
+}
+
+.phonics-island-switcher {
+  gap: 10px;
+}
+
+/* Letter picker: all 26 letters on one screen */
+.phonics-picker {
+  gap: 10px;
+}
+
+.phonics-picker h1 {
+  font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+}
+
+.phonics-picker > p {
+  font-size: 0.9rem;
+}
+
+.phonics-letter-symbol {
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+}
+
+@media (min-width: 1100px) {
+  .phonics-letter-grid {
+    max-width: 1120px;
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+  }
+}

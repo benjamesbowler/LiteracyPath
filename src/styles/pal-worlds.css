@@ -53,6 +53,8 @@
 }
 
 .pal-world-chip {
+  align-self: flex-start;
+  width: fit-content;
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -151,24 +153,40 @@
 }
 
 /* ── Layout: use the width ───────────────────────────────────────────── */
-.sbq-stations {
-  width: min(100%, 920px);
+/* Student-mode pages must never shrink-wrap to their content. */
+.app.student-mode-app > main,
+.app.student-mode-app > .skills-block-quest {
+  width: 100%;
+  max-width: none;
+  align-self: stretch;
+}
+
+.skills-block-quest {
+  width: 100%;
+  max-width: none;
+}
+
+.sbq-top,
+.sbq-map,
+.sbq-progress-track {
+  width: min(100%, 1140px);
   margin-inline: auto;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.sbq-stations {
+  width: min(100%, 1140px);
+  margin-inline: auto;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
 .sbq-station.check {
   grid-column: 1 / -1;
 }
 
-.phonics-picker {
-  max-width: 1160px;
-}
-
-.phonics-letter-grid {
-  max-width: 1160px;
-  grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
-  gap: 10px;
+.sbq-round-card,
+.sbq-celebrate {
+  width: min(100%, 940px);
+  margin: auto;
 }
 
 /* ── Full book-scene backdrop (games + quest rounds) ──────────────────── */
@@ -230,7 +248,7 @@
 
 @keyframes pal-idle {
   from { background-position: 0% 0; }
-  to { background-position: -400% 0; }
+  to { background-position: 133.34% 0; }
 }
 
 .student-home-logo.pals-logo {
@@ -240,4 +258,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .pal-sprite { animation: none; }
+}
+
+/* Child pages get a wider measure on big screens */
+.app.no-sidebar.student-mode-app {
+  max-width: 1280px;
 }

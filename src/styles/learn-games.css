@@ -1335,3 +1335,25 @@
 .lg-game-player-main {
   padding: clamp(10px, 2vw, 22px);
 }
+
+/* ── One-screen pass: tighter arcade chrome, more room for games ─────── */
+.lg-arcade {
+  gap: 10px;
+}
+
+.lg-arcade-header {
+  padding: 10px 16px;
+}
+
+.lg-arcade-next {
+  padding: 8px 12px;
+}
+
+.lg-game-card-art {
+  height: 74px;
+}
+
+.lg-game-play {
+  min-height: 32px;
+  margin: 8px 14px 10px;
+}
