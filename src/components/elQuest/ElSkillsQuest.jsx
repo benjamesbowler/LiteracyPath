@@ -271,6 +271,9 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
 
   useEffect(() => {
     if (!round || round.type === "build" || !round.audio) return undefined;
+    // The poem narration is ~10s: hear it in full on the first round,
+    // then only when the child taps Listen.
+    if (round.type === "poem" && roundIndex > 0) return undefined;
     cueTimerRef.current = window.setTimeout(() => playCue(round), 120);
     // Warm the next round's audio so it starts instantly.
     const next = rounds[roundIndex + 1];

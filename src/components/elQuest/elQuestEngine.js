@@ -3,9 +3,8 @@
 // correct answer - mirroring how the EL skills block is taught:
 // hear the sound -> find the sound in words -> read quick words -> build words.
 import { LETTER_EXAMPLES, elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
-import { VERIFIED_PICTURE_WORDS } from "../../data/generated/questStoryQuestions.generated.js";
 import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
-import { QUEST_STORY_QUESTIONS } from "../../data/generated/questStoryQuestions.generated.js";
+import { QUEST_STORY_QUESTIONS, VERIFIED_PICTURE_WORDS } from "../../data/generated/questStoryQuestions.generated.js";
 import { AUDIO_FILE_PATHS } from "../../data/generated/audioFilePaths.generated.js";
 
 const VOWELS = new Set(["a", "e", "i", "o", "u"]);
@@ -94,8 +93,23 @@ function distractorGraphemes(correct, count) {
   return shuffleItems(ALL_GRAPHEMES.filter(g => g !== correct)).slice(0, count);
 }
 
+// Pattern spellings without their own example list borrow real recorded
+// words that contain the pattern, so their rounds always have a word cue.
+const PATTERN_EXAMPLES = {
+  ang: ["bang", "sang"],
+  ing: ["ring", "sing", "king"],
+  ong: ["song", "long"],
+  ung: ["hung"],
+  ff: ["puff", "off"],
+  ss: ["miss", "grass"],
+  zz: ["buzz"],
+  ll: ["ball", "fall", "call", "bell"]
+};
+
 function exampleWordsFor(spelling, limit = 4) {
-  return (LETTER_EXAMPLES[spelling] || []).slice(0, limit);
+  const own = LETTER_EXAMPLES[spelling] || [];
+  const list = own.length ? own : (PATTERN_EXAMPLES[spelling] || []);
+  return list.slice(0, limit);
 }
 
 const PICTURE_WORDS = new Set(VERIFIED_PICTURE_WORDS);
