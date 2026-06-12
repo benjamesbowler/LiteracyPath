@@ -7,8 +7,8 @@ import {
   markMissionCelebrated
 } from "../utils/dailyMission.js";
 import { COMPANIONS, getCompanion, setCompanion, getCollectibles } from "../utils/studentProfile.js";
+import { worldForScope } from "../utils/palWorlds.js";
 import { Gem } from "./Gem.jsx";
-import logoUrl from "../assets/logo.svg";
 
 function StudentHomeCard({ title, subtitle, meta, art, onClick }) {
   return (
@@ -94,7 +94,7 @@ export function StudentHomePage({
   return (
     <main className="student-home-page">
       <header className="student-home-topbar">
-        <img className="student-home-logo" src={logoUrl} alt="Literacy Guide" />
+        <img className="student-home-logo pals-logo" src="/images/pals/literacy-pals-logo.webp" alt="Literacy Pals" />
         <button
           className="student-home-avatar"
           type="button"
@@ -106,7 +106,7 @@ export function StudentHomePage({
             : String(studentName || "S").slice(0, 1).toUpperCase()}
         </button>
         <div>
-          <span className="student-home-eyebrow">Literacy Pals</span>
+          <span className="student-home-eyebrow">Hello</span>
           <strong>{studentName || "Reader"}</strong>
         </div>
         {status.streak > 0 && (
@@ -123,6 +123,11 @@ export function StudentHomePage({
 
       <section className="student-mission" aria-label="Today's mission">
         <div className="student-mission-head">
+          <span
+            className="pal-sprite"
+            aria-hidden="true"
+            style={{ "--pal-sprite-sheet": `url(/images/pals/sprites/${worldForScope(progressScopeKey).id}-idle-4.webp)` }}
+          />
           <div>
             <h1>Today&apos;s Mission</h1>
             <p>{status.missionComplete ? "All done. Brilliant work - explore anything you like!" : "Three stops. You choose the order."}</p>

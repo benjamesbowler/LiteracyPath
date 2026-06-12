@@ -215,3 +215,29 @@
 @media (prefers-reduced-motion: reduce) {
   .pal-scene-backdrop { animation: none; }
 }
+
+/* ── Animated pal sprite (4-frame idle, CSS-stepped) ─────────────────── */
+.pal-sprite {
+  width: 92px;
+  height: 92px;
+  flex: 0 0 auto;
+  background-image: var(--pal-sprite-sheet);
+  background-size: 400% 100%;
+  background-repeat: no-repeat;
+  animation: pal-idle 1.8s steps(4) infinite;
+  filter: drop-shadow(0 4px 8px rgba(15, 23, 42, 0.16));
+}
+
+@keyframes pal-idle {
+  from { background-position: 0% 0; }
+  to { background-position: -400% 0; }
+}
+
+.student-home-logo.pals-logo {
+  height: 46px;
+  width: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pal-sprite { animation: none; }
+}

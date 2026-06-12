@@ -3,9 +3,9 @@
 import { queueProgressSave } from "./progressSync.js";
 
 export const COMPANIONS = [
-  { id: "meadow-pal", name: "Meadow Pal", image: "/images/pals/meadow-cheer.webp" },
-  { id: "dino-pal", name: "Dino Pal", image: "/images/pals/dino-cheer.webp" },
-  { id: "moonwood-pal", name: "Moonwood Pal", image: "/images/pals/moonwood-cheer.webp" },
+  { id: "meadow-pal", name: "Meadow Pal", image: "/images/pals/poses/meadow-wave.webp" },
+  { id: "dino-pal", name: "Dino Pal", image: "/images/pals/poses/dino-wave.webp" },
+  { id: "moonwood-pal", name: "Moonwood Pal", image: "/images/pals/poses/moonwood-wave.webp" },
   { id: "fox", name: "Fox", image: "/images/child-mode/short-o/fox.png" },
   { id: "bear", name: "Bear", image: "/images/child-mode/initial-sounds/bear.png" },
   { id: "frog", name: "Frog", image: "/images/child-mode/blends/frog.png" },
