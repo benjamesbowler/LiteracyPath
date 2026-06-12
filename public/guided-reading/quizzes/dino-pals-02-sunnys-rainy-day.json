@@ -1,0 +1,35 @@
+{
+  "bookId": "dino-pals-02-sunnys-rainy-day",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"It ___ in Sunny Hollow. Big dark clouds rolled in.\"",
+      "choices": [
+        "rained",
+        "money",
+        "cool"
+      ],
+      "answer": "rained",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "mouth",
+        "sunny",
+        "ran"
+      ],
+      "answer": "sunny",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Sunny",
+        "Cuddly",
+        "Stone"
+      ],
+      "answer": "Sunny",
+      "kind": "word"
+    }
+  ]
+}

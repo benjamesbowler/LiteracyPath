@@ -1,0 +1,35 @@
+{
+  "bookId": "level-c-nonfiction-04-the-moon",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "moon",
+        "wren",
+        "rings"
+      ],
+      "answer": "moon",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Birds",
+        "Everyone",
+        "Moon"
+      ],
+      "answer": "Moon",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "moon",
+        "camping",
+        "down"
+      ],
+      "answer": "moon",
+      "kind": "word"
+    }
+  ]
+}

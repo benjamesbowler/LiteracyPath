@@ -1,0 +1,35 @@
+{
+  "bookId": "bob-and-nan-08-sick",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ is hot. Bob is ill.\"",
+      "choices": [
+        "bob",
+        "smell",
+        "webs"
+      ],
+      "answer": "bob",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "nan",
+        "pillow",
+        "dream"
+      ],
+      "answer": "nan",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Honky",
+        "Bob",
+        "Pip"
+      ],
+      "answer": "Bob",
+      "kind": "word"
+    }
+  ]
+}

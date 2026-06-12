@@ -1,0 +1,35 @@
+{
+  "bookId": "ab-c-05",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"It started with the ___ hook being empty.\"",
+      "choices": [
+        "waistcoat",
+        "together",
+        "firefighter"
+      ],
+      "answer": "waistcoat",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "wiggly",
+        "planet",
+        "aiden"
+      ],
+      "answer": "aiden",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Socks",
+        "Twig",
+        "Zippy"
+      ],
+      "answer": "Socks",
+      "kind": "word"
+    }
+  ]
+}

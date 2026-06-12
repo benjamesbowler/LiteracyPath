@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-16",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "glimmer",
+        "wiggly",
+        "ears"
+      ],
+      "answer": "glimmer",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Marcus",
+        "Glimmer",
+        "Bats"
+      ],
+      "answer": "Glimmer",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "watch",
+        "ocean",
+        "chips"
+      ],
+      "answer": "watch",
+      "kind": "word"
+    }
+  ]
+}

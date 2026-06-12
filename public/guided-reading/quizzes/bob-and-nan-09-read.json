@@ -1,0 +1,35 @@
+{
+  "bookId": "bob-and-nan-09-read",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"Nan has a big red ___.\"",
+      "choices": [
+        "hands",
+        "hat",
+        "book"
+      ],
+      "answer": "book",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "taste",
+        "bob",
+        "helps"
+      ],
+      "answer": "bob",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Hic",
+        "Flappy",
+        "Bob"
+      ],
+      "answer": "Bob",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "first-facts-a-19-day-and-night",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"At ___, the sun goes away. The sky turns dark.\"",
+      "choices": [
+        "night",
+        "won",
+        "singing"
+      ],
+      "answer": "night",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "spiders",
+        "gifts",
+        "day"
+      ],
+      "answer": "day",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "bath",
+        "fell",
+        "night"
+      ],
+      "answer": "night",
+      "kind": "word"
+    }
+  ]
+}

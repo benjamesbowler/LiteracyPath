@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-17-bouncy-and-speedy-have-a-race",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"\"I am fast,\" said ___.\"",
+      "choices": [
+        "speedy",
+        "wiggly",
+        "mushroom"
+      ],
+      "answer": "speedy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "ran",
+        "competition",
+        "crystals"
+      ],
+      "answer": "ran",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Spark",
+        "Bouncy",
+        "Marcus"
+      ],
+      "answer": "Bouncy",
+      "kind": "word"
+    }
+  ]
+}

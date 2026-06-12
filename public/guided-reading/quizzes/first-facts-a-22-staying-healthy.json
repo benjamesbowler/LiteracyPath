@@ -1,0 +1,35 @@
+{
+  "bookId": "first-facts-a-22-staying-healthy",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"Eat good food. Fruits and ___ are good for you.\"",
+      "choices": [
+        "vegetables",
+        "everyone",
+        "thousands"
+      ],
+      "answer": "vegetables",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "forces",
+        "surface",
+        "sleep"
+      ],
+      "answer": "sleep",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "sale",
+        "earth",
+        "healthy"
+      ],
+      "answer": "healthy",
+      "kind": "word"
+    }
+  ]
+}

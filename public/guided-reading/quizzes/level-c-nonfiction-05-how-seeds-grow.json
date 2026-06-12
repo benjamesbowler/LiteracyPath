@@ -1,0 +1,35 @@
+{
+  "bookId": "level-c-nonfiction-05-how-seeds-grow",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "plant",
+        "rocks",
+        "hear"
+      ],
+      "answer": "plant",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "James",
+        "Chompy",
+        "Some"
+      ],
+      "answer": "Some",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "everything",
+        "reptiles",
+        "grow"
+      ],
+      "answer": "grow",
+      "kind": "word"
+    }
+  ]
+}

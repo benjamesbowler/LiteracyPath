@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-15",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "remember",
+        "puddle",
+        "luna"
+      ],
+      "answer": "luna",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Honky",
+        "Luna",
+        "Swish"
+      ],
+      "answer": "Luna",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "clothes",
+        "pull",
+        "secret"
+      ],
+      "answer": "secret",
+      "kind": "word"
+    }
+  ]
+}

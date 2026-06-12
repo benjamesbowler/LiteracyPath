@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-02-woolly-cant-sleep",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ got into bed.\"",
+      "choices": [
+        "woolly",
+        "turned",
+        "splash"
+      ],
+      "answer": "woolly",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "sat",
+        "summer",
+        "rocket"
+      ],
+      "answer": "sat",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "flappy",
+        "thing",
+        "sleep"
+      ],
+      "answer": "sleep",
+      "kind": "word"
+    }
+  ]
+}

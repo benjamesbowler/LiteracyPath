@@ -1,0 +1,35 @@
+{
+  "bookId": "first-facts-a-17-hello-sun",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"The sun ___ us light. The sun warms our Earth.\"",
+      "choices": [
+        "glows",
+        "gives",
+        "mum"
+      ],
+      "answer": "gives",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "taste",
+        "grew",
+        "sun"
+      ],
+      "answer": "sun",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "secret",
+        "sun",
+        "zoo"
+      ],
+      "answer": "sun",
+      "kind": "word"
+    }
+  ]
+}

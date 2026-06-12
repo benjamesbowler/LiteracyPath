@@ -1,0 +1,35 @@
+{
+  "bookId": "ja-b-06",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "everywhere",
+        "james",
+        "party"
+      ],
+      "answer": "james",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "When",
+        "Spark",
+        "Percy"
+      ],
+      "answer": "Percy",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "everything",
+        "farm",
+        "clothes"
+      ],
+      "answer": "farm",
+      "kind": "word"
+    }
+  ]
+}

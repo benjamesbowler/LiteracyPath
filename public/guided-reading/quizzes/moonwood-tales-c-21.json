@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-21",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "our",
+        "here",
+        "ducks"
+      ],
+      "answer": "here",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Twig",
+        "There",
+        "Our"
+      ],
+      "answer": "Twig",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "potion",
+        "reptiles",
+        "oak"
+      ],
+      "answer": "oak",
+      "kind": "word"
+    }
+  ]
+}

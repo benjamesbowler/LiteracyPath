@@ -1,0 +1,35 @@
+{
+  "bookId": "ab-c-10",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "aiden",
+        "opposite",
+        "heavy"
+      ],
+      "answer": "aiden",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Roots",
+        "Aiden",
+        "Shapes"
+      ],
+      "answer": "Aiden",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "colors",
+        "fruits",
+        "castle"
+      ],
+      "answer": "castle",
+      "kind": "word"
+    }
+  ]
+}

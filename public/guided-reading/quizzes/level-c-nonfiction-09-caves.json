@@ -1,0 +1,35 @@
+{
+  "bookId": "level-c-nonfiction-09-caves",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "cave",
+        "wet",
+        "plant"
+      ],
+      "answer": "cave",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Cave",
+        "Pip",
+        "Flappy"
+      ],
+      "answer": "Cave",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "storm",
+        "caves",
+        "stop"
+      ],
+      "answer": "caves",
+      "kind": "word"
+    }
+  ]
+}

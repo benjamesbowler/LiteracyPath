@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-25-the-big-farm-party",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"It is ___ day!\"",
+      "choices": [
+        "dragon",
+        "party",
+        "gets"
+      ],
+      "answer": "party",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "mushroom",
+        "flour",
+        "grumpy"
+      ],
+      "answer": "grumpy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Flint",
+        "Chips",
+        "Shy"
+      ],
+      "answer": "Shy",
+      "kind": "word"
+    }
+  ]
+}

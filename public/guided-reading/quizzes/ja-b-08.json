@@ -1,0 +1,35 @@
+{
+  "bookId": "ja-b-08",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "sides",
+        "firefighter",
+        "chips"
+      ],
+      "answer": "chips",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Chips",
+        "Bats",
+        "Then"
+      ],
+      "answer": "Chips",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "water",
+        "house",
+        "date"
+      ],
+      "answer": "date",
+      "kind": "word"
+    }
+  ]
+}

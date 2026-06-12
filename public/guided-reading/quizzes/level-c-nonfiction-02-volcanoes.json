@@ -1,0 +1,35 @@
+{
+  "bookId": "level-c-nonfiction-02-volcanoes",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "pup",
+        "volcanoes",
+        "meadow"
+      ],
+      "answer": "volcanoes",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "When",
+        "Glimmer",
+        "Run"
+      ],
+      "answer": "When",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "voice",
+        "volcanoes",
+        "senses"
+      ],
+      "answer": "volcanoes",
+      "kind": "word"
+    }
+  ]
+}

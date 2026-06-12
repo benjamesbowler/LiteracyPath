@@ -1,0 +1,35 @@
+{
+  "bookId": "dino-pals-04-grumpy-needs-help",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"I do NOT need help, said ___.\"",
+      "choices": [
+        "frog",
+        "grumpy",
+        "read"
+      ],
+      "answer": "grumpy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "coral",
+        "help",
+        "competition"
+      ],
+      "answer": "help",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Stone",
+        "Grumpy",
+        "Fancy"
+      ],
+      "answer": "Grumpy",
+      "kind": "word"
+    }
+  ]
+}

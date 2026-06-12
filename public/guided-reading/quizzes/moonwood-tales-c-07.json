@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-07",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "glimmer",
+        "fish",
+        "remember"
+      ],
+      "answer": "fish",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Wiggly",
+        "Dewdrop",
+        "Grumpy"
+      ],
+      "answer": "Dewdrop",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "party",
+        "fish",
+        "tries"
+      ],
+      "answer": "fish",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "james-and-anna-05-tree-house",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "tiny",
+        "james",
+        "pip"
+      ],
+      "answer": "james",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Rocks",
+        "James",
+        "Luna"
+      ],
+      "answer": "James",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "bully",
+        "house",
+        "cold"
+      ],
+      "answer": "house",
+      "kind": "word"
+    }
+  ]
+}

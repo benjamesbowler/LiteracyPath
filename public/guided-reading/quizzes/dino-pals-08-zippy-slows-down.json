@@ -1,0 +1,35 @@
+{
+  "bookId": "dino-pals-08-zippy-slows-down",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"Zippy ___ home. Slowly. It took ages. Zippy loved it.\"",
+      "choices": [
+        "penguins",
+        "walked",
+        "snip"
+      ],
+      "answer": "walked",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "soil",
+        "beach",
+        "zippy"
+      ],
+      "answer": "zippy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Marcus",
+        "Flint",
+        "Zippy"
+      ],
+      "answer": "Zippy",
+      "kind": "word"
+    }
+  ]
+}

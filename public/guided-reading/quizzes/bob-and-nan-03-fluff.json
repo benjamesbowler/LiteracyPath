@@ -1,0 +1,35 @@
+{
+  "bookId": "bob-and-nan-03-fluff",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ and Nan sat in the sun.\"",
+      "choices": [
+        "bob",
+        "white",
+        "days"
+      ],
+      "answer": "bob",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "stop",
+        "pup",
+        "healthy"
+      ],
+      "answer": "pup",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Brave",
+        "Nan",
+        "Glimmer"
+      ],
+      "answer": "Nan",
+      "kind": "word"
+    }
+  ]
+}

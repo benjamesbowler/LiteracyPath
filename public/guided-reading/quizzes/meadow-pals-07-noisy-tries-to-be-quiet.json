@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-07-noisy-tries-to-be-quiet",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"\"Shh!\" said ___.\"",
+      "choices": [
+        "carvings",
+        "everyone",
+        "speedy"
+      ],
+      "answer": "everyone",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "yet",
+        "bossy",
+        "noisy"
+      ],
+      "answer": "noisy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Clumsy",
+        "Noisy",
+        "Then"
+      ],
+      "answer": "Noisy",
+      "kind": "word"
+    }
+  ]
+}

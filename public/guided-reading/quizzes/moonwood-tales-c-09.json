@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-09",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"Spark ___ near the Crystal Stream.\"",
+      "choices": [
+        "money",
+        "heavy",
+        "sneezed"
+      ],
+      "answer": "sneezed",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "good",
+        "boing",
+        "spark"
+      ],
+      "answer": "spark",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Sleepy",
+        "Luna",
+        "Spark"
+      ],
+      "answer": "Spark",
+      "kind": "word"
+    }
+  ]
+}

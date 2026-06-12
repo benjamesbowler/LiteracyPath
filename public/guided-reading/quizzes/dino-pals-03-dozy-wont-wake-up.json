@@ -1,0 +1,35 @@
+{
+  "bookId": "dino-pals-03-dozy-wont-wake-up",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"Wake up, Dozy! ___ Bouncy. Dozy did not wake up.\"",
+      "choices": [
+        "opposite",
+        "penguin",
+        "called"
+      ],
+      "answer": "called",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "dozy",
+        "pets",
+        "stopped"
+      ],
+      "answer": "dozy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Pip",
+        "Dozy",
+        "James"
+      ],
+      "answer": "Dozy",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "ja-b-07",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "james",
+        "turned",
+        "fluff"
+      ],
+      "answer": "james",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Cave",
+        "Everyone",
+        "James"
+      ],
+      "answer": "James",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "bikes",
+        "house",
+        "play"
+      ],
+      "answer": "play",
+      "kind": "word"
+    }
+  ]
+}

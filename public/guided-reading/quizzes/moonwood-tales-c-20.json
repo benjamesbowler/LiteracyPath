@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-20",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "star",
+        "pat",
+        "moon"
+      ],
+      "answer": "star",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Fruits",
+        "Drops",
+        "Then"
+      ],
+      "answer": "Then",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "vet",
+        "sneeze",
+        "fell"
+      ],
+      "answer": "fell",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-08",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "liquid",
+        "very",
+        "pals"
+      ],
+      "answer": "very",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Cheeky",
+        "Earth",
+        "Luna"
+      ],
+      "answer": "Luna",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "water",
+        "love",
+        "door"
+      ],
+      "answer": "door",
+      "kind": "word"
+    }
+  ]
+}

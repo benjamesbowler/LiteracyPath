@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-25",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "race",
+        "grew",
+        "pip"
+      ],
+      "answer": "pip",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Clucky",
+        "Zoom",
+        "Pip"
+      ],
+      "answer": "Pip",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "dark",
+        "other",
+        "senses"
+      ],
+      "answer": "dark",
+      "kind": "word"
+    }
+  ]
+}

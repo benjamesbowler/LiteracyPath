@@ -1,0 +1,35 @@
+{
+  "bookId": "first-facts-a-23-my-body",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"I have a tummy. Food goes into my tummy. ___!\"",
+      "choices": [
+        "craters",
+        "dozy",
+        "rumble"
+      ],
+      "answer": "rumble",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "body",
+        "wiggly",
+        "spell"
+      ],
+      "answer": "body",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "animals",
+        "stone",
+        "body"
+      ],
+      "answer": "body",
+      "kind": "word"
+    }
+  ]
+}

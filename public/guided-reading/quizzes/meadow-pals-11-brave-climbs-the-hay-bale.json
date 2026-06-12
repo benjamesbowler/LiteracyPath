@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-11-brave-climbs-the-hay-bale",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"The hay ___ is big.\"",
+      "choices": [
+        "bale",
+        "taste",
+        "bright"
+      ],
+      "answer": "bale",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "snail",
+        "walked",
+        "brave"
+      ],
+      "answer": "brave",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Spark",
+        "Sleepy",
+        "Brave"
+      ],
+      "answer": "Brave",
+      "kind": "word"
+    }
+  ]
+}

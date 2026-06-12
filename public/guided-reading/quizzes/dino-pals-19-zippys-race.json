@@ -1,0 +1,35 @@
+{
+  "bookId": "dino-pals-19-zippys-race",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "zippy",
+        "wake",
+        "could"
+      ],
+      "answer": "zippy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Anna",
+        "There",
+        "Zippy"
+      ],
+      "answer": "Zippy",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "everyone",
+        "race",
+        "play"
+      ],
+      "answer": "race",
+      "kind": "word"
+    }
+  ]
+}

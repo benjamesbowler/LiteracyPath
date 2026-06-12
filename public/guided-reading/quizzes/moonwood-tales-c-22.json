@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-22",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "stone",
+        "mouth",
+        "keep"
+      ],
+      "answer": "stone",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Fancy",
+        "Stone",
+        "Mmm"
+      ],
+      "answer": "Stone",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "house",
+        "race",
+        "sky"
+      ],
+      "answer": "race",
+      "kind": "word"
+    }
+  ]
+}

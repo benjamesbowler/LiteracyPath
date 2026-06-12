@@ -1,0 +1,35 @@
+{
+  "bookId": "dino-pals-20-the-big-storm",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "falls",
+        "grumpy",
+        "sneeze"
+      ],
+      "answer": "grumpy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Run",
+        "Snow",
+        "Grumpy"
+      ],
+      "answer": "Grumpy",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "earth",
+        "party",
+        "storm"
+      ],
+      "answer": "storm",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-03",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "cold",
+        "stone",
+        "baby"
+      ],
+      "answer": "stone",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Shapes",
+        "Woolly",
+        "Stone"
+      ],
+      "answer": "Stone",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "bridge",
+        "stop",
+        "school"
+      ],
+      "answer": "bridge",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-04-bouncy-wont-stop",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ likes to hop.\"",
+      "choices": [
+        "poles",
+        "bouncy",
+        "clouds"
+      ],
+      "answer": "bouncy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "past",
+        "warms",
+        "hop"
+      ],
+      "answer": "hop",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Eddie",
+        "Hop",
+        "Flint"
+      ],
+      "answer": "Hop",
+      "kind": "word"
+    }
+  ]
+}

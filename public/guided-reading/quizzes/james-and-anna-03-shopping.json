@@ -1,0 +1,35 @@
+{
+  "bookId": "james-and-anna-03-shopping",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "james",
+        "fancy",
+        "snip"
+      ],
+      "answer": "james",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "What",
+        "James",
+        "Bob"
+      ],
+      "answer": "James",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "shopping",
+        "slow",
+        "everyone"
+      ],
+      "answer": "shopping",
+      "kind": "word"
+    }
+  ]
+}

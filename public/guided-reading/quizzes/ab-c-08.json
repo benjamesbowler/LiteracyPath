@@ -1,0 +1,35 @@
+{
+  "bookId": "ab-c-08",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "nan",
+        "did",
+        "aiden"
+      ],
+      "answer": "aiden",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Seeds",
+        "Luna",
+        "Marcus"
+      ],
+      "answer": "Marcus",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "slow",
+        "bully",
+        "flappy"
+      ],
+      "answer": "bully",
+      "kind": "word"
+    }
+  ]
+}

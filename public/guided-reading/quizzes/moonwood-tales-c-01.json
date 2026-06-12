@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-01",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"\"Did it run out of ___?\" asked Pip.\"",
+      "choices": [
+        "won",
+        "need",
+        "brave"
+      ],
+      "answer": "brave",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "rings",
+        "pip",
+        "bob"
+      ],
+      "answer": "pip",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Pip",
+        "Cuddly",
+        "Hop"
+      ],
+      "answer": "Pip",
+      "kind": "word"
+    }
+  ]
+}

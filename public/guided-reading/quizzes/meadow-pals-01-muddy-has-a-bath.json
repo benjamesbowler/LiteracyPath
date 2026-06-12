@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-01-muddy-has-a-bath",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ is in the mud.\"",
+      "choices": [
+        "use",
+        "colors",
+        "muddy"
+      ],
+      "answer": "muddy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "coral",
+        "bella",
+        "bath"
+      ],
+      "answer": "bath",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "bully",
+        "bath",
+        "reading"
+      ],
+      "answer": "bath",
+      "kind": "word"
+    }
+  ]
+}

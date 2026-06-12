@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-15-cuddly-wants-a-hug",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ wants a hug.\"",
+      "choices": [
+        "fluffy",
+        "taste",
+        "cuddly"
+      ],
+      "answer": "cuddly",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "heavy",
+        "vroom",
+        "woolly"
+      ],
+      "answer": "woolly",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "James",
+        "Woolly",
+        "Shy"
+      ],
+      "answer": "Woolly",
+      "kind": "word"
+    }
+  ]
+}

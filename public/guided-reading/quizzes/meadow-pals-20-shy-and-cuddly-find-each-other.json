@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-20-shy-and-cuddly-find-each-other",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ wants a hug. Cuddly looks and looks.\"",
+      "choices": [
+        "fruits",
+        "purple",
+        "cuddly"
+      ],
+      "answer": "cuddly",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "cool",
+        "monkey",
+        "shy"
+      ],
+      "answer": "shy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "James",
+        "Clumsy",
+        "Cuddly"
+      ],
+      "answer": "Cuddly",
+      "kind": "word"
+    }
+  ]
+}

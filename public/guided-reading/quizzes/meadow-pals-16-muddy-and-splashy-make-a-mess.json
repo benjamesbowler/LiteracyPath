@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-16-muddy-and-splashy-make-a-mess",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ has some mud.\"",
+      "choices": [
+        "twig",
+        "fire",
+        "muddy"
+      ],
+      "answer": "muddy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "looked",
+        "dad",
+        "mud"
+      ],
+      "answer": "mud",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Bob",
+        "Splashy",
+        "Fancy"
+      ],
+      "answer": "Splashy",
+      "kind": "word"
+    }
+  ]
+}

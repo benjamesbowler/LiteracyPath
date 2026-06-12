@@ -1,0 +1,35 @@
+{
+  "bookId": "level-c-nonfiction-06-spiders",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "spiders",
+        "mouth",
+        "jingle"
+      ],
+      "answer": "spiders",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Aiden",
+        "Spiders",
+        "Chips"
+      ],
+      "answer": "Spiders",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "spiders",
+        "storm",
+        "flappy"
+      ],
+      "answer": "spiders",
+      "kind": "word"
+    }
+  ]
+}

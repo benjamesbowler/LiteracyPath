@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-05",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "spell",
+        "sky",
+        "woke"
+      ],
+      "answer": "spell",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Wren",
+        "Splashy",
+        "Run"
+      ],
+      "answer": "Wren",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "bale",
+        "spell",
+        "deal"
+      ],
+      "answer": "spell",
+      "kind": "word"
+    }
+  ]
+}

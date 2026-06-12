@@ -1,0 +1,35 @@
+{
+  "bookId": "first-facts-a-15-things-that-float-and-sink",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"Drop a duck in water. It ___ on top!\"",
+      "choices": [
+        "floats",
+        "keep",
+        "speedy"
+      ],
+      "answer": "floats",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "things",
+        "runs",
+        "fruits"
+      ],
+      "answer": "things",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "deal",
+        "sink",
+        "oak"
+      ],
+      "answer": "sink",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-23-giggly-and-clucky-bake-a-cake",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"\"We will bake a cake,\" said ___.\"",
+      "choices": [
+        "clucky",
+        "bright",
+        "together"
+      ],
+      "answer": "clucky",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "cake",
+        "speedy",
+        "yum"
+      ],
+      "answer": "cake",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Stone",
+        "Wiggly",
+        "Clucky"
+      ],
+      "answer": "Clucky",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "dino-pals-16-chompy-and-grumpys-day-out",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "grumpy",
+        "sinks",
+        "drip"
+      ],
+      "answer": "grumpy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Fancy",
+        "Some",
+        "Grumpy"
+      ],
+      "answer": "Grumpy",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "beach",
+        "out",
+        "much"
+      ],
+      "answer": "out",
+      "kind": "word"
+    }
+  ]
+}

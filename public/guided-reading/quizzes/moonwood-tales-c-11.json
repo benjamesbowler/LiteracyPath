@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-11",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "live",
+        "jumps",
+        "stone"
+      ],
+      "answer": "stone",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Flappy",
+        "Stone",
+        "Dozy"
+      ],
+      "answer": "Stone",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "thing",
+        "healthy",
+        "fluff"
+      ],
+      "answer": "thing",
+      "kind": "word"
+    }
+  ]
+}

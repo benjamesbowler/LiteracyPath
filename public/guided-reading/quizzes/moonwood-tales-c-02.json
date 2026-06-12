@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-02",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "hop",
+        "growing",
+        "warms"
+      ],
+      "answer": "growing",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Fern",
+        "Tiny",
+        "Quack"
+      ],
+      "answer": "Fern",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "much",
+        "plan",
+        "bath"
+      ],
+      "answer": "much",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "level-c-nonfiction-03-penguins",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "rings",
+        "ran",
+        "penguins"
+      ],
+      "answer": "penguins",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "From",
+        "Shy",
+        "Dogs"
+      ],
+      "answer": "From",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "penguins",
+        "butterflies",
+        "nan"
+      ],
+      "answer": "penguins",
+      "kind": "word"
+    }
+  ]
+}

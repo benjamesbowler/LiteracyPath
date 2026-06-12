@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-13-splashy-finds-a-puddle",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ sees a puddle.\"",
+      "choices": [
+        "splashy",
+        "cloud",
+        "planet"
+      ],
+      "answer": "splashy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "then",
+        "rest",
+        "puddle"
+      ],
+      "answer": "puddle",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "puddle",
+        "sick",
+        "pet"
+      ],
+      "answer": "puddle",
+      "kind": "word"
+    }
+  ]
+}

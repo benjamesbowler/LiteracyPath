@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-06",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "map",
+        "kitten",
+        "shy"
+      ],
+      "answer": "map",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Quack",
+        "Hungry",
+        "Flint"
+      ],
+      "answer": "Flint",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "zoo",
+        "map",
+        "puddle"
+      ],
+      "answer": "map",
+      "kind": "word"
+    }
+  ]
+}

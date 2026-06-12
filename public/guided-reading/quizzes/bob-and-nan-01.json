@@ -1,0 +1,35 @@
+{
+  "bookId": "bob-and-nan-01",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"This is ___.\"",
+      "choices": [
+        "noisy",
+        "tummy",
+        "bob"
+      ],
+      "answer": "bob",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "ate",
+        "blue",
+        "nan"
+      ],
+      "answer": "nan",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Noisy",
+        "Nan",
+        "Pip"
+      ],
+      "answer": "Nan",
+      "kind": "word"
+    }
+  ]
+}

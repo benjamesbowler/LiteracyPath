@@ -1,0 +1,35 @@
+{
+  "bookId": "first-facts-a-21-how-i-grow",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"I grew ___. I could sit up and crawl.\"",
+      "choices": [
+        "bigger",
+        "pals",
+        "carvings"
+      ],
+      "answer": "bigger",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "clucky",
+        "could",
+        "grows"
+      ],
+      "answer": "could",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "grade",
+        "sun",
+        "grow"
+      ],
+      "answer": "grow",
+      "kind": "word"
+    }
+  ]
+}

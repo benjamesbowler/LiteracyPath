@@ -1,0 +1,35 @@
+{
+  "bookId": "first-facts-a-14-hot-and-cold",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"The sun is hot. It ___ us up.\"",
+      "choices": [
+        "fancy",
+        "warms",
+        "grass"
+      ],
+      "answer": "warms",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "hot",
+        "sat",
+        "brave"
+      ],
+      "answer": "hot",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "bridge",
+        "cold",
+        "farm"
+      ],
+      "answer": "cold",
+      "kind": "word"
+    }
+  ]
+}

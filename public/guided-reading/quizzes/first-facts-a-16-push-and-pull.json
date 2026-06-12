@@ -1,0 +1,35 @@
+{
+  "bookId": "first-facts-a-16-push-and-pull",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"A push moves ___ away. Push!\"",
+      "choices": [
+        "wrench",
+        "yellow",
+        "things"
+      ],
+      "answer": "things",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "tree",
+        "pull",
+        "eddie"
+      ],
+      "answer": "pull",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "missing",
+        "small",
+        "reading"
+      ],
+      "answer": "reading",
+      "kind": "word"
+    }
+  ]
+}

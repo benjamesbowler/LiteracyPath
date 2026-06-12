@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-10-giggly-has-the-hiccups",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"Giggly has the ___.\"",
+      "choices": [
+        "hiccups",
+        "watering",
+        "quiet"
+      ],
+      "answer": "hiccups",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "biggest",
+        "hic",
+        "burrow"
+      ],
+      "answer": "hic",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Dozy",
+        "Hic",
+        "Wiggly"
+      ],
+      "answer": "Hic",
+      "kind": "word"
+    }
+  ]
+}

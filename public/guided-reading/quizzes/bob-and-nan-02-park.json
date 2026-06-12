@@ -1,0 +1,35 @@
+{
+  "bookId": "bob-and-nan-02-park",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"Bob and Nan go to the ___.\"",
+      "choices": [
+        "park",
+        "fish",
+        "ape"
+      ],
+      "answer": "park",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "bob",
+        "ears",
+        "than"
+      ],
+      "answer": "bob",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Cuddly",
+        "Nan",
+        "Anna"
+      ],
+      "answer": "Nan",
+      "kind": "word"
+    }
+  ]
+}

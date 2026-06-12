@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-18-noisy-wakes-everyone-up",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"It is dark. ___ is asleep.\"",
+      "choices": [
+        "turtle",
+        "everyone",
+        "vegetables"
+      ],
+      "answer": "everyone",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "sneeze",
+        "rocket",
+        "woke"
+      ],
+      "answer": "woke",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "grade",
+        "everyone",
+        "shopping"
+      ],
+      "answer": "everyone",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-12-hungry-eats-everything",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ ate the grass.\"",
+      "choices": [
+        "hungry",
+        "apple",
+        "dentist"
+      ],
+      "answer": "hungry",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "ate",
+        "pat",
+        "sky"
+      ],
+      "answer": "ate",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "senses",
+        "everything",
+        "wake"
+      ],
+      "answer": "everything",
+      "kind": "word"
+    }
+  ]
+}

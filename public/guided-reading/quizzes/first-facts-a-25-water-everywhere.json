@@ -1,0 +1,35 @@
+{
+  "bookId": "first-facts-a-25-water-everywhere",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"Water is all ___ us. Oceans, rivers, and rain.\"",
+      "choices": [
+        "around",
+        "heavy",
+        "blue"
+      ],
+      "answer": "around",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "water",
+        "pull",
+        "circle"
+      ],
+      "answer": "water",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "tools",
+        "house",
+        "everywhere"
+      ],
+      "answer": "everywhere",
+      "kind": "word"
+    }
+  ]
+}

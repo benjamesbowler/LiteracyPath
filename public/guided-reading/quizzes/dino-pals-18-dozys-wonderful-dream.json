@@ -1,0 +1,35 @@
+{
+  "bookId": "dino-pals-18-dozys-wonderful-dream",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "dozy",
+        "explore",
+        "moon"
+      ],
+      "answer": "dozy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Dozy",
+        "Eddie",
+        "Zippy"
+      ],
+      "answer": "Dozy",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "senses",
+        "tools",
+        "dream"
+      ],
+      "answer": "dream",
+      "kind": "word"
+    }
+  ]
+}

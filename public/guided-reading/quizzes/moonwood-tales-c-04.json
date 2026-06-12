@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-04",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "asleep",
+        "glimmer",
+        "everyone"
+      ],
+      "answer": "glimmer",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Glimmer",
+        "Honky",
+        "Fruits"
+      ],
+      "answer": "Glimmer",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "nan",
+        "glimmer",
+        "zoo"
+      ],
+      "answer": "glimmer",
+      "kind": "word"
+    }
+  ]
+}

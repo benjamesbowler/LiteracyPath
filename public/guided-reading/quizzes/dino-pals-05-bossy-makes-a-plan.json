@@ -1,0 +1,35 @@
+{
+  "bookId": "dino-pals-05-bossy-makes-a-plan",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ up! called Bossy. I have a plan!\"",
+      "choices": [
+        "walked",
+        "smell",
+        "listen"
+      ],
+      "answer": "listen",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "dragon",
+        "bossy",
+        "beach"
+      ],
+      "answer": "bossy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Marcus",
+        "Bossy",
+        "Noisy"
+      ],
+      "answer": "Bossy",
+      "kind": "word"
+    }
+  ]
+}

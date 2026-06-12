@@ -671,8 +671,15 @@ export function GuidedReadingPage({
       if (!cancelled) setWholeBookSyncData(syncData);
     });
 
+    // Start downloading the whole-book audio the moment the book opens,
+    // so "Read Book" plays instantly instead of buffering on press.
+    const warm = new Audio();
+    warm.preload = "auto";
+    warm.src = fullBookAudioPath;
+
     return () => {
       cancelled = true;
+      warm.removeAttribute("src");
     };
   }, [selectedBookId, fullBookAudioPath]);
 

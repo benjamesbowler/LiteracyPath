@@ -1,0 +1,35 @@
+{
+  "bookId": "dino-pals-12-fancys-bad-day",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "bee",
+        "fancy",
+        "sees"
+      ],
+      "answer": "fancy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Dozy",
+        "Fancy",
+        "Stone"
+      ],
+      "answer": "Fancy",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "spell",
+        "door",
+        "bad"
+      ],
+      "answer": "bad",
+      "kind": "word"
+    }
+  ]
+}

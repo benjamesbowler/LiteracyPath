@@ -1,0 +1,35 @@
+{
+  "bookId": "james-and-anna-04-dentist",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "ate",
+        "uncle",
+        "anna"
+      ],
+      "answer": "anna",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Birds",
+        "Anna",
+        "Bouncy"
+      ],
+      "answer": "Anna",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "sky",
+        "storm",
+        "dentist"
+      ],
+      "answer": "dentist",
+      "kind": "word"
+    }
+  ]
+}

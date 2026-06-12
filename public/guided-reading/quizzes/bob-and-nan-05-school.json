@@ -1,0 +1,35 @@
+{
+  "bookId": "bob-and-nan-05-school",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"It is the big ___.\"",
+      "choices": [
+        "beach",
+        "day",
+        "runs"
+      ],
+      "answer": "day",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "clearing",
+        "bob",
+        "blooded"
+      ],
+      "answer": "bob",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Anna",
+        "Nan",
+        "Bouncy"
+      ],
+      "answer": "Nan",
+      "kind": "word"
+    }
+  ]
+}

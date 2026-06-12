@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { guidedReadingBooks } from "../../data/guidedReadingBooks";
+import { guidedReadingSeriesBooks } from "../../data/guidedReadingSeriesBooks";
 import { playCorrectChime, playSoftBuzz, playStarChime } from "../../utils/audio/gameSfx.js";
 import { ProgressStars } from "../learn/games/shared/ProgressStars.jsx";
 
@@ -51,10 +52,13 @@ function generateQuestions(book) {
   }
 
   const pageWithImage = (book.pages || []).find(page => page.image);
-  const otherImage = guidedReadingBooks
-    .filter(item => item.id !== book.id && item.pages?.some(page => page.image))
+  // Distractor pictures: random pages from the lightweight webp series
+  // books first (fast to load), falling back to the standalone books.
+  const distractorPool = [...guidedReadingSeriesBooks, ...guidedReadingBooks]
+    .filter(item => item.id !== book.id && item.pages?.some(page => page.image));
+  const otherImage = shuffle(distractorPool)
     .slice(0, 2)
-    .map(item => item.pages.find(page => page.image)?.image)
+    .map(item => shuffle(item.pages.filter(page => page.image))[0]?.image)
     .filter(Boolean);
   if (pageWithImage && otherImage.length >= 2) {
     questions.push({
@@ -66,6 +70,17 @@ function generateQuestions(book) {
   }
 
   return questions.slice(0, 3);
+}
+
+function preloadQuestionImages(questions) {
+  for (const question of questions || []) {
+    if (question.kind !== "picture") continue;
+    for (const src of question.choices) {
+      const img = new Image();
+      img.decoding = "async";
+      img.src = src;
+    }
+  }
 }
 
 async function loadAuthoredQuiz(bookId) {
@@ -96,7 +111,9 @@ export function BookQuiz({ book, onFinish }) {
     let cancelled = false;
     loadAuthoredQuiz(book.id).then(authored => {
       if (cancelled) return;
-      setQuestions(authored?.length ? authored : fallbackQuestions);
+      const next = authored?.length ? authored : fallbackQuestions;
+      preloadQuestionImages(next);
+      setQuestions(next);
     });
     return () => {
       cancelled = true;
@@ -155,7 +172,7 @@ export function BookQuiz({ book, onFinish }) {
             <div className={`book-quiz-choices${question.kind === "picture" ? " pictures" : ""}`}>
               {question.choices.map(choice => (
                 <button key={choice} type="button" onClick={() => choose(choice)}>
-                  {question.kind === "picture" ? <img src={choice} alt="" loading="lazy" /> : choice}
+                  {question.kind === "picture" ? <img src={choice} alt="" loading="eager" decoding="async" /> : choice}
                 </button>
               ))}
             </div>

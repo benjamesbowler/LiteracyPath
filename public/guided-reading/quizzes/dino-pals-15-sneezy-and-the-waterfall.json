@@ -1,0 +1,35 @@
+{
+  "bookId": "dino-pals-15-sneezy-and-the-waterfall",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ move back, said Grumpy. They moved back.\"",
+      "choices": [
+        "clouds",
+        "helpers",
+        "everyone"
+      ],
+      "answer": "everyone",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "grumpy",
+        "senses",
+        "butterflies"
+      ],
+      "answer": "grumpy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Grumpy",
+        "Cheeky",
+        "Stone"
+      ],
+      "answer": "Grumpy",
+      "kind": "word"
+    }
+  ]
+}

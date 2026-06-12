@@ -1,0 +1,35 @@
+{
+  "bookId": "james-and-anna-01-space",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "opposite",
+        "james",
+        "grows"
+      ],
+      "answer": "james",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Flint",
+        "Sometimes",
+        "Anna"
+      ],
+      "answer": "Anna",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "voice",
+        "around",
+        "space"
+      ],
+      "answer": "space",
+      "kind": "word"
+    }
+  ]
+}

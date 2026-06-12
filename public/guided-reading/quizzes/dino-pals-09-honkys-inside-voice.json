@@ -1,0 +1,35 @@
+{
+  "bookId": "dino-pals-09-honkys-inside-voice",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"Shh! said ___. SORRY! said Honky. More leaves fell.\"",
+      "choices": [
+        "winter",
+        "grumpy",
+        "fancy"
+      ],
+      "answer": "grumpy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "grandma",
+        "magnets",
+        "honky"
+      ],
+      "answer": "honky",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Brave",
+        "Honky",
+        "James"
+      ],
+      "answer": "Honky",
+      "kind": "word"
+    }
+  ]
+}

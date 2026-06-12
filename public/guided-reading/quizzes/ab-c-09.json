@@ -1,0 +1,35 @@
+{
+  "bookId": "ab-c-09",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "aiden",
+        "hic",
+        "turned"
+      ],
+      "answer": "aiden",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Aiden",
+        "James",
+        "Anna"
+      ],
+      "answer": "Aiden",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "teeth",
+        "shopping",
+        "everyone"
+      ],
+      "answer": "teeth",
+      "kind": "word"
+    }
+  ]
+}

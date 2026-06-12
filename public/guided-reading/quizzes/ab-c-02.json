@@ -1,0 +1,35 @@
+{
+  "bookId": "ab-c-02",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "betty",
+        "beach",
+        "hic"
+      ],
+      "answer": "betty",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Very",
+        "Flint",
+        "Aiden"
+      ],
+      "answer": "Aiden",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "gift",
+        "sale",
+        "forgot"
+      ],
+      "answer": "sale",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-03-clucky-lays-an-egg",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ has to lay an egg.\"",
+      "choices": [
+        "small",
+        "caves",
+        "clucky"
+      ],
+      "answer": "clucky",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "sat",
+        "sun",
+        "thousands"
+      ],
+      "answer": "sat",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Noisy",
+        "Clucky",
+        "Cheeky"
+      ],
+      "answer": "Clucky",
+      "kind": "word"
+    }
+  ]
+}

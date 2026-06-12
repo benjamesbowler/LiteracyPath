@@ -1,0 +1,35 @@
+{
+  "bookId": "level-c-nonfiction-10-frogs",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "dewdrop",
+        "pajamas",
+        "frog"
+      ],
+      "answer": "frog",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Frogs",
+        "Bees",
+        "Mmm"
+      ],
+      "answer": "Frogs",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "frogs",
+        "bale",
+        "sky"
+      ],
+      "answer": "frogs",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "level-c-nonfiction-07-under-the-ocean",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "ocean",
+        "hear",
+        "crab"
+      ],
+      "answer": "ocean",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Food",
+        "Earth",
+        "Shapes"
+      ],
+      "answer": "Earth",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "ocean",
+        "secret",
+        "wake"
+      ],
+      "answer": "ocean",
+      "kind": "word"
+    }
+  ]
+}

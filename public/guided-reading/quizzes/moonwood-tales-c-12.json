@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-12",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "oceans",
+        "true",
+        "fern"
+      ],
+      "answer": "fern",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Eddie",
+        "Let",
+        "Fern"
+      ],
+      "answer": "Fern",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "clothes",
+        "stream",
+        "potion"
+      ],
+      "answer": "stream",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "bob-and-nan-06-zoo",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ and Bob go to the zoo.\"",
+      "choices": [
+        "stop",
+        "nan",
+        "stars"
+      ],
+      "answer": "nan",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "small",
+        "bob",
+        "poles"
+      ],
+      "answer": "bob",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Bob",
+        "Marcus",
+        "Pip"
+      ],
+      "answer": "Bob",
+      "kind": "word"
+    }
+  ]
+}

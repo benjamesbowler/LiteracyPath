@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-19-tiny-and-brave-go-on-an-adventure",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ has lost a hat.\"",
+      "choices": [
+        "tiny",
+        "percy",
+        "school"
+      ],
+      "answer": "tiny",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "hat",
+        "ocean",
+        "dark"
+      ],
+      "answer": "hat",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Bouncy",
+        "James",
+        "Brave"
+      ],
+      "answer": "Brave",
+      "kind": "word"
+    }
+  ]
+}

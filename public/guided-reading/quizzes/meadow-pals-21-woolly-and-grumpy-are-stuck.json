@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-21-woolly-and-grumpy-are-stuck",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ is stuck. Grumpy is stuck.\"",
+      "choices": [
+        "woolly",
+        "candles",
+        "cannot"
+      ],
+      "answer": "woolly",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "fast",
+        "surprises",
+        "grumpy"
+      ],
+      "answer": "grumpy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Woolly",
+        "Fancy",
+        "Honky"
+      ],
+      "answer": "Woolly",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "ab-c-04",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "watering",
+        "rectangle",
+        "socks"
+      ],
+      "answer": "socks",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Run",
+        "Eddie",
+        "Push"
+      ],
+      "answer": "Eddie",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "socks",
+        "moon",
+        "chips"
+      ],
+      "answer": "socks",
+      "kind": "word"
+    }
+  ]
+}

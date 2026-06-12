@@ -1,0 +1,35 @@
+{
+  "bookId": "ja-b-09",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "james",
+        "moves",
+        "some"
+      ],
+      "answer": "james",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Aiden",
+        "James",
+        "Snow"
+      ],
+      "answer": "James",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "spiders",
+        "watch",
+        "bikes"
+      ],
+      "answer": "bikes",
+      "kind": "word"
+    }
+  ]
+}

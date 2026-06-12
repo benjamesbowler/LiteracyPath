@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-09-shy-comes-out-to-play",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"Shy ___ to play.\"",
+      "choices": [
+        "wants",
+        "flint",
+        "autumn"
+      ],
+      "answer": "wants",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "days",
+        "shy",
+        "fit"
+      ],
+      "answer": "shy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Shy",
+        "Spark",
+        "Cuddly"
+      ],
+      "answer": "Shy",
+      "kind": "word"
+    }
+  ]
+}

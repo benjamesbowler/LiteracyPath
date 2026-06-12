@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-18",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "grumpy",
+        "stone",
+        "run"
+      ],
+      "answer": "stone",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Stone",
+        "Twig",
+        "Our"
+      ],
+      "answer": "Stone",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "fruits",
+        "fish",
+        "earth"
+      ],
+      "answer": "fish",
+      "kind": "word"
+    }
+  ]
+}

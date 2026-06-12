@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-24",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "smell",
+        "glimmer",
+        "whoosh"
+      ],
+      "answer": "glimmer",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Glimmer",
+        "Everyone",
+        "Sunny"
+      ],
+      "answer": "Glimmer",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "gift",
+        "last",
+        "penguins"
+      ],
+      "answer": "last",
+      "kind": "word"
+    }
+  ]
+}

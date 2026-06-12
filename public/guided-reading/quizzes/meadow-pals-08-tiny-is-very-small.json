@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-08-tiny-is-very-small",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"Tiny is ___.\"",
+      "choices": [
+        "small",
+        "voice",
+        "wear"
+      ],
+      "answer": "small",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "dozy",
+        "rain",
+        "tiny"
+      ],
+      "answer": "tiny",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "senses",
+        "small",
+        "fish"
+      ],
+      "answer": "small",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-22-sleepys-big-dream",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ went to sleep.\"",
+      "choices": [
+        "branches",
+        "sleepy",
+        "living"
+      ],
+      "answer": "sleepy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "dream",
+        "lost",
+        "quack"
+      ],
+      "answer": "dream",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Bob",
+        "James",
+        "Sleepy"
+      ],
+      "answer": "Sleepy",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-06-sleepy-cant-wake-up",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"\"Get up, ___!\" said Noisy.\"",
+      "choices": [
+        "stars",
+        "sleepy",
+        "burrow"
+      ],
+      "answer": "sleepy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "things",
+        "explore",
+        "get"
+      ],
+      "answer": "get",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Sleepy",
+        "Zippy",
+        "Aiden"
+      ],
+      "answer": "Sleepy",
+      "kind": "word"
+    }
+  ]
+}

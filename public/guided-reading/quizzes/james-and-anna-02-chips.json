@@ -1,0 +1,35 @@
+{
+  "bookId": "james-and-anna-02-chips",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___! He ate the jumper.\"",
+      "choices": [
+        "jumps",
+        "crunch",
+        "hiccups"
+      ],
+      "answer": "crunch",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "chips",
+        "noisy",
+        "silver"
+      ],
+      "answer": "chips",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Chips",
+        "Dewdrop",
+        "Pip"
+      ],
+      "answer": "Chips",
+      "kind": "word"
+    }
+  ]
+}

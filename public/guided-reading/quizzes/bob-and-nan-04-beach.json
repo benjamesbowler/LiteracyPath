@@ -1,0 +1,35 @@
+{
+  "bookId": "bob-and-nan-04-beach",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"Bob and Nan go to the ___.\"",
+      "choices": [
+        "beach",
+        "looked",
+        "pulled"
+      ],
+      "answer": "beach",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "tongue",
+        "grow",
+        "bob"
+      ],
+      "answer": "bob",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Pip",
+        "Nan",
+        "Chompy"
+      ],
+      "answer": "Nan",
+      "kind": "word"
+    }
+  ]
+}

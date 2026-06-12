@@ -1,0 +1,35 @@
+{
+  "bookId": "bob-and-nan-07-birthday",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"It is ___'s big day!\"",
+      "choices": [
+        "room",
+        "bob",
+        "found"
+      ],
+      "answer": "bob",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "nan",
+        "purple",
+        "grow"
+      ],
+      "answer": "nan",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Flappy",
+        "Grumpy",
+        "Bob"
+      ],
+      "answer": "Bob",
+      "kind": "word"
+    }
+  ]
+}

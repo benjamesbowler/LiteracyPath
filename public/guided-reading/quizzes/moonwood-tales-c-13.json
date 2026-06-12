@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-13",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "living",
+        "glimmer",
+        "true"
+      ],
+      "answer": "glimmer",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Woolly",
+        "Glimmer",
+        "Chompy"
+      ],
+      "answer": "Glimmer",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "house",
+        "deal",
+        "seeds"
+      ],
+      "answer": "deal",
+      "kind": "word"
+    }
+  ]
+}

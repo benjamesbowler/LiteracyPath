@@ -1,0 +1,35 @@
+{
+  "bookId": "ab-c-03",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "live",
+        "diagrams",
+        "aiden"
+      ],
+      "answer": "aiden",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Stone",
+        "Aiden",
+        "Honky"
+      ],
+      "answer": "Aiden",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "help",
+        "socks",
+        "holiday"
+      ],
+      "answer": "holiday",
+      "kind": "word"
+    }
+  ]
+}

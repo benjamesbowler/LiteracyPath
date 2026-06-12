@@ -1,0 +1,35 @@
+{
+  "bookId": "first-facts-a-18-the-moon",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"The moon changes shape. ___ it looks like a banana.\"",
+      "choices": [
+        "everywhere",
+        "nocturnal",
+        "sometimes"
+      ],
+      "answer": "sometimes",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "yum",
+        "moon",
+        "race"
+      ],
+      "answer": "moon",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "moon",
+        "day",
+        "body"
+      ],
+      "answer": "moon",
+      "kind": "word"
+    }
+  ]
+}

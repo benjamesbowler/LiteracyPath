@@ -1,0 +1,35 @@
+{
+  "bookId": "first-facts-a-24-rocks-and-pebbles",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ are hard. Rocks can be big or small.\"",
+      "choices": [
+        "woof",
+        "rocks",
+        "arm"
+      ],
+      "answer": "rocks",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "splash",
+        "hat",
+        "smooth"
+      ],
+      "answer": "smooth",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "park",
+        "pebbles",
+        "day"
+      ],
+      "answer": "pebbles",
+      "kind": "word"
+    }
+  ]
+}

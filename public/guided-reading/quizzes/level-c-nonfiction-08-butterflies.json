@@ -1,0 +1,35 @@
+{
+  "bookId": "level-c-nonfiction-08-butterflies",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "butterfly",
+        "years",
+        "noisy"
+      ],
+      "answer": "butterfly",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Moon",
+        "Its",
+        "Food"
+      ],
+      "answer": "Its",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "trees",
+        "everyone",
+        "butterflies"
+      ],
+      "answer": "butterflies",
+      "kind": "word"
+    }
+  ]
+}

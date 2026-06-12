@@ -1,0 +1,35 @@
+{
+  "bookId": "dino-pals-07-wigglys-messy-day",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "wiggly",
+        "living",
+        "grass"
+      ],
+      "answer": "wiggly",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Wiggly",
+        "Shy",
+        "Woolly"
+      ],
+      "answer": "Wiggly",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "messy",
+        "teeth",
+        "puddle"
+      ],
+      "answer": "messy",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-14-speedy-slows-down",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ runs fast.\nVery, very fast.\"",
+      "choices": [
+        "read",
+        "duckling",
+        "speedy"
+      ],
+      "answer": "speedy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "flappy",
+        "voice",
+        "runs"
+      ],
+      "answer": "runs",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "down",
+        "ocean",
+        "gift"
+      ],
+      "answer": "down",
+      "kind": "word"
+    }
+  ]
+}

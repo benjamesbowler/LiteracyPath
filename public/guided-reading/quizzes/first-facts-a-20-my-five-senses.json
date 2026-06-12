@@ -1,0 +1,35 @@
+{
+  "bookId": "first-facts-a-20-my-five-senses",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"I have five ___. They help me know the world.\"",
+      "choices": [
+        "warms",
+        "watering",
+        "senses"
+      ],
+      "answer": "senses",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "pulled",
+        "same",
+        "smell"
+      ],
+      "answer": "smell",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "teeth",
+        "senses",
+        "zoo"
+      ],
+      "answer": "senses",
+      "kind": "word"
+    }
+  ]
+}

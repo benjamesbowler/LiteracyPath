@@ -1,0 +1,35 @@
+{
+  "bookId": "ab-c-01",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "aiden",
+        "crab",
+        "beach"
+      ],
+      "answer": "aiden",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Hic",
+        "Aiden",
+        "Swish"
+      ],
+      "answer": "Aiden",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "grade",
+        "weather",
+        "homes"
+      ],
+      "answer": "grade",
+      "kind": "word"
+    }
+  ]
+}

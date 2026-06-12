@@ -1,0 +1,35 @@
+{
+  "bookId": "dino-pals-14-what-is-flappy",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"Flappy tried ___. Flappy's feet were quite small. Nobody noticed.\"",
+      "choices": [
+        "stomping",
+        "please",
+        "sneezy"
+      ],
+      "answer": "stomping",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "fancy",
+        "flappy",
+        "blue"
+      ],
+      "answer": "flappy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Flappy",
+        "Anna",
+        "Honky"
+      ],
+      "answer": "Flappy",
+      "kind": "word"
+    }
+  ]
+}

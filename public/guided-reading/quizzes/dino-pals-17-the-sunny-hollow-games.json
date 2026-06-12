@@ -1,0 +1,35 @@
+{
+  "bookId": "dino-pals-17-the-sunny-hollow-games",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "wren",
+        "arm",
+        "bossy"
+      ],
+      "answer": "bossy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Fruits",
+        "Bossy",
+        "Hic"
+      ],
+      "answer": "Bossy",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "sick",
+        "games",
+        "castle"
+      ],
+      "answer": "games",
+      "kind": "word"
+    }
+  ]
+}

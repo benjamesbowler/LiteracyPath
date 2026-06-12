@@ -1,0 +1,35 @@
+{
+  "bookId": "bob-and-nan-10-vet",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ has a sore leg.\"",
+      "choices": [
+        "hungry",
+        "fluff",
+        "giggly"
+      ],
+      "answer": "fluff",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "vet",
+        "sleeps",
+        "orange"
+      ],
+      "answer": "vet",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Nan",
+        "Grumpy",
+        "Bob"
+      ],
+      "answer": "Bob",
+      "kind": "word"
+    }
+  ]
+}

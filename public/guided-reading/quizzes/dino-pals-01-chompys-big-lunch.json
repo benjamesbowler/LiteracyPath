@@ -1,0 +1,35 @@
+{
+  "bookId": "dino-pals-01-chompys-big-lunch",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"___ woke up. I am hungry, said Chompy.\"",
+      "choices": [
+        "chompy",
+        "everyone",
+        "gifts"
+      ],
+      "answer": "chompy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "hungry",
+        "got",
+        "fruits"
+      ],
+      "answer": "hungry",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Chompy",
+        "Shy",
+        "Luna"
+      ],
+      "answer": "Chompy",
+      "kind": "word"
+    }
+  ]
+}

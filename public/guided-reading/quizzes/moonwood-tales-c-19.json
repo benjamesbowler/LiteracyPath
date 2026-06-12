@@ -1,0 +1,35 @@
+{
+  "bookId": "moonwood-tales-c-19",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "hop",
+        "ditch",
+        "seeds"
+      ],
+      "answer": "seeds",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Roots",
+        "Dozy",
+        "Luna"
+      ],
+      "answer": "Luna",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "bully",
+        "mystery",
+        "seeds"
+      ],
+      "answer": "seeds",
+      "kind": "word"
+    }
+  ]
+}

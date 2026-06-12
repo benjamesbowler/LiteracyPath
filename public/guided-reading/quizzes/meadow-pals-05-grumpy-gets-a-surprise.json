@@ -1,0 +1,35 @@
+{
+  "bookId": "meadow-pals-05-grumpy-gets-a-surprise",
+  "questions": [
+    {
+      "prompt": "Finish the sentence from your book: \"It is Grumpy's ___.\"",
+      "choices": [
+        "birthday",
+        "changes",
+        "colors"
+      ],
+      "answer": "birthday",
+      "kind": "word"
+    },
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "grumpy",
+        "turned",
+        "then"
+      ],
+      "answer": "grumpy",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Grumpy",
+        "Bossy",
+        "Honky"
+      ],
+      "answer": "Grumpy",
+      "kind": "word"
+    }
+  ]
+}

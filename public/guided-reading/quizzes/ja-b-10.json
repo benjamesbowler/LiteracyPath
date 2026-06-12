@@ -1,0 +1,35 @@
+{
+  "bookId": "ja-b-10",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "rectangle",
+        "chips",
+        "autumn"
+      ],
+      "answer": "chips",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Fern",
+        "Chips",
+        "Zippy"
+      ],
+      "answer": "Chips",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "pull",
+        "camping",
+        "zoo"
+      ],
+      "answer": "camping",
+      "kind": "word"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "bookId": "level-c-nonfiction-01-bees",
+  "questions": [
+    {
+      "prompt": "Which word was in your book?",
+      "choices": [
+        "feel",
+        "sneezy",
+        "bees"
+      ],
+      "answer": "bees",
+      "kind": "word"
+    },
+    {
+      "prompt": "Who is this story about?",
+      "choices": [
+        "Drops",
+        "Seeds",
+        "Bees"
+      ],
+      "answer": "Bees",
+      "kind": "word"
+    },
+    {
+      "prompt": "What was your book about?",
+      "choices": [
+        "bees",
+        "ocean",
+        "puddle"
+      ],
+      "answer": "bees",
+      "kind": "word"
+    }
+  ]
+}
