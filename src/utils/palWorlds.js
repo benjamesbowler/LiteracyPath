@@ -62,3 +62,15 @@ export function worldStyle(world) {
     "--pal-deep": world.deep
   };
 }
+
+// World for a student based on their quest progress (cycle band).
+export function worldForScope(scope) {
+  if (typeof window === "undefined") return PAL_WORLDS.meadow;
+  try {
+    const quest = JSON.parse(window.localStorage.getItem(`lp-el-quest:${scope || "default"}`) || "null");
+    const done = Object.values(quest?.cycles || {}).filter(item => item?.stars > 0).length;
+    return worldForCycle(done + 1);
+  } catch {
+    return PAL_WORLDS.meadow;
+  }
+}

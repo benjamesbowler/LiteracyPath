@@ -140,9 +140,14 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
 
   useEffect(() => {
     if (!round || round.type === "build") return undefined;
-    cueTimerRef.current = window.setTimeout(() => playCue(round), 450);
+    cueTimerRef.current = window.setTimeout(() => playCue(round), 120);
+    // Warm the next round's audio so it starts instantly.
+    const next = rounds[roundIndex + 1];
+    if (next?.audio) {
+      try { new Audio(next.audio).preload = "auto"; } catch { /* ignore */ }
+    }
     return () => window.clearTimeout(cueTimerRef.current);
-  }, [round]);
+  }, [round, rounds, roundIndex]);
 
   function openCycle(cycle) {
     setActiveCycleId(cycle.id);

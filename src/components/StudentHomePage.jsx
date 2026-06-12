@@ -87,12 +87,12 @@ export function StudentHomePage({
 
   const missionTargets = {
     quest: onOpenSkillsBlockQuest,
-    book: onOpenGuidedReading,
+    book: () => onOpenGuidedReading?.(mission.book?.bookId || ""),
     game: onOpenPhonicsLearn
   };
 
   return (
-    <main className="student-home-page" data-pal-world="meadow">
+    <main className="student-home-page">
       <header className="student-home-topbar">
         <img className="student-home-logo" src={logoUrl} alt="Literacy Guide" />
         <button

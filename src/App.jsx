@@ -26,6 +26,7 @@ import { StudentEntryPage } from "./components/StudentEntryPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { SchoolNameInput } from "./components/SchoolNameInput.jsx";
+import { worldForScope } from "./utils/palWorlds.js";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
 import { ElSkillsQuest } from "./components/elQuest/ElSkillsQuest.jsx";
 import { normalize, shuffleArray } from "./utils/assessmentRoundBuilder";
@@ -1792,6 +1793,7 @@ export default function App() {
   const [answerHistory, setAnswerHistory] = useState([]);
   const [assessmentHistory, setAssessmentHistory] = useState([]);
   const [guidedReadingRecords, setGuidedReadingRecords] = useState({});
+  const [guidedInitialBookId, setGuidedInitialBookId] = useState("");
   const [itemMastery, setItemMastery] = useState({});
   const [itemSessionSeen, setItemSessionSeen] = useState({});
   const [allQuestions, setAllQuestions] = useState(startupQuestions);
@@ -7698,7 +7700,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
   return (
     <ErrorBoundary resetKey={`app-shell-${appView}-${studentId || "none"}`} fallback={<PageErrorFallback />}>
-    <div className={`lg-app-shell${isFocusedShell ? " no-sidebar" : ""}${isLearnView && learnFullscreen ? " learn-fullscreen-shell" : ""}${effectiveAssessmentFullscreen ? " assessment-fullscreen-shell" : ""}`}>
+    <div
+      className={`lg-app-shell${isFocusedShell ? " no-sidebar" : ""}${isLearnView && learnFullscreen ? " learn-fullscreen-shell" : ""}${effectiveAssessmentFullscreen ? " assessment-fullscreen-shell" : ""}`}
+      data-pal-world={isStudentMode ? worldForScope(studentId || studentName || "default").id : undefined}
+    >
       {!isFocusedShell && (
         <Sidebar
           appView={appView}
@@ -7756,7 +7761,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             onOpenPhonicsLearn={() => setAppView(APP_VIEWS.PHONICS_LEARN)}
             onOpenSkillsBlockQuest={() => setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST)}
             onOpenStoryQuests={() => setAppView(APP_VIEWS.LEARN)}
-            onOpenGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
+            onOpenGuidedReading={bookId => {
+              setGuidedInitialBookId(typeof bookId === "string" ? bookId : "");
+              setAppView(APP_VIEWS.GUIDED_READING);
+            }}
             onLogout={isStudentMode ? logOutStudent : returnToTeacherDashboard}
             logoutLabel={isStudentMode ? "Sign out" : "Teacher dashboard"}
             logoutAriaLabel={isStudentMode ? "Log out" : "Return to teacher dashboard"}
@@ -7898,6 +7906,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       {appView === APP_VIEWS.GUIDED_READING && nameSaved && (
         <PageBoundary resetKey={`guided-reading-${studentId}`}>
           <GuidedReadingPage
+            initialBookId={guidedInitialBookId}
             studentId={studentId}
             studentName={studentName}
             mode={sessionMode === "student" ? "student" : "teacher"}

@@ -467,6 +467,7 @@ function getGuidedReadingLevelBooks(type, level) {
 }
 
 export function GuidedReadingPage({
+  initialBookId = "",
   studentId,
   studentName,
   guidedReadingRecords = {},
@@ -482,6 +483,17 @@ export function GuidedReadingPage({
   const [pageIndex, setPageIndex] = useState(0);
   const [showSummary, setShowSummary] = useState(false);
   const [showQuiz, setShowQuiz] = useState(false);
+  const initialBookHandledRef = useRef(false);
+
+  useEffect(() => {
+    if (!initialBookId || initialBookHandledRef.current) return;
+    initialBookHandledRef.current = true;
+    const target = getRuntimeGuidedReadingBooks().find(book => book.id === initialBookId);
+    if (!target) return;
+    const timer = window.setTimeout(() => changeBook(initialBookId), 0);
+    return () => window.clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialBookId]);
   const [levelUp, setLevelUp] = useState(null);
   const [readerOpen, setReaderOpen] = useState(false);
   const [readingMode, setReadingMode] = useState("reading");
