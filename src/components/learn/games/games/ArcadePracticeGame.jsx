@@ -129,11 +129,9 @@ export function ArcadePracticeGame({
     }
 
     if (mode === "family") {
-      const familyIds = difficulty === "hard"
-        ? ["-AT", "-AN", "-IG", "-OP", "-UN", "-EN", "-ET", "-OT", "-UG", "-IN"].slice(0, 8)
-        : difficulty === "medium"
-          ? ["-AT", "-AN", "-IG", "-OP", "-ET"]
-          : ["-AT", "-AN", "-IG"];
+      // Shuffled so each play serves a different mix of families.
+      const allFamilies = shuffle(Object.keys(WORD_FAMILIES));
+      const familyIds = allFamilies.slice(0, difficulty === "hard" ? 8 : difficulty === "medium" ? 5 : 3);
       const words = familyIds.flatMap(familyId => WORD_FAMILIES[familyId].map(word => ({ familyId, word, onset: word.replace(familyId.slice(1).toLowerCase(), "") })));
       return { familyIds, words: shuffle(words), total: words.length };
     }

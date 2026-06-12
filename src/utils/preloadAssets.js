@@ -1,0 +1,60 @@
+// Idle-time asset warming. Called once when a student lands on home so
+// world art, game cards, and common UI sounds are already cached before
+// the child taps into them. Never blocks first paint.
+import { GAME_LIST } from "../data/learnGamesData";
+
+let warmed = false;
+const KEEP_ALIVE = [];
+
+function preloadImage(src) {
+  if (!src) return;
+  const img = new Image();
+  img.decoding = "async";
+  img.src = src;
+  KEEP_ALIVE.push(img);
+}
+
+function preloadAudio(src) {
+  if (!src) return;
+  const audio = new Audio();
+  audio.preload = "auto";
+  audio.src = src;
+  KEEP_ALIVE.push(audio);
+}
+
+export function warmStudentAssets(world) {
+  if (warmed || typeof window === "undefined") return;
+  warmed = true;
+
+  const run = () => {
+    // Active world art (backdrops, banner, sprite, poses)
+    if (world) {
+      preloadImage(world.banner);
+      preloadImage(world.emblem);
+      preloadImage(`/images/pals/sprites/${world.id}-idle-4.webp`);
+      ["wave", "celebrate", "think", "read"].forEach(pose =>
+        preloadImage(`/images/pals/poses/${world.id}-${pose}.webp`));
+    }
+    preloadImage("/images/pals/literacy-pals-logo.webp");
+    preloadImage("/images/learn-games/phinny-cheering.webp");
+
+    // Game card art so the arcade grid pops in instantly
+    GAME_LIST.forEach(game => {
+      preloadImage(`/images/learn-games/art/${game.id}.webp`);
+      preloadImage(game.icon);
+    });
+
+    // Most-played instruction audio
+    [
+      "/audio/learn-games/instructions/build-the-word-you-hear.mp3",
+      "/audio/learn-games/instructions/listen-then-tap-the-matching-word.mp3",
+      "/audio/learn-games/instructions/find-the-matching-sight-words.mp3"
+    ].forEach(preloadAudio);
+  };
+
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(run, { timeout: 4000 });
+  } else {
+    window.setTimeout(run, 1200);
+  }
+}

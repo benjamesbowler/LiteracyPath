@@ -7506,6 +7506,13 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     return (
       <PageBoundary resetKey={`auth-${authMode}`}>
         <div className="app auth-shell login-auth-shell">
+          <button
+            type="button"
+            className="auth-back-button"
+            onClick={() => setEntryMode("entry")}
+          >
+            <span aria-hidden="true">&larr;</span> Back to selection
+          </button>
           {authReconnecting && (
             <div className="message auth-reconnect-banner">
               Reconnecting to your teacher session in the background.

@@ -15598,3 +15598,32 @@ select:focus {
 .student-mission-art {
   flex: 0 0 auto;
 }
+
+/* Back to the entry chooser from teacher login */
+.auth-back-button {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--lp-color-border, #E2E8F0);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--lp-color-text-strong, #0F172A);
+  cursor: pointer;
+  font: 600 0.875rem var(--lp-font-ui, sans-serif);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+.auth-back-button:hover {
+  border-color: var(--lp-color-primary, #0C6B65);
+  color: var(--lp-color-primary, #0C6B65);
+}
+
+.login-auth-shell {
+  position: relative;
+}

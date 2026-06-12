@@ -48,14 +48,29 @@ export const RHYMING_PAIRS = [
   ["bus", "us"],
   ["map", "cap"],
   ["pig", "big"],
-  ["top", "hop"]
+  ["top", "hop"],
+  ["net", "jet"],
+  ["man", "fan"],
+  ["sit", "hit"],
+  ["hug", "bug"],
+  ["wet", "pet"],
+  ["dot", "got"],
+  ["win", "fin"],
+  ["jug", "rug"]
 ];
 
 export const SENTENCES = {
   level1: [
     "The cat sat on the mat.",
     "I see a big dog.",
-    "We can run and play."
+    "We can run and play.",
+    "The dog is wet.",
+    "I can see the cat.",
+    "We sit on the bus.",
+    "The pig is big.",
+    "Mum has a red cup.",
+    "The sun is up.",
+    "I run to the top."
   ],
   level2: [
     "The little bird can fly.",
@@ -92,7 +107,11 @@ export const SENTENCE_FIX = {
     { kind: "word", prompt: "Choose the best word.", display: "The sun is ___.", say: "The sun is hot.", answer: "hot", options: ["hot", "hat", "hit"] },
     { kind: "capital", prompt: "Which word starts the sentence?", display: "___ hen is in the pen.", say: "The hen is in the pen.", answer: "The", options: ["The", "the", "THe"] },
     { kind: "end", prompt: "Choose the ending mark.", display: "Watch out___", say: "Watch out!", answer: "!", options: [".", "?", "!"] },
-    { kind: "word", prompt: "Choose the best word.", display: "I ___ a red bus.", say: "I see a red bus.", answer: "see", options: ["see", "sit", "sun"] }
+    { kind: "word", prompt: "Choose the best word.", display: "I ___ a red bus.", say: "I see a red bus.", answer: "see", options: ["see", "sit", "sun"] },
+    { kind: "capital", prompt: "Which word starts the sentence?", display: "___ dog can dig.", say: "My dog can dig.", answer: "My", options: ["My", "my", "mY"] },
+    { kind: "end", prompt: "Choose the ending mark.", display: "The pig is in the mud___", say: "The pig is in the mud.", answer: ".", options: [".", "?", "!"] },
+    { kind: "word", prompt: "Choose the best word.", display: "The fox sat in the ___.", say: "The fox sat in the box.", answer: "box", options: ["box", "bus", "bat"] },
+    { kind: "end", prompt: "Choose the ending mark.", display: "Is the bug on the rug___", say: "Is the bug on the rug?", answer: "?", options: [".", "?", "!"] }
   ],
   medium: [
     { kind: "capital", prompt: "Names need a capital. Choose the right one.", display: "My friend ___ has a kite.", say: "My friend Ben has a kite.", answer: "Ben", options: ["Ben", "ben", "bEn"] },
@@ -102,7 +121,11 @@ export const SENTENCE_FIX = {
     { kind: "end", prompt: "Choose the ending mark.", display: "The stars shine at night___", say: "The stars shine at night.", answer: ".", options: [".", "?", "!"] },
     { kind: "word", prompt: "Choose the best word.", display: "She drinks a glass of ___.", say: "She drinks a glass of milk.", answer: "milk", options: ["milk", "mat", "man"] },
     { kind: "word", prompt: "Choose the best word.", display: "I put on my ___ when it rains.", say: "I put on my coat when it rains.", answer: "coat", options: ["coat", "cot", "cat"] },
-    { kind: "end", prompt: "Choose the ending mark.", display: "Look out for the wave___", say: "Look out for the wave!", answer: "!", options: [".", "?", "!"] }
+    { kind: "end", prompt: "Choose the ending mark.", display: "Look out for the wave___", say: "Look out for the wave!", answer: "!", options: [".", "?", "!"] },
+    { kind: "word", prompt: "Choose the best word.", display: "The king wears a gold ___.", say: "The king wears a gold ring.", answer: "ring", options: ["ring", "rock", "rug"] },
+    { kind: "capital", prompt: "Which word starts the sentence?", display: "___ ship sails on the sea.", say: "The ship sails on the sea.", answer: "The", options: ["The", "the", "tHE"] },
+    { kind: "end", prompt: "Choose the ending mark.", display: "Can the crab swim fast___", say: "Can the crab swim fast?", answer: "?", options: [".", "?", "!"] },
+    { kind: "word", prompt: "Choose the best word.", display: "I ___ my hands when I am happy.", say: "I clap my hands when I am happy.", answer: "clap", options: ["clap", "clip", "chop"] }
   ],
   hard: [
     { kind: "word", prompt: "Choose the right word.", display: "We went ___ the shop.", say: "We went to the shop.", answer: "to", options: ["to", "two", "too"] },
@@ -112,7 +135,11 @@ export const SENTENCE_FIX = {
     { kind: "capital", prompt: "Days need a capital. Choose the right one.", display: "On ___ we read a space book.", say: "On Monday we read a space book.", answer: "Monday", options: ["Monday", "monday", "monDay"] },
     { kind: "word", prompt: "Choose the joining word.", display: "Seeds need water ___ sun to grow.", say: "Seeds need water and sun to grow.", answer: "and", options: ["and", "an", "as"] },
     { kind: "word", prompt: "Choose the right word.", display: "___ dragon sleeps on the gold.", say: "Their dragon sleeps on the gold.", answer: "Their", options: ["Their", "There", "They're"] },
-    { kind: "end", prompt: "Choose the ending mark.", display: "The owl hunts when the moon is bright___", say: "The owl hunts when the moon is bright.", answer: ".", options: [".", "?", "!"] }
+    { kind: "end", prompt: "Choose the ending mark.", display: "The owl hunts when the moon is bright___", say: "The owl hunts when the moon is bright.", answer: ".", options: [".", "?", "!"] },
+    { kind: "word", prompt: "Choose the right word.", display: "The wizard kept ___ wand by the door.", say: "The wizard kept his wand by the door.", answer: "his", options: ["his", "him", "her"] },
+    { kind: "word", prompt: "Choose the right word.", display: "We saw ___ stars in the night sky.", say: "We saw two stars in the night sky.", answer: "two", options: ["two", "to", "too"] },
+    { kind: "capital", prompt: "Names need a capital. Choose the right one.", display: "Our robot ___ beeps when it is happy.", say: "Our robot Max beeps when it is happy.", answer: "Max", options: ["Max", "max", "mAx"] },
+    { kind: "end", prompt: "Choose the ending mark.", display: "The rocket is about to blast off___", say: "The rocket is about to blast off!", answer: "!", options: [".", "?", "!"] }
   ]
 };
 

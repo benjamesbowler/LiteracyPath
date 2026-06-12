@@ -8,6 +8,7 @@ import {
 } from "../utils/dailyMission.js";
 import { COMPANIONS, getCompanion, setCompanion, getCollectibles } from "../utils/studentProfile.js";
 import { worldForScope } from "../utils/palWorlds.js";
+import { warmStudentAssets } from "../utils/preloadAssets.js";
 import { Gem } from "./Gem.jsx";
 
 function StudentHomeCard({ title, subtitle, meta, art, onClick }) {
@@ -74,6 +75,10 @@ export function StudentHomePage({
   const [companion, setCompanionState] = useState(() => getCompanion(progressScopeKey));
   const [pickingCompanion, setPickingCompanion] = useState(false);
   const [collectibles] = useState(() => getCollectibles(progressScopeKey));
+
+  useEffect(() => {
+    warmStudentAssets(worldForScope(progressScopeKey));
+  }, [progressScopeKey]);
 
   useEffect(() => {
     if (!status.needsCelebration) return undefined;
