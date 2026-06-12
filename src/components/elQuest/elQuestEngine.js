@@ -3,6 +3,7 @@
 // correct answer - mirroring how the EL skills block is taught:
 // hear the sound -> find the sound in words -> read quick words -> build words.
 import { LETTER_EXAMPLES, elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
+import { VERIFIED_PICTURE_WORDS } from "../../data/generated/questStoryQuestions.generated.js";
 import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
 import { QUEST_STORY_QUESTIONS } from "../../data/generated/questStoryQuestions.generated.js";
 import { AUDIO_FILE_PATHS } from "../../data/generated/audioFilePaths.generated.js";
@@ -97,6 +98,17 @@ function exampleWordsFor(spelling, limit = 4) {
   return (LETTER_EXAMPLES[spelling] || []).slice(0, limit);
 }
 
+const PICTURE_WORDS = new Set(VERIFIED_PICTURE_WORDS);
+function hasPicture(word) {
+  return PICTURE_WORDS.has(String(word || "").toLowerCase());
+}
+
+function pictureWordsFor(spelling, limit = 4) {
+  const all = LETTER_EXAMPLES[spelling] || [];
+  const withImages = all.filter(hasPicture);
+  return (withImages.length ? withImages : all).slice(0, limit);
+}
+
 // Station - Letter Spot: match big and small letters.
 const SINGLE_LETTERS = ALL_GRAPHEMES.filter(g => g.length === 1);
 function buildLetterRounds(cycle) {
@@ -133,28 +145,36 @@ function buildLetterRounds(cycle) {
 
 // Station - Sound Catch: hear the sound, tap the matching letter tile.
 function buildSoundRounds(cycle) {
-  // Two passes per focus sound with fresh distractors each time.
-  return focusEntries(cycle).flatMap(entry => [0, 1].map(() => ({
-    type: "sound",
-    audio: graphemeAudioPath(entry.spelling),
-    speechFallback: entry.spelling,
-    prompt: "Tap the letter that makes this sound.",
-    display: "",
-    choices: shuffleItems([entry.spelling, ...distractorGraphemes(entry.spelling, 2)]),
-    answer: entry.spelling,
-    choiceStyle: "letter"
-  })));
+  // Two passes per focus sound with fresh distractors each time. Pattern
+  // sounds without a recorded phoneme cue with a real word instead.
+  return focusEntries(cycle).flatMap(entry => [0, 1].map(() => {
+    const phoneme = graphemeAudioPath(entry.spelling);
+    const exampleWord = shuffleItems(exampleWordsFor(entry.spelling))[0] || "";
+    const wordCue = exampleWord ? wordAudioPath(exampleWord) : "";
+    return {
+      type: "sound",
+      audio: phoneme || wordCue,
+      speechFallback: "",
+      prompt: phoneme
+        ? "Tap the letter that makes this sound."
+        : `Listen to the word. Tap the letters you hear in "${exampleWord}".`,
+      display: "",
+      choices: shuffleItems([entry.spelling, ...distractorGraphemes(entry.spelling, 2)]),
+      answer: entry.spelling,
+      choiceStyle: "letter"
+    };
+  }));
 }
 
 // Station - Sound Hunt: which picture starts with the sound?
 function buildHuntRounds(cycle) {
   return focusEntries(cycle)
-    .filter(entry => exampleWordsFor(entry.spelling).length)
+    .filter(entry => pictureWordsFor(entry.spelling).length)
     .flatMap(entry => {
-      const answers = shuffleItems(exampleWordsFor(entry.spelling)).slice(0, 2);
+      const answers = shuffleItems(pictureWordsFor(entry.spelling)).slice(0, 2);
       return answers.map(answer => {
         const others = shuffleItems(
-          ALL_GRAPHEMES.filter(g => g !== entry.spelling).flatMap(g => exampleWordsFor(g, 1))
+          ALL_GRAPHEMES.filter(g => g !== entry.spelling).flatMap(g => pictureWordsFor(g, 1))
         ).slice(0, 2);
         return {
           type: "hunt",
@@ -304,9 +324,11 @@ function buildPoemRounds(cycle) {
   const poemWords = uniqueChoices(
     text.toLowerCase().replace(/[^a-z\s]/g, " ").split(/\s+/).filter(w => w.length > 1)
   );
+  const narration = `/audio/learn-games/poems/cycle-${String(cycle.cycleNumber).padStart(2, "0")}.mp3`;
+  const poemAudio = AUDIO_FILE_PATHS.has(narration) ? narration : "";
   return poem.findWords.map(word => ({
     type: "poem",
-    audio: wordAudioPath(word),
+    audio: poemAudio || wordAudioPath(word),
     speechFallback: word,
     prompt: `Read the poem, then tap the word "${word}".`,
     display: text,

@@ -868,16 +868,17 @@ export function GuidedReadingPage({
       completedPages: selectedBook.pages.length,
       totalPages: selectedBook.pages.length
     });
-    notifyMissionTaskDone(studentId || studentName || "default", "book");
     if (isStudentMode) {
       setShowQuiz(true);
     } else {
+      notifyMissionTaskDone(studentId || studentName || "default", "book");
       setShowSummary(true);
     }
   }
 
   function handleQuizFinish(quizCorrect, quizTotal) {
     setShowQuiz(false);
+    notifyMissionTaskDone(studentId || studentName || "default", "book");
     updateRecord({
       quizScore: quizCorrect,
       quizTotal,

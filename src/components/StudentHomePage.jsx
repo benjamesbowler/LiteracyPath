@@ -52,7 +52,7 @@ function CheckIcon() {
 
 const MISSION_TILES = [
   { kind: "quest", label: "Quest", art: "/images/learn-games/art/word-hopscotch.webp" },
-  { kind: "book", label: "Book", art: "/images/learn-games/home/home-reading-pals.webp" },
+  { kind: "book", label: "Book", art: "/images/learn-games/home/home-reading-library.webp" },
   { kind: "game", label: "Game", art: "/images/learn-games/art/pop-the-word.webp" }
 ];
 
@@ -173,6 +173,40 @@ export function StudentHomePage({
         </div>
       </section>
 
+      <section className="student-home-explore" aria-label="Explore">
+        <h2>Explore</h2>
+        <div className="student-home-grid">
+          <StudentHomeCard
+            art="/images/learn-games/home/home-phonics.webp"
+            meta="Letters and games"
+            title="Phonics Quest"
+            subtitle="Letters, words, and games"
+            onClick={onOpenPhonicsLearn}
+          />
+          <StudentHomeCard
+            art="/images/learn-games/home/home-skills-quest.webp"
+            meta="One big path"
+            title="Skills Quest"
+            subtitle="Sounds, words, and reading runs"
+            onClick={onOpenSkillsBlockQuest}
+          />
+          <StudentHomeCard
+            art="/images/learn-games/home/home-story-quests.webp"
+            meta="Story path"
+            title="Story Quests"
+            subtitle="Read, choose, and collect words"
+            onClick={onOpenStoryQuests}
+          />
+          <StudentHomeCard
+            art="/images/learn-games/home/home-reading-library.webp"
+            meta="Book shelf"
+            title="Reading Library"
+            subtitle="Listen, read, and reread"
+            onClick={onOpenGuidedReading}
+          />
+        </div>
+      </section>
+
       {collectibles.length > 0 && (
         <section className="student-treasures" aria-label="My treasures">
           <h2>My Treasures</h2>
@@ -186,40 +220,6 @@ export function StudentHomePage({
           </div>
         </section>
       )}
-
-      <section className="student-home-explore" aria-label="Explore">
-        <h2>Explore</h2>
-        <div className="student-home-grid">
-          <StudentHomeCard
-            art="/images/learn-games/art/cvc-word-builder.webp"
-            meta="Letters and games"
-            title="Phonics Quest"
-            subtitle="Letters, words, and games"
-            onClick={onOpenPhonicsLearn}
-          />
-          <StudentHomeCard
-            art="/images/learn-games/art/word-hopscotch.webp"
-            meta="One big path"
-            title="Skills Quest"
-            subtitle="Sounds, words, and reading runs"
-            onClick={onOpenSkillsBlockQuest}
-          />
-          <StudentHomeCard
-            art="/images/learn-games/art/reading-race.webp"
-            meta="Story path"
-            title="Story Quests"
-            subtitle="Read, choose, and collect words"
-            onClick={onOpenStoryQuests}
-          />
-          <StudentHomeCard
-            art="/images/learn-games/home/home-reading-pals.webp"
-            meta="Book shelf"
-            title="Reading Library"
-            subtitle="Listen, read, and reread"
-            onClick={onOpenGuidedReading}
-          />
-        </div>
-      </section>
 
       {(pickingCompanion || !companion) && (
         <div className="companion-picker" role="dialog" aria-label="Choose your companion">

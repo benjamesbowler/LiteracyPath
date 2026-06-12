@@ -45,6 +45,18 @@ for (const [world, seriesId] of Object.entries(WORLD_SERIES)) {
   }
   storyBank[world] = { names: [...names], questions };
 }
+// Picture words verified against the actual files on disk - the asset
+// manifest sometimes lists images that do not exist.
+const { LETTER_EXAMPLES } = await import(path.join(root, "src/data/elSkillsBlockCycles.js"));
+const { getChildWordAsset } = await import(path.join(root, "src/data/childAssets.js"));
+const verified = [];
+for (const word of new Set(Object.values(LETTER_EXAMPLES).flat().map(w => String(w).toLowerCase()))) {
+  try {
+    const asset = getChildWordAsset(word, { allowBlockedAssessmentImage: true });
+    const image = asset?.image || asset?.fallbackImage;
+    if (image && fs.existsSync(path.join(root, "public", image))) verified.push(word);
+  } catch { /* skip */ }
+}
 const storyOut = path.join(root, "src", "data", "generated", "questStoryQuestions.generated.js");
-fs.writeFileSync(storyOut, `${banner}export const QUEST_STORY_QUESTIONS = ${JSON.stringify(storyBank)};\n`);
+fs.writeFileSync(storyOut, `${banner}export const QUEST_STORY_QUESTIONS = ${JSON.stringify(storyBank)};\nexport const VERIFIED_PICTURE_WORDS = ${JSON.stringify(verified.sort())};\n`);
 console.log(`story questions: ${Object.values(storyBank).map(b => b.questions.length).join("/")} (meadow/dino/moonwood) -> ${path.relative(root, storyOut)}`);

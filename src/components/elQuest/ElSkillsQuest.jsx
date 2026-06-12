@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
 import { getChildWordAsset } from "../../data/childAssets";
-import { speakWithBrowser } from "../../utils/audio/speakWithBrowser.js";
 import { playCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
 import { playCorrectChime, playSoftBuzz, playCelebrationFanfare, playStarChime } from "../../utils/audio/gameSfx.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
@@ -24,11 +23,33 @@ import "../../styles/skills-block-quest.css";
 
 const STORAGE_PREFIX = "lp-el-quest";
 
-// The journey map: three lands, nine cycles each.
+// The adventure map: three lands, one full-screen map each. Every cycle
+// is a named landmark along a winding trail.
 const WORLD_REGIONS = [
-  { id: "meadow", name: "Meadow Farm", test: n => n <= 9 },
-  { id: "dino", name: "Dinosaur Valley", test: n => n >= 10 && n <= 18 },
-  { id: "moonwood", name: "Moonwood Forest", test: n => n >= 19 }
+  {
+    id: "meadow",
+    name: "Meadow Farm",
+    test: n => n <= 9,
+    landmarks: ["The Big Barn", "Strawberry Field", "Sheep Pen", "Duck Pond", "Carrot Patch", "Haystack Hill", "The Old Orchard", "Flower Meadow", "Farm Gate"]
+  },
+  {
+    id: "dino",
+    name: "Dinosaur Valley",
+    test: n => n >= 10 && n <= 18,
+    landmarks: ["The Mud Pits", "Green Valley", "Giant Plants", "Stomping Grounds", "Fossil Creek", "Eggshell Rocks", "Fern Forest", "Lava Lookout", "The Volcano"]
+  },
+  {
+    id: "moonwood",
+    name: "Moonwood Forest",
+    test: n => n >= 19,
+    landmarks: ["Glow-mushroom Grove", "Firefly Hollow", "Whispering Trees", "Moonlit Pond", "Starfall Clearing", "The Old Oak Door", "Crystal Cave", "Owl's Lookout", "The Moon Tower"]
+  }
+];
+
+// Trail coordinates (percent of the map board), winding top to bottom.
+const MAP_POINTS = [
+  [24, 12], [50, 19], [74, 27], [52, 36], [26, 44],
+  [46, 53], [73, 61], [48, 71], [26, 83]
 ];
 
 function loadQuestProgress(scopeKey) {
@@ -52,9 +73,10 @@ function saveQuestProgress(scopeKey, progress) {
 }
 
 function playCue(round) {
-  if (!round) return;
+  if (!round?.audio) return;
   playCueAudio(round.audio, {
-    onUnavailable: () => speakWithBrowser(round.speechFallback, { rate: 0.84 })
+    // Gold voice or silence - the robotic browser voice never plays.
+    onUnavailable: () => {}
   });
 }
 
@@ -241,13 +263,14 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   const [shaking, setShaking] = useState(false);
   const [celebration, setCelebration] = useState(null);
   const [sessionStations, setSessionStations] = useState({});
+  const [mapWorldId, setMapWorldId] = useState(null);
   const cueTimerRef = useRef(null);
 
   const activeCycle = playableCycles.find(cycle => cycle.id === activeCycleId) || null;
   const round = rounds[roundIndex] || null;
 
   useEffect(() => {
-    if (!round || round.type === "build") return undefined;
+    if (!round || round.type === "build" || !round.audio) return undefined;
     cueTimerRef.current = window.setTimeout(() => playCue(round), 120);
     // Warm the next round's audio so it starts instantly.
     const next = rounds[roundIndex + 1];
@@ -276,8 +299,9 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   function finishStation(finalCorrect, finalWrongs) {
     stopCueAudio();
     const total = rounds.length;
-    notifyMissionTaskDone(progressScopeKey, "quest");
     if (stationId === "check") {
+      // The mission's quest task = a full cycle, sealed by the Cycle Check.
+      notifyMissionTaskDone(progressScopeKey, "quest");
       const stars = starsForAccuracy(finalCorrect, total, finalWrongs);
       const previous = progress.cycles?.[activeCycle.id] || {};
       const nextProgress = {
@@ -305,24 +329,32 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
       setCelebration({ kind: "cycle", stars, correct: finalCorrect, total, gem });
     } else {
       playStarChime();
-      setSessionStations(previous => ({ ...previous, [stationId]: true }));
+      const doneNow = { ...sessionStations, [stationId]: true };
+      setSessionStations(doneNow);
       // Persist which stations are done so progress survives sign-out.
+      const savedStations = {
+        ...(progress.cycles?.[activeCycle.id]?.stations || {}),
+        [stationId]: true
+      };
       const withStations = {
         ...progress,
         cycles: {
           ...progress.cycles,
           [activeCycle.id]: {
             ...(progress.cycles?.[activeCycle.id] || {}),
-            stations: {
-              ...(progress.cycles?.[activeCycle.id]?.stations || {}),
-              [stationId]: true
-            }
+            stations: savedStations
           }
         }
       };
       setProgress(withStations);
       saveQuestProgress(progressScopeKey, withStations);
-      setCelebration({ kind: "station", correct: finalCorrect, total });
+      // Choose where the adventure flows next: the first practice station
+      // not yet done, or the Cycle Check once enough practice is in.
+      const isDone = id => doneNow[id] || savedStations[id];
+      const practiceDone = STATIONS.filter(st => st.id !== "check" && isDone(st.id)).length;
+      const nextStation = STATIONS.find(st => st.id !== "check" && !isDone(st.id))
+        || (practiceDone >= 4 ? STATIONS.find(st => st.id === "check") : null);
+      setCelebration({ kind: "station", correct: finalCorrect, total, nextStationId: nextStation?.id || null });
     }
     setStationId(null);
   }
@@ -380,6 +412,17 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
     ], { duration: 1400, easing: "ease-in-out" });
   }, [activeCycle, celebration, progressScopeKey, recommendedCycle?.id]);
 
+  // Station finished: flow straight into the next one after a short
+  // celebration beat - children keep playing, with a clear way to stop.
+  useEffect(() => {
+    if (celebration?.kind !== "station" || !celebration.nextStationId || !activeCycle) return undefined;
+    const timer = window.setTimeout(() => {
+      setCelebration(null);
+      startStation(activeCycle, celebration.nextStationId);
+    }, 2600);
+    return () => window.clearTimeout(timer);
+  }, [celebration, activeCycle]);
+
   if (!activeCycle) {
     return (
       <main className="skills-block-quest" data-pal-world={worldForCycle(recommendedCycle?.cycleNumber || 1).id}>
@@ -393,53 +436,72 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
             <button className="sbq-ghost-button" type="button" onClick={onExit}>Back</button>
           )}
         </header>
-        <div className="sbq-worldmap" aria-label="Quest journey map">
-          {WORLD_REGIONS.map(region => {
-            const stops = playableCycles.filter(cycle => region.test(cycle.cycleNumber));
-            if (!stops.length) return null;
-            return (
-              <section key={region.id} className="sbq-region" data-pal-world={region.id}>
-                <h2 className="sbq-region-name">{region.name}</h2>
-                <div className="sbq-region-path">
-                  {stops.map((cycle, index) => {
-                    const cycleProgress = progress.cycles?.[cycle.id];
-                    const isRecommended = cycle.id === recommendedCycle?.id;
-                    const isLastOverall = cycle.id === playableCycles[playableCycles.length - 1]?.id;
-                    return (
-                      <div
-                        key={cycle.id}
-                        className={`sbq-stop-row o${index % 4}${index === stops.length - 1 ? " row-last" : ""}${isLastOverall ? " map-last" : ""}`}
-                      >
-                        <button
-                          type="button"
-                          ref={el => { stopRefs.current[cycle.id] = el; }}
-                          className={`sbq-stop${cycleProgress?.stars ? " done" : ""}${isRecommended ? " next" : ""}`}
-                          onClick={() => openCycle(cycle)}
-                          aria-label={`Cycle ${cycle.cycleNumber}${isRecommended ? " - you are here" : ""}`}
-                        >
-                          {isRecommended && (
-                            <img
-                              ref={avatarRef}
-                              className="sbq-journey-avatar"
-                              src={travelerImage}
-                              alt=""
-                              aria-hidden="true"
-                            />
-                          )}
-                          <strong>{cycleProgress?.stars ? "★" : cycle.cycleNumber}</strong>
-                          <span className="sbq-stop-label">
-                            {(cycle.focusLetters || []).map(item => item.grapheme).join(" ") || "Review"}
-                          </span>
-                          {cycleProgress?.stars ? <ProgressStars stars={cycleProgress.stars} /> : isRecommended ? <em>You are here</em> : null}
-                        </button>
-                      </div>
-                    );
-                  })}
-                </div>
-              </section>
-            );
-          })}
-        </div>
+        {(() => {
+          const homeWorldId = worldForCycle(recommendedCycle?.cycleNumber || 1).id;
+          const activeWorldId = mapWorldId || homeWorldId;
+          const region = WORLD_REGIONS.find(r => r.id === activeWorldId) || WORLD_REGIONS[0];
+          const stops = playableCycles.filter(cycle => region.test(cycle.cycleNumber));
+          const trail = MAP_POINTS.slice(0, stops.length).map(([x, y]) => `${x},${y}`).join(" ");
+          return (
+            <div className="sbq-adventure" data-pal-world={region.id}>
+              <div className="sbq-world-tabs" role="tablist" aria-label="Choose a land">
+                {WORLD_REGIONS.map(world => (
+                  <button
+                    key={world.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={world.id === region.id}
+                    className={world.id === region.id ? "active" : ""}
+                    onClick={() => setMapWorldId(world.id)}
+                  >
+                    {world.name}
+                  </button>
+                ))}
+              </div>
+              <div
+                className="sbq-mapboard"
+                style={{ backgroundImage: `url(/images/pals/${region.id}-panorama.webp)` }}
+              >
+                <svg className="sbq-trail" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <polyline points={trail} />
+                </svg>
+                {stops.map((cycle, index) => {
+                  const cycleProgress = progress.cycles?.[cycle.id];
+                  const isRecommended = cycle.id === recommendedCycle?.id;
+                  const [x, y] = MAP_POINTS[index] || [50, 50];
+                  return (
+                    <button
+                      key={cycle.id}
+                      type="button"
+                      ref={el => { stopRefs.current[cycle.id] = el; }}
+                      className={`sbq-stop${cycleProgress?.stars ? " done" : ""}${isRecommended ? " next" : ""}`}
+                      style={{ left: `${x}%`, top: `${y}%` }}
+                      onClick={() => openCycle(cycle)}
+                      aria-label={`${region.landmarks[index] || `Cycle ${cycle.cycleNumber}`}${isRecommended ? " - you are here" : ""}`}
+                    >
+                      {isRecommended && (
+                        <img
+                          ref={avatarRef}
+                          className="sbq-journey-avatar"
+                          src={travelerImage}
+                          alt=""
+                          aria-hidden="true"
+                        />
+                      )}
+                      <strong>{cycleProgress?.stars ? "★" : cycle.cycleNumber}</strong>
+                      <span className="sbq-stop-label">{region.landmarks[index] || "Mystery Spot"}</span>
+                      <em className="sbq-stop-skill">
+                        {(cycle.focusLetters || []).map(item => item.grapheme).join(" ") || "Review"}
+                        {isRecommended ? " · You are here" : ""}
+                      </em>
+                      {cycleProgress?.stars ? <ProgressStars stars={cycleProgress.stars} /> : null}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })()}
       </main>
     );
   }
@@ -454,6 +516,11 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
           <img src={isCycle ? worldForCycle(activeCycle.cycleNumber).cheer : worldForCycle(activeCycle.cycleNumber).point} alt="" />
           <h2>{isCycle ? `Cycle ${activeCycle.cycleNumber} complete!` : "Station done!"}</h2>
           <p>{celebration.correct}/{celebration.total} right</p>
+          {!isCycle && celebration.nextStationId && (
+            <p className="sbq-next-up">
+              Next up: <strong>{STATIONS.find(st => st.id === celebration.nextStationId)?.title}</strong>
+            </p>
+          )}
           {isCycle && <ProgressStars stars={celebration.stars} size="lg" />}
           {isCycle && celebration.gem && (
             <div className="sbq-gem-award">
@@ -462,9 +529,26 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
             </div>
           )}
           <div className="sbq-celebrate-actions">
-            <button className="sbq-primary-button" type="button" onClick={() => setCelebration(null)}>
-              {isCycle ? "Back to the map" : "Keep going"}
+            <button
+              className="sbq-primary-button"
+              type="button"
+              onClick={() => {
+                if (!isCycle && celebration.nextStationId) {
+                  const nextId = celebration.nextStationId;
+                  setCelebration(null);
+                  startStation(activeCycle, nextId);
+                } else {
+                  setCelebration(null);
+                }
+              }}
+            >
+              {isCycle ? "Back to the map" : celebration.nextStationId ? "Next station!" : "Keep going"}
             </button>
+            {!isCycle && (
+              <button className="sbq-ghost-button" type="button" onClick={() => setCelebration(null)}>
+                Stop for now
+              </button>
+            )}
             {isCycle && celebration.stars === 3 && (
               <button
                 className="sbq-ghost-button"
@@ -575,7 +659,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
           onAnimationEnd={() => setShaking(false)}
         >
           <p className="sbq-round-prompt">{round.prompt}</p>
-          {(round.audio || round.speechFallback) && (
+          {round.audio && (
             <button className="sbq-listen-button" type="button" onClick={() => playCue(round)}>
               <SpeakerIcon />
               Listen

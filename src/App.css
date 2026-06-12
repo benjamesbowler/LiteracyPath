@@ -15685,3 +15685,33 @@ select:focus {
 .student-mission-art img {
   object-position: center 58%;
 }
+
+/* ── Pals look for the student sign-in flow ───────────────────────────── */
+.student-login-flow {
+  background:
+    radial-gradient(900px 540px at 50% -10%, rgba(255, 255, 255, 0.32), transparent 60%),
+    linear-gradient(180deg, #5FBCEC 0%, #8FD2F2 38%, #C8ECB9 78%, #A8DD8C 100%);
+}
+
+.student-flow-card {
+  border: 0;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 14px 36px rgba(15, 23, 42, 0.22);
+}
+
+.student-flow-header img {
+  height: 84px;
+  width: auto;
+  filter: drop-shadow(0 5px 10px rgba(15, 23, 42, 0.22));
+}
+
+/* ── Breathing room at the bottom of child screens ────────────────────── */
+.student-home-page {
+  padding-bottom: 44px;
+}
+
+.lg-arcade,
+.phonics-island-view {
+  padding-bottom: 36px;
+}

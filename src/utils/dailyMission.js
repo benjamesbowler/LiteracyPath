@@ -153,7 +153,12 @@ function nextBook(scope) {
   );
   const unread = ordered.filter(book => !records[book.id]?.completed);
   const pool = unread.length ? unread : ordered;
-  return pool[hashString(todayKey() + scope) % pool.length];
+  // Stay at the child's working level: the lowest level that still has
+  // unread books. Never hand a Level A reader a Level C book.
+  const workingLevel = pool[0]?.level;
+  const levelPool = pool.filter(book => book.level === workingLevel);
+  const finalPool = levelPool.length ? levelPool : pool;
+  return finalPool[hashString(todayKey() + scope) % finalPool.length];
 }
 
 function todaysGame(scope, cycle) {

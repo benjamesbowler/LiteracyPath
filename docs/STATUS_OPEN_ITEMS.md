@@ -4,6 +4,9 @@ Everything in the app is built and verified. The only outstanding items
 are media deliveries and optional polish:
 
 ## Waiting on Kimi
+0. **One bad clip**: public/audio/phonemes/n.mp3 reads as "nen" - ask for a
+   single re-record (pure /n/ sound, held, no vowel before or after). The app
+   currently routes around it using the older grapheme bank clip.
 1. **Dino re-draws (2 files)** — `dino-think.png` pose and `dino-idle-4.png`
    sprite sheet (originals corrupted during import; stand-ins in place).
    Specs in `docs/KIMI_LITERACY_PALS_BRAND_REQUEST.md` sections 2-3.

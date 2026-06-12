@@ -318,7 +318,7 @@
 .sbq-answer-grid.letters button {
   min-width: 86px;
   font-size: clamp(1.8rem, 4vw, 2.6rem);
-  text-transform: lowercase;
+  /* No text-transform: Letter Spot rounds rely on real upper/lower case. */
 }
 
 .sbq-answer-grid.words button {
@@ -813,4 +813,138 @@
 .sbq-station.locked:hover {
   border-color: var(--lp-color-border);
   transform: none;
+}
+
+/* ── Adventure map: one full-screen land with landmark stops ──────────── */
+.sbq-adventure {
+  width: min(100%, 1100px);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+
+.sbq-world-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sbq-world-tabs button {
+  min-height: 42px;
+  padding: 8px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--lp-color-text-strong);
+  cursor: pointer;
+  font: 700 0.95rem var(--lp-font-reading);
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.12);
+}
+
+.sbq-world-tabs button.active {
+  background: var(--pal-accent);
+  color: #ffffff;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.3),
+    0 4px 0 color-mix(in srgb, var(--pal-deep) 86%, #000 14%);
+}
+
+.sbq-mapboard {
+  position: relative;
+  flex: 1;
+  min-height: 460px;
+  height: calc(100dvh - 240px);
+  border-radius: 26px;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+}
+
+.sbq-trail {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sbq-trail polyline {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.9);
+  stroke-width: 1.1;
+  stroke-dasharray: 2.2 2.6;
+  stroke-linecap: round;
+  filter: drop-shadow(0 1px 1px rgba(15, 23, 42, 0.35));
+}
+
+.sbq-mapboard .sbq-stop {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  min-width: 0;
+  max-width: 190px;
+  padding: 9px 14px 8px;
+  border: 0;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25);
+  cursor: pointer;
+  transition: transform 130ms ease-out, box-shadow 130ms ease-out;
+}
+
+.sbq-mapboard .sbq-stop:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.3);
+}
+
+.sbq-mapboard .sbq-stop.next {
+  outline: 3px solid var(--pal-accent);
+  outline-offset: 2px;
+}
+
+.sbq-stop-skill {
+  color: var(--pal-deep);
+  font-size: 0.66rem;
+  font-style: normal;
+  font-weight: 800;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sbq-mapboard .sbq-stop .sbq-stop-label {
+  font-size: 0.86rem;
+  white-space: nowrap;
+}
+
+.sbq-mapboard .sbq-stop strong {
+  width: 32px;
+  height: 32px;
+  font-size: 0.95rem;
+}
+
+.sbq-mapboard .sbq-journey-avatar {
+  top: -56px;
+  right: -22px;
+  height: 70px;
+}
+
+@media (max-width: 640px) {
+  .sbq-mapboard { height: calc(100dvh - 270px); min-height: 420px; }
+  .sbq-mapboard .sbq-stop { max-width: 150px; padding: 7px 10px 6px; }
+  .sbq-mapboard .sbq-stop .sbq-stop-label { font-size: 0.74rem; white-space: normal; text-align: center; }
+  .sbq-stop-skill { font-size: 0.58rem; }
+}
+
+.sbq-next-up {
+  margin: 0;
+  color: var(--lp-color-primary);
+  font-size: 1rem;
+  font-weight: 700;
 }

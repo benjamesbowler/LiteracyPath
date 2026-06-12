@@ -53,7 +53,7 @@ function FriendlyBack({ onClick }) {
 function StepHeader({ title, subtitle }) {
   return (
     <div className="student-flow-header">
-      <img src="/images/learn-games/phinny-waving.png" alt="" />
+      <img src="/images/pals/poses/meadow-wave.webp" alt="" />
       <div>
         <h1>{title}</h1>
         {subtitle && <p>{subtitle}</p>}
