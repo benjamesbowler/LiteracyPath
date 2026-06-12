@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { GAME_LIST } from "../../../data/learnGamesData";
+import { worldForDifficulty, worldStyle } from "../../../utils/palWorlds.js";
 import { supabase } from "../../../supabaseClient.js";
 import {
   getLearnGameProgress,
@@ -81,12 +82,15 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
     setProgress(saveLearnGamesSettings(progressScopeKey, { soundEnabled }));
   }
 
+  const world = worldForDifficulty(progress.difficulty);
+
   return (
-    <section className="lg-arcade" aria-labelledby="lg-arcade-title">
-      <div className="lg-arcade-header">
+    <section className="lg-arcade" aria-labelledby="lg-arcade-title" data-pal-world={world.id} style={worldStyle(world)}>
+      <div className="lg-arcade-header pal-world-banner">
         <div className="lg-arcade-title-block">
           <span className="lg-section-rule" aria-hidden="true"></span>
           <div>
+            <span className="pal-world-chip">{world.name} world</span>
             <p>Game Arcade</p>
             <h1 id="lg-arcade-title">Play a short quest game</h1>
             <span>Earn stars while reviewing letters, sounds, words, and rhymes.</span>

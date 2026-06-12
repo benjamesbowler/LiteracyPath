@@ -23,8 +23,8 @@ export function StudentEntryPage({ onStudent, onTeacher }) {
             <span className="student-entry-visual" aria-hidden="true">
               <img src="/images/learn-games/phinny-waving.png" alt="" />
             </span>
-            <span className="student-entry-card-title">Student</span>
-            <span className="student-entry-card-text">School, class, name, then picture password.</span>
+            <span className="student-entry-card-title">Literacy Pals</span>
+            <span className="student-entry-card-text">The student world - school, class, name, then picture password.</span>
             <span className="student-entry-card-cta">Start learning</span>
           </button>
 

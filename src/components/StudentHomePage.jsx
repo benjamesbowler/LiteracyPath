@@ -92,7 +92,7 @@ export function StudentHomePage({
   };
 
   return (
-    <main className="student-home-page">
+    <main className="student-home-page" data-pal-world="meadow">
       <header className="student-home-topbar">
         <img className="student-home-logo" src={logoUrl} alt="Literacy Guide" />
         <button
@@ -106,7 +106,7 @@ export function StudentHomePage({
             : String(studentName || "S").slice(0, 1).toUpperCase()}
         </button>
         <div>
-          <span className="student-home-eyebrow">Hello</span>
+          <span className="student-home-eyebrow">Literacy Pals</span>
           <strong>{studentName || "Reader"}</strong>
         </div>
         {status.streak > 0 && (

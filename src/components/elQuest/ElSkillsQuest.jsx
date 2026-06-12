@@ -10,6 +10,7 @@ import { awardCollectible } from "../../utils/studentProfile.js";
 import { printCertificate } from "../../utils/printCertificate.js";
 import { Gem } from "../Gem.jsx";
 import { gemForIndex } from "../../data/gemSet.js";
+import { worldForCycle, worldStyle } from "../../utils/palWorlds.js";
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../learn/games/shared/ProgressStars.jsx";
 import {
@@ -221,7 +222,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   // ── Cycle map ──────────────────────────────────────────────────────────────
   if (!activeCycle) {
     return (
-      <main className="skills-block-quest">
+      <main className="skills-block-quest" data-pal-world={worldForCycle(recommendedCycle?.cycleNumber || 1).id}>
         <header className="sbq-top">
           <div>
             <p className="sbq-kicker">Skills Quest</p>
@@ -241,6 +242,8 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                 key={cycle.id}
                 type="button"
                 className={`sbq-map-stop${cycleProgress?.stars ? " done" : ""}${isRecommended ? " next" : ""}`}
+                data-stop-world={worldForCycle(cycle.cycleNumber).id}
+                style={worldStyle(worldForCycle(cycle.cycleNumber))}
                 onClick={() => openCycle(cycle)}
               >
                 <strong>{cycle.cycleNumber}</strong>
@@ -310,7 +313,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   // ── Station picker for the open cycle ─────────────────────────────────────
   if (!stationId) {
     return (
-      <main className="skills-block-quest">
+      <main className="skills-block-quest" data-pal-world={worldForCycle(activeCycle.cycleNumber).id} style={worldStyle(worldForCycle(activeCycle.cycleNumber))}>
         <header className="sbq-top">
           <div>
             <p className="sbq-kicker">Cycle {activeCycle.cycleNumber}</p>

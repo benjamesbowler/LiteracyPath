@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lexend:wght@400;500;600;700&display=swap');
 @import './styles/lg-design-system.css';
+@import './styles/pal-worlds.css';
 
 :root {
   --lp-color-primary: #0C6B65;
