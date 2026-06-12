@@ -5,7 +5,7 @@ import { speakWithBrowser } from "../../utils/audio/speakWithBrowser.js";
 import { playCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
 import { playCorrectChime, playSoftBuzz, playCelebrationFanfare, playStarChime } from "../../utils/audio/gameSfx.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
-import { markMissionDone } from "../../utils/dailyMission.js";
+import { notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import { awardCollectible, getCompanion } from "../../utils/studentProfile.js";
 import { printCertificate } from "../../utils/printCertificate.js";
 import { Gem } from "../Gem.jsx";
@@ -23,6 +23,13 @@ import {
 import "../../styles/skills-block-quest.css";
 
 const STORAGE_PREFIX = "lp-el-quest";
+
+// The journey map: three lands, nine cycles each.
+const WORLD_REGIONS = [
+  { id: "meadow", name: "Meadow Farm", test: n => n <= 9 },
+  { id: "dino", name: "Dinosaur Valley", test: n => n >= 10 && n <= 18 },
+  { id: "moonwood", name: "Moonwood Forest", test: n => n >= 19 }
+];
 
 function loadQuestProgress(scopeKey) {
   if (typeof window === "undefined") return { cycles: {} };
@@ -269,7 +276,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   function finishStation(finalCorrect, finalWrongs) {
     stopCueAudio();
     const total = rounds.length;
-    markMissionDone(progressScopeKey, "quest");
+    notifyMissionTaskDone(progressScopeKey, "quest");
     if (stationId === "check") {
       const stars = starsForAccuracy(finalCorrect, total, finalWrongs);
       const previous = progress.cycles?.[activeCycle.id] || {};
@@ -299,6 +306,22 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
     } else {
       playStarChime();
       setSessionStations(previous => ({ ...previous, [stationId]: true }));
+      // Persist which stations are done so progress survives sign-out.
+      const withStations = {
+        ...progress,
+        cycles: {
+          ...progress.cycles,
+          [activeCycle.id]: {
+            ...(progress.cycles?.[activeCycle.id] || {}),
+            stations: {
+              ...(progress.cycles?.[activeCycle.id]?.stations || {}),
+              [stationId]: true
+            }
+          }
+        }
+      };
+      setProgress(withStations);
+      saveQuestProgress(progressScopeKey, withStations);
       setCelebration({ kind: "station", correct: finalCorrect, total });
     }
     setStationId(null);
@@ -328,6 +351,35 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   // ── Cycle map ──────────────────────────────────────────────────────────────
   const travelerImage = getCompanion(progressScopeKey)?.image
     || `/images/pals/poses/${worldForCycle(recommendedCycle?.cycleNumber || 1).id}-wave.webp`;
+
+  // Walk the avatar from its last stop to the new one when a cycle is won.
+  const stopRefs = useRef({});
+  const avatarRef = useRef(null);
+  useEffect(() => {
+    if (activeCycle || celebration || !recommendedCycle?.id) return;
+    const key = `${STORAGE_PREFIX}-laststop:${progressScopeKey}`;
+    let previousId = null;
+    try {
+      previousId = window.localStorage.getItem(key);
+      window.localStorage.setItem(key, recommendedCycle.id);
+    } catch { /* best effort */ }
+    if (!previousId || previousId === recommendedCycle.id) return;
+    const previousStop = stopRefs.current[previousId];
+    const avatar = avatarRef.current;
+    if (!previousStop || !avatar || typeof avatar.animate !== "function") return;
+    const from = previousStop.getBoundingClientRect();
+    const to = avatar.getBoundingClientRect();
+    const dx = from.left + from.width / 2 - (to.left + to.width / 2);
+    const dy = from.top - to.top;
+    avatar.animate([
+      { transform: `translate(${dx}px, ${dy}px)` },
+      { transform: `translate(${dx * 0.66}px, ${dy * 0.66 - 30}px)` },
+      { transform: `translate(${dx * 0.33}px, ${dy * 0.33}px)` },
+      { transform: "translate(0px, -30px)" },
+      { transform: "translate(0px, 0px)" }
+    ], { duration: 1400, easing: "ease-in-out" });
+  }, [activeCycle, celebration, progressScopeKey, recommendedCycle?.id]);
+
   if (!activeCycle) {
     return (
       <main className="skills-block-quest" data-pal-world={worldForCycle(recommendedCycle?.cycleNumber || 1).id}>
@@ -341,36 +393,50 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
             <button className="sbq-ghost-button" type="button" onClick={onExit}>Back</button>
           )}
         </header>
-        <div className="sbq-map sbq-journey" aria-label="Cycle journey map">
-          {playableCycles.map((cycle, index) => {
-            const cycleProgress = progress.cycles?.[cycle.id];
-            const isRecommended = cycle.id === recommendedCycle?.id;
-            const stopWorld = worldForCycle(cycle.cycleNumber);
+        <div className="sbq-worldmap" aria-label="Quest journey map">
+          {WORLD_REGIONS.map(region => {
+            const stops = playableCycles.filter(cycle => region.test(cycle.cycleNumber));
+            if (!stops.length) return null;
             return (
-              <div
-                key={cycle.id}
-                className={`sbq-journey-step${index % 2 ? " right" : " left"}${index === playableCycles.length - 1 ? " last" : ""}`}
-              >
-                <button
-                  type="button"
-                  className={`sbq-map-stop${cycleProgress?.stars ? " done" : ""}${isRecommended ? " next" : ""}`}
-                  data-stop-world={stopWorld.id}
-                  style={worldStyle(stopWorld)}
-                  onClick={() => openCycle(cycle)}
-                >
-                  {isRecommended && (
-                    <img
-                      className="sbq-journey-avatar"
-                      src={travelerImage}
-                      alt=""
-                      aria-hidden="true"
-                    />
-                  )}
-                  <strong>{cycle.cycleNumber}</strong>
-                  <span>{(cycle.focusLetters || []).map(item => item.grapheme).join(" ") || "Review"}</span>
-                  {cycleProgress?.stars ? <ProgressStars stars={cycleProgress.stars} /> : isRecommended ? <em>You are here</em> : null}
-                </button>
-              </div>
+              <section key={region.id} className="sbq-region" data-pal-world={region.id}>
+                <h2 className="sbq-region-name">{region.name}</h2>
+                <div className="sbq-region-path">
+                  {stops.map((cycle, index) => {
+                    const cycleProgress = progress.cycles?.[cycle.id];
+                    const isRecommended = cycle.id === recommendedCycle?.id;
+                    const isLastOverall = cycle.id === playableCycles[playableCycles.length - 1]?.id;
+                    return (
+                      <div
+                        key={cycle.id}
+                        className={`sbq-stop-row o${index % 4}${index === stops.length - 1 ? " row-last" : ""}${isLastOverall ? " map-last" : ""}`}
+                      >
+                        <button
+                          type="button"
+                          ref={el => { stopRefs.current[cycle.id] = el; }}
+                          className={`sbq-stop${cycleProgress?.stars ? " done" : ""}${isRecommended ? " next" : ""}`}
+                          onClick={() => openCycle(cycle)}
+                          aria-label={`Cycle ${cycle.cycleNumber}${isRecommended ? " - you are here" : ""}`}
+                        >
+                          {isRecommended && (
+                            <img
+                              ref={avatarRef}
+                              className="sbq-journey-avatar"
+                              src={travelerImage}
+                              alt=""
+                              aria-hidden="true"
+                            />
+                          )}
+                          <strong>{cycleProgress?.stars ? "★" : cycle.cycleNumber}</strong>
+                          <span className="sbq-stop-label">
+                            {(cycle.focusLetters || []).map(item => item.grapheme).join(" ") || "Review"}
+                          </span>
+                          {cycleProgress?.stars ? <ProgressStars stars={cycleProgress.stars} /> : isRecommended ? <em>You are here</em> : null}
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
             );
           })}
         </div>
@@ -447,19 +513,26 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
         </header>
         <div className="sbq-stations" aria-label="Stations">
           {STATIONS.map((station, index) => {
-            const done = Boolean(sessionStations[station.id]);
+            const savedStations = progress.cycles?.[activeCycle.id]?.stations || {};
+            const done = Boolean(sessionStations[station.id] || savedStations[station.id]);
             const isCheck = station.id === "check";
+            // The Cycle Check is the show-what-you-know finale: it opens
+            // after at least four practice stations are done.
+            const practiceDone = STATIONS.filter(item => item.id !== "check"
+              && (sessionStations[item.id] || savedStations[item.id])).length;
+            const checkLocked = isCheck && practiceDone < 4 && !progress.cycles?.[activeCycle.id]?.stars;
             return (
               <button
                 key={station.id}
                 type="button"
-                className={`sbq-station${done ? " done" : ""}${isCheck ? " check" : ""}`}
+                className={`sbq-station${done ? " done" : ""}${isCheck ? " check" : ""}${checkLocked ? " locked" : ""}`}
+                disabled={checkLocked}
                 onClick={() => startStation(activeCycle, station.id)}
               >
-                <span className="sbq-station-step" aria-hidden="true">{done ? "✓" : index + 1}</span>
+                <span className="sbq-station-step" aria-hidden="true">{done ? "✓" : checkLocked ? "🔒" : index + 1}</span>
                 <span className="sbq-station-copy">
                   <strong>{station.title}</strong>
-                  <em>{station.subtitle}</em>
+                  <em>{checkLocked ? `Play ${4 - practiceDone} more station${4 - practiceDone === 1 ? "" : "s"} to open` : station.subtitle}</em>
                 </span>
               </button>
             );
@@ -502,10 +575,12 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
           onAnimationEnd={() => setShaking(false)}
         >
           <p className="sbq-round-prompt">{round.prompt}</p>
-          <button className="sbq-listen-button" type="button" onClick={() => playCue(round)}>
-            <SpeakerIcon />
-            Listen
-          </button>
+          {(round.audio || round.speechFallback) && (
+            <button className="sbq-listen-button" type="button" onClick={() => playCue(round)}>
+              <SpeakerIcon />
+              Listen
+            </button>
+          )}
 
           {round.poem && round.poemTitle && <p className="sbq-poem-title">{round.poemTitle}</p>}
           {round.display && (

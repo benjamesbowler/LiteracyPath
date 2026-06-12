@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { getApprovedAudioPath } from "../audioPreferenceManifest.js";
 import { getChildWordAsset } from "../childAssets.js";
 

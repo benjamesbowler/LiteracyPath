@@ -51,7 +51,7 @@ function CheckIcon() {
 }
 
 const MISSION_TILES = [
-  { kind: "quest", label: "Quest", art: "/images/learn-games/art/cvc-train.webp" },
+  { kind: "quest", label: "Quest", art: "/images/learn-games/art/word-hopscotch.webp" },
   { kind: "book", label: "Book", art: "/images/learn-games/home/home-guided-reading.webp" },
   { kind: "game", label: "Game", art: "/images/learn-games/home/home-learn.webp" }
 ];
@@ -198,7 +198,7 @@ export function StudentHomePage({
             onClick={onOpenPhonicsLearn}
           />
           <StudentHomeCard
-            art="/images/learn-games/art/cvc-train.webp"
+            art="/images/learn-games/art/word-hopscotch.webp"
             meta="One big path"
             title="Skills Quest"
             subtitle="Sounds, words, and reading runs"

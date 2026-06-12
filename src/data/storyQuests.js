@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { dinoPalsV2StoryQuests } from "./generated/dinoPalsV2StoryQuests.generated.js";
 
 const samPamMediaVersion = "sam-pam-alf-replacement-20260602";

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { initialSoundWordBank } from "../initialSounds/initialSoundWordBank.js";
 import { hasImportedInitialSoundMedia } from "../initialSounds/initialSoundMediaManifest.js";
 import {

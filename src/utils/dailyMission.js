@@ -4,7 +4,7 @@
 // school day per week is auto-covered by a "streak shield".
 import { queueProgressSave } from "./progressSync.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
-import { guidedReadingBooks } from "../data/guidedReadingBooks.js";
+import { GUIDED_READING_BOOK_INDEX } from "../data/generated/guidedReadingBookIndex.generated.js";
 import { GAME_LIST } from "../data/learnGamesData.js";
 
 const MISSION_KINDS = ["quest", "book", "game"];
@@ -105,6 +105,21 @@ export function markMissionDone(scope, kind) {
   return state;
 }
 
+/* Marks a mission item done and, if it was NEWLY completed, tells the app
+   (after a beat, so stars/celebrations can land) to return the child to
+   the mission screen. App.jsx listens for this event in student mode. */
+export function notifyMissionTaskDone(scope, kind) {
+  const before = loadMissionState(scope);
+  if (before.done?.[kind]) return false;
+  markMissionDone(scope, kind);
+  if (typeof window !== "undefined") {
+    window.setTimeout(() => {
+      window.dispatchEvent(new CustomEvent("lp-mission-task-done", { detail: { kind } }));
+    }, 1600);
+  }
+  return true;
+}
+
 export function markMissionCelebrated(scope) {
   const state = loadMissionState(scope);
   state.celebratedDay = todayKey();
@@ -133,7 +148,7 @@ function currentQuestCycle(scope) {
 
 function nextBook(scope) {
   const records = readJson(`literacyPath.guidedReadingRecords.${encodeURIComponent(scope)}`, {});
-  const ordered = [...guidedReadingBooks].sort((a, b) =>
+  const ordered = [...GUIDED_READING_BOOK_INDEX].sort((a, b) =>
     String(a.level).localeCompare(String(b.level)) || String(a.id).localeCompare(String(b.id))
   );
   const unread = ordered.filter(book => !records[book.id]?.completed);

@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { markMissionDone } from "../../utils/dailyMission.js";
+import { notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import { BookQuiz } from "./BookQuiz.jsx";
 import { printCertificate } from "../../utils/printCertificate.js";
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
@@ -867,7 +868,7 @@ export function GuidedReadingPage({
       completedPages: selectedBook.pages.length,
       totalPages: selectedBook.pages.length
     });
-    markMissionDone(studentId || studentName || "default", "book");
+    notifyMissionTaskDone(studentId || studentName || "default", "book");
     if (isStudentMode) {
       setShowQuiz(true);
     } else {

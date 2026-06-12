@@ -139,7 +139,13 @@ export const SENTENCE_FIX = {
     { kind: "word", prompt: "Choose the right word.", display: "The wizard kept ___ wand by the door.", say: "The wizard kept his wand by the door.", answer: "his", options: ["his", "him", "her"] },
     { kind: "word", prompt: "Choose the right word.", display: "We saw ___ stars in the night sky.", say: "We saw two stars in the night sky.", answer: "two", options: ["two", "to", "too"] },
     { kind: "capital", prompt: "Names need a capital. Choose the right one.", display: "Our robot ___ beeps when it is happy.", say: "Our robot Max beeps when it is happy.", answer: "Max", options: ["Max", "max", "mAx"] },
-    { kind: "end", prompt: "Choose the ending mark.", display: "The rocket is about to blast off___", say: "The rocket is about to blast off!", answer: "!", options: [".", "?", "!"] }
+    { kind: "end", prompt: "Choose the ending mark.", display: "The rocket is about to blast off___", say: "The rocket is about to blast off!", answer: "!", options: [".", "?", "!"] },
+    { kind: "word", prompt: "Choose the right word.", display: "The dragon flew over ___ to the mountain.", say: "The dragon flew over there to the mountain.", answer: "there", options: ["there", "their", "they're"] },
+    { kind: "word", prompt: "Choose the right word.", display: "That spell was ___ tricky for the young wizard.", say: "That spell was too tricky for the young wizard.", answer: "too", options: ["too", "to", "two"] },
+    { kind: "word", prompt: "Choose the right word.", display: "The astronauts ___ floating in space.", say: "The astronauts were floating in space.", answer: "were", options: ["were", "was", "where"] },
+    { kind: "word", prompt: "Choose the best word.", display: "The owl flew ___ of all the birds.", say: "The owl flew highest of all the birds.", answer: "highest", options: ["highest", "high", "higher"] },
+    { kind: "capital", prompt: "Places need a capital. Choose the right one.", display: "We sailed our boat down the ___ River.", say: "We sailed our boat down the Silver River.", answer: "Silver", options: ["Silver", "silver", "sIlver"] },
+    { kind: "end", prompt: "Choose the ending mark.", display: "Could a robot learn to paint___", say: "Could a robot learn to paint?", answer: "?", options: [".", "?", "!"] }
   ]
 };
 

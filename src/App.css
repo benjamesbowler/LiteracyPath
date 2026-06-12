@@ -15664,3 +15664,18 @@ select:focus {
     white-space: nowrap;
   }
 }
+
+/* ── Home sections share one centred measure ──────────────────────────── */
+.student-home-topbar,
+.student-mission,
+.student-treasures,
+.student-home-explore {
+  width: min(100%, 1180px);
+  margin-inline: auto;
+}
+
+.student-home-grid,
+.student-treasures-shelf {
+  width: 100%;
+  margin-inline: auto;
+}

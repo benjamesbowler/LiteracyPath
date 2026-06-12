@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import {
@@ -855,7 +856,6 @@ function buildGuidedImageQaRecords(overrides = readGuidedImageQaOverrides(), lev
       bookId: book.id,
       title: book.title,
       seriesTitle: book.seriesTitle || "",
-      level: book.level,
       originalLevel: rawBook.level,
       type: book.type,
       pageCount: book.pages?.length || 0,

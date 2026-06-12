@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node tools/generateAudioManifest.js",
+    "prebuild": "node tools/generateAudioManifest.js && node tools/generateBookIndex.js",
     "build": "vite build",
     "analyze": "ANALYZE_BUNDLE=true vite build",
     "test:smoke": "playwright test tests/smoke",

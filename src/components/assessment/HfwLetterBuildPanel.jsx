@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function getHfwLetterBuildTarget(question = {}) {
   return String(question.targetWord || question.correctAnswer || question.answer || "")
@@ -7,7 +7,14 @@ function getHfwLetterBuildTarget(question = {}) {
 }
 
 export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText }) {
-  const [selectedTiles, setSelectedTiles] = useState([]);
+  // Keyed by question id so tiles reset naturally on a new question.
+  const [tileState, setTileState] = useState({ questionId: null, tiles: [] });
+  const selectedTiles = tileState.questionId === currentQuestion.id ? tileState.tiles : [];
+  const setSelectedTiles = updater => setTileState(previous => {
+    const current = previous.questionId === currentQuestion.id ? previous.tiles : [];
+    const tiles = typeof updater === "function" ? updater(current) : updater;
+    return { questionId: currentQuestion.id, tiles };
+  });
   const [isPlayingSentence, setIsPlayingSentence] = useState(false);
   const targetWord = getHfwLetterBuildTarget(currentQuestion);
   const targetLength = targetWord.length || Number(currentQuestion.blankSlots) || 0;
@@ -24,10 +31,6 @@ export function HfwLetterBuildPanel({ currentQuestion, answerQuestion, speakText
     : ["", sentence];
   const sentenceAudioText = String(currentQuestion.sentenceAudio || currentQuestion.sentenceText || currentQuestion.fullSentence || currentQuestion.spokenPrompt || "")
     .trim();
-
-  useEffect(() => {
-    setSelectedTiles([]);
-  }, [currentQuestion.id]);
 
   function addTile(tile, index) {
     if (selectedIndexes.has(index) || selectedTiles.length >= targetLength) return;

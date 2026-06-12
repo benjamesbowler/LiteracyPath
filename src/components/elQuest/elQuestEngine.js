@@ -2,13 +2,27 @@
 // curriculum data. Every round has a spoken cue, real choices, and one
 // correct answer - mirroring how the EL skills block is taught:
 // hear the sound -> find the sound in words -> read quick words -> build words.
-import { LETTER_EXAMPLES } from "../../data/elSkillsBlockCycles.js";
+import { LETTER_EXAMPLES, elSkillsBlockCycles } from "../../data/elSkillsBlockCycles.js";
 import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
+import { QUEST_STORY_QUESTIONS } from "../../data/generated/questStoryQuestions.generated.js";
 import { AUDIO_FILE_PATHS } from "../../data/generated/audioFilePaths.generated.js";
 
 const VOWELS = new Set(["a", "e", "i", "o", "u"]);
 const ALL_GRAPHEMES = Object.keys(LETTER_EXAMPLES).filter(g => g.length <= 2 && g !== "qu");
-const COMMON_HFW = ["the", "and", "is", "a", "to", "in", "it", "he", "we", "my"];
+
+// Words a child has been TAUGHT by the end of a given cycle - review and
+// distractor words must never run ahead of the curriculum.
+function taughtHfwThrough(cycleNumber) {
+  const words = [];
+  for (const cycle of elSkillsBlockCycles) {
+    if (!cycle.cycleNumber || cycle.cycleNumber > cycleNumber) continue;
+    for (const word of cycle.highFrequencyWords || []) {
+      const clean = word.toLowerCase();
+      if (!words.includes(clean)) words.push(clean);
+    }
+  }
+  return words;
+}
 
 export function shuffleItems(items) {
   const copy = [...items];
@@ -157,15 +171,20 @@ function buildHuntRounds(cycle) {
 }
 
 // Station - Quick Words: hear the high-frequency word, tap it.
+// Review words and distractors only come from cycles already taught.
 function buildQuickWordRounds(cycle) {
-  const own = cycle.highFrequencyWords || [];
-  const review = COMMON_HFW.filter(w => !own.includes(w)).slice(0, Math.max(0, 6 - own.length));
+  const own = (cycle.highFrequencyWords || []).map(w => w.toLowerCase());
+  const taught = taughtHfwThrough(cycle.cycleNumber || 1);
+  const earlier = taught.filter(w => !own.includes(w));
+  const review = shuffleItems(earlier).slice(0, Math.max(0, 6 - own.length));
   const hfw = [...own, ...review].slice(0, 6);
-  return hfw.map(word => {
+  // Early cycles with few taught words: practise each word twice instead.
+  const sequence = hfw.length >= 4 ? hfw : [...hfw, ...hfw];
+  return sequence.map(word => {
     const distractors = shuffleItems([
       ...hfw.filter(item => item !== word),
-      ...COMMON_HFW.filter(item => item !== word && !hfw.includes(item))
-    ]).slice(0, 3);
+      ...earlier.filter(item => item !== word && !hfw.includes(item))
+    ]).slice(0, Math.min(3, Math.max(1, hfw.length - 1 + earlier.length)));
     return {
       type: "quick",
       audio: wordAudioPath(word),
@@ -299,6 +318,28 @@ function buildPoemRounds(cycle) {
   }));
 }
 
+// Station - Story Stop: who-did-what questions from the world's own books.
+function buildStoryRounds(cycle) {
+  const n = cycle.cycleNumber || 1;
+  const world = n >= 19 ? "moonwood" : n >= 10 ? "dino" : "meadow";
+  const bank = QUEST_STORY_QUESTIONS[world];
+  if (!bank?.questions?.length) return buildQuickWordRounds(cycle);
+  const picks = shuffleItems(bank.questions).slice(0, 4);
+  return picks.map(item => {
+    const decoys = shuffleItems(bank.names.filter(name => name !== item.answer)).slice(0, 2);
+    return {
+      type: "story",
+      audio: "",
+      speechFallback: "",
+      prompt: item.prompt,
+      display: "",
+      choices: shuffleItems([item.answer, ...decoys]),
+      answer: item.answer,
+      choiceStyle: "word"
+    };
+  });
+}
+
 // Station - Letter Trace: write the focus letters with a finger.
 function buildTraceRounds(cycle) {
   const rounds = focusEntries(cycle)
@@ -325,6 +366,7 @@ export const STATIONS = [
   { id: "build", title: "Word Build", subtitle: "Make it yourself", build: buildWordBuildRounds },
   { id: "play", title: "Word Play", subtitle: "Change it, shrink it, join it", build: buildWordPlayRounds },
   { id: "poem", title: "Poem Time", subtitle: "Read it, find the words", build: buildPoemRounds },
+  { id: "story", title: "Story Stop", subtitle: "Who did what in our books?", build: buildStoryRounds },
   { id: "trace", title: "Letter Trace", subtitle: "Write it with your finger", build: buildTraceRounds },
   { id: "check", title: "Cycle Check", subtitle: "Show what you know", build: null }
 ];

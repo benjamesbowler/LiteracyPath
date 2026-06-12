@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { normalizeAnswerOption } from "../../utils/answerOptions";
 
 export default function FirstSoundQuestion({
@@ -9,9 +9,12 @@ export default function FirstSoundQuestion({
   disabled = false
 }) {
   const audioRef = useRef(null);
-  const [selectedAnswer, setSelectedAnswer] = useState("");
-  const [feedback, setFeedback] = useState("");
-  const [imageFailed, setImageFailed] = useState(false);
+  // Keyed by item id so state resets naturally when the question changes.
+  const [response, setResponse] = useState(null);
+  const [failedImageFor, setFailedImageFor] = useState("");
+  const selectedAnswer = response?.itemId === item?.id ? response.answer : "";
+  const feedback = response?.itemId === item?.id ? response.feedback : "";
+  const imageFailed = failedImageFor === item?.id;
   const imageUrl = item?.imageUrl || item?.imagePath || "";
   const audioUrl = item?.audioUrl || item?.audioPath || "";
   const hasAudio = Boolean(audioUrl);
@@ -19,10 +22,6 @@ export default function FirstSoundQuestion({
     () => (item?.answerOptions || item?.choices || []).map(normalizeAnswerOption),
     [item]
   );
-
-  useEffect(() => {
-    setImageFailed(false);
-  }, [item?.id]);
 
   function playAudio() {
     if (!audioUrl) {
@@ -48,9 +47,8 @@ export default function FirstSoundQuestion({
   function chooseAnswer(option) {
     if (disabled) return;
     const answer = option.value;
-    setSelectedAnswer(answer);
     const isCorrect = answer === item.correctAnswer;
-    setFeedback(isCorrect ? "correct" : "incorrect");
+    setResponse({ itemId: item.id, answer, feedback: isCorrect ? "correct" : "incorrect" });
     onAnswer?.({
       item,
       answer,
@@ -85,7 +83,7 @@ export default function FirstSoundQuestion({
             alt={`Picture for ${item.targetWord}`}
             onError={event => {
               event.currentTarget.style.display = "none";
-              setImageFailed(true);
+              setFailedImageFor(item?.id);
               if (import.meta.env.DEV) console.warn("Initial Sounds image missing", item?.id, imageUrl);
             }}
             src={imageUrl}

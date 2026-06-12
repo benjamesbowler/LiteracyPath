@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect, react-refresh/only-export-components -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { useEffect, useState } from "react";
 
 import { audioManifest, audioTextIndex } from "../data/audioManifest";

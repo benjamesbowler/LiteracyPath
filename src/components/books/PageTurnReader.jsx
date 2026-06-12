@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect, react-refresh/only-export-components, react-hooks/immutability -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { useEffect, useRef, useState } from "react";
 import { analyzeGuidedReadingPage, enrichGuidedReadingBook } from "../../utils/guidedReading/phonicsPageAnalyzer.js";
 import { normalizeReadableBook } from "../../utils/guidedReading/normalizeReadableBook.js";

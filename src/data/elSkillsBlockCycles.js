@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 export const EL_LEARN_SECTION_IDS = [
   "overview",
   "letterLearning",

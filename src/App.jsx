@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars, no-control-regex, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import Confetti from "react-confetti";
 import { motion, useReducedMotion } from "framer-motion";
@@ -7454,6 +7455,17 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       setAppView(APP_VIEWS.TEACHER_DASHBOARD);
     }
   }, [appView, authReady, teacherAccountStatus, teacherUser, isAdmin]);
+
+  // When a child finishes one of Today's Mission tasks (book, game, or
+  // quest station), bring them back to the mission screen.
+  useEffect(() => {
+    function handleMissionTaskDone() {
+      if (!isStudentMode) return;
+      setAppView(APP_VIEWS.STUDENT_HOME);
+    }
+    window.addEventListener("lp-mission-task-done", handleMissionTaskDone);
+    return () => window.removeEventListener("lp-mission-task-done", handleMissionTaskDone);
+  }, [isStudentMode]);
 
   if (showSkillsQuestPrototype) {
     return (

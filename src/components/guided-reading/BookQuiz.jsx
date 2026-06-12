@@ -129,7 +129,8 @@ export function BookQuiz({ book, onFinish }) {
   }
 
   if (!questions.length) {
-    onFinish?.(0, 0);
+    // No content to quiz on - close out after render, never during it.
+    window.setTimeout(() => onFinish?.(0, 0), 0);
     return null;
   }
 
