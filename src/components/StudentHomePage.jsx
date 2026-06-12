@@ -52,8 +52,8 @@ function CheckIcon() {
 
 const MISSION_TILES = [
   { kind: "quest", label: "Quest", art: "/images/learn-games/art/word-hopscotch.webp" },
-  { kind: "book", label: "Book", art: "/images/learn-games/home/home-guided-reading.webp" },
-  { kind: "game", label: "Game", art: "/images/learn-games/home/home-learn.webp" }
+  { kind: "book", label: "Book", art: "/images/learn-games/home/home-reading-pals.webp" },
+  { kind: "game", label: "Game", art: "/images/learn-games/art/pop-the-word.webp" }
 ];
 
 export function StudentHomePage({
@@ -191,7 +191,7 @@ export function StudentHomePage({
         <h2>Explore</h2>
         <div className="student-home-grid">
           <StudentHomeCard
-            art="/images/learn-games/home/home-learn.webp"
+            art="/images/learn-games/art/cvc-word-builder.webp"
             meta="Letters and games"
             title="Phonics Quest"
             subtitle="Letters, words, and games"
@@ -205,14 +205,14 @@ export function StudentHomePage({
             onClick={onOpenSkillsBlockQuest}
           />
           <StudentHomeCard
-            art="/images/learn-games/home/home-story-quests.webp"
+            art="/images/learn-games/art/reading-race.webp"
             meta="Story path"
             title="Story Quests"
             subtitle="Read, choose, and collect words"
             onClick={onOpenStoryQuests}
           />
           <StudentHomeCard
-            art="/images/learn-games/home/home-guided-reading.webp"
+            art="/images/learn-games/home/home-reading-pals.webp"
             meta="Book shelf"
             title="Reading Library"
             subtitle="Listen, read, and reread"

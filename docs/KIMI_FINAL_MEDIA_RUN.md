@@ -80,5 +80,24 @@ no watermarks.
 
 ---
 
+## Job 4 - IMAGES: 4 home-screen banners (EXACT characters)
+
+The child home cards currently reuse game art; these give each area its
+own scene. Attach the series covers per image (same as Job 3 rules):
+Meadow refs: meadow-pals book-01 + book-05 covers. Dino refs: dino-pals
+book-01 + book-03. Moonwood refs: moonwood-tales book-01 + book-02.
+
+Landscape 1200x740 PNG, bright flat colour, no text, no watermarks.
+Deliver to: public/images/learn-games/home/
+
+| Filename | Scene |
+|---|---|
+| home-phonics.png | The Meadow Pal bunny arranging big wooden letter blocks on a picnic blanket in the meadow, friends watching. |
+| home-skills-quest.png | All three pals (bunny, dino, owl) walking together along a winding path that crosses from meadow into forest. |
+| home-story-quests.png | The Moonwood owl perched on a giant open storybook at night, sparkles rising from the pages. |
+| home-reading-library.png | The Meadow Pal bunny and Moonwood owl reading books together under a tree, small book stack beside them. |
+
+---
+
 Push the folder to the project as usual and tell Claude. This is the
 last planned media batch - after import, the asset list is complete.
