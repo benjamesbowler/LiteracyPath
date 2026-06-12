@@ -873,11 +873,11 @@
   height: 100%;
 }
 
-.sbq-trail polyline {
+.sbq-trail path {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.9);
-  stroke-width: 1.1;
-  stroke-dasharray: 2.2 2.6;
+  stroke: rgba(255, 255, 255, 0.92);
+  stroke-width: 5px;
+  stroke-dasharray: 1px 14px;
   stroke-linecap: round;
   filter: drop-shadow(0 1px 1px rgba(15, 23, 42, 0.35));
 }
