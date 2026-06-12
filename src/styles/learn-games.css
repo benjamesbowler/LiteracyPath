@@ -1454,3 +1454,12 @@
     gap: 12px;
   }
 }
+
+/* ── Card art: show the pals, not the treetops ────────────────────────── */
+.lg-game-card-art {
+  height: clamp(110px, 11vw, 168px);
+}
+
+.lg-game-card-art img.lg-game-art-full {
+  object-position: center 62%;
+}

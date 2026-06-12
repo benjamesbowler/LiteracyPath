@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { CVC_WORDS, RHYMING_PAIRS, SENTENCE_FIX, SENTENCES, SIGHT_WORDS, WORD_FAMILIES } from "../../../../data/learnGamesData";
 import { getChildWordAsset } from "../../../../data/childAssets";
-import { speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
+import { hasRecordedSpeech, speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
 import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz, playTrainWhistle } from "../../../../utils/audio/gameSfx";
 import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../shared/ProgressStars.jsx";
@@ -546,9 +546,11 @@ function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, m
   const [position, setPosition] = useState(0);
   const options = useMemo(() => shuffle(words), [sentence]);
 
+  const canHear = hasRecordedSpeech(sentence);
+
   useEffect(() => {
-    if (isSoundEnabled) speak(sentence);
-  }, [isSoundEnabled, sentence]);
+    if (isSoundEnabled && canHear) speak(sentence);
+  }, [canHear, isSoundEnabled, sentence]);
 
   function choose(word) {
     if (word !== words[position]) {
@@ -573,7 +575,7 @@ function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, m
   return (
     <section className="lg-game-stage">
       <p>Hop on the next word in the sentence.</p>
-      <button type="button" className="lg-game-audio" onClick={() => speak(sentence)}>Hear sentence</button>
+      {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(sentence)}>Hear sentence</button>}
       <div className="lg-sentence-path">
         {words.map((word, index) => (
           <span key={`${word}-${index}`} className={index < position ? "done" : index === position ? "active" : ""}>
@@ -599,9 +601,11 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
   const [solved, setSolved] = useState(false);
   const options = useMemo(() => shuffle(fix.options), [fix]);
 
+  const canHear = hasRecordedSpeech(fix.say);
+
   useEffect(() => {
-    if (isSoundEnabled) speak(fix.say);
-  }, [fix, isSoundEnabled]);
+    if (isSoundEnabled && canHear) speak(fix.say);
+  }, [canHear, fix, isSoundEnabled]);
 
   function choose(option) {
     if (solved) return;
@@ -613,7 +617,7 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
     const nextCorrect = correct + 1;
     setCorrect(nextCorrect);
     addScore(25);
-    if (isSoundEnabled) speak(fix.say);
+    if (isSoundEnabled && canHear) speak(fix.say);
     setTimeout(() => {
       if (round + 1 >= total) {
         finish(nextCorrect);
@@ -628,11 +632,11 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
   return (
     <section className="lg-game-stage lg-race-stage">
       <p>{fix.prompt}</p>
-      <button type="button" className="lg-game-audio" onClick={() => speak(fix.say)}>Hear sentence</button>
+      {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(fix.say)}>Hear sentence</button>}
       <div className="lg-race-track"><span style={{ width: `${Math.max(8, (correct / total) * 100)}%` }}><RaceMarker /></span></div>
       <div className="lg-reading-sentence lg-fix-sentence">
         {sentenceParts[0]}
-        <span className={`lg-fix-slot${solved ? " solved" : ""}`}>{solved ? fix.answer : "?"}</span>
+        <span className={`lg-fix-slot${solved ? " solved" : ""}`}>{solved ? fix.answer : "\u00A0"}</span>
         {sentenceParts[1] || ""}
       </div>
       <div className="lg-hop-grid">

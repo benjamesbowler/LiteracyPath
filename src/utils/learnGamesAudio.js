@@ -152,6 +152,20 @@ export async function speakWord(word, options = {}) {
   if (!played) speakWithBrowser(word, options);
 }
 
+// True when a real recorded clip exists for this text - games use this to
+// hide Listen buttons instead of ever falling back to the robotic browser voice.
+export function hasRecordedSpeech(text) {
+  const value = String(text || "").trim();
+  if (!value) return false;
+  if (/^[a-z]+$/i.test(value)) return true; // single words route through the word bank
+  const slug = slugify(value);
+  return existingAudioPaths([
+    `/audio/learn-games/instructions/${slug}.mp3`,
+    `/audio/learn-games/sentences/${slug}.mp3`,
+    `/audio/child-mode/phrases/${slug}.mp3`
+  ]).length > 0;
+}
+
 export async function speak(text, options = {}) {
   stopCurrentCues();
   const value = String(text || "").trim();
