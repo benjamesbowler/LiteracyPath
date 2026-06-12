@@ -9,6 +9,7 @@ import {
 } from "../../../utils/learnGamesProgress";
 import { markMissionDone } from "../../../utils/dailyMission.js";
 import { SoundToggle } from "./shared/SoundToggle.jsx";
+import { worldForDifficulty, worldStyle, sceneForKey } from "../../../utils/palWorlds.js";
 import { LEARN_GAMES } from "./games/index.js";
 
 function CloseIcon() {
@@ -92,14 +93,19 @@ export function GamePlayer({
 
   if (!GameComponent) return null;
 
+  const world = worldForDifficulty(difficulty);
+  const scene = sceneForKey(world, game.id);
+
   return (
     <div
       className="lg-game-player"
       role="dialog"
       aria-modal="true"
       aria-label={game.title}
-      style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft }}
+      data-pal-world={world.id}
+      style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft, ...worldStyle(world), "--pal-scene": `url(${scene})` }}
     >
+      <div className="pal-scene-backdrop" aria-hidden="true" />
       <header className="lg-game-player-header">
         <div className="lg-game-title-chip">
           <strong>{game.title}</strong>

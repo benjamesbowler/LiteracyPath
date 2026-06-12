@@ -10,7 +10,7 @@ import { awardCollectible } from "../../utils/studentProfile.js";
 import { printCertificate } from "../../utils/printCertificate.js";
 import { Gem } from "../Gem.jsx";
 import { gemForIndex } from "../../data/gemSet.js";
-import { worldForCycle, worldStyle } from "../../utils/palWorlds.js";
+import { worldForCycle, worldStyle, sceneForKey } from "../../utils/palWorlds.js";
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../learn/games/shared/ProgressStars.jsx";
 import {
@@ -355,8 +355,14 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
 
   // ── A live round ───────────────────────────────────────────────────────────
   const station = STATIONS.find(item => item.id === stationId);
+  const roundWorld = worldForCycle(activeCycle.cycleNumber);
   return (
-    <main className="skills-block-quest">
+    <main
+      className="skills-block-quest"
+      data-pal-world={roundWorld.id}
+      style={{ ...worldStyle(roundWorld), "--pal-scene": `url(${sceneForKey(roundWorld, `${activeCycle.id}-${stationId}`)})` }}
+    >
+      <div className="pal-scene-backdrop" aria-hidden="true" />
       <header className="sbq-top compact">
         <div>
           <p className="sbq-kicker">{station?.title}</p>

@@ -10,7 +10,17 @@ export const PAL_WORLDS = {
     banner: "/images/pals/meadow-panorama.webp",
     emblem: "/images/pals/meadow-emblem.webp",
     cheer: "/images/pals/meadow-cheer.webp",
-    point: "/images/pals/meadow-point.webp"
+    point: "/images/pals/meadow-point.webp",
+    scenes: [
+      "/guided-reading/series/meadow-pals/book-01/page-001.webp",
+      "/guided-reading/series/meadow-pals/book-03/page-002.webp",
+      "/guided-reading/series/meadow-pals/book-05/page-001.webp",
+      "/guided-reading/series/meadow-pals/book-08/page-003.webp",
+      "/guided-reading/series/meadow-pals/book-12/page-001.webp",
+      "/guided-reading/series/meadow-pals/book-16/page-002.webp",
+      "/guided-reading/series/meadow-pals/book-20/page-001.webp",
+      "/guided-reading/series/meadow-pals/book-24/page-002.webp"
+    ]
   },
   dino: {
     id: "dino",
@@ -21,7 +31,17 @@ export const PAL_WORLDS = {
     banner: "/images/pals/dino-panorama.webp",
     emblem: "/images/pals/dino-emblem.webp",
     cheer: "/images/pals/dino-cheer.webp",
-    point: "/images/pals/dino-point.webp"
+    point: "/images/pals/dino-point.webp",
+    scenes: [
+      "/guided-reading/series/dino-pals/book-01/page-001.webp",
+      "/guided-reading/series/dino-pals/book-03/page-002.webp",
+      "/guided-reading/series/dino-pals/book-05/page-001.webp",
+      "/guided-reading/series/dino-pals/book-08/page-002.webp",
+      "/guided-reading/series/dino-pals/book-11/page-001.webp",
+      "/guided-reading/series/dino-pals/book-14/page-003.webp",
+      "/guided-reading/series/dino-pals/book-17/page-001.webp",
+      "/guided-reading/series/dino-pals/book-20/page-002.webp"
+    ]
   },
   moonwood: {
     id: "moonwood",
@@ -32,7 +52,17 @@ export const PAL_WORLDS = {
     banner: "/images/pals/moonwood-panorama.webp",
     emblem: "/images/pals/moonwood-emblem.webp",
     cheer: "/images/pals/moonwood-cheer.webp",
-    point: "/images/pals/moonwood-point.webp"
+    point: "/images/pals/moonwood-point.webp",
+    scenes: [
+      "/guided-reading/series/moonwood-tales/book-01/page-001.webp",
+      "/guided-reading/series/moonwood-tales/book-03/page-002.webp",
+      "/guided-reading/series/moonwood-tales/book-06/page-001.webp",
+      "/guided-reading/series/moonwood-tales/book-09/page-003.webp",
+      "/guided-reading/series/moonwood-tales/book-12/page-001.webp",
+      "/guided-reading/series/moonwood-tales/book-15/page-002.webp",
+      "/guided-reading/series/moonwood-tales/book-19/page-001.webp",
+      "/guided-reading/series/moonwood-tales/book-23/page-002.webp"
+    ]
   }
 };
 
@@ -73,4 +103,14 @@ export function worldForScope(scope) {
   } catch {
     return PAL_WORLDS.meadow;
   }
+}
+
+// Deterministic scene from the world's own book pages.
+export function sceneForKey(world, key) {
+  const scenes = world?.scenes || [];
+  if (!scenes.length) return world?.banner || "";
+  let hash = 0;
+  const text = String(key || "");
+  for (let index = 0; index < text.length; index += 1) hash = (hash * 31 + text.charCodeAt(index)) % 100000;
+  return scenes[hash % scenes.length];
 }

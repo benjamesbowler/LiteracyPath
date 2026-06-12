@@ -170,3 +170,48 @@
   grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
   gap: 10px;
 }
+
+/* ── Full book-scene backdrop (games + quest rounds) ──────────────────── */
+.pal-scene-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: var(--pal-scene, var(--pal-banner));
+  background-size: cover;
+  background-position: center;
+}
+
+.pal-scene-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(252, 253, 253, 0.86) 0%, rgba(252, 253, 253, 0.72) 40%, rgba(252, 253, 253, 0.55) 100%);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.lg-game-player .lg-game-player-header,
+.lg-game-player .lg-game-player-main {
+  position: relative;
+  z-index: 1;
+}
+
+.skills-block-quest > *:not(.pal-scene-backdrop) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Gentle drift so scenes feel alive (animation, zero assets) */
+@keyframes pal-scene-drift {
+  0%, 100% { transform: scale(1.02) translateY(0); }
+  50% { transform: scale(1.06) translateY(-10px); }
+}
+
+.pal-scene-backdrop {
+  animation: pal-scene-drift 38s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pal-scene-backdrop { animation: none; }
+}
