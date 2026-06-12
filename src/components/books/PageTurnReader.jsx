@@ -186,6 +186,7 @@ export default function PageTurnReader({ book, onClose, onProgressChange }) {
     setAudioNotice(currentPage.audio ? "" : "Using browser voice while page narration is pending.");
     if (currentPage.audio) {
       const audio = new Audio(currentPage.audio);
+      audio.playbackRate = 0.92;
       audio.onended = () => setIsReadingPage(false);
       audio.onerror = () => {
         setAudioNotice("Using browser voice because page narration could not be loaded.");

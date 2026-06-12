@@ -1012,6 +1012,7 @@ export function GuidedReadingPage({
     setIsReadAloudLoading(true);
     try {
       const audio = new Audio(currentPageAudioPath);
+      audio.playbackRate = 0.92;
       pageAudioRef.current = audio;
       setIsReadAloudPaused(false);
       runSentenceHighlights(pageSentences);
@@ -1064,6 +1065,7 @@ export function GuidedReadingPage({
     setIsReadAloudLoading(true);
     try {
       const audio = new Audio(audioPath);
+      audio.playbackRate = 0.92; // narration pacing: slightly slower for young readers
       pageAudioRef.current = audio;
       setIsWholeBookReading(true);
       setIsReadAloudPaused(false);
@@ -1111,6 +1113,7 @@ export function GuidedReadingPage({
         const syncData = wholeBookSyncData || await fetchWholeBookSyncData(selectedBook, fullBookAudioPath);
         if (syncData && !wholeBookSyncData) setWholeBookSyncData(syncData);
         const audio = new Audio(fullBookAudioPath);
+      audio.playbackRate = 0.92;
         const fullBookStartIndex = Math.min(pageIndex, selectedBook.pages.length - 1);
         let pageCues = [];
         const syncPageToFullBookAudio = () => {
@@ -1260,6 +1263,7 @@ export function GuidedReadingPage({
         window.speechSynthesis.cancel();
       }
       const audio = new Audio(resolvedAudioPath);
+      audio.playbackRate = 0.92;
       await audio.play();
       setLoadingWordAudioIndex(null);
     } catch (error) {
