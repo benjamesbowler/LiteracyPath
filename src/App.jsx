@@ -7458,14 +7458,16 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
   // When a child finishes one of Today's Mission tasks (book, game, or
   // quest station), bring them back to the mission screen.
+  // Uses sessionMode directly: isStudentMode is declared later in this
+  // component, so referencing it here crashes with a TDZ error.
   useEffect(() => {
     function handleMissionTaskDone() {
-      if (!isStudentMode) return;
+      if (sessionMode !== "student") return;
       setAppView(APP_VIEWS.STUDENT_HOME);
     }
     window.addEventListener("lp-mission-task-done", handleMissionTaskDone);
     return () => window.removeEventListener("lp-mission-task-done", handleMissionTaskDone);
-  }, [isStudentMode]);
+  }, [sessionMode]);
 
   if (showSkillsQuestPrototype) {
     return (
