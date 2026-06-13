@@ -18,8 +18,9 @@
   --lp-color-danger-soft: #FEF2F2;
   --lp-color-text: #172033;
   --lp-color-text-strong: #101828;
-  --lp-color-text-muted: #667085;
-  --lp-color-text-subtle: #98a2b3;
+  /* Darkened to pass WCAG AA (4.5:1) on white surfaces */
+  --lp-color-text-muted: #51607A;
+  --lp-color-text-subtle: #6B7585;
   --lp-color-surface: #ffffff;
   --lp-color-surface-warm: #ffffff;
   --lp-color-surface-subtle: #F8FAFC;
@@ -6862,8 +6863,11 @@ select:focus {
   place-items: center;
   width: 100%;
   min-height: 180px;
-  color: var(--lp-color-text-muted);
-  font-weight: 850;
+  opacity: 0.85;
+}
+
+.first-sound-image-placeholder svg {
+  filter: drop-shadow(0 4px 10px rgba(12, 107, 101, 0.18));
 }
 
 .first-sound-answer-grid {
@@ -15714,4 +15718,33 @@ select:focus {
 .lg-arcade,
 .phonics-island-view {
   padding-bottom: 36px;
+}
+
+/* ─── Accessibility: app-wide keyboard focus ring ──────────────────────────────
+   Several game/learn stylesheets set `outline: 0`. This guarantees a visible
+   focus indicator for keyboard users everywhere, without showing on mouse use. */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--lp-color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* ─── Accessibility: respect reduced-motion globally ───────────────────────────
+   Blanket guard so animations/transitions calm down for users who ask for it.
+   Individual components can still opt back in, but the default is safe. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

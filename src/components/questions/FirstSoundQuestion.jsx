@@ -89,8 +89,12 @@ export default function FirstSoundQuestion({
             src={imageUrl}
           />
         ) : (
-          <div className="first-sound-image-placeholder">
-            <span>Image coming soon</span>
+          <div className="first-sound-image-placeholder" role="img" aria-label={`Picture for ${item.targetWord}`}>
+            <svg viewBox="0 0 64 64" width="68" height="68" aria-hidden="true" fill="none">
+              <rect x="6" y="12" width="52" height="40" rx="8" fill="#E3F4F2" stroke="#0C6B65" strokeWidth="2.5" />
+              <circle cx="22" cy="26" r="5" fill="#F6B53D" />
+              <path d="M12 46l13-14 10 10 7-7 10 11" stroke="#0C6B65" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            </svg>
           </div>
         )}
       </div>

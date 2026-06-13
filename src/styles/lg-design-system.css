@@ -357,9 +357,9 @@ body {
 /* Toggle button */
 .lg-sb-toggle {
   flex-shrink: 0;
-  width: 26px;
-  height: 26px;
-  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.08);
   border: none;
   cursor: pointer;
@@ -654,10 +654,10 @@ body {
   padding: 10px 11px;
 }
 
-.lg-skill-tile-num  { font-size: 10px; color: var(--lp-color-text-muted); margin-bottom: 2px; }
-.lg-skill-tile-name { font-size: 12.5px; font-weight: 700; color: var(--lp-color-text-strong); margin-bottom: 5px; }
+.lg-skill-tile-num  { font-size: 11.5px; color: var(--lp-color-text-muted); margin-bottom: 2px; }
+.lg-skill-tile-name { font-size: 13px; font-weight: 700; color: var(--lp-color-text-strong); margin-bottom: 5px; }
 .lg-skill-tile-score { font-size: 22px; font-weight: 800; line-height: 1; color: currentColor; }
-.lg-skill-tile-sub  { font-size: 10px; color: var(--lp-color-text-muted); margin-top: 3px; }
+.lg-skill-tile-sub  { font-size: 11.5px; color: var(--lp-color-text-muted); margin-top: 3px; }
 
 /* Tile colour modifiers (inherit from domain) */
 .lg-tile-phonological { color: var(--lg-domain-phonological); }
