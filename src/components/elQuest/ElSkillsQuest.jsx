@@ -268,6 +268,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   const [celebration, setCelebration] = useState(null);
   const [sessionStations, setSessionStations] = useState({});
   const [mapWorldId, setMapWorldId] = useState(null);
+  const [mapZoom, setMapZoom] = useState(1);
   const cueTimerRef = useRef(null);
 
   const activeCycle = playableCycles.find(cycle => cycle.id === activeCycleId) || null;
@@ -393,32 +394,17 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   const travelerImage = getCompanion(progressScopeKey)?.image
     || `/images/pals/poses/${worldForCycle(recommendedCycle?.cycleNumber || 1).id}-wave.webp`;
 
-  // Walk the avatar from its last stop to the new one when a cycle is won.
+  // The skill stops stay fixed; only the traveler moves. It glides to the
+  // recommended stop via a CSS transition on left/top, so all we do here is
+  // remember the last stop (kept for progress/animation hooks).
   const stopRefs = useRef({});
   const avatarRef = useRef(null);
   useEffect(() => {
     if (activeCycle || celebration || !recommendedCycle?.id) return;
     const key = `${STORAGE_PREFIX}-laststop:${progressScopeKey}`;
-    let previousId = null;
     try {
-      previousId = window.localStorage.getItem(key);
       window.localStorage.setItem(key, recommendedCycle.id);
     } catch { /* best effort */ }
-    if (!previousId || previousId === recommendedCycle.id) return;
-    const previousStop = stopRefs.current[previousId];
-    const avatar = avatarRef.current;
-    if (!previousStop || !avatar || typeof avatar.animate !== "function") return;
-    const from = previousStop.getBoundingClientRect();
-    const to = avatar.getBoundingClientRect();
-    const dx = from.left + from.width / 2 - (to.left + to.width / 2);
-    const dy = from.top - to.top;
-    avatar.animate([
-      { transform: `translate(${dx}px, ${dy}px)` },
-      { transform: `translate(${dx * 0.66}px, ${dy * 0.66 - 30}px)` },
-      { transform: `translate(${dx * 0.33}px, ${dy * 0.33}px)` },
-      { transform: "translate(0px, -30px)" },
-      { transform: "translate(0px, 0px)" }
-    ], { duration: 1400, easing: "ease-in-out" });
   }, [activeCycle, celebration, progressScopeKey, recommendedCycle?.id]);
 
   // Station finished: flow straight into the next one after a short
@@ -467,43 +453,73 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                   </button>
                 ))}
               </div>
-              <div
-                className="sbq-mapboard"
-                style={{ backgroundImage: `url(/images/pals/maps/${region.id}-map.webp)` }}
-              >
-                {stops.map((cycle, index) => {
-                  const cycleProgress = progress.cycles?.[cycle.id];
-                  const isRecommended = cycle.id === recommendedCycle?.id;
-                  const [x, y] = mapPoints[index] || [50, 50];
-                  return (
-                    <button
-                      key={cycle.id}
-                      type="button"
-                      ref={el => { stopRefs.current[cycle.id] = el; }}
-                      className={`sbq-stop${cycleProgress?.stars ? " done" : ""}${isRecommended ? " next" : ""}`}
-                      style={{ left: `${x}%`, top: `${y}%` }}
-                      onClick={() => openCycle(cycle)}
-                      aria-label={`${region.landmarks[index] || `Cycle ${cycle.cycleNumber}`}${isRecommended ? " - you are here" : ""}`}
-                    >
-                      {isRecommended && (
+              <div className="sbq-mapwrap">
+                <div className="sbq-map-viewport">
+                  <div
+                    className="sbq-mapboard"
+                    style={{
+                      backgroundImage: `url(/images/pals/maps/${region.id}-map.webp)`,
+                      "--map-zoom": mapZoom
+                    }}
+                  >
+                    {stops.map((cycle, index) => {
+                      const cycleProgress = progress.cycles?.[cycle.id];
+                      const isRecommended = cycle.id === recommendedCycle?.id;
+                      const [x, y] = mapPoints[index] || [50, 50];
+                      return (
+                        <button
+                          key={cycle.id}
+                          type="button"
+                          ref={el => { stopRefs.current[cycle.id] = el; }}
+                          className={`sbq-stop${cycleProgress?.stars ? " done" : ""}${isRecommended ? " next" : ""}`}
+                          style={{ left: `${x}%`, top: `${y}%` }}
+                          onClick={() => openCycle(cycle)}
+                          aria-label={`${region.landmarks[index] || `Cycle ${cycle.cycleNumber}`}${isRecommended ? " - you are here" : ""}`}
+                        >
+                          <strong>{cycleProgress?.stars ? "★" : cycle.cycleNumber}</strong>
+                          <span className="sbq-stop-label">{region.landmarks[index] || "Mystery Spot"}</span>
+                          <em className="sbq-stop-skill">
+                            {(cycle.focusLetters || []).map(item => item.grapheme).join(" ") || "Review"}
+                            {isRecommended ? " · You are here" : ""}
+                          </em>
+                          {cycleProgress?.stars ? <ProgressStars stars={cycleProgress.stars} /> : null}
+                        </button>
+                      );
+                    })}
+                    {(() => {
+                      // The traveler is its own element layered over the map: the
+                      // skill stops stay put while the avatar glides to the
+                      // recommended stop (CSS transition on left/top).
+                      const here = stops.findIndex(cycle => cycle.id === recommendedCycle?.id);
+                      if (here < 0) return null;
+                      const [ax, ay] = mapPoints[here] || [50, 50];
+                      return (
                         <img
                           ref={avatarRef}
                           className="sbq-journey-avatar"
                           src={travelerImage}
                           alt=""
                           aria-hidden="true"
+                          style={{ left: `${ax}%`, top: `${ay}%` }}
                         />
-                      )}
-                      <strong>{cycleProgress?.stars ? "★" : cycle.cycleNumber}</strong>
-                      <span className="sbq-stop-label">{region.landmarks[index] || "Mystery Spot"}</span>
-                      <em className="sbq-stop-skill">
-                        {(cycle.focusLetters || []).map(item => item.grapheme).join(" ") || "Review"}
-                        {isRecommended ? " · You are here" : ""}
-                      </em>
-                      {cycleProgress?.stars ? <ProgressStars stars={cycleProgress.stars} /> : null}
-                    </button>
-                  );
-                })}
+                      );
+                    })()}
+                  </div>
+                </div>
+                <div className="sbq-map-zoom" role="group" aria-label="Zoom the map">
+                  <button
+                    type="button"
+                    aria-label="Zoom out"
+                    disabled={mapZoom <= 1}
+                    onClick={() => setMapZoom(z => Math.max(1, Math.round((z - 0.25) * 100) / 100))}
+                  >−</button>
+                  <button
+                    type="button"
+                    aria-label="Zoom in"
+                    disabled={mapZoom >= 2.5}
+                    onClick={() => setMapZoom(z => Math.min(2.5, Math.round((z + 0.25) * 100) / 100))}
+                  >+</button>
+                </div>
               </div>
             </div>
           );
