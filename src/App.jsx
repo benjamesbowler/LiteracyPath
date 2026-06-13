@@ -2656,6 +2656,16 @@ export default function App() {
     }
 
     if (adminAccess) {
+      // Admins bypass approval, but still have a real account row holding their
+      // saved school_id. Read it so the dashboard reflects the saved school
+      // (otherwise it always shows "Not set" even though child login works).
+      let adminSchoolId = null;
+      try {
+        const { data: adminRecord } = await fetchTeacherAccountRecord(userId);
+        adminSchoolId = adminRecord?.school_id || null;
+      } catch {
+        // School lookup is best-effort; never block admin access on it.
+      }
       setTeacherAccountStatus("approved");
       setTeacherAccountRecord({
         user_id: userId,
@@ -2663,7 +2673,8 @@ export default function App() {
         role: "admin",
         status: "approved",
         approval_status: "approved",
-        admin: true
+        admin: true,
+        school_id: adminSchoolId
       });
       return "approved";
     }

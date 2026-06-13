@@ -60,11 +60,11 @@ export function getLetterSoundCue(letter, family) {
 
   if (CVC_VOWELS.has(normalizedLetter) || targetVowel) {
     const vowel = targetVowel || normalizedLetter;
-    // Use the real gold-voice short-vowel recording, not the synthetic
-    // oscillator phoneme (which sounded buzzy/robotic). Browser speech is
-    // only the last-resort fallback if the recording fails to load.
+    // Pure /a/-style phoneme recording (same file the EL Skills Quest uses) so
+    // sounding out "cat" is c-a-t, NOT the synthetic buzz and NOT the spoken
+    // "short a" label. Browser speech is only the last-resort fallback.
     return {
-      src: getGraphemeAudioPath(vowel, vowel),
+      src: `/audio/phonemes/short_${vowel}.mp3`,
       fallbackText: VOWEL_SOUND_FALLBACKS[vowel] || vowel
     };
   }
