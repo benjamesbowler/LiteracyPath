@@ -54,11 +54,31 @@ const WORLD_MAP_POINTS = {
   moonwood: [[50, 8], [28, 22], [72, 30], [50, 42], [68, 49], [30, 60], [58, 68], [73, 79], [45, 88]]
 };
 
+// Horizontal (landscape) maps for laptop/projector: the journey runs left → right
+// from the entrance to the final landmark. Stops are in journey order. These
+// coordinates are a first pass pinned by eye to the wide art and may need tuning.
+const WORLD_MAP_POINTS_WIDE = {
+  meadow: [[10, 80], [12, 58], [27, 52], [33, 76], [26, 32], [47, 44], [56, 64], [73, 60], [87, 34]],
+  dino: [[11, 72], [22, 40], [34, 32], [44, 36], [44, 80], [57, 52], [70, 74], [82, 54], [89, 30]],
+  moonwood: [[11, 70], [22, 45], [33, 35], [42, 62], [40, 80], [56, 55], [68, 72], [78, 30], [90, 45]]
+};
+
+// Landmark names in entrance → destination order (used by the wide map so the
+// labels match the left-to-right journey).
+const WORLD_LANDMARKS_WIDE = {
+  meadow: ["Farm Gate", "Carrot Patch", "Duck Pond", "Flower Meadow", "The Old Orchard", "Haystack Hill", "Sheep Pen", "Strawberry Field", "The Big Barn"],
+  dino: ["The Mud Pits", "Green Valley", "Fern Forest", "Giant Plants", "Fossil Creek", "Eggshell Rocks", "Stomping Grounds", "Lava Lookout", "The Volcano"],
+  moonwood: ["Glow-mushroom Grove", "Firefly Hollow", "Whispering Trees", "Moonlit Pond", "Starfall Clearing", "The Old Oak Door", "Crystal Cave", "Owl's Lookout", "The Moon Tower"]
+};
+
+// Native pixel space of each map artwork (sets the SVG viewBox + board aspect).
+const MAP_VIEW = { portrait: { w: 1195, h: 1600 }, wide: { w: 2752, h: 1536 } };
+
 // A smooth (Catmull-Rom → cubic bezier) route through the landmark anchors, in the
-// map art's native 1195x1600 space. The avatar glides ALONG this curve (it doubles
-// as the painted-road motion path), so movement follows the road, not a straight line.
-function buildRoutePath(points) {
-  const pts = points.map(([x, y]) => [(x / 100) * 1195, (y / 100) * 1600]);
+// map art's native pixel space (w × h). The avatar glides ALONG this curve (it
+// doubles as the painted-road motion path), so movement follows the road.
+function buildRoutePath(points, w = 1195, h = 1600) {
+  const pts = points.map(([x, y]) => [(x / 100) * w, (y / 100) * h]);
   if (pts.length < 2) return "";
   const d = [`M ${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`];
   for (let i = 0; i < pts.length - 1; i++) {
@@ -424,14 +444,35 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   const lastIndexRef = useRef(0);
   const prevRegionRef = useRef(null);
 
+  // Wide (horizontal) map on laptop/projector; tall (vertical) map on phone/iPad.
+  // "pointer: fine" keeps touch tablets on the vertical map even when wide.
+  const [wideMap, setWideMap] = useState(() =>
+    typeof window !== "undefined"
+      ? Boolean(window.matchMedia?.("(min-width: 1024px) and (pointer: fine)").matches)
+      : false);
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return undefined;
+    const mq = window.matchMedia("(min-width: 1024px) and (pointer: fine)");
+    const onChange = () => setWideMap(mq.matches);
+    onChange();
+    mq.addEventListener?.("change", onChange);
+    return () => mq.removeEventListener?.("change", onChange);
+  }, []);
+
   // Map geometry (lifted to component scope so the avatar tween effect and the
-  // render share the same region/stops/points).
+  // render share the same region/stops/points). Orientation picks the art,
+  // stop coordinates, landmark labels, and coordinate space together.
   const homeWorldId = worldForCycle(recommendedCycle?.cycleNumber || 1).id;
   const activeWorldId = mapWorldId || homeWorldId;
   const region = WORLD_REGIONS.find(r => r.id === activeWorldId) || WORLD_REGIONS[0];
   const stops = playableCycles.filter(cycle => region.test(cycle.cycleNumber));
-  const mapPoints = WORLD_MAP_POINTS[region.id] || WORLD_MAP_POINTS.meadow;
-  const routeD = buildRoutePath(mapPoints);
+  const mapView = wideMap ? MAP_VIEW.wide : MAP_VIEW.portrait;
+  const mapPoints = (wideMap ? WORLD_MAP_POINTS_WIDE : WORLD_MAP_POINTS)[region.id]
+    || WORLD_MAP_POINTS.meadow;
+  const landmarks = (wideMap ? WORLD_LANDMARKS_WIDE[region.id] : region.landmarks)
+    || region.landmarks;
+  const mapImage = `/images/pals/maps/${region.id}${wideMap ? "-map-wide" : "-map"}.webp`;
+  const routeD = buildRoutePath(mapPoints, mapView.w, mapView.h);
 
   useEffect(() => {
     if (activeCycle || celebration || !recommendedCycle?.id) return;
@@ -454,8 +495,8 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
     const total = path.getTotalLength();
     const STEPS = 240;
     const anchorDist = mapPoints.map(([px, py]) => {
-      const tx = (px / 100) * 1195;
-      const ty = (py / 100) * 1600;
+      const tx = (px / 100) * mapView.w;
+      const ty = (py / 100) * mapView.h;
       let best = 0;
       let bestD = Infinity;
       for (let s = 0; s <= STEPS; s++) {
@@ -479,8 +520,8 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
 
     const place = (dist) => {
       const p = path.getPointAtLength(dist);
-      avatar.style.left = `${(p.x / 1195) * 100}%`;
-      avatar.style.top = `${(p.y / 1600) * 100}%`;
+      avatar.style.left = `${(p.x / mapView.w) * 100}%`;
+      avatar.style.top = `${(p.y / mapView.h) * 100}%`;
     };
 
     const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
@@ -498,7 +539,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
     };
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
-  }, [activeCycle, celebration, routeD, recommendedCycle?.id, region.id, stops, mapPoints]);
+  }, [activeCycle, celebration, routeD, recommendedCycle?.id, region.id, stops, mapPoints, mapView.w, mapView.h]);
 
   // Station finished: flow straight into the next one after a short
   // celebration beat - children keep playing, with a clear way to stop.
@@ -544,16 +585,16 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
               <div className="sbq-mapwrap">
                 <div className="sbq-map-viewport">
                   <div
-                    className="sbq-mapboard"
+                    className={`sbq-mapboard${wideMap ? " wide" : ""}`}
                     style={{
-                      backgroundImage: `url(/images/pals/maps/${region.id}-map.webp)`,
+                      backgroundImage: `url(${mapImage})`,
                       "--map-zoom": mapZoom
                     }}
                   >
                     {/* Painted-road route: drawn under the markers; also the avatar's motion path. */}
                     <svg
                       className="sbq-route"
-                      viewBox="0 0 1195 1600"
+                      viewBox={`0 0 ${mapView.w} ${mapView.h}`}
                       preserveAspectRatio="xMidYMid slice"
                       aria-hidden="true"
                     >
@@ -571,13 +612,13 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                           className={`sbq-stop${cycleProgress?.stars ? " done" : ""}${isRecommended ? " next" : ""}`}
                           style={{ left: `${x}%`, top: `${y}%` }}
                           onClick={() => openCycle(cycle)}
-                          aria-label={`${region.landmarks[index] || `Cycle ${cycle.cycleNumber}`}${isRecommended ? " - you are here" : ""}`}
+                          aria-label={`${landmarks[index] || `Cycle ${cycle.cycleNumber}`}${isRecommended ? " - you are here" : ""}`}
                         >
                           <span className="sbq-stop-marker" aria-hidden="true">
                             {cycleProgress?.stars ? "★" : cycle.cycleNumber}
                           </span>
                           <span className="sbq-stop-tip">
-                            <span className="sbq-stop-name">{region.landmarks[index] || "Mystery Spot"}</span>
+                            <span className="sbq-stop-name">{landmarks[index] || "Mystery Spot"}</span>
                             <span className="sbq-stop-skill">
                               {(cycle.focusLetters || []).map(item => item.grapheme).join(" ") || "Review"}
                             </span>

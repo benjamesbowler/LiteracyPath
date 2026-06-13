@@ -742,6 +742,15 @@
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
 }
 
+/* Horizontal (landscape) map for laptop/projector: width-driven so the whole
+   left-to-right journey fits the screen, with the same zoom control. */
+.sbq-mapboard.wide {
+  aspect-ratio: 2752 / 1536;
+  width: calc(min(100%, 1500px) * var(--map-zoom, 1));
+  height: auto;
+  min-height: 0;
+}
+
 /* Floating zoom controls for small screens (and anyone who wants a closer look) */
 .sbq-map-zoom {
   position: absolute;
