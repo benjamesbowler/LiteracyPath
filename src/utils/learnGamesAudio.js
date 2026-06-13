@@ -85,14 +85,10 @@ async function playFirstAvailable(paths) {
   return null;
 }
 
-function speakWithBrowser(text, options = {}) {
-  if (typeof window === "undefined" || !window.speechSynthesis || !text) return;
-  window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.rate = options.rate || 0.82;
-  utterance.pitch = options.pitch || 1.08;
-  window.speechSynthesis.speak(utterance);
-}
+// Gold-voice policy: we NEVER play the robotic browser TTS. When no recorded
+// clip exists we stay silent (games use hasRecordedSpeech() to hide Listen
+// buttons). Kept as a no-op so the call sites don't need to change.
+function speakWithBrowser() {}
 
 export function cancelSpeech() {
   Howler.stop();
