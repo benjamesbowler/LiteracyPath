@@ -1040,55 +1040,8 @@ body {
 .lg-cell-none      { background: var(--lp-color-border); color: var(--lp-color-text-subtle); }
 
 /* ─── 17. Button overrides — flatten from gradient/pill to clean rect ─────────── */
-.lg-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  min-height: 36px;
-  padding: 7px 14px;
-  border-radius: var(--lp-radius-lg);
-  font-family: var(--lp-font-ui);
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  border: 1px solid transparent;
-  transition: background 0.12s, border-color 0.12s, color 0.12s;
-  white-space: nowrap;
-  line-height: 1;
-}
-
-.lg-btn-primary {
-  background: var(--lp-color-primary);
-  color: #ffffff;
-  border-color: var(--lp-color-primary-strong);
-}
-
-.lg-btn-primary:hover:not(:disabled) {
-  background: var(--lp-color-primary-strong);
-}
-
-.lg-btn-secondary {
-  background: var(--lp-color-surface);
-  color: var(--lp-color-text-strong);
-  border-color: var(--lp-color-border-strong);
-}
-
-.lg-btn-secondary:hover:not(:disabled) {
-  border-color: var(--lp-color-primary);
-  color: var(--lp-color-primary);
-}
-
-.lg-btn-ghost {
-  background: transparent;
-  color: var(--lp-color-text-muted);
-  border-color: transparent;
-}
-
-.lg-btn-ghost:hover:not(:disabled) {
-  background: var(--lp-color-primary-soft);
-  color: var(--lp-color-primary);
-}
+/* (Removed the unused .lg-btn / .lg-btn-primary/secondary/ghost family —
+   zero references in the component tree.) */
 
 /* ─── 18. Override the old main-button gradient ───────────────────────────────── */
 .app:not(.assessment-app) .main-button,

@@ -10232,6 +10232,14 @@ select:focus {
   border: 0;
   border-radius: 999px;
   background: rgba(15, 118, 110, 0.18);
+  position: relative;
+}
+/* Keep the thin progress bar visually, but give it a finger-friendly hit area
+   (the bar itself is only ~4-10px tall, well below a tappable target). */
+.learn-progress-strip button::before {
+  content: "";
+  position: absolute;
+  inset: -16px 0;
 }
 
 .learn-progress-strip button.active {
@@ -15763,4 +15771,21 @@ summary:focus-visible {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ─── Professional finish: crisp type, no mobile tap-flash, branded selection ── */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+::selection {
+  background: rgba(12, 107, 101, 0.18);
 }
