@@ -1913,7 +1913,11 @@ export default function App() {
     );
   }
 
-  const currentStage = skillTree[currentSkillIndex];
+  // Guard against an out-of-range index (e.g. drifted/restored data) so a bad
+  // value can never throw at the top of render and white-screen the whole app.
+  const currentStage = skillTree[currentSkillIndex]
+    || skillTree[skillTree.length - 1]
+    || { label: "" };
 
   const masteryRule =
     getMasteryRule(currentStage.label);
@@ -2418,7 +2422,10 @@ export default function App() {
 
         setSelectedClassId(savedClassId);
         setAssessmentMode(data.assessmentMode || "mastery");
-        const restoredSkillIndex = data.currentSkillIndex || 0;
+        const restoredSkillIndex = Math.min(
+          Math.max(0, Number(data.currentSkillIndex) || 0),
+          skillTree.length - 1
+        );
         const restoredRoundAnswers = Array.isArray(data.roundAnswers) ? data.roundAnswers : [];
         const restoredStudentId = data.studentId || null;
         const restoredStudentName = data.studentName || "";
@@ -3827,7 +3834,7 @@ export default function App() {
 
     if (error) {
       console.error("Supabase student save error:", error);
-      setMessage("Student saved locally, but cloud save failed.");
+      setMessage("Could not create student. Please try again.");
       return;
     }
 

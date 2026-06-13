@@ -3286,8 +3286,8 @@ body {
 }
 
 .guided-completed-strip .guided-book-generated-cover strong {
-  font-size: 0.58rem;
-  line-height: 1.05;
+  font-size: 0.75rem;
+  line-height: 1.15;
   -webkit-line-clamp: 3;
 }
 

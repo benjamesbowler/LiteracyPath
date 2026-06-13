@@ -177,13 +177,14 @@ function todaysGame(scope, cycle) {
 }
 
 export function buildDailyMission(scope) {
-  const cycle = currentQuestCycle(scope);
+  const cycle = currentQuestCycle(scope) || {};
   const book = nextBook(scope);
-  const gamePick = todaysGame(scope, cycle);
+  const gamePick = todaysGame(scope, cycle) || {};
+  const game = gamePick.game || {};
 
   return {
     quest: {
-      title: `Cycle ${cycle.cycleNumber}`,
+      title: cycle.cycleNumber ? `Cycle ${cycle.cycleNumber}` : "Your next station",
       detail: (cycle.focusLetters || []).map(item => item.grapheme).join(" ") || "Review",
       why: cycle.childFriendlyGoal || "Play your next station."
     },
@@ -194,10 +195,10 @@ export function buildDailyMission(scope) {
       bookId: book?.id || ""
     },
     game: {
-      title: gamePick.game.title,
-      detail: gamePick.game.skill,
-      why: gamePick.why,
-      gameId: gamePick.game.id
+      title: game.title || "Play a game",
+      detail: game.skill || "",
+      why: gamePick.why || "A fresh game for today.",
+      gameId: game.id || ""
     }
   };
 }

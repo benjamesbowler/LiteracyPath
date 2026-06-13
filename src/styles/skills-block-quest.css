@@ -829,13 +829,20 @@
     linear-gradient(160deg, #8a5a33, #5e3a1d);
   border: 3px solid rgba(255, 248, 225, 0.9);
   box-shadow: 0 4px 10px rgba(15, 23, 42, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.3);
-  transition: transform 130ms ease-out, box-shadow 130ms ease-out;
+  /* Markers are STATIC: only colour/shadow react. They never move or scale -
+     the avatar is the only thing that travels on the map. */
+  transition: box-shadow 120ms ease-out, border-color 120ms ease-out;
 }
 
 .sbq-mapboard .sbq-stop:hover .sbq-stop-marker,
 .sbq-mapboard .sbq-stop:focus-visible .sbq-stop-marker {
-  transform: scale(1.12);
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.5);
+  border-color: #ffffff;
+}
+
+/* Standard button press - a pressed shadow, no movement. */
+.sbq-mapboard .sbq-stop:active .sbq-stop-marker {
+  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.4), inset 0 2px 5px rgba(15, 23, 42, 0.35);
 }
 
 /* Themed markers per land (dino = carved stone, moonwood = glowing lantern) */
@@ -854,15 +861,11 @@
   box-shadow: 0 0 14px rgba(125, 233, 255, 0.6), 0 4px 10px rgba(15, 23, 42, 0.45);
 }
 
-/* Current stop: a gentle pulsing halo, not a box */
+/* Current stop: a STATIC glow ring (no animation - the avatar shows movement). */
 .sbq-mapboard .sbq-stop.next .sbq-stop-marker {
-  animation: sbq-stop-pulse 1.8s ease-out infinite;
-}
-
-@keyframes sbq-stop-pulse {
-  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--pal-accent) 70%, transparent), 0 4px 10px rgba(15, 23, 42, 0.45); }
-  70%  { box-shadow: 0 0 0 15px color-mix(in srgb, var(--pal-accent) 0%, transparent), 0 4px 10px rgba(15, 23, 42, 0.45); }
-  100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--pal-accent) 0%, transparent), 0 4px 10px rgba(15, 23, 42, 0.45); }
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--pal-accent) 45%, transparent),
+    0 4px 12px rgba(15, 23, 42, 0.45);
 }
 
 /* Done: gold rim */
@@ -908,7 +911,7 @@
 .sbq-stop-name { font: 700 0.9rem var(--lp-font-reading); line-height: 1.15; }
 
 .sbq-stop-skill {
-  font-size: 0.62rem;
+  font-size: 0.72rem;
   font-style: normal;
   font-weight: 800;
   letter-spacing: 0.04em;
@@ -948,7 +951,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .sbq-journey-avatar-bob { animation: none; }
-  .sbq-mapboard .sbq-stop.next .sbq-stop-marker { animation: none; }
 }
 
 @media (max-width: 640px) {
@@ -959,7 +961,7 @@
     min-height: 560px;
   }
   .sbq-stop-name { font-size: 0.82rem; }
-  .sbq-stop-skill { font-size: 0.58rem; }
+  .sbq-stop-skill { font-size: 0.72rem; }
   .sbq-map-zoom button { width: 48px; height: 48px; }
 }
 

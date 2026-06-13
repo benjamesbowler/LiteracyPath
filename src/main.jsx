@@ -2,6 +2,8 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import { ErrorBoundary } from './components/ErrorBoundary.jsx'
+import { AppCrashFallback } from './components/AppCrashFallback.jsx'
 import { DYNAMIC_IMPORT_ERROR_EVENT, reloadOnceForNewVersion } from './utils/lazyWithRetry.js'
 
 const CLIENT_ERROR_LOG_KEY = 'lp-client-error-log'
@@ -44,6 +46,8 @@ window.addEventListener('vite:preloadError', event => {
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <ErrorBoundary logErrors logLabel="App root crashed" fallback={<AppCrashFallback />}>
+      <App />
+    </ErrorBoundary>
   </StrictMode>,
 )
