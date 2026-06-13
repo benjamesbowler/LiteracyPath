@@ -59,12 +59,11 @@ const WORLD_MAP_POINTS = {
 // coordinates are a first pass pinned by eye to the wide art and may need tuning.
 // Pinned by eye to the landmarks painted on each wide map, in journey order
 // (entrance on the left → destination on the right).
-// Verified by rendering each stop onto the actual artwork and checking it sits
-// on the painted path / a landmark (not guessed). See tools render-and-verify pass.
+// Placed by Benjamin using the click-to-place tool (exact positions, not guessed).
 const WORLD_MAP_POINTS_WIDE = {
-  meadow: [[14, 87], [22, 73], [28, 64], [40, 74], [50, 58], [59, 48], [53, 66], [74, 60], [86, 40]],
-  dino: [[9, 75], [19, 60], [27, 50], [37, 46], [46, 52], [57, 45], [66, 62], [76, 51], [86, 43]],
-  moonwood: [[14, 70], [23, 83], [34, 87], [45, 86], [58, 79], [63, 69], [70, 60], [79, 63], [88, 57]]
+  meadow: [[12.6, 85.8], [12.3, 63.3], [21.2, 48.2], [40.5, 43.6], [65.2, 67.2], [92.6, 88.9], [81.5, 60.6], [64.2, 43.6], [81.2, 37.6]],
+  dino: [[5.4, 38], [14.6, 58.8], [10.6, 86.3], [38, 83.6], [45.7, 38.5], [61.5, 56], [76.8, 87.8], [93.3, 56.8], [88.2, 23]],
+  moonwood: [[7.4, 58], [12.3, 86], [34.1, 89.1], [46.4, 65.3], [57.5, 88.7], [70.9, 62.8], [81.2, 86], [97, 80.7], [92.1, 56.2]]
 };
 
 // Landmark names in entrance → destination order (used by the wide map so the
