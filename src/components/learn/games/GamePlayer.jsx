@@ -8,6 +8,8 @@ import {
   setActiveLearnGamesProgressScope
 } from "../../../utils/learnGamesProgress";
 import { notifyMissionTaskDone } from "../../../utils/dailyMission.js";
+import { awardCollectible } from "../../../utils/studentProfile.js";
+import { gemForIndex } from "../../../data/gemSet.js";
 import { SoundToggle } from "./shared/SoundToggle.jsx";
 import { worldForDifficulty, worldStyle, sceneForKey } from "../../../utils/palWorlds.js";
 import { LEARN_GAMES } from "./games/index.js";
@@ -66,6 +68,14 @@ export function GamePlayer({
     const settledScore = Math.max(Number(finalScore) || 0, Number(score) || 0);
     const nextProgress = saveLearnGameResult(progressScopeKey, game.id, stars, settledScore, wordsCompleted);
     notifyMissionTaskDone(progressScopeKey, "game");
+    if (Number(stars) > 0) {
+      // Finishing a game with at least one star earns a collectible gem.
+      awardCollectible(progressScopeKey, {
+        key: `game-${game.id}`,
+        ...gemForIndex(String(game.id || "").length + (game.title || "").length),
+        label: game.title || "Game star"
+      });
+    }
     onProgressChange?.(nextProgress);
   }
 

@@ -261,7 +261,9 @@ function buildQuickWordRounds(cycle) {
 function buildWordBuildRounds(cycle) {
   const candidates = focusEntries(cycle)
     .flatMap(entry => exampleWordsFor(entry.spelling))
-    .filter(word => word.length >= 2 && word.length <= 5);
+    // Only clean 2-5 letter words: a single letter or a stray space would
+    // render the wrong number of boxes and make the round impossible to pass.
+    .filter(word => /^[a-z]{2,5}$/.test(word));
   const words = shuffleItems([...new Set(candidates)]).slice(0, 4);
   return words.map(word => ({
     type: "build",

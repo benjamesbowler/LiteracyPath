@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { notifyMissionTaskDone } from "../../utils/dailyMission.js";
+import { awardCollectible } from "../../utils/studentProfile.js";
+import { gemForIndex } from "../../data/gemSet.js";
 import { BookQuiz } from "./BookQuiz.jsx";
 import { printCertificate } from "../../utils/printCertificate.js";
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
@@ -868,10 +870,21 @@ export function GuidedReadingPage({
       completedPages: selectedBook.pages.length,
       totalPages: selectedBook.pages.length
     });
+    // Credit the book on READING completion (not on finishing the quiz), so a
+    // child who reads the whole book always gets the mission, even if they skip
+    // the quiz. A first-time finish also earns a collectible gem.
+    const scope = studentId || studentName || "default";
+    notifyMissionTaskDone(scope, "book");
+    if (!wasCompleted) {
+      awardCollectible(scope, {
+        key: `book-${selectedBook.id}`,
+        ...gemForIndex(String(selectedBook.id || "").length + (selectedBook.title || "").length),
+        label: `Read: ${selectedBook.title || "a book"}`
+      });
+    }
     if (isStudentMode) {
       setShowQuiz(true);
     } else {
-      notifyMissionTaskDone(studentId || studentName || "default", "book");
       setShowSummary(true);
     }
   }

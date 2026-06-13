@@ -101,6 +101,13 @@ body {
   min-width: 0;
   display: flex;
   flex-direction: column;
+  /* Neat breathing room so content never sits flush against the screen edge
+     (respects iOS/iPad safe areas). Immersive shells opt out below. */
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 20px);
+}
+.lg-app-shell.learn-fullscreen-shell .lg-content-area,
+.lg-app-shell.assessment-fullscreen-shell .lg-content-area {
+  padding-bottom: 0;
 }
 
 /* Let long pages scroll vertically; screens that fit are unaffected. */
