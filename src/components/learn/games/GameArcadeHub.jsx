@@ -19,11 +19,16 @@ function Leaderboard({ refreshSignal }) {
 
   useEffect(() => {
     let cancelled = false;
-    // Privacy: scope the board to the child's own school.
+    // Privacy: the board is scoped to the child's own school. Without a school
+    // id we never query — showing nothing is correct, never a global list.
     let schoolId = null;
     try {
       schoolId = JSON.parse(window.localStorage.getItem("lp-student-session-v1") || "null")?.schoolId || null;
-    } catch { /* fall back to global for teacher preview */ }
+    } catch { /* no session / not parseable - leave schoolId null */ }
+    if (!schoolId) {
+      // No school in session: never query. rows stays empty, board renders nothing.
+      return () => { cancelled = true; };
+    }
     supabase
       .rpc("get_game_leaderboard", { p_limit: 5, p_school_id: schoolId })
       .then(({ data, error }) => {
