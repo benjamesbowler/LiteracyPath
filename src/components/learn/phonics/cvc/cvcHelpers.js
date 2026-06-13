@@ -60,8 +60,11 @@ export function getLetterSoundCue(letter, family) {
 
   if (CVC_VOWELS.has(normalizedLetter) || targetVowel) {
     const vowel = targetVowel || normalizedLetter;
+    // Use the real gold-voice short-vowel recording, not the synthetic
+    // oscillator phoneme (which sounded buzzy/robotic). Browser speech is
+    // only the last-resort fallback if the recording fails to load.
     return {
-      src: `generated:phoneme:short_${vowel}`,
+      src: getGraphemeAudioPath(vowel, vowel),
       fallbackText: VOWEL_SOUND_FALLBACKS[vowel] || vowel
     };
   }
