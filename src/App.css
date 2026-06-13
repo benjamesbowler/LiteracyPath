@@ -733,8 +733,19 @@ body {
 .student-home-card-art {
   width: 100%;
   height: 132px;
+  flex: 0 0 132px;
   display: block;
   overflow: hidden;
+  /* Soft shimmer placeholder so art fades in over a skeleton, never a blank
+     white box. The loaded image (object-fit: cover) sits on top and hides it. */
+  background: linear-gradient(100deg, #eef2f7 30%, #f6f9fc 50%, #eef2f7 70%);
+  background-size: 200% 100%;
+  animation: lp-skeleton-shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes lp-skeleton-shimmer {
+  0% { background-position: 180% 0; }
+  100% { background-position: -180% 0; }
 }
 
 .student-home-card-art img {

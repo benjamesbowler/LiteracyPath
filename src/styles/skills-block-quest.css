@@ -829,20 +829,21 @@
     linear-gradient(160deg, #8a5a33, #5e3a1d);
   border: 3px solid rgba(255, 248, 225, 0.9);
   box-shadow: 0 4px 10px rgba(15, 23, 42, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.3);
-  /* Markers are STATIC: only colour/shadow react. They never move or scale -
-     the avatar is the only thing that travels on the map. */
-  transition: box-shadow 120ms ease-out, border-color 120ms ease-out;
+  /* Markers are STATIC: hover/press change ONLY colour - the box-shadow stays
+     identical so the marker's geometry never changes (no lift, no jitter).
+     The avatar is the only thing that travels on the map. */
+  transition: border-color 120ms ease-out, filter 120ms ease-out;
 }
 
 .sbq-mapboard .sbq-stop:hover .sbq-stop-marker,
 .sbq-mapboard .sbq-stop:focus-visible .sbq-stop-marker {
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.5);
   border-color: #ffffff;
+  filter: brightness(1.08);
 }
 
-/* Standard button press - a pressed shadow, no movement. */
+/* Standard button press - a brief darken, no movement, no shadow change. */
 .sbq-mapboard .sbq-stop:active .sbq-stop-marker {
-  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.4), inset 0 2px 5px rgba(15, 23, 42, 0.35);
+  filter: brightness(0.92);
 }
 
 /* Themed markers per land (dino = carved stone, moonwood = glowing lantern) */

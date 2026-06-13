@@ -57,10 +57,12 @@ const WORLD_MAP_POINTS = {
 // Horizontal (landscape) maps for laptop/projector: the journey runs left → right
 // from the entrance to the final landmark. Stops are in journey order. These
 // coordinates are a first pass pinned by eye to the wide art and may need tuning.
+// Pinned by eye to the landmarks painted on each wide map, in journey order
+// (entrance on the left → destination on the right).
 const WORLD_MAP_POINTS_WIDE = {
-  meadow: [[10, 80], [12, 58], [27, 52], [33, 76], [26, 32], [47, 44], [56, 64], [73, 60], [87, 34]],
-  dino: [[11, 72], [22, 40], [34, 32], [44, 36], [44, 80], [57, 52], [70, 74], [82, 54], [89, 30]],
-  moonwood: [[11, 70], [22, 45], [33, 35], [42, 62], [40, 80], [56, 55], [68, 72], [78, 30], [90, 45]]
+  meadow: [[13, 84], [9, 60], [26, 47], [33, 74], [36, 37], [52, 43], [57, 64], [76, 56], [85, 33]],
+  dino: [[8, 72], [20, 44], [31, 30], [43, 34], [40, 80], [57, 44], [68, 72], [80, 50], [88, 26]],
+  moonwood: [[8, 66], [22, 52], [33, 34], [44, 74], [54, 56], [62, 60], [70, 56], [74, 28], [90, 44]]
 };
 
 // Landmark names in entrance → destination order (used by the wide map so the
@@ -68,7 +70,7 @@ const WORLD_MAP_POINTS_WIDE = {
 const WORLD_LANDMARKS_WIDE = {
   meadow: ["Farm Gate", "Carrot Patch", "Duck Pond", "Flower Meadow", "The Old Orchard", "Haystack Hill", "Sheep Pen", "Strawberry Field", "The Big Barn"],
   dino: ["The Mud Pits", "Green Valley", "Fern Forest", "Giant Plants", "Fossil Creek", "Eggshell Rocks", "Stomping Grounds", "Lava Lookout", "The Volcano"],
-  moonwood: ["Glow-mushroom Grove", "Firefly Hollow", "Whispering Trees", "Moonlit Pond", "Starfall Clearing", "The Old Oak Door", "Crystal Cave", "Owl's Lookout", "The Moon Tower"]
+  moonwood: ["Glow-mushroom Grove", "Firefly Hollow", "Whispering Trees", "Moonlit Pond", "Starfall Clearing", "Crystal Cave", "The Old Oak Door", "Owl's Lookout", "The Moon Tower"]
 };
 
 // Native pixel space of each map artwork (sets the SVG viewBox + board aspect).
