@@ -60,9 +60,9 @@ const WORLD_MAP_POINTS = {
 // Pinned by eye to the landmarks painted on each wide map, in journey order
 // (entrance on the left → destination on the right).
 const WORLD_MAP_POINTS_WIDE = {
-  meadow: [[13, 84], [9, 60], [26, 47], [33, 74], [36, 37], [52, 43], [57, 64], [76, 56], [85, 33]],
-  dino: [[8, 72], [20, 44], [31, 30], [43, 34], [40, 80], [57, 44], [68, 72], [80, 50], [88, 26]],
-  moonwood: [[8, 66], [22, 52], [33, 34], [44, 74], [54, 56], [62, 60], [70, 56], [74, 28], [90, 44]]
+  meadow: [[14, 86], [10, 64], [26, 52], [34, 72], [43, 47], [52, 42], [56, 64], [73, 58], [85, 37]],
+  dino: [[9, 75], [19, 60], [27, 50], [37, 46], [46, 52], [57, 45], [66, 62], [76, 51], [86, 43]],
+  moonwood: [[14, 70], [23, 83], [34, 87], [45, 86], [53, 73], [61, 64], [70, 60], [79, 63], [88, 57]]
 };
 
 // Landmark names in entrance → destination order (used by the wide map so the

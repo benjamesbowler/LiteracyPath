@@ -742,12 +742,14 @@
   box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
 }
 
-/* Horizontal (landscape) map for laptop/projector: width-driven so the whole
-   left-to-right journey fits the screen, with the same zoom control. */
+/* Horizontal (landscape) map for laptop/projector: height-driven so it fills
+   the available vertical space (big, not a small card), width follows the 16:9
+   aspect and is capped to the frame. Zoom scales it up further. */
 .sbq-mapboard.wide {
   aspect-ratio: 2752 / 1536;
-  width: calc(min(100%, 1500px) * var(--map-zoom, 1));
-  height: auto;
+  height: calc(clamp(340px, 100dvh - 220px, 940px) * var(--map-zoom, 1));
+  width: auto;
+  max-width: 100%;
   min-height: 0;
 }
 
@@ -883,7 +885,9 @@
   position: absolute;
   left: 50%;
   bottom: calc(100% + 9px);
-  transform: translate(-50%, 4px);
+  /* Fixed position - the label fades in EXACTLY here and never moves, so
+     hovering can't make anything shift or stutter (only opacity animates). */
+  transform: translate(-50%, 0);
   display: grid;
   justify-items: center;
   gap: 2px;
@@ -896,7 +900,7 @@
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.4);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 140ms ease, transform 140ms ease;
+  transition: opacity 120ms ease;
   pointer-events: none;
   z-index: 4;
 }
@@ -906,7 +910,6 @@
 .sbq-mapboard .sbq-stop.next .sbq-stop-tip {
   opacity: 1;
   visibility: visible;
-  transform: translate(-50%, 0);
 }
 
 .sbq-stop-name { font: 700 0.9rem var(--lp-font-reading); line-height: 1.15; }
