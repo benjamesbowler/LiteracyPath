@@ -89,8 +89,28 @@ function focusEntries(cycle) {
   }).filter(entry => entry.spelling);
 }
 
-function distractorGraphemes(correct, count) {
-  return shuffleItems(ALL_GRAPHEMES.filter(g => g !== correct)).slice(0, count);
+// Distractor letters come from material the child has already met where
+// possible, so early cycles never test against never-seen letters.
+function taughtGraphemesThrough(cycleNumber) {
+  const taught = [];
+  for (const cycle of elSkillsBlockCycles) {
+    if (!cycle.cycleNumber || cycle.cycleNumber > cycleNumber) continue;
+    for (const item of cycle.focusLetters || []) {
+      const spelling = (item.spelling || "").toLowerCase();
+      if (spelling && spelling.length <= 2 && !taught.includes(spelling)) taught.push(spelling);
+    }
+  }
+  return taught;
+}
+
+function distractorGraphemes(correct, count, cycleNumber) {
+  const taught = cycleNumber
+    ? taughtGraphemesThrough(cycleNumber).filter(g => g !== correct)
+    : [];
+  const pool = taught.length >= count
+    ? taught
+    : [...new Set([...taught, ...ALL_GRAPHEMES.filter(g => g !== correct)])];
+  return shuffleItems(pool.filter(g => g !== correct)).slice(0, count);
 }
 
 // Pattern spellings without their own example list borrow real recorded
@@ -173,7 +193,7 @@ function buildSoundRounds(cycle) {
         ? "Tap the letter that makes this sound."
         : `Listen to the word. Tap the letters you hear in "${exampleWord}".`,
       display: "",
-      choices: shuffleItems([entry.spelling, ...distractorGraphemes(entry.spelling, 2)]),
+      choices: shuffleItems([entry.spelling, ...distractorGraphemes(entry.spelling, 2, cycle.cycleNumber)]),
       answer: entry.spelling,
       choiceStyle: "letter"
     };

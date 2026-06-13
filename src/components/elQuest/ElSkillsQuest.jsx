@@ -280,6 +280,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   const [correct, setCorrect] = useState(0);
   const [wrongs, setWrongs] = useState(0);
   const [shaking, setShaking] = useState(false);
+  const [encourage, setEncourage] = useState(false);
   const [celebration, setCelebration] = useState(null);
   const [sessionStations, setSessionStations] = useState({});
   const [mapWorldId, setMapWorldId] = useState(null);
@@ -395,6 +396,8 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
       playSoftBuzz();
       setWrongs(value => value + 1);
       setShaking(true);
+      setEncourage(true);
+      window.setTimeout(() => setEncourage(false), 1500);
     }
   }
 
@@ -681,6 +684,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
           onAnimationEnd={() => setShaking(false)}
         >
           <p className="sbq-round-prompt">{round.prompt}</p>
+          {encourage && <p className="sbq-encourage" role="status">Almost! Try again.</p>}
           {round.audio && (
             <button className="sbq-listen-button" type="button" onClick={() => playCue(round)}>
               <SpeakerIcon />

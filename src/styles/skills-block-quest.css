@@ -948,3 +948,12 @@
   font-size: 1rem;
   font-weight: 700;
 }
+
+.sbq-encourage {
+  margin: 0;
+  color: var(--lp-color-accent-warm, #D68A11);
+  font-family: var(--lp-font-reading);
+  font-size: 1rem;
+  font-weight: 700;
+  animation: lg-pop 260ms ease-out;
+}

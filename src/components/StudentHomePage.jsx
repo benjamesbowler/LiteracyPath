@@ -93,7 +93,13 @@ export function StudentHomePage({
   const missionTargets = {
     quest: onOpenSkillsBlockQuest,
     book: () => onOpenGuidedReading?.(mission.book?.bookId || ""),
-    game: onOpenPhonicsLearn
+    game: () => {
+      // Open the arcade straight onto today's game.
+      try {
+        if (mission.game?.gameId) window.localStorage.setItem("lp-open-game", mission.game.gameId);
+      } catch { /* best effort */ }
+      onOpenPhonicsLearn?.();
+    }
   };
 
   return (

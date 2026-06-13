@@ -53,7 +53,13 @@ function IslandLockIcon() {
 export function PhonicsLearnTab({ progressScopeKey = "default" }) {
   const [activeLetter, setActiveLetter] = useState(null);
   const [activeFamily, setActiveFamily] = useState(null);
-  const [activeIsland, setActiveIsland] = useState("letters");
+  const [activeIsland, setActiveIsland] = useState(() => {
+    try {
+      return window.localStorage.getItem("lp-open-game") ? "games" : "letters";
+    } catch {
+      return "letters";
+    }
+  });
   const [progress, setProgress] = useState(() => loadPhonicsProgress(progressScopeKey));
   const [cvcProgress, setCvcProgress] = useState(() => loadCvcProgress(progressScopeKey));
   const { playCue } = useCvcSoundCue();

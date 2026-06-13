@@ -19,8 +19,13 @@ function Leaderboard({ refreshSignal }) {
 
   useEffect(() => {
     let cancelled = false;
+    // Privacy: scope the board to the child's own school.
+    let schoolId = null;
+    try {
+      schoolId = JSON.parse(window.localStorage.getItem("lp-student-session-v1") || "null")?.schoolId || null;
+    } catch { /* fall back to global for teacher preview */ }
     supabase
-      .rpc("get_game_leaderboard", { p_limit: 5 })
+      .rpc("get_game_leaderboard", { p_limit: 5, p_school_id: schoolId })
       .then(({ data, error }) => {
         if (cancelled) return;
         if (error || !Array.isArray(data)) {
@@ -60,7 +65,17 @@ function Leaderboard({ refreshSignal }) {
 
 export function GameArcadeHub({ progressScopeKey = "default" }) {
   const [progress, setProgress] = useState(() => loadLearnGamesProgress(progressScopeKey));
-  const [activeGame, setActiveGame] = useState(null);
+  const [activeGame, setActiveGame] = useState(() => {
+    // One-shot deep link from Today's Mission.
+    try {
+      const wanted = window.localStorage.getItem("lp-open-game");
+      if (wanted) {
+        window.localStorage.removeItem("lp-open-game");
+        return GAME_LIST.find(game => game.id === wanted) || null;
+      }
+    } catch { /* ignore */ }
+    return null;
+  });
   const [leaderboardRefresh, setLeaderboardRefresh] = useState(0);
 
   const totals = useMemo(() => {
