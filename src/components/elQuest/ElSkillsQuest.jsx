@@ -54,6 +54,27 @@ const WORLD_MAP_POINTS = {
   moonwood: [[50, 8], [28, 22], [72, 30], [50, 42], [68, 49], [30, 60], [58, 68], [73, 79], [45, 88]]
 };
 
+// A smooth (Catmull-Rom → cubic bezier) route through the landmark anchors, in the
+// map art's native 1195x1600 space. The avatar glides ALONG this curve (it doubles
+// as the painted-road motion path), so movement follows the road, not a straight line.
+function buildRoutePath(points) {
+  const pts = points.map(([x, y]) => [(x / 100) * 1195, (y / 100) * 1600]);
+  if (pts.length < 2) return "";
+  const d = [`M ${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`];
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[i - 1] || pts[i];
+    const p1 = pts[i];
+    const p2 = pts[i + 1];
+    const p3 = pts[i + 2] || p2;
+    const c1x = p1[0] + (p2[0] - p0[0]) / 6;
+    const c1y = p1[1] + (p2[1] - p0[1]) / 6;
+    const c2x = p2[0] - (p3[0] - p1[0]) / 6;
+    const c2y = p2[1] - (p3[1] - p1[1]) / 6;
+    d.push(`C ${c1x.toFixed(1)} ${c1y.toFixed(1)} ${c2x.toFixed(1)} ${c2y.toFixed(1)} ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`);
+  }
+  return d.join(" ");
+}
+
 
 function loadQuestProgress(scopeKey) {
   if (typeof window === "undefined") return { cycles: {} };
@@ -399,6 +420,19 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   // remember the last stop (kept for progress/animation hooks).
   const stopRefs = useRef({});
   const avatarRef = useRef(null);
+  const routeRef = useRef(null);
+  const lastIndexRef = useRef(0);
+  const prevRegionRef = useRef(null);
+
+  // Map geometry (lifted to component scope so the avatar tween effect and the
+  // render share the same region/stops/points).
+  const homeWorldId = worldForCycle(recommendedCycle?.cycleNumber || 1).id;
+  const activeWorldId = mapWorldId || homeWorldId;
+  const region = WORLD_REGIONS.find(r => r.id === activeWorldId) || WORLD_REGIONS[0];
+  const stops = playableCycles.filter(cycle => region.test(cycle.cycleNumber));
+  const mapPoints = WORLD_MAP_POINTS[region.id] || WORLD_MAP_POINTS.meadow;
+  const routeD = buildRoutePath(mapPoints);
+
   useEffect(() => {
     if (activeCycle || celebration || !recommendedCycle?.id) return;
     const key = `${STORAGE_PREFIX}-laststop:${progressScopeKey}`;
@@ -406,6 +440,65 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
       window.localStorage.setItem(key, recommendedCycle.id);
     } catch { /* best effort */ }
   }, [activeCycle, celebration, progressScopeKey, recommendedCycle?.id]);
+
+  // Glide the traveler ALONG the painted road: walk the SVG route with
+  // getPointAtLength and tween the arc-length from the last stop to the
+  // recommended one. Following the curve (not a left/top transition) is what
+  // makes it move along the path instead of straight across the fields.
+  useEffect(() => {
+    if (activeCycle || celebration) return undefined;
+    const path = routeRef.current;
+    const avatar = avatarRef.current;
+    if (!path || !avatar || !routeD) return undefined;
+
+    const total = path.getTotalLength();
+    const STEPS = 240;
+    const anchorDist = mapPoints.map(([px, py]) => {
+      const tx = (px / 100) * 1195;
+      const ty = (py / 100) * 1600;
+      let best = 0;
+      let bestD = Infinity;
+      for (let s = 0; s <= STEPS; s++) {
+        const len = (s / STEPS) * total;
+        const p = path.getPointAtLength(len);
+        const dd = (p.x - tx) ** 2 + (p.y - ty) ** 2;
+        if (dd < bestD) { bestD = dd; best = len; }
+      }
+      return best;
+    });
+
+    const targetIndex = stops.findIndex(c => c.id === recommendedCycle?.id);
+    if (targetIndex < 0) return undefined;
+
+    const worldChanged = prevRegionRef.current !== region.id;
+    prevRegionRef.current = region.id;
+    const fromIndex = worldChanged ? targetIndex : (lastIndexRef.current ?? targetIndex);
+    const from = anchorDist[fromIndex] ?? 0;
+    const to = anchorDist[targetIndex] ?? 0;
+    lastIndexRef.current = targetIndex;
+
+    const place = (dist) => {
+      const p = path.getPointAtLength(dist);
+      avatar.style.left = `${(p.x / 1195) * 100}%`;
+      avatar.style.top = `${(p.y / 1600) * 100}%`;
+    };
+
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || from === to) { place(to); return undefined; }
+
+    const dur = Math.min(2200, 600 + Math.abs(to - from) * 0.9);
+    let t0 = null;
+    let raf = 0;
+    const ease = (t) => (t < 0.5 ? 2 * t * t : 1 - ((-2 * t + 2) ** 2) / 2);
+    const step = (now) => {
+      if (t0 === null) t0 = now;
+      const t = Math.min(1, (now - t0) / dur);
+      place(from + (to - from) * ease(t));
+      if (t < 1) raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [activeCycle, celebration, routeD, recommendedCycle?.id, region.id, stops, mapPoints]);
 
   // Station finished: flow straight into the next one after a short
   // celebration beat - children keep playing, with a clear way to stop.
@@ -432,11 +525,6 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
           )}
         </header>
         {(() => {
-          const homeWorldId = worldForCycle(recommendedCycle?.cycleNumber || 1).id;
-          const activeWorldId = mapWorldId || homeWorldId;
-          const region = WORLD_REGIONS.find(r => r.id === activeWorldId) || WORLD_REGIONS[0];
-          const stops = playableCycles.filter(cycle => region.test(cycle.cycleNumber));
-          const mapPoints = WORLD_MAP_POINTS[region.id] || WORLD_MAP_POINTS.meadow;
           return (
             <div className="sbq-adventure" data-pal-world={region.id}>
               <div className="sbq-world-tabs" role="tablist" aria-label="Choose a land">
@@ -462,6 +550,15 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                       "--map-zoom": mapZoom
                     }}
                   >
+                    {/* Painted-road route: drawn under the markers; also the avatar's motion path. */}
+                    <svg
+                      className="sbq-route"
+                      viewBox="0 0 1195 1600"
+                      preserveAspectRatio="xMidYMid slice"
+                      aria-hidden="true"
+                    >
+                      <path ref={routeRef} className="sbq-route-line" d={routeD} />
+                    </svg>
                     {stops.map((cycle, index) => {
                       const cycleProgress = progress.cycles?.[cycle.id];
                       const isRecommended = cycle.id === recommendedCycle?.id;
@@ -476,34 +573,25 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                           onClick={() => openCycle(cycle)}
                           aria-label={`${region.landmarks[index] || `Cycle ${cycle.cycleNumber}`}${isRecommended ? " - you are here" : ""}`}
                         >
-                          <strong>{cycleProgress?.stars ? "★" : cycle.cycleNumber}</strong>
-                          <span className="sbq-stop-label">{region.landmarks[index] || "Mystery Spot"}</span>
-                          <em className="sbq-stop-skill">
-                            {(cycle.focusLetters || []).map(item => item.grapheme).join(" ") || "Review"}
-                            {isRecommended ? " · You are here" : ""}
-                          </em>
-                          {cycleProgress?.stars ? <ProgressStars stars={cycleProgress.stars} /> : null}
+                          <span className="sbq-stop-marker" aria-hidden="true">
+                            {cycleProgress?.stars ? "★" : cycle.cycleNumber}
+                          </span>
+                          <span className="sbq-stop-tip">
+                            <span className="sbq-stop-name">{region.landmarks[index] || "Mystery Spot"}</span>
+                            <span className="sbq-stop-skill">
+                              {(cycle.focusLetters || []).map(item => item.grapheme).join(" ") || "Review"}
+                            </span>
+                            {cycleProgress?.stars ? <ProgressStars stars={cycleProgress.stars} /> : null}
+                          </span>
                         </button>
                       );
                     })}
-                    {(() => {
-                      // The traveler is its own element layered over the map: the
-                      // skill stops stay put while the avatar glides to the
-                      // recommended stop (CSS transition on left/top).
-                      const here = stops.findIndex(cycle => cycle.id === recommendedCycle?.id);
-                      if (here < 0) return null;
-                      const [ax, ay] = mapPoints[here] || [50, 50];
-                      return (
-                        <img
-                          ref={avatarRef}
-                          className="sbq-journey-avatar"
-                          src={travelerImage}
-                          alt=""
-                          aria-hidden="true"
-                          style={{ left: `${ax}%`, top: `${ay}%` }}
-                        />
-                      );
-                    })()}
+                    {/* The traveler: glides along the route via the rAF tween (it sets left/top). */}
+                    <div ref={avatarRef} className="sbq-journey-avatar" aria-hidden="true">
+                      <span className="sbq-journey-avatar-bob">
+                        <img src={travelerImage} alt="" />
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div className="sbq-map-zoom" role="group" aria-label="Zoom the map">

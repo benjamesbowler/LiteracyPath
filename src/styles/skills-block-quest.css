@@ -650,160 +650,7 @@
   transform: scale(1.04);
 }
 
-.sbq-journey-avatar {
-  position: absolute;
-  top: -58px;
-  right: -14px;
-  height: 76px;
-  width: auto;
-  filter: drop-shadow(0 5px 10px rgba(15, 23, 42, 0.28));
-  animation: sbq-avatar-hop 2.4s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes sbq-avatar-hop {
-  0%, 100% { transform: translateY(0); }
-  20% { transform: translateY(-8px); }
-  40% { transform: translateY(0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .sbq-journey-avatar { animation: none; }
-}
-
-/* ── World map: three lands, cycles as trail points ───────────────────── */
-.sbq-worldmap {
-  width: min(100%, 720px);
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  padding-bottom: 28px;
-}
-
-.sbq-region {
-  position: relative;
-  overflow: hidden;
-  border-radius: 26px;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  padding: 16px 16px 26px;
-  background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.50) 0%, rgba(255, 255, 255, 0.22) 30%, rgba(255, 255, 255, 0.14) 100%),
-    var(--pal-banner);
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
-}
-
-.sbq-region-name {
-  width: fit-content;
-  margin: 0 auto 14px;
-  padding: 7px 22px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.94);
-  color: var(--pal-deep);
-  font-family: var(--lp-font-reading);
-  font-size: 1.15rem;
-  font-weight: 700;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.14);
-}
-
-.sbq-region-path {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.sbq-stop-row { display: flex; position: relative; }
-.sbq-stop-row.o0 { justify-content: flex-start; padding-left: 8%; }
-.sbq-stop-row.o1 { justify-content: center; }
-.sbq-stop-row.o2 { justify-content: flex-end; padding-right: 8%; }
-.sbq-stop-row.o3 { justify-content: center; }
-
-/* Dashed trail segment angled toward the next stop */
-.sbq-stop-row::after {
-  content: "";
-  position: absolute;
-  bottom: -28px;
-  left: 50%;
-  width: 0;
-  height: 34px;
-  border-left: 4px dashed rgba(255, 255, 255, 0.85);
-  filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.25));
-}
-
-.sbq-stop-row.o0::after,
-.sbq-stop-row.o1::after { transform: rotate(-38deg); }
-.sbq-stop-row.o2::after,
-.sbq-stop-row.o3::after { transform: rotate(38deg); }
-.sbq-stop-row.row-last::after { display: none; }
-
-.sbq-stop {
-  position: relative;
-  display: grid;
-  justify-items: center;
-  gap: 3px;
-  min-width: 120px;
-  padding: 10px 16px 9px;
-  border: 0;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
-  cursor: pointer;
-  transition: transform 130ms ease-out, box-shadow 130ms ease-out;
-}
-
-.sbq-stop:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.22);
-}
-
-.sbq-stop strong {
-  width: 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--pal-accent);
-  color: #ffffff;
-  font-family: var(--lp-font-reading);
-  font-size: 1.05rem;
-  font-weight: 700;
-  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.3);
-}
-
-.sbq-stop.done strong {
-  background: var(--lp-color-success, #2F9E62);
-}
-
-.sbq-stop.next {
-  outline: 3px solid var(--pal-accent);
-  outline-offset: 2px;
-}
-
-.sbq-stop-label {
-  color: var(--lp-color-text-strong);
-  font-family: var(--lp-font-reading);
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-.sbq-stop em {
-  color: var(--pal-deep);
-  font-size: 0.66rem;
-  font-style: normal;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.sbq-stop .sbq-journey-avatar {
-  position: absolute;
-  top: -64px;
-  right: -20px;
-  height: 80px;
-  width: auto;
-  z-index: 2;
-}
+/* (Legacy list-style world map removed — the adventure map below is the only one.) */
 
 .sbq-station.locked {
   opacity: 0.6;
@@ -924,98 +771,175 @@
   cursor: default;
 }
 
-.sbq-trail {
+/* The painted-road route line: a soft worn footpath drawn under the markers.
+   Also serves as the avatar's motion path (the SVG path is sampled in JS). */
+.sbq-route {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.sbq-trail path {
+.sbq-route-line {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.92);
-  stroke-width: 5px;
-  stroke-dasharray: 1px 14px;
+  stroke: rgba(255, 248, 225, 0.5);
+  stroke-width: 9;
   stroke-linecap: round;
+  stroke-dasharray: 2 26;
   filter: drop-shadow(0 1px 1px rgba(15, 23, 42, 0.35));
 }
 
+[data-pal-world="moonwood"] .sbq-route-line { stroke: rgba(186, 230, 253, 0.68); }
+
+/* A cycle = the painted landmark itself. The button is just a hit-area; the
+   only visible thing is a small carved-wood marker that sits in the scene. */
 .sbq-mapboard .sbq-stop {
   position: absolute;
   transform: translate(-50%, -50%);
-  display: grid;
-  justify-items: center;
-  gap: 2px;
-  min-width: 0;
-  max-width: 150px;
-  padding: 9px 14px 8px;
-  text-align: center;
+  display: block;
+  padding: 0;
   border: 0;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25);
+  background: none;
+  box-shadow: none;
   cursor: pointer;
+  z-index: 2;
+}
+
+.sbq-stop-marker {
+  display: grid;
+  place-items: center;
+  width: calc(40px * var(--map-zoom, 1));
+  height: calc(40px * var(--map-zoom, 1));
+  border-radius: 50%;
+  font: 800 calc(1rem * var(--map-zoom, 1)) / 1 var(--lp-font-reading);
+  color: #fff5e1;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.35), transparent 55%),
+    linear-gradient(160deg, #8a5a33, #5e3a1d);
+  border: 3px solid rgba(255, 248, 225, 0.9);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.3);
   transition: transform 130ms ease-out, box-shadow 130ms ease-out;
 }
 
-.sbq-mapboard .sbq-stop:hover {
-  /* Stops stay anchored in place - no movement, just a stronger shadow. */
-  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.34);
+.sbq-mapboard .sbq-stop:hover .sbq-stop-marker,
+.sbq-mapboard .sbq-stop:focus-visible .sbq-stop-marker {
+  transform: scale(1.12);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.5);
 }
 
-.sbq-mapboard .sbq-stop.next {
-  outline: 3px solid var(--pal-accent);
-  outline-offset: 2px;
+/* Themed markers per land (dino = carved stone, moonwood = glowing lantern) */
+[data-pal-world="dino"] .sbq-stop-marker {
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.4), transparent 55%),
+    linear-gradient(160deg, #cdbfa3, #8f8369);
+  color: #3c3322;
 }
+[data-pal-world="moonwood"] .sbq-stop-marker {
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.55), transparent 55%),
+    linear-gradient(160deg, #7ee9ff, #2b8bbd);
+  border-color: #e7faff;
+  color: #07344a;
+  box-shadow: 0 0 14px rgba(125, 233, 255, 0.6), 0 4px 10px rgba(15, 23, 42, 0.45);
+}
+
+/* Current stop: a gentle pulsing halo, not a box */
+.sbq-mapboard .sbq-stop.next .sbq-stop-marker {
+  animation: sbq-stop-pulse 1.8s ease-out infinite;
+}
+
+@keyframes sbq-stop-pulse {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--pal-accent) 70%, transparent), 0 4px 10px rgba(15, 23, 42, 0.45); }
+  70%  { box-shadow: 0 0 0 15px color-mix(in srgb, var(--pal-accent) 0%, transparent), 0 4px 10px rgba(15, 23, 42, 0.45); }
+  100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--pal-accent) 0%, transparent), 0 4px 10px rgba(15, 23, 42, 0.45); }
+}
+
+/* Done: gold rim */
+.sbq-mapboard .sbq-stop.done .sbq-stop-marker {
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.45), transparent 55%),
+    linear-gradient(160deg, #f6b53d, #c9881a);
+  border-color: #fff3cf;
+  color: #5a3a08;
+}
+
+/* Name + skill: a little wooden sign, only on hover/focus (and the current stop). */
+.sbq-stop-tip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 9px);
+  transform: translate(-50%, 4px);
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  min-width: 112px;
+  padding: 7px 12px;
+  border-radius: 12px;
+  background: rgba(40, 26, 14, 0.94);
+  color: #fff6e6;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 140ms ease, transform 140ms ease;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.sbq-mapboard .sbq-stop:hover .sbq-stop-tip,
+.sbq-mapboard .sbq-stop:focus-visible .sbq-stop-tip,
+.sbq-mapboard .sbq-stop.next .sbq-stop-tip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.sbq-stop-name { font: 700 0.9rem var(--lp-font-reading); line-height: 1.15; }
 
 .sbq-stop-skill {
-  color: var(--pal-deep);
-  font-size: 0.66rem;
+  font-size: 0.62rem;
   font-style: normal;
   font-weight: 800;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  color: #ffe1a8;
   white-space: normal;
 }
 
-.sbq-mapboard .sbq-stop .sbq-stop-label {
-  font-size: 0.86rem;
-  white-space: normal;
-  text-align: center;
-  line-height: 1.15;
-}
-
-.sbq-mapboard .sbq-stop strong {
-  width: 32px;
-  height: 32px;
-  font-size: 0.95rem;
-}
-
+/* The traveler. JS sets left/top to a point ON the route each frame; the bob
+   lives on a child element so it never fights the path positioning. */
 .sbq-mapboard .sbq-journey-avatar {
   position: absolute;
+  left: 0;
   top: 0;
-  right: auto;
-  height: calc(74px * var(--map-zoom, 1));
-  width: auto;
-  /* Anchored by its feet to the stop, standing just above it. The stops are
-     static; this is the only thing that moves - it glides between stops. */
-  transform: translate(-50%, -116%);
+  transform: translate(-50%, -100%);
   transform-origin: bottom center;
-  transition: left 950ms cubic-bezier(0.45, 0.05, 0.3, 1),
-              top 950ms cubic-bezier(0.45, 0.05, 0.3, 1);
-  animation: sbq-avatar-bob 2.6s ease-in-out infinite;
+  pointer-events: none;
   z-index: 5;
 }
 
+.sbq-journey-avatar-bob {
+  display: block;
+  animation: sbq-avatar-bob 2.6s ease-in-out infinite;
+}
+
+.sbq-mapboard .sbq-journey-avatar img {
+  display: block;
+  height: calc(74px * var(--map-zoom, 1));
+  width: auto;
+  filter: drop-shadow(0 5px 10px rgba(15, 23, 42, 0.28));
+}
+
 @keyframes sbq-avatar-bob {
-  0%, 100% { transform: translate(-50%, -116%); }
-  50% { transform: translate(-50%, -126%); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sbq-mapboard .sbq-journey-avatar {
-    animation: none;
-    transform: translate(-50%, -116%);
-  }
+  .sbq-journey-avatar-bob { animation: none; }
+  .sbq-mapboard .sbq-stop.next .sbq-stop-marker { animation: none; }
 }
 
 @media (max-width: 640px) {
@@ -1025,8 +949,7 @@
     height: calc(clamp(560px, 130vw, 900px) * var(--map-zoom, 1));
     min-height: 560px;
   }
-  .sbq-mapboard .sbq-stop { max-width: 150px; padding: 7px 10px 6px; }
-  .sbq-mapboard .sbq-stop .sbq-stop-label { font-size: 0.74rem; white-space: normal; text-align: center; }
+  .sbq-stop-name { font-size: 0.82rem; }
   .sbq-stop-skill { font-size: 0.58rem; }
   .sbq-map-zoom button { width: 48px; height: 48px; }
 }
