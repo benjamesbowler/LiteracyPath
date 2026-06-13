@@ -59,10 +59,12 @@ const WORLD_MAP_POINTS = {
 // coordinates are a first pass pinned by eye to the wide art and may need tuning.
 // Pinned by eye to the landmarks painted on each wide map, in journey order
 // (entrance on the left → destination on the right).
+// Verified by rendering each stop onto the actual artwork and checking it sits
+// on the painted path / a landmark (not guessed). See tools render-and-verify pass.
 const WORLD_MAP_POINTS_WIDE = {
-  meadow: [[14, 86], [10, 64], [26, 52], [34, 72], [43, 47], [52, 42], [56, 64], [73, 58], [85, 37]],
+  meadow: [[14, 87], [22, 73], [28, 64], [40, 74], [50, 58], [59, 48], [53, 66], [74, 60], [86, 40]],
   dino: [[9, 75], [19, 60], [27, 50], [37, 46], [46, 52], [57, 45], [66, 62], [76, 51], [86, 43]],
-  moonwood: [[14, 70], [23, 83], [34, 87], [45, 86], [53, 73], [61, 64], [70, 60], [79, 63], [88, 57]]
+  moonwood: [[14, 70], [23, 83], [34, 87], [45, 86], [58, 79], [63, 69], [70, 60], [79, 63], [88, 57]]
 };
 
 // Landmark names in entrance → destination order (used by the wide map so the
@@ -446,6 +448,35 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   const lastIndexRef = useRef(0);
   const prevRegionRef = useRef(null);
 
+  // Drag-to-pan: grab the map and drag to move around when zoomed in. A small
+  // movement threshold means a real tap still opens the stop underneath.
+  const viewportRef = useRef(null);
+  const panRef = useRef({ active: false, x: 0, y: 0, left: 0, top: 0, moved: false });
+  function onPanStart(event) {
+    const vp = viewportRef.current;
+    if (!vp || (event.pointerType === "mouse" && event.button !== 0)) return;
+    panRef.current = { active: true, x: event.clientX, y: event.clientY, left: vp.scrollLeft, top: vp.scrollTop, moved: false };
+  }
+  function onPanMove(event) {
+    const p = panRef.current;
+    const vp = viewportRef.current;
+    if (!p.active || !vp) return;
+    const dx = event.clientX - p.x;
+    const dy = event.clientY - p.y;
+    if (!p.moved && (Math.abs(dx) > 5 || Math.abs(dy) > 5)) {
+      p.moved = true;
+      vp.setPointerCapture?.(event.pointerId);
+    }
+    if (p.moved) {
+      vp.scrollLeft = p.left - dx;
+      vp.scrollTop = p.top - dy;
+    }
+  }
+  function onPanEnd(event) {
+    panRef.current.active = false;
+    viewportRef.current?.releasePointerCapture?.(event.pointerId);
+  }
+
   // Wide (horizontal) map on laptop/projector; tall (vertical) map on phone/iPad.
   // "pointer: fine" keeps touch tablets on the vertical map even when wide.
   const [wideMap, setWideMap] = useState(() =>
@@ -585,7 +616,15 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                 ))}
               </div>
               <div className="sbq-mapwrap">
-                <div className="sbq-map-viewport">
+                <div
+                  className="sbq-map-viewport"
+                  ref={viewportRef}
+                  data-pannable={mapZoom > 1 ? "true" : "false"}
+                  onPointerDown={onPanStart}
+                  onPointerMove={onPanMove}
+                  onPointerUp={onPanEnd}
+                  onPointerCancel={onPanEnd}
+                >
                   <div
                     className={`sbq-mapboard${wideMap ? " wide" : ""}`}
                     style={{
@@ -613,7 +652,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                           ref={el => { stopRefs.current[cycle.id] = el; }}
                           className={`sbq-stop${cycleProgress?.stars ? " done" : ""}${isRecommended ? " next" : ""}`}
                           style={{ left: `${x}%`, top: `${y}%` }}
-                          onClick={() => openCycle(cycle)}
+                          onClick={() => { if (panRef.current.moved) return; openCycle(cycle); }}
                           aria-label={`${landmarks[index] || `Cycle ${cycle.cycleNumber}`}${isRecommended ? " - you are here" : ""}`}
                         >
                           <span className="sbq-stop-marker" aria-hidden="true">

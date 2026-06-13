@@ -723,6 +723,14 @@
   align-items: safe center;
 }
 
+/* When zoomed in, the map can be grabbed and dragged to move around. */
+.sbq-map-viewport[data-pannable="true"] {
+  cursor: grab;
+}
+.sbq-map-viewport[data-pannable="true"]:active {
+  cursor: grabbing;
+}
+
 .sbq-mapboard {
   /* The map art is portrait (1195x1600): the board keeps its exact aspect so
      every painted landmark stays visible and the stops stay pinned. The
