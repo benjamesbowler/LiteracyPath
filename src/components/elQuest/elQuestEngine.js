@@ -143,7 +143,12 @@ function pictureWordsFor(spelling, limit = 4) {
   return (withImages.length ? withImages : all).slice(0, limit);
 }
 
-// Station - Letter Spot: match big and small letters.
+// Station - Letter Spot: match big and small letters. The cue speaks the
+// letter's NAME (ay, bee...), matching the "This is big A" prompt.
+function letterNameAudioPath(letter) {
+  return firstExisting([`/audio/letter-names/${letter}.mp3`]) || graphemeAudioPath(letter);
+}
+
 const SINGLE_LETTERS = ALL_GRAPHEMES.filter(g => g.length === 1);
 function buildLetterRounds(cycle) {
   const singles = focusEntries(cycle).filter(entry => entry.spelling.length === 1);
@@ -154,7 +159,7 @@ function buildLetterRounds(cycle) {
     return [
       {
         type: "letter",
-        audio: graphemeAudioPath(lower),
+        audio: letterNameAudioPath(lower),
         speechFallback: lower,
         prompt: `This is big ${upper}. Find its small letter.`,
         display: upper,
@@ -164,7 +169,7 @@ function buildLetterRounds(cycle) {
       },
       {
         type: "letter",
-        audio: graphemeAudioPath(lower),
+        audio: letterNameAudioPath(lower),
         speechFallback: lower,
         prompt: `This is small ${lower}. Find its big letter.`,
         display: lower,

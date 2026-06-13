@@ -854,10 +854,15 @@
 }
 
 .sbq-mapboard {
+  /* The map art is portrait (1195x1600): the board keeps its exact aspect
+     so every painted landmark stays visible and the stops stay pinned. */
   position: relative;
-  flex: 1;
-  min-height: 460px;
-  height: calc(100dvh - 240px);
+  aspect-ratio: 1195 / 1600;
+  height: min(calc(100dvh - 230px), calc((100vw - 48px) * 1600 / 1195));
+  min-height: 480px;
+  width: auto;
+  max-width: 100%;
+  margin-inline: auto;
   border-radius: 26px;
   border: 1px solid rgba(15, 23, 42, 0.10);
   overflow: hidden;
@@ -936,7 +941,7 @@
 }
 
 @media (max-width: 640px) {
-  .sbq-mapboard { height: calc(100dvh - 270px); min-height: 420px; }
+  .sbq-mapboard { height: min(calc(100dvh - 250px), calc((100vw - 20px) * 1600 / 1195)); min-height: 420px; }
   .sbq-mapboard .sbq-stop { max-width: 150px; padding: 7px 10px 6px; }
   .sbq-mapboard .sbq-stop .sbq-stop-label { font-size: 0.74rem; white-space: normal; text-align: center; }
   .sbq-stop-skill { font-size: 0.58rem; }

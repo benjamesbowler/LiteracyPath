@@ -2,13 +2,12 @@
 
 Verified against the actual code and files, not memory.
 
-## Requested in docs/KIMI_NEXT_MEDIA_RUN.md (one batch)
-1. Pattern-sound clips (12) - cures the remaining ~25 silent quest rounds
-   (many already cued with real words as a stopgap).
-2. Letter-name clips (26) for Letter Spot.
-3. Three true adventure-map illustrations with landmarks (on arrival,
-   Claude swaps the map backgrounds - one-line change).
-4. Story Quest narration re-record - all 458 page scripts included.
+## Media: ALL DELIVERED AND LIVE (13 Jun)
+The KIMI_NEXT_MEDIA_RUN batch arrived complete: 12 pattern sounds,
+26 letter names (wired into Letter Spot), 3 painted adventure maps
+(stops pinned to the landmarks; tweak coordinates after a visual pass),
+and all 458 Story Quest narrations in the gold voice.
+No outstanding media requests.
 
 ## Genuinely not finished (build side)
 1. **Family digest v0** — planned in the product phases, never built.
