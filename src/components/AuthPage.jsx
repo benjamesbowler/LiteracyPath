@@ -160,6 +160,10 @@ export function AuthPage({
       {!isForgotPassword && !isResetPassword && !isSignup && (
         <p className="auth-footnote">Secure classroom access for teachers and reading specialists.</p>
       )}
+
+      <p className="auth-privacy-note">
+        <a href="/privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+      </p>
     </div>
   );
 }

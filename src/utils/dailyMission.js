@@ -2,7 +2,7 @@
 // chosen from the student's own progress. Completing all three advances a
 // streak. Streaks are kind: weekends never break them, and one missed
 // school day per week is auto-covered by a "streak shield".
-import { queueProgressSave } from "./progressSync.js";
+import { queueProgressSave, logStudentActivity } from "./progressSync.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 import { GUIDED_READING_BOOK_INDEX } from "../data/generated/guidedReadingBookIndex.generated.js";
 import { GAME_LIST } from "../data/learnGamesData.js";
@@ -111,7 +111,13 @@ export function markMissionDone(scope, kind) {
 export function notifyMissionTaskDone(scope, kind) {
   const before = loadMissionState(scope);
   if (before.done?.[kind]) return false;
-  markMissionDone(scope, kind);
+  const after = markMissionDone(scope, kind);
+  // Engagement logging (fire-and-forget): one event per newly-finished task,
+  // plus a mission_complete event carrying the streak when all three are done.
+  logStudentActivity("mission", kind, "task_done");
+  if (after && MISSION_KINDS.every(item => after.done?.[item])) {
+    logStudentActivity("mission", "all", "mission_complete", { streak: after.streak });
+  }
   if (typeof window !== "undefined") {
     window.setTimeout(() => {
       window.dispatchEvent(new CustomEvent("lp-mission-task-done", { detail: { kind } }));

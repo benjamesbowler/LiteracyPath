@@ -203,3 +203,28 @@ export function clearProgressSyncSession() {
   pendingTimers.forEach(timer => window.clearTimeout?.(timer));
   pendingTimers.clear();
 }
+
+/* Lightweight engagement logging. Records a learning event to the existing
+   `learn_activity` table via the student_log_activity RPC so we can see real
+   usage (daily missions, streaks). Fire-and-forget: it only runs for a signed-in
+   student session and NEVER throws into the child experience. */
+export function logStudentActivity(area, itemId = null, event = "done", payload = null) {
+  if (!isBrowser()) return;
+  const session = activeSession;
+  if (!session || session.mode !== "student" || !session.token) return;
+  try {
+    const result = supabase.rpc("student_log_activity", {
+      p_token: session.token,
+      p_area: area,
+      p_item_id: itemId,
+      p_event: event,
+      p_payload: payload
+    });
+    // Swallow any rejection; analytics must never surface an error to the UI.
+    if (result && typeof result.then === "function") {
+      result.then(() => {}, () => {});
+    }
+  } catch {
+    // Never let logging break gameplay.
+  }
+}
