@@ -1,4 +1,5 @@
 import { supabase } from "../supabaseClient.js";
+import { computeHydratedValue } from "./progressMerge.js";
 
 const SYNC_QUEUE_KEY = "lp-progress-sync-queue-v1";
 const CLOUD_ROW_STORAGE_KEY = "lp-cloud-progress-rows-v1";
@@ -40,27 +41,6 @@ function localProgressStorageKey(area, scopeKey) {
   if (area === "profile") return `lp-student-profile:${scopeKey || "default"}`;
   if (area === "guided_reading") return `literacyPath.guidedReadingRecords.${scope}`;
   return "";
-}
-
-function mergePayload(current, incoming) {
-  if (!current || typeof current !== "object") return incoming;
-  if (!incoming || typeof incoming !== "object") return current;
-  if (Array.isArray(current) || Array.isArray(incoming)) return incoming;
-  return { ...current, ...incoming };
-}
-
-function normalizeScalarProgressPayload(payload) {
-  if (typeof payload === "string") return payload;
-  if (payload && typeof payload === "object") {
-    if (typeof payload.status === "string") return payload.status;
-    const recovered = Object.keys(payload)
-      .filter(key => /^\d+$/.test(key))
-      .sort((a, b) => Number(a) - Number(b))
-      .map(key => payload[key])
-      .join("");
-    return recovered || payload;
-  }
-  return payload;
 }
 
 function cacheCloudRows(studentId, rows = []) {
@@ -182,12 +162,9 @@ export async function hydrateCloudProgress(session) {
     const storageKey = localProgressStorageKey(row.area, session.studentId);
     if (!storageKey) return;
     const existing = readJson(storageKey, {});
-    const next = row.key !== "__all__" && (row.area === "phonics_letters" || row.area === "cvc")
-      ? { ...existing, [row.key]: normalizeScalarProgressPayload(row.payload) }
-      : row.key === "__all__"
-        ? mergePayload(existing, row.payload)
-        : { ...existing, [row.key]: mergePayload(existing?.[row.key], row.payload) };
-    writeJson(storageKey, next);
+    // Forward-only merge: cloud can ADD progress but never wipe out stars,
+    // completions, or words the child already has locally. See progressMerge.js.
+    writeJson(storageKey, computeHydratedValue(row.area, row.key, existing, row.payload));
   });
   await flushQueuedProgressWrites(session);
   if (isBrowser()) {
