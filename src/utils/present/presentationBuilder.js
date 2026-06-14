@@ -7,9 +7,21 @@ import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
 import { AUDIO_FILE_PATHS } from "../../data/generated/audioFilePaths.generated.js";
 import { graphemeAudioPath, wordAudioPath } from "../../components/elQuest/elQuestEngine.js";
 import { getChildWordAsset } from "../../data/childAssets.js";
+import { themeWorldForCycle } from "../../utils/palWorlds.js";
 
 function isFluencyCycle(cycle) {
   return (cycle?.cycleNumber || 0) >= 25;
+}
+
+// The Pals mascot for the current deck's world (set per build). Used to brand
+// every slide with the right world character + palette. Rotates every 3 cycles.
+let CURRENT_WORLD = themeWorldForCycle(1);
+function palImg(pose, cls = "") {
+  return `<img class="p-pal ${cls}" src="/images/pals/poses/${CURRENT_WORLD.id}-${pose}.webp" alt="" onerror="this.style.display='none'"/>`;
+}
+function wordImage(word) {
+  const asset = getChildWordAsset(word) || {};
+  return asset.image || "";
 }
 
 export function presentationCycleOptions() {
@@ -70,7 +82,8 @@ function slide(inner, opts = {}) {
     opts.audio ? `data-audio="${esc(opts.audio)}"` : "",
     opts.stroke ? `data-stroke="${esc(opts.stroke)}"` : ""
   ].join(" ");
-  return `<section class="slide ${opts.cls || ""}" ${data}>${inner}</section>`;
+  const char = opts.char ? palImg(opts.char, "p-pal-corner") : "";
+  return `<section class="slide ${opts.cls || ""}" ${data}>${inner}${char}</section>`;
 }
 
 function audioButton(src, label = "Play sound") {
@@ -88,7 +101,8 @@ function cycleHeading(cycle) {
 function titleSlide(cycle) {
   const phase = String(cycle.phase || "").replace(/-/g, " ");
   return slide(`
-    <p class="p-kicker">Cycle ${esc(cycle.cycleNumber)}</p>
+    ${palImg("celebrate", "p-pal-hero")}
+    <p class="p-kicker">Cycle ${esc(cycle.cycleNumber)} · ${esc(CURRENT_WORLD.name)}</p>
     <h1 class="p-title">${esc(cycleHeading(cycle))}</h1>
     <p class="p-phase">${esc(phase)}</p>
     <p class="p-hint">Press → or click to begin</p>`, { cls: "p-cover" });
@@ -97,35 +111,30 @@ function titleSlide(cycle) {
 function letterSoundSlide(card) {
   const big = card.spelling.length === 1 ? `${card.spelling.toUpperCase()}${card.spelling}` : card.spelling;
   const phoneme = graphemeAudioPath(card.spelling);
-  const words = exampleWords(card.spelling);
-  const pics = words.map(word => {
-    const asset = getChildWordAsset(word) || {};
-    const img = asset.image
-      ? `<img src="${esc(asset.image)}" alt="${esc(word)}" onerror="this.style.display='none'"/>`
-      : `<div class="p-noimg">🔤</div>`;
-    return `<button class="p-word" data-play="${esc(wordAudioPath(word))}" type="button">${img}<span>${esc(word)}</span></button>`;
-  }).join("");
+  // Only show example words that actually have a picture - no empty boxes.
+  const words = exampleWords(card.spelling, 6).filter(w => wordImage(w)).slice(0, 3);
+  const pics = words.map(word => `<button class="p-word" data-play="${esc(wordAudioPath(word))}" type="button">
+      <img src="${esc(wordImage(word))}" alt="${esc(word)}" onerror="this.closest('.p-word').style.display='none'"/>
+      <span>${esc(word)}</span></button>`).join("");
   // Optional video/song embed: drop a URL here per letter later to upgrade.
   return slide(`
     <p class="p-kicker">Our sound</p>
     <div class="p-letter">${esc(big)}</div>
     <p class="p-says">This says <b>${esc(card.sound || "/" + card.spelling + "/")}</b></p>
     ${audioButton(phoneme, "Hear the sound")}
-    <div class="p-words">${pics}</div>`, { cls: "p-letter-slide", audio: phoneme });
+    <div class="p-words">${pics}</div>`, { cls: "p-letter-slide", audio: phoneme, char: "wave" });
 }
 
 function writingSlide(card) {
   const big = card.spelling.length === 1 ? `${card.spelling.toUpperCase()}${card.spelling}` : card.spelling;
   return slide(`
     <p class="p-kicker">Let's write it</p>
-    <div class="p-write">
-      <svg viewBox="0 0 600 320" class="p-write-svg" aria-hidden="true">
-        <text x="300" y="250" class="p-write-ghost">${esc(big)}</text>
-        <text x="300" y="250" class="p-write-ink" data-ink>${esc(big)}</text>
-      </svg>
+    <div class="p-write2" aria-hidden="true">
+      <span class="p-write-ghost2">${esc(big)}</span>
+      <span class="p-write-ink2" data-ink>${esc(big)}</span>
     </div>
     <button class="p-audio" type="button" data-replay>✏️ Watch again</button>
-    <p class="p-hint">Now you write it in the air!</p>`, { cls: "p-writing", stroke: "1" });
+    <p class="p-hint">Now you write it in the air!</p>`, { cls: "p-writing", stroke: "1", char: "think" });
 }
 
 function sightWordSlide(word) {
@@ -134,7 +143,7 @@ function sightWordSlide(word) {
     <div class="p-sight">${esc(word)}</div>
     ${audioButton(wordAudioPath(word), "Read it")}
     <p class="p-sentence">Find it, say it, spell it: <b>${esc(word.split("").join(" "))}</b></p>`,
-  { cls: "p-sight-slide", audio: wordAudioPath(word) });
+  { cls: "p-sight-slide", audio: wordAudioPath(word), char: "read" });
 }
 
 function changeFirstSlide(item) {
@@ -143,7 +152,7 @@ function changeFirstSlide(item) {
     <p class="p-kicker">Change the first sound</p>
     <div class="p-big-word" data-play="${esc(wordAudioPath(item.base))}">${esc(item.base)}</div>
     <p class="p-says">Change the first sound to make a new word:</p>
-    <div class="p-chips">${made}</div>`, { cls: "p-phoneme" });
+    <div class="p-chips">${made}</div>`, { cls: "p-phoneme", char: "wave" });
 }
 
 function takeAwaySlide(item) {
@@ -154,7 +163,7 @@ function takeAwaySlide(item) {
       <span class="p-arrow">→</span>
       <span class="p-big-word made" data-play="${esc(wordAudioPath(item.left))}">${esc(item.left)}</span>
     </div>
-    <p class="p-says">Say <b>${esc(item.word)}</b> without the first sound. What is left?</p>`, { cls: "p-phoneme" });
+    <p class="p-says">Say <b>${esc(item.word)}</b> without the first sound. What is left?</p>`, { cls: "p-phoneme", char: "wave" });
 }
 
 function compoundSlide(parts) {
@@ -168,7 +177,7 @@ function compoundSlide(parts) {
       <span class="p-chip big" data-play="${esc(wordAudioPath(b))}">${esc(b)}</span>
       <span class="p-arrow">=</span>
       <span class="p-big-word made" data-play="${esc(wordAudioPath(whole))}">${esc(whole)}</span>
-    </div>`, { cls: "p-phoneme" });
+    </div>`, { cls: "p-phoneme", char: "wave" });
 }
 
 function poemSlide(cycle) {
@@ -180,12 +189,18 @@ function poemSlide(cycle) {
     const asset = getChildWordAsset(word) || {};
     return asset.image ? `<img src="${esc(asset.image)}" alt="${esc(word)}" onerror="this.style.display='none'"/>` : "";
   }).filter(Boolean).slice(0, 3).join("");
+  // Bespoke per-poem illustration (generated from the art briefs). Shows when
+  // the file exists; until then it hides and the text + word pictures remain.
+  const poemImg = `/images/pals/poems/cycle-${String(cycle.cycleNumber).padStart(2, "0")}.webp`;
   return slide(`
     <p class="p-kicker">Our poem</p>
     <h2 class="p-poem-title">${esc(poem.title)}</h2>
     ${audioButton(audio, "Listen to the poem")}
-    <div class="p-poem">${esc(poem.lines.join("\n"))}</div>
-    <div class="p-poem-pics">${pics}</div>`, { cls: "p-poem-slide", audio });
+    <div class="p-poem-wrap">
+      <img class="p-poem-hero" src="${esc(poemImg)}" alt="" onerror="this.style.display='none'"/>
+      <div class="p-poem">${esc(poem.lines.join("\n"))}</div>
+    </div>
+    <div class="p-poem-pics">${pics}</div>`, { cls: "p-poem-slide", audio, char: "read" });
 }
 
 function patternSlide(cycle) {
@@ -194,7 +209,7 @@ function patternSlide(cycle) {
   return slide(`
     <p class="p-kicker">Pattern power</p>
     <h2 class="p-says">Read the words that <b>${esc(sort.label)}</b></h2>
-    <div class="p-chips big">${chips}</div>`, { cls: "p-phoneme" });
+    <div class="p-chips big">${chips}</div>`, { cls: "p-phoneme", char: "wave" });
 }
 
 function chainSlide(cycle) {
@@ -203,11 +218,12 @@ function chainSlide(cycle) {
   return slide(`
     <p class="p-kicker">Word chain</p>
     <h2 class="p-says">Change one sound each time</h2>
-    <div class="p-compound">${chips}</div>`, { cls: "p-phoneme" });
+    <div class="p-compound">${chips}</div>`, { cls: "p-phoneme", char: "wave" });
 }
 
 function endSlide() {
-  return slide(`<div class="p-letter">★</div><h1 class="p-title">Great learning!</h1>
+  return slide(`${palImg("celebrate", "p-pal-hero")}
+    <div class="p-stars">★ ★ ★</div><h1 class="p-title">Great learning!</h1>
     <p class="p-hint">Press Esc to leave full screen</p>`, { cls: "p-cover" });
 }
 
@@ -215,6 +231,7 @@ function endSlide() {
 export function buildCyclePresentation(cycleId) {
   const cycle = getPresentationCycle(cycleId);
   if (!cycle) throw new Error("Unknown cycle");
+  CURRENT_WORLD = themeWorldForCycle(cycle.cycleNumber);
 
   const slides = [titleSlide(cycle)];
   const cards = focusCards(cycle);
@@ -232,10 +249,10 @@ export function buildCyclePresentation(cycleId) {
 
   const title = `Cycle ${cycle.cycleNumber} - ${cycleHeading(cycle)}`;
   const html = `<!doctype html><html><head><meta charset="utf-8"><title>${esc(title)}</title>
-<link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Lexend:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
 <style>${DECK_CSS}</style></head>
 <body>
-<div id="deck">${slides.join("")}</div>
+<div id="deck" style="--w-accent:${CURRENT_WORLD.accent};--w-soft:${CURRENT_WORLD.accentSoft};--w-deep:${CURRENT_WORLD.deep}">${slides.join("")}</div>
 <div id="start"><button id="startBtn" type="button">▶ Start presentation</button><p>Best on a projector. Use → ← to move, F for full screen.</p></div>
 <div id="nav"><button id="prev" type="button" aria-label="Previous">‹</button><span id="counter"></span><button id="next" type="button" aria-label="Next">›</button></div>
 <script>${DECK_JS}</script>
@@ -255,54 +272,84 @@ export function openCyclePresentation(cycleId) {
 
 const DECK_CSS = `
   * { box-sizing: border-box; }
-  html, body { margin: 0; height: 100%; background: #0b1f24; color: #fff8ec;
-    font-family: 'Andika','Comic Sans MS',sans-serif; overflow: hidden; }
+  html, body { margin: 0; height: 100%; overflow: hidden;
+    color: #2b2118; font-family: 'Fredoka','Andika','Comic Sans MS',sans-serif;
+    background:
+      radial-gradient(80vw 60vh at 50% -10%, color-mix(in srgb, var(--w-accent) 22%, #fff), transparent 70%),
+      linear-gradient(180deg, #FFFDF7 0%, var(--w-soft) 100%); }
   #deck { height: 100vh; }
   .slide { position: absolute; inset: 0; display: none; flex-direction: column;
-    align-items: center; justify-content: center; gap: 18px; text-align: center; padding: 5vh 6vw; }
-  .slide.active { display: flex; animation: fade .35s ease; }
-  @keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-  .p-kicker { margin: 0; text-transform: uppercase; letter-spacing: .2em; color: #7fe0d6; font-size: 2.2vh; }
-  .p-title { font-family: 'Lexend',sans-serif; font-size: 8vh; margin: 0; }
-  .p-phase { font-size: 3vh; color: #cfe6e3; text-transform: capitalize; }
-  .p-hint { color: #9fb6b3; font-size: 2.4vh; }
-  .p-cover { background: radial-gradient(60vw 60vh at 50% 30%, rgba(127,224,214,.14), transparent 70%); }
-  .p-letter { font-size: 30vh; line-height: 1; font-weight: 700; color: #ffd47e; }
-  .p-says { font-size: 4vh; margin: 0; }
-  .p-words { display: flex; gap: 3vw; margin-top: 2vh; }
+    align-items: center; justify-content: center; gap: 2.2vh; text-align: center; padding: 6vh 6vw; }
+  .slide.active { display: flex; animation: pop .5s cubic-bezier(.2,1.3,.4,1) both; }
+  @keyframes pop { from { opacity: 0; transform: translateY(14px) scale(.97); } to { opacity: 1; transform: none; } }
+  .p-kicker { margin: 0; text-transform: uppercase; letter-spacing: .14em; font-weight: 600;
+    color: var(--w-deep); font-size: 2.4vh; }
+  .p-title { font-family: 'Fredoka',sans-serif; font-weight: 600; font-size: 9vh; margin: 0; color: var(--w-deep);
+    text-transform: capitalize; }
+  .p-phase { font-size: 3vh; color: #6b5a48; text-transform: capitalize; }
+  .p-hint { color: #9a8a76; font-size: 2.4vh; }
+  .p-letter { font-family: 'Andika',sans-serif; font-size: 34vh; line-height: .95; font-weight: 700; color: var(--w-accent);
+    text-shadow: 0 6px 0 color-mix(in srgb, var(--w-accent) 28%, #fff); animation: wobble 2.4s ease-in-out infinite; }
+  @keyframes wobble { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+  .p-says { font-size: 4.4vh; margin: 0; }
+  .p-says b, .p-sentence b { color: var(--w-accent); }
+  .p-words { display: flex; gap: 3vw; margin-top: 1vh; }
   .p-word, .p-chip, .p-big-word, .p-audio { cursor: pointer; }
   .p-word { background: none; border: 0; color: inherit; display: flex; flex-direction: column; align-items: center; gap: 1vh; font: inherit; }
-  .p-word img { width: 18vh; height: 18vh; object-fit: contain; background: #fff; border-radius: 18px; padding: 1vh; }
-  .p-word span { font-size: 3.4vh; }
-  .p-noimg { width: 18vh; height: 18vh; display: grid; place-items: center; font-size: 8vh; background: #11353c; border-radius: 18px; }
-  .p-audio { margin-top: 1vh; background: #0f6b65; color: #fff; border: 0; border-radius: 999px; padding: 1.4vh 3vw; font: inherit; font-size: 3vh; }
-  .p-sight { font-size: 22vh; font-weight: 700; color: #ffd47e; line-height: 1; }
-  .p-sentence { font-size: 3.4vh; }
-  .p-big-word { font-size: 16vh; font-weight: 700; color: #ffd47e; background: none; border: 0; font-family: inherit; }
-  .p-big-word.made { color: #7fe0d6; }
+  .p-word img { width: 20vh; height: 20vh; object-fit: contain; background: #fff; border: 4px solid #fff;
+    border-radius: 24px; box-shadow: 0 10px 24px rgba(0,0,0,.12); padding: 1vh; }
+  .p-word:hover img { transform: translateY(-1vh) rotate(-2deg); }
+  .p-word span { font-size: 3.6vh; font-weight: 600; }
+  .p-audio { margin-top: 1vh; background: var(--w-accent); color: #fff; border: 0; border-radius: 999px;
+    padding: 1.6vh 3.4vw; font: inherit; font-weight: 600; font-size: 3vh; box-shadow: 0 8px 0 var(--w-deep); }
+  .p-audio:active { transform: translateY(4px); box-shadow: 0 4px 0 var(--w-deep); }
+  .p-sight { font-family: 'Fredoka',sans-serif; font-size: 24vh; font-weight: 600; color: var(--w-accent); line-height: 1;
+    text-shadow: 0 6px 0 color-mix(in srgb, var(--w-accent) 28%, #fff); }
+  .p-sentence { font-size: 3.6vh; }
+  .p-big-word { font-family: 'Fredoka',sans-serif; font-size: 17vh; font-weight: 600; color: var(--w-accent); background: none; border: 0; }
+  .p-big-word.made { color: #E0991C; }
   .p-take, .p-compound { display: flex; align-items: center; gap: 2.5vw; flex-wrap: wrap; justify-content: center; }
-  .p-arrow { font-size: 8vh; color: #7fe0d6; }
-  .p-chips { display: flex; gap: 2vw; flex-wrap: wrap; justify-content: center; margin-top: 2vh; }
-  .p-chip { background: #11353c; color: #fff8ec; border: 2px solid #2f6a64; border-radius: 16px; padding: 1.4vh 3vw; font: inherit; font-size: 5vh; }
+  .p-arrow { font-size: 9vh; color: #E0991C; }
+  .p-chips { display: flex; gap: 2vw; flex-wrap: wrap; justify-content: center; margin-top: 1vh; }
+  .p-chip { background: #fff; color: var(--w-deep); border: 3px solid var(--w-accent); border-radius: 18px;
+    padding: 1.4vh 3vw; font: inherit; font-weight: 600; font-size: 5vh; box-shadow: 0 6px 0 color-mix(in srgb, var(--w-accent) 30%, #fff); }
   .p-chip.big, .p-chips.big .p-chip { font-size: 7vh; }
-  .p-poem-title { font-size: 5vh; margin: 0; }
-  .p-poem { white-space: pre-wrap; font-size: 4.2vh; line-height: 1.5; }
-  .p-poem-pics { display: flex; gap: 2vw; margin-top: 2vh; }
-  .p-poem-pics img { width: 16vh; height: 16vh; object-fit: contain; background: #fff; border-radius: 16px; padding: 1vh; }
-  .p-write-svg { width: 70vw; height: 42vh; }
-  .p-write-ghost { fill: #15454c; }
-  .p-write-ink { fill: none; stroke: #ffd47e; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round;
-    stroke-dasharray: 1400; stroke-dashoffset: 1400; }
-  .p-write-svg text { font: 700 240px 'Andika',sans-serif; text-anchor: middle; }
-  .slide.active .p-write-ink.draw { animation: writeOn 2.4s ease forwards; }
-  @keyframes writeOn { to { stroke-dashoffset: 0; } }
-  #start { position: fixed; inset: 0; background: #0b1f24; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2vh; z-index: 10; }
-  #start button { font: inherit; font-size: 4vh; background: #0f6b65; color: #fff; border: 0; border-radius: 999px; padding: 2vh 5vw; cursor: pointer; }
-  #start p { color: #9fb6b3; font-size: 2.4vh; }
+  .p-stars { font-size: 14vh; color: #E0991C; letter-spacing: 1vh; }
+  .p-poem-title { font-family: 'Fredoka',sans-serif; font-weight: 600; font-size: 5.4vh; margin: 0; color: var(--w-deep); }
+  .p-poem-wrap { display: flex; align-items: center; gap: 3vw; flex-wrap: wrap; justify-content: center; }
+  .p-poem-hero { height: 40vh; max-width: 42vw; object-fit: contain; border-radius: 22px;
+    box-shadow: 0 14px 34px rgba(0,0,0,.16); background: #fff; }
+  .p-poem { white-space: pre-wrap; font-size: 4vh; line-height: 1.5; background: #fff;
+    border: 4px solid #fff; border-radius: 22px; box-shadow: 0 12px 30px rgba(0,0,0,.1); padding: 3vh 4vw; }
+  .p-poem-pics { display: flex; gap: 2vw; margin-top: 1vh; }
+  .p-poem-pics img { width: 16vh; height: 16vh; object-fit: contain; background: #fff; border: 4px solid #fff; border-radius: 18px; box-shadow: 0 10px 24px rgba(0,0,0,.12); padding: 1vh; }
+  .p-write2 { position: relative; display: inline-block; line-height: 1;
+    font-family: 'Andika','Comic Sans MS',sans-serif; font-weight: 700; font-size: 44vh; }
+  .p-write-ghost2 { color: color-mix(in srgb, var(--w-accent) 22%, #fff); }
+  .p-write-ink2 { position: absolute; left: 0; top: 0; color: var(--w-accent);
+    clip-path: inset(0 0 100% 0); -webkit-clip-path: inset(0 0 100% 0); }
+  .slide.active .p-write-ink2.draw { animation: writeReveal 1.8s ease forwards; }
+  @keyframes writeReveal {
+    from { clip-path: inset(0 0 100% 0); -webkit-clip-path: inset(0 0 100% 0); }
+    to { clip-path: inset(0 0 0 0); -webkit-clip-path: inset(0 0 0 0); }
+  }
+  /* The Pals mascot, branding every slide */
+  .p-pal-corner { position: absolute; bottom: 3vh; right: 3vw; height: 22vh; pointer-events: none;
+    animation: bob 2.6s ease-in-out infinite; filter: drop-shadow(0 8px 14px rgba(0,0,0,.18)); }
+  .p-pal-hero { height: 34vh; animation: bob 2.6s ease-in-out infinite; filter: drop-shadow(0 10px 18px rgba(0,0,0,.2)); }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-1.4vh); } }
+  #start { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2vh; z-index: 10;
+    background: radial-gradient(80vw 60vh at 50% 0%, color-mix(in srgb, var(--w-accent) 22%, #fff), transparent 70%), linear-gradient(180deg, #FFFDF7, var(--w-soft)); }
+  #start button { font: inherit; font-weight: 600; font-size: 4.4vh; background: var(--w-accent); color: #fff; border: 0; border-radius: 999px; padding: 2.2vh 6vw; cursor: pointer; box-shadow: 0 10px 0 var(--w-deep); }
+  #start button:active { transform: translateY(5px); box-shadow: 0 5px 0 var(--w-deep); }
+  #start p { color: #9a8a76; font-size: 2.4vh; }
   #nav { position: fixed; bottom: 2vh; left: 0; right: 0; display: none; align-items: center; justify-content: center; gap: 3vw; z-index: 9; }
-  #nav button { font-size: 5vh; background: rgba(255,255,255,.08); color: #fff; border: 0; border-radius: 12px; width: 8vh; height: 8vh; cursor: pointer; }
-  #counter { color: #9fb6b3; font-size: 2.6vh; min-width: 8ch; }
-  @media (prefers-reduced-motion: reduce) { .slide.active .p-write-ink.draw { animation: none; stroke-dashoffset: 0; } }
+  #nav button { font-size: 5vh; background: #fff; color: var(--w-deep); border: 3px solid var(--w-accent); border-radius: 16px; width: 8vh; height: 8vh; cursor: pointer; }
+  #counter { color: #9a8a76; font-size: 2.6vh; min-width: 8ch; }
+  @media (prefers-reduced-motion: reduce) {
+    .slide.active, .p-letter, .p-pal-corner, .p-pal-hero { animation: none; }
+    .slide.active .p-write-ink2.draw { animation: none; clip-path: inset(0 0 0 0); -webkit-clip-path: inset(0 0 0 0); }
+  }
 `;
 
 const DECK_JS = `
@@ -315,7 +362,7 @@ const DECK_JS = `
     document.getElementById('counter').textContent = (idx+1) + ' / ' + slides.length;
     var s = slides[idx];
     var ink = s.querySelector('[data-ink]');
-    if (ink) { ink.classList.remove('draw'); void ink.getBBox; setTimeout(function(){ ink.classList.add('draw'); }, 30); }
+    if (ink) { ink.classList.remove('draw'); void ink.offsetWidth; setTimeout(function(){ ink.classList.add('draw'); }, 30); }
     if (started && s.getAttribute('data-audio')) playAudio(s.getAttribute('data-audio'));
   }
   function go(d){ show(idx + d); }
