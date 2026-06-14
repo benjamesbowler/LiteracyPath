@@ -1,8 +1,10 @@
 import { supabase } from "../supabaseClient.js";
 import { computeHydratedValue } from "./progressMerge.js";
-import { localProgressStorageKey, localProgressKeysForStudent } from "./progressKeys.js";
+import { localProgressStorageKey, localProgressKeysForStudent, RESET_AREA, shouldApplyReset } from "./progressKeys.js";
 
-export { PROGRESS_AREAS, localProgressKeysForStudent } from "./progressKeys.js";
+export { PROGRESS_AREAS, localProgressKeysForStudent, RESET_AREA } from "./progressKeys.js";
+
+const RESET_APPLIED_PREFIX = "lp-reset-applied:";
 
 const SYNC_QUEUE_KEY = "lp-progress-sync-queue-v1";
 const CLOUD_ROW_STORAGE_KEY = "lp-cloud-progress-rows-v1";
@@ -166,8 +168,26 @@ export async function fetchStudentCloudProgress(session) {
   return data || [];
 }
 
+// If a teacher reset this student more recently than this device has applied,
+// wipe the device's local progress before merging - so a reset propagates to
+// every shared iPad, not just the one the teacher used. The reset itself leaves
+// an empty cloud (just the sentinel), so after this there is nothing to merge.
+function applyResetTombstone(studentId, rows) {
+  if (!isBrowser() || !studentId) return;
+  const resetRow = rows.find(row => row.area === RESET_AREA);
+  const cloudResetAt = resetRow?.payload?.at || "";
+  const markerKey = `${RESET_APPLIED_PREFIX}${studentId}`;
+  let appliedAt = "";
+  try { appliedAt = window.localStorage.getItem(markerKey) || ""; } catch { /* ignore */ }
+  if (shouldApplyReset(cloudResetAt, appliedAt)) {
+    clearLocalProgressForStudent(studentId);
+    try { window.localStorage.setItem(markerKey, cloudResetAt); } catch { /* ignore */ }
+  }
+}
+
 export async function hydrateCloudProgress(session) {
   const rows = await fetchStudentCloudProgress(session);
+  applyResetTombstone(session.studentId, rows);
   cacheCloudRows(session.studentId, rows);
   rows.forEach(row => {
     const storageKey = localProgressStorageKey(row.area, session.studentId);

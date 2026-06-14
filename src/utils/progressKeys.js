@@ -24,3 +24,15 @@ export function localProgressStorageKey(area, scopeKey) {
 export function localProgressKeysForStudent(studentId) {
   return PROGRESS_AREAS.map(area => localProgressStorageKey(area, studentId)).filter(Boolean);
 }
+
+// Sentinel "tombstone" row a teacher reset leaves in the cloud so every device
+// knows to wipe its local copy. It is not a real progress area (maps to no
+// storage key), so the normal hydrate loop ignores it.
+export const RESET_AREA = "__reset__";
+
+// A device should wipe local progress when the cloud reset timestamp is newer
+// than the reset it has already applied (ISO strings compare correctly).
+export function shouldApplyReset(cloudResetAt, appliedResetAt) {
+  if (!cloudResetAt) return false;
+  return !appliedResetAt || cloudResetAt > appliedResetAt;
+}

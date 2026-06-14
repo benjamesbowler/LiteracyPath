@@ -140,7 +140,8 @@ import {
   configureProgressSync,
   hydrateCloudProgress,
   queueProgressSave,
-  clearLocalProgressForStudent
+  clearLocalProgressForStudent,
+  RESET_AREA
 } from "./utils/progressSync.js";
 import { insertWithRetry, startInsertQueueFlusher } from "./utils/insertQueue.js";
 
@@ -3668,6 +3669,19 @@ export default function App() {
     // story quests, guided reading, daily mission, profile) locally + queue, so
     // the now-deleted cloud rows can't forward-merge straight back on next load.
     clearLocalProgressForStudent(studentId);
+    // Leave a cloud "tombstone" so OTHER devices (shared iPads) also wipe their
+    // local copy on next hydrate, instead of re-pushing old progress. Best-effort.
+    try {
+      await supabase.from("student_progress").upsert({
+        student_id: studentId,
+        area: RESET_AREA,
+        key: RESET_AREA,
+        payload: { at: new Date().toISOString() },
+        updated_at: new Date().toISOString()
+      }, { onConflict: "student_id,area,key" });
+    } catch (tombstoneError) {
+      console.warn("Could not write reset tombstone (other devices may not auto-clear).", tombstoneError);
+    }
     if (import.meta.env.DEV) {
       console.debug("[assessment-reset] Reset all progress for selected student", {
         studentId,

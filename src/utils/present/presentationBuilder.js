@@ -131,7 +131,7 @@ function writingSlide(card) {
     <p class="p-kicker">Let's write it</p>
     <div class="p-write2" aria-hidden="true">
       <span class="p-write-ghost2">${esc(big)}</span>
-      <span class="p-write-ink2" data-ink>${esc(big)}</span>
+      <span class="p-write-ink-wrap" data-ink><span class="p-write-ink2">${esc(big)}</span></span>
     </div>
     <button class="p-audio" type="button" data-replay>✏️ Watch again</button>
     <p class="p-hint">Now you write it in the air!</p>`, { cls: "p-writing", stroke: "1", char: "think" });
@@ -325,16 +325,18 @@ const DECK_CSS = `
     border: 4px solid #fff; border-radius: 22px; box-shadow: 0 12px 30px rgba(0,0,0,.1); padding: 3vh 4vw; }
   .p-poem-pics { display: flex; gap: 2vw; margin-top: 1vh; }
   .p-poem-pics img { width: 16vh; height: 16vh; object-fit: contain; background: #fff; border: 4px solid #fff; border-radius: 18px; box-shadow: 0 10px 24px rgba(0,0,0,.12); padding: 1vh; }
+  /* Writing demo: the coloured letter wipes in left-to-right over a faint guide
+     via an overflow:hidden WIDTH reveal - the most universally-supported way to
+     animate, fired purely by the slide becoming active (no JS timing needed). */
   .p-write2 { position: relative; display: inline-block; line-height: 1;
     font-family: 'Andika','Comic Sans MS',sans-serif; font-weight: 700; font-size: 44vh; }
-  .p-write-ghost2 { color: color-mix(in srgb, var(--w-accent) 22%, #fff); }
-  .p-write-ink2 { position: absolute; left: 0; top: 0; color: var(--w-accent);
-    clip-path: inset(0 0 100% 0); -webkit-clip-path: inset(0 0 100% 0); }
-  .slide.active .p-write-ink2.draw { animation: writeReveal 1.8s ease forwards; }
-  @keyframes writeReveal {
-    from { clip-path: inset(0 0 100% 0); -webkit-clip-path: inset(0 0 100% 0); }
-    to { clip-path: inset(0 0 0 0); -webkit-clip-path: inset(0 0 0 0); }
-  }
+  .p-write-ghost2 { display: inline-block; color: rgba(20,17,12,0.12); }
+  .p-write-ink-wrap { position: absolute; left: 0; top: 0; height: 100%; width: 0;
+    overflow: hidden; white-space: nowrap; }
+  .p-write-ink2 { display: inline-block; color: var(--w-accent); }
+  .slide.active .p-write-ink-wrap { animation: writeOn 1.9s ease 0.35s both; }
+  .p-write-ink-wrap.replay { animation: writeOn 1.9s ease both; }
+  @keyframes writeOn { from { width: 0; } to { width: 100%; } }
   /* The Pals mascot, branding every slide */
   .p-pal-corner { position: absolute; bottom: 3vh; right: 3vw; height: 22vh; pointer-events: none;
     animation: bob 2.6s ease-in-out infinite; filter: drop-shadow(0 8px 14px rgba(0,0,0,.18)); }
@@ -350,7 +352,7 @@ const DECK_CSS = `
   #counter { color: #9a8a76; font-size: 2.6vh; min-width: 8ch; }
   @media (prefers-reduced-motion: reduce) {
     .slide.active, .p-letter, .p-pal-corner, .p-pal-hero { animation: none; }
-    .slide.active .p-write-ink2.draw { animation: none; clip-path: inset(0 0 0 0); -webkit-clip-path: inset(0 0 0 0); }
+    .slide.active .p-write-ink-wrap, .p-write-ink-wrap.replay { animation: none; width: 100%; }
   }
 `;
 
@@ -363,8 +365,8 @@ const DECK_JS = `
     slides.forEach(function(s, n){ s.classList.toggle('active', n === idx); });
     document.getElementById('counter').textContent = (idx+1) + ' / ' + slides.length;
     var s = slides[idx];
-    var ink = s.querySelector('[data-ink]');
-    if (ink) { ink.classList.remove('draw'); void ink.offsetWidth; setTimeout(function(){ ink.classList.add('draw'); }, 30); }
+    // The writing wipe auto-plays via the .slide.active CSS rule; restarting it
+    // (after a re-visit) just needs the active class, which toggle() handled.
     if (started && s.getAttribute('data-audio')) playAudio(s.getAttribute('data-audio'));
   }
   function go(d){ show(idx + d); }
@@ -377,7 +379,7 @@ const DECK_JS = `
   document.getElementById('prev').addEventListener('click', function(){ go(-1); });
   document.addEventListener('click', function(e){
     var btn = e.target.closest('[data-play]'); if (btn) { playAudio(btn.getAttribute('data-play')); return; }
-    if (e.target.closest('[data-replay]')) { var ink = slides[idx].querySelector('[data-ink]'); if(ink){ ink.classList.remove('draw'); setTimeout(function(){ ink.classList.add('draw'); }, 30);} return; }
+    if (e.target.closest('[data-replay]')) { var ink = slides[idx].querySelector('[data-ink]'); if(ink){ ink.classList.remove('replay'); ink.style.animation='none'; void ink.offsetWidth; ink.style.animation=''; ink.classList.add('replay'); } return; }
   });
   function toggleFs(){ try { if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); } catch(e){} }
   document.getElementById('startBtn').addEventListener('click', function(){
