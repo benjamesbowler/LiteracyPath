@@ -22,6 +22,7 @@ import {
   TeacherReportsPage
 } from "./components/AppPages";
 import { Sidebar } from "./components/Sidebar.jsx";
+import { WorksheetGeneratorPage } from "./components/WorksheetGeneratorPage.jsx";
 import { TeacherDashboardPage } from "./components/TeacherDashboardPage.jsx";
 import { StudentEntryPage } from "./components/StudentEntryPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
@@ -7754,6 +7755,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           goToLearn={() => setAppView(APP_VIEWS.LEARN)}
           goToPhonicsLearn={() => setAppView(APP_VIEWS.PHONICS_LEARN)}
           goToReports={() => setAppView(APP_VIEWS.REPORTS)}
+          goToWorksheets={() => setAppView(APP_VIEWS.WORKSHEETS)}
           goToTeacherDashboard={() => setAppView(APP_VIEWS.TEACHER_DASHBOARD)}
           teacherEmail={teacherUser.email}
           logOutTeacher={logOutTeacher}
@@ -7991,6 +7993,12 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             students={studentList}
             teacherName={teacherUser?.email || ""}
           />
+        </PageBoundary>
+      )}
+
+      {appView === APP_VIEWS.WORKSHEETS && (
+        <PageBoundary resetKey="worksheets">
+          <WorksheetGeneratorPage teacherId={teacherId} />
         </PageBoundary>
       )}
 

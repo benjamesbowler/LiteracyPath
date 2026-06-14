@@ -1,0 +1,152 @@
+/* Worksheet generator page (teacher tool). The printed worksheet styles live
+   inline in the generated document; these styles are only the on-screen UI. */
+.ws-page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+}
+
+.ws-page-head h1 {
+  margin: 0 0 6px;
+  font-family: var(--lp-font-display, var(--lp-font-reading));
+  color: var(--lp-color-text-strong);
+}
+
+.ws-page-head p {
+  margin: 0 0 8px;
+  color: var(--lp-color-text-muted, #475569);
+  max-width: 60ch;
+}
+
+.ws-builder {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  background: var(--lp-color-surface, #fff);
+  border: 1px solid var(--lp-color-border, #e2e8f0);
+  border-radius: 16px;
+  box-shadow: var(--lp-shadow-card);
+  padding: 20px;
+  margin: 18px 0 28px;
+}
+
+.ws-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--lp-color-text-strong);
+}
+
+.ws-field select {
+  min-height: 44px;
+  border: 1.5px solid var(--lp-color-border, #cbd5e1);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font: inherit;
+  background: #fff;
+}
+
+.ws-blurb {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--lp-color-text-muted, #475569);
+}
+
+.ws-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ws-primary,
+.ws-ghost,
+.ws-danger {
+  min-height: 46px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+}
+
+.ws-primary {
+  background: var(--lp-color-primary, #0c6b65);
+  color: #fff;
+}
+
+.ws-ghost {
+  background: #fff;
+  border-color: var(--lp-color-border, #cbd5e1);
+  color: var(--lp-color-text-strong);
+}
+
+.ws-danger {
+  background: #fff;
+  border-color: #f1c2c2;
+  color: #b42318;
+}
+
+.ws-primary:disabled,
+.ws-ghost:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ws-note {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--lp-color-primary, #0c6b65);
+  font-weight: 600;
+}
+
+.ws-bank h2 {
+  margin: 0 0 12px;
+  color: var(--lp-color-text-strong);
+}
+
+.ws-empty {
+  color: var(--lp-color-text-muted, #475569);
+}
+
+.ws-bank-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.ws-bank-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  border: 1px solid var(--lp-color-border, #e2e8f0);
+  border-radius: 12px;
+  padding: 12px 16px;
+  background: var(--lp-color-surface, #fff);
+}
+
+.ws-bank-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ws-bank-info span {
+  color: var(--lp-color-text-muted, #475569);
+  font-size: 0.9rem;
+}
+
+.ws-bank-actions {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .ws-builder { grid-template-columns: 1fr; }
+}

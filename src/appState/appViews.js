@@ -17,6 +17,7 @@ export const APP_VIEWS = {
   LETTERS: "letters",
   ADVANCED_PHONICS: "advancedPhonics",
   TEACHER_DASHBOARD: "teacherDashboard",
+  WORKSHEETS: "worksheets",
   ADMIN_DASHBOARD: "admin"
 };
 

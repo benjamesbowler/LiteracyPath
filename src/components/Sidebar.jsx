@@ -50,6 +50,11 @@ const ICONS = {
       <path d="M5 20V5h2v15H5Zm4 0v-8h2v8H9Zm4 0V8h2v12h-2Zm4 0v-5h2v5h-2Z" />
     </svg>
   ),
+  worksheets: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6 2h8l4 4v16H6V2Zm7 1.5V7h3.5L13 3.5ZM8 11h8v1.6H8V11Zm0 3.4h8V16H8v-1.6Zm0 3.4h5.5v1.6H8v-1.6Z" />
+    </svg>
+  ),
   admin: (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M12 3 20 6v6c0 5-3.4 8.3-8 10-4.6-1.7-8-5-8-10V6l8-3Zm-1 12.2 5-5-1.4-1.4L11 12.4 9.4 10.8 8 12.2l3 3Z" />
@@ -132,6 +137,13 @@ const NAV_ITEMS = [
     views: [APP_VIEWS.REPORTS],
     requiresStudent: true,
   },
+  {
+    id: "worksheets",
+    label: "Worksheets",
+    icon: "worksheets",
+    views: [APP_VIEWS.WORKSHEETS],
+    // No student needed - worksheets are built from the cycle curriculum.
+  },
 ];
 
 export function Sidebar({
@@ -148,6 +160,7 @@ export function Sidebar({
   goToLearn,
   goToPhonicsLearn,
   goToReports,
+  goToWorksheets,
   goToTeacherDashboard,
   logOutTeacher,
   isAdmin,
@@ -181,6 +194,7 @@ export function Sidebar({
       case "learn":       return goToLearn?.();
       case "phonics":     return goToPhonicsLearn?.();
       case "reports":     return goToReports?.();
+      case "worksheets":  return goToWorksheets?.();
       default:            return null;
     }
   }
