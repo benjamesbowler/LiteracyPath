@@ -365,7 +365,10 @@ function buildPoemRounds(cycle) {
   const poemWords = uniqueChoices(
     text.toLowerCase().replace(/[^a-z\s]/g, " ").split(/\s+/).filter(w => w.length > 1)
   );
-  const narration = `/audio/learn-games/poems/cycle-${String(cycle.cycleNumber).padStart(2, "0")}.mp3`;
+  // v2 = the gold re-record matching the rewritten character poems. Until those
+  // files exist the round just cues the target word (the old v1 audio voiced the
+  // previous poems, so we must NOT play it - it would say the wrong words).
+  const narration = `/audio/learn-games/poems/v2/cycle-${String(cycle.cycleNumber).padStart(2, "0")}.mp3`;
   const poemAudio = AUDIO_FILE_PATHS.has(narration) ? narration : "";
   return poem.findWords.map(word => ({
     type: "poem",

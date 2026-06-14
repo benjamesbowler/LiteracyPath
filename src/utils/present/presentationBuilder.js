@@ -183,7 +183,9 @@ function compoundSlide(parts) {
 function poemSlide(cycle) {
   const poem = EL_CYCLE_POEMS.find(p => p.cycle === cycle.cycleNumber);
   if (!poem) return "";
-  const narration = `/audio/learn-games/poems/cycle-${String(cycle.cycleNumber).padStart(2, "0")}.mp3`;
+  // v2 poem narration matches the rewritten character poems (see audio request).
+  // Old v1 recordings voiced the previous poems, so we never play them here.
+  const narration = `/audio/learn-games/poems/v2/cycle-${String(cycle.cycleNumber).padStart(2, "0")}.mp3`;
   const audio = AUDIO_FILE_PATHS.has(narration) ? narration : "";
   const pics = (poem.findWords || []).map(word => {
     const asset = getChildWordAsset(word) || {};
