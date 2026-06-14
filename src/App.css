@@ -155,7 +155,7 @@ body {
   margin: 0;
   color: var(--lp-color-primary);
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -340,7 +340,7 @@ body {
   background: #ffffff;
   color: var(--lp-color-text-muted);
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .student-flow-stepper li span {
@@ -556,7 +556,7 @@ body {
   height: 28px;
   display: inline-grid;
   place-items: center;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .symbol-sequence-empty {
@@ -644,13 +644,13 @@ body {
 .student-home-intro p {
   color: var(--lp-color-text-muted);
   font-size: clamp(16px, 2vw, 20px);
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .student-home-eyebrow {
   color: var(--lp-color-text-muted);
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -687,7 +687,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .student-home-logout svg {
@@ -785,7 +785,7 @@ body {
   background: var(--lp-color-primary-soft);
   color: var(--lp-color-primary) !important;
   font-size: 0.76rem;
-  font-weight: 950 !important;
+  font-weight: 800 !important;
   text-transform: uppercase;
 }
 
@@ -1790,15 +1790,15 @@ body {
 
 .word-chip.mastered,
 .mastery-chip.mastered {
-  background: #ecfdf3;
-  color: #027a48 !important;
-  border: 1px solid #75e0a7;
+  background: var(--lp-color-success-soft);
+  color: var(--lp-color-success-text) !important;
+  border: 1px solid var(--lg-domain-reading-mid);
 }
 
 .mastery-chip.practicing {
-  background: #fffaeb;
-  color: #b54708 !important;
-  border: 1px solid #fedf89;
+  background: var(--lp-color-warning-soft);
+  color: var(--lp-color-warning) !important;
+  border: 1px solid var(--lg-domain-hfw-mid);
 }
 
 .mastery-chip.not-attempted {
@@ -2013,7 +2013,7 @@ body {
 .teacher-metric-strip strong {
   color: var(--lp-color-text-strong) !important;
   font-size: 20px;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .teacher-start-grid {
@@ -2043,7 +2043,7 @@ body {
 .teacher-primary-action strong {
   color: var(--lp-color-text-strong) !important;
   font-size: 14px;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .teacher-skill-selector select {
@@ -2284,7 +2284,7 @@ body {
 .teacher-roster-metric span {
   color: var(--lp-color-text-muted);
   font-size: 11px;
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: 0.07em;
   text-transform: uppercase;
 }
@@ -2487,7 +2487,7 @@ body {
   border-radius: 999px;
   background: var(--lp-color-primary-soft);
   color: var(--lp-color-primary-strong);
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .teacher-student-cell strong,
@@ -2514,7 +2514,7 @@ body {
   padding: 0 9px;
   border-radius: 999px;
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 800;
   white-space: nowrap;
 }
 
@@ -2843,7 +2843,7 @@ body {
   background: var(--lp-color-success-soft);
   color: var(--lp-color-success-text);
   font-size: 0.78rem;
-  font-weight: 950;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
@@ -2914,7 +2914,7 @@ body {
   color: var(--lp-color-text-muted);
   font: inherit;
   font-size: 0.9rem;
-  font-weight: 900;
+  font-weight: 800;
   cursor: pointer;
 }
 
@@ -2971,7 +2971,7 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .guided-review-shelf-header > span {
@@ -3138,7 +3138,7 @@ body {
 
 .pd-reader-page-missing a {
   color: var(--color-primary);
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .guided-recommendation-panel,
@@ -3172,7 +3172,7 @@ body {
   background: var(--color-success-soft);
   color: #115e59;
   font-size: 0.78rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .guided-recommendation-list,
@@ -3218,7 +3218,7 @@ body {
   background: rgba(255, 255, 255, 0.88);
   color: var(--lp-color-text-muted);
   font-size: 0.9rem;
-  font-weight: 850;
+  font-weight: 800;
   min-width: 0;
   max-width: 100%;
 }
@@ -3254,7 +3254,7 @@ body {
   flex: 0 0 auto;
   color: var(--lp-color-text-muted);
   font-size: 0.82rem;
-  font-weight: 900;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
@@ -3362,7 +3362,7 @@ body {
   background: var(--color-primary-soft);
   color: var(--color-primary);
   font-size: 1.05rem;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .guided-category-icon.fiction {
@@ -3441,7 +3441,7 @@ body {
   background: var(--color-primary-soft);
   color: var(--color-primary);
   font-size: 0.82rem;
-  font-weight: 900;
+  font-weight: 800;
   border: 0;
   align-self: end;
   white-space: nowrap;
@@ -3466,7 +3466,7 @@ body {
   border-radius: 999px;
   background: var(--color-success);
   color: #ffffff;
-  font-weight: 950;
+  font-weight: 800;
   box-shadow: 0 8px 18px rgba(20, 184, 166, 0.28);
 }
 
@@ -3511,7 +3511,7 @@ body {
 .guided-book-generated-cover small {
   color: var(--lp-color-text-muted);
   font-size: 0.72rem;
-  font-weight: 850;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0;
 }
@@ -3534,7 +3534,7 @@ body {
   color: var(--lp-color-text-strong);
   font-family: var(--lp-font-reading);
   font-size: 0.98rem;
-  font-weight: 850;
+  font-weight: 800;
   line-height: 1.25;
   overflow-wrap: anywhere;
   -webkit-box-orient: vertical;
@@ -3567,7 +3567,7 @@ body {
   background: #ffffff;
   color: var(--lp-color-text-muted);
   font-size: 0.72rem;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .guided-reader-shell {
@@ -3703,7 +3703,7 @@ body {
   background: #ffffff;
   color: var(--lp-color-text-muted);
   font-size: clamp(0.66rem, 1.2vw, 0.78rem);
-  font-weight: 850;
+  font-weight: 800;
   line-height: 1.05;
   text-align: center;
   white-space: nowrap;
@@ -3843,7 +3843,7 @@ body {
 .guided-student-mode-note strong {
   color: var(--lp-color-success-text);
   font-size: 0.9rem;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .guided-student-mode-note span {
@@ -3869,7 +3869,7 @@ body {
   background: transparent !important;
   color: var(--lp-color-text-muted) !important;
   font-size: 0.82rem !important;
-  font-weight: 850 !important;
+  font-weight: 800 !important;
 }
 
 .guided-mode-toggle button.active {
@@ -4006,7 +4006,7 @@ body {
   background: var(--color-success-soft);
   color: #115e59 !important;
   font-size: 0.9rem;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .guided-mark-legend,
@@ -4045,7 +4045,7 @@ body {
   background: #ffffff !important;
   color: var(--lp-color-text-strong) !important;
   font-size: 0.82rem !important;
-  font-weight: 850 !important;
+  font-weight: 800 !important;
 }
 
 .legend-dot {
@@ -4088,7 +4088,7 @@ body {
   cursor: pointer;
   padding: 7px 10px;
   color: var(--lp-color-text-strong);
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .guided-note-drawer .guided-note-field {
@@ -4235,7 +4235,7 @@ body {
   background: #ffffff;
   color: var(--lp-color-text-muted);
   font-size: 0.82rem;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .guided-reading-detail-report {
@@ -4330,7 +4330,7 @@ body {
 .guided-reading-notes-detail summary {
   cursor: pointer;
   color: var(--lp-color-text);
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .guided-reading-notes-detail div {
@@ -4522,7 +4522,7 @@ body {
   background: #ffffff;
   color: var(--lp-color-text-muted);
   font-size: 0.82rem;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .media-qa-bulk-actions {
@@ -4548,7 +4548,7 @@ body {
   color: var(--lp-color-text-muted);
   font: inherit;
   font-size: 0.82rem;
-  font-weight: 900;
+  font-weight: 800;
   cursor: pointer;
 }
 
@@ -4614,7 +4614,7 @@ body {
   align-items: center;
   color: var(--lp-color-text-muted);
   font-size: 0.82rem;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .media-qa-card img {
@@ -4654,7 +4654,7 @@ body {
   background: var(--color-primary-soft);
   color: var(--color-primary);
   font-size: 0.74rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .media-qa-card-actions {
@@ -4671,7 +4671,7 @@ body {
   background: #f8fafc;
   color: var(--lp-color-text-strong);
   font-size: 0.74rem;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .media-qa-card-actions button:only-child {
@@ -4696,7 +4696,7 @@ body {
   width: fit-content;
   color: var(--lp-color-text-muted);
   font-size: 0.78rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .media-qa-card .media-qa-card-select span {
@@ -4728,7 +4728,7 @@ body {
   background: #ffffff;
   color: var(--lp-color-text-strong);
   font-size: 0.78rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .media-qa-review-mode button.active,
@@ -4749,7 +4749,7 @@ body {
 .media-qa-bulk-review-bar span {
   color: var(--lp-color-text-muted);
   font-size: 0.8rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .media-qa-review-card img,
@@ -4775,7 +4775,7 @@ body {
 .media-qa-review-line strong {
   color: var(--lp-color-text-muted);
   font-size: 0.72rem;
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -4852,7 +4852,7 @@ body {
   background: var(--color-primary-soft);
   color: var(--color-primary);
   font-size: 0.74rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .question-flag-review-card header strong {
@@ -4954,7 +4954,7 @@ body {
 .qa-delete-modal label {
   display: grid;
   gap: 6px;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .qa-delete-modal input {
@@ -4975,7 +4975,7 @@ body {
   background: var(--color-primary);
   color: #ffffff;
   font-size: 1.05rem;
-  font-weight: 950;
+  font-weight: 800;
   line-height: 1;
   cursor: pointer;
   box-shadow: 0 10px 20px rgba(79, 99, 215, 0.16);
@@ -5075,7 +5075,7 @@ body {
   background: var(--color-primary-soft);
   color: var(--color-primary);
   font-size: 0.74rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .guided-image-qa-body textarea {
@@ -5221,7 +5221,7 @@ body {
   background: var(--color-primary-soft);
   color: var(--lp-color-primary-strong) !important;
   font-size: 13px;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .skill-catalogue-row.passed .skill-index-badge {
@@ -5260,7 +5260,7 @@ body {
   background: #f8fafc;
   color: var(--lp-color-text-muted) !important;
   font-size: 12px;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .skill-status-badge.current {
@@ -6516,7 +6516,7 @@ select:focus {
   background: #f7fffc;
   color: var(--lp-color-text-strong);
   font-size: clamp(24px, 3vw, 34px);
-  font-weight: 850;
+  font-weight: 800;
   line-height: 1.2;
 }
 
@@ -6585,7 +6585,7 @@ select:focus {
   color: var(--lp-color-text-strong);
   box-shadow: 0 10px 22px rgba(48, 37, 18, 0.08);
   font-size: clamp(20px, 3vw, 30px);
-  font-weight: 850;
+  font-weight: 800;
   white-space: normal;
   overflow-wrap: normal;
   word-break: normal;
@@ -6597,7 +6597,7 @@ select:focus {
   padding: 14px;
   border-radius: 14px !important;
   font-size: clamp(2rem, 4.2vw, 3rem);
-  font-weight: 950;
+  font-weight: 800;
   line-height: 1;
 }
 
@@ -6837,7 +6837,7 @@ select:focus {
   background: var(--color-primary-soft);
   color: var(--color-primary);
   font-size: 0.9rem;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .first-sound-prompt {
@@ -6861,7 +6861,7 @@ select:focus {
   border-radius: 999px;
   background: var(--color-primary);
   color: #ffffff;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .first-sound-audio-button:disabled {
@@ -6912,7 +6912,7 @@ select:focus {
   background: #ffffff;
   color: var(--lp-color-text-strong);
   font-size: clamp(1.8rem, 5vw, 2.8rem);
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .first-sound-answer-grid button.selected {
@@ -6924,7 +6924,7 @@ select:focus {
   padding: 12px;
   border-radius: 16px;
   text-align: center;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .first-sound-feedback.correct {
@@ -6957,7 +6957,7 @@ select:focus {
   background: var(--color-success-soft);
   color: var(--lp-color-text-strong);
   font-size: clamp(34px, 6vw, 58px);
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .sound-order-build {
@@ -6985,7 +6985,7 @@ select:focus {
   background: #ffffff;
   color: var(--lp-color-text-strong);
   font-size: 30px;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .sound-order-tile:disabled {
@@ -7429,9 +7429,9 @@ select:focus {
 }
 
 .letter-mark-button.active {
-  background: #ecfdf3 !important;
-  color: #027a48 !important;
-  border-color: #75e0a7 !important;
+  background: var(--lp-color-success-soft) !important;
+  color: var(--lp-color-success-text) !important;
+  border-color: var(--lg-domain-reading-mid) !important;
 }
 
 .letter-complete-card {
@@ -7491,7 +7491,7 @@ select:focus {
 .delta-badge {
   border-radius: 999px;
   display: inline-flex;
-  font-weight: 900;
+  font-weight: 800;
   padding: 8px 12px;
   white-space: nowrap;
 }
@@ -7547,7 +7547,7 @@ select:focus {
 .report-collapsible-panel summary::after {
   content: "Open";
   float: right;
-  font-weight: 900;
+  font-weight: 800;
   color: var(--lp-color-text-muted);
 }
 
@@ -7641,7 +7641,7 @@ select:focus {
 .single-progress-dot {
   align-items: center;
   color: #ffffff;
-  font-weight: 900;
+  font-weight: 800;
   height: 52px;
   justify-content: center;
   width: 52px;
@@ -7709,7 +7709,7 @@ select:focus {
 }
 
 .skill-map-tile.passed {
-  background: #ecfdf3;
+  background: var(--lp-color-success-soft);
   border-color: #bbf7d0;
 }
 
@@ -7768,7 +7768,7 @@ select:focus {
   border-radius: 999px;
   display: inline-flex;
   font-size: 0.82rem;
-  font-weight: 900;
+  font-weight: 800;
   padding: 5px 9px;
 }
 
@@ -7802,7 +7802,7 @@ select:focus {
   border-radius: 9px;
   background: transparent;
   color: var(--lp-color-text-muted);
-  font-weight: 900;
+  font-weight: 800;
   min-height: 40px;
   padding: 8px 12px;
 }
@@ -7947,7 +7947,7 @@ select:focus {
 .class-heatmap-cell {
   border-radius: 999px;
   display: inline-flex;
-  font-weight: 900;
+  font-weight: 800;
   min-width: 54px;
   justify-content: center;
   padding: 5px 8px;
@@ -7989,7 +7989,7 @@ select:focus {
   color: var(--lp-color-text-muted);
   display: grid;
   flex: 1 1 220px;
-  font-weight: 850;
+  font-weight: 800;
   gap: 6px;
 }
 
@@ -8144,7 +8144,7 @@ select:focus {
   color: #52637a;
   display: block;
   font-size: 10px;
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: 0;
   margin-bottom: 9px;
   text-transform: uppercase;
@@ -8222,7 +8222,7 @@ select:focus {
   color: #15803d;
   font-size: 12px;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 800;
   text-align: right;
 }
 
@@ -8255,7 +8255,7 @@ select:focus {
   background: #0b6e68;
   color: #ffffff;
   font-size: 11px;
-  font-weight: 900;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
@@ -8277,7 +8277,7 @@ select:focus {
   border: 1px solid #cbd5e1;
   color: #334155;
   font-size: 12px;
-  font-weight: 850;
+  font-weight: 800;
   padding: 5px 8px;
 }
 
@@ -8309,7 +8309,7 @@ select:focus {
   background: #1e293b;
   color: #ffffff;
   font-size: 10px;
-  font-weight: 900;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
@@ -8333,7 +8333,7 @@ select:focus {
   border: 1px solid currentColor;
   display: inline-flex;
   font-size: 11px;
-  font-weight: 900;
+  font-weight: 800;
   justify-content: center;
   min-width: 42px;
   padding: 4px 6px;
@@ -8471,7 +8471,7 @@ select:focus {
 
 .pattern-display {
   font-size: clamp(86px, 20vh, 180px);
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1;
   color: var(--lp-color-text-strong) !important;
 }
@@ -8501,9 +8501,9 @@ select:focus {
 }
 
 .pattern-check-control.active {
-  background: #ecfdf3;
-  color: #027a48 !important;
-  border-color: #75e0a7;
+  background: var(--lp-color-success-soft);
+  color: var(--lp-color-success-text) !important;
+  border-color: var(--lg-domain-reading-mid);
 }
 
 .pattern-check-control input {
@@ -8513,8 +8513,8 @@ select:focus {
 }
 
 .message {
-  color: #027a48 !important;
-  background: #ecfdf3;
+  color: var(--lp-color-success-text) !important;
+  background: var(--lp-color-success-soft);
   border: 1px solid #abefc6;
   padding: 10px 14px;
   border-radius: 999px;
@@ -8679,7 +8679,7 @@ select:focus {
 
 .admin-section-tabs span,
 .admin-overview-card span {
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .admin-section-tabs small {
@@ -8689,7 +8689,7 @@ select:focus {
   color: #24558f;
   display: inline-flex;
   font-size: 12px;
-  font-weight: 850;
+  font-weight: 800;
   justify-content: center;
   min-width: 28px;
   padding: 4px 8px;
@@ -8904,7 +8904,7 @@ select:focus {
   border-radius: 999px;
   display: inline-flex;
   font-size: 0.76rem;
-  font-weight: 900;
+  font-weight: 800;
   justify-content: center;
   min-width: 62px;
   padding: 5px 9px;
@@ -8957,7 +8957,7 @@ select:focus {
 }
 
 .teacher-skill-chip.strong {
-  background: #ecfdf3;
+  background: var(--lp-color-success-soft);
   border-color: #bbf7d0;
   color: #166534;
 }
@@ -9000,7 +9000,7 @@ select:focus {
   display: grid;
   gap: 6px;
   color: var(--lp-color-text-muted);
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .el-report-control-column select,
@@ -9027,7 +9027,7 @@ select:focus {
   display: grid;
   gap: 6px;
   color: var(--lp-color-text-muted);
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .detailed-report-controls select,
@@ -9048,7 +9048,7 @@ select:focus {
 
 .detailed-report-section-toggles legend {
   color: var(--lp-color-text-strong);
-  font-weight: 900;
+  font-weight: 800;
   padding: 0 6px;
 }
 
@@ -9086,7 +9086,7 @@ select:focus {
   display: grid;
   gap: 6px;
   color: var(--lp-color-text-muted);
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .formal-report-controls select {
@@ -9129,7 +9129,7 @@ select:focus {
   border-radius: 999px;
   display: inline-flex;
   font-size: 0.78rem;
-  font-weight: 900;
+  font-weight: 800;
   padding: 5px 9px;
 }
 
@@ -9247,7 +9247,7 @@ select:focus {
   display: grid;
   gap: 6px;
   color: var(--lp-color-text-muted);
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .learn-toolbar input,
@@ -9328,7 +9328,7 @@ select:focus {
 
 .learn-cycle-card span {
   grid-column: 2;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .learn-cycle-card strong,
@@ -9383,7 +9383,7 @@ select:focus {
   background: #eef6ff;
   color: #1A3A6B;
   font-size: 0.82rem;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .learn-hero-copy {
@@ -9426,7 +9426,7 @@ select:focus {
   background: #ffffff;
   color: var(--lp-color-text-muted);
   text-align: center;
-  font-weight: 850;
+  font-weight: 800;
   box-shadow: none;
 }
 
@@ -9455,7 +9455,7 @@ select:focus {
   background: #eef6ff;
   color: #1A3A6B;
   font-size: 0.82rem;
-  font-weight: 950;
+  font-weight: 800;
   box-shadow: inset 0 -4px 0 rgba(15, 23, 42, 0.08);
 }
 
@@ -9529,7 +9529,7 @@ select:focus {
   border-radius: 8px;
   background: #eff6ff;
   color: #1e3a8a;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .learn-game-success {
@@ -9572,7 +9572,7 @@ select:focus {
   border-radius: 6px;
   background: #1A3A6B;
   color: #ffffff;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .learn-child-path article strong {
@@ -9630,7 +9630,7 @@ select:focus {
 .learn-letter-tile span {
   color: #b45309;
   font-size: 1.8rem;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .learn-letter-body {
@@ -9649,7 +9649,7 @@ select:focus {
   background: #eef6ff;
   color: #1A3A6B;
   font-size: 1.1rem;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .learn-word-chip-row,
@@ -9665,7 +9665,7 @@ select:focus {
   border-radius: 6px;
   background: #ffffff;
   color: #1A3A6B;
-  font-weight: 900;
+  font-weight: 800;
   box-shadow: 0 0 0 1px #d9e2ec;
 }
 
@@ -9685,13 +9685,13 @@ select:focus {
   background: #1A3A6B;
   color: #ffffff;
   font-size: 0.8rem;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .learn-letter-card span {
   color: var(--lp-color-text-strong);
   font-size: 1.1rem;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .formation-line,
@@ -9764,7 +9764,7 @@ select:focus {
 .learn-call-response span {
   color: var(--lp-color-text-muted);
   font-size: 0.82rem;
-  font-weight: 850;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
@@ -9775,7 +9775,7 @@ select:focus {
 .learn-practice-list.reveal summary {
   cursor: pointer;
   color: #1d4ed8;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .learn-activity-card.visual {
@@ -9804,7 +9804,7 @@ select:focus {
 .learn-hfw-card span {
   color: #365314;
   font-size: 1.2rem;
-  font-weight: 950;
+  font-weight: 800;
   letter-spacing: 0.08em;
 }
 
@@ -9824,12 +9824,12 @@ select:focus {
   border-radius: 12px;
   background: #eef2ff;
   color: #3730a3;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .learn-video-resource a {
   color: #0f766e;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .learn-guided-reading-week {
@@ -9888,7 +9888,7 @@ select:focus {
 .learn-guided-cover span {
   color: #0f766e;
   font-size: 3rem;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .learn-guided-book-copy {
@@ -9902,7 +9902,7 @@ select:focus {
 .learn-guided-book-copy small,
 .learn-guided-warning {
   color: var(--lp-color-text-muted);
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .learn-guided-book-copy strong {
@@ -9926,7 +9926,7 @@ select:focus {
   background: #eef2ff;
   color: #3730a3;
   font-size: 0.78rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .learn-game-card {
@@ -9942,7 +9942,7 @@ select:focus {
 .learn-deck-slide summary {
   cursor: pointer;
   color: #6d28d9;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .learn-game-baskets {
@@ -9961,7 +9961,7 @@ select:focus {
   border-radius: 18px;
   background: #ecfdf5;
   color: #0f766e;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .learn-game-baskets.large span {
@@ -10046,7 +10046,7 @@ select:focus {
   color: #111827;
   font-family: var(--lp-font-reading);
   font-size: clamp(3.2rem, 11vw, 6.5rem);
-  font-weight: 950;
+  font-weight: 800;
   line-height: 1;
 }
 
@@ -10066,7 +10066,7 @@ select:focus {
   border-radius: 10px;
   background: #ffffff;
   color: #111827;
-  font-weight: 900;
+  font-weight: 800;
   text-align: center;
 }
 
@@ -10218,7 +10218,7 @@ select:focus {
 .learn-fullscreen-actions span {
   color: var(--lp-color-text-muted);
   font-size: 0.82rem;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .learn-fullscreen-actions {
@@ -10339,7 +10339,7 @@ select:focus {
   background: #f8fbfd;
   color: #1A3A6B;
   font-size: var(--lesson-card-word-size);
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .learn-lesson-player .learn-picture-card-grid.card-row {
@@ -10433,7 +10433,7 @@ select:focus {
   background: #eef6ff;
   color: #1A3A6B;
   font-size: 1.1rem;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .learn-picture-image {
@@ -10467,7 +10467,7 @@ select:focus {
   background: #FFFBEA;
   color: #9a5d00;
   font-size: 1.35rem;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .learn-picture-card > b {
@@ -10494,7 +10494,7 @@ select:focus {
 .learn-picture-card small {
   color: var(--lp-color-text-muted);
   font-size: clamp(0.95rem, 1.6vw, 1.25rem);
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .learn-slide-callout,
@@ -10516,7 +10516,7 @@ select:focus {
 .learn-slide-kicker {
   color: #1A3A6B;
   font-size: var(--lesson-subtitle-size);
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .learn-lesson-player .letter-slide {
@@ -10582,7 +10582,7 @@ select:focus {
   background: #1A3A6B;
   color: #ffffff;
   font-size: 0.9rem;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .stroke-start.one {
@@ -10634,7 +10634,7 @@ select:focus {
   gap: 8px;
   align-items: center;
   color: #1A3A6B;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .learn-stroke-caption span {
@@ -10679,7 +10679,7 @@ select:focus {
   background: #1A3A6B;
   color: #ffffff;
   font-size: clamp(1.25rem, 2.5vw, 1.8rem);
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .learn-sound-callout strong {
@@ -10857,7 +10857,7 @@ select:focus {
   background: #f8fbfd;
   color: #1A3A6B;
   font-size: clamp(0.9rem, 1.4vw, 1rem);
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .learn-audio-control audio {
@@ -10905,7 +10905,7 @@ select:focus {
 .learn-reader-cover span {
   color: #1A3A6B;
   font-size: 4rem;
-  font-weight: 950;
+  font-weight: 800;
 }
 
 .learn-reader-lead span,
@@ -10917,7 +10917,7 @@ select:focus {
 .learn-reader-lead span {
   display: block;
   color: #4b647a;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .learn-reader-lead h1 {
@@ -10981,7 +10981,7 @@ select:focus {
   overflow: hidden;
   color: #172033;
   font-size: clamp(0.85rem, 1.25vw, 1rem);
-  font-weight: 850;
+  font-weight: 800;
   line-height: 1.2;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -11025,7 +11025,7 @@ select:focus {
   max-width: 100%;
   color: var(--lp-color-text-muted);
   font-size: clamp(0.9rem, 1.4vw, 1.05rem);
-  font-weight: 850;
+  font-weight: 800;
   line-height: 1.2;
   overflow-wrap: anywhere;
 }
@@ -11182,7 +11182,7 @@ select:focus {
 .hfw-slide span {
   color: #365314;
   font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 950;
+  font-weight: 800;
   letter-spacing: 0.08em;
 }
 
@@ -11512,7 +11512,7 @@ select:focus {
   border: 1px dashed var(--color-border-soft);
   border-radius: 12px;
   color: var(--lp-color-text-muted);
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .teacher-single-point-chart strong {
@@ -11584,7 +11584,7 @@ select:focus {
   background: #f8fafc;
   color: var(--lp-color-text-strong);
   font-size: 0.78rem;
-  font-weight: 850;
+  font-weight: 800;
   text-align: center;
 }
 
@@ -12860,7 +12860,7 @@ select:focus {
 .learn-created-slide-counter {
   color: var(--lp-color-text-muted);
   font-size: 0.88rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .learn-created-deck-header h2 {
@@ -12902,7 +12902,7 @@ select:focus {
   background: #f8fafc;
   color: #1A3A6B;
   font-size: 0.82rem;
-  font-weight: 900;
+  font-weight: 800;
   text-decoration: none;
 }
 
@@ -12947,7 +12947,7 @@ select:focus {
   padding: 8px 10px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.16);
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .learn-deck-image-placeholder strong {
@@ -12991,7 +12991,7 @@ select:focus {
 .learn-overlay-header span,
 .learn-game-feedback {
   color: var(--lp-color-text-muted);
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .turn-card-grid,
@@ -13018,7 +13018,7 @@ select:focus {
   background: #f8fbfd;
   color: #1A3A6B;
   font: inherit;
-  font-weight: 900;
+  font-weight: 800;
   text-align: center;
 }
 
@@ -13080,7 +13080,7 @@ select:focus {
 .learn-answer-reveal summary {
   color: #1A3A6B;
   cursor: pointer;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .learn-answer-reveal p {
@@ -13123,7 +13123,7 @@ select:focus {
 .learn-card-image-fallback {
   color: #1A3A6B;
   font-size: 2rem;
-  font-weight: 950;
+  font-weight: 800;
   box-shadow: inset 0 0 0 1px #d8e4ee;
 }
 
@@ -13134,7 +13134,7 @@ select:focus {
   background: #ffffff;
   color: #1A3A6B;
   font-size: 0.76rem;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .learn-browser {
@@ -13171,7 +13171,7 @@ select:focus {
   overflow: hidden;
   color: var(--lp-color-text-muted);
   font-size: 0.9rem;
-  font-weight: 850;
+  font-weight: 800;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -13370,7 +13370,7 @@ select:focus {
   overflow: hidden;
   color: #1A3A6B;
   font-size: 0.9rem;
-  font-weight: 950;
+  font-weight: 800;
   line-height: 1;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -13697,7 +13697,7 @@ select:focus {
 .learn-created-slide-counter {
   color: #334155;
   font-size: 0.74rem;
-  font-weight: 900;
+  font-weight: 800;
   white-space: nowrap;
 }
 
@@ -14371,7 +14371,7 @@ select:focus {
   align-items: center;
   color: #0f172a;
   font-size: 11px;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 .growth-el-item-grid {
@@ -14391,7 +14391,7 @@ select:focus {
   background: #f8fafc;
   color: #0f172a;
   font-size: 12px;
-  font-weight: 850;
+  font-weight: 800;
 }
 
 .growth-el-item.correct {

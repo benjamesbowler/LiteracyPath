@@ -84,6 +84,11 @@ export function TeacherDashboardPage({
   const [editingSequence, setEditingSequence] = useState("");
   const loadStudentsRef = useRef(loadStudents);
   const loadClassDashboardRef = useRef(loadClassDashboard);
+  const newStudentInputRef = useRef(null);
+  function focusNewStudentInput() {
+    newStudentInputRef.current?.scrollIntoView?.({ behavior: "smooth", block: "center" });
+    newStudentInputRef.current?.focus?.();
+  }
   const selectedClass = classList.find(row => row.id === selectedClassId) || null;
   const dashboardById = useMemo(
     () => new Map(classDashboard.map(row => [row.id, row])),
@@ -394,6 +399,7 @@ export function TeacherDashboardPage({
             <label className="teacher-dashboard-control">
               <span>New student</span>
               <input
+                ref={newStudentInputRef}
                 autoComplete="off"
                 value={newStudentName}
                 placeholder="Enter student name"
