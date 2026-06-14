@@ -938,7 +938,9 @@
   position: absolute;
   left: 0;
   top: 0;
-  transform: translate(-50%, -100%);
+  /* Stands just above its stop and overlaps the marker, so it always reads as
+     "on" the button - not floating above it (which it did when zoomed). */
+  transform: translate(-50%, -84%);
   transform-origin: bottom center;
   pointer-events: none;
   z-index: 5;
@@ -951,7 +953,8 @@
 
 .sbq-mapboard .sbq-journey-avatar img {
   display: block;
-  height: calc(74px * var(--map-zoom, 1));
+  /* Grows only a little with zoom (capped) so it never towers above its stop. */
+  height: calc(58px * min(var(--map-zoom, 1), 1.4));
   width: auto;
   filter: drop-shadow(0 5px 10px rgba(15, 23, 42, 0.28));
 }

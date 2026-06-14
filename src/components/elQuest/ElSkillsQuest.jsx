@@ -498,7 +498,12 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   const homeWorldId = worldForCycle(recommendedCycle?.cycleNumber || 1).id;
   const activeWorldId = mapWorldId || homeWorldId;
   const region = WORLD_REGIONS.find(r => r.id === activeWorldId) || WORLD_REGIONS[0];
-  const stops = playableCycles.filter(cycle => region.test(cycle.cycleNumber));
+  // Memoised so its reference is stable across renders - otherwise the avatar
+  // tween effect re-ran on EVERY render and could snap mid-animation (a glitch).
+  const stops = useMemo(
+    () => playableCycles.filter(cycle => region.test(cycle.cycleNumber)),
+    [playableCycles, region]
+  );
   const mapView = wideMap ? MAP_VIEW.wide : MAP_VIEW.portrait;
   const mapPoints = wideMap
     ? wideMapPointsFor(region.id, wideOverride)
