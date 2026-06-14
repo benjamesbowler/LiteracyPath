@@ -15784,6 +15784,38 @@ summary:focus-visible {
   }
 }
 
+/* ─── Lazy route loading state: a centered card + spinner (no bare heading) ──── */
+.lazy-page-fallback {
+  min-height: 60dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+.lazy-page-fallback-card {
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+  padding: 28px 32px;
+  border-radius: var(--lp-radius-card, 10px);
+  background: var(--lp-color-surface, #ffffff);
+  border: 1px solid var(--lp-color-border, #e2e8f0);
+  box-shadow: var(--lp-shadow-card);
+  color: var(--lp-color-text-strong);
+  font: 700 1rem var(--lp-font-ui, system-ui, sans-serif);
+}
+.lazy-page-fallback-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--lp-color-border, #e2e8f0);
+  border-top-color: var(--lp-color-primary, #0c6b65);
+  border-radius: 50%;
+  animation: lazy-fallback-spin 0.8s linear infinite;
+}
+@keyframes lazy-fallback-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .lazy-page-fallback-spinner { animation: none; }
+}
+
 /* ─── Professional finish: crisp type, no mobile tap-flash, branded selection ── */
 html {
   -webkit-text-size-adjust: 100%;

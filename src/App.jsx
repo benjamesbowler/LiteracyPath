@@ -139,6 +139,7 @@ import {
   hydrateCloudProgress,
   queueProgressSave
 } from "./utils/progressSync.js";
+import { insertWithRetry, startInsertQueueFlusher } from "./utils/insertQueue.js";
 
 // dynamic mastery system
 
@@ -238,8 +239,11 @@ const PhonicsLearnPage = lazyWithRetry(() =>
 
 function LazyPageFallback({ label = "Loading..." }) {
   return (
-    <div className="card page-card page-stack lazy-page-fallback">
-      <h2>{label}</h2>
+    <div className="lazy-page-fallback" role="status" aria-live="polite">
+      <div className="lazy-page-fallback-card">
+        <div className="lazy-page-fallback-spinner" aria-hidden="true" />
+        <strong>{label}</strong>
+      </div>
     </div>
   );
 }
@@ -1846,6 +1850,9 @@ export default function App() {
     window.addEventListener(DYNAMIC_IMPORT_ERROR_EVENT, handleDynamicImportFailure);
     return () => window.removeEventListener(DYNAMIC_IMPORT_ERROR_EVENT, handleDynamicImportFailure);
   }, []);
+
+  // Drain any assessment saves that failed earlier (retries on reconnect/focus).
+  useEffect(() => { startInsertQueueFlusher(); }, []);
 
   useEffect(() => {
     if (authReady) return undefined;
@@ -5264,45 +5271,35 @@ export default function App() {
     if (!studentId || !teacherId) return;
     const normalizedRecord = normalizeAnswerRecordShape(record);
 
-    const { error } = await supabase
-      .from("answers")
-      .insert({
-        student_id: studentId,
-        teacher_id: teacherId,
-        skill: normalizedRecord.skill,
-        stage: normalizedRecord.stage,
-        diagnostic_target: normalizedRecord.diagnosticTarget,
-        question: normalizedRecord.question,
-        passage: normalizedRecord.passage,
-        chosen_answer: normalizedRecord.chosen,
-        correct_answer: normalizedRecord.correct,
-        is_correct: normalizedRecord.isCorrect
-      });
-
-    if (error) {
-      console.error("Supabase answer save error:", error);
-    }
+    // insertWithRetry queues the row on failure and retries on reconnect, so a
+    // flaky network no longer silently drops a teacher's assessment record.
+    await insertWithRetry("answers", {
+      student_id: studentId,
+      teacher_id: teacherId,
+      skill: normalizedRecord.skill,
+      stage: normalizedRecord.stage,
+      diagnostic_target: normalizedRecord.diagnosticTarget,
+      question: normalizedRecord.question,
+      passage: normalizedRecord.passage,
+      chosen_answer: normalizedRecord.chosen,
+      correct_answer: normalizedRecord.correct,
+      is_correct: normalizedRecord.isCorrect
+    });
   }
 
   async function saveMasteryToSupabase(stage, score, total, mastered) {
     if (!studentId || !teacherId) return;
 
-    const { error } = await supabase
-      .from("mastery")
-      .insert({
-        student_id: studentId,
-        teacher_id: teacherId,
-        skill_id: stage.id,
-        skill_label: stage.label,
-        mastered,
-        attempts: 1,
-        last_score: score,
-        last_total: total
-      });
-
-    if (error) {
-      console.error("Supabase mastery save error:", error);
-    }
+    await insertWithRetry("mastery", {
+      student_id: studentId,
+      teacher_id: teacherId,
+      skill_id: stage.id,
+      skill_label: stage.label,
+      mastered,
+      attempts: 1,
+      last_score: score,
+      last_total: total
+    });
   }
 
   function formatCoverageKeyLabel(key) {
