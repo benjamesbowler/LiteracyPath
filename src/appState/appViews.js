@@ -18,6 +18,7 @@ export const APP_VIEWS = {
   ADVANCED_PHONICS: "advancedPhonics",
   TEACHER_DASHBOARD: "teacherDashboard",
   WORKSHEETS: "worksheets",
+  PRESENT: "present",
   ADMIN_DASHBOARD: "admin"
 };
 
