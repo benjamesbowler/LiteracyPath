@@ -4372,8 +4372,54 @@ body {
   padding: 12px;
   border: 1px solid var(--lp-color-border-subtle);
   border-radius: 12px;
-  background: #f8fafc;
+  background: var(--lp-color-surface-subtle);
   color: var(--lp-color-text-muted);
+}
+
+/* First-run onboarding empty state: a friendly, guided "set up your class" card
+   instead of a bare grey box. */
+.teacher-onboard-empty {
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+  padding: clamp(20px, 4vw, 36px);
+  background: var(--lp-color-surface);
+}
+.teacher-onboard-empty strong {
+  font-size: 1.15rem;
+  color: var(--lp-color-text-strong);
+}
+.teacher-onboard-empty p {
+  margin: 0;
+  max-width: 440px;
+}
+.teacher-onboard-empty .lp-button {
+  margin-top: 4px;
+}
+.teacher-onboard-steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.teacher-onboard-steps span {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--lp-color-surface-subtle);
+  border: 1px solid var(--lp-color-border);
+  color: var(--lp-color-text-muted);
+  font: 700 0.78rem var(--lp-font-ui);
+}
+.teacher-onboard-steps span.active {
+  background: var(--lp-color-primary-soft);
+  border-color: var(--lp-color-primary);
+  color: var(--lp-color-primary-strong);
+}
+.teacher-onboard-steps span.done {
+  background: var(--lp-color-success-soft);
+  border-color: var(--lg-domain-reading-mid);
+  color: var(--lp-color-success-text);
 }
 
 .report-empty-state.compact {

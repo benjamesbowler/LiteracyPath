@@ -424,16 +424,29 @@ export function TeacherDashboardPage({
         )}
 
         {!selectedClass ? (
-          <div className="report-empty-state">
-            <strong>No class selected.</strong>
-            <p>Select or create a class to see the student roster.</p>
+          <div className="report-empty-state teacher-onboard-empty">
+            <div className="teacher-onboard-steps" aria-hidden="true">
+              <span className="active">1. Create a class</span>
+              <span>2. Add students</span>
+              <span>3. Start a check</span>
+            </div>
+            <strong>Welcome! Let&rsquo;s set up your class.</strong>
+            <p>Create a class above to get started — then you can add your students and begin.</p>
           </div>
         ) : loadingStudents ? (
           <p className="muted-text">Loading students...</p>
         ) : studentRows.length === 0 ? (
-          <div className="report-empty-state">
-            <strong>No students yet.</strong>
-            <p>Create the first student for this class.</p>
+          <div className="report-empty-state teacher-onboard-empty">
+            <div className="teacher-onboard-steps" aria-hidden="true">
+              <span className="done">1. Create a class</span>
+              <span className="active">2. Add students</span>
+              <span>3. Start a check</span>
+            </div>
+            <strong>Add your first student to {selectedClass.name}.</strong>
+            <p>Type a name and we&rsquo;ll create a typing-free picture login for them.</p>
+            <button className="lp-button lp-button-primary" type="button" onClick={focusNewStudentInput}>
+              Add your first student
+            </button>
           </div>
         ) : (
           <div className="table-scroll">
