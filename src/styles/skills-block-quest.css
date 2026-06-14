@@ -826,6 +826,15 @@
   z-index: 2;
 }
 
+/* Invisible padded hit area: hover stays stable right up to (and past) the
+   marker's edge, so the cursor can never land "between" states and flicker. */
+.sbq-mapboard .sbq-stop::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+}
+
 .sbq-stop-marker {
   display: grid;
   place-items: center;

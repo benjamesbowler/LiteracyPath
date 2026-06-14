@@ -12,10 +12,12 @@ export const WIDE_WORLDS = [
   { id: "moonwood", name: "Moonwood Forest", image: "/images/pals/maps/moonwood-map-wide.webp" }
 ];
 
+// Named to match the actual painted spot each stop sits on (read off the maps),
+// in stop order 1-9. Update these if the stop coordinates change.
 export const WORLD_LANDMARKS_WIDE = {
-  meadow: ["Farm Gate", "Carrot Patch", "Duck Pond", "Flower Meadow", "The Old Orchard", "Haystack Hill", "Sheep Pen", "Strawberry Field", "The Big Barn"],
-  dino: ["The Mud Pits", "Green Valley", "Fern Forest", "Giant Plants", "Fossil Creek", "Eggshell Rocks", "Stomping Grounds", "Lava Lookout", "The Volcano"],
-  moonwood: ["Glow-mushroom Grove", "Firefly Hollow", "Whispering Trees", "Moonlit Pond", "Starfall Clearing", "Crystal Cave", "The Old Oak Door", "Owl's Lookout", "The Moon Tower"]
+  meadow: ["Farm Gate", "Carrot Patch", "Duck Pond", "Apple Orchard", "Sheep Pen", "Strawberry Patch", "Strawberry Field", "Haystacks", "The Big Barn"],
+  dino: ["Misty Cliffs", "Mud Pits", "Bubbling Pools", "Fossil Creek", "Fern Jungle", "Eggshell Nest", "Stomping Grounds", "Lava Flow", "The Volcano"],
+  moonwood: ["Glow Mushrooms", "Toadstool Path", "Pond Trail", "Moonlit Pond", "Firefly Hollow", "Crystal Cave", "The Great Oak", "Forest Edge", "The Moon Tower"]
 };
 
 export const DEFAULT_WIDE_MAP_POINTS = {
