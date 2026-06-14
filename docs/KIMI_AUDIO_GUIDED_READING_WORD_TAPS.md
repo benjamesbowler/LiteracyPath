@@ -1,9 +1,9 @@
-# Kimi Audio Request — Guided Reading word-tap audio (321 words)
+# Kimi Audio Request — Guided Reading word-tap audio (308 words)
 
-In Guided Reading, a child can tap any word in a book to hear it. 321 words
-currently have NO recording, so tapping them is silent (≈1,100 silent taps,
-mostly Moonwood Tales / Meadow Pals character names and fantasy nouns).
-Record each word below in the **gold voice**.
+In Guided Reading, a child can tap any word in a book to hear it read aloud.
+308 words currently have NO recording, so tapping them is silent (~1,100
+silent taps, mostly Moonwood Tales / Meadow Pals character names and fantasy
+nouns). Record each word below in the **gold voice**.
 
 **Attach these reference clips so the voice matches exactly:**
 - `public/audio/child-mode/clean-human/words/splash.mp3`
@@ -16,26 +16,13 @@ Record each word below in the **gold voice**.
 > - Say each as ONE clear, natural word — **never spell letters out**, no robotic pauses.
 > - Proper names (Pip, Luna, Glimmer, Clucky, Woolly…) are spoken as names, naturally.
 > - Plain audio only, no SSML. One unhurried take per file.
-> - Save every file into `public/audio/child-mode/clean-human/words/` using the
->   exact filename shown. Same name overwrites if one already exists.
+> - Save each into `public/audio/child-mode/clean-human/words/` with the EXACT
+>   filename shown (same name overwrites if it already exists).
 
 ---
 
-## Words to record (321) — folder: `public/audio/child-mode/clean-human/words/`
+## Words to record (308) — folder: `public/audio/child-mode/clean-human/words/`
 
-- `1000.mp3`
-- `11.mp3`
-- `18.mp3`
-- `1969.mp3`
-- `20.mp3`
-- `200.mp3`
-- `25.mp3`
-- `4000.mp3`
-- `40000.mp3`
-- `60.mp3`
-- `60000.mp3`
-- `650.mp3`
-- `80.mp3`
 - `according.mp3`
 - `acorn.mp3`
 - `afraid.mp3`
@@ -347,5 +334,12 @@ Record each word below in the **gold voice**.
 
 ---
 
-Drop all 321 files into `public/audio/child-mode/clean-human/words/`, push as
-usual, and the word-tap audio works automatically across every book.
+### Optional (numbers in nonfiction books)
+These number words are also tappable but lower priority — record only if easy,
+saying the number naturally (e.g. `40000.mp3` → "forty thousand"):
+1000, 11, 18, 1969, 20, 200, 25, 4000, 40000, 60, 60000, 650, 80
+
+---
+
+Drop the files into `public/audio/child-mode/clean-human/words/`, push as usual,
+and word-tap audio works automatically across every book.
