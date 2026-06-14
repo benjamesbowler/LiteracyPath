@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
+import { MapStopEditor } from "./admin/MapStopEditor.jsx";
 import {
   buildMediaQaRecords,
   MEDIA_QA_STATUSES,
@@ -2165,7 +2166,8 @@ export function AdminDashboardPage({
       { id: "schools", label: "Schools", count: schools.length },
       { id: "teachers", label: "Teachers", count: teachers.length },
       { id: "classes", label: "Classes", count: classes.length },
-      { id: "students", label: "Students", count: students.length }
+      { id: "students", label: "Students", count: students.length },
+      { id: "mapStops", label: "Map Stops", count: null }
     ];
 
   if (adminQaPage === "questionFlags") {
@@ -3657,6 +3659,8 @@ export function AdminDashboardPage({
         </div>
       </section>
       )}
+
+      {!isTeacherMode && activeSection === "mapStops" && <MapStopEditor />}
     </main>
   );
 }

@@ -10,6 +10,12 @@ import { printCertificate } from "../../utils/printCertificate.js";
 import { Gem } from "../Gem.jsx";
 import { gemForIndex } from "../../data/gemSet.js";
 import { worldForCycle, worldStyle, sceneForKey } from "../../utils/palWorlds.js";
+import {
+  WORLD_LANDMARKS_WIDE,
+  wideMapPointsFor,
+  getCachedWideOverride,
+  loadWideMapOverride
+} from "../../data/mapStops.js";
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../learn/games/shared/ProgressStars.jsx";
 import {
@@ -57,22 +63,8 @@ const WORLD_MAP_POINTS = {
 // Horizontal (landscape) maps for laptop/projector: the journey runs left → right
 // from the entrance to the final landmark. Stops are in journey order. These
 // coordinates are a first pass pinned by eye to the wide art and may need tuning.
-// Pinned by eye to the landmarks painted on each wide map, in journey order
-// (entrance on the left → destination on the right).
-// Placed by Benjamin using the click-to-place tool (exact positions, not guessed).
-const WORLD_MAP_POINTS_WIDE = {
-  meadow: [[12.6, 85.8], [12.3, 63.3], [21.2, 48.2], [40.5, 43.6], [65.2, 67.2], [92.6, 88.9], [81.5, 60.6], [64.2, 43.6], [81.2, 37.6]],
-  dino: [[5.4, 38], [14.6, 58.8], [10.6, 86.3], [38, 83.6], [45.7, 38.5], [61.5, 56], [76.8, 87.8], [93.3, 56.8], [88.2, 23]],
-  moonwood: [[7.4, 58], [12.3, 86], [34.1, 89.1], [46.4, 65.3], [57.5, 88.7], [70.9, 62.8], [81.2, 86], [97, 80.7], [92.1, 56.2]]
-};
-
-// Landmark names in entrance → destination order (used by the wide map so the
-// labels match the left-to-right journey).
-const WORLD_LANDMARKS_WIDE = {
-  meadow: ["Farm Gate", "Carrot Patch", "Duck Pond", "Flower Meadow", "The Old Orchard", "Haystack Hill", "Sheep Pen", "Strawberry Field", "The Big Barn"],
-  dino: ["The Mud Pits", "Green Valley", "Fern Forest", "Giant Plants", "Fossil Creek", "Eggshell Rocks", "Stomping Grounds", "Lava Lookout", "The Volcano"],
-  moonwood: ["Glow-mushroom Grove", "Firefly Hollow", "Whispering Trees", "Moonlit Pond", "Starfall Clearing", "Crystal Cave", "The Old Oak Door", "Owl's Lookout", "The Moon Tower"]
-};
+// Wide-map stop positions + landmark labels now live in ../../data/mapStops.js
+// (single source of truth; admin can override them live in the Map Stops editor).
 
 // Native pixel space of each map artwork (sets the SVG viewBox + board aspect).
 const MAP_VIEW = { portrait: { w: 1195, h: 1600 }, wide: { w: 2752, h: 1536 } };
@@ -491,6 +483,15 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
     return () => mq.removeEventListener?.("change", onChange);
   }, []);
 
+  // Admin-placed wide-map stop overrides (cached instantly, refreshed from the
+  // server). Falls back to the built-in defaults if none/offline.
+  const [wideOverride, setWideOverride] = useState(getCachedWideOverride);
+  useEffect(() => {
+    let alive = true;
+    loadWideMapOverride().then(ov => { if (alive) setWideOverride(ov); }).catch(() => {});
+    return () => { alive = false; };
+  }, []);
+
   // Map geometry (lifted to component scope so the avatar tween effect and the
   // render share the same region/stops/points). Orientation picks the art,
   // stop coordinates, landmark labels, and coordinate space together.
@@ -499,8 +500,9 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   const region = WORLD_REGIONS.find(r => r.id === activeWorldId) || WORLD_REGIONS[0];
   const stops = playableCycles.filter(cycle => region.test(cycle.cycleNumber));
   const mapView = wideMap ? MAP_VIEW.wide : MAP_VIEW.portrait;
-  const mapPoints = (wideMap ? WORLD_MAP_POINTS_WIDE : WORLD_MAP_POINTS)[region.id]
-    || WORLD_MAP_POINTS.meadow;
+  const mapPoints = wideMap
+    ? wideMapPointsFor(region.id, wideOverride)
+    : (WORLD_MAP_POINTS[region.id] || WORLD_MAP_POINTS.meadow);
   const landmarks = (wideMap ? WORLD_LANDMARKS_WIDE[region.id] : region.landmarks)
     || region.landmarks;
   const mapImage = `/images/pals/maps/${region.id}${wideMap ? "-map-wide" : "-map"}.webp`;
