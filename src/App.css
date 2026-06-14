@@ -5479,7 +5479,10 @@ select:focus {
   transition: all 0.15s ease;
 }
 
-.app button:hover:not(:disabled) {
+/* The global hover-lift must NOT touch the map stop markers: they are centered
+   with transform: translate(-50%,-50%), so a translateY here would strip the
+   centering and make them jump down-right on hover (flicker loop). */
+.app button:hover:not(:disabled):not(.sbq-stop) {
   transform: translateY(-1px);
   filter: brightness(0.98);
 }

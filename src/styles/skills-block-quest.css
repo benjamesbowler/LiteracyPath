@@ -816,7 +816,9 @@
    only visible thing is a small carved-wood marker that sits in the scene. */
 .sbq-mapboard .sbq-stop {
   position: absolute;
-  transform: translate(-50%, -50%);
+  /* !important so NO global button rule (e.g. the hover-lift) can ever strip
+     this centering and make the marker jump down-right on hover. */
+  transform: translate(-50%, -50%) !important;
   display: block;
   padding: 0;
   border: 0;
@@ -826,8 +828,7 @@
   z-index: 2;
 }
 
-/* Invisible padded hit area: hover stays stable right up to (and past) the
-   marker's edge, so the cursor can never land "between" states and flicker. */
+/* Invisible padded hit area: a slightly larger, more forgiving target. */
 .sbq-mapboard .sbq-stop::before {
   content: "";
   position: absolute;
