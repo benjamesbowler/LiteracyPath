@@ -1,5 +1,8 @@
 import { supabase } from "../supabaseClient.js";
 import { computeHydratedValue } from "./progressMerge.js";
+import { localProgressStorageKey, localProgressKeysForStudent } from "./progressKeys.js";
+
+export { PROGRESS_AREAS, localProgressKeysForStudent } from "./progressKeys.js";
 
 const SYNC_QUEUE_KEY = "lp-progress-sync-queue-v1";
 const CLOUD_ROW_STORAGE_KEY = "lp-cloud-progress-rows-v1";
@@ -30,17 +33,25 @@ function writeJson(key, value) {
   }
 }
 
-function localProgressStorageKey(area, scopeKey) {
-  const scope = encodeURIComponent(scopeKey || "default");
-  if (area === "story_quests") return `literacyPath.storyQuestProgress.v1.${scope}`;
-  if (area === "phonics_letters") return `lp_phonics_progress_${scopeKey || "default"}`;
-  if (area === "cvc") return `lp_cvc_progress_${scopeKey || "default"}`;
-  if (area === "learn_games") return `literacy-guide-learn-games:${scopeKey || "default"}`;
-  if (area === "el_quest") return `lp-el-quest:${scopeKey || "default"}`;
-  if (area === "daily_mission") return `lp-daily-mission:${scopeKey || "default"}`;
-  if (area === "profile") return `lp-student-profile:${scopeKey || "default"}`;
-  if (area === "guided_reading") return `literacyPath.guidedReadingRecords.${scope}`;
-  return "";
+// Wipe ALL local progress for a student: the area stores, this student's cached
+// cloud rows, and any of their not-yet-flushed queued writes. Used by the
+// teacher "reset progress" action so a reset can't sync straight back.
+export function clearLocalProgressForStudent(studentId) {
+  if (!isBrowser() || !studentId) return;
+  for (const key of localProgressKeysForStudent(studentId)) {
+    try { window.localStorage.removeItem(key); } catch { /* best effort */ }
+  }
+  // Drop this student's queued writes so they don't re-push deleted progress.
+  try {
+    const queue = readJson(SYNC_QUEUE_KEY, []);
+    writeJson(SYNC_QUEUE_KEY, queue.filter(item => item.studentId !== studentId));
+  } catch { /* best effort */ }
+  // Drop their cached cloud rows.
+  try {
+    const cache = readJson(CLOUD_ROW_STORAGE_KEY, {});
+    delete cache[studentId];
+    writeJson(CLOUD_ROW_STORAGE_KEY, cache);
+  } catch { /* best effort */ }
 }
 
 function cacheCloudRows(studentId, rows = []) {

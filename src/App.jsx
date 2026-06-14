@@ -139,7 +139,8 @@ import {
   clearProgressSyncSession,
   configureProgressSync,
   hydrateCloudProgress,
-  queueProgressSave
+  queueProgressSave,
+  clearLocalProgressForStudent
 } from "./utils/progressSync.js";
 import { insertWithRetry, startInsertQueueFlusher } from "./utils/insertQueue.js";
 
@@ -3646,7 +3647,8 @@ export default function App() {
       "mastery",
       "item_mastery",
       "assessment_attempts",
-      "el_assessment_reports"
+      "el_assessment_reports",
+      "student_progress"
     ]) {
       const error = await deleteStudentProgressRows(tableName, studentId);
       if (error) errors.push(error);
@@ -3662,15 +3664,19 @@ export default function App() {
 
     resetCurrentStudentLocalProgress({ clearFormalAssessments: true });
     resetSelectedStudentLocalAssessmentArchives(studentId);
+    // Clear the gamified progress too (EL Quest, learn games, phonics, cvc,
+    // story quests, guided reading, daily mission, profile) locally + queue, so
+    // the now-deleted cloud rows can't forward-merge straight back on next load.
+    clearLocalProgressForStudent(studentId);
     if (import.meta.env.DEV) {
-      console.debug("[assessment-reset] Reset assessment data for selected student", {
+      console.debug("[assessment-reset] Reset all progress for selected student", {
         studentId,
         teacherId
       });
     }
     setResetProgressDialogOpen(false);
     setAppView(APP_VIEWS.OVERVIEW);
-    setMessage(`Assessment data reset for ${studentName || "student"}.`);
+    setMessage(`Progress reset for ${studentName || "student"}.`);
 
     await loadStudents(selectedClassId);
     await loadClassDashboard(selectedClassId);
