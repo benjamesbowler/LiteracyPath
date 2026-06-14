@@ -19,9 +19,10 @@ import {
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../learn/games/shared/ProgressStars.jsx";
 import {
-  STATIONS,
+  stationsForCycle,
   buildStationRounds,
   graphemeAudioPath,
+  wordAudioPath,
   starsForAccuracy,
   shuffleItems
 } from "./elQuestEngine.js";
@@ -283,6 +284,97 @@ function BuildRound({ round, onResult }) {
   );
 }
 
+// Pattern Power: tap EVERY word that fits the pattern, then check.
+function PatternRound({ round, onResult }) {
+  const [picked, setPicked] = useState(() => new Set());
+  const [checking, setChecking] = useState(false);
+
+  function toggle(word) {
+    if (checking) return;
+    const cue = wordAudioPath(word);
+    if (cue) playCueAudio(cue, { volume: 0.9 });
+    setPicked(current => {
+      const next = new Set(current);
+      if (next.has(word)) next.delete(word); else next.add(word);
+      return next;
+    });
+  }
+
+  function check() {
+    if (checking || picked.size === 0) return;
+    const correct = round.items.filter(item => item.fits).map(item => item.word);
+    const ok = correct.length === picked.size && correct.every(word => picked.has(word));
+    if (ok) {
+      setChecking(true);
+      window.setTimeout(() => onResult(true), 360);
+    } else {
+      onResult(false);
+      setPicked(new Set());
+    }
+  }
+
+  return (
+    <>
+      <div className="sbq-pattern-grid" aria-label="Tap every word that fits the pattern">
+        {round.items.map(item => (
+          <button
+            key={item.word}
+            type="button"
+            className={`sbq-pattern-tile${picked.has(item.word) ? " picked" : ""}`}
+            aria-pressed={picked.has(item.word)}
+            onClick={() => toggle(item.word)}
+          >
+            {item.word}
+          </button>
+        ))}
+      </div>
+      <button className="sbq-primary-button" type="button" disabled={picked.size === 0} onClick={check}>
+        Check
+      </button>
+    </>
+  );
+}
+
+// Speedy Words: read the word and tap it before the gentle timer runs out.
+// The timer is encouraging, never punishing - on time-out it just replays the
+// word as a hint and the child can keep going.
+function SpeedRound({ round, onResult, onHint }) {
+  const DURATION_MS = 6000;
+  const [run, setRun] = useState(0);
+  const [timedOut, setTimedOut] = useState(false);
+  const onHintRef = useRef(onHint);
+  useEffect(() => { onHintRef.current = onHint; }, [onHint]);
+
+  // Fresh timer on mount (the round key remounts this) and on each "Go again".
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setTimedOut(true);
+      onHintRef.current?.();
+    }, DURATION_MS);
+    return () => window.clearTimeout(timer);
+  }, [run]);
+
+  return (
+    <>
+      <div className={`sbq-speed-bar${timedOut ? " out" : ""}`} aria-hidden="true">
+        <span key={run} style={{ animationDuration: `${DURATION_MS}ms` }} />
+      </div>
+      <div className="sbq-answer-grid words">
+        {round.choices.map(choice => (
+          <button key={choice} type="button" onClick={() => onResult(choice === round.answer)}>
+            {choice}
+          </button>
+        ))}
+      </div>
+      {timedOut && (
+        <button className="sbq-ghost-button" type="button" onClick={() => { setTimedOut(false); setRun(value => value + 1); }}>
+          Go again
+        </button>
+      )}
+    </>
+  );
+}
+
 export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "default", onExit }) {
   const playableCycles = useMemo(
     () => elSkillsBlockCycles.filter(cycle => cycle.cycleNumber),
@@ -395,9 +487,10 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
       // Choose where the adventure flows next: the first practice station
       // not yet done, or the Cycle Check once enough practice is in.
       const isDone = id => doneNow[id] || savedStations[id];
-      const practiceDone = STATIONS.filter(st => st.id !== "check" && isDone(st.id)).length;
-      const nextStation = STATIONS.find(st => st.id !== "check" && !isDone(st.id))
-        || (practiceDone >= 4 ? STATIONS.find(st => st.id === "check") : null);
+      const cycleStations = stationsForCycle(activeCycle);
+      const practiceDone = cycleStations.filter(st => st.id !== "check" && isDone(st.id)).length;
+      const nextStation = cycleStations.find(st => st.id !== "check" && !isDone(st.id))
+        || (practiceDone >= 4 ? cycleStations.find(st => st.id === "check") : null);
       setCelebration({ kind: "station", correct: finalCorrect, total, nextStationId: nextStation?.id || null });
     }
     setStationId(null);
@@ -716,7 +809,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
           <p>{celebration.correct}/{celebration.total} right</p>
           {!isCycle && celebration.nextStationId && (
             <p className="sbq-next-up">
-              Next up: <strong>{STATIONS.find(st => st.id === celebration.nextStationId)?.title}</strong>
+              Next up: <strong>{stationsForCycle(activeCycle).find(st => st.id === celebration.nextStationId)?.title}</strong>
             </p>
           )}
           {isCycle && <ProgressStars stars={celebration.stars} size="lg" />}
@@ -794,13 +887,13 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
           </button>
         </header>
         <div className="sbq-stations" aria-label="Stations">
-          {STATIONS.map((station, index) => {
+          {stationsForCycle(activeCycle).map((station, index) => {
             const savedStations = progress.cycles?.[activeCycle.id]?.stations || {};
             const done = Boolean(sessionStations[station.id] || savedStations[station.id]);
             const isCheck = station.id === "check";
             // The Cycle Check is the show-what-you-know finale: it opens
             // after at least four practice stations are done.
-            const practiceDone = STATIONS.filter(item => item.id !== "check"
+            const practiceDone = stationsForCycle(activeCycle).filter(item => item.id !== "check"
               && (sessionStations[item.id] || savedStations[item.id])).length;
             const checkLocked = isCheck && practiceDone < 4 && !progress.cycles?.[activeCycle.id]?.stars;
             return (
@@ -825,7 +918,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   }
 
   // ── A live round ───────────────────────────────────────────────────────────
-  const station = STATIONS.find(item => item.id === stationId);
+  const station = stationsForCycle(activeCycle).find(item => item.id === stationId);
   const roundWorld = worldForCycle(activeCycle.cycleNumber);
   return (
     <main
@@ -874,6 +967,10 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
             <BuildRound key={`${round.word}-${roundIndex}`} round={round} onResult={handleAnswer} />
           ) : round.type === "trace" ? (
             <TraceRound key={`${round.letter}-${roundIndex}`} round={round} onResult={handleAnswer} />
+          ) : round.type === "pattern" ? (
+            <PatternRound key={`pattern-${roundIndex}`} round={round} onResult={handleAnswer} />
+          ) : round.type === "speed" ? (
+            <SpeedRound key={`speed-${roundIndex}`} round={round} onResult={handleAnswer} onHint={() => playCue(round)} />
           ) : (
             <div className={`sbq-answer-grid ${round.choiceStyle === "picture" ? "pictures" : round.choiceStyle === "letter" ? "letters" : "words"}`}>
               {round.choices.map(choice => (

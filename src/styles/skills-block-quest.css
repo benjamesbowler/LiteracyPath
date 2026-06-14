@@ -321,6 +321,70 @@
   /* No text-transform: Letter Spot rounds rely on real upper/lower case. */
 }
 
+/* Pattern Power: multi-select word tiles + a Check button. */
+.sbq-pattern-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.sbq-pattern-tile {
+  min-width: 96px;
+  min-height: 72px;
+  padding: 12px 18px;
+  border: 2px solid var(--lp-color-border);
+  border-radius: 16px;
+  background: var(--lp-color-surface);
+  box-shadow: var(--lp-shadow-card);
+  color: var(--lp-color-text-strong);
+  font-family: var(--lp-font-reading);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  cursor: pointer;
+  transition: border-color 120ms ease-out, box-shadow 120ms ease-out, background 120ms ease-out;
+}
+
+.sbq-pattern-tile.picked {
+  border-color: var(--lp-color-primary);
+  background: var(--lp-color-primary-soft);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--lp-color-primary) 35%, transparent), var(--lp-shadow-soft);
+}
+
+/* Speedy Words: a gentle, encouraging countdown bar (never punishing). */
+.sbq-speed-bar {
+  height: 12px;
+  width: min(420px, 80%);
+  margin: 0 auto 18px;
+  border-radius: 999px;
+  background: var(--lp-color-primary-soft);
+  overflow: hidden;
+}
+
+.sbq-speed-bar > span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--lp-color-primary), var(--lp-color-accent-warm, #d68a11));
+  transform-origin: left center;
+  animation: sbq-speed-drain linear forwards;
+}
+
+.sbq-speed-bar.out > span {
+  background: var(--lp-color-border);
+}
+
+@keyframes sbq-speed-drain {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sbq-speed-bar > span { animation: none; transform: scaleX(1); }
+}
+
 .sbq-answer-grid.words button {
   font-size: clamp(1.2rem, 2.6vw, 1.7rem);
 }

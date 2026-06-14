@@ -15,7 +15,7 @@ export const WIDE_WORLDS = [
 // Named to match the actual painted spot each stop sits on (read off the maps),
 // in stop order 1-9. Update these if the stop coordinates change.
 export const WORLD_LANDMARKS_WIDE = {
-  meadow: ["Farm Gate", "Carrot Patch", "Duck Pond", "Apple Orchard", "Sheep Pen", "Strawberry Patch", "Strawberry Field", "Haystacks", "The Big Barn"],
+  meadow: ["Farm Gate", "Carrot Patch", "Duck Pond", "Apple Orchard", "Wildflower Field", "Sheep Pen", "Strawberry Field", "Haystacks", "The Big Barn"],
   dino: ["Misty Cliffs", "Mud Pits", "Bubbling Pools", "Fossil Creek", "Fern Jungle", "Eggshell Nest", "Stomping Grounds", "Lava Flow", "The Volcano"],
   moonwood: ["Glow Mushrooms", "Toadstool Path", "Pond Trail", "Moonlit Pond", "Firefly Hollow", "Crystal Cave", "The Great Oak", "Forest Edge", "The Moon Tower"]
 };

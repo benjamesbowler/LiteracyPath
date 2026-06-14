@@ -421,7 +421,116 @@ function buildTraceRounds(cycle) {
   return rounds.length ? rounds : buildLetterRounds(cycle);
 }
 
-export const STATIONS = [
+// ── Fluency & Patterns games (cycles 25-27: no new letters) ──────────────────
+// These wrap-up cycles consolidate reading fluency, spelling patterns, sight
+// words and poems instead of teaching new letter-sounds, so they get their own
+// set of games. Every word is decodable / already taught by this point.
+
+// Curated spelling-pattern families. The child sorts by the PATTERN, not a sound.
+const PATTERN_FAMILIES = [
+  { label: "end with y", members: ["by", "my", "why", "try", "fly", "sky", "cry", "dry"], decoys: ["sun", "map", "run", "top", "bed", "net"] },
+  { label: "end with -ay", members: ["day", "say", "may", "play", "stay", "way"], decoys: ["dog", "sit", "cup", "ten", "mud", "log"] },
+  { label: "end with -ll", members: ["ball", "fall", "call", "tall", "bell", "fill"], decoys: ["bat", "mop", "sun", "net", "rug", "pin"] },
+  { label: "have -ng", members: ["ring", "king", "song", "bang", "hang", "long"], decoys: ["rat", "pig", "cup", "red", "mud", "tap"] },
+  { label: "start with sh", members: ["ship", "shop", "shed", "shell", "shut", "shin"], decoys: ["pig", "top", "run", "bed", "map", "sun"] },
+  { label: "end with -ck", members: ["duck", "sock", "kick", "lock", "back", "pick"], decoys: ["dog", "sun", "map", "ten", "bus", "fan"] }
+];
+
+// Station - Pattern Power: tap EVERY word that fits the pattern (multi-select).
+function buildPatternPowerRounds() {
+  return shuffleItems(PATTERN_FAMILIES).slice(0, 4).map(family => {
+    const fits = shuffleItems(family.members).slice(0, 3);
+    const decoys = shuffleItems(family.decoys).slice(0, 3);
+    const items = shuffleItems([
+      ...fits.map(word => ({ word, fits: true })),
+      ...decoys.map(word => ({ word, fits: false }))
+    ]);
+    return {
+      type: "pattern",
+      audio: "",
+      speechFallback: "",
+      prompt: `Tap all the words that ${family.label}.`,
+      patternLabel: family.label,
+      items,
+      choiceStyle: "pattern"
+    };
+  });
+}
+
+// Curated chains where each step changes exactly one letter / sound.
+const WORD_CHAINS = [
+  ["sat", "sit", "sip", "lip"],
+  ["man", "mat", "map", "cap"],
+  ["pig", "pin", "pan", "pat"],
+  ["hot", "hop", "top", "tap"],
+  ["bed", "bad", "bag", "big"],
+  ["run", "ran", "rat", "sat"]
+];
+
+function changedSlot(from, to) {
+  for (let i = 0; i < Math.min(from.length, to.length); i += 1) {
+    if (from[i] !== to[i]) return i;
+  }
+  return -1;
+}
+
+// Station - Word Chains: change one sound to turn one word into the next.
+function buildWordChainRounds() {
+  const rounds = [];
+  for (const chain of shuffleItems(WORD_CHAINS).slice(0, 2)) {
+    for (let i = 0; i < chain.length - 1; i += 1) {
+      const from = chain[i];
+      const to = chain[i + 1];
+      const slot = changedSlot(from, to);
+      if (slot < 0 || from.length !== to.length) continue;
+      const answer = to[slot];
+      const distractors = shuffleItems("aeioubdgmnpst".split("")
+        .filter(l => l !== answer && l !== from[slot])).slice(0, 2);
+      rounds.push({
+        type: "chain",
+        audio: wordAudioPath(to),
+        speechFallback: to,
+        prompt: `Change "${from}" into "${to}". Tap the missing letter.`,
+        display: to.split("").map((ch, idx) => (idx === slot ? "_" : ch)).join(" "),
+        choices: shuffleItems([answer, ...distractors]),
+        answer,
+        choiceStyle: "letter"
+      });
+    }
+  }
+  return rounds;
+}
+
+// Station - Speedy Words: read the sight word and tap it fast (gentle timer).
+function buildSpeedyWordRounds(cycle) {
+  return buildQuickWordRounds(cycle).map(round => ({
+    ...round,
+    type: "speed",
+    prompt: "Read it, then tap the word - be quick!",
+    display: round.answer
+  }));
+}
+
+// Station - Spell It: hear (or read) a sight word and build its spelling.
+function buildSpellRounds(cycle) {
+  const words = uniqueChoices((cycle.highFrequencyWords || []).map(w => w.toLowerCase()))
+    .filter(word => /^[a-z]{2,6}$/.test(word));
+  if (!words.length) return buildWordBuildRounds(cycle);
+  return words.slice(0, 5).map(word => {
+    const audio = wordAudioPath(word);
+    return {
+      type: "build",
+      audio,
+      speechFallback: word,
+      prompt: audio ? "Spell the word you hear." : "Spell this word.",
+      display: audio ? "" : word,
+      word,
+      choiceStyle: "build"
+    };
+  });
+}
+
+const STANDARD_STATIONS = [
   { id: "letters", title: "Letter Spot", subtitle: "Big and small letters", build: buildLetterRounds },
   { id: "sounds", title: "Sound Catch", subtitle: "Hear it, find it", build: buildSoundRounds },
   { id: "hunt", title: "Sound Hunt", subtitle: "Pictures and first sounds", build: buildHuntRounds },
@@ -434,21 +543,52 @@ export const STATIONS = [
   { id: "check", title: "Cycle Check", subtitle: "Show what you know", build: null }
 ];
 
+// Cycles 25-27 swap the letter-sound games for fluency, pattern and poem games.
+const FLUENCY_STATIONS = [
+  { id: "pattern", title: "Pattern Power", subtitle: "Sort the word patterns", build: buildPatternPowerRounds },
+  { id: "chain", title: "Word Chains", subtitle: "Change one sound", build: buildWordChainRounds },
+  { id: "speed", title: "Speedy Words", subtitle: "Read them fast", build: buildSpeedyWordRounds },
+  { id: "poem", title: "Poem Play", subtitle: "Read it, find the words", build: buildPoemRounds },
+  { id: "spell", title: "Spell It", subtitle: "Build the word", build: buildSpellRounds },
+  { id: "check", title: "Cycle Check", subtitle: "Show what you know", build: null }
+];
+
+// Backwards-compatible default export (the standard letter-sound set).
+export const STATIONS = STANDARD_STATIONS;
+
+// Cycles 25+ have no new focus letters - they are fluency / pattern wrap-ups.
+export function isFluencyCycle(cycle) {
+  return (cycle?.cycleNumber || 0) >= 25;
+}
+
+export function stationsForCycle(cycle) {
+  return isFluencyCycle(cycle) ? FLUENCY_STATIONS : STANDARD_STATIONS;
+}
+
 export function buildStationRounds(cycle, stationId) {
   if (stationId === "check") {
-    const everything = [
-      ...buildLetterRounds(cycle),
-      ...buildSoundRounds(cycle),
-      ...buildHuntRounds(cycle),
-      ...buildQuickWordRounds(cycle),
-      ...buildWordBuildRounds(cycle),
-      ...buildWordPlayRounds(cycle)
-    ];
+    const everything = isFluencyCycle(cycle)
+      ? [
+          ...buildPatternPowerRounds(cycle),
+          ...buildWordChainRounds(cycle),
+          ...buildSpeedyWordRounds(cycle),
+          ...buildSpellRounds(cycle),
+          ...buildPoemRounds(cycle)
+        ]
+      : [
+          ...buildLetterRounds(cycle),
+          ...buildSoundRounds(cycle),
+          ...buildHuntRounds(cycle),
+          ...buildQuickWordRounds(cycle),
+          ...buildWordBuildRounds(cycle),
+          ...buildWordPlayRounds(cycle)
+        ];
     return shuffleItems(everything).slice(0, 10);
   }
-  const station = STATIONS.find(item => item.id === stationId);
+  const station = [...STANDARD_STATIONS, ...FLUENCY_STATIONS].find(item => item.id === stationId);
   const rounds = station?.build ? station.build(cycle) : [];
-  return rounds.length ? rounds : buildSoundRounds(cycle);
+  if (rounds.length) return rounds;
+  return isFluencyCycle(cycle) ? buildSpeedyWordRounds(cycle) : buildSoundRounds(cycle);
 }
 
 export function starsForAccuracy(correct, total, wrongs) {
