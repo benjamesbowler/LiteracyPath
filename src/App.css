@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lexend:wght@400;500;600;700&display=swap');
+/* Web fonts (Inter, Lexend, Fredoka, Nunito) are loaded non-render-blocking via
+   a <link> in index.html — not a CSS @import, which blocks first paint. */
 @import './styles/lg-design-system.css';
 @import './styles/pal-worlds.css';
 

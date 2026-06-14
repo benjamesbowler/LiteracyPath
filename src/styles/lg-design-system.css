@@ -8,49 +8,10 @@
 
 /* ─── 1. Brand tokens ──────────────────────────────────────────────────────── */
 :root {
-  /* Primary brand — teal (replaces indigo #4f63d7) */
-  --lp-color-primary:        #0C6B65;
-  --lp-color-primary-strong: #084E4A;
-  --lp-color-primary-soft:   #E3F4F2;
-
-  /* Success — slightly brighter than old teal */
-  --lp-color-success:        #15803D;
-  --lp-color-success-soft:   #F0FDF4;
-  --lp-color-success-text:   #14532D;
-  --lp-color-teal-text:      #084E4A;
-
-  /* Warning / danger unchanged — already good */
-  --lp-color-warning:        #B45309;
-  --lp-color-warning-soft:   #FEF3C7;
-  --lp-color-danger:         #B91C1C;
-  --lp-color-danger-soft:    #FEF2F2;
-
-  /* Surfaces — remove warm tint, use clean cool-white */
-  --lp-color-surface:              #ffffff;
-  --lp-color-surface-warm:         #ffffff;
-  --lp-color-surface-subtle:       #F8FAFC;
-  --lp-color-background:           #F1F5F9;
-  --lp-color-background-warm:      #F1F5F9;
-  --lp-color-background-warm-strong: #F1F5F9;
-
-  /* Borders — slightly cooler */
-  --lp-color-border:        #E2E8F0;
-  --lp-color-border-strong: #CBD5E1;
-  --lp-color-border-subtle: #E2E8F0;
-
-  /* Shadows — remove warm tint, lighter */
-  --lp-shadow-card: 0 1px 4px rgba(15, 23, 42, 0.06), 0 4px 16px rgba(15, 23, 42, 0.06);
-  --lp-shadow-nav:  0 1px 3px rgba(15, 23, 42, 0.08);
-  --lp-shadow-soft: 0 4px 24px rgba(15, 23, 42, 0.08);
-  --lp-shadow-focus: 0 0 0 3px rgba(12, 107, 101, 0.22);
-
-  /* Radius — flatten cards significantly */
-  --lp-radius-sm:   4px;
-  --lp-radius-md:   6px;
-  --lp-radius-lg:   8px;
-  --lp-radius-xl:   10px;
-  --lp-radius-card: 10px;
-  --lp-radius-pill: 999px;
+  /* NOTE: the --lp-* brand/colour/shadow/radius tokens are the single source of
+     truth in App.css (its :root is imported after this file, so it wins). The
+     duplicate --lp-* block that used to live here was dead and has been removed.
+     Only the --lg-* tokens below (unique to this file) are defined here. */
 
   /* Sidebar */
   --lg-sidebar-width-open:      200px;
