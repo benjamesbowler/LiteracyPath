@@ -1,12 +1,9 @@
-import fs from "node:fs";
 import path from "node:path";
 
 import {
   getAssessmentMediaRegistry,
   getAssessmentMediaByPath,
-  findAssessmentMediaCandidates,
   normalizeAssessmentMediaWord,
-  normalizeAssessmentSkillId
 } from "../src/data/assessmentMediaRegistry.js";
 import {
   inferAssessmentQuestionTargetWord,

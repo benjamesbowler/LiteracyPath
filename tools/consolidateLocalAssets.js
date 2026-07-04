@@ -84,7 +84,7 @@ function getType(ext) {
 async function walk(dir) {
   const files = [];
   async function visit(current) {
-    let entries = [];
+    let entries;
     try {
       entries = await fsp.readdir(current, { withFileTypes: true });
     } catch {

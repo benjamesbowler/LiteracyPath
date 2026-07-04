@@ -1,6 +1,6 @@
 # Media Replacement Log
 
-Date: 2026-05-26
+Date: 2026-07-04
 
 ## Replaced Or Restored From Approved Media
 
@@ -36,4 +36,5 @@ _None._
 | rocket | /media/initial-sounds/images/r/rocket.webp | 0.568 | 0.414 | 6 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
 | star | /media/initial-sounds/images/s/star.webp | 0.706 | 0.624 | 7 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
 | woodpecker | /media/initial-sounds/images/w/woodpecker.webp | 0.652 | 0.127 | 8 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
-| flag | /images/child-mode/blends/flag.png | 0.635 | 0.406 | 9 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
+| fish | /images/child-mode/cvc/fish.png | 0.793 | 0.637 | 9 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
+| beachball | /media/vocabulary/images/beachball.webp | 0.864 | 0.814 | 8 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |

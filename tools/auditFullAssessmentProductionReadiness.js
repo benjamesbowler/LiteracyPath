@@ -14,7 +14,6 @@ import {
   inferPatternForSkill,
   loadCoreQuestionPool,
   publicPathExists,
-  questionFilterReason,
   repoRoot,
   normalizeWord
 } from "./phonicsRuntimeUtils.js";
@@ -101,12 +100,6 @@ function normalizeToken(value = "") {
 
 function slug(value = "") {
   return normalizeWord(value).replace(/\s+/g, "-").replace(/^-+|-+$/g, "");
-}
-
-function display(value) {
-  if (Array.isArray(value)) return value.length ? value.join(", ") : "-";
-  if (value === null || value === undefined || value === "") return "-";
-  return String(value);
 }
 
 function markdownTable(headers, rows) {

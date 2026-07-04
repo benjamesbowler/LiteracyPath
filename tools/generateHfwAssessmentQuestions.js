@@ -2,12 +2,26 @@ import fs from "node:fs";
 import path from "node:path";
 
 import { hfwApprovedQuestionBank } from "../src/data/generated/hfwApprovedQuestionBank.generated.js";
+import { hfwCuratedSentences } from "../src/data/generated/hfwCuratedSentences.generated.js";
 import {
   getMultiplePlausibleHfwAnswerIssues,
   getWeakGenericHfwPromptIssues
 } from "../src/data/hfwQualityRules.js";
 
 const outputPath = path.join("src", "data", "generated", "hfwAssessmentQuestions.generated.js");
+
+// Link each workbook question to its curated sentence row so provenance
+// (sentenceId + curatedContentKey) survives into the generated bank.
+const curatedSentenceByTextKey = new Map(hfwCuratedSentences.map(row => [
+  [row.skillId, row.targetWord, row.sentenceWithBlank, row.fullSentence].join("::").toLowerCase(),
+  row
+]));
+
+function curatedSentenceFor(row = {}) {
+  return curatedSentenceByTextKey.get(
+    [row.skillId, row.targetWord, row.sentenceWithBlank, row.fullSentence].join("::").toLowerCase()
+  ) || null;
+}
 const strictRuntimeRejectPattern = /Tap the word|Find the word|Which word says|When the train slowed|When the ball bounced|before snack|with a smile|may choose a book|truck stopped by the gate/i;
 
 function normalizeWord(value = "") {
@@ -45,7 +59,12 @@ function hasUsableLetterTiles(row = {}) {
 }
 
 function commonFields(row = {}) {
+  const curated = curatedSentenceFor(row);
   return {
+    ...(curated ? {
+      sentenceId: curated.sentenceId,
+      curatedContentKey: curated.contentKey
+    } : {}),
     id: row.questionId,
     questionId: row.questionId,
     approvedQuestionId: row.questionId,

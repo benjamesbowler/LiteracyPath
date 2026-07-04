@@ -22,8 +22,12 @@ const activeFiction = guidedReadingBooks.filter(book => normalizeGuidedReadingTy
 const nonfiction = guidedReadingBooks.filter(book => normalizeGuidedReadingType(book.type) === "nonfiction");
 const failures = [];
 
-if (activeFiction.length) {
-  failures.push(`Fiction books remain active: ${activeFiction.map(book => book.id).join(", ")}`);
+// Current library policy: guided reading ships BOTH fiction series
+// (Bob and Nan, Dino Pals, Meadow Pals, Moonwood Tales, ...) and nonfiction.
+// The old "fiction must migrate out" rule is retired; this audit now guards
+// library health: both types present, and no stale draft exports.
+if (!activeFiction.length) {
+  failures.push("No fiction guided-reading books remain active.");
 }
 if (guidedStoryBookDrafts.length) {
   failures.push(`Guided story fiction drafts remain exported: ${guidedStoryBookDrafts.map(book => book.id).join(", ")}`);

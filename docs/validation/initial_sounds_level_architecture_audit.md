@@ -9,10 +9,10 @@ Date: 2026-05-24
 - Letter X present: no
 - Duplicate target words: 0
 - Round length: 15
-- Round 1 sample letters: a, b, c, d, e, f, g, h, i, j, k, l, m, n, o
-- Round 1 sample words: ant, bat, cat, dog, egg, fan, gum, hat, ink, jam, king, leg, map, nest, ox
-- Round 2 sample letters: p, q, r, s, t, u, v, w, y, z, a, b, c, d, e
-- Round 2 sample words: pig, queen, ring, sun, tent, up, van, wig, yak, zoo, apple, ball, cup, duck, elf
+- Round 1 sample letters: h, t, y, e, u, v, n, s, b, f, l, a, r, m, j
+- Round 1 sample words: hat, tent, yak, egg, up, van, nest, sun, bat, fan, leg, ant, ring, map, jam
+- Round 2 sample letters: k, p, i, q, g, c, z, w, d, o, s, t, j, v, f
+- Round 2 sample words: king, pig, ink, queen, gum, cat, zoo, wig, dog, ox, sock, top, jet, vest, fish
 - Level 1 available media-complete letters: a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, y, z
 - Level 1 blocked letters: none
 - Level 2 available media-complete letters: a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, y, z

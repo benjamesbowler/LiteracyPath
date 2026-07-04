@@ -12,6 +12,7 @@ import {
   loadHfwAssessmentBank
 } from "../src/data/loadAssessmentSkillBank.js";
 import { HFW_ALLOWED_FORMATS, getHfwRuntimeEligibilityIssues } from "../src/data/hfwRuntimeEligibility.js";
+import { isHfwSentenceSpellFormat } from "../src/data/hfwAssessmentFormatConfig.js";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const reportPath = path.join(repoRoot, "docs/validation/assessment_bank_loader_check.md");
@@ -184,7 +185,10 @@ for (const skillId of hfwSkillIds) {
   const levelOne = hfwQuestions.filter(question => questionLevel(question) === 1);
   const levelTwo = hfwQuestions.filter(question => questionLevel(question) === 2);
   const invalidSkillRows = hfwQuestions.filter(question => canonicalSkillId(question.assessmentSkillId || question.skillId) !== skillId);
-  const audioRows = hfwQuestions.filter(questionHasAudio);
+  // Sentence-spell (listen-and-spell) questions REQUIRE sentence audio by design;
+  // the no-audio rule only guards recognition/cloze formats where audio would leak the answer.
+  const audioRows = hfwQuestions.filter(question =>
+    questionHasAudio(question) && !isHfwSentenceSpellFormat(questionFormat(question)));
   const invalidFormatRows = hfwQuestions.filter(question => !HFW_ALLOWED_FORMATS.has(questionFormat(question)));
   const eligibilityRows = hfwQuestions
     .map(question => ({ question, issues: getHfwRuntimeEligibilityIssues(question, skillId) }))
@@ -195,7 +199,7 @@ for (const skillId of hfwSkillIds) {
   addExplicitCheck(`${skillId} HFW-safe loader level 1 depth`, levelOne.length >= 15, `${levelOne.length} questions`);
   addExplicitCheck(`${skillId} HFW-safe loader level 2 depth`, levelTwo.length >= 15, `${levelTwo.length} questions`);
   addExplicitCheck(`${skillId} HFW-safe loader active skill ids only`, invalidSkillRows.length === 0, `${invalidSkillRows.length} invalid rows`);
-  addExplicitCheck(`${skillId} HFW-safe loader has no audio`, audioRows.length === 0, `${audioRows.length} audio rows`);
+  addExplicitCheck(`${skillId} HFW-safe loader has no answer-leaking audio`, audioRows.length === 0, `${audioRows.length} audio rows outside sentence-spell`);
   addExplicitCheck(`${skillId} HFW-safe loader formats allowed`, invalidFormatRows.length === 0, `${invalidFormatRows.length} invalid formats`);
   addExplicitCheck(`${skillId} HFW-safe loader eligibility`, eligibilityRows.length === 0, `${eligibilityRows.length} ineligible rows`);
 
@@ -241,7 +245,7 @@ for (const [alias, canonical] of Object.entries(canonicalAliases)) {
   addExplicitCheck(`${alias} alias maps to ${canonical}`, aliasGroup === canonicalGroup && aliasQuestions.length === canonicalQuestions.length && aliasQuestions.length > 0, `${aliasQuestions.length}/${canonicalQuestions.length} questions`);
 }
 
-let fallbackAvailable = false;
+let fallbackAvailable;
 try {
   const unknownQuestions = await loadAssessmentSkillBank("__unknown_future_skill__");
   fallbackAvailable = Array.isArray(unknownQuestions);

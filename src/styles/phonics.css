@@ -888,8 +888,7 @@
   justify-content: flex-end;
 }
 
-.phonics-practice-stats span,
-.phonics-unlock-callout {
+.phonics-practice-stats span {
   display: inline-flex;
   min-height: 34px;
   align-items: center;
@@ -905,14 +904,6 @@
 .phonics-practice-stats strong {
   color: var(--phonics-ink);
   margin-right: 4px;
-}
-
-.phonics-unlock-callout {
-  width: 100%;
-  border-color: rgba(214, 138, 17, 0.28);
-  background: rgba(214, 138, 17, 0.1);
-  color: #8a4f00;
-  text-align: center;
 }
 
 .phonics-island-switcher {

@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { getApprovedAudioPath, getAudioPreference, getAudioPreferenceForPath } from "../src/data/audioPreferenceManifest.js";
+import { getApprovedAudioPath } from "../src/data/audioPreferenceManifest.js";
 import { childWordAssets } from "../src/data/childAssets.js";
 import { loadCoreQuestionPool, selectableRuntimeQuestionsForSkill } from "./phonicsRuntimeUtils.js";
 

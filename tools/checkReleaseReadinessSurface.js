@@ -17,7 +17,7 @@ function requireText(file, needle, message) {
 }
 
 const appSource = readProjectFile("src/App.jsx");
-const masterySummarySource = appSource.match(/function buildSkillMasterySummary\(\)[\s\S]*?\n  async function saveAnswerToSupabase/)?.[0] || "";
+const masterySummarySource = appSource.match(/function buildSkillMasterySummary\(\)[\s\S]*?\n {2}async function saveAnswerToSupabase/)?.[0] || "";
 
 if (!masterySummarySource) {
   failures.push("App.jsx is missing buildSkillMasterySummary.");

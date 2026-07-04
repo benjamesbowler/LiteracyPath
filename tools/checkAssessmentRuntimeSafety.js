@@ -232,13 +232,13 @@ function scanSourcePatterns() {
     warnings.push("Destructuring skillId from question is unsafe in assessment runtime.");
   }
 
-  const answerFunction = appSource.match(/function answerQuestion\(choice\) \{[\s\S]*?\n  \}\n\n  function buildFeedbackSupport/);
+  const answerFunction = appSource.match(/function answerQuestion\(choice\) \{[\s\S]*?\n {2}\}\n\n {2}function buildFeedbackSupport/);
   if (answerFunction) {
     const body = answerFunction[0];
     const saveIndex = body.indexOf("saveAnswerToSupabase");
     const firstNullBeforeSave = body.indexOf("setCurrentQuestion(null)");
-    const feedbackBlocks = body.match(/setFeedback\(\{[\s\S]*?\n      \}\);/g) || [];
-    const timeoutBlocks = body.match(/setTimeout\(\(\) => \{[\s\S]*?\n        \},\s*\d+\);/g) || [];
+    const feedbackBlocks = body.match(/setFeedback\(\{[\s\S]*?\n {6}\}\);/g) || [];
+    const timeoutBlocks = body.match(/setTimeout\(\(\) => \{[\s\S]*?\n {8}\},\s*\d+\);/g) || [];
 
     if (firstNullBeforeSave !== -1 && saveIndex !== -1 && firstNullBeforeSave < saveIndex) {
       warnings.push("answerQuestion clears currentQuestion before saving answer.");

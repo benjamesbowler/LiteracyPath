@@ -5,7 +5,6 @@ import {
   getInitialSoundRoundPlan
 } from "../src/content/initialSounds/initialSoundSelector.js";
 import {
-  INITIAL_SOUND_LETTERS,
   initialSoundWordBank
 } from "../src/content/initialSounds/initialSoundWordBank.js";
 import {

@@ -167,7 +167,6 @@ function skillsFor(word, band, category) {
 
 function makeLexiconEntry(item, cleanItem, classification) {
   const word = normalizeWord(item.word);
-  const compact = compactWord(word);
   const band = classification.difficultyBand;
   const category = categoryForWord(word, cleanItem, item);
   const shortVowel = isSimpleCvc(word) && SHORT_VOWELS.has(inferMedialVowel(word))
@@ -376,7 +375,7 @@ const manifestOutput = {
   levelCounts,
   skillCounts,
   duplicatesInManifest,
-  records: records.map(({ sourceImagePath, sourceAudioPath, lexiconEntry, ...record }) => record)
+  records: records.map(record => { const rest = { ...record }; delete rest.sourceImagePath; delete rest.sourceAudioPath; delete rest.lexiconEntry; return rest; })
 };
 
 fs.mkdirSync(docsDir, { recursive: true });

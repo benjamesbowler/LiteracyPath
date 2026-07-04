@@ -42,24 +42,6 @@ function markdownTable(headers, rows) {
   ].join("\n");
 }
 
-function normalizeWord(value) {
-  return String(value || "")
-    .toLowerCase()
-    .replace(/[^\w\s'-]/g, "")
-    .trim();
-}
-
-function wordsFromText(text) {
-  return String(text || "")
-    .replace(/[.,!?;:()"]/g, "")
-    .split(/\s+/)
-    .filter(Boolean)
-    .map(word => ({
-      text: word,
-      audioPath: `/audio/child-mode/words/${normalizeWord(word).replace(/\s+/g, "-")}.mp3`
-    }));
-}
-
 function buildPublicHashIndex() {
   const files = walk(path.join(rootDir, "public"));
   const hashes = new Map();

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-10T06:35:36.113Z",
+  "generatedAt": "2026-07-04T05:01:37.938Z",
   "sourceRegistrySummary": {
     "hfw": {
       "role": "approved workbook only",
@@ -67,8 +67,8 @@
     },
     {
       "skillId": "final_sounds",
-      "loaderQuestions": 547,
-      "selectableQuestions": 462,
+      "loaderQuestions": 549,
+      "selectableQuestions": 464,
       "violations": 0
     },
     {
@@ -85,8 +85,8 @@
     },
     {
       "skillId": "short_vowel_discrimination",
-      "loaderQuestions": 555,
-      "selectableQuestions": 336,
+      "loaderQuestions": 523,
+      "selectableQuestions": 304,
       "violations": 0
     },
     {
@@ -145,20 +145,20 @@
     },
     {
       "skillId": "nouns",
-      "loaderQuestions": 100,
-      "selectableQuestions": 50,
+      "loaderQuestions": 90,
+      "selectableQuestions": 130,
       "violations": 0
     },
     {
       "skillId": "verbs",
-      "loaderQuestions": 56,
-      "selectableQuestions": 12,
+      "loaderQuestions": 24,
+      "selectableQuestions": 67,
       "violations": 0
     },
     {
       "skillId": "adjectives",
-      "loaderQuestions": 56,
-      "selectableQuestions": 10,
+      "loaderQuestions": 25,
+      "selectableQuestions": 51,
       "violations": 0
     },
     {
@@ -169,8 +169,8 @@
     },
     {
       "skillId": "plurals",
-      "loaderQuestions": 362,
-      "selectableQuestions": 86,
+      "loaderQuestions": 380,
+      "selectableQuestions": 104,
       "violations": 0
     },
     {

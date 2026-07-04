@@ -12,10 +12,11 @@ const reportPath = path.join(repoRoot, "docs/validation/second_block_skill_gener
 
 const LONG_SOURCE = "long_vowels_replacement_2026_06";
 const GRAMMAR_SOURCE = "grammar_replacement_2026_06";
+const poolSupportPath = path.join(repoRoot, "docs/validation/second_block_source_pool_support.json");
+const grammarPoolSupport = {};
 const SECOND_SOURCE = "second_block_k3_topup_2026_06";
 const VOWEL_TEAM_PATTERNS = ["ay", "ai", "y", "ie", "ew", "oo", "ee", "igh", "oa", "oe", "ea", "ow", "ue", "ui", "eigh"];
 const SILENT_E_PATTERNS = ["a_e", "e_e", "i_e", "o_e", "u_e"];
-const DIGRAPH_PATTERNS = ["ch", "sh", "th", "wh", "ph", "ck"];
 const R_CONTROLLED_PATTERNS = ["ar", "er", "ir", "or", "ur"];
 const FAKE_OR_BAD_WORDS = new Set(["ballshell", "bookdesk", "bellshell", "dishfish", "kingring", "yen", "zip"]);
 
@@ -418,8 +419,9 @@ function posOption(row, part, withAudio = false) {
 function makeGrammar(rows, part, skillName) {
   const l1Pool = partRows(rows, part);
   const l2Pool = partRows(rows, part, { requireAudio: true });
-  const l2Count = Math.min(20, l2Pool.length);
-  const l1Count = Math.max(0, 40 - l2Count);
+  grammarPoolSupport[`${part}s`] = { l1Pool: l1Pool.length, l2Pool: l2Pool.length };
+  const l2Count = Math.min(30, l2Pool.length);
+  const l1Count = Math.max(0, Math.min(l1Pool.length, 100 - l2Count));
   const l1Targets = l1Pool.slice(0, l1Count);
   const l2Targets = l2Pool.slice(0, l2Count);
   const nouns = partRows(rows, "noun");
@@ -428,25 +430,32 @@ function makeGrammar(rows, part, skillName) {
   const pools = { noun: nouns, verb: verbs, adjective: adjectives };
   const questions = [];
   l1Targets.forEach((row, index) => {
+    // Level 1 grammar is the designed image-card format: four picture cards,
+    // exactly one of the target part of speech (skillLevelDepthConfig L1 rule).
     const distractorParts = ["noun", "verb", "adjective"].filter(item => item !== part);
-    const distractors = distractorParts.flatMap((dPart, dIndex) => rotate(pools[dPart], index * 3 + dIndex).slice(0, dIndex === 0 ? 2 : 1).map(item => posOption(item, dPart)));
-    const options = rotate([posOption(row, part), ...distractors].slice(0, 4), index);
+    const distractorCards = distractorParts.flatMap((dPart, dIndex) =>
+      rotate(pools[dPart], index * 3 + dIndex)
+        .filter(item => item.word !== row.word)
+        .slice(0, dIndex === 0 ? 2 : 1)
+        .map(item => posCard(item, dPart)));
+    const cards = rotate([posCard(row, part), ...distractorCards].slice(0, 4), index);
+    if (cards.length !== 4 || cards.some(card => !card.image)) return;
     questions.push(baseQuestion({
       id: `second_${part}s_l1_${String(index + 1).padStart(2, "0")}_${row.slug}`,
       skillId: `${part}s`,
       skillName,
       level: 1,
-      templateType: "GRAMMAR_SENTENCE_FIT",
+      templateType: "GRAMMAR_IMAGE_CHOICE",
       targetWord: row.word,
       imagePath: posImagePath(row.word, part) || row.imagePath,
       source: GRAMMAR_SOURCE,
       extra: {
-        questionType: "ixl_template",
-        prompt: `Choose the ${part} that best fits the sentence.`,
-        question: `Choose the ${part} that best fits the sentence.`,
-        sentence: sentenceFor(row.word, part),
-        choices: options.map(option => option.value),
-        answerOptions: options,
+        questionType: "visual_card_choice",
+        prompt: `Tap the picture that shows a ${part}.`,
+        question: `Tap the picture that shows a ${part}.`,
+        choices: cards.map(card => card.value),
+        answerOptions: cards.map(card => ({ value: card.value, label: card.label, partOfSpeech: card.partOfSpeech })),
+        imageCards: cards,
         correctAnswer: row.word,
         answer: row.word,
         itemType: `grammar_${part}`,
@@ -454,7 +463,7 @@ function makeGrammar(rows, part, skillName) {
         partOfSpeech: part,
         requireOptionAudio: false,
         disableAudio: true,
-        explanation: `${row.word} makes the sentence make sense.`
+        explanation: `${row.word} is a ${part}.`
       }
     }));
   });
@@ -691,7 +700,11 @@ const PLURAL_PAIRS = [
   ["box", "boxes"], ["fox", "foxes"], ["bus", "buses"], ["dish", "dishes"], ["wish", "wishes"], ["class", "classes"],
   ["church", "churches"], ["lunch", "lunches"], ["glass", "glasses"], ["kiss", "kisses"], ["mitten", "mittens"],
   ["stair", "stairs"], ["puppy", "puppies"],
-  ["baby", "babies"], ["party", "parties"], ["leaf", "leaves"], ["wolf", "wolves"], ["shelf", "shelves"]
+  ["baby", "babies"], ["party", "parties"], ["leaf", "leaves"], ["wolf", "wolves"], ["shelf", "shelves"],
+  ["peach", "peaches"], ["bench", "benches"], ["dress", "dresses"], ["plum", "plums"], ["pear", "pears"],
+  ["plane", "planes"], ["clock", "clocks"], ["cloud", "clouds"], ["plant", "plants"], ["spider", "spiders"],
+  ["stone", "stones"], ["star", "stars"], ["tree", "trees"], ["sock", "socks"], ["drum", "drums"],
+  ["flag", "flags"], ["kite", "kites"], ["ring", "rings"]
 ];
 function makePlurals() {
   const spellingQuestions = PLURAL_PAIRS.flatMap(([singular, plural], index) => {
@@ -857,5 +870,12 @@ const report = [
   ""
 ];
 writeFile(reportPath, report.join("\n"));
+// Honest source-pool support so depth checks can distinguish "pool exhausted"
+// from "generator under-producing". maxSupported = unique eligible targets.
+const poolSupport = Object.fromEntries(Object.entries(grammarPoolSupport).map(([skillId, pools]) => [
+  skillId,
+  { ...pools, maxSupported: pools.l1Pool + pools.l2Pool }
+]));
+writeFile(poolSupportPath, `${JSON.stringify(poolSupport, null, 2)}\n`);
 console.log(`Generated ${questions.length} second-block top-up questions.`);
 Object.entries(counts).sort().forEach(([key, count]) => console.log(`${key}: ${count}`));

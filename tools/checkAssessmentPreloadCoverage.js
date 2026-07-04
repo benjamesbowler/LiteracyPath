@@ -1,6 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
 import { skillTree } from "../src/skillTree.js";
 import { resolveAssessmentSkillId } from "../src/data/assessmentSkillMapping.js";
@@ -16,8 +15,6 @@ import {
   repoRoot
 } from "./phonicsRuntimeUtils.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 const outputPath = path.join(repoRoot, "docs", "validation", "assessment_preload_coverage_audit.md");
 
 const IMAGE_EXTENSIONS = new Set([".webp", ".png", ".jpg", ".jpeg", ".gif", ".avif", ".svg"]);
@@ -103,11 +100,6 @@ function mean(values = []) {
   const valid = values.filter(value => Number.isFinite(value));
   if (!valid.length) return null;
   return valid.reduce((sum, value) => sum + value, 0) / valid.length;
-}
-
-function addSet(map, key, value) {
-  if (!map.has(key)) map.set(key, new Set());
-  map.get(key).add(value);
 }
 
 function collectDeclaredMedia(question = {}) {

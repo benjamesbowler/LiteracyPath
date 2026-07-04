@@ -24,10 +24,6 @@ function normalizeWord(value = "") {
     .trim();
 }
 
-function normalizeToken(value = "") {
-  return normalizeWord(value).replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
-}
-
 function parsePipeList(value = "") {
   return normalizeText(value)
     .split("|")

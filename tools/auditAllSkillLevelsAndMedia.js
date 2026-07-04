@@ -12,7 +12,6 @@ import {
 } from "../src/data/finalSoundMasteryDepth.js";
 import { isMediaDeleted } from "../src/data/deletedMediaManifest.js";
 import {
-  getMediaQaId,
   isMediaQaRuntimeAllowed,
   isQuestionBlockedByMediaQa
 } from "../src/data/mediaQaManifest.js";
@@ -21,7 +20,6 @@ import {
   SKILL_LEVEL_DEPTH_TARGETS
 } from "../src/data/skillLevelDepthConfig.js";
 import { getQuestionRoutingFormat } from "../src/data/skillTemplateRouting.js";
-import { getQuestionSignature } from "../src/questionRepeatGuards.js";
 import {
   getEarlySkillRuntimeEligibilityIssues,
   isListenPrompt,
@@ -31,7 +29,6 @@ import {
   buildRound,
   getDepthLevel,
   getDepthSkillId,
-  getQuestionMediaPaths as getDepthQuestionMediaPaths,
   markdownTable,
   uniqueRuntimeQuestions
 } from "./skillLevelDepthShared.js";
@@ -42,7 +39,6 @@ import {
   inferPatternForSkill,
   loadCoreQuestionPool,
   publicPathExists,
-  questionFilterReason,
   repoRoot
 } from "./phonicsRuntimeUtils.js";
 
@@ -111,14 +107,6 @@ function normalizeToken(value = "") {
     .replace(/^\/|\/$/g, "")
     .replace(/[^a-z0-9]+/g, "_")
     .replace(/^_+|_+$/g, "");
-}
-
-function display(value) {
-  if (Array.isArray(value)) return value.join(", ");
-  if (value === true) return "yes";
-  if (value === false) return "no";
-  if (value === null || value === undefined || value === "") return "-";
-  return String(value);
 }
 
 function getQuestionSkillId(question = {}) {
@@ -431,7 +419,6 @@ function summarizeSkill(skillConfig, rawPool) {
     .filter(question => getQuestionSkillId(question) === skillConfig.skillId)
     .map(question => questionWithDepthFields(question, skillConfig.skillId));
   const activeQuestions = rawQuestions.filter(question => question.active !== false);
-  const rawByLevel = countBy(rawQuestions, question => String(getQuestionLevel(question) || "unknown"));
   const runtimeCandidates = rawQuestions.map(question => {
     const level = getQuestionLevel(question);
     const issues = getRuntimeIssues(question, skillConfig.skillId, level);
@@ -558,7 +545,7 @@ function needsWriting(skillId, levels) {
   return comprehension.has(skillId) && (levels["1"].missingQuestionCountFor30 > 0 || levels["2"].missingQuestionCountFor30 > 0);
 }
 
-function buildFinalSoundsSpecialAudit(audit) {
+function buildFinalSoundsSpecialAudit() {
   const allQuestions = loadCoreQuestionPool()
     .filter(question => getQuestionSkillId(question) === "final_sounds")
     .map(question => questionWithDepthFields(question, "final_sounds"));

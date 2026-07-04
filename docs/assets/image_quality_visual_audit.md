@@ -1,19 +1,19 @@
 # Image Quality Visual Audit
 
-Generated: 2026-05-26T05:14:09.178Z
+Generated: 2026-07-04T02:24:51.053Z
 
 This audit focuses on assessment media. It uses safe static heuristics only: filenames/paths and exact-file hash comparisons. It does not delete or replace assets automatically.
 
 ## Summary
 
-- Public assessment images scanned: 1386
-- Active image-backed assessment mappings scanned: 3700
+- Public assessment images scanned: 2799
+- Active image-backed assessment mappings scanned: 12308
 - Likely rainbow/over-stylized active mappings: 0
 - Known unsuitable assessment assets blocked/requested: 0
 - Known unsuitable assets still active: 0
 - Excluded weird/unusual targets still active: 0
 - Rainbow/path warnings in public assets: 0
-- Over-saturated active image manual-review warnings: 13
+- Over-saturated active image manual-review warnings: 14
 - Known semantic conflict failures: 0
 - Audio replacement requests: 0
 
@@ -49,7 +49,8 @@ _None._
 | rocket | /media/initial-sounds/images/r/rocket.webp | 0.568 | 0.414 | 6 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
 | star | /media/initial-sounds/images/s/star.webp | 0.706 | 0.624 | 7 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
 | woodpecker | /media/initial-sounds/images/w/woodpecker.webp | 0.652 | 0.127 | 8 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
-| flag | /images/child-mode/blends/flag.png | 0.635 | 0.406 | 9 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
+| fish | /images/child-mode/cvc/fish.png | 0.793 | 0.637 | 9 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
+| beachball | /media/vocabulary/images/beachball.webp | 0.864 | 0.814 | 8 | Color heuristic suggests possible over-saturated/multicolored ordinary object. Manual review recommended before blocking. |
 
 ## Known Semantic Conflict Checks
 

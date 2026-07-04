@@ -1,7 +1,6 @@
 import { execFileSync } from "node:child_process";
 import crypto from "node:crypto";
 import fs from "node:fs";
-import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -28,7 +27,6 @@ const sourceZip = preferredZip ||
 const shouldImport = process.argv.includes("--import");
 
 const failures = [];
-const warnings = [];
 const importedImages = [];
 const importedAudio = [];
 const rejectedFiles = [];

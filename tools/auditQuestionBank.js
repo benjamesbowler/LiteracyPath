@@ -86,9 +86,7 @@ import {
   isValidInitialSoundWordForEarlyLevel
 } from "../src/data/earlyPhonicsValidation.js";
 import {
-  getQuestionPromptAnswerSignature,
   getQuestionSignature,
-  getRepeatOptionSetSignature,
   getRepeatTargetWord
 } from "../src/questionRepeatGuards.js";
 import { getAnswerOptionLabel } from "../src/utils/answerOptions.js";

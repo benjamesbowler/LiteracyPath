@@ -224,7 +224,6 @@ if (levelTwoItems.length >= ROUND_LENGTH && levelTwoPlan.items.length !== ROUND_
 }
 
 const levelOneTargets = [...new Set(levelOneItems.map(item => item.target).filter(Boolean))].sort();
-const levelTwoTargets = [...new Set(levelTwoItems.map(item => item.target).filter(Boolean))].sort();
 const expectedLevelOneTargets = coverageExpectations.final_sounds.itemKeys || [];
 const expectedLevelTwoTargets = coverageExpectations.final_sounds.levels?.[2] || [];
 const missingLevelOneTargets = expectedLevelOneTargets.filter(target => !levelOneTargets.includes(target));

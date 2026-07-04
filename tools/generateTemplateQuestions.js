@@ -120,7 +120,7 @@ const prepositions = [
   }
 ];
 
-prepositions.forEach((item, index) => {
+prepositions.forEach(item => {
   add({
     id: item.id,
     grade: "K",

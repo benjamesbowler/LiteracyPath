@@ -161,7 +161,7 @@ export function BookQuiz({ book, onFinish }) {
       <div className="book-quiz-card">
         {finished ? (
           <div className="book-quiz-result">
-            <img src="/images/learn-games/phinny-cheering.webp" alt="" />
+            <img src="/images/learn-games/phinny-cheering.webp" alt="" onError={event => { event.currentTarget.style.display = "none"; }} />
             <h3>{correct}/{questions.length} right!</h3>
             <ProgressStars stars={correct >= questions.length ? 3 : correct >= 2 ? 2 : correct > 0 ? 1 : 0} size="lg" />
           </div>

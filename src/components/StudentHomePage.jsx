@@ -11,11 +11,16 @@ import { worldForScope } from "../utils/palWorlds.js";
 import { warmStudentAssets } from "../utils/preloadAssets.js";
 import { Gem } from "./Gem.jsx";
 
+// Decorative art must never show a broken-image icon to kids; hide it instead.
+function hideOnError(event) {
+  event.currentTarget.style.display = "none";
+}
+
 function StudentHomeCard({ title, subtitle, meta, art, onClick }) {
   return (
     <button className="student-home-card" onClick={onClick} type="button">
       <span className="student-home-card-art" aria-hidden="true">
-        <img src={art} alt="" loading="lazy" />
+        <img src={art} alt="" loading="lazy" onError={hideOnError} />
       </span>
       <span className="student-home-card-label">
         {meta && <small className="student-home-card-meta">{meta}</small>}
@@ -113,7 +118,7 @@ export function StudentHomePage({
           onClick={() => setPickingCompanion(true)}
         >
           {companion
-            ? <img src={companion.image} alt="" />
+            ? <img src={companion.image} alt="" onError={hideOnError} />
             : String(studentName || "S").slice(0, 1).toUpperCase()}
         </button>
         <div>
@@ -165,7 +170,7 @@ export function StudentHomePage({
                 onClick={missionTargets[tile.kind]}
               >
                 <span className="student-mission-art" aria-hidden="true">
-                  <img src={tile.art} alt="" loading="lazy" />
+                  <img src={tile.art} alt="" loading="lazy" onError={hideOnError} />
                   {done && <span className="student-mission-done-badge"><CheckIcon /></span>}
                 </span>
                 <span className="student-mission-copy">
@@ -244,7 +249,7 @@ export function StudentHomePage({
                     setPickingCompanion(false);
                   }}
                 >
-                  <img src={item.image} alt="" loading="lazy" />
+                  <img src={item.image} alt="" loading="lazy" onError={hideOnError} />
                   <span>{item.name}</span>
                 </button>
               ))}
@@ -262,7 +267,7 @@ export function StudentHomePage({
         <div className="student-mission-celebrate" role="dialog" aria-label="Mission complete">
           <ConfettiCelebration show />
           <div className="student-mission-celebrate-card">
-            <img src="/images/learn-games/phinny-cheering.webp" alt="" />
+            <img src="/images/learn-games/phinny-cheering.webp" alt="" onError={hideOnError} />
             <h2>Mission complete!</h2>
             <p>
               {status.streak > 1

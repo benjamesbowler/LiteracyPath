@@ -43,7 +43,6 @@ import {
   normalizeVowelAnswer,
   SHORT_VOWEL_LISTEN_PROMPT
 } from "../src/utils/assessmentAudioRoles.js";
-import { getApprovedAudioPath } from "../src/data/audioPreferenceManifest.js";
 import {
   getAssessmentSkillLabel,
   resolveAssessmentSkillId
@@ -316,7 +315,7 @@ if (missingItems.length) {
         item.skill,
         item.questionId,
         item.targetPath,
-        `Record MP3 saying exactly: \"${item.word}\". Neutral soft American female voice. No extra words, no spelling, no music, no effects.`
+        `Record MP3 saying exactly: "${item.word}". Neutral soft American female voice. No extra words, no spelling, no music, no effects.`
       ])
     )
   ].join("\n");

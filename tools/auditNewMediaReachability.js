@@ -271,8 +271,6 @@ const physicalOnlyRows = [...physicalImages, ...physicalAudio]
 
 const allRows = [...imageRows, ...audioRows, ...physicalOnlyRows];
 const taskRows = [...imageRows, ...audioRows];
-const usedRows = allRows.filter(row => row.runtimeUsed || row.generatedUsed);
-const reachableRows = allRows.filter(row => row.reachable);
 const unreachableRows = allRows.filter(row => !row.reachable);
 const unsafeRows = allRows.filter(row => row.blocked || row.rejected || row.deprecated || row.qaStatus === "review_needed" || row.unreachableReason === "role mismatch");
 const safeUnusedRows = unreachableRows.filter(row => row.approved && !unsafeRows.includes(row));

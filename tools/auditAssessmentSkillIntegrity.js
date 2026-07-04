@@ -577,7 +577,6 @@ function audit() {
     const uniqueQuestions = dedupeByQuestionKey(rawQuestions);
     const duplicateIds = duplicateIdsFor(rawQuestions);
     const missingFields = summarizeMissingFields(rawQuestions);
-    const levelsDetected = [...new Set(rawQuestions.map(getDepthLevel).filter(Boolean))].sort();
     const explicitLevelsDetected = [...new Set(rawQuestions.map(getExplicitLevel).filter(Boolean).map(level => level >= 2 ? 2 : 1))].sort();
     const phasesDetected = [...new Set(rawQuestions.map(getPhase).filter(Boolean))].sort();
     const levels = Object.fromEntries(EXPECTED_LEVELS.map(level => [level, levelReport(rawQuestions, level)]));

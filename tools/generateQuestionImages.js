@@ -30,7 +30,7 @@ function safeFileName(text) {
     .slice(0, 60);
 }
 
-function makePrompt(q) {
+function makePrompt() {
   return `
 Create a premium children's reading game illustration.
 

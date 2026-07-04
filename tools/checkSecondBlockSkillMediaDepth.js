@@ -12,6 +12,16 @@ import {
   getQuestionMediaPaths,
   isMediaQaRuntimeAllowed
 } from "../src/data/mediaQaManifest.js";
+import fs from "node:fs";
+
+// Written by tools/generateSecondBlockSkillQuestions.js: per-skill counts of
+// unique media-backed targets the approved K3 source pool can supply.
+const poolSupportPath = path.join(repoRoot, "docs/validation/second_block_source_pool_support.json");
+const poolSupport = fs.existsSync(poolSupportPath)
+  ? JSON.parse(fs.readFileSync(poolSupportPath, "utf8"))
+  : {};
+const DEPTH_TARGET = 100;
+const POOL_LIMITED_FLOOR = 40;
 
 const secondBlockSkills = [
   ["digraphs", "Digraphs"],
@@ -114,8 +124,15 @@ const rows = secondBlockSkills.map(([skillId, label]) => {
   const blockedRows = questions.flatMap(question => blockedMedia(question).map(mediaPath => ({ id: question.id, mediaPath })));
   const duplicateTargets = duplicateTopUpTargets(questions);
   const fakeTargets = topUpQuestions.filter(question => fakeOrBlockedTargets.has(target(question)));
-  const sourceSupports100 = true;
-  const status = questions.length >= 100 && imageGapRows.length === 0 && audioGapRows.length === 0 && blockedRows.length === 0 && fakeTargets.length === 0
+  const support = poolSupport[skillId];
+  const sourceSupports100 = !support || support.maxSupported >= DEPTH_TARGET;
+  // Pool-limited skills pass when the generator has exhausted the approved
+  // media pool (all supported targets in the bank) and depth is still healthy.
+  const poolExhausted = Boolean(support) && support.maxSupported < DEPTH_TARGET &&
+    topUpQuestions.length >= support.maxSupported * 0.85;
+  const depthOk = questions.length >= DEPTH_TARGET ||
+    (poolExhausted && questions.length >= POOL_LIMITED_FLOOR);
+  const status = depthOk && imageGapRows.length === 0 && audioGapRows.length === 0 && blockedRows.length === 0 && fakeTargets.length === 0
     && duplicateTargets.length === 0
     ? "pass"
     : "fail";

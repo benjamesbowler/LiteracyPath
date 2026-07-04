@@ -44,7 +44,7 @@ function GameComplete({ title, stars, score, onRestart }) {
   return (
     <div className="lg-game-complete">
       <ConfettiCelebration show={stars > 0} />
-      <img src="/images/learn-games/phinny-cheering.webp" alt="" />
+      <img src="/images/learn-games/phinny-cheering.webp" alt="" onError={event => { event.currentTarget.style.display = "none"; }} />
       <h2>{title} complete!</h2>
       <ProgressStars stars={stars} size="lg" />
       <p>{score} points</p>

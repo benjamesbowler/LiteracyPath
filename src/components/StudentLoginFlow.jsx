@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "../supabaseClient.js";
 import { speakWithBrowser } from "../utils/audio/speakWithBrowser.js";
 import { playCueAudio } from "../utils/audio/cuePlayer.js";
@@ -136,6 +136,9 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
   const [status, setStatus] = useState("");
   const [locked, setLocked] = useState(false);
   const [loading, setLoading] = useState(false);
+  // Synchronous guard so a fast double-tap can't fire the same RPC twice
+  // before React state updates land.
+  const busyRef = useRef(false);
 
   const filteredSchools = useMemo(() => {
     const clean = query.trim().toLowerCase();
@@ -172,6 +175,8 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
   }, []);
 
   async function pickSchool(row) {
+    if (busyRef.current) return;
+    busyRef.current = true;
     setSelectedSchool(row);
     setSelectedClass(null);
     setSelectedStudent(null);
@@ -184,6 +189,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
     setLoading(true);
     const { data, error } = await supabase.rpc("student_list_classes", { p_school_id: row.id });
     setLoading(false);
+    busyRef.current = false;
     if (error) {
       console.error("Student class list failed.", error);
       setStatus("Classes are not ready yet.");
@@ -195,6 +201,8 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
   }
 
   async function pickClass(row) {
+    if (busyRef.current) return;
+    busyRef.current = true;
     setSelectedClass(row);
     setSelectedStudent(null);
     setStatus("");
@@ -206,6 +214,7 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
     setLoading(true);
     const { data, error } = await supabase.rpc("student_list_students", { p_class_id: row.id });
     setLoading(false);
+    busyRef.current = false;
     if (error) {
       console.error("Student list failed.", error);
       setStatus("Names are not ready yet.");

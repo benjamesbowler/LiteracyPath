@@ -6,7 +6,7 @@ Date: 2026-05-25
 
 - Level 1 media-complete letters: 25/25
 - Level 2 media-complete letters: 25/25
-- Failures: 0
+- Failures: 2
 - Warnings: 0
 
 ## Per-Letter Complete Media Coverage
@@ -125,113 +125,113 @@ Date: 2026-05-25
 
 - Level: 1
 - Phase: 1
-- Letters: a, b, c, d, e, f, g, h, i, j, k, l, m, n, o
-- Target words: ant, bat, cat, dog, egg, fan, gum, hat, ink, jam, king, leg, map, nest, ox
+- Letters: p, l, f, h, b, g, z, i, n, d, k, c, y, v, w
+- Target words: pig, leg, fan, hat, bat, gum, zoo, ink, nest, dog, king, cat, yak, van, wig
 - Review letters: none
 - Blocked letters: none
-- Missing expected available letters: none
+- Missing expected available letters: a, e, j, m, o
 
 | # | Letter | Target Word | Reason | Priority/Substitution Note |
 |---:|---|---|---|---|
-| 1 | a | ant | new | as requested |
-| 2 | b | bat | new | as requested |
-| 3 | c | cat | new | as requested |
-| 4 | d | dog | new | as requested |
-| 5 | e | egg | new | as requested |
-| 6 | f | fan | new | as requested |
-| 7 | g | gum | new | substituted because requested word "gun" is not in Level 1 bank |
-| 8 | h | hat | new | as requested |
-| 9 | i | ink | new | as requested |
-| 10 | j | jam | new | as requested |
+| 1 | p | pig | new | as requested |
+| 2 | l | leg | new | as requested |
+| 3 | f | fan | new | as requested |
+| 4 | h | hat | new | as requested |
+| 5 | b | bat | new | as requested |
+| 6 | g | gum | new | substituted because requested word "gun" is not in Level 1 bank |
+| 7 | z | zoo | new | as requested |
+| 8 | i | ink | new | as requested |
+| 9 | n | nest | new | substituted to keep Level 1 difficulty and media safety |
+| 10 | d | dog | new | as requested |
 | 11 | k | king | new | as requested |
-| 12 | l | leg | new | as requested |
-| 13 | m | map | new | substituted because requested word "man" is not in Level 1 bank |
-| 14 | n | nest | new | substituted to keep Level 1 difficulty and media safety |
-| 15 | o | ox | new | as requested |
+| 12 | c | cat | new | as requested |
+| 13 | y | yak | new | as requested |
+| 14 | v | van | new | as requested |
+| 15 | w | wig | new | as requested |
 
 ## Continue Round 2 Level 1
 
 - Level: 1
 - Phase: 2
-- Letters: p, q, r, s, t, u, v, w, y, z, a, b, c, d, e
-- Target words: pig, queen, ring, sun, tent, up, van, wig, yak, zoo, apple, ball, cup, duck, elf
-- Review letters: a, b, c, d, e
+- Letters: u, o, q, r, a, t, j, e, m, s, l, p, w, b, v
+- Target words: up, ox, queen, ring, ant, tent, jam, egg, map, sun, log, pan, web, ball, vest
+- Review letters: l, p, w, b, v
 - Blocked letters: none
 - Missing expected available letters: none
 
 | # | Letter | Target Word | Reason | Priority/Substitution Note |
 |---:|---|---|---|---|
-| 1 | p | pig | new | as requested |
-| 2 | q | queen | new | as requested |
-| 3 | r | ring | new | substituted because requested word "red" is not in Level 1 bank |
-| 4 | s | sun | new | as requested |
-| 5 | t | tent | new | as requested |
-| 6 | u | up | new | as requested |
-| 7 | v | van | new | as requested |
-| 8 | w | wig | new | as requested |
-| 9 | y | yak | new | as requested |
-| 10 | z | zoo | new | as requested |
-| 11 | a | apple | review | as requested |
-| 12 | b | ball | review | as requested |
-| 13 | c | cup | review | as requested |
-| 14 | d | duck | review | as requested |
-| 15 | e | elf | review | as requested |
+| 1 | u | up | new | as requested |
+| 2 | o | ox | new | as requested |
+| 3 | q | queen | new | as requested |
+| 4 | r | ring | new | substituted because requested word "red" is not in Level 1 bank |
+| 5 | a | ant | new | as requested |
+| 6 | t | tent | new | as requested |
+| 7 | j | jam | new | as requested |
+| 8 | e | egg | new | as requested |
+| 9 | m | map | new | substituted because requested word "man" is not in Level 1 bank |
+| 10 | s | sun | new | as requested |
+| 11 | l | log | review | as requested |
+| 12 | p | pan | review | as requested |
+| 13 | w | web | review | as requested |
+| 14 | b | ball | review | as requested |
+| 15 | v | vest | review | as requested |
 
 ## Round 3 Level 2
 
 - Level: 2
 - Phase: 1
-- Letters: a, b, c, d, e, f, g, h, i, j, k, l, m, n, o
-- Target words: astronaut, banana, calculator, doctor, elevator, firefighter, gorilla, hospital, iceberg, jellyfish, kitchen, lighthouse, mushroom, newspaper, orangutan
+- Letters: k, c, p, z, a, b, h, e, g, w, v, r, n, y, o
+- Target words: kitchen, calculator, pineapple, zipline, astronaut, banana, hospital, elevator, gorilla, watermelon, volleyball, rainbow, newspaper, yogurt cup, orangutan
 - Review letters: none
 - Blocked letters: none
-- Missing expected available letters: none
+- Missing expected available letters: d, f, i, j, l, m
 
 | # | Letter | Target Word | Reason | Priority/Substitution Note |
 |---:|---|---|---|---|
-| 1 | a | astronaut | new | as requested |
-| 2 | b | banana | new | as requested |
-| 3 | c | calculator | new | substituted because requested word "crayon" is not in Level 2 bank |
-| 4 | d | doctor | new | as requested |
-| 5 | e | elevator | new | substituted because requested word "elephant" is not in Level 2 bank |
-| 6 | f | firefighter | new | substituted because requested word "fish" is not in Level 2 bank |
-| 7 | g | gorilla | new | substituted because requested word "girl" is not in Level 2 bank |
-| 8 | h | hospital | new | as requested |
-| 9 | i | iceberg | new | substituted because requested word "igloo" is not in Level 2 bank |
-| 10 | j | jellyfish | new | as requested |
-| 11 | k | kitchen | new | substituted because requested word "koala" is not in Level 2 bank |
-| 12 | l | lighthouse | new | substituted because requested word "ladder" is not in Level 2 bank |
-| 13 | m | mushroom | new | as requested |
-| 14 | n | newspaper | new | substituted because requested word "nose" is not in Level 2 bank |
+| 1 | k | kitchen | new | substituted because requested word "koala" is not in Level 2 bank |
+| 2 | c | calculator | new | substituted because requested word "crayon" is not in Level 2 bank |
+| 3 | p | pineapple | new | as requested |
+| 4 | z | zipline | new | substituted because requested word "zebra" is not in Level 2 bank |
+| 5 | a | astronaut | new | as requested |
+| 6 | b | banana | new | as requested |
+| 7 | h | hospital | new | as requested |
+| 8 | e | elevator | new | substituted because requested word "elephant" is not in Level 2 bank |
+| 9 | g | gorilla | new | substituted because requested word "girl" is not in Level 2 bank |
+| 10 | w | watermelon | new | substituted because requested word "watch" is not in Level 2 bank |
+| 11 | v | volleyball | new | substituted because requested word "vegetable" is not in Level 2 bank |
+| 12 | r | rainbow | new | substituted because requested word "rabbit" is not in Level 2 bank |
+| 13 | n | newspaper | new | substituted because requested word "nose" is not in Level 2 bank |
+| 14 | y | yogurt cup | new | substituted because requested word "yellow" is not in Level 2 bank |
 | 15 | o | orangutan | new | substituted because requested word "octopus" is not in Level 2 bank |
 
 ## Continue Round 4 Level 2
 
 - Level: 2
 - Phase: 2
-- Letters: p, q, r, s, t, u, v, w, y, z, a, b, c, d, e
-- Target words: pineapple, question mark, rainbow, sandwich, telescope, unicycle, volleyball, watermelon, yogurt cup, zipline, ambulance, basket, camera, dinosaur, eraser
-- Review letters: a, b, c, d, e
+- Letters: t, f, j, i, m, u, d, l, q, s, h, z, v, y, g
+- Target words: telescope, firefighter, jellyfish, iceberg, mushroom, unicycle, doctor, lighthouse, question mark, sandwich, helicopter, zigzag road, veterinarian, yardstick, giraffe
+- Review letters: h, z, v, y, g
 - Blocked letters: none
 - Missing expected available letters: none
 
 | # | Letter | Target Word | Reason | Priority/Substitution Note |
 |---:|---|---|---|---|
-| 1 | p | pineapple | new | as requested |
-| 2 | q | question mark | new | substituted because requested word "question" is not in Level 2 bank |
-| 3 | r | rainbow | new | substituted because requested word "rabbit" is not in Level 2 bank |
-| 4 | s | sandwich | new | substituted because requested word "snake" is not in Level 2 bank |
-| 5 | t | telescope | new | substituted because requested word "tiger" is not in Level 2 bank |
+| 1 | t | telescope | new | substituted because requested word "tiger" is not in Level 2 bank |
+| 2 | f | firefighter | new | substituted because requested word "fish" is not in Level 2 bank |
+| 3 | j | jellyfish | new | as requested |
+| 4 | i | iceberg | new | substituted because requested word "igloo" is not in Level 2 bank |
+| 5 | m | mushroom | new | as requested |
 | 6 | u | unicycle | new | substituted because requested word "umbrella" is not in Level 2 bank |
-| 7 | v | volleyball | new | substituted because requested word "vegetable" is not in Level 2 bank |
-| 8 | w | watermelon | new | substituted because requested word "watch" is not in Level 2 bank |
-| 9 | y | yogurt cup | new | substituted because requested word "yellow" is not in Level 2 bank |
-| 10 | z | zipline | new | substituted because requested word "zebra" is not in Level 2 bank |
-| 11 | a | ambulance | review | as requested |
-| 12 | b | basket | review | as requested |
-| 13 | c | camera | review | substituted because requested word "crayon" is not in Level 2 bank |
-| 14 | d | dinosaur | review | as requested |
-| 15 | e | eraser | review | substituted because requested word "elephant" is not in Level 2 bank |
+| 7 | d | doctor | new | as requested |
+| 8 | l | lighthouse | new | substituted because requested word "ladder" is not in Level 2 bank |
+| 9 | q | question mark | new | substituted because requested word "question" is not in Level 2 bank |
+| 10 | s | sandwich | new | substituted because requested word "snake" is not in Level 2 bank |
+| 11 | h | helicopter | review | as requested |
+| 12 | z | zigzag road | review | substituted because requested word "zebra" is not in Level 2 bank |
+| 13 | v | veterinarian | review | substituted because requested word "vegetable" is not in Level 2 bank |
+| 14 | y | yardstick | review | substituted because requested word "yellow" is not in Level 2 bank |
+| 15 | g | giraffe | review | substituted because requested word "girl" is not in Level 2 bank |
 
 ## Warnings
 
@@ -239,4 +239,5 @@ Date: 2026-05-25
 
 ## Failures
 
-- none
+- Round 1 Level 1: missing expected media-complete letters a, e, j, m, o.
+- Round 3 Level 2: missing expected media-complete letters d, f, i, j, l, m.

@@ -43,10 +43,6 @@ function table(headers, rows) {
   ].join("\n");
 }
 
-function phaseKey(level, phase) {
-  return `L${level}P${phase}`;
-}
-
 function questionId(question = {}) {
   return question.id || question.questionId || "(missing id)";
 }

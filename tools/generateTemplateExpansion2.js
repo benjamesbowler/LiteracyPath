@@ -58,7 +58,7 @@ function makeChoices(answer, wrongs) {
   ["fin", "i", "pin", ["pan", "pen", "pun"]],
   ["pot", "o", "top", ["tap", "tip", "tup"]],
   ["bug", "u", "rug", ["rag", "rig", "rog"]]
-].forEach(([target, vowel, answer, wrongs], i) => {
+].forEach(([target, , answer, wrongs], i) => {
   add({
     id: `exp2_short_vowel_${i + 1}`,
     grade: "K",

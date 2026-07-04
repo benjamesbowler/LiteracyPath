@@ -80,10 +80,6 @@ function buildReviewItem(input = {}) {
   };
 }
 
-function skillLabel(skillId = "") {
-  return skillTree.find(skill => skill.id === skillId)?.label || skillId;
-}
-
 const items = [];
 
 for (const skill of skillTree) {

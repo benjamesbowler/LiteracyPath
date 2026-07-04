@@ -1,6 +1,4 @@
-import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
 import { skillWordBank } from "../src/data/generated/skillWordBank.generated.js";
 import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuestions.generated.js";
@@ -10,7 +8,6 @@ import {
   normalizeAssessmentMediaWord
 } from "../src/data/assessmentMediaRegistry.js";
 import {
-  buildRuntimeQuestionsForSkill,
   getQuestionImagePaths,
   questionFilterReason,
   repoRoot,
@@ -20,7 +17,6 @@ import {
 
 const OUT_JSON = path.join(repoRoot, "docs/validation/workbook_media_priority_audit.json");
 const OUT_MD = path.join(repoRoot, "docs/validation/workbook_media_priority_audit.md");
-const HFW_SKILLS = ["hfw_1_25", "hfw_26_50", "hfw_51_75", "hfw_76_100"];
 const LANGUAGE_SKILLS = [
   "nouns",
   "verbs",
@@ -51,10 +47,6 @@ function normalizeSkillId(value = "") {
   return text;
 }
 
-function slug(value = "") {
-  return normalizeAssessmentMediaWord(value).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-}
-
 function mediaCounts({ word, skillId, role = "target_object" }) {
   const image = findAssessmentMediaCandidates({ word, skillId, mediaType: "image", role, includeGenericFallback: true });
   const audio = findAssessmentMediaCandidates({ word, skillId, mediaType: "audio", includeGenericFallback: true });
@@ -82,7 +74,7 @@ function phaseCountsFor(skillId) {
   return out;
 }
 
-function priorityForWord({ skillId, word, itemType, imageCount, audioCount, partOfSpeech = "", phaseGap = false, runtimeGap = false }) {
+function priorityForWord({ skillId, word, imageCount, audioCount, partOfSpeech = "", phaseGap = false, runtimeGap = false }) {
   if (!word || INAPPROPRIATE.test(word)) return { priority: "P4", reason: "Do not request now: inappropriate or unsafe for K-5 assessment." };
   if (ABSTRACT_OR_LOW_VALUE.test(word) && !["prefixes_suffixes", "homophones_homonyms", "antonyms_synonyms"].includes(skillId)) {
     return { priority: "P4", reason: "Do not request now: abstract/low-imageability; use sentence-only if needed." };
@@ -248,7 +240,7 @@ function buildAudit() {
   const items = [];
   hfwPriorityItems(items);
   languagePriorityItems(items);
-  const cleanItems = items.map(({ _key, ...item }) => item)
+  const cleanItems = items.map(row => { const rest = { ...row }; delete rest._key; return rest; })
     .sort((a, b) => a.priority.localeCompare(b.priority) || a.skillId.localeCompare(b.skillId) || String(a.targetWord).localeCompare(String(b.targetWord)));
   const countsByPriority = cleanItems.reduce((counts, item) => {
     counts[item.priority] = (counts[item.priority] || 0) + 1;

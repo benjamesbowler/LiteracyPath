@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* global process */
 import { execSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import { APP_VIEWS, REQUIRED_APP_VIEWS } from "../src/appState/appViews.js";

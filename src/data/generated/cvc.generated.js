@@ -21,13 +21,13 @@ export const cvcGeneratedQuestions = [
       "bad",
       "cot",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "bad",
       "cot",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -133,13 +133,13 @@ export const cvcGeneratedQuestions = [
       "bad",
       "cot",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "bad",
       "cot",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "bad",
     "imageUrl": "/images/child-mode/cvc/bad.png",
@@ -188,13 +188,13 @@ export const cvcGeneratedQuestions = [
       "bag",
       "cot",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "bag",
       "cot",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -300,13 +300,13 @@ export const cvcGeneratedQuestions = [
       "bag",
       "cot",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "bag",
       "cot",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "bag",
     "imageUrl": "/images/child-mode/cvc/bag.png",
@@ -355,13 +355,13 @@ export const cvcGeneratedQuestions = [
       "bat",
       "cot",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "bat",
       "cot",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -467,13 +467,13 @@ export const cvcGeneratedQuestions = [
       "bat",
       "cot",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "bat",
       "cot",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "bat",
     "imageUrl": "/images/child-mode/cvc/bat.png",
@@ -1022,13 +1022,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "cat",
       "dig",
-      "gum",
+      "fun",
       "hen"
     ],
     "answerOptions": [
       "cat",
       "dig",
-      "gum",
+      "fun",
       "hen"
     ],
     "imageKey": "",
@@ -1134,13 +1134,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "cat",
       "dig",
-      "gum",
+      "fun",
       "hen"
     ],
     "answerOptions": [
       "cat",
       "dig",
-      "gum",
+      "fun",
       "hen"
     ],
     "imageKey": "cat",
@@ -1189,13 +1189,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "dab",
       "cot",
-      "fin",
+      "fig",
       "gum"
     ],
     "answerOptions": [
       "dab",
       "cot",
-      "fin",
+      "fig",
       "gum"
     ],
     "imageKey": "",
@@ -1301,13 +1301,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "dab",
       "cot",
-      "fin",
+      "fig",
       "gum"
     ],
     "answerOptions": [
       "dab",
       "cot",
-      "fin",
+      "fig",
       "gum"
     ],
     "imageKey": "dab",
@@ -1356,13 +1356,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "dad",
       "cup",
-      "fin",
+      "fig",
       "hen"
     ],
     "answerOptions": [
       "dad",
       "cup",
-      "fin",
+      "fig",
       "hen"
     ],
     "imageKey": "",
@@ -1468,13 +1468,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "dad",
       "cup",
-      "fin",
+      "fig",
       "hen"
     ],
     "answerOptions": [
       "dad",
       "cup",
-      "fin",
+      "fig",
       "hen"
     ],
     "imageKey": "dad",
@@ -1580,13 +1580,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "dam",
       "cup",
-      "fin",
+      "fig",
       "hen"
     ],
     "answerOptions": [
       "dam",
       "cup",
-      "fin",
+      "fig",
       "hen"
     ],
     "imageKey": "dam",
@@ -1859,14 +1859,14 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "gap",
       "dig",
-      "hen",
-      "jug"
+      "fun",
+      "hen"
     ],
     "answerOptions": [
       "gap",
       "dig",
-      "hen",
-      "jug"
+      "fun",
+      "hen"
     ],
     "imageKey": "gap",
     "imageUrl": "/media/vocabulary/images/gap.webp",
@@ -1914,13 +1914,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "ham",
       "dog",
-      "fin",
+      "fig",
       "gum"
     ],
     "answerOptions": [
       "ham",
       "dog",
-      "fin",
+      "fig",
       "gum"
     ],
     "imageKey": "",
@@ -2026,13 +2026,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "ham",
       "dog",
-      "fin",
+      "fig",
       "gum"
     ],
     "answerOptions": [
       "ham",
       "dog",
-      "fin",
+      "fig",
       "gum"
     ],
     "imageKey": "ham",
@@ -2081,13 +2081,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "hat",
       "dog",
-      "fin",
+      "fig",
       "gum"
     ],
     "answerOptions": [
       "hat",
       "dog",
-      "fin",
+      "fig",
       "gum"
     ],
     "imageKey": "",
@@ -2193,13 +2193,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "hat",
       "dog",
-      "fin",
+      "fig",
       "gum"
     ],
     "answerOptions": [
       "hat",
       "dog",
-      "fin",
+      "fig",
       "gum"
     ],
     "imageKey": "hat",
@@ -2248,13 +2248,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "jam",
       "dot",
-      "fin",
+      "fig",
       "gum"
     ],
     "answerOptions": [
       "jam",
       "dot",
-      "fin",
+      "fig",
       "gum"
     ],
     "imageKey": "",
@@ -2360,13 +2360,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "jam",
       "dot",
-      "fin",
+      "fig",
       "gum"
     ],
     "answerOptions": [
       "jam",
       "dot",
-      "fin",
+      "fig",
       "gum"
     ],
     "imageKey": "jam",
@@ -2415,13 +2415,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "lab",
       "dug",
-      "fin",
+      "fig",
       "hen"
     ],
     "answerOptions": [
       "lab",
       "dug",
-      "fin",
+      "fig",
       "hen"
     ],
     "imageKey": "",
@@ -2527,13 +2527,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "lab",
       "dug",
-      "fin",
+      "fig",
       "hen"
     ],
     "answerOptions": [
       "lab",
       "dug",
-      "fin",
+      "fig",
       "hen"
     ],
     "imageKey": "lab",
@@ -2581,13 +2581,13 @@ export const cvcGeneratedQuestions = [
     "answer": "lap",
     "choices": [
       "lap",
-      "fin",
+      "fig",
       "gum",
       "hen"
     ],
     "answerOptions": [
       "lap",
-      "fin",
+      "fig",
       "gum",
       "hen"
     ],
@@ -2693,13 +2693,13 @@ export const cvcGeneratedQuestions = [
     "answer": "lap",
     "choices": [
       "lap",
-      "fin",
+      "fig",
       "gum",
       "hen"
     ],
     "answerOptions": [
       "lap",
-      "fin",
+      "fig",
       "gum",
       "hen"
     ],
@@ -2915,13 +2915,13 @@ export const cvcGeneratedQuestions = [
     "answer": "man",
     "choices": [
       "man",
-      "gum",
+      "fun",
       "hen",
       "kid"
     ],
     "answerOptions": [
       "man",
-      "gum",
+      "fun",
       "hen",
       "kid"
     ],
@@ -3027,13 +3027,13 @@ export const cvcGeneratedQuestions = [
     "answer": "man",
     "choices": [
       "man",
-      "gum",
+      "fun",
       "hen",
       "kid"
     ],
     "answerOptions": [
       "man",
-      "gum",
+      "fun",
       "hen",
       "kid"
     ],
@@ -5589,13 +5589,13 @@ export const cvcGeneratedQuestions = [
       "den",
       "bad",
       "cot",
-      "fin"
+      "fig"
     ],
     "answerOptions": [
       "den",
       "bad",
       "cot",
-      "fin"
+      "fig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -5701,13 +5701,13 @@ export const cvcGeneratedQuestions = [
       "den",
       "bad",
       "cot",
-      "fin"
+      "fig"
     ],
     "answerOptions": [
       "den",
       "bad",
       "cot",
-      "fin"
+      "fig"
     ],
     "imageKey": "den",
     "imageUrl": "/media/vocabulary/images/den.webp",
@@ -6089,13 +6089,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "jet",
       "big",
-      "cap",
+      "can",
       "dog"
     ],
     "answerOptions": [
       "jet",
       "big",
-      "cap",
+      "can",
       "dog"
     ],
     "imageKey": "",
@@ -6201,13 +6201,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "jet",
       "big",
-      "cap",
+      "can",
       "dog"
     ],
     "answerOptions": [
       "jet",
       "big",
-      "cap",
+      "can",
       "dog"
     ],
     "imageKey": "jet",
@@ -6256,13 +6256,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "leg",
       "big",
-      "cap",
+      "can",
       "dog"
     ],
     "answerOptions": [
       "leg",
       "big",
-      "cap",
+      "can",
       "dog"
     ],
     "imageKey": "",
@@ -6368,13 +6368,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "leg",
       "big",
-      "cap",
+      "can",
       "dog"
     ],
     "answerOptions": [
       "leg",
       "big",
-      "cap",
+      "can",
       "dog"
     ],
     "imageKey": "leg",
@@ -6480,13 +6480,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "men",
       "bin",
-      "cap",
+      "can",
       "dog"
     ],
     "answerOptions": [
       "men",
       "bin",
-      "cap",
+      "can",
       "dog"
     ],
     "imageKey": "men",
@@ -6535,13 +6535,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "peg",
       "bug",
-      "cap",
+      "can",
       "dig"
     ],
     "answerOptions": [
       "peg",
       "bug",
-      "cap",
+      "can",
       "dig"
     ],
     "imageKey": "",
@@ -6647,13 +6647,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "peg",
       "bug",
-      "cap",
+      "can",
       "dig"
     ],
     "answerOptions": [
       "peg",
       "bug",
-      "cap",
+      "can",
       "dig"
     ],
     "imageKey": "peg",
@@ -6702,13 +6702,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "pen",
       "bun",
-      "cap",
+      "can",
       "dig"
     ],
     "answerOptions": [
       "pen",
       "bun",
-      "cap",
+      "can",
       "dig"
     ],
     "imageKey": "",
@@ -6814,13 +6814,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "pen",
       "bun",
-      "cap",
+      "can",
       "dig"
     ],
     "answerOptions": [
       "pen",
       "bun",
-      "cap",
+      "can",
       "dig"
     ],
     "imageKey": "pen",
@@ -6869,13 +6869,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "pet",
       "bus",
-      "cap",
+      "can",
       "dig"
     ],
     "answerOptions": [
       "pet",
       "bus",
-      "cap",
+      "can",
       "dig"
     ],
     "imageKey": "",
@@ -6981,13 +6981,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "pet",
       "bus",
-      "cap",
+      "can",
       "dig"
     ],
     "answerOptions": [
       "pet",
       "bus",
-      "cap",
+      "can",
       "dig"
     ],
     "imageKey": "pet",
@@ -7035,15 +7035,15 @@ export const cvcGeneratedQuestions = [
     "answer": "red",
     "choices": [
       "red",
-      "cap",
+      "can",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "red",
-      "cap",
+      "can",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7147,15 +7147,15 @@ export const cvcGeneratedQuestions = [
     "answer": "red",
     "choices": [
       "red",
-      "cap",
+      "can",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "red",
-      "cap",
+      "can",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "red",
     "imageUrl": "/images/child-mode/short-e/red.png",
@@ -7202,15 +7202,15 @@ export const cvcGeneratedQuestions = [
     "answer": "ten",
     "choices": [
       "ten",
-      "cap",
+      "can",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "ten",
-      "cap",
+      "can",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7314,15 +7314,15 @@ export const cvcGeneratedQuestions = [
     "answer": "ten",
     "choices": [
       "ten",
-      "cap",
+      "can",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "ten",
-      "cap",
+      "can",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "ten",
     "imageUrl": "/images/child-mode/initial-sounds/ten.png",
@@ -7371,13 +7371,13 @@ export const cvcGeneratedQuestions = [
       "web",
       "cap",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "web",
       "cap",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7483,13 +7483,13 @@ export const cvcGeneratedQuestions = [
       "web",
       "cap",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "web",
       "cap",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "web",
     "imageUrl": "/images/child-mode/short-e/web.png",
@@ -7538,13 +7538,13 @@ export const cvcGeneratedQuestions = [
       "wet",
       "cat",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "wet",
       "cat",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7650,13 +7650,13 @@ export const cvcGeneratedQuestions = [
       "wet",
       "cat",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "wet",
       "cat",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "wet",
     "imageUrl": "/media/vocabulary/images/wet.webp",
@@ -7703,15 +7703,15 @@ export const cvcGeneratedQuestions = [
     "answer": "bib",
     "choices": [
       "bib",
-      "cap",
+      "can",
       "dog",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "bib",
-      "cap",
+      "can",
       "dog",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7815,15 +7815,15 @@ export const cvcGeneratedQuestions = [
     "answer": "bib",
     "choices": [
       "bib",
-      "cap",
+      "can",
       "dog",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "bib",
-      "cap",
+      "can",
       "dog",
-      "gum"
+      "fun"
     ],
     "imageKey": "bib",
     "imageUrl": "/media/final-sounds/images/b/bib.webp",
@@ -7870,15 +7870,15 @@ export const cvcGeneratedQuestions = [
     "answer": "big",
     "choices": [
       "big",
-      "cap",
+      "can",
       "dog",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "big",
-      "cap",
+      "can",
       "dog",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -7982,15 +7982,15 @@ export const cvcGeneratedQuestions = [
     "answer": "big",
     "choices": [
       "big",
-      "cap",
+      "can",
       "dog",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "big",
-      "cap",
+      "can",
       "dog",
-      "gum"
+      "fun"
     ],
     "imageKey": "big",
     "imageUrl": "/images/child-mode/short-i/big.png",
@@ -8037,15 +8037,15 @@ export const cvcGeneratedQuestions = [
     "answer": "bin",
     "choices": [
       "bin",
-      "cap",
+      "can",
       "dog",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "bin",
-      "cap",
+      "can",
       "dog",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8149,15 +8149,15 @@ export const cvcGeneratedQuestions = [
     "answer": "bin",
     "choices": [
       "bin",
-      "cap",
+      "can",
       "dog",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "bin",
-      "cap",
+      "can",
       "dog",
-      "gum"
+      "fun"
     ],
     "imageKey": "bin",
     "imageUrl": "/images/child-mode/initial-sounds/bin.png",
@@ -8205,13 +8205,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "dig",
       "bug",
-      "cap",
+      "can",
       "hen"
     ],
     "answerOptions": [
       "dig",
       "bug",
-      "cap",
+      "can",
       "hen"
     ],
     "imageKey": "",
@@ -8317,13 +8317,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "dig",
       "bug",
-      "cap",
+      "can",
       "hen"
     ],
     "answerOptions": [
       "dig",
       "bug",
-      "cap",
+      "can",
       "hen"
     ],
     "imageKey": "dig",
@@ -8372,13 +8372,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "dip",
       "bun",
-      "cap",
+      "can",
       "hen"
     ],
     "answerOptions": [
       "dip",
       "bun",
-      "cap",
+      "can",
       "hen"
     ],
     "imageKey": "",
@@ -8484,13 +8484,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "dip",
       "bun",
-      "cap",
+      "can",
       "hen"
     ],
     "answerOptions": [
       "dip",
       "bun",
-      "cap",
+      "can",
       "hen"
     ],
     "imageKey": "dip",
@@ -8539,13 +8539,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "fig",
       "bus",
-      "cap",
+      "can",
       "dog"
     ],
     "answerOptions": [
       "fig",
       "bus",
-      "cap",
+      "can",
       "dog"
     ],
     "imageKey": "",
@@ -8651,13 +8651,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "fig",
       "bus",
-      "cap",
+      "can",
       "dog"
     ],
     "answerOptions": [
       "fig",
       "bus",
-      "cap",
+      "can",
       "dog"
     ],
     "imageKey": "fig",
@@ -8705,13 +8705,13 @@ export const cvcGeneratedQuestions = [
     "answer": "fin",
     "choices": [
       "fin",
-      "cap",
+      "can",
       "dog",
       "gum"
     ],
     "answerOptions": [
       "fin",
-      "cap",
+      "can",
       "dog",
       "gum"
     ],
@@ -8817,13 +8817,13 @@ export const cvcGeneratedQuestions = [
     "answer": "fin",
     "choices": [
       "fin",
-      "cap",
+      "can",
       "dog",
       "gum"
     ],
     "answerOptions": [
       "fin",
-      "cap",
+      "can",
       "dog",
       "gum"
     ],
@@ -8872,15 +8872,15 @@ export const cvcGeneratedQuestions = [
     "answer": "hip",
     "choices": [
       "hip",
-      "cap",
+      "can",
       "dog",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "hip",
-      "cap",
+      "can",
       "dog",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -8984,15 +8984,15 @@ export const cvcGeneratedQuestions = [
     "answer": "hip",
     "choices": [
       "hip",
-      "cap",
+      "can",
       "dog",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "hip",
-      "cap",
+      "can",
       "dog",
-      "gum"
+      "fun"
     ],
     "imageKey": "hip",
     "imageUrl": "/media/vocabulary/images/hip.webp",
@@ -9041,13 +9041,13 @@ export const cvcGeneratedQuestions = [
       "hit",
       "cap",
       "dog",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "hit",
       "cap",
       "dog",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -9153,13 +9153,13 @@ export const cvcGeneratedQuestions = [
       "hit",
       "cap",
       "dog",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "hit",
       "cap",
       "dog",
-      "gum"
+      "fun"
     ],
     "imageKey": "hit",
     "imageUrl": "/images/child-mode/initial-sounds/hit.png",
@@ -9208,13 +9208,13 @@ export const cvcGeneratedQuestions = [
       "kid",
       "cat",
       "dog",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "kid",
       "cat",
       "dog",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -9320,13 +9320,13 @@ export const cvcGeneratedQuestions = [
       "kid",
       "cat",
       "dog",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "kid",
       "cat",
       "dog",
-      "gum"
+      "fun"
     ],
     "imageKey": "kid",
     "imageUrl": "/images/child-mode/initial-sounds/kid.png",
@@ -9375,13 +9375,13 @@ export const cvcGeneratedQuestions = [
       "kit",
       "cot",
       "dam",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "kit",
       "cot",
       "dam",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -9487,13 +9487,13 @@ export const cvcGeneratedQuestions = [
       "kit",
       "cot",
       "dam",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "kit",
       "cot",
       "dam",
-      "gum"
+      "fun"
     ],
     "imageKey": "kit",
     "imageUrl": "/media/vocabulary/images/kit.webp",
@@ -9542,13 +9542,13 @@ export const cvcGeneratedQuestions = [
       "lid",
       "cot",
       "dam",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "lid",
       "cot",
       "dam",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -9654,13 +9654,13 @@ export const cvcGeneratedQuestions = [
       "lid",
       "cot",
       "dam",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "lid",
       "cot",
       "dam",
-      "gum"
+      "fun"
     ],
     "imageKey": "lid",
     "imageUrl": "/images/child-mode/short-i/lid.png",
@@ -10042,13 +10042,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "pin",
       "dam",
-      "gum",
+      "fun",
       "hen"
     ],
     "answerOptions": [
       "pin",
       "dam",
-      "gum",
+      "fun",
       "hen"
     ],
     "imageKey": "",
@@ -10154,13 +10154,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "pin",
       "dam",
-      "gum",
+      "fun",
       "hen"
     ],
     "answerOptions": [
       "pin",
       "dam",
-      "gum",
+      "fun",
       "hen"
     ],
     "imageKey": "pin",
@@ -10266,13 +10266,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "pit",
       "dam",
-      "gum",
+      "fun",
       "hen"
     ],
     "answerOptions": [
       "pit",
       "dam",
-      "gum",
+      "fun",
       "hen"
     ],
     "imageKey": "pit",
@@ -10321,13 +10321,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "rib",
       "dam",
-      "gum",
+      "fun",
       "hen"
     ],
     "answerOptions": [
       "rib",
       "dam",
-      "gum",
+      "fun",
       "hen"
     ],
     "imageKey": "",
@@ -10433,13 +10433,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "rib",
       "dam",
-      "gum",
+      "fun",
       "hen"
     ],
     "answerOptions": [
       "rib",
       "dam",
-      "gum",
+      "fun",
       "hen"
     ],
     "imageKey": "rib",
@@ -11324,13 +11324,13 @@ export const cvcGeneratedQuestions = [
       "cob",
       "bad",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "cob",
       "bad",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -11436,13 +11436,13 @@ export const cvcGeneratedQuestions = [
       "cob",
       "bad",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "cob",
       "bad",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "cob",
     "imageUrl": "/media/final-sounds/images/b/cob.webp",
@@ -11491,13 +11491,13 @@ export const cvcGeneratedQuestions = [
       "cot",
       "bag",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "cot",
       "bag",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -11603,13 +11603,13 @@ export const cvcGeneratedQuestions = [
       "cot",
       "bag",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "cot",
       "bag",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "cot",
     "imageUrl": "/images/child-mode/minimal-pairs/cot.png",
@@ -11658,13 +11658,13 @@ export const cvcGeneratedQuestions = [
       "dog",
       "bat",
       "cup",
-      "fin"
+      "fig"
     ],
     "answerOptions": [
       "dog",
       "bat",
       "cup",
-      "fin"
+      "fig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -11770,13 +11770,13 @@ export const cvcGeneratedQuestions = [
       "dog",
       "bat",
       "cup",
-      "fin"
+      "fig"
     ],
     "answerOptions": [
       "dog",
       "bat",
       "cup",
-      "fin"
+      "fig"
     ],
     "imageKey": "dog",
     "imageUrl": "/images/child-mode/cvc/dog.png",
@@ -11824,14 +11824,14 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "dot",
       "big",
-      "cap",
-      "gum"
+      "can",
+      "fun"
     ],
     "answerOptions": [
       "dot",
       "big",
-      "cap",
-      "gum"
+      "can",
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -11936,14 +11936,14 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "dot",
       "big",
-      "cap",
-      "gum"
+      "can",
+      "fun"
     ],
     "answerOptions": [
       "dot",
       "big",
-      "cap",
-      "gum"
+      "can",
+      "fun"
     ],
     "imageKey": "dot",
     "imageUrl": "/images/child-mode/cvc/dot.png",
@@ -11991,13 +11991,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "hop",
       "big",
-      "cap",
+      "can",
       "dug"
     ],
     "answerOptions": [
       "hop",
       "big",
-      "cap",
+      "can",
       "dug"
     ],
     "imageKey": "",
@@ -12103,13 +12103,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "hop",
       "big",
-      "cap",
+      "can",
       "dug"
     ],
     "answerOptions": [
       "hop",
       "big",
-      "cap",
+      "can",
       "dug"
     ],
     "imageKey": "hop",
@@ -12158,13 +12158,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "hot",
       "bin",
-      "cap",
+      "can",
       "dug"
     ],
     "answerOptions": [
       "hot",
       "bin",
-      "cap",
+      "can",
       "dug"
     ],
     "imageKey": "",
@@ -12270,13 +12270,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "hot",
       "bin",
-      "cap",
+      "can",
       "dug"
     ],
     "answerOptions": [
       "hot",
       "bin",
-      "cap",
+      "can",
       "dug"
     ],
     "imageKey": "hot",
@@ -12325,13 +12325,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "log",
       "bug",
-      "cap",
+      "can",
       "dig"
     ],
     "answerOptions": [
       "log",
       "bug",
-      "cap",
+      "can",
       "dig"
     ],
     "imageKey": "",
@@ -12437,13 +12437,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "log",
       "bug",
-      "cap",
+      "can",
       "dig"
     ],
     "answerOptions": [
       "log",
       "bug",
-      "cap",
+      "can",
       "dig"
     ],
     "imageKey": "log",
@@ -12492,13 +12492,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "mop",
       "bun",
-      "cap",
+      "can",
       "dig"
     ],
     "answerOptions": [
       "mop",
       "bun",
-      "cap",
+      "can",
       "dig"
     ],
     "imageKey": "",
@@ -12604,13 +12604,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "mop",
       "bun",
-      "cap",
+      "can",
       "dig"
     ],
     "answerOptions": [
       "mop",
       "bun",
-      "cap",
+      "can",
       "dig"
     ],
     "imageKey": "mop",
@@ -12716,13 +12716,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "pop",
       "bus",
-      "cap",
+      "can",
       "dig"
     ],
     "answerOptions": [
       "pop",
       "bus",
-      "cap",
+      "can",
       "dig"
     ],
     "imageKey": "pop",
@@ -12770,15 +12770,15 @@ export const cvcGeneratedQuestions = [
     "answer": "pot",
     "choices": [
       "pot",
-      "cap",
+      "can",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "pot",
-      "cap",
+      "can",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -12882,15 +12882,15 @@ export const cvcGeneratedQuestions = [
     "answer": "pot",
     "choices": [
       "pot",
-      "cap",
+      "can",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "pot",
-      "cap",
+      "can",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "pot",
     "imageUrl": "/images/child-mode/cvc/pot.png",
@@ -12937,15 +12937,15 @@ export const cvcGeneratedQuestions = [
     "answer": "rod",
     "choices": [
       "rod",
-      "cap",
+      "can",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "rod",
-      "cap",
+      "can",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -13049,15 +13049,15 @@ export const cvcGeneratedQuestions = [
     "answer": "rod",
     "choices": [
       "rod",
-      "cap",
+      "can",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "rod",
-      "cap",
+      "can",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "rod",
     "imageUrl": "/media/vocabulary/images/rod.webp",
@@ -13106,13 +13106,13 @@ export const cvcGeneratedQuestions = [
       "top",
       "cap",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "top",
       "cap",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -13218,13 +13218,13 @@ export const cvcGeneratedQuestions = [
       "top",
       "cap",
       "dig",
-      "gum"
+      "fun"
     ],
     "answerOptions": [
       "top",
       "cap",
       "dig",
-      "gum"
+      "fun"
     ],
     "imageKey": "top",
     "imageUrl": "/images/child-mode/initial-sounds/top.png",
@@ -13271,13 +13271,13 @@ export const cvcGeneratedQuestions = [
     "answer": "bug",
     "choices": [
       "bug",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
     "answerOptions": [
       "bug",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
@@ -13383,13 +13383,13 @@ export const cvcGeneratedQuestions = [
     "answer": "bug",
     "choices": [
       "bug",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
     "answerOptions": [
       "bug",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
@@ -13438,13 +13438,13 @@ export const cvcGeneratedQuestions = [
     "answer": "bun",
     "choices": [
       "bun",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
     "answerOptions": [
       "bun",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
@@ -13550,13 +13550,13 @@ export const cvcGeneratedQuestions = [
     "answer": "bun",
     "choices": [
       "bun",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
     "answerOptions": [
       "bun",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
@@ -13605,13 +13605,13 @@ export const cvcGeneratedQuestions = [
     "answer": "bus",
     "choices": [
       "bus",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
     "answerOptions": [
       "bus",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
@@ -13717,13 +13717,13 @@ export const cvcGeneratedQuestions = [
     "answer": "bus",
     "choices": [
       "bus",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
     "answerOptions": [
       "bus",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
@@ -14107,13 +14107,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "dug",
       "bin",
-      "cap",
+      "can",
       "hen"
     ],
     "answerOptions": [
       "dug",
       "bin",
-      "cap",
+      "can",
       "hen"
     ],
     "imageKey": "",
@@ -14219,13 +14219,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "dug",
       "bin",
-      "cap",
+      "can",
       "hen"
     ],
     "answerOptions": [
       "dug",
       "bin",
-      "cap",
+      "can",
       "hen"
     ],
     "imageKey": "dug",
@@ -14273,13 +14273,13 @@ export const cvcGeneratedQuestions = [
     "answer": "fun",
     "choices": [
       "fun",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
     "answerOptions": [
       "fun",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
@@ -14385,13 +14385,13 @@ export const cvcGeneratedQuestions = [
     "answer": "fun",
     "choices": [
       "fun",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
     "answerOptions": [
       "fun",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
@@ -14440,13 +14440,13 @@ export const cvcGeneratedQuestions = [
     "answer": "gum",
     "choices": [
       "gum",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
     "answerOptions": [
       "gum",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
@@ -14552,13 +14552,13 @@ export const cvcGeneratedQuestions = [
     "answer": "gum",
     "choices": [
       "gum",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
     "answerOptions": [
       "gum",
-      "cap",
+      "can",
       "dig",
       "hen"
     ],
@@ -14943,13 +14943,13 @@ export const cvcGeneratedQuestions = [
       "mud",
       "cot",
       "dam",
-      "fin"
+      "fig"
     ],
     "answerOptions": [
       "mud",
       "cot",
       "dam",
-      "fin"
+      "fig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -15055,13 +15055,13 @@ export const cvcGeneratedQuestions = [
       "mud",
       "cot",
       "dam",
-      "fin"
+      "fig"
     ],
     "answerOptions": [
       "mud",
       "cot",
       "dam",
-      "fin"
+      "fig"
     ],
     "imageKey": "mud",
     "imageUrl": "/images/child-mode/short-u/mud.png",
@@ -15110,13 +15110,13 @@ export const cvcGeneratedQuestions = [
       "mug",
       "cot",
       "dam",
-      "fin"
+      "fig"
     ],
     "answerOptions": [
       "mug",
       "cot",
       "dam",
-      "fin"
+      "fig"
     ],
     "imageKey": "",
     "imageUrl": "",
@@ -15222,13 +15222,13 @@ export const cvcGeneratedQuestions = [
       "mug",
       "cot",
       "dam",
-      "fin"
+      "fig"
     ],
     "answerOptions": [
       "mug",
       "cot",
       "dam",
-      "fin"
+      "fig"
     ],
     "imageKey": "mug",
     "imageUrl": "/images/child-mode/cvc/mug.png",
@@ -15276,13 +15276,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "pup",
       "dam",
-      "fin",
+      "fig",
       "hen"
     ],
     "answerOptions": [
       "pup",
       "dam",
-      "fin",
+      "fig",
       "hen"
     ],
     "imageKey": "",
@@ -15388,13 +15388,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "pup",
       "dam",
-      "fin",
+      "fig",
       "hen"
     ],
     "answerOptions": [
       "pup",
       "dam",
-      "fin",
+      "fig",
       "hen"
     ],
     "imageKey": "pup",
@@ -15443,13 +15443,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "rub",
       "dam",
-      "fin",
+      "fig",
       "hen"
     ],
     "answerOptions": [
       "rub",
       "dam",
-      "fin",
+      "fig",
       "hen"
     ],
     "imageKey": "",
@@ -15555,13 +15555,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "rub",
       "dam",
-      "fin",
+      "fig",
       "hen"
     ],
     "answerOptions": [
       "rub",
       "dam",
-      "fin",
+      "fig",
       "hen"
     ],
     "imageKey": "rub",
@@ -15610,13 +15610,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "rug",
       "dam",
-      "fin",
+      "fig",
       "hen"
     ],
     "answerOptions": [
       "rug",
       "dam",
-      "fin",
+      "fig",
       "hen"
     ],
     "imageKey": "",
@@ -15722,13 +15722,13 @@ export const cvcGeneratedQuestions = [
     "choices": [
       "rug",
       "dam",
-      "fin",
+      "fig",
       "hen"
     ],
     "answerOptions": [
       "rug",
       "dam",
-      "fin",
+      "fig",
       "hen"
     ],
     "imageKey": "rug",

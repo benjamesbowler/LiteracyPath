@@ -234,7 +234,7 @@ function parseSheetRows(xml = "", sharedStrings = []) {
       const colNumber = columnIndexFromCellRef(attributes.r);
       if (!colNumber) continue;
 
-      let value = "";
+      let value;
       if (attributes.t === "s") {
         const sharedIndex = Number(cellXml.match(/<(?:\w+:)?v>([\s\S]*?)<\/(?:\w+:)?v>/)?.[1] || 0);
         value = sharedStrings[sharedIndex] || "";

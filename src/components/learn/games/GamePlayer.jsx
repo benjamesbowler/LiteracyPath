@@ -134,7 +134,7 @@ export function GamePlayer({
             aria-label="Hear game instructions"
             title="Hear game instructions"
           >
-            <img src="/images/learn-games/phinny-waving.png" alt="" />
+            <img src="/images/learn-games/phinny-waving.png" alt="" onError={event => { event.currentTarget.style.display = "none"; }} />
           </button>
           <SoundToggle enabled={soundEnabled} onToggle={() => onSoundEnabledChange(!soundEnabled)} />
           <button type="button" className="lg-game-close" onClick={requestClose} aria-label="Close game">
@@ -147,7 +147,7 @@ export function GamePlayer({
         <Suspense
           fallback={
             <div className="lg-game-loading">
-              <img src="/images/learn-games/phinny-thinking.webp" alt="" width="110" height="110" />
+              <img src="/images/learn-games/phinny-thinking.webp" alt="" width="110" height="110" onError={event => { event.currentTarget.style.display = "none"; }} />
               Loading game...
             </div>
           }

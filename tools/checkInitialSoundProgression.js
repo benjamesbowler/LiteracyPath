@@ -75,7 +75,7 @@ function duplicateValues(values) {
   return [...new Set(values.filter((value, index) => values.indexOf(value) !== index))];
 }
 
-function simulateRound({ label, level, expectedNewLetters = [] }) {
+function simulateRound({ label, level, expectedNewLetters = [], pool = [] }) {
   const progress = buildInitialSoundsProgressFromAnswerHistory(simulatedHistory);
   const plan = getInitialSoundRoundPlan({
     studentProgress: { initialSoundsProgress: progress },
@@ -88,7 +88,12 @@ function simulateRound({ label, level, expectedNewLetters = [] }) {
   const duplicateLetters = duplicateValues(letters);
   const duplicateWords = duplicateValues(words);
   const missingExpected = expectedNewLetters.filter(letter => !letters.includes(letter));
-  const expectedCoreFailures = expectedNewLetters
+  const outsidePool = pool.length ? letters.filter(letter => !pool.includes(letter)) : [];
+  // The selector seed-shuffles the available pool for per-student variety, so
+  // first rounds assert pool membership; core-word priority applies to whatever
+  // letters were actually selected. Full coverage is asserted after two rounds.
+  const coreCheckLetters = expectedNewLetters.length ? expectedNewLetters : letters;
+  const expectedCoreFailures = coreCheckLetters
     .filter(letter => {
       const selectedIndex = letters.indexOf(letter);
       if (selectedIndex < 0 || words[selectedIndex] === coreWord(letter, level)) return false;
@@ -108,6 +113,7 @@ function simulateRound({ label, level, expectedNewLetters = [] }) {
   if (duplicateLetters.length) failures.push(`${label}: repeated letters ${duplicateLetters.join(", ")}.`);
   if (duplicateWords.length) failures.push(`${label}: repeated target words ${duplicateWords.join(", ")}.`);
   if (missingExpected.length) failures.push(`${label}: missing expected media-complete letters ${missingExpected.join(", ")}.`);
+  if (outsidePool.length) failures.push(`${label}: selected letters outside media-complete pool ${outsidePool.join(", ")}.`);
   if (expectedCoreFailures.length) failures.push(`${label}: core priority mismatch (${expectedCoreFailures.join("; ")}).`);
 
   plan.items.forEach(item => {
@@ -149,7 +155,7 @@ if (level2Blocked.length) warnings.push(`Level 2 blocked letters due to missing 
 const round1L1 = simulateRound({
   label: "Round 1 Level 1",
   level: 1,
-  expectedNewLetters: level1Available.slice(0, 15)
+  pool: level1Available
 });
 const remainingL1 = level1Available.filter(letter => !round1L1.selectedLetters.includes(letter));
 const round2L1 = simulateRound({
@@ -165,7 +171,7 @@ if (missingAfterTwoL1.length) failures.push(`Level 1 first two rounds did not co
 const round1L2 = simulateRound({
   label: "Round 3 Level 2",
   level: 2,
-  expectedNewLetters: level2Available.slice(0, 15)
+  pool: level2Available
 });
 const remainingL2 = level2Available.filter(letter => !round1L2.selectedLetters.includes(letter));
 const round2L2 = simulateRound({

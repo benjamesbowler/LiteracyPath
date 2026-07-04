@@ -5,7 +5,6 @@ import { APPROVED_SIGHT_WORDS } from "../src/data/skillTemplateRouting.js";
 import { HFW_WORD_BANDS } from "../src/data/highFrequencyWordBands.js";
 import { kimiVocabulary500Lexicon } from "../src/data/kimiVocabulary500Lexicon.js";
 import {
-  finalSoundExpectedItemKeys,
   rhymingLevelTwoExpectedItemKeys
 } from "../src/data/coverageExpectations.js";
 import { getApprovedAudioPath } from "../src/data/audioPreferenceManifest.js";
@@ -29,13 +28,11 @@ const manifestPath = path.join(docsValidationDir, "skill_level_gap_questions_gen
 const markdownPath = path.join(docsValidationDir, "skill_level_gap_questions_generation.md");
 const GENERATED_SOURCE = "skill_level_depth_gap_generator";
 const PHASE_BUFFER_SIZE = SKILL_LEVEL_DEPTH_TARGETS.phaseBufferSize || Math.ceil(SKILL_LEVEL_DEPTH_TARGETS.phaseSize * 1.5);
-const SHORT_VOWEL_LABELS = ["short_a", "short_e", "short_i", "short_o", "short_u"];
 const FORBIDDEN_EARLY_CHOICE_WORDS = new Set([
   ...LOW_VALUE_CVC_EXCLUSIONS,
   "yen"
 ]);
 const SINGLE_LETTER_SOUNDS = "abcdefghijklmnopqrstuvwxyz".split("");
-const BASIC_FINAL_SOUNDS = finalSoundExpectedItemKeys;
 const REPLACED_LEGACY_SKILLS = new Set([
   "prepositions_of_place",
   "plurals",
@@ -1096,26 +1093,6 @@ const STORY_SETTINGS = [
   ["flowerpot", "greenhouse", "seed tray"], ["chessboard", "game club", "corner table"], ["cactus", "desert garden", "stone path"],
   ["crayon", "classroom", "supply shelf"], ["cloud", "weather station", "rain gauge"]
 ];
-const STORY_DISCOVERIES = [
-  "a blue feather", "three smooth shells", "a bent key", "a torn map corner", "a tiny paw print", "a loose red button",
-  "a folded note", "a cracked tile", "a silver coin", "a muddy boot print", "a green ribbon", "a painted pebble",
-  "a nest of dry grass", "a missing library card", "a basket of warm rolls", "a broken wheel", "a lantern with no oil",
-  "a packet of seeds", "a striped scarf", "a whistle on a string", "a jar of rainwater", "a wooden tag", "a small brass bell"
-];
-const STORY_ACTIONS = [
-  "made a careful note", "added the detail to a field journal", "asked an adult for help", "wrote the place in a notebook",
-  "chose a safer spot nearby", "marked the place on the class map", "checked the owner tag", "sketched the detail carefully",
-  "compared the find with a picture", "visited the lost-and-found table", "measured the find twice", "shared the detail with the group"
-];
-const STORY_OBSERVATION_ACTIONS = [
-  "made a careful note about it",
-  "added the detail to the project journal",
-  "asked an adult what to do next",
-  "marked the place on the class map",
-  "sketched it on the observation sheet",
-  "took a photo for the class record"
-];
-
 function sentenceStart(value = "") {
   const text = String(value || "").trim();
   return text ? text[0].toUpperCase() + text.slice(1) : text;
@@ -1602,8 +1579,6 @@ function buildHigherStoryQuestion(skillId, skillName, level, index) {
   const name = STORY_NAMES[(index + level * 5) % STORY_NAMES.length];
   const partner = STORY_PARTNERS[(index * 2 + level) % STORY_PARTNERS.length];
   const [imageWord, setting, landmark] = storySetting(index + level * 7 + skillId.length);
-  const discovery = STORY_DISCOVERIES[(index * 3 + level) % STORY_DISCOVERIES.length];
-  const action = STORY_ACTIONS[(index * 5 + level) % STORY_ACTIONS.length];
   const partnerStart = sentenceStart(partner);
   const extraSentence = level === 2
     ? `Later, ${partnerStart} asked ${name} to explain the choice, so ${name} used details from the whole trip.`

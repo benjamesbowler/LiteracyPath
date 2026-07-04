@@ -17,11 +17,9 @@ import {
   replacementInstructionForAudio
 } from "../src/utils/audio/assessmentAudioClassifier.js";
 import {
-  getQuestionAudioPaths,
   getQuestionSkillLabel,
   getQuestionTargetWord,
   loadCoreQuestionPool,
-  publicPathExists,
   repoRoot,
   writeFile
 } from "./phonicsRuntimeUtils.js";

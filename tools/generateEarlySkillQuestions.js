@@ -21,6 +21,26 @@ import {
   rhymingLevelTwoExpectedItemKeys
 } from "../src/data/coverageExpectations.js";
 import { LOW_VALUE_CVC_EXCLUSIONS } from "../src/utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js";
+import { contentExpansionPass3Questions } from "../src/data/contentExpansionPass3Questions.js";
+import { targetedContentRecoveryQuestions } from "../src/data/targetedContentRecoveryQuestions.js";
+import { skillLevelGapQuestions } from "../src/data/generated/skillLevelGapQuestions.generated.js";
+
+// Curated/hand-authored short-vowel-discrimination questions already cover some
+// (level, phase, target, template) slots; the generator must not duplicate them
+// or students can see the same question twice in one phase pool.
+const CURATED_SVD_KEYS = new Set(
+  [...contentExpansionPass3Questions, ...targetedContentRecoveryQuestions, ...skillLevelGapQuestions]
+    .filter(question => String(question.skillId || "") === "short_vowel_discrimination")
+    .map(question => {
+      const level = Number(question.level || question.difficultyLevel || question.difficulty || 1) >= 2 ? 2 : 1;
+      const template = String(question.formatType || question.templateType || question.questionType || "").toUpperCase();
+      const target = String(question.targetWord || question.answer || question.correctAnswer || "").toLowerCase();
+      // Phase intentionally excluded: curated rows often omit phase and the
+      // runtime infers it, so any same-level target/template collision risks
+      // a repeat inside one phase pool.
+      return `L${level}:${target}::${template}`;
+    })
+);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
@@ -628,6 +648,8 @@ function generateShortVowelDiscriminationQuestions(entries) {
     hasImage(entry) &&
     hasApprovedAudio(entry)
   );
+  const curatedCollision = (level, phase, target, template) =>
+    CURATED_SVD_KEYS.has(`L${level}:${String(target).toLowerCase()}::${template}`);
   return cvcEntries.slice(0, 180).flatMap((entry, index) => {
     const level = index % 2 === 0 ? 1 : 2;
     const phase = Math.floor(index / 2) % 2 === 0 ? 1 : 2;
@@ -637,8 +659,10 @@ function generateShortVowelDiscriminationQuestions(entries) {
       requireImage: true,
       preferDifferentVowel: true
     });
-    return [
-      makeBase({
+    const questions = [];
+    if (!curatedCollision(level, phase, entry.medialVowel, "LISTEN_CHOOSE_VOWEL") &&
+        !curatedCollision(level, phase, entry.lowercaseWord, "LISTEN_CHOOSE_VOWEL")) {
+      questions.push(makeBase({
         id: `gen_short_vowel_${entry.medialVowel}_${normalize(entry.lowercaseWord)}_${index}_listen`,
         skillId: "short_vowel_discrimination",
         skillName: "Short Vowel Discrimination",
@@ -658,8 +682,10 @@ function generateShortVowelDiscriminationQuestions(entries) {
         sourceLexiconId: entry.id,
         itemType: "short_vowel",
         tags: ["generated", "short-vowel-discrimination", "listen-vowel"]
-      }),
-      makeBase({
+      }));
+    }
+    if (!curatedCollision(level, phase, entry.lowercaseWord, "PICTURE_TO_PRINT_MATCH")) {
+      questions.push(makeBase({
         id: `gen_short_vowel_${entry.medialVowel}_${normalize(entry.lowercaseWord)}_${index}_picture`,
         skillId: "short_vowel_discrimination",
         skillName: "Short Vowel Discrimination",
@@ -679,8 +705,9 @@ function generateShortVowelDiscriminationQuestions(entries) {
         sourceLexiconId: entry.id,
         itemType: "short_vowel",
         tags: ["generated", "short-vowel-discrimination", "picture-word"]
-      })
-    ];
+      }));
+    }
+    return questions;
   });
 }
 

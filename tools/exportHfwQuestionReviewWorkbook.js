@@ -4,7 +4,6 @@ import ExcelJS from "exceljs";
 
 import { hfwAssessmentQuestions } from "../src/data/generated/hfwAssessmentQuestions.generated.js";
 import { getHfwDirectAnswerLeakageIssues } from "../src/data/hfwAssessmentFormatConfig.js";
-import { HFW_WORD_BANDS } from "../src/data/highFrequencyWordBands.js";
 import {
   getHfwFillerPhraseHits,
   getMultiplePlausibleHfwAnswerIssues,

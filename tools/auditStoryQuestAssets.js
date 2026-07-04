@@ -123,7 +123,6 @@ function renderList(items, emptyText = "None found.") {
 function renderAudit() {
   const allImageFiles = listAssetFiles(imageRoot, IMAGE_EXTENSIONS);
   const allAudioFiles = listAssetFiles(audioRoot, AUDIO_EXTENSIONS);
-  const allAssetFiles = [...allImageFiles, ...allAudioFiles];
   const allReferenced = new Set();
   const pageRows = storyQuests.flatMap(makeQuestRows);
 

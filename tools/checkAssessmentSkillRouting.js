@@ -4,7 +4,6 @@ import { getApprovedAudioPath } from "../src/data/audioPreferenceManifest.js";
 import {
   getHfwBandDuplicates,
   getHfwBandWords,
-  HFW_WORD_BANDS,
   normalizeHfwSkillId
 } from "../src/data/highFrequencyWordBands.js";
 import { getHfwRuntimeEligibilityIssues } from "../src/data/hfwRuntimeEligibility.js";

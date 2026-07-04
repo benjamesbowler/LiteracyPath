@@ -2,7 +2,6 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
-  getQuestionChoices,
   getSkillBankItems,
   runtimeQuestionSources
 } from "../src/content/skillMedia/skillAssetRegistry.js";

@@ -13,9 +13,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "beautiful",
     "imagePath": "/media/vocabulary/images/adjective-beautiful.webp",
     "imageUrl": "/media/vocabulary/images/adjective-beautiful.webp",
@@ -24,9 +24,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
     "choices": [
       "bread",
       "shake",
@@ -35,32 +34,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_bread_text",
-        "word": "bread",
-        "label": "bread",
         "value": "bread",
+        "label": "bread",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_verb_shake_text",
-        "word": "shake",
-        "label": "shake",
         "value": "shake",
+        "label": "shake",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_adjective_beautiful_text",
-        "word": "beautiful",
-        "label": "beautiful",
         "value": "beautiful",
+        "label": "beautiful",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_noun_boy_text",
+        "value": "boy",
+        "label": "boy",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_bread",
+        "word": "bread",
+        "label": "bread",
+        "value": "bread",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/bread.webp",
+        "imagePath": "/media/vocabulary/images/bread.webp",
+        "imageUrl": "/media/vocabulary/images/bread.webp",
+        "alt": "bread noun card"
+      },
+      {
+        "id": "second_verb_shake",
+        "word": "shake",
+        "label": "shake",
+        "value": "shake",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-shake.webp",
+        "imagePath": "/media/vocabulary/images/verb-shake.webp",
+        "imageUrl": "/media/vocabulary/images/verb-shake.webp",
+        "alt": "shake verb card"
+      },
+      {
+        "id": "second_adjective_beautiful",
+        "word": "beautiful",
+        "label": "beautiful",
+        "value": "beautiful",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-beautiful.webp",
+        "imagePath": "/media/vocabulary/images/adjective-beautiful.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-beautiful.webp",
+        "alt": "beautiful adjective card"
+      },
+      {
+        "id": "second_noun_boy",
         "word": "boy",
         "label": "boy",
         "value": "boy",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/boy.webp",
+        "imagePath": "/media/vocabulary/images/boy.webp",
+        "imageUrl": "/media/vocabulary/images/boy.webp",
+        "alt": "boy noun card"
       }
     ],
     "correctAnswer": "beautiful",
@@ -70,7 +107,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "adjective",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "beautiful makes the sentence make sense."
+    "explanation": "beautiful is a adjective."
   },
   {
     "id": "second_adjectives_l1_01_brave",
@@ -83,6 +120,3751 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "brave",
+    "imagePath": "/media/vocabulary/images/adjective-brave.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-brave.webp",
+    "targetImage": "/media/vocabulary/images/adjective-brave.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-brave.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "brave",
+      "artist",
+      "coach",
+      "baked"
+    ],
+    "answerOptions": [
+      {
+        "value": "brave",
+        "label": "brave",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "artist",
+        "label": "artist",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "coach",
+        "label": "coach",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "baked",
+        "label": "baked",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_brave",
+        "word": "brave",
+        "label": "brave",
+        "value": "brave",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-brave.webp",
+        "imagePath": "/media/vocabulary/images/adjective-brave.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-brave.webp",
+        "alt": "brave adjective card"
+      },
+      {
+        "id": "second_noun_artist",
+        "word": "artist",
+        "label": "artist",
+        "value": "artist",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-artist.webp",
+        "imagePath": "/media/vocabulary/images/noun-artist.webp",
+        "imageUrl": "/media/vocabulary/images/noun-artist.webp",
+        "alt": "artist noun card"
+      },
+      {
+        "id": "second_noun_coach",
+        "word": "coach",
+        "label": "coach",
+        "value": "coach",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-coach.webp",
+        "imagePath": "/media/vocabulary/images/noun-coach.webp",
+        "imageUrl": "/media/vocabulary/images/noun-coach.webp",
+        "alt": "coach noun card"
+      },
+      {
+        "id": "second_verb_baked",
+        "word": "baked",
+        "label": "baked",
+        "value": "baked",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-baked.webp",
+        "imagePath": "/media/vocabulary/images/verb-baked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-baked.webp",
+        "alt": "baked verb card"
+      }
+    ],
+    "correctAnswer": "brave",
+    "answer": "brave",
+    "itemType": "grammar_adjective",
+    "itemKey": "brave",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "brave is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_32_brown",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "brown",
+    "imagePath": "/media/vocabulary/images/adjective-brown.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-brown.webp",
+    "targetImage": "/media/vocabulary/images/adjective-brown.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-brown.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "fly",
+      "brown",
+      "field",
+      "fish"
+    ],
+    "answerOptions": [
+      {
+        "value": "fly",
+        "label": "fly",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "brown",
+        "label": "brown",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "field",
+        "label": "field",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "fish",
+        "label": "fish",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_fly",
+        "word": "fly",
+        "label": "fly",
+        "value": "fly",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fly.webp",
+        "imagePath": "/media/vocabulary/images/verb-fly.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fly.webp",
+        "alt": "fly verb card"
+      },
+      {
+        "id": "second_adjective_brown",
+        "word": "brown",
+        "label": "brown",
+        "value": "brown",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-brown.webp",
+        "imagePath": "/media/vocabulary/images/adjective-brown.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-brown.webp",
+        "alt": "brown adjective card"
+      },
+      {
+        "id": "second_noun_field",
+        "word": "field",
+        "label": "field",
+        "value": "field",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/field.webp",
+        "imagePath": "/media/vocabulary/images/field.webp",
+        "imageUrl": "/media/vocabulary/images/field.webp",
+        "alt": "field noun card"
+      },
+      {
+        "id": "second_noun_fish",
+        "word": "fish",
+        "label": "fish",
+        "value": "fish",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/fish.png",
+        "imagePath": "/images/child-mode/cvc/fish.png",
+        "imageUrl": "/images/child-mode/cvc/fish.png",
+        "alt": "fish noun card"
+      }
+    ],
+    "correctAnswer": "brown",
+    "answer": "brown",
+    "itemType": "grammar_adjective",
+    "itemKey": "brown",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "brown is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_02_bumpy",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "bumpy",
+    "imagePath": "/media/vocabulary/images/adjective-bumpy.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-bumpy.webp",
+    "targetImage": "/media/vocabulary/images/adjective-bumpy.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-bumpy.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "market",
+      "mum",
+      "builds",
+      "bumpy"
+    ],
+    "answerOptions": [
+      {
+        "value": "market",
+        "label": "market",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "mum",
+        "label": "mum",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "builds",
+        "label": "builds",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "bumpy",
+        "label": "bumpy",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_market",
+        "word": "market",
+        "label": "market",
+        "value": "market",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-market.webp",
+        "imagePath": "/media/vocabulary/images/noun-market.webp",
+        "imageUrl": "/media/vocabulary/images/noun-market.webp",
+        "alt": "market noun card"
+      },
+      {
+        "id": "second_noun_mum",
+        "word": "mum",
+        "label": "mum",
+        "value": "mum",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-mum.webp",
+        "imagePath": "/media/vocabulary/images/noun-mum.webp",
+        "imageUrl": "/media/vocabulary/images/noun-mum.webp",
+        "alt": "mum noun card"
+      },
+      {
+        "id": "second_verb_builds",
+        "word": "builds",
+        "label": "builds",
+        "value": "builds",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-builds.webp",
+        "imagePath": "/media/vocabulary/images/verb-builds.webp",
+        "imageUrl": "/media/vocabulary/images/verb-builds.webp",
+        "alt": "builds verb card"
+      },
+      {
+        "id": "second_adjective_bumpy",
+        "word": "bumpy",
+        "label": "bumpy",
+        "value": "bumpy",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imagePath": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-bumpy.webp",
+        "alt": "bumpy adjective card"
+      }
+    ],
+    "correctAnswer": "bumpy",
+    "answer": "bumpy",
+    "itemType": "grammar_adjective",
+    "itemKey": "bumpy",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "bumpy is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_03_calm",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "calm",
+    "imagePath": "/media/vocabulary/images/adjective-calm.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-calm.webp",
+    "targetImage": "/media/vocabulary/images/adjective-calm.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-calm.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "station",
+      "dance",
+      "calm",
+      "pilot"
+    ],
+    "answerOptions": [
+      {
+        "value": "station",
+        "label": "station",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "dance",
+        "label": "dance",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "calm",
+        "label": "calm",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "pilot",
+        "label": "pilot",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_station",
+        "word": "station",
+        "label": "station",
+        "value": "station",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-station.webp",
+        "imagePath": "/media/vocabulary/images/noun-station.webp",
+        "imageUrl": "/media/vocabulary/images/noun-station.webp",
+        "alt": "station noun card"
+      },
+      {
+        "id": "second_verb_dance",
+        "word": "dance",
+        "label": "dance",
+        "value": "dance",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-dance.webp",
+        "imagePath": "/media/vocabulary/images/verb-dance.webp",
+        "imageUrl": "/media/vocabulary/images/verb-dance.webp",
+        "alt": "dance verb card"
+      },
+      {
+        "id": "second_adjective_calm",
+        "word": "calm",
+        "label": "calm",
+        "value": "calm",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-calm.webp",
+        "imagePath": "/media/vocabulary/images/adjective-calm.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-calm.webp",
+        "alt": "calm adjective card"
+      },
+      {
+        "id": "second_noun_pilot",
+        "word": "pilot",
+        "label": "pilot",
+        "value": "pilot",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-pilot.webp",
+        "imagePath": "/media/vocabulary/images/noun-pilot.webp",
+        "imageUrl": "/media/vocabulary/images/noun-pilot.webp",
+        "alt": "pilot noun card"
+      }
+    ],
+    "correctAnswer": "calm",
+    "answer": "calm",
+    "itemType": "grammar_adjective",
+    "itemKey": "calm",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "calm is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_04_crisp",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "crisp",
+    "imagePath": "/media/vocabulary/images/adjective-crisp.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-crisp.webp",
+    "targetImage": "/media/vocabulary/images/adjective-crisp.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-crisp.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "fell",
+      "crisp",
+      "ape",
+      "back"
+    ],
+    "answerOptions": [
+      {
+        "value": "fell",
+        "label": "fell",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "crisp",
+        "label": "crisp",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "ape",
+        "label": "ape",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "back",
+        "label": "back",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_fell",
+        "word": "fell",
+        "label": "fell",
+        "value": "fell",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fell.webp",
+        "imagePath": "/media/vocabulary/images/verb-fell.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fell.webp",
+        "alt": "fell verb card"
+      },
+      {
+        "id": "second_adjective_crisp",
+        "word": "crisp",
+        "label": "crisp",
+        "value": "crisp",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-crisp.webp",
+        "imagePath": "/media/vocabulary/images/adjective-crisp.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-crisp.webp",
+        "alt": "crisp adjective card"
+      },
+      {
+        "id": "second_noun_ape",
+        "word": "ape",
+        "label": "ape",
+        "value": "ape",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/ape.webp",
+        "imagePath": "/media/vocabulary/images/ape.webp",
+        "imageUrl": "/media/vocabulary/images/ape.webp",
+        "alt": "ape noun card"
+      },
+      {
+        "id": "second_noun_back",
+        "word": "back",
+        "label": "back",
+        "value": "back",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/back.webp",
+        "imagePath": "/media/vocabulary/images/back.webp",
+        "imageUrl": "/media/vocabulary/images/back.webp",
+        "alt": "back noun card"
+      }
+    ],
+    "correctAnswer": "crisp",
+    "answer": "crisp",
+    "itemType": "grammar_adjective",
+    "itemKey": "crisp",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "crisp is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_05_cute",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "cute",
+    "imagePath": "/media/vocabulary/images/adjective-cute.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-cute.webp",
+    "targetImage": "/media/vocabulary/images/adjective-cute.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-cute.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "cute",
+      "bat",
+      "bear",
+      "jumped"
+    ],
+    "answerOptions": [
+      {
+        "value": "cute",
+        "label": "cute",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "bat",
+        "label": "bat",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "bear",
+        "label": "bear",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "jumped",
+        "label": "jumped",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_cute",
+        "word": "cute",
+        "label": "cute",
+        "value": "cute",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-cute.webp",
+        "imagePath": "/media/vocabulary/images/adjective-cute.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-cute.webp",
+        "alt": "cute adjective card"
+      },
+      {
+        "id": "second_noun_bat",
+        "word": "bat",
+        "label": "bat",
+        "value": "bat",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/bat.png",
+        "imagePath": "/images/child-mode/cvc/bat.png",
+        "imageUrl": "/images/child-mode/cvc/bat.png",
+        "alt": "bat noun card"
+      },
+      {
+        "id": "second_noun_bear",
+        "word": "bear",
+        "label": "bear",
+        "value": "bear",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/bear.png",
+        "imagePath": "/images/child-mode/initial-sounds/bear.png",
+        "imageUrl": "/images/child-mode/initial-sounds/bear.png",
+        "alt": "bear noun card"
+      },
+      {
+        "id": "second_verb_jumped",
+        "word": "jumped",
+        "label": "jumped",
+        "value": "jumped",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-jumped.webp",
+        "imagePath": "/media/vocabulary/images/verb-jumped.webp",
+        "imageUrl": "/media/vocabulary/images/verb-jumped.webp",
+        "alt": "jumped verb card"
+      }
+    ],
+    "correctAnswer": "cute",
+    "answer": "cute",
+    "itemType": "grammar_adjective",
+    "itemKey": "cute",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "cute is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_06_deep",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "deep",
+    "imagePath": "/media/vocabulary/images/adjective-deep.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-deep.webp",
+    "targetImage": "/media/vocabulary/images/adjective-deep.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-deep.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "bell",
+      "book",
+      "observe",
+      "deep"
+    ],
+    "answerOptions": [
+      {
+        "value": "bell",
+        "label": "bell",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "book",
+        "label": "book",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "observe",
+        "label": "observe",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "deep",
+        "label": "deep",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_bell",
+        "word": "bell",
+        "label": "bell",
+        "value": "bell",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/bell.png",
+        "imagePath": "/images/child-mode/initial-sounds/bell.png",
+        "imageUrl": "/images/child-mode/initial-sounds/bell.png",
+        "alt": "bell noun card"
+      },
+      {
+        "id": "second_noun_book",
+        "word": "book",
+        "label": "book",
+        "value": "book",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/book.png",
+        "imagePath": "/images/child-mode/cvc/book.png",
+        "imageUrl": "/images/child-mode/cvc/book.png",
+        "alt": "book noun card"
+      },
+      {
+        "id": "second_verb_observe",
+        "word": "observe",
+        "label": "observe",
+        "value": "observe",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-observe.webp",
+        "imagePath": "/media/vocabulary/images/verb-observe.webp",
+        "imageUrl": "/media/vocabulary/images/verb-observe.webp",
+        "alt": "observe verb card"
+      },
+      {
+        "id": "second_adjective_deep",
+        "word": "deep",
+        "label": "deep",
+        "value": "deep",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-deep.webp",
+        "imagePath": "/media/vocabulary/images/adjective-deep.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-deep.webp",
+        "alt": "deep adjective card"
+      }
+    ],
+    "correctAnswer": "deep",
+    "answer": "deep",
+    "itemType": "grammar_adjective",
+    "itemKey": "deep",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "deep is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_07_dusty",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "dusty",
+    "imagePath": "/media/vocabulary/images/adjective-dusty.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-dusty.webp",
+    "targetImage": "/media/vocabulary/images/adjective-dusty.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-dusty.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "bug",
+      "predict",
+      "dusty",
+      "box"
+    ],
+    "answerOptions": [
+      {
+        "value": "bug",
+        "label": "bug",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "predict",
+        "label": "predict",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "dusty",
+        "label": "dusty",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "box",
+        "label": "box",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_bug",
+        "word": "bug",
+        "label": "bug",
+        "value": "bug",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/bug.png",
+        "imagePath": "/images/child-mode/cvc/bug.png",
+        "imageUrl": "/images/child-mode/cvc/bug.png",
+        "alt": "bug noun card"
+      },
+      {
+        "id": "second_verb_predict",
+        "word": "predict",
+        "label": "predict",
+        "value": "predict",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-predict.webp",
+        "imagePath": "/media/vocabulary/images/verb-predict.webp",
+        "imageUrl": "/media/vocabulary/images/verb-predict.webp",
+        "alt": "predict verb card"
+      },
+      {
+        "id": "second_adjective_dusty",
+        "word": "dusty",
+        "label": "dusty",
+        "value": "dusty",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-dusty.webp",
+        "imagePath": "/media/vocabulary/images/adjective-dusty.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-dusty.webp",
+        "alt": "dusty adjective card"
+      },
+      {
+        "id": "second_noun_box",
+        "word": "box",
+        "label": "box",
+        "value": "box",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/box.png",
+        "imagePath": "/images/child-mode/initial-sounds/box.png",
+        "imageUrl": "/images/child-mode/initial-sounds/box.png",
+        "alt": "box noun card"
+      }
+    ],
+    "correctAnswer": "dusty",
+    "answer": "dusty",
+    "itemType": "grammar_adjective",
+    "itemKey": "dusty",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "dusty is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_08_fierce",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "fierce",
+    "imagePath": "/media/vocabulary/images/adjective-fierce.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-fierce.webp",
+    "targetImage": "/media/vocabulary/images/adjective-fierce.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-fierce.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "reads",
+      "fierce",
+      "cat",
+      "class"
+    ],
+    "answerOptions": [
+      {
+        "value": "reads",
+        "label": "reads",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "fierce",
+        "label": "fierce",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "cat",
+        "label": "cat",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "class",
+        "label": "class",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_reads",
+        "word": "reads",
+        "label": "reads",
+        "value": "reads",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-reads.webp",
+        "imagePath": "/media/vocabulary/images/verb-reads.webp",
+        "imageUrl": "/media/vocabulary/images/verb-reads.webp",
+        "alt": "reads verb card"
+      },
+      {
+        "id": "second_adjective_fierce",
+        "word": "fierce",
+        "label": "fierce",
+        "value": "fierce",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-fierce.webp",
+        "imagePath": "/media/vocabulary/images/adjective-fierce.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-fierce.webp",
+        "alt": "fierce adjective card"
+      },
+      {
+        "id": "second_noun_cat",
+        "word": "cat",
+        "label": "cat",
+        "value": "cat",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/cat.png",
+        "imagePath": "/images/child-mode/cvc/cat.png",
+        "imageUrl": "/images/child-mode/cvc/cat.png",
+        "alt": "cat noun card"
+      },
+      {
+        "id": "second_noun_class",
+        "word": "class",
+        "label": "class",
+        "value": "class",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/class.webp",
+        "imagePath": "/media/vocabulary/images/class.webp",
+        "imageUrl": "/media/vocabulary/images/class.webp",
+        "alt": "class noun card"
+      }
+    ],
+    "correctAnswer": "fierce",
+    "answer": "fierce",
+    "itemType": "grammar_adjective",
+    "itemKey": "fierce",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "fierce is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_09_fluffy",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "fluffy",
+    "imagePath": "/media/vocabulary/images/adjective-fluffy.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-fluffy.webp",
+    "targetImage": "/media/vocabulary/images/adjective-fluffy.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-fluffy.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "fluffy",
+      "cup",
+      "dad",
+      "runs"
+    ],
+    "answerOptions": [
+      {
+        "value": "fluffy",
+        "label": "fluffy",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "cup",
+        "label": "cup",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "dad",
+        "label": "dad",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "runs",
+        "label": "runs",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_fluffy",
+        "word": "fluffy",
+        "label": "fluffy",
+        "value": "fluffy",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-fluffy.webp",
+        "imagePath": "/media/vocabulary/images/adjective-fluffy.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-fluffy.webp",
+        "alt": "fluffy adjective card"
+      },
+      {
+        "id": "second_noun_cup",
+        "word": "cup",
+        "label": "cup",
+        "value": "cup",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/cup.png",
+        "imagePath": "/images/child-mode/initial-sounds/cup.png",
+        "imageUrl": "/images/child-mode/initial-sounds/cup.png",
+        "alt": "cup noun card"
+      },
+      {
+        "id": "second_noun_dad",
+        "word": "dad",
+        "label": "dad",
+        "value": "dad",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/dad.webp",
+        "imagePath": "/media/vocabulary/images/dad.webp",
+        "imageUrl": "/media/vocabulary/images/dad.webp",
+        "alt": "dad noun card"
+      },
+      {
+        "id": "second_verb_runs",
+        "word": "runs",
+        "label": "runs",
+        "value": "runs",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-runs.webp",
+        "imagePath": "/media/vocabulary/images/verb-runs.webp",
+        "imageUrl": "/media/vocabulary/images/verb-runs.webp",
+        "alt": "runs verb card"
+      }
+    ],
+    "correctAnswer": "fluffy",
+    "answer": "fluffy",
+    "itemType": "grammar_adjective",
+    "itemKey": "fluffy",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "fluffy is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_10_gentle",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "gentle",
+    "imagePath": "/media/vocabulary/images/adjective-gentle.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-gentle.webp",
+    "targetImage": "/media/vocabulary/images/adjective-gentle.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-gentle.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "duck",
+      "egg",
+      "shake",
+      "gentle"
+    ],
+    "answerOptions": [
+      {
+        "value": "duck",
+        "label": "duck",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "egg",
+        "label": "egg",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "shake",
+        "label": "shake",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "gentle",
+        "label": "gentle",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_duck",
+        "word": "duck",
+        "label": "duck",
+        "value": "duck",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/duck.png",
+        "imagePath": "/images/child-mode/initial-sounds/duck.png",
+        "imageUrl": "/images/child-mode/initial-sounds/duck.png",
+        "alt": "duck noun card"
+      },
+      {
+        "id": "second_noun_egg",
+        "word": "egg",
+        "label": "egg",
+        "value": "egg",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/egg.png",
+        "imagePath": "/images/child-mode/initial-sounds/egg.png",
+        "imageUrl": "/images/child-mode/initial-sounds/egg.png",
+        "alt": "egg noun card"
+      },
+      {
+        "id": "second_verb_shake",
+        "word": "shake",
+        "label": "shake",
+        "value": "shake",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-shake.webp",
+        "imagePath": "/media/vocabulary/images/verb-shake.webp",
+        "imageUrl": "/media/vocabulary/images/verb-shake.webp",
+        "alt": "shake verb card"
+      },
+      {
+        "id": "second_adjective_gentle",
+        "word": "gentle",
+        "label": "gentle",
+        "value": "gentle",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-gentle.webp",
+        "imagePath": "/media/vocabulary/images/adjective-gentle.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-gentle.webp",
+        "alt": "gentle adjective card"
+      }
+    ],
+    "correctAnswer": "gentle",
+    "answer": "gentle",
+    "itemType": "grammar_adjective",
+    "itemKey": "gentle",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "gentle is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_11_huge",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "huge",
+    "imagePath": "/media/vocabulary/images/adjective-huge.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-huge.webp",
+    "targetImage": "/media/vocabulary/images/adjective-huge.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-huge.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "foot",
+      "swayed",
+      "huge",
+      "face"
+    ],
+    "answerOptions": [
+      {
+        "value": "foot",
+        "label": "foot",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "swayed",
+        "label": "swayed",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "huge",
+        "label": "huge",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "face",
+        "label": "face",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_foot",
+        "word": "foot",
+        "label": "foot",
+        "value": "foot",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/foot.webp",
+        "imagePath": "/media/vocabulary/images/foot.webp",
+        "imageUrl": "/media/vocabulary/images/foot.webp",
+        "alt": "foot noun card"
+      },
+      {
+        "id": "second_verb_swayed",
+        "word": "swayed",
+        "label": "swayed",
+        "value": "swayed",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-swayed.webp",
+        "imagePath": "/media/vocabulary/images/verb-swayed.webp",
+        "imageUrl": "/media/vocabulary/images/verb-swayed.webp",
+        "alt": "swayed verb card"
+      },
+      {
+        "id": "second_adjective_huge",
+        "word": "huge",
+        "label": "huge",
+        "value": "huge",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-huge.webp",
+        "imagePath": "/media/vocabulary/images/adjective-huge.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-huge.webp",
+        "alt": "huge adjective card"
+      },
+      {
+        "id": "second_noun_face",
+        "word": "face",
+        "label": "face",
+        "value": "face",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/face.webp",
+        "imagePath": "/media/vocabulary/images/face.webp",
+        "imageUrl": "/media/vocabulary/images/face.webp",
+        "alt": "face noun card"
+      }
+    ],
+    "correctAnswer": "huge",
+    "answer": "huge",
+    "itemType": "grammar_adjective",
+    "itemKey": "huge",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "huge is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_33_loud",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "loud",
+    "imagePath": "/media/vocabulary/images/adjective-loud.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-loud.webp",
+    "targetImage": "/media/vocabulary/images/adjective-loud.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-loud.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "loud",
+      "food",
+      "frog",
+      "share"
+    ],
+    "answerOptions": [
+      {
+        "value": "loud",
+        "label": "loud",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "food",
+        "label": "food",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "frog",
+        "label": "frog",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "share",
+        "label": "share",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_loud",
+        "word": "loud",
+        "label": "loud",
+        "value": "loud",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-loud.webp",
+        "imagePath": "/media/vocabulary/images/adjective-loud.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-loud.webp",
+        "alt": "loud adjective card"
+      },
+      {
+        "id": "second_noun_food",
+        "word": "food",
+        "label": "food",
+        "value": "food",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/food.webp",
+        "imagePath": "/media/vocabulary/images/food.webp",
+        "imageUrl": "/media/vocabulary/images/food.webp",
+        "alt": "food noun card"
+      },
+      {
+        "id": "second_noun_frog",
+        "word": "frog",
+        "label": "frog",
+        "value": "frog",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/frog.png",
+        "imagePath": "/images/child-mode/initial-sounds/frog.png",
+        "imageUrl": "/images/child-mode/initial-sounds/frog.png",
+        "alt": "frog noun card"
+      },
+      {
+        "id": "second_verb_share",
+        "word": "share",
+        "label": "share",
+        "value": "share",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-share.webp",
+        "imagePath": "/media/vocabulary/images/verb-share.webp",
+        "imageUrl": "/media/vocabulary/images/verb-share.webp",
+        "alt": "share verb card"
+      }
+    ],
+    "correctAnswer": "loud",
+    "answer": "loud",
+    "itemType": "grammar_adjective",
+    "itemKey": "loud",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "loud is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_28_new",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "new",
+    "imagePath": "/media/vocabulary/images/adjective-new.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-new.webp",
+    "targetImage": "/media/vocabulary/images/adjective-new.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-new.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "swayed",
+      "new",
+      "chair",
+      "cheese"
+    ],
+    "answerOptions": [
+      {
+        "value": "swayed",
+        "label": "swayed",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "new",
+        "label": "new",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "chair",
+        "label": "chair",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "cheese",
+        "label": "cheese",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_swayed",
+        "word": "swayed",
+        "label": "swayed",
+        "value": "swayed",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-swayed.webp",
+        "imagePath": "/media/vocabulary/images/verb-swayed.webp",
+        "imageUrl": "/media/vocabulary/images/verb-swayed.webp",
+        "alt": "swayed verb card"
+      },
+      {
+        "id": "second_adjective_new",
+        "word": "new",
+        "label": "new",
+        "value": "new",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-new.webp",
+        "imagePath": "/media/vocabulary/images/adjective-new.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-new.webp",
+        "alt": "new adjective card"
+      },
+      {
+        "id": "second_noun_chair",
+        "word": "chair",
+        "label": "chair",
+        "value": "chair",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/chair.png",
+        "imagePath": "/images/child-mode/initial-sounds/chair.png",
+        "imageUrl": "/images/child-mode/initial-sounds/chair.png",
+        "alt": "chair noun card"
+      },
+      {
+        "id": "second_noun_cheese",
+        "word": "cheese",
+        "label": "cheese",
+        "value": "cheese",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/cheese.webp",
+        "imagePath": "/media/vocabulary/images/cheese.webp",
+        "imageUrl": "/media/vocabulary/images/cheese.webp",
+        "alt": "cheese noun card"
+      }
+    ],
+    "correctAnswer": "new",
+    "answer": "new",
+    "itemType": "grammar_adjective",
+    "itemKey": "new",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "new is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_12_noisy",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "noisy",
+    "imagePath": "/media/vocabulary/images/adjective-noisy.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-noisy.webp",
+    "targetImage": "/media/vocabulary/images/adjective-noisy.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-noisy.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "cook",
+      "noisy",
+      "glove",
+      "glue"
+    ],
+    "answerOptions": [
+      {
+        "value": "cook",
+        "label": "cook",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "noisy",
+        "label": "noisy",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "glove",
+        "label": "glove",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "glue",
+        "label": "glue",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_cook",
+        "word": "cook",
+        "label": "cook",
+        "value": "cook",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-cook.webp",
+        "imagePath": "/media/vocabulary/images/verb-cook.webp",
+        "imageUrl": "/media/vocabulary/images/verb-cook.webp",
+        "alt": "cook verb card"
+      },
+      {
+        "id": "second_adjective_noisy",
+        "word": "noisy",
+        "label": "noisy",
+        "value": "noisy",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-noisy.webp",
+        "imagePath": "/media/vocabulary/images/adjective-noisy.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-noisy.webp",
+        "alt": "noisy adjective card"
+      },
+      {
+        "id": "second_noun_glove",
+        "word": "glove",
+        "label": "glove",
+        "value": "glove",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/glove.webp",
+        "imagePath": "/media/vocabulary/images/glove.webp",
+        "imageUrl": "/media/vocabulary/images/glove.webp",
+        "alt": "glove noun card"
+      },
+      {
+        "id": "second_noun_glue",
+        "word": "glue",
+        "label": "glue",
+        "value": "glue",
+        "partOfSpeech": "noun",
+        "image": "/images/assessment/long-vowels/glue.webp",
+        "imagePath": "/images/assessment/long-vowels/glue.webp",
+        "imageUrl": "/images/assessment/long-vowels/glue.webp",
+        "alt": "glue noun card"
+      }
+    ],
+    "correctAnswer": "noisy",
+    "answer": "noisy",
+    "itemType": "grammar_adjective",
+    "itemKey": "noisy",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "noisy is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_29_old",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "old",
+    "imagePath": "/media/vocabulary/images/adjective-old.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-old.webp",
+    "targetImage": "/media/vocabulary/images/adjective-old.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-old.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "old",
+      "cloud",
+      "corn",
+      "cook"
+    ],
+    "answerOptions": [
+      {
+        "value": "old",
+        "label": "old",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "cloud",
+        "label": "cloud",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "corn",
+        "label": "corn",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "cook",
+        "label": "cook",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_old",
+        "word": "old",
+        "label": "old",
+        "value": "old",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-old.webp",
+        "imagePath": "/media/vocabulary/images/adjective-old.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-old.webp",
+        "alt": "old adjective card"
+      },
+      {
+        "id": "second_noun_cloud",
+        "word": "cloud",
+        "label": "cloud",
+        "value": "cloud",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/cloud.webp",
+        "imagePath": "/media/vocabulary/images/cloud.webp",
+        "imageUrl": "/media/vocabulary/images/cloud.webp",
+        "alt": "cloud noun card"
+      },
+      {
+        "id": "second_noun_corn",
+        "word": "corn",
+        "label": "corn",
+        "value": "corn",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/corn.png",
+        "imagePath": "/images/child-mode/initial-sounds/corn.png",
+        "imageUrl": "/images/child-mode/initial-sounds/corn.png",
+        "alt": "corn noun card"
+      },
+      {
+        "id": "second_verb_cook",
+        "word": "cook",
+        "label": "cook",
+        "value": "cook",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-cook.webp",
+        "imagePath": "/media/vocabulary/images/verb-cook.webp",
+        "imageUrl": "/media/vocabulary/images/verb-cook.webp",
+        "alt": "cook verb card"
+      }
+    ],
+    "correctAnswer": "old",
+    "answer": "old",
+    "itemType": "grammar_adjective",
+    "itemKey": "old",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "old is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_13_playful",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "playful",
+    "imagePath": "/media/vocabulary/images/adjective-playful.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-playful.webp",
+    "targetImage": "/media/vocabulary/images/adjective-playful.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-playful.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "playful",
+      "hair",
+      "ham",
+      "build"
+    ],
+    "answerOptions": [
+      {
+        "value": "playful",
+        "label": "playful",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "hair",
+        "label": "hair",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "ham",
+        "label": "ham",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "build",
+        "label": "build",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_playful",
+        "word": "playful",
+        "label": "playful",
+        "value": "playful",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-playful.webp",
+        "imagePath": "/media/vocabulary/images/adjective-playful.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-playful.webp",
+        "alt": "playful adjective card"
+      },
+      {
+        "id": "second_noun_hair",
+        "word": "hair",
+        "label": "hair",
+        "value": "hair",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/hair.webp",
+        "imagePath": "/media/vocabulary/images/hair.webp",
+        "imageUrl": "/media/vocabulary/images/hair.webp",
+        "alt": "hair noun card"
+      },
+      {
+        "id": "second_noun_ham",
+        "word": "ham",
+        "label": "ham",
+        "value": "ham",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/ham.png",
+        "imagePath": "/images/child-mode/initial-sounds/ham.png",
+        "imageUrl": "/images/child-mode/initial-sounds/ham.png",
+        "alt": "ham noun card"
+      },
+      {
+        "id": "second_verb_build",
+        "word": "build",
+        "label": "build",
+        "value": "build",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-build.webp",
+        "imagePath": "/media/vocabulary/images/verb-build.webp",
+        "imageUrl": "/media/vocabulary/images/verb-build.webp",
+        "alt": "build verb card"
+      }
+    ],
+    "correctAnswer": "playful",
+    "answer": "playful",
+    "itemType": "grammar_adjective",
+    "itemKey": "playful",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "playful is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_14_prickly",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "prickly",
+    "imagePath": "/media/vocabulary/images/adjective-prickly.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-prickly.webp",
+    "targetImage": "/media/vocabulary/images/adjective-prickly.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-prickly.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "head",
+      "hen",
+      "drive",
+      "prickly"
+    ],
+    "answerOptions": [
+      {
+        "value": "head",
+        "label": "head",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "hen",
+        "label": "hen",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "drive",
+        "label": "drive",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "prickly",
+        "label": "prickly",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_head",
+        "word": "head",
+        "label": "head",
+        "value": "head",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/head.webp",
+        "imagePath": "/media/vocabulary/images/head.webp",
+        "imageUrl": "/media/vocabulary/images/head.webp",
+        "alt": "head noun card"
+      },
+      {
+        "id": "second_noun_hen",
+        "word": "hen",
+        "label": "hen",
+        "value": "hen",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/hen.png",
+        "imagePath": "/images/child-mode/initial-sounds/hen.png",
+        "imageUrl": "/images/child-mode/initial-sounds/hen.png",
+        "alt": "hen noun card"
+      },
+      {
+        "id": "second_verb_drive",
+        "word": "drive",
+        "label": "drive",
+        "value": "drive",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-drive.webp",
+        "imagePath": "/media/vocabulary/images/verb-drive.webp",
+        "imageUrl": "/media/vocabulary/images/verb-drive.webp",
+        "alt": "drive verb card"
+      },
+      {
+        "id": "second_adjective_prickly",
+        "word": "prickly",
+        "label": "prickly",
+        "value": "prickly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-prickly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-prickly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-prickly.webp",
+        "alt": "prickly adjective card"
+      }
+    ],
+    "correctAnswer": "prickly",
+    "answer": "prickly",
+    "itemType": "grammar_adjective",
+    "itemKey": "prickly",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "prickly is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_15_proud",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_1_phase_1",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "proud",
+    "imagePath": "/media/vocabulary/images/adjective-proud.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-proud.webp",
+    "targetImage": "/media/vocabulary/images/adjective-proud.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-proud.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "knee",
+      "fly",
+      "proud",
+      "kid"
+    ],
+    "answerOptions": [
+      {
+        "value": "knee",
+        "label": "knee",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "fly",
+        "label": "fly",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "proud",
+        "label": "proud",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "kid",
+        "label": "kid",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_knee",
+        "word": "knee",
+        "label": "knee",
+        "value": "knee",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/knee.webp",
+        "imagePath": "/media/vocabulary/images/knee.webp",
+        "imageUrl": "/media/vocabulary/images/knee.webp",
+        "alt": "knee noun card"
+      },
+      {
+        "id": "second_verb_fly",
+        "word": "fly",
+        "label": "fly",
+        "value": "fly",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fly.webp",
+        "imagePath": "/media/vocabulary/images/verb-fly.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fly.webp",
+        "alt": "fly verb card"
+      },
+      {
+        "id": "second_adjective_proud",
+        "word": "proud",
+        "label": "proud",
+        "value": "proud",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-proud.webp",
+        "imagePath": "/media/vocabulary/images/adjective-proud.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-proud.webp",
+        "alt": "proud adjective card"
+      },
+      {
+        "id": "second_noun_kid",
+        "word": "kid",
+        "label": "kid",
+        "value": "kid",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/kid.png",
+        "imagePath": "/images/child-mode/initial-sounds/kid.png",
+        "imageUrl": "/images/child-mode/initial-sounds/kid.png",
+        "alt": "kid noun card"
+      }
+    ],
+    "correctAnswer": "proud",
+    "answer": "proud",
+    "itemType": "grammar_adjective",
+    "itemKey": "proud",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "proud is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_35_purple",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "purple",
+    "imagePath": "/media/vocabulary/images/adjective-purple.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-purple.webp",
+    "targetImage": "/media/vocabulary/images/adjective-purple.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-purple.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "hand",
+      "baked",
+      "purple",
+      "ground"
+    ],
+    "answerOptions": [
+      {
+        "value": "hand",
+        "label": "hand",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "baked",
+        "label": "baked",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "purple",
+        "label": "purple",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "ground",
+        "label": "ground",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_hand",
+        "word": "hand",
+        "label": "hand",
+        "value": "hand",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/hand.png",
+        "imagePath": "/images/child-mode/initial-sounds/hand.png",
+        "imageUrl": "/images/child-mode/initial-sounds/hand.png",
+        "alt": "hand noun card"
+      },
+      {
+        "id": "second_verb_baked",
+        "word": "baked",
+        "label": "baked",
+        "value": "baked",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-baked.webp",
+        "imagePath": "/media/vocabulary/images/verb-baked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-baked.webp",
+        "alt": "baked verb card"
+      },
+      {
+        "id": "second_adjective_purple",
+        "word": "purple",
+        "label": "purple",
+        "value": "purple",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-purple.webp",
+        "imagePath": "/media/vocabulary/images/adjective-purple.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-purple.webp",
+        "alt": "purple adjective card"
+      },
+      {
+        "id": "second_noun_ground",
+        "word": "ground",
+        "label": "ground",
+        "value": "ground",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/ground.webp",
+        "imagePath": "/media/vocabulary/images/ground.webp",
+        "imageUrl": "/media/vocabulary/images/ground.webp",
+        "alt": "ground noun card"
+      }
+    ],
+    "correctAnswer": "purple",
+    "answer": "purple",
+    "itemType": "grammar_adjective",
+    "itemKey": "purple",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "purple is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_16_rough",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "rough",
+    "imagePath": "/media/vocabulary/images/adjective-rough.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-rough.webp",
+    "targetImage": "/media/vocabulary/images/adjective-rough.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-rough.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "share",
+      "rough",
+      "leg",
+      "man"
+    ],
+    "answerOptions": [
+      {
+        "value": "share",
+        "label": "share",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "rough",
+        "label": "rough",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "leg",
+        "label": "leg",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "man",
+        "label": "man",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_share",
+        "word": "share",
+        "label": "share",
+        "value": "share",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-share.webp",
+        "imagePath": "/media/vocabulary/images/verb-share.webp",
+        "imageUrl": "/media/vocabulary/images/verb-share.webp",
+        "alt": "share verb card"
+      },
+      {
+        "id": "second_adjective_rough",
+        "word": "rough",
+        "label": "rough",
+        "value": "rough",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-rough.webp",
+        "imagePath": "/media/vocabulary/images/adjective-rough.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-rough.webp",
+        "alt": "rough adjective card"
+      },
+      {
+        "id": "second_noun_leg",
+        "word": "leg",
+        "label": "leg",
+        "value": "leg",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/leg.png",
+        "imagePath": "/images/child-mode/initial-sounds/leg.png",
+        "imageUrl": "/images/child-mode/initial-sounds/leg.png",
+        "alt": "leg noun card"
+      },
+      {
+        "id": "second_noun_man",
+        "word": "man",
+        "label": "man",
+        "value": "man",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/man.png",
+        "imagePath": "/images/child-mode/cvc/man.png",
+        "imageUrl": "/images/child-mode/cvc/man.png",
+        "alt": "man noun card"
+      }
+    ],
+    "correctAnswer": "rough",
+    "answer": "rough",
+    "itemType": "grammar_adjective",
+    "itemKey": "rough",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "rough is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_17_sharp",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "sharp",
+    "imagePath": "/media/vocabulary/images/adjective-sharp.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-sharp.webp",
+    "targetImage": "/media/vocabulary/images/adjective-sharp.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-sharp.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "sharp",
+      "men",
+      "moon",
+      "carry"
+    ],
+    "answerOptions": [
+      {
+        "value": "sharp",
+        "label": "sharp",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "men",
+        "label": "men",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "moon",
+        "label": "moon",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "carry",
+        "label": "carry",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_sharp",
+        "word": "sharp",
+        "label": "sharp",
+        "value": "sharp",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-sharp.webp",
+        "imagePath": "/media/vocabulary/images/adjective-sharp.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-sharp.webp",
+        "alt": "sharp adjective card"
+      },
+      {
+        "id": "second_noun_men",
+        "word": "men",
+        "label": "men",
+        "value": "men",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/men.webp",
+        "imagePath": "/media/vocabulary/images/men.webp",
+        "imageUrl": "/media/vocabulary/images/men.webp",
+        "alt": "men noun card"
+      },
+      {
+        "id": "second_noun_moon",
+        "word": "moon",
+        "label": "moon",
+        "value": "moon",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/moon.png",
+        "imagePath": "/images/child-mode/initial-sounds/moon.png",
+        "imageUrl": "/images/child-mode/initial-sounds/moon.png",
+        "alt": "moon noun card"
+      },
+      {
+        "id": "second_verb_carry",
+        "word": "carry",
+        "label": "carry",
+        "value": "carry",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-carry.webp",
+        "imagePath": "/media/vocabulary/images/verb-carry.webp",
+        "imageUrl": "/media/vocabulary/images/verb-carry.webp",
+        "alt": "carry verb card"
+      }
+    ],
+    "correctAnswer": "sharp",
+    "answer": "sharp",
+    "itemType": "grammar_adjective",
+    "itemKey": "sharp",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "sharp is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_18_shiny",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "shiny",
+    "imagePath": "/media/vocabulary/images/adjective-shiny.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-shiny.webp",
+    "targetImage": "/media/vocabulary/images/adjective-shiny.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-shiny.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "pear",
+      "pen",
+      "baked",
+      "shiny"
+    ],
+    "answerOptions": [
+      {
+        "value": "pear",
+        "label": "pear",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "pen",
+        "label": "pen",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "baked",
+        "label": "baked",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "shiny",
+        "label": "shiny",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_pear",
+        "word": "pear",
+        "label": "pear",
+        "value": "pear",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/pear.webp",
+        "imagePath": "/media/vocabulary/images/pear.webp",
+        "imageUrl": "/media/vocabulary/images/pear.webp",
+        "alt": "pear noun card"
+      },
+      {
+        "id": "second_noun_pen",
+        "word": "pen",
+        "label": "pen",
+        "value": "pen",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/pen.png",
+        "imagePath": "/images/child-mode/initial-sounds/pen.png",
+        "imageUrl": "/images/child-mode/initial-sounds/pen.png",
+        "alt": "pen noun card"
+      },
+      {
+        "id": "second_verb_baked",
+        "word": "baked",
+        "label": "baked",
+        "value": "baked",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-baked.webp",
+        "imagePath": "/media/vocabulary/images/verb-baked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-baked.webp",
+        "alt": "baked verb card"
+      },
+      {
+        "id": "second_adjective_shiny",
+        "word": "shiny",
+        "label": "shiny",
+        "value": "shiny",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-shiny.webp",
+        "imagePath": "/media/vocabulary/images/adjective-shiny.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-shiny.webp",
+        "alt": "shiny adjective card"
+      }
+    ],
+    "correctAnswer": "shiny",
+    "answer": "shiny",
+    "itemType": "grammar_adjective",
+    "itemKey": "shiny",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "shiny is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_19_silent",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "silent",
+    "imagePath": "/media/vocabulary/images/adjective-silent.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-silent.webp",
+    "targetImage": "/media/vocabulary/images/adjective-silent.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-silent.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "rice",
+      "builds",
+      "silent",
+      "rat"
+    ],
+    "answerOptions": [
+      {
+        "value": "rice",
+        "label": "rice",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "builds",
+        "label": "builds",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "silent",
+        "label": "silent",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "rat",
+        "label": "rat",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_rice",
+        "word": "rice",
+        "label": "rice",
+        "value": "rice",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/rice.webp",
+        "imagePath": "/media/vocabulary/images/rice.webp",
+        "imageUrl": "/media/vocabulary/images/rice.webp",
+        "alt": "rice noun card"
+      },
+      {
+        "id": "second_verb_builds",
+        "word": "builds",
+        "label": "builds",
+        "value": "builds",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-builds.webp",
+        "imagePath": "/media/vocabulary/images/verb-builds.webp",
+        "imageUrl": "/media/vocabulary/images/verb-builds.webp",
+        "alt": "builds verb card"
+      },
+      {
+        "id": "second_adjective_silent",
+        "word": "silent",
+        "label": "silent",
+        "value": "silent",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-silent.webp",
+        "imagePath": "/media/vocabulary/images/adjective-silent.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-silent.webp",
+        "alt": "silent adjective card"
+      },
+      {
+        "id": "second_noun_rat",
+        "word": "rat",
+        "label": "rat",
+        "value": "rat",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/rat.png",
+        "imagePath": "/images/child-mode/initial-sounds/rat.png",
+        "imageUrl": "/images/child-mode/initial-sounds/rat.png",
+        "alt": "rat noun card"
+      }
+    ],
+    "correctAnswer": "silent",
+    "answer": "silent",
+    "itemType": "grammar_adjective",
+    "itemKey": "silent",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "silent is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_20_smelly",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "smelly",
+    "imagePath": "/media/vocabulary/images/adjective-smelly.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-smelly.webp",
+    "targetImage": "/media/vocabulary/images/adjective-smelly.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-smelly.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "dance",
+      "smelly",
+      "room",
+      "seal"
+    ],
+    "answerOptions": [
+      {
+        "value": "dance",
+        "label": "dance",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "smelly",
+        "label": "smelly",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "room",
+        "label": "room",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "seal",
+        "label": "seal",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_dance",
+        "word": "dance",
+        "label": "dance",
+        "value": "dance",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-dance.webp",
+        "imagePath": "/media/vocabulary/images/verb-dance.webp",
+        "imageUrl": "/media/vocabulary/images/verb-dance.webp",
+        "alt": "dance verb card"
+      },
+      {
+        "id": "second_adjective_smelly",
+        "word": "smelly",
+        "label": "smelly",
+        "value": "smelly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-smelly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-smelly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-smelly.webp",
+        "alt": "smelly adjective card"
+      },
+      {
+        "id": "second_noun_room",
+        "word": "room",
+        "label": "room",
+        "value": "room",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/room.webp",
+        "imagePath": "/media/vocabulary/images/room.webp",
+        "imageUrl": "/media/vocabulary/images/room.webp",
+        "alt": "room noun card"
+      },
+      {
+        "id": "second_noun_seal",
+        "word": "seal",
+        "label": "seal",
+        "value": "seal",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/seal.png",
+        "imagePath": "/images/child-mode/initial-sounds/seal.png",
+        "imageUrl": "/images/child-mode/initial-sounds/seal.png",
+        "alt": "seal noun card"
+      }
+    ],
+    "correctAnswer": "smelly",
+    "answer": "smelly",
+    "itemType": "grammar_adjective",
+    "itemKey": "smelly",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "smelly is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_21_smooth",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "smooth",
+    "imagePath": "/media/vocabulary/images/adjective-smooth.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-smooth.webp",
+    "targetImage": "/media/vocabulary/images/adjective-smooth.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-smooth.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "smooth",
+      "sky",
+      "sock",
+      "fell"
+    ],
+    "answerOptions": [
+      {
+        "value": "smooth",
+        "label": "smooth",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "sky",
+        "label": "sky",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "sock",
+        "label": "sock",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "fell",
+        "label": "fell",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_smooth",
+        "word": "smooth",
+        "label": "smooth",
+        "value": "smooth",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-smooth.webp",
+        "imagePath": "/media/vocabulary/images/adjective-smooth.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-smooth.webp",
+        "alt": "smooth adjective card"
+      },
+      {
+        "id": "second_noun_sky",
+        "word": "sky",
+        "label": "sky",
+        "value": "sky",
+        "partOfSpeech": "noun",
+        "image": "/images/assessment/long-vowels/sky.webp",
+        "imagePath": "/images/assessment/long-vowels/sky.webp",
+        "imageUrl": "/images/assessment/long-vowels/sky.webp",
+        "alt": "sky noun card"
+      },
+      {
+        "id": "second_noun_sock",
+        "word": "sock",
+        "label": "sock",
+        "value": "sock",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/sock.png",
+        "imagePath": "/images/child-mode/initial-sounds/sock.png",
+        "imageUrl": "/images/child-mode/initial-sounds/sock.png",
+        "alt": "sock noun card"
+      },
+      {
+        "id": "second_verb_fell",
+        "word": "fell",
+        "label": "fell",
+        "value": "fell",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fell.webp",
+        "imagePath": "/media/vocabulary/images/verb-fell.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fell.webp",
+        "alt": "fell verb card"
+      }
+    ],
+    "correctAnswer": "smooth",
+    "answer": "smooth",
+    "itemType": "grammar_adjective",
+    "itemKey": "smooth",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "smooth is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_36_sour",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "sour",
+    "imagePath": "/media/vocabulary/images/adjective-sour.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-sour.webp",
+    "targetImage": "/media/vocabulary/images/adjective-sour.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-sour.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "builds",
+      "sour",
+      "house",
+      "key"
+    ],
+    "answerOptions": [
+      {
+        "value": "builds",
+        "label": "builds",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "sour",
+        "label": "sour",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "house",
+        "label": "house",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "key",
+        "label": "key",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_builds",
+        "word": "builds",
+        "label": "builds",
+        "value": "builds",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-builds.webp",
+        "imagePath": "/media/vocabulary/images/verb-builds.webp",
+        "imageUrl": "/media/vocabulary/images/verb-builds.webp",
+        "alt": "builds verb card"
+      },
+      {
+        "id": "second_adjective_sour",
+        "word": "sour",
+        "label": "sour",
+        "value": "sour",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-sour.webp",
+        "imagePath": "/media/vocabulary/images/adjective-sour.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-sour.webp",
+        "alt": "sour adjective card"
+      },
+      {
+        "id": "second_noun_house",
+        "word": "house",
+        "label": "house",
+        "value": "house",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/house.png",
+        "imagePath": "/images/child-mode/initial-sounds/house.png",
+        "imageUrl": "/images/child-mode/initial-sounds/house.png",
+        "alt": "house noun card"
+      },
+      {
+        "id": "second_noun_key",
+        "word": "key",
+        "label": "key",
+        "value": "key",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/key.png",
+        "imagePath": "/images/child-mode/initial-sounds/key.png",
+        "imageUrl": "/images/child-mode/initial-sounds/key.png",
+        "alt": "key noun card"
+      }
+    ],
+    "correctAnswer": "sour",
+    "answer": "sour",
+    "itemType": "grammar_adjective",
+    "itemKey": "sour",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "sour is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_22_sparkly",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "sparkly",
+    "imagePath": "/media/vocabulary/images/adjective-sparkly.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-sparkly.webp",
+    "targetImage": "/media/vocabulary/images/adjective-sparkly.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-sparkly.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "sun",
+      "toast",
+      "jumped",
+      "sparkly"
+    ],
+    "answerOptions": [
+      {
+        "value": "sun",
+        "label": "sun",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "toast",
+        "label": "toast",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "jumped",
+        "label": "jumped",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "sparkly",
+        "label": "sparkly",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_sun",
+        "word": "sun",
+        "label": "sun",
+        "value": "sun",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/sun.png",
+        "imagePath": "/images/child-mode/cvc/sun.png",
+        "imageUrl": "/images/child-mode/cvc/sun.png",
+        "alt": "sun noun card"
+      },
+      {
+        "id": "second_noun_toast",
+        "word": "toast",
+        "label": "toast",
+        "value": "toast",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/toast.webp",
+        "imagePath": "/media/vocabulary/images/toast.webp",
+        "imageUrl": "/media/vocabulary/images/toast.webp",
+        "alt": "toast noun card"
+      },
+      {
+        "id": "second_verb_jumped",
+        "word": "jumped",
+        "label": "jumped",
+        "value": "jumped",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-jumped.webp",
+        "imagePath": "/media/vocabulary/images/verb-jumped.webp",
+        "imageUrl": "/media/vocabulary/images/verb-jumped.webp",
+        "alt": "jumped verb card"
+      },
+      {
+        "id": "second_adjective_sparkly",
+        "word": "sparkly",
+        "label": "sparkly",
+        "value": "sparkly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-sparkly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-sparkly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-sparkly.webp",
+        "alt": "sparkly adjective card"
+      }
+    ],
+    "correctAnswer": "sparkly",
+    "answer": "sparkly",
+    "itemType": "grammar_adjective",
+    "itemKey": "sparkly",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "sparkly is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_23_square",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "square",
+    "imagePath": "/media/vocabulary/images/adjective-square.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-square.webp",
+    "targetImage": "/media/vocabulary/images/adjective-square.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-square.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "child",
+      "observe",
+      "square",
+      "word"
+    ],
+    "answerOptions": [
+      {
+        "value": "child",
+        "label": "child",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "observe",
+        "label": "observe",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "square",
+        "label": "square",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "word",
+        "label": "word",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_child",
+        "word": "child",
+        "label": "child",
+        "value": "child",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-child.webp",
+        "imagePath": "/media/vocabulary/images/noun-child.webp",
+        "imageUrl": "/media/vocabulary/images/noun-child.webp",
+        "alt": "child noun card"
+      },
+      {
+        "id": "second_verb_observe",
+        "word": "observe",
+        "label": "observe",
+        "value": "observe",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-observe.webp",
+        "imagePath": "/media/vocabulary/images/verb-observe.webp",
+        "imageUrl": "/media/vocabulary/images/verb-observe.webp",
+        "alt": "observe verb card"
+      },
+      {
+        "id": "second_adjective_square",
+        "word": "square",
+        "label": "square",
+        "value": "square",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-square.webp",
+        "imagePath": "/media/vocabulary/images/adjective-square.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-square.webp",
+        "alt": "square adjective card"
+      },
+      {
+        "id": "second_noun_word",
+        "word": "word",
+        "label": "word",
+        "value": "word",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/word.webp",
+        "imagePath": "/media/vocabulary/images/word.webp",
+        "imageUrl": "/media/vocabulary/images/word.webp",
+        "alt": "word noun card"
+      }
+    ],
+    "correctAnswer": "square",
+    "answer": "square",
+    "itemType": "grammar_adjective",
+    "itemKey": "square",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "square is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_24_striped",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "striped",
+    "imagePath": "/media/vocabulary/images/adjective-striped.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-striped.webp",
+    "targetImage": "/media/vocabulary/images/adjective-striped.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-striped.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "predict",
+      "striped",
+      "air",
+      "ant"
+    ],
+    "answerOptions": [
+      {
+        "value": "predict",
+        "label": "predict",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "striped",
+        "label": "striped",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "air",
+        "label": "air",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "ant",
+        "label": "ant",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_predict",
+        "word": "predict",
+        "label": "predict",
+        "value": "predict",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-predict.webp",
+        "imagePath": "/media/vocabulary/images/verb-predict.webp",
+        "imageUrl": "/media/vocabulary/images/verb-predict.webp",
+        "alt": "predict verb card"
+      },
+      {
+        "id": "second_adjective_striped",
+        "word": "striped",
+        "label": "striped",
+        "value": "striped",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-striped.webp",
+        "imagePath": "/media/vocabulary/images/adjective-striped.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-striped.webp",
+        "alt": "striped adjective card"
+      },
+      {
+        "id": "second_noun_air",
+        "word": "air",
+        "label": "air",
+        "value": "air",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/air.webp",
+        "imagePath": "/media/vocabulary/images/air.webp",
+        "imageUrl": "/media/vocabulary/images/air.webp",
+        "alt": "air noun card"
+      },
+      {
+        "id": "second_noun_ant",
+        "word": "ant",
+        "label": "ant",
+        "value": "ant",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/ant.png",
+        "imagePath": "/images/child-mode/initial-sounds/ant.png",
+        "imageUrl": "/images/child-mode/initial-sounds/ant.png",
+        "alt": "ant noun card"
+      }
+    ],
+    "correctAnswer": "striped",
+    "answer": "striped",
+    "itemType": "grammar_adjective",
+    "itemKey": "striped",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "striped is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_25_strong",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "strong",
+    "imagePath": "/media/vocabulary/images/adjective-strong.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-strong.webp",
+    "targetImage": "/media/vocabulary/images/adjective-strong.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-strong.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "strong",
+      "baby",
+      "beach",
+      "reads"
+    ],
+    "answerOptions": [
+      {
+        "value": "strong",
+        "label": "strong",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "baby",
+        "label": "baby",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "beach",
+        "label": "beach",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "reads",
+        "label": "reads",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_strong",
+        "word": "strong",
+        "label": "strong",
+        "value": "strong",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-strong.webp",
+        "imagePath": "/media/vocabulary/images/adjective-strong.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-strong.webp",
+        "alt": "strong adjective card"
+      },
+      {
+        "id": "second_noun_baby",
+        "word": "baby",
+        "label": "baby",
+        "value": "baby",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-baby.webp",
+        "imagePath": "/media/vocabulary/images/noun-baby.webp",
+        "imageUrl": "/media/vocabulary/images/noun-baby.webp",
+        "alt": "baby noun card"
+      },
+      {
+        "id": "second_noun_beach",
+        "word": "beach",
+        "label": "beach",
+        "value": "beach",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/beach.webp",
+        "imagePath": "/media/vocabulary/images/beach.webp",
+        "imageUrl": "/media/vocabulary/images/beach.webp",
+        "alt": "beach noun card"
+      },
+      {
+        "id": "second_verb_reads",
+        "word": "reads",
+        "label": "reads",
+        "value": "reads",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-reads.webp",
+        "imagePath": "/media/vocabulary/images/verb-reads.webp",
+        "imageUrl": "/media/vocabulary/images/verb-reads.webp",
+        "alt": "reads verb card"
+      }
+    ],
+    "correctAnswer": "strong",
+    "answer": "strong",
+    "itemType": "grammar_adjective",
+    "itemKey": "strong",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "strong is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_34_sweet",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "sweet",
+    "imagePath": "/media/vocabulary/images/adjective-sweet.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-sweet.webp",
+    "targetImage": "/media/vocabulary/images/adjective-sweet.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-sweet.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "girl",
+      "grape",
+      "carry",
+      "sweet"
+    ],
+    "answerOptions": [
+      {
+        "value": "girl",
+        "label": "girl",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "grape",
+        "label": "grape",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "carry",
+        "label": "carry",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "sweet",
+        "label": "sweet",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_girl",
+        "word": "girl",
+        "label": "girl",
+        "value": "girl",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/girl.png",
+        "imagePath": "/images/child-mode/initial-sounds/girl.png",
+        "imageUrl": "/images/child-mode/initial-sounds/girl.png",
+        "alt": "girl noun card"
+      },
+      {
+        "id": "second_noun_grape",
+        "word": "grape",
+        "label": "grape",
+        "value": "grape",
+        "partOfSpeech": "noun",
+        "image": "/images/assessment/long-vowels/grape.webp",
+        "imagePath": "/images/assessment/long-vowels/grape.webp",
+        "imageUrl": "/images/assessment/long-vowels/grape.webp",
+        "alt": "grape noun card"
+      },
+      {
+        "id": "second_verb_carry",
+        "word": "carry",
+        "label": "carry",
+        "value": "carry",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-carry.webp",
+        "imagePath": "/media/vocabulary/images/verb-carry.webp",
+        "imageUrl": "/media/vocabulary/images/verb-carry.webp",
+        "alt": "carry verb card"
+      },
+      {
+        "id": "second_adjective_sweet",
+        "word": "sweet",
+        "label": "sweet",
+        "value": "sweet",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-sweet.webp",
+        "imagePath": "/media/vocabulary/images/adjective-sweet.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-sweet.webp",
+        "alt": "sweet adjective card"
+      }
+    ],
+    "correctAnswer": "sweet",
+    "answer": "sweet",
+    "itemType": "grammar_adjective",
+    "itemKey": "sweet",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "sweet is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_26_tiny",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "tiny",
+    "imagePath": "/media/vocabulary/images/adjective-tiny.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-tiny.webp",
+    "targetImage": "/media/vocabulary/images/adjective-tiny.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-tiny.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "belt",
+      "bird",
+      "runs",
+      "tiny"
+    ],
+    "answerOptions": [
+      {
+        "value": "belt",
+        "label": "belt",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "bird",
+        "label": "bird",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "runs",
+        "label": "runs",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "tiny",
+        "label": "tiny",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_belt",
+        "word": "belt",
+        "label": "belt",
+        "value": "belt",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/belt.webp",
+        "imagePath": "/media/vocabulary/images/belt.webp",
+        "imageUrl": "/media/vocabulary/images/belt.webp",
+        "alt": "belt noun card"
+      },
+      {
+        "id": "second_noun_bird",
+        "word": "bird",
+        "label": "bird",
+        "value": "bird",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/bird.png",
+        "imagePath": "/images/child-mode/initial-sounds/bird.png",
+        "imageUrl": "/images/child-mode/initial-sounds/bird.png",
+        "alt": "bird noun card"
+      },
+      {
+        "id": "second_verb_runs",
+        "word": "runs",
+        "label": "runs",
+        "value": "runs",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-runs.webp",
+        "imagePath": "/media/vocabulary/images/verb-runs.webp",
+        "imageUrl": "/media/vocabulary/images/verb-runs.webp",
+        "alt": "runs verb card"
+      },
+      {
+        "id": "second_adjective_tiny",
+        "word": "tiny",
+        "label": "tiny",
+        "value": "tiny",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-tiny.webp",
+        "imagePath": "/media/vocabulary/images/adjective-tiny.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-tiny.webp",
+        "alt": "tiny adjective card"
+      }
+    ],
+    "correctAnswer": "tiny",
+    "answer": "tiny",
+    "itemType": "grammar_adjective",
+    "itemKey": "tiny",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "tiny is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_30_warm",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "warm",
+    "imagePath": "/media/vocabulary/images/adjective-warm.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-warm.webp",
+    "targetImage": "/media/vocabulary/images/adjective-warm.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-warm.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "desk",
+      "dirt",
+      "build",
+      "warm"
+    ],
+    "answerOptions": [
+      {
+        "value": "desk",
+        "label": "desk",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "dirt",
+        "label": "dirt",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "build",
+        "label": "build",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "warm",
+        "label": "warm",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_desk",
+        "word": "desk",
+        "label": "desk",
+        "value": "desk",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/desk.png",
+        "imagePath": "/images/child-mode/initial-sounds/desk.png",
+        "imageUrl": "/images/child-mode/initial-sounds/desk.png",
+        "alt": "desk noun card"
+      },
+      {
+        "id": "second_noun_dirt",
+        "word": "dirt",
+        "label": "dirt",
+        "value": "dirt",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/dirt.webp",
+        "imagePath": "/media/vocabulary/images/dirt.webp",
+        "imageUrl": "/media/vocabulary/images/dirt.webp",
+        "alt": "dirt noun card"
+      },
+      {
+        "id": "second_verb_build",
+        "word": "build",
+        "label": "build",
+        "value": "build",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-build.webp",
+        "imagePath": "/media/vocabulary/images/verb-build.webp",
+        "imageUrl": "/media/vocabulary/images/verb-build.webp",
+        "alt": "build verb card"
+      },
+      {
+        "id": "second_adjective_warm",
+        "word": "warm",
+        "label": "warm",
+        "value": "warm",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-warm.webp",
+        "imagePath": "/media/vocabulary/images/adjective-warm.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-warm.webp",
+        "alt": "warm adjective card"
+      }
+    ],
+    "correctAnswer": "warm",
+    "answer": "warm",
+    "itemType": "grammar_adjective",
+    "itemKey": "warm",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "warm is a adjective."
+  },
+  {
+    "id": "second_adjectives_l1_31_young",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "young",
+    "imagePath": "/media/vocabulary/images/adjective-young.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-young.webp",
+    "targetImage": "/media/vocabulary/images/adjective-young.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-young.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a adjective.",
+    "question": "Tap the picture that shows a adjective.",
+    "choices": [
+      "farmer",
+      "drive",
+      "young",
+      "farm"
+    ],
+    "answerOptions": [
+      {
+        "value": "farmer",
+        "label": "farmer",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "drive",
+        "label": "drive",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "young",
+        "label": "young",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "farm",
+        "label": "farm",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_farmer",
+        "word": "farmer",
+        "label": "farmer",
+        "value": "farmer",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-farmer.webp",
+        "imagePath": "/media/vocabulary/images/noun-farmer.webp",
+        "imageUrl": "/media/vocabulary/images/noun-farmer.webp",
+        "alt": "farmer noun card"
+      },
+      {
+        "id": "second_verb_drive",
+        "word": "drive",
+        "label": "drive",
+        "value": "drive",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-drive.webp",
+        "imagePath": "/media/vocabulary/images/verb-drive.webp",
+        "imageUrl": "/media/vocabulary/images/verb-drive.webp",
+        "alt": "drive verb card"
+      },
+      {
+        "id": "second_adjective_young",
+        "word": "young",
+        "label": "young",
+        "value": "young",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-young.webp",
+        "imagePath": "/media/vocabulary/images/adjective-young.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-young.webp",
+        "alt": "young adjective card"
+      },
+      {
+        "id": "second_noun_farm",
+        "word": "farm",
+        "label": "farm",
+        "value": "farm",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/farm.png",
+        "imagePath": "/images/child-mode/initial-sounds/farm.png",
+        "imageUrl": "/images/child-mode/initial-sounds/farm.png",
+        "alt": "farm noun card"
+      }
+    ],
+    "correctAnswer": "young",
+    "answer": "young",
+    "itemType": "grammar_adjective",
+    "itemKey": "young",
+    "partOfSpeech": "adjective",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "young is a adjective."
+  },
+  {
+    "id": "second_adjectives_l2_01_brave",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
     "questionType": "ixl_template",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "formatType": "GRAMMAR_SENTENCE_FIT",
@@ -99,9 +3881,9 @@ export const secondBlockSkillTopUpQuestions = [
     "sentence": "The pictured object looks ___.",
     "choices": [
       "brave",
-      "artist",
-      "coach",
-      "baked"
+      "cute",
+      "huge",
+      "silent"
     ],
     "answerOptions": [
       {
@@ -109,28 +3891,40 @@ export const secondBlockSkillTopUpQuestions = [
         "word": "brave",
         "label": "brave",
         "value": "brave",
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brave.mp3",
+        "audioPath": "/audio/vocabulary/brave.mp3",
+        "audioUrl": "/audio/vocabulary/brave.mp3"
       },
       {
-        "id": "second_noun_artist_text",
-        "word": "artist",
-        "label": "artist",
-        "value": "artist",
-        "partOfSpeech": "noun"
+        "id": "second_adjective_cute_text",
+        "word": "cute",
+        "label": "cute",
+        "value": "cute",
+        "partOfSpeech": "adjective",
+        "audio": "/media/vocabulary/audio/cute.mp3",
+        "audioPath": "/media/vocabulary/audio/cute.mp3",
+        "audioUrl": "/media/vocabulary/audio/cute.mp3"
       },
       {
-        "id": "second_noun_coach_text",
-        "word": "coach",
-        "label": "coach",
-        "value": "coach",
-        "partOfSpeech": "noun"
+        "id": "second_adjective_huge_text",
+        "word": "huge",
+        "label": "huge",
+        "value": "huge",
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/huge.mp3",
+        "audioPath": "/audio/vocabulary/huge.mp3",
+        "audioUrl": "/audio/vocabulary/huge.mp3"
       },
       {
-        "id": "second_verb_baked_text",
-        "word": "baked",
-        "label": "baked",
-        "value": "baked",
-        "partOfSpeech": "verb"
+        "id": "second_adjective_silent_text",
+        "word": "silent",
+        "label": "silent",
+        "value": "silent",
+        "partOfSpeech": "adjective",
+        "audio": "/media/vocabulary/audio/silent.mp3",
+        "audioPath": "/media/vocabulary/audio/silent.mp3",
+        "audioUrl": "/media/vocabulary/audio/silent.mp3"
       }
     ],
     "correctAnswer": "brave",
@@ -138,2392 +3932,10 @@ export const secondBlockSkillTopUpQuestions = [
     "itemType": "grammar_adjective",
     "itemKey": "brave",
     "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "brave makes the sentence make sense."
+    "explanation": "brave fits the sentence as a adjective."
   },
   {
-    "id": "second_adjectives_l1_32_brown",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "brown",
-    "imagePath": "/media/vocabulary/images/adjective-brown.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-brown.webp",
-    "targetImage": "/media/vocabulary/images/adjective-brown.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-brown.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "fly",
-      "brown",
-      "field",
-      "fish"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_verb_fly_text",
-        "word": "fly",
-        "label": "fly",
-        "value": "fly",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_brown_text",
-        "word": "brown",
-        "label": "brown",
-        "value": "brown",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_field_text",
-        "word": "field",
-        "label": "field",
-        "value": "field",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_fish_text",
-        "word": "fish",
-        "label": "fish",
-        "value": "fish",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "brown",
-    "answer": "brown",
-    "itemType": "grammar_adjective",
-    "itemKey": "brown",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "brown makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_02_bumpy",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "bumpy",
-    "imagePath": "/media/vocabulary/images/adjective-bumpy.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-bumpy.webp",
-    "targetImage": "/media/vocabulary/images/adjective-bumpy.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-bumpy.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "market",
-      "mum",
-      "builds",
-      "bumpy"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_market_text",
-        "word": "market",
-        "label": "market",
-        "value": "market",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_mum_text",
-        "word": "mum",
-        "label": "mum",
-        "value": "mum",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_builds_text",
-        "word": "builds",
-        "label": "builds",
-        "value": "builds",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_bumpy_text",
-        "word": "bumpy",
-        "label": "bumpy",
-        "value": "bumpy",
-        "partOfSpeech": "adjective"
-      }
-    ],
-    "correctAnswer": "bumpy",
-    "answer": "bumpy",
-    "itemType": "grammar_adjective",
-    "itemKey": "bumpy",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "bumpy makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_03_calm",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "calm",
-    "imagePath": "/media/vocabulary/images/adjective-calm.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-calm.webp",
-    "targetImage": "/media/vocabulary/images/adjective-calm.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-calm.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "station",
-      "dance",
-      "calm",
-      "pilot"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_station_text",
-        "word": "station",
-        "label": "station",
-        "value": "station",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_dance_text",
-        "word": "dance",
-        "label": "dance",
-        "value": "dance",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_calm_text",
-        "word": "calm",
-        "label": "calm",
-        "value": "calm",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_pilot_text",
-        "word": "pilot",
-        "label": "pilot",
-        "value": "pilot",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "calm",
-    "answer": "calm",
-    "itemType": "grammar_adjective",
-    "itemKey": "calm",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "calm makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_04_crisp",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "crisp",
-    "imagePath": "/media/vocabulary/images/adjective-crisp.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-crisp.webp",
-    "targetImage": "/media/vocabulary/images/adjective-crisp.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-crisp.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "fell",
-      "crisp",
-      "ape",
-      "back"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_verb_fell_text",
-        "word": "fell",
-        "label": "fell",
-        "value": "fell",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_crisp_text",
-        "word": "crisp",
-        "label": "crisp",
-        "value": "crisp",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_ape_text",
-        "word": "ape",
-        "label": "ape",
-        "value": "ape",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_back_text",
-        "word": "back",
-        "label": "back",
-        "value": "back",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "crisp",
-    "answer": "crisp",
-    "itemType": "grammar_adjective",
-    "itemKey": "crisp",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "crisp makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_05_cute",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "cute",
-    "imagePath": "/media/vocabulary/images/adjective-cute.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-cute.webp",
-    "targetImage": "/media/vocabulary/images/adjective-cute.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-cute.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The puppy is ___.",
-    "choices": [
-      "cute",
-      "bat",
-      "bear",
-      "jumped"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_adjective_cute_text",
-        "word": "cute",
-        "label": "cute",
-        "value": "cute",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_bat_text",
-        "word": "bat",
-        "label": "bat",
-        "value": "bat",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_bear_text",
-        "word": "bear",
-        "label": "bear",
-        "value": "bear",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_jumped_text",
-        "word": "jumped",
-        "label": "jumped",
-        "value": "jumped",
-        "partOfSpeech": "verb"
-      }
-    ],
-    "correctAnswer": "cute",
-    "answer": "cute",
-    "itemType": "grammar_adjective",
-    "itemKey": "cute",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "cute makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_06_deep",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "deep",
-    "imagePath": "/media/vocabulary/images/adjective-deep.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-deep.webp",
-    "targetImage": "/media/vocabulary/images/adjective-deep.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-deep.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "bell",
-      "book",
-      "observe",
-      "deep"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_bell_text",
-        "word": "bell",
-        "label": "bell",
-        "value": "bell",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_book_text",
-        "word": "book",
-        "label": "book",
-        "value": "book",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_observe_text",
-        "word": "observe",
-        "label": "observe",
-        "value": "observe",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_deep_text",
-        "word": "deep",
-        "label": "deep",
-        "value": "deep",
-        "partOfSpeech": "adjective"
-      }
-    ],
-    "correctAnswer": "deep",
-    "answer": "deep",
-    "itemType": "grammar_adjective",
-    "itemKey": "deep",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "deep makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_07_dusty",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "dusty",
-    "imagePath": "/media/vocabulary/images/adjective-dusty.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-dusty.webp",
-    "targetImage": "/media/vocabulary/images/adjective-dusty.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-dusty.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "bug",
-      "predict",
-      "dusty",
-      "box"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_bug_text",
-        "word": "bug",
-        "label": "bug",
-        "value": "bug",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_predict_text",
-        "word": "predict",
-        "label": "predict",
-        "value": "predict",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_dusty_text",
-        "word": "dusty",
-        "label": "dusty",
-        "value": "dusty",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_box_text",
-        "word": "box",
-        "label": "box",
-        "value": "box",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "dusty",
-    "answer": "dusty",
-    "itemType": "grammar_adjective",
-    "itemKey": "dusty",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "dusty makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_08_fierce",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "fierce",
-    "imagePath": "/media/vocabulary/images/adjective-fierce.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-fierce.webp",
-    "targetImage": "/media/vocabulary/images/adjective-fierce.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-fierce.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "reads",
-      "fierce",
-      "cat",
-      "class"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_verb_reads_text",
-        "word": "reads",
-        "label": "reads",
-        "value": "reads",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_fierce_text",
-        "word": "fierce",
-        "label": "fierce",
-        "value": "fierce",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_cat_text",
-        "word": "cat",
-        "label": "cat",
-        "value": "cat",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_class_text",
-        "word": "class",
-        "label": "class",
-        "value": "class",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "fierce",
-    "answer": "fierce",
-    "itemType": "grammar_adjective",
-    "itemKey": "fierce",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "fierce makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_09_fluffy",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "fluffy",
-    "imagePath": "/media/vocabulary/images/adjective-fluffy.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-fluffy.webp",
-    "targetImage": "/media/vocabulary/images/adjective-fluffy.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-fluffy.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "fluffy",
-      "cup",
-      "dad",
-      "runs"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_adjective_fluffy_text",
-        "word": "fluffy",
-        "label": "fluffy",
-        "value": "fluffy",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_cup_text",
-        "word": "cup",
-        "label": "cup",
-        "value": "cup",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_dad_text",
-        "word": "dad",
-        "label": "dad",
-        "value": "dad",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_runs_text",
-        "word": "runs",
-        "label": "runs",
-        "value": "runs",
-        "partOfSpeech": "verb"
-      }
-    ],
-    "correctAnswer": "fluffy",
-    "answer": "fluffy",
-    "itemType": "grammar_adjective",
-    "itemKey": "fluffy",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "fluffy makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_10_gentle",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "gentle",
-    "imagePath": "/media/vocabulary/images/adjective-gentle.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-gentle.webp",
-    "targetImage": "/media/vocabulary/images/adjective-gentle.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-gentle.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "duck",
-      "egg",
-      "shake",
-      "gentle"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_duck_text",
-        "word": "duck",
-        "label": "duck",
-        "value": "duck",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_egg_text",
-        "word": "egg",
-        "label": "egg",
-        "value": "egg",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_shake_text",
-        "word": "shake",
-        "label": "shake",
-        "value": "shake",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_gentle_text",
-        "word": "gentle",
-        "label": "gentle",
-        "value": "gentle",
-        "partOfSpeech": "adjective"
-      }
-    ],
-    "correctAnswer": "gentle",
-    "answer": "gentle",
-    "itemType": "grammar_adjective",
-    "itemKey": "gentle",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "gentle makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_11_huge",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "huge",
-    "imagePath": "/media/vocabulary/images/adjective-huge.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-huge.webp",
-    "targetImage": "/media/vocabulary/images/adjective-huge.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-huge.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "foot",
-      "swayed",
-      "huge",
-      "face"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_foot_text",
-        "word": "foot",
-        "label": "foot",
-        "value": "foot",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_swayed_text",
-        "word": "swayed",
-        "label": "swayed",
-        "value": "swayed",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_huge_text",
-        "word": "huge",
-        "label": "huge",
-        "value": "huge",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_face_text",
-        "word": "face",
-        "label": "face",
-        "value": "face",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "huge",
-    "answer": "huge",
-    "itemType": "grammar_adjective",
-    "itemKey": "huge",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "huge makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_33_loud",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "loud",
-    "imagePath": "/media/vocabulary/images/adjective-loud.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-loud.webp",
-    "targetImage": "/media/vocabulary/images/adjective-loud.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-loud.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The drum is ___ when it is hit.",
-    "choices": [
-      "loud",
-      "food",
-      "frog",
-      "share"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_adjective_loud_text",
-        "word": "loud",
-        "label": "loud",
-        "value": "loud",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_food_text",
-        "word": "food",
-        "label": "food",
-        "value": "food",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_frog_text",
-        "word": "frog",
-        "label": "frog",
-        "value": "frog",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_share_text",
-        "word": "share",
-        "label": "share",
-        "value": "share",
-        "partOfSpeech": "verb"
-      }
-    ],
-    "correctAnswer": "loud",
-    "answer": "loud",
-    "itemType": "grammar_adjective",
-    "itemKey": "loud",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "loud makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_28_new",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "new",
-    "imagePath": "/media/vocabulary/images/adjective-new.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-new.webp",
-    "targetImage": "/media/vocabulary/images/adjective-new.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-new.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "swayed",
-      "new",
-      "chair",
-      "cheese"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_verb_swayed_text",
-        "word": "swayed",
-        "label": "swayed",
-        "value": "swayed",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_new_text",
-        "word": "new",
-        "label": "new",
-        "value": "new",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_chair_text",
-        "word": "chair",
-        "label": "chair",
-        "value": "chair",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_cheese_text",
-        "word": "cheese",
-        "label": "cheese",
-        "value": "cheese",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "new",
-    "answer": "new",
-    "itemType": "grammar_adjective",
-    "itemKey": "new",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "new makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_12_noisy",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "noisy",
-    "imagePath": "/media/vocabulary/images/adjective-noisy.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-noisy.webp",
-    "targetImage": "/media/vocabulary/images/adjective-noisy.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-noisy.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "cook",
-      "noisy",
-      "glove",
-      "glue"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_verb_cook_text",
-        "word": "cook",
-        "label": "cook",
-        "value": "cook",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_noisy_text",
-        "word": "noisy",
-        "label": "noisy",
-        "value": "noisy",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_glove_text",
-        "word": "glove",
-        "label": "glove",
-        "value": "glove",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_glue_text",
-        "word": "glue",
-        "label": "glue",
-        "value": "glue",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "noisy",
-    "answer": "noisy",
-    "itemType": "grammar_adjective",
-    "itemKey": "noisy",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "noisy makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_29_old",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "old",
-    "imagePath": "/media/vocabulary/images/adjective-old.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-old.webp",
-    "targetImage": "/media/vocabulary/images/adjective-old.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-old.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "old",
-      "cloud",
-      "corn",
-      "cook"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_adjective_old_text",
-        "word": "old",
-        "label": "old",
-        "value": "old",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_cloud_text",
-        "word": "cloud",
-        "label": "cloud",
-        "value": "cloud",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_corn_text",
-        "word": "corn",
-        "label": "corn",
-        "value": "corn",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_cook_text",
-        "word": "cook",
-        "label": "cook",
-        "value": "cook",
-        "partOfSpeech": "verb"
-      }
-    ],
-    "correctAnswer": "old",
-    "answer": "old",
-    "itemType": "grammar_adjective",
-    "itemKey": "old",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "old makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_13_playful",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "playful",
-    "imagePath": "/media/vocabulary/images/adjective-playful.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-playful.webp",
-    "targetImage": "/media/vocabulary/images/adjective-playful.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-playful.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "playful",
-      "hair",
-      "ham",
-      "build"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_adjective_playful_text",
-        "word": "playful",
-        "label": "playful",
-        "value": "playful",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_hair_text",
-        "word": "hair",
-        "label": "hair",
-        "value": "hair",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_ham_text",
-        "word": "ham",
-        "label": "ham",
-        "value": "ham",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_build_text",
-        "word": "build",
-        "label": "build",
-        "value": "build",
-        "partOfSpeech": "verb"
-      }
-    ],
-    "correctAnswer": "playful",
-    "answer": "playful",
-    "itemType": "grammar_adjective",
-    "itemKey": "playful",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "playful makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_14_prickly",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "prickly",
-    "imagePath": "/media/vocabulary/images/adjective-prickly.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-prickly.webp",
-    "targetImage": "/media/vocabulary/images/adjective-prickly.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-prickly.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "head",
-      "hen",
-      "drive",
-      "prickly"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_head_text",
-        "word": "head",
-        "label": "head",
-        "value": "head",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_hen_text",
-        "word": "hen",
-        "label": "hen",
-        "value": "hen",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_drive_text",
-        "word": "drive",
-        "label": "drive",
-        "value": "drive",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_prickly_text",
-        "word": "prickly",
-        "label": "prickly",
-        "value": "prickly",
-        "partOfSpeech": "adjective"
-      }
-    ],
-    "correctAnswer": "prickly",
-    "answer": "prickly",
-    "itemType": "grammar_adjective",
-    "itemKey": "prickly",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "prickly makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_15_proud",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "proud",
-    "imagePath": "/media/vocabulary/images/adjective-proud.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-proud.webp",
-    "targetImage": "/media/vocabulary/images/adjective-proud.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-proud.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "knee",
-      "fly",
-      "proud",
-      "kid"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_knee_text",
-        "word": "knee",
-        "label": "knee",
-        "value": "knee",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_fly_text",
-        "word": "fly",
-        "label": "fly",
-        "value": "fly",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_proud_text",
-        "word": "proud",
-        "label": "proud",
-        "value": "proud",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_kid_text",
-        "word": "kid",
-        "label": "kid",
-        "value": "kid",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "proud",
-    "answer": "proud",
-    "itemType": "grammar_adjective",
-    "itemKey": "proud",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "proud makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_35_purple",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "purple",
-    "imagePath": "/media/vocabulary/images/adjective-purple.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-purple.webp",
-    "targetImage": "/media/vocabulary/images/adjective-purple.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-purple.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The flower is ___.",
-    "choices": [
-      "hand",
-      "baked",
-      "purple",
-      "ground"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_hand_text",
-        "word": "hand",
-        "label": "hand",
-        "value": "hand",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_baked_text",
-        "word": "baked",
-        "label": "baked",
-        "value": "baked",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_purple_text",
-        "word": "purple",
-        "label": "purple",
-        "value": "purple",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_ground_text",
-        "word": "ground",
-        "label": "ground",
-        "value": "ground",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "purple",
-    "answer": "purple",
-    "itemType": "grammar_adjective",
-    "itemKey": "purple",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "purple makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_16_rough",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "rough",
-    "imagePath": "/media/vocabulary/images/adjective-rough.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-rough.webp",
-    "targetImage": "/media/vocabulary/images/adjective-rough.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-rough.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "share",
-      "rough",
-      "leg",
-      "man"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_verb_share_text",
-        "word": "share",
-        "label": "share",
-        "value": "share",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_rough_text",
-        "word": "rough",
-        "label": "rough",
-        "value": "rough",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_leg_text",
-        "word": "leg",
-        "label": "leg",
-        "value": "leg",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_man_text",
-        "word": "man",
-        "label": "man",
-        "value": "man",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "rough",
-    "answer": "rough",
-    "itemType": "grammar_adjective",
-    "itemKey": "rough",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "rough makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_17_sharp",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "sharp",
-    "imagePath": "/media/vocabulary/images/adjective-sharp.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-sharp.webp",
-    "targetImage": "/media/vocabulary/images/adjective-sharp.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-sharp.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "sharp",
-      "men",
-      "moon",
-      "carry"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_adjective_sharp_text",
-        "word": "sharp",
-        "label": "sharp",
-        "value": "sharp",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_men_text",
-        "word": "men",
-        "label": "men",
-        "value": "men",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_moon_text",
-        "word": "moon",
-        "label": "moon",
-        "value": "moon",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_carry_text",
-        "word": "carry",
-        "label": "carry",
-        "value": "carry",
-        "partOfSpeech": "verb"
-      }
-    ],
-    "correctAnswer": "sharp",
-    "answer": "sharp",
-    "itemType": "grammar_adjective",
-    "itemKey": "sharp",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "sharp makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_18_shiny",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "shiny",
-    "imagePath": "/media/vocabulary/images/adjective-shiny.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-shiny.webp",
-    "targetImage": "/media/vocabulary/images/adjective-shiny.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-shiny.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "pear",
-      "pen",
-      "baked",
-      "shiny"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_pear_text",
-        "word": "pear",
-        "label": "pear",
-        "value": "pear",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_pen_text",
-        "word": "pen",
-        "label": "pen",
-        "value": "pen",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_baked_text",
-        "word": "baked",
-        "label": "baked",
-        "value": "baked",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_shiny_text",
-        "word": "shiny",
-        "label": "shiny",
-        "value": "shiny",
-        "partOfSpeech": "adjective"
-      }
-    ],
-    "correctAnswer": "shiny",
-    "answer": "shiny",
-    "itemType": "grammar_adjective",
-    "itemKey": "shiny",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "shiny makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_19_silent",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "silent",
-    "imagePath": "/media/vocabulary/images/adjective-silent.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-silent.webp",
-    "targetImage": "/media/vocabulary/images/adjective-silent.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-silent.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "rice",
-      "builds",
-      "silent",
-      "rat"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_rice_text",
-        "word": "rice",
-        "label": "rice",
-        "value": "rice",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_builds_text",
-        "word": "builds",
-        "label": "builds",
-        "value": "builds",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_silent_text",
-        "word": "silent",
-        "label": "silent",
-        "value": "silent",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_rat_text",
-        "word": "rat",
-        "label": "rat",
-        "value": "rat",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "silent",
-    "answer": "silent",
-    "itemType": "grammar_adjective",
-    "itemKey": "silent",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "silent makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_20_smelly",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "smelly",
-    "imagePath": "/media/vocabulary/images/adjective-smelly.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-smelly.webp",
-    "targetImage": "/media/vocabulary/images/adjective-smelly.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-smelly.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "dance",
-      "smelly",
-      "room",
-      "seal"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_verb_dance_text",
-        "word": "dance",
-        "label": "dance",
-        "value": "dance",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_smelly_text",
-        "word": "smelly",
-        "label": "smelly",
-        "value": "smelly",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_room_text",
-        "word": "room",
-        "label": "room",
-        "value": "room",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_seal_text",
-        "word": "seal",
-        "label": "seal",
-        "value": "seal",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "smelly",
-    "answer": "smelly",
-    "itemType": "grammar_adjective",
-    "itemKey": "smelly",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "smelly makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_21_smooth",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "smooth",
-    "imagePath": "/media/vocabulary/images/adjective-smooth.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-smooth.webp",
-    "targetImage": "/media/vocabulary/images/adjective-smooth.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-smooth.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "smooth",
-      "sky",
-      "sock",
-      "fell"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_adjective_smooth_text",
-        "word": "smooth",
-        "label": "smooth",
-        "value": "smooth",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_sky_text",
-        "word": "sky",
-        "label": "sky",
-        "value": "sky",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_sock_text",
-        "word": "sock",
-        "label": "sock",
-        "value": "sock",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_fell_text",
-        "word": "fell",
-        "label": "fell",
-        "value": "fell",
-        "partOfSpeech": "verb"
-      }
-    ],
-    "correctAnswer": "smooth",
-    "answer": "smooth",
-    "itemType": "grammar_adjective",
-    "itemKey": "smooth",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "smooth makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_36_sour",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "sour",
-    "imagePath": "/media/vocabulary/images/adjective-sour.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-sour.webp",
-    "targetImage": "/media/vocabulary/images/adjective-sour.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-sour.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "builds",
-      "sour",
-      "house",
-      "key"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_verb_builds_text",
-        "word": "builds",
-        "label": "builds",
-        "value": "builds",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_sour_text",
-        "word": "sour",
-        "label": "sour",
-        "value": "sour",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_house_text",
-        "word": "house",
-        "label": "house",
-        "value": "house",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_key_text",
-        "word": "key",
-        "label": "key",
-        "value": "key",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "sour",
-    "answer": "sour",
-    "itemType": "grammar_adjective",
-    "itemKey": "sour",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "sour makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_22_sparkly",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "sparkly",
-    "imagePath": "/media/vocabulary/images/adjective-sparkly.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-sparkly.webp",
-    "targetImage": "/media/vocabulary/images/adjective-sparkly.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-sparkly.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "sun",
-      "toast",
-      "jumped",
-      "sparkly"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_sun_text",
-        "word": "sun",
-        "label": "sun",
-        "value": "sun",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_toast_text",
-        "word": "toast",
-        "label": "toast",
-        "value": "toast",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_jumped_text",
-        "word": "jumped",
-        "label": "jumped",
-        "value": "jumped",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_sparkly_text",
-        "word": "sparkly",
-        "label": "sparkly",
-        "value": "sparkly",
-        "partOfSpeech": "adjective"
-      }
-    ],
-    "correctAnswer": "sparkly",
-    "answer": "sparkly",
-    "itemType": "grammar_adjective",
-    "itemKey": "sparkly",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "sparkly makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_23_square",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "square",
-    "imagePath": "/media/vocabulary/images/adjective-square.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-square.webp",
-    "targetImage": "/media/vocabulary/images/adjective-square.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-square.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "child",
-      "observe",
-      "square",
-      "word"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_child_text",
-        "word": "child",
-        "label": "child",
-        "value": "child",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_observe_text",
-        "word": "observe",
-        "label": "observe",
-        "value": "observe",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_square_text",
-        "word": "square",
-        "label": "square",
-        "value": "square",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_word_text",
-        "word": "word",
-        "label": "word",
-        "value": "word",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "square",
-    "answer": "square",
-    "itemType": "grammar_adjective",
-    "itemKey": "square",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "square makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_24_striped",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "striped",
-    "imagePath": "/media/vocabulary/images/adjective-striped.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-striped.webp",
-    "targetImage": "/media/vocabulary/images/adjective-striped.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-striped.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "predict",
-      "striped",
-      "air",
-      "ant"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_verb_predict_text",
-        "word": "predict",
-        "label": "predict",
-        "value": "predict",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_striped_text",
-        "word": "striped",
-        "label": "striped",
-        "value": "striped",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_air_text",
-        "word": "air",
-        "label": "air",
-        "value": "air",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_ant_text",
-        "word": "ant",
-        "label": "ant",
-        "value": "ant",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "striped",
-    "answer": "striped",
-    "itemType": "grammar_adjective",
-    "itemKey": "striped",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "striped makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_25_strong",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "strong",
-    "imagePath": "/media/vocabulary/images/adjective-strong.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-strong.webp",
-    "targetImage": "/media/vocabulary/images/adjective-strong.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-strong.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "strong",
-      "baby",
-      "beach",
-      "reads"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_adjective_strong_text",
-        "word": "strong",
-        "label": "strong",
-        "value": "strong",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_baby_text",
-        "word": "baby",
-        "label": "baby",
-        "value": "baby",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_beach_text",
-        "word": "beach",
-        "label": "beach",
-        "value": "beach",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_reads_text",
-        "word": "reads",
-        "label": "reads",
-        "value": "reads",
-        "partOfSpeech": "verb"
-      }
-    ],
-    "correctAnswer": "strong",
-    "answer": "strong",
-    "itemType": "grammar_adjective",
-    "itemKey": "strong",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "strong makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_34_sweet",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "sweet",
-    "imagePath": "/media/vocabulary/images/adjective-sweet.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-sweet.webp",
-    "targetImage": "/media/vocabulary/images/adjective-sweet.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-sweet.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "girl",
-      "grape",
-      "carry",
-      "sweet"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_girl_text",
-        "word": "girl",
-        "label": "girl",
-        "value": "girl",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_grape_text",
-        "word": "grape",
-        "label": "grape",
-        "value": "grape",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_carry_text",
-        "word": "carry",
-        "label": "carry",
-        "value": "carry",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_sweet_text",
-        "word": "sweet",
-        "label": "sweet",
-        "value": "sweet",
-        "partOfSpeech": "adjective"
-      }
-    ],
-    "correctAnswer": "sweet",
-    "answer": "sweet",
-    "itemType": "grammar_adjective",
-    "itemKey": "sweet",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "sweet makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_26_tiny",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "tiny",
-    "imagePath": "/media/vocabulary/images/adjective-tiny.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-tiny.webp",
-    "targetImage": "/media/vocabulary/images/adjective-tiny.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-tiny.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "belt",
-      "bird",
-      "runs",
-      "tiny"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_belt_text",
-        "word": "belt",
-        "label": "belt",
-        "value": "belt",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_bird_text",
-        "word": "bird",
-        "label": "bird",
-        "value": "bird",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_runs_text",
-        "word": "runs",
-        "label": "runs",
-        "value": "runs",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_tiny_text",
-        "word": "tiny",
-        "label": "tiny",
-        "value": "tiny",
-        "partOfSpeech": "adjective"
-      }
-    ],
-    "correctAnswer": "tiny",
-    "answer": "tiny",
-    "itemType": "grammar_adjective",
-    "itemKey": "tiny",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "tiny makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_30_warm",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "warm",
-    "imagePath": "/media/vocabulary/images/adjective-warm.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-warm.webp",
-    "targetImage": "/media/vocabulary/images/adjective-warm.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-warm.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "desk",
-      "dirt",
-      "build",
-      "warm"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_desk_text",
-        "word": "desk",
-        "label": "desk",
-        "value": "desk",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_noun_dirt_text",
-        "word": "dirt",
-        "label": "dirt",
-        "value": "dirt",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_build_text",
-        "word": "build",
-        "label": "build",
-        "value": "build",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_warm_text",
-        "word": "warm",
-        "label": "warm",
-        "value": "warm",
-        "partOfSpeech": "adjective"
-      }
-    ],
-    "correctAnswer": "warm",
-    "answer": "warm",
-    "itemType": "grammar_adjective",
-    "itemKey": "warm",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "warm makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l1_31_young",
-    "grade": "K-3",
-    "skillId": "adjectives",
-    "skillName": "Adjectives",
-    "skill": "Adjectives",
-    "level": 1,
-    "difficulty": 1,
-    "phase": 2,
-    "assessmentPhase": 2,
-    "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "young",
-    "imagePath": "/media/vocabulary/images/adjective-young.webp",
-    "imageUrl": "/media/vocabulary/images/adjective-young.webp",
-    "targetImage": "/media/vocabulary/images/adjective-young.webp",
-    "targetImagePath": "/media/vocabulary/images/adjective-young.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the adjective that best fits the sentence.",
-    "question": "Choose the adjective that best fits the sentence.",
-    "sentence": "The pictured object looks ___.",
-    "choices": [
-      "farmer",
-      "drive",
-      "young",
-      "farm"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_noun_farmer_text",
-        "word": "farmer",
-        "label": "farmer",
-        "value": "farmer",
-        "partOfSpeech": "noun"
-      },
-      {
-        "id": "second_verb_drive_text",
-        "word": "drive",
-        "label": "drive",
-        "value": "drive",
-        "partOfSpeech": "verb"
-      },
-      {
-        "id": "second_adjective_young_text",
-        "word": "young",
-        "label": "young",
-        "value": "young",
-        "partOfSpeech": "adjective"
-      },
-      {
-        "id": "second_noun_farm_text",
-        "word": "farm",
-        "label": "farm",
-        "value": "farm",
-        "partOfSpeech": "noun"
-      }
-    ],
-    "correctAnswer": "young",
-    "answer": "young",
-    "itemType": "grammar_adjective",
-    "itemKey": "young",
-    "partOfSpeech": "adjective",
-    "requireOptionAudio": false,
-    "disableAudio": true,
-    "explanation": "young makes the sentence make sense."
-  },
-  {
-    "id": "second_adjectives_l2_01_cute",
+    "id": "second_adjectives_l2_02_cute",
     "grade": "K-3",
     "skillId": "adjectives",
     "skillName": "Adjectives",
@@ -2549,6 +3961,7 @@ export const secondBlockSkillTopUpQuestions = [
     "sentence": "The puppy is ___.",
     "choices": [
       "cute",
+      "huge",
       "loud",
       "silent"
     ],
@@ -2562,6 +3975,16 @@ export const secondBlockSkillTopUpQuestions = [
         "audio": "/media/vocabulary/audio/cute.mp3",
         "audioPath": "/media/vocabulary/audio/cute.mp3",
         "audioUrl": "/media/vocabulary/audio/cute.mp3"
+      },
+      {
+        "id": "second_adjective_huge_text",
+        "word": "huge",
+        "label": "huge",
+        "value": "huge",
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/huge.mp3",
+        "audioPath": "/audio/vocabulary/huge.mp3",
+        "audioUrl": "/audio/vocabulary/huge.mp3"
       },
       {
         "id": "second_adjective_loud_text",
@@ -2592,7 +4015,87 @@ export const secondBlockSkillTopUpQuestions = [
     "explanation": "cute fits the sentence as a adjective."
   },
   {
-    "id": "second_adjectives_l2_03_loud",
+    "id": "second_adjectives_l2_03_huge",
+    "grade": "K-3",
+    "skillId": "adjectives",
+    "skillName": "Adjectives",
+    "skill": "Adjectives",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "huge",
+    "imagePath": "/media/vocabulary/images/adjective-huge.webp",
+    "imageUrl": "/media/vocabulary/images/adjective-huge.webp",
+    "targetImage": "/media/vocabulary/images/adjective-huge.webp",
+    "targetImagePath": "/media/vocabulary/images/adjective-huge.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the adjective that best fits the sentence.",
+    "question": "Choose the adjective that best fits the sentence.",
+    "sentence": "The pictured object looks ___.",
+    "choices": [
+      "brave",
+      "huge",
+      "loud",
+      "silent"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_adjective_brave_text",
+        "word": "brave",
+        "label": "brave",
+        "value": "brave",
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brave.mp3",
+        "audioPath": "/audio/vocabulary/brave.mp3",
+        "audioUrl": "/audio/vocabulary/brave.mp3"
+      },
+      {
+        "id": "second_adjective_huge_text",
+        "word": "huge",
+        "label": "huge",
+        "value": "huge",
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/huge.mp3",
+        "audioPath": "/audio/vocabulary/huge.mp3",
+        "audioUrl": "/audio/vocabulary/huge.mp3"
+      },
+      {
+        "id": "second_adjective_loud_text",
+        "word": "loud",
+        "label": "loud",
+        "value": "loud",
+        "partOfSpeech": "adjective",
+        "audio": "/media/vocabulary/audio/loud.mp3",
+        "audioPath": "/media/vocabulary/audio/loud.mp3",
+        "audioUrl": "/media/vocabulary/audio/loud.mp3"
+      },
+      {
+        "id": "second_adjective_silent_text",
+        "word": "silent",
+        "label": "silent",
+        "value": "silent",
+        "partOfSpeech": "adjective",
+        "audio": "/media/vocabulary/audio/silent.mp3",
+        "audioPath": "/media/vocabulary/audio/silent.mp3",
+        "audioUrl": "/media/vocabulary/audio/silent.mp3"
+      }
+    ],
+    "correctAnswer": "huge",
+    "answer": "huge",
+    "itemType": "grammar_adjective",
+    "itemKey": "huge",
+    "partOfSpeech": "adjective",
+    "explanation": "huge fits the sentence as a adjective."
+  },
+  {
+    "id": "second_adjectives_l2_05_loud",
     "grade": "K-3",
     "skillId": "adjectives",
     "skillName": "Adjectives",
@@ -2617,11 +4120,22 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the adjective that best fits the sentence.",
     "sentence": "The drum is ___ when it is hit.",
     "choices": [
+      "brave",
       "cute",
-      "loud",
-      "silent"
+      "huge",
+      "loud"
     ],
     "answerOptions": [
+      {
+        "id": "second_adjective_brave_text",
+        "word": "brave",
+        "label": "brave",
+        "value": "brave",
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brave.mp3",
+        "audioPath": "/audio/vocabulary/brave.mp3",
+        "audioUrl": "/audio/vocabulary/brave.mp3"
+      },
       {
         "id": "second_adjective_cute_text",
         "word": "cute",
@@ -2633,6 +4147,16 @@ export const secondBlockSkillTopUpQuestions = [
         "audioUrl": "/media/vocabulary/audio/cute.mp3"
       },
       {
+        "id": "second_adjective_huge_text",
+        "word": "huge",
+        "label": "huge",
+        "value": "huge",
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/huge.mp3",
+        "audioPath": "/audio/vocabulary/huge.mp3",
+        "audioUrl": "/audio/vocabulary/huge.mp3"
+      },
+      {
         "id": "second_adjective_loud_text",
         "word": "loud",
         "label": "loud",
@@ -2641,16 +4165,6 @@ export const secondBlockSkillTopUpQuestions = [
         "audio": "/media/vocabulary/audio/loud.mp3",
         "audioPath": "/media/vocabulary/audio/loud.mp3",
         "audioUrl": "/media/vocabulary/audio/loud.mp3"
-      },
-      {
-        "id": "second_adjective_silent_text",
-        "word": "silent",
-        "label": "silent",
-        "value": "silent",
-        "partOfSpeech": "adjective",
-        "audio": "/media/vocabulary/audio/silent.mp3",
-        "audioPath": "/media/vocabulary/audio/silent.mp3",
-        "audioUrl": "/media/vocabulary/audio/silent.mp3"
       }
     ],
     "correctAnswer": "loud",
@@ -2661,7 +4175,7 @@ export const secondBlockSkillTopUpQuestions = [
     "explanation": "loud fits the sentence as a adjective."
   },
   {
-    "id": "second_adjectives_l2_02_silent",
+    "id": "second_adjectives_l2_04_silent",
     "grade": "K-3",
     "skillId": "adjectives",
     "skillName": "Adjectives",
@@ -2686,11 +4200,22 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the adjective that best fits the sentence.",
     "sentence": "The pictured object looks ___.",
     "choices": [
+      "brave",
       "cute",
       "loud",
       "silent"
     ],
     "answerOptions": [
+      {
+        "id": "second_adjective_brave_text",
+        "word": "brave",
+        "label": "brave",
+        "value": "brave",
+        "partOfSpeech": "adjective",
+        "audio": "/audio/vocabulary/brave.mp3",
+        "audioPath": "/audio/vocabulary/brave.mp3",
+        "audioUrl": "/audio/vocabulary/brave.mp3"
+      },
       {
         "id": "second_adjective_cute_text",
         "word": "cute",
@@ -5050,6 +6575,10 @@ export const secondBlockSkillTopUpQuestions = [
     "imageUrl": "/media/vocabulary/images/brave.webp",
     "targetImage": "/media/vocabulary/images/brave.webp",
     "targetImagePath": "/media/vocabulary/images/brave.webp",
+    "audioPath": "/audio/vocabulary/brave.mp3",
+    "audioUrl": "/audio/vocabulary/brave.mp3",
+    "audioText": "brave",
+    "audioKey": "brave",
     "active": true,
     "qaStatus": "approved",
     "source": "long_vowels_replacement_2026_06",
@@ -5574,6 +7103,10 @@ export const secondBlockSkillTopUpQuestions = [
     "imageUrl": "/media/vocabulary/images/drive.webp",
     "targetImage": "/media/vocabulary/images/drive.webp",
     "targetImagePath": "/media/vocabulary/images/drive.webp",
+    "audioPath": "/audio/vocabulary/drive.mp3",
+    "audioUrl": "/audio/vocabulary/drive.mp3",
+    "audioText": "drive",
+    "audioKey": "drive",
     "active": true,
     "qaStatus": "approved",
     "source": "long_vowels_replacement_2026_06",
@@ -5690,6 +7223,10 @@ export const secondBlockSkillTopUpQuestions = [
     "imageUrl": "/media/vocabulary/images/hide.webp",
     "targetImage": "/media/vocabulary/images/hide.webp",
     "targetImagePath": "/media/vocabulary/images/hide.webp",
+    "audioPath": "/audio/vocabulary/hide.mp3",
+    "audioUrl": "/audio/vocabulary/hide.mp3",
+    "audioText": "hide",
+    "audioKey": "hide",
     "active": true,
     "qaStatus": "approved",
     "source": "long_vowels_replacement_2026_06",
@@ -5974,6 +7511,10 @@ export const secondBlockSkillTopUpQuestions = [
     "imageUrl": "/media/vocabulary/images/close.webp",
     "targetImage": "/media/vocabulary/images/close.webp",
     "targetImagePath": "/media/vocabulary/images/close.webp",
+    "audioPath": "/audio/vocabulary/close.mp3",
+    "audioUrl": "/audio/vocabulary/close.mp3",
+    "audioText": "close",
+    "audioKey": "close",
     "active": true,
     "qaStatus": "approved",
     "source": "long_vowels_replacement_2026_06",
@@ -7600,6 +9141,10 @@ export const secondBlockSkillTopUpQuestions = [
     "imageUrl": "/media/vocabulary/images/build.webp",
     "targetImage": "/media/vocabulary/images/build.webp",
     "targetImagePath": "/media/vocabulary/images/build.webp",
+    "audioPath": "/audio/vocabulary/build.mp3",
+    "audioUrl": "/audio/vocabulary/build.mp3",
+    "audioText": "build",
+    "audioKey": "build",
     "active": true,
     "qaStatus": "approved",
     "source": "long_vowels_replacement_2026_06",
@@ -7696,6 +9241,113 @@ export const secondBlockSkillTopUpQuestions = [
     "explanation": "y completes cry."
   },
   {
+    "id": "second_nouns_l1_70_air",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "air",
+    "imagePath": "/media/vocabulary/images/air.webp",
+    "imageUrl": "/media/vocabulary/images/air.webp",
+    "targetImage": "/media/vocabulary/images/air.webp",
+    "targetImagePath": "/media/vocabulary/images/air.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "blow",
+      "builds",
+      "old",
+      "air"
+    ],
+    "answerOptions": [
+      {
+        "value": "blow",
+        "label": "blow",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "builds",
+        "label": "builds",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "old",
+        "label": "old",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "air",
+        "label": "air",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_blow",
+        "word": "blow",
+        "label": "blow",
+        "value": "blow",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-blow.webp",
+        "imagePath": "/media/vocabulary/images/verb-blow.webp",
+        "imageUrl": "/media/vocabulary/images/verb-blow.webp",
+        "alt": "blow verb card"
+      },
+      {
+        "id": "second_verb_builds",
+        "word": "builds",
+        "label": "builds",
+        "value": "builds",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-builds.webp",
+        "imagePath": "/media/vocabulary/images/verb-builds.webp",
+        "imageUrl": "/media/vocabulary/images/verb-builds.webp",
+        "alt": "builds verb card"
+      },
+      {
+        "id": "second_adjective_old",
+        "word": "old",
+        "label": "old",
+        "value": "old",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-old.webp",
+        "imagePath": "/media/vocabulary/images/adjective-old.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-old.webp",
+        "alt": "old adjective card"
+      },
+      {
+        "id": "second_noun_air",
+        "word": "air",
+        "label": "air",
+        "value": "air",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/air.webp",
+        "imagePath": "/media/vocabulary/images/air.webp",
+        "imageUrl": "/media/vocabulary/images/air.webp",
+        "alt": "air noun card"
+      }
+    ],
+    "correctAnswer": "air",
+    "answer": "air",
+    "itemType": "grammar_noun",
+    "itemKey": "air",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "air is a noun."
+  },
+  {
     "id": "second_nouns_l1_10_ape",
     "grade": "K-3",
     "skillId": "nouns",
@@ -7706,9 +9358,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "ape",
     "imagePath": "/media/vocabulary/images/ape.webp",
     "imageUrl": "/media/vocabulary/images/ape.webp",
@@ -7717,9 +9369,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The child points to the ___ in the picture.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "sat",
       "shake",
@@ -7728,32 +9379,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_sat_text",
-        "word": "sat",
-        "label": "sat",
         "value": "sat",
+        "label": "sat",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_verb_shake_text",
-        "word": "shake",
-        "label": "shake",
         "value": "shake",
+        "label": "shake",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_adjective_old_text",
-        "word": "old",
-        "label": "old",
         "value": "old",
+        "label": "old",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_noun_ape_text",
+        "value": "ape",
+        "label": "ape",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_sat",
+        "word": "sat",
+        "label": "sat",
+        "value": "sat",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-sat.webp",
+        "imagePath": "/media/vocabulary/images/verb-sat.webp",
+        "imageUrl": "/media/vocabulary/images/verb-sat.webp",
+        "alt": "sat verb card"
+      },
+      {
+        "id": "second_verb_shake",
+        "word": "shake",
+        "label": "shake",
+        "value": "shake",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-shake.webp",
+        "imagePath": "/media/vocabulary/images/verb-shake.webp",
+        "imageUrl": "/media/vocabulary/images/verb-shake.webp",
+        "alt": "shake verb card"
+      },
+      {
+        "id": "second_adjective_old",
+        "word": "old",
+        "label": "old",
+        "value": "old",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-old.webp",
+        "imagePath": "/media/vocabulary/images/adjective-old.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-old.webp",
+        "alt": "old adjective card"
+      },
+      {
+        "id": "second_noun_ape",
         "word": "ape",
         "label": "ape",
         "value": "ape",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/ape.webp",
+        "imagePath": "/media/vocabulary/images/ape.webp",
+        "imageUrl": "/media/vocabulary/images/ape.webp",
+        "alt": "ape noun card"
       }
     ],
     "correctAnswer": "ape",
@@ -7763,7 +9452,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "ape makes the sentence make sense."
+    "explanation": "ape is a noun."
   },
   {
     "id": "second_nouns_l1_01_artist",
@@ -7776,9 +9465,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "artist",
     "imagePath": "/media/vocabulary/images/noun-artist.webp",
     "imageUrl": "/media/vocabulary/images/noun-artist.webp",
@@ -7787,9 +9476,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The child points to the ___ in the picture.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "artist",
       "ate",
@@ -7798,32 +9486,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_artist_text",
-        "word": "artist",
-        "label": "artist",
         "value": "artist",
+        "label": "artist",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_verb_ate_text",
+        "value": "ate",
+        "label": "ate",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "baked",
+        "label": "baked",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "bumpy",
+        "label": "bumpy",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_artist",
+        "word": "artist",
+        "label": "artist",
+        "value": "artist",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-artist.webp",
+        "imagePath": "/media/vocabulary/images/noun-artist.webp",
+        "imageUrl": "/media/vocabulary/images/noun-artist.webp",
+        "alt": "artist noun card"
+      },
+      {
+        "id": "second_verb_ate",
         "word": "ate",
         "label": "ate",
         "value": "ate",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-ate.webp",
+        "imagePath": "/media/vocabulary/images/verb-ate.webp",
+        "imageUrl": "/media/vocabulary/images/verb-ate.webp",
+        "alt": "ate verb card"
       },
       {
-        "id": "second_verb_baked_text",
+        "id": "second_verb_baked",
         "word": "baked",
         "label": "baked",
         "value": "baked",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-baked.webp",
+        "imagePath": "/media/vocabulary/images/verb-baked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-baked.webp",
+        "alt": "baked verb card"
       },
       {
-        "id": "second_adjective_bumpy_text",
+        "id": "second_adjective_bumpy",
         "word": "bumpy",
         "label": "bumpy",
         "value": "bumpy",
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imagePath": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-bumpy.webp",
+        "alt": "bumpy adjective card"
       }
     ],
     "correctAnswer": "artist",
@@ -7833,7 +9559,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "artist makes the sentence make sense."
+    "explanation": "artist is a noun."
   },
   {
     "id": "second_nouns_l1_11_back",
@@ -7846,9 +9572,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "back",
     "imagePath": "/media/vocabulary/images/back.webp",
     "imageUrl": "/media/vocabulary/images/back.webp",
@@ -7857,9 +9583,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The child carried a backpack on his ___.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "swayed",
       "brown",
@@ -7868,32 +9593,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_swayed_text",
-        "word": "swayed",
-        "label": "swayed",
         "value": "swayed",
+        "label": "swayed",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_adjective_brown_text",
-        "word": "brown",
-        "label": "brown",
         "value": "brown",
+        "label": "brown",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_noun_back_text",
-        "word": "back",
-        "label": "back",
         "value": "back",
+        "label": "back",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_verb_swam_text",
+        "value": "swam",
+        "label": "swam",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_swayed",
+        "word": "swayed",
+        "label": "swayed",
+        "value": "swayed",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-swayed.webp",
+        "imagePath": "/media/vocabulary/images/verb-swayed.webp",
+        "imageUrl": "/media/vocabulary/images/verb-swayed.webp",
+        "alt": "swayed verb card"
+      },
+      {
+        "id": "second_adjective_brown",
+        "word": "brown",
+        "label": "brown",
+        "value": "brown",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-brown.webp",
+        "imagePath": "/media/vocabulary/images/adjective-brown.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-brown.webp",
+        "alt": "brown adjective card"
+      },
+      {
+        "id": "second_noun_back",
+        "word": "back",
+        "label": "back",
+        "value": "back",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/back.webp",
+        "imagePath": "/media/vocabulary/images/back.webp",
+        "imageUrl": "/media/vocabulary/images/back.webp",
+        "alt": "back noun card"
+      },
+      {
+        "id": "second_verb_swam",
         "word": "swam",
         "label": "swam",
         "value": "swam",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-swam.webp",
+        "imagePath": "/media/vocabulary/images/verb-swam.webp",
+        "imageUrl": "/media/vocabulary/images/verb-swam.webp",
+        "alt": "swam verb card"
       }
     ],
     "correctAnswer": "back",
@@ -7903,7 +9666,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "back makes the sentence make sense."
+    "explanation": "back is a noun."
   },
   {
     "id": "second_nouns_l1_12_bag",
@@ -7916,9 +9679,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "bag",
     "imagePath": "/images/child-mode/cvc/bag.png",
     "imageUrl": "/images/child-mode/cvc/bag.png",
@@ -7927,9 +9690,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The ___ holds the school books.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "purple",
       "bag",
@@ -7938,32 +9700,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_adjective_purple_text",
-        "word": "purple",
-        "label": "purple",
         "value": "purple",
+        "label": "purple",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_noun_bag_text",
-        "word": "bag",
-        "label": "bag",
         "value": "bag",
+        "label": "bag",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_verb_galloped_text",
-        "word": "galloped",
-        "label": "galloped",
         "value": "galloped",
+        "label": "galloped",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_verb_cook_text",
+        "value": "cook",
+        "label": "cook",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_purple",
+        "word": "purple",
+        "label": "purple",
+        "value": "purple",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-purple.webp",
+        "imagePath": "/media/vocabulary/images/adjective-purple.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-purple.webp",
+        "alt": "purple adjective card"
+      },
+      {
+        "id": "second_noun_bag",
+        "word": "bag",
+        "label": "bag",
+        "value": "bag",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/bag.png",
+        "imagePath": "/images/child-mode/cvc/bag.png",
+        "imageUrl": "/images/child-mode/cvc/bag.png",
+        "alt": "bag noun card"
+      },
+      {
+        "id": "second_verb_galloped",
+        "word": "galloped",
+        "label": "galloped",
+        "value": "galloped",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-galloped.webp",
+        "imagePath": "/media/vocabulary/images/verb-galloped.webp",
+        "imageUrl": "/media/vocabulary/images/verb-galloped.webp",
+        "alt": "galloped verb card"
+      },
+      {
+        "id": "second_verb_cook",
         "word": "cook",
         "label": "cook",
         "value": "cook",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-cook.webp",
+        "imagePath": "/media/vocabulary/images/verb-cook.webp",
+        "imageUrl": "/media/vocabulary/images/verb-cook.webp",
+        "alt": "cook verb card"
       }
     ],
     "correctAnswer": "bag",
@@ -7973,7 +9773,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "bag makes the sentence make sense."
+    "explanation": "bag is a noun."
   },
   {
     "id": "second_nouns_l1_13_bat",
@@ -7986,9 +9786,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "bat",
     "imagePath": "/images/child-mode/cvc/bat.png",
     "imageUrl": "/images/child-mode/cvc/bat.png",
@@ -7997,9 +9797,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The player swings the ___.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "bat",
       "bake",
@@ -8008,32 +9807,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_bat_text",
-        "word": "bat",
-        "label": "bat",
         "value": "bat",
+        "label": "bat",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_verb_bake_text",
+        "value": "bake",
+        "label": "bake",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "build",
+        "label": "build",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "bumpy",
+        "label": "bumpy",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_bat",
+        "word": "bat",
+        "label": "bat",
+        "value": "bat",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/bat.png",
+        "imagePath": "/images/child-mode/cvc/bat.png",
+        "imageUrl": "/images/child-mode/cvc/bat.png",
+        "alt": "bat noun card"
+      },
+      {
+        "id": "second_verb_bake",
         "word": "bake",
         "label": "bake",
         "value": "bake",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-bake.webp",
+        "imagePath": "/media/vocabulary/images/verb-bake.webp",
+        "imageUrl": "/media/vocabulary/images/verb-bake.webp",
+        "alt": "bake verb card"
       },
       {
-        "id": "second_verb_build_text",
+        "id": "second_verb_build",
         "word": "build",
         "label": "build",
         "value": "build",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-build.webp",
+        "imagePath": "/media/vocabulary/images/verb-build.webp",
+        "imageUrl": "/media/vocabulary/images/verb-build.webp",
+        "alt": "build verb card"
       },
       {
-        "id": "second_adjective_bumpy_text",
+        "id": "second_adjective_bumpy",
         "word": "bumpy",
         "label": "bumpy",
         "value": "bumpy",
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imagePath": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-bumpy.webp",
+        "alt": "bumpy adjective card"
       }
     ],
     "correctAnswer": "bat",
@@ -8043,7 +9880,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "bat makes the sentence make sense."
+    "explanation": "bat is a noun."
   },
   {
     "id": "second_nouns_l1_14_bear",
@@ -8056,9 +9893,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "bear",
     "imagePath": "/images/child-mode/initial-sounds/bear.png",
     "imageUrl": "/images/child-mode/initial-sounds/bear.png",
@@ -8067,9 +9904,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The ___ stands near the tree.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "count",
       "drive",
@@ -8078,32 +9914,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_count_text",
-        "word": "count",
-        "label": "count",
         "value": "count",
+        "label": "count",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_verb_drive_text",
-        "word": "drive",
-        "label": "drive",
         "value": "drive",
+        "label": "drive",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_adjective_cute_text",
-        "word": "cute",
-        "label": "cute",
         "value": "cute",
+        "label": "cute",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_noun_bear_text",
+        "value": "bear",
+        "label": "bear",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_count",
+        "word": "count",
+        "label": "count",
+        "value": "count",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-count.webp",
+        "imagePath": "/media/vocabulary/images/verb-count.webp",
+        "imageUrl": "/media/vocabulary/images/verb-count.webp",
+        "alt": "count verb card"
+      },
+      {
+        "id": "second_verb_drive",
+        "word": "drive",
+        "label": "drive",
+        "value": "drive",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-drive.webp",
+        "imagePath": "/media/vocabulary/images/verb-drive.webp",
+        "imageUrl": "/media/vocabulary/images/verb-drive.webp",
+        "alt": "drive verb card"
+      },
+      {
+        "id": "second_adjective_cute",
+        "word": "cute",
+        "label": "cute",
+        "value": "cute",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-cute.webp",
+        "imagePath": "/media/vocabulary/images/adjective-cute.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-cute.webp",
+        "alt": "cute adjective card"
+      },
+      {
+        "id": "second_noun_bear",
         "word": "bear",
         "label": "bear",
         "value": "bear",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/bear.png",
+        "imagePath": "/images/child-mode/initial-sounds/bear.png",
+        "imageUrl": "/images/child-mode/initial-sounds/bear.png",
+        "alt": "bear noun card"
       }
     ],
     "correctAnswer": "bear",
@@ -8113,7 +9987,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "bear makes the sentence make sense."
+    "explanation": "bear is a noun."
   },
   {
     "id": "second_nouns_l1_15_bed",
@@ -8126,9 +10000,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "bed",
     "imagePath": "/images/child-mode/cvc/bed.png",
     "imageUrl": "/images/child-mode/cvc/bed.png",
@@ -8137,9 +10011,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The child sleeps in the ___.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "fly",
       "fierce",
@@ -8148,32 +10021,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_fly_text",
-        "word": "fly",
-        "label": "fly",
         "value": "fly",
+        "label": "fly",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_adjective_fierce_text",
-        "word": "fierce",
-        "label": "fierce",
         "value": "fierce",
+        "label": "fierce",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_noun_bed_text",
-        "word": "bed",
-        "label": "bed",
         "value": "bed",
+        "label": "bed",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_verb_fall_text",
+        "value": "fall",
+        "label": "fall",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_fly",
+        "word": "fly",
+        "label": "fly",
+        "value": "fly",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fly.webp",
+        "imagePath": "/media/vocabulary/images/verb-fly.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fly.webp",
+        "alt": "fly verb card"
+      },
+      {
+        "id": "second_adjective_fierce",
+        "word": "fierce",
+        "label": "fierce",
+        "value": "fierce",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-fierce.webp",
+        "imagePath": "/media/vocabulary/images/adjective-fierce.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-fierce.webp",
+        "alt": "fierce adjective card"
+      },
+      {
+        "id": "second_noun_bed",
+        "word": "bed",
+        "label": "bed",
+        "value": "bed",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/bed.png",
+        "imagePath": "/images/child-mode/cvc/bed.png",
+        "imageUrl": "/images/child-mode/cvc/bed.png",
+        "alt": "bed noun card"
+      },
+      {
+        "id": "second_verb_fall",
         "word": "fall",
         "label": "fall",
         "value": "fall",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fall.webp",
+        "imagePath": "/media/vocabulary/images/verb-fall.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fall.webp",
+        "alt": "fall verb card"
       }
     ],
     "correctAnswer": "bed",
@@ -8183,7 +10094,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "bed makes the sentence make sense."
+    "explanation": "bed is a noun."
   },
   {
     "id": "second_nouns_l1_16_bell",
@@ -8196,9 +10107,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "bell",
     "imagePath": "/images/child-mode/initial-sounds/bell.png",
     "imageUrl": "/images/child-mode/initial-sounds/bell.png",
@@ -8207,9 +10118,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The ___ rings at the end of class.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "huge",
       "bell",
@@ -8218,32 +10128,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_adjective_huge_text",
-        "word": "huge",
-        "label": "huge",
         "value": "huge",
+        "label": "huge",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_noun_bell_text",
-        "word": "bell",
-        "label": "bell",
         "value": "bell",
+        "label": "bell",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_verb_hide_text",
-        "word": "hide",
-        "label": "hide",
         "value": "hide",
+        "label": "hide",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_verb_share_text",
+        "value": "share",
+        "label": "share",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_huge",
+        "word": "huge",
+        "label": "huge",
+        "value": "huge",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-huge.webp",
+        "imagePath": "/media/vocabulary/images/adjective-huge.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-huge.webp",
+        "alt": "huge adjective card"
+      },
+      {
+        "id": "second_noun_bell",
+        "word": "bell",
+        "label": "bell",
+        "value": "bell",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/bell.png",
+        "imagePath": "/images/child-mode/initial-sounds/bell.png",
+        "imageUrl": "/images/child-mode/initial-sounds/bell.png",
+        "alt": "bell noun card"
+      },
+      {
+        "id": "second_verb_hide",
+        "word": "hide",
+        "label": "hide",
+        "value": "hide",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-hide.webp",
+        "imagePath": "/media/vocabulary/images/verb-hide.webp",
+        "imageUrl": "/media/vocabulary/images/verb-hide.webp",
+        "alt": "hide verb card"
+      },
+      {
+        "id": "second_verb_share",
         "word": "share",
         "label": "share",
         "value": "share",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-share.webp",
+        "imagePath": "/media/vocabulary/images/verb-share.webp",
+        "imageUrl": "/media/vocabulary/images/verb-share.webp",
+        "alt": "share verb card"
       }
     ],
     "correctAnswer": "bell",
@@ -8253,7 +10201,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "bell makes the sentence make sense."
+    "explanation": "bell is a noun."
   },
   {
     "id": "second_nouns_l1_17_book",
@@ -8266,9 +10214,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "book",
     "imagePath": "/images/child-mode/cvc/book.png",
     "imageUrl": "/images/child-mode/cvc/book.png",
@@ -8277,9 +10225,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The student reads the ___.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "book",
       "write",
@@ -8288,32 +10235,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_book_text",
-        "word": "book",
-        "label": "book",
         "value": "book",
+        "label": "book",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_verb_write_text",
+        "value": "write",
+        "label": "write",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "carry",
+        "label": "carry",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "prickly",
+        "label": "prickly",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_book",
+        "word": "book",
+        "label": "book",
+        "value": "book",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/book.png",
+        "imagePath": "/images/child-mode/cvc/book.png",
+        "imageUrl": "/images/child-mode/cvc/book.png",
+        "alt": "book noun card"
+      },
+      {
+        "id": "second_verb_write",
         "word": "write",
         "label": "write",
         "value": "write",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-write.webp",
+        "imagePath": "/media/vocabulary/images/verb-write.webp",
+        "imageUrl": "/media/vocabulary/images/verb-write.webp",
+        "alt": "write verb card"
       },
       {
-        "id": "second_verb_carry_text",
+        "id": "second_verb_carry",
         "word": "carry",
         "label": "carry",
         "value": "carry",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-carry.webp",
+        "imagePath": "/media/vocabulary/images/verb-carry.webp",
+        "imageUrl": "/media/vocabulary/images/verb-carry.webp",
+        "alt": "carry verb card"
       },
       {
-        "id": "second_adjective_prickly_text",
+        "id": "second_adjective_prickly",
         "word": "prickly",
         "label": "prickly",
         "value": "prickly",
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-prickly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-prickly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-prickly.webp",
+        "alt": "prickly adjective card"
       }
     ],
     "correctAnswer": "book",
@@ -8323,7 +10308,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "book makes the sentence make sense."
+    "explanation": "book is a noun."
   },
   {
     "id": "second_nouns_l1_18_boot",
@@ -8336,9 +10321,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "boot",
     "imagePath": "/media/vocabulary/images/boot.webp",
     "imageUrl": "/media/vocabulary/images/boot.webp",
@@ -8347,9 +10332,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The muddy ___ sits by the door.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "ate",
       "baked",
@@ -8358,32 +10342,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_ate_text",
-        "word": "ate",
-        "label": "ate",
         "value": "ate",
+        "label": "ate",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_verb_baked_text",
-        "word": "baked",
-        "label": "baked",
         "value": "baked",
+        "label": "baked",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_adjective_sharp_text",
-        "word": "sharp",
-        "label": "sharp",
         "value": "sharp",
+        "label": "sharp",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_noun_boot_text",
+        "value": "boot",
+        "label": "boot",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_ate",
+        "word": "ate",
+        "label": "ate",
+        "value": "ate",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-ate.webp",
+        "imagePath": "/media/vocabulary/images/verb-ate.webp",
+        "imageUrl": "/media/vocabulary/images/verb-ate.webp",
+        "alt": "ate verb card"
+      },
+      {
+        "id": "second_verb_baked",
+        "word": "baked",
+        "label": "baked",
+        "value": "baked",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-baked.webp",
+        "imagePath": "/media/vocabulary/images/verb-baked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-baked.webp",
+        "alt": "baked verb card"
+      },
+      {
+        "id": "second_adjective_sharp",
+        "word": "sharp",
+        "label": "sharp",
+        "value": "sharp",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-sharp.webp",
+        "imagePath": "/media/vocabulary/images/adjective-sharp.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-sharp.webp",
+        "alt": "sharp adjective card"
+      },
+      {
+        "id": "second_noun_boot",
         "word": "boot",
         "label": "boot",
         "value": "boot",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/boot.webp",
+        "imagePath": "/media/vocabulary/images/boot.webp",
+        "imageUrl": "/media/vocabulary/images/boot.webp",
+        "alt": "boot noun card"
       }
     ],
     "correctAnswer": "boot",
@@ -8393,7 +10415,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "boot makes the sentence make sense."
+    "explanation": "boot is a noun."
   },
   {
     "id": "second_nouns_l1_19_box",
@@ -8406,9 +10428,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "box",
     "imagePath": "/images/child-mode/initial-sounds/box.png",
     "imageUrl": "/images/child-mode/initial-sounds/box.png",
@@ -8417,9 +10439,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The toys are inside the ___.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "builds",
       "smelly",
@@ -8428,32 +10449,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_builds_text",
-        "word": "builds",
-        "label": "builds",
         "value": "builds",
+        "label": "builds",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_adjective_smelly_text",
-        "word": "smelly",
-        "label": "smelly",
         "value": "smelly",
+        "label": "smelly",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_noun_box_text",
-        "word": "box",
-        "label": "box",
         "value": "box",
+        "label": "box",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_verb_blow_text",
+        "value": "blow",
+        "label": "blow",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_builds",
+        "word": "builds",
+        "label": "builds",
+        "value": "builds",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-builds.webp",
+        "imagePath": "/media/vocabulary/images/verb-builds.webp",
+        "imageUrl": "/media/vocabulary/images/verb-builds.webp",
+        "alt": "builds verb card"
+      },
+      {
+        "id": "second_adjective_smelly",
+        "word": "smelly",
+        "label": "smelly",
+        "value": "smelly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-smelly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-smelly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-smelly.webp",
+        "alt": "smelly adjective card"
+      },
+      {
+        "id": "second_noun_box",
+        "word": "box",
+        "label": "box",
+        "value": "box",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/box.png",
+        "imagePath": "/images/child-mode/initial-sounds/box.png",
+        "imageUrl": "/images/child-mode/initial-sounds/box.png",
+        "alt": "box noun card"
+      },
+      {
+        "id": "second_verb_blow",
         "word": "blow",
         "label": "blow",
         "value": "blow",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-blow.webp",
+        "imagePath": "/media/vocabulary/images/verb-blow.webp",
+        "imageUrl": "/media/vocabulary/images/verb-blow.webp",
+        "alt": "blow verb card"
       }
     ],
     "correctAnswer": "box",
@@ -8463,7 +10522,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "box makes the sentence make sense."
+    "explanation": "box is a noun."
   },
   {
     "id": "second_nouns_l1_20_bug",
@@ -8476,9 +10535,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "bug",
     "imagePath": "/images/child-mode/cvc/bug.png",
     "imageUrl": "/images/child-mode/cvc/bug.png",
@@ -8487,9 +10546,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The ___ crawls on the leaf.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "square",
       "bug",
@@ -8498,32 +10556,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_adjective_square_text",
-        "word": "square",
-        "label": "square",
         "value": "square",
+        "label": "square",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_noun_bug_text",
-        "word": "bug",
-        "label": "bug",
         "value": "bug",
+        "label": "bug",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_verb_cried_text",
-        "word": "cried",
-        "label": "cried",
         "value": "cried",
+        "label": "cried",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_verb_dance_text",
+        "value": "dance",
+        "label": "dance",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_square",
+        "word": "square",
+        "label": "square",
+        "value": "square",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-square.webp",
+        "imagePath": "/media/vocabulary/images/adjective-square.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-square.webp",
+        "alt": "square adjective card"
+      },
+      {
+        "id": "second_noun_bug",
+        "word": "bug",
+        "label": "bug",
+        "value": "bug",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/bug.png",
+        "imagePath": "/images/child-mode/cvc/bug.png",
+        "imageUrl": "/images/child-mode/cvc/bug.png",
+        "alt": "bug noun card"
+      },
+      {
+        "id": "second_verb_cried",
+        "word": "cried",
+        "label": "cried",
+        "value": "cried",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-cried.webp",
+        "imagePath": "/media/vocabulary/images/verb-cried.webp",
+        "imageUrl": "/media/vocabulary/images/verb-cried.webp",
+        "alt": "cried verb card"
+      },
+      {
+        "id": "second_verb_dance",
         "word": "dance",
         "label": "dance",
         "value": "dance",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-dance.webp",
+        "imagePath": "/media/vocabulary/images/verb-dance.webp",
+        "imageUrl": "/media/vocabulary/images/verb-dance.webp",
+        "alt": "dance verb card"
       }
     ],
     "correctAnswer": "bug",
@@ -8533,7 +10629,435 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "bug makes the sentence make sense."
+    "explanation": "bug is a noun."
+  },
+  {
+    "id": "second_nouns_l1_21_cap",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "cap",
+    "imagePath": "/images/child-mode/cvc/cap.png",
+    "imageUrl": "/images/child-mode/cvc/cap.png",
+    "targetImage": "/images/child-mode/cvc/cap.png",
+    "targetImagePath": "/images/child-mode/cvc/cap.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "cap",
+      "explain",
+      "fell",
+      "tiny"
+    ],
+    "answerOptions": [
+      {
+        "value": "cap",
+        "label": "cap",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "explain",
+        "label": "explain",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "fell",
+        "label": "fell",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "tiny",
+        "label": "tiny",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_cap",
+        "word": "cap",
+        "label": "cap",
+        "value": "cap",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/cap.png",
+        "imagePath": "/images/child-mode/cvc/cap.png",
+        "imageUrl": "/images/child-mode/cvc/cap.png",
+        "alt": "cap noun card"
+      },
+      {
+        "id": "second_verb_explain",
+        "word": "explain",
+        "label": "explain",
+        "value": "explain",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-explain.webp",
+        "imagePath": "/media/vocabulary/images/verb-explain.webp",
+        "imageUrl": "/media/vocabulary/images/verb-explain.webp",
+        "alt": "explain verb card"
+      },
+      {
+        "id": "second_verb_fell",
+        "word": "fell",
+        "label": "fell",
+        "value": "fell",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fell.webp",
+        "imagePath": "/media/vocabulary/images/verb-fell.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fell.webp",
+        "alt": "fell verb card"
+      },
+      {
+        "id": "second_adjective_tiny",
+        "word": "tiny",
+        "label": "tiny",
+        "value": "tiny",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-tiny.webp",
+        "imagePath": "/media/vocabulary/images/adjective-tiny.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-tiny.webp",
+        "alt": "tiny adjective card"
+      }
+    ],
+    "correctAnswer": "cap",
+    "answer": "cap",
+    "itemType": "grammar_noun",
+    "itemKey": "cap",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "cap is a noun."
+  },
+  {
+    "id": "second_nouns_l1_22_cat",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "cat",
+    "imagePath": "/images/child-mode/cvc/cat.png",
+    "imageUrl": "/images/child-mode/cvc/cat.png",
+    "targetImage": "/images/child-mode/cvc/cat.png",
+    "targetImagePath": "/images/child-mode/cvc/cat.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "hung",
+      "jumped",
+      "old",
+      "cat"
+    ],
+    "answerOptions": [
+      {
+        "value": "hung",
+        "label": "hung",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "jumped",
+        "label": "jumped",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "old",
+        "label": "old",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "cat",
+        "label": "cat",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_hung",
+        "word": "hung",
+        "label": "hung",
+        "value": "hung",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-hung.webp",
+        "imagePath": "/media/vocabulary/images/verb-hung.webp",
+        "imageUrl": "/media/vocabulary/images/verb-hung.webp",
+        "alt": "hung verb card"
+      },
+      {
+        "id": "second_verb_jumped",
+        "word": "jumped",
+        "label": "jumped",
+        "value": "jumped",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-jumped.webp",
+        "imagePath": "/media/vocabulary/images/verb-jumped.webp",
+        "imageUrl": "/media/vocabulary/images/verb-jumped.webp",
+        "alt": "jumped verb card"
+      },
+      {
+        "id": "second_adjective_old",
+        "word": "old",
+        "label": "old",
+        "value": "old",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-old.webp",
+        "imagePath": "/media/vocabulary/images/adjective-old.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-old.webp",
+        "alt": "old adjective card"
+      },
+      {
+        "id": "second_noun_cat",
+        "word": "cat",
+        "label": "cat",
+        "value": "cat",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/cat.png",
+        "imagePath": "/images/child-mode/cvc/cat.png",
+        "imageUrl": "/images/child-mode/cvc/cat.png",
+        "alt": "cat noun card"
+      }
+    ],
+    "correctAnswer": "cat",
+    "answer": "cat",
+    "itemType": "grammar_noun",
+    "itemKey": "cat",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "cat is a noun."
+  },
+  {
+    "id": "second_nouns_l1_68_child",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "child",
+    "imagePath": "/media/vocabulary/images/noun-child.webp",
+    "imageUrl": "/media/vocabulary/images/noun-child.webp",
+    "targetImage": "/media/vocabulary/images/noun-child.webp",
+    "targetImagePath": "/media/vocabulary/images/noun-child.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "square",
+      "child",
+      "write",
+      "carry"
+    ],
+    "answerOptions": [
+      {
+        "value": "square",
+        "label": "square",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "child",
+        "label": "child",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "write",
+        "label": "write",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "carry",
+        "label": "carry",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_square",
+        "word": "square",
+        "label": "square",
+        "value": "square",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-square.webp",
+        "imagePath": "/media/vocabulary/images/adjective-square.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-square.webp",
+        "alt": "square adjective card"
+      },
+      {
+        "id": "second_noun_child",
+        "word": "child",
+        "label": "child",
+        "value": "child",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-child.webp",
+        "imagePath": "/media/vocabulary/images/noun-child.webp",
+        "imageUrl": "/media/vocabulary/images/noun-child.webp",
+        "alt": "child noun card"
+      },
+      {
+        "id": "second_verb_write",
+        "word": "write",
+        "label": "write",
+        "value": "write",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-write.webp",
+        "imagePath": "/media/vocabulary/images/verb-write.webp",
+        "imageUrl": "/media/vocabulary/images/verb-write.webp",
+        "alt": "write verb card"
+      },
+      {
+        "id": "second_verb_carry",
+        "word": "carry",
+        "label": "carry",
+        "value": "carry",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-carry.webp",
+        "imagePath": "/media/vocabulary/images/verb-carry.webp",
+        "imageUrl": "/media/vocabulary/images/verb-carry.webp",
+        "alt": "carry verb card"
+      }
+    ],
+    "correctAnswer": "child",
+    "answer": "child",
+    "itemType": "grammar_noun",
+    "itemKey": "child",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "child is a noun."
+  },
+  {
+    "id": "second_nouns_l1_23_class",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "class",
+    "imagePath": "/media/vocabulary/images/class.webp",
+    "imageUrl": "/media/vocabulary/images/class.webp",
+    "targetImage": "/media/vocabulary/images/class.webp",
+    "targetImagePath": "/media/vocabulary/images/class.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "observe",
+      "brown",
+      "class",
+      "melt"
+    ],
+    "answerOptions": [
+      {
+        "value": "observe",
+        "label": "observe",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "brown",
+        "label": "brown",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "class",
+        "label": "class",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "melt",
+        "label": "melt",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_observe",
+        "word": "observe",
+        "label": "observe",
+        "value": "observe",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-observe.webp",
+        "imagePath": "/media/vocabulary/images/verb-observe.webp",
+        "imageUrl": "/media/vocabulary/images/verb-observe.webp",
+        "alt": "observe verb card"
+      },
+      {
+        "id": "second_adjective_brown",
+        "word": "brown",
+        "label": "brown",
+        "value": "brown",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-brown.webp",
+        "imagePath": "/media/vocabulary/images/adjective-brown.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-brown.webp",
+        "alt": "brown adjective card"
+      },
+      {
+        "id": "second_noun_class",
+        "word": "class",
+        "label": "class",
+        "value": "class",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/class.webp",
+        "imagePath": "/media/vocabulary/images/class.webp",
+        "imageUrl": "/media/vocabulary/images/class.webp",
+        "alt": "class noun card"
+      },
+      {
+        "id": "second_verb_melt",
+        "word": "melt",
+        "label": "melt",
+        "value": "melt",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-melt.webp",
+        "imagePath": "/media/vocabulary/images/verb-melt.webp",
+        "imageUrl": "/media/vocabulary/images/verb-melt.webp",
+        "alt": "melt verb card"
+      }
+    ],
+    "correctAnswer": "class",
+    "answer": "class",
+    "itemType": "grammar_noun",
+    "itemKey": "class",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "class is a noun."
   },
   {
     "id": "second_nouns_l1_02_coach",
@@ -8546,9 +11070,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "coach",
     "imagePath": "/media/vocabulary/images/noun-coach.webp",
     "imageUrl": "/media/vocabulary/images/noun-coach.webp",
@@ -8557,9 +11081,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The child points to the ___ in the picture.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "blow",
       "builds",
@@ -8568,32 +11091,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_blow_text",
-        "word": "blow",
-        "label": "blow",
         "value": "blow",
+        "label": "blow",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_verb_builds_text",
-        "word": "builds",
-        "label": "builds",
         "value": "builds",
+        "label": "builds",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_adjective_cute_text",
-        "word": "cute",
-        "label": "cute",
         "value": "cute",
+        "label": "cute",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_noun_coach_text",
+        "value": "coach",
+        "label": "coach",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_blow",
+        "word": "blow",
+        "label": "blow",
+        "value": "blow",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-blow.webp",
+        "imagePath": "/media/vocabulary/images/verb-blow.webp",
+        "imageUrl": "/media/vocabulary/images/verb-blow.webp",
+        "alt": "blow verb card"
+      },
+      {
+        "id": "second_verb_builds",
+        "word": "builds",
+        "label": "builds",
+        "value": "builds",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-builds.webp",
+        "imagePath": "/media/vocabulary/images/verb-builds.webp",
+        "imageUrl": "/media/vocabulary/images/verb-builds.webp",
+        "alt": "builds verb card"
+      },
+      {
+        "id": "second_adjective_cute",
+        "word": "cute",
+        "label": "cute",
+        "value": "cute",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-cute.webp",
+        "imagePath": "/media/vocabulary/images/adjective-cute.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-cute.webp",
+        "alt": "cute adjective card"
+      },
+      {
+        "id": "second_noun_coach",
         "word": "coach",
         "label": "coach",
         "value": "coach",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-coach.webp",
+        "imagePath": "/media/vocabulary/images/noun-coach.webp",
+        "imageUrl": "/media/vocabulary/images/noun-coach.webp",
+        "alt": "coach noun card"
       }
     ],
     "correctAnswer": "coach",
@@ -8603,7 +11164,1077 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "coach makes the sentence make sense."
+    "explanation": "coach is a noun."
+  },
+  {
+    "id": "second_nouns_l1_24_coat",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "coat",
+    "imagePath": "/images/child-mode/initial-sounds/coat.png",
+    "imageUrl": "/images/child-mode/initial-sounds/coat.png",
+    "targetImage": "/images/child-mode/initial-sounds/coat.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/coat.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "purple",
+      "coat",
+      "pour",
+      "predict"
+    ],
+    "answerOptions": [
+      {
+        "value": "purple",
+        "label": "purple",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "coat",
+        "label": "coat",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "pour",
+        "label": "pour",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "predict",
+        "label": "predict",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_purple",
+        "word": "purple",
+        "label": "purple",
+        "value": "purple",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-purple.webp",
+        "imagePath": "/media/vocabulary/images/adjective-purple.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-purple.webp",
+        "alt": "purple adjective card"
+      },
+      {
+        "id": "second_noun_coat",
+        "word": "coat",
+        "label": "coat",
+        "value": "coat",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/coat.png",
+        "imagePath": "/images/child-mode/initial-sounds/coat.png",
+        "imageUrl": "/images/child-mode/initial-sounds/coat.png",
+        "alt": "coat noun card"
+      },
+      {
+        "id": "second_verb_pour",
+        "word": "pour",
+        "label": "pour",
+        "value": "pour",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-pour.webp",
+        "imagePath": "/media/vocabulary/images/verb-pour.webp",
+        "imageUrl": "/media/vocabulary/images/verb-pour.webp",
+        "alt": "pour verb card"
+      },
+      {
+        "id": "second_verb_predict",
+        "word": "predict",
+        "label": "predict",
+        "value": "predict",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-predict.webp",
+        "imagePath": "/media/vocabulary/images/verb-predict.webp",
+        "imageUrl": "/media/vocabulary/images/verb-predict.webp",
+        "alt": "predict verb card"
+      }
+    ],
+    "correctAnswer": "coat",
+    "answer": "coat",
+    "itemType": "grammar_noun",
+    "itemKey": "coat",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "coat is a noun."
+  },
+  {
+    "id": "second_nouns_l1_25_cup",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "cup",
+    "imagePath": "/images/child-mode/initial-sounds/cup.png",
+    "imageUrl": "/images/child-mode/initial-sounds/cup.png",
+    "targetImage": "/images/child-mode/initial-sounds/cup.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/cup.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "cup",
+      "ran",
+      "reads",
+      "bumpy"
+    ],
+    "answerOptions": [
+      {
+        "value": "cup",
+        "label": "cup",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "ran",
+        "label": "ran",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "reads",
+        "label": "reads",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "bumpy",
+        "label": "bumpy",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_cup",
+        "word": "cup",
+        "label": "cup",
+        "value": "cup",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/cup.png",
+        "imagePath": "/images/child-mode/initial-sounds/cup.png",
+        "imageUrl": "/images/child-mode/initial-sounds/cup.png",
+        "alt": "cup noun card"
+      },
+      {
+        "id": "second_verb_ran",
+        "word": "ran",
+        "label": "ran",
+        "value": "ran",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-ran.webp",
+        "imagePath": "/media/vocabulary/images/verb-ran.webp",
+        "imageUrl": "/media/vocabulary/images/verb-ran.webp",
+        "alt": "ran verb card"
+      },
+      {
+        "id": "second_verb_reads",
+        "word": "reads",
+        "label": "reads",
+        "value": "reads",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-reads.webp",
+        "imagePath": "/media/vocabulary/images/verb-reads.webp",
+        "imageUrl": "/media/vocabulary/images/verb-reads.webp",
+        "alt": "reads verb card"
+      },
+      {
+        "id": "second_adjective_bumpy",
+        "word": "bumpy",
+        "label": "bumpy",
+        "value": "bumpy",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imagePath": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-bumpy.webp",
+        "alt": "bumpy adjective card"
+      }
+    ],
+    "correctAnswer": "cup",
+    "answer": "cup",
+    "itemType": "grammar_noun",
+    "itemKey": "cup",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "cup is a noun."
+  },
+  {
+    "id": "second_nouns_l1_26_dad",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "dad",
+    "imagePath": "/media/vocabulary/images/dad.webp",
+    "imageUrl": "/media/vocabulary/images/dad.webp",
+    "targetImage": "/media/vocabulary/images/dad.webp",
+    "targetImagePath": "/media/vocabulary/images/dad.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "rises",
+      "runs",
+      "cute",
+      "dad"
+    ],
+    "answerOptions": [
+      {
+        "value": "rises",
+        "label": "rises",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "runs",
+        "label": "runs",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "cute",
+        "label": "cute",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "dad",
+        "label": "dad",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_rises",
+        "word": "rises",
+        "label": "rises",
+        "value": "rises",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-rises.webp",
+        "imagePath": "/media/vocabulary/images/verb-rises.webp",
+        "imageUrl": "/media/vocabulary/images/verb-rises.webp",
+        "alt": "rises verb card"
+      },
+      {
+        "id": "second_verb_runs",
+        "word": "runs",
+        "label": "runs",
+        "value": "runs",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-runs.webp",
+        "imagePath": "/media/vocabulary/images/verb-runs.webp",
+        "imageUrl": "/media/vocabulary/images/verb-runs.webp",
+        "alt": "runs verb card"
+      },
+      {
+        "id": "second_adjective_cute",
+        "word": "cute",
+        "label": "cute",
+        "value": "cute",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-cute.webp",
+        "imagePath": "/media/vocabulary/images/adjective-cute.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-cute.webp",
+        "alt": "cute adjective card"
+      },
+      {
+        "id": "second_noun_dad",
+        "word": "dad",
+        "label": "dad",
+        "value": "dad",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/dad.webp",
+        "imagePath": "/media/vocabulary/images/dad.webp",
+        "imageUrl": "/media/vocabulary/images/dad.webp",
+        "alt": "dad noun card"
+      }
+    ],
+    "correctAnswer": "dad",
+    "answer": "dad",
+    "itemType": "grammar_noun",
+    "itemKey": "dad",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "dad is a noun."
+  },
+  {
+    "id": "second_nouns_l1_27_dog",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "dog",
+    "imagePath": "/images/child-mode/cvc/dog.png",
+    "imageUrl": "/images/child-mode/cvc/dog.png",
+    "targetImage": "/images/child-mode/cvc/dog.png",
+    "targetImagePath": "/images/child-mode/cvc/dog.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "shake",
+      "fierce",
+      "dog",
+      "sat"
+    ],
+    "answerOptions": [
+      {
+        "value": "shake",
+        "label": "shake",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "fierce",
+        "label": "fierce",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "dog",
+        "label": "dog",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "sat",
+        "label": "sat",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_shake",
+        "word": "shake",
+        "label": "shake",
+        "value": "shake",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-shake.webp",
+        "imagePath": "/media/vocabulary/images/verb-shake.webp",
+        "imageUrl": "/media/vocabulary/images/verb-shake.webp",
+        "alt": "shake verb card"
+      },
+      {
+        "id": "second_adjective_fierce",
+        "word": "fierce",
+        "label": "fierce",
+        "value": "fierce",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-fierce.webp",
+        "imagePath": "/media/vocabulary/images/adjective-fierce.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-fierce.webp",
+        "alt": "fierce adjective card"
+      },
+      {
+        "id": "second_noun_dog",
+        "word": "dog",
+        "label": "dog",
+        "value": "dog",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/dog.png",
+        "imagePath": "/images/child-mode/cvc/dog.png",
+        "imageUrl": "/images/child-mode/cvc/dog.png",
+        "alt": "dog noun card"
+      },
+      {
+        "id": "second_verb_sat",
+        "word": "sat",
+        "label": "sat",
+        "value": "sat",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-sat.webp",
+        "imagePath": "/media/vocabulary/images/verb-sat.webp",
+        "imageUrl": "/media/vocabulary/images/verb-sat.webp",
+        "alt": "sat verb card"
+      }
+    ],
+    "correctAnswer": "dog",
+    "answer": "dog",
+    "itemType": "grammar_noun",
+    "itemKey": "dog",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "dog is a noun."
+  },
+  {
+    "id": "second_nouns_l1_28_duck",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "duck",
+    "imagePath": "/images/child-mode/initial-sounds/duck.png",
+    "imageUrl": "/images/child-mode/initial-sounds/duck.png",
+    "targetImage": "/images/child-mode/initial-sounds/duck.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/duck.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "huge",
+      "duck",
+      "swam",
+      "swayed"
+    ],
+    "answerOptions": [
+      {
+        "value": "huge",
+        "label": "huge",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "duck",
+        "label": "duck",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "swam",
+        "label": "swam",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "swayed",
+        "label": "swayed",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_huge",
+        "word": "huge",
+        "label": "huge",
+        "value": "huge",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-huge.webp",
+        "imagePath": "/media/vocabulary/images/adjective-huge.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-huge.webp",
+        "alt": "huge adjective card"
+      },
+      {
+        "id": "second_noun_duck",
+        "word": "duck",
+        "label": "duck",
+        "value": "duck",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/duck.png",
+        "imagePath": "/images/child-mode/initial-sounds/duck.png",
+        "imageUrl": "/images/child-mode/initial-sounds/duck.png",
+        "alt": "duck noun card"
+      },
+      {
+        "id": "second_verb_swam",
+        "word": "swam",
+        "label": "swam",
+        "value": "swam",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-swam.webp",
+        "imagePath": "/media/vocabulary/images/verb-swam.webp",
+        "imageUrl": "/media/vocabulary/images/verb-swam.webp",
+        "alt": "swam verb card"
+      },
+      {
+        "id": "second_verb_swayed",
+        "word": "swayed",
+        "label": "swayed",
+        "value": "swayed",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-swayed.webp",
+        "imagePath": "/media/vocabulary/images/verb-swayed.webp",
+        "imageUrl": "/media/vocabulary/images/verb-swayed.webp",
+        "alt": "swayed verb card"
+      }
+    ],
+    "correctAnswer": "duck",
+    "answer": "duck",
+    "itemType": "grammar_noun",
+    "itemKey": "duck",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "duck is a noun."
+  },
+  {
+    "id": "second_nouns_l1_29_egg",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "egg",
+    "imagePath": "/images/child-mode/initial-sounds/egg.png",
+    "imageUrl": "/images/child-mode/initial-sounds/egg.png",
+    "targetImage": "/images/child-mode/initial-sounds/egg.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/egg.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "egg",
+      "galloped",
+      "cook",
+      "prickly"
+    ],
+    "answerOptions": [
+      {
+        "value": "egg",
+        "label": "egg",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "galloped",
+        "label": "galloped",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "cook",
+        "label": "cook",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "prickly",
+        "label": "prickly",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_egg",
+        "word": "egg",
+        "label": "egg",
+        "value": "egg",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/egg.png",
+        "imagePath": "/images/child-mode/initial-sounds/egg.png",
+        "imageUrl": "/images/child-mode/initial-sounds/egg.png",
+        "alt": "egg noun card"
+      },
+      {
+        "id": "second_verb_galloped",
+        "word": "galloped",
+        "label": "galloped",
+        "value": "galloped",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-galloped.webp",
+        "imagePath": "/media/vocabulary/images/verb-galloped.webp",
+        "imageUrl": "/media/vocabulary/images/verb-galloped.webp",
+        "alt": "galloped verb card"
+      },
+      {
+        "id": "second_verb_cook",
+        "word": "cook",
+        "label": "cook",
+        "value": "cook",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-cook.webp",
+        "imagePath": "/media/vocabulary/images/verb-cook.webp",
+        "imageUrl": "/media/vocabulary/images/verb-cook.webp",
+        "alt": "cook verb card"
+      },
+      {
+        "id": "second_adjective_prickly",
+        "word": "prickly",
+        "label": "prickly",
+        "value": "prickly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-prickly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-prickly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-prickly.webp",
+        "alt": "prickly adjective card"
+      }
+    ],
+    "correctAnswer": "egg",
+    "answer": "egg",
+    "itemType": "grammar_noun",
+    "itemKey": "egg",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "egg is a noun."
+  },
+  {
+    "id": "second_nouns_l1_30_eye",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "eye",
+    "imagePath": "/media/vocabulary/images/eye.webp",
+    "imageUrl": "/media/vocabulary/images/eye.webp",
+    "targetImage": "/media/vocabulary/images/eye.webp",
+    "targetImagePath": "/media/vocabulary/images/eye.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "bake",
+      "build",
+      "sharp",
+      "eye"
+    ],
+    "answerOptions": [
+      {
+        "value": "bake",
+        "label": "bake",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "build",
+        "label": "build",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "sharp",
+        "label": "sharp",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "eye",
+        "label": "eye",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_bake",
+        "word": "bake",
+        "label": "bake",
+        "value": "bake",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-bake.webp",
+        "imagePath": "/media/vocabulary/images/verb-bake.webp",
+        "imageUrl": "/media/vocabulary/images/verb-bake.webp",
+        "alt": "bake verb card"
+      },
+      {
+        "id": "second_verb_build",
+        "word": "build",
+        "label": "build",
+        "value": "build",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-build.webp",
+        "imagePath": "/media/vocabulary/images/verb-build.webp",
+        "imageUrl": "/media/vocabulary/images/verb-build.webp",
+        "alt": "build verb card"
+      },
+      {
+        "id": "second_adjective_sharp",
+        "word": "sharp",
+        "label": "sharp",
+        "value": "sharp",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-sharp.webp",
+        "imagePath": "/media/vocabulary/images/adjective-sharp.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-sharp.webp",
+        "alt": "sharp adjective card"
+      },
+      {
+        "id": "second_noun_eye",
+        "word": "eye",
+        "label": "eye",
+        "value": "eye",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/eye.webp",
+        "imagePath": "/media/vocabulary/images/eye.webp",
+        "imageUrl": "/media/vocabulary/images/eye.webp",
+        "alt": "eye noun card"
+      }
+    ],
+    "correctAnswer": "eye",
+    "answer": "eye",
+    "itemType": "grammar_noun",
+    "itemKey": "eye",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "eye is a noun."
+  },
+  {
+    "id": "second_nouns_l1_31_face",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "face",
+    "imagePath": "/media/vocabulary/images/face.webp",
+    "imageUrl": "/media/vocabulary/images/face.webp",
+    "targetImage": "/media/vocabulary/images/face.webp",
+    "targetImagePath": "/media/vocabulary/images/face.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "drive",
+      "smelly",
+      "face",
+      "count"
+    ],
+    "answerOptions": [
+      {
+        "value": "drive",
+        "label": "drive",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "smelly",
+        "label": "smelly",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "face",
+        "label": "face",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "count",
+        "label": "count",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_drive",
+        "word": "drive",
+        "label": "drive",
+        "value": "drive",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-drive.webp",
+        "imagePath": "/media/vocabulary/images/verb-drive.webp",
+        "imageUrl": "/media/vocabulary/images/verb-drive.webp",
+        "alt": "drive verb card"
+      },
+      {
+        "id": "second_adjective_smelly",
+        "word": "smelly",
+        "label": "smelly",
+        "value": "smelly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-smelly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-smelly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-smelly.webp",
+        "alt": "smelly adjective card"
+      },
+      {
+        "id": "second_noun_face",
+        "word": "face",
+        "label": "face",
+        "value": "face",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/face.webp",
+        "imagePath": "/media/vocabulary/images/face.webp",
+        "imageUrl": "/media/vocabulary/images/face.webp",
+        "alt": "face noun card"
+      },
+      {
+        "id": "second_verb_count",
+        "word": "count",
+        "label": "count",
+        "value": "count",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-count.webp",
+        "imagePath": "/media/vocabulary/images/verb-count.webp",
+        "imageUrl": "/media/vocabulary/images/verb-count.webp",
+        "alt": "count verb card"
+      }
+    ],
+    "correctAnswer": "face",
+    "answer": "face",
+    "itemType": "grammar_noun",
+    "itemKey": "face",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "face is a noun."
+  },
+  {
+    "id": "second_nouns_l1_32_foot",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "foot",
+    "imagePath": "/media/vocabulary/images/foot.webp",
+    "imageUrl": "/media/vocabulary/images/foot.webp",
+    "targetImage": "/media/vocabulary/images/foot.webp",
+    "targetImagePath": "/media/vocabulary/images/foot.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "square",
+      "foot",
+      "fall",
+      "fly"
+    ],
+    "answerOptions": [
+      {
+        "value": "square",
+        "label": "square",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "foot",
+        "label": "foot",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "fall",
+        "label": "fall",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "fly",
+        "label": "fly",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_square",
+        "word": "square",
+        "label": "square",
+        "value": "square",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-square.webp",
+        "imagePath": "/media/vocabulary/images/adjective-square.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-square.webp",
+        "alt": "square adjective card"
+      },
+      {
+        "id": "second_noun_foot",
+        "word": "foot",
+        "label": "foot",
+        "value": "foot",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/foot.webp",
+        "imagePath": "/media/vocabulary/images/foot.webp",
+        "imageUrl": "/media/vocabulary/images/foot.webp",
+        "alt": "foot noun card"
+      },
+      {
+        "id": "second_verb_fall",
+        "word": "fall",
+        "label": "fall",
+        "value": "fall",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fall.webp",
+        "imagePath": "/media/vocabulary/images/verb-fall.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fall.webp",
+        "alt": "fall verb card"
+      },
+      {
+        "id": "second_verb_fly",
+        "word": "fly",
+        "label": "fly",
+        "value": "fly",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fly.webp",
+        "imagePath": "/media/vocabulary/images/verb-fly.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fly.webp",
+        "alt": "fly verb card"
+      }
+    ],
+    "correctAnswer": "foot",
+    "answer": "foot",
+    "itemType": "grammar_noun",
+    "itemKey": "foot",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "foot is a noun."
+  },
+  {
+    "id": "second_nouns_l1_33_fox",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "fox",
+    "imagePath": "/images/child-mode/initial-sounds/fox.png",
+    "imageUrl": "/images/child-mode/initial-sounds/fox.png",
+    "targetImage": "/images/child-mode/initial-sounds/fox.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/fox.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "fox",
+      "hide",
+      "share",
+      "tiny"
+    ],
+    "answerOptions": [
+      {
+        "value": "fox",
+        "label": "fox",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "hide",
+        "label": "hide",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "share",
+        "label": "share",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "tiny",
+        "label": "tiny",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_fox",
+        "word": "fox",
+        "label": "fox",
+        "value": "fox",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/fox.png",
+        "imagePath": "/images/child-mode/initial-sounds/fox.png",
+        "imageUrl": "/images/child-mode/initial-sounds/fox.png",
+        "alt": "fox noun card"
+      },
+      {
+        "id": "second_verb_hide",
+        "word": "hide",
+        "label": "hide",
+        "value": "hide",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-hide.webp",
+        "imagePath": "/media/vocabulary/images/verb-hide.webp",
+        "imageUrl": "/media/vocabulary/images/verb-hide.webp",
+        "alt": "hide verb card"
+      },
+      {
+        "id": "second_verb_share",
+        "word": "share",
+        "label": "share",
+        "value": "share",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-share.webp",
+        "imagePath": "/media/vocabulary/images/verb-share.webp",
+        "imageUrl": "/media/vocabulary/images/verb-share.webp",
+        "alt": "share verb card"
+      },
+      {
+        "id": "second_adjective_tiny",
+        "word": "tiny",
+        "label": "tiny",
+        "value": "tiny",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-tiny.webp",
+        "imagePath": "/media/vocabulary/images/adjective-tiny.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-tiny.webp",
+        "alt": "tiny adjective card"
+      }
+    ],
+    "correctAnswer": "fox",
+    "answer": "fox",
+    "itemType": "grammar_noun",
+    "itemKey": "fox",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "fox is a noun."
   },
   {
     "id": "second_nouns_l1_03_friend",
@@ -8616,9 +12247,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "friend",
     "imagePath": "/media/vocabulary/images/noun-friend.webp",
     "imageUrl": "/media/vocabulary/images/noun-friend.webp",
@@ -8627,9 +12258,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The child points to the ___ in the picture.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "dance",
       "fierce",
@@ -8638,32 +12268,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_dance_text",
-        "word": "dance",
-        "label": "dance",
         "value": "dance",
+        "label": "dance",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_adjective_fierce_text",
-        "word": "fierce",
-        "label": "fierce",
         "value": "fierce",
+        "label": "fierce",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_noun_friend_text",
-        "word": "friend",
-        "label": "friend",
         "value": "friend",
+        "label": "friend",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_verb_cried_text",
+        "value": "cried",
+        "label": "cried",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_dance",
+        "word": "dance",
+        "label": "dance",
+        "value": "dance",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-dance.webp",
+        "imagePath": "/media/vocabulary/images/verb-dance.webp",
+        "imageUrl": "/media/vocabulary/images/verb-dance.webp",
+        "alt": "dance verb card"
+      },
+      {
+        "id": "second_adjective_fierce",
+        "word": "fierce",
+        "label": "fierce",
+        "value": "fierce",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-fierce.webp",
+        "imagePath": "/media/vocabulary/images/adjective-fierce.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-fierce.webp",
+        "alt": "fierce adjective card"
+      },
+      {
+        "id": "second_noun_friend",
+        "word": "friend",
+        "label": "friend",
+        "value": "friend",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-friend.webp",
+        "imagePath": "/media/vocabulary/images/noun-friend.webp",
+        "imageUrl": "/media/vocabulary/images/noun-friend.webp",
+        "alt": "friend noun card"
+      },
+      {
+        "id": "second_verb_cried",
         "word": "cried",
         "label": "cried",
         "value": "cried",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-cried.webp",
+        "imagePath": "/media/vocabulary/images/verb-cried.webp",
+        "imageUrl": "/media/vocabulary/images/verb-cried.webp",
+        "alt": "cried verb card"
       }
     ],
     "correctAnswer": "friend",
@@ -8673,7 +12341,1505 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "friend makes the sentence make sense."
+    "explanation": "friend is a noun."
+  },
+  {
+    "id": "second_nouns_l1_34_glove",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "glove",
+    "imagePath": "/media/vocabulary/images/glove.webp",
+    "imageUrl": "/media/vocabulary/images/glove.webp",
+    "targetImage": "/media/vocabulary/images/glove.webp",
+    "targetImagePath": "/media/vocabulary/images/glove.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "write",
+      "carry",
+      "old",
+      "glove"
+    ],
+    "answerOptions": [
+      {
+        "value": "write",
+        "label": "write",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "carry",
+        "label": "carry",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "old",
+        "label": "old",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "glove",
+        "label": "glove",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_write",
+        "word": "write",
+        "label": "write",
+        "value": "write",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-write.webp",
+        "imagePath": "/media/vocabulary/images/verb-write.webp",
+        "imageUrl": "/media/vocabulary/images/verb-write.webp",
+        "alt": "write verb card"
+      },
+      {
+        "id": "second_verb_carry",
+        "word": "carry",
+        "label": "carry",
+        "value": "carry",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-carry.webp",
+        "imagePath": "/media/vocabulary/images/verb-carry.webp",
+        "imageUrl": "/media/vocabulary/images/verb-carry.webp",
+        "alt": "carry verb card"
+      },
+      {
+        "id": "second_adjective_old",
+        "word": "old",
+        "label": "old",
+        "value": "old",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-old.webp",
+        "imagePath": "/media/vocabulary/images/adjective-old.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-old.webp",
+        "alt": "old adjective card"
+      },
+      {
+        "id": "second_noun_glove",
+        "word": "glove",
+        "label": "glove",
+        "value": "glove",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/glove.webp",
+        "imagePath": "/media/vocabulary/images/glove.webp",
+        "imageUrl": "/media/vocabulary/images/glove.webp",
+        "alt": "glove noun card"
+      }
+    ],
+    "correctAnswer": "glove",
+    "answer": "glove",
+    "itemType": "grammar_noun",
+    "itemKey": "glove",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "glove is a noun."
+  },
+  {
+    "id": "second_nouns_l1_35_glue",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "glue",
+    "imagePath": "/images/assessment/long-vowels/glue.webp",
+    "imageUrl": "/images/assessment/long-vowels/glue.webp",
+    "targetImage": "/images/assessment/long-vowels/glue.webp",
+    "targetImagePath": "/images/assessment/long-vowels/glue.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "baked",
+      "brown",
+      "glue",
+      "ate"
+    ],
+    "answerOptions": [
+      {
+        "value": "baked",
+        "label": "baked",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "brown",
+        "label": "brown",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "glue",
+        "label": "glue",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "ate",
+        "label": "ate",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_baked",
+        "word": "baked",
+        "label": "baked",
+        "value": "baked",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-baked.webp",
+        "imagePath": "/media/vocabulary/images/verb-baked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-baked.webp",
+        "alt": "baked verb card"
+      },
+      {
+        "id": "second_adjective_brown",
+        "word": "brown",
+        "label": "brown",
+        "value": "brown",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-brown.webp",
+        "imagePath": "/media/vocabulary/images/adjective-brown.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-brown.webp",
+        "alt": "brown adjective card"
+      },
+      {
+        "id": "second_noun_glue",
+        "word": "glue",
+        "label": "glue",
+        "value": "glue",
+        "partOfSpeech": "noun",
+        "image": "/images/assessment/long-vowels/glue.webp",
+        "imagePath": "/images/assessment/long-vowels/glue.webp",
+        "imageUrl": "/images/assessment/long-vowels/glue.webp",
+        "alt": "glue noun card"
+      },
+      {
+        "id": "second_verb_ate",
+        "word": "ate",
+        "label": "ate",
+        "value": "ate",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-ate.webp",
+        "imagePath": "/media/vocabulary/images/verb-ate.webp",
+        "imageUrl": "/media/vocabulary/images/verb-ate.webp",
+        "alt": "ate verb card"
+      }
+    ],
+    "correctAnswer": "glue",
+    "answer": "glue",
+    "itemType": "grammar_noun",
+    "itemKey": "glue",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "glue is a noun."
+  },
+  {
+    "id": "second_nouns_l1_36_goat",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "goat",
+    "imagePath": "/images/assessment/long-vowels/goat.webp",
+    "imageUrl": "/images/assessment/long-vowels/goat.webp",
+    "targetImage": "/images/assessment/long-vowels/goat.webp",
+    "targetImagePath": "/images/assessment/long-vowels/goat.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "purple",
+      "goat",
+      "blow",
+      "builds"
+    ],
+    "answerOptions": [
+      {
+        "value": "purple",
+        "label": "purple",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "goat",
+        "label": "goat",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "blow",
+        "label": "blow",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "builds",
+        "label": "builds",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_purple",
+        "word": "purple",
+        "label": "purple",
+        "value": "purple",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-purple.webp",
+        "imagePath": "/media/vocabulary/images/adjective-purple.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-purple.webp",
+        "alt": "purple adjective card"
+      },
+      {
+        "id": "second_noun_goat",
+        "word": "goat",
+        "label": "goat",
+        "value": "goat",
+        "partOfSpeech": "noun",
+        "image": "/images/assessment/long-vowels/goat.webp",
+        "imagePath": "/images/assessment/long-vowels/goat.webp",
+        "imageUrl": "/images/assessment/long-vowels/goat.webp",
+        "alt": "goat noun card"
+      },
+      {
+        "id": "second_verb_blow",
+        "word": "blow",
+        "label": "blow",
+        "value": "blow",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-blow.webp",
+        "imagePath": "/media/vocabulary/images/verb-blow.webp",
+        "imageUrl": "/media/vocabulary/images/verb-blow.webp",
+        "alt": "blow verb card"
+      },
+      {
+        "id": "second_verb_builds",
+        "word": "builds",
+        "label": "builds",
+        "value": "builds",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-builds.webp",
+        "imagePath": "/media/vocabulary/images/verb-builds.webp",
+        "imageUrl": "/media/vocabulary/images/verb-builds.webp",
+        "alt": "builds verb card"
+      }
+    ],
+    "correctAnswer": "goat",
+    "answer": "goat",
+    "itemType": "grammar_noun",
+    "itemKey": "goat",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "goat is a noun."
+  },
+  {
+    "id": "second_nouns_l1_37_hair",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "hair",
+    "imagePath": "/media/vocabulary/images/hair.webp",
+    "imageUrl": "/media/vocabulary/images/hair.webp",
+    "targetImage": "/media/vocabulary/images/hair.webp",
+    "targetImagePath": "/media/vocabulary/images/hair.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "hair",
+      "cried",
+      "dance",
+      "bumpy"
+    ],
+    "answerOptions": [
+      {
+        "value": "hair",
+        "label": "hair",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "cried",
+        "label": "cried",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "dance",
+        "label": "dance",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "bumpy",
+        "label": "bumpy",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_hair",
+        "word": "hair",
+        "label": "hair",
+        "value": "hair",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/hair.webp",
+        "imagePath": "/media/vocabulary/images/hair.webp",
+        "imageUrl": "/media/vocabulary/images/hair.webp",
+        "alt": "hair noun card"
+      },
+      {
+        "id": "second_verb_cried",
+        "word": "cried",
+        "label": "cried",
+        "value": "cried",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-cried.webp",
+        "imagePath": "/media/vocabulary/images/verb-cried.webp",
+        "imageUrl": "/media/vocabulary/images/verb-cried.webp",
+        "alt": "cried verb card"
+      },
+      {
+        "id": "second_verb_dance",
+        "word": "dance",
+        "label": "dance",
+        "value": "dance",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-dance.webp",
+        "imagePath": "/media/vocabulary/images/verb-dance.webp",
+        "imageUrl": "/media/vocabulary/images/verb-dance.webp",
+        "alt": "dance verb card"
+      },
+      {
+        "id": "second_adjective_bumpy",
+        "word": "bumpy",
+        "label": "bumpy",
+        "value": "bumpy",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imagePath": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-bumpy.webp",
+        "alt": "bumpy adjective card"
+      }
+    ],
+    "correctAnswer": "hair",
+    "answer": "hair",
+    "itemType": "grammar_noun",
+    "itemKey": "hair",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "hair is a noun."
+  },
+  {
+    "id": "second_nouns_l1_38_ham",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "ham",
+    "imagePath": "/images/child-mode/initial-sounds/ham.png",
+    "imageUrl": "/images/child-mode/initial-sounds/ham.png",
+    "targetImage": "/images/child-mode/initial-sounds/ham.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/ham.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "explain",
+      "fell",
+      "cute",
+      "ham"
+    ],
+    "answerOptions": [
+      {
+        "value": "explain",
+        "label": "explain",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "fell",
+        "label": "fell",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "cute",
+        "label": "cute",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "ham",
+        "label": "ham",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_explain",
+        "word": "explain",
+        "label": "explain",
+        "value": "explain",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-explain.webp",
+        "imagePath": "/media/vocabulary/images/verb-explain.webp",
+        "imageUrl": "/media/vocabulary/images/verb-explain.webp",
+        "alt": "explain verb card"
+      },
+      {
+        "id": "second_verb_fell",
+        "word": "fell",
+        "label": "fell",
+        "value": "fell",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fell.webp",
+        "imagePath": "/media/vocabulary/images/verb-fell.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fell.webp",
+        "alt": "fell verb card"
+      },
+      {
+        "id": "second_adjective_cute",
+        "word": "cute",
+        "label": "cute",
+        "value": "cute",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-cute.webp",
+        "imagePath": "/media/vocabulary/images/adjective-cute.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-cute.webp",
+        "alt": "cute adjective card"
+      },
+      {
+        "id": "second_noun_ham",
+        "word": "ham",
+        "label": "ham",
+        "value": "ham",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/ham.png",
+        "imagePath": "/images/child-mode/initial-sounds/ham.png",
+        "imageUrl": "/images/child-mode/initial-sounds/ham.png",
+        "alt": "ham noun card"
+      }
+    ],
+    "correctAnswer": "ham",
+    "answer": "ham",
+    "itemType": "grammar_noun",
+    "itemKey": "ham",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "ham is a noun."
+  },
+  {
+    "id": "second_nouns_l1_39_hat",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "hat",
+    "imagePath": "/images/child-mode/cvc/hat.png",
+    "imageUrl": "/images/child-mode/cvc/hat.png",
+    "targetImage": "/images/child-mode/cvc/hat.png",
+    "targetImagePath": "/images/child-mode/cvc/hat.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "jumped",
+      "fierce",
+      "hat",
+      "hung"
+    ],
+    "answerOptions": [
+      {
+        "value": "jumped",
+        "label": "jumped",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "fierce",
+        "label": "fierce",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "hat",
+        "label": "hat",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "hung",
+        "label": "hung",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_jumped",
+        "word": "jumped",
+        "label": "jumped",
+        "value": "jumped",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-jumped.webp",
+        "imagePath": "/media/vocabulary/images/verb-jumped.webp",
+        "imageUrl": "/media/vocabulary/images/verb-jumped.webp",
+        "alt": "jumped verb card"
+      },
+      {
+        "id": "second_adjective_fierce",
+        "word": "fierce",
+        "label": "fierce",
+        "value": "fierce",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-fierce.webp",
+        "imagePath": "/media/vocabulary/images/adjective-fierce.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-fierce.webp",
+        "alt": "fierce adjective card"
+      },
+      {
+        "id": "second_noun_hat",
+        "word": "hat",
+        "label": "hat",
+        "value": "hat",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/hat.png",
+        "imagePath": "/images/child-mode/cvc/hat.png",
+        "imageUrl": "/images/child-mode/cvc/hat.png",
+        "alt": "hat noun card"
+      },
+      {
+        "id": "second_verb_hung",
+        "word": "hung",
+        "label": "hung",
+        "value": "hung",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-hung.webp",
+        "imagePath": "/media/vocabulary/images/verb-hung.webp",
+        "imageUrl": "/media/vocabulary/images/verb-hung.webp",
+        "alt": "hung verb card"
+      }
+    ],
+    "correctAnswer": "hat",
+    "answer": "hat",
+    "itemType": "grammar_noun",
+    "itemKey": "hat",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "hat is a noun."
+  },
+  {
+    "id": "second_nouns_l1_40_head",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "head",
+    "imagePath": "/media/vocabulary/images/head.webp",
+    "imageUrl": "/media/vocabulary/images/head.webp",
+    "targetImage": "/media/vocabulary/images/head.webp",
+    "targetImagePath": "/media/vocabulary/images/head.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "huge",
+      "head",
+      "melt",
+      "observe"
+    ],
+    "answerOptions": [
+      {
+        "value": "huge",
+        "label": "huge",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "head",
+        "label": "head",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "melt",
+        "label": "melt",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "observe",
+        "label": "observe",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_huge",
+        "word": "huge",
+        "label": "huge",
+        "value": "huge",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-huge.webp",
+        "imagePath": "/media/vocabulary/images/adjective-huge.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-huge.webp",
+        "alt": "huge adjective card"
+      },
+      {
+        "id": "second_noun_head",
+        "word": "head",
+        "label": "head",
+        "value": "head",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/head.webp",
+        "imagePath": "/media/vocabulary/images/head.webp",
+        "imageUrl": "/media/vocabulary/images/head.webp",
+        "alt": "head noun card"
+      },
+      {
+        "id": "second_verb_melt",
+        "word": "melt",
+        "label": "melt",
+        "value": "melt",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-melt.webp",
+        "imagePath": "/media/vocabulary/images/verb-melt.webp",
+        "imageUrl": "/media/vocabulary/images/verb-melt.webp",
+        "alt": "melt verb card"
+      },
+      {
+        "id": "second_verb_observe",
+        "word": "observe",
+        "label": "observe",
+        "value": "observe",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-observe.webp",
+        "imagePath": "/media/vocabulary/images/verb-observe.webp",
+        "imageUrl": "/media/vocabulary/images/verb-observe.webp",
+        "alt": "observe verb card"
+      }
+    ],
+    "correctAnswer": "head",
+    "answer": "head",
+    "itemType": "grammar_noun",
+    "itemKey": "head",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "head is a noun."
+  },
+  {
+    "id": "second_nouns_l1_41_hen",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "hen",
+    "imagePath": "/images/child-mode/initial-sounds/hen.png",
+    "imageUrl": "/images/child-mode/initial-sounds/hen.png",
+    "targetImage": "/images/child-mode/initial-sounds/hen.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/hen.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "hen",
+      "pour",
+      "predict",
+      "prickly"
+    ],
+    "answerOptions": [
+      {
+        "value": "hen",
+        "label": "hen",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "pour",
+        "label": "pour",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "predict",
+        "label": "predict",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "prickly",
+        "label": "prickly",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_hen",
+        "word": "hen",
+        "label": "hen",
+        "value": "hen",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/hen.png",
+        "imagePath": "/images/child-mode/initial-sounds/hen.png",
+        "imageUrl": "/images/child-mode/initial-sounds/hen.png",
+        "alt": "hen noun card"
+      },
+      {
+        "id": "second_verb_pour",
+        "word": "pour",
+        "label": "pour",
+        "value": "pour",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-pour.webp",
+        "imagePath": "/media/vocabulary/images/verb-pour.webp",
+        "imageUrl": "/media/vocabulary/images/verb-pour.webp",
+        "alt": "pour verb card"
+      },
+      {
+        "id": "second_verb_predict",
+        "word": "predict",
+        "label": "predict",
+        "value": "predict",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-predict.webp",
+        "imagePath": "/media/vocabulary/images/verb-predict.webp",
+        "imageUrl": "/media/vocabulary/images/verb-predict.webp",
+        "alt": "predict verb card"
+      },
+      {
+        "id": "second_adjective_prickly",
+        "word": "prickly",
+        "label": "prickly",
+        "value": "prickly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-prickly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-prickly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-prickly.webp",
+        "alt": "prickly adjective card"
+      }
+    ],
+    "correctAnswer": "hen",
+    "answer": "hen",
+    "itemType": "grammar_noun",
+    "itemKey": "hen",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "hen is a noun."
+  },
+  {
+    "id": "second_nouns_l1_42_jam",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "jam",
+    "imagePath": "/images/child-mode/initial-sounds/jam.png",
+    "imageUrl": "/images/child-mode/initial-sounds/jam.png",
+    "targetImage": "/images/child-mode/initial-sounds/jam.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/jam.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "ran",
+      "reads",
+      "sharp",
+      "jam"
+    ],
+    "answerOptions": [
+      {
+        "value": "ran",
+        "label": "ran",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "reads",
+        "label": "reads",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "sharp",
+        "label": "sharp",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "jam",
+        "label": "jam",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_ran",
+        "word": "ran",
+        "label": "ran",
+        "value": "ran",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-ran.webp",
+        "imagePath": "/media/vocabulary/images/verb-ran.webp",
+        "imageUrl": "/media/vocabulary/images/verb-ran.webp",
+        "alt": "ran verb card"
+      },
+      {
+        "id": "second_verb_reads",
+        "word": "reads",
+        "label": "reads",
+        "value": "reads",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-reads.webp",
+        "imagePath": "/media/vocabulary/images/verb-reads.webp",
+        "imageUrl": "/media/vocabulary/images/verb-reads.webp",
+        "alt": "reads verb card"
+      },
+      {
+        "id": "second_adjective_sharp",
+        "word": "sharp",
+        "label": "sharp",
+        "value": "sharp",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-sharp.webp",
+        "imagePath": "/media/vocabulary/images/adjective-sharp.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-sharp.webp",
+        "alt": "sharp adjective card"
+      },
+      {
+        "id": "second_noun_jam",
+        "word": "jam",
+        "label": "jam",
+        "value": "jam",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/jam.png",
+        "imagePath": "/images/child-mode/initial-sounds/jam.png",
+        "imageUrl": "/images/child-mode/initial-sounds/jam.png",
+        "alt": "jam noun card"
+      }
+    ],
+    "correctAnswer": "jam",
+    "answer": "jam",
+    "itemType": "grammar_noun",
+    "itemKey": "jam",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "jam is a noun."
+  },
+  {
+    "id": "second_nouns_l1_43_kid",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "kid",
+    "imagePath": "/images/child-mode/initial-sounds/kid.png",
+    "imageUrl": "/images/child-mode/initial-sounds/kid.png",
+    "targetImage": "/images/child-mode/initial-sounds/kid.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/kid.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "runs",
+      "smelly",
+      "kid",
+      "rises"
+    ],
+    "answerOptions": [
+      {
+        "value": "runs",
+        "label": "runs",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "smelly",
+        "label": "smelly",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "kid",
+        "label": "kid",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "rises",
+        "label": "rises",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_runs",
+        "word": "runs",
+        "label": "runs",
+        "value": "runs",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-runs.webp",
+        "imagePath": "/media/vocabulary/images/verb-runs.webp",
+        "imageUrl": "/media/vocabulary/images/verb-runs.webp",
+        "alt": "runs verb card"
+      },
+      {
+        "id": "second_adjective_smelly",
+        "word": "smelly",
+        "label": "smelly",
+        "value": "smelly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-smelly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-smelly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-smelly.webp",
+        "alt": "smelly adjective card"
+      },
+      {
+        "id": "second_noun_kid",
+        "word": "kid",
+        "label": "kid",
+        "value": "kid",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/kid.png",
+        "imagePath": "/images/child-mode/initial-sounds/kid.png",
+        "imageUrl": "/images/child-mode/initial-sounds/kid.png",
+        "alt": "kid noun card"
+      },
+      {
+        "id": "second_verb_rises",
+        "word": "rises",
+        "label": "rises",
+        "value": "rises",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-rises.webp",
+        "imagePath": "/media/vocabulary/images/verb-rises.webp",
+        "imageUrl": "/media/vocabulary/images/verb-rises.webp",
+        "alt": "rises verb card"
+      }
+    ],
+    "correctAnswer": "kid",
+    "answer": "kid",
+    "itemType": "grammar_noun",
+    "itemKey": "kid",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "kid is a noun."
+  },
+  {
+    "id": "second_nouns_l1_44_knee",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "knee",
+    "imagePath": "/media/vocabulary/images/knee.webp",
+    "imageUrl": "/media/vocabulary/images/knee.webp",
+    "targetImage": "/media/vocabulary/images/knee.webp",
+    "targetImagePath": "/media/vocabulary/images/knee.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "square",
+      "knee",
+      "sat",
+      "shake"
+    ],
+    "answerOptions": [
+      {
+        "value": "square",
+        "label": "square",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "knee",
+        "label": "knee",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "sat",
+        "label": "sat",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "shake",
+        "label": "shake",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_square",
+        "word": "square",
+        "label": "square",
+        "value": "square",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-square.webp",
+        "imagePath": "/media/vocabulary/images/adjective-square.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-square.webp",
+        "alt": "square adjective card"
+      },
+      {
+        "id": "second_noun_knee",
+        "word": "knee",
+        "label": "knee",
+        "value": "knee",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/knee.webp",
+        "imagePath": "/media/vocabulary/images/knee.webp",
+        "imageUrl": "/media/vocabulary/images/knee.webp",
+        "alt": "knee noun card"
+      },
+      {
+        "id": "second_verb_sat",
+        "word": "sat",
+        "label": "sat",
+        "value": "sat",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-sat.webp",
+        "imagePath": "/media/vocabulary/images/verb-sat.webp",
+        "imageUrl": "/media/vocabulary/images/verb-sat.webp",
+        "alt": "sat verb card"
+      },
+      {
+        "id": "second_verb_shake",
+        "word": "shake",
+        "label": "shake",
+        "value": "shake",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-shake.webp",
+        "imagePath": "/media/vocabulary/images/verb-shake.webp",
+        "imageUrl": "/media/vocabulary/images/verb-shake.webp",
+        "alt": "shake verb card"
+      }
+    ],
+    "correctAnswer": "knee",
+    "answer": "knee",
+    "itemType": "grammar_noun",
+    "itemKey": "knee",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "knee is a noun."
+  },
+  {
+    "id": "second_nouns_l1_45_lamb",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "lamb",
+    "imagePath": "/media/vocabulary/images/lamb.webp",
+    "imageUrl": "/media/vocabulary/images/lamb.webp",
+    "targetImage": "/media/vocabulary/images/lamb.webp",
+    "targetImagePath": "/media/vocabulary/images/lamb.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "lamb",
+      "swam",
+      "swayed",
+      "tiny"
+    ],
+    "answerOptions": [
+      {
+        "value": "lamb",
+        "label": "lamb",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "swam",
+        "label": "swam",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "swayed",
+        "label": "swayed",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "tiny",
+        "label": "tiny",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_lamb",
+        "word": "lamb",
+        "label": "lamb",
+        "value": "lamb",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/lamb.webp",
+        "imagePath": "/media/vocabulary/images/lamb.webp",
+        "imageUrl": "/media/vocabulary/images/lamb.webp",
+        "alt": "lamb noun card"
+      },
+      {
+        "id": "second_verb_swam",
+        "word": "swam",
+        "label": "swam",
+        "value": "swam",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-swam.webp",
+        "imagePath": "/media/vocabulary/images/verb-swam.webp",
+        "imageUrl": "/media/vocabulary/images/verb-swam.webp",
+        "alt": "swam verb card"
+      },
+      {
+        "id": "second_verb_swayed",
+        "word": "swayed",
+        "label": "swayed",
+        "value": "swayed",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-swayed.webp",
+        "imagePath": "/media/vocabulary/images/verb-swayed.webp",
+        "imageUrl": "/media/vocabulary/images/verb-swayed.webp",
+        "alt": "swayed verb card"
+      },
+      {
+        "id": "second_adjective_tiny",
+        "word": "tiny",
+        "label": "tiny",
+        "value": "tiny",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-tiny.webp",
+        "imagePath": "/media/vocabulary/images/adjective-tiny.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-tiny.webp",
+        "alt": "tiny adjective card"
+      }
+    ],
+    "correctAnswer": "lamb",
+    "answer": "lamb",
+    "itemType": "grammar_noun",
+    "itemKey": "lamb",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "lamb is a noun."
+  },
+  {
+    "id": "second_nouns_l1_46_leg",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "leg",
+    "imagePath": "/images/child-mode/initial-sounds/leg.png",
+    "imageUrl": "/images/child-mode/initial-sounds/leg.png",
+    "targetImage": "/images/child-mode/initial-sounds/leg.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/leg.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "galloped",
+      "cook",
+      "old",
+      "leg"
+    ],
+    "answerOptions": [
+      {
+        "value": "galloped",
+        "label": "galloped",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "cook",
+        "label": "cook",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "old",
+        "label": "old",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "leg",
+        "label": "leg",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_galloped",
+        "word": "galloped",
+        "label": "galloped",
+        "value": "galloped",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-galloped.webp",
+        "imagePath": "/media/vocabulary/images/verb-galloped.webp",
+        "imageUrl": "/media/vocabulary/images/verb-galloped.webp",
+        "alt": "galloped verb card"
+      },
+      {
+        "id": "second_verb_cook",
+        "word": "cook",
+        "label": "cook",
+        "value": "cook",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-cook.webp",
+        "imagePath": "/media/vocabulary/images/verb-cook.webp",
+        "imageUrl": "/media/vocabulary/images/verb-cook.webp",
+        "alt": "cook verb card"
+      },
+      {
+        "id": "second_adjective_old",
+        "word": "old",
+        "label": "old",
+        "value": "old",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-old.webp",
+        "imagePath": "/media/vocabulary/images/adjective-old.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-old.webp",
+        "alt": "old adjective card"
+      },
+      {
+        "id": "second_noun_leg",
+        "word": "leg",
+        "label": "leg",
+        "value": "leg",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/leg.png",
+        "imagePath": "/images/child-mode/initial-sounds/leg.png",
+        "imageUrl": "/images/child-mode/initial-sounds/leg.png",
+        "alt": "leg noun card"
+      }
+    ],
+    "correctAnswer": "leg",
+    "answer": "leg",
+    "itemType": "grammar_noun",
+    "itemKey": "leg",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "leg is a noun."
+  },
+  {
+    "id": "second_nouns_l1_47_man",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "man",
+    "imagePath": "/images/child-mode/cvc/man.png",
+    "imageUrl": "/images/child-mode/cvc/man.png",
+    "targetImage": "/images/child-mode/cvc/man.png",
+    "targetImagePath": "/images/child-mode/cvc/man.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "build",
+      "brown",
+      "man",
+      "bake"
+    ],
+    "answerOptions": [
+      {
+        "value": "build",
+        "label": "build",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "brown",
+        "label": "brown",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "man",
+        "label": "man",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "bake",
+        "label": "bake",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_build",
+        "word": "build",
+        "label": "build",
+        "value": "build",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-build.webp",
+        "imagePath": "/media/vocabulary/images/verb-build.webp",
+        "imageUrl": "/media/vocabulary/images/verb-build.webp",
+        "alt": "build verb card"
+      },
+      {
+        "id": "second_adjective_brown",
+        "word": "brown",
+        "label": "brown",
+        "value": "brown",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-brown.webp",
+        "imagePath": "/media/vocabulary/images/adjective-brown.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-brown.webp",
+        "alt": "brown adjective card"
+      },
+      {
+        "id": "second_noun_man",
+        "word": "man",
+        "label": "man",
+        "value": "man",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/man.png",
+        "imagePath": "/images/child-mode/cvc/man.png",
+        "imageUrl": "/images/child-mode/cvc/man.png",
+        "alt": "man noun card"
+      },
+      {
+        "id": "second_verb_bake",
+        "word": "bake",
+        "label": "bake",
+        "value": "bake",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-bake.webp",
+        "imagePath": "/media/vocabulary/images/verb-bake.webp",
+        "imageUrl": "/media/vocabulary/images/verb-bake.webp",
+        "alt": "bake verb card"
+      }
+    ],
+    "correctAnswer": "man",
+    "answer": "man",
+    "itemType": "grammar_noun",
+    "itemKey": "man",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "man is a noun."
   },
   {
     "id": "second_nouns_l1_04_market",
@@ -8686,9 +13852,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "market",
     "imagePath": "/media/vocabulary/images/noun-market.webp",
     "imageUrl": "/media/vocabulary/images/noun-market.webp",
@@ -8697,9 +13863,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The child points to the ___ in the picture.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "huge",
       "market",
@@ -8708,32 +13873,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_adjective_huge_text",
-        "word": "huge",
-        "label": "huge",
         "value": "huge",
+        "label": "huge",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_noun_market_text",
-        "word": "market",
-        "label": "market",
         "value": "market",
+        "label": "market",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_verb_explain_text",
-        "word": "explain",
-        "label": "explain",
         "value": "explain",
+        "label": "explain",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_verb_fell_text",
+        "value": "fell",
+        "label": "fell",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_huge",
+        "word": "huge",
+        "label": "huge",
+        "value": "huge",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-huge.webp",
+        "imagePath": "/media/vocabulary/images/adjective-huge.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-huge.webp",
+        "alt": "huge adjective card"
+      },
+      {
+        "id": "second_noun_market",
+        "word": "market",
+        "label": "market",
+        "value": "market",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-market.webp",
+        "imagePath": "/media/vocabulary/images/noun-market.webp",
+        "imageUrl": "/media/vocabulary/images/noun-market.webp",
+        "alt": "market noun card"
+      },
+      {
+        "id": "second_verb_explain",
+        "word": "explain",
+        "label": "explain",
+        "value": "explain",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-explain.webp",
+        "imagePath": "/media/vocabulary/images/verb-explain.webp",
+        "imageUrl": "/media/vocabulary/images/verb-explain.webp",
+        "alt": "explain verb card"
+      },
+      {
+        "id": "second_verb_fell",
         "word": "fell",
         "label": "fell",
         "value": "fell",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fell.webp",
+        "imagePath": "/media/vocabulary/images/verb-fell.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fell.webp",
+        "alt": "fell verb card"
       }
     ],
     "correctAnswer": "market",
@@ -8743,7 +13946,328 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "market makes the sentence make sense."
+    "explanation": "market is a noun."
+  },
+  {
+    "id": "second_nouns_l1_48_mat",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "mat",
+    "imagePath": "/images/child-mode/initial-sounds/mat.png",
+    "imageUrl": "/images/child-mode/initial-sounds/mat.png",
+    "targetImage": "/images/child-mode/initial-sounds/mat.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/mat.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "purple",
+      "mat",
+      "count",
+      "drive"
+    ],
+    "answerOptions": [
+      {
+        "value": "purple",
+        "label": "purple",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "mat",
+        "label": "mat",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "count",
+        "label": "count",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "drive",
+        "label": "drive",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_purple",
+        "word": "purple",
+        "label": "purple",
+        "value": "purple",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-purple.webp",
+        "imagePath": "/media/vocabulary/images/adjective-purple.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-purple.webp",
+        "alt": "purple adjective card"
+      },
+      {
+        "id": "second_noun_mat",
+        "word": "mat",
+        "label": "mat",
+        "value": "mat",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/mat.png",
+        "imagePath": "/images/child-mode/initial-sounds/mat.png",
+        "imageUrl": "/images/child-mode/initial-sounds/mat.png",
+        "alt": "mat noun card"
+      },
+      {
+        "id": "second_verb_count",
+        "word": "count",
+        "label": "count",
+        "value": "count",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-count.webp",
+        "imagePath": "/media/vocabulary/images/verb-count.webp",
+        "imageUrl": "/media/vocabulary/images/verb-count.webp",
+        "alt": "count verb card"
+      },
+      {
+        "id": "second_verb_drive",
+        "word": "drive",
+        "label": "drive",
+        "value": "drive",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-drive.webp",
+        "imagePath": "/media/vocabulary/images/verb-drive.webp",
+        "imageUrl": "/media/vocabulary/images/verb-drive.webp",
+        "alt": "drive verb card"
+      }
+    ],
+    "correctAnswer": "mat",
+    "answer": "mat",
+    "itemType": "grammar_noun",
+    "itemKey": "mat",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "mat is a noun."
+  },
+  {
+    "id": "second_nouns_l1_49_men",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "men",
+    "imagePath": "/media/vocabulary/images/men.webp",
+    "imageUrl": "/media/vocabulary/images/men.webp",
+    "targetImage": "/media/vocabulary/images/men.webp",
+    "targetImagePath": "/media/vocabulary/images/men.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "men",
+      "fall",
+      "fly",
+      "bumpy"
+    ],
+    "answerOptions": [
+      {
+        "value": "men",
+        "label": "men",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "fall",
+        "label": "fall",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "fly",
+        "label": "fly",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "bumpy",
+        "label": "bumpy",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_men",
+        "word": "men",
+        "label": "men",
+        "value": "men",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/men.webp",
+        "imagePath": "/media/vocabulary/images/men.webp",
+        "imageUrl": "/media/vocabulary/images/men.webp",
+        "alt": "men noun card"
+      },
+      {
+        "id": "second_verb_fall",
+        "word": "fall",
+        "label": "fall",
+        "value": "fall",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fall.webp",
+        "imagePath": "/media/vocabulary/images/verb-fall.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fall.webp",
+        "alt": "fall verb card"
+      },
+      {
+        "id": "second_verb_fly",
+        "word": "fly",
+        "label": "fly",
+        "value": "fly",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fly.webp",
+        "imagePath": "/media/vocabulary/images/verb-fly.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fly.webp",
+        "alt": "fly verb card"
+      },
+      {
+        "id": "second_adjective_bumpy",
+        "word": "bumpy",
+        "label": "bumpy",
+        "value": "bumpy",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imagePath": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-bumpy.webp",
+        "alt": "bumpy adjective card"
+      }
+    ],
+    "correctAnswer": "men",
+    "answer": "men",
+    "itemType": "grammar_noun",
+    "itemKey": "men",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "men is a noun."
+  },
+  {
+    "id": "second_nouns_l1_50_moon",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "moon",
+    "imagePath": "/images/child-mode/initial-sounds/moon.png",
+    "imageUrl": "/images/child-mode/initial-sounds/moon.png",
+    "targetImage": "/images/child-mode/initial-sounds/moon.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/moon.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "hide",
+      "share",
+      "cute",
+      "moon"
+    ],
+    "answerOptions": [
+      {
+        "value": "hide",
+        "label": "hide",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "share",
+        "label": "share",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "cute",
+        "label": "cute",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "moon",
+        "label": "moon",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_hide",
+        "word": "hide",
+        "label": "hide",
+        "value": "hide",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-hide.webp",
+        "imagePath": "/media/vocabulary/images/verb-hide.webp",
+        "imageUrl": "/media/vocabulary/images/verb-hide.webp",
+        "alt": "hide verb card"
+      },
+      {
+        "id": "second_verb_share",
+        "word": "share",
+        "label": "share",
+        "value": "share",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-share.webp",
+        "imagePath": "/media/vocabulary/images/verb-share.webp",
+        "imageUrl": "/media/vocabulary/images/verb-share.webp",
+        "alt": "share verb card"
+      },
+      {
+        "id": "second_adjective_cute",
+        "word": "cute",
+        "label": "cute",
+        "value": "cute",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-cute.webp",
+        "imagePath": "/media/vocabulary/images/adjective-cute.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-cute.webp",
+        "alt": "cute adjective card"
+      },
+      {
+        "id": "second_noun_moon",
+        "word": "moon",
+        "label": "moon",
+        "value": "moon",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/moon.png",
+        "imagePath": "/images/child-mode/initial-sounds/moon.png",
+        "imageUrl": "/images/child-mode/initial-sounds/moon.png",
+        "alt": "moon noun card"
+      }
+    ],
+    "correctAnswer": "moon",
+    "answer": "moon",
+    "itemType": "grammar_noun",
+    "itemKey": "moon",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "moon is a noun."
   },
   {
     "id": "second_nouns_l1_05_mum",
@@ -8756,9 +14280,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "mum",
     "imagePath": "/media/vocabulary/images/noun-mum.webp",
     "imageUrl": "/media/vocabulary/images/noun-mum.webp",
@@ -8767,9 +14291,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The child points to the ___ in the picture.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "mum",
       "hung",
@@ -8778,32 +14301,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_mum_text",
-        "word": "mum",
-        "label": "mum",
         "value": "mum",
+        "label": "mum",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_verb_hung_text",
+        "value": "hung",
+        "label": "hung",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "jumped",
+        "label": "jumped",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "prickly",
+        "label": "prickly",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_mum",
+        "word": "mum",
+        "label": "mum",
+        "value": "mum",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-mum.webp",
+        "imagePath": "/media/vocabulary/images/noun-mum.webp",
+        "imageUrl": "/media/vocabulary/images/noun-mum.webp",
+        "alt": "mum noun card"
+      },
+      {
+        "id": "second_verb_hung",
         "word": "hung",
         "label": "hung",
         "value": "hung",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-hung.webp",
+        "imagePath": "/media/vocabulary/images/verb-hung.webp",
+        "imageUrl": "/media/vocabulary/images/verb-hung.webp",
+        "alt": "hung verb card"
       },
       {
-        "id": "second_verb_jumped_text",
+        "id": "second_verb_jumped",
         "word": "jumped",
         "label": "jumped",
         "value": "jumped",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-jumped.webp",
+        "imagePath": "/media/vocabulary/images/verb-jumped.webp",
+        "imageUrl": "/media/vocabulary/images/verb-jumped.webp",
+        "alt": "jumped verb card"
       },
       {
-        "id": "second_adjective_prickly_text",
+        "id": "second_adjective_prickly",
         "word": "prickly",
         "label": "prickly",
         "value": "prickly",
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-prickly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-prickly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-prickly.webp",
+        "alt": "prickly adjective card"
       }
     ],
     "correctAnswer": "mum",
@@ -8813,7 +14374,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "mum makes the sentence make sense."
+    "explanation": "mum is a noun."
   },
   {
     "id": "second_nouns_l1_06_museum",
@@ -8826,9 +14387,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "museum",
     "imagePath": "/media/vocabulary/images/noun-museum.webp",
     "imageUrl": "/media/vocabulary/images/noun-museum.webp",
@@ -8837,9 +14398,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The child points to the ___ in the picture.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "melt",
       "observe",
@@ -8848,32 +14408,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_melt_text",
-        "word": "melt",
-        "label": "melt",
         "value": "melt",
+        "label": "melt",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_verb_observe_text",
-        "word": "observe",
-        "label": "observe",
         "value": "observe",
+        "label": "observe",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_adjective_sharp_text",
-        "word": "sharp",
-        "label": "sharp",
         "value": "sharp",
+        "label": "sharp",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_noun_museum_text",
+        "value": "museum",
+        "label": "museum",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_melt",
+        "word": "melt",
+        "label": "melt",
+        "value": "melt",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-melt.webp",
+        "imagePath": "/media/vocabulary/images/verb-melt.webp",
+        "imageUrl": "/media/vocabulary/images/verb-melt.webp",
+        "alt": "melt verb card"
+      },
+      {
+        "id": "second_verb_observe",
+        "word": "observe",
+        "label": "observe",
+        "value": "observe",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-observe.webp",
+        "imagePath": "/media/vocabulary/images/verb-observe.webp",
+        "imageUrl": "/media/vocabulary/images/verb-observe.webp",
+        "alt": "observe verb card"
+      },
+      {
+        "id": "second_adjective_sharp",
+        "word": "sharp",
+        "label": "sharp",
+        "value": "sharp",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-sharp.webp",
+        "imagePath": "/media/vocabulary/images/adjective-sharp.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-sharp.webp",
+        "alt": "sharp adjective card"
+      },
+      {
+        "id": "second_noun_museum",
         "word": "museum",
         "label": "museum",
         "value": "museum",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-museum.webp",
+        "imagePath": "/media/vocabulary/images/noun-museum.webp",
+        "imageUrl": "/media/vocabulary/images/noun-museum.webp",
+        "alt": "museum noun card"
       }
     ],
     "correctAnswer": "museum",
@@ -8883,7 +14481,435 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "museum makes the sentence make sense."
+    "explanation": "museum is a noun."
+  },
+  {
+    "id": "second_nouns_l1_51_nut",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "nut",
+    "imagePath": "/images/child-mode/initial-sounds/nut.png",
+    "imageUrl": "/images/child-mode/initial-sounds/nut.png",
+    "targetImage": "/images/child-mode/initial-sounds/nut.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/nut.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "carry",
+      "fierce",
+      "nut",
+      "write"
+    ],
+    "answerOptions": [
+      {
+        "value": "carry",
+        "label": "carry",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "fierce",
+        "label": "fierce",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "nut",
+        "label": "nut",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "write",
+        "label": "write",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_carry",
+        "word": "carry",
+        "label": "carry",
+        "value": "carry",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-carry.webp",
+        "imagePath": "/media/vocabulary/images/verb-carry.webp",
+        "imageUrl": "/media/vocabulary/images/verb-carry.webp",
+        "alt": "carry verb card"
+      },
+      {
+        "id": "second_adjective_fierce",
+        "word": "fierce",
+        "label": "fierce",
+        "value": "fierce",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-fierce.webp",
+        "imagePath": "/media/vocabulary/images/adjective-fierce.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-fierce.webp",
+        "alt": "fierce adjective card"
+      },
+      {
+        "id": "second_noun_nut",
+        "word": "nut",
+        "label": "nut",
+        "value": "nut",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/nut.png",
+        "imagePath": "/images/child-mode/initial-sounds/nut.png",
+        "imageUrl": "/images/child-mode/initial-sounds/nut.png",
+        "alt": "nut noun card"
+      },
+      {
+        "id": "second_verb_write",
+        "word": "write",
+        "label": "write",
+        "value": "write",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-write.webp",
+        "imagePath": "/media/vocabulary/images/verb-write.webp",
+        "imageUrl": "/media/vocabulary/images/verb-write.webp",
+        "alt": "write verb card"
+      }
+    ],
+    "correctAnswer": "nut",
+    "answer": "nut",
+    "itemType": "grammar_noun",
+    "itemKey": "nut",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "nut is a noun."
+  },
+  {
+    "id": "second_nouns_l1_52_pear",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "pear",
+    "imagePath": "/media/vocabulary/images/pear.webp",
+    "imageUrl": "/media/vocabulary/images/pear.webp",
+    "targetImage": "/media/vocabulary/images/pear.webp",
+    "targetImagePath": "/media/vocabulary/images/pear.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "huge",
+      "pear",
+      "ate",
+      "baked"
+    ],
+    "answerOptions": [
+      {
+        "value": "huge",
+        "label": "huge",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "pear",
+        "label": "pear",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "ate",
+        "label": "ate",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "baked",
+        "label": "baked",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_huge",
+        "word": "huge",
+        "label": "huge",
+        "value": "huge",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-huge.webp",
+        "imagePath": "/media/vocabulary/images/adjective-huge.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-huge.webp",
+        "alt": "huge adjective card"
+      },
+      {
+        "id": "second_noun_pear",
+        "word": "pear",
+        "label": "pear",
+        "value": "pear",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/pear.webp",
+        "imagePath": "/media/vocabulary/images/pear.webp",
+        "imageUrl": "/media/vocabulary/images/pear.webp",
+        "alt": "pear noun card"
+      },
+      {
+        "id": "second_verb_ate",
+        "word": "ate",
+        "label": "ate",
+        "value": "ate",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-ate.webp",
+        "imagePath": "/media/vocabulary/images/verb-ate.webp",
+        "imageUrl": "/media/vocabulary/images/verb-ate.webp",
+        "alt": "ate verb card"
+      },
+      {
+        "id": "second_verb_baked",
+        "word": "baked",
+        "label": "baked",
+        "value": "baked",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-baked.webp",
+        "imagePath": "/media/vocabulary/images/verb-baked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-baked.webp",
+        "alt": "baked verb card"
+      }
+    ],
+    "correctAnswer": "pear",
+    "answer": "pear",
+    "itemType": "grammar_noun",
+    "itemKey": "pear",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "pear is a noun."
+  },
+  {
+    "id": "second_nouns_l1_53_pen",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "pen",
+    "imagePath": "/images/child-mode/initial-sounds/pen.png",
+    "imageUrl": "/images/child-mode/initial-sounds/pen.png",
+    "targetImage": "/images/child-mode/initial-sounds/pen.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/pen.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "pen",
+      "blow",
+      "builds",
+      "prickly"
+    ],
+    "answerOptions": [
+      {
+        "value": "pen",
+        "label": "pen",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "blow",
+        "label": "blow",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "builds",
+        "label": "builds",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "prickly",
+        "label": "prickly",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_pen",
+        "word": "pen",
+        "label": "pen",
+        "value": "pen",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/pen.png",
+        "imagePath": "/images/child-mode/initial-sounds/pen.png",
+        "imageUrl": "/images/child-mode/initial-sounds/pen.png",
+        "alt": "pen noun card"
+      },
+      {
+        "id": "second_verb_blow",
+        "word": "blow",
+        "label": "blow",
+        "value": "blow",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-blow.webp",
+        "imagePath": "/media/vocabulary/images/verb-blow.webp",
+        "imageUrl": "/media/vocabulary/images/verb-blow.webp",
+        "alt": "blow verb card"
+      },
+      {
+        "id": "second_verb_builds",
+        "word": "builds",
+        "label": "builds",
+        "value": "builds",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-builds.webp",
+        "imagePath": "/media/vocabulary/images/verb-builds.webp",
+        "imageUrl": "/media/vocabulary/images/verb-builds.webp",
+        "alt": "builds verb card"
+      },
+      {
+        "id": "second_adjective_prickly",
+        "word": "prickly",
+        "label": "prickly",
+        "value": "prickly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-prickly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-prickly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-prickly.webp",
+        "alt": "prickly adjective card"
+      }
+    ],
+    "correctAnswer": "pen",
+    "answer": "pen",
+    "itemType": "grammar_noun",
+    "itemKey": "pen",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "pen is a noun."
+  },
+  {
+    "id": "second_nouns_l1_54_pig",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "pig",
+    "imagePath": "/images/child-mode/initial-sounds/pig.png",
+    "imageUrl": "/images/child-mode/initial-sounds/pig.png",
+    "targetImage": "/images/child-mode/initial-sounds/pig.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/pig.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "cried",
+      "dance",
+      "sharp",
+      "pig"
+    ],
+    "answerOptions": [
+      {
+        "value": "cried",
+        "label": "cried",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "dance",
+        "label": "dance",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "sharp",
+        "label": "sharp",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "pig",
+        "label": "pig",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_cried",
+        "word": "cried",
+        "label": "cried",
+        "value": "cried",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-cried.webp",
+        "imagePath": "/media/vocabulary/images/verb-cried.webp",
+        "imageUrl": "/media/vocabulary/images/verb-cried.webp",
+        "alt": "cried verb card"
+      },
+      {
+        "id": "second_verb_dance",
+        "word": "dance",
+        "label": "dance",
+        "value": "dance",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-dance.webp",
+        "imagePath": "/media/vocabulary/images/verb-dance.webp",
+        "imageUrl": "/media/vocabulary/images/verb-dance.webp",
+        "alt": "dance verb card"
+      },
+      {
+        "id": "second_adjective_sharp",
+        "word": "sharp",
+        "label": "sharp",
+        "value": "sharp",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-sharp.webp",
+        "imagePath": "/media/vocabulary/images/adjective-sharp.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-sharp.webp",
+        "alt": "sharp adjective card"
+      },
+      {
+        "id": "second_noun_pig",
+        "word": "pig",
+        "label": "pig",
+        "value": "pig",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/pig.png",
+        "imagePath": "/images/child-mode/initial-sounds/pig.png",
+        "imageUrl": "/images/child-mode/initial-sounds/pig.png",
+        "alt": "pig noun card"
+      }
+    ],
+    "correctAnswer": "pig",
+    "answer": "pig",
+    "itemType": "grammar_noun",
+    "itemKey": "pig",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "pig is a noun."
   },
   {
     "id": "second_nouns_l1_07_pilot",
@@ -8896,9 +14922,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "pilot",
     "imagePath": "/media/vocabulary/images/noun-pilot.webp",
     "imageUrl": "/media/vocabulary/images/noun-pilot.webp",
@@ -8907,9 +14933,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The child points to the ___ in the picture.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "predict",
       "smelly",
@@ -8918,32 +14943,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_predict_text",
-        "word": "predict",
-        "label": "predict",
         "value": "predict",
+        "label": "predict",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_adjective_smelly_text",
-        "word": "smelly",
-        "label": "smelly",
         "value": "smelly",
+        "label": "smelly",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_noun_pilot_text",
-        "word": "pilot",
-        "label": "pilot",
         "value": "pilot",
+        "label": "pilot",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_verb_pour_text",
+        "value": "pour",
+        "label": "pour",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_predict",
+        "word": "predict",
+        "label": "predict",
+        "value": "predict",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-predict.webp",
+        "imagePath": "/media/vocabulary/images/verb-predict.webp",
+        "imageUrl": "/media/vocabulary/images/verb-predict.webp",
+        "alt": "predict verb card"
+      },
+      {
+        "id": "second_adjective_smelly",
+        "word": "smelly",
+        "label": "smelly",
+        "value": "smelly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-smelly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-smelly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-smelly.webp",
+        "alt": "smelly adjective card"
+      },
+      {
+        "id": "second_noun_pilot",
+        "word": "pilot",
+        "label": "pilot",
+        "value": "pilot",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-pilot.webp",
+        "imagePath": "/media/vocabulary/images/noun-pilot.webp",
+        "imageUrl": "/media/vocabulary/images/noun-pilot.webp",
+        "alt": "pilot noun card"
+      },
+      {
+        "id": "second_verb_pour",
         "word": "pour",
         "label": "pour",
         "value": "pour",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-pour.webp",
+        "imagePath": "/media/vocabulary/images/verb-pour.webp",
+        "imageUrl": "/media/vocabulary/images/verb-pour.webp",
+        "alt": "pour verb card"
       }
     ],
     "correctAnswer": "pilot",
@@ -8953,7 +15016,970 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "pilot makes the sentence make sense."
+    "explanation": "pilot is a noun."
+  },
+  {
+    "id": "second_nouns_l1_55_rat",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "rat",
+    "imagePath": "/images/child-mode/initial-sounds/rat.png",
+    "imageUrl": "/images/child-mode/initial-sounds/rat.png",
+    "targetImage": "/images/child-mode/initial-sounds/rat.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/rat.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "fell",
+      "smelly",
+      "rat",
+      "explain"
+    ],
+    "answerOptions": [
+      {
+        "value": "fell",
+        "label": "fell",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "smelly",
+        "label": "smelly",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "rat",
+        "label": "rat",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "explain",
+        "label": "explain",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_fell",
+        "word": "fell",
+        "label": "fell",
+        "value": "fell",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fell.webp",
+        "imagePath": "/media/vocabulary/images/verb-fell.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fell.webp",
+        "alt": "fell verb card"
+      },
+      {
+        "id": "second_adjective_smelly",
+        "word": "smelly",
+        "label": "smelly",
+        "value": "smelly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-smelly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-smelly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-smelly.webp",
+        "alt": "smelly adjective card"
+      },
+      {
+        "id": "second_noun_rat",
+        "word": "rat",
+        "label": "rat",
+        "value": "rat",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/rat.png",
+        "imagePath": "/images/child-mode/initial-sounds/rat.png",
+        "imageUrl": "/images/child-mode/initial-sounds/rat.png",
+        "alt": "rat noun card"
+      },
+      {
+        "id": "second_verb_explain",
+        "word": "explain",
+        "label": "explain",
+        "value": "explain",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-explain.webp",
+        "imagePath": "/media/vocabulary/images/verb-explain.webp",
+        "imageUrl": "/media/vocabulary/images/verb-explain.webp",
+        "alt": "explain verb card"
+      }
+    ],
+    "correctAnswer": "rat",
+    "answer": "rat",
+    "itemType": "grammar_noun",
+    "itemKey": "rat",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "rat is a noun."
+  },
+  {
+    "id": "second_nouns_l1_56_rice",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "rice",
+    "imagePath": "/media/vocabulary/images/rice.webp",
+    "imageUrl": "/media/vocabulary/images/rice.webp",
+    "targetImage": "/media/vocabulary/images/rice.webp",
+    "targetImagePath": "/media/vocabulary/images/rice.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "square",
+      "rice",
+      "hung",
+      "jumped"
+    ],
+    "answerOptions": [
+      {
+        "value": "square",
+        "label": "square",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "rice",
+        "label": "rice",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "hung",
+        "label": "hung",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "jumped",
+        "label": "jumped",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_square",
+        "word": "square",
+        "label": "square",
+        "value": "square",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-square.webp",
+        "imagePath": "/media/vocabulary/images/adjective-square.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-square.webp",
+        "alt": "square adjective card"
+      },
+      {
+        "id": "second_noun_rice",
+        "word": "rice",
+        "label": "rice",
+        "value": "rice",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/rice.webp",
+        "imagePath": "/media/vocabulary/images/rice.webp",
+        "imageUrl": "/media/vocabulary/images/rice.webp",
+        "alt": "rice noun card"
+      },
+      {
+        "id": "second_verb_hung",
+        "word": "hung",
+        "label": "hung",
+        "value": "hung",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-hung.webp",
+        "imagePath": "/media/vocabulary/images/verb-hung.webp",
+        "imageUrl": "/media/vocabulary/images/verb-hung.webp",
+        "alt": "hung verb card"
+      },
+      {
+        "id": "second_verb_jumped",
+        "word": "jumped",
+        "label": "jumped",
+        "value": "jumped",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-jumped.webp",
+        "imagePath": "/media/vocabulary/images/verb-jumped.webp",
+        "imageUrl": "/media/vocabulary/images/verb-jumped.webp",
+        "alt": "jumped verb card"
+      }
+    ],
+    "correctAnswer": "rice",
+    "answer": "rice",
+    "itemType": "grammar_noun",
+    "itemKey": "rice",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "rice is a noun."
+  },
+  {
+    "id": "second_nouns_l1_57_road",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "road",
+    "imagePath": "/media/vocabulary/images/road.webp",
+    "imageUrl": "/media/vocabulary/images/road.webp",
+    "targetImage": "/media/vocabulary/images/road.webp",
+    "targetImagePath": "/media/vocabulary/images/road.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "road",
+      "melt",
+      "observe",
+      "tiny"
+    ],
+    "answerOptions": [
+      {
+        "value": "road",
+        "label": "road",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "melt",
+        "label": "melt",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "observe",
+        "label": "observe",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "tiny",
+        "label": "tiny",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_road",
+        "word": "road",
+        "label": "road",
+        "value": "road",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/road.webp",
+        "imagePath": "/media/vocabulary/images/road.webp",
+        "imageUrl": "/media/vocabulary/images/road.webp",
+        "alt": "road noun card"
+      },
+      {
+        "id": "second_verb_melt",
+        "word": "melt",
+        "label": "melt",
+        "value": "melt",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-melt.webp",
+        "imagePath": "/media/vocabulary/images/verb-melt.webp",
+        "imageUrl": "/media/vocabulary/images/verb-melt.webp",
+        "alt": "melt verb card"
+      },
+      {
+        "id": "second_verb_observe",
+        "word": "observe",
+        "label": "observe",
+        "value": "observe",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-observe.webp",
+        "imagePath": "/media/vocabulary/images/verb-observe.webp",
+        "imageUrl": "/media/vocabulary/images/verb-observe.webp",
+        "alt": "observe verb card"
+      },
+      {
+        "id": "second_adjective_tiny",
+        "word": "tiny",
+        "label": "tiny",
+        "value": "tiny",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-tiny.webp",
+        "imagePath": "/media/vocabulary/images/adjective-tiny.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-tiny.webp",
+        "alt": "tiny adjective card"
+      }
+    ],
+    "correctAnswer": "road",
+    "answer": "road",
+    "itemType": "grammar_noun",
+    "itemKey": "road",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "road is a noun."
+  },
+  {
+    "id": "second_nouns_l1_58_room",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "room",
+    "imagePath": "/media/vocabulary/images/room.webp",
+    "imageUrl": "/media/vocabulary/images/room.webp",
+    "targetImage": "/media/vocabulary/images/room.webp",
+    "targetImagePath": "/media/vocabulary/images/room.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "pour",
+      "predict",
+      "old",
+      "room"
+    ],
+    "answerOptions": [
+      {
+        "value": "pour",
+        "label": "pour",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "predict",
+        "label": "predict",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "old",
+        "label": "old",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "room",
+        "label": "room",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_pour",
+        "word": "pour",
+        "label": "pour",
+        "value": "pour",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-pour.webp",
+        "imagePath": "/media/vocabulary/images/verb-pour.webp",
+        "imageUrl": "/media/vocabulary/images/verb-pour.webp",
+        "alt": "pour verb card"
+      },
+      {
+        "id": "second_verb_predict",
+        "word": "predict",
+        "label": "predict",
+        "value": "predict",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-predict.webp",
+        "imagePath": "/media/vocabulary/images/verb-predict.webp",
+        "imageUrl": "/media/vocabulary/images/verb-predict.webp",
+        "alt": "predict verb card"
+      },
+      {
+        "id": "second_adjective_old",
+        "word": "old",
+        "label": "old",
+        "value": "old",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-old.webp",
+        "imagePath": "/media/vocabulary/images/adjective-old.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-old.webp",
+        "alt": "old adjective card"
+      },
+      {
+        "id": "second_noun_room",
+        "word": "room",
+        "label": "room",
+        "value": "room",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/room.webp",
+        "imagePath": "/media/vocabulary/images/room.webp",
+        "imageUrl": "/media/vocabulary/images/room.webp",
+        "alt": "room noun card"
+      }
+    ],
+    "correctAnswer": "room",
+    "answer": "room",
+    "itemType": "grammar_noun",
+    "itemKey": "room",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "room is a noun."
+  },
+  {
+    "id": "second_nouns_l1_69_school",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "school",
+    "imagePath": "/media/vocabulary/images/noun-school.webp",
+    "imageUrl": "/media/vocabulary/images/noun-school.webp",
+    "targetImage": "/media/vocabulary/images/noun-school.webp",
+    "targetImagePath": "/media/vocabulary/images/noun-school.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "school",
+      "ate",
+      "baked",
+      "tiny"
+    ],
+    "answerOptions": [
+      {
+        "value": "school",
+        "label": "school",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "ate",
+        "label": "ate",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "baked",
+        "label": "baked",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "tiny",
+        "label": "tiny",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_school",
+        "word": "school",
+        "label": "school",
+        "value": "school",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-school.webp",
+        "imagePath": "/media/vocabulary/images/noun-school.webp",
+        "imageUrl": "/media/vocabulary/images/noun-school.webp",
+        "alt": "school noun card"
+      },
+      {
+        "id": "second_verb_ate",
+        "word": "ate",
+        "label": "ate",
+        "value": "ate",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-ate.webp",
+        "imagePath": "/media/vocabulary/images/verb-ate.webp",
+        "imageUrl": "/media/vocabulary/images/verb-ate.webp",
+        "alt": "ate verb card"
+      },
+      {
+        "id": "second_verb_baked",
+        "word": "baked",
+        "label": "baked",
+        "value": "baked",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-baked.webp",
+        "imagePath": "/media/vocabulary/images/verb-baked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-baked.webp",
+        "alt": "baked verb card"
+      },
+      {
+        "id": "second_adjective_tiny",
+        "word": "tiny",
+        "label": "tiny",
+        "value": "tiny",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-tiny.webp",
+        "imagePath": "/media/vocabulary/images/adjective-tiny.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-tiny.webp",
+        "alt": "tiny adjective card"
+      }
+    ],
+    "correctAnswer": "school",
+    "answer": "school",
+    "itemType": "grammar_noun",
+    "itemKey": "school",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "school is a noun."
+  },
+  {
+    "id": "second_nouns_l1_59_seal",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "seal",
+    "imagePath": "/images/child-mode/initial-sounds/seal.png",
+    "imageUrl": "/images/child-mode/initial-sounds/seal.png",
+    "targetImage": "/images/child-mode/initial-sounds/seal.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/seal.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "reads",
+      "brown",
+      "seal",
+      "ran"
+    ],
+    "answerOptions": [
+      {
+        "value": "reads",
+        "label": "reads",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "brown",
+        "label": "brown",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "seal",
+        "label": "seal",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "ran",
+        "label": "ran",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_reads",
+        "word": "reads",
+        "label": "reads",
+        "value": "reads",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-reads.webp",
+        "imagePath": "/media/vocabulary/images/verb-reads.webp",
+        "imageUrl": "/media/vocabulary/images/verb-reads.webp",
+        "alt": "reads verb card"
+      },
+      {
+        "id": "second_adjective_brown",
+        "word": "brown",
+        "label": "brown",
+        "value": "brown",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-brown.webp",
+        "imagePath": "/media/vocabulary/images/adjective-brown.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-brown.webp",
+        "alt": "brown adjective card"
+      },
+      {
+        "id": "second_noun_seal",
+        "word": "seal",
+        "label": "seal",
+        "value": "seal",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/seal.png",
+        "imagePath": "/images/child-mode/initial-sounds/seal.png",
+        "imageUrl": "/images/child-mode/initial-sounds/seal.png",
+        "alt": "seal noun card"
+      },
+      {
+        "id": "second_verb_ran",
+        "word": "ran",
+        "label": "ran",
+        "value": "ran",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-ran.webp",
+        "imagePath": "/media/vocabulary/images/verb-ran.webp",
+        "imageUrl": "/media/vocabulary/images/verb-ran.webp",
+        "alt": "ran verb card"
+      }
+    ],
+    "correctAnswer": "seal",
+    "answer": "seal",
+    "itemType": "grammar_noun",
+    "itemKey": "seal",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "seal is a noun."
+  },
+  {
+    "id": "second_nouns_l1_60_shoe",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "shoe",
+    "imagePath": "/images/child-mode/initial-sounds/shoe.png",
+    "imageUrl": "/images/child-mode/initial-sounds/shoe.png",
+    "targetImage": "/images/child-mode/initial-sounds/shoe.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/shoe.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "purple",
+      "shoe",
+      "rises",
+      "runs"
+    ],
+    "answerOptions": [
+      {
+        "value": "purple",
+        "label": "purple",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "shoe",
+        "label": "shoe",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "rises",
+        "label": "rises",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "runs",
+        "label": "runs",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_purple",
+        "word": "purple",
+        "label": "purple",
+        "value": "purple",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-purple.webp",
+        "imagePath": "/media/vocabulary/images/adjective-purple.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-purple.webp",
+        "alt": "purple adjective card"
+      },
+      {
+        "id": "second_noun_shoe",
+        "word": "shoe",
+        "label": "shoe",
+        "value": "shoe",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/shoe.png",
+        "imagePath": "/images/child-mode/initial-sounds/shoe.png",
+        "imageUrl": "/images/child-mode/initial-sounds/shoe.png",
+        "alt": "shoe noun card"
+      },
+      {
+        "id": "second_verb_rises",
+        "word": "rises",
+        "label": "rises",
+        "value": "rises",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-rises.webp",
+        "imagePath": "/media/vocabulary/images/verb-rises.webp",
+        "imageUrl": "/media/vocabulary/images/verb-rises.webp",
+        "alt": "rises verb card"
+      },
+      {
+        "id": "second_verb_runs",
+        "word": "runs",
+        "label": "runs",
+        "value": "runs",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-runs.webp",
+        "imagePath": "/media/vocabulary/images/verb-runs.webp",
+        "imageUrl": "/media/vocabulary/images/verb-runs.webp",
+        "alt": "runs verb card"
+      }
+    ],
+    "correctAnswer": "shoe",
+    "answer": "shoe",
+    "itemType": "grammar_noun",
+    "itemKey": "shoe",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "shoe is a noun."
+  },
+  {
+    "id": "second_nouns_l1_61_sky",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "sky",
+    "imagePath": "/images/assessment/long-vowels/sky.webp",
+    "imageUrl": "/images/assessment/long-vowels/sky.webp",
+    "targetImage": "/images/assessment/long-vowels/sky.webp",
+    "targetImagePath": "/images/assessment/long-vowels/sky.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "sky",
+      "sat",
+      "shake",
+      "bumpy"
+    ],
+    "answerOptions": [
+      {
+        "value": "sky",
+        "label": "sky",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "sat",
+        "label": "sat",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "shake",
+        "label": "shake",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "bumpy",
+        "label": "bumpy",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_sky",
+        "word": "sky",
+        "label": "sky",
+        "value": "sky",
+        "partOfSpeech": "noun",
+        "image": "/images/assessment/long-vowels/sky.webp",
+        "imagePath": "/images/assessment/long-vowels/sky.webp",
+        "imageUrl": "/images/assessment/long-vowels/sky.webp",
+        "alt": "sky noun card"
+      },
+      {
+        "id": "second_verb_sat",
+        "word": "sat",
+        "label": "sat",
+        "value": "sat",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-sat.webp",
+        "imagePath": "/media/vocabulary/images/verb-sat.webp",
+        "imageUrl": "/media/vocabulary/images/verb-sat.webp",
+        "alt": "sat verb card"
+      },
+      {
+        "id": "second_verb_shake",
+        "word": "shake",
+        "label": "shake",
+        "value": "shake",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-shake.webp",
+        "imagePath": "/media/vocabulary/images/verb-shake.webp",
+        "imageUrl": "/media/vocabulary/images/verb-shake.webp",
+        "alt": "shake verb card"
+      },
+      {
+        "id": "second_adjective_bumpy",
+        "word": "bumpy",
+        "label": "bumpy",
+        "value": "bumpy",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imagePath": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-bumpy.webp",
+        "alt": "bumpy adjective card"
+      }
+    ],
+    "correctAnswer": "sky",
+    "answer": "sky",
+    "itemType": "grammar_noun",
+    "itemKey": "sky",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "sky is a noun."
+  },
+  {
+    "id": "second_nouns_l1_62_sock",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "sock",
+    "imagePath": "/images/child-mode/initial-sounds/sock.png",
+    "imageUrl": "/images/child-mode/initial-sounds/sock.png",
+    "targetImage": "/images/child-mode/initial-sounds/sock.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/sock.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "swam",
+      "swayed",
+      "cute",
+      "sock"
+    ],
+    "answerOptions": [
+      {
+        "value": "swam",
+        "label": "swam",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "swayed",
+        "label": "swayed",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "cute",
+        "label": "cute",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "sock",
+        "label": "sock",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_swam",
+        "word": "swam",
+        "label": "swam",
+        "value": "swam",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-swam.webp",
+        "imagePath": "/media/vocabulary/images/verb-swam.webp",
+        "imageUrl": "/media/vocabulary/images/verb-swam.webp",
+        "alt": "swam verb card"
+      },
+      {
+        "id": "second_verb_swayed",
+        "word": "swayed",
+        "label": "swayed",
+        "value": "swayed",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-swayed.webp",
+        "imagePath": "/media/vocabulary/images/verb-swayed.webp",
+        "imageUrl": "/media/vocabulary/images/verb-swayed.webp",
+        "alt": "swayed verb card"
+      },
+      {
+        "id": "second_adjective_cute",
+        "word": "cute",
+        "label": "cute",
+        "value": "cute",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-cute.webp",
+        "imagePath": "/media/vocabulary/images/adjective-cute.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-cute.webp",
+        "alt": "cute adjective card"
+      },
+      {
+        "id": "second_noun_sock",
+        "word": "sock",
+        "label": "sock",
+        "value": "sock",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/sock.png",
+        "imagePath": "/images/child-mode/initial-sounds/sock.png",
+        "imageUrl": "/images/child-mode/initial-sounds/sock.png",
+        "alt": "sock noun card"
+      }
+    ],
+    "correctAnswer": "sock",
+    "answer": "sock",
+    "itemType": "grammar_noun",
+    "itemKey": "sock",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "sock is a noun."
   },
   {
     "id": "second_nouns_l1_08_station",
@@ -8966,9 +15992,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "station",
     "imagePath": "/media/vocabulary/images/noun-station.webp",
     "imageUrl": "/media/vocabulary/images/noun-station.webp",
@@ -8977,9 +16003,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The child points to the ___ in the picture.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "square",
       "station",
@@ -8988,32 +16013,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_adjective_square_text",
-        "word": "square",
-        "label": "square",
         "value": "square",
+        "label": "square",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_noun_station_text",
-        "word": "station",
-        "label": "station",
         "value": "station",
+        "label": "station",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_verb_ran_text",
-        "word": "ran",
-        "label": "ran",
         "value": "ran",
+        "label": "ran",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_verb_reads_text",
+        "value": "reads",
+        "label": "reads",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_square",
+        "word": "square",
+        "label": "square",
+        "value": "square",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-square.webp",
+        "imagePath": "/media/vocabulary/images/adjective-square.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-square.webp",
+        "alt": "square adjective card"
+      },
+      {
+        "id": "second_noun_station",
+        "word": "station",
+        "label": "station",
+        "value": "station",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-station.webp",
+        "imagePath": "/media/vocabulary/images/noun-station.webp",
+        "imageUrl": "/media/vocabulary/images/noun-station.webp",
+        "alt": "station noun card"
+      },
+      {
+        "id": "second_verb_ran",
+        "word": "ran",
+        "label": "ran",
+        "value": "ran",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-ran.webp",
+        "imagePath": "/media/vocabulary/images/verb-ran.webp",
+        "imageUrl": "/media/vocabulary/images/verb-ran.webp",
+        "alt": "ran verb card"
+      },
+      {
+        "id": "second_verb_reads",
         "word": "reads",
         "label": "reads",
         "value": "reads",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-reads.webp",
+        "imagePath": "/media/vocabulary/images/verb-reads.webp",
+        "imageUrl": "/media/vocabulary/images/verb-reads.webp",
+        "alt": "reads verb card"
       }
     ],
     "correctAnswer": "station",
@@ -9023,7 +16086,221 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "station makes the sentence make sense."
+    "explanation": "station is a noun."
+  },
+  {
+    "id": "second_nouns_l1_63_stream",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "stream",
+    "imagePath": "/media/vocabulary/images/stream.webp",
+    "imageUrl": "/media/vocabulary/images/stream.webp",
+    "targetImage": "/media/vocabulary/images/stream.webp",
+    "targetImagePath": "/media/vocabulary/images/stream.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "cook",
+      "fierce",
+      "stream",
+      "galloped"
+    ],
+    "answerOptions": [
+      {
+        "value": "cook",
+        "label": "cook",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "fierce",
+        "label": "fierce",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "stream",
+        "label": "stream",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "galloped",
+        "label": "galloped",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_cook",
+        "word": "cook",
+        "label": "cook",
+        "value": "cook",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-cook.webp",
+        "imagePath": "/media/vocabulary/images/verb-cook.webp",
+        "imageUrl": "/media/vocabulary/images/verb-cook.webp",
+        "alt": "cook verb card"
+      },
+      {
+        "id": "second_adjective_fierce",
+        "word": "fierce",
+        "label": "fierce",
+        "value": "fierce",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-fierce.webp",
+        "imagePath": "/media/vocabulary/images/adjective-fierce.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-fierce.webp",
+        "alt": "fierce adjective card"
+      },
+      {
+        "id": "second_noun_stream",
+        "word": "stream",
+        "label": "stream",
+        "value": "stream",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/stream.webp",
+        "imagePath": "/media/vocabulary/images/stream.webp",
+        "imageUrl": "/media/vocabulary/images/stream.webp",
+        "alt": "stream noun card"
+      },
+      {
+        "id": "second_verb_galloped",
+        "word": "galloped",
+        "label": "galloped",
+        "value": "galloped",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-galloped.webp",
+        "imagePath": "/media/vocabulary/images/verb-galloped.webp",
+        "imageUrl": "/media/vocabulary/images/verb-galloped.webp",
+        "alt": "galloped verb card"
+      }
+    ],
+    "correctAnswer": "stream",
+    "answer": "stream",
+    "itemType": "grammar_noun",
+    "itemKey": "stream",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "stream is a noun."
+  },
+  {
+    "id": "second_nouns_l1_64_sun",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "sun",
+    "imagePath": "/images/child-mode/cvc/sun.png",
+    "imageUrl": "/images/child-mode/cvc/sun.png",
+    "targetImage": "/images/child-mode/cvc/sun.png",
+    "targetImagePath": "/images/child-mode/cvc/sun.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "huge",
+      "sun",
+      "bake",
+      "build"
+    ],
+    "answerOptions": [
+      {
+        "value": "huge",
+        "label": "huge",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "sun",
+        "label": "sun",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "bake",
+        "label": "bake",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "build",
+        "label": "build",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_huge",
+        "word": "huge",
+        "label": "huge",
+        "value": "huge",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-huge.webp",
+        "imagePath": "/media/vocabulary/images/adjective-huge.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-huge.webp",
+        "alt": "huge adjective card"
+      },
+      {
+        "id": "second_noun_sun",
+        "word": "sun",
+        "label": "sun",
+        "value": "sun",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/sun.png",
+        "imagePath": "/images/child-mode/cvc/sun.png",
+        "imageUrl": "/images/child-mode/cvc/sun.png",
+        "alt": "sun noun card"
+      },
+      {
+        "id": "second_verb_bake",
+        "word": "bake",
+        "label": "bake",
+        "value": "bake",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-bake.webp",
+        "imagePath": "/media/vocabulary/images/verb-bake.webp",
+        "imageUrl": "/media/vocabulary/images/verb-bake.webp",
+        "alt": "bake verb card"
+      },
+      {
+        "id": "second_verb_build",
+        "word": "build",
+        "label": "build",
+        "value": "build",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-build.webp",
+        "imagePath": "/media/vocabulary/images/verb-build.webp",
+        "imageUrl": "/media/vocabulary/images/verb-build.webp",
+        "alt": "build verb card"
+      }
+    ],
+    "correctAnswer": "sun",
+    "answer": "sun",
+    "itemType": "grammar_noun",
+    "itemKey": "sun",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "sun is a noun."
   },
   {
     "id": "second_nouns_l1_09_ticket",
@@ -9036,9 +16313,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "ticket",
     "imagePath": "/media/vocabulary/images/noun-ticket.webp",
     "imageUrl": "/media/vocabulary/images/noun-ticket.webp",
@@ -9047,9 +16324,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the noun that best fits the sentence.",
-    "question": "Choose the noun that best fits the sentence.",
-    "sentence": "The child points to the ___ in the picture.",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
     "choices": [
       "ticket",
       "rises",
@@ -9058,32 +16334,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_ticket_text",
-        "word": "ticket",
-        "label": "ticket",
         "value": "ticket",
+        "label": "ticket",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_verb_rises_text",
+        "value": "rises",
+        "label": "rises",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "runs",
+        "label": "runs",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "tiny",
+        "label": "tiny",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_ticket",
+        "word": "ticket",
+        "label": "ticket",
+        "value": "ticket",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-ticket.webp",
+        "imagePath": "/media/vocabulary/images/noun-ticket.webp",
+        "imageUrl": "/media/vocabulary/images/noun-ticket.webp",
+        "alt": "ticket noun card"
+      },
+      {
+        "id": "second_verb_rises",
         "word": "rises",
         "label": "rises",
         "value": "rises",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-rises.webp",
+        "imagePath": "/media/vocabulary/images/verb-rises.webp",
+        "imageUrl": "/media/vocabulary/images/verb-rises.webp",
+        "alt": "rises verb card"
       },
       {
-        "id": "second_verb_runs_text",
+        "id": "second_verb_runs",
         "word": "runs",
         "label": "runs",
         "value": "runs",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-runs.webp",
+        "imagePath": "/media/vocabulary/images/verb-runs.webp",
+        "imageUrl": "/media/vocabulary/images/verb-runs.webp",
+        "alt": "runs verb card"
       },
       {
-        "id": "second_adjective_tiny_text",
+        "id": "second_adjective_tiny",
         "word": "tiny",
         "label": "tiny",
         "value": "tiny",
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-tiny.webp",
+        "imagePath": "/media/vocabulary/images/adjective-tiny.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-tiny.webp",
+        "alt": "tiny adjective card"
       }
     ],
     "correctAnswer": "ticket",
@@ -9093,7 +16407,328 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "noun",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "ticket makes the sentence make sense."
+    "explanation": "ticket is a noun."
+  },
+  {
+    "id": "second_nouns_l1_65_toast",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "toast",
+    "imagePath": "/media/vocabulary/images/toast.webp",
+    "imageUrl": "/media/vocabulary/images/toast.webp",
+    "targetImage": "/media/vocabulary/images/toast.webp",
+    "targetImagePath": "/media/vocabulary/images/toast.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "toast",
+      "count",
+      "drive",
+      "prickly"
+    ],
+    "answerOptions": [
+      {
+        "value": "toast",
+        "label": "toast",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "count",
+        "label": "count",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "drive",
+        "label": "drive",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "prickly",
+        "label": "prickly",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_toast",
+        "word": "toast",
+        "label": "toast",
+        "value": "toast",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/toast.webp",
+        "imagePath": "/media/vocabulary/images/toast.webp",
+        "imageUrl": "/media/vocabulary/images/toast.webp",
+        "alt": "toast noun card"
+      },
+      {
+        "id": "second_verb_count",
+        "word": "count",
+        "label": "count",
+        "value": "count",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-count.webp",
+        "imagePath": "/media/vocabulary/images/verb-count.webp",
+        "imageUrl": "/media/vocabulary/images/verb-count.webp",
+        "alt": "count verb card"
+      },
+      {
+        "id": "second_verb_drive",
+        "word": "drive",
+        "label": "drive",
+        "value": "drive",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-drive.webp",
+        "imagePath": "/media/vocabulary/images/verb-drive.webp",
+        "imageUrl": "/media/vocabulary/images/verb-drive.webp",
+        "alt": "drive verb card"
+      },
+      {
+        "id": "second_adjective_prickly",
+        "word": "prickly",
+        "label": "prickly",
+        "value": "prickly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-prickly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-prickly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-prickly.webp",
+        "alt": "prickly adjective card"
+      }
+    ],
+    "correctAnswer": "toast",
+    "answer": "toast",
+    "itemType": "grammar_noun",
+    "itemKey": "toast",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "toast is a noun."
+  },
+  {
+    "id": "second_nouns_l1_66_wood",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "wood",
+    "imagePath": "/media/vocabulary/images/wood.webp",
+    "imageUrl": "/media/vocabulary/images/wood.webp",
+    "targetImage": "/media/vocabulary/images/wood.webp",
+    "targetImagePath": "/media/vocabulary/images/wood.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "fall",
+      "fly",
+      "sharp",
+      "wood"
+    ],
+    "answerOptions": [
+      {
+        "value": "fall",
+        "label": "fall",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "fly",
+        "label": "fly",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "sharp",
+        "label": "sharp",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "wood",
+        "label": "wood",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_fall",
+        "word": "fall",
+        "label": "fall",
+        "value": "fall",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fall.webp",
+        "imagePath": "/media/vocabulary/images/verb-fall.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fall.webp",
+        "alt": "fall verb card"
+      },
+      {
+        "id": "second_verb_fly",
+        "word": "fly",
+        "label": "fly",
+        "value": "fly",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fly.webp",
+        "imagePath": "/media/vocabulary/images/verb-fly.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fly.webp",
+        "alt": "fly verb card"
+      },
+      {
+        "id": "second_adjective_sharp",
+        "word": "sharp",
+        "label": "sharp",
+        "value": "sharp",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-sharp.webp",
+        "imagePath": "/media/vocabulary/images/adjective-sharp.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-sharp.webp",
+        "alt": "sharp adjective card"
+      },
+      {
+        "id": "second_noun_wood",
+        "word": "wood",
+        "label": "wood",
+        "value": "wood",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/wood.webp",
+        "imagePath": "/media/vocabulary/images/wood.webp",
+        "imageUrl": "/media/vocabulary/images/wood.webp",
+        "alt": "wood noun card"
+      }
+    ],
+    "correctAnswer": "wood",
+    "answer": "wood",
+    "itemType": "grammar_noun",
+    "itemKey": "wood",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "wood is a noun."
+  },
+  {
+    "id": "second_nouns_l1_67_word",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "word",
+    "imagePath": "/media/vocabulary/images/word.webp",
+    "imageUrl": "/media/vocabulary/images/word.webp",
+    "targetImage": "/media/vocabulary/images/word.webp",
+    "targetImagePath": "/media/vocabulary/images/word.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a noun.",
+    "question": "Tap the picture that shows a noun.",
+    "choices": [
+      "share",
+      "smelly",
+      "word",
+      "hide"
+    ],
+    "answerOptions": [
+      {
+        "value": "share",
+        "label": "share",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "smelly",
+        "label": "smelly",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "word",
+        "label": "word",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "hide",
+        "label": "hide",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_share",
+        "word": "share",
+        "label": "share",
+        "value": "share",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-share.webp",
+        "imagePath": "/media/vocabulary/images/verb-share.webp",
+        "imageUrl": "/media/vocabulary/images/verb-share.webp",
+        "alt": "share verb card"
+      },
+      {
+        "id": "second_adjective_smelly",
+        "word": "smelly",
+        "label": "smelly",
+        "value": "smelly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-smelly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-smelly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-smelly.webp",
+        "alt": "smelly adjective card"
+      },
+      {
+        "id": "second_noun_word",
+        "word": "word",
+        "label": "word",
+        "value": "word",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/word.webp",
+        "imagePath": "/media/vocabulary/images/word.webp",
+        "imageUrl": "/media/vocabulary/images/word.webp",
+        "alt": "word noun card"
+      },
+      {
+        "id": "second_verb_hide",
+        "word": "hide",
+        "label": "hide",
+        "value": "hide",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-hide.webp",
+        "imagePath": "/media/vocabulary/images/verb-hide.webp",
+        "imageUrl": "/media/vocabulary/images/verb-hide.webp",
+        "alt": "hide verb card"
+      }
+    ],
+    "correctAnswer": "word",
+    "answer": "word",
+    "itemType": "grammar_noun",
+    "itemKey": "word",
+    "partOfSpeech": "noun",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "word is a noun."
   },
   {
     "id": "second_nouns_l2_01_back",
@@ -9441,42 +17076,12 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the noun that best fits the sentence.",
     "sentence": "The child sleeps in the ___.",
     "choices": [
-      "bag",
-      "bat",
-      "bear",
-      "bed"
+      "bed",
+      "goat",
+      "ham",
+      "hat"
     ],
     "answerOptions": [
-      {
-        "id": "second_noun_bag_text",
-        "word": "bag",
-        "label": "bag",
-        "value": "bag",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/bag.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/bag.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/bag.mp3"
-      },
-      {
-        "id": "second_noun_bat_text",
-        "word": "bat",
-        "label": "bat",
-        "value": "bat",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/bat.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/bat.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/bat.mp3"
-      },
-      {
-        "id": "second_noun_bear_text",
-        "word": "bear",
-        "label": "bear",
-        "value": "bear",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/words/bear.mp3",
-        "audioPath": "/audio/child-mode/words/bear.mp3",
-        "audioUrl": "/audio/child-mode/words/bear.mp3"
-      },
       {
         "id": "second_noun_bed_text",
         "word": "bed",
@@ -9486,6 +17091,36 @@ export const secondBlockSkillTopUpQuestions = [
         "audio": "/audio/child-mode/clean-human/words/bed.mp3",
         "audioPath": "/audio/child-mode/clean-human/words/bed.mp3",
         "audioUrl": "/audio/child-mode/clean-human/words/bed.mp3"
+      },
+      {
+        "id": "second_noun_goat_text",
+        "word": "goat",
+        "label": "goat",
+        "value": "goat",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/goat.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/goat.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/goat.mp3"
+      },
+      {
+        "id": "second_noun_ham_text",
+        "word": "ham",
+        "label": "ham",
+        "value": "ham",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/ham.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/ham.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/ham.mp3"
+      },
+      {
+        "id": "second_noun_hat_text",
+        "word": "hat",
+        "label": "hat",
+        "value": "hat",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/hat.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/hat.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/hat.mp3"
       }
     ],
     "correctAnswer": "bed",
@@ -9522,9 +17157,9 @@ export const secondBlockSkillTopUpQuestions = [
     "sentence": "The ___ rings at the end of class.",
     "choices": [
       "bell",
-      "boot",
-      "box",
-      "bug"
+      "jam",
+      "kid",
+      "knee"
     ],
     "answerOptions": [
       {
@@ -9538,34 +17173,34 @@ export const secondBlockSkillTopUpQuestions = [
         "audioUrl": "/audio/child-mode/clean-human/words/bell.mp3"
       },
       {
-        "id": "second_noun_boot_text",
-        "word": "boot",
-        "label": "boot",
-        "value": "boot",
+        "id": "second_noun_jam_text",
+        "word": "jam",
+        "label": "jam",
+        "value": "jam",
         "partOfSpeech": "noun",
-        "audio": "/media/vocabulary/audio/boot.mp3",
-        "audioPath": "/media/vocabulary/audio/boot.mp3",
-        "audioUrl": "/media/vocabulary/audio/boot.mp3"
+        "audio": "/audio/child-mode/clean-human/words/jam.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/jam.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/jam.mp3"
       },
       {
-        "id": "second_noun_box_text",
-        "word": "box",
-        "label": "box",
-        "value": "box",
+        "id": "second_noun_kid_text",
+        "word": "kid",
+        "label": "kid",
+        "value": "kid",
         "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/box.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/box.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/box.mp3"
+        "audio": "/audio/child-mode/clean-human/words/kid.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/kid.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/kid.mp3"
       },
       {
-        "id": "second_noun_bug_text",
-        "word": "bug",
-        "label": "bug",
-        "value": "bug",
+        "id": "second_noun_knee_text",
+        "word": "knee",
+        "label": "knee",
+        "value": "knee",
         "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/bug.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/bug.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/bug.mp3"
+        "audio": "/media/vocabulary/audio/knee.mp3",
+        "audioPath": "/media/vocabulary/audio/knee.mp3",
+        "audioUrl": "/media/vocabulary/audio/knee.mp3"
       }
     ],
     "correctAnswer": "bell",
@@ -9601,12 +17236,42 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the noun that best fits the sentence.",
     "sentence": "The student reads the ___.",
     "choices": [
-      "book",
-      "coat",
-      "cup",
-      "dad"
+      "bag",
+      "bat",
+      "bear",
+      "book"
     ],
     "answerOptions": [
+      {
+        "id": "second_noun_bag_text",
+        "word": "bag",
+        "label": "bag",
+        "value": "bag",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/bag.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/bag.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/bag.mp3"
+      },
+      {
+        "id": "second_noun_bat_text",
+        "word": "bat",
+        "label": "bat",
+        "value": "bat",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/bat.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/bat.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/bat.mp3"
+      },
+      {
+        "id": "second_noun_bear_text",
+        "word": "bear",
+        "label": "bear",
+        "value": "bear",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/words/bear.mp3",
+        "audioPath": "/audio/child-mode/words/bear.mp3",
+        "audioUrl": "/audio/child-mode/words/bear.mp3"
+      },
       {
         "id": "second_noun_book_text",
         "word": "book",
@@ -9616,36 +17281,6 @@ export const secondBlockSkillTopUpQuestions = [
         "audio": "/audio/child-mode/words/book.mp3",
         "audioPath": "/audio/child-mode/words/book.mp3",
         "audioUrl": "/audio/child-mode/words/book.mp3"
-      },
-      {
-        "id": "second_noun_coat_text",
-        "word": "coat",
-        "label": "coat",
-        "value": "coat",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/coat.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/coat.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/coat.mp3"
-      },
-      {
-        "id": "second_noun_cup_text",
-        "word": "cup",
-        "label": "cup",
-        "value": "cup",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/cup.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/cup.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/cup.mp3"
-      },
-      {
-        "id": "second_noun_dad_text",
-        "word": "dad",
-        "label": "dad",
-        "value": "dad",
-        "partOfSpeech": "noun",
-        "audio": "/media/vocabulary/audio/dad.mp3",
-        "audioPath": "/media/vocabulary/audio/dad.mp3",
-        "audioUrl": "/media/vocabulary/audio/dad.mp3"
       }
     ],
     "correctAnswer": "book",
@@ -9681,12 +17316,22 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the noun that best fits the sentence.",
     "sentence": "The muddy ___ sits by the door.",
     "choices": [
+      "book",
       "boot",
-      "egg",
-      "eye",
-      "fox"
+      "box",
+      "bug"
     ],
     "answerOptions": [
+      {
+        "id": "second_noun_book_text",
+        "word": "book",
+        "label": "book",
+        "value": "book",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/words/book.mp3",
+        "audioPath": "/audio/child-mode/words/book.mp3",
+        "audioUrl": "/audio/child-mode/words/book.mp3"
+      },
       {
         "id": "second_noun_boot_text",
         "word": "boot",
@@ -9698,34 +17343,24 @@ export const secondBlockSkillTopUpQuestions = [
         "audioUrl": "/media/vocabulary/audio/boot.mp3"
       },
       {
-        "id": "second_noun_egg_text",
-        "word": "egg",
-        "label": "egg",
-        "value": "egg",
+        "id": "second_noun_box_text",
+        "word": "box",
+        "label": "box",
+        "value": "box",
         "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/egg.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/egg.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/egg.mp3"
+        "audio": "/audio/child-mode/clean-human/words/box.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/box.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/box.mp3"
       },
       {
-        "id": "second_noun_eye_text",
-        "word": "eye",
-        "label": "eye",
-        "value": "eye",
+        "id": "second_noun_bug_text",
+        "word": "bug",
+        "label": "bug",
+        "value": "bug",
         "partOfSpeech": "noun",
-        "audio": "/media/vocabulary/audio/eye.mp3",
-        "audioPath": "/media/vocabulary/audio/eye.mp3",
-        "audioUrl": "/media/vocabulary/audio/eye.mp3"
-      },
-      {
-        "id": "second_noun_fox_text",
-        "word": "fox",
-        "label": "fox",
-        "value": "fox",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/fox.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/fox.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/fox.mp3"
+        "audio": "/audio/child-mode/clean-human/words/bug.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/bug.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/bug.mp3"
       }
     ],
     "correctAnswer": "boot",
@@ -9761,42 +17396,12 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the noun that best fits the sentence.",
     "sentence": "The toys are inside the ___.",
     "choices": [
-      "bat",
-      "bear",
-      "bed",
-      "box"
+      "box",
+      "coat",
+      "cup",
+      "dad"
     ],
     "answerOptions": [
-      {
-        "id": "second_noun_bat_text",
-        "word": "bat",
-        "label": "bat",
-        "value": "bat",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/bat.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/bat.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/bat.mp3"
-      },
-      {
-        "id": "second_noun_bear_text",
-        "word": "bear",
-        "label": "bear",
-        "value": "bear",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/words/bear.mp3",
-        "audioPath": "/audio/child-mode/words/bear.mp3",
-        "audioUrl": "/audio/child-mode/words/bear.mp3"
-      },
-      {
-        "id": "second_noun_bed_text",
-        "word": "bed",
-        "label": "bed",
-        "value": "bed",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/bed.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/bed.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/bed.mp3"
-      },
       {
         "id": "second_noun_box_text",
         "word": "box",
@@ -9806,6 +17411,36 @@ export const secondBlockSkillTopUpQuestions = [
         "audio": "/audio/child-mode/clean-human/words/box.mp3",
         "audioPath": "/audio/child-mode/clean-human/words/box.mp3",
         "audioUrl": "/audio/child-mode/clean-human/words/box.mp3"
+      },
+      {
+        "id": "second_noun_coat_text",
+        "word": "coat",
+        "label": "coat",
+        "value": "coat",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/coat.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/coat.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/coat.mp3"
+      },
+      {
+        "id": "second_noun_cup_text",
+        "word": "cup",
+        "label": "cup",
+        "value": "cup",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/cup.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/cup.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/cup.mp3"
+      },
+      {
+        "id": "second_noun_dad_text",
+        "word": "dad",
+        "label": "dad",
+        "value": "dad",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/dad.mp3",
+        "audioPath": "/media/vocabulary/audio/dad.mp3",
+        "audioUrl": "/media/vocabulary/audio/dad.mp3"
       }
     ],
     "correctAnswer": "box",
@@ -9841,32 +17476,12 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the noun that best fits the sentence.",
     "sentence": "The ___ crawls on the leaf.",
     "choices": [
-      "boot",
-      "box",
       "bug",
-      "cap"
+      "egg",
+      "eye",
+      "fox"
     ],
     "answerOptions": [
-      {
-        "id": "second_noun_boot_text",
-        "word": "boot",
-        "label": "boot",
-        "value": "boot",
-        "partOfSpeech": "noun",
-        "audio": "/media/vocabulary/audio/boot.mp3",
-        "audioPath": "/media/vocabulary/audio/boot.mp3",
-        "audioUrl": "/media/vocabulary/audio/boot.mp3"
-      },
-      {
-        "id": "second_noun_box_text",
-        "word": "box",
-        "label": "box",
-        "value": "box",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/box.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/box.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/box.mp3"
-      },
       {
         "id": "second_noun_bug_text",
         "word": "bug",
@@ -9878,14 +17493,34 @@ export const secondBlockSkillTopUpQuestions = [
         "audioUrl": "/audio/child-mode/clean-human/words/bug.mp3"
       },
       {
-        "id": "second_noun_cap_text",
-        "word": "cap",
-        "label": "cap",
-        "value": "cap",
+        "id": "second_noun_egg_text",
+        "word": "egg",
+        "label": "egg",
+        "value": "egg",
         "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/cap.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/cap.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/cap.mp3"
+        "audio": "/audio/child-mode/clean-human/words/egg.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/egg.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/egg.mp3"
+      },
+      {
+        "id": "second_noun_eye_text",
+        "word": "eye",
+        "label": "eye",
+        "value": "eye",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/eye.mp3",
+        "audioPath": "/media/vocabulary/audio/eye.mp3",
+        "audioUrl": "/media/vocabulary/audio/eye.mp3"
+      },
+      {
+        "id": "second_noun_fox_text",
+        "word": "fox",
+        "label": "fox",
+        "value": "fox",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/fox.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/fox.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/fox.mp3"
       }
     ],
     "correctAnswer": "bug",
@@ -9922,9 +17557,9 @@ export const secondBlockSkillTopUpQuestions = [
     "sentence": "The child wears a ___ on his head.",
     "choices": [
       "cap",
-      "cup",
-      "dad",
-      "dog"
+      "ham",
+      "hat",
+      "head"
     ],
     "answerOptions": [
       {
@@ -9938,34 +17573,34 @@ export const secondBlockSkillTopUpQuestions = [
         "audioUrl": "/audio/child-mode/clean-human/words/cap.mp3"
       },
       {
-        "id": "second_noun_cup_text",
-        "word": "cup",
-        "label": "cup",
-        "value": "cup",
+        "id": "second_noun_ham_text",
+        "word": "ham",
+        "label": "ham",
+        "value": "ham",
         "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/cup.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/cup.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/cup.mp3"
+        "audio": "/audio/child-mode/clean-human/words/ham.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/ham.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/ham.mp3"
       },
       {
-        "id": "second_noun_dad_text",
-        "word": "dad",
-        "label": "dad",
-        "value": "dad",
+        "id": "second_noun_hat_text",
+        "word": "hat",
+        "label": "hat",
+        "value": "hat",
         "partOfSpeech": "noun",
-        "audio": "/media/vocabulary/audio/dad.mp3",
-        "audioPath": "/media/vocabulary/audio/dad.mp3",
-        "audioUrl": "/media/vocabulary/audio/dad.mp3"
+        "audio": "/audio/child-mode/clean-human/words/hat.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/hat.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/hat.mp3"
       },
       {
-        "id": "second_noun_dog_text",
-        "word": "dog",
-        "label": "dog",
-        "value": "dog",
+        "id": "second_noun_head_text",
+        "word": "head",
+        "label": "head",
+        "value": "head",
         "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/dog.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/dog.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/dog.mp3"
+        "audio": "/media/vocabulary/audio/head.mp3",
+        "audioPath": "/media/vocabulary/audio/head.mp3",
+        "audioUrl": "/media/vocabulary/audio/head.mp3"
       }
     ],
     "correctAnswer": "cap",
@@ -10001,22 +17636,12 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the noun that best fits the sentence.",
     "sentence": "The ___ naps on the mat.",
     "choices": [
-      "back",
       "cat",
-      "eye",
-      "fox"
+      "kid",
+      "knee",
+      "leg"
     ],
     "answerOptions": [
-      {
-        "id": "second_noun_back_text",
-        "word": "back",
-        "label": "back",
-        "value": "back",
-        "partOfSpeech": "noun",
-        "audio": "/media/vocabulary/audio/back.mp3",
-        "audioPath": "/media/vocabulary/audio/back.mp3",
-        "audioUrl": "/media/vocabulary/audio/back.mp3"
-      },
       {
         "id": "second_noun_cat_text",
         "word": "cat",
@@ -10028,24 +17653,34 @@ export const secondBlockSkillTopUpQuestions = [
         "audioUrl": "/audio/child-mode/clean-human/words/cat.mp3"
       },
       {
-        "id": "second_noun_eye_text",
-        "word": "eye",
-        "label": "eye",
-        "value": "eye",
+        "id": "second_noun_kid_text",
+        "word": "kid",
+        "label": "kid",
+        "value": "kid",
         "partOfSpeech": "noun",
-        "audio": "/media/vocabulary/audio/eye.mp3",
-        "audioPath": "/media/vocabulary/audio/eye.mp3",
-        "audioUrl": "/media/vocabulary/audio/eye.mp3"
+        "audio": "/audio/child-mode/clean-human/words/kid.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/kid.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/kid.mp3"
       },
       {
-        "id": "second_noun_fox_text",
-        "word": "fox",
-        "label": "fox",
-        "value": "fox",
+        "id": "second_noun_knee_text",
+        "word": "knee",
+        "label": "knee",
+        "value": "knee",
         "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/fox.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/fox.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/fox.mp3"
+        "audio": "/media/vocabulary/audio/knee.mp3",
+        "audioPath": "/media/vocabulary/audio/knee.mp3",
+        "audioUrl": "/media/vocabulary/audio/knee.mp3"
+      },
+      {
+        "id": "second_noun_leg_text",
+        "word": "leg",
+        "label": "leg",
+        "value": "leg",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/leg.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/leg.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/leg.mp3"
       }
     ],
     "correctAnswer": "cat",
@@ -10081,12 +17716,22 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the noun that best fits the sentence.",
     "sentence": "The ___ hangs on the hook.",
     "choices": [
+      "bat",
       "bear",
       "bed",
-      "bell",
       "coat"
     ],
     "answerOptions": [
+      {
+        "id": "second_noun_bat_text",
+        "word": "bat",
+        "label": "bat",
+        "value": "bat",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/bat.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/bat.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/bat.mp3"
+      },
       {
         "id": "second_noun_bear_text",
         "word": "bear",
@@ -10106,16 +17751,6 @@ export const secondBlockSkillTopUpQuestions = [
         "audio": "/audio/child-mode/clean-human/words/bed.mp3",
         "audioPath": "/audio/child-mode/clean-human/words/bed.mp3",
         "audioUrl": "/audio/child-mode/clean-human/words/bed.mp3"
-      },
-      {
-        "id": "second_noun_bell_text",
-        "word": "bell",
-        "label": "bell",
-        "value": "bell",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/bell.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/bell.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/bell.mp3"
       },
       {
         "id": "second_noun_coat_text",
@@ -10161,12 +17796,22 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the noun that best fits the sentence.",
     "sentence": "The ___ holds cold water.",
     "choices": [
+      "boot",
       "box",
       "bug",
-      "cap",
       "cup"
     ],
     "answerOptions": [
+      {
+        "id": "second_noun_boot_text",
+        "word": "boot",
+        "label": "boot",
+        "value": "boot",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/boot.mp3",
+        "audioPath": "/media/vocabulary/audio/boot.mp3",
+        "audioUrl": "/media/vocabulary/audio/boot.mp3"
+      },
       {
         "id": "second_noun_box_text",
         "word": "box",
@@ -10186,16 +17831,6 @@ export const secondBlockSkillTopUpQuestions = [
         "audio": "/audio/child-mode/clean-human/words/bug.mp3",
         "audioPath": "/audio/child-mode/clean-human/words/bug.mp3",
         "audioUrl": "/audio/child-mode/clean-human/words/bug.mp3"
-      },
-      {
-        "id": "second_noun_cap_text",
-        "word": "cap",
-        "label": "cap",
-        "value": "cap",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/cap.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/cap.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/cap.mp3"
       },
       {
         "id": "second_noun_cup_text",
@@ -10241,12 +17876,22 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the noun that best fits the sentence.",
     "sentence": "The ___ reads a story.",
     "choices": [
+      "coat",
       "cup",
       "dad",
-      "dog",
-      "duck"
+      "dog"
     ],
     "answerOptions": [
+      {
+        "id": "second_noun_coat_text",
+        "word": "coat",
+        "label": "coat",
+        "value": "coat",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/coat.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/coat.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/coat.mp3"
+      },
       {
         "id": "second_noun_cup_text",
         "word": "cup",
@@ -10276,16 +17921,6 @@ export const secondBlockSkillTopUpQuestions = [
         "audio": "/audio/child-mode/clean-human/words/dog.mp3",
         "audioPath": "/audio/child-mode/clean-human/words/dog.mp3",
         "audioUrl": "/audio/child-mode/clean-human/words/dog.mp3"
-      },
-      {
-        "id": "second_noun_duck_text",
-        "word": "duck",
-        "label": "duck",
-        "value": "duck",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/words/duck.mp3",
-        "audioPath": "/audio/child-mode/words/duck.mp3",
-        "audioUrl": "/audio/child-mode/words/duck.mp3"
       }
     ],
     "correctAnswer": "dad",
@@ -10321,32 +17956,12 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the noun that best fits the sentence.",
     "sentence": "The ___ runs in the yard.",
     "choices": [
-      "back",
-      "bag",
       "dog",
-      "fox"
+      "eye",
+      "fox",
+      "glove"
     ],
     "answerOptions": [
-      {
-        "id": "second_noun_back_text",
-        "word": "back",
-        "label": "back",
-        "value": "back",
-        "partOfSpeech": "noun",
-        "audio": "/media/vocabulary/audio/back.mp3",
-        "audioPath": "/media/vocabulary/audio/back.mp3",
-        "audioUrl": "/media/vocabulary/audio/back.mp3"
-      },
-      {
-        "id": "second_noun_bag_text",
-        "word": "bag",
-        "label": "bag",
-        "value": "bag",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/bag.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/bag.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/bag.mp3"
-      },
       {
         "id": "second_noun_dog_text",
         "word": "dog",
@@ -10358,6 +17973,16 @@ export const secondBlockSkillTopUpQuestions = [
         "audioUrl": "/audio/child-mode/clean-human/words/dog.mp3"
       },
       {
+        "id": "second_noun_eye_text",
+        "word": "eye",
+        "label": "eye",
+        "value": "eye",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/eye.mp3",
+        "audioPath": "/media/vocabulary/audio/eye.mp3",
+        "audioUrl": "/media/vocabulary/audio/eye.mp3"
+      },
+      {
         "id": "second_noun_fox_text",
         "word": "fox",
         "label": "fox",
@@ -10366,6 +17991,16 @@ export const secondBlockSkillTopUpQuestions = [
         "audio": "/audio/child-mode/clean-human/words/fox.mp3",
         "audioPath": "/audio/child-mode/clean-human/words/fox.mp3",
         "audioUrl": "/audio/child-mode/clean-human/words/fox.mp3"
+      },
+      {
+        "id": "second_noun_glove_text",
+        "word": "glove",
+        "label": "glove",
+        "value": "glove",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/glove.mp3",
+        "audioPath": "/media/vocabulary/audio/glove.mp3",
+        "audioUrl": "/media/vocabulary/audio/glove.mp3"
       }
     ],
     "correctAnswer": "dog",
@@ -10401,42 +18036,12 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the noun that best fits the sentence.",
     "sentence": "The ___ swims in the pond.",
     "choices": [
-      "bed",
-      "bell",
-      "book",
-      "duck"
+      "duck",
+      "hat",
+      "head",
+      "hen"
     ],
     "answerOptions": [
-      {
-        "id": "second_noun_bed_text",
-        "word": "bed",
-        "label": "bed",
-        "value": "bed",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/bed.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/bed.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/bed.mp3"
-      },
-      {
-        "id": "second_noun_bell_text",
-        "word": "bell",
-        "label": "bell",
-        "value": "bell",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/bell.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/bell.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/bell.mp3"
-      },
-      {
-        "id": "second_noun_book_text",
-        "word": "book",
-        "label": "book",
-        "value": "book",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/words/book.mp3",
-        "audioPath": "/audio/child-mode/words/book.mp3",
-        "audioUrl": "/audio/child-mode/words/book.mp3"
-      },
       {
         "id": "second_noun_duck_text",
         "word": "duck",
@@ -10446,6 +18051,36 @@ export const secondBlockSkillTopUpQuestions = [
         "audio": "/audio/child-mode/words/duck.mp3",
         "audioPath": "/audio/child-mode/words/duck.mp3",
         "audioUrl": "/audio/child-mode/words/duck.mp3"
+      },
+      {
+        "id": "second_noun_hat_text",
+        "word": "hat",
+        "label": "hat",
+        "value": "hat",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/hat.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/hat.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/hat.mp3"
+      },
+      {
+        "id": "second_noun_head_text",
+        "word": "head",
+        "label": "head",
+        "value": "head",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/head.mp3",
+        "audioPath": "/media/vocabulary/audio/head.mp3",
+        "audioUrl": "/media/vocabulary/audio/head.mp3"
+      },
+      {
+        "id": "second_noun_hen_text",
+        "word": "hen",
+        "label": "hen",
+        "value": "hen",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/hen.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/hen.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/hen.mp3"
       }
     ],
     "correctAnswer": "duck",
@@ -10481,41 +18116,21 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the noun that best fits the sentence.",
     "sentence": "The ___ sits in the nest.",
     "choices": [
-      "bug",
-      "cap",
-      "cat",
-      "egg"
+      "back",
+      "egg",
+      "knee",
+      "leg"
     ],
     "answerOptions": [
       {
-        "id": "second_noun_bug_text",
-        "word": "bug",
-        "label": "bug",
-        "value": "bug",
+        "id": "second_noun_back_text",
+        "word": "back",
+        "label": "back",
+        "value": "back",
         "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/bug.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/bug.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/bug.mp3"
-      },
-      {
-        "id": "second_noun_cap_text",
-        "word": "cap",
-        "label": "cap",
-        "value": "cap",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/cap.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/cap.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/cap.mp3"
-      },
-      {
-        "id": "second_noun_cat_text",
-        "word": "cat",
-        "label": "cat",
-        "value": "cat",
-        "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/cat.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/cat.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/cat.mp3"
+        "audio": "/media/vocabulary/audio/back.mp3",
+        "audioPath": "/media/vocabulary/audio/back.mp3",
+        "audioUrl": "/media/vocabulary/audio/back.mp3"
       },
       {
         "id": "second_noun_egg_text",
@@ -10526,6 +18141,26 @@ export const secondBlockSkillTopUpQuestions = [
         "audio": "/audio/child-mode/clean-human/words/egg.mp3",
         "audioPath": "/audio/child-mode/clean-human/words/egg.mp3",
         "audioUrl": "/audio/child-mode/clean-human/words/egg.mp3"
+      },
+      {
+        "id": "second_noun_knee_text",
+        "word": "knee",
+        "label": "knee",
+        "value": "knee",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/knee.mp3",
+        "audioPath": "/media/vocabulary/audio/knee.mp3",
+        "audioUrl": "/media/vocabulary/audio/knee.mp3"
+      },
+      {
+        "id": "second_noun_leg_text",
+        "word": "leg",
+        "label": "leg",
+        "value": "leg",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/leg.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/leg.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/leg.mp3"
       }
     ],
     "correctAnswer": "egg",
@@ -10561,41 +18196,41 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the noun that best fits the sentence.",
     "sentence": "The child covers one ___.",
     "choices": [
-      "dad",
-      "dog",
-      "duck",
+      "bear",
+      "bed",
+      "bell",
       "eye"
     ],
     "answerOptions": [
       {
-        "id": "second_noun_dad_text",
-        "word": "dad",
-        "label": "dad",
-        "value": "dad",
+        "id": "second_noun_bear_text",
+        "word": "bear",
+        "label": "bear",
+        "value": "bear",
         "partOfSpeech": "noun",
-        "audio": "/media/vocabulary/audio/dad.mp3",
-        "audioPath": "/media/vocabulary/audio/dad.mp3",
-        "audioUrl": "/media/vocabulary/audio/dad.mp3"
+        "audio": "/audio/child-mode/words/bear.mp3",
+        "audioPath": "/audio/child-mode/words/bear.mp3",
+        "audioUrl": "/audio/child-mode/words/bear.mp3"
       },
       {
-        "id": "second_noun_dog_text",
-        "word": "dog",
-        "label": "dog",
-        "value": "dog",
+        "id": "second_noun_bed_text",
+        "word": "bed",
+        "label": "bed",
+        "value": "bed",
         "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/dog.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/dog.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/dog.mp3"
+        "audio": "/audio/child-mode/clean-human/words/bed.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/bed.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/bed.mp3"
       },
       {
-        "id": "second_noun_duck_text",
-        "word": "duck",
-        "label": "duck",
-        "value": "duck",
+        "id": "second_noun_bell_text",
+        "word": "bell",
+        "label": "bell",
+        "value": "bell",
         "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/words/duck.mp3",
-        "audioPath": "/audio/child-mode/words/duck.mp3",
-        "audioUrl": "/audio/child-mode/words/duck.mp3"
+        "audio": "/audio/child-mode/clean-human/words/bell.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/bell.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/bell.mp3"
       },
       {
         "id": "second_noun_eye_text",
@@ -10641,10 +18276,810 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the noun that best fits the sentence.",
     "sentence": "The ___ hides in the grass.",
     "choices": [
+      "box",
+      "bug",
+      "cap",
+      "fox"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_noun_box_text",
+        "word": "box",
+        "label": "box",
+        "value": "box",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/box.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/box.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/box.mp3"
+      },
+      {
+        "id": "second_noun_bug_text",
+        "word": "bug",
+        "label": "bug",
+        "value": "bug",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/bug.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/bug.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/bug.mp3"
+      },
+      {
+        "id": "second_noun_cap_text",
+        "word": "cap",
+        "label": "cap",
+        "value": "cap",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/cap.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/cap.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/cap.mp3"
+      },
+      {
+        "id": "second_noun_fox_text",
+        "word": "fox",
+        "label": "fox",
+        "value": "fox",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/fox.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/fox.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/fox.mp3"
+      }
+    ],
+    "correctAnswer": "fox",
+    "answer": "fox",
+    "itemType": "grammar_noun",
+    "itemKey": "fox",
+    "partOfSpeech": "noun",
+    "explanation": "fox fits the sentence as a noun."
+  },
+  {
+    "id": "second_nouns_l2_21_glove",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "glove",
+    "imagePath": "/media/vocabulary/images/glove.webp",
+    "imageUrl": "/media/vocabulary/images/glove.webp",
+    "targetImage": "/media/vocabulary/images/glove.webp",
+    "targetImagePath": "/media/vocabulary/images/glove.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the noun that best fits the sentence.",
+    "question": "Choose the noun that best fits the sentence.",
+    "sentence": "The child points to the ___ in the picture.",
+    "choices": [
+      "cup",
+      "dad",
+      "dog",
+      "glove"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_noun_cup_text",
+        "word": "cup",
+        "label": "cup",
+        "value": "cup",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/cup.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/cup.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/cup.mp3"
+      },
+      {
+        "id": "second_noun_dad_text",
+        "word": "dad",
+        "label": "dad",
+        "value": "dad",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/dad.mp3",
+        "audioPath": "/media/vocabulary/audio/dad.mp3",
+        "audioUrl": "/media/vocabulary/audio/dad.mp3"
+      },
+      {
+        "id": "second_noun_dog_text",
+        "word": "dog",
+        "label": "dog",
+        "value": "dog",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/dog.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/dog.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/dog.mp3"
+      },
+      {
+        "id": "second_noun_glove_text",
+        "word": "glove",
+        "label": "glove",
+        "value": "glove",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/glove.mp3",
+        "audioPath": "/media/vocabulary/audio/glove.mp3",
+        "audioUrl": "/media/vocabulary/audio/glove.mp3"
+      }
+    ],
+    "correctAnswer": "glove",
+    "answer": "glove",
+    "itemType": "grammar_noun",
+    "itemKey": "glove",
+    "partOfSpeech": "noun",
+    "explanation": "glove fits the sentence as a noun."
+  },
+  {
+    "id": "second_nouns_l2_22_goat",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "goat",
+    "imagePath": "/images/assessment/long-vowels/goat.webp",
+    "imageUrl": "/images/assessment/long-vowels/goat.webp",
+    "targetImage": "/images/assessment/long-vowels/goat.webp",
+    "targetImagePath": "/images/assessment/long-vowels/goat.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the noun that best fits the sentence.",
+    "question": "Choose the noun that best fits the sentence.",
+    "sentence": "The child points to the ___ in the picture.",
+    "choices": [
+      "eye",
+      "fox",
+      "glove",
+      "goat"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_noun_eye_text",
+        "word": "eye",
+        "label": "eye",
+        "value": "eye",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/eye.mp3",
+        "audioPath": "/media/vocabulary/audio/eye.mp3",
+        "audioUrl": "/media/vocabulary/audio/eye.mp3"
+      },
+      {
+        "id": "second_noun_fox_text",
+        "word": "fox",
+        "label": "fox",
+        "value": "fox",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/fox.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/fox.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/fox.mp3"
+      },
+      {
+        "id": "second_noun_glove_text",
+        "word": "glove",
+        "label": "glove",
+        "value": "glove",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/glove.mp3",
+        "audioPath": "/media/vocabulary/audio/glove.mp3",
+        "audioUrl": "/media/vocabulary/audio/glove.mp3"
+      },
+      {
+        "id": "second_noun_goat_text",
+        "word": "goat",
+        "label": "goat",
+        "value": "goat",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/goat.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/goat.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/goat.mp3"
+      }
+    ],
+    "correctAnswer": "goat",
+    "answer": "goat",
+    "itemType": "grammar_noun",
+    "itemKey": "goat",
+    "partOfSpeech": "noun",
+    "explanation": "goat fits the sentence as a noun."
+  },
+  {
+    "id": "second_nouns_l2_23_ham",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "ham",
+    "imagePath": "/images/child-mode/initial-sounds/ham.png",
+    "imageUrl": "/images/child-mode/initial-sounds/ham.png",
+    "targetImage": "/images/child-mode/initial-sounds/ham.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/ham.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the noun that best fits the sentence.",
+    "question": "Choose the noun that best fits the sentence.",
+    "sentence": "The child points to the ___ in the picture.",
+    "choices": [
+      "ham",
+      "head",
+      "hen",
+      "jam"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_noun_ham_text",
+        "word": "ham",
+        "label": "ham",
+        "value": "ham",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/ham.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/ham.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/ham.mp3"
+      },
+      {
+        "id": "second_noun_head_text",
+        "word": "head",
+        "label": "head",
+        "value": "head",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/head.mp3",
+        "audioPath": "/media/vocabulary/audio/head.mp3",
+        "audioUrl": "/media/vocabulary/audio/head.mp3"
+      },
+      {
+        "id": "second_noun_hen_text",
+        "word": "hen",
+        "label": "hen",
+        "value": "hen",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/hen.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/hen.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/hen.mp3"
+      },
+      {
+        "id": "second_noun_jam_text",
+        "word": "jam",
+        "label": "jam",
+        "value": "jam",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/jam.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/jam.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/jam.mp3"
+      }
+    ],
+    "correctAnswer": "ham",
+    "answer": "ham",
+    "itemType": "grammar_noun",
+    "itemKey": "ham",
+    "partOfSpeech": "noun",
+    "explanation": "ham fits the sentence as a noun."
+  },
+  {
+    "id": "second_nouns_l2_24_hat",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "hat",
+    "imagePath": "/images/child-mode/cvc/hat.png",
+    "imageUrl": "/images/child-mode/cvc/hat.png",
+    "targetImage": "/images/child-mode/cvc/hat.png",
+    "targetImagePath": "/images/child-mode/cvc/hat.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the noun that best fits the sentence.",
+    "question": "Choose the noun that best fits the sentence.",
+    "sentence": "The ___ is on the chair.",
+    "choices": [
+      "back",
+      "bag",
+      "hat",
+      "leg"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_noun_back_text",
+        "word": "back",
+        "label": "back",
+        "value": "back",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/back.mp3",
+        "audioPath": "/media/vocabulary/audio/back.mp3",
+        "audioUrl": "/media/vocabulary/audio/back.mp3"
+      },
+      {
+        "id": "second_noun_bag_text",
+        "word": "bag",
+        "label": "bag",
+        "value": "bag",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/bag.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/bag.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/bag.mp3"
+      },
+      {
+        "id": "second_noun_hat_text",
+        "word": "hat",
+        "label": "hat",
+        "value": "hat",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/hat.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/hat.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/hat.mp3"
+      },
+      {
+        "id": "second_noun_leg_text",
+        "word": "leg",
+        "label": "leg",
+        "value": "leg",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/leg.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/leg.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/leg.mp3"
+      }
+    ],
+    "correctAnswer": "hat",
+    "answer": "hat",
+    "itemType": "grammar_noun",
+    "itemKey": "hat",
+    "partOfSpeech": "noun",
+    "explanation": "hat fits the sentence as a noun."
+  },
+  {
+    "id": "second_nouns_l2_25_head",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "head",
+    "imagePath": "/media/vocabulary/images/head.webp",
+    "imageUrl": "/media/vocabulary/images/head.webp",
+    "targetImage": "/media/vocabulary/images/head.webp",
+    "targetImagePath": "/media/vocabulary/images/head.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the noun that best fits the sentence.",
+    "question": "Choose the noun that best fits the sentence.",
+    "sentence": "The child points to the ___ in the picture.",
+    "choices": [
+      "bed",
+      "bell",
+      "book",
+      "head"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_noun_bed_text",
+        "word": "bed",
+        "label": "bed",
+        "value": "bed",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/bed.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/bed.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/bed.mp3"
+      },
+      {
+        "id": "second_noun_bell_text",
+        "word": "bell",
+        "label": "bell",
+        "value": "bell",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/bell.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/bell.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/bell.mp3"
+      },
+      {
+        "id": "second_noun_book_text",
+        "word": "book",
+        "label": "book",
+        "value": "book",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/words/book.mp3",
+        "audioPath": "/audio/child-mode/words/book.mp3",
+        "audioUrl": "/audio/child-mode/words/book.mp3"
+      },
+      {
+        "id": "second_noun_head_text",
+        "word": "head",
+        "label": "head",
+        "value": "head",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/head.mp3",
+        "audioPath": "/media/vocabulary/audio/head.mp3",
+        "audioUrl": "/media/vocabulary/audio/head.mp3"
+      }
+    ],
+    "correctAnswer": "head",
+    "answer": "head",
+    "itemType": "grammar_noun",
+    "itemKey": "head",
+    "partOfSpeech": "noun",
+    "explanation": "head fits the sentence as a noun."
+  },
+  {
+    "id": "second_nouns_l2_26_hen",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "hen",
+    "imagePath": "/images/child-mode/initial-sounds/hen.png",
+    "imageUrl": "/images/child-mode/initial-sounds/hen.png",
+    "targetImage": "/images/child-mode/initial-sounds/hen.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/hen.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the noun that best fits the sentence.",
+    "question": "Choose the noun that best fits the sentence.",
+    "sentence": "The child points to the ___ in the picture.",
+    "choices": [
+      "bug",
+      "cap",
+      "cat",
+      "hen"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_noun_bug_text",
+        "word": "bug",
+        "label": "bug",
+        "value": "bug",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/bug.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/bug.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/bug.mp3"
+      },
+      {
+        "id": "second_noun_cap_text",
+        "word": "cap",
+        "label": "cap",
+        "value": "cap",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/cap.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/cap.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/cap.mp3"
+      },
+      {
+        "id": "second_noun_cat_text",
+        "word": "cat",
+        "label": "cat",
+        "value": "cat",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/cat.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/cat.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/cat.mp3"
+      },
+      {
+        "id": "second_noun_hen_text",
+        "word": "hen",
+        "label": "hen",
+        "value": "hen",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/hen.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/hen.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/hen.mp3"
+      }
+    ],
+    "correctAnswer": "hen",
+    "answer": "hen",
+    "itemType": "grammar_noun",
+    "itemKey": "hen",
+    "partOfSpeech": "noun",
+    "explanation": "hen fits the sentence as a noun."
+  },
+  {
+    "id": "second_nouns_l2_27_jam",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "jam",
+    "imagePath": "/images/child-mode/initial-sounds/jam.png",
+    "imageUrl": "/images/child-mode/initial-sounds/jam.png",
+    "targetImage": "/images/child-mode/initial-sounds/jam.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/jam.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the noun that best fits the sentence.",
+    "question": "Choose the noun that best fits the sentence.",
+    "sentence": "The child points to the ___ in the picture.",
+    "choices": [
+      "dad",
+      "dog",
+      "duck",
+      "jam"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_noun_dad_text",
+        "word": "dad",
+        "label": "dad",
+        "value": "dad",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/dad.mp3",
+        "audioPath": "/media/vocabulary/audio/dad.mp3",
+        "audioUrl": "/media/vocabulary/audio/dad.mp3"
+      },
+      {
+        "id": "second_noun_dog_text",
+        "word": "dog",
+        "label": "dog",
+        "value": "dog",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/dog.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/dog.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/dog.mp3"
+      },
+      {
+        "id": "second_noun_duck_text",
+        "word": "duck",
+        "label": "duck",
+        "value": "duck",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/words/duck.mp3",
+        "audioPath": "/audio/child-mode/words/duck.mp3",
+        "audioUrl": "/audio/child-mode/words/duck.mp3"
+      },
+      {
+        "id": "second_noun_jam_text",
+        "word": "jam",
+        "label": "jam",
+        "value": "jam",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/jam.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/jam.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/jam.mp3"
+      }
+    ],
+    "correctAnswer": "jam",
+    "answer": "jam",
+    "itemType": "grammar_noun",
+    "itemKey": "jam",
+    "partOfSpeech": "noun",
+    "explanation": "jam fits the sentence as a noun."
+  },
+  {
+    "id": "second_nouns_l2_28_kid",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "kid",
+    "imagePath": "/images/child-mode/initial-sounds/kid.png",
+    "imageUrl": "/images/child-mode/initial-sounds/kid.png",
+    "targetImage": "/images/child-mode/initial-sounds/kid.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/kid.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the noun that best fits the sentence.",
+    "question": "Choose the noun that best fits the sentence.",
+    "sentence": "The child points to the ___ in the picture.",
+    "choices": [
+      "fox",
+      "glove",
+      "goat",
+      "kid"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_noun_fox_text",
+        "word": "fox",
+        "label": "fox",
+        "value": "fox",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/fox.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/fox.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/fox.mp3"
+      },
+      {
+        "id": "second_noun_glove_text",
+        "word": "glove",
+        "label": "glove",
+        "value": "glove",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/glove.mp3",
+        "audioPath": "/media/vocabulary/audio/glove.mp3",
+        "audioUrl": "/media/vocabulary/audio/glove.mp3"
+      },
+      {
+        "id": "second_noun_goat_text",
+        "word": "goat",
+        "label": "goat",
+        "value": "goat",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/goat.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/goat.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/goat.mp3"
+      },
+      {
+        "id": "second_noun_kid_text",
+        "word": "kid",
+        "label": "kid",
+        "value": "kid",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/kid.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/kid.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/kid.mp3"
+      }
+    ],
+    "correctAnswer": "kid",
+    "answer": "kid",
+    "itemType": "grammar_noun",
+    "itemKey": "kid",
+    "partOfSpeech": "noun",
+    "explanation": "kid fits the sentence as a noun."
+  },
+  {
+    "id": "second_nouns_l2_29_knee",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "knee",
+    "imagePath": "/media/vocabulary/images/knee.webp",
+    "imageUrl": "/media/vocabulary/images/knee.webp",
+    "targetImage": "/media/vocabulary/images/knee.webp",
+    "targetImagePath": "/media/vocabulary/images/knee.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the noun that best fits the sentence.",
+    "question": "Choose the noun that best fits the sentence.",
+    "sentence": "The child points to the ___ in the picture.",
+    "choices": [
+      "head",
+      "hen",
+      "jam",
+      "knee"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_noun_head_text",
+        "word": "head",
+        "label": "head",
+        "value": "head",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/head.mp3",
+        "audioPath": "/media/vocabulary/audio/head.mp3",
+        "audioUrl": "/media/vocabulary/audio/head.mp3"
+      },
+      {
+        "id": "second_noun_hen_text",
+        "word": "hen",
+        "label": "hen",
+        "value": "hen",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/hen.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/hen.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/hen.mp3"
+      },
+      {
+        "id": "second_noun_jam_text",
+        "word": "jam",
+        "label": "jam",
+        "value": "jam",
+        "partOfSpeech": "noun",
+        "audio": "/audio/child-mode/clean-human/words/jam.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/jam.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/jam.mp3"
+      },
+      {
+        "id": "second_noun_knee_text",
+        "word": "knee",
+        "label": "knee",
+        "value": "knee",
+        "partOfSpeech": "noun",
+        "audio": "/media/vocabulary/audio/knee.mp3",
+        "audioPath": "/media/vocabulary/audio/knee.mp3",
+        "audioUrl": "/media/vocabulary/audio/knee.mp3"
+      }
+    ],
+    "correctAnswer": "knee",
+    "answer": "knee",
+    "itemType": "grammar_noun",
+    "itemKey": "knee",
+    "partOfSpeech": "noun",
+    "explanation": "knee fits the sentence as a noun."
+  },
+  {
+    "id": "second_nouns_l2_30_leg",
+    "grade": "K-3",
+    "skillId": "nouns",
+    "skillName": "Nouns",
+    "skill": "Nouns",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "leg",
+    "imagePath": "/images/child-mode/initial-sounds/leg.png",
+    "imageUrl": "/images/child-mode/initial-sounds/leg.png",
+    "targetImage": "/images/child-mode/initial-sounds/leg.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/leg.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the noun that best fits the sentence.",
+    "question": "Choose the noun that best fits the sentence.",
+    "sentence": "The table has one broken ___.",
+    "choices": [
       "back",
       "bag",
       "bat",
-      "fox"
+      "leg"
     ],
     "answerOptions": [
       {
@@ -10678,22 +19113,22 @@ export const secondBlockSkillTopUpQuestions = [
         "audioUrl": "/audio/child-mode/clean-human/words/bat.mp3"
       },
       {
-        "id": "second_noun_fox_text",
-        "word": "fox",
-        "label": "fox",
-        "value": "fox",
+        "id": "second_noun_leg_text",
+        "word": "leg",
+        "label": "leg",
+        "value": "leg",
         "partOfSpeech": "noun",
-        "audio": "/audio/child-mode/clean-human/words/fox.mp3",
-        "audioPath": "/audio/child-mode/clean-human/words/fox.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/words/fox.mp3"
+        "audio": "/audio/child-mode/clean-human/words/leg.mp3",
+        "audioPath": "/audio/child-mode/clean-human/words/leg.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/words/leg.mp3"
       }
     ],
-    "correctAnswer": "fox",
-    "answer": "fox",
+    "correctAnswer": "leg",
+    "answer": "leg",
     "itemType": "grammar_noun",
-    "itemKey": "fox",
+    "itemKey": "leg",
     "partOfSpeech": "noun",
-    "explanation": "fox fits the sentence as a noun."
+    "explanation": "leg fits the sentence as a noun."
   },
   {
     "id": "second_plurals_l1_01_cats",
@@ -11370,7 +19805,7 @@ export const secondBlockSkillTopUpQuestions = [
       "frogs",
       "wolf",
       "shelf",
-      "cat"
+      "peach"
     ],
     "answerOptions": [
       {
@@ -11386,8 +19821,8 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "shelf"
       },
       {
-        "value": "cat",
-        "label": "cat"
+        "value": "peach",
+        "label": "peach"
       }
     ],
     "correctAnswer": "frogs",
@@ -11429,9 +19864,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "grapes",
-      "pen",
-      "pig",
-      "hen"
+      "sock",
+      "drum",
+      "flag"
     ],
     "answerOptions": [
       {
@@ -11439,16 +19874,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "grapes"
       },
       {
-        "value": "pen",
-        "label": "pen"
+        "value": "sock",
+        "label": "sock"
       },
       {
-        "value": "pig",
-        "label": "pig"
+        "value": "drum",
+        "label": "drum"
       },
       {
-        "value": "hen",
-        "label": "hen"
+        "value": "flag",
+        "label": "flag"
       }
     ],
     "correctAnswer": "grapes",
@@ -11490,9 +19925,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "boxes",
-      "bus",
-      "dish",
-      "wish"
+      "dog",
+      "book",
+      "cup"
     ],
     "answerOptions": [
       {
@@ -11500,16 +19935,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "boxes"
       },
       {
-        "value": "bus",
-        "label": "bus"
+        "value": "dog",
+        "label": "dog"
       },
       {
-        "value": "dish",
-        "label": "dish"
+        "value": "book",
+        "label": "book"
       },
       {
-        "value": "wish",
-        "label": "wish"
+        "value": "cup",
+        "label": "cup"
       }
     ],
     "correctAnswer": "boxes",
@@ -11547,9 +19982,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "foxes",
-      "class",
-      "church",
-      "lunch"
+      "car",
+      "hat",
+      "bag"
     ],
     "answerOptions": [
       {
@@ -11557,16 +19992,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "foxes"
       },
       {
-        "value": "class",
-        "label": "class"
+        "value": "car",
+        "label": "car"
       },
       {
-        "value": "church",
-        "label": "church"
+        "value": "hat",
+        "label": "hat"
       },
       {
-        "value": "lunch",
-        "label": "lunch"
+        "value": "bag",
+        "label": "bag"
       }
     ],
     "correctAnswer": "foxes",
@@ -11608,9 +20043,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "buses",
-      "glass",
-      "kiss",
-      "mitten"
+      "ball",
+      "bat",
+      "bed"
     ],
     "answerOptions": [
       {
@@ -11618,16 +20053,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "buses"
       },
       {
-        "value": "glass",
-        "label": "glass"
+        "value": "ball",
+        "label": "ball"
       },
       {
-        "value": "kiss",
-        "label": "kiss"
+        "value": "bat",
+        "label": "bat"
       },
       {
-        "value": "mitten",
-        "label": "mitten"
+        "value": "bed",
+        "label": "bed"
       }
     ],
     "correctAnswer": "buses",
@@ -11669,9 +20104,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "dishes",
-      "stair",
-      "puppy",
-      "baby"
+      "duck",
+      "frog",
+      "map"
     ],
     "answerOptions": [
       {
@@ -11679,16 +20114,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "dishes"
       },
       {
-        "value": "stair",
-        "label": "stair"
+        "value": "duck",
+        "label": "duck"
       },
       {
-        "value": "puppy",
-        "label": "puppy"
+        "value": "frog",
+        "label": "frog"
       },
       {
-        "value": "baby",
-        "label": "baby"
+        "value": "map",
+        "label": "map"
       }
     ],
     "correctAnswer": "dishes",
@@ -11726,9 +20161,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "wishes",
-      "party",
-      "leaf",
-      "wolf"
+      "pen",
+      "pig",
+      "hen"
     ],
     "answerOptions": [
       {
@@ -11736,16 +20171,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "wishes"
       },
       {
-        "value": "party",
-        "label": "party"
+        "value": "pen",
+        "label": "pen"
       },
       {
-        "value": "leaf",
-        "label": "leaf"
+        "value": "pig",
+        "label": "pig"
       },
       {
-        "value": "wolf",
-        "label": "wolf"
+        "value": "hen",
+        "label": "hen"
       }
     ],
     "correctAnswer": "wishes",
@@ -11783,9 +20218,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "classes",
-      "shelf",
-      "cat",
-      "dog"
+      "grape",
+      "pea",
+      "box"
     ],
     "answerOptions": [
       {
@@ -11793,16 +20228,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "classes"
       },
       {
-        "value": "shelf",
-        "label": "shelf"
+        "value": "grape",
+        "label": "grape"
       },
       {
-        "value": "cat",
-        "label": "cat"
+        "value": "pea",
+        "label": "pea"
       },
       {
-        "value": "dog",
-        "label": "dog"
+        "value": "box",
+        "label": "box"
       }
     ],
     "correctAnswer": "classes",
@@ -11840,9 +20275,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "churches",
-      "book",
-      "cup",
-      "car"
+      "fox",
+      "bus",
+      "dish"
     ],
     "answerOptions": [
       {
@@ -11850,16 +20285,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "churches"
       },
       {
-        "value": "book",
-        "label": "book"
+        "value": "fox",
+        "label": "fox"
       },
       {
-        "value": "cup",
-        "label": "cup"
+        "value": "bus",
+        "label": "bus"
       },
       {
-        "value": "car",
-        "label": "car"
+        "value": "dish",
+        "label": "dish"
       }
     ],
     "correctAnswer": "churches",
@@ -11897,9 +20332,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "lunches",
-      "hat",
-      "bag",
-      "ball"
+      "wish",
+      "class",
+      "church"
     ],
     "answerOptions": [
       {
@@ -11907,16 +20342,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "lunches"
       },
       {
-        "value": "hat",
-        "label": "hat"
+        "value": "wish",
+        "label": "wish"
       },
       {
-        "value": "bag",
-        "label": "bag"
+        "value": "class",
+        "label": "class"
       },
       {
-        "value": "ball",
-        "label": "ball"
+        "value": "church",
+        "label": "church"
       }
     ],
     "correctAnswer": "lunches",
@@ -11958,9 +20393,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "glasses",
-      "bat",
-      "bed",
-      "duck"
+      "lunch",
+      "kiss",
+      "mitten"
     ],
     "answerOptions": [
       {
@@ -11968,16 +20403,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "glasses"
       },
       {
-        "value": "bat",
-        "label": "bat"
+        "value": "lunch",
+        "label": "lunch"
       },
       {
-        "value": "bed",
-        "label": "bed"
+        "value": "kiss",
+        "label": "kiss"
       },
       {
-        "value": "duck",
-        "label": "duck"
+        "value": "mitten",
+        "label": "mitten"
       }
     ],
     "correctAnswer": "glasses",
@@ -12015,9 +20450,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "kisses",
-      "frog",
-      "map",
-      "pen"
+      "stair",
+      "puppy",
+      "baby"
     ],
     "answerOptions": [
       {
@@ -12025,16 +20460,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "kisses"
       },
       {
-        "value": "frog",
-        "label": "frog"
+        "value": "stair",
+        "label": "stair"
       },
       {
-        "value": "map",
-        "label": "map"
+        "value": "puppy",
+        "label": "puppy"
       },
       {
-        "value": "pen",
-        "label": "pen"
+        "value": "baby",
+        "label": "baby"
       }
     ],
     "correctAnswer": "kisses",
@@ -12045,6 +20480,405 @@ export const secondBlockSkillTopUpQuestions = [
     "itemType": "plural",
     "itemKey": "es",
     "explanation": "kisses means more than one kiss."
+  },
+  {
+    "id": "second_plurals_l2_37_peaches",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "peaches",
+    "imagePath": "/media/vocabulary/images/peach.webp",
+    "imageUrl": "/media/vocabulary/images/peach.webp",
+    "targetImage": "/media/vocabulary/images/peach.webp",
+    "targetImagePath": "/media/vocabulary/images/peach.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "peaches",
+      "book",
+      "cup",
+      "car"
+    ],
+    "answerOptions": [
+      {
+        "value": "peaches",
+        "label": "peaches"
+      },
+      {
+        "value": "book",
+        "label": "book"
+      },
+      {
+        "value": "cup",
+        "label": "cup"
+      },
+      {
+        "value": "car",
+        "label": "car"
+      }
+    ],
+    "correctAnswer": "peaches",
+    "answer": "peaches",
+    "singularWord": "peach",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_peach_peaches",
+    "itemType": "plural",
+    "itemKey": "es",
+    "explanation": "peaches means more than one peach."
+  },
+  {
+    "id": "second_plurals_l2_38_benches",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "benches",
+    "imagePath": "/media/vocabulary/images/bench.webp",
+    "imageUrl": "/media/vocabulary/images/bench.webp",
+    "targetImage": "/media/vocabulary/images/bench.webp",
+    "targetImagePath": "/media/vocabulary/images/bench.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "benches",
+      "hat",
+      "bag",
+      "ball"
+    ],
+    "answerOptions": [
+      {
+        "value": "benches",
+        "label": "benches"
+      },
+      {
+        "value": "hat",
+        "label": "hat"
+      },
+      {
+        "value": "bag",
+        "label": "bag"
+      },
+      {
+        "value": "ball",
+        "label": "ball"
+      }
+    ],
+    "correctAnswer": "benches",
+    "answer": "benches",
+    "singularWord": "bench",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_bench_benches",
+    "itemType": "plural",
+    "itemKey": "es",
+    "explanation": "benches means more than one bench."
+  },
+  {
+    "id": "second_plurals_l2_39_dresses",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "dresses",
+    "imagePath": "/media/vocabulary/images/dress.webp",
+    "imageUrl": "/media/vocabulary/images/dress.webp",
+    "targetImage": "/media/vocabulary/images/dress.webp",
+    "targetImagePath": "/media/vocabulary/images/dress.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "dresses",
+      "bat",
+      "bed",
+      "duck"
+    ],
+    "answerOptions": [
+      {
+        "value": "dresses",
+        "label": "dresses"
+      },
+      {
+        "value": "bat",
+        "label": "bat"
+      },
+      {
+        "value": "bed",
+        "label": "bed"
+      },
+      {
+        "value": "duck",
+        "label": "duck"
+      }
+    ],
+    "correctAnswer": "dresses",
+    "answer": "dresses",
+    "singularWord": "dress",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_dress_dresses",
+    "itemType": "plural",
+    "itemKey": "es",
+    "explanation": "dresses means more than one dress."
+  },
+  {
+    "id": "second_plurals_l2_42_planes",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "planes",
+    "imagePath": "/media/vocabulary/images/plane.webp",
+    "imageUrl": "/media/vocabulary/images/plane.webp",
+    "targetImage": "/media/vocabulary/images/plane.webp",
+    "targetImagePath": "/media/vocabulary/images/plane.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "planes",
+      "pea",
+      "box",
+      "fox"
+    ],
+    "answerOptions": [
+      {
+        "value": "planes",
+        "label": "planes"
+      },
+      {
+        "value": "pea",
+        "label": "pea"
+      },
+      {
+        "value": "box",
+        "label": "box"
+      },
+      {
+        "value": "fox",
+        "label": "fox"
+      }
+    ],
+    "correctAnswer": "planes",
+    "answer": "planes",
+    "singularWord": "plane",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_plane_planes",
+    "itemType": "plural",
+    "itemKey": "es",
+    "explanation": "planes means more than one plane."
+  },
+  {
+    "id": "second_plurals_l2_47_stones",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "stones",
+    "imagePath": "/media/vocabulary/images/stone.webp",
+    "imageUrl": "/media/vocabulary/images/stone.webp",
+    "targetImage": "/media/vocabulary/images/stone.webp",
+    "targetImagePath": "/media/vocabulary/images/stone.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "stones",
+      "party",
+      "leaf",
+      "wolf"
+    ],
+    "answerOptions": [
+      {
+        "value": "stones",
+        "label": "stones"
+      },
+      {
+        "value": "party",
+        "label": "party"
+      },
+      {
+        "value": "leaf",
+        "label": "leaf"
+      },
+      {
+        "value": "wolf",
+        "label": "wolf"
+      }
+    ],
+    "correctAnswer": "stones",
+    "answer": "stones",
+    "singularWord": "stone",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_stone_stones",
+    "itemType": "plural",
+    "itemKey": "es",
+    "explanation": "stones means more than one stone."
+  },
+  {
+    "id": "second_plurals_l2_49_trees",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "trees",
+    "imagePath": "/images/child-mode/blends/tree.png",
+    "imageUrl": "/images/child-mode/blends/tree.png",
+    "targetImage": "/images/child-mode/blends/tree.png",
+    "targetImagePath": "/images/child-mode/blends/tree.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "trees",
+      "dress",
+      "plum",
+      "pear"
+    ],
+    "answerOptions": [
+      {
+        "value": "trees",
+        "label": "trees"
+      },
+      {
+        "value": "dress",
+        "label": "dress"
+      },
+      {
+        "value": "plum",
+        "label": "plum"
+      },
+      {
+        "value": "pear",
+        "label": "pear"
+      }
+    ],
+    "correctAnswer": "trees",
+    "answer": "trees",
+    "singularWord": "tree",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_tree_trees",
+    "itemType": "plural",
+    "itemKey": "es",
+    "explanation": "trees means more than one tree."
+  },
+  {
+    "id": "second_plurals_l2_53_kites",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "kites",
+    "imagePath": "/images/child-mode/initial-sounds/kite.png",
+    "imageUrl": "/images/child-mode/initial-sounds/kite.png",
+    "targetImage": "/images/child-mode/initial-sounds/kite.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/kite.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "kites",
+      "drum",
+      "flag",
+      "ring"
+    ],
+    "answerOptions": [
+      {
+        "value": "kites",
+        "label": "kites"
+      },
+      {
+        "value": "drum",
+        "label": "drum"
+      },
+      {
+        "value": "flag",
+        "label": "flag"
+      },
+      {
+        "value": "ring",
+        "label": "ring"
+      }
+    ],
+    "correctAnswer": "kites",
+    "answer": "kites",
+    "singularWord": "kite",
+    "pluralRule": "es",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_es_kite_kites",
+    "itemType": "plural",
+    "itemKey": "es",
+    "explanation": "kites means more than one kite."
   },
   {
     "id": "second_plurals_l2_31_puppies",
@@ -12072,9 +20906,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "puppies",
-      "bus",
-      "dish",
-      "wish"
+      "dress",
+      "plum",
+      "pear"
     ],
     "answerOptions": [
       {
@@ -12082,16 +20916,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "puppies"
       },
       {
-        "value": "bus",
-        "label": "bus"
+        "value": "dress",
+        "label": "dress"
       },
       {
-        "value": "dish",
-        "label": "dish"
+        "value": "plum",
+        "label": "plum"
       },
       {
-        "value": "wish",
-        "label": "wish"
+        "value": "pear",
+        "label": "pear"
       }
     ],
     "correctAnswer": "puppies",
@@ -12129,9 +20963,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "babies",
-      "class",
-      "church",
-      "lunch"
+      "plane",
+      "clock",
+      "cloud"
     ],
     "answerOptions": [
       {
@@ -12139,16 +20973,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "babies"
       },
       {
-        "value": "class",
-        "label": "class"
+        "value": "plane",
+        "label": "plane"
       },
       {
-        "value": "church",
-        "label": "church"
+        "value": "clock",
+        "label": "clock"
       },
       {
-        "value": "lunch",
-        "label": "lunch"
+        "value": "cloud",
+        "label": "cloud"
       }
     ],
     "correctAnswer": "babies",
@@ -12186,9 +21020,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "maps",
-      "dog",
-      "book",
-      "cup"
+      "bench",
+      "dress",
+      "plum"
     ],
     "answerOptions": [
       {
@@ -12196,16 +21030,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "maps"
       },
       {
-        "value": "dog",
-        "label": "dog"
+        "value": "bench",
+        "label": "bench"
       },
       {
-        "value": "book",
-        "label": "book"
+        "value": "dress",
+        "label": "dress"
       },
       {
-        "value": "cup",
-        "label": "cup"
+        "value": "plum",
+        "label": "plum"
       }
     ],
     "correctAnswer": "maps",
@@ -12243,9 +21077,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "pens",
-      "car",
-      "hat",
-      "bag"
+      "pear",
+      "plane",
+      "clock"
     ],
     "answerOptions": [
       {
@@ -12253,16 +21087,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "pens"
       },
       {
-        "value": "car",
-        "label": "car"
+        "value": "pear",
+        "label": "pear"
       },
       {
-        "value": "hat",
-        "label": "hat"
+        "value": "plane",
+        "label": "plane"
       },
       {
-        "value": "bag",
-        "label": "bag"
+        "value": "clock",
+        "label": "clock"
       }
     ],
     "correctAnswer": "pens",
@@ -12300,9 +21134,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "pigs",
-      "ball",
-      "bat",
-      "bed"
+      "cloud",
+      "plant",
+      "spider"
     ],
     "answerOptions": [
       {
@@ -12310,16 +21144,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "pigs"
       },
       {
-        "value": "ball",
-        "label": "ball"
+        "value": "cloud",
+        "label": "cloud"
       },
       {
-        "value": "bat",
-        "label": "bat"
+        "value": "plant",
+        "label": "plant"
       },
       {
-        "value": "bed",
-        "label": "bed"
+        "value": "spider",
+        "label": "spider"
       }
     ],
     "correctAnswer": "pigs",
@@ -12357,9 +21191,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "hens",
-      "duck",
-      "frog",
-      "map"
+      "stone",
+      "star",
+      "tree"
     ],
     "answerOptions": [
       {
@@ -12367,16 +21201,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "hens"
       },
       {
-        "value": "duck",
-        "label": "duck"
+        "value": "stone",
+        "label": "stone"
       },
       {
-        "value": "frog",
-        "label": "frog"
+        "value": "star",
+        "label": "star"
       },
       {
-        "value": "map",
-        "label": "map"
+        "value": "tree",
+        "label": "tree"
       }
     ],
     "correctAnswer": "hens",
@@ -12418,9 +21252,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "peas",
-      "grape",
-      "box",
-      "fox"
+      "kite",
+      "ring",
+      "cat"
     ],
     "answerOptions": [
       {
@@ -12428,16 +21262,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "peas"
       },
       {
-        "value": "grape",
-        "label": "grape"
+        "value": "kite",
+        "label": "kite"
       },
       {
-        "value": "box",
-        "label": "box"
+        "value": "ring",
+        "label": "ring"
       },
       {
-        "value": "fox",
-        "label": "fox"
+        "value": "cat",
+        "label": "cat"
       }
     ],
     "correctAnswer": "peas",
@@ -12479,9 +21313,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "mittens",
-      "pig",
-      "hen",
-      "grape"
+      "party",
+      "leaf",
+      "wolf"
     ],
     "answerOptions": [
       {
@@ -12489,16 +21323,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "mittens"
       },
       {
-        "value": "pig",
-        "label": "pig"
+        "value": "party",
+        "label": "party"
       },
       {
-        "value": "hen",
-        "label": "hen"
+        "value": "leaf",
+        "label": "leaf"
       },
       {
-        "value": "grape",
-        "label": "grape"
+        "value": "wolf",
+        "label": "wolf"
       }
     ],
     "correctAnswer": "mittens",
@@ -12540,9 +21374,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "stairs",
-      "pea",
-      "box",
-      "fox"
+      "shelf",
+      "peach",
+      "bench"
     ],
     "answerOptions": [
       {
@@ -12550,16 +21384,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "stairs"
       },
       {
-        "value": "pea",
-        "label": "pea"
+        "value": "shelf",
+        "label": "shelf"
       },
       {
-        "value": "box",
-        "label": "box"
+        "value": "peach",
+        "label": "peach"
       },
       {
-        "value": "fox",
-        "label": "fox"
+        "value": "bench",
+        "label": "bench"
       }
     ],
     "correctAnswer": "stairs",
@@ -12570,6 +21404,633 @@ export const secondBlockSkillTopUpQuestions = [
     "itemType": "plural",
     "itemKey": "s",
     "explanation": "stairs means more than one stair."
+  },
+  {
+    "id": "second_plurals_l2_40_plums",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "plums",
+    "imagePath": "/media/vocabulary/images/plum.webp",
+    "imageUrl": "/media/vocabulary/images/plum.webp",
+    "targetImage": "/media/vocabulary/images/plum.webp",
+    "targetImagePath": "/media/vocabulary/images/plum.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "plums",
+      "frog",
+      "map",
+      "pen"
+    ],
+    "answerOptions": [
+      {
+        "value": "plums",
+        "label": "plums"
+      },
+      {
+        "value": "frog",
+        "label": "frog"
+      },
+      {
+        "value": "map",
+        "label": "map"
+      },
+      {
+        "value": "pen",
+        "label": "pen"
+      }
+    ],
+    "correctAnswer": "plums",
+    "answer": "plums",
+    "singularWord": "plum",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_plum_plums",
+    "itemType": "plural",
+    "itemKey": "s",
+    "explanation": "plums means more than one plum."
+  },
+  {
+    "id": "second_plurals_l2_41_pears",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "pears",
+    "imagePath": "/media/vocabulary/images/pear.webp",
+    "imageUrl": "/media/vocabulary/images/pear.webp",
+    "targetImage": "/media/vocabulary/images/pear.webp",
+    "targetImagePath": "/media/vocabulary/images/pear.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "pears",
+      "pig",
+      "hen",
+      "grape"
+    ],
+    "answerOptions": [
+      {
+        "value": "pears",
+        "label": "pears"
+      },
+      {
+        "value": "pig",
+        "label": "pig"
+      },
+      {
+        "value": "hen",
+        "label": "hen"
+      },
+      {
+        "value": "grape",
+        "label": "grape"
+      }
+    ],
+    "correctAnswer": "pears",
+    "answer": "pears",
+    "singularWord": "pear",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_pear_pears",
+    "itemType": "plural",
+    "itemKey": "s",
+    "explanation": "pears means more than one pear."
+  },
+  {
+    "id": "second_plurals_l2_43_clocks",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "clocks",
+    "imagePath": "/media/vocabulary/images/clock.webp",
+    "imageUrl": "/media/vocabulary/images/clock.webp",
+    "targetImage": "/media/vocabulary/images/clock.webp",
+    "targetImagePath": "/media/vocabulary/images/clock.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "clocks",
+      "bus",
+      "dish",
+      "wish"
+    ],
+    "answerOptions": [
+      {
+        "value": "clocks",
+        "label": "clocks"
+      },
+      {
+        "value": "bus",
+        "label": "bus"
+      },
+      {
+        "value": "dish",
+        "label": "dish"
+      },
+      {
+        "value": "wish",
+        "label": "wish"
+      }
+    ],
+    "correctAnswer": "clocks",
+    "answer": "clocks",
+    "singularWord": "clock",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_clock_clocks",
+    "itemType": "plural",
+    "itemKey": "s",
+    "explanation": "clocks means more than one clock."
+  },
+  {
+    "id": "second_plurals_l2_44_clouds",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "clouds",
+    "imagePath": "/media/vocabulary/images/cloud.webp",
+    "imageUrl": "/media/vocabulary/images/cloud.webp",
+    "targetImage": "/media/vocabulary/images/cloud.webp",
+    "targetImagePath": "/media/vocabulary/images/cloud.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "clouds",
+      "class",
+      "church",
+      "lunch"
+    ],
+    "answerOptions": [
+      {
+        "value": "clouds",
+        "label": "clouds"
+      },
+      {
+        "value": "class",
+        "label": "class"
+      },
+      {
+        "value": "church",
+        "label": "church"
+      },
+      {
+        "value": "lunch",
+        "label": "lunch"
+      }
+    ],
+    "correctAnswer": "clouds",
+    "answer": "clouds",
+    "singularWord": "cloud",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_cloud_clouds",
+    "itemType": "plural",
+    "itemKey": "s",
+    "explanation": "clouds means more than one cloud."
+  },
+  {
+    "id": "second_plurals_l2_45_plants",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "plants",
+    "imagePath": "/media/vocabulary/images/plant.webp",
+    "imageUrl": "/media/vocabulary/images/plant.webp",
+    "targetImage": "/media/vocabulary/images/plant.webp",
+    "targetImagePath": "/media/vocabulary/images/plant.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "plants",
+      "glass",
+      "kiss",
+      "mitten"
+    ],
+    "answerOptions": [
+      {
+        "value": "plants",
+        "label": "plants"
+      },
+      {
+        "value": "glass",
+        "label": "glass"
+      },
+      {
+        "value": "kiss",
+        "label": "kiss"
+      },
+      {
+        "value": "mitten",
+        "label": "mitten"
+      }
+    ],
+    "correctAnswer": "plants",
+    "answer": "plants",
+    "singularWord": "plant",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_plant_plants",
+    "itemType": "plural",
+    "itemKey": "s",
+    "explanation": "plants means more than one plant."
+  },
+  {
+    "id": "second_plurals_l2_46_spiders",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "spiders",
+    "imagePath": "/media/vocabulary/images/spider.webp",
+    "imageUrl": "/media/vocabulary/images/spider.webp",
+    "targetImage": "/media/vocabulary/images/spider.webp",
+    "targetImagePath": "/media/vocabulary/images/spider.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "spiders",
+      "stair",
+      "puppy",
+      "baby"
+    ],
+    "answerOptions": [
+      {
+        "value": "spiders",
+        "label": "spiders"
+      },
+      {
+        "value": "stair",
+        "label": "stair"
+      },
+      {
+        "value": "puppy",
+        "label": "puppy"
+      },
+      {
+        "value": "baby",
+        "label": "baby"
+      }
+    ],
+    "correctAnswer": "spiders",
+    "answer": "spiders",
+    "singularWord": "spider",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_spider_spiders",
+    "itemType": "plural",
+    "itemKey": "s",
+    "explanation": "spiders means more than one spider."
+  },
+  {
+    "id": "second_plurals_l2_48_stars",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "stars",
+    "imagePath": "/images/child-mode/initial-sounds/star.png",
+    "imageUrl": "/images/child-mode/initial-sounds/star.png",
+    "targetImage": "/images/child-mode/initial-sounds/star.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/star.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "stars",
+      "shelf",
+      "peach",
+      "bench"
+    ],
+    "answerOptions": [
+      {
+        "value": "stars",
+        "label": "stars"
+      },
+      {
+        "value": "shelf",
+        "label": "shelf"
+      },
+      {
+        "value": "peach",
+        "label": "peach"
+      },
+      {
+        "value": "bench",
+        "label": "bench"
+      }
+    ],
+    "correctAnswer": "stars",
+    "answer": "stars",
+    "singularWord": "star",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_star_stars",
+    "itemType": "plural",
+    "itemKey": "s",
+    "explanation": "stars means more than one star."
+  },
+  {
+    "id": "second_plurals_l2_50_socks",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "socks",
+    "imagePath": "/images/child-mode/initial-sounds/sock.png",
+    "imageUrl": "/images/child-mode/initial-sounds/sock.png",
+    "targetImage": "/images/child-mode/initial-sounds/sock.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/sock.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "socks",
+      "plane",
+      "clock",
+      "cloud"
+    ],
+    "answerOptions": [
+      {
+        "value": "socks",
+        "label": "socks"
+      },
+      {
+        "value": "plane",
+        "label": "plane"
+      },
+      {
+        "value": "clock",
+        "label": "clock"
+      },
+      {
+        "value": "cloud",
+        "label": "cloud"
+      }
+    ],
+    "correctAnswer": "socks",
+    "answer": "socks",
+    "singularWord": "sock",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_sock_socks",
+    "itemType": "plural",
+    "itemKey": "s",
+    "explanation": "socks means more than one sock."
+  },
+  {
+    "id": "second_plurals_l2_51_drums",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "drums",
+    "imagePath": "/images/child-mode/initial-sounds/drum.png",
+    "imageUrl": "/images/child-mode/initial-sounds/drum.png",
+    "targetImage": "/images/child-mode/initial-sounds/drum.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/drum.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "drums",
+      "plant",
+      "spider",
+      "stone"
+    ],
+    "answerOptions": [
+      {
+        "value": "drums",
+        "label": "drums"
+      },
+      {
+        "value": "plant",
+        "label": "plant"
+      },
+      {
+        "value": "spider",
+        "label": "spider"
+      },
+      {
+        "value": "stone",
+        "label": "stone"
+      }
+    ],
+    "correctAnswer": "drums",
+    "answer": "drums",
+    "singularWord": "drum",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_drum_drums",
+    "itemType": "plural",
+    "itemKey": "s",
+    "explanation": "drums means more than one drum."
+  },
+  {
+    "id": "second_plurals_l2_52_flags",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "flags",
+    "imagePath": "/images/child-mode/initial-sounds/flag.png",
+    "imageUrl": "/images/child-mode/initial-sounds/flag.png",
+    "targetImage": "/images/child-mode/initial-sounds/flag.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/flag.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "flags",
+      "star",
+      "tree",
+      "sock"
+    ],
+    "answerOptions": [
+      {
+        "value": "flags",
+        "label": "flags"
+      },
+      {
+        "value": "star",
+        "label": "star"
+      },
+      {
+        "value": "tree",
+        "label": "tree"
+      },
+      {
+        "value": "sock",
+        "label": "sock"
+      }
+    ],
+    "correctAnswer": "flags",
+    "answer": "flags",
+    "singularWord": "flag",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_flag_flags",
+    "itemType": "plural",
+    "itemKey": "s",
+    "explanation": "flags means more than one flag."
+  },
+  {
+    "id": "second_plurals_l2_54_rings",
+    "grade": "K-3",
+    "skillId": "plurals",
+    "skillName": "Plurals",
+    "skill": "Plurals",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_2_phase_2",
+    "questionType": "multiple_choice",
+    "templateType": "PLURAL_IMAGE_SPELLING",
+    "formatType": "PLURAL_IMAGE_SPELLING",
+    "targetWord": "rings",
+    "imagePath": "/images/child-mode/initial-sounds/ring.png",
+    "imageUrl": "/images/child-mode/initial-sounds/ring.png",
+    "targetImage": "/images/child-mode/initial-sounds/ring.png",
+    "targetImagePath": "/images/child-mode/initial-sounds/ring.png",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "second_block_k3_topup_2026_06",
+    "prompt": "Choose the word that names more than one.",
+    "question": "Choose the word that names more than one.",
+    "choices": [
+      "rings",
+      "cat",
+      "dog",
+      "book"
+    ],
+    "answerOptions": [
+      {
+        "value": "rings",
+        "label": "rings"
+      },
+      {
+        "value": "cat",
+        "label": "cat"
+      },
+      {
+        "value": "dog",
+        "label": "dog"
+      },
+      {
+        "value": "book",
+        "label": "book"
+      }
+    ],
+    "correctAnswer": "rings",
+    "answer": "rings",
+    "singularWord": "ring",
+    "pluralRule": "s",
+    "runtimeTemplateKey": "PLURAL_IMAGE_SPELLING_s_ring_rings",
+    "itemType": "plural",
+    "itemKey": "s",
+    "explanation": "rings means more than one ring."
   },
   {
     "id": "second_plurals_l2_rule_01_cat",
@@ -13093,9 +22554,9 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "leaves",
-      "stair",
-      "puppy",
-      "baby"
+      "star",
+      "tree",
+      "sock"
     ],
     "answerOptions": [
       {
@@ -13103,16 +22564,16 @@ export const secondBlockSkillTopUpQuestions = [
         "label": "leaves"
       },
       {
-        "value": "stair",
-        "label": "stair"
+        "value": "star",
+        "label": "star"
       },
       {
-        "value": "puppy",
-        "label": "puppy"
+        "value": "tree",
+        "label": "tree"
       },
       {
-        "value": "baby",
-        "label": "baby"
+        "value": "sock",
+        "label": "sock"
       }
     ],
     "correctAnswer": "leaves",
@@ -13150,14 +22611,18 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the word that names more than one.",
     "choices": [
       "shelves",
+      "ring",
       "cat",
-      "dog",
-      "book"
+      "dog"
     ],
     "answerOptions": [
       {
         "value": "shelves",
         "label": "shelves"
+      },
+      {
+        "value": "ring",
+        "label": "ring"
       },
       {
         "value": "cat",
@@ -13166,10 +22631,6 @@ export const secondBlockSkillTopUpQuestions = [
       {
         "value": "dog",
         "label": "dog"
-      },
-      {
-        "value": "book",
-        "label": "book"
       }
     ],
     "correctAnswer": "shelves",
@@ -16140,9 +25601,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "ate",
     "imagePath": "/media/vocabulary/images/verb-ate.webp",
     "imageUrl": "/media/vocabulary/images/verb-ate.webp",
@@ -16151,9 +25612,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The children ___ lunch together.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "ate",
       "artist",
@@ -16162,32 +25622,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_ate_text",
-        "word": "ate",
-        "label": "ate",
         "value": "ate",
+        "label": "ate",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_artist_text",
+        "value": "artist",
+        "label": "artist",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "coach",
+        "label": "coach",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "bumpy",
+        "label": "bumpy",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_ate",
+        "word": "ate",
+        "label": "ate",
+        "value": "ate",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-ate.webp",
+        "imagePath": "/media/vocabulary/images/verb-ate.webp",
+        "imageUrl": "/media/vocabulary/images/verb-ate.webp",
+        "alt": "ate verb card"
+      },
+      {
+        "id": "second_noun_artist",
         "word": "artist",
         "label": "artist",
         "value": "artist",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-artist.webp",
+        "imagePath": "/media/vocabulary/images/noun-artist.webp",
+        "imageUrl": "/media/vocabulary/images/noun-artist.webp",
+        "alt": "artist noun card"
       },
       {
-        "id": "second_noun_coach_text",
+        "id": "second_noun_coach",
         "word": "coach",
         "label": "coach",
         "value": "coach",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-coach.webp",
+        "imagePath": "/media/vocabulary/images/noun-coach.webp",
+        "imageUrl": "/media/vocabulary/images/noun-coach.webp",
+        "alt": "coach noun card"
       },
       {
-        "id": "second_adjective_bumpy_text",
+        "id": "second_adjective_bumpy",
         "word": "bumpy",
         "label": "bumpy",
         "value": "bumpy",
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imagePath": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-bumpy.webp",
+        "alt": "bumpy adjective card"
       }
     ],
     "correctAnswer": "ate",
@@ -16197,7 +25695,114 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "ate makes the sentence make sense."
+    "explanation": "ate is a verb."
+  },
+  {
+    "id": "second_verbs_l1_37_bake",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "bake",
+    "imagePath": "/media/vocabulary/images/verb-bake.webp",
+    "imageUrl": "/media/vocabulary/images/verb-bake.webp",
+    "targetImage": "/media/vocabulary/images/verb-bake.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-bake.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
+    "choices": [
+      "bake",
+      "lamp",
+      "land",
+      "bumpy"
+    ],
+    "answerOptions": [
+      {
+        "value": "bake",
+        "label": "bake",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "lamp",
+        "label": "lamp",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "land",
+        "label": "land",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "bumpy",
+        "label": "bumpy",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_bake",
+        "word": "bake",
+        "label": "bake",
+        "value": "bake",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-bake.webp",
+        "imagePath": "/media/vocabulary/images/verb-bake.webp",
+        "imageUrl": "/media/vocabulary/images/verb-bake.webp",
+        "alt": "bake verb card"
+      },
+      {
+        "id": "second_noun_lamp",
+        "word": "lamp",
+        "label": "lamp",
+        "value": "lamp",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/lamp.png",
+        "imagePath": "/images/child-mode/initial-sounds/lamp.png",
+        "imageUrl": "/images/child-mode/initial-sounds/lamp.png",
+        "alt": "lamp noun card"
+      },
+      {
+        "id": "second_noun_land",
+        "word": "land",
+        "label": "land",
+        "value": "land",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/land.webp",
+        "imagePath": "/media/vocabulary/images/land.webp",
+        "imageUrl": "/media/vocabulary/images/land.webp",
+        "alt": "land noun card"
+      },
+      {
+        "id": "second_adjective_bumpy",
+        "word": "bumpy",
+        "label": "bumpy",
+        "value": "bumpy",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imagePath": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-bumpy.webp",
+        "alt": "bumpy adjective card"
+      }
+    ],
+    "correctAnswer": "bake",
+    "answer": "bake",
+    "itemType": "grammar_verb",
+    "itemKey": "bake",
+    "partOfSpeech": "verb",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "bake is a verb."
   },
   {
     "id": "second_verbs_l1_02_baked",
@@ -16210,9 +25815,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "baked",
     "imagePath": "/media/vocabulary/images/verb-baked.webp",
     "imageUrl": "/media/vocabulary/images/verb-baked.webp",
@@ -16221,9 +25826,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "market",
       "mum",
@@ -16232,32 +25836,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_market_text",
-        "word": "market",
-        "label": "market",
         "value": "market",
+        "label": "market",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_mum_text",
-        "word": "mum",
-        "label": "mum",
         "value": "mum",
+        "label": "mum",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_cute_text",
-        "word": "cute",
-        "label": "cute",
         "value": "cute",
+        "label": "cute",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_baked_text",
+        "value": "baked",
+        "label": "baked",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_market",
+        "word": "market",
+        "label": "market",
+        "value": "market",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-market.webp",
+        "imagePath": "/media/vocabulary/images/noun-market.webp",
+        "imageUrl": "/media/vocabulary/images/noun-market.webp",
+        "alt": "market noun card"
+      },
+      {
+        "id": "second_noun_mum",
+        "word": "mum",
+        "label": "mum",
+        "value": "mum",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-mum.webp",
+        "imagePath": "/media/vocabulary/images/noun-mum.webp",
+        "imageUrl": "/media/vocabulary/images/noun-mum.webp",
+        "alt": "mum noun card"
+      },
+      {
+        "id": "second_adjective_cute",
+        "word": "cute",
+        "label": "cute",
+        "value": "cute",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-cute.webp",
+        "imagePath": "/media/vocabulary/images/adjective-cute.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-cute.webp",
+        "alt": "cute adjective card"
+      },
+      {
+        "id": "second_verb_baked",
         "word": "baked",
         "label": "baked",
         "value": "baked",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-baked.webp",
+        "imagePath": "/media/vocabulary/images/verb-baked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-baked.webp",
+        "alt": "baked verb card"
       }
     ],
     "correctAnswer": "baked",
@@ -16267,7 +25909,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "baked makes the sentence make sense."
+    "explanation": "baked is a verb."
   },
   {
     "id": "second_verbs_l1_03_barked",
@@ -16280,9 +25922,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "barked",
     "imagePath": "/media/vocabulary/images/verb-barked.webp",
     "imageUrl": "/media/vocabulary/images/verb-barked.webp",
@@ -16291,9 +25933,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "station",
       "fierce",
@@ -16302,32 +25943,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_station_text",
-        "word": "station",
-        "label": "station",
         "value": "station",
+        "label": "station",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_fierce_text",
-        "word": "fierce",
-        "label": "fierce",
         "value": "fierce",
+        "label": "fierce",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_barked_text",
-        "word": "barked",
-        "label": "barked",
         "value": "barked",
+        "label": "barked",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_pilot_text",
+        "value": "pilot",
+        "label": "pilot",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_station",
+        "word": "station",
+        "label": "station",
+        "value": "station",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-station.webp",
+        "imagePath": "/media/vocabulary/images/noun-station.webp",
+        "imageUrl": "/media/vocabulary/images/noun-station.webp",
+        "alt": "station noun card"
+      },
+      {
+        "id": "second_adjective_fierce",
+        "word": "fierce",
+        "label": "fierce",
+        "value": "fierce",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-fierce.webp",
+        "imagePath": "/media/vocabulary/images/adjective-fierce.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-fierce.webp",
+        "alt": "fierce adjective card"
+      },
+      {
+        "id": "second_verb_barked",
+        "word": "barked",
+        "label": "barked",
+        "value": "barked",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-barked.webp",
+        "imagePath": "/media/vocabulary/images/verb-barked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-barked.webp",
+        "alt": "barked verb card"
+      },
+      {
+        "id": "second_noun_pilot",
         "word": "pilot",
         "label": "pilot",
         "value": "pilot",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-pilot.webp",
+        "imagePath": "/media/vocabulary/images/noun-pilot.webp",
+        "imageUrl": "/media/vocabulary/images/noun-pilot.webp",
+        "alt": "pilot noun card"
       }
     ],
     "correctAnswer": "barked",
@@ -16337,7 +26016,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "barked makes the sentence make sense."
+    "explanation": "barked is a verb."
   },
   {
     "id": "second_verbs_l1_04_blow",
@@ -16350,9 +26029,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "blow",
     "imagePath": "/media/vocabulary/images/verb-blow.webp",
     "imageUrl": "/media/vocabulary/images/verb-blow.webp",
@@ -16361,9 +26040,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "huge",
       "blow",
@@ -16372,32 +26050,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_adjective_huge_text",
-        "word": "huge",
-        "label": "huge",
         "value": "huge",
+        "label": "huge",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_blow_text",
-        "word": "blow",
-        "label": "blow",
         "value": "blow",
+        "label": "blow",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_ape_text",
-        "word": "ape",
-        "label": "ape",
         "value": "ape",
+        "label": "ape",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_back_text",
+        "value": "back",
+        "label": "back",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_huge",
+        "word": "huge",
+        "label": "huge",
+        "value": "huge",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-huge.webp",
+        "imagePath": "/media/vocabulary/images/adjective-huge.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-huge.webp",
+        "alt": "huge adjective card"
+      },
+      {
+        "id": "second_verb_blow",
+        "word": "blow",
+        "label": "blow",
+        "value": "blow",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-blow.webp",
+        "imagePath": "/media/vocabulary/images/verb-blow.webp",
+        "imageUrl": "/media/vocabulary/images/verb-blow.webp",
+        "alt": "blow verb card"
+      },
+      {
+        "id": "second_noun_ape",
+        "word": "ape",
+        "label": "ape",
+        "value": "ape",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/ape.webp",
+        "imagePath": "/media/vocabulary/images/ape.webp",
+        "imageUrl": "/media/vocabulary/images/ape.webp",
+        "alt": "ape noun card"
+      },
+      {
+        "id": "second_noun_back",
         "word": "back",
         "label": "back",
         "value": "back",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/back.webp",
+        "imagePath": "/media/vocabulary/images/back.webp",
+        "imageUrl": "/media/vocabulary/images/back.webp",
+        "alt": "back noun card"
       }
     ],
     "correctAnswer": "blow",
@@ -16407,7 +26123,114 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "blow makes the sentence make sense."
+    "explanation": "blow is a verb."
+  },
+  {
+    "id": "second_verbs_l1_38_build",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "build",
+    "imagePath": "/media/vocabulary/images/verb-build.webp",
+    "imageUrl": "/media/vocabulary/images/verb-build.webp",
+    "targetImage": "/media/vocabulary/images/verb-build.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-build.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
+    "choices": [
+      "meat",
+      "mom",
+      "cute",
+      "build"
+    ],
+    "answerOptions": [
+      {
+        "value": "meat",
+        "label": "meat",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "mom",
+        "label": "mom",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "cute",
+        "label": "cute",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "build",
+        "label": "build",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_meat",
+        "word": "meat",
+        "label": "meat",
+        "value": "meat",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/meat.png",
+        "imagePath": "/images/child-mode/initial-sounds/meat.png",
+        "imageUrl": "/images/child-mode/initial-sounds/meat.png",
+        "alt": "meat noun card"
+      },
+      {
+        "id": "second_noun_mom",
+        "word": "mom",
+        "label": "mom",
+        "value": "mom",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/mom.webp",
+        "imagePath": "/media/vocabulary/images/mom.webp",
+        "imageUrl": "/media/vocabulary/images/mom.webp",
+        "alt": "mom noun card"
+      },
+      {
+        "id": "second_adjective_cute",
+        "word": "cute",
+        "label": "cute",
+        "value": "cute",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-cute.webp",
+        "imagePath": "/media/vocabulary/images/adjective-cute.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-cute.webp",
+        "alt": "cute adjective card"
+      },
+      {
+        "id": "second_verb_build",
+        "word": "build",
+        "label": "build",
+        "value": "build",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-build.webp",
+        "imagePath": "/media/vocabulary/images/verb-build.webp",
+        "imageUrl": "/media/vocabulary/images/verb-build.webp",
+        "alt": "build verb card"
+      }
+    ],
+    "correctAnswer": "build",
+    "answer": "build",
+    "itemType": "grammar_verb",
+    "itemKey": "build",
+    "partOfSpeech": "verb",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "build is a verb."
   },
   {
     "id": "second_verbs_l1_05_builds",
@@ -16420,9 +26243,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "builds",
     "imagePath": "/media/vocabulary/images/verb-builds.webp",
     "imageUrl": "/media/vocabulary/images/verb-builds.webp",
@@ -16431,9 +26254,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "builds",
       "bat",
@@ -16442,32 +26264,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_builds_text",
-        "word": "builds",
-        "label": "builds",
         "value": "builds",
+        "label": "builds",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_bat_text",
+        "value": "bat",
+        "label": "bat",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "bear",
+        "label": "bear",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "prickly",
+        "label": "prickly",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_builds",
+        "word": "builds",
+        "label": "builds",
+        "value": "builds",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-builds.webp",
+        "imagePath": "/media/vocabulary/images/verb-builds.webp",
+        "imageUrl": "/media/vocabulary/images/verb-builds.webp",
+        "alt": "builds verb card"
+      },
+      {
+        "id": "second_noun_bat",
         "word": "bat",
         "label": "bat",
         "value": "bat",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/bat.png",
+        "imagePath": "/images/child-mode/cvc/bat.png",
+        "imageUrl": "/images/child-mode/cvc/bat.png",
+        "alt": "bat noun card"
       },
       {
-        "id": "second_noun_bear_text",
+        "id": "second_noun_bear",
         "word": "bear",
         "label": "bear",
         "value": "bear",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/bear.png",
+        "imagePath": "/images/child-mode/initial-sounds/bear.png",
+        "imageUrl": "/images/child-mode/initial-sounds/bear.png",
+        "alt": "bear noun card"
       },
       {
-        "id": "second_adjective_prickly_text",
+        "id": "second_adjective_prickly",
         "word": "prickly",
         "label": "prickly",
         "value": "prickly",
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-prickly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-prickly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-prickly.webp",
+        "alt": "prickly adjective card"
       }
     ],
     "correctAnswer": "builds",
@@ -16477,7 +26337,221 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "builds makes the sentence make sense."
+    "explanation": "builds is a verb."
+  },
+  {
+    "id": "second_verbs_l1_50_carry",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "carry",
+    "imagePath": "/media/vocabulary/images/verb-carry.webp",
+    "imageUrl": "/media/vocabulary/images/verb-carry.webp",
+    "targetImage": "/media/vocabulary/images/verb-carry.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-carry.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
+    "choices": [
+      "body",
+      "brother",
+      "cute",
+      "carry"
+    ],
+    "answerOptions": [
+      {
+        "value": "body",
+        "label": "body",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "brother",
+        "label": "brother",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "cute",
+        "label": "cute",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "carry",
+        "label": "carry",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_body",
+        "word": "body",
+        "label": "body",
+        "value": "body",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/body.webp",
+        "imagePath": "/media/vocabulary/images/body.webp",
+        "imageUrl": "/media/vocabulary/images/body.webp",
+        "alt": "body noun card"
+      },
+      {
+        "id": "second_noun_brother",
+        "word": "brother",
+        "label": "brother",
+        "value": "brother",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/brother.webp",
+        "imagePath": "/media/vocabulary/images/brother.webp",
+        "imageUrl": "/media/vocabulary/images/brother.webp",
+        "alt": "brother noun card"
+      },
+      {
+        "id": "second_adjective_cute",
+        "word": "cute",
+        "label": "cute",
+        "value": "cute",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-cute.webp",
+        "imagePath": "/media/vocabulary/images/adjective-cute.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-cute.webp",
+        "alt": "cute adjective card"
+      },
+      {
+        "id": "second_verb_carry",
+        "word": "carry",
+        "label": "carry",
+        "value": "carry",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-carry.webp",
+        "imagePath": "/media/vocabulary/images/verb-carry.webp",
+        "imageUrl": "/media/vocabulary/images/verb-carry.webp",
+        "alt": "carry verb card"
+      }
+    ],
+    "correctAnswer": "carry",
+    "answer": "carry",
+    "itemType": "grammar_verb",
+    "itemKey": "carry",
+    "partOfSpeech": "verb",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "carry is a verb."
+  },
+  {
+    "id": "second_verbs_l1_39_catch",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "catch",
+    "imagePath": "/media/vocabulary/images/verb-catch.webp",
+    "imageUrl": "/media/vocabulary/images/verb-catch.webp",
+    "targetImage": "/media/vocabulary/images/verb-catch.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-catch.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
+    "choices": [
+      "page",
+      "fierce",
+      "catch",
+      "nose"
+    ],
+    "answerOptions": [
+      {
+        "value": "page",
+        "label": "page",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "fierce",
+        "label": "fierce",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "catch",
+        "label": "catch",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "nose",
+        "label": "nose",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_page",
+        "word": "page",
+        "label": "page",
+        "value": "page",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/page.webp",
+        "imagePath": "/media/vocabulary/images/page.webp",
+        "imageUrl": "/media/vocabulary/images/page.webp",
+        "alt": "page noun card"
+      },
+      {
+        "id": "second_adjective_fierce",
+        "word": "fierce",
+        "label": "fierce",
+        "value": "fierce",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-fierce.webp",
+        "imagePath": "/media/vocabulary/images/adjective-fierce.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-fierce.webp",
+        "alt": "fierce adjective card"
+      },
+      {
+        "id": "second_verb_catch",
+        "word": "catch",
+        "label": "catch",
+        "value": "catch",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-catch.webp",
+        "imagePath": "/media/vocabulary/images/verb-catch.webp",
+        "imageUrl": "/media/vocabulary/images/verb-catch.webp",
+        "alt": "catch verb card"
+      },
+      {
+        "id": "second_noun_nose",
+        "word": "nose",
+        "label": "nose",
+        "value": "nose",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/nose.png",
+        "imagePath": "/images/child-mode/initial-sounds/nose.png",
+        "imageUrl": "/images/child-mode/initial-sounds/nose.png",
+        "alt": "nose noun card"
+      }
+    ],
+    "correctAnswer": "catch",
+    "answer": "catch",
+    "itemType": "grammar_verb",
+    "itemKey": "catch",
+    "partOfSpeech": "verb",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "catch is a verb."
   },
   {
     "id": "second_verbs_l1_06_compare",
@@ -16490,9 +26564,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "compare",
     "imagePath": "/media/vocabulary/images/verb-compare.webp",
     "imageUrl": "/media/vocabulary/images/verb-compare.webp",
@@ -16501,9 +26575,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "bell",
       "book",
@@ -16512,32 +26585,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_bell_text",
-        "word": "bell",
-        "label": "bell",
         "value": "bell",
+        "label": "bell",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_book_text",
-        "word": "book",
-        "label": "book",
         "value": "book",
+        "label": "book",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_sharp_text",
-        "word": "sharp",
-        "label": "sharp",
         "value": "sharp",
+        "label": "sharp",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_compare_text",
+        "value": "compare",
+        "label": "compare",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_bell",
+        "word": "bell",
+        "label": "bell",
+        "value": "bell",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/bell.png",
+        "imagePath": "/images/child-mode/initial-sounds/bell.png",
+        "imageUrl": "/images/child-mode/initial-sounds/bell.png",
+        "alt": "bell noun card"
+      },
+      {
+        "id": "second_noun_book",
+        "word": "book",
+        "label": "book",
+        "value": "book",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/book.png",
+        "imagePath": "/images/child-mode/cvc/book.png",
+        "imageUrl": "/images/child-mode/cvc/book.png",
+        "alt": "book noun card"
+      },
+      {
+        "id": "second_adjective_sharp",
+        "word": "sharp",
+        "label": "sharp",
+        "value": "sharp",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-sharp.webp",
+        "imagePath": "/media/vocabulary/images/adjective-sharp.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-sharp.webp",
+        "alt": "sharp adjective card"
+      },
+      {
+        "id": "second_verb_compare",
         "word": "compare",
         "label": "compare",
         "value": "compare",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-compare.webp",
+        "imagePath": "/media/vocabulary/images/verb-compare.webp",
+        "imageUrl": "/media/vocabulary/images/verb-compare.webp",
+        "alt": "compare verb card"
       }
     ],
     "correctAnswer": "compare",
@@ -16547,7 +26658,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "compare makes the sentence make sense."
+    "explanation": "compare is a verb."
   },
   {
     "id": "second_verbs_l1_35_cook",
@@ -16560,9 +26671,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "cook",
     "imagePath": "/media/vocabulary/images/verb-cook.webp",
     "imageUrl": "/media/vocabulary/images/verb-cook.webp",
@@ -16571,9 +26682,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The family will ___ dinner.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "hand",
       "brown",
@@ -16582,32 +26692,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_hand_text",
-        "word": "hand",
-        "label": "hand",
         "value": "hand",
+        "label": "hand",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_brown_text",
-        "word": "brown",
-        "label": "brown",
         "value": "brown",
+        "label": "brown",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_cook_text",
-        "word": "cook",
-        "label": "cook",
         "value": "cook",
+        "label": "cook",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_ground_text",
+        "value": "ground",
+        "label": "ground",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_hand",
+        "word": "hand",
+        "label": "hand",
+        "value": "hand",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/hand.png",
+        "imagePath": "/images/child-mode/initial-sounds/hand.png",
+        "imageUrl": "/images/child-mode/initial-sounds/hand.png",
+        "alt": "hand noun card"
+      },
+      {
+        "id": "second_adjective_brown",
+        "word": "brown",
+        "label": "brown",
+        "value": "brown",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-brown.webp",
+        "imagePath": "/media/vocabulary/images/adjective-brown.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-brown.webp",
+        "alt": "brown adjective card"
+      },
+      {
+        "id": "second_verb_cook",
+        "word": "cook",
+        "label": "cook",
+        "value": "cook",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-cook.webp",
+        "imagePath": "/media/vocabulary/images/verb-cook.webp",
+        "imageUrl": "/media/vocabulary/images/verb-cook.webp",
+        "alt": "cook verb card"
+      },
+      {
+        "id": "second_noun_ground",
         "word": "ground",
         "label": "ground",
         "value": "ground",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/ground.webp",
+        "imagePath": "/media/vocabulary/images/ground.webp",
+        "imageUrl": "/media/vocabulary/images/ground.webp",
+        "alt": "ground noun card"
       }
     ],
     "correctAnswer": "cook",
@@ -16617,7 +26765,114 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "cook makes the sentence make sense."
+    "explanation": "cook is a verb."
+  },
+  {
+    "id": "second_verbs_l1_40_count",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "count",
+    "imagePath": "/media/vocabulary/images/verb-count.webp",
+    "imageUrl": "/media/vocabulary/images/verb-count.webp",
+    "targetImage": "/media/vocabulary/images/verb-count.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-count.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
+    "choices": [
+      "huge",
+      "count",
+      "park",
+      "path"
+    ],
+    "answerOptions": [
+      {
+        "value": "huge",
+        "label": "huge",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "count",
+        "label": "count",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "park",
+        "label": "park",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "path",
+        "label": "path",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_huge",
+        "word": "huge",
+        "label": "huge",
+        "value": "huge",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-huge.webp",
+        "imagePath": "/media/vocabulary/images/adjective-huge.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-huge.webp",
+        "alt": "huge adjective card"
+      },
+      {
+        "id": "second_verb_count",
+        "word": "count",
+        "label": "count",
+        "value": "count",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-count.webp",
+        "imagePath": "/media/vocabulary/images/verb-count.webp",
+        "imageUrl": "/media/vocabulary/images/verb-count.webp",
+        "alt": "count verb card"
+      },
+      {
+        "id": "second_noun_park",
+        "word": "park",
+        "label": "park",
+        "value": "park",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/park.png",
+        "imagePath": "/images/child-mode/initial-sounds/park.png",
+        "imageUrl": "/images/child-mode/initial-sounds/park.png",
+        "alt": "park noun card"
+      },
+      {
+        "id": "second_noun_path",
+        "word": "path",
+        "label": "path",
+        "value": "path",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/path.webp",
+        "imagePath": "/media/vocabulary/images/path.webp",
+        "imageUrl": "/media/vocabulary/images/path.webp",
+        "alt": "path noun card"
+      }
+    ],
+    "correctAnswer": "count",
+    "answer": "count",
+    "itemType": "grammar_verb",
+    "itemKey": "count",
+    "partOfSpeech": "verb",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "count is a verb."
   },
   {
     "id": "second_verbs_l1_07_cried",
@@ -16630,9 +26885,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "cried",
     "imagePath": "/media/vocabulary/images/verb-cried.webp",
     "imageUrl": "/media/vocabulary/images/verb-cried.webp",
@@ -16641,9 +26896,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "bug",
       "smelly",
@@ -16652,32 +26906,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_bug_text",
-        "word": "bug",
-        "label": "bug",
         "value": "bug",
+        "label": "bug",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_smelly_text",
-        "word": "smelly",
-        "label": "smelly",
         "value": "smelly",
+        "label": "smelly",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_cried_text",
-        "word": "cried",
-        "label": "cried",
         "value": "cried",
+        "label": "cried",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_box_text",
+        "value": "box",
+        "label": "box",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_bug",
+        "word": "bug",
+        "label": "bug",
+        "value": "bug",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/bug.png",
+        "imagePath": "/images/child-mode/cvc/bug.png",
+        "imageUrl": "/images/child-mode/cvc/bug.png",
+        "alt": "bug noun card"
+      },
+      {
+        "id": "second_adjective_smelly",
+        "word": "smelly",
+        "label": "smelly",
+        "value": "smelly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-smelly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-smelly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-smelly.webp",
+        "alt": "smelly adjective card"
+      },
+      {
+        "id": "second_verb_cried",
+        "word": "cried",
+        "label": "cried",
+        "value": "cried",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-cried.webp",
+        "imagePath": "/media/vocabulary/images/verb-cried.webp",
+        "imageUrl": "/media/vocabulary/images/verb-cried.webp",
+        "alt": "cried verb card"
+      },
+      {
+        "id": "second_noun_box",
         "word": "box",
         "label": "box",
         "value": "box",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/box.png",
+        "imagePath": "/images/child-mode/initial-sounds/box.png",
+        "imageUrl": "/images/child-mode/initial-sounds/box.png",
+        "alt": "box noun card"
       }
     ],
     "correctAnswer": "cried",
@@ -16687,7 +26979,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "cried makes the sentence make sense."
+    "explanation": "cried is a verb."
   },
   {
     "id": "second_verbs_l1_08_dance",
@@ -16700,9 +26992,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "dance",
     "imagePath": "/media/vocabulary/images/verb-dance.webp",
     "imageUrl": "/media/vocabulary/images/verb-dance.webp",
@@ -16711,9 +27003,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "square",
       "dance",
@@ -16722,32 +27013,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_adjective_square_text",
-        "word": "square",
-        "label": "square",
         "value": "square",
+        "label": "square",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_dance_text",
-        "word": "dance",
-        "label": "dance",
         "value": "dance",
+        "label": "dance",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_cat_text",
-        "word": "cat",
-        "label": "cat",
         "value": "cat",
+        "label": "cat",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_class_text",
+        "value": "class",
+        "label": "class",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_square",
+        "word": "square",
+        "label": "square",
+        "value": "square",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-square.webp",
+        "imagePath": "/media/vocabulary/images/adjective-square.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-square.webp",
+        "alt": "square adjective card"
+      },
+      {
+        "id": "second_verb_dance",
+        "word": "dance",
+        "label": "dance",
+        "value": "dance",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-dance.webp",
+        "imagePath": "/media/vocabulary/images/verb-dance.webp",
+        "imageUrl": "/media/vocabulary/images/verb-dance.webp",
+        "alt": "dance verb card"
+      },
+      {
+        "id": "second_noun_cat",
+        "word": "cat",
+        "label": "cat",
+        "value": "cat",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/cat.png",
+        "imagePath": "/images/child-mode/cvc/cat.png",
+        "imageUrl": "/images/child-mode/cvc/cat.png",
+        "alt": "cat noun card"
+      },
+      {
+        "id": "second_noun_class",
         "word": "class",
         "label": "class",
         "value": "class",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/class.webp",
+        "imagePath": "/media/vocabulary/images/class.webp",
+        "imageUrl": "/media/vocabulary/images/class.webp",
+        "alt": "class noun card"
       }
     ],
     "correctAnswer": "dance",
@@ -16757,7 +27086,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "dance makes the sentence make sense."
+    "explanation": "dance is a verb."
   },
   {
     "id": "second_verbs_l1_09_drew",
@@ -16770,9 +27099,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "drew",
     "imagePath": "/media/vocabulary/images/verb-drew.webp",
     "imageUrl": "/media/vocabulary/images/verb-drew.webp",
@@ -16781,9 +27110,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "drew",
       "cup",
@@ -16792,32 +27120,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_drew_text",
-        "word": "drew",
-        "label": "drew",
         "value": "drew",
+        "label": "drew",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_cup_text",
+        "value": "cup",
+        "label": "cup",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "dad",
+        "label": "dad",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "tiny",
+        "label": "tiny",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_drew",
+        "word": "drew",
+        "label": "drew",
+        "value": "drew",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-drew.webp",
+        "imagePath": "/media/vocabulary/images/verb-drew.webp",
+        "imageUrl": "/media/vocabulary/images/verb-drew.webp",
+        "alt": "drew verb card"
+      },
+      {
+        "id": "second_noun_cup",
         "word": "cup",
         "label": "cup",
         "value": "cup",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/cup.png",
+        "imagePath": "/images/child-mode/initial-sounds/cup.png",
+        "imageUrl": "/images/child-mode/initial-sounds/cup.png",
+        "alt": "cup noun card"
       },
       {
-        "id": "second_noun_dad_text",
+        "id": "second_noun_dad",
         "word": "dad",
         "label": "dad",
         "value": "dad",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/dad.webp",
+        "imagePath": "/media/vocabulary/images/dad.webp",
+        "imageUrl": "/media/vocabulary/images/dad.webp",
+        "alt": "dad noun card"
       },
       {
-        "id": "second_adjective_tiny_text",
+        "id": "second_adjective_tiny",
         "word": "tiny",
         "label": "tiny",
         "value": "tiny",
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-tiny.webp",
+        "imagePath": "/media/vocabulary/images/adjective-tiny.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-tiny.webp",
+        "alt": "tiny adjective card"
       }
     ],
     "correctAnswer": "drew",
@@ -16827,7 +27193,221 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "drew makes the sentence make sense."
+    "explanation": "drew is a verb."
+  },
+  {
+    "id": "second_verbs_l1_41_drive",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "drive",
+    "imagePath": "/media/vocabulary/images/verb-drive.webp",
+    "imageUrl": "/media/vocabulary/images/verb-drive.webp",
+    "targetImage": "/media/vocabulary/images/verb-drive.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-drive.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
+    "choices": [
+      "drive",
+      "plum",
+      "puppy",
+      "prickly"
+    ],
+    "answerOptions": [
+      {
+        "value": "drive",
+        "label": "drive",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "plum",
+        "label": "plum",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "puppy",
+        "label": "puppy",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "prickly",
+        "label": "prickly",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_drive",
+        "word": "drive",
+        "label": "drive",
+        "value": "drive",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-drive.webp",
+        "imagePath": "/media/vocabulary/images/verb-drive.webp",
+        "imageUrl": "/media/vocabulary/images/verb-drive.webp",
+        "alt": "drive verb card"
+      },
+      {
+        "id": "second_noun_plum",
+        "word": "plum",
+        "label": "plum",
+        "value": "plum",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/plum.webp",
+        "imagePath": "/media/vocabulary/images/plum.webp",
+        "imageUrl": "/media/vocabulary/images/plum.webp",
+        "alt": "plum noun card"
+      },
+      {
+        "id": "second_noun_puppy",
+        "word": "puppy",
+        "label": "puppy",
+        "value": "puppy",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-puppy.webp",
+        "imagePath": "/media/vocabulary/images/noun-puppy.webp",
+        "imageUrl": "/media/vocabulary/images/noun-puppy.webp",
+        "alt": "puppy noun card"
+      },
+      {
+        "id": "second_adjective_prickly",
+        "word": "prickly",
+        "label": "prickly",
+        "value": "prickly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-prickly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-prickly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-prickly.webp",
+        "alt": "prickly adjective card"
+      }
+    ],
+    "correctAnswer": "drive",
+    "answer": "drive",
+    "itemType": "grammar_verb",
+    "itemKey": "drive",
+    "partOfSpeech": "verb",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "drive is a verb."
+  },
+  {
+    "id": "second_verbs_l1_42_eat",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "eat",
+    "imagePath": "/media/vocabulary/images/verb-eat.webp",
+    "imageUrl": "/media/vocabulary/images/verb-eat.webp",
+    "targetImage": "/media/vocabulary/images/verb-eat.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-eat.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
+    "choices": [
+      "scarf",
+      "sea",
+      "sharp",
+      "eat"
+    ],
+    "answerOptions": [
+      {
+        "value": "scarf",
+        "label": "scarf",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "sea",
+        "label": "sea",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "sharp",
+        "label": "sharp",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "eat",
+        "label": "eat",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_scarf",
+        "word": "scarf",
+        "label": "scarf",
+        "value": "scarf",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/scarf.webp",
+        "imagePath": "/media/vocabulary/images/scarf.webp",
+        "imageUrl": "/media/vocabulary/images/scarf.webp",
+        "alt": "scarf noun card"
+      },
+      {
+        "id": "second_noun_sea",
+        "word": "sea",
+        "label": "sea",
+        "value": "sea",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/sea.png",
+        "imagePath": "/images/child-mode/initial-sounds/sea.png",
+        "imageUrl": "/images/child-mode/initial-sounds/sea.png",
+        "alt": "sea noun card"
+      },
+      {
+        "id": "second_adjective_sharp",
+        "word": "sharp",
+        "label": "sharp",
+        "value": "sharp",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-sharp.webp",
+        "imagePath": "/media/vocabulary/images/adjective-sharp.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-sharp.webp",
+        "alt": "sharp adjective card"
+      },
+      {
+        "id": "second_verb_eat",
+        "word": "eat",
+        "label": "eat",
+        "value": "eat",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-eat.webp",
+        "imagePath": "/media/vocabulary/images/verb-eat.webp",
+        "imageUrl": "/media/vocabulary/images/verb-eat.webp",
+        "alt": "eat verb card"
+      }
+    ],
+    "correctAnswer": "eat",
+    "answer": "eat",
+    "itemType": "grammar_verb",
+    "itemKey": "eat",
+    "partOfSpeech": "verb",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "eat is a verb."
   },
   {
     "id": "second_verbs_l1_10_explain",
@@ -16840,9 +27420,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "explain",
     "imagePath": "/media/vocabulary/images/verb-explain.webp",
     "imageUrl": "/media/vocabulary/images/verb-explain.webp",
@@ -16851,9 +27431,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "duck",
       "egg",
@@ -16862,32 +27441,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_duck_text",
-        "word": "duck",
-        "label": "duck",
         "value": "duck",
+        "label": "duck",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_egg_text",
-        "word": "egg",
-        "label": "egg",
         "value": "egg",
+        "label": "egg",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_old_text",
-        "word": "old",
-        "label": "old",
         "value": "old",
+        "label": "old",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_explain_text",
+        "value": "explain",
+        "label": "explain",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_duck",
+        "word": "duck",
+        "label": "duck",
+        "value": "duck",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/duck.png",
+        "imagePath": "/images/child-mode/initial-sounds/duck.png",
+        "imageUrl": "/images/child-mode/initial-sounds/duck.png",
+        "alt": "duck noun card"
+      },
+      {
+        "id": "second_noun_egg",
+        "word": "egg",
+        "label": "egg",
+        "value": "egg",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/egg.png",
+        "imagePath": "/images/child-mode/initial-sounds/egg.png",
+        "imageUrl": "/images/child-mode/initial-sounds/egg.png",
+        "alt": "egg noun card"
+      },
+      {
+        "id": "second_adjective_old",
+        "word": "old",
+        "label": "old",
+        "value": "old",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-old.webp",
+        "imagePath": "/media/vocabulary/images/adjective-old.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-old.webp",
+        "alt": "old adjective card"
+      },
+      {
+        "id": "second_verb_explain",
         "word": "explain",
         "label": "explain",
         "value": "explain",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-explain.webp",
+        "imagePath": "/media/vocabulary/images/verb-explain.webp",
+        "imageUrl": "/media/vocabulary/images/verb-explain.webp",
+        "alt": "explain verb card"
       }
     ],
     "correctAnswer": "explain",
@@ -16897,7 +27514,114 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "explain makes the sentence make sense."
+    "explanation": "explain is a verb."
+  },
+  {
+    "id": "second_verbs_l1_43_fall",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "fall",
+    "imagePath": "/media/vocabulary/images/verb-fall.webp",
+    "imageUrl": "/media/vocabulary/images/verb-fall.webp",
+    "targetImage": "/media/vocabulary/images/verb-fall.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-fall.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
+    "choices": [
+      "shirt",
+      "smelly",
+      "fall",
+      "shelf"
+    ],
+    "answerOptions": [
+      {
+        "value": "shirt",
+        "label": "shirt",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "smelly",
+        "label": "smelly",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "fall",
+        "label": "fall",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "shelf",
+        "label": "shelf",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_shirt",
+        "word": "shirt",
+        "label": "shirt",
+        "value": "shirt",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/shirt.webp",
+        "imagePath": "/media/vocabulary/images/shirt.webp",
+        "imageUrl": "/media/vocabulary/images/shirt.webp",
+        "alt": "shirt noun card"
+      },
+      {
+        "id": "second_adjective_smelly",
+        "word": "smelly",
+        "label": "smelly",
+        "value": "smelly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-smelly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-smelly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-smelly.webp",
+        "alt": "smelly adjective card"
+      },
+      {
+        "id": "second_verb_fall",
+        "word": "fall",
+        "label": "fall",
+        "value": "fall",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fall.webp",
+        "imagePath": "/media/vocabulary/images/verb-fall.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fall.webp",
+        "alt": "fall verb card"
+      },
+      {
+        "id": "second_noun_shelf",
+        "word": "shelf",
+        "label": "shelf",
+        "value": "shelf",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/shelf.webp",
+        "imagePath": "/media/vocabulary/images/shelf.webp",
+        "imageUrl": "/media/vocabulary/images/shelf.webp",
+        "alt": "shelf noun card"
+      }
+    ],
+    "correctAnswer": "fall",
+    "answer": "fall",
+    "itemType": "grammar_verb",
+    "itemKey": "fall",
+    "partOfSpeech": "verb",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "fall is a verb."
   },
   {
     "id": "second_verbs_l1_11_fell",
@@ -16910,9 +27634,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "fell",
     "imagePath": "/media/vocabulary/images/verb-fell.webp",
     "imageUrl": "/media/vocabulary/images/verb-fell.webp",
@@ -16921,9 +27645,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "foot",
       "brown",
@@ -16932,32 +27655,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_foot_text",
-        "word": "foot",
-        "label": "foot",
         "value": "foot",
+        "label": "foot",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_brown_text",
-        "word": "brown",
-        "label": "brown",
         "value": "brown",
+        "label": "brown",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_fell_text",
-        "word": "fell",
-        "label": "fell",
         "value": "fell",
+        "label": "fell",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_face_text",
+        "value": "face",
+        "label": "face",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_foot",
+        "word": "foot",
+        "label": "foot",
+        "value": "foot",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/foot.webp",
+        "imagePath": "/media/vocabulary/images/foot.webp",
+        "imageUrl": "/media/vocabulary/images/foot.webp",
+        "alt": "foot noun card"
+      },
+      {
+        "id": "second_adjective_brown",
+        "word": "brown",
+        "label": "brown",
+        "value": "brown",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-brown.webp",
+        "imagePath": "/media/vocabulary/images/adjective-brown.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-brown.webp",
+        "alt": "brown adjective card"
+      },
+      {
+        "id": "second_verb_fell",
+        "word": "fell",
+        "label": "fell",
+        "value": "fell",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fell.webp",
+        "imagePath": "/media/vocabulary/images/verb-fell.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fell.webp",
+        "alt": "fell verb card"
+      },
+      {
+        "id": "second_noun_face",
         "word": "face",
         "label": "face",
         "value": "face",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/face.webp",
+        "imagePath": "/media/vocabulary/images/face.webp",
+        "imageUrl": "/media/vocabulary/images/face.webp",
+        "alt": "face noun card"
       }
     ],
     "correctAnswer": "fell",
@@ -16967,7 +27728,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "fell makes the sentence make sense."
+    "explanation": "fell is a verb."
   },
   {
     "id": "second_verbs_l1_12_flew",
@@ -16980,9 +27741,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "flew",
     "imagePath": "/media/vocabulary/images/verb-flew.webp",
     "imageUrl": "/media/vocabulary/images/verb-flew.webp",
@@ -16991,9 +27752,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "purple",
       "flew",
@@ -17002,32 +27762,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_adjective_purple_text",
-        "word": "purple",
-        "label": "purple",
         "value": "purple",
+        "label": "purple",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_flew_text",
-        "word": "flew",
-        "label": "flew",
         "value": "flew",
+        "label": "flew",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_glove_text",
-        "word": "glove",
-        "label": "glove",
         "value": "glove",
+        "label": "glove",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_glue_text",
+        "value": "glue",
+        "label": "glue",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_purple",
+        "word": "purple",
+        "label": "purple",
+        "value": "purple",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-purple.webp",
+        "imagePath": "/media/vocabulary/images/adjective-purple.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-purple.webp",
+        "alt": "purple adjective card"
+      },
+      {
+        "id": "second_verb_flew",
+        "word": "flew",
+        "label": "flew",
+        "value": "flew",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-flew.webp",
+        "imagePath": "/media/vocabulary/images/verb-flew.webp",
+        "imageUrl": "/media/vocabulary/images/verb-flew.webp",
+        "alt": "flew verb card"
+      },
+      {
+        "id": "second_noun_glove",
+        "word": "glove",
+        "label": "glove",
+        "value": "glove",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/glove.webp",
+        "imagePath": "/media/vocabulary/images/glove.webp",
+        "imageUrl": "/media/vocabulary/images/glove.webp",
+        "alt": "glove noun card"
+      },
+      {
+        "id": "second_noun_glue",
         "word": "glue",
         "label": "glue",
         "value": "glue",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/assessment/long-vowels/glue.webp",
+        "imagePath": "/images/assessment/long-vowels/glue.webp",
+        "imageUrl": "/images/assessment/long-vowels/glue.webp",
+        "alt": "glue noun card"
       }
     ],
     "correctAnswer": "flew",
@@ -17037,7 +27835,114 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "flew makes the sentence make sense."
+    "explanation": "flew is a verb."
+  },
+  {
+    "id": "second_verbs_l1_44_fly",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "fly",
+    "imagePath": "/media/vocabulary/images/verb-fly.webp",
+    "imageUrl": "/media/vocabulary/images/verb-fly.webp",
+    "targetImage": "/media/vocabulary/images/verb-fly.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-fly.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
+    "choices": [
+      "square",
+      "fly",
+      "skunk",
+      "snake"
+    ],
+    "answerOptions": [
+      {
+        "value": "square",
+        "label": "square",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "fly",
+        "label": "fly",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "skunk",
+        "label": "skunk",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "snake",
+        "label": "snake",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_square",
+        "word": "square",
+        "label": "square",
+        "value": "square",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-square.webp",
+        "imagePath": "/media/vocabulary/images/adjective-square.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-square.webp",
+        "alt": "square adjective card"
+      },
+      {
+        "id": "second_verb_fly",
+        "word": "fly",
+        "label": "fly",
+        "value": "fly",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-fly.webp",
+        "imagePath": "/media/vocabulary/images/verb-fly.webp",
+        "imageUrl": "/media/vocabulary/images/verb-fly.webp",
+        "alt": "fly verb card"
+      },
+      {
+        "id": "second_noun_skunk",
+        "word": "skunk",
+        "label": "skunk",
+        "value": "skunk",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/skunk.webp",
+        "imagePath": "/media/vocabulary/images/skunk.webp",
+        "imageUrl": "/media/vocabulary/images/skunk.webp",
+        "alt": "skunk noun card"
+      },
+      {
+        "id": "second_noun_snake",
+        "word": "snake",
+        "label": "snake",
+        "value": "snake",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/snake.png",
+        "imagePath": "/images/child-mode/initial-sounds/snake.png",
+        "imageUrl": "/images/child-mode/initial-sounds/snake.png",
+        "alt": "snake noun card"
+      }
+    ],
+    "correctAnswer": "fly",
+    "answer": "fly",
+    "itemType": "grammar_verb",
+    "itemKey": "fly",
+    "partOfSpeech": "verb",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "fly is a verb."
   },
   {
     "id": "second_verbs_l1_34_galloped",
@@ -17050,9 +27955,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "galloped",
     "imagePath": "/media/vocabulary/images/verb-galloped.webp",
     "imageUrl": "/media/vocabulary/images/verb-galloped.webp",
@@ -17061,9 +27966,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "girl",
       "grape",
@@ -17072,32 +27976,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_girl_text",
-        "word": "girl",
-        "label": "girl",
         "value": "girl",
+        "label": "girl",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_grape_text",
-        "word": "grape",
-        "label": "grape",
         "value": "grape",
+        "label": "grape",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_old_text",
-        "word": "old",
-        "label": "old",
         "value": "old",
+        "label": "old",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_galloped_text",
+        "value": "galloped",
+        "label": "galloped",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_girl",
+        "word": "girl",
+        "label": "girl",
+        "value": "girl",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/girl.png",
+        "imagePath": "/images/child-mode/initial-sounds/girl.png",
+        "imageUrl": "/images/child-mode/initial-sounds/girl.png",
+        "alt": "girl noun card"
+      },
+      {
+        "id": "second_noun_grape",
+        "word": "grape",
+        "label": "grape",
+        "value": "grape",
+        "partOfSpeech": "noun",
+        "image": "/images/assessment/long-vowels/grape.webp",
+        "imagePath": "/images/assessment/long-vowels/grape.webp",
+        "imageUrl": "/images/assessment/long-vowels/grape.webp",
+        "alt": "grape noun card"
+      },
+      {
+        "id": "second_adjective_old",
+        "word": "old",
+        "label": "old",
+        "value": "old",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-old.webp",
+        "imagePath": "/media/vocabulary/images/adjective-old.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-old.webp",
+        "alt": "old adjective card"
+      },
+      {
+        "id": "second_verb_galloped",
         "word": "galloped",
         "label": "galloped",
         "value": "galloped",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-galloped.webp",
+        "imagePath": "/media/vocabulary/images/verb-galloped.webp",
+        "imageUrl": "/media/vocabulary/images/verb-galloped.webp",
+        "alt": "galloped verb card"
       }
     ],
     "correctAnswer": "galloped",
@@ -17107,7 +28049,221 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "galloped makes the sentence make sense."
+    "explanation": "galloped is a verb."
+  },
+  {
+    "id": "second_verbs_l1_45_help",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "help",
+    "imagePath": "/media/vocabulary/images/verb-help.webp",
+    "imageUrl": "/media/vocabulary/images/verb-help.webp",
+    "targetImage": "/media/vocabulary/images/verb-help.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-help.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
+    "choices": [
+      "help",
+      "soup",
+      "star",
+      "tiny"
+    ],
+    "answerOptions": [
+      {
+        "value": "help",
+        "label": "help",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "soup",
+        "label": "soup",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "star",
+        "label": "star",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "tiny",
+        "label": "tiny",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_help",
+        "word": "help",
+        "label": "help",
+        "value": "help",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-help.webp",
+        "imagePath": "/media/vocabulary/images/verb-help.webp",
+        "imageUrl": "/media/vocabulary/images/verb-help.webp",
+        "alt": "help verb card"
+      },
+      {
+        "id": "second_noun_soup",
+        "word": "soup",
+        "label": "soup",
+        "value": "soup",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/soup.webp",
+        "imagePath": "/media/vocabulary/images/soup.webp",
+        "imageUrl": "/media/vocabulary/images/soup.webp",
+        "alt": "soup noun card"
+      },
+      {
+        "id": "second_noun_star",
+        "word": "star",
+        "label": "star",
+        "value": "star",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/star.png",
+        "imagePath": "/images/child-mode/initial-sounds/star.png",
+        "imageUrl": "/images/child-mode/initial-sounds/star.png",
+        "alt": "star noun card"
+      },
+      {
+        "id": "second_adjective_tiny",
+        "word": "tiny",
+        "label": "tiny",
+        "value": "tiny",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-tiny.webp",
+        "imagePath": "/media/vocabulary/images/adjective-tiny.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-tiny.webp",
+        "alt": "tiny adjective card"
+      }
+    ],
+    "correctAnswer": "help",
+    "answer": "help",
+    "itemType": "grammar_verb",
+    "itemKey": "help",
+    "partOfSpeech": "verb",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "help is a verb."
+  },
+  {
+    "id": "second_verbs_l1_46_hide",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "hide",
+    "imagePath": "/media/vocabulary/images/verb-hide.webp",
+    "imageUrl": "/media/vocabulary/images/verb-hide.webp",
+    "targetImage": "/media/vocabulary/images/verb-hide.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-hide.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
+    "choices": [
+      "street",
+      "teacher",
+      "old",
+      "hide"
+    ],
+    "answerOptions": [
+      {
+        "value": "street",
+        "label": "street",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "teacher",
+        "label": "teacher",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "old",
+        "label": "old",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "hide",
+        "label": "hide",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_street",
+        "word": "street",
+        "label": "street",
+        "value": "street",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/street.webp",
+        "imagePath": "/media/vocabulary/images/street.webp",
+        "imageUrl": "/media/vocabulary/images/street.webp",
+        "alt": "street noun card"
+      },
+      {
+        "id": "second_noun_teacher",
+        "word": "teacher",
+        "label": "teacher",
+        "value": "teacher",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-teacher.webp",
+        "imagePath": "/media/vocabulary/images/noun-teacher.webp",
+        "imageUrl": "/media/vocabulary/images/noun-teacher.webp",
+        "alt": "teacher noun card"
+      },
+      {
+        "id": "second_adjective_old",
+        "word": "old",
+        "label": "old",
+        "value": "old",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-old.webp",
+        "imagePath": "/media/vocabulary/images/adjective-old.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-old.webp",
+        "alt": "old adjective card"
+      },
+      {
+        "id": "second_verb_hide",
+        "word": "hide",
+        "label": "hide",
+        "value": "hide",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-hide.webp",
+        "imagePath": "/media/vocabulary/images/verb-hide.webp",
+        "imageUrl": "/media/vocabulary/images/verb-hide.webp",
+        "alt": "hide verb card"
+      }
+    ],
+    "correctAnswer": "hide",
+    "answer": "hide",
+    "itemType": "grammar_verb",
+    "itemKey": "hide",
+    "partOfSpeech": "verb",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "hide is a verb."
   },
   {
     "id": "second_verbs_l1_13_hung",
@@ -17120,9 +28276,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "hung",
     "imagePath": "/media/vocabulary/images/verb-hung.webp",
     "imageUrl": "/media/vocabulary/images/verb-hung.webp",
@@ -17131,9 +28287,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "hung",
       "hair",
@@ -17142,32 +28297,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_hung_text",
-        "word": "hung",
-        "label": "hung",
         "value": "hung",
+        "label": "hung",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_hair_text",
+        "value": "hair",
+        "label": "hair",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "ham",
+        "label": "ham",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "bumpy",
+        "label": "bumpy",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_hung",
+        "word": "hung",
+        "label": "hung",
+        "value": "hung",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-hung.webp",
+        "imagePath": "/media/vocabulary/images/verb-hung.webp",
+        "imageUrl": "/media/vocabulary/images/verb-hung.webp",
+        "alt": "hung verb card"
+      },
+      {
+        "id": "second_noun_hair",
         "word": "hair",
         "label": "hair",
         "value": "hair",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/hair.webp",
+        "imagePath": "/media/vocabulary/images/hair.webp",
+        "imageUrl": "/media/vocabulary/images/hair.webp",
+        "alt": "hair noun card"
       },
       {
-        "id": "second_noun_ham_text",
+        "id": "second_noun_ham",
         "word": "ham",
         "label": "ham",
         "value": "ham",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/ham.png",
+        "imagePath": "/images/child-mode/initial-sounds/ham.png",
+        "imageUrl": "/images/child-mode/initial-sounds/ham.png",
+        "alt": "ham noun card"
       },
       {
-        "id": "second_adjective_bumpy_text",
+        "id": "second_adjective_bumpy",
         "word": "bumpy",
         "label": "bumpy",
         "value": "bumpy",
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imagePath": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-bumpy.webp",
+        "alt": "bumpy adjective card"
       }
     ],
     "correctAnswer": "hung",
@@ -17177,7 +28370,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "hung makes the sentence make sense."
+    "explanation": "hung is a verb."
   },
   {
     "id": "second_verbs_l1_14_jumped",
@@ -17190,9 +28383,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "jumped",
     "imagePath": "/media/vocabulary/images/verb-jumped.webp",
     "imageUrl": "/media/vocabulary/images/verb-jumped.webp",
@@ -17201,9 +28394,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "head",
       "hen",
@@ -17212,32 +28404,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_head_text",
-        "word": "head",
-        "label": "head",
         "value": "head",
+        "label": "head",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_hen_text",
-        "word": "hen",
-        "label": "hen",
         "value": "hen",
+        "label": "hen",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_cute_text",
-        "word": "cute",
-        "label": "cute",
         "value": "cute",
+        "label": "cute",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_jumped_text",
+        "value": "jumped",
+        "label": "jumped",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_head",
+        "word": "head",
+        "label": "head",
+        "value": "head",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/head.webp",
+        "imagePath": "/media/vocabulary/images/head.webp",
+        "imageUrl": "/media/vocabulary/images/head.webp",
+        "alt": "head noun card"
+      },
+      {
+        "id": "second_noun_hen",
+        "word": "hen",
+        "label": "hen",
+        "value": "hen",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/hen.png",
+        "imagePath": "/images/child-mode/initial-sounds/hen.png",
+        "imageUrl": "/images/child-mode/initial-sounds/hen.png",
+        "alt": "hen noun card"
+      },
+      {
+        "id": "second_adjective_cute",
+        "word": "cute",
+        "label": "cute",
+        "value": "cute",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-cute.webp",
+        "imagePath": "/media/vocabulary/images/adjective-cute.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-cute.webp",
+        "alt": "cute adjective card"
+      },
+      {
+        "id": "second_verb_jumped",
         "word": "jumped",
         "label": "jumped",
         "value": "jumped",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-jumped.webp",
+        "imagePath": "/media/vocabulary/images/verb-jumped.webp",
+        "imageUrl": "/media/vocabulary/images/verb-jumped.webp",
+        "alt": "jumped verb card"
       }
     ],
     "correctAnswer": "jumped",
@@ -17247,7 +28477,114 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "jumped makes the sentence make sense."
+    "explanation": "jumped is a verb."
+  },
+  {
+    "id": "second_verbs_l1_51_listen",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "listen",
+    "imagePath": "/media/vocabulary/images/verb-listen.webp",
+    "imageUrl": "/media/vocabulary/images/verb-listen.webp",
+    "targetImage": "/media/vocabulary/images/verb-listen.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-listen.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
+    "choices": [
+      "chicken",
+      "fierce",
+      "listen",
+      "camel"
+    ],
+    "answerOptions": [
+      {
+        "value": "chicken",
+        "label": "chicken",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "fierce",
+        "label": "fierce",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "listen",
+        "label": "listen",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "camel",
+        "label": "camel",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_chicken",
+        "word": "chicken",
+        "label": "chicken",
+        "value": "chicken",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/chicken.webp",
+        "imagePath": "/media/vocabulary/images/chicken.webp",
+        "imageUrl": "/media/vocabulary/images/chicken.webp",
+        "alt": "chicken noun card"
+      },
+      {
+        "id": "second_adjective_fierce",
+        "word": "fierce",
+        "label": "fierce",
+        "value": "fierce",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-fierce.webp",
+        "imagePath": "/media/vocabulary/images/adjective-fierce.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-fierce.webp",
+        "alt": "fierce adjective card"
+      },
+      {
+        "id": "second_verb_listen",
+        "word": "listen",
+        "label": "listen",
+        "value": "listen",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-listen.webp",
+        "imagePath": "/media/vocabulary/images/verb-listen.webp",
+        "imageUrl": "/media/vocabulary/images/verb-listen.webp",
+        "alt": "listen verb card"
+      },
+      {
+        "id": "second_noun_camel",
+        "word": "camel",
+        "label": "camel",
+        "value": "camel",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/camel.webp",
+        "imagePath": "/media/vocabulary/images/camel.webp",
+        "imageUrl": "/media/vocabulary/images/camel.webp",
+        "alt": "camel noun card"
+      }
+    ],
+    "correctAnswer": "listen",
+    "answer": "listen",
+    "itemType": "grammar_verb",
+    "itemKey": "listen",
+    "partOfSpeech": "verb",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "listen is a verb."
   },
   {
     "id": "second_verbs_l1_15_measure",
@@ -17260,9 +28597,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 1,
     "assessmentPhase": 1,
     "phaseTarget": "level_1_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "measure",
     "imagePath": "/media/vocabulary/images/verb-measure.webp",
     "imageUrl": "/media/vocabulary/images/verb-measure.webp",
@@ -17271,9 +28608,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "knee",
       "fierce",
@@ -17282,32 +28618,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_knee_text",
-        "word": "knee",
-        "label": "knee",
         "value": "knee",
+        "label": "knee",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_fierce_text",
-        "word": "fierce",
-        "label": "fierce",
         "value": "fierce",
+        "label": "fierce",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_measure_text",
-        "word": "measure",
-        "label": "measure",
         "value": "measure",
+        "label": "measure",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_kid_text",
+        "value": "kid",
+        "label": "kid",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_knee",
+        "word": "knee",
+        "label": "knee",
+        "value": "knee",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/knee.webp",
+        "imagePath": "/media/vocabulary/images/knee.webp",
+        "imageUrl": "/media/vocabulary/images/knee.webp",
+        "alt": "knee noun card"
+      },
+      {
+        "id": "second_adjective_fierce",
+        "word": "fierce",
+        "label": "fierce",
+        "value": "fierce",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-fierce.webp",
+        "imagePath": "/media/vocabulary/images/adjective-fierce.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-fierce.webp",
+        "alt": "fierce adjective card"
+      },
+      {
+        "id": "second_verb_measure",
+        "word": "measure",
+        "label": "measure",
+        "value": "measure",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-measure.webp",
+        "imagePath": "/media/vocabulary/images/verb-measure.webp",
+        "imageUrl": "/media/vocabulary/images/verb-measure.webp",
+        "alt": "measure verb card"
+      },
+      {
+        "id": "second_noun_kid",
         "word": "kid",
         "label": "kid",
         "value": "kid",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/kid.png",
+        "imagePath": "/images/child-mode/initial-sounds/kid.png",
+        "imageUrl": "/images/child-mode/initial-sounds/kid.png",
+        "alt": "kid noun card"
       }
     ],
     "correctAnswer": "measure",
@@ -17317,7 +28691,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "measure makes the sentence make sense."
+    "explanation": "measure is a verb."
   },
   {
     "id": "second_verbs_l1_16_melt",
@@ -17330,9 +28704,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "melt",
     "imagePath": "/media/vocabulary/images/verb-melt.webp",
     "imageUrl": "/media/vocabulary/images/verb-melt.webp",
@@ -17341,9 +28715,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "huge",
       "melt",
@@ -17352,32 +28725,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_adjective_huge_text",
-        "word": "huge",
-        "label": "huge",
         "value": "huge",
+        "label": "huge",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_melt_text",
-        "word": "melt",
-        "label": "melt",
         "value": "melt",
+        "label": "melt",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_leg_text",
-        "word": "leg",
-        "label": "leg",
         "value": "leg",
+        "label": "leg",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_man_text",
+        "value": "man",
+        "label": "man",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_huge",
+        "word": "huge",
+        "label": "huge",
+        "value": "huge",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-huge.webp",
+        "imagePath": "/media/vocabulary/images/adjective-huge.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-huge.webp",
+        "alt": "huge adjective card"
+      },
+      {
+        "id": "second_verb_melt",
+        "word": "melt",
+        "label": "melt",
+        "value": "melt",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-melt.webp",
+        "imagePath": "/media/vocabulary/images/verb-melt.webp",
+        "imageUrl": "/media/vocabulary/images/verb-melt.webp",
+        "alt": "melt verb card"
+      },
+      {
+        "id": "second_noun_leg",
+        "word": "leg",
+        "label": "leg",
+        "value": "leg",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/leg.png",
+        "imagePath": "/images/child-mode/initial-sounds/leg.png",
+        "imageUrl": "/images/child-mode/initial-sounds/leg.png",
+        "alt": "leg noun card"
+      },
+      {
+        "id": "second_noun_man",
         "word": "man",
         "label": "man",
         "value": "man",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/man.png",
+        "imagePath": "/images/child-mode/cvc/man.png",
+        "imageUrl": "/images/child-mode/cvc/man.png",
+        "alt": "man noun card"
       }
     ],
     "correctAnswer": "melt",
@@ -17387,7 +28798,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "melt makes the sentence make sense."
+    "explanation": "melt is a verb."
   },
   {
     "id": "second_verbs_l1_17_observe",
@@ -17400,9 +28811,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "observe",
     "imagePath": "/media/vocabulary/images/verb-observe.webp",
     "imageUrl": "/media/vocabulary/images/verb-observe.webp",
@@ -17411,9 +28822,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "observe",
       "men",
@@ -17422,32 +28832,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_observe_text",
-        "word": "observe",
-        "label": "observe",
         "value": "observe",
+        "label": "observe",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_men_text",
+        "value": "men",
+        "label": "men",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "moon",
+        "label": "moon",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "prickly",
+        "label": "prickly",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_observe",
+        "word": "observe",
+        "label": "observe",
+        "value": "observe",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-observe.webp",
+        "imagePath": "/media/vocabulary/images/verb-observe.webp",
+        "imageUrl": "/media/vocabulary/images/verb-observe.webp",
+        "alt": "observe verb card"
+      },
+      {
+        "id": "second_noun_men",
         "word": "men",
         "label": "men",
         "value": "men",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/men.webp",
+        "imagePath": "/media/vocabulary/images/men.webp",
+        "imageUrl": "/media/vocabulary/images/men.webp",
+        "alt": "men noun card"
       },
       {
-        "id": "second_noun_moon_text",
+        "id": "second_noun_moon",
         "word": "moon",
         "label": "moon",
         "value": "moon",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/moon.png",
+        "imagePath": "/images/child-mode/initial-sounds/moon.png",
+        "imageUrl": "/images/child-mode/initial-sounds/moon.png",
+        "alt": "moon noun card"
       },
       {
-        "id": "second_adjective_prickly_text",
+        "id": "second_adjective_prickly",
         "word": "prickly",
         "label": "prickly",
         "value": "prickly",
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-prickly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-prickly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-prickly.webp",
+        "alt": "prickly adjective card"
       }
     ],
     "correctAnswer": "observe",
@@ -17457,7 +28905,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "observe makes the sentence make sense."
+    "explanation": "observe is a verb."
   },
   {
     "id": "second_verbs_l1_18_played",
@@ -17470,9 +28918,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "played",
     "imagePath": "/media/vocabulary/images/verb-played.webp",
     "imageUrl": "/media/vocabulary/images/verb-played.webp",
@@ -17481,9 +28929,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "pear",
       "pen",
@@ -17492,32 +28939,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_pear_text",
-        "word": "pear",
-        "label": "pear",
         "value": "pear",
+        "label": "pear",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_pen_text",
-        "word": "pen",
-        "label": "pen",
         "value": "pen",
+        "label": "pen",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_sharp_text",
-        "word": "sharp",
-        "label": "sharp",
         "value": "sharp",
+        "label": "sharp",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_played_text",
+        "value": "played",
+        "label": "played",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_pear",
+        "word": "pear",
+        "label": "pear",
+        "value": "pear",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/pear.webp",
+        "imagePath": "/media/vocabulary/images/pear.webp",
+        "imageUrl": "/media/vocabulary/images/pear.webp",
+        "alt": "pear noun card"
+      },
+      {
+        "id": "second_noun_pen",
+        "word": "pen",
+        "label": "pen",
+        "value": "pen",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/pen.png",
+        "imagePath": "/images/child-mode/initial-sounds/pen.png",
+        "imageUrl": "/images/child-mode/initial-sounds/pen.png",
+        "alt": "pen noun card"
+      },
+      {
+        "id": "second_adjective_sharp",
+        "word": "sharp",
+        "label": "sharp",
+        "value": "sharp",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-sharp.webp",
+        "imagePath": "/media/vocabulary/images/adjective-sharp.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-sharp.webp",
+        "alt": "sharp adjective card"
+      },
+      {
+        "id": "second_verb_played",
         "word": "played",
         "label": "played",
         "value": "played",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-played.webp",
+        "imagePath": "/media/vocabulary/images/verb-played.webp",
+        "imageUrl": "/media/vocabulary/images/verb-played.webp",
+        "alt": "played verb card"
       }
     ],
     "correctAnswer": "played",
@@ -17527,7 +29012,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "played makes the sentence make sense."
+    "explanation": "played is a verb."
   },
   {
     "id": "second_verbs_l1_19_pour",
@@ -17540,9 +29025,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "pour",
     "imagePath": "/media/vocabulary/images/verb-pour.webp",
     "imageUrl": "/media/vocabulary/images/verb-pour.webp",
@@ -17551,9 +29036,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "rice",
       "smelly",
@@ -17562,32 +29046,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_rice_text",
-        "word": "rice",
-        "label": "rice",
         "value": "rice",
+        "label": "rice",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_smelly_text",
-        "word": "smelly",
-        "label": "smelly",
         "value": "smelly",
+        "label": "smelly",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_pour_text",
-        "word": "pour",
-        "label": "pour",
         "value": "pour",
+        "label": "pour",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_rat_text",
+        "value": "rat",
+        "label": "rat",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_rice",
+        "word": "rice",
+        "label": "rice",
+        "value": "rice",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/rice.webp",
+        "imagePath": "/media/vocabulary/images/rice.webp",
+        "imageUrl": "/media/vocabulary/images/rice.webp",
+        "alt": "rice noun card"
+      },
+      {
+        "id": "second_adjective_smelly",
+        "word": "smelly",
+        "label": "smelly",
+        "value": "smelly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-smelly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-smelly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-smelly.webp",
+        "alt": "smelly adjective card"
+      },
+      {
+        "id": "second_verb_pour",
+        "word": "pour",
+        "label": "pour",
+        "value": "pour",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-pour.webp",
+        "imagePath": "/media/vocabulary/images/verb-pour.webp",
+        "imageUrl": "/media/vocabulary/images/verb-pour.webp",
+        "alt": "pour verb card"
+      },
+      {
+        "id": "second_noun_rat",
         "word": "rat",
         "label": "rat",
         "value": "rat",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/rat.png",
+        "imagePath": "/images/child-mode/initial-sounds/rat.png",
+        "imageUrl": "/images/child-mode/initial-sounds/rat.png",
+        "alt": "rat noun card"
       }
     ],
     "correctAnswer": "pour",
@@ -17597,7 +29119,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "pour makes the sentence make sense."
+    "explanation": "pour is a verb."
   },
   {
     "id": "second_verbs_l1_20_predict",
@@ -17610,9 +29132,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "predict",
     "imagePath": "/media/vocabulary/images/verb-predict.webp",
     "imageUrl": "/media/vocabulary/images/verb-predict.webp",
@@ -17621,9 +29143,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "square",
       "predict",
@@ -17632,32 +29153,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_adjective_square_text",
-        "word": "square",
-        "label": "square",
         "value": "square",
+        "label": "square",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_predict_text",
-        "word": "predict",
-        "label": "predict",
         "value": "predict",
+        "label": "predict",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_room_text",
-        "word": "room",
-        "label": "room",
         "value": "room",
+        "label": "room",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_seal_text",
+        "value": "seal",
+        "label": "seal",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_square",
+        "word": "square",
+        "label": "square",
+        "value": "square",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-square.webp",
+        "imagePath": "/media/vocabulary/images/adjective-square.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-square.webp",
+        "alt": "square adjective card"
+      },
+      {
+        "id": "second_verb_predict",
+        "word": "predict",
+        "label": "predict",
+        "value": "predict",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-predict.webp",
+        "imagePath": "/media/vocabulary/images/verb-predict.webp",
+        "imageUrl": "/media/vocabulary/images/verb-predict.webp",
+        "alt": "predict verb card"
+      },
+      {
+        "id": "second_noun_room",
+        "word": "room",
+        "label": "room",
+        "value": "room",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/room.webp",
+        "imagePath": "/media/vocabulary/images/room.webp",
+        "imageUrl": "/media/vocabulary/images/room.webp",
+        "alt": "room noun card"
+      },
+      {
+        "id": "second_noun_seal",
         "word": "seal",
         "label": "seal",
         "value": "seal",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/seal.png",
+        "imagePath": "/images/child-mode/initial-sounds/seal.png",
+        "imageUrl": "/images/child-mode/initial-sounds/seal.png",
+        "alt": "seal noun card"
       }
     ],
     "correctAnswer": "predict",
@@ -17667,7 +29226,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "predict makes the sentence make sense."
+    "explanation": "predict is a verb."
   },
   {
     "id": "second_verbs_l1_21_raised",
@@ -17680,9 +29239,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "raised",
     "imagePath": "/media/vocabulary/images/verb-raised.webp",
     "imageUrl": "/media/vocabulary/images/verb-raised.webp",
@@ -17691,9 +29250,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "raised",
       "sky",
@@ -17702,32 +29260,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_raised_text",
-        "word": "raised",
-        "label": "raised",
         "value": "raised",
+        "label": "raised",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_sky_text",
+        "value": "sky",
+        "label": "sky",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "sock",
+        "label": "sock",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "tiny",
+        "label": "tiny",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_raised",
+        "word": "raised",
+        "label": "raised",
+        "value": "raised",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-raised.webp",
+        "imagePath": "/media/vocabulary/images/verb-raised.webp",
+        "imageUrl": "/media/vocabulary/images/verb-raised.webp",
+        "alt": "raised verb card"
+      },
+      {
+        "id": "second_noun_sky",
         "word": "sky",
         "label": "sky",
         "value": "sky",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/assessment/long-vowels/sky.webp",
+        "imagePath": "/images/assessment/long-vowels/sky.webp",
+        "imageUrl": "/images/assessment/long-vowels/sky.webp",
+        "alt": "sky noun card"
       },
       {
-        "id": "second_noun_sock_text",
+        "id": "second_noun_sock",
         "word": "sock",
         "label": "sock",
         "value": "sock",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/sock.png",
+        "imagePath": "/images/child-mode/initial-sounds/sock.png",
+        "imageUrl": "/images/child-mode/initial-sounds/sock.png",
+        "alt": "sock noun card"
       },
       {
-        "id": "second_adjective_tiny_text",
+        "id": "second_adjective_tiny",
         "word": "tiny",
         "label": "tiny",
         "value": "tiny",
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-tiny.webp",
+        "imagePath": "/media/vocabulary/images/adjective-tiny.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-tiny.webp",
+        "alt": "tiny adjective card"
       }
     ],
     "correctAnswer": "raised",
@@ -17737,7 +29333,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "raised makes the sentence make sense."
+    "explanation": "raised is a verb."
   },
   {
     "id": "second_verbs_l1_22_ran",
@@ -17750,9 +29346,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "ran",
     "imagePath": "/media/vocabulary/images/verb-ran.webp",
     "imageUrl": "/media/vocabulary/images/verb-ran.webp",
@@ -17761,9 +29357,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "sun",
       "toast",
@@ -17772,32 +29367,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_sun_text",
-        "word": "sun",
-        "label": "sun",
         "value": "sun",
+        "label": "sun",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_toast_text",
-        "word": "toast",
-        "label": "toast",
         "value": "toast",
+        "label": "toast",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_old_text",
-        "word": "old",
-        "label": "old",
         "value": "old",
+        "label": "old",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_ran_text",
+        "value": "ran",
+        "label": "ran",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_sun",
+        "word": "sun",
+        "label": "sun",
+        "value": "sun",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/sun.png",
+        "imagePath": "/images/child-mode/cvc/sun.png",
+        "imageUrl": "/images/child-mode/cvc/sun.png",
+        "alt": "sun noun card"
+      },
+      {
+        "id": "second_noun_toast",
+        "word": "toast",
+        "label": "toast",
+        "value": "toast",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/toast.webp",
+        "imagePath": "/media/vocabulary/images/toast.webp",
+        "imageUrl": "/media/vocabulary/images/toast.webp",
+        "alt": "toast noun card"
+      },
+      {
+        "id": "second_adjective_old",
+        "word": "old",
+        "label": "old",
+        "value": "old",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-old.webp",
+        "imagePath": "/media/vocabulary/images/adjective-old.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-old.webp",
+        "alt": "old adjective card"
+      },
+      {
+        "id": "second_verb_ran",
         "word": "ran",
         "label": "ran",
         "value": "ran",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-ran.webp",
+        "imagePath": "/media/vocabulary/images/verb-ran.webp",
+        "imageUrl": "/media/vocabulary/images/verb-ran.webp",
+        "alt": "ran verb card"
       }
     ],
     "correctAnswer": "ran",
@@ -17807,7 +29440,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "ran makes the sentence make sense."
+    "explanation": "ran is a verb."
   },
   {
     "id": "second_verbs_l1_23_reads",
@@ -17820,9 +29453,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "reads",
     "imagePath": "/media/vocabulary/images/verb-reads.webp",
     "imageUrl": "/media/vocabulary/images/verb-reads.webp",
@@ -17831,9 +29464,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "child",
       "brown",
@@ -17842,32 +29474,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_child_text",
-        "word": "child",
-        "label": "child",
         "value": "child",
+        "label": "child",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_brown_text",
-        "word": "brown",
-        "label": "brown",
         "value": "brown",
+        "label": "brown",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_reads_text",
-        "word": "reads",
-        "label": "reads",
         "value": "reads",
+        "label": "reads",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_word_text",
+        "value": "word",
+        "label": "word",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_child",
+        "word": "child",
+        "label": "child",
+        "value": "child",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-child.webp",
+        "imagePath": "/media/vocabulary/images/noun-child.webp",
+        "imageUrl": "/media/vocabulary/images/noun-child.webp",
+        "alt": "child noun card"
+      },
+      {
+        "id": "second_adjective_brown",
+        "word": "brown",
+        "label": "brown",
+        "value": "brown",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-brown.webp",
+        "imagePath": "/media/vocabulary/images/adjective-brown.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-brown.webp",
+        "alt": "brown adjective card"
+      },
+      {
+        "id": "second_verb_reads",
+        "word": "reads",
+        "label": "reads",
+        "value": "reads",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-reads.webp",
+        "imagePath": "/media/vocabulary/images/verb-reads.webp",
+        "imageUrl": "/media/vocabulary/images/verb-reads.webp",
+        "alt": "reads verb card"
+      },
+      {
+        "id": "second_noun_word",
         "word": "word",
         "label": "word",
         "value": "word",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/word.webp",
+        "imagePath": "/media/vocabulary/images/word.webp",
+        "imageUrl": "/media/vocabulary/images/word.webp",
+        "alt": "word noun card"
       }
     ],
     "correctAnswer": "reads",
@@ -17877,7 +29547,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "reads makes the sentence make sense."
+    "explanation": "reads is a verb."
   },
   {
     "id": "second_verbs_l1_24_repair",
@@ -17890,9 +29560,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "repair",
     "imagePath": "/media/vocabulary/images/verb-repair.webp",
     "imageUrl": "/media/vocabulary/images/verb-repair.webp",
@@ -17901,9 +29571,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "purple",
       "repair",
@@ -17912,32 +29581,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_adjective_purple_text",
-        "word": "purple",
-        "label": "purple",
         "value": "purple",
+        "label": "purple",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_repair_text",
-        "word": "repair",
-        "label": "repair",
         "value": "repair",
+        "label": "repair",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_air_text",
-        "word": "air",
-        "label": "air",
         "value": "air",
+        "label": "air",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_ant_text",
+        "value": "ant",
+        "label": "ant",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_purple",
+        "word": "purple",
+        "label": "purple",
+        "value": "purple",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-purple.webp",
+        "imagePath": "/media/vocabulary/images/adjective-purple.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-purple.webp",
+        "alt": "purple adjective card"
+      },
+      {
+        "id": "second_verb_repair",
+        "word": "repair",
+        "label": "repair",
+        "value": "repair",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-repair.webp",
+        "imagePath": "/media/vocabulary/images/verb-repair.webp",
+        "imageUrl": "/media/vocabulary/images/verb-repair.webp",
+        "alt": "repair verb card"
+      },
+      {
+        "id": "second_noun_air",
+        "word": "air",
+        "label": "air",
+        "value": "air",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/air.webp",
+        "imagePath": "/media/vocabulary/images/air.webp",
+        "imageUrl": "/media/vocabulary/images/air.webp",
+        "alt": "air noun card"
+      },
+      {
+        "id": "second_noun_ant",
         "word": "ant",
         "label": "ant",
         "value": "ant",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/ant.png",
+        "imagePath": "/images/child-mode/initial-sounds/ant.png",
+        "imageUrl": "/images/child-mode/initial-sounds/ant.png",
+        "alt": "ant noun card"
       }
     ],
     "correctAnswer": "repair",
@@ -17947,7 +29654,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "repair makes the sentence make sense."
+    "explanation": "repair is a verb."
   },
   {
     "id": "second_verbs_l1_25_rises",
@@ -17960,9 +29667,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "rises",
     "imagePath": "/media/vocabulary/images/verb-rises.webp",
     "imageUrl": "/media/vocabulary/images/verb-rises.webp",
@@ -17971,9 +29678,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "rises",
       "baby",
@@ -17982,32 +29688,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_rises_text",
-        "word": "rises",
-        "label": "rises",
         "value": "rises",
+        "label": "rises",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_baby_text",
+        "value": "baby",
+        "label": "baby",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "beach",
+        "label": "beach",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "bumpy",
+        "label": "bumpy",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_rises",
+        "word": "rises",
+        "label": "rises",
+        "value": "rises",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-rises.webp",
+        "imagePath": "/media/vocabulary/images/verb-rises.webp",
+        "imageUrl": "/media/vocabulary/images/verb-rises.webp",
+        "alt": "rises verb card"
+      },
+      {
+        "id": "second_noun_baby",
         "word": "baby",
         "label": "baby",
         "value": "baby",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-baby.webp",
+        "imagePath": "/media/vocabulary/images/noun-baby.webp",
+        "imageUrl": "/media/vocabulary/images/noun-baby.webp",
+        "alt": "baby noun card"
       },
       {
-        "id": "second_noun_beach_text",
+        "id": "second_noun_beach",
         "word": "beach",
         "label": "beach",
         "value": "beach",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/beach.webp",
+        "imagePath": "/media/vocabulary/images/beach.webp",
+        "imageUrl": "/media/vocabulary/images/beach.webp",
+        "alt": "beach noun card"
       },
       {
-        "id": "second_adjective_bumpy_text",
+        "id": "second_adjective_bumpy",
         "word": "bumpy",
         "label": "bumpy",
         "value": "bumpy",
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imagePath": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-bumpy.webp",
+        "alt": "bumpy adjective card"
       }
     ],
     "correctAnswer": "rises",
@@ -18017,7 +29761,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "rises makes the sentence make sense."
+    "explanation": "rises is a verb."
   },
   {
     "id": "second_verbs_l1_26_runs",
@@ -18030,9 +29774,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "runs",
     "imagePath": "/media/vocabulary/images/verb-runs.webp",
     "imageUrl": "/media/vocabulary/images/verb-runs.webp",
@@ -18041,9 +29785,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "belt",
       "bird",
@@ -18052,32 +29795,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_belt_text",
-        "word": "belt",
-        "label": "belt",
         "value": "belt",
+        "label": "belt",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_bird_text",
-        "word": "bird",
-        "label": "bird",
         "value": "bird",
+        "label": "bird",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_cute_text",
-        "word": "cute",
-        "label": "cute",
         "value": "cute",
+        "label": "cute",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_runs_text",
+        "value": "runs",
+        "label": "runs",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_belt",
+        "word": "belt",
+        "label": "belt",
+        "value": "belt",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/belt.webp",
+        "imagePath": "/media/vocabulary/images/belt.webp",
+        "imageUrl": "/media/vocabulary/images/belt.webp",
+        "alt": "belt noun card"
+      },
+      {
+        "id": "second_noun_bird",
+        "word": "bird",
+        "label": "bird",
+        "value": "bird",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/bird.png",
+        "imagePath": "/images/child-mode/initial-sounds/bird.png",
+        "imageUrl": "/images/child-mode/initial-sounds/bird.png",
+        "alt": "bird noun card"
+      },
+      {
+        "id": "second_adjective_cute",
+        "word": "cute",
+        "label": "cute",
+        "value": "cute",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-cute.webp",
+        "imagePath": "/media/vocabulary/images/adjective-cute.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-cute.webp",
+        "alt": "cute adjective card"
+      },
+      {
+        "id": "second_verb_runs",
         "word": "runs",
         "label": "runs",
         "value": "runs",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-runs.webp",
+        "imagePath": "/media/vocabulary/images/verb-runs.webp",
+        "imageUrl": "/media/vocabulary/images/verb-runs.webp",
+        "alt": "runs verb card"
       }
     ],
     "correctAnswer": "runs",
@@ -18087,7 +29868,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "runs makes the sentence make sense."
+    "explanation": "runs is a verb."
   },
   {
     "id": "second_verbs_l1_27_sang",
@@ -18100,9 +29881,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "sang",
     "imagePath": "/media/vocabulary/images/verb-sang.webp",
     "imageUrl": "/media/vocabulary/images/verb-sang.webp",
@@ -18111,9 +29892,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "bread",
       "fierce",
@@ -18122,32 +29902,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_bread_text",
-        "word": "bread",
-        "label": "bread",
         "value": "bread",
+        "label": "bread",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_fierce_text",
-        "word": "fierce",
-        "label": "fierce",
         "value": "fierce",
+        "label": "fierce",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_sang_text",
-        "word": "sang",
-        "label": "sang",
         "value": "sang",
+        "label": "sang",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_boy_text",
+        "value": "boy",
+        "label": "boy",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_bread",
+        "word": "bread",
+        "label": "bread",
+        "value": "bread",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/bread.webp",
+        "imagePath": "/media/vocabulary/images/bread.webp",
+        "imageUrl": "/media/vocabulary/images/bread.webp",
+        "alt": "bread noun card"
+      },
+      {
+        "id": "second_adjective_fierce",
+        "word": "fierce",
+        "label": "fierce",
+        "value": "fierce",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-fierce.webp",
+        "imagePath": "/media/vocabulary/images/adjective-fierce.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-fierce.webp",
+        "alt": "fierce adjective card"
+      },
+      {
+        "id": "second_verb_sang",
+        "word": "sang",
+        "label": "sang",
+        "value": "sang",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-sang.webp",
+        "imagePath": "/media/vocabulary/images/verb-sang.webp",
+        "imageUrl": "/media/vocabulary/images/verb-sang.webp",
+        "alt": "sang verb card"
+      },
+      {
+        "id": "second_noun_boy",
         "word": "boy",
         "label": "boy",
         "value": "boy",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/boy.webp",
+        "imagePath": "/media/vocabulary/images/boy.webp",
+        "imageUrl": "/media/vocabulary/images/boy.webp",
+        "alt": "boy noun card"
       }
     ],
     "correctAnswer": "sang",
@@ -18157,7 +29975,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "sang makes the sentence make sense."
+    "explanation": "sang is a verb."
   },
   {
     "id": "second_verbs_l1_28_sat",
@@ -18170,9 +29988,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "sat",
     "imagePath": "/media/vocabulary/images/verb-sat.webp",
     "imageUrl": "/media/vocabulary/images/verb-sat.webp",
@@ -18181,9 +29999,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "huge",
       "sat",
@@ -18192,32 +30009,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_adjective_huge_text",
-        "word": "huge",
-        "label": "huge",
         "value": "huge",
+        "label": "huge",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_sat_text",
-        "word": "sat",
-        "label": "sat",
         "value": "sat",
+        "label": "sat",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_chair_text",
-        "word": "chair",
-        "label": "chair",
         "value": "chair",
+        "label": "chair",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_cheese_text",
+        "value": "cheese",
+        "label": "cheese",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_huge",
+        "word": "huge",
+        "label": "huge",
+        "value": "huge",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-huge.webp",
+        "imagePath": "/media/vocabulary/images/adjective-huge.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-huge.webp",
+        "alt": "huge adjective card"
+      },
+      {
+        "id": "second_verb_sat",
+        "word": "sat",
+        "label": "sat",
+        "value": "sat",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-sat.webp",
+        "imagePath": "/media/vocabulary/images/verb-sat.webp",
+        "imageUrl": "/media/vocabulary/images/verb-sat.webp",
+        "alt": "sat verb card"
+      },
+      {
+        "id": "second_noun_chair",
+        "word": "chair",
+        "label": "chair",
+        "value": "chair",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/chair.png",
+        "imagePath": "/images/child-mode/initial-sounds/chair.png",
+        "imageUrl": "/images/child-mode/initial-sounds/chair.png",
+        "alt": "chair noun card"
+      },
+      {
+        "id": "second_noun_cheese",
         "word": "cheese",
         "label": "cheese",
         "value": "cheese",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/cheese.webp",
+        "imagePath": "/media/vocabulary/images/cheese.webp",
+        "imageUrl": "/media/vocabulary/images/cheese.webp",
+        "alt": "cheese noun card"
       }
     ],
     "correctAnswer": "sat",
@@ -18227,7 +30082,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "sat makes the sentence make sense."
+    "explanation": "sat is a verb."
   },
   {
     "id": "second_verbs_l1_29_shake",
@@ -18240,9 +30095,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "shake",
     "imagePath": "/media/vocabulary/images/verb-shake.webp",
     "imageUrl": "/media/vocabulary/images/verb-shake.webp",
@@ -18251,9 +30106,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "shake",
       "cloud",
@@ -18262,32 +30116,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_shake_text",
-        "word": "shake",
-        "label": "shake",
         "value": "shake",
+        "label": "shake",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_cloud_text",
+        "value": "cloud",
+        "label": "cloud",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "corn",
+        "label": "corn",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "prickly",
+        "label": "prickly",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_shake",
+        "word": "shake",
+        "label": "shake",
+        "value": "shake",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-shake.webp",
+        "imagePath": "/media/vocabulary/images/verb-shake.webp",
+        "imageUrl": "/media/vocabulary/images/verb-shake.webp",
+        "alt": "shake verb card"
+      },
+      {
+        "id": "second_noun_cloud",
         "word": "cloud",
         "label": "cloud",
         "value": "cloud",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/cloud.webp",
+        "imagePath": "/media/vocabulary/images/cloud.webp",
+        "imageUrl": "/media/vocabulary/images/cloud.webp",
+        "alt": "cloud noun card"
       },
       {
-        "id": "second_noun_corn_text",
+        "id": "second_noun_corn",
         "word": "corn",
         "label": "corn",
         "value": "corn",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/corn.png",
+        "imagePath": "/images/child-mode/initial-sounds/corn.png",
+        "imageUrl": "/images/child-mode/initial-sounds/corn.png",
+        "alt": "corn noun card"
       },
       {
-        "id": "second_adjective_prickly_text",
+        "id": "second_adjective_prickly",
         "word": "prickly",
         "label": "prickly",
         "value": "prickly",
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-prickly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-prickly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-prickly.webp",
+        "alt": "prickly adjective card"
       }
     ],
     "correctAnswer": "shake",
@@ -18297,7 +30189,114 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "shake makes the sentence make sense."
+    "explanation": "shake is a verb."
+  },
+  {
+    "id": "second_verbs_l1_47_share",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "share",
+    "imagePath": "/media/vocabulary/images/verb-share.webp",
+    "imageUrl": "/media/vocabulary/images/verb-share.webp",
+    "targetImage": "/media/vocabulary/images/verb-share.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-share.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
+    "choices": [
+      "tree",
+      "brown",
+      "share",
+      "toy"
+    ],
+    "answerOptions": [
+      {
+        "value": "tree",
+        "label": "tree",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "brown",
+        "label": "brown",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "share",
+        "label": "share",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "toy",
+        "label": "toy",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_tree",
+        "word": "tree",
+        "label": "tree",
+        "value": "tree",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/blends/tree.png",
+        "imagePath": "/images/child-mode/blends/tree.png",
+        "imageUrl": "/images/child-mode/blends/tree.png",
+        "alt": "tree noun card"
+      },
+      {
+        "id": "second_adjective_brown",
+        "word": "brown",
+        "label": "brown",
+        "value": "brown",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-brown.webp",
+        "imagePath": "/media/vocabulary/images/adjective-brown.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-brown.webp",
+        "alt": "brown adjective card"
+      },
+      {
+        "id": "second_verb_share",
+        "word": "share",
+        "label": "share",
+        "value": "share",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-share.webp",
+        "imagePath": "/media/vocabulary/images/verb-share.webp",
+        "imageUrl": "/media/vocabulary/images/verb-share.webp",
+        "alt": "share verb card"
+      },
+      {
+        "id": "second_noun_toy",
+        "word": "toy",
+        "label": "toy",
+        "value": "toy",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/toy.webp",
+        "imagePath": "/media/vocabulary/images/toy.webp",
+        "imageUrl": "/media/vocabulary/images/toy.webp",
+        "alt": "toy noun card"
+      }
+    ],
+    "correctAnswer": "share",
+    "answer": "share",
+    "itemType": "grammar_verb",
+    "itemKey": "share",
+    "partOfSpeech": "verb",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "share is a verb."
   },
   {
     "id": "second_verbs_l1_36_sing",
@@ -18310,9 +30309,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "sing",
     "imagePath": "/media/vocabulary/images/verb-sing.webp",
     "imageUrl": "/media/vocabulary/images/verb-sing.webp",
@@ -18321,9 +30320,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The class will ___ a song.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "purple",
       "sing",
@@ -18332,32 +30330,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_adjective_purple_text",
-        "word": "purple",
-        "label": "purple",
         "value": "purple",
+        "label": "purple",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_sing_text",
-        "word": "sing",
-        "label": "sing",
         "value": "sing",
+        "label": "sing",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_house_text",
-        "word": "house",
-        "label": "house",
         "value": "house",
+        "label": "house",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_key_text",
+        "value": "key",
+        "label": "key",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_purple",
+        "word": "purple",
+        "label": "purple",
+        "value": "purple",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-purple.webp",
+        "imagePath": "/media/vocabulary/images/adjective-purple.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-purple.webp",
+        "alt": "purple adjective card"
+      },
+      {
+        "id": "second_verb_sing",
+        "word": "sing",
+        "label": "sing",
+        "value": "sing",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-sing.webp",
+        "imagePath": "/media/vocabulary/images/verb-sing.webp",
+        "imageUrl": "/media/vocabulary/images/verb-sing.webp",
+        "alt": "sing verb card"
+      },
+      {
+        "id": "second_noun_house",
+        "word": "house",
+        "label": "house",
+        "value": "house",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/house.png",
+        "imagePath": "/images/child-mode/initial-sounds/house.png",
+        "imageUrl": "/images/child-mode/initial-sounds/house.png",
+        "alt": "house noun card"
+      },
+      {
+        "id": "second_noun_key",
         "word": "key",
         "label": "key",
         "value": "key",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/key.png",
+        "imagePath": "/images/child-mode/initial-sounds/key.png",
+        "imageUrl": "/images/child-mode/initial-sounds/key.png",
+        "alt": "key noun card"
       }
     ],
     "correctAnswer": "sing",
@@ -18367,7 +30403,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "sing makes the sentence make sense."
+    "explanation": "sing is a verb."
   },
   {
     "id": "second_verbs_l1_30_smiled",
@@ -18380,9 +30416,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "smiled",
     "imagePath": "/media/vocabulary/images/verb-smiled.webp",
     "imageUrl": "/media/vocabulary/images/verb-smiled.webp",
@@ -18391,9 +30427,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "desk",
       "dirt",
@@ -18402,32 +30437,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_desk_text",
-        "word": "desk",
-        "label": "desk",
         "value": "desk",
+        "label": "desk",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_dirt_text",
-        "word": "dirt",
-        "label": "dirt",
         "value": "dirt",
+        "label": "dirt",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_sharp_text",
-        "word": "sharp",
-        "label": "sharp",
         "value": "sharp",
+        "label": "sharp",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_smiled_text",
+        "value": "smiled",
+        "label": "smiled",
+        "partOfSpeech": "verb"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_desk",
+        "word": "desk",
+        "label": "desk",
+        "value": "desk",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/desk.png",
+        "imagePath": "/images/child-mode/initial-sounds/desk.png",
+        "imageUrl": "/images/child-mode/initial-sounds/desk.png",
+        "alt": "desk noun card"
+      },
+      {
+        "id": "second_noun_dirt",
+        "word": "dirt",
+        "label": "dirt",
+        "value": "dirt",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/dirt.webp",
+        "imagePath": "/media/vocabulary/images/dirt.webp",
+        "imageUrl": "/media/vocabulary/images/dirt.webp",
+        "alt": "dirt noun card"
+      },
+      {
+        "id": "second_adjective_sharp",
+        "word": "sharp",
+        "label": "sharp",
+        "value": "sharp",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-sharp.webp",
+        "imagePath": "/media/vocabulary/images/adjective-sharp.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-sharp.webp",
+        "alt": "sharp adjective card"
+      },
+      {
+        "id": "second_verb_smiled",
         "word": "smiled",
         "label": "smiled",
         "value": "smiled",
-        "partOfSpeech": "verb"
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-smiled.webp",
+        "imagePath": "/media/vocabulary/images/verb-smiled.webp",
+        "imageUrl": "/media/vocabulary/images/verb-smiled.webp",
+        "alt": "smiled verb card"
       }
     ],
     "correctAnswer": "smiled",
@@ -18437,7 +30510,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "smiled makes the sentence make sense."
+    "explanation": "smiled is a verb."
   },
   {
     "id": "second_verbs_l1_31_swam",
@@ -18450,9 +30523,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "swam",
     "imagePath": "/media/vocabulary/images/verb-swam.webp",
     "imageUrl": "/media/vocabulary/images/verb-swam.webp",
@@ -18461,9 +30534,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "farmer",
       "smelly",
@@ -18472,32 +30544,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_noun_farmer_text",
-        "word": "farmer",
-        "label": "farmer",
         "value": "farmer",
+        "label": "farmer",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_adjective_smelly_text",
-        "word": "smelly",
-        "label": "smelly",
         "value": "smelly",
+        "label": "smelly",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_swam_text",
-        "word": "swam",
-        "label": "swam",
         "value": "swam",
+        "label": "swam",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_farm_text",
+        "value": "farm",
+        "label": "farm",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_noun_farmer",
+        "word": "farmer",
+        "label": "farmer",
+        "value": "farmer",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-farmer.webp",
+        "imagePath": "/media/vocabulary/images/noun-farmer.webp",
+        "imageUrl": "/media/vocabulary/images/noun-farmer.webp",
+        "alt": "farmer noun card"
+      },
+      {
+        "id": "second_adjective_smelly",
+        "word": "smelly",
+        "label": "smelly",
+        "value": "smelly",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-smelly.webp",
+        "imagePath": "/media/vocabulary/images/adjective-smelly.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-smelly.webp",
+        "alt": "smelly adjective card"
+      },
+      {
+        "id": "second_verb_swam",
+        "word": "swam",
+        "label": "swam",
+        "value": "swam",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-swam.webp",
+        "imagePath": "/media/vocabulary/images/verb-swam.webp",
+        "imageUrl": "/media/vocabulary/images/verb-swam.webp",
+        "alt": "swam verb card"
+      },
+      {
+        "id": "second_noun_farm",
         "word": "farm",
         "label": "farm",
         "value": "farm",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/farm.png",
+        "imagePath": "/images/child-mode/initial-sounds/farm.png",
+        "imageUrl": "/images/child-mode/initial-sounds/farm.png",
+        "alt": "farm noun card"
       }
     ],
     "correctAnswer": "swam",
@@ -18507,7 +30617,7 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "swam makes the sentence make sense."
+    "explanation": "swam is a verb."
   },
   {
     "id": "second_verbs_l1_32_swayed",
@@ -18520,9 +30630,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "swayed",
     "imagePath": "/media/vocabulary/images/verb-swayed.webp",
     "imageUrl": "/media/vocabulary/images/verb-swayed.webp",
@@ -18531,9 +30641,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "square",
       "swayed",
@@ -18542,32 +30651,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_adjective_square_text",
-        "word": "square",
-        "label": "square",
         "value": "square",
+        "label": "square",
         "partOfSpeech": "adjective"
       },
       {
-        "id": "second_verb_swayed_text",
-        "word": "swayed",
-        "label": "swayed",
         "value": "swayed",
+        "label": "swayed",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_field_text",
-        "word": "field",
-        "label": "field",
         "value": "field",
+        "label": "field",
         "partOfSpeech": "noun"
       },
       {
-        "id": "second_noun_fish_text",
+        "value": "fish",
+        "label": "fish",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_square",
+        "word": "square",
+        "label": "square",
+        "value": "square",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-square.webp",
+        "imagePath": "/media/vocabulary/images/adjective-square.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-square.webp",
+        "alt": "square adjective card"
+      },
+      {
+        "id": "second_verb_swayed",
+        "word": "swayed",
+        "label": "swayed",
+        "value": "swayed",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-swayed.webp",
+        "imagePath": "/media/vocabulary/images/verb-swayed.webp",
+        "imageUrl": "/media/vocabulary/images/verb-swayed.webp",
+        "alt": "swayed verb card"
+      },
+      {
+        "id": "second_noun_field",
+        "word": "field",
+        "label": "field",
+        "value": "field",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/field.webp",
+        "imagePath": "/media/vocabulary/images/field.webp",
+        "imageUrl": "/media/vocabulary/images/field.webp",
+        "alt": "field noun card"
+      },
+      {
+        "id": "second_noun_fish",
         "word": "fish",
         "label": "fish",
         "value": "fish",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/cvc/fish.png",
+        "imagePath": "/images/child-mode/cvc/fish.png",
+        "imageUrl": "/images/child-mode/cvc/fish.png",
+        "alt": "fish noun card"
       }
     ],
     "correctAnswer": "swayed",
@@ -18577,7 +30724,114 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "swayed makes the sentence make sense."
+    "explanation": "swayed is a verb."
+  },
+  {
+    "id": "second_verbs_l1_48_think",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "think",
+    "imagePath": "/media/vocabulary/images/verb-think.webp",
+    "imageUrl": "/media/vocabulary/images/verb-think.webp",
+    "targetImage": "/media/vocabulary/images/verb-think.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-think.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
+    "choices": [
+      "purple",
+      "think",
+      "whale",
+      "wind"
+    ],
+    "answerOptions": [
+      {
+        "value": "purple",
+        "label": "purple",
+        "partOfSpeech": "adjective"
+      },
+      {
+        "value": "think",
+        "label": "think",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "whale",
+        "label": "whale",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "wind",
+        "label": "wind",
+        "partOfSpeech": "noun"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_adjective_purple",
+        "word": "purple",
+        "label": "purple",
+        "value": "purple",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-purple.webp",
+        "imagePath": "/media/vocabulary/images/adjective-purple.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-purple.webp",
+        "alt": "purple adjective card"
+      },
+      {
+        "id": "second_verb_think",
+        "word": "think",
+        "label": "think",
+        "value": "think",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-think.webp",
+        "imagePath": "/media/vocabulary/images/verb-think.webp",
+        "imageUrl": "/media/vocabulary/images/verb-think.webp",
+        "alt": "think verb card"
+      },
+      {
+        "id": "second_noun_whale",
+        "word": "whale",
+        "label": "whale",
+        "value": "whale",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/whale.png",
+        "imagePath": "/images/child-mode/initial-sounds/whale.png",
+        "imageUrl": "/images/child-mode/initial-sounds/whale.png",
+        "alt": "whale noun card"
+      },
+      {
+        "id": "second_noun_wind",
+        "word": "wind",
+        "label": "wind",
+        "value": "wind",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/wind.webp",
+        "imagePath": "/media/vocabulary/images/wind.webp",
+        "imageUrl": "/media/vocabulary/images/wind.webp",
+        "alt": "wind noun card"
+      }
+    ],
+    "correctAnswer": "think",
+    "answer": "think",
+    "itemType": "grammar_verb",
+    "itemKey": "think",
+    "partOfSpeech": "verb",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "think is a verb."
   },
   {
     "id": "second_verbs_l1_33_walked",
@@ -18590,9 +30844,9 @@ export const secondBlockSkillTopUpQuestions = [
     "phase": 2,
     "assessmentPhase": 2,
     "phaseTarget": "level_1_phase_2",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
     "targetWord": "walked",
     "imagePath": "/media/vocabulary/images/verb-walked.webp",
     "imageUrl": "/media/vocabulary/images/verb-walked.webp",
@@ -18601,9 +30855,8 @@ export const secondBlockSkillTopUpQuestions = [
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
     "choices": [
       "walked",
       "food",
@@ -18612,32 +30865,70 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "answerOptions": [
       {
-        "id": "second_verb_walked_text",
-        "word": "walked",
-        "label": "walked",
         "value": "walked",
+        "label": "walked",
         "partOfSpeech": "verb"
       },
       {
-        "id": "second_noun_food_text",
+        "value": "food",
+        "label": "food",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "frog",
+        "label": "frog",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "tiny",
+        "label": "tiny",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_walked",
+        "word": "walked",
+        "label": "walked",
+        "value": "walked",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-walked.webp",
+        "imagePath": "/media/vocabulary/images/verb-walked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-walked.webp",
+        "alt": "walked verb card"
+      },
+      {
+        "id": "second_noun_food",
         "word": "food",
         "label": "food",
         "value": "food",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/food.webp",
+        "imagePath": "/media/vocabulary/images/food.webp",
+        "imageUrl": "/media/vocabulary/images/food.webp",
+        "alt": "food noun card"
       },
       {
-        "id": "second_noun_frog_text",
+        "id": "second_noun_frog",
         "word": "frog",
         "label": "frog",
         "value": "frog",
-        "partOfSpeech": "noun"
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/frog.png",
+        "imagePath": "/images/child-mode/initial-sounds/frog.png",
+        "imageUrl": "/images/child-mode/initial-sounds/frog.png",
+        "alt": "frog noun card"
       },
       {
-        "id": "second_adjective_tiny_text",
+        "id": "second_adjective_tiny",
         "word": "tiny",
         "label": "tiny",
         "value": "tiny",
-        "partOfSpeech": "adjective"
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-tiny.webp",
+        "imagePath": "/media/vocabulary/images/adjective-tiny.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-tiny.webp",
+        "alt": "tiny adjective card"
       }
     ],
     "correctAnswer": "walked",
@@ -18647,7 +30938,114 @@ export const secondBlockSkillTopUpQuestions = [
     "partOfSpeech": "verb",
     "requireOptionAudio": false,
     "disableAudio": true,
-    "explanation": "walked makes the sentence make sense."
+    "explanation": "walked is a verb."
+  },
+  {
+    "id": "second_verbs_l1_49_write",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 1,
+    "difficulty": 1,
+    "phase": 2,
+    "assessmentPhase": 2,
+    "phaseTarget": "level_1_phase_2",
+    "questionType": "visual_card_choice",
+    "templateType": "GRAMMAR_IMAGE_CHOICE",
+    "formatType": "GRAMMAR_IMAGE_CHOICE",
+    "targetWord": "write",
+    "imagePath": "/media/vocabulary/images/verb-write.webp",
+    "imageUrl": "/media/vocabulary/images/verb-write.webp",
+    "targetImage": "/media/vocabulary/images/verb-write.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-write.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Tap the picture that shows a verb.",
+    "question": "Tap the picture that shows a verb.",
+    "choices": [
+      "write",
+      "children",
+      "apple",
+      "bumpy"
+    ],
+    "answerOptions": [
+      {
+        "value": "write",
+        "label": "write",
+        "partOfSpeech": "verb"
+      },
+      {
+        "value": "children",
+        "label": "children",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "apple",
+        "label": "apple",
+        "partOfSpeech": "noun"
+      },
+      {
+        "value": "bumpy",
+        "label": "bumpy",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "imageCards": [
+      {
+        "id": "second_verb_write",
+        "word": "write",
+        "label": "write",
+        "value": "write",
+        "partOfSpeech": "verb",
+        "image": "/media/vocabulary/images/verb-write.webp",
+        "imagePath": "/media/vocabulary/images/verb-write.webp",
+        "imageUrl": "/media/vocabulary/images/verb-write.webp",
+        "alt": "write verb card"
+      },
+      {
+        "id": "second_noun_children",
+        "word": "children",
+        "label": "children",
+        "value": "children",
+        "partOfSpeech": "noun",
+        "image": "/media/vocabulary/images/noun-children.webp",
+        "imagePath": "/media/vocabulary/images/noun-children.webp",
+        "imageUrl": "/media/vocabulary/images/noun-children.webp",
+        "alt": "children noun card"
+      },
+      {
+        "id": "second_noun_apple",
+        "word": "apple",
+        "label": "apple",
+        "value": "apple",
+        "partOfSpeech": "noun",
+        "image": "/images/child-mode/initial-sounds/apple.png",
+        "imagePath": "/images/child-mode/initial-sounds/apple.png",
+        "imageUrl": "/images/child-mode/initial-sounds/apple.png",
+        "alt": "apple noun card"
+      },
+      {
+        "id": "second_adjective_bumpy",
+        "word": "bumpy",
+        "label": "bumpy",
+        "value": "bumpy",
+        "partOfSpeech": "adjective",
+        "image": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imagePath": "/media/vocabulary/images/adjective-bumpy.webp",
+        "imageUrl": "/media/vocabulary/images/adjective-bumpy.webp",
+        "alt": "bumpy adjective card"
+      }
+    ],
+    "correctAnswer": "write",
+    "answer": "write",
+    "itemType": "grammar_verb",
+    "itemKey": "write",
+    "partOfSpeech": "verb",
+    "requireOptionAudio": false,
+    "disableAudio": true,
+    "explanation": "write is a verb."
   },
   {
     "id": "second_verbs_l2_01_ate",
@@ -18677,8 +31075,8 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "ate",
       "bake",
-      "share",
-      "write"
+      "build",
+      "drive"
     ],
     "answerOptions": [
       {
@@ -18702,24 +31100,24 @@ export const secondBlockSkillTopUpQuestions = [
         "audioUrl": "/media/vocabulary/audio/bake.mp3"
       },
       {
-        "id": "second_verb_share_text",
-        "word": "share",
-        "label": "share",
-        "value": "share",
+        "id": "second_verb_build_text",
+        "word": "build",
+        "label": "build",
+        "value": "build",
         "partOfSpeech": "verb",
-        "audio": "/media/vocabulary/audio/share.mp3",
-        "audioPath": "/media/vocabulary/audio/share.mp3",
-        "audioUrl": "/media/vocabulary/audio/share.mp3"
+        "audio": "/audio/vocabulary/build.mp3",
+        "audioPath": "/audio/vocabulary/build.mp3",
+        "audioUrl": "/audio/vocabulary/build.mp3"
       },
       {
-        "id": "second_verb_write_text",
-        "word": "write",
-        "label": "write",
-        "value": "write",
+        "id": "second_verb_drive_text",
+        "word": "drive",
+        "label": "drive",
+        "value": "drive",
         "partOfSpeech": "verb",
-        "audio": "/audio/child-mode/clean-human/morphology/write.mp3",
-        "audioPath": "/audio/child-mode/clean-human/morphology/write.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/morphology/write.mp3"
+        "audio": "/audio/vocabulary/drive.mp3",
+        "audioPath": "/audio/vocabulary/drive.mp3",
+        "audioUrl": "/audio/vocabulary/drive.mp3"
       }
     ],
     "correctAnswer": "ate",
@@ -18810,7 +31208,7 @@ export const secondBlockSkillTopUpQuestions = [
     "explanation": "bake fits the sentence as a verb."
   },
   {
-    "id": "second_verbs_l2_03_share",
+    "id": "second_verbs_l2_03_build",
     "grade": "K-3",
     "skillId": "verbs",
     "skillName": "Verbs",
@@ -18823,21 +31221,181 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "ixl_template",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "share",
-    "imagePath": "/media/vocabulary/images/verb-share.webp",
-    "imageUrl": "/media/vocabulary/images/verb-share.webp",
-    "targetImage": "/media/vocabulary/images/verb-share.webp",
-    "targetImagePath": "/media/vocabulary/images/verb-share.webp",
+    "targetWord": "build",
+    "imagePath": "/media/vocabulary/images/verb-build.webp",
+    "imageUrl": "/media/vocabulary/images/verb-build.webp",
+    "targetImage": "/media/vocabulary/images/verb-build.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-build.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
     "prompt": "Choose the verb that best fits the sentence.",
     "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The children ___ the blocks.",
+    "sentence": "The children ___ a tower.",
+    "choices": [
+      "build",
+      "fly",
+      "hide",
+      "share"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_verb_build_text",
+        "word": "build",
+        "label": "build",
+        "value": "build",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/build.mp3",
+        "audioPath": "/audio/vocabulary/build.mp3",
+        "audioUrl": "/audio/vocabulary/build.mp3"
+      },
+      {
+        "id": "second_verb_fly_text",
+        "word": "fly",
+        "label": "fly",
+        "value": "fly",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fly.mp3",
+        "audioPath": "/audio/vocabulary/fly.mp3",
+        "audioUrl": "/audio/vocabulary/fly.mp3"
+      },
+      {
+        "id": "second_verb_hide_text",
+        "word": "hide",
+        "label": "hide",
+        "value": "hide",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hide.mp3",
+        "audioPath": "/audio/vocabulary/hide.mp3",
+        "audioUrl": "/audio/vocabulary/hide.mp3"
+      },
+      {
+        "id": "second_verb_share_text",
+        "word": "share",
+        "label": "share",
+        "value": "share",
+        "partOfSpeech": "verb",
+        "audio": "/media/vocabulary/audio/share.mp3",
+        "audioPath": "/media/vocabulary/audio/share.mp3",
+        "audioUrl": "/media/vocabulary/audio/share.mp3"
+      }
+    ],
+    "correctAnswer": "build",
+    "answer": "build",
+    "itemType": "grammar_verb",
+    "itemKey": "build",
+    "partOfSpeech": "verb",
+    "explanation": "build fits the sentence as a verb."
+  },
+  {
+    "id": "second_verbs_l2_04_drive",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "drive",
+    "imagePath": "/media/vocabulary/images/verb-drive.webp",
+    "imageUrl": "/media/vocabulary/images/verb-drive.webp",
+    "targetImage": "/media/vocabulary/images/verb-drive.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-drive.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the verb that best fits the sentence.",
+    "question": "Choose the verb that best fits the sentence.",
+    "sentence": "The child will ___ in the picture.",
+    "choices": [
+      "bake",
+      "build",
+      "drive",
+      "fly"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_verb_bake_text",
+        "word": "bake",
+        "label": "bake",
+        "value": "bake",
+        "partOfSpeech": "verb",
+        "audio": "/media/vocabulary/audio/bake.mp3",
+        "audioPath": "/media/vocabulary/audio/bake.mp3",
+        "audioUrl": "/media/vocabulary/audio/bake.mp3"
+      },
+      {
+        "id": "second_verb_build_text",
+        "word": "build",
+        "label": "build",
+        "value": "build",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/build.mp3",
+        "audioPath": "/audio/vocabulary/build.mp3",
+        "audioUrl": "/audio/vocabulary/build.mp3"
+      },
+      {
+        "id": "second_verb_drive_text",
+        "word": "drive",
+        "label": "drive",
+        "value": "drive",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/drive.mp3",
+        "audioPath": "/audio/vocabulary/drive.mp3",
+        "audioUrl": "/audio/vocabulary/drive.mp3"
+      },
+      {
+        "id": "second_verb_fly_text",
+        "word": "fly",
+        "label": "fly",
+        "value": "fly",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fly.mp3",
+        "audioPath": "/audio/vocabulary/fly.mp3",
+        "audioUrl": "/audio/vocabulary/fly.mp3"
+      }
+    ],
+    "correctAnswer": "drive",
+    "answer": "drive",
+    "itemType": "grammar_verb",
+    "itemKey": "drive",
+    "partOfSpeech": "verb",
+    "explanation": "drive fits the sentence as a verb."
+  },
+  {
+    "id": "second_verbs_l2_05_fly",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "fly",
+    "imagePath": "/media/vocabulary/images/verb-fly.webp",
+    "imageUrl": "/media/vocabulary/images/verb-fly.webp",
+    "targetImage": "/media/vocabulary/images/verb-fly.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-fly.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the verb that best fits the sentence.",
+    "question": "Choose the verb that best fits the sentence.",
+    "sentence": "The child will ___ in the picture.",
     "choices": [
       "ate",
       "bake",
-      "share",
+      "fly",
       "write"
     ],
     "answerOptions": [
@@ -18862,6 +31420,86 @@ export const secondBlockSkillTopUpQuestions = [
         "audioUrl": "/media/vocabulary/audio/bake.mp3"
       },
       {
+        "id": "second_verb_fly_text",
+        "word": "fly",
+        "label": "fly",
+        "value": "fly",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fly.mp3",
+        "audioPath": "/audio/vocabulary/fly.mp3",
+        "audioUrl": "/audio/vocabulary/fly.mp3"
+      },
+      {
+        "id": "second_verb_write_text",
+        "word": "write",
+        "label": "write",
+        "value": "write",
+        "partOfSpeech": "verb",
+        "audio": "/audio/child-mode/clean-human/morphology/write.mp3",
+        "audioPath": "/audio/child-mode/clean-human/morphology/write.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/morphology/write.mp3"
+      }
+    ],
+    "correctAnswer": "fly",
+    "answer": "fly",
+    "itemType": "grammar_verb",
+    "itemKey": "fly",
+    "partOfSpeech": "verb",
+    "explanation": "fly fits the sentence as a verb."
+  },
+  {
+    "id": "second_verbs_l2_06_hide",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "hide",
+    "imagePath": "/media/vocabulary/images/verb-hide.webp",
+    "imageUrl": "/media/vocabulary/images/verb-hide.webp",
+    "targetImage": "/media/vocabulary/images/verb-hide.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-hide.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the verb that best fits the sentence.",
+    "question": "Choose the verb that best fits the sentence.",
+    "sentence": "The child will ___ in the picture.",
+    "choices": [
+      "fly",
+      "hide",
+      "share",
+      "write"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_verb_fly_text",
+        "word": "fly",
+        "label": "fly",
+        "value": "fly",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fly.mp3",
+        "audioPath": "/audio/vocabulary/fly.mp3",
+        "audioUrl": "/audio/vocabulary/fly.mp3"
+      },
+      {
+        "id": "second_verb_hide_text",
+        "word": "hide",
+        "label": "hide",
+        "value": "hide",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hide.mp3",
+        "audioPath": "/audio/vocabulary/hide.mp3",
+        "audioUrl": "/audio/vocabulary/hide.mp3"
+      },
+      {
         "id": "second_verb_share_text",
         "word": "share",
         "label": "share",
@@ -18882,6 +31520,86 @@ export const secondBlockSkillTopUpQuestions = [
         "audioUrl": "/audio/child-mode/clean-human/morphology/write.mp3"
       }
     ],
+    "correctAnswer": "hide",
+    "answer": "hide",
+    "itemType": "grammar_verb",
+    "itemKey": "hide",
+    "partOfSpeech": "verb",
+    "explanation": "hide fits the sentence as a verb."
+  },
+  {
+    "id": "second_verbs_l2_07_share",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "share",
+    "imagePath": "/media/vocabulary/images/verb-share.webp",
+    "imageUrl": "/media/vocabulary/images/verb-share.webp",
+    "targetImage": "/media/vocabulary/images/verb-share.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-share.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the verb that best fits the sentence.",
+    "question": "Choose the verb that best fits the sentence.",
+    "sentence": "The children ___ the blocks.",
+    "choices": [
+      "build",
+      "drive",
+      "fly",
+      "share"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_verb_build_text",
+        "word": "build",
+        "label": "build",
+        "value": "build",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/build.mp3",
+        "audioPath": "/audio/vocabulary/build.mp3",
+        "audioUrl": "/audio/vocabulary/build.mp3"
+      },
+      {
+        "id": "second_verb_drive_text",
+        "word": "drive",
+        "label": "drive",
+        "value": "drive",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/drive.mp3",
+        "audioPath": "/audio/vocabulary/drive.mp3",
+        "audioUrl": "/audio/vocabulary/drive.mp3"
+      },
+      {
+        "id": "second_verb_fly_text",
+        "word": "fly",
+        "label": "fly",
+        "value": "fly",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fly.mp3",
+        "audioPath": "/audio/vocabulary/fly.mp3",
+        "audioUrl": "/audio/vocabulary/fly.mp3"
+      },
+      {
+        "id": "second_verb_share_text",
+        "word": "share",
+        "label": "share",
+        "value": "share",
+        "partOfSpeech": "verb",
+        "audio": "/media/vocabulary/audio/share.mp3",
+        "audioPath": "/media/vocabulary/audio/share.mp3",
+        "audioUrl": "/media/vocabulary/audio/share.mp3"
+      }
+    ],
     "correctAnswer": "share",
     "answer": "share",
     "itemType": "grammar_verb",
@@ -18890,7 +31608,7 @@ export const secondBlockSkillTopUpQuestions = [
     "explanation": "share fits the sentence as a verb."
   },
   {
-    "id": "second_verbs_l2_04_write",
+    "id": "second_verbs_l2_08_write",
     "grade": "K-3",
     "skillId": "verbs",
     "skillName": "Verbs",
@@ -18917,7 +31635,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "ate",
       "bake",
-      "share",
+      "build",
       "write"
     ],
     "answerOptions": [
@@ -18942,14 +31660,14 @@ export const secondBlockSkillTopUpQuestions = [
         "audioUrl": "/media/vocabulary/audio/bake.mp3"
       },
       {
-        "id": "second_verb_share_text",
-        "word": "share",
-        "label": "share",
-        "value": "share",
+        "id": "second_verb_build_text",
+        "word": "build",
+        "label": "build",
+        "value": "build",
         "partOfSpeech": "verb",
-        "audio": "/media/vocabulary/audio/share.mp3",
-        "audioPath": "/media/vocabulary/audio/share.mp3",
-        "audioUrl": "/media/vocabulary/audio/share.mp3"
+        "audio": "/audio/vocabulary/build.mp3",
+        "audioPath": "/audio/vocabulary/build.mp3",
+        "audioUrl": "/audio/vocabulary/build.mp3"
       },
       {
         "id": "second_verb_write_text",
@@ -20274,6 +32992,10 @@ export const secondBlockSkillTopUpQuestions = [
     "imageUrl": "/media/vocabulary/images/build.webp",
     "targetImage": "/media/vocabulary/images/build.webp",
     "targetImagePath": "/media/vocabulary/images/build.webp",
+    "audioPath": "/audio/vocabulary/build.mp3",
+    "audioUrl": "/audio/vocabulary/build.mp3",
+    "audioText": "build",
+    "audioKey": "build",
     "active": true,
     "qaStatus": "approved",
     "source": "second_block_k3_topup_2026_06",

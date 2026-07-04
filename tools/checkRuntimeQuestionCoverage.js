@@ -580,7 +580,7 @@ function sourcePackForAudioPath(audioPath) {
   return "unknown";
 }
 
-function browserTtsFallbackPossible(question) {
+function browserTtsFallbackPossible() {
   return "no in Teacher Assessment Mode";
 }
 
@@ -1196,10 +1196,6 @@ function buildDuplicateAudit(stage, index) {
 }
 
 const duplicateAudits = skillTree.map((stage, index) => buildDuplicateAudit(stage, index));
-
-function duplicateMapCount(map) {
-  return [...map.entries()].filter(([key, items]) => key && items.length > 1).length;
-}
 
 function uniqueQuestionSignatureCount(audit) {
   const signatures = new Set(
