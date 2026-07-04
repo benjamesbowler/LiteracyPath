@@ -60,6 +60,19 @@ Full-app audit (UI, UX, educational content, accuracy, media completeness) run b
 
 Suite grew 52 → 60 unit tests; all green.
 
+## Addendum 4 — Visual overhaul, real letter writing, rewards, game juice
+
+1. **"yuu vee" bubble bug**: the last gold-voice short-word import (commit c57ae86b) REPLACED a previously-good `of.mp3` with a bad clip. Restored the original recording from git history. Spot-check page for all 14 words from that import: `docs/previews/audio_spotcheck.html`.
+2. **Real animated letter writing**: new `src/data/letterStrokes.js` — all 52 letters as manuscript stroke paths in pedagogic stroke order (verified visually, letter by letter, on handwriting guides). A pencil tip follows each stroke. Used in: Present-deck writing slides (replaces the wipe), quest Letter Trace (watch-then-trace demo). Unit tests guarantee alphabet coverage, guide alignment and descender correctness.
+3. **Story Stop no longer assumes the book was read**: every round now SHOWS the book's cover and printed title — the child reads the cover to answer. Generator emits title+cover; player renders them.
+4. **Wide layouts**: new `src/styles/student-vibrant.css` imported LAST (main.jsx) — releases the 1120px student-mode cap, station picker becomes a responsive grid, round cards fill the viewport (no scrolling on projector/laptop/TV), phonics word grids go 4-across on wide screens.
+5. **Visual overhaul (child surfaces only)**: bright chunky design layer — Fredoka display type, fat pressable 3D buttons, bouncy answer tiles, station icons, world-accented colours. Teacher/admin untouched.
+6. **Treasure Trail rewards**: replaces the flat gem list. Fully DERIVED from existing progress (no new storage, no Supabase change, merge/reset safe): every star = a gem, books and story quests pay gems, cycle completions mint world-emblem badges, and a visible milestone trail (Spark Gem → Grand Trophy) always shows the next prize with a progress bar. `src/utils/treasureTrail.js` + 5 unit tests (incl. monotonicity).
+7. **Game juice**: streak combo chip with score bonus (all arcade games), bubble-pop burst + wrong-answer wobble in Pop the Word, real 3D card flips in memory/rhyme games, cheering pal + "+N gems" on completion screens, pressable tiles across letter banks / hopscotch / sentence paths.
+8. Deck previews regenerated with the new writing animation: `docs/previews/deck_cycle-*.html`.
+
+Suite: 69/69 unit tests, ESLint 0 errors, approved-sources + onset-giveaway clean in sandbox.
+
 ## Final gate — run on this Mac before deploying
 
 ```bash

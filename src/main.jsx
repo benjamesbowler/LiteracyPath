@@ -2,6 +2,9 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+// Imported AFTER App so these rules land last in the cascade: the child-facing
+// wide-layout + vibrant reskin layer always wins.
+import './styles/student-vibrant.css'
 import { ErrorBoundary } from './components/ErrorBoundary.jsx'
 import { AppCrashFallback } from './components/AppCrashFallback.jsx'
 import { DYNAMIC_IMPORT_ERROR_EVENT, reloadOnceForNewVersion } from './utils/lazyWithRetry.js'

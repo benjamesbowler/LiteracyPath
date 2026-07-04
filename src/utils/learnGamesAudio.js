@@ -1,4 +1,5 @@
 import { Howl, Howler } from "howler";
+import { hasKnownBadWordAudio } from "../data/knownBadWordAudio.js";
 import { getLetterSoundCue } from "../components/learn/phonics/cvc/cvcHelpers";
 import { AUDIO_FILE_PATHS } from "../data/generated/audioFilePaths.generated.js";
 
@@ -136,7 +137,9 @@ export async function speakPhoneme(letter, options = {}) {
 export async function speakWord(word, options = {}) {
   stopCurrentCues();
   const slug = slugify(word);
-  const candidates = [
+  // Words whose only recordings are defective: never play the bad clip.
+  // The browser voice at least says the right word.
+  const candidates = hasKnownBadWordAudio(slug) ? [] : [
     `/audio/child-mode/clean-human/words/${slug}.mp3`,
     `/audio/child-mode/words/${slug}.mp3`,
     `/audio/child-mode/clean-human/hfw/${slug}.mp3`,
@@ -153,6 +156,7 @@ export async function speakWord(word, options = {}) {
 export function hasRecordedSpeech(text) {
   const value = String(text || "").trim();
   if (!value) return false;
+  if (hasKnownBadWordAudio(value)) return false; // only defective recordings exist
   if (/^[a-z]+$/i.test(value)) return true; // single words route through the word bank
   const slug = slugify(value);
   return existingAudioPaths([

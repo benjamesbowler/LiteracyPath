@@ -22,25 +22,31 @@ console.log(`book index: ${index.length} books -> ${path.relative(root, outFile)
 
 // ── Story questions for the quest's Story Stop station ────────────────────
 // Built from the worlds' own book titles ("Muddy Has a Bath" ->
-// "Who has a bath?" answer Muddy), so questions always match real stories.
+// "Who has a bath?" answer Muddy). Every question now ships the book's COVER
+// and printed TITLE, so the round is self-contained: the child reads the
+// cover to answer - no prior reading of the book is assumed.
 const { guidedReadingSeriesBooks } = await import(path.join(root, "src/data/guidedReadingSeriesBooks.js"));
 const WORLD_SERIES = { meadow: "meadow-pals", dino: "dino-pals", moonwood: "moonwood-tales" };
 const storyBank = {};
 for (const [world, seriesId] of Object.entries(WORLD_SERIES)) {
-  const titles = guidedReadingSeriesBooks.filter(b => b.seriesId === seriesId).map(b => b.title);
+  const books = guidedReadingSeriesBooks.filter(b => b.seriesId === seriesId);
   const questions = [];
   const names = new Set();
-  for (const title of titles) {
+  for (const book of books) {
+    const title = book.title;
+    const cover = book.coverImage && fs.existsSync(path.join(root, "public", book.coverImage))
+      ? book.coverImage
+      : "";
     let m = title.match(/^([A-Z][a-z]+)'s (.+)$/);          // "Chompy's Big Lunch"
     if (m) {
       names.add(m[1]);
-      questions.push({ prompt: `Who has ${/^(a|an|the) /i.test(m[2]) ? "" : "a "}${m[2].toLowerCase()}?`, answer: m[1] });
+      questions.push({ prompt: `Who has ${/^(a|an|the) /i.test(m[2]) ? "" : "a "}${m[2].toLowerCase()}?`, answer: m[1], title, cover });
       continue;
     }
     m = title.match(/^([A-Z][a-z]+) ((?:[A-Z][a-z']*|and|the|a|an|at|too|up|into)(?: .+)?)$/); // "Muddy Has a Bath"
     if (m && !["The", "What", "One", "Something"].includes(m[1]) && !m[2].startsWith("and ")) {
       names.add(m[1]);
-      questions.push({ prompt: `Who ${m[2].toLowerCase().replace(/^won't/, "will not")}?`, answer: m[1] });
+      questions.push({ prompt: `Who ${m[2].toLowerCase().replace(/^won't/, "will not")}?`, answer: m[1], title, cover });
     }
   }
   storyBank[world] = { names: [...names], questions };

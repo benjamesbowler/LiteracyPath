@@ -1,0 +1,236 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Cycle 3 - Nn and Ii</title>
+<link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden;
+    color: #2b2118; font-family: 'Fredoka','Andika','Comic Sans MS',sans-serif;
+    background:
+      radial-gradient(80vw 60vh at 50% -10%, color-mix(in srgb, var(--w-accent) 22%, #fff), transparent 70%),
+      linear-gradient(180deg, #FFFDF7 0%, var(--w-soft) 100%); }
+  #deck { height: 100vh; }
+  .slide { position: absolute; inset: 0; display: none; flex-direction: column;
+    align-items: center; justify-content: center; gap: 2.2vh; text-align: center; padding: 6vh 6vw; }
+  .slide.active { display: flex; animation: pop .5s cubic-bezier(.2,1.3,.4,1) both; }
+  @keyframes pop { from { opacity: 0; transform: translateY(14px) scale(.97); } to { opacity: 1; transform: none; } }
+  .p-kicker { margin: 0; text-transform: uppercase; letter-spacing: .14em; font-weight: 600;
+    color: var(--w-deep); font-size: 2.4vh; }
+  .p-title { font-family: 'Fredoka',sans-serif; font-weight: 600; font-size: 9vh; margin: 0; color: var(--w-deep);
+    text-transform: capitalize; }
+  .p-phase { font-size: 3vh; color: #6b5a48; text-transform: capitalize; }
+  .p-hint { color: #9a8a76; font-size: 2.4vh; }
+  .p-letter { font-family: 'Andika',sans-serif; font-size: 34vh; line-height: .95; font-weight: 700; color: var(--w-accent);
+    text-shadow: 0 6px 0 color-mix(in srgb, var(--w-accent) 28%, #fff); animation: wobble 2.4s ease-in-out infinite; }
+  @keyframes wobble { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+  .p-says { font-size: 4.4vh; margin: 0; }
+  .p-says b, .p-sentence b { color: var(--w-accent); }
+  .p-words { display: flex; gap: 3vw; margin-top: 1vh; }
+  .p-word, .p-chip, .p-big-word, .p-audio { cursor: pointer; }
+  .p-word { background: none; border: 0; color: inherit; display: flex; flex-direction: column; align-items: center; gap: 1vh; font: inherit; }
+  .p-word img { width: 20vh; height: 20vh; object-fit: contain; background: #fff; border: 4px solid #fff;
+    border-radius: 24px; box-shadow: 0 10px 24px rgba(0,0,0,.12); padding: 1vh; }
+  .p-word:hover img { transform: translateY(-1vh) rotate(-2deg); }
+  .p-word span { font-size: 3.6vh; font-weight: 600; }
+  .p-audio { margin-top: 1vh; background: var(--w-accent); color: #fff; border: 0; border-radius: 999px;
+    padding: 1.6vh 3.4vw; font: inherit; font-weight: 600; font-size: 3vh; box-shadow: 0 8px 0 var(--w-deep); }
+  .p-audio:active { transform: translateY(4px); box-shadow: 0 4px 0 var(--w-deep); }
+  .p-sight { font-family: 'Fredoka',sans-serif; font-size: 24vh; font-weight: 600; color: var(--w-accent); line-height: 1;
+    text-shadow: 0 6px 0 color-mix(in srgb, var(--w-accent) 28%, #fff); }
+  .p-sentence { font-size: 3.6vh; }
+  .p-big-word { font-family: 'Fredoka',sans-serif; font-size: 17vh; font-weight: 600; color: var(--w-accent); background: none; border: 0; }
+  .p-big-word.made { color: #E0991C; }
+  .p-take, .p-compound { display: flex; align-items: center; gap: 2.5vw; flex-wrap: wrap; justify-content: center; }
+  .p-arrow { font-size: 9vh; color: #E0991C; }
+  .p-chips { display: flex; gap: 2vw; flex-wrap: wrap; justify-content: center; margin-top: 1vh; }
+  .p-chip { background: #fff; color: var(--w-deep); border: 3px solid var(--w-accent); border-radius: 18px;
+    padding: 1.4vh 3vw; font: inherit; font-weight: 600; font-size: 5vh; box-shadow: 0 6px 0 color-mix(in srgb, var(--w-accent) 30%, #fff); }
+  .p-chip.big, .p-chips.big .p-chip { font-size: 7vh; }
+  .p-stars { font-size: 14vh; color: #E0991C; letter-spacing: 1vh; }
+  .p-goal { font-family: 'Fredoka',sans-serif; font-weight: 600; font-size: 6.4vh; margin: 0; color: var(--w-deep);
+    max-width: 70vw; line-height: 1.3; }
+  .p-tip { font-size: 3vh; color: #6b5a48; max-width: 60vw; margin: 0; }
+  .p-poem-title { font-family: 'Fredoka',sans-serif; font-weight: 600; font-size: 5.4vh; margin: 0; color: var(--w-deep); }
+  .p-poem-wrap { display: flex; align-items: center; gap: 3vw; flex-wrap: wrap; justify-content: center; }
+  .p-poem-hero { height: 40vh; max-width: 42vw; object-fit: contain; border-radius: 22px;
+    box-shadow: 0 14px 34px rgba(0,0,0,.16); background: #fff; }
+  .p-poem { white-space: pre-wrap; font-size: 4vh; line-height: 1.5; background: #fff;
+    border: 4px solid #fff; border-radius: 22px; box-shadow: 0 12px 30px rgba(0,0,0,.1); padding: 3vh 4vw; }
+  .p-poem-pics { display: flex; gap: 2vw; margin-top: 1vh; }
+  .p-poem-pics img { width: 16vh; height: 16vh; object-fit: contain; background: #fff; border: 4px solid #fff; border-radius: 18px; box-shadow: 0 10px 24px rgba(0,0,0,.12); padding: 1vh; }
+  /* Writing demo: every stroke draws itself in real stroke ORDER while a
+     pencil tip follows the line - animated by animateWriting() in the deck JS. */
+  .p-write-svg { height: 52vh; max-width: 86vw; }
+  .p-write-svg .p-guide { stroke: rgba(31,63,42,.18); stroke-width: 1.5; }
+  .p-write-svg .p-guide.dash { stroke-dasharray: 6 5; }
+  .p-write-svg .p-guide.base { stroke: rgba(31,63,42,.30); stroke-width: 2; }
+  .p-write-svg .p-ghost-stroke { fill: none; stroke: rgba(20,17,12,.10); stroke-width: 11;
+    stroke-linecap: round; stroke-linejoin: round; }
+  .p-write-svg .p-ink-stroke { fill: none; stroke: var(--w-accent); stroke-width: 11;
+    stroke-linecap: round; stroke-linejoin: round; }
+  .p-pencil { opacity: 0; transition: opacity 160ms ease; }
+  .p-pencil circle { fill: #F4A83C; stroke: #8A5A1D; stroke-width: 2.5; }
+  .p-pencil path { fill: #F8C97E; stroke: #8A5A1D; stroke-width: 2.5; stroke-linejoin: round; }
+  /* The Pals mascot, branding every slide */
+  .p-pal-corner { position: absolute; bottom: 3vh; right: 3vw; height: 22vh; pointer-events: none;
+    animation: bob 2.6s ease-in-out infinite; filter: drop-shadow(0 8px 14px rgba(0,0,0,.18)); }
+  .p-pal-hero { height: 34vh; animation: bob 2.6s ease-in-out infinite; filter: drop-shadow(0 10px 18px rgba(0,0,0,.2)); }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-1.4vh); } }
+  #start { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2vh; z-index: 10;
+    background: radial-gradient(80vw 60vh at 50% 0%, color-mix(in srgb, var(--w-accent) 22%, #fff), transparent 70%), linear-gradient(180deg, #FFFDF7, var(--w-soft)); }
+  #start button { font: inherit; font-weight: 600; font-size: 4.4vh; background: var(--w-accent); color: #fff; border: 0; border-radius: 999px; padding: 2.2vh 6vw; cursor: pointer; box-shadow: 0 10px 0 var(--w-deep); }
+  #start button:active { transform: translateY(5px); box-shadow: 0 5px 0 var(--w-deep); }
+  #start p { color: #9a8a76; font-size: 2.4vh; }
+  #nav { position: fixed; bottom: 2vh; left: 0; right: 0; display: none; align-items: center; justify-content: center; gap: 3vw; z-index: 9; }
+  #nav button { font-size: 5vh; background: #fff; color: var(--w-deep); border: 3px solid var(--w-accent); border-radius: 16px; width: 8vh; height: 8vh; cursor: pointer; }
+  #counter { color: #9a8a76; font-size: 2.6vh; min-width: 8ch; }
+  @media (prefers-reduced-motion: reduce) {
+    .slide.active, .p-letter, .p-pal-corner, .p-pal-hero { animation: none; }
+    .slide.active .p-write-ink-wrap, .p-write-ink-wrap.replay { animation: none; width: 100%; }
+  }
+</style></head>
+<body>
+<div id="deck" style="--w-accent:#4E8C44;--w-soft:#EAF4E6;--w-deep:#35652E"><section class="slide p-cover"  >
+    <img class="p-pal p-pal-hero" src="/images/pals/poses/meadow-celebrate.webp" alt="" onerror="this.style.display='none'"/>
+    <p class="p-kicker">Cycle 3 · Meadow Pals</p>
+    <h1 class="p-title">Nn and Ii</h1>
+    <p class="p-phase">early letter sound</p>
+    <p class="p-hint">Press → or click to begin</p></section><section class="slide p-letter-slide" data-audio="/audio/phonemes/n.mp3" >
+    <p class="p-kicker">Our sound</p>
+    <div class="p-letter">Nn</div>
+    <p class="p-says">This says <b>/n/</b></p>
+    <p class="p-tip">💡 Say /n/. Keep it short and clean.</p>
+    <button class="p-audio" data-play="/audio/phonemes/n.mp3" type="button">🔊 Hear the sound</button>
+    <div class="p-words"><button class="p-word" data-play="/audio/child-mode/clean-human/words/net.mp3" type="button">
+      <img src="/images/child-mode/short-e/net.png" alt="net" onerror="this.closest('.p-word').style.display='none'"/>
+      <span>net</span></button><button class="p-word" data-play="/audio/child-mode/clean-human/words/nap.mp3" type="button">
+      <img src="/images/child-mode/cvc/nap.png" alt="nap" onerror="this.closest('.p-word').style.display='none'"/>
+      <span>nap</span></button><button class="p-word" data-play="/audio/child-mode/clean-human/words/nose.mp3" type="button">
+      <img src="/images/child-mode/initial-sounds/nose.png" alt="nose" onerror="this.closest('.p-word').style.display='none'"/>
+      <span>nose</span></button></div><img class="p-pal p-pal-corner" src="/images/pals/poses/meadow-wave.webp" alt="" onerror="this.style.display='none'"/></section><section class="slide p-writing"  data-stroke="1">
+    <p class="p-kicker">Let's write it</p>
+    <svg class="p-write-svg" viewBox="0 0 200 140" aria-hidden="true"><line x1="0" y1="20" x2="200" y2="20" class="p-guide"/><line x1="0" y1="64" x2="200" y2="64" class="p-guide dash"/><line x1="0" y1="110" x2="200" y2="110" class="p-guide base"/><g transform="translate(0,0)"><path class="p-ghost-stroke" d="M28 20 L28 110"/><path class="p-ghost-stroke" d="M28 20 L72 110"/><path class="p-ghost-stroke" d="M72 20 L72 110"/><path class="p-ink-stroke" data-write-stroke data-offset="0" d="M28 20 L28 110"/><path class="p-ink-stroke" data-write-stroke data-offset="0" d="M28 20 L72 110"/><path class="p-ink-stroke" data-write-stroke data-offset="0" d="M72 20 L72 110"/></g><g transform="translate(100,0)"><path class="p-ghost-stroke" d="M32 64 L32 110"/><path class="p-ghost-stroke" d="M32 82 C40 62 68 64 68 84 L68 110"/><path class="p-ink-stroke" data-write-stroke data-offset="100" d="M32 64 L32 110"/><path class="p-ink-stroke" data-write-stroke data-offset="100" d="M32 82 C40 62 68 64 68 84 L68 110"/></g><g data-pencil class="p-pencil"><circle r="7"/><path d="M2 -4 L20 -34 L30 -28 L14 4 Z"/></g></svg>
+    <button class="p-audio" type="button" data-replay>✏️ Watch again</button>
+    <p class="p-hint">Now you write it in the air!</p><img class="p-pal p-pal-corner" src="/images/pals/poses/meadow-think.webp" alt="" onerror="this.style.display='none'"/></section><section class="slide p-letter-slide" data-audio="/audio/phonemes/short_i.mp3" >
+    <p class="p-kicker">Our sound</p>
+    <div class="p-letter">Ii</div>
+    <p class="p-says">This says <b>/ĭ/</b></p>
+    <p class="p-tip">💡 Say /ĭ/. Keep it short and clean.</p>
+    <button class="p-audio" data-play="/audio/phonemes/short_i.mp3" type="button">🔊 Hear the sound</button>
+    <div class="p-words"><button class="p-word" data-play="/audio/child-mode/clean-human/words/igloo.mp3" type="button">
+      <img src="/images/child-mode/initial-sounds/igloo.png" alt="igloo" onerror="this.closest('.p-word').style.display='none'"/>
+      <span>igloo</span></button><button class="p-word" data-play="/audio/child-mode/clean-human/words/insect.mp3" type="button">
+      <img src="/images/child-mode/initial-sounds/insect.png" alt="insect" onerror="this.closest('.p-word').style.display='none'"/>
+      <span>insect</span></button><button class="p-word" data-play="/audio/child-mode/clean-human/words/ink.mp3" type="button">
+      <img src="/images/child-mode/initial-sounds/ink.png" alt="ink" onerror="this.closest('.p-word').style.display='none'"/>
+      <span>ink</span></button></div><img class="p-pal p-pal-corner" src="/images/pals/poses/meadow-wave.webp" alt="" onerror="this.style.display='none'"/></section><section class="slide p-writing"  data-stroke="1">
+    <p class="p-kicker">Let's write it</p>
+    <svg class="p-write-svg" viewBox="0 0 200 140" aria-hidden="true"><line x1="0" y1="20" x2="200" y2="20" class="p-guide"/><line x1="0" y1="64" x2="200" y2="64" class="p-guide dash"/><line x1="0" y1="110" x2="200" y2="110" class="p-guide base"/><g transform="translate(0,0)"><path class="p-ghost-stroke" d="M50 20 L50 110"/><path class="p-ghost-stroke" d="M32 20 L68 20"/><path class="p-ghost-stroke" d="M32 110 L68 110"/><path class="p-ink-stroke" data-write-stroke data-offset="0" d="M50 20 L50 110"/><path class="p-ink-stroke" data-write-stroke data-offset="0" d="M32 20 L68 20"/><path class="p-ink-stroke" data-write-stroke data-offset="0" d="M32 110 L68 110"/></g><g transform="translate(100,0)"><path class="p-ghost-stroke" d="M50 64 L50 110"/><path class="p-ghost-stroke" d="M50 42 L50 42.01"/><path class="p-ink-stroke" data-write-stroke data-offset="100" d="M50 64 L50 110"/><path class="p-ink-stroke" data-write-stroke data-offset="100" d="M50 42 L50 42.01"/></g><g data-pencil class="p-pencil"><circle r="7"/><path d="M2 -4 L20 -34 L30 -28 L14 4 Z"/></g></svg>
+    <button class="p-audio" type="button" data-replay>✏️ Watch again</button>
+    <p class="p-hint">Now you write it in the air!</p><img class="p-pal p-pal-corner" src="/images/pals/poses/meadow-think.webp" alt="" onerror="this.style.display='none'"/></section><section class="slide p-sight-slide" data-audio="/audio/child-mode/clean-human/words/an.mp3" >
+    <p class="p-kicker">Tricky word</p>
+    <div class="p-sight">an</div>
+    <button class="p-audio" data-play="/audio/child-mode/clean-human/words/an.mp3" type="button">🔊 Read it</button>
+    <p class="p-sentence">Find it, say it, spell it: <b>a n</b></p><img class="p-pal p-pal-corner" src="/images/pals/poses/meadow-read.webp" alt="" onerror="this.style.display='none'"/></section><section class="slide p-sight-slide" data-audio="/audio/child-mode/clean-human/words/and.mp3" >
+    <p class="p-kicker">Tricky word</p>
+    <div class="p-sight">and</div>
+    <button class="p-audio" data-play="/audio/child-mode/clean-human/words/and.mp3" type="button">🔊 Read it</button>
+    <p class="p-sentence">Find it, say it, spell it: <b>a n d</b></p><img class="p-pal p-pal-corner" src="/images/pals/poses/meadow-read.webp" alt="" onerror="this.style.display='none'"/></section><section class="slide p-phoneme"  >
+    <p class="p-kicker">Take the last word away</p>
+    <div class="p-take">
+      <span class="p-big-word" data-play="">backpack</span>
+      <span class="p-arrow">→</span>
+      <span class="p-big-word made" data-play="/guided-reading/audio/words/back.mp3">back</span>
+    </div>
+    <p class="p-says">Say <b>backpack</b>. Now say it without <b>pack</b>. What is left?</p><img class="p-pal p-pal-corner" src="/images/pals/poses/meadow-wave.webp" alt="" onerror="this.style.display='none'"/></section><section class="slide p-phoneme"  >
+    <p class="p-kicker">Take the last word away</p>
+    <div class="p-take">
+      <span class="p-big-word" data-play="">popcorn</span>
+      <span class="p-arrow">→</span>
+      <span class="p-big-word made" data-play="/audio/child-mode/clean-human/words/pop.mp3">pop</span>
+    </div>
+    <p class="p-says">Say <b>popcorn</b>. Now say it without <b>corn</b>. What is left?</p><img class="p-pal p-pal-corner" src="/images/pals/poses/meadow-wave.webp" alt="" onerror="this.style.display='none'"/></section><section class="slide p-phoneme"  >
+      <p class="p-kicker">Rhyme time</p>
+      <p class="p-says">Which two words rhyme? Which one does not?</p>
+      <div class="p-chips big"><button class="p-chip" data-play="/audio/child-mode/clean-human/words/bug.mp3" type="button">bug</button><button class="p-chip" data-play="/audio/child-mode/clean-human/words/rug.mp3" type="button">rug</button><button class="p-chip" data-play="/audio/child-mode/clean-human/words/hen.mp3" type="button">hen</button></div><img class="p-pal p-pal-corner" src="/images/pals/poses/meadow-read.webp" alt="" onerror="this.style.display='none'"/></section><section class="slide p-phoneme"  >
+      <p class="p-kicker">Rhyme time</p>
+      <p class="p-says">Which two words rhyme? Which one does not?</p>
+      <div class="p-chips big"><button class="p-chip" data-play="/audio/child-mode/clean-human/words/mop.mp3" type="button">mop</button><button class="p-chip" data-play="/audio/child-mode/clean-human/words/top.mp3" type="button">top</button><button class="p-chip" data-play="/audio/child-mode/clean-human/words/bag.mp3" type="button">bag</button></div><img class="p-pal p-pal-corner" src="/images/pals/poses/meadow-read.webp" alt="" onerror="this.style.display='none'"/></section><section class="slide p-poem-slide" data-audio="/audio/learn-games/poems/v2/cycle-03.mp3" >
+    <p class="p-kicker">Our poem</p>
+    <h2 class="p-poem-title">Clucky's Nest</h2>
+    <button class="p-audio" data-play="/audio/learn-games/poems/v2/cycle-03.mp3" type="button">🔊 Listen to the poem</button>
+    <div class="p-poem-wrap">
+      <img class="p-poem-hero" src="/images/pals/poems/cycle-03.webp" alt="" onerror="this.style.display='none'"/>
+      <div class="p-poem">Clucky builds a cosy nest,
+Tiny needs a little rest.
+Muddy dips a fishing net,
+then has a nap - not finished yet!</div>
+    </div>
+    <div class="p-poem-pics"><img src="/images/child-mode/short-e/net.png" alt="net" onerror="this.style.display='none'"/><img src="/images/child-mode/cvc/nap.png" alt="nap" onerror="this.style.display='none'"/></div><img class="p-pal p-pal-corner" src="/images/pals/poses/meadow-read.webp" alt="" onerror="this.style.display='none'"/></section><section class="slide p-cover"  ><img class="p-pal p-pal-hero" src="/images/pals/poses/meadow-celebrate.webp" alt="" onerror="this.style.display='none'"/>
+    <div class="p-stars">★ ★ ★</div><h1 class="p-title">Great learning!</h1>
+    <p class="p-hint">Press Esc to leave full screen</p></section></div>
+<div id="start"><button id="startBtn" type="button">▶ Start presentation</button><p>Best on a projector. Use → ← to move, F for full screen.</p></div>
+<div id="nav"><button id="prev" type="button" aria-label="Previous">‹</button><span id="counter"></span><button id="next" type="button" aria-label="Next">›</button></div>
+<script>
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var idx = 0, started = false;
+  function playAudio(src){ if(!src) return; try { var a = new Audio(src); a.play().catch(function(){}); } catch(e){} }
+  var writeRaf = 0;
+  function animateWriting(slideEl){
+    cancelAnimationFrame(writeRaf);
+    var svg = slideEl && slideEl.querySelector('.p-write-svg'); if(!svg) return;
+    var pencil = svg.querySelector('[data-pencil]');
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var paths = Array.prototype.slice.call(svg.querySelectorAll('[data-write-stroke]'));
+    var plan = paths.map(function(p){
+      var L = Math.max(p.getTotalLength(), 0.6);
+      p.style.strokeDasharray = L; p.style.strokeDashoffset = reduced ? 0 : L;
+      return { p: p, L: L, d: Math.max(300, L / 130 * 1000) };
+    });
+    if (reduced || !plan.length) return;
+    var i = 0, start = 0, pause = 0;
+    function step(now){
+      var it = plan[i];
+      if (!it) { if (pencil) pencil.style.opacity = 0; return; }
+      if (pause && now < pause) { writeRaf = requestAnimationFrame(step); return; }
+      if (pause) { pause = 0; start = 0; }
+      if (!start) start = now;
+      var t = Math.min(1, (now - start) / it.d), e = t * (2 - t);
+      it.p.style.strokeDashoffset = it.L * (1 - e);
+      if (pencil) {
+        var pt = it.p.getPointAtLength(it.L * e);
+        var off = Number(it.p.getAttribute('data-offset') || 0);
+        pencil.setAttribute('transform', 'translate(' + (pt.x + off) + ',' + pt.y + ')');
+        pencil.style.opacity = 1;
+      }
+      if (t >= 1) { i += 1; pause = now + 260; }
+      writeRaf = requestAnimationFrame(step);
+    }
+    writeRaf = requestAnimationFrame(step);
+  }
+  function show(i){
+    idx = Math.max(0, Math.min(slides.length - 1, i));
+    slides.forEach(function(s, n){ s.classList.toggle('active', n === idx); });
+    document.getElementById('counter').textContent = (idx+1) + ' / ' + slides.length;
+    var s = slides[idx];
+    animateWriting(s);
+    if (started && s.getAttribute('data-audio')) playAudio(s.getAttribute('data-audio'));
+  }
+  function go(d){ show(idx + d); }
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); go(1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(-1); }
+    else if (e.key === 'f' || e.key === 'F') { toggleFs(); }
+  });
+  document.getElementById('next').addEventListener('click', function(){ go(1); });
+  document.getElementById('prev').addEventListener('click', function(){ go(-1); });
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-play]'); if (btn) { playAudio(btn.getAttribute('data-play')); return; }
+    if (e.target.closest('[data-replay]')) { animateWriting(slides[idx]); return; }
+  });
+  function toggleFs(){ try { if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); } catch(e){} }
+  document.getElementById('startBtn').addEventListener('click', function(){
+    started = true; document.getElementById('start').style.display = 'none';
+    document.getElementById('nav').style.display = 'flex'; toggleFs(); show(0);
+  });
+  show(0);
+</script>
+</body></html>

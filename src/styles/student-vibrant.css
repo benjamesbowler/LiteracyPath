@@ -1,0 +1,708 @@
+/*
+ * Student Vibrant — the final-word presentation layer for every CHILD-FACING
+ * surface. Imported LAST (main.jsx) so it wins the cascade. Two jobs:
+ *
+ *   1. WIDE layouts: projector / laptop / TV first. No needless scrolling —
+ *      stations, choices and cards use the full width of big screens.
+ *   2. A bright, chunky, modern kids-app look (Raz-Kids / Teach Your Monster
+ *      tier): bold colour, fat pressable buttons, playful motion.
+ *
+ * Teacher/admin surfaces are untouched: everything here is scoped to
+ * .student-mode-app, the quest, the arcade, the game player and phonics learn.
+ */
+
+/* ── 1. Child-surface tokens ─────────────────────────────────────────────── */
+.student-mode-app,
+.learn-fullscreen-app,
+.skills-block-quest,
+.lg-arcade,
+.lg-game-player,
+.phonics-tab-shell {
+  --kid-font-display: "Fredoka", "Nunito", var(--lp-font-reading), sans-serif;
+  --kid-green: #23A455;
+  --kid-green-deep: #157A3D;
+  --kid-sun: #FFB92E;
+  --kid-sun-deep: #D68A11;
+  --kid-sky: #3FA9F5;
+  --kid-sky-deep: #1F76C2;
+  --kid-berry: #A66BFF;
+  --kid-berry-deep: #7A3FD1;
+  --kid-coral: #FF6B57;
+  --kid-coral-deep: #D14432;
+  --kid-ink: #1C2B3A;
+  --kid-card: #FFFFFF;
+  --kid-radius: 22px;
+  --kid-radius-sm: 16px;
+  --kid-shadow: 0 10px 24px rgba(23, 42, 58, 0.14);
+  --kid-press: 0 5px 0;
+}
+
+/* ── 2. Use the whole screen ─────────────────────────────────────────────── */
+/* The generic shell caps no-sidebar views at 1120px — student mode gets the
+   full width of the projector instead. */
+.app.student-mode-app.no-sidebar {
+  max-width: none;
+}
+
+.app.student-mode-app > main,
+.app.student-mode-app > .skills-block-quest {
+  width: 100%;
+  max-width: none;
+  align-self: stretch;
+}
+
+/* Quest chrome rows breathe at up to 1400px on a big screen */
+.skills-block-quest .sbq-top,
+.skills-block-quest .sbq-progress-track,
+.skills-block-quest .sbq-map {
+  width: min(100%, 1400px);
+  margin-inline: auto;
+}
+
+/* Station picker: one long thin column becomes a big friendly grid */
+.skills-block-quest .sbq-stations {
+  width: min(100%, 1400px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 14px;
+}
+
+.skills-block-quest .sbq-station.check {
+  grid-column: 1 / -1;
+}
+
+/* Rounds: a wide stage that fills the viewport instead of a narrow strip */
+.skills-block-quest .sbq-round-card {
+  width: min(100%, 1120px);
+  margin-inline: auto;
+  min-height: min(72dvh, 720px);
+  justify-content: center;
+}
+
+.skills-block-quest .sbq-round-display {
+  max-width: min(92%, 860px);
+}
+
+/* Phonics learn ("H is for...") spreads out on landscape screens: the word
+   cards sit four-across beside a big letter instead of a long thin scroll. */
+@media (min-width: 980px) {
+  .phonics-letter-grid {
+    max-width: 1360px;
+  }
+
+  .phonics-tab-shell .phonics-learning-flow {
+    max-width: 1320px;
+  }
+
+  .phonics-tab-shell .phonics-step {
+    max-width: 1240px;
+  }
+
+  .phonics-tab-shell .phonics-listen-grid,
+  .phonics-tab-shell .phonics-match-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+}
+
+/* ── 3. Typography: friendly and BIG ─────────────────────────────────────── */
+.student-mode-app h1,
+.student-mode-app h2,
+.skills-block-quest h1,
+.lg-arcade h1,
+.lg-arcade h2,
+.lg-game-player h1,
+.lg-game-player h2,
+.sbq-round-prompt,
+.sbq-station-copy strong,
+.student-home-card-label strong {
+  font-family: var(--kid-font-display);
+}
+
+.skills-block-quest .sbq-round-prompt {
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  color: var(--kid-ink);
+}
+
+.skills-block-quest .sbq-kicker {
+  color: var(--pal-deep, var(--kid-green-deep));
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+}
+
+/* ── 4. Chunky, pressable controls (the Teach-Your-Monster feel) ─────────── */
+.sbq-primary-button,
+.sbq-listen-button,
+.lg-game-primary,
+.lg-game-audio {
+  border: 0;
+  border-radius: 999px;
+  font-family: var(--kid-font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: var(--pal-accent, var(--kid-green));
+  box-shadow: var(--kid-press) color-mix(in srgb, var(--pal-deep, var(--kid-green-deep)) 88%, #000 12%);
+  transition: transform 120ms ease-out, box-shadow 120ms ease-out, filter 120ms ease-out;
+}
+
+.sbq-primary-button:hover,
+.sbq-listen-button:hover,
+.lg-game-primary:hover,
+.lg-game-audio:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.sbq-primary-button:active,
+.sbq-listen-button:active,
+.lg-game-primary:active,
+.lg-game-audio:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--pal-deep, var(--kid-green-deep)) 88%, #000 12%);
+}
+
+/* Answer tiles: big, bold, bouncy */
+.skills-block-quest .sbq-answer-grid {
+  gap: clamp(14px, 2vw, 22px);
+}
+
+.skills-block-quest .sbq-answer-grid button {
+  min-width: clamp(110px, 12vw, 170px);
+  min-height: clamp(96px, 13vh, 132px);
+  border: 3px solid color-mix(in srgb, var(--pal-accent, var(--kid-green)) 26%, #E6EBF2);
+  border-radius: var(--kid-radius);
+  font-family: var(--kid-font-display);
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  font-weight: 600;
+  color: var(--kid-ink);
+  box-shadow: var(--kid-press) color-mix(in srgb, var(--pal-accent, var(--kid-green)) 22%, #D7DEE8);
+  transition: transform 120ms ease-out, box-shadow 120ms ease-out, border-color 120ms ease-out;
+}
+
+.skills-block-quest .sbq-answer-grid button:hover:not(:disabled) {
+  border-color: var(--pal-accent, var(--kid-green));
+  transform: translateY(-3px);
+}
+
+.skills-block-quest .sbq-answer-grid button:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--pal-accent, var(--kid-green)) 22%, #D7DEE8);
+}
+
+.skills-block-quest .sbq-answer-grid.letters button {
+  font-size: clamp(2.1rem, 4.4vw, 3.2rem);
+}
+
+/* Station tiles: colourful game buttons, not a settings list */
+.skills-block-quest .sbq-station {
+  border: 0;
+  border-radius: var(--kid-radius);
+  padding: 18px 20px;
+  background: var(--kid-card);
+  box-shadow: var(--kid-press) color-mix(in srgb, var(--pal-accent, var(--kid-green)) 20%, #DDE4EC), var(--lp-shadow-card);
+  transition: transform 130ms ease-out, box-shadow 130ms ease-out;
+}
+
+.skills-block-quest .sbq-station:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 0 color-mix(in srgb, var(--pal-accent, var(--kid-green)) 26%, #D3DBE5), var(--lp-shadow-soft);
+}
+
+.skills-block-quest .sbq-station:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--pal-accent, var(--kid-green)) 20%, #DDE4EC);
+}
+
+.skills-block-quest .sbq-station-step {
+  width: 52px;
+  height: 52px;
+  font-family: var(--kid-font-display);
+  font-size: 1.35rem;
+  background: color-mix(in srgb, var(--pal-accent, var(--kid-green)) 16%, #fff);
+  color: var(--pal-deep, var(--kid-green-deep));
+  box-shadow: inset 0 0 0 3px color-mix(in srgb, var(--pal-accent, var(--kid-green)) 34%, transparent);
+}
+
+.skills-block-quest .sbq-station-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.skills-block-quest .sbq-station-copy strong {
+  font-size: 1.25rem;
+}
+
+.skills-block-quest .sbq-station-copy em {
+  font-size: 0.95rem;
+}
+
+.skills-block-quest .sbq-station.done {
+  background: linear-gradient(120deg, #F2FBF4 0%, #ffffff 70%);
+}
+
+.skills-block-quest .sbq-station.check {
+  background: linear-gradient(115deg, #FFF6E3 0%, #FFFDF6 65%);
+  box-shadow: var(--kid-press) #E8C77E, var(--lp-shadow-card);
+}
+
+/* ── 5. Student home: bright mission + explore cards ─────────────────────── */
+.student-mode-app .student-home-card {
+  border: 0;
+  border-radius: var(--kid-radius);
+  overflow: hidden;
+  box-shadow: var(--kid-press) #DCE3EC, var(--lp-shadow-card);
+  transition: transform 130ms ease-out, box-shadow 130ms ease-out;
+}
+
+.student-mode-app .student-home-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 0 #D2DAE5, var(--lp-shadow-soft);
+}
+
+.student-mode-app .student-home-card:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #DCE3EC;
+}
+
+.student-mode-app .student-home-card-meta {
+  display: inline-block;
+  width: fit-content;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--pal-accent, var(--kid-sky)) 16%, #fff);
+  color: var(--pal-deep, var(--kid-sky-deep));
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.student-mode-app .student-home-card-label strong {
+  font-size: 1.3rem;
+}
+
+/* ── 6. Game player stage polish ─────────────────────────────────────────── */
+.lg-game-player .lg-game-stage,
+.lg-game-player .lg-game-complete {
+  width: min(100%, 1120px);
+  margin-inline: auto;
+}
+
+.lg-game-stage > p:first-child {
+  font-family: var(--kid-font-display);
+  font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+  font-weight: 600;
+  color: var(--kid-ink);
+}
+
+/* Floating word bubbles: real bubbles that drift and shine */
+.lg-floating-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(16px, 2.6vw, 30px);
+}
+
+.lg-floating-options button {
+  position: relative;
+  min-width: clamp(104px, 12vw, 150px);
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 26%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 34%),
+    radial-gradient(circle at 66% 78%, color-mix(in srgb, var(--pal-accent, var(--kid-berry)) 82%, #fff) 0%, var(--pal-accent, var(--kid-berry)) 68%);
+  color: #fff;
+  font-family: var(--kid-font-display);
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 12px 26px rgba(23, 42, 58, 0.22), inset 0 -6px 12px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  animation: kid-bubble-drift 3.4s ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+  transition: transform 120ms ease-out;
+}
+
+.lg-floating-options button:hover {
+  transform: scale(1.06);
+}
+
+.lg-floating-options button:active {
+  transform: scale(0.82);
+}
+
+@keyframes kid-bubble-drift {
+  0%, 100% { transform: translateY(0) rotate(-1.2deg); }
+  50% { transform: translateY(-12px) rotate(1.4deg); }
+}
+
+/* ── 7. Shared juice utilities ───────────────────────────────────────────── */
+@keyframes kid-pop-in {
+  0% { transform: scale(0.6); opacity: 0; }
+  70% { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes kid-cheer-jump {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-16px) rotate(-3deg); }
+  55% { transform: translateY(0); }
+  72% { transform: translateY(-8px) rotate(2deg); }
+}
+
+@keyframes kid-wobble {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-7px) rotate(-1.5deg); }
+  75% { transform: translateX(7px) rotate(1.5deg); }
+}
+
+.kid-pop-in { animation: kid-pop-in 300ms ease-out both; }
+.kid-cheer { animation: kid-cheer-jump 700ms ease-out; }
+.kid-wobble { animation: kid-wobble 300ms ease-in-out; }
+
+/* Streak combo chip used by the arcade games */
+.kid-combo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: linear-gradient(120deg, var(--kid-sun) 0%, #FFD474 100%);
+  color: #6B4A08;
+  font-family: var(--kid-font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 0 var(--kid-sun-deep);
+  animation: kid-pop-in 260ms ease-out both;
+}
+
+.kid-combo[data-level="hot"] {
+  background: linear-gradient(120deg, var(--kid-coral) 0%, #FF9A6B 100%);
+  color: #fff;
+  box-shadow: 0 4px 0 var(--kid-coral-deep);
+}
+
+/* Gem counter + fly-to-chest reward moments */
+.kid-gem-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 3px solid #E3D9F8;
+  color: #4A2E8A;
+  font-family: var(--kid-font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: var(--lp-shadow-card);
+}
+
+.kid-gem-counter.bump {
+  animation: kid-pop-in 320ms ease-out;
+}
+
+/* ── 8. Collection: badges that feel earned ──────────────────────────────── */
+.kid-badge {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+
+.kid-badge-medal {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.5), transparent 42%),
+    conic-gradient(from 210deg, #FFD474, #F2A93B, #FFE3A1, #F2A93B, #FFD474);
+  box-shadow: 0 6px 14px rgba(23, 42, 58, 0.2), inset 0 0 0 4px rgba(255, 255, 255, 0.55);
+  animation: kid-pop-in 320ms ease-out both;
+}
+
+.kid-badge-medal img {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+
+.kid-badge-medal .kid-badge-number {
+  position: absolute;
+  right: -2px;
+  bottom: 20px;
+  min-width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--kid-green);
+  color: #fff;
+  font-family: var(--kid-font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 0 var(--kid-green-deep);
+}
+
+.kid-badge.locked .kid-badge-medal {
+  filter: grayscale(1) opacity(0.45);
+  animation: none;
+}
+
+.kid-badge span {
+  font-family: var(--kid-font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--kid-ink);
+  text-align: center;
+}
+
+.kid-next-unlock {
+  display: grid;
+  gap: 8px;
+  padding: 14px 18px;
+  border-radius: var(--kid-radius-sm);
+  background: #fff;
+  box-shadow: var(--lp-shadow-card);
+}
+
+.kid-next-unlock strong {
+  font-family: var(--kid-font-display);
+  color: var(--kid-ink);
+}
+
+.kid-next-unlock-track {
+  height: 14px;
+  border-radius: 999px;
+  background: #EDF1F6;
+  overflow: hidden;
+}
+
+.kid-next-unlock-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--kid-berry) 0%, var(--kid-sky) 100%);
+  transition: width 500ms ease-out;
+}
+
+/* ── 9. Calm the motion down when asked ──────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .lg-floating-options button,
+  .kid-pop-in,
+  .kid-cheer,
+  .kid-wobble,
+  .kid-combo,
+  .kid-badge-medal,
+  .kid-gem-counter.bump {
+    animation: none;
+  }
+
+  .sbq-primary-button,
+  .sbq-listen-button,
+  .lg-game-primary,
+  .lg-game-audio,
+  .skills-block-quest .sbq-answer-grid button,
+  .skills-block-quest .sbq-station,
+  .student-mode-app .student-home-card {
+    transition: none;
+  }
+}
+
+/* ── Treasure Trail on the student home ──────────────────────────────────── */
+.kid-treasure-trail {
+  display: grid;
+  gap: 14px;
+}
+
+.kid-treasure-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.kid-treasure-head h2 {
+  margin: 0;
+  font-family: var(--kid-font-display, "Fredoka", sans-serif);
+}
+
+.kid-prize-medal {
+  font-size: 2.2rem;
+}
+
+.kid-trail-complete {
+  margin: 0;
+  font-family: var(--kid-font-display, "Fredoka", sans-serif);
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.student-treasures-shelf {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* ── Arcade game juice ───────────────────────────────────────────────────── */
+.lg-game-stage-shell {
+  position: relative;
+}
+
+.lg-game-stage-shell .kid-combo {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  z-index: 3;
+}
+
+.kid-gems-earned {
+  font-family: var(--kid-font-display, "Fredoka", sans-serif);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #4A2E8A;
+  animation: kid-pop-in 320ms ease-out 200ms both;
+}
+
+/* Bubble POP: burst + ring, then the next word floats in */
+.lg-floating-options button.popping {
+  animation: kid-bubble-pop 380ms ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes kid-bubble-pop {
+  0% { transform: scale(1); opacity: 1; }
+  40% { transform: scale(1.28); opacity: 1; }
+  100% { transform: scale(1.65); opacity: 0; }
+}
+
+.lg-floating-options button.popping::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 4px dotted rgba(255, 255, 255, 0.95);
+  animation: kid-pop-ring 380ms ease-out forwards;
+}
+
+@keyframes kid-pop-ring {
+  0% { transform: scale(0.7); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.lg-floating-options button.wrong {
+  animation: kid-wobble 320ms ease-in-out;
+}
+
+/* Memory cards: a real 3D flip */
+.lg-match-card {
+  perspective: 700px;
+  background: transparent;
+}
+
+.lg-match-card .lg-card-inner {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  transform-style: preserve-3d;
+  transition: transform 360ms cubic-bezier(0.35, 1.4, 0.5, 1);
+}
+
+.lg-match-card.revealed .lg-card-inner {
+  transform: rotateY(180deg);
+}
+
+.lg-match-card .lg-card-face {
+  grid-area: 1 / 1;
+  display: grid;
+  place-items: center;
+  border-radius: inherit;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.lg-match-card .lg-card-back {
+  font-size: 1.6em;
+  color: #fff;
+  background:
+    radial-gradient(circle at 30% 26%, rgba(255, 255, 255, 0.35), transparent 40%),
+    linear-gradient(135deg, var(--kid-sky, #3FA9F5) 0%, var(--kid-berry, #A66BFF) 100%);
+  border-radius: 12px;
+}
+
+.lg-match-card .lg-card-front {
+  transform: rotateY(180deg);
+  background: #fff;
+  border-radius: 12px;
+}
+
+.lg-match-card.matched .lg-card-inner {
+  animation: kid-cheer-jump 600ms ease-out;
+}
+
+.lg-match-card.matched .lg-card-front {
+  background: #F0FDF4;
+  box-shadow: inset 0 0 0 3px #77C98D;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lg-floating-options button.popping,
+  .lg-floating-options button.popping::after,
+  .lg-floating-options button.wrong,
+  .lg-match-card .lg-card-inner,
+  .lg-match-card.matched .lg-card-inner,
+  .kid-gems-earned {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Every arcade stage gets big pressable tiles - letter banks, hop stones,
+   sentence paths and family boards included. */
+.lg-game-letter-bank button,
+.lg-hop-grid button,
+.lg-sentence-path button,
+.lg-family-board button,
+.lg-family-tabs button {
+  border-radius: var(--kid-radius-sm, 16px);
+  font-family: var(--kid-font-display, "Fredoka", sans-serif);
+  font-weight: 600;
+  box-shadow: 0 4px 0 #D7DEE8;
+  transition: transform 110ms ease-out, box-shadow 110ms ease-out;
+}
+
+.lg-game-letter-bank button:hover:not(:disabled),
+.lg-hop-grid button:hover:not(:disabled),
+.lg-sentence-path button:hover:not(:disabled),
+.lg-family-board button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.lg-game-letter-bank button:active:not(:disabled),
+.lg-hop-grid button:active:not(:disabled),
+.lg-sentence-path button:active:not(:disabled),
+.lg-family-board button:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #D7DEE8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lg-game-letter-bank button,
+  .lg-hop-grid button,
+  .lg-sentence-path button,
+  .lg-family-board button,
+  .lg-family-tabs button {
+    transition: none;
+  }
+}

@@ -8,6 +8,7 @@ import { AUDIO_FILE_PATHS } from "../../data/generated/audioFilePaths.generated.
 import { graphemeAudioPath, wordAudioPath } from "../../components/elQuest/elQuestEngine.js";
 import { getChildWordAsset } from "../../data/childAssets.js";
 import { themeWorldForCycle } from "../../utils/palWorlds.js";
+import { LETTER_STROKES, LETTER_GUIDES } from "../../data/letterStrokes.js";
 
 function isFluencyCycle(cycle) {
   return (cycle?.cycleNumber || 0) >= 25;
@@ -198,14 +199,30 @@ function letterSoundSlide(card, cycle) {
     <div class="p-words">${pics}</div>`, { cls: "p-letter-slide", audio: phoneme, char: "wave" });
 }
 
+// Real stroke-by-stroke writing demo: each stroke draws itself in pedagogic
+// order while a pencil tip follows the line (data from letterStrokes.js).
+function writingSvg(text) {
+  const chars = String(text).split("").filter(ch => LETTER_STROKES[ch]);
+  if (!chars.length) return "";
+  const width = chars.length * 100;
+  const g = LETTER_GUIDES;
+  const guides = `<line x1="0" y1="${g.top}" x2="${width}" y2="${g.top}" class="p-guide"/>` +
+    `<line x1="0" y1="${g.mid}" x2="${width}" y2="${g.mid}" class="p-guide dash"/>` +
+    `<line x1="0" y1="${g.base}" x2="${width}" y2="${g.base}" class="p-guide base"/>`;
+  const body = chars.map((ch, i) =>
+    `<g transform="translate(${i * 100},0)">` +
+    LETTER_STROKES[ch].map(d => `<path class="p-ghost-stroke" d="${d}"/>`).join("") +
+    LETTER_STROKES[ch].map(d => `<path class="p-ink-stroke" data-write-stroke data-offset="${i * 100}" d="${d}"/>`).join("") +
+    `</g>`).join("");
+  const pencil = `<g data-pencil class="p-pencil"><circle r="7"/><path d="M2 -4 L20 -34 L30 -28 L14 4 Z"/></g>`;
+  return `<svg class="p-write-svg" viewBox="0 0 ${width} 140" aria-hidden="true">${guides}${body}${pencil}</svg>`;
+}
+
 function writingSlide(card) {
   const big = card.spelling.length === 1 ? `${card.spelling.toUpperCase()}${card.spelling}` : card.spelling;
   return slide(`
     <p class="p-kicker">Let's write it</p>
-    <div class="p-write2" aria-hidden="true">
-      <span class="p-write-ghost2">${esc(big)}</span>
-      <span class="p-write-ink-wrap" data-ink><span class="p-write-ink2">${esc(big)}</span></span>
-    </div>
+    ${writingSvg(big)}
     <button class="p-audio" type="button" data-replay>✏️ Watch again</button>
     <p class="p-hint">Now you write it in the air!</p>`, { cls: "p-writing", stroke: "1", char: "think" });
 }
@@ -506,18 +523,19 @@ const DECK_CSS = `
     border: 4px solid #fff; border-radius: 22px; box-shadow: 0 12px 30px rgba(0,0,0,.1); padding: 3vh 4vw; }
   .p-poem-pics { display: flex; gap: 2vw; margin-top: 1vh; }
   .p-poem-pics img { width: 16vh; height: 16vh; object-fit: contain; background: #fff; border: 4px solid #fff; border-radius: 18px; box-shadow: 0 10px 24px rgba(0,0,0,.12); padding: 1vh; }
-  /* Writing demo: the coloured letter wipes in left-to-right over a faint guide
-     via an overflow:hidden WIDTH reveal - the most universally-supported way to
-     animate, fired purely by the slide becoming active (no JS timing needed). */
-  .p-write2 { position: relative; display: inline-block; line-height: 1;
-    font-family: 'Andika','Comic Sans MS',sans-serif; font-weight: 700; font-size: 44vh; }
-  .p-write-ghost2 { display: inline-block; color: rgba(20,17,12,0.12); }
-  .p-write-ink-wrap { position: absolute; left: 0; top: 0; height: 100%; width: 0;
-    overflow: hidden; white-space: nowrap; }
-  .p-write-ink2 { display: inline-block; color: var(--w-accent); }
-  .slide.active .p-write-ink-wrap { animation: writeOn 1.9s ease 0.35s both; }
-  .p-write-ink-wrap.replay { animation: writeOn 1.9s ease both; }
-  @keyframes writeOn { from { width: 0; } to { width: 100%; } }
+  /* Writing demo: every stroke draws itself in real stroke ORDER while a
+     pencil tip follows the line - animated by animateWriting() in the deck JS. */
+  .p-write-svg { height: 52vh; max-width: 86vw; }
+  .p-write-svg .p-guide { stroke: rgba(31,63,42,.18); stroke-width: 1.5; }
+  .p-write-svg .p-guide.dash { stroke-dasharray: 6 5; }
+  .p-write-svg .p-guide.base { stroke: rgba(31,63,42,.30); stroke-width: 2; }
+  .p-write-svg .p-ghost-stroke { fill: none; stroke: rgba(20,17,12,.10); stroke-width: 11;
+    stroke-linecap: round; stroke-linejoin: round; }
+  .p-write-svg .p-ink-stroke { fill: none; stroke: var(--w-accent); stroke-width: 11;
+    stroke-linecap: round; stroke-linejoin: round; }
+  .p-pencil { opacity: 0; transition: opacity 160ms ease; }
+  .p-pencil circle { fill: #F4A83C; stroke: #8A5A1D; stroke-width: 2.5; }
+  .p-pencil path { fill: #F8C97E; stroke: #8A5A1D; stroke-width: 2.5; stroke-linejoin: round; }
   /* The Pals mascot, branding every slide */
   .p-pal-corner { position: absolute; bottom: 3vh; right: 3vw; height: 22vh; pointer-events: none;
     animation: bob 2.6s ease-in-out infinite; filter: drop-shadow(0 8px 14px rgba(0,0,0,.18)); }
@@ -541,13 +559,45 @@ const DECK_JS = `
   var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
   var idx = 0, started = false;
   function playAudio(src){ if(!src) return; try { var a = new Audio(src); a.play().catch(function(){}); } catch(e){} }
+  var writeRaf = 0;
+  function animateWriting(slideEl){
+    cancelAnimationFrame(writeRaf);
+    var svg = slideEl && slideEl.querySelector('.p-write-svg'); if(!svg) return;
+    var pencil = svg.querySelector('[data-pencil]');
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var paths = Array.prototype.slice.call(svg.querySelectorAll('[data-write-stroke]'));
+    var plan = paths.map(function(p){
+      var L = Math.max(p.getTotalLength(), 0.6);
+      p.style.strokeDasharray = L; p.style.strokeDashoffset = reduced ? 0 : L;
+      return { p: p, L: L, d: Math.max(300, L / 130 * 1000) };
+    });
+    if (reduced || !plan.length) return;
+    var i = 0, start = 0, pause = 0;
+    function step(now){
+      var it = plan[i];
+      if (!it) { if (pencil) pencil.style.opacity = 0; return; }
+      if (pause && now < pause) { writeRaf = requestAnimationFrame(step); return; }
+      if (pause) { pause = 0; start = 0; }
+      if (!start) start = now;
+      var t = Math.min(1, (now - start) / it.d), e = t * (2 - t);
+      it.p.style.strokeDashoffset = it.L * (1 - e);
+      if (pencil) {
+        var pt = it.p.getPointAtLength(it.L * e);
+        var off = Number(it.p.getAttribute('data-offset') || 0);
+        pencil.setAttribute('transform', 'translate(' + (pt.x + off) + ',' + pt.y + ')');
+        pencil.style.opacity = 1;
+      }
+      if (t >= 1) { i += 1; pause = now + 260; }
+      writeRaf = requestAnimationFrame(step);
+    }
+    writeRaf = requestAnimationFrame(step);
+  }
   function show(i){
     idx = Math.max(0, Math.min(slides.length - 1, i));
     slides.forEach(function(s, n){ s.classList.toggle('active', n === idx); });
     document.getElementById('counter').textContent = (idx+1) + ' / ' + slides.length;
     var s = slides[idx];
-    // The writing wipe auto-plays via the .slide.active CSS rule; restarting it
-    // (after a re-visit) just needs the active class, which toggle() handled.
+    animateWriting(s);
     if (started && s.getAttribute('data-audio')) playAudio(s.getAttribute('data-audio'));
   }
   function go(d){ show(idx + d); }
@@ -560,7 +610,7 @@ const DECK_JS = `
   document.getElementById('prev').addEventListener('click', function(){ go(-1); });
   document.addEventListener('click', function(e){
     var btn = e.target.closest('[data-play]'); if (btn) { playAudio(btn.getAttribute('data-play')); return; }
-    if (e.target.closest('[data-replay]')) { var ink = slides[idx].querySelector('[data-ink]'); if(ink){ ink.classList.remove('replay'); ink.style.animation='none'; void ink.offsetWidth; ink.style.animation=''; ink.classList.add('replay'); } return; }
+    if (e.target.closest('[data-replay]')) { animateWriting(slides[idx]); return; }
   });
   function toggleFs(){ try { if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); } catch(e){} }
   document.getElementById('startBtn').addEventListener('click', function(){

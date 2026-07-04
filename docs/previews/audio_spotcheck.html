@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Audio spot-check — short-word gold recordings</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", sans-serif; background:#f4f8f2; margin:0; padding:32px; }
+  h1 { font-size: 22px; } p { max-width: 60ch; color:#444; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; max-width:900px; }
+  button { font-size:26px; font-weight:700; padding:18px 8px; border-radius:14px; border:2px solid #2C7A4B;
+    background:#fff; color:#173F2A; cursor:pointer; }
+  button:active { transform: translateY(2px); }
+  .ok { outline: 4px solid #77c98d; } .bad { outline: 4px solid #e05c5c; }
+</style>
+</head>
+<body>
+<h1>Spot-check: the 14 short-word recordings from the last audio import</h1>
+<p>Open this file in a browser from the project folder (double-click it). Tap each word — it should say exactly that word in the gold voice.
+If any clip says letter names or the wrong word, tell Claude which one. ("of" was already fixed — it should now say "of".)</p>
+<div class="grid" id="grid"></div>
+<script>
+  const words = ["a","am","an","as","at","ax","i","if","in","is","it","of","on","up"];
+  const grid = document.getElementById("grid");
+  for (const w of words) {
+    const b = document.createElement("button");
+    b.textContent = w;
+    b.onclick = () => { new Audio(`../../public/audio/child-mode/clean-human/words/${w}.mp3`).play(); };
+    grid.appendChild(b);
+  }
+</script>
+</body>
+</html>

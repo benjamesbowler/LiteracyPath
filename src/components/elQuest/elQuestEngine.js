@@ -6,6 +6,7 @@ import { LETTER_EXAMPLES, elSkillsBlockCycles } from "../../data/elSkillsBlockCy
 import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
 import { QUEST_STORY_QUESTIONS, VERIFIED_PICTURE_WORDS } from "../../data/generated/questStoryQuestions.generated.js";
 import { AUDIO_FILE_PATHS } from "../../data/generated/audioFilePaths.generated.js";
+import { hasKnownBadWordAudio } from "../../data/knownBadWordAudio.js";
 
 const VOWELS = new Set(["a", "e", "i", "o", "u"]);
 const ALL_GRAPHEMES = Object.keys(LETTER_EXAMPLES).filter(g => g.length <= 2 && g !== "qu");
@@ -57,6 +58,8 @@ export function graphemeAudioPath(spelling) {
 
 export function wordAudioPath(word) {
   const slug = String(word || "").toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  // Words whose only recordings are defective count as having no recording.
+  if (hasKnownBadWordAudio(slug)) return "";
   return firstExisting([
     `/audio/child-mode/clean-human/words/${slug}.mp3`,
     `/audio/child-mode/words/${slug}.mp3`,
@@ -237,8 +240,12 @@ function buildQuickWordRounds(cycle) {
   const earlier = taught.filter(w => !own.includes(w));
   const review = shuffleItems(earlier).slice(0, Math.max(0, 6 - own.length));
   const hfw = [...own, ...review].slice(0, 6);
+  // A listen-and-tap round is impossible without a good recording, so only
+  // voiced words become targets (unvoiced ones may still appear as choices).
+  const voiced = hfw.filter(word => wordAudioPath(word));
+  const pool = voiced.length ? voiced : hfw.filter(word => !hasKnownBadWordAudio(word));
   // Early cycles with few taught words: practise each word twice instead.
-  const sequence = hfw.length >= 4 ? hfw : [...hfw, ...hfw];
+  const sequence = pool.length >= 4 ? pool : [...pool, ...pool];
   return sequence.map(word => {
     const distractors = shuffleItems([
       ...hfw.filter(item => item !== word),
@@ -263,7 +270,8 @@ function buildWordBuildRounds(cycle) {
     .flatMap(entry => exampleWordsFor(entry.spelling))
     // Only clean 2-5 letter words: a single letter or a stray space would
     // render the wrong number of boxes and make the round impossible to pass.
-    .filter(word => /^[a-z]{2,5}$/.test(word));
+    // And only words with a real recording - the round says the word aloud.
+    .filter(word => /^[a-z]{2,5}$/.test(word) && wordAudioPath(word));
   const words = shuffleItems([...new Set(candidates)]).slice(0, 4);
   return words.map(word => ({
     type: "build",
@@ -384,7 +392,9 @@ function buildPoemRounds(cycle) {
   }));
 }
 
-// Station - Story Stop: who-did-what questions from the world's own books.
+// Station - Story Stop: cover-reading riddles from the world's own books.
+// Each round SHOWS the book's cover with its printed title, so the child
+// answers by reading the title in front of them - no prior reading assumed.
 function buildStoryRounds(cycle) {
   const n = cycle.cycleNumber || 1;
   const world = n >= 19 ? "moonwood" : n >= 10 ? "dino" : "meadow";
@@ -399,6 +409,8 @@ function buildStoryRounds(cycle) {
       speechFallback: "",
       prompt: item.prompt,
       display: "",
+      cover: item.cover || "",
+      bookTitle: item.title || "",
       choices: shuffleItems([item.answer, ...decoys]),
       answer: item.answer,
       choiceStyle: "word"
@@ -555,26 +567,26 @@ function buildSpellRounds(cycle) {
 }
 
 const STANDARD_STATIONS = [
-  { id: "letters", title: "Letter Spot", subtitle: "Big and small letters", build: buildLetterRounds },
-  { id: "sounds", title: "Sound Catch", subtitle: "Hear it, find it", build: buildSoundRounds },
-  { id: "hunt", title: "Sound Hunt", subtitle: "Pictures and first sounds", build: buildHuntRounds },
-  { id: "quick", title: "Quick Words", subtitle: "Words you just know", build: buildQuickWordRounds },
-  { id: "build", title: "Word Build", subtitle: "Make it yourself", build: buildWordBuildRounds },
-  { id: "play", title: "Word Play", subtitle: "Change it, shrink it, join it", build: buildWordPlayRounds },
-  { id: "poem", title: "Poem Time", subtitle: "Read it, find the words", build: buildPoemRounds },
-  { id: "story", title: "Story Stop", subtitle: "Who did what in our books?", build: buildStoryRounds },
-  { id: "trace", title: "Letter Trace", subtitle: "Write it with your finger", build: buildTraceRounds },
-  { id: "check", title: "Cycle Check", subtitle: "Show what you know", build: null }
+  { id: "letters", title: "Letter Spot", subtitle: "Big and small letters", icon: "🔤", build: buildLetterRounds },
+  { id: "sounds", title: "Sound Catch", subtitle: "Hear it, find it", icon: "👂", build: buildSoundRounds },
+  { id: "hunt", title: "Sound Hunt", subtitle: "Pictures and first sounds", icon: "🔎", build: buildHuntRounds },
+  { id: "quick", title: "Quick Words", subtitle: "Words you just know", icon: "⚡", build: buildQuickWordRounds },
+  { id: "build", title: "Word Build", subtitle: "Make it yourself", icon: "🧱", build: buildWordBuildRounds },
+  { id: "play", title: "Word Play", subtitle: "Change it, shrink it, join it", icon: "🎲", build: buildWordPlayRounds },
+  { id: "poem", title: "Poem Time", subtitle: "Read it, find the words", icon: "📜", build: buildPoemRounds },
+  { id: "story", title: "Story Stop", subtitle: "Read the cover, solve the riddle", icon: "📚", build: buildStoryRounds },
+  { id: "trace", title: "Letter Trace", subtitle: "Write it with your finger", icon: "✏️", build: buildTraceRounds },
+  { id: "check", title: "Cycle Check", subtitle: "Show what you know", icon: "⭐", build: null }
 ];
 
 // Cycles 25-27 swap the letter-sound games for fluency, pattern and poem games.
 const FLUENCY_STATIONS = [
-  { id: "pattern", title: "Pattern Power", subtitle: "Sort the word patterns", build: buildPatternPowerRounds },
-  { id: "chain", title: "Word Chains", subtitle: "Change one sound", build: buildWordChainRounds },
-  { id: "speed", title: "Speedy Words", subtitle: "Read them fast", build: buildSpeedyWordRounds },
-  { id: "poem", title: "Poem Play", subtitle: "Read it, find the words", build: buildPoemRounds },
-  { id: "spell", title: "Spell It", subtitle: "Build the word", build: buildSpellRounds },
-  { id: "check", title: "Cycle Check", subtitle: "Show what you know", build: null }
+  { id: "pattern", title: "Pattern Power", subtitle: "Sort the word patterns", icon: "🧩", build: buildPatternPowerRounds },
+  { id: "chain", title: "Word Chains", subtitle: "Change one sound", icon: "🔗", build: buildWordChainRounds },
+  { id: "speed", title: "Speedy Words", subtitle: "Read them fast", icon: "🚀", build: buildSpeedyWordRounds },
+  { id: "poem", title: "Poem Play", subtitle: "Read it, find the words", icon: "📜", build: buildPoemRounds },
+  { id: "spell", title: "Spell It", subtitle: "Build the word", icon: "🐝", build: buildSpellRounds },
+  { id: "check", title: "Cycle Check", subtitle: "Show what you know", icon: "⭐", build: null }
 ];
 
 // Backwards-compatible default export (the standard letter-sound set).

@@ -9,6 +9,7 @@ import {
 import { COMPANIONS, getCompanion, setCompanion, getCollectibles } from "../utils/studentProfile.js";
 import { worldForScope } from "../utils/palWorlds.js";
 import { warmStudentAssets } from "../utils/preloadAssets.js";
+import { computeTreasury } from "../utils/treasureTrail.js";
 import { Gem } from "./Gem.jsx";
 
 // Decorative art must never show a broken-image icon to kids; hide it instead.
@@ -80,6 +81,7 @@ export function StudentHomePage({
   const [companion, setCompanionState] = useState(() => getCompanion(progressScopeKey));
   const [pickingCompanion, setPickingCompanion] = useState(false);
   const [collectibles] = useState(() => getCollectibles(progressScopeKey));
+  const treasury = useMemo(() => computeTreasury(progressScopeKey), [progressScopeKey]);
 
   useEffect(() => {
     warmStudentAssets(worldForScope(progressScopeKey));
@@ -218,10 +220,45 @@ export function StudentHomePage({
         </div>
       </section>
 
-      {collectibles.length > 0 && (
-        <section className="student-treasures" aria-label="My treasures">
-          <h2>My Treasures</h2>
+      <section className="student-treasures kid-treasure-trail" aria-label="My treasure trail">
+        <div className="kid-treasure-head">
+          <h2>My Treasure Trail</h2>
+          <span className="kid-gem-counter" aria-label={`${treasury.gems} gems collected`}>
+            <Gem color="violet" size={22} />
+            {treasury.gems} gems
+          </span>
+        </div>
+
+        {treasury.nextTreasure ? (
+          <div className="kid-next-unlock">
+            <strong>
+              {treasury.nextTreasure.icon} {treasury.gemsToNext} more gem{treasury.gemsToNext === 1 ? "" : "s"} to win the {treasury.nextTreasure.name}!
+            </strong>
+            <div className="kid-next-unlock-track" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(treasury.nextProgress * 100)}>
+              <span style={{ width: `${Math.round(treasury.nextProgress * 100)}%` }} />
+            </div>
+          </div>
+        ) : (
+          <p className="kid-trail-complete">🏆 You found every treasure on the trail!</p>
+        )}
+
+        {(treasury.treasures.length > 0 || treasury.badges.length > 0 || collectibles.length > 0) && (
           <div className="student-treasures-shelf">
+            {treasury.badges.map(badge => (
+              <div key={badge.id} className="kid-badge" title={`${badge.name} complete`}>
+                <span className="kid-badge-medal">
+                  <img src={`/images/pals/${badge.world.id}-emblem.webp`} alt="" onError={hideOnError} />
+                  <span className="kid-badge-number">{badge.cycleNumber}</span>
+                </span>
+                <span>{"⭐".repeat(Math.min(3, badge.stars))}</span>
+              </div>
+            ))}
+            {treasury.treasures.map(item => (
+              <div key={item.id} className="kid-badge kid-trail-prize" title={item.name}>
+                <span className="kid-badge-medal kid-prize-medal" aria-hidden="true">{item.icon}</span>
+                <span>{item.name}</span>
+              </div>
+            ))}
             {collectibles.map(item => (
               <div key={item.key} className="student-treasure" title={item.label || item.name}>
                 <Gem color={item.color} size={40} />
@@ -229,8 +266,8 @@ export function StudentHomePage({
               </div>
             ))}
           </div>
-        </section>
-      )}
+        )}
+      </section>
 
       {(pickingCompanion || !companion) && (
         <div className="companion-picker" role="dialog" aria-label="Choose your companion">

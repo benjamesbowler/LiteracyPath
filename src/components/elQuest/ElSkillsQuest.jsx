@@ -9,6 +9,7 @@ import { awardCollectible, getCompanion } from "../../utils/studentProfile.js";
 import { printCertificate } from "../../utils/printCertificate.js";
 import { Gem } from "../Gem.jsx";
 import { gemForIndex } from "../../data/gemSet.js";
+import { LetterWriter } from "../shared/LetterWriter.jsx";
 import { worldForCycle, worldStyle, sceneForKey } from "../../utils/palWorlds.js";
 import {
   WORLD_LANDMARKS_WIDE,
@@ -148,6 +149,7 @@ function TraceRound({ round, onResult }) {
   const canvasRef = useRef(null);
   const drawing = useRef(false);
   const [ink, setInk] = useState(0);
+  const [demoKey, setDemoKey] = useState(0);
 
   function pointFrom(event) {
     const canvas = canvasRef.current;
@@ -178,6 +180,12 @@ function TraceRound({ round, onResult }) {
 
   return (
     <div className="sbq-trace">
+      <div className="sbq-trace-demo">
+        <LetterWriter text={round.letter} height={130} playKey={demoKey} />
+        <button className="sbq-ghost-button" type="button" onClick={() => setDemoKey(key => key + 1)}>
+          ✏️ Watch again
+        </button>
+      </div>
       <div className="sbq-trace-stage">
         <span className="sbq-trace-letter" aria-hidden="true">{round.letter}</span>
         <canvas
@@ -819,6 +827,9 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
               <span>You earned the <strong>{celebration.gem.name}</strong>!</span>
             </div>
           )}
+          {isCycle && celebration.stars > 0 && (
+            <p className="kid-gems-earned">+{celebration.stars} 💎 for your Treasure Trail — a Cycle {activeCycle.cycleNumber} badge is on your shelf!</p>
+          )}
           <div className="sbq-celebrate-actions">
             <button
               className="sbq-primary-button"
@@ -905,6 +916,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                 onClick={() => startStation(activeCycle, station.id)}
               >
                 <span className="sbq-station-step" aria-hidden="true">{done ? "✓" : checkLocked ? "🔒" : index + 1}</span>
+                {station.icon && <span className="sbq-station-icon" aria-hidden="true">{station.icon}</span>}
                 <span className="sbq-station-copy">
                   <strong>{station.title}</strong>
                   <em>{checkLocked ? `Play ${4 - practiceDone} more station${4 - practiceDone === 1 ? "" : "s"} to open` : station.subtitle}</em>
@@ -956,6 +968,17 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
               <SpeakerIcon />
               Listen
             </button>
+          )}
+
+          {round.cover && (
+            <figure className="sbq-story-cover">
+              <img
+                src={round.cover}
+                alt={round.bookTitle ? `Book cover: ${round.bookTitle}` : "Book cover"}
+                onError={event => { event.currentTarget.closest("figure").classList.add("no-art"); }}
+              />
+              {round.bookTitle && <figcaption>{round.bookTitle}</figcaption>}
+            </figure>
           )}
 
           {round.poem && round.poemTitle && <p className="sbq-poem-title">{round.poemTitle}</p>}

@@ -56,18 +56,19 @@
     border: 4px solid #fff; border-radius: 22px; box-shadow: 0 12px 30px rgba(0,0,0,.1); padding: 3vh 4vw; }
   .p-poem-pics { display: flex; gap: 2vw; margin-top: 1vh; }
   .p-poem-pics img { width: 16vh; height: 16vh; object-fit: contain; background: #fff; border: 4px solid #fff; border-radius: 18px; box-shadow: 0 10px 24px rgba(0,0,0,.12); padding: 1vh; }
-  /* Writing demo: the coloured letter wipes in left-to-right over a faint guide
-     via an overflow:hidden WIDTH reveal - the most universally-supported way to
-     animate, fired purely by the slide becoming active (no JS timing needed). */
-  .p-write2 { position: relative; display: inline-block; line-height: 1;
-    font-family: 'Andika','Comic Sans MS',sans-serif; font-weight: 700; font-size: 44vh; }
-  .p-write-ghost2 { display: inline-block; color: rgba(20,17,12,0.12); }
-  .p-write-ink-wrap { position: absolute; left: 0; top: 0; height: 100%; width: 0;
-    overflow: hidden; white-space: nowrap; }
-  .p-write-ink2 { display: inline-block; color: var(--w-accent); }
-  .slide.active .p-write-ink-wrap { animation: writeOn 1.9s ease 0.35s both; }
-  .p-write-ink-wrap.replay { animation: writeOn 1.9s ease both; }
-  @keyframes writeOn { from { width: 0; } to { width: 100%; } }
+  /* Writing demo: every stroke draws itself in real stroke ORDER while a
+     pencil tip follows the line - animated by animateWriting() in the deck JS. */
+  .p-write-svg { height: 52vh; max-width: 86vw; }
+  .p-write-svg .p-guide { stroke: rgba(31,63,42,.18); stroke-width: 1.5; }
+  .p-write-svg .p-guide.dash { stroke-dasharray: 6 5; }
+  .p-write-svg .p-guide.base { stroke: rgba(31,63,42,.30); stroke-width: 2; }
+  .p-write-svg .p-ghost-stroke { fill: none; stroke: rgba(20,17,12,.10); stroke-width: 11;
+    stroke-linecap: round; stroke-linejoin: round; }
+  .p-write-svg .p-ink-stroke { fill: none; stroke: var(--w-accent); stroke-width: 11;
+    stroke-linecap: round; stroke-linejoin: round; }
+  .p-pencil { opacity: 0; transition: opacity 160ms ease; }
+  .p-pencil circle { fill: #F4A83C; stroke: #8A5A1D; stroke-width: 2.5; }
+  .p-pencil path { fill: #F8C97E; stroke: #8A5A1D; stroke-width: 2.5; stroke-linejoin: round; }
   /* The Pals mascot, branding every slide */
   .p-pal-corner { position: absolute; bottom: 3vh; right: 3vw; height: 22vh; pointer-events: none;
     animation: bob 2.6s ease-in-out infinite; filter: drop-shadow(0 8px 14px rgba(0,0,0,.18)); }
@@ -106,10 +107,7 @@
       <img src="/images/child-mode/short-u/mud.png" alt="mud" onerror="this.closest('.p-word').style.display='none'"/>
       <span>mud</span></button></div><img class="p-pal p-pal-corner" src="/images/pals/poses/moonwood-wave.webp" alt="" onerror="this.style.display='none'"/></section><section class="slide p-writing"  data-stroke="1">
     <p class="p-kicker">Let's write it</p>
-    <div class="p-write2" aria-hidden="true">
-      <span class="p-write-ghost2">Uu</span>
-      <span class="p-write-ink-wrap" data-ink><span class="p-write-ink2">Uu</span></span>
-    </div>
+    <svg class="p-write-svg" viewBox="0 0 200 140" aria-hidden="true"><line x1="0" y1="20" x2="200" y2="20" class="p-guide"/><line x1="0" y1="64" x2="200" y2="64" class="p-guide dash"/><line x1="0" y1="110" x2="200" y2="110" class="p-guide base"/><g transform="translate(0,0)"><path class="p-ghost-stroke" d="M28 20 L28 84 C28 112 72 112 72 84 L72 20"/><path class="p-ink-stroke" data-write-stroke data-offset="0" d="M28 20 L28 84 C28 112 72 112 72 84 L72 20"/></g><g transform="translate(100,0)"><path class="p-ghost-stroke" d="M30 64 L30 92 C30 112 66 112 66 90 L66 64"/><path class="p-ghost-stroke" d="M66 64 L66 110"/><path class="p-ink-stroke" data-write-stroke data-offset="100" d="M30 64 L30 92 C30 112 66 112 66 90 L66 64"/><path class="p-ink-stroke" data-write-stroke data-offset="100" d="M66 64 L66 110"/></g><g data-pencil class="p-pencil"><circle r="7"/><path d="M2 -4 L20 -34 L30 -28 L14 4 Z"/></g></svg>
     <button class="p-audio" type="button" data-replay>✏️ Watch again</button>
     <p class="p-hint">Now you write it in the air!</p><img class="p-pal p-pal-corner" src="/images/pals/poses/moonwood-think.webp" alt="" onerror="this.style.display='none'"/></section><section class="slide p-sight-slide" data-audio="/audio/child-mode/clean-human/words/about.mp3" >
     <p class="p-kicker">Tricky word</p>
@@ -165,13 +163,45 @@ and lands with a happy thud.</div>
   var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
   var idx = 0, started = false;
   function playAudio(src){ if(!src) return; try { var a = new Audio(src); a.play().catch(function(){}); } catch(e){} }
+  var writeRaf = 0;
+  function animateWriting(slideEl){
+    cancelAnimationFrame(writeRaf);
+    var svg = slideEl && slideEl.querySelector('.p-write-svg'); if(!svg) return;
+    var pencil = svg.querySelector('[data-pencil]');
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var paths = Array.prototype.slice.call(svg.querySelectorAll('[data-write-stroke]'));
+    var plan = paths.map(function(p){
+      var L = Math.max(p.getTotalLength(), 0.6);
+      p.style.strokeDasharray = L; p.style.strokeDashoffset = reduced ? 0 : L;
+      return { p: p, L: L, d: Math.max(300, L / 130 * 1000) };
+    });
+    if (reduced || !plan.length) return;
+    var i = 0, start = 0, pause = 0;
+    function step(now){
+      var it = plan[i];
+      if (!it) { if (pencil) pencil.style.opacity = 0; return; }
+      if (pause && now < pause) { writeRaf = requestAnimationFrame(step); return; }
+      if (pause) { pause = 0; start = 0; }
+      if (!start) start = now;
+      var t = Math.min(1, (now - start) / it.d), e = t * (2 - t);
+      it.p.style.strokeDashoffset = it.L * (1 - e);
+      if (pencil) {
+        var pt = it.p.getPointAtLength(it.L * e);
+        var off = Number(it.p.getAttribute('data-offset') || 0);
+        pencil.setAttribute('transform', 'translate(' + (pt.x + off) + ',' + pt.y + ')');
+        pencil.style.opacity = 1;
+      }
+      if (t >= 1) { i += 1; pause = now + 260; }
+      writeRaf = requestAnimationFrame(step);
+    }
+    writeRaf = requestAnimationFrame(step);
+  }
   function show(i){
     idx = Math.max(0, Math.min(slides.length - 1, i));
     slides.forEach(function(s, n){ s.classList.toggle('active', n === idx); });
     document.getElementById('counter').textContent = (idx+1) + ' / ' + slides.length;
     var s = slides[idx];
-    // The writing wipe auto-plays via the .slide.active CSS rule; restarting it
-    // (after a re-visit) just needs the active class, which toggle() handled.
+    animateWriting(s);
     if (started && s.getAttribute('data-audio')) playAudio(s.getAttribute('data-audio'));
   }
   function go(d){ show(idx + d); }
@@ -184,7 +214,7 @@ and lands with a happy thud.</div>
   document.getElementById('prev').addEventListener('click', function(){ go(-1); });
   document.addEventListener('click', function(e){
     var btn = e.target.closest('[data-play]'); if (btn) { playAudio(btn.getAttribute('data-play')); return; }
-    if (e.target.closest('[data-replay]')) { var ink = slides[idx].querySelector('[data-ink]'); if(ink){ ink.classList.remove('replay'); ink.style.animation='none'; void ink.offsetWidth; ink.style.animation=''; ink.classList.add('replay'); } return; }
+    if (e.target.closest('[data-replay]')) { animateWriting(slides[idx]); return; }
   });
   function toggleFs(){ try { if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); } catch(e){} }
   document.getElementById('startBtn').addEventListener('click', function(){

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { CVC_WORDS, RHYMING_PAIRS, SENTENCE_FIX, SENTENCES, SIGHT_WORDS, WORD_FAMILIES } from "../../../../data/learnGamesData";
 import { getChildWordAsset } from "../../../../data/childAssets";
 import { hasRecordedSpeech, speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
+import { hasKnownBadWordAudio } from "../../../../data/knownBadWordAudio.js";
 import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz, playTrainWhistle } from "../../../../utils/audio/gameSfx";
 import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../shared/ProgressStars.jsx";
@@ -21,16 +22,17 @@ function shuffle(items) {
    easy words. Easy = CVC (Level 1 sounds), Medium = digraphs and blends,
    Hard = clusters and longer words (Level 2 skills). */
 function pickWords(difficulty, limit) {
-  const pool = CVC_WORDS[difficulty] || CVC_WORDS.easy;
+  // Words with only defective recordings never become listen-and-tap targets.
+  const pool = (CVC_WORDS[difficulty] || CVC_WORDS.easy).filter(word => !hasKnownBadWordAudio(word));
   return shuffle(pool).slice(0, limit);
 }
 
 function pickSightWords(difficulty, limit) {
-  const pool = difficulty === "hard"
+  const pool = (difficulty === "hard"
     ? SIGHT_WORDS.level3
     : difficulty === "medium"
       ? SIGHT_WORDS.level2
-      : SIGHT_WORDS.level1;
+      : SIGHT_WORDS.level1).filter(word => !hasKnownBadWordAudio(word));
   return shuffle(pool).slice(0, limit);
 }
 
@@ -44,10 +46,11 @@ function GameComplete({ title, stars, score, onRestart }) {
   return (
     <div className="lg-game-complete">
       <ConfettiCelebration show={stars > 0} />
-      <img src="/images/learn-games/phinny-cheering.webp" alt="" onError={event => { event.currentTarget.style.display = "none"; }} />
+      <img className="kid-cheer" src="/images/learn-games/phinny-cheering.webp" alt="" onError={event => { event.currentTarget.style.display = "none"; }} />
       <h2>{title} complete!</h2>
       <ProgressStars stars={stars} size="lg" />
       <p>{score} points</p>
+      {stars > 0 && <p className="kid-gems-earned">+{stars} 💎 for your Treasure Trail!</p>}
       <button type="button" className="lg-game-primary" onClick={onRestart}>
         Play again
       </button>
@@ -113,6 +116,8 @@ export function ArcadePracticeGame({
   const [stars, setStars] = useState(0);
   const [version, setVersion] = useState(0);
   const [shaking, setShaking] = useState(false);
+  // Streak: consecutive correct answers earn a growing bonus and a combo chip.
+  const [streak, setStreak] = useState(0);
 
   const totalRounds = difficulty === "hard" ? 10 : difficulty === "medium" ? 8 : 6;
 
@@ -170,12 +175,15 @@ export function ArcadePracticeGame({
   }, [correct, gameState.fixes?.length, gameState.pairTotal, gameState.total, mode, onProgressUpdate, round, totalRounds]);
 
   function addScore(amount, sfx = playCorrectChime) {
-    setScore(current => current + amount);
+    // Streak bonus: +2 per answer already in the run, capped so scores stay sane.
+    setScore(current => current + amount + Math.min(10, streak * 2));
+    setStreak(current => current + 1);
     if (isSoundEnabled) sfx();
   }
 
   function miss() {
     setWrongs(current => current + 1);
+    setStreak(0);
     setShaking(true);
     if (isSoundEnabled) playSoftBuzz();
   }
@@ -191,6 +199,7 @@ export function ArcadePracticeGame({
   function restart() {
     setScore(0);
     setWrongs(0);
+    setStreak(0);
     setRound(0);
     setCorrect(0);
     setCompleted(false);
@@ -298,6 +307,11 @@ export function ArcadePracticeGame({
       className={`lg-game-stage-shell${shaking ? " lg-shake" : ""}`}
       onAnimationEnd={() => setShaking(false)}
     >
+      {streak >= 2 && (
+        <div className="kid-combo" data-level={streak >= 4 ? "hot" : "warm"} key={streak} aria-live="polite">
+          🔥 {streak} in a row!
+        </div>
+      )}
       {stage}
     </div>
   );
@@ -444,7 +458,10 @@ function MatchGame({ mode, state, isSoundEnabled, correct, setCorrect, addScore,
               className={`lg-match-card ${matchedIds.includes(card.id) ? "matched" : ""}${visible ? " revealed" : ""}`}
               onClick={() => choose(card)}
             >
-              {visible ? card.word : "?"}
+              <span className="lg-card-inner">
+                <span className="lg-card-face lg-card-back" aria-hidden="true">?</span>
+                <span className="lg-card-face lg-card-front">{card.word}</span>
+              </span>
             </button>
           );
         })}
@@ -504,33 +521,47 @@ function FamilyGame({ state, isSoundEnabled, correct, setCorrect, addScore, fini
 function TargetGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds }) {
   const target = state.words[round] || state.words[0];
   const options = useMemo(() => shuffle([target, ...shuffle(state.words.filter(word => word !== target)).slice(0, 5)]), [state.words, target]);
+  // The bubble the child just popped (plays its burst before the next round)
+  // and the bubble that wobbled because it was wrong.
+  const [popped, setPopped] = useState("");
+  const [wrongWord, setWrongWord] = useState("");
 
   useEffect(() => {
     if (isSoundEnabled) speakWord(target);
   }, [isSoundEnabled, target]);
 
-  function choose(word) {
+  function choose(word, index) {
+    if (popped) return;
     if (word !== target) {
+      setWrongWord(`${word}-${index}`);
       miss();
       return;
     }
+    setPopped(word);
     const nextCorrect = correct + 1;
     setCorrect(nextCorrect);
     addScore(18, playPopSound);
-    if (round + 1 >= totalRounds) {
-      setTimeout(() => finish(nextCorrect), 360);
-    } else {
-      setRound(round + 1);
-    }
+    setTimeout(() => {
+      setPopped("");
+      if (round + 1 >= totalRounds) finish(nextCorrect);
+      else setRound(round + 1);
+    }, 380);
   }
 
   return (
     <section className="lg-game-stage lg-target-stage">
-      <p>Listen, then tap the matching word.</p>
+      <p>Listen, then pop the matching bubble!</p>
       <button type="button" className="lg-game-audio" onClick={() => speakWord(target)}>Hear word</button>
       <div className="lg-floating-options">
         {options.map((word, index) => (
-          <button key={`${word}-${index}`} type="button" style={{ "--float-delay": `${index * 0.12}s` }} onClick={() => choose(word)}>
+          <button
+            key={`${word}-${index}`}
+            type="button"
+            className={`${popped === word && word === target ? "popping" : ""}${wrongWord === `${word}-${index}` ? " wrong" : ""}`}
+            style={{ "--float-delay": `${index * 0.12}s` }}
+            onClick={() => choose(word, index)}
+            onAnimationEnd={() => { if (wrongWord === `${word}-${index}`) setWrongWord(""); }}
+          >
             {word}
           </button>
         ))}
