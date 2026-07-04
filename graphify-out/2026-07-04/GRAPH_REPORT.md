@@ -1,16 +1,16 @@
 # Graph Report - LiteracyPath  (2026-07-04)
 
 ## Corpus Check
-- 885 files · ~5,383,314 words
+- 893 files · ~5,391,636 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 614 nodes · 588 edges · 53 communities (48 shown, 5 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
+- 838 nodes · 1005 edges · 71 communities (63 shown, 8 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 14 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d70ed794`
+- Built from commit: `cf7c73fd`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -68,30 +68,57 @@
 - [[_COMMUNITY_CLAUDE|CLAUDE.md]]
 - [[_COMMUNITY_CLAUDE|CLAUDE.md]]
 - [[_COMMUNITY_extraction-spec|extraction-spec.md]]
+- [[_COMMUNITY_presentationBuilder.js|presentationBuilder.js]]
+- [[_COMMUNITY_ArcadePracticeGame.jsx|ArcadePracticeGame.jsx]]
+- [[_COMMUNITY_treasureTrail.js|treasureTrail.js]]
+- [[_COMMUNITY_Deployment Audit — 2026-07-04|Deployment Audit — 2026-07-04]]
+- [[_COMMUNITY_letterStrokes.js|letterStrokes.js]]
+- [[_COMMUNITY_18. EXTRA CREATIVITY & IMPLEMENTATION EDGE|18. EXTRA CREATIVITY & IMPLEMENTATION EDGE]]
+- [[_COMMUNITY_Repo Hygiene Audit|Repo Hygiene Audit]]
+- [[_COMMUNITY_generateBookIndex.js|generateBookIndex.js]]
+- [[_COMMUNITY_13. COLOR & MATERIAL RULES|13. COLOR & MATERIAL RULES]]
+- [[_COMMUNITY_Media Overwrite Risk Audit|Media Overwrite Risk Audit]]
+- [[_COMMUNITY_5. IMAGE COUNT & PAGE SLICING|5. IMAGE COUNT & PAGE SLICING]]
+- [[_COMMUNITY_Approved Runtime Sources Audit|Approved Runtime Sources Audit]]
+- [[_COMMUNITY_15. DEFAULT SITE PACKS|15. DEFAULT SITE PACKS]]
+- [[_COMMUNITY_20. EXAMPLE INTERPRETATIONS|20. EXAMPLE INTERPRETATIONS]]
+- [[_COMMUNITY_Kimi Audio Request — re-record 3 short words (gold voice, whole words)|Kimi Audio Request — re-record 3 short words (gold voice, whole words)]]
+- [[_COMMUNITY_SKILL|SKILL.md]]
+- [[_COMMUNITY_main.jsx|main.jsx]]
+- [[_COMMUNITY_STATIONS|STATIONS]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `CORE DIRECTIVE: IMAGE-FIRST WEBSITE DESIGN TO CODE` - 39 edges
 2. `CORE DIRECTIVE: PREMIUM MOBILE APP IMAGE DIRECTION` - 39 edges
 3. `CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION` - 22 edges
-4. `tasteskill: Anti-Slop Frontend Skill` - 16 edges
-5. `Appendix B - Canonical Sources (read these before reinventing)` - 15 edges
-6. `2. THE COMBINATORIAL VARIATION ENGINE` - 14 edges
-7. `4. DESIGN ENGINEERING DIRECTIVES (Bias Correction)` - 12 edges
-8. `Seedance 2.0 Video Prompt Writing Guide` - 12 edges
-9. `What You Must Do When Invoked` - 12 edges
-10. `High-Agency Frontend Skill` - 11 edges
+4. `wordAudioPath()` - 21 edges
+5. `tasteskill: Anti-Slop Frontend Skill` - 16 edges
+6. `buildStationRounds()` - 15 edges
+7. `Appendix B - Canonical Sources (read these before reinventing)` - 15 edges
+8. `buildCyclePresentation()` - 14 edges
+9. `2. THE COMBINATORIAL VARIATION ENGINE` - 14 edges
+10. `slide()` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
-- None detected - all connections are within the same source files.
+- `PatternRound()` --calls--> `wordAudioPath()`  [EXTRACTED]
+  src/components/elQuest/ElSkillsQuest.jsx → src/components/elQuest/elQuestEngine.js
+- `letterSoundSlide()` --calls--> `graphemeAudioPath()`  [EXTRACTED]
+  src/utils/present/presentationBuilder.js → src/components/elQuest/elQuestEngine.js
+- `wordAudioPath()` --calls--> `hasKnownBadWordAudio()`  [EXTRACTED]
+  src/components/elQuest/elQuestEngine.js → src/data/knownBadWordAudio.js
+- `buildQuickWordRounds()` --calls--> `hasKnownBadWordAudio()`  [EXTRACTED]
+  src/components/elQuest/elQuestEngine.js → src/data/knownBadWordAudio.js
+- `MatchGame()` --calls--> `speakWord()`  [EXTRACTED]
+  src/components/learn/games/games/ArcadePracticeGame.jsx → src/utils/learnGamesAudio.js
 
 ## Import Cycles
 - None detected.
 
-## Communities (53 total, 5 thin omitted)
+## Communities (71 total, 8 thin omitted)
 
 ### Community 0 - "CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION"
-Cohesion: 0.04
-Nodes (46): 10. SECTION RHYTHM RULE, 12. DENSITY & SPACING DISCIPLINE, 12-section pack, 13. COLOR & MATERIAL RULES, 14. IMAGE / MEDIA DIRECTION, 15. DEFAULT SITE PACKS, 16. MULTI-IMAGE CONSISTENCY RULE, 17. CLARITY CHECK (+38 more)
+Cohesion: 0.14
+Nodes (14): 10. SECTION RHYTHM RULE, 12. DENSITY & SPACING DISCIPLINE, 14. IMAGE / MEDIA DIRECTION, 16. MULTI-IMAGE CONSISTENCY RULE, 17. CLARITY CHECK, 19. RESPONSE BEHAVIOR, 1. ACTIVE BASELINE CONFIGURATION, 21. FINAL GOAL (+6 more)
 
 ### Community 1 - "SKILL.md"
 Cohesion: 0.05
@@ -210,8 +237,8 @@ Cohesion: 0.29
 Nodes (7): 4. HERO MINIMALISM RULES, Absolute Hero Rules, Graphic Restraint, Headline Rule, Hero Composition Bias, Pre-output check, Typography Execution
 
 ### Community 30 - "tasteskill: Anti-Slop Frontend Skill"
-Cohesion: 0.33
-Nodes (6): 13. OUT OF SCOPE, 14. FINAL PRE-FLIGHT CHECK, 2.A When to reach for a real design system (use official packages), 2.B When the brief is an aesthetic, not a system, 2. BRIEF → DESIGN SYSTEM MAP, tasteskill: Anti-Slop Frontend Skill
+Cohesion: 0.18
+Nodes (11): 0.A Read these signals first, 0.B Output a one-line "Design Read" before generating, 0. BRIEF INFERENCE (Read the Room Before Anything Else), 0.C If the brief is ambiguous, ask one question, do not guess, 0.D Anti-Default Discipline, 13. OUT OF SCOPE, 14. FINAL PRE-FLIGHT CHECK, 2.A When to reach for a real design system (use official packages) (+3 more)
 
 ### Community 31 - "29. ANTI-AI-SLOP RULES"
 Cohesion: 0.33
@@ -222,8 +249,8 @@ Cohesion: 0.33
 Nodes (5): For /graphify explain, For /graphify path, graphify reference: query, path, explain, Step 0 — Constrained query expansion (REQUIRED before traversal), Step 1 — Traversal
 
 ### Community 33 - "0. BRIEF INFERENCE (Read the Room Before Anything Else)"
-Cohesion: 0.40
-Nodes (5): 0.A Read these signals first, 0.B Output a one-line "Design Read" before generating, 0. BRIEF INFERENCE (Read the Room Before Anything Else), 0.C If the brief is ambiguous, ask one question, do not guess, 0.D Anti-Default Discipline
+Cohesion: 0.07
+Nodes (48): ALL_GRAPHEMES, buildHuntRounds(), buildLetterRounds(), buildPatternPowerRounds(), buildPoemRounds(), buildQuickWordRounds(), buildSoundRounds(), buildSpeedyWordRounds() (+40 more)
 
 ### Community 34 - "12. THE BLOCK LIBRARY (Contract - Implementations Land Here Iteratively)"
 Cohesion: 0.40
@@ -281,24 +308,84 @@ Nodes (3): For git commit hook, For native CLAUDE.md integration, graphify refer
 Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
+### Community 53 - "presentationBuilder.js"
+Cohesion: 0.10
+Nodes (45): wordAudioPath(), audioButton(), buildCyclePresentation(), chainSlide(), CHANGE_FIRST_BANK, CHANGE_RIME_BANK, changeFirstSlides(), changeRimeSlides() (+37 more)
+
+### Community 54 - "ArcadePracticeGame.jsx"
+Cohesion: 0.10
+Nodes (29): BuildGame(), DISTRACTOR_LETTERS, FamilyGame(), FixGame(), MatchGame(), pickSightWords(), pickWords(), SentenceGame() (+21 more)
+
+### Community 55 - "treasureTrail.js"
+Cohesion: 0.15
+Nodes (11): MISSION_TILES, completedCycleBadges(), computeTreasury(), computeTreasuryFromAreas(), countBooksRead(), countCompletedStories(), readArea(), sumGameStars() (+3 more)
+
+### Community 56 - "Deployment Audit — 2026-07-04"
+Cohesion: 0.18
+Nodes (10): Addendum 2 (after gate runs on Benjamin's Mac), Addendum 3 — Content-quality overhaul (worksheets, map quest, books, decks), Addendum 4 — Visual overhaul, real letter writing, rewards, game juice, Addendum (same day, after first local run), Deployment Audit — 2026-07-04, Final gate — run on this Mac before deploying, Fixed (root cause → fix), Parked by Benjamin (2026-07-04) (+2 more)
+
+### Community 57 - "letterStrokes.js"
+Cohesion: 0.31
+Nodes (6): LetterWriter(), LETTER_GUIDES, LETTER_STROKES, strokesForChar(), LOWER, UPPER
+
+### Community 58 - "18. EXTRA CREATIVITY & IMPLEMENTATION EDGE"
+Cohesion: 0.22
+Nodes (9): 18. EXTRA CREATIVITY & IMPLEMENTATION EDGE, Composition variety check, Conversion focus, Cross-section contrast, CTA specificity, Cultural / tonal alignment, Data-viz restraint, Image variety inside one comp (+1 more)
+
+### Community 59 - "Repo Hygiene Audit"
+Cohesion: 0.25
+Nodes (7): Failures, Ignored Or Allowed Items, Repo Hygiene Audit, Result, Safe Cleanup Examples, Summary, Warnings
+
+### Community 60 - "generateBookIndex.js"
+Cohesion: 0.25
+Nodes (7): index, outFile, root, storyBank, storyOut, verified, WORLD_SERIES
+
+### Community 61 - "13. COLOR & MATERIAL RULES"
+Cohesion: 0.29
+Nodes (7): 13. COLOR & MATERIAL RULES, Background Confidence Rule, Background-image harmony, Gradient Discipline, Materiality, Palette Discipline, Strong guidance
+
+### Community 62 - "Media Overwrite Risk Audit"
+Cohesion: 0.29
+Nodes (6): Changed Live Media Paths, Failures, Media Overwrite Risk Audit, Result, Summary, Warnings
+
+### Community 63 - "5. IMAGE COUNT & PAGE SLICING"
+Cohesion: 0.33
+Nodes (6): 5. IMAGE COUNT & PAGE SLICING, Continuity Rule, Counting rule, Format, Section size variety, THIS IS THE PRIMARY OUTPUT RULE
+
+### Community 64 - "Approved Runtime Sources Audit"
+Cohesion: 0.40
+Nodes (4): Approved Runtime Sources Audit, Failures, Skill Runtime Counts, Warnings
+
+### Community 65 - "15. DEFAULT SITE PACKS"
+Cohesion: 0.50
+Nodes (4): 12-section pack, 15. DEFAULT SITE PACKS, 4-section pack, 8-section pack
+
+### Community 66 - "20. EXAMPLE INTERPRETATIONS"
+Cohesion: 0.50
+Nodes (4): 20. EXAMPLE INTERPRETATIONS, Example 1, Example 2, Example 3
+
+### Community 67 - "Kimi Audio Request — re-record 3 short words (gold voice, whole words)"
+Cohesion: 0.50
+Nodes (3): After import, Files to deliver (3 recordings, copied to every path below), Kimi Audio Request — re-record 3 short words (gold voice, whole words)
+
 ## Knowledge Gaps
-- **503 isolated node(s):** `BRANDKIT IMAGE GENERATION SKILL`, `REFERENCE STYLE DNA`, `CORE PRINCIPLE`, `DEFAULT OUTPUT`, `BRAND STRATEGY FIRST` (+498 more)
+- **570 isolated node(s):** `Scoreboard`, `Fixed (root cause → fix)`, `Verified non-issues (claims checked and rejected)`, `Parked by Benjamin (2026-07-04)`, `Addendum (same day, after first local run)` (+565 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `tasteskill: Anti-Slop Frontend Skill` connect `tasteskill: Anti-Slop Frontend Skill` to `0. BRIEF INFERENCE (Read the Room Before Anything Else)`, `12. THE BLOCK LIBRARY (Contract - Implementations Land Here Iteratively)`, `5. CONTEXT-AWARE PROACTIVITY`, `8. DARK MODE PROTOCOL`, `1. THE THREE DIALS (Core Configuration)`, `Appendix B - Canonical Sources (read these before reinventing)`, `7. DIAL DEFINITIONS (Technical Reference)`, `4. DESIGN ENGINEERING DIRECTIVES (Bias Correction)`, `10. REFERENCE VOCABULARY (Pattern Names the Agent Should Know)`, `9. AI TELLS (Forbidden Patterns)`, `11. REDESIGN PROTOCOL`, `3. DEFAULT ARCHITECTURE & CONVENTIONS`, `6. PERFORMANCE & ACCESSIBILITY GUARDRAILS`?**
-  _High betweenness centrality (0.027) - this node is a cross-community bridge._
-- **Why does `CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION` connect `CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION` to `4. HERO MINIMALISM RULES`, `11. COMPONENT EXECUTION GUIDELINES`, `2. THE COMBINATORIAL VARIATION ENGINE`, `8. ANTI-AI-SLOP RULES`?**
-  _High betweenness centrality (0.017) - this node is a cross-community bridge._
-- **Why does `CORE DIRECTIVE: PREMIUM MOBILE APP IMAGE DIRECTION` connect `CORE DIRECTIVE: PREMIUM MOBILE APP IMAGE DIRECTION` to `21. MOBILE ANTI-AI-TELLS RULE`, `2. PLATFORM MODE RULE`, `37. EXAMPLE INTERPRETATIONS`, `22. STYLE VARIATION ENGINE`, `33. CATEGORY-SPECIFIC BIAS`?**
-  _High betweenness centrality (0.010) - this node is a cross-community bridge._
-- **What connects `BRANDKIT IMAGE GENERATION SKILL`, `REFERENCE STYLE DNA`, `CORE PRINCIPLE` to the rest of the system?**
-  _503 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `tasteskill: Anti-Slop Frontend Skill` connect `tasteskill: Anti-Slop Frontend Skill` to `12. THE BLOCK LIBRARY (Contract - Implementations Land Here Iteratively)`, `5. CONTEXT-AWARE PROACTIVITY`, `8. DARK MODE PROTOCOL`, `1. THE THREE DIALS (Core Configuration)`, `Appendix B - Canonical Sources (read these before reinventing)`, `7. DIAL DEFINITIONS (Technical Reference)`, `4. DESIGN ENGINEERING DIRECTIVES (Bias Correction)`, `10. REFERENCE VOCABULARY (Pattern Names the Agent Should Know)`, `9. AI TELLS (Forbidden Patterns)`, `11. REDESIGN PROTOCOL`, `3. DEFAULT ARCHITECTURE & CONVENTIONS`, `6. PERFORMANCE & ACCESSIBILITY GUARDRAILS`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+- **Why does `hasKnownBadWordAudio()` connect `ArcadePracticeGame.jsx` to `0. BRIEF INFERENCE (Read the Room Before Anything Else)`, `presentationBuilder.js`?**
+  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+- **Why does `CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION` connect `CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION` to `15. DEFAULT SITE PACKS`, `20. EXAMPLE INTERPRETATIONS`, `SKILL.md`, `2. THE COMBINATORIAL VARIATION ENGINE`, `4. HERO MINIMALISM RULES`, `11. COMPONENT EXECUTION GUIDELINES`, `8. ANTI-AI-SLOP RULES`, `18. EXTRA CREATIVITY & IMPLEMENTATION EDGE`, `13. COLOR & MATERIAL RULES`, `5. IMAGE COUNT & PAGE SLICING`?**
+  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+- **What connects `Scoreboard`, `Fixed (root cause → fix)`, `Verified non-issues (claims checked and rejected)` to the rest of the system?**
+  _570 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION` be split into smaller, more focused modules?**
-  _Cohesion score 0.0425531914893617 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
 - **Should `SKILL.md` be split into smaller, more focused modules?**
   _Cohesion score 0.045454545454545456 - nodes in this community are weakly interconnected._
 - **Should `Seedance 2.0 Video Prompt Writing Guide` be split into smaller, more focused modules?**

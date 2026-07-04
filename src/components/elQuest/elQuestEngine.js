@@ -193,7 +193,8 @@ function buildSoundRounds(cycle) {
   // sounds without a recorded phoneme cue with a real word instead.
   return focusEntries(cycle).flatMap(entry => [0, 1].map(() => {
     const phoneme = graphemeAudioPath(entry.spelling);
-    const exampleWord = shuffleItems(exampleWordsFor(entry.spelling))[0] || "";
+    // The word cue must be a word that actually HAS a good recording.
+    const exampleWord = shuffleItems(exampleWordsFor(entry.spelling)).find(word => wordAudioPath(word)) || "";
     const wordCue = exampleWord ? wordAudioPath(exampleWord) : "";
     return {
       type: "sound",
@@ -201,7 +202,9 @@ function buildSoundRounds(cycle) {
       speechFallback: "",
       prompt: phoneme
         ? "Tap the letter that makes this sound."
-        : `Listen to the word. Tap the letters you hear in "${exampleWord}".`,
+        : exampleWord
+          ? `Listen to the word. Tap the letters you hear in "${exampleWord}".`
+          : `Find the letters that say "${entry.grapheme}".`,
       display: "",
       choices: shuffleItems([entry.spelling, ...distractorGraphemes(entry.spelling, 2, cycle.cycleNumber)]),
       answer: entry.spelling,

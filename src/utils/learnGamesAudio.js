@@ -1,12 +1,14 @@
 import { Howl, Howler } from "howler";
-import { hasKnownBadWordAudio } from "../data/knownBadWordAudio.js";
+import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../data/knownBadWordAudio.js";
 import { getLetterSoundCue } from "../components/learn/phonics/cvc/cvcHelpers";
 import { AUDIO_FILE_PATHS } from "../data/generated/audioFilePaths.generated.js";
 
 // Only paths that really exist - the host serves the app shell for missing
 // files, which used to stall playback chains and leave games silent.
 function existingAudioPaths(paths) {
-  return paths.filter(p => p && AUDIO_FILE_PATHS.has(p));
+  // Clips verified defective by ear are skipped so the chain falls through
+  // to a good copy (or stays silent) instead of teaching the wrong thing.
+  return paths.filter(p => p && AUDIO_FILE_PATHS.has(p) && !isKnownBadAudioPath(p));
 }
 
 const howlCache = new Map();

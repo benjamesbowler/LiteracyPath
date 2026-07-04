@@ -1,6 +1,6 @@
 # Repo Hygiene Audit
 
-Date: 2026-07-04T13:42:36.624Z
+Date: 2026-07-04T14:06:05.515Z
 
 This guardrail reports temporary, preview, stale request, generated, or accidental files that may be risky to commit. It does not delete or restore anything.
 
@@ -11,9 +11,9 @@ This guardrail reports temporary, preview, stale request, generated, or accident
 | Failures | 0 |
 | Warnings | 54 |
 | Ignored/allowed items | 817 |
-| Git status entries | 35 |
-| Tracked files inspected | 21639 |
-| Untracked files inspected | 13 |
+| Git status entries | 25 |
+| Tracked files inspected | 21652 |
+| Untracked files inspected | 6 |
 
 ## Result
 

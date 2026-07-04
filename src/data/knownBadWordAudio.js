@@ -17,7 +17,33 @@ export function hasKnownBadWordAudio(word) {
 // skips these, so its fallback chain automatically picks the next good copy
 // (or goes silent). Add a path here the moment a bad clip is reported;
 // remove it when a replacement recording is imported.
-export const KNOWN_BAD_AUDIO_PATHS = new Set([]);
+export const KNOWN_BAD_AUDIO_PATHS = new Set([
+  // Ear-audit 2026-07-04 (Benjamin): "sound" clips that actually say the
+  // letter NAME, the label ("short a"), or garbage. Blocking them makes the
+  // resolver fall through to a good copy or a real word cue instead.
+  // Full re-record request: docs/KIMI_LETTER_AUDIO_FULL_REDO.md
+  "/audio/phonemes/short_a.mp3",                                            // says "Ay"
+  "/audio/child-mode/clean-human/graphemes/short_vowels/short_a.mp3",       // says the label "short a"
+  "/audio/phonemes/b.mp3",                                                  // says "Bee"
+  "/audio/phonemes/c.mp3",                                                  // says "Kay"
+  "/audio/phonemes/short_e.mp3",                                            // says "He"
+  "/audio/child-mode/clean-human/graphemes/short_vowels/short_e.mp3",       // says the label
+  "/audio/letter-names/e.mp3",                                              // says "hee"
+  "/audio/phonemes/f.mp3",                                                  // says "Eff"
+  "/audio/child-mode/clean-human/graphemes/consonants/f.mp3",               // garbled ("fef")
+  "/audio/phonemes/short_i.mp3",                                            // says "Eye"
+  "/audio/child-mode/clean-human/graphemes/short_vowels/short_i.mp3",       // says the label
+  "/audio/phonemes/k.mp3",                                                  // says "Kay"
+  "/audio/child-mode/clean-human/graphemes/consonants/k.mp3",               // says "Kay"
+  "/audio/phonemes/l.mp3",                                                  // says "El"
+  "/audio/child-mode/clean-human/graphemes/consonants/l.mp3",               // says "El"
+  "/audio/phonemes/n.mp3",                                                  // garbled ("nin")
+  "/audio/child-mode/clean-human/graphemes/consonants/n.mp3",               // garbled ("nin")
+  "/audio/phonemes/short_o.mp3",                                            // says "Oh"
+  "/audio/child-mode/clean-human/graphemes/short_vowels/short_o.mp3",       // says the label
+  "/audio/phonemes/p.mp3",                                                  // says "Pee"
+  "/audio/child-mode/clean-human/graphemes/consonants/p.mp3"                // garbled ("pwa")
+]);
 
 export function isKnownBadAudioPath(path) {
   return KNOWN_BAD_AUDIO_PATHS.has(String(path || ""));

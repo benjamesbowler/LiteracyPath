@@ -69,5 +69,13 @@
   "67": "Kimi Audio Request — re-record 3 short words (gold voice, whole words)",
   "68": "SKILL.md",
   "69": "main.jsx",
-  "70": "STATIONS"
+  "70": "STATIONS",
+  "71": "isQuestionValid",
+  "72": "StudentHomePage.jsx",
+  "73": "getRuntimeQuestionSignature",
+  "74": "normalizeShortVowelWordCategoryOptions",
+  "75": "0. BRIEF INFERENCE (Read the Room Before Anything Else)",
+  "76": "inferItemMetadata",
+  "77": "isMissingTableError",
+  "78": "appViews.js"
 }
