@@ -1,6 +1,6 @@
 # Repo Hygiene Audit
 
-Date: 2026-07-04T07:50:28.876Z
+Date: 2026-07-04T08:17:39.091Z
 
 This guardrail reports temporary, preview, stale request, generated, or accidental files that may be risky to commit. It does not delete or restore anything.
 
@@ -8,29 +8,20 @@ This guardrail reports temporary, preview, stale request, generated, or accident
 
 | Metric | Count |
 | --- | --- |
-| Failures | 8 |
+| Failures | 0 |
 | Warnings | 54 |
 | Ignored/allowed items | 817 |
-| Git status entries | 16 |
-| Tracked files inspected | 21541 |
-| Untracked files inspected | 8 |
+| Git status entries | 4 |
+| Tracked files inspected | 21549 |
+| Untracked files inspected | 0 |
 
 ## Result
 
-FAIL
+PASS
 
 ## Failures
 
-| Path | Reason | Suggested cleanup |
-| --- | --- | --- |
-| .DS_Store | .DS_Store file found. | rm -f .DS_Store |
-| docs/.DS_Store | .DS_Store file found. | rm -f docs/.DS_Store |
-| public/.DS_Store | .DS_Store file found. | rm -f public/.DS_Store |
-| public/guided-reading/.DS_Store | .DS_Store file found. | rm -f public/guided-reading/.DS_Store |
-| supabase/.DS_Store | .DS_Store file found. | rm -f supabase/.DS_Store |
-| public/audio/child-mode/clean-human/words/source.mp3 | Tracked source/reference/temp file in live public media folder. | Review manually; move source files outside live public media folders. |
-| --test | Package script "test:unit" points to a missing file. | Create the script file, correct package.json, or remove the stale script. |
-| --test | Package script "test" points to a missing file. | Create the script file, correct package.json, or remove the stale script. |
+_None._
 
 ## Warnings
 
@@ -915,10 +906,4 @@ FAIL
 
 ## Safe Cleanup Examples
 
-- rm -f .DS_Store
-- rm -f docs/.DS_Store
-- rm -f public/.DS_Store
-- rm -f public/guided-reading/.DS_Store
-- rm -f supabase/.DS_Store
-- Review manually; move source files outside live public media folders.
-- Create the script file, correct package.json, or remove the stale script.
+_None needed._
