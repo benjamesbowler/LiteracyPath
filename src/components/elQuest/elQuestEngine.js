@@ -439,9 +439,26 @@ const PATTERN_FAMILIES = [
   { label: "end with -ck", members: ["duck", "sock", "kick", "lock", "back", "pick"], decoys: ["dog", "sun", "map", "ten", "bus", "fan"] }
 ];
 
+// Each fluency cycle leads with the pattern its OWN sight words follow
+// (25: again/day/say -> -ay; 26: by/my/why/try -> -y; 27: mixed review),
+// then mixes in review families for variety.
+const CYCLE_PATTERN_LEADS = {
+  25: ["end with -ay", "end with -ll"],
+  26: ["end with y", "have -ng"],
+  27: ["end with -ck", "start with sh"]
+};
+
+function patternFamiliesForCycle(cycle) {
+  const leads = (CYCLE_PATTERN_LEADS[cycle?.cycleNumber] || [])
+    .map(label => PATTERN_FAMILIES.find(family => family.label === label))
+    .filter(Boolean);
+  const rest = shuffleItems(PATTERN_FAMILIES.filter(family => !leads.includes(family)));
+  return [...leads, ...rest];
+}
+
 // Station - Pattern Power: tap EVERY word that fits the pattern (multi-select).
-function buildPatternPowerRounds() {
-  return shuffleItems(PATTERN_FAMILIES).slice(0, 4).map(family => {
+function buildPatternPowerRounds(cycle) {
+  return patternFamiliesForCycle(cycle).slice(0, 4).map(family => {
     const fits = shuffleItems(family.members).slice(0, 3);
     const decoys = shuffleItems(family.decoys).slice(0, 3);
     const items = shuffleItems([
@@ -478,9 +495,13 @@ function changedSlot(from, to) {
 }
 
 // Station - Word Chains: change one sound to turn one word into the next.
-function buildWordChainRounds() {
+// Each cycle draws from its own half of the chain bank so cycles differ.
+function buildWordChainRounds(cycle) {
+  const n = Number(cycle?.cycleNumber) || 25;
+  const offset = ((n - 25) * 2) % WORD_CHAINS.length;
+  const pool = [...WORD_CHAINS.slice(offset), ...WORD_CHAINS.slice(0, offset)].slice(0, 4);
   const rounds = [];
-  for (const chain of shuffleItems(WORD_CHAINS).slice(0, 2)) {
+  for (const chain of shuffleItems(pool).slice(0, 2)) {
     for (let i = 0; i < chain.length - 1; i += 1) {
       const from = chain[i];
       const to = chain[i + 1];

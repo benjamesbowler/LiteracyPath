@@ -34,31 +34,96 @@ export function getPresentationCycle(cycleId) {
   return elSkillsBlockCycles.find(c => c.id === cycleId) || null;
 }
 
-// ── Curated phonemic-awareness content (general K warm-ups, deterministic) ────
-const CHANGE_FIRST = [
+// ── Curated phonemic-awareness banks, one per curriculum skill ────────────────
+// Every EL cycle declares its own phonemicAwareness skills; the deck teaches
+// EXACTLY those skills, with different examples per cycle (offset rotation),
+// so no two cycles show the same warm-up.
+const COMPOUND_BANK = [
+  ["sun", "set"], ["cup", "cake"], ["rain", "bow"], ["pan", "cake"],
+  ["back", "pack"], ["pop", "corn"], ["star", "fish"], ["dog", "house"],
+  ["sand", "box"], ["bed", "time"], ["snow", "man"], ["tea", "pot"]
+];
+// Two-syllable words split into sayable parts (first part / last part).
+const TWO_SYLLABLE_BANK = [
+  { word: "pencil", first: "pen", last: "cil" },
+  { word: "carpet", first: "car", last: "pet" },
+  { word: "picnic", first: "pic", last: "nic" },
+  { word: "napkin", first: "nap", last: "kin" },
+  { word: "muffin", first: "muf", last: "fin" },
+  { word: "basket", first: "bas", last: "ket" },
+  { word: "rabbit", first: "rab", last: "bit" },
+  { word: "sunset", first: "sun", last: "set" },
+  { word: "laptop", first: "lap", last: "top" },
+  { word: "cactus", first: "cac", last: "tus" }
+];
+// Three-syllable compounds split at a syllable boundary.
+const THREE_SYLLABLE_BANK = [
+  { word: "strawberry", first: "straw", rest: "berry" },
+  { word: "blueberry", first: "blue", rest: "berry" },
+  { word: "butterfly", first: "butter", rest: "fly" },
+  { word: "basketball", first: "basket", rest: "ball" },
+  { word: "ladybug", first: "lady", rest: "bug" },
+  { word: "grasshopper", first: "grass", rest: "hopper" }
+];
+const ONSET_BANK = [
+  { word: "cup", left: "up" }, { word: "sit", left: "it" }, { word: "man", left: "an" },
+  { word: "cat", left: "at" }, { word: "fox", left: "ox" }, { word: "pin", left: "in" },
+  { word: "hen", left: "en" }, { word: "mud", left: "ud" }, { word: "bag", left: "ag" }
+];
+const RIME_DELETE_BANK = [
+  { word: "cat", left: "/c/" }, { word: "sun", left: "/s/" }, { word: "map", left: "/m/" },
+  { word: "pig", left: "/p/" }, { word: "dog", left: "/d/" }, { word: "bed", left: "/b/" },
+  { word: "net", left: "/n/" }, { word: "log", left: "/l/" }, { word: "run", left: "/r/" }
+];
+const CHANGE_FIRST_BANK = [
   { base: "cat", made: ["hat", "bat", "rat"] },
   { base: "man", made: ["fan", "pan", "ran"] },
   { base: "pig", made: ["wig", "dig", "big"] },
   { base: "dog", made: ["log", "fog", "jog"] },
   { base: "sun", made: ["bun", "fun", "run"] },
-  { base: "bed", made: ["red", "fed", "led"] }
+  { base: "bed", made: ["red", "fed", "led"] },
+  { base: "hop", made: ["top", "mop", "pop"] },
+  { base: "wet", made: ["net", "pet", "jet"] }
 ];
-const TAKE_AWAY = [
-  { word: "cup", left: "up" }, { word: "sit", left: "it" }, { word: "man", left: "an" },
-  { word: "sand", left: "and" }, { word: "ball", left: "all" }, { word: "fox", left: "ox" }
+const CHANGE_RIME_BANK = [
+  { onset: "c", base: "cat", made: ["cup", "can", "cot"] },
+  { onset: "m", base: "map", made: ["mud", "men", "mop"] },
+  { onset: "p", base: "pig", made: ["pat", "pen", "pot"] },
+  { onset: "s", base: "sun", made: ["sat", "sip", "set"] },
+  { onset: "b", base: "bag", made: ["bed", "bin", "bus"] },
+  { onset: "h", base: "hat", made: ["hen", "hip", "hug"] }
 ];
-const COMPOUNDS = [
-  ["sun", "set"], ["cup", "cake"], ["rain", "bow"], ["pan", "cake"], ["back", "pack"], ["pop", "corn"]
+const RHYME_PAIRS_BANK = [
+  { a: "cat", b: "hat", odd: "sun" }, { a: "dog", b: "log", odd: "pen" },
+  { a: "pig", b: "wig", odd: "map" }, { a: "net", b: "wet", odd: "bus" },
+  { a: "bug", b: "rug", odd: "hen" }, { a: "mop", b: "top", odd: "bag" },
+  { a: "fan", b: "van", odd: "log" }, { a: "fin", b: "pin", odd: "cot" }
 ];
-const PATTERN_SORTS = [
-  { label: "end with y", words: ["by", "my", "why", "try", "fly", "sky"] },
-  { label: "end with -ay", words: ["day", "say", "may", "play", "stay", "way"] },
-  { label: "have -ng", words: ["ring", "king", "song", "bang", "hang", "long"] }
+const RHYME_PRODUCE_BANK = [
+  { base: "cat", rhymes: ["hat", "bat", "mat"] },
+  { base: "pin", rhymes: ["fin", "win", "bin"] },
+  { base: "dog", rhymes: ["log", "fog", "hog"] },
+  { base: "sun", rhymes: ["run", "fun", "bun"] },
+  { base: "bed", rhymes: ["red", "fed", "led"] },
+  { base: "top", rhymes: ["hop", "mop", "pop"] }
 ];
-const CHAINS = [["sat", "sit", "sip", "lip"], ["man", "mat", "map", "cap"], ["pig", "pin", "pan", "pat"]];
+// Fluency cycles: each cycle drills the pattern ITS OWN sight words follow.
+const CYCLE_PATTERN_SORTS = {
+  25: { label: "end with -ay", words: ["day", "say", "may", "play", "stay", "way"] },
+  26: { label: "end with y", words: ["by", "my", "why", "try", "fly", "sky"] },
+  27: { label: "have -ng", words: ["ring", "king", "song", "bang", "hang", "long"] }
+};
+const CYCLE_CHAINS = {
+  25: ["day", "say", "way", "may"],
+  26: ["my", "by", "be", "he"],
+  27: ["sat", "sit", "sip", "lip"]
+};
 
-function pick(list, n) {
-  return list[((n % list.length) + list.length) % list.length];
+// Deterministic per-cycle slice so consecutive cycles that share a skill see
+// DIFFERENT examples (cycle 1 gets items 0-1, cycle 2 gets 2-3, ...).
+function pickPer(list, cycleNumber, count = 2) {
+  const start = ((cycleNumber - 1) * count) % list.length;
+  return Array.from({ length: count }, (_u, i) => list[(start + i) % list.length]);
 }
 
 function esc(value) {
@@ -93,8 +158,12 @@ function audioButton(src, label = "Play sound") {
 
 function cycleHeading(cycle) {
   const letters = (cycle.focusLetters || []).map(c => c.grapheme).filter(Boolean);
-  if (!isFluencyCycle(cycle) && letters.length) return letters.join(" and ");
-  if (cycle.title && cycle.title !== `Cycle ${cycle.cycleNumber}`) return cycle.title;
+  // Long lists ("ng and ang and ing and...") read badly - fall back to title.
+  if (!isFluencyCycle(cycle) && letters.length && letters.length <= 3) return letters.join(" and ");
+  if (cycle.title && cycle.title !== `Cycle ${cycle.cycleNumber}`) {
+    return cycle.title.replace(/^Cycle \d+:\s*/, "");
+  }
+  if (!isFluencyCycle(cycle) && letters.length) return `${letters[0]} families`;
   return String(cycle.phase || "Review time").replace(/-/g, " ");
 }
 
@@ -108,19 +177,23 @@ function titleSlide(cycle) {
     <p class="p-hint">Press → or click to begin</p>`, { cls: "p-cover" });
 }
 
-function letterSoundSlide(card) {
+function letterSoundSlide(card, cycle) {
   const big = card.spelling.length === 1 ? `${card.spelling.toUpperCase()}${card.spelling}` : card.spelling;
   const phoneme = graphemeAudioPath(card.spelling);
+  // The curriculum ships a real articulation tip per letter - teach with it.
+  const detail = (cycle?.sections?.letterLearning?.cards || [])
+    .find(c => (c.spelling || "").toLowerCase() === card.spelling) || {};
+  const tip = detail.articulation || "";
   // Only show example words that actually have a picture - no empty boxes.
   const words = exampleWords(card.spelling, 6).filter(w => wordImage(w)).slice(0, 3);
   const pics = words.map(word => `<button class="p-word" data-play="${esc(wordAudioPath(word))}" type="button">
       <img src="${esc(wordImage(word))}" alt="${esc(word)}" onerror="this.closest('.p-word').style.display='none'"/>
       <span>${esc(word)}</span></button>`).join("");
-  // Optional video/song embed: drop a URL here per letter later to upgrade.
   return slide(`
     <p class="p-kicker">Our sound</p>
     <div class="p-letter">${esc(big)}</div>
     <p class="p-says">This says <b>${esc(card.sound || "/" + card.spelling + "/")}</b></p>
+    ${tip ? `<p class="p-tip">💡 ${esc(tip)}</p>` : ""}
     ${audioButton(phoneme, "Hear the sound")}
     <div class="p-words">${pics}</div>`, { cls: "p-letter-slide", audio: phoneme, char: "wave" });
 }
@@ -146,38 +219,140 @@ function sightWordSlide(word) {
   { cls: "p-sight-slide", audio: wordAudioPath(word), char: "read" });
 }
 
-function changeFirstSlide(item) {
-  const made = item.made.map(w => `<button class="p-chip" data-play="${esc(wordAudioPath(w))}" type="button">${esc(w)}</button>`).join("");
+// ── Phonemic-awareness slides, one builder per curriculum skill ──────────────
+function deleteSlide({ kicker, whole, wholeAudio, removed, left, leftAudio }) {
   return slide(`
-    <p class="p-kicker">Change the first sound</p>
-    <div class="p-big-word" data-play="${esc(wordAudioPath(item.base))}">${esc(item.base)}</div>
-    <p class="p-says">Change the first sound to make a new word:</p>
-    <div class="p-chips">${made}</div>`, { cls: "p-phoneme", char: "wave" });
-}
-
-function takeAwaySlide(item) {
-  return slide(`
-    <p class="p-kicker">Take the first sound away</p>
+    <p class="p-kicker">${esc(kicker)}</p>
     <div class="p-take">
-      <span class="p-big-word" data-play="${esc(wordAudioPath(item.word))}">${esc(item.word)}</span>
+      <span class="p-big-word" data-play="${esc(wholeAudio || "")}">${esc(whole)}</span>
       <span class="p-arrow">→</span>
-      <span class="p-big-word made" data-play="${esc(wordAudioPath(item.left))}">${esc(item.left)}</span>
+      <span class="p-big-word made" data-play="${esc(leftAudio || "")}">${esc(left)}</span>
     </div>
-    <p class="p-says">Say <b>${esc(item.word)}</b> without the first sound. What is left?</p>`, { cls: "p-phoneme", char: "wave" });
+    <p class="p-says">Say <b>${esc(whole)}</b>. Now say it without <b>${esc(removed)}</b>. What is left?</p>`,
+  { cls: "p-phoneme", char: "wave" });
 }
 
-function compoundSlide(parts) {
-  const [a, b] = parts;
-  const whole = a + b;
+function compoundDeleteSlides(cycleNumber, part) {
+  return pickPer(COMPOUND_BANK, cycleNumber, 2).map(([a, b]) => {
+    const whole = a + b;
+    const removed = part === "first" ? a : b;
+    const left = part === "first" ? b : a;
+    return deleteSlide({
+      kicker: part === "first" ? "Take the first word away" : "Take the last word away",
+      whole, wholeAudio: wordAudioPath(whole), removed, left, leftAudio: wordAudioPath(left)
+    });
+  });
+}
+
+function syllableDeleteSlides(cycleNumber, bank, part) {
+  return pickPer(bank, cycleNumber, 2).map(item => deleteSlide({
+    kicker: part === "first" ? "Take the first part away" : "Take the last part away",
+    whole: item.word,
+    wholeAudio: wordAudioPath(item.word),
+    removed: part === "first" ? (item.first || "") : (item.last || item.rest || ""),
+    left: part === "first" ? (item.rest || item.last || "") : (item.first || ""),
+    leftAudio: wordAudioPath(part === "first" ? (item.rest || item.last || "") : (item.first || ""))
+  }));
+}
+
+function onsetDeleteSlides(cycleNumber) {
+  return pickPer(ONSET_BANK, cycleNumber, 2).map(item => deleteSlide({
+    kicker: "Take the first sound away",
+    whole: item.word, wholeAudio: wordAudioPath(item.word),
+    removed: `/${item.word[0]}/`, left: item.left, leftAudio: wordAudioPath(item.left)
+  }));
+}
+
+function rimeDeleteSlides(cycleNumber) {
+  return pickPer(RIME_DELETE_BANK, cycleNumber, 2).map(item => deleteSlide({
+    kicker: "Keep only the first sound",
+    whole: item.word, wholeAudio: wordAudioPath(item.word),
+    removed: `-${item.word.slice(1)}`, left: item.left, leftAudio: ""
+  }));
+}
+
+function changeFirstSlides(cycleNumber) {
+  return pickPer(CHANGE_FIRST_BANK, cycleNumber, 2).map(item => {
+    const made = item.made.map(w => `<button class="p-chip" data-play="${esc(wordAudioPath(w))}" type="button">${esc(w)}</button>`).join("");
+    return slide(`
+      <p class="p-kicker">Change the first sound</p>
+      <div class="p-big-word" data-play="${esc(wordAudioPath(item.base))}">${esc(item.base)}</div>
+      <p class="p-says">Change the first sound of <b>${esc(item.base)}</b> to make new words:</p>
+      <div class="p-chips">${made}</div>`, { cls: "p-phoneme", char: "wave" });
+  });
+}
+
+function changeRimeSlides(cycleNumber) {
+  return pickPer(CHANGE_RIME_BANK, cycleNumber, 2).map(item => {
+    const made = item.made.map(w => `<button class="p-chip" data-play="${esc(wordAudioPath(w))}" type="button">${esc(w)}</button>`).join("");
+    return slide(`
+      <p class="p-kicker">Keep the first sound, change the ending</p>
+      <div class="p-big-word" data-play="${esc(wordAudioPath(item.base))}">${esc(item.base)}</div>
+      <p class="p-says">Keep <b>/${esc(item.onset)}/</b> and change the ending of <b>${esc(item.base)}</b>:</p>
+      <div class="p-chips">${made}</div>`, { cls: "p-phoneme", char: "wave" });
+  });
+}
+
+function rhymeIdentifySlides(cycleNumber) {
+  return pickPer(RHYME_PAIRS_BANK, cycleNumber, 2).map(item => {
+    const chips = [item.a, item.b, item.odd].map(w =>
+      `<button class="p-chip" data-play="${esc(wordAudioPath(w))}" type="button">${esc(w)}</button>`).join("");
+    return slide(`
+      <p class="p-kicker">Rhyme time</p>
+      <p class="p-says">Which two words rhyme? Which one does not?</p>
+      <div class="p-chips big">${chips}</div>`, { cls: "p-phoneme", char: "read" });
+  });
+}
+
+function rhymeProduceSlides(cycleNumber) {
+  return pickPer(RHYME_PRODUCE_BANK, cycleNumber, 2).map(item => {
+    const made = item.rhymes.map(w => `<button class="p-chip" data-play="${esc(wordAudioPath(w))}" type="button">${esc(w)}</button>`).join("");
+    return slide(`
+      <p class="p-kicker">Make a rhyme</p>
+      <div class="p-big-word" data-play="${esc(wordAudioPath(item.base))}">${esc(item.base)}</div>
+      <p class="p-says">What rhymes with <b>${esc(item.base)}</b>? Say your own, then check ours:</p>
+      <div class="p-chips">${made}</div>`, { cls: "p-phoneme", char: "wave" });
+  });
+}
+
+// Route each curriculum phonemicAwareness line to the matching slide builder.
+function phonemicAwarenessSlides(cycle) {
+  const n = cycle.cycleNumber || 1;
+  const slides = [];
+  for (const skill of cycle.phonemicAwareness || []) {
+    const s = String(skill).toLowerCase();
+    // Three-syllable rules must be tested BEFORE the generic compound rules:
+    // "Delete first syllable in three-syllable compound words" contains both.
+    if (s.includes("three-syllable") && s.includes("first")) slides.push(...syllableDeleteSlides(n, THREE_SYLLABLE_BANK, "first"));
+    else if (s.includes("three-syllable") && s.includes("last")) slides.push(...syllableDeleteSlides(n, THREE_SYLLABLE_BANK, "last"));
+    else if (s.includes("compound") && s.includes("first")) slides.push(...compoundDeleteSlides(n, "first"));
+    else if (s.includes("compound") && s.includes("last")) slides.push(...compoundDeleteSlides(n, "last"));
+    else if (s.includes("two-syllable") && s.includes("first")) slides.push(...syllableDeleteSlides(n, TWO_SYLLABLE_BANK, "first"));
+    else if (s.includes("two-syllable") && s.includes("last")) slides.push(...syllableDeleteSlides(n, TWO_SYLLABLE_BANK, "last"));
+    else if (s.includes("two-syllable")) slides.push(...syllableDeleteSlides(n, TWO_SYLLABLE_BANK, "first"), ...syllableDeleteSlides(n + 1, TWO_SYLLABLE_BANK, "last"));
+    else if (s.includes("delete onset")) slides.push(...onsetDeleteSlides(n));
+    else if (s.includes("delete rime")) slides.push(...rimeDeleteSlides(n));
+    else if (s.includes("combine deletion")) slides.push(...onsetDeleteSlides(n), ...rimeDeleteSlides(n));
+    else if (s.includes("review deletion")) slides.push(...compoundDeleteSlides(n, "last"), ...syllableDeleteSlides(n, THREE_SYLLABLE_BANK, "first"));
+    else if (s.includes("substitute initial")) slides.push(...changeFirstSlides(n));
+    else if (s.includes("substitute rime")) slides.push(...changeRimeSlides(n));
+    else if (s.includes("review substitution")) slides.push(...changeFirstSlides(n), ...changeRimeSlides(n + 1));
+    else if (s.includes("rhyme production")) slides.push(...rhymeProduceSlides(n));
+    else if (s.includes("rhym") && s.includes("review")) slides.push(...rhymeIdentifySlides(n), ...rhymeProduceSlides(n));
+    else if (s.includes("rhym")) slides.push(...rhymeIdentifySlides(n));
+  }
+  // Never more than 4 PA slides: keep the deck brisk.
+  return slides.slice(0, 4);
+}
+
+function goalsSlide(cycle) {
+  const goals = cycle.sections?.overview?.goals || [];
+  const childGoal = goals.find(g => /^i can/i.test(g)) || cycle.childFriendlyGoal || "";
+  if (!childGoal) return "";
   return slide(`
-    <p class="p-kicker">Put words together</p>
-    <div class="p-compound">
-      <span class="p-chip big" data-play="${esc(wordAudioPath(a))}">${esc(a)}</span>
-      <span class="p-arrow">+</span>
-      <span class="p-chip big" data-play="${esc(wordAudioPath(b))}">${esc(b)}</span>
-      <span class="p-arrow">=</span>
-      <span class="p-big-word made" data-play="${esc(wordAudioPath(whole))}">${esc(whole)}</span>
-    </div>`, { cls: "p-phoneme", char: "wave" });
+    <p class="p-kicker">Today we learn</p>
+    <h2 class="p-goal">${esc(childGoal)}</h2>
+    <p class="p-hint">Say it together!</p>`, { cls: "p-goal-slide", char: "point" });
 }
 
 function poemSlide(cycle) {
@@ -206,7 +381,9 @@ function poemSlide(cycle) {
 }
 
 function patternSlide(cycle) {
-  const sort = pick(PATTERN_SORTS, cycle.cycleNumber);
+  // Each fluency cycle drills the pattern its OWN sight words follow
+  // (25: -ay like "day/say"; 26: -y like "by/my/why/try"; 27: review).
+  const sort = CYCLE_PATTERN_SORTS[cycle.cycleNumber] || CYCLE_PATTERN_SORTS[27];
   const chips = sort.words.map(w => `<button class="p-chip" data-play="${esc(wordAudioPath(w))}" type="button">${esc(w)}</button>`).join("");
   return slide(`
     <p class="p-kicker">Pattern power</p>
@@ -215,11 +392,11 @@ function patternSlide(cycle) {
 }
 
 function chainSlide(cycle) {
-  const chain = pick(CHAINS, cycle.cycleNumber);
+  const chain = CYCLE_CHAINS[cycle.cycleNumber] || CYCLE_CHAINS[27];
   const chips = chain.map((w, i) => `${i ? '<span class="p-arrow">→</span>' : ""}<button class="p-chip big" data-play="${esc(wordAudioPath(w))}" type="button">${esc(w)}</button>`).join("");
   return slide(`
     <p class="p-kicker">Word chain</p>
-    <h2 class="p-says">Change one sound each time</h2>
+    <h2 class="p-says">Change one letter each time</h2>
     <div class="p-compound">${chips}</div>`, { cls: "p-phoneme", char: "wave" });
 }
 
@@ -236,14 +413,15 @@ export function buildCyclePresentation(cycleId) {
   CURRENT_WORLD = themeWorldForCycle(cycle.cycleNumber);
 
   const slides = [titleSlide(cycle)];
+  const goal = goalsSlide(cycle);
+  if (goal) slides.push(goal);
   const cards = focusCards(cycle);
   if (!isFluencyCycle(cycle)) {
-    cards.forEach(card => { slides.push(letterSoundSlide(card)); slides.push(writingSlide(card)); });
+    cards.forEach(card => { slides.push(letterSoundSlide(card, cycle)); slides.push(writingSlide(card)); });
   }
   (cycle.highFrequencyWords || []).slice(0, 4).forEach(word => slides.push(sightWordSlide(String(word).toLowerCase())));
-  slides.push(changeFirstSlide(pick(CHANGE_FIRST, cycle.cycleNumber)));
-  slides.push(takeAwaySlide(pick(TAKE_AWAY, cycle.cycleNumber)));
-  slides.push(compoundSlide(pick(COMPOUNDS, cycle.cycleNumber)));
+  // Teach the cycle's ACTUAL phonemic-awareness skills (not generic warm-ups).
+  slides.push(...phonemicAwarenessSlides(cycle));
   if (isFluencyCycle(cycle)) { slides.push(patternSlide(cycle)); slides.push(chainSlide(cycle)); }
   const poem = poemSlide(cycle);
   if (poem) slides.push(poem);
@@ -317,6 +495,9 @@ const DECK_CSS = `
     padding: 1.4vh 3vw; font: inherit; font-weight: 600; font-size: 5vh; box-shadow: 0 6px 0 color-mix(in srgb, var(--w-accent) 30%, #fff); }
   .p-chip.big, .p-chips.big .p-chip { font-size: 7vh; }
   .p-stars { font-size: 14vh; color: #E0991C; letter-spacing: 1vh; }
+  .p-goal { font-family: 'Fredoka',sans-serif; font-weight: 600; font-size: 6.4vh; margin: 0; color: var(--w-deep);
+    max-width: 70vw; line-height: 1.3; }
+  .p-tip { font-size: 3vh; color: #6b5a48; max-width: 60vw; margin: 0; }
   .p-poem-title { font-family: 'Fredoka',sans-serif; font-weight: 600; font-size: 5.4vh; margin: 0; color: var(--w-deep); }
   .p-poem-wrap { display: flex; align-items: center; gap: 3vw; flex-wrap: wrap; justify-content: center; }
   .p-poem-hero { height: 40vh; max-width: 42vw; object-fit: contain; border-radius: 22px;

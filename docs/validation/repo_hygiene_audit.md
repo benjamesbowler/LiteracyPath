@@ -1,6 +1,6 @@
 # Repo Hygiene Audit
 
-Date: 2026-07-04T05:51:43.091Z
+Date: 2026-07-04T07:50:28.876Z
 
 This guardrail reports temporary, preview, stale request, generated, or accidental files that may be risky to commit. It does not delete or restore anything.
 
@@ -9,11 +9,11 @@ This guardrail reports temporary, preview, stale request, generated, or accident
 | Metric | Count |
 | --- | --- |
 | Failures | 8 |
-| Warnings | 55 |
+| Warnings | 54 |
 | Ignored/allowed items | 817 |
-| Git status entries | 7 |
+| Git status entries | 16 |
 | Tracked files inspected | 21541 |
-| Untracked files inspected | 0 |
+| Untracked files inspected | 8 |
 
 ## Result
 
@@ -76,7 +76,6 @@ FAIL
 | docs/assets/missing_media_report.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/next_kimi_media_request_from_skill_audit.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/validation/app_image_inventory_audit.json | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/app_image_inventory_audit.json |
-| docs/validation/app_image_inventory_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/app_image_inventory_audit.md |
 | docs/validation/approved_runtime_sources_audit.json | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/approved_runtime_sources_audit.json |
 | docs/validation/approved_runtime_sources_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/approved_runtime_sources_audit.md |
 | docs/validation/media_overwrite_risk_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/media_overwrite_risk_audit.md |

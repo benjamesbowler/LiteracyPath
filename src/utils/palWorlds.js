@@ -78,13 +78,13 @@ export function worldForCycle(cycleNumber) {
   return PAL_WORLDS.meadow;
 }
 
-// Themed rotation used by the poems + Present deck: the world changes every
-// three cycles (1-3 meadow, 4-6 dino, 7-9 moonwood, 10-12 meadow, ...) so a
-// run of cycles feels varied. The EL-Skills maps keep their own 9-cycle bands.
-const THEME_ROTATION = [PAL_WORLDS.meadow, PAL_WORLDS.dino, PAL_WORLDS.moonwood];
+// Theme used by the poems + Present deck. This MUST match the quest map's
+// 9-cycle land bands (worldForCycle) so a child standing in Dinosaur Valley
+// never gets a Meadow poem: the poem, the deck and the map stop all belong
+// to the same land. (Previously this rotated every 3 cycles, which put 18 of
+// the 27 poems/decks in the wrong land.)
 export function themeWorldForCycle(cycleNumber) {
-  const n = Math.max(1, Number(cycleNumber) || 1);
-  return THEME_ROTATION[Math.floor((n - 1) / 3) % THEME_ROTATION.length];
+  return worldForCycle(Math.max(1, Number(cycleNumber) || 1));
 }
 
 export function worldForLevel(level) {

@@ -255,10 +255,11 @@ function collectStaticImports(filePath) {
 function packageScriptTargets() {
   const packageJson = JSON.parse(readRepoText("package.json") || "{}");
   return Object.entries(packageJson.scripts || {}).flatMap(([scriptName, command]) =>
-    [...String(command).matchAll(/\bnode\s+([^\s]+)/g)].map(match => ({
-      scriptName,
-      target: normalizePath(match[1])
-    }))
+    // Skip node FLAGS ("node --test file.js") and take the first real path;
+    // glob targets (tests/unit/*.test.js) can't be existsSync-checked, skip.
+    [...String(command).matchAll(/\bnode\s+((?:--?[^\s]+\s+)*)([^\s]+)/g)]
+      .map(match => ({ scriptName, target: normalizePath(match[2]) }))
+      .filter(({ target }) => !target.startsWith("-") && !target.includes("*"))
   );
 }
 

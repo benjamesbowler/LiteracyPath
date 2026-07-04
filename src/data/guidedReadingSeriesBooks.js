@@ -1654,12 +1654,12 @@ export const guidedReadingSeriesBooks = [
       },
       {
         pageNumber: 4,
-        text: "Nan pat the pup.",
+        text: "Nan pats the pup.",
         illustrationPrompt: "Nan kneeling on the grass, gently patting the small brown dog's head. Dog's eyes closed in bliss, tail wagging."
       },
       {
         pageNumber: 5,
-        text: "Bob pat the pup.",
+        text: "Bob pats the pup.",
         illustrationPrompt: "Bob kneeling beside Nan, also patting the dog. Both children and the dog look very happy together."
       },
       {
@@ -1831,7 +1831,7 @@ export const guidedReadingSeriesBooks = [
       },
       {
         pageNumber: 4,
-        text: "Mum lit the big cake.",
+        text: "Mum lit the candles.",
         illustrationPrompt: "Mum lighting six candles on a large birthday cake while Bob and Nan watch eagerly."
       },
       {
