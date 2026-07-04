@@ -886,7 +886,10 @@
   mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 36%, #000 65%);
 }
 
-.rewards-page > * { position: relative; }
+/* Everything sits above the backdrop - but the backdrop itself must STAY
+   absolutely positioned (this selector previously re-flowed it and pushed
+   the whole page down by half a screen). */
+.rewards-page > *:not(.den-backdrop) { position: relative; }
 
 .den-header {
   width: min(100%, 1200px);

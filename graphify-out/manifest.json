@@ -590,8 +590,8 @@
     "semantic_hash": ""
   },
   "docs/validation/app_image_inventory_audit.json": {
-    "mtime": 1783172553.8246195,
-    "ast_hash": "61d8f84aedb779334329d5e90ab154bf",
+    "mtime": 1783173717.3744369,
+    "ast_hash": "d296b522e9007240ce174ba602d0aa3c",
     "semantic_hash": ""
   },
   "docs/validation/approved_hfw_media_coverage_audit.json": {
@@ -600,8 +600,8 @@
     "semantic_hash": ""
   },
   "docs/validation/approved_runtime_sources_audit.json": {
-    "mtime": 1783172369.8950787,
-    "ast_hash": "f4265e8123184b7e1abc5fe0a168553d",
+    "mtime": 1783173564.2368019,
+    "ast_hash": "be9f780ffe9bfd7fab2e042bd67f1c0a",
     "semantic_hash": ""
   },
   "docs/validation/assessment_media_registry_audit.json": {
@@ -635,7 +635,7 @@
     "semantic_hash": ""
   },
   "docs/validation/distractor_onset_giveaway_audit.json": {
-    "mtime": 1783172406.1361537,
+    "mtime": 1783173594.0084388,
     "ast_hash": "935a12e08ca19394911454ef03f7d9ac",
     "semantic_hash": ""
   },
@@ -940,8 +940,8 @@
     "semantic_hash": ""
   },
   "src/components/elQuest/elQuestEngine.js": {
-    "mtime": 1783171042.2646224,
-    "ast_hash": "ba587dd712c37000c81fcaf56defad0b",
+    "mtime": 1783173209.6182907,
+    "ast_hash": "986dc4143ad8b55b3c6beb8ab9ab9be3",
     "semantic_hash": ""
   },
   "src/components/guided-reading/BookQuiz.jsx": {
@@ -2015,8 +2015,8 @@
     "semantic_hash": ""
   },
   "src/utils/learnGamesAudio.js": {
-    "mtime": 1783168598.4933147,
-    "ast_hash": "1cca61b5cdc86cab0f96966fd6a1b144",
+    "mtime": 1783173033.2498071,
+    "ast_hash": "67a2cfe968d8a66440c2d6fa1b454bed",
     "semantic_hash": ""
   },
   "src/utils/learnGamesProgress.js": {
@@ -2215,8 +2215,8 @@
     "semantic_hash": ""
   },
   "tests/unit/elQuestEngine.test.js": {
-    "mtime": 1781361779.2415645,
-    "ast_hash": "22bd17c272d9b4a942bff50ae97c1651",
+    "mtime": 1783173090.197143,
+    "ast_hash": "2fd74f50228d9421ec0c67890dd3f09a",
     "semantic_hash": ""
   },
   "tests/unit/elQuestFluency.test.js": {
@@ -4585,7 +4585,7 @@
     "semantic_hash": ""
   },
   "docs/validation/app_image_inventory_audit.md": {
-    "mtime": 1783172553.8881516,
+    "mtime": 1783173717.4166696,
     "ast_hash": "5eec71c0049c1dd6295cfc1c33bfece2",
     "semantic_hash": ""
   },
@@ -4595,8 +4595,8 @@
     "semantic_hash": ""
   },
   "docs/validation/approved_runtime_sources_audit.md": {
-    "mtime": 1783172369.895658,
-    "ast_hash": "c55798b584ffdf86d9cfe852d0f61ad4",
+    "mtime": 1783173564.2373648,
+    "ast_hash": "48ca4a7111f57bcf2a30104428c125a5",
     "semantic_hash": ""
   },
   "docs/validation/assessment_active_media_optimization_report.md": {
@@ -4710,7 +4710,7 @@
     "semantic_hash": ""
   },
   "docs/validation/distractor_onset_giveaway_audit.md": {
-    "mtime": 1783172406.135207,
+    "mtime": 1783173594.008029,
     "ast_hash": "c48c22f6ef0675e44a2ab06bcb75a768",
     "semantic_hash": ""
   },
@@ -4880,8 +4880,8 @@
     "semantic_hash": ""
   },
   "docs/validation/media_overwrite_risk_audit.md": {
-    "mtime": 1783172554.5750697,
-    "ast_hash": "cddc29d0d2357f322b812e93c91250c2",
+    "mtime": 1783173717.8962445,
+    "ast_hash": "9b425fc573a9d78da7125613fe26a9ac",
     "semantic_hash": ""
   },
   "docs/validation/media_qa_quarantine_report.md": {
@@ -4930,8 +4930,8 @@
     "semantic_hash": ""
   },
   "docs/validation/repo_hygiene_audit.md": {
-    "mtime": 1783172556.629877,
-    "ast_hash": "29e272d46c16a8a3c52840ebc0360109",
+    "mtime": 1783173965.5187972,
+    "ast_hash": "49fdbdb660672be21447d7f9886c1ef7",
     "semantic_hash": ""
   },
   "docs/validation/rhyming_coverage_audit.md": {
@@ -5065,8 +5065,8 @@
     "semantic_hash": ""
   },
   "src/data/knownBadWordAudio.js": {
-    "mtime": 1783171042.2559206,
-    "ast_hash": "32eeee8a5c45401d66c48fbdf9177544",
+    "mtime": 1783172915.936295,
+    "ast_hash": "eabb9ae377a83f796120000462911e0a",
     "semantic_hash": ""
   },
   "src/data/letterStrokes.js": {
@@ -5127,6 +5127,11 @@
   "docs/previews/letter_audio_audit.html": {
     "mtime": 1783171025.3723736,
     "ast_hash": "d1238c84a5faba89a35bc5ed08fb9b0e",
+    "semantic_hash": ""
+  },
+  "docs/KIMI_LETTER_AUDIO_FULL_REDO.md": {
+    "mtime": 1783173141.1719542,
+    "ast_hash": "9eece839bb5d8c3f1953724a2ef50fba",
     "semantic_hash": ""
   }
 }
