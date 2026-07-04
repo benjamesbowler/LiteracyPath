@@ -4,194 +4,74 @@
   "graph": {},
   "nodes": [
     {
-      "label": "KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "label": "LOOP_PROMPTS_MARKET_READY.md",
       "file_type": "document",
-      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "source_file": "docs/LOOP_PROMPTS_MARKET_READY.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "docs_kimi_letter_audio_full_redo",
-      "community": 70,
-      "norm_label": "kimi_letter_audio_full_redo.md"
+      "id": "docs_loop_prompts_market_ready",
+      "community": 79,
+      "norm_label": "loop_prompts_market_ready.md"
     },
     {
-      "label": "Kimi Audio Request \u2014 FULL REDO of every letter sound + letter name (gold voice)",
+      "label": "Five Loop Prompts \u2014 Market-Ready LiteracyPath",
       "file_type": "document",
-      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "source_file": "docs/LOOP_PROMPTS_MARKET_READY.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "docs_kimi_letter_audio_full_redo_kimi_audio_request_full_redo_of_every_letter_sound_letter_name_gold_voice",
-      "community": 70,
-      "norm_label": "kimi audio request \u2014 full redo of every letter sound + letter name (gold voice)"
+      "id": "docs_loop_prompts_market_ready_five_loop_prompts_market_ready_literacypath",
+      "community": 79,
+      "norm_label": "five loop prompts \u2014 market-ready literacypath"
     },
     {
-      "label": "THE THREE IRON RULES",
+      "label": "PROMPT 1 \u2014 Screen-by-screen layout & polish sweep",
       "file_type": "document",
-      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
-      "source_location": "L15",
+      "source_file": "docs/LOOP_PROMPTS_MARKET_READY.md",
+      "source_location": "L9",
       "_origin": "ast",
-      "id": "docs_kimi_letter_audio_full_redo_the_three_iron_rules",
-      "community": 70,
-      "norm_label": "the three iron rules"
+      "id": "docs_loop_prompts_market_ready_prompt_1_screen_by_screen_layout_polish_sweep",
+      "community": 79,
+      "norm_label": "prompt 1 \u2014 screen-by-screen layout & polish sweep"
     },
     {
-      "label": "Part 1 \u2014 Letter SOUNDS (26 files)",
+      "label": "PROMPT 2 \u2014 Competitor research & design parity",
       "file_type": "document",
-      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
-      "source_location": "L24",
+      "source_file": "docs/LOOP_PROMPTS_MARKET_READY.md",
+      "source_location": "L29",
       "_origin": "ast",
-      "id": "docs_kimi_letter_audio_full_redo_part_1_letter_sounds_26_files",
-      "community": 70,
-      "norm_label": "part 1 \u2014 letter sounds (26 files)"
+      "id": "docs_loop_prompts_market_ready_prompt_2_competitor_research_design_parity",
+      "community": 79,
+      "norm_label": "prompt 2 \u2014 competitor research & design parity"
     },
     {
-      "label": "Part 2 \u2014 Digraph SOUNDS (6 files)",
+      "label": "PROMPT 3 \u2014 Games: depth, testing and one new flagship game",
       "file_type": "document",
-      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
-      "source_location": "L66",
-      "_origin": "ast",
-      "id": "docs_kimi_letter_audio_full_redo_part_2_digraph_sounds_6_files",
-      "community": 70,
-      "norm_label": "part 2 \u2014 digraph sounds (6 files)"
-    },
-    {
-      "label": "Part 3 \u2014 Letter NAMES (26 files, a\u2013z)",
-      "file_type": "document",
-      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
-      "source_location": "L80",
-      "_origin": "ast",
-      "id": "docs_kimi_letter_audio_full_redo_part_3_letter_names_26_files_a_z",
-      "community": 70,
-      "norm_label": "part 3 \u2014 letter names (26 files, a\u2013z)"
-    },
-    {
-      "label": "After import (Claude does this)",
-      "file_type": "document",
-      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
-      "source_location": "L88",
-      "_origin": "ast",
-      "id": "docs_kimi_letter_audio_full_redo_after_import_claude_does_this",
-      "community": 70,
-      "norm_label": "after import (claude does this)"
-    },
-    {
-      "label": "approved_runtime_sources_audit.md",
-      "file_type": "document",
-      "source_file": "docs/validation/approved_runtime_sources_audit.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_validation_approved_runtime_sources_audit",
-      "community": 64,
-      "norm_label": "approved_runtime_sources_audit.md"
-    },
-    {
-      "label": "Approved Runtime Sources Audit",
-      "file_type": "document",
-      "source_file": "docs/validation/approved_runtime_sources_audit.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_validation_approved_runtime_sources_audit_approved_runtime_sources_audit",
-      "community": 64,
-      "norm_label": "approved runtime sources audit"
-    },
-    {
-      "label": "Skill Runtime Counts",
-      "file_type": "document",
-      "source_file": "docs/validation/approved_runtime_sources_audit.md",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "docs_validation_approved_runtime_sources_audit_skill_runtime_counts",
-      "community": 64,
-      "norm_label": "skill runtime counts"
-    },
-    {
-      "label": "Failures",
-      "file_type": "document",
-      "source_file": "docs/validation/approved_runtime_sources_audit.md",
-      "source_location": "L42",
-      "_origin": "ast",
-      "id": "docs_validation_approved_runtime_sources_audit_failures",
-      "community": 64,
-      "norm_label": "failures"
-    },
-    {
-      "label": "Warnings",
-      "file_type": "document",
-      "source_file": "docs/validation/approved_runtime_sources_audit.md",
+      "source_file": "docs/LOOP_PROMPTS_MARKET_READY.md",
       "source_location": "L47",
       "_origin": "ast",
-      "id": "docs_validation_approved_runtime_sources_audit_warnings",
-      "community": 64,
-      "norm_label": "warnings"
+      "id": "docs_loop_prompts_market_ready_prompt_3_games_depth_testing_and_one_new_flagship_game",
+      "community": 79,
+      "norm_label": "prompt 3 \u2014 games: depth, testing and one new flagship game"
     },
     {
-      "label": "media_overwrite_risk_audit.md",
+      "label": "PROMPT 4 \u2014 Educational content & curriculum correctness audit",
       "file_type": "document",
-      "source_file": "docs/validation/media_overwrite_risk_audit.md",
-      "source_location": "L1",
+      "source_file": "docs/LOOP_PROMPTS_MARKET_READY.md",
+      "source_location": "L64",
       "_origin": "ast",
-      "id": "docs_validation_media_overwrite_risk_audit",
-      "community": 62,
-      "norm_label": "media_overwrite_risk_audit.md"
+      "id": "docs_loop_prompts_market_ready_prompt_4_educational_content_curriculum_correctness_audit",
+      "community": 79,
+      "norm_label": "prompt 4 \u2014 educational content & curriculum correctness audit"
     },
     {
-      "label": "Media Overwrite Risk Audit",
+      "label": "PROMPT 5 \u2014 Market-readiness QA: usability, resilience, performance",
       "file_type": "document",
-      "source_file": "docs/validation/media_overwrite_risk_audit.md",
-      "source_location": "L1",
+      "source_file": "docs/LOOP_PROMPTS_MARKET_READY.md",
+      "source_location": "L82",
       "_origin": "ast",
-      "id": "docs_validation_media_overwrite_risk_audit_media_overwrite_risk_audit",
-      "community": 62,
-      "norm_label": "media overwrite risk audit"
-    },
-    {
-      "label": "Summary",
-      "file_type": "document",
-      "source_file": "docs/validation/media_overwrite_risk_audit.md",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "docs_validation_media_overwrite_risk_audit_summary",
-      "community": 62,
-      "norm_label": "summary"
-    },
-    {
-      "label": "Result",
-      "file_type": "document",
-      "source_file": "docs/validation/media_overwrite_risk_audit.md",
-      "source_location": "L24",
-      "_origin": "ast",
-      "id": "docs_validation_media_overwrite_risk_audit_result",
-      "community": 62,
-      "norm_label": "result"
-    },
-    {
-      "label": "Warnings",
-      "file_type": "document",
-      "source_file": "docs/validation/media_overwrite_risk_audit.md",
-      "source_location": "L28",
-      "_origin": "ast",
-      "id": "docs_validation_media_overwrite_risk_audit_warnings",
-      "community": 62,
-      "norm_label": "warnings"
-    },
-    {
-      "label": "Failures",
-      "file_type": "document",
-      "source_file": "docs/validation/media_overwrite_risk_audit.md",
-      "source_location": "L32",
-      "_origin": "ast",
-      "id": "docs_validation_media_overwrite_risk_audit_failures",
-      "community": 62,
-      "norm_label": "failures"
-    },
-    {
-      "label": "Changed Live Media Paths",
-      "file_type": "document",
-      "source_file": "docs/validation/media_overwrite_risk_audit.md",
-      "source_location": "L36",
-      "_origin": "ast",
-      "id": "docs_validation_media_overwrite_risk_audit_changed_live_media_paths",
-      "community": 62,
-      "norm_label": "changed live media paths"
+      "id": "docs_loop_prompts_market_ready_prompt_5_market_readiness_qa_usability_resilience_performance",
+      "community": 79,
+      "norm_label": "prompt 5 \u2014 market-readiness qa: usability, resilience, performance"
     },
     {
       "label": "repo_hygiene_audit.md",
@@ -257,7 +137,7 @@
       "label": "Ignored Or Allowed Items",
       "file_type": "document",
       "source_file": "docs/validation/repo_hygiene_audit.md",
-      "source_location": "L85",
+      "source_location": "L81",
       "_origin": "ast",
       "id": "docs_validation_repo_hygiene_audit_ignored_or_allowed_items",
       "community": 59,
@@ -267,11 +147,201 @@
       "label": "Safe Cleanup Examples",
       "file_type": "document",
       "source_file": "docs/validation/repo_hygiene_audit.md",
-      "source_location": "L907",
+      "source_location": "L903",
       "_origin": "ast",
       "id": "docs_validation_repo_hygiene_audit_safe_cleanup_examples",
       "community": 59,
       "norm_label": "safe cleanup examples"
+    },
+    {
+      "label": "KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "file_type": "document",
+      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 70,
+      "norm_label": "kimi_letter_audio_full_redo.md",
+      "id": "docs_kimi_letter_audio_full_redo"
+    },
+    {
+      "label": "Kimi Audio Request \u2014 FULL REDO of every letter sound + letter name (gold voice)",
+      "file_type": "document",
+      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 70,
+      "norm_label": "kimi audio request \u2014 full redo of every letter sound + letter name (gold voice)",
+      "id": "docs_kimi_letter_audio_full_redo_kimi_audio_request_full_redo_of_every_letter_sound_letter_name_gold_voice"
+    },
+    {
+      "label": "THE THREE IRON RULES",
+      "file_type": "document",
+      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "source_location": "L15",
+      "_origin": "ast",
+      "community": 70,
+      "norm_label": "the three iron rules",
+      "id": "docs_kimi_letter_audio_full_redo_the_three_iron_rules"
+    },
+    {
+      "label": "Part 1 \u2014 Letter SOUNDS (26 files)",
+      "file_type": "document",
+      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "source_location": "L24",
+      "_origin": "ast",
+      "community": 70,
+      "norm_label": "part 1 \u2014 letter sounds (26 files)",
+      "id": "docs_kimi_letter_audio_full_redo_part_1_letter_sounds_26_files"
+    },
+    {
+      "label": "Part 2 \u2014 Digraph SOUNDS (6 files)",
+      "file_type": "document",
+      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "source_location": "L66",
+      "_origin": "ast",
+      "community": 70,
+      "norm_label": "part 2 \u2014 digraph sounds (6 files)",
+      "id": "docs_kimi_letter_audio_full_redo_part_2_digraph_sounds_6_files"
+    },
+    {
+      "label": "Part 3 \u2014 Letter NAMES (26 files, a\u2013z)",
+      "file_type": "document",
+      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "source_location": "L80",
+      "_origin": "ast",
+      "community": 70,
+      "norm_label": "part 3 \u2014 letter names (26 files, a\u2013z)",
+      "id": "docs_kimi_letter_audio_full_redo_part_3_letter_names_26_files_a_z"
+    },
+    {
+      "label": "After import (Claude does this)",
+      "file_type": "document",
+      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "source_location": "L88",
+      "_origin": "ast",
+      "community": 70,
+      "norm_label": "after import (claude does this)",
+      "id": "docs_kimi_letter_audio_full_redo_after_import_claude_does_this"
+    },
+    {
+      "label": "approved_runtime_sources_audit.md",
+      "file_type": "document",
+      "source_file": "docs/validation/approved_runtime_sources_audit.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 64,
+      "norm_label": "approved_runtime_sources_audit.md",
+      "id": "docs_validation_approved_runtime_sources_audit"
+    },
+    {
+      "label": "Approved Runtime Sources Audit",
+      "file_type": "document",
+      "source_file": "docs/validation/approved_runtime_sources_audit.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 64,
+      "norm_label": "approved runtime sources audit",
+      "id": "docs_validation_approved_runtime_sources_audit_approved_runtime_sources_audit"
+    },
+    {
+      "label": "Skill Runtime Counts",
+      "file_type": "document",
+      "source_file": "docs/validation/approved_runtime_sources_audit.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "community": 64,
+      "norm_label": "skill runtime counts",
+      "id": "docs_validation_approved_runtime_sources_audit_skill_runtime_counts"
+    },
+    {
+      "label": "Failures",
+      "file_type": "document",
+      "source_file": "docs/validation/approved_runtime_sources_audit.md",
+      "source_location": "L42",
+      "_origin": "ast",
+      "community": 64,
+      "norm_label": "failures",
+      "id": "docs_validation_approved_runtime_sources_audit_failures"
+    },
+    {
+      "label": "Warnings",
+      "file_type": "document",
+      "source_file": "docs/validation/approved_runtime_sources_audit.md",
+      "source_location": "L47",
+      "_origin": "ast",
+      "community": 64,
+      "norm_label": "warnings",
+      "id": "docs_validation_approved_runtime_sources_audit_warnings"
+    },
+    {
+      "label": "media_overwrite_risk_audit.md",
+      "file_type": "document",
+      "source_file": "docs/validation/media_overwrite_risk_audit.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 62,
+      "norm_label": "media_overwrite_risk_audit.md",
+      "id": "docs_validation_media_overwrite_risk_audit"
+    },
+    {
+      "label": "Media Overwrite Risk Audit",
+      "file_type": "document",
+      "source_file": "docs/validation/media_overwrite_risk_audit.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 62,
+      "norm_label": "media overwrite risk audit",
+      "id": "docs_validation_media_overwrite_risk_audit_media_overwrite_risk_audit"
+    },
+    {
+      "label": "Summary",
+      "file_type": "document",
+      "source_file": "docs/validation/media_overwrite_risk_audit.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "community": 62,
+      "norm_label": "summary",
+      "id": "docs_validation_media_overwrite_risk_audit_summary"
+    },
+    {
+      "label": "Result",
+      "file_type": "document",
+      "source_file": "docs/validation/media_overwrite_risk_audit.md",
+      "source_location": "L24",
+      "_origin": "ast",
+      "community": 62,
+      "norm_label": "result",
+      "id": "docs_validation_media_overwrite_risk_audit_result"
+    },
+    {
+      "label": "Warnings",
+      "file_type": "document",
+      "source_file": "docs/validation/media_overwrite_risk_audit.md",
+      "source_location": "L28",
+      "_origin": "ast",
+      "community": 62,
+      "norm_label": "warnings",
+      "id": "docs_validation_media_overwrite_risk_audit_warnings"
+    },
+    {
+      "label": "Failures",
+      "file_type": "document",
+      "source_file": "docs/validation/media_overwrite_risk_audit.md",
+      "source_location": "L32",
+      "_origin": "ast",
+      "community": 62,
+      "norm_label": "failures",
+      "id": "docs_validation_media_overwrite_risk_audit_failures"
+    },
+    {
+      "label": "Changed Live Media Paths",
+      "file_type": "document",
+      "source_file": "docs/validation/media_overwrite_risk_audit.md",
+      "source_location": "L36",
+      "_origin": "ast",
+      "community": 62,
+      "norm_label": "changed live media paths",
+      "id": "docs_validation_media_overwrite_risk_audit_changed_live_media_paths"
     },
     {
       "label": "elQuestEngine.js",
@@ -279,9 +349,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine",
       "community": 33,
-      "norm_label": "elquestengine.js"
+      "norm_label": "elquestengine.js",
+      "id": "src_components_elquest_elquestengine"
     },
     {
       "label": "VOWELS",
@@ -289,9 +359,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_vowels",
       "community": 33,
-      "norm_label": "vowels"
+      "norm_label": "vowels",
+      "id": "src_components_elquest_elquestengine_vowels"
     },
     {
       "label": "ALL_GRAPHEMES",
@@ -299,9 +369,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_all_graphemes",
       "community": 33,
-      "norm_label": "all_graphemes"
+      "norm_label": "all_graphemes",
+      "id": "src_components_elquest_elquestengine_all_graphemes"
     },
     {
       "label": "taughtHfwThrough()",
@@ -309,9 +379,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_taughthfwthrough",
       "community": 33,
-      "norm_label": "taughthfwthrough()"
+      "norm_label": "taughthfwthrough()",
+      "id": "src_components_elquest_elquestengine_taughthfwthrough"
     },
     {
       "label": "shuffleItems()",
@@ -319,9 +389,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L28",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_shuffleitems",
       "community": 33,
-      "norm_label": "shuffleitems()"
+      "norm_label": "shuffleitems()",
+      "id": "src_components_elquest_elquestengine_shuffleitems"
     },
     {
       "label": "firstExisting()",
@@ -329,9 +399,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L37",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_firstexisting",
       "community": 33,
-      "norm_label": "firstexisting()"
+      "norm_label": "firstexisting()",
+      "id": "src_components_elquest_elquestengine_firstexisting"
     },
     {
       "label": "graphemeAudioPath()",
@@ -339,9 +409,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L45",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_graphemeaudiopath",
       "community": 33,
-      "norm_label": "graphemeaudiopath()"
+      "norm_label": "graphemeaudiopath()",
+      "id": "src_components_elquest_elquestengine_graphemeaudiopath"
     },
     {
       "label": "wordAudioPath()",
@@ -349,9 +419,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L61",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_wordaudiopath",
       "community": 53,
-      "norm_label": "wordaudiopath()"
+      "norm_label": "wordaudiopath()",
+      "id": "src_components_elquest_elquestengine_wordaudiopath"
     },
     {
       "label": "focusEntries()",
@@ -359,9 +429,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L75",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_focusentries",
       "community": 33,
-      "norm_label": "focusentries()"
+      "norm_label": "focusentries()",
+      "id": "src_components_elquest_elquestengine_focusentries"
     },
     {
       "label": "taughtGraphemesThrough()",
@@ -369,9 +439,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L99",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_taughtgraphemesthrough",
       "community": 33,
-      "norm_label": "taughtgraphemesthrough()"
+      "norm_label": "taughtgraphemesthrough()",
+      "id": "src_components_elquest_elquestengine_taughtgraphemesthrough"
     },
     {
       "label": "distractorGraphemes()",
@@ -379,9 +449,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L111",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_distractorgraphemes",
       "community": 33,
-      "norm_label": "distractorgraphemes()"
+      "norm_label": "distractorgraphemes()",
+      "id": "src_components_elquest_elquestengine_distractorgraphemes"
     },
     {
       "label": "PATTERN_EXAMPLES",
@@ -389,9 +459,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L123",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_pattern_examples",
       "community": 33,
-      "norm_label": "pattern_examples"
+      "norm_label": "pattern_examples",
+      "id": "src_components_elquest_elquestengine_pattern_examples"
     },
     {
       "label": "exampleWordsFor()",
@@ -399,9 +469,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L134",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_examplewordsfor",
       "community": 33,
-      "norm_label": "examplewordsfor()"
+      "norm_label": "examplewordsfor()",
+      "id": "src_components_elquest_elquestengine_examplewordsfor"
     },
     {
       "label": "PICTURE_WORDS",
@@ -409,9 +479,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L140",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_picture_words",
       "community": 33,
-      "norm_label": "picture_words"
+      "norm_label": "picture_words",
+      "id": "src_components_elquest_elquestengine_picture_words"
     },
     {
       "label": "hasPicture()",
@@ -419,9 +489,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L141",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_haspicture",
       "community": 33,
-      "norm_label": "haspicture()"
+      "norm_label": "haspicture()",
+      "id": "src_components_elquest_elquestengine_haspicture"
     },
     {
       "label": "pictureWordsFor()",
@@ -429,9 +499,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L145",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_picturewordsfor",
       "community": 33,
-      "norm_label": "picturewordsfor()"
+      "norm_label": "picturewordsfor()",
+      "id": "src_components_elquest_elquestengine_picturewordsfor"
     },
     {
       "label": "letterNameAudioPath()",
@@ -439,9 +509,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L153",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_letternameaudiopath",
       "community": 33,
-      "norm_label": "letternameaudiopath()"
+      "norm_label": "letternameaudiopath()",
+      "id": "src_components_elquest_elquestengine_letternameaudiopath"
     },
     {
       "label": "SINGLE_LETTERS",
@@ -449,9 +519,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L157",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_single_letters",
       "community": 33,
-      "norm_label": "single_letters"
+      "norm_label": "single_letters",
+      "id": "src_components_elquest_elquestengine_single_letters"
     },
     {
       "label": "buildLetterRounds()",
@@ -459,9 +529,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L158",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_buildletterrounds",
       "community": 33,
-      "norm_label": "buildletterrounds()"
+      "norm_label": "buildletterrounds()",
+      "id": "src_components_elquest_elquestengine_buildletterrounds"
     },
     {
       "label": "buildSoundRounds()",
@@ -469,9 +539,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L191",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_buildsoundrounds",
       "community": 33,
-      "norm_label": "buildsoundrounds()"
+      "norm_label": "buildsoundrounds()",
+      "id": "src_components_elquest_elquestengine_buildsoundrounds"
     },
     {
       "label": "buildHuntRounds()",
@@ -479,9 +549,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L217",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_buildhuntrounds",
       "community": 33,
-      "norm_label": "buildhuntrounds()"
+      "norm_label": "buildhuntrounds()",
+      "id": "src_components_elquest_elquestengine_buildhuntrounds"
     },
     {
       "label": "buildQuickWordRounds()",
@@ -489,9 +559,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L242",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_buildquickwordrounds",
       "community": 33,
-      "norm_label": "buildquickwordrounds()"
+      "norm_label": "buildquickwordrounds()",
+      "id": "src_components_elquest_elquestengine_buildquickwordrounds"
     },
     {
       "label": "buildWordBuildRounds()",
@@ -499,9 +569,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L273",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_buildwordbuildrounds",
       "community": 33,
-      "norm_label": "buildwordbuildrounds()"
+      "norm_label": "buildwordbuildrounds()",
+      "id": "src_components_elquest_elquestengine_buildwordbuildrounds"
     },
     {
       "label": "COMPOUND_WORDS",
@@ -509,9 +579,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L293",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_compound_words",
       "community": 33,
-      "norm_label": "compound_words"
+      "norm_label": "compound_words",
+      "id": "src_components_elquest_elquestengine_compound_words"
     },
     {
       "label": "uniqueChoices()",
@@ -519,9 +589,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L299",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_uniquechoices",
       "community": 33,
-      "norm_label": "uniquechoices()"
+      "norm_label": "uniquechoices()",
+      "id": "src_components_elquest_elquestengine_uniquechoices"
     },
     {
       "label": "buildWordPlayRounds()",
@@ -529,9 +599,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L303",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_buildwordplayrounds",
       "community": 33,
-      "norm_label": "buildwordplayrounds()"
+      "norm_label": "buildwordplayrounds()",
+      "id": "src_components_elquest_elquestengine_buildwordplayrounds"
     },
     {
       "label": "buildPoemRounds()",
@@ -539,9 +609,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L374",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_buildpoemrounds",
       "community": 33,
-      "norm_label": "buildpoemrounds()"
+      "norm_label": "buildpoemrounds()",
+      "id": "src_components_elquest_elquestengine_buildpoemrounds"
     },
     {
       "label": "buildStoryRounds()",
@@ -549,9 +619,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L403",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_buildstoryrounds",
       "community": 33,
-      "norm_label": "buildstoryrounds()"
+      "norm_label": "buildstoryrounds()",
+      "id": "src_components_elquest_elquestengine_buildstoryrounds"
     },
     {
       "label": "buildTraceRounds()",
@@ -559,9 +629,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L427",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_buildtracerounds",
       "community": 33,
-      "norm_label": "buildtracerounds()"
+      "norm_label": "buildtracerounds()",
+      "id": "src_components_elquest_elquestengine_buildtracerounds"
     },
     {
       "label": "PATTERN_FAMILIES",
@@ -569,9 +639,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L450",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_pattern_families",
       "community": 33,
-      "norm_label": "pattern_families"
+      "norm_label": "pattern_families",
+      "id": "src_components_elquest_elquestengine_pattern_families"
     },
     {
       "label": "CYCLE_PATTERN_LEADS",
@@ -579,9 +649,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L462",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_cycle_pattern_leads",
       "community": 33,
-      "norm_label": "cycle_pattern_leads"
+      "norm_label": "cycle_pattern_leads",
+      "id": "src_components_elquest_elquestengine_cycle_pattern_leads"
     },
     {
       "label": "patternFamiliesForCycle()",
@@ -589,9 +659,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L468",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_patternfamiliesforcycle",
       "community": 33,
-      "norm_label": "patternfamiliesforcycle()"
+      "norm_label": "patternfamiliesforcycle()",
+      "id": "src_components_elquest_elquestengine_patternfamiliesforcycle"
     },
     {
       "label": "buildPatternPowerRounds()",
@@ -599,9 +669,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L477",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_buildpatternpowerrounds",
       "community": 33,
-      "norm_label": "buildpatternpowerrounds()"
+      "norm_label": "buildpatternpowerrounds()",
+      "id": "src_components_elquest_elquestengine_buildpatternpowerrounds"
     },
     {
       "label": "WORD_CHAINS",
@@ -609,9 +679,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L498",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_word_chains",
       "community": 33,
-      "norm_label": "word_chains"
+      "norm_label": "word_chains",
+      "id": "src_components_elquest_elquestengine_word_chains"
     },
     {
       "label": "changedSlot()",
@@ -619,9 +689,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L507",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_changedslot",
       "community": 33,
-      "norm_label": "changedslot()"
+      "norm_label": "changedslot()",
+      "id": "src_components_elquest_elquestengine_changedslot"
     },
     {
       "label": "buildWordChainRounds()",
@@ -629,9 +699,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L516",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_buildwordchainrounds",
       "community": 33,
-      "norm_label": "buildwordchainrounds()"
+      "norm_label": "buildwordchainrounds()",
+      "id": "src_components_elquest_elquestengine_buildwordchainrounds"
     },
     {
       "label": "buildSpeedyWordRounds()",
@@ -639,9 +709,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L546",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_buildspeedywordrounds",
       "community": 33,
-      "norm_label": "buildspeedywordrounds()"
+      "norm_label": "buildspeedywordrounds()",
+      "id": "src_components_elquest_elquestengine_buildspeedywordrounds"
     },
     {
       "label": "buildSpellRounds()",
@@ -649,9 +719,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L556",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_buildspellrounds",
       "community": 33,
-      "norm_label": "buildspellrounds()"
+      "norm_label": "buildspellrounds()",
+      "id": "src_components_elquest_elquestengine_buildspellrounds"
     },
     {
       "label": "STANDARD_STATIONS",
@@ -659,9 +729,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L574",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_standard_stations",
       "community": 33,
-      "norm_label": "standard_stations"
+      "norm_label": "standard_stations",
+      "id": "src_components_elquest_elquestengine_standard_stations"
     },
     {
       "label": "FLUENCY_STATIONS",
@@ -669,9 +739,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L588",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_fluency_stations",
       "community": 33,
-      "norm_label": "fluency_stations"
+      "norm_label": "fluency_stations",
+      "id": "src_components_elquest_elquestengine_fluency_stations"
     },
     {
       "label": "isFluencyCycle()",
@@ -679,9 +749,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L601",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_isfluencycycle",
       "community": 33,
-      "norm_label": "isfluencycycle()"
+      "norm_label": "isfluencycycle()",
+      "id": "src_components_elquest_elquestengine_isfluencycycle"
     },
     {
       "label": "stationsForCycle()",
@@ -689,9 +759,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L605",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_stationsforcycle",
       "community": 33,
-      "norm_label": "stationsforcycle()"
+      "norm_label": "stationsforcycle()",
+      "id": "src_components_elquest_elquestengine_stationsforcycle"
     },
     {
       "label": "buildStationRounds()",
@@ -699,9 +769,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L609",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_buildstationrounds",
       "community": 33,
-      "norm_label": "buildstationrounds()"
+      "norm_label": "buildstationrounds()",
+      "id": "src_components_elquest_elquestengine_buildstationrounds"
     },
     {
       "label": "starsForAccuracy()",
@@ -709,9 +779,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L635",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_starsforaccuracy",
       "community": 33,
-      "norm_label": "starsforaccuracy()"
+      "norm_label": "starsforaccuracy()",
+      "id": "src_components_elquest_elquestengine_starsforaccuracy"
     },
     {
       "label": "knownBadWordAudio.js",
@@ -719,9 +789,9 @@
       "source_file": "src/data/knownBadWordAudio.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_knownbadwordaudio",
       "community": 54,
-      "norm_label": "knownbadwordaudio.js"
+      "norm_label": "knownbadwordaudio.js",
+      "id": "src_data_knownbadwordaudio"
     },
     {
       "label": "KNOWN_BAD_WORD_AUDIO",
@@ -729,9 +799,9 @@
       "source_file": "src/data/knownBadWordAudio.js",
       "source_location": "L10",
       "_origin": "ast",
-      "id": "src_data_knownbadwordaudio_known_bad_word_audio",
       "community": 54,
-      "norm_label": "known_bad_word_audio"
+      "norm_label": "known_bad_word_audio",
+      "id": "src_data_knownbadwordaudio_known_bad_word_audio"
     },
     {
       "label": "hasKnownBadWordAudio()",
@@ -739,9 +809,9 @@
       "source_file": "src/data/knownBadWordAudio.js",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "src_data_knownbadwordaudio_hasknownbadwordaudio",
       "community": 54,
-      "norm_label": "hasknownbadwordaudio()"
+      "norm_label": "hasknownbadwordaudio()",
+      "id": "src_data_knownbadwordaudio_hasknownbadwordaudio"
     },
     {
       "label": "KNOWN_BAD_AUDIO_PATHS",
@@ -749,9 +819,9 @@
       "source_file": "src/data/knownBadWordAudio.js",
       "source_location": "L20",
       "_origin": "ast",
-      "id": "src_data_knownbadwordaudio_known_bad_audio_paths",
       "community": 54,
-      "norm_label": "known_bad_audio_paths"
+      "norm_label": "known_bad_audio_paths",
+      "id": "src_data_knownbadwordaudio_known_bad_audio_paths"
     },
     {
       "label": "isKnownBadAudioPath()",
@@ -759,9 +829,9 @@
       "source_file": "src/data/knownBadWordAudio.js",
       "source_location": "L48",
       "_origin": "ast",
-      "id": "src_data_knownbadwordaudio_isknownbadaudiopath",
       "community": 54,
-      "norm_label": "isknownbadaudiopath()"
+      "norm_label": "isknownbadaudiopath()",
+      "id": "src_data_knownbadwordaudio_isknownbadaudiopath"
     },
     {
       "label": "learnGamesAudio.js",
@@ -769,9 +839,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio",
       "community": 54,
-      "norm_label": "learngamesaudio.js"
+      "norm_label": "learngamesaudio.js",
+      "id": "src_utils_learngamesaudio"
     },
     {
       "label": "existingAudioPaths()",
@@ -779,9 +849,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_existingaudiopaths",
       "community": 54,
-      "norm_label": "existingaudiopaths()"
+      "norm_label": "existingaudiopaths()",
+      "id": "src_utils_learngamesaudio_existingaudiopaths"
     },
     {
       "label": "howlCache",
@@ -789,9 +859,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L14",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_howlcache",
       "community": 54,
-      "norm_label": "howlcache"
+      "norm_label": "howlcache",
+      "id": "src_utils_learngamesaudio_howlcache"
     },
     {
       "label": "VOWEL_SOUND_TEXT",
@@ -799,9 +869,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_vowel_sound_text",
       "community": 54,
-      "norm_label": "vowel_sound_text"
+      "norm_label": "vowel_sound_text",
+      "id": "src_utils_learngamesaudio_vowel_sound_text"
     },
     {
       "label": "VOWELS",
@@ -809,9 +879,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_vowels",
       "community": 54,
-      "norm_label": "vowels"
+      "norm_label": "vowels",
+      "id": "src_utils_learngamesaudio_vowels"
     },
     {
       "label": "normalizedText()",
@@ -819,9 +889,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_normalizedtext",
       "community": 54,
-      "norm_label": "normalizedtext()"
+      "norm_label": "normalizedtext()",
+      "id": "src_utils_learngamesaudio_normalizedtext"
     },
     {
       "label": "slugify()",
@@ -829,9 +899,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L29",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_slugify",
       "community": 54,
-      "norm_label": "slugify()"
+      "norm_label": "slugify()",
+      "id": "src_utils_learngamesaudio_slugify"
     },
     {
       "label": "getHowl()",
@@ -839,9 +909,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_gethowl",
       "community": 54,
-      "norm_label": "gethowl()"
+      "norm_label": "gethowl()",
+      "id": "src_utils_learngamesaudio_gethowl"
     },
     {
       "label": "isLongAudioSource()",
@@ -849,9 +919,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L48",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_islongaudiosource",
       "community": 54,
-      "norm_label": "islongaudiosource()"
+      "norm_label": "islongaudiosource()",
+      "id": "src_utils_learngamesaudio_islongaudiosource"
     },
     {
       "label": "evictOldestHowlIfNeeded()",
@@ -859,9 +929,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L52",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_evictoldesthowlifneeded",
       "community": 54,
-      "norm_label": "evictoldesthowlifneeded()"
+      "norm_label": "evictoldesthowlifneeded()",
+      "id": "src_utils_learngamesaudio_evictoldesthowlifneeded"
     },
     {
       "label": "playAudio()",
@@ -869,9 +939,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L65",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_playaudio",
       "community": 54,
-      "norm_label": "playaudio()"
+      "norm_label": "playaudio()",
+      "id": "src_utils_learngamesaudio_playaudio"
     },
     {
       "label": "playFirstAvailable()",
@@ -879,9 +949,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L80",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_playfirstavailable",
       "community": 54,
-      "norm_label": "playfirstavailable()"
+      "norm_label": "playfirstavailable()",
+      "id": "src_utils_learngamesaudio_playfirstavailable"
     },
     {
       "label": "speakWithBrowser()",
@@ -889,9 +959,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L94",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_speakwithbrowser",
       "community": 54,
-      "norm_label": "speakwithbrowser()"
+      "norm_label": "speakwithbrowser()",
+      "id": "src_utils_learngamesaudio_speakwithbrowser"
     },
     {
       "label": "cancelSpeech()",
@@ -899,9 +969,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L96",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_cancelspeech",
       "community": 54,
-      "norm_label": "cancelspeech()"
+      "norm_label": "cancelspeech()",
+      "id": "src_utils_learngamesaudio_cancelspeech"
     },
     {
       "label": "stopCurrentCues()",
@@ -909,9 +979,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L103",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_stopcurrentcues",
       "community": 54,
-      "norm_label": "stopcurrentcues()"
+      "norm_label": "stopcurrentcues()",
+      "id": "src_utils_learngamesaudio_stopcurrentcues"
     },
     {
       "label": "speakPhoneme()",
@@ -919,9 +989,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L110",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_speakphoneme",
       "community": 54,
-      "norm_label": "speakphoneme()"
+      "norm_label": "speakphoneme()",
+      "id": "src_utils_learngamesaudio_speakphoneme"
     },
     {
       "label": "speakWord()",
@@ -929,9 +999,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L139",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_speakword",
       "community": 54,
-      "norm_label": "speakword()"
+      "norm_label": "speakword()",
+      "id": "src_utils_learngamesaudio_speakword"
     },
     {
       "label": "hasRecordedSpeech()",
@@ -939,9 +1009,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L158",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_hasrecordedspeech",
       "community": 54,
-      "norm_label": "hasrecordedspeech()"
+      "norm_label": "hasrecordedspeech()",
+      "id": "src_utils_learngamesaudio_hasrecordedspeech"
     },
     {
       "label": "speak()",
@@ -949,9 +1019,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L171",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_speak",
       "community": 54,
-      "norm_label": "speak()"
+      "norm_label": "speak()",
+      "id": "src_utils_learngamesaudio_speak"
     },
     {
       "label": "getLearnGamesAudioCacheSizeForDebug()",
@@ -959,9 +1029,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L189",
       "_origin": "ast",
-      "id": "src_utils_learngamesaudio_getlearngamesaudiocachesizefordebug",
       "community": 54,
-      "norm_label": "getlearngamesaudiocachesizefordebug()"
+      "norm_label": "getlearngamesaudiocachesizefordebug()",
+      "id": "src_utils_learngamesaudio_getlearngamesaudiocachesizefordebug"
     },
     {
       "label": "elQuestEngine.test.js",
@@ -969,9 +1039,9 @@
       "source_file": "tests/unit/elQuestEngine.test.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "tests_unit_elquestengine_test",
       "community": 33,
-      "norm_label": "elquestengine.test.js"
+      "norm_label": "elquestengine.test.js",
+      "id": "tests_unit_elquestengine_test"
     },
     {
       "label": "cycle1",
@@ -979,9 +1049,9 @@
       "source_file": "tests/unit/elQuestEngine.test.js",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "tests_unit_elquestengine_test_cycle1",
       "community": 33,
-      "norm_label": "cycle1"
+      "norm_label": "cycle1",
+      "id": "tests_unit_elquestengine_test_cycle1"
     },
     {
       "label": "STATIONS",
@@ -989,9 +1059,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L598",
       "_origin": "ast",
-      "id": "src_components_elquest_elquestengine_stations",
       "community": 33,
-      "norm_label": "stations"
+      "norm_label": "stations",
+      "id": "src_components_elquest_elquestengine_stations"
     },
     {
       "label": "DEPLOYMENT_AUDIT_2026-07-04.md",
@@ -9678,161 +9748,61 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "source_file": "docs/LOOP_PROMPTS_MARKET_READY.md",
       "source_location": "L1",
       "weight": 1.0,
-      "source": "docs_kimi_letter_audio_full_redo",
-      "target": "docs_kimi_letter_audio_full_redo_kimi_audio_request_full_redo_of_every_letter_sound_letter_name_gold_voice",
+      "source": "docs_loop_prompts_market_ready",
+      "target": "docs_loop_prompts_market_ready_five_loop_prompts_market_ready_literacypath",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
-      "source_location": "L88",
+      "source_file": "docs/LOOP_PROMPTS_MARKET_READY.md",
+      "source_location": "L9",
       "weight": 1.0,
-      "source": "docs_kimi_letter_audio_full_redo_kimi_audio_request_full_redo_of_every_letter_sound_letter_name_gold_voice",
-      "target": "docs_kimi_letter_audio_full_redo_after_import_claude_does_this",
+      "source": "docs_loop_prompts_market_ready_five_loop_prompts_market_ready_literacypath",
+      "target": "docs_loop_prompts_market_ready_prompt_1_screen_by_screen_layout_polish_sweep",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
-      "source_location": "L24",
+      "source_file": "docs/LOOP_PROMPTS_MARKET_READY.md",
+      "source_location": "L29",
       "weight": 1.0,
-      "source": "docs_kimi_letter_audio_full_redo_kimi_audio_request_full_redo_of_every_letter_sound_letter_name_gold_voice",
-      "target": "docs_kimi_letter_audio_full_redo_part_1_letter_sounds_26_files",
+      "source": "docs_loop_prompts_market_ready_five_loop_prompts_market_ready_literacypath",
+      "target": "docs_loop_prompts_market_ready_prompt_2_competitor_research_design_parity",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
-      "source_location": "L66",
-      "weight": 1.0,
-      "source": "docs_kimi_letter_audio_full_redo_kimi_audio_request_full_redo_of_every_letter_sound_letter_name_gold_voice",
-      "target": "docs_kimi_letter_audio_full_redo_part_2_digraph_sounds_6_files",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
-      "source_location": "L80",
-      "weight": 1.0,
-      "source": "docs_kimi_letter_audio_full_redo_kimi_audio_request_full_redo_of_every_letter_sound_letter_name_gold_voice",
-      "target": "docs_kimi_letter_audio_full_redo_part_3_letter_names_26_files_a_z",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "docs_kimi_letter_audio_full_redo_kimi_audio_request_full_redo_of_every_letter_sound_letter_name_gold_voice",
-      "target": "docs_kimi_letter_audio_full_redo_the_three_iron_rules",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/validation/approved_runtime_sources_audit.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "docs_validation_approved_runtime_sources_audit",
-      "target": "docs_validation_approved_runtime_sources_audit_approved_runtime_sources_audit",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/validation/approved_runtime_sources_audit.md",
-      "source_location": "L42",
-      "weight": 1.0,
-      "source": "docs_validation_approved_runtime_sources_audit_approved_runtime_sources_audit",
-      "target": "docs_validation_approved_runtime_sources_audit_failures",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/validation/approved_runtime_sources_audit.md",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "docs_validation_approved_runtime_sources_audit_approved_runtime_sources_audit",
-      "target": "docs_validation_approved_runtime_sources_audit_skill_runtime_counts",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/validation/approved_runtime_sources_audit.md",
+      "source_file": "docs/LOOP_PROMPTS_MARKET_READY.md",
       "source_location": "L47",
       "weight": 1.0,
-      "source": "docs_validation_approved_runtime_sources_audit_approved_runtime_sources_audit",
-      "target": "docs_validation_approved_runtime_sources_audit_warnings",
+      "source": "docs_loop_prompts_market_ready_five_loop_prompts_market_ready_literacypath",
+      "target": "docs_loop_prompts_market_ready_prompt_3_games_depth_testing_and_one_new_flagship_game",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "docs/validation/media_overwrite_risk_audit.md",
-      "source_location": "L1",
+      "source_file": "docs/LOOP_PROMPTS_MARKET_READY.md",
+      "source_location": "L64",
       "weight": 1.0,
-      "source": "docs_validation_media_overwrite_risk_audit",
-      "target": "docs_validation_media_overwrite_risk_audit_media_overwrite_risk_audit",
+      "source": "docs_loop_prompts_market_ready_five_loop_prompts_market_ready_literacypath",
+      "target": "docs_loop_prompts_market_ready_prompt_4_educational_content_curriculum_correctness_audit",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "docs/validation/media_overwrite_risk_audit.md",
-      "source_location": "L36",
+      "source_file": "docs/LOOP_PROMPTS_MARKET_READY.md",
+      "source_location": "L82",
       "weight": 1.0,
-      "source": "docs_validation_media_overwrite_risk_audit_media_overwrite_risk_audit",
-      "target": "docs_validation_media_overwrite_risk_audit_changed_live_media_paths",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/validation/media_overwrite_risk_audit.md",
-      "source_location": "L32",
-      "weight": 1.0,
-      "source": "docs_validation_media_overwrite_risk_audit_media_overwrite_risk_audit",
-      "target": "docs_validation_media_overwrite_risk_audit_failures",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/validation/media_overwrite_risk_audit.md",
-      "source_location": "L24",
-      "weight": 1.0,
-      "source": "docs_validation_media_overwrite_risk_audit_media_overwrite_risk_audit",
-      "target": "docs_validation_media_overwrite_risk_audit_result",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/validation/media_overwrite_risk_audit.md",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "docs_validation_media_overwrite_risk_audit_media_overwrite_risk_audit",
-      "target": "docs_validation_media_overwrite_risk_audit_summary",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/validation/media_overwrite_risk_audit.md",
-      "source_location": "L28",
-      "weight": 1.0,
-      "source": "docs_validation_media_overwrite_risk_audit_media_overwrite_risk_audit",
-      "target": "docs_validation_media_overwrite_risk_audit_warnings",
+      "source": "docs_loop_prompts_market_ready_five_loop_prompts_market_ready_literacypath",
+      "target": "docs_loop_prompts_market_ready_prompt_5_market_readiness_qa_usability_resilience_performance",
       "confidence_score": 1.0
     },
     {
@@ -9859,7 +9829,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/validation/repo_hygiene_audit.md",
-      "source_location": "L85",
+      "source_location": "L81",
       "weight": 1.0,
       "source": "docs_validation_repo_hygiene_audit_repo_hygiene_audit",
       "target": "docs_validation_repo_hygiene_audit_ignored_or_allowed_items",
@@ -9879,7 +9849,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/validation/repo_hygiene_audit.md",
-      "source_location": "L907",
+      "source_location": "L903",
       "weight": 1.0,
       "source": "docs_validation_repo_hygiene_audit_repo_hygiene_audit",
       "target": "docs_validation_repo_hygiene_audit_safe_cleanup_examples",
@@ -9908,12 +9878,172 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_kimi_letter_audio_full_redo",
+      "target": "docs_kimi_letter_audio_full_redo_kimi_audio_request_full_redo_of_every_letter_sound_letter_name_gold_voice"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "source_location": "L88",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_kimi_letter_audio_full_redo_kimi_audio_request_full_redo_of_every_letter_sound_letter_name_gold_voice",
+      "target": "docs_kimi_letter_audio_full_redo_after_import_claude_does_this"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_kimi_letter_audio_full_redo_kimi_audio_request_full_redo_of_every_letter_sound_letter_name_gold_voice",
+      "target": "docs_kimi_letter_audio_full_redo_part_1_letter_sounds_26_files"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "source_location": "L66",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_kimi_letter_audio_full_redo_kimi_audio_request_full_redo_of_every_letter_sound_letter_name_gold_voice",
+      "target": "docs_kimi_letter_audio_full_redo_part_2_digraph_sounds_6_files"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "source_location": "L80",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_kimi_letter_audio_full_redo_kimi_audio_request_full_redo_of_every_letter_sound_letter_name_gold_voice",
+      "target": "docs_kimi_letter_audio_full_redo_part_3_letter_names_26_files_a_z"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/KIMI_LETTER_AUDIO_FULL_REDO.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_kimi_letter_audio_full_redo_kimi_audio_request_full_redo_of_every_letter_sound_letter_name_gold_voice",
+      "target": "docs_kimi_letter_audio_full_redo_the_three_iron_rules"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/validation/approved_runtime_sources_audit.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_validation_approved_runtime_sources_audit",
+      "target": "docs_validation_approved_runtime_sources_audit_approved_runtime_sources_audit"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/validation/approved_runtime_sources_audit.md",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_validation_approved_runtime_sources_audit_approved_runtime_sources_audit",
+      "target": "docs_validation_approved_runtime_sources_audit_failures"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/validation/approved_runtime_sources_audit.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_validation_approved_runtime_sources_audit_approved_runtime_sources_audit",
+      "target": "docs_validation_approved_runtime_sources_audit_skill_runtime_counts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/validation/approved_runtime_sources_audit.md",
+      "source_location": "L47",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_validation_approved_runtime_sources_audit_approved_runtime_sources_audit",
+      "target": "docs_validation_approved_runtime_sources_audit_warnings"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/validation/media_overwrite_risk_audit.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_validation_media_overwrite_risk_audit",
+      "target": "docs_validation_media_overwrite_risk_audit_media_overwrite_risk_audit"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/validation/media_overwrite_risk_audit.md",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_validation_media_overwrite_risk_audit_media_overwrite_risk_audit",
+      "target": "docs_validation_media_overwrite_risk_audit_changed_live_media_paths"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/validation/media_overwrite_risk_audit.md",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_validation_media_overwrite_risk_audit_media_overwrite_risk_audit",
+      "target": "docs_validation_media_overwrite_risk_audit_failures"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/validation/media_overwrite_risk_audit.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_validation_media_overwrite_risk_audit_media_overwrite_risk_audit",
+      "target": "docs_validation_media_overwrite_risk_audit_result"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/validation/media_overwrite_risk_audit.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_validation_media_overwrite_risk_audit_media_overwrite_risk_audit",
+      "target": "docs_validation_media_overwrite_risk_audit_summary"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/validation/media_overwrite_risk_audit.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_validation_media_overwrite_risk_audit_media_overwrite_risk_audit",
+      "target": "docs_validation_media_overwrite_risk_audit_warnings"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_all_graphemes",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_all_graphemes"
     },
     {
       "relation": "indirect_call",
@@ -9922,9 +10052,9 @@
       "source_location": "L577",
       "weight": 1.0,
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_buildhuntrounds",
-      "confidence_score": 0.5
+      "target": "src_components_elquest_elquestengine_buildhuntrounds"
     },
     {
       "relation": "indirect_call",
@@ -9933,9 +10063,9 @@
       "source_location": "L575",
       "weight": 1.0,
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_buildletterrounds",
-      "confidence_score": 0.5
+      "target": "src_components_elquest_elquestengine_buildletterrounds"
     },
     {
       "relation": "indirect_call",
@@ -9944,9 +10074,9 @@
       "source_location": "L589",
       "weight": 1.0,
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_buildpatternpowerrounds",
-      "confidence_score": 0.5
+      "target": "src_components_elquest_elquestengine_buildpatternpowerrounds"
     },
     {
       "relation": "indirect_call",
@@ -9955,9 +10085,9 @@
       "source_location": "L581",
       "weight": 1.0,
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_buildpoemrounds",
-      "confidence_score": 0.5
+      "target": "src_components_elquest_elquestengine_buildpoemrounds"
     },
     {
       "relation": "indirect_call",
@@ -9966,9 +10096,9 @@
       "source_location": "L578",
       "weight": 1.0,
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_buildquickwordrounds",
-      "confidence_score": 0.5
+      "target": "src_components_elquest_elquestengine_buildquickwordrounds"
     },
     {
       "relation": "indirect_call",
@@ -9977,9 +10107,9 @@
       "source_location": "L576",
       "weight": 1.0,
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_buildsoundrounds",
-      "confidence_score": 0.5
+      "target": "src_components_elquest_elquestengine_buildsoundrounds"
     },
     {
       "relation": "indirect_call",
@@ -9988,9 +10118,9 @@
       "source_location": "L591",
       "weight": 1.0,
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_buildspeedywordrounds",
-      "confidence_score": 0.5
+      "target": "src_components_elquest_elquestengine_buildspeedywordrounds"
     },
     {
       "relation": "indirect_call",
@@ -9999,9 +10129,9 @@
       "source_location": "L593",
       "weight": 1.0,
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_buildspellrounds",
-      "confidence_score": 0.5
+      "target": "src_components_elquest_elquestengine_buildspellrounds"
     },
     {
       "relation": "contains",
@@ -10009,9 +10139,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L609",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_buildstationrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildstationrounds"
     },
     {
       "relation": "indirect_call",
@@ -10020,9 +10150,9 @@
       "source_location": "L582",
       "weight": 1.0,
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_buildstoryrounds",
-      "confidence_score": 0.5
+      "target": "src_components_elquest_elquestengine_buildstoryrounds"
     },
     {
       "relation": "indirect_call",
@@ -10031,9 +10161,9 @@
       "source_location": "L583",
       "weight": 1.0,
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_buildtracerounds",
-      "confidence_score": 0.5
+      "target": "src_components_elquest_elquestengine_buildtracerounds"
     },
     {
       "relation": "indirect_call",
@@ -10042,9 +10172,9 @@
       "source_location": "L579",
       "weight": 1.0,
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_buildwordbuildrounds",
-      "confidence_score": 0.5
+      "target": "src_components_elquest_elquestengine_buildwordbuildrounds"
     },
     {
       "relation": "indirect_call",
@@ -10053,9 +10183,9 @@
       "source_location": "L590",
       "weight": 1.0,
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_buildwordchainrounds",
-      "confidence_score": 0.5
+      "target": "src_components_elquest_elquestengine_buildwordchainrounds"
     },
     {
       "relation": "indirect_call",
@@ -10064,9 +10194,9 @@
       "source_location": "L580",
       "weight": 1.0,
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_buildwordplayrounds",
-      "confidence_score": 0.5
+      "target": "src_components_elquest_elquestengine_buildwordplayrounds"
     },
     {
       "relation": "contains",
@@ -10074,9 +10204,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L507",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_changedslot",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_changedslot"
     },
     {
       "relation": "contains",
@@ -10084,9 +10214,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L293",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_compound_words",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_compound_words"
     },
     {
       "relation": "contains",
@@ -10094,9 +10224,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L462",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_cycle_pattern_leads",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_cycle_pattern_leads"
     },
     {
       "relation": "contains",
@@ -10104,9 +10234,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_distractorgraphemes",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_distractorgraphemes"
     },
     {
       "relation": "contains",
@@ -10114,9 +10244,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L134",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_examplewordsfor",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_examplewordsfor"
     },
     {
       "relation": "contains",
@@ -10124,9 +10254,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_firstexisting",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_firstexisting"
     },
     {
       "relation": "contains",
@@ -10134,9 +10264,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L588",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_fluency_stations",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_fluency_stations"
     },
     {
       "relation": "contains",
@@ -10144,9 +10274,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_focusentries",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_focusentries"
     },
     {
       "relation": "contains",
@@ -10154,9 +10284,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_graphemeaudiopath",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_graphemeaudiopath"
     },
     {
       "relation": "contains",
@@ -10164,9 +10294,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L141",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_haspicture",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_haspicture"
     },
     {
       "relation": "contains",
@@ -10174,9 +10304,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L601",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_isfluencycycle",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_isfluencycycle"
     },
     {
       "relation": "contains",
@@ -10184,9 +10314,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L153",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_letternameaudiopath",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_letternameaudiopath"
     },
     {
       "relation": "contains",
@@ -10194,9 +10324,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L123",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_pattern_examples",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_pattern_examples"
     },
     {
       "relation": "contains",
@@ -10204,9 +10334,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L450",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_pattern_families",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_pattern_families"
     },
     {
       "relation": "contains",
@@ -10214,9 +10344,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L468",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_patternfamiliesforcycle",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_patternfamiliesforcycle"
     },
     {
       "relation": "contains",
@@ -10224,9 +10354,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L140",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_picture_words",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_picture_words"
     },
     {
       "relation": "contains",
@@ -10234,9 +10364,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_picturewordsfor",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_picturewordsfor"
     },
     {
       "relation": "contains",
@@ -10244,9 +10374,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_shuffleitems",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_shuffleitems"
     },
     {
       "relation": "contains",
@@ -10254,9 +10384,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L157",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_single_letters",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_single_letters"
     },
     {
       "relation": "contains",
@@ -10264,9 +10394,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L574",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_standard_stations",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_standard_stations"
     },
     {
       "relation": "contains",
@@ -10274,9 +10404,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L635",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_starsforaccuracy",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_starsforaccuracy"
     },
     {
       "relation": "contains",
@@ -10284,9 +10414,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L605",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_stationsforcycle",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_stationsforcycle"
     },
     {
       "relation": "contains",
@@ -10294,9 +10424,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L99",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_taughtgraphemesthrough",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_taughtgraphemesthrough"
     },
     {
       "relation": "contains",
@@ -10304,9 +10434,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_taughthfwthrough",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_taughthfwthrough"
     },
     {
       "relation": "contains",
@@ -10314,9 +10444,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L299",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_uniquechoices",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_uniquechoices"
     },
     {
       "relation": "contains",
@@ -10324,9 +10454,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_vowels",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_vowels"
     },
     {
       "relation": "contains",
@@ -10334,9 +10464,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L498",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_word_chains",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_word_chains"
     },
     {
       "relation": "contains",
@@ -10344,9 +10474,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_components_elquest_elquestengine_wordaudiopath",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_wordaudiopath"
     },
     {
       "relation": "imports_from",
@@ -10355,9 +10485,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_data_knownbadwordaudio",
-      "confidence_score": 1.0
+      "target": "src_data_knownbadwordaudio"
     },
     {
       "relation": "imports",
@@ -10366,9 +10496,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_data_knownbadwordaudio_hasknownbadwordaudio",
-      "confidence_score": 1.0
+      "target": "src_data_knownbadwordaudio_hasknownbadwordaudio"
     },
     {
       "relation": "imports",
@@ -10377,9 +10507,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine",
-      "target": "src_data_knownbadwordaudio_isknownbadaudiopath",
-      "confidence_score": 1.0
+      "target": "src_data_knownbadwordaudio_isknownbadaudiopath"
     },
     {
       "relation": "imports_from",
@@ -10410,9 +10540,9 @@
       "source_file": "tests/unit/elQuestEngine.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_unit_elquestengine_test",
-      "target": "src_components_elquest_elquestengine",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine"
     },
     {
       "relation": "imports_from",
@@ -10432,9 +10562,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L244",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildquickwordrounds",
-      "target": "src_components_elquest_elquestengine_taughthfwthrough",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_taughthfwthrough"
     },
     {
       "relation": "calls",
@@ -10443,9 +10573,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L246",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildquickwordrounds",
-      "target": "src_components_elquest_elquestengine_shuffleitems",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_shuffleitems"
     },
     {
       "relation": "calls",
@@ -10454,9 +10584,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L627",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildstationrounds",
-      "target": "src_components_elquest_elquestengine_shuffleitems",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_shuffleitems"
     },
     {
       "relation": "calls",
@@ -10465,9 +10595,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L408",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildstoryrounds",
-      "target": "src_components_elquest_elquestengine_shuffleitems",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_shuffleitems"
     },
     {
       "relation": "calls",
@@ -10476,9 +10606,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L280",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildwordbuildrounds",
-      "target": "src_components_elquest_elquestengine_shuffleitems",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_shuffleitems"
     },
     {
       "relation": "calls",
@@ -10487,9 +10617,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L521",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildwordchainrounds",
-      "target": "src_components_elquest_elquestengine_shuffleitems",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_shuffleitems"
     },
     {
       "relation": "calls",
@@ -10498,9 +10628,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L312",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildwordplayrounds",
-      "target": "src_components_elquest_elquestengine_shuffleitems",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_shuffleitems"
     },
     {
       "relation": "calls",
@@ -10509,9 +10639,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L118",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_distractorgraphemes",
-      "target": "src_components_elquest_elquestengine_shuffleitems",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_shuffleitems"
     },
     {
       "relation": "calls",
@@ -10520,9 +10650,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_focusentries",
-      "target": "src_components_elquest_elquestengine_shuffleitems",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_shuffleitems"
     },
     {
       "relation": "calls",
@@ -10531,9 +10661,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L472",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_patternfamiliesforcycle",
-      "target": "src_components_elquest_elquestengine_shuffleitems",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_shuffleitems"
     },
     {
       "relation": "imports",
@@ -10564,9 +10694,9 @@
       "source_file": "tests/unit/elQuestEngine.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_unit_elquestengine_test",
-      "target": "src_components_elquest_elquestengine_shuffleitems",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_shuffleitems"
     },
     {
       "relation": "calls",
@@ -10575,9 +10705,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_firstexisting",
-      "target": "src_data_knownbadwordaudio_isknownbadaudiopath",
-      "confidence_score": 1.0
+      "target": "src_data_knownbadwordaudio_isknownbadaudiopath"
     },
     {
       "relation": "calls",
@@ -10586,9 +10716,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_graphemeaudiopath",
-      "target": "src_components_elquest_elquestengine_firstexisting",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_firstexisting"
     },
     {
       "relation": "calls",
@@ -10597,9 +10727,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L154",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_letternameaudiopath",
-      "target": "src_components_elquest_elquestengine_firstexisting",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_firstexisting"
     },
     {
       "relation": "calls",
@@ -10608,9 +10738,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_wordaudiopath",
-      "target": "src_components_elquest_elquestengine_firstexisting",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_firstexisting"
     },
     {
       "relation": "calls",
@@ -10619,9 +10749,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L154",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_letternameaudiopath",
-      "target": "src_components_elquest_elquestengine_graphemeaudiopath",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_graphemeaudiopath"
     },
     {
       "relation": "imports",
@@ -10674,9 +10804,9 @@
       "source_file": "tests/unit/elQuestEngine.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_unit_elquestengine_test",
-      "target": "src_components_elquest_elquestengine_graphemeaudiopath",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_graphemeaudiopath"
     },
     {
       "relation": "calls",
@@ -10685,9 +10815,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L532",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildwordchainrounds",
-      "target": "src_components_elquest_elquestengine_wordaudiopath",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_wordaudiopath"
     },
     {
       "relation": "calls",
@@ -10696,9 +10826,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L315",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildwordplayrounds",
-      "target": "src_components_elquest_elquestengine_wordaudiopath",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_wordaudiopath"
     },
     {
       "relation": "calls",
@@ -10894,9 +11024,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L218",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildhuntrounds",
-      "target": "src_components_elquest_elquestengine_focusentries",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_focusentries"
     },
     {
       "relation": "calls",
@@ -10905,9 +11035,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L159",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildletterrounds",
-      "target": "src_components_elquest_elquestengine_focusentries",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_focusentries"
     },
     {
       "relation": "calls",
@@ -10916,9 +11046,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L194",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildsoundrounds",
-      "target": "src_components_elquest_elquestengine_focusentries",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_focusentries"
     },
     {
       "relation": "calls",
@@ -10927,9 +11057,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L428",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildtracerounds",
-      "target": "src_components_elquest_elquestengine_focusentries",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_focusentries"
     },
     {
       "relation": "calls",
@@ -10938,9 +11068,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L274",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildwordbuildrounds",
-      "target": "src_components_elquest_elquestengine_focusentries",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_focusentries"
     },
     {
       "relation": "calls",
@@ -10949,9 +11079,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L306",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildwordplayrounds",
-      "target": "src_components_elquest_elquestengine_focusentries",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_focusentries"
     },
     {
       "relation": "calls",
@@ -10960,9 +11090,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L113",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_distractorgraphemes",
-      "target": "src_components_elquest_elquestengine_taughtgraphemesthrough",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_taughtgraphemesthrough"
     },
     {
       "relation": "indirect_call",
@@ -10971,9 +11101,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L147",
       "weight": 1.0,
+      "confidence_score": 0.5,
       "source": "src_components_elquest_elquestengine_picturewordsfor",
-      "target": "src_components_elquest_elquestengine_haspicture",
-      "confidence_score": 0.5
+      "target": "src_components_elquest_elquestengine_haspicture"
     },
     {
       "relation": "calls",
@@ -10982,9 +11112,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L187",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildletterrounds",
-      "target": "src_components_elquest_elquestengine_buildsoundrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildsoundrounds"
     },
     {
       "relation": "calls",
@@ -10993,9 +11123,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L620",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildstationrounds",
-      "target": "src_components_elquest_elquestengine_buildletterrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildletterrounds"
     },
     {
       "relation": "calls",
@@ -11004,9 +11134,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L441",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildtracerounds",
-      "target": "src_components_elquest_elquestengine_buildletterrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildletterrounds"
     },
     {
       "relation": "calls",
@@ -11015,9 +11145,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L621",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildstationrounds",
-      "target": "src_components_elquest_elquestengine_buildsoundrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildsoundrounds"
     },
     {
       "relation": "calls",
@@ -11026,9 +11156,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L622",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildstationrounds",
-      "target": "src_components_elquest_elquestengine_buildhuntrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildhuntrounds"
     },
     {
       "relation": "calls",
@@ -11037,9 +11167,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L376",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildpoemrounds",
-      "target": "src_components_elquest_elquestengine_buildquickwordrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildquickwordrounds"
     },
     {
       "relation": "calls",
@@ -11048,9 +11178,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L251",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildquickwordrounds",
-      "target": "src_data_knownbadwordaudio_hasknownbadwordaudio",
-      "confidence_score": 1.0
+      "target": "src_data_knownbadwordaudio_hasknownbadwordaudio"
     },
     {
       "relation": "calls",
@@ -11059,9 +11189,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L547",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildspeedywordrounds",
-      "target": "src_components_elquest_elquestengine_buildquickwordrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildquickwordrounds"
     },
     {
       "relation": "calls",
@@ -11070,9 +11200,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L623",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildstationrounds",
-      "target": "src_components_elquest_elquestengine_buildquickwordrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildquickwordrounds"
     },
     {
       "relation": "calls",
@@ -11081,9 +11211,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L407",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildstoryrounds",
-      "target": "src_components_elquest_elquestengine_buildquickwordrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildquickwordrounds"
     },
     {
       "relation": "calls",
@@ -11092,9 +11222,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L370",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildwordplayrounds",
-      "target": "src_components_elquest_elquestengine_buildquickwordrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildquickwordrounds"
     },
     {
       "relation": "calls",
@@ -11103,9 +11233,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L559",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildspellrounds",
-      "target": "src_components_elquest_elquestengine_buildwordbuildrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildwordbuildrounds"
     },
     {
       "relation": "calls",
@@ -11114,9 +11244,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L624",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildstationrounds",
-      "target": "src_components_elquest_elquestengine_buildwordbuildrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildwordbuildrounds"
     },
     {
       "relation": "calls",
@@ -11125,9 +11255,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L378",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildpoemrounds",
-      "target": "src_components_elquest_elquestengine_uniquechoices",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_uniquechoices"
     },
     {
       "relation": "calls",
@@ -11136,9 +11266,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L557",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildspellrounds",
-      "target": "src_components_elquest_elquestengine_uniquechoices",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_uniquechoices"
     },
     {
       "relation": "calls",
@@ -11147,9 +11277,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L305",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildwordplayrounds",
-      "target": "src_components_elquest_elquestengine_uniquechoices",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_uniquechoices"
     },
     {
       "relation": "calls",
@@ -11158,9 +11288,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L625",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildstationrounds",
-      "target": "src_components_elquest_elquestengine_buildwordplayrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildwordplayrounds"
     },
     {
       "relation": "calls",
@@ -11169,9 +11299,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L617",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildstationrounds",
-      "target": "src_components_elquest_elquestengine_buildpoemrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildpoemrounds"
     },
     {
       "relation": "calls",
@@ -11180,9 +11310,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L478",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildpatternpowerrounds",
-      "target": "src_components_elquest_elquestengine_patternfamiliesforcycle",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_patternfamiliesforcycle"
     },
     {
       "relation": "calls",
@@ -11191,9 +11321,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L613",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildstationrounds",
-      "target": "src_components_elquest_elquestengine_buildpatternpowerrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildpatternpowerrounds"
     },
     {
       "relation": "calls",
@@ -11202,9 +11332,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L525",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildwordchainrounds",
-      "target": "src_components_elquest_elquestengine_changedslot",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_changedslot"
     },
     {
       "relation": "calls",
@@ -11213,9 +11343,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L614",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildstationrounds",
-      "target": "src_components_elquest_elquestengine_buildwordchainrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildwordchainrounds"
     },
     {
       "relation": "calls",
@@ -11224,9 +11354,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L615",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildstationrounds",
-      "target": "src_components_elquest_elquestengine_buildspeedywordrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildspeedywordrounds"
     },
     {
       "relation": "calls",
@@ -11235,9 +11365,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L616",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildstationrounds",
-      "target": "src_components_elquest_elquestengine_buildspellrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildspellrounds"
     },
     {
       "relation": "calls",
@@ -11246,9 +11376,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L611",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_buildstationrounds",
-      "target": "src_components_elquest_elquestengine_isfluencycycle",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_isfluencycycle"
     },
     {
       "relation": "calls",
@@ -11257,9 +11387,9 @@
       "source_file": "src/components/elQuest/elQuestEngine.js",
       "source_location": "L606",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_components_elquest_elquestengine_stationsforcycle",
-      "target": "src_components_elquest_elquestengine_isfluencycycle",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_isfluencycycle"
     },
     {
       "relation": "imports",
@@ -11312,9 +11442,9 @@
       "source_file": "tests/unit/elQuestEngine.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_unit_elquestengine_test",
-      "target": "src_components_elquest_elquestengine_buildstationrounds",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_buildstationrounds"
     },
     {
       "relation": "imports",
@@ -11334,9 +11464,9 @@
       "source_file": "tests/unit/elQuestEngine.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_unit_elquestengine_test",
-      "target": "src_components_elquest_elquestengine_starsforaccuracy",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_starsforaccuracy"
     },
     {
       "relation": "imports_from",
@@ -11355,9 +11485,9 @@
       "source_file": "src/data/knownBadWordAudio.js",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data_knownbadwordaudio",
-      "target": "src_data_knownbadwordaudio_hasknownbadwordaudio",
-      "confidence_score": 1.0
+      "target": "src_data_knownbadwordaudio_hasknownbadwordaudio"
     },
     {
       "relation": "contains",
@@ -11365,9 +11495,9 @@
       "source_file": "src/data/knownBadWordAudio.js",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data_knownbadwordaudio",
-      "target": "src_data_knownbadwordaudio_isknownbadaudiopath",
-      "confidence_score": 1.0
+      "target": "src_data_knownbadwordaudio_isknownbadaudiopath"
     },
     {
       "relation": "contains",
@@ -11375,9 +11505,9 @@
       "source_file": "src/data/knownBadWordAudio.js",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data_knownbadwordaudio",
-      "target": "src_data_knownbadwordaudio_known_bad_audio_paths",
-      "confidence_score": 1.0
+      "target": "src_data_knownbadwordaudio_known_bad_audio_paths"
     },
     {
       "relation": "contains",
@@ -11385,9 +11515,9 @@
       "source_file": "src/data/knownBadWordAudio.js",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data_knownbadwordaudio",
-      "target": "src_data_knownbadwordaudio_known_bad_word_audio",
-      "confidence_score": 1.0
+      "target": "src_data_knownbadwordaudio_known_bad_word_audio"
     },
     {
       "relation": "imports_from",
@@ -11396,9 +11526,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_data_knownbadwordaudio",
-      "confidence_score": 1.0
+      "target": "src_data_knownbadwordaudio"
     },
     {
       "relation": "imports_from",
@@ -11407,9 +11537,9 @@
       "source_file": "tests/unit/elQuestEngine.test.js",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_unit_elquestengine_test",
-      "target": "src_data_knownbadwordaudio",
-      "confidence_score": 1.0
+      "target": "src_data_knownbadwordaudio"
     },
     {
       "relation": "imports_from",
@@ -11473,9 +11603,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_data_knownbadwordaudio_hasknownbadwordaudio",
-      "confidence_score": 1.0
+      "target": "src_data_knownbadwordaudio_hasknownbadwordaudio"
     },
     {
       "relation": "calls",
@@ -11517,9 +11647,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_data_knownbadwordaudio_isknownbadaudiopath",
-      "confidence_score": 1.0
+      "target": "src_data_knownbadwordaudio_isknownbadaudiopath"
     },
     {
       "relation": "calls",
@@ -11528,9 +11658,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_existingaudiopaths",
-      "target": "src_data_knownbadwordaudio_isknownbadaudiopath",
-      "confidence_score": 1.0
+      "target": "src_data_knownbadwordaudio_isknownbadaudiopath"
     },
     {
       "relation": "imports",
@@ -11539,9 +11669,9 @@
       "source_file": "tests/unit/elQuestEngine.test.js",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_unit_elquestengine_test",
-      "target": "src_data_knownbadwordaudio_isknownbadaudiopath",
-      "confidence_score": 1.0
+      "target": "src_data_knownbadwordaudio_isknownbadaudiopath"
     },
     {
       "relation": "contains",
@@ -11549,9 +11679,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_cancelspeech",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_cancelspeech"
     },
     {
       "relation": "contains",
@@ -11559,9 +11689,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_evictoldesthowlifneeded",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_evictoldesthowlifneeded"
     },
     {
       "relation": "contains",
@@ -11569,9 +11699,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_existingaudiopaths",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_existingaudiopaths"
     },
     {
       "relation": "contains",
@@ -11579,9 +11709,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_gethowl",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_gethowl"
     },
     {
       "relation": "contains",
@@ -11589,9 +11719,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L189",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_getlearngamesaudiocachesizefordebug",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_getlearngamesaudiocachesizefordebug"
     },
     {
       "relation": "contains",
@@ -11599,9 +11729,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L158",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_hasrecordedspeech",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_hasrecordedspeech"
     },
     {
       "relation": "contains",
@@ -11609,9 +11739,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_howlcache",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_howlcache"
     },
     {
       "relation": "contains",
@@ -11619,9 +11749,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_islongaudiosource",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_islongaudiosource"
     },
     {
       "relation": "contains",
@@ -11629,9 +11759,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_normalizedtext",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_normalizedtext"
     },
     {
       "relation": "contains",
@@ -11639,9 +11769,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_playaudio",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_playaudio"
     },
     {
       "relation": "contains",
@@ -11649,9 +11779,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_playfirstavailable",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_playfirstavailable"
     },
     {
       "relation": "contains",
@@ -11659,9 +11789,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_slugify",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_slugify"
     },
     {
       "relation": "contains",
@@ -11669,9 +11799,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L171",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_speak",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_speak"
     },
     {
       "relation": "contains",
@@ -11679,9 +11809,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L110",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_speakphoneme",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_speakphoneme"
     },
     {
       "relation": "contains",
@@ -11689,9 +11819,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_speakwithbrowser",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_speakwithbrowser"
     },
     {
       "relation": "contains",
@@ -11699,9 +11829,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L139",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_speakword",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_speakword"
     },
     {
       "relation": "contains",
@@ -11709,9 +11839,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_stopcurrentcues",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_stopcurrentcues"
     },
     {
       "relation": "contains",
@@ -11719,9 +11849,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_vowel_sound_text",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_vowel_sound_text"
     },
     {
       "relation": "contains",
@@ -11729,9 +11859,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio",
-      "target": "src_utils_learngamesaudio_vowels",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_vowels"
     },
     {
       "relation": "calls",
@@ -11740,9 +11870,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L164",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_hasrecordedspeech",
-      "target": "src_utils_learngamesaudio_existingaudiopaths",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_existingaudiopaths"
     },
     {
       "relation": "calls",
@@ -11751,9 +11881,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_playfirstavailable",
-      "target": "src_utils_learngamesaudio_existingaudiopaths",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_existingaudiopaths"
     },
     {
       "relation": "calls",
@@ -11762,9 +11892,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_slugify",
-      "target": "src_utils_learngamesaudio_normalizedtext",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_normalizedtext"
     },
     {
       "relation": "calls",
@@ -11773,9 +11903,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L112",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_speakphoneme",
-      "target": "src_utils_learngamesaudio_normalizedtext",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_normalizedtext"
     },
     {
       "relation": "calls",
@@ -11784,9 +11914,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L163",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_hasrecordedspeech",
-      "target": "src_utils_learngamesaudio_slugify",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_slugify"
     },
     {
       "relation": "calls",
@@ -11795,9 +11925,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L179",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_speak",
-      "target": "src_utils_learngamesaudio_slugify",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_slugify"
     },
     {
       "relation": "calls",
@@ -11806,9 +11936,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L141",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_speakword",
-      "target": "src_utils_learngamesaudio_slugify",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_slugify"
     },
     {
       "relation": "calls",
@@ -11817,9 +11947,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_gethowl",
-      "target": "src_utils_learngamesaudio_evictoldesthowlifneeded",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_evictoldesthowlifneeded"
     },
     {
       "relation": "calls",
@@ -11828,9 +11958,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_gethowl",
-      "target": "src_utils_learngamesaudio_islongaudiosource",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_islongaudiosource"
     },
     {
       "relation": "calls",
@@ -11839,9 +11969,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_playfirstavailable",
-      "target": "src_utils_learngamesaudio_playaudio",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_playaudio"
     },
     {
       "relation": "calls",
@@ -11850,9 +11980,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L180",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_speak",
-      "target": "src_utils_learngamesaudio_playfirstavailable",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_playfirstavailable"
     },
     {
       "relation": "calls",
@@ -11861,9 +11991,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L132",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_speakphoneme",
-      "target": "src_utils_learngamesaudio_playfirstavailable",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_playfirstavailable"
     },
     {
       "relation": "calls",
@@ -11872,9 +12002,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L152",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_speakword",
-      "target": "src_utils_learngamesaudio_playfirstavailable",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_playfirstavailable"
     },
     {
       "relation": "calls",
@@ -11883,9 +12013,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L186",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_speak",
-      "target": "src_utils_learngamesaudio_speakwithbrowser",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_speakwithbrowser"
     },
     {
       "relation": "calls",
@@ -11894,9 +12024,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L136",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_speakphoneme",
-      "target": "src_utils_learngamesaudio_speakwithbrowser",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_speakwithbrowser"
     },
     {
       "relation": "calls",
@@ -11905,9 +12035,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L153",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_speakword",
-      "target": "src_utils_learngamesaudio_speakwithbrowser",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_speakwithbrowser"
     },
     {
       "relation": "calls",
@@ -11916,9 +12046,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L172",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_speak",
-      "target": "src_utils_learngamesaudio_stopcurrentcues",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_stopcurrentcues"
     },
     {
       "relation": "calls",
@@ -11927,9 +12057,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_speakphoneme",
-      "target": "src_utils_learngamesaudio_stopcurrentcues",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_stopcurrentcues"
     },
     {
       "relation": "calls",
@@ -11938,9 +12068,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L140",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_speakword",
-      "target": "src_utils_learngamesaudio_stopcurrentcues",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_stopcurrentcues"
     },
     {
       "relation": "calls",
@@ -11949,9 +12079,9 @@
       "source_file": "src/utils/learnGamesAudio.js",
       "source_location": "L176",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_utils_learngamesaudio_speak",
-      "target": "src_utils_learngamesaudio_speakword",
-      "confidence_score": 1.0
+      "target": "src_utils_learngamesaudio_speakword"
     },
     {
       "relation": "imports",
@@ -11960,9 +12090,9 @@
       "source_file": "tests/unit/elQuestEngine.test.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_unit_elquestengine_test",
-      "target": "src_components_elquest_elquestengine_stations",
-      "confidence_score": 1.0
+      "target": "src_components_elquest_elquestengine_stations"
     },
     {
       "relation": "contains",
@@ -11970,9 +12100,9 @@
       "source_file": "tests/unit/elQuestEngine.test.js",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_unit_elquestengine_test",
-      "target": "tests_unit_elquestengine_test_cycle1",
-      "confidence_score": 1.0
+      "target": "tests_unit_elquestengine_test_cycle1"
     },
     {
       "relation": "contains",
@@ -21866,5 +21996,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "407946af55980e33f710461032b7515529a483ec"
+  "built_at_commit": "df618b1051306b86c5db61ad1080dbdd89fa6dd2"
 }
