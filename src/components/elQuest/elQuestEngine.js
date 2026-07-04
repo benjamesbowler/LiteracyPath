@@ -74,11 +74,25 @@ export function wordAudioPath(word) {
 
 function focusEntries(cycle) {
   if (cycle.focusLetters?.length) {
-    return cycle.focusLetters.map(item => ({
-      grapheme: item.grapheme || item.spelling,
-      sound: item.sound || "",
-      spelling: (item.spelling || "").toLowerCase()
-    }));
+    // A focus row can bundle several graphemes ("ff ss zz ll" - the fizzle
+    // letters). Split them so every station builds real per-sound rounds
+    // instead of failing to match "ff ss zz ll" against the word banks.
+    return cycle.focusLetters.flatMap(item => {
+      const raw = (item.spelling || "").toLowerCase();
+      const parts = raw.split(/[\s/,+]+/).filter(part => /^[a-z]{1,3}$/.test(part));
+      if (parts.length <= 1) {
+        return [{
+          grapheme: item.grapheme || item.spelling,
+          sound: item.sound || "",
+          spelling: raw
+        }];
+      }
+      return parts.map(part => ({
+        grapheme: part,
+        sound: item.sound || "",
+        spelling: part
+      }));
+    });
   }
   // Review/wrap-up cycles: sample from the letters under review.
   // Entries can be plain strings or {grapheme, spelling} objects.
@@ -215,7 +229,7 @@ function buildSoundRounds(cycle) {
 
 // Station - Sound Hunt: which picture starts with the sound?
 function buildHuntRounds(cycle) {
-  return focusEntries(cycle)
+  const rounds = focusEntries(cycle)
     .filter(entry => pictureWordsFor(entry.spelling).length)
     .flatMap(entry => {
       const answers = shuffleItems(pictureWordsFor(entry.spelling)).slice(0, 2);
@@ -235,6 +249,9 @@ function buildHuntRounds(cycle) {
         };
       });
     });
+  // A station must never open empty: if no focus grapheme has picture
+  // words (e.g. double-letter patterns), hunt becomes a Sound Catch run.
+  return rounds.length ? rounds : buildSoundRounds(cycle);
 }
 
 // Station - Quick Words: hear the high-frequency word, tap it.
@@ -271,12 +288,18 @@ function buildQuickWordRounds(cycle) {
 
 // Station - Word Build: build a word that uses a focus letter.
 function buildWordBuildRounds(cycle) {
-  const candidates = focusEntries(cycle)
+  const pool = focusEntries(cycle)
     .flatMap(entry => exampleWordsFor(entry.spelling))
     // Only clean 2-5 letter words: a single letter or a stray space would
     // render the wrong number of boxes and make the round impossible to pass.
     // And only words with a real recording - the round says the word aloud.
     .filter(word => /^[a-z]{2,5}$/.test(word) && wordAudioPath(word));
+  // Curriculum rule (same as the worksheets): prefer words built ONLY from
+  // letters taught by this cycle, so children never assemble letters they
+  // have not met. Fall back to the full pool rather than an empty station.
+  const taughtLetters = new Set(taughtGraphemesThrough(cycle.cycleNumber || 27).filter(g => g.length === 1));
+  const taughtOnly = pool.filter(word => [...word].every(letter => taughtLetters.has(letter)));
+  const candidates = taughtOnly.length >= 2 ? taughtOnly : pool;
   const words = shuffleItems([...new Set(candidates)]).slice(0, 4);
   return words.map(word => ({
     type: "build",

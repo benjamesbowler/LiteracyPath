@@ -1,6 +1,6 @@
 # Repo Hygiene Audit
 
-Date: 2026-07-04T14:35:02.372Z
+Date: 2026-07-04T15:06:27.804Z
 
 This guardrail reports temporary, preview, stale request, generated, or accidental files that may be risky to commit. It does not delete or restore anything.
 
@@ -8,20 +8,22 @@ This guardrail reports temporary, preview, stale request, generated, or accident
 
 | Metric | Count |
 | --- | --- |
-| Failures | 0 |
-| Warnings | 50 |
+| Failures | 1 |
+| Warnings | 55 |
 | Ignored/allowed items | 817 |
-| Git status entries | 16 |
-| Tracked files inspected | 21658 |
-| Untracked files inspected | 6 |
+| Git status entries | 104 |
+| Tracked files inspected | 21666 |
+| Untracked files inspected | 5 |
 
 ## Result
 
-PASS
+FAIL
 
 ## Failures
 
-_None._
+| Path | Reason | Suggested cleanup |
+| --- | --- | --- |
+| .DS_Store | .DS_Store file found. | rm -f .DS_Store |
 
 ## Warnings
 
@@ -66,6 +68,11 @@ _None._
 | docs/assets/kimi_strict_missing_media_import_report.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/missing_media_report.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/next_kimi_media_request_from_skill_audit.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
+| docs/validation/app_image_inventory_audit.json | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/app_image_inventory_audit.json |
+| docs/validation/approved_runtime_sources_audit.json | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/approved_runtime_sources_audit.json |
+| docs/validation/approved_runtime_sources_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/approved_runtime_sources_audit.md |
+| docs/validation/media_overwrite_risk_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/media_overwrite_risk_audit.md |
+| src/data/generated/audioFilePaths.generated.js | Generated/audit file has unstaged working-tree noise. | git restore src/data/generated/audioFilePaths.generated.js |
 | src/data/generated/hfwApprovedQuestionBank.generated.js | Runtime source contains banned phrase "may choose a book". | Review whether this is validation-only text or selectable content. |
 | src/data/assessmentMediaPicker.js | Runtime source mentions photorealistic assessment imagery. | Review asset style and QA status. |
 | src/data/hfwQuestionImageReview.js | Runtime source mentions photorealistic assessment imagery. | Review asset style and QA status. |
@@ -902,4 +909,4 @@ _None._
 
 ## Safe Cleanup Examples
 
-_None needed._
+- rm -f .DS_Store

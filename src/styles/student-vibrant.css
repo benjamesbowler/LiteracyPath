@@ -1122,3 +1122,93 @@
     animation: none;
   }
 }
+
+/* ── Loop-1 layout sweep: remaining narrow screens go wide ──────────────── */
+@media (min-width: 1180px) {
+  /* CVC learn flow was capped at 900px - a thin strip on a projector */
+  .phonics-tab-shell .cvc-picker,
+  .phonics-tab-shell .cvc-step,
+  .phonics-tab-shell .cvc-learning-flow {
+    max-width: 1240px;
+  }
+
+  /* Arcade hub: game cards use the room instead of a 1120px strip */
+  .lg-arcade {
+    width: min(100%, 1320px);
+  }
+
+  /* Reading lines in games: a touch wider, still a readable measure */
+  .lg-sentence-path,
+  .lg-reading-sentence {
+    max-width: 940px;
+  }
+}
+
+/* The fixed den companion must never cover the last card */
+.rewards-page {
+  padding-bottom: clamp(120px, 24vh, 240px);
+}
+
+/* Home page always has breathing room under the rewards banner */
+.student-mode-app .student-home-page {
+  padding-bottom: 48px;
+}
+
+/* ── Loop-2 parity: one-tap start, per-answer sparkle, unmissable map ───── */
+.kid-start-button {
+  align-self: center;
+  border: 0;
+  border-radius: 999px;
+  padding: 18px 44px;
+  font-family: var(--kid-font-display, "Fredoka", sans-serif);
+  font-weight: 600;
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(120deg, var(--kid-green, #23A455) 0%, #35C06A 100%);
+  box-shadow: 0 6px 0 var(--kid-green-deep, #157A3D), 0 14px 30px rgba(21, 122, 61, 0.3);
+  transition: transform 120ms ease-out, box-shadow 120ms ease-out;
+  animation: kid-pop-in 340ms cubic-bezier(0.2, 1.25, 0.4, 1) both;
+}
+
+.kid-start-button:hover { transform: translateY(-2px) scale(1.02); }
+.kid-start-button:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--kid-green-deep, #157A3D); }
+
+/* A sparkle pops on EVERY correct answer, right on the round card */
+.sbq-round-card { position: relative; }
+
+.sbq-sparkle {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 2.4rem;
+  pointer-events: none;
+  animation: kid-sparkle 700ms ease-out forwards;
+}
+
+@keyframes kid-sparkle {
+  0% { transform: scale(0.4) rotate(-20deg); opacity: 0; }
+  35% { transform: scale(1.35) rotate(8deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0) translateY(-18px); opacity: 0; }
+}
+
+/* The NEXT stop on the quest map is unmissable; done stops calm down */
+.skills-block-quest .sbq-map-stop.next strong,
+.skills-block-quest .sbq-stop.next .sbq-stop-marker {
+  animation: den-pulse 1.6s ease-in-out infinite;
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--pal-accent, #4E8C44) 38%, transparent), 0 5px 12px rgba(23, 42, 58, 0.25);
+}
+
+.skills-block-quest .sbq-map-stop.done,
+.skills-block-quest .sbq-stop.done {
+  opacity: 0.82;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kid-start-button,
+  .sbq-sparkle,
+  .skills-block-quest .sbq-map-stop.next strong,
+  .skills-block-quest .sbq-stop.next .sbq-stop-marker {
+    animation: none;
+  }
+}

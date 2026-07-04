@@ -401,6 +401,8 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   const [wrongs, setWrongs] = useState(0);
   const [shaking, setShaking] = useState(false);
   const [encourage, setEncourage] = useState(false);
+  const [sparkle, setSparkle] = useState(false);
+  const answerLockRef = useRef(false);
   const [celebration, setCelebration] = useState(null);
   const [sessionStations, setSessionStations] = useState({});
   const [mapWorldId, setMapWorldId] = useState(null);
@@ -411,6 +413,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   const round = rounds[roundIndex] || null;
 
   useEffect(() => {
+    answerLockRef.current = false;
     if (!round || round.type === "build" || !round.audio) return undefined;
     // The poem narration is ~10s: hear it in full on the first round,
     // then only when the child taps Listen.
@@ -505,8 +508,14 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   }
 
   function handleAnswer(success) {
+    // A fast double-tap during the 500ms transition must not double-count
+    // or skip a round; the lock releases when the next round renders.
+    if (answerLockRef.current) return;
     if (success) {
+      answerLockRef.current = true;
       playCorrectChime();
+      // Micro-celebration on EVERY correct answer (Duolingo ABC pattern).
+      setSparkle(true);
       const nextCorrect = correct + 1;
       setCorrect(nextCorrect);
       if (roundIndex + 1 >= rounds.length) {
@@ -519,6 +528,9 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
       setWrongs(value => value + 1);
       setShaking(true);
       setEncourage(true);
+      // Coach the mistake: replay the sound cue so the child hears it again
+      // right before retrying (never a penalty, always another go).
+      window.setTimeout(() => playCue(round), 700);
       window.setTimeout(() => setEncourage(false), 1500);
     }
   }
@@ -961,6 +973,9 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
           className={`sbq-round-card${shaking ? " sbq-shake" : ""}`}
           onAnimationEnd={() => setShaking(false)}
         >
+          {sparkle && (
+            <span className="sbq-sparkle" aria-hidden="true" onAnimationEnd={() => setSparkle(false)}>✨</span>
+          )}
           <p className="sbq-round-prompt">{round.prompt}</p>
           {encourage && <p className="sbq-encourage" role="status">Almost! Try again.</p>}
           {round.audio && (

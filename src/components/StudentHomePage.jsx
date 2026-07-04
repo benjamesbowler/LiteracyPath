@@ -162,6 +162,19 @@ export function StudentHomePage({
           </div>
         </div>
 
+        {!status.missionComplete && (
+          <button
+            className="kid-start-button"
+            type="button"
+            onClick={() => {
+              const nextTile = MISSION_TILES.find(tile => !status.done[tile.kind]);
+              if (nextTile) missionTargets[nextTile.kind]?.();
+            }}
+          >
+            ▶ Start today&apos;s quest
+          </button>
+        )}
+
         <div className="student-mission-grid">
           {MISSION_TILES.map(tile => {
             const item = mission[tile.kind];
