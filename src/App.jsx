@@ -27,6 +27,7 @@ import { PresentPage } from "./components/PresentPage.jsx";
 import { TeacherDashboardPage } from "./components/TeacherDashboardPage.jsx";
 import { StudentEntryPage } from "./components/StudentEntryPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
+import { RewardsPage } from "./components/RewardsPage.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { SchoolNameInput } from "./components/SchoolNameInput.jsx";
 import { worldForScope } from "./utils/palWorlds.js";
@@ -160,6 +161,7 @@ let assessmentMediaPickerModulePromise = null;
 const STUDENT_SESSION_STORAGE_KEY = "lp-student-session-v1";
 const STUDENT_ALLOWED_VIEWS = new Set([
   APP_VIEWS.STUDENT_HOME,
+  APP_VIEWS.STUDENT_REWARDS,
   APP_VIEWS.PHONICS_LEARN,
   APP_VIEWS.SKILLS_BLOCK_QUEST,
   APP_VIEWS.LEARN,
@@ -7789,7 +7791,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       <div className={appShellClassName}>
       {showConfetti && !prefersReducedMotion && <Confetti recycle={false} numberOfPieces={90} />}
 
-      {isStudentMode && appView !== APP_VIEWS.STUDENT_HOME && (
+      {isStudentMode && appView !== APP_VIEWS.STUDENT_HOME && appView !== APP_VIEWS.STUDENT_REWARDS && (
         <button
           className="student-home-float"
           onClick={() => setAppView(APP_VIEWS.STUDENT_HOME)}
@@ -7825,9 +7827,20 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               setGuidedInitialBookId(typeof bookId === "string" ? bookId : "");
               setAppView(APP_VIEWS.GUIDED_READING);
             }}
+            onOpenRewards={() => setAppView(APP_VIEWS.STUDENT_REWARDS)}
             onLogout={isStudentMode ? logOutStudent : returnToTeacherDashboard}
             logoutLabel={isStudentMode ? "Sign out" : "Teacher dashboard"}
             logoutAriaLabel={isStudentMode ? "Log out" : "Return to teacher dashboard"}
+          />
+        </PageBoundary>
+      )}
+
+      {appView === APP_VIEWS.STUDENT_REWARDS && nameSaved && (
+        <PageBoundary resetKey={`student-rewards-${studentId}`}>
+          <RewardsPage
+            studentName={studentName}
+            progressScopeKey={studentId || studentName || "default"}
+            onBack={() => setAppView(APP_VIEWS.STUDENT_HOME)}
           />
         </PageBoundary>
       )}

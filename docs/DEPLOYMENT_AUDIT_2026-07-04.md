@@ -73,6 +73,15 @@ Suite grew 52 → 60 unit tests; all green.
 
 Suite: 69/69 unit tests, ESLint 0 errors, approved-sources + onset-giveaway clean in sandbox.
 
+## Addendum 5 — Reduce Motion root cause, Treasure Den, letter-audio audit
+
+1. **"Still no writing animation" root cause**: Benjamin's Mac has macOS *Reduce Motion* enabled; the deck honoured it and drew letters instantly. The writing demo is TEACHING CONTENT, so it now always animates (verified live in Chrome: pencil draws each stroke). Decorative juice still respects Reduce Motion.
+2. **Letter audio audit tooling**: `docs/previews/letter_audio_audit.html` plays every letter's SOUND clip (must be "ah", never "ay") and NAME clip for a fast ear-check. New `KNOWN_BAD_AUDIO_PATHS` blocklist in `knownBadWordAudio.js` lets any reported bad clip be disabled with one line - the audio chain falls through to the next good copy.
+3. **My Treasure Den** (`RewardsPage.jsx`, student view `studentRewards`): Raz-Kids-style rewards HQ - big gem counter, the full Treasure Trail as a dotted path of prizes (earned/next/locked), badge wall (cycle medallions + legacy gems), unlockable den backdrops the child chooses (meadow free, dino at 20, moonwood at 45 gems; choice stored in profile), and "how to earn" tiles. Home page now has a compact rewards banner + a "You earned the X!" pop-up toast for prizes earned since the last den visit (seen-state is local UI only).
+4. **Design pass v2** (taste-skill guided): world-mesh backgrounds on the student home (was flat grey), cream surfaces with world-tinted shadows (no more clinical white/black), staggered card entrances, Fredoka headline discipline.
+
+Suite: 72/72 tests, changed files ESLint 0 errors.
+
 ## Final gate — run on this Mac before deploying
 
 ```bash

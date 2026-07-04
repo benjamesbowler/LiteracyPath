@@ -706,3 +706,416 @@
     transition: none;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   DESIGN PASS v2 — premium-playful cohesion (taste-skill guided):
+   world-tinted depth instead of flat grey, tinted shadows instead of black,
+   cream surfaces instead of clinical white, staggered entrances.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* The home page always sits in its world, never on IT-grey */
+.lg-app-shell[data-pal-world] .student-home-page {
+  background: var(--pal-mesh, linear-gradient(180deg, #F2FAEE 0%, #DFF2D6 100%));
+}
+
+/* Cream, warm surfaces + world-tinted shadows */
+.student-mode-app .student-home-topbar,
+.student-mode-app .student-mission,
+.student-mode-app .student-home-card,
+.student-mode-app .kid-den-banner {
+  background: #FFFDF8;
+  border: 0;
+  box-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.9) inset,
+    0 10px 26px color-mix(in srgb, var(--pal-deep, #35652E) 12%, transparent),
+    0 2px 6px color-mix(in srgb, var(--pal-deep, #35652E) 8%, transparent);
+}
+
+.student-mode-app .student-home-card {
+  box-shadow:
+    var(--kid-press) color-mix(in srgb, var(--pal-accent, #4E8C44) 24%, #E2E2D8),
+    0 10px 26px color-mix(in srgb, var(--pal-deep, #35652E) 10%, transparent);
+}
+
+/* Staggered entrance cascade - cards arrive one after another */
+.student-mode-app .student-mission-tile,
+.student-mode-app .student-home-card,
+.skills-block-quest .sbq-station {
+  animation: kid-pop-in 340ms cubic-bezier(0.2, 1.25, 0.4, 1) both;
+}
+
+.student-mode-app .student-mission-tile:nth-child(2),
+.student-mode-app .student-home-card:nth-child(2),
+.skills-block-quest .sbq-station:nth-child(2) { animation-delay: 60ms; }
+.student-mode-app .student-mission-tile:nth-child(3),
+.student-mode-app .student-home-card:nth-child(3),
+.skills-block-quest .sbq-station:nth-child(3) { animation-delay: 120ms; }
+.student-mode-app .student-home-card:nth-child(4),
+.skills-block-quest .sbq-station:nth-child(4) { animation-delay: 180ms; }
+.skills-block-quest .sbq-station:nth-child(5) { animation-delay: 240ms; }
+.skills-block-quest .sbq-station:nth-child(6) { animation-delay: 300ms; }
+.skills-block-quest .sbq-station:nth-child(7) { animation-delay: 360ms; }
+.skills-block-quest .sbq-station:nth-child(8) { animation-delay: 420ms; }
+.skills-block-quest .sbq-station:nth-child(9) { animation-delay: 480ms; }
+.skills-block-quest .sbq-station:nth-child(10) { animation-delay: 540ms; }
+
+/* Headline presence */
+.student-mode-app .student-home-intro h1 {
+  font-family: var(--kid-font-display);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+/* ── Home: compact rewards banner ────────────────────────────────────── */
+.kid-den-banner {
+  width: min(100%, 1080px);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 14px 18px;
+  border-radius: var(--kid-radius, 22px);
+}
+
+.kid-den-banner-next {
+  flex: 1 1 220px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+}
+
+.kid-den-banner-next .kid-next-unlock-track {
+  flex: 1;
+}
+
+.kid-den-banner-next em {
+  font-style: normal;
+  font-family: var(--kid-font-display, "Fredoka", sans-serif);
+  font-weight: 600;
+  color: var(--kid-ink, #1C2B3A);
+  white-space: nowrap;
+}
+
+.kid-den-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-family: var(--kid-font-display, "Fredoka", sans-serif);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(120deg, var(--kid-berry, #A66BFF) 0%, var(--kid-sky, #3FA9F5) 100%);
+  box-shadow: 0 5px 0 var(--kid-berry-deep, #7A3FD1);
+  transition: transform 120ms ease-out, box-shadow 120ms ease-out;
+}
+
+.kid-den-button:hover { transform: translateY(-1px); }
+.kid-den-button:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--kid-berry-deep, #7A3FD1); }
+
+/* ── "You earned it!" pop-up toast ───────────────────────────────────── */
+.kid-reward-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-radius: 20px;
+  background: #FFFDF8;
+  box-shadow: 0 6px 0 #E3C86F, 0 18px 44px rgba(23, 42, 58, 0.3);
+  border: 3px solid #FFD474;
+  animation: kid-toast-in 500ms cubic-bezier(0.2, 1.4, 0.4, 1) both;
+  max-width: min(94vw, 560px);
+}
+
+@keyframes kid-toast-in {
+  from { transform: translate(-50%, 120%); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+.kid-reward-toast-icon {
+  font-size: 2.2rem;
+  animation: kid-cheer-jump 900ms ease-out 300ms;
+}
+
+.kid-reward-toast strong {
+  display: block;
+  font-family: var(--kid-font-display, "Fredoka", sans-serif);
+  font-size: 1.1rem;
+  color: #1C2B3A;
+}
+
+.kid-reward-toast small { color: #6B7585; }
+
+.kid-reward-toast-close {
+  border: 0;
+  background: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #9AA5B1;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+/* ── My Treasure Den (rewards page) ──────────────────────────────────── */
+.rewards-page {
+  position: relative;
+  min-height: 100dvh;
+  padding: clamp(14px, 2.4vw, 28px);
+  display: grid;
+  gap: 18px;
+  align-content: start;
+  justify-items: center;
+  background: var(--pal-mesh, linear-gradient(180deg, #F2FAEE, #DFF2D6));
+  overflow: hidden;
+}
+
+.den-backdrop {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: min(46vh, 440px);
+  background-size: cover;
+  background-position: center bottom;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 36%, #000 65%);
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 36%, #000 65%);
+}
+
+.rewards-page > * { position: relative; }
+
+.den-header {
+  width: min(100%, 1200px);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.den-title { flex: 1; min-width: 240px; }
+
+.den-title h1 {
+  margin: 0;
+  font-family: var(--kid-font-display, "Fredoka", sans-serif);
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3.6vw, 2.6rem);
+  letter-spacing: -0.02em;
+  color: var(--pal-deep, #35652E);
+}
+
+.den-title p { margin: 2px 0 0; color: #4C5A68; font-size: 1.02rem; }
+
+.den-gem-counter { font-size: 1.5rem; padding: 12px 26px; }
+
+.den-companion {
+  position: fixed;
+  right: clamp(8px, 3vw, 40px);
+  bottom: 0;
+  height: min(26vh, 240px);
+  pointer-events: none;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.25));
+  animation: bob 2.6s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.den-card {
+  width: min(100%, 1200px);
+  background: rgba(255, 253, 248, 0.94);
+  border-radius: 26px;
+  padding: clamp(16px, 2.4vw, 26px);
+  box-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.9) inset,
+    0 14px 34px color-mix(in srgb, var(--pal-deep, #35652E) 14%, transparent);
+  display: grid;
+  gap: 14px;
+  animation: kid-pop-in 340ms cubic-bezier(0.2, 1.25, 0.4, 1) both;
+}
+
+.rewards-page .den-card:nth-of-type(2) { animation-delay: 70ms; }
+.rewards-page .den-card:nth-of-type(3) { animation-delay: 140ms; }
+.rewards-page .den-card:nth-of-type(4) { animation-delay: 210ms; }
+
+.den-card h2 {
+  margin: 0;
+  font-family: var(--kid-font-display, "Fredoka", sans-serif);
+  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--kid-ink, #1C2B3A);
+}
+
+.den-next { box-shadow: none; border: 2px solid #EDE4F9; }
+
+/* The trail itself: a connected path of prize stops */
+.den-trail {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(104px, 1fr));
+  gap: 10px;
+  position: relative;
+}
+
+.den-trail-stop {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  text-align: center;
+  padding: 12px 6px;
+  border-radius: 18px;
+}
+
+.den-trail-stop::before {
+  /* the dotted path between stops */
+  content: "";
+  position: absolute;
+  top: 34px;
+  left: -50%;
+  width: 100%;
+  border-top: 4px dotted color-mix(in srgb, var(--pal-accent, #4E8C44) 45%, #D8D2C4);
+  z-index: 0;
+}
+
+.den-trail-stop:first-child::before { display: none; }
+
+.den-trail-icon {
+  position: relative;
+  z-index: 1;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  font-size: 1.9rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.55), transparent 44%),
+    conic-gradient(from 210deg, #FFD474, #F2A93B, #FFE3A1, #F2A93B, #FFD474);
+  box-shadow: 0 5px 12px rgba(23, 42, 58, 0.22), inset 0 0 0 3px rgba(255, 255, 255, 0.55);
+}
+
+.den-trail-stop.locked .den-trail-icon {
+  background: #ECEFF2;
+  box-shadow: inset 0 0 0 3px #DDE3E9;
+  font-size: 1.4rem;
+  opacity: 0.85;
+}
+
+.den-trail-stop.next .den-trail-icon {
+  animation: den-pulse 1.6s ease-in-out infinite;
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--kid-berry, #A66BFF) 35%, transparent), 0 5px 12px rgba(23, 42, 58, 0.22);
+}
+
+@keyframes den-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.09); }
+}
+
+.den-trail-stop strong {
+  font-family: var(--kid-font-display, "Fredoka", sans-serif);
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--kid-ink, #1C2B3A);
+}
+
+.den-trail-stop em {
+  font-style: normal;
+  font-size: 0.8rem;
+  color: #6B7585;
+}
+
+.den-trail-stop.earned em { color: var(--kid-green-deep, #157A3D); font-weight: 700; }
+.den-trail-stop.next em { color: var(--kid-berry-deep, #7A3FD1); font-weight: 700; }
+.den-trail-stop.locked { opacity: 0.75; }
+
+.den-gem-medal {
+  background: #FFFDF8;
+  box-shadow: 0 5px 12px rgba(23, 42, 58, 0.16), inset 0 0 0 3px #E9E2F6;
+}
+
+.den-empty { margin: 0; color: #55636F; font-size: 1.02rem; }
+
+/* Den backdrop picker */
+.den-themes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.den-theme {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  padding: 12px;
+  border: 3px solid transparent;
+  border-radius: 20px;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #E2E2D8;
+  transition: transform 130ms ease-out, border-color 130ms ease-out;
+}
+
+.den-theme img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.den-theme strong {
+  font-family: var(--kid-font-display, "Fredoka", sans-serif);
+  font-weight: 600;
+  color: var(--kid-ink, #1C2B3A);
+}
+
+.den-theme em { font-style: normal; font-size: 0.85rem; color: #6B7585; }
+
+.den-theme:hover:not(:disabled) { transform: translateY(-3px); }
+.den-theme.active { border-color: var(--kid-green, #23A455); }
+.den-theme.active em { color: var(--kid-green-deep, #157A3D); font-weight: 700; }
+.den-theme.locked { opacity: 0.65; cursor: default; }
+.den-theme.locked img { filter: grayscale(0.85); }
+
+/* How-to-earn tiles */
+.den-earn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+}
+
+.den-earn {
+  display: grid;
+  gap: 2px;
+  justify-items: center;
+  text-align: center;
+  padding: 14px 10px;
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--pal-accent, #4E8C44) 8%, #fff);
+}
+
+.den-earn > span { font-size: 1.7rem; }
+.den-earn strong { font-family: var(--kid-font-display, "Fredoka", sans-serif); font-weight: 600; color: var(--kid-ink, #1C2B3A); }
+.den-earn em { font-style: normal; font-weight: 800; color: var(--kid-berry-deep, #7A3FD1); }
+.den-earn small { color: #6B7585; }
+
+@media (prefers-reduced-motion: reduce) {
+  .student-mode-app .student-mission-tile,
+  .student-mode-app .student-home-card,
+  .skills-block-quest .sbq-station,
+  .den-card,
+  .kid-reward-toast,
+  .kid-reward-toast-icon,
+  .den-companion,
+  .den-trail-stop.next .den-trail-icon {
+    animation: none;
+  }
+}

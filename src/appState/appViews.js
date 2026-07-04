@@ -3,6 +3,7 @@ export const APP_VIEWS = {
   SELECT: "select",
   STUDENT_LOGIN: "studentLogin",
   STUDENT_HOME: "studentHome",
+  STUDENT_REWARDS: "studentRewards",
   OVERVIEW: "overview",
   SKILLS: "skills",
   EL_ASSESSMENTS: "elAssessments",

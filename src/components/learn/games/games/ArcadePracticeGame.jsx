@@ -50,7 +50,7 @@ function GameComplete({ title, stars, score, onRestart }) {
       <h2>{title} complete!</h2>
       <ProgressStars stars={stars} size="lg" />
       <p>{score} points</p>
-      {stars > 0 && <p className="kid-gems-earned">+{stars} 💎 for your Treasure Trail!</p>}
+      {stars > 0 && <p className="kid-gems-earned">+{stars} 💎 for your Treasure Den!</p>}
       <button type="button" className="lg-game-primary" onClick={onRestart}>
         Play again
       </button>

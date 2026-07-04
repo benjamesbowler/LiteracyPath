@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T12:44:13.383Z",
+  "generatedAt": "2026-07-04T13:42:33.788Z",
   "totalImages": 8816,
   "images": [
     {
@@ -129757,7 +129757,7 @@
       "file_size_bytes": 178286,
       "sha1": "9a2a876d4b19c89ba7944af3c919b1ecfa8e9e7a",
       "used_by_app": "yes",
-      "referenced_by": "src/styles/pal-worlds.css; src/utils/palWorlds.js",
+      "referenced_by": "src/styles/pal-worlds.css; src/utils/denRewards.js; src/utils/palWorlds.js",
       "target_word": "dino panorama",
       "skill_id": "",
       "book_id": "",
@@ -130033,7 +130033,7 @@
       "file_size_bytes": 76246,
       "sha1": "e03a229f6e433eef9e26ba826a9c712348f96445",
       "used_by_app": "yes",
-      "referenced_by": "src/styles/pal-worlds.css; src/utils/palWorlds.js",
+      "referenced_by": "src/styles/pal-worlds.css; src/utils/denRewards.js; src/utils/palWorlds.js",
       "target_word": "meadow panorama",
       "skill_id": "",
       "book_id": "",
@@ -130125,7 +130125,7 @@
       "file_size_bytes": 160730,
       "sha1": "ff3c229ac0e6b331bb0c30e0df53f629766a8e72",
       "used_by_app": "yes",
-      "referenced_by": "src/styles/pal-worlds.css; src/utils/palWorlds.js",
+      "referenced_by": "src/styles/pal-worlds.css; src/utils/denRewards.js; src/utils/palWorlds.js",
       "target_word": "moonwood panorama",
       "skill_id": "",
       "book_id": "",

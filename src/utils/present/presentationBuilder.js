@@ -551,7 +551,6 @@ const DECK_CSS = `
   #counter { color: #9a8a76; font-size: 2.6vh; min-width: 8ch; }
   @media (prefers-reduced-motion: reduce) {
     .slide.active, .p-letter, .p-pal-corner, .p-pal-hero { animation: none; }
-    .slide.active .p-write-ink-wrap, .p-write-ink-wrap.replay { animation: none; width: 100%; }
   }
 `;
 
@@ -564,14 +563,15 @@ const DECK_JS = `
     cancelAnimationFrame(writeRaf);
     var svg = slideEl && slideEl.querySelector('.p-write-svg'); if(!svg) return;
     var pencil = svg.querySelector('[data-pencil]');
-    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // NOTE: the writing demo is TEACHING CONTENT (like a video), so it plays
+    // even when the OS asks for reduced motion - only decorative motion obeys.
     var paths = Array.prototype.slice.call(svg.querySelectorAll('[data-write-stroke]'));
     var plan = paths.map(function(p){
       var L = Math.max(p.getTotalLength(), 0.6);
-      p.style.strokeDasharray = L; p.style.strokeDashoffset = reduced ? 0 : L;
+      p.style.strokeDasharray = L; p.style.strokeDashoffset = L;
       return { p: p, L: L, d: Math.max(300, L / 130 * 1000) };
     });
-    if (reduced || !plan.length) return;
+    if (!plan.length) return;
     var i = 0, start = 0, pause = 0;
     function step(now){
       var it = plan[i];

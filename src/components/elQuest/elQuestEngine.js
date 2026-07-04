@@ -6,7 +6,7 @@ import { LETTER_EXAMPLES, elSkillsBlockCycles } from "../../data/elSkillsBlockCy
 import { EL_CYCLE_POEMS } from "../../data/elCyclePoems.js";
 import { QUEST_STORY_QUESTIONS, VERIFIED_PICTURE_WORDS } from "../../data/generated/questStoryQuestions.generated.js";
 import { AUDIO_FILE_PATHS } from "../../data/generated/audioFilePaths.generated.js";
-import { hasKnownBadWordAudio } from "../../data/knownBadWordAudio.js";
+import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../../data/knownBadWordAudio.js";
 
 const VOWELS = new Set(["a", "e", "i", "o", "u"]);
 const ALL_GRAPHEMES = Object.keys(LETTER_EXAMPLES).filter(g => g.length <= 2 && g !== "qu");
@@ -35,7 +35,9 @@ export function shuffleItems(items) {
 }
 
 function firstExisting(paths) {
-  return paths.find(path => AUDIO_FILE_PATHS.has(path)) || "";
+  // Skip clips verified defective by ear - the chain falls through to the
+  // next good recording instead of playing a wrong one.
+  return paths.find(path => AUDIO_FILE_PATHS.has(path) && !isKnownBadAudioPath(path)) || "";
 }
 
 // Spoken cue for a grapheme: pure phoneme recordings first, then the

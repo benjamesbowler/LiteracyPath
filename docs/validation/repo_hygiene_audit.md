@@ -1,6 +1,6 @@
 # Repo Hygiene Audit
 
-Date: 2026-07-04T12:45:29.412Z
+Date: 2026-07-04T13:42:36.624Z
 
 This guardrail reports temporary, preview, stale request, generated, or accidental files that may be risky to commit. It does not delete or restore anything.
 
@@ -9,11 +9,11 @@ This guardrail reports temporary, preview, stale request, generated, or accident
 | Metric | Count |
 | --- | --- |
 | Failures | 0 |
-| Warnings | 55 |
+| Warnings | 54 |
 | Ignored/allowed items | 817 |
-| Git status entries | 40 |
-| Tracked files inspected | 21592 |
-| Untracked files inspected | 47 |
+| Git status entries | 35 |
+| Tracked files inspected | 21639 |
+| Untracked files inspected | 13 |
 
 ## Result
 
@@ -70,7 +70,6 @@ _None._
 | docs/validation/approved_runtime_sources_audit.json | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/approved_runtime_sources_audit.json |
 | docs/validation/approved_runtime_sources_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/approved_runtime_sources_audit.md |
 | docs/validation/media_overwrite_risk_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/media_overwrite_risk_audit.md |
-| src/data/generated/questStoryQuestions.generated.js | Generated/audit file has unstaged working-tree noise. | git restore src/data/generated/questStoryQuestions.generated.js |
 | src/data/generated/hfwApprovedQuestionBank.generated.js | Runtime source contains banned phrase "may choose a book". | Review whether this is validation-only text or selectable content. |
 | src/data/assessmentMediaPicker.js | Runtime source mentions photorealistic assessment imagery. | Review asset style and QA status. |
 | src/data/hfwQuestionImageReview.js | Runtime source mentions photorealistic assessment imagery. | Review asset style and QA status. |

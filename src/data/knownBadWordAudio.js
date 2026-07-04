@@ -12,3 +12,13 @@ export const KNOWN_BAD_WORD_AUDIO = new Set(["am", "ax", "of"]);
 export function hasKnownBadWordAudio(word) {
   return KNOWN_BAD_WORD_AUDIO.has(String(word || "").toLowerCase());
 }
+
+// Exact audio FILES verified defective by ear. The quest's audio resolver
+// skips these, so its fallback chain automatically picks the next good copy
+// (or goes silent). Add a path here the moment a bad clip is reported;
+// remove it when a replacement recording is imported.
+export const KNOWN_BAD_AUDIO_PATHS = new Set([]);
+
+export function isKnownBadAudioPath(path) {
+  return KNOWN_BAD_AUDIO_PATHS.has(String(path || ""));
+}

@@ -828,7 +828,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
             </div>
           )}
           {isCycle && celebration.stars > 0 && (
-            <p className="kid-gems-earned">+{celebration.stars} 💎 for your Treasure Trail — a Cycle {activeCycle.cycleNumber} badge is on your shelf!</p>
+            <p className="kid-gems-earned">+{celebration.stars} 💎 and a Cycle {activeCycle.cycleNumber} badge — see them in your Treasure Den!</p>
           )}
           <div className="sbq-celebrate-actions">
             <button
