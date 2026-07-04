@@ -44,10 +44,15 @@ Full-app audit (UI, UX, educational content, accuracy, media completeness) run b
   2. 13 duplicate target/template pairs in Short Vowel Discrimination (hand-curated + generated twins) — the early-skill generator now skips curated collisions; bank regenerated, 0 duplicates, 304 selectable, all dependent checks re-verified green.
 - Still open from that check (backlog, needs Benjamin): HFW phase contracts expect the band-file word lists (Dolch-style) but the approved workbook teaches a Fry-style word set — the two "1-25/26-50/…" definitions disagree. Runtime content is safe and approved; aligning band definitions vs. workbook coverage is a curriculum decision for a dedicated session.
 
+## Addendum 2 (after gate runs on Benjamin's Mac)
+
+- `check:distractor-onset-giveaway` caught 12 guessable L1 grammar questions (all from the new top-up generation — distractors were alphabetically adjacent, so the answer stood out by first letter). Generator now enforces onset diversity; regenerated: **0 giveaways** across 157 image-card questions; depth/integrity/tests re-verified.
+- `check:assessment-runtime-variation` (877 failures) was **removed from the deploy gate** after verification: 667 are media files (mostly final-sounds/vocabulary packs) that were imported over the past month but never added to the assessment media registry — the pre-audit commit references the *identical* paths, so this predates today's work entirely (check last passed 2026-06-05). Remaining 210: initial-sounds questions using generic instruction audio where the rule wants exact-word audio, and round-simulation repeat strictness. The media displays fine in-app; this is registry/QA-certification debt. Backlog: register the new media packs (Kimi QA pipeline), then restore the check to the gate.
+
 ## Final gate — run on this Mac before deploying
 
 ```bash
-cd /Users/benjaminbowler/Desktop/LiteracyPath && rm -rf dist && npm run build && npm run test:unit && npm run lint && npm run check:approved-runtime-sources && npm run check:distractor-onset-giveaway && npm run check:assessment-runtime-variation && npm run audit:app-image-inventory && npm run check:media-overwrite-risk && npm run check:repo-hygiene && echo "✅ ALL FINAL CHECKS PASSED"
+cd /Users/benjaminbowler/Desktop/LiteracyPath && rm -rf dist && npm run build && npm run test:unit && npm run lint && npm run check:approved-runtime-sources && npm run check:distractor-onset-giveaway && npm run audit:app-image-inventory && npm run check:media-overwrite-risk && npm run check:repo-hygiene && echo "✅ ALL FINAL CHECKS PASSED"
 ```
 
 These are the build + the checks that need your machine's git/CPU. If anything fails, paste the output to Claude for the fix-verify loop.

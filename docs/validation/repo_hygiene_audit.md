@@ -1,6 +1,6 @@
 # Repo Hygiene Audit
 
-Date: 2026-06-10T06:35:06.278Z
+Date: 2026-07-04T05:51:43.091Z
 
 This guardrail reports temporary, preview, stale request, generated, or accidental files that may be risky to commit. It does not delete or restore anything.
 
@@ -8,12 +8,12 @@ This guardrail reports temporary, preview, stale request, generated, or accident
 
 | Metric | Count |
 | --- | --- |
-| Failures | 2 |
-| Warnings | 64 |
+| Failures | 8 |
+| Warnings | 55 |
 | Ignored/allowed items | 817 |
-| Git status entries | 101 |
-| Tracked files inspected | 19492 |
-| Untracked files inspected | 185 |
+| Git status entries | 7 |
+| Tracked files inspected | 21541 |
+| Untracked files inspected | 0 |
 
 ## Result
 
@@ -23,8 +23,14 @@ FAIL
 
 | Path | Reason | Suggested cleanup |
 | --- | --- | --- |
+| .DS_Store | .DS_Store file found. | rm -f .DS_Store |
 | docs/.DS_Store | .DS_Store file found. | rm -f docs/.DS_Store |
+| public/.DS_Store | .DS_Store file found. | rm -f public/.DS_Store |
+| public/guided-reading/.DS_Store | .DS_Store file found. | rm -f public/guided-reading/.DS_Store |
 | supabase/.DS_Store | .DS_Store file found. | rm -f supabase/.DS_Store |
+| public/audio/child-mode/clean-human/words/source.mp3 | Tracked source/reference/temp file in live public media folder. | Review manually; move source files outside live public media folders. |
+| --test | Package script "test:unit" points to a missing file. | Create the script file, correct package.json, or remove the stale script. |
+| --test | Package script "test" points to a missing file. | Create the script file, correct package.json, or remove the stale script. |
 
 ## Warnings
 
@@ -69,31 +75,22 @@ FAIL
 | docs/assets/kimi_strict_missing_media_import_report.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/missing_media_report.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/next_kimi_media_request_from_skill_audit.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
+| docs/validation/app_image_inventory_audit.json | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/app_image_inventory_audit.json |
+| docs/validation/app_image_inventory_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/app_image_inventory_audit.md |
 | docs/validation/approved_runtime_sources_audit.json | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/approved_runtime_sources_audit.json |
 | docs/validation/approved_runtime_sources_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/approved_runtime_sources_audit.md |
-| docs/validation/assessment_question_integrity_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/assessment_question_integrity_audit.md |
-| docs/validation/distractor_onset_giveaway_audit.json | Generated/audit file has unstaged working-tree noise. | rm -f docs/validation/distractor_onset_giveaway_audit.json |
-| docs/validation/distractor_onset_giveaway_audit.md | Generated/audit file has unstaged working-tree noise. | rm -f docs/validation/distractor_onset_giveaway_audit.md |
-| docs/validation/early_skill_generated_bank_check.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/early_skill_generated_bank_check.md |
-| docs/validation/generated_early_skill_question_bank.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/generated_early_skill_question_bank.md |
 | docs/validation/media_overwrite_risk_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/media_overwrite_risk_audit.md |
-| docs/validation/rhyming_formal_progression_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/rhyming_formal_progression_audit.md |
-| docs/validation/skill_bank_master_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/skill_bank_master_audit.md |
-| src/data/generated/blendsAssessmentQuestions.generated.js | Generated/audit file has unstaged working-tree noise. | git restore src/data/generated/blendsAssessmentQuestions.generated.js |
-| src/data/generated/cvc.generated.js | Generated/audit file has unstaged working-tree noise. | git restore src/data/generated/cvc.generated.js |
-| src/data/generated/finalSounds.generated.js | Generated/audit file has unstaged working-tree noise. | git restore src/data/generated/finalSounds.generated.js |
-| src/data/generated/firstTenSkillTopUpQuestions.generated.js | Generated/audit file has unstaged working-tree noise. | git restore src/data/generated/firstTenSkillTopUpQuestions.generated.js |
-| src/data/generated/shortVowel.generated.js | Generated/audit file has unstaged working-tree noise. | git restore src/data/generated/shortVowel.generated.js |
 | src/data/generated/hfwApprovedQuestionBank.generated.js | Runtime source contains banned phrase "may choose a book". | Review whether this is validation-only text or selectable content. |
 | src/data/assessmentMediaPicker.js | Runtime source mentions photorealistic assessment imagery. | Review asset style and QA status. |
 | src/data/hfwQuestionImageReview.js | Runtime source mentions photorealistic assessment imagery. | Review asset style and QA status. |
 | public/learn-decks/cycle-01/lesson-01/Cycle-01-Lesson-01.pptx | Large file over 20 MB: 27.3 MB. | Review before committing. |
 | public/learn-decks/cycle-01/lesson-02/Cycle-01-Lesson-02.pptx | Large file over 20 MB: 25.0 MB. | Review before committing. |
 | public/learn-decks/cycle-01/lesson-03/Cycle-01-Lesson-03.pptx | Large file over 20 MB: 20.1 MB. | Review before committing. |
+| docs/guided-reading/guided_reading_word_audio_inventory.json | Large file over 5 MB outside approved media folders: 13.0 MB. | Review before committing. |
 | src/data/generated/mediaQaReviewItems.generated.js | Large file over 5 MB outside approved media folders: 10.3 MB. | Review before committing. |
-| docs/validation/app_image_inventory_audit.json | Large file over 5 MB outside approved media folders: 7.7 MB. | Review before committing. |
+| docs/validation/app_image_inventory_audit.json | Large file over 5 MB outside approved media folders: 7.5 MB. | Review before committing. |
+| docs/validation/repo_data_source_audit.json | Large file over 5 MB outside approved media folders: 7.2 MB. | Review before committing. |
 | src/data/generated/skillWordBank.generated.js | Large file over 5 MB outside approved media folders: 6.8 MB. | Review before committing. |
-| docs/validation/repo_data_source_audit.json | Large file over 5 MB outside approved media folders: 6.4 MB. | Review before committing. |
 
 ## Ignored Or Allowed Items
 
@@ -919,5 +916,10 @@ FAIL
 
 ## Safe Cleanup Examples
 
+- rm -f .DS_Store
 - rm -f docs/.DS_Store
+- rm -f public/.DS_Store
+- rm -f public/guided-reading/.DS_Store
 - rm -f supabase/.DS_Store
+- Review manually; move source files outside live public media folders.
+- Create the script file, correct package.json, or remove the stale script.
