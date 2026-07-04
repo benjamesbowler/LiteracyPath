@@ -1,0 +1,8 @@
+public/
+public_domain_books/
+raw/
+LP Assets/
+dist/
+test-results/
+src/data/generated/
+docs/assets/

@@ -27,15 +27,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a adjective.",
     "question": "Tap the picture that shows a adjective.",
     "choices": [
-      "bread",
+      "cake",
       "shake",
       "beautiful",
       "boy"
     ],
     "answerOptions": [
       {
-        "value": "bread",
-        "label": "bread",
+        "value": "cake",
+        "label": "cake",
         "partOfSpeech": "noun"
       },
       {
@@ -56,15 +56,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_bread",
-        "word": "bread",
-        "label": "bread",
-        "value": "bread",
+        "id": "second_noun_cake",
+        "word": "cake",
+        "label": "cake",
+        "value": "cake",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/bread.webp",
-        "imagePath": "/media/vocabulary/images/bread.webp",
-        "imageUrl": "/media/vocabulary/images/bread.webp",
-        "alt": "bread noun card"
+        "image": "/images/child-mode/initial-sounds/cake.png",
+        "imagePath": "/images/child-mode/initial-sounds/cake.png",
+        "imageUrl": "/images/child-mode/initial-sounds/cake.png",
+        "alt": "cake noun card"
       },
       {
         "id": "second_verb_shake",
@@ -244,7 +244,7 @@ export const secondBlockSkillTopUpQuestions = [
       "fly",
       "brown",
       "field",
-      "fish"
+      "game"
     ],
     "answerOptions": [
       {
@@ -263,8 +263,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "fish",
-        "label": "fish",
+        "value": "game",
+        "label": "game",
         "partOfSpeech": "noun"
       }
     ],
@@ -303,15 +303,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "field noun card"
       },
       {
-        "id": "second_noun_fish",
-        "word": "fish",
-        "label": "fish",
-        "value": "fish",
+        "id": "second_noun_game",
+        "word": "game",
+        "label": "game",
+        "value": "game",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/cvc/fish.png",
-        "imagePath": "/images/child-mode/cvc/fish.png",
-        "imageUrl": "/images/child-mode/cvc/fish.png",
-        "alt": "fish noun card"
+        "image": "/media/vocabulary/images/game.webp",
+        "imagePath": "/media/vocabulary/images/game.webp",
+        "imageUrl": "/media/vocabulary/images/game.webp",
+        "alt": "game noun card"
       }
     ],
     "correctAnswer": "brown",
@@ -349,7 +349,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a adjective.",
     "choices": [
       "market",
-      "mum",
+      "pilot",
       "builds",
       "bumpy"
     ],
@@ -360,8 +360,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "mum",
-        "label": "mum",
+        "value": "pilot",
+        "label": "pilot",
         "partOfSpeech": "noun"
       },
       {
@@ -388,15 +388,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "market noun card"
       },
       {
-        "id": "second_noun_mum",
-        "word": "mum",
-        "label": "mum",
-        "value": "mum",
+        "id": "second_noun_pilot",
+        "word": "pilot",
+        "label": "pilot",
+        "value": "pilot",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/noun-mum.webp",
-        "imagePath": "/media/vocabulary/images/noun-mum.webp",
-        "imageUrl": "/media/vocabulary/images/noun-mum.webp",
-        "alt": "mum noun card"
+        "image": "/media/vocabulary/images/noun-pilot.webp",
+        "imagePath": "/media/vocabulary/images/noun-pilot.webp",
+        "imageUrl": "/media/vocabulary/images/noun-pilot.webp",
+        "alt": "pilot noun card"
       },
       {
         "id": "second_verb_builds",
@@ -671,7 +671,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "cute",
       "bat",
-      "bear",
+      "cap",
       "jumped"
     ],
     "answerOptions": [
@@ -686,8 +686,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "bear",
-        "label": "bear",
+        "value": "cap",
+        "label": "cap",
         "partOfSpeech": "noun"
       },
       {
@@ -720,15 +720,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "bat noun card"
       },
       {
-        "id": "second_noun_bear",
-        "word": "bear",
-        "label": "bear",
-        "value": "bear",
+        "id": "second_noun_cap",
+        "word": "cap",
+        "label": "cap",
+        "value": "cap",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/bear.png",
-        "imagePath": "/images/child-mode/initial-sounds/bear.png",
-        "imageUrl": "/images/child-mode/initial-sounds/bear.png",
-        "alt": "bear noun card"
+        "image": "/images/child-mode/cvc/cap.png",
+        "imagePath": "/images/child-mode/cvc/cap.png",
+        "imageUrl": "/images/child-mode/cvc/cap.png",
+        "alt": "cap noun card"
       },
       {
         "id": "second_verb_jumped",
@@ -777,7 +777,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a adjective.",
     "choices": [
       "bell",
-      "book",
+      "cap",
       "observe",
       "deep"
     ],
@@ -788,8 +788,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "book",
-        "label": "book",
+        "value": "cap",
+        "label": "cap",
         "partOfSpeech": "noun"
       },
       {
@@ -816,15 +816,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "bell noun card"
       },
       {
-        "id": "second_noun_book",
-        "word": "book",
-        "label": "book",
-        "value": "book",
+        "id": "second_noun_cap",
+        "word": "cap",
+        "label": "cap",
+        "value": "cap",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/cvc/book.png",
-        "imagePath": "/images/child-mode/cvc/book.png",
-        "imageUrl": "/images/child-mode/cvc/book.png",
-        "alt": "book noun card"
+        "image": "/images/child-mode/cvc/cap.png",
+        "imagePath": "/images/child-mode/cvc/cap.png",
+        "imageUrl": "/images/child-mode/cvc/cap.png",
+        "alt": "cap noun card"
       },
       {
         "id": "second_verb_observe",
@@ -883,15 +883,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a adjective.",
     "question": "Tap the picture that shows a adjective.",
     "choices": [
-      "bug",
+      "cap",
       "predict",
       "dusty",
       "box"
     ],
     "answerOptions": [
       {
-        "value": "bug",
-        "label": "bug",
+        "value": "cap",
+        "label": "cap",
         "partOfSpeech": "noun"
       },
       {
@@ -912,15 +912,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_bug",
-        "word": "bug",
-        "label": "bug",
-        "value": "bug",
+        "id": "second_noun_cap",
+        "word": "cap",
+        "label": "cap",
+        "value": "cap",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/cvc/bug.png",
-        "imagePath": "/images/child-mode/cvc/bug.png",
-        "imageUrl": "/images/child-mode/cvc/bug.png",
-        "alt": "bug noun card"
+        "image": "/images/child-mode/cvc/cap.png",
+        "imagePath": "/images/child-mode/cvc/cap.png",
+        "imageUrl": "/images/child-mode/cvc/cap.png",
+        "alt": "cap noun card"
       },
       {
         "id": "second_verb_predict",
@@ -993,7 +993,7 @@ export const secondBlockSkillTopUpQuestions = [
       "reads",
       "fierce",
       "cat",
-      "class"
+      "dad"
     ],
     "answerOptions": [
       {
@@ -1012,8 +1012,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "class",
-        "label": "class",
+        "value": "dad",
+        "label": "dad",
         "partOfSpeech": "noun"
       }
     ],
@@ -1052,15 +1052,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "cat noun card"
       },
       {
-        "id": "second_noun_class",
-        "word": "class",
-        "label": "class",
-        "value": "class",
+        "id": "second_noun_dad",
+        "word": "dad",
+        "label": "dad",
+        "value": "dad",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/class.webp",
-        "imagePath": "/media/vocabulary/images/class.webp",
-        "imageUrl": "/media/vocabulary/images/class.webp",
-        "alt": "class noun card"
+        "image": "/media/vocabulary/images/dad.webp",
+        "imagePath": "/media/vocabulary/images/dad.webp",
+        "imageUrl": "/media/vocabulary/images/dad.webp",
+        "alt": "dad noun card"
       }
     ],
     "correctAnswer": "fierce",
@@ -1311,15 +1311,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a adjective.",
     "question": "Tap the picture that shows a adjective.",
     "choices": [
-      "foot",
+      "glove",
       "swayed",
       "huge",
       "face"
     ],
     "answerOptions": [
       {
-        "value": "foot",
-        "label": "foot",
+        "value": "glove",
+        "label": "glove",
         "partOfSpeech": "noun"
       },
       {
@@ -1340,15 +1340,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_foot",
-        "word": "foot",
-        "label": "foot",
-        "value": "foot",
+        "id": "second_noun_glove",
+        "word": "glove",
+        "label": "glove",
+        "value": "glove",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/foot.webp",
-        "imagePath": "/media/vocabulary/images/foot.webp",
-        "imageUrl": "/media/vocabulary/images/foot.webp",
-        "alt": "foot noun card"
+        "image": "/media/vocabulary/images/glove.webp",
+        "imagePath": "/media/vocabulary/images/glove.webp",
+        "imageUrl": "/media/vocabulary/images/glove.webp",
+        "alt": "glove noun card"
       },
       {
         "id": "second_verb_swayed",
@@ -1420,7 +1420,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "loud",
       "food",
-      "frog",
+      "game",
       "share"
     ],
     "answerOptions": [
@@ -1435,8 +1435,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "frog",
-        "label": "frog",
+        "value": "game",
+        "label": "game",
         "partOfSpeech": "noun"
       },
       {
@@ -1469,15 +1469,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "food noun card"
       },
       {
-        "id": "second_noun_frog",
-        "word": "frog",
-        "label": "frog",
-        "value": "frog",
+        "id": "second_noun_game",
+        "word": "game",
+        "label": "game",
+        "value": "game",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/frog.png",
-        "imagePath": "/images/child-mode/initial-sounds/frog.png",
-        "imageUrl": "/images/child-mode/initial-sounds/frog.png",
-        "alt": "frog noun card"
+        "image": "/media/vocabulary/images/game.webp",
+        "imagePath": "/media/vocabulary/images/game.webp",
+        "imageUrl": "/media/vocabulary/images/game.webp",
+        "alt": "game noun card"
       },
       {
         "id": "second_verb_share",
@@ -1528,7 +1528,7 @@ export const secondBlockSkillTopUpQuestions = [
       "swayed",
       "new",
       "chair",
-      "cheese"
+      "desk"
     ],
     "answerOptions": [
       {
@@ -1547,8 +1547,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "cheese",
-        "label": "cheese",
+        "value": "desk",
+        "label": "desk",
         "partOfSpeech": "noun"
       }
     ],
@@ -1587,15 +1587,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "chair noun card"
       },
       {
-        "id": "second_noun_cheese",
-        "word": "cheese",
-        "label": "cheese",
-        "value": "cheese",
+        "id": "second_noun_desk",
+        "word": "desk",
+        "label": "desk",
+        "value": "desk",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/cheese.webp",
-        "imagePath": "/media/vocabulary/images/cheese.webp",
-        "imageUrl": "/media/vocabulary/images/cheese.webp",
-        "alt": "cheese noun card"
+        "image": "/images/child-mode/initial-sounds/desk.png",
+        "imagePath": "/images/child-mode/initial-sounds/desk.png",
+        "imageUrl": "/images/child-mode/initial-sounds/desk.png",
+        "alt": "desk noun card"
       }
     ],
     "correctAnswer": "new",
@@ -1635,7 +1635,7 @@ export const secondBlockSkillTopUpQuestions = [
       "cook",
       "noisy",
       "glove",
-      "glue"
+      "hair"
     ],
     "answerOptions": [
       {
@@ -1654,8 +1654,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "glue",
-        "label": "glue",
+        "value": "hair",
+        "label": "hair",
         "partOfSpeech": "noun"
       }
     ],
@@ -1694,15 +1694,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "glove noun card"
       },
       {
-        "id": "second_noun_glue",
-        "word": "glue",
-        "label": "glue",
-        "value": "glue",
+        "id": "second_noun_hair",
+        "word": "hair",
+        "label": "hair",
+        "value": "hair",
         "partOfSpeech": "noun",
-        "image": "/images/assessment/long-vowels/glue.webp",
-        "imagePath": "/images/assessment/long-vowels/glue.webp",
-        "imageUrl": "/images/assessment/long-vowels/glue.webp",
-        "alt": "glue noun card"
+        "image": "/media/vocabulary/images/hair.webp",
+        "imagePath": "/media/vocabulary/images/hair.webp",
+        "imageUrl": "/media/vocabulary/images/hair.webp",
+        "alt": "hair noun card"
       }
     ],
     "correctAnswer": "noisy",
@@ -1741,7 +1741,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "old",
       "cloud",
-      "corn",
+      "desk",
       "cook"
     ],
     "answerOptions": [
@@ -1756,8 +1756,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "corn",
-        "label": "corn",
+        "value": "desk",
+        "label": "desk",
         "partOfSpeech": "noun"
       },
       {
@@ -1790,15 +1790,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "cloud noun card"
       },
       {
-        "id": "second_noun_corn",
-        "word": "corn",
-        "label": "corn",
-        "value": "corn",
+        "id": "second_noun_desk",
+        "word": "desk",
+        "label": "desk",
+        "value": "desk",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/corn.png",
-        "imagePath": "/images/child-mode/initial-sounds/corn.png",
-        "imageUrl": "/images/child-mode/initial-sounds/corn.png",
-        "alt": "corn noun card"
+        "image": "/images/child-mode/initial-sounds/desk.png",
+        "imagePath": "/images/child-mode/initial-sounds/desk.png",
+        "imageUrl": "/images/child-mode/initial-sounds/desk.png",
+        "alt": "desk noun card"
       },
       {
         "id": "second_verb_cook",
@@ -1848,7 +1848,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "playful",
       "hair",
-      "ham",
+      "jam",
       "build"
     ],
     "answerOptions": [
@@ -1863,8 +1863,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "ham",
-        "label": "ham",
+        "value": "jam",
+        "label": "jam",
         "partOfSpeech": "noun"
       },
       {
@@ -1897,15 +1897,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "hair noun card"
       },
       {
-        "id": "second_noun_ham",
-        "word": "ham",
-        "label": "ham",
-        "value": "ham",
+        "id": "second_noun_jam",
+        "word": "jam",
+        "label": "jam",
+        "value": "jam",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/ham.png",
-        "imagePath": "/images/child-mode/initial-sounds/ham.png",
-        "imageUrl": "/images/child-mode/initial-sounds/ham.png",
-        "alt": "ham noun card"
+        "image": "/images/child-mode/initial-sounds/jam.png",
+        "imagePath": "/images/child-mode/initial-sounds/jam.png",
+        "imageUrl": "/images/child-mode/initial-sounds/jam.png",
+        "alt": "jam noun card"
       },
       {
         "id": "second_verb_build",
@@ -1954,7 +1954,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a adjective.",
     "choices": [
       "head",
-      "hen",
+      "jam",
       "drive",
       "prickly"
     ],
@@ -1965,8 +1965,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "hen",
-        "label": "hen",
+        "value": "jam",
+        "label": "jam",
         "partOfSpeech": "noun"
       },
       {
@@ -1993,15 +1993,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "head noun card"
       },
       {
-        "id": "second_noun_hen",
-        "word": "hen",
-        "label": "hen",
-        "value": "hen",
+        "id": "second_noun_jam",
+        "word": "jam",
+        "label": "jam",
+        "value": "jam",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/hen.png",
-        "imagePath": "/images/child-mode/initial-sounds/hen.png",
-        "imageUrl": "/images/child-mode/initial-sounds/hen.png",
-        "alt": "hen noun card"
+        "image": "/images/child-mode/initial-sounds/jam.png",
+        "imagePath": "/images/child-mode/initial-sounds/jam.png",
+        "imageUrl": "/images/child-mode/initial-sounds/jam.png",
+        "alt": "jam noun card"
       },
       {
         "id": "second_verb_drive",
@@ -2060,15 +2060,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a adjective.",
     "question": "Tap the picture that shows a adjective.",
     "choices": [
-      "knee",
+      "lamb",
       "fly",
       "proud",
       "kid"
     ],
     "answerOptions": [
       {
-        "value": "knee",
-        "label": "knee",
+        "value": "lamb",
+        "label": "lamb",
         "partOfSpeech": "noun"
       },
       {
@@ -2089,15 +2089,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_knee",
-        "word": "knee",
-        "label": "knee",
-        "value": "knee",
+        "id": "second_noun_lamb",
+        "word": "lamb",
+        "label": "lamb",
+        "value": "lamb",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/knee.webp",
-        "imagePath": "/media/vocabulary/images/knee.webp",
-        "imageUrl": "/media/vocabulary/images/knee.webp",
-        "alt": "knee noun card"
+        "image": "/media/vocabulary/images/lamb.webp",
+        "imagePath": "/media/vocabulary/images/lamb.webp",
+        "imageUrl": "/media/vocabulary/images/lamb.webp",
+        "alt": "lamb noun card"
       },
       {
         "id": "second_verb_fly",
@@ -2383,7 +2383,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "sharp",
       "men",
-      "moon",
+      "nut",
       "carry"
     ],
     "answerOptions": [
@@ -2398,8 +2398,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "moon",
-        "label": "moon",
+        "value": "nut",
+        "label": "nut",
         "partOfSpeech": "noun"
       },
       {
@@ -2432,15 +2432,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "men noun card"
       },
       {
-        "id": "second_noun_moon",
-        "word": "moon",
-        "label": "moon",
-        "value": "moon",
+        "id": "second_noun_nut",
+        "word": "nut",
+        "label": "nut",
+        "value": "nut",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/moon.png",
-        "imagePath": "/images/child-mode/initial-sounds/moon.png",
-        "imageUrl": "/images/child-mode/initial-sounds/moon.png",
-        "alt": "moon noun card"
+        "image": "/images/child-mode/initial-sounds/nut.png",
+        "imagePath": "/images/child-mode/initial-sounds/nut.png",
+        "imageUrl": "/images/child-mode/initial-sounds/nut.png",
+        "alt": "nut noun card"
       },
       {
         "id": "second_verb_carry",
@@ -2489,7 +2489,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a adjective.",
     "choices": [
       "pear",
-      "pen",
+      "rat",
       "baked",
       "shiny"
     ],
@@ -2500,8 +2500,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "pen",
-        "label": "pen",
+        "value": "rat",
+        "label": "rat",
         "partOfSpeech": "noun"
       },
       {
@@ -2528,15 +2528,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "pear noun card"
       },
       {
-        "id": "second_noun_pen",
-        "word": "pen",
-        "label": "pen",
-        "value": "pen",
+        "id": "second_noun_rat",
+        "word": "rat",
+        "label": "rat",
+        "value": "rat",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/pen.png",
-        "imagePath": "/images/child-mode/initial-sounds/pen.png",
-        "imageUrl": "/images/child-mode/initial-sounds/pen.png",
-        "alt": "pen noun card"
+        "image": "/images/child-mode/initial-sounds/rat.png",
+        "imagePath": "/images/child-mode/initial-sounds/rat.png",
+        "imageUrl": "/images/child-mode/initial-sounds/rat.png",
+        "alt": "rat noun card"
       },
       {
         "id": "second_verb_baked",
@@ -2595,15 +2595,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a adjective.",
     "question": "Tap the picture that shows a adjective.",
     "choices": [
-      "rice",
+      "seal",
       "builds",
       "silent",
       "rat"
     ],
     "answerOptions": [
       {
-        "value": "rice",
-        "label": "rice",
+        "value": "seal",
+        "label": "seal",
         "partOfSpeech": "noun"
       },
       {
@@ -2624,15 +2624,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_rice",
-        "word": "rice",
-        "label": "rice",
-        "value": "rice",
+        "id": "second_noun_seal",
+        "word": "seal",
+        "label": "seal",
+        "value": "seal",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/rice.webp",
-        "imagePath": "/media/vocabulary/images/rice.webp",
-        "imageUrl": "/media/vocabulary/images/rice.webp",
-        "alt": "rice noun card"
+        "image": "/images/child-mode/initial-sounds/seal.png",
+        "imagePath": "/images/child-mode/initial-sounds/seal.png",
+        "imageUrl": "/images/child-mode/initial-sounds/seal.png",
+        "alt": "seal noun card"
       },
       {
         "id": "second_verb_builds",
@@ -2811,7 +2811,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "smooth",
       "sky",
-      "sock",
+      "toast",
       "fell"
     ],
     "answerOptions": [
@@ -2826,8 +2826,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "sock",
-        "label": "sock",
+        "value": "toast",
+        "label": "toast",
         "partOfSpeech": "noun"
       },
       {
@@ -2860,15 +2860,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "sky noun card"
       },
       {
-        "id": "second_noun_sock",
-        "word": "sock",
-        "label": "sock",
-        "value": "sock",
+        "id": "second_noun_toast",
+        "word": "toast",
+        "label": "toast",
+        "value": "toast",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/sock.png",
-        "imagePath": "/images/child-mode/initial-sounds/sock.png",
-        "imageUrl": "/images/child-mode/initial-sounds/sock.png",
-        "alt": "sock noun card"
+        "image": "/media/vocabulary/images/toast.webp",
+        "imagePath": "/media/vocabulary/images/toast.webp",
+        "imageUrl": "/media/vocabulary/images/toast.webp",
+        "alt": "toast noun card"
       },
       {
         "id": "second_verb_fell",
@@ -3240,7 +3240,7 @@ export const secondBlockSkillTopUpQuestions = [
       "predict",
       "striped",
       "air",
-      "ant"
+      "baby"
     ],
     "answerOptions": [
       {
@@ -3259,8 +3259,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "ant",
-        "label": "ant",
+        "value": "baby",
+        "label": "baby",
         "partOfSpeech": "noun"
       }
     ],
@@ -3299,15 +3299,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "air noun card"
       },
       {
-        "id": "second_noun_ant",
-        "word": "ant",
-        "label": "ant",
-        "value": "ant",
+        "id": "second_noun_baby",
+        "word": "baby",
+        "label": "baby",
+        "value": "baby",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/ant.png",
-        "imagePath": "/images/child-mode/initial-sounds/ant.png",
-        "imageUrl": "/images/child-mode/initial-sounds/ant.png",
-        "alt": "ant noun card"
+        "image": "/media/vocabulary/images/noun-baby.webp",
+        "imagePath": "/media/vocabulary/images/noun-baby.webp",
+        "imageUrl": "/media/vocabulary/images/noun-baby.webp",
+        "alt": "baby noun card"
       }
     ],
     "correctAnswer": "striped",
@@ -3346,7 +3346,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "strong",
       "baby",
-      "beach",
+      "cake",
       "reads"
     ],
     "answerOptions": [
@@ -3361,8 +3361,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "beach",
-        "label": "beach",
+        "value": "cake",
+        "label": "cake",
         "partOfSpeech": "noun"
       },
       {
@@ -3395,15 +3395,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "baby noun card"
       },
       {
-        "id": "second_noun_beach",
-        "word": "beach",
-        "label": "beach",
-        "value": "beach",
+        "id": "second_noun_cake",
+        "word": "cake",
+        "label": "cake",
+        "value": "cake",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/beach.webp",
-        "imagePath": "/media/vocabulary/images/beach.webp",
-        "imageUrl": "/media/vocabulary/images/beach.webp",
-        "alt": "beach noun card"
+        "image": "/images/child-mode/initial-sounds/cake.png",
+        "imagePath": "/images/child-mode/initial-sounds/cake.png",
+        "imageUrl": "/images/child-mode/initial-sounds/cake.png",
+        "alt": "cake noun card"
       },
       {
         "id": "second_verb_reads",
@@ -3452,7 +3452,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a adjective.",
     "choices": [
       "girl",
-      "grape",
+      "hand",
       "carry",
       "sweet"
     ],
@@ -3463,8 +3463,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "grape",
-        "label": "grape",
+        "value": "hand",
+        "label": "hand",
         "partOfSpeech": "noun"
       },
       {
@@ -3491,15 +3491,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "girl noun card"
       },
       {
-        "id": "second_noun_grape",
-        "word": "grape",
-        "label": "grape",
-        "value": "grape",
+        "id": "second_noun_hand",
+        "word": "hand",
+        "label": "hand",
+        "value": "hand",
         "partOfSpeech": "noun",
-        "image": "/images/assessment/long-vowels/grape.webp",
-        "imagePath": "/images/assessment/long-vowels/grape.webp",
-        "imageUrl": "/images/assessment/long-vowels/grape.webp",
-        "alt": "grape noun card"
+        "image": "/images/child-mode/initial-sounds/hand.png",
+        "imagePath": "/images/child-mode/initial-sounds/hand.png",
+        "imageUrl": "/images/child-mode/initial-sounds/hand.png",
+        "alt": "hand noun card"
       },
       {
         "id": "second_verb_carry",
@@ -3559,7 +3559,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a adjective.",
     "choices": [
       "belt",
-      "bird",
+      "cake",
       "runs",
       "tiny"
     ],
@@ -3570,8 +3570,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "bird",
-        "label": "bird",
+        "value": "cake",
+        "label": "cake",
         "partOfSpeech": "noun"
       },
       {
@@ -3598,15 +3598,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "belt noun card"
       },
       {
-        "id": "second_noun_bird",
-        "word": "bird",
-        "label": "bird",
-        "value": "bird",
+        "id": "second_noun_cake",
+        "word": "cake",
+        "label": "cake",
+        "value": "cake",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/bird.png",
-        "imagePath": "/images/child-mode/initial-sounds/bird.png",
-        "imageUrl": "/images/child-mode/initial-sounds/bird.png",
-        "alt": "bird noun card"
+        "image": "/images/child-mode/initial-sounds/cake.png",
+        "imagePath": "/images/child-mode/initial-sounds/cake.png",
+        "imageUrl": "/images/child-mode/initial-sounds/cake.png",
+        "alt": "cake noun card"
       },
       {
         "id": "second_verb_runs",
@@ -3666,7 +3666,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a adjective.",
     "choices": [
       "desk",
-      "dirt",
+      "farm",
       "build",
       "warm"
     ],
@@ -3677,8 +3677,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "dirt",
-        "label": "dirt",
+        "value": "farm",
+        "label": "farm",
         "partOfSpeech": "noun"
       },
       {
@@ -3705,15 +3705,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "desk noun card"
       },
       {
-        "id": "second_noun_dirt",
-        "word": "dirt",
-        "label": "dirt",
-        "value": "dirt",
+        "id": "second_noun_farm",
+        "word": "farm",
+        "label": "farm",
+        "value": "farm",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/dirt.webp",
-        "imagePath": "/media/vocabulary/images/dirt.webp",
-        "imageUrl": "/media/vocabulary/images/dirt.webp",
-        "alt": "dirt noun card"
+        "image": "/images/child-mode/initial-sounds/farm.png",
+        "imagePath": "/images/child-mode/initial-sounds/farm.png",
+        "imageUrl": "/images/child-mode/initial-sounds/farm.png",
+        "alt": "farm noun card"
       },
       {
         "id": "second_verb_build",
@@ -3772,15 +3772,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a adjective.",
     "question": "Tap the picture that shows a adjective.",
     "choices": [
-      "farmer",
+      "game",
       "drive",
       "young",
       "farm"
     ],
     "answerOptions": [
       {
-        "value": "farmer",
-        "label": "farmer",
+        "value": "game",
+        "label": "game",
         "partOfSpeech": "noun"
       },
       {
@@ -3801,15 +3801,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_farmer",
-        "word": "farmer",
-        "label": "farmer",
-        "value": "farmer",
+        "id": "second_noun_game",
+        "word": "game",
+        "label": "game",
+        "value": "game",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/noun-farmer.webp",
-        "imagePath": "/media/vocabulary/images/noun-farmer.webp",
-        "imageUrl": "/media/vocabulary/images/noun-farmer.webp",
-        "alt": "farmer noun card"
+        "image": "/media/vocabulary/images/game.webp",
+        "imagePath": "/media/vocabulary/images/game.webp",
+        "imageUrl": "/media/vocabulary/images/game.webp",
+        "alt": "game noun card"
       },
       {
         "id": "second_verb_drive",
@@ -9266,7 +9266,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a noun.",
     "choices": [
       "blow",
-      "builds",
+      "compare",
       "old",
       "air"
     ],
@@ -9277,8 +9277,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "builds",
-        "label": "builds",
+        "value": "compare",
+        "label": "compare",
         "partOfSpeech": "verb"
       },
       {
@@ -9305,15 +9305,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "blow verb card"
       },
       {
-        "id": "second_verb_builds",
-        "word": "builds",
-        "label": "builds",
-        "value": "builds",
+        "id": "second_verb_compare",
+        "word": "compare",
+        "label": "compare",
+        "value": "compare",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-builds.webp",
-        "imagePath": "/media/vocabulary/images/verb-builds.webp",
-        "imageUrl": "/media/vocabulary/images/verb-builds.webp",
-        "alt": "builds verb card"
+        "image": "/media/vocabulary/images/verb-compare.webp",
+        "imagePath": "/media/vocabulary/images/verb-compare.webp",
+        "imageUrl": "/media/vocabulary/images/verb-compare.webp",
+        "alt": "compare verb card"
       },
       {
         "id": "second_adjective_old",
@@ -9373,7 +9373,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a noun.",
     "choices": [
       "sat",
-      "shake",
+      "walked",
       "old",
       "ape"
     ],
@@ -9384,8 +9384,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "shake",
-        "label": "shake",
+        "value": "walked",
+        "label": "walked",
         "partOfSpeech": "verb"
       },
       {
@@ -9412,15 +9412,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "sat verb card"
       },
       {
-        "id": "second_verb_shake",
-        "word": "shake",
-        "label": "shake",
-        "value": "shake",
+        "id": "second_verb_walked",
+        "word": "walked",
+        "label": "walked",
+        "value": "walked",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-shake.webp",
-        "imagePath": "/media/vocabulary/images/verb-shake.webp",
-        "imageUrl": "/media/vocabulary/images/verb-shake.webp",
-        "alt": "shake verb card"
+        "image": "/media/vocabulary/images/verb-walked.webp",
+        "imagePath": "/media/vocabulary/images/verb-walked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-walked.webp",
+        "alt": "walked verb card"
       },
       {
         "id": "second_adjective_old",
@@ -9586,15 +9586,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a noun.",
     "question": "Tap the picture that shows a noun.",
     "choices": [
-      "swayed",
+      "walked",
       "brown",
       "back",
       "swam"
     ],
     "answerOptions": [
       {
-        "value": "swayed",
-        "label": "swayed",
+        "value": "walked",
+        "label": "walked",
         "partOfSpeech": "verb"
       },
       {
@@ -9615,15 +9615,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_verb_swayed",
-        "word": "swayed",
-        "label": "swayed",
-        "value": "swayed",
+        "id": "second_verb_walked",
+        "word": "walked",
+        "label": "walked",
+        "value": "walked",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-swayed.webp",
-        "imagePath": "/media/vocabulary/images/verb-swayed.webp",
-        "imageUrl": "/media/vocabulary/images/verb-swayed.webp",
-        "alt": "swayed verb card"
+        "image": "/media/vocabulary/images/verb-walked.webp",
+        "imagePath": "/media/vocabulary/images/verb-walked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-walked.webp",
+        "alt": "walked verb card"
       },
       {
         "id": "second_adjective_brown",
@@ -9802,7 +9802,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "bat",
       "bake",
-      "build",
+      "catch",
       "bumpy"
     ],
     "answerOptions": [
@@ -9817,8 +9817,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "build",
-        "label": "build",
+        "value": "catch",
+        "label": "catch",
         "partOfSpeech": "verb"
       },
       {
@@ -9851,15 +9851,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "bake verb card"
       },
       {
-        "id": "second_verb_build",
-        "word": "build",
-        "label": "build",
-        "value": "build",
+        "id": "second_verb_catch",
+        "word": "catch",
+        "label": "catch",
+        "value": "catch",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-build.webp",
-        "imagePath": "/media/vocabulary/images/verb-build.webp",
-        "imageUrl": "/media/vocabulary/images/verb-build.webp",
-        "alt": "build verb card"
+        "image": "/media/vocabulary/images/verb-catch.webp",
+        "imagePath": "/media/vocabulary/images/verb-catch.webp",
+        "imageUrl": "/media/vocabulary/images/verb-catch.webp",
+        "alt": "catch verb card"
       },
       {
         "id": "second_adjective_bumpy",
@@ -10014,15 +10014,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a noun.",
     "question": "Tap the picture that shows a noun.",
     "choices": [
-      "fly",
+      "help",
       "fierce",
       "bed",
       "fall"
     ],
     "answerOptions": [
       {
-        "value": "fly",
-        "label": "fly",
+        "value": "help",
+        "label": "help",
         "partOfSpeech": "verb"
       },
       {
@@ -10043,15 +10043,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_verb_fly",
-        "word": "fly",
-        "label": "fly",
-        "value": "fly",
+        "id": "second_verb_help",
+        "word": "help",
+        "label": "help",
+        "value": "help",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-fly.webp",
-        "imagePath": "/media/vocabulary/images/verb-fly.webp",
-        "imageUrl": "/media/vocabulary/images/verb-fly.webp",
-        "alt": "fly verb card"
+        "image": "/media/vocabulary/images/verb-help.webp",
+        "imagePath": "/media/vocabulary/images/verb-help.webp",
+        "imageUrl": "/media/vocabulary/images/verb-help.webp",
+        "alt": "help verb card"
       },
       {
         "id": "second_adjective_fierce",
@@ -10442,15 +10442,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a noun.",
     "question": "Tap the picture that shows a noun.",
     "choices": [
-      "builds",
+      "compare",
       "smelly",
       "box",
       "blow"
     ],
     "answerOptions": [
       {
-        "value": "builds",
-        "label": "builds",
+        "value": "compare",
+        "label": "compare",
         "partOfSpeech": "verb"
       },
       {
@@ -10471,15 +10471,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_verb_builds",
-        "word": "builds",
-        "label": "builds",
-        "value": "builds",
+        "id": "second_verb_compare",
+        "word": "compare",
+        "label": "compare",
+        "value": "compare",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-builds.webp",
-        "imagePath": "/media/vocabulary/images/verb-builds.webp",
-        "imageUrl": "/media/vocabulary/images/verb-builds.webp",
-        "alt": "builds verb card"
+        "image": "/media/vocabulary/images/verb-compare.webp",
+        "imagePath": "/media/vocabulary/images/verb-compare.webp",
+        "imageUrl": "/media/vocabulary/images/verb-compare.webp",
+        "alt": "compare verb card"
       },
       {
         "id": "second_adjective_smelly",
@@ -11085,7 +11085,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a noun.",
     "choices": [
       "blow",
-      "builds",
+      "compare",
       "cute",
       "coach"
     ],
@@ -11096,8 +11096,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "builds",
-        "label": "builds",
+        "value": "compare",
+        "label": "compare",
         "partOfSpeech": "verb"
       },
       {
@@ -11124,15 +11124,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "blow verb card"
       },
       {
-        "id": "second_verb_builds",
-        "word": "builds",
-        "label": "builds",
-        "value": "builds",
+        "id": "second_verb_compare",
+        "word": "compare",
+        "label": "compare",
+        "value": "compare",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-builds.webp",
-        "imagePath": "/media/vocabulary/images/verb-builds.webp",
-        "imageUrl": "/media/vocabulary/images/verb-builds.webp",
-        "alt": "builds verb card"
+        "image": "/media/vocabulary/images/verb-compare.webp",
+        "imagePath": "/media/vocabulary/images/verb-compare.webp",
+        "imageUrl": "/media/vocabulary/images/verb-compare.webp",
+        "alt": "compare verb card"
       },
       {
         "id": "second_adjective_cute",
@@ -11194,7 +11194,7 @@ export const secondBlockSkillTopUpQuestions = [
       "purple",
       "coat",
       "pour",
-      "predict"
+      "raised"
     ],
     "answerOptions": [
       {
@@ -11213,8 +11213,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "predict",
-        "label": "predict",
+        "value": "raised",
+        "label": "raised",
         "partOfSpeech": "verb"
       }
     ],
@@ -11253,15 +11253,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "pour verb card"
       },
       {
-        "id": "second_verb_predict",
-        "word": "predict",
-        "label": "predict",
-        "value": "predict",
+        "id": "second_verb_raised",
+        "word": "raised",
+        "label": "raised",
+        "value": "raised",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-predict.webp",
-        "imagePath": "/media/vocabulary/images/verb-predict.webp",
-        "imageUrl": "/media/vocabulary/images/verb-predict.webp",
-        "alt": "predict verb card"
+        "image": "/media/vocabulary/images/verb-raised.webp",
+        "imagePath": "/media/vocabulary/images/verb-raised.webp",
+        "imageUrl": "/media/vocabulary/images/verb-raised.webp",
+        "alt": "raised verb card"
       }
     ],
     "correctAnswer": "coat",
@@ -11300,7 +11300,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "cup",
       "ran",
-      "reads",
+      "sang",
       "bumpy"
     ],
     "answerOptions": [
@@ -11315,8 +11315,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "reads",
-        "label": "reads",
+        "value": "sang",
+        "label": "sang",
         "partOfSpeech": "verb"
       },
       {
@@ -11349,15 +11349,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "ran verb card"
       },
       {
-        "id": "second_verb_reads",
-        "word": "reads",
-        "label": "reads",
-        "value": "reads",
+        "id": "second_verb_sang",
+        "word": "sang",
+        "label": "sang",
+        "value": "sang",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-reads.webp",
-        "imagePath": "/media/vocabulary/images/verb-reads.webp",
-        "imageUrl": "/media/vocabulary/images/verb-reads.webp",
-        "alt": "reads verb card"
+        "image": "/media/vocabulary/images/verb-sang.webp",
+        "imagePath": "/media/vocabulary/images/verb-sang.webp",
+        "imageUrl": "/media/vocabulary/images/verb-sang.webp",
+        "alt": "sang verb card"
       },
       {
         "id": "second_adjective_bumpy",
@@ -11406,7 +11406,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a noun.",
     "choices": [
       "rises",
-      "runs",
+      "sang",
       "cute",
       "dad"
     ],
@@ -11417,8 +11417,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "runs",
-        "label": "runs",
+        "value": "sang",
+        "label": "sang",
         "partOfSpeech": "verb"
       },
       {
@@ -11445,15 +11445,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "rises verb card"
       },
       {
-        "id": "second_verb_runs",
-        "word": "runs",
-        "label": "runs",
-        "value": "runs",
+        "id": "second_verb_sang",
+        "word": "sang",
+        "label": "sang",
+        "value": "sang",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-runs.webp",
-        "imagePath": "/media/vocabulary/images/verb-runs.webp",
-        "imageUrl": "/media/vocabulary/images/verb-runs.webp",
-        "alt": "runs verb card"
+        "image": "/media/vocabulary/images/verb-sang.webp",
+        "imagePath": "/media/vocabulary/images/verb-sang.webp",
+        "imageUrl": "/media/vocabulary/images/verb-sang.webp",
+        "alt": "sang verb card"
       },
       {
         "id": "second_adjective_cute",
@@ -11512,15 +11512,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a noun.",
     "question": "Tap the picture that shows a noun.",
     "choices": [
-      "shake",
+      "walked",
       "fierce",
       "dog",
       "sat"
     ],
     "answerOptions": [
       {
-        "value": "shake",
-        "label": "shake",
+        "value": "walked",
+        "label": "walked",
         "partOfSpeech": "verb"
       },
       {
@@ -11541,15 +11541,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_verb_shake",
-        "word": "shake",
-        "label": "shake",
-        "value": "shake",
+        "id": "second_verb_walked",
+        "word": "walked",
+        "label": "walked",
+        "value": "walked",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-shake.webp",
-        "imagePath": "/media/vocabulary/images/verb-shake.webp",
-        "imageUrl": "/media/vocabulary/images/verb-shake.webp",
-        "alt": "shake verb card"
+        "image": "/media/vocabulary/images/verb-walked.webp",
+        "imagePath": "/media/vocabulary/images/verb-walked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-walked.webp",
+        "alt": "walked verb card"
       },
       {
         "id": "second_adjective_fierce",
@@ -11622,7 +11622,7 @@ export const secondBlockSkillTopUpQuestions = [
       "huge",
       "duck",
       "swam",
-      "swayed"
+      "walked"
     ],
     "answerOptions": [
       {
@@ -11641,8 +11641,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "swayed",
-        "label": "swayed",
+        "value": "walked",
+        "label": "walked",
         "partOfSpeech": "verb"
       }
     ],
@@ -11681,15 +11681,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "swam verb card"
       },
       {
-        "id": "second_verb_swayed",
-        "word": "swayed",
-        "label": "swayed",
-        "value": "swayed",
+        "id": "second_verb_walked",
+        "word": "walked",
+        "label": "walked",
+        "value": "walked",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-swayed.webp",
-        "imagePath": "/media/vocabulary/images/verb-swayed.webp",
-        "imageUrl": "/media/vocabulary/images/verb-swayed.webp",
-        "alt": "swayed verb card"
+        "image": "/media/vocabulary/images/verb-walked.webp",
+        "imagePath": "/media/vocabulary/images/verb-walked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-walked.webp",
+        "alt": "walked verb card"
       }
     ],
     "correctAnswer": "duck",
@@ -11834,7 +11834,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a noun.",
     "choices": [
       "bake",
-      "build",
+      "catch",
       "sharp",
       "eye"
     ],
@@ -11845,8 +11845,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "build",
-        "label": "build",
+        "value": "catch",
+        "label": "catch",
         "partOfSpeech": "verb"
       },
       {
@@ -11873,15 +11873,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "bake verb card"
       },
       {
-        "id": "second_verb_build",
-        "word": "build",
-        "label": "build",
-        "value": "build",
+        "id": "second_verb_catch",
+        "word": "catch",
+        "label": "catch",
+        "value": "catch",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-build.webp",
-        "imagePath": "/media/vocabulary/images/verb-build.webp",
-        "imageUrl": "/media/vocabulary/images/verb-build.webp",
-        "alt": "build verb card"
+        "image": "/media/vocabulary/images/verb-catch.webp",
+        "imagePath": "/media/vocabulary/images/verb-catch.webp",
+        "imageUrl": "/media/vocabulary/images/verb-catch.webp",
+        "alt": "catch verb card"
       },
       {
         "id": "second_adjective_sharp",
@@ -12050,7 +12050,7 @@ export const secondBlockSkillTopUpQuestions = [
       "square",
       "foot",
       "fall",
-      "fly"
+      "help"
     ],
     "answerOptions": [
       {
@@ -12069,8 +12069,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "fly",
-        "label": "fly",
+        "value": "help",
+        "label": "help",
         "partOfSpeech": "verb"
       }
     ],
@@ -12109,15 +12109,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "fall verb card"
       },
       {
-        "id": "second_verb_fly",
-        "word": "fly",
-        "label": "fly",
-        "value": "fly",
+        "id": "second_verb_help",
+        "word": "help",
+        "label": "help",
+        "value": "help",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-fly.webp",
-        "imagePath": "/media/vocabulary/images/verb-fly.webp",
-        "imageUrl": "/media/vocabulary/images/verb-fly.webp",
-        "alt": "fly verb card"
+        "image": "/media/vocabulary/images/verb-help.webp",
+        "imagePath": "/media/vocabulary/images/verb-help.webp",
+        "imageUrl": "/media/vocabulary/images/verb-help.webp",
+        "alt": "help verb card"
       }
     ],
     "correctAnswer": "foot",
@@ -12585,7 +12585,7 @@ export const secondBlockSkillTopUpQuestions = [
       "purple",
       "goat",
       "blow",
-      "builds"
+      "compare"
     ],
     "answerOptions": [
       {
@@ -12604,8 +12604,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "builds",
-        "label": "builds",
+        "value": "compare",
+        "label": "compare",
         "partOfSpeech": "verb"
       }
     ],
@@ -12644,15 +12644,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "blow verb card"
       },
       {
-        "id": "second_verb_builds",
-        "word": "builds",
-        "label": "builds",
-        "value": "builds",
+        "id": "second_verb_compare",
+        "word": "compare",
+        "label": "compare",
+        "value": "compare",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-builds.webp",
-        "imagePath": "/media/vocabulary/images/verb-builds.webp",
-        "imageUrl": "/media/vocabulary/images/verb-builds.webp",
-        "alt": "builds verb card"
+        "image": "/media/vocabulary/images/verb-compare.webp",
+        "imagePath": "/media/vocabulary/images/verb-compare.webp",
+        "imageUrl": "/media/vocabulary/images/verb-compare.webp",
+        "alt": "compare verb card"
       }
     ],
     "correctAnswer": "goat",
@@ -13119,7 +13119,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "hen",
       "pour",
-      "predict",
+      "raised",
       "prickly"
     ],
     "answerOptions": [
@@ -13134,8 +13134,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "predict",
-        "label": "predict",
+        "value": "raised",
+        "label": "raised",
         "partOfSpeech": "verb"
       },
       {
@@ -13168,15 +13168,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "pour verb card"
       },
       {
-        "id": "second_verb_predict",
-        "word": "predict",
-        "label": "predict",
-        "value": "predict",
+        "id": "second_verb_raised",
+        "word": "raised",
+        "label": "raised",
+        "value": "raised",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-predict.webp",
-        "imagePath": "/media/vocabulary/images/verb-predict.webp",
-        "imageUrl": "/media/vocabulary/images/verb-predict.webp",
-        "alt": "predict verb card"
+        "image": "/media/vocabulary/images/verb-raised.webp",
+        "imagePath": "/media/vocabulary/images/verb-raised.webp",
+        "imageUrl": "/media/vocabulary/images/verb-raised.webp",
+        "alt": "raised verb card"
       },
       {
         "id": "second_adjective_prickly",
@@ -13225,7 +13225,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a noun.",
     "choices": [
       "ran",
-      "reads",
+      "sang",
       "sharp",
       "jam"
     ],
@@ -13236,8 +13236,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "reads",
-        "label": "reads",
+        "value": "sang",
+        "label": "sang",
         "partOfSpeech": "verb"
       },
       {
@@ -13264,15 +13264,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "ran verb card"
       },
       {
-        "id": "second_verb_reads",
-        "word": "reads",
-        "label": "reads",
-        "value": "reads",
+        "id": "second_verb_sang",
+        "word": "sang",
+        "label": "sang",
+        "value": "sang",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-reads.webp",
-        "imagePath": "/media/vocabulary/images/verb-reads.webp",
-        "imageUrl": "/media/vocabulary/images/verb-reads.webp",
-        "alt": "reads verb card"
+        "image": "/media/vocabulary/images/verb-sang.webp",
+        "imagePath": "/media/vocabulary/images/verb-sang.webp",
+        "imageUrl": "/media/vocabulary/images/verb-sang.webp",
+        "alt": "sang verb card"
       },
       {
         "id": "second_adjective_sharp",
@@ -13331,15 +13331,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a noun.",
     "question": "Tap the picture that shows a noun.",
     "choices": [
-      "runs",
+      "sang",
       "smelly",
       "kid",
       "rises"
     ],
     "answerOptions": [
       {
-        "value": "runs",
-        "label": "runs",
+        "value": "sang",
+        "label": "sang",
         "partOfSpeech": "verb"
       },
       {
@@ -13360,15 +13360,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_verb_runs",
-        "word": "runs",
-        "label": "runs",
-        "value": "runs",
+        "id": "second_verb_sang",
+        "word": "sang",
+        "label": "sang",
+        "value": "sang",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-runs.webp",
-        "imagePath": "/media/vocabulary/images/verb-runs.webp",
-        "imageUrl": "/media/vocabulary/images/verb-runs.webp",
-        "alt": "runs verb card"
+        "image": "/media/vocabulary/images/verb-sang.webp",
+        "imagePath": "/media/vocabulary/images/verb-sang.webp",
+        "imageUrl": "/media/vocabulary/images/verb-sang.webp",
+        "alt": "sang verb card"
       },
       {
         "id": "second_adjective_smelly",
@@ -13441,7 +13441,7 @@ export const secondBlockSkillTopUpQuestions = [
       "square",
       "knee",
       "sat",
-      "shake"
+      "walked"
     ],
     "answerOptions": [
       {
@@ -13460,8 +13460,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "shake",
-        "label": "shake",
+        "value": "walked",
+        "label": "walked",
         "partOfSpeech": "verb"
       }
     ],
@@ -13500,15 +13500,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "sat verb card"
       },
       {
-        "id": "second_verb_shake",
-        "word": "shake",
-        "label": "shake",
-        "value": "shake",
+        "id": "second_verb_walked",
+        "word": "walked",
+        "label": "walked",
+        "value": "walked",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-shake.webp",
-        "imagePath": "/media/vocabulary/images/verb-shake.webp",
-        "imageUrl": "/media/vocabulary/images/verb-shake.webp",
-        "alt": "shake verb card"
+        "image": "/media/vocabulary/images/verb-walked.webp",
+        "imagePath": "/media/vocabulary/images/verb-walked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-walked.webp",
+        "alt": "walked verb card"
       }
     ],
     "correctAnswer": "knee",
@@ -13547,7 +13547,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "lamb",
       "swam",
-      "swayed",
+      "walked",
       "tiny"
     ],
     "answerOptions": [
@@ -13562,8 +13562,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "swayed",
-        "label": "swayed",
+        "value": "walked",
+        "label": "walked",
         "partOfSpeech": "verb"
       },
       {
@@ -13596,15 +13596,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "swam verb card"
       },
       {
-        "id": "second_verb_swayed",
-        "word": "swayed",
-        "label": "swayed",
-        "value": "swayed",
+        "id": "second_verb_walked",
+        "word": "walked",
+        "label": "walked",
+        "value": "walked",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-swayed.webp",
-        "imagePath": "/media/vocabulary/images/verb-swayed.webp",
-        "imageUrl": "/media/vocabulary/images/verb-swayed.webp",
-        "alt": "swayed verb card"
+        "image": "/media/vocabulary/images/verb-walked.webp",
+        "imagePath": "/media/vocabulary/images/verb-walked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-walked.webp",
+        "alt": "walked verb card"
       },
       {
         "id": "second_adjective_tiny",
@@ -13759,15 +13759,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a noun.",
     "question": "Tap the picture that shows a noun.",
     "choices": [
-      "build",
+      "catch",
       "brown",
       "man",
       "bake"
     ],
     "answerOptions": [
       {
-        "value": "build",
-        "label": "build",
+        "value": "catch",
+        "label": "catch",
         "partOfSpeech": "verb"
       },
       {
@@ -13788,15 +13788,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_verb_build",
-        "word": "build",
-        "label": "build",
-        "value": "build",
+        "id": "second_verb_catch",
+        "word": "catch",
+        "label": "catch",
+        "value": "catch",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-build.webp",
-        "imagePath": "/media/vocabulary/images/verb-build.webp",
-        "imageUrl": "/media/vocabulary/images/verb-build.webp",
-        "alt": "build verb card"
+        "image": "/media/vocabulary/images/verb-catch.webp",
+        "imagePath": "/media/vocabulary/images/verb-catch.webp",
+        "imageUrl": "/media/vocabulary/images/verb-catch.webp",
+        "alt": "catch verb card"
       },
       {
         "id": "second_adjective_brown",
@@ -14082,7 +14082,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "men",
       "fall",
-      "fly",
+      "help",
       "bumpy"
     ],
     "answerOptions": [
@@ -14097,8 +14097,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "fly",
-        "label": "fly",
+        "value": "help",
+        "label": "help",
         "partOfSpeech": "verb"
       },
       {
@@ -14131,15 +14131,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "fall verb card"
       },
       {
-        "id": "second_verb_fly",
-        "word": "fly",
-        "label": "fly",
-        "value": "fly",
+        "id": "second_verb_help",
+        "word": "help",
+        "label": "help",
+        "value": "help",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-fly.webp",
-        "imagePath": "/media/vocabulary/images/verb-fly.webp",
-        "imageUrl": "/media/vocabulary/images/verb-fly.webp",
-        "alt": "fly verb card"
+        "image": "/media/vocabulary/images/verb-help.webp",
+        "imagePath": "/media/vocabulary/images/verb-help.webp",
+        "imageUrl": "/media/vocabulary/images/verb-help.webp",
+        "alt": "help verb card"
       },
       {
         "id": "second_adjective_bumpy",
@@ -14724,7 +14724,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "pen",
       "blow",
-      "builds",
+      "compare",
       "prickly"
     ],
     "answerOptions": [
@@ -14739,8 +14739,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "builds",
-        "label": "builds",
+        "value": "compare",
+        "label": "compare",
         "partOfSpeech": "verb"
       },
       {
@@ -14773,15 +14773,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "blow verb card"
       },
       {
-        "id": "second_verb_builds",
-        "word": "builds",
-        "label": "builds",
-        "value": "builds",
+        "id": "second_verb_compare",
+        "word": "compare",
+        "label": "compare",
+        "value": "compare",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-builds.webp",
-        "imagePath": "/media/vocabulary/images/verb-builds.webp",
-        "imageUrl": "/media/vocabulary/images/verb-builds.webp",
-        "alt": "builds verb card"
+        "image": "/media/vocabulary/images/verb-compare.webp",
+        "imagePath": "/media/vocabulary/images/verb-compare.webp",
+        "imageUrl": "/media/vocabulary/images/verb-compare.webp",
+        "alt": "compare verb card"
       },
       {
         "id": "second_adjective_prickly",
@@ -14936,15 +14936,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a noun.",
     "question": "Tap the picture that shows a noun.",
     "choices": [
-      "predict",
+      "raised",
       "smelly",
       "pilot",
       "pour"
     ],
     "answerOptions": [
       {
-        "value": "predict",
-        "label": "predict",
+        "value": "raised",
+        "label": "raised",
         "partOfSpeech": "verb"
       },
       {
@@ -14965,15 +14965,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_verb_predict",
-        "word": "predict",
-        "label": "predict",
-        "value": "predict",
+        "id": "second_verb_raised",
+        "word": "raised",
+        "label": "raised",
+        "value": "raised",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-predict.webp",
-        "imagePath": "/media/vocabulary/images/verb-predict.webp",
-        "imageUrl": "/media/vocabulary/images/verb-predict.webp",
-        "alt": "predict verb card"
+        "image": "/media/vocabulary/images/verb-raised.webp",
+        "imagePath": "/media/vocabulary/images/verb-raised.webp",
+        "imageUrl": "/media/vocabulary/images/verb-raised.webp",
+        "alt": "raised verb card"
       },
       {
         "id": "second_adjective_smelly",
@@ -15365,7 +15365,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a noun.",
     "choices": [
       "pour",
-      "predict",
+      "raised",
       "old",
       "room"
     ],
@@ -15376,8 +15376,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "predict",
-        "label": "predict",
+        "value": "raised",
+        "label": "raised",
         "partOfSpeech": "verb"
       },
       {
@@ -15404,15 +15404,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "pour verb card"
       },
       {
-        "id": "second_verb_predict",
-        "word": "predict",
-        "label": "predict",
-        "value": "predict",
+        "id": "second_verb_raised",
+        "word": "raised",
+        "label": "raised",
+        "value": "raised",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-predict.webp",
-        "imagePath": "/media/vocabulary/images/verb-predict.webp",
-        "imageUrl": "/media/vocabulary/images/verb-predict.webp",
-        "alt": "predict verb card"
+        "image": "/media/vocabulary/images/verb-raised.webp",
+        "imagePath": "/media/vocabulary/images/verb-raised.webp",
+        "imageUrl": "/media/vocabulary/images/verb-raised.webp",
+        "alt": "raised verb card"
       },
       {
         "id": "second_adjective_old",
@@ -15578,15 +15578,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a noun.",
     "question": "Tap the picture that shows a noun.",
     "choices": [
-      "reads",
+      "sang",
       "brown",
       "seal",
       "ran"
     ],
     "answerOptions": [
       {
-        "value": "reads",
-        "label": "reads",
+        "value": "sang",
+        "label": "sang",
         "partOfSpeech": "verb"
       },
       {
@@ -15607,15 +15607,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_verb_reads",
-        "word": "reads",
-        "label": "reads",
-        "value": "reads",
+        "id": "second_verb_sang",
+        "word": "sang",
+        "label": "sang",
+        "value": "sang",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-reads.webp",
-        "imagePath": "/media/vocabulary/images/verb-reads.webp",
-        "imageUrl": "/media/vocabulary/images/verb-reads.webp",
-        "alt": "reads verb card"
+        "image": "/media/vocabulary/images/verb-sang.webp",
+        "imagePath": "/media/vocabulary/images/verb-sang.webp",
+        "imageUrl": "/media/vocabulary/images/verb-sang.webp",
+        "alt": "sang verb card"
       },
       {
         "id": "second_adjective_brown",
@@ -15688,7 +15688,7 @@ export const secondBlockSkillTopUpQuestions = [
       "purple",
       "shoe",
       "rises",
-      "runs"
+      "sang"
     ],
     "answerOptions": [
       {
@@ -15707,8 +15707,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "runs",
-        "label": "runs",
+        "value": "sang",
+        "label": "sang",
         "partOfSpeech": "verb"
       }
     ],
@@ -15747,15 +15747,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "rises verb card"
       },
       {
-        "id": "second_verb_runs",
-        "word": "runs",
-        "label": "runs",
-        "value": "runs",
+        "id": "second_verb_sang",
+        "word": "sang",
+        "label": "sang",
+        "value": "sang",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-runs.webp",
-        "imagePath": "/media/vocabulary/images/verb-runs.webp",
-        "imageUrl": "/media/vocabulary/images/verb-runs.webp",
-        "alt": "runs verb card"
+        "image": "/media/vocabulary/images/verb-sang.webp",
+        "imagePath": "/media/vocabulary/images/verb-sang.webp",
+        "imageUrl": "/media/vocabulary/images/verb-sang.webp",
+        "alt": "sang verb card"
       }
     ],
     "correctAnswer": "shoe",
@@ -15794,7 +15794,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "sky",
       "sat",
-      "shake",
+      "walked",
       "bumpy"
     ],
     "answerOptions": [
@@ -15809,8 +15809,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "shake",
-        "label": "shake",
+        "value": "walked",
+        "label": "walked",
         "partOfSpeech": "verb"
       },
       {
@@ -15843,15 +15843,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "sat verb card"
       },
       {
-        "id": "second_verb_shake",
-        "word": "shake",
-        "label": "shake",
-        "value": "shake",
+        "id": "second_verb_walked",
+        "word": "walked",
+        "label": "walked",
+        "value": "walked",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-shake.webp",
-        "imagePath": "/media/vocabulary/images/verb-shake.webp",
-        "imageUrl": "/media/vocabulary/images/verb-shake.webp",
-        "alt": "shake verb card"
+        "image": "/media/vocabulary/images/verb-walked.webp",
+        "imagePath": "/media/vocabulary/images/verb-walked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-walked.webp",
+        "alt": "walked verb card"
       },
       {
         "id": "second_adjective_bumpy",
@@ -15900,7 +15900,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a noun.",
     "choices": [
       "swam",
-      "swayed",
+      "walked",
       "cute",
       "sock"
     ],
@@ -15911,8 +15911,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "swayed",
-        "label": "swayed",
+        "value": "walked",
+        "label": "walked",
         "partOfSpeech": "verb"
       },
       {
@@ -15939,15 +15939,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "swam verb card"
       },
       {
-        "id": "second_verb_swayed",
-        "word": "swayed",
-        "label": "swayed",
-        "value": "swayed",
+        "id": "second_verb_walked",
+        "word": "walked",
+        "label": "walked",
+        "value": "walked",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-swayed.webp",
-        "imagePath": "/media/vocabulary/images/verb-swayed.webp",
-        "imageUrl": "/media/vocabulary/images/verb-swayed.webp",
-        "alt": "swayed verb card"
+        "image": "/media/vocabulary/images/verb-walked.webp",
+        "imagePath": "/media/vocabulary/images/verb-walked.webp",
+        "imageUrl": "/media/vocabulary/images/verb-walked.webp",
+        "alt": "walked verb card"
       },
       {
         "id": "second_adjective_cute",
@@ -16009,7 +16009,7 @@ export const secondBlockSkillTopUpQuestions = [
       "square",
       "station",
       "ran",
-      "reads"
+      "sang"
     ],
     "answerOptions": [
       {
@@ -16028,8 +16028,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "reads",
-        "label": "reads",
+        "value": "sang",
+        "label": "sang",
         "partOfSpeech": "verb"
       }
     ],
@@ -16068,15 +16068,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "ran verb card"
       },
       {
-        "id": "second_verb_reads",
-        "word": "reads",
-        "label": "reads",
-        "value": "reads",
+        "id": "second_verb_sang",
+        "word": "sang",
+        "label": "sang",
+        "value": "sang",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-reads.webp",
-        "imagePath": "/media/vocabulary/images/verb-reads.webp",
-        "imageUrl": "/media/vocabulary/images/verb-reads.webp",
-        "alt": "reads verb card"
+        "image": "/media/vocabulary/images/verb-sang.webp",
+        "imagePath": "/media/vocabulary/images/verb-sang.webp",
+        "imageUrl": "/media/vocabulary/images/verb-sang.webp",
+        "alt": "sang verb card"
       }
     ],
     "correctAnswer": "station",
@@ -16223,7 +16223,7 @@ export const secondBlockSkillTopUpQuestions = [
       "huge",
       "sun",
       "bake",
-      "build"
+      "catch"
     ],
     "answerOptions": [
       {
@@ -16242,8 +16242,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "build",
-        "label": "build",
+        "value": "catch",
+        "label": "catch",
         "partOfSpeech": "verb"
       }
     ],
@@ -16282,15 +16282,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "bake verb card"
       },
       {
-        "id": "second_verb_build",
-        "word": "build",
-        "label": "build",
-        "value": "build",
+        "id": "second_verb_catch",
+        "word": "catch",
+        "label": "catch",
+        "value": "catch",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-build.webp",
-        "imagePath": "/media/vocabulary/images/verb-build.webp",
-        "imageUrl": "/media/vocabulary/images/verb-build.webp",
-        "alt": "build verb card"
+        "image": "/media/vocabulary/images/verb-catch.webp",
+        "imagePath": "/media/vocabulary/images/verb-catch.webp",
+        "imageUrl": "/media/vocabulary/images/verb-catch.webp",
+        "alt": "catch verb card"
       }
     ],
     "correctAnswer": "sun",
@@ -16329,7 +16329,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "ticket",
       "rises",
-      "runs",
+      "sang",
       "tiny"
     ],
     "answerOptions": [
@@ -16344,8 +16344,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "runs",
-        "label": "runs",
+        "value": "sang",
+        "label": "sang",
         "partOfSpeech": "verb"
       },
       {
@@ -16378,15 +16378,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "rises verb card"
       },
       {
-        "id": "second_verb_runs",
-        "word": "runs",
-        "label": "runs",
-        "value": "runs",
+        "id": "second_verb_sang",
+        "word": "sang",
+        "label": "sang",
+        "value": "sang",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-runs.webp",
-        "imagePath": "/media/vocabulary/images/verb-runs.webp",
-        "imageUrl": "/media/vocabulary/images/verb-runs.webp",
-        "alt": "runs verb card"
+        "image": "/media/vocabulary/images/verb-sang.webp",
+        "imagePath": "/media/vocabulary/images/verb-sang.webp",
+        "imageUrl": "/media/vocabulary/images/verb-sang.webp",
+        "alt": "sang verb card"
       },
       {
         "id": "second_adjective_tiny",
@@ -16542,7 +16542,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a noun.",
     "choices": [
       "fall",
-      "fly",
+      "help",
       "sharp",
       "wood"
     ],
@@ -16553,8 +16553,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "verb"
       },
       {
-        "value": "fly",
-        "label": "fly",
+        "value": "help",
+        "label": "help",
         "partOfSpeech": "verb"
       },
       {
@@ -16581,15 +16581,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "fall verb card"
       },
       {
-        "id": "second_verb_fly",
-        "word": "fly",
-        "label": "fly",
-        "value": "fly",
+        "id": "second_verb_help",
+        "word": "help",
+        "label": "help",
+        "value": "help",
         "partOfSpeech": "verb",
-        "image": "/media/vocabulary/images/verb-fly.webp",
-        "imagePath": "/media/vocabulary/images/verb-fly.webp",
-        "imageUrl": "/media/vocabulary/images/verb-fly.webp",
-        "alt": "fly verb card"
+        "image": "/media/vocabulary/images/verb-help.webp",
+        "imagePath": "/media/vocabulary/images/verb-help.webp",
+        "imageUrl": "/media/vocabulary/images/verb-help.webp",
+        "alt": "help verb card"
       },
       {
         "id": "second_adjective_sharp",
@@ -25724,7 +25724,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "bake",
       "lamp",
-      "land",
+      "meat",
       "bumpy"
     ],
     "answerOptions": [
@@ -25739,8 +25739,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "land",
-        "label": "land",
+        "value": "meat",
+        "label": "meat",
         "partOfSpeech": "noun"
       },
       {
@@ -25773,15 +25773,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "lamp noun card"
       },
       {
-        "id": "second_noun_land",
-        "word": "land",
-        "label": "land",
-        "value": "land",
+        "id": "second_noun_meat",
+        "word": "meat",
+        "label": "meat",
+        "value": "meat",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/land.webp",
-        "imagePath": "/media/vocabulary/images/land.webp",
-        "imageUrl": "/media/vocabulary/images/land.webp",
-        "alt": "land noun card"
+        "image": "/images/child-mode/initial-sounds/meat.png",
+        "imagePath": "/images/child-mode/initial-sounds/meat.png",
+        "imageUrl": "/images/child-mode/initial-sounds/meat.png",
+        "alt": "meat noun card"
       },
       {
         "id": "second_adjective_bumpy",
@@ -25830,7 +25830,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "market",
-      "mum",
+      "pilot",
       "cute",
       "baked"
     ],
@@ -25841,8 +25841,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "mum",
-        "label": "mum",
+        "value": "pilot",
+        "label": "pilot",
         "partOfSpeech": "noun"
       },
       {
@@ -25869,15 +25869,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "market noun card"
       },
       {
-        "id": "second_noun_mum",
-        "word": "mum",
-        "label": "mum",
-        "value": "mum",
+        "id": "second_noun_pilot",
+        "word": "pilot",
+        "label": "pilot",
+        "value": "pilot",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/noun-mum.webp",
-        "imagePath": "/media/vocabulary/images/noun-mum.webp",
-        "imageUrl": "/media/vocabulary/images/noun-mum.webp",
-        "alt": "mum noun card"
+        "image": "/media/vocabulary/images/noun-pilot.webp",
+        "imagePath": "/media/vocabulary/images/noun-pilot.webp",
+        "imageUrl": "/media/vocabulary/images/noun-pilot.webp",
+        "alt": "pilot noun card"
       },
       {
         "id": "second_adjective_cute",
@@ -26151,7 +26151,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "meat",
-      "mom",
+      "nose",
       "cute",
       "build"
     ],
@@ -26162,8 +26162,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "mom",
-        "label": "mom",
+        "value": "nose",
+        "label": "nose",
         "partOfSpeech": "noun"
       },
       {
@@ -26190,15 +26190,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "meat noun card"
       },
       {
-        "id": "second_noun_mom",
-        "word": "mom",
-        "label": "mom",
-        "value": "mom",
+        "id": "second_noun_nose",
+        "word": "nose",
+        "label": "nose",
+        "value": "nose",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/mom.webp",
-        "imagePath": "/media/vocabulary/images/mom.webp",
-        "imageUrl": "/media/vocabulary/images/mom.webp",
-        "alt": "mom noun card"
+        "image": "/images/child-mode/initial-sounds/nose.png",
+        "imagePath": "/images/child-mode/initial-sounds/nose.png",
+        "imageUrl": "/images/child-mode/initial-sounds/nose.png",
+        "alt": "nose noun card"
       },
       {
         "id": "second_adjective_cute",
@@ -26259,7 +26259,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "builds",
       "bat",
-      "bear",
+      "cap",
       "prickly"
     ],
     "answerOptions": [
@@ -26274,8 +26274,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "bear",
-        "label": "bear",
+        "value": "cap",
+        "label": "cap",
         "partOfSpeech": "noun"
       },
       {
@@ -26308,15 +26308,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "bat noun card"
       },
       {
-        "id": "second_noun_bear",
-        "word": "bear",
-        "label": "bear",
-        "value": "bear",
+        "id": "second_noun_cap",
+        "word": "cap",
+        "label": "cap",
+        "value": "cap",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/bear.png",
-        "imagePath": "/images/child-mode/initial-sounds/bear.png",
-        "imageUrl": "/images/child-mode/initial-sounds/bear.png",
-        "alt": "bear noun card"
+        "image": "/images/child-mode/cvc/cap.png",
+        "imagePath": "/images/child-mode/cvc/cap.png",
+        "imageUrl": "/images/child-mode/cvc/cap.png",
+        "alt": "cap noun card"
       },
       {
         "id": "second_adjective_prickly",
@@ -26365,7 +26365,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "body",
-      "brother",
+      "camel",
       "cute",
       "carry"
     ],
@@ -26376,8 +26376,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "brother",
-        "label": "brother",
+        "value": "camel",
+        "label": "camel",
         "partOfSpeech": "noun"
       },
       {
@@ -26404,15 +26404,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "body noun card"
       },
       {
-        "id": "second_noun_brother",
-        "word": "brother",
-        "label": "brother",
-        "value": "brother",
+        "id": "second_noun_camel",
+        "word": "camel",
+        "label": "camel",
+        "value": "camel",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/brother.webp",
-        "imagePath": "/media/vocabulary/images/brother.webp",
-        "imageUrl": "/media/vocabulary/images/brother.webp",
-        "alt": "brother noun card"
+        "image": "/media/vocabulary/images/camel.webp",
+        "imagePath": "/media/vocabulary/images/camel.webp",
+        "imageUrl": "/media/vocabulary/images/camel.webp",
+        "alt": "camel noun card"
       },
       {
         "id": "second_adjective_cute",
@@ -26579,7 +26579,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "bell",
-      "book",
+      "cap",
       "sharp",
       "compare"
     ],
@@ -26590,8 +26590,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "book",
-        "label": "book",
+        "value": "cap",
+        "label": "cap",
         "partOfSpeech": "noun"
       },
       {
@@ -26618,15 +26618,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "bell noun card"
       },
       {
-        "id": "second_noun_book",
-        "word": "book",
-        "label": "book",
-        "value": "book",
+        "id": "second_noun_cap",
+        "word": "cap",
+        "label": "cap",
+        "value": "cap",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/cvc/book.png",
-        "imagePath": "/images/child-mode/cvc/book.png",
-        "imageUrl": "/images/child-mode/cvc/book.png",
-        "alt": "book noun card"
+        "image": "/images/child-mode/cvc/cap.png",
+        "imagePath": "/images/child-mode/cvc/cap.png",
+        "imageUrl": "/images/child-mode/cvc/cap.png",
+        "alt": "cap noun card"
       },
       {
         "id": "second_adjective_sharp",
@@ -26795,7 +26795,7 @@ export const secondBlockSkillTopUpQuestions = [
       "huge",
       "count",
       "park",
-      "path"
+      "rain"
     ],
     "answerOptions": [
       {
@@ -26814,8 +26814,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "path",
-        "label": "path",
+        "value": "rain",
+        "label": "rain",
         "partOfSpeech": "noun"
       }
     ],
@@ -26854,15 +26854,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "park noun card"
       },
       {
-        "id": "second_noun_path",
-        "word": "path",
-        "label": "path",
-        "value": "path",
+        "id": "second_noun_rain",
+        "word": "rain",
+        "label": "rain",
+        "value": "rain",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/path.webp",
-        "imagePath": "/media/vocabulary/images/path.webp",
-        "imageUrl": "/media/vocabulary/images/path.webp",
-        "alt": "path noun card"
+        "image": "/images/child-mode/initial-sounds/rain.png",
+        "imagePath": "/images/child-mode/initial-sounds/rain.png",
+        "imageUrl": "/images/child-mode/initial-sounds/rain.png",
+        "alt": "rain noun card"
       }
     ],
     "correctAnswer": "count",
@@ -26899,15 +26899,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "bug",
+      "cap",
       "smelly",
       "cried",
       "box"
     ],
     "answerOptions": [
       {
-        "value": "bug",
-        "label": "bug",
+        "value": "cap",
+        "label": "cap",
         "partOfSpeech": "noun"
       },
       {
@@ -26928,15 +26928,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_bug",
-        "word": "bug",
-        "label": "bug",
-        "value": "bug",
+        "id": "second_noun_cap",
+        "word": "cap",
+        "label": "cap",
+        "value": "cap",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/cvc/bug.png",
-        "imagePath": "/images/child-mode/cvc/bug.png",
-        "imageUrl": "/images/child-mode/cvc/bug.png",
-        "alt": "bug noun card"
+        "image": "/images/child-mode/cvc/cap.png",
+        "imagePath": "/images/child-mode/cvc/cap.png",
+        "imageUrl": "/images/child-mode/cvc/cap.png",
+        "alt": "cap noun card"
       },
       {
         "id": "second_adjective_smelly",
@@ -27009,7 +27009,7 @@ export const secondBlockSkillTopUpQuestions = [
       "square",
       "dance",
       "cat",
-      "class"
+      "dad"
     ],
     "answerOptions": [
       {
@@ -27028,8 +27028,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "class",
-        "label": "class",
+        "value": "dad",
+        "label": "dad",
         "partOfSpeech": "noun"
       }
     ],
@@ -27068,15 +27068,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "cat noun card"
       },
       {
-        "id": "second_noun_class",
-        "word": "class",
-        "label": "class",
-        "value": "class",
+        "id": "second_noun_dad",
+        "word": "dad",
+        "label": "dad",
+        "value": "dad",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/class.webp",
-        "imagePath": "/media/vocabulary/images/class.webp",
-        "imageUrl": "/media/vocabulary/images/class.webp",
-        "alt": "class noun card"
+        "image": "/media/vocabulary/images/dad.webp",
+        "imagePath": "/media/vocabulary/images/dad.webp",
+        "imageUrl": "/media/vocabulary/images/dad.webp",
+        "alt": "dad noun card"
       }
     ],
     "correctAnswer": "dance",
@@ -27222,7 +27222,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "drive",
       "plum",
-      "puppy",
+      "rain",
       "prickly"
     ],
     "answerOptions": [
@@ -27237,8 +27237,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "puppy",
-        "label": "puppy",
+        "value": "rain",
+        "label": "rain",
         "partOfSpeech": "noun"
       },
       {
@@ -27271,15 +27271,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "plum noun card"
       },
       {
-        "id": "second_noun_puppy",
-        "word": "puppy",
-        "label": "puppy",
-        "value": "puppy",
+        "id": "second_noun_rain",
+        "word": "rain",
+        "label": "rain",
+        "value": "rain",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/noun-puppy.webp",
-        "imagePath": "/media/vocabulary/images/noun-puppy.webp",
-        "imageUrl": "/media/vocabulary/images/noun-puppy.webp",
-        "alt": "puppy noun card"
+        "image": "/images/child-mode/initial-sounds/rain.png",
+        "imagePath": "/images/child-mode/initial-sounds/rain.png",
+        "imageUrl": "/images/child-mode/initial-sounds/rain.png",
+        "alt": "rain noun card"
       },
       {
         "id": "second_adjective_prickly",
@@ -27328,7 +27328,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "scarf",
-      "sea",
+      "teacher",
       "sharp",
       "eat"
     ],
@@ -27339,8 +27339,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "sea",
-        "label": "sea",
+        "value": "teacher",
+        "label": "teacher",
         "partOfSpeech": "noun"
       },
       {
@@ -27367,15 +27367,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "scarf noun card"
       },
       {
-        "id": "second_noun_sea",
-        "word": "sea",
-        "label": "sea",
-        "value": "sea",
+        "id": "second_noun_teacher",
+        "word": "teacher",
+        "label": "teacher",
+        "value": "teacher",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/sea.png",
-        "imagePath": "/images/child-mode/initial-sounds/sea.png",
-        "imageUrl": "/images/child-mode/initial-sounds/sea.png",
-        "alt": "sea noun card"
+        "image": "/media/vocabulary/images/noun-teacher.webp",
+        "imagePath": "/media/vocabulary/images/noun-teacher.webp",
+        "imageUrl": "/media/vocabulary/images/noun-teacher.webp",
+        "alt": "teacher noun card"
       },
       {
         "id": "second_adjective_sharp",
@@ -27541,15 +27541,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "shirt",
+      "teacher",
       "smelly",
       "fall",
       "shelf"
     ],
     "answerOptions": [
       {
-        "value": "shirt",
-        "label": "shirt",
+        "value": "teacher",
+        "label": "teacher",
         "partOfSpeech": "noun"
       },
       {
@@ -27570,15 +27570,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_shirt",
-        "word": "shirt",
-        "label": "shirt",
-        "value": "shirt",
+        "id": "second_noun_teacher",
+        "word": "teacher",
+        "label": "teacher",
+        "value": "teacher",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/shirt.webp",
-        "imagePath": "/media/vocabulary/images/shirt.webp",
-        "imageUrl": "/media/vocabulary/images/shirt.webp",
-        "alt": "shirt noun card"
+        "image": "/media/vocabulary/images/noun-teacher.webp",
+        "imagePath": "/media/vocabulary/images/noun-teacher.webp",
+        "imageUrl": "/media/vocabulary/images/noun-teacher.webp",
+        "alt": "teacher noun card"
       },
       {
         "id": "second_adjective_smelly",
@@ -27648,15 +27648,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "foot",
+      "glove",
       "brown",
       "fell",
       "face"
     ],
     "answerOptions": [
       {
-        "value": "foot",
-        "label": "foot",
+        "value": "glove",
+        "label": "glove",
         "partOfSpeech": "noun"
       },
       {
@@ -27677,15 +27677,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_foot",
-        "word": "foot",
-        "label": "foot",
-        "value": "foot",
+        "id": "second_noun_glove",
+        "word": "glove",
+        "label": "glove",
+        "value": "glove",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/foot.webp",
-        "imagePath": "/media/vocabulary/images/foot.webp",
-        "imageUrl": "/media/vocabulary/images/foot.webp",
-        "alt": "foot noun card"
+        "image": "/media/vocabulary/images/glove.webp",
+        "imagePath": "/media/vocabulary/images/glove.webp",
+        "imageUrl": "/media/vocabulary/images/glove.webp",
+        "alt": "glove noun card"
       },
       {
         "id": "second_adjective_brown",
@@ -27758,7 +27758,7 @@ export const secondBlockSkillTopUpQuestions = [
       "purple",
       "flew",
       "glove",
-      "glue"
+      "hair"
     ],
     "answerOptions": [
       {
@@ -27777,8 +27777,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "glue",
-        "label": "glue",
+        "value": "hair",
+        "label": "hair",
         "partOfSpeech": "noun"
       }
     ],
@@ -27817,15 +27817,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "glove noun card"
       },
       {
-        "id": "second_noun_glue",
-        "word": "glue",
-        "label": "glue",
-        "value": "glue",
+        "id": "second_noun_hair",
+        "word": "hair",
+        "label": "hair",
+        "value": "hair",
         "partOfSpeech": "noun",
-        "image": "/images/assessment/long-vowels/glue.webp",
-        "imagePath": "/images/assessment/long-vowels/glue.webp",
-        "imageUrl": "/images/assessment/long-vowels/glue.webp",
-        "alt": "glue noun card"
+        "image": "/media/vocabulary/images/hair.webp",
+        "imagePath": "/media/vocabulary/images/hair.webp",
+        "imageUrl": "/media/vocabulary/images/hair.webp",
+        "alt": "hair noun card"
       }
     ],
     "correctAnswer": "flew",
@@ -27865,7 +27865,7 @@ export const secondBlockSkillTopUpQuestions = [
       "square",
       "fly",
       "skunk",
-      "snake"
+      "teacher"
     ],
     "answerOptions": [
       {
@@ -27884,8 +27884,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "snake",
-        "label": "snake",
+        "value": "teacher",
+        "label": "teacher",
         "partOfSpeech": "noun"
       }
     ],
@@ -27924,15 +27924,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "skunk noun card"
       },
       {
-        "id": "second_noun_snake",
-        "word": "snake",
-        "label": "snake",
-        "value": "snake",
+        "id": "second_noun_teacher",
+        "word": "teacher",
+        "label": "teacher",
+        "value": "teacher",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/snake.png",
-        "imagePath": "/images/child-mode/initial-sounds/snake.png",
-        "imageUrl": "/images/child-mode/initial-sounds/snake.png",
-        "alt": "snake noun card"
+        "image": "/media/vocabulary/images/noun-teacher.webp",
+        "imagePath": "/media/vocabulary/images/noun-teacher.webp",
+        "imageUrl": "/media/vocabulary/images/noun-teacher.webp",
+        "alt": "teacher noun card"
       }
     ],
     "correctAnswer": "fly",
@@ -27970,7 +27970,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "girl",
-      "grape",
+      "hand",
       "old",
       "galloped"
     ],
@@ -27981,8 +27981,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "grape",
-        "label": "grape",
+        "value": "hand",
+        "label": "hand",
         "partOfSpeech": "noun"
       },
       {
@@ -28009,15 +28009,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "girl noun card"
       },
       {
-        "id": "second_noun_grape",
-        "word": "grape",
-        "label": "grape",
-        "value": "grape",
+        "id": "second_noun_hand",
+        "word": "hand",
+        "label": "hand",
+        "value": "hand",
         "partOfSpeech": "noun",
-        "image": "/images/assessment/long-vowels/grape.webp",
-        "imagePath": "/images/assessment/long-vowels/grape.webp",
-        "imageUrl": "/images/assessment/long-vowels/grape.webp",
-        "alt": "grape noun card"
+        "image": "/images/child-mode/initial-sounds/hand.png",
+        "imagePath": "/images/child-mode/initial-sounds/hand.png",
+        "imageUrl": "/images/child-mode/initial-sounds/hand.png",
+        "alt": "hand noun card"
       },
       {
         "id": "second_adjective_old",
@@ -28078,7 +28078,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "help",
       "soup",
-      "star",
+      "teacher",
       "tiny"
     ],
     "answerOptions": [
@@ -28093,8 +28093,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "star",
-        "label": "star",
+        "value": "teacher",
+        "label": "teacher",
         "partOfSpeech": "noun"
       },
       {
@@ -28127,15 +28127,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "soup noun card"
       },
       {
-        "id": "second_noun_star",
-        "word": "star",
-        "label": "star",
-        "value": "star",
+        "id": "second_noun_teacher",
+        "word": "teacher",
+        "label": "teacher",
+        "value": "teacher",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/star.png",
-        "imagePath": "/images/child-mode/initial-sounds/star.png",
-        "imageUrl": "/images/child-mode/initial-sounds/star.png",
-        "alt": "star noun card"
+        "image": "/media/vocabulary/images/noun-teacher.webp",
+        "imagePath": "/media/vocabulary/images/noun-teacher.webp",
+        "imageUrl": "/media/vocabulary/images/noun-teacher.webp",
+        "alt": "teacher noun card"
       },
       {
         "id": "second_adjective_tiny",
@@ -28292,7 +28292,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "hung",
       "hair",
-      "ham",
+      "jam",
       "bumpy"
     ],
     "answerOptions": [
@@ -28307,8 +28307,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "ham",
-        "label": "ham",
+        "value": "jam",
+        "label": "jam",
         "partOfSpeech": "noun"
       },
       {
@@ -28341,15 +28341,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "hair noun card"
       },
       {
-        "id": "second_noun_ham",
-        "word": "ham",
-        "label": "ham",
-        "value": "ham",
+        "id": "second_noun_jam",
+        "word": "jam",
+        "label": "jam",
+        "value": "jam",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/ham.png",
-        "imagePath": "/images/child-mode/initial-sounds/ham.png",
-        "imageUrl": "/images/child-mode/initial-sounds/ham.png",
-        "alt": "ham noun card"
+        "image": "/images/child-mode/initial-sounds/jam.png",
+        "imagePath": "/images/child-mode/initial-sounds/jam.png",
+        "imageUrl": "/images/child-mode/initial-sounds/jam.png",
+        "alt": "jam noun card"
       },
       {
         "id": "second_adjective_bumpy",
@@ -28398,7 +28398,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "head",
-      "hen",
+      "jam",
       "cute",
       "jumped"
     ],
@@ -28409,8 +28409,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "hen",
-        "label": "hen",
+        "value": "jam",
+        "label": "jam",
         "partOfSpeech": "noun"
       },
       {
@@ -28437,15 +28437,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "head noun card"
       },
       {
-        "id": "second_noun_hen",
-        "word": "hen",
-        "label": "hen",
-        "value": "hen",
+        "id": "second_noun_jam",
+        "word": "jam",
+        "label": "jam",
+        "value": "jam",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/hen.png",
-        "imagePath": "/images/child-mode/initial-sounds/hen.png",
-        "imageUrl": "/images/child-mode/initial-sounds/hen.png",
-        "alt": "hen noun card"
+        "image": "/images/child-mode/initial-sounds/jam.png",
+        "imagePath": "/images/child-mode/initial-sounds/jam.png",
+        "imageUrl": "/images/child-mode/initial-sounds/jam.png",
+        "alt": "jam noun card"
       },
       {
         "id": "second_adjective_cute",
@@ -28504,15 +28504,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "chicken",
+      "driver",
       "fierce",
       "listen",
       "camel"
     ],
     "answerOptions": [
       {
-        "value": "chicken",
-        "label": "chicken",
+        "value": "driver",
+        "label": "driver",
         "partOfSpeech": "noun"
       },
       {
@@ -28533,15 +28533,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_chicken",
-        "word": "chicken",
-        "label": "chicken",
-        "value": "chicken",
+        "id": "second_noun_driver",
+        "word": "driver",
+        "label": "driver",
+        "value": "driver",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/chicken.webp",
-        "imagePath": "/media/vocabulary/images/chicken.webp",
-        "imageUrl": "/media/vocabulary/images/chicken.webp",
-        "alt": "chicken noun card"
+        "image": "/media/vocabulary/images/driver.webp",
+        "imagePath": "/media/vocabulary/images/driver.webp",
+        "imageUrl": "/media/vocabulary/images/driver.webp",
+        "alt": "driver noun card"
       },
       {
         "id": "second_adjective_fierce",
@@ -28611,15 +28611,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "knee",
+      "lamb",
       "fierce",
       "measure",
       "kid"
     ],
     "answerOptions": [
       {
-        "value": "knee",
-        "label": "knee",
+        "value": "lamb",
+        "label": "lamb",
         "partOfSpeech": "noun"
       },
       {
@@ -28640,15 +28640,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_knee",
-        "word": "knee",
-        "label": "knee",
-        "value": "knee",
+        "id": "second_noun_lamb",
+        "word": "lamb",
+        "label": "lamb",
+        "value": "lamb",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/knee.webp",
-        "imagePath": "/media/vocabulary/images/knee.webp",
-        "imageUrl": "/media/vocabulary/images/knee.webp",
-        "alt": "knee noun card"
+        "image": "/media/vocabulary/images/lamb.webp",
+        "imagePath": "/media/vocabulary/images/lamb.webp",
+        "imageUrl": "/media/vocabulary/images/lamb.webp",
+        "alt": "lamb noun card"
       },
       {
         "id": "second_adjective_fierce",
@@ -28827,7 +28827,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "observe",
       "men",
-      "moon",
+      "nut",
       "prickly"
     ],
     "answerOptions": [
@@ -28842,8 +28842,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "moon",
-        "label": "moon",
+        "value": "nut",
+        "label": "nut",
         "partOfSpeech": "noun"
       },
       {
@@ -28876,15 +28876,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "men noun card"
       },
       {
-        "id": "second_noun_moon",
-        "word": "moon",
-        "label": "moon",
-        "value": "moon",
+        "id": "second_noun_nut",
+        "word": "nut",
+        "label": "nut",
+        "value": "nut",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/moon.png",
-        "imagePath": "/images/child-mode/initial-sounds/moon.png",
-        "imageUrl": "/images/child-mode/initial-sounds/moon.png",
-        "alt": "moon noun card"
+        "image": "/images/child-mode/initial-sounds/nut.png",
+        "imagePath": "/images/child-mode/initial-sounds/nut.png",
+        "imageUrl": "/images/child-mode/initial-sounds/nut.png",
+        "alt": "nut noun card"
       },
       {
         "id": "second_adjective_prickly",
@@ -28933,7 +28933,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "pear",
-      "pen",
+      "rat",
       "sharp",
       "played"
     ],
@@ -28944,8 +28944,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "pen",
-        "label": "pen",
+        "value": "rat",
+        "label": "rat",
         "partOfSpeech": "noun"
       },
       {
@@ -28972,15 +28972,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "pear noun card"
       },
       {
-        "id": "second_noun_pen",
-        "word": "pen",
-        "label": "pen",
-        "value": "pen",
+        "id": "second_noun_rat",
+        "word": "rat",
+        "label": "rat",
+        "value": "rat",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/pen.png",
-        "imagePath": "/images/child-mode/initial-sounds/pen.png",
-        "imageUrl": "/images/child-mode/initial-sounds/pen.png",
-        "alt": "pen noun card"
+        "image": "/images/child-mode/initial-sounds/rat.png",
+        "imagePath": "/images/child-mode/initial-sounds/rat.png",
+        "imageUrl": "/images/child-mode/initial-sounds/rat.png",
+        "alt": "rat noun card"
       },
       {
         "id": "second_adjective_sharp",
@@ -29039,15 +29039,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "rice",
+      "seal",
       "smelly",
       "pour",
       "rat"
     ],
     "answerOptions": [
       {
-        "value": "rice",
-        "label": "rice",
+        "value": "seal",
+        "label": "seal",
         "partOfSpeech": "noun"
       },
       {
@@ -29068,15 +29068,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_rice",
-        "word": "rice",
-        "label": "rice",
-        "value": "rice",
+        "id": "second_noun_seal",
+        "word": "seal",
+        "label": "seal",
+        "value": "seal",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/rice.webp",
-        "imagePath": "/media/vocabulary/images/rice.webp",
-        "imageUrl": "/media/vocabulary/images/rice.webp",
-        "alt": "rice noun card"
+        "image": "/images/child-mode/initial-sounds/seal.png",
+        "imagePath": "/images/child-mode/initial-sounds/seal.png",
+        "imageUrl": "/images/child-mode/initial-sounds/seal.png",
+        "alt": "seal noun card"
       },
       {
         "id": "second_adjective_smelly",
@@ -29255,7 +29255,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "raised",
       "sky",
-      "sock",
+      "toast",
       "tiny"
     ],
     "answerOptions": [
@@ -29270,8 +29270,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "sock",
-        "label": "sock",
+        "value": "toast",
+        "label": "toast",
         "partOfSpeech": "noun"
       },
       {
@@ -29304,15 +29304,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "sky noun card"
       },
       {
-        "id": "second_noun_sock",
-        "word": "sock",
-        "label": "sock",
-        "value": "sock",
+        "id": "second_noun_toast",
+        "word": "toast",
+        "label": "toast",
+        "value": "toast",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/sock.png",
-        "imagePath": "/images/child-mode/initial-sounds/sock.png",
-        "imageUrl": "/images/child-mode/initial-sounds/sock.png",
-        "alt": "sock noun card"
+        "image": "/media/vocabulary/images/toast.webp",
+        "imagePath": "/media/vocabulary/images/toast.webp",
+        "imageUrl": "/media/vocabulary/images/toast.webp",
+        "alt": "toast noun card"
       },
       {
         "id": "second_adjective_tiny",
@@ -29577,7 +29577,7 @@ export const secondBlockSkillTopUpQuestions = [
       "purple",
       "repair",
       "air",
-      "ant"
+      "baby"
     ],
     "answerOptions": [
       {
@@ -29596,8 +29596,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "ant",
-        "label": "ant",
+        "value": "baby",
+        "label": "baby",
         "partOfSpeech": "noun"
       }
     ],
@@ -29636,15 +29636,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "air noun card"
       },
       {
-        "id": "second_noun_ant",
-        "word": "ant",
-        "label": "ant",
-        "value": "ant",
+        "id": "second_noun_baby",
+        "word": "baby",
+        "label": "baby",
+        "value": "baby",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/ant.png",
-        "imagePath": "/images/child-mode/initial-sounds/ant.png",
-        "imageUrl": "/images/child-mode/initial-sounds/ant.png",
-        "alt": "ant noun card"
+        "image": "/media/vocabulary/images/noun-baby.webp",
+        "imagePath": "/media/vocabulary/images/noun-baby.webp",
+        "imageUrl": "/media/vocabulary/images/noun-baby.webp",
+        "alt": "baby noun card"
       }
     ],
     "correctAnswer": "repair",
@@ -29683,7 +29683,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "rises",
       "baby",
-      "beach",
+      "cake",
       "bumpy"
     ],
     "answerOptions": [
@@ -29698,8 +29698,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "beach",
-        "label": "beach",
+        "value": "cake",
+        "label": "cake",
         "partOfSpeech": "noun"
       },
       {
@@ -29732,15 +29732,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "baby noun card"
       },
       {
-        "id": "second_noun_beach",
-        "word": "beach",
-        "label": "beach",
-        "value": "beach",
+        "id": "second_noun_cake",
+        "word": "cake",
+        "label": "cake",
+        "value": "cake",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/beach.webp",
-        "imagePath": "/media/vocabulary/images/beach.webp",
-        "imageUrl": "/media/vocabulary/images/beach.webp",
-        "alt": "beach noun card"
+        "image": "/images/child-mode/initial-sounds/cake.png",
+        "imagePath": "/images/child-mode/initial-sounds/cake.png",
+        "imageUrl": "/images/child-mode/initial-sounds/cake.png",
+        "alt": "cake noun card"
       },
       {
         "id": "second_adjective_bumpy",
@@ -29789,7 +29789,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "belt",
-      "bird",
+      "cake",
       "cute",
       "runs"
     ],
@@ -29800,8 +29800,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "bird",
-        "label": "bird",
+        "value": "cake",
+        "label": "cake",
         "partOfSpeech": "noun"
       },
       {
@@ -29828,15 +29828,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "belt noun card"
       },
       {
-        "id": "second_noun_bird",
-        "word": "bird",
-        "label": "bird",
-        "value": "bird",
+        "id": "second_noun_cake",
+        "word": "cake",
+        "label": "cake",
+        "value": "cake",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/bird.png",
-        "imagePath": "/images/child-mode/initial-sounds/bird.png",
-        "imageUrl": "/images/child-mode/initial-sounds/bird.png",
-        "alt": "bird noun card"
+        "image": "/images/child-mode/initial-sounds/cake.png",
+        "imagePath": "/images/child-mode/initial-sounds/cake.png",
+        "imageUrl": "/images/child-mode/initial-sounds/cake.png",
+        "alt": "cake noun card"
       },
       {
         "id": "second_adjective_cute",
@@ -29895,15 +29895,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "bread",
+      "cake",
       "fierce",
       "sang",
       "boy"
     ],
     "answerOptions": [
       {
-        "value": "bread",
-        "label": "bread",
+        "value": "cake",
+        "label": "cake",
         "partOfSpeech": "noun"
       },
       {
@@ -29924,15 +29924,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_bread",
-        "word": "bread",
-        "label": "bread",
-        "value": "bread",
+        "id": "second_noun_cake",
+        "word": "cake",
+        "label": "cake",
+        "value": "cake",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/bread.webp",
-        "imagePath": "/media/vocabulary/images/bread.webp",
-        "imageUrl": "/media/vocabulary/images/bread.webp",
-        "alt": "bread noun card"
+        "image": "/images/child-mode/initial-sounds/cake.png",
+        "imagePath": "/images/child-mode/initial-sounds/cake.png",
+        "imageUrl": "/images/child-mode/initial-sounds/cake.png",
+        "alt": "cake noun card"
       },
       {
         "id": "second_adjective_fierce",
@@ -30005,7 +30005,7 @@ export const secondBlockSkillTopUpQuestions = [
       "huge",
       "sat",
       "chair",
-      "cheese"
+      "desk"
     ],
     "answerOptions": [
       {
@@ -30024,8 +30024,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "cheese",
-        "label": "cheese",
+        "value": "desk",
+        "label": "desk",
         "partOfSpeech": "noun"
       }
     ],
@@ -30064,15 +30064,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "chair noun card"
       },
       {
-        "id": "second_noun_cheese",
-        "word": "cheese",
-        "label": "cheese",
-        "value": "cheese",
+        "id": "second_noun_desk",
+        "word": "desk",
+        "label": "desk",
+        "value": "desk",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/cheese.webp",
-        "imagePath": "/media/vocabulary/images/cheese.webp",
-        "imageUrl": "/media/vocabulary/images/cheese.webp",
-        "alt": "cheese noun card"
+        "image": "/images/child-mode/initial-sounds/desk.png",
+        "imagePath": "/images/child-mode/initial-sounds/desk.png",
+        "imageUrl": "/images/child-mode/initial-sounds/desk.png",
+        "alt": "desk noun card"
       }
     ],
     "correctAnswer": "sat",
@@ -30111,7 +30111,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "shake",
       "cloud",
-      "corn",
+      "desk",
       "prickly"
     ],
     "answerOptions": [
@@ -30126,8 +30126,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "corn",
-        "label": "corn",
+        "value": "desk",
+        "label": "desk",
         "partOfSpeech": "noun"
       },
       {
@@ -30160,15 +30160,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "cloud noun card"
       },
       {
-        "id": "second_noun_corn",
-        "word": "corn",
-        "label": "corn",
-        "value": "corn",
+        "id": "second_noun_desk",
+        "word": "desk",
+        "label": "desk",
+        "value": "desk",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/corn.png",
-        "imagePath": "/images/child-mode/initial-sounds/corn.png",
-        "imageUrl": "/images/child-mode/initial-sounds/corn.png",
-        "alt": "corn noun card"
+        "image": "/images/child-mode/initial-sounds/desk.png",
+        "imagePath": "/images/child-mode/initial-sounds/desk.png",
+        "imageUrl": "/images/child-mode/initial-sounds/desk.png",
+        "alt": "desk noun card"
       },
       {
         "id": "second_adjective_prickly",
@@ -30216,15 +30216,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "tree",
+      "wall",
       "brown",
       "share",
       "toy"
     ],
     "answerOptions": [
       {
-        "value": "tree",
-        "label": "tree",
+        "value": "wall",
+        "label": "wall",
         "partOfSpeech": "noun"
       },
       {
@@ -30245,15 +30245,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_tree",
-        "word": "tree",
-        "label": "tree",
-        "value": "tree",
+        "id": "second_noun_wall",
+        "word": "wall",
+        "label": "wall",
+        "value": "wall",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/blends/tree.png",
-        "imagePath": "/images/child-mode/blends/tree.png",
-        "imageUrl": "/images/child-mode/blends/tree.png",
-        "alt": "tree noun card"
+        "image": "/media/vocabulary/images/wall.webp",
+        "imagePath": "/media/vocabulary/images/wall.webp",
+        "imageUrl": "/media/vocabulary/images/wall.webp",
+        "alt": "wall noun card"
       },
       {
         "id": "second_adjective_brown",
@@ -30431,7 +30431,7 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Tap the picture that shows a verb.",
     "choices": [
       "desk",
-      "dirt",
+      "farm",
       "sharp",
       "smiled"
     ],
@@ -30442,8 +30442,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "dirt",
-        "label": "dirt",
+        "value": "farm",
+        "label": "farm",
         "partOfSpeech": "noun"
       },
       {
@@ -30470,15 +30470,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "desk noun card"
       },
       {
-        "id": "second_noun_dirt",
-        "word": "dirt",
-        "label": "dirt",
-        "value": "dirt",
+        "id": "second_noun_farm",
+        "word": "farm",
+        "label": "farm",
+        "value": "farm",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/dirt.webp",
-        "imagePath": "/media/vocabulary/images/dirt.webp",
-        "imageUrl": "/media/vocabulary/images/dirt.webp",
-        "alt": "dirt noun card"
+        "image": "/images/child-mode/initial-sounds/farm.png",
+        "imagePath": "/images/child-mode/initial-sounds/farm.png",
+        "imageUrl": "/images/child-mode/initial-sounds/farm.png",
+        "alt": "farm noun card"
       },
       {
         "id": "second_adjective_sharp",
@@ -30537,15 +30537,15 @@ export const secondBlockSkillTopUpQuestions = [
     "prompt": "Tap the picture that shows a verb.",
     "question": "Tap the picture that shows a verb.",
     "choices": [
-      "farmer",
+      "game",
       "smelly",
       "swam",
       "farm"
     ],
     "answerOptions": [
       {
-        "value": "farmer",
-        "label": "farmer",
+        "value": "game",
+        "label": "game",
         "partOfSpeech": "noun"
       },
       {
@@ -30566,15 +30566,15 @@ export const secondBlockSkillTopUpQuestions = [
     ],
     "imageCards": [
       {
-        "id": "second_noun_farmer",
-        "word": "farmer",
-        "label": "farmer",
-        "value": "farmer",
+        "id": "second_noun_game",
+        "word": "game",
+        "label": "game",
+        "value": "game",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/noun-farmer.webp",
-        "imagePath": "/media/vocabulary/images/noun-farmer.webp",
-        "imageUrl": "/media/vocabulary/images/noun-farmer.webp",
-        "alt": "farmer noun card"
+        "image": "/media/vocabulary/images/game.webp",
+        "imagePath": "/media/vocabulary/images/game.webp",
+        "imageUrl": "/media/vocabulary/images/game.webp",
+        "alt": "game noun card"
       },
       {
         "id": "second_adjective_smelly",
@@ -30647,7 +30647,7 @@ export const secondBlockSkillTopUpQuestions = [
       "square",
       "swayed",
       "field",
-      "fish"
+      "game"
     ],
     "answerOptions": [
       {
@@ -30666,8 +30666,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "fish",
-        "label": "fish",
+        "value": "game",
+        "label": "game",
         "partOfSpeech": "noun"
       }
     ],
@@ -30706,15 +30706,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "field noun card"
       },
       {
-        "id": "second_noun_fish",
-        "word": "fish",
-        "label": "fish",
-        "value": "fish",
+        "id": "second_noun_game",
+        "word": "game",
+        "label": "game",
+        "value": "game",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/cvc/fish.png",
-        "imagePath": "/images/child-mode/cvc/fish.png",
-        "imageUrl": "/images/child-mode/cvc/fish.png",
-        "alt": "fish noun card"
+        "image": "/media/vocabulary/images/game.webp",
+        "imagePath": "/media/vocabulary/images/game.webp",
+        "imageUrl": "/media/vocabulary/images/game.webp",
+        "alt": "game noun card"
       }
     ],
     "correctAnswer": "swayed",
@@ -30754,7 +30754,7 @@ export const secondBlockSkillTopUpQuestions = [
       "purple",
       "think",
       "whale",
-      "wind"
+      "children"
     ],
     "answerOptions": [
       {
@@ -30773,8 +30773,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "wind",
-        "label": "wind",
+        "value": "children",
+        "label": "children",
         "partOfSpeech": "noun"
       }
     ],
@@ -30813,15 +30813,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "whale noun card"
       },
       {
-        "id": "second_noun_wind",
-        "word": "wind",
-        "label": "wind",
-        "value": "wind",
+        "id": "second_noun_children",
+        "word": "children",
+        "label": "children",
+        "value": "children",
         "partOfSpeech": "noun",
-        "image": "/media/vocabulary/images/wind.webp",
-        "imagePath": "/media/vocabulary/images/wind.webp",
-        "imageUrl": "/media/vocabulary/images/wind.webp",
-        "alt": "wind noun card"
+        "image": "/media/vocabulary/images/noun-children.webp",
+        "imagePath": "/media/vocabulary/images/noun-children.webp",
+        "imageUrl": "/media/vocabulary/images/noun-children.webp",
+        "alt": "children noun card"
       }
     ],
     "correctAnswer": "think",
@@ -30860,7 +30860,7 @@ export const secondBlockSkillTopUpQuestions = [
     "choices": [
       "walked",
       "food",
-      "frog",
+      "game",
       "tiny"
     ],
     "answerOptions": [
@@ -30875,8 +30875,8 @@ export const secondBlockSkillTopUpQuestions = [
         "partOfSpeech": "noun"
       },
       {
-        "value": "frog",
-        "label": "frog",
+        "value": "game",
+        "label": "game",
         "partOfSpeech": "noun"
       },
       {
@@ -30909,15 +30909,15 @@ export const secondBlockSkillTopUpQuestions = [
         "alt": "food noun card"
       },
       {
-        "id": "second_noun_frog",
-        "word": "frog",
-        "label": "frog",
-        "value": "frog",
+        "id": "second_noun_game",
+        "word": "game",
+        "label": "game",
+        "value": "game",
         "partOfSpeech": "noun",
-        "image": "/images/child-mode/initial-sounds/frog.png",
-        "imagePath": "/images/child-mode/initial-sounds/frog.png",
-        "imageUrl": "/images/child-mode/initial-sounds/frog.png",
-        "alt": "frog noun card"
+        "image": "/media/vocabulary/images/game.webp",
+        "imagePath": "/media/vocabulary/images/game.webp",
+        "imageUrl": "/media/vocabulary/images/game.webp",
+        "alt": "game noun card"
       },
       {
         "id": "second_adjective_tiny",
@@ -31153,22 +31153,12 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the verb that best fits the sentence.",
     "sentence": "The family will ___ bread.",
     "choices": [
-      "ate",
       "bake",
+      "hide",
       "share",
       "write"
     ],
     "answerOptions": [
-      {
-        "id": "second_verb_ate_text",
-        "word": "ate",
-        "label": "ate",
-        "value": "ate",
-        "partOfSpeech": "verb",
-        "audio": "/audio/child-mode/clean-human/morphology/ate.mp3",
-        "audioPath": "/audio/child-mode/clean-human/morphology/ate.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/morphology/ate.mp3"
-      },
       {
         "id": "second_verb_bake_text",
         "word": "bake",
@@ -31178,6 +31168,16 @@ export const secondBlockSkillTopUpQuestions = [
         "audio": "/media/vocabulary/audio/bake.mp3",
         "audioPath": "/media/vocabulary/audio/bake.mp3",
         "audioUrl": "/media/vocabulary/audio/bake.mp3"
+      },
+      {
+        "id": "second_verb_hide_text",
+        "word": "hide",
+        "label": "hide",
+        "value": "hide",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/hide.mp3",
+        "audioPath": "/audio/vocabulary/hide.mp3",
+        "audioUrl": "/audio/vocabulary/hide.mp3"
       },
       {
         "id": "second_verb_share_text",
@@ -31234,9 +31234,9 @@ export const secondBlockSkillTopUpQuestions = [
     "sentence": "The children ___ a tower.",
     "choices": [
       "build",
-      "fly",
-      "hide",
-      "share"
+      "drive",
+      "fall",
+      "fly"
     ],
     "answerOptions": [
       {
@@ -31248,6 +31248,166 @@ export const secondBlockSkillTopUpQuestions = [
         "audio": "/audio/vocabulary/build.mp3",
         "audioPath": "/audio/vocabulary/build.mp3",
         "audioUrl": "/audio/vocabulary/build.mp3"
+      },
+      {
+        "id": "second_verb_drive_text",
+        "word": "drive",
+        "label": "drive",
+        "value": "drive",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/drive.mp3",
+        "audioPath": "/audio/vocabulary/drive.mp3",
+        "audioUrl": "/audio/vocabulary/drive.mp3"
+      },
+      {
+        "id": "second_verb_fall_text",
+        "word": "fall",
+        "label": "fall",
+        "value": "fall",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fall.mp3",
+        "audioPath": "/audio/vocabulary/fall.mp3",
+        "audioUrl": "/audio/vocabulary/fall.mp3"
+      },
+      {
+        "id": "second_verb_fly_text",
+        "word": "fly",
+        "label": "fly",
+        "value": "fly",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fly.mp3",
+        "audioPath": "/audio/vocabulary/fly.mp3",
+        "audioUrl": "/audio/vocabulary/fly.mp3"
+      }
+    ],
+    "correctAnswer": "build",
+    "answer": "build",
+    "itemType": "grammar_verb",
+    "itemKey": "build",
+    "partOfSpeech": "verb",
+    "explanation": "build fits the sentence as a verb."
+  },
+  {
+    "id": "second_verbs_l2_04_drive",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "drive",
+    "imagePath": "/media/vocabulary/images/verb-drive.webp",
+    "imageUrl": "/media/vocabulary/images/verb-drive.webp",
+    "targetImage": "/media/vocabulary/images/verb-drive.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-drive.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the verb that best fits the sentence.",
+    "question": "Choose the verb that best fits the sentence.",
+    "sentence": "The child will ___ in the picture.",
+    "choices": [
+      "ate",
+      "bake",
+      "drive",
+      "write"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_verb_ate_text",
+        "word": "ate",
+        "label": "ate",
+        "value": "ate",
+        "partOfSpeech": "verb",
+        "audio": "/audio/child-mode/clean-human/morphology/ate.mp3",
+        "audioPath": "/audio/child-mode/clean-human/morphology/ate.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/morphology/ate.mp3"
+      },
+      {
+        "id": "second_verb_bake_text",
+        "word": "bake",
+        "label": "bake",
+        "value": "bake",
+        "partOfSpeech": "verb",
+        "audio": "/media/vocabulary/audio/bake.mp3",
+        "audioPath": "/media/vocabulary/audio/bake.mp3",
+        "audioUrl": "/media/vocabulary/audio/bake.mp3"
+      },
+      {
+        "id": "second_verb_drive_text",
+        "word": "drive",
+        "label": "drive",
+        "value": "drive",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/drive.mp3",
+        "audioPath": "/audio/vocabulary/drive.mp3",
+        "audioUrl": "/audio/vocabulary/drive.mp3"
+      },
+      {
+        "id": "second_verb_write_text",
+        "word": "write",
+        "label": "write",
+        "value": "write",
+        "partOfSpeech": "verb",
+        "audio": "/audio/child-mode/clean-human/morphology/write.mp3",
+        "audioPath": "/audio/child-mode/clean-human/morphology/write.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/morphology/write.mp3"
+      }
+    ],
+    "correctAnswer": "drive",
+    "answer": "drive",
+    "itemType": "grammar_verb",
+    "itemKey": "drive",
+    "partOfSpeech": "verb",
+    "explanation": "drive fits the sentence as a verb."
+  },
+  {
+    "id": "second_verbs_l2_05_fall",
+    "grade": "K-3",
+    "skillId": "verbs",
+    "skillName": "Verbs",
+    "skill": "Verbs",
+    "level": 2,
+    "difficulty": 2,
+    "phase": 1,
+    "assessmentPhase": 1,
+    "phaseTarget": "level_2_phase_1",
+    "questionType": "ixl_template",
+    "templateType": "GRAMMAR_SENTENCE_FIT",
+    "formatType": "GRAMMAR_SENTENCE_FIT",
+    "targetWord": "fall",
+    "imagePath": "/media/vocabulary/images/verb-fall.webp",
+    "imageUrl": "/media/vocabulary/images/verb-fall.webp",
+    "targetImage": "/media/vocabulary/images/verb-fall.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-fall.webp",
+    "active": true,
+    "qaStatus": "approved",
+    "source": "grammar_replacement_2026_06",
+    "prompt": "Choose the verb that best fits the sentence.",
+    "question": "Choose the verb that best fits the sentence.",
+    "sentence": "The child will ___ in the picture.",
+    "choices": [
+      "fall",
+      "fly",
+      "hide",
+      "share"
+    ],
+    "answerOptions": [
+      {
+        "id": "second_verb_fall_text",
+        "word": "fall",
+        "label": "fall",
+        "value": "fall",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fall.mp3",
+        "audioPath": "/audio/vocabulary/fall.mp3",
+        "audioUrl": "/audio/vocabulary/fall.mp3"
       },
       {
         "id": "second_verb_fly_text",
@@ -31280,15 +31440,15 @@ export const secondBlockSkillTopUpQuestions = [
         "audioUrl": "/media/vocabulary/audio/share.mp3"
       }
     ],
-    "correctAnswer": "build",
-    "answer": "build",
+    "correctAnswer": "fall",
+    "answer": "fall",
     "itemType": "grammar_verb",
-    "itemKey": "build",
+    "itemKey": "fall",
     "partOfSpeech": "verb",
-    "explanation": "build fits the sentence as a verb."
+    "explanation": "fall fits the sentence as a verb."
   },
   {
-    "id": "second_verbs_l2_04_drive",
+    "id": "second_verbs_l2_06_fly",
     "grade": "K-3",
     "skillId": "verbs",
     "skillName": "Verbs",
@@ -31301,11 +31461,11 @@ export const secondBlockSkillTopUpQuestions = [
     "questionType": "ixl_template",
     "templateType": "GRAMMAR_SENTENCE_FIT",
     "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "drive",
-    "imagePath": "/media/vocabulary/images/verb-drive.webp",
-    "imageUrl": "/media/vocabulary/images/verb-drive.webp",
-    "targetImage": "/media/vocabulary/images/verb-drive.webp",
-    "targetImagePath": "/media/vocabulary/images/verb-drive.webp",
+    "targetWord": "fly",
+    "imagePath": "/media/vocabulary/images/verb-fly.webp",
+    "imageUrl": "/media/vocabulary/images/verb-fly.webp",
+    "targetImage": "/media/vocabulary/images/verb-fly.webp",
+    "targetImagePath": "/media/vocabulary/images/verb-fly.webp",
     "active": true,
     "qaStatus": "approved",
     "source": "grammar_replacement_2026_06",
@@ -31360,86 +31520,6 @@ export const secondBlockSkillTopUpQuestions = [
         "audioUrl": "/audio/vocabulary/fly.mp3"
       }
     ],
-    "correctAnswer": "drive",
-    "answer": "drive",
-    "itemType": "grammar_verb",
-    "itemKey": "drive",
-    "partOfSpeech": "verb",
-    "explanation": "drive fits the sentence as a verb."
-  },
-  {
-    "id": "second_verbs_l2_05_fly",
-    "grade": "K-3",
-    "skillId": "verbs",
-    "skillName": "Verbs",
-    "skill": "Verbs",
-    "level": 2,
-    "difficulty": 2,
-    "phase": 1,
-    "assessmentPhase": 1,
-    "phaseTarget": "level_2_phase_1",
-    "questionType": "ixl_template",
-    "templateType": "GRAMMAR_SENTENCE_FIT",
-    "formatType": "GRAMMAR_SENTENCE_FIT",
-    "targetWord": "fly",
-    "imagePath": "/media/vocabulary/images/verb-fly.webp",
-    "imageUrl": "/media/vocabulary/images/verb-fly.webp",
-    "targetImage": "/media/vocabulary/images/verb-fly.webp",
-    "targetImagePath": "/media/vocabulary/images/verb-fly.webp",
-    "active": true,
-    "qaStatus": "approved",
-    "source": "grammar_replacement_2026_06",
-    "prompt": "Choose the verb that best fits the sentence.",
-    "question": "Choose the verb that best fits the sentence.",
-    "sentence": "The child will ___ in the picture.",
-    "choices": [
-      "ate",
-      "bake",
-      "fly",
-      "write"
-    ],
-    "answerOptions": [
-      {
-        "id": "second_verb_ate_text",
-        "word": "ate",
-        "label": "ate",
-        "value": "ate",
-        "partOfSpeech": "verb",
-        "audio": "/audio/child-mode/clean-human/morphology/ate.mp3",
-        "audioPath": "/audio/child-mode/clean-human/morphology/ate.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/morphology/ate.mp3"
-      },
-      {
-        "id": "second_verb_bake_text",
-        "word": "bake",
-        "label": "bake",
-        "value": "bake",
-        "partOfSpeech": "verb",
-        "audio": "/media/vocabulary/audio/bake.mp3",
-        "audioPath": "/media/vocabulary/audio/bake.mp3",
-        "audioUrl": "/media/vocabulary/audio/bake.mp3"
-      },
-      {
-        "id": "second_verb_fly_text",
-        "word": "fly",
-        "label": "fly",
-        "value": "fly",
-        "partOfSpeech": "verb",
-        "audio": "/audio/vocabulary/fly.mp3",
-        "audioPath": "/audio/vocabulary/fly.mp3",
-        "audioUrl": "/audio/vocabulary/fly.mp3"
-      },
-      {
-        "id": "second_verb_write_text",
-        "word": "write",
-        "label": "write",
-        "value": "write",
-        "partOfSpeech": "verb",
-        "audio": "/audio/child-mode/clean-human/morphology/write.mp3",
-        "audioPath": "/audio/child-mode/clean-human/morphology/write.mp3",
-        "audioUrl": "/audio/child-mode/clean-human/morphology/write.mp3"
-      }
-    ],
     "correctAnswer": "fly",
     "answer": "fly",
     "itemType": "grammar_verb",
@@ -31448,7 +31528,7 @@ export const secondBlockSkillTopUpQuestions = [
     "explanation": "fly fits the sentence as a verb."
   },
   {
-    "id": "second_verbs_l2_06_hide",
+    "id": "second_verbs_l2_07_hide",
     "grade": "K-3",
     "skillId": "verbs",
     "skillName": "Verbs",
@@ -31473,21 +31553,21 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the verb that best fits the sentence.",
     "sentence": "The child will ___ in the picture.",
     "choices": [
-      "fly",
+      "ate",
       "hide",
       "share",
       "write"
     ],
     "answerOptions": [
       {
-        "id": "second_verb_fly_text",
-        "word": "fly",
-        "label": "fly",
-        "value": "fly",
+        "id": "second_verb_ate_text",
+        "word": "ate",
+        "label": "ate",
+        "value": "ate",
         "partOfSpeech": "verb",
-        "audio": "/audio/vocabulary/fly.mp3",
-        "audioPath": "/audio/vocabulary/fly.mp3",
-        "audioUrl": "/audio/vocabulary/fly.mp3"
+        "audio": "/audio/child-mode/clean-human/morphology/ate.mp3",
+        "audioPath": "/audio/child-mode/clean-human/morphology/ate.mp3",
+        "audioUrl": "/audio/child-mode/clean-human/morphology/ate.mp3"
       },
       {
         "id": "second_verb_hide_text",
@@ -31528,7 +31608,7 @@ export const secondBlockSkillTopUpQuestions = [
     "explanation": "hide fits the sentence as a verb."
   },
   {
-    "id": "second_verbs_l2_07_share",
+    "id": "second_verbs_l2_08_share",
     "grade": "K-3",
     "skillId": "verbs",
     "skillName": "Verbs",
@@ -31553,22 +31633,12 @@ export const secondBlockSkillTopUpQuestions = [
     "question": "Choose the verb that best fits the sentence.",
     "sentence": "The children ___ the blocks.",
     "choices": [
-      "build",
       "drive",
+      "fall",
       "fly",
       "share"
     ],
     "answerOptions": [
-      {
-        "id": "second_verb_build_text",
-        "word": "build",
-        "label": "build",
-        "value": "build",
-        "partOfSpeech": "verb",
-        "audio": "/audio/vocabulary/build.mp3",
-        "audioPath": "/audio/vocabulary/build.mp3",
-        "audioUrl": "/audio/vocabulary/build.mp3"
-      },
       {
         "id": "second_verb_drive_text",
         "word": "drive",
@@ -31578,6 +31648,16 @@ export const secondBlockSkillTopUpQuestions = [
         "audio": "/audio/vocabulary/drive.mp3",
         "audioPath": "/audio/vocabulary/drive.mp3",
         "audioUrl": "/audio/vocabulary/drive.mp3"
+      },
+      {
+        "id": "second_verb_fall_text",
+        "word": "fall",
+        "label": "fall",
+        "value": "fall",
+        "partOfSpeech": "verb",
+        "audio": "/audio/vocabulary/fall.mp3",
+        "audioPath": "/audio/vocabulary/fall.mp3",
+        "audioUrl": "/audio/vocabulary/fall.mp3"
       },
       {
         "id": "second_verb_fly_text",
@@ -31608,7 +31688,7 @@ export const secondBlockSkillTopUpQuestions = [
     "explanation": "share fits the sentence as a verb."
   },
   {
-    "id": "second_verbs_l2_08_write",
+    "id": "second_verbs_l2_09_write",
     "grade": "K-3",
     "skillId": "verbs",
     "skillName": "Verbs",

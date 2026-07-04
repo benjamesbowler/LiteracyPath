@@ -433,11 +433,25 @@ function makeGrammar(rows, part, skillName) {
     // Level 1 grammar is the designed image-card format: four picture cards,
     // exactly one of the target part of speech (skillLevelDepthConfig L1 rule).
     const distractorParts = ["noun", "verb", "adjective"].filter(item => item !== part);
-    const distractorCards = distractorParts.flatMap((dPart, dIndex) =>
-      rotate(pools[dPart], index * 3 + dIndex)
-        .filter(item => item.word !== row.word)
-        .slice(0, dIndex === 0 ? 2 : 1)
-        .map(item => posCard(item, dPart)));
+    // Distractors must not all share one first letter that differs from the
+    // answer's, or the answer becomes guessable as the odd-one-out by onset
+    // (check:distractor-onset-giveaway).
+    const onset = word => String(word || "")[0] || "";
+    const firstPool = rotate(pools[distractorParts[0]], index * 3).filter(item => item.word !== row.word);
+    const secondPool = rotate(pools[distractorParts[1]], index * 3 + 1).filter(item => item.word !== row.word);
+    const firstPick = firstPool[0];
+    const secondPick = firstPool.find(item => item !== firstPick && onset(item.word) !== onset(firstPick?.word)) ||
+      firstPool.find(item => item !== firstPick);
+    const sharedOnset = firstPick && secondPick && onset(firstPick.word) === onset(secondPick.word) &&
+      onset(firstPick.word) !== onset(row.word)
+      ? onset(firstPick.word)
+      : null;
+    const thirdPick = secondPool.find(item => !sharedOnset || onset(item.word) !== sharedOnset) || secondPool[0];
+    const distractorCards = [
+      ...(firstPick ? [posCard(firstPick, distractorParts[0])] : []),
+      ...(secondPick ? [posCard(secondPick, distractorParts[0])] : []),
+      ...(thirdPick ? [posCard(thirdPick, distractorParts[1])] : [])
+    ];
     const cards = rotate([posCard(row, part), ...distractorCards].slice(0, 4), index);
     if (cards.length !== 4 || cards.some(card => !card.image)) return;
     questions.push(baseQuestion({

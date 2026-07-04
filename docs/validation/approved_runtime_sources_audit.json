@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T05:01:37.938Z",
+  "generatedAt": "2026-07-04T05:37:30.805Z",
   "sourceRegistrySummary": {
     "hfw": {
       "role": "approved workbook only",
@@ -151,8 +151,8 @@
     },
     {
       "skillId": "verbs",
-      "loaderQuestions": 24,
-      "selectableQuestions": 67,
+      "loaderQuestions": 25,
+      "selectableQuestions": 68,
       "violations": 0
     },
     {

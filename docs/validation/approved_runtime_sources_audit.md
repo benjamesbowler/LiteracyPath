@@ -1,6 +1,6 @@
 # Approved Runtime Sources Audit
 
-Generated: 2026-07-04T05:01:37.938Z
+Generated: 2026-07-04T05:37:30.805Z
 
 Status: PASS
 
@@ -23,7 +23,7 @@ Status: PASS
 | vowel_teams | 282 | 116 | 0 |
 | r_controlled | 161 | 118 | 0 |
 | nouns | 90 | 130 | 0 |
-| verbs | 24 | 67 | 0 |
+| verbs | 25 | 68 | 0 |
 | adjectives | 25 | 51 | 0 |
 | prepositions | 488 | 264 | 0 |
 | plurals | 380 | 104 | 0 |
