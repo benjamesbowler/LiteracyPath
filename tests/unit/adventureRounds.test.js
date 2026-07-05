@@ -20,16 +20,25 @@ test("Word Rescue: every round is winnable with the target among 3 choices", () 
 
 test("Sound Sort: every item belongs to exactly one bin, decidable by spelling", () => {
   for (const tier of tiers) {
-    for (let i = 0; i < 8; i += 1) {
+    for (let i = 0; i < 20; i += 1) {
       const sort = buildSortRounds(tier);
       assert.ok(sort.items.length >= 4, `${tier}: too few items`);
+      // Both bins must actually receive words - a sort with an empty bin is a
+      // broken game (the child sees two bins but everything goes in one).
+      const inA = sort.items.filter(it => it.bin === sort.binA).length;
+      const inB = sort.items.filter(it => it.bin === sort.binB).length;
+      assert.ok(inA > 0 && inB > 0,
+        `${tier}: "${sort.binA}"/"${sort.binB}" round has an empty bin (A=${inA}, B=${inB})`);
       for (const item of sort.items) {
         assert.ok([sort.binA, sort.binB].includes(item.bin));
         assert.ok(item.word.startsWith(item.bin), `${tier}: "${item.word}" does not start with its bin "${item.bin}"`);
+        // Decidability = longest match wins. A word may only sit in the shorter
+        // bin if it does NOT also start with the longer (more specific) bin.
         const other = item.bin === sort.binA ? sort.binB : sort.binA;
-        // The word must NOT also be a valid member of the other bin.
-        assert.ok(!item.word.startsWith(other) || other.length < item.bin.length === false && false,
-          `${tier}: "${item.word}" is ambiguous between "${sort.binA}" and "${sort.binB}"`);
+        if (other.length > item.bin.length) {
+          assert.ok(!item.word.startsWith(other),
+            `${tier}: "${item.word}" in bin "${item.bin}" also starts with longer bin "${other}"`);
+        }
       }
     }
   }

@@ -9,5 +9,6 @@ export const LEARN_GAMES = {
   "reading-race": lazyWithRetry(() => import("./ReadingRace.jsx")),
   "word-rescue": lazyWithRetry(() => import("./WordRescue.jsx")),
   "sound-sort-factory": lazyWithRetry(() => import("./SoundSortFactory.jsx")),
-  "letter-garden": lazyWithRetry(() => import("./LetterGarden.jsx"))
+  "letter-garden": lazyWithRetry(() => import("./LetterGarden.jsx")),
+  "rocket-run": lazyWithRetry(() => import("./RocketRunGame.jsx"))
 };

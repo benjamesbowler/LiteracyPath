@@ -11,6 +11,32 @@ import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../../data/knownBadWo
 const VOWELS = new Set(["a", "e", "i", "o", "u"]);
 const ALL_GRAPHEMES = Object.keys(LETTER_EXAMPLES).filter(g => g.length <= 2 && g !== "qu");
 
+// Graphemes that make the SAME phoneme in this curriculum. A sound-based round
+// cues ONE sound, so two letters that both make it would BOTH be correct - they
+// must never appear together as choices (c/k both /k/, w/wh both /w/).
+const SAME_SOUND_GRAPHEMES = {
+  c: ["k"],
+  k: ["c"],
+  w: ["wh"],
+  wh: ["w"]
+};
+export function sharesSound(a, b) {
+  const x = String(a || "").toLowerCase();
+  const y = String(b || "").toLowerCase();
+  return x === y || (SAME_SOUND_GRAPHEMES[x] || []).includes(y);
+}
+
+// The leading grapheme a word actually STARTS with (digraph-aware). Used so
+// "which starts with this sound?" only offers words that truly begin with the
+// cued sound - LETTER_EXAMPLES lists words that CONTAIN a grapheme (e.g. "teeth"
+// for th, "six" for x), which is not the same as starting with it.
+const ONSET_DIGRAPHS = ["sh", "ch", "th", "wh"];
+export function onsetGrapheme(word) {
+  const w = String(word || "").toLowerCase();
+  const digraph = ONSET_DIGRAPHS.find(d => w.startsWith(d));
+  return digraph || w[0] || "";
+}
+
 // Words a child has been TAUGHT by the end of a given cycle - review and
 // distractor words must never run ahead of the curriculum.
 function taughtHfwThrough(cycleNumber) {
@@ -123,13 +149,15 @@ function taughtGraphemesThrough(cycleNumber) {
 }
 
 function distractorGraphemes(correct, count, cycleNumber) {
+  // Never offer a letter that makes the SAME sound as the target (c vs k,
+  // w vs wh) - the cue is one sound, so both would be correct.
   const taught = cycleNumber
-    ? taughtGraphemesThrough(cycleNumber).filter(g => g !== correct)
+    ? taughtGraphemesThrough(cycleNumber).filter(g => !sharesSound(g, correct))
     : [];
   const pool = taught.length >= count
     ? taught
-    : [...new Set([...taught, ...ALL_GRAPHEMES.filter(g => g !== correct)])];
-  return shuffleItems(pool.filter(g => g !== correct)).slice(0, count);
+    : [...new Set([...taught, ...ALL_GRAPHEMES.filter(g => !sharesSound(g, correct))])];
+  return shuffleItems(pool.filter(g => !sharesSound(g, correct))).slice(0, count);
 }
 
 // Pattern spellings without their own example list borrow real recorded
@@ -230,12 +258,23 @@ function buildSoundRounds(cycle) {
 // Station - Sound Hunt: which picture starts with the sound?
 function buildHuntRounds(cycle) {
   const rounds = focusEntries(cycle)
-    .filter(entry => pictureWordsFor(entry.spelling).length)
-    .flatMap(entry => {
-      const answers = shuffleItems(pictureWordsFor(entry.spelling)).slice(0, 2);
+    // Only words that TRULY start with the cued grapheme can answer a
+    // "which starts with this sound?" round. This drops non-initial example
+    // words (six/box for x, teeth for th, ball/call for all) and, with the
+    // sharesSound filter below, keeps homophones (c/k, w/wh) out of the choices.
+    .map(entry => ({
+      entry,
+      pool: pictureWordsFor(entry.spelling).filter(word => onsetGrapheme(word) === entry.spelling)
+    }))
+    .filter(({ pool }) => pool.length)
+    .flatMap(({ entry, pool }) => {
+      const answers = shuffleItems(pool).slice(0, 2);
       return answers.map(answer => {
         const others = shuffleItems(
-          ALL_GRAPHEMES.filter(g => g !== entry.spelling).flatMap(g => pictureWordsFor(g, 1))
+          ALL_GRAPHEMES
+            .filter(g => !sharesSound(g, entry.spelling))
+            .flatMap(g => pictureWordsFor(g, 1))
+            .filter(word => !sharesSound(onsetGrapheme(word), entry.spelling))
         ).slice(0, 2);
         return {
           type: "hunt",
@@ -336,7 +375,11 @@ function buildWordPlayRounds(cycle) {
     const partner = allWords.find(other =>
       other !== word && other.slice(1) === word.slice(1) && other[0] !== word[0]);
     if (!partner || !wordAudioPath(partner)) continue;
-    const decoy = shuffleItems(allWords.filter(o => o !== word && o !== partner))[0];
+    // The decoy must NOT share the target's rime, or it would be a second
+    // valid "change the first sound" answer (e.g. ring -> sing AND king).
+    const decoy = shuffleItems(
+      allWords.filter(o => o !== word && o !== partner && o.slice(1) !== word.slice(1))
+    )[0];
     const choices = uniqueChoices([partner, word, decoy]);
     if (choices.length < 3) continue;
     rounds.push({

@@ -46,17 +46,16 @@ const SORT_PAIRS = {
 export function buildSortRounds(difficulty = "easy") {
   const pairs = SORT_PAIRS[difficulty] || SORT_PAIRS.easy;
   const [keyA, keyB] = shuffle(pairs)[0];
-  const wordsFor = key => cleanPool(LETTER_EXAMPLES[key] || [])
-    .filter(w => w.startsWith(key))
-    // A word must not ALSO start with the other bin's grapheme prefix
-    // (e.g. "ship" may not appear in an s-vs-sh round as an "s" word).
-    .filter(w => !(keyA.length !== keyB.length && w.startsWith(keyA) && w.startsWith(keyB)));
+  const wordsFor = key => cleanPool(LETTER_EXAMPLES[key] || []).filter(w => w.startsWith(key));
   let a = wordsFor(keyA);
   let b = wordsFor(keyB);
-  // In s-vs-sh style rounds the shorter key must exclude the longer one.
+  // In s-vs-sh style rounds (one grapheme is a prefix of the other) membership
+  // is decided by the LONGEST matching bin: "ship" -> sh, "sun" -> s. So only
+  // the SHORTER bin must drop words that also start with the longer grapheme -
+  // the longer bin (sh/th) keeps its words instead of being emptied out.
   const longer = keyA.length >= keyB.length ? keyA : keyB;
   const shorter = keyA.length >= keyB.length ? keyB : keyA;
-  if (longer.startsWith(shorter)) {
+  if (longer !== shorter && longer.startsWith(shorter)) {
     const strip = list => list.filter(w => !w.startsWith(longer));
     if (shorter === keyA) a = strip(a); else b = strip(b);
   }

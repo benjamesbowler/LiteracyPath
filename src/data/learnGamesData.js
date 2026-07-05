@@ -172,6 +172,16 @@ const GAME_ACCENTS = {
 
 export const GAME_LIST = [
   {
+    id: "rocket-run",
+    title: "Rocket Run",
+    skill: "Catch beginning sounds",
+    category: "Phonics",
+    ...GAME_ACCENTS.blue,
+    icon: "/images/learn-games/icon-pop-word.png",
+    description: "Steer your rocket to catch the words that start with the sound.",
+    is3D: true
+  },
+  {
     id: "cvc-word-builder",
     title: "CVC Word Builder",
     skill: "Build short vowel words",

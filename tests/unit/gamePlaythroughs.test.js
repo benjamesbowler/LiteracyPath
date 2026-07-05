@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { stationsForCycle } from "../../src/components/elQuest/elQuestEngine.js";
+import { stationsForCycle, sharesSound, onsetGrapheme } from "../../src/components/elQuest/elQuestEngine.js";
 import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
 import { strokesForChar } from "../../src/data/letterStrokes.js";
 import { CVC_WORDS, RHYMING_PAIRS, SIGHT_WORDS, WORD_FAMILIES, SENTENCE_FIX, SENTENCES } from "../../src/data/learnGamesData.js";
@@ -63,7 +63,13 @@ test("word families: every member ends with its family rime", () => {
   for (const [familyId, words] of Object.entries(WORD_FAMILIES)) {
     const rime = familyId.slice(1).toLowerCase();
     for (const word of words) {
-      assert.ok(word.toLowerCase().endsWith(rime), `"${word}" not in family ${familyId}`);
+      const lower = word.toLowerCase();
+      assert.ok(lower.endsWith(rime), `"${word}" not in family ${familyId}`);
+      // Blend & Build derives each word's onset with word.replace(rime, ""),
+      // which only works if the rime appears ONCE, at the end. Guard that so a
+      // future word like "tartan" in "-an" can't produce a wrong onset.
+      assert.ok(!lower.slice(0, lower.length - rime.length).includes(rime),
+        `"${word}" repeats rime "${rime}" - onset extraction would be ambiguous`);
     }
   }
 });
@@ -133,6 +139,61 @@ test("word build prefers taught-letter words whenever enough exist", () => {
         const untaught = [...round.word].filter(l => !taught.has(l));
         assert.equal(untaught.length, 0,
           `cycle ${cycle.cycleNumber} builds "${round.word}" using untaught: ${untaught}`);
+      }
+    }
+  }
+});
+
+// ── Answer-integrity rules: every round has EXACTLY ONE correct answer ─────
+// (These would fail before the phonics-correctness fixes: change-first-sound
+//  decoys sharing a rime, c/k and w/wh homophones sharing a sound, and Sound
+//  Hunt offering non-initial example words like "six"/"teeth".)
+
+test("Word Play 'change the first sound' rounds have exactly one valid answer", () => {
+  for (const cycle of cycles) {
+    for (const station of stationsForCycle(cycle)) {
+      if (!station.build) continue;
+      for (let pass = 0; pass < 8; pass += 1) {
+        for (const round of station.build(cycle)) {
+          if (round.type !== "play" || !/Change the first sound/.test(round.prompt || "")) continue;
+          const rime = round.display.slice(1);
+          const sameRime = round.choices.filter(c => c !== round.display && c.slice(1) === rime);
+          assert.equal(sameRime.length, 1,
+            `${cycle.id}: "${round.display}" -> ${sameRime.length} same-rime answers in ${JSON.stringify(round.choices)}`);
+        }
+      }
+    }
+  }
+});
+
+test("Sound Catch never offers two letters that make the same sound", () => {
+  for (const cycle of cycles) {
+    for (const station of stationsForCycle(cycle)) {
+      if (!station.build) continue;
+      for (let pass = 0; pass < 8; pass += 1) {
+        for (const round of station.build(cycle)) {
+          if (round.type !== "sound" || round.choiceStyle !== "letter") continue;
+          const homo = round.choices.filter(c => c !== round.answer && sharesSound(c, round.answer));
+          assert.equal(homo.length, 0,
+            `${cycle.id}: sound "${round.answer}" also accepts ${JSON.stringify(homo)}`);
+        }
+      }
+    }
+  }
+});
+
+test("Sound Hunt has exactly one choice that starts with the cued sound", () => {
+  for (const cycle of cycles) {
+    for (const station of stationsForCycle(cycle)) {
+      if (!station.build) continue;
+      for (let pass = 0; pass < 8; pass += 1) {
+        for (const round of station.build(cycle)) {
+          if (round.type !== "hunt") continue;
+          const cue = onsetGrapheme(round.answer);
+          const matches = round.choices.filter(c => sharesSound(onsetGrapheme(c), cue));
+          assert.equal(matches.length, 1,
+            `${cycle.id}: hunt cue "${cue}" matched ${JSON.stringify(matches)} in ${JSON.stringify(round.choices)}`);
+        }
       }
     }
   }
