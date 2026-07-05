@@ -1,16 +1,16 @@
 # Graph Report - LiteracyPath  (2026-07-05)
 
 ## Corpus Check
-- 907 files · ~5,402,859 words
+- 908 files · ~5,405,890 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1061 nodes · 1296 edges · 88 communities (77 shown, 11 thin omitted)
+- 1079 nodes · 1313 edges · 88 communities (78 shown, 10 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 17 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `fb1db34c`
+- Built from commit: `2e4db7f6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -131,11 +131,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (88 total, 11 thin omitted)
+## Communities (88 total, 10 thin omitted)
 
 ### Community 0 - "CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION"
-Cohesion: 0.14
-Nodes (14): 10. SECTION RHYTHM RULE, 12. DENSITY & SPACING DISCIPLINE, 14. IMAGE / MEDIA DIRECTION, 16. MULTI-IMAGE CONSISTENCY RULE, 17. CLARITY CHECK, 19. RESPONSE BEHAVIOR, 1. ACTIVE BASELINE CONFIGURATION, 21. FINAL GOAL (+6 more)
+Cohesion: 0.12
+Nodes (16): 10. SECTION RHYTHM RULE, 12. DENSITY & SPACING DISCIPLINE, 14. IMAGE / MEDIA DIRECTION, 16. MULTI-IMAGE CONSISTENCY RULE, 17. CLARITY CHECK, 19. RESPONSE BEHAVIOR, 1. ACTIVE BASELINE CONFIGURATION, 21. FINAL GOAL (+8 more)
 
 ### Community 1 - "SKILL.md"
 Cohesion: 0.05
@@ -441,24 +441,28 @@ Nodes (3): getAnchorWord(), hasAnchorChoiceLeakage(), isWordRecognitionQuestion(
 Cohesion: 0.29
 Nodes (6): How to record, Part 1 — Letter SOUNDS (say the sound, NEVER the letter's name), Part 2 — Digraph SOUNDS, Part 3 — Letter NAMES (now say the NAMES, a to z), Part 4 — Three whole words (say the word naturally, once), Recording Script — one take, 61 items (print this page)
 
+### Community 85 - "SKILL.md"
+Cohesion: 0.11
+Nodes (17): IMPROVEMENT LOOPS — the instruction file, LOOP 10 — Market research & product saleability, LOOP 1 — Educational content accuracy & curriculum integrity, LOOP 2 — Visual design & style polish (kill the slop), LOOP 3 — Game quality, fairness & juice, LOOP 4 — Motion, animation & "wow" moments (including 3D-style flourishes), LOOP 5 — Art & image pipeline (audit + request docs, never overwrite), LOOP 6 — Audio integrity (the ear-check loop) (+9 more)
+
 ## Knowledge Gaps
-- **649 isolated node(s):** `How to record`, `Part 1 — Letter SOUNDS (say the sound, NEVER the letter's name)`, `Part 2 — Digraph SOUNDS`, `Part 3 — Letter NAMES (now say the NAMES, a to z)`, `Part 4 — Three whole words (say the word naturally, once)` (+644 more)
+- **663 isolated node(s):** `The verification gate (every loop ends with this)`, `The push (only after the ✅)`, `Shared loop protocol (applies to all 10)`, `LOOP 1 — Educational content accuracy & curriculum integrity`, `LOOP 2 — Visual design & style polish (kill the slop)` (+658 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `hasKnownBadWordAudio()` connect `ArcadePracticeGame.jsx` to `0. BRIEF INFERENCE (Read the Room Before Anything Else)`, `1. THE THREE DIALS (Core Configuration)`, `presentationBuilder.js`?**
-  _High betweenness centrality (0.022) - this node is a cross-community bridge._
+  _High betweenness centrality (0.019) - this node is a cross-community bridge._
 - **Why does `wordAudioPath()` connect `presentationBuilder.js` to `0. BRIEF INFERENCE (Read the Room Before Anything Else)`, `ArcadePracticeGame.jsx`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+  _High betweenness centrality (0.014) - this node is a cross-community bridge._
 - **Why does `tasteskill: Anti-Slop Frontend Skill` connect `tasteskill: Anti-Slop Frontend Skill` to `12. THE BLOCK LIBRARY (Contract - Implementations Land Here Iteratively)`, `5. CONTEXT-AWARE PROACTIVITY`, `8. DARK MODE PROTOCOL`, `Appendix B - Canonical Sources (read these before reinventing)`, `7. DIAL DEFINITIONS (Technical Reference)`, `0. BRIEF INFERENCE (Read the Room Before Anything Else)`, `4. DESIGN ENGINEERING DIRECTIVES (Bias Correction)`, `10. REFERENCE VOCABULARY (Pattern Names the Agent Should Know)`, `9. AI TELLS (Forbidden Patterns)`, `11. REDESIGN PROTOCOL`, `3. DEFAULT ARCHITECTURE & CONVENTIONS`, `6. PERFORMANCE & ACCESSIBILITY GUARDRAILS`?**
   _High betweenness centrality (0.010) - this node is a cross-community bridge._
-- **What connects `How to record`, `Part 1 — Letter SOUNDS (say the sound, NEVER the letter's name)`, `Part 2 — Digraph SOUNDS` to the rest of the system?**
-  _649 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `The verification gate (every loop ends with this)`, `The push (only after the ✅)`, `Shared loop protocol (applies to all 10)` to the rest of the system?**
+  _663 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION` be split into smaller, more focused modules?**
-  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `SKILL.md` be split into smaller, more focused modules?**
   _Cohesion score 0.045454545454545456 - nodes in this community are weakly interconnected._
 - **Should `Seedance 2.0 Video Prompt Writing Guide` be split into smaller, more focused modules?**
