@@ -590,8 +590,8 @@
     "semantic_hash": ""
   },
   "docs/validation/app_image_inventory_audit.json": {
-    "mtime": 1783214396.0448194,
-    "ast_hash": "7ebe03283842ec2bdc9f6d45c45887ab",
+    "mtime": 1783177584.7083216,
+    "ast_hash": "c96ce79cc5300158c23268c7ab1cb497",
     "semantic_hash": ""
   },
   "docs/validation/approved_hfw_media_coverage_audit.json": {
@@ -600,8 +600,8 @@
     "semantic_hash": ""
   },
   "docs/validation/approved_runtime_sources_audit.json": {
-    "mtime": 1783214225.829608,
-    "ast_hash": "a88a7014b72025413d6c3dafc90bb316",
+    "mtime": 1783177407.022201,
+    "ast_hash": "76480c5a0f689248d0a072e9bde9f93a",
     "semantic_hash": ""
   },
   "docs/validation/assessment_media_registry_audit.json": {
@@ -635,7 +635,7 @@
     "semantic_hash": ""
   },
   "docs/validation/distractor_onset_giveaway_audit.json": {
-    "mtime": 1783214259.4660857,
+    "mtime": 1783177444.1835845,
     "ast_hash": "935a12e08ca19394911454ef03f7d9ac",
     "semantic_hash": ""
   },
@@ -1025,8 +1025,8 @@
     "semantic_hash": ""
   },
   "src/components/learn/games/games/index.js": {
-    "mtime": 1783177881.2387176,
-    "ast_hash": "00fd03eecae908daebfba1b9df419026",
+    "mtime": 1781140304.38096,
+    "ast_hash": "17fab9af29f6bf68c3b70a93e223ca94",
     "semantic_hash": ""
   },
   "src/components/learn/games/shared/ConfettiCelebration.jsx": {
@@ -1555,8 +1555,8 @@
     "semantic_hash": ""
   },
   "src/data/learnGamesData.js": {
-    "mtime": 1783177881.2510996,
-    "ast_hash": "b9c1d49d72b4f3f216f093050ac994ee",
+    "mtime": 1781272421.334467,
+    "ast_hash": "18a19f524651d236be21f610b6b9c440",
     "semantic_hash": ""
   },
   "src/data/levelOneContentQuality.js": {
@@ -2215,8 +2215,8 @@
     "semantic_hash": ""
   },
   "tests/unit/elQuestEngine.test.js": {
-    "mtime": 1783212273.5878356,
-    "ast_hash": "58a2d05ffbd9aa43c44e27e0563989dc",
+    "mtime": 1783173090.197143,
+    "ast_hash": "2fd74f50228d9421ec0c67890dd3f09a",
     "semantic_hash": ""
   },
   "tests/unit/elQuestFluency.test.js": {
@@ -4585,7 +4585,7 @@
     "semantic_hash": ""
   },
   "docs/validation/app_image_inventory_audit.md": {
-    "mtime": 1783214396.08454,
+    "mtime": 1783177584.77557,
     "ast_hash": "5eec71c0049c1dd6295cfc1c33bfece2",
     "semantic_hash": ""
   },
@@ -4595,8 +4595,8 @@
     "semantic_hash": ""
   },
   "docs/validation/approved_runtime_sources_audit.md": {
-    "mtime": 1783214225.830546,
-    "ast_hash": "958112d48c0e805fa8bd519bf5fedf21",
+    "mtime": 1783177407.0228155,
+    "ast_hash": "2cc6f4be2e38cd8683f5ead6a7981a5b",
     "semantic_hash": ""
   },
   "docs/validation/assessment_active_media_optimization_report.md": {
@@ -4710,7 +4710,7 @@
     "semantic_hash": ""
   },
   "docs/validation/distractor_onset_giveaway_audit.md": {
-    "mtime": 1783214259.46569,
+    "mtime": 1783177444.1830263,
     "ast_hash": "c48c22f6ef0675e44a2ab06bcb75a768",
     "semantic_hash": ""
   },
@@ -4880,8 +4880,8 @@
     "semantic_hash": ""
   },
   "docs/validation/media_overwrite_risk_audit.md": {
-    "mtime": 1783214396.6716278,
-    "ast_hash": "d872fefff8773c0da7aa371ae60e93d2",
+    "mtime": 1783177585.9468334,
+    "ast_hash": "09e814cb393c90f38d2335b0b1e4a223",
     "semantic_hash": ""
   },
   "docs/validation/media_qa_quarantine_report.md": {
@@ -4930,8 +4930,8 @@
     "semantic_hash": ""
   },
   "docs/validation/repo_hygiene_audit.md": {
-    "mtime": 1783214398.3261635,
-    "ast_hash": "6a605bf57f8ddda8034ee6115fc5bcc8",
+    "mtime": 1783177587.8127675,
+    "ast_hash": "a6b2de4d98ec947df521fe31a9eb7b8c",
     "semantic_hash": ""
   },
   "docs/validation/rhyming_coverage_audit.md": {
@@ -5065,8 +5065,8 @@
     "semantic_hash": ""
   },
   "src/data/knownBadWordAudio.js": {
-    "mtime": 1783177730.7291942,
-    "ast_hash": "3968fc73a7c5536bf464676ac33c084c",
+    "mtime": 1783175987.6323512,
+    "ast_hash": "c33d092358253f7f3c33b1ab280815ce",
     "semantic_hash": ""
   },
   "src/data/letterStrokes.js": {
@@ -5152,41 +5152,6 @@
   "docs/MARKET_READINESS.md": {
     "mtime": 1783177036.008057,
     "ast_hash": "c509c73f2365e0bd9713cbc5df357849",
-    "semantic_hash": ""
-  },
-  "src/components/learn/games/games/AdventureGame.jsx": {
-    "mtime": 1783177859.0052114,
-    "ast_hash": "d1dc2d439663eef2d7ee7ba8ba90d1c3",
-    "semantic_hash": ""
-  },
-  "src/components/learn/games/games/LetterGarden.jsx": {
-    "mtime": 1783177881.1927474,
-    "ast_hash": "6c9fb25c6b5b5b61ca352c07f4d187a0",
-    "semantic_hash": ""
-  },
-  "src/components/learn/games/games/SoundSortFactory.jsx": {
-    "mtime": 1783177881.1843479,
-    "ast_hash": "1536f558639fde8f40752f86da079ee2",
-    "semantic_hash": ""
-  },
-  "src/components/learn/games/games/WordRescue.jsx": {
-    "mtime": 1783177881.174963,
-    "ast_hash": "8cf873f9cbaaf6e76fa96b60928e7d89",
-    "semantic_hash": ""
-  },
-  "src/utils/adventureRounds.js": {
-    "mtime": 1783177813.1156285,
-    "ast_hash": "06908f93cb5a5e65e1a54c33e6fd9016",
-    "semantic_hash": ""
-  },
-  "tests/unit/adventureRounds.test.js": {
-    "mtime": 1783177932.7744045,
-    "ast_hash": "7bd58b89d6bb57b356334334056834f3",
-    "semantic_hash": ""
-  },
-  "docs/RECORDING_SCRIPT.md": {
-    "mtime": 1783177774.0768476,
-    "ast_hash": "ff171ddceea491f4f047f7b4a2c0ef56",
     "semantic_hash": ""
   }
 }
