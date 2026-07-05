@@ -1,6 +1,6 @@
 # Repo Hygiene Audit
 
-Date: 2026-07-04T15:06:27.804Z
+Date: 2026-07-05T01:19:58.321Z
 
 This guardrail reports temporary, preview, stale request, generated, or accidental files that may be risky to commit. It does not delete or restore anything.
 
@@ -8,22 +8,20 @@ This guardrail reports temporary, preview, stale request, generated, or accident
 
 | Metric | Count |
 | --- | --- |
-| Failures | 1 |
-| Warnings | 55 |
+| Failures | 0 |
+| Warnings | 54 |
 | Ignored/allowed items | 817 |
-| Git status entries | 104 |
-| Tracked files inspected | 21666 |
-| Untracked files inspected | 5 |
+| Git status entries | 33 |
+| Tracked files inspected | 21671 |
+| Untracked files inspected | 13 |
 
 ## Result
 
-FAIL
+PASS
 
 ## Failures
 
-| Path | Reason | Suggested cleanup |
-| --- | --- | --- |
-| .DS_Store | .DS_Store file found. | rm -f .DS_Store |
+_None._
 
 ## Warnings
 
@@ -72,7 +70,6 @@ FAIL
 | docs/validation/approved_runtime_sources_audit.json | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/approved_runtime_sources_audit.json |
 | docs/validation/approved_runtime_sources_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/approved_runtime_sources_audit.md |
 | docs/validation/media_overwrite_risk_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/media_overwrite_risk_audit.md |
-| src/data/generated/audioFilePaths.generated.js | Generated/audit file has unstaged working-tree noise. | git restore src/data/generated/audioFilePaths.generated.js |
 | src/data/generated/hfwApprovedQuestionBank.generated.js | Runtime source contains banned phrase "may choose a book". | Review whether this is validation-only text or selectable content. |
 | src/data/assessmentMediaPicker.js | Runtime source mentions photorealistic assessment imagery. | Review asset style and QA status. |
 | src/data/hfwQuestionImageReview.js | Runtime source mentions photorealistic assessment imagery. | Review asset style and QA status. |
@@ -909,4 +906,4 @@ FAIL
 
 ## Safe Cleanup Examples
 
-- rm -f .DS_Store
+_None needed._

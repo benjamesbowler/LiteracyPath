@@ -590,8 +590,8 @@
     "semantic_hash": ""
   },
   "docs/validation/app_image_inventory_audit.json": {
-    "mtime": 1783173717.3744369,
-    "ast_hash": "d296b522e9007240ce174ba602d0aa3c",
+    "mtime": 1783177584.7083216,
+    "ast_hash": "c96ce79cc5300158c23268c7ab1cb497",
     "semantic_hash": ""
   },
   "docs/validation/approved_hfw_media_coverage_audit.json": {
@@ -600,8 +600,8 @@
     "semantic_hash": ""
   },
   "docs/validation/approved_runtime_sources_audit.json": {
-    "mtime": 1783173564.2368019,
-    "ast_hash": "be9f780ffe9bfd7fab2e042bd67f1c0a",
+    "mtime": 1783177407.022201,
+    "ast_hash": "76480c5a0f689248d0a072e9bde9f93a",
     "semantic_hash": ""
   },
   "docs/validation/assessment_media_registry_audit.json": {
@@ -635,7 +635,7 @@
     "semantic_hash": ""
   },
   "docs/validation/distractor_onset_giveaway_audit.json": {
-    "mtime": 1783173594.0084388,
+    "mtime": 1783177444.1835845,
     "ast_hash": "935a12e08ca19394911454ef03f7d9ac",
     "semantic_hash": ""
   },
@@ -875,8 +875,8 @@
     "semantic_hash": ""
   },
   "src/components/StudentHomePage.jsx": {
-    "mtime": 1783171466.1797252,
-    "ast_hash": "edc43c255fc30d51493915c42ce2f9dd",
+    "mtime": 1783176499.5089364,
+    "ast_hash": "751b4fdb767cd7a2cc00570aed31cc50",
     "semantic_hash": ""
   },
   "src/components/StudentLoginFlow.jsx": {
@@ -935,13 +935,13 @@
     "semantic_hash": ""
   },
   "src/components/elQuest/ElSkillsQuest.jsx": {
-    "mtime": 1783171493.826738,
-    "ast_hash": "bc8d17ea03fa7301aa4fccc23527dd6c",
+    "mtime": 1783176999.5291555,
+    "ast_hash": "9bded5c0a5c3ad4bef0416fb61462258",
     "semantic_hash": ""
   },
   "src/components/elQuest/elQuestEngine.js": {
-    "mtime": 1783173209.6182907,
-    "ast_hash": "986dc4143ad8b55b3c6beb8ab9ab9be3",
+    "mtime": 1783176881.3189826,
+    "ast_hash": "894fcfb5406bc0cc4b77fb6649e2133f",
     "semantic_hash": ""
   },
   "src/components/guided-reading/BookQuiz.jsx": {
@@ -4585,7 +4585,7 @@
     "semantic_hash": ""
   },
   "docs/validation/app_image_inventory_audit.md": {
-    "mtime": 1783173717.4166696,
+    "mtime": 1783177584.77557,
     "ast_hash": "5eec71c0049c1dd6295cfc1c33bfece2",
     "semantic_hash": ""
   },
@@ -4595,8 +4595,8 @@
     "semantic_hash": ""
   },
   "docs/validation/approved_runtime_sources_audit.md": {
-    "mtime": 1783173564.2373648,
-    "ast_hash": "48ca4a7111f57bcf2a30104428c125a5",
+    "mtime": 1783177407.0228155,
+    "ast_hash": "2cc6f4be2e38cd8683f5ead6a7981a5b",
     "semantic_hash": ""
   },
   "docs/validation/assessment_active_media_optimization_report.md": {
@@ -4710,7 +4710,7 @@
     "semantic_hash": ""
   },
   "docs/validation/distractor_onset_giveaway_audit.md": {
-    "mtime": 1783173594.008029,
+    "mtime": 1783177444.1830263,
     "ast_hash": "c48c22f6ef0675e44a2ab06bcb75a768",
     "semantic_hash": ""
   },
@@ -4880,8 +4880,8 @@
     "semantic_hash": ""
   },
   "docs/validation/media_overwrite_risk_audit.md": {
-    "mtime": 1783173717.8962445,
-    "ast_hash": "9b425fc573a9d78da7125613fe26a9ac",
+    "mtime": 1783177585.9468334,
+    "ast_hash": "09e814cb393c90f38d2335b0b1e4a223",
     "semantic_hash": ""
   },
   "docs/validation/media_qa_quarantine_report.md": {
@@ -4930,8 +4930,8 @@
     "semantic_hash": ""
   },
   "docs/validation/repo_hygiene_audit.md": {
-    "mtime": 1783175702.3765702,
-    "ast_hash": "58303cb703d35f31637262c17eeacbd4",
+    "mtime": 1783177587.8127675,
+    "ast_hash": "a6b2de4d98ec947df521fe31a9eb7b8c",
     "semantic_hash": ""
   },
   "docs/validation/rhyming_coverage_audit.md": {
@@ -5065,8 +5065,8 @@
     "semantic_hash": ""
   },
   "src/data/knownBadWordAudio.js": {
-    "mtime": 1783172915.936295,
-    "ast_hash": "eabb9ae377a83f796120000462911e0a",
+    "mtime": 1783175987.6323512,
+    "ast_hash": "c33d092358253f7f3c33b1ab280815ce",
     "semantic_hash": ""
   },
   "src/data/letterStrokes.js": {
@@ -5125,8 +5125,8 @@
     "semantic_hash": ""
   },
   "docs/previews/letter_audio_audit.html": {
-    "mtime": 1783171025.3723736,
-    "ast_hash": "d1238c84a5faba89a35bc5ed08fb9b0e",
+    "mtime": 1783175989.2184365,
+    "ast_hash": "3bf22c68545df2975b78241d6c803db1",
     "semantic_hash": ""
   },
   "docs/KIMI_LETTER_AUDIO_FULL_REDO.md": {
@@ -5137,6 +5137,21 @@
   "docs/LOOP_PROMPTS_MARKET_READY.md": {
     "mtime": 1783175639.5102062,
     "ast_hash": "2f09e476bf19a5e6b89964dc89ac07e4",
+    "semantic_hash": ""
+  },
+  "tests/unit/gamePlaythroughs.test.js": {
+    "mtime": 1783176949.2830417,
+    "ast_hash": "9d4b72a1889a43943df79077ed292f39",
+    "semantic_hash": ""
+  },
+  "docs/COMPETITOR_NOTES.md": {
+    "mtime": 1783176430.6732671,
+    "ast_hash": "0e40c198ad0385e8ac0d85fb765e84ed",
+    "semantic_hash": ""
+  },
+  "docs/MARKET_READINESS.md": {
+    "mtime": 1783177036.008057,
+    "ast_hash": "c509c73f2365e0bd9713cbc5df357849",
     "semantic_hash": ""
   }
 }

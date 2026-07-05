@@ -6,5 +6,8 @@ export const LEARN_GAMES = {
   "blend-and-build": lazyWithRetry(() => import("./BlendAndBuild.jsx")),
   "pop-the-word": lazyWithRetry(() => import("./PopTheWord.jsx")),
   "word-hopscotch": lazyWithRetry(() => import("./WordHopscotch.jsx")),
-  "reading-race": lazyWithRetry(() => import("./ReadingRace.jsx"))
+  "reading-race": lazyWithRetry(() => import("./ReadingRace.jsx")),
+  "word-rescue": lazyWithRetry(() => import("./WordRescue.jsx")),
+  "sound-sort-factory": lazyWithRetry(() => import("./SoundSortFactory.jsx")),
+  "letter-garden": lazyWithRetry(() => import("./LetterGarden.jsx"))
 };

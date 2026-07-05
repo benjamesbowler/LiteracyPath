@@ -1,16 +1,16 @@
 # Graph Report - LiteracyPath  (2026-07-04)
 
 ## Corpus Check
-- 897 files · ~5,395,865 words
+- 900 files · ~5,401,434 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 974 nodes · 1196 edges · 80 communities (72 shown, 8 thin omitted)
+- 1020 nodes · 1241 edges · 84 communities (76 shown, 8 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 17 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `df618b10`
+- Built from commit: `63e168c3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -95,6 +95,10 @@
 - [[_COMMUNITY_isMissingTableError|isMissingTableError]]
 - [[_COMMUNITY_appViews.js|appViews.js]]
 - [[_COMMUNITY_Five Loop Prompts — Market-Ready LiteracyPath|Five Loop Prompts — Market-Ready LiteracyPath]]
+- [[_COMMUNITY_StudentHomePage.jsx|StudentHomePage.jsx]]
+- [[_COMMUNITY_Market Readiness — 2026-07-04 (Loops 1–5 verdict)|Market Readiness — 2026-07-04 (Loops 1–5 verdict)]]
+- [[_COMMUNITY_1. THE THREE DIALS (Core Configuration)|1. THE THREE DIALS (Core Configuration)]]
+- [[_COMMUNITY_hasAnchorChoiceLeakage|hasAnchorChoiceLeakage]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `CORE DIRECTIVE: IMAGE-FIRST WEBSITE DESIGN TO CODE` - 39 edges
@@ -123,11 +127,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (80 total, 8 thin omitted)
+## Communities (84 total, 8 thin omitted)
 
 ### Community 0 - "CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION"
-Cohesion: 0.14
-Nodes (14): 10. SECTION RHYTHM RULE, 12. DENSITY & SPACING DISCIPLINE, 14. IMAGE / MEDIA DIRECTION, 16. MULTI-IMAGE CONSISTENCY RULE, 17. CLARITY CHECK, 19. RESPONSE BEHAVIOR, 1. ACTIVE BASELINE CONFIGURATION, 21. FINAL GOAL (+6 more)
+Cohesion: 0.12
+Nodes (16): 10. SECTION RHYTHM RULE, 12. DENSITY & SPACING DISCIPLINE, 14. IMAGE / MEDIA DIRECTION, 16. MULTI-IMAGE CONSISTENCY RULE, 17. CLARITY CHECK, 19. RESPONSE BEHAVIOR, 1. ACTIVE BASELINE CONFIGURATION, 21. FINAL GOAL (+8 more)
 
 ### Community 1 - "SKILL.md"
 Cohesion: 0.05
@@ -246,8 +250,8 @@ Cohesion: 0.29
 Nodes (7): 4. HERO MINIMALISM RULES, Absolute Hero Rules, Graphic Restraint, Headline Rule, Hero Composition Bias, Pre-output check, Typography Execution
 
 ### Community 30 - "tasteskill: Anti-Slop Frontend Skill"
-Cohesion: 0.20
-Nodes (10): 13. OUT OF SCOPE, 14. FINAL PRE-FLIGHT CHECK, 1.A Dial Inference (design read → dial values), 1.B Use-Case Presets, 1.C How the Dials Drive Output, 1. THE THREE DIALS (Core Configuration), 2.A When to reach for a real design system (use official packages), 2.B When the brief is an aesthetic, not a system (+2 more)
+Cohesion: 0.33
+Nodes (6): 13. OUT OF SCOPE, 14. FINAL PRE-FLIGHT CHECK, 2.A When to reach for a real design system (use official packages), 2.B When the brief is an aesthetic, not a system, 2. BRIEF → DESIGN SYSTEM MAP, tasteskill: Anti-Slop Frontend Skill
 
 ### Community 31 - "29. ANTI-AI-SLOP RULES"
 Cohesion: 0.33
@@ -258,8 +262,8 @@ Cohesion: 0.33
 Nodes (5): For /graphify explain, For /graphify path, graphify reference: query, path, explain, Step 0 — Constrained query expansion (REQUIRED before traversal), Step 1 — Traversal
 
 ### Community 33 - "0. BRIEF INFERENCE (Read the Room Before Anything Else)"
-Cohesion: 0.07
-Nodes (50): ALL_GRAPHEMES, buildHuntRounds(), buildLetterRounds(), buildPatternPowerRounds(), buildPoemRounds(), buildQuickWordRounds(), buildSoundRounds(), buildSpeedyWordRounds() (+42 more)
+Cohesion: 0.06
+Nodes (51): ALL_GRAPHEMES, buildHuntRounds(), buildLetterRounds(), buildPatternPowerRounds(), buildPoemRounds(), buildQuickWordRounds(), buildSoundRounds(), buildSpeedyWordRounds() (+43 more)
 
 ### Community 34 - "12. THE BLOCK LIBRARY (Contract - Implementations Land Here Iteratively)"
 Cohesion: 0.40
@@ -377,17 +381,21 @@ Nodes (4): 20. EXAMPLE INTERPRETATIONS, Example 1, Example 2, Example 3
 Cohesion: 0.50
 Nodes (3): After import, Files to deliver (3 recordings, copied to every path below), Kimi Audio Request — re-record 3 short words (gold voice, whole words)
 
+### Community 68 - "SKILL.md"
+Cohesion: 0.05
+Nodes (37): 1. Raz-Kids / Kids A-Z (Learning A-Z), 2. Teach Your Monster to Read, 3. Starfall, 4. Khan Academy Kids, 5. Duolingo ABC, (a) Child home screen, (a) Child home screen, (a) Child home screen (+29 more)
+
 ### Community 70 - "STATIONS"
 Cohesion: 0.29
 Nodes (6): After import (Claude does this), Kimi Audio Request — FULL REDO of every letter sound + letter name (gold voice), Part 1 — Letter SOUNDS (26 files), Part 2 — Digraph SOUNDS (6 files), Part 3 — Letter NAMES (26 files, a–z), THE THREE IRON RULES
 
 ### Community 71 - "isQuestionValid"
-Cohesion: 0.10
-Nodes (24): getAnchorWord(), getListenAndFindAssetDiagnostics(), getQuestionAnswer(), getQuestionCards(), getQuestionPrompt(), getStageIndex(), hasAnchorChoiceLeakage(), hasCompleteInitialSoundPairAssets() (+16 more)
+Cohesion: 0.13
+Nodes (19): getListenAndFindAssetDiagnostics(), getQuestionCards(), getQuestionPrompt(), getStageIndex(), hasCompleteInitialSoundPairAssets(), hasCompletePairSelectionAssets(), hasCompleteVisualQuestionAssets(), hasLowQualityPluralDistractors() (+11 more)
 
 ### Community 72 - "StudentHomePage.jsx"
-Cohesion: 0.15
-Nodes (7): RewardsPage(), MISSION_TILES, StudentHomePage(), DEN_THEMES, denSeenKey(), markRewardsSeen(), newRewardsSinceLastVisit()
+Cohesion: 0.33
+Nodes (5): RewardsPage(), DEN_THEMES, denSeenKey(), markRewardsSeen(), newRewardsSinceLastVisit()
 
 ### Community 73 - "getRuntimeQuestionSignature"
 Cohesion: 0.20
@@ -402,8 +410,8 @@ Cohesion: 0.40
 Nodes (5): 0.A Read these signals first, 0.B Output a one-line "Design Read" before generating, 0. BRIEF INFERENCE (Read the Room Before Anything Else), 0.C If the brief is ambiguous, ask one question, do not guess, 0.D Anti-Default Discipline
 
 ### Community 76 - "inferItemMetadata"
-Cohesion: 0.40
-Nodes (5): applyItemMetadata(), findPatternInText(), getItemMasteryStateKeyForValues(), inferItemMetadata(), normalizeItemKey()
+Cohesion: 0.29
+Nodes (7): applyItemMetadata(), findPatternInText(), getItemMasteryStateKeyForValues(), getQuestionAnswer(), inferItemMetadata(), isFixSentenceQuestion(), normalizeItemKey()
 
 ### Community 77 - "isMissingTableError"
 Cohesion: 0.40
@@ -413,8 +421,20 @@ Nodes (5): getAdminSetupMessage(), isApprovalSchemaError(), isMissingItemMastery
 Cohesion: 0.29
 Nodes (6): Five Loop Prompts — Market-Ready LiteracyPath, PROMPT 1 — Screen-by-screen layout & polish sweep, PROMPT 2 — Competitor research & design parity, PROMPT 3 — Games: depth, testing and one new flagship game, PROMPT 4 — Educational content & curriculum correctness audit, PROMPT 5 — Market-readiness QA: usability, resilience, performance
 
+### Community 81 - "Market Readiness — 2026-07-04 (Loops 1–5 verdict)"
+Cohesion: 0.40
+Nodes (4): Market Readiness — 2026-07-04 (Loops 1–5 verdict), Outstanding before "world-class" sign-off, Shipped this pass, Verdict
+
+### Community 82 - "1. THE THREE DIALS (Core Configuration)"
+Cohesion: 0.50
+Nodes (4): 1.A Dial Inference (design read → dial values), 1.B Use-Case Presets, 1.C How the Dials Drive Output, 1. THE THREE DIALS (Core Configuration)
+
+### Community 83 - "hasAnchorChoiceLeakage"
+Cohesion: 0.67
+Nodes (3): getAnchorWord(), hasAnchorChoiceLeakage(), isWordRecognitionQuestion()
+
 ## Knowledge Gaps
-- **601 isolated node(s):** `PROMPT 1 — Screen-by-screen layout & polish sweep`, `PROMPT 2 — Competitor research & design parity`, `PROMPT 3 — Games: depth, testing and one new flagship game`, `PROMPT 4 — Educational content & curriculum correctness audit`, `PROMPT 5 — Market-readiness QA: usability, resilience, performance` (+596 more)
+- **636 isolated node(s):** `(a) Child home screen`, `(b) Lesson/level maps and progression`, `(c) Reward loops and celebration`, `(d) Game feedback for young children`, `(e) Session flow (open → learning)` (+631 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -422,15 +442,15 @@ Nodes (6): Five Loop Prompts — Market-Ready LiteracyPath, PROMPT 1 — Screen-
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `wordAudioPath()` connect `presentationBuilder.js` to `0. BRIEF INFERENCE (Read the Room Before Anything Else)`, `ArcadePracticeGame.jsx`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
 - **Why does `hasKnownBadWordAudio()` connect `ArcadePracticeGame.jsx` to `0. BRIEF INFERENCE (Read the Room Before Anything Else)`, `presentationBuilder.js`?**
-  _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **Why does `tasteskill: Anti-Slop Frontend Skill` connect `tasteskill: Anti-Slop Frontend Skill` to `12. THE BLOCK LIBRARY (Contract - Implementations Land Here Iteratively)`, `5. CONTEXT-AWARE PROACTIVITY`, `8. DARK MODE PROTOCOL`, `Appendix B - Canonical Sources (read these before reinventing)`, `7. DIAL DEFINITIONS (Technical Reference)`, `0. BRIEF INFERENCE (Read the Room Before Anything Else)`, `4. DESIGN ENGINEERING DIRECTIVES (Bias Correction)`, `10. REFERENCE VOCABULARY (Pattern Names the Agent Should Know)`, `9. AI TELLS (Forbidden Patterns)`, `11. REDESIGN PROTOCOL`, `3. DEFAULT ARCHITECTURE & CONVENTIONS`, `6. PERFORMANCE & ACCESSIBILITY GUARDRAILS`?**
-  _High betweenness centrality (0.011) - this node is a cross-community bridge._
-- **What connects `PROMPT 1 — Screen-by-screen layout & polish sweep`, `PROMPT 2 — Competitor research & design parity`, `PROMPT 3 — Games: depth, testing and one new flagship game` to the rest of the system?**
-  _601 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+- **Why does `CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION` connect `CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION` to `15. DEFAULT SITE PACKS`, `20. EXAMPLE INTERPRETATIONS`, `2. THE COMBINATORIAL VARIATION ENGINE`, `4. HERO MINIMALISM RULES`, `11. COMPONENT EXECUTION GUIDELINES`, `8. ANTI-AI-SLOP RULES`, `18. EXTRA CREATIVITY & IMPLEMENTATION EDGE`, `13. COLOR & MATERIAL RULES`, `5. IMAGE COUNT & PAGE SLICING`?**
+  _High betweenness centrality (0.007) - this node is a cross-community bridge._
+- **What connects `(a) Child home screen`, `(b) Lesson/level maps and progression`, `(c) Reward loops and celebration` to the rest of the system?**
+  _636 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION` be split into smaller, more focused modules?**
-  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `SKILL.md` be split into smaller, more focused modules?**
   _Cohesion score 0.045454545454545456 - nodes in this community are weakly interconnected._
 - **Should `Seedance 2.0 Video Prompt Writing Guide` be split into smaller, more focused modules?**

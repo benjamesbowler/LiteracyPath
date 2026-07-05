@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-04T15:06:24.658Z",
+  "generatedAt": "2026-07-05T01:19:55.998Z",
   "totalImages": 8816,
   "images": [
     {
@@ -129504,7 +129504,7 @@
       "file_size_bytes": 59704,
       "sha1": "51a80a3efcfea1f70982130805f657ccda8f035b",
       "used_by_app": "yes",
-      "referenced_by": "src/components/StudentHomePage.jsx; src/components/guided-reading/BookQuiz.jsx; src/components/guided-reading/GuidedReadingPage.jsx; src/components/learn/games/games/ArcadePracticeGame.jsx; src/utils/preloadAssets.js",
+      "referenced_by": "src/components/StudentHomePage.jsx; src/components/guided-reading/BookQuiz.jsx; src/components/guided-reading/GuidedReadingPage.jsx; src/components/learn/games/games/AdventureGame.jsx; src/components/learn/games/games/ArcadePracticeGame.jsx; src/utils/preloadAssets.js",
       "target_word": "phinny cheering",
       "skill_id": "",
       "book_id": "",
@@ -130953,7 +130953,7 @@
       "file_size_bytes": 40418,
       "sha1": "e1c73871fc48d15953fa4469d5ec731f49f4e446",
       "used_by_app": "yes",
-      "referenced_by": "src/components/StudentEntryPage.jsx; src/components/StudentLoginFlow.jsx; src/utils/studentProfile.js",
+      "referenced_by": "src/components/StudentEntryPage.jsx; src/components/StudentLoginFlow.jsx; src/components/learn/games/games/AdventureGame.jsx; src/utils/studentProfile.js",
       "target_word": "meadow wave",
       "skill_id": "",
       "book_id": "",

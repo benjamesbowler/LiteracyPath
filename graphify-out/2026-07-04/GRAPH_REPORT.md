@@ -1,16 +1,16 @@
 # Graph Report - LiteracyPath  (2026-07-04)
 
 ## Corpus Check
-- 896 files · ~5,394,910 words
+- 897 files · ~5,395,865 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 967 nodes · 1190 edges · 79 communities (71 shown, 8 thin omitted)
+- 974 nodes · 1196 edges · 80 communities (72 shown, 8 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 17 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `407946af`
+- Built from commit: `df618b10`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -94,6 +94,7 @@
 - [[_COMMUNITY_inferItemMetadata|inferItemMetadata]]
 - [[_COMMUNITY_isMissingTableError|isMissingTableError]]
 - [[_COMMUNITY_appViews.js|appViews.js]]
+- [[_COMMUNITY_Five Loop Prompts — Market-Ready LiteracyPath|Five Loop Prompts — Market-Ready LiteracyPath]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `CORE DIRECTIVE: IMAGE-FIRST WEBSITE DESIGN TO CODE` - 39 edges
@@ -122,7 +123,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (79 total, 8 thin omitted)
+## Communities (80 total, 8 thin omitted)
 
 ### Community 0 - "CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION"
 Cohesion: 0.14
@@ -408,8 +409,12 @@ Nodes (5): applyItemMetadata(), findPatternInText(), getItemMasteryStateKeyForVa
 Cohesion: 0.40
 Nodes (5): getAdminSetupMessage(), isApprovalSchemaError(), isMissingItemMasteryTableError(), isMissingTableError(), isSupabasePermissionError()
 
+### Community 79 - "Five Loop Prompts — Market-Ready LiteracyPath"
+Cohesion: 0.29
+Nodes (6): Five Loop Prompts — Market-Ready LiteracyPath, PROMPT 1 — Screen-by-screen layout & polish sweep, PROMPT 2 — Competitor research & design parity, PROMPT 3 — Games: depth, testing and one new flagship game, PROMPT 4 — Educational content & curriculum correctness audit, PROMPT 5 — Market-readiness QA: usability, resilience, performance
+
 ## Knowledge Gaps
-- **596 isolated node(s):** `THE THREE IRON RULES`, `Part 1 — Letter SOUNDS (26 files)`, `Part 2 — Digraph SOUNDS (6 files)`, `Part 3 — Letter NAMES (26 files, a–z)`, `After import (Claude does this)` (+591 more)
+- **601 isolated node(s):** `PROMPT 1 — Screen-by-screen layout & polish sweep`, `PROMPT 2 — Competitor research & design parity`, `PROMPT 3 — Games: depth, testing and one new flagship game`, `PROMPT 4 — Educational content & curriculum correctness audit`, `PROMPT 5 — Market-readiness QA: usability, resilience, performance` (+596 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -422,8 +427,8 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
 - **Why does `tasteskill: Anti-Slop Frontend Skill` connect `tasteskill: Anti-Slop Frontend Skill` to `12. THE BLOCK LIBRARY (Contract - Implementations Land Here Iteratively)`, `5. CONTEXT-AWARE PROACTIVITY`, `8. DARK MODE PROTOCOL`, `Appendix B - Canonical Sources (read these before reinventing)`, `7. DIAL DEFINITIONS (Technical Reference)`, `0. BRIEF INFERENCE (Read the Room Before Anything Else)`, `4. DESIGN ENGINEERING DIRECTIVES (Bias Correction)`, `10. REFERENCE VOCABULARY (Pattern Names the Agent Should Know)`, `9. AI TELLS (Forbidden Patterns)`, `11. REDESIGN PROTOCOL`, `3. DEFAULT ARCHITECTURE & CONVENTIONS`, `6. PERFORMANCE & ACCESSIBILITY GUARDRAILS`?**
   _High betweenness centrality (0.011) - this node is a cross-community bridge._
-- **What connects `THE THREE IRON RULES`, `Part 1 — Letter SOUNDS (26 files)`, `Part 2 — Digraph SOUNDS (6 files)` to the rest of the system?**
-  _596 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `PROMPT 1 — Screen-by-screen layout & polish sweep`, `PROMPT 2 — Competitor research & design parity`, `PROMPT 3 — Games: depth, testing and one new flagship game` to the rest of the system?**
+  _601 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION` be split into smaller, more focused modules?**
   _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
 - **Should `SKILL.md` be split into smaller, more focused modules?**

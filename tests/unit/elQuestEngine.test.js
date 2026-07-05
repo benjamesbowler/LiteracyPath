@@ -8,22 +8,22 @@ import {
   shuffleItems
 } from "../../src/components/elQuest/elQuestEngine.js";
 import { elSkillsBlockCycles } from "../../src/data/elSkillsBlockCycles.js";
-import { isKnownBadAudioPath } from "../../src/data/knownBadWordAudio.js";
+import { isKnownBadAudioPath, KNOWN_BAD_AUDIO_PATHS } from "../../src/data/knownBadWordAudio.js";
 
 const cycle1 = elSkillsBlockCycles.find(c => c.id === "cycle-1");
 
-test("graphemeAudioPath: good letters resolve, blocklisted defective clips never do", () => {
-  // Letters with verified-good recordings must resolve to a real mp3.
-  for (const g of ["m", "t", "s", "d", "g", "h"]) {
-    const path = graphemeAudioPath(g);
-    assert.ok(path && path.endsWith(".mp3"), `expected an mp3 path for "${g}", got "${path}"`);
-    assert.ok(!path.startsWith("generated:"));
-  }
-  // Letters whose ONLY sound clips failed the 2026-07-04 ear audit return ""
-  // (rounds fall back to real word cues) - and NEVER a blocklisted path.
-  for (const g of ["a", "e", "i", "o", "f", "k", "l", "n", "p"]) {
+test("graphemeAudioPath never returns a blocklisted clip; resolves when unblocked", () => {
+  const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k", "l", "m", "n", "o", "p", "s", "t", "sh", "ch"];
+  for (const g of letters) {
     const path = graphemeAudioPath(g);
     assert.ok(!isKnownBadAudioPath(path), `"${g}" resolved to a blocklisted clip: ${path}`);
+    assert.ok(!String(path).startsWith("generated:"));
+    // While the whole letter bank is blocked (awaiting the human re-record),
+    // "" is the correct answer. The moment the blocklist is emptied after
+    // import, every letter must resolve to a real mp3 again.
+    if (KNOWN_BAD_AUDIO_PATHS.size === 0) {
+      assert.ok(path && path.endsWith(".mp3"), `expected an mp3 for "${g}" once unblocked, got "${path}"`);
+    }
   }
 });
 

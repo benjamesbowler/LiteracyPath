@@ -199,6 +199,33 @@ export const GAME_LIST = [
     description: "Add beginnings to rimes to make families of words."
   },
   {
+    id: "word-rescue",
+    title: "Word Rescue",
+    skill: "Read words with confidence",
+    category: "Fluency",
+    ...GAME_ACCENTS.coral,
+    icon: "/images/learn-games/icon-pop-word.png",
+    description: "Read each word to build the bridge and rescue your pal."
+  },
+  {
+    id: "sound-sort-factory",
+    title: "Sound Sort Factory",
+    skill: "Hear and sort beginning sounds",
+    category: "Phonics",
+    ...GAME_ACCENTS.blue,
+    icon: "/images/learn-games/icon-blend-build.png",
+    description: "Sort the factory words into the right sound bins."
+  },
+  {
+    id: "letter-garden",
+    title: "Letter Garden",
+    skill: "Spell words letter by letter",
+    category: "CVC",
+    ...GAME_ACCENTS.violet,
+    icon: "/images/learn-games/icon-cvc-builder.png",
+    description: "Build words to grow a garden full of flowers."
+  },
+  {
     id: "pop-the-word",
     title: "Pop the Word",
     skill: "Fast word recognition",
