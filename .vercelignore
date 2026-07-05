@@ -1,0 +1,27 @@
+# Vercel builds the app itself — never upload local build output or deps
+dist/
+dist-ssr/
+node_modules/
+.vercel
+
+# Large local-only working assets (not needed for the site build)
+LP Assets/
+raw/
+docs/
+graphify-out/
+Phonics app extension/
+public_domain_books/
+
+# Test + tooling output
+test-results/
+playwright-report/
+tests/
+
+# Cruft
+*.log
+.DS_Store
+*.zip
+~$*
+
+# NOTE: public/, src/, tools/, index.html, vite.config.js and package files
+# are intentionally NOT ignored — the build needs them.
