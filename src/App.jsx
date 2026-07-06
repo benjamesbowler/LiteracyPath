@@ -1781,6 +1781,7 @@ export default function App() {
   const [, setShowReport] = useState(false);
   const [allowPassageAudio, setAllowPassageAudio] = useState(false);
   const [learnFullscreen, setLearnFullscreen] = useState(false);
+  const [studentArcadeOpen, setStudentArcadeOpen] = useState(false);
   const [assessmentFullscreen, setAssessmentFullscreen] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
@@ -1835,6 +1836,7 @@ export default function App() {
   const accountAccessCheckUserIdRef = useRef(null);
   const accountAccessCheckSeqRef = useRef(0);
   const isLearnView = appView === APP_VIEWS.LEARN || appView === APP_VIEWS.PHONICS_LEARN;
+  const isStudentSurfaceView = isLearnView || appView === APP_VIEWS.STUDENT_REWARDS;
 
   useEffect(() => {
     function syncFullscreenState() {
@@ -1847,6 +1849,12 @@ export default function App() {
     document.addEventListener("fullscreenchange", syncFullscreenState);
     return () => document.removeEventListener("fullscreenchange", syncFullscreenState);
   }, []);
+
+  useEffect(() => {
+    if (appView !== APP_VIEWS.PHONICS_LEARN) {
+      setStudentArcadeOpen(false);
+    }
+  }, [appView]);
 
   useEffect(() => {
     const handleDynamicImportFailure = event => {
@@ -1920,10 +1928,24 @@ export default function App() {
         aria-label={learnFullscreen ? "Exit full screen" : "Enter full screen"}
         title={learnFullscreen ? "Exit full screen" : "Full screen"}
       >
-        <span aria-hidden="true">{learnFullscreen ? "X" : "[]"}</span>
+        {learnFullscreen ? (
+          <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+            <path d="M8 8l8 8M16 8l-8 8" />
+          </svg>
+        ) : (
+          <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+            <path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5" />
+          </svg>
+        )}
         <span>{learnFullscreen ? "Exit" : "Full screen"}</span>
       </button>
     );
+  }
+
+  function returnToStudentHome() {
+    setStudentArcadeOpen(false);
+    exitLearnFullscreen();
+    setAppView(APP_VIEWS.STUDENT_HOME);
   }
 
   // Guard against an out-of-range index (e.g. drifted/restored data) so a bad
@@ -7749,19 +7771,31 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   const effectiveAssessmentFullscreen = isFocusedAssessment && assessmentFullscreen;
   const isStudentMode = sessionMode === "student";
   const hasTeacherSchool = Boolean(teacherAccountRecord?.school_id || teacherSchoolName);
-  const isFocusedShell = isStudentMode || appView === APP_VIEWS.STUDENT_LOGIN || isFocusedAssessment || (isLearnView && learnFullscreen);
+  const isFocusedShell = isStudentMode || appView === APP_VIEWS.STUDENT_LOGIN || isFocusedAssessment || (isStudentSurfaceView && learnFullscreen);
   const appShellClassName = [
     "app",
     isStudentMode ? "student-mode-app no-sidebar" : "",
     isFocusedAssessment ? "assessment-app no-sidebar" : "",
     effectiveAssessmentFullscreen ? "assessment-fullscreen-app" : "",
-    isLearnView && learnFullscreen ? "learn-fullscreen-app no-sidebar" : ""
+    isStudentSurfaceView && learnFullscreen ? "learn-fullscreen-app no-sidebar" : ""
   ].filter(Boolean).join(" ");
+  const studentSurfaceShellClass = isStudentMode && isStudentSurfaceView
+    ? [
+      "student-surface-shell",
+      studentArcadeOpen
+        ? "student-surface-shell-arcade"
+        : appView === APP_VIEWS.LEARN
+          ? "student-surface-shell-story"
+          : appView === APP_VIEWS.STUDENT_REWARDS
+            ? "student-surface-shell-rewards"
+            : "student-surface-shell-phonics"
+    ].join(" ")
+    : "";
 
   return (
     <ErrorBoundary resetKey={`app-shell-${appView}-${studentId || "none"}`} fallback={<PageErrorFallback />}>
     <div
-      className={`lg-app-shell${isFocusedShell ? " no-sidebar" : ""}${isLearnView && learnFullscreen ? " learn-fullscreen-shell" : ""}${effectiveAssessmentFullscreen ? " assessment-fullscreen-shell" : ""}`}
+      className={`lg-app-shell${isFocusedShell ? " no-sidebar" : ""}${isStudentSurfaceView && learnFullscreen ? " learn-fullscreen-shell" : ""}${effectiveAssessmentFullscreen ? " assessment-fullscreen-shell" : ""}${studentSurfaceShellClass ? ` ${studentSurfaceShellClass}` : ""}`}
       data-pal-world={isStudentMode ? worldForScope(studentId || studentName || "default").id : undefined}
     >
       {!isFocusedShell && (
@@ -7791,18 +7825,18 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       <div className={appShellClassName}>
       {showConfetti && !prefersReducedMotion && <Confetti recycle={false} numberOfPieces={90} />}
 
-      {isStudentMode && appView !== APP_VIEWS.STUDENT_HOME && appView !== APP_VIEWS.STUDENT_REWARDS && (
+      {isStudentMode && appView !== APP_VIEWS.STUDENT_HOME && (
         <button
           className="student-home-float"
-          onClick={() => setAppView(APP_VIEWS.STUDENT_HOME)}
+          onClick={returnToStudentHome}
           type="button"
           aria-label="Back to my home page"
         >
           <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M3 11l9-8 9 8" />
-            <path d="M5 10v10h14V10" />
+            <path d="M15 18l-6-6 6-6" />
+            <path d="M9 12h12" />
           </svg>
-          Home
+          Back
         </button>
       )}
 
@@ -7820,15 +7854,31 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
           <StudentHomePage
             studentName={studentName}
             progressScopeKey={studentId || studentName || "default"}
-            onOpenPhonicsLearn={() => setAppView(APP_VIEWS.PHONICS_LEARN)}
-            onOpenArcade={() => setAppView(APP_VIEWS.PHONICS_LEARN)}
-            onOpenSkillsBlockQuest={() => setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST)}
-            onOpenStoryQuests={() => setAppView(APP_VIEWS.LEARN)}
+            onOpenPhonicsLearn={() => {
+              setStudentArcadeOpen(false);
+              setAppView(APP_VIEWS.PHONICS_LEARN);
+            }}
+            onOpenArcade={() => {
+              setStudentArcadeOpen(true);
+              setAppView(APP_VIEWS.PHONICS_LEARN);
+            }}
+            onOpenSkillsBlockQuest={() => {
+              setStudentArcadeOpen(false);
+              setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST);
+            }}
+            onOpenStoryQuests={() => {
+              setStudentArcadeOpen(false);
+              setAppView(APP_VIEWS.LEARN);
+            }}
             onOpenGuidedReading={bookId => {
+              setStudentArcadeOpen(false);
               setGuidedInitialBookId(typeof bookId === "string" ? bookId : "");
               setAppView(APP_VIEWS.GUIDED_READING);
             }}
-            onOpenRewards={() => setAppView(APP_VIEWS.STUDENT_REWARDS)}
+            onOpenRewards={() => {
+              setStudentArcadeOpen(false);
+              setAppView(APP_VIEWS.STUDENT_REWARDS);
+            }}
             onLogout={isStudentMode ? logOutStudent : returnToTeacherDashboard}
             logoutLabel={isStudentMode ? "Sign out" : "Teacher dashboard"}
             logoutAriaLabel={isStudentMode ? "Log out" : "Return to teacher dashboard"}
@@ -7838,11 +7888,14 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
       {appView === APP_VIEWS.STUDENT_REWARDS && nameSaved && (
         <PageBoundary resetKey={`student-rewards-${studentId}`}>
-          <RewardsPage
-            studentName={studentName}
-            progressScopeKey={studentId || studentName || "default"}
-            onBack={() => setAppView(APP_VIEWS.STUDENT_HOME)}
-          />
+          <div className="student-surface-frame student-surface-rewards">
+            {renderLearnFullscreenButton()}
+            <RewardsPage
+              studentName={studentName}
+              progressScopeKey={studentId || studentName || "default"}
+              onBack={returnToStudentHome}
+            />
+          </div>
         </PageBoundary>
       )}
 
@@ -7994,7 +8047,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       {appView === APP_VIEWS.LEARN && nameSaved && (
         <PageBoundary resetKey={`learn-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading Story Quest..." />}>
-            <div className="learn-fullscreen-frame">
+            <div className="learn-fullscreen-frame student-surface-frame student-surface-story">
               {renderLearnFullscreenButton()}
               <LearnAreaPage key={studentId || studentName || "default"} progressScopeKey={studentId || studentName || "default"} />
             </div>
@@ -8005,9 +8058,12 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       {appView === APP_VIEWS.PHONICS_LEARN && nameSaved && (
         <PageBoundary resetKey={`phonics-learn-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading Learn..." />}>
-            <div className="learn-fullscreen-frame">
+            <div className={`learn-fullscreen-frame student-surface-frame ${studentArcadeOpen ? "student-surface-arcade" : "student-surface-phonics"}`}>
               {renderLearnFullscreenButton()}
-              <PhonicsLearnPage progressScopeKey={studentId || studentName || "default"} />
+              <PhonicsLearnPage
+                initialIsland={studentArcadeOpen ? "games" : "letters"}
+                progressScopeKey={studentId || studentName || "default"}
+              />
             </div>
           </Suspense>
         </PageBoundary>

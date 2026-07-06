@@ -1905,3 +1905,651 @@
     width: 100%;
   }
 }
+
+/* ── Student activity surfaces: full-screen, blocky, pop-bright ─────────── */
+.lg-app-shell.student-surface-shell {
+  background: #ffffff;
+}
+
+.lg-app-shell.student-surface-shell::before {
+  display: none;
+}
+
+.lg-app-shell.student-surface-shell .lg-content-area {
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.lg-app-shell.student-surface-shell .app.student-mode-app {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: transparent;
+}
+
+.student-mode-app .student-surface-frame {
+  position: relative;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: auto;
+  background: #ffffff;
+  color: #172033;
+  -webkit-overflow-scrolling: touch;
+}
+
+.student-mode-app .learn-fullscreen-frame.student-surface-frame,
+.learn-fullscreen-app .student-surface-frame {
+  width: 100%;
+  max-width: none;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+}
+
+.lg-app-shell.student-surface-shell .student-home-float,
+.student-mode-app .student-surface-frame .learn-fullscreen-toggle {
+  position: fixed;
+  top: max(14px, env(safe-area-inset-top, 0px));
+  z-index: 120;
+  min-width: 54px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 3px solid #172033;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #172033;
+  box-shadow: 5px 5px 0 #172033;
+  font-family: var(--lp-font-readable, Lexend, system-ui, sans-serif);
+  font-size: 0.98rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.lg-app-shell.student-surface-shell .student-home-float {
+  left: max(14px, env(safe-area-inset-left, 0px));
+  padding: 0 16px;
+}
+
+.student-mode-app .student-surface-frame .learn-fullscreen-toggle {
+  right: max(14px, env(safe-area-inset-right, 0px));
+  padding: 0;
+}
+
+.student-mode-app .student-surface-frame .learn-fullscreen-toggle svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lg-app-shell.student-surface-shell .student-home-float:hover,
+.student-mode-app .student-surface-frame .learn-fullscreen-toggle:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 6px 6px 0 #172033;
+}
+
+.student-mode-app .student-surface-frame .learn-fullscreen-toggle.active {
+  background: #172033;
+  color: #ffffff;
+}
+
+/* Arcade: no meadow frame, no inset box, just the cabinet surface. */
+.lg-app-shell.student-surface-shell-arcade,
+.lg-app-shell.student-surface-shell-arcade .lg-content-area,
+.lg-app-shell.student-surface-shell-arcade .app.student-mode-app,
+.student-mode-app .student-surface-arcade,
+.student-mode-app .student-surface-arcade .phonics-learn-page,
+.student-mode-app .student-surface-arcade .phonics-tab-shell,
+.student-mode-app .student-surface-arcade .phonics-arcade-surface {
+  background: #05060d !important;
+}
+
+.lg-app-shell.student-surface-shell-arcade .student-home-float,
+.student-mode-app .student-surface-arcade .learn-fullscreen-toggle {
+  border-color: #ffd34e;
+  background: #ffd34e;
+  color: #090b18;
+  box-shadow: 5px 5px 0 #c9781a;
+}
+
+.student-mode-app .student-surface-arcade .phonics-learn-page,
+.student-mode-app .student-surface-arcade .phonics-tab-shell {
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+.student-mode-app .student-surface-arcade .phonics-arcade-surface {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.student-mode-app .student-surface-arcade .lg-arcade {
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  padding: clamp(82px, 6vw, 108px) clamp(18px, 4vw, 70px) clamp(24px, 4vw, 56px);
+  border-radius: 0 !important;
+  gap: clamp(16px, 2vw, 28px);
+  overflow: hidden;
+}
+
+.student-mode-app .student-surface-arcade .lg-arcade-header {
+  padding: clamp(18px, 2.6vw, 34px);
+  border-bottom: 3px solid rgba(255, 211, 78, 0.22) !important;
+}
+
+.student-mode-app .student-surface-arcade .lg-arcade-controls {
+  align-items: stretch;
+}
+
+.student-mode-app .student-surface-arcade .lg-segmented-control {
+  border-radius: 12px !important;
+  padding: 6px !important;
+}
+
+.student-mode-app .student-surface-arcade .lg-segmented-control button {
+  border-radius: 8px !important;
+  min-width: 112px;
+  font-size: clamp(1rem, 1.2vw, 1.16rem);
+  font-weight: 900;
+}
+
+.student-mode-app .student-surface-arcade .lg-game-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: clamp(16px, 2vw, 28px);
+}
+
+.student-mode-app .student-surface-arcade .lg-game-card {
+  min-height: clamp(320px, 35vh, 460px);
+  border-radius: 10px !important;
+  border-width: 2px !important;
+}
+
+.student-mode-app .student-surface-arcade .lg-game-card-art {
+  height: clamp(138px, 18vh, 220px);
+  border-radius: 0 !important;
+}
+
+.student-mode-app .student-surface-arcade .lg-game-card-copy strong {
+  font-size: clamp(1.28rem, 2vw, 2rem);
+}
+
+.student-mode-app .student-surface-arcade .lg-game-play,
+.student-mode-app .student-surface-arcade .lg-game-primary {
+  border-radius: 10px !important;
+  font-weight: 950 !important;
+}
+
+.student-mode-app .student-surface-arcade .lg-leaderboard {
+  border-radius: 10px;
+}
+
+/* Phonics: remove the inset title card and let the practice grid breathe. */
+.lg-app-shell.student-surface-shell-phonics,
+.student-mode-app .student-surface-phonics,
+.student-mode-app .student-surface-phonics .phonics-learn-page,
+.student-mode-app .student-surface-phonics .phonics-tab-shell {
+  background:
+    linear-gradient(90deg, rgba(23, 32, 51, 0.055) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(23, 32, 51, 0.055) 1px, transparent 1px),
+    #fffdfa !important;
+  background-size: 34px 34px;
+}
+
+.student-mode-app .student-surface-phonics .phonics-learn-page,
+.student-mode-app .student-surface-phonics .phonics-tab-shell {
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+.student-mode-app .student-surface-phonics .phonics-tab-shell {
+  padding: clamp(82px, 6vw, 108px) clamp(16px, 4vw, 72px) clamp(24px, 4vw, 52px);
+}
+
+.student-mode-app .student-surface-phonics .phonics-island-view {
+  width: 100%;
+  max-width: none;
+  min-height: calc(100vh - 128px);
+  min-height: calc(100dvh - 128px);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  align-content: start;
+  gap: clamp(18px, 2vw, 28px);
+  margin: 0;
+}
+
+.student-mode-app .student-surface-phonics .phonics-practice-overview {
+  display: none;
+}
+
+.student-mode-app .student-surface-phonics .phonics-island-switcher {
+  width: min(100%, 1320px);
+  margin: 0 auto;
+  gap: clamp(12px, 1.4vw, 20px);
+}
+
+.student-mode-app .student-surface-phonics .phonics-island-card,
+.student-mode-app .student-surface-phonics .phonics-letter-card,
+.student-mode-app .student-surface-phonics .cvc-family-card {
+  border: 3px solid #172033;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 5px 5px 0 #172033;
+}
+
+.student-mode-app .student-surface-phonics .phonics-island-card {
+  min-height: clamp(78px, 10vh, 118px);
+  padding: 14px clamp(14px, 2vw, 24px);
+}
+
+.student-mode-app .student-surface-phonics .phonics-island-card.active {
+  background: #ffd23f;
+  color: #172033;
+}
+
+.student-mode-app .student-surface-phonics .phonics-picker,
+.student-mode-app .student-surface-phonics .cvc-picker {
+  width: min(100%, 1320px);
+  max-width: none;
+  min-height: 0;
+  margin: 0 auto;
+  gap: clamp(14px, 1.8vw, 24px);
+}
+
+.student-mode-app .student-surface-phonics .phonics-picker h1 {
+  font-size: clamp(1.75rem, 3vw, 3.1rem);
+}
+
+.student-mode-app .student-surface-phonics .phonics-picker > p {
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+}
+
+.student-mode-app .student-surface-phonics .phonics-letter-grid {
+  width: min(100%, 1320px);
+  max-width: none;
+  grid-template-columns: repeat(9, minmax(72px, 1fr));
+  gap: clamp(12px, 1.25vw, 18px);
+}
+
+.student-mode-app .student-surface-phonics .phonics-letter-card {
+  aspect-ratio: 1 / 0.82;
+  min-height: clamp(78px, 10vh, 116px);
+  transition: transform 120ms ease-out, box-shadow 120ms ease-out;
+}
+
+.student-mode-app .student-surface-phonics .phonics-letter-card:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 6px 6px 0 #172033;
+}
+
+.student-mode-app .student-surface-phonics .phonics-letter-card.completed {
+  background: #dffbea;
+}
+
+.student-mode-app .student-surface-phonics .phonics-letter-symbol {
+  font-size: clamp(2.25rem, 4vw, 4.3rem);
+}
+
+.student-mode-app .student-surface-phonics .phonics-picker-progress {
+  border: 3px solid #172033;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 5px 5px 0 #172033;
+}
+
+.student-mode-app .student-surface-phonics .phonics-learning-flow,
+.student-mode-app .student-surface-phonics .phonics-step,
+.student-mode-app .student-surface-phonics .cvc-learning-flow,
+.student-mode-app .student-surface-phonics .cvc-step {
+  width: 100%;
+  max-width: none;
+  min-height: calc(100vh - 104px);
+  min-height: calc(100dvh - 104px);
+}
+
+/* Story quests: white, bright and full-width instead of a centered card scene. */
+.lg-app-shell.student-surface-shell-story,
+.student-mode-app .student-surface-story,
+.student-mode-app .student-surface-story .story-quest-learn-page {
+  background:
+    linear-gradient(90deg, rgba(23, 32, 51, 0.055) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(23, 32, 51, 0.055) 1px, transparent 1px),
+    #ffffff !important;
+  background-size: 36px 36px;
+}
+
+.student-mode-app .student-surface-story .story-quest-learn-page.learn-area-page {
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: auto;
+  margin: 0;
+  padding: clamp(82px, 6vw, 108px) clamp(16px, 4vw, 72px) clamp(28px, 4vw, 56px);
+  overflow: visible;
+}
+
+.student-mode-app .student-surface-story .learn-story-quest-library,
+.student-mode-app .student-surface-story .story-quest-player {
+  width: 100%;
+  max-width: none;
+  border: 3px solid #172033 !important;
+  border-radius: 8px !important;
+  background: #ffffff !important;
+  box-shadow: 8px 8px 0 #172033 !important;
+}
+
+.student-mode-app .student-surface-story .learn-story-quest-library {
+  padding: clamp(16px, 2.2vw, 30px);
+}
+
+.student-mode-app .student-surface-story .story-quest-library-stats span,
+.student-mode-app .student-surface-story .story-quest-card-progress,
+.student-mode-app .student-surface-story .learn-story-word-preview span {
+  border: 2px solid #172033;
+  border-radius: 6px;
+  background: #dffbea;
+  color: #172033 !important;
+}
+
+.student-mode-app .student-surface-story .learn-story-level-button,
+.student-mode-app .student-surface-story .story-quest-continue-strip,
+.student-mode-app .student-surface-story .learn-story-level-section,
+.student-mode-app .student-surface-story .learn-story-quest-card {
+  border: 3px solid #172033;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 5px 5px 0 #172033;
+}
+
+.student-mode-app .student-surface-story .learn-story-level-button.active {
+  background: #28d17c;
+  color: #172033;
+  box-shadow: 5px 5px 0 #172033;
+}
+
+.student-mode-app .student-surface-story .story-quest-continue-strip {
+  background: #def0ff;
+}
+
+.student-mode-app .student-surface-story .learn-story-level-section:nth-child(1) {
+  background: #fff6bf;
+}
+
+.student-mode-app .student-surface-story .learn-story-level-section:nth-child(2) {
+  background: #ffe3df;
+}
+
+.student-mode-app .student-surface-story .learn-story-level-section:nth-child(3) {
+  background: #def0ff;
+}
+
+.student-mode-app .student-surface-story .learn-story-level-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(14px, 1.6vw, 24px);
+}
+
+.student-mode-app .student-surface-story .learn-story-quest-cover {
+  border: 3px solid #172033;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.student-mode-app .student-surface-story .learn-story-quest-actions .lp-button {
+  border-radius: 8px;
+  font-weight: 950;
+}
+
+/* Rewards: points/progress becomes a crisp dashboard, not a soft meadow card. */
+.lg-app-shell.student-surface-shell-rewards,
+.student-mode-app .student-surface-rewards,
+.student-mode-app .student-surface-rewards .rewards-page {
+  background:
+    linear-gradient(90deg, rgba(23, 32, 51, 0.055) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(23, 32, 51, 0.055) 1px, transparent 1px),
+    #fffdfa !important;
+  background-size: 36px 36px;
+}
+
+.student-mode-app .student-surface-rewards .rewards-page {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: clamp(82px, 6vw, 108px) clamp(16px, 4vw, 72px) clamp(28px, 4vw, 56px);
+  justify-items: stretch;
+  align-content: start;
+  gap: clamp(16px, 2vw, 26px);
+  overflow: visible;
+}
+
+.student-mode-app .student-surface-rewards .den-backdrop,
+.student-mode-app .student-surface-rewards .den-companion,
+.student-mode-app .student-surface-rewards .den-header .sbq-ghost-button {
+  display: none;
+}
+
+.student-mode-app .student-surface-rewards .den-header,
+.student-mode-app .student-surface-rewards .den-card {
+  width: 100%;
+  max-width: none;
+  border: 3px solid #172033;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 8px 8px 0 #172033;
+}
+
+.student-mode-app .student-surface-rewards .den-header {
+  padding: clamp(16px, 2vw, 26px);
+}
+
+.student-mode-app .student-surface-rewards .den-title h1 {
+  color: #172033;
+  font-size: clamp(2rem, 4vw, 4.4rem);
+  line-height: 0.98;
+}
+
+.student-mode-app .student-surface-rewards .den-title p {
+  color: #334155;
+  font-weight: 850;
+}
+
+.student-mode-app .student-surface-rewards .den-gem-counter {
+  border: 3px solid #172033;
+  border-radius: 8px;
+  background: #f0e6ff;
+  color: #172033;
+  box-shadow: 5px 5px 0 #172033;
+}
+
+.student-mode-app .student-surface-rewards .den-card {
+  padding: clamp(16px, 2.2vw, 30px);
+}
+
+.student-mode-app .student-surface-rewards .den-card h2 {
+  color: #172033;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+}
+
+.student-mode-app .student-surface-rewards .den-trail {
+  grid-template-columns: repeat(auto-fit, minmax(122px, 1fr));
+  gap: clamp(10px, 1vw, 16px);
+}
+
+.student-mode-app .student-surface-rewards .den-trail-stop {
+  border: 2px solid #172033;
+  border-radius: 8px;
+  background: #fff6bf;
+}
+
+.student-mode-app .student-surface-rewards .den-trail-stop::before {
+  display: none;
+}
+
+.student-mode-app .student-surface-rewards .den-trail-icon,
+.student-mode-app .student-surface-rewards .kid-badge-medal {
+  border: 3px solid #172033;
+  border-radius: 8px;
+  box-shadow: 4px 4px 0 #172033;
+}
+
+.student-mode-app .student-surface-rewards .student-treasures-shelf,
+.student-mode-app .student-surface-rewards .den-themes,
+.student-mode-app .student-surface-rewards .den-earn-grid {
+  width: 100%;
+}
+
+.student-mode-app .student-surface-rewards .den-theme,
+.student-mode-app .student-surface-rewards .den-earn {
+  border: 3px solid #172033;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 5px 5px 0 #172033;
+}
+
+.student-mode-app .student-surface-rewards .den-theme.active {
+  background: #dffbea;
+}
+
+@media (min-width: 1500px) {
+  .student-mode-app .student-surface-story .learn-story-level-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .student-mode-app .student-surface-rewards .den-trail {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  .student-mode-app .student-surface-arcade .lg-game-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .student-mode-app .student-surface-phonics .phonics-letter-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .student-mode-app .student-surface-story .story-quest-continue-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .lg-app-shell.student-surface-shell .student-home-float,
+  .student-mode-app .student-surface-frame .learn-fullscreen-toggle {
+    height: 46px;
+    min-width: 46px;
+    top: max(10px, env(safe-area-inset-top, 0px));
+    box-shadow: 4px 4px 0 #172033;
+  }
+
+  .lg-app-shell.student-surface-shell .student-home-float {
+    left: max(10px, env(safe-area-inset-left, 0px));
+    padding-inline: 12px;
+  }
+
+  .student-mode-app .student-surface-frame .learn-fullscreen-toggle {
+    right: max(10px, env(safe-area-inset-right, 0px));
+  }
+
+  .student-mode-app .student-surface-arcade .lg-arcade,
+  .student-mode-app .student-surface-phonics .phonics-tab-shell,
+  .student-mode-app .student-surface-story .story-quest-learn-page.learn-area-page,
+  .student-mode-app .student-surface-rewards .rewards-page {
+    padding: 68px 12px 22px;
+  }
+
+  .student-mode-app .student-surface-arcade .lg-arcade-header,
+  .student-mode-app .student-surface-arcade .lg-arcade-next {
+    grid-template-columns: 1fr;
+  }
+
+  .student-mode-app .student-surface-arcade .lg-arcade-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .student-mode-app .student-surface-arcade .lg-segmented-control {
+    width: 100%;
+  }
+
+  .student-mode-app .student-surface-arcade .lg-segmented-control button {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .student-mode-app .student-surface-phonics .phonics-island-switcher {
+    grid-template-columns: 1fr;
+  }
+
+  .student-mode-app .student-surface-phonics .phonics-letter-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .student-mode-app .student-surface-phonics .phonics-letter-card {
+    min-height: 68px;
+  }
+
+  .student-mode-app .student-surface-story .learn-story-level-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .student-mode-app .student-surface-rewards .den-title {
+    min-width: 0;
+  }
+}
+
+@media (min-width: 1180px) {
+  .student-mode-app .student-home-page,
+  .lg-app-shell[data-pal-world] .student-home-page {
+    padding-inline: clamp(20px, 2.6vw, 48px);
+  }
+
+  .student-mode-app .student-home-topbar,
+  .student-mode-app .student-home-board {
+    width: min(100%, 1680px);
+  }
+
+  .student-mode-app .student-home-board {
+    grid-template-rows: minmax(132px, auto) minmax(194px, 24vh) minmax(194px, 24vh) auto;
+  }
+
+  .student-mode-app .student-mission-banner {
+    grid-template-columns: minmax(380px, 0.9fr) minmax(0, 1.55fr) auto;
+  }
+}

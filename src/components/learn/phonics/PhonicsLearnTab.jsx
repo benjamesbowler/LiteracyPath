@@ -61,10 +61,10 @@ function IslandLockIcon() {
   );
 }
 
-export function PhonicsLearnTab({ progressScopeKey = "default" }) {
+export function PhonicsLearnTab({ initialIsland = "", progressScopeKey = "default" }) {
   const [activeLetter, setActiveLetter] = useState(null);
   const [activeFamily, setActiveFamily] = useState(null);
-  const [activeIsland, setActiveIsland] = useState(getInitialIsland);
+  const [activeIsland, setActiveIsland] = useState(() => initialIsland || getInitialIsland());
   const [progress, setProgress] = useState(() => loadPhonicsProgress(progressScopeKey));
   const [cvcProgress, setCvcProgress] = useState(() => loadCvcProgress(progressScopeKey));
   const { playCue } = useCvcSoundCue();
@@ -156,9 +156,11 @@ export function PhonicsLearnTab({ progressScopeKey = "default" }) {
 
   if (activeIsland === "games") {
     return (
-      <Suspense fallback={<div className="phonics-arcade-loading">Loading games...</div>}>
-        <GameArcadeHub progressScopeKey={progressScopeKey} />
-      </Suspense>
+      <div className="phonics-arcade-surface">
+        <Suspense fallback={<div className="phonics-arcade-loading">Loading games...</div>}>
+          <GameArcadeHub progressScopeKey={progressScopeKey} />
+        </Suspense>
+      </div>
     );
   }
 
