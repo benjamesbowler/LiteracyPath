@@ -4,7 +4,8 @@ import {
   wordsStartingWith,
   rocketRunTargets,
   buildRocketRunRound,
-  rocketRunStars
+  rocketRunStars,
+  rocketRunLadder
 } from "../../src/utils/rocketRunRounds.js";
 import { onsetGrapheme, sharesSound } from "../../src/components/elQuest/elQuestEngine.js";
 
@@ -59,6 +60,17 @@ test("a round never repeats a word (no 'vest, vest, vest') and brings more distr
       assert.ok(round.distractors.length >= round.correct.length, `${g}: expected at least as many distractors as correct`);
     }
   }
+});
+
+test("rocketRunLadder: 10 distinct ramped targets; hard has digraphs, easy doesn't", () => {
+  const isDigraph = g => /^(sh|ch|th|ng|ck|qu)$/.test(g);
+  for (const d of ["easy", "medium", "hard"]) {
+    const L = rocketRunLadder(d);
+    assert.equal(L.length, 10, `${d} not 10 levels`);
+    assert.equal(new Set(L).size, 10, `${d} repeated a target`);
+  }
+  assert.ok(rocketRunLadder("hard").some(isDigraph), "hard ladder should include a digraph");
+  assert.ok(!rocketRunLadder("easy").some(isDigraph), "easy ladder should avoid digraphs");
 });
 
 test("rocketRunStars follow the 3/2/1/0 rule", () => {

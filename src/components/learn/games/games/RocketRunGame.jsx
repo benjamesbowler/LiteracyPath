@@ -10,7 +10,8 @@ import {
 import {
   buildRocketRunRound,
   rocketRunTargets,
-  rocketRunStars
+  rocketRunStars,
+  rocketRunLadder
 } from "../../../../utils/rocketRunRounds.js";
 import { starRubric } from "../../../../utils/starRubric.js";
 
@@ -20,7 +21,7 @@ import { starRubric } from "../../../../utils/starRubric.js";
 // runtime, so it adds nothing to the app bundle and fails gracefully offline.
 const THREE_SRC = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
 const LANES = [-2.2, 0, 2.2];
-const ROUNDS_PER_GAME = 3;
+const ROUNDS_PER_GAME = 5;
 
 function loadThree() {
   return new Promise((resolve, reject) => {
@@ -53,8 +54,19 @@ function startGame(THREE, mount, opts) {
   const width = () => mount.clientWidth || 640;
   const height = () => mount.clientHeight || 420;
   const count = difficultyCount(opts.difficulty);
-  const targets = rocketRunTargets();
+  // Ramped, no-repeat sound targets for this difficulty (framework ladder).
+  const ladder = rocketRunLadder(opts.difficulty);
+  const targets = ladder.length ? ladder : rocketRunTargets();
   const sfx = fn => { if (opts.getSound ? opts.getSound() : opts.isSoundEnabled) { try { fn(); } catch { /* audio optional */ } } };
+  const reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  function disposeGroup(obj) {
+    if (!obj) return;
+    obj.traverse(node => {
+      if (node.geometry) node.geometry.dispose();
+      const mats = Array.isArray(node.material) ? node.material : (node.material ? [node.material] : []);
+      for (const m of mats) { if (m.map) m.map.dispose(); m.dispose(); }
+    });
+  }
 
   // ── HUD (plain DOM, cleaned up on teardown) ──────────────────────────────
   const hud = document.createElement("div");
@@ -154,28 +166,29 @@ function startGame(THREE, mount, opts) {
   }
   function labelSprite(text) {
     const canvas = document.createElement("canvas");
-    canvas.width = 256;
-    canvas.height = 128;
+    canvas.width = 512;
+    canvas.height = 256;
     const ctx = canvas.getContext("2d");
     // Readable dark pill behind the word so it always pops off the bubble.
-    ctx.fillStyle = "rgba(4,10,32,0.66)";
-    pill(ctx, 20, 33, 216, 62, 31);
+    // High-res texture (512x256 / 120px) so words stay crisp as they approach.
+    ctx.fillStyle = "rgba(4,10,32,0.7)";
+    pill(ctx, 40, 66, 432, 124, 62);
     ctx.fill();
-    ctx.font = "700 62px Fredoka, Arial, sans-serif";
+    ctx.font = "700 120px Fredoka, Arial, sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.lineWidth = 7;
+    ctx.lineWidth = 14;
     ctx.strokeStyle = "rgba(4,10,32,0.9)";
-    ctx.strokeText(text, 128, 66);
+    ctx.strokeText(text, 256, 132);
     ctx.fillStyle = "#ffffff";
-    ctx.fillText(text, 128, 66);
+    ctx.fillText(text, 256, 132);
     const tex = new THREE.CanvasTexture(canvas);
     tex.needsUpdate = true;
     const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false, depthWrite: false }));
     // Float the label in FRONT of the orb (toward the camera) and draw it on
     // top, so the semi-transparent bubble can never hide the word.
     sprite.renderOrder = 5;
-    sprite.scale.set(2.6, 1.3, 1);
+    sprite.scale.set(3.2, 1.6, 1);
     sprite.position.set(0, 0, 1.2);
     return sprite;
   }
@@ -249,7 +262,7 @@ function startGame(THREE, mount, opts) {
   }
 
   function startRound() {
-    const target = targets[Math.floor(Math.random() * targets.length)];
+    const target = targets[roundIx % targets.length]; // walk the ramped ladder, no repeats
     const round = buildRocketRunRound(target, { count, difficulty: opts.difficulty });
     el("letter").textContent = target;
     el("copy").innerHTML = "Catch the <b>" + target + "</b> words!";
@@ -277,6 +290,7 @@ function startGame(THREE, mount, opts) {
   }
 
   function burst(position, color) {
+    if (reduceMotion) return;
     const n = 14;
     const geo = new THREE.BufferGeometry();
     const pos = new Float32Array(n * 3);
@@ -294,7 +308,7 @@ function startGame(THREE, mount, opts) {
     const hit = bubble.userData.lane === laneIx;
     if (bubble.userData.meteor) {
       if (hit) { loseHeart(); burst(bubble.position, 0xff7a66); }
-      scene.remove(bubble);
+      scene.remove(bubble); disposeGroup(bubble);
       return;
     }
     if (hit && bubble.userData.correct) {
@@ -310,7 +324,7 @@ function startGame(THREE, mount, opts) {
       burst(bubble.position, 0xff7a66);
       shakeV = 0.35;
     }
-    scene.remove(bubble);
+    scene.remove(bubble); disposeGroup(bubble);
     if (caught >= needed) endRound();
   }
 
@@ -377,6 +391,7 @@ function startGame(THREE, mount, opts) {
     renderer.setSize(width(), height());
   };
   window.addEventListener("resize", onResize);
+  const ro = new ResizeObserver(onResize); ro.observe(mount);
 
   // ── Loop ─────────────────────────────────────────────────────────────────
   function tick(now) {
@@ -385,7 +400,7 @@ function startGame(THREE, mount, opts) {
     last = now;
     elapsed += dt;
     const speed = 1 + roundIx * 0.22 + Math.min(0.7, elapsed * 0.006); // faster deeper in + over time
-    stars.position.z += dt * 8 * speed;
+    stars.position.z += dt * 8 * speed * (reduceMotion ? 0.5 : 1);
     if (stars.position.z > 40) stars.position.z = 0;
     ship.position.x += (LANES[laneIx] - ship.position.x) * Math.min(1, dt * 12);
     ship.rotation.z = (LANES[laneIx] - ship.position.x) * -0.25;
@@ -406,7 +421,7 @@ function startGame(THREE, mount, opts) {
         else if (bubble.position.z > camera.position.z + 2) {
           bubble.userData.alive = false;
           if (bubble.userData.correct) requeueMissed(bubble.userData);
-          scene.remove(bubble);
+          scene.remove(bubble); disposeGroup(bubble);
         }
       }
       bubbles = bubbles.filter(bubble => bubble.userData.alive);
@@ -427,23 +442,30 @@ function startGame(THREE, mount, opts) {
     }
     for (let i = bursts.length - 1; i >= 0; i -= 1) if (bursts[i].life <= 0) bursts.splice(i, 1);
 
-    if (shakeV > 0) { camera.position.x = Math.sin(now * 0.08) * shakeV; shakeV = Math.max(0, shakeV - dt * 1.2); } else { camera.position.x *= 0.8; }
+    if (!reduceMotion && shakeV > 0) { camera.position.x = Math.sin(now * 0.08) * shakeV; shakeV = Math.max(0, shakeV - dt * 1.2); } else { camera.position.x *= 0.8; }
     renderer.render(scene, camera);
   }
   startRound();
   raf = requestAnimationFrame(tick);
 
-  return function teardown() {
+  let paused = false, savedRunning = false;
+  function pause() { if (paused) return; paused = true; savedRunning = running; running = false; }
+  function resume() { if (!paused) return; paused = false; last = performance.now(); if (savedRunning) running = true; }
+  function teardown() {
     cancelAnimationFrame(raf);
     window.removeEventListener("keydown", onKey);
     window.removeEventListener("resize", onResize);
-    try { renderer.dispose(); } catch { /* ignore */ }
+    ro.disconnect();
+    for (const b of bubbles) disposeGroup(b);
+    disposeGroup(ship); disposeGroup(stars);
+    try { renderer.dispose(); if (renderer.forceContextLoss) renderer.forceContextLoss(); } catch { /* ignore */ }
     if (renderer.domElement && renderer.domElement.parentNode) renderer.domElement.parentNode.removeChild(renderer.domElement);
     if (hud.parentNode) hud.parentNode.removeChild(hud);
-  };
+  }
+  return { teardown, pause, resume };
 }
 
-export default function RocketRunGame({ difficulty = "easy", onScoreUpdate, onProgressUpdate, onComplete, isSoundEnabled = true }) {
+export default function RocketRunGame({ difficulty = "easy", onScoreUpdate, onProgressUpdate, onComplete, onEngineReady, isSoundEnabled = true }) {
   const mountRef = useRef(null);
   const [status, setStatus] = useState("loading");
   const soundRef = useRef(isSoundEnabled);
@@ -454,17 +476,18 @@ export default function RocketRunGame({ difficulty = "easy", onScoreUpdate, onPr
   // would destroy and rebuild the whole 3D scene on every render.
   useEffect(() => {
     let cancelled = false;
-    let teardown = () => {};
+    let api = { teardown() {} };
     loadThree()
       .then(THREE => {
         if (cancelled || !mountRef.current || !THREE) return;
         setStatus("playing");
-        teardown = startGame(THREE, mountRef.current, { difficulty, onScoreUpdate, onProgressUpdate, onComplete, getSound: () => soundRef.current });
+        api = startGame(THREE, mountRef.current, { difficulty, onScoreUpdate, onProgressUpdate, onComplete, getSound: () => soundRef.current });
+        if (onEngineReady) onEngineReady(api);
       })
       .catch(() => { if (!cancelled) setStatus("error"); });
     return () => {
       cancelled = true;
-      try { teardown(); } catch { /* ignore */ }
+      try { api.teardown(); } catch { /* ignore */ }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [difficulty]);

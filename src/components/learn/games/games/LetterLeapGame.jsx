@@ -427,31 +427,36 @@ function startGame(mount, opts) {
   rafId = requestAnimationFrame(loop);
   startStage();
 
-  return function teardown() {
+  let paused = false, savedRunning = false;
+  function pause() { if (paused) return; paused = true; savedRunning = running; running = false; }
+  function resume() { if (!paused) return; paused = false; last = performance.now(); if (savedRunning) running = true; }
+  function teardown() {
     running = false;
     cancelAnimationFrame(rafId);
     window.removeEventListener("keydown", onKeyDown); window.removeEventListener("keyup", onKeyUp);
     holders.forEach(([el, down, up]) => { el.removeEventListener("pointerdown", down); el.removeEventListener("pointerup", up); el.removeEventListener("pointerleave", up); });
     ro.disconnect();
     [cv, hud, padWrap, overlay].forEach(n => { try { n.remove(); } catch { /* ignore */ } });
-  };
+  }
+  return { teardown, pause, resume };
 }
 
-export default function LetterLeapGame({ difficulty = "easy", onScoreUpdate, onProgressUpdate, onComplete, isSoundEnabled = true }) {
+export default function LetterLeapGame({ difficulty = "easy", onScoreUpdate, onProgressUpdate, onComplete, onEngineReady, isSoundEnabled = true }) {
   const mountRef = useRef(null);
   const soundRef = useRef(isSoundEnabled);
   const [ready] = useState(true);
   useEffect(() => { soundRef.current = isSoundEnabled; }, [isSoundEnabled]);
   useEffect(() => {
     if (!mountRef.current) return undefined;
-    const teardown = startGame(mountRef.current, {
+    const api = startGame(mountRef.current, {
       difficulty,
       onScoreUpdate,
       onProgressUpdate,
       onComplete,
       getSound: () => soundRef.current
     });
-    return () => { try { teardown && teardown(); } catch { /* ignore */ } };
+    if (onEngineReady) onEngineReady(api);
+    return () => { try { api.teardown(); } catch { /* ignore */ } };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [difficulty]);
   return (

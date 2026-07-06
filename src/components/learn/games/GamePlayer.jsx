@@ -37,6 +37,7 @@ export function GamePlayer({
   const [completed, setCompleted] = useState(false);
   const [progressStatus, setProgressStatus] = useState({ current: 0, total: 1 });
   const wasFullscreenRef = useRef(false);
+  const engineRef = useRef(null);
   const GameComponent = LEARN_GAMES[game.id];
 
   useEffect(() => {
@@ -60,6 +61,19 @@ export function GamePlayer({
   useEffect(() => {
     if (!soundEnabled) cancelSpeech();
   }, [soundEnabled]);
+
+  // Freeze the running game while the quit dialog is open or the tab is
+  // backgrounded, so a child never loses hearts/words they can't see.
+  useEffect(() => {
+    if (showQuit) engineRef.current?.pause?.();
+    else engineRef.current?.resume?.();
+    const onVis = () => {
+      if (document.hidden) engineRef.current?.pause?.();
+      else if (!showQuit) engineRef.current?.resume?.();
+    };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
+  }, [showQuit]);
 
   function handleComplete(stars, finalScore, wordsCompleted) {
     setCompleted(true);
@@ -163,6 +177,7 @@ export function GamePlayer({
             onScoreUpdate={setScore}
             onProgressUpdate={handleProgressUpdate}
             onComplete={handleComplete}
+            onEngineReady={api => { engineRef.current = api; }}
             isSoundEnabled={soundEnabled}
           />
         </Suspense>
