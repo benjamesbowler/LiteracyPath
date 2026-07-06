@@ -29,6 +29,13 @@ const WORLD_THEME = {
   moonwood: { name: "Moonwood", sky: ["#1b2f5e", "#25406e", "#0e1836"], sun: "#dfe9ff", tree: "#233f66", treeDark: "#16294a", ground: "#265a4a", grass: "#3f8f74", dirt: ["#1e344a", "#13253a"], moon: true }
 };
 
+function pickFoeType(worldKey, levelIndex, k) {
+  const pool = ["walker", "walker", "hopper"];
+  if (levelIndex >= 2) pool.push("spike");
+  if (levelIndex >= 3 || worldKey !== "meadow") pool.push("flyer", "spike");
+  return pool[(k * 7 + levelIndex * 3) % pool.length]; // deterministic mix, no clumping
+}
+
 const GRAV = 0.62, MOVE = 4.2, JUMP = 13.6, GROUND_H = 96;
 const SEG = 380, WORD_GAP = 460, MAXH = 5;
 
@@ -108,52 +115,101 @@ function startGame(mount, opts) {
   function addScore(n) { score += n; opts.onScoreUpdate && opts.onScoreUpdate(score); }
   function groundY() { return H - GROUND_H; }
 
+  function shuffleArr(a) { for (let i = a.length - 1; i > 0; i -= 1) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
   function makeLevel(levelWords, worldKey, levelIndex) {
     const plats = [], bubbles = [], blocks = [], pickups = [], letterX = [];
+    const pits = [], foes = [];
+    const bump = { meadow: 0, dino: 2, moonwood: 4 }[worldKey] || 0;
+    const hard = worldKey !== "meadow";
+
     let cx = 320;
     levelWords.forEach((up, wi) => {
       for (let i = 0; i < up.length; i += 1) {
-        bubbles.push({ x: cx, y: groundY() - 46, ch: up[i], word: wi, order: i, taken: false });
+        // Mid/hard worlds: every 3rd letter sits on a RAISED platform the child
+        // must jump up to (a brick sits before it as a step/visual cue).
+        const raised = hard && levelIndex >= 1 && i > 0 && (wi + i) % 3 === 2;
+        if (raised) {
+          const py = groundY() - 118;
+          plats.push({ x: cx - 66, y: py, w: 132 });
+          blocks.push({ x: cx - 150, y: groundY() - 60, w: 44, h: 40, type: "brick", broken: false, used: false });
+          bubbles.push({ x: cx, y: py - 44, ch: up[i], word: wi, order: i, taken: false });
+        } else {
+          bubbles.push({ x: cx, y: groundY() - 46, ch: up[i], word: wi, order: i, taken: false });
+        }
         letterX.push(cx); cx += SEG;
       }
-      if (wi < levelWords.length - 1) { plats.push({ x: cx - WORD_GAP * 0.5 - 60, y: groundY() - 104, w: 120 }); cx += WORD_GAP; }
+      if (wi < levelWords.length - 1) {
+        // Feature room between words: a RAVINE crossed by two staggered hop
+        // platforms (mid/hard + later easy levels), else the classic platform.
+        const useRavine = (hard || levelIndex >= 3) && (hard || wi % 2 === 1);
+        if (useRavine) {
+          const left = cx - 40, wRav = 230 + Math.min(90, levelIndex * 12);
+          pits.push([left, left + wRav]);
+          const hopW = 104;
+          plats.push({ x: left + wRav * 0.22 - hopW / 2, y: groundY() - 92, w: hopW });
+          plats.push({ x: left + wRav * 0.62 - hopW / 2, y: groundY() - 138, w: hopW });
+          cx += wRav + WORD_GAP * 0.5;
+        } else {
+          plats.push({ x: cx - WORD_GAP * 0.5 - 60, y: groundY() - 104, w: 120 });
+          cx += WORD_GAP;
+        }
+      }
     });
     const flag = cx + 200, L = cx + 360;
 
-    // Difficulty ramp: harder world + higher level = MORE grumpers, wrong letters, pits.
-    const bump = { meadow: 0, dino: 2, moonwood: 4 }[worldKey] || 0;
-    const foeCount = 3 + Math.round(levelIndex * 0.7) + bump;
-    const decoyCount = 2 + Math.round(levelIndex * 0.6) + bump;
-    const pitCount = 1 + Math.round(levelIndex * 0.4);
-    const blockCount = 2 + Math.round(levelIndex * 0.3);
+    // SEPARATE slot budgets: hazards (foes/blocks/hearts/small pits) use gap
+    // midpoints; decoys get their OWN offset slots so they can no longer be
+    // starved by the hazard budget — this is why levels felt empty of wrong
+    // letters before.
+    const hazardSlots = [], decoySlots = [];
+    for (let i = 0; i < letterX.length - 1; i += 1) {
+      const a = letterX[i], b = letterX[i + 1];
+      if (b - a < 220) continue;
+      const mid = (a + b) / 2;
+      if (mid < 520 || mid > flag - 220) continue;
+      if (pits.some(q => mid > q[0] - 80 && mid < q[1] + 80)) continue;
+      hazardSlots.push(mid);
+      decoySlots.push(mid - 92, mid + 92);
+    }
+    shuffleArr(hazardSlots); shuffleArr(decoySlots);
+
+    const foeCount = 3 + Math.round(levelIndex * 0.8) + bump;
+    const decoyCount = 4 + Math.round(levelIndex * 0.9) + bump;
+    const blockCount = 2 + Math.round(levelIndex * 0.4);
     const heartCount = 1 + Math.round(levelIndex * 0.2);
 
-    // Candidate slots = clear ground BETWEEN the required letters, so a hazard
-    // never blocks a letter the child must collect. Guaranteed placement (not
-    // random gates) so every level — including the hard/long-word ones — is busy.
-    const slots = [];
-    for (let i = 0; i < letterX.length - 1; i += 1) {
-      const mx = (letterX[i] + letterX[i + 1]) / 2;
-      if (mx > 520 && mx < flag - 220 && letterX[i + 1] - letterX[i] > 200) slots.push(mx);
-    }
-    for (let i = slots.length - 1; i > 0; i -= 1) { const j = Math.floor(Math.random() * (i + 1)); [slots[i], slots[j]] = [slots[j], slots[i]]; }
-    let s = 0;
-    const take = () => (s < slots.length ? slots[s++] : null);
-    // Never let a wrong-letter be a letter the child actually needs this stage —
-    // grabbing the "B" the HUD asked for must never punish them. Exclude EVERY
-    // letter of EVERY word in the stage from the decoy pool.
     const inWords = new Set(levelWords.join("").toUpperCase().split(""));
     const decoyPool = "BDFGJKMPQVXZ".split("").filter(c => !inWords.has(c));
 
-    const pits = [];
-    for (let k = 0; k < Math.min(pitCount, Math.floor(slots.length / 3)); k += 1) { const c = take(); if (c != null) pits.push([c - 44, c + 44]); }
-    const foes = [];
-    for (let k = 0; k < foeCount; k += 1) { const c = take(); if (c != null) foes.push({ x0: c - 62, x1: c + 62, x: c, dir: 1, y: groundY() - 14 }); }
-    // Wrong letters sit at GROUND level among the real ones — the child must READ
-    // and jump over them (grabbing one costs a heart). Makes the run less trivial.
-    for (let k = 0; k < decoyCount && decoyPool.length; k += 1) { const c = take(); if (c != null) bubbles.push({ x: c, y: groundY() - 46, ch: decoyPool[Math.floor(Math.random() * decoyPool.length)], word: -1, order: -1, taken: false }); }
-    for (let k = 0; k < blockCount; k += 1) { const c = take(); if (c != null) { const n = 1 + Math.floor(Math.random() * 2); for (let j = 0; j < n; j += 1) blocks.push({ x: c + j * 46 - 23, y: groundY() - 140, w: 44, h: 40, type: Math.random() < 0.3 ? "prize" : "brick", broken: false, used: false }); } }
-    for (let k = 0; k < heartCount; k += 1) { const c = take(); if (c != null) pickups.push({ x: c, y: groundY() - 150, taken: false }); }
+    for (let k = 0; k < decoyCount && decoyPool.length && decoySlots.length; k += 1) {
+      const c = decoySlots.pop();
+      bubbles.push({ x: c, y: groundY() - 46, ch: decoyPool[Math.floor(Math.random() * decoyPool.length)], word: -1, order: -1, taken: false });
+    }
+    for (let k = 0; k < foeCount && hazardSlots.length; k += 1) {
+      const c = hazardSlots.pop();
+      foes.push({
+        type: pickFoeType(worldKey, levelIndex, k),
+        x0: c - 70, x1: c + 70, x: c, dir: Math.random() < 0.5 ? -1 : 1,
+        y: groundY() - 20, baseY: groundY() - 20, t: Math.random() * 6
+      });
+    }
+    for (let k = 0; k < blockCount && hazardSlots.length; k += 1) {
+      const c = hazardSlots.pop();
+      const n = 1 + Math.floor(Math.random() * 2);
+      for (let j = 0; j < n; j += 1) blocks.push({ x: c + j * 46 - 23, y: groundY() - 140, w: 44, h: 40, type: Math.random() < 0.3 ? "prize" : "brick", broken: false, used: false });
+    }
+    for (let k = 0; k < heartCount && hazardSlots.length; k += 1) {
+      const c = hazardSlots.pop();
+      pickups.push({ x: c, y: groundY() - 150, taken: false });
+    }
+    // Extra small pits deep in a run (levels 5+), on ground stretches only.
+    const smallPits = levelIndex >= 4 ? 1 + Math.floor(levelIndex / 4) : 0;
+    for (let k = 0; k < smallPits && hazardSlots.length; k += 1) {
+      const c = hazardSlots.pop();
+      pits.push([c - 40, c + 40]);
+    }
+    pits.sort((a, b) => a[0] - b[0]); // grass-strip renderer REQUIRES ascending pits
 
     return { L, pits, plats, blocks, pickups, bubbles, foes, flag };
   }
@@ -299,7 +355,12 @@ function startGame(mount, opts) {
     // Catch-up: if the letter they still need is now behind them (walked or jumped
     // past it), slide it back in front — a skipped letter never softlocks the word.
     const need = level.bubbles.find(b => !b.taken && b.word === wIx && b.order === nextIx);
-    if (need && need.x < p.x - 40) { need.x = p.x + 320; need.y = groundY() - 46; }
+    if (need && need.x < p.x - 40) {
+      let nx = p.x + 320;
+      const pit = level.pits.find(q => nx > q[0] - 40 && nx < q[1] + 40);
+      if (pit) nx = pit[1] + 80;
+      need.x = nx; need.y = groundY() - 46;
+    }
     for (const b of level.bubbles) {
       if (b.taken) continue;
       if (Math.abs(b.x - p.x) < 34 && Math.abs(b.y - p.y) < 42) {
@@ -312,8 +373,26 @@ function startGame(mount, opts) {
     }
     for (const hp of level.pickups) { if (hp.taken) continue; if (Math.abs(hp.x - p.x) < 28 && Math.abs(hp.y - p.y) < 32) { hp.taken = true; hearts = Math.min(MAXH, hearts + 1); updateHearts(); sfx(playStarChime); burst(hp.x, hp.y, "#ff6b8a"); } }
     for (const f of level.foes) {
-      f.x += f.dir * 1.5; if (f.x < f.x0 || f.x > f.x1) f.dir *= -1;
-      if (Math.abs(f.x - p.x) < 28 && Math.abs(f.y - p.y) < 34) { if (p.vy > 2 && p.y < f.y - 6) { f.dead = true; p.vy = -9; sfx(playPopSound); burst(f.x, f.y, "#a0ffb0"); } else hurt(); }
+      f.t += dt;
+      if (f.type === "walker" || f.type === "spike") {
+        f.x += f.dir * (f.type === "spike" ? 1.1 : 1.5);
+        if (f.x < f.x0 || f.x > f.x1) f.dir *= -1;
+        f.y = f.baseY;
+      } else if (f.type === "hopper") {
+        f.x += f.dir * 1.2;
+        if (f.x < f.x0 || f.x > f.x1) f.dir *= -1;
+        const ph = f.t % 1.6;
+        f.y = f.baseY - (ph < 0.8 ? Math.sin((ph / 0.8) * Math.PI) * 46 : 0);
+      } else if (f.type === "flyer") {
+        f.x += f.dir * 1.8;
+        if (f.x < f.x0 - 40 || f.x > f.x1 + 40) f.dir *= -1;
+        f.y = f.baseY - 64 + Math.sin(f.t * 2.2) * 18;
+      }
+      if (Math.abs(f.x - p.x) < 26 && Math.abs(f.y - p.y) < 32) {
+        const stomp = p.vy > 2 && p.y < f.y - 6;
+        if (stomp && f.type !== "spike") { f.dead = true; p.vy = -9; sfx(playPopSound); burst(f.x, f.y, "#a0ffb0"); addScore(5); }
+        else hurt(); // spikes can NEVER be stomped — jump OVER them
+      }
     }
     level.foes = level.foes.filter(f => !f.dead);
     const stageDone = (wIx >= words.length - 1) && (nextIx >= word.length);
@@ -363,13 +442,52 @@ function startGame(mount, opts) {
     }
   }
   function drawHeart(x, y) { ctx.save(); ctx.shadowColor = "rgba(255,90,120,.7)"; ctx.shadowBlur = 14; ctx.fillStyle = "#ff5a78"; const s = 13; ctx.beginPath(); ctx.moveTo(x, y + s * 0.7); ctx.bezierCurveTo(x - s, y - s * 0.4, x - s * 0.5, y - s, x, y - s * 0.35); ctx.bezierCurveTo(x + s * 0.5, y - s, x + s, y - s * 0.4, x, y + s * 0.7); ctx.fill(); ctx.restore(); }
-  function grumper(f) {
-    ctx.save(); ctx.fillStyle = "rgba(0,0,0,.25)"; ctx.beginPath(); ctx.ellipse(f.x, f.y + 16, 18, 5, 0, 0, 7); ctx.fill();
-    const gim = SPR.grumper;
-    if (gim && gim.width) { const h = 48, w = gim.width / gim.height * h; ctx.translate(f.x, f.y); ctx.scale(-f.dir, 1); ctx.drawImage(gim, -w / 2, -h / 2 - 4, w, h); ctx.restore(); return; }
-    const gg = ctx.createLinearGradient(0, f.y - 18, 0, f.y + 14); gg.addColorStop(0, "#ff6b57"); gg.addColorStop(1, "#c9331f"); ctx.fillStyle = gg; rr(f.x - 16, f.y - 16, 32, 30, 10); ctx.fill();
-    ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.arc(f.x - 6, f.y - 4, 4.5, 0, 7); ctx.arc(f.x + 6, f.y - 4, 4.5, 0, 7); ctx.fill();
-    ctx.fillStyle = "#0a1a12"; ctx.beginPath(); ctx.arc(f.x - 6 + f.dir * 2, f.y - 4, 2.2, 0, 7); ctx.arc(f.x + 6 + f.dir * 2, f.y - 4, 2.2, 0, 7); ctx.fill(); ctx.restore();
+  function drawFoe(f) {
+    ctx.save();
+    ctx.fillStyle = "rgba(0,0,0,.25)";
+    ctx.beginPath(); ctx.ellipse(f.x, f.baseY + 18, 16, 5, 0, 0, 7); ctx.fill();
+    const gim = SPR["foe-" + f.type] || (f.type === "walker" ? SPR.grumper : null);
+    if (gim && gim.width) {
+      const h = f.type === "flyer" ? 40 : 46;
+      const w = gim.width / gim.height * h;
+      ctx.translate(f.x, 0); ctx.scale(-f.dir, 1);
+      ctx.drawImage(gim, -w / 2, f.y + 22 - h, w, h); // FEET at f.y+22 — anchored, never floats
+      ctx.restore();
+      return;
+    }
+    // Canvas fallbacks (ship these — sprites are optional polish):
+    ctx.translate(f.x, f.y);
+    if (f.type === "spike") {
+      ctx.fillStyle = "#8a3bb8";
+      for (let i = 0; i < 7; i += 1) { const a = -Math.PI + (i / 6) * Math.PI; ctx.beginPath(); ctx.moveTo(Math.cos(a) * 14, Math.sin(a) * 14 + 2); ctx.lineTo(Math.cos(a) * 26, Math.sin(a) * 26 + 2); ctx.lineTo(Math.cos(a + 0.28) * 14, Math.sin(a + 0.28) * 14 + 2); ctx.closePath(); ctx.fill(); }
+      const sg = ctx.createLinearGradient(0, -16, 0, 16); sg.addColorStop(0, "#b45de0"); sg.addColorStop(1, "#7a2aa8"); ctx.fillStyle = sg;
+      rr(-16, -14, 32, 32, 12); ctx.fill();
+      ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.arc(-6, -2, 4, 0, 7); ctx.arc(6, -2, 4, 0, 7); ctx.fill();
+      ctx.fillStyle = "#1a0a24"; ctx.beginPath(); ctx.arc(-6 + f.dir * 2, -2, 2, 0, 7); ctx.arc(6 + f.dir * 2, -2, 2, 0, 7); ctx.fill();
+    } else if (f.type === "hopper") {
+      const squish = f.y === f.baseY ? 0.15 : -0.12;
+      ctx.scale(1 + squish, 1 - squish);
+      const hg = ctx.createLinearGradient(0, -20, 0, 18); hg.addColorStop(0, "#4aa3ff"); hg.addColorStop(1, "#1f5fd0"); ctx.fillStyle = hg;
+      rr(-14, -20, 28, 38, 12); ctx.fill();
+      ctx.fillStyle = "#173a6b"; rr(-13, 14, 9, 8, 3); ctx.fill(); rr(4, 14, 9, 8, 3); ctx.fill();
+      ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.arc(-5, -8, 4.5, 0, 7); ctx.arc(6, -8, 4.5, 0, 7); ctx.fill();
+      ctx.fillStyle = "#0a1a2e"; ctx.beginPath(); ctx.arc(-5 + f.dir * 2, -8, 2.2, 0, 7); ctx.arc(6 + f.dir * 2, -8, 2.2, 0, 7); ctx.fill();
+    } else if (f.type === "flyer") {
+      const flap = Math.sin(f.t * 10) * 10;
+      ctx.fillStyle = "#e8a13c";
+      ctx.beginPath(); ctx.ellipse(-16, -2 - flap * 0.4, 12, 6, -0.5 - flap * 0.03, 0, 7); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(16, -2 - flap * 0.4, 12, 6, 0.5 + flap * 0.03, 0, 7); ctx.fill();
+      const fg = ctx.createLinearGradient(0, -14, 0, 12); fg.addColorStop(0, "#ffcf5e"); fg.addColorStop(1, "#e08b1f"); ctx.fillStyle = fg;
+      ctx.beginPath(); ctx.arc(0, 0, 14, 0, 7); ctx.fill();
+      ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.arc(-5, -3, 4, 0, 7); ctx.arc(5, -3, 4, 0, 7); ctx.fill();
+      ctx.fillStyle = "#2e1a05"; ctx.beginPath(); ctx.arc(-5 + f.dir * 2, -3, 2, 0, 7); ctx.arc(5 + f.dir * 2, -3, 2, 0, 7); ctx.fill();
+    } else {
+      const gg = ctx.createLinearGradient(0, -18, 0, 14); gg.addColorStop(0, "#ff6b57"); gg.addColorStop(1, "#c9331f"); ctx.fillStyle = gg;
+      rr(-16, -16, 32, 30, 10); ctx.fill();
+      ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.arc(-6, -4, 4.5, 0, 7); ctx.arc(6, -4, 4.5, 0, 7); ctx.fill();
+      ctx.fillStyle = "#0a1a12"; ctx.beginPath(); ctx.arc(-6 + f.dir * 2, -4, 2.2, 0, 7); ctx.arc(6 + f.dir * 2, -4, 2.2, 0, 7); ctx.fill();
+    }
+    ctx.restore();
   }
   function drawPlayer() {
     const p = player; if (invuln > 0 && Math.floor(invuln * 12) % 2 === 0) return;
@@ -416,7 +534,7 @@ function startGame(mount, opts) {
     ctx.strokeStyle = "#f2f2f2"; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(level.flag, groundY()); ctx.lineTo(level.flag, groundY() - 130); ctx.stroke();
     ctx.fillStyle = "#ffd34e"; ctx.beginPath(); ctx.moveTo(level.flag, groundY() - 130); ctx.lineTo(level.flag + 44, groundY() - 112); ctx.lineTo(level.flag, groundY() - 94); ctx.closePath(); ctx.fill();
     for (const b of level.bubbles) { if (b.taken) continue; const bob = Math.sin(t * 2.4 + b.x) * 4; bubble(b.x, b.y + bob, b.ch); }
-    for (const f of level.foes) grumper(f);
+    for (const f of level.foes) drawFoe(f);
     if (player) drawPlayer();
     for (const pt of particles) { ctx.globalAlpha = Math.max(0, pt.life / 0.6); ctx.fillStyle = pt.c; ctx.beginPath(); ctx.arc(pt.x, pt.y, 3.5, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
     ctx.restore();
@@ -426,6 +544,31 @@ function startGame(mount, opts) {
   // ── art (committed webp). Per-world playable-character roster so different
   // pals appear on different levels; falls back to char-hero until the art lands.
   // Moonwood keeps the current sprout hero; meadow/dino get their own pals. ──
+  // Crop transparent padding off a sprite once at load — padding is why enemies
+  // and pals appeared to FLOAT above the ground.
+  function alphaTrim(img) {
+    const c = document.createElement("canvas");
+    c.width = img.width; c.height = img.height;
+    const x = c.getContext("2d");
+    x.drawImage(img, 0, 0);
+    const d = x.getImageData(0, 0, c.width, c.height).data;
+    let top = c.height, left = c.width, right = 0, bottom = 0;
+    for (let py = 0; py < c.height; py += 1) {
+      for (let px = 0; px < c.width; px += 1) {
+        if (d[(py * c.width + px) * 4 + 3] > 12) {
+          if (px < left) left = px;
+          if (px > right) right = px;
+          if (py < top) top = py;
+          if (py > bottom) bottom = py;
+        }
+      }
+    }
+    if (right <= left || bottom <= top) return img;
+    const out = document.createElement("canvas");
+    out.width = right - left + 1; out.height = bottom - top + 1;
+    out.getContext("2d").drawImage(img, -left, -top);
+    return out;
+  }
   const CHAR_ROSTER = {
     meadow: ["char-meadow-a.webp", "char-meadow-b.webp", "char-meadow-c.webp"],
     dino: ["char-dino-a.webp", "char-dino-b.webp", "char-dino-c.webp"],
@@ -434,13 +577,13 @@ function startGame(mount, opts) {
   const BGIMG = {}, SPR = {}, charImgs = [];
   const heroImg = new Image(); heroImg.src = "/images/games/char-hero.webp";
   ["meadow", "dino", "moonwood"].forEach(k => { const im = new Image(); im.onload = () => { BGIMG[k] = im; }; im.src = "/images/games/bg-" + k + ".webp"; });
-  (CHAR_ROSTER[world] || []).forEach((file, i) => { const im = new Image(); im.onload = () => { charImgs[i] = im; }; im.src = "/images/games/" + file; });
+  (CHAR_ROSTER[world] || []).forEach((file, i) => { const im = new Image(); im.onload = () => { try { charImgs[i] = alphaTrim(im); } catch { charImgs[i] = im; } }; im.src = "/images/games/" + file; });
   const currentChar = () => {
     const roster = CHAR_ROSTER[world] || [];
     const idx = roster.length ? stageIdx % roster.length : 0;   // one stable pal per stage — no load-swap/cycling
     return (charImgs[idx] && charImgs[idx].width) ? charImgs[idx] : (heroImg.width ? heroImg : null);
   };
-  const sprLoad = (key, file) => { const im = new Image(); im.onload = () => { SPR[key] = im; }; im.src = "/images/games/" + file; };
+  const sprLoad = (key, file) => { const im = new Image(); im.onload = () => { try { SPR[key] = alphaTrim(im); } catch { SPR[key] = im; } }; im.src = "/images/games/" + file; };
   sprLoad("grumper", "enemy-grumper.webp");
   sprLoad("platform", "tile-platform.webp");
 

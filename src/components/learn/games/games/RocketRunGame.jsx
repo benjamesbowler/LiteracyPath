@@ -5,7 +5,8 @@ import {
   playSoftBuzz,
   playStarChime,
   playCelebrationFanfare,
-  playTapSound
+  playTapSound,
+  playWhoosh
 } from "../../../../utils/audio/gameSfx";
 import {
   buildRocketRunRound,
@@ -95,6 +96,9 @@ function startGame(THREE, mount, opts) {
   const renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.setSize(width(), height());
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.12;
+  renderer.outputEncoding = THREE.sRGBEncoding;
   renderer.domElement.style.display = "block";
   mount.insertBefore(renderer.domElement, hud);
 
@@ -104,54 +108,84 @@ function startGame(THREE, mount, opts) {
   scene.add(key);
   scene.add(new THREE.HemisphereLight(0x9fc0ff, 0x1a1440, 0.55));
   // Premium SNES-tier nebula backdrop (if generated); else keeps fog + starfield.
-  new THREE.TextureLoader().load("/images/games/bg-space.webp", tex => { scene.background = tex; scene.fog = new THREE.FogExp2(0x0a1230, 0.03); });
+  new THREE.TextureLoader().load("/images/games/bg-space.webp", tex => {
+    tex.encoding = THREE.sRGBEncoding;
+    scene.background = tex;
+    scene.fog = new THREE.FogExp2(0x0a1230, 0.03);
+  });
 
-  const starN = 800;
-  const starGeo = new THREE.BufferGeometry();
-  const starPos = new Float32Array(starN * 3);
-  for (let i = 0; i < starN; i += 1) {
-    starPos[i * 3] = (Math.random() - 0.5) * 60;
-    starPos[i * 3 + 1] = Math.random() * 30 - 2;
-    starPos[i * 3 + 2] = -Math.random() * 90;
-  }
-  starGeo.setAttribute("position", new THREE.BufferAttribute(starPos, 3));
-  const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({ color: 0xbcd2ff, size: 0.14, transparent: true, opacity: 0.9 }));
-  scene.add(stars);
+  const starLayers = [];
+  [[500, 0.10, 0.55, 5], [300, 0.16, 0.8, 9], [120, 0.26, 1.0, 14]].forEach(([n, size, op, spd]) => {
+    const geo = new THREE.BufferGeometry();
+    const pos = new Float32Array(n * 3);
+    for (let i = 0; i < n; i += 1) {
+      pos[i * 3] = (Math.random() - 0.5) * 60;
+      pos[i * 3 + 1] = Math.random() * 30 - 2;
+      pos[i * 3 + 2] = -Math.random() * 90;
+    }
+    geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+    const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0xbcd2ff, size, transparent: true, opacity: op }));
+    pts.userData.speed = spd;
+    scene.add(pts);
+    starLayers.push(pts);
+  });
 
+  // ── Ship v2: one curved lathed hull (no cylinder+cone seams), glass canopy,
+  //    swept fins, and a flickering additive engine plume + light. ───────────
   const ship = new THREE.Group();
-  const hull = new THREE.MeshStandardMaterial({ color: 0xeef2ff, metalness: 0.45, roughness: 0.3 });
-  const trim = new THREE.MeshStandardMaterial({ color: 0xff6b57, metalness: 0.2, roughness: 0.5 });
-  // Fuselage (cylinder along z) with the nose to the front (-z).
-  const body = new THREE.Mesh(new THREE.CylinderGeometry(0.34, 0.34, 1.5, 24), hull);
-  body.rotation.x = Math.PI / 2;
+  const hullMat = new THREE.MeshStandardMaterial({ color: 0xf4f7ff, metalness: 0.6, roughness: 0.22 });
+  const trimMat = new THREE.MeshStandardMaterial({ color: 0xff6b57, metalness: 0.35, roughness: 0.4 });
+  const darkMat = new THREE.MeshStandardMaterial({ color: 0x2c3350, metalness: 0.5, roughness: 0.6 });
+  const profile = [
+    [0.001, -1.65], [0.09, -1.52], [0.2, -1.18], [0.3, -0.62],
+    [0.355, -0.05], [0.345, 0.42], [0.28, 0.78], [0.2, 0.95], [0.001, 0.98]
+  ].map(([r, z]) => new THREE.Vector2(r, z));
+  const body = new THREE.Mesh(new THREE.LatheGeometry(profile, 48), hullMat);
+  body.rotation.x = Math.PI / 2; // lathe +y axis -> -z, nose forward
   ship.add(body);
-  const nose = new THREE.Mesh(new THREE.ConeGeometry(0.34, 0.7, 24), trim);
-  nose.rotation.x = -Math.PI / 2;
-  nose.position.z = -1.1;
-  ship.add(nose);
-  // Cockpit window.
-  const win = new THREE.Mesh(
-    new THREE.SphereGeometry(0.17, 16, 16),
-    new THREE.MeshStandardMaterial({ color: 0x59d3ff, emissive: 0x1c6fa0, emissiveIntensity: 0.6, metalness: 0.2, roughness: 0.15 })
+  const noseRing = new THREE.Mesh(new THREE.TorusGeometry(0.27, 0.045, 12, 32), trimMat);
+  noseRing.position.z = -0.95;
+  ship.add(noseRing);
+  const canopy = new THREE.Mesh(
+    new THREE.SphereGeometry(0.19, 24, 16, 0, Math.PI * 2, 0, Math.PI / 2),
+    new THREE.MeshStandardMaterial({ color: 0x7fd8ff, emissive: 0x2a86c8, emissiveIntensity: 0.8, metalness: 0.1, roughness: 0.05, transparent: true, opacity: 0.9 })
   );
-  win.position.set(0, 0.18, -0.25);
-  ship.add(win);
-  // Three tail fins.
+  canopy.position.set(0, 0.26, -0.45);
+  canopy.rotation.x = -0.25;
+  ship.add(canopy);
+  // Swept fins — verify orientation VISUALLY in the screenshot step; tweak the
+  // eulers if a blade points forward instead of back.
+  const finShape = new THREE.Shape();
+  finShape.moveTo(0, 0); finShape.lineTo(0.14, 0.02); finShape.lineTo(0.62, 0.66);
+  finShape.lineTo(0.5, 0.78); finShape.lineTo(0.05, 0.42); finShape.closePath();
+  const finGeo = new THREE.ExtrudeGeometry(finShape, { depth: 0.05, bevelEnabled: true, bevelThickness: 0.015, bevelSize: 0.015, bevelSegments: 1 });
   for (let i = 0; i < 3; i += 1) {
-    const fin = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.42, 0.5), trim);
-    const a = i * (Math.PI * 2 / 3);
-    fin.position.set(Math.sin(a) * 0.32, Math.cos(a) * 0.32, 0.55);
-    fin.rotation.z = -a;
+    const fin = new THREE.Mesh(finGeo, trimMat);
+    const a = i * (Math.PI * 2 / 3) + Math.PI / 2;
+    fin.position.set(Math.cos(a) * 0.26, Math.sin(a) * 0.26, 0.55);
+    fin.rotation.z = a - Math.PI / 2;
+    fin.rotation.y = Math.PI / 2;
     ship.add(fin);
   }
-  // Thruster nozzle + glow at the rear (+z, toward camera).
-  const nozzle = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.24, 0.3, 16), new THREE.MeshStandardMaterial({ color: 0x3a4256, roughness: 0.8 }));
+  const nozzle = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.22, 0.28, 24), darkMat);
   nozzle.rotation.x = Math.PI / 2;
-  nozzle.position.z = 0.85;
+  nozzle.position.z = 1.02;
   ship.add(nozzle);
-  const glow = new THREE.Mesh(new THREE.SphereGeometry(0.22, 16, 16), new THREE.MeshBasicMaterial({ color: 0x59d3ff, transparent: true, opacity: 0.85 }));
-  glow.position.set(0, 0, 1.05);
-  ship.add(glow);
+  const plumeMat = new THREE.MeshBasicMaterial({ color: 0x7fd8ff, transparent: true, opacity: 0.75, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide });
+  const plume = new THREE.Mesh(new THREE.ConeGeometry(0.17, 1.0, 20, 1, true), plumeMat);
+  plume.rotation.x = Math.PI / 2; // apex trails behind (+z)
+  plume.position.z = 1.55;
+  ship.add(plume);
+  const plumeCore = new THREE.Mesh(
+    new THREE.ConeGeometry(0.08, 0.65, 14, 1, true),
+    new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.9, blending: THREE.AdditiveBlending, depthWrite: false })
+  );
+  plumeCore.rotation.x = Math.PI / 2;
+  plumeCore.position.z = 1.4;
+  ship.add(plumeCore);
+  const engineLight = new THREE.PointLight(0x66ccff, 1.1, 7);
+  engineLight.position.z = 1.3;
+  ship.add(engineLight);
   ship.position.set(0, 1.0, 4.2);
   scene.add(ship);
 
@@ -192,16 +226,34 @@ function startGame(THREE, mount, opts) {
     sprite.position.set(0, 0, 1.2);
     return sprite;
   }
+  const BUBBLE_VERT = "varying vec3 vN; varying vec3 vE; void main(){ vec4 mv = modelViewMatrix * vec4(position,1.0); vN = normalize(normalMatrix * normal); vE = normalize(-mv.xyz); gl_Position = projectionMatrix * mv; }";
+  const BUBBLE_FRAG = "varying vec3 vN; varying vec3 vE; uniform vec3 uTint; uniform float uFade; void main(){ float f = pow(1.0 - abs(dot(normalize(vN), normalize(vE))), 2.0); vec3 col = mix(uTint * 0.45, vec3(0.78, 0.92, 1.0), f); gl_FragColor = vec4(col, (0.16 + 0.7 * f) * uFade); }";
+  function bubbleMaterial(tintHex) {
+    return new THREE.ShaderMaterial({
+      uniforms: { uTint: { value: new THREE.Color(tintHex) }, uFade: { value: 1 } },
+      vertexShader: BUBBLE_VERT,
+      fragmentShader: BUBBLE_FRAG,
+      transparent: true,
+      depthWrite: false
+    });
+  }
   function makeBubble(word, correct, lane, tries) {
     const group = new THREE.Group();
-    const orb = new THREE.Mesh(
-      new THREE.SphereGeometry(0.95, 24, 24),
-      new THREE.MeshStandardMaterial({ color: 0x2b5fd0, emissive: 0x1b3f9a, emissiveIntensity: 0.5, metalness: 0.1, roughness: 0.25, transparent: true, opacity: 0.55 })
-    );
+    const mat = bubbleMaterial(0x3f7dff);
+    const orb = new THREE.Mesh(new THREE.SphereGeometry(0.95, 32, 32), mat);
     group.add(orb);
-    group.add(labelSprite(word));
+    const glowIn = new THREE.Mesh(
+      new THREE.SphereGeometry(0.6, 16, 16),
+      new THREE.MeshBasicMaterial({ color: 0x2b5fd0, transparent: true, opacity: 0.18, blending: THREE.AdditiveBlending, depthWrite: false })
+    );
+    group.add(glowIn);
+    const sprite = labelSprite(word);
+    group.add(sprite);
     group.position.set(LANES[lane], 1.05, -46);
-    group.userData = { word, correct, lane, orb, alive: true, tries: tries || 0 };
+    group.userData = {
+      word, correct, lane, orb, alive: true, tries: tries || 0,
+      setFade: a => { mat.uniforms.uFade.value = a; sprite.material.opacity = a; glowIn.material.opacity = 0.18 * a; }
+    };
     scene.add(group);
     return group;
   }
@@ -217,7 +269,8 @@ function startGame(THREE, mount, opts) {
     trail.position.set(0, 0, 0.7);
     group.add(trail);
     group.position.set(LANES[lane], 1.05, -46);
-    group.userData = { meteor: true, lane, rock, alive: true };
+    group.userData = { meteor: true, lane, rock, alive: true,
+      setFade: a => { group.scale.setScalar(0.4 + 0.6 * a); trail.material.opacity = 0.45 * a; } };
     scene.add(group);
     return group;
   }
@@ -336,8 +389,17 @@ function startGame(THREE, mount, opts) {
     return overlay;
   }
 
+  function clearField() {
+    // Remove every in-flight bubble/meteor from the SCENE, not just the array —
+    // this is what used to leave frozen "ghost" words behind between rounds.
+    for (const b of bubbles) { b.userData.alive = false; scene.remove(b); disposeGroup(b); }
+    bubbles = [];
+    queue = [];
+  }
+
   function endRound() {
     running = false;
+    clearField();
     caughtTotal += caught; neededTotal += needed; wrongTotal += wrongHits;
     const stars = rocketRunStars(caught, needed, wrongHits);
     el("stars").textContent = "★".repeat(stars) + "✩".repeat(3 - stars);
@@ -401,10 +463,16 @@ function startGame(THREE, mount, opts) {
     last = now;
     elapsed += dt;
     const speed = 1 + roundIx * 0.22 + Math.min(0.7, elapsed * 0.006); // faster deeper in + over time
-    stars.position.z += dt * 8 * speed * (reduceMotion ? 0.5 : 1);
-    if (stars.position.z > 40) stars.position.z = 0;
+    for (const layer of starLayers) {
+      layer.position.z += dt * layer.userData.speed * speed * (reduceMotion ? 0.5 : 1);
+      if (layer.position.z > 40) layer.position.z = 0;
+    }
     ship.position.x += (LANES[laneIx] - ship.position.x) * Math.min(1, dt * 12);
     ship.rotation.z = (LANES[laneIx] - ship.position.x) * -0.25;
+    const fl = 0.9 + Math.random() * 0.25;
+    plume.scale.set(fl, 0.8 + Math.random() * 0.5, fl);
+    plumeCore.scale.set(1, 0.7 + Math.random() * 0.6, 1);
+    engineLight.intensity = 0.9 + Math.random() * 0.6;
 
     if (running) {
       spawnTimer -= dt;
@@ -417,12 +485,27 @@ function startGame(THREE, mount, opts) {
         if (!bubble.userData.alive) continue;
         bubble.position.z += dt * 9.5 * speed;
         if (bubble.userData.meteor) bubble.userData.rock.rotation.x += dt * 1.8;
-        else bubble.userData.orb.rotation.y += dt * 1.5;
-        if (bubble.position.z >= ship.position.z - 0.2 && bubble.position.z <= ship.position.z + 0.9) resolveBubble(bubble);
-        else if (bubble.position.z > camera.position.z + 2) {
-          bubble.userData.alive = false;
-          if (bubble.userData.correct) requeueMissed(bubble.userData);
-          scene.remove(bubble); disposeGroup(bubble);
+        else if (bubble.userData.orb) bubble.userData.orb.rotation.y += dt * 1.5;
+
+        if (!bubble.userData.passed) {
+          if (bubble.position.z >= ship.position.z - 0.2 && bubble.position.z <= ship.position.z + 0.9) {
+            resolveBubble(bubble);
+            continue;
+          }
+          if (bubble.position.z > ship.position.z + 0.9) {
+            // Crossed the ROCKET plane uncaught — every pass-by cue fires HERE
+            // (it used to fire at the camera/screen plane, half a second late).
+            bubble.userData.passed = true;
+            if (bubble.userData.correct) requeueMissed(bubble.userData);
+            else if (!bubble.userData.meteor) sfx(playWhoosh);
+          }
+        } else {
+          const fade = Math.max(0, 1 - (bubble.position.z - ship.position.z - 0.9) / 2.2);
+          if (bubble.userData.setFade) bubble.userData.setFade(fade);
+          if (bubble.position.z > camera.position.z + 2) {
+            bubble.userData.alive = false;
+            scene.remove(bubble); disposeGroup(bubble);
+          }
         }
       }
       bubbles = bubbles.filter(bubble => bubble.userData.alive);
@@ -457,8 +540,9 @@ function startGame(THREE, mount, opts) {
     window.removeEventListener("keydown", onKey);
     window.removeEventListener("resize", onResize);
     ro.disconnect();
-    for (const b of bubbles) disposeGroup(b);
-    disposeGroup(ship); disposeGroup(stars);
+    for (const b of bubbles) { scene.remove(b); disposeGroup(b); }
+    disposeGroup(ship);
+    for (const layer of starLayers) { scene.remove(layer); disposeGroup(layer); }
     try { renderer.dispose(); if (renderer.forceContextLoss) renderer.forceContextLoss(); } catch { /* ignore */ }
     if (renderer.domElement && renderer.domElement.parentNode) renderer.domElement.parentNode.removeChild(renderer.domElement);
     if (hud.parentNode) hud.parentNode.removeChild(hud);
