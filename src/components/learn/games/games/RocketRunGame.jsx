@@ -88,6 +88,9 @@ function startGame(THREE, mount, opts) {
   const key = new THREE.DirectionalLight(0xffffff, 0.9);
   key.position.set(3, 8, 6);
   scene.add(key);
+  scene.add(new THREE.HemisphereLight(0x9fc0ff, 0x1a1440, 0.55));
+  // Premium SNES-tier nebula backdrop (if generated); else keeps fog + starfield.
+  new THREE.TextureLoader().load("/images/games/bg-space.webp", tex => { scene.background = tex; scene.fog = new THREE.FogExp2(0x0a1230, 0.03); });
 
   const starN = 800;
   const starGeo = new THREE.BufferGeometry();

@@ -345,7 +345,7 @@ function startGame(mount, opts) {
     ctx.save();
     ctx.fillStyle = "rgba(0,0,0,.28)"; ctx.beginPath(); ctx.ellipse(p.x, groundY() - 2 > p.y + 22 ? p.y + 24 : groundY() - 2, 16, 5, 0, 0, 7); ctx.fill();
     ctx.translate(p.x, p.y + bob); ctx.scale(p.face * sx, sy);
-    const cim = SPR.char;
+    const cim = currentChar();
     if (cim && cim.width) { const h = 66, w = cim.width / cim.height * h; ctx.drawImage(cim, -w / 2, -h / 2 - 6, w, h); ctx.restore(); return; }
     const lk = p.onGround ? Math.sin(p.anim) * 5 : 5; ctx.fillStyle = "#2f7a4b"; rr(-10, 12, 8, 11 + lk, 3); ctx.fill(); rr(2, 12, 8, 11 - lk, 3); ctx.fill();
     const bg = ctx.createLinearGradient(0, -18, 0, 16); bg.addColorStop(0, "#7cf0b6"); bg.addColorStop(1, "#34c589"); ctx.fillStyle = bg; rr(-15, -18, 30, 34, 13); ctx.fill(); ctx.strokeStyle = "#0f6b48"; ctx.lineWidth = 2; rr(-15, -18, 30, 34, 13); ctx.stroke();
@@ -391,11 +391,20 @@ function startGame(mount, opts) {
     const vg = ctx.createRadialGradient(W / 2, H / 2, H * 0.4, W / 2, H / 2, H * 0.85); vg.addColorStop(0, "rgba(0,0,0,0)"); vg.addColorStop(1, "rgba(0,0,0,.28)"); ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
   }
 
-  // ── art (loads committed webp; per-world char if present, else char-hero) ──
-  const BGIMG = {}, SPR = {};
+  // ── art (committed webp). Per-world playable-character roster so different
+  // pals appear on different levels; falls back to char-hero until the art lands.
+  // Moonwood keeps the current sprout hero; meadow/dino get their own pals. ──
+  const CHAR_ROSTER = {
+    meadow: ["char-meadow-a.webp", "char-meadow-b.webp", "char-meadow-c.webp"],
+    dino: ["char-dino-a.webp", "char-dino-b.webp", "char-dino-c.webp"],
+    moonwood: ["char-hero.webp", "char-moonwood-a.webp", "char-moonwood-b.webp"]
+  };
+  const BGIMG = {}, SPR = {}, charImgs = [];
+  const heroImg = new Image(); heroImg.src = "/images/games/char-hero.webp";
   ["meadow", "dino", "moonwood"].forEach(k => { const im = new Image(); im.onload = () => { BGIMG[k] = im; }; im.src = "/images/games/bg-" + k + ".webp"; });
-  const sprLoad = (key, file, fallback) => { const im = new Image(); im.onload = () => { SPR[key] = im; }; if (fallback) im.onerror = () => { const f = new Image(); f.onload = () => { SPR[key] = f; }; f.src = "/images/games/" + fallback; }; im.src = "/images/games/" + file; };
-  sprLoad("char", "char-" + world + ".webp", "char-hero.webp");
+  (CHAR_ROSTER[world] || []).forEach((file, i) => { const im = new Image(); im.onload = () => { charImgs[i] = im; }; im.src = "/images/games/" + file; });
+  const currentChar = () => { const loaded = charImgs.filter(Boolean); if (loaded.length) return loaded[stageIdx % loaded.length]; return heroImg.width ? heroImg : null; };
+  const sprLoad = (key, file) => { const im = new Image(); im.onload = () => { SPR[key] = im; }; im.src = "/images/games/" + file; };
   sprLoad("grumper", "enemy-grumper.webp");
   sprLoad("platform", "tile-platform.webp");
 
