@@ -108,13 +108,6 @@ const NAV_ITEMS = [
     requiresStudent: true,
   },
   {
-    id: "elSkills",
-    label: "EL Skills",
-    icon: "el",
-    views: [APP_VIEWS.SKILLS_BLOCK_QUEST],
-    requiresStudent: true,
-  },
-  {
     id: "reading",
     label: "Guided Reading",
     icon: "reading",
@@ -126,13 +119,6 @@ const NAV_ITEMS = [
     label: "Story Quests",
     icon: "learn",
     views: [APP_VIEWS.LEARN],
-    requiresStudent: true,
-  },
-  {
-    id: "phonics",
-    label: "Phonics",
-    icon: "phonics",
-    views: [APP_VIEWS.PHONICS_LEARN],
     requiresStudent: true,
   },
   {
@@ -167,10 +153,8 @@ export function Sidebar({
   goToOverview,
   goToStudentHome,
   goToElAssessments,
-  goToElSkillsQuest,
   goToGuidedReading,
   goToLearn,
-  goToPhonicsLearn,
   goToReports,
   goToWorksheets,
   goToPresent,
@@ -202,10 +186,8 @@ export function Sidebar({
       case "studentHome": return goToStudentHome?.();
       case "assessment":  return goToOverview?.();
       case "el":          return goToElAssessments?.();
-      case "elSkills":    return goToElSkillsQuest?.();
       case "reading":     return goToGuidedReading?.();
       case "learn":       return goToLearn?.();
-      case "phonics":     return goToPhonicsLearn?.();
       case "reports":     return goToReports?.();
       case "worksheets":  return goToWorksheets?.();
       case "present":     return goToPresent?.();

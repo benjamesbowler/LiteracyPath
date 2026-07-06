@@ -18,9 +18,9 @@ function hideOnError(event) {
   event.currentTarget.style.display = "none";
 }
 
-function StudentHomeCard({ title, subtitle, meta, art, onClick }) {
+function StudentHomeCard({ title, subtitle, meta, art, onClick, className = "", tags = [] }) {
   return (
-    <button className="student-home-card" onClick={onClick} type="button">
+    <button className={["student-home-card", className].filter(Boolean).join(" ")} onClick={onClick} type="button">
       <span className="student-home-card-art" aria-hidden="true">
         <img src={art} alt="" loading="lazy" onError={hideOnError} />
       </span>
@@ -28,6 +28,11 @@ function StudentHomeCard({ title, subtitle, meta, art, onClick }) {
         {meta && <small className="student-home-card-meta">{meta}</small>}
         <strong>{title}</strong>
         <small className="student-home-card-subtitle">{subtitle}</small>
+        {tags.length > 0 && (
+          <span className="student-home-card-tags" aria-hidden="true">
+            {tags.map(tag => <span key={tag}>{tag}</span>)}
+          </span>
+        )}
       </span>
     </button>
   );
@@ -67,6 +72,7 @@ export function StudentHomePage({
   studentName,
   progressScopeKey = "default",
   onOpenPhonicsLearn,
+  onOpenArcade,
   onOpenSkillsBlockQuest,
   onOpenStoryQuests,
   onOpenGuidedReading,
@@ -99,16 +105,18 @@ export function StudentHomePage({
     return () => window.clearTimeout(timer);
   }, [progressScopeKey, status.needsCelebration]);
 
+  function openArcade(gameId = "") {
+    try {
+      if (gameId) window.localStorage.setItem("lp-open-game", gameId);
+      else window.localStorage.setItem("lp-open-arcade", "true");
+    } catch { /* best effort */ }
+    (onOpenArcade || onOpenPhonicsLearn)?.();
+  }
+
   const missionTargets = {
     quest: onOpenSkillsBlockQuest,
     book: () => onOpenGuidedReading?.(mission.book?.bookId || ""),
-    game: () => {
-      // Open the arcade straight onto today's game.
-      try {
-        if (mission.game?.gameId) window.localStorage.setItem("lp-open-game", mission.game.gameId);
-      } catch { /* best effort */ }
-      onOpenPhonicsLearn?.();
-    }
+    game: () => openArcade(mission.game?.gameId || "")
   };
 
   return (
@@ -141,117 +149,128 @@ export function StudentHomePage({
         </button>
       </header>
 
-      <section className="student-mission" aria-label="Today's mission">
-        <div className="student-mission-head">
-          <span
-            className="pal-sprite"
-            aria-hidden="true"
-            style={{ "--pal-sprite-sheet": `url(/images/pals/sprites/${worldForScope(progressScopeKey).id}-idle-4.webp)` }}
-          />
-          <div>
-            <h1>Today&apos;s Mission</h1>
-            <p>{status.missionComplete ? "All done. Brilliant work - explore anything you like!" : "Three stops. You choose the order."}</p>
-          </div>
-          <div className="student-mission-tracker" aria-label={`${status.doneCount} of 3 complete`}>
-            {MISSION_TILES.map(tile => (
-              <span key={tile.kind} className={status.done[tile.kind] ? "done" : ""} aria-hidden="true">
-                {status.done[tile.kind] ? <CheckIcon /> : null}
-              </span>
-            ))}
-            <strong>{status.doneCount}/3</strong>
-          </div>
-        </div>
-
-        {!status.missionComplete && (
-          <button
-            className="kid-start-button"
-            type="button"
-            onClick={() => {
-              const nextTile = MISSION_TILES.find(tile => !status.done[tile.kind]);
-              if (nextTile) missionTargets[nextTile.kind]?.();
-            }}
-          >
-            ▶ Start today&apos;s quest
-          </button>
-        )}
-
-        <div className="student-mission-grid">
-          {MISSION_TILES.map(tile => {
-            const item = mission[tile.kind];
-            const done = Boolean(status.done[tile.kind]);
-            return (
-              <button
-                key={tile.kind}
-                type="button"
-                className={`student-mission-tile${done ? " done" : ""}`}
-                onClick={missionTargets[tile.kind]}
-              >
-                <span className="student-mission-art" aria-hidden="true">
-                  <img src={tile.art} alt="" loading="lazy" onError={hideOnError} />
-                  {done && <span className="student-mission-done-badge"><CheckIcon /></span>}
-                </span>
-                <span className="student-mission-copy">
-                  <small>{tile.label}</small>
-                  <strong>{item.title}{item.detail ? ` · ${item.detail}` : ""}</strong>
-                  <em>{item.why}</em>
-                </span>
-              </button>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="student-home-explore" aria-label="Explore">
-        <h2>Explore</h2>
-        <div className="student-home-grid">
-          <StudentHomeCard
-            art="/images/learn-games/home/home-phonics.webp"
-            meta="Letters and games"
-            title="Phonics Quest"
-            subtitle="Letters, words, and games"
-            onClick={onOpenPhonicsLearn}
-          />
-          <StudentHomeCard
-            art="/images/learn-games/home/home-skills-quest.webp"
-            meta="One big path"
-            title="Skills Quest"
-            subtitle="Sounds, words, and reading runs"
-            onClick={onOpenSkillsBlockQuest}
-          />
-          <StudentHomeCard
-            art="/images/learn-games/home/home-story-quests.webp"
-            meta="Story path"
-            title="Story Quests"
-            subtitle="Read, choose, and collect words"
-            onClick={onOpenStoryQuests}
-          />
-          <StudentHomeCard
-            art="/images/learn-games/home/home-reading-library.webp"
-            meta="Book shelf"
-            title="Reading Library"
-            subtitle="Listen, read, and reread"
-            onClick={onOpenGuidedReading}
-          />
-        </div>
-      </section>
-
-      <section className="kid-den-banner" aria-label="My rewards">
-        <span className="kid-gem-counter" aria-label={`${treasury.gems} gems collected`}>
-          <Gem color="violet" size={22} />
-          {treasury.gems} gems
-        </span>
-        {treasury.nextTreasure && (
-          <div className="kid-den-banner-next">
-            <span aria-hidden="true">{treasury.nextTreasure.icon}</span>
-            <div className="kid-next-unlock-track" aria-hidden="true">
-              <span style={{ width: `${Math.round(treasury.nextProgress * 100)}%` }} />
+      <section className="student-home-board" aria-label="Student learning areas">
+        <section className="student-mission student-mission-banner" aria-label="Daily challenge">
+          <div className="student-mission-head">
+            <span
+              className="pal-sprite"
+              aria-hidden="true"
+              style={{ "--pal-sprite-sheet": `url(/images/pals/sprites/${worldForScope(progressScopeKey).id}-idle-4.webp)` }}
+            />
+            <div>
+              <span className="student-board-kicker">Daily challenge</span>
+              <h1>Three quick tasks</h1>
+              <p>{status.missionComplete ? "All done. Choose another area to keep going." : "A quest, a book, and an arcade round."}</p>
             </div>
-            <em>{treasury.gemsToNext} to go</em>
+            <div className="student-mission-tracker" aria-label={`${status.doneCount} of 3 complete`}>
+              {MISSION_TILES.map(tile => (
+                <span key={tile.kind} className={status.done[tile.kind] ? "done" : ""} aria-hidden="true">
+                  {status.done[tile.kind] ? <CheckIcon /> : null}
+                </span>
+              ))}
+              <strong>{status.doneCount}/3</strong>
+            </div>
           </div>
-        )}
-        <button className="kid-den-button" type="button" onClick={onOpenRewards}>
-          🏰 My Treasure Den
-        </button>
+
+          <div className="student-mission-grid">
+            {MISSION_TILES.map(tile => {
+              const item = mission[tile.kind];
+              const done = Boolean(status.done[tile.kind]);
+              return (
+                <button
+                  key={tile.kind}
+                  type="button"
+                  className={`student-mission-tile${done ? " done" : ""}`}
+                  onClick={missionTargets[tile.kind]}
+                >
+                  <span className="student-mission-art" aria-hidden="true">
+                    <img src={tile.art} alt="" loading="lazy" onError={hideOnError} />
+                    {done && <span className="student-mission-done-badge"><CheckIcon /></span>}
+                  </span>
+                  <span className="student-mission-copy">
+                    <small>{tile.label}</small>
+                    <strong>{item.title}{item.detail ? ` · ${item.detail}` : ""}</strong>
+                    <em>{item.why}</em>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {!status.missionComplete && (
+            <button
+              className="student-mission-next-button"
+              type="button"
+              onClick={() => {
+                const nextTile = MISSION_TILES.find(tile => !status.done[tile.kind]);
+                if (nextTile) missionTargets[nextTile.kind]?.();
+              }}
+            >
+              Start next task
+            </button>
+          )}
+        </section>
+
+      <StudentHomeCard
+        className="student-home-card-phonics"
+        art="/images/learn-games/home/home-phonics.webp"
+        meta="Phonics learning"
+        title="Phonics Learning"
+        subtitle="Letters, writing, sounds, and word building"
+        tags={["Letters", "Writing", "Sounds", "Words"]}
+        onClick={onOpenPhonicsLearn}
+      />
+      <StudentHomeCard
+        className="student-home-card-map"
+        art="/images/learn-games/home/home-skills-quest.webp"
+        meta="Map quest"
+        title="EL Map Quests"
+        subtitle="Follow the map through EL skills"
+        onClick={onOpenSkillsBlockQuest}
+      />
+      <StudentHomeCard
+        className="student-home-card-arcade"
+        art="/images/learn-games/art/cvc-train.webp"
+        meta="Games"
+        title="Arcade"
+        subtitle="All literacy games live here"
+        onClick={() => openArcade()}
+      />
+      <StudentHomeCard
+        className="student-home-card-story"
+        art="/images/learn-games/home/home-story-quests.webp"
+        meta="Story path"
+        title="Story Quests"
+        subtitle="Read, choose, and collect words"
+        onClick={onOpenStoryQuests}
+      />
+      <StudentHomeCard
+        className="student-home-card-library"
+        art="/images/learn-games/home/home-reading-library.webp"
+        meta="Books"
+        title="Reading Library"
+        subtitle="Listen, read, and reread"
+        onClick={onOpenGuidedReading}
+      />
+
+        <section className="kid-den-banner student-progress-banner" aria-label="Points and progress">
+          <span className="kid-gem-counter" aria-label={`${treasury.gems} gems collected`}>
+            <Gem color="violet" size={22} />
+            {treasury.gems} gems
+          </span>
+          {treasury.nextTreasure && (
+            <div className="kid-den-banner-next">
+              <span aria-hidden="true">{treasury.nextTreasure.icon}</span>
+              <div className="kid-next-unlock-track" aria-hidden="true">
+                <span style={{ width: `${Math.round(treasury.nextProgress * 100)}%` }} />
+              </div>
+              <em>{treasury.gemsToNext} to go</em>
+            </div>
+          )}
+          <button className="kid-den-button" type="button" onClick={onOpenRewards}>
+            Points / Progress
+          </button>
+        </section>
       </section>
 
       {freshRewards.length > 0 && (

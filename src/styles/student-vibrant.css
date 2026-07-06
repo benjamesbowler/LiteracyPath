@@ -1385,3 +1385,523 @@
     transition: none;
   }
 }
+
+/* ── Student home: bold 4-column board, not soft nursery UI ──────────── */
+.student-mode-app .student-home-page,
+.lg-app-shell[data-pal-world] .student-home-page {
+  width: 100%;
+  max-width: none;
+  min-height: 100dvh;
+  place-items: stretch;
+  justify-items: center;
+  align-content: start;
+  gap: clamp(12px, 1.6vw, 18px);
+  padding: clamp(12px, 2vw, 24px);
+  background-color: #f6f8fb;
+  background-image:
+    linear-gradient(rgba(23, 32, 51, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 32, 51, 0.055) 1px, transparent 1px);
+  background-size: 34px 34px;
+  color: #172033;
+  font-family: var(--lp-font-readable, Lexend, system-ui, sans-serif);
+}
+
+.student-mode-app .student-home-topbar {
+  width: min(100%, 1220px);
+  min-height: 68px;
+  padding: 10px 14px;
+  border: 3px solid #172033;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 6px 6px 0 #172033;
+}
+
+.student-mode-app .student-home-topbar strong {
+  color: #172033;
+  font-family: var(--lp-font-readable, Lexend, system-ui, sans-serif);
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  letter-spacing: 0;
+}
+
+.student-mode-app .student-home-eyebrow,
+.student-board-kicker {
+  color: #566176;
+  font-family: var(--lp-font-ui, system-ui, sans-serif);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.student-mode-app .student-home-streak,
+.student-mode-app .student-home-logout {
+  border: 2px solid #172033;
+  border-radius: 8px;
+  background: #fff4bf;
+  color: #172033;
+  box-shadow: 3px 3px 0 #172033;
+}
+
+.student-mode-app .student-home-board {
+  width: min(100%, 1220px);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: minmax(128px, auto) 172px 172px auto;
+  grid-template-areas:
+    "mission mission mission mission"
+    "phonics phonics map arcade"
+    "phonics phonics story library"
+    "progress progress progress progress";
+  gap: clamp(12px, 1.4vw, 18px);
+}
+
+.student-mode-app .student-mission-banner {
+  grid-area: mission;
+  width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(420px, 1fr) minmax(0, 1.25fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 10px;
+  border: 3px solid #172033;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 6px 6px 0 #172033;
+}
+
+.student-mode-app .student-mission-head {
+  min-width: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.student-mode-app .student-mission-head .pal-sprite {
+  width: 56px;
+  height: 56px;
+}
+
+.student-mode-app .student-mission-head h1 {
+  margin: 1px 0 0;
+  color: #172033;
+  font-family: var(--lp-font-readable, Lexend, system-ui, sans-serif);
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.student-mode-app .student-mission-head p {
+  margin: 2px 0 0;
+  max-width: 28ch;
+  color: #566176;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.student-mode-app .student-mission-tracker {
+  border: 2px solid #172033;
+  border-radius: 8px;
+  background: #eef6ff;
+  box-shadow: 3px 3px 0 #172033;
+}
+
+.student-mode-app .student-mission-tracker span {
+  border-color: #172033;
+  background: #ffffff;
+}
+
+.student-mode-app .student-mission-tracker span.done {
+  border-color: #172033;
+  background: #25c76f;
+}
+
+.student-mode-app .student-mission-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.student-mode-app .student-mission-tile {
+  min-width: 0;
+  min-height: 64px;
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  align-items: stretch;
+  border: 3px solid #172033;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 4px 4px 0 #172033;
+}
+
+.student-mode-app .student-mission-tile:hover {
+  transform: translate(-1px, -2px);
+  box-shadow: 6px 6px 0 #172033;
+}
+
+.student-mode-app .student-mission-art {
+  width: 58px;
+  height: 100%;
+  min-height: 62px;
+  border-right: 3px solid #172033;
+  background: #ffd34e;
+}
+
+.student-mode-app .student-mission-copy {
+  min-width: 0;
+  gap: 2px;
+  padding: 7px 8px;
+}
+
+.student-mode-app .student-mission-copy small {
+  color: #155eef;
+  letter-spacing: 0.05em;
+}
+
+.student-mode-app .student-mission-copy strong,
+.student-mode-app .student-mission-copy em {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+}
+
+.student-mode-app .student-mission-copy strong {
+  -webkit-line-clamp: 1;
+  font-family: var(--lp-font-readable, Lexend, system-ui, sans-serif);
+  font-size: 0.82rem;
+  line-height: 1.12;
+}
+
+.student-mode-app .student-mission-copy em {
+  -webkit-line-clamp: 1;
+  color: #566176;
+  font-size: 0.72rem;
+  font-style: normal;
+}
+
+.student-mode-app .student-mission-next-button {
+  min-height: 42px;
+  padding: 0 14px;
+  border: 3px solid #172033;
+  border-radius: 8px;
+  background: #ff4d6d;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: var(--lp-font-readable, Lexend, system-ui, sans-serif);
+  font-weight: 900;
+  box-shadow: 4px 4px 0 #172033;
+  transition: transform 130ms ease-out, box-shadow 130ms ease-out;
+}
+
+.student-mode-app .student-mission-next-button:hover {
+  transform: translate(-1px, -2px);
+  box-shadow: 6px 6px 0 #172033;
+}
+
+.student-mode-app .student-mission-next-button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 #172033;
+}
+
+.student-mode-app .student-home-card {
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  display: grid;
+  grid-template-rows: minmax(82px, 0.85fr) auto;
+  gap: 0;
+  padding: 0;
+  border: 3px solid #172033;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #172033;
+  box-shadow: 6px 6px 0 #172033;
+  text-align: left;
+  overflow: hidden;
+  transition: transform 130ms ease-out, box-shadow 130ms ease-out;
+}
+
+.student-mode-app .student-home-card:hover {
+  transform: translate(-2px, -3px);
+  box-shadow: 8px 8px 0 #172033;
+}
+
+.student-mode-app .student-home-card:active {
+  transform: translate(4px, 4px);
+  box-shadow: 2px 2px 0 #172033;
+}
+
+.student-mode-app .student-home-card-phonics { grid-area: phonics; --tile-accent: #ffd23f; --tile-soft: #fff6bf; }
+.student-mode-app .student-home-card-map { grid-area: map; --tile-accent: #28d17c; --tile-soft: #dffbea; }
+.student-mode-app .student-home-card-arcade { grid-area: arcade; --tile-accent: #111827; --tile-soft: #111827; color: #ffffff; }
+.student-mode-app .student-home-card-story { grid-area: story; --tile-accent: #ff5b57; --tile-soft: #ffe3df; }
+.student-mode-app .student-home-card-library { grid-area: library; --tile-accent: #3da6ff; --tile-soft: #def0ff; }
+
+.student-mode-app .student-home-card-art {
+  position: relative;
+  width: 100%;
+  min-height: 0;
+  height: 100%;
+  display: block;
+  border-bottom: 3px solid #172033;
+  background: var(--tile-accent, #ffd23f);
+  overflow: hidden;
+}
+
+.student-mode-app .student-home-card-art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.08) contrast(1.04);
+}
+
+.student-mode-app .student-home-card-phonics .student-home-card-art img {
+  object-position: center 42%;
+}
+
+.student-mode-app .student-home-card-arcade .student-home-card-art {
+  background:
+    linear-gradient(135deg, rgba(255, 211, 78, 0.22), transparent 45%),
+    #070914;
+}
+
+.student-mode-app .student-home-card-arcade .student-home-card-art img {
+  opacity: 0.92;
+  mix-blend-mode: screen;
+}
+
+.student-mode-app .student-home-card-label {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 5px;
+  width: 100%;
+  padding: 10px;
+  background: var(--tile-soft, #ffffff);
+}
+
+.student-mode-app .student-home-card-arcade .student-home-card-label {
+  background:
+    linear-gradient(90deg, rgba(255, 211, 78, 0.16) 0 8px, transparent 8px 16px),
+    #070914;
+  color: #ffffff;
+}
+
+.student-mode-app .student-home-card-meta {
+  width: fit-content;
+  max-width: 100%;
+  padding: 4px 8px;
+  border: 2px solid #172033;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #172033;
+  font-family: var(--lp-font-ui, system-ui, sans-serif);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.student-mode-app .student-home-card-arcade .student-home-card-meta {
+  border-color: #ffd34e;
+  background: #ffd34e;
+  color: #101320;
+}
+
+.student-mode-app .student-home-card-label strong {
+  color: inherit;
+  font-family: var(--lp-font-readable, Lexend, system-ui, sans-serif);
+  font-size: clamp(1.06rem, 1.45vw, 1.3rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.student-mode-app .student-home-card-phonics .student-home-card-label strong {
+  font-size: clamp(1.38rem, 2.25vw, 1.95rem);
+}
+
+.student-mode-app .student-home-card-subtitle {
+  color: currentColor;
+  opacity: 0.76;
+  font-family: var(--lp-font-readable, Lexend, system-ui, sans-serif);
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.22;
+}
+
+.student-mode-app .student-home-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.student-mode-app .student-home-card-tags span {
+  padding: 5px 7px;
+  border: 2px solid #172033;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #172033;
+  font-family: var(--lp-font-ui, system-ui, sans-serif);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.student-mode-app .student-progress-banner {
+  grid-area: progress;
+  width: 100%;
+  margin: 0;
+  padding: 14px 16px;
+  border: 3px solid #172033;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 6px 6px 0 #172033;
+}
+
+.student-mode-app .student-progress-banner .kid-gem-counter {
+  border: 2px solid #172033;
+  border-radius: 8px;
+  background: #f0e6ff;
+  color: #172033;
+  box-shadow: 3px 3px 0 #172033;
+}
+
+.student-mode-app .student-progress-banner .kid-next-unlock-track {
+  border: 2px solid #172033;
+  background: #eef2f7;
+}
+
+.student-mode-app .student-progress-banner .kid-next-unlock-track span {
+  background: #28d17c;
+}
+
+.student-mode-app .student-progress-banner .kid-den-button {
+  border: 3px solid #172033;
+  border-radius: 8px;
+  background: #172033;
+  color: #ffffff;
+  box-shadow: 4px 4px 0 #ffd23f;
+  font-family: var(--lp-font-readable, Lexend, system-ui, sans-serif);
+}
+
+@media (max-width: 1120px) {
+  .student-mode-app .student-home-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto repeat(3, minmax(160px, auto)) auto;
+    grid-template-areas:
+      "mission mission"
+      "phonics map"
+      "phonics arcade"
+      "story library"
+      "progress progress";
+  }
+
+  .student-mode-app .student-mission-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .student-mode-app .student-mission-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .student-mode-app .student-home-page,
+  .lg-app-shell[data-pal-world] .student-home-page {
+    padding: 10px;
+    background-size: 26px 26px;
+  }
+
+  .student-mode-app .student-home-topbar {
+    gap: 10px;
+    box-shadow: 4px 4px 0 #172033;
+  }
+
+  .student-mode-app .student-home-logo {
+    height: 34px;
+  }
+
+  .student-mode-app .student-home-logout span {
+    display: none;
+  }
+
+  .student-mode-app .student-home-board {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-template-areas:
+      "mission"
+      "phonics"
+      "map"
+      "arcade"
+      "story"
+      "library"
+      "progress";
+  }
+
+  .student-mode-app .student-mission-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .student-mode-app .student-mission-head {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+
+  .student-mode-app .student-mission-head .pal-sprite {
+    width: 48px;
+    height: 48px;
+  }
+
+  .student-mode-app .student-mission-tracker {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .student-mode-app .student-mission-tile {
+    grid-template-columns: 1fr;
+    min-height: 112px;
+  }
+
+  .student-mode-app .student-mission-art {
+    width: 100%;
+    height: 46px;
+    min-height: 46px;
+    border-right: 0;
+    border-bottom: 3px solid #172033;
+  }
+
+  .student-mode-app .student-mission-copy {
+    padding: 7px;
+  }
+
+  .student-mode-app .student-mission-copy em {
+    display: none;
+  }
+
+  .student-mode-app .student-home-card {
+    min-height: 220px;
+    grid-template-rows: 116px auto;
+  }
+
+  .student-mode-app .student-home-card-phonics {
+    min-height: 260px;
+    grid-template-rows: 148px auto;
+  }
+
+  .student-mode-app .student-progress-banner {
+    align-items: stretch;
+  }
+
+  .student-mode-app .student-progress-banner .kid-den-button {
+    width: 100%;
+  }
+}

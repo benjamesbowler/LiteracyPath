@@ -13,6 +13,17 @@ const GameArcadeHub = lazyWithRetry(() => import("../games/GameArcadeHub").then(
   default: module.GameArcadeHub
 })));
 
+function getInitialIsland() {
+  try {
+    const wantsGame = window.localStorage.getItem("lp-open-game");
+    const wantsArcade = window.localStorage.getItem("lp-open-arcade");
+    if (wantsArcade) window.localStorage.removeItem("lp-open-arcade");
+    return wantsGame || wantsArcade ? "games" : "letters";
+  } catch {
+    return "letters";
+  }
+}
+
 function IslandIcon({ type }) {
   if (type === "games") {
     return (
@@ -53,13 +64,7 @@ function IslandLockIcon() {
 export function PhonicsLearnTab({ progressScopeKey = "default" }) {
   const [activeLetter, setActiveLetter] = useState(null);
   const [activeFamily, setActiveFamily] = useState(null);
-  const [activeIsland, setActiveIsland] = useState(() => {
-    try {
-      return window.localStorage.getItem("lp-open-game") ? "games" : "letters";
-    } catch {
-      return "letters";
-    }
-  });
+  const [activeIsland, setActiveIsland] = useState(getInitialIsland);
   const [progress, setProgress] = useState(() => loadPhonicsProgress(progressScopeKey));
   const [cvcProgress, setCvcProgress] = useState(() => loadCvcProgress(progressScopeKey));
   const { playCue } = useCvcSoundCue();
@@ -68,7 +73,7 @@ export function PhonicsLearnTab({ progressScopeKey = "default" }) {
   const wordsUnlocked = completedLettersCount >= 6;
   const lettersToUnlockWords = Math.max(0, 6 - completedLettersCount);
   const nextStepText = wordsUnlocked
-    ? "Choose letters, build short words, or play a review game."
+    ? "Choose letters, practise sounds, or build short words."
     : `Learn ${lettersToUnlockWords} more letter${lettersToUnlockWords === 1 ? "" : "s"} to unlock Word Workshop.`;
 
   useEffect(() => {
@@ -149,12 +154,20 @@ export function PhonicsLearnTab({ progressScopeKey = "default" }) {
     );
   }
 
+  if (activeIsland === "games") {
+    return (
+      <Suspense fallback={<div className="phonics-arcade-loading">Loading games...</div>}>
+        <GameArcadeHub progressScopeKey={progressScopeKey} />
+      </Suspense>
+    );
+  }
+
   return (
     <div className="phonics-island-view">
       <section className="phonics-practice-overview" aria-label="Phonics practice progress">
         <div>
           <span className="phonics-practice-kicker">Phonics</span>
-          <h2>Letters, Words, Games</h2>
+          <h2>Letters, Sounds, Words</h2>
           <p>{nextStepText}</p>
         </div>
         <div className="phonics-practice-stats" aria-label="Quest totals">
@@ -189,25 +202,9 @@ export function PhonicsLearnTab({ progressScopeKey = "default" }) {
           </span>
           {!wordsUnlocked && <IslandLockIcon />}
         </button>
-        <button
-          className={`phonics-island-card ${activeIsland === "games" ? "active" : ""}`}
-          onClick={() => handleIslandClick("games")}
-          type="button"
-          aria-label="Games"
-        >
-          <IslandIcon type="games" />
-          <span className="phonics-island-label">
-            <span>Games</span>
-            <small>Review stars</small>
-          </span>
-        </button>
       </div>
 
-      {activeIsland === "games" ? (
-        <Suspense fallback={<div className="phonics-arcade-loading">Loading games...</div>}>
-          <GameArcadeHub progressScopeKey={progressScopeKey} />
-        </Suspense>
-      ) : activeIsland === "words" && wordsUnlocked ? (
+      {activeIsland === "words" && wordsUnlocked ? (
         <WorkshopFamilyPicker
           progress={cvcProgress}
           onSelectFamily={handleSelectFamily}
