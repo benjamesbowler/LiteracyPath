@@ -29,7 +29,7 @@ const WORLD_THEME = {
 };
 
 const GRAV = 0.62, MOVE = 4.2, JUMP = 13.6, GROUND_H = 96;
-const SEG = 200, WORD_GAP = 260, MAXH = 5;
+const SEG = 380, WORD_GAP = 460, MAXH = 5;
 
 function startGame(mount, opts) {
   const world = worldForGameDifficulty(opts.difficulty);
@@ -102,7 +102,7 @@ function startGame(mount, opts) {
   function addScore(n) { score += n; opts.onScoreUpdate && opts.onScoreUpdate(score); }
   function groundY() { return H - GROUND_H; }
 
-  function makeLevel(levelWords) {
+  function makeLevel(levelWords, worldKey, levelIndex) {
     const plats = [], bubbles = [], blocks = [], pickups = [], letterX = [];
     let cx = 320;
     levelWords.forEach((up, wi) => {
@@ -112,27 +112,37 @@ function startGame(mount, opts) {
       }
       if (wi < levelWords.length - 1) { plats.push({ x: cx - WORD_GAP * 0.5 - 60, y: groundY() - 104, w: 120 }); cx += WORD_GAP; }
     });
-    const flag = cx + 180, L = cx + 340;
-    const near = (x, pad) => letterX.some(lx => Math.abs(lx - x) < pad);
-    const pits = [];
-    for (let gx = 640; gx < flag - 440; gx += SEG * 1.3) { if (!near(gx, 120) && Math.random() < 0.6) pits.push([gx - 46, gx + 46]); }
-    const inPitX = x => pits.some(p => x > p[0] - 40 && x < p[1] + 40);
-    for (let sx = 900; sx < flag - 700; sx += SEG * 2.4) {
-      if (near(sx, 150) || inPitX(sx) || Math.random() >= 0.55) continue;
-      const steps = 2 + Math.floor(Math.random() * 3);
-      for (let k = 0; k < steps; k += 1) plats.push({ x: sx + k * 72, y: groundY() - 70 - k * 48, w: 66 });
-      if (Math.random() < 0.6) pickups.push({ x: sx + (steps - 1) * 72 + 33, y: groundY() - 108 - (steps - 1) * 48, taken: false });
+    const flag = cx + 200, L = cx + 360;
+
+    // Difficulty ramp: harder world + higher level = MORE grumpers, wrong letters, pits.
+    const bump = { meadow: 0, dino: 2, moonwood: 4 }[worldKey] || 0;
+    const foeCount = 3 + Math.round(levelIndex * 0.7) + bump;
+    const decoyCount = 2 + Math.round(levelIndex * 0.6) + bump;
+    const pitCount = 1 + Math.round(levelIndex * 0.4);
+    const blockCount = 2 + Math.round(levelIndex * 0.3);
+    const heartCount = 1 + Math.round(levelIndex * 0.2);
+
+    // Candidate slots = clear ground BETWEEN the required letters, so a hazard
+    // never blocks a letter the child must collect. Guaranteed placement (not
+    // random gates) so every level — including the hard/long-word ones — is busy.
+    const slots = [];
+    for (let i = 0; i < letterX.length - 1; i += 1) {
+      const mx = (letterX[i] + letterX[i + 1]) / 2;
+      if (mx > 520 && mx < flag - 220 && letterX[i + 1] - letterX[i] > 200) slots.push(mx);
     }
-    for (let bx = 560; bx < flag - 320; bx += SEG * 1.4) {
-      if (near(bx, 120) || inPitX(bx) || Math.random() >= 0.5) continue;
-      const n = 1 + Math.floor(Math.random() * 3);
-      for (let k = 0; k < n; k += 1) { const type = Math.random() < 0.3 ? "prize" : "brick"; blocks.push({ x: bx + k * 46, y: groundY() - 140, w: 44, h: 40, type, broken: false, used: false }); }
-    }
-    for (let hx = 1200; hx < flag - 500; hx += SEG * 4) { if (!near(hx, 120) && !inPitX(hx)) pickups.push({ x: hx, y: groundY() - 150, taken: false }); }
-    const foes = [];
-    for (let fx = 680; fx < flag - 400; fx += SEG * 1.7) { const c = fx + Math.random() * 120; if (!near(c, 108) && !inPitX(c) && Math.random() < 0.8) foes.push({ x0: c - 60, x1: c + 60, x: c, dir: 1, y: groundY() - 28 }); }
+    for (let i = slots.length - 1; i > 0; i -= 1) { const j = Math.floor(Math.random() * (i + 1)); [slots[i], slots[j]] = [slots[j], slots[i]]; }
+    let s = 0;
+    const take = () => (s < slots.length ? slots[s++] : null);
     const decoyPool = "BDFGJKMPQVXZ".split("");
-    for (let dx = 820; dx < flag - 400; dx += SEG * 1.9) { if (!near(dx, 120) && !inPitX(dx) && Math.random() < 0.7) bubbles.push({ x: dx, y: groundY() - 122, ch: decoyPool[Math.floor(Math.random() * decoyPool.length)], word: -1, order: -1, taken: false }); }
+
+    const pits = [];
+    for (let k = 0; k < Math.min(pitCount, Math.floor(slots.length / 3)); k += 1) { const c = take(); if (c != null) pits.push([c - 44, c + 44]); }
+    const foes = [];
+    for (let k = 0; k < foeCount; k += 1) { const c = take(); if (c != null) foes.push({ x0: c - 62, x1: c + 62, x: c, dir: 1, y: groundY() - 28 }); }
+    for (let k = 0; k < decoyCount; k += 1) { const c = take(); if (c != null) bubbles.push({ x: c, y: groundY() - 122, ch: decoyPool[Math.floor(Math.random() * decoyPool.length)], word: -1, order: -1, taken: false }); }
+    for (let k = 0; k < blockCount; k += 1) { const c = take(); if (c != null) { const n = 1 + Math.floor(Math.random() * 2); for (let j = 0; j < n; j += 1) blocks.push({ x: c + j * 46 - 23, y: groundY() - 140, w: 44, h: 40, type: Math.random() < 0.3 ? "prize" : "brick", broken: false, used: false }); } }
+    for (let k = 0; k < heartCount; k += 1) { const c = take(); if (c != null) pickups.push({ x: c, y: groundY() - 150, taken: false }); }
+
     return { L, pits, plats, blocks, pickups, bubbles, foes, flag };
   }
   function inPit(x) { return level.pits.some(p => x > p[0] && x < p[1]); }
@@ -143,7 +153,7 @@ function startGame(mount, opts) {
     const plan = ladder[stageIdx];
     words = allStageWords[stageIdx].slice();
     wIx = 0; word = words[0] || ""; nextIx = 0;
-    level = makeLevel(words);
+    level = makeLevel(words, world, stageIdx);
     player = { x: 70, y: groundY() - 46, w: 32, h: 46, vx: 0, vy: 0, onGround: true, face: 1, anim: 0, spawnX: 70, squash: 0 };
     hearts = 3; cam = 0; invuln = 0; particles = [];
     spores = []; for (let i = 0; i < 26; i += 1) spores.push({ x: Math.random() * 2400, y: Math.random() * H, s: 1 + Math.random() * 2.4, ph: Math.random() * 6 });

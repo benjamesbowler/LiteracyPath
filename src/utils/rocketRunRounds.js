@@ -34,21 +34,31 @@ export function rocketRunTargets(minCorrect = 3) {
     .filter(g => wordsStartingWith(g).length >= minCorrect);
 }
 
-function pickCycling(list, n) {
-  if (!list.length) return [];
-  const out = [];
-  for (let i = 0; i < n; i += 1) out.push(list[i % list.length]);
-  return out;
+function uniqueSample(pool, n) {
+  return shuffle([...new Set(pool)]).slice(0, Math.max(0, n));
 }
 
-// One round: `count` correct words to catch + `count` sound-distinct distractors,
-// interleaved into a fair, shuffled spawn order.
-export function buildRocketRunRound(targetGrapheme, { count = 6 } = {}) {
+// Word length band per difficulty, so the words a round shows suit the level.
+const LEN_RANGE = { easy: [2, 4], low: [2, 4], medium: [3, 5], mid: [3, 5], hard: [4, 6], high: [4, 6] };
+
+// One round: DISTINCT correct words to catch (never "vest, vest, vest") + MORE,
+// also-distinct, sound-distinct distractors, interleaved into a fair spawn order.
+export function buildRocketRunRound(targetGrapheme, { count = 6, difficulty } = {}) {
   const g = String(targetGrapheme || "").toLowerCase();
+  const range = LEN_RANGE[String(difficulty || "").toLowerCase()];
+  const inRange = w => !range || (w.length >= range[0] && w.length <= range[1]);
+
   const correctPool = wordsStartingWith(g);
-  const distractorPool = ALL_WORDS.filter(word => !sharesSound(onsetGrapheme(word), g));
-  const correct = pickCycling(shuffle(correctPool), count);
-  const distractors = pickCycling(shuffle(distractorPool), count);
+  let cp = correctPool.filter(inRange);
+  if (cp.length < 3) cp = correctPool;                 // never starve a small sound
+  const correct = uniqueSample(cp, count);             // distinct, no cycling/repeats
+
+  const correctSet = new Set(correct);
+  const distractorPool = ALL_WORDS.filter(w => !sharesSound(onsetGrapheme(w), g) && !correctSet.has(w));
+  let dp = distractorPool.filter(inRange);
+  if (dp.length < count) dp = distractorPool;
+  const distractors = uniqueSample(dp, count + Math.ceil(count / 2)); // more, all distinct
+
   const sequence = shuffle([
     ...correct.map(word => ({ word, correct: true })),
     ...distractors.map(word => ({ word, correct: false }))

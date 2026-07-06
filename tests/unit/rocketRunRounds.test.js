@@ -50,6 +50,17 @@ test("every round is winnable and every distractor is sound-distinct from the ta
   }
 });
 
+test("a round never repeats a word (no 'vest, vest, vest') and brings more distractors", () => {
+  for (const g of rocketRunTargets()) {
+    for (let i = 0; i < 12; i += 1) {
+      const round = buildRocketRunRound(g, { count: 6, difficulty: "easy" });
+      const words = round.sequence.map(s => s.word);
+      assert.equal(new Set(words).size, words.length, `${g}: a word repeated in the round`);
+      assert.ok(round.distractors.length >= round.correct.length, `${g}: expected at least as many distractors as correct`);
+    }
+  }
+});
+
 test("rocketRunStars follow the 3/2/1/0 rule", () => {
   assert.equal(rocketRunStars(6, 6, 0), 3);
   assert.equal(rocketRunStars(6, 6, 1), 2);
