@@ -1,0 +1,125 @@
+/* ── Arcade dark theme ────────────────────────────────────────────────────
+   The premium "adventure console" look, scoped to the arcade and imported
+   AFTER learn-games.css so it wins the cascade. Overrides colour / background /
+   glow only — layout and sizing are left to learn-games.css — so it is a clean,
+   reversible skin (delete this file + its import to revert). */
+
+.lg-arcade {
+  background: radial-gradient(120% 90% at 80% -10%, #1a2450 0%, #0b1024 55%, #080b18 100%) !important;
+  color: #eef2ff;
+  border-radius: 26px;
+  position: relative;
+  overflow: hidden;
+  --pal-accent: #ffd34e;
+  --pal-deep: #c9781a;
+}
+.lg-arcade::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(2px 2px at 18% 22%, rgba(111,139,255,.35), transparent),
+    radial-gradient(1.5px 1.5px at 72% 16%, rgba(255,255,255,.28), transparent),
+    radial-gradient(1.5px 1.5px at 46% 60%, rgba(127,216,255,.3), transparent),
+    radial-gradient(1.5px 1.5px at 88% 54%, rgba(255,255,255,.18), transparent);
+}
+.lg-arcade > * { position: relative; z-index: 1; }
+
+/* Header */
+.lg-arcade-header,
+.lg-arcade .pal-world-banner {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+.lg-arcade .pal-world-chip {
+  background: rgba(255,255,255,.08) !important;
+  color: #bcd0ff !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+}
+.lg-arcade-title-block p { color: #8ea0cc !important; }
+.lg-arcade-title-block h1 { color: #fff !important; }
+.lg-arcade-title-block > div > span { color: #90a0c8 !important; }
+.lg-section-rule { background: linear-gradient(180deg, #ffd34e, transparent) !important; }
+
+/* Summary chips */
+.lg-arcade-summary span { color: #c7d2f2 !important; }
+.lg-arcade-summary span strong { color: #fff !important; }
+.lg-arcade-points-chip {
+  background: rgba(255,211,77,.16) !important;
+  color: #ffd34e !important;
+  border: 1px solid rgba(255,211,77,.32) !important;
+}
+
+/* Controls */
+.lg-segmented-control {
+  background: rgba(255,255,255,.06) !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+}
+.lg-segmented-control button { color: #aeb9dd !important; }
+.lg-segmented-control button.active {
+  background: linear-gradient(160deg, #ffd34e, #ffab1e) !important;
+  color: #12183a !important;
+}
+
+/* Recommended-next featured card */
+.lg-arcade-next {
+  background: linear-gradient(115deg, #203a8f 0%, #3a2b7a 60%, #5a2a6e 100%) !important;
+  border: 0 !important;
+  color: #eaf0ff !important;
+  box-shadow: 0 18px 44px rgba(20,30,80,.5) !important;
+}
+.lg-arcade-next p { color: #c9d3ff !important; }
+.lg-arcade-next strong { color: #fff !important; }
+.lg-arcade-next span { color: #d6deff !important; }
+.lg-arcade-progress-track { background: rgba(255,255,255,.18) !important; }
+.lg-arcade-progress-track span { background: linear-gradient(90deg, #5fe0a0, #3fd6a0) !important; }
+
+.lg-game-primary,
+.lg-game-audio {
+  background: linear-gradient(160deg, #ffd34e, #ffab1e) !important;
+  color: #12183a !important;
+  border: 0 !important;
+  box-shadow: 0 7px 0 #c9781a !important;
+}
+.lg-game-primary:active { transform: translateY(4px); box-shadow: 0 3px 0 #c9781a !important; }
+
+/* Game cards */
+.lg-game-card {
+  background: #141b33 !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  color: #eef2ff !important;
+  box-shadow: 0 12px 26px rgba(0,0,0,.4) !important;
+  transition: transform .16s ease, box-shadow .16s ease !important;
+}
+.lg-game-card:hover,
+.lg-game-card:focus-visible {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.55) !important;
+}
+.lg-game-card-art {
+  background: linear-gradient(150deg, var(--game-accent, #3b6bff), color-mix(in srgb, var(--game-accent, #3b6bff) 55%, #05070f)) !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.lg-game-card-art .lg-game-art-icon { width: 62%; max-width: 84px; height: auto; object-fit: contain; }
+.lg-game-card-art .lg-game-art-full { width: 100%; height: 100%; object-fit: cover; }
+.lg-game-card-copy strong { color: #fff !important; }
+.lg-game-card-copy em { color: #93a0c4 !important; }
+.lg-game-skill {
+  background: rgba(255,255,255,.08) !important;
+  color: #bcd0ff !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+}
+.lg-game-play {
+  background: linear-gradient(160deg, #ffd34e, #ffab1e) !important;
+  color: #12183a !important;
+  box-shadow: 0 4px 0 #c9781a !important;
+}
+
+/* Leaderboard panel, if present, sits on the dark surface */
+.lg-arcade .lg-leaderboard,
+.lg-arcade table { color: #cdd7f2; }

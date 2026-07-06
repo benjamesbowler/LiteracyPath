@@ -11,6 +11,7 @@ import { ProgressStars } from "./shared/ProgressStars.jsx";
 import { SoundToggle } from "./shared/SoundToggle.jsx";
 import { GamePlayer } from "./GamePlayer.jsx";
 import "../../../styles/learn-games.css";
+import "../../../styles/arcade-dark.css";
 
 const DIFFICULTIES = ["easy", "medium", "hard"];
 
