@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Word Climb — LiteracyPath game preview</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html,body{height:100%;overflow:hidden;font-family:"Fredoka",system-ui,sans-serif;background:#070c1a;color:#fff;touch-action:manipulation;}
+  #stage{position:fixed;inset:0;overflow:hidden;
+    background:radial-gradient(120% 80% at 50% 120%, #123a2a 0%, #0c2340 42%, #070c1a 100%);}
+  .stars{position:absolute;inset:0;pointer-events:none;background:
+    radial-gradient(2px 2px at 15% 20%,#8fb4ff55,transparent),
+    radial-gradient(1.5px 1.5px at 80% 15%,#ffffff33,transparent),
+    radial-gradient(2px 2px at 60% 35%,#7fe0c044,transparent),
+    radial-gradient(1.5px 1.5px at 30% 55%,#ffffff22,transparent);}
+  /* HUD */
+  .hud{position:fixed;top:0;left:0;right:0;display:flex;align-items:flex-start;justify-content:space-between;padding:16px clamp(12px,3vw,28px);z-index:5;}
+  .target{display:flex;align-items:center;gap:11px;background:rgba(10,18,40,.7);border:1px solid rgba(120,160,255,.28);border-radius:999px;padding:7px 16px 7px 8px;backdrop-filter:blur(6px);}
+  .target .g{width:48px;height:48px;display:grid;place-items:center;font-size:1.7rem;font-weight:700;border-radius:14px;color:#0a1a12;background:linear-gradient(150deg,#5fe0a0,#28b97a);box-shadow:0 5px 0 #1c7f56;}
+  .target .c{font-size:1.02rem;font-weight:600;line-height:1.05;}
+  .target .c small{display:block;font-size:.72em;opacity:.72;font-weight:500;}
+  .meter{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+  .meter .stars-row{font-size:1.3rem;letter-spacing:2px;}
+  .meter .h{width:14px;height:150px;border-radius:999px;background:rgba(255,255,255,.14);position:relative;overflow:hidden;}
+  .meter .h i{position:absolute;left:0;right:0;bottom:0;height:0;border-radius:999px;background:linear-gradient(0deg,#5fe0a0,#9df0c8);transition:height .4s cubic-bezier(.2,.9,.3,1);}
+  /* Ledges */
+  .ledge{position:absolute;width:30%;max-width:190px;height:62px;border-radius:16px;display:grid;place-items:center;
+    font-size:clamp(1.05rem,3.4vw,1.5rem);font-weight:700;cursor:pointer;color:#fff;
+    background:#16223f;border:1px solid rgba(255,255,255,.1);
+    box-shadow:0 8px 0 rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.08);
+    transition:transform .38s cubic-bezier(.2,.8,.3,1), opacity .3s, background .2s, box-shadow .2s;}
+  .ledge:active{transform:translateY(3px);}
+  .ledge.good{animation:pulse 1.5s ease-in-out infinite;}
+  .ledge.wrongtap{background:#3a2130;border-color:#8a4a5a;animation:shake .32s;}
+  @keyframes pulse{0%,100%{box-shadow:0 8px 0 rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.08);}50%{box-shadow:0 8px 0 rgba(0,0,0,.35),0 0 22px rgba(95,224,160,.30),inset 0 1px 0 rgba(255,255,255,.08);}}
+  @keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-6px);}75%{transform:translateX(6px);}}
+  .climber{position:absolute;width:52px;height:56px;z-index:3;
+    transition:left .40s cubic-bezier(.34,1.5,.5,1), bottom .40s cubic-bezier(.3,.7,.3,1);}
+  .climber svg{filter:drop-shadow(0 6px 8px rgba(0,0,0,.45));}
+  .puff{position:absolute;width:64px;height:26px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.5),transparent 70%);opacity:0;pointer-events:none;z-index:2;}
+  /* overlays */
+  .overlay{position:fixed;inset:0;display:grid;place-items:center;padding:24px;text-align:center;z-index:20;
+    background:radial-gradient(120% 90% at 50% 20%,rgba(20,50,40,.7),rgba(6,12,24,.94));}
+  .overlay.hide{display:none;}
+  .panel h1{font-size:clamp(2rem,7vw,3rem);}
+  .panel p{opacity:.85;margin:8px 0 22px;max-width:420px;font-size:1.05rem;line-height:1.4;}
+  .btn{font-family:inherit;font-weight:700;font-size:clamp(1.1rem,3.6vw,1.35rem);color:#0a1a12;background:linear-gradient(150deg,#5fe0a0,#28b97a);border:0;padding:15px 32px;border-radius:999px;box-shadow:0 7px 0 #1c7f56;cursor:pointer;}
+  .btn:active{transform:translateY(4px);box-shadow:0 3px 0 #1c7f56;}
+  .badge{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.6;display:block;margin-bottom:10px;}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="stars"></div>
+  <div id="ledges"></div>
+  <div class="climber" id="climber">
+    <svg width="52" height="56" viewBox="0 0 52 56">
+      <path d="M26 4 C36 14 36 30 26 44 C16 30 16 14 26 4 Z" fill="#ffd34e" stroke="#c9781a" stroke-width="2"/>
+      <circle cx="26" cy="21" r="6" fill="#12183a"/>
+    </svg>
+  </div>
+</div>
+
+<div class="hud">
+  <div class="target"><div class="g" id="tg">s</div><div class="c" id="tc">Climb the <b>s</b> words!<small>tap the right ledge</small></div></div>
+  <div class="meter"><div class="stars-row" id="stars">✩✩✩</div><div class="h"><i id="height"></i></div></div>
+</div>
+
+<div class="overlay" id="startOverlay">
+  <div class="panel">
+    <span class="badge">LiteracyPath · game preview</span>
+    <h1>Word Climb</h1>
+    <p>Leap up the beanstalk by tapping the ledge whose word <b>starts with your sound</b>. Reach the top!</p>
+    <button class="btn" id="startBtn">Start climbing</button>
+  </div>
+</div>
+<div class="overlay hide" id="winOverlay">
+  <div class="panel"><h1 id="winTitle">You reached the top!</h1><p id="winMsg"></p><button class="btn" id="nextBtn">Next sound</button></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  const ROUNDS=[
+    {g:"s",correct:["sun","sock","sit","seal","sad","sip"],wrong:["map","top","dog","pig","net","hen","bug","fox"]},
+    {g:"m",correct:["map","mud","mat","moon","mix","mug"],wrong:["sun","top","dog","fin","leg","cat","pot","web"]},
+    {g:"t",correct:["top","ten","tap","tin","tub","toe"],wrong:["sun","map","dog","fig","hen","bus","pig","rug"]},
+    {g:"b",correct:["bat","bus","bed","bag","bin","bug"],wrong:["dog","map","sun","top","net","fig","hen","sit"]},
+    {g:"sh",correct:["ship","shop","shell","shut","shed","shin"],wrong:["sun","sit","map","top","dog","pig","net","hen"]}
+  ];
+  const LANES=[0.085,0.35,0.615];   // ledge left edges as fraction of stage width
+  const LEDGE_W=0.30;               // ledge width fraction (matches CSS 30%)
+  const SUMMIT=8;
+  const stage=document.getElementById("stage");
+  const ledges=document.getElementById("ledges");
+  const climber=document.getElementById("climber");
+  let roundIx=0, height=0, wrongHits=0, running=false, busy=false;
+
+  function audio(freq,type,dur,vol){try{const A=audio.ctx||(audio.ctx=new(window.AudioContext||window.webkitAudioContext)());const o=A.createOscillator(),g=A.createGain();o.type=type||"sine";o.frequency.value=freq;o.connect(g);g.connect(A.destination);g.gain.setValueAtTime(vol||.15,A.currentTime);g.gain.exponentialRampToValueAtTime(.0001,A.currentTime+(dur||.2));o.start();o.stop(A.currentTime+(dur||.2));}catch(e){}}
+  const good=()=>{audio(620,"triangle",.12,.18);setTimeout(()=>audio(940,"triangle",.16,.16),80);};
+  const bad=()=>audio(150,"sawtooth",.16,.12);
+  const win=()=>[523,659,784,1046].forEach((f,i)=>setTimeout(()=>audio(f,"triangle",.22,.16),i*130));
+  function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+  function W(){return stage.clientWidth;}
+  function H(){return stage.clientHeight;}
+  function laneCenterPx(lane){return LANES[lane]*W() + (LEDGE_W*W())/2;}
+  const LEDGE_BOTTOM=()=>Math.round(H()*0.52);   // where the 3 ledges sit
+  const GROUND_BOTTOM=()=>Math.round(H()*0.13);  // where the climber rests
+
+  function placeClimber(lane,bottomPx){
+    climber.style.left=(laneCenterPx(lane)-26)+"px";
+    climber.style.bottom=bottomPx+"px";
+  }
+
+  function puff(lane,bottomPx){
+    const p=document.createElement("div");p.className="puff";
+    p.style.left=(laneCenterPx(lane)-32)+"px";p.style.bottom=(bottomPx-6)+"px";
+    stage.appendChild(p);
+    p.animate([{opacity:.8,transform:"scale(.6)"},{opacity:0,transform:"scale(1.6)"}],{duration:420,easing:"ease-out"});
+    setTimeout(()=>p.remove(),440);
+  }
+
+  function spawnLedges(fromTop){
+    ledges.innerHTML="";
+    const r=ROUNDS[roundIx%ROUNDS.length];
+    const correctLane=Math.floor(Math.random()*3);
+    const cor=shuffle(r.correct), wr=shuffle(r.wrong);
+    let ci=0,wi=0;
+    for(let l=0;l<3;l++){
+      const item = (l===correctLane) ? {w:cor[ci++%cor.length],correct:true} : {w:wr[wi++%wr.length],correct:false};
+      const el=document.createElement("div");
+      // All ledges look identical - the child must READ the word, never guess
+      // from styling (no highlight on the correct one).
+      el.className="ledge";
+      el.textContent=item.w;
+      el.style.left=(LANES[l]*100)+"%";
+      el.style.bottom=LEDGE_BOTTOM()+"px";
+      el.dataset.lane=l; el.dataset.correct=item.correct?"1":"0";
+      if(fromTop){ el.style.transform="translateY(-60px)"; el.style.opacity="0"; requestAnimationFrame(()=>{el.style.transform="translateY(0)";el.style.opacity="1";}); }
+      el.addEventListener("pointerdown",()=>tapLedge(el,item));
+      ledges.appendChild(el);
+    }
+  }
+
+  function tapLedge(el,item){
+    if(!running||busy) return;
+    const lane=Number(el.dataset.lane);
+    if(item.correct){
+      busy=true; height++; good(); updateHeight();
+      el.classList.remove("good");
+      // hop up to the ledge
+      placeClimber(lane, LEDGE_BOTTOM());
+      setTimeout(()=>puff(lane,LEDGE_BOTTOM()),260);
+      if(height>=SUMMIT){ setTimeout(endGame,460); return; }
+      // world scrolls: ledges slide down+fade, then new ones drop from the top; climber returns to ground
+      setTimeout(()=>{
+        Array.from(ledges.children).forEach(c=>{c.style.transform="translateY(80px)";c.style.opacity="0";});
+        setTimeout(()=>{ placeClimber(1,GROUND_BOTTOM()); spawnLedges(true); busy=false; },230);
+      },520);
+    } else {
+      wrongHits++; bad(); el.classList.add("wrongtap");
+      setTimeout(()=>el.classList.remove("wrongtap"),340);
+    }
+  }
+
+  function updateHeight(){ document.getElementById("height").style.height=Math.min(100,Math.round(100*height/SUMMIT))+"%"; }
+
+  function startRound(){
+    height=0; wrongHits=0; running=true; busy=false;
+    const r=ROUNDS[roundIx%ROUNDS.length];
+    document.getElementById("tg").textContent=r.g;
+    document.getElementById("tc").innerHTML="Climb the <b>"+r.g+"</b> words!<small>tap the right ledge</small>";
+    document.getElementById("stars").textContent="✩✩✩";
+    updateHeight();
+    placeClimber(1,GROUND_BOTTOM());
+    spawnLedges(false);
+  }
+
+  function endGame(){
+    running=false; win();
+    const stars=wrongHits===0?3:wrongHits<=2?2:1;
+    document.getElementById("stars").textContent="★".repeat(stars)+"✩".repeat(3-stars);
+    document.getElementById("winTitle").textContent=stars===3?"Perfect climb!":"You reached the top!";
+    document.getElementById("winMsg").textContent=stars===3?"No slips the whole way up.":"Great climbing — go for no slips next time!";
+    confetti();
+    setTimeout(()=>document.getElementById("winOverlay").classList.remove("hide"),480);
+  }
+
+  function confetti(){
+    const cols=["#5fe0a0","#ffd34e","#59d3ff","#ff6b57","#a66bff"];
+    for(let i=0;i<70;i++){const d=document.createElement("div");
+      d.style.cssText="position:fixed;top:-10px;width:10px;height:14px;pointer-events:none;z-index:50;border-radius:2px";
+      d.style.left=Math.random()*100+"vw";d.style.background=cols[i%cols.length];document.body.appendChild(d);
+      const dur=1400+Math.random()*1200,rot=Math.random()*360,x=(Math.random()-.5)*160;
+      d.animate([{transform:"translate(0,0) rotate(0)",opacity:1},{transform:"translate("+x+"px,110vh) rotate("+rot+"deg)",opacity:.9}],{duration:dur,easing:"cubic-bezier(.2,.6,.4,1)"});
+      setTimeout(()=>d.remove(),dur);
+    }
+  }
+
+  window.addEventListener("resize",()=>{ if(running&&!busy){ placeClimber(1,GROUND_BOTTOM()); Array.from(ledges.children).forEach(c=>{c.style.bottom=LEDGE_BOTTOM()+"px";}); } });
+  document.getElementById("startBtn").addEventListener("click",()=>{document.getElementById("startOverlay").classList.add("hide");startRound();});
+  document.getElementById("nextBtn").addEventListener("click",()=>{document.getElementById("winOverlay").classList.add("hide");roundIx++;startRound();});
+})();
+</script>
+</body>
+</html>

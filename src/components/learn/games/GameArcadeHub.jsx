@@ -14,6 +14,10 @@ import "../../../styles/learn-games.css";
 
 const DIFFICULTIES = ["easy", "medium", "hard"];
 
+// The arcade shows only the arcade-tier games (the new playable games). The
+// worksheet-style games live in the Daily Challenge + EL maps instead.
+const ARCADE_GAMES = GAME_LIST.filter(game => (game.surfaces || []).includes("arcade"));
+
 function Leaderboard({ refreshSignal }) {
   const [rows, setRows] = useState(null);
 
@@ -84,15 +88,15 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
   const [leaderboardRefresh, setLeaderboardRefresh] = useState(0);
 
   const totals = useMemo(() => {
-    const stars = GAME_LIST.reduce((sum, game) => sum + (getLearnGameProgress(progress, game.id).stars || 0), 0);
-    const completed = GAME_LIST.filter(game => (getLearnGameProgress(progress, game.id).stars || 0) > 0).length;
-    const points = GAME_LIST.reduce((sum, game) => sum + (getLearnGameProgress(progress, game.id).highScore || 0), 0);
+    const stars = ARCADE_GAMES.reduce((sum, game) => sum + (getLearnGameProgress(progress, game.id).stars || 0), 0);
+    const completed = ARCADE_GAMES.filter(game => (getLearnGameProgress(progress, game.id).stars || 0) > 0).length;
+    const points = ARCADE_GAMES.reduce((sum, game) => sum + (getLearnGameProgress(progress, game.id).highScore || 0), 0);
     return { stars, completed, points };
   }, [progress]);
   const nextGame = useMemo(() => (
-    GAME_LIST.find(game => (getLearnGameProgress(progress, game.id).stars || 0) < 3) || GAME_LIST[0]
+    ARCADE_GAMES.find(game => (getLearnGameProgress(progress, game.id).stars || 0) < 3) || ARCADE_GAMES[0]
   ), [progress]);
-  const completedPercent = GAME_LIST.length ? Math.round((totals.completed / GAME_LIST.length) * 100) : 0;
+  const completedPercent = ARCADE_GAMES.length ? Math.round((totals.completed / ARCADE_GAMES.length) * 100) : 0;
 
   function setDifficulty(difficulty) {
     setProgress(saveLearnGamesSettings(progressScopeKey, { difficulty }));
@@ -118,8 +122,8 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
         </div>
         <div className="lg-arcade-summary">
           <span className="lg-arcade-points-chip"><strong>{totals.points}</strong> points</span>
-          <span><strong>{totals.stars}/{GAME_LIST.length * 3}</strong> stars</span>
-          <span><strong>{totals.completed}/{GAME_LIST.length}</strong> played</span>
+          <span><strong>{totals.stars}/{ARCADE_GAMES.length * 3}</strong> stars</span>
+          <span><strong>{totals.completed}/{ARCADE_GAMES.length}</strong> played</span>
         </div>
       </div>
 
@@ -147,7 +151,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
             <strong>{nextGame.title}</strong>
             <span>{nextGame.skill}</span>
           </div>
-          <div className="lg-arcade-progress-track" aria-label={`${totals.completed} of ${GAME_LIST.length} games played`}>
+          <div className="lg-arcade-progress-track" aria-label={`${totals.completed} of ${ARCADE_GAMES.length} games played`}>
             <span style={{ width: `${completedPercent}%` }} />
           </div>
           <button
@@ -161,7 +165,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
       )}
 
       <div className="lg-game-grid">
-        {GAME_LIST.map((game, index) => {
+        {ARCADE_GAMES.map((game, index) => {
           const gameProgress = getLearnGameProgress(progress, game.id);
           return (
             <button

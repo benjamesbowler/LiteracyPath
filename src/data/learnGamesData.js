@@ -179,7 +179,18 @@ export const GAME_LIST = [
     ...GAME_ACCENTS.blue,
     icon: "/images/learn-games/icon-pop-word.png",
     description: "Steer your rocket to catch the words that start with the sound.",
-    is3D: true
+    is3D: true,
+    surfaces: ["arcade"]
+  },
+  {
+    id: "word-climb",
+    title: "Word Climb",
+    skill: "Read beginning sounds",
+    category: "Phonics",
+    ...GAME_ACCENTS.green,
+    icon: "/images/learn-games/icon-pop-word.png",
+    description: "Leap up the beanstalk by tapping the word that starts with your sound.",
+    surfaces: ["arcade"]
   },
   {
     id: "cvc-word-builder",

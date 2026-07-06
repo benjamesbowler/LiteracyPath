@@ -169,8 +169,11 @@ function nextBook(scope) {
 
 function todaysGame(scope, cycle) {
   const games = readJson(`literacy-guide-learn-games:${scope}`, { games: {} });
-  const unstarred = GAME_LIST.filter(game => (games.games?.[game.id]?.stars || 0) < 3);
-  const pool = unstarred.length ? unstarred : GAME_LIST;
+  // Daily Challenge uses the practice (worksheet-style) games; the arcade-tier
+  // games live in the Arcade. Arcade games are tagged with surfaces:["arcade"].
+  const dailyGames = GAME_LIST.filter(game => !(game.surfaces || []).includes("arcade"));
+  const unstarred = dailyGames.filter(game => (games.games?.[game.id]?.stars || 0) < 3);
+  const pool = unstarred.length ? unstarred : dailyGames;
   const game = pool[hashString(todayKey() + scope + "game") % pool.length];
   const letters = (cycle?.focusLetters || []).map(item => item.grapheme).join(" and ");
   return { game, why: letters ? `Practise your ${letters} sounds while you play.` : "A fresh game for today." };
