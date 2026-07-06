@@ -171,7 +171,7 @@ export function GamePlayer({
           <span>{Math.min(progressStatus.current, progressStatus.total)}/{progressStatus.total}</span>
         </div>
         <div className="lg-game-player-actions">
-          <span className="lg-game-score">{score} pts</span>
+          <span className="lg-game-score" aria-live="polite" aria-atomic="true">{score} pts</span>
           <button
             type="button"
             className="lg-phinny-help"

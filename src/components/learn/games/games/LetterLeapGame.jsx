@@ -5,7 +5,8 @@ import {
   playSoftBuzz,
   playStarChime,
   playCelebrationFanfare,
-  playTapSound
+  playTapSound,
+  playWhoosh
 } from "../../../../utils/audio/gameSfx";
 import {
   difficultyLadder,
@@ -36,14 +37,15 @@ function pickFoeType(worldKey, levelIndex, k) {
   return pool[(k * 7 + levelIndex * 3) % pool.length]; // deterministic mix, no clumping
 }
 
-const GRAV = 0.62, MOVE = 4.2, JUMP = 13.6, GROUND_H = 96;
-const SEG = 380, WORD_GAP = 460, MAXH = 5;
+const GRAV = 0.62, MOVE = 4.8, JUMP = 13.6, GROUND_H = 96;
+const SEG = 440, WORD_GAP = 560, MAXH = 5;
 
 function startGame(mount, opts) {
   const world = worldForGameDifficulty(opts.difficulty);
   const theme = WORLD_THEME[world] || WORLD_THEME.meadow;
   const ladder = difficultyLadder("letter-leap", opts.difficulty);
   const sfx = fn => { try { if (opts.getSound && opts.getSound()) fn(); } catch { /* audio optional */ } };
+  const reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
   // The full word list for a stage. A sentence stage now plays EVERY sentence in
   // its bucket (not just the first) as sequential "legs" — flattened here only so
@@ -79,6 +81,7 @@ function startGame(mount, opts) {
     '<div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;background:rgba(6,12,26,.5);padding:8px 16px 10px;border-radius:16px;border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(6px)">' +
       '<span data-ll="lab" style="font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;opacity:.75">Spell the word</span>' +
       '<div data-ll="word" style="display:flex;gap:7px"></div></div>' +
+    '<div data-ll="coins" style="position:absolute;top:14px;left:16px;font-size:1.02rem;font-weight:700;background:rgba(6,12,26,.5);padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14)">🪙 ×0</div>' +
     '<div data-ll="hearts" style="position:absolute;top:14px;right:16px;font-size:1.5rem;letter-spacing:2px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.4))">❤❤❤</div>' +
     '<div data-ll="world" style="position:absolute;top:52px;right:16px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85;background:rgba(6,12,26,.5);padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14)">Meadow</div>';
   mount.appendChild(hud);
@@ -86,6 +89,8 @@ function startGame(mount, opts) {
   const elLab = hud.querySelector('[data-ll="lab"]');
   const elHearts = hud.querySelector('[data-ll="hearts"]');
   const elWorld = hud.querySelector('[data-ll="world"]');
+  const elCoins = hud.querySelector('[data-ll="coins"]');
+  function updateCoins() { if (elCoins) elCoins.textContent = "🪙 ×" + coins + (starTokens ? "  ★ ×" + starTokens : ""); }
 
   const padWrap = document.createElement("div");
   padWrap.style.cssText = "position:absolute;inset:0;z-index:6;pointer-events:none";
@@ -104,8 +109,13 @@ function startGame(mount, opts) {
   // ── state ────────────────────────────────────────────────────────────────
   const keys = { left: false, right: false, jump: false };
   let player, level, words, wIx, word, nextIx, hearts, running = false, cam = 0, last = 0, invuln = 0;
-  let particles = [], spores = [];
+  let particles = [], spores = [], floats = [];
   let score = 0, wrongHits = 0, deaths = 0, wordsDoneGlobal = 0;
+  // Modern game-feel state (Mission 1)
+  const COYOTE = 0.12, JUMP_BUFFER = 0.14;
+  let coyoteT = 0, jumpBufT = 0, runDustT = 0, shakeT = 0;
+  let coins = 0, starTokens = 0, starFlash = 0; // collectibles (Mission 2)
+  let idleT = 0; // idle-animation timer (Mission 5)
   const startLevel = Math.max(0, Math.min(Number(opts.startLevel) || 0, ladder.length - 1));
   const stageQueue = makeCatchUp(ladder.map((_, i) => i).slice(startLevel)); // resume mid-ladder; a failed stage returns later
   let stageIdx = 0;
@@ -148,7 +158,9 @@ function startGame(mount, opts) {
           pits.push([left, left + wRav]);
           const hopW = 104;
           plats.push({ x: left + wRav * 0.22 - hopW / 2, y: groundY() - 92, w: hopW });
-          plats.push({ x: left + wRav * 0.62 - hopW / 2, y: groundY() - 138, w: hopW });
+          const hop2 = { x: left + wRav * 0.62 - hopW / 2, y: groundY() - 138, w: hopW };
+          if (levelIndex >= 4) { const xm = hard && wRav > 290; hop2.baseX = hop2.x; hop2.baseY = hop2.y; hop2.move = { axis: xm ? "x" : "y", range: xm ? 60 : 34, speed: 1.4, t: Math.random() * 6 }; }
+          plats.push(hop2);
           cx += wRav + WORD_GAP * 0.5;
         } else {
           plats.push({ x: cx - WORD_GAP * 0.5 - 60, y: groundY() - 104, w: 120 });
@@ -174,8 +186,8 @@ function startGame(mount, opts) {
     }
     shuffleArr(hazardSlots); shuffleArr(decoySlots);
 
-    const foeCount = 3 + Math.round(levelIndex * 0.8) + bump;
-    const decoyCount = 4 + Math.round(levelIndex * 0.9) + bump;
+    const foeCount = 4 + Math.round(levelIndex * 0.9) + bump;
+    const decoyCount = 5 + Math.round(levelIndex * 1.0) + bump;
     const blockCount = 2 + Math.round(levelIndex * 0.4);
     const heartCount = 1 + Math.round(levelIndex * 0.2);
 
@@ -211,7 +223,21 @@ function startGame(mount, opts) {
     }
     pits.sort((a, b) => a[0] - b[0]); // grass-strip renderer REQUIRES ascending pits
 
-    return { L, pits, plats, blocks, pickups, bubbles, foes, flag };
+    // ── Mission 2: collectibles — a coin arc over every ravine, coins on the
+    //    high platforms, and 3 star tokens on the highest platforms (risk/reward).
+    const coinsArr = [];
+    for (const [pl, pr] of pits) {
+      if (pr - pl < 140) continue; // ravines only, not tiny hazard pits
+      for (let i = 0; i < 5; i += 1) { const u = (i + 0.5) / 5; coinsArr.push({ x: pl + (pr - pl) * u, y: groundY() - 90 - Math.sin(u * Math.PI) * 58, taken: false }); }
+    }
+    for (const pl of plats) { if (pl.y < groundY() - 70) coinsArr.push({ x: pl.x + pl.w / 2, y: pl.y - 22, taken: false }); }
+    const starsArr = [];
+    for (const pl of plats.slice().sort((a, b) => a.y - b.y).slice(0, 3)) starsArr.push({ x: pl.x + pl.w / 2, y: pl.y - 32, taken: false });
+    // Springs on the ground below the highest star tokens (bounce up to reach them).
+    const springsArr = [];
+    for (const st of starsArr) { if (st.y < groundY() - 130) springsArr.push({ x: Math.max(140, st.x - 60), press: 0, taken: false }); }
+
+    return { L, pits, plats, blocks, pickups, bubbles, foes, flag, coins: coinsArr, stars: starsArr, springs: springsArr };
   }
   function inPit(x) { return level.pits.some(p => x > p[0] && x < p[1]); }
 
@@ -230,7 +256,7 @@ function startGame(mount, opts) {
     elLab.dataset.sentence = plan.mode === "sentence" ? "1" : "";
     elLab.dataset.goal = legs ? legs[legIx].join(" ") : "";
     running = true;
-    renderWord(); updateHearts();
+    renderWord(); updateHearts(); updateCoins();
     opts.onProgressUpdate && opts.onProgressUpdate(wordsDoneGlobal, totalWords);
     opts.onCheckpoint && opts.onCheckpoint(stageIdx, LEVELS_PER_DIFFICULTY);
   }
@@ -256,6 +282,7 @@ function startGame(mount, opts) {
   function updateHearts() { elHearts.textContent = "❤".repeat(Math.max(0, hearts)) + "♡".repeat(Math.max(0, 3 - hearts)); }
 
   function burst(x, y, c) { for (let i = 0; i < 12; i += 1) particles.push({ x, y, vx: (Math.random() - 0.5) * 6, vy: (Math.random() - 0.7) * 6, life: 0.6, c }); }
+  function addFloat(x, y, txt) { floats.push({ x, y, txt, life: 0.8 }); }
   function burstBlock(bl) { for (let i = 0; i < 9; i += 1) particles.push({ x: bl.x + bl.w / 2, y: bl.y + bl.h / 2, vx: (Math.random() - 0.5) * 7, vy: -Math.random() * 6 - 1, life: 0.7, c: "#b5602f" }); }
 
   function hurt() {
@@ -271,7 +298,7 @@ function startGame(mount, opts) {
   }
   function wordDone() {
     burst(player.x, player.y - 16, "#7cf0b6"); sfx(playCorrectChime);
-    wordsDoneGlobal += 1; addScore(50);
+    wordsDoneGlobal += 1; addScore(50); addFloat(player.x, player.y - 34, "+50");
     opts.onProgressUpdate && opts.onProgressUpdate(wordsDoneGlobal, totalWords);
     if (wIx < words.length - 1) { wIx += 1; word = words[wIx]; nextIx = 0; }
     renderWord();
@@ -292,12 +319,12 @@ function startGame(mount, opts) {
     running = false; sfx(playCelebrationFanfare); addScore(100);
     stageQueue.complete();
     if (stageQueue.isDone) { finishGame(); return; }
-    showOverlay("Stage complete! 🌟", "You spelled every word in " + theme.name + " Lvl " + (stageIdx + 1) + "!", "Next stage", () => { player = null; startStage(); });
+    showTally("Stage complete! 🌟", "Next stage", () => { player = null; startStage(); });
   }
   function finishGame() {
     running = false; sfx(playStarChime);
     const stars = starRubric({ correct: wordsDoneGlobal, total: totalWords, mistakes: wrongHits, deaths });
-    showOverlay("You did it! 🏆", "You climbed all of " + theme.name + "!", "Done", () => {});
+    showTally("You did it! 🏆", "Done", () => {});
     opts.onComplete && opts.onComplete(stars, score, wordsDoneGlobal);
   }
 
@@ -309,15 +336,30 @@ function startGame(mount, opts) {
     overlay.style.display = "grid";
     overlay.querySelector('[data-ll="cta"]').onclick = () => { overlay.style.display = "none"; sfx(playTapSound); fn(); };
   }
+  // Results tally card (Mission 2/4): counts of what the child actually collected.
+  function showTally(title, btnLabel, fn) {
+    const stageStars = level ? level.stars.filter(s => s.taken).length : 0;
+    overlay.innerHTML =
+      '<div style="display:grid;gap:12px;justify-items:center">' +
+      '<h1 style="font-size:clamp(1.5rem,6vw,2.4rem);margin:0">' + title + '</h1>' +
+      '<div style="font-size:1.05rem;opacity:.94;line-height:1.95;text-align:left;min-width:210px">' +
+      'Words spelled &nbsp;<b>' + wordsDoneGlobal + '</b><br>' +
+      'Coins &nbsp;<b>🪙 ' + coins + '</b><br>' +
+      'Stars this stage &nbsp;<b>' + ("★".repeat(stageStars) + "☆".repeat(3 - stageStars)) + '</b><br>' +
+      'Score &nbsp;<b>' + score + '</b></div>' +
+      '<button data-ll="cta" style="font-family:inherit;font-weight:700;font-size:1.15rem;color:#20140a;background:linear-gradient(160deg,#ffd34e,#ffab1e);border:0;padding:13px 30px;border-radius:999px;box-shadow:0 6px 0 #c9781a;cursor:pointer;margin-top:4px">' + btnLabel + '</button></div>';
+    overlay.style.display = "grid";
+    overlay.querySelector('[data-ll="cta"]').onclick = () => { overlay.style.display = "none"; sfx(playTapSound); fn(); };
+  }
 
   // ── input ─────────────────────────────────────────────────────────────────
-  const onKeyDown = e => { if (e.key === "ArrowLeft") keys.left = true; else if (e.key === "ArrowRight") keys.right = true; else if (e.key === " " || e.key === "ArrowUp") { keys.jump = true; e.preventDefault(); } };
+  const onKeyDown = e => { if (e.key === "ArrowLeft") keys.left = true; else if (e.key === "ArrowRight") keys.right = true; else if (e.key === " " || e.key === "ArrowUp") { keys.jump = true; if (!e.repeat) jumpBufT = JUMP_BUFFER; e.preventDefault(); } };
   const onKeyUp = e => { if (e.key === "ArrowLeft") keys.left = false; else if (e.key === "ArrowRight") keys.right = false; else if (e.key === " " || e.key === "ArrowUp") keys.jump = false; };
   window.addEventListener("keydown", onKeyDown); window.addEventListener("keyup", onKeyUp);
   const holders = [];
   const hold = (sel, k) => {
     const el = padWrap.querySelector(sel);
-    const down = e => { e.preventDefault(); keys[k] = true; };
+    const down = e => { e.preventDefault(); keys[k] = true; if (k === "jump") jumpBufT = JUMP_BUFFER; };
     const up = () => { keys[k] = false; };
     el.addEventListener("pointerdown", down); el.addEventListener("pointerup", up); el.addEventListener("pointerleave", up);
     holders.push([el, down, up]);
@@ -329,14 +371,32 @@ function startGame(mount, opts) {
     if (!running || !player) return;
     if (invuln > 0) invuln -= dt;
     const p = player;
+    // Mission 3: move platforms and carry the rider (uses LAST frame's p.stood),
+    // then clear p.stood so this frame's collisions can re-establish it.
+    for (const pl of level.plats) {
+      if (!pl.move) continue;
+      pl.move.t += dt;
+      const off = Math.sin(pl.move.t * pl.move.speed) * pl.move.range;
+      pl.prevX = pl.x; pl.prevY = pl.y;
+      if (pl.move.axis === "x") pl.x = pl.baseX + off; else pl.y = pl.baseY + off;
+      if (p.stood === pl) { p.x += pl.x - pl.prevX; p.y += pl.y - pl.prevY; }
+    }
+    p.stood = null;
     p.vx = (keys.right ? MOVE : 0) - (keys.left ? MOVE : 0);
-    if (keys.jump && p.onGround) { p.vy = -JUMP; p.onGround = false; p.squash = -0.3; sfx(playTapSound); }
+    // Coyote time + jump buffering + variable jump height (modern platformer feel).
+    coyoteT = p.onGround ? COYOTE : Math.max(0, coyoteT - dt);
+    jumpBufT = Math.max(0, jumpBufT - dt);
+    if (jumpBufT > 0 && (p.onGround || coyoteT > 0)) {
+      p.vy = -JUMP; p.onGround = false; coyoteT = 0; jumpBufT = 0; p.squash = -0.3; sfx(playTapSound);
+    }
+    if (!keys.jump && p.vy < -4) p.vy = -4; // release early = shorter hop
     p.vy += GRAV; if (p.vy > 18) p.vy = 18;
     p.x += p.vx; if (p.vx) p.face = p.vx > 0 ? 1 : -1; p.anim += Math.abs(p.vx) * 0.07;
     p.y += p.vy;
     const wasAir = !p.onGround; p.onGround = false;
     const feet = p.y + p.h / 2;
-    for (const pl of level.plats) { if (p.x + p.w / 2 > pl.x && p.x - p.w / 2 < pl.x + pl.w && p.vy >= 0 && feet >= pl.y && feet <= pl.y + 24) { p.y = pl.y - p.h / 2; p.vy = 0; p.onGround = true; p.spawnX = p.x; } }
+    for (const pl of level.plats) { if (p.x + p.w / 2 > pl.x && p.x - p.w / 2 < pl.x + pl.w && p.vy >= 0 && feet >= pl.y && feet <= pl.y + 24) { p.y = pl.y - p.h / 2; p.vy = 0; p.onGround = true; p.spawnX = p.x; p.stood = pl; } }
+    for (const sp of level.springs) { if (Math.abs(sp.x - p.x) < 24 && p.onGround && p.y + p.h / 2 >= groundY() - 10) { p.vy = -19; p.onGround = false; p.squash = -0.45; sp.press = 0.2; sfx(playWhoosh); } }
     for (const bl of level.blocks) {
       if (bl.broken) continue;
       const ox = p.x + p.w / 2 > bl.x + 4 && p.x - p.w / 2 < bl.x + bl.w - 4;
@@ -349,7 +409,12 @@ function startGame(mount, opts) {
       }
     }
     if (feet >= groundY()) { if (inPit(p.x)) { if (p.y > H + 40) hurt(); } else { p.y = groundY() - p.h / 2; p.vy = 0; p.onGround = true; if (p.x > 70) p.spawnX = Math.max(p.spawnX, p.x - 24); } }
-    if (p.onGround && wasAir) p.squash = 0.35;
+    if (p.onGround && wasAir) {
+      p.squash = 0.35;
+      for (let i = 0; i < 6; i += 1) particles.push({ x: p.x + (Math.random() - 0.5) * 20, y: p.y + p.h / 2 - 2, vx: (Math.random() - 0.5) * 4, vy: -Math.random() * 1.5, life: 0.5, c: "#cfc9bd" });
+    }
+    if (p.onGround && p.vx !== 0) { runDustT -= dt; if (runDustT <= 0) { runDustT = 0.18; particles.push({ x: p.x - p.face * 12, y: p.y + p.h / 2 - 2, vx: -p.face * 1.2, vy: -Math.random(), life: 0.4, c: "#cfc9bd" }); } }
+    idleT = (p.vx === 0 && p.onGround) ? idleT + dt : 0;
     p.squash *= 0.8;
     if (p.x < 18) p.x = 18;
     // Catch-up: if the letter they still need is now behind them (walked or jumped
@@ -366,31 +431,33 @@ function startGame(mount, opts) {
       if (Math.abs(b.x - p.x) < 34 && Math.abs(b.y - p.y) < 42) {
         if (b.word === -1) { b.taken = true; burst(b.x, b.y, "#ff7a66"); hurt(); }
         else if (b.word === wIx && b.order === nextIx) {
-          b.taken = true; nextIx += 1; sfx(playPopSound); addScore(10); burst(b.x, b.y, "#ffd34e");
+          b.taken = true; nextIx += 1; sfx(playPopSound); addScore(10); burst(b.x, b.y, "#ffd34e"); addFloat(b.x, b.y - 22, "+10");
           if (nextIx >= word.length) wordDone(); else renderWord();
         }
       }
     }
     for (const hp of level.pickups) { if (hp.taken) continue; if (Math.abs(hp.x - p.x) < 28 && Math.abs(hp.y - p.y) < 32) { hp.taken = true; hearts = Math.min(MAXH, hearts + 1); updateHearts(); sfx(playStarChime); burst(hp.x, hp.y, "#ff6b8a"); } }
+    for (const cn of level.coins) { if (cn.taken) continue; if (Math.abs(cn.x - p.x) < 26 && Math.abs(cn.y - p.y) < 30) { cn.taken = true; coins += 1; addScore(5); addFloat(cn.x, cn.y - 16, "+5"); sfx(playPopSound); updateCoins(); } }
+    for (const st of level.stars) { if (st.taken) continue; if (Math.abs(st.x - p.x) < 30 && Math.abs(st.y - p.y) < 34) { st.taken = true; starTokens += 1; addFloat(st.x, st.y - 22, "★"); sfx(playStarChime); burst(st.x, st.y, "#ffe08a"); if (level.stars.every(s => s.taken)) { addScore(250); starFlash = 1; } updateCoins(); } }
     for (const f of level.foes) {
       f.t += dt;
       if (f.type === "walker" || f.type === "spike") {
-        f.x += f.dir * (f.type === "spike" ? 1.1 : 1.5);
+        f.x += f.dir * (f.type === "spike" ? 1.1 : 1.9);
         if (f.x < f.x0 || f.x > f.x1) f.dir *= -1;
         f.y = f.baseY;
       } else if (f.type === "hopper") {
-        f.x += f.dir * 1.2;
+        f.x += f.dir * 1.5;
         if (f.x < f.x0 || f.x > f.x1) f.dir *= -1;
         const ph = f.t % 1.6;
         f.y = f.baseY - (ph < 0.8 ? Math.sin((ph / 0.8) * Math.PI) * 46 : 0);
       } else if (f.type === "flyer") {
-        f.x += f.dir * 1.8;
+        f.x += f.dir * 2.3;
         if (f.x < f.x0 - 40 || f.x > f.x1 + 40) f.dir *= -1;
         f.y = f.baseY - 64 + Math.sin(f.t * 2.2) * 18;
       }
       if (Math.abs(f.x - p.x) < 26 && Math.abs(f.y - p.y) < 32) {
         const stomp = p.vy > 2 && p.y < f.y - 6;
-        if (stomp && f.type !== "spike") { f.dead = true; p.vy = -9; sfx(playPopSound); burst(f.x, f.y, "#a0ffb0"); addScore(5); }
+        if (stomp && f.type !== "spike") { f.dead = true; p.vy = -9; sfx(playPopSound); burst(f.x, f.y, "#a0ffb0"); addScore(5); addFloat(f.x, f.y - 20, "+5"); shakeT = 0.22; }
         else hurt(); // spikes can NEVER be stomped — jump OVER them
       }
     }
@@ -400,9 +467,15 @@ function startGame(mount, opts) {
       if (legs && legIx < legs.length - 1) { nextLeg(); return; }
       clearStage();
     } else if (p.x > level.flag && !stageDone) p.x = level.flag - 4;
-    cam = Math.max(0, Math.min(level.L - W, p.x - W * 0.35));
+    // Camera lookahead: bias the view the way the child is facing (SMW feel).
+    const camTarget = Math.max(0, Math.min(level.L - W, p.x - W * 0.35 + p.face * 90));
+    cam += (camTarget - cam) * Math.min(1, dt * 4);
     for (const pt of particles) { pt.x += pt.vx; pt.y += pt.vy; pt.vy += 0.3; pt.life -= dt; }
     particles = particles.filter(pt => pt.life > 0);
+    for (const fl of floats) { fl.y -= dt * 50; fl.life -= dt; }
+    floats = floats.filter(fl => fl.life > 0);
+    shakeT = Math.max(0, shakeT - dt);
+    starFlash = Math.max(0, starFlash - dt * 1.4);
   }
 
   // ── draw (faithful to the approved preview) ────────────────────────────────
@@ -442,6 +515,21 @@ function startGame(mount, opts) {
     }
   }
   function drawHeart(x, y) { ctx.save(); ctx.shadowColor = "rgba(255,90,120,.7)"; ctx.shadowBlur = 14; ctx.fillStyle = "#ff5a78"; const s = 13; ctx.beginPath(); ctx.moveTo(x, y + s * 0.7); ctx.bezierCurveTo(x - s, y - s * 0.4, x - s * 0.5, y - s, x, y - s * 0.35); ctx.bezierCurveTo(x + s * 0.5, y - s, x + s, y - s * 0.4, x, y + s * 0.7); ctx.fill(); ctx.restore(); }
+  function drawStarToken(x, y, tt) {
+    ctx.save(); ctx.translate(x, y); ctx.rotate(tt * 1.2); ctx.shadowColor = "rgba(255,214,90,.7)"; ctx.shadowBlur = 12; ctx.fillStyle = "#ffd34e"; ctx.strokeStyle = "#b7841a"; ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (let i = 0; i < 10; i += 1) { const a = (i / 10) * Math.PI * 2 - Math.PI / 2; const r = i % 2 === 0 ? 13 : 5.5; ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r); }
+    ctx.closePath(); ctx.fill(); ctx.stroke(); ctx.restore();
+  }
+  function drawSpring(sp) {
+    const y = groundY(); const press = sp.press > 0 ? 8 : 0; sp.press = Math.max(0, sp.press - 0.02);
+    ctx.save();
+    ctx.fillStyle = "#c9331f"; rr(sp.x - 14, y - 10 + press, 28, 10 - press, 4); ctx.fill();
+    ctx.strokeStyle = "#9aa4b2"; ctx.lineWidth = 3;
+    for (let i = 0; i < 3; i += 1) { const yy = y - 12 - i * 6 + press; ctx.beginPath(); ctx.moveTo(sp.x - 11, yy); ctx.lineTo(sp.x + 11, yy - 3); ctx.stroke(); }
+    ctx.fillStyle = "#e8524a"; rr(sp.x - 15, y - 32 + press, 30, 8, 4); ctx.fill();
+    ctx.restore();
+  }
   function drawFoe(f) {
     ctx.save();
     ctx.fillStyle = "rgba(0,0,0,.25)";
@@ -500,7 +588,10 @@ function startGame(mount, opts) {
     const lk = p.onGround ? Math.sin(p.anim) * 5 : 5; ctx.fillStyle = "#2f7a4b"; rr(-10, 12, 8, 11 + lk, 3); ctx.fill(); rr(2, 12, 8, 11 - lk, 3); ctx.fill();
     const bg = ctx.createLinearGradient(0, -18, 0, 16); bg.addColorStop(0, "#7cf0b6"); bg.addColorStop(1, "#34c589"); ctx.fillStyle = bg; rr(-15, -18, 30, 34, 13); ctx.fill(); ctx.strokeStyle = "#0f6b48"; ctx.lineWidth = 2; rr(-15, -18, 30, 34, 13); ctx.stroke();
     ctx.fillStyle = "#d6fbe8"; rr(-9, -2, 18, 14, 8); ctx.fill();
-    ctx.fillStyle = "#0a1a12"; ctx.beginPath(); ctx.arc(-4, -8, 3.2, 0, 7); ctx.arc(7, -8, 3.2, 0, 7); ctx.fill();
+    const blink = idleT > 2 && Math.floor(idleT * 2.5) % 5 === 0; // idle blink (Mission 5)
+    ctx.fillStyle = "#0a1a12";
+    if (blink) { ctx.fillRect(-6, -9, 5, 1.6); ctx.fillRect(4, -9, 5, 1.6); }
+    else { ctx.beginPath(); ctx.arc(-4, -8, 3.2, 0, 7); ctx.arc(7, -8, 3.2, 0, 7); ctx.fill(); }
     ctx.restore();
   }
   function drawBgImage() {
@@ -525,20 +616,40 @@ function startGame(mount, opts) {
       treeRow(theme.treeDark, 0.2, H - GROUND_H + 6, 150, 90, 0.28); treeRow(theme.tree, 0.45, H - GROUND_H + 14, 220, 140, 0.6);
     }
     for (const s of spores) { const sx = ((s.x - cam * 0.5) % (W + 60) + W + 60) % (W + 60) - 30; const sy = s.y + Math.sin(t * 0.8 + s.ph) * 14; ctx.globalAlpha = 0.5; ctx.fillStyle = theme.moon ? "#ffe9a0" : "#ffffff"; ctx.beginPath(); ctx.arc(sx, sy, s.s, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
-    ctx.save(); ctx.translate(-cam, 0);
+    const shx = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
+    const shy = (shakeT > 0 && !reduceMotion) ? (Math.random() - 0.5) * 6 * (shakeT / 0.22) : 0;
+    ctx.save(); ctx.translate(-cam + shx, shy);
     let x = 0; const dg = ctx.createLinearGradient(0, groundY(), 0, H); dg.addColorStop(0, theme.dirt[0]); dg.addColorStop(1, theme.dirt[1]); ctx.fillStyle = dg; ctx.fillRect(0, groundY() + 16, level.L, GROUND_H);
     for (const p of level.pits) { grassStrip(x, p[0] - x); x = p[1]; } grassStrip(x, level.L - x);
     for (const pl of level.plats) platform(pl);
+    for (const sp of level.springs) drawSpring(sp);
     for (const bl of level.blocks) drawBlock(bl);
     for (const hp of level.pickups) { if (!hp.taken) drawHeart(hp.x, hp.y + Math.sin(t * 3 + hp.x) * 4); }
     ctx.strokeStyle = "#f2f2f2"; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(level.flag, groundY()); ctx.lineTo(level.flag, groundY() - 130); ctx.stroke();
-    ctx.fillStyle = "#ffd34e"; ctx.beginPath(); ctx.moveTo(level.flag, groundY() - 130); ctx.lineTo(level.flag + 44, groundY() - 112); ctx.lineTo(level.flag, groundY() - 94); ctx.closePath(); ctx.fill();
+    { // Mission 5: waving 3-segment pennant; glows gold once the stage is completable.
+      const fx = level.flag, fy = groundY() - 130; const canFinish = wIx >= words.length - 1 && nextIx >= word.length;
+      ctx.save(); if (canFinish) { ctx.shadowColor = "rgba(255,214,90,.9)"; ctx.shadowBlur = 16; }
+      ctx.fillStyle = canFinish ? "#ffe08a" : "#ffd34e"; ctx.beginPath(); ctx.moveTo(fx, fy);
+      for (let s = 0; s <= 3; s += 1) { const u = s / 3; ctx.lineTo(fx + u * 44, fy + 8 + Math.sin(t * 6 + s) * 4); }
+      for (let s = 3; s >= 0; s -= 1) { const u = s / 3; ctx.lineTo(fx + u * 44, fy + 22 + Math.sin(t * 6 + s) * 4); }
+      ctx.closePath(); ctx.fill(); ctx.restore();
+    }
     for (const b of level.bubbles) { if (b.taken) continue; const bob = Math.sin(t * 2.4 + b.x) * 4; bubble(b.x, b.y + bob, b.ch); }
+    for (const cn of level.coins) { if (cn.taken) continue; const wob = Math.abs(Math.cos(t * 4 + cn.x)); ctx.save(); ctx.fillStyle = "#ffd34e"; ctx.strokeStyle = "#b7841a"; ctx.lineWidth = 2; ctx.beginPath(); ctx.ellipse(cn.x, cn.y + Math.sin(t * 3 + cn.x) * 3, 9 * wob + 1, 10, 0, 0, 7); ctx.fill(); ctx.stroke(); ctx.fillStyle = "rgba(255,255,255,.7)"; ctx.beginPath(); ctx.arc(cn.x - 2, cn.y - 3, 2, 0, 7); ctx.fill(); ctx.restore(); }
+    for (const st of level.stars) { if (!st.taken) drawStarToken(st.x, st.y + Math.sin(t * 2 + st.x) * 4, t); }
     for (const f of level.foes) drawFoe(f);
     if (player) drawPlayer();
     for (const pt of particles) { ctx.globalAlpha = Math.max(0, pt.life / 0.6); ctx.fillStyle = pt.c; ctx.beginPath(); ctx.arc(pt.x, pt.y, 3.5, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
+    ctx.font = "700 18px Fredoka, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    for (const fl of floats) { ctx.globalAlpha = Math.max(0, fl.life / 0.8); ctx.lineWidth = 4; ctx.strokeStyle = "rgba(6,10,20,.85)"; ctx.strokeText(fl.txt, fl.x, fl.y); ctx.fillStyle = "#fff"; ctx.fillText(fl.txt, fl.x, fl.y); ctx.globalAlpha = 1; }
     ctx.restore();
     const vg = ctx.createRadialGradient(W / 2, H / 2, H * 0.4, W / 2, H / 2, H * 0.85); vg.addColorStop(0, "rgba(0,0,0,0)"); vg.addColorStop(1, "rgba(0,0,0,.28)"); ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
+    // Low-hearts tension: the vignette pulses subtly red at 1 heart.
+    if (hearts <= 1 && !reduceMotion) {
+      const a = (0.16 + Math.abs(Math.sin(t * 4)) * 0.16).toFixed(3);
+      const rv = ctx.createRadialGradient(W / 2, H / 2, H * 0.35, W / 2, H / 2, H * 0.9); rv.addColorStop(0, "rgba(255,40,60,0)"); rv.addColorStop(1, "rgba(255,30,50," + a + ")"); ctx.fillStyle = rv; ctx.fillRect(0, 0, W, H);
+    }
+    if (starFlash > 0) { ctx.fillStyle = "rgba(255,214,90," + (starFlash * 0.4).toFixed(3) + ")"; ctx.fillRect(0, 0, W, H); }
   }
 
   // ── art (committed webp). Per-world playable-character roster so different

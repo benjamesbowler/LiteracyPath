@@ -6,7 +6,11 @@ import { supabase } from "../supabaseClient.js";
 
 const QUEUE_KEY = "lp-insert-retry-queue-v1";
 const MAX_QUEUED = 300;
+const MAX_ATTEMPTS = 6; // drop a permanently-failing row (e.g. RLS violation) instead of retrying it forever
 let flushing = false;
+
+// Signature for dedup: identical table+row shouldn't be queued twice (double-taps).
+function sig(item) { return item.table + "|" + JSON.stringify(item.row); }
 
 function isBrowser() { return typeof window !== "undefined"; }
 
@@ -35,7 +39,8 @@ export async function insertWithRetry(table, row) {
     return true;
   } catch {
     const queue = readQueue();
-    queue.push({ table, row, at: new Date().toISOString() });
+    const item = { table, row, at: new Date().toISOString(), attempts: 0 };
+    if (!queue.some(q => sig(q) === sig(item))) queue.push(item); // dedup identical rows
     writeQueue(queue);
     return false;
   }
@@ -51,7 +56,10 @@ export async function flushInsertQueue() {
     const remaining = [];
     for (const item of queue) {
       try { await tryInsert(item.table, item.row); }
-      catch { remaining.push(item); }
+      catch {
+        item.attempts = (item.attempts || 0) + 1;
+        if (item.attempts < MAX_ATTEMPTS) remaining.push(item); // else drop: it won't ever succeed
+      }
     }
     writeQueue(remaining);
   } finally {

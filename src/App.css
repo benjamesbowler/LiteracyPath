@@ -749,6 +749,11 @@ body {
   100% { background-position: -180% 0; }
 }
 
+/* Respect reduced-motion: stop the infinite shimmer, show a static surface. */
+@media (prefers-reduced-motion: reduce) {
+  .student-home-card-art { animation: none; background: #eef2f7; }
+}
+
 .student-home-card-art img {
   width: 100%;
   height: 100%;

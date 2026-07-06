@@ -22,7 +22,20 @@ import { starRubric } from "../../../../utils/starRubric.js";
 // runtime, so it adds nothing to the app bundle and fails gracefully offline.
 const THREE_SRC = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
 const LANES = [-2.2, 0, 2.2];
-const ROUNDS_PER_GAME = 5;
+const ROUNDS_PER_GAME = 8;
+
+// Each round flies through a themed sector (Wipeout-style). Fog + ambient tint
+// tween in per round, and meteorMul scales the asteroid pressure.
+const ROUND_THEMES = [
+  { name: "Deep Space",    fog: 0x0a1230, ambient: 0x8899ff, meteorMul: 1.0 },
+  { name: "Asteroid Belt", fog: 0x171008, ambient: 0xffc08a, meteorMul: 2.2 },
+  { name: "Nebula Storm",  fog: 0x1a0a2e, ambient: 0xc09aff, meteorMul: 1.3 },
+  { name: "Ice Field",     fog: 0x0a1a26, ambient: 0x9fe0ff, meteorMul: 1.6 },
+  { name: "Red Giant",     fog: 0x260c08, ambient: 0xff9a7a, meteorMul: 1.8 },
+  { name: "Dark Rift",     fog: 0x05060f, ambient: 0x6677cc, meteorMul: 2.0 },
+  { name: "Star Nursery",  fog: 0x201a08, ambient: 0xffe09a, meteorMul: 1.5 },
+  { name: "Comet Chase",   fog: 0x0a1230, ambient: 0xaaccff, meteorMul: 2.6 }
+];
 
 function loadThree() {
   return new Promise((resolve, reject) => {
@@ -47,7 +60,7 @@ function loadThree() {
 }
 
 function difficultyCount(difficulty) {
-  return difficulty === "hard" ? 8 : difficulty === "medium" ? 6 : 5;
+  return difficulty === "hard" ? 12 : difficulty === "medium" ? 10 : 8;
 }
 
 // Imperative game — kept out of React so the render stays a single container.
@@ -75,7 +88,8 @@ function startGame(THREE, mount, opts) {
   hud.innerHTML =
     '<div style="position:absolute;top:14px;left:16px;display:flex;align-items:center;gap:10px;background:rgba(10,16,40,.72);border:2px solid rgba(120,180,255,.35);border-radius:999px;padding:6px 16px 6px 8px">' +
     '<div data-rr="letter" style="width:48px;height:48px;display:grid;place-items:center;font-size:1.7rem;font-weight:700;border-radius:14px;color:#071033;background:linear-gradient(160deg,#ffd34e,#ffa41c);box-shadow:0 4px 0 #c9781a"></div>' +
-    '<div data-rr="copy" style="font-size:1.05rem;font-weight:600"></div></div>' +
+    '<div data-rr="copy" style="font-size:1.05rem;font-weight:600"></div>' +
+    '<div data-rr="combo" style="display:none;margin-left:2px;font-size:1.2rem;font-weight:800;color:#ffe08a;text-shadow:0 2px 6px rgba(0,0,0,.5);transition:transform .12s cubic-bezier(.2,.9,.3,1)">×2</div></div>' +
     '<div style="position:absolute;top:16px;right:16px;text-align:right">' +
     '<div data-rr="hearts" style="font-size:1.25rem;letter-spacing:2px;margin-bottom:2px">❤❤❤</div>' +
     '<div data-rr="stars" style="font-size:1.4rem;letter-spacing:2px">✩✩✩</div>' +
@@ -83,9 +97,17 @@ function startGame(THREE, mount, opts) {
     '<i data-rr="fuel" style="display:block;height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,#3fd6a0,#23a455);transition:width .35s cubic-bezier(.2,.9,.3,1)"></i></div></div>' +
     '<button data-rr="left" aria-label="Steer left" style="position:absolute;left:0;top:80px;bottom:0;width:42%;background:transparent;border:0;pointer-events:auto"></button>' +
     '<button data-rr="right" aria-label="Steer right" style="position:absolute;right:0;top:80px;bottom:0;width:42%;background:transparent;border:0;pointer-events:auto"></button>' +
+    '<div data-rr="banner" style="position:absolute;top:34%;left:0;right:0;text-align:center;pointer-events:none;font-style:italic;font-weight:800;font-size:clamp(1.3rem,5vw,2.4rem);letter-spacing:.14em;text-transform:uppercase;color:#eaf2ff;text-shadow:0 3px 18px rgba(0,0,0,.6);opacity:0;transition:opacity .3s ease,transform .3s ease;transform:translateX(-40px)"></div>' +
     '<div data-rr="overlay" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;background:radial-gradient(120% 90% at 50% 25%,rgba(30,44,96,.72),rgba(6,9,24,.94));pointer-events:auto"></div>';
   mount.appendChild(hud);
   const el = key => hud.querySelector('[data-rr="' + key + '"]');
+  let bannerT = 0;
+  function showBanner(text) {
+    const b = el("banner"); if (!b) return;
+    b.textContent = text;
+    b.style.opacity = "1"; b.style.transform = "translateX(0)";
+    bannerT = 1.2;
+  }
 
   // ── Three.js scene ───────────────────────────────────────────────────────
   const scene = new THREE.Scene();
@@ -102,7 +124,8 @@ function startGame(THREE, mount, opts) {
   renderer.domElement.style.display = "block";
   mount.insertBefore(renderer.domElement, hud);
 
-  scene.add(new THREE.AmbientLight(0x8899ff, 0.7));
+  const ambient = new THREE.AmbientLight(0x8899ff, 0.7);
+  scene.add(ambient);
   const key = new THREE.DirectionalLight(0xffffff, 0.9);
   key.position.set(3, 8, 6);
   scene.add(key);
@@ -129,6 +152,57 @@ function startGame(THREE, mount, opts) {
     scene.add(pts);
     starLayers.push(pts);
   });
+
+  // ── Mission 3: neon lane rails (instant "it's a track, not empty space") ──
+  const rails = [];
+  for (const lx of LANES) {
+    const rail = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.14, 70),
+      new THREE.MeshBasicMaterial({ color: 0x3fd6ff, transparent: true, opacity: 0.28, blending: THREE.AdditiveBlending, depthWrite: false })
+    );
+    rail.rotation.x = -Math.PI / 2;
+    rail.position.set(lx, 0.18, -25);
+    scene.add(rail); rails.push(rail);
+  }
+
+  // ── Mission 5: far-field drifting planets (procedural texture) ────────────
+  function planetTexture(hue) {
+    const c = document.createElement("canvas"); c.width = c.height = 128;
+    const x = c.getContext("2d");
+    const g = x.createRadialGradient(44, 44, 8, 64, 64, 74);
+    g.addColorStop(0, "hsl(" + hue + ",70%,72%)"); g.addColorStop(1, "hsl(" + ((hue + 40) % 360) + ",60%,32%)");
+    x.fillStyle = g; x.beginPath(); x.arc(64, 64, 64, 0, 7); x.fill();
+    x.globalAlpha = 0.18; x.fillStyle = "#000";
+    for (let i = 0; i < 6; i += 1) x.fillRect(0, 20 + i * 16 + Math.sin(i) * 4, 128, 5 + (i % 2) * 3);
+    return new THREE.CanvasTexture(c);
+  }
+  const planets = [];
+  for (let i = 0; i < 3; i += 1) {
+    const hue = Math.floor(Math.random() * 360);
+    const mesh = new THREE.Mesh(new THREE.SphereGeometry(2.2, 24, 24), new THREE.MeshBasicMaterial({ map: planetTexture(hue) }));
+    mesh.position.set((Math.random() - 0.5) * 34, 4 + Math.random() * 10, -70 - i * 8);
+    scene.add(mesh); planets.push(mesh);
+  }
+
+  // ── Mission 5: occasional ambient comet streak (thin additive plane) ──────
+  const cometStreak = new THREE.Mesh(
+    new THREE.PlaneGeometry(9, 0.16),
+    new THREE.MeshBasicMaterial({ color: 0xbfe6ff, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false })
+  );
+  cometStreak.rotation.z = -0.5;
+  cometStreak.position.set(0, 12, -60);
+  scene.add(cometStreak);
+
+  // ── Mission 4: boost speed-line quads at the screen edges (hidden until boosting) ──
+  for (let i = 0; i < 12; i += 1) {
+    const q = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.05, 2.4),
+      new THREE.MeshBasicMaterial({ color: 0x9fe0ff, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false })
+    );
+    const side = i < 6 ? -1 : 1;
+    q.position.set(side * (2.6 + Math.random() * 1.6), 0.4 + Math.random() * 3, 2 - Math.random() * 6);
+    scene.add(q); speedLines.push(q);
+  }
 
   // ── Ship v2: one curved lathed hull (no cylinder+cone seams), glass canopy,
   //    swept fins, and a flickering additive engine plume + light. ───────────
@@ -274,6 +348,18 @@ function startGame(THREE, mount, opts) {
     scene.add(group);
     return group;
   }
+  function makeRing(lane) {
+    const group = new THREE.Group();
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(1.05, 0.09, 12, 40),
+      new THREE.MeshBasicMaterial({ color: 0x59ffe0, transparent: true, opacity: 0.9, blending: THREE.AdditiveBlending, depthWrite: false })
+    );
+    group.add(ring);
+    group.position.set(LANES[lane], 1.05, -46);
+    group.userData = { ring: true, lane, alive: true, orb: ring, setFade: a => { ring.material.opacity = 0.9 * a; } };
+    scene.add(group);
+    return group;
+  }
 
   // ── State ────────────────────────────────────────────────────────────────
   let laneIx = 1;
@@ -292,9 +378,33 @@ function startGame(THREE, mount, opts) {
   let elapsed = 0;
   let score = 0, caughtTotal = 0, neededTotal = 0, wrongTotal = 0, deaths = 0;
   const bursts = [];
+  // ── quality-pass state (missions 1-5) ────────────────────────────────────
+  let rollT = 0, rollDir = 0, shipPulse = 0;       // bank flourish + catch pulse
+  let combo = 0, boostT = 0, fov = 62;             // combo multiplier + Wipeout boost
+  let theme = ROUND_THEMES[0];                     // current themed sector
+  const fogTarget = new THREE.Color(theme.fog);
+  const ambientTarget = new THREE.Color(theme.ambient);
+  let cometStreakT = 6 + Math.random() * 14;       // ambient comet streak timer
+  const speedLines = [];                            // boost speed-line quads
 
   function setFuel() { el("fuel").style.width = Math.round(needed ? (100 * caught) / needed : 0) + "%"; }
   function addScore(n) { score += n; if (opts.onScoreUpdate) opts.onScoreUpdate(score); }
+  function bumpCombo() {
+    combo += 1;
+    const c = el("combo");
+    if (c && combo >= 2) { c.style.display = "block"; c.textContent = "×" + combo; c.style.transform = "scale(1.4)"; setTimeout(() => { c.style.transform = "scale(1)"; }, 120); }
+    if (combo % 5 === 0) queue.splice(Math.min(2, queue.length), 0, { ring: true }); // Wipeout boost ring every 5
+  }
+  function resetCombo() { combo = 0; const c = el("combo"); if (c) c.style.display = "none"; }
+  let finaleComet = null;
+  function spawnFinaleComet() {
+    const g = new THREE.Group();
+    g.add(new THREE.Mesh(new THREE.IcosahedronGeometry(1.6, 0), new THREE.MeshStandardMaterial({ color: 0xdfe9ff, emissive: 0x88aaff, emissiveIntensity: 0.8, flatShading: true })));
+    const tail = new THREE.Mesh(new THREE.ConeGeometry(1.1, 20, 20, 1, true), new THREE.MeshBasicMaterial({ color: 0x9fc6ff, transparent: true, opacity: 0.4, blending: THREE.AdditiveBlending, depthWrite: false }));
+    tail.rotation.x = -Math.PI / 2; tail.position.z = 10; g.add(tail);
+    g.position.set(-14, 9, -55);
+    scene.add(g); finaleComet = g;
+  }
   function missCue() {
     const f = el("fuel"); if (f) { f.style.filter = "brightness(1.9)"; setTimeout(() => { f.style.filter = ""; }, 180); }
     sfx(playPopSound);
@@ -303,6 +413,7 @@ function startGame(THREE, mount, opts) {
     // Catch-up: a correct word that slipped past comes back. After 2 tries it
     // returns in the ship's OWN lane (a guaranteed catch) — a word is never lost.
     const tries = (data.tries || 0) + 1;
+    resetCombo(); // a correct word slipping past breaks the streak
     missCue();
     if (tries <= 2) queue.splice(Math.min(3, queue.length), 0, { word: data.word, correct: true, tries });
     else queue.splice(Math.min(1, queue.length), 0, { word: data.word, correct: true, tries, guaranteed: true });
@@ -315,13 +426,15 @@ function startGame(THREE, mount, opts) {
   }
 
   function startRound() {
+    theme = ROUND_THEMES[roundIx % ROUND_THEMES.length];       // themed sector
+    fogTarget.set(theme.fog); ambientTarget.set(theme.ambient); // tweened in tick
     const target = targets[roundIx % targets.length]; // walk the ramped ladder, no repeats
     const round = buildRocketRunRound(target, { count, difficulty: opts.difficulty });
     el("letter").textContent = target;
     el("copy").innerHTML = "Catch the <b>" + target + "</b> words!";
     const seq = round.sequence.map(item => ({ word: item.word, correct: item.correct }));
-    // Interleave meteors to dodge — more the deeper you get.
-    const meteorCount = 2 + roundIx;
+    // Interleave meteors to dodge — more the deeper you get, scaled by the sector.
+    const meteorCount = Math.round((2 + roundIx * 1.4) * (theme.meteorMul || 1));
     for (let i = 0; i < meteorCount; i += 1) seq.splice(Math.floor(Math.random() * (seq.length + 1)), 0, { meteor: true });
     queue = seq;
     needed = round.needed;
@@ -331,8 +444,11 @@ function startGame(THREE, mount, opts) {
     bubbles = [];
     spawnTimer = 0.3;
     running = true;
+    resetCombo();
     setFuel();
     updateHearts();
+    showBanner("Round " + (roundIx + 1) + " — " + theme.name);
+    if (roundIx === ROUNDS_PER_GAME - 1 && !finaleComet) spawnFinaleComet(); // Comet Chase finale
     if (opts.onProgressUpdate) opts.onProgressUpdate(roundIx, ROUNDS_PER_GAME);
     if (opts.onCheckpoint) opts.onCheckpoint(roundIx, ROUNDS_PER_GAME);
   }
@@ -340,7 +456,7 @@ function startGame(THREE, mount, opts) {
   function moveLane(dir) {
     if (!running) return;
     const next = Math.max(0, Math.min(2, laneIx + dir));
-    if (next !== laneIx) { laneIx = next; sfx(playTapSound); }
+    if (next !== laneIx) { laneIx = next; rollT = 0.38; rollDir = dir; sfx(playTapSound); }
   }
 
   function burst(position, color) {
@@ -360,20 +476,30 @@ function startGame(THREE, mount, opts) {
   function resolveBubble(bubble) {
     bubble.userData.alive = false;
     const hit = bubble.userData.lane === laneIx;
+    if (bubble.userData.ring) {
+      // Boost ring: fly through in the right lane for a Wipeout speed burst. Never
+      // a penalty in the wrong lane — it just passes.
+      if (hit) { boostT = 1.6; addScore(25); sfx(playWhoosh); burst(bubble.position, 0x59ffe0); }
+      scene.remove(bubble); disposeGroup(bubble);
+      return;
+    }
     if (bubble.userData.meteor) {
-      if (hit) { loseHeart(); burst(bubble.position, 0xff7a66); }
+      if (hit) { loseHeart(); resetCombo(); burst(bubble.position, 0xff7a66); }
       scene.remove(bubble); disposeGroup(bubble);
       return;
     }
     if (hit && bubble.userData.correct) {
       caught += 1;
-      addScore(opts.difficulty === "hard" ? 15 : 10);
+      bumpCombo();
+      addScore((opts.difficulty === "hard" ? 15 : 10) * Math.min(4, 1 + Math.floor(combo / 3)));
+      shipPulse = 0.25;
       setFuel();
       sfx(playCorrectChime);
       sfx(playPopSound);
       burst(bubble.position, 0x8affc0);
     } else if (hit && !bubble.userData.correct) {
       wrongHits += 1;
+      resetCombo();
       sfx(playSoftBuzz);
       burst(bubble.position, 0xff7a66);
       shakeV = 0.35;
@@ -409,8 +535,10 @@ function startGame(THREE, mount, opts) {
       finishGame();
       return;
     }
+    const nextTheme = ROUND_THEMES[roundIx % ROUND_THEMES.length];
     const overlay = showOverlay(
-      '<div><div style="font-size:2rem;font-weight:700;margin-bottom:8px">Planet reached!</div>' +
+      '<div><div style="font-size:2rem;font-weight:700;margin-bottom:4px">Planet reached!</div>' +
+      '<div style="opacity:.85;margin-bottom:12px">Entering the <b>' + nextTheme.name + '</b></div>' +
       '<button data-rr="next" style="font-family:inherit;font-weight:700;font-size:1.2rem;color:#071033;padding:14px 30px;border:0;border-radius:999px;background:linear-gradient(160deg,#ffd34e,#ffa41c);box-shadow:0 6px 0 #c9781a;cursor:pointer">Next sound →</button></div>'
     );
     overlay.querySelector('[data-rr="next"]').addEventListener("click", () => {
@@ -422,7 +550,37 @@ function startGame(THREE, mount, opts) {
   function finishGame() {
     sfx(playCelebrationFanfare);
     const stars = starRubric({ correct: caughtTotal, total: neededTotal, mistakes: wrongTotal, deaths });
-    showOverlay('<div><div style="font-size:2rem;font-weight:700">Mission complete!</div><div style="opacity:.85;margin-top:8px;font-size:1.6rem">' + "★".repeat(stars) + "✩".repeat(3 - stars) + '</div></div>');
+    // Comet Chase finale: a burst of confetti as the run completes.
+    const confettiColors = [0xffd34e, 0x59ffe0, 0xff7a9c, 0x8affc0];
+    for (let i = 0; i < 6; i += 1) burst({ x: (Math.random() - 0.5) * 6, y: 1 + Math.random() * 3, z: 3 }, confettiColors[i % 4]);
+    const overlay = showOverlay(
+      '<div style="display:grid;gap:14px;justify-items:center">' +
+      '<div style="font-size:2rem;font-weight:800">You caught the comet!</div>' +
+      '<div data-rr="rstars" style="font-size:2.3rem;letter-spacing:8px;min-height:2.5rem">✩✩✩</div>' +
+      '<div style="font-size:1.15rem;opacity:.9">Score <b data-rr="rscore">0</b></div>' +
+      '<button data-rr="done" style="font-family:inherit;font-weight:700;font-size:1.2rem;color:#071033;padding:13px 30px;border:0;border-radius:999px;background:linear-gradient(160deg,#ffd34e,#ffa41c);box-shadow:0 6px 0 #c9781a;cursor:pointer;margin-top:4px">Done</button>' +
+      '</div>'
+    );
+    // Stars pop in one at a time, each with a chime; score counts up over ~800ms.
+    const sEl = overlay.querySelector('[data-rr="rstars"]');
+    for (let i = 0; i < 3; i += 1) {
+      setTimeout(() => {
+        if (!sEl) return;
+        const shown = Math.min(stars, i + 1);
+        sEl.textContent = "★".repeat(shown) + "✩".repeat(3 - shown);
+        if (i < stars) sfx(playStarChime);
+      }, 350 + i * 400);
+    }
+    const scEl = overlay.querySelector('[data-rr="rscore"]');
+    const t0 = performance.now();
+    const countUp = () => {
+      const p = Math.min(1, (performance.now() - t0) / 800);
+      if (scEl) scEl.textContent = String(Math.round(score * p));
+      if (p < 1) requestAnimationFrame(countUp);
+    };
+    requestAnimationFrame(countUp);
+    const done = overlay.querySelector('[data-rr="done"]');
+    if (done) done.addEventListener("click", () => { overlay.style.display = "none"; });
     if (opts.onProgressUpdate) opts.onProgressUpdate(ROUNDS_PER_GAME, ROUNDS_PER_GAME);
     if (opts.onComplete) opts.onComplete(stars, score, caughtTotal);
   }
@@ -462,29 +620,71 @@ function startGame(THREE, mount, opts) {
     const dt = Math.min(0.05, ((now - last) || 16) / 1000);
     last = now;
     elapsed += dt;
-    const speed = 1 + roundIx * 0.22 + Math.min(0.7, elapsed * 0.006); // faster deeper in + over time
+    const finale = roundIx === ROUNDS_PER_GAME - 1;
+    const boost = boostT > 0 ? 1.8 : 1; boostT = Math.max(0, boostT - dt);
+    const speed = (1.15 + roundIx * 0.26 + Math.min(1.0, elapsed * 0.01)) * (finale ? 1.25 : 1);
+
+    // themed sector tween (fog + ambient) + low-hearts fog tension
+    if (scene.fog && scene.fog.color) scene.fog.color.lerp(fogTarget, Math.min(1, dt * 1.2));
+    ambient.color.lerp(ambientTarget, Math.min(1, dt * 1.2));
+    if (scene.fog) scene.fog.density = 0.03 + (hearts <= 1 ? Math.abs(Math.sin(elapsed * 3)) * 0.006 : 0);
+
     for (const layer of starLayers) {
-      layer.position.z += dt * layer.userData.speed * speed * (reduceMotion ? 0.5 : 1);
+      layer.position.z += dt * layer.userData.speed * speed * boost * (reduceMotion ? 0.5 : 1);
       if (layer.position.z > 40) layer.position.z = 0;
     }
+    rails.forEach((r, i) => { r.material.opacity = (i === laneIx ? 0.5 : 0.22) + Math.sin(now * 0.004 + i) * 0.06; });
+    for (const pl of planets) {
+      pl.position.z += dt * 0.4; pl.rotation.y += dt * 0.05;
+      if (pl.position.z > -8) pl.position.set((Math.random() - 0.5) * 34, 4 + Math.random() * 10, -92);
+    }
+    cometStreakT -= dt;
+    if (cometStreakT <= 0 && !reduceMotion) { cometStreak.position.set(-16, 8 + Math.random() * 6, -55); cometStreak.userData.run = 1.2; cometStreakT = 20 + Math.random() * 10; }
+    if (cometStreak.userData.run > 0) { cometStreak.userData.run -= dt; cometStreak.position.x += dt * 34; cometStreak.material.opacity = Math.max(0, cometStreak.userData.run / 1.2) * 0.8; }
+    if (finaleComet) { finaleComet.position.x = -14 + Math.sin(elapsed * 0.3) * 8; finaleComet.rotation.y += dt * 0.4; }
+
     ship.position.x += (LANES[laneIx] - ship.position.x) * Math.min(1, dt * 12);
     ship.rotation.z = (LANES[laneIx] - ship.position.x) * -0.25;
-    const fl = 0.9 + Math.random() * 0.25;
-    plume.scale.set(fl, 0.8 + Math.random() * 0.5, fl);
+    if (rollT > 0) { ship.rotation.z += Math.sin((1 - rollT / 0.38) * Math.PI) * -rollDir * 0.7; rollT -= dt; }
+    camera.position.y = 2.6 + Math.sin(elapsed * 1.3) * 0.05;
+    shipPulse = Math.max(0, shipPulse - dt); ship.scale.setScalar(1 + shipPulse * 0.3);
+    const bl = boost > 1 ? 1.6 : 1;
+    const fl = (0.9 + Math.random() * 0.25) * bl;
+    plume.scale.set(fl, (0.8 + Math.random() * 0.5) * bl, fl);
     plumeCore.scale.set(1, 0.7 + Math.random() * 0.6, 1);
     engineLight.intensity = 0.9 + Math.random() * 0.6;
+
+    const fovWant = boost > 1 ? 74 : 62;
+    if (Math.abs(fov - fovWant) > 0.1) { fov += (fovWant - fov) * Math.min(1, dt * 6); camera.fov = fov; camera.updateProjectionMatrix(); }
+    for (const q of speedLines) {
+      q.material.opacity = (boost > 1 && !reduceMotion) ? 0.5 : Math.max(0, q.material.opacity - dt * 3);
+      q.scale.y = boost > 1 ? 1.7 : 1;
+      q.position.z += dt * 40 * boost; if (q.position.z > 6) q.position.z = -6;
+    }
+    if (bannerT > 0) { bannerT -= dt; if (bannerT <= 0) { const b = el("banner"); if (b) { b.style.opacity = "0"; b.style.transform = "translateX(-40px)"; } } }
 
     if (running) {
       spawnTimer -= dt;
       if (spawnTimer <= 0 && queue.length) {
-        const item = queue.shift();
-        bubbles.push(item.meteor ? makeMeteor(Math.floor(Math.random() * 3)) : makeBubble(item.word, item.correct, item.guaranteed ? laneIx : Math.floor(Math.random() * 3), item.tries));
-        spawnTimer = 1.15 / speed;
+        // Pair spawns: two objects in different lanes as depth ramps — real
+        // hands-busy difficulty, not a single-file trickle.
+        const spawnOne = avoidLane => {
+          const item = queue.shift();
+          let lane = item.guaranteed ? laneIx : Math.floor(Math.random() * 3);
+          if (avoidLane != null && lane === avoidLane) lane = (lane + 1 + Math.floor(Math.random() * 2)) % 3;
+          bubbles.push(item.ring ? makeRing(lane) : item.meteor ? makeMeteor(lane) : makeBubble(item.word, item.correct, lane, item.tries));
+          return lane;
+        };
+        const lane = spawnOne(null);
+        const pairChance = Math.min(0.55, 0.12 + roundIx * 0.06 + (opts.difficulty === "hard" ? 0.15 : 0));
+        if (queue.length && Math.random() < pairChance) spawnOne(lane);
+        spawnTimer = 1.0 / speed;
       }
       for (const bubble of bubbles) {
         if (!bubble.userData.alive) continue;
-        bubble.position.z += dt * 9.5 * speed;
+        bubble.position.z += dt * 11 * speed * boost;
         if (bubble.userData.meteor) bubble.userData.rock.rotation.x += dt * 1.8;
+        else if (bubble.userData.ring) bubble.rotation.z += dt * 1.4;
         else if (bubble.userData.orb) bubble.userData.orb.rotation.y += dt * 1.5;
 
         if (!bubble.userData.passed) {
@@ -493,11 +693,10 @@ function startGame(THREE, mount, opts) {
             continue;
           }
           if (bubble.position.z > ship.position.z + 0.9) {
-            // Crossed the ROCKET plane uncaught — every pass-by cue fires HERE
-            // (it used to fire at the camera/screen plane, half a second late).
+            // Crossed the ROCKET plane uncaught — pass-by cue fires HERE.
             bubble.userData.passed = true;
             if (bubble.userData.correct) requeueMissed(bubble.userData);
-            else if (!bubble.userData.meteor) sfx(playWhoosh);
+            else if (!bubble.userData.meteor && !bubble.userData.ring) sfx(playWhoosh);
           }
         } else {
           const fade = Math.max(0, 1 - (bubble.position.z - ship.position.z - 0.9) / 2.2);
@@ -543,6 +742,11 @@ function startGame(THREE, mount, opts) {
     for (const b of bubbles) { scene.remove(b); disposeGroup(b); }
     disposeGroup(ship);
     for (const layer of starLayers) { scene.remove(layer); disposeGroup(layer); }
+    for (const r of rails) { scene.remove(r); disposeGroup(r); }
+    for (const pl of planets) { scene.remove(pl); disposeGroup(pl); }
+    for (const q of speedLines) { scene.remove(q); disposeGroup(q); }
+    scene.remove(cometStreak); disposeGroup(cometStreak);
+    if (finaleComet) { scene.remove(finaleComet); disposeGroup(finaleComet); }
     try { renderer.dispose(); if (renderer.forceContextLoss) renderer.forceContextLoss(); } catch { /* ignore */ }
     if (renderer.domElement && renderer.domElement.parentNode) renderer.domElement.parentNode.removeChild(renderer.domElement);
     if (hud.parentNode) hud.parentNode.removeChild(hud);

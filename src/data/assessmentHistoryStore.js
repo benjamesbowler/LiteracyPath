@@ -274,7 +274,9 @@ export function extractMasteryFromAssessmentAttempt(record = {}) {
 
   const rows = Array.from(groups.values()).map(group => {
     const accuracy = group.attempts ? Math.round((group.correct / group.attempts) * 100) : 0;
-    const mastered = group.correct >= 2 || (group.attempts > 0 && accuracy >= 80);
+    // Mastery requires BOTH enough correct answers AND a real accuracy floor — a
+    // bare `correct >= 2` marked a child mastered even at 2-of-8 (25%) accuracy.
+    const mastered = group.correct >= 2 && accuracy >= 80;
     const needsSupport = group.attempts > 0 && (group.correct === 0 || accuracy < 60);
     return {
       itemKey: group.itemKey,
