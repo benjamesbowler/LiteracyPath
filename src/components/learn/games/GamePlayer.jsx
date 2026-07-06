@@ -6,7 +6,10 @@ import { cancelGameSfx } from "../../../utils/audio/gameSfx";
 import {
   clearActiveLearnGamesProgressScope,
   saveLearnGameResult,
-  setActiveLearnGamesProgressScope
+  setActiveLearnGamesProgressScope,
+  loadGameCheckpoint,
+  saveGameCheckpoint,
+  clearGameCheckpoint
 } from "../../../utils/learnGamesProgress";
 import { notifyMissionTaskDone } from "../../../utils/dailyMission.js";
 import { awardCollectible } from "../../../utils/studentProfile.js";
@@ -36,6 +39,12 @@ export function GamePlayer({
   const [showQuit, setShowQuit] = useState(false);
   const [completed, setCompleted] = useState(false);
   const [progressStatus, setProgressStatus] = useState({ current: 0, total: 1 });
+  // Resume: check for a saved checkpoint once, on open. difficulty is fixed for a
+  // GamePlayer's lifetime (chosen in the arcade before entry), so a lazy initial
+  // read is correct and avoids a blank first frame. resumePoint set => show the
+  // Continue / Start-over prompt and hold the game until the child chooses.
+  const [resumePoint, setResumePoint] = useState(() => loadGameCheckpoint(progressScopeKey, game.id, difficulty));
+  const [startLevel, setStartLevel] = useState(() => (loadGameCheckpoint(progressScopeKey, game.id, difficulty) ? null : 0));
   const wasFullscreenRef = useRef(false);
   const engineRef = useRef(null);
   const GameComponent = LEARN_GAMES[game.id];
@@ -82,6 +91,7 @@ export function GamePlayer({
     // take whichever is higher.
     const settledScore = Math.max(Number(finalScore) || 0, Number(score) || 0);
     const nextProgress = saveLearnGameResult(progressScopeKey, game.id, stars, settledScore, wordsCompleted);
+    clearGameCheckpoint(progressScopeKey, game.id, difficulty); // finished the ladder — nothing to resume
     notifyMissionTaskDone(progressScopeKey, "game");
     if (Number(stars) > 0) {
       // Finishing a game with at least one star earns a collectible gem.
@@ -98,6 +108,21 @@ export function GamePlayer({
   // render fed an effect inside the game engine, which re-rendered this
   // component, which made a fresh callback... an infinite render loop that
   // froze games and reshuffled answer options every frame.
+  const handleCheckpoint = useCallback((level, total) => {
+    saveGameCheckpoint(progressScopeKey, game.id, difficulty, level, total);
+  }, [progressScopeKey, game.id, difficulty]);
+
+  function continueGame() {
+    setStartLevel(resumePoint ? resumePoint.level : 0);
+    setResumePoint(null);
+  }
+
+  function restartGame() {
+    clearGameCheckpoint(progressScopeKey, game.id, difficulty);
+    setStartLevel(0);
+    setResumePoint(null);
+  }
+
   const handleProgressUpdate = useCallback((current, total) => {
     const next = {
       current: Math.max(0, Number(current) || 0),
@@ -172,16 +197,33 @@ export function GamePlayer({
             </div>
           }
         >
-          <GameComponent
-            difficulty={difficulty}
-            onScoreUpdate={setScore}
-            onProgressUpdate={handleProgressUpdate}
-            onComplete={handleComplete}
-            onEngineReady={api => { engineRef.current = api; }}
-            isSoundEnabled={soundEnabled}
-          />
+          {startLevel !== null && (
+            <GameComponent
+              difficulty={difficulty}
+              startLevel={startLevel}
+              onScoreUpdate={setScore}
+              onProgressUpdate={handleProgressUpdate}
+              onComplete={handleComplete}
+              onCheckpoint={handleCheckpoint}
+              onEngineReady={api => { engineRef.current = api; }}
+              isSoundEnabled={soundEnabled}
+            />
+          )}
         </Suspense>
       </main>
+
+      {resumePoint && startLevel === null && (
+        <div className="lg-game-confirm" role="alertdialog" aria-modal="true" aria-label="Resume game">
+          <div>
+            <h2>Welcome back! 🚀</h2>
+            <p>You reached level {resumePoint.level + 1}{resumePoint.totalLevels ? ` of ${resumePoint.totalLevels}` : ""}. Pick up where you left off?</p>
+            <div>
+              <button type="button" onClick={continueGame}>Continue</button>
+              <button type="button" className="danger" onClick={restartGame}>Start over</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {showQuit && (
         <div className="lg-game-confirm" role="alertdialog" aria-modal="true" aria-label="Quit game">

@@ -7,6 +7,7 @@ import {
   loadLearnGamesProgress,
   saveLearnGamesSettings
 } from "../../../utils/learnGamesProgress";
+import { readCheckpoint } from "../../../utils/gameCheckpoints.js";
 import { ProgressStars } from "./shared/ProgressStars.jsx";
 import { SoundToggle } from "./shared/SoundToggle.jsx";
 import { GamePlayer } from "./GamePlayer.jsx";
@@ -168,6 +169,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
       <div className="lg-game-grid">
         {ARCADE_GAMES.map((game, index) => {
           const gameProgress = getLearnGameProgress(progress, game.id);
+          const resume = readCheckpoint(progress.games, game.id, progress.difficulty);
           return (
             <button
               key={game.id}
@@ -195,6 +197,11 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
               </span>
               <span className="lg-game-card-meta">
                 <span className="lg-game-skill">{game.skill}</span>
+                {resume && (
+                  <span className="lg-game-skill" style={{ background: "rgba(4,10,32,0.72)", color: "#fff" }}>
+                    Resume · Lvl {resume.level + 1}{resume.totalLevels ? `/${resume.totalLevels}` : ""}
+                  </span>
+                )}
                 <ProgressStars stars={gameProgress.stars || 0} />
               </span>
               <span className="lg-game-play" aria-hidden="true">Play</span>

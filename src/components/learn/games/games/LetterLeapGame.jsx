@@ -38,13 +38,16 @@ function startGame(mount, opts) {
   const ladder = difficultyLadder("letter-leap", opts.difficulty);
   const sfx = fn => { try { if (opts.getSound && opts.getSound()) fn(); } catch { /* audio optional */ } };
 
-  // The ordered word list for a stage (a sentence stage spells its sentence's words).
+  // The full word list for a stage. A sentence stage now plays EVERY sentence in
+  // its bucket (not just the first) as sequential "legs" — flattened here only so
+  // totalWords/progress count every word the child will actually spell.
   const stageWords = plan => (plan.mode === "sentence"
-    ? (plan.targets[0] || [])
+    ? plan.targets.flat()
     : plan.targets).map(w => String(w).toUpperCase());
-  const stageGoalLabel = plan => (plan.mode === "sentence"
-    ? "Build: " + (plan.targets[0] || []).join(" ")
-    : null);
+  // Per-stage sentence legs (each leg = one sentence's words); null for letter stages.
+  const allStageSentences = ladder.map(plan => (plan.mode === "sentence"
+    ? plan.targets.map(s => s.map(w => String(w).toUpperCase()))
+    : null));
 
   const allStageWords = ladder.map(stageWords);
   const totalWords = allStageWords.reduce((s, w) => s + w.length, 0) || 1;
@@ -96,8 +99,10 @@ function startGame(mount, opts) {
   let player, level, words, wIx, word, nextIx, hearts, running = false, cam = 0, last = 0, invuln = 0;
   let particles = [], spores = [];
   let score = 0, wrongHits = 0, deaths = 0, wordsDoneGlobal = 0;
-  const stageQueue = makeCatchUp(ladder.map((_, i) => i)); // catch-up: a failed stage returns later
+  const startLevel = Math.max(0, Math.min(Number(opts.startLevel) || 0, ladder.length - 1));
+  const stageQueue = makeCatchUp(ladder.map((_, i) => i).slice(startLevel)); // resume mid-ladder; a failed stage returns later
   let stageIdx = 0;
+  let legs = null, legIx = 0; // sentence stages: the sentences to build, in order
   let rafId = 0;
 
   function addScore(n) { score += n; opts.onScoreUpdate && opts.onScoreUpdate(score); }
@@ -158,7 +163,8 @@ function startGame(mount, opts) {
     stageIdx = stageQueue.peek();
     if (stageIdx == null) { finishGame(); return; }
     const plan = ladder[stageIdx];
-    words = allStageWords[stageIdx].slice();
+    legs = allStageSentences[stageIdx]; legIx = 0;
+    words = (legs ? legs[0] : allStageWords[stageIdx]).slice();
     wIx = 0; word = words[0] || ""; nextIx = 0;
     level = makeLevel(words, world, stageIdx);
     player = { x: 70, y: groundY() - 46, w: 32, h: 46, vx: 0, vy: 0, onGround: true, face: 1, anim: 0, spawnX: 70, squash: 0 };
@@ -166,10 +172,11 @@ function startGame(mount, opts) {
     spores = []; for (let i = 0; i < 26; i += 1) spores.push({ x: Math.random() * 2400, y: Math.random() * H, s: 1 + Math.random() * 2.4, ph: Math.random() * 6 });
     elWorld.textContent = theme.name + " · Lvl " + (stageIdx + 1) + "/" + LEVELS_PER_DIFFICULTY;
     elLab.dataset.sentence = plan.mode === "sentence" ? "1" : "";
-    elLab.dataset.goal = stageGoalLabel(plan) || "";
+    elLab.dataset.goal = legs ? legs[legIx].join(" ") : "";
     running = true;
     renderWord(); updateHearts();
     opts.onProgressUpdate && opts.onProgressUpdate(wordsDoneGlobal, totalWords);
+    opts.onCheckpoint && opts.onCheckpoint(stageIdx, LEVELS_PER_DIFFICULTY);
   }
 
   function renderWord() {
@@ -211,6 +218,18 @@ function startGame(mount, opts) {
     wordsDoneGlobal += 1; addScore(50);
     opts.onProgressUpdate && opts.onProgressUpdate(wordsDoneGlobal, totalWords);
     if (wIx < words.length - 1) { wIx += 1; word = words[wIx]; nextIx = 0; }
+    renderWord();
+  }
+  // Sentence stage: after building one sentence, roll on to the next one in the
+  // bucket (fresh strip of letter bubbles), so a hard level plays ALL its sentences.
+  function nextLeg() {
+    legIx += 1;
+    words = legs[legIx].slice();
+    wIx = 0; word = words[0] || ""; nextIx = 0;
+    level = makeLevel(words, world, stageIdx);
+    player.x = 70; player.y = groundY() - 46; player.vx = 0; player.vy = 0; player.spawnX = 70; cam = 0;
+    elLab.dataset.goal = legs[legIx].join(" ");
+    sfx(playTapSound);
     renderWord();
   }
   function clearStage() {
@@ -298,8 +317,10 @@ function startGame(mount, opts) {
     }
     level.foes = level.foes.filter(f => !f.dead);
     const stageDone = (wIx >= words.length - 1) && (nextIx >= word.length);
-    if (p.x > level.flag && stageDone) clearStage();
-    else if (p.x > level.flag && !stageDone) p.x = level.flag - 4;
+    if (p.x > level.flag && stageDone) {
+      if (legs && legIx < legs.length - 1) { nextLeg(); return; }
+      clearStage();
+    } else if (p.x > level.flag && !stageDone) p.x = level.flag - 4;
     cam = Math.max(0, Math.min(level.L - W, p.x - W * 0.35));
     for (const pt of particles) { pt.x += pt.vx; pt.y += pt.vy; pt.vy += 0.3; pt.life -= dt; }
     particles = particles.filter(pt => pt.life > 0);
@@ -441,7 +462,7 @@ function startGame(mount, opts) {
   return { teardown, pause, resume };
 }
 
-export default function LetterLeapGame({ difficulty = "easy", onScoreUpdate, onProgressUpdate, onComplete, onEngineReady, isSoundEnabled = true }) {
+export default function LetterLeapGame({ difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
   const mountRef = useRef(null);
   const soundRef = useRef(isSoundEnabled);
   const [ready] = useState(true);
@@ -450,9 +471,11 @@ export default function LetterLeapGame({ difficulty = "easy", onScoreUpdate, onP
     if (!mountRef.current) return undefined;
     const api = startGame(mountRef.current, {
       difficulty,
+      startLevel,
       onScoreUpdate,
       onProgressUpdate,
       onComplete,
+      onCheckpoint,
       getSound: () => soundRef.current
     });
     if (onEngineReady) onEngineReady(api);

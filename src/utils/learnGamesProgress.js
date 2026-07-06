@@ -1,4 +1,5 @@
 import { queueProgressSave } from "./progressSync.js";
+import { applyCheckpoint, removeCheckpoint, readCheckpoint } from "./gameCheckpoints.js";
 
 const STORAGE_PREFIX = "literacy-guide-learn-games";
 const DEFAULT_SCOPE = "default";
@@ -77,6 +78,28 @@ export function saveLearnGameResult(progressScopeKey = DEFAULT_SCOPE, gameId, st
       [gameId]: nextGame
     }
   };
+  saveLearnGamesProgress(progressScopeKey, next);
+  return next;
+}
+
+// --- Resume checkpoints: remember which ladder level a child reached, per game
+// AND difficulty, so a long 5-round / 10-stage session can be picked back up. ---
+export function loadGameCheckpoint(progressScopeKey = DEFAULT_SCOPE, gameId, difficulty) {
+  return readCheckpoint(loadLearnGamesProgress(progressScopeKey).games, gameId, difficulty);
+}
+
+export function saveGameCheckpoint(progressScopeKey = DEFAULT_SCOPE, gameId, difficulty, level = 0, totalLevels = 0) {
+  const current = loadLearnGamesProgress(progressScopeKey);
+  const next = { ...current, games: applyCheckpoint(current.games, gameId, difficulty, level, totalLevels) };
+  saveLearnGamesProgress(progressScopeKey, next);
+  return next;
+}
+
+export function clearGameCheckpoint(progressScopeKey = DEFAULT_SCOPE, gameId, difficulty) {
+  const current = loadLearnGamesProgress(progressScopeKey);
+  const games = removeCheckpoint(current.games, gameId, difficulty);
+  if (games === current.games) return current;
+  const next = { ...current, games };
   saveLearnGamesProgress(progressScopeKey, next);
   return next;
 }

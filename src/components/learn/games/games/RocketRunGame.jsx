@@ -230,7 +230,7 @@ function startGame(THREE, mount, opts) {
   let caught = 0;
   let needed = 0;
   let wrongHits = 0;
-  let roundIx = 0;
+  let roundIx = Math.max(0, Math.min(Number(opts.startLevel) || 0, ROUNDS_PER_GAME - 1));
   let running = false;
   let raf = 0;
   let last = 0;
@@ -281,6 +281,7 @@ function startGame(THREE, mount, opts) {
     setFuel();
     updateHearts();
     if (opts.onProgressUpdate) opts.onProgressUpdate(roundIx, ROUNDS_PER_GAME);
+    if (opts.onCheckpoint) opts.onCheckpoint(roundIx, ROUNDS_PER_GAME);
   }
 
   function moveLane(dir) {
@@ -465,7 +466,7 @@ function startGame(THREE, mount, opts) {
   return { teardown, pause, resume };
 }
 
-export default function RocketRunGame({ difficulty = "easy", onScoreUpdate, onProgressUpdate, onComplete, onEngineReady, isSoundEnabled = true }) {
+export default function RocketRunGame({ difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
   const mountRef = useRef(null);
   const [status, setStatus] = useState("loading");
   const soundRef = useRef(isSoundEnabled);
@@ -481,7 +482,7 @@ export default function RocketRunGame({ difficulty = "easy", onScoreUpdate, onPr
       .then(THREE => {
         if (cancelled || !mountRef.current || !THREE) return;
         setStatus("playing");
-        api = startGame(THREE, mountRef.current, { difficulty, onScoreUpdate, onProgressUpdate, onComplete, getSound: () => soundRef.current });
+        api = startGame(THREE, mountRef.current, { difficulty, startLevel, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, getSound: () => soundRef.current });
         if (onEngineReady) onEngineReady(api);
       })
       .catch(() => { if (!cancelled) setStatus("error"); });

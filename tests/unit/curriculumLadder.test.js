@@ -8,6 +8,7 @@ import {
   SENTENCE_START_LEVEL
 } from "../../src/utils/curriculumLadder.js";
 import { makeCatchUp } from "../../src/utils/catchUpQueue.js";
+import { SENTENCES } from "../../src/data/learnGamesData.js";
 
 const avgLen = words => words.reduce((s, w) => s + w.length, 0) / (words.length || 1);
 
@@ -61,6 +62,17 @@ test("Moonwood/hard graduates to sentence-building on the top levels", () => {
     }
   }
   assert.equal(new Set(seen).size, seen.length, "a sentence repeated");
+});
+
+test("every Moonwood sentence is used across the sentence levels (none dropped)", () => {
+  // Letter Leap plays each sentence level's whole bucket as legs, so the ladder
+  // must distribute the entire sentence bank — no sentence silently omitted.
+  const played = difficultyLadder("letter-leap", "high")
+    .filter(l => l.mode === "sentence")
+    .flatMap(l => l.targets.map(s => s.join(" ")));
+  const bank = (SENTENCES.level3 || []).map(s => String(s).replace(/[.?!]$/, ""));
+  assert.equal(played.length, bank.length, "some sentences never appear in any level");
+  assert.equal(new Set(played).size, bank.length, "a sentence is duplicated or missing");
 });
 
 test("plans are deterministic (same inputs -> same plan)", () => {
