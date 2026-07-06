@@ -177,7 +177,7 @@ export const GAME_LIST = [
     skill: "Catch beginning sounds",
     category: "Phonics",
     ...GAME_ACCENTS.blue,
-    icon: "/images/learn-games/icon-pop-word.png",
+    icon: "/images/learn-games/icon-rocket-run.webp",
     description: "Steer your rocket to catch the words that start with the sound.",
     is3D: true,
     surfaces: ["arcade"]
@@ -188,7 +188,7 @@ export const GAME_LIST = [
     skill: "Read beginning sounds",
     category: "Phonics",
     ...GAME_ACCENTS.green,
-    icon: "/images/learn-games/icon-pop-word.png",
+    icon: "/images/learn-games/icon-word-climb.webp",
     description: "Leap up the beanstalk by tapping the word that starts with your sound.",
     surfaces: ["arcade"]
   },
