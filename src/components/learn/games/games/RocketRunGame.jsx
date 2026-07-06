@@ -179,7 +179,7 @@ function startGame(THREE, mount, opts) {
     sprite.position.set(0, 0, 1.2);
     return sprite;
   }
-  function makeBubble(word, correct, lane) {
+  function makeBubble(word, correct, lane, tries) {
     const group = new THREE.Group();
     const orb = new THREE.Mesh(
       new THREE.SphereGeometry(0.95, 24, 24),
@@ -188,7 +188,7 @@ function startGame(THREE, mount, opts) {
     group.add(orb);
     group.add(labelSprite(word));
     group.position.set(LANES[lane], 1.05, -46);
-    group.userData = { word, correct, lane, orb, alive: true };
+    group.userData = { word, correct, lane, orb, alive: true, tries: tries || 0 };
     scene.add(group);
     return group;
   }
@@ -229,6 +229,18 @@ function startGame(THREE, mount, opts) {
 
   function setFuel() { el("fuel").style.width = Math.round(needed ? (100 * caught) / needed : 0) + "%"; }
   function addScore(n) { score += n; if (opts.onScoreUpdate) opts.onScoreUpdate(score); }
+  function missCue() {
+    const f = el("fuel"); if (f) { f.style.filter = "brightness(1.9)"; setTimeout(() => { f.style.filter = ""; }, 180); }
+    sfx(playPopSound);
+  }
+  function requeueMissed(data) {
+    // Catch-up: a correct word that slipped past comes back. After 2 tries it
+    // returns in the ship's OWN lane (a guaranteed catch) — a word is never lost.
+    const tries = (data.tries || 0) + 1;
+    missCue();
+    if (tries <= 2) queue.splice(Math.min(3, queue.length), 0, { word: data.word, correct: true, tries });
+    else queue.splice(Math.min(1, queue.length), 0, { word: data.word, correct: true, tries, guaranteed: true });
+  }
   function updateHearts() { el("hearts").textContent = "❤".repeat(Math.max(0, hearts)) + "♡".repeat(Math.max(0, 3 - hearts)); }
   function loseHeart() {
     if (hearts <= 0) return;
@@ -382,7 +394,7 @@ function startGame(THREE, mount, opts) {
       spawnTimer -= dt;
       if (spawnTimer <= 0 && queue.length) {
         const item = queue.shift();
-        bubbles.push(item.meteor ? makeMeteor(Math.floor(Math.random() * 3)) : makeBubble(item.word, item.correct, Math.floor(Math.random() * 3)));
+        bubbles.push(item.meteor ? makeMeteor(Math.floor(Math.random() * 3)) : makeBubble(item.word, item.correct, item.guaranteed ? laneIx : Math.floor(Math.random() * 3), item.tries));
         spawnTimer = 1.15 / speed;
       }
       for (const bubble of bubbles) {
@@ -391,7 +403,11 @@ function startGame(THREE, mount, opts) {
         if (bubble.userData.meteor) bubble.userData.rock.rotation.x += dt * 1.8;
         else bubble.userData.orb.rotation.y += dt * 1.5;
         if (bubble.position.z >= ship.position.z - 0.2 && bubble.position.z <= ship.position.z + 0.9) resolveBubble(bubble);
-        else if (bubble.position.z > camera.position.z + 2) { bubble.userData.alive = false; scene.remove(bubble); }
+        else if (bubble.position.z > camera.position.z + 2) {
+          bubble.userData.alive = false;
+          if (bubble.userData.correct) requeueMissed(bubble.userData);
+          scene.remove(bubble);
+        }
       }
       bubbles = bubbles.filter(bubble => bubble.userData.alive);
       if (!queue.length && !bubbles.length && caught < needed) endRound();
