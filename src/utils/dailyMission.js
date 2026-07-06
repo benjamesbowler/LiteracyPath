@@ -171,7 +171,7 @@ function todaysGame(scope, cycle) {
   const games = readJson(`literacy-guide-learn-games:${scope}`, { games: {} });
   // Daily Challenge uses the practice (worksheet-style) games; the arcade-tier
   // games live in the Arcade. Arcade games are tagged with surfaces:["arcade"].
-  const dailyGames = GAME_LIST.filter(game => !(game.surfaces || []).includes("arcade"));
+  const dailyGames = GAME_LIST.filter(game => !(game.surfaces || []).includes("arcade") && !game.hidden);
   const unstarred = dailyGames.filter(game => (games.games?.[game.id]?.stars || 0) < 3);
   const pool = unstarred.length ? unstarred : dailyGames;
   const game = pool[hashString(todayKey() + scope + "game") % pool.length];

@@ -184,6 +184,17 @@ export const GAME_LIST = [
     surfaces: ["arcade"]
   },
   {
+    id: "letter-leap",
+    title: "Letter Leap",
+    skill: "Spell words by leaping",
+    category: "Phonics",
+    ...GAME_ACCENTS.green,
+    icon: "/images/learn-games/icon-word-leap.webp",
+    description: "Run and jump to grab each word's letters in order — across meadow, dino valley and moonwood.",
+    fullBleed: true,
+    surfaces: ["arcade"]
+  },
+  {
     id: "word-climb",
     title: "Word Climb",
     skill: "Read beginning sounds",
@@ -192,7 +203,8 @@ export const GAME_LIST = [
     icon: "/images/learn-games/icon-word-climb.webp",
     description: "Leap up the beanstalk by tapping the word that starts with your sound.",
     fullBleed: true,
-    surfaces: ["arcade"]
+    hidden: true,
+    surfaces: []
   },
   {
     id: "cvc-word-builder",

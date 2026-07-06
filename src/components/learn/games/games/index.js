@@ -11,5 +11,6 @@ export const LEARN_GAMES = {
   "sound-sort-factory": lazyWithRetry(() => import("./SoundSortFactory.jsx")),
   "letter-garden": lazyWithRetry(() => import("./LetterGarden.jsx")),
   "rocket-run": lazyWithRetry(() => import("./RocketRunGame.jsx")),
+  "letter-leap": lazyWithRetry(() => import("./LetterLeapGame.jsx")),
   "word-climb": lazyWithRetry(() => import("./WordClimbGame.jsx"))
 };
