@@ -44,3 +44,9 @@ LP Assets/
 /dist/
 /dist_stuck_*/
 /_DELETE_ME_*/
+.vercel
+
+# WIP voice-recording sources/cuts (final mp3s live in public/audio)
+docs/audio-recording/incoming/
+docs/audio-recording/staged/
+*.wav
