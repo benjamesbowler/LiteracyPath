@@ -1,4 +1,5 @@
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { GAME_LIST } from "../../../data/learnGamesData";
 import { cancelSpeech, speak } from "../../../utils/learnGamesAudio";
 import { cancelGameSfx } from "../../../utils/audio/gameSfx";
@@ -106,7 +107,11 @@ export function GamePlayer({
   const world = worldForDifficulty(difficulty);
   const scene = sceneForKey(world, game.id);
 
-  return (
+  // Portal to <body> so the fixed full-screen modal can't be trapped by an
+  // ancestor containing block (the app wraps views in framer-motion elements,
+  // whose transform would otherwise anchor position:fixed to the wrapper and
+  // leave the game as a small band with the page showing around it).
+  return createPortal(
     <div
       className="lg-game-player"
       role="dialog"
@@ -175,7 +180,8 @@ export function GamePlayer({
           </div>
         </div>
       )}
-    </div>
+    </div>,
+    document.body
   );
 }
 
