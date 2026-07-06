@@ -180,6 +180,7 @@ export const GAME_LIST = [
     icon: "/images/learn-games/icon-rocket-run.webp",
     description: "Steer your rocket to catch the words that start with the sound.",
     is3D: true,
+    fullBleed: true,
     surfaces: ["arcade"]
   },
   {
@@ -190,6 +191,7 @@ export const GAME_LIST = [
     ...GAME_ACCENTS.green,
     icon: "/images/learn-games/icon-word-climb.webp",
     description: "Leap up the beanstalk by tapping the word that starts with your sound.",
+    fullBleed: true,
     surfaces: ["arcade"]
   },
   {

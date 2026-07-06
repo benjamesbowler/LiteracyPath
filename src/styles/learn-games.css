@@ -1463,3 +1463,20 @@
 .lg-game-card-art img.lg-game-art-full {
   object-position: center 62%;
 }
+
+/* ── Full-bleed arcade games ───────────────────────────────────────────
+   Canvas games (Rocket Run, Word Climb, future arcade games) fill the
+   player edge-to-edge below the header, instead of sitting in the padded,
+   rounded worksheet card. Worksheet games have no fullBleed flag, so their
+   centered card is left exactly as-is. */
+.lg-game-player[data-fullbleed] .lg-game-player-main {
+  padding: 0;
+  overflow: hidden;
+}
+
+.lg-game-player[data-fullbleed] .lg-game-player-main > * {
+  width: 100%;
+  height: 100%;
+  min-height: 100% !important;
+  border-radius: 0 !important;
+}

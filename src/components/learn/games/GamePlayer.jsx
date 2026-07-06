@@ -113,6 +113,7 @@ export function GamePlayer({
       aria-modal="true"
       aria-label={game.title}
       data-pal-world={world.id}
+      data-fullbleed={game.fullBleed ? "" : undefined}
       style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft, ...worldStyle(world), "--pal-scene": `url(${scene})` }}
     >
       <div className="pal-scene-backdrop" aria-hidden="true" />
