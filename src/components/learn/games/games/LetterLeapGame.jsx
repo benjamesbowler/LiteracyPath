@@ -13,6 +13,7 @@ import {
   LEVELS_PER_DIFFICULTY
 } from "../../../../utils/curriculumLadder.js";
 import { makeCatchUp } from "../../../../utils/catchUpQueue.js";
+import { starRubric } from "../../../../utils/starRubric.js";
 
 // Letter Leap — a real side-scrolling platformer (ported from the approved
 // preview) wired to the shared curriculum framework:
@@ -133,13 +134,19 @@ function startGame(mount, opts) {
     for (let i = slots.length - 1; i > 0; i -= 1) { const j = Math.floor(Math.random() * (i + 1)); [slots[i], slots[j]] = [slots[j], slots[i]]; }
     let s = 0;
     const take = () => (s < slots.length ? slots[s++] : null);
-    const decoyPool = "BDFGJKMPQVXZ".split("");
+    // Never let a wrong-letter be a letter the child actually needs this stage —
+    // grabbing the "B" the HUD asked for must never punish them. Exclude EVERY
+    // letter of EVERY word in the stage from the decoy pool.
+    const inWords = new Set(levelWords.join("").toUpperCase().split(""));
+    const decoyPool = "BDFGJKMPQVXZ".split("").filter(c => !inWords.has(c));
 
     const pits = [];
     for (let k = 0; k < Math.min(pitCount, Math.floor(slots.length / 3)); k += 1) { const c = take(); if (c != null) pits.push([c - 44, c + 44]); }
     const foes = [];
-    for (let k = 0; k < foeCount; k += 1) { const c = take(); if (c != null) foes.push({ x0: c - 62, x1: c + 62, x: c, dir: 1, y: groundY() - 28 }); }
-    for (let k = 0; k < decoyCount; k += 1) { const c = take(); if (c != null) bubbles.push({ x: c, y: groundY() - 122, ch: decoyPool[Math.floor(Math.random() * decoyPool.length)], word: -1, order: -1, taken: false }); }
+    for (let k = 0; k < foeCount; k += 1) { const c = take(); if (c != null) foes.push({ x0: c - 62, x1: c + 62, x: c, dir: 1, y: groundY() - 14 }); }
+    // Wrong letters sit at GROUND level among the real ones — the child must READ
+    // and jump over them (grabbing one costs a heart). Makes the run less trivial.
+    for (let k = 0; k < decoyCount && decoyPool.length; k += 1) { const c = take(); if (c != null) bubbles.push({ x: c, y: groundY() - 46, ch: decoyPool[Math.floor(Math.random() * decoyPool.length)], word: -1, order: -1, taken: false }); }
     for (let k = 0; k < blockCount; k += 1) { const c = take(); if (c != null) { const n = 1 + Math.floor(Math.random() * 2); for (let j = 0; j < n; j += 1) blocks.push({ x: c + j * 46 - 23, y: groundY() - 140, w: 44, h: 40, type: Math.random() < 0.3 ? "prize" : "brick", broken: false, used: false }); } }
     for (let k = 0; k < heartCount; k += 1) { const c = take(); if (c != null) pickups.push({ x: c, y: groundY() - 150, taken: false }); }
 
@@ -188,19 +195,9 @@ function startGame(mount, opts) {
   function burst(x, y, c) { for (let i = 0; i < 12; i += 1) particles.push({ x, y, vx: (Math.random() - 0.5) * 6, vy: (Math.random() - 0.7) * 6, life: 0.6, c }); }
   function burstBlock(bl) { for (let i = 0; i < 9; i += 1) particles.push({ x: bl.x + bl.w / 2, y: bl.y + bl.h / 2, vx: (Math.random() - 0.5) * 7, vy: -Math.random() * 6 - 1, life: 0.7, c: "#b5602f" }); }
 
-  function respawnWordAhead(wi) {
-    // Catch-up (letter level): the missed word's letters reappear ahead so the
-    // child can still complete it — a word is never lost.
-    const up = words[wi] || "";
-    const baseX = Math.max(player.x + 260, level.flag - 40 - up.length * SEG);
-    for (let i = 0; i < up.length; i += 1) level.bubbles.push({ x: baseX + i * SEG, y: groundY() - 46, ch: up[i], word: wi, order: i, taken: false });
-    nextIx = 0; renderWord();
-  }
-
-  function hurt(missedWord) {
+  function hurt() {
     if (invuln > 0) return;
     hearts -= 1; updateHearts(); wrongHits += 1; sfx(playSoftBuzz); invuln = 1.3; burst(player.x, player.y, "#ff7a66");
-    if (typeof missedWord === "number" && missedWord >= 0) respawnWordAhead(missedWord);
     if (hearts <= 0) {
       running = false; deaths += 1;
       stageQueue.miss(); // this stage comes back later (catch-up)
@@ -224,7 +221,7 @@ function startGame(mount, opts) {
   }
   function finishGame() {
     running = false; sfx(playStarChime);
-    const stars = (deaths === 0 && wrongHits === 0) ? 3 : (deaths <= 1 && wrongHits <= 4) ? 2 : 1;
+    const stars = starRubric({ correct: wordsDoneGlobal, total: totalWords, mistakes: wrongHits, deaths });
     showOverlay("You did it! 🏆", "You climbed all of " + theme.name + "!", "Done", () => {});
     opts.onComplete && opts.onComplete(stars, score, wordsDoneGlobal);
   }
@@ -280,10 +277,14 @@ function startGame(mount, opts) {
     if (p.onGround && wasAir) p.squash = 0.35;
     p.squash *= 0.8;
     if (p.x < 18) p.x = 18;
+    // Catch-up: if the letter they still need is now behind them (walked or jumped
+    // past it), slide it back in front — a skipped letter never softlocks the word.
+    const need = level.bubbles.find(b => !b.taken && b.word === wIx && b.order === nextIx);
+    if (need && need.x < p.x - 40) { need.x = p.x + 320; need.y = groundY() - 46; }
     for (const b of level.bubbles) {
       if (b.taken) continue;
       if (Math.abs(b.x - p.x) < 34 && Math.abs(b.y - p.y) < 42) {
-        if (b.word === -1) { b.taken = true; burst(b.x, b.y, "#ff7a66"); hurt(wIx); }
+        if (b.word === -1) { b.taken = true; burst(b.x, b.y, "#ff7a66"); hurt(); }
         else if (b.word === wIx && b.order === nextIx) {
           b.taken = true; nextIx += 1; sfx(playPopSound); addScore(10); burst(b.x, b.y, "#ffd34e");
           if (nextIx >= word.length) wordDone(); else renderWord();
@@ -413,7 +414,11 @@ function startGame(mount, opts) {
   const heroImg = new Image(); heroImg.src = "/images/games/char-hero.webp";
   ["meadow", "dino", "moonwood"].forEach(k => { const im = new Image(); im.onload = () => { BGIMG[k] = im; }; im.src = "/images/games/bg-" + k + ".webp"; });
   (CHAR_ROSTER[world] || []).forEach((file, i) => { const im = new Image(); im.onload = () => { charImgs[i] = im; }; im.src = "/images/games/" + file; });
-  const currentChar = () => { const loaded = charImgs.filter(Boolean); if (loaded.length) return loaded[stageIdx % loaded.length]; return heroImg.width ? heroImg : null; };
+  const currentChar = () => {
+    const roster = CHAR_ROSTER[world] || [];
+    const idx = roster.length ? stageIdx % roster.length : 0;   // one stable pal per stage — no load-swap/cycling
+    return (charImgs[idx] && charImgs[idx].width) ? charImgs[idx] : (heroImg.width ? heroImg : null);
+  };
   const sprLoad = (key, file) => { const im = new Image(); im.onload = () => { SPR[key] = im; }; im.src = "/images/games/" + file; };
   sprLoad("grumper", "enemy-grumper.webp");
   sprLoad("platform", "tile-platform.webp");

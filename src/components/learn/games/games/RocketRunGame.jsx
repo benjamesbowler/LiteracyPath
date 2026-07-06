@@ -12,6 +12,7 @@ import {
   rocketRunTargets,
   rocketRunStars
 } from "../../../../utils/rocketRunRounds.js";
+import { starRubric } from "../../../../utils/starRubric.js";
 
 // Rocket Run: a real, steer-and-collect 3D game (not an animated worksheet).
 // The child flies a rocket across three lanes to catch the words that START
@@ -53,7 +54,7 @@ function startGame(THREE, mount, opts) {
   const height = () => mount.clientHeight || 420;
   const count = difficultyCount(opts.difficulty);
   const targets = rocketRunTargets();
-  const sfx = fn => { if (opts.isSoundEnabled) { try { fn(); } catch { /* audio optional */ } } };
+  const sfx = fn => { if (opts.getSound ? opts.getSound() : opts.isSoundEnabled) { try { fn(); } catch { /* audio optional */ } } };
 
   // ── HUD (plain DOM, cleaned up on teardown) ──────────────────────────────
   const hud = document.createElement("div");
@@ -216,7 +217,6 @@ function startGame(THREE, mount, opts) {
   let caught = 0;
   let needed = 0;
   let wrongHits = 0;
-  let totalStars = 0;
   let roundIx = 0;
   let running = false;
   let raf = 0;
@@ -224,14 +224,16 @@ function startGame(THREE, mount, opts) {
   let shakeV = 0;
   let hearts = 3;
   let elapsed = 0;
+  let score = 0, caughtTotal = 0, neededTotal = 0, wrongTotal = 0, deaths = 0;
   const bursts = [];
 
   function setFuel() { el("fuel").style.width = Math.round(needed ? (100 * caught) / needed : 0) + "%"; }
+  function addScore(n) { score += n; if (opts.onScoreUpdate) opts.onScoreUpdate(score); }
   function updateHearts() { el("hearts").textContent = "❤".repeat(Math.max(0, hearts)) + "♡".repeat(Math.max(0, 3 - hearts)); }
   function loseHeart() {
     if (hearts <= 0) return;
     hearts -= 1; wrongHits += 1; updateHearts(); sfx(playSoftBuzz); shakeV = 0.55;
-    if (hearts <= 0) endRound();
+    if (hearts <= 0) { deaths += 1; endRound(); }
   }
 
   function startRound() {
@@ -285,6 +287,7 @@ function startGame(THREE, mount, opts) {
     }
     if (hit && bubble.userData.correct) {
       caught += 1;
+      addScore(opts.difficulty === "hard" ? 15 : 10);
       setFuel();
       sfx(playCorrectChime);
       sfx(playPopSound);
@@ -308,8 +311,8 @@ function startGame(THREE, mount, opts) {
 
   function endRound() {
     running = false;
+    caughtTotal += caught; neededTotal += needed; wrongTotal += wrongHits;
     const stars = rocketRunStars(caught, needed, wrongHits);
-    totalStars += stars;
     el("stars").textContent = "★".repeat(stars) + "✩".repeat(3 - stars);
     sfx(playStarChime);
     roundIx += 1;
@@ -329,10 +332,10 @@ function startGame(THREE, mount, opts) {
 
   function finishGame() {
     sfx(playCelebrationFanfare);
-    const avg = Math.round(totalStars / ROUNDS_PER_GAME) || (totalStars > 0 ? 1 : 0);
-    showOverlay('<div><div style="font-size:2rem;font-weight:700">Mission complete!</div><div style="opacity:.85;margin-top:8px;font-size:1.6rem">' + "★".repeat(Math.max(1, avg)) + "✩".repeat(3 - Math.max(1, avg)) + '</div></div>');
+    const stars = starRubric({ correct: caughtTotal, total: neededTotal, mistakes: wrongTotal, deaths });
+    showOverlay('<div><div style="font-size:2rem;font-weight:700">Mission complete!</div><div style="opacity:.85;margin-top:8px;font-size:1.6rem">' + "★".repeat(stars) + "✩".repeat(3 - stars) + '</div></div>');
     if (opts.onProgressUpdate) opts.onProgressUpdate(ROUNDS_PER_GAME, ROUNDS_PER_GAME);
-    if (opts.onComplete) opts.onComplete(Math.max(1, avg), totalStars * 10, needed * ROUNDS_PER_GAME);
+    if (opts.onComplete) opts.onComplete(stars, score, caughtTotal);
   }
 
   // ── Controls ─────────────────────────────────────────────────────────────
@@ -424,9 +427,11 @@ function startGame(THREE, mount, opts) {
   };
 }
 
-export default function RocketRunGame({ difficulty = "easy", onProgressUpdate, onComplete, isSoundEnabled = true }) {
+export default function RocketRunGame({ difficulty = "easy", onScoreUpdate, onProgressUpdate, onComplete, isSoundEnabled = true }) {
   const mountRef = useRef(null);
   const [status, setStatus] = useState("loading");
+  const soundRef = useRef(isSoundEnabled);
+  useEffect(() => { soundRef.current = isSoundEnabled; }, [isSoundEnabled]);
 
   // Re-create the game only when difficulty changes. The parent's callbacks are
   // captured once at start-up on purpose - re-running on their identity change
@@ -438,7 +443,7 @@ export default function RocketRunGame({ difficulty = "easy", onProgressUpdate, o
       .then(THREE => {
         if (cancelled || !mountRef.current || !THREE) return;
         setStatus("playing");
-        teardown = startGame(THREE, mountRef.current, { difficulty, onProgressUpdate, onComplete, isSoundEnabled });
+        teardown = startGame(THREE, mountRef.current, { difficulty, onScoreUpdate, onProgressUpdate, onComplete, getSound: () => soundRef.current });
       })
       .catch(() => { if (!cancelled) setStatus("error"); });
     return () => {
