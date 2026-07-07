@@ -82,6 +82,27 @@ function startGame(THREE, mount, opts) {
     });
   }
 
+  // ── Three.js scene + renderer FIRST. WebGLRenderer creation is the one step
+  //    that can throw (WebGL unavailable / GPU context lost / antialias rejected
+  //    on a constrained GPU). Doing it before the HUD means a failure produces a
+  //    clean error instead of an orphaned HUD sitting behind the fallback text,
+  //    and we retry once without antialias before giving up. ─────────────────
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x070b1e, 0.055);
+  const camera = new THREE.PerspectiveCamera(62, width() / height(), 0.1, 100);
+  camera.position.set(0, 2.6, 7.2);
+  camera.lookAt(0, 1.1, -6);
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "default" }); }
+  catch { renderer = new THREE.WebGLRenderer({ antialias: false }); }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setSize(width(), height());
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.12;
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.domElement.style.display = "block";
+  mount.appendChild(renderer.domElement);
+
   // ── HUD (plain DOM, cleaned up on teardown) ──────────────────────────────
   const hud = document.createElement("div");
   hud.style.cssText = "position:absolute;inset:0;pointer-events:none;font-family:var(--kid-font-display,Fredoka,sans-serif);color:#fff";
@@ -108,21 +129,6 @@ function startGame(THREE, mount, opts) {
     b.style.opacity = "1"; b.style.transform = "translateX(0)";
     bannerT = 1.2;
   }
-
-  // ── Three.js scene ───────────────────────────────────────────────────────
-  const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x070b1e, 0.055);
-  const camera = new THREE.PerspectiveCamera(62, width() / height(), 0.1, 100);
-  camera.position.set(0, 2.6, 7.2);
-  camera.lookAt(0, 1.1, -6);
-  const renderer = new THREE.WebGLRenderer({ antialias: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-  renderer.setSize(width(), height());
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.12;
-  renderer.outputEncoding = THREE.sRGBEncoding;
-  renderer.domElement.style.display = "block";
-  mount.insertBefore(renderer.domElement, hud);
 
   const ambient = new THREE.AmbientLight(0x8899ff, 0.7);
   scene.add(ambient);
@@ -194,6 +200,7 @@ function startGame(THREE, mount, opts) {
   scene.add(cometStreak);
 
   // ── Mission 4: boost speed-line quads at the screen edges (hidden until boosting) ──
+  const speedLines = [];
   for (let i = 0; i < 12; i += 1) {
     const q = new THREE.Mesh(
       new THREE.PlaneGeometry(0.05, 2.4),
@@ -385,7 +392,7 @@ function startGame(THREE, mount, opts) {
   const fogTarget = new THREE.Color(theme.fog);
   const ambientTarget = new THREE.Color(theme.ambient);
   let cometStreakT = 6 + Math.random() * 14;       // ambient comet streak timer
-  const speedLines = [];                            // boost speed-line quads
+  // (speedLines is declared up in the scene-setup section, before it's populated)
 
   function setFuel() { el("fuel").style.width = Math.round(needed ? (100 * caught) / needed : 0) + "%"; }
   function addScore(n) { score += n; if (opts.onScoreUpdate) opts.onScoreUpdate(score); }
@@ -769,11 +776,20 @@ export default function RocketRunGame({ difficulty = "easy", startLevel = 0, onS
     loadThree()
       .then(THREE => {
         if (cancelled || !mountRef.current || !THREE) return;
-        setStatus("playing");
-        api = startGame(THREE, mountRef.current, { difficulty, startLevel, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, getSound: () => soundRef.current });
-        if (onEngineReady) onEngineReady(api);
+        try {
+          api = startGame(THREE, mountRef.current, { difficulty, startLevel, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, getSound: () => soundRef.current });
+          if (onEngineReady) onEngineReady(api);
+          setStatus("playing");
+        } catch (err) {
+          // A WebGL/setup failure used to be swallowed into the generic error
+          // screen with no clue why — log the real cause so it's diagnosable,
+          // and clean up any partial scene the failed start left behind.
+          console.error("[RocketRun] failed to start:", err);
+          try { api.teardown(); } catch { /* ignore */ }
+          if (!cancelled) setStatus("error");
+        }
       })
-      .catch(() => { if (!cancelled) setStatus("error"); });
+      .catch(err => { console.error("[RocketRun] three.js failed to load:", err); if (!cancelled) setStatus("error"); });
     return () => {
       cancelled = true;
       try { api.teardown(); } catch { /* ignore */ }
@@ -791,7 +807,7 @@ export default function RocketRunGame({ difficulty = "easy", startLevel = 0, onS
         <div className="rocket-run-status" style={statusStyle}>Loading the launchpad…</div>
       )}
       {status === "error" && (
-        <div className="rocket-run-status" style={statusStyle}>This game needs 3D graphics — try another game!</div>
+        <div className="rocket-run-status" style={statusStyle}>This game needs 3D graphics. Try refreshing the page, or pick another game!</div>
       )}
     </div>
   );
