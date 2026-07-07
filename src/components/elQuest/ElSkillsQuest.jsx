@@ -383,7 +383,7 @@ function SpeedRound({ round, onResult, onHint }) {
   );
 }
 
-export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "default", onExit }) {
+export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "default" }) {
   const playableCycles = useMemo(
     () => elSkillsBlockCycles.filter(cycle => cycle.cycleNumber),
     []
@@ -713,9 +713,6 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
             <h1>Your sound and word path</h1>
             <p className="sbq-sub">Hi {studentName}. Pick your stop - each one teaches two new sounds and your quick words.</p>
           </div>
-          {onExit && (
-            <button className="sbq-ghost-button" type="button" onClick={onExit}>Back</button>
-          )}
         </header>
         {(() => {
           return (

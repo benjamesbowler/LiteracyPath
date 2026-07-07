@@ -1390,3 +1390,99 @@
   flex: 1 1 auto;
   justify-content: flex-start;
 }
+
+/* ═══ N. HOME POLISH — fit-to-screen, labels, logo lockup, daily overlaps ═ */
+
+/* Fit the whole home in one viewport at 100% (no manual zoom-out) */
+.lg-app-shell[data-pal-world] .student-home-page {
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  grid-template-rows: auto 1fr;
+  align-content: stretch;
+  padding-top: clamp(8px, 1vw, 14px);
+  padding-bottom: clamp(8px, 1vw, 14px);
+}
+.student-mode-app .student-home-board {
+  min-height: 0;
+  height: 100%;
+  grid-template-rows: auto minmax(0, 1.55fr) minmax(0, 1fr);
+}
+
+/* Brand: show the real "Literacy Pals" wordmark image; drop the duplicate DOM text */
+.student-mode-app .student-home-brand-logo { width: auto; height: clamp(38px, 4vw, 52px); }
+.student-mode-app .student-home-brand-text { display: none; }
+
+/* Phonics + Arcade titles: hard-left with a shallow indent, and larger */
+.student-mode-app .student-home-card-phonics .student-home-card-label,
+.student-mode-app .student-home-card-arcade .student-home-card-label {
+  justify-self: start;
+  align-self: center;
+  width: 100%;
+  max-width: min(50%, 460px);
+  padding: clamp(10px, 1.4vw, 18px) 0 clamp(10px, 1.4vw, 18px) clamp(14px, 1.5vw, 22px);
+  align-items: flex-start;
+  text-align: left;
+}
+.student-mode-app .student-home-card-phonics .student-home-card-label strong,
+.student-mode-app .student-home-card-arcade .student-home-card-label strong {
+  font-size: clamp(2rem, 3.8vw, 3.5rem);
+  line-height: 0.9;
+}
+
+/* Phonics subtitle: drop the stray dark box; clean overlaid text like the title */
+.student-mode-app .student-home-card-phonics .student-home-card-subtitle {
+  background: transparent;
+  padding: 0;
+  color: #fff;
+  text-shadow: 2px 2px 0 var(--comic-ink);
+  font-size: 0.82rem;
+  max-width: 22ch;
+}
+
+/* Daily challenge: stop the red sticker + bunny mascot overlapping the heading */
+.student-mode-app .student-mission-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.student-mode-app .student-mission-head > div:not(.student-mission-tracker) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 0;
+}
+.student-mode-app .student-mission-banner .student-board-kicker {
+  position: relative;
+  align-self: flex-start;
+  margin: 0 0 2px;
+}
+.student-mode-app .student-mission-head h1,
+.student-mode-app .student-mission-head p { margin: 0; }
+.student-mode-app .student-mission-head .pal-sprite { flex: 0 0 auto; position: static; }
+
+/* ═══ O. EL QUEST — station picker uses the width; map label stays legible ═ */
+/* Give the header card inner breathing room so the cycle title isn't jammed to the edge */
+.student-mode-app .skills-block-quest .sbq-top { padding: clamp(12px, 1.6vw, 20px); }
+/* Stations fill the row as a multi-column grid instead of one tall, narrow column */
+.student-mode-app .skills-block-quest .sbq-stations {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+  padding: clamp(12px, 1.6vw, 18px);
+}
+/* Current-stop label sits ABOVE the mascot so the owl can't hide "Apple Orchard" */
+.student-mode-app .skills-block-quest .sbq-stop-tip {
+  z-index: 7;
+  background: #fff;
+  border: 2px solid var(--comic-ink);
+  border-radius: 10px;
+  box-shadow: 2px 2px 0 var(--comic-ink);
+}
+.student-mode-app .skills-block-quest .sbq-stop-name {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: var(--comic-ink);
+}
+.student-mode-app .skills-block-quest .sbq-stop-skill { color: var(--comic-blue); }

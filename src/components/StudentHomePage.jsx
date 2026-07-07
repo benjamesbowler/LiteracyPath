@@ -158,7 +158,7 @@ export function StudentHomePage({
       <header className="student-home-topbar student-home-topbar-comic">
         <div className="student-home-topbar-left">
           <span className="student-home-brand">
-            <img className="student-home-brand-logo" src="/images/pals/literacy-pals-logo.webp" alt="" onError={hideOnError} />
+            <img className="student-home-brand-logo" src="/images/pals/literacy-pals-logo.webp" alt="Literacy Pals" onError={hideOnError} />
             <span className="student-home-brand-text"><strong>Literacy</strong><em>Pals</em></span>
           </span>
           <button
