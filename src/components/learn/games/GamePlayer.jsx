@@ -91,7 +91,7 @@ export function GamePlayer({
     // take whichever is higher.
     const settledScore = Math.max(Number(finalScore) || 0, Number(score) || 0);
     const nextProgress = saveLearnGameResult(progressScopeKey, game.id, stars, settledScore, wordsCompleted);
-    clearGameCheckpoint(progressScopeKey, game.id, difficulty); // finished the ladder — nothing to resume
+    clearGameCheckpoint(progressScopeKey, game.id, difficulty); // finished the ladder, nothing to resume
     notifyMissionTaskDone(progressScopeKey, "game");
     if (Number(stars) > 0) {
       // Finishing a game with at least one star earns a collectible gem.
@@ -215,7 +215,7 @@ export function GamePlayer({
       {resumePoint && startLevel === null && (
         <div className="lg-game-confirm" role="alertdialog" aria-modal="true" aria-label="Resume game">
           <div>
-            <h2>Welcome back! 🚀</h2>
+            <h2>Welcome back</h2>
             <p>You reached level {resumePoint.level + 1}{resumePoint.totalLevels ? ` of ${resumePoint.totalLevels}` : ""}. Pick up where you left off?</p>
             <div>
               <button type="button" onClick={continueGame}>Continue</button>

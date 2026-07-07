@@ -81,7 +81,7 @@ function startGame(mount, opts) {
     '<div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;background:rgba(6,12,26,.5);padding:8px 16px 10px;border-radius:16px;border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(6px)">' +
       '<span data-ll="lab" style="font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;opacity:.75">Spell the word</span>' +
       '<div data-ll="word" style="display:flex;gap:7px"></div></div>' +
-    '<div data-ll="coins" style="position:absolute;top:14px;left:16px;font-size:1.02rem;font-weight:700;background:rgba(6,12,26,.5);padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14)">🪙 ×0</div>' +
+    '<div data-ll="coins" style="position:absolute;top:14px;left:16px;font-size:1.02rem;font-weight:700;background:rgba(6,12,26,.5);padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14)">Coins x0</div>' +
     '<div data-ll="hearts" style="position:absolute;top:14px;right:16px;font-size:1.5rem;letter-spacing:2px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.4))">❤❤❤</div>' +
     '<div data-ll="world" style="position:absolute;top:52px;right:16px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85;background:rgba(6,12,26,.5);padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14)">Meadow</div>';
   mount.appendChild(hud);
@@ -90,7 +90,7 @@ function startGame(mount, opts) {
   const elHearts = hud.querySelector('[data-ll="hearts"]');
   const elWorld = hud.querySelector('[data-ll="world"]');
   const elCoins = hud.querySelector('[data-ll="coins"]');
-  function updateCoins() { if (elCoins) elCoins.textContent = "🪙 ×" + coins + (starTokens ? "  ★ ×" + starTokens : ""); }
+  function updateCoins() { if (elCoins) elCoins.textContent = "Coins x" + coins + (starTokens ? "  Stars x" + starTokens : ""); }
 
   const padWrap = document.createElement("div");
   padWrap.style.cssText = "position:absolute;inset:0;z-index:6;pointer-events:none";
@@ -319,12 +319,12 @@ function startGame(mount, opts) {
     running = false; sfx(playCelebrationFanfare); addScore(100);
     stageQueue.complete();
     if (stageQueue.isDone) { finishGame(); return; }
-    showTally("Stage complete! 🌟", "Next stage", () => { player = null; startStage(); });
+    showTally("Stage complete", "Next stage", () => { player = null; startStage(); });
   }
   function finishGame() {
     running = false; sfx(playStarChime);
     const stars = starRubric({ correct: wordsDoneGlobal, total: totalWords, mistakes: wrongHits, deaths });
-    showTally("You did it! 🏆", "Done", () => {});
+    showTally("You did it", "Done", () => {});
     opts.onComplete && opts.onComplete(stars, score, wordsDoneGlobal);
   }
 
@@ -344,7 +344,7 @@ function startGame(mount, opts) {
       '<h1 style="font-size:clamp(1.5rem,6vw,2.4rem);margin:0">' + title + '</h1>' +
       '<div style="font-size:1.05rem;opacity:.94;line-height:1.95;text-align:left;min-width:210px">' +
       'Words spelled &nbsp;<b>' + wordsDoneGlobal + '</b><br>' +
-      'Coins &nbsp;<b>🪙 ' + coins + '</b><br>' +
+      'Coins &nbsp;<b>' + coins + '</b><br>' +
       'Stars this stage &nbsp;<b>' + ("★".repeat(stageStars) + "☆".repeat(3 - stageStars)) + '</b><br>' +
       'Score &nbsp;<b>' + score + '</b></div>' +
       '<button data-ll="cta" style="font-family:inherit;font-weight:700;font-size:1.15rem;color:#20140a;background:linear-gradient(160deg,#ffd34e,#ffab1e);border:0;padding:13px 30px;border-radius:999px;box-shadow:0 6px 0 #c9781a;cursor:pointer;margin-top:4px">' + btnLabel + '</button></div>';
