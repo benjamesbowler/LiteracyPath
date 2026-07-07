@@ -1408,25 +1408,38 @@
   height: 100%;
   grid-template-rows: auto minmax(0, 1.55fr) minmax(0, 1fr);
 }
+/* Lift the topbar so the account dropdown (incl. Sign out) is not painted over
+   by the daily banner below it — otherwise the logout looks "missing". */
+.student-mode-app .student-home-topbar-comic { position: relative; z-index: 40; }
 
 /* Brand: show the real "Literacy Pals" wordmark image; drop the duplicate DOM text */
 .student-mode-app .student-home-brand-logo { width: auto; height: clamp(38px, 4vw, 52px); }
 .student-mode-app .student-home-brand-text { display: none; }
 
-/* Phonics + Arcade titles: hard-left with a shallow indent, and larger */
+/* Phonics + Arcade titles: hard-left with a shallow indent, and larger.
+   The card grid must be ONE full-width, left-justified column — otherwise the
+   label auto-sizes to its content and floats to the 50% mark (which made the
+   short "Arcade" title look dead-centre while "Phonics Learning" sat further left). */
+.student-mode-app .student-home-card-phonics,
+.student-mode-app .student-home-card-arcade {
+  grid-template-columns: 1fr;
+  justify-items: start;
+}
 .student-mode-app .student-home-card-phonics .student-home-card-label,
 .student-mode-app .student-home-card-arcade .student-home-card-label {
   justify-self: start;
   align-self: center;
-  width: 100%;
-  max-width: min(50%, 460px);
-  padding: clamp(10px, 1.4vw, 18px) 0 clamp(10px, 1.4vw, 18px) clamp(14px, 1.5vw, 22px);
+  width: auto;
+  max-width: min(52%, 480px);
+  margin: 0;
+  padding: clamp(10px, 1.4vw, 18px) 0 clamp(10px, 1.4vw, 18px) clamp(16px, 1.6vw, 24px);
   align-items: flex-start;
   text-align: left;
+  background: transparent;   /* kill the arcade label's dark box so ARCADE sits on the art */
 }
 .student-mode-app .student-home-card-phonics .student-home-card-label strong,
 .student-mode-app .student-home-card-arcade .student-home-card-label strong {
-  font-size: clamp(2rem, 3.8vw, 3.5rem);
+  font-size: clamp(2.4rem, 4.4vw, 4rem);
   line-height: 0.9;
 }
 
@@ -1461,8 +1474,15 @@
 .student-mode-app .student-mission-head h1,
 .student-mode-app .student-mission-head p { margin: 0; }
 .student-mode-app .student-mission-head .pal-sprite { flex: 0 0 auto; position: static; }
+/* Heading + subtitle go white with an ink shadow so they read over the busy banner art */
+.student-mode-app .student-mission-head h1 { color: #fff; text-shadow: 2px 2px 0 var(--comic-ink), 0 0 2px var(--comic-ink); }
+.student-mode-app .student-mission-head p { color: #fff; font-weight: 800; text-shadow: 1px 1px 0 rgba(6, 8, 16, 0.8); }
 
 /* ═══ O. EL QUEST — station picker uses the width; map label stays legible ═ */
+/* The quest surface otherwise collapses to its content width — a narrow phone
+   column — because `.app` uses `margin: 0 auto`. Fill the content area (up to a
+   sensible cap) so the header and the station grid can actually use the width. */
+.app.student-mode-app:has(.skills-block-quest) { width: 100%; max-width: 1280px; margin-inline: auto; }
 /* Give the header card inner breathing room so the cycle title isn't jammed to the edge */
 .student-mode-app .skills-block-quest .sbq-top { padding: clamp(12px, 1.6vw, 20px); }
 /* Stations fill the row as a multi-column grid instead of one tall, narrow column */
