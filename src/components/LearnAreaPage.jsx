@@ -205,26 +205,19 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
 
               <div className="learn-story-level-grid">
                 {level.quests.map(quest => {
-                  const progress = questProgress[quest.id] || {};
-                  const isCompleted = Boolean(progress.completed);
-                  const hasOpened = Boolean(progress.opened);
-                  const actionLabel = isCompleted ? "Read Again" : hasOpened ? "Continue" : "Start Reading";
-                  const wordsFoundCount = new Set(progress.wordsFound || []).size;
                   const levelLabel = quest.level && /^[A-Z]$/.test(quest.level)
                     ? `Level ${quest.level}`
                     : resolveStoryQuestLevel(quest) === "A"
                       ? "Level A"
                       : quest.level || quest.skillFocus;
-                  const questDetails = [quest.series, (quest.characters || []).join(", ")]
-                    .filter(Boolean)
-                    .join(" - ");
-                  const questTargetWords = quest.targetWords || [];
-                  const questStars = questTargetWords.length ? Math.min(3, Math.round((wordsFoundCount / questTargetWords.length) * 3)) : 0;
-
                   return (
                     <article
                       className={selectedQuestId === quest.id ? "learn-story-quest-card selected" : "learn-story-quest-card"}
                       key={quest.id}
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => startQuest(quest.id)}
+                      onKeyDown={event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); startQuest(quest.id); } }}
                       onFocus={() => setSelectedQuestId(quest.id)}
                       onMouseEnter={() => setSelectedQuestId(quest.id)}
                     >
@@ -237,31 +230,7 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
                       />
                       <span className="story-quest-level-tag">{levelLabel}</span>
                       <div className="learn-story-quest-card-copy">
-                        <span className="story-quest-kicker">{quest.adventureType || "Story Reader"}</span>
                         <h3>{quest.title}</h3>
-                        <p>{levelLabel}</p>
-                        <span>{questDetails || quest.skillFocus}</span>
-                        <span className={isCompleted ? "story-quest-status completed" : hasOpened ? "story-quest-status" : "story-quest-status not-started"}>
-                          {isCompleted ? "Completed" : hasOpened ? "In progress" : "Not started"}
-                        </span>
-                        <span className="story-quest-stars" aria-hidden="true">
-                          {[0, 1, 2].map(i => <span key={i} className={i < questStars ? "on" : "off"}>★</span>)}
-                        </span>
-                        <div className="learn-story-word-preview" aria-label={`${quest.title} target words`}>
-                          {questTargetWords.slice(0, 9).map(word => (
-                            <span key={word}>{word}</span>
-                          ))}
-                        </div>
-                        {questTargetWords.length > 0 && (
-                          <span className="story-quest-card-progress">
-                            {wordsFoundCount}/{questTargetWords.length} words found
-                          </span>
-                        )}
-                      </div>
-                      <div className="learn-story-quest-actions">
-                        <button className="lp-button lp-button-primary" onClick={() => startQuest(quest.id)} type="button">
-                          {actionLabel}
-                        </button>
                       </div>
                     </article>
                   );

@@ -1220,3 +1220,41 @@
   background-position: left center;
   background-repeat: no-repeat;
 }
+
+/* ═══ J. HOME sizing + flush topbar + neat story cards ═════════════════ */
+/* Topbar: flat bar flush to the top, not a floating box */
+.student-mode-app .student-home-topbar-comic {
+  background: var(--comic-white);
+  border: 0;
+  border-bottom: 4px solid var(--comic-ink);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 6px 8px 12px;
+  margin-bottom: 14px;
+}
+/* Bigger feature panels to match the mockup proportions */
+.student-mode-app .student-home-board {
+  grid-template-rows: auto minmax(285px, 34vh) minmax(210px, 26vh) auto;
+  gap: clamp(16px, 1.8vw, 24px);
+}
+.student-mode-app .student-home-card-label strong { font-size: clamp(1.6rem, 3vw, 2.9rem); }
+
+/* Neat story-quest cards: cover + level tag + title only */
+.student-mode-app .story-quest-learn-page .learn-story-level-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px;
+}
+.student-mode-app .story-quest-learn-page .learn-story-quest-card {
+  display: flex; flex-direction: column; cursor: pointer; padding: 0;
+}
+.student-mode-app .story-quest-learn-page .learn-story-quest-card:hover {
+  transform: translate(-2px, -3px); box-shadow: var(--comic-shadow);
+}
+.student-mode-app .story-quest-learn-page .learn-story-quest-cover {
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  border-bottom: var(--comic-bw) solid var(--comic-ink);
+}
+.student-mode-app .story-quest-learn-page .learn-story-quest-card-copy { padding: 10px 12px 12px; }
+.student-mode-app .story-quest-learn-page .learn-story-quest-card-copy h3 {
+  margin: 0; font-family: var(--comic-display); font-style: italic; text-transform: uppercase;
+  color: #fff; text-shadow: 2px 2px 0 var(--comic-ink); font-size: 1.05rem; line-height: 1;
+}
