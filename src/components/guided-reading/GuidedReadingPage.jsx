@@ -1443,6 +1443,51 @@ export function GuidedReadingPage({
       {!readerOpen && (
       <section className="guided-reading-library" aria-label="Guided reading library">
         <div className="guided-library-logo"><img src="/images/comic/reading-library-logo.webp" alt="Reading Library" /></div>
+        {isStudentMode && (() => {
+          const shelfBooks = getRuntimeGuidedReadingBooks();
+          const prog = book => getGuidedReadingProgress(book, guidedReadingRecords[book.id]);
+          const shelfLevels = [...new Set(shelfBooks.map(book => book.level).filter(Boolean))].sort();
+          const continueBooks = shelfBooks.filter(book => { const p = prog(book); return !p.completed && (p.completedPages > 0 || p.lastReadAt); }).slice(0, 6);
+          const booksRead = shelfBooks.filter(book => prog(book).completed).length;
+          const filteredBooks = selectedLibraryLevel ? shelfBooks.filter(book => book.level === selectedLibraryLevel) : null;
+          const renderCard = book => (
+            <button className="guided-shelf-card" key={book.id} type="button" onClick={() => changeBook(book.id)}>
+              <span className="guided-shelf-card-cover"><GuidedBookCover book={book} /></span>
+              <span className="guided-shelf-card-tag">Level {book.level}</span>
+              <span className="guided-shelf-card-title">{book.title}</span>
+            </button>
+          );
+          return (
+            <div className="guided-shelf-layout">
+              <div className="guided-shelf-main">
+                <div className="guided-filter-chips" role="tablist" aria-label="Book levels">
+                  <button type="button" className={!selectedLibraryLevel ? "active" : ""} onClick={() => setSelectedLibraryLevel("")}>All</button>
+                  {shelfLevels.map(level => (
+                    <button type="button" key={level} className={selectedLibraryLevel === level ? "active" : ""} onClick={() => setSelectedLibraryLevel(level)}>Level {level}</button>
+                  ))}
+                </div>
+                {filteredBooks ? (
+                  <div className="guided-shelf"><div className="guided-shelf-row wrap">{filteredBooks.map(renderCard)}</div></div>
+                ) : (
+                  <>
+                    {continueBooks.length > 0 && (
+                      <div className="guided-shelf"><h3 className="guided-shelf-head continue">Continue Reading</h3><div className="guided-shelf-row">{continueBooks.map(renderCard)}</div></div>
+                    )}
+                    {recommendedBooks.length > 0 && (
+                      <div className="guided-shelf"><h3 className="guided-shelf-head recommend">Recommended</h3><div className="guided-shelf-row">{recommendedBooks.map(item => renderCard(item.book))}</div></div>
+                    )}
+                  </>
+                )}
+              </div>
+              <aside className="guided-goal-panel" aria-label="Reading goal">
+                <h3>Reading Goal</h3>
+                <div className="guided-goal-stat"><strong>{booksRead}</strong><span>Books Read</span></div>
+                <p className="guided-goal-note">Keep reading to reach your goal.</p>
+              </aside>
+            </div>
+          );
+        })()}
+        {!isStudentMode && (<>
         {!selectedLibraryType && (
           <div className="guided-category-grid">
             {typeCards.map(card => (
@@ -1530,6 +1575,7 @@ export function GuidedReadingPage({
             })}
           </div>
         )}
+        </>)}
       </section>
       )}
 
