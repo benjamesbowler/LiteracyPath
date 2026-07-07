@@ -4,17 +4,55 @@ import {
 } from "./rocketRunRounds.js";
 import { onsetGrapheme, sharesSound } from "../components/elQuest/elQuestEngine.js";
 import { LETTER_EXAMPLES } from "../data/elSkillsBlockCycles.js";
+import { CVC_WORDS, SIGHT_WORDS } from "../data/learnGamesData.js";
 
-// Reconstruct the same ALL_WORDS pool used by rocketRunRounds.js
-// (DOM-free, no new curriculum logic — just the same data plumbing).
+const SOUND_RACER_EXTRA_WORDS = {
+  a: ["ask", "after", "again", "along", "away", "animal", "answer", "angle", "ankle", "apron", "artist", "always"],
+  e: ["elf", "elk", "ever", "enter", "empty", "echo", "edge", "even", "early", "equal", "every", "elbow", "engine", "enjoy"],
+  g: ["game", "gold", "good", "green", "great", "grow", "grab", "glow", "grape", "grass"],
+  i: ["ill", "inside", "index", "item", "image", "invite", "issue", "itchy", "inbox", "invent"],
+  j: ["jar", "jig", "job", "jog", "jolt", "jazz", "jade", "jelly", "jacket", "jungle", "jingle"],
+  k: ["key", "kelp", "kind", "kiss", "keep", "kitten", "kernel", "kettle", "kangaroo"],
+  n: ["nut", "nod", "nine", "name", "neck", "nail", "night", "nice", "never", "number"],
+  o: ["odd", "open", "orange", "ocean", "only", "orbit", "office", "olive", "often", "object"],
+  r: ["rain", "rip", "rose", "rope", "read", "river", "rocket", "rabbit", "ribbon", "rescue"],
+  v: ["vase", "voice", "visit", "very", "vote", "valley", "velvet", "violet", "vivid", "vowel"],
+  y: ["yam", "yard", "yell", "yolk", "yuck", "yawn", "young", "yummy", "yearn", "yield", "yodel", "yoga"],
+  z: ["zone", "zest", "zinc", "zero", "zebra", "zigzag", "zesty", "zippy", "zipper", "zombie", "zoom"],
+  ch: ["chat", "chill", "chick", "chain", "chase", "chess", "check", "charm", "cheer", "chime"],
+  wh: ["wheel", "whale", "white", "wheat", "whip", "while", "where", "whole", "whizz", "whisk"]
+};
+
+// Sound Racer needs longer laps than Rocket Run, so it uses the Rocket Run
+// examples plus existing early-game word banks and a small curated supplement.
 const CLEAN = word => /^[a-z]{2,6}$/.test(word);
-const ALL_WORDS = [...new Set(Object.values(LETTER_EXAMPLES).flat())].filter(CLEAN);
+const ALL_WORDS = [
+  ...new Set([
+    ...Object.values(LETTER_EXAMPLES).flat(),
+    ...Object.values(CVC_WORDS).flat(),
+    ...Object.values(SIGHT_WORDS).flat(),
+    ...Object.values(SOUND_RACER_EXTRA_WORDS).flat()
+  ].map(word => String(word).toLowerCase()).filter(CLEAN))
+];
 
 const LEN_RANGE = {
   easy: [2, 4], low: [2, 4],
   medium: [3, 5], mid: [3, 5],
   hard: [4, 6], high: [4, 6]
 };
+
+const TRACK_PROFILES = {
+  easy: { totalLength: 560, gateCount: 26, correctCount: 10, minGateGap: 14 },
+  low: { totalLength: 560, gateCount: 26, correctCount: 10, minGateGap: 14 },
+  medium: { totalLength: 650, gateCount: 31, correctCount: 10, minGateGap: 15 },
+  mid: { totalLength: 650, gateCount: 31, correctCount: 10, minGateGap: 15 },
+  hard: { totalLength: 700, gateCount: 34, correctCount: 10, minGateGap: 16 },
+  high: { totalLength: 700, gateCount: 34, correctCount: 10, minGateGap: 16 }
+};
+
+const DEFAULT_TRACK_PROFILE = TRACK_PROFILES.easy;
+const TRACK_START_BUFFER = 18;
+const TRACK_FINISH_BUFFER = 26;
 
 // Seeded random: mulberry32 (deterministic, fast, good distribution for games).
 function mulberry32(a) {
@@ -48,6 +86,40 @@ function makeRng(seed, target, difficulty) {
   return mulberry32(seedNum);
 }
 
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
+
+function nearestFreeIndex(ideal, taken, limit) {
+  if (!taken.has(ideal)) return ideal;
+  for (let offset = 1; offset < limit; offset += 1) {
+    const left = ideal - offset;
+    const right = ideal + offset;
+    if (left >= 0 && !taken.has(left)) return left;
+    if (right < limit && !taken.has(right)) return right;
+  }
+  return ideal;
+}
+
+function spacedGatePositions(profile, rng) {
+  const { gateCount, minGateGap, totalLength } = profile;
+  const start = TRACK_START_BUFFER;
+  const end = totalLength - TRACK_FINISH_BUFFER;
+  const usable = Math.max(minGateGap * Math.max(1, gateCount - 1), end - start);
+  const spacing = usable / Math.max(1, gateCount - 1);
+  let previous = start - minGateGap;
+
+  return Array.from({ length: gateCount }, (_, index) => {
+    const slotsLeft = gateCount - index - 1;
+    const maxAllowed = end - slotsLeft * minGateGap;
+    const base = start + spacing * index;
+    const jitter = (rng() - 0.5) * Math.min(spacing * 0.32, 7);
+    const z = Math.round(clamp(base + jitter, previous + minGateGap, maxAllowed));
+    previous = z;
+    return z;
+  });
+}
+
 // Deterministic round builder using the SAME fairness criteria as
 // buildRocketRunRound but with a seeded shuffle so tracks are reproducible.
 function buildDeterministicRound(target, { count, difficulty, rng }) {
@@ -55,10 +127,15 @@ function buildDeterministicRound(target, { count, difficulty, rng }) {
   const range = LEN_RANGE[String(difficulty || "").toLowerCase()];
   const inRange = w => !range || (w.length >= range[0] && w.length <= range[1]);
 
-  // Correct pool: words that truly start with the target grapheme
-  const correctPool = wordsStartingWith(g);
+  // Correct pool: words that truly start with the target grapheme.
+  const correctPool = [
+    ...new Set([
+      ...wordsStartingWith(g),
+      ...ALL_WORDS.filter(word => onsetGrapheme(word) === g)
+    ])
+  ];
   let cp = correctPool.filter(inRange);
-  if (cp.length < 3) cp = correctPool;
+  if (cp.length < count) cp = correctPool;
   const correct = shuffleSeeded([...new Set(cp)], rng).slice(0, Math.max(0, count));
 
   const correctSet = new Set(correct);
@@ -69,7 +146,7 @@ function buildDeterministicRound(target, { count, difficulty, rng }) {
   );
   let dp = distractorPool.filter(inRange);
   if (dp.length < count) dp = distractorPool;
-  const distractorCount = count + Math.ceil(count / 2);
+  const distractorCount = count * 2;
   const distractors = shuffleSeeded([...new Set(dp)], rng).slice(0, Math.max(0, distractorCount));
 
   return { correct, distractors, needed: correct.length };
@@ -91,21 +168,17 @@ export function buildTrack(target, { difficulty, seed } = {}) {
   const g = String(target || "").toLowerCase();
   const d = String(difficulty || "").toLowerCase();
   const rng = makeRng(seed, g, d);
+  const profile = TRACK_PROFILES[d] || DEFAULT_TRACK_PROFILE;
+  const { totalLength, gateCount } = profile;
 
-  const totalLength = d === "hard" || d === "high"
-    ? 100
-    : d === "medium" || d === "mid"
-      ? 80
-      : 60;
-
-  // Build a round with enough words for the track length
-  const count = Math.max(3, Math.min(10, Math.floor(totalLength / 8)));
+  // Build enough target words for a long lap without making the route cluttered.
+  const count = profile.correctCount;
   const round = buildDeterministicRound(g, { count, difficulty: d, rng });
   const needed = round.needed;
 
-  // Obstacles: ~18% of gates (fixed within the 15–20% spec for determinism)
-  const obstacleCount = Math.max(1, Math.floor(totalLength * 0.18));
-  const wordGateCount = totalLength - obstacleCount;
+  // Obstacles: ~18% of gates (fixed within the 15–20% spec for determinism).
+  const obstacleCount = Math.max(1, Math.floor(gateCount * 0.18));
+  const wordGateCount = gateCount - obstacleCount;
 
   // Build correct gates
   const correctGates = round.correct.slice(0, needed).map(word => ({
@@ -114,10 +187,12 @@ export function buildTrack(target, { difficulty, seed } = {}) {
     correct: true
   }));
 
-  // Build distractor gates (cycle through the round's distractors if needed)
+  // Build distractor gates. These stay distinct on the starting track; catch-up
+  // gates are the only intentional repeats, and only after a player misses.
   const distractorGates = [];
   for (let i = 0; i < wordGateCount - needed; i += 1) {
-    const word = round.distractors[i % round.distractors.length];
+    const word = round.distractors[i];
+    if (!word) break;
     distractorGates.push({ kind: "word", word, correct: false });
   }
 
@@ -126,31 +201,32 @@ export function buildTrack(target, { difficulty, seed } = {}) {
     kind: "obstacle"
   }));
 
-  // Place correct gates at evenly spread positions with a small jitter
-  const allGates = new Array(totalLength);
-  const segment = totalLength / needed;
-  const maxJitter = Math.max(0, Math.floor(segment) - 2);
+  // Place all gates on a sparse rhythm, then reserve evenly spread slots for
+  // correct words so the lesson stays fair across the full-length lap.
+  const positions = spacedGatePositions(profile, rng);
+  const allGates = new Array(gateCount);
+  const taken = new Set();
 
   for (let i = 0; i < needed; i += 1) {
-    const base = Math.floor(i * segment);
-    const jitter = maxJitter > 0 ? Math.floor(rng() * maxJitter) : 0;
-    const pos = base + jitter;
-    allGates[pos] = correctGates[i];
+    const ideal = Math.round(((i + 0.5) / needed) * gateCount - 0.5);
+    const index = nearestFreeIndex(clamp(ideal, 0, gateCount - 1), taken, gateCount);
+    allGates[index] = correctGates[i];
+    taken.add(index);
   }
 
   // Fill remaining slots with a shuffled mix of distractors and obstacles
   const remaining = shuffleSeeded([...distractorGates, ...obstacleGates], rng);
   let remIdx = 0;
-  for (let i = 0; i < totalLength; i += 1) {
+  for (let i = 0; i < gateCount; i += 1) {
     if (allGates[i] === undefined) {
-      allGates[i] = remaining[remIdx];
+      allGates[i] = remaining[remIdx] || { kind: "obstacle" };
       remIdx += 1;
     }
   }
 
   // Assign each gate to a lane (0, 1, 2)
-  const gates = allGates.map((gate, z) => ({
-    z,
+  const gates = allGates.map((gate, index) => ({
+    z: positions[index],
     lane: Math.floor(rng() * 3),
     ...gate
   }));
