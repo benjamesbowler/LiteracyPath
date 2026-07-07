@@ -22,7 +22,7 @@ function Complete({ title, stars, score, onRestart }) {
       <h2>{title} complete!</h2>
       <ProgressStars stars={stars} size="lg" />
       <p>{score} points</p>
-      {stars > 0 && <p className="kid-gems-earned">+{stars} 💎 for your Treasure Den!</p>}
+      {stars > 0 && <p className="kid-gems-earned">+{stars} gems for Points + Progress</p>}
       <button type="button" className="lg-game-primary" onClick={onRestart}>Play again</button>
     </div>
   );
@@ -48,7 +48,7 @@ function RescueStage({ rounds, state, isSoundEnabled }) {
         {rounds.map((r, i) => (
           <span key={i} className={`adv-plank${i < planks ? " laid" : ""}`} aria-hidden="true" />
         ))}
-        <span className="adv-goal" aria-hidden="true">🏠</span>
+        <span className="adv-goal" aria-hidden="true">GO</span>
       </div>
       <div className="adv-choices">
         {round.choices.map(word => (
@@ -129,7 +129,7 @@ function GardenStage({ rounds, state, isSoundEnabled }) {
       <div className="adv-garden-row" aria-label={`${grown.length} flowers grown`}>
         {rounds.map((r, i) => (
           <span key={i} className={`adv-flower${i < grown.length ? " grown" : ""}`} aria-hidden="true">
-            {i < grown.length ? grown[i] : "🌱"}
+            {i < grown.length ? grown[i] : "Seed"}
           </span>
         ))}
       </div>

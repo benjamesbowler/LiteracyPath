@@ -288,12 +288,23 @@ export const GAME_LIST = [
     description: "Find the missing piece and fix the sentence."
   },
   {
+    id: "sound-racer",
+    title: "Sound Racer",
+    skill: "Read beginning sounds at speed",
+    category: "Phonics",
+    ...GAME_ACCENTS.blue,
+    icon: "/images/learn-games/icon-sound-racer.webp",
+    description: "Race the track — grab the words that start with your sound to boost.",
+    fullBleed: true,
+    surfaces: ["arcade"]
+  },
+  {
     id: "word-bridge",
     title: "Word Bridge",
     skill: "Build words and sentences",
     category: "Phonics",
     ...GAME_ACCENTS.green,
-    icon: "/images/learn-games/icon-word-bridge.webp",
+    icon: "/images/learn-games/icon-word-leap.webp",
     description: "Build a bridge of letters so your Pals can cross the gap.",
     fullBleed: true,
     surfaces: ["arcade"]
