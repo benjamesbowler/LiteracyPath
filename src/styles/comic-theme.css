@@ -991,3 +991,79 @@
 /* A=red (active), B=blue, C=green chips regardless of active (mockup) */
 .student-mode-app .story-quest-learn-page .learn-story-level-selector button:nth-child(2).active { background: var(--comic-blue) !important; }
 .student-mode-app .story-quest-learn-page .learn-story-level-selector button:nth-child(3).active { background: var(--comic-green) !important; }
+
+/* ═══ G. ARCADE HUB — dark comic tile grid (no-scroll) ═════════════════ */
+.lg-arcade-comic {
+  padding: 16px clamp(12px, 3vw, 28px) 22px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vw, 18px);
+  background:
+    radial-gradient(1.5px 1.5px at 15% 20%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 70% 12%, #ffd84d 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 40% 80%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 88% 60%, #23c4de 50%, transparent 51%),
+    linear-gradient(180deg, #0c0d16, #181a33);
+}
+/* Slim top band */
+.lg-arcade-comic .lg-arcade-topband {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 8px 18px;
+  border: 3px solid transparent; border-radius: 14px;
+  background:
+    linear-gradient(#0c0d16, #12142a) padding-box,
+    linear-gradient(135deg, var(--comic-magenta), var(--comic-purple), var(--comic-cyan)) border-box;
+}
+.lg-arcade-comic .lg-arcade-8bit {
+  margin: 0;
+  font-family: "Press Start 2P", "Anton", monospace;
+  font-size: clamp(0.85rem, 1.9vw, 1.4rem);
+  letter-spacing: 0.04em; text-transform: uppercase; color: #ffd84d;
+  text-shadow: 2px 2px 0 var(--comic-magenta), 4px 4px 0 rgba(0,0,0,0.4);
+}
+.lg-arcade-comic .lg-arcade-topband-controls { display: flex; align-items: center; gap: 12px; }
+
+/* 4-wide tile grid */
+.lg-arcade-comic .lg-game-tilegrid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 1.6vw, 20px);
+}
+.lg-arcade-comic .lg-game-tile {
+  display: flex; flex-direction: column; padding: 0;
+  border: 3px solid var(--game-accent, #23c4de); border-radius: 16px;
+  background: #0b0d1c; box-shadow: 0 0 0 2px #000, 6px 6px 0 rgba(0,0,0,0.5);
+  overflow: hidden; cursor: pointer;
+  transition: transform 120ms ease-out, box-shadow 120ms ease-out;
+}
+.lg-arcade-comic .lg-game-tile:hover { transform: translateY(-3px); box-shadow: 0 0 0 2px #000, 8px 10px 0 rgba(0,0,0,0.5); }
+.lg-arcade-comic .lg-game-tile-art {
+  display: block; aspect-ratio: 1 / 1; background: #05060f;
+  border-bottom: 3px solid var(--game-accent, #23c4de);
+}
+.lg-arcade-comic .lg-game-tile-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lg-arcade-comic .lg-game-tile-art img.is-icon { object-fit: contain; padding: 18%; }
+.lg-arcade-comic .lg-game-tile-name {
+  font-family: var(--comic-display, "Anton"), sans-serif; font-style: italic; text-transform: uppercase;
+  color: #fff; font-size: clamp(0.95rem, 1.4vw, 1.25rem); padding: 10px 12px 4px; line-height: 1;
+}
+.lg-arcade-comic .lg-game-tile-foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 12px 12px;
+}
+.lg-arcade-comic .lg-game-tile-score {
+  font-family: "Press Start 2P", monospace; font-size: 0.6rem; color: #ffd84d; font-style: normal;
+}
+
+/* Slim bottom banner */
+.lg-arcade-comic .lg-arcade-bottomband {
+  display: flex; align-items: center; gap: 16px; padding: 8px 18px;
+  border: 3px solid #23c4de; border-radius: 14px; background: #0c0d16; color: #fff;
+}
+.lg-arcade-comic .lg-arcade-points { font-family: "Press Start 2P", monospace; font-size: 0.78rem; color: #ffd84d; }
+.lg-arcade-comic .lg-arcade-points strong { color: #fff; }
+.lg-arcade-comic .lg-arcade-played { font-weight: 900; opacity: 0.85; }
+.lg-arcade-comic .lg-arcade-highscores {
+  margin-left: auto; background: var(--comic-yellow); color: var(--comic-ink);
+  border: 3px solid #000; border-radius: 10px; padding: 8px 18px;
+  font-family: var(--comic-display, "Anton"), sans-serif; font-style: italic; text-transform: uppercase; cursor: pointer;
+}
+.lg-arcade-comic .lg-leaderboard-empty { color: #cbd3ef; font-weight: 700; padding: 4px 2px; }

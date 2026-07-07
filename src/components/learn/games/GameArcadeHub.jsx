@@ -7,7 +7,6 @@ import {
   loadLearnGamesProgress,
   saveLearnGamesSettings
 } from "../../../utils/learnGamesProgress";
-import { readCheckpoint } from "../../../utils/gameCheckpoints.js";
 import { ProgressStars } from "./shared/ProgressStars.jsx";
 import { SoundToggle } from "./shared/SoundToggle.jsx";
 import { GamePlayer } from "./GamePlayer.jsx";
@@ -50,7 +49,14 @@ function Leaderboard({ refreshSignal }) {
     };
   }, [refreshSignal]);
 
-  if (!rows || rows.length === 0) return null;
+  if (!rows || rows.length === 0) {
+    return (
+      <div className="lg-leaderboard" aria-label="High scores">
+        <div className="lg-leaderboard-head"><h2>Top Readers</h2></div>
+        <p className="lg-leaderboard-empty">No high scores yet — play a game to get on the board!</p>
+      </div>
+    );
+  }
 
   return (
     <div className="lg-leaderboard" aria-label="High scores">
@@ -88,17 +94,13 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
     return null;
   });
   const [leaderboardRefresh, setLeaderboardRefresh] = useState(0);
+  const [showLeaderboard, setShowLeaderboard] = useState(false);
 
   const totals = useMemo(() => {
-    const stars = ARCADE_GAMES.reduce((sum, game) => sum + (getLearnGameProgress(progress, game.id).stars || 0), 0);
     const completed = ARCADE_GAMES.filter(game => (getLearnGameProgress(progress, game.id).stars || 0) > 0).length;
     const points = ARCADE_GAMES.reduce((sum, game) => sum + (getLearnGameProgress(progress, game.id).highScore || 0), 0);
-    return { stars, completed, points };
+    return { completed, points };
   }, [progress]);
-  const nextGame = useMemo(() => (
-    ARCADE_GAMES.find(game => (getLearnGameProgress(progress, game.id).stars || 0) < 3) || ARCADE_GAMES[0]
-  ), [progress]);
-  const completedPercent = ARCADE_GAMES.length ? Math.round((totals.completed / ARCADE_GAMES.length) * 100) : 0;
 
   function setDifficulty(difficulty) {
     setProgress(saveLearnGamesSettings(progressScopeKey, { difficulty }));
@@ -111,106 +113,76 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
   const world = worldForDifficulty(progress.difficulty);
 
   return (
-    <section className="lg-arcade" aria-labelledby="lg-arcade-title" data-pal-world={world.id} style={worldStyle(world)}>
-      <div className="lg-arcade-header pal-world-banner">
-        <div className="lg-arcade-title-block">
-          <span className="lg-section-rule" aria-hidden="true"></span>
-          <div>
-            <span className="pal-world-chip">{world.name} world</span>
-            <p>Game Arcade</p>
-            <h1 id="lg-arcade-title">Play a short quest game</h1>
-            <span>Earn stars while reviewing letters, sounds, words, and rhymes.</span>
+    <section className="lg-arcade lg-arcade-comic" aria-labelledby="lg-arcade-title" data-pal-world={world.id} style={worldStyle(world)}>
+      {/* Slim top band with the 8-bit title + difficulty + sound */}
+      <div className="lg-arcade-topband">
+        <h1 id="lg-arcade-title" className="lg-arcade-8bit">Arcade Area</h1>
+        <div className="lg-arcade-topband-controls">
+          <div className="lg-segmented-control" aria-label="Difficulty">
+            {DIFFICULTIES.map(difficulty => (
+              <button
+                key={difficulty}
+                type="button"
+                className={progress.difficulty === difficulty ? "active" : ""}
+                aria-pressed={progress.difficulty === difficulty}
+                onClick={() => setDifficulty(difficulty)}
+              >
+                {difficulty}
+              </button>
+            ))}
           </div>
-        </div>
-        <div className="lg-arcade-summary">
-          <span className="lg-arcade-points-chip"><strong>{totals.points}</strong> points</span>
-          <span><strong>{totals.stars}/{ARCADE_GAMES.length * 3}</strong> stars</span>
-          <span><strong>{totals.completed}/{ARCADE_GAMES.length}</strong> played</span>
+          <SoundToggle enabled={progress.soundEnabled} onToggle={() => setSoundEnabled(!progress.soundEnabled)} />
         </div>
       </div>
 
-      <div className="lg-arcade-controls" aria-label="Game options">
-        <div className="lg-segmented-control" aria-label="Difficulty">
-          {DIFFICULTIES.map(difficulty => (
-            <button
-              key={difficulty}
-              type="button"
-              className={progress.difficulty === difficulty ? "active" : ""}
-              aria-pressed={progress.difficulty === difficulty}
-              onClick={() => setDifficulty(difficulty)}
-            >
-              {difficulty}
-            </button>
-          ))}
-        </div>
-        <SoundToggle enabled={progress.soundEnabled} onToggle={() => setSoundEnabled(!progress.soundEnabled)} />
-      </div>
-
-      {nextGame && (
-        <div className="lg-arcade-next" aria-label="Recommended game">
-          <div>
-            <p>Recommended next</p>
-            <strong>{nextGame.title}</strong>
-            <span>{nextGame.skill}</span>
-          </div>
-          <div className="lg-arcade-progress-track" aria-label={`${totals.completed} of ${ARCADE_GAMES.length} games played`}>
-            <span style={{ width: `${completedPercent}%` }} />
-          </div>
-          <button
-            className="lg-game-primary"
-            onClick={() => setActiveGame(nextGame)}
-            type="button"
-          >
-            Play Next
-          </button>
-        </div>
-      )}
-
-      <div className="lg-game-grid">
-        {ARCADE_GAMES.map((game, index) => {
+      {/* 4-wide tile grid: large game image + name */}
+      <div className="lg-game-tilegrid">
+        {ARCADE_GAMES.map(game => {
           const gameProgress = getLearnGameProgress(progress, game.id);
-          const resume = readCheckpoint(progress.games, game.id, progress.difficulty);
           return (
             <button
               key={game.id}
               type="button"
-              className="lg-game-card"
-              style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft, "--card-index": index }}
+              className="lg-game-tile"
+              style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft }}
               onClick={() => setActiveGame(game)}
             >
-              <span className="lg-game-card-art" aria-hidden="true">
+              <span className="lg-game-tile-art" aria-hidden="true">
                 <img
                   src={`/images/learn-games/art/${game.id}.webp`}
                   alt=""
-                  className="lg-game-art-full"
                   onError={event => {
-                    // No generated artwork yet for this game - fall back to its icon.
                     event.currentTarget.onerror = null;
                     event.currentTarget.src = game.icon;
-                    event.currentTarget.className = "lg-game-art-icon";
+                    event.currentTarget.classList.add("is-icon");
                   }}
                 />
               </span>
-              <span className="lg-game-card-copy">
-                <strong>{game.title}</strong>
-                <em>{game.description}</em>
-              </span>
-              <span className="lg-game-card-meta">
-                <span className="lg-game-skill">{game.skill}</span>
-                {resume && (
-                  <span className="lg-game-skill" style={{ background: "rgba(4,10,32,0.72)", color: "#fff" }}>
-                    Resume · Lvl {resume.level + 1}{resume.totalLevels ? `/${resume.totalLevels}` : ""}
-                  </span>
-                )}
+              <span className="lg-game-tile-name">{game.title}</span>
+              <span className="lg-game-tile-foot">
                 <ProgressStars stars={gameProgress.stars || 0} />
+                {gameProgress.highScore ? <em className="lg-game-tile-score">{gameProgress.highScore}</em> : null}
               </span>
-              <span className="lg-game-play" aria-hidden="true">Play</span>
             </button>
           );
         })}
       </div>
 
-      <Leaderboard refreshSignal={leaderboardRefresh} />
+      {/* Slim bottom banner: points + high-score board */}
+      <div className="lg-arcade-bottomband">
+        <span className="lg-arcade-points"><strong>{totals.points}</strong> points</span>
+        <span className="lg-arcade-played">{totals.completed}/{ARCADE_GAMES.length} games played</span>
+        <button
+          type="button"
+          className="lg-arcade-highscores"
+          aria-expanded={showLeaderboard}
+          onClick={() => setShowLeaderboard(value => !value)}
+        >
+          {showLeaderboard ? "Hide High Scores" : "High Scores"}
+        </button>
+      </div>
+
+      {showLeaderboard && <Leaderboard refreshSignal={leaderboardRefresh} />}
 
       {activeGame && (
         <GamePlayer
