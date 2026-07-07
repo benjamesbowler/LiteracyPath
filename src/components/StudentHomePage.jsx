@@ -63,6 +63,34 @@ function CheckIcon() {
   );
 }
 
+function CoinIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20">
+      <circle cx="12" cy="12" r="10" fill="#ffcf1a" stroke="#12141f" strokeWidth="2" />
+      <path d="M12 6.3l1.7 3.5 3.8.5-2.8 2.6.7 3.8L12 15.4l-3.4 1.9.7-3.8-2.8-2.6 3.8-.5z" fill="#12141f" />
+    </svg>
+  );
+}
+
+function AccountIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20" fill="currentColor">
+      <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-3.6 0-8 1.8-8 4.4V20h16v-1.6C20 15.8 15.6 14 12 14Z" />
+    </svg>
+  );
+}
+
+function ShieldIcon({ children }) {
+  return (
+    <span className="student-progress-shield" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="38" height="38">
+        <path d="M12 2 4 5v6c0 5 3.4 8.6 8 11 4.6-2.4 8-6 8-11V5l-8-3Z" fill="#0056b6" stroke="#12141f" strokeWidth="1.5" />
+      </svg>
+      <em>{children}</em>
+    </span>
+  );
+}
+
 const MISSION_TILES = [
   { kind: "quest", label: "Quest", art: "/images/learn-games/art/word-hopscotch.webp" },
   { kind: "book", label: "Book", art: "/images/learn-games/home/home-reading-library.webp" },
@@ -91,6 +119,11 @@ export function StudentHomePage({
   const [pickingCompanion, setPickingCompanion] = useState(false);
   const treasury = useMemo(() => computeTreasury(progressScopeKey), [progressScopeKey]);
   const [freshRewards, setFreshRewards] = useState(() => newRewardsSinceLastVisit(progressScopeKey, computeTreasury(progressScopeKey)));
+  const [accountOpen, setAccountOpen] = useState(false);
+  // Placeholder scoring until the real incentive system lands — all derived from gems.
+  const points = Math.round(treasury.gems * 12 + (treasury.breakdown?.gameStars || 0) * 5);
+  const level = Math.max(1, Math.floor(treasury.gems / 12) + 1);
+  const nextPercent = Math.round(((treasury.gems % 12) / 12) * 100);
 
   useEffect(() => {
     warmStudentAssets(worldForScope(progressScopeKey));
@@ -122,39 +155,63 @@ export function StudentHomePage({
 
   return (
     <main className="student-home-page">
-      <header className="student-home-topbar">
-        <span className="comic-wordmark" role="img" aria-label="Literacy Guide">
-          <span className="comic-wordmark-star" aria-hidden="true">★</span>
-          <span><strong>Literacy</strong><em>Guide</em></span>
+      <header className="student-home-topbar student-home-topbar-comic">
+        <span className="student-home-brand">
+          <img className="student-home-brand-logo" src="/images/pals/literacy-pals-logo.webp" alt="" onError={hideOnError} />
+          <span className="student-home-brand-text"><strong>Literacy</strong><em>Pals</em></span>
         </span>
         <button
-          className="student-home-avatar"
+          className="student-home-namepill"
           type="button"
           aria-label="Choose your companion"
           onClick={() => setPickingCompanion(true)}
         >
-          {companion
-            ? <img src={companion.image} alt="" onError={hideOnError} />
-            : String(studentName || "S").slice(0, 1).toUpperCase()}
-        </button>
-        <div>
-          <span className="student-home-eyebrow">Hello</span>
-          <strong>{studentName || "Reader"}</strong>
-        </div>
-        <span className="comic-topbar-gems" title="Gems collected">
-          <Gem color="violet" size={18} />
-          {treasury.gems}
-        </span>
-        {status.streak > 0 && (
-          <span className="student-home-streak" title="School-day streak">
-            <FlameIcon />
-            {status.streak} day{status.streak === 1 ? "" : "s"}
+          <span className="student-home-namepill-face">
+            {companion
+              ? <img src={companion.image} alt="" onError={hideOnError} />
+              : String(studentName || "S").slice(0, 1).toUpperCase()}
           </span>
-        )}
-        <button className="student-home-logout" onClick={onLogout} type="button" aria-label={logoutAriaLabel}>
-          <SignOutIcon />
-          <span>{logoutLabel}</span>
+          <strong>{studentName || "Reader"}</strong>
         </button>
+        <div className="student-home-account">
+          {status.streak > 0 && (
+            <span className="student-home-streak" title="School-day streak">
+              <FlameIcon />
+              {status.streak}
+            </span>
+          )}
+          <span className="comic-topbar-gems" title="Gems">
+            <Gem color="violet" size={18} />
+            {treasury.gems}
+          </span>
+          <span className="comic-topbar-coins" title="Points">
+            <CoinIcon />
+            {points.toLocaleString()}
+          </span>
+          <div className="student-home-account-wrap">
+            <button
+              className="student-home-account-btn"
+              type="button"
+              aria-haspopup="true"
+              aria-expanded={accountOpen}
+              aria-label="Account menu"
+              onClick={() => setAccountOpen(value => !value)}
+            >
+              <AccountIcon />
+              <span aria-hidden="true">▾</span>
+            </button>
+            {accountOpen && (
+              <div className="student-home-account-menu" role="menu">
+                <button type="button" role="menuitem" onClick={() => { setAccountOpen(false); setPickingCompanion(true); }}>
+                  Change companion
+                </button>
+                <button type="button" role="menuitem" onClick={onLogout} aria-label={logoutAriaLabel}>
+                  <SignOutIcon />{logoutLabel}
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
       </header>
 
       <section className="student-home-board" aria-label="Student learning areas">
@@ -262,22 +319,31 @@ export function StudentHomePage({
         onClick={onOpenGuidedReading}
       />
 
-        <section className="kid-den-banner student-progress-banner" aria-label="Points and progress">
-          <span className="kid-gem-counter" aria-label={`${treasury.gems} gems collected`}>
-            <Gem color="violet" size={22} />
-            {treasury.gems} gems
+        <section className="kid-den-banner student-progress-banner student-progress-comic" aria-label="Points and progress">
+          <span className="student-progress-title">Points + Progress</span>
+          <span className="student-progress-stat">
+            <Gem color="violet" size={24} />
+            <span><strong>{treasury.gems}</strong><small>Gems</small></span>
           </span>
-          {treasury.nextTreasure && (
-            <div className="kid-den-banner-next">
-              <span aria-hidden="true">{treasury.nextTreasure.icon}</span>
-              <div className="kid-next-unlock-track" aria-hidden="true">
-                <span style={{ width: `${Math.round(treasury.nextProgress * 100)}%` }} />
-              </div>
-              <em>{treasury.gemsToNext} to go</em>
+          <span className="student-progress-stat">
+            <CoinIcon />
+            <span><strong>{points.toLocaleString()}</strong><small>Points</small></span>
+          </span>
+          <span className="student-progress-stat">
+            <ShieldIcon>{level}</ShieldIcon>
+            <span><strong>Level {level}</strong></span>
+          </span>
+          <div className="student-progress-next">
+            <div className="student-progress-next-head">
+              <span>Next level</span>
+              <span>{nextPercent}%</span>
             </div>
-          )}
-          <button className="kid-den-button" type="button" onClick={onOpenRewards}>
-            Points / Progress
+            <div className="kid-next-unlock-track" aria-hidden="true">
+              <span style={{ width: `${nextPercent}%` }} />
+            </div>
+          </div>
+          <button className="kid-den-button student-progress-view" type="button" onClick={onOpenRewards}>
+            View Progress
           </button>
         </section>
       </section>

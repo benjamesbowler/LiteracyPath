@@ -1124,3 +1124,80 @@
   .student-mode-app .story-quest-learn-page .story-quest-body { flex-direction: column; }
   .student-mode-app .story-quest-learn-page .story-quest-sidebar { width: 100%; position: static; }
 }
+
+/* ═══ H. HOME — restructured topbar + points banner ════════════════════ */
+.student-mode-app .student-home-topbar-comic {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px;
+}
+.student-mode-app .student-home-brand { display: inline-flex; align-items: center; gap: 10px; justify-self: start; }
+.student-mode-app .student-home-brand-logo { width: 44px; height: 44px; object-fit: contain; }
+.student-mode-app .student-home-brand-text { font-family: var(--comic-display); font-style: italic; text-transform: uppercase; line-height: 0.82; }
+.student-mode-app .student-home-brand-text strong,
+.student-mode-app .student-home-brand-text em { display: block; font-size: 1.15rem; color: var(--comic-ink); font-weight: 400; font-style: italic; }
+
+.student-mode-app .student-home-namepill {
+  justify-self: center; display: inline-flex; align-items: center; gap: 10px;
+  background: var(--comic-yellow); color: var(--comic-ink);
+  border: var(--comic-bw) solid var(--comic-ink); border-radius: 999px;
+  box-shadow: var(--comic-shadow-sm); padding: 5px 20px 5px 6px; cursor: pointer;
+}
+.student-mode-app .student-home-namepill-face {
+  width: 40px; height: 40px; border-radius: 50%; overflow: hidden; background: #fff;
+  border: 2px solid var(--comic-ink); display: grid; place-items: center;
+  font-family: var(--comic-display); font-size: 1.1rem;
+}
+.student-mode-app .student-home-namepill-face img { width: 100%; height: 100%; object-fit: cover; }
+.student-mode-app .student-home-namepill strong { font-family: var(--comic-display); font-style: italic; font-size: 1.3rem; }
+
+.student-mode-app .student-home-account { justify-self: end; display: inline-flex; align-items: center; gap: 10px; }
+.student-mode-app .comic-topbar-coins {
+  display: inline-flex; align-items: center; gap: 6px; background: #fff;
+  border: 2px solid var(--comic-ink); border-radius: 999px; box-shadow: 2px 2px 0 var(--comic-ink);
+  padding: 3px 12px; font-weight: 900; color: var(--comic-ink);
+}
+.student-mode-app .student-home-account-wrap { position: relative; }
+.student-mode-app .student-home-account-btn {
+  display: inline-flex; align-items: center; gap: 2px; background: var(--comic-blue); color: #fff;
+  border: 2px solid var(--comic-ink); border-radius: 999px; box-shadow: 2px 2px 0 var(--comic-ink);
+  padding: 7px 11px; cursor: pointer;
+}
+.student-mode-app .student-home-account-menu {
+  position: absolute; right: 0; top: calc(100% + 6px); z-index: 20; background: #fff;
+  border: var(--comic-bw) solid var(--comic-ink); border-radius: var(--comic-r);
+  box-shadow: var(--comic-shadow); min-width: 190px; overflow: hidden;
+}
+.student-mode-app .student-home-account-menu button {
+  display: flex; align-items: center; gap: 8px; width: 100%; text-align: left; padding: 10px 14px;
+  background: #fff; border: 0; font-weight: 900; cursor: pointer; color: var(--comic-ink);
+}
+.student-mode-app .student-home-account-menu button:hover { background: var(--comic-yellow); }
+.student-mode-app .student-home-account-menu button svg { width: 18px; height: 18px; }
+
+.student-mode-app .student-progress-comic {
+  background: var(--comic-yellow) !important; border: var(--comic-bw-lg) solid var(--comic-ink);
+  border-radius: var(--comic-r-lg); box-shadow: var(--comic-shadow-lg);
+  display: flex; align-items: center; gap: clamp(12px, 2vw, 26px); padding: 12px 22px; color: var(--comic-ink);
+}
+.student-mode-app .student-progress-title {
+  font-family: var(--comic-display); font-style: italic; text-transform: uppercase;
+  font-size: clamp(1.1rem, 2vw, 1.6rem); line-height: 0.9; color: var(--comic-ink); max-width: 8ch;
+}
+.student-mode-app .student-progress-stat { display: inline-flex; align-items: center; gap: 8px; }
+.student-mode-app .student-progress-stat strong { display: block; font-family: var(--comic-display); font-style: italic; font-size: 1.4rem; line-height: 1; }
+.student-mode-app .student-progress-stat small { display: block; font-weight: 900; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.student-mode-app .student-progress-shield { position: relative; display: inline-grid; place-items: center; }
+.student-mode-app .student-progress-shield em { position: absolute; color: #fff; font-style: normal; font-family: var(--comic-display); font-size: 0.85rem; }
+.student-mode-app .student-progress-next { flex: 1; min-width: 120px; }
+.student-mode-app .student-progress-next-head { display: flex; justify-content: space-between; font-weight: 900; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 4px; }
+.student-mode-app .student-progress-comic .kid-next-unlock-track { height: 14px; background: #fff; border: 2px solid var(--comic-ink); border-radius: 999px; overflow: hidden; }
+.student-mode-app .student-progress-comic .kid-next-unlock-track > span { display: block; height: 100%; background: var(--comic-success); }
+.student-mode-app .student-progress-view {
+  background: var(--comic-blue) !important; color: #fff !important; border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 10px; box-shadow: var(--comic-shadow-sm); font-family: var(--comic-display); font-style: italic;
+  text-transform: uppercase; padding: 10px 20px;
+}
+.student-mode-app .student-mission-banner { padding: 10px 16px; }
+@media (max-width: 720px) {
+  .student-mode-app .student-home-topbar-comic { grid-template-columns: auto 1fr auto; }
+  .student-mode-app .student-progress-comic { flex-wrap: wrap; }
+}
