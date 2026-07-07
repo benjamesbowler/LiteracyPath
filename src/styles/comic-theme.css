@@ -733,6 +733,7 @@
   box-shadow: var(--comic-shadow);
   overflow: hidden;
 }
+.student-mode-app .learn-story-level-grid > *:nth-child(4n+1) { background: var(--comic-green); }
 .student-mode-app .learn-story-level-grid > *:nth-child(4n+2) { background: var(--comic-blue); }
 .student-mode-app .learn-story-level-grid > *:nth-child(4n+3) { background: var(--comic-teal); }
 .student-mode-app .learn-story-level-grid > *:nth-child(4n)   { background: var(--comic-purple); }
