@@ -848,3 +848,133 @@
   box-shadow: 2px 2px 0 var(--comic-ink);
   font-weight: 900;
 }
+
+/* ═══ C2. EL MAP QUESTS — extra chrome ═════════════════════════════════ */
+.student-mode-app .skills-block-quest .sbq-top {
+  background: var(--comic-white);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: var(--comic-r);
+  box-shadow: var(--comic-shadow-sm);
+}
+.student-mode-app .skills-block-quest .sbq-world-tabs button.active,
+.student-mode-app .skills-block-quest .sbq-world-tabs button[aria-pressed="true"] {
+  background: var(--comic-green);
+  color: #fff;
+}
+.student-mode-app .skills-block-quest .sbq-stations {
+  background: var(--comic-white);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: var(--comic-r);
+  box-shadow: var(--comic-shadow-sm);
+}
+.student-mode-app .skills-block-quest .sbq-station {
+  border: 2px solid var(--comic-ink);
+  border-radius: var(--comic-r-sm);
+  box-shadow: 2px 2px 0 var(--comic-ink);
+  background: #fffdf4;
+}
+.student-mode-app .skills-block-quest .sbq-station-icon {
+  border: 2px solid var(--comic-ink);
+  border-radius: 8px;
+}
+/* Right quest rail reads like the mockup's red panel */
+.student-mode-app .skills-block-quest .sbq-next-up {
+  border-top: 8px solid var(--comic-red);
+}
+
+/* ═══ E2. READING LIBRARY — real hooks ═════════════════════════════════ */
+.student-guided-reading-page .guided-reading-hero h1,
+.student-guided-reading-page .guided-reading-hero h2,
+.student-guided-reading-page .guided-reading-hero > strong {
+  font-family: var(--comic-display);
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--comic-ink);
+  line-height: 0.95;
+}
+.student-guided-reading-page .guided-reading-hero {
+  background: var(--comic-white);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: var(--comic-r);
+  box-shadow: var(--comic-shadow-sm);
+}
+.student-guided-reading-page .guided-category-card {
+  border: var(--comic-bw-lg) solid var(--comic-ink);
+  border-radius: var(--comic-r);
+  box-shadow: var(--comic-shadow);
+  background: #fff;
+}
+.student-guided-reading-page .guided-category-icon {
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 10px;
+  box-shadow: 2px 2px 0 var(--comic-ink);
+  font-family: var(--comic-display);
+  color: var(--comic-ink);
+}
+.student-guided-reading-page .guided-book-card {
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: var(--comic-r);
+  box-shadow: var(--comic-shadow-sm);
+  overflow: hidden;
+}
+.student-guided-reading-page .guided-book-card.active {
+  box-shadow: var(--comic-shadow);
+  transform: translate(-1px, -2px);
+}
+.student-guided-reading-page .guided-book-cover-wrap {
+  border-bottom: var(--comic-bw) solid var(--comic-ink);
+}
+.student-guided-reading-page .guided-recommendation-panel {
+  background: var(--comic-white);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: var(--comic-r);
+  box-shadow: var(--comic-shadow-sm);
+}
+.student-guided-reading-page .guided-recommendation-list > * {
+  border: 2px solid var(--comic-ink);
+  border-radius: var(--comic-r-sm);
+  box-shadow: 2px 2px 0 var(--comic-ink);
+  background: #fffdf4;
+}
+
+/* ═══ F. TREASURE DEN (rewards) ════════════════════════════════════════ */
+.student-mode-app .rewards-page .den-title h1,
+.student-mode-app .rewards-page .den-title h2,
+.student-mode-app .rewards-page .den-title > strong {
+  font-family: var(--comic-display);
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--comic-ink);
+  line-height: 0.95;
+}
+.student-mode-app .rewards-page .den-header,
+.student-mode-app .rewards-page .den-card {
+  background: var(--comic-white);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: var(--comic-r-lg);
+  box-shadow: var(--comic-shadow);
+}
+.student-mode-app .rewards-page .kid-gem-counter {
+  background: #fff;
+  color: var(--comic-ink);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 10px;
+  box-shadow: var(--comic-shadow-sm);
+  font-family: var(--comic-label);
+  font-weight: 900;
+}
+.student-mode-app .rewards-page .kid-badge-medal,
+.student-mode-app .rewards-page .den-earn {
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: var(--comic-r);
+  box-shadow: var(--comic-shadow-sm);
+}
+.student-mode-app .rewards-page .kid-next-unlock-track {
+  border: 2px solid var(--comic-ink);
+  border-radius: 999px;
+  overflow: hidden;
+  background: #fff;
+}
+.student-mode-app .rewards-page .kid-next-unlock-track > span { background: var(--comic-yellow); }
