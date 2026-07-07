@@ -18,7 +18,7 @@ function hideOnError(event) {
   event.currentTarget.style.display = "none";
 }
 
-function StudentHomeCard({ title, subtitle, meta, art, onClick, className = "", tags = [] }) {
+function StudentHomeCard({ title, subtitle, meta, art, onClick, className = "", tags = [], cta }) {
   return (
     <button className={["student-home-card", className].filter(Boolean).join(" ")} onClick={onClick} type="button">
       <span className="student-home-card-art" aria-hidden="true">
@@ -33,6 +33,7 @@ function StudentHomeCard({ title, subtitle, meta, art, onClick, className = "", 
             {tags.map(tag => <span key={tag}>{tag}</span>)}
           </span>
         )}
+        {cta && <span className="comic-card-cta" aria-hidden="true">{cta}</span>}
       </span>
     </button>
   );
@@ -122,7 +123,10 @@ export function StudentHomePage({
   return (
     <main className="student-home-page">
       <header className="student-home-topbar">
-        <img className="student-home-logo pals-logo" src="/images/pals/literacy-pals-logo.webp" alt="Literacy Pals" />
+        <span className="comic-wordmark" role="img" aria-label="Literacy Guide">
+          <span className="comic-wordmark-star" aria-hidden="true">★</span>
+          <span><strong>Literacy</strong><em>Guide</em></span>
+        </span>
         <button
           className="student-home-avatar"
           type="button"
@@ -137,6 +141,10 @@ export function StudentHomePage({
           <span className="student-home-eyebrow">Hello</span>
           <strong>{studentName || "Reader"}</strong>
         </div>
+        <span className="comic-topbar-gems" title="Gems collected">
+          <Gem color="violet" size={18} />
+          {treasury.gems}
+        </span>
         {status.streak > 0 && (
           <span className="student-home-streak" title="School-day streak">
             <FlameIcon />
@@ -230,10 +238,11 @@ export function StudentHomePage({
       />
       <StudentHomeCard
         className="student-home-card-arcade"
-        art="/images/learn-games/art/cvc-train.webp"
+        art="/images/learn-games/home/home-arcade.webp"
         meta="Games"
         title="Arcade"
         subtitle="All literacy games live here"
+        cta="Play now"
         onClick={() => openArcade()}
       />
       <StudentHomeCard

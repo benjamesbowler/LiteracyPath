@@ -1,0 +1,814 @@
+/* ============================================================================
+   COMIC THEME — pop/comic-book reskin (mockup fidelity, 2026-07)
+   Loaded LAST in main.jsx. Chrome/headers only; reading text stays readable.
+   All rules scoped to .student-mode-app (or .student-guided-reading-page).
+   ============================================================================ */
+
+:root {
+  /* Ink & paper */
+  --comic-ink: #12141f;
+  --comic-ink-soft: #2a2d3d;
+  --comic-paper: #faf6ec;
+  --comic-dot: rgba(18, 20, 31, 0.08);
+  --comic-white: #ffffff;
+
+  /* Pops (sampled from the mockups) */
+  --comic-yellow: #ffc917;
+  --comic-yellow-deep: #f0a800;
+  --comic-red: #e03a2a;
+  --comic-red-deep: #b52a1d;
+  --comic-blue: #1c5be0;
+  --comic-blue-deep: #123f9e;
+  --comic-green: #2fa341;
+  --comic-green-deep: #1f7a2e;
+  --comic-purple: #6c34c9;
+  --comic-teal: #0aa4a8;
+  --comic-orange: #f28a1b;
+  --comic-magenta: #e8368f;
+  --comic-cyan: #23c4de;
+  --comic-success: #25c76f;
+  --comic-star: #ffc400;
+  --comic-gem: #8b3de8;
+
+  /* Arcade night mode */
+  --comic-night: #0c0d16;
+  --comic-night-2: #181a33;
+
+  /* Type */
+  --comic-display: "Anton", "Archivo Black", Impact, "Arial Black", sans-serif;
+  --comic-label: "Nunito", "Fredoka", system-ui, sans-serif;
+
+  /* Structure */
+  --comic-bw: 3px;               /* standard border */
+  --comic-bw-lg: 4px;            /* hero/sticker border */
+  --comic-r-sm: 8px;
+  --comic-r: 12px;
+  --comic-r-lg: 16px;
+  --comic-shadow-sm: 3px 3px 0 var(--comic-ink);
+  --comic-shadow: 5px 5px 0 var(--comic-ink);
+  --comic-shadow-lg: 7px 7px 0 var(--comic-ink);
+}
+
+/* ── Paper + halftone page background ──────────────────────────────────── */
+.student-mode-app {
+  background-color: var(--comic-paper);
+  background-image: radial-gradient(var(--comic-dot) 1.3px, transparent 1.4px);
+  background-size: 16px 16px;
+}
+
+/* ── Shared recipes ────────────────────────────────────────────────────── */
+.student-mode-app .comic-panel {
+  background: var(--comic-white);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: var(--comic-r);
+  box-shadow: var(--comic-shadow);
+}
+
+/* Display type: heavy, condensed, uppercase, slanted like the mockups */
+.student-mode-app .comic-display {
+  font-family: var(--comic-display);
+  font-style: italic;            /* Anton has no italic; synthetic oblique = mockup slant */
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+  line-height: 0.95;
+}
+
+/* Rotated sticker slab (e.g. the red "STORY QUESTS" header) */
+.student-mode-app .comic-sticker {
+  display: inline-block;
+  padding: 10px 18px 12px;
+  background: var(--comic-yellow);
+  color: var(--comic-ink);
+  border: var(--comic-bw-lg) solid var(--comic-ink);
+  border-radius: 6px;
+  box-shadow: var(--comic-shadow);
+  transform: rotate(-2.5deg);
+  font-family: var(--comic-display);
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+.student-mode-app .comic-sticker--red    { background: var(--comic-red);    color: #fff; }
+.student-mode-app .comic-sticker--blue   { background: var(--comic-blue);   color: #fff; }
+.student-mode-app .comic-sticker--white  { background: var(--comic-white); }
+
+/* Chunky uppercase label pill ("READ · DISCOVER · ADVENTURE") */
+.student-mode-app .comic-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px 4px;
+  background: var(--comic-ink);
+  color: #fff;
+  border-radius: 6px;
+  font-family: var(--comic-label);
+  font-weight: 900;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Yellow arrow CTA (VIEW PROGRESS ➜ / OPEN BOOK ➜ / START QUEST ➜) */
+.student-mode-app .comic-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 10px 22px;
+  background: var(--comic-yellow);
+  color: var(--comic-ink);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 10px;
+  box-shadow: var(--comic-shadow-sm);
+  font-family: var(--comic-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: transform 120ms ease-out, box-shadow 120ms ease-out;
+}
+.student-mode-app .comic-btn::after { content: "➜"; font-style: normal; }
+.student-mode-app .comic-btn:hover  { transform: translate(-1px, -2px); box-shadow: 6px 7px 0 var(--comic-ink); }
+.student-mode-app .comic-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--comic-ink); }
+.student-mode-app .comic-btn--red   { background: var(--comic-red);   color: #fff; }
+.student-mode-app .comic-btn--blue  { background: var(--comic-blue);  color: #fff; }
+.student-mode-app .comic-btn--green { background: var(--comic-green); color: #fff; }
+
+/* Level chips (LEVEL A blue / B green / C red, like the library mockup) */
+.student-mode-app .comic-level-chip {
+  display: inline-block;
+  padding: 2px 10px 3px;
+  border: 2px solid var(--comic-ink);
+  border-radius: 7px;
+  box-shadow: 2px 2px 0 var(--comic-ink);
+  color: #fff;
+  font-family: var(--comic-label);
+  font-weight: 900;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.student-mode-app .comic-level-chip--a { background: var(--comic-blue); }
+.student-mode-app .comic-level-chip--b { background: var(--comic-green); }
+.student-mode-app .comic-level-chip--c { background: var(--comic-red); }
+
+/* Numbered circle badge (the ①②③ of the daily strip / map stops) */
+.student-mode-app .comic-num {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  background: var(--comic-white);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 50%;
+  font-family: var(--comic-label);
+  font-weight: 900;
+  font-size: 0.95rem;
+  color: var(--comic-ink);
+}
+
+/* Ink-bordered progress bar with rounded fill */
+.student-mode-app .comic-progress {
+  height: 14px;
+  background: #fff;
+  border: 2px solid var(--comic-ink);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.student-mode-app .comic-progress > span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--comic-success);
+}
+
+/* Outlined gold stars (★★☆) — apply to existing star spans */
+.student-mode-app .comic-star-on,
+.student-mode-app .comic-star-off {
+  -webkit-text-stroke: 1.5px var(--comic-ink);
+  font-size: 1.05rem;
+}
+.student-mode-app .comic-star-on  { color: var(--comic-star); }
+.student-mode-app .comic-star-off { color: #fff; }
+
+/* Comic wordmark (replaces the logo image — text says LITERACY GUIDE) */
+.student-mode-app .comic-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--comic-display);
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: 0.9;
+  user-select: none;
+}
+.student-mode-app .comic-wordmark-star {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  background: var(--comic-yellow);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 10px;
+  box-shadow: var(--comic-shadow-sm);
+  transform: rotate(-8deg);
+  font-style: normal;
+  font-size: 1.3rem;
+  color: var(--comic-ink);
+}
+.student-mode-app .comic-wordmark strong { color: var(--comic-ink); font-weight: 400; font-size: 1.15rem; display: block; }
+.student-mode-app .comic-wordmark em {
+  color: #fff;
+  font-size: 1.15rem;
+  background: var(--comic-blue);
+  border: 2px solid var(--comic-ink);
+  border-radius: 6px;
+  padding: 1px 8px 2px;
+  box-shadow: 2px 2px 0 var(--comic-ink);
+}
+
+/* Focus visibility on the new controls */
+.student-mode-app .comic-btn:focus-visible,
+.student-mode-app .student-home-card:focus-visible,
+.student-mode-app .student-mission-tile:focus-visible {
+  outline: 3px solid var(--comic-blue);
+  outline-offset: 3px;
+}
+
+/* Reduced motion: kill the hover/active translations */
+@media (prefers-reduced-motion: reduce) {
+  .student-mode-app .comic-btn,
+  .student-mode-app .comic-btn:hover,
+  .student-mode-app .comic-btn:active { transition: none; transform: none; }
+}
+
+/* ═══ A. STUDENT HOME ══════════════════════════════════════════════════ */
+.student-mode-app .student-home-board {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: auto minmax(290px, auto) minmax(205px, auto) auto;
+  grid-template-areas:
+    "mission mission mission mission mission mission"
+    "phonics phonics phonics arcade arcade arcade"
+    "map map story story library library"
+    "progress progress progress progress progress progress";
+  gap: clamp(14px, 1.6vw, 22px);
+}
+
+/* Topbar: white band with ink rule + comic chips */
+.student-mode-app .student-home-topbar {
+  background: var(--comic-white);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: var(--comic-r);
+  box-shadow: var(--comic-shadow-sm);
+  padding: 10px 16px;
+}
+.student-mode-app .student-home-avatar {
+  border: var(--comic-bw) solid var(--comic-ink);
+  box-shadow: 2px 2px 0 var(--comic-ink);
+}
+.student-mode-app .student-home-topbar > div strong {
+  background: var(--comic-blue);
+  color: #fff;
+  border: 2px solid var(--comic-ink);
+  border-radius: 999px;
+  box-shadow: 2px 2px 0 var(--comic-ink);
+  padding: 2px 14px 3px;
+  font-family: var(--comic-label);
+  font-weight: 900;
+}
+.student-mode-app .comic-topbar-gems,
+.student-mode-app .student-home-streak {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--comic-white);
+  border: 2px solid var(--comic-ink);
+  border-radius: 999px;
+  box-shadow: 2px 2px 0 var(--comic-ink);
+  padding: 3px 12px;
+  font-family: var(--comic-label);
+  font-weight: 900;
+  color: var(--comic-ink);
+}
+
+/* Card shell: thick ink borders, hard offset shadow, flat color fields */
+.student-mode-app .student-home-card {
+  position: relative;
+  border: var(--comic-bw-lg) solid var(--comic-ink);
+  border-radius: var(--comic-r-lg);
+  box-shadow: var(--comic-shadow-lg);
+  overflow: hidden;
+  text-align: left;
+}
+.student-mode-app .student-home-card:hover {
+  transform: translate(-2px, -3px);
+  box-shadow: 9px 10px 0 var(--comic-ink);
+}
+.student-mode-app .student-home-card-phonics { background: var(--comic-green); }
+.student-mode-app .student-home-card-map     { background: var(--comic-blue); }
+.student-mode-app .student-home-card-story   { background: var(--comic-red); }
+.student-mode-app .student-home-card-library { background: var(--comic-purple); }
+
+/* Art fills the right half behind an ink divider */
+.student-mode-app .student-home-card-art {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 52%;
+  border-left: var(--comic-bw) solid var(--comic-ink);
+}
+.student-mode-app .student-home-card-art img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Left column: big slanted title + black label bar + tag chips */
+.student-mode-app .student-home-card-label {
+  position: relative;
+  z-index: 1;
+  width: 48%;
+  height: 100%;
+  padding: clamp(12px, 1.6vw, 22px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.student-mode-app .student-home-card-label strong {
+  font-family: var(--comic-display);
+  font-style: italic;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: clamp(1.45rem, 2.6vw, 2.35rem);
+  line-height: 0.92;
+  text-shadow: 2.5px 2.5px 0 var(--comic-ink);
+}
+.student-mode-app .student-home-card-meta { display: none; } /* superseded by the big title */
+.student-mode-app .student-home-card-subtitle {
+  background: var(--comic-ink);
+  color: #fff;
+  border-radius: 6px;
+  padding: 3px 10px 4px;
+  font-family: var(--comic-label);
+  font-weight: 900;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.student-mode-app .student-home-card-tags span {
+  background: #fff;
+  color: var(--comic-ink);
+  border: 2px solid var(--comic-ink);
+  border-radius: 999px;
+  box-shadow: 2px 2px 0 var(--comic-ink);
+  padding: 2px 10px;
+  font-weight: 900;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+/* Arcade hero: night mode with neon gradient border + starfield */
+.student-mode-app .student-home-card-arcade {
+  border: var(--comic-bw-lg) solid transparent;
+  background:
+    radial-gradient(1.5px 1.5px at 18% 30%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 72% 18%, #ffd84d 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 44% 74%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 88% 62%, #23c4de 50%, transparent 51%),
+    linear-gradient(var(--comic-night), var(--comic-night-2)) padding-box,
+    linear-gradient(135deg, var(--comic-magenta), var(--comic-purple), var(--comic-cyan)) border-box;
+}
+.student-mode-app .student-home-card-arcade .student-home-card-art { border-left-color: rgba(255,255,255,0.25); }
+.student-mode-app .student-home-card-arcade .student-home-card-subtitle { background: var(--comic-magenta); }
+.student-mode-app .comic-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding: 8px 18px;
+  background: var(--comic-yellow);
+  color: var(--comic-ink);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 10px;
+  box-shadow: var(--comic-shadow-sm);
+  font-family: var(--comic-display);
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+.student-mode-app .comic-card-cta::after { content: "➜"; font-style: normal; }
+
+/* Points + Progress band: royal blue, ink border, yellow CTA */
+.student-mode-app .kid-den-banner.student-progress-banner {
+  background: var(--comic-blue);
+  border: var(--comic-bw-lg) solid var(--comic-ink);
+  border-radius: var(--comic-r-lg);
+  box-shadow: var(--comic-shadow-lg);
+  color: #fff;
+}
+.student-mode-app .student-progress-banner .kid-gem-counter {
+  background: #fff;
+  color: var(--comic-ink);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 10px;
+  box-shadow: var(--comic-shadow-sm);
+  font-family: var(--comic-label);
+  font-weight: 900;
+}
+.student-mode-app .student-progress-banner .kid-next-unlock-track {
+  height: 14px;
+  background: #fff;
+  border: 2px solid var(--comic-ink);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.student-mode-app .student-progress-banner .kid-next-unlock-track span { background: var(--comic-yellow); }
+.student-mode-app .student-progress-banner .kid-den-button {
+  background: var(--comic-yellow);
+  color: var(--comic-ink);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 10px;
+  box-shadow: var(--comic-shadow-sm);
+  font-family: var(--comic-display);
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+/* Home on narrow screens: stack heroes, then the trio */
+@media (max-width: 900px) {
+  .student-mode-app .student-home-board {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "mission mission"
+      "phonics phonics"
+      "arcade arcade"
+      "map story"
+      "library library"
+      "progress progress";
+  }
+  .student-mode-app .student-home-card-art { position: relative; inset: auto; width: 100%; height: 140px; border-left: 0; border-top: var(--comic-bw) solid var(--comic-ink); }
+  .student-mode-app .student-home-card-label { width: 100%; height: auto; }
+}
+
+/* ═══ B. DAILY CHALLENGE STRIP ═════════════════════════════════════════ */
+.student-mode-app .student-mission-banner {
+  background: var(--comic-yellow);
+  border: var(--comic-bw-lg) solid var(--comic-ink);
+  border-radius: var(--comic-r-lg);
+  box-shadow: var(--comic-shadow-lg);
+}
+/* "DAILY CHALLENGE" kicker becomes the rotated sticker slab */
+.student-mode-app .student-mission-banner .student-board-kicker {
+  display: inline-block;
+  padding: 6px 14px 8px;
+  background: var(--comic-red);
+  color: #fff;
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 6px;
+  box-shadow: var(--comic-shadow-sm);
+  transform: rotate(-2.5deg);
+  font-family: var(--comic-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.student-mode-app .student-mission-head h1 {
+  font-family: var(--comic-display);
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* Task tiles: white panels with circled numbers ① ② ③ */
+.student-mode-app .student-mission-grid { counter-reset: mission-step; }
+.student-mode-app .student-mission-tile {
+  position: relative;
+  background: #fffdf4;
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: var(--comic-r);
+  box-shadow: var(--comic-shadow-sm);
+  padding-left: 44px;
+}
+.student-mode-app .student-mission-tile::before {
+  counter-increment: mission-step;
+  content: counter(mission-step);
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 50%;
+  font-family: var(--comic-label);
+  font-weight: 900;
+  color: var(--comic-ink);
+}
+.student-mode-app .student-mission-tile.done::before { background: var(--comic-success); color: #fff; content: "✓"; }
+.student-mode-app .student-mission-art {
+  border: 2px solid var(--comic-ink);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.student-mode-app .student-mission-copy small {
+  font-family: var(--comic-label);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--comic-ink);
+}
+.student-mode-app .student-mission-done-badge { background: var(--comic-success); border: 2px solid var(--comic-ink); }
+
+/* Tracker + start button */
+.student-mode-app .student-mission-tracker {
+  background: #fff;
+  border: var(--comic-bw) solid var(--comic-ink);
+  box-shadow: var(--comic-shadow-sm);
+}
+.student-mode-app .student-mission-next-button {
+  background: var(--comic-ink);
+  color: #fff;
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 10px;
+  box-shadow: var(--comic-shadow-sm);
+  font-family: var(--comic-display);
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+/* ═══ C. EL MAP QUESTS ═════════════════════════════════════════════════ */
+:root { --comic-sea: #3d9be9; }
+
+.student-mode-app .skills-block-quest .sbq-kicker {
+  display: inline-block;
+  padding: 8px 16px 10px;
+  background: var(--comic-yellow);
+  color: var(--comic-ink);
+  border: var(--comic-bw-lg) solid var(--comic-ink);
+  border-radius: 6px;
+  box-shadow: var(--comic-shadow);
+  transform: rotate(-2.5deg);
+  font-family: var(--comic-display);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  text-transform: uppercase;
+}
+.student-mode-app .skills-block-quest .sbq-sub {
+  font-family: var(--comic-label);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--comic-ink);
+}
+
+/* The map becomes a sea-blue comic panel */
+.student-mode-app .skills-block-quest .sbq-mapwrap {
+  background: var(--comic-sea);
+  border: var(--comic-bw-lg) solid var(--comic-ink);
+  border-radius: var(--comic-r-lg);
+  box-shadow: var(--comic-shadow-lg);
+  overflow: hidden;
+}
+
+/* Stops: white ink-ringed circles; current stop gets the yellow ring */
+.student-mode-app .skills-block-quest .sbq-stop-marker {
+  background: #fff;
+  border: var(--comic-bw) solid var(--comic-ink);
+  box-shadow: 2px 2px 0 var(--comic-ink);
+  color: var(--comic-ink);
+  font-family: var(--comic-label);
+  font-weight: 900;
+}
+.student-mode-app .skills-block-quest .sbq-stop-name {
+  background: #fff;
+  border: 2px solid var(--comic-ink);
+  border-radius: 8px;
+  box-shadow: 2px 2px 0 var(--comic-ink);
+  padding: 1px 8px;
+  font-weight: 900;
+}
+
+/* Route: chunky white dashes */
+.student-mode-app .skills-block-quest .sbq-route-line {
+  stroke: rgba(255, 255, 255, 0.95);
+  stroke-dasharray: 14 12;
+}
+
+/* Right rail / next-up: white comic panel with a red header + yellow CTA */
+.student-mode-app .skills-block-quest .sbq-next-up {
+  background: #fff;
+  border: var(--comic-bw-lg) solid var(--comic-ink);
+  border-radius: var(--comic-r-lg);
+  box-shadow: var(--comic-shadow);
+}
+.student-mode-app .skills-block-quest .sbq-primary-button {
+  background: var(--comic-yellow);
+  color: var(--comic-ink);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 10px;
+  box-shadow: var(--comic-shadow-sm);
+  font-family: var(--comic-display);
+  font-style: italic;
+  text-transform: uppercase;
+}
+.student-mode-app .skills-block-quest .sbq-ghost-button {
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 10px;
+  box-shadow: var(--comic-shadow-sm);
+  background: #fff;
+  color: var(--comic-ink);
+  font-weight: 900;
+}
+.student-mode-app .skills-block-quest .sbq-progress-track {
+  border: 2px solid var(--comic-ink);
+  border-radius: 999px;
+  background: #fff;
+  overflow: hidden;
+}
+.student-mode-app .skills-block-quest .sbq-world-tabs button {
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 10px;
+  box-shadow: var(--comic-shadow-sm);
+  font-weight: 900;
+}
+
+/* ═══ D. STORY QUESTS PICKER ═══════════════════════════════════════════ */
+/* Red rotated sticker header */
+.student-mode-app .story-quest-learn-page .story-quest-kicker {
+  display: inline-block;
+  padding: 8px 16px 10px;
+  background: var(--comic-red);
+  color: #fff;
+  border: var(--comic-bw-lg) solid var(--comic-ink);
+  border-radius: 6px;
+  box-shadow: var(--comic-shadow);
+  transform: rotate(-2.5deg);
+  font-family: var(--comic-display);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  text-transform: uppercase;
+}
+
+/* Level tabs A/B/C */
+.student-mode-app .learn-story-level-button {
+  background: #fff;
+  color: var(--comic-ink);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 10px 10px 0 0;
+  box-shadow: var(--comic-shadow-sm);
+  font-family: var(--comic-label);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.student-mode-app .learn-story-level-button[aria-pressed="true"],
+.student-mode-app .learn-story-level-button.active {
+  background: var(--comic-red);
+  color: #fff;
+}
+.student-mode-app .learn-story-level-button.active::before { content: "★ "; color: var(--comic-star); }
+
+/* Continue strip: yellow banner with ink border */
+.student-mode-app .story-quest-continue-strip {
+  background: var(--comic-yellow);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: var(--comic-r);
+  box-shadow: var(--comic-shadow);
+}
+.student-mode-app .story-quest-continue-strip .lp-button {
+  background: var(--comic-red);
+  color: #fff;
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 10px;
+  box-shadow: var(--comic-shadow-sm);
+  font-family: var(--comic-display);
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+/* Story cards: cover with ink frame, colored body cycling like the mockup */
+.student-mode-app .learn-story-level-grid > * {
+  background: var(--comic-red);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: var(--comic-r);
+  box-shadow: var(--comic-shadow);
+  overflow: hidden;
+}
+.student-mode-app .learn-story-level-grid > *:nth-child(4n+2) { background: var(--comic-blue); }
+.student-mode-app .learn-story-level-grid > *:nth-child(4n+3) { background: var(--comic-teal); }
+.student-mode-app .learn-story-level-grid > *:nth-child(4n)   { background: var(--comic-purple); }
+.student-mode-app .learn-story-quest-cover {
+  border-bottom: var(--comic-bw) solid var(--comic-ink);
+}
+.student-mode-app .learn-story-quest-card-copy strong,
+.student-mode-app .learn-story-quest-card-copy h3 {
+  font-family: var(--comic-display);
+  font-style: italic;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 2px 2px 0 var(--comic-ink);
+  letter-spacing: 0.02em;
+}
+.student-mode-app .learn-story-word-preview,
+.student-mode-app .story-quest-card-progress {
+  background: #fff;
+  color: var(--comic-ink);
+  border: 2px solid var(--comic-ink);
+  border-radius: 999px;
+  box-shadow: 2px 2px 0 var(--comic-ink);
+  font-weight: 900;
+}
+.student-mode-app .learn-story-quest-actions .lp-button-primary {
+  background: var(--comic-yellow);
+  color: var(--comic-ink);
+  border: var(--comic-bw) solid var(--comic-ink);
+  box-shadow: var(--comic-shadow-sm);
+  font-family: var(--comic-display);
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+/* Stats panel (words found) as a teal comic panel */
+.student-mode-app .story-quest-library-stats {
+  background: var(--comic-teal);
+  color: #fff;
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: var(--comic-r);
+  box-shadow: var(--comic-shadow);
+  font-weight: 900;
+}
+
+/* ═══ E. READING LIBRARY (student mode only) ═══════════════════════════ */
+.student-guided-reading-page .guided-library-breadcrumb {
+  font-family: var(--comic-label);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+/* Level / category pickers become chip slabs (blue/green/red like the mockup) */
+.student-guided-reading-page .guided-level-card,
+.student-guided-reading-page .guided-category-card {
+  background: #fff;
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: var(--comic-r);
+  box-shadow: var(--comic-shadow-sm);
+  font-weight: 900;
+}
+.student-guided-reading-page .guided-level-card:hover,
+.student-guided-reading-page .guided-category-card:hover {
+  transform: translate(-1px, -2px);
+  box-shadow: var(--comic-shadow);
+}
+.student-guided-reading-page .guided-level-grid > :nth-child(1) .guided-level-card,
+.student-guided-reading-page .guided-level-grid > :nth-child(1) { border-color: var(--comic-ink); }
+
+/* Book cards: ink-framed covers, chunky titles, comic progress bar */
+.student-guided-reading-page .guided-book-cover,
+.student-guided-reading-page .guided-book-cover-wrap {
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 10px;
+  box-shadow: var(--comic-shadow-sm);
+  overflow: hidden;
+}
+.student-guided-reading-page .guided-book-title {
+  font-family: var(--comic-label);
+  font-weight: 900;
+}
+.student-guided-reading-page .guided-book-meta {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.student-guided-reading-page .guided-book-progress {
+  display: inline-block;
+  background: #fff;
+  color: var(--comic-ink);
+  border: 2px solid var(--comic-ink);
+  border-radius: 999px;
+  box-shadow: 2px 2px 0 var(--comic-ink);
+  padding: 2px 10px;
+  font-weight: 900;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+.student-guided-reading-page .guided-book-action {
+  background: var(--comic-yellow);
+  color: var(--comic-ink);
+  border: var(--comic-bw) solid var(--comic-ink);
+  border-radius: 10px;
+  box-shadow: var(--comic-shadow-sm);
+  font-family: var(--comic-display);
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+/* Reader chrome only: header buttons pick up ink borders; text untouched */
+.student-guided-reading-page .guided-reader-header button {
+  border: 2px solid var(--comic-ink);
+  border-radius: 10px;
+  box-shadow: 2px 2px 0 var(--comic-ink);
+  font-weight: 900;
+}

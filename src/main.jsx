@@ -5,6 +5,8 @@ import App from './App.jsx'
 // Imported AFTER App so these rules land last in the cascade: the child-facing
 // wide-layout + vibrant reskin layer always wins.
 import './styles/student-vibrant.css'
+// Comic-book mockup-fidelity layer. MUST stay after student-vibrant.css so it wins the cascade.
+import './styles/comic-theme.css'
 import { ErrorBoundary } from './components/ErrorBoundary.jsx'
 import { AppCrashFallback } from './components/AppCrashFallback.jsx'
 import { DYNAMIC_IMPORT_ERROR_EVENT, reloadOnceForNewVersion } from './utils/lazyWithRetry.js'
