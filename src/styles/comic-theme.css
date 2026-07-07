@@ -248,7 +248,7 @@
 /* ═══ A. STUDENT HOME ══════════════════════════════════════════════════ */
 .student-mode-app .student-home-board {
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  grid-template-rows: auto minmax(290px, auto) minmax(205px, auto) auto;
+  grid-template-rows: auto minmax(185px, auto) minmax(145px, auto) auto;
   grid-template-areas:
     "mission mission mission mission mission mission"
     "phonics phonics phonics arcade arcade arcade"
@@ -312,27 +312,38 @@
 .student-mode-app .student-home-card-story   { background: var(--comic-red); }
 .student-mode-app .student-home-card-library { background: var(--comic-purple); }
 
-/* Art fills the right half behind an ink divider */
+/* Art fills the WHOLE card as a full-bleed pop-art background */
 .student-mode-app .student-home-card-art {
   position: absolute;
-  inset: 0 0 0 auto;
-  width: 52%;
-  border-left: var(--comic-bw) solid var(--comic-ink);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 .student-mode-app .student-home-card-art img { width: 100%; height: 100%; object-fit: cover; }
+/* Left-side ink scrim so the overlaid title stays readable over any art */
+.student-mode-app .student-home-card-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(6,8,16,0.82) 0%, rgba(6,8,16,0.48) 33%, rgba(6,8,16,0.06) 56%, transparent 70%);
+}
 
-/* Left column: big slanted title + black label bar + tag chips */
+/* Title/labels overlaid on the left, ON TOP of the art (transparent, no box) */
 .student-mode-app .student-home-card-label {
   position: relative;
-  z-index: 1;
-  width: 48%;
+  z-index: 2;
+  width: 100%;
+  max-width: 56%;
   height: 100%;
-  padding: clamp(12px, 1.6vw, 22px);
+  padding: clamp(12px, 1.6vw, 20px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
-  gap: 10px;
+  justify-content: center;
+  gap: 9px;
+  background: transparent;
+  box-shadow: none;
 }
 .student-mode-app .student-home-card-label strong {
   font-family: var(--comic-display);
@@ -378,7 +389,7 @@
     linear-gradient(var(--comic-night), var(--comic-night-2)) padding-box,
     linear-gradient(135deg, var(--comic-magenta), var(--comic-purple), var(--comic-cyan)) border-box;
 }
-.student-mode-app .student-home-card-arcade .student-home-card-art { border-left-color: rgba(255,255,255,0.25); }
+.student-mode-app .student-home-card-arcade .student-home-card-art::after { background: linear-gradient(90deg, rgba(6,8,16,0.76) 0%, rgba(6,8,16,0.30) 36%, transparent 62%); }
 .student-mode-app .student-home-card-arcade .student-home-card-subtitle { background: var(--comic-magenta); }
 .student-mode-app .comic-card-cta {
   display: inline-flex;
@@ -446,8 +457,8 @@
       "library library"
       "progress progress";
   }
-  .student-mode-app .student-home-card-art { position: relative; inset: auto; width: 100%; height: 140px; border-left: 0; border-top: var(--comic-bw) solid var(--comic-ink); }
-  .student-mode-app .student-home-card-label { width: 100%; height: auto; }
+  .student-mode-app .student-home-card-art { position: absolute; inset: 0; width: 100%; height: 100%; border-left: 0; }
+  .student-mode-app .student-home-card-label { width: 100%; max-width: 72%; height: 100%; }
 }
 
 /* ═══ B. DAILY CHALLENGE STRIP ═════════════════════════════════════════ */
