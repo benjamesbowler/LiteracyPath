@@ -1449,6 +1449,7 @@ export function GuidedReadingPage({
           const shelfLevels = [...new Set(shelfBooks.map(book => book.level).filter(Boolean))].sort();
           const continueBooks = shelfBooks.filter(book => { const p = prog(book); return !p.completed && (p.completedPages > 0 || p.lastReadAt); }).slice(0, 6);
           const booksRead = shelfBooks.filter(book => prog(book).completed).length;
+          const alreadyRead = shelfBooks.filter(book => prog(book).completed).slice(0, 12);
           const filteredBooks = selectedLibraryLevel ? shelfBooks.filter(book => book.level === selectedLibraryLevel) : null;
           const renderCard = book => (
             <button className="guided-shelf-card" key={book.id} type="button" onClick={() => changeBook(book.id)}>
@@ -1475,6 +1476,9 @@ export function GuidedReadingPage({
                     )}
                     {recommendedBooks.length > 0 && (
                       <div className="guided-shelf"><h3 className="guided-shelf-head recommend">Recommended</h3><div className="guided-shelf-row">{recommendedBooks.map(item => renderCard(item.book))}</div></div>
+                    )}
+                    {alreadyRead.length > 0 && (
+                      <div className="guided-shelf"><h3 className="guided-shelf-head already">Already Read</h3><div className="guided-shelf-row">{alreadyRead.map(renderCard)}</div></div>
                     )}
                   </>
                 )}

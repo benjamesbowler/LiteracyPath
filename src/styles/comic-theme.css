@@ -1312,3 +1312,41 @@
   .student-guided-reading-page .guided-shelf-layout { flex-direction: column; }
   .student-guided-reading-page .guided-goal-panel { width: 100%; }
 }
+
+/* ═══ L. HOME topbar consolidated (points merged in) + label shift ═════ */
+.student-mode-app .student-home-topbar-comic {
+  display: flex; justify-content: space-between; align-items: center; gap: 14px;
+}
+.student-mode-app .student-home-topbar-left { display: inline-flex; align-items: center; gap: 14px; }
+.student-mode-app .student-home-topbar-level { display: inline-flex; }
+.student-mode-app .student-home-topbar-progress {
+  display: inline-flex; align-items: center; gap: 8px; background: var(--comic-blue); color: #fff;
+  border: 2px solid var(--comic-ink); border-radius: 999px; box-shadow: 2px 2px 0 var(--comic-ink);
+  padding: 5px 12px; cursor: pointer;
+}
+.student-mode-app .student-home-topbar-progress .kid-next-unlock-track {
+  width: 90px; height: 10px; background: #fff; border: 2px solid var(--comic-ink); border-radius: 999px; overflow: hidden;
+}
+.student-mode-app .student-home-topbar-progress .kid-next-unlock-track > span { display: block; height: 100%; background: var(--comic-yellow); }
+.student-mode-app .student-home-topbar-progress em { font-style: normal; font-weight: 900; font-size: 0.8rem; }
+
+/* Drop the empty progress row now the bottom banner is gone */
+.student-mode-app .student-home-board {
+  grid-template-areas:
+    "mission mission mission mission mission mission"
+    "phonics phonics phonics arcade arcade arcade"
+    "map map story story library library";
+  grid-template-rows: auto minmax(300px, 40vh) minmax(215px, 30vh);
+}
+
+/* Phonics/Arcade label pushed to the right (near the art), scrim extended for legibility */
+.student-mode-app .student-home-card-phonics .student-home-card-label,
+.student-mode-app .student-home-card-arcade .student-home-card-label {
+  align-items: flex-end; text-align: right; max-width: 60%;
+}
+.student-mode-app .student-home-card-phonics .student-home-card-art::after,
+.student-mode-app .student-home-card-arcade .student-home-card-art::after {
+  background: linear-gradient(90deg, rgba(6,8,16,0.85) 0%, rgba(6,8,16,0.60) 45%, rgba(6,8,16,0.15) 64%, transparent 76%);
+}
+
+.student-guided-reading-page .guided-shelf-head.already { background: var(--comic-green); }

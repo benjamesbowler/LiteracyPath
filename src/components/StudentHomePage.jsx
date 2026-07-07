@@ -156,23 +156,25 @@ export function StudentHomePage({
   return (
     <main className="student-home-page">
       <header className="student-home-topbar student-home-topbar-comic">
-        <span className="student-home-brand">
-          <img className="student-home-brand-logo" src="/images/pals/literacy-pals-logo.webp" alt="" onError={hideOnError} />
-          <span className="student-home-brand-text"><strong>Literacy</strong><em>Pals</em></span>
-        </span>
-        <button
-          className="student-home-namepill"
-          type="button"
-          aria-label="Choose your companion"
-          onClick={() => setPickingCompanion(true)}
-        >
-          <span className="student-home-namepill-face">
-            {companion
-              ? <img src={companion.image} alt="" onError={hideOnError} />
-              : String(studentName || "S").slice(0, 1).toUpperCase()}
+        <div className="student-home-topbar-left">
+          <span className="student-home-brand">
+            <img className="student-home-brand-logo" src="/images/pals/literacy-pals-logo.webp" alt="" onError={hideOnError} />
+            <span className="student-home-brand-text"><strong>Literacy</strong><em>Pals</em></span>
           </span>
-          <strong>{studentName || "Reader"}</strong>
-        </button>
+          <button
+            className="student-home-namepill"
+            type="button"
+            aria-label="Choose your companion"
+            onClick={() => setPickingCompanion(true)}
+          >
+            <span className="student-home-namepill-face">
+              {companion
+                ? <img src={companion.image} alt="" onError={hideOnError} />
+                : String(studentName || "S").slice(0, 1).toUpperCase()}
+            </span>
+            <strong>{studentName || "Reader"}</strong>
+          </button>
+        </div>
         <div className="student-home-account">
           {status.streak > 0 && (
             <span className="student-home-streak" title="School-day streak">
@@ -188,6 +190,19 @@ export function StudentHomePage({
             <CoinIcon />
             {points.toLocaleString()}
           </span>
+          <span className="student-home-topbar-level" title={`Level ${level}`}>
+            <ShieldIcon>{level}</ShieldIcon>
+          </span>
+          <button
+            className="student-home-topbar-progress"
+            type="button"
+            onClick={onOpenRewards}
+            title="View progress"
+            aria-label={`Level ${level}, ${nextPercent}% to next level. View progress.`}
+          >
+            <span className="kid-next-unlock-track" aria-hidden="true"><span style={{ width: `${nextPercent}%` }} /></span>
+            <em>{nextPercent}%</em>
+          </button>
           <div className="student-home-account-wrap">
             <button
               className="student-home-account-btn"
@@ -318,34 +333,6 @@ export function StudentHomePage({
         subtitle="Listen, read, and reread"
         onClick={onOpenGuidedReading}
       />
-
-        <section className="kid-den-banner student-progress-banner student-progress-comic" aria-label="Points and progress">
-          <span className="student-progress-title">Points + Progress</span>
-          <span className="student-progress-stat">
-            <Gem color="violet" size={24} />
-            <span><strong>{treasury.gems}</strong><small>Gems</small></span>
-          </span>
-          <span className="student-progress-stat">
-            <CoinIcon />
-            <span><strong>{points.toLocaleString()}</strong><small>Points</small></span>
-          </span>
-          <span className="student-progress-stat">
-            <ShieldIcon>{level}</ShieldIcon>
-            <span><strong>Level {level}</strong></span>
-          </span>
-          <div className="student-progress-next">
-            <div className="student-progress-next-head">
-              <span>Next level</span>
-              <span>{nextPercent}%</span>
-            </div>
-            <div className="kid-next-unlock-track" aria-hidden="true">
-              <span style={{ width: `${nextPercent}%` }} />
-            </div>
-          </div>
-          <button className="kid-den-button student-progress-view" type="button" onClick={onOpenRewards}>
-            View Progress
-          </button>
-        </section>
       </section>
 
       {freshRewards.length > 0 && (
