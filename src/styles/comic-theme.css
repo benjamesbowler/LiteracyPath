@@ -648,20 +648,45 @@
 }
 
 /* ═══ D. STORY QUESTS PICKER ═══════════════════════════════════════════ */
-/* Red rotated sticker header */
+/* Eyebrows (Read / Continue / Level A) are SMALL chunky pills, not big slabs */
 .student-mode-app .story-quest-learn-page .story-quest-kicker {
   display: inline-block;
-  padding: 8px 16px 10px;
+  padding: 3px 10px 4px;
+  background: var(--comic-ink);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: none;
+  transform: none;
+  font-family: var(--comic-label);
+  font-weight: 900;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+/* The real page title "Story Quests" becomes the big rotated red sticker */
+.student-mode-app .story-quest-learn-page .learn-story-quest-copy h2 {
+  display: inline-block;
+  margin: 6px 0;
+  padding: 8px 18px 10px;
   background: var(--comic-red);
   color: #fff;
   border: var(--comic-bw-lg) solid var(--comic-ink);
-  border-radius: 6px;
+  border-radius: 8px;
   box-shadow: var(--comic-shadow);
-  transform: rotate(-2.5deg);
+  transform: rotate(-2deg);
   font-family: var(--comic-display);
   font-style: italic;
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
   text-transform: uppercase;
+  line-height: 0.95;
+}
+/* Section headings ("Level A Adventures") pick up the display face */
+.student-mode-app .story-quest-learn-page .learn-story-level-header h3 {
+  font-family: var(--comic-display);
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 
 /* Level tabs A/B/C */
