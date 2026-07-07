@@ -488,7 +488,9 @@ function startGame(THREE, mount, opts) {
     el("copy").innerHTML = "Catch the <b>" + target + "</b> words!";
     const seq = round.sequence.map(item => ({ word: item.word, correct: item.correct }));
     // Interleave meteors to dodge — more the deeper you get, scaled by the sector.
-    const meteorCount = Math.round((2 + roundIx * 1.4) * (theme.meteorMul || 1));
+    // Meteor pressure grows gently and is CAPPED — the sector meteorMul used to
+    // multiply an already-steep ramp into ~30 meteors, leaving no room to dodge.
+    const meteorCount = Math.min(10, Math.round((2 + roundIx * 0.6) * (theme.meteorMul || 1)));
     for (let i = 0; i < meteorCount; i += 1) seq.splice(Math.floor(Math.random() * (seq.length + 1)), 0, { meteor: true });
     seq.splice(Math.floor(Math.random() * (seq.length + 1)), 0, { heart: true }); // a life to win back
     queue = seq;
@@ -769,9 +771,12 @@ function startGame(THREE, mount, opts) {
           return lane;
         };
         const lane = spawnOne(null);
-        const pairChance = Math.min(0.55, 0.12 + roundIx * 0.06 + (opts.difficulty === "hard" ? 0.15 : 0));
+        const pairChance = Math.min(0.35, 0.08 + roundIx * 0.03 + (opts.difficulty === "hard" ? 0.1 : 0));
         if (queue.length && Math.random() < pairChance) spawnOne(lane);
-        spawnTimer = 1.0 / speed;
+        // Spacing GROWS with speed: the old 1.0/speed collapsed the reaction gap to
+        // ~0.3s at high speed. Floor it (~0.7s min) so faster = more spread out, not
+        // an unavoidable wall — the child always has time to change lanes.
+        spawnTimer = Math.max(0.7, 1.2 / Math.sqrt(speed));
       }
       const noseZ = ship.position.z - 1.9; // catch at the rocket's NOSE, not its centre/tail
       for (const bubble of bubbles) {
