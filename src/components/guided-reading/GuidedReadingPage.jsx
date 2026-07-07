@@ -1442,6 +1442,7 @@ export function GuidedReadingPage({
 
       {!readerOpen && (
       <section className="guided-reading-library" aria-label="Guided reading library">
+        <div className="guided-library-logo"><img src="/images/comic/reading-library-logo.webp" alt="Reading Library" /></div>
         {!selectedLibraryType && (
           <div className="guided-category-grid">
             {typeCards.map(card => (

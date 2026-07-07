@@ -1201,3 +1201,22 @@
   .student-mode-app .student-home-topbar-comic { grid-template-columns: auto 1fr auto; }
   .student-mode-app .student-progress-comic { flex-wrap: wrap; }
 }
+
+/* ═══ I. LOGO IMAGES + DAILY BANNER BACKGROUND ═════════════════════════ */
+/* Story Quests logo replaces the CSS sticker title */
+.student-mode-app .story-quest-learn-page .learn-story-quest-copy h2.story-quest-title-logo {
+  background: none; border: 0; box-shadow: none; transform: none; padding: 0; margin: 4px 0;
+}
+.student-mode-app .story-quest-title-logo img { height: clamp(78px, 11vw, 128px); width: auto; display: block; }
+
+/* Reading Library logo image */
+.student-guided-reading-page .guided-library-logo { margin: 0 0 12px; }
+.student-guided-reading-page .guided-library-logo img { height: clamp(70px, 10vw, 120px); width: auto; display: block; }
+
+/* Daily strip: comic banner background behind the title + tasks */
+.student-mode-app .student-mission-banner {
+  background-image: url("/images/comic/daily-banner.webp");
+  background-size: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
+}

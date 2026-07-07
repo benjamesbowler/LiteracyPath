@@ -145,8 +145,8 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
     <main className="learn-area-page story-quest-learn-page page-stack" aria-label="Story Quests">
       <section className="learn-story-quest-library card">
         <div className="learn-story-quest-copy">
-          <span className="story-quest-kicker">Read</span>
-          <h2>Story Quests</h2>
+          <span className="story-quest-kicker">Read · Discover · Adventure</span>
+          <h2 className="story-quest-title-logo"><img src="/images/comic/story-quests-logo.webp" alt="Story Quests" /></h2>
           <p>Read bright guided stories, hear each page, and choose what happens next.</p>
           <div className="story-quest-library-stats" aria-label="Story Quest progress">
             <span><strong>{questSummary.completed}</strong> complete</span>
