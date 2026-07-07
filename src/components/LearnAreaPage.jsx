@@ -190,6 +190,7 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
           </div>
         )}
 
+        <div className="story-quest-body">
         <div className="learn-story-level-list">
           {questGroups.map(level => (
             <section className="learn-story-level-section" id={`story-quest-level-${level.key}`} key={level.key}>
@@ -218,6 +219,7 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
                     .filter(Boolean)
                     .join(" - ");
                   const questTargetWords = quest.targetWords || [];
+                  const questStars = questTargetWords.length ? Math.min(3, Math.round((wordsFoundCount / questTargetWords.length) * 3)) : 0;
 
                   return (
                     <article
@@ -233,16 +235,18 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
                         loading="lazy"
                         src={quest.coverImageUrl || quest.pages?.[0]?.imageUrl}
                       />
+                      <span className="story-quest-level-tag">{levelLabel}</span>
                       <div className="learn-story-quest-card-copy">
                         <span className="story-quest-kicker">{quest.adventureType || "Story Reader"}</span>
                         <h3>{quest.title}</h3>
                         <p>{levelLabel}</p>
                         <span>{questDetails || quest.skillFocus}</span>
-                        {hasOpened && (
-                          <span className={isCompleted ? "story-quest-status completed" : "story-quest-status"}>
-                            {isCompleted ? "Completed ✓" : "In progress"}
-                          </span>
-                        )}
+                        <span className={isCompleted ? "story-quest-status completed" : hasOpened ? "story-quest-status" : "story-quest-status not-started"}>
+                          {isCompleted ? "Completed" : hasOpened ? "In progress" : "Not started"}
+                        </span>
+                        <span className="story-quest-stars" aria-hidden="true">
+                          {[0, 1, 2].map(i => <span key={i} className={i < questStars ? "on" : "off"}>★</span>)}
+                        </span>
                         <div className="learn-story-word-preview" aria-label={`${quest.title} target words`}>
                           {questTargetWords.slice(0, 9).map(word => (
                             <span key={word}>{word}</span>
@@ -265,6 +269,21 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
               </div>
             </section>
           ))}
+        </div>
+        <aside className="story-quest-sidebar" aria-label="Reading progress">
+          <div className="story-quest-words-panel">
+            <span className="story-quest-words-eyebrow">Words Found</span>
+            <strong>{questSummary.foundWords}</strong>
+            <span className="story-quest-words-total">of {questSummary.targetWords} words found</span>
+            <div className="story-quest-words-bar" aria-hidden="true">
+              <span style={{ width: `${questSummary.targetWords ? Math.round((questSummary.foundWords / questSummary.targetWords) * 100) : 0}%` }} />
+            </div>
+          </div>
+          <div className="story-quest-progress-panel">
+            <span><strong>{questSummary.completed}</strong> complete</span>
+            <span><strong>{questSummary.inProgress}</strong> in progress</span>
+          </div>
+        </aside>
         </div>
       </section>
     </main>
