@@ -1442,7 +1442,9 @@ export function GuidedReadingPage({
 
       {!readerOpen && (
       <section className="guided-reading-library" aria-label="Guided reading library">
-        <div className="guided-library-logo"><img src="/images/comic/reading-library-logo.webp" alt="Reading Library" /></div>
+        {!isStudentMode && (
+          <div className="guided-library-logo"><img src="/images/comic/reading-library-logo.webp" alt="Reading Library" /></div>
+        )}
         {isStudentMode && (() => {
           const shelfBooks = getRuntimeGuidedReadingBooks();
           const prog = book => getGuidedReadingProgress(book, guidedReadingRecords[book.id]);
@@ -1459,14 +1461,18 @@ export function GuidedReadingPage({
             </button>
           );
           return (
+            <>
+            <div className="guided-library-header">
+              <div className="guided-library-logo"><img src="/images/comic/reading-library-logo.webp" alt="Reading Library" /></div>
+              <div className="guided-filter-chips" role="tablist" aria-label="Book levels">
+                <button type="button" className={!selectedLibraryLevel ? "active" : ""} onClick={() => setSelectedLibraryLevel("")}>All</button>
+                {shelfLevels.map(level => (
+                  <button type="button" key={level} className={selectedLibraryLevel === level ? "active" : ""} onClick={() => setSelectedLibraryLevel(level)}>Level {level}</button>
+                ))}
+              </div>
+            </div>
             <div className="guided-shelf-layout">
               <div className="guided-shelf-main">
-                <div className="guided-filter-chips" role="tablist" aria-label="Book levels">
-                  <button type="button" className={!selectedLibraryLevel ? "active" : ""} onClick={() => setSelectedLibraryLevel("")}>All</button>
-                  {shelfLevels.map(level => (
-                    <button type="button" key={level} className={selectedLibraryLevel === level ? "active" : ""} onClick={() => setSelectedLibraryLevel(level)}>Level {level}</button>
-                  ))}
-                </div>
                 {filteredBooks ? (
                   <div className="guided-shelf"><div className="guided-shelf-row wrap">{filteredBooks.map(renderCard)}</div></div>
                 ) : (
@@ -1489,6 +1495,7 @@ export function GuidedReadingPage({
                 <p className="guided-goal-note">Keep reading to reach your goal.</p>
               </aside>
             </div>
+            </>
           );
         })()}
         {!isStudentMode && (<>

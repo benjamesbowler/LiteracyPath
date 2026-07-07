@@ -1339,14 +1339,54 @@
   grid-template-rows: auto minmax(300px, 40vh) minmax(215px, 30vh);
 }
 
-/* Phonics/Arcade label pushed to the right (near the art), scrim extended for legibility */
+/* Phonics/Arcade label sits LEFT, inside the flat solid-colour band (not central) */
 .student-mode-app .student-home-card-phonics .student-home-card-label,
 .student-mode-app .student-home-card-arcade .student-home-card-label {
-  align-items: flex-end; text-align: right; max-width: 60%;
+  align-items: flex-start; text-align: left; max-width: 46%;
+  padding-left: clamp(18px, 2.4vw, 34px);
 }
 .student-mode-app .student-home-card-phonics .student-home-card-art::after,
 .student-mode-app .student-home-card-arcade .student-home-card-art::after {
-  background: linear-gradient(90deg, rgba(6,8,16,0.85) 0%, rgba(6,8,16,0.60) 45%, rgba(6,8,16,0.15) 64%, transparent 76%);
+  background: linear-gradient(90deg, rgba(6,8,16,0.72) 0%, rgba(6,8,16,0.30) 40%, transparent 58%);
 }
 
 .student-guided-reading-page .guided-shelf-head.already { background: var(--comic-green); }
+
+/* ═══ M. LOGO + TABS ON ONE ROW (kill wasted space beside the logo) ═════ */
+/* Story Quests: logo/copy on the left, Level A/B/C tabs fill the space right */
+.student-mode-app .story-quest-learn-page .story-quest-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(16px, 3vw, 40px);
+  flex-wrap: wrap;
+}
+.student-mode-app .story-quest-learn-page .story-quest-header-row .learn-story-quest-copy {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+.student-mode-app .story-quest-learn-page .story-quest-header-row .learn-story-level-selector {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 10px;
+  align-self: center;
+  margin: 0;
+}
+.student-mode-app .story-quest-learn-page .story-quest-header-row .learn-story-level-button {
+  border-radius: 12px; /* stand alone, not a bottom-open tab */
+}
+
+/* Reading Library: logo on the left, All / Level A–C chips fill the space right */
+.student-guided-reading-page .guided-library-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 36px);
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.student-guided-reading-page .guided-library-header .guided-library-logo { margin: 0; flex: 0 0 auto; }
+.student-guided-reading-page .guided-library-header .guided-filter-chips {
+  margin: 0;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+}

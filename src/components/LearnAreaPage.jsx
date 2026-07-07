@@ -144,34 +144,36 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
   return (
     <main className="learn-area-page story-quest-learn-page page-stack" aria-label="Story Quests">
       <section className="learn-story-quest-library card">
-        <div className="learn-story-quest-copy">
-          <span className="story-quest-kicker">Read · Discover · Adventure</span>
-          <h2 className="story-quest-title-logo"><img src="/images/comic/story-quests-logo.webp" alt="Story Quests" /></h2>
-          <p>Read bright guided stories, hear each page, and choose what happens next.</p>
-          <div className="story-quest-library-stats" aria-label="Story Quest progress">
-            <span><strong>{questSummary.completed}</strong> complete</span>
-            <span><strong>{questSummary.inProgress}</strong> in progress</span>
-            <span><strong>{questSummary.foundWords}/{questSummary.targetWords}</strong> words found</span>
+        <div className="story-quest-header-row">
+          <div className="learn-story-quest-copy">
+            <span className="story-quest-kicker">Read · Discover · Adventure</span>
+            <h2 className="story-quest-title-logo"><img src="/images/comic/story-quests-logo.webp" alt="Story Quests" /></h2>
+            <p>Read bright guided stories, hear each page, and choose what happens next.</p>
+            <div className="story-quest-library-stats" aria-label="Story Quest progress">
+              <span><strong>{questSummary.completed}</strong> complete</span>
+              <span><strong>{questSummary.inProgress}</strong> in progress</span>
+              <span><strong>{questSummary.foundWords}/{questSummary.targetWords}</strong> words found</span>
+            </div>
           </div>
-        </div>
 
-        <div className="learn-story-level-selector" aria-label="Story Quest level menu">
-          {questGroups.map(level => {
-            const completedCount = level.quests.filter(quest => questProgress[quest.id]?.completed).length;
+          <div className="learn-story-level-selector" aria-label="Story Quest level menu">
+            {questGroups.map(level => {
+              const completedCount = level.quests.filter(quest => questProgress[quest.id]?.completed).length;
 
-            return (
-              <button
-                aria-pressed={selectedLevelKey === level.key}
-                className={selectedLevelKey === level.key ? "learn-story-level-button active" : "learn-story-level-button"}
-                key={level.key}
-                onClick={() => jumpToLevel(level.key)}
-                type="button"
-              >
-                <strong>Level {level.key}</strong>
-                <span>{completedCount}/{level.quests.length} complete</span>
-              </button>
-            );
-          })}
+              return (
+                <button
+                  aria-pressed={selectedLevelKey === level.key}
+                  className={selectedLevelKey === level.key ? "learn-story-level-button active" : "learn-story-level-button"}
+                  key={level.key}
+                  onClick={() => jumpToLevel(level.key)}
+                  type="button"
+                >
+                  <strong>Level {level.key}</strong>
+                  <span>{completedCount}/{level.quests.length} complete</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {continueQuests.length > 0 && (
