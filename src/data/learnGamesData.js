@@ -286,5 +286,16 @@ export const GAME_LIST = [
     ...GAME_ACCENTS.green,
     icon: "/images/learn-games/icon-reading-race.png",
     description: "Find the missing piece and fix the sentence."
+  },
+  {
+    id: "word-bridge",
+    title: "Word Bridge",
+    skill: "Build words and sentences",
+    category: "Phonics",
+    ...GAME_ACCENTS.green,
+    icon: "/images/learn-games/icon-word-bridge.webp",
+    description: "Build a bridge of letters so your Pals can cross the gap.",
+    fullBleed: true,
+    surfaces: ["arcade"]
   }
 ];

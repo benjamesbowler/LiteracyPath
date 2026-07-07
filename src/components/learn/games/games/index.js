@@ -12,5 +12,6 @@ export const LEARN_GAMES = {
   "letter-garden": lazyWithRetry(() => import("./LetterGarden.jsx")),
   "rocket-run": lazyWithRetry(() => import("./RocketRunGame.jsx")),
   "letter-leap": lazyWithRetry(() => import("./LetterLeapGame.jsx")),
-  "word-climb": lazyWithRetry(() => import("./WordClimbGame.jsx"))
+  "word-climb": lazyWithRetry(() => import("./WordClimbGame.jsx")),
+  "word-bridge": lazyWithRetry(() => import("./WordBridgeGame.jsx"))
 };
