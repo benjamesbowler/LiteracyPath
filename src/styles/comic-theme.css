@@ -13,16 +13,16 @@
   --comic-white: #ffffff;
 
   /* Pops (sampled from the mockups) */
-  --comic-yellow: #ffc917;
+  --comic-yellow: #ffcf1a;
   --comic-yellow-deep: #f0a800;
-  --comic-red: #e03a2a;
+  --comic-red: #da2119;
   --comic-red-deep: #b52a1d;
-  --comic-blue: #1c5be0;
+  --comic-blue: #0056b6;
   --comic-blue-deep: #123f9e;
   --comic-green: #2fa341;
-  --comic-green-deep: #1f7a2e;
-  --comic-purple: #6c34c9;
-  --comic-teal: #0aa4a8;
+  --comic-green-deep: #01661d;
+  --comic-purple: #4e2c8b;
+  --comic-teal: #018c90;
   --comic-orange: #f28a1b;
   --comic-magenta: #e8368f;
   --comic-cyan: #23c4de;
@@ -40,13 +40,13 @@
 
   /* Structure */
   --comic-bw: 3px;               /* standard border */
-  --comic-bw-lg: 4px;            /* hero/sticker border */
+  --comic-bw-lg: 5px;            /* hero/sticker border */
   --comic-r-sm: 8px;
   --comic-r: 12px;
-  --comic-r-lg: 16px;
+  --comic-r-lg: 20px;
   --comic-shadow-sm: 3px 3px 0 var(--comic-ink);
   --comic-shadow: 5px 5px 0 var(--comic-ink);
-  --comic-shadow-lg: 7px 7px 0 var(--comic-ink);
+  --comic-shadow-lg: 8px 8px 0 var(--comic-ink);
 }
 
 /* ── Paper + halftone page background ──────────────────────────────────── */
@@ -198,7 +198,7 @@
 .student-mode-app .comic-wordmark {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 14px;
   font-family: var(--comic-display);
   font-style: italic;
   text-transform: uppercase;
@@ -978,3 +978,16 @@
   background: #fff;
 }
 .student-mode-app .rewards-page .kid-next-unlock-track > span { background: var(--comic-yellow); }
+
+/* ═══ D2. STORY QUESTS — force wins over student-vibrant.css ════════════ */
+.student-mode-app .story-quest-learn-page .story-quest-continue-strip {
+  background: var(--comic-yellow) !important;
+}
+.student-mode-app .story-quest-learn-page .learn-story-level-button.active,
+.student-mode-app .story-quest-learn-page .learn-story-level-button[aria-pressed="true"] {
+  background: var(--comic-red) !important;
+  color: #fff !important;
+}
+/* A=red (active), B=blue, C=green chips regardless of active (mockup) */
+.student-mode-app .story-quest-learn-page .learn-story-level-selector button:nth-child(2).active { background: var(--comic-blue) !important; }
+.student-mode-app .story-quest-learn-page .learn-story-level-selector button:nth-child(3).active { background: var(--comic-green) !important; }
