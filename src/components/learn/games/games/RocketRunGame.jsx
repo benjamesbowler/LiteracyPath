@@ -26,15 +26,18 @@ const ROUNDS_PER_GAME = 8;
 
 // Each round flies through a themed sector (Wipeout-style). Fog + ambient tint
 // tween in per round, and meteorMul scales the asteroid pressure.
+// Each sector gets a distinct dominant hue so the worlds actually look different,
+// not just differently-tinted fog: star colour, lane-rail colour, and a big
+// backdrop "sun"/nebula glow are all recoloured per theme (set in startRound).
 const ROUND_THEMES = [
-  { name: "Deep Space",    fog: 0x0a1230, ambient: 0x8899ff, meteorMul: 1.0 },
-  { name: "Asteroid Belt", fog: 0x171008, ambient: 0xffc08a, meteorMul: 2.2 },
-  { name: "Nebula Storm",  fog: 0x1a0a2e, ambient: 0xc09aff, meteorMul: 1.3 },
-  { name: "Ice Field",     fog: 0x0a1a26, ambient: 0x9fe0ff, meteorMul: 1.6 },
-  { name: "Red Giant",     fog: 0x260c08, ambient: 0xff9a7a, meteorMul: 1.8 },
-  { name: "Dark Rift",     fog: 0x05060f, ambient: 0x6677cc, meteorMul: 2.0 },
-  { name: "Star Nursery",  fog: 0x201a08, ambient: 0xffe09a, meteorMul: 1.5 },
-  { name: "Comet Chase",   fog: 0x0a1230, ambient: 0xaaccff, meteorMul: 2.6 }
+  { name: "Deep Space",    fog: 0x0a1230, ambient: 0x8899ff, meteorMul: 1.0, star: 0xbcd2ff, rail: 0x3fd6ff, sun: 0x2a3a8a },
+  { name: "Asteroid Belt", fog: 0x171008, ambient: 0xffc08a, meteorMul: 2.2, star: 0xffd9a0, rail: 0xff9a3c, sun: 0x8a5a1c },
+  { name: "Nebula Storm",  fog: 0x1a0a2e, ambient: 0xc09aff, meteorMul: 1.3, star: 0xe6c0ff, rail: 0xb06bff, sun: 0x6a2ab0 },
+  { name: "Ice Field",     fog: 0x0a1a26, ambient: 0x9fe0ff, meteorMul: 1.6, star: 0xd6f4ff, rail: 0x59d3ff, sun: 0x2a7aa8 },
+  { name: "Red Giant",     fog: 0x260c08, ambient: 0xff9a7a, meteorMul: 1.8, star: 0xffc0a8, rail: 0xff5a3c, sun: 0xc8321c },
+  { name: "Dark Rift",     fog: 0x05060f, ambient: 0x6677cc, meteorMul: 2.0, star: 0x9fb0ff, rail: 0x5566cc, sun: 0x1a2050 },
+  { name: "Star Nursery",  fog: 0x201a08, ambient: 0xffe09a, meteorMul: 1.5, star: 0xfff0c0, rail: 0xffcf4a, sun: 0xc89a2a },
+  { name: "Comet Chase",   fog: 0x0a1230, ambient: 0xaaccff, meteorMul: 2.6, star: 0xcfe6ff, rail: 0x7fd8ff, sun: 0x3a5aa8 }
 ];
 
 function loadThree() {
@@ -119,6 +122,7 @@ function startGame(THREE, mount, opts) {
     '<button data-rr="left" aria-label="Steer left" style="position:absolute;left:0;top:80px;bottom:0;width:42%;background:transparent;border:0;pointer-events:auto"></button>' +
     '<button data-rr="right" aria-label="Steer right" style="position:absolute;right:0;top:80px;bottom:0;width:42%;background:transparent;border:0;pointer-events:auto"></button>' +
     '<div data-rr="banner" style="position:absolute;top:34%;left:0;right:0;text-align:center;pointer-events:none;font-style:italic;font-weight:800;font-size:clamp(1.3rem,5vw,2.4rem);letter-spacing:.14em;text-transform:uppercase;color:#eaf2ff;text-shadow:0 3px 18px rgba(0,0,0,.6);opacity:0;transition:opacity .3s ease,transform .3s ease;transform:translateX(-40px)"></div>' +
+    '<div data-rr="countdown" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;pointer-events:none;background:radial-gradient(120% 90% at 50% 42%,rgba(10,16,40,.6),rgba(6,9,24,.25))"></div>' +
     '<div data-rr="overlay" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;background:radial-gradient(120% 90% at 50% 25%,rgba(30,44,96,.72),rgba(6,9,24,.94));pointer-events:auto"></div>';
   mount.appendChild(hud);
   const el = key => hud.querySelector('[data-rr="' + key + '"]');
@@ -128,6 +132,19 @@ function startGame(THREE, mount, opts) {
     b.textContent = text;
     b.style.opacity = "1"; b.style.transform = "translateX(0)";
     bannerT = 1.2;
+  }
+  // Start-of-round "get ready" popup: the target letter, big, plus a 3-2-1 count.
+  // Spawning is gated on running=false until the countdown flips it true (in tick).
+  function showCountdown(target) {
+    const cd = el("countdown"); if (!cd) return;
+    cd.innerHTML =
+      '<div>' +
+      '<div style="font-size:1.05rem;font-weight:600;opacity:.92;margin-bottom:14px">Catch the words that start with</div>' +
+      '<div style="width:120px;height:120px;margin:0 auto;display:grid;place-items:center;font-size:4.6rem;font-weight:800;border-radius:28px;color:#071033;background:linear-gradient(160deg,#ffd34e,#ffa41c);box-shadow:0 8px 0 #c9781a">' + target + '</div>' +
+      '<div data-rr="cd-num" style="font-size:3.4rem;font-weight:800;margin-top:18px;text-shadow:0 3px 18px rgba(0,0,0,.6)">3</div>' +
+      '</div>';
+    cd.style.display = "grid";
+    countdownT = 3.4;
   }
 
   const ambient = new THREE.AmbientLight(0x8899ff, 0.7);
@@ -170,6 +187,15 @@ function startGame(THREE, mount, opts) {
     rail.position.set(lx, 0.18, -25);
     scene.add(rail); rails.push(rail);
   }
+
+  // ── Per-theme backdrop glow (a distant "sun"/nebula core) — recoloured each
+  //    round so every sector has a distinct dominant hue, not just tinted fog. ──
+  const themeSun = new THREE.Mesh(
+    new THREE.SphereGeometry(14, 24, 24),
+    new THREE.MeshBasicMaterial({ color: 0x2a3a8a, transparent: true, opacity: 0.5, blending: THREE.AdditiveBlending, depthWrite: false })
+  );
+  themeSun.position.set(-18, 12, -78);
+  scene.add(themeSun);
 
   // ── Mission 5: far-field drifting planets (procedural texture) ────────────
   function planetTexture(hue) {
@@ -367,6 +393,20 @@ function startGame(THREE, mount, opts) {
     scene.add(group);
     return group;
   }
+  function makeHeart(lane) {
+    const group = new THREE.Group();
+    const orb = new THREE.Mesh(
+      new THREE.SphereGeometry(0.72, 20, 20),
+      new THREE.MeshBasicMaterial({ color: 0xff5a8a, transparent: true, opacity: 0.9, blending: THREE.AdditiveBlending, depthWrite: false })
+    );
+    group.add(orb);
+    const sprite = labelSprite("❤");
+    group.add(sprite);
+    group.position.set(LANES[lane], 1.05, -46);
+    group.userData = { heart: true, lane, orb, alive: true, setFade: a => { orb.material.opacity = 0.9 * a; sprite.material.opacity = a; } };
+    scene.add(group);
+    return group;
+  }
 
   // ── State ────────────────────────────────────────────────────────────────
   let laneIx = 1;
@@ -392,6 +432,8 @@ function startGame(THREE, mount, opts) {
   const fogTarget = new THREE.Color(theme.fog);
   const ambientTarget = new THREE.Color(theme.ambient);
   let cometStreakT = 6 + Math.random() * 14;       // ambient comet streak timer
+  let countdownT = 0;                              // start-of-round get-ready countdown
+  let roundTarget = "";                            // current target grapheme (for refill)
   // (speedLines is declared up in the scene-setup section, before it's populated)
 
   function setFuel() { el("fuel").style.width = Math.round(needed ? (100 * caught) / needed : 0) + "%"; }
@@ -429,13 +471,18 @@ function startGame(THREE, mount, opts) {
   function loseHeart() {
     if (hearts <= 0) return;
     hearts -= 1; wrongHits += 1; updateHearts(); sfx(playSoftBuzz); shakeV = 0.55;
-    if (hearts <= 0) { deaths += 1; endRound(); }
+    if (hearts <= 0) { deaths += 1; retryRound(); }
   }
 
   function startRound() {
     theme = ROUND_THEMES[roundIx % ROUND_THEMES.length];       // themed sector
     fogTarget.set(theme.fog); ambientTarget.set(theme.ambient); // tweened in tick
+    // Recolour the world so each sector looks distinct — stars, rails, backdrop sun.
+    for (const layer of starLayers) layer.material.color.setHex(theme.star);
+    rails.forEach(r => r.material.color.setHex(theme.rail));
+    themeSun.material.color.setHex(theme.sun);
     const target = targets[roundIx % targets.length]; // walk the ramped ladder, no repeats
+    roundTarget = target;
     const round = buildRocketRunRound(target, { count, difficulty: opts.difficulty });
     el("letter").textContent = target;
     el("copy").innerHTML = "Catch the <b>" + target + "</b> words!";
@@ -443,6 +490,7 @@ function startGame(THREE, mount, opts) {
     // Interleave meteors to dodge — more the deeper you get, scaled by the sector.
     const meteorCount = Math.round((2 + roundIx * 1.4) * (theme.meteorMul || 1));
     for (let i = 0; i < meteorCount; i += 1) seq.splice(Math.floor(Math.random() * (seq.length + 1)), 0, { meteor: true });
+    seq.splice(Math.floor(Math.random() * (seq.length + 1)), 0, { heart: true }); // a life to win back
     queue = seq;
     needed = round.needed;
     caught = 0;
@@ -450,11 +498,12 @@ function startGame(THREE, mount, opts) {
     hearts = 3;
     bubbles = [];
     spawnTimer = 0.3;
-    running = true;
+    running = false;          // held until the get-ready countdown finishes (in tick)
     resetCombo();
     setFuel();
     updateHearts();
     showBanner("Round " + (roundIx + 1) + " — " + theme.name);
+    showCountdown(target);    // big target letter + 3-2-1 before any words fly
     if (roundIx === ROUNDS_PER_GAME - 1 && !finaleComet) spawnFinaleComet(); // Comet Chase finale
     if (opts.onProgressUpdate) opts.onProgressUpdate(roundIx, ROUNDS_PER_GAME);
     if (opts.onCheckpoint) opts.onCheckpoint(roundIx, ROUNDS_PER_GAME);
@@ -490,6 +539,12 @@ function startGame(THREE, mount, opts) {
       scene.remove(bubble); disposeGroup(bubble);
       return;
     }
+    if (bubble.userData.heart) {
+      // Heart pickup: catch it in your lane to win a life back (never a penalty).
+      if (hit) { hearts = Math.min(3, hearts + 1); updateHearts(); addScore(5); sfx(playStarChime); burst(bubble.position, 0xff8ab0); }
+      scene.remove(bubble); disposeGroup(bubble);
+      return;
+    }
     if (bubble.userData.meteor) {
       if (hit) { loseHeart(); resetCombo(); burst(bubble.position, 0xff7a66); }
       scene.remove(bubble); disposeGroup(bubble);
@@ -505,11 +560,11 @@ function startGame(THREE, mount, opts) {
       sfx(playPopSound);
       burst(bubble.position, 0x8affc0);
     } else if (hit && !bubble.userData.correct) {
-      wrongHits += 1;
+      // Hitting a WRONG word now costs a life (loseHeart handles wrongHits, the
+      // buzz, the shake, and ending the round if this was the last heart).
       resetCombo();
-      sfx(playSoftBuzz);
       burst(bubble.position, 0xff7a66);
-      shakeV = 0.35;
+      loseHeart();
     }
     scene.remove(bubble); disposeGroup(bubble);
     if (caught >= needed) endRound();
@@ -530,7 +585,30 @@ function startGame(THREE, mount, opts) {
     queue = [];
   }
 
+  function refillQueue() {
+    // The round can't be passed without catching `needed` correct words. If the
+    // queue empties short, top it back up so the child keeps getting chances
+    // (plus a heart) — the round loops until they've caught enough or run out of hearts.
+    const round = buildRocketRunRound(roundTarget, { count, difficulty: opts.difficulty });
+    for (const item of round.sequence) queue.push({ word: item.word, correct: item.correct });
+    queue.splice(Math.floor(Math.random() * (queue.length + 1)), 0, { heart: true });
+  }
+
+  function retryRound() {
+    // Death does NOT advance — the only way to the next planet is catching enough
+    // correct words. Restart the SAME round (fresh hearts) so the child tries again.
+    running = false;
+    clearField();
+    const overlay = showOverlay(
+      '<div><div style="font-size:2rem;font-weight:700;margin-bottom:8px">Out of fuel!</div>' +
+      '<div style="opacity:.85;margin-bottom:14px">Catch the <b>' + roundTarget + '</b> words to reach the next planet.</div>' +
+      '<button data-rr="retry" style="font-family:inherit;font-weight:700;font-size:1.2rem;color:#071033;padding:14px 30px;border:0;border-radius:999px;background:linear-gradient(160deg,#ffd34e,#ffa41c);box-shadow:0 6px 0 #c9781a;cursor:pointer">Try again →</button></div>'
+    );
+    overlay.querySelector('[data-rr="retry"]').addEventListener("click", () => { overlay.style.display = "none"; startRound(); });
+  }
+
   function endRound() {
+    if (!running) return; // idempotent — a death and a caught>=needed can both fire in one frame
     running = false;
     clearField();
     caughtTotal += caught; neededTotal += needed; wrongTotal += wrongHits;
@@ -670,6 +748,14 @@ function startGame(THREE, mount, opts) {
     }
     if (bannerT > 0) { bannerT -= dt; if (bannerT <= 0) { const b = el("banner"); if (b) { b.style.opacity = "0"; b.style.transform = "translateX(-40px)"; } } }
 
+    // Start-of-round get-ready countdown (3-2-1-GO); holds spawning until it finishes.
+    if (countdownT > 0) {
+      countdownT -= dt;
+      const cd = el("countdown");
+      if (cd) { const n = cd.querySelector('[data-rr="cd-num"]'); if (n) n.textContent = countdownT > 0.5 ? String(Math.max(1, Math.ceil(countdownT - 0.4))) : "GO!"; }
+      if (countdownT <= 0) { if (cd) cd.style.display = "none"; running = true; }
+    }
+
     if (running) {
       spawnTimer -= dt;
       if (spawnTimer <= 0 && queue.length) {
@@ -679,7 +765,7 @@ function startGame(THREE, mount, opts) {
           const item = queue.shift();
           let lane = item.guaranteed ? laneIx : Math.floor(Math.random() * 3);
           if (avoidLane != null && lane === avoidLane) lane = (lane + 1 + Math.floor(Math.random() * 2)) % 3;
-          bubbles.push(item.ring ? makeRing(lane) : item.meteor ? makeMeteor(lane) : makeBubble(item.word, item.correct, lane, item.tries));
+          bubbles.push(item.ring ? makeRing(lane) : item.heart ? makeHeart(lane) : item.meteor ? makeMeteor(lane) : makeBubble(item.word, item.correct, lane, item.tries));
           return lane;
         };
         const lane = spawnOne(null);
@@ -687,6 +773,7 @@ function startGame(THREE, mount, opts) {
         if (queue.length && Math.random() < pairChance) spawnOne(lane);
         spawnTimer = 1.0 / speed;
       }
+      const noseZ = ship.position.z - 1.9; // catch at the rocket's NOSE, not its centre/tail
       for (const bubble of bubbles) {
         if (!bubble.userData.alive) continue;
         bubble.position.z += dt * 11 * speed * boost;
@@ -695,18 +782,18 @@ function startGame(THREE, mount, opts) {
         else if (bubble.userData.orb) bubble.userData.orb.rotation.y += dt * 1.5;
 
         if (!bubble.userData.passed) {
-          if (bubble.position.z >= ship.position.z - 0.2 && bubble.position.z <= ship.position.z + 0.9) {
+          if (bubble.position.z >= noseZ - 0.7 && bubble.position.z <= noseZ + 0.7) {
             resolveBubble(bubble);
             continue;
           }
-          if (bubble.position.z > ship.position.z + 0.9) {
-            // Crossed the ROCKET plane uncaught — pass-by cue fires HERE.
+          if (bubble.position.z > noseZ + 0.7) {
+            // Crossed the ROCKET NOSE uncaught — pass-by cue fires HERE.
             bubble.userData.passed = true;
             if (bubble.userData.correct) requeueMissed(bubble.userData);
-            else if (!bubble.userData.meteor && !bubble.userData.ring) sfx(playWhoosh);
+            else if (!bubble.userData.meteor && !bubble.userData.ring && !bubble.userData.heart) sfx(playWhoosh);
           }
         } else {
-          const fade = Math.max(0, 1 - (bubble.position.z - ship.position.z - 0.9) / 2.2);
+          const fade = Math.max(0, 1 - (bubble.position.z - noseZ - 0.7) / 2.8);
           if (bubble.userData.setFade) bubble.userData.setFade(fade);
           if (bubble.position.z > camera.position.z + 2) {
             bubble.userData.alive = false;
@@ -715,7 +802,7 @@ function startGame(THREE, mount, opts) {
         }
       }
       bubbles = bubbles.filter(bubble => bubble.userData.alive);
-      if (!queue.length && !bubbles.length && caught < needed) endRound();
+      if (!queue.length && !bubbles.length && caught < needed) refillQueue(); // loop until enough correct caught
     }
 
     for (const item of bursts) {
@@ -753,6 +840,7 @@ function startGame(THREE, mount, opts) {
     for (const pl of planets) { scene.remove(pl); disposeGroup(pl); }
     for (const q of speedLines) { scene.remove(q); disposeGroup(q); }
     scene.remove(cometStreak); disposeGroup(cometStreak);
+    scene.remove(themeSun); disposeGroup(themeSun);
     if (finaleComet) { scene.remove(finaleComet); disposeGroup(finaleComet); }
     try { renderer.dispose(); if (renderer.forceContextLoss) renderer.forceContextLoss(); } catch { /* ignore */ }
     if (renderer.domElement && renderer.domElement.parentNode) renderer.domElement.parentNode.removeChild(renderer.domElement);
