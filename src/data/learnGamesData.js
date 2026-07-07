@@ -293,7 +293,7 @@ export const GAME_LIST = [
     skill: "Read beginning sounds at speed",
     category: "Phonics",
     ...GAME_ACCENTS.blue,
-    icon: "/images/learn-games/icon-sound-racer.webp",
+    icon: "/images/learn-games/icon-sound-slide.png",
     description: "Race the track — grab the words that start with your sound to boost.",
     fullBleed: true,
     surfaces: ["arcade"]

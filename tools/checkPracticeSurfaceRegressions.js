@@ -7,7 +7,7 @@ const checks = [
   {
     file: "src/components/StudentHomePage.jsx",
     needles: [
-      "Phonics Quest",
+      "Phonics Learning",
       "Reading Library",
       "student-home-card-meta"
     ]
@@ -33,7 +33,7 @@ const checks = [
     needles: [
       "phonics-practice-overview",
       "phonics-practice-stats",
-      "Letters, Words, Games"
+      "Letters, Sounds, Words"
     ]
   },
   {
