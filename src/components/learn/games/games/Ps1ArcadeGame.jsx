@@ -4,7 +4,6 @@ import {
   playPopSound,
   playSoftBuzz,
   playStarChime,
-  startSoundBeatMusic,
   playTapSound,
   playWhoosh
 } from "../../../../utils/audio/gameSfx.js";
@@ -606,8 +605,7 @@ function drawBeat(ctx, state, config, w, h, now) {
   ctx.fillStyle = titlePanel;
   roundedRect(ctx, w * 0.31, h * 0.2, w * 0.38, h * 0.16, 8);
   ctx.fill();
-  text(ctx, item.say, w / 2, h * 0.265, clamp(w * 0.055, 38, 74), "#fff", "center", 900);
-  text(ctx, `${state.roundBpm || state.level.bpm} BPM`, w / 2, h * 0.335, 18, config.accent, "center", 900);
+  text(ctx, item.say, w / 2, h * 0.3, clamp(w * 0.055, 38, 74), "#fff", "center", 900);
   ctx.restore();
 
   drawSoundBeatRunway(ctx, state, config, w, h);
@@ -1036,14 +1034,10 @@ function startPs1ArcadeGame(mount, options) {
   }
 
   function ensureMusic() {
-    if (options.kind !== "sound-beat" || music || !state.audioArmed || state.paused || state.ended || !soundAllowed()) return;
-    const nextMusic = startSoundBeatMusic({ bpm: state.roundBpm || state.level?.bpm || 96, volume: 0.16 });
-    if (nextMusic) music = nextMusic;
+    music = null;
   }
 
   function stopMusic() {
-    if (!music) return;
-    music.stop();
     music = null;
   }
 
@@ -1298,7 +1292,10 @@ function startPs1ArcadeGame(mount, options) {
     const notes = [...task.item.beats, "blend"];
     const spacing = 60 / (state.roundBpm || state.level.bpm);
     const targetTime = state.noteStart + state.beatIndex * spacing;
-    const windowSeconds = (state.roundWindow || state.level.hitWindowMs) / 1000;
+    // The final "GO"/blend beat is the reward moment — make it very forgiving
+    // so a good run isn't lost on the last tap.
+    const isBlend = notes[state.beatIndex] === "blend";
+    const windowSeconds = (state.roundWindow || state.level.hitWindowMs) / 1000 * (isBlend ? 2.6 : 1);
     const delta = Math.abs(now - targetTime);
     if (delta <= windowSeconds) {
       const quality = delta <= windowSeconds * 0.33 ? "PERFECT" : delta <= windowSeconds * 0.66 ? "GREAT" : "GOOD";
@@ -1530,7 +1527,9 @@ function startPs1ArcadeGame(mount, options) {
         const notes = [...state.currentTask.item.beats, "blend"];
         const spacing = 60 / (state.roundBpm || state.level.bpm);
         const targetTime = state.noteStart + state.beatIndex * spacing;
-        if (state.beatIndex < notes.length && now - targetTime > (state.roundWindow || state.level.hitWindowMs) / 1000 + 0.12) {
+        const autoMissWindow = (state.roundWindow || state.level.hitWindowMs) / 1000
+          * (notes[state.beatIndex] === "blend" ? 2.6 : 1);
+        if (state.beatIndex < notes.length && now - targetTime > autoMissWindow + 0.12) {
           missCurrent();
         }
       }

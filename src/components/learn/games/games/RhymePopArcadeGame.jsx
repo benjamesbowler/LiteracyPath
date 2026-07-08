@@ -1159,10 +1159,8 @@ function drawRhymePop(ctx, state, config, w, h) {
   drawRhymeStageFloor(ctx, state, w, h);
   drawRhymeRigging(ctx, state, config, w, h);
 
-  const wordsLeft = Math.max(0, (task.totalRhymes || 0) - (task.correctFound || 0));
-  panel(ctx, w * 0.28, h * 0.092, w * 0.44, 104, "rgba(4,9,20,.7)", `${config.accent2}88`);
-  text(ctx, `Shoot all the words that rhyme with ${titleWord(task.targetWord)}`, w / 2, h * 0.13, clamp(w * 0.025, 20, 36), "#fff", "center", 900);
-  text(ctx, `${wordsLeft} left`, w / 2, h * 0.19, 22, config.accent, "center", 900);
+  // No big instruction banner in the play area (distracting). The target word
+  // lives in the compact launcher panel at the bottom; progress shows as pips.
   drawRhymeProgressPips(ctx, task, config, w, h);
 
   const bubbles = state.bubbles || [];
@@ -1898,22 +1896,34 @@ function startRhymePopArcadeGame(mount, options) {
       if (shot.trail.length > 8) shot.trail.shift();
       shot.x += shot.vx * dt;
       shot.y += shot.vy * dt;
-      const candidates = shot.targetBubbleId
-        ? state.bubbles.filter(bubble => bubble.id === shot.targetBubbleId)
-        : state.bubbles;
+      const targeted = Boolean(shot.targetBubbleId);
+      const target = targeted ? state.bubbles.find(bubble => bubble.id === shot.targetBubbleId) : null;
+      // Tapped balloon already popped: retire the shot quietly.
+      if (targeted && !target) { shot.dead = true; continue; }
+      const candidates = targeted ? [target] : state.bubbles;
       const hit = candidates.find(bubble => {
         const center = rhymeBubbleCenter(bubble, state.time);
-        return Math.hypot(shot.x - center.x, shot.y - center.y) <= bubble.r + shot.r * 0.7;
+        // A tapped balloon is GUARANTEED to be hit: a generous reach means a
+        // drifting/wobbling target can never slip past the straight shot.
+        const reach = targeted ? bubble.r + 70 : bubble.r + shot.r * 0.7;
+        return Math.hypot(shot.x - center.x, shot.y - center.y) <= reach;
       });
       if (hit) {
         shot.dead = true;
         const beforeTask = state.currentTask;
         resolveRhymeHit(shot, hit);
         if (beforeTask !== state.currentTask) return;
-      }
-      if (shot.x < -80 || shot.x > w + 80 || shot.y < -80 || shot.y > h + 80) {
+      } else if (shot.x < -80 || shot.x > w + 80 || shot.y < -80 || shot.y > h + 80) {
         shot.dead = true;
-        rhymeMiss();
+        // A valid tap must NEVER become a phantom miss: if a targeted shot ran
+        // off screen, still resolve it against the balloon that was tapped.
+        if (target) {
+          const beforeTask = state.currentTask;
+          resolveRhymeHit(shot, target);
+          if (beforeTask !== state.currentTask) return;
+        } else {
+          rhymeMiss();
+        }
       }
     }
     state.shots = state.shots.filter(shot => !shot.dead);
