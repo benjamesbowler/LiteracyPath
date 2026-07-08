@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { GAME_LIST } from "../../../data/learnGamesData";
 import { cancelSpeech, speak } from "../../../utils/learnGamesAudio";
 import { cancelGameSfx } from "../../../utils/audio/gameSfx";
+import { startGameMusic, stopGameMusic } from "../../../utils/audio/gameMusic.js";
 import {
   clearActiveLearnGamesProgressScope,
   saveLearnGameResult,
@@ -48,6 +49,8 @@ export function GamePlayer({
   const wasFullscreenRef = useRef(false);
   const engineRef = useRef(null);
   const GameComponent = LEARN_GAMES[game.id];
+  const world = worldForDifficulty(difficulty);
+  const scene = sceneForKey(world, game.id);
 
   useEffect(() => {
     setActiveLearnGamesProgressScope(progressScopeKey);
@@ -70,6 +73,14 @@ export function GamePlayer({
   useEffect(() => {
     if (!soundEnabled) cancelSpeech();
   }, [soundEnabled]);
+
+  // World background music for every game EXCEPT Sound Beat, which drives its
+  // own rhythm track — don't stack two pieces of music on it.
+  useEffect(() => {
+    if (soundEnabled && game.id !== "sound-beat") startGameMusic(world.id);
+    else stopGameMusic();
+    return () => stopGameMusic();
+  }, [soundEnabled, world.id, game.id]);
 
   // Freeze the running game while the quit dialog is open or the tab is
   // backgrounded, so a child never loses hearts/words they can't see.
@@ -142,9 +153,6 @@ export function GamePlayer({
   }
 
   if (!GameComponent) return null;
-
-  const world = worldForDifficulty(difficulty);
-  const scene = sceneForKey(world, game.id);
 
   // Portal to <body> so the fixed full-screen modal can't be trapped by an
   // ancestor containing block (the app wraps views in framer-motion elements,
