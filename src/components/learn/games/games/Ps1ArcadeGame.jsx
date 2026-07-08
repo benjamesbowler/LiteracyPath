@@ -8,10 +8,7 @@ import {
   playTapSound,
   playWhoosh
 } from "../../../../utils/audio/gameSfx.js";
-import { rhymePopLadder, rhymePopStars } from "../../../../utils/rhymePopLevels.js";
 import { soundBeatLadder, soundBeatStars } from "../../../../utils/soundBeatTracks.js";
-import { soundSafariLadder, soundSafariStars } from "../../../../utils/soundSafariRounds.js";
-import { starGalleryLadder, starGalleryStars } from "../../../../utils/starGalleryRounds.js";
 
 const CONFIG = {
   "sound-beat": {
@@ -22,36 +19,6 @@ const CONFIG = {
     accent2: "#ff3d8b",
     ladder: soundBeatLadder,
     stars: soundBeatStars
-  },
-  "rhyme-pop": {
-    title: "Rhyme Pop",
-    action: "Aim and pop a real rhyming word",
-    bg: "/images/learn-games/ps1-arcade/rhyme-pop-bg.webp",
-    bgByWorld: {
-      dino: "/images/learn-games/ps1-arcade/rhyme-pop-dino-stage-v2.webp"
-    },
-    accent: "#ffcf3d",
-    accent2: "#3df0ff",
-    ladder: rhymePopLadder,
-    stars: rhymePopStars
-  },
-  "sound-safari": {
-    title: "Sound Safari",
-    action: "Net the sounds in order",
-    bg: "/images/learn-games/ps1-arcade/sound-safari-bg.webp",
-    accent: "#55ff7a",
-    accent2: "#ff8d3d",
-    ladder: soundSafariLadder,
-    stars: soundSafariStars
-  },
-  "star-gallery": {
-    title: "Star Gallery",
-    action: "Tap the piece that fixes the sentence",
-    bg: "/images/learn-games/ps1-arcade/star-gallery-bg.webp",
-    accent: "#7fd8ff",
-    accent2: "#ffdf55",
-    ladder: starGalleryLadder,
-    stars: starGalleryStars
   }
 };
 
