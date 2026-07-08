@@ -1,0 +1,185 @@
+/* My Hollow (Rewards V2) - pop-art layer on top of the den base styles.
+   Loaded after comic-theme.css in main.jsx so it wins the cascade. */
+
+.hollow-page .den-title p { font-weight: 600; }
+
+/* ── Wallet ── */
+.hollow-wallet { display: flex; gap: 10px; align-items: center; }
+.hollow-wallet-coins, .hollow-wallet-berries {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 3px solid #101820; border-radius: 999px; padding: 8px 18px;
+  font-size: 1.25rem; font-weight: 900; background: #FFC93C;
+  box-shadow: 3px 3px 0 #101820; font-style: normal;
+}
+.hollow-wallet-berries { background: #EBD9F7; font-size: 1.05rem; }
+
+/* ── Tabs ── */
+.hollow-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0 14px; }
+.hollow-tab {
+  border: 3px solid #101820; border-radius: 12px; padding: 9px 20px;
+  font-weight: 900; font-size: 1rem; background: #fff; cursor: pointer;
+  box-shadow: 3px 3px 0 #101820; transition: transform 80ms ease;
+}
+.hollow-tab:hover { transform: translateY(-1px); }
+.hollow-tab.active { background: #1E7F78; color: #fff; }
+
+.hollow-hint { margin: 0 0 12px; color: #4C5A68; font-weight: 600; }
+
+/* ── The scene ── */
+.hollow-scene {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px; padding: 16px; border-radius: 16px; border: 3px solid #101820;
+  background: linear-gradient(180deg, rgba(16, 24, 32, 0.55), rgba(16, 24, 32, 0.25));
+  min-height: 180px;
+}
+.hollow-slot {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 6px; min-height: 110px; border-radius: 14px; cursor: pointer;
+  font-weight: 800; border: 3px solid transparent; background: transparent; color: #fff;
+}
+.hollow-slot.empty {
+  border: 3px dashed rgba(255, 255, 255, 0.6); background: rgba(255, 255, 255, 0.08);
+  font-size: 1.8rem; color: #EAF2EA;
+}
+.hollow-slot.empty:hover { background: rgba(255, 255, 255, 0.18); }
+.hollow-slot.filled:hover { border-color: rgba(255, 255, 255, 0.5); }
+.hollow-slot-name {
+  background: rgba(255, 255, 255, 0.92); border: 2px solid #101820; border-radius: 8px;
+  font-size: 0.72rem; font-weight: 800; padding: 2px 8px; color: #101820;
+}
+.hollow-slot.resident { cursor: default; }
+
+.hollow-art { position: relative; display: inline-flex; align-items: center; justify-content: center; }
+.hollow-art-emoji { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 70%; }
+.hollow-art-emoji { font-size: calc(100% * 0.62); }
+.hollow-art img { position: relative; width: 100%; height: 100%; object-fit: contain; }
+
+/* ── Placement picker ── */
+.hollow-picker {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; padding: 12px;
+  border: 3px solid #101820; border-radius: 14px; background: #FFFDF5;
+  box-shadow: 4px 4px 0 #101820;
+}
+.hollow-pick {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px;
+  border: 3px solid #101820; border-radius: 10px; background: #fff;
+  font-weight: 800; cursor: pointer; box-shadow: 2px 2px 0 #101820;
+}
+.hollow-pick:hover { background: #FFF3C4; }
+.hollow-pick.cancel { background: #F1EFE8; }
+
+/* ── Expansion plot ── */
+.hollow-expansion {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  margin-top: 14px; padding: 14px 16px; border: 3px solid #101820;
+  border-radius: 14px; background: #22304A; color: #fff; box-shadow: 4px 4px 0 #101820;
+}
+.hollow-expansion strong { font-size: 1.05rem; }
+.hollow-expansion span { flex: 1; min-width: 200px; font-weight: 600; opacity: 0.92; }
+
+.hollow-worlds { margin-top: 16px; }
+
+/* ── Buy buttons & prices ── */
+.hollow-buy {
+  border: 3px solid #101820; border-radius: 12px; padding: 9px 18px;
+  font-weight: 900; font-size: 0.98rem; background: #FFC93C; cursor: pointer;
+  box-shadow: 3px 3px 0 #101820; transition: transform 80ms ease;
+}
+.hollow-buy:hover:not(:disabled) { transform: translateY(-1px); }
+.hollow-buy:disabled { background: #E9E4D6; color: #6b6152; cursor: default; box-shadow: none; }
+.hollow-price { font-weight: 900; font-size: 0.95rem; }
+.hollow-price.can { color: #101820; }
+.hollow-price.cant { color: #6b6152; font-size: 0.85rem; }
+.hollow-price.owned { color: #1E7F78; }
+
+/* ── Pal dressing ── */
+.hollow-pal-row { display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+.hollow-pal-stage {
+  position: relative; flex: 0 0 260px; min-height: 260px; text-align: center;
+  border: 3px solid #101820; border-radius: 16px; background: #F6F1E3;
+  box-shadow: 4px 4px 0 #101820; padding: 18px;
+}
+.hollow-pal-img { width: 170px; height: 170px; object-fit: contain; }
+.hollow-worn { position: absolute; }
+.hollow-worn-head { top: 6px; left: 50%; transform: translateX(-50%); }
+.hollow-worn-neck { top: 108px; left: 50%; transform: translateX(-50%); }
+.hollow-worn-back { top: 70px; left: 14px; }
+.hollow-worn-held { top: 120px; right: 14px; }
+.hollow-worn-feet { bottom: 44px; left: 50%; transform: translateX(-50%); }
+.hollow-pal-caption { margin: 8px 0 0; font-size: 0.85rem; font-weight: 700; color: #4C5A68; }
+.hollow-gear-grid { flex: 1; min-width: 260px; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+.hollow-gear {
+  display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 12px;
+  border: 3px solid #101820; border-radius: 14px; background: #fff; cursor: pointer;
+  font-weight: 800; box-shadow: 3px 3px 0 #101820;
+}
+.hollow-gear em { font-style: normal; font-size: 0.78rem; color: #4C5A68; font-weight: 700; }
+.hollow-gear.worn { background: #E1F5EE; border-color: #0F6E56; }
+.hollow-gear.worn em { color: #0F6E56; }
+
+/* ── Beasties ── */
+.hollow-beastie-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px; }
+.hollow-beastie {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 16px 12px; border: 3px solid #101820; border-radius: 16px; background: #fff;
+  box-shadow: 4px 4px 0 #101820; text-align: center;
+}
+.hollow-beastie em { font-style: normal; font-size: 0.8rem; color: #4C5A68; font-weight: 700; }
+.hollow-beastie.mystery { border-style: dashed; background: #F4EFE2; box-shadow: none; color: #7a7057; }
+.hollow-silhouette { font-size: 3rem; filter: grayscale(1) brightness(0.35); opacity: 0.5; }
+.hollow-rarity {
+  position: absolute; top: 8px; left: 8px; border: 2px solid #101820; border-radius: 8px;
+  padding: 1px 8px; font-size: 0.68rem; font-weight: 900; background: #5B4B8A; color: #fff;
+}
+.rarity-epic .hollow-rarity { background: #E5342C; }
+.hollow-meter {
+  width: 100%; height: 12px; border: 2px solid #101820; border-radius: 999px;
+  background: #EFEAD9; overflow: hidden;
+}
+.hollow-meter span { display: block; height: 100%; background: linear-gradient(90deg, #9A6BD0, #5B4B8A); }
+.hollow-market-cta { margin-top: 14px; }
+
+/* ── Market ── */
+.hollow-caravan {
+  display: flex; flex-direction: column; gap: 2px; margin-bottom: 14px; padding: 12px 16px;
+  border: 3px solid #101820; border-radius: 14px; color: #fff;
+  background: linear-gradient(105deg, #2C3E70, #5B4B8A); box-shadow: 4px 4px 0 #101820;
+}
+.hollow-caravan span { font-weight: 600; font-size: 0.9rem; opacity: 0.95; }
+.hollow-shelf-title { margin: 16px 0 8px; font-size: 1.02rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px; color: #333; }
+.hollow-market-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.hollow-ware {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 5px;
+  padding: 14px 10px; border: 3px solid #101820; border-radius: 14px; background: #fff;
+  cursor: pointer; font-weight: 800; box-shadow: 3px 3px 0 #101820; transition: transform 80ms ease;
+}
+.hollow-ware:hover:not(:disabled) { transform: translateY(-2px); }
+.hollow-ware:disabled { cursor: default; opacity: 0.75; box-shadow: none; }
+.hollow-seasonal {
+  position: absolute; top: 8px; left: 8px; border: 2px solid #101820; border-radius: 8px;
+  padding: 1px 7px; font-size: 0.66rem; font-weight: 900; background: #5B4B8A; color: #fff;
+}
+.hollow-egg-note { font-style: normal; font-size: 0.76rem; color: #4C5A68; font-weight: 700; }
+.hollow-eggs .hollow-ware.egg-silver { background: #F3F4F8; }
+.hollow-eggs .hollow-ware.egg-gold { background: #FFF7DF; }
+.hollow-earn { margin-top: 18px; }
+
+/* ── Hatch reveal ── */
+.hollow-hatch-overlay {
+  position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center;
+  background: rgba(16, 24, 32, 0.6);
+}
+.hollow-hatch-card {
+  width: min(420px, 92vw); text-align: center; padding: 28px 24px;
+  border: 4px solid #101820; border-radius: 22px; background: #FFFDF5;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.45); animation: hollow-pop 260ms ease;
+}
+.hollow-hatch-burst { display: block; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; color: #1E7F78; margin-bottom: 8px; }
+.hollow-hatch-card h3 { margin: 10px 0 4px; font-size: 1.6rem; }
+.hollow-hatch-card p { margin: 0 0 16px; color: #4C5A68; font-weight: 600; }
+@keyframes hollow-pop { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+@media (max-width: 640px) {
+  .hollow-pal-stage { flex-basis: 100%; }
+  .hollow-wallet-coins, .hollow-wallet-berries { font-size: 1rem; padding: 6px 12px; }
+}

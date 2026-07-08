@@ -10,8 +10,8 @@ import { COMPANIONS, getCompanion, setCompanion } from "../utils/studentProfile.
 import { worldForScope } from "../utils/palWorlds.js";
 import { warmStudentAssets } from "../utils/preloadAssets.js";
 import { computeTreasury } from "../utils/treasureTrail.js";
-import { newRewardsSinceLastVisit } from "../utils/denRewards.js";
-import { Gem } from "./Gem.jsx";
+import { computeHollow } from "../utils/hollowEconomy.js";
+import { loadHollowLedger, coinsSinceLastVisit } from "../utils/hollowState.js";
 
 // Decorative art must never show a broken-image icon to kids; hide it instead.
 function hideOnError(event) {
@@ -90,11 +90,26 @@ export function StudentHomePage({
   const [companion, setCompanionState] = useState(() => getCompanion(progressScopeKey));
   const [pickingCompanion, setPickingCompanion] = useState(false);
   const treasury = useMemo(() => computeTreasury(progressScopeKey), [progressScopeKey]);
-  const [freshRewards, setFreshRewards] = useState(() => newRewardsSinceLastVisit(progressScopeKey, computeTreasury(progressScopeKey)));
+  // Rewards V2: the wallet is derived earnings minus the stored spending ledger.
+  const hollow = useMemo(() => computeHollow(loadHollowLedger(progressScopeKey), treasury.breakdown), [progressScopeKey, treasury]);
+  const [freshCoins, setFreshCoins] = useState(() => {
+    const t = computeTreasury(progressScopeKey);
+    const h = computeHollow(loadHollowLedger(progressScopeKey), t.breakdown);
+    return coinsSinceLastVisit(progressScopeKey, h.coinsEarnedTotal);
+  });
   const [accountOpen, setAccountOpen] = useState(false);
-  // Only gems are a real, earned currency. Progress toward the next treasure is
-  // the single "keep going" indicator; it links to the den, which shows the same thing.
-  const nextTreasurePercent = Math.round((treasury.nextProgress || 0) * 100);
+  // The "keep going" hint: the cheapest Market thing they can't afford yet -
+  // or the good news that they can afford something right now.
+  const savingsHint = useMemo(() => {
+    const wares = [...hollow.market.gear, ...hollow.market.hollow, ...hollow.market.eggs]
+      .filter(item => item.id.startsWith("egg-") || !hollow.ownedIds.has(item.id))
+      .sort((a, b) => a.price - b.price);
+    if (!wares.length) return null;
+    const affordable = wares.filter(item => item.price <= hollow.coins).pop();
+    if (affordable) return { ready: true, item: affordable, pct: 100 };
+    const next = wares[0];
+    return { ready: false, item: next, short: next.price - hollow.coins, pct: Math.round((hollow.coins / next.price) * 100) };
+  }, [hollow]);
 
   useEffect(() => {
     warmStudentAssets(worldForScope(progressScopeKey));
@@ -151,22 +166,23 @@ export function StudentHomePage({
             className="comic-topbar-gems"
             type="button"
             onClick={onOpenRewards}
-            title="Your treasure den"
-            aria-label={`${treasury.gems} gems. Open your treasure den.`}
+            title="Your Hollow"
+            aria-label={`${hollow.coins} coins. Open your Hollow.`}
           >
-            <Gem color="violet" size={18} />
-            {treasury.gems}
+            🪙 {hollow.coins}
           </button>
-          {treasury.nextTreasure && (
+          {savingsHint && (
             <button
               className="student-home-topbar-progress"
               type="button"
               onClick={onOpenRewards}
-              title="Your treasure den"
-              aria-label={`${treasury.gemsToNext} more gems to earn the ${treasury.nextTreasure.name}. Open your treasure den.`}
+              title="Your Hollow"
+              aria-label={savingsHint.ready
+                ? `You can afford the ${savingsHint.item.name}! Open your Hollow.`
+                : `${savingsHint.short} more coins for the ${savingsHint.item.name}. Open your Hollow.`}
             >
-              <span className="kid-next-unlock-track" aria-hidden="true"><span style={{ width: `${nextTreasurePercent}%` }} /></span>
-              <em aria-hidden="true">{treasury.nextTreasure.icon} {treasury.gemsToNext}</em>
+              <span className="kid-next-unlock-track" aria-hidden="true"><span style={{ width: `${savingsHint.pct}%` }} /></span>
+              <em aria-hidden="true">{savingsHint.ready ? "🛒 Ready!" : `🛒 ${savingsHint.short}`}</em>
             </button>
           )}
           <div className="student-home-account-wrap">
@@ -300,15 +316,15 @@ export function StudentHomePage({
       />
       </section>
 
-      {freshRewards.length > 0 && (
+      {freshCoins > 0 && (
         <div className="kid-reward-toast" role="status">
-          <span className="kid-reward-toast-icon" aria-hidden="true">{freshRewards[0].icon}</span>
+          <span className="kid-reward-toast-icon" aria-hidden="true">🪙</span>
           <div>
-            <strong>You earned the {freshRewards[0].label}!</strong>
-            <small>{freshRewards.length > 1 ? `+ ${freshRewards.length - 1} more waiting for you` : "It's waiting in your den"}</small>
+            <strong>You earned {freshCoins} coin{freshCoins === 1 ? "" : "s"}!</strong>
+            <small>Spend them at the Market in your Hollow</small>
           </div>
-          <button className="kid-den-button" type="button" onClick={onOpenRewards}>See it!</button>
-          <button className="kid-reward-toast-close" type="button" aria-label="Close" onClick={() => setFreshRewards([])}>×</button>
+          <button className="kid-den-button" type="button" onClick={onOpenRewards}>Go spend!</button>
+          <button className="kid-reward-toast-close" type="button" aria-label="Close" onClick={() => setFreshCoins(0)}>×</button>
         </div>
       )}
 

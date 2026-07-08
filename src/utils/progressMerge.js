@@ -118,6 +118,33 @@ export function computeHydratedValue(area, key, existing, payload) {
     return { ...base, [key]: mergeMonotonic(base[key], payload) };
   }
 
+  // The Hollow ledger: purchases/feeds/chests are append-only records that
+  // union by id (a purchase made on ANY device is kept - spending can never
+  // be un-spent by a stale row, and never duplicates). The layout is
+  // last-write-wins on its `at` timestamp.
+  if (area === "hollow") {
+    const cloud = payload && typeof payload === "object" ? payload : {};
+    const unionById = (a, b) => {
+      const seen = new Set();
+      const out = [];
+      for (const rec of [...(Array.isArray(a) ? a : []), ...(Array.isArray(b) ? b : [])]) {
+        const id = rec && typeof rec === "object" ? rec.id : rec;
+        if (!id || seen.has(id)) continue;
+        seen.add(id);
+        out.push(rec);
+      }
+      return out;
+    };
+    const localLayout = base.layout && typeof base.layout === "object" ? base.layout : { at: "" };
+    const cloudLayout = cloud.layout && typeof cloud.layout === "object" ? cloud.layout : { at: "" };
+    return {
+      purchases: unionById(base.purchases, cloud.purchases),
+      feeds: unionById(base.feeds, cloud.feeds),
+      chests: unionById(base.chests, cloud.chests),
+      layout: (localLayout.at || "") > (cloudLayout.at || "") ? localLayout : cloudLayout
+    };
+  }
+
   // daily_mission, profile, and any future area: cloud is the latest canonical state.
   return key === "__all__"
     ? mergePayload(base, payload)

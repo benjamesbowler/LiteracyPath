@@ -3,6 +3,7 @@
 // streak. Streaks are kind: weekends never break them, and one missed
 // school day per week is auto-covered by a "streak shield".
 import { queueProgressSave, logStudentActivity } from "./progressSync.js";
+import { recordDailyChest } from "./hollowState.js";
 import { elSkillsBlockCycles } from "../data/elSkillsBlockCycles.js";
 import { GUIDED_READING_BOOK_INDEX } from "../data/generated/guidedReadingBookIndex.generated.js";
 import { GAME_LIST } from "../data/learnGamesData.js";
@@ -99,6 +100,8 @@ export function markMissionDone(scope, kind) {
       state.streak = 1;
     }
     state.lastCompletedDay = today;
+    // Rewards V2: completing all three tasks banks the day's coin chest.
+    recordDailyChest(scope, today);
   }
 
   persist(scope, state);

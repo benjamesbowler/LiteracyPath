@@ -27,7 +27,7 @@ import { PresentPage } from "./components/PresentPage.jsx";
 import { TeacherDashboardPage } from "./components/TeacherDashboardPage.jsx";
 import { StudentEntryPage } from "./components/StudentEntryPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
-import { RewardsPage } from "./components/RewardsPage.jsx";
+import { HollowPage } from "./components/HollowPage.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { SchoolNameInput } from "./components/SchoolNameInput.jsx";
 import { worldForScope } from "./utils/palWorlds.js";
@@ -7890,7 +7890,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         <PageBoundary resetKey={`student-rewards-${studentId}`}>
           <div className="student-surface-frame student-surface-rewards">
             {renderLearnFullscreenButton()}
-            <RewardsPage
+            <HollowPage
               studentName={studentName}
               progressScopeKey={studentId || studentName || "default"}
               onBack={returnToStudentHome}

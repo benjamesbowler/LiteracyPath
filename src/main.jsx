@@ -7,6 +7,8 @@ import App from './App.jsx'
 import './styles/student-vibrant.css'
 // Comic-book mockup-fidelity layer. MUST stay after student-vibrant.css so it wins the cascade.
 import './styles/comic-theme.css'
+// Rewards V2 (My Hollow) layer - after comic-theme so its pop-art rules win.
+import './styles/hollow.css'
 import { ErrorBoundary } from './components/ErrorBoundary.jsx'
 import { AppCrashFallback } from './components/AppCrashFallback.jsx'
 import { DYNAMIC_IMPORT_ERROR_EVENT, reloadOnceForNewVersion } from './utils/lazyWithRetry.js'
