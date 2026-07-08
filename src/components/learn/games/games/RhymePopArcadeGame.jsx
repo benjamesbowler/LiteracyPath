@@ -1143,7 +1143,8 @@ function drawRhymeLauncher(ctx, state, config, w, h) {
   ctx.restore();
 
   drawRhymeHelper(ctx, config.helperImage, launch.x - 168, h * 0.93 - pulse * 8, clamp(h * 0.31, 185, 245), config, state);
-  drawBubble(ctx, launch.x, launch.y, 42 + pulse * 5, "POP", config.accent2, "rgba(255,255,255,.9)");
+  // Loaded ammo: a plain orb, no word inside (a word here read as "the answer").
+  drawBubble(ctx, launch.x, launch.y, 42 + pulse * 5, "", config.accent2, "rgba(255,255,255,.9)");
 
   panel(ctx, w * 0.35, h * 0.66, w * 0.3, 62, "rgba(4,9,20,.62)", `${config.accent}88`);
   text(ctx, "Rhymes with", w * 0.44, h * 0.692, 22, "#fff", "center", 900);
@@ -1710,10 +1711,20 @@ function startRhymePopArcadeGame(mount, options) {
   }
 
   function findRhymeBubbleAt(x, y) {
-    return state.bubbles.find(bubble => {
+    // Pick the balloon NEAREST the tap (within a generous radius for little
+    // fingers). The shot then homes to this exact balloon, so tapping a rhyme
+    // always pops that rhyme instead of a nearby balloon getting in the way.
+    let best = null;
+    let bestDist = Infinity;
+    for (const bubble of state.bubbles) {
       const center = rhymeBubbleCenter(bubble, state.time);
-      return Math.hypot(x - center.x, y - center.y) <= bubble.r + 16;
-    });
+      const d = Math.hypot(x - center.x, y - center.y);
+      if (d < bestDist) {
+        bestDist = d;
+        best = bubble;
+      }
+    }
+    return best && bestDist <= best.r + 90 ? best : null;
   }
 
   function fireRhymeShot(x, y) {
@@ -1741,7 +1752,7 @@ function startRhymePopArcadeGame(mount, options) {
       vx: dx * speed,
       vy: dy * speed,
       r: clamp(w * 0.021, 22, 34),
-      label: "POP",
+      label: "",
       color: config.accent2,
       seed: state.time + state.shots.length,
       targetBubbleId: targetBubble?.id || null,

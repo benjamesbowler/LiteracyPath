@@ -9,7 +9,9 @@ import { starRubric } from "./starRubric.js";
 
 const WORLDS = { easy: "meadow", medium: "dino", hard: "moonwood" };
 const BASE_BPM = { easy: 82, medium: 94, hard: 108 };
-const BASE_WINDOW = { easy: 240, medium: 210, hard: 190 };
+// Tap-acceptance window (± ms around the beat). Deliberately generous so young
+// children can actually land the taps; shrinks only a little as levels rise.
+const BASE_WINDOW = { easy: 460, medium: 410, hard: 360 };
 
 function rotate(values, amount) {
   if (!values.length) return [];
@@ -69,7 +71,7 @@ export function soundBeatLevel(difficulty = "easy", levelIndex = 0) {
     world: WORLDS[safeDifficulty],
     bpm: BASE_BPM[safeDifficulty] + level * 3,
     mode: safeDifficulty === "hard" && level >= 6 ? "sentence" : (safeDifficulty === "medium" || safeDifficulty === "hard" ? "mixed" : "sounds"),
-    hitWindowMs: Math.max(125, BASE_WINDOW[safeDifficulty] - level * 9),
+    hitWindowMs: Math.max(300, BASE_WINDOW[safeDifficulty] - level * 6),
     // Minimum seconds of play before a stop/countdown: the engine groups
     // consecutive levels into one continuous round until this floor is met.
     minPlaySeconds: 60,
