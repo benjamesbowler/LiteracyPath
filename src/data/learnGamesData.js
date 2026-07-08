@@ -96,6 +96,38 @@ export const SENTENCES = {
   ]
 };
 
+export const VOWEL_TEAM_WORDS = {
+  ai: ["rain", "train", "paint", "snail", "chain"],
+  ee: ["see", "tree", "green", "sheep", "sleep"],
+  oa: ["boat", "coat", "goat", "road", "toast"],
+  igh: ["light", "night", "right", "high", "sight"]
+};
+
+export const SYLLABLE_WORDS = {
+  two: [
+    ["rab", "bit"],
+    ["sun", "set"],
+    ["pen", "cil"],
+    ["mag", "net"],
+    ["ro", "bot"],
+    ["pic", "nic"],
+    ["lem", "on"],
+    ["bas", "ket"],
+    ["vel", "vet"],
+    ["car", "pet"]
+  ],
+  three: [
+    ["but", "ter", "fly"],
+    ["di", "no", "saur"],
+    ["um", "brel", "la"],
+    ["he", "li", "cop"],
+    ["to", "ma", "to"],
+    ["kan", "ga", "roo"],
+    ["oc", "to", "pus"],
+    ["vol", "ca", "no"]
+  ]
+};
+
 /* Sentence Fix-It: authored rounds. Each shows a sentence with one missing
    piece; the child picks the fix (capital letter, end mark, or best word). */
 export const SENTENCE_FIX = {
@@ -160,6 +192,22 @@ export const WORD_FAMILIES = {
   "-OT": ["pot", "hot", "dot", "got", "not", "lot"],
   "-UG": ["bug", "hug", "mug", "rug", "dug", "jug"],
   "-IN": ["pin", "win", "fin", "bin", "tin", "chin"]
+};
+
+export const MAGIC_E_FAMILIES = {
+  "-ake": ["cake", "lake", "make", "bake", "rake", "snake"],
+  "-ame": ["game", "name", "came", "same", "flame"],
+  "-ine": ["nine", "line", "pine", "vine", "shine"],
+  "-ope": ["rope", "hope", "nope", "slope"],
+  "-ade": ["made", "fade", "shade", "grade", "trade"]
+};
+
+export const VOWEL_TEAM_FAMILIES = {
+  "-ain": ["rain", "train", "chain", "brain", "plain"],
+  "-ail": ["mail", "tail", "sail", "nail", "rail"],
+  "-eep": ["deep", "keep", "sleep", "sheep", "sweep"],
+  "-oat": ["boat", "coat", "goat", "float"],
+  "-ight": ["light", "night", "right", "bright", "sight"]
 };
 
 const GAME_ACCENTS = {
@@ -306,6 +354,17 @@ export const GAME_LIST = [
     ...GAME_ACCENTS.green,
     icon: "/images/learn-games/icon-word-leap.webp",
     description: "Build a bridge of letters so your Pals can cross the gap.",
+    fullBleed: true,
+    surfaces: ["arcade"]
+  },
+  {
+    id: "sound-beat",
+    title: "Sound Beat",
+    skill: "Tap and blend sounds to the beat",
+    category: "Phonics",
+    ...GAME_ACCENTS.violet,
+    icon: "/images/learn-games/icon-sound-slide.png",
+    description: "Tap each sound on the beat, then blend it into the word.",
     fullBleed: true,
     surfaces: ["arcade"]
   }

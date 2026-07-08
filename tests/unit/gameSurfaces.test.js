@@ -5,9 +5,15 @@ import { LEARN_GAMES } from "../../src/components/learn/games/games/index.js";
 
 const isArcade = game => (game.surfaces || []).includes("arcade");
 
-test("the arcade shows the four flagship playable games", () => {
+test("the arcade shows the flagship playable games", () => {
   const arcade = GAME_LIST.filter(isArcade).map(g => g.id).sort();
-  assert.deepEqual(arcade, ["letter-leap", "rocket-run", "sound-racer", "word-bridge"], `arcade set changed: ${JSON.stringify(arcade)}`);
+  assert.deepEqual(arcade, [
+    "letter-leap",
+    "rocket-run",
+    "sound-beat",
+    "sound-racer",
+    "word-bridge"
+  ], `arcade set changed: ${JSON.stringify(arcade)}`);
 });
 
 test("Word Climb is hidden (kept, not deleted) and shows nowhere", () => {
