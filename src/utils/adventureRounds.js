@@ -67,7 +67,7 @@ export function buildSortRounds(difficulty = "easy") {
 }
 
 // ── Letter Garden: build the word, grow a flower ──────────────────────────
-export const GARDEN_FLOWERS = ["🌼", "🌷", "🌻", "🌸", "🌺", "🌹"];
+export const GARDEN_FLOWERS = ["daisy", "tulip", "sunflower", "blossom", "hibiscus", "rose"];
 
 export function buildGardenRounds(difficulty = "easy") {
   const pool = cleanPool(CVC_WORDS[difficulty] || CVC_WORDS.easy)

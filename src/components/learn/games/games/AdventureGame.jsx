@@ -128,8 +128,9 @@ function GardenStage({ rounds, state, isSoundEnabled }) {
       </div>
       <div className="adv-garden-row" aria-label={`${grown.length} flowers grown`}>
         {rounds.map((r, i) => (
-          <span key={i} className={`adv-flower${i < grown.length ? " grown" : ""}`} aria-hidden="true">
-            {i < grown.length ? grown[i] : "🌱"}
+          <span key={i} className={`adv-flower${i < grown.length ? " grown" : ""}`} style={{ "--flower-hue": `${(i * 42) % 360}deg` }} aria-hidden="true">
+            <span className="adv-flower-stem" />
+            <span className="adv-flower-head" />
           </span>
         ))}
       </div>
