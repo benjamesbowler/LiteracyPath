@@ -152,6 +152,18 @@ test("hollow merge: ledgers union by id, layout is last-write-wins", () => {
   assert.equal(merged.layout.equipped.head, "x"); // local is newer
 });
 
+test("the free welcome egg resolves, costs nothing, and hatches a common", async () => {
+  const { WELCOME_EGG, findCatalogItem: find } = await import("../../src/utils/hollowEconomy.js");
+  assert.equal(find(WELCOME_EGG.id).price, 0);
+  const hollow = computeHollow(
+    { purchases: [{ id: "gift1", item: "egg-welcome", cost: 0 }] },
+    {}
+  );
+  assert.equal(hollow.coins, earnedCoins({}, 0)); // free - wallet untouched
+  assert.equal(hollow.beasties.length, 1);
+  assert.equal(hollow.beasties[0].rarity, "common");
+});
+
 test("every catalog id is unique across gear, hollow items, expansions and eggs", async () => {
   const { HOLLOW_ITEMS, EXPANSIONS } = await import("../../src/utils/hollowEconomy.js");
   const ids = [...GEAR, ...HOLLOW_ITEMS, ...EXPANSIONS, ...EGGS, ...BEASTIES].map(i => i.id);

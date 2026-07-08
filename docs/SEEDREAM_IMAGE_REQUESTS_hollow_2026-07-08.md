@@ -93,6 +93,29 @@ same colors and markings, growing older.
 | market-merchant | friendly badger merchant character in a travelling cloak beside a wooden caravan cart (character may have a face — it's a creature, not an object) |
 | hollow-interior | wide cozy interior of a giant hollow tree home at night, warm lantern light, empty shelves and floor space (16:9, 1920×1080 — scene backdrop, optional: worlds panoramas are used today) |
 
+## 6. Backgrounds (7) — NEW, for the storybook restyle (2026-07-08)
+
+These use a DIFFERENT style block — they are scenery, not isolated objects:
+
+> Enchanting storybook illustration, warm painterly style with soft light,
+> rich detail, realistic cartoon (not babyish), no characters, no text, no
+> watermark. Composed with an open, uncluttered mid-ground and foreground so
+> objects can be placed on top of it.
+
+All landscape 1920×1080 unless noted; the scene bands are wide strips
+(1920×480). Code already points at these filenames with a graceful fallback
+to the world panoramas, so they can land any time.
+
+| File | Subject |
+|---|---|
+| scene-meadow | inside a giant hollow tree home at golden hour, view opening onto a sunny meadow; wooden floor, empty shelves and floor space to decorate |
+| scene-dino | inside a hollow tree home in a prehistoric valley at dusk, ferns and a distant volcano through the opening; open floor space |
+| scene-moonwood | inside a hollow tree home at night in a moonlit magical forest, fireflies and silver light through the opening; open floor space |
+| band-garden | wide strip: lush magical garden beside a tree home — glowing moss beds, flowers, stepping stones, open ground (1920×480) |
+| band-pond | wide strip: quiet forest pond with lily pads, cattails and dragonflies at the water's edge, open bank space (1920×480) |
+| band-cave | wide strip: crystal cave interior glowing violet and teal, smooth rock floor with open space (1920×480) |
+| band-treetop | wide strip: treetop platform among giant branches, rope bridge and hanging lanterns, open deck space (1920×480) |
+
 ## Checklist after generation
 
 1. Import via the Kimi pipeline — watermark patch ON (the arcade slipped two watermarked images onto live; don't repeat that).

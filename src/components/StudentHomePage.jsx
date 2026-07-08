@@ -12,6 +12,7 @@ import { warmStudentAssets } from "../utils/preloadAssets.js";
 import { computeTreasury } from "../utils/treasureTrail.js";
 import { computeHollow } from "../utils/hollowEconomy.js";
 import { loadHollowLedger, coinsSinceLastVisit } from "../utils/hollowState.js";
+import { CoinIcon } from "./shared/CurrencyIcons.jsx";
 
 // Decorative art must never show a broken-image icon to kids; hide it instead.
 function hideOnError(event) {
@@ -169,7 +170,7 @@ export function StudentHomePage({
             title="Your Hollow"
             aria-label={`${hollow.coins} coins. Open your Hollow.`}
           >
-            🪙 {hollow.coins}
+            <CoinIcon size={18} /> {hollow.coins}
           </button>
           {savingsHint && (
             <button
@@ -318,7 +319,7 @@ export function StudentHomePage({
 
       {freshCoins > 0 && (
         <div className="kid-reward-toast" role="status">
-          <span className="kid-reward-toast-icon" aria-hidden="true">🪙</span>
+          <span className="kid-reward-toast-icon" aria-hidden="true"><CoinIcon size={30} /></span>
           <div>
             <strong>You earned {freshCoins} coin{freshCoins === 1 ? "" : "s"}!</strong>
             <small>Spend them at the Market in your Hollow</small>

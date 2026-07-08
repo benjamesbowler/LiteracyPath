@@ -111,6 +111,13 @@ export const EGGS = [
   { id: "egg-gold", name: "Gold egg", price: 500, tier: "gold" }
 ];
 
+// One free egg per child (granted from the Beasties tab, never sold in the
+// Market) so the collection never cold-starts as a wall of silhouettes.
+export const WELCOME_EGG = { id: "egg-welcome", name: "Welcome egg", price: 0, tier: "bronze" };
+
+// Banner/tag icon per caravan, same order as CARAVANS.
+export const CARAVAN_ICONS = ["🌙", "🦕", "🌼"];
+
 // Beastie species. `set` groups them for the collection book; new sets can be
 // appended per season without touching old ones.
 export const BEASTIES = [
@@ -155,6 +162,7 @@ export function marketCatalog(date = new Date()) {
 }
 
 export function findCatalogItem(itemId) {
+  if (itemId === WELCOME_EGG.id) return WELCOME_EGG;
   return GEAR.find(i => i.id === itemId)
     || HOLLOW_ITEMS.find(i => i.id === itemId)
     || EXPANSIONS.find(i => i.id === itemId)
@@ -210,7 +218,7 @@ export function computeHollow(ledger = {}, breakdown = {}, date = new Date()) {
 
   // Hatch eggs in purchase order so "prefer unowned" is stable.
   const beastieMap = new Map();
-  const eggTiers = { "egg-bronze": "bronze", "egg-silver": "silver", "egg-gold": "gold" };
+  const eggTiers = { "egg-bronze": "bronze", "egg-silver": "silver", "egg-gold": "gold", "egg-welcome": "bronze" };
   for (const p of purchases) {
     const tier = eggTiers[p?.item];
     if (!tier) continue;
