@@ -49,7 +49,7 @@ function countCompletedStories(stories) {
   return Object.values(stories || {}).filter(row => row && typeof row === "object" && row.completed).length;
 }
 
-function countBooksRead(reading) {
+export function countBooksRead(reading) {
   const rows = reading && typeof reading === "object" ? Object.values(reading) : [];
   return rows.filter(row => row && typeof row === "object"
     && (Number(row.readCount) > 0 || row.completed || row.completedAt)).length;

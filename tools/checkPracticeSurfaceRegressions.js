@@ -23,7 +23,7 @@ const checks = [
   {
     file: "src/components/StoryQuestPlayer.jsx",
     needles: [
-      "Back to Library",
+      "Back to Quests",
       "Full Screen",
       "story-quest-progress-top"
     ]

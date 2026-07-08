@@ -21,7 +21,7 @@ export function CvcLearningFlow({ family, onBack, onComplete }) {
     <div className="phonics-learning-flow cvc-learning-flow">
       <div className="phonics-flow-header">
         <button className="phonics-back-button" onClick={onBack} type="button">
-          Back
+          Back to words
         </button>
         <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}>
           <PhonicsProgressBar steps={progressSteps} />

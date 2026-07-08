@@ -291,7 +291,9 @@
   padding: 3px 12px;
   font-family: var(--comic-label);
   font-weight: 900;
+  font-size: 1rem;
   color: var(--comic-ink);
+  cursor: pointer;
 }
 
 /* Card shell: thick ink borders, hard offset shadow, flat color fields */
@@ -570,9 +572,9 @@
 }
 .student-mode-app .skills-block-quest .sbq-sub {
   font-family: var(--comic-label);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: 0;
   color: var(--comic-ink);
 }
 
@@ -992,6 +994,14 @@
 /* A=red (active), B=blue, C=green chips regardless of active (mockup) */
 .student-mode-app .story-quest-learn-page .learn-story-level-selector button:nth-child(2).active { background: var(--comic-blue) !important; }
 .student-mode-app .story-quest-learn-page .learn-story-level-selector button:nth-child(3).active { background: var(--comic-green) !important; }
+/* Active chip: force the whole label (incl. the "0/5 complete" span) white so it
+   is never dark-blue-on-red. */
+.student-mode-app .story-quest-learn-page .learn-story-level-button.active,
+.student-mode-app .story-quest-learn-page .learn-story-level-button.active *,
+.student-mode-app .story-quest-learn-page .learn-story-level-button[aria-pressed="true"],
+.student-mode-app .story-quest-learn-page .learn-story-level-button[aria-pressed="true"] * {
+  color: #fff !important;
+}
 
 /* ═══ G. ARCADE HUB — dark comic tile grid (no-scroll) ═════════════════ */
 .lg-arcade-comic {
@@ -1251,13 +1261,14 @@
   transform: translate(-2px, -3px); box-shadow: var(--comic-shadow);
 }
 .student-mode-app .story-quest-learn-page .learn-story-quest-cover {
-  width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+  width: 100%; aspect-ratio: 4 / 3; min-height: 130px; object-fit: cover;
   border-bottom: var(--comic-bw) solid var(--comic-ink);
+  background: linear-gradient(135deg, #ffe1a8, #ffd0d0);
 }
 .student-mode-app .story-quest-learn-page .learn-story-quest-card-copy { padding: 10px 12px 12px; }
 .student-mode-app .story-quest-learn-page .learn-story-quest-card-copy h3 {
-  margin: 0; font-family: var(--comic-display); font-style: italic; text-transform: uppercase;
-  color: #fff; text-shadow: 2px 2px 0 var(--comic-ink); font-size: 1.05rem; line-height: 1;
+  margin: 0; font-family: var(--comic-display); font-style: italic; text-transform: none;
+  color: #fff; text-shadow: 2px 2px 0 var(--comic-ink); font-size: 1.05rem; line-height: 1.05;
 }
 
 /* ═══ K. READING LIBRARY — student shelf layout ═══════════════════════ */
@@ -1291,7 +1302,7 @@
 }
 .student-guided-reading-page .guided-shelf-row.wrap .guided-shelf-card { width: auto; }
 .student-guided-reading-page .guided-shelf-card:hover { transform: translate(-2px,-3px); box-shadow: var(--comic-shadow); }
-.student-guided-reading-page .guided-shelf-card-cover { display: block; aspect-ratio: 4 / 3; overflow: hidden; border-bottom: 2px solid var(--comic-ink); }
+.student-guided-reading-page .guided-shelf-card-cover { display: block; aspect-ratio: 4 / 3; min-height: 104px; overflow: hidden; border-bottom: 2px solid var(--comic-ink); background: linear-gradient(135deg, #d5e6ff, #eef4ff); }
 .student-guided-reading-page .guided-shelf-card-cover img { width: 100%; height: 100%; object-fit: cover; }
 .student-guided-reading-page .guided-shelf-card-tag {
   position: absolute; top: 6px; left: 6px; background: var(--comic-yellow); color: var(--comic-ink);
@@ -1308,7 +1319,9 @@
 .student-guided-reading-page .guided-goal-panel h3 { margin: 0 0 10px; font-family: var(--comic-display); font-style: italic; text-transform: uppercase; }
 .student-guided-reading-page .guided-goal-stat strong { display: block; font-family: var(--comic-display); font-style: italic; font-size: 3rem; line-height: 1; }
 .student-guided-reading-page .guided-goal-stat span { font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; }
-.student-guided-reading-page .guided-goal-note { margin: 12px 0 0; font-weight: 700; font-size: 0.85rem; }
+.student-guided-reading-page .guided-goal-bar { height: 14px; border-radius: 999px; background: rgba(255,255,255,0.28); border: 2px solid var(--comic-ink); box-shadow: 2px 2px 0 var(--comic-ink); overflow: hidden; margin: 12px 0 2px; }
+.student-guided-reading-page .guided-goal-bar span { display: block; height: 100%; background: var(--comic-yellow); transition: width 0.4s ease; }
+.student-guided-reading-page .guided-goal-note { margin: 10px 0 0; font-weight: 700; font-size: 0.85rem; }
 @media (max-width: 860px) {
   .student-guided-reading-page .guided-shelf-layout { flex-direction: column; }
   .student-guided-reading-page .guided-goal-panel { width: 100%; }

@@ -5,6 +5,7 @@ import { awardCollectible } from "../../utils/studentProfile.js";
 import { gemForIndex } from "../../data/gemSet.js";
 import { BookQuiz } from "./BookQuiz.jsx";
 import { printCertificate } from "../../utils/printCertificate.js";
+import { countBooksRead } from "../../utils/treasureTrail.js";
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
 import { playCelebrationFanfare } from "../../utils/audio/gameSfx.js";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -1325,19 +1326,30 @@ export function GuidedReadingPage({
       <div className={`teacher-product-page guided-reading-page ${guidedReadingModeClass}`}>
         <section className="teacher-page-header guided-reading-hero">
           <div>
-            <p className="panel-label">Guided Reading</p>
+            <p className="panel-label">{isStudentMode ? "Reading Library" : "Guided Reading"}</p>
             <h2>{studentName || "Student"} Reading Library</h2>
-            <p>Guided Reading books are temporarily paused while the page images and app text are regenerated to match correctly.</p>
+            <p>{isStudentMode
+              ? "New books are on the way. Check back soon!"
+              : "Guided Reading books are temporarily paused while the page images and app text are regenerated to match correctly."}</p>
           </div>
-          <span className="guided-reading-mode-pill">{isStudentMode ? "Student reader" : "Teacher tools"}</span>
+          {!isStudentMode && <span className="guided-reading-mode-pill">Teacher tools</span>}
         </section>
 
         <section className="guided-reader-empty">
-          <h3>No approved Guided Reading books are active right now.</h3>
-          <p>
-            The imported book pack was disabled because page illustrations include embedded text and story details that conflict with the app text.
-            The QA report lists the exact books/pages Kimi needs to regenerate.
-          </p>
+          {isStudentMode ? (
+            <>
+              <h3>Your books are getting ready!</h3>
+              <p>New reading books are on the way. Check back soon.</p>
+            </>
+          ) : (
+            <>
+              <h3>No approved Guided Reading books are active right now.</h3>
+              <p>
+                The imported book pack was disabled because page illustrations include embedded text and story details that conflict with the app text.
+                The QA report lists the exact books/pages Kimi needs to regenerate.
+              </p>
+            </>
+          )}
         </section>
 
         {!isStudentMode && recordSummaries.length > 0 && (
@@ -1396,14 +1408,16 @@ export function GuidedReadingPage({
         </div>
       )}
 
+      {!isStudentMode && (
       <section className="teacher-page-header guided-reading-hero">
         <div>
           <p className="panel-label">Guided Reading</p>
           <h2>{studentName || "Student"} Reading Library</h2>
-          <p>{isStudentMode ? "Choose a book to listen, read, and reread." : "Choose a guided reading book to listen, read, reread, and capture teacher notes."}</p>
+          <p>Choose a guided reading book to listen, read, reread, and capture teacher notes.</p>
         </div>
-        <span className="guided-reading-mode-pill">{isStudentMode ? "Student reader" : "Teacher tools"}</span>
+        <span className="guided-reading-mode-pill">Teacher tools</span>
       </section>
+      )}
 
       {!readerOpen && (selectedLibraryType || selectedLibraryLevel) && (
       <section className="guided-library-breadcrumb" aria-label="Guided reading library path">
@@ -1450,7 +1464,10 @@ export function GuidedReadingPage({
           const prog = book => getGuidedReadingProgress(book, guidedReadingRecords[book.id]);
           const shelfLevels = [...new Set(shelfBooks.map(book => book.level).filter(Boolean))].sort();
           const continueBooks = shelfBooks.filter(book => { const p = prog(book); return !p.completed && (p.completedPages > 0 || p.lastReadAt); }).slice(0, 6);
-          const booksRead = shelfBooks.filter(book => prog(book).completed).length;
+          const booksRead = countBooksRead(guidedReadingRecords);
+          const goalTarget = [5, 10, 20, 30, 50, 75, 100].find(target => booksRead < target) || (Math.floor(booksRead / 50) * 50 + 50);
+          const goalRemaining = Math.max(0, goalTarget - booksRead);
+          const goalPercent = Math.max(0, Math.min(100, Math.round((booksRead / goalTarget) * 100)));
           const alreadyRead = shelfBooks.filter(book => prog(book).completed).slice(0, 12);
           const filteredBooks = selectedLibraryLevel ? shelfBooks.filter(book => book.level === selectedLibraryLevel) : null;
           const renderCard = book => (
@@ -1491,8 +1508,13 @@ export function GuidedReadingPage({
               </div>
               <aside className="guided-goal-panel" aria-label="Reading goal">
                 <h3>Reading Goal</h3>
-                <div className="guided-goal-stat"><strong>{booksRead}</strong><span>Books Read</span></div>
-                <p className="guided-goal-note">Keep reading to reach your goal.</p>
+                <div className="guided-goal-stat"><strong>{booksRead}</strong><span>of {goalTarget} books</span></div>
+                <div className="guided-goal-bar"><span style={{ width: `${goalPercent}%` }} /></div>
+                <p className="guided-goal-note">
+                  {goalRemaining > 0
+                    ? `Read ${goalRemaining} more to reach ${goalTarget}!`
+                    : "Goal complete — amazing reading!"}
+                </p>
               </aside>
             </div>
             </>
@@ -1590,7 +1612,7 @@ export function GuidedReadingPage({
       </section>
       )}
 
-      {!readerOpen && recommendedBooks.length > 0 && (
+      {!readerOpen && !isStudentMode && recommendedBooks.length > 0 && (
         <section className="guided-recommendation-panel" aria-label="Guided reading recommendations">
           <div>
             <p className="panel-label">{isStudentMode ? "Up Next" : "Adaptive Recommendations"}</p>
@@ -1623,10 +1645,10 @@ export function GuidedReadingPage({
             <div className="guided-reader-header">
               <div>
                 <div className="guided-reader-title-row">
-                  <p className="panel-label">{selectedBook.type} · Level {selectedBook.level}</p>
-                  <span className="guided-reading-mode-pill compact">
-                    {isStudentMode ? "Student reader" : "Teacher conference"}
-                  </span>
+                  {!isStudentMode && <p className="panel-label">{selectedBook.type} · Level {selectedBook.level}</p>}
+                  {!isStudentMode && (
+                    <span className="guided-reading-mode-pill compact">Teacher conference</span>
+                  )}
                 </div>
                 <h3>{selectedBook.title}</h3>
                 <p>{(selectedBook.targetSkills || selectedBook.recommendedSkillsToReinforce || []).join(" · ")}</p>
@@ -1674,7 +1696,7 @@ export function GuidedReadingPage({
                   </button>
                 )}
                 {!isReaderFullscreen && <strong>Page {pageIndex + 1} of {selectedBook.pages.length}</strong>}
-                {!isReaderFullscreen && (
+                {!isReaderFullscreen && !isStudentMode && (
                   <label className="guided-auto-advance-toggle">
                     <input
                       checked={autoAdvanceReadAloud}
@@ -1740,13 +1762,13 @@ export function GuidedReadingPage({
                   </button>
                 </div>
               )}
-              <p>
-                {readingMode === "reading"
-                  ? "Tap a word to hear it when approved word audio is available."
-                  : isStudentMode
-                    ? "Tap words to hear them."
+              {!isStudentMode && (
+                <p>
+                  {readingMode === "reading"
+                    ? "Tap a word to hear it read aloud."
                     : "Tap words to cycle neutral, read correctly, and needs support. Alt-click a word to hear it."}
-              </p>
+                </p>
+              )}
             </div>}
 
             <AnimatePresence mode="wait">
@@ -1962,8 +1984,10 @@ export function GuidedReadingPage({
         </section>
       ) : (
         <section className="guided-reader-empty">
-          <h3>Select a book to open the reader.</h3>
-          <p>Books open in a focused reader with large images, page narration, normal reading text, and optional teacher marking tools.</p>
+          <h3>{isStudentMode ? "Pick a book to start reading!" : "Select a book to open the reader."}</h3>
+          <p>{isStudentMode
+            ? "Every book reads out loud, and you can tap any word to hear it."
+            : "Books open in a focused reader with large images, page narration, normal reading text, and optional teacher marking tools."}</p>
         </section>
       )}
 

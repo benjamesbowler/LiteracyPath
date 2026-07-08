@@ -320,7 +320,7 @@
 
 .story-quest-text p {
   margin: 0;
-  color: var(--lp-color-text);
+  color: #172033;
   font-size: clamp(1.45rem, 3vw, 2.35rem);
   font-weight: 700;
   line-height: 1.25;
@@ -334,20 +334,29 @@
 }
 
 .story-quest-choice-button {
-  min-height: 74px;
-  padding: 16px;
-  border: 1px solid var(--lp-color-border-strong);
-  border-radius: 8px;
-  background: var(--lp-color-primary-soft);
-  color: var(--lp-color-text);
+  min-height: 80px;
+  padding: 16px 18px;
+  border: 3px solid rgba(0, 0, 0, 0.28);
+  border-radius: 14px;
+  background: var(--lp-color-primary);
+  color: #fff;
   font-family: var(--lp-font-reading);
-  font-size: clamp(1.1rem, 2vw, 1.6rem);
-  font-weight: 800;
+  font-size: clamp(1.2rem, 2.1vw, 1.75rem);
+  font-weight: 900;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition: transform 120ms ease-out, box-shadow 120ms ease-out, filter 120ms ease-out;
 }
 
 .story-quest-choice-button:hover:not(:disabled) {
-  border-color: var(--lp-color-primary);
-  background: var(--lp-color-primary-soft);
+  filter: brightness(1.06);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 rgba(0, 0, 0, 0.22);
+}
+
+.story-quest-choice-button:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.22);
 }
 
 .story-quest-choice-button:disabled,

@@ -288,7 +288,7 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
             </button>
             {onExit && (
               <button className="lp-button lp-button-secondary" onClick={exitReader} type="button">
-                Back to Library
+                Back to Quests
               </button>
             )}
           </div>
@@ -322,11 +322,10 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
         <div>
           <span className="story-quest-kicker">{quest.adventureType || "Read"}</span>
           <h2>{quest.title}</h2>
-          <p>{quest.skillFocus} - {quest.cycleFocus}</p>
         </div>
         <div className="story-quest-header-actions">
           <button className="lp-button lp-button-secondary" disabled={history.length === 0} onClick={goBack} type="button">
-            Back
+            Previous
           </button>
           <button className="lp-button lp-button-secondary" onClick={restart} type="button">
             Restart
@@ -336,7 +335,7 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
           </button>
           {onExit && (
             <button className="lp-button lp-button-secondary" onClick={exitReader} type="button">
-              Back to Library
+              Back to Quests
             </button>
           )}
         </div>
@@ -348,21 +347,9 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
       >
         <div className="story-quest-progress-top">
           <span>Page {currentPageNumber} of {totalPages}</span>
-          <span>{foundWords.length}/{targetWordTotal} words found</span>
         </div>
         <div className="story-quest-progress-bar">
           <span style={{ width: `${totalPages ? (currentPageNumber / totalPages) * 100 : 0}%` }} />
-        </div>
-        <div className="story-quest-page-dots" aria-hidden="true">
-          {(quest.pages || []).map((page, index) => (
-            <span
-              className={[
-                index + 1 === currentPageNumber ? "active" : "",
-                visitedPageIds.has(page.id) ? "visited" : ""
-              ].filter(Boolean).join(" ")}
-              key={page.id}
-            />
-          ))}
         </div>
       </div>
 

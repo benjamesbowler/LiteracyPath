@@ -406,7 +406,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
   const [celebration, setCelebration] = useState(null);
   const [sessionStations, setSessionStations] = useState({});
   const [mapWorldId, setMapWorldId] = useState(null);
-  const [mapZoom, setMapZoom] = useState(1);
+  const [mapZoom] = useState(1);
   const cueTimerRef = useRef(null);
 
   const activeCycle = playableCycles.find(cycle => cycle.id === activeCycleId) || null;
@@ -709,9 +709,9 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
       <main className="skills-block-quest" data-pal-world={worldForCycle(recommendedCycle?.cycleNumber || 1).id}>
         <header className="sbq-top">
           <div>
-            <p className="sbq-kicker">Skills Quest</p>
+            <p className="sbq-kicker">Adventure Map</p>
             <h1>Your sound and word path</h1>
-            <p className="sbq-sub">Hi {studentName}. Pick your stop - each one teaches two new sounds and your quick words.</p>
+            <p className="sbq-sub">Hi {studentName}, pick your stop. Each one teaches two new sounds and some quick words.</p>
           </div>
         </header>
         {(() => {
@@ -791,20 +791,6 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
                       </span>
                     </div>
                   </div>
-                </div>
-                <div className="sbq-map-zoom" role="group" aria-label="Zoom the map">
-                  <button
-                    type="button"
-                    aria-label="Zoom out"
-                    disabled={mapZoom <= 1}
-                    onClick={() => setMapZoom(z => Math.max(1, Math.round((z - 0.25) * 100) / 100))}
-                  >−</button>
-                  <button
-                    type="button"
-                    aria-label="Zoom in"
-                    disabled={mapZoom >= 2.5}
-                    onClick={() => setMapZoom(z => Math.min(2.5, Math.round((z + 0.25) * 100) / 100))}
-                  >+</button>
                 </div>
               </div>
             </div>

@@ -187,9 +187,9 @@ export function buildDailyMission(scope) {
 
   return {
     quest: {
-      title: cycle.cycleNumber ? `Cycle ${cycle.cycleNumber}` : "Your next station",
+      title: "Your next stop",
       detail: (cycle.focusLetters || []).map(item => item.grapheme).join(" ") || "Review",
-      why: cycle.childFriendlyGoal || "Play your next station."
+      why: cycle.childFriendlyGoal || "Follow your path on the map."
     },
     book: {
       title: book?.title || "Pick a book",

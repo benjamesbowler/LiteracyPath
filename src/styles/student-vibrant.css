@@ -1569,14 +1569,14 @@
 }
 
 .student-mode-app .student-mission-copy strong {
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   font-family: var(--lp-font-readable, Lexend, system-ui, sans-serif);
   font-size: 0.82rem;
   line-height: 1.12;
 }
 
 .student-mode-app .student-mission-copy em {
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   color: #566176;
   font-size: 0.72rem;
   font-style: normal;

@@ -198,7 +198,6 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
             <section className="learn-story-level-section" id={`story-quest-level-${level.key}`} key={level.key}>
               <div className="learn-story-level-header">
                 <div>
-                  <span className="story-quest-kicker">Level {level.key}</span>
                   <h3>{level.heading}</h3>
                   <p>{level.subheading}</p>
                 </div>
@@ -207,11 +206,6 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
 
               <div className="learn-story-level-grid">
                 {level.quests.map(quest => {
-                  const levelLabel = quest.level && /^[A-Z]$/.test(quest.level)
-                    ? `Level ${quest.level}`
-                    : resolveStoryQuestLevel(quest) === "A"
-                      ? "Level A"
-                      : quest.level || quest.skillFocus;
                   return (
                     <article
                       className={selectedQuestId === quest.id ? "learn-story-quest-card selected" : "learn-story-quest-card"}
@@ -227,10 +221,9 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
                         alt={`${quest.title} cover`}
                         className="learn-story-quest-cover"
                         decoding="async"
-                        loading="lazy"
+                        loading="eager"
                         src={quest.coverImageUrl || quest.pages?.[0]?.imageUrl}
                       />
-                      <span className="story-quest-level-tag">{levelLabel}</span>
                       <div className="learn-story-quest-card-copy">
                         <h3>{quest.title}</h3>
                       </div>
@@ -241,20 +234,6 @@ export function LearnAreaPage({ progressScopeKey = "default" }) {
             </section>
           ))}
         </div>
-        <aside className="story-quest-sidebar" aria-label="Reading progress">
-          <div className="story-quest-words-panel">
-            <span className="story-quest-words-eyebrow">Words Found</span>
-            <strong>{questSummary.foundWords}</strong>
-            <span className="story-quest-words-total">of {questSummary.targetWords} words found</span>
-            <div className="story-quest-words-bar" aria-hidden="true">
-              <span style={{ width: `${questSummary.targetWords ? Math.round((questSummary.foundWords / questSummary.targetWords) * 100) : 0}%` }} />
-            </div>
-          </div>
-          <div className="story-quest-progress-panel">
-            <span><strong>{questSummary.completed}</strong> complete</span>
-            <span><strong>{questSummary.inProgress}</strong> in progress</span>
-          </div>
-        </aside>
         </div>
       </section>
     </main>

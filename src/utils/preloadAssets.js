@@ -2,6 +2,17 @@
 // world art, game cards, and common UI sounds are already cached before
 // the child taps into them. Never blocks first paint.
 import { GAME_LIST } from "../data/learnGamesData";
+import { COMPANIONS } from "./studentProfile.js";
+
+// Home board tile backgrounds — heavy webp that otherwise paint blank/black on
+// a cold visit; warm them so re-visits are instant.
+const HOME_TILE_ART = [
+  "home-phonics",
+  "home-skills-quest",
+  "home-arcade",
+  "home-story-quests",
+  "home-reading-library"
+].map(name => `/images/learn-games/home/${name}.webp`);
 
 let warmed = false;
 const KEEP_ALIVE = [];
@@ -37,6 +48,10 @@ export function warmStudentAssets(world) {
     }
     preloadImage("/images/pals/literacy-pals-logo.webp");
     preloadImage("/images/learn-games/phinny-cheering.webp");
+
+    // Home board tiles + companion faces (both paint blank on a cold visit)
+    HOME_TILE_ART.forEach(preloadImage);
+    (COMPANIONS || []).forEach(companion => preloadImage(companion.image));
 
     // Game card art so the arcade grid pops in instantly
     GAME_LIST.forEach(game => {

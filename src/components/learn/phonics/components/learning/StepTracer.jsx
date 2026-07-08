@@ -352,7 +352,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
     >
       <div className="phonics-step-heading">
         <h2>Trace the Letter</h2>
-        <p>Use your finger to trace the letter {lesson.letter}</p>
+        <p>Trace the letter {lesson.letter}</p>
       </div>
 
       <div className="phonics-trace-wrap">

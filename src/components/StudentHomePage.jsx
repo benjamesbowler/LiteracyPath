@@ -22,7 +22,7 @@ function StudentHomeCard({ title, subtitle, meta, art, onClick, className = "", 
   return (
     <button className={["student-home-card", className].filter(Boolean).join(" ")} onClick={onClick} type="button">
       <span className="student-home-card-art" aria-hidden="true">
-        <img src={art} alt="" loading="lazy" onError={hideOnError} />
+        <img src={art} alt="" loading="eager" decoding="async" fetchpriority="high" onError={hideOnError} />
       </span>
       <span className="student-home-card-label">
         {meta && <small className="student-home-card-meta">{meta}</small>}
@@ -47,27 +47,10 @@ function SignOutIcon() {
   );
 }
 
-function FlameIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="currentColor">
-      <path d="M12 2c1 3-1 4.5-2 6-1.2 1.8-1.6 3.4-.6 5.4-2-.7-3-2-3.2-3.9C4.6 11.6 4 13.5 4 15a8 8 0 0 0 16 0c0-5-4.8-6.7-5-11-1.6 1-2.4 2.6-2 4.6C11.6 6.8 11.3 4.4 12 2Z" />
-    </svg>
-  );
-}
-
 function CheckIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
       <path d="m4.5 12.5 5 5 10-11" />
-    </svg>
-  );
-}
-
-function CoinIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20">
-      <circle cx="12" cy="12" r="10" fill="#ffcf1a" stroke="#12141f" strokeWidth="2" />
-      <path d="M12 6.3l1.7 3.5 3.8.5-2.8 2.6.7 3.8L12 15.4l-3.4 1.9.7-3.8-2.8-2.6 3.8-.5z" fill="#12141f" />
     </svg>
   );
 }
@@ -77,17 +60,6 @@ function AccountIcon() {
     <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20" fill="currentColor">
       <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-3.6 0-8 1.8-8 4.4V20h16v-1.6C20 15.8 15.6 14 12 14Z" />
     </svg>
-  );
-}
-
-function ShieldIcon({ children }) {
-  return (
-    <span className="student-progress-shield" aria-hidden="true">
-      <svg viewBox="0 0 24 24" width="38" height="38">
-        <path d="M12 2 4 5v6c0 5 3.4 8.6 8 11 4.6-2.4 8-6 8-11V5l-8-3Z" fill="#0056b6" stroke="#12141f" strokeWidth="1.5" />
-      </svg>
-      <em>{children}</em>
-    </span>
   );
 }
 
@@ -120,10 +92,9 @@ export function StudentHomePage({
   const treasury = useMemo(() => computeTreasury(progressScopeKey), [progressScopeKey]);
   const [freshRewards, setFreshRewards] = useState(() => newRewardsSinceLastVisit(progressScopeKey, computeTreasury(progressScopeKey)));
   const [accountOpen, setAccountOpen] = useState(false);
-  // Placeholder scoring until the real incentive system lands — all derived from gems.
-  const points = Math.round(treasury.gems * 12 + (treasury.breakdown?.gameStars || 0) * 5);
-  const level = Math.max(1, Math.floor(treasury.gems / 12) + 1);
-  const nextPercent = Math.round(((treasury.gems % 12) / 12) * 100);
+  // Only gems are a real, earned currency. Progress toward the next treasure is
+  // the single "keep going" indicator; it links to the den, which shows the same thing.
+  const nextTreasurePercent = Math.round((treasury.nextProgress || 0) * 100);
 
   useEffect(() => {
     warmStudentAssets(worldForScope(progressScopeKey));
@@ -176,33 +147,28 @@ export function StudentHomePage({
           </button>
         </div>
         <div className="student-home-account">
-          {status.streak > 0 && (
-            <span className="student-home-streak" title="School-day streak">
-              <FlameIcon />
-              {status.streak}
-            </span>
-          )}
-          <span className="comic-topbar-gems" title="Gems">
-            <Gem color="violet" size={18} />
-            {treasury.gems}
-          </span>
-          <span className="comic-topbar-coins" title="Points">
-            <CoinIcon />
-            {points.toLocaleString()}
-          </span>
-          <span className="student-home-topbar-level" title={`Level ${level}`}>
-            <ShieldIcon>{level}</ShieldIcon>
-          </span>
           <button
-            className="student-home-topbar-progress"
+            className="comic-topbar-gems"
             type="button"
             onClick={onOpenRewards}
-            title="View progress"
-            aria-label={`Level ${level}, ${nextPercent}% to next level. View progress.`}
+            title="Your treasure den"
+            aria-label={`${treasury.gems} gems. Open your treasure den.`}
           >
-            <span className="kid-next-unlock-track" aria-hidden="true"><span style={{ width: `${nextPercent}%` }} /></span>
-            <em>{nextPercent}%</em>
+            <Gem color="violet" size={18} />
+            {treasury.gems}
           </button>
+          {treasury.nextTreasure && (
+            <button
+              className="student-home-topbar-progress"
+              type="button"
+              onClick={onOpenRewards}
+              title="Your treasure den"
+              aria-label={`${treasury.gemsToNext} more gems to earn the ${treasury.nextTreasure.name}. Open your treasure den.`}
+            >
+              <span className="kid-next-unlock-track" aria-hidden="true"><span style={{ width: `${nextTreasurePercent}%` }} /></span>
+              <em aria-hidden="true">{treasury.nextTreasure.icon} {treasury.gemsToNext}</em>
+            </button>
+          )}
           <div className="student-home-account-wrap">
             <button
               className="student-home-account-btn"
@@ -264,7 +230,7 @@ export function StudentHomePage({
                   onClick={missionTargets[tile.kind]}
                 >
                   <span className="student-mission-art" aria-hidden="true">
-                    <img src={tile.art} alt="" loading="lazy" onError={hideOnError} />
+                    <img src={tile.art} alt="" loading="eager" decoding="async" onError={hideOnError} />
                     {done && <span className="student-mission-done-badge"><CheckIcon /></span>}
                   </span>
                   <span className="student-mission-copy">
@@ -297,15 +263,14 @@ export function StudentHomePage({
         meta="Phonics learning"
         title="Phonics Learning"
         subtitle="Letters, writing, sounds, and word building"
-        tags={["Letters", "Writing", "Sounds", "Words"]}
         onClick={onOpenPhonicsLearn}
       />
       <StudentHomeCard
         className="student-home-card-map"
         art="/images/learn-games/home/home-skills-quest.webp"
-        meta="Map quest"
-        title="EL Map Quests"
-        subtitle="Follow the map through EL skills"
+        meta="Adventure map"
+        title="Adventure Map"
+        subtitle="Follow the path and win stars"
         onClick={onOpenSkillsBlockQuest}
       />
       <StudentHomeCard
@@ -313,7 +278,7 @@ export function StudentHomePage({
         art="/images/learn-games/home/home-arcade.webp"
         meta="Games"
         title="Arcade"
-        subtitle="All literacy games live here"
+        subtitle="Jump into a learning game"
         cta="Play now"
         onClick={() => openArcade()}
       />

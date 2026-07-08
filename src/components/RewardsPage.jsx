@@ -65,7 +65,7 @@ export function RewardsPage({ studentName, progressScopeKey = "default", onBack 
         <button className="sbq-ghost-button" type="button" onClick={onBack}>← Home</button>
         <div className="den-title">
           <h1>{studentName ? `${studentName}'s Treasure Den` : "My Treasure Den"}</h1>
-          <p>Every star you earn anywhere becomes a gem here.</p>
+          <p>Every star, book, and quest you finish earns a gem here.</p>
         </div>
         <span className="kid-gem-counter den-gem-counter" aria-label={`${treasury.gems} gems collected`}>
           <Gem color="violet" size={26} />
@@ -133,7 +133,7 @@ export function RewardsPage({ studentName, progressScopeKey = "default", onBack 
       </section>
 
       <section className="den-card" aria-label="Den backdrops">
-        <h2>🎨 Decorate your den</h2>
+        <h2>🎨 Choose your world</h2>
         <div className="den-themes">
           {DEN_THEMES.map(theme => {
             const unlocked = treasury.gems >= theme.at;
