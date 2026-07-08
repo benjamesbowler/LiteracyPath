@@ -70,7 +70,9 @@ export function soundBeatLevel(difficulty = "easy", levelIndex = 0) {
     bpm: BASE_BPM[safeDifficulty] + level * 3,
     mode: safeDifficulty === "hard" && level >= 6 ? "sentence" : (safeDifficulty === "medium" || safeDifficulty === "hard" ? "mixed" : "sounds"),
     hitWindowMs: Math.max(125, BASE_WINDOW[safeDifficulty] - level * 9),
-    minPlaySeconds: 180,
+    // Minimum seconds of play before a stop/countdown: the engine groups
+    // consecutive levels into one continuous round until this floor is met.
+    minPlaySeconds: 60,
     items: levelItems(safeDifficulty, level)
   };
 }

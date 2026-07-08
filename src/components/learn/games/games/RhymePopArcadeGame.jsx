@@ -1353,6 +1353,7 @@ function startRhymePopArcadeGame(mount, options) {
     countdown: 0,
     countdownIntro: false,
     countdownTarget: "",
+    roundStartAt: 0,
     score: 0,
     combo: 0,
     correct: 0,
@@ -1428,9 +1429,26 @@ function startRhymePopArcadeGame(mount, options) {
     state.roundClearLabel = "";
     state.roundPendingAdvance = false;
     if (options.kind === "rhyme-pop") state.bubbles = [];
-    state.countdownIntro = options.kind === "rhyme-pop";
-    state.countdown = state.countdownIntro ? 4.25 : 3.25;
-    state.countdownTarget = countdownTarget();
+
+    // Group levels into rounds of >= minPlaySeconds so a stop/countdown only
+    // happens roughly once a minute instead of after every level.
+    const roundFloor = state.level.minPlaySeconds || 60;
+    const nowSec = performance.now() / 1000;
+    const startNewRound = options.kind !== "rhyme-pop"
+      || !state.roundStartAt
+      || (nowSec - state.roundStartAt) >= roundFloor;
+
+    if (startNewRound) {
+      const firstEver = !state.roundStartAt;
+      state.roundStartAt = nowSec;
+      state.countdownIntro = options.kind === "rhyme-pop" && firstEver;
+      state.countdown = state.countdownIntro ? 4.25 : 3.25;
+      state.countdownTarget = countdownTarget();
+    } else {
+      // Continue the current round: flow straight into the next level.
+      state.countdownIntro = false;
+      state.countdown = 0;
+    }
     setupTask();
     updateProgress();
   }

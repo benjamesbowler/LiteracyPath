@@ -593,7 +593,7 @@ function drawBeat(ctx, state, config, w, h, now) {
   if (!task) return;
   const item = task.item;
   const notes = [...item.beats, "blend"];
-  const spacing = 60 / state.level.bpm;
+  const spacing = 60 / (state.roundBpm || state.level.bpm);
   const approachSeconds = Math.max(1.65, spacing * 3.8);
 
   ctx.save();
@@ -607,7 +607,7 @@ function drawBeat(ctx, state, config, w, h, now) {
   roundedRect(ctx, w * 0.31, h * 0.2, w * 0.38, h * 0.16, 8);
   ctx.fill();
   text(ctx, item.say, w / 2, h * 0.265, clamp(w * 0.055, 38, 74), "#fff", "center", 900);
-  text(ctx, `${state.level.bpm} BPM`, w / 2, h * 0.335, 18, config.accent, "center", 900);
+  text(ctx, `${state.roundBpm || state.level.bpm} BPM`, w / 2, h * 0.335, 18, config.accent, "center", 900);
   ctx.restore();
 
   drawSoundBeatRunway(ctx, state, config, w, h);
@@ -1037,7 +1037,7 @@ function startPs1ArcadeGame(mount, options) {
 
   function ensureMusic() {
     if (options.kind !== "sound-beat" || music || !state.audioArmed || state.paused || state.ended || !soundAllowed()) return;
-    const nextMusic = startSoundBeatMusic({ bpm: state.level?.bpm || 96, volume: 0.16 });
+    const nextMusic = startSoundBeatMusic({ bpm: state.roundBpm || state.level?.bpm || 96, volume: 0.16 });
     if (nextMusic) music = nextMusic;
   }
 
@@ -1072,6 +1072,12 @@ function startPs1ArcadeGame(mount, options) {
     time: 0,
     beatIndex: 0,
     noteStart: 0,
+    // A "round" groups several levels so a stop/countdown only happens every
+    // >= ROUND_MIN_SECONDS. Tempo + music are held steady across a round.
+    roundStartAt: 0,
+    roundBpm: 0,
+    roundWindow: 0,
+    currentWordClean: true,
     judgement: "",
     judgementT: 0,
     beatPulse: 0,
@@ -1116,7 +1122,6 @@ function startPs1ArcadeGame(mount, options) {
   }
 
   function startLevel() {
-    if (options.kind === "sound-beat") stopMusic();
     state.level = ladder[state.stage];
     image.src = config.bgByWorld?.[state.level.world] || config.bg;
     state.tasks = makeTasks(options.kind, state.level);
@@ -1124,8 +1129,27 @@ function startPs1ArcadeGame(mount, options) {
     state.combo = 0;
     state.shots = [];
     state.rhymeBursts = [];
-    state.countdown = 3.45;
-    state.countdownTarget = countdownTarget();
+
+    // Group short levels into rounds of >= this many seconds. Only the first
+    // level of a round pays the 3-2-1 stop/start; the rest flow straight on,
+    // keeping one steady tempo and one continuous music bed per round.
+    const roundFloor = state.level.minPlaySeconds || 60;
+    const nowSec = performance.now() / 1000;
+    const startNewRound = options.kind !== "sound-beat"
+      || !state.roundStartAt
+      || (nowSec - state.roundStartAt) >= roundFloor;
+
+    if (startNewRound) {
+      if (options.kind === "sound-beat") stopMusic();
+      state.roundStartAt = nowSec;
+      state.roundBpm = state.level.bpm;
+      state.roundWindow = state.level.hitWindowMs;
+      state.countdown = 3.45;
+      state.countdownTarget = countdownTarget();
+    } else {
+      // Continue the current round: no countdown, keep tempo + music running.
+      state.countdown = 0;
+    }
     setupTask();
     updateProgress();
   }
@@ -1141,6 +1165,7 @@ function startPs1ArcadeGame(mount, options) {
     state.currentTask = state.tasks[state.taskIndex] || null;
     state.beatIndex = 0;
     state.shots = [];
+    state.currentWordClean = true;
     if (!state.currentTask) return;
     const now = performance.now() / 1000;
     if (options.kind === "sound-beat") state.noteStart = now + 1.05;
@@ -1205,6 +1230,15 @@ function startPs1ArcadeGame(mount, options) {
       state.judgement = "MISS";
       state.judgementT = 0.72;
       state.beatPulse = 0.65;
+      state.currentWordClean = false;
+      sfx(playSoftBuzz);
+      // Skip past the missed beat and keep the word flowing. Never requeue the
+      // whole word — that re-played words (the "repeats" you saw) and made the
+      // game feel stop-start. A missed beat just forfeits this word's credit.
+      const notes = [...state.currentTask.item.beats, "blend"];
+      state.beatIndex += 1;
+      if (state.beatIndex >= notes.length) endCurrentWord();
+      return;
     }
     if (requeue) requeueTask();
     sfx(playSoftBuzz);
@@ -1221,6 +1255,13 @@ function startPs1ArcadeGame(mount, options) {
   function finishTask(points = 100) {
     finishUnit(points);
     nextTask();
+  }
+
+  // A word only counts as "correct" if every beat in it was hit cleanly;
+  // otherwise it still advances (no requeue, no repeat) but earns no credit.
+  function endCurrentWord(points = 120) {
+    if (state.currentWordClean) finishTask(points);
+    else nextTask();
   }
 
   function nextTask() {
@@ -1255,9 +1296,9 @@ function startPs1ArcadeGame(mount, options) {
     ensureMusic();
     const now = performance.now() / 1000;
     const notes = [...task.item.beats, "blend"];
-    const spacing = 60 / state.level.bpm;
+    const spacing = 60 / (state.roundBpm || state.level.bpm);
     const targetTime = state.noteStart + state.beatIndex * spacing;
-    const windowSeconds = state.level.hitWindowMs / 1000;
+    const windowSeconds = (state.roundWindow || state.level.hitWindowMs) / 1000;
     const delta = Math.abs(now - targetTime);
     if (delta <= windowSeconds) {
       const quality = delta <= windowSeconds * 0.33 ? "PERFECT" : delta <= windowSeconds * 0.66 ? "GREAT" : "GOOD";
@@ -1275,7 +1316,7 @@ function startPs1ArcadeGame(mount, options) {
       });
       sfx(playTapSound);
       state.beatIndex += 1;
-      if (state.beatIndex >= notes.length) finishTask(180);
+      if (state.beatIndex >= notes.length) endCurrentWord(180);
     } else {
       missCurrent();
     }
@@ -1487,9 +1528,9 @@ function startPs1ArcadeGame(mount, options) {
         if (!soundAllowed()) stopMusic();
         else ensureMusic();
         const notes = [...state.currentTask.item.beats, "blend"];
-        const spacing = 60 / state.level.bpm;
+        const spacing = 60 / (state.roundBpm || state.level.bpm);
         const targetTime = state.noteStart + state.beatIndex * spacing;
-        if (state.beatIndex < notes.length && now - targetTime > state.level.hitWindowMs / 1000 + 0.12) {
+        if (state.beatIndex < notes.length && now - targetTime > (state.roundWindow || state.level.hitWindowMs) / 1000 + 0.12) {
           missCurrent();
         }
       }
