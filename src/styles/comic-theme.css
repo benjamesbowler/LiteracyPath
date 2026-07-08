@@ -1294,7 +1294,10 @@
 }
 .student-guided-reading-page .guided-shelf-head.recommend { background: var(--comic-red); }
 .student-guided-reading-page .guided-shelf-row { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 6px; }
-.student-guided-reading-page .guided-shelf-row.wrap { flex-wrap: wrap; overflow: visible; }
+.student-guided-reading-page .guided-shelf-row.wrap {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px; overflow: visible;
+}
 .student-guided-reading-page .guided-shelf-card {
   flex: 0 0 auto; width: 150px; display: flex; flex-direction: column; padding: 0;
   border: var(--comic-bw) solid var(--comic-ink); border-radius: 10px; box-shadow: var(--comic-shadow-sm);
