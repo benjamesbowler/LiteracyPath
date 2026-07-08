@@ -367,5 +367,16 @@ export const GAME_LIST = [
     description: "Tap each sound on the beat, then blend it into the word.",
     fullBleed: true,
     surfaces: ["arcade"]
+  },
+  {
+    id: "rhyme-pop",
+    title: "Rhyme Pop",
+    skill: "Hear and pop rhyming words",
+    category: "Phonics",
+    ...GAME_ACCENTS.coral,
+    icon: "/images/learn-games/art/rhyme-pop.webp",
+    description: "Listen for the word, then pop every balloon that rhymes with it.",
+    fullBleed: true,
+    surfaces: ["arcade"]
   }
 ];

@@ -9,6 +9,7 @@ test("the arcade shows the flagship playable games", () => {
   const arcade = GAME_LIST.filter(isArcade).map(g => g.id).sort();
   assert.deepEqual(arcade, [
     "letter-leap",
+    "rhyme-pop",
     "rocket-run",
     "sound-beat",
     "sound-racer",
