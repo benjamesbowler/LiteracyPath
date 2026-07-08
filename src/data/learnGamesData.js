@@ -378,5 +378,16 @@ export const GAME_LIST = [
     description: "Listen for the word, then pop every balloon that rhymes with it.",
     fullBleed: true,
     surfaces: ["arcade"]
+  },
+  {
+    id: "sound-safari",
+    title: "Sound Safari",
+    skill: "Find the sounds in a word",
+    category: "Phonics",
+    ...GAME_ACCENTS.amber,
+    icon: "/images/learn-games/art/sound-safari.webp",
+    description: "Go on safari and net the sounds that make up each word.",
+    fullBleed: true,
+    surfaces: ["arcade"]
   }
 ];

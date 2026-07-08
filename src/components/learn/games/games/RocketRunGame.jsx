@@ -23,6 +23,9 @@ import { starRubric } from "../../../../utils/starRubric.js";
 const THREE_SRC = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
 const LANES = [-2.2, 0, 2.2];
 const ROUNDS_PER_GAME = 8;
+const SHIP_BASE_SCALE = 0.74;
+const CAMERA_FOV = 66;
+const BOOST_FOV = 78;
 
 // Each round flies through a themed sector (Wipeout-style). Fog + ambient tint
 // tween in per round, and meteorMul scales the asteroid pressure.
@@ -30,14 +33,14 @@ const ROUNDS_PER_GAME = 8;
 // not just differently-tinted fog: star colour, lane-rail colour, and a big
 // backdrop "sun"/nebula glow are all recoloured per theme (set in startRound).
 const ROUND_THEMES = [
-  { name: "Deep Space",    fog: 0x0a1230, ambient: 0x8899ff, meteorMul: 1.0, star: 0xbcd2ff, rail: 0x3fd6ff, sun: 0x2a3a8a },
-  { name: "Asteroid Belt", fog: 0x171008, ambient: 0xffc08a, meteorMul: 2.2, star: 0xffd9a0, rail: 0xff9a3c, sun: 0x8a5a1c },
-  { name: "Nebula Storm",  fog: 0x1a0a2e, ambient: 0xc09aff, meteorMul: 1.3, star: 0xe6c0ff, rail: 0xb06bff, sun: 0x6a2ab0 },
-  { name: "Ice Field",     fog: 0x0a1a26, ambient: 0x9fe0ff, meteorMul: 1.6, star: 0xd6f4ff, rail: 0x59d3ff, sun: 0x2a7aa8 },
-  { name: "Red Giant",     fog: 0x260c08, ambient: 0xff9a7a, meteorMul: 1.8, star: 0xffc0a8, rail: 0xff5a3c, sun: 0xc8321c },
-  { name: "Dark Rift",     fog: 0x05060f, ambient: 0x6677cc, meteorMul: 2.0, star: 0x9fb0ff, rail: 0x5566cc, sun: 0x1a2050 },
-  { name: "Star Nursery",  fog: 0x201a08, ambient: 0xffe09a, meteorMul: 1.5, star: 0xfff0c0, rail: 0xffcf4a, sun: 0xc89a2a },
-  { name: "Comet Chase",   fog: 0x0a1230, ambient: 0xaaccff, meteorMul: 2.6, star: 0xcfe6ff, rail: 0x7fd8ff, sun: 0x3a5aa8 }
+  { name: "Deep Space",    fog: 0x0a1230, ambient: 0x8899ff, meteorMul: 1.0, star: 0xbcd2ff, rail: 0x3fd6ff, sun: 0x2a3a8a, deck: 0x17245a, pad: 0x55e9ff },
+  { name: "Asteroid Belt", fog: 0x171008, ambient: 0xffc08a, meteorMul: 2.2, star: 0xffd9a0, rail: 0xff9a3c, sun: 0x8a5a1c, deck: 0x3a2719, pad: 0xffb14a },
+  { name: "Nebula Storm",  fog: 0x1a0a2e, ambient: 0xc09aff, meteorMul: 1.3, star: 0xe6c0ff, rail: 0xb06bff, sun: 0x6a2ab0, deck: 0x2b174f, pad: 0xd17cff },
+  { name: "Ice Field",     fog: 0x0a1a26, ambient: 0x9fe0ff, meteorMul: 1.6, star: 0xd6f4ff, rail: 0x59d3ff, sun: 0x2a7aa8, deck: 0x17374a, pad: 0x8cf1ff },
+  { name: "Red Giant",     fog: 0x260c08, ambient: 0xff9a7a, meteorMul: 1.8, star: 0xffc0a8, rail: 0xff5a3c, sun: 0xc8321c, deck: 0x4c1710, pad: 0xff6f3f },
+  { name: "Dark Rift",     fog: 0x05060f, ambient: 0x6677cc, meteorMul: 2.0, star: 0x9fb0ff, rail: 0x5566cc, sun: 0x1a2050, deck: 0x111735, pad: 0x6a78ff },
+  { name: "Star Nursery",  fog: 0x201a08, ambient: 0xffe09a, meteorMul: 1.5, star: 0xfff0c0, rail: 0xffcf4a, sun: 0xc89a2a, deck: 0x473614, pad: 0xffdd67 },
+  { name: "Comet Chase",   fog: 0x0a1230, ambient: 0xaaccff, meteorMul: 2.6, star: 0xcfe6ff, rail: 0x7fd8ff, sun: 0x3a5aa8, deck: 0x182e5f, pad: 0xa5e8ff }
 ];
 
 function loadThree() {
@@ -70,6 +73,13 @@ function difficultyCount(difficulty) {
 function startGame(THREE, mount, opts) {
   const width = () => mount.clientWidth || 640;
   const height = () => mount.clientHeight || 420;
+  const laneSpread = () => {
+    const aspect = width() / Math.max(1, height());
+    if (aspect < 0.58) return 0.72;
+    if (aspect < 0.78) return 0.84;
+    return 1;
+  };
+  const laneX = lane => LANES[lane] * laneSpread();
   const count = difficultyCount(opts.difficulty);
   // Ramped, no-repeat sound targets for this difficulty (framework ladder).
   const ladder = rocketRunLadder(opts.difficulty);
@@ -84,6 +94,66 @@ function startGame(THREE, mount, opts) {
       for (const m of mats) { if (m.map) m.map.dispose(); m.dispose(); }
     });
   }
+  function makeNebulaTexture() {
+    const canvas = document.createElement("canvas");
+    canvas.width = 1024;
+    canvas.height = 512;
+    const ctx = canvas.getContext("2d");
+    const bg = ctx.createLinearGradient(0, 0, 0, canvas.height);
+    bg.addColorStop(0, "#050716");
+    bg.addColorStop(0.48, "#10143d");
+    bg.addColorStop(1, "#02040c");
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    const clouds = [
+      ["rgba(65, 214, 255, 0.38)", 220, 300, 260, 120],
+      ["rgba(168, 88, 255, 0.34)", 720, 170, 320, 150],
+      ["rgba(255, 171, 74, 0.18)", 840, 360, 250, 100],
+      ["rgba(33, 77, 176, 0.42)", 420, 210, 420, 170]
+    ];
+    for (const [color, x, y, rx, ry] of clouds) {
+      const g = ctx.createRadialGradient(x, y, 8, x, y, Math.max(rx, ry));
+      g.addColorStop(0, color);
+      g.addColorStop(0.52, color.replace(/0\.\d+\)/, "0.14)"));
+      g.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = g;
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.scale(rx / Math.max(rx, ry), ry / Math.max(rx, ry));
+      ctx.beginPath();
+      ctx.arc(0, 0, Math.max(rx, ry), 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+    ctx.globalAlpha = 0.82;
+    for (let i = 0; i < 320; i += 1) {
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height * 0.78;
+      const s = Math.random() < 0.18 ? 2 : 1;
+      ctx.fillStyle = Math.random() < 0.12 ? "#8ff6ff" : "#ffffff";
+      ctx.fillRect(Math.round(x), Math.round(y), s, s);
+    }
+    ctx.globalAlpha = 1;
+    const tex = new THREE.CanvasTexture(canvas);
+    tex.encoding = THREE.sRGBEncoding;
+    tex.needsUpdate = true;
+    return tex;
+  }
+  function makeGlowTexture(colorA, colorB) {
+    const canvas = document.createElement("canvas");
+    canvas.width = canvas.height = 256;
+    const ctx = canvas.getContext("2d");
+    const g = ctx.createRadialGradient(128, 128, 4, 128, 128, 126);
+    g.addColorStop(0, colorA);
+    g.addColorStop(0.45, colorB);
+    g.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, 256, 256);
+    const tex = new THREE.CanvasTexture(canvas);
+    tex.needsUpdate = true;
+    return tex;
+  }
 
   // ── Three.js scene + renderer FIRST. WebGLRenderer creation is the one step
   //    that can throw (WebGL unavailable / GPU context lost / antialias rejected
@@ -92,8 +162,8 @@ function startGame(THREE, mount, opts) {
   //    and we retry once without antialias before giving up. ─────────────────
   const scene = new THREE.Scene();
   scene.fog = new THREE.FogExp2(0x070b1e, 0.055);
-  const camera = new THREE.PerspectiveCamera(62, width() / height(), 0.1, 100);
-  camera.position.set(0, 2.6, 7.2);
+  const camera = new THREE.PerspectiveCamera(CAMERA_FOV, width() / height(), 0.1, 100);
+  camera.position.set(0, 2.65, 8.35);
   camera.lookAt(0, 1.1, -6);
   let renderer;
   try { renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "default" }); }
@@ -104,24 +174,32 @@ function startGame(THREE, mount, opts) {
   renderer.toneMappingExposure = 1.12;
   renderer.outputEncoding = THREE.sRGBEncoding;
   renderer.domElement.style.display = "block";
+  renderer.domElement.style.filter = "contrast(1.08) saturate(1.16)";
   mount.appendChild(renderer.domElement);
 
   // ── HUD (plain DOM, cleaned up on teardown) ──────────────────────────────
   const hud = document.createElement("div");
-  hud.style.cssText = "position:absolute;inset:0;pointer-events:none;font-family:var(--kid-font-display,Fredoka,sans-serif);color:#fff";
+  hud.style.cssText = "position:absolute;inset:0;pointer-events:none;font-family:var(--kid-font-display,Fredoka,sans-serif);color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.55)";
   hud.innerHTML =
-    '<div style="position:absolute;top:14px;left:16px;display:flex;align-items:center;gap:10px;background:rgba(10,16,40,.72);border:2px solid rgba(120,180,255,.35);border-radius:999px;padding:6px 16px 6px 8px">' +
-    '<div data-rr="letter" style="width:48px;height:48px;display:grid;place-items:center;font-size:1.7rem;font-weight:700;border-radius:14px;color:#071033;background:linear-gradient(160deg,#ffd34e,#ffa41c);box-shadow:0 4px 0 #c9781a"></div>' +
-    '<div data-rr="copy" style="font-size:1.05rem;font-weight:600"></div>' +
-    '<div data-rr="combo" style="display:none;margin-left:2px;font-size:1.2rem;font-weight:800;color:#ffe08a;text-shadow:0 2px 6px rgba(0,0,0,.5);transition:transform .12s cubic-bezier(.2,.9,.3,1)">×2</div></div>' +
-    '<div style="position:absolute;top:16px;right:16px;text-align:right">' +
-    '<div data-rr="hearts" style="font-size:1.25rem;letter-spacing:2px;margin-bottom:2px">❤❤❤</div>' +
-    '<div data-rr="stars" style="font-size:1.4rem;letter-spacing:2px">✩✩✩</div>' +
-    '<div style="width:150px;height:12px;border-radius:999px;background:rgba(255,255,255,.16);overflow:hidden;margin-top:6px;margin-left:auto">' +
-    '<i data-rr="fuel" style="display:block;height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,#3fd6a0,#23a455);transition:width .35s cubic-bezier(.2,.9,.3,1)"></i></div></div>' +
+    '<div data-rr="crt" style="position:absolute;inset:0;opacity:.18;background:repeating-linear-gradient(180deg,rgba(255,255,255,.18) 0 1px,transparent 1px 4px),radial-gradient(90% 80% at 50% 50%,transparent 58%,rgba(0,0,0,.48));mix-blend-mode:screen"></div>' +
+    '<div style="position:absolute;top:12px;left:14px;display:flex;align-items:stretch;gap:10px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.32))">' +
+    '<div data-rr="letter" style="width:62px;height:56px;display:grid;place-items:center;font-size:2rem;font-weight:900;color:#071033;background:linear-gradient(160deg,#ffe879,#ff9f24);clip-path:polygon(10% 0,100% 0,90% 100%,0 100%);border:1px solid rgba(255,255,255,.8);box-shadow:inset 0 0 0 2px rgba(255,255,255,.22)"></div>' +
+    '<div style="min-width:210px;padding:7px 18px 8px 14px;background:linear-gradient(90deg,rgba(7,12,32,.9),rgba(15,35,78,.72));border:1px solid rgba(126,232,255,.46);clip-path:polygon(0 0,94% 0,100% 50%,94% 100%,0 100%)">' +
+    '<div style="font-size:.62rem;font-weight:900;letter-spacing:.18em;color:#7ff0ff;text-transform:uppercase">Beginning sound</div>' +
+    '<div data-rr="copy" style="font-size:1.05rem;font-weight:800;line-height:1.1"></div>' +
+    '</div>' +
+    '<div data-rr="combo" style="display:none;align-self:center;padding:8px 12px;font-size:1.2rem;font-weight:900;color:#071033;background:linear-gradient(160deg,#8ff6ff,#55d4ff);clip-path:polygon(12% 0,100% 0,88% 100%,0 100%);text-shadow:none;transition:transform .12s cubic-bezier(.2,.9,.3,1)">x2</div></div>' +
+    '<div style="position:absolute;top:13px;right:14px;text-align:right;display:grid;gap:6px;justify-items:end">' +
+    '<div style="padding:7px 14px;background:linear-gradient(90deg,rgba(7,12,32,.75),rgba(22,41,74,.9));border:1px solid rgba(126,232,255,.36);clip-path:polygon(8% 0,100% 0,100% 100%,0 100%)">' +
+    '<div style="font-size:.62rem;font-weight:900;letter-spacing:.16em;color:#7ff0ff;text-transform:uppercase">Shield</div>' +
+    '<div data-rr="hearts" style="font-size:1.12rem;letter-spacing:2px">❤❤❤</div></div>' +
+    '<div data-rr="stars" style="font-size:1.34rem;letter-spacing:2px">✩✩✩</div>' +
+    '<div style="width:176px;height:14px;border:1px solid rgba(255,255,255,.34);background:rgba(255,255,255,.12);overflow:hidden;clip-path:polygon(8% 0,100% 0,92% 100%,0 100%)">' +
+    '<i data-rr="fuel" style="display:block;height:100%;width:0%;background:linear-gradient(90deg,#55f0ca,#f4dd57,#ff804d);transition:width .35s cubic-bezier(.2,.9,.3,1)"></i></div></div>' +
     '<button data-rr="left" aria-label="Steer left" style="position:absolute;left:0;top:80px;bottom:0;width:42%;background:transparent;border:0;pointer-events:auto"></button>' +
     '<button data-rr="right" aria-label="Steer right" style="position:absolute;right:0;top:80px;bottom:0;width:42%;background:transparent;border:0;pointer-events:auto"></button>' +
-    '<div data-rr="banner" style="position:absolute;top:34%;left:0;right:0;text-align:center;pointer-events:none;font-style:italic;font-weight:800;font-size:clamp(1.3rem,5vw,2.4rem);letter-spacing:.14em;text-transform:uppercase;color:#eaf2ff;text-shadow:0 3px 18px rgba(0,0,0,.6);opacity:0;transition:opacity .3s ease,transform .3s ease;transform:translateX(-40px)"></div>' +
+    '<div data-rr="reticle" style="position:absolute;left:50%;top:58%;width:72px;height:28px;transform:translate(-50%,-50%);opacity:.38;border-left:2px solid #7ff0ff;border-right:2px solid #7ff0ff;border-radius:50%;box-shadow:0 0 18px rgba(127,240,255,.42)"></div>' +
+    '<div data-rr="banner" style="position:absolute;top:34%;left:0;right:0;text-align:center;pointer-events:none;font-weight:900;font-size:clamp(1.3rem,5vw,2.4rem);letter-spacing:.12em;text-transform:uppercase;color:#eaf2ff;text-shadow:0 3px 18px rgba(0,0,0,.75),0 0 22px rgba(127,240,255,.45);opacity:0;transition:opacity .3s ease,transform .3s ease;transform:translateX(-40px)"></div>' +
     '<div data-rr="countdown" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;pointer-events:none;background:radial-gradient(120% 90% at 50% 42%,rgba(10,16,40,.6),rgba(6,9,24,.25))"></div>' +
     '<div data-rr="overlay" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;background:radial-gradient(120% 90% at 50% 25%,rgba(30,44,96,.72),rgba(6,9,24,.94));pointer-events:auto"></div>';
   mount.appendChild(hud);
@@ -139,9 +217,9 @@ function startGame(THREE, mount, opts) {
     const cd = el("countdown"); if (!cd) return;
     cd.innerHTML =
       '<div>' +
-      '<div style="font-size:1.05rem;font-weight:600;opacity:.92;margin-bottom:14px">Catch the words that start with</div>' +
-      '<div style="width:120px;height:120px;margin:0 auto;display:grid;place-items:center;font-size:4.6rem;font-weight:800;border-radius:28px;color:#071033;background:linear-gradient(160deg,#ffd34e,#ffa41c);box-shadow:0 8px 0 #c9781a">' + target + '</div>' +
-      '<div data-rr="cd-num" style="font-size:3.4rem;font-weight:800;margin-top:18px;text-shadow:0 3px 18px rgba(0,0,0,.6)">3</div>' +
+      '<div style="font-size:.78rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#7ff0ff;margin-bottom:12px">Find words beginning with</div>' +
+      '<div style="width:136px;height:120px;margin:0 auto;display:grid;place-items:center;font-size:5rem;font-weight:900;color:#071033;background:linear-gradient(160deg,#ffe879,#ff9f24);clip-path:polygon(10% 0,100% 0,90% 100%,0 100%);box-shadow:0 10px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.28)">' + target + '</div>' +
+      '<div data-rr="cd-num" style="font-size:3.6rem;font-weight:900;margin-top:18px;letter-spacing:.08em;text-shadow:0 3px 18px rgba(0,0,0,.75),0 0 24px rgba(127,240,255,.55)">3</div>' +
       '</div>';
     cd.style.display = "grid";
     countdownT = 3.4;
@@ -153,12 +231,9 @@ function startGame(THREE, mount, opts) {
   key.position.set(3, 8, 6);
   scene.add(key);
   scene.add(new THREE.HemisphereLight(0x9fc0ff, 0x1a1440, 0.55));
-  // Premium SNES-tier nebula backdrop (if generated); else keeps fog + starfield.
-  new THREE.TextureLoader().load("/images/games/bg-space.webp", tex => {
-    tex.encoding = THREE.sRGBEncoding;
-    scene.background = tex;
-    scene.fog = new THREE.FogExp2(0x0a1230, 0.03);
-  });
+  const sceneBackground = makeNebulaTexture();
+  scene.background = sceneBackground;
+  scene.fog = new THREE.FogExp2(0x0a1230, 0.032);
 
   const starLayers = [];
   [[500, 0.10, 0.55, 5], [300, 0.16, 0.8, 9], [120, 0.26, 1.0, 14]].forEach(([n, size, op, spd]) => {
@@ -178,15 +253,132 @@ function startGame(THREE, mount, opts) {
 
   // ── Mission 3: neon lane rails (instant "it's a track, not empty space") ──
   const rails = [];
-  for (const lx of LANES) {
+  LANES.forEach((_, laneIndex) => {
     const rail = new THREE.Mesh(
       new THREE.PlaneGeometry(0.14, 70),
       new THREE.MeshBasicMaterial({ color: 0x3fd6ff, transparent: true, opacity: 0.28, blending: THREE.AdditiveBlending, depthWrite: false })
     );
     rail.rotation.x = -Math.PI / 2;
-    rail.position.set(lx, 0.18, -25);
+    rail.position.set(laneX(laneIndex), 0.18, -25);
     scene.add(rail); rails.push(rail);
+  });
+
+  // ── PS1 racer treatment: a real track corridor, not just dots in empty space.
+  const trackSegments = [];
+  const trackGroup = new THREE.Group();
+  scene.add(trackGroup);
+  const deckGeo = new THREE.PlaneGeometry(7.8, 5.2, 1, 1);
+  const stripeGeo = new THREE.PlaneGeometry(0.1, 4.9, 1, 1);
+  for (let i = 0; i < 18; i += 1) {
+    const mat = new THREE.MeshBasicMaterial({
+      color: i % 2 ? 0x111a3b : 0x0c132d,
+      transparent: true,
+      opacity: 0.54,
+      depthWrite: false
+    });
+    const deck = new THREE.Mesh(deckGeo, mat);
+    deck.rotation.x = -Math.PI / 2;
+    deck.position.set(0, 0.04, -2 - i * 5.2);
+    trackGroup.add(deck);
+    const center = new THREE.Mesh(
+      stripeGeo,
+      new THREE.MeshBasicMaterial({ color: 0x7ff0ff, transparent: true, opacity: 0.22, blending: THREE.AdditiveBlending, depthWrite: false })
+    );
+    center.rotation.x = -Math.PI / 2;
+    center.position.set(0, 0.065, deck.position.z);
+    trackGroup.add(center);
+    trackSegments.push({ deck, center });
   }
+
+  const tunnelRings = [];
+  const pylonPairs = [];
+  const stationPieces = [];
+  const ringGeo = new THREE.TorusGeometry(5.25, 0.045, 6, 32);
+  const ringMat = new THREE.MeshBasicMaterial({ color: 0x59d3ff, transparent: true, opacity: 0.22, blending: THREE.AdditiveBlending, depthWrite: false });
+  const pylonGeo = new THREE.BoxGeometry(0.22, 1.9, 0.22);
+  const pylonMat = new THREE.MeshStandardMaterial({ color: 0x15245a, metalness: 0.35, roughness: 0.52, flatShading: true, emissive: 0x071332, emissiveIntensity: 0.32 });
+  const capGeo = new THREE.BoxGeometry(0.72, 0.16, 0.34);
+  const capMat = new THREE.MeshBasicMaterial({ color: 0x7ff0ff, transparent: true, opacity: 0.62, blending: THREE.AdditiveBlending });
+  for (let i = 0; i < 13; i += 1) {
+    const z = -9 - i * 7;
+    const ring = new THREE.Mesh(ringGeo, ringMat.clone());
+    ring.position.set(0, 2.1, z);
+    scene.add(ring);
+    tunnelRings.push(ring);
+    const pair = new THREE.Group();
+    for (const side of [-1, 1]) {
+      const pylon = new THREE.Mesh(pylonGeo, pylonMat.clone());
+      pylon.position.set(side * 4.25, 1.0, 0);
+      pylon.rotation.z = side * 0.11;
+      pair.add(pylon);
+      const cap = new THREE.Mesh(capGeo, capMat.clone());
+      cap.position.set(side * 4.25, 2.05, 0.02);
+      pair.add(cap);
+    }
+    pair.position.z = z + 2.4;
+    scene.add(pair);
+    pylonPairs.push(pair);
+  }
+  const stationMat = new THREE.MeshStandardMaterial({ color: 0x203066, metalness: 0.45, roughness: 0.62, flatShading: true, emissive: 0x071332, emissiveIntensity: 0.28 });
+  const windowMat = new THREE.MeshBasicMaterial({ color: 0x7ff0ff, transparent: true, opacity: 0.74, blending: THREE.AdditiveBlending });
+  for (let i = 0; i < 18; i += 1) {
+    const group = new THREE.Group();
+    const side = i % 2 ? -1 : 1;
+    const blockCount = 2 + (i % 3);
+    for (let j = 0; j < blockCount; j += 1) {
+      const block = new THREE.Mesh(
+        new THREE.BoxGeometry(0.85 + j * 0.2, 0.7 + (j % 2) * 0.7, 0.7),
+        stationMat.clone()
+      );
+      block.position.set(side * (5.4 + j * 0.55), 0.85 + j * 0.34, j * -0.26);
+      block.rotation.y = side * 0.12;
+      group.add(block);
+      const win = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.06, 0.72), windowMat.clone());
+      win.position.set(block.position.x, block.position.y + 0.05, block.position.z - 0.38);
+      win.rotation.y = block.rotation.y;
+      group.add(win);
+    }
+    group.position.z = -14 - i * 5.4;
+    scene.add(group);
+    stationPieces.push(group);
+  }
+
+  const nebulaPlanes = [];
+  const cyanGlow = makeGlowTexture("rgba(103,232,249,0.88)", "rgba(74,144,226,0.18)");
+  const roseGlow = makeGlowTexture("rgba(255,128,100,0.72)", "rgba(176,70,255,0.12)");
+  for (let i = 0; i < 4; i += 1) {
+    const plane = new THREE.Mesh(
+      new THREE.PlaneGeometry(18 + i * 4, 8 + i * 2),
+      new THREE.MeshBasicMaterial({
+        map: i % 2 ? roseGlow : cyanGlow,
+        transparent: true,
+        opacity: 0.2,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false
+      })
+    );
+    plane.position.set(i % 2 ? -10 - i : 11 + i, 6 + i * 1.2, -42 - i * 11);
+    plane.rotation.z = (i % 2 ? -1 : 1) * (0.15 + i * 0.06);
+    scene.add(plane);
+    nebulaPlanes.push(plane);
+  }
+
+  const planetGroup = new THREE.Group();
+  const farPlanet = new THREE.Mesh(
+    new THREE.SphereGeometry(4.4, 14, 10),
+    new THREE.MeshStandardMaterial({ color: 0x5fd4cf, emissive: 0x123f5e, emissiveIntensity: 0.28, roughness: 0.75, flatShading: true })
+  );
+  farPlanet.rotation.z = -0.28;
+  planetGroup.add(farPlanet);
+  const planetRing = new THREE.Mesh(
+    new THREE.TorusGeometry(5.7, 0.08, 6, 48),
+    new THREE.MeshBasicMaterial({ color: 0xf1d47a, transparent: true, opacity: 0.42, blending: THREE.AdditiveBlending, depthWrite: false })
+  );
+  planetRing.rotation.x = 1.25;
+  planetRing.rotation.y = 0.24;
+  planetGroup.add(planetRing);
+  planetGroup.position.set(13, 8, -74);
+  scene.add(planetGroup);
 
   // ── Per-theme backdrop glow (a distant "sun"/nebula core) — recoloured each
   //    round so every sector has a distinct dominant hue, not just tinted fog. ──
@@ -237,63 +429,91 @@ function startGame(THREE, mount, opts) {
     scene.add(q); speedLines.push(q);
   }
 
-  // ── Ship v2: one curved lathed hull (no cylinder+cone seams), glass canopy,
-  //    swept fins, and a flickering additive engine plume + light. ───────────
+  // ── Ship v3: chunky low-poly PS1 craft. Gold hull, cyan canopy, coral fins,
+  //    side boosters, and a readable engine plume. ──────────────────────────
   const ship = new THREE.Group();
-  const hullMat = new THREE.MeshStandardMaterial({ color: 0xf4f7ff, metalness: 0.6, roughness: 0.22 });
-  const trimMat = new THREE.MeshStandardMaterial({ color: 0xff6b57, metalness: 0.35, roughness: 0.4 });
-  const darkMat = new THREE.MeshStandardMaterial({ color: 0x2c3350, metalness: 0.5, roughness: 0.6 });
+  const hullMat = new THREE.MeshStandardMaterial({ color: 0xd9a43f, metalness: 0.62, roughness: 0.26, flatShading: true, emissive: 0x2d1900, emissiveIntensity: 0.16 });
+  const trimMat = new THREE.MeshStandardMaterial({ color: 0xff6b57, metalness: 0.35, roughness: 0.38, flatShading: true, emissive: 0x351008, emissiveIntensity: 0.12 });
+  const darkMat = new THREE.MeshStandardMaterial({ color: 0x18203a, metalness: 0.55, roughness: 0.55, flatShading: true });
+  const panelMat = new THREE.MeshStandardMaterial({ color: 0xffe28a, metalness: 0.5, roughness: 0.3, flatShading: true, emissive: 0x3a2400, emissiveIntensity: 0.1 });
   const profile = [
     [0.001, -1.65], [0.09, -1.52], [0.2, -1.18], [0.3, -0.62],
     [0.355, -0.05], [0.345, 0.42], [0.28, 0.78], [0.2, 0.95], [0.001, 0.98]
   ].map(([r, z]) => new THREE.Vector2(r, z));
-  const body = new THREE.Mesh(new THREE.LatheGeometry(profile, 48), hullMat);
+  const body = new THREE.Mesh(new THREE.LatheGeometry(profile, 18), hullMat);
   body.rotation.x = Math.PI / 2; // lathe +y axis -> -z, nose forward
+  body.scale.set(1.2, 1.2, 1.22);
   ship.add(body);
-  const noseRing = new THREE.Mesh(new THREE.TorusGeometry(0.27, 0.045, 12, 32), trimMat);
-  noseRing.position.z = -0.95;
+  const noseRing = new THREE.Mesh(new THREE.TorusGeometry(0.31, 0.045, 8, 24), trimMat);
+  noseRing.position.z = -1.16;
   ship.add(noseRing);
+  const dorsal = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.1, 1.35), panelMat);
+  dorsal.position.set(0, 0.38, -0.18);
+  dorsal.rotation.x = -0.06;
+  ship.add(dorsal);
   const canopy = new THREE.Mesh(
-    new THREE.SphereGeometry(0.19, 24, 16, 0, Math.PI * 2, 0, Math.PI / 2),
-    new THREE.MeshStandardMaterial({ color: 0x7fd8ff, emissive: 0x2a86c8, emissiveIntensity: 0.8, metalness: 0.1, roughness: 0.05, transparent: true, opacity: 0.9 })
+    new THREE.SphereGeometry(0.24, 14, 8, 0, Math.PI * 2, 0, Math.PI / 2),
+    new THREE.MeshStandardMaterial({ color: 0x7ff0ff, emissive: 0x21a7c8, emissiveIntensity: 1.1, metalness: 0.12, roughness: 0.05, transparent: true, opacity: 0.92, flatShading: true })
   );
-  canopy.position.set(0, 0.26, -0.45);
+  canopy.position.set(0, 0.34, -0.52);
   canopy.rotation.x = -0.25;
   ship.add(canopy);
-  // Swept fins — verify orientation VISUALLY in the screenshot step; tweak the
-  // eulers if a blade points forward instead of back.
+  const cockpitRim = new THREE.Mesh(new THREE.TorusGeometry(0.25, 0.025, 8, 20), darkMat);
+  cockpitRim.position.copy(canopy.position);
+  cockpitRim.rotation.x = Math.PI / 2 - 0.25;
+  ship.add(cockpitRim);
   const finShape = new THREE.Shape();
-  finShape.moveTo(0, 0); finShape.lineTo(0.14, 0.02); finShape.lineTo(0.62, 0.66);
-  finShape.lineTo(0.5, 0.78); finShape.lineTo(0.05, 0.42); finShape.closePath();
+  finShape.moveTo(0, 0); finShape.lineTo(0.18, 0.02); finShape.lineTo(0.86, 0.72);
+  finShape.lineTo(0.68, 0.9); finShape.lineTo(0.08, 0.48); finShape.closePath();
   const finGeo = new THREE.ExtrudeGeometry(finShape, { depth: 0.05, bevelEnabled: true, bevelThickness: 0.015, bevelSize: 0.015, bevelSegments: 1 });
-  for (let i = 0; i < 3; i += 1) {
+  for (const side of [-1, 1]) {
     const fin = new THREE.Mesh(finGeo, trimMat);
-    const a = i * (Math.PI * 2 / 3) + Math.PI / 2;
-    fin.position.set(Math.cos(a) * 0.26, Math.sin(a) * 0.26, 0.55);
-    fin.rotation.z = a - Math.PI / 2;
-    fin.rotation.y = Math.PI / 2;
+    fin.position.set(side * 0.26, -0.08, 0.46);
+    fin.rotation.z = side > 0 ? -0.32 : Math.PI + 0.32;
+    fin.rotation.y = side > 0 ? Math.PI / 2 : -Math.PI / 2;
+    fin.scale.set(1.1, 1.1, 1);
     ship.add(fin);
   }
-  const nozzle = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.22, 0.28, 24), darkMat);
+  const topFin = new THREE.Mesh(finGeo, trimMat);
+  topFin.position.set(0, 0.28, 0.5);
+  topFin.rotation.y = Math.PI / 2;
+  topFin.rotation.z = -Math.PI / 2;
+  topFin.scale.set(0.72, 0.72, 0.8);
+  ship.add(topFin);
+  for (const side of [-1, 1]) {
+    const booster = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.16, 0.86, 10), darkMat);
+    booster.rotation.x = Math.PI / 2;
+    booster.position.set(side * 0.38, -0.18, 0.54);
+    ship.add(booster);
+    const boosterGlow = new THREE.Mesh(
+      new THREE.ConeGeometry(0.07, 0.58, 10, 1, true),
+      new THREE.MeshBasicMaterial({ color: 0x55e9ff, transparent: true, opacity: 0.72, blending: THREE.AdditiveBlending, depthWrite: false })
+    );
+    boosterGlow.rotation.x = Math.PI / 2;
+    boosterGlow.position.set(side * 0.38, -0.18, 1.06);
+    ship.add(boosterGlow);
+  }
+  const nozzle = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.25, 0.32, 12), darkMat);
   nozzle.rotation.x = Math.PI / 2;
-  nozzle.position.z = 1.02;
+  nozzle.position.z = 1.16;
   ship.add(nozzle);
   const plumeMat = new THREE.MeshBasicMaterial({ color: 0x7fd8ff, transparent: true, opacity: 0.75, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide });
-  const plume = new THREE.Mesh(new THREE.ConeGeometry(0.17, 1.0, 20, 1, true), plumeMat);
+  const plume = new THREE.Mesh(new THREE.ConeGeometry(0.22, 1.22, 16, 1, true), plumeMat);
   plume.rotation.x = Math.PI / 2; // apex trails behind (+z)
-  plume.position.z = 1.55;
+  plume.position.z = 1.82;
   ship.add(plume);
   const plumeCore = new THREE.Mesh(
-    new THREE.ConeGeometry(0.08, 0.65, 14, 1, true),
+    new THREE.ConeGeometry(0.1, 0.78, 12, 1, true),
     new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.9, blending: THREE.AdditiveBlending, depthWrite: false })
   );
   plumeCore.rotation.x = Math.PI / 2;
-  plumeCore.position.z = 1.4;
+  plumeCore.position.z = 1.62;
   ship.add(plumeCore);
   const engineLight = new THREE.PointLight(0x66ccff, 1.1, 7);
-  engineLight.position.z = 1.3;
+  engineLight.position.z = 1.48;
   ship.add(engineLight);
-  ship.position.set(0, 1.0, 4.2);
+  ship.position.set(0, 0.92, 4.05);
+  ship.scale.setScalar(SHIP_BASE_SCALE);
   scene.add(ship);
 
   function pill(ctx, px, py, w, h, r) {
@@ -310,18 +530,27 @@ function startGame(THREE, mount, opts) {
     canvas.width = 512;
     canvas.height = 256;
     const ctx = canvas.getContext("2d");
-    // Readable dark pill behind the word so it always pops off the bubble.
-    // High-res texture (512x256 / 120px) so words stay crisp as they approach.
-    ctx.fillStyle = "rgba(4,10,32,0.7)";
-    pill(ctx, 40, 66, 432, 124, 62);
+    const panel = ctx.createLinearGradient(40, 66, 472, 190);
+    panel.addColorStop(0, "rgba(7,14,42,0.92)");
+    panel.addColorStop(0.55, "rgba(18,36,86,0.86)");
+    panel.addColorStop(1, "rgba(5,9,28,0.9)");
+    ctx.fillStyle = panel;
+    pill(ctx, 34, 58, 444, 138, 34);
     ctx.fill();
-    ctx.font = "700 120px Fredoka, Arial, sans-serif";
+    ctx.strokeStyle = "rgba(127,240,255,0.72)";
+    ctx.lineWidth = 7;
+    pill(ctx, 34, 58, 444, 138, 34);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(255,225,105,0.95)";
+    ctx.fillRect(58, 78, 42, 7);
+    ctx.fillRect(412, 176, 42, 7);
+    ctx.font = "800 116px Fredoka, Arial, sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.lineWidth = 14;
-    ctx.strokeStyle = "rgba(4,10,32,0.9)";
+    ctx.lineWidth = 16;
+    ctx.strokeStyle = "rgba(1,4,16,0.96)";
     ctx.strokeText(text, 256, 132);
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = "#f8fdff";
     ctx.fillText(text, 256, 132);
     const tex = new THREE.CanvasTexture(canvas);
     tex.needsUpdate = true;
@@ -329,7 +558,7 @@ function startGame(THREE, mount, opts) {
     // Float the label in FRONT of the orb (toward the camera) and draw it on
     // top, so the semi-transparent bubble can never hide the word.
     sprite.renderOrder = 5;
-    sprite.scale.set(3.2, 1.6, 1);
+    sprite.scale.set(2.25, 1.13, 1);
     sprite.position.set(0, 0, 1.2);
     return sprite;
   }
@@ -347,19 +576,36 @@ function startGame(THREE, mount, opts) {
   function makeBubble(word, correct, lane, tries) {
     const group = new THREE.Group();
     const mat = bubbleMaterial(0x3f7dff);
-    const orb = new THREE.Mesh(new THREE.SphereGeometry(0.95, 32, 32), mat);
+    const orb = new THREE.Mesh(new THREE.IcosahedronGeometry(0.78, 2), mat);
     group.add(orb);
+    const cage = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(0.84, 1),
+      new THREE.MeshBasicMaterial({ color: 0x8ff6ff, wireframe: true, transparent: true, opacity: 0.36, blending: THREE.AdditiveBlending, depthWrite: false })
+    );
+    group.add(cage);
+    const halo = new THREE.Mesh(
+      new THREE.TorusGeometry(0.9, 0.022, 6, 28),
+      new THREE.MeshBasicMaterial({ color: 0xffe36a, transparent: true, opacity: 0.36, blending: THREE.AdditiveBlending, depthWrite: false })
+    );
+    halo.rotation.x = Math.PI / 2;
+    group.add(halo);
     const glowIn = new THREE.Mesh(
-      new THREE.SphereGeometry(0.6, 16, 16),
+      new THREE.SphereGeometry(0.5, 16, 16),
       new THREE.MeshBasicMaterial({ color: 0x2b5fd0, transparent: true, opacity: 0.18, blending: THREE.AdditiveBlending, depthWrite: false })
     );
     group.add(glowIn);
     const sprite = labelSprite(word);
     group.add(sprite);
-    group.position.set(LANES[lane], 1.05, -46);
+    group.position.set(laneX(lane), 1.05, -46);
     group.userData = {
-      word, correct, lane, orb, alive: true, tries: tries || 0,
-      setFade: a => { mat.uniforms.uFade.value = a; sprite.material.opacity = a; glowIn.material.opacity = 0.18 * a; }
+      word, correct, lane, orb, cage, halo, alive: true, tries: tries || 0,
+      setFade: a => {
+        mat.uniforms.uFade.value = a;
+        sprite.material.opacity = a;
+        glowIn.material.opacity = 0.18 * a;
+        cage.material.opacity = 0.36 * a;
+        halo.material.opacity = 0.36 * a;
+      }
     };
     scene.add(group);
     return group;
@@ -367,15 +613,28 @@ function startGame(THREE, mount, opts) {
   function makeMeteor(lane) {
     const group = new THREE.Group();
     const rock = new THREE.Mesh(
-      new THREE.IcosahedronGeometry(0.6, 0),
-      new THREE.MeshStandardMaterial({ color: 0x6b5a4a, roughness: 0.95, flatShading: true, emissive: 0x2a1c14, emissiveIntensity: 0.35 })
+      new THREE.IcosahedronGeometry(0.68, 1),
+      new THREE.MeshStandardMaterial({ color: 0x6b5a4a, roughness: 0.95, flatShading: true, emissive: 0x2a1c14, emissiveIntensity: 0.38 })
     );
     rock.rotation.set(Math.random() * 3, Math.random() * 3, 0);
     group.add(rock);
-    const trail = new THREE.Mesh(new THREE.SphereGeometry(0.3, 12, 12), new THREE.MeshBasicMaterial({ color: 0xff8a3c, transparent: true, opacity: 0.45 }));
+    for (let i = 0; i < 3; i += 1) {
+      const shard = new THREE.Mesh(
+        new THREE.TetrahedronGeometry(0.16 + i * 0.04, 0),
+        new THREE.MeshStandardMaterial({ color: 0xb08a5a, roughness: 0.9, flatShading: true })
+      );
+      shard.position.set((Math.random() - 0.5) * 0.72, (Math.random() - 0.5) * 0.54, 0.45 + i * 0.18);
+      shard.rotation.set(Math.random() * 3, Math.random() * 3, Math.random() * 3);
+      group.add(shard);
+    }
+    const trail = new THREE.Mesh(
+      new THREE.ConeGeometry(0.32, 1.35, 10, 1, true),
+      new THREE.MeshBasicMaterial({ color: 0xff8a3c, transparent: true, opacity: 0.48, blending: THREE.AdditiveBlending, depthWrite: false })
+    );
+    trail.rotation.x = Math.PI / 2;
     trail.position.set(0, 0, 0.7);
     group.add(trail);
-    group.position.set(LANES[lane], 1.05, -46);
+    group.position.set(laneX(lane), 1.05, -46);
     group.userData = { meteor: true, lane, rock, alive: true,
       setFade: a => { group.scale.setScalar(0.4 + 0.6 * a); trail.material.opacity = 0.45 * a; } };
     scene.add(group);
@@ -384,12 +643,27 @@ function startGame(THREE, mount, opts) {
   function makeRing(lane) {
     const group = new THREE.Group();
     const ring = new THREE.Mesh(
-      new THREE.TorusGeometry(1.05, 0.09, 12, 40),
+      new THREE.TorusGeometry(1.05, 0.09, 8, 40),
       new THREE.MeshBasicMaterial({ color: 0x59ffe0, transparent: true, opacity: 0.9, blending: THREE.AdditiveBlending, depthWrite: false })
     );
     group.add(ring);
-    group.position.set(LANES[lane], 1.05, -46);
-    group.userData = { ring: true, lane, alive: true, orb: ring, setFade: a => { ring.material.opacity = 0.9 * a; } };
+    const inner = new THREE.Mesh(
+      new THREE.TorusGeometry(0.68, 0.035, 6, 28),
+      new THREE.MeshBasicMaterial({ color: 0xffe36a, transparent: true, opacity: 0.7, blending: THREE.AdditiveBlending, depthWrite: false })
+    );
+    group.add(inner);
+    for (let i = 0; i < 4; i += 1) {
+      const tick = new THREE.Mesh(
+        new THREE.BoxGeometry(0.08, 0.22, 0.05),
+        new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending })
+      );
+      const a = i * Math.PI / 2;
+      tick.position.set(Math.cos(a) * 1.05, Math.sin(a) * 1.05, 0);
+      tick.rotation.z = a;
+      group.add(tick);
+    }
+    group.position.set(laneX(lane), 1.05, -46);
+    group.userData = { ring: true, lane, alive: true, orb: ring, inner, setFade: a => { ring.material.opacity = 0.9 * a; inner.material.opacity = 0.7 * a; } };
     scene.add(group);
     return group;
   }
@@ -402,7 +676,7 @@ function startGame(THREE, mount, opts) {
     group.add(orb);
     const sprite = labelSprite("❤");
     group.add(sprite);
-    group.position.set(LANES[lane], 1.05, -46);
+    group.position.set(laneX(lane), 1.05, -46);
     group.userData = { heart: true, lane, orb, alive: true, setFade: a => { orb.material.opacity = 0.9 * a; sprite.material.opacity = a; } };
     scene.add(group);
     return group;
@@ -427,7 +701,7 @@ function startGame(THREE, mount, opts) {
   const bursts = [];
   // ── quality-pass state (missions 1-5) ────────────────────────────────────
   let rollT = 0, rollDir = 0, shipPulse = 0;       // bank flourish + catch pulse
-  let combo = 0, boostT = 0, fov = 62;             // combo multiplier + Wipeout boost
+  let combo = 0, boostT = 0, fov = CAMERA_FOV;     // combo multiplier + Wipeout boost
   let theme = ROUND_THEMES[0];                     // current themed sector
   const fogTarget = new THREE.Color(theme.fog);
   const ambientTarget = new THREE.Color(theme.ambient);
@@ -481,6 +755,34 @@ function startGame(THREE, mount, opts) {
     for (const layer of starLayers) layer.material.color.setHex(theme.star);
     rails.forEach(r => r.material.color.setHex(theme.rail));
     themeSun.material.color.setHex(theme.sun);
+    for (const segment of trackSegments) {
+      segment.deck.material.color.setHex(theme.deck || 0x17245a);
+      segment.center.material.color.setHex(theme.pad || theme.rail);
+    }
+    tunnelRings.forEach((ring, index) => {
+      ring.material.color.setHex(index % 3 === 0 ? theme.pad || theme.rail : theme.rail);
+      ring.material.opacity = index % 3 === 0 ? 0.34 : 0.2;
+    });
+    pylonPairs.forEach(pair => {
+      pair.children.forEach(child => {
+        if (child.material?.emissive) {
+          child.material.color.setHex(theme.deck || 0x17245a);
+          child.material.emissive.setHex(theme.sun || 0x071332);
+        } else if (child.material?.color) {
+          child.material.color.setHex(theme.pad || theme.rail);
+        }
+      });
+    });
+    stationPieces.forEach(group => {
+      group.children.forEach(child => {
+        if (child.material?.emissive) {
+          child.material.color.setHex(theme.deck || 0x203066);
+          child.material.emissive.setHex(theme.sun || 0x071332);
+        } else if (child.material?.color) {
+          child.material.color.setHex(theme.pad || theme.rail);
+        }
+      });
+    });
     const target = targets[roundIx % targets.length]; // walk the ramped ladder, no repeats
     roundTarget = target;
     const round = buildRocketRunRound(target, { count, difficulty: opts.difficulty });
@@ -720,7 +1022,42 @@ function startGame(THREE, mount, opts) {
       layer.position.z += dt * layer.userData.speed * speed * boost * (reduceMotion ? 0.5 : 1);
       if (layer.position.z > 40) layer.position.z = 0;
     }
-    rails.forEach((r, i) => { r.material.opacity = (i === laneIx ? 0.5 : 0.22) + Math.sin(now * 0.004 + i) * 0.06; });
+    rails.forEach((r, i) => {
+      r.position.x += (laneX(i) - r.position.x) * Math.min(1, dt * 8);
+      r.material.opacity = (i === laneIx ? 0.5 : 0.22) + Math.sin(now * 0.004 + i) * 0.06;
+    });
+    const trackDrift = dt * 10.5 * speed * boost * (reduceMotion ? 0.45 : 1);
+    for (const segment of trackSegments) {
+      segment.deck.position.z += trackDrift;
+      segment.center.position.z += trackDrift;
+      if (segment.deck.position.z > 8) {
+        segment.deck.position.z -= 18 * 5.2;
+        segment.center.position.z = segment.deck.position.z;
+      }
+      segment.deck.material.opacity = 0.48 + Math.sin(now * 0.004 + segment.deck.position.z) * 0.07;
+      segment.center.material.opacity = 0.2 + Math.sin(now * 0.006 + segment.center.position.z) * 0.08;
+    }
+    for (const ring of tunnelRings) {
+      ring.position.z += trackDrift;
+      ring.rotation.z += dt * 0.09;
+      if (ring.position.z > 8) ring.position.z -= 13 * 7;
+    }
+    for (const pair of pylonPairs) {
+      pair.position.z += trackDrift;
+      if (pair.position.z > 8) pair.position.z -= 13 * 7;
+    }
+    for (const group of stationPieces) {
+      group.position.z += trackDrift * 0.92;
+      group.rotation.y = Math.sin(elapsed * 0.35 + group.position.z) * 0.025;
+      if (group.position.z > 10) group.position.z -= 18 * 5.4;
+    }
+    for (const plane of nebulaPlanes) {
+      plane.position.z += dt * 0.75 * speed;
+      plane.rotation.z += dt * 0.018;
+      if (plane.position.z > -18) plane.position.z -= 72;
+    }
+    planetGroup.rotation.y += dt * 0.025;
+    planetGroup.position.x = 13 + Math.sin(elapsed * 0.18) * 1.2;
     for (const pl of planets) {
       pl.position.z += dt * 0.4; pl.rotation.y += dt * 0.05;
       if (pl.position.z > -8) pl.position.set((Math.random() - 0.5) * 34, 4 + Math.random() * 10, -92);
@@ -730,18 +1067,19 @@ function startGame(THREE, mount, opts) {
     if (cometStreak.userData.run > 0) { cometStreak.userData.run -= dt; cometStreak.position.x += dt * 34; cometStreak.material.opacity = Math.max(0, cometStreak.userData.run / 1.2) * 0.8; }
     if (finaleComet) { finaleComet.position.x = -14 + Math.sin(elapsed * 0.3) * 8; finaleComet.rotation.y += dt * 0.4; }
 
-    ship.position.x += (LANES[laneIx] - ship.position.x) * Math.min(1, dt * 12);
-    ship.rotation.z = (LANES[laneIx] - ship.position.x) * -0.25;
+    const shipTargetX = laneX(laneIx);
+    ship.position.x += (shipTargetX - ship.position.x) * Math.min(1, dt * 12);
+    ship.rotation.z = (shipTargetX - ship.position.x) * -0.25;
     if (rollT > 0) { ship.rotation.z += Math.sin((1 - rollT / 0.38) * Math.PI) * -rollDir * 0.7; rollT -= dt; }
     camera.position.y = 2.6 + Math.sin(elapsed * 1.3) * 0.05;
-    shipPulse = Math.max(0, shipPulse - dt); ship.scale.setScalar(1 + shipPulse * 0.3);
+    shipPulse = Math.max(0, shipPulse - dt); ship.scale.setScalar(SHIP_BASE_SCALE * (1 + shipPulse * 0.3));
     const bl = boost > 1 ? 1.6 : 1;
     const fl = (0.9 + Math.random() * 0.25) * bl;
     plume.scale.set(fl, (0.8 + Math.random() * 0.5) * bl, fl);
     plumeCore.scale.set(1, 0.7 + Math.random() * 0.6, 1);
     engineLight.intensity = 0.9 + Math.random() * 0.6;
 
-    const fovWant = boost > 1 ? 74 : 62;
+    const fovWant = boost > 1 ? BOOST_FOV : CAMERA_FOV;
     if (Math.abs(fov - fovWant) > 0.1) { fov += (fovWant - fov) * Math.min(1, dt * 6); camera.fov = fov; camera.updateProjectionMatrix(); }
     for (const q of speedLines) {
       q.material.opacity = (boost > 1 && !reduceMotion) ? 0.5 : Math.max(0, q.material.opacity - dt * 3);
@@ -784,7 +1122,11 @@ function startGame(THREE, mount, opts) {
         bubble.position.z += dt * 11 * speed * boost;
         if (bubble.userData.meteor) bubble.userData.rock.rotation.x += dt * 1.8;
         else if (bubble.userData.ring) bubble.rotation.z += dt * 1.4;
-        else if (bubble.userData.orb) bubble.userData.orb.rotation.y += dt * 1.5;
+        else if (bubble.userData.orb) {
+          bubble.userData.orb.rotation.y += dt * 1.5;
+          if (bubble.userData.cage) bubble.userData.cage.rotation.y -= dt * 0.9;
+          if (bubble.userData.halo) bubble.userData.halo.rotation.z += dt * 1.1;
+        }
 
         if (!bubble.userData.passed) {
           if (bubble.position.z >= noseZ - 0.7 && bubble.position.z <= noseZ + 0.7) {
@@ -842,10 +1184,17 @@ function startGame(THREE, mount, opts) {
     disposeGroup(ship);
     for (const layer of starLayers) { scene.remove(layer); disposeGroup(layer); }
     for (const r of rails) { scene.remove(r); disposeGroup(r); }
+    scene.remove(trackGroup); disposeGroup(trackGroup);
+    for (const ring of tunnelRings) { scene.remove(ring); disposeGroup(ring); }
+    for (const pair of pylonPairs) { scene.remove(pair); disposeGroup(pair); }
+    for (const group of stationPieces) { scene.remove(group); disposeGroup(group); }
+    for (const plane of nebulaPlanes) { scene.remove(plane); disposeGroup(plane); }
+    scene.remove(planetGroup); disposeGroup(planetGroup);
     for (const pl of planets) { scene.remove(pl); disposeGroup(pl); }
     for (const q of speedLines) { scene.remove(q); disposeGroup(q); }
     scene.remove(cometStreak); disposeGroup(cometStreak);
     scene.remove(themeSun); disposeGroup(themeSun);
+    if (sceneBackground?.dispose) sceneBackground.dispose();
     if (finaleComet) { scene.remove(finaleComet); disposeGroup(finaleComet); }
     try { renderer.dispose(); if (renderer.forceContextLoss) renderer.forceContextLoss(); } catch { /* ignore */ }
     if (renderer.domElement && renderer.domElement.parentNode) renderer.domElement.parentNode.removeChild(renderer.domElement);
