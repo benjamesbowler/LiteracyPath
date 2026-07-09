@@ -1747,7 +1747,7 @@ function startRhymePopArcadeGame(mount, options) {
       dy /= distance;
     }
     const speed = clamp(w * 0.78, 620, 930);
-    state.shots.push({
+    const shot = {
       x: launch.x,
       y: launch.y - 20,
       vx: dx * speed,
@@ -1757,10 +1757,19 @@ function startRhymePopArcadeGame(mount, options) {
       color: config.accent2,
       seed: state.time + state.shots.length,
       targetBubbleId: targetBubble?.id || null,
+      // The projectile is now purely a visual flourish. Correctness is decided
+      // the instant the child taps (below), so a drifting/wobbling balloon can
+      // never let a valid tap "miss" and reset the round.
+      cosmetic: true,
       trail: []
-    });
+    };
+    state.shots.push(shot);
     state.beatPulse = 0.35;
     sfx(playTapSound);
+    // Resolve the tapped balloon IMMEDIATELY: tap a rhyme -> it pops and play
+    // continues; tap a non-rhyme -> gentle "try again". No physics in the loop
+    // can turn a correct tap into a miss. Tapping empty space does nothing.
+    if (targetBubble) resolveRhymeHit(shot, targetBubble);
   }
 
   function resolveRhymeHit(shot, bubble) {
@@ -1899,6 +1908,12 @@ function startRhymePopArcadeGame(mount, options) {
       if (shot.trail.length > 8) shot.trail.shift();
       shot.x += shot.vx * dt;
       shot.y += shot.vy * dt;
+      // Cosmetic shots already had their tap resolved at fire time — they just
+      // fly out and fade. Never re-resolve or score them.
+      if (shot.cosmetic) {
+        if (shot.x < -80 || shot.x > w + 80 || shot.y < -80 || shot.y > h + 80) shot.dead = true;
+        continue;
+      }
       const targeted = Boolean(shot.targetBubbleId);
       const target = targeted ? state.bubbles.find(bubble => bubble.id === shot.targetBubbleId) : null;
       // Tapped balloon already popped: retire the shot quietly.

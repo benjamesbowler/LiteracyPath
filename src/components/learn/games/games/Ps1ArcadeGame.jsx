@@ -1297,28 +1297,29 @@ function startPs1ArcadeGame(mount, options) {
     const isBlend = notes[state.beatIndex] === "blend";
     const windowSeconds = (state.roundWindow || state.level.hitWindowMs) / 1000;
     const delta = Math.abs(now - targetTime);
-    // The final "GO"/blend has NO timing: once you reach it, tapping it any time
-    // finishes the word. Only the sound beats are timed.
-    if (isBlend || delta <= windowSeconds) {
-      const quality = isBlend ? "PERFECT" : delta <= windowSeconds * 0.33 ? "PERFECT" : delta <= windowSeconds * 0.66 ? "GREAT" : "GOOD";
-      state.judgement = quality;
-      state.judgementT = 0.72;
-      state.beatPulse = quality === "PERFECT" ? 1 : quality === "GREAT" ? 0.82 : 0.65;
-      const burstPoint = beatLanePoint(state.beatIndex % BEAT_LANES.length, 1, w, h);
-      state.hitBursts.push({
-        x: burstPoint.x,
-        y: burstPoint.y,
-        t: 0,
-        life: 0.5,
-        seed: state.time + state.beatIndex,
-        color: quality === "PERFECT" ? config.accent : config.accent2
-      });
-      sfx(playTapSound);
-      state.beatIndex += 1;
-      if (state.beatIndex >= notes.length) endCurrentWord(180);
-    } else {
-      missCurrent();
-    }
+    // A tap ALWAYS lands. There is no "miss" branch any more: an off-beat tap
+    // still pops the current sound and moves forward, so the word can never end
+    // early and drop the child onto a fresh (identical-looking) word — the
+    // "GO reset to the same word" they were hitting. Good timing just sparkles
+    // more; sloppy timing still counts. The word only advances when THEY tap.
+    const quality = isBlend || delta <= windowSeconds * 0.4
+      ? "PERFECT"
+      : delta <= windowSeconds ? "GREAT" : "GOOD";
+    state.judgement = quality;
+    state.judgementT = 0.72;
+    state.beatPulse = quality === "PERFECT" ? 1 : quality === "GREAT" ? 0.82 : 0.65;
+    const burstPoint = beatLanePoint(state.beatIndex % BEAT_LANES.length, 1, w, h);
+    state.hitBursts.push({
+      x: burstPoint.x,
+      y: burstPoint.y,
+      t: 0,
+      life: 0.5,
+      seed: state.time + state.beatIndex,
+      color: quality === "PERFECT" ? config.accent : config.accent2
+    });
+    sfx(playTapSound);
+    state.beatIndex += 1;
+    if (state.beatIndex >= notes.length) endCurrentWord(180);
   }
 
   function rhymeMiss(label = "MISS") {
@@ -1526,15 +1527,9 @@ function startPs1ArcadeGame(mount, options) {
       if (options.kind === "sound-beat" && state.currentTask && state.countdown <= 0) {
         if (!soundAllowed()) stopMusic();
         else ensureMusic();
-        const notes = [...state.currentTask.item.beats, "blend"];
-        const spacing = 60 / (state.roundBpm || state.level.bpm);
-        const targetTime = state.noteStart + state.beatIndex * spacing;
-        const autoMissWindow = (state.roundWindow || state.level.hitWindowMs) / 1000;
-        // Never auto-miss the final "GO"/blend beat — it waits for the tap so
-        // the word is never lost at the finish line. Only letter beats time out.
-        if (state.beatIndex < notes.length - 1 && now - targetTime > autoMissWindow + 0.12) {
-          missCurrent();
-        }
+        // Beats no longer time out. Every sound — and the final GO — waits for
+        // the child's tap, so a word can never end or "reset" on its own. The
+        // pads still pulse to the music for feel; only a tap advances play.
       }
       if (options.kind === "rhyme-pop") updateRhymePop(dt);
       if (options.kind === "star-gallery") {
