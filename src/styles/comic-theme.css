@@ -781,6 +781,23 @@
 }
 
 /* ═══ E. READING LIBRARY (student mode only) ═══════════════════════════ */
+/* Cozy reading-nook backdrop behind the student library (replaces the plain
+   world scene). A soft white wash keeps the book cards + titles crisp; the
+   art has a low-detail centre drawn for exactly this. */
+.student-guided-reading-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(180deg, rgba(249, 250, 252, 0.66) 0%, rgba(249, 250, 252, 0.40) 45%, rgba(249, 250, 252, 0.60) 100%),
+    url("/images/backdrops/library-nook.webp");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
 .student-guided-reading-page .guided-library-breadcrumb {
   font-family: var(--comic-label);
   font-weight: 900;

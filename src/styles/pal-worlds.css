@@ -6,6 +6,7 @@
   --pal-accent-soft: #EAF4E6;
   --pal-deep: #35652E;
   --pal-banner: url("/images/pals/meadow-panorama.webp");
+  --pal-activity-bg: url("/images/backdrops/activity-bg-meadow.webp");
   --pal-emblem: url("/images/pals/meadow-emblem.webp");
   --pal-mesh:
     radial-gradient(720px 460px at 8% -8%, rgba(94, 160, 82, 0.30), transparent 62%),
@@ -18,6 +19,7 @@
   --pal-accent-soft: #FBEFE2;
   --pal-deep: #92511B;
   --pal-banner: url("/images/pals/dino-panorama.webp");
+  --pal-activity-bg: url("/images/backdrops/activity-bg-dino.webp");
   --pal-emblem: url("/images/pals/dino-emblem.webp");
   --pal-mesh:
     radial-gradient(720px 460px at 8% -8%, rgba(240, 156, 74, 0.30), transparent 62%),
@@ -30,6 +32,7 @@
   --pal-accent-soft: #EFEBFA;
   --pal-deep: #443678;
   --pal-banner: url("/images/pals/moonwood-panorama.webp");
+  --pal-activity-bg: url("/images/backdrops/activity-bg-moonwood.webp");
   --pal-emblem: url("/images/pals/moonwood-emblem.webp");
   --pal-mesh:
     radial-gradient(720px 460px at 8% -8%, rgba(110, 90, 184, 0.32), transparent 62%),
@@ -125,18 +128,21 @@
 .lg-app-shell[data-pal-world]::before {
   content: "";
   position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: min(34vh, 320px);
+  inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: var(--pal-banner);
-  background-size: cover;
-  background-position: center bottom;
-  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 45%, #000 100%);
-  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 45%, #000 100%);
-  opacity: 0.78;
+  /* Full character-free world scene behind the kid surfaces (was the pal
+     panorama with the baked-in rabbit/hedgehog as a bottom band). A soft white
+     wash keeps cards + letters readable on top; the backdrop art is drawn with
+     a low-detail centre for exactly this. Falls back to the pal panorama if a
+     backdrop is ever missing. */
+  background-image:
+    linear-gradient(180deg, rgba(249, 250, 252, 0.60) 0%, rgba(249, 250, 252, 0.32) 46%, rgba(249, 250, 252, 0.54) 100%),
+    var(--pal-activity-bg, var(--pal-banner));
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  opacity: 0.92;
 }
 
 .lg-app-shell[data-pal-world] .lg-content-area {
@@ -213,14 +219,15 @@
 }
 
 .pal-scene-backdrop::after {
-  /* The world panorama as a crisp ground band, fading in from the sky */
+  /* The world scene as a crisp ground band, fading in from the sky.
+     Character-free backdrop (falls back to the pal panorama). */
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   height: min(44vh, 420px);
-  background-image: var(--pal-banner);
+  background-image: var(--pal-activity-bg, var(--pal-banner));
   background-size: cover;
   background-position: center bottom;
   -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 30%, #000 60%);
