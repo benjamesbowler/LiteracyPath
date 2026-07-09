@@ -62,11 +62,14 @@ function CoinPrice({ verdict, price }) {
 }
 
 // Organic placement spots (percent coordinates inside the stage).
+// Aligned to the shelf/niche rows in the scene art (verified against each
+// generated background): two staggered rows, pulled in from the edges so
+// nothing floats off the shelf ends.
 const MAIN_SPOTS = [
-  { id: "s1", x: 10, y: 66 }, { id: "s2", x: 25, y: 42 }, { id: "s3", x: 41, y: 72 },
-  { id: "s4", x: 57, y: 40 }, { id: "s5", x: 73, y: 68 }, { id: "s6", x: 88, y: 44 }
+  { id: "s1", x: 22, y: 68 }, { id: "s2", x: 33, y: 42 }, { id: "s3", x: 44, y: 68 },
+  { id: "s4", x: 56, y: 42 }, { id: "s5", x: 67, y: 68 }, { id: "s6", x: 78, y: 42 }
 ];
-const EXPANSION_SPOTS = [{ x: 18, y: 62 }, { x: 40, y: 42 }, { x: 63, y: 66 }, { x: 84, y: 46 }];
+const EXPANSION_SPOTS = [{ x: 26, y: 64 }, { x: 43, y: 44 }, { x: 60, y: 64 }, { x: 76, y: 44 }];
 const ROOM_TINTS = {
   "exp-garden": "rgba(62, 137, 72, 0.30)",
   "exp-pond": "rgba(30, 90, 140, 0.30)",

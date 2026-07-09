@@ -40,7 +40,7 @@ const RHYME_ORB_COLORS = [
   ["#b769ff", "#35105a"],
   ["#64ff89", "#0d4a28"]
 ];
-const RHYME_BALLOON_ROWS = [0.27, 0.42, 0.33, 0.48, 0.29, 0.44, 0.36];
+const RHYME_BALLOON_ROWS = [0.18, 0.40, 0.26, 0.46, 0.20, 0.36, 0.30];
 
 function clamp(value, min, max) {
   return Math.max(min, Math.min(max, value));
@@ -760,6 +760,19 @@ function drawBubble(ctx, x, y, r, label, fill, stroke = "rgba(255,255,255,.8)") 
 
 function rhymeLauncherPoint(w, h) {
   return { x: w / 2, y: h * 0.825 };
+}
+
+// Deterministic Fisher-Yates shuffle so which slots hold the rhymes varies from
+// round to round (not always the left side) but stays stable within a round.
+function shuffleSeeded(arr, seed) {
+  const a = [...arr];
+  let s = (seed >>> 0) || 1;
+  const rnd = () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; };
+  for (let i = a.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(rnd() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
 }
 
 function rhymeBubbleCenter(bubble, now) {
@@ -1506,8 +1519,8 @@ function startRhymePopArcadeGame(mount, options) {
       ...bubble,
       x: w * 0.16 + (w * 0.68) * p + xWobble,
       y: h * yRow,
-      r: clamp(w * 0.035, 36, 55),
-      vx: (index % 2 ? -1 : 1) * (16 + state.level.dropRate * 60 + index * 7),
+      r: clamp(w * 0.028, 26, 44),
+      vx: (index % 2 ? -1 : 1) * (30 + state.level.dropRate * 95 + index * 9),
       phase: state.stage * 1.7 + state.taskIndex * 0.9 + index * 1.8 + (bubble.spawnSeed || 0),
       wobble: 16 + index * 5,
       wobbleY: 10 + index * 3,
@@ -1560,10 +1573,15 @@ function startRhymePopArcadeGame(mount, options) {
     }
 
     const correctCount = Math.min(task.level.correctVisible || 2, task.remainingRhymes.length, total);
+    // Scatter the rhymes across random SLOTS each round so the correct balloons
+    // aren't always on the same side / same spots.
+    const kinds = shuffleSeeded(
+      Array.from({ length: total }, (_, i) => (i < correctCount ? "rhyme" : "distractor")),
+      state.stage * 101 + state.taskIndex * 17 + 7
+    );
     state.bubbles = [];
     for (let index = 0; index < total; index += 1) {
-      const kind = index < correctCount ? "rhyme" : "distractor";
-      const bubble = makeRhymeBubble(task, kind, index);
+      const bubble = makeRhymeBubble(task, kinds[index], index);
       if (bubble) state.bubbles.push(rhymeBubbleShape(bubble, state.bubbles.length, total));
     }
   }
@@ -1700,44 +1718,17 @@ function startRhymePopArcadeGame(mount, options) {
     }
   }
 
-  function rhymeMiss(label = "MISS") {
-    if (!state.currentTask || state.ended) return;
-    state.mistakes += 1;
-    state.combo = 0;
-    state.judgement = label;
-    state.judgementT = 0.72;
-    state.beatPulse = 0.62;
-    setRhymeCoach(`Aim for a word that rhymes with ${titleWord(state.currentTask.targetWord)}`);
-    sfx(playSoftBuzz);
-  }
-
-  function findRhymeBubbleAt(x, y) {
-    // Pick the balloon NEAREST the tap (within a generous radius for little
-    // fingers). The shot then homes to this exact balloon, so tapping a rhyme
-    // always pops that rhyme instead of a nearby balloon getting in the way.
-    let best = null;
-    let bestDist = Infinity;
-    for (const bubble of state.bubbles) {
-      const center = rhymeBubbleCenter(bubble, state.time);
-      const d = Math.hypot(x - center.x, y - center.y);
-      if (d < bestDist) {
-        bestDist = d;
-        best = bubble;
-      }
-    }
-    return best && bestDist <= best.r + 90 ? best : null;
-  }
-
   function fireRhymeShot(x, y) {
     const task = state.currentTask;
     if (!task || state.countdown > 0 || state.roundPendingAdvance || state.shots.length >= 2) return;
     const launch = rhymeLauncherPoint(w, h);
-    const targetBubble = findRhymeBubbleAt(x || w / 2, y || h * 0.34);
-    const targetCenter = targetBubble ? rhymeBubbleCenter(targetBubble, state.time) : null;
-    const targetX = clamp(targetCenter?.x || x || w / 2, w * 0.08, w * 0.92);
-    const targetY = clamp(targetCenter?.y || y || h * 0.34, h * 0.12, h * 0.72);
-    let dx = targetX - launch.x;
-    let dy = targetY - launch.y;
+    // Aim EXACTLY where the child tapped — no snapping to a balloon. Skill: line
+    // the shot up, watch for balloons in the way, and bank off a wall for the
+    // high ones.
+    const aimX = clamp(x || w / 2, w * 0.06, w * 0.94);
+    const aimY = clamp(y || h * 0.3, h * 0.06, h * 0.7);
+    let dx = aimX - launch.x;
+    let dy = aimY - launch.y;
     const distance = Math.max(1, Math.hypot(dx, dy));
     if (distance < 30) {
       dx = 0;
@@ -1746,20 +1737,18 @@ function startRhymePopArcadeGame(mount, options) {
       dx /= distance;
       dy /= distance;
     }
-    const speed = clamp(w * 0.78, 620, 930);
-    const shot = {
+    const speed = clamp(w * 0.7, 560, 860);
+    state.shots.push({
       x: launch.x,
       y: launch.y - 20,
       vx: dx * speed,
       vy: dy * speed,
-      r: clamp(w * 0.021, 22, 34),
+      r: clamp(w * 0.019, 18, 28),
       label: "",
       color: config.accent2,
       seed: state.time + state.shots.length,
-      targetBubbleId: targetBubble?.id || null,
       trail: []
-    };
-    state.shots.push(shot);
+    });
     state.beatPulse = 0.35;
     sfx(playTapSound);
   }
@@ -1898,49 +1887,29 @@ function startRhymePopArcadeGame(mount, options) {
     for (const shot of state.shots) {
       shot.trail.push({ x: shot.x, y: shot.y });
       if (shot.trail.length > 8) shot.trail.shift();
-      const targeted = Boolean(shot.targetBubbleId);
-      const target = targeted ? state.bubbles.find(bubble => bubble.id === shot.targetBubbleId) : null;
-      // Tapped balloon already popped by an earlier shot: retire quietly.
-      if (targeted && !target) { shot.dead = true; continue; }
-      // Light homing: curve the shot toward the tapped balloon's CURRENT spot so
-      // it actually reaches a drifting/wobbling target and pops it ON CONTACT —
-      // a real balloon pop, not a wide invisible barrier. Untargeted shots fly
-      // straight.
-      if (target) {
-        const center = rhymeBubbleCenter(target, state.time);
-        const hx = center.x - shot.x;
-        const hy = center.y - shot.y;
-        const hdist = Math.max(1, Math.hypot(hx, hy));
-        const spd = Math.max(1, Math.hypot(shot.vx, shot.vy));
-        const steer = 0.24;
-        shot.vx = shot.vx * (1 - steer) + (hx / hdist) * spd * steer;
-        shot.vy = shot.vy * (1 - steer) + (hy / hdist) * spd * steer;
-      }
       shot.x += shot.vx * dt;
       shot.y += shot.vy * dt;
-      const candidates = targeted ? [target] : state.bubbles;
-      const hit = candidates.find(bubble => {
+      // Bounce off the side walls so a skilled bank shot can reach the high
+      // balloons on the far side.
+      const leftWall = w * 0.06 + shot.r;
+      const rightWall = w * 0.94 - shot.r;
+      if (shot.x < leftWall) { shot.x = leftWall; shot.vx = Math.abs(shot.vx); }
+      else if (shot.x > rightWall) { shot.x = rightWall; shot.vx = -Math.abs(shot.vx); }
+      // Hit whatever the shot actually touches FIRST — a wrong balloon in the
+      // way gets popped (a miss), so obstacles matter and there is no auto-aim.
+      const hit = state.bubbles.find(bubble => {
         const center = rhymeBubbleCenter(bubble, state.time);
-        // Pop on real contact: the shot must actually touch the balloon.
-        const reach = bubble.r + shot.r * 0.9;
-        return Math.hypot(shot.x - center.x, shot.y - center.y) <= reach;
+        return Math.hypot(shot.x - center.x, shot.y - center.y) <= bubble.r + shot.r * 0.85;
       });
       if (hit) {
         shot.dead = true;
         const beforeTask = state.currentTask;
         resolveRhymeHit(shot, hit);
         if (beforeTask !== state.currentTask) return;
-      } else if (shot.x < -80 || shot.x > w + 80 || shot.y < -80 || shot.y > h + 80) {
+      } else if (shot.y < -80 || shot.y > h + 80) {
+        // Flew off the top/bottom without hitting anything — just a spent shot,
+        // no penalty. Try again.
         shot.dead = true;
-        // Safety net (rare with homing): a targeted shot that somehow leaves the
-        // screen still resolves against the tapped balloon — never a phantom miss.
-        if (target) {
-          const beforeTask = state.currentTask;
-          resolveRhymeHit(shot, target);
-          if (beforeTask !== state.currentTask) return;
-        } else {
-          rhymeMiss();
-        }
       }
     }
     state.shots = state.shots.filter(shot => !shot.dead);

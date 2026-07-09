@@ -1221,17 +1221,15 @@ function startPs1ArcadeGame(mount, options) {
     state.mistakes += 1;
     state.combo = 0;
     if (options.kind === "sound-beat") {
-      state.judgement = "MISS";
-      state.judgementT = 0.72;
-      state.beatPulse = 0.65;
-      state.currentWordClean = false;
+      state.judgement = "TRY AGAIN";
+      state.judgementT = 0.85;
+      state.beatPulse = 0.7;
       sfx(playSoftBuzz);
-      // Skip past the missed beat and keep the word flowing. Never requeue the
-      // whole word — that re-played words (the "repeats" you saw) and made the
-      // game feel stop-start. A missed beat just forfeits this word's credit.
-      const notes = [...state.currentTask.item.beats, "blend"];
-      state.beatIndex += 1;
-      if (state.beatIndex >= notes.length) endCurrentWord();
+      // Miss = replay THIS word from its first sound. Not the level, not the
+      // next word — just this one, after a short beat. No "restart" screen.
+      state.beatIndex = 0;
+      state.currentWordClean = true;
+      state.noteStart = performance.now() / 1000 + 0.9;
       return;
     }
     if (requeue) requeueTask();
