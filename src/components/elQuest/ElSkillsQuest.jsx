@@ -144,11 +144,15 @@ function PictureChoice({ word }) {
 }
 
 // Letter tracing: a big faint letter with a finger-paint canvas on top.
-// Generous by design - any decent amount of tracing counts.
+// "Done" only enables once the child has actually traced across the letter —
+// enough ink AND covering most of the letter's height and some of its width,
+// so a single quick stroke no longer counts.
 function TraceRound({ round, onResult }) {
   const canvasRef = useRef(null);
   const drawing = useRef(false);
   const [ink, setInk] = useState(0);
+  const boundsRef = useRef({ minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity });
+  const [extent, setExtent] = useState({ w: 0, h: 0 });
   const [demoKey, setDemoKey] = useState(0);
 
   function pointFrom(event) {
@@ -170,12 +174,18 @@ function TraceRound({ round, onResult }) {
     ctx.arc(x, y, 10, 0, Math.PI * 2);
     ctx.fill();
     setInk(value => value + 1);
+    const b = boundsRef.current;
+    b.minX = Math.min(b.minX, x); b.maxX = Math.max(b.maxX, x);
+    b.minY = Math.min(b.minY, y); b.maxY = Math.max(b.maxY, y);
+    setExtent({ w: (b.maxX - b.minX) / canvas.width, h: (b.maxY - b.minY) / canvas.height });
   }
 
   function clearInk() {
     const canvas = canvasRef.current;
     canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
     setInk(0);
+    boundsRef.current = { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity };
+    setExtent({ w: 0, h: 0 });
   }
 
   return (
@@ -206,7 +216,7 @@ function TraceRound({ round, onResult }) {
         <button
           className="sbq-primary-button"
           type="button"
-          disabled={ink < 25}
+          disabled={!(ink >= 70 && extent.h >= 0.5 && extent.w >= 0.2)}
           onClick={() => onResult(true)}
         >
           Done!
@@ -823,7 +833,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
             </div>
           )}
           {isCycle && celebration.stars > 0 && (
-            <p className="kid-gems-earned">+{celebration.stars} 💎 and a Cycle {activeCycle.cycleNumber} badge — see them in your Treasure Den!</p>
+            <p className="kid-gems-earned">+{celebration.stars} coins and a Cycle {activeCycle.cycleNumber} badge — see them in your Hollow!</p>
           )}
           <div className="sbq-celebrate-actions">
             <button

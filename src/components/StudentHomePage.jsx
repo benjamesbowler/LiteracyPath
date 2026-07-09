@@ -19,22 +19,28 @@ function hideOnError(event) {
   event.currentTarget.style.display = "none";
 }
 
-function StudentHomeCard({ title, subtitle, meta, art, onClick, className = "", tags = [], cta }) {
+function StudentHomeCard({ title, subtitle, meta, art, onClick, className = "", tags = [], cta, locked = false, lockedLabel }) {
   return (
-    <button className={["student-home-card", className].filter(Boolean).join(" ")} onClick={onClick} type="button">
+    <button
+      className={["student-home-card", className, locked ? "student-home-card-locked" : ""].filter(Boolean).join(" ")}
+      onClick={onClick}
+      type="button"
+      aria-disabled={locked || undefined}
+    >
       <span className="student-home-card-art" aria-hidden="true">
         <img src={art} alt="" loading="eager" decoding="async" fetchpriority="high" onError={hideOnError} />
       </span>
+      {locked && <span className="student-home-card-lock" aria-hidden="true">🔑</span>}
       <span className="student-home-card-label">
         {meta && <small className="student-home-card-meta">{meta}</small>}
         <strong>{title}</strong>
-        <small className="student-home-card-subtitle">{subtitle}</small>
+        <small className="student-home-card-subtitle">{locked && lockedLabel ? lockedLabel : subtitle}</small>
         {tags.length > 0 && (
           <span className="student-home-card-tags" aria-hidden="true">
             {tags.map(tag => <span key={tag}>{tag}</span>)}
           </span>
         )}
-        {cta && <span className="comic-card-cta" aria-hidden="true">{cta}</span>}
+        {cta && !locked && <span className="comic-card-cta" aria-hidden="true">{cta}</span>}
       </span>
     </button>
   );
@@ -317,7 +323,9 @@ export function StudentHomePage({
         title="Arcade"
         subtitle="Jump into a learning game"
         cta="Play now"
-        onClick={() => openArcade()}
+        locked={!status.missionComplete}
+        lockedLabel="🔑 Finish your 3 tasks to unlock"
+        onClick={() => { if (status.missionComplete) openArcade(); }}
       />
       <StudentHomeCard
         className="student-home-card-story"

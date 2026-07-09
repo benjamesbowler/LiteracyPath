@@ -61,14 +61,25 @@ function CoinPrice({ verdict, price }) {
   return <span className="hollow-price cant"><CoinIcon size={13} /> {price} · {verdict.short} to go</span>;
 }
 
-// Organic placement spots (percent coordinates inside the stage).
-// Aligned to the shelf/niche rows in the scene art (verified against each
-// generated background): two staggered rows, pulled in from the edges so
-// nothing floats off the shelf ends.
-const MAIN_SPOTS = [
-  { id: "s1", x: 22, y: 68 }, { id: "s2", x: 33, y: 42 }, { id: "s3", x: 44, y: 68 },
-  { id: "s4", x: 56, y: 42 }, { id: "s5", x: 67, y: 68 }, { id: "s6", x: 78, y: 42 }
-];
+// Placement spots aligned to EACH scene's OWN shelves/niches — the layouts
+// differ per world, so a single shared set can't fit them. Verified on screen
+// (Aaron's Hollow) + against the raw art: meadow = flat plank (top) + 5-cubby
+// unit (bottom); dino = one row of arched wall niches; moonwood = one row of
+// teal knothole niches.
+const MAIN_SPOTS_BY_WORLD = {
+  meadow: [
+    { id: "s1", x: 31, y: 63 }, { id: "s2", x: 40, y: 34 }, { id: "s3", x: 48, y: 63 },
+    { id: "s4", x: 57, y: 34 }, { id: "s5", x: 66, y: 63 }, { id: "s6", x: 74, y: 34 }
+  ],
+  dino: [
+    { id: "s1", x: 20, y: 57 }, { id: "s2", x: 31, y: 57 }, { id: "s3", x: 43, y: 57 },
+    { id: "s4", x: 54, y: 57 }, { id: "s5", x: 65, y: 57 }, { id: "s6", x: 76, y: 57 }
+  ],
+  moonwood: [
+    { id: "s1", x: 17, y: 67 }, { id: "s2", x: 28, y: 67 }, { id: "s3", x: 40, y: 67 },
+    { id: "s4", x: 51, y: 67 }, { id: "s5", x: 63, y: 67 }, { id: "s6", x: 74, y: 67 }
+  ]
+};
 const EXPANSION_SPOTS = [{ x: 26, y: 64 }, { x: 43, y: 44 }, { x: 60, y: 64 }, { x: 76, y: 44 }];
 const ROOM_TINTS = {
   "exp-garden": "rgba(62, 137, 72, 0.30)",
@@ -178,7 +189,7 @@ export function HollowPage({ studentName, progressScopeKey = "default", onBack }
       kind: "open", id: "main", name: "The Hollow",
       image: `url(/images/hollow/scene-${activeTheme.id}.webp), url(${activeTheme.art})`,
       tint: null,
-      spots: MAIN_SPOTS.map(spot => ({ ...spot, spotId: spot.id }))
+      spots: (MAIN_SPOTS_BY_WORLD[activeTheme.id] || MAIN_SPOTS_BY_WORLD.meadow).map(spot => ({ ...spot, spotId: spot.id }))
     },
     ...hollow.ownedExpansions.map(exp => ({
       kind: "open", id: exp.id, name: exp.name,
