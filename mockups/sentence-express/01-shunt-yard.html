@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sentence Express — mockup 1: the Shunt Yard (Meadow Line)</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:"Avenir Next","Segoe UI",system-ui,sans-serif}
+  body{background:#0e141f;padding:14px;color:#16202e}
+  .note{max-width:1280px;margin:0 auto 10px;background:#FFF3C4;border:2px dashed #C9A227;border-radius:8px;padding:6px 12px;font-size:12px;color:#333}
+  .frame{max-width:1280px;height:760px;margin:0 auto;position:relative;overflow:hidden;border-radius:14px;border:3px solid #0a0f18;
+    background:linear-gradient(#8ecae6 0%,#bde0a8 46%,#79a35f 47%,#5f8a49 100%)}
+  .sun{position:absolute;top:36px;right:110px;width:70px;height:70px;border-radius:50%;background:#ffe28a;box-shadow:0 0 40px 10px rgba(255,226,138,.5)}
+  .hill{position:absolute;border-radius:50% 50% 0 0/100% 100% 0 0;background:#a7c986}
+  .hud{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(14,20,31,.85);color:#f4f7ee;z-index:9}
+  .hud .title{font-weight:900;letter-spacing:1px}
+  .hud .line{font-size:11px;background:#2F6B4F;border-radius:999px;padding:3px 10px;font-weight:800}
+  .clock{margin-left:auto;display:flex;align-items:center;gap:8px;background:#16202e;border:2px solid #f4b942;border-radius:10px;padding:4px 12px;font-weight:900}
+  .clock .delay{color:#ff9c7a;font-size:12px}
+  .combo{background:#f4b942;color:#16202e;border-radius:10px;padding:4px 12px;font-weight:900}
+  .quit{background:none;border:2px solid #6b7a90;color:#f4f7ee;border-radius:8px;width:34px;height:30px;font-weight:900}
+
+  .master{position:absolute;left:26px;top:70px;width:270px;background:rgba(255,251,240,.96);border:3px solid #16202e;border-radius:14px;padding:10px 12px;z-index:8;box-shadow:5px 5px 0 rgba(10,15,24,.4)}
+  .master .who{font-size:11px;font-weight:900;color:#2F6B4F;text-transform:uppercase;letter-spacing:.5px}
+  .master p{font-weight:800;font-size:15px;margin:2px 0 8px}
+  .listen{display:inline-flex;align-items:center;gap:6px;background:#2F6B4F;color:#fff;border:none;border-radius:999px;padding:8px 16px;font-weight:900;font-size:13px}
+  .pal{position:absolute;left:36px;top:196px;font-size:52px;filter:drop-shadow(0 4px 3px rgba(0,0,0,.35))}
+
+  /* main track */
+  .track{position:absolute;left:0;right:0;top:330px;height:78px;background:repeating-linear-gradient(90deg,#7a5a3a 0 26px,#8a6845 26px 52px);border-top:6px solid #5b4226;border-bottom:6px solid #5b4226}
+  .rail{position:absolute;left:0;right:0;height:6px;background:#c9ccd4;box-shadow:0 2px 0 #6d7280}
+  .rail.r1{top:346px}.rail.r2{top:390px}
+  .slots{position:absolute;top:296px;left:120px;display:flex;gap:10px;z-index:6}
+  .car,.slot{width:150px;height:96px;border-radius:10px;position:relative}
+  .slot{border:3px dashed rgba(255,255,255,.75);background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:26px;text-shadow:0 1px 3px rgba(0,0,0,.4)}
+  .car{border:3px solid #16202e;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:24px;color:#fff;box-shadow:inset 0 -14px 0 rgba(0,0,0,.18),4px 5px 0 rgba(10,15,24,.35);cursor:pointer}
+  .car::after{content:"";position:absolute;bottom:-16px;left:16px;width:26px;height:26px;border-radius:50%;background:#16202e;box-shadow:76px 0 0 #16202e}
+  .engine{background:linear-gradient(#e2543e,#b03a28);border-radius:16px 8px 8px 8px;width:170px}
+  .engine .cap{position:absolute;top:-26px;left:10px;background:#16202e;color:#ffd76a;font-size:11px;padding:2px 8px;border-radius:6px;letter-spacing:.5px}
+  .w1{background:linear-gradient(#4a90d9,#33689e)}
+  .w2{background:linear-gradient(#e9a23b,#b57718)}
+  .rusty{background:linear-gradient(#8a6e52,#63483047);outline:4px solid #d97848;animation:smoke 1.6s infinite}
+  @keyframes smoke{0%,100%{box-shadow:inset 0 -14px 0 rgba(0,0,0,.18),4px 5px 0 rgba(10,15,24,.35)}50%{box-shadow:inset 0 -14px 0 rgba(0,0,0,.3),4px 5px 0 rgba(10,15,24,.35),0 -14px 12px rgba(90,90,90,.55)}}
+  .caboose{background:linear-gradient(#7d5bc2,#5a3f93);border-radius:8px 16px 8px 8px}
+
+  /* sidings */
+  .sidings{position:absolute;left:0;right:0;top:470px;bottom:0;background:linear-gradient(rgba(22,32,46,.16),rgba(22,32,46,.32));border-top:4px solid #5b4226;padding:18px 26px;z-index:5}
+  .sidlabel{color:#fff;font-weight:900;font-size:12px;letter-spacing:1px;text-shadow:0 1px 3px rgba(0,0,0,.5);margin-bottom:8px}
+  .yardrow{display:flex;gap:14px;align-items:flex-start}
+  .shed{margin-left:auto;background:rgba(255,251,240,.95);border:3px solid #16202e;border-radius:12px;padding:10px;box-shadow:5px 5px 0 rgba(10,15,24,.4)}
+  .shed h4{font-size:11px;letter-spacing:1px;color:#b03a28;margin-bottom:6px}
+  .shed .car{width:120px;height:78px;font-size:19px;margin-bottom:8px}
+  .signal{position:absolute;right:36px;top:120px;width:14px;height:210px;background:#3c485c;border-radius:6px}
+  .signal .arm{position:absolute;top:26px;left:-58px;width:64px;height:16px;background:#d94f3d;border:2px solid #16202e;border-radius:4px}
+  .signal .lamp{position:absolute;top:66px;left:-6px;width:26px;height:26px;border-radius:50%;background:#d94f3d;border:3px solid #16202e;box-shadow:0 0 14px #d94f3d}
+  .whistle{position:absolute;right:26px;bottom:22px;background:#f4b942;color:#16202e;border:3px solid #16202e;border-radius:14px;padding:12px 22px;font-weight:900;font-size:16px;box-shadow:5px 5px 0 rgba(10,15,24,.45);opacity:.55}
+  .whistle small{display:block;font-size:10px;font-weight:800}
+</style>
+</head>
+<body>
+<div class="note"><b>SENTENCE EXPRESS — mockup 1/2: the Shunt Yard.</b> Meadow Line, level 4. Target (heard, never shown): “The dog can run.” Faults: scrambled order + a rusty wrong-word carriage (“fly”). Tap carriages to couple them onto the main track in order; swap the rusty one at the Repair Shed; the signal stays red until the caboose is on. CSS stand-ins — final art is low-poly PS1 renders.</div>
+
+<div class="frame">
+  <div class="sun"></div>
+  <div class="hill" style="left:-80px;top:180px;width:420px;height:150px"></div>
+  <div class="hill" style="right:-60px;top:200px;width:380px;height:130px"></div>
+
+  <div class="hud">
+    <span class="title">🚂 SENTENCE EXPRESS</span>
+    <span class="line">MEADOW LINE · LV 4 · TRAIN 2/3</span>
+    <span class="combo">COMBO ×2</span>
+    <div class="clock">🕐 Dep 14:00 <span class="delay">+1 min delay</span></div>
+    <button class="quit">✕</button>
+  </div>
+
+  <div class="master">
+    <span class="who">Station Master Meadow Pal</span>
+    <p>“Listen close! This train should say…”</p>
+    <button class="listen">🔊 Listen again</button>
+  </div>
+  <div class="pal">🐰</div>
+
+  <div class="signal"><div class="arm"></div><div class="lamp"></div></div>
+
+  <div class="track"></div><div class="rail r1"></div><div class="rail r2"></div>
+
+  <div class="slots">
+    <div class="car engine"><span class="cap">CAPITAL ✓</span>The</div>
+    <div class="car w1">dog</div>
+    <div class="slot">＋</div>
+    <div class="slot">＋</div>
+    <div class="slot" style="border-color:#ffd76a">🚨</div>
+  </div>
+
+  <div class="sidings">
+    <div class="sidlabel">SIDINGS — TAP TO COUPLE</div>
+    <div class="yardrow">
+      <div class="car w2">run</div>
+      <div class="car rusty">fly 💨</div>
+      <div class="car w1">can</div>
+      <div class="car caboose">. 🏮</div>
+      <div class="shed">
+        <h4>🔧 REPAIR SHED — swap the rusty car</h4>
+        <div class="car w2">run</div>
+        <div class="car w1">runs</div>
+        <div class="car w2">ran</div>
+      </div>
+    </div>
+  </div>
+
+  <button class="whistle">🎺 PULL WHISTLE<small>couple every car first!</small></button>
+</div>
+</body>
+</html>

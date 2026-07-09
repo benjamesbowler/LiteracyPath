@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sentence Express — mockup 2: the Depart Run (Moonwood Night Line)</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:"Avenir Next","Segoe UI",system-ui,sans-serif}
+  body{background:#05070d;padding:14px;color:#eef2f9}
+  .note{max-width:1280px;margin:0 auto 10px;background:#FFF3C4;border:2px dashed #C9A227;border-radius:8px;padding:6px 12px;font-size:12px;color:#333}
+  .frame{max-width:1280px;height:760px;margin:0 auto;position:relative;overflow:hidden;border-radius:14px;border:3px solid #0a0f18;
+    background:linear-gradient(#0b1030 0%,#1b2350 42%,#233b2e 70%,#182a20 100%)}
+  .stars{position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1.6px),radial-gradient(#9fd8ff 1px,transparent 1.6px);background-size:150px 90px,230px 140px;opacity:.7;height:45%}
+  .moon{position:absolute;top:44px;left:90px;width:64px;height:64px;border-radius:50%;background:#f2ecd8;box-shadow:0 0 34px 8px rgba(242,236,216,.35)}
+  .far{position:absolute;left:0;right:0;top:250px;height:130px;background:repeating-linear-gradient(90deg,#101c3a 0 90px,#152246 90px 180px);clip-path:polygon(0 100%,4% 30%,9% 75%,15% 20%,22% 70%,28% 35%,36% 85%,44% 25%,52% 65%,60% 30%,68% 80%,77% 28%,85% 70%,93% 38%,100% 100%);animation:sc 14s linear infinite}
+  .mid{position:absolute;left:0;right:0;top:330px;height:120px;background:repeating-linear-gradient(90deg,#14301f 0 60px,#193a26 60px 120px);clip-path:polygon(0 100%,6% 40%,14% 90%,23% 30%,31% 75%,40% 45%,49% 95%,58% 35%,66% 80%,75% 50%,84% 90%,92% 40%,100% 100%);animation:sc 7s linear infinite}
+  .glow{position:absolute;width:8px;height:8px;border-radius:50%;background:#9fe1cb;box-shadow:0 0 10px 3px rgba(159,225,203,.7);animation:fl 3s ease-in-out infinite}
+  @keyframes sc{from{background-position-x:0}to{background-position-x:-360px}}
+  @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+  .hud{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(5,8,14,.8);z-index:9}
+  .hud .title{font-weight:900;letter-spacing:1px}
+  .stamp{margin-left:auto;background:#f4b942;color:#16202e;border-radius:10px;padding:5px 14px;font-weight:900;transform:rotate(-4deg);border:2px solid #16202e}
+
+  .trackbed{position:absolute;left:0;right:0;top:452px;height:86px;background:repeating-linear-gradient(90deg,#2c2418 0 30px,#3a2f1f 30px 60px);border-top:5px solid #191307;animation:sc 1.2s linear infinite}
+  .rail{position:absolute;left:0;right:0;height:6px;background:#aeb6c4;box-shadow:0 2px 0 #566074}
+  .r1{top:468px}.r2{top:514px}
+
+  .train{position:absolute;top:392px;left:80px;display:flex;gap:8px;z-index:6;animation:chug .5s ease-in-out infinite}
+  @keyframes chug{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  .car{width:148px;height:92px;border-radius:10px;border:3px solid #05070d;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:23px;color:#fff;box-shadow:inset 0 -14px 0 rgba(0,0,0,.28),4px 5px 0 rgba(0,0,0,.45);position:relative}
+  .car::after{content:"";position:absolute;bottom:-15px;left:14px;width:25px;height:25px;border-radius:50%;background:#05070d;box-shadow:78px 0 0 #05070d}
+  .engine{background:linear-gradient(#3f77c9,#274a80);width:168px;border-radius:18px 8px 8px 8px}
+  .lit{background:linear-gradient(#f4b942,#c98a1a)!important;color:#16202e;transform:scale(1.06)}
+  .c2{background:linear-gradient(#4a90d9,#2f5d94)}
+  .c3{background:linear-gradient(#7d5bc2,#5a3f93)}
+  .c4{background:linear-gradient(#3aa17e,#25705a)}
+  .caboose{background:linear-gradient(#c9563f,#8f3527);border-radius:8px 18px 8px 8px}
+  .steam{position:absolute;top:-38px;left:18px;font-size:30px;opacity:.85}
+
+  .karaoke{position:absolute;left:50%;transform:translateX(-50%);bottom:112px;background:rgba(5,8,14,.82);border:2px solid #3aa17e;border-radius:999px;padding:12px 30px;font-size:26px;font-weight:900;z-index:8;white-space:nowrap}
+  .karaoke b{color:#f4b942;text-decoration:underline}
+  .karaoke span{opacity:.85}
+  .readout{position:absolute;left:50%;transform:translateX(-50%);bottom:74px;color:#9fe1cb;font-weight:800;font-size:13px;z-index:8}
+
+  .tally{position:absolute;right:24px;bottom:20px;background:rgba(255,251,240,.97);color:#16202e;border:3px solid #05070d;border-radius:14px;padding:12px 16px;z-index:9;box-shadow:6px 6px 0 rgba(0,0,0,.5);width:250px}
+  .tally h3{font-size:14px;letter-spacing:1px;margin-bottom:6px}
+  .tally .row{display:flex;justify-content:space-between;font-weight:800;font-size:13px;padding:2px 0}
+  .tally .row b{color:#b8741a}
+  .tally .stars{position:static;height:auto;background:none;opacity:1;font-size:22px;text-align:center;margin-top:4px}
+</style>
+</head>
+<body>
+<div class="note"><b>SENTENCE EXPRESS — mockup 2/2: the Depart Run.</b> Moonwood Night Line. The fixed train thunders through a 3-layer parallax night forest while the sentence reads itself back — each carriage lights up as its word is spoken (karaoke fluency re-read). On-time departure earns the EXPRESS stamp; the tally card slides in at the end. Reduced-motion: parallax stops, words still highlight.</div>
+
+<div class="frame">
+  <div class="stars"></div><div class="moon"></div>
+  <div class="far"></div><div class="mid"></div>
+  <div class="glow" style="left:220px;top:400px"></div>
+  <div class="glow" style="left:640px;top:380px;animation-delay:.8s"></div>
+  <div class="glow" style="left:1050px;top:410px;animation-delay:1.6s"></div>
+
+  <div class="hud">
+    <span class="title">🚂 SENTENCE EXPRESS</span>
+    <span style="font-size:11px;background:#5a3f93;border-radius:999px;padding:3px 10px;font-weight:800">MOONWOOD NIGHT LINE · LV 7 · TRAIN 3/3</span>
+    <span class="stamp">EXPRESS! ON TIME</span>
+  </div>
+
+  <div class="trackbed"></div><div class="rail r1"></div><div class="rail r2"></div>
+
+  <div class="train">
+    <div class="car engine">The<span class="steam">💨</span></div>
+    <div class="car c2">owl</div>
+    <div class="car lit">hoots</div>
+    <div class="car c3">in</div>
+    <div class="car c4">the</div>
+    <div class="car c2">night</div>
+    <div class="car caboose">.</div>
+  </div>
+
+  <div class="karaoke"><span>The owl</span> <b>hoots</b> <span>in the night.</span></div>
+  <div class="readout">🔊 Read along as your train rolls!</div>
+
+  <div class="tally">
+    <h3>🏁 GOLD MAIL RUN NEXT</h3>
+    <div class="row"><span>Clean couplings</span><b>7 / 8</b></div>
+    <div class="row"><span>Delay</span><b>+1 min</b></div>
+    <div class="row"><span>Combo best</span><b>×3</b></div>
+    <div class="row"><span>Coins</span><b>🪙 14</b></div>
+    <div class="stars">⭐⭐☆</div>
+  </div>
+</div>
+</body>
+</html>
