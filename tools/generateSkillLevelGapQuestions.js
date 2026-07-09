@@ -1610,7 +1610,7 @@ function buildHigherStoryQuestion(skillId, skillName, level, index) {
     const topic = ["solving a small problem", "getting ready for a community event", "taking care of a special place", "learning how a tool works", "helping a visitor feel welcome", "preparing safely before an activity"][index % 6];
     const passage = `${name} and ${partner} spent the morning at the ${setting}. They checked the ${landmark}, gathered supplies, and made sure everyone knew the plan. When a small problem came up, they talked it through instead of rushing. By the end, the whole group understood what to do next. ${extraSentence}`;
     const question = "What is the passage mostly about?";
-    return { id: baseId, passage, question, answer: topic, choices: storyOptions(topic, ["losing a favorite toy", "arguing about a game", "buying food for dinner", "watching a race", "taking a long nap", "drawing a funny picture"], index), imageWord };
+    return { id: baseId, passage, question, answer: topic, choices: storyOptions(topic, ["losing a favorite toy at the playground", "arguing about the rules of a game", "shopping for a big family dinner", "watching a bike race from the stands", "taking a long nap after a busy morning", "drawing a funny picture of a cat"], index), imageWord };
   }
 
   if (skillId === "inference") {
@@ -1625,7 +1625,7 @@ function buildHigherStoryQuestion(skillId, skillName, level, index) {
     }[feeling];
     const passage = `${name} arrived at the ${setting} with ${partner}. The plan changed when they reached the ${landmark}. ${name} ${clue}. Instead of leaving, ${name} listened carefully and chose what to do next. ${extraSentence}`;
     const question = `How did ${name} probably feel?`;
-    return { id: baseId, passage, question, answer: feeling, choices: storyOptions(feeling, ["angry", "sleepy", "hungry", "jealous", "bored", "silly"], index), imageWord };
+    return { id: baseId, passage, question, answer: feeling, choices: storyOptions(feeling, ["angry", "very sleepy", "hungry", "jealous of a friend", "bored", "silly and giggly"], index), imageWord };
   }
 
   if (skillId === "cause_effect") {
@@ -1633,7 +1633,7 @@ function buildHigherStoryQuestion(skillId, skillName, level, index) {
     const effect = ["the group had to choose a different route", "water dripped across the floor", "everyone walked slowly and held the rail", "the corner of the room stayed dim", "the gate swung open again", "the children moved the picnic uphill"][index % 6];
     const passage = `${name} joined ${partner} at the ${setting}. Everything seemed ready until ${cause}. Because of that, ${effect}. ${name} helped fix the problem before anyone continued. ${extraSentence}`;
     const question = "What caused this problem?";
-    return { id: baseId, passage, question, answer: cause, choices: storyOptions(cause, ["the lunch was packed early", "the team sang a song", "the clock was painted blue", "the notebook had a sticker", "the chairs were stacked neatly", "the window was clean"], index), imageWord };
+    return { id: baseId, passage, question, answer: cause, choices: storyOptions(cause, ["the lunch was packed early that morning", "the team sang a song", "the clock was painted a bright blue", "the notebook had a sticker on the front", "the chairs were stacked neatly in rows", "the window was clean"], index), imageWord };
   }
 
   if (skillId === "context_clues") {
@@ -1656,7 +1656,7 @@ function buildHigherStoryQuestion(skillId, skillName, level, index) {
   const repair = ["stopped, looked again, and made a safer plan", "shared the load with a friend", "asked an adult to tie it properly", "tried a slower method and succeeded", "told the group what had been found", "told the truth and helped fix it"][index % 6];
   const passage = `${name} went to the ${setting} with ${partner}. At first, ${name} ${mistake}. The problem grew near the ${landmark}, and the group had to pause. Then ${name} ${repair}. ${extraSentence}`;
   const question = "What lesson best fits this story?";
-  return { id: baseId, passage, question, answer: lesson, choices: storyOptions(lesson, ["always work alone", "never change a plan", "hide problems from others", "winning matters most", "quiet places are boring", "tools are not useful"], index), imageWord };
+  return { id: baseId, passage, question, answer: lesson, choices: storyOptions(lesson, ["always work alone even when it is hard", "never change a plan", "keep problems secret from your friends", "winning is the only thing that matters", "quiet places are always boring", "tools are never useful for big jobs"], index), imageWord };
 }
 
 function makeHigherQualityComprehensionQuestions(skillId, skillName, level, needed) {

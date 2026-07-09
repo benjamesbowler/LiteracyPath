@@ -646,7 +646,7 @@ export const templateExpansion4 = [
     "questionType": "multiple_choice",
     "choices": [
       "frogs",
-      "cats",
+      "cats at school",
       "cars"
     ],
     "answer": "frogs"
@@ -663,7 +663,7 @@ export const templateExpansion4 = [
     "questionType": "multiple_choice",
     "choices": [
       "clothes for cold weather",
-      "summer games",
+      "summer games with friends",
       "school lunch"
     ],
     "answer": "clothes for cold weather"
@@ -681,7 +681,7 @@ export const templateExpansion4 = [
     "choices": [
       "taking care of a garden",
       "driving a car",
-      "reading a book"
+      "reading a book in the morning"
     ],
     "answer": "taking care of a garden"
   },
@@ -698,7 +698,7 @@ export const templateExpansion4 = [
     "choices": [
       "what firefighters do",
       "how birds fly",
-      "how to make soup"
+      "how to make soup all day long"
     ],
     "answer": "what firefighters do"
   },
@@ -731,7 +731,7 @@ export const templateExpansion4 = [
     "questionType": "multiple_choice",
     "choices": [
       "he stayed up late",
-      "he ate breakfast",
+      "he ate breakfast all the time",
       "he wore shoes"
     ],
     "answer": "he stayed up late"
@@ -766,7 +766,7 @@ export const templateExpansion4 = [
     "choices": [
       "she practiced many times",
       "she lost the song",
-      "she closed the door"
+      "she closed the door after lunch"
     ],
     "answer": "she practiced many times"
   },
@@ -783,7 +783,7 @@ export const templateExpansion4 = [
     "choices": [
       "the window was open",
       "the room was dry",
-      "the storm stopped"
+      "the storm stopped in the morning"
     ],
     "answer": "the window was open"
   },

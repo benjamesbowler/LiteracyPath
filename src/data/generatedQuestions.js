@@ -1023,7 +1023,7 @@ export const generatedQuestions = [
     "choices": [
       "big",
       "bag",
-      "dig",
+      "dug",
       "dog"
     ],
     "answer": "big",
@@ -6369,7 +6369,7 @@ export const generatedQuestions = [
     "question": "Why can't the cat catch the mouse?",
     "image": "🐱",
     "choices": [
-      "The mouse is too slow",
+      "The mouse is too slow every day",
       "The mouse is very quick",
       "The cat is asleep",
       "The house is too big"
@@ -6384,7 +6384,7 @@ export const generatedQuestions = [
     "passage": "Jake finds a shiny rock near the river. He cleans the rock and shows it to his mother.",
     "question": "What does Jake do with the rock he finds?",
     "choices": [
-      "He throws it in the river",
+      "He throws it in the river with friends",
       "He cleans it and shows his mother",
       "He hides it under a tree",
       "He gives it to a friend"
@@ -6562,7 +6562,7 @@ export const generatedQuestions = [
     "image": "🌻",
     "choices": [
       "Red, yellow, and purple",
-      "Blue and green",
+      "Blue and green with friends",
       "Only white",
       "Black and gray"
     ],
@@ -6691,7 +6691,7 @@ export const generatedQuestions = [
     "choices": [
       "Swam in the pool",
       "Built a sandcastle and collected seashells",
-      "Hiked in the mountains",
+      "Hiked in the mountains all the time all day long",
       "Went camping"
     ],
     "answer": "Built a sandcastle and collected seashells"
@@ -6883,7 +6883,7 @@ export const generatedQuestions = [
     "choices": [
       "Shade and homes for birds",
       "Food for people",
-      "Places to play games",
+      "Places to play games all the time",
       "Water to the park"
     ],
     "answer": "Shade and homes for birds"
@@ -6997,7 +6997,7 @@ export const generatedQuestions = [
       "By mixing ingredients and rolling dough",
       "By setting the table",
       "By washing dishes",
-      "By buying ingredients"
+      "By buying ingredients all the time after lunch"
     ],
     "answer": "By mixing ingredients and rolling dough"
   },
@@ -7060,7 +7060,7 @@ export const generatedQuestions = [
       "Sophie’s birthday party.",
       "A school event.",
       "A family picnic.",
-      "A holiday celebration."
+      "A holiday celebration. after lunch"
     ],
     "answer": "Sophie’s birthday party.",
     "imagePath": "/images/vocabulary/cake.png"
@@ -7075,7 +7075,7 @@ export const generatedQuestions = [
     "choices": [
       "Because it was going to snow and be cold outside.",
       "Because he was going to the beach.",
-      "Because he wanted to be fashionable.",
+      "Because he wanted to be fashionable. in the story",
       "Because it was a sunny and hot day."
     ],
     "answer": "Because it was going to snow and be cold outside.",
@@ -7109,7 +7109,7 @@ export const generatedQuestions = [
       "Students were painting and crafting creatively.",
       "The teacher forgot to bring supplies.",
       "No one used art materials that day.",
-      "The classroom was cleaned before art began."
+      "The classroom was cleaned before art began. after lunch"
     ],
     "answer": "Students were painting and crafting creatively."
   },
@@ -7124,7 +7124,7 @@ export const generatedQuestions = [
       "She is surprised and curious about the gift.",
       "She is upset because the box is empty.",
       "She thinks the box is from a stranger.",
-      "She is bored and wants to leave school."
+      "She is bored and wants to leave school. with friends"
     ],
     "answer": "She is surprised and curious about the gift.",
     "imagePath": "/images/emotions/surprised_child.png"
@@ -7138,7 +7138,7 @@ export const generatedQuestions = [
     "question": "What do the clues show about Sam’s feelings?",
     "choices": [
       "Sam may be waiting for someone or feeling lonely.",
-      "Sam is ignoring friends because he is upset.",
+      "Sam is ignoring friends because he is upset. every day",
       "Sam doesn’t like the lunch food.",
       "Sam is practicing to be quiet for a test."
     ],
@@ -7170,7 +7170,7 @@ export const generatedQuestions = [
     "question": "What season is it likely to be?",
     "choices": [
       "It is autumn (fall).",
-      "It is summer.",
+      "It is summer. with friends",
       "It is spring.",
       "It is winter."
     ],
@@ -7188,7 +7188,7 @@ export const generatedQuestions = [
       "He is going out for a bike ride.",
       "He is going to take a nap.",
       "He is preparing for a swim.",
-      "He is going to bake cookies."
+      "He is going to bake cookies. with friends"
     ],
     "answer": "He is going out for a bike ride.",
     "imagePath": "/images/vocabulary/bicycle.png"
@@ -7202,7 +7202,7 @@ export const generatedQuestions = [
     "question": "How does Tina feel about helping with laundry?",
     "choices": [
       "She doesn’t mind helping, even if it is hard work.",
-      "She is unhappy and wants to stop immediately.",
+      "She is unhappy and wants to stop immediately. at school",
       "She is ignoring the task completely.",
       "She thinks laundry is too boring to do."
     ],
@@ -7236,7 +7236,7 @@ export const generatedQuestions = [
       "He might be nervous about reading aloud.",
       "He is excited to finish recess.",
       "He is hungry and wants a snack.",
-      "He is angry because he lost his book."
+      "He is angry because he lost his book. in the morning"
     ],
     "answer": "He might be nervous about reading aloud.",
     "imagePath": "/images/vocabulary/book.png"
@@ -7252,7 +7252,7 @@ export const generatedQuestions = [
     "choices": [
       "She cares about and enjoys taking care of them.",
       "She wants to throw the plants away.",
-      "She is upset that the plants are healthy.",
+      "She is upset that the plants are healthy. after lunch",
       "She doesn’t like plants at all."
     ],
     "answer": "She cares about and enjoys taking care of them."
@@ -7266,7 +7266,7 @@ export const generatedQuestions = [
     "question": "Why do you think Liam closed the windows and curtains?",
     "choices": [
       "To keep rain and wind out and feel safe.",
-      "To make the room warmer for his plants.",
+      "To make the room warmer for his plants. with friends",
       "To let more light in during the storm.",
       "To prepare for a party outside."
     ],
@@ -7300,7 +7300,7 @@ export const generatedQuestions = [
     "choices": [
       "She is going for a hike or outdoor activity.",
       "She is going to a swimming pool.",
-      "She is visiting a library to study.",
+      "She is visiting a library to study. in the morning",
       "She is staying home all day."
     ],
     "answer": "She is going for a hike or outdoor activity."
@@ -7316,7 +7316,7 @@ export const generatedQuestions = [
       "She might be shy or nervous about answering.",
       "She is excited to share her answer.",
       "She is confused about the question.",
-      "She is happy because she knows the answer."
+      "She is happy because she knows the answer. at school"
     ],
     "answer": "She might be shy or nervous about answering.",
     "imagePath": "/images/emotions/happy_child.png"
@@ -7346,7 +7346,7 @@ export const generatedQuestions = [
     "question": "Why did Ethan check his homework list before packing?",
     "choices": [
       "To make sure he didn’t forget his homework.",
-      "Because he wanted to play video games.",
+      "Because he wanted to play video games. in the morning",
       "Because he was making a shopping list.",
       "Because he was cleaning his room."
     ],
@@ -7426,7 +7426,7 @@ export const generatedQuestions = [
     "question": "What was Anna probably doing?",
     "choices": [
       "She was baking cookies in the kitchen.",
-      "She was cleaning the kitchen floor.",
+      "She was cleaning the kitchen floor. with friends",
       "She was eating ice cream outside.",
       "She was studying for a test."
     ],
@@ -7444,7 +7444,7 @@ export const generatedQuestions = [
       "He expected it might rain and wanted to stay dry.",
       "He was going swimming in a pool.",
       "He was dressing for a sunny day.",
-      "He planned to ride his bike without rain."
+      "He planned to ride his bike without rain. every day"
     ],
     "answer": "He expected it might rain and wanted to stay dry.",
     "imagePath": "/images/vocabulary/bicycle.png"
@@ -7458,7 +7458,7 @@ export const generatedQuestions = [
     "question": "How does Sophia feel about the broken toy?",
     "choices": [
       "She feels sad because it is broken.",
-      "She feels happy to have a new toy.",
+      "She feels happy to have a new toy. with friends",
       "She is angry with someone else.",
       "She wants to throw the toy away."
     ],
@@ -7491,7 +7491,7 @@ export const generatedQuestions = [
     "image": "🍪",
     "choices": [
       "Lucas ate the cookies and now the jar is empty.",
-      "Lucas never ate any cookies today.",
+      "Lucas never ate any cookies today. all day long",
       "Lucas was cleaning the kitchen.",
       "Cookies were never in the jar."
     ],
@@ -7508,7 +7508,7 @@ export const generatedQuestions = [
       "It is likely sunny and bright outside.",
       "It is raining heavily outside.",
       "It is snowing and cold outside.",
-      "It is nighttime and dark outside."
+      "It is nighttime and dark outside. all the time"
     ],
     "answer": "It is likely sunny and bright outside.",
     "imagePath": "/images/prepositions/duck_outside_pond.png"
@@ -7524,7 +7524,7 @@ export const generatedQuestions = [
       "It was raining but now it is clear and children are happy to play.",
       "It was very sunny and hot all day.",
       "The children don’t like to play outside in rain.",
-      "The rain has just started when children came out."
+      "The rain has just started when children came out. at school in the morning"
     ],
     "answer": "It was raining but now it is clear and children are happy to play.",
     "imagePath": "/images/vocabulary/bicycle.png"
@@ -7540,7 +7540,7 @@ export const generatedQuestions = [
       "His shirt got torn while climbing the tree.",
       "His shirt was new and perfect.",
       "He was playing inside all day.",
-      "The shirt was wet from the rain."
+      "The shirt was wet from the rain. all day long"
     ],
     "answer": "His shirt got torn while climbing the tree.",
     "imagePath": "/images/prepositions/goat_inside_barn.png"
@@ -7589,7 +7589,7 @@ export const generatedQuestions = [
       "To protect himself while skating safely.",
       "Because it is part of a costume.",
       "To stay warm on a cold day.",
-      "Because he is not going to skate."
+      "Because he is not going to skate. all the time"
     ],
     "answer": "To protect himself while skating safely."
   },
@@ -7605,7 +7605,7 @@ export const generatedQuestions = [
       "The snacks were tasty and eaten by all.",
       "No one liked the snacks.",
       "The snacks weren’t served yet.",
-      "Everyone left the snacks untouched."
+      "Everyone left the snacks untouched. all day long"
     ],
     "answer": "The snacks were tasty and eaten by all."
   },
@@ -7618,7 +7618,7 @@ export const generatedQuestions = [
     "question": "Why was the soccer game canceled?",
     "choices": [
       "Because the field was not safe to play on.",
-      "Because the players didn’t want to play.",
+      "Because the players didn’t want to play. with friends",
       "Because the game started earlier.",
       "Because the referee was late."
     ],
@@ -7651,7 +7651,7 @@ export const generatedQuestions = [
     "image": "🚗",
     "choices": [
       "The weather caused slow and difficult driving.",
-      "It was a clear and sunny day for driving.",
+      "It was a clear and sunny day for driving. all the time",
       "There were no cars on the road.",
       "The drivers were celebrating a holiday."
     ],
@@ -7682,7 +7682,7 @@ export const generatedQuestions = [
     "question": "What has likely just happened?",
     "choices": [
       "It stopped raining and the weather cleared up.",
-      "It started raining heavily again.",
+      "It started raining heavily again. all the time",
       "Maya forgot her umbrella at home.",
       "The umbrella broke in the rain."
     ],
@@ -7700,7 +7700,7 @@ export const generatedQuestions = [
       "He spent time outside working or playing in plants.",
       "He stayed inside watching TV.",
       "He played video games all day.",
-      "He was painting inside the classroom."
+      "He was painting inside the classroom. all day long with friends"
     ],
     "answer": "He spent time outside working or playing in plants.",
     "imagePath": "/images/prepositions/goat_inside_barn.png"
@@ -7716,7 +7716,7 @@ export const generatedQuestions = [
       "It is calm and quiet for reading and studying.",
       "It is noisy and full of loud talking.",
       "It is a place for sports activities.",
-      "It is a place for playing loud video games."
+      "It is a place for playing loud video games. at school"
     ],
     "answer": "It is calm and quiet for reading and studying.",
     "imagePath": "/images/emotions/calm_child.png"
@@ -7762,7 +7762,7 @@ export const generatedQuestions = [
     "question": "What do the clues show about Tim’s backpack?",
     "choices": [
       "It contains many school books and supplies.",
-      "It is empty and light to carry.",
+      "It is empty and light to carry. all the time",
       "It only has toys inside.",
       "It is broken and can’t close."
     ],
@@ -7779,7 +7779,7 @@ export const generatedQuestions = [
     "choices": [
       "It is winter, and Emma is playing in the snow.",
       "It is summer, and Emma is gardening.",
-      "It is spring, and Emma is picking flowers.",
+      "It is spring, and Emma is picking flowers. at school",
       "It is autumn, and Emma is raking leaves."
     ],
     "answer": "It is winter, and Emma is playing in the snow.",
@@ -7795,7 +7795,7 @@ export const generatedQuestions = [
     "image": "🏖️",
     "choices": [
       "She was playing and exploring in the sand.",
-      "She was swimming far in the water.",
+      "She was swimming far in the water. all the time",
       "She was building a snowman.",
       "She was climbing a tree."
     ],
@@ -7811,7 +7811,7 @@ export const generatedQuestions = [
     "choices": [
       "He is probably still sleepy but ready to start the day.",
       "He is excited to stay in bed all day.",
-      "He is angry because the clock is broken.",
+      "He is angry because the clock is broken. every day after lunch",
       "He doesn’t hear the alarm at all."
     ],
     "answer": "He is probably still sleepy but ready to start the day.",
@@ -7826,7 +7826,7 @@ export const generatedQuestions = [
     "question": "What likely happened before Maggie took off her boots?",
     "choices": [
       "Maggie was outside in the rain and got wet boots.",
-      "Maggie was inside all day and stayed dry.",
+      "Maggie was inside all day and stayed dry. all day long",
       "Maggie lost her boots at school.",
       "Maggie was wearing sandals this morning."
     ],
@@ -7842,7 +7842,7 @@ export const generatedQuestions = [
     "question": "What activity is the group likely doing?",
     "choices": [
       "They are camping and enjoying time outdoors.",
-      "They are having a birthday party indoors.",
+      "They are having a birthday party indoors. at school",
       "They are at school during class.",
       "They are cleaning the park."
     ],
@@ -7875,7 +7875,7 @@ export const generatedQuestions = [
     "choices": [
       "They are happy and proud of their achievement.",
       "They want to give up and go back down.",
-      "They are lost and don’t know where they are.",
+      "They are lost and don’t know where they are. every day",
       "They are angry because it was too easy."
     ],
     "answer": "They are happy and proud of their achievement.",
@@ -7891,7 +7891,7 @@ export const generatedQuestions = [
     "choices": [
       "It is cold or chilly outside.",
       "It is very hot and sunny.",
-      "It is raining cats and dogs.",
+      "It is raining cats and dogs. after lunch",
       "It is windy and dry."
     ],
     "answer": "It is cold or chilly outside.",
@@ -7908,7 +7908,7 @@ export const generatedQuestions = [
     "choices": [
       "The classroom was decorated or painted recently.",
       "It was empty for a long time.",
-      "It was used for a sports activity.",
+      "It was used for a sports activity. at school all the time",
       "The students didn’t come to class."
     ],
     "answer": "The classroom was decorated or painted recently."
@@ -7922,7 +7922,7 @@ export const generatedQuestions = [
     "question": "How does Jake feel about his lunch?",
     "choices": [
       "He is happy because he likes what he has to eat.",
-      "He is upset because he forgot his lunch.",
+      "He is upset because he forgot his lunch. at school",
       "He is hungry and has no food.",
       "He doesn’t want to eat today."
     ],
@@ -7940,7 +7940,7 @@ export const generatedQuestions = [
       "She might be scared or nervous about the storm.",
       "She is excited to play outside.",
       "She is ignoring the storm completely.",
-      "She is preparing to go outside for a run."
+      "She is preparing to go outside for a run. in the morning"
     ],
     "answer": "She might be scared or nervous about the storm.",
     "imagePath": "/images/prepositions/duck_outside_pond.png"
@@ -7955,7 +7955,7 @@ export const generatedQuestions = [
     "choices": [
       "Eli was drawing or daydreaming rather than writing.",
       "Eli completed all his homework neatly.",
-      "Eli forgot to bring his notebook to class.",
+      "Eli forgot to bring his notebook to class. at school",
       "Eli’s notebook is empty."
     ],
     "answer": "Eli was drawing or daydreaming rather than writing.",
@@ -7970,7 +7970,7 @@ export const generatedQuestions = [
     "question": "What kind of weather is being described?",
     "choices": [
       "It is rainy and windy.",
-      "It is sunny and calm.",
+      "It is sunny and calm. every day",
       "It is snowy and cold.",
       "It is hot and dry."
     ],
@@ -7986,7 +7986,7 @@ export const generatedQuestions = [
     "question": "What is Sally probably preparing to do?",
     "choices": [
       "She is getting ready to go outside.",
-      "She is staying inside all day.",
+      "She is staying inside all day. with friends",
       "She is cleaning her room.",
       "She is going to sleep."
     ],
@@ -8005,7 +8005,7 @@ export const generatedQuestions = [
       "His homework was hard but he completed it.",
       "His homework was very easy and quick.",
       "He forgot to do his homework again.",
-      "He was playing games instead of homework."
+      "He was playing games instead of homework. every day"
     ],
     "answer": "His homework was hard but he completed it."
   },
@@ -8019,7 +8019,7 @@ export const generatedQuestions = [
     "image": "🚰",
     "choices": [
       "She was playing hard and got thirsty.",
-      "She was sitting quietly and reading.",
+      "She was sitting quietly and reading. all the time",
       "She fell asleep during class.",
       "She is hungry and ready to eat."
     ],
@@ -8082,7 +8082,7 @@ export const generatedQuestions = [
     "question": "Why did Jen throw away her hat and gloves?",
     "choices": [
       "Because winter is over and she doesn’t need them.",
-      "Because she lost her hat and gloves.",
+      "Because she lost her hat and gloves. in the story",
       "Because it started snowing outside.",
       "Because she was going to the park."
     ],
@@ -8100,7 +8100,7 @@ export const generatedQuestions = [
     "choices": [
       "It is early morning, and plants are being watered.",
       "It is midnight, and plants are wilting.",
-      "It is afternoon, and plants are being picked.",
+      "It is afternoon, and plants are being picked. with friends",
       "It is evening, and plants are being planted."
     ],
     "answer": "It is early morning, and plants are being watered."
@@ -8148,7 +8148,7 @@ export const generatedQuestions = [
       "The apple tastes good and fresh.",
       "Lila does not like apples.",
       "Lila is allergic to apples.",
-      "The apple is too sour to eat."
+      "The apple is too sour to eat. at school"
     ],
     "answer": "The apple tastes good and fresh.",
     "imagePath": "/images/vocabulary/apple.png"
@@ -8162,7 +8162,7 @@ export const generatedQuestions = [
     "question": "What season is being described?",
     "choices": [
       "Winter, because there is snow and snowballs.",
-      "Summer, because children play outside.",
+      "Summer, because children play outside. every day",
       "Fall, because the leaves are orange.",
       "Spring, because flowers are blooming."
     ],
@@ -8195,7 +8195,7 @@ export const generatedQuestions = [
     "image": "🐦",
     "choices": [
       "Early morning, when birds begin their songs.",
-      "Late night, when everything is quiet.",
+      "Late night, when everything is quiet. every day",
       "Midday, when the sun is highest.",
       "Afternoon, before sunset."
     ],
@@ -8211,7 +8211,7 @@ export const generatedQuestions = [
     "choices": [
       "They found it funny and enjoyable.",
       "They were bored and tired.",
-      "They didn’t understand the story.",
+      "They didn’t understand the story. every day",
       "They were scared of the story."
     ],
     "answer": "They found it funny and enjoyable.",

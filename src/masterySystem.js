@@ -190,11 +190,17 @@ export function getMasteryRule(skillLabel) {
     reviewAfter: 20
   };
 
-  const roundLength = Math.max(MIN_PHASE_ROUND_LENGTH, rule.roundLength || MIN_PHASE_ROUND_LENGTH);
-  const passScore = Math.max(
-    Math.ceil(roundLength * DEFAULT_PASS_RATE),
-    rule.passScore || 0
-  );
+  // Honour the per-skill table: configured skills keep their tuned round
+  // length and pass score. Only UNCONFIGURED skills get the 15-question /
+  // 80% default floor (previously the floor force-overrode every skill,
+  // making the table above dead config).
+  const configured = Boolean(masteryRules[skillLabel]);
+  const roundLength = configured
+    ? Math.max(5, rule.roundLength || MIN_PHASE_ROUND_LENGTH)
+    : Math.max(MIN_PHASE_ROUND_LENGTH, rule.roundLength || MIN_PHASE_ROUND_LENGTH);
+  const passScore = configured
+    ? (rule.passScore || Math.ceil(roundLength * DEFAULT_PASS_RATE))
+    : Math.max(Math.ceil(roundLength * DEFAULT_PASS_RATE), rule.passScore || 0);
 
   return {
     ...rule,

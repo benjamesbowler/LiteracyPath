@@ -1398,7 +1398,7 @@ export const templateExpansion3 = [
     "choices": [
       "he forgot his lunch",
       "he drank water",
-      "he played soccer"
+      "he played soccer at school"
     ],
     "answer": "he forgot his lunch"
   },
@@ -1415,7 +1415,7 @@ export const templateExpansion3 = [
     "choices": [
       "the plant did not get water",
       "the plant was happy",
-      "the plant was in a book"
+      "the plant was in a book in the story"
     ],
     "answer": "the plant did not get water"
   },
@@ -1516,7 +1516,7 @@ export const templateExpansion3 = [
     "questionType": "multiple_choice",
     "choices": [
       "practice helps you improve",
-      "shoes are always easy",
+      "shoes are always easy all day long",
       "never try hard things"
     ],
     "answer": "practice helps you improve"
@@ -1568,7 +1568,7 @@ export const templateExpansion3 = [
     "choices": [
       "honesty is important",
       "lying is best",
-      "worry is funny"
+      "worry is funny in the morning"
     ],
     "answer": "honesty is important"
   },

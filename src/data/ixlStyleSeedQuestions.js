@@ -192,22 +192,26 @@ const blendItems = [
 ];
 const blendPatterns = ["bl", "br", "cl", "cr", "dr", "fl", "fr", "sl", "sn", "sp", "st", "tr"];
 
+// Each row: [imageWord, level1Correct, level1Distractor, level2Correct,
+// level2Distractor]. The level-2 pair keeps the same true claim about the
+// picture but uses a tighter minimal-pair distractor, so the "b" variants are
+// genuinely harder instead of exact clones of the level-1 items.
 const sentencePictureItems = [
-  ["cats", "Max has two cats.", "Max has two dogs."],
-  ["dogs", "Sam sees two dogs.", "Sam sees two boxes."],
-  ["cups", "The cups are on the mat.", "The cats are on the mat."],
-  ["hats", "The hats are red.", "The bags are red."],
-  ["books", "I see two books.", "I see two ducks."],
-  ["boxes", "The boxes are big.", "The dogs are big."],
-  ["fish", "The fish can swim.", "The dog can swim."],
-  ["ship", "The ship is big.", "The shop is big."],
-  ["duck", "The duck is in the pond.", "The cat is in the pond."],
-  ["bed", "The cat is on the bed.", "The cat is on the bus."],
-  ["map", "Dad has a map.", "Dad has a mop."],
-  ["bag", "The bag is on the bed.", "The bug is on the bed."],
-  ["cup", "The cup is blue.", "The cap is blue."],
-  ["sock", "The sock is wet.", "The rock is wet."],
-  ["ring", "The ring is small.", "The rug is small."]
+  ["cats", "Max has two cats.", "Max has two dogs.", "Wow! Max has two cats.", "Wow! Max has two hats."],
+  ["dogs", "Sam sees two dogs.", "Sam sees two boxes.", "Look! Sam sees two dogs.", "Look! Sam sees two logs."],
+  ["cups", "The cups are on the mat.", "The cats are on the mat.", "See! The cups are on the mat.", "See! The cups are on the map."],
+  ["hats", "The hats are red.", "The bags are red.", "Oh! The hats are red.", "Oh! The rats are red."],
+  ["books", "I see two books.", "I see two ducks.", "Look! I see two books.", "Look! I see two cooks."],
+  ["boxes", "The boxes are big.", "The dogs are big.", "Wow! The boxes are big.", "Wow! The foxes are big."],
+  ["fish", "The fish can swim.", "The dog can swim.", "See! The fish can swim.", "See! The dish can swim."],
+  ["ship", "The ship is big.", "The shop is big.", "Look! The ship is big.", "Look! The sheep is big."],
+  ["duck", "The duck is in the pond.", "The cat is in the pond.", "See! The duck is in the pond.", "See! The truck is in the pond."],
+  ["bed", "The cat is on the bed.", "The cat is on the bus.", "Oh! The cat is on the bed.", "Oh! The rat is on the bed."],
+  ["map", "Dad has a map.", "Dad has a mop.", "Look! Dad has a map.", "Look! Dad has a mat."],
+  ["bag", "The bag is on the bed.", "The bug is on the bed.", "Wow! The bag is on the bed.", "Wow! The bat is on the bed."],
+  ["cup", "The cup is blue.", "The cap is blue.", "See! The cup is blue.", "See! The cub is blue."],
+  ["sock", "The sock is wet.", "The rock is wet.", "Oh! The sock is wet.", "Oh! The lock is wet."],
+  ["ring", "The ring is small.", "The rug is small.", "Look! The ring is small.", "Look! The king is small."]
 ];
 
 const nounCategoryItems = [
@@ -373,7 +377,7 @@ const shortVowelQuestions = shortVowelItems.map(([itemKey, label, correct, distr
   tags: ["ixl_style", "short_vowel"]
 }));
 
-const sentencePictureQuestions = sentencePictureItems.flatMap(([imageWord, correct, distractor], index) => {
+const sentencePictureQuestions = sentencePictureItems.flatMap(([imageWord, correct, distractor, harderCorrect, harderDistractor], index) => {
   const question = makeTemplateQuestion({
     id: `ixl_sentence_picture_${index + 1}`,
     skillId: "sentence_comprehension",
@@ -388,7 +392,22 @@ const sentencePictureQuestions = sentencePictureItems.flatMap(([imageWord, corre
     explanation: `The picture matches: ${correct}`,
     tags: ["ixl_style", "sentence_picture"]
   });
-  return [question, { ...question, id: `ixl_sentence_picture_b_${index + 1}`, level: 2 }];
+  const harderQuestion = makeTemplateQuestion({
+    id: `ixl_sentence_picture_b_${index + 1}`,
+    skillId: "sentence_comprehension",
+    skillName: "Sentence Comprehension",
+    level: 2,
+    templateType: "SENTENCE_MATCHES_PICTURE",
+    prompt: "Which sentence matches the picture?",
+    targetWord: imageWord,
+    correctAnswer: harderCorrect,
+    answerOptions: [harderCorrect, harderDistractor],
+    itemType: "sentence_comprehension",
+    itemKey: imageWord,
+    explanation: `The picture matches: ${harderCorrect}`,
+    tags: ["ixl_style", "sentence_picture"]
+  });
+  return [question, harderQuestion];
 });
 
 const nounCategoryQuestions = nounCategoryItems.flatMap(([prompt, correct, options], index) => {

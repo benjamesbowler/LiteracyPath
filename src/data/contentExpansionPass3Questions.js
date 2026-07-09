@@ -214,8 +214,8 @@ const digraphTargets = [
   ["ch", "chip", ["chip", "ship", "sip", "shop"]],
   ["ch", "chair", ["chair", "ship", "thin", "whale"]],
   ["th", "thin", ["thin", "fin", "chin", "win"]],
-  ["th", "thumb", ["thumb", "thin", "ship", "chair"]],
-  ["wh", "whale", ["whale", "wheel", "ship", "chair"]]
+  ["th", "thumb", ["thumb", "whale", "ship", "chair"]],
+  ["wh", "whale", ["whale", "thin", "ship", "chair"]]
 ];
 
 export const digraphFormatExpansionQuestions = digraphTargets.flatMap(([pattern, word, words], index) => [

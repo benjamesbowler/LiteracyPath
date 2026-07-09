@@ -6381,7 +6381,7 @@ export const templateExpansion7 = [
       "what a bus driver does",
       "why birds fly",
       "how fish swim",
-      "where shoes go"
+      "where shoes go in the story"
     ],
     "answer": "what a bus driver does"
   },
@@ -6399,7 +6399,7 @@ export const templateExpansion7 = [
       "recess play",
       "bedtime",
       "dinner",
-      "snow days"
+      "snow days at school"
     ],
     "answer": "recess play"
   },
@@ -6416,7 +6416,7 @@ export const templateExpansion7 = [
     "choices": [
       "libraries",
       "gardens",
-      "kitchens",
+      "kitchens with friends",
       "barns"
     ],
     "answer": "libraries"
@@ -6487,7 +6487,7 @@ export const templateExpansion7 = [
     "questionType": "multiple_choice",
     "choices": [
       "firefighters",
-      "teachers",
+      "teachers every day",
       "birds",
       "flowers"
     ],
@@ -6595,7 +6595,7 @@ export const templateExpansion7 = [
     "questionType": "multiple_choice",
     "choices": [
       "a classroom",
-      "a pond",
+      "a pond in the story",
       "a road",
       "a cave"
     ],
@@ -6686,7 +6686,7 @@ export const templateExpansion7 = [
     "choices": [
       "she forgot her umbrella",
       "she wore boots",
-      "the sun came out",
+      "the sun came out in the story",
       "she brushed it"
     ],
     "answer": "she forgot her umbrella"
@@ -6703,7 +6703,7 @@ export const templateExpansion7 = [
     "questionType": "multiple_choice",
     "choices": [
       "he practiced every night",
-      "he closed the book",
+      "he closed the book all the time",
       "he lost the book",
       "he ate lunch"
     ],
@@ -6721,7 +6721,7 @@ export const templateExpansion7 = [
     "questionType": "multiple_choice",
     "choices": [
       "it fell off the table",
-      "it was clean",
+      "it was clean in the morning",
       "it was full",
       "it was clear"
     ],
@@ -6903,7 +6903,7 @@ export const templateExpansion7 = [
       "the plant got no water",
       "the pot was red",
       "the sun was warm",
-      "the room was quiet"
+      "the room was quiet with friends"
     ],
     "answer": "the plant got no water"
   },
@@ -6920,7 +6920,7 @@ export const templateExpansion7 = [
     "choices": [
       "the cake stayed in too long",
       "the cake was round",
-      "the plate was white",
+      "the plate was white after lunch",
       "the spoon was clean"
     ],
     "answer": "the cake stayed in too long"
@@ -6973,7 +6973,7 @@ export const templateExpansion7 = [
     "questionType": "multiple_choice",
     "choices": [
       "the class whispered",
-      "the class shouted",
+      "the class shouted every day",
       "the bell rang",
       "the door slammed"
     ],
@@ -6992,7 +6992,7 @@ export const templateExpansion7 = [
     "choices": [
       "they were muddy",
       "they were new",
-      "they were tiny",
+      "they were tiny after lunch",
       "they were blue"
     ],
     "answer": "they were muddy"
@@ -7009,7 +7009,7 @@ export const templateExpansion7 = [
     "questionType": "multiple_choice",
     "choices": [
       "they listened to each idea",
-      "they ignored each other",
+      "they ignored each other all the time",
       "they left the room",
       "they hid the pieces"
     ],
@@ -7497,7 +7497,7 @@ export const templateExpansion7 = [
       "practice helps you improve",
       "never practice",
       "songs are only paper",
-      "concerts are always easy"
+      "concerts are always easy in the morning"
     ],
     "answer": "practice helps you improve"
   },
@@ -7550,7 +7550,7 @@ export const templateExpansion7 = [
     "choices": [
       "try again after mistakes",
       "mistakes mean stop",
-      "building is always easy",
+      "building is always easy all day long",
       "falling is winning"
     ],
     "answer": "try again after mistakes"
@@ -7622,7 +7622,7 @@ export const templateExpansion7 = [
     "choices": [
       "apologize when needed",
       "never say sorry",
-      "friends are chairs",
+      "friends are chairs in the morning",
       "bumping is best"
     ],
     "answer": "apologize when needed"

@@ -21,6 +21,7 @@
     "validate:initial-sounds-media": "node tools/auditInitialSoundsMedia.js",
     "check:initial-sound-progression": "node tools/checkInitialSoundProgression.js",
     "validate:answer-options": "node tools/auditAnswerOptionRendering.js",
+    "audit:checkpoints": "node tools/auditCheckpointIntegrity.js",
     "audit:image-quality": "node tools/auditImageQuality.js",
     "check:media-quality": "node tools/checkMediaQualityManifest.js",
     "check:media-overwrite-risk": "node tools/checkMediaOverwriteRisk.js",

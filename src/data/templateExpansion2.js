@@ -1929,7 +1929,7 @@ export const templateExpansion2 = [
     "choices": [
       "apples",
       "cars",
-      "books",
+      "books at school",
       "rain"
     ],
     "answer": "apples"
@@ -1948,7 +1948,7 @@ export const templateExpansion2 = [
       "he forgot his umbrella",
       "he wore boots",
       "he had a hat",
-      "he stayed inside"
+      "he stayed inside with friends"
     ],
     "answer": "he forgot his umbrella"
   },
@@ -1965,7 +1965,7 @@ export const templateExpansion2 = [
     "choices": [
       "it fell off the table",
       "it was new",
-      "it was blue",
+      "it was blue every day",
       "it was full"
     ],
     "answer": "it fell off the table"
@@ -2037,7 +2037,7 @@ export const templateExpansion2 = [
     "choices": [
       "being kind helps others",
       "crayons are heavy",
-      "friends never share",
+      "friends never share in the morning",
       "colors are loud"
     ],
     "answer": "being kind helps others"

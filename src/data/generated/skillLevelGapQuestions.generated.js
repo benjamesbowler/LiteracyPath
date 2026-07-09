@@ -23631,13 +23631,13 @@ export const skillLevelGapQuestions = [
     "answer": "clever",
     "answerOptions": [
       "clever",
-      "sleepy",
+      "very sleepy",
       "empty",
       "dark"
     ],
     "choices": [
       "clever",
-      "sleepy",
+      "very sleepy",
       "empty",
       "dark"
     ],
@@ -24975,13 +24975,13 @@ export const skillLevelGapQuestions = [
     "answer": "clever",
     "answerOptions": [
       "clever",
-      "sleepy",
+      "very sleepy",
       "empty",
       "dark"
     ],
     "choices": [
       "clever",
-      "sleepy",
+      "very sleepy",
       "empty",
       "dark"
     ],
@@ -43623,15 +43623,15 @@ export const skillLevelGapQuestions = [
     "answer": "solving a small problem",
     "answerOptions": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "choices": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -43672,15 +43672,15 @@ export const skillLevelGapQuestions = [
     "answer": "getting ready for a community event",
     "answerOptions": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "choices": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -43721,15 +43721,15 @@ export const skillLevelGapQuestions = [
     "answer": "taking care of a special place",
     "answerOptions": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "choices": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -43770,15 +43770,15 @@ export const skillLevelGapQuestions = [
     "answer": "learning how a tool works",
     "answerOptions": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "choices": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -43819,15 +43819,15 @@ export const skillLevelGapQuestions = [
     "answer": "helping a visitor feel welcome",
     "answerOptions": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "choices": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -43868,15 +43868,15 @@ export const skillLevelGapQuestions = [
     "answer": "preparing safely before an activity",
     "answerOptions": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "choices": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -43917,15 +43917,15 @@ export const skillLevelGapQuestions = [
     "answer": "solving a small problem",
     "answerOptions": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "choices": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -43966,15 +43966,15 @@ export const skillLevelGapQuestions = [
     "answer": "getting ready for a community event",
     "answerOptions": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "choices": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44015,15 +44015,15 @@ export const skillLevelGapQuestions = [
     "answer": "taking care of a special place",
     "answerOptions": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "choices": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44064,15 +44064,15 @@ export const skillLevelGapQuestions = [
     "answer": "learning how a tool works",
     "answerOptions": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "choices": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44113,15 +44113,15 @@ export const skillLevelGapQuestions = [
     "answer": "helping a visitor feel welcome",
     "answerOptions": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "choices": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44162,15 +44162,15 @@ export const skillLevelGapQuestions = [
     "answer": "preparing safely before an activity",
     "answerOptions": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "choices": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44211,15 +44211,15 @@ export const skillLevelGapQuestions = [
     "answer": "solving a small problem",
     "answerOptions": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "choices": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44260,15 +44260,15 @@ export const skillLevelGapQuestions = [
     "answer": "getting ready for a community event",
     "answerOptions": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "choices": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44309,15 +44309,15 @@ export const skillLevelGapQuestions = [
     "answer": "taking care of a special place",
     "answerOptions": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "choices": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44358,15 +44358,15 @@ export const skillLevelGapQuestions = [
     "answer": "learning how a tool works",
     "answerOptions": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "choices": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44407,15 +44407,15 @@ export const skillLevelGapQuestions = [
     "answer": "helping a visitor feel welcome",
     "answerOptions": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "choices": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44456,15 +44456,15 @@ export const skillLevelGapQuestions = [
     "answer": "preparing safely before an activity",
     "answerOptions": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "choices": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44505,15 +44505,15 @@ export const skillLevelGapQuestions = [
     "answer": "solving a small problem",
     "answerOptions": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "choices": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44554,15 +44554,15 @@ export const skillLevelGapQuestions = [
     "answer": "getting ready for a community event",
     "answerOptions": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "choices": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44603,15 +44603,15 @@ export const skillLevelGapQuestions = [
     "answer": "taking care of a special place",
     "answerOptions": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "choices": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44652,15 +44652,15 @@ export const skillLevelGapQuestions = [
     "answer": "learning how a tool works",
     "answerOptions": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "choices": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44701,15 +44701,15 @@ export const skillLevelGapQuestions = [
     "answer": "helping a visitor feel welcome",
     "answerOptions": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "choices": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44750,15 +44750,15 @@ export const skillLevelGapQuestions = [
     "answer": "preparing safely before an activity",
     "answerOptions": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "choices": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44799,15 +44799,15 @@ export const skillLevelGapQuestions = [
     "answer": "solving a small problem",
     "answerOptions": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "choices": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44848,15 +44848,15 @@ export const skillLevelGapQuestions = [
     "answer": "getting ready for a community event",
     "answerOptions": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "choices": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44897,15 +44897,15 @@ export const skillLevelGapQuestions = [
     "answer": "taking care of a special place",
     "answerOptions": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "choices": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44946,15 +44946,15 @@ export const skillLevelGapQuestions = [
     "answer": "learning how a tool works",
     "answerOptions": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "choices": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -44995,15 +44995,15 @@ export const skillLevelGapQuestions = [
     "answer": "helping a visitor feel welcome",
     "answerOptions": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "choices": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45044,15 +45044,15 @@ export const skillLevelGapQuestions = [
     "answer": "preparing safely before an activity",
     "answerOptions": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "choices": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45093,15 +45093,15 @@ export const skillLevelGapQuestions = [
     "answer": "solving a small problem",
     "answerOptions": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "choices": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45142,15 +45142,15 @@ export const skillLevelGapQuestions = [
     "answer": "getting ready for a community event",
     "answerOptions": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "choices": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45191,15 +45191,15 @@ export const skillLevelGapQuestions = [
     "answer": "taking care of a special place",
     "answerOptions": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "choices": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45240,15 +45240,15 @@ export const skillLevelGapQuestions = [
     "answer": "learning how a tool works",
     "answerOptions": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "choices": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45289,15 +45289,15 @@ export const skillLevelGapQuestions = [
     "answer": "helping a visitor feel welcome",
     "answerOptions": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "choices": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45338,15 +45338,15 @@ export const skillLevelGapQuestions = [
     "answer": "preparing safely before an activity",
     "answerOptions": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "choices": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45387,15 +45387,15 @@ export const skillLevelGapQuestions = [
     "answer": "solving a small problem",
     "answerOptions": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "choices": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45436,15 +45436,15 @@ export const skillLevelGapQuestions = [
     "answer": "getting ready for a community event",
     "answerOptions": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "choices": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45485,15 +45485,15 @@ export const skillLevelGapQuestions = [
     "answer": "taking care of a special place",
     "answerOptions": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "choices": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45534,15 +45534,15 @@ export const skillLevelGapQuestions = [
     "answer": "learning how a tool works",
     "answerOptions": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "choices": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45583,15 +45583,15 @@ export const skillLevelGapQuestions = [
     "answer": "helping a visitor feel welcome",
     "answerOptions": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "choices": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45632,15 +45632,15 @@ export const skillLevelGapQuestions = [
     "answer": "preparing safely before an activity",
     "answerOptions": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "choices": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45681,15 +45681,15 @@ export const skillLevelGapQuestions = [
     "answer": "solving a small problem",
     "answerOptions": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "choices": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45730,15 +45730,15 @@ export const skillLevelGapQuestions = [
     "answer": "getting ready for a community event",
     "answerOptions": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "choices": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45779,15 +45779,15 @@ export const skillLevelGapQuestions = [
     "answer": "taking care of a special place",
     "answerOptions": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "choices": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45828,15 +45828,15 @@ export const skillLevelGapQuestions = [
     "answer": "learning how a tool works",
     "answerOptions": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "choices": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45877,15 +45877,15 @@ export const skillLevelGapQuestions = [
     "answer": "solving a small problem",
     "answerOptions": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "choices": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45926,15 +45926,15 @@ export const skillLevelGapQuestions = [
     "answer": "getting ready for a community event",
     "answerOptions": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "choices": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -45975,15 +45975,15 @@ export const skillLevelGapQuestions = [
     "answer": "taking care of a special place",
     "answerOptions": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "choices": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46024,15 +46024,15 @@ export const skillLevelGapQuestions = [
     "answer": "learning how a tool works",
     "answerOptions": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "choices": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46073,15 +46073,15 @@ export const skillLevelGapQuestions = [
     "answer": "helping a visitor feel welcome",
     "answerOptions": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "choices": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46122,15 +46122,15 @@ export const skillLevelGapQuestions = [
     "answer": "preparing safely before an activity",
     "answerOptions": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "choices": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46171,15 +46171,15 @@ export const skillLevelGapQuestions = [
     "answer": "solving a small problem",
     "answerOptions": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "choices": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46220,15 +46220,15 @@ export const skillLevelGapQuestions = [
     "answer": "getting ready for a community event",
     "answerOptions": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "choices": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46269,15 +46269,15 @@ export const skillLevelGapQuestions = [
     "answer": "taking care of a special place",
     "answerOptions": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "choices": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46318,15 +46318,15 @@ export const skillLevelGapQuestions = [
     "answer": "learning how a tool works",
     "answerOptions": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "choices": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46367,15 +46367,15 @@ export const skillLevelGapQuestions = [
     "answer": "helping a visitor feel welcome",
     "answerOptions": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "choices": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46416,15 +46416,15 @@ export const skillLevelGapQuestions = [
     "answer": "preparing safely before an activity",
     "answerOptions": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "choices": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46465,15 +46465,15 @@ export const skillLevelGapQuestions = [
     "answer": "solving a small problem",
     "answerOptions": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "choices": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46514,15 +46514,15 @@ export const skillLevelGapQuestions = [
     "answer": "getting ready for a community event",
     "answerOptions": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "choices": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46563,15 +46563,15 @@ export const skillLevelGapQuestions = [
     "answer": "taking care of a special place",
     "answerOptions": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "choices": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46612,15 +46612,15 @@ export const skillLevelGapQuestions = [
     "answer": "learning how a tool works",
     "answerOptions": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "choices": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46661,15 +46661,15 @@ export const skillLevelGapQuestions = [
     "answer": "helping a visitor feel welcome",
     "answerOptions": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "choices": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46710,15 +46710,15 @@ export const skillLevelGapQuestions = [
     "answer": "preparing safely before an activity",
     "answerOptions": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "choices": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46759,15 +46759,15 @@ export const skillLevelGapQuestions = [
     "answer": "solving a small problem",
     "answerOptions": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "choices": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46808,15 +46808,15 @@ export const skillLevelGapQuestions = [
     "answer": "getting ready for a community event",
     "answerOptions": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "choices": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46857,15 +46857,15 @@ export const skillLevelGapQuestions = [
     "answer": "taking care of a special place",
     "answerOptions": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "choices": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46906,15 +46906,15 @@ export const skillLevelGapQuestions = [
     "answer": "learning how a tool works",
     "answerOptions": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "choices": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -46955,15 +46955,15 @@ export const skillLevelGapQuestions = [
     "answer": "helping a visitor feel welcome",
     "answerOptions": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "choices": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47004,15 +47004,15 @@ export const skillLevelGapQuestions = [
     "answer": "preparing safely before an activity",
     "answerOptions": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "choices": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47053,15 +47053,15 @@ export const skillLevelGapQuestions = [
     "answer": "solving a small problem",
     "answerOptions": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "choices": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47102,15 +47102,15 @@ export const skillLevelGapQuestions = [
     "answer": "getting ready for a community event",
     "answerOptions": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "choices": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47151,15 +47151,15 @@ export const skillLevelGapQuestions = [
     "answer": "taking care of a special place",
     "answerOptions": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "choices": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47200,15 +47200,15 @@ export const skillLevelGapQuestions = [
     "answer": "learning how a tool works",
     "answerOptions": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "choices": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47249,15 +47249,15 @@ export const skillLevelGapQuestions = [
     "answer": "helping a visitor feel welcome",
     "answerOptions": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "choices": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47298,15 +47298,15 @@ export const skillLevelGapQuestions = [
     "answer": "preparing safely before an activity",
     "answerOptions": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "choices": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47347,15 +47347,15 @@ export const skillLevelGapQuestions = [
     "answer": "solving a small problem",
     "answerOptions": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "choices": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47396,15 +47396,15 @@ export const skillLevelGapQuestions = [
     "answer": "getting ready for a community event",
     "answerOptions": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "choices": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47445,15 +47445,15 @@ export const skillLevelGapQuestions = [
     "answer": "taking care of a special place",
     "answerOptions": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "choices": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47494,15 +47494,15 @@ export const skillLevelGapQuestions = [
     "answer": "learning how a tool works",
     "answerOptions": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "choices": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47543,15 +47543,15 @@ export const skillLevelGapQuestions = [
     "answer": "helping a visitor feel welcome",
     "answerOptions": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "choices": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47592,15 +47592,15 @@ export const skillLevelGapQuestions = [
     "answer": "preparing safely before an activity",
     "answerOptions": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "choices": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47641,15 +47641,15 @@ export const skillLevelGapQuestions = [
     "answer": "solving a small problem",
     "answerOptions": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "choices": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47690,15 +47690,15 @@ export const skillLevelGapQuestions = [
     "answer": "getting ready for a community event",
     "answerOptions": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "choices": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47739,15 +47739,15 @@ export const skillLevelGapQuestions = [
     "answer": "taking care of a special place",
     "answerOptions": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "choices": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47788,15 +47788,15 @@ export const skillLevelGapQuestions = [
     "answer": "learning how a tool works",
     "answerOptions": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "choices": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47837,15 +47837,15 @@ export const skillLevelGapQuestions = [
     "answer": "helping a visitor feel welcome",
     "answerOptions": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "choices": [
       "helping a visitor feel welcome",
-      "taking a long nap",
-      "drawing a funny picture",
-      "losing a favorite toy"
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47886,15 +47886,15 @@ export const skillLevelGapQuestions = [
     "answer": "preparing safely before an activity",
     "answerOptions": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "choices": [
       "preparing safely before an activity",
-      "drawing a funny picture",
-      "losing a favorite toy",
-      "arguing about a game"
+      "drawing a funny picture of a cat",
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47935,15 +47935,15 @@ export const skillLevelGapQuestions = [
     "answer": "solving a small problem",
     "answerOptions": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "choices": [
       "solving a small problem",
-      "losing a favorite toy",
-      "arguing about a game",
-      "buying food for dinner"
+      "losing a favorite toy at the playground",
+      "arguing about the rules of a game",
+      "shopping for a big family dinner"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -47984,15 +47984,15 @@ export const skillLevelGapQuestions = [
     "answer": "getting ready for a community event",
     "answerOptions": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "choices": [
       "getting ready for a community event",
-      "arguing about a game",
-      "buying food for dinner",
-      "watching a race"
+      "arguing about the rules of a game",
+      "shopping for a big family dinner",
+      "watching a bike race from the stands"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -48033,15 +48033,15 @@ export const skillLevelGapQuestions = [
     "answer": "taking care of a special place",
     "answerOptions": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "choices": [
       "taking care of a special place",
-      "buying food for dinner",
-      "watching a race",
-      "taking a long nap"
+      "shopping for a big family dinner",
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -48082,15 +48082,15 @@ export const skillLevelGapQuestions = [
     "answer": "learning how a tool works",
     "answerOptions": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "choices": [
       "learning how a tool works",
-      "watching a race",
-      "taking a long nap",
-      "drawing a funny picture"
+      "watching a bike race from the stands",
+      "taking a long nap after a busy morning",
+      "drawing a funny picture of a cat"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -48132,13 +48132,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "choices": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "active": true,
@@ -48180,15 +48180,15 @@ export const skillLevelGapQuestions = [
     "answer": "worried",
     "answerOptions": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "choices": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -48230,13 +48230,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "choices": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "active": true,
@@ -48278,15 +48278,15 @@ export const skillLevelGapQuestions = [
     "answer": "curious",
     "answerOptions": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "choices": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -48328,13 +48328,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "choices": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "active": true,
@@ -48376,15 +48376,15 @@ export const skillLevelGapQuestions = [
     "answer": "confident",
     "answerOptions": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "choices": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -48426,13 +48426,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "choices": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "active": true,
@@ -48474,15 +48474,15 @@ export const skillLevelGapQuestions = [
     "answer": "worried",
     "answerOptions": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "choices": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -48524,13 +48524,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "choices": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "active": true,
@@ -48572,15 +48572,15 @@ export const skillLevelGapQuestions = [
     "answer": "curious",
     "answerOptions": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "choices": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -48622,13 +48622,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "choices": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "active": true,
@@ -48670,15 +48670,15 @@ export const skillLevelGapQuestions = [
     "answer": "confident",
     "answerOptions": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "choices": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -48720,13 +48720,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "choices": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "active": true,
@@ -48768,15 +48768,15 @@ export const skillLevelGapQuestions = [
     "answer": "worried",
     "answerOptions": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "choices": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -48818,13 +48818,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "choices": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "active": true,
@@ -48866,15 +48866,15 @@ export const skillLevelGapQuestions = [
     "answer": "curious",
     "answerOptions": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "choices": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -48916,13 +48916,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "choices": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "active": true,
@@ -48964,15 +48964,15 @@ export const skillLevelGapQuestions = [
     "answer": "confident",
     "answerOptions": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "choices": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -49014,13 +49014,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "choices": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "active": true,
@@ -49062,15 +49062,15 @@ export const skillLevelGapQuestions = [
     "answer": "worried",
     "answerOptions": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "choices": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -49112,13 +49112,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "choices": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "active": true,
@@ -49160,15 +49160,15 @@ export const skillLevelGapQuestions = [
     "answer": "curious",
     "answerOptions": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "choices": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -49210,13 +49210,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "choices": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "active": true,
@@ -49258,15 +49258,15 @@ export const skillLevelGapQuestions = [
     "answer": "confident",
     "answerOptions": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "choices": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -49308,13 +49308,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "choices": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "active": true,
@@ -49356,15 +49356,15 @@ export const skillLevelGapQuestions = [
     "answer": "worried",
     "answerOptions": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "choices": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -49406,13 +49406,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "choices": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "active": true,
@@ -49454,15 +49454,15 @@ export const skillLevelGapQuestions = [
     "answer": "curious",
     "answerOptions": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "choices": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -49504,13 +49504,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "choices": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "active": true,
@@ -49552,15 +49552,15 @@ export const skillLevelGapQuestions = [
     "answer": "confident",
     "answerOptions": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "choices": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -49602,13 +49602,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "choices": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "active": true,
@@ -49650,15 +49650,15 @@ export const skillLevelGapQuestions = [
     "answer": "worried",
     "answerOptions": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "choices": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -49700,13 +49700,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "choices": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "active": true,
@@ -49748,15 +49748,15 @@ export const skillLevelGapQuestions = [
     "answer": "curious",
     "answerOptions": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "choices": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -49798,13 +49798,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "choices": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "active": true,
@@ -49846,15 +49846,15 @@ export const skillLevelGapQuestions = [
     "answer": "confident",
     "answerOptions": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "choices": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -49896,13 +49896,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "choices": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "active": true,
@@ -49944,15 +49944,15 @@ export const skillLevelGapQuestions = [
     "answer": "worried",
     "answerOptions": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "choices": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -49994,13 +49994,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "choices": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "active": true,
@@ -50042,15 +50042,15 @@ export const skillLevelGapQuestions = [
     "answer": "curious",
     "answerOptions": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "choices": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -50092,13 +50092,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "choices": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "active": true,
@@ -50140,15 +50140,15 @@ export const skillLevelGapQuestions = [
     "answer": "confident",
     "answerOptions": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "choices": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -50190,13 +50190,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "choices": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "active": true,
@@ -50238,15 +50238,15 @@ export const skillLevelGapQuestions = [
     "answer": "worried",
     "answerOptions": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "choices": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -50288,13 +50288,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "choices": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "active": true,
@@ -50336,15 +50336,15 @@ export const skillLevelGapQuestions = [
     "answer": "curious",
     "answerOptions": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "choices": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -50386,13 +50386,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "choices": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "active": true,
@@ -50434,15 +50434,15 @@ export const skillLevelGapQuestions = [
     "answer": "worried",
     "answerOptions": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "choices": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -50484,13 +50484,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "choices": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "active": true,
@@ -50532,15 +50532,15 @@ export const skillLevelGapQuestions = [
     "answer": "curious",
     "answerOptions": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "choices": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -50582,13 +50582,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "choices": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "active": true,
@@ -50630,15 +50630,15 @@ export const skillLevelGapQuestions = [
     "answer": "confident",
     "answerOptions": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "choices": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -50680,13 +50680,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "choices": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "active": true,
@@ -50728,15 +50728,15 @@ export const skillLevelGapQuestions = [
     "answer": "worried",
     "answerOptions": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "choices": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -50778,13 +50778,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "choices": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "active": true,
@@ -50826,15 +50826,15 @@ export const skillLevelGapQuestions = [
     "answer": "curious",
     "answerOptions": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "choices": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -50876,13 +50876,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "choices": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "active": true,
@@ -50924,15 +50924,15 @@ export const skillLevelGapQuestions = [
     "answer": "confident",
     "answerOptions": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "choices": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -50974,13 +50974,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "choices": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "active": true,
@@ -51022,15 +51022,15 @@ export const skillLevelGapQuestions = [
     "answer": "worried",
     "answerOptions": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "choices": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -51072,13 +51072,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "choices": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "active": true,
@@ -51120,15 +51120,15 @@ export const skillLevelGapQuestions = [
     "answer": "curious",
     "answerOptions": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "choices": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -51170,13 +51170,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "choices": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "active": true,
@@ -51218,15 +51218,15 @@ export const skillLevelGapQuestions = [
     "answer": "confident",
     "answerOptions": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "choices": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -51268,13 +51268,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "choices": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "active": true,
@@ -51316,15 +51316,15 @@ export const skillLevelGapQuestions = [
     "answer": "worried",
     "answerOptions": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "choices": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -51366,13 +51366,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "choices": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "active": true,
@@ -51414,15 +51414,15 @@ export const skillLevelGapQuestions = [
     "answer": "curious",
     "answerOptions": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "choices": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -51464,13 +51464,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "choices": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "active": true,
@@ -51512,15 +51512,15 @@ export const skillLevelGapQuestions = [
     "answer": "confident",
     "answerOptions": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "choices": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -51562,13 +51562,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "choices": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "active": true,
@@ -51610,15 +51610,15 @@ export const skillLevelGapQuestions = [
     "answer": "worried",
     "answerOptions": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "choices": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -51660,13 +51660,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "choices": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "active": true,
@@ -51708,15 +51708,15 @@ export const skillLevelGapQuestions = [
     "answer": "curious",
     "answerOptions": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "choices": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -51758,13 +51758,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "choices": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "active": true,
@@ -51806,15 +51806,15 @@ export const skillLevelGapQuestions = [
     "answer": "confident",
     "answerOptions": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "choices": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -51856,13 +51856,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "choices": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "active": true,
@@ -51904,15 +51904,15 @@ export const skillLevelGapQuestions = [
     "answer": "worried",
     "answerOptions": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "choices": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -51954,13 +51954,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "choices": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "active": true,
@@ -52002,15 +52002,15 @@ export const skillLevelGapQuestions = [
     "answer": "curious",
     "answerOptions": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "choices": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -52052,13 +52052,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "choices": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "active": true,
@@ -52100,15 +52100,15 @@ export const skillLevelGapQuestions = [
     "answer": "confident",
     "answerOptions": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "choices": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -52150,13 +52150,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "choices": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "active": true,
@@ -52198,15 +52198,15 @@ export const skillLevelGapQuestions = [
     "answer": "worried",
     "answerOptions": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "choices": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -52248,13 +52248,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "choices": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "active": true,
@@ -52296,15 +52296,15 @@ export const skillLevelGapQuestions = [
     "answer": "curious",
     "answerOptions": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "choices": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -52346,13 +52346,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "choices": [
       "disappointed",
       "bored",
-      "silly",
+      "silly and giggly",
       "angry"
     ],
     "active": true,
@@ -52394,15 +52394,15 @@ export const skillLevelGapQuestions = [
     "answer": "confident",
     "answerOptions": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "choices": [
       "confident",
-      "silly",
+      "silly and giggly",
       "angry",
-      "sleepy"
+      "very sleepy"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -52444,13 +52444,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "choices": [
       "proud",
       "angry",
-      "sleepy",
+      "very sleepy",
       "hungry"
     ],
     "active": true,
@@ -52492,15 +52492,15 @@ export const skillLevelGapQuestions = [
     "answer": "worried",
     "answerOptions": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "choices": [
       "worried",
-      "sleepy",
+      "very sleepy",
       "hungry",
-      "jealous"
+      "jealous of a friend"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -52542,13 +52542,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "choices": [
       "relieved",
       "hungry",
-      "jealous",
+      "jealous of a friend",
       "bored"
     ],
     "active": true,
@@ -52590,15 +52590,15 @@ export const skillLevelGapQuestions = [
     "answer": "curious",
     "answerOptions": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "choices": [
       "curious",
-      "jealous",
+      "jealous of a friend",
       "bored",
-      "silly"
+      "silly and giggly"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -52639,15 +52639,15 @@ export const skillLevelGapQuestions = [
     "answer": "the wind knocked over the sign",
     "answerOptions": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "choices": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -52689,14 +52689,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "choices": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -52737,15 +52737,15 @@ export const skillLevelGapQuestions = [
     "answer": "the path was covered with ice",
     "answerOptions": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "choices": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -52786,14 +52786,14 @@ export const skillLevelGapQuestions = [
     "answer": "the lantern battery was weak",
     "answerOptions": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "choices": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "active": true,
@@ -52835,15 +52835,15 @@ export const skillLevelGapQuestions = [
     "answer": "the gate latch was loose",
     "answerOptions": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "choices": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -52885,13 +52885,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "choices": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "active": true,
@@ -52933,15 +52933,15 @@ export const skillLevelGapQuestions = [
     "answer": "the wind knocked over the sign",
     "answerOptions": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "choices": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -52983,14 +52983,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "choices": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -53031,15 +53031,15 @@ export const skillLevelGapQuestions = [
     "answer": "the path was covered with ice",
     "answerOptions": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "choices": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -53080,14 +53080,14 @@ export const skillLevelGapQuestions = [
     "answer": "the lantern battery was weak",
     "answerOptions": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "choices": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "active": true,
@@ -53129,15 +53129,15 @@ export const skillLevelGapQuestions = [
     "answer": "the gate latch was loose",
     "answerOptions": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "choices": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -53179,13 +53179,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "choices": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "active": true,
@@ -53227,15 +53227,15 @@ export const skillLevelGapQuestions = [
     "answer": "the wind knocked over the sign",
     "answerOptions": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "choices": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -53277,14 +53277,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "choices": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -53325,15 +53325,15 @@ export const skillLevelGapQuestions = [
     "answer": "the path was covered with ice",
     "answerOptions": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "choices": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -53374,14 +53374,14 @@ export const skillLevelGapQuestions = [
     "answer": "the lantern battery was weak",
     "answerOptions": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "choices": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "active": true,
@@ -53423,15 +53423,15 @@ export const skillLevelGapQuestions = [
     "answer": "the gate latch was loose",
     "answerOptions": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "choices": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -53473,13 +53473,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "choices": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "active": true,
@@ -53521,15 +53521,15 @@ export const skillLevelGapQuestions = [
     "answer": "the wind knocked over the sign",
     "answerOptions": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "choices": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -53571,14 +53571,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "choices": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -53619,15 +53619,15 @@ export const skillLevelGapQuestions = [
     "answer": "the path was covered with ice",
     "answerOptions": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "choices": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -53668,14 +53668,14 @@ export const skillLevelGapQuestions = [
     "answer": "the lantern battery was weak",
     "answerOptions": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "choices": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "active": true,
@@ -53717,15 +53717,15 @@ export const skillLevelGapQuestions = [
     "answer": "the gate latch was loose",
     "answerOptions": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "choices": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -53767,13 +53767,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "choices": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "active": true,
@@ -53815,15 +53815,15 @@ export const skillLevelGapQuestions = [
     "answer": "the wind knocked over the sign",
     "answerOptions": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "choices": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -53865,14 +53865,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "choices": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -53913,15 +53913,15 @@ export const skillLevelGapQuestions = [
     "answer": "the path was covered with ice",
     "answerOptions": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "choices": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -53962,14 +53962,14 @@ export const skillLevelGapQuestions = [
     "answer": "the lantern battery was weak",
     "answerOptions": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "choices": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "active": true,
@@ -54011,15 +54011,15 @@ export const skillLevelGapQuestions = [
     "answer": "the gate latch was loose",
     "answerOptions": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "choices": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -54061,13 +54061,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "choices": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "active": true,
@@ -54109,15 +54109,15 @@ export const skillLevelGapQuestions = [
     "answer": "the wind knocked over the sign",
     "answerOptions": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "choices": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -54159,14 +54159,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "choices": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -54207,15 +54207,15 @@ export const skillLevelGapQuestions = [
     "answer": "the path was covered with ice",
     "answerOptions": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "choices": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -54256,14 +54256,14 @@ export const skillLevelGapQuestions = [
     "answer": "the lantern battery was weak",
     "answerOptions": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "choices": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "active": true,
@@ -54305,15 +54305,15 @@ export const skillLevelGapQuestions = [
     "answer": "the gate latch was loose",
     "answerOptions": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "choices": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -54355,13 +54355,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "choices": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "active": true,
@@ -54403,15 +54403,15 @@ export const skillLevelGapQuestions = [
     "answer": "the wind knocked over the sign",
     "answerOptions": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "choices": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -54453,14 +54453,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "choices": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -54501,15 +54501,15 @@ export const skillLevelGapQuestions = [
     "answer": "the path was covered with ice",
     "answerOptions": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "choices": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -54550,14 +54550,14 @@ export const skillLevelGapQuestions = [
     "answer": "the lantern battery was weak",
     "answerOptions": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "choices": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "active": true,
@@ -54599,15 +54599,15 @@ export const skillLevelGapQuestions = [
     "answer": "the gate latch was loose",
     "answerOptions": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "choices": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -54649,13 +54649,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "choices": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "active": true,
@@ -54697,15 +54697,15 @@ export const skillLevelGapQuestions = [
     "answer": "the wind knocked over the sign",
     "answerOptions": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "choices": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -54747,14 +54747,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "choices": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -54795,15 +54795,15 @@ export const skillLevelGapQuestions = [
     "answer": "the path was covered with ice",
     "answerOptions": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "choices": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -54844,14 +54844,14 @@ export const skillLevelGapQuestions = [
     "answer": "the lantern battery was weak",
     "answerOptions": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "choices": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "active": true,
@@ -54893,15 +54893,15 @@ export const skillLevelGapQuestions = [
     "answer": "the wind knocked over the sign",
     "answerOptions": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "choices": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -54943,14 +54943,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "choices": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -54991,15 +54991,15 @@ export const skillLevelGapQuestions = [
     "answer": "the path was covered with ice",
     "answerOptions": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "choices": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -55040,14 +55040,14 @@ export const skillLevelGapQuestions = [
     "answer": "the lantern battery was weak",
     "answerOptions": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "choices": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "active": true,
@@ -55089,15 +55089,15 @@ export const skillLevelGapQuestions = [
     "answer": "the gate latch was loose",
     "answerOptions": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "choices": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -55139,13 +55139,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "choices": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "active": true,
@@ -55187,15 +55187,15 @@ export const skillLevelGapQuestions = [
     "answer": "the wind knocked over the sign",
     "answerOptions": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "choices": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -55237,14 +55237,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "choices": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -55285,15 +55285,15 @@ export const skillLevelGapQuestions = [
     "answer": "the path was covered with ice",
     "answerOptions": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "choices": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -55334,14 +55334,14 @@ export const skillLevelGapQuestions = [
     "answer": "the lantern battery was weak",
     "answerOptions": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "choices": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "active": true,
@@ -55383,15 +55383,15 @@ export const skillLevelGapQuestions = [
     "answer": "the gate latch was loose",
     "answerOptions": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "choices": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -55433,13 +55433,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "choices": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "active": true,
@@ -55481,15 +55481,15 @@ export const skillLevelGapQuestions = [
     "answer": "the wind knocked over the sign",
     "answerOptions": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "choices": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -55531,14 +55531,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "choices": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -55579,15 +55579,15 @@ export const skillLevelGapQuestions = [
     "answer": "the path was covered with ice",
     "answerOptions": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "choices": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -55628,14 +55628,14 @@ export const skillLevelGapQuestions = [
     "answer": "the lantern battery was weak",
     "answerOptions": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "choices": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "active": true,
@@ -55677,15 +55677,15 @@ export const skillLevelGapQuestions = [
     "answer": "the gate latch was loose",
     "answerOptions": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "choices": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -55727,13 +55727,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "choices": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "active": true,
@@ -55775,15 +55775,15 @@ export const skillLevelGapQuestions = [
     "answer": "the wind knocked over the sign",
     "answerOptions": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "choices": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -55825,14 +55825,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "choices": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -55873,15 +55873,15 @@ export const skillLevelGapQuestions = [
     "answer": "the path was covered with ice",
     "answerOptions": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "choices": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -55922,14 +55922,14 @@ export const skillLevelGapQuestions = [
     "answer": "the lantern battery was weak",
     "answerOptions": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "choices": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "active": true,
@@ -55971,15 +55971,15 @@ export const skillLevelGapQuestions = [
     "answer": "the gate latch was loose",
     "answerOptions": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "choices": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -56021,13 +56021,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "choices": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "active": true,
@@ -56069,15 +56069,15 @@ export const skillLevelGapQuestions = [
     "answer": "the wind knocked over the sign",
     "answerOptions": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "choices": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -56119,14 +56119,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "choices": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -56167,15 +56167,15 @@ export const skillLevelGapQuestions = [
     "answer": "the path was covered with ice",
     "answerOptions": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "choices": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -56216,14 +56216,14 @@ export const skillLevelGapQuestions = [
     "answer": "the lantern battery was weak",
     "answerOptions": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "choices": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "active": true,
@@ -56265,15 +56265,15 @@ export const skillLevelGapQuestions = [
     "answer": "the gate latch was loose",
     "answerOptions": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "choices": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -56315,13 +56315,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "choices": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "active": true,
@@ -56363,15 +56363,15 @@ export const skillLevelGapQuestions = [
     "answer": "the wind knocked over the sign",
     "answerOptions": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "choices": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -56413,14 +56413,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "choices": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -56461,15 +56461,15 @@ export const skillLevelGapQuestions = [
     "answer": "the path was covered with ice",
     "answerOptions": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "choices": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -56510,14 +56510,14 @@ export const skillLevelGapQuestions = [
     "answer": "the lantern battery was weak",
     "answerOptions": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "choices": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "active": true,
@@ -56559,15 +56559,15 @@ export const skillLevelGapQuestions = [
     "answer": "the gate latch was loose",
     "answerOptions": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "choices": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -56609,13 +56609,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "choices": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "active": true,
@@ -56657,15 +56657,15 @@ export const skillLevelGapQuestions = [
     "answer": "the wind knocked over the sign",
     "answerOptions": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "choices": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -56707,14 +56707,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "choices": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -56755,15 +56755,15 @@ export const skillLevelGapQuestions = [
     "answer": "the path was covered with ice",
     "answerOptions": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "choices": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -56804,14 +56804,14 @@ export const skillLevelGapQuestions = [
     "answer": "the lantern battery was weak",
     "answerOptions": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "choices": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "active": true,
@@ -56853,15 +56853,15 @@ export const skillLevelGapQuestions = [
     "answer": "the gate latch was loose",
     "answerOptions": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "choices": [
       "the gate latch was loose",
-      "the chairs were stacked neatly",
+      "the chairs were stacked neatly in rows",
       "the window was clean",
-      "the lunch was packed early"
+      "the lunch was packed early that morning"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -56903,13 +56903,13 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "choices": [
       "rain filled the low part of the trail",
       "the window was clean",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song"
     ],
     "active": true,
@@ -56951,15 +56951,15 @@ export const skillLevelGapQuestions = [
     "answer": "the wind knocked over the sign",
     "answerOptions": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "choices": [
       "the wind knocked over the sign",
-      "the lunch was packed early",
+      "the lunch was packed early that morning",
       "the team sang a song",
-      "the clock was painted blue"
+      "the clock was painted a bright blue"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -57001,14 +57001,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "choices": [
       "the bucket had a small crack",
       "the team sang a song",
-      "the clock was painted blue",
-      "the notebook had a sticker"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -57049,15 +57049,15 @@ export const skillLevelGapQuestions = [
     "answer": "the path was covered with ice",
     "answerOptions": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "choices": [
       "the path was covered with ice",
-      "the clock was painted blue",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly"
+      "the clock was painted a bright blue",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -57098,14 +57098,14 @@ export const skillLevelGapQuestions = [
     "answer": "the lantern battery was weak",
     "answerOptions": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "choices": [
       "the lantern battery was weak",
-      "the notebook had a sticker",
-      "the chairs were stacked neatly",
+      "the notebook had a sticker on the front",
+      "the chairs were stacked neatly in rows",
       "the window was clean"
     ],
     "active": true,
@@ -61655,15 +61655,15 @@ export const skillLevelGapQuestions = [
     "answer": "think before acting",
     "answerOptions": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "choices": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -61705,14 +61705,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "choices": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -61753,15 +61753,15 @@ export const skillLevelGapQuestions = [
     "answer": "small choices can keep people safe",
     "answerOptions": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "choices": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -61802,15 +61802,15 @@ export const skillLevelGapQuestions = [
     "answer": "practice helps you improve",
     "answerOptions": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "choices": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -61851,15 +61851,15 @@ export const skillLevelGapQuestions = [
     "answer": "kindness can solve a problem",
     "answerOptions": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "choices": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -61900,14 +61900,14 @@ export const skillLevelGapQuestions = [
     "answer": "be honest when something goes wrong",
     "answerOptions": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "choices": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "active": true,
@@ -61949,15 +61949,15 @@ export const skillLevelGapQuestions = [
     "answer": "think before acting",
     "answerOptions": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "choices": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -61999,14 +61999,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "choices": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62047,15 +62047,15 @@ export const skillLevelGapQuestions = [
     "answer": "small choices can keep people safe",
     "answerOptions": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "choices": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62096,15 +62096,15 @@ export const skillLevelGapQuestions = [
     "answer": "practice helps you improve",
     "answerOptions": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "choices": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62145,15 +62145,15 @@ export const skillLevelGapQuestions = [
     "answer": "kindness can solve a problem",
     "answerOptions": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "choices": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62194,14 +62194,14 @@ export const skillLevelGapQuestions = [
     "answer": "be honest when something goes wrong",
     "answerOptions": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "choices": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "active": true,
@@ -62243,15 +62243,15 @@ export const skillLevelGapQuestions = [
     "answer": "think before acting",
     "answerOptions": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "choices": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62293,14 +62293,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "choices": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62341,15 +62341,15 @@ export const skillLevelGapQuestions = [
     "answer": "small choices can keep people safe",
     "answerOptions": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "choices": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62390,15 +62390,15 @@ export const skillLevelGapQuestions = [
     "answer": "practice helps you improve",
     "answerOptions": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "choices": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62439,15 +62439,15 @@ export const skillLevelGapQuestions = [
     "answer": "kindness can solve a problem",
     "answerOptions": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "choices": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62488,14 +62488,14 @@ export const skillLevelGapQuestions = [
     "answer": "be honest when something goes wrong",
     "answerOptions": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "choices": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "active": true,
@@ -62537,15 +62537,15 @@ export const skillLevelGapQuestions = [
     "answer": "think before acting",
     "answerOptions": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "choices": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62587,14 +62587,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "choices": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62635,15 +62635,15 @@ export const skillLevelGapQuestions = [
     "answer": "small choices can keep people safe",
     "answerOptions": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "choices": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62684,15 +62684,15 @@ export const skillLevelGapQuestions = [
     "answer": "practice helps you improve",
     "answerOptions": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "choices": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62733,15 +62733,15 @@ export const skillLevelGapQuestions = [
     "answer": "kindness can solve a problem",
     "answerOptions": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "choices": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62782,14 +62782,14 @@ export const skillLevelGapQuestions = [
     "answer": "be honest when something goes wrong",
     "answerOptions": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "choices": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "active": true,
@@ -62831,15 +62831,15 @@ export const skillLevelGapQuestions = [
     "answer": "think before acting",
     "answerOptions": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "choices": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62881,14 +62881,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "choices": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62929,15 +62929,15 @@ export const skillLevelGapQuestions = [
     "answer": "small choices can keep people safe",
     "answerOptions": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "choices": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -62978,15 +62978,15 @@ export const skillLevelGapQuestions = [
     "answer": "practice helps you improve",
     "answerOptions": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "choices": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63027,15 +63027,15 @@ export const skillLevelGapQuestions = [
     "answer": "kindness can solve a problem",
     "answerOptions": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "choices": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63076,14 +63076,14 @@ export const skillLevelGapQuestions = [
     "answer": "be honest when something goes wrong",
     "answerOptions": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "choices": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "active": true,
@@ -63125,15 +63125,15 @@ export const skillLevelGapQuestions = [
     "answer": "think before acting",
     "answerOptions": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "choices": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63175,14 +63175,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "choices": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63223,15 +63223,15 @@ export const skillLevelGapQuestions = [
     "answer": "small choices can keep people safe",
     "answerOptions": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "choices": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63272,15 +63272,15 @@ export const skillLevelGapQuestions = [
     "answer": "practice helps you improve",
     "answerOptions": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "choices": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63321,15 +63321,15 @@ export const skillLevelGapQuestions = [
     "answer": "kindness can solve a problem",
     "answerOptions": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "choices": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63370,14 +63370,14 @@ export const skillLevelGapQuestions = [
     "answer": "be honest when something goes wrong",
     "answerOptions": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "choices": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "active": true,
@@ -63419,15 +63419,15 @@ export const skillLevelGapQuestions = [
     "answer": "think before acting",
     "answerOptions": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "choices": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63469,14 +63469,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "choices": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63517,15 +63517,15 @@ export const skillLevelGapQuestions = [
     "answer": "small choices can keep people safe",
     "answerOptions": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "choices": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63566,15 +63566,15 @@ export const skillLevelGapQuestions = [
     "answer": "practice helps you improve",
     "answerOptions": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "choices": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63615,15 +63615,15 @@ export const skillLevelGapQuestions = [
     "answer": "kindness can solve a problem",
     "answerOptions": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "choices": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63664,14 +63664,14 @@ export const skillLevelGapQuestions = [
     "answer": "be honest when something goes wrong",
     "answerOptions": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "choices": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "active": true,
@@ -63713,15 +63713,15 @@ export const skillLevelGapQuestions = [
     "answer": "think before acting",
     "answerOptions": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "choices": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63763,14 +63763,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "choices": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63811,15 +63811,15 @@ export const skillLevelGapQuestions = [
     "answer": "small choices can keep people safe",
     "answerOptions": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "choices": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63860,15 +63860,15 @@ export const skillLevelGapQuestions = [
     "answer": "practice helps you improve",
     "answerOptions": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "choices": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63909,15 +63909,15 @@ export const skillLevelGapQuestions = [
     "answer": "think before acting",
     "answerOptions": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "choices": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -63959,14 +63959,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "choices": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64007,15 +64007,15 @@ export const skillLevelGapQuestions = [
     "answer": "small choices can keep people safe",
     "answerOptions": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "choices": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64056,15 +64056,15 @@ export const skillLevelGapQuestions = [
     "answer": "practice helps you improve",
     "answerOptions": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "choices": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64105,15 +64105,15 @@ export const skillLevelGapQuestions = [
     "answer": "kindness can solve a problem",
     "answerOptions": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "choices": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64154,14 +64154,14 @@ export const skillLevelGapQuestions = [
     "answer": "be honest when something goes wrong",
     "answerOptions": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "choices": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "active": true,
@@ -64203,15 +64203,15 @@ export const skillLevelGapQuestions = [
     "answer": "think before acting",
     "answerOptions": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "choices": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64253,14 +64253,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "choices": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64301,15 +64301,15 @@ export const skillLevelGapQuestions = [
     "answer": "small choices can keep people safe",
     "answerOptions": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "choices": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64350,15 +64350,15 @@ export const skillLevelGapQuestions = [
     "answer": "practice helps you improve",
     "answerOptions": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "choices": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64399,15 +64399,15 @@ export const skillLevelGapQuestions = [
     "answer": "kindness can solve a problem",
     "answerOptions": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "choices": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64448,14 +64448,14 @@ export const skillLevelGapQuestions = [
     "answer": "be honest when something goes wrong",
     "answerOptions": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "choices": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "active": true,
@@ -64497,15 +64497,15 @@ export const skillLevelGapQuestions = [
     "answer": "think before acting",
     "answerOptions": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "choices": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64547,14 +64547,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "choices": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64595,15 +64595,15 @@ export const skillLevelGapQuestions = [
     "answer": "small choices can keep people safe",
     "answerOptions": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "choices": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64644,15 +64644,15 @@ export const skillLevelGapQuestions = [
     "answer": "practice helps you improve",
     "answerOptions": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "choices": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64693,15 +64693,15 @@ export const skillLevelGapQuestions = [
     "answer": "kindness can solve a problem",
     "answerOptions": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "choices": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64742,14 +64742,14 @@ export const skillLevelGapQuestions = [
     "answer": "be honest when something goes wrong",
     "answerOptions": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "choices": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "active": true,
@@ -64791,15 +64791,15 @@ export const skillLevelGapQuestions = [
     "answer": "think before acting",
     "answerOptions": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "choices": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64841,14 +64841,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "choices": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64889,15 +64889,15 @@ export const skillLevelGapQuestions = [
     "answer": "small choices can keep people safe",
     "answerOptions": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "choices": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64938,15 +64938,15 @@ export const skillLevelGapQuestions = [
     "answer": "practice helps you improve",
     "answerOptions": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "choices": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -64987,15 +64987,15 @@ export const skillLevelGapQuestions = [
     "answer": "kindness can solve a problem",
     "answerOptions": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "choices": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -65036,14 +65036,14 @@ export const skillLevelGapQuestions = [
     "answer": "be honest when something goes wrong",
     "answerOptions": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "choices": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "active": true,
@@ -65085,15 +65085,15 @@ export const skillLevelGapQuestions = [
     "answer": "think before acting",
     "answerOptions": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "choices": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -65135,14 +65135,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "choices": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -65183,15 +65183,15 @@ export const skillLevelGapQuestions = [
     "answer": "small choices can keep people safe",
     "answerOptions": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "choices": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -65232,15 +65232,15 @@ export const skillLevelGapQuestions = [
     "answer": "practice helps you improve",
     "answerOptions": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "choices": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -65281,15 +65281,15 @@ export const skillLevelGapQuestions = [
     "answer": "kindness can solve a problem",
     "answerOptions": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "choices": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -65330,14 +65330,14 @@ export const skillLevelGapQuestions = [
     "answer": "be honest when something goes wrong",
     "answerOptions": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "choices": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "active": true,
@@ -65379,15 +65379,15 @@ export const skillLevelGapQuestions = [
     "answer": "think before acting",
     "answerOptions": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "choices": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -65429,14 +65429,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "choices": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -65477,15 +65477,15 @@ export const skillLevelGapQuestions = [
     "answer": "small choices can keep people safe",
     "answerOptions": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "choices": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -65526,15 +65526,15 @@ export const skillLevelGapQuestions = [
     "answer": "practice helps you improve",
     "answerOptions": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "choices": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -65575,15 +65575,15 @@ export const skillLevelGapQuestions = [
     "answer": "kindness can solve a problem",
     "answerOptions": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "choices": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -65624,14 +65624,14 @@ export const skillLevelGapQuestions = [
     "answer": "be honest when something goes wrong",
     "answerOptions": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "choices": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "active": true,
@@ -65673,15 +65673,15 @@ export const skillLevelGapQuestions = [
     "answer": "think before acting",
     "answerOptions": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "choices": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -65723,14 +65723,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "choices": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -65771,15 +65771,15 @@ export const skillLevelGapQuestions = [
     "answer": "small choices can keep people safe",
     "answerOptions": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "choices": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -65820,15 +65820,15 @@ export const skillLevelGapQuestions = [
     "answer": "practice helps you improve",
     "answerOptions": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "choices": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -65869,15 +65869,15 @@ export const skillLevelGapQuestions = [
     "answer": "kindness can solve a problem",
     "answerOptions": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "choices": [
       "kindness can solve a problem",
-      "quiet places are boring",
-      "tools are not useful",
-      "always work alone"
+      "quiet places are always boring",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -65918,14 +65918,14 @@ export const skillLevelGapQuestions = [
     "answer": "be honest when something goes wrong",
     "answerOptions": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "choices": [
       "be honest when something goes wrong",
-      "tools are not useful",
-      "always work alone",
+      "tools are never useful for big jobs",
+      "always work alone even when it is hard",
       "never change a plan"
     ],
     "active": true,
@@ -65967,15 +65967,15 @@ export const skillLevelGapQuestions = [
     "answer": "think before acting",
     "answerOptions": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "choices": [
       "think before acting",
-      "always work alone",
+      "always work alone even when it is hard",
       "never change a plan",
-      "hide problems from others"
+      "keep problems secret from your friends"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -66017,14 +66017,14 @@ export const skillLevelGapQuestions = [
     "answerOptions": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "choices": [
       "ask for help when a job is too hard",
       "never change a plan",
-      "hide problems from others",
-      "winning matters most"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -66065,15 +66065,15 @@ export const skillLevelGapQuestions = [
     "answer": "small choices can keep people safe",
     "answerOptions": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "choices": [
       "small choices can keep people safe",
-      "hide problems from others",
-      "winning matters most",
-      "quiet places are boring"
+      "keep problems secret from your friends",
+      "winning is the only thing that matters",
+      "quiet places are always boring"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",
@@ -66114,15 +66114,15 @@ export const skillLevelGapQuestions = [
     "answer": "practice helps you improve",
     "answerOptions": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "choices": [
       "practice helps you improve",
-      "winning matters most",
-      "quiet places are boring",
-      "tools are not useful"
+      "winning is the only thing that matters",
+      "quiet places are always boring",
+      "tools are never useful for big jobs"
     ],
     "active": true,
     "source": "skill_level_depth_gap_generator",

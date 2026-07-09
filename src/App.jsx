@@ -5372,7 +5372,7 @@ export default function App() {
       skill_id: stage.id,
       skill_label: stage.label,
       mastered,
-      attempts: 1,
+      attempts: (mastery?.[stage.id]?.attempts || 0) + 1,
       last_score: score,
       last_total: total
     });
@@ -5831,6 +5831,11 @@ export default function App() {
         [stage.id]: {
           attempts: (prev[stage.id]?.attempts || 0) + 1,
           mastered: mastered || prev[stage.id]?.mastered || false,
+          // A failed retake never silently disappears: keep the ratchet for
+          // the child, but stamp it so the teacher dashboard can surface it.
+          lastRetakeFailedAt: !mastered && prev[stage.id]?.mastered
+            ? new Date().toISOString()
+            : prev[stage.id]?.lastRetakeFailedAt || null,
           lastScore: score,
           lastTotal: ROUND_LENGTH
         }

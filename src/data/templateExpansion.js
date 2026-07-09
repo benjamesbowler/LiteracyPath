@@ -1609,7 +1609,7 @@ export const templateExpansion = [
     "choices": [
       "taking care of dogs",
       "buying toys",
-      "going to school",
+      "going to school with friends",
       "playing soccer"
     ],
     "answer": "taking care of dogs"

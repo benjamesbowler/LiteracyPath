@@ -2059,7 +2059,7 @@ export const templateExpansion6 = [
     "choices": [
       "what dentists do",
       "how dogs play",
-      "where fish swim"
+      "where fish swim all the time"
     ],
     "answer": "what dentists do"
   },
@@ -2126,7 +2126,7 @@ export const templateExpansion6 = [
     "questionType": "multiple_choice",
     "choices": [
       "libraries",
-      "parks",
+      "parks all day long",
       "cars"
     ],
     "answer": "libraries"
@@ -2144,7 +2144,7 @@ export const templateExpansion6 = [
     "choices": [
       "the backpack was open",
       "the books were cold",
-      "the pencil was sharp"
+      "the pencil was sharp in the story"
     ],
     "answer": "the backpack was open"
   },
@@ -2160,7 +2160,7 @@ export const templateExpansion6 = [
     "questionType": "multiple_choice",
     "choices": [
       "she woke up late",
-      "she ate fast",
+      "she ate fast with friends",
       "she wore red"
     ],
     "answer": "she woke up late"
@@ -2177,7 +2177,7 @@ export const templateExpansion6 = [
     "questionType": "multiple_choice",
     "choices": [
       "they stayed in the oven too long",
-      "they were on a plate",
+      "they were on a plate after lunch",
       "they were sweet"
     ],
     "answer": "they stayed in the oven too long"
@@ -2195,7 +2195,7 @@ export const templateExpansion6 = [
     "choices": [
       "the puppy chewed it",
       "the shoe was new",
-      "the shoe was blue"
+      "the shoe was blue in the morning"
     ],
     "answer": "the puppy chewed it"
   },
@@ -2313,7 +2313,7 @@ export const templateExpansion6 = [
     "questionType": "multiple_choice",
     "choices": [
       "helping the community is good",
-      "parks are food",
+      "parks are food every day in the story",
       "never clean"
     ],
     "answer": "helping the community is good"
@@ -2348,7 +2348,7 @@ export const templateExpansion6 = [
     "choices": [
       "kindness helps others",
       "rain is always bad",
-      "umbrellas are heavy"
+      "umbrellas are heavy every day"
     ],
     "answer": "kindness helps others"
   },
