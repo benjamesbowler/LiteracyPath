@@ -1295,10 +1295,12 @@ function startPs1ArcadeGame(mount, options) {
     // The final "GO"/blend beat is the reward moment — make it very forgiving
     // so a good run isn't lost on the last tap.
     const isBlend = notes[state.beatIndex] === "blend";
-    const windowSeconds = (state.roundWindow || state.level.hitWindowMs) / 1000 * (isBlend ? 2.6 : 1);
+    const windowSeconds = (state.roundWindow || state.level.hitWindowMs) / 1000;
     const delta = Math.abs(now - targetTime);
-    if (delta <= windowSeconds) {
-      const quality = delta <= windowSeconds * 0.33 ? "PERFECT" : delta <= windowSeconds * 0.66 ? "GREAT" : "GOOD";
+    // The final "GO"/blend has NO timing: once you reach it, tapping it any time
+    // finishes the word. Only the sound beats are timed.
+    if (isBlend || delta <= windowSeconds) {
+      const quality = isBlend ? "PERFECT" : delta <= windowSeconds * 0.33 ? "PERFECT" : delta <= windowSeconds * 0.66 ? "GREAT" : "GOOD";
       state.judgement = quality;
       state.judgementT = 0.72;
       state.beatPulse = quality === "PERFECT" ? 1 : quality === "GREAT" ? 0.82 : 0.65;
@@ -1527,9 +1529,10 @@ function startPs1ArcadeGame(mount, options) {
         const notes = [...state.currentTask.item.beats, "blend"];
         const spacing = 60 / (state.roundBpm || state.level.bpm);
         const targetTime = state.noteStart + state.beatIndex * spacing;
-        const autoMissWindow = (state.roundWindow || state.level.hitWindowMs) / 1000
-          * (notes[state.beatIndex] === "blend" ? 2.6 : 1);
-        if (state.beatIndex < notes.length && now - targetTime > autoMissWindow + 0.12) {
+        const autoMissWindow = (state.roundWindow || state.level.hitWindowMs) / 1000;
+        // Never auto-miss the final "GO"/blend beat — it waits for the tap so
+        // the word is never lost at the finish line. Only letter beats time out.
+        if (state.beatIndex < notes.length - 1 && now - targetTime > autoMissWindow + 0.12) {
           missCurrent();
         }
       }

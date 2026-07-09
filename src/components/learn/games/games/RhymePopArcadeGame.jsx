@@ -1574,8 +1574,11 @@ function startRhymePopArcadeGame(mount, options) {
     const bubble = makeRhymeBubble(task, kind, removedIndex, avoidWord)
       || makeRhymeBubble(task, "distractor", removedIndex, avoidWord);
     if (!bubble) return;
-    state.bubbles.splice(removedIndex, 0, rhymeBubbleShape(bubble, removedIndex, task.level.visibleBalloons));
-    state.bubbles = state.bubbles.map((item, index) => rhymeBubbleShape(item, index, state.bubbles.length));
+    // Only place the NEW balloon. Do not re-lay-out the others — re-shaping all
+    // bubbles snapped every balloon back to the grid on each pop (the "reset"/
+    // jump). Existing balloons keep drifting from where they were.
+    const shaped = rhymeBubbleShape(bubble, Math.min(removedIndex, task.level.visibleBalloons - 1), task.level.visibleBalloons);
+    state.bubbles.splice(Math.min(removedIndex, state.bubbles.length), 0, shaped);
   }
 
   function setupEntities() {
