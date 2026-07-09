@@ -2099,26 +2099,48 @@ export default function RhymePopArcadeGame({
 }) {
   const mountRef = useRef(null);
   const soundRef = useRef(isSoundEnabled);
+  const handlersRef = useRef({
+    onScoreUpdate,
+    onProgressUpdate,
+    onComplete,
+    onCheckpoint,
+    onEngineReady
+  });
 
   useEffect(() => {
     soundRef.current = isSoundEnabled;
   }, [isSoundEnabled]);
 
   useEffect(() => {
+    handlersRef.current = {
+      onScoreUpdate,
+      onProgressUpdate,
+      onComplete,
+      onCheckpoint,
+      onEngineReady
+    };
+  }, [onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady]);
+
+  // Mount the engine ONCE per game/difficulty/start. The callback props used to
+  // sit in this dependency array, so every score or progress update re-rendered
+  // the parent, handed down fresh callback identities, and tore the engine down
+  // and rebuilt it — the countdown/"reset over and over" loop. Handlers now go
+  // through a ref, so scoring never rebuilds the engine mid-play.
+  useEffect(() => {
     if (!mountRef.current) return undefined;
     const engine = startRhymePopArcadeGame(mountRef.current, {
       kind,
       difficulty,
       startLevel,
-      onScoreUpdate,
-      onProgressUpdate,
-      onComplete,
-      onCheckpoint,
-      onEngineReady,
+      onScoreUpdate: score => handlersRef.current.onScoreUpdate?.(score),
+      onProgressUpdate: (current, total) => handlersRef.current.onProgressUpdate?.(current, total),
+      onComplete: (stars, finalScore, total) => handlersRef.current.onComplete?.(stars, finalScore, total),
+      onCheckpoint: (level, total) => handlersRef.current.onCheckpoint?.(level, total),
+      onEngineReady: api => handlersRef.current.onEngineReady?.(api),
       getSound: () => soundRef.current
     });
     return () => engine.destroy();
-  }, [kind, difficulty, startLevel, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady]);
+  }, [kind, difficulty, startLevel]);
 
   return (
     <div
