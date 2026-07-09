@@ -175,6 +175,10 @@ function normalizeRuntimeSkillId(value = "") {
 function keepRuntimeQuestion(question = {}) {
   const skillId = normalizeRuntimeSkillId(question.skillId || question.assessmentSkillId || question.skillName || question.skill || "");
   if (!replacedLegacyAssessmentSkills.has(skillId)) return true;
+  // Sentence-picture items live under the legacy "sentence_comprehension"
+  // skillId but ARE the managed Sentence Picture Matching bank - the
+  // generated replacement never covered picture matching, so keep them.
+  if (String(question.templateType || "") === "SENTENCE_MATCHES_PICTURE") return true;
   return question.source === GENERATED_REPLACEMENT_SOURCE ||
     question.tags?.includes("generated-gap");
 }

@@ -49,7 +49,8 @@ function makeTemplateQuestion({
   distractorType = "contrast",
   tags = [],
   partialWord = "",
-  soundTiles = []
+  soundTiles = [],
+  imageOverride = ""
 }) {
   const targetAsset = imageWord ? assetFor(imageWord) : null;
   const audioAsset = audioWord ? assetFor(audioWord) : null;
@@ -96,8 +97,8 @@ function makeTemplateQuestion({
     choices: normalizedOptions.map(option => option.value),
     answerOptions: normalizedOptions,
     imageKey: imageWord,
-    imageUrl: targetAsset?.image || "",
-    imagePath: targetAsset?.image || "",
+    imageUrl: imageOverride || targetAsset?.image || "",
+    imagePath: imageOverride || targetAsset?.image || "",
     audioKey: audioWord,
     audioUrl: audioAsset?.audio || "",
     audioPath: audioAsset?.audio || "",
@@ -380,6 +381,7 @@ const shortVowelQuestions = shortVowelItems.map(([itemKey, label, correct, distr
 const sentencePictureQuestions = sentencePictureItems.flatMap(([imageWord, correct, distractor, harderCorrect, harderDistractor], index) => {
   const question = makeTemplateQuestion({
     id: `ixl_sentence_picture_${index + 1}`,
+    imageOverride: `/images/child-mode/sentence-scenes/${imageWord}.webp`,
     skillId: "sentence_comprehension",
     skillName: "Sentence Comprehension",
     templateType: "SENTENCE_MATCHES_PICTURE",
@@ -394,6 +396,7 @@ const sentencePictureQuestions = sentencePictureItems.flatMap(([imageWord, corre
   });
   const harderQuestion = makeTemplateQuestion({
     id: `ixl_sentence_picture_b_${index + 1}`,
+    imageOverride: `/images/child-mode/sentence-scenes/${imageWord}.webp`,
     skillId: "sentence_comprehension",
     skillName: "Sentence Comprehension",
     level: 2,

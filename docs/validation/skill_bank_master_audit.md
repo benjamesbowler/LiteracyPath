@@ -7,22 +7,22 @@ Date: 2026-05-25
 - Managed skills: 11
 - Skill-bank items scanned: 4827
 - Fatal active media-complete failures: 0
-- Expansion/media warnings: 12
+- Expansion/media warnings: 11
 
 ## Skill Coverage Table
 
 | Skill | Active Items | Media-Complete Items | Active Targets | Media-Complete Targets | Per-Level Count | Missing Images | Missing Audio | Blocked Targets |
 |---|---:|---:|---:|---:|---|---:|---:|---|
 | Initial Sounds | 668 | 555 | 25 | 25 | L1:389, L2:279 | 113 | 113 | none |
-| Ending Sounds | 547 | 380 | 27 | 26 | L1:200, L2:347 | 78 | 167 | none |
+| Ending Sounds | 549 | 382 | 27 | 26 | L1:200, L2:349 | 78 | 167 | none |
 | Rhyming Words | 814 | 721 | 54 | 49 | L1:571, L2:243 | 93 | 0 | none |
-| Short Vowels | 495 | 314 | 5 | 5 | L1:227, L2:268 | 0 | 181 | none |
+| Short Vowels | 463 | 282 | 5 | 5 | L1:195, L2:268 | 0 | 181 | none |
 | Blends | 177 | 71 | 79 | 12 | L1:116, L2:61 | 106 | 95 | gl, pl, gr, pr |
-| Digraphs | 289 | 96 | 67 | 6 | L1:153, L2:86, L3:50 | 133 | 175 | none |
+| Digraphs | 289 | 96 | 68 | 6 | L1:153, L2:86, L3:50 | 133 | 175 | none |
 | Long Vowels and Silent E | 163 | 59 | 84 | 20 | L1:58, L2:62, L3:38, L4:5 | 104 | 104 | a_e, e_e, i_e, o_e, u_e |
-| CVC Words | 500 | 252 | 70 | 35 | L1:327, L2:173 | 234 | 152 | 3, bat hat, bus, cab, cet, cup pup, dog frog, dot, fun, gum, hen, hen ten, hip, hop, hot, leg, mop, mud, nap, net, pet, pig, red, rip, rod, rug, run, set, sip, sit fit, tap, ten, top, van, win |
+| CVC Words | 500 | 252 | 70 | 35 | L1:327, L2:173 | 234 | 152 | 3, bat hat, bus, cab, cup pup, cut, dog frog, dot, fun, gum, hen, hen ten, hip, hop, hot, leg, mop, mud, nap, net, pet, pig, red, rip, rod, rug, run, set, sip, sit fit, tap, ten, top, van, win |
 | High Frequency Words | 1105 | 1105 | 743 | 743 | L1:476, L2:629 | 0 | 0 | none |
-| Sentence Picture Matching | 0 | 0 | 0 | 0 | none | 0 | 0 | none |
+| Sentence Picture Matching | 30 | 30 | 15 | 15 | L1:15, L2:15 | 0 | 0 | none |
 | Vocabulary/Categories | 30 | 30 | 14 | 14 | L1:15, L2:15 | 0 | 0 | none |
 
 ## Warnings
@@ -36,8 +36,7 @@ Date: 2026-05-25
 - Digraphs: 13 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
 - Long Vowels and Silent E: 59 media-complete items, below target 60.
 - Long Vowels and Silent E: blocked/missing targets a_e, e_e, i_e, o_e, u_e.
-- CVC Words: blocked/missing targets 3, bat hat, bus, cab, cet, cup pup, dog frog, dot, fun, gum, hen, hen ten, hip, hop, hot, leg, mop, mud, nap, net, pet, pig, red, rip, rod, rug, run, set, sip, sit fit, tap, ten, top, van, win.
-- Sentence Picture Matching: 0 media-complete items, below target 30.
+- CVC Words: blocked/missing targets 3, bat hat, bus, cab, cup pup, cut, dog frog, dot, fun, gum, hen, hen ten, hip, hop, hot, leg, mop, mud, nap, net, pet, pig, red, rip, rod, rug, run, set, sip, sit fit, tap, ten, top, van, win.
 - Vocabulary/Categories: 15 duplicate-equivalent media-complete signatures blocked from expansion/progression candidate priority.
 
 ## Failures
@@ -65,8 +64,8 @@ Date: 2026-05-25
 ## Ending Sounds
 
 - Skill ID: ending_sounds
-- Active items: 547
-- Media-complete active items: 380
+- Active items: 549
+- Media-complete active items: 382
 - Unique active targets: 27
 - Unique media-complete targets: 26
 - Blocked targets: none
@@ -113,8 +112,6 @@ Date: 2026-05-25
 - qb12_rh_037: distractor "ball" accidentally rhymes with target group "all"
 - qb12_rh_037: distractor "fall" accidentally rhymes with target group "all"
 - qb12_rh_038: unknown rhyme group for target "shoe"
-- qb12_rh_041: distractor "well" accidentally rhymes with target group "ell"
-- qb12_rh_041: distractor "fell" accidentally rhymes with target group "ell"
 - qb12_rh_043: unknown rhyme group for target "fear"
 - qb12_rh_044: unknown rhyme group for target "day"
 - HFWQ-0179: answer "words" is not a true rhyme for "words"
@@ -123,8 +120,8 @@ Date: 2026-05-25
 ## Short Vowels
 
 - Skill ID: short_vowels
-- Active items: 495
-- Media-complete active items: 314
+- Active items: 463
+- Media-complete active items: 282
 - Unique active targets: 5
 - Unique media-complete targets: 5
 - Blocked targets: none
@@ -161,7 +158,7 @@ Date: 2026-05-25
 - Skill ID: digraphs
 - Active items: 289
 - Media-complete active items: 96
-- Unique active targets: 67
+- Unique active targets: 68
 - Unique media-complete targets: 6
 - Blocked targets: none
 - Below minimum warning: no
@@ -199,7 +196,7 @@ Date: 2026-05-25
 - Media-complete active items: 252
 - Unique active targets: 70
 - Unique media-complete targets: 35
-- Blocked targets: 3, bat hat, bus, cab, cet, cup pup, dog frog, dot, fun, gum, hen, hen ten, hip, hop, hot, leg, mop, mud, nap, net, pet, pig, red, rip, rod, rug, run, set, sip, sit fit, tap, ten, top, van, win
+- Blocked targets: 3, bat hat, bus, cab, cup pup, cut, dog frog, dot, fun, gum, hen, hen ten, hip, hop, hot, leg, mop, mud, nap, net, pet, pig, red, rip, rod, rug, run, set, sip, sit fit, tap, ten, top, van, win
 - Below minimum warning: no
 
 - Raw duplicate IDs: none
@@ -231,12 +228,12 @@ Date: 2026-05-25
 ## Sentence Picture Matching
 
 - Skill ID: sentence_picture
-- Active items: 0
-- Media-complete active items: 0
-- Unique active targets: 0
-- Unique media-complete targets: 0
+- Active items: 30
+- Media-complete active items: 30
+- Unique active targets: 15
+- Unique media-complete targets: 15
 - Blocked targets: none
-- Below minimum warning: yes
+- Below minimum warning: no
 
 - Raw duplicate IDs: none
 - Raw duplicate signatures: none
