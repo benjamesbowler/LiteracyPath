@@ -1757,19 +1757,11 @@ function startRhymePopArcadeGame(mount, options) {
       color: config.accent2,
       seed: state.time + state.shots.length,
       targetBubbleId: targetBubble?.id || null,
-      // The projectile is now purely a visual flourish. Correctness is decided
-      // the instant the child taps (below), so a drifting/wobbling balloon can
-      // never let a valid tap "miss" and reset the round.
-      cosmetic: true,
       trail: []
     };
     state.shots.push(shot);
     state.beatPulse = 0.35;
     sfx(playTapSound);
-    // Resolve the tapped balloon IMMEDIATELY: tap a rhyme -> it pops and play
-    // continues; tap a non-rhyme -> gentle "try again". No physics in the loop
-    // can turn a correct tap into a miss. Tapping empty space does nothing.
-    if (targetBubble) resolveRhymeHit(shot, targetBubble);
   }
 
   function resolveRhymeHit(shot, bubble) {
@@ -1906,24 +1898,31 @@ function startRhymePopArcadeGame(mount, options) {
     for (const shot of state.shots) {
       shot.trail.push({ x: shot.x, y: shot.y });
       if (shot.trail.length > 8) shot.trail.shift();
-      shot.x += shot.vx * dt;
-      shot.y += shot.vy * dt;
-      // Cosmetic shots already had their tap resolved at fire time — they just
-      // fly out and fade. Never re-resolve or score them.
-      if (shot.cosmetic) {
-        if (shot.x < -80 || shot.x > w + 80 || shot.y < -80 || shot.y > h + 80) shot.dead = true;
-        continue;
-      }
       const targeted = Boolean(shot.targetBubbleId);
       const target = targeted ? state.bubbles.find(bubble => bubble.id === shot.targetBubbleId) : null;
-      // Tapped balloon already popped: retire the shot quietly.
+      // Tapped balloon already popped by an earlier shot: retire quietly.
       if (targeted && !target) { shot.dead = true; continue; }
+      // Light homing: curve the shot toward the tapped balloon's CURRENT spot so
+      // it actually reaches a drifting/wobbling target and pops it ON CONTACT —
+      // a real balloon pop, not a wide invisible barrier. Untargeted shots fly
+      // straight.
+      if (target) {
+        const center = rhymeBubbleCenter(target, state.time);
+        const hx = center.x - shot.x;
+        const hy = center.y - shot.y;
+        const hdist = Math.max(1, Math.hypot(hx, hy));
+        const spd = Math.max(1, Math.hypot(shot.vx, shot.vy));
+        const steer = 0.24;
+        shot.vx = shot.vx * (1 - steer) + (hx / hdist) * spd * steer;
+        shot.vy = shot.vy * (1 - steer) + (hy / hdist) * spd * steer;
+      }
+      shot.x += shot.vx * dt;
+      shot.y += shot.vy * dt;
       const candidates = targeted ? [target] : state.bubbles;
       const hit = candidates.find(bubble => {
         const center = rhymeBubbleCenter(bubble, state.time);
-        // A tapped balloon is GUARANTEED to be hit: a generous reach means a
-        // drifting/wobbling target can never slip past the straight shot.
-        const reach = targeted ? bubble.r + 70 : bubble.r + shot.r * 0.7;
+        // Pop on real contact: the shot must actually touch the balloon.
+        const reach = bubble.r + shot.r * 0.9;
         return Math.hypot(shot.x - center.x, shot.y - center.y) <= reach;
       });
       if (hit) {
@@ -1933,8 +1932,8 @@ function startRhymePopArcadeGame(mount, options) {
         if (beforeTask !== state.currentTask) return;
       } else if (shot.x < -80 || shot.x > w + 80 || shot.y < -80 || shot.y > h + 80) {
         shot.dead = true;
-        // A valid tap must NEVER become a phantom miss: if a targeted shot ran
-        // off screen, still resolve it against the balloon that was tapped.
+        // Safety net (rare with homing): a targeted shot that somehow leaves the
+        // screen still resolves against the tapped balloon — never a phantom miss.
         if (target) {
           const beforeTask = state.currentTask;
           resolveRhymeHit(shot, target);
