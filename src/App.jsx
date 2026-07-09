@@ -3259,6 +3259,36 @@ export default function App() {
     setAuthMessage("");
   }
 
+  // ── Preview-only demo teacher login ─────────────────────────────────────
+  // GATED to the preview environment: VITE_DEMO_TEACHER must equal "1" AND the
+  // demo email/password must be present. Set these ONLY on Vercel's Preview
+  // environment (never Production), so neither the button nor the credentials
+  // exist in the production bundle. Uses a throwaway demo account — no real
+  // teacher or student data. This is the teacher-side equivalent of the fake
+  // "Aaron" student test account.
+  const demoTeacherEnabled = import.meta.env.VITE_DEMO_TEACHER === "1"
+    && Boolean(import.meta.env.VITE_DEMO_TEACHER_EMAIL)
+    && Boolean(import.meta.env.VITE_DEMO_TEACHER_PASSWORD);
+
+  async function logInDemoTeacher() {
+    if (!demoTeacherEnabled) return;
+    setAuthLoading(true);
+    setAuthMessage("");
+    freshAuthActionRef.current = true;
+    const { error } = await supabase.auth.signInWithPassword({
+      email: String(import.meta.env.VITE_DEMO_TEACHER_EMAIL).trim(),
+      password: String(import.meta.env.VITE_DEMO_TEACHER_PASSWORD)
+    });
+    setAuthLoading(false);
+    if (error) {
+      freshAuthActionRef.current = false;
+      setAuthMessage(error.message);
+      return;
+    }
+    setAuthPassword("");
+    setAuthMessage("");
+  }
+
   useEffect(() => {
     let cancelled = false;
     const schoolId = teacherAccountRecord?.school_id;
@@ -7653,6 +7683,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             logInTeacher={logInTeacher}
             requestPasswordReset={requestPasswordReset}
             completePasswordReset={completePasswordReset}
+            demoTeacherEnabled={demoTeacherEnabled}
+            logInDemoTeacher={logInDemoTeacher}
           />
         </div>
       </PageBoundary>

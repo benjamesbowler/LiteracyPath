@@ -18,7 +18,9 @@ export function AuthPage({
   signUpTeacher,
   logInTeacher,
   requestPasswordReset,
-  completePasswordReset
+  completePasswordReset,
+  demoTeacherEnabled = false,
+  logInDemoTeacher
 }) {
   const isForgotPassword = authMode === "forgotPassword";
   const isResetPassword = authMode === "resetPassword";
@@ -145,6 +147,12 @@ export function AuthPage({
             <button className="report-button" disabled={authLoading} onClick={() => setAuthMode("signup")} type="button">
               Create account
             </button>
+
+            {demoTeacherEnabled && (
+              <button className="report-button" disabled={authLoading} onClick={logInDemoTeacher} type="button">
+                Demo teacher (preview)
+              </button>
+            )}
           </>
         )}
       </div>
