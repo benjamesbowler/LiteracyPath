@@ -1052,14 +1052,16 @@
 }
 .lg-arcade-comic .lg-arcade-topband-controls { display: flex; align-items: center; gap: 12px; }
 
-/* 4-wide tile grid */
+/* 4-wide tile grid — kept compact (capped width) so the whole game line-up
+   (~8 games = 4 x 2) fits on one screen without scrolling. */
 .lg-arcade-comic .lg-game-tilegrid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 1.6vw, 20px);
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(10px, 1.3vw, 16px);
+  width: 100%; max-width: 1000px; margin-inline: auto;
 }
 .lg-arcade-comic .lg-game-tile {
   display: flex; flex-direction: column; padding: 0;
-  border: 3px solid var(--game-accent, #23c4de); border-radius: 16px;
-  background: #0b0d1c; box-shadow: 0 0 0 2px #000, 6px 6px 0 rgba(0,0,0,0.5);
+  border: 3px solid var(--game-accent, #23c4de); border-radius: 14px;
+  background: #0b0d1c; box-shadow: 0 0 0 2px #000, 5px 5px 0 rgba(0,0,0,0.5);
   overflow: hidden; cursor: pointer;
   transition: transform 120ms ease-out, box-shadow 120ms ease-out;
 }
@@ -1069,13 +1071,17 @@
   border-bottom: 3px solid var(--game-accent, #23c4de);
 }
 .lg-arcade-comic .lg-game-tile-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.lg-arcade-comic .lg-game-tile-art img.is-icon { object-fit: contain; padding: 18%; }
+.lg-arcade-comic .lg-game-tile-art img.is-icon { object-fit: contain; padding: 14%; }
 .lg-arcade-comic .lg-game-tile-name {
   font-family: var(--comic-display, "Anton"), sans-serif; font-style: italic; text-transform: uppercase;
-  color: #fff; font-size: clamp(0.95rem, 1.4vw, 1.25rem); padding: 10px 12px 4px; line-height: 1;
+  color: #fff; font-size: clamp(0.82rem, 1vw, 1.02rem); padding: 7px 10px 2px; line-height: 1.02;
 }
 .lg-arcade-comic .lg-game-tile-foot {
-  display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 12px 12px;
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 2px 10px 9px;
+}
+/* Narrow screens: two per row so the tiles never overflow their width. */
+@media (max-width: 760px) {
+  .lg-arcade-comic .lg-game-tilegrid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 460px; }
 }
 .lg-arcade-comic .lg-game-tile-score {
   font-family: "Press Start 2P", monospace; font-size: 0.6rem; color: #ffd84d; font-style: normal;

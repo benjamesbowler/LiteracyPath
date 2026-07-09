@@ -90,7 +90,16 @@ export function StudentHomePage({
   const [showCelebration, setShowCelebration] = useState(false);
   const [companion, setCompanionState] = useState(() => getCompanion(progressScopeKey));
   const [pickingCompanion, setPickingCompanion] = useState(false);
-  const treasury = useMemo(() => computeTreasury(progressScopeKey), [progressScopeKey]);
+  // Cloud progress hydrates asynchronously AFTER this page mounts. Until it
+  // lands, treasury/ledger are empty and the wallet shows the welcome-gift
+  // default (100). Bumping this tick on the hydration event recomputes the
+  // wallet with real earnings/spending — fixes "100 coins on load, 9 after the
+  // Market, then 9 everywhere".
+  const [hydrationTick, setHydrationTick] = useState(0);
+  const treasury = useMemo(() => {
+    void hydrationTick; // recompute when cloud progress hydrates (see effect below)
+    return computeTreasury(progressScopeKey);
+  }, [progressScopeKey, hydrationTick]);
   // Rewards V2: the wallet is derived earnings minus the stored spending ledger.
   const hollow = useMemo(() => computeHollow(loadHollowLedger(progressScopeKey), treasury.breakdown), [progressScopeKey, treasury]);
   const [freshCoins, setFreshCoins] = useState(() => {
@@ -114,6 +123,17 @@ export function StudentHomePage({
 
   useEffect(() => {
     warmStudentAssets(worldForScope(progressScopeKey));
+  }, [progressScopeKey]);
+
+  // When cloud progress finishes hydrating, recompute the wallet so the coin
+  // count is correct from the first Home view (not just after opening Market).
+  useEffect(() => {
+    function handleHydrated(event) {
+      if (event.detail?.studentId && event.detail.studentId !== progressScopeKey) return;
+      setHydrationTick(tick => tick + 1);
+    }
+    window.addEventListener("lp-progress-hydrated", handleHydrated);
+    return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);
   }, [progressScopeKey]);
 
   useEffect(() => {
