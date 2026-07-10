@@ -155,6 +155,60 @@ function startGame(THREE, mount, opts) {
     return tex;
   }
 
+  function makeTrackPanelTexture() {
+    const canvas = document.createElement("canvas");
+    canvas.width = canvas.height = 256;
+    const ctx = canvas.getContext("2d");
+    const base = ctx.createLinearGradient(0, 0, 256, 256);
+    base.addColorStop(0, "#172252");
+    base.addColorStop(0.52, "#0a102a");
+    base.addColorStop(1, "#1b2d64");
+    ctx.fillStyle = base;
+    ctx.fillRect(0, 0, 256, 256);
+
+    ctx.globalAlpha = 0.24;
+    ctx.strokeStyle = "#8feeff";
+    ctx.lineWidth = 2;
+    for (let i = -256; i < 512; i += 32) {
+      ctx.beginPath();
+      ctx.moveTo(i, 0);
+      ctx.lineTo(i + 96, 256);
+      ctx.stroke();
+    }
+
+    ctx.globalAlpha = 0.32;
+    ctx.fillStyle = "#ffe36a";
+    for (let y = 18; y < 256; y += 64) {
+      for (let x = 28; x < 228; x += 56) {
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x + 20, y + 16);
+        ctx.lineTo(x, y + 32);
+        ctx.lineTo(x + 8, y + 16);
+        ctx.closePath();
+        ctx.fill();
+      }
+    }
+
+    ctx.globalAlpha = 0.18;
+    ctx.fillStyle = "#ffffff";
+    for (let i = 0; i < 320; i += 1) {
+      const x = Math.random() * 256;
+      const y = Math.random() * 256;
+      ctx.fillRect(x, y, 1, 1);
+    }
+    ctx.globalAlpha = 1;
+
+    const tex = new THREE.CanvasTexture(canvas);
+    tex.wrapS = THREE.RepeatWrapping;
+    tex.wrapT = THREE.RepeatWrapping;
+    tex.repeat.set(1, 1);
+    tex.magFilter = THREE.NearestFilter;
+    tex.minFilter = THREE.LinearMipMapLinearFilter;
+    tex.needsUpdate = true;
+    return tex;
+  }
+
   // ── Three.js scene + renderer FIRST. WebGLRenderer creation is the one step
   //    that can throw (WebGL unavailable / GPU context lost / antialias rejected
   //    on a constrained GPU). Doing it before the HUD means a failure produces a
@@ -173,6 +227,10 @@ function startGame(THREE, mount, opts) {
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.12;
   renderer.outputEncoding = THREE.sRGBEncoding;
+  if (renderer.shadowMap) {
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFShadowMap;
+  }
   renderer.domElement.style.display = "block";
   renderer.domElement.style.filter = "contrast(1.08) saturate(1.16)";
   mount.appendChild(renderer.domElement);
@@ -229,6 +287,15 @@ function startGame(THREE, mount, opts) {
   scene.add(ambient);
   const key = new THREE.DirectionalLight(0xffffff, 0.9);
   key.position.set(3, 8, 6);
+  key.castShadow = true;
+  key.shadow.mapSize.width = 1024;
+  key.shadow.mapSize.height = 1024;
+  key.shadow.camera.near = 1;
+  key.shadow.camera.far = 30;
+  key.shadow.camera.left = -8;
+  key.shadow.camera.right = 8;
+  key.shadow.camera.top = 8;
+  key.shadow.camera.bottom = -8;
   scene.add(key);
   scene.add(new THREE.HemisphereLight(0x9fc0ff, 0x1a1440, 0.55));
   const sceneBackground = makeNebulaTexture();
@@ -267,18 +334,23 @@ function startGame(THREE, mount, opts) {
   const trackSegments = [];
   const trackGroup = new THREE.Group();
   scene.add(trackGroup);
-  const deckGeo = new THREE.PlaneGeometry(7.8, 5.2, 1, 1);
+  const trackTexture = makeTrackPanelTexture();
+  const deckGeo = new THREE.PlaneGeometry(8.2, 5.2, 1, 1);
   const stripeGeo = new THREE.PlaneGeometry(0.1, 4.9, 1, 1);
+  const guardGeo = new THREE.BoxGeometry(0.22, 0.56, 5.05);
+  const guardLightGeo = new THREE.BoxGeometry(0.08, 0.07, 4.9);
   for (let i = 0; i < 18; i += 1) {
-    const mat = new THREE.MeshBasicMaterial({
+    const mat = new THREE.MeshStandardMaterial({
       color: i % 2 ? 0x111a3b : 0x0c132d,
-      transparent: true,
-      opacity: 0.54,
-      depthWrite: false
+      map: trackTexture,
+      roughness: 0.74,
+      metalness: 0.16,
+      flatShading: true
     });
     const deck = new THREE.Mesh(deckGeo, mat);
     deck.rotation.x = -Math.PI / 2;
     deck.position.set(0, 0.04, -2 - i * 5.2);
+    deck.receiveShadow = true;
     trackGroup.add(deck);
     const center = new THREE.Mesh(
       stripeGeo,
@@ -287,12 +359,49 @@ function startGame(THREE, mount, opts) {
     center.rotation.x = -Math.PI / 2;
     center.position.set(0, 0.065, deck.position.z);
     trackGroup.add(center);
-    trackSegments.push({ deck, center });
+    const walls = [];
+    const wallGlows = [];
+    for (const side of [-1, 1]) {
+      const wall = new THREE.Mesh(
+        guardGeo,
+        new THREE.MeshStandardMaterial({
+          color: 0x1a2a5a,
+          roughness: 0.58,
+          metalness: 0.28,
+          flatShading: true,
+          emissive: 0x061030,
+          emissiveIntensity: 0.2
+        })
+      );
+      wall.position.set(side * 4.2, 0.35, deck.position.z);
+      wall.rotation.z = side * -0.1;
+      wall.castShadow = true;
+      wall.receiveShadow = true;
+      trackGroup.add(wall);
+      walls.push(wall);
+
+      const glow = new THREE.Mesh(
+        guardLightGeo,
+        new THREE.MeshBasicMaterial({
+          color: 0x7ff0ff,
+          transparent: true,
+          opacity: 0.62,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false
+        })
+      );
+      glow.position.set(side * 4.04, 0.69, deck.position.z);
+      glow.rotation.z = side * -0.1;
+      trackGroup.add(glow);
+      wallGlows.push(glow);
+    }
+    trackSegments.push({ deck, center, walls, wallGlows });
   }
 
   const tunnelRings = [];
   const pylonPairs = [];
   const stationPieces = [];
+  const canyonPieces = [];
   const ringGeo = new THREE.TorusGeometry(5.25, 0.045, 6, 32);
   const ringMat = new THREE.MeshBasicMaterial({ color: 0x59d3ff, transparent: true, opacity: 0.22, blending: THREE.AdditiveBlending, depthWrite: false });
   const pylonGeo = new THREE.BoxGeometry(0.22, 1.9, 0.22);
@@ -341,6 +450,40 @@ function startGame(THREE, mount, opts) {
     group.position.z = -14 - i * 5.4;
     scene.add(group);
     stationPieces.push(group);
+  }
+
+  const ridgeMats = [
+    new THREE.MeshStandardMaterial({ color: 0x253064, roughness: 0.82, metalness: 0.08, flatShading: true, emissive: 0x090d25, emissiveIntensity: 0.22 }),
+    new THREE.MeshStandardMaterial({ color: 0x3f2d5f, roughness: 0.86, metalness: 0.04, flatShading: true, emissive: 0x12061e, emissiveIntensity: 0.18 }),
+    new THREE.MeshStandardMaterial({ color: 0x4c3b2a, roughness: 0.9, metalness: 0.03, flatShading: true, emissive: 0x180c04, emissiveIntensity: 0.18 })
+  ];
+  for (let i = 0; i < 30; i += 1) {
+    const cluster = new THREE.Group();
+    const side = i % 2 ? -1 : 1;
+    const pieces = 2 + (i % 3);
+    for (let j = 0; j < pieces; j += 1) {
+      const geometry = j % 3 === 0
+        ? new THREE.DodecahedronGeometry(0.72 + j * 0.18, 0)
+        : j % 3 === 1
+          ? new THREE.ConeGeometry(0.58 + j * 0.12, 1.4 + j * 0.45, 5)
+          : new THREE.BoxGeometry(0.72 + j * 0.16, 0.9 + j * 0.34, 0.86 + j * 0.12);
+      const rock = new THREE.Mesh(geometry, ridgeMats[(i + j) % ridgeMats.length].clone());
+      rock.position.set(side * (6.0 + j * 0.82 + Math.random() * 0.7), 0.35 + j * 0.28, -0.9 + Math.random() * 1.8);
+      rock.rotation.set(Math.random() * 0.4, side * (0.25 + Math.random() * 0.4), Math.random() * 0.35);
+      rock.scale.set(1, 0.85 + Math.random() * 0.8, 1);
+      rock.castShadow = true;
+      rock.receiveShadow = true;
+      cluster.add(rock);
+    }
+    const beacon = new THREE.Mesh(
+      new THREE.BoxGeometry(0.16, 0.82, 0.16),
+      new THREE.MeshBasicMaterial({ color: 0x7ff0ff, transparent: true, opacity: 0.55, blending: THREE.AdditiveBlending })
+    );
+    beacon.position.set(side * 5.35, 1.0, 0.25);
+    cluster.add(beacon);
+    cluster.position.z = -10 - i * 4.3;
+    scene.add(cluster);
+    canyonPieces.push(cluster);
   }
 
   const nebulaPlanes = [];
@@ -512,17 +655,33 @@ function startGame(THREE, mount, opts) {
   const engineLight = new THREE.PointLight(0x66ccff, 1.1, 7);
   engineLight.position.z = 1.48;
   ship.add(engineLight);
+  ship.traverse(node => {
+    if (node.isMesh) {
+      node.castShadow = true;
+      node.receiveShadow = true;
+    }
+  });
   ship.position.set(0, 0.92, 4.05);
   ship.scale.setScalar(SHIP_BASE_SCALE);
   scene.add(ship);
+  const shipShadow = new THREE.Mesh(
+    new THREE.PlaneGeometry(1.8, 1.08, 1, 1),
+    new THREE.MeshBasicMaterial({ color: 0x02040c, transparent: true, opacity: 0.42, depthWrite: false })
+  );
+  shipShadow.rotation.x = -Math.PI / 2;
+  shipShadow.position.set(0, 0.085, ship.position.z + 0.04);
+  scene.add(shipShadow);
 
   function pill(ctx, px, py, w, h, r) {
+    const cut = Math.min(r, w * 0.14, h * 0.34);
     ctx.beginPath();
-    ctx.moveTo(px + r, py);
-    ctx.arcTo(px + w, py, px + w, py + h, r);
-    ctx.arcTo(px + w, py + h, px, py + h, r);
-    ctx.arcTo(px, py + h, px, py, r);
-    ctx.arcTo(px, py, px + w, py, r);
+    ctx.moveTo(px + cut, py);
+    ctx.lineTo(px + w - cut, py);
+    ctx.lineTo(px + w, py + cut);
+    ctx.lineTo(px + w - cut, py + h);
+    ctx.lineTo(px + cut, py + h);
+    ctx.lineTo(px, py + h - cut);
+    ctx.lineTo(px, py + cut);
     ctx.closePath();
   }
   function labelSprite(text) {
@@ -558,8 +717,8 @@ function startGame(THREE, mount, opts) {
     // Float the label in FRONT of the orb (toward the camera) and draw it on
     // top, so the semi-transparent bubble can never hide the word.
     sprite.renderOrder = 5;
-    sprite.scale.set(2.25, 1.13, 1);
-    sprite.position.set(0, 0, 1.2);
+    sprite.scale.set(2.72, 1.24, 1);
+    sprite.position.set(0, 0, 1.34);
     return sprite;
   }
   const BUBBLE_VERT = "varying vec3 vN; varying vec3 vE; void main(){ vec4 mv = modelViewMatrix * vec4(position,1.0); vN = normalize(normalMatrix * normal); vE = normalize(-mv.xyz); gl_Position = projectionMatrix * mv; }";
@@ -758,6 +917,13 @@ function startGame(THREE, mount, opts) {
     for (const segment of trackSegments) {
       segment.deck.material.color.setHex(theme.deck || 0x17245a);
       segment.center.material.color.setHex(theme.pad || theme.rail);
+      segment.walls.forEach(wall => {
+        wall.material.color.setHex(theme.deck || 0x17245a);
+        wall.material.emissive.setHex(theme.sun || 0x071332);
+      });
+      segment.wallGlows.forEach(glow => {
+        glow.material.color.setHex(theme.pad || theme.rail);
+      });
     }
     tunnelRings.forEach((ring, index) => {
       ring.material.color.setHex(index % 3 === 0 ? theme.pad || theme.rail : theme.rail);
@@ -780,6 +946,16 @@ function startGame(THREE, mount, opts) {
           child.material.emissive.setHex(theme.sun || 0x071332);
         } else if (child.material?.color) {
           child.material.color.setHex(theme.pad || theme.rail);
+        }
+      });
+    });
+    canyonPieces.forEach((group, groupIndex) => {
+      group.children.forEach((child, childIndex) => {
+        if (child.material?.emissive) {
+          child.material.color.setHex(childIndex % 2 ? theme.trim || theme.deck : theme.deck || 0x203066);
+          child.material.emissive.setHex(theme.sun || 0x071332);
+        } else if (child.material?.color) {
+          child.material.color.setHex(groupIndex % 3 === 0 ? theme.pad || theme.rail : theme.rail);
         }
       });
     });
@@ -889,6 +1065,21 @@ function startGame(THREE, mount, opts) {
     queue = [];
   }
 
+  const overlayButtonStyle = [
+    "font-family:inherit",
+    "font-weight:900",
+    "font-size:1.08rem",
+    "letter-spacing:.05em",
+    "text-transform:uppercase",
+    "color:#071033",
+    "padding:14px 30px",
+    "border:1px solid rgba(255,255,255,.62)",
+    "background:linear-gradient(160deg,#ffe879,#ff9f24)",
+    "box-shadow:0 7px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.2)",
+    "clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)",
+    "cursor:pointer"
+  ].join(";");
+
   function refillQueue() {
     // The round can't be passed without catching `needed` correct words. If the
     // queue empties short, top it back up so the child keeps getting chances
@@ -906,7 +1097,7 @@ function startGame(THREE, mount, opts) {
     const overlay = showOverlay(
       '<div><div style="font-size:2rem;font-weight:700;margin-bottom:8px">Out of fuel!</div>' +
       '<div style="opacity:.85;margin-bottom:14px">Catch the <b>' + roundTarget + '</b> words to reach the next planet.</div>' +
-      '<button data-rr="retry" style="font-family:inherit;font-weight:700;font-size:1.2rem;color:#071033;padding:14px 30px;border:0;border-radius:999px;background:linear-gradient(160deg,#ffd34e,#ffa41c);box-shadow:0 6px 0 #c9781a;cursor:pointer">Try again →</button></div>'
+      '<button data-rr="retry" style="' + overlayButtonStyle + '">Try again →</button></div>'
     );
     overlay.querySelector('[data-rr="retry"]').addEventListener("click", () => { overlay.style.display = "none"; startRound(); });
   }
@@ -928,7 +1119,7 @@ function startGame(THREE, mount, opts) {
     const overlay = showOverlay(
       '<div><div style="font-size:2rem;font-weight:700;margin-bottom:4px">Planet reached!</div>' +
       '<div style="opacity:.85;margin-bottom:12px">Entering the <b>' + nextTheme.name + '</b></div>' +
-      '<button data-rr="next" style="font-family:inherit;font-weight:700;font-size:1.2rem;color:#071033;padding:14px 30px;border:0;border-radius:999px;background:linear-gradient(160deg,#ffd34e,#ffa41c);box-shadow:0 6px 0 #c9781a;cursor:pointer">Next sound →</button></div>'
+      '<button data-rr="next" style="' + overlayButtonStyle + '">Next sound →</button></div>'
     );
     overlay.querySelector('[data-rr="next"]').addEventListener("click", () => {
       overlay.style.display = "none";
@@ -947,7 +1138,7 @@ function startGame(THREE, mount, opts) {
       '<div style="font-size:2rem;font-weight:800">You caught the comet!</div>' +
       '<div data-rr="rstars" style="font-size:2.3rem;letter-spacing:8px;min-height:2.5rem">✩✩✩</div>' +
       '<div style="font-size:1.15rem;opacity:.9">Score <b data-rr="rscore">0</b></div>' +
-      '<button data-rr="done" style="font-family:inherit;font-weight:700;font-size:1.2rem;color:#071033;padding:13px 30px;border:0;border-radius:999px;background:linear-gradient(160deg,#ffd34e,#ffa41c);box-shadow:0 6px 0 #c9781a;cursor:pointer;margin-top:4px">Done</button>' +
+      '<button data-rr="done" style="' + overlayButtonStyle + ';margin-top:4px">Done</button>' +
       '</div>'
     );
     // Stars pop in one at a time, each with a chime; score counts up over ~800ms.
@@ -1034,7 +1225,11 @@ function startGame(THREE, mount, opts) {
         segment.deck.position.z -= 18 * 5.2;
         segment.center.position.z = segment.deck.position.z;
       }
-      segment.deck.material.opacity = 0.48 + Math.sin(now * 0.004 + segment.deck.position.z) * 0.07;
+      segment.walls.forEach(wall => { wall.position.z = segment.deck.position.z; });
+      segment.wallGlows.forEach(glow => {
+        glow.position.z = segment.deck.position.z;
+        glow.material.opacity = 0.48 + Math.sin(now * 0.005 + segment.deck.position.z) * 0.14;
+      });
       segment.center.material.opacity = 0.2 + Math.sin(now * 0.006 + segment.center.position.z) * 0.08;
     }
     for (const ring of tunnelRings) {
@@ -1050,6 +1245,11 @@ function startGame(THREE, mount, opts) {
       group.position.z += trackDrift * 0.92;
       group.rotation.y = Math.sin(elapsed * 0.35 + group.position.z) * 0.025;
       if (group.position.z > 10) group.position.z -= 18 * 5.4;
+    }
+    for (const group of canyonPieces) {
+      group.position.z += trackDrift * 0.82;
+      group.rotation.y = Math.sin(elapsed * 0.18 + group.position.z) * 0.035;
+      if (group.position.z > 12) group.position.z -= 30 * 4.3;
     }
     for (const plane of nebulaPlanes) {
       plane.position.z += dt * 0.75 * speed;
@@ -1071,6 +1271,9 @@ function startGame(THREE, mount, opts) {
     ship.position.x += (shipTargetX - ship.position.x) * Math.min(1, dt * 12);
     ship.rotation.z = (shipTargetX - ship.position.x) * -0.25;
     if (rollT > 0) { ship.rotation.z += Math.sin((1 - rollT / 0.38) * Math.PI) * -rollDir * 0.7; rollT -= dt; }
+    shipShadow.position.x = ship.position.x;
+    shipShadow.scale.setScalar(1 + Math.abs(ship.rotation.z) * 0.18 + (boost > 1 ? 0.18 : 0));
+    shipShadow.material.opacity = 0.34 + (boost > 1 ? 0.1 : 0);
     camera.position.y = 2.6 + Math.sin(elapsed * 1.3) * 0.05;
     shipPulse = Math.max(0, shipPulse - dt); ship.scale.setScalar(SHIP_BASE_SCALE * (1 + shipPulse * 0.3));
     const bl = boost > 1 ? 1.6 : 1;
@@ -1181,13 +1384,16 @@ function startGame(THREE, mount, opts) {
     window.removeEventListener("resize", onResize);
     ro.disconnect();
     for (const b of bubbles) { scene.remove(b); disposeGroup(b); }
-    disposeGroup(ship);
+    scene.remove(ship); disposeGroup(ship);
+    scene.remove(shipShadow); disposeGroup(shipShadow);
     for (const layer of starLayers) { scene.remove(layer); disposeGroup(layer); }
     for (const r of rails) { scene.remove(r); disposeGroup(r); }
     scene.remove(trackGroup); disposeGroup(trackGroup);
     for (const ring of tunnelRings) { scene.remove(ring); disposeGroup(ring); }
     for (const pair of pylonPairs) { scene.remove(pair); disposeGroup(pair); }
     for (const group of stationPieces) { scene.remove(group); disposeGroup(group); }
+    for (const group of canyonPieces) { scene.remove(group); disposeGroup(group); }
+    ridgeMats.forEach(mat => mat.dispose());
     for (const plane of nebulaPlanes) { scene.remove(plane); disposeGroup(plane); }
     scene.remove(planetGroup); disposeGroup(planetGroup);
     for (const pl of planets) { scene.remove(pl); disposeGroup(pl); }
