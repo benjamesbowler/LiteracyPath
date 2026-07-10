@@ -6,10 +6,32 @@ import {
   getAccuracyStatus,
   getSkillArea
 } from "../data/reportingSystem.js";
+import { normalizeAssessmentAttempt } from "../data/assessmentHistoryStore.js";
+import { itemUniverseCounts } from "../data/generated/itemUniverse.generated.js";
 import {
   loadStoryQuestProgress,
   summarizeStoryQuestProgress
 } from "../utils/storyQuestProgress.js";
+import {
+  buildAttemptReviewRows,
+  buildElChecksSummary,
+  buildGuidedReadingReportRows,
+  buildGuidedReadingSummary,
+  buildQuestionRollup,
+  buildSoundsProgress,
+  getPassRule,
+  getStoryQuestStarInfo,
+  hasEngagementSignal,
+  REPORT_STATUS_LEGEND,
+  RETAKE_HINT_TEXT,
+  shouldShowRollup,
+  summarizeStoryQuestStars,
+  wasRetestedToday
+} from "../utils/reportSections.js";
+import {
+  buildEngagementRow,
+  collectStudentEngagementAreas
+} from "../utils/exportReportSections.js";
 import { importWithRetry } from "../utils/lazyWithRetry.js";
 
 const STATUS_TEXT = {
@@ -21,6 +43,9 @@ const STATUS_TEXT = {
 
 const STATUS_RULES = {
   mastered: { label: "Mastered", className: "mastered" },
+  // "Mastered" is reserved for a real checkpoint pass; accuracy-only strength
+  // reads as "On Track" (same styling) so the two are never conflated.
+  on_track: { label: "On Track", className: "mastered" },
   developing: { label: "Developing", className: "developing" },
   needs_support: { label: "Needs Support", className: "needs-support" },
   not_assessed: { label: "Not assessed", className: "not-assessed" }
@@ -43,7 +68,7 @@ function clampPercent(value) {
 
 function statusFromAccuracy(accuracy, hasData = true) {
   const status = getAccuracyStatus(accuracy, hasData);
-  if (status.id === "on_track") return STATUS_RULES.mastered;
+  if (status.id === "on_track") return STATUS_RULES.on_track;
   if (status.id === "developing") return STATUS_RULES.developing;
   if (status.id === "needs_support") return STATUS_RULES.needs_support;
   return STATUS_RULES.not_assessed;
@@ -105,57 +130,6 @@ function normaliseList(values = []) {
 
 function formatClassLabel(value = "") {
   return value || "Class not linked";
-}
-
-function getGuidedReadingNoteRows(summary = {}) {
-  return [
-    summary.wholeBookNote ? { label: "Book", note: summary.wholeBookNote } : null,
-    ...(summary.pageNotes || []).map(item => ({
-      label: `Page ${item.page}`,
-      note: item.note
-    }))
-  ].filter(item => item?.note?.trim());
-}
-
-function buildGuidedReadingReportRows(records = {}, module = {}) {
-  const summariesByBook = new Map(
-    (module.summarizeGuidedReadingRecords?.(records) || []).map(summary => [summary.bookId, summary])
-  );
-  const books = module.guidedReadingBooks || [];
-
-  return Object.entries(records || {})
-    .map(([bookId, record = {}]) => {
-      const book = books.find(item => item.id === bookId) || {};
-      const progress = module.getGuidedReadingProgress?.(book, { ...record, bookId }) || {};
-      const summary = summariesByBook.get(bookId) || module.summarizeGuidedReadingRecord?.(record) || {};
-      const readCount = Math.max(Number(progress.readCount || record.readCount || 0), progress.completed ? 1 : 0);
-
-      return {
-        bookId,
-        title: book.title || record.title || bookId,
-        level: book.level || record.level || progress.level || "",
-        lastReadAt: progress.lastReadAt || record.lastReadAt || record.completedAt || record.updatedAt || "",
-        readCount,
-        latestAccuracy: Number(summary.accuracy || 0),
-        supportWords: summary.supportWords || [],
-        correctWords: summary.correctWords || [],
-        notes: getGuidedReadingNoteRows(summary),
-        pagesRead: Number(progress.completedPages || record.completedPages || 0),
-        attempted: Number(summary.attempted || 0)
-      };
-    })
-    .filter(row =>
-      row.pagesRead > 0 ||
-      row.readCount > 0 ||
-      row.attempted > 0 ||
-      row.correctWords.length > 0 ||
-      row.supportWords.length > 0 ||
-      row.notes.length > 0
-    )
-    .sort((a, b) =>
-      String(b.lastReadAt).localeCompare(String(a.lastReadAt)) ||
-      a.title.localeCompare(b.title)
-    );
 }
 
 function SectionBand({ accent = "#0D7A73", children, subtitle, title }) {
@@ -231,16 +205,21 @@ function buildElAssessmentCards({ letterAssessment = [], patternAssessment = [] 
   }));
   const namesKnown = nameItems.filter(item => item.known).length;
   const soundsKnown = soundItems.filter(item => item.known).length;
-  const nameTotal = nameItems.length || 52;
-  const soundTotal = soundItems.length || 52;
+  // Real denominators only: with no assessed items the total is 0 and the
+  // card shows its "Not assessed" state instead of a made-up "/ 52".
+  const nameTotal = nameItems.length;
+  const soundTotal = soundItems.length;
   const patternItems = patternAssessment.map(item => ({
     label: item.pattern,
     known: Boolean(item.soundCorrect && item.wordCorrect),
     partial: Boolean(item.soundCorrect || item.wordCorrect) && !(item.soundCorrect && item.wordCorrect)
   }));
-  const patternTotal = patternAssessment.length ? patternAssessment.length * 2 : 0;
-  const patternCorrect = patternAssessment.reduce((sum, item) =>
-    sum + Number(Boolean(item.soundCorrect)) + Number(Boolean(item.wordCorrect)), 0);
+  // Checks-based convention throughout the EL sections: each pattern carries
+  // two checks (sound + word), so numerator and denominator count the same
+  // unit even when only one field is filled in.
+  const patternChecks = buildElChecksSummary(patternAssessment, item => [item.soundCorrect, item.wordCorrect]);
+  const patternTotal = patternChecks.checksTotal;
+  const patternCorrect = patternChecks.checksCorrect;
 
   return [
     {
@@ -328,7 +307,7 @@ function groupSkillRows(rows = []) {
     });
 }
 
-function SkillTile({ row }) {
+function SkillTile({ masteryRow = null, row }) {
   const hasData =
     row.attempts > 0 ||
     row.status === "passed" ||
@@ -338,7 +317,13 @@ function SkillTile({ row }) {
   const total = row.coverage?.total || scoreText?.split("/")?.[1] || 0;
   const mastered = row.coverage?.mastered || scoreText?.split("/")?.[0] || 0;
   const coveragePercent = clampPercent(row.coveragePercent || 0);
-  const status = statusFromAccuracy(coveragePercent, hasData);
+  // "Mastered" only for a real checkpoint pass; strong accuracy without a
+  // pass reads as "On Track" (see the legend above the tiles).
+  const status = row.status === "passed"
+    ? STATUS_RULES.mastered
+    : statusFromAccuracy(coveragePercent, hasData);
+  const passRule = getPassRule(row.label);
+  const retestedToday = wasRetestedToday(masteryRow);
 
   return (
     <article
@@ -349,13 +334,16 @@ function SkillTile({ row }) {
       <strong className="lg-skill-tile-name">{row.label}</strong>
       <b className="lg-skill-tile-score">{hasData ? `${coveragePercent}%` : "—"}</b>
       <small className="lg-skill-tile-sub">{total ? `${mastered}/${total} ${unit}` : "No item evidence"} · {status.label}</small>
+      <small className="lg-skill-tile-pass">{passRule.text}</small>
+      {retestedToday && <small className="skill-retake-hint">{RETAKE_HINT_TEXT}</small>}
     </article>
   );
 }
 
-function SkillSetSection({ rows }) {
+function SkillSetSection({ mastery = {}, rows }) {
   return (
     <div className="student-report-skill-groups">
+      <p className="student-report-legend">{REPORT_STATUS_LEGEND}</p>
       {groupSkillRows(rows).map(([area, areaRows]) => {
         const areaMeta = getSkillArea({ skillName: area });
         return (
@@ -365,7 +353,9 @@ function SkillSetSection({ rows }) {
               <h3 className="lg-domain-label" style={{ color: areaMeta.color }}>{area}</h3>
             </div>
             <div className="student-report-skill-grid lg-skill-tiles">
-              {areaRows.map(row => <SkillTile key={row.skillId} row={row} />)}
+              {areaRows.map(row => (
+                <SkillTile key={row.skillId} masteryRow={mastery?.[row.skillId] || null} row={row} />
+              ))}
             </div>
           </section>
         );
@@ -374,7 +364,7 @@ function SkillSetSection({ rows }) {
   );
 }
 
-function GrowthSection({ model, letterAssessment = [], patternAssessment = [] }) {
+function GrowthSection({ assessmentHistory = [], model, letterAssessment = [], patternAssessment = [] }) {
   const [selectedSkillId, setSelectedSkillId] = useState("");
   const skillRows = model.skillMapRows || [];
   const dropdownOptions = [
@@ -402,6 +392,13 @@ function GrowthSection({ model, letterAssessment = [], patternAssessment = [] })
   const selectedRow = selectedSkillId
     ? skillRows.find(row => row.skillId === selectedSkillId)
     : null;
+  const selectedAttempts = useMemo(() => {
+    if (!selectedRow) return [];
+    return (assessmentHistory || [])
+      .map(normalizeAssessmentAttempt)
+      .filter(attempt => attempt.skillId === selectedRow.skillId || attempt.skillName === selectedRow.label)
+      .sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
+  }, [assessmentHistory, selectedRow]);
 
   return (
     <div className="growth-section">
@@ -427,6 +424,7 @@ function GrowthSection({ model, letterAssessment = [], patternAssessment = [] })
         <ElSkillSummary
           title="EL: Letter Name & Sound"
           records={letterAssessment}
+          getChecks={item => [item.knowsName, item.knowsSound]}
           getAccuracy={item => Math.round((((item.knowsName ? 1 : 0) + (item.knowsSound ? 1 : 0)) / 2) * 100)}
           getLabel={item => item.letter || ""}
         />
@@ -435,11 +433,83 @@ function GrowthSection({ model, letterAssessment = [], patternAssessment = [] })
         <ElSkillSummary
           title="EL: Advanced Phonics"
           records={patternAssessment}
+          getChecks={item => [item.soundCorrect, item.wordCorrect]}
           getAccuracy={item => Math.round((((item.soundCorrect ? 1 : 0) + (item.wordCorrect ? 1 : 0)) / 2) * 100)}
           getLabel={item => item.pattern || ""}
         />
       )}
       {selectedRow && <SkillLineChart row={selectedRow} />}
+      {selectedRow && <CheckpointAttemptReview attempts={selectedAttempts} row={selectedRow} />}
+    </div>
+  );
+}
+
+function CheckpointAttemptReview({ attempts = [], row }) {
+  if (!attempts.length) return null;
+  const passRule = getPassRule(row.label);
+
+  return (
+    <div className="checkpoint-attempt-review">
+      <h3>Checkpoint question review</h3>
+      <p className="checkpoint-attempt-review-note">
+        {passRule.text} questions correct to pass {row.label}. Open an attempt to see every question asked.
+      </p>
+      {attempts.map((attempt, index) => {
+        const reviewRows = buildAttemptReviewRows(attempt);
+        const rollupRows = buildQuestionRollup(attempt.questionRecords || []);
+        const attemptDate = attempt.completedAt
+          ? new Date(attempt.completedAt).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })
+          : "Date not recorded";
+        return (
+          <details className="checkpoint-attempt-details" key={attempt.attemptId || `${attempt.completedAt}-${index}`}>
+            <summary className="checkpoint-attempt-summary">
+              <span>Attempt {index + 1} · {attemptDate}</span>
+              <span className={attempt.passed ? "attempt-outcome passed" : "attempt-outcome not-passed"}>
+                {attempt.correctCount}/{attempt.totalQuestions} correct · {attempt.passed ? "Passed" : "Not passed"}
+              </span>
+            </summary>
+            <div className="checkpoint-attempt-body">
+              {shouldShowRollup(rollupRows) && (
+                <ul className="checkpoint-rollup">
+                  {rollupRows.map(group => (
+                    <li className={group.missed ? "rollup-missed" : "rollup-clear"} key={group.key}>
+                      {group.summary}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {reviewRows.length ? (
+                <table className="checkpoint-attempt-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Question</th>
+                      <th>Student answer</th>
+                      <th>Correct answer</th>
+                      <th>Result</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {reviewRows.map(question => (
+                      <tr className={question.isCorrect ? "attempt-row-correct" : "attempt-row-missed"} key={question.order}>
+                        <td>{question.order}</td>
+                        <td>{question.prompt}</td>
+                        <td>{question.selectedAnswer || "No answer recorded"}</td>
+                        <td>{question.correctAnswer || "Not recorded"}</td>
+                        <td>{question.isCorrect ? "Correct" : "Missed"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              ) : (
+                <p className="checkpoint-attempt-empty">
+                  Per-question detail was not recorded for this attempt (older attempts saved only the total score).
+                </p>
+              )}
+            </div>
+          </details>
+        );
+      })}
     </div>
   );
 }
@@ -504,11 +574,8 @@ function AllSkillsBarChart({ rows = [], letterAssessment = [], patternAssessment
           );
         })}
         {(() => {
-          const namesKnown = letterAssessment.filter(item => item.knowsName).length;
-          const soundsKnown = letterAssessment.filter(item => item.knowsSound).length;
-          const elTotal = letterAssessment.length * 2 || 52;
-          const elCorrect = namesKnown + soundsKnown;
-          const pct = elTotal ? clampPercent((elCorrect / elTotal) * 100) : 0;
+          const letterChecks = buildElChecksSummary(letterAssessment, item => [item.knowsName, item.knowsSound]);
+          const pct = letterChecks.percent;
           const hasData = letterAssessment.length > 0;
           return (
             <div
@@ -532,12 +599,8 @@ function AllSkillsBarChart({ rows = [], letterAssessment = [], patternAssessment
           );
         })()}
         {(() => {
-          const patternTotal = patternAssessment.length * 2 || 0;
-          const patternCorrect = patternAssessment.reduce(
-            (sum, item) => sum + (item.soundCorrect ? 1 : 0) + (item.wordCorrect ? 1 : 0),
-            0
-          );
-          const pct = patternTotal ? clampPercent((patternCorrect / patternTotal) * 100) : 0;
+          const patternChecks = buildElChecksSummary(patternAssessment, item => [item.soundCorrect, item.wordCorrect]);
+          const pct = patternChecks.percent;
           const hasData = patternAssessment.length > 0;
           return (
             <div
@@ -648,18 +711,19 @@ function SkillLineChart({ row }) {
   );
 }
 
-function ElSkillSummary({ title, records = [], getAccuracy, getLabel }) {
+function ElSkillSummary({ title, records = [], getAccuracy, getChecks, getLabel }) {
   if (!records.length) {
     return <div className="student-report-muted-card">No {title} data recorded yet.</div>;
   }
-  const fullyCorrect = records.filter(item => getAccuracy(item) >= 100).length;
-  const overallPct = Math.round((fullyCorrect / records.length) * 100);
+  // One convention everywhere: the headline percent counts checks correct out
+  // of checks asked (same numerator/denominator as the EL cards and bars).
+  const checks = buildElChecksSummary(records, getChecks || (item => [getAccuracy(item) >= 100]));
 
   return (
     <div className="growth-el-summary-card">
       <div className="growth-card-top">
         <p><strong>{title}</strong> - {records.length} items assessed</p>
-        <span className="growth-delta positive">{overallPct}% overall</span>
+        <span className="growth-delta positive">{checks.percent}% ({checks.checksCorrect}/{checks.checksTotal} checks)</span>
       </div>
       <div className="growth-el-item-grid" role="list">
         {records.map((item, index) => {
@@ -677,7 +741,7 @@ function ElSkillSummary({ title, records = [], getAccuracy, getLabel }) {
           );
         })}
       </div>
-      <p className="growth-summary muted-text">{fullyCorrect} of {records.length} items fully correct.</p>
+      <p className="growth-summary muted-text">{checks.fullyCorrectCount} of {records.length} items fully correct.</p>
     </div>
   );
 }
@@ -725,22 +789,10 @@ function LearnedSection({ correctWordRows, model }) {
 }
 
 function SoundsProgressChart({ sounds = [], letterNames = [] }) {
-  const level1Items = sounds.filter(row =>
-    row.itemType === "initial_sound" ||
-    row.itemType === "rhyming_family" ||
-    row.itemType === "short_vowel"
-  );
-  const level2Items = sounds
-    .filter(row =>
-      row.itemType === "final_sound" ||
-      row.itemType === "letter_sound" ||
-      row.itemType === "phonics_pattern"
-    )
-    .concat(letterNames);
-  const level1Total = 25;
-  const level2Total = Math.max(level2Items.length + 5, 26);
-  const level1Pct = Math.min(100, Math.round((level1Items.length / level1Total) * 100));
-  const level2Pct = Math.min(100, level2Items.length ? Math.round((level2Items.length / level2Total) * 100) : 0);
+  // Real denominators: distinct assessable items per type, generated from the
+  // live question banks (tools/generateItemUniverse.js). The old hardcoded
+  // 25 / max(n+5, 26) constants meant Level 2 could never reach 100%.
+  const progress = buildSoundsProgress([...sounds, ...letterNames], itemUniverseCounts);
 
   return (
     <div className="sounds-progress-chart" aria-label="Sounds mastery by level">
@@ -749,22 +801,22 @@ function SoundsProgressChart({ sounds = [], letterNames = [] }) {
         <div className="sounds-progress-track">
           <div
             className="sounds-progress-fill level1"
-            style={{ width: `${level1Pct}%` }}
-            aria-label={`${level1Items.length} of ${level1Total} Level 1 sounds mastered`}
+            style={{ width: `${progress.level1.percent}%` }}
+            aria-label={`${progress.level1.mastered} of ${progress.level1.total} Level 1 sounds mastered`}
           />
         </div>
-        <span className="sounds-progress-count">{level1Items.length}/{level1Total}</span>
+        <span className="sounds-progress-count">{progress.level1.mastered}/{progress.level1.total}</span>
       </div>
       <div className="sounds-progress-row">
         <span className="sounds-progress-label">Level 2 Sounds / Letter Names</span>
         <div className="sounds-progress-track">
           <div
             className="sounds-progress-fill level2"
-            style={{ width: `${level2Pct}%` }}
-            aria-label={`${level2Items.length} of ${level2Total} Level 2 items mastered`}
+            style={{ width: `${progress.level2.percent}%` }}
+            aria-label={`${progress.level2.mastered} of ${progress.level2.total} Level 2 items mastered`}
           />
         </div>
-        <span className="sounds-progress-count">{level2Items.length}/{level2Total}</span>
+        <span className="sounds-progress-count">{progress.level2.mastered}/{progress.level2.total}</span>
       </div>
     </div>
   );
@@ -831,12 +883,36 @@ function SupportSection({ model }) {
   );
 }
 
-function GuidedReadingSection({ guidedReadingReportRows, storyQuestSummary }) {
+function GuidedReadingSummaryPanel({ rows = [] }) {
+  if (!rows.length) return null;
+  const summary = buildGuidedReadingSummary(rows);
+  const mostRecentDate = summary.mostRecent?.lastReadAt
+    ? new Date(summary.mostRecent.lastReadAt).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })
+    : "";
+
+  return (
+    <div className="guided-reading-summary" aria-label="Guided reading summary">
+      <span className="guided-reading-summary-chip">Books completed: {summary.totalCompleted}</span>
+      {summary.byLevel.map(item => (
+        <span className="guided-reading-summary-chip" key={item.level}>Level {item.level}: {item.count}</span>
+      ))}
+      {summary.mostRecent && (
+        <span className="guided-reading-summary-chip recent">
+          Most recent: {summary.mostRecent.title}{mostRecentDate ? ` (${mostRecentDate})` : ""}
+        </span>
+      )}
+    </div>
+  );
+}
+
+function GuidedReadingSection({ guidedReadingReportRows, storyQuestRawProgress = {}, storyQuestSummary }) {
   const storyRows = storyQuestSummary.rows || [];
   const storyWords = normaliseList(storyRows.flatMap(row => row.words || [])).sort((a, b) => a.localeCompare(b));
+  const starTotals = summarizeStoryQuestStars(storyRows, storyQuestRawProgress);
 
   return (
     <div className="student-report-reading-stack">
+      <GuidedReadingSummaryPanel rows={guidedReadingReportRows} />
       {guidedReadingReportRows.length ? (
         <div className="student-report-reading-table-wrap">
           <table className="student-report-reading-table">
@@ -846,6 +922,7 @@ function GuidedReadingSection({ guidedReadingReportRows, storyQuestSummary }) {
                 <th>Level</th>
                 <th>Reads</th>
                 <th>Accuracy</th>
+                <th>Quiz</th>
                 <th>Support Words</th>
                 <th>Notes</th>
               </tr>
@@ -859,6 +936,7 @@ function GuidedReadingSection({ guidedReadingReportRows, storyQuestSummary }) {
                   <td className={row.latestAccuracy >= 80 ? "score-good" : row.latestAccuracy >= 60 ? "score-mid" : "score-low"}>
                     {row.latestAccuracy || 0}%
                   </td>
+                  <td>{row.quizTotal ? `${row.quizScore}/${row.quizTotal}` : "—"}</td>
                   <td>{row.supportWords.length ? row.supportWords.slice(0, 8).join(", ") : "none"}</td>
                   <td>{row.notes[0]?.note || "No notes recorded."}</td>
                 </tr>
@@ -874,9 +952,17 @@ function GuidedReadingSection({ guidedReadingReportRows, storyQuestSummary }) {
         <h3>Story Quest — Vocabulary Collected</h3>
         {storyRows.length ? (
           <>
+            <p className="story-star-totals">
+              Stars recorded: {starTotals.recordedStars}
+              {starTotals.completedWithoutStars > 0 && (
+                <span className="story-star-note">
+                  {" "}· {starTotals.completedWithoutStars} completed quest{starTotals.completedWithoutStars === 1 ? "" : "s"} without recorded stars (not counted)
+                </span>
+              )}
+            </p>
             {storyRows.slice(0, 3).map(row => (
               <p key={row.questId}>
-                <strong>{row.title}</strong> · {row.stars || row.starCount || (row.completed ? 1 : 0)} stars · {row.status}
+                <strong>{row.title}</strong> · {getStoryQuestStarInfo(row, storyQuestRawProgress?.[row.questId] || {}).display} · {row.status}
               </p>
             ))}
             <ChipTextList items={storyWords} limit={40} />
@@ -885,6 +971,47 @@ function GuidedReadingSection({ guidedReadingReportRows, storyQuestSummary }) {
           <p>No Story Quest vocabulary collected yet.</p>
         )}
       </article>
+    </div>
+  );
+}
+
+function EngagementSection({ row }) {
+  if (!row) return null;
+  if (!hasEngagementSignal(row)) {
+    return (
+      <div className="student-report-muted-card">
+        No engagement activity recorded on this device yet. Missions, games, coins, and reading
+        activity will appear here once the student uses the learning areas.
+      </div>
+    );
+  }
+  const formatDay = value => {
+    if (!value) return "No activity yet";
+    const date = new Date(value);
+    return Number.isFinite(date.getTime())
+      ? date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })
+      : String(value);
+  };
+  const metrics = [
+    ["Daily mission streak", `${row.missionStreak} day${row.missionStreak === 1 ? "" : "s"}`],
+    ["Games played", row.gamesPlayed],
+    ["Game stars", row.gameStars],
+    ["Story quests completed", row.storyQuestsCompleted],
+    ["Books read", row.booksRead],
+    ["Coins earned", row.coinsEarned],
+    ["Coins spent", row.coinsSpent],
+    ["Coins balance", row.coinsBalance],
+    ["Last active", formatDay(row.lastActiveAt)]
+  ];
+
+  return (
+    <div className="report-engagement-grid" aria-label="Engagement summary">
+      {metrics.map(([label, value]) => (
+        <article className="report-engagement-card" key={label}>
+          <span className="report-engagement-label">{label}</span>
+          <strong className="report-engagement-value">{value}</strong>
+        </article>
+      ))}
     </div>
   );
 }
@@ -942,6 +1069,8 @@ export function FinishedReportPage({
   patternAssessment = [],
   guidedReadingRecords = {},
   storyQuestProgressScopeKey = "default",
+  // Optional; wired in App.jsx by Benjamin (pass progressScopeKey={studentId || studentName}).
+  progressScopeKey = "",
   returnToTeacherDashboard
 }) {
   const [guidedReadingReportRows, setGuidedReadingReportRows] = useState([]);
@@ -949,9 +1078,20 @@ export function FinishedReportPage({
   const hasGuidedReadingRecords = Object.keys(guidedReadingRecords || {}).length > 0;
   const activeGuidedReadingReportRows = hasGuidedReadingRecords ? guidedReadingReportRows : EMPTY_REPORT_ROWS;
   const activeGuidedReadingWordRows = hasGuidedReadingRecords ? guidedReadingWordRows : EMPTY_REPORT_ROWS;
-  const storyQuestSummary = useMemo(() =>
-    summarizeStoryQuestProgress(loadStoryQuestProgress(storyQuestProgressScopeKey), storyQuests),
-  [storyQuestProgressScopeKey]);
+  const storyQuestRawProgress = useMemo(
+    () => loadStoryQuestProgress(storyQuestProgressScopeKey),
+    [storyQuestProgressScopeKey]
+  );
+  const storyQuestSummary = useMemo(
+    () => summarizeStoryQuestProgress(storyQuestRawProgress, storyQuests),
+    [storyQuestRawProgress]
+  );
+  const engagementRow = useMemo(() => {
+    if (!progressScopeKey) return null;
+    // Same per-student localStorage areas the Excel exports read.
+    const areas = collectStudentEngagementAreas({ id: progressScopeKey });
+    return buildEngagementRow({ studentName, studentId: progressScopeKey, className, areas });
+  }, [progressScopeKey, studentName, className]);
 
   useEffect(() => {
     if (!hasGuidedReadingRecords) return undefined;
@@ -1045,10 +1185,15 @@ export function FinishedReportPage({
         <ElAssessmentSection cards={elCards} />
 
         <SectionBand title="Skill-Set Assessments" subtitle="Checkpoint results across all assessed skill areas" />
-        <SkillSetSection rows={model.skillMapRows} />
+        <SkillSetSection mastery={mastery} rows={model.skillMapRows} />
 
-        <SectionBand title="Growth Over Time" subtitle="Default view shows all skills. Use the dropdown to view checkpoint progress for a specific skill." />
-        <GrowthSection model={model} letterAssessment={letterAssessment} patternAssessment={patternAssessment} />
+        <SectionBand title="Growth Over Time" subtitle="Default view shows all skills. Use the dropdown to view checkpoint progress and the per-question review for a specific skill." />
+        <GrowthSection
+          assessmentHistory={assessmentHistory}
+          model={model}
+          letterAssessment={letterAssessment}
+          patternAssessment={patternAssessment}
+        />
 
         <SectionBand title="Words, Sounds & Skills Learned" subtitle="Items at Mastered level only" accent="#16A34A" />
         <LearnedSection correctWordRows={correctWordRows} model={model} />
@@ -1056,8 +1201,19 @@ export function FinishedReportPage({
         <SectionBand title="Areas Needing Support" subtitle="Items below 60% accuracy — prioritised by widest gap" accent="#DC2626" />
         <SupportSection model={model} />
 
-        <SectionBand title="Guided Reading & Story Quest" subtitle="Book progress, conference notes, and vocabulary" accent="#16A34A" />
-        <GuidedReadingSection guidedReadingReportRows={activeGuidedReadingReportRows} storyQuestSummary={storyQuestSummary} />
+        <SectionBand title="Guided Reading & Story Quest" subtitle="Book completion by level, quiz scores, conference notes, and vocabulary" accent="#16A34A" />
+        <GuidedReadingSection
+          guidedReadingReportRows={activeGuidedReadingReportRows}
+          storyQuestRawProgress={storyQuestRawProgress}
+          storyQuestSummary={storyQuestSummary}
+        />
+
+        {progressScopeKey && (
+          <>
+            <SectionBand title="Engagement" subtitle="Daily missions, games, coins, and reading activity saved on this device" accent="#7C3AED" />
+            <EngagementSection row={engagementRow} />
+          </>
+        )}
 
         <SectionBand title="Next Session Plan" subtitle={`Recommended focus for ${model.snapshot.studentName}'s next teaching session`} />
         <NextSessionPlan model={model} />

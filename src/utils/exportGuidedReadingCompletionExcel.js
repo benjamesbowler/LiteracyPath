@@ -2,15 +2,33 @@ import {
   getGuidedReadingProgress,
   guidedReadingBooks
 } from "../data/guidedReadingBooks.js";
+import {
+  buildEngagementRows,
+  buildReportContextRows,
+  collectStoryQuestRowsForStudents,
+  emptyEngagementCells,
+  emptyStoryQuestCells,
+  ENGAGEMENT_HEADERS,
+  ENGAGEMENT_SHEET_NAME,
+  engagementRowToCells,
+  REPORT_INFO_SHEET_NAME,
+  STORY_QUEST_HEADERS,
+  STORY_QUEST_SHEET_NAME,
+  storyQuestRowToCells
+} from "./exportReportSections.js";
 
 export const GUIDED_READING_COMPLETION_SHEETS = {
+  reportInfo: REPORT_INFO_SHEET_NAME,
   summary: "Summary",
   studentCompletion: "Student Completion",
   booksCompleted: "Books Completed",
-  studentSummary: "Student Summary"
+  studentSummary: "Student Summary",
+  storyQuests: STORY_QUEST_SHEET_NAME,
+  engagement: ENGAGEMENT_SHEET_NAME
 };
 
 export const GUIDED_READING_COMPLETION_HEADERS = {
+  reportInfo: ["Field", "Value"],
   summary: [
     "Class Name",
     "Total Students",
@@ -53,8 +71,11 @@ export const GUIDED_READING_COMPLETION_HEADERS = {
     "Highest Guided Reading Level Completed",
     "Total Rereads",
     "Last Guided Reading Date",
+    "Last Active Date",
     "Recent Book"
-  ]
+  ],
+  storyQuests: STORY_QUEST_HEADERS,
+  engagement: ENGAGEMENT_HEADERS
 };
 
 const STORAGE_PREFIX = "guidedReadingAssessment:";
@@ -228,6 +249,7 @@ export function buildGuidedReadingCompletionWorkbookData(options = {}) {
   const studentMap = new Map();
   rows.forEach(row => {
     const existing = studentMap.get(row.studentId || row.studentName) || {
+      studentId: row.studentId || "",
       studentName: row.studentName,
       className: row.className,
       completedBookIds: new Set(),
@@ -255,6 +277,7 @@ export function buildGuidedReadingCompletionWorkbookData(options = {}) {
     const key = student.id || student.name;
     if (studentMap.has(key)) return;
     studentMap.set(key, {
+      studentId: student.id || "",
       studentName: student.name || "Unknown Student",
       className: getClassName(student, options.classes || []),
       completedBookIds: new Set(),
@@ -266,17 +289,54 @@ export function buildGuidedReadingCompletionWorkbookData(options = {}) {
     });
   });
 
+  // New sections: engagement + Story Quests come from optional caller-supplied
+  // maps (keyed by studentId), falling back to this browser's localStorage.
+  const engagementRows = buildEngagementRows({
+    students,
+    classes: options.classes || [],
+    engagementByStudent: options.engagementByStudent || null
+  });
+  const engagementByKey = new Map(engagementRows.map(row => [row.studentId || row.studentName, row]));
+  const storyQuestRows = collectStoryQuestRowsForStudents({
+    students,
+    storyQuestProgressByStudent: options.storyQuestProgressByStudent || null,
+    quests: options.storyQuestCatalog || []
+  });
+  const studentSummaryRows = Array.from(studentMap.values()).map(row => {
+    const engagement = engagementByKey.get(row.studentId || row.studentName);
+    const lastActiveDate = [row.lastGuidedReadingDate, formatDate(engagement?.lastActiveAt)]
+      .filter(Boolean)
+      .sort()
+      .at(-1) || "";
+    return {
+      ...row,
+      uniqueBooksCompleted: row.completedBookIds.size,
+      lastActiveDate
+    };
+  });
+  const reportInfoRows = buildReportContextRows({
+    reportTitle: "Guided Reading Completion",
+    generatedAt: exportDate,
+    classNames,
+    studentCount: students.length || new Set(rows.map(row => row.studentId)).size,
+    extraRows: [
+      { field: "Guided Reading Session Rows", value: rows.length },
+      { field: "Story Quest Rows", value: storyQuestRows.length }
+    ]
+  });
+
   return {
+    generatedAt: exportDate.toISOString(),
+    reportInfoRows,
     summaryRows,
     studentCompletionRows: rows,
     booksCompletedRows: Array.from(booksById.values()).map(row => ({
       ...row,
       studentsCompleted: row.studentsCompleted.size
     })),
-    studentSummaryRows: Array.from(studentMap.values()).map(row => ({
-      ...row,
-      uniqueBooksCompleted: row.completedBookIds.size
-    })),
+    studentSummaryRows,
+    storyQuestRows,
+    engagementRows,
     totals: {
       totalStudents: students.length || new Set(rows.map(row => row.studentId)).size,
       totalCompletedBooks: completedRows.length,
@@ -308,10 +368,26 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
   const module = await import("exceljs");
   const ExcelJS = module.default || module["module.exports"] || module;
   const workbook = new ExcelJS.Workbook();
-  const data = buildGuidedReadingCompletionWorkbookData(options);
+  let storyQuestCatalog = options.storyQuestCatalog;
+  if (!storyQuestCatalog) {
+    try {
+      storyQuestCatalog = (await import("../data/storyQuests.js")).storyQuests;
+    } catch {
+      storyQuestCatalog = [];
+    }
+  }
+  const data = buildGuidedReadingCompletionWorkbookData({ ...options, storyQuestCatalog });
 
   workbook.creator = "Literacy Guide";
   workbook.created = new Date();
+
+  const infoSheet = workbook.addWorksheet(GUIDED_READING_COMPLETION_SHEETS.reportInfo);
+  infoSheet.columns = GUIDED_READING_COMPLETION_HEADERS.reportInfo.map(header => ({
+    header,
+    key: header,
+    width: header === "Field" ? 32 : 56
+  }));
+  data.reportInfoRows.forEach(row => infoSheet.addRow({ Field: row.field, Value: row.value }));
 
   const summarySheet = workbook.addWorksheet(GUIDED_READING_COMPLETION_SHEETS.summary);
   summarySheet.columns = GUIDED_READING_COMPLETION_HEADERS.summary.map(header => ({ header, key: header, width: 28 }));
@@ -397,6 +473,7 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Highest Guided Reading Level Completed": row.highestLevel,
     "Total Rereads": row.totalRereads,
     "Last Guided Reading Date": row.lastGuidedReadingDate,
+    "Last Active Date": row.lastActiveDate,
     "Recent Book": row.recentBook
   } : {
     "Student Name": "No records yet",
@@ -406,8 +483,29 @@ export async function createGuidedReadingCompletionWorkbook(options = {}) {
     "Highest Guided Reading Level Completed": "",
     "Total Rereads": 0,
     "Last Guided Reading Date": "",
+    "Last Active Date": "",
     "Recent Book": ""
   });
+
+  const storyQuestSheet = workbook.addWorksheet(GUIDED_READING_COMPLETION_SHEETS.storyQuests);
+  storyQuestSheet.columns = GUIDED_READING_COMPLETION_HEADERS.storyQuests.map(header => ({
+    header,
+    key: header,
+    width: header === "Words Found" || header === "Quest Title" ? 36 : 20
+  }));
+  addRowsOrEmpty(storyQuestSheet, data.storyQuestRows, row => row
+    ? storyQuestRowToCells(row)
+    : emptyStoryQuestCells());
+
+  const engagementSheet = workbook.addWorksheet(GUIDED_READING_COMPLETION_SHEETS.engagement);
+  engagementSheet.columns = GUIDED_READING_COMPLETION_HEADERS.engagement.map(header => ({
+    header,
+    key: header,
+    width: 20
+  }));
+  addRowsOrEmpty(engagementSheet, data.engagementRows, row => row
+    ? engagementRowToCells(row)
+    : emptyEngagementCells());
 
   workbook.worksheets.forEach(styleWorksheet);
   return { workbook, data };

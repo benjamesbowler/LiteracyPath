@@ -17,6 +17,7 @@ import {
   GuidedReadingPage,
   LetterAssessmentPage,
   ResetStudentProgressDialog,
+  ConfirmActionDialog,
   SkillsProgressPage,
   StudentOverviewPage,
   TeacherReportsPage
@@ -1812,6 +1813,9 @@ export default function App() {
   const [reportSkillMasterySummary, setReportSkillMasterySummary] = useState([]);
   const [checkpointDecision, setCheckpointDecision] = useState(null);
   const [resetProgressDialogOpen, setResetProgressDialogOpen] = useState(false);
+  // Pending admin deletion awaiting styled confirmation: { kind, id, name }.
+  const [adminConfirm, setAdminConfirm] = useState(null);
+  const [adminConfirmBusy, setAdminConfirmBusy] = useState(false);
   const [resettingProgress, setResettingProgress] = useState(false);
   const answerInFlightRef = useRef(false);
   // Guards auto-advance setTimeout callbacks from firing after endAssessment is called.
@@ -2942,14 +2946,13 @@ export default function App() {
     return null;
   }
 
-  async function adminDeleteStudent(selectedStudentId, selectedStudentName = "this student") {
+  function adminDeleteStudent(selectedStudentId, selectedStudentName = "this student") {
     if (!isAdmin || !selectedStudentId) return;
+    setAdminConfirm({ kind: "student", id: selectedStudentId, name: selectedStudentName });
+  }
 
-    const confirmed = window.confirm(
-      `Admin delete ${selectedStudentName}? This removes the student and associated assessment data.`
-    );
-
-    if (!confirmed) return;
+  async function executeAdminDeleteStudent(selectedStudentId, selectedStudentName = "this student") {
+    if (!isAdmin || !selectedStudentId) return;
 
     const ids = [selectedStudentId];
     const errors = [];
@@ -3012,14 +3015,13 @@ export default function App() {
     setMessage(`Teacher moved to ${schoolRows[0].name}.`);
   }
 
-  async function adminDeleteClass(classId, className = "this class") {
+  function adminDeleteClass(classId, className = "this class") {
     if (!isAdmin || !classId) return;
+    setAdminConfirm({ kind: "class", id: classId, name: className });
+  }
 
-    const confirmed = window.confirm(
-      `Admin delete ${className}? This removes the class, its students, and associated assessment data.`
-    );
-
-    if (!confirmed) return;
+  async function executeAdminDeleteClass(classId, className = "this class") {
+    if (!isAdmin || !classId) return;
 
     const { data: students, error: lookupError } = await supabase
       .from("students")
@@ -3561,7 +3563,17 @@ export default function App() {
         const masteredIds =
           new Set(mastered.map(m => m.skill_id));
 
+        const attemptsBySkillId = new Map(
+          studentMastery.map(m => [m.skill_id, Number(m.attempts) || 0])
+        );
+
+        // Prefer the skill the child is actively WORKING ON (attempted but
+        // not yet mastered) over the first untouched one, so the dashboard
+        // reflects real movement instead of hiding in-progress work.
         const firstUnmastered =
+          skillTree.find(stage =>
+            !masteredIds.has(stage.id) && attemptsBySkillId.get(stage.id) > 0
+          ) ||
           skillTree.find(stage =>
             !masteredIds.has(stage.id)
           );
@@ -3735,6 +3747,7 @@ export default function App() {
       }, { onConflict: "student_id,area,key" });
     } catch (tombstoneError) {
       console.warn("Could not write reset tombstone (other devices may not auto-clear).", tombstoneError);
+      setMessage("Progress was reset on this device, but the reset could not sync to the cloud - other devices may still show old progress. Please retry the reset while online.");
     }
     if (import.meta.env.DEV) {
       console.debug("[assessment-reset] Reset all progress for selected student", {
@@ -3753,6 +3766,23 @@ export default function App() {
 
   async function loadStudentProgress(selectedStudentId, selectedStudentName) {
     answerInFlightRef.current = false;
+    // Synchronously hard-reset every piece of in-flight assessment state
+    // BEFORE any await, so nothing from the previously selected student can
+    // render against the new one while their data loads.
+    setRoundAnswers([]);
+    setRoundItemKeys([]);
+    setRoundQuestionIds([]);
+    roundItemKeysRef.current = [];
+    roundQuestionIdsRef.current = [];
+    setUsedByStage({});
+    setItemSessionSeen({});
+    setCurrentQuestion(null);
+    setFeedback(null);
+    setAssessmentTransitioning(false);
+    setMastery({});
+    setItemMastery({});
+    setAnswerHistory([]);
+    answerHistoryRef.current = [];
     const progressSyncSession = {
       mode: "teacher",
       studentId: selectedStudentId,
@@ -3876,6 +3906,17 @@ export default function App() {
       };
     });
 
+    // Recover retake-failure stamps from the persisted attempt history so
+    // the report's "retested today" hint survives reloads and device swaps.
+    for (const attempt of loadAssessmentAttempts({ teacherId })) {
+      if (attempt.studentId !== selectedStudentId || attempt.passed) continue;
+      const entry = rebuiltMastery[attempt.skillId];
+      const at = attempt.completedAt || attempt.startedAt || "";
+      if (entry?.mastered && at && (!entry.lastRetakeFailedAt || at > entry.lastRetakeFailedAt)) {
+        entry.lastRetakeFailedAt = at;
+      }
+    }
+
     setMastery(rebuiltMastery);
 
     const firstUnmastered =
@@ -3917,7 +3958,12 @@ export default function App() {
 
     if (error) {
       console.error("Supabase student save error:", error);
-      setMessage("Could not create student. Please try again.");
+      const reason = /duplicate|unique/i.test(error.message || "")
+        ? `A student named "${clean}" already exists in this class.`
+        : error.message
+          ? `Could not create student: ${error.message}`
+          : "Could not create student. Please try again.";
+      setMessage(reason);
       return;
     }
 
@@ -4984,12 +5030,26 @@ export default function App() {
         return !key || !keysAlreadyInRound.has(key);
       });
 
-    const pool =
-      unusedItemKeys.length > 0
-        ? unusedItemKeys
-        : available;
+    // A checkpoint round must NEVER repeat an item the child already answered
+    // this round. If the bank runs out mid-round the graceful stop below
+    // surfaces the content gap to the teacher instead of quietly re-asking.
+    const pool = unusedItemKeys;
 
-    const prioritized = prioritizeCoverageQuestions(pool, activeStage);
+    const coveragePrioritized = prioritizeCoverageQuestions(pool, activeStage);
+    // Diagnostic mode ADAPTS: items whose diagnostic target the child recently
+    // missed float to the front, so the round digs into demonstrated
+    // weaknesses instead of sampling at random. Stable sort keeps the
+    // coverage ordering within each group.
+    const weakTargets = assessmentMode === "diagnostic"
+      ? getWeakDiagnosticTargets(activeStage.label)
+      : null;
+    const prioritized = weakTargets && weakTargets.size
+      ? [...coveragePrioritized].sort(
+          (a, b) =>
+            Number(weakTargets.has(String(b.diagnosticTarget || "").trim())) -
+            Number(weakTargets.has(String(a.diagnosticTarget || "").trim()))
+        )
+      : coveragePrioritized;
     const picked = selectNonDuplicateRoundCandidate(prioritized, activeStage);
 
     if (!picked) {
@@ -5021,6 +5081,18 @@ export default function App() {
     setAssessmentTransitioning(false);
   }
 
+
+  // Diagnostic-mode adaptation: every diagnostic target this child answered
+  // incorrectly in their recent history for this skill.
+  function getWeakDiagnosticTargets(skillLabel, lookback = 40) {
+    const weak = new Set();
+    for (const record of answerHistoryRef.current.slice(-lookback)) {
+      if (record.skill !== skillLabel || record.isCorrect) continue;
+      const target = String(record.diagnosticTarget || "").trim();
+      if (target) weak.add(target);
+    }
+    return weak;
+  }
 
   function getItemMasteryStateKey(itemKey, itemType) {
     return normalizeItemKey(itemType) + "::" + normalizeItemKey(itemKey);
@@ -7203,6 +7275,17 @@ export default function App() {
 
     initialSoundRoundQueueRef.current = [];
     initialSoundRoundMetaRef.current = null;
+    // Heads-up (not a blocker) when a skill's bank is too thin for a full
+    // round of distinct items - the teacher learns BEFORE starting, instead
+    // of the round stalling halfway through.
+    if (!isInitialSoundsStage(nextStage)) {
+      const distinctItems = new Set(
+        getAvailableStageQuestions(nextStageIndex).map(getQuestionItemKey).filter(Boolean)
+      ).size;
+      if (distinctItems > 0 && distinctItems < ROUND_LENGTH) {
+        setMessage(`Heads up: ${nextStage.label} only has ${distinctItems} distinct items right now; a full round asks ${ROUND_LENGTH}. The round will stop early if it runs out.`);
+      }
+    }
     const previewQuestions = isInitialSoundsStage(nextStage)
       ? buildInitialSoundRoundQueue().items
       : prioritizeCoverageQuestions(getAvailableStageQuestions(nextStageIndex), nextStage).slice(0, ROUND_LENGTH);
@@ -7755,7 +7838,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               </h2>
               <p className="muted-text">
                 {isSetupRequired
-                  ? "Literacy Guide requires the signup approval table before this account can enter the app. Ask an admin to apply the signup approval schema."
+                  ? "Your account is created, but Literacy Guide could not finish setting it up. This is a one-time setup step on our side - please email benjamesbowler@gmail.com and we will activate your account."
                   : isRejected
                     ? "This account request was rejected. Please contact your school administrator if you think this is a mistake."
                     : "Your account request has been submitted. An administrator must approve your account before you can use Literacy Guide."}
@@ -8233,6 +8316,31 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         </PageBoundary>
       )}
 
+      <ConfirmActionDialog
+        open={Boolean(adminConfirm)}
+        busy={adminConfirmBusy}
+        title={adminConfirm?.kind === "class" ? "Delete class?" : "Delete student?"}
+        body={adminConfirm?.kind === "class"
+          ? `This permanently removes ${adminConfirm?.name || "this class"}, every student in it, and all of their assessment data. This cannot be undone.`
+          : `This permanently removes ${adminConfirm?.name || "this student"} and all of their assessment data. This cannot be undone.`}
+        confirmLabel={adminConfirm?.kind === "class" ? "Delete class" : "Delete student"}
+        onCancel={() => setAdminConfirm(null)}
+        onConfirm={async () => {
+          if (!adminConfirm || adminConfirmBusy) return;
+          setAdminConfirmBusy(true);
+          try {
+            if (adminConfirm.kind === "class") {
+              await executeAdminDeleteClass(adminConfirm.id, adminConfirm.name);
+            } else {
+              await executeAdminDeleteStudent(adminConfirm.id, adminConfirm.name);
+            }
+          } finally {
+            setAdminConfirmBusy(false);
+            setAdminConfirm(null);
+          }
+        }}
+      />
+
       <ResetStudentProgressDialog
         open={resetProgressDialogOpen}
         studentName={studentName}
@@ -8278,6 +8386,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               exportPatternAssessment={exportPatternAssessment}
               guidedReadingRecords={guidedReadingRecords}
               storyQuestProgressScopeKey={studentId || studentName || "default"}
+              progressScopeKey={studentId || studentName || "default"}
               openGuidedReading={() => setAppView(APP_VIEWS.GUIDED_READING)}
               returnToTeacherDashboard={teacherId ? returnToTeacherDashboard : null}
             />

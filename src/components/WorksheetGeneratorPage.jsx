@@ -16,9 +16,18 @@ import "../styles/worksheets.css";
 
 const TYPE_LABEL = Object.fromEntries(WORKSHEET_TYPES.map(t => [t.id, t.label]));
 
+const LAST_CYCLE_KEY = "lp-worksheets-last-cycle";
+
 export function WorksheetGeneratorPage() {
   const cycleOptions = useMemo(() => worksheetCycleOptions(), []);
-  const [cycleId, setCycleId] = useState(cycleOptions[0]?.id || "");
+  const [cycleId, setCycleId] = useState(() => {
+    // Default to the cycle the teacher used last time.
+    try {
+      const saved = window.localStorage.getItem(LAST_CYCLE_KEY);
+      if (saved && cycleOptions.some(option => option.id === saved)) return saved;
+    } catch { /* first visit or storage unavailable */ }
+    return cycleOptions[0]?.id || "";
+  });
   const [type, setType] = useState("");
   const [pages, setPages] = useState(2);
   const [bank, setBank] = useState([]);
@@ -48,6 +57,11 @@ export function WorksheetGeneratorPage() {
   }, []);
 
   const recipe = { cycleId, type: effectiveType, pages };
+
+  function rememberCycle(nextCycleId) {
+    setCycleId(nextCycleId);
+    try { window.localStorage.setItem(LAST_CYCLE_KEY, nextCycleId); } catch { /* best effort */ }
+  }
 
   function handleGenerate() {
     try {
@@ -92,7 +106,7 @@ export function WorksheetGeneratorPage() {
       <section className="ws-builder" aria-label="Worksheet options">
         <label className="ws-field">
           <span>Cycle</span>
-          <select value={cycleId} onChange={e => setCycleId(e.target.value)}>
+          <select value={cycleId} onChange={e => rememberCycle(e.target.value)}>
             {cycleOptions.map(opt => (
               <option key={opt.id} value={opt.id}>Cycle {opt.cycleNumber} — {opt.title}</option>
             ))}

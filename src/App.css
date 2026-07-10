@@ -15895,3 +15895,236 @@ body {
 ::selection {
   background: rgba(12, 107, 101, 0.18);
 }
+
+/* ─── Student report upgrades (2026-07-10): pass rules, per-question review,
+   engagement, guided-reading summary ─────────────────────────────────────── */
+
+.student-report-legend {
+  background: #f0fdfa;
+  border: 1px solid #ccfbf1;
+  border-radius: 10px;
+  color: #134e4a;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  margin: 0 0 14px;
+  padding: 8px 12px;
+}
+
+.lg-skill-tile-pass {
+  color: #475569;
+  display: block;
+  font-size: 0.7rem;
+  margin-top: 2px;
+}
+
+.skill-retake-hint {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 8px;
+  color: #92400e;
+  display: block;
+  font-size: 0.7rem;
+  line-height: 1.35;
+  margin-top: 4px;
+  padding: 3px 6px;
+}
+
+.checkpoint-attempt-review {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  margin-top: 14px;
+  padding: 14px 16px;
+}
+
+.checkpoint-attempt-review h3 {
+  color: #0f172a;
+  font-size: 1rem;
+  margin: 0 0 4px;
+}
+
+.checkpoint-attempt-review-note {
+  color: #475569;
+  font-size: 0.82rem;
+  margin: 0 0 10px;
+}
+
+.checkpoint-attempt-details {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.checkpoint-attempt-details[open] {
+  border-color: #99f6e4;
+}
+
+.checkpoint-attempt-summary {
+  align-items: center;
+  background: #f8fafc;
+  color: #0f172a;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  gap: 6px 12px;
+  justify-content: space-between;
+  padding: 8px 12px;
+}
+
+.checkpoint-attempt-summary .attempt-outcome.passed {
+  color: #047857;
+  font-weight: 700;
+}
+
+.checkpoint-attempt-summary .attempt-outcome.not-passed {
+  color: #b45309;
+  font-weight: 700;
+}
+
+.checkpoint-attempt-body {
+  padding: 10px 12px 12px;
+}
+
+.checkpoint-rollup {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.checkpoint-rollup li {
+  border-radius: 8px;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+  padding: 4px 8px;
+}
+
+.checkpoint-rollup li.rollup-missed {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.checkpoint-rollup li.rollup-clear {
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.checkpoint-attempt-table {
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  width: 100%;
+}
+
+.checkpoint-attempt-table th,
+.checkpoint-attempt-table td {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 5px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.checkpoint-attempt-table th {
+  background: #f8fafc;
+  color: #334155;
+  font-weight: 700;
+}
+
+.checkpoint-attempt-table tr.attempt-row-missed td {
+  background: #fff7f7;
+}
+
+.checkpoint-attempt-table tr.attempt-row-missed td:last-child {
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.checkpoint-attempt-table tr.attempt-row-correct td:last-child {
+  color: #047857;
+}
+
+.checkpoint-attempt-empty {
+  color: #64748b;
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+.story-star-totals {
+  color: #0f172a;
+  font-size: 0.85rem;
+  margin: 0 0 8px;
+}
+
+.story-star-note {
+  color: #64748b;
+  font-weight: 400;
+}
+
+.guided-reading-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.guided-reading-summary-chip {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 999px;
+  color: #14532d;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 10px;
+}
+
+.guided-reading-summary-chip.recent {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1e3a8a;
+}
+
+.report-engagement-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  margin-bottom: 8px;
+}
+
+.report-engagement-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #7c3aed;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.report-engagement-label {
+  color: #64748b;
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.report-engagement-value {
+  color: #0f172a;
+  display: block;
+  font-size: 1.15rem;
+  margin-top: 2px;
+}
+
+@media print {
+  /* Collapsed <details> content never prints; expanded attempts print flat. */
+  .checkpoint-attempt-details:not([open]) .checkpoint-attempt-body {
+    display: none !important;
+  }
+
+  .checkpoint-attempt-details,
+  .report-engagement-card,
+  .guided-reading-summary,
+  .student-report-legend {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

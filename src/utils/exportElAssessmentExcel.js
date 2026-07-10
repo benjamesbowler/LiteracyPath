@@ -11,7 +11,28 @@ import {
   getSkillArea,
   normalizeItemMasteryRows
 } from "../data/reportingSystem.js";
+import {
+  buildEngagementRow,
+  buildEngagementRows,
+  buildStoryQuestRows,
+  collectStoryQuestProgressForStudent,
+  collectStoryQuestRowsForStudents,
+  collectStudentEngagementAreas,
+  emptyEngagementCells,
+  emptyStoryQuestCells,
+  ENGAGEMENT_HEADERS,
+  ENGAGEMENT_SHEET_NAME,
+  engagementRowToCells,
+  formatExportDateTime,
+  hasPreviousComparison,
+  STORY_QUEST_HEADERS,
+  STORY_QUEST_SHEET_NAME,
+  storyQuestRowToCells
+} from "./exportReportSections.js";
 
+// Sheets that are always present in the workbook, in tab order. The
+// "Comparison" / "Progress Comparison" sheet is intentionally NOT listed:
+// it is only added when a previous saved report actually exists.
 export const EL_STUDENT_REPORT_SHEETS = [
   "Student Summary",
   "Assessment Attempts",
@@ -20,10 +41,11 @@ export const EL_STUDENT_REPORT_SHEETS = [
   "Item Mastery Detail",
   "Letter Names & Sounds",
   "Guided Reading",
+  STORY_QUEST_SHEET_NAME,
+  ENGAGEMENT_SHEET_NAME,
   "Next Session Plan",
   "Advanced Phonics Patterns",
-  "Pattern Detail",
-  "Comparison"
+  "Pattern Detail"
 ];
 
 export const EL_CLASS_REPORT_SHEETS = [
@@ -37,7 +59,9 @@ export const EL_CLASS_REPORT_SHEETS = [
   "Advanced Phonics Class Matrix",
   "Advanced Phonics Patterns",
   "Pattern Detail",
-  "Skill Summary"
+  "Skill Summary",
+  STORY_QUEST_SHEET_NAME,
+  ENGAGEMENT_SHEET_NAME
 ];
 
 function formatDate(value) {
@@ -253,6 +277,8 @@ function applyWorkbookPresentation(workbook, preferredOrder = []) {
     "Item Mastery Detail": EXPORT_COLORS.amber,
     "Weak Points & Groups": "FFDC2626",
     "Guided Reading": "FF16A34A",
+    [STORY_QUEST_SHEET_NAME]: "FF0EA5E9",
+    [ENGAGEMENT_SHEET_NAME]: EXPORT_COLORS.amber,
     "Next Session Plan": EXPORT_COLORS.navy
   };
   workbook.worksheets.forEach(sheet => {
@@ -305,6 +331,8 @@ export async function createStudentElAssessmentWorkbook(report) {
     ["Student Name", report.studentName || "Unknown Student"],
     ["Class Name", report.className || "Unknown Class"],
     ["Report Date", formatDate(report.generatedAt)],
+    ["Generated At", formatExportDateTime(report.generatedAt) || formatExportDateTime(new Date())],
+    ["Last Active Date", formatDate(report.engagement?.rows?.[0]?.lastActiveAt) || "No activity recorded yet"],
     ["Date Range", `${formatDate(report.dateRange?.start) || "No records"} to ${formatDate(report.dateRange?.end) || "No records"}`],
     ["Total Assessments", report.summary?.totalAssessments || 0],
     ["Average Accuracy", `${report.summary?.averageAccuracy || 0}%`],
@@ -627,6 +655,18 @@ export async function createStudentElAssessmentWorkbook(report) {
     "Last Read": ""
   });
 
+  const storyQuestSheet = workbook.addWorksheet(STORY_QUEST_SHEET_NAME);
+  setColumns(storyQuestSheet, STORY_QUEST_HEADERS, ["Quest Title", "Words Found"]);
+  addRowsOrEmpty(storyQuestSheet, report.storyQuests?.rows || [], row => row
+    ? storyQuestRowToCells(row)
+    : emptyStoryQuestCells());
+
+  const engagementSheet = workbook.addWorksheet(ENGAGEMENT_SHEET_NAME);
+  setColumns(engagementSheet, ENGAGEMENT_HEADERS, []);
+  addRowsOrEmpty(engagementSheet, report.engagement?.rows || [], row => row
+    ? engagementRowToCells(row)
+    : emptyEngagementCells());
+
   const recommendation = buildRecommendations({
     itemRows,
     currentStage: {
@@ -648,24 +688,28 @@ export async function createStudentElAssessmentWorkbook(report) {
     ["Caution Flags", list(recommendation.cautionFlags) || "No caution flags at this time"]
   ].forEach(row => nextPlanSheet.addRow({ Section: row[0], Detail: row[1] }));
 
-  const comparisonSheet = workbook.addWorksheet("Comparison");
-  setColumns(comparisonSheet, [
-    "Previous Report Date",
-    "Current Report Date",
-    "Accuracy Change",
-    "Newly Mastered Skills",
-    "Skills Still Needing Support",
-    "Suggested Teacher Action"
-  ], ["Newly Mastered Skills", "Skills Still Needing Support", "Suggested Teacher Action"]);
-  const comparison = report.comparison || {};
-  comparisonSheet.addRow({
-    "Previous Report Date": formatDate(comparison.previousGeneratedAt) || "No previous report available yet.",
-    "Current Report Date": formatDate(report.generatedAt),
-    "Accuracy Change": `${comparison.accuracyChange || 0}%`,
-    "Newly Mastered Skills": list(comparison.newlyMasteredSkills),
-    "Skills Still Needing Support": list(comparison.persistentFocusSkills || report.summary?.focusSkills),
-    "Suggested Teacher Action": comparison.note || "Review focus skills and update small-group practice."
-  });
+  // Comparison only makes sense against a real previous snapshot; on a first
+  // export the sheet is skipped entirely instead of rendering placeholders.
+  if (hasPreviousComparison(report.comparison)) {
+    const comparisonSheet = workbook.addWorksheet("Comparison");
+    setColumns(comparisonSheet, [
+      "Previous Report Date",
+      "Current Report Date",
+      "Accuracy Change",
+      "Newly Mastered Skills",
+      "Skills Still Needing Support",
+      "Suggested Teacher Action"
+    ], ["Newly Mastered Skills", "Skills Still Needing Support", "Suggested Teacher Action"]);
+    const comparison = report.comparison || {};
+    comparisonSheet.addRow({
+      "Previous Report Date": formatDate(comparison.previousGeneratedAt),
+      "Current Report Date": formatDate(report.generatedAt),
+      "Accuracy Change": `${comparison.accuracyChange || 0}%`,
+      "Newly Mastered Skills": list(comparison.newlyMasteredSkills),
+      "Skills Still Needing Support": list(comparison.persistentFocusSkills || report.summary?.focusSkills),
+      "Suggested Teacher Action": comparison.note || "Review focus skills and update small-group practice."
+    });
+  }
 
   applyWorkbookPresentation(workbook, EL_STUDENT_REPORT_SHEETS);
   return workbook;
@@ -679,6 +723,7 @@ export async function createClassElAssessmentWorkbook(report) {
   [
     ["Class Name", report.className || "Unknown Class"],
     ["Report Date", formatDate(report.generatedAt)],
+    ["Generated At", formatExportDateTime(report.generatedAt) || formatExportDateTime(new Date())],
     ["Date Range", `${formatDate(report.dateRange?.start) || "No records"} to ${formatDate(report.dateRange?.end) || "No records"}`],
     ["Total Students", report.summary?.totalStudents || report.studentRows?.length || 0],
     ["Total Assessments", report.summary?.totalAssessments || 0],
@@ -703,6 +748,8 @@ export async function createClassElAssessmentWorkbook(report) {
     Value: `${count} (${report.studentRows?.length ? Math.round((count / report.studentRows.length) * 100) : 0}%)`
   }));
 
+  const engagementRowByStudent = new Map((report.engagement?.rows || [])
+    .map(row => [row.studentId || row.studentName, row]));
   const studentSheet = workbook.addWorksheet("Student Overview");
   setColumns(studentSheet, [
     "Student Name",
@@ -713,6 +760,7 @@ export async function createClassElAssessmentWorkbook(report) {
     "Skills Needing Support",
     "Current Level / Stage",
     "Last Assessment Date",
+    "Last Active Date",
     "Recommended Focus"
   ], ["Recommended Focus"]);
   addRowsOrEmpty(studentSheet, report.studentRows || [], row => row ? {
@@ -724,6 +772,9 @@ export async function createClassElAssessmentWorkbook(report) {
     "Skills Needing Support": row.skillsNeedingSupport,
     "Current Level / Stage": row.currentLevel,
     "Last Assessment Date": formatDate(row.lastAssessmentDate),
+    "Last Active Date": formatDate(
+      engagementRowByStudent.get(row.studentId || row.studentName)?.lastActiveAt
+    ),
     "Recommended Focus": row.recommendedFocus
   } : {
     "Student Name": "No records yet",
@@ -734,6 +785,7 @@ export async function createClassElAssessmentWorkbook(report) {
     "Skills Needing Support": 0,
     "Current Level / Stage": "",
     "Last Assessment Date": "",
+    "Last Active Date": "",
     "Recommended Focus": "Complete assessments to populate this report."
 	  });
 
@@ -1019,33 +1071,64 @@ export async function createClassElAssessmentWorkbook(report) {
     "Suggested Activity / Next Step": "Complete assessments to create small groups."
   });
 
-  const comparisonSheet = workbook.addWorksheet("Progress Comparison");
-  setColumns(comparisonSheet, [
-    "Previous Report Date",
-    "Current Report Date",
-    "Class Accuracy Change",
-    "Mastered Count Change",
-    "New Class Strengths",
-    "Persistent Class Gaps",
-    "Students With Strong Growth",
-    "Students Needing Follow-up"
-  ], ["New Class Strengths", "Persistent Class Gaps", "Students With Strong Growth", "Students Needing Follow-up"]);
-  const comparison = report.comparison || {};
-  comparisonSheet.addRow({
-    "Previous Report Date": formatDate(comparison.previousGeneratedAt) || "No previous report available yet.",
-    "Current Report Date": formatDate(report.generatedAt),
-    "Class Accuracy Change": `${comparison.accuracyChange || 0}%`,
-    "Mastered Count Change": comparison.masteredSkillChange || 0,
-    "New Class Strengths": list(comparison.newlyMasteredSkills || report.summary?.strongestSkills),
-    "Persistent Class Gaps": list(comparison.persistentFocusSkills || report.summary?.focusSkills),
-    "Students With Strong Growth": "",
-    "Students Needing Follow-up": list(report.summary?.studentsNeedingSupport)
-  });
+  const classStoryQuestSheet = workbook.addWorksheet(STORY_QUEST_SHEET_NAME);
+  setColumns(classStoryQuestSheet, STORY_QUEST_HEADERS, ["Quest Title", "Words Found"]);
+  addRowsOrEmpty(classStoryQuestSheet, report.storyQuests?.rows || [], row => row
+    ? storyQuestRowToCells(row)
+    : emptyStoryQuestCells());
+
+  const classEngagementSheet = workbook.addWorksheet(ENGAGEMENT_SHEET_NAME);
+  setColumns(classEngagementSheet, ENGAGEMENT_HEADERS, []);
+  addRowsOrEmpty(classEngagementSheet, report.engagement?.rows || [], row => row
+    ? engagementRowToCells(row)
+    : emptyEngagementCells());
+
+  // Comparison only makes sense against a real previous snapshot; on a first
+  // export the sheet is skipped entirely instead of rendering placeholders.
+  if (hasPreviousComparison(report.comparison)) {
+    const comparisonSheet = workbook.addWorksheet("Progress Comparison");
+    setColumns(comparisonSheet, [
+      "Previous Report Date",
+      "Current Report Date",
+      "Class Accuracy Change",
+      "Mastered Count Change",
+      "New Class Strengths",
+      "Persistent Class Gaps",
+      "Students With Strong Growth",
+      "Students Needing Follow-up"
+    ], ["New Class Strengths", "Persistent Class Gaps", "Students With Strong Growth", "Students Needing Follow-up"]);
+    const comparison = report.comparison || {};
+    comparisonSheet.addRow({
+      "Previous Report Date": formatDate(comparison.previousGeneratedAt),
+      "Current Report Date": formatDate(report.generatedAt),
+      "Class Accuracy Change": `${comparison.accuracyChange || 0}%`,
+      "Mastered Count Change": comparison.masteredSkillChange || 0,
+      "New Class Strengths": list(comparison.newlyMasteredSkills || report.summary?.strongestSkills),
+      "Persistent Class Gaps": list(comparison.persistentFocusSkills || report.summary?.focusSkills),
+      "Students With Strong Growth": "",
+      "Students Needing Follow-up": list(report.summary?.studentsNeedingSupport)
+    });
+  }
 
   applyWorkbookPresentation(workbook, EL_CLASS_REPORT_SHEETS);
   return workbook;
 }
 
+async function loadStoryQuestCatalog(override) {
+  if (Array.isArray(override)) return override;
+  try {
+    return (await import("../data/storyQuests.js")).storyQuests || [];
+  } catch {
+    return [];
+  }
+}
+
+// Optional, backward-compatible options (all default to this browser's
+// localStorage when omitted):
+//   storyQuestProgress        - the one student's Story Quest progress map
+//   engagementAreas           - the one student's progress areas
+//                               ({ mission, games, quest, stories, reading, hollow })
+//   storyQuestCatalog         - Story Quest definitions (titles/levels/series)
 export async function exportStudentElAssessmentExcel(options = {}) {
   const previousReports = getSavedElAssessmentReports({
     teacherId: options.teacherId || "local",
@@ -1054,12 +1137,36 @@ export async function exportStudentElAssessmentExcel(options = {}) {
     studentId: options.studentId || ""
   });
   const report = buildStudentElAssessmentReportData({ ...options, previousReports });
+  const studentRef = (options.students || []).find(row => row.id === options.studentId)
+    || { id: options.studentId || "", name: report.studentName };
+  const storyQuestCatalog = await loadStoryQuestCatalog(options.storyQuestCatalog);
+  report.storyQuests = {
+    rows: buildStoryQuestRows({
+      studentName: report.studentName,
+      studentId: studentRef.id || "",
+      progress: collectStoryQuestProgressForStudent(studentRef, options.storyQuestProgress || null),
+      quests: storyQuestCatalog
+    })
+  };
+  report.engagement = {
+    rows: [buildEngagementRow({
+      studentName: report.studentName,
+      studentId: studentRef.id || "",
+      className: report.className,
+      areas: collectStudentEngagementAreas(studentRef, options.engagementAreas || null)
+    })]
+  };
   const workbook = await createStudentElAssessmentWorkbook(report);
   await downloadWorkbook(workbook, report.fileName);
   await saveElAssessmentReport(report, options);
   return report;
 }
 
+// Optional, backward-compatible options (all default to this browser's
+// localStorage when omitted):
+//   storyQuestProgressByStudent - { [studentId]: storyQuestProgress } or Map
+//   engagementByStudent         - { [studentId]: progress areas } or Map
+//   storyQuestCatalog           - Story Quest definitions (titles/levels/series)
 export async function exportClassElAssessmentExcel(options = {}) {
   const previousReports = getSavedElAssessmentReports({
     teacherId: options.teacherId || "local",
@@ -1067,6 +1174,24 @@ export async function exportClassElAssessmentExcel(options = {}) {
     classId: options.classId || ""
   });
   const report = buildClassElAssessmentReportData({ ...options, previousReports });
+  const classStudents = (options.students || []).filter(student =>
+    !options.classId || (student.classId || student.class_id) === options.classId
+  );
+  const storyQuestCatalog = await loadStoryQuestCatalog(options.storyQuestCatalog);
+  report.storyQuests = {
+    rows: collectStoryQuestRowsForStudents({
+      students: classStudents,
+      storyQuestProgressByStudent: options.storyQuestProgressByStudent || null,
+      quests: storyQuestCatalog
+    })
+  };
+  report.engagement = {
+    rows: buildEngagementRows({
+      students: classStudents,
+      classes: options.classes || [],
+      engagementByStudent: options.engagementByStudent || null
+    })
+  };
   const workbook = await createClassElAssessmentWorkbook(report);
   await downloadWorkbook(workbook, report.fileName);
   await saveElAssessmentReport(report, options);

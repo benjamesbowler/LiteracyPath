@@ -122,25 +122,28 @@ const NAV_ITEMS = [
     requiresStudent: true,
   },
   {
-    id: "reports",
-    label: "Reports",
-    icon: "reports",
-    views: [APP_VIEWS.REPORTS],
-    requiresStudent: true,
+    id: "present",
+    label: "Present",
+    icon: "present",
+    views: [APP_VIEWS.PRESENT],
+    description: "Whole-class projector slides for a cycle",
+    // Whole-class projector slideshow for a cycle - no student needed.
   },
   {
     id: "worksheets",
     label: "Worksheets",
     icon: "worksheets",
     views: [APP_VIEWS.WORKSHEETS],
+    description: "Printable practice built from the cycle curriculum",
     // No student needed - worksheets are built from the cycle curriculum.
   },
   {
-    id: "present",
-    label: "Present",
-    icon: "present",
-    views: [APP_VIEWS.PRESENT],
-    // Whole-class projector slideshow for a cycle - no student needed.
+    id: "reports",
+    label: "Reports",
+    icon: "reports",
+    views: [APP_VIEWS.REPORTS],
+    requiresStudent: true,
+    description: "Progress reports and Excel exports for the selected student",
   },
 ];
 
@@ -201,7 +204,8 @@ export function Sidebar({
 
   function getItemTitle(item) {
     if (item.requiresStudent && !nameSaved) return "Select a student first";
-    return collapsed ? item.label : undefined;
+    if (collapsed) return item.description ? `${item.label} - ${item.description}` : item.label;
+    return item.description || undefined;
   }
 
   return (

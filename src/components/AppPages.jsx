@@ -1946,6 +1946,36 @@ export function TeacherReportsPage({
   );
 }
 
+// Generic styled confirmation for destructive admin actions - replaces bare
+// window.confirm so the teacher always sees exactly what will be deleted.
+export function ConfirmActionDialog({
+  open,
+  title,
+  body,
+  confirmLabel = "Delete",
+  busy = false,
+  onConfirm,
+  onCancel
+}) {
+  if (!open) return null;
+  return (
+    <div className="modal-backdrop" role="presentation">
+      <section className="modal-card reset-progress-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-action-title">
+        <h2 id="confirm-action-title">{title}</h2>
+        <p>{body}</p>
+        <div className="button-row">
+          <button className="report-button" disabled={busy} onClick={onCancel} type="button">
+            Cancel
+          </button>
+          <button className="reset-button" disabled={busy} onClick={onConfirm} type="button">
+            {busy ? "Working..." : confirmLabel}
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 export function ResetStudentProgressDialog({
   open,
   studentName,
