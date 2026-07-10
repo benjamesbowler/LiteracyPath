@@ -15494,7 +15494,7 @@ select:focus {
 
 .companion-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
   width: 100%;
   margin-top: 8px;
@@ -15525,9 +15525,17 @@ select:focus {
 }
 
 .companion-grid img {
-  width: 58px;
-  height: 58px;
-  object-fit: contain;
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Which reader series the companion stars in. */
+.companion-series {
+  font: 600 10.5px var(--lp-font-ui);
+  font-style: normal;
+  color: var(--lp-color-text-muted, #6b7280);
 }
 
 @media (max-width: 560px) {

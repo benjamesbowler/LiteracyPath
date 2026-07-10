@@ -2,18 +2,16 @@
 // synced to the cloud with the rest of their progress.
 import { queueProgressSave } from "./progressSync.js";
 
+// Companions are the stars of our own reader series - one per series, so a
+// child's buddy is always a character from books they can actually read.
+// Chosen once at first login; changed later only via the account menu.
 export const COMPANIONS = [
-  { id: "meadow-pal", name: "Meadow Pal", image: "/images/pals/poses/meadow-wave.webp" },
-  { id: "dino-pal", name: "Dino Pal", image: "/images/pals/poses/dino-wave.webp" },
-  { id: "moonwood-pal", name: "Moonwood Pal", image: "/images/pals/poses/moonwood-wave.webp" },
-  { id: "fox", name: "Fox", image: "/images/child-mode/short-o/fox.png" },
-  { id: "bear", name: "Bear", image: "/images/child-mode/initial-sounds/bear.png" },
-  { id: "frog", name: "Frog", image: "/images/child-mode/blends/frog.png" },
-  { id: "duck", name: "Duck", image: "/images/child-mode/short-u/duck.png" },
-  { id: "cat", name: "Cat", image: "/images/child-mode/cvc/cat.png" },
-  { id: "dog", name: "Dog", image: "/images/child-mode/cvc/dog.png" },
-  { id: "bee", name: "Bee", image: "/images/child-mode/vowel-teams/bee.png" },
-  { id: "phinny", name: "Phinny", image: "/images/learn-games/phinny-waving.png" }
+  { id: "fluff", name: "Fluff", series: "Bob and Nan", image: "/images/companions/fluff.webp" },
+  { id: "chips", name: "Chips", series: "James and Anna", image: "/images/companions/chips.webp" },
+  { id: "socks", name: "Socks", series: "Aiden and Betty", image: "/images/companions/socks.webp" },
+  { id: "chompy", name: "Chompy", series: "Dino Pals", image: "/images/companions/chompy.webp" },
+  { id: "muddy", name: "Muddy", series: "Meadow Pals", image: "/images/companions/muddy.webp" },
+  { id: "pip", name: "Pip", series: "Moonwood Tales", image: "/images/companions/pip.webp" }
 ];
 
 function storageKey(scope) {

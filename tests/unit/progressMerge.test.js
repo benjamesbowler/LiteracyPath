@@ -69,12 +69,32 @@ test("phonics/cvc: a completed letter is never downgraded by a stale cloud statu
   assert.equal(next.m, "completed");
 });
 
-test("daily_mission stays last-write-wins so a reset streak is NOT inflated", () => {
-  const local = { v: 1, streak: 1, lastActiveDate: "2026-06-14" };
-  const cloud = { v: 1, streak: 5, lastActiveDate: "2026-06-08" };
+test("daily_mission: a stale cloud row can NOT un-finish today's tasks (arcade stays unlocked)", () => {
+  const local = { v: 1, day: "2026-07-09", done: { quest: true, book: true, game: true }, streak: 4, lastCompletedDay: "2026-07-09" };
+  const staleCloud = { v: 1, day: "2026-07-08", done: {}, streak: 3, lastCompletedDay: "2026-07-08" };
+  const next = computeHydratedValue("daily_mission", "__all__", local, staleCloud);
+  assert.equal(next.day, "2026-07-09", "today's local day survives a stale cloud row");
+  assert.deepEqual(next.done, { quest: true, book: true, game: true }, "finished tasks survive re-login");
+  assert.equal(next.streak, 4);
+});
+
+test("daily_mission: same day merges done flags from both devices and keeps the best streak", () => {
+  const local = { v: 1, day: "2026-07-09", done: { game: true }, streak: 2, lastCompletedDay: "2026-07-08" };
+  const cloud = { v: 1, day: "2026-07-09", done: { quest: true, book: true }, streak: 3, lastCompletedDay: "2026-07-09", shieldWeek: "2026-w28" };
   const next = computeHydratedValue("daily_mission", "__all__", local, cloud);
-  // cloud is canonical here; we must NOT max-merge the streak back up to 5
-  assert.equal(next.streak, 5, "daily_mission uses cloud-wins, not forward-merge");
+  assert.deepEqual(next.done, { quest: true, book: true, game: true }, "done flags union across devices");
+  assert.equal(next.streak, 3);
+  assert.equal(next.lastCompletedDay, "2026-07-09", "richer completion metadata wins");
+  assert.equal(next.shieldWeek, "2026-w28");
+});
+
+test("daily_mission: a genuinely NEWER cloud day wins outright (legit resets propagate)", () => {
+  const oldLocal = { v: 1, day: "2026-07-01", done: { quest: true }, streak: 9 };
+  const newerCloud = { v: 1, day: "2026-07-09", done: {}, streak: 1 };
+  const next = computeHydratedValue("daily_mission", "__all__", oldLocal, newerCloud);
+  assert.equal(next.day, "2026-07-09");
+  assert.deepEqual(next.done, {});
+  assert.equal(next.streak, 1, "a legitimately reset streak is not inflated back up");
 });
 
 // ── mergeMonotonic primitives ────────────────────────────────────────────────

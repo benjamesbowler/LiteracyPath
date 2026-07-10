@@ -145,7 +145,33 @@ export function computeHydratedValue(area, key, existing, payload) {
     };
   }
 
-  // daily_mission, profile, and any future area: cloud is the latest canonical state.
+  // The Daily Mission is DAY-aware, never blindly cloud-wins. A stale cloud
+  // row (yesterday's, or one whose debounced write never landed before the
+  // app closed) must not un-finish today's tasks and re-lock the arcade.
+  //   - same day on both sides: union the done flags, keep the best streak
+  //   - different days: whichever side holds the NEWER day wins outright
+  if (area === "daily_mission") {
+    const cloud = payload && typeof payload === "object" ? payload : {};
+    const localDay = typeof base.day === "string" ? base.day : "";
+    const cloudDay = typeof cloud.day === "string" ? cloud.day : "";
+    if (localDay && localDay === cloudDay) {
+      const laterMeta = (cloud.lastCompletedDay || "") > (base.lastCompletedDay || "") ? cloud : base;
+      return {
+        ...cloud,
+        ...base,
+        done: { ...(cloud.done || {}), ...(base.done || {}) },
+        streak: Math.max(Number(base.streak) || 0, Number(cloud.streak) || 0),
+        lastCompletedDay: laterMeta.lastCompletedDay || "",
+        shieldWeek: laterMeta.shieldWeek || "",
+        celebratedDay: (base.celebratedDay || "") > (cloud.celebratedDay || "")
+          ? base.celebratedDay
+          : (cloud.celebratedDay || "")
+      };
+    }
+    return cloudDay > localDay ? cloud : base;
+  }
+
+  // profile and any future area: cloud is the latest canonical state.
   return key === "__all__"
     ? mergePayload(base, payload)
     : { ...base, [key]: mergePayload(base[key], payload) };

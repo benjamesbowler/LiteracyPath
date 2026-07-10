@@ -5,10 +5,8 @@ import { playCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
 import { playCorrectChime, playSoftBuzz, playCelebrationFanfare, playStarChime } from "../../utils/audio/gameSfx.js";
 import { queueProgressSave } from "../../utils/progressSync.js";
 import { notifyMissionTaskDone } from "../../utils/dailyMission.js";
-import { awardCollectible, getCompanion } from "../../utils/studentProfile.js";
+import { getCompanion } from "../../utils/studentProfile.js";
 import { printCertificate } from "../../utils/printCertificate.js";
-import { Gem } from "../Gem.jsx";
-import { gemForIndex } from "../../data/gemSet.js";
 import { LetterWriter } from "../shared/LetterWriter.jsx";
 import { worldForCycle, worldStyle, sceneForKey } from "../../utils/palWorlds.js";
 import {
@@ -476,14 +474,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
       setProgress(nextProgress);
       saveQuestProgress(progressScopeKey, nextProgress);
       playCelebrationFanfare();
-      const gem = stars > 0
-        ? awardCollectible(progressScopeKey, {
-            key: `cycle-${activeCycle.id}`,
-            ...gemForIndex(activeCycle.cycleNumber || 0),
-            label: `Cycle ${activeCycle.cycleNumber}`
-          })
-        : null;
-      setCelebration({ kind: "cycle", stars, correct: finalCorrect, total, gem });
+      setCelebration({ kind: "cycle", stars, correct: finalCorrect, total });
     } else {
       playStarChime();
       const doneNow = { ...sessionStations, [stationId]: true };
@@ -826,14 +817,8 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
             </p>
           )}
           {isCycle && <ProgressStars stars={celebration.stars} size="lg" />}
-          {isCycle && celebration.gem && (
-            <div className="sbq-gem-award">
-              <Gem color={celebration.gem.color} size={56} />
-              <span>You earned the <strong>{celebration.gem.name}</strong>!</span>
-            </div>
-          )}
           {isCycle && celebration.stars > 0 && (
-            <p className="kid-gems-earned">+{celebration.stars} coins and a Cycle {activeCycle.cycleNumber} badge — see them in your Hollow!</p>
+            <p className="kid-gems-earned">+{celebration.stars * 7} coins for your Hollow!</p>
           )}
           <div className="sbq-celebrate-actions">
             <button

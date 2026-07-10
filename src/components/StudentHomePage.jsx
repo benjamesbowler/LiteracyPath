@@ -174,19 +174,15 @@ export function StudentHomePage({
             <img className="student-home-brand-logo" src="/images/pals/literacy-pals-logo.webp" alt="Literacy Pals" onError={hideOnError} />
             <span className="student-home-brand-text"><strong>Literacy</strong><em>Pals</em></span>
           </span>
-          <button
-            className="student-home-namepill"
-            type="button"
-            aria-label="Choose your companion"
-            onClick={() => setPickingCompanion(true)}
-          >
+          {/* Display only - companion changes live in the account menu (Settings). */}
+          <div className="student-home-namepill">
             <span className="student-home-namepill-face">
               {companion
                 ? <img src={companion.image} alt="" onError={hideOnError} />
                 : String(studentName || "S").slice(0, 1).toUpperCase()}
             </span>
             <strong>{studentName || "Reader"}</strong>
-          </button>
+          </div>
         </div>
         <div className="student-home-account">
           <button
@@ -376,6 +372,7 @@ export function StudentHomePage({
                 >
                   <img src={item.image} alt="" loading="lazy" onError={hideOnError} />
                   <span>{item.name}</span>
+                  {item.series && <em className="companion-series">{item.series}</em>}
                 </button>
               ))}
             </div>
