@@ -14,7 +14,9 @@ export function ConfettiCelebration({ show }) {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  if (!show) return null;
+  const prefersReducedMotion = typeof window !== "undefined" &&
+    window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  if (!show || prefersReducedMotion) return null;
   return (
     <Confetti
       width={size.width}

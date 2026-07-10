@@ -41,7 +41,7 @@ export const prepositionClozeScenes = {
   ],
   near: [
     ["The shoes are ___ the door.", "The shoes are near the door.", "/images/assessment/language/variants/prepositions/near-01-shoes-door.svg"],
-    ["The cup is ___ the plate.", "The cup is near the plate.", "/images/assessment/language/variants/prepositions/near-02-cup-plate.svg"],
+    ["The park is ___ the school.", "The park is near the school.", "/images/assessment/language/variants/prepositions/near-02-cup-plate.svg"],
     ["The bird is ___ the nest.", "The bird is near the nest.", "/images/assessment/language/variants/prepositions/near-03-bird-nest.svg"]
   ],
   above: [
@@ -80,8 +80,8 @@ export const prepositionClozeScenes = {
     ["The cat is ___ the tent.", "The cat is inside the tent.", "/images/assessment/language/variants/prepositions/inside-03-cat-tent.svg"]
   ],
   outside: [
-    ["The dog is ___ the house.", "The dog is outside the house.", "/images/assessment/language/variants/prepositions/outside-01-dog-house.svg"],
-    ["The duck is ___ the pond.", "The duck is outside the pond.", "/images/assessment/language/variants/prepositions/outside-02-duck-pond.svg"],
+    ["The dog waits ___ the shop.", "The dog waits outside the shop.", "/images/assessment/language/variants/prepositions/outside-01-dog-house.svg"],
+    ["The cat sits ___ the window.", "The cat sits outside the window.", "/images/assessment/language/variants/prepositions/outside-02-duck-pond.svg"],
     ["The backpack is ___ the classroom.", "The backpack is outside the classroom.", "/images/assessment/language/variants/prepositions/outside-03-backpack-classroom.svg"]
   ],
   against: [
@@ -96,7 +96,7 @@ export const prepositionClozeScenes = {
   ],
   "out of": [
     ["The bird comes ___ the cage.", "The bird comes out of the cage.", "/images/assessment/language/variants/prepositions/out-of-01-bird-cage.svg"],
-    ["The toy is ___ the box.", "The toy is out of the box.", "/images/assessment/language/variants/prepositions/out-of-02-toy-box.svg"],
+    ["The chick hatches ___ the egg.", "The chick hatches out of the egg.", "/images/assessment/language/variants/prepositions/out-of-02-toy-box.svg"],
     ["The child comes ___ the tent.", "The child comes out of the tent.", "/images/assessment/language/variants/prepositions/out-of-03-child-tent.svg"]
   ]
 };

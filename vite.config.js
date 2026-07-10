@@ -84,10 +84,14 @@ export default defineConfig({
           ) {
             return 'initial-sound-word-bank'
           }
+          // hfwAssessmentQuestions + hfwLevel2Questions are always co-imported
+          // (both loaders trigger on any HFW band), so they stay one chunk.
+          // hfwApprovedQuestionBank is deliberately NOT grouped here: runtime
+          // only imports the slim hfwEligibilityKeys projection, so the full
+          // approved bank should drop out of the bundle entirely.
           if (
             id.includes('/src/data/generated/hfwAssessmentQuestions.generated') ||
-            id.includes('/src/data/generated/hfwLevel2Questions.generated') ||
-            id.includes('/src/data/generated/hfwApprovedQuestionBank.generated')
+            id.includes('/src/data/generated/hfwLevel2Questions.generated')
           ) {
             return 'generated-hfw-banks'
           }
@@ -98,32 +102,12 @@ export default defineConfig({
           ) {
             return 'assessment-pattern-data'
           }
-          if (
-            id.includes('/src/data/generated/earlySkillQuestions.generated') ||
-            id.includes('/src/data/generated/finalSounds.generated') ||
-            id.includes('/src/data/generated/cvc.generated') ||
-            id.includes('/src/data/generated/rhyming.generated') ||
-            id.includes('/src/data/generated/shortVowel.generated')
-          ) {
-            return 'generated-early-skills'
-          }
-          if (
-            id.includes('/src/data/generated/languageSkillQuestions.generated') ||
-            id.includes('/src/data/generated/grammarAssessmentQuestions.generated') ||
-            id.includes('/src/data/generated/secondBlockSkillTopUpQuestions.generated')
-          ) {
-            return 'generated-language-banks'
-          }
-          if (
-            id.includes('/src/data/generated/skillLevelGapQuestions.generated') ||
-            id.includes('/src/data/generated/blendsAssessmentQuestions.generated') ||
-            id.includes('/src/data/generated/digraphsAssessmentQuestions.generated') ||
-            id.includes('/src/data/generated/longVowelsAssessmentQuestions.generated') ||
-            id.includes('/src/data/generated/vowelTeamsVarietyQuestions.generated') ||
-            id.includes('/src/data/generated/firstTenSkillTopUpQuestions.generated')
-          ) {
-            return 'generated-assessment-banks'
-          }
+          // The remaining generated question banks (early-skill split banks,
+          // language/grammar banks, per-skill assessment banks) and the
+          // hand-written expansion banks are each dynamic-imported separately
+          // by loadAssessmentSkillBank with per-skill/per-family conditions,
+          // so they intentionally have NO manualChunks grouping: rollup emits
+          // one chunk per dynamic import and a skill only downloads its own.
           if (
             id.includes('/src/data/generated/hfwCuratedSentences.generated') ||
             id.includes('/src/data/generated/skillWordBank.generated')
@@ -136,14 +120,6 @@ export default defineConfig({
             id.includes('/src/data/guidedStoryBooks')
           ) {
             return 'guided-reading-data'
-          }
-          if (
-            id.includes('/src/data/generatedQuestions') ||
-            id.includes('/src/data/templateExpansion') ||
-            id.includes('/src/data/questionBankExpansion8') ||
-            id.includes('/src/data/templateComprehensionAdvanced')
-          ) {
-            return 'question-bank-extra'
           }
         }
       }

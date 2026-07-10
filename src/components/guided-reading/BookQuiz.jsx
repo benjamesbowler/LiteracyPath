@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { guidedReadingBooks } from "../../data/guidedReadingBooks";
 import { guidedReadingSeriesBooks } from "../../data/guidedReadingSeriesBooks";
 import { playCorrectChime, playSoftBuzz, playStarChime } from "../../utils/audio/gameSfx.js";
+import { speakWord } from "../../utils/learnGamesAudio.js";
 import { ProgressStars } from "../learn/games/shared/ProgressStars.jsx";
 
 function shuffle(items) {
@@ -172,9 +173,27 @@ export function BookQuiz({ book, onFinish }) {
             {missed && <p className="book-quiz-retry">Not that one - try again!</p>}
             <div className={`book-quiz-choices${question.kind === "picture" ? " pictures" : ""}`}>
               {question.choices.map(choice => (
-                <button key={choice} type="button" onClick={() => choose(choice)}>
-                  {question.kind === "picture" ? <img src={choice} alt="" loading="eager" decoding="async" /> : choice}
-                </button>
+                question.kind === "picture" ? (
+                  <button key={choice} type="button" onClick={() => choose(choice)}>
+                    <img src={choice} alt="" loading="eager" decoding="async" />
+                  </button>
+                ) : (
+                  <span key={choice} className="book-quiz-choice-row">
+                    <button type="button" onClick={() => choose(choice)}>{choice}</button>
+                    <button
+                      type="button"
+                      className="book-quiz-hear"
+                      aria-label={`Hear the word ${choice}`}
+                      title="Hear this word"
+                      onClick={() => speakWord(choice)}
+                    >
+                      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                        <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" />
+                        <path d="M16 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                      </svg>
+                    </button>
+                  </span>
+                )
               ))}
             </div>
           </>

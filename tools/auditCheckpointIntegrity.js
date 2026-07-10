@@ -14,7 +14,19 @@
 //   (d) >35% of a comprehension skill's items (main_idea, theme, inference,
 //       cause_effect) having the correct answer uniquely longest;
 //   (e) runtime-eligible pool below 30 for any checkpoint skill (warns
-//       below 45).
+//       below 45);
+//   (f) distractors ending in trailing-padding artifacts ("… after lunch",
+//       "… with friends", "… all the time", "… every day") where the phrase
+//       is not the correct answer and does not appear in the passage —
+//       pre-existing items are grandfathered in PADDING_LEGACY_QUESTION_IDS
+//       so only NEW padding fails;
+//   (g) preposition items whose distractor is a synonym of the correct answer
+//       (in/inside/into, under/below/beneath, beside/near/next to, over/above,
+//       behind/in back of) — pre-existing items are grandfathered in
+//       PREPOSITION_SYNONYM_LEGACY_QUESTION_IDS so only NEW conflicts fail.
+//
+// WARNS (non-fatal) additionally on:
+//   (h) passages longer than 90 words on difficulty <= 3 items.
 //
 // Run: npm run audit:checkpoints
 
@@ -404,6 +416,110 @@ function checkEmptyPromptWithPassage(skillId, question) {
   }
 }
 
+// ── rule (f): trailing-padding artifacts on distractors ────────────────────
+
+// Length-padding artifacts appended to distractors to match the correct
+// answer's length ("what toothpaste is made of all the time").
+const PADDING_ARTIFACT_PATTERN = /( every day){2,}|(?: after lunch| with friends| all the time| every day)$/;
+
+// Pre-existing padded distractors OUTSIDE the 2026-07 qbAssess_* padding fix
+// (templateExpansion*, questionBankExpansion13/14, generatedQuestions),
+// captured 2026-07-10. Grandfathered so this rule can hard-fail on NEW
+// padding without blocking the build on legacy items awaiting content
+// curation. Remove ids from this list as their content is fixed.
+const PADDING_LEGACY_QUESTION_IDS = new Set(["RC006","RC007","RC018","RC038","RC045","exp2_comp_7","exp2_comp_8","exp4_comp_12","exp4_comp_16","exp4_comp_18","exp6_comp_11","exp6_comp_17","exp6_comp_18","exp6_comp_29","exp7_cause_effect_14","exp7_cause_effect_15","exp7_cause_effect_18","exp7_cause_effect_19","exp7_cause_effect_20","exp7_cause_effect_3","exp7_main_idea_10","exp7_main_idea_6","inf_2_3_004","inf_2_3_008","inf_2_3_009","inf_2_3_010","inf_2_3_012","inf_2_3_013","inf_2_3_017","inf_2_3_018","inf_2_3_028","inf_2_3_029","inf_2_3_030","inf_2_3_033","inf_2_3_038","inf_2_3_040","inf_2_3_042","inf_2_3_044","inf_2_3_045","inf_2_3_049","inf_2_3_051","inf_2_3_052","inf_2_3_056","inf_2_3_057","inf_2_3_058","inf_2_3_062","inf_2_3_063","inf_2_3_064","inf_2_3_065","inf_2_3_070","inf_2_3_074","inf_2_3_076","inf_2_3_077","qb13_ce_003","qb13_ce_004","qb13_ce_005","qb13_ce_010","qb13_ce_011","qb13_ce_013","qb13_ce_014","qb13_ce_015","qb13_ce_018","qb13_ce_034","qb13_ce_035","qb13_ce_038","qb13_ce_039","qb13_mi_004","qb13_mi_008","qb13_mi_009","qb13_mi_010","qb13_mi_012","qb13_mi_018","qb13_mi_019","qb13_mi_020","qb13_mi_027","qb13_mi_033","qb13_mi_034","qb13_mi_036","qb13_mi_039","qb13_mi_040","qb14_cc_029","qb14_th_002","qb14_th_013","qb14_th_015","qb14_th_017","qb14_th_018","qb14_th_019","qb14_th_022","qb14_th_025","qb14_th_032","qb14_th_035","qb14_th_037","qb14_th_038","qb14_th_039","qb14_th_041","qb14_th_042","qb14_th_043","qb14_th_049","qb14_th_050","qb14_th_055","qb14_th_057","qb14_th_060","template_main_idea_1"]);
+
+// Reviewed items where the matched phrase is natural language, NOT padding
+// (e.g. "She started a reading group with friends" is a coherent
+// alternative-cause distractor). Keep this list tiny and reviewed by hand.
+const PADDING_FALSE_POSITIVE_QUESTION_IDS = new Set([
+  "qa_ce_l1_012" // reviewed 2026-07-10: "a reading group with friends" is the noun phrase, not padding
+]);
+
+function cleanPhraseText(value = "") {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/[.!?,;:]+$/, "");
+}
+
+function checkPaddedDistractorArtifacts(skillId, question) {
+  const correctSet = new Set(
+    [answerOf(question), ...(Array.isArray(question.correctAnswers) ? question.correctAnswers : [])]
+      .map(cleanPhraseText)
+      .filter(Boolean)
+  );
+  if (!correctSet.size) return;
+  const passage = cleanPhraseText(
+    [question.passage, question.sentence, question.context].filter(Boolean).join(" ")
+  );
+  for (const option of optionLabels(question)) {
+    const optionText = cleanPhraseText(option);
+    if (!optionText || correctSet.has(optionText)) continue;
+    const match = optionText.match(PADDING_ARTIFACT_PATTERN);
+    if (!match) continue;
+    const phrase = match[0].trim();
+    if (phrase && passage.includes(phrase)) continue;
+    if (PADDING_LEGACY_QUESTION_IDS.has(String(question.id || ""))) continue;
+    if (PADDING_FALSE_POSITIVE_QUESTION_IDS.has(String(question.id || ""))) continue;
+    failures.push(
+      `[padding] ${skillId} ${describe(question)}: distractor "${option}" ends in ` +
+      `padding artifact "${phrase}" that is not in the passage`
+    );
+  }
+}
+
+// ── rule (g): preposition distractor is a synonym of the correct answer ────
+
+const PREPOSITION_SYNONYM_SETS = [
+  ["in", "inside", "into"],
+  ["under", "below", "beneath"],
+  ["beside", "near", "next to"],
+  ["over", "above"],
+  ["behind", "in back of"]
+];
+
+// Pre-existing synonym conflicts in the generated preposition banks
+// (languageSkillQuestions/secondBlockSkillTopUpQuestions), captured
+// 2026-07-10. These are real two-plausible-answers defects that need content
+// curation; grandfathered so this rule hard-fails only on NEW conflicts.
+const PREPOSITION_SYNONYM_LEGACY_QUESTION_IDS = new Set(["second_prepositions_l1_04_beside","second_prepositions_l2_06_sentence_near","second_prepositions_l2_15_context_above","workbook_prepositions_above_96","workbook_prepositions_above_97","workbook_prepositions_above_98","workbook_prepositions_beside_43","workbook_prepositions_beside_44","workbook_prepositions_beside_45","workbook_prepositions_beside_46","workbook_prepositions_beside_47","workbook_prepositions_beside_48","workbook_prepositions_in_12","workbook_prepositions_in_13","workbook_prepositions_in_14","workbook_prepositions_in_15","workbook_prepositions_in_16","workbook_prepositions_in_17","workbook_prepositions_inside_150","workbook_prepositions_inside_151","workbook_prepositions_inside_152","workbook_prepositions_inside_153","workbook_prepositions_into_184","workbook_prepositions_into_185","workbook_prepositions_into_186","workbook_prepositions_into_189","workbook_prepositions_near_80","workbook_prepositions_near_84","workbook_prepositions_near_85","workbook_prepositions_near_86","workbook_prepositions_next-to_116","workbook_prepositions_next-to_117","workbook_prepositions_next-to_118","workbook_prepositions_under_26","workbook_prepositions_under_27","workbook_prepositions_under_28"]);
+
+function checkPrepositionSynonymOptions(skillId, question) {
+  if (skillId !== "prepositions_of_place") return;
+  const answer = cleanPhraseText(answerOf(question));
+  const synonymSet = PREPOSITION_SYNONYM_SETS.find(set => set.includes(answer));
+  if (!synonymSet) return;
+  for (const option of optionLabels(question)) {
+    const optionText = cleanPhraseText(option);
+    if (!optionText || optionText === answer || !synonymSet.includes(optionText)) continue;
+    if (PREPOSITION_SYNONYM_LEGACY_QUESTION_IDS.has(String(question.id || ""))) continue;
+    failures.push(
+      `[preposition-synonym] ${skillId} ${describe(question)}: option "${option}" is a ` +
+      `synonym of the correct answer "${answerOf(question)}" — two plausible answers`
+    );
+  }
+}
+
+// ── rule (h): passage length for young readers (warn only) ─────────────────
+
+const PASSAGE_WORD_WARN_LIMIT = 90;
+const PASSAGE_WORD_WARN_MAX_DIFFICULTY = 3;
+
+function checkPassageLengthForYoungReaders(skillId, question) {
+  const passage = String(question.passage || "").trim();
+  if (!passage) return;
+  if (questionLevel(question) > PASSAGE_WORD_WARN_MAX_DIFFICULTY) return;
+  const wordCount = passage.split(/\s+/).filter(Boolean).length;
+  if (wordCount > PASSAGE_WORD_WARN_LIMIT) {
+    warnings.push(
+      `[passage-length] ${skillId} ${describe(question)}: ${wordCount}-word passage ` +
+      `exceeds ${PASSAGE_WORD_WARN_LIMIT} words for difficulty <= ${PASSAGE_WORD_WARN_MAX_DIFFICULTY}`
+    );
+  }
+}
+
 // ── rule (c): duplicates within a skill across levels ──────────────────────
 
 function checkCrossLevelDuplicates(skillId, questions) {
@@ -521,6 +637,9 @@ for (const skillId of skillIds) {
   questions.forEach(question => {
     checkRuleCheckablePrompt(skillId, question);
     checkEmptyPromptWithPassage(skillId, question);
+    checkPaddedDistractorArtifacts(skillId, question);
+    checkPrepositionSynonymOptions(skillId, question);
+    checkPassageLengthForYoungReaders(skillId, question);
   });
   checkCrossLevelDuplicates(skillId, questions);
   checkLongestAnswerTell(skillId, questions);

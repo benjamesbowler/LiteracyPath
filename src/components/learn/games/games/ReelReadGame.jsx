@@ -284,6 +284,21 @@ function startGame(mount, opts) {
     render();
   }
 
+  function getBoatMetrics(time = performance.now() / 1000) {
+    const boatW = clamp(w * 0.26, 170, 320);
+    const boatH = boatW * 0.6;
+    const boatY = waterTop + 18 + Math.sin(time * 2.1) * 4;
+    return { boatW, boatH, boatY };
+  }
+
+  function getRodTip(time = performance.now() / 1000) {
+    const { boatW, boatH, boatY } = getBoatMetrics(time);
+    return {
+      x: boat.x + boatW * 0.535,
+      y: boatY - boatH * 0.768
+    };
+  }
+
   const observer = new ResizeObserver(resize);
   observer.observe(mount);
   resize();
@@ -405,10 +420,11 @@ function startGame(mount, opts) {
 
   function requestCast() {
     if (phase !== "playing" || boat.hookState !== "ready") return;
+    const tip = getRodTip();
     sfx(playTapSound);
     boat.hookState = "dropping";
-    boat.hookX = boat.x + 54;
-    boat.hookY = waterTop + 12;
+    boat.hookX = tip.x;
+    boat.hookY = tip.y;
     boat.hookMaxY = h - 58;
     boat.caughtFish = null;
   }
@@ -520,8 +536,10 @@ function startGame(mount, opts) {
         sfx(playPopSound);
       }
     } else if (boat.hookState === "returning") {
+      const tip = getRodTip();
+      boat.hookX += (tip.x - boat.hookX) * clamp(dt * 7, 0, 1);
       boat.hookY -= level.hookSpeed * 1.25 * dt;
-      if (boat.hookY <= waterTop + 12) {
+      if (boat.hookY <= tip.y + 4) {
         boat.hookState = "ready";
         boat.caughtFish = null;
       }
@@ -827,36 +845,35 @@ function startGame(mount, opts) {
   }
 
   function drawBoat(time) {
-    const boatW = clamp(w * 0.26, 170, 320);
-    const boatH = boatW * 0.6;
-    const y = waterTop + 18 + Math.sin(time * 2.1) * 4;
+    const { boatW, boatH, boatY } = getBoatMetrics(time);
     ctx.save();
     ctx.shadowColor = "rgba(0,0,0,.32)";
     ctx.shadowBlur = 14;
     ctx.shadowOffsetY = 8;
     if (images.boat.ready) {
       ctx.filter = "saturate(1.08) contrast(1.08)";
-      ctx.drawImage(images.boat.image, boat.x - boatW * 0.46, y - boatH * 0.78, boatW, boatH);
+      ctx.drawImage(images.boat.image, boat.x - boatW * 0.46, boatY - boatH * 0.78, boatW, boatH);
       ctx.filter = "none";
     } else {
-      fillRound(ctx, boat.x - boatW * 0.42, y - 36, boatW * 0.86, 44, 14, "#b46c30");
-      fillRound(ctx, boat.x - 24, y - 92, 48, 58, 12, "#3276ad");
+      fillRound(ctx, boat.x - boatW * 0.42, boatY - 36, boatW * 0.86, 44, 14, "#b46c30");
+      fillRound(ctx, boat.x - 24, boatY - 92, 48, 58, 12, "#3276ad");
     }
     ctx.globalCompositeOperation = "screen";
     ctx.globalAlpha = 0.28;
     ctx.strokeStyle = theme.accent2;
     ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.moveTo(boat.x - boatW * 0.38, y - boatH * 0.22);
-    ctx.quadraticCurveTo(boat.x, y - boatH * 0.1, boat.x + boatW * 0.38, y - boatH * 0.24);
+    ctx.moveTo(boat.x - boatW * 0.38, boatY - boatH * 0.22);
+    ctx.quadraticCurveTo(boat.x, boatY - boatH * 0.1, boat.x + boatW * 0.38, boatY - boatH * 0.24);
     ctx.stroke();
     ctx.restore();
   }
 
   function drawHook(time) {
     if (boat.hookState === "ready") return;
-    const rodX = boat.x + clamp(w * 0.09, 54, 112);
-    const rodY = waterTop - clamp(w * 0.055, 36, 72) + Math.sin(time * 2.1) * 4;
+    const tip = getRodTip(time);
+    const rodX = tip.x;
+    const rodY = tip.y;
     ctx.save();
     ctx.strokeStyle = "rgba(125,242,255,.28)";
     ctx.lineWidth = 7;

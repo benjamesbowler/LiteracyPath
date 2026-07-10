@@ -18,6 +18,10 @@ const DIFFICULTIES = ["easy", "medium", "hard"];
 // The arcade shows only the arcade-tier games (the new playable games). The
 // worksheet-style games live in the Daily Challenge + EL maps instead.
 const ARCADE_GAMES = GAME_LIST.filter(game => (game.surfaces || []).includes("arcade"));
+// The quieter skill-practice games. Before this shelf existed they were only
+// reachable through one random Daily Mission deep-link - unplayable on demand.
+const PRACTICE_GAMES = GAME_LIST.filter(game =>
+  !(game.surfaces || []).includes("arcade") && !game.hidden && game.id !== "word-climb");
 
 function Leaderboard({ refreshSignal }) {
   const [rows, setRows] = useState(null);
@@ -167,6 +171,43 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
           );
         })}
       </div>
+
+      {/* Practice shelf: the skill games from Daily Challenge, on demand */}
+      {PRACTICE_GAMES.length > 0 && (
+        <div className="lg-practice-shelf">
+          <h2 className="lg-practice-title">Practice games</h2>
+          <div className="lg-game-tilegrid lg-practice-grid">
+            {PRACTICE_GAMES.map(game => {
+              const gameProgress = getLearnGameProgress(progress, game.id);
+              return (
+                <button
+                  key={game.id}
+                  type="button"
+                  className="lg-game-tile lg-practice-tile"
+                  style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft }}
+                  onClick={() => setActiveGame(game)}
+                >
+                  <span className="lg-game-tile-art" aria-hidden="true">
+                    <img
+                      src={`/images/learn-games/art/${game.id}.webp`}
+                      alt=""
+                      onError={event => {
+                        event.currentTarget.onerror = null;
+                        event.currentTarget.src = game.icon;
+                        event.currentTarget.classList.add("is-icon");
+                      }}
+                    />
+                  </span>
+                  <span className="lg-game-tile-name">{game.title}</span>
+                  <span className="lg-game-tile-foot">
+                    <ProgressStars stars={gameProgress.stars || 0} />
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Slim bottom banner: points + high-score board */}
       <div className="lg-arcade-bottomband">

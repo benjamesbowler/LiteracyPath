@@ -27,7 +27,6 @@
 .lg-arcade > * { position: relative; z-index: 1; }
 
 /* Header */
-.lg-arcade-header,
 .lg-arcade .pal-world-banner {
   background: transparent !important;
   box-shadow: none !important;
@@ -38,14 +37,9 @@
   color: #bcd0ff !important;
   border: 1px solid rgba(255,255,255,.14) !important;
 }
-.lg-arcade-title-block p { color: #8ea0cc !important; }
-.lg-arcade-title-block h1 { color: #fff !important; }
-.lg-arcade-title-block > div > span { color: #90a0c8 !important; }
 .lg-section-rule { background: linear-gradient(180deg, #ffd34e, transparent) !important; }
 
 /* Summary chips */
-.lg-arcade-summary span { color: #c7d2f2 !important; }
-.lg-arcade-summary span strong { color: #fff !important; }
 .lg-arcade-points-chip {
   background: rgba(255,211,77,.16) !important;
   color: #ffd34e !important;
@@ -85,30 +79,6 @@
 }
 .lg-game-primary:active { transform: translateY(4px); box-shadow: 0 3px 0 #c9781a !important; }
 
-/* Game cards */
-.lg-game-card {
-  background: #141b33 !important;
-  border: 1px solid rgba(255,255,255,.08) !important;
-  color: #eef2ff !important;
-  box-shadow: 0 12px 26px rgba(0,0,0,.4) !important;
-  transition: transform .16s ease, box-shadow .16s ease !important;
-}
-.lg-game-card:hover,
-.lg-game-card:focus-visible {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0,0,0,.55) !important;
-}
-.lg-game-card-art {
-  background: linear-gradient(150deg, var(--game-accent, #3b6bff), color-mix(in srgb, var(--game-accent, #3b6bff) 55%, #05070f)) !important;
-  border-radius: 16px !important;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-}
-.lg-game-card-art .lg-game-art-icon { width: 62%; max-width: 84px; height: auto; object-fit: contain; }
-.lg-game-card-art .lg-game-art-full { width: 100%; height: 100%; object-fit: cover; }
-.lg-game-card-copy strong { color: #fff !important; }
-.lg-game-card-copy em { color: #93a0c4 !important; }
 .lg-game-skill {
   background: rgba(255,255,255,.08) !important;
   color: #bcd0ff !important;

@@ -23,9 +23,6 @@ import {
   TeacherReportsPage
 } from "./components/AppPages";
 import { Sidebar } from "./components/Sidebar.jsx";
-import { WorksheetGeneratorPage } from "./components/WorksheetGeneratorPage.jsx";
-import { PresentPage } from "./components/PresentPage.jsx";
-import { TeacherDashboardPage } from "./components/TeacherDashboardPage.jsx";
 import { StudentEntryPage } from "./components/StudentEntryPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import { HollowPage } from "./components/HollowPage.jsx";
@@ -149,6 +146,22 @@ import { insertWithRetry, startInsertQueueFlusher } from "./utils/insertQueue.js
 
 // dynamic mastery system
 
+// Teacher-only pages: lazy so the student bundle never downloads them.
+const TeacherDashboardPage = lazyWithRetry(() =>
+  import("./components/TeacherDashboardPage.jsx").then(module => ({
+    default: module.TeacherDashboardPage
+  }))
+);
+const WorksheetGeneratorPage = lazyWithRetry(() =>
+  import("./components/WorksheetGeneratorPage.jsx").then(module => ({
+    default: module.WorksheetGeneratorPage
+  }))
+);
+const PresentPage = lazyWithRetry(() =>
+  import("./components/PresentPage.jsx").then(module => ({
+    default: module.PresentPage
+  }))
+);
 const AdminDashboardPage = lazyWithRetry(() =>
   import("@/components/AdminDashboardPage").then(module => ({
     default: module.AdminDashboardPage
@@ -8057,37 +8070,39 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
       {sessionMode !== "student" && (appView === APP_VIEWS.TEACHER_DASHBOARD || appView === APP_VIEWS.SELECT) && (
         <PageBoundary resetKey="teacher-dashboard">
-          <TeacherDashboardPage
-            classList={classList}
-            selectedClassId={selectedClassId}
-            setSelectedClassId={setSelectedClassId}
-            setStudentList={setStudentList}
-            studentList={studentList}
-            loadingStudents={loadingStudents}
-            loadStudents={loadStudents}
-            onLoadStudent={async (id, name) => {
-              await loadStudentProgress(id, name);
-              setAppView(APP_VIEWS.OVERVIEW);
-            }}
-            createClass={createClass}
-            newClassName={newClassName}
-            setNewClassName={setNewClassName}
-            createStudent={createStudentForSelectedClass}
-            classDashboard={classDashboard}
-            loadClassDashboard={loadClassDashboard}
-            skillTree={skillTree}
-            updateStudentSymbolPassword={updateStudentSymbolPassword}
-            resetStudentSymbolPassword={resetStudentSymbolPassword}
-            startStudentLogin={() => {
-              setSessionMode("teacher");
-              setEntryMode("student");
-              setAppView(APP_VIEWS.STUDENT_LOGIN);
-            }}
-            schoolName={teacherSchoolName}
-            hasSchool={hasTeacherSchool}
-            saveSchool={saveTeacherSchool}
-            message={message}
-          />
+          <Suspense fallback={<LazyPageFallback label="Loading dashboard..." />}>
+            <TeacherDashboardPage
+              classList={classList}
+              selectedClassId={selectedClassId}
+              setSelectedClassId={setSelectedClassId}
+              setStudentList={setStudentList}
+              studentList={studentList}
+              loadingStudents={loadingStudents}
+              loadStudents={loadStudents}
+              onLoadStudent={async (id, name) => {
+                await loadStudentProgress(id, name);
+                setAppView(APP_VIEWS.OVERVIEW);
+              }}
+              createClass={createClass}
+              newClassName={newClassName}
+              setNewClassName={setNewClassName}
+              createStudent={createStudentForSelectedClass}
+              classDashboard={classDashboard}
+              loadClassDashboard={loadClassDashboard}
+              skillTree={skillTree}
+              updateStudentSymbolPassword={updateStudentSymbolPassword}
+              resetStudentSymbolPassword={resetStudentSymbolPassword}
+              startStudentLogin={() => {
+                setSessionMode("teacher");
+                setEntryMode("student");
+                setAppView(APP_VIEWS.STUDENT_LOGIN);
+              }}
+              schoolName={teacherSchoolName}
+              hasSchool={hasTeacherSchool}
+              saveSchool={saveTeacherSchool}
+              message={message}
+            />
+          </Suspense>
         </PageBoundary>
       )}
 
@@ -8209,13 +8224,17 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
       {appView === APP_VIEWS.WORKSHEETS && (
         <PageBoundary resetKey="worksheets">
-          <WorksheetGeneratorPage teacherId={teacherId} />
+          <Suspense fallback={<LazyPageFallback label="Loading worksheets..." />}>
+            <WorksheetGeneratorPage teacherId={teacherId} />
+          </Suspense>
         </PageBoundary>
       )}
 
       {appView === APP_VIEWS.PRESENT && (
         <PageBoundary resetKey="present">
-          <PresentPage />
+          <Suspense fallback={<LazyPageFallback label="Loading Present mode..." />}>
+            <PresentPage />
+          </Suspense>
         </PageBoundary>
       )}
 

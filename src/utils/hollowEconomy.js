@@ -260,13 +260,29 @@ export function computeHollow(ledger = {}, breakdown = {}, date = new Date()) {
   };
 }
 
+// Which rarities each priced egg can ever hatch (mirrors tierPool). Used to
+// stop a child paying coins for an egg that can only hatch duplicates.
+const EGG_REACHABLE_RARITIES = {
+  "egg-bronze": ["common"],
+  "egg-silver": ["common", "rare"],
+  "egg-gold": ["rare", "epic"]
+};
+
 // A purchase is allowed when the item is real, not already owned (eggs CAN
-// repeat), and the wallet covers it.
+// repeat while unhatched species remain), and the wallet covers it.
 export function canBuy(hollow, itemId) {
   const item = findCatalogItem(itemId);
   if (!item) return { ok: false, reason: "unknown" };
   const isEgg = itemId.startsWith("egg-");
   if (!isEgg && hollow.ownedIds.has(itemId)) return { ok: false, reason: "owned" };
+  if (isEgg && EGG_REACHABLE_RARITIES[itemId]) {
+    // Every species this egg could hatch is already owned -> paying coins
+    // would celebrate a duplicate that silently vanishes. Block it honestly.
+    const rarities = EGG_REACHABLE_RARITIES[itemId];
+    const ownedSpecies = new Set((hollow.beasties || []).map(b => b.id));
+    const remaining = BEASTIES.some(b => rarities.includes(b.rarity) && !ownedSpecies.has(b.id));
+    if (!remaining) return { ok: false, reason: "complete" };
+  }
   if (hollow.coins < item.price) return { ok: false, reason: "coins", short: item.price - hollow.coins };
   return { ok: true, item };
 }

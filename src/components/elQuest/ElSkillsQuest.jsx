@@ -456,7 +456,10 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
     const total = rounds.length;
     if (stationId === "check") {
       // The mission's quest task = a full cycle, sealed by the Cycle Check.
-      notifyMissionTaskDone(progressScopeKey, "quest");
+      // deferReturn: the cycle celebration (stars, certificate) follows -
+      // never yank the child home over it. The celebration's own buttons
+      // (map / choose a cycle) already give an honest way onward.
+      notifyMissionTaskDone(progressScopeKey, "quest", { deferReturn: true });
       const stars = starsForAccuracy(finalCorrect, total, finalWrongs);
       const previous = progress.cycles?.[activeCycle.id] || {};
       const nextProgress = {
@@ -818,7 +821,7 @@ export function ElSkillsQuest({ studentName = "Reader", progressScopeKey = "defa
           )}
           {isCycle && <ProgressStars stars={celebration.stars} size="lg" />}
           {isCycle && celebration.stars > 0 && (
-            <p className="kid-gems-earned">+{celebration.stars * 7} coins for your Hollow!</p>
+            <p className="kid-coins-earned">+{celebration.stars * 7} coins for your Hollow!</p>
           )}
           <div className="sbq-celebrate-actions">
             <button

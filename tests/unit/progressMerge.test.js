@@ -16,6 +16,25 @@ test("learn_games: cloud row keeps games earned on another device (no clobber)",
   assert.equal(next.games.match.stars, 2, "cloud-only game is added");
 });
 
+test("learn_games: a cleared checkpoint is NOT resurrected by a stale cloud row", () => {
+  // The child finished the ladder locally (checkpoint cleared); an old cloud
+  // row still carries checkpoints. Resume state must stay cleared - but a
+  // game this device never played may take the cloud checkpoint.
+  const local = { games: {
+    "rocket-run": { stars: 3, highScore: 90 }, // finished: no checkpoints key
+    "rhyme-pop": { stars: 1, highScore: 10, checkpoints: { easy: { level: 2, totalLevels: 10 } } }
+  } };
+  const cloud = { games: {
+    "rocket-run": { stars: 2, highScore: 50, checkpoints: { easy: { level: 4, totalLevels: 10 } } },
+    "word-bridge": { stars: 1, highScore: 20, checkpoints: { easy: { level: 3, totalLevels: 10 } } }
+  } };
+  const merged = computeHydratedValue("learn_games", "__all__", local, cloud);
+  assert.equal(merged.games["rocket-run"].checkpoints, undefined, "finished ladder resumed from stale cloud");
+  assert.equal(merged.games["rocket-run"].stars, 3, "stars still monotonic");
+  assert.equal(merged.games["rhyme-pop"].checkpoints.easy.level, 2, "local resume state owned by this device");
+  assert.equal(merged.games["word-bridge"].checkpoints.easy.level, 3, "never-played game takes cloud checkpoint");
+});
+
 test("learn_games: a stale cloud row cannot downgrade local stars", () => {
   const local = { games: { hop: { stars: 3, highScore: 90 } } };
   const cloud = { games: { hop: { stars: 1, highScore: 20 } } };

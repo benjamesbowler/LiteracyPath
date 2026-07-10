@@ -6,7 +6,7 @@ const WORDS = {
   easy: [
     "cat", "sun", "mop", "big", "hat", "log", "pen", "cup", "dog", "jam",
     "red", "wet", "run", "bug", "pig", "web", "hen", "fox", "zip", "van",
-    "fish", "ship", "shop", "duck", "chip", "thin", "bath", "wing", "ring", "king"
+    "top", "net", "mud", "duck", "bed", "ten", "cap", "bus", "pot", "leg"
   ],
   medium: [
     "frog", "plant", "crisp", "drum", "stone", "flame", "brush", "green", "splash", "track",
@@ -14,9 +14,9 @@ const WORDS = {
     "crash", "string", "spring", "bright", "twist", "storm", "shark", "three", "glide", "prize"
   ],
   hard: [
-    "moonlight", "starlight", "spellbook", "broomstick", "shadow", "forest", "whisper", "lantern", "silver", "crystal",
-    "dragonfly", "starshine", "nightfall", "sparkle", "thunder", "glimmer", "firelight", "moonbeam", "storybook", "witchcraft",
-    "brightest", "floating", "branching", "shimmer", "evergreen", "mushroom", "twilight", "whistling", "moonstone", "firefly"
+    "moonlight", "starlight", "moon", "star", "shadow", "forest", "whisper", "lantern", "silver", "night",
+    "dark", "owl", "glow", "sparkle", "thunder", "glimmer", "firelight", "moonbeam", "mist", "fern",
+    "oak", "floating", "moss", "shimmer", "dream", "mushroom", "twilight", "stream", "howl", "firefly"
   ]
 };
 const DECOYS = ["a", "e", "i", "o", "u", "sh", "ch", "th", "ai", "ee", "oa", "oo", "ar", "or"];

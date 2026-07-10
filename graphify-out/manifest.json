@@ -730,8 +730,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1783663652.8489604,
-    "ast_hash": "d0b9241384434a9c5af732721061c517",
+    "mtime": 1783685320.501008,
+    "ast_hash": "f74ae037f253200109c1b2e8a2a856f3",
     "semantic_hash": ""
   },
   "playwright.config.js": {
@@ -817,11 +817,6 @@
   "src/components/FinishedReportPage.jsx": {
     "mtime": 1783647243.5991518,
     "ast_hash": "32fea1bdccfa3c50d5438bbebdd5de2f",
-    "semantic_hash": ""
-  },
-  "src/components/Gem.jsx": {
-    "mtime": 1781172994.1900845,
-    "ast_hash": "3461d255f5f284e5f8f7539836759a1d",
     "semantic_hash": ""
   },
   "src/components/LearnAreaPage.jsx": {
@@ -1370,8 +1365,8 @@
     "semantic_hash": ""
   },
   "src/data/elCyclePoems.js": {
-    "mtime": 1783148604.398816,
-    "ast_hash": "b486434b32cc9d242530bf37c5431eac",
+    "mtime": 1783685965.2400076,
+    "ast_hash": "0f771737382849dc221ce554d24a3895",
     "semantic_hash": ""
   },
   "src/data/elFormalAssessmentReportBuilder.js": {
@@ -1465,8 +1460,8 @@
     "semantic_hash": ""
   },
   "src/data/hfwRuntimeEligibility.js": {
-    "mtime": 1780890799.6779401,
-    "ast_hash": "17d83c1559c0e460a1e84b2ea1adbe26",
+    "mtime": 1783685307.0450613,
+    "ast_hash": "b89cb08ae015cbebb2245a174e623770",
     "semantic_hash": ""
   },
   "src/data/highFrequencyWordBands.js": {
@@ -1570,8 +1565,8 @@
     "semantic_hash": ""
   },
   "src/data/loadAssessmentSkillBank.js": {
-    "mtime": 1780985802.4271998,
-    "ast_hash": "06699ca717dab005aa64676f66609ee2",
+    "mtime": 1783685200.873333,
+    "ast_hash": "171890aabeb8b1bb99cf9d83d6a44e77",
     "semantic_hash": ""
   },
   "src/data/longVowelPatternData.js": {
@@ -1625,8 +1620,8 @@
     "semantic_hash": ""
   },
   "src/data/prepositionClozeScenes.js": {
-    "mtime": 1780918960.2072222,
-    "ast_hash": "57c66b63cffefb7c0af85ca6782910c2",
+    "mtime": 1783685813.5919917,
+    "ast_hash": "ea3f893a659f092c656ee99eabccb567",
     "semantic_hash": ""
   },
   "src/data/publicMediaInventory.js": {
@@ -1635,8 +1630,8 @@
     "semantic_hash": ""
   },
   "src/data/qbAssess_cause_effect.js": {
-    "mtime": 1783599670.4383583,
-    "ast_hash": "749d43e9948760f6fa40918ff4b8dac2",
+    "mtime": 1783685557.2968862,
+    "ast_hash": "0b9f70b4f7d75aeff610b659d3dc3d31",
     "semantic_hash": ""
   },
   "src/data/qbAssess_hfw1.js": {
@@ -1650,18 +1645,18 @@
     "semantic_hash": ""
   },
   "src/data/qbAssess_inf.js": {
-    "mtime": 1783599670.4051437,
-    "ast_hash": "5ff3cdcb1d2f67546c5581c370b30bb2",
+    "mtime": 1783685557.2999134,
+    "ast_hash": "7e925bfa790652df7d8e451c12b4ec04",
     "semantic_hash": ""
   },
   "src/data/qbAssess_main_idea.js": {
-    "mtime": 1783599670.514854,
-    "ast_hash": "fd318e874a7ad68d4267a2d8908fd384",
+    "mtime": 1783685742.0502214,
+    "ast_hash": "0ba740cae54d84f898dc0d68871c8856",
     "semantic_hash": ""
   },
   "src/data/qbAssess_rc.js": {
-    "mtime": 1783599670.5016909,
-    "ast_hash": "573c4047bf40065aa46ce9e08099f381",
+    "mtime": 1783685557.302951,
+    "ast_hash": "bd6022a6b73e5c5a03f7758066ef3f7c",
     "semantic_hash": ""
   },
   "src/data/qbAssess_sc.js": {
@@ -2950,8 +2945,8 @@
     "semantic_hash": ""
   },
   "tools/generateEarlySkillQuestions.js": {
-    "mtime": 1783141014.1176336,
-    "ast_hash": "a5d31b211f9181cf28cb32f539194e41",
+    "mtime": 1783685252.0076268,
+    "ast_hash": "d04233870bb7d037e6251c5fbb723c8c",
     "semantic_hash": ""
   },
   "tools/generateHfwAssessmentQuestions.js": {
@@ -3195,8 +3190,8 @@
     "semantic_hash": ""
   },
   "vite.config.js": {
-    "mtime": 1781060896.6089892,
-    "ast_hash": "909c597e2e4568d35c62f19bdd7bb8cc",
+    "mtime": 1783685232.9129975,
+    "ast_hash": "efa264455022c743d1a56f7e9c038f2d",
     "semantic_hash": ""
   },
   ".agents/skills/brandkit/SKILL.md": {
@@ -4615,8 +4610,8 @@
     "semantic_hash": ""
   },
   "docs/validation/assessment_bank_loader_check.md": {
-    "mtime": 1783399353.7194471,
-    "ast_hash": "889040a600e13c9ae4c7e3b1345d7c63",
+    "mtime": 1783685595.0552492,
+    "ast_hash": "9f20a77d14835f8be56a91a08aa70844",
     "semantic_hash": ""
   },
   "docs/validation/assessment_data_loading_audit.md": {
@@ -5430,8 +5425,8 @@
     "semantic_hash": ""
   },
   "docs/validation/checkpoint_integrity_audit.json": {
-    "mtime": 1783648883.2571712,
-    "ast_hash": "b7fce4112d6a7e1ee505489d230abfbe",
+    "mtime": 1783685983.1830015,
+    "ast_hash": "538d7fdd0550312fadf9e53a2d8f12e1",
     "semantic_hash": ""
   },
   "src/components/HollowPage.jsx": {
@@ -5535,8 +5530,8 @@
     "semantic_hash": ""
   },
   "src/utils/soundSafariRounds.js": {
-    "mtime": 1783501821.3787498,
-    "ast_hash": "2e2ef65ca09bc53c6c358464014c20ce",
+    "mtime": 1783685874.43608,
+    "ast_hash": "2d18aea4d7515e84b1d93a65e8cb5154",
     "semantic_hash": ""
   },
   "src/utils/starGalleryRounds.js": {
@@ -5575,8 +5570,8 @@
     "semantic_hash": ""
   },
   "tools/auditCheckpointIntegrity.js": {
-    "mtime": 1783593891.3583207,
-    "ast_hash": "06edf8ebb2669bcd99656f0c1a0b1d9a",
+    "mtime": 1783685869.0128994,
+    "ast_hash": "b5cd404c74e06adf4f557aabc0d7fe1a",
     "semantic_hash": ""
   },
   "tools/convert-ps1-arcade-webp.mjs": {
@@ -5794,16 +5789,6 @@
     "ast_hash": "44ef4435dc62b62bf2dbbc1b858aee72",
     "semantic_hash": ""
   },
-  "src/components/ChildMode.jsx": {
-    "mtime": 1780202686.0,
-    "ast_hash": "e5d26ed8611c1dbff86d5fd29a664386",
-    "semantic_hash": ""
-  },
-  "src/components/books/PageTurnReader.jsx": {
-    "mtime": 1779775570.0,
-    "ast_hash": "962b1e5d3a0656c47bcd6d24c5c1a7ef",
-    "semantic_hash": ""
-  },
   "docs/previews/letter-leap-preview.html": {
     "mtime": 1783315205.0,
     "ast_hash": "842571b7c7dde74d5accc82fda3ccbbd",
@@ -5865,8 +5850,8 @@
     "semantic_hash": ""
   },
   "src/components/learn/games/games/ReelReadGame.jsx": {
-    "mtime": 1783682382.5047114,
-    "ast_hash": "68821710ced8000af0e06ed48d3aa95e",
+    "mtime": 1783686117.9696019,
+    "ast_hash": "1f1d3ae6befba9305c2a7f496b744e54",
     "semantic_hash": ""
   },
   "src/reel-read-preview.jsx": {
@@ -5897,6 +5882,16 @@
   "tmp/imagegen/reel-read-fish.png": {
     "mtime": 1783676243.6468198,
     "ast_hash": "586eb0234ac4c3a699234490b588cfb3",
+    "semantic_hash": ""
+  },
+  "docs/APP_AUDIT_AND_ROADMAP_2026-07-10.md": {
+    "mtime": 1783683978.7930562,
+    "ast_hash": "04ddd10af43c1c7e37bb432e51f63ea9",
+    "semantic_hash": ""
+  },
+  "tools/generateHfwEligibilityKeys.js": {
+    "mtime": 1783685289.3686159,
+    "ast_hash": "a20bc9861d771d951f15c21d6899b123",
     "semantic_hash": ""
   }
 }

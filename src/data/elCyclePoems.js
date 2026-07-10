@@ -8,24 +8,24 @@
 // findWords as whole words so the "find the word" round keeps working.
 export const EL_CYCLE_POEMS = [
   // ── Cycles 1-9: Meadow Farm ──
-  { cycle: 1, title: "Muddy's Map", lines: ["Muddy sits upon the mat,", "with a map of this and that.", "Up the hill to find the moon,", "Muddy hums a happy tune."], findWords: ["mat", "map", "moon"] },
+  { cycle: 1, title: "Muddy's Map", lines: ["Muddy sits upon the mat,", "with a map of this and that.", "Up the hill to find the moon,", "Muddy hums a happy tune."], findWords: ["mat", "map", "sits"] },
   { cycle: 2, title: "Woolly in the Sun", lines: ["Woolly naps out in the sun,", "on top the hay - what fun!", "Bouncy hops up to the tent,", "and that is where the day was spent."], findWords: ["sun", "top", "tent"] },
   { cycle: 3, title: "Clucky's Nest", lines: ["Clucky builds a cosy nest,", "Tiny needs a little rest.", "Muddy dips a fishing net,", "then has a nap - not finished yet!"], findWords: ["nest", "net", "nap"] },
-  { cycle: 4, title: "By the Farm Gate", lines: ["A fox trots past the old farm gate,", "the fish in Duck Pond swim so straight.", "The dog naps by the big red barn,", "while Muddy digs across the farm."], findWords: ["fox", "fish", "dog"] },
+  { cycle: 4, title: "By the Farm Gate", lines: ["A fox trots past the old farm gate,", "the fish in Duck Pond swim so straight.", "The dog naps by the big red barn,", "while Muddy digs across the farm."], findWords: ["fox", "digs", "dog"] },
   { cycle: 5, title: "The Otter's Visit", lines: ["An otter plays down by the pond,", "and Splashy quacks - she's very fond.", "On top the hay the hens all camp,", "at night old Clucky lights the lamp."], findWords: ["otter", "top", "lamp"] },
   { cycle: 6, title: "Speedy Runs", lines: ["Speedy loves to run and run,", "in a red hat in the sun.", "Bouncy hops to the farm gate,", "then they both run home - it's late!"], findWords: ["run", "red", "hat"] },
   { cycle: 7, title: "Into the Barn", lines: ["\"Come into the barn,\" Muddy said,", "\"it's warm, and time for bed.\"", "The Meadow Pals played in the sun,", "until the day was done."], findWords: ["said", "into", "sun"] },
-  { cycle: 8, title: "Woolly's Ball", lines: ["Woolly rolls the big round ball,", "it bounces off the garden wall.", "No wolf is near - just watch the sheep,", "they play until they fall asleep."], findWords: ["ball", "wolf", "watch"] },
-  { cycle: 9, title: "Clucky the Queen", lines: ["Clucky is the farmyard queen,", "the proudest hen you've ever seen.", "But Muddy jumps up in the mud,", "and lands with a gentle thud."], findWords: ["queen", "up", "mud"] },
+  { cycle: 8, title: "Woolly's Ball", lines: ["Woolly rolls the big round ball,", "it bounces off the garden wall.", "No wolf is near - just watch the sheep,", "they play until they fall asleep."], findWords: ["big", "wolf", "rolls"] },
+  { cycle: 9, title: "Clucky the Queen", lines: ["Clucky is the farmyard queen,", "the proudest hen you've ever seen.", "But Muddy jumps up in the mud,", "and lands with a gentle thud."], findWords: ["but", "up", "mud"] },
   // ── Cycles 10-18: Dinosaur Valley ──
-  { cycle: 10, title: "Chompy's Cap", lines: ["Chompy found a comfy cap,", "then Dozy took a valley nap.", "A cat naps near a mountain goat,", "beside the stream and little boat."], findWords: ["cat", "cap", "goat"] },
+  { cycle: 10, title: "Chompy's Cap", lines: ["Chompy found a comfy cap,", "then Dozy took a valley nap.", "A cat naps near a mountain goat,", "beside the stream and little boat."], findWords: ["cat", "cap", "nap"] },
   { cycle: 11, title: "Count With Zippy", lines: ["Zippy counts to six - what fun!", "A pig naps in the sun.", "A fox runs past the ferny den,", "then Zippy zooms again."], findWords: ["pig", "six", "fox"] },
   { cycle: 12, title: "Off to the Vet", lines: ["Sunny finds a speckled egg,", "poor Wiggly bumped his leg.", "They drove the van to see the vet,", "the kindest one they've met."], findWords: ["egg", "van", "vet"] },
-  { cycle: 13, title: "Zippy the Jet", lines: ["Sunny flies a bright red kite,", "Zippy zooms - a dino jet!", "Honky pours from a big jug,", "and Dozy gives a sleepy hug."], findWords: ["kite", "jet", "jug"] },
+  { cycle: 13, title: "Zippy the Jet", lines: ["Sunny flies a bright red kite,", "Zippy zooms - a dino jet!", "Honky pours from a big jug,", "and Dozy gives a sleepy hug."], findWords: ["hug", "jet", "jug"] },
   { cycle: 14, title: "This Is Sunny Hollow", lines: ["This is Sunny Hollow, see,", "with dino pals like you and me.", "Bring your friends to play all day,", "in this warm and sunny way."], findWords: ["this", "with", "your"] },
-  { cycle: 15, title: "Chompy's Chip", lines: ["Chompy nibbles one big chip,", "Honky dreams about a ship.", "No sheep live in the Hollow here,", "just dino pals to cheer!"], findWords: ["ship", "sheep", "chip"] },
+  { cycle: 15, title: "Chompy's Chip", lines: ["Chompy nibbles one big chip,", "Honky dreams about a ship.", "No sheep live in the Hollow here,", "just dino pals to cheer!"], findWords: ["ship", "pals", "chip"] },
   { cycle: 16, title: "One and All", lines: ["The dino pals all share the ball,", "it bounces by the waterfall.", "\"Watch the little ant!\" honks Honky's call,", "\"come play, come play - one and all!\""], findWords: ["all", "ball", "ant"] },
-  { cycle: 17, title: "Little Cheeky", lines: ["Little Cheeky and friends all like", "the leafy path, the valley hike.", "\"No igloo here!\" laughs Zippy with glee,", "\"just warm volcano lights for me.\""], findWords: ["little", "igloo", "like"] },
+  { cycle: 17, title: "Little Cheeky", lines: ["Little Cheeky and friends all like", "the leafy path, the valley hike.", "\"No igloo here!\" laughs Zippy with glee,", "\"just warm volcano lights for me.\""], findWords: ["little", "path", "like"] },
   { cycle: 18, title: "By Fossil Creek", lines: ["An otter swims where tall ferns grow more,", "along Fossil Creek's green shore.", "No ox lives in the Hollow, true,", "just dino friends for me and you."], findWords: ["otter", "ox", "more"] },
   // ── Cycles 19-27: Moonwood Forest ──
   { cycle: 19, title: "Up the Great Oak", lines: ["Pip climbs up the Great Oak tall,", "will put his cap beside the wall.", "He splashes in the puddle mud,", "and lands with a happy thud."], findWords: ["up", "put", "mud"] },

@@ -23,6 +23,9 @@ import {
 import {
   hfwQuestionReviewBlockedIds
 } from "./generated/hfwQuestionReviewBlocklist.generated.js";
+// Slim keys-only projection of the approved HFW workbook bank (id/key/word
+// sets plus {targetWord, level} per question) — the full 1.2MB bank stays out
+// of the runtime bundle. Regenerate: node tools/generateHfwEligibilityKeys.js.
 import {
   hfwApprovedQuestionContentKeys,
   hfwApprovedQuestionIds,
@@ -30,7 +33,7 @@ import {
   hfwApprovedWordSet,
   hfwApprovedWordSetsBySkill,
   hfwApprovedRowsByQuestionId
-} from "./generated/hfwApprovedQuestionBank.generated.js";
+} from "./generated/hfwEligibilityKeys.generated.js";
 import {
   getAssessmentMediaByPath
 } from "./assessmentMediaRegistry.js";

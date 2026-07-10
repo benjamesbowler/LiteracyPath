@@ -1,7 +1,7 @@
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { GAME_LIST } from "../../../data/learnGamesData";
-import { cancelSpeech, speak } from "../../../utils/learnGamesAudio";
+import { cancelSpeech, hasRecordedSpeech, speak } from "../../../utils/learnGamesAudio";
 import { cancelGameSfx } from "../../../utils/audio/gameSfx";
 import { startGameMusic, stopGameMusic } from "../../../utils/audio/gameMusic.js";
 import {
@@ -170,15 +170,17 @@ export function GamePlayer({
         </div>
         <div className="lg-game-player-actions">
           <span className="lg-game-score" aria-live="polite" aria-atomic="true">{score} pts</span>
-          <button
-            type="button"
-            className="lg-phinny-help"
-            onClick={() => soundEnabled && speak(`${game.title}. ${game.description}`)}
-            aria-label="Hear game instructions"
-            title="Hear game instructions"
-          >
-            <img src="/images/learn-games/phinny-waving.png" alt="" onError={event => { event.currentTarget.style.display = "none"; }} />
-          </button>
+          {hasRecordedSpeech(`${game.title}. ${game.description}`) && (
+            <button
+              type="button"
+              className="lg-phinny-help"
+              onClick={() => soundEnabled && speak(`${game.title}. ${game.description}`)}
+              aria-label="Hear game instructions"
+              title="Hear game instructions"
+            >
+              <img src="/images/learn-games/phinny-waving.png" alt="" onError={event => { event.currentTarget.style.display = "none"; }} />
+            </button>
+          )}
           <SoundToggle enabled={soundEnabled} onToggle={() => onSoundEnabledChange(!soundEnabled)} />
           <button type="button" className="lg-game-close" onClick={requestClose} aria-label="Close game">
             <CloseIcon />

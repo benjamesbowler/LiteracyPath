@@ -54,7 +54,8 @@ const tasks = [
   { id: "sound-beat", prompt: icon("A shiny hand drum and a pair of glowing rhythm pads emitting concentric sound-wave rings and a few simple floating musical-note shapes, energetic neon-violet lighting, deep indigo background glow.") },
   { id: "rhyme-pop", prompt: icon("A joyful cluster of glossy colourful balloons with one bursting in a bright confetti pop and a sparkle, bouncy playful composition, deep coral-pink background glow. Plain balloons, no faces.") },
   { id: "sound-safari", prompt: icon("A safari explorer's butterfly net scooping up a few glowing sound orbs among lush jungle leaves and vines, a pith helmet resting nearby, warm golden adventure light, deep amber-green background glow.") },
-  { id: "star-gallery", prompt: icon("A magical violet-twilight grove of stylized trees, one tree glowing warmly with a golden word-leaf canopy and a friendly woodcutter's axe resting at its base, fireflies drifting between the trunks, deep violet-green background glow.") }
+  { id: "star-gallery", prompt: icon("A magical violet-twilight grove of stylized trees, one tree glowing warmly with a golden word-leaf canopy and a friendly woodcutter's axe resting at its base, fireflies drifting between the trunks, deep violet-green background glow.") },
+  { id: "sentence-express", prompt: icon("A cheerful storybook steam train with word-carriages, rolling through a green meadow with a wooden station and signal, puffs of white smoke, warm violet-and-cream sky.") }
 ];
 
 // Optional: regenerate a single icon with  ONLY=star-gallery FORCE=1 node tools/generate-game-icons.mjs

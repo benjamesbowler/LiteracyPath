@@ -1,5 +1,22 @@
 # Literacy Guide — Full App Audit & Roadmap (2026-07-10)
 
+> **STATUS (same day): FIXED.** Every P1 and nearly every P2 below was resolved in the
+> "fix it all" pass: content corruption rewritten (155 distractors, 13 passages, 35
+> preposition items), mission-yank mechanism replaced, Hollow hydration + egg gate +
+> coin messaging fixed, arcade instruction button hidden when silent, BookQuiz got
+> per-word audio, bundle restructured (per-skill lazy banks, teacher pages lazy),
+> practice shelf added, Sentence Express wired as the 9th arcade game (with adapter),
+> checkpoint resurrection fixed, Sound Racer bests scoped, confetti respects
+> reduced-motion, dead CSS purged, content-integrity hard-fail rules added to the
+> audit (which also grandfathered 139 older defects for a future curation pass).
+> Correction: item 19 (Hollow room art "orphaned") was a scanner false positive —
+> the art is wired dynamically at HollowPage.jsx:242. Still open, deliberately:
+> gold-voice instruction recordings (needs Benjamin's mic/tool run), egg-welcome +
+> sentence-express art (needs Seedream on Benjamin's Mac), audio-resolver
+> consolidation (#20, architecture change — schedule solo), assessment_attempts
+> read-back (#14), book releveling (#24, pedagogy call), leaderboard RPC check
+> (#25, Supabase dashboard).
+
 Four parallel deep-dives: bloat/dead-weight, educational content, kid-side UX/logic, infrastructure/overlaps.
 Every finding cites file:line and is labeled VERIFIED (read at source) or SUSPECTED (needs runtime check).
 

@@ -426,7 +426,13 @@ function startGame(THREE, mount, opts) {
   let fov = cameraBaseFov;
   const levelResults = new Array(levelCount);
   const caughtCorrectWords = new Set();
-  const bestKey = index => `lp:sound-racer-best:${difficulty}:${index}`;
+  // Bests are per-student (scoped by the signed-in session), not per-device:
+  // two siblings on one iPad must not share ghost times.
+  let bestScope = "default";
+  try {
+    bestScope = JSON.parse(window.localStorage.getItem("lp-student-session-v1") || "null")?.studentId || "default";
+  } catch { /* no session - keep default */ }
+  const bestKey = index => `lp:sound-racer-best:${bestScope}:${difficulty}:${index}`;
 
   function material(color, opts = {}) {
     const config = {

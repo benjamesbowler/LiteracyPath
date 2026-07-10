@@ -110,7 +110,21 @@ export function computeHydratedValue(area, key, existing, payload) {
   }
   if (area === "learn_games") {
     const cloud = payload && typeof payload === "object" ? payload : {};
-    return { ...base, ...cloud, games: mergeRecordMap(base.games, cloud.games) };
+    const games = mergeRecordMap(base.games, cloud.games);
+    // Checkpoints are RESUME state, not achievement: forward-merging them by
+    // max resurrects checkpoints the child already finished or restarted.
+    // This device's record owns its own resume state; cloud checkpoints
+    // apply only to games this device has never played.
+    const localGames = base.games && typeof base.games === "object" ? base.games : {};
+    for (const id of Object.keys(games)) {
+      const localRecord = localGames[id];
+      if (!localRecord) continue;
+      const merged = { ...games[id] };
+      if (localRecord.checkpoints) merged.checkpoints = localRecord.checkpoints;
+      else delete merged.checkpoints;
+      games[id] = merged;
+    }
+    return { ...base, ...cloud, games };
   }
 
   // Per-item progress records: forward-merge so completed/words/scores can't regress.

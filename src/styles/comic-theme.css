@@ -427,42 +427,6 @@
 }
 .student-mode-app .comic-card-cta::after { content: "➜"; font-style: normal; }
 
-/* Points + Progress band: royal blue, ink border, yellow CTA */
-.student-mode-app .kid-den-banner.student-progress-banner {
-  background: var(--comic-blue);
-  border: var(--comic-bw-lg) solid var(--comic-ink);
-  border-radius: var(--comic-r-lg);
-  box-shadow: var(--comic-shadow-lg);
-  color: #fff;
-}
-.student-mode-app .student-progress-banner .kid-gem-counter {
-  background: #fff;
-  color: var(--comic-ink);
-  border: var(--comic-bw) solid var(--comic-ink);
-  border-radius: 10px;
-  box-shadow: var(--comic-shadow-sm);
-  font-family: var(--comic-label);
-  font-weight: 900;
-}
-.student-mode-app .student-progress-banner .kid-next-unlock-track {
-  height: 14px;
-  background: #fff;
-  border: 2px solid var(--comic-ink);
-  border-radius: 999px;
-  overflow: hidden;
-}
-.student-mode-app .student-progress-banner .kid-next-unlock-track span { background: var(--comic-yellow); }
-.student-mode-app .student-progress-banner .kid-den-button {
-  background: var(--comic-yellow);
-  color: var(--comic-ink);
-  border: var(--comic-bw) solid var(--comic-ink);
-  border-radius: 10px;
-  box-shadow: var(--comic-shadow-sm);
-  font-family: var(--comic-display);
-  font-style: italic;
-  text-transform: uppercase;
-}
-
 /* Home on narrow screens: stack heroes, then the trio */
 @media (max-width: 900px) {
   .student-mode-app .student-home-board {
@@ -973,47 +937,6 @@
   box-shadow: 2px 2px 0 var(--comic-ink);
   background: #fffdf4;
 }
-
-/* ═══ F. TREASURE DEN (rewards) ════════════════════════════════════════ */
-.student-mode-app .rewards-page .den-title h1,
-.student-mode-app .rewards-page .den-title h2,
-.student-mode-app .rewards-page .den-title > strong {
-  font-family: var(--comic-display);
-  font-style: italic;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  color: var(--comic-ink);
-  line-height: 0.95;
-}
-.student-mode-app .rewards-page .den-header,
-.student-mode-app .rewards-page .den-card {
-  background: var(--comic-white);
-  border: var(--comic-bw) solid var(--comic-ink);
-  border-radius: var(--comic-r-lg);
-  box-shadow: var(--comic-shadow);
-}
-.student-mode-app .rewards-page .kid-gem-counter {
-  background: #fff;
-  color: var(--comic-ink);
-  border: var(--comic-bw) solid var(--comic-ink);
-  border-radius: 10px;
-  box-shadow: var(--comic-shadow-sm);
-  font-family: var(--comic-label);
-  font-weight: 900;
-}
-.student-mode-app .rewards-page .kid-badge-medal,
-.student-mode-app .rewards-page .den-earn {
-  border: var(--comic-bw) solid var(--comic-ink);
-  border-radius: var(--comic-r);
-  box-shadow: var(--comic-shadow-sm);
-}
-.student-mode-app .rewards-page .kid-next-unlock-track {
-  border: 2px solid var(--comic-ink);
-  border-radius: 999px;
-  overflow: hidden;
-  background: #fff;
-}
-.student-mode-app .rewards-page .kid-next-unlock-track > span { background: var(--comic-yellow); }
 
 /* ═══ D2. STORY QUESTS — force wins over student-vibrant.css ════════════ */
 .student-mode-app .story-quest-learn-page .story-quest-continue-strip {
@@ -1562,3 +1485,19 @@
   color: var(--comic-ink);
 }
 .student-mode-app .skills-block-quest .sbq-stop-skill { color: var(--comic-blue); }
+
+/* Book quiz: pre-readers can hear each word choice read aloud */
+.book-quiz-choice-row { display: flex; align-items: stretch; gap: 6px; }
+.book-quiz-choice-row > button:first-child { flex: 1; }
+.book-quiz-hear {
+  flex: 0 0 auto;
+  width: 44px;
+  border-radius: 12px;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  background: #fff;
+  color: #2f6fae;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.book-quiz-hear:active { transform: scale(0.94); }

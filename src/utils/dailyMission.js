@@ -111,7 +111,12 @@ export function markMissionDone(scope, kind) {
 /* Marks a mission item done and, if it was NEWLY completed, tells the app
    (after a beat, so stars/celebrations can land) to return the child to
    the mission screen. App.jsx listens for this event in student mode. */
-export function notifyMissionTaskDone(scope, kind) {
+export function notifyMissionTaskDone(scope, kind, options = {}) {
+  // deferReturn: credit the task NOW but don't auto-return the child to the
+  // mission screen - callers with a follow-up moment (book quiz, cycle
+  // celebration) own the return via announceMissionReturn(). Without this,
+  // the 1.6s auto-return unmounted quizzes/celebrations mid-flow.
+  const { deferReturn = false } = options;
   const before = loadMissionState(scope);
   if (before.done?.[kind]) return false;
   const after = markMissionDone(scope, kind);
@@ -121,12 +126,19 @@ export function notifyMissionTaskDone(scope, kind) {
   if (after && MISSION_KINDS.every(item => after.done?.[item])) {
     logStudentActivity("mission", "all", "mission_complete", { streak: after.streak });
   }
-  if (typeof window !== "undefined") {
+  if (!deferReturn && typeof window !== "undefined") {
     window.setTimeout(() => {
       window.dispatchEvent(new CustomEvent("lp-mission-task-done", { detail: { kind } }));
     }, 1600);
   }
   return true;
+}
+
+/* Immediately asks the app to bring the child back to the mission screen.
+   Pair with notifyMissionTaskDone(..., { deferReturn: true }). */
+export function announceMissionReturn(kind = "") {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(new CustomEvent("lp-mission-task-done", { detail: { kind } }));
 }
 
 export function markMissionCelebrated(scope) {

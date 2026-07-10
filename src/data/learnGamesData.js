@@ -411,5 +411,16 @@ export const GAME_LIST = [
     description: "Roam the grove, read the picture cue, and cut the tree that fixes each sentence.",
     fullBleed: true,
     surfaces: ["arcade"]
+  },
+  {
+    id: "sentence-express",
+    title: "Sentence Express",
+    skill: "Fix and build sentences",
+    category: "Sentences",
+    ...GAME_ACCENTS.violet,
+    icon: "/images/learn-games/art/sentence-express.webp",
+    description: "Couple the cars, fix the faults, and send the sentence train rolling.",
+    fullBleed: true,
+    surfaces: ["arcade"]
   }
 ];

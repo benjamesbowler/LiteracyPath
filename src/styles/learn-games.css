@@ -2220,3 +2220,15 @@
     animation: none;
   }
 }
+
+/* ── Practice shelf (arcade hub, below the main grid) ─────────────────── */
+.lg-practice-shelf { margin-top: 14px; }
+.lg-practice-title {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.lg-practice-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+.lg-practice-tile .lg-game-tile-art { aspect-ratio: 1.6; }

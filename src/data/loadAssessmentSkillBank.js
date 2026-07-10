@@ -9,45 +9,6 @@ import {
   sourceFileByBankName
 } from "./sourceOfTruthRegistry.js";
 
-import { masteryCoreQuestions } from "./masteryCoreQuestions.js";
-import { masteryExtraQuestions } from "./masteryExtraQuestions.js";
-import { initialSoundCoverageQuestions } from "./initialSoundCoverageQuestions.js";
-import { finalSoundCoverageQuestions } from "./finalSoundCoverageQuestions.js";
-import { rhymingCoverageQuestions } from "./rhymingCoverageQuestions.js";
-import { cvcShortVowelExpansionQuestions } from "./cvcShortVowelExpansionQuestions.js";
-import { contentExpansionPass3Questions } from "./contentExpansionPass3Questions.js";
-import { targetedContentRecoveryQuestions } from "./targetedContentRecoveryQuestions.js";
-import { kimiDataset7RuntimeQuestions } from "./kimiDataset7RuntimeQuestions.js";
-import { ixlStyleSeedQuestions } from "./ixlStyleSeedQuestions.js";
-import { safeContentExpansionQuestions } from "./safeContentExpansionQuestions.js";
-import { templateQuestions } from "./templateQuestions.js";
-import { templateExpansion } from "./templateExpansion.js";
-import { templateExpansion2 } from "./templateExpansion2.js";
-import { templateExpansion3 } from "./templateExpansion3.js";
-import { templateExpansion4 } from "./templateExpansion4.js";
-import { templateExpansion5 } from "./templateExpansion5.js";
-import { templateExpansion6 } from "./templateExpansion6.js";
-import { templateExpansion7 } from "./templateExpansion7.js";
-import { questionBankExpansion8 } from "./questionBankExpansion8.js";
-import { questionBankExpansion10 } from "./questionBankExpansion10.js";
-import { questionBankExpansion11 } from "./questionBankExpansion11.js";
-import { questionBankExpansion12 } from "./questionBankExpansion12.js";
-import { questionBankExpansion13 } from "./questionBankExpansion13.js";
-import { questionBankExpansion14 } from "./questionBankExpansion14.js";
-import { qbAssess_svd } from "./qbAssess_svd.js";
-import { qbAssess_sc } from "./qbAssess_sc.js";
-import { qbAssess_rc } from "./qbAssess_rc.js";
-import { qbAssess_inf } from "./qbAssess_inf.js";
-import { qbAssess_main_idea } from "./qbAssess_main_idea.js";
-import { qbAssess_cause_effect } from "./qbAssess_cause_effect.js";
-import { qbAssess_sequencing } from "./qbAssess_sequencing.js";
-import { qbFillGaps } from "./qbFillGaps.js";
-import { generatedQuestions } from "./generatedQuestions.js";
-import { assessmentQaReplacementQuestions } from "./assessmentQaReplacementQuestions.js";
-import { highQualityComprehensionReplacementQuestions } from "./highQualityComprehensionReplacements.js";
-import { fixSentenceQuestions } from "./fixSentenceQuestions.js";
-import { templateComprehensionAdvanced } from "./templateComprehensionAdvanced.js";
-
 const ASSESSMENT_SKILL_GROUPS = [
   {
     id: "early_phonics",
@@ -198,50 +159,215 @@ function isGrammarSentenceFitRuntimeQuestion(question = {}) {
   );
 }
 
-const QUESTION_BANKS = [
-  ["masteryCoreQuestions", masteryCoreQuestions],
-  ["masteryExtraQuestions", masteryExtraQuestions],
-  ["initialSoundCoverageQuestions", initialSoundCoverageQuestions],
-  ["finalSoundCoverageQuestions", finalSoundCoverageQuestions],
-  ["rhymingCoverageQuestions", rhymingCoverageQuestions],
-  ["cvcShortVowelExpansionQuestions", cvcShortVowelExpansionQuestions],
-  ["contentExpansionPass3Questions", contentExpansionPass3Questions],
-  ["targetedContentRecoveryQuestions", targetedContentRecoveryQuestions],
-  ["kimiDataset7RuntimeQuestions", kimiDataset7RuntimeQuestions],
-  ["ixlStyleSeedQuestions", ixlStyleSeedQuestions],
-  ["safeContentExpansionQuestions", safeContentExpansionQuestions],
-  ["templateQuestions", templateQuestions],
-  ["templateExpansion", templateExpansion],
-  ["templateExpansion2", templateExpansion2],
-  ["templateExpansion3", templateExpansion3],
-  ["templateExpansion4", templateExpansion4],
-  ["templateExpansion5", templateExpansion5],
-  ["templateExpansion6", templateExpansion6],
-  ["templateExpansion7", templateExpansion7],
-  ["questionBankExpansion8", questionBankExpansion8],
-  ["questionBankExpansion10", questionBankExpansion10],
-  ["questionBankExpansion11", questionBankExpansion11],
-  ["questionBankExpansion12", questionBankExpansion12],
-  ["questionBankExpansion13", questionBankExpansion13],
-  ["questionBankExpansion14", questionBankExpansion14],
-  ["qbAssess_svd", qbAssess_svd],
-  ["qbAssess_sc", qbAssess_sc],
-  ["qbAssess_rc", qbAssess_rc],
-  ["qbAssess_inf", qbAssess_inf],
-  ["qbAssess_main_idea", qbAssess_main_idea],
-  ["qbAssess_cause_effect", qbAssess_cause_effect],
-  ["qbAssess_sequencing", qbAssess_sequencing],
-  ["qbFillGaps", qbFillGaps],
-  ["assessmentQaReplacementQuestions", assessmentQaReplacementQuestions],
-  ["highQualityComprehensionReplacementQuestions", highQualityComprehensionReplacementQuestions],
-  ["generatedQuestions", generatedQuestions],
-  ["fixSentenceQuestions", fixSentenceQuestions],
-  ["templateComprehensionAdvanced", templateComprehensionAdvanced]
+// Hand-written expansion banks, imported lazily per assessment skill family so
+// the first question of a skill only downloads that family's banks (~kB scale)
+// instead of the full ~1.5MB static set.
+//
+// IMPORTANT invariants (per-skill pool contents must stay byte-identical):
+// - Entries stay in the exact order of the old static QUESTION_BANKS list.
+//   dedupeQuestions keeps the FIRST occurrence of a duplicate key, so
+//   reordering entries can change which duplicate record survives.
+// - `families` lists every assessment skill group a bank contains questions
+//   for (derived from bank contents, 2026-07-10). Duplicate keys always share
+//   a skill id, so skipping banks with no questions for the requested family
+//   cannot change dedupe results for that family.
+// - If a bank gains questions for a new family, add that family here, then
+//   run `npm run audit:checkpoints` and compare per-skill pool counts.
+const EXPANSION_BANK_LOADERS = [
+  {
+    source: "masteryCoreQuestions",
+    families: ["early_phonics"],
+    load: () => import("./masteryCoreQuestions.js").then(module => module.masteryCoreQuestions)
+  },
+  {
+    source: "masteryExtraQuestions",
+    families: ["early_phonics"],
+    load: () => import("./masteryExtraQuestions.js").then(module => module.masteryExtraQuestions)
+  },
+  {
+    source: "initialSoundCoverageQuestions",
+    families: ["early_phonics"],
+    load: () => import("./initialSoundCoverageQuestions.js").then(module => module.initialSoundCoverageQuestions)
+  },
+  {
+    source: "finalSoundCoverageQuestions",
+    families: ["early_phonics"],
+    load: () => import("./finalSoundCoverageQuestions.js").then(module => module.finalSoundCoverageQuestions)
+  },
+  {
+    source: "rhymingCoverageQuestions",
+    families: ["early_phonics"],
+    load: () => import("./rhymingCoverageQuestions.js").then(module => module.rhymingCoverageQuestions)
+  },
+  {
+    source: "cvcShortVowelExpansionQuestions",
+    families: ["early_phonics"],
+    load: () => import("./cvcShortVowelExpansionQuestions.js").then(module => module.cvcShortVowelExpansionQuestions)
+  },
+  {
+    source: "contentExpansionPass3Questions",
+    families: ["early_phonics", "hfw", "replacement_phonics", "grammar_language", "comprehension"],
+    load: () => import("./contentExpansionPass3Questions.js").then(module => module.contentExpansionPass3Questions)
+  },
+  {
+    source: "targetedContentRecoveryQuestions",
+    families: ["early_phonics", "replacement_phonics"],
+    load: () => import("./targetedContentRecoveryQuestions.js").then(module => module.targetedContentRecoveryQuestions)
+  },
+  {
+    source: "kimiDataset7RuntimeQuestions",
+    families: ["early_phonics"],
+    load: () => import("./kimiDataset7RuntimeQuestions.js").then(module => module.kimiDataset7RuntimeQuestions)
+  },
+  {
+    source: "ixlStyleSeedQuestions",
+    families: ["early_phonics", "replacement_phonics", "grammar_language", "comprehension"],
+    load: () => import("./ixlStyleSeedQuestions.js").then(module => module.ixlStyleSeedQuestions)
+  },
+  {
+    source: "safeContentExpansionQuestions",
+    families: ["replacement_phonics", "grammar_language"],
+    load: () => import("./safeContentExpansionQuestions.js").then(module => module.safeContentExpansionQuestions)
+  },
+  {
+    source: "templateQuestions",
+    families: ["early_phonics", "grammar_language"],
+    load: () => import("./templateQuestions.js").then(module => module.templateQuestions)
+  },
+  {
+    source: "templateExpansion",
+    families: ["hfw", "replacement_phonics", "grammar_language", "comprehension"],
+    load: () => import("./templateExpansion.js").then(module => module.templateExpansion)
+  },
+  {
+    source: "templateExpansion2",
+    families: ["early_phonics", "replacement_phonics", "grammar_language", "comprehension"],
+    load: () => import("./templateExpansion2.js").then(module => module.templateExpansion2)
+  },
+  {
+    source: "templateExpansion3",
+    families: ["replacement_phonics", "grammar_language", "comprehension"],
+    load: () => import("./templateExpansion3.js").then(module => module.templateExpansion3)
+  },
+  {
+    source: "templateExpansion4",
+    families: ["early_phonics", "grammar_language", "comprehension"],
+    load: () => import("./templateExpansion4.js").then(module => module.templateExpansion4)
+  },
+  {
+    source: "templateExpansion5",
+    families: ["early_phonics", "replacement_phonics", "comprehension"],
+    load: () => import("./templateExpansion5.js").then(module => module.templateExpansion5)
+  },
+  {
+    source: "templateExpansion6",
+    families: ["early_phonics", "replacement_phonics", "grammar_language", "comprehension"],
+    load: () => import("./templateExpansion6.js").then(module => module.templateExpansion6)
+  },
+  {
+    source: "templateExpansion7",
+    families: ["early_phonics", "hfw", "replacement_phonics", "grammar_language", "comprehension"],
+    load: () => import("./templateExpansion7.js").then(module => module.templateExpansion7)
+  },
+  {
+    source: "questionBankExpansion8",
+    families: ["early_phonics", "replacement_phonics", "grammar_language", "comprehension"],
+    load: () => import("./questionBankExpansion8.js").then(module => module.questionBankExpansion8)
+  },
+  {
+    source: "questionBankExpansion10",
+    families: ["replacement_phonics", "grammar_language"],
+    load: () => import("./questionBankExpansion10.js").then(module => module.questionBankExpansion10)
+  },
+  {
+    source: "questionBankExpansion11",
+    families: ["grammar_language"],
+    load: () => import("./questionBankExpansion11.js").then(module => module.questionBankExpansion11)
+  },
+  {
+    source: "questionBankExpansion12",
+    families: ["early_phonics", "replacement_phonics"],
+    load: () => import("./questionBankExpansion12.js").then(module => module.questionBankExpansion12)
+  },
+  {
+    source: "questionBankExpansion13",
+    families: ["comprehension"],
+    load: () => import("./questionBankExpansion13.js").then(module => module.questionBankExpansion13)
+  },
+  {
+    source: "questionBankExpansion14",
+    families: ["comprehension"],
+    load: () => import("./questionBankExpansion14.js").then(module => module.questionBankExpansion14)
+  },
+  {
+    source: "qbAssess_svd",
+    families: ["early_phonics"],
+    load: () => import("./qbAssess_svd.js").then(module => module.qbAssess_svd)
+  },
+  {
+    source: "qbAssess_sc",
+    families: ["comprehension"],
+    load: () => import("./qbAssess_sc.js").then(module => module.qbAssess_sc)
+  },
+  {
+    source: "qbAssess_rc",
+    families: ["comprehension"],
+    load: () => import("./qbAssess_rc.js").then(module => module.qbAssess_rc)
+  },
+  {
+    source: "qbAssess_inf",
+    families: ["comprehension"],
+    load: () => import("./qbAssess_inf.js").then(module => module.qbAssess_inf)
+  },
+  {
+    source: "qbAssess_main_idea",
+    families: ["comprehension"],
+    load: () => import("./qbAssess_main_idea.js").then(module => module.qbAssess_main_idea)
+  },
+  {
+    source: "qbAssess_cause_effect",
+    families: ["comprehension"],
+    load: () => import("./qbAssess_cause_effect.js").then(module => module.qbAssess_cause_effect)
+  },
+  {
+    source: "qbAssess_sequencing",
+    families: ["comprehension"],
+    load: () => import("./qbAssess_sequencing.js").then(module => module.qbAssess_sequencing)
+  },
+  {
+    source: "qbFillGaps",
+    families: ["replacement_phonics", "grammar_language"],
+    load: () => import("./qbFillGaps.js").then(module => module.qbFillGaps)
+  },
+  {
+    source: "assessmentQaReplacementQuestions",
+    families: ["replacement_phonics", "grammar_language"],
+    load: () => import("./assessmentQaReplacementQuestions.js").then(module => module.assessmentQaReplacementQuestions)
+  },
+  {
+    source: "highQualityComprehensionReplacementQuestions",
+    families: ["comprehension"],
+    load: () => import("./highQualityComprehensionReplacements.js").then(module => module.highQualityComprehensionReplacementQuestions)
+  },
+  {
+    source: "generatedQuestions",
+    families: ["early_phonics", "replacement_phonics", "grammar_language", "comprehension"],
+    load: () => import("./generatedQuestions.js").then(module => module.generatedQuestions)
+  },
+  {
+    source: "fixSentenceQuestions",
+    families: ["comprehension"],
+    load: () => import("./fixSentenceQuestions.js").then(module => module.fixSentenceQuestions)
+  },
+  {
+    source: "templateComprehensionAdvanced",
+    families: ["comprehension"],
+    load: () => import("./templateComprehensionAdvanced.js").then(module => module.templateComprehensionAdvanced)
+  }
 ];
 
 const dynamicBankCache = new Map();
 const skillBankCache = new Map();
-let baseAssessmentQuestions = null;
 
 function normalizeSkillId(value = "") {
   const normalized = String(value || "")
@@ -292,13 +418,12 @@ function normalizeQuestionBank(source, bank = []) {
   return bank.map((question, index) => normalizeQuestion(question, source, index));
 }
 
-function getBaseAssessmentQuestions() {
-  if (!baseAssessmentQuestions) {
-    baseAssessmentQuestions = dedupeQuestions(
-      QUESTION_BANKS.flatMap(([source, bank]) => normalizeQuestionBank(source, bank))
-    );
-  }
-  return baseAssessmentQuestions;
+function expansionBankAppliesToSkill(families = [], skillId = "") {
+  const group = groupForSkill(skillId);
+  // Unknown or legacy skill ids (e.g. hfw_51_100, "") load every hand-written
+  // bank, matching the previous behavior where all of them were always loaded.
+  if (!group) return true;
+  return families.includes(group.id);
 }
 
 function shouldLoadForSkill(skillId, aliases = []) {
@@ -306,10 +431,34 @@ function shouldLoadForSkill(skillId, aliases = []) {
 }
 
 const DYNAMIC_BANK_LOADERS = [
+  // The four generated early-skill banks are loaded per skill instead of via
+  // the earlySkillQuestions.generated.js barrel, so e.g. rhyming does not pull
+  // the CVC/final-sound/short-vowel megabanks. `bankName` keeps `_source` /
+  // `_sourceFile` identical to the old barrel import (sourceOfTruthRegistry
+  // keys on that name), and entry order matches the barrel's spread order.
   {
-    source: "generatedEarlySkillQuestions",
-    shouldLoad: skillId => EARLY_PHONICS_GENERATED_SKILLS.has(skillId),
-    load: () => import("./generated/earlySkillQuestions.generated.js").then(module => module.generatedEarlySkillQuestions)
+    source: "finalSoundsGeneratedQuestions",
+    bankName: "generatedEarlySkillQuestions",
+    shouldLoad: skillId => skillId === "final_sounds",
+    load: () => import("./generated/finalSounds.generated.js").then(module => module.finalSoundsGeneratedQuestions)
+  },
+  {
+    source: "cvcGeneratedQuestions",
+    bankName: "generatedEarlySkillQuestions",
+    shouldLoad: skillId => skillId === "cvc_short_vowels",
+    load: () => import("./generated/cvc.generated.js").then(module => module.cvcGeneratedQuestions)
+  },
+  {
+    source: "shortVowelGeneratedQuestions",
+    bankName: "generatedEarlySkillQuestions",
+    shouldLoad: skillId => skillId === "short_vowel_discrimination",
+    load: () => import("./generated/shortVowel.generated.js").then(module => module.shortVowelGeneratedQuestions)
+  },
+  {
+    source: "rhymingGeneratedQuestions",
+    bankName: "generatedEarlySkillQuestions",
+    shouldLoad: skillId => skillId === "rhyming",
+    load: () => import("./generated/rhyming.generated.js").then(module => module.rhymingGeneratedQuestions)
   },
   {
     source: "hfwAssessmentQuestions",
@@ -375,14 +524,22 @@ const DYNAMIC_BANK_LOADERS = [
 
 async function loadDynamicBank(loader) {
   if (!dynamicBankCache.has(loader.source)) {
-    dynamicBankCache.set(loader.source, loader.load().then(bank => normalizeQuestionBank(loader.source, bank || [])));
+    dynamicBankCache.set(
+      loader.source,
+      loader.load().then(bank => normalizeQuestionBank(loader.bankName || loader.source, bank || []))
+    );
   }
   return dynamicBankCache.get(loader.source);
 }
 
-async function loadDynamicBanksForSkill(skillId = "") {
-  const normalizedSkillId = normalizeSkillId(skillId);
-  const loaders = DYNAMIC_BANK_LOADERS.filter(loader => loader.shouldLoad(normalizedSkillId));
+async function loadQuestionBanksForSkill(normalizedSkillId = "") {
+  // Hand-written banks first, generated banks second — the exact order the old
+  // static QUESTION_BANKS + dynamic loader concatenation produced, so
+  // dedupeQuestions keeps the same record when keys collide.
+  const loaders = [
+    ...EXPANSION_BANK_LOADERS.filter(loader => expansionBankAppliesToSkill(loader.families, normalizedSkillId)),
+    ...DYNAMIC_BANK_LOADERS.filter(loader => loader.shouldLoad(normalizedSkillId))
+  ];
   const banks = await Promise.all(loaders.map(loadDynamicBank));
   return banks.flat();
 }
@@ -422,11 +579,7 @@ export async function loadAssessmentSkillBank(skillId = "") {
   const normalizedSkillId = normalizeSkillId(skillId);
   if (skillBankCache.has(normalizedSkillId)) return skillBankCache.get(normalizedSkillId);
 
-  const dynamicQuestions = await loadDynamicBanksForSkill(normalizedSkillId);
-  const allAssessmentQuestions = dedupeQuestions([
-    ...getBaseAssessmentQuestions(),
-    ...dynamicQuestions
-  ]);
+  const allAssessmentQuestions = dedupeQuestions(await loadQuestionBanksForSkill(normalizedSkillId));
   const runtimeSkillId = runtimeSkillIdFor(normalizedSkillId);
   const questions = allAssessmentQuestions.filter(question =>
     (

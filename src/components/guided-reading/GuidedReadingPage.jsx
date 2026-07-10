@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { notifyMissionTaskDone } from "../../utils/dailyMission.js";
+import { announceMissionReturn, notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import { BookQuiz } from "./BookQuiz.jsx";
 import { printCertificate } from "../../utils/printCertificate.js";
 import { countBooksRead } from "../../utils/treasureTrail.js";
@@ -513,6 +513,7 @@ export function GuidedReadingPage({
   const [isReaderFullscreen, setIsReaderFullscreen] = useState(false);
   const [readerLayoutVersion, setReaderLayoutVersion] = useState(0);
   const guidedReaderShellRef = useRef(null);
+  const missionReturnPendingRef = useRef(false);
   const pageAudioRef = useRef(null);
   const highlightTimerRef = useRef(null);
   const sentenceTimersRef = useRef([]);
@@ -873,7 +874,11 @@ export function GuidedReadingPage({
     // child who reads the whole book always gets the mission, even if they skip
     // the quiz. Coins for the book are derived in the Hollow economy - no gems.
     const scope = studentId || studentName || "default";
-    notifyMissionTaskDone(scope, "book");
+    // In student mode the quiz follows: credit the task now, but hold the
+    // auto-return to the mission screen until the reader closes, so the
+    // quiz and its summary are never unmounted mid-flow.
+    const newlyDone = notifyMissionTaskDone(scope, "book", { deferReturn: isStudentMode });
+    if (newlyDone && isStudentMode) missionReturnPendingRef.current = true;
     if (isStudentMode) {
       setShowQuiz(true);
     } else {
@@ -883,7 +888,6 @@ export function GuidedReadingPage({
 
   function handleQuizFinish(quizCorrect, quizTotal) {
     setShowQuiz(false);
-    notifyMissionTaskDone(studentId || studentName || "default", "book");
     updateRecord({
       quizScore: quizCorrect,
       quizTotal,
@@ -914,6 +918,12 @@ export function GuidedReadingPage({
 
   function closeReader() {
     stopPageAudio();
+    // The held mission-return from finishing today's first book fires now,
+    // once the child is done with the quiz/summary and closes the reader.
+    if (missionReturnPendingRef.current) {
+      missionReturnPendingRef.current = false;
+      announceMissionReturn("book");
+    }
     if (typeof document !== "undefined" && document.fullscreenElement === guidedReaderShellRef.current) {
       document.exitFullscreen?.().catch(() => {});
     }

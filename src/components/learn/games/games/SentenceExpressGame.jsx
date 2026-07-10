@@ -279,7 +279,10 @@ export default function SentenceExpressGame({
   startLevel = 0,
   isSoundEnabled = true,
   onComplete = () => {},
-  onQuit = () => {}
+  onQuit = () => {},
+  // The arcade shell (GamePlayer) has its own close button; hide ours there
+  // so onQuit fires only at the true end of the 10-level run.
+  showQuit = true
 }) {
   const world = WORLD_BY_DIFFICULTY[difficulty] || "meadow";
   const [levelIndex, setLevelIndex] = useState(Math.max(0, Math.min(LEVELS_PER_LINE - 1, startLevel)));
@@ -531,7 +534,7 @@ export default function SentenceExpressGame({
           </span>
           {delay ? `+${delay} min` : "ON TIME"}
         </span>
-        <button type="button" className="sx-quit" onClick={onQuit} aria-label="Leave the game">X</button>
+        {showQuit && <button type="button" className="sx-quit" onClick={onQuit} aria-label="Leave the game">X</button>}
       </header>
 
       <div className="sx-mainline">

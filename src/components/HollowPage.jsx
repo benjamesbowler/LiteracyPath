@@ -57,6 +57,7 @@ function ItemArt({ id, stage, size = 52 }) {
 
 function CoinPrice({ verdict, price }) {
   if (verdict.reason === "owned") return <span className="hollow-price owned">Owned ✓</span>;
+  if (verdict.reason === "complete") return <span className="hollow-price owned">All hatched ✓</span>;
   if (verdict.ok) return <span className="hollow-price can"><CoinIcon size={15} /> {price}</span>;
   return <span className="hollow-price cant"><CoinIcon size={13} /> {price} · {verdict.short} to go</span>;
 }
@@ -152,7 +153,13 @@ const MARKET_SHELVES = [
 export function HollowPage({ studentName, progressScopeKey = "default" }) {
   const scope = progressScopeKey;
   const [ledgerVersion, setLedgerVersion] = useState(0);
-  const treasury = useMemo(() => computeTreasury(scope), [scope]);
+  // Cloud progress hydrates AFTER mount; recompute the wallet when it lands
+  // so a fresh device never shows (or spends against) a stale coin count.
+  const [hydrationTick, setHydrationTick] = useState(0);
+  const treasury = useMemo(() => {
+    void hydrationTick; // recompute when cloud progress hydrates (effect below)
+    return computeTreasury(scope);
+  }, [scope, hydrationTick]);
   // eslint-disable-next-line react-hooks/exhaustive-deps -- ledgerVersion re-reads after every purchase/feed/layout change
   const ledger = useMemo(() => loadHollowLedger(scope), [scope, ledgerVersion]);
   const hollow = useMemo(() => computeHollow(ledger, treasury.breakdown), [ledger, treasury]);
@@ -164,6 +171,15 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   const [pickingWorld, setPickingWorld] = useState(false);
   const [hatched, setHatched] = useState(null);
   const [theme, setTheme] = useState(() => loadStudentProfile(scope).denTheme || "meadow");
+
+  useEffect(() => {
+    function handleHydrated(event) {
+      if (event.detail?.studentId && event.detail.studentId !== scope) return;
+      setHydrationTick(tick => tick + 1);
+    }
+    window.addEventListener("lp-progress-hydrated", handleHydrated);
+    return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);
+  }, [scope]);
 
   // Visiting the Hollow "collects" the home-page coin pop-up.
   useEffect(() => {

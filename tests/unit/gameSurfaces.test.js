@@ -19,6 +19,7 @@ test("the arcade shows the flagship playable games", () => {
     "reel-read",
     "rhyme-pop",
     "rocket-run",
+    "sentence-express",
     "sound-beat",
     "sound-racer",
     "sound-safari",

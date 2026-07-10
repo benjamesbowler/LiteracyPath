@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-10T02:01:23.256Z",
+  "generated": "2026-07-10T12:41:50.145Z",
   "poolCounts": {
     "initial_sounds": 141,
     "final_sounds": 549,
@@ -777,6 +777,1046 @@
     },
     {
       "skillId": "main_idea",
+      "id": "qa_rc_l2_015",
+      "sourceFile": "src/data/qbAssess_rc.js",
+      "source": "qbAssess_rc",
+      "answer": "Camels have many features that help them survive in the desert",
+      "choices": [
+        "Camels have many features that help them survive in the desert",
+        "Camels have humps for storing water",
+        "Deserts are dangerous places for animals",
+        "Camels are useful to humans"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_rc_l2_024",
+      "sourceFile": "src/data/qbAssess_rc.js",
+      "source": "qbAssess_rc",
+      "answer": "Elephants are remarkable animals with many impressive qualities",
+      "choices": [
+        "Elephants are remarkable animals with many impressive qualities",
+        "Elephants are the biggest animals",
+        "Elephants live in the jungle",
+        "Elephants never forget anything"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_rc_l2_030",
+      "sourceFile": "src/data/qbAssess_rc.js",
+      "source": "qbAssess_rc",
+      "answer": "Patience and practice lead to success",
+      "choices": [
+        "Patience and practice lead to success",
+        "Violins are hard to play",
+        "School concerts are important",
+        "Teachers always give good advice"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_001",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Why dogs are good pets",
+      "choices": [
+        "Why dogs are good pets",
+        "How to train a dog",
+        "What dogs like to eat",
+        "Where dogs come from"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_002",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "How a butterfly grows and changes",
+      "choices": [
+        "How a butterfly grows and changes",
+        "What butterflies eat",
+        "Where butterflies lay eggs",
+        "Why caterpillars are green"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_003",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "The Library — A Place for Books",
+      "choices": [
+        "The Library — A Place for Books",
+        "How to Get a Library Card",
+        "Books That Are Hard to Find",
+        "Reading at Home"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_004",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Why fruit and vegetables are important",
+      "choices": [
+        "Why fruit and vegetables are important",
+        "How to cook vegetables",
+        "Which fruit tastes the best",
+        "Where vegetables grow"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_005",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Rain is essential for living things",
+      "choices": [
+        "Rain is essential for living things",
+        "Rain makes puddles",
+        "It is fun to play in the rain",
+        "Rainbows appear after rain"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_006",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Exercise Is Good for Your Health",
+      "choices": [
+        "Exercise Is Good for Your Health",
+        "How to Run Faster",
+        "Types of Swimming",
+        "The Best Sports to Play"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_010",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "How spiders use webs to catch food",
+      "choices": [
+        "How spiders use webs to catch food",
+        "Why spider silk is colourful",
+        "Where spiders build their nests",
+        "How spiders care for their young"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_012",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Why sleep is important for children",
+      "choices": [
+        "Why sleep is important for children",
+        "What happens during dreaming",
+        "How to fall asleep quickly",
+        "Why children go to bed early"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_014",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "What Volcanoes Are and How They Work",
+      "choices": [
+        "What Volcanoes Are and How They Work",
+        "How Ash Falls from the Sky",
+        "Rocks Found Deep Underground",
+        "Famous Mountains Around the World"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_016",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Why forests are important and under threat",
+      "choices": [
+        "Why forests are important and under threat",
+        "How animals find shelter in forests",
+        "What types of trees grow in forests",
+        "Why birds build nests in trees"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_017",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Maps help people navigate and find their way",
+      "choices": [
+        "Maps help people navigate and find their way",
+        "How rivers are shown on maps",
+        "The history of GPS technology",
+        "Why explorers travelled to new places"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_019",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "The importance of clean water for people",
+      "choices": [
+        "The importance of clean water for people",
+        "How charities raise money",
+        "What happens when rivers flood",
+        "How to purify water at home"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_021",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Where the Moon's light comes from",
+      "choices": [
+        "Where the Moon's light comes from",
+        "How far the Moon is from Earth",
+        "Why the Moon changes shape",
+        "The surface of the Moon"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_022",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "How to Keep Your Teeth Healthy",
+      "choices": [
+        "How to Keep Your Teeth Healthy",
+        "Foods That Are Bad for You",
+        "How Dentists Fix Teeth",
+        "What Plaque Is Made Of"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_023",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Facts about the Amazon River",
+      "choices": [
+        "Facts about the Amazon River",
+        "How rivers reach the sea",
+        "Animals that live in rivers",
+        "South American geography"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_024",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Washing hands prevents the spread of germs",
+      "choices": [
+        "Washing hands prevents the spread of germs",
+        "Why soap is better than water alone",
+        "How germs get into food",
+        "What to do when you are ill"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_025",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "How climate change is affecting the polar ice caps",
+      "choices": [
+        "How climate change is affecting the polar ice caps",
+        "Why scientists study the poles",
+        "What animals live at the South Pole",
+        "How glaciers form over thousands of years"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_026",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "What frogs are and how they live",
+      "choices": [
+        "What frogs are and how they live",
+        "Why tadpoles live in water",
+        "Where amphibians are found",
+        "How frog eggs hatch"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_027",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "The Great Wall of China — Its Purpose and History",
+      "choices": [
+        "The Great Wall of China — Its Purpose and History",
+        "China's Famous Landmarks",
+        "How Mountains Protect Countries",
+        "Ancient Building Methods"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_028",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "What air is and why it matters",
+      "choices": [
+        "What air is and why it matters",
+        "How oxygen is made",
+        "Why the sky is blue",
+        "What happens when air moves"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_029",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Bats are unusual mammals with special abilities",
+      "choices": [
+        "Bats are unusual mammals with special abilities",
+        "Why animals sleep during the day",
+        "How sound travels through the air",
+        "The difference between mammals and birds"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_032",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "How Camels Are Built for the Desert",
+      "choices": [
+        "How Camels Are Built for the Desert",
+        "Animals That Live Without Water",
+        "The Hot Deserts of the World",
+        "What Camels Eat and Drink"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_033",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "The harm plastic causes to the environment",
+      "choices": [
+        "The harm plastic causes to the environment",
+        "How long different materials last",
+        "Why oceans are important",
+        "The best ways to recycle at home"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_034",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "An overview of the dinosaurs and their extinction",
+      "choices": [
+        "An overview of the dinosaurs and their extinction",
+        "Why asteroids are dangerous",
+        "Which dinosaur was the largest",
+        "How fossils of dinosaurs are found"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_035",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Kindness matters and can make a real difference",
+      "choices": [
+        "Kindness matters and can make a real difference",
+        "How to make new friends",
+        "Why smiling is good for your health",
+        "When to help people you don't know"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_036",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "What earthquakes are and why they happen",
+      "choices": [
+        "What earthquakes are and why they happen",
+        "How to survive an earthquake",
+        "Why buildings fall down",
+        "The plates that make up the ocean floor"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_037",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Why Breakfast Is Important for Children",
+      "choices": [
+        "Why Breakfast Is Important for Children",
+        "What to Eat for Dinner",
+        "How the Body Uses Energy",
+        "Foods That Give You a Headache"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l1_038",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Firefighters serve and protect the community",
+      "choices": [
+        "Firefighters serve and protect the community",
+        "How fire engines are built",
+        "The history of fire stations",
+        "What to do if you smell smoke"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_001",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Wolves are social animals that work together to survive",
+      "choices": [
+        "Wolves are social animals that work together to survive",
+        "Wolves make loud howls to communicate",
+        "The alpha wolf leads the pack on hunts",
+        "Wolf pups are raised by the whole pack"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_002",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "The printing press changed how knowledge was shared",
+      "choices": [
+        "The printing press changed how knowledge was shared",
+        "Books used to be very expensive",
+        "Printing presses could produce hundreds of copies",
+        "Writing books by hand took a very long time"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_003",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Coral Reefs — Vital, Diverse, and Under Threat",
+      "choices": [
+        "Coral Reefs — Vital, Diverse, and Under Threat",
+        "The Animals That Live in the Ocean",
+        "Why the Ocean Is Warming",
+        "How Coastlines Are Formed"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_004",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Edison's determination and hard work made him a great inventor",
+      "choices": [
+        "Edison's determination and hard work made him a great inventor",
+        "Edison invented the light bulb after many failures",
+        "Edison believed in working hard to succeed",
+        "Edison invented many devices used in daily life"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_005",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "What daily life is like for astronauts in space",
+      "choices": [
+        "What daily life is like for astronauts in space",
+        "How gravity affects the human body",
+        "Why astronauts must exercise in space",
+        "The equipment needed on a space station"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_006",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "The remarkable and costly journey salmon make to reproduce",
+      "choices": [
+        "The remarkable and costly journey salmon make to reproduce",
+        "Why bears and eagles feed on salmon",
+        "How salmon find the stream where they were born",
+        "The role of salmon in forest ecosystems"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_008",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Community gardens connect and strengthen neighbourhoods",
+      "choices": [
+        "Community gardens connect and strengthen neighbourhoods",
+        "Vegetables grow well in shared spaces",
+        "Children benefit from learning about growing food",
+        "Gardens are good for mental health"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_010",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "The Olympic Games have a long history and have changed over time",
+      "choices": [
+        "The Olympic Games have a long history and have changed over time",
+        "The ancient Greeks held games for Zeus",
+        "Women were excluded from the original Olympics",
+        "The modern Olympics began in 1896"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_011",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Screen time is a growing issue with complex effects on children",
+      "choices": [
+        "Screen time is a growing issue with complex effects on children",
+        "Children watch too much television",
+        "Technology is always harmful for young people",
+        "Experts have found that all screens damage children's health"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_012",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Florence Nightingale — How She Changed Nursing and Medicine",
+      "choices": [
+        "Florence Nightingale — How She Changed Nursing and Medicine",
+        "Hospitals During the Crimean War",
+        "The Importance of Hygiene in Medicine",
+        "Famous Women in History"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_013",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "The Sahara is a vast and surprising desert with a changing history",
+      "choices": [
+        "The Sahara is a vast and surprising desert with a changing history",
+        "The Sahara Desert is in North Africa",
+        "Animals have adapted to survive in the Sahara",
+        "Ancient people once lived in the Sahara"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_016",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Urban farming is a growing and valuable way of producing food in cities",
+      "choices": [
+        "Urban farming is a growing and valuable way of producing food in cities",
+        "People can grow vegetables on their balconies",
+        "City farming reduces how far food travels",
+        "Urban farming will feed the world's growing cities"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_017",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "The Wheel — One of History's Greatest Inventions",
+      "choices": [
+        "The Wheel — One of History's Greatest Inventions",
+        "How Carts Changed Ancient Trade",
+        "Why Machines Need Rotating Parts",
+        "The History of Transport"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_018",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Tortoises are extraordinary animals known for their remarkable lifespan",
+      "choices": [
+        "Tortoises are extraordinary animals known for their remarkable lifespan",
+        "Tortoise shells protect them from predators",
+        "Scientists study tortoises to learn about ageing",
+        "Tortoises need sunlight to regulate their body temperature"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_019",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Friendship is important for children's happiness and development",
+      "choices": [
+        "Friendship is important for children's happiness and development",
+        "Having friends helps children do better at school",
+        "Adults who had childhood friends are more successful",
+        "Schools should do more to help children make friends"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_020",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "What deserts really are and the surprising life they support",
+      "choices": [
+        "What deserts really are and the surprising life they support",
+        "Why Antarctica is considered a desert",
+        "How plants survive in hot, dry conditions",
+        "The percentage of land covered by deserts"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_021",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Solar panels are a clean, growing energy source becoming more affordable",
+      "choices": [
+        "Solar panels are a clean, growing energy source becoming more affordable",
+        "Solar panels are found in many different locations",
+        "Solar power does not produce any pollution",
+        "Governments are spending money on solar energy"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_022",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Libraries remain important community spaces despite modern pressures",
+      "choices": [
+        "Libraries remain important community spaces despite modern pressures",
+        "People now prefer to read on screens",
+        "Local councils are closing too many libraries",
+        "Libraries provide more services than just lending books"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_023",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Elephants — Intelligent, Emotional, and Highly Social Animals",
+      "choices": [
+        "Elephants — Intelligent, Emotional, and Highly Social Animals",
+        "Why Elephants Return to Bones",
+        "Animal Intelligence in the Wild",
+        "How Elephants Learn from Each Other"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_024",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Volunteering benefits individuals and communities in many ways",
+      "choices": [
+        "Volunteering benefits individuals and communities in many ways",
+        "Charities could not run without volunteers",
+        "Volunteering makes people happier and more connected",
+        "Volunteers gain skills useful in future careers"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_025",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "The brain's remarkable ability to change and adapt, especially in childhood",
+      "choices": [
+        "The brain's remarkable ability to change and adapt, especially in childhood",
+        "Why children learn languages faster than adults",
+        "How the brain recovers from injury",
+        "What neuroplasticity means"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_026",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Constant technology use has downsides and some suggest switching off more",
+      "choices": [
+        "Constant technology use has downsides and some suggest switching off more",
+        "Social media causes anxiety and poor sleep",
+        "Experts recommend spending no time on phones",
+        "A growing number of people are quitting social media"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_027",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Honeybees are essential to food production and face serious threats",
+      "choices": [
+        "Honeybees are essential to food production and face serious threats",
+        "Bees collect nectar and pollen from flowers",
+        "Pollination is the process by which plants reproduce",
+        "Bee populations are being harmed by pesticides and habitat loss"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_028",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Renewable Energy — A Growing Answer to the Climate Crisis",
+      "choices": [
+        "Renewable Energy — A Growing Answer to the Climate Crisis",
+        "How Wind Turbines Generate Electricity",
+        "Why Solar Farms Are Built in Deserts",
+        "The Future of Hydroelectric Power"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_029",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "The Titanic's tragic sinking had a lasting impact on maritime safety",
+      "choices": [
+        "The Titanic's tragic sinking had a lasting impact on maritime safety",
+        "The Titanic was believed to be unsinkable",
+        "More than 1,500 people died when the Titanic sank",
+        "Explorers continue to study the Titanic's wreck today"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_030",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Space exploration has produced benefits that go beyond space itself",
+      "choices": [
+        "Space exploration has produced benefits that go beyond space itself",
+        "GPS was developed for space missions",
+        "Space exploration is very expensive to fund",
+        "Scientists and engineers are inspired by space travel"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_031",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Rivers were essential to the growth of ancient civilisations",
+      "choices": [
+        "Rivers were essential to the growth of ancient civilisations",
+        "Ancient Egypt depended on the Nile River",
+        "Fertile river soil was used to grow food",
+        "Trade routes followed the paths of rivers"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_032",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "The loss of languages means the loss of irreplaceable knowledge and culture",
+      "choices": [
+        "The loss of languages means the loss of irreplaceable knowledge and culture",
+        "Half of all languages will be gone in a hundred years",
+        "Indigenous languages contain knowledge about the natural world",
+        "Linguists are working to save endangered languages"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_034",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "The ocean is vital to life on Earth but faces serious threats",
+      "choices": [
+        "The ocean is vital to life on Earth but faces serious threats",
+        "The ocean covers most of the Earth's surface",
+        "Oceans produce more than half of our oxygen",
+        "Climate change is raising ocean temperatures"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_036",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "The Great Fire of London destroyed the city but led to important improvements",
+      "choices": [
+        "The Great Fire of London destroyed the city but led to important improvements",
+        "The fire started in a bakery on Pudding Lane",
+        "Few people died in the Great Fire of London",
+        "The fire led to the creation of fire insurance"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_037",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Robots are taking on more human roles, creating both opportunities and concerns",
+      "choices": [
+        "Robots are taking on more human roles, creating both opportunities and concerns",
+        "Factory robots can work faster and more accurately than humans",
+        "Artificial intelligence allows robots to learn new tasks",
+        "Robots in hospitals perform very precise surgeries"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l2_038",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Microplastics are a widespread and poorly understood environmental problem",
+      "choices": [
+        "Microplastics are a widespread and poorly understood environmental problem",
+        "Microplastics are found in human blood",
+        "Microplastics come from broken-down plastic and clothing fibres",
+        "Scientists are studying the health effects of microplastics"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_001",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Curiosity and determination drive Amara's approach to learning",
+      "choices": [
+        "Curiosity and determination drive Amara's approach to learning",
+        "Amara works harder than everyone else in her class",
+        "Science projects should use as much data as possible",
+        "Staying up late is sometimes worth it to finish your work"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_002",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Watching nature closely over time reveals wonderful changes",
+      "choices": [
+        "Watching nature closely over time reveals wonderful changes",
+        "Frogspawn looks like little dots in jelly",
+        "Ponds are quiet in the winter",
+        "Amir's class visited the pond every Friday"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_003",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Sleep and spaced practice are more important for learning than extra study hours",
+      "choices": [
+        "Sleep and spaced practice are more important for learning than extra study hours",
+        "Students should not study for exams",
+        "Sleep helps the brain store memories formed during the day",
+        "Schools should give students more time to sleep between exams"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_004",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Real progress means beating your own best, not always winning",
+      "choices": [
+        "Real progress means beating your own best, not always winning",
+        "Ruby came last in every race at her first gala",
+        "Swimming clubs practise on cold, dark evenings",
+        "Ruby won every race at the spring gala"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_005",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Trying something new can lead to unexpected friendships",
+      "choices": [
+        "Trying something new can lead to unexpected friendships",
+        "Rainy days mean children must stay inside at break",
+        "Leo built a marble run with Priya",
+        "Chasing games are better with three friends"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_006",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Quiet kindness can matter even when nobody sees it",
+      "choices": [
+        "Quiet kindness can matter even when nobody sees it",
+        "Sam took the chairs down before anyone came in",
+        "Teachers should thank children who help in class",
+        "New pupils ask a lot of questions"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_008",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Some friends matter for who they are, not what they can do",
+      "choices": [
+        "Some friends matter for who they are, not what they can do",
+        "Old dogs walk too slowly to go to the park",
+        "Gran should get a younger dog that can fetch",
+        "Bramble rested his head on Gran's feet every evening"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_009",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Life can exist in conditions once thought impossible, raising questions about life elsewhere in the universe",
+      "choices": [
+        "Life can exist in conditions once thought impossible, raising questions about life elsewhere in the universe",
+        "The deep ocean contains creatures adapted to extreme heat and pressure",
+        "Scientists have found bacteria living deep underground",
+        "Hydrothermal vents support unusual forms of life"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_011",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Something simple and honest can turn out to be the most powerful",
+      "choices": [
+        "Something simple and honest can turn out to be the most powerful",
+        "Everyone painted big, bright pictures for the art show",
+        "Glitter makes paintings more popular with visitors",
+        "Nia drew her grandad's hands holding a teacup"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_012",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Being sure of yourself is not the same as knowing the answers",
+      "choices": [
+        "Being sure of yourself is not the same as knowing the answers",
+        "Dev shouted his answers quickly in the quiz",
+        "Amara won because the questions were easy",
+        "Nature quizzes are mostly about animals"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_013",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Getting away from town lights showed Mia a night sky full of wonder",
+      "choices": [
+        "Getting away from town lights showed Mia a night sky full of wonder",
+        "Mia could only see a few stars from her window",
+        "School camping trips always happen far from town",
+        "The teacher counted every star with Mia"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_014",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Our memories of the past often leave out the bad parts",
+      "choices": [
+        "Our memories of the past often leave out the bad parts",
+        "The school replaced the old wooden climbing frame",
+        "Old climbing frames give children splinters",
+        "Jonah's friend keeps photos from two years ago"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_015",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "A community's shared ownership of something valuable can mobilise remarkable collective action",
+      "choices": [
+        "A community's shared ownership of something valuable can mobilise remarkable collective action",
+        "Budget cuts threaten vital community services",
+        "The community centre provided many important services to local people",
+        "Two hundred people attended a public meeting to save the community centre"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_016",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Hearing lots of talk is not the same as knowing the truth",
+      "choices": [
+        "Hearing lots of talk is not the same as knowing the truth",
+        "The school pond was going to be filled in",
+        "Keisha walked to the office at lunchtime",
+        "Rumours spread around playgrounds very quickly"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_017",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Careful, patient observation over many years can produce knowledge of extraordinary value",
+      "choices": [
+        "Careful, patient observation over many years can produce knowledge of extraordinary value",
+        "Omar kept detailed notebooks for over sixty years",
+        "Scientists rarely have long-term records of how environments change",
+        "Omar's notebooks were published in an academic journal after his death"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_019",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Science progresses through being wrong and correcting course, and this is not a flaw but a feature",
+      "choices": [
+        "Science progresses through being wrong and correcting course, and this is not a flaw but a feature",
+        "Famous scientists including Einstein have been wrong about major ideas",
+        "Bloodletting and geocentrism were once widely accepted but have since been disproved",
+        "Ideas that are never tested are the most dangerous in science"
+      ]
+    },
+    {
+      "skillId": "main_idea",
+      "id": "qa_mi_l3_020",
+      "sourceFile": "src/data/qbAssess_main_idea.js",
+      "source": "qbAssess_main_idea",
+      "answer": "Unkind words can make someone hide their talent until encouragement brings it back",
+      "choices": [
+        "Unkind words can make someone hide their talent until encouragement brings it back",
+        "Poppy sang alone in her room where nobody could hear",
+        "School choirs only want the loudest singers",
+        "The music teacher taught Poppy how to sing"
+      ]
+    },
+    {
+      "skillId": "main_idea",
       "id": "adv_main_idea_1_1",
       "sourceFile": "src/data/templateComprehensionAdvanced.js",
       "source": "templateComprehensionAdvanced",
@@ -1050,6 +2090,526 @@
     },
     {
       "skillId": "inference",
+      "id": "qa_rc_l2_016",
+      "sourceFile": "src/data/qbAssess_rc.js",
+      "source": "qbAssess_rc",
+      "answer": "Because she knew she would need them to be a pilot",
+      "choices": [
+        "Because she knew she would need them to be a pilot",
+        "Because her teacher told her to",
+        "Because they were her favourite subjects",
+        "Because she wanted to win an award"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_rc_l2_019",
+      "sourceFile": "src/data/qbAssess_rc.js",
+      "source": "qbAssess_rc",
+      "answer": "Because it produces a large amount of the world's oxygen",
+      "choices": [
+        "Because it produces a large amount of the world's oxygen",
+        "Because it is shaped like lungs",
+        "Because it breathes in carbon dioxide",
+        "Because it is warm and humid like lungs"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_rc_l2_025",
+      "sourceFile": "src/data/qbAssess_rc.js",
+      "source": "qbAssess_rc",
+      "answer": "So she would be fresh for the morning",
+      "choices": [
+        "So she would be fresh for the morning",
+        "Because she was tired",
+        "Because her parents told her to",
+        "Because she was bored"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l1_002",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "Rainy and stormy",
+      "choices": [
+        "Rainy and stormy",
+        "Hot and sunny",
+        "Cold and snowy",
+        "Windy but dry"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l1_003",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "Someone the dog knows has arrived",
+      "choices": [
+        "Someone the dog knows has arrived",
+        "The dog is hungry",
+        "The dog needs to go outside",
+        "There is a strange noise"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l1_004",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "Full and satisfied",
+      "choices": [
+        "Full and satisfied",
+        "Still hungry",
+        "Ill",
+        "Disappointed"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l1_007",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "Confused and frustrated",
+      "choices": [
+        "Confused and frustrated",
+        "Confident and calm",
+        "Bored and sleepy",
+        "Excited and ready"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l1_008",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "A performance is about to start",
+      "choices": [
+        "A performance is about to start",
+        "The audience is leaving",
+        "The lights are broken",
+        "The film has ended"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l1_009",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "A school play or performance",
+      "choices": [
+        "A school play or performance",
+        "Morning lessons",
+        "A sports race",
+        "A school trip"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l1_011",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "He was worried about being late",
+      "choices": [
+        "He was worried about being late",
+        "He was going for a morning run",
+        "He heard a noise outside",
+        "He forgot something important"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l1_013",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "Pounce on something it has spotted",
+      "choices": [
+        "Pounce on something it has spotted",
+        "Fall asleep in the sun",
+        "Run back inside",
+        "Climb the fence"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l1_015",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "Disappointed",
+      "choices": [
+        "Disappointed",
+        "Excited",
+        "Proud",
+        "Surprised"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l1_016",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "She was waiting for the shop to reopen",
+      "choices": [
+        "She was waiting for the shop to reopen",
+        "She was tired from walking",
+        "She was meeting a friend",
+        "She was eating her lunch"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l1_017",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "He was cold and wet",
+      "choices": [
+        "He was cold and wet",
+        "He wanted to rest",
+        "He was going home",
+        "He was too hot"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l1_020",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "She finds it exciting and gripping",
+      "choices": [
+        "She finds it exciting and gripping",
+        "She is bored and distracted",
+        "She is struggling to read it",
+        "She has already read it before"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l1_022",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "Impatient",
+      "choices": [
+        "Impatient",
+        "Happy",
+        "Confused",
+        "Nervous"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l1_026",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "Buying something from the bakery",
+      "choices": [
+        "Buying something from the bakery",
+        "Going home for dinner",
+        "Meeting a friend nearby",
+        "What he smelled last time"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l1_030",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "Go on a trip or holiday",
+      "choices": [
+        "Go on a trip or holiday",
+        "Move to a new house",
+        "Visit a friend nearby",
+        "Go to the doctor"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_001",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "He probably hasn't returned his signed permission slip",
+      "choices": [
+        "He probably hasn't returned his signed permission slip",
+        "He doesn't want to go on the trip",
+        "He has lost his folder",
+        "He is unwell"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_003",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "He knew she was ready and had the dedication to compete",
+      "choices": [
+        "He knew she was ready and had the dedication to compete",
+        "He thought it was funny she signed up",
+        "He had been waiting for her to quit",
+        "He was surprised she had noticed the notice"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_004",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "He used to live there or has a strong memory connected to it",
+      "choices": [
+        "He used to live there or has a strong memory connected to it",
+        "He is thinking about buying the house",
+        "He is lost and stopping to think",
+        "He is a gardener who is admiring the plants"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_006",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "Frustrated after a difficult shopping trip",
+      "choices": [
+        "Frustrated after a difficult shopping trip",
+        "Relieved it is over",
+        "Excited about the item she found",
+        "Confused about which shop to choose"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_007",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "The children have just gone back inside after break",
+      "choices": [
+        "The children have just gone back inside after break",
+        "School is about to finish",
+        "The children are arriving at school",
+        "The playground is closed for repairs"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_008",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "He was not confident driving on narrow mountain roads",
+      "choices": [
+        "He was not confident driving on narrow mountain roads",
+        "The second route was more scenic",
+        "He wanted to arrive as quickly as possible",
+        "Someone recommended it to him"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_009",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "He is nervous about seeing the mark and afraid of disappointment",
+      "choices": [
+        "He is nervous about seeing the mark and afraid of disappointment",
+        "He has already been told his mark",
+        "He is being rude to his teacher",
+        "He knows he has done very badly"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_013",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "She is organised, patient, and a creature of habit",
+      "choices": [
+        "She is organised, patient, and a creature of habit",
+        "She is shy and likes to be alone",
+        "She enjoys talking to strangers",
+        "She is always in a rush"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_015",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "He feels lonely and is trying to keep himself occupied",
+      "choices": [
+        "He feels lonely and is trying to keep himself occupied",
+        "He prefers to read rather than talk to people",
+        "He is annoyed no one has sat near him",
+        "He is waiting for a friend to arrive"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_016",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "Memories and relationships are very important to her",
+      "choices": [
+        "Memories and relationships are very important to her",
+        "She is very organised and likes to sort things",
+        "She enjoys reading all kinds of writing",
+        "She plans to give the cards to someone else one day"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_017",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "She was deeply moved and overwhelmed by the gesture",
+      "choices": [
+        "She was deeply moved and overwhelmed by the gesture",
+        "She was frightened by the surprise",
+        "She was upset no one had told her",
+        "She thought something had gone wrong"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_018",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "She wanted to be completely certain before sharing her findings",
+      "choices": [
+        "She wanted to be completely certain before sharing her findings",
+        "She thought her equipment might be broken",
+        "She enjoyed running the test",
+        "She had been told to repeat it by her supervisor"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_019",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "The community values the bakery greatly and does not want to lose it",
+      "choices": [
+        "The community values the bakery greatly and does not want to lose it",
+        "People in the town are very good at organising themselves",
+        "The bakery has the best bread anyone has ever tasted",
+        "Three hundred people were already planning to sign it"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_020",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "They share a deep, grateful love for each other",
+      "choices": [
+        "They share a deep, grateful love for each other",
+        "He brings flowers out of duty",
+        "She has forgotten his childhood",
+        "He wants to make her feel guilty"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_021",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "They did not read the note or did not understand what to do",
+      "choices": [
+        "They did not read the note or did not understand what to do",
+        "They decided they would wait for the teacher",
+        "They knew they were in the right place",
+        "They were late and just arriving"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_022",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "It was becoming dark and the group was exhausted and low on supplies",
+      "choices": [
+        "It was becoming dark and the group was exhausted and low on supplies",
+        "She had been planning to stop at that point all along",
+        "The youngest explorer was always right",
+        "She was afraid of the dark"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_023",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "He finds it genuinely difficult rather than being careless",
+      "choices": [
+        "He finds it genuinely difficult rather than being careless",
+        "He is deliberately disobeying his teacher",
+        "He needs a new pencil",
+        "He is writing too quickly to care"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_025",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "He finds deep satisfaction in growing his own food",
+      "choices": [
+        "He finds deep satisfaction in growing his own food",
+        "He is hiding the fact that he is in pain",
+        "He is trying to impress his wife",
+        "He is tired and not thinking clearly"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_026",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "He will do whatever makes his baby happy",
+      "choices": [
+        "He will do whatever makes his baby happy",
+        "He himself loves music",
+        "He is trying to annoy the visitors",
+        "He does not know the music is playing"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_028",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "He is quietly kind and does not seek recognition",
+      "choices": [
+        "He is quietly kind and does not seek recognition",
+        "He is trying to impress the neighbours",
+        "He does not want anyone to know he was there",
+        "He is paid to tidy the garden"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_029",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "People naturally come together to help each other in a crisis",
+      "choices": [
+        "People naturally come together to help each other in a crisis",
+        "The local government organised the response",
+        "People were bored and looking for something to do",
+        "Only a few people were needed to manage the situation"
+      ]
+    },
+    {
+      "skillId": "inference",
+      "id": "qa_inf_l2_030",
+      "sourceFile": "src/data/qbAssess_inf.js",
+      "source": "qbAssess_inf",
+      "answer": "She may have won or at least got further in the competition than before",
+      "choices": [
+        "She may have won or at least got further in the competition than before",
+        "She has received more paperwork by mistake",
+        "The prize organisers made an error",
+        "She is being invited to an interview"
+      ]
+    },
+    {
+      "skillId": "inference",
       "id": "adv_inference_1_1",
       "sourceFile": "src/data/templateComprehensionAdvanced.js",
       "source": "templateComprehensionAdvanced",
@@ -1293,6 +2853,604 @@
         "no one could play soccer again",
         "the coach forgot the rules",
         "the ball became a book"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_rc_l2_028",
+      "sourceFile": "src/data/qbAssess_rc.js",
+      "source": "qbAssess_rc",
+      "answer": "Rising ocean temperatures",
+      "choices": [
+        "Rising ocean temperatures",
+        "Plastic pollution",
+        "Too many fishing boats",
+        "Mining nearby"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l1_002",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "She got soaked in the rain",
+      "choices": [
+        "She got soaked in the rain",
+        "She was late for school",
+        "She caught a cold",
+        "She had to go home"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l1_006",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "It landed butter-side down on the floor",
+      "choices": [
+        "It landed butter-side down on the floor",
+        "The plate broke",
+        "The butter melted",
+        "She had to make more toast"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l1_013",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "He lost everything he had typed",
+      "choices": [
+        "He lost everything he had typed",
+        "He had to restart the computer",
+        "The computer broke permanently",
+        "He had to ask for help"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l1_015",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "She had eaten too many sweets",
+      "choices": [
+        "She had eaten too many sweets",
+        "She had not eaten any dinner",
+        "She had drunk too much water",
+        "She had been running all day"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l1_016",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "A breeze from the open window",
+      "choices": [
+        "A breeze from the open window",
+        "Someone kicked it shut",
+        "The cat pushed it",
+        "A neighbour walked past"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l1_018",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "The lights in the street went out",
+      "choices": [
+        "The lights in the street went out",
+        "The roads closed",
+        "The heating broke down",
+        "People had to leave their homes"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l1_023",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "The brakes were worn out",
+      "choices": [
+        "The brakes were worn out",
+        "The tyres were flat",
+        "The road was wet",
+        "The bike was too heavy"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l1_029",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "The oven door was opened too early",
+      "choices": [
+        "The oven door was opened too early",
+        "Too much butter was added",
+        "The temperature was too low",
+        "The batter was not mixed enough"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l1_030",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "He forgot to charge it overnight",
+      "choices": [
+        "He forgot to charge it overnight",
+        "He had used it too much",
+        "The battery was old and damaged",
+        "He had left it in a hot place"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l2_002",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "She had forgotten to take her hay fever tablets",
+      "choices": [
+        "She had forgotten to take her hay fever tablets",
+        "She had a cold she had caught at school",
+        "She was allergic to her cat",
+        "She had been outside in the rain"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l2_004",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "The crops failed across the region",
+      "choices": [
+        "The crops failed across the region",
+        "The rivers dried up completely",
+        "Animals left the farmland",
+        "Farmers had to move their herds"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l2_005",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "She had studied hard and done every practice paper",
+      "choices": [
+        "She had studied hard and done every practice paper",
+        "She found maths easy and natural",
+        "She had been given extra help from her teacher",
+        "She had peeked at the test questions in advance"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l2_007",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "The museum introduced free entry on Sundays",
+      "choices": [
+        "The museum introduced free entry on Sundays",
+        "The museum opened a new exhibit",
+        "The museum ran a television advertisement",
+        "A local school organised a visit"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l2_009",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "A popular local bakery was buying large amounts each week",
+      "choices": [
+        "A popular local bakery was buying large amounts each week",
+        "A delivery had been delayed from the warehouse",
+        "Many people were baking at home during the holidays",
+        "The flour had been placed in the wrong part of the store"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l2_014",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "His wheel began to wobble because the bolt was not tightened",
+      "choices": [
+        "His wheel began to wobble because the bolt was not tightened",
+        "His bike ran out of gears on a hill",
+        "He punctured a tyre on a sharp stone",
+        "He crashed and bent the wheel"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l2_016",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "The air quality worsened and some families moved away",
+      "choices": [
+        "The air quality worsened and some families moved away",
+        "The villages grew larger and house prices rose",
+        "Noise levels rose and local shops closed",
+        "The farmland flooded and animals left the area"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l2_017",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "She had been walking for nine days with little food",
+      "choices": [
+        "She had been walking for nine days with little food",
+        "She had been carrying a very heavy pack",
+        "She had been sleeping poorly in the cold",
+        "She had injured her ankle on rough ground"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l2_021",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "The bread dried out and the filling went hard",
+      "choices": [
+        "The bread dried out and the filling went hard",
+        "They fell behind the radiator and were lost",
+        "The cheese melted and made a mess",
+        "The plastic wrap shrank around them"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l2_022",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Thousands were covered in oil and could no longer fly or swim properly",
+      "choices": [
+        "Thousands were covered in oil and could no longer fly or swim properly",
+        "The birds flew away from the coast permanently",
+        "The birds were too far from shore to be affected",
+        "Most birds were rescued before the oil reached them"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l2_023",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Children had a safe place to play near their homes",
+      "choices": [
+        "Children had a safe place to play near their homes",
+        "The park helped reduce traffic in the area",
+        "Residents started growing vegetables in the park",
+        "House prices in the area rose because of the park"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l2_025",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Three performances were cancelled and the production closed early",
+      "choices": [
+        "Three performances were cancelled and the production closed early",
+        "The lead actor left and the show was recast",
+        "The theatre closed permanently and the staff lost their jobs",
+        "The prices were reduced and audience numbers grew"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l2_026",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "He became irritable and struggled to concentrate at school",
+      "choices": [
+        "He became irritable and struggled to concentrate at school",
+        "He began to fall asleep in lessons",
+        "He stopped eating properly at lunchtime",
+        "He found it hard to make friends in his class"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l2_027",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "An introduced plant spread and outcompeted them for space and light",
+      "choices": [
+        "An introduced plant spread and outcompeted them for space and light",
+        "A disease swept through the island's plant life",
+        "Animals grazed on the native plants in large numbers",
+        "A dry season affected plant growth across the island"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l2_029",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Their engine failed while out at sea",
+      "choices": [
+        "Their engine failed while out at sea",
+        "They had run out of fuel",
+        "A storm was approaching quickly",
+        "They had lost sight of land"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_003",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Warm winter → low snowpack → reduced river water → water restrictions → smaller crop output",
+      "choices": [
+        "Warm winter → low snowpack → reduced river water → water restrictions → smaller crop output",
+        "Low snowpack → warm winter → rivers dried up → farms failed → restrictions imposed",
+        "Warm winter → more rainfall → higher rivers → no restrictions needed → better harvests",
+        "Water restrictions → farmers reduced plantings → rivers fell → snowpack decreased"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_004",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "The factory closing and workers losing their jobs",
+      "choices": [
+        "The factory closing and workers losing their jobs",
+        "Local shops closing due to lack of customers",
+        "Families moving away to find work elsewhere",
+        "The primary schools losing pupils and merging"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_007",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "The loss of tree roots meant rain washed soil into the river",
+      "choices": [
+        "The loss of tree roots meant rain washed soil into the river",
+        "The fire burned debris that fell into the river",
+        "Animals disturbed the riverbank as they fled the forest",
+        "Heavy autumn rain fell directly into the river"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_012",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Widespread car ownership led to towns being redesigned around cars, reducing other transport options",
+      "choices": [
+        "Widespread car ownership led to towns being redesigned around cars, reducing other transport options",
+        "Obesity rates rose because people stopped cycling to work",
+        "Public transport was cut first, causing people to buy cars",
+        "Walking and cycling became less common because distances between places grew"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_013",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Her grandmother was discouraged from using it and stopped speaking it publicly",
+      "choices": [
+        "Her grandmother was discouraged from using it and stopped speaking it publicly",
+        "Her grandmother moved to the city where the language was not spoken",
+        "Her children decided they did not want to learn a regional language",
+        "The regional language began dying out before her grandmother was born"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_015",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Giving students a say in their timetable and learning — student agency",
+      "choices": [
+        "Giving students a say in their timetable and learning — student agency",
+        "Better teaching in the relevant subjects over two years",
+        "The publishing of the researcher's paper on student motivation",
+        "Schools in the district working together on a shared programme"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_017",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "New cases of cholera in that area stopped almost immediately",
+      "choices": [
+        "New cases of cholera in that area stopped almost immediately",
+        "The council began cleaning all London's water supplies",
+        "Snow was recognised as the founder of epidemiology",
+        "People in the area were told to boil their drinking water"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_019",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "The question activated their sense of identity, and they acted consistently with it",
+      "choices": [
+        "The question activated their sense of identity, and they acted consistently with it",
+        "The question reminded them that they had donated before",
+        "People felt embarrassed to say they were not generous",
+        "The appeal itself was more persuasively written when the question was included"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_020",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Average speeds on that stretch of road dropped by fifteen percent",
+      "choices": [
+        "Average speeds on that stretch of road dropped by fifteen percent",
+        "The number of serious accidents fell immediately to zero",
+        "Drivers began taking alternative routes to avoid the camera",
+        "The insurance premiums of local drivers rose sharply"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_021",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Vaccination rates dropped and previously rare diseases began to return",
+      "choices": [
+        "Vaccination rates dropped and previously rare diseases began to return",
+        "The scientist who wrote the paper lost their medical licence",
+        "Other scientists had to spend time disproving the paper's claims",
+        "Parents became confused about whether to vaccinate their children"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_023",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Their reading understanding deepened and their confidence and responsibility grew",
+      "choices": [
+        "Their reading understanding deepened and their confidence and responsibility grew",
+        "Their reading speed improved and they became more popular with younger pupils",
+        "Their test scores rose and they were given more challenging books to read",
+        "They spent less time in their own lessons and caught up better at home"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_024",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "The ash preserved the city so well that it became an invaluable source of knowledge about Roman life",
+      "choices": [
+        "The ash preserved the city so well that it became an invaluable source of knowledge about Roman life",
+        "The city was eventually rebuilt and became a tourist destination",
+        "The eruption inspired other Roman cities to build better defences",
+        "Archaeologists discovered that ancient Romans had a higher standard of living than expected"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_026",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "The town removed the dunes that had protected it from storm waves",
+      "choices": [
+        "The town removed the dunes that had protected it from storm waves",
+        "Tourists used too much space on the beach during summer",
+        "Engineers failed to warn the town before the storms arrived",
+        "The road was built too close to the houses"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_027",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Staggered lunches → calmer hall → better eating and fewer incidents → smoother afternoon lessons",
+      "choices": [
+        "Staggered lunches → calmer hall → better eating and fewer incidents → smoother afternoon lessons",
+        "More staff shouted → pupils ate faster → food waste fell → lessons started sooner",
+        "Younger pupils ate first → older pupils missed lunch → behaviour improved",
+        "The hall became quieter → the timetable was changed → teachers had fewer lessons"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_028",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Streets stayed cooler and more people walked short journeys",
+      "choices": [
+        "Streets stayed cooler and more people walked short journeys",
+        "The city stopped all traffic and shops closed early",
+        "Summer temperatures rose and pavements became crowded",
+        "Air pollution increased because leaves trapped heat"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_029",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Pupils had a quiet library space before school where they could read and finish work",
+      "choices": [
+        "Pupils had a quiet library space before school where they could read and finish work",
+        "The school made homework easier for pupils who arrived early",
+        "Teachers began starting lessons later in the morning",
+        "The librarian required every pupil to borrow a book"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_030",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Growers could sell fruit at better times and earn steadier incomes",
+      "choices": [
+        "Growers could sell fruit at better times and earn steadier incomes",
+        "Fruit became sweeter because it stayed cold for longer",
+        "The cooperative stopped growing fruit that spoiled quickly",
+        "Families left the farms because market demand rose"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_031",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Local shops received higher weekend trade as more people walked and cycled",
+      "choices": [
+        "Local shops received higher weekend trade as more people walked and cycled",
+        "Every driver's journey became faster than before",
+        "The town removed pavements to create more space for cars",
+        "Fewer people used the road after the cycle lanes opened"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_032",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "The travelling exhibition increased pupils' interest and questions about science",
+      "choices": [
+        "The travelling exhibition increased pupils' interest and questions about science",
+        "The museum required every school to create a club after visiting",
+        "Teachers had fewer science lessons and needed extra time",
+        "Pupils were already preparing for a national science contest"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_034",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Music reduced anxiety → parents and children were calmer → procedures began more smoothly → fewer delays",
+      "choices": [
+        "Music reduced anxiety → parents and children were calmer → procedures began more smoothly → fewer delays",
+        "Doctors delayed procedures → musicians arrived → parents became anxious → children settled",
+        "Parents became calmer first → music started later → children missed appointments",
+        "The review expanded the programme before nurses noticed any change"
+      ]
+    },
+    {
+      "skillId": "cause_effect",
+      "id": "qa_ce_l3_035",
+      "sourceFile": "src/data/qbAssess_cause_effect.js",
+      "source": "qbAssess_cause_effect",
+      "answer": "Engineers had longer uninterrupted stretches of focused work",
+      "choices": [
+        "Engineers had longer uninterrupted stretches of focused work",
+        "The company hired more customer support staff",
+        "Meetings were moved from Wednesday to every afternoon",
+        "Customers reported problems more quickly than before"
       ]
     },
     {
