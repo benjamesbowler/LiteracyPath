@@ -14,6 +14,7 @@ test("the arcade shows the flagship playable games", () => {
     "sound-beat",
     "sound-racer",
     "sound-safari",
+    "star-gallery",
     "word-bridge"
   ], `arcade set changed: ${JSON.stringify(arcade)}`);
 });

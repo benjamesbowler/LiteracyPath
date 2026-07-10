@@ -23,9 +23,9 @@ Date: 2026-05-25
 - Rhyming Words L1 round 3: reused recent IDs ixl_rhyming_picture_28, ixl_rhyming_picture_24.
 - Rhyming Words L1 round 3: reused recent words rain, chair.
 - Rhyming Words L2 round 3: reused recent words back.
-- Short Vowels L1 round 2: reused recent words web, sun.
-- Short Vowels L1 round 3: reused recent IDs gap_short_vowel_discrimination_l1_bow_3.
-- Short Vowels L1 round 3: reused recent words sun, bow.
+- Short Vowels L1 round 2: reused recent words dug, pin.
+- Short Vowels L1 round 3: reused recent IDs recovery_short_vowel_picture_23.
+- Short Vowels L1 round 3: reused recent words mug, cup, mop.
 - Short Vowels L2 round 2: reused recent words tug, lap, peg.
 - Short Vowels L2 round 3: reused recent words pet.
 - Blends L1 round 2: reused recent IDs ixl_blend_sound_28, p3_blend_word_sp_8, ixl_blend_sound_24.
@@ -90,7 +90,7 @@ Date: 2026-05-25
 ## Ending Sounds
 
 - Skill ID: ending_sounds
-- Media-complete items: 380
+- Media-complete items: 382
 - Media-complete targets: 26
 - Blocked expected targets: none
 
@@ -99,38 +99,38 @@ Date: 2026-05-25
 | L1 R1 | 1 | 15 | 8/8 | b, d, g, l, m, n, p, t, t, t, b, t, n, t, p | crab, pad, bag, curl, jam, pin, cup, hit, sit, cart, rub, jet, hen, cot, map |
 | L1 R2 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, g, n, g, n, d, t, b | curb, bed, fig, jewel, gum, fan, mop, pot, log, bun, pig, hen, sad, hot, orb |
 | L1 R3 | 3 | 15 | 8/8 | b, d, g, l, m, n, p, t, t, d, t, d, n, p, d | cob, rod, dog, fossil, ram, man, cap, hut, pet, bed, jet, red, fan, harp, dad |
-| L2 R1 | 1 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | crab, sock, mud, leaf, raft, bag, desk, ball, bull, belt, farm, lamp, rain, sand, building |
-| L2 R2 | 2 | 15 | 15/15 | nk, nt, p, r, rk, s, sh, sk, st, t, th, b, ck, d, f | ink, tent, cap, car, park, bus, brush, desk, chest, jet, moth, crab, duck, red, roof |
-| L2 R3 | 3 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | crab, rock, seed, leaf, soft, dog, snake, whale, drill, quilt, ham, lamp, ten, almond, king |
+| L2 R1 | 1 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | crab, sock, mud, leaf, raft, bag, desk, ball, bell, belt, thumb, lamp, pen, underground, ring |
+| L2 R2 | 2 | 15 | 15/15 | nk, nt, p, r, rk, s, sh, sk, st, t, th, b, ck, d, f | ink, tent, cup, car, park, bus, goldfish, desk, nest, pot, teeth, crab, rock, bed, roof |
+| L2 R3 | 3 | 15 | 15/15 | b, ck, d, f, ft, g, k, l, ll, lt, m, mp, n, nd, ng | crab, duck, red, leaf, soft, dog, snake, whale, drill, quilt, ham, lamp, fan, nightstand, long |
 
 ## Rhyming Words
 
 - Skill ID: rhyming
-- Media-complete items: 691
+- Media-complete items: 721
 - Media-complete targets: 49
 - Blocked expected targets: none
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 15/15 | ad, ag, ain, air, am, an, ap, at, ed, ee, eg, en, et, ig, in | pad, tag, rain, chair, jam, van, nap, mat, bed, tree, leg, hen, net, fig, win |
-| L1 R2 | 2 | 15 | 15/15 | ip, it, og, op, ot, ox, ug, un, up, ut, ad, ag, ain, air, am | zip, pit, log, hop, cot, fox, jug, sun, pup, cut, sad, bag, rain, chair, dam |
-| L1 R3 | 3 | 15 | 15/15 | ad, ag, ain, air, am, an, ap, at, ed, ee, eg, en, et, ig, in | mad, rag, rain, chair, ham, fan, gap, cat, red, bee, peg, men, jet, dig, bin |
+| L1 R1 | 1 | 15 | 15/15 | ad, ag, ain, air, am, an, ap, at, ed, ee, eg, en, et, ig, in | pad, tag, rain, chair, jam, pan, gap, mat, bed, tree, leg, pen, net, big, win |
+| L1 R2 | 2 | 15 | 15/15 | ip, it, og, op, ot, ox, ug, un, up, ut, ad, ag, ain, air, am | zip, pit, log, hop, cot, fox, jug, bun, pup, cut, dad, rag, rain, chair, ham |
+| L1 R3 | 3 | 15 | 15/15 | ad, ag, ain, air, am, an, ap, at, ed, ee, eg, en, et, ig, in | sad, bag, rain, chair, ram, man, cap, cat, fed, bee, egg, men, jet, fig, pin |
 | L2 R1 | 1 | 15 | 15/15 | ack, ake, all, ame, ang, ar, ash, eep, ell, ick, ide, ight, ill, ing, ink | sack, snake, ball, name, hang, car, trash, jeep, shell, brick, hide, sight, hill, ring, sink |
-| L2 R2 | 2 | 15 | 15/15 | ird, ish, oat, ock, ong, or, ouse, uck, urn, ack, ake, all, ame, ang, ar | third, fish, boat, clock, gong, corn, house, truck, turn, back, cake, fall, flame, bang, star |
-| L2 R3 | 3 | 15 | 15/15 | ack, ake, all, ame, ang, ar, ash, eep, ell, ick, ide, ight, ill, ing, ink | back, lake, wall, game, rang, jar, cash, sheep, bell, kick, slide, light, pill, swing, pink |
+| L2 R2 | 2 | 15 | 15/15 | ird, ish, oat, ock, ong, or, ouse, uck, urn, ack, ake, all, ame, ang, ar | third, fish, boat, lock, gong, corn, house, truck, turn, back, lake, fall, game, rang, star |
+| L2 R3 | 3 | 15 | 15/15 | ack, ake, all, ame, ang, ar, ash, eep, ell, ick, ide, ight, ill, ing, ink | back, cake, wall, flame, bang, jar, cash, sheep, bell, kick, slide, light, pill, swing, pink |
 
 ## Short Vowels
 
 - Skill ID: short_vowels
-- Media-complete items: 314
+- Media-complete items: 282
 - Media-complete targets: 5
 - Blocked expected targets: none
 
 | Round | Phase | Selected Items | Unique Targets | Targets | Target Words |
 |---|---:|---:|---:|---|---|
-| L1 R1 | 1 | 15 | 5/5 | short a, short e, short i, short o, short u, short u, short a, short a, short a, short o, short o, short u, short u, short e, short o | pan, web, ship, sock, mud, cup, bag, hat, bad, mop, cot, dug, sun, den, pot |
-| L1 R2 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short i, short o, short a, short u, short e, short a, short u, short o, short u, short i | nap, pen, fish, log, bug, wig, shop, cat, rub, web, rat, sun, bow, mug, lip |
-| L1 R3 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short u, short e, short u, short a, short u, short e, short a, short e, short o, short a | rag, jet, sit, hop, fun, cub, bed, gum, bat, sun, leg, mad, red, bow, pan |
+| L1 R1 | 1 | 15 | 5/5 | short a, short e, short i, short o, short u, short o, short i, short i, short a, short u, short a, short o, short i, short a, short a | lab, red, dig, dog, mud, cot, sit, pin, cat, dug, bat, log, pig, bad, van |
+| L1 R2 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short a, short u, short i, short o, short e, short o, short a, short a, short u, short i | hay, leg, rib, pot, mug, cap, cup, hip, mop, jet, hop, yak, rag, dug, pin |
+| L1 R3 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short u, short e, short a, short i, short a, short u, short a, short i, short o, short u | dad, bed, fish, shop, gum, mug, net, mat, wig, hat, cup, bag, pig, mop, nut |
 | L2 R1 | 1 | 15 | 5/5 | short a, short e, short i, short o, short u, short o, short u, short e, short i, short a, short e, short a, short i, short e, short i | lap, red, fin, log, mug, hot, tug, gem, sip, cab, wet, man, lid, peg, pin |
 | L2 R2 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short o, short u, short u, short a, short a, short a, short o, short e, short a, short e | cap, pet, zip, rod, bun, cob, tug, rug, tab, lap, jam, mop, hen, dab, peg |
 | L2 R3 | 3 | 15 | 5/5 | short a, short e, short i, short o, short u, short u, short i, short a, short a, short e, short i, short e, short a, short u, short i | wag, den, kit, dot, cub, sub, lid, man, cab, gem, bin, pet, sad, mug, hit |

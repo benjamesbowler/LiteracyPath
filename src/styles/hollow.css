@@ -489,7 +489,6 @@
   object-fit: contain;
   pointer-events: none;
 }
-.hollow-pal-overlay { z-index: 2; }
 .hollow-pal-ground {
   position: absolute;
   left: 20%;

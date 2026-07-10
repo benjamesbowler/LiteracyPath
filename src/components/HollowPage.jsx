@@ -91,11 +91,12 @@ const ROOM_TINTS = {
 const GEAR_SLOT_LABELS = { head: "Head", neck: "Neck", back: "Back", held: "Held", feet: "Feet" };
 
 /* The dress-up pal. Art comes from tools/generate-pal-avatars.mjs:
-   - no gear      -> full-body base            (companions/full/<pal>.webp)
-   - ONE item     -> the dressed variant image (full/<pal>--<gear>.webp)
-   - several items-> base + alpha overlays     (overlays/<pal>--<gear>.png)
-   Every layer falls back gracefully (missing file -> hide) and the whole
-   figure falls back to the portrait if no full-body art exists yet.
+   - no gear   -> full-body base            (companions/full/<pal>.webp)
+   - any gear  -> the dressed variant image (full/<pal>--<gear>.webp) of the
+                  most recently equipped item. (Pixel-diff overlay stacking
+                  was tried and abandoned: the image model regenerates every
+                  pixel slightly, so diff masks cover the whole canvas.)
+   Falls back gracefully: dressed variant -> base -> portrait.
    Idle animation runs always; tapping the pal spins it in 3D. */
 function PalFigure({ companion, equipped = {} }) {
   const [spinKey, setSpinKey] = useState(0);
@@ -103,8 +104,10 @@ function PalFigure({ companion, equipped = {} }) {
   if (!companion) return null;
   const gearIds = Object.values(equipped).filter(Boolean);
   const base = `/images/companions/full/${companion.id}.webp`;
-  const single = gearIds.length === 1
-    ? `/images/companions/full/${companion.id}--${gearIds[0]}.webp`
+  // Slot keys keep insertion order, so the last id is the newest change.
+  const shownGear = gearIds.length ? gearIds[gearIds.length - 1] : null;
+  const single = shownGear
+    ? `/images/companions/full/${companion.id}--${shownGear}.webp`
     : null;
   return (
     <button
@@ -125,22 +128,13 @@ function PalFigure({ companion, equipped = {} }) {
             onError={event => {
               // Dressed variant missing -> fall back to base; base missing
               // -> fall back to the portrait.
-              if (single && event.currentTarget.src.endsWith(`${gearIds[0]}.webp`)) {
+              if (single && event.currentTarget.src.endsWith(`${shownGear}.webp`)) {
                 event.currentTarget.src = base;
               } else {
                 setBaseFailed(true);
               }
             }}
           />
-          {!single && gearIds.map(gearId => (
-            <img
-              key={gearId}
-              className="hollow-pal-layer hollow-pal-overlay"
-              src={`/images/companions/overlays/${companion.id}--${gearId}.png`}
-              alt=""
-              onError={hideOnError}
-            />
-          ))}
         </>
       )}
       <span className="hollow-pal-ground" aria-hidden="true" />

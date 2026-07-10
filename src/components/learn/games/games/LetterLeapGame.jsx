@@ -78,12 +78,13 @@ function startGame(mount, opts) {
   const hud = document.createElement("div");
   hud.style.cssText = "position:absolute;inset:0;pointer-events:none;font-family:var(--kid-font-display,Fredoka,sans-serif);color:#fff;z-index:4";
   hud.innerHTML =
-    '<div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;background:rgba(6,12,26,.5);padding:8px 16px 10px;border-radius:16px;border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(6px)">' +
-      '<span data-ll="lab" style="font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;opacity:.75">Spell the word</span>' +
+    '<div style="position:absolute;inset:0;opacity:.16;background:repeating-linear-gradient(180deg,rgba(255,255,255,.22) 0 1px,transparent 1px 4px),radial-gradient(92% 86% at 50% 52%,transparent 58%,rgba(0,0,0,.56));mix-blend-mode:screen"></div>' +
+    '<div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;background:linear-gradient(92deg,rgba(7,12,32,.92),rgba(22,39,83,.76));padding:9px 20px 11px;border:1px solid rgba(126,232,255,.42);clip-path:polygon(14px 0,calc(100% - 22px) 0,100% 50%,calc(100% - 22px) 100%,14px 100%,0 50%);box-shadow:0 10px 28px rgba(0,0,0,.36),inset 0 0 0 1px rgba(255,255,255,.1);backdrop-filter:blur(6px)">' +
+      '<span data-ll="lab" style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#8ff6ff;opacity:.86">Spell the word</span>' +
       '<div data-ll="word" style="display:flex;gap:7px"></div></div>' +
-    '<div data-ll="coins" style="position:absolute;top:14px;left:16px;font-size:1.02rem;font-weight:700;background:rgba(6,12,26,.5);padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14)">Coins x0</div>' +
+    '<div data-ll="coins" style="position:absolute;top:14px;left:16px;font-size:1.02rem;font-weight:900;background:linear-gradient(100deg,rgba(7,12,32,.86),rgba(24,44,86,.72));padding:7px 14px;border:1px solid rgba(126,232,255,.34);clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);box-shadow:0 8px 20px rgba(0,0,0,.26)">Coins x0</div>' +
     '<div data-ll="hearts" style="position:absolute;top:14px;right:16px;font-size:1.5rem;letter-spacing:2px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.4))">❤❤❤</div>' +
-    '<div data-ll="world" style="position:absolute;top:52px;right:16px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85;background:rgba(6,12,26,.5);padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14)">Meadow</div>';
+    '<div data-ll="world" style="position:absolute;top:52px;right:16px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#8ff6ff;background:linear-gradient(100deg,rgba(7,12,32,.86),rgba(24,44,86,.72));padding:5px 12px;border:1px solid rgba(126,232,255,.34);clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)">Meadow</div>';
   mount.appendChild(hud);
   const elWord = hud.querySelector('[data-ll="word"]');
   const elLab = hud.querySelector('[data-ll="lab"]');
@@ -96,15 +97,99 @@ function startGame(mount, opts) {
   padWrap.style.cssText = "position:absolute;inset:0;z-index:6;pointer-events:none";
   padWrap.innerHTML =
     '<div style="position:absolute;bottom:20px;left:20px;display:flex;gap:12px;pointer-events:auto">' +
-      '<button data-ll="left" style="width:66px;height:66px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;font-size:1.6rem;font-weight:700;backdrop-filter:blur(4px)">◀</button>' +
-      '<button data-ll="right" style="width:66px;height:66px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;font-size:1.6rem;font-weight:700;backdrop-filter:blur(4px)">▶</button></div>' +
+      '<button data-ll="left" style="width:66px;height:62px;border:1px solid rgba(126,232,255,.38);background:rgba(7,12,32,.54);color:#fff;font-size:1.6rem;font-weight:900;backdrop-filter:blur(4px);clip-path:polygon(18px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 8px 18px rgba(0,0,0,.32)">◀</button>' +
+      '<button data-ll="right" style="width:66px;height:62px;border:1px solid rgba(126,232,255,.38);background:rgba(7,12,32,.54);color:#fff;font-size:1.6rem;font-weight:900;backdrop-filter:blur(4px);clip-path:polygon(10px 0,100% 0,calc(100% - 18px) 100%,0 100%);box-shadow:0 8px 18px rgba(0,0,0,.32)">▶</button></div>' +
     '<div style="position:absolute;bottom:20px;right:20px;pointer-events:auto">' +
-      '<button data-ll="jump" style="width:86px;height:86px;border-radius:50%;border:0;background:linear-gradient(160deg,#ffd34e,#ffab1e);color:#20140a;font-size:1rem;font-weight:700;box-shadow:0 6px 0 #c9781a">JUMP</button></div>';
+      '<button data-ll="jump" style="width:96px;height:76px;border:1px solid rgba(255,255,255,.62);background:linear-gradient(160deg,#ffe879,#ff9f24);color:#20140a;font-size:1rem;font-weight:900;letter-spacing:.04em;box-shadow:0 7px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.18);clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%)">JUMP</button></div>';
   mount.appendChild(padWrap);
 
   const overlay = document.createElement("div");
   overlay.style.cssText = "position:absolute;inset:0;display:none;place-items:center;text-align:center;padding:24px;z-index:20;background:radial-gradient(120% 90% at 50% 25%,rgba(20,40,70,.72),rgba(6,10,22,.94))";
   mount.appendChild(overlay);
+
+  const grainCanvas = document.createElement("canvas");
+  grainCanvas.width = grainCanvas.height = 96;
+  const grainCtx = grainCanvas.getContext("2d");
+  for (let y = 0; y < grainCanvas.height; y += 2) {
+    for (let x = 0; x < grainCanvas.width; x += 2) {
+      const v = 120 + Math.floor(Math.random() * 90);
+      grainCtx.fillStyle = "rgba(" + v + "," + v + "," + v + ",0.055)";
+      grainCtx.fillRect(x, y, 1, 1);
+    }
+  }
+  const grainPattern = ctx.createPattern(grainCanvas, "repeat");
+
+  function panelPath(x, y, w, h, cut = 10) {
+    ctx.beginPath();
+    ctx.moveTo(x + cut, y);
+    ctx.lineTo(x + w - cut, y);
+    ctx.lineTo(x + w, y + cut);
+    ctx.lineTo(x + w - cut, y + h);
+    ctx.lineTo(x + cut, y + h);
+    ctx.lineTo(x, y + h - cut);
+    ctx.lineTo(x, y + cut);
+    ctx.closePath();
+  }
+
+  function drawPs2Overlay(time) {
+    ctx.save();
+    if (grainPattern) {
+      ctx.globalAlpha = 0.42;
+      ctx.fillStyle = grainPattern;
+      ctx.translate(Math.floor(time * 9) % 96, Math.floor(time * 5) % 96);
+      ctx.fillRect(-96, -96, W + 192, H + 192);
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    }
+    ctx.globalAlpha = 0.13;
+    ctx.fillStyle = "#ffffff";
+    for (let y = 0; y < H; y += 4) ctx.fillRect(0, y, W, 1);
+    ctx.globalAlpha = 1;
+    const vig = ctx.createRadialGradient(W / 2, H / 2, H * 0.3, W / 2, H / 2, H * 0.92);
+    vig.addColorStop(0, "rgba(0,0,0,0)");
+    vig.addColorStop(0.72, "rgba(0,0,0,.2)");
+    vig.addColorStop(1, "rgba(0,0,0,.56)");
+    ctx.fillStyle = vig;
+    ctx.fillRect(0, 0, W, H);
+    ctx.restore();
+  }
+
+  function drawDepthScenery(time) {
+    const horizon = groundY() - 86;
+    const palettes = {
+      meadow: { far: "rgba(59,86,116,.36)", mid: "rgba(35,84,66,.46)", near: "rgba(29,61,48,.58)", beam: "rgba(126,232,255,.18)" },
+      dino: { far: "rgba(119,65,52,.42)", mid: "rgba(105,80,43,.5)", near: "rgba(68,52,38,.62)", beam: "rgba(255,186,100,.18)" },
+      moonwood: { far: "rgba(38,55,94,.46)", mid: "rgba(23,45,70,.58)", near: "rgba(13,31,54,.68)", beam: "rgba(159,190,255,.16)" }
+    };
+    const p = palettes[world] || palettes.meadow;
+    ctx.save();
+    const glow = ctx.createRadialGradient(W * 0.74, H * 0.18, 4, W * 0.74, H * 0.18, Math.max(W, H) * 0.48);
+    glow.addColorStop(0, p.beam);
+    glow.addColorStop(1, "rgba(255,255,255,0)");
+    ctx.fillStyle = glow;
+    ctx.fillRect(0, 0, W, H);
+    const layers = [
+      { par: 0.08, base: horizon + 34, amp: 82, step: 138, color: p.far },
+      { par: 0.16, base: horizon + 58, amp: 62, step: 104, color: p.mid },
+      { par: 0.28, base: horizon + 80, amp: 46, step: 76, color: p.near }
+    ];
+    for (const layer of layers) {
+      const off = ((-cam * layer.par) % layer.step + layer.step) % layer.step;
+      ctx.fillStyle = layer.color;
+      ctx.beginPath();
+      ctx.moveTo(-layer.step, H);
+      for (let x = -layer.step; x < W + layer.step * 2; x += layer.step) {
+        const px = x + off;
+        const peak = layer.base - layer.amp * (0.48 + 0.52 * Math.abs(Math.sin((x + time * 18) * 0.011)));
+        ctx.lineTo(px, layer.base);
+        ctx.lineTo(px + layer.step * 0.46, peak);
+        ctx.lineTo(px + layer.step, layer.base);
+      }
+      ctx.lineTo(W + layer.step, H);
+      ctx.closePath();
+      ctx.fill();
+    }
+    ctx.restore();
+  }
 
   // ── state ────────────────────────────────────────────────────────────────
   const keys = { left: false, right: false, jump: false };
@@ -266,12 +351,12 @@ function startGame(mount, opts) {
     for (let i = 0; i < word.length; i += 1) {
       const s = document.createElement("div");
       const done = i < nextIx, isNext = i === nextIx;
-      s.style.cssText = "width:34px;height:44px;display:grid;place-items:center;font-size:1.5rem;font-weight:700;border-radius:10px;" +
+      s.style.cssText = "width:38px;height:46px;display:grid;place-items:center;font-size:1.58rem;font-weight:900;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);text-shadow:none;" +
         (done
-          ? "background:linear-gradient(160deg,#ffd34e,#ffab1e);color:#20140a;border:2px solid #ffcf4a;box-shadow:0 3px 0 #c9781a"
+          ? "background:linear-gradient(160deg,#ffe879,#ff9f24);color:#20140a;border:1px solid rgba(255,255,255,.66);box-shadow:0 4px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.18)"
           : isNext
-            ? "background:rgba(255,255,255,.06);color:#fff;border:2px solid #ffd34e;box-shadow:0 0 14px rgba(255,211,77,.5)"
-            : "background:rgba(255,255,255,.06);color:rgba(255,255,255,.34);border:2px solid rgba(255,255,255,.12)");
+            ? "background:rgba(7,12,32,.42);color:#fff;border:1px solid #ffe879;box-shadow:0 0 18px rgba(255,232,121,.58),inset 0 0 0 2px rgba(255,255,255,.1)"
+            : "background:rgba(7,12,32,.38);color:rgba(255,255,255,.38);border:1px solid rgba(126,232,255,.22);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)");
       s.textContent = word[i];
       elWord.appendChild(s);
     }
@@ -328,11 +413,26 @@ function startGame(mount, opts) {
     opts.onComplete && opts.onComplete(stars, score, wordsDoneGlobal);
   }
 
+  const ctaStyle = [
+    "font-family:inherit",
+    "font-weight:900",
+    "font-size:1.12rem",
+    "letter-spacing:.05em",
+    "text-transform:uppercase",
+    "color:#20140a",
+    "background:linear-gradient(160deg,#ffe879,#ff9f24)",
+    "border:1px solid rgba(255,255,255,.62)",
+    "padding:14px 32px",
+    "clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%)",
+    "box-shadow:0 7px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.18)",
+    "cursor:pointer"
+  ].join(";");
+
   function showOverlay(title, text, btnLabel, fn) {
     overlay.innerHTML =
-      '<div><h1 style="font-size:clamp(1.6rem,6vw,2.6rem);margin:0">' + title + '</h1>' +
+      '<div style="max-width:520px;padding:24px 30px;background:linear-gradient(140deg,rgba(7,12,32,.92),rgba(22,39,83,.72));border:1px solid rgba(126,232,255,.36);clip-path:polygon(18px 0,100% 0,calc(100% - 18px) 100%,0 100%);box-shadow:0 20px 60px rgba(0,0,0,.42),inset 0 0 0 1px rgba(255,255,255,.08)"><h1 style="font-size:clamp(1.6rem,6vw,2.6rem);margin:0">' + title + '</h1>' +
       '<p style="opacity:.9;margin:10px auto 22px;max-width:440px;line-height:1.4">' + text + '</p>' +
-      '<button data-ll="cta" style="font-family:inherit;font-weight:700;font-size:1.15rem;color:#20140a;background:linear-gradient(160deg,#ffd34e,#ffab1e);border:0;padding:13px 30px;border-radius:999px;box-shadow:0 6px 0 #c9781a;cursor:pointer">' + btnLabel + '</button></div>';
+      '<button data-ll="cta" style="' + ctaStyle + '">' + btnLabel + '</button></div>';
     overlay.style.display = "grid";
     overlay.querySelector('[data-ll="cta"]').onclick = () => { overlay.style.display = "none"; sfx(playTapSound); fn(); };
   }
@@ -340,14 +440,14 @@ function startGame(mount, opts) {
   function showTally(title, btnLabel, fn) {
     const stageStars = level ? level.stars.filter(s => s.taken).length : 0;
     overlay.innerHTML =
-      '<div style="display:grid;gap:12px;justify-items:center">' +
+      '<div style="display:grid;gap:12px;justify-items:center;padding:24px 30px;background:linear-gradient(140deg,rgba(7,12,32,.92),rgba(22,39,83,.72));border:1px solid rgba(126,232,255,.36);clip-path:polygon(18px 0,100% 0,calc(100% - 18px) 100%,0 100%);box-shadow:0 20px 60px rgba(0,0,0,.42),inset 0 0 0 1px rgba(255,255,255,.08)">' +
       '<h1 style="font-size:clamp(1.5rem,6vw,2.4rem);margin:0">' + title + '</h1>' +
       '<div style="font-size:1.05rem;opacity:.94;line-height:1.95;text-align:left;min-width:210px">' +
       'Words spelled &nbsp;<b>' + wordsDoneGlobal + '</b><br>' +
       'Coins &nbsp;<b>' + coins + '</b><br>' +
       'Stars this stage &nbsp;<b>' + ("★".repeat(stageStars) + "☆".repeat(3 - stageStars)) + '</b><br>' +
       'Score &nbsp;<b>' + score + '</b></div>' +
-      '<button data-ll="cta" style="font-family:inherit;font-weight:700;font-size:1.15rem;color:#20140a;background:linear-gradient(160deg,#ffd34e,#ffab1e);border:0;padding:13px 30px;border-radius:999px;box-shadow:0 6px 0 #c9781a;cursor:pointer;margin-top:4px">' + btnLabel + '</button></div>';
+      '<button data-ll="cta" style="' + ctaStyle + ';margin-top:4px">' + btnLabel + '</button></div>';
     overlay.style.display = "grid";
     overlay.querySelector('[data-ll="cta"]').onclick = () => { overlay.style.display = "none"; sfx(playTapSound); fn(); };
   }
@@ -489,28 +589,113 @@ function startGame(mount, opts) {
     }
     ctx.restore();
   }
-  function grassStrip(x, w) { if (w <= 0) return; ctx.fillStyle = theme.ground; ctx.fillRect(x, groundY(), w, 20); ctx.fillStyle = theme.grass; ctx.beginPath(); ctx.moveTo(x, groundY() + 4); for (let gx = x; gx <= x + w; gx += 14) { ctx.lineTo(gx, groundY() - 3); ctx.lineTo(gx + 7, groundY() + 3); } ctx.lineTo(x + w, groundY() + 8); ctx.lineTo(x, groundY() + 8); ctx.closePath(); ctx.fill(); }
+  function grassStrip(x, w) {
+    if (w <= 0) return;
+    const y = groundY();
+    const top = ctx.createLinearGradient(0, y - 10, 0, y + 20);
+    top.addColorStop(0, theme.grass);
+    top.addColorStop(0.45, theme.ground);
+    top.addColorStop(1, theme.dirt[0]);
+    ctx.fillStyle = top;
+    ctx.beginPath();
+    ctx.moveTo(x, y + 8);
+    for (let gx = x; gx <= x + w + 20; gx += 28) {
+      ctx.lineTo(gx + 9, y - 9);
+      ctx.lineTo(gx + 22, y + 6);
+    }
+    ctx.lineTo(x + w, y + 20);
+    ctx.lineTo(x, y + 20);
+    ctx.closePath();
+    ctx.fill();
+    ctx.fillStyle = "rgba(255,255,255,.16)";
+    ctx.fillRect(x, y - 2, w, 2);
+    const side = ctx.createLinearGradient(0, y + 16, 0, H);
+    side.addColorStop(0, theme.dirt[0]);
+    side.addColorStop(0.55, theme.dirt[1]);
+    side.addColorStop(1, "#071022");
+    ctx.fillStyle = side;
+    ctx.fillRect(x, y + 16, w, H - y - 16);
+    ctx.strokeStyle = "rgba(255,255,255,.08)";
+    ctx.lineWidth = 1;
+    for (let gx = x + 20; gx < x + w; gx += 64) {
+      ctx.beginPath();
+      ctx.moveTo(gx, y + 24);
+      ctx.lineTo(gx - 22, H);
+      ctx.stroke();
+    }
+  }
   function platform(pl) {
-    ctx.fillStyle = "rgba(0,0,0,.22)"; rr(pl.x + 4, pl.y + 8, pl.w, 22, 10); ctx.fill();
+    ctx.fillStyle = "rgba(0,0,0,.26)";
+    panelPath(pl.x + 6, pl.y + 12, pl.w, 26, 8);
+    ctx.fill();
     const im = SPR.platform;
-    if (im && im.width) { ctx.save(); rr(pl.x, pl.y, pl.w, 28, 10); ctx.clip(); const th = 46, tw = im.width / im.height * th; for (let gx = pl.x; gx < pl.x + pl.w; gx += tw) ctx.drawImage(im, gx, pl.y - 6, tw, th); ctx.restore(); return; }
-    const dg = ctx.createLinearGradient(0, pl.y, 0, pl.y + 24); dg.addColorStop(0, theme.grass); dg.addColorStop(0.3, theme.ground); dg.addColorStop(1, theme.dirt[0]); ctx.fillStyle = dg; rr(pl.x, pl.y, pl.w, 24, 10); ctx.fill();
-    ctx.fillStyle = "rgba(255,255,255,.18)"; rr(pl.x + 5, pl.y + 3, pl.w - 10, 4, 2); ctx.fill();
+    if (im && im.width) {
+      ctx.save();
+      panelPath(pl.x, pl.y, pl.w, 32, 9);
+      ctx.clip();
+      const th = 50, tw = im.width / im.height * th;
+      for (let gx = pl.x; gx < pl.x + pl.w; gx += tw) ctx.drawImage(im, gx, pl.y - 8, tw, th);
+      ctx.fillStyle = "rgba(8,18,34,.2)";
+      ctx.fillRect(pl.x, pl.y + 22, pl.w, 10);
+      ctx.restore();
+      return;
+    }
+    const dg = ctx.createLinearGradient(0, pl.y, 0, pl.y + 32);
+    dg.addColorStop(0, theme.grass);
+    dg.addColorStop(0.34, theme.ground);
+    dg.addColorStop(1, theme.dirt[0]);
+    ctx.fillStyle = dg;
+    panelPath(pl.x, pl.y, pl.w, 32, 9);
+    ctx.fill();
+    ctx.strokeStyle = "rgba(255,255,255,.28)";
+    ctx.lineWidth = 2;
+    panelPath(pl.x + 2, pl.y + 2, pl.w - 4, 8, 4);
+    ctx.stroke();
   }
   function bubble(x, y, ch) {
-    ctx.save(); ctx.shadowColor = "rgba(95,224,160,.7)"; ctx.shadowBlur = 18;
-    const rg = ctx.createRadialGradient(x - 6, y - 6, 3, x, y, 22); rg.addColorStop(0, "#e8fff2"); rg.addColorStop(1, "#3fc98a"); ctx.fillStyle = rg;
-    ctx.beginPath(); ctx.arc(x, y, 21, 0, 7); ctx.fill(); ctx.shadowBlur = 0;
-    ctx.fillStyle = "rgba(255,255,255,.5)"; ctx.beginPath(); ctx.arc(x - 6, y - 7, 5, 0, 7); ctx.fill();
-    ctx.fillStyle = "#0a1a12"; ctx.font = "700 23px Fredoka, sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(ch, x, y + 1); ctx.restore();
+    ctx.save();
+    ctx.shadowColor = "rgba(126,232,255,.7)";
+    ctx.shadowBlur = 18;
+    ctx.fillStyle = "rgba(8,18,42,.58)";
+    panelPath(x - 27, y - 22, 54, 44, 9);
+    ctx.fill();
+    const rg = ctx.createLinearGradient(x - 24, y - 20, x + 26, y + 24);
+    rg.addColorStop(0, "#eaffff");
+    rg.addColorStop(0.34, "#8ff6ff");
+    rg.addColorStop(1, "#2f83ff");
+    ctx.fillStyle = rg;
+    panelPath(x - 24, y - 20, 48, 40, 8);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    ctx.strokeStyle = "rgba(255,255,255,.72)";
+    ctx.lineWidth = 2;
+    panelPath(x - 24, y - 20, 48, 40, 8);
+    ctx.stroke();
+    ctx.fillStyle = "#061022";
+    ctx.font = "900 28px Fredoka, sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(ch, x, y + 2);
+    ctx.fillStyle = "rgba(255,255,255,.62)";
+    ctx.fillRect(x - 14, y - 14, 16, 3);
+    ctx.restore();
   }
   function drawBlock(bl) {
     if (bl.broken) return; const x = bl.x, y = bl.y, w = bl.w, h = bl.h;
+    ctx.fillStyle = "rgba(0,0,0,.24)";
+    panelPath(x + 4, y + 6, w, h, 6);
+    ctx.fill();
     if (bl.type === "prize") {
-      ctx.fillStyle = bl.used ? "#8a7a3a" : "#ffcf4a"; rr(x, y, w, h, 7); ctx.fill(); ctx.strokeStyle = "#7a5a10"; ctx.lineWidth = 3; rr(x, y, w, h, 7); ctx.stroke();
-      ctx.fillStyle = bl.used ? "#6a5a2a" : "#7a5a10"; ctx.font = "700 24px Fredoka,sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("?", x + w / 2, y + h / 2 + 1);
+      const pg = ctx.createLinearGradient(x, y, x + w, y + h);
+      pg.addColorStop(0, bl.used ? "#8a7a3a" : "#ffe879");
+      pg.addColorStop(1, bl.used ? "#5f552f" : "#ff9f24");
+      ctx.fillStyle = pg; panelPath(x, y, w, h, 7); ctx.fill(); ctx.strokeStyle = bl.used ? "#6a5a2a" : "#9a5a14"; ctx.lineWidth = 3; panelPath(x, y, w, h, 7); ctx.stroke();
+      ctx.fillStyle = bl.used ? "#6a5a2a" : "#20140a"; ctx.font = "900 24px Fredoka,sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("?", x + w / 2, y + h / 2 + 1);
     } else {
-      ctx.fillStyle = "#b5602f"; rr(x, y, w, h, 5); ctx.fill(); ctx.strokeStyle = "#7a3d18"; ctx.lineWidth = 3; rr(x, y, w, h, 5); ctx.stroke();
+      const bg = ctx.createLinearGradient(x, y, x + w, y + h);
+      bg.addColorStop(0, "#d6813e");
+      bg.addColorStop(1, "#7a3d18");
+      ctx.fillStyle = bg; panelPath(x, y, w, h, 5); ctx.fill(); ctx.strokeStyle = "#5b2c12"; ctx.lineWidth = 3; panelPath(x, y, w, h, 5); ctx.stroke();
       ctx.strokeStyle = "rgba(0,0,0,.22)"; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x, y + h / 2); ctx.lineTo(x + w, y + h / 2); ctx.moveTo(x + w / 2, y); ctx.lineTo(x + w / 2, y + h / 2); ctx.stroke();
     }
   }
@@ -581,10 +766,23 @@ function startGame(mount, opts) {
     const p = player; if (invuln > 0 && Math.floor(invuln * 12) % 2 === 0) return;
     const sq = p.squash, sx = 1 - sq, sy = 1 + sq, bob = p.onGround ? Math.sin(p.anim) * 1.5 : 0;
     ctx.save();
-    ctx.fillStyle = "rgba(0,0,0,.28)"; ctx.beginPath(); ctx.ellipse(p.x, groundY() - 2 > p.y + 22 ? p.y + 24 : groundY() - 2, 16, 5, 0, 0, 7); ctx.fill();
+    ctx.fillStyle = "rgba(0,0,0,.34)"; ctx.beginPath(); ctx.ellipse(p.x, groundY() - 2 > p.y + 22 ? p.y + 24 : groundY() - 2, 23, 6, 0, 0, 7); ctx.fill();
     ctx.translate(p.x, p.y + bob); ctx.scale(p.face * sx, sy);
     const cim = currentChar();
-    if (cim && cim.width) { const h = 66, w = cim.width / cim.height * h; ctx.drawImage(cim, -w / 2, -h / 2 - 6, w, h); ctx.restore(); return; }
+    if (cim && cim.width) {
+      const h = 72, w = cim.width / cim.height * h;
+      ctx.shadowColor = "rgba(126,232,255,.42)";
+      ctx.shadowBlur = 14;
+      ctx.drawImage(cim, -w / 2, -h / 2 - 8, w, h);
+      ctx.shadowBlur = 0;
+      ctx.globalCompositeOperation = "screen";
+      ctx.globalAlpha = 0.22;
+      ctx.fillStyle = "#8ff6ff";
+      panelPath(-w / 2 + 4, -h / 2 - 6, w - 8, h - 6, 12);
+      ctx.fill();
+      ctx.restore();
+      return;
+    }
     const lk = p.onGround ? Math.sin(p.anim) * 5 : 5; ctx.fillStyle = "#2f7a4b"; rr(-10, 12, 8, 11 + lk, 3); ctx.fill(); rr(2, 12, 8, 11 - lk, 3); ctx.fill();
     const bg = ctx.createLinearGradient(0, -18, 0, 16); bg.addColorStop(0, "#7cf0b6"); bg.addColorStop(1, "#34c589"); ctx.fillStyle = bg; rr(-15, -18, 30, 34, 13); ctx.fill(); ctx.strokeStyle = "#0f6b48"; ctx.lineWidth = 2; rr(-15, -18, 30, 34, 13); ctx.stroke();
     ctx.fillStyle = "#d6fbe8"; rr(-9, -2, 18, 14, 8); ctx.fill();
@@ -604,6 +802,7 @@ function startGame(mount, opts) {
       else ctx.drawImage(im, x, 0, iw, H);
       ctx.restore();
     }
+    drawDepthScenery(Date.now() * 0.001);
     const sh = ctx.createLinearGradient(0, H - GROUND_H - 70, 0, H - GROUND_H); sh.addColorStop(0, "rgba(6,10,20,0)"); sh.addColorStop(1, "rgba(6,10,20,.28)"); ctx.fillStyle = sh; ctx.fillRect(0, H - GROUND_H - 70, W, 70);
     return true;
   }
@@ -613,6 +812,7 @@ function startGame(mount, opts) {
     if (!drawBgImage()) {
       const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, theme.sky[0]); g.addColorStop(0.55, theme.sky[1]); g.addColorStop(1, theme.sky[2]); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
       const gx = W * 0.8, gy = H * 0.2; const cg = ctx.createRadialGradient(gx, gy, 10, gx, gy, 180); cg.addColorStop(0, theme.sun); cg.addColorStop(1, "rgba(255,255,255,0)"); ctx.fillStyle = cg; ctx.fillRect(0, 0, W, H);
+      drawDepthScenery(t);
       treeRow(theme.treeDark, 0.2, H - GROUND_H + 6, 150, 90, 0.28); treeRow(theme.tree, 0.45, H - GROUND_H + 14, 220, 140, 0.6);
     }
     for (const s of spores) { const sx = ((s.x - cam * 0.5) % (W + 60) + W + 60) % (W + 60) - 30; const sy = s.y + Math.sin(t * 0.8 + s.ph) * 14; ctx.globalAlpha = 0.5; ctx.fillStyle = theme.moon ? "#ffe9a0" : "#ffffff"; ctx.beginPath(); ctx.arc(sx, sy, s.s, 0, 7); ctx.fill(); ctx.globalAlpha = 1; }
@@ -625,13 +825,14 @@ function startGame(mount, opts) {
     for (const sp of level.springs) drawSpring(sp);
     for (const bl of level.blocks) drawBlock(bl);
     for (const hp of level.pickups) { if (!hp.taken) drawHeart(hp.x, hp.y + Math.sin(t * 3 + hp.x) * 4); }
-    ctx.strokeStyle = "#f2f2f2"; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(level.flag, groundY()); ctx.lineTo(level.flag, groundY() - 130); ctx.stroke();
+    ctx.strokeStyle = "#d8f5ff"; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(level.flag, groundY()); ctx.lineTo(level.flag, groundY() - 138); ctx.stroke();
+    ctx.strokeStyle = "rgba(47,131,255,.65)"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(level.flag + 9, groundY() - 8); ctx.lineTo(level.flag + 9, groundY() - 132); ctx.stroke();
     { // Mission 5: waving 3-segment pennant; glows gold once the stage is completable.
       const fx = level.flag, fy = groundY() - 130; const canFinish = wIx >= words.length - 1 && nextIx >= word.length;
       ctx.save(); if (canFinish) { ctx.shadowColor = "rgba(255,214,90,.9)"; ctx.shadowBlur = 16; }
-      ctx.fillStyle = canFinish ? "#ffe08a" : "#ffd34e"; ctx.beginPath(); ctx.moveTo(fx, fy);
-      for (let s = 0; s <= 3; s += 1) { const u = s / 3; ctx.lineTo(fx + u * 44, fy + 8 + Math.sin(t * 6 + s) * 4); }
-      for (let s = 3; s >= 0; s -= 1) { const u = s / 3; ctx.lineTo(fx + u * 44, fy + 22 + Math.sin(t * 6 + s) * 4); }
+      ctx.fillStyle = canFinish ? "#ffe879" : "#8ff6ff"; ctx.beginPath(); ctx.moveTo(fx, fy);
+      for (let s = 0; s <= 3; s += 1) { const u = s / 3; ctx.lineTo(fx + u * 56, fy + 6 + Math.sin(t * 6 + s) * 4); }
+      for (let s = 3; s >= 0; s -= 1) { const u = s / 3; ctx.lineTo(fx + u * 56 - 9, fy + 28 + Math.sin(t * 6 + s) * 4); }
       ctx.closePath(); ctx.fill(); ctx.restore();
     }
     for (const b of level.bubbles) { if (b.taken) continue; const bob = Math.sin(t * 2.4 + b.x) * 4; bubble(b.x, b.y + bob, b.ch); }
@@ -650,6 +851,7 @@ function startGame(mount, opts) {
       const rv = ctx.createRadialGradient(W / 2, H / 2, H * 0.35, W / 2, H / 2, H * 0.9); rv.addColorStop(0, "rgba(255,40,60,0)"); rv.addColorStop(1, "rgba(255,30,50," + a + ")"); ctx.fillStyle = rv; ctx.fillRect(0, 0, W, H);
     }
     if (starFlash > 0) { ctx.fillStyle = "rgba(255,214,90," + (starFlash * 0.4).toFixed(3) + ")"; ctx.fillRect(0, 0, W, H); }
+    drawPs2Overlay(t);
   }
 
   // ── art (committed webp). Per-world playable-character roster so different

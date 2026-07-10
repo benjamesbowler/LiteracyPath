@@ -389,5 +389,16 @@ export const GAME_LIST = [
     description: "Go on safari and net the sounds that make up each word.",
     fullBleed: true,
     surfaces: ["arcade"]
+  },
+  {
+    id: "star-gallery",
+    title: "Sentence Grove",
+    skill: "Fix words and sentences",
+    category: "Grammar",
+    ...GAME_ACCENTS.violet,
+    icon: "/images/learn-games/art/star-gallery.webp",
+    description: "Roam the grove, read the picture cue, and cut the tree that fixes each sentence.",
+    fullBleed: true,
+    surfaces: ["arcade"]
   }
 ];

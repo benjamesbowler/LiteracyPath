@@ -139,7 +139,10 @@ function GhostSvg() {
   );
 }
 
-function TrainCar({ kind = "wagon", tone = 0, word, ghost = false, lit = false, rusty = false, arrived = false, small = false, smoking = false, onClick, label }) {
+// Dust kicked up when a carriage slams into place (dx, dy scatter).
+const DUST = [[-34, -8], [-20, -24], [0, -30], [20, -24], [34, -8], [10, -34]];
+
+function TrainCar({ kind = "wagon", tone = 0, word, ghost = false, lit = false, rusty = false, arrived = false, small = false, smoking = false, blasting = false, onClick, label }) {
   const cls = `sx-carbox sx-kind-${kind} ${small ? "sx-small" : ""} ${ghost ? "sx-ghostbox" : ""} ${lit ? "sx-lit" : ""} ${arrived ? "sx-arrive" : ""}`;
   const body = (
     <>
@@ -151,12 +154,44 @@ function TrainCar({ kind = "wagon", tone = 0, word, ghost = false, lit = false, 
           {[0, 1, 2, 3, 4].map(i => <span key={i} className="sx-smoke" style={{ animationDelay: `${i * 0.45}s` }} />)}
         </span>
       )}
+      {blasting && (
+        <span className="sx-smokes sx-blastset" aria-hidden="true">
+          {[0, 1, 2, 3, 4, 5].map(i => <span key={i} className="sx-smoke sx-blast" style={{ animationDelay: `${i * 0.09}s` }} />)}
+        </span>
+      )}
+      {arrived && DUST.map(([dx, dy], i) => (
+        <span key={i} className="sx-dust" style={{ "--dx": `${dx}px`, "--dy": `${dy}px` }} aria-hidden="true" />
+      ))}
     </>
   );
   if (onClick) {
     return <button type="button" className={cls} onClick={onClick} aria-label={label || `carriage ${word}`}>{body}</button>;
   }
   return <div className={cls}>{body}</div>;
+}
+
+// Horizon buildings: a little station house (left) and water tower (right).
+function StationHouse() {
+  return (
+    <svg className="sx-building sx-house" viewBox="0 0 120 80" aria-hidden="true">
+      <rect x="14" y="34" width="92" height="44" rx="4" />
+      <polygon points="6,38 60,8 114,38" />
+      <rect x="50" y="52" width="20" height="26" rx="3" className="sx-b-dark" />
+      <rect x="24" y="46" width="14" height="12" rx="2" className="sx-b-glow" />
+      <rect x="82" y="46" width="14" height="12" rx="2" className="sx-b-glow" />
+    </svg>
+  );
+}
+function WaterTower() {
+  return (
+    <svg className="sx-building sx-tower" viewBox="0 0 90 110" aria-hidden="true">
+      <rect x="22" y="10" width="46" height="38" rx="8" />
+      <polygon points="18,14 45,2 72,14" />
+      <rect x="28" y="48" width="6" height="58" />
+      <rect x="56" y="48" width="6" height="58" />
+      <rect x="24" y="72" width="42" height="5" />
+    </svg>
+  );
 }
 
 // -- World scenery (low-poly silhouettes, clouds, fireflies) ------------------
@@ -166,6 +201,7 @@ function Scenery({ world }) {
       <>
         <div className="sx-starfield" />
         <div className="sx-moon" />
+        <StationHouse /><WaterTower />
         <span className="sx-glowbug" style={{ left: "16%", top: "50%" }} />
         <span className="sx-glowbug" style={{ left: "55%", top: "44%", animationDelay: "0.9s" }} />
         <span className="sx-glowbug" style={{ left: "83%", top: "53%", animationDelay: "1.7s" }} />
@@ -179,6 +215,10 @@ function Scenery({ world }) {
         <span className="sx-cloud" style={{ left: "14%", top: "10%" }} />
         <span className="sx-cloud" style={{ left: "62%", top: "6%", animationDelay: "7s" }} />
         <span className="sx-ptero" style={{ left: "70%", top: "16%" }} />
+        <StationHouse /><WaterTower />
+        <span className="sx-ember" style={{ left: "24%", top: "46%" }} />
+        <span className="sx-ember" style={{ left: "60%", top: "52%", animationDelay: "1.2s" }} />
+        <span className="sx-ember" style={{ left: "88%", top: "44%", animationDelay: "2.1s" }} />
       </>
     );
   }
@@ -188,7 +228,37 @@ function Scenery({ world }) {
       <span className="sx-cloud" style={{ left: "8%", top: "9%" }} />
       <span className="sx-cloud" style={{ left: "48%", top: "5%", animationDelay: "5s" }} />
       <span className="sx-cloud" style={{ left: "78%", top: "14%", animationDelay: "10s" }} />
+      <StationHouse /><WaterTower />
+      <span className="sx-butterfly" style={{ left: "30%", top: "42%" }} />
+      <span className="sx-butterfly sx-butterfly2" style={{ left: "72%", top: "48%", animationDelay: "2.4s" }} />
     </>
+  );
+}
+
+// Scrolling foreground strip under the track: grass tufts (meadow),
+// rocks and bones (dino), glowing mushrooms (moonwood). Rendered twice
+// side-by-side so the depart run can loop it seamlessly.
+function ForeSvg({ world }) {
+  const slots = Array.from({ length: 16 }, (_, i) => i);
+  return (
+    <svg className="sx-foresvg" viewBox="0 0 800 42" preserveAspectRatio="none" aria-hidden="true">
+      {slots.map(i => {
+        const x = i * 50 + ((i * 37) % 21);
+        if (world === "dino") {
+          return i % 3 === 2
+            ? <g key={i}><rect x={x} y="30" width="10" height="4" rx="2" className="sx-f-bone" /><rect x={x + 12} y="28" width="4" height="8" rx="2" className="sx-f-bone" /></g>
+            : <ellipse key={i} cx={x + 10} cy={36} rx={9 + ((i * 13) % 7)} ry={5 + ((i * 7) % 3)} className="sx-f-rock" />;
+        }
+        if (world === "moonwood") {
+          return i % 3 === 1
+            ? <g key={i}><rect x={x + 6} y="26" width="5" height="12" rx="2" className="sx-f-stem" /><ellipse cx={x + 8.5} cy="26" rx="9" ry="6" className="sx-f-cap" /><circle cx={x + 8.5} cy="24" r="1.6" className="sx-f-spot" /></g>
+            : <ellipse key={i} cx={x + 8} cy={38} rx={10} ry={4} className="sx-f-moss" />;
+        }
+        return i % 4 === 3
+          ? <g key={i}><circle cx={x + 6} cy="28" r="3.4" className="sx-f-flower" /><rect x={x + 5} y="30" width="2" height="10" className="sx-f-stem" /></g>
+          : <path key={i} d={`M${x} 40 q3 -12 6 0 q2 -9 5 0 q3 -12 6 0 z`} className="sx-f-grass" />;
+      })}
+    </svg>
   );
 }
 
@@ -235,6 +305,9 @@ export default function SentenceExpressGame({
   const [combo, setCombo] = useState(1);
   const [express, setExpress] = useState(0);
   const [litWord, setLitWord] = useState(-1);
+  const [motion, setMotion] = useState("enter"); // enter -> idle -> out
+  const [blast, setBlast] = useState(false);     // whistle steam burst
+  const [comboToast, setComboToast] = useState("");
   const paused = useRef(false);
   const audioRef = useRef(null);
   const chuffStop = useRef(null);
@@ -271,12 +344,20 @@ export default function SentenceExpressGame({
     };
     speakNext();
   }
-  // The station master reads the target sentence when a train rolls in.
+  // A fresh train rolls IN from off-screen, then the station master reads
+  // the target sentence.
   useEffect(() => {
     if (phase !== PHASES.SHUNT) return undefined;
-    const t = window.setTimeout(() => announce(), 650);
-    return () => window.clearTimeout(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- speak once per train entry
+    const t0 = window.setTimeout(() => setMotion("enter"), 0);
+    const tIn = window.setTimeout(() => setMotion("idle"), 90);
+    const stopArrivalChuff = isSoundEnabled ? sfx.startChuff() : () => {};
+    const tChuff = window.setTimeout(stopArrivalChuff, 1300);
+    const tSay = window.setTimeout(() => announce(), 1500);
+    return () => {
+      window.clearTimeout(t0); window.clearTimeout(tIn); window.clearTimeout(tChuff); window.clearTimeout(tSay);
+      stopArrivalChuff();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- run once per train entry
   }, [phase, train.id]);
 
   useEffect(() => {
@@ -344,18 +425,33 @@ export default function SentenceExpressGame({
     const onTime = delay === 0;
     if (onTime) {
       setExpress(e => e + 1);
-      setCombo(c => Math.min(3, c + 1));
+      const next = Math.min(3, combo + 1);
+      setCombo(next);
+      if (next > 1) {
+        setComboToast(`COMBO x${next}!`);
+        window.setTimeout(() => setComboToast(""), 1400);
+      }
       setStamp(true);
       if (isSoundEnabled) window.setTimeout(() => sfx.stamp(), 550);
     }
+    setBlast(true);
+    window.setTimeout(() => setBlast(false), 1100);
     if (isSoundEnabled) {
       sfx.whistle();
+      sfx.crossingBell();
       chuffStop.current = sfx.startChuff();
     }
     setPhase(PHASES.DEPART);
     let i = 0;
     const step = () => {
-      if (i >= solution.length) { window.setTimeout(finishTrain, 1000); return; }
+      if (i >= solution.length) {
+        // Read-back done: the train accelerates out of the scene.
+        window.setTimeout(() => {
+          setMotion("out");
+          window.setTimeout(finishTrain, 1500);
+        }, 450);
+        return;
+      }
       setLitWord(i);
       if (isSoundEnabled) playWord(solution[i], () => { i += 1; step(); });
       else window.setTimeout(() => { i += 1; step(); }, 560);
@@ -380,7 +476,7 @@ export default function SentenceExpressGame({
       setBanner(failedThisTrain ? "We'll try that train again soon!" : "Next train is rolling in...");
       setPhase(PHASES.SHUNT);
     } else {
-      if (isSoundEnabled) sfx.chime();
+      if (isSoundEnabled) (level.isGoldRun ? sfx.fanfare() : sfx.chime());
       setPhase(PHASES.TALLY);
     }
   }
@@ -418,7 +514,7 @@ export default function SentenceExpressGame({
   const rolling = phase === PHASES.DEPART;
 
   return (
-    <div className={`sx-stage sx-${world} ${jolt ? "sx-jolt" : ""} ${bump ? "sx-bump" : ""} ${rolling ? "sx-scroll" : ""}`} data-phase={phase}>
+    <div className={`sx-stage sx-${world} sx-motion-${motion} ${jolt ? "sx-jolt" : ""} ${bump ? "sx-bump" : ""} ${rolling ? "sx-scroll" : ""}`} data-phase={phase}>
       <div className="sx-sky"><Scenery world={world} /></div>
       <div className="sx-far" />
       <div className="sx-mid" />
@@ -442,10 +538,10 @@ export default function SentenceExpressGame({
         <div className={`sx-signal ${(trackDone && phase === PHASES.SHUNT) || rolling ? "sx-go" : ""}`} aria-hidden="true">
           <i className="sx-arm" /><i className="sx-lamp" />
         </div>
-        <div className={`sx-train ${rolling ? "sx-rolling" : ""}`}>
+        <div className={`sx-train ${rolling || motion !== "idle" ? "sx-rolling" : ""}`}>
           <TrainCar kind="engine" word={train.engine ? (engineChoice ?? "?") : solution[0]}
             ghost={train.engine ? engineChoice === null : coupled.length === 0}
-            lit={litWord === 0} smoking={rolling} />
+            lit={litWord === 0} smoking={rolling || motion !== "idle"} blasting={blast} />
           {solution.slice(1).map((word, i) => {
             const slot = i + 1;
             const filled = coupled.length > slot;
@@ -458,6 +554,7 @@ export default function SentenceExpressGame({
             ghost={Boolean(train.caboose) && !cabooseChoice} />
         </div>
         <div className="sx-trackbed" />
+        <div className="sx-fore" aria-hidden="true"><ForeSvg world={world} /><ForeSvg world={world} /></div>
         {rolling && (
           <div className="sx-karaoke" aria-live="polite">
             {solution.map((w, i) => (
@@ -556,12 +653,18 @@ export default function SentenceExpressGame({
       )}
 
       {stamp && <div className="sx-stamp" aria-hidden="true">EXPRESS!<em>ON TIME</em></div>}
+      {comboToast && <div className="sx-combotoast" aria-hidden="true">{comboToast}</div>}
       {banner && <div className="sx-banner">{banner}</div>}
 
       {phase === PHASES.INTRO && (
         <section className="sx-ticket sx-introticket">
           <h2>{WORLD_LABELS[world]}</h2>
           <p className="sx-ticketsub">Level {levelIndex + 1}{level.isGoldRun ? " - GOLD MAIL RUN" : ""} - {level.trains.length} trains</p>
+          <div className="sx-route" aria-label={`Station ${levelIndex + 1} of ${LEVELS_PER_LINE}`}>
+            {Array.from({ length: LEVELS_PER_LINE }, (_, i) => (
+              <i key={i} className={i < levelIndex ? "sx-done" : i === levelIndex ? "sx-here" : ""} />
+            ))}
+          </div>
           <p className="sx-faults">Faults reported: {faultList}</p>
           <button type="button" className="sx-golden" onClick={startLevelPlay}>TO THE YARD -&gt;</button>
         </section>
@@ -569,6 +672,10 @@ export default function SentenceExpressGame({
 
       {phase === PHASES.TALLY && (
         <section className="sx-ticket">
+          {stars > 1 && Array.from({ length: 16 }, (_, i) => (
+            <span key={i} className="sx-confetti" aria-hidden="true"
+              style={{ left: `${(i * 6.3 + 2) % 96}%`, animationDelay: `${(i % 8) * 0.14}s`, background: TONES[i % TONES.length][0] }} />
+          ))}
           <h2>{level.isGoldRun ? "GOLD MAIL RUN COMPLETE!" : `LEVEL ${levelIndex + 1} COMPLETE!`}</h2>
           <p className="sx-stars">{[0, 1, 2].map(i => <StarIcon key={i} filled={i < stars} />)}</p>
           <div className="sx-tallyrows">

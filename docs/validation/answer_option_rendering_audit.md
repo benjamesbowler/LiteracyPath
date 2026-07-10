@@ -1,12 +1,12 @@
 # Answer Option Rendering Audit
 
-Generated: 2026-07-04T02:24:16.675Z
+Generated: 2026-07-09T12:23:59.385Z
 
 This audit checks that active assessment answer options resolve to visible labels for buttons/cards. Image-only questions must opt in explicitly with `imageOnly` or `hideWrittenLabels`.
 
 ## Summary
 
-- Active skill-bank items checked: 4788
+- Active skill-bank items checked: 4758
 - Active label failures: 0
 - Explicit image-only questions: 76
 - Object-option render cases covered by shared helper: 0

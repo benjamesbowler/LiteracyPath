@@ -1,18 +1,58 @@
 const TRACKS = {
+  "rocket-run": {
+    title: "Rocket Run",
+    volume: 0.25,
+    sources: ["/audio/music/arcade/rocket-run-loop.mp3"]
+  },
+  "letter-leap": {
+    title: "Letter Leap",
+    volume: 0.24,
+    sources: ["/audio/music/arcade/letter-leap-loop.mp3"]
+  },
+  "sound-racer": {
+    title: "Sound Racer",
+    volume: 0.24,
+    sources: ["/audio/music/arcade/sound-racer-loop.mp3"]
+  },
+  "word-bridge": {
+    title: "Word Bridge",
+    volume: 0.23,
+    sources: ["/audio/music/arcade/word-bridge-loop.mp3"]
+  },
+  "sound-beat": {
+    title: "Sound Beat",
+    volume: 0.28,
+    sources: ["/audio/music/arcade/sound-beat-loop.mp3"]
+  },
+  "rhyme-pop": {
+    title: "Rhyme Pop",
+    volume: 0.24,
+    sources: ["/audio/music/arcade/rhyme-pop-loop.mp3"]
+  },
+  "sound-safari": {
+    title: "Sound Safari",
+    volume: 0.23,
+    sources: ["/audio/music/arcade/sound-safari-loop.mp3"]
+  },
+  "star-gallery": {
+    title: "Sentence Grove",
+    volume: 0.24,
+    sources: ["/audio/music/arcade/star-gallery-loop.mp3"]
+  },
   meadow: {
     title: "Sunny Meadow",
     volume: 0.23,
-    sources: ["/audio/music/meadow-loop.mp3", "/audio/music/meadow-loop.wav"]
+    sources: ["/audio/music/meadow-loop.mp3", "/audio/music/meadow-loop.mp3"]
   },
   dino: {
     title: "Sunny Hollow",
     volume: 0.22,
-    sources: ["/audio/music/dino-loop.mp3", "/audio/music/dino-loop.wav"]
+    sources: ["/audio/music/dino-loop.mp3", "/audio/music/dino-loop.mp3"]
   },
   moonwood: {
     title: "Moonwood",
     volume: 0.24,
-    sources: ["/audio/music/moonwood-loop.mp3", "/audio/music/moonwood-loop.wav"]
+    sources: ["/audio/music/moonwood-loop.mp3", "/audio/music/moonwood-loop.mp3"]
   }
 };
 
@@ -117,11 +157,17 @@ function tryPlay(audio, targetVolume) {
   fadeTo(targetVolume, 0.65);
 }
 
-export function getGameMusicTrack(worldId) {
-  return TRACKS[worldId] || TRACKS.meadow;
+function resolveTrackId(trackId, options = {}) {
+  if (TRACKS[trackId]) return trackId;
+  if (TRACKS[options.fallbackWorldId]) return options.fallbackWorldId;
+  return "meadow";
 }
 
-export async function startGameMusic(worldId, options = {}) {
+export function getGameMusicTrack(trackId, options = {}) {
+  return TRACKS[resolveTrackId(trackId, options)];
+}
+
+export async function startGameMusic(trackId, options = {}) {
   if (!canUseAudio()) return null;
   const enabled = options.enabled !== false;
   if (!enabled) {
@@ -129,10 +175,11 @@ export async function startGameMusic(worldId, options = {}) {
     return null;
   }
 
-  const track = getGameMusicTrack(worldId);
+  const resolvedTrackId = resolveTrackId(trackId, options);
+  const track = TRACKS[resolvedTrackId];
   const targetVolume = Math.max(0, Math.min(1, Number(options.volume ?? track.volume) || track.volume));
 
-  if (active?.worldId === worldId && active.audio) {
+  if (active?.trackId === resolvedTrackId && active.audio) {
     active.targetVolume = targetVolume;
     if (active.audio.paused) tryPlay(active.audio, targetVolume);
     else fadeTo(targetVolume, 0.25);
@@ -149,7 +196,7 @@ export async function startGameMusic(worldId, options = {}) {
   audio.loop = true;
   audio.preload = "auto";
   audio.volume = 0;
-  active = { audio, source, track, targetVolume, worldId };
+  active = { audio, source, track, targetVolume, trackId: resolvedTrackId };
   tryPlay(audio, targetVolume);
   return active;
 }

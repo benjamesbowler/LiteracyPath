@@ -96,10 +96,37 @@ export const sfx = {
     hiss(c, { dur: 0.05, freq: 1300, level: 0.18 });
   },
 
-  // Rolling chuff-chuff loop; returns a stop function.
+  // Level-crossing bell: ding-dong, twice.
+  crossingBell() {
+    const c = ac(); if (!c) return;
+    [0, 0.38].forEach(at => {
+      tone(c, { from: 988, dur: 0.26, at, level: 0.09 });
+      tone(c, { from: 784, dur: 0.3, at: at + 0.17, level: 0.09 });
+    });
+  },
+
+  // Gold Mail Run fanfare: rising run into a held chord.
+  fanfare() {
+    const c = ac(); if (!c) return;
+    [[523, 0], [659, 0.12], [784, 0.24], [1047, 0.36], [784, 0.55], [1047, 0.7]]
+      .forEach(([f, at]) => tone(c, { from: f, dur: 0.4, at, level: 0.12 }));
+    [1319, 1568].forEach(f => tone(c, { from: f, dur: 0.85, at: 0.92, level: 0.07 }));
+  },
+
+  // Rolling chuff-chuff loop that accelerates like a departing train;
+  // returns a stop function.
   startChuff() {
     const c = ac(); if (!c) return () => {};
-    const id = window.setInterval(() => hiss(c, { dur: 0.1, freq: 520, level: 0.13, q: 0.9 }), 340);
-    return () => window.clearInterval(id);
+    let gap = 430;
+    let alive = true;
+    let id = 0;
+    const loop = () => {
+      if (!alive) return;
+      hiss(c, { dur: 0.1, freq: 520, level: 0.13, q: 0.9 });
+      gap = Math.max(215, gap - 16);
+      id = window.setTimeout(loop, gap);
+    };
+    loop();
+    return () => { alive = false; window.clearTimeout(id); };
   }
 };

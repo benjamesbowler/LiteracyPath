@@ -72,12 +72,8 @@ export function GamePlayer({
     if (!soundEnabled) cancelSpeech();
   }, [soundEnabled]);
 
-  // World background music for every game. Sound Beat used to be excluded for a
-  // "rhythm track" that was never built (its engine music is a stub), so it ran
-  // silent — give it the world loop too, a touch louder since music matters most
-  // for a beat game.
   useEffect(() => {
-    if (soundEnabled) startGameMusic(world.id, game.id === "sound-beat" ? { volume: 0.34 } : {});
+    if (soundEnabled) startGameMusic(game.id, { fallbackWorldId: world.id });
     else stopGameMusic();
     return () => stopGameMusic();
   }, [soundEnabled, world.id, game.id]);

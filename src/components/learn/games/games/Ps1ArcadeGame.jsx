@@ -73,6 +73,20 @@ function roundedRect(ctx, x, y, w, h, r) {
   ctx.closePath();
 }
 
+function cutRect(ctx, x, y, w, h, cut = 12) {
+  const c = Math.min(cut, w / 3, h / 3);
+  ctx.beginPath();
+  ctx.moveTo(x + c, y);
+  ctx.lineTo(x + w - c, y);
+  ctx.lineTo(x + w, y + c);
+  ctx.lineTo(x + w, y + h - c);
+  ctx.lineTo(x + w - c, y + h);
+  ctx.lineTo(x + c, y + h);
+  ctx.lineTo(x, y + h - c);
+  ctx.lineTo(x, y + c);
+  ctx.closePath();
+}
+
 function drawCover(ctx, image, w, h) {
   if (!image.complete || !image.naturalWidth) return false;
   const scale = Math.max(w / image.naturalWidth, h / image.naturalHeight);
@@ -122,11 +136,21 @@ function drawScreenGrade(ctx, w, h) {
 
 function panel(ctx, x, y, w, h, color = "rgba(5,10,22,.72)", stroke = "rgba(255,255,255,.28)") {
   ctx.save();
-  roundedRect(ctx, x, y, w, h, 12);
+  cutRect(ctx, x, y, w, h, Math.min(18, h * 0.32));
   ctx.fillStyle = color;
   ctx.fill();
+  ctx.globalAlpha = 0.42;
+  const gloss = ctx.createLinearGradient(0, y, 0, y + h);
+  gloss.addColorStop(0, "rgba(255,255,255,.28)");
+  gloss.addColorStop(0.16, "rgba(255,255,255,.08)");
+  gloss.addColorStop(1, "rgba(255,255,255,0)");
+  ctx.fillStyle = gloss;
+  cutRect(ctx, x + 2, y + 2, w - 4, Math.max(6, h * 0.34), Math.min(14, h * 0.24));
+  ctx.fill();
+  ctx.globalAlpha = 1;
   ctx.lineWidth = 2;
   ctx.strokeStyle = stroke;
+  cutRect(ctx, x, y, w, h, Math.min(18, h * 0.32));
   ctx.stroke();
   ctx.restore();
 }
@@ -167,6 +191,33 @@ function drawBeatBackdrop(ctx, state, config, w, h) {
     ctx.fillStyle = i % 3 === 0 ? `${config.accent}90` : `${config.accent2}78`;
     roundedRect(ctx, x, baseY - height, barW, height, 5);
     ctx.fill();
+  }
+
+  for (const side of [-1, 1]) {
+    const speakerX = side < 0 ? w * 0.075 : w * 0.925;
+    const speakerY = h * 0.61;
+    const speakerW = clamp(w * 0.095, 54, 104);
+    const speakerH = clamp(h * 0.25, 126, 210);
+    const speakerGrad = ctx.createLinearGradient(speakerX - speakerW / 2, speakerY - speakerH / 2, speakerX + speakerW / 2, speakerY + speakerH / 2);
+    speakerGrad.addColorStop(0, "rgba(33,43,70,.92)");
+    speakerGrad.addColorStop(0.58, "rgba(4,9,21,.96)");
+    speakerGrad.addColorStop(1, "rgba(0,0,0,.98)");
+    panel(ctx, speakerX - speakerW / 2, speakerY - speakerH / 2, speakerW, speakerH, speakerGrad, "rgba(255,255,255,.18)");
+    for (let ring = 0; ring < 2; ring += 1) {
+      const cy = speakerY - speakerH * 0.22 + ring * speakerH * 0.42;
+      const radius = speakerW * (0.24 + pulse * 0.04);
+      const cone = ctx.createRadialGradient(speakerX - radius * 0.2, cy - radius * 0.28, 2, speakerX, cy, radius);
+      cone.addColorStop(0, "rgba(255,255,255,.5)");
+      cone.addColorStop(0.22, ring ? `${config.accent2}90` : `${config.accent}90`);
+      cone.addColorStop(1, "rgba(2,5,13,.98)");
+      ctx.fillStyle = cone;
+      ctx.beginPath();
+      ctx.arc(speakerX, cy, radius, 0, TWO_PI);
+      ctx.fill();
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = "rgba(255,255,255,.24)";
+      ctx.stroke();
+    }
   }
 }
 
@@ -213,6 +264,26 @@ function drawSoundBeatRunway(ctx, state, config, w, h) {
   ctx.closePath();
   ctx.fill();
 
+  const sideWall = ctx.createLinearGradient(0, topY, 0, bottomY);
+  sideWall.addColorStop(0, "rgba(38,58,92,.46)");
+  sideWall.addColorStop(0.6, "rgba(8,15,32,.74)");
+  sideWall.addColorStop(1, "rgba(0,0,0,.9)");
+  ctx.fillStyle = sideWall;
+  ctx.beginPath();
+  ctx.moveTo(leftTop, topY);
+  ctx.lineTo(leftBottom, bottomY);
+  ctx.lineTo(Math.max(0, leftBottom - w * 0.055), bottomY);
+  ctx.lineTo(leftTop - w * 0.035, topY + h * 0.035);
+  ctx.closePath();
+  ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(rightTop, topY);
+  ctx.lineTo(rightBottom, bottomY);
+  ctx.lineTo(Math.min(w, rightBottom + w * 0.055), bottomY);
+  ctx.lineTo(rightTop + w * 0.035, topY + h * 0.035);
+  ctx.closePath();
+  ctx.fill();
+
   ctx.strokeStyle = "rgba(111,241,255,.82)";
   ctx.lineWidth = 5 + pulse * 3;
   ctx.beginPath();
@@ -232,6 +303,22 @@ function drawSoundBeatRunway(ctx, state, config, w, h) {
     ctx.moveTo(leftTop - inset, y);
     ctx.lineTo(rightTop + inset, y);
     ctx.stroke();
+  }
+
+  for (let i = 0; i < 7; i += 1) {
+    const p = ((state.time * 0.42 + i / 7) % 1);
+    const y = topY + (bottomY - topY) * p;
+    const left = leftTop + (leftBottom - leftTop) * p;
+    const right = rightTop + (rightBottom - rightTop) * p;
+    const inset = (right - left) * 0.33;
+    ctx.fillStyle = i % 2 ? `${config.accent}18` : `${config.accent2}18`;
+    ctx.beginPath();
+    ctx.moveTo(left + inset, y);
+    ctx.lineTo(right - inset, y);
+    ctx.lineTo(right - inset * 0.7, y + 10 + p * 18);
+    ctx.lineTo(left + inset * 0.7, y + 10 + p * 18);
+    ctx.closePath();
+    ctx.fill();
   }
 
   for (let lane = 0; lane < BEAT_LANES.length; lane += 1) {
@@ -281,6 +368,17 @@ function drawBeatTarget(ctx, lane, state, w, h, active) {
   ctx.restore();
 
   ctx.save();
+  const padGrad = ctx.createLinearGradient(point.x - 44, point.y - 24, point.x + 44, point.y + 34);
+  padGrad.addColorStop(0, "rgba(255,255,255,.28)");
+  padGrad.addColorStop(0.36, active ? `${laneStyle.color}8a` : "rgba(255,255,255,.18)");
+  padGrad.addColorStop(1, "rgba(2,5,14,.76)");
+  ctx.fillStyle = padGrad;
+  cutRect(ctx, point.x - 44, point.y - 22, 88, 44, 13);
+  ctx.fill();
+  ctx.strokeStyle = "rgba(255,255,255,.34)";
+  ctx.lineWidth = 2;
+  cutRect(ctx, point.x - 44, point.y - 22, 88, 44, 13);
+  ctx.stroke();
   ctx.lineWidth = 5 + pulse * 5;
   ctx.strokeStyle = laneStyle.color;
   ctx.beginPath();
@@ -309,7 +407,7 @@ function drawBeatPad(ctx, label, lane, progress, active, config, state, w, h) {
   ctx.translate(point.x, point.y);
   ctx.scale(1, 0.9);
   ctx.fillStyle = "rgba(0,0,0,.34)";
-  roundedRect(ctx, -width * 0.52 + 6, -height * 0.5 + 8, width * 1.04, height, 10 * point.scale);
+  cutRect(ctx, -width * 0.52 + 6, -height * 0.5 + 8, width * 1.04, height, 10 * point.scale);
   ctx.fill();
 
   const fill = ctx.createLinearGradient(-width / 2, -height / 2, width / 2, height / 2);
@@ -317,15 +415,22 @@ function drawBeatPad(ctx, label, lane, progress, active, config, state, w, h) {
   fill.addColorStop(0.2, laneStyle.color);
   fill.addColorStop(1, laneStyle.dark);
   ctx.fillStyle = fill;
-  roundedRect(ctx, -width / 2, -height / 2, width, height, 10 * point.scale);
+  cutRect(ctx, -width / 2, -height / 2, width, height, 10 * point.scale);
+  ctx.fill();
+  ctx.fillStyle = "rgba(255,255,255,.34)";
+  cutRect(ctx, -width * 0.38, -height * 0.38, width * 0.76, height * 0.18, 5 * point.scale);
+  ctx.fill();
+  ctx.fillStyle = "rgba(0,0,0,.25)";
+  cutRect(ctx, -width * 0.4, height * 0.23, width * 0.8, height * 0.16, 5 * point.scale);
   ctx.fill();
   ctx.lineWidth = active ? 5 + pulse * 3 : 3;
   ctx.strokeStyle = active ? "#f8ffff" : "rgba(255,255,255,.62)";
+  cutRect(ctx, -width / 2, -height / 2, width, height, 10 * point.scale);
   ctx.stroke();
   ctx.globalCompositeOperation = "screen";
   ctx.strokeStyle = `${laneStyle.color}cc`;
   ctx.lineWidth = 9 + pulse * 6;
-  roundedRect(ctx, -width / 2, -height / 2, width, height, 10 * point.scale);
+  cutRect(ctx, -width / 2, -height / 2, width, height, 10 * point.scale);
   ctx.stroke();
   ctx.restore();
 
@@ -426,11 +531,26 @@ function drawSoundBeatPortrait(ctx, x, y, scale, now) {
   ctx.restore();
 }
 
-function drawSoundBeatHud(ctx, state, config, w) {
+function drawSoundBeatHud(ctx, state, config, w, h) {
   const current = state.currentTask?.item;
   const totalBeats = current ? current.beats.length + 1 : 4;
   const filledBeats = Math.min(totalBeats, state.beatIndex || 0);
+  const compact = w < 760 || h < 520;
   const hudY = 16;
+  const portraitX = compact ? 50 : 70;
+  const portraitY = compact ? 62 : 78;
+  const portraitRadius = compact ? 43 : 58;
+  const portraitScale = compact ? 0.56 : 0.78;
+  const scoreX = compact ? 98 : 150;
+  const scoreW = compact ? Math.min(214, w * 0.38) : 260;
+  const scoreH = compact ? 56 : 72;
+  const meterX = compact ? 18 : w * 0.38;
+  const meterY = compact ? 112 : 42;
+  const meterW = compact ? w - 36 : w * 0.28;
+  const meterPanelY = compact ? 90 : hudY + 6;
+  const meterPanelH = compact ? 44 : 50;
+  const starsW = compact ? Math.min(162, w * 0.28) : 344;
+  const starsX = w - starsW - 16;
 
   ctx.save();
   ctx.fillStyle = "rgba(3,7,18,.78)";
@@ -439,36 +559,33 @@ function drawSoundBeatHud(ctx, state, config, w) {
   ctx.beginPath();
   for (let i = 0; i < 8; i += 1) {
     const angle = Math.PI / 8 + i * Math.PI / 4;
-    const x = 70 + Math.cos(angle) * 58;
-    const y = 70 + Math.sin(angle) * 58;
+    const x = portraitX + Math.cos(angle) * portraitRadius;
+    const y = portraitY + Math.sin(angle) * portraitRadius;
     if (i === 0) ctx.moveTo(x, y);
     else ctx.lineTo(x, y);
   }
   ctx.closePath();
   ctx.fill();
   ctx.stroke();
-  drawSoundBeatPortrait(ctx, 70, 78, 0.78, state.time);
+  drawSoundBeatPortrait(ctx, portraitX, portraitY + (compact ? 5 : 0), portraitScale, state.time);
 
-  panel(ctx, 150, hudY, 260, 72, "rgba(3,7,18,.8)", "rgba(255,255,255,.34)");
-  text(ctx, "♪", 178, hudY + 34, 34, config.accent2, "center", 900);
-  text(ctx, String(state.score).padStart(6, "0"), 220, hudY + 31, 31, "#f8d64b", "left", 900);
+  panel(ctx, scoreX, hudY, scoreW, scoreH, "rgba(3,7,18,.8)", "rgba(255,255,255,.34)");
+  text(ctx, "♪", scoreX + 28, hudY + scoreH * 0.48, compact ? 27 : 34, config.accent2, "center", 900);
+  text(ctx, String(state.score).padStart(6, "0"), scoreX + 66, hudY + scoreH * 0.45, compact ? 24 : 31, "#f8d64b", "left", 900);
   const bars = Math.max(1, Math.min(8, state.combo + 1));
   for (let i = 0; i < 8; i += 1) {
     ctx.fillStyle = i < bars ? "#55fff0" : "rgba(255,255,255,.16)";
-    roundedRect(ctx, 202 + i * 18, hudY + 53, 13, 11, 4);
+    roundedRect(ctx, scoreX + 52 + i * (compact ? 15 : 18), hudY + scoreH - 18, compact ? 10 : 13, compact ? 9 : 11, 4);
     ctx.fill();
   }
-  text(ctx, "⚡", 376, hudY + 50, 28, "#ffdf3d", "center", 900);
+  if (!compact) text(ctx, "⚡", scoreX + scoreW - 34, hudY + 50, 28, "#ffdf3d", "center", 900);
 
-  const meterX = w * 0.38;
-  const meterY = 42;
-  const meterW = w * 0.28;
-  panel(ctx, meterX, hudY + 6, meterW, 50, "rgba(3,7,18,.78)", "rgba(255,255,255,.34)");
+  panel(ctx, meterX, meterPanelY, meterW, meterPanelH, "rgba(3,7,18,.78)", "rgba(255,255,255,.34)");
   for (let i = 0; i < 10; i += 1) {
     const dotX = meterX + 32 + i * ((meterW - 64) / 9);
     ctx.fillStyle = i < filledBeats ? config.accent2 : (i < totalBeats ? config.accent : "rgba(255,255,255,.18)");
     ctx.beginPath();
-    ctx.arc(dotX, meterY, 9, 0, TWO_PI);
+    ctx.arc(dotX, meterY, compact ? 7 : 9, 0, TWO_PI);
     ctx.fill();
     ctx.strokeStyle = "rgba(0,0,0,.55)";
     ctx.lineWidth = 2;
@@ -476,23 +593,25 @@ function drawSoundBeatHud(ctx, state, config, w) {
   }
   const activeDotX = meterX + 32 + Math.min(9, filledBeats) * ((meterW - 64) / 9);
   ctx.strokeStyle = "#ffb13d";
-  ctx.lineWidth = 4;
+  ctx.lineWidth = compact ? 3 : 4;
   ctx.beginPath();
-  ctx.moveTo(activeDotX, meterY - 30);
-  ctx.lineTo(activeDotX, meterY + 30);
+  ctx.moveTo(activeDotX, meterY - (compact ? 22 : 30));
+  ctx.lineTo(activeDotX, meterY + (compact ? 22 : 30));
   ctx.stroke();
 
-  panel(ctx, w - 360, hudY, 344, 72, "rgba(3,7,18,.8)", "rgba(255,255,255,.34)");
-  for (let i = 0; i < 5; i += 1) {
-    text(ctx, i < 3 ? "★" : "☆", w - 332 + i * 38, hudY + 31, 28, i < 3 ? "#ffd53b" : "rgba(255,255,255,.34)", "center", 900);
+  panel(ctx, starsX, hudY, starsW, scoreH, "rgba(3,7,18,.8)", "rgba(255,255,255,.34)");
+  const starGap = compact ? 26 : 38;
+  const starStart = starsX + (compact ? 24 : 28);
+  for (let i = 0; i < (compact ? 3 : 5); i += 1) {
+    text(ctx, i < 3 ? "★" : "☆", starStart + i * starGap, hudY + scoreH * 0.44, compact ? 22 : 28, i < 3 ? "#ffd53b" : "rgba(255,255,255,.34)", "center", 900);
   }
   for (let i = 0; i < 3; i += 1) {
-    const x = w - 116 + i * 34;
+    const x = starsX + starsW - (compact ? 58 : 116) + i * (compact ? 22 : 34);
     ctx.fillStyle = i < 2 ? "#ff4f5f" : "rgba(255,255,255,.18)";
     ctx.beginPath();
-    ctx.moveTo(x, hudY + 43);
-    ctx.bezierCurveTo(x - 20, hudY + 25, x - 20, hudY + 5, x, hudY + 18);
-    ctx.bezierCurveTo(x + 20, hudY + 5, x + 20, hudY + 25, x, hudY + 43);
+    ctx.moveTo(x, hudY + scoreH * 0.63);
+    ctx.bezierCurveTo(x - (compact ? 12 : 20), hudY + scoreH * 0.42, x - (compact ? 12 : 20), hudY + scoreH * 0.16, x, hudY + scoreH * 0.31);
+    ctx.bezierCurveTo(x + (compact ? 12 : 20), hudY + scoreH * 0.16, x + (compact ? 12 : 20), hudY + scoreH * 0.42, x, hudY + scoreH * 0.63);
     ctx.fill();
     ctx.strokeStyle = "rgba(0,0,0,.42)";
     ctx.lineWidth = 2;
@@ -1027,19 +1146,13 @@ function startPs1ArcadeGame(mount, options) {
       try { fn(); } catch { /* sound is optional */ }
     }
   };
-  let music = null;
-
   function soundAllowed() {
     return options.getSound ? options.getSound() : options.isSoundEnabled;
   }
 
-  function ensureMusic() {
-    music = null;
-  }
+  function ensureMusic() {}
 
-  function stopMusic() {
-    music = null;
-  }
+  function stopMusic() {}
 
   function armSoundBeatMusic() {
     if (options.kind !== "sound-beat") return;
@@ -1126,7 +1239,7 @@ function startPs1ArcadeGame(mount, options) {
 
     // Group short levels into rounds of >= this many seconds. Only the first
     // level of a round pays the 3-2-1 stop/start; the rest flow straight on,
-    // keeping one steady tempo and one continuous music bed per round.
+    // keeping one steady timing window per round.
     const roundFloor = state.level.minPlaySeconds || 60;
     const nowSec = performance.now() / 1000;
     const startNewRound = options.kind !== "sound-beat"
@@ -1600,7 +1713,7 @@ function startPs1ArcadeGame(mount, options) {
         countdown: state.countdown,
         audioArmed: state.audioArmed,
         soundEnabled: state.soundEnabled,
-        musicActive: Boolean(music),
+        musicActive: false,
         backgroundSrc: image.src,
         bubbles: state.bubbles?.map(bubble => ({
           rime: bubble.rime,

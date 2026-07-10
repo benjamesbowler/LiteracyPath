@@ -1,6 +1,6 @@
 # Checkpoint Coverage Audit
 
-Generated: 2026-06-01T06:56:36.342Z
+Generated: 2026-07-09T09:56:58.708Z
 
 Checkpoint pass decisions now require:
 

@@ -370,6 +370,23 @@ function drawHabitatFloor(ctx, state, theme, w, h) {
   ctx.fillStyle = floor;
   ctx.fillRect(0, floorY - 8, w, h - floorY + 8);
 
+  ctx.save();
+  ctx.globalCompositeOperation = "multiply";
+  for (let i = 0; i < 9; i += 1) {
+    const y = h * (0.57 + i * 0.043);
+    const left = w * (0.07 + i * 0.01);
+    const right = w * (0.93 - i * 0.012);
+    ctx.fillStyle = `rgba(0,0,0,${0.07 + i * 0.012})`;
+    ctx.beginPath();
+    ctx.moveTo(left, y + Math.sin(t * 0.22 + i) * 3);
+    ctx.bezierCurveTo(w * 0.32, y - 18, w * 0.64, y + 18, right, y - 6);
+    ctx.lineTo(right, y + 10);
+    ctx.bezierCurveTo(w * 0.64, y + 30, w * 0.32, y + 2, left, y + 16);
+    ctx.closePath();
+    ctx.fill();
+  }
+  ctx.restore();
+
   for (let i = 0; i < 12; i += 1) {
     const side = i % 2 === 0 ? -1 : 1;
     const x = side < 0 ? w * (0.04 + (i % 6) * 0.055) : w * (0.82 + (i % 6) * 0.035);
@@ -407,6 +424,26 @@ function drawHabitatFloor(ctx, state, theme, w, h) {
     ctx.beginPath();
     ctx.ellipse(x, y, rx, 10 + (i % 3) * 5, -0.08 * side, 0, TWO_PI);
     ctx.fill();
+  }
+
+  ctx.globalCompositeOperation = "source-over";
+  for (let i = 0; i < 15; i += 1) {
+    const side = i % 2 === 0 ? -1 : 1;
+    const x = side < 0 ? w * (0.06 + (i % 7) * 0.045) : w * (0.94 - (i % 7) * 0.044);
+    const y = h * (0.67 + (i % 5) * 0.055);
+    const s = 18 + (i % 4) * 6;
+    const leaf = world === "dino" ? "rgba(63,112,52,.72)" : world === "moonwood" ? "rgba(48,78,94,.66)" : "rgba(67,136,62,.7)";
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(side * (0.22 + (i % 3) * 0.08));
+    for (let blade = 0; blade < 3; blade += 1) {
+      lowPolyShape(ctx, [
+        [0, 0],
+        [side * (s * (0.16 + blade * 0.08)), -s * (0.86 + blade * 0.18)],
+        [side * (s * (0.34 + blade * 0.12)), -s * (0.12 + blade * 0.12)]
+      ], leaf, "rgba(0,0,0,.18)");
+    }
+    ctx.restore();
   }
   ctx.restore();
 }
@@ -496,6 +533,32 @@ function drawWorldGeometry(ctx, state, theme, w, h, layer = "back") {
         ctx.stroke();
       }
     }
+    ctx.globalCompositeOperation = "source-over";
+    for (let i = 0; i < 5; i += 1) {
+      const x = w * (0.07 + i * 0.23) + Math.sin(t * 0.11 + i) * 8;
+      const base = h * (0.57 + (i % 2) * 0.04);
+      const trunk = world === "dino" ? "rgba(83,61,39,.72)" : world === "moonwood" ? "rgba(42,38,66,.72)" : "rgba(51,77,42,.7)";
+      const crown = world === "dino" ? "rgba(45,96,58,.68)" : world === "moonwood" ? "rgba(50,69,96,.62)" : "rgba(57,123,61,.66)";
+      lowPolyShape(ctx, [
+        [x - 12, base + 36],
+        [x - 4, base - 72],
+        [x + 18, base - 76],
+        [x + 22, base + 38]
+      ], trunk, "rgba(0,0,0,.26)");
+      lowPolyShape(ctx, [
+        [x - 72, base - 36],
+        [x - 22, base - 118],
+        [x + 62, base - 88],
+        [x + 74, base - 18],
+        [x + 8, base + 8]
+      ], crown, "rgba(0,0,0,.18)");
+      lowPolyShape(ctx, [
+        [x - 50, base - 78],
+        [x + 4, base - 150],
+        [x + 84, base - 94],
+        [x + 38, base - 48]
+      ], `${theme.accent}32`, null);
+    }
   } else {
     ctx.globalAlpha = 0.92;
     const leftColor = world === "dino" ? "rgba(32,72,34,.9)" : world === "moonwood" ? "rgba(18,35,43,.92)" : "rgba(28,84,39,.9)";
@@ -513,6 +576,40 @@ function drawWorldGeometry(ctx, state, theme, w, h, layer = "back") {
     ctx.ellipse(w * 0.5, h * 0.985, w * 0.52, h * 0.07, 0, 0, TWO_PI);
     ctx.fill();
   }
+  ctx.restore();
+}
+
+function drawSoundPlaque(ctx, label, x, y, w, h, theme, isNeeded, time) {
+  const shimmer = 0.5 + Math.sin(time * 3.4 + x * 0.01) * 0.5;
+  ctx.save();
+  ctx.shadowColor = isNeeded ? `${theme.accent}88` : "rgba(0,0,0,.55)";
+  ctx.shadowBlur = isNeeded ? 22 : 9;
+  ctx.shadowOffsetY = 5;
+  psxPanel(ctx, x + 7, y + 8, w, h, "rgba(0,0,0,.42)", "rgba(0,0,0,0)", 12);
+  psxPanel(
+    ctx,
+    x,
+    y,
+    w,
+    h,
+    isNeeded ? "rgba(255,251,222,.98)" : "rgba(236,247,255,.98)",
+    isNeeded ? `${theme.accent2}f0` : "rgba(7,18,34,.82)",
+    12
+  );
+  ctx.shadowBlur = 0;
+  ctx.shadowOffsetY = 0;
+  ctx.globalCompositeOperation = "screen";
+  ctx.fillStyle = isNeeded ? `${theme.accent}42` : "rgba(255,255,255,.3)";
+  roundedRect(ctx, x + 12, y + 8, w - 24, 7, 3);
+  ctx.fill();
+  ctx.strokeStyle = `${theme.accent}${Math.round(48 + shimmer * 48).toString(16).padStart(2, "0")}`;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(x + 18, y + h - 11);
+  ctx.lineTo(x + w - 18, y + h - 11);
+  ctx.stroke();
+  ctx.globalCompositeOperation = "source-over";
+  plateText(ctx, label, x + w / 2, y + h * 0.56, w - 26, clamp(h * 0.72, 36, 54), 30);
   ctx.restore();
 }
 
@@ -886,9 +983,9 @@ function drawCritter(ctx, critter, needed, theme, time, world, sprite) {
   const spriteMaxH = r * (2.42 + depth * 0.62);
   const spriteMaxW = spriteMaxH * 1.14;
   const plateTextValue = String(critter.label);
-  const plateW = clamp(92 + plateTextValue.length * 25 + r * 0.38, 110, 184);
-  const plateH = clamp(r * 0.78, 46, 60);
-  const plateY = footY + clamp(r * 0.16, 9, 16);
+  const plateW = clamp(122 + plateTextValue.length * 34 + r * 0.4, 146, 238);
+  const plateH = clamp(r * 0.86, 58, 76);
+  const plateY = footY - clamp(r * 0.04, 3, 8);
 
   critter.hitX = center.x;
   critter.hitY = center.y + r * 0.18;
@@ -940,26 +1037,7 @@ function drawCritter(ctx, critter, needed, theme, time, world, sprite) {
     ctx.restore();
   }
 
-  ctx.fillStyle = "rgba(0,0,0,.42)";
-  psxPanel(ctx, center.x - plateW / 2 + 4, plateY + 5, plateW, plateH, "rgba(0,0,0,.38)", "rgba(0,0,0,0)", 9);
-  psxPanel(
-    ctx,
-    center.x - plateW / 2,
-    plateY,
-    plateW,
-    plateH,
-    "rgba(238,248,255,.96)",
-    "rgba(5,12,24,.72)",
-    9
-  );
-  ctx.save();
-  ctx.globalCompositeOperation = "source-over";
-  ctx.fillStyle = theme.accent;
-  ctx.globalAlpha = 0.52;
-  roundedRect(ctx, center.x - plateW / 2 + 11, plateY + 8, plateW - 22, 5, 2);
-  ctx.fill();
-  ctx.restore();
-  plateText(ctx, plateTextValue, center.x, plateY + plateH * 0.58, plateW - 24, clamp(plateH * 0.62, 30, 42), 25);
+  drawSoundPlaque(ctx, plateTextValue, center.x - plateW / 2, plateY, plateW, plateH, theme, isNeeded, time);
 
   ctx.restore();
 }
@@ -1178,7 +1256,7 @@ function startSoundSafariArcadeGame(mount, options) {
       const y = clamp(
         h * position.y + Math.cos(index * 1.7 + state.stage + task.index + state.waveSeed) * h * 0.011,
         h * 0.3,
-        h - clamp(h * 0.27, 136, 190)
+        h - clamp(h * 0.34, 178, 244)
       );
       const depth = clamp((y - h * 0.28) / (h * 0.38), 0, 1);
       const x = clamp(
@@ -1420,7 +1498,7 @@ function startSoundSafariArcadeGame(mount, options) {
       const minX = edgePad;
       const maxX = w - edgePad;
       const minY = h * 0.3;
-      const maxY = h - clamp(h * 0.27, 136, 190);
+      const maxY = h - clamp(h * 0.34, 178, 244);
       if (critter.x < minX || critter.x > maxX) {
         critter.x = clamp(critter.x, minX, maxX);
         critter.vx *= -1;

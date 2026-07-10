@@ -62,6 +62,7 @@
     "check:assessment-level1-content-media": "node tools/checkAssessmentLevel1ContentMedia.js",
     "check:phonics-learn-media": "node tools/checkPhonicsLearnMedia.js",
     "check:learn-games": "node tools/checkLearnGamesIntegration.js",
+    "generate:arcade-music": "node tools/generateArcadeMusicLoops.mjs",
     "check:practice-surface-regressions": "node tools/checkPracticeSurfaceRegressions.js",
     "check:release-readiness-surface": "node tools/checkReleaseReadinessSurface.js",
     "check:teacher-dashboard-data": "node tools/checkTeacherDashboardDataContracts.js",

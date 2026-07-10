@@ -122,15 +122,18 @@ export function ArcadePracticeGame({
   const totalRounds = difficulty === "hard" ? 10 : difficulty === "medium" ? 8 : 6;
 
   const gameState = useMemo(() => {
+    // Restart increments version purely to re-roll random word/order choices.
+    const withReroll = value => ({ ...value, rerollKey: version });
+
     if (mode === "memory") {
       const pairCount = difficulty === "hard" ? 10 : difficulty === "medium" ? 6 : 3;
       const words = pickSightWords(difficulty, pairCount);
-      return { cards: shuffle([...words, ...words].map((word, index) => ({ id: `${word}-${index}`, word }))) };
+      return withReroll({ cards: shuffle([...words, ...words].map((word, index) => ({ id: `${word}-${index}`, word }))) });
     }
 
     if (mode === "rhyme") {
       const pairs = RHYMING_PAIRS.slice(0, difficulty === "hard" ? 8 : difficulty === "medium" ? 6 : 4);
-      return { cards: shuffle(pairs.flat().map((word, index) => ({ id: `${word}-${index}`, word }))), pairTotal: pairs.length };
+      return withReroll({ cards: shuffle(pairs.flat().map((word, index) => ({ id: `${word}-${index}`, word }))), pairTotal: pairs.length });
     }
 
     if (mode === "family") {
@@ -138,25 +141,25 @@ export function ArcadePracticeGame({
       const allFamilies = shuffle(Object.keys(WORD_FAMILIES));
       const familyIds = allFamilies.slice(0, difficulty === "hard" ? 8 : difficulty === "medium" ? 5 : 3);
       const words = familyIds.flatMap(familyId => WORD_FAMILIES[familyId].map(word => ({ familyId, word, onset: word.replace(familyId.slice(1).toLowerCase(), "") })));
-      return { familyIds, words: shuffle(words), total: words.length };
+      return withReroll({ familyIds, words: shuffle(words), total: words.length });
     }
 
     if (mode === "sentence") {
       const source = difficulty === "hard" ? [...SENTENCES.level1, ...SENTENCES.level2, ...SENTENCES.level3] : difficulty === "medium" ? [...SENTENCES.level1, ...SENTENCES.level2] : SENTENCES.level1;
-      return { sentences: shuffle(source).slice(0, totalRounds) };
+      return withReroll({ sentences: shuffle(source).slice(0, totalRounds) });
     }
 
     if (mode === "quiz") {
       const source = SENTENCE_FIX[difficulty] || SENTENCE_FIX.easy;
-      return { fixes: shuffle(source).slice(0, totalRounds) };
+      return withReroll({ fixes: shuffle(source).slice(0, totalRounds) });
     }
 
     if (mode === "target") {
       const words = mode === "target" ? pickSightWords(difficulty, totalRounds + 12) : pickWords(difficulty, totalRounds + 12);
-      return { words };
+      return withReroll({ words });
     }
 
-    return { words: pickWords(difficulty, totalRounds) };
+    return withReroll({ words: pickWords(difficulty, totalRounds) });
   }, [difficulty, mode, totalRounds, version]);
 
   useEffect(() => {
@@ -304,7 +307,7 @@ export function ArcadePracticeGame({
 
   return (
     <div
-      className={`lg-game-stage-shell${shaking ? " lg-shake" : ""}`}
+      className={`lg-game-stage-shell lg-ps2-practice${shaking ? " lg-shake" : ""}`}
       onAnimationEnd={() => setShaking(false)}
     >
       {streak >= 2 && (
@@ -573,9 +576,9 @@ function TargetGame({ state, round, setRound, correct, setCorrect, addScore, mis
 
 function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled }) {
   const sentence = state.sentences[round] || state.sentences[0];
-  const words = sentence.replace(/[.?!]/g, "").split(/\s+/);
+  const words = useMemo(() => sentence.replace(/[.?!]/g, "").split(/\s+/), [sentence]);
   const [position, setPosition] = useState(0);
-  const options = useMemo(() => shuffle(words), [sentence]);
+  const options = useMemo(() => shuffle(words), [words]);
 
   const canHear = hasRecordedSpeech(sentence);
 

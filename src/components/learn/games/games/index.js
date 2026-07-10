@@ -17,5 +17,6 @@ export const LEARN_GAMES = {
   "word-bridge": lazyWithRetry(() => import("./WordBridgeGame.jsx")),
   "sound-beat": lazyWithRetry(() => import("./SoundBeatGame.jsx")),
   "rhyme-pop": lazyWithRetry(() => import("./RhymePopGame.jsx")),
-  "sound-safari": lazyWithRetry(() => import("./SoundSafariGame.jsx"))
+  "sound-safari": lazyWithRetry(() => import("./SoundSafariGame.jsx")),
+  "star-gallery": lazyWithRetry(() => import("./StarGalleryGame.jsx"))
 };

@@ -36,7 +36,7 @@ const WORLD_THEME = {
     palB: "#d7cfb8",
     light: "#fff6b6",
     assets: {
-      background: "/images/learn-games/word-bridge/meadow-background.webp",
+      background: "/images/learn-games/word-bridge/meadow-background-clean-v2.webp",
       helper: "/images/learn-games/word-bridge/meadow-helper.webp",
       pals: "/images/learn-games/word-bridge/meadow-pals.webp"
     }
@@ -61,7 +61,7 @@ const WORLD_THEME = {
     palB: "#f0b24c",
     light: "#ffd37d",
     assets: {
-      background: "/images/learn-games/word-bridge/dino-background.webp",
+      background: "/images/learn-games/word-bridge/dino-background-clean-v2.webp",
       helper: "/images/learn-games/word-bridge/dino-helper.webp",
       pals: "/images/learn-games/word-bridge/dino-pals.webp"
     }
@@ -86,7 +86,7 @@ const WORLD_THEME = {
     palB: "#8bd7d2",
     light: "#dff4ff",
     assets: {
-      background: "/images/learn-games/word-bridge/moonwood-background.webp",
+      background: "/images/learn-games/word-bridge/moonwood-background-clean-v2.webp",
       helper: "/images/learn-games/word-bridge/moonwood-helper.webp",
       pals: "/images/learn-games/word-bridge/moonwood-pals.webp"
     }
@@ -125,11 +125,31 @@ function fillRound(ctx, x, y, w, h, r, fillStyle) {
   ctx.fill();
 }
 
-function strokeRound(ctx, x, y, w, h, r, strokeStyle, lineWidth = 1) {
+function chamferPath(ctx, x, y, w, h, cut = 8) {
+  const c = Math.min(cut, w / 3, h / 3);
+  ctx.moveTo(x + c, y);
+  ctx.lineTo(x + w - c, y);
+  ctx.lineTo(x + w, y + c);
+  ctx.lineTo(x + w, y + h - c);
+  ctx.lineTo(x + w - c, y + h);
+  ctx.lineTo(x + c, y + h);
+  ctx.lineTo(x, y + h - c);
+  ctx.lineTo(x, y + c);
+  ctx.closePath();
+}
+
+function fillChamfer(ctx, x, y, w, h, cut, fillStyle) {
+  ctx.fillStyle = fillStyle;
+  ctx.beginPath();
+  chamferPath(ctx, x, y, w, h, cut);
+  ctx.fill();
+}
+
+function strokeChamfer(ctx, x, y, w, h, cut, strokeStyle, lineWidth = 1) {
   ctx.strokeStyle = strokeStyle;
   ctx.lineWidth = lineWidth;
   ctx.beginPath();
-  roundRect(ctx, x, y, w, h, r);
+  chamferPath(ctx, x, y, w, h, cut);
   ctx.stroke();
 }
 
@@ -307,10 +327,10 @@ function startGame(mount, opts) {
   padWrap.style.cssText = "position:absolute;inset:0;z-index:6;pointer-events:none";
   padWrap.innerHTML =
     '<div style="position:absolute;bottom:18px;left:18px;display:flex;gap:10px;pointer-events:auto">' +
-      '<button data-wb="left" aria-label="Move left" style="width:62px;height:58px;border:1px solid rgba(255,255,255,.22);background:rgba(8,12,24,.34);color:#fff;font-size:1.45rem;font-weight:900;backdrop-filter:blur(4px);box-shadow:inset 0 1px 0 rgba(255,255,255,.18)">&#9664;</button>' +
-      '<button data-wb="right" aria-label="Move right" style="width:62px;height:58px;border:1px solid rgba(255,255,255,.22);background:rgba(8,12,24,.34);color:#fff;font-size:1.45rem;font-weight:900;backdrop-filter:blur(4px);box-shadow:inset 0 1px 0 rgba(255,255,255,.18)">&#9654;</button></div>' +
+      '<button data-wb="left" aria-label="Move left" style="width:62px;height:58px;border:1px solid rgba(255,255,255,.28);background:linear-gradient(160deg,rgba(30,42,70,.62),rgba(4,8,20,.64));color:#fff;font-size:1.45rem;font-weight:900;backdrop-filter:blur(4px);clip-path:polygon(13px 0,100% 0,100% calc(100% - 13px),calc(100% - 13px) 100%,0 100%,0 13px);box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 10px 20px rgba(0,0,0,.26)">&#9664;</button>' +
+      '<button data-wb="right" aria-label="Move right" style="width:62px;height:58px;border:1px solid rgba(255,255,255,.28);background:linear-gradient(160deg,rgba(30,42,70,.62),rgba(4,8,20,.64));color:#fff;font-size:1.45rem;font-weight:900;backdrop-filter:blur(4px);clip-path:polygon(13px 0,100% 0,100% calc(100% - 13px),calc(100% - 13px) 100%,0 100%,0 13px);box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 10px 20px rgba(0,0,0,.26)">&#9654;</button></div>' +
     '<div style="position:absolute;bottom:18px;right:18px;pointer-events:auto">' +
-      '<button data-wb="action" aria-label="Pick or drop tile" style="width:92px;height:64px;border:0;background:linear-gradient(160deg,#ffe16f,#ffb437);color:#20140a;font-size:.95rem;font-weight:950;letter-spacing:.03em;box-shadow:inset 0 -7px 0 rgba(0,0,0,.25),0 10px 18px rgba(0,0,0,.22)">PICK</button></div>';
+      '<button data-wb="action" aria-label="Pick or drop tile" style="width:98px;height:66px;border:1px solid rgba(255,255,255,.55);background:linear-gradient(160deg,#fff0a8 0%,#ffd451 42%,#e58d27 100%);color:#20140a;font-size:.95rem;font-weight:950;letter-spacing:.04em;clip-path:polygon(15px 0,100% 0,100% calc(100% - 15px),calc(100% - 15px) 100%,0 100%,0 15px);box-shadow:inset 0 -8px 0 rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.55),0 13px 22px rgba(0,0,0,.28)">PICK</button></div>';
   mount.appendChild(padWrap);
 
   const overlay = document.createElement("div");
@@ -678,10 +698,10 @@ function startGame(mount, opts) {
   function showOverlay(title, subtitle, btnText, onClick) {
     overlay.style.display = "grid";
     overlay.innerHTML =
-      '<div style="width:min(88vw,470px);display:grid;gap:14px;justify-items:center;padding:25px 20px;color:#f8fbff;text-shadow:0 4px 20px rgba(0,0,0,.72)">' +
+      '<div style="width:min(88vw,490px);display:grid;gap:14px;justify-items:center;padding:28px 24px;color:#f8fbff;text-shadow:0 4px 20px rgba(0,0,0,.72);background:linear-gradient(160deg,rgba(17,27,53,.78),rgba(6,9,22,.82));border:1px solid rgba(255,255,255,.22);clip-path:polygon(22px 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%,0 22px);box-shadow:0 22px 52px rgba(0,0,0,.46),inset 0 1px 0 rgba(255,255,255,.18)">' +
         `<div style="font-size:2.05rem;font-weight:950;line-height:1">${title}</div>` +
         `<div style="font-size:1.02rem;line-height:1.45;color:rgba(255,255,255,.82);max-width:34ch">${subtitle}</div>` +
-        `<button id="wb-ov-btn" style="font-family:inherit;font-weight:950;font-size:1.02rem;color:#20140a;background:linear-gradient(160deg,#ffe16f,#ffb437);border:0;padding:13px 25px;box-shadow:inset 0 -6px 0 rgba(0,0,0,.22);cursor:pointer">${btnText}</button>` +
+        `<button id="wb-ov-btn" style="font-family:inherit;font-weight:950;font-size:1.02rem;color:#20140a;background:linear-gradient(160deg,#fff0a8,#ffbd38);border:1px solid rgba(255,255,255,.5);padding:13px 27px;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);box-shadow:inset 0 -6px 0 rgba(0,0,0,.24);cursor:pointer">${btnText}</button>` +
       "</div>";
     overlay.querySelector("#wb-ov-btn").addEventListener("click", onClick);
   }
@@ -1470,24 +1490,44 @@ function startGame(mount, opts) {
     const glowAlpha = bridgeGlow > 0 ? Math.min(0.42, bridgeGlow * 0.36) : 0;
     if (glowAlpha) {
       ctx.fillStyle = `rgba(255,230,116,${glowAlpha})`;
-      ctx.fillRect(gap.x + 8, bridgeTop + 5, gap.w - 16, 16);
+      ctx.fillRect(gap.x + 6, bridgeTop + 2, gap.w - 12, KEY_HEIGHT);
     }
 
     ctx.fillStyle = "rgba(0,0,0,.26)";
     ctx.beginPath();
-    ctx.ellipse(gap.x + gap.w / 2, bridgeBottom + 8, gap.w * 0.43, 13, 0, 0, Math.PI * 2);
+    ctx.ellipse(gap.x + gap.w / 2, bridgeBottom + 14, gap.w * 0.47, 16, 0, 0, Math.PI * 2);
     ctx.fill();
 
-    ctx.strokeStyle = world === "dino" ? "rgba(255,187,58,.36)" : world === "moonwood" ? "rgba(200,238,255,.3)" : "rgba(219,255,255,.34)";
-    ctx.lineWidth = 2.5;
+    const deckGrad = ctx.createLinearGradient(0, bridgeTop - 6, 0, bridgeBottom + 20);
+    deckGrad.addColorStop(0, world === "dino" ? "rgba(75,42,24,.88)" : world === "moonwood" ? "rgba(38,47,82,.86)" : "rgba(31,72,75,.84)");
+    deckGrad.addColorStop(0.52, world === "dino" ? "rgba(47,24,18,.9)" : world === "moonwood" ? "rgba(18,22,44,.9)" : "rgba(12,42,54,.9)");
+    deckGrad.addColorStop(1, "rgba(4,6,12,.88)");
+    drawPoly(ctx, [
+      [Math.max(0, gap.x - 36), bridgeTop + 9],
+      [gap.x + gap.w + 36, bridgeTop + 5],
+      [gap.x + gap.w + 18, bridgeBottom + 18],
+      [gap.x - 18, bridgeBottom + 22]
+    ], deckGrad);
+    ctx.strokeStyle = "rgba(255,255,255,.13)";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(Math.max(0, gap.x - 31), bridgeTop + 12);
+    ctx.lineTo(gap.x + gap.w + 30, bridgeTop + 8);
+    ctx.stroke();
+
+    ctx.strokeStyle = world === "dino" ? "rgba(255,187,58,.42)" : world === "moonwood" ? "rgba(200,238,255,.34)" : "rgba(219,255,255,.38)";
+    ctx.lineWidth = 3;
     ctx.lineCap = "round";
     for (let rail = 0; rail < 2; rail += 1) {
-      const y = bridgeTop + 10 + rail * 27;
+      const y = bridgeTop + 7 + rail * 32;
+      ctx.shadowColor = ctx.strokeStyle;
+      ctx.shadowBlur = 8;
       ctx.beginPath();
-      ctx.moveTo(Math.max(0, gap.x - 28), y);
-      ctx.lineTo(gap.x + gap.w + 28, y + (rail ? 2 : -2));
+      ctx.moveTo(Math.max(0, gap.x - 34), y);
+      ctx.lineTo(gap.x + gap.w + 34, y + (rail ? 4 : -3));
       ctx.stroke();
     }
+    ctx.shadowBlur = 0;
 
     const filledSlots = slots.filter(slot => slot.filled);
     for (let i = 0; i < filledSlots.length - 1; i += 1) {
@@ -1499,8 +1539,8 @@ function startGame(mount, opts) {
       const connectorGrad = ctx.createLinearGradient(0, bridgeTop + 8, 0, bridgeBottom);
       connectorGrad.addColorStop(0, "#ffe99a");
       connectorGrad.addColorStop(1, theme.tileEdge);
-      fillRound(ctx, connectorX, bridgeTop + 12, connectorW, KEY_HEIGHT - 20, 5, connectorGrad);
-      fillRound(ctx, connectorX, bridgeBottom - 10, connectorW, 8, 3, "rgba(55,31,12,.24)");
+      fillChamfer(ctx, connectorX, bridgeTop + 13, connectorW, KEY_HEIGHT - 17, 4, connectorGrad);
+      fillChamfer(ctx, connectorX, bridgeBottom - 8, connectorW, 8, 2, "rgba(55,31,12,.24)");
     }
 
     for (let i = 0; i < slots.length; i += 1) {
@@ -1517,31 +1557,46 @@ function startGame(mount, opts) {
         tileGrad.addColorStop(0.36, theme.tile);
         tileGrad.addColorStop(0.72, theme.tileEdge);
         tileGrad.addColorStop(1, "rgba(74,42,16,.88)");
-        fillRound(ctx, s.x - 1, s.y + 8, s.w + 2, s.h - 3, 8, "rgba(58,30,10,.48)");
-        fillRound(ctx, s.x, s.y, s.w, s.h - 6, 8, tileGrad);
-        fillRound(ctx, s.x + 5, s.y + 5, s.w - 10, 8, 4, "rgba(255,255,255,.34)");
-        fillRound(ctx, s.x + 5, s.y + s.h - 15, s.w - 10, 5, 3, "rgba(54,31,12,.22)");
-        strokeRound(ctx, s.x, s.y, s.w, s.h - 6, 8, "rgba(60,35,15,.48)", 2);
+        fillChamfer(ctx, s.x - 1, s.y + 9, s.w + 3, s.h - 1, 9, "rgba(58,30,10,.55)");
+        fillChamfer(ctx, s.x, s.y, s.w, s.h - 5, 9, tileGrad);
+        fillChamfer(ctx, s.x + 5, s.y + 5, s.w - 10, 8, 4, "rgba(255,255,255,.38)");
+        fillChamfer(ctx, s.x + 6, s.y + s.h - 16, s.w - 12, 6, 3, "rgba(54,31,12,.24)");
+        strokeChamfer(ctx, s.x, s.y, s.w, s.h - 5, 9, "rgba(60,35,15,.56)", 2.4);
         ctx.fillStyle = "rgba(75,43,14,.28)";
         ctx.beginPath();
         ctx.arc(s.x + 8, s.y + 9, 2, 0, Math.PI * 2);
         ctx.arc(s.x + s.w - 8, s.y + 9, 2, 0, Math.PI * 2);
         ctx.fill();
+        const glyph = s.placedGlyph || s.needed;
+        const glyphSize = s.w > 74
+          ? clamp((s.w - 12) / Math.max(String(glyph).length, 4) * 1.55, 14, 21)
+          : 24;
         ctx.fillStyle = "#21180d";
-        ctx.font = `950 ${s.w > 60 ? 15 : 21}px Fredoka, Arial, sans-serif`;
+        ctx.font = `950 ${glyphSize}px Fredoka, Arial, sans-serif`;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
-        ctx.fillText(s.placedGlyph || s.needed, s.x + s.w / 2, s.y + (s.h - 6) / 2 + 2, s.w - 8);
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "rgba(255,247,196,.62)";
+        ctx.strokeText(glyph, s.x + s.w / 2, s.y + (s.h - 6) / 2 + 2, s.w - 8);
+        ctx.fillText(glyph, s.x + s.w / 2, s.y + (s.h - 6) / 2 + 2, s.w - 8);
       } else {
-        fillRound(ctx, s.x, s.y + 7, s.w, s.h - 5, 8, "rgba(8,10,18,.16)");
-        strokeRound(ctx, s.x, s.y + 7, s.w, s.h - 5, 8, "rgba(255,255,255,.28)", 2);
+        const wellGrad = ctx.createLinearGradient(0, s.y + 4, 0, s.y + s.h + 4);
+        wellGrad.addColorStop(0, "rgba(255,255,255,.12)");
+        wellGrad.addColorStop(0.48, "rgba(4,7,16,.26)");
+        wellGrad.addColorStop(1, "rgba(0,0,0,.36)");
+        fillChamfer(ctx, s.x, s.y + 7, s.w, s.h - 5, 9, wellGrad);
+        strokeChamfer(ctx, s.x, s.y + 7, s.w, s.h - 5, 9, "rgba(255,255,255,.34)", 2);
         ctx.fillStyle = world === "dino" ? "rgba(255,213,112,.32)" : world === "moonwood" ? "rgba(224,242,255,.32)" : "rgba(240,255,255,.35)";
-        ctx.fillRect(s.x + 5, s.y + 11, s.w - 10, 3);
-        ctx.fillStyle = "rgba(255,255,255,.24)";
-        ctx.font = `950 ${s.w > 60 ? 14 : 19}px Fredoka, Arial, sans-serif`;
+        fillChamfer(ctx, s.x + 6, s.y + 12, s.w - 12, 4, 2, ctx.fillStyle);
+        ctx.fillStyle = "rgba(255,255,255,.4)";
+        const glyph = s.needed;
+        const glyphSize = s.w > 74
+          ? clamp((s.w - 12) / Math.max(String(glyph).length, 4) * 1.42, 13, 19)
+          : 20;
+        ctx.font = `950 ${glyphSize}px Fredoka, Arial, sans-serif`;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
-        ctx.fillText(s.needed, s.x + s.w / 2, s.y + s.h / 2 + 5, s.w - 8);
+        ctx.fillText(glyph, s.x + s.w / 2, s.y + s.h / 2 + 5, s.w - 8);
       }
       ctx.restore();
     }
@@ -1556,10 +1611,11 @@ function startGame(mount, opts) {
     }
 
     const edgeGrad = ctx.createLinearGradient(0, bridgeMid - 6, 0, bridgeMid + 18);
-    edgeGrad.addColorStop(0, "rgba(255,255,255,.18)");
-    edgeGrad.addColorStop(1, "rgba(0,0,0,.12)");
+    edgeGrad.addColorStop(0, "rgba(255,255,255,.16)");
+    edgeGrad.addColorStop(0.58, "rgba(255,255,255,.03)");
+    edgeGrad.addColorStop(1, "rgba(0,0,0,.16)");
     ctx.fillStyle = edgeGrad;
-    ctx.fillRect(gap.x + 3, bridgeMid - 6, gap.w - 6, 24);
+    ctx.fillRect(gap.x + 2, bridgeMid - 7, gap.w - 4, 26);
   }
 
   function drawTile(t, now, carried = false) {
@@ -1573,18 +1629,33 @@ function startGame(mount, opts) {
     ctx.ellipse(x + t.w / 2, y + t.h + 7, t.w * 0.42, 7, 0, 0, Math.PI * 2);
     ctx.fill();
 
+    ctx.shadowColor = carried ? "rgba(255,221,95,.46)" : "rgba(0,0,0,.28)";
+    ctx.shadowBlur = carried ? 14 : 8;
+    ctx.shadowOffsetY = carried ? 2 : 4;
     const grad = ctx.createLinearGradient(0, y, 0, y + t.h);
     grad.addColorStop(0, "#fff1a5");
     grad.addColorStop(0.44, theme.tile);
-    grad.addColorStop(1, theme.tileEdge);
-    fillRound(ctx, x, y, t.w, t.h, 9, grad);
-    fillRound(ctx, x + 5, y + 5, t.w - 10, 7, 5, "rgba(255,255,255,.35)");
-    strokeRound(ctx, x, y, t.w, t.h, 9, "rgba(62,38,12,.42)", 2);
+    grad.addColorStop(0.76, theme.tileEdge);
+    grad.addColorStop(1, "rgba(74,42,16,.88)");
+    fillChamfer(ctx, x, y, t.w, t.h, 10, grad);
+    ctx.shadowBlur = 0;
+    ctx.shadowOffsetY = 0;
+    fillChamfer(ctx, x + 5, y + 5, t.w - 10, 8, 4, "rgba(255,255,255,.4)");
+    fillChamfer(ctx, x + 6, y + t.h - 12, t.w - 12, 6, 3, "rgba(54,31,12,.24)");
+    strokeChamfer(ctx, x, y, t.w, t.h, 10, "rgba(62,38,12,.56)", 2.4);
+    strokeChamfer(ctx, x + 3, y + 3, t.w - 6, t.h - 6, 7, "rgba(255,255,255,.22)", 1.2);
     ctx.fillStyle = "#21180d";
-    ctx.font = `950 ${t.w > 60 ? 15 : 22}px Fredoka, Arial, sans-serif`;
+    const glyph = String(t.glyph);
+    const glyphSize = t.w > 74
+      ? clamp((t.w - 12) / Math.max(glyph.length, 4) * 1.55, 14, 21)
+      : 25;
+    ctx.font = `950 ${glyphSize}px Fredoka, Arial, sans-serif`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText(String(t.glyph), x + t.w / 2, y + t.h / 2 + 1, t.w - 8);
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = "rgba(255,247,196,.68)";
+    ctx.strokeText(glyph, x + t.w / 2, y + t.h / 2 + 1, t.w - 8);
+    ctx.fillText(glyph, x + t.w / 2, y + t.h / 2 + 1, t.w - 8);
     ctx.restore();
   }
 
@@ -1852,6 +1923,35 @@ function startGame(mount, opts) {
     }
   }
 
+  function drawPostFx(now) {
+    ctx.save();
+    const tone = ctx.createLinearGradient(0, 0, W, H);
+    tone.addColorStop(0, world === "dino" ? "rgba(255,136,48,.08)" : world === "moonwood" ? "rgba(120,122,255,.09)" : "rgba(95,220,255,.06)");
+    tone.addColorStop(0.58, "rgba(255,255,255,0)");
+    tone.addColorStop(1, "rgba(0,0,0,.2)");
+    ctx.fillStyle = tone;
+    ctx.fillRect(0, 0, W, H);
+
+    const vignette = ctx.createRadialGradient(W * 0.5, H * 0.47, Math.min(W, H) * 0.24, W * 0.5, H * 0.5, Math.max(W, H) * 0.68);
+    vignette.addColorStop(0, "rgba(0,0,0,0)");
+    vignette.addColorStop(0.72, "rgba(0,0,0,.1)");
+    vignette.addColorStop(1, "rgba(0,0,0,.38)");
+    ctx.fillStyle = vignette;
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.globalAlpha = 0.18;
+    ctx.fillStyle = "rgba(255,255,255,.18)";
+    for (let y = (Math.floor(now * 20) % 4); y < H; y += 4) {
+      ctx.fillRect(0, y, W, 1);
+    }
+    ctx.globalAlpha = 0.09;
+    ctx.fillStyle = "rgba(0,0,0,.42)";
+    for (let x = 0; x < W; x += 3) {
+      ctx.fillRect(x, 0, 1, H);
+    }
+    ctx.restore();
+  }
+
   function render() {
     const now = performance.now() * 0.001;
     ctx.clearRect(0, 0, W, H);
@@ -1867,6 +1967,7 @@ function startGame(mount, opts) {
     drawBell(now);
     drawBuilder(now);
     drawEffects();
+    drawPostFx(now);
     drawPhaseOverlay();
   }
 

@@ -84,6 +84,20 @@ function roundedRect(ctx, x, y, w, h, r) {
   ctx.closePath();
 }
 
+function cutRect(ctx, x, y, w, h, cut = 12) {
+  const c = Math.min(cut, w / 3, h / 3);
+  ctx.beginPath();
+  ctx.moveTo(x + c, y);
+  ctx.lineTo(x + w - c, y);
+  ctx.lineTo(x + w, y + c);
+  ctx.lineTo(x + w, y + h - c);
+  ctx.lineTo(x + w - c, y + h);
+  ctx.lineTo(x + c, y + h);
+  ctx.lineTo(x, y + h - c);
+  ctx.lineTo(x, y + c);
+  ctx.closePath();
+}
+
 function drawCover(ctx, image, w, h) {
   if (!image.complete || !image.naturalWidth) return false;
   const scale = Math.max(w / image.naturalWidth, h / image.naturalHeight);
@@ -133,11 +147,21 @@ function drawScreenGrade(ctx, w, h) {
 
 function panel(ctx, x, y, w, h, color = "rgba(5,10,22,.72)", stroke = "rgba(255,255,255,.28)") {
   ctx.save();
-  roundedRect(ctx, x, y, w, h, 12);
+  cutRect(ctx, x, y, w, h, Math.min(18, h * 0.32));
   ctx.fillStyle = color;
   ctx.fill();
+  ctx.globalAlpha = 0.38;
+  const gloss = ctx.createLinearGradient(0, y, 0, y + h);
+  gloss.addColorStop(0, "rgba(255,255,255,.26)");
+  gloss.addColorStop(0.18, "rgba(255,255,255,.08)");
+  gloss.addColorStop(1, "rgba(255,255,255,0)");
+  ctx.fillStyle = gloss;
+  cutRect(ctx, x + 2, y + 2, w - 4, Math.max(6, h * 0.34), Math.min(14, h * 0.24));
+  ctx.fill();
+  ctx.globalAlpha = 1;
   ctx.lineWidth = 2;
   ctx.strokeStyle = stroke;
+  cutRect(ctx, x, y, w, h, Math.min(18, h * 0.32));
   ctx.stroke();
   ctx.restore();
 }
@@ -854,6 +878,30 @@ function drawRhymeStageFloor(ctx, state, w, h) {
   ctx.closePath();
   ctx.fill();
 
+  for (const side of [-1, 1]) {
+    const innerTop = side < 0 ? w * 0.105 : w * 0.895;
+    const innerBottom = side < 0 ? w * 0.045 : w * 0.955;
+    const outerBottom = side < 0 ? -w * 0.025 : w * 1.025;
+    const railGrad = ctx.createLinearGradient(innerTop, topY, innerBottom, h);
+    railGrad.addColorStop(0, "rgba(255,243,180,.44)");
+    railGrad.addColorStop(0.5, "rgba(27,44,64,.76)");
+    railGrad.addColorStop(1, "rgba(2,5,14,.98)");
+    ctx.fillStyle = railGrad;
+    ctx.beginPath();
+    ctx.moveTo(innerTop, topY);
+    ctx.lineTo(innerBottom, bottomY);
+    ctx.lineTo(outerBottom, bottomY);
+    ctx.lineTo(side < 0 ? w * 0.055 : w * 0.945, topY + h * 0.05);
+    ctx.closePath();
+    ctx.fill();
+    ctx.strokeStyle = side < 0 ? "rgba(61,240,255,.48)" : "rgba(255,207,61,.5)";
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.moveTo(innerTop, topY + 3);
+    ctx.lineTo(innerBottom, h + 8);
+    ctx.stroke();
+  }
+
   ctx.strokeStyle = "rgba(255,222,112,.28)";
   ctx.lineWidth = 2;
   for (let i = 0; i <= 10; i += 1) {
@@ -1025,6 +1073,15 @@ function drawRhymeOrb(ctx, bubble, task, state, now, w, h) {
   ctx.fill();
   const label = bubble.word || bubble.rime;
   const labelSize = label.length > 5 ? Math.max(17, r * 0.32) : Math.max(23, r * 0.44);
+  const labelW = clamp(label.length * labelSize * 0.48 + 22, r * 1.05, r * 1.82);
+  const labelH = labelSize * 1.25;
+  ctx.fillStyle = "rgba(2,6,18,.38)";
+  cutRect(ctx, center.x - labelW / 2, center.y - labelH / 2 + 2, labelW, labelH, Math.min(10, labelH * 0.28));
+  ctx.fill();
+  ctx.strokeStyle = "rgba(255,255,255,.32)";
+  ctx.lineWidth = 1.5;
+  cutRect(ctx, center.x - labelW / 2, center.y - labelH / 2 + 2, labelW, labelH, Math.min(10, labelH * 0.28));
+  ctx.stroke();
   text(ctx, label, center.x, center.y + 2, labelSize, "#fff", "center", 900);
 
   if (bubble.kind === "rhyme" && state.judgement === "POP!") {
@@ -1125,16 +1182,30 @@ function drawRhymeLauncher(ctx, state, config, w, h) {
   ctx.lineTo(clamp(targetX, w * 0.08, w * 0.92), clamp(targetY, h * 0.16, h * 0.7));
   ctx.stroke();
   ctx.setLineDash([]);
+  ctx.globalCompositeOperation = "screen";
+  ctx.strokeStyle = `${config.accent2}88`;
+  ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  ctx.arc(clamp(targetX, w * 0.08, w * 0.92), clamp(targetY, h * 0.16, h * 0.7), 18 + pulse * 8, 0, TWO_PI);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(clamp(targetX, w * 0.08, w * 0.92) - 27, clamp(targetY, h * 0.16, h * 0.7));
+  ctx.lineTo(clamp(targetX, w * 0.08, w * 0.92) + 27, clamp(targetY, h * 0.16, h * 0.7));
+  ctx.moveTo(clamp(targetX, w * 0.08, w * 0.92), clamp(targetY, h * 0.16, h * 0.7) - 27);
+  ctx.lineTo(clamp(targetX, w * 0.08, w * 0.92), clamp(targetY, h * 0.16, h * 0.7) + 27);
+  ctx.stroke();
+  ctx.globalCompositeOperation = "source-over";
 
   const plinth = ctx.createLinearGradient(w * 0.36, h * 0.78, w * 0.64, h * 0.93);
   plinth.addColorStop(0, "rgba(255,210,90,.9)");
   plinth.addColorStop(0.5, "rgba(105,58,24,.92)");
   plinth.addColorStop(1, "rgba(18,11,9,.96)");
   ctx.fillStyle = plinth;
-  roundedRect(ctx, launch.x - 140, launch.y + 38, 280, 54, 24);
+  cutRect(ctx, launch.x - 140, launch.y + 38, 280, 54, 18);
   ctx.fill();
   ctx.lineWidth = 4;
   ctx.strokeStyle = "rgba(255,255,255,.34)";
+  cutRect(ctx, launch.x - 140, launch.y + 38, 280, 54, 18);
   ctx.stroke();
 
   ctx.save();
@@ -1145,13 +1216,17 @@ function drawRhymeLauncher(ctx, state, config, w, h) {
   barrel.addColorStop(0.5, "#56efff");
   barrel.addColorStop(1, "#0b3342");
   ctx.fillStyle = barrel;
-  roundedRect(ctx, -18, -22, 132, 44, 18);
+  cutRect(ctx, -18, -22, 132, 44, 14);
   ctx.fill();
   ctx.lineWidth = 4;
   ctx.strokeStyle = "rgba(255,255,255,.66)";
+  cutRect(ctx, -18, -22, 132, 44, 14);
   ctx.stroke();
   ctx.fillStyle = "rgba(255,255,255,.52)";
-  roundedRect(ctx, 74, -13, 34, 26, 10);
+  cutRect(ctx, 74, -13, 34, 26, 8);
+  ctx.fill();
+  ctx.fillStyle = "rgba(0,0,0,.22)";
+  cutRect(ctx, 10, 10, 72, 8, 3);
   ctx.fill();
   ctx.restore();
 
@@ -1159,9 +1234,9 @@ function drawRhymeLauncher(ctx, state, config, w, h) {
   // Loaded ammo: a plain orb, no word inside (a word here read as "the answer").
   drawBubble(ctx, launch.x, launch.y, 42 + pulse * 5, "", config.accent2, "rgba(255,255,255,.9)");
 
-  panel(ctx, w * 0.35, h * 0.66, w * 0.3, 62, "rgba(4,9,20,.62)", `${config.accent}88`);
-  text(ctx, "Rhymes with", w * 0.44, h * 0.692, 22, "#fff", "center", 900);
-  text(ctx, titleWord(task.targetWord), w * 0.57, h * 0.692, 32, config.accent, "center", 900);
+  panel(ctx, w * 0.34, h * 0.65, w * 0.32, 72, "rgba(4,9,20,.68)", `${config.accent}88`);
+  text(ctx, "Rhymes with", w / 2, h * 0.678, 19, "#fff", "center", 900);
+  text(ctx, titleWord(task.targetWord), w / 2, h * 0.72, 32, config.accent, "center", 900);
   ctx.restore();
 }
 

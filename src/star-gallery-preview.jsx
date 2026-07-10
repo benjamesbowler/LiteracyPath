@@ -2,7 +2,6 @@ import { useCallback, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import StarGalleryGame from "./components/learn/games/games/StarGalleryGame.jsx";
 import { startGameMusic, stopGameMusic } from "./utils/audio/gameMusic.js";
-import { worldForDifficulty } from "./utils/palWorlds.js";
 
 function Preview() {
   const params = new URLSearchParams(window.location.search);
@@ -14,10 +13,10 @@ function Preview() {
   }, []);
 
   useEffect(() => {
-    if (soundEnabled) startGameMusic(worldForDifficulty(difficulty).id);
+    if (soundEnabled) startGameMusic("star-gallery");
     else stopGameMusic();
     return () => stopGameMusic();
-  }, [difficulty, soundEnabled]);
+  }, [soundEnabled]);
 
   return (
     <div style={{ width: "100vw", height: "100dvh", background: "#050716" }}>

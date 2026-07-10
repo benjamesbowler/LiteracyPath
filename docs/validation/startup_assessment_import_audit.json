@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-08T02:38:16.531Z",
+  "generatedAt": "2026-07-10T02:16:38.476Z",
   "startupFiles": [
     "src/App.jsx",
     "src/data/loadAssessmentSkillBank.js",
@@ -37,7 +37,7 @@
     {
       "file": "src/data/generated/firstTenSkillTopUpQuestions.generated.js",
       "stats": {
-        "bytes": 85904,
+        "bytes": 86014,
         "lines": 3306
       },
       "loading": "dynamic via loadAssessmentSkillBank(skillId)"
@@ -45,16 +45,16 @@
     {
       "file": "src/data/generated/secondBlockSkillTopUpQuestions.generated.js",
       "stats": {
-        "bytes": 576612,
-        "lines": 20373
+        "bytes": 970480,
+        "lines": 33175
       },
       "loading": "dynamic via loadAssessmentSkillBank(skillId)"
     },
     {
       "file": "src/data/generated/blendsAssessmentQuestions.generated.js",
       "stats": {
-        "bytes": 164649,
-        "lines": 5617
+        "bytes": 120605,
+        "lines": 4598
       },
       "loading": "dynamic via loadAssessmentSkillBank(skillId)"
     },
@@ -69,15 +69,15 @@
     {
       "file": "src/data/generated/longVowelsAssessmentQuestions.generated.js",
       "stats": {
-        "bytes": 8052,
-        "lines": 192
+        "bytes": 7961,
+        "lines": 191
       },
       "loading": "dynamic via loadAssessmentSkillBank(skillId)"
     },
     {
       "file": "src/data/generated/vowelTeamsVarietyQuestions.generated.js",
       "stats": {
-        "bytes": 4408,
+        "bytes": 4381,
         "lines": 112
       },
       "loading": "dynamic via loadAssessmentSkillBank(skillId)"
@@ -85,24 +85,24 @@
     {
       "file": "src/data/generated/grammarAssessmentQuestions.generated.js",
       "stats": {
-        "bytes": 19194,
-        "lines": 454
+        "bytes": 26143,
+        "lines": 490
       },
       "loading": "dynamic via loadAssessmentSkillBank(skillId)"
     },
     {
       "file": "src/data/generated/languageSkillQuestions.generated.js",
       "stats": {
-        "bytes": 3153094,
-        "lines": 118933
+        "bytes": 2942826,
+        "lines": 114852
       },
       "loading": "dynamic via loadAssessmentSkillBank(skillId)"
     },
     {
       "file": "src/data/generated/skillLevelGapQuestions.generated.js",
       "stats": {
-        "bytes": 2365367,
-        "lines": 76564
+        "bytes": 2135205,
+        "lines": 66146
       },
       "loading": "dynamic via loadAssessmentSkillBank(skillId)"
     }

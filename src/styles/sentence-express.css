@@ -485,10 +485,152 @@ button.sx-carbox:active { transform: translateY(2px); }
 }
 .sx-golden:active { transform: translateY(2px); box-shadow: 2px 2px 0 rgba(10, 15, 24, 0.45); }
 
+/* ── Train motion: roll in from the left, accelerate out to the right ──── */
+.sx-train { transition: transform 1.15s cubic-bezier(0.22, 0.75, 0.3, 1); }
+.sx-motion-enter .sx-train { transform: translateX(-115%); transition: none; }
+.sx-motion-out .sx-train { transform: translateX(118vw); transition: transform 1.5s cubic-bezier(0.55, 0, 0.85, 0.4); }
+.sx-motion-out .sx-wheel { animation-duration: 0.28s; }
+/* Track is empty while the ticket shows or the train has left. */
+.sx-stage[data-phase="intro"] .sx-train, .sx-stage[data-phase="tally"] .sx-train { transform: translateX(-115%); transition: none; }
+
+/* Whistle steam blast (bigger, faster puffs straight up) */
+.sx-blastset { left: 12%; top: -26px; }
+.sx-smoke.sx-blast {
+  width: 34px; height: 34px;
+  background: rgba(248, 248, 248, 0.95);
+  animation: sx-blastpuff 0.9s ease-out forwards;
+}
+@keyframes sx-blastpuff {
+  0% { transform: translate(0, 0) scale(0.4); opacity: 1; }
+  100% { transform: translate(26px, -120px) scale(2.2); opacity: 0; }
+}
+
+/* Coupling dust burst */
+.sx-dust {
+  position: absolute; left: 50%; bottom: -4px;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: rgba(214, 195, 160, 0.9);
+  animation: sx-dustfly 0.5s ease-out forwards;
+  pointer-events: none;
+}
+.sx-moonwood .sx-dust { background: rgba(150, 165, 190, 0.8); }
+@keyframes sx-dustfly {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(0.3); opacity: 0; }
+}
+
+/* ── Foreground strip (grass / rocks / mushrooms), loops on depart ─────── */
+.sx-fore {
+  display: flex; width: 200%; height: 40px;
+  margin-top: -2px; pointer-events: none;
+}
+.sx-foresvg { width: 50%; height: 100%; flex: 0 0 50%; }
+.sx-scroll .sx-fore { animation: sx-forescroll 2.6s linear infinite; }
+@keyframes sx-forescroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.sx-f-grass { fill: #3e6631; }
+.sx-f-flower { fill: #e5739b; }
+.sx-f-stem { fill: #3e6631; }
+.sx-dino .sx-f-rock { fill: #5c3620; }
+.sx-dino .sx-f-bone { fill: #d8cdb6; }
+.sx-moonwood .sx-f-moss { fill: #1d3a28; }
+.sx-moonwood .sx-f-stem { fill: #c8d2e4; }
+.sx-moonwood .sx-f-cap { fill: #7d5bc2; }
+.sx-moonwood .sx-f-spot { fill: #cfe3ff; }
+
+/* ── Horizon buildings ─────────────────────────────────────────────────── */
+.sx-building { position: absolute; opacity: 0.85; }
+.sx-building rect, .sx-building polygon { fill: #57724a; }
+.sx-dino .sx-building rect, .sx-dino .sx-building polygon { fill: #79402a; }
+.sx-moonwood .sx-building rect, .sx-moonwood .sx-building polygon { fill: #0e1830; }
+.sx-building .sx-b-dark { fill: rgba(0, 0, 0, 0.35); }
+.sx-building .sx-b-glow { fill: #ffd76a; opacity: 0.85; }
+.sx-house { left: 3%; top: 13.5%; width: 108px; height: 72px; }
+.sx-tower { right: 7%; top: 10.5%; width: 66px; height: 84px; }
+
+/* ── Ambient critters ──────────────────────────────────────────────────── */
+.sx-butterfly {
+  position: absolute; width: 12px; height: 9px;
+  background: #e5739b;
+  clip-path: polygon(50% 45%, 0 0, 10% 90%, 50% 55%, 90% 90%, 100% 0);
+  animation: sx-flutter 9s ease-in-out infinite;
+}
+.sx-butterfly2 { background: #8d6bd9; }
+@keyframes sx-flutter {
+  0%, 100% { transform: translate(0, 0) rotate(-8deg); }
+  25% { transform: translate(46px, -30px) rotate(10deg); }
+  50% { transform: translate(-14px, -52px) rotate(-6deg); }
+  75% { transform: translate(-42px, -18px) rotate(12deg); }
+}
+.sx-ember {
+  position: absolute; width: 6px; height: 6px; border-radius: 50%;
+  background: #ffb25e;
+  box-shadow: 0 0 9px 3px rgba(255, 150, 70, 0.55);
+  animation: sx-emberfloat 5s ease-in-out infinite;
+}
+@keyframes sx-emberfloat {
+  0%, 100% { transform: translate(0, 0); opacity: 0.9; }
+  50% { transform: translate(14px, -44px); opacity: 0.3; }
+}
+
+/* ── Combo toast + karaoke word pop ────────────────────────────────────── */
+.sx-combotoast {
+  position: absolute; left: 50%; top: 18%; transform: translateX(-50%) rotate(-4deg);
+  z-index: 14;
+  background: linear-gradient(#ffd76a, #dfa32c); color: var(--sx-ink);
+  border: 3px solid var(--sx-ink); border-radius: 12px;
+  padding: 8px 22px; font-weight: 700; font-size: 24px; letter-spacing: 1.5px;
+  box-shadow: 5px 5px 0 rgba(10, 15, 24, 0.45);
+  animation: sx-slam 0.45s cubic-bezier(0.2, 1.8, 0.4, 1);
+}
+.sx-word-lit { display: inline-block; animation: sx-wordpop 0.3s ease; }
+@keyframes sx-wordpop { from { transform: scale(1.45); } }
+
+/* ── Route map dots on the intro ticket ────────────────────────────────── */
+.sx-route {
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  margin: 2px 0 10px;
+}
+.sx-route i {
+  width: 11px; height: 11px; border-radius: 50%;
+  background: none; border: 2px solid #9b8a68;
+  position: relative;
+}
+.sx-route i:not(:last-child)::after {
+  content: ""; position: absolute; left: 100%; top: 50%;
+  width: 5px; height: 2px; background: #9b8a68; transform: translateY(-50%);
+}
+.sx-route i.sx-done { background: #6b8f5a; border-color: #4a6b3c; }
+.sx-route i.sx-here {
+  background: var(--sx-brass); border-color: var(--sx-ink);
+  transform: scale(1.35);
+  animation: sx-throb 1.4s ease-in-out infinite;
+}
+
+/* ── Tally confetti ────────────────────────────────────────────────────── */
+.sx-confetti {
+  position: absolute; top: -14px;
+  width: 9px; height: 13px; border-radius: 2px;
+  animation: sx-confettifall 2.4s ease-in forwards;
+  pointer-events: none;
+}
+@keyframes sx-confettifall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(320px) rotate(560deg); opacity: 0; }
+}
+
+/* ── Cinematic vignette ────────────────────────────────────────────────── */
+.sx-stage::after {
+  content: ""; position: absolute; inset: 0; z-index: 25; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 42%, transparent 58%, rgba(6, 10, 18, 0.16));
+}
+
 /* ── Accessibility + small screens ─────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .sx-rolling, .sx-rolling .sx-wheel, .sx-scroll .sx-trackbed, .sx-cloud, .sx-ptero,
-  .sx-glowbug, .sx-lever.sx-ready, .sx-rustwisp, .sx-smoke, .sx-jolt, .sx-bump { animation: none; }
+  .sx-glowbug, .sx-lever.sx-ready, .sx-rustwisp, .sx-smoke, .sx-jolt, .sx-bump,
+  .sx-butterfly, .sx-ember, .sx-dust, .sx-confetti, .sx-word-lit, .sx-scroll .sx-fore,
+  .sx-route i.sx-here { animation: none; }
+  .sx-train, .sx-motion-out .sx-train { transition: none; }
 }
 @media (max-width: 700px) {
   .sx-stage { --carw: clamp(64px, 13vw, 92px); }

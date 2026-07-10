@@ -9,10 +9,9 @@
  *   2. Per gear item (14): image-to-image edit of the base ("same character,
  *      now wearing X, change nothing else") ->
  *      DRESSED public/images/companions/full/<pal>--<gear>.webp
- *      (used directly when the child wears exactly one item)
- *      OVERLAY public/images/companions/overlays/<pal>--<gear>.png
- *      (alpha layer = pixels that CHANGED vs the base; stacked when the
- *      child wears several items at once)
+ *      The renderer always shows a dressed variant (newest item wins).
+ *      NOTE: pixel-diff alpha overlays were tried and abandoned - the model
+ *      regenerates every pixel slightly, so the diff mask is the whole canvas.
  *
  *   - ARK_API_KEY auto-loads from .env.local.
  *   - Skips existing (FORCE=1 re-does). ONLY=<palId> limits to one pal.
@@ -44,10 +43,12 @@ const MODEL = process.env.ARK_MODEL || "seedream-4-0-250828";
 const ENDPOINT = "https://ark.ap-southeast.bytepluses.com/api/v3/images/generations";
 const FORCE = process.env.FORCE === "1" || process.env.FORCE === "true";
 const ONLY = process.env.ONLY || "";
+// Seedream 4.5 rejects anything under 3,686,400 px (1920x1920); 4.0 is fine
+// at 1024. Generate big on 4.5, then downscale so every file ships at 1024.
+const GEN_SIZE = /4-5/.test(MODEL) ? "2048x2048" : "1024x1024";
 if (!API_KEY) { console.error("Missing ARK_API_KEY - add  ARK_API_KEY=your-key  to .env.local, then re-run."); process.exit(1); }
 
 const FULL_DIR = "public/images/companions/full";
-const OVERLAY_DIR = "public/images/companions/overlays";
 
 // The one canonical pose. Every base uses it so gear edits stay aligned.
 const POSE = "standing upright facing the viewer, full body visible from head to feet, arms relaxed at the sides, feet planted on the ground, centered in frame with clear space above the head and below the feet";
@@ -101,7 +102,7 @@ async function callSeedream(body) {
 
 async function generateBase(pal) {
   const prompt = `${STYLE} ${pal.desc}, ${POSE}. ${RULES}`;
-  const raw = await callSeedream({ model: MODEL, prompt, size: "1024x1024", response_format: "url", watermark: false });
+  const raw = await callSeedream({ model: MODEL, prompt, size: GEN_SIZE, response_format: "url", watermark: false });
   return sharp(raw).resize(1024, 1024, { fit: "cover" }).webp({ quality: 92 }).toBuffer();
 }
 
@@ -109,44 +110,11 @@ async function generateDressed(baseWebp, pal, gearId) {
   const look = GEAR_LOOKS[gearId];
   const prompt = `Edit this image: the character is now ALSO wearing ${look}. Keep the character, pose, proportions, colors, lighting, background and framing EXACTLY the same as the input image - the ONLY change is the added item. ${RULES}`;
   const dataUrl = `data:image/webp;base64,${baseWebp.toString("base64")}`;
-  const raw = await callSeedream({ model: MODEL, prompt, image: dataUrl, size: "1024x1024", response_format: "url", watermark: false });
+  const raw = await callSeedream({ model: MODEL, prompt, image: dataUrl, size: GEN_SIZE, response_format: "url", watermark: false });
   return sharp(raw).resize(1024, 1024, { fit: "cover" }).webp({ quality: 92 }).toBuffer();
 }
 
-/* The overlay = the dressed image, transparent everywhere it matches the
-   base. Because the edit keeps everything else identical, the changed pixels
-   ARE the worn item (plus its cast shadow). Full-canvas PNG so stacked
-   overlays align by construction. */
-async function extractOverlay(baseWebp, dressedWebp) {
-  const W = 1024, H = 1024;
-  const a = await sharp(baseWebp).ensureAlpha().raw().toBuffer();
-  const b = await sharp(dressedWebp).ensureAlpha().raw().toBuffer();
-  const mask = Buffer.alloc(W * H);
-  for (let i = 0, p = 0; i < a.length; i += 4, p += 1) {
-    const d = Math.max(
-      Math.abs(a[i] - b[i]),
-      Math.abs(a[i + 1] - b[i + 1]),
-      Math.abs(a[i + 2] - b[i + 2])
-    );
-    mask[p] = d > 26 ? 255 : 0;
-  }
-  // Clean the mask: blur away speckles, re-threshold, then feather the edge.
-  const cleaned = await sharp(mask, { raw: { width: W, height: H, channels: 1 } })
-    .blur(3)
-    .threshold(96)
-    .blur(1.2)
-    .toBuffer();
-  return sharp(dressedWebp)
-    .ensureAlpha()
-    .joinChannel(cleaned, { raw: { width: W, height: H, channels: 1 } })
-    .removeAlpha()
-    .joinChannel(cleaned, { raw: { width: W, height: H, channels: 1 } })
-    .png({ compressionLevel: 9 })
-    .toBuffer();
-}
-
 await mkdir(FULL_DIR, { recursive: true });
-await mkdir(OVERLAY_DIR, { recursive: true });
 
 const pals = ONLY ? PALS.filter(p => p.id === ONLY) : PALS;
 if (ONLY && !pals.length) { console.error(`No pal named "${ONLY}". Options: ${PALS.map(p => p.id).join(", ")}`); process.exit(1); }
@@ -174,14 +142,12 @@ for (const pal of pals) {
 
   for (const gearId of Object.keys(GEAR_LOOKS)) {
     const dressedPath = `${FULL_DIR}/${pal.id}--${gearId}.webp`;
-    const overlayPath = `${OVERLAY_DIR}/${pal.id}--${gearId}.png`;
-    if (!FORCE && await exists(dressedPath) && await exists(overlayPath)) {
+    if (!FORCE && await exists(dressedPath)) {
       skipped++; continue;
     }
     try {
       const dressed = await generateDressed(baseWebp, pal, gearId);
       await writeFile(dressedPath, dressed);
-      await writeFile(overlayPath, await extractOverlay(baseWebp, dressed));
       done++; console.log(`+ ${pal.id} wearing ${gearId.replace("gear-", "")}`);
       await sleep(400);
     } catch (err) {
