@@ -40,4 +40,12 @@ function Preview() {
 
 export default Preview;
 
-createRoot(document.getElementById("root")).render(<Preview />);
+const rootElement = document.getElementById("root");
+const root = import.meta.hot?.data.root || createRoot(rootElement);
+root.render(<Preview />);
+
+if (import.meta.hot) {
+  import.meta.hot.dispose(data => {
+    data.root = root;
+  });
+}

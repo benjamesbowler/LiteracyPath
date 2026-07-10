@@ -330,10 +330,44 @@ function makeCollectibleTexture(label, theme) {
   ctx.fillStyle = glow;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(70, 124);
+  ctx.lineTo(454, 124);
+  ctx.lineTo(486, 158);
+  ctx.lineTo(456, 390);
+  ctx.lineTo(68, 390);
+  ctx.lineTo(28, 348);
+  ctx.lineTo(28, 166);
+  ctx.closePath();
+  ctx.fillStyle = "rgba(247,253,255,.96)";
+  ctx.fill();
+  ctx.lineWidth = 18;
+  ctx.strokeStyle = "rgba(3,9,20,.94)";
+  ctx.stroke();
+  ctx.lineWidth = 8;
+  ctx.strokeStyle = theme.accent2;
+  ctx.stroke();
+  ctx.globalAlpha = 0.42;
+  ctx.fillStyle = theme.accent;
+  for (let y = 151; y < 370; y += 22) {
+    ctx.fillRect(58, y, 396, 3);
+  }
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = "rgba(255,255,255,.72)";
+  ctx.beginPath();
+  ctx.moveTo(74, 145);
+  ctx.lineTo(430, 145);
+  ctx.lineTo(448, 164);
+  ctx.lineTo(78, 164);
+  ctx.closePath();
+  ctx.fill();
+  ctx.restore();
+
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   const text = String(label);
-  let size = text.length <= 1 ? 330 : text.length <= 2 ? 270 : text.length <= 3 ? 220 : 155;
+  let size = text.length <= 1 ? 318 : text.length <= 2 ? 264 : text.length <= 3 ? 216 : text.length <= 6 ? 166 : 132;
   ctx.font = `900 ${size}px Trebuchet MS, Arial Rounded MT Bold, sans-serif`;
   while (ctx.measureText(text).width > 430 && size > 80) {
     size -= 8;
@@ -341,13 +375,13 @@ function makeCollectibleTexture(label, theme) {
   }
 
   ctx.lineJoin = "round";
-  ctx.lineWidth = Math.max(22, size * 0.16);
+  ctx.lineWidth = Math.max(26, size * 0.17);
+  ctx.strokeStyle = "rgba(255,255,255,.98)";
+  ctx.strokeText(text, 256, 272);
+  ctx.lineWidth = Math.max(13, size * 0.07);
   ctx.strokeStyle = "rgba(1,4,13,.96)";
   ctx.strokeText(text, 256, 272);
-  ctx.lineWidth = Math.max(9, size * 0.055);
-  ctx.strokeStyle = theme.accent2;
-  ctx.strokeText(text, 256, 272);
-  ctx.fillStyle = "#ffffff";
+  ctx.fillStyle = "#08101e";
   ctx.fillText(text, 256, 272);
 
   const texture = new THREE.CanvasTexture(canvas);
@@ -361,14 +395,22 @@ function makeGround(theme, world) {
   geometry.rotateX(-Math.PI / 2);
   const position = geometry.getAttribute("position");
   const seed = world === "dino" ? 4.3 : world === "moonwood" ? 8.6 : 1.2;
+  const base = new THREE.Color(theme.ground);
+  const ridge = new THREE.Color(theme.ground2);
+  const shadow = new THREE.Color(world === "dino" ? "#29422f" : world === "moonwood" ? "#171b38" : "#23633c");
+  const colors = [];
   for (let i = 0; i < position.count; i += 1) {
     const x = position.getX(i);
     const z = position.getZ(i);
     const ripple = Math.sin(x * 0.13 + seed) * Math.cos(z * 0.11 - seed) * 0.86 + Math.sin((x + z) * 0.045) * 0.34;
     position.setY(i, ripple - 0.16);
+    const light = clamp(0.44 + ripple * 0.16 + Math.sin(x * 0.04 - z * 0.035 + seed) * 0.18, 0, 1);
+    const color = base.clone().lerp(light > 0.52 ? ridge : shadow, Math.abs(light - 0.52) * 1.45);
+    colors.push(color.r, color.g, color.b);
   }
+  geometry.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
   geometry.computeVertexNormals();
-  const ground = new THREE.Mesh(geometry, material(theme.ground));
+  const ground = new THREE.Mesh(geometry, material(theme.ground, { vertexColors: true }));
   ground.receiveShadow = true;
   return ground;
 }
@@ -501,6 +543,30 @@ function makeMushroom(theme, scale = 1) {
   return group;
 }
 
+function makeGroundDetail(theme, world, scale = 1) {
+  const group = new THREE.Group();
+  const leafMat = material(world === "dino" ? "#426f3c" : world === "moonwood" ? "#31456d" : "#4f9a4d");
+  const tipMat = emissiveMaterial(world === "moonwood" ? theme.accent2 : theme.accent, world === "moonwood" ? 0.28 : 0.16);
+  for (let i = 0; i < 4; i += 1) {
+    const blade = new THREE.Mesh(new THREE.ConeGeometry(0.18 * scale, (0.85 + i * 0.12) * scale, 4), leafMat);
+    blade.position.set((i - 1.5) * 0.22 * scale, (0.38 + i * 0.03) * scale, Math.sin(i) * 0.16 * scale);
+    blade.rotation.z = (i - 1.5) * 0.28;
+    blade.rotation.x = -0.18 + i * 0.08;
+    blade.castShadow = true;
+    group.add(blade);
+  }
+  if (world !== "dino") {
+    for (let i = 0; i < 2; i += 1) {
+      const bloom = new THREE.Mesh(new THREE.OctahedronGeometry(0.16 * scale, 0), tipMat);
+      bloom.position.set((i ? 0.34 : -0.28) * scale, 0.78 * scale, (i ? -0.2 : 0.18) * scale);
+      group.add(bloom);
+    }
+  }
+  group.userData.motion = "sway";
+  group.userData.sway = 0.018 + scale * 0.01;
+  return group;
+}
+
 function makeVolcano(theme) {
   const group = new THREE.Group();
   const cone = new THREE.Mesh(new THREE.ConeGeometry(5.2, 7.2, 7, 1, true), material("#3f312f"));
@@ -626,6 +692,18 @@ function addScenery(root, theme, world, actors = []) {
     actors.push(prop);
   }
 
+  for (let i = 0; i < 52; i += 1) {
+    const x = MAP_BOUNDS.minX + 12 + ((i * 31) % 220) + seededOffset(i * 3 + 19, 4.8);
+    const z = MAP_BOUNDS.minZ + 10 + ((i * 47) % 164) + seededOffset(i * 5 + 11, 4.6);
+    if (Math.abs(x) < 22 && z > 46) continue;
+    if (FOREST_TOKEN_SLOTS.some(([slotX, slotZ]) => Math.abs(slotX - x) < 7 && Math.abs(slotZ - z) < 7)) continue;
+    const detail = makeGroundDetail(theme, world, 0.72 + ((i * 13) % 5) * 0.13);
+    detail.position.set(x, 0.02, z);
+    detail.rotation.y = (i * 0.83) % Math.PI;
+    root.add(detail);
+    actors.push(detail);
+  }
+
   if (world === "meadow") {
     const windmill = makeWindmill(theme);
     windmill.position.set(76, 0, 74);
@@ -708,6 +786,55 @@ function makeCourse(root, theme) {
     addFencePost(bounds.maxX, z, 0);
   }
   return { bounds };
+}
+
+function makeStartCamp(theme, world) {
+  const group = new THREE.Group();
+  const pad = new THREE.Mesh(
+    new THREE.CylinderGeometry(1, 1, 0.08, 18),
+    material(theme.road, { roughness: 0.9, metalness: 0.02, transparent: true, opacity: 0.64 })
+  );
+  pad.scale.set(7.8, 1, 4.2);
+  pad.receiveShadow = true;
+  group.add(pad);
+
+  const postMat = material(theme.trim);
+  const lampMat = emissiveMaterial(world === "moonwood" ? theme.accent2 : theme.frame, 0.88);
+  for (const side of [-1, 1]) {
+    const post = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.18, 2.4, 5), postMat);
+    post.position.set(side * 4.9, 1.2, -1.8);
+    const cross = new THREE.Mesh(new THREE.BoxGeometry(1.25, 0.16, 0.18), postMat);
+    cross.position.set(side * 4.55, 2.34, -1.8);
+    cross.rotation.z = side * 0.12;
+    const lantern = new THREE.Mesh(new THREE.OctahedronGeometry(0.36, 0), lampMat);
+    lantern.position.set(side * 4.05, 2.06, -1.8);
+    lantern.userData.motion = "crystal";
+    group.add(post, cross, lantern);
+    group.userData.actor = lantern;
+  }
+
+  const crateMat = material(world === "dino" ? "#6b4630" : "#8b5a35");
+  for (const [x, z, sx, sz] of [[-3.25, 1.65, 1.25, 0.9], [3.3, 1.45, 1.05, 1.1], [-4.15, 0.15, 0.78, 0.72]]) {
+    const crate = new THREE.Mesh(new THREE.BoxGeometry(sx, 0.72, sz), crateMat);
+    crate.position.set(x, 0.4, z);
+    crate.rotation.y = seededOffset(x + z, 0.3);
+    crate.castShadow = true;
+    group.add(crate);
+  }
+
+  const toolHandle = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.07, 1.9, 5), material("#6f4226"));
+  toolHandle.position.set(2.1, 0.95, 2.5);
+  toolHandle.rotation.z = -0.58;
+  const axeHead = new THREE.Mesh(new THREE.BoxGeometry(0.52, 0.2, 0.18), emissiveMaterial(theme.accent2, 0.22));
+  axeHead.position.set(2.58, 1.54, 2.5);
+  axeHead.rotation.z = -0.58;
+  group.add(toolHandle, axeHead);
+
+  group.traverse(child => {
+    child.castShadow = true;
+    child.receiveShadow = true;
+  });
+  return group;
 }
 
 function makeFrame(theme, pose) {
@@ -889,6 +1016,8 @@ function makeVehicle(theme, world) {
 
 function makeToken(label, isCorrect, answer, theme, position) {
   const group = new THREE.Group();
+  const labelString = String(label);
+  const faceWidth = labelString.length <= 1 ? 3.0 : labelString.length <= 3 ? 3.55 : labelString.length <= 7 ? 4.35 : 5.1;
   const stump = new THREE.Mesh(new THREE.CylinderGeometry(0.46, 0.56, 0.34, 7), material("#6f4226"));
   stump.position.y = 0.17;
   const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.5, 3.05, 7), material("#784b2b"));
@@ -903,13 +1032,33 @@ function makeToken(label, isCorrect, answer, theme, position) {
   mid.position.y = 3.92;
   const top = new THREE.Mesh(new THREE.ConeGeometry(0.94, 1.38, 6), foliageMat);
   top.position.y = 4.72;
+  const shadow = new THREE.Mesh(
+    new THREE.CircleGeometry(1.35, 16),
+    new THREE.MeshBasicMaterial({ color: "#02050a", transparent: true, opacity: 0.32, depthWrite: false })
+  );
+  shadow.rotation.x = -Math.PI / 2;
+  shadow.position.y = 0.035;
+  for (let i = 0; i < 5; i += 1) {
+    const root = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.22, 1.18), material("#5f381f"));
+    root.position.set(Math.sin(i * 1.26) * 0.36, 0.18, Math.cos(i * 1.26) * 0.48);
+    root.rotation.y = i * 1.26;
+    root.castShadow = true;
+    group.add(root);
+  }
   const face = new THREE.Mesh(
-    new THREE.BoxGeometry(2.65, 1.04, 0.12),
+    new THREE.BoxGeometry(faceWidth, 1.24, 0.16),
     material("#f5f8ff", { roughness: 0.62, metalness: 0.02, transparent: true, opacity: 0.94 })
   );
-  face.position.set(0, 2.14, -0.74);
-  const signRail = new THREE.Mesh(new THREE.BoxGeometry(2.92, 0.14, 0.18), emissiveMaterial(isCorrect ? theme.accent2 : theme.accent, 0.28));
-  signRail.position.set(0, 2.76, -0.73);
+  face.position.set(0, 2.24, -0.78);
+  const signRail = new THREE.Mesh(new THREE.BoxGeometry(faceWidth + 0.28, 0.16, 0.22), emissiveMaterial(isCorrect ? theme.accent2 : theme.accent, 0.28));
+  signRail.position.set(0, 2.94, -0.75);
+  const signBottom = signRail.clone();
+  signBottom.position.y = 1.52;
+  const leftPeg = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.08, 0.72, 5), material(theme.trim));
+  leftPeg.position.set(-faceWidth * 0.43, 2.22, -0.9);
+  leftPeg.rotation.x = Math.PI / 2;
+  const rightPeg = leftPeg.clone();
+  rightPeg.position.x = faceWidth * 0.43;
   const texture = makeCollectibleTexture(label, theme);
   const labelMesh = new THREE.Sprite(
     new THREE.SpriteMaterial({
@@ -920,15 +1069,15 @@ function makeToken(label, isCorrect, answer, theme, position) {
       toneMapped: false
     })
   );
-  const labelWidth = String(label).length <= 1 ? 2.35 : String(label).length <= 2 ? 2.85 : String(label).length <= 4 ? 3.45 : 4.15;
-  labelMesh.scale.set(labelWidth, 2.0, 1);
-  labelMesh.position.set(0, 2.23, -1.04);
+  const labelWidth = labelString.length <= 1 ? 2.78 : labelString.length <= 2 ? 3.18 : labelString.length <= 4 ? 4.05 : labelString.length <= 7 ? 4.85 : 5.65;
+  labelMesh.scale.set(labelWidth, 2.34, 1);
+  labelMesh.position.set(0, 2.28, -1.1);
   labelMesh.renderOrder = 10;
   const beacon = new THREE.Mesh(new THREE.OctahedronGeometry(0.38, 0), emissiveMaterial(isCorrect ? theme.accent2 : theme.accent, 0.72));
   beacon.position.y = 5.68;
   const glow = new THREE.PointLight(isCorrect ? theme.accent2 : theme.accent, isCorrect ? 1.45 : 0.78, 12, 2.2);
   glow.position.y = 3.5;
-  group.add(stump, trunk, cutMark, lower, mid, top, face, signRail, labelMesh, beacon, glow);
+  group.add(shadow, stump, trunk, cutMark, lower, mid, top, face, signRail, signBottom, leftPeg, rightPeg, labelMesh, beacon, glow);
   group.position.set(position[0], 0, position[1]);
   group.rotation.y = seededOffset(position[0] + position[1], Math.PI);
   group.traverse(child => {
@@ -1007,9 +1156,9 @@ function createHud() {
       <div data-role="title" style="font-size:22px;font-weight:900;color:#7fffe9;">Sentence Grove</div>
       <div data-role="room" style="margin-top:4px;font-size:13px;font-weight:800;"></div>
     </div>
-    <div style="position:absolute;left:50%;top:88px;transform:translateX(-50%);width:min(470px,82vw);padding:12px 18px;background:rgba(3,7,18,.78);border:2px solid rgba(255,226,92,.68);clip-path:polygon(5% 0,96% 0,100% 26%,94% 100%,5% 100%,0 70%,0 18%);text-align:center;">
-      <div data-role="prompt" style="font-size:17px;font-weight:900;color:#ffe45c;"></div>
-      <div data-role="display" style="margin-top:4px;font-size:25px;font-weight:900;"></div>
+    <div style="position:absolute;left:50%;top:88px;transform:translateX(-50%);width:min(560px,82vw);padding:12px 18px;background:rgba(3,7,18,.78);border:2px solid rgba(255,226,92,.68);clip-path:polygon(5% 0,96% 0,100% 26%,94% 100%,5% 100%,0 70%,0 18%);text-align:center;">
+      <div data-role="prompt" style="font-size:clamp(14px,2.2vw,18px);font-weight:900;color:#ffe45c;text-wrap:balance;"></div>
+      <div data-role="display" style="margin-top:4px;font-size:clamp(19px,3.2vw,28px);font-weight:900;line-height:1.12;overflow-wrap:anywhere;"></div>
     </div>
     <div style="position:absolute;right:16px;top:12px;width:205px;padding:12px 16px;background:rgba(3,7,18,.78);border:2px solid rgba(255,226,92,.6);clip-path:polygon(0 0,90% 0,100% 22%,100% 100%,8% 100%,0 78%);text-align:right;">
       <div data-role="score" style="font-size:22px;font-weight:900;">0 pts</div>
@@ -1029,9 +1178,9 @@ function createHud() {
       <div data-role="feedback-sub" style="font-size:15px;font-weight:800;margin-top:4px;"></div>
     </div>
     <div data-role="countdown" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,4,16,.50),rgba(2,4,16,.24));display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;">
-      <div data-role="countdown-prompt" style="max-width:820px;font-size:42px;font-weight:900;line-height:1.05;"></div>
-      <div data-role="countdown-display" style="margin-top:18px;font-size:30px;font-weight:900;color:#ffe45c;"></div>
-      <div data-role="countdown-main" style="font-size:132px;font-weight:900;color:#52ffe1;line-height:1.05;"></div>
+      <div data-role="countdown-prompt" style="max-width:min(860px,86vw);font-size:clamp(26px,5vw,46px);font-weight:900;line-height:1.05;text-wrap:balance;"></div>
+      <div data-role="countdown-display" style="max-width:min(880px,88vw);margin-top:18px;font-size:clamp(24px,3.8vw,36px);font-weight:900;color:#ffe45c;line-height:1.12;overflow-wrap:anywhere;"></div>
+      <div data-role="countdown-main" style="font-size:clamp(76px,16vw,144px);font-weight:900;color:#52ffe1;line-height:1.05;"></div>
     </div>
   `;
   const nodes = {};
@@ -1234,6 +1383,12 @@ function createStarGalleryEngine(mount, options) {
 
     state.frameGroup = makeFrame(theme, { x: placement.frame[0], z: placement.frame[1], yaw: 0 });
     worldRoot.add(state.frameGroup);
+
+    const startCamp = makeStartCamp(theme, world);
+    startCamp.position.set(placement.start[0], 0.02, placement.start[1] + 2.6);
+    startCamp.rotation.y = placement.yaw;
+    worldRoot.add(startCamp);
+    if (startCamp.userData.actor) state.sceneryActors.push(startCamp.userData.actor);
 
     state.vehicle = makeVehicle(theme, world);
     worldRoot.add(state.vehicle);
