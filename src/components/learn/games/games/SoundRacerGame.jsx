@@ -314,6 +314,10 @@ function startGame(THREE, mount, opts) {
   renderer.outputEncoding = THREE.sRGBEncoding;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.0;
+  if (renderer.shadowMap) {
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFShadowMap;
+  }
   renderer.domElement.style.display = "block";
   renderer.domElement.style.width = "100%";
   renderer.domElement.style.height = "100%";
@@ -323,6 +327,15 @@ function startGame(THREE, mount, opts) {
   scene.add(ambient);
   const keyLight = new THREE.DirectionalLight(0xffffff, 1.1);
   keyLight.position.set(4, 9, 6);
+  keyLight.castShadow = true;
+  keyLight.shadow.mapSize.width = 1024;
+  keyLight.shadow.mapSize.height = 1024;
+  keyLight.shadow.camera.near = 1;
+  keyLight.shadow.camera.far = 34;
+  keyLight.shadow.camera.left = -9;
+  keyLight.shadow.camera.right = 9;
+  keyLight.shadow.camera.top = 9;
+  keyLight.shadow.camera.bottom = -9;
   scene.add(keyLight);
   const fillLight = new THREE.HemisphereLight(0xffffff, 0x101020, 0.6);
   scene.add(fillLight);
@@ -445,6 +458,17 @@ function startGame(THREE, mount, opts) {
     if (opts.fog !== undefined) config.fog = opts.fog;
     if (opts.alphaTest !== undefined) config.alphaTest = opts.alphaTest;
     return new THREE.MeshBasicMaterial(config);
+  }
+
+  function setModelShadows(root, cast = true, receive = true) {
+    root.traverse(node => {
+      if (!node.isMesh) return;
+      const mats = Array.isArray(node.material) ? node.material : [node.material].filter(Boolean);
+      const transparent = mats.some(mat => mat.transparent && (mat.opacity ?? 1) < 0.98);
+      node.castShadow = transparent ? false : cast;
+      node.receiveShadow = transparent ? false : receive;
+    });
+    return root;
   }
 
   function canvasTexture(width, height, draw) {
@@ -927,21 +951,46 @@ function startGame(THREE, mount, opts) {
     canvas.width = 512;
     canvas.height = 256;
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = isWrong ? "rgba(18,18,18,.78)" : "rgba(3,10,20,.78)";
+    const cutPanel = (x, y, w, h, cut) => {
+      ctx.beginPath();
+      ctx.moveTo(x + cut, y);
+      ctx.lineTo(x + w - cut, y);
+      ctx.lineTo(x + w, y + cut);
+      ctx.lineTo(x + w - cut, y + h);
+      ctx.lineTo(x + cut, y + h);
+      ctx.lineTo(x, y + h - cut);
+      ctx.lineTo(x, y + cut);
+      ctx.closePath();
+    };
+    const accentHex = "#" + accent.toString(16).padStart(6, "0");
+    const bg = ctx.createLinearGradient(42, 56, 470, 196);
+    bg.addColorStop(0, isWrong ? "rgba(24,18,20,.94)" : "rgba(5,16,32,.96)");
+    bg.addColorStop(0.58, isWrong ? "rgba(50,32,36,.88)" : "rgba(16,38,70,.92)");
+    bg.addColorStop(1, isWrong ? "rgba(14,12,16,.9)" : "rgba(3,10,22,.94)");
+    ctx.fillStyle = "rgba(0,0,0,.34)";
     ctx.beginPath();
-    ctx.roundRect(42, 70, 428, 116, 18);
+    cutPanel(50, 78, 428, 118, 20);
     ctx.fill();
-    ctx.strokeStyle = "#" + accent.toString(16).padStart(6, "0");
-    ctx.lineWidth = 8;
+    ctx.fillStyle = bg;
+    cutPanel(42, 66, 428, 118, 20);
+    ctx.fill();
+    ctx.strokeStyle = accentHex;
+    ctx.lineWidth = 10;
     ctx.stroke();
-    ctx.font = "900 104px Fredoka, Arial, sans-serif";
+    ctx.globalAlpha = isWrong ? 0.16 : 0.24;
+    ctx.fillStyle = accentHex;
+    for (let x = 72; x < 448; x += 34) ctx.fillRect(x, 76, 16, 96);
+    ctx.globalAlpha = 1;
+    ctx.font = "900 112px Fredoka, Arial, sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.lineWidth = 12;
-    ctx.strokeStyle = "rgba(0,0,0,.72)";
-    ctx.strokeText(String(text || "").toLowerCase(), 256, 132);
+    ctx.lineWidth = 15;
+    ctx.strokeStyle = "rgba(0,0,0,.86)";
+    ctx.strokeText(String(text || "").toLowerCase(), 256, 128);
     ctx.fillStyle = "#ffffff";
-    ctx.fillText(String(text || "").toLowerCase(), 256, 132);
+    ctx.fillText(String(text || "").toLowerCase(), 256, 128);
+    ctx.fillStyle = "rgba(255,255,255,.6)";
+    ctx.fillRect(76, 82, 126, 4);
     const tex = new THREE.CanvasTexture(canvas);
     tex.needsUpdate = true;
     tex.encoding = THREE.sRGBEncoding;
@@ -973,6 +1022,7 @@ function startGame(THREE, mount, opts) {
       })
     );
     core.position.y = -0.02;
+    core.castShadow = true;
     group.add(core);
 
     const sprite = new THREE.Sprite(new THREE.SpriteMaterial({
@@ -982,12 +1032,12 @@ function startGame(THREE, mount, opts) {
       depthWrite: false
     }));
     sprite.renderOrder = 10;
-    sprite.scale.set(3.2, 1.6, 1);
-    sprite.position.set(0, 1.12, 0.25);
+    sprite.scale.set(3.65, 1.78, 1);
+    sprite.position.set(0, 1.24, 0.25);
     group.add(sprite);
     group.userData.spin = gate.correct ? 1.15 : 0.55;
     group.userData.sprite = sprite;
-    return group;
+    return setModelShadows(group, true, false);
   }
 
   function makeHazard(type) {
@@ -1018,7 +1068,7 @@ function startGame(THREE, mount, opts) {
       rock.rotation.set(0.4, 0.2, 0.1);
       group.add(rock);
     }
-    return group;
+    return setModelShadows(group, true, true);
   }
 
   function makeGateObject(gate) {
@@ -1076,7 +1126,7 @@ function startGame(THREE, mount, opts) {
     group.userData.light = light;
     group.position.set(0, 1.0, 4.35);
     group.scale.set(scale, scale, scale);
-    return group;
+    return setModelShadows(group, true, true);
   }
 
   function makeMeadowVehicle() {
@@ -1393,6 +1443,7 @@ function startGame(THREE, mount, opts) {
         map: roadTexture
       })
     );
+    slab.receiveShadow = true;
     group.add(slab);
 
     const centerPanel = new THREE.Mesh(
@@ -1429,6 +1480,7 @@ function startGame(THREE, mount, opts) {
         new THREE.BoxGeometry(0.42, 0.34, TRACK_SEGMENT_LENGTH * 0.86),
         material(currentMap.trackB, { metalness: 0.24, roughness: 0.54 })
       );
+      curb.receiveShadow = true;
       curb.position.set(side * (TRACK_WIDTH / 2 + 0.08), 0.18, 0);
       curb.rotation.z = side * 0.06;
       group.add(curb);
@@ -1452,6 +1504,7 @@ function startGame(THREE, mount, opts) {
           emissiveIntensity: 0.025
         })
       );
+      outerWall.receiveShadow = true;
       outerWall.position.set(side * (TRACK_WIDTH / 2 + 0.56), 0.48, 0);
       outerWall.rotation.z = side * -0.08;
       group.add(outerWall);

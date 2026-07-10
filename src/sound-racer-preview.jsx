@@ -9,7 +9,9 @@ const params = new URLSearchParams(window.location.search);
 const previewDifficulty = params.get("difficulty") || "medium";
 const previewLevel = Number(params.get("level") || 0);
 
-createRoot(document.getElementById("root")).render(
+const rootElement = document.getElementById("root");
+const root = import.meta.hot?.data.root || createRoot(rootElement);
+root.render(
   <div style={{ width: "100vw", height: "100vh" }}>
     <SoundRacerGame
       difficulty={previewDifficulty}
@@ -22,3 +24,9 @@ createRoot(document.getElementById("root")).render(
     />
   </div>
 );
+
+if (import.meta.hot) {
+  import.meta.hot.dispose(data => {
+    data.root = root;
+  });
+}
