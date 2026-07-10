@@ -391,6 +391,17 @@ export const GAME_LIST = [
     surfaces: ["arcade"]
   },
   {
+    id: "reel-read",
+    title: "Reel & Read",
+    skill: "Build words and meanings",
+    category: "Phonics",
+    ...GAME_ACCENTS.blue,
+    icon: "/images/learn-games/reel-read/fish-gold.webp",
+    description: "Steer the boat, cast your hook, and fish up word parts, meaning matches, prefixes and suffixes.",
+    fullBleed: true,
+    surfaces: ["arcade"]
+  },
+  {
     id: "star-gallery",
     title: "Sentence Grove",
     skill: "Fix words and sentences",

@@ -755,8 +755,8 @@
     "semantic_hash": ""
   },
   "src/App.jsx": {
-    "mtime": 1783648086.792857,
-    "ast_hash": "2898adfaebaa846233ba957126582fa2",
+    "mtime": 1783664478.1863368,
+    "ast_hash": "f71b96baac51178f2f415fb664227b26",
     "semantic_hash": ""
   },
   "src/appState/appViewHelpers.js": {
@@ -1025,8 +1025,8 @@
     "semantic_hash": ""
   },
   "src/components/learn/games/games/index.js": {
-    "mtime": 1783595537.4562404,
-    "ast_hash": "b333a3023b66480b3992d2fe4081cecf",
+    "mtime": 1783679999.7364988,
+    "ast_hash": "bf1d68b145fad9b19196a73beb046fe0",
     "semantic_hash": ""
   },
   "src/components/learn/games/shared/ConfettiCelebration.jsx": {
@@ -1555,8 +1555,8 @@
     "semantic_hash": ""
   },
   "src/data/learnGamesData.js": {
-    "mtime": 1783646493.6726084,
-    "ast_hash": "57a3fa977c1be5529c148c73a01eec67",
+    "mtime": 1783681923.509541,
+    "ast_hash": "35a6c24ddc22fce74b78e55ddff5ad35",
     "semantic_hash": ""
   },
   "src/data/levelOneContentQuality.js": {
@@ -5205,8 +5205,8 @@
     "semantic_hash": ""
   },
   "src/components/learn/games/games/WordBridgeGame.jsx": {
-    "mtime": 1783656907.2212017,
-    "ast_hash": "3e876630c5f76b4ef4729a3016b3a5c9",
+    "mtime": 1783668617.1607447,
+    "ast_hash": "05c77567d01b552d88490d195199396a",
     "semantic_hash": ""
   },
   "src/components/learn/games/games/WordClimbGame.jsx": {
@@ -5260,8 +5260,8 @@
     "semantic_hash": ""
   },
   "tests/unit/gameSurfaces.test.js": {
-    "mtime": 1783595556.2341995,
-    "ast_hash": "c5783fe8bf64220ba9aa48f7f76571ee",
+    "mtime": 1783681905.8494978,
+    "ast_hash": "db19bc89e5d3164097a14e5e1167ccc0",
     "semantic_hash": ""
   },
   "tests/unit/questCovers.test.js": {
@@ -5435,8 +5435,8 @@
     "semantic_hash": ""
   },
   "src/components/HollowPage.jsx": {
-    "mtime": 1783664425.4889057,
-    "ast_hash": "019ac8caa0389b1fba732d343eea3cca",
+    "mtime": 1783666054.612665,
+    "ast_hash": "6ec27e25361259ce09e1be74f88f7307",
     "semantic_hash": ""
   },
   "src/components/learn/games/games/Ps1ArcadeGame.jsx": {
@@ -5505,8 +5505,8 @@
     "semantic_hash": ""
   },
   "src/utils/audio/gameMusic.js": {
-    "mtime": 1783664363.6291773,
-    "ast_hash": "cba2de1960aa380feedf5ba338c4dd1b",
+    "mtime": 1783664972.6302607,
+    "ast_hash": "7358363c8162df5ecc11d21db734b0f3",
     "semantic_hash": ""
   },
   "src/utils/graphemeSegments.js": {
@@ -5612,11 +5612,6 @@
   "tools/generateStarGalleryAssets.mjs": {
     "mtime": 1783610541.5973766,
     "ast_hash": "f626c19e26ae4800a7e91cb0c6039b57",
-    "semantic_hash": ""
-  },
-  "tools/tmp_applyLengthPatches.mjs": {
-    "mtime": 1783610541.5991726,
-    "ast_hash": "60bc5e0cc59991c2c09504583024de30",
     "semantic_hash": ""
   },
   "docs/CHECKPOINTS_AUDIT_AND_FIX_PLAN_2026-07-09.md": {
@@ -5860,8 +5855,48 @@
     "semantic_hash": ""
   },
   "tools/generate-pal-avatars.mjs": {
-    "mtime": 1783664397.2186058,
-    "ast_hash": "869175f81d48c4a9c74ceed4a272d75a",
+    "mtime": 1783667569.4692087,
+    "ast_hash": "40e9a3de8046ddce4d3fa04d0fe67868",
+    "semantic_hash": ""
+  },
+  "src/components/admin/MediaQaReviewPage.jsx": {
+    "mtime": 1780713981.0,
+    "ast_hash": "7551b2420e459689941faf89be66b106",
+    "semantic_hash": ""
+  },
+  "src/components/learn/games/games/ReelReadGame.jsx": {
+    "mtime": 1783682382.5047114,
+    "ast_hash": "68821710ced8000af0e06ed48d3aa95e",
+    "semantic_hash": ""
+  },
+  "src/reel-read-preview.jsx": {
+    "mtime": 1783679999.9106965,
+    "ast_hash": "6f3779568622cd974e5d6fafed5182f2",
+    "semantic_hash": ""
+  },
+  "src/utils/reelReadLevels.js": {
+    "mtime": 1783682271.0390153,
+    "ast_hash": "8d098ddc07bf31470521b938a3df1cd5",
+    "semantic_hash": ""
+  },
+  "tools/tmp_applyLengthPatches.mjs": {
+    "mtime": 1783610541.0,
+    "ast_hash": "60bc5e0cc59991c2c09504583024de30",
+    "semantic_hash": ""
+  },
+  "reel-read-preview.html": {
+    "mtime": 1783679999.996164,
+    "ast_hash": "5a5db1b56a45e9196f2cc6f75aee7929",
+    "semantic_hash": ""
+  },
+  "tmp/imagegen/reel-read-boat.png": {
+    "mtime": 1783676243.2656703,
+    "ast_hash": "6b95912acaf39a6df3e052599b6ef2f7",
+    "semantic_hash": ""
+  },
+  "tmp/imagegen/reel-read-fish.png": {
+    "mtime": 1783676243.6468198,
+    "ast_hash": "586eb0234ac4c3a699234490b588cfb3",
     "semantic_hash": ""
   }
 }

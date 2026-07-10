@@ -18,5 +18,6 @@ export const LEARN_GAMES = {
   "sound-beat": lazyWithRetry(() => import("./SoundBeatGame.jsx")),
   "rhyme-pop": lazyWithRetry(() => import("./RhymePopGame.jsx")),
   "sound-safari": lazyWithRetry(() => import("./SoundSafariGame.jsx")),
+  "reel-read": lazyWithRetry(() => import("./ReelReadGame.jsx")),
   "star-gallery": lazyWithRetry(() => import("./StarGalleryGame.jsx"))
 };
