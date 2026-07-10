@@ -70,6 +70,10 @@ function AccountIcon() {
   );
 }
 
+// LAUNCH RULE: when the app goes fully live, flip this to true so the arcade
+// unlocks only after the day's 3 tasks. During the open beta it stays free.
+const ARCADE_REQUIRES_DAILY_TASKS = false;
+
 const MISSION_TILES = [
   { kind: "quest", label: "Quest", art: "/images/learn-games/art/word-hopscotch.webp" },
   { kind: "book", label: "Book", art: "/images/learn-games/home/home-reading-library.webp" },
@@ -319,9 +323,9 @@ export function StudentHomePage({
         title="Arcade"
         subtitle="Jump into a learning game"
         cta="Play now"
-        locked={!status.missionComplete}
-        lockedLabel="🔑 Finish your 3 tasks to unlock"
-        onClick={() => { if (status.missionComplete) openArcade(); }}
+        locked={ARCADE_REQUIRES_DAILY_TASKS && !status.missionComplete}
+        lockedLabel="Finish your 3 tasks to unlock"
+        onClick={() => { if (!ARCADE_REQUIRES_DAILY_TASKS || status.missionComplete) openArcade(); }}
       />
       <StudentHomeCard
         className="student-home-card-story"

@@ -8013,7 +8013,6 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             <HollowPage
               studentName={studentName}
               progressScopeKey={studentId || studentName || "default"}
-              onBack={returnToStudentHome}
             />
           </div>
         </PageBoundary>

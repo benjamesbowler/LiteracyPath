@@ -25,7 +25,7 @@ function readArea(area, scope) {
 // The milestone trail. Spaced so the first prize lands in the first session
 // and the next one always feels close. Icons are drawn in-app (no new art).
 export const TRAIL_TREASURES = [
-  { at: 3, id: "spark", name: "Spark Gem", icon: "💎" },
+  { at: 3, id: "spark", name: "Spark Star", icon: "⭐" },
   { at: 8, id: "map", name: "Explorer Map", icon: "🗺️" },
   { at: 15, id: "torch", name: "Glow Torch", icon: "🔦" },
   { at: 24, id: "crown", name: "Meadow Crown", icon: "👑" },

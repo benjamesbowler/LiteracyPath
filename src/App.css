@@ -799,24 +799,30 @@ body {
 }
 
 .student-home-float {
+  /* Compact circle: the old wide pill floated over every page title
+     ("Aaron's Hollow", game headers). Icon-only takes a fraction of the
+     space and pages reserve a 64px corner for it. */
   position: fixed;
-  top: 12px;
-  left: 12px;
+  top: 10px;
+  left: 10px;
   z-index: 60;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 9px 16px;
-  border: 1px solid rgba(12, 107, 101, 0.28);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.94);
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 2px solid rgba(12, 107, 101, 0.35);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.96);
   color: var(--lp-color-primary);
   font-family: var(--lp-font-reading);
-  font-size: 14px;
+  font-size: 0;
   font-weight: 700;
   box-shadow: var(--lp-shadow-card);
   cursor: pointer;
 }
+.student-home-float svg { width: 22px; height: 22px; }
 
 .student-home-float:hover {
   background: var(--lp-color-primary-soft);

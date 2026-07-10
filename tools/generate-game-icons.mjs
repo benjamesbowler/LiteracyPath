@@ -53,8 +53,14 @@ const tasks = [
   { id: "word-bridge", prompt: icon("A glowing bridge built of stacked luminous cubes (blank, smooth, no markings) spanning a misty chasm between two green cliffs, warm magical light running along the bridge, a tiny friendly pal silhouette about to cross, deep green-teal background glow.") },
   { id: "sound-beat", prompt: icon("A shiny hand drum and a pair of glowing rhythm pads emitting concentric sound-wave rings and a few simple floating musical-note shapes, energetic neon-violet lighting, deep indigo background glow.") },
   { id: "rhyme-pop", prompt: icon("A joyful cluster of glossy colourful balloons with one bursting in a bright confetti pop and a sparkle, bouncy playful composition, deep coral-pink background glow. Plain balloons, no faces.") },
-  { id: "sound-safari", prompt: icon("A safari explorer's butterfly net scooping up a few glowing sound orbs among lush jungle leaves and vines, a pith helmet resting nearby, warm golden adventure light, deep amber-green background glow.") }
+  { id: "sound-safari", prompt: icon("A safari explorer's butterfly net scooping up a few glowing sound orbs among lush jungle leaves and vines, a pith helmet resting nearby, warm golden adventure light, deep amber-green background glow.") },
+  { id: "star-gallery", prompt: icon("A magical violet-twilight grove of stylized trees, one tree glowing warmly with a golden word-leaf canopy and a friendly woodcutter's axe resting at its base, fireflies drifting between the trunks, deep violet-green background glow.") }
 ];
+
+// Optional: regenerate a single icon with  ONLY=star-gallery FORCE=1 node tools/generate-game-icons.mjs
+const ONLY = process.env.ONLY || "";
+const selectedTasks = ONLY ? tasks.filter(t => t.id === ONLY) : tasks;
+if (ONLY && !selectedTasks.length) { console.error(`No icon task named "${ONLY}".`); process.exit(1); }
 
 async function exists(p) { try { await access(p, constants.F_OK); return true; } catch { return false; } }
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -63,7 +69,7 @@ await mkdir(ART, { recursive: true });
 
 let done = 0, skipped = 0; const failed = [];
 console.log(`Seedream (${MODEL}) — ${tasks.length} game icons. FORCE=${FORCE ? "on (overwrites)" : "off (skips existing)"}`);
-for (const t of tasks) {
+for (const t of selectedTasks) {
   const outPath = `${ART}/${t.id}.webp`;
   if (!FORCE && await exists(outPath)) { skipped++; console.log(`• skip ${t.id}.webp (exists — FORCE=1 to replace)`); continue; }
   try {

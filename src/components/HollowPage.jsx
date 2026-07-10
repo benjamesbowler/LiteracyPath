@@ -90,6 +90,64 @@ const ROOM_TINTS = {
 
 const GEAR_SLOT_LABELS = { head: "Head", neck: "Neck", back: "Back", held: "Held", feet: "Feet" };
 
+/* The dress-up pal. Art comes from tools/generate-pal-avatars.mjs:
+   - no gear      -> full-body base            (companions/full/<pal>.webp)
+   - ONE item     -> the dressed variant image (full/<pal>--<gear>.webp)
+   - several items-> base + alpha overlays     (overlays/<pal>--<gear>.png)
+   Every layer falls back gracefully (missing file -> hide) and the whole
+   figure falls back to the portrait if no full-body art exists yet.
+   Idle animation runs always; tapping the pal spins it in 3D. */
+function PalFigure({ companion, equipped = {} }) {
+  const [spinKey, setSpinKey] = useState(0);
+  const [baseFailed, setBaseFailed] = useState(false);
+  if (!companion) return null;
+  const gearIds = Object.values(equipped).filter(Boolean);
+  const base = `/images/companions/full/${companion.id}.webp`;
+  const single = gearIds.length === 1
+    ? `/images/companions/full/${companion.id}--${gearIds[0]}.webp`
+    : null;
+  return (
+    <button
+      type="button"
+      key={spinKey}
+      className={`hollow-pal-figure${spinKey ? " spin" : ""}`}
+      onClick={() => setSpinKey(k => k + 1)}
+      aria-label={`${companion.name} - tap to spin`}
+    >
+      {baseFailed ? (
+        <img className="hollow-pal-layer" src={companion.image} alt="" onError={hideOnError} />
+      ) : (
+        <>
+          <img
+            className="hollow-pal-layer"
+            src={single || base}
+            alt=""
+            onError={event => {
+              // Dressed variant missing -> fall back to base; base missing
+              // -> fall back to the portrait.
+              if (single && event.currentTarget.src.endsWith(`${gearIds[0]}.webp`)) {
+                event.currentTarget.src = base;
+              } else {
+                setBaseFailed(true);
+              }
+            }}
+          />
+          {!single && gearIds.map(gearId => (
+            <img
+              key={gearId}
+              className="hollow-pal-layer hollow-pal-overlay"
+              src={`/images/companions/overlays/${companion.id}--${gearId}.png`}
+              alt=""
+              onError={hideOnError}
+            />
+          ))}
+        </>
+      )}
+      <span className="hollow-pal-ground" aria-hidden="true" />
+    </button>
+  );
+}
+
 const MARKET_SHELVES = [
   { id: "caravan", label: "Caravan" },
   { id: "gear", label: "Pal gear" },
@@ -97,7 +155,7 @@ const MARKET_SHELVES = [
   { id: "eggs", label: "Mystery eggs" }
 ];
 
-export function HollowPage({ studentName, progressScopeKey = "default", onBack }) {
+export function HollowPage({ studentName, progressScopeKey = "default" }) {
   const scope = progressScopeKey;
   const [ledgerVersion, setLedgerVersion] = useState(0);
   const treasury = useMemo(() => computeTreasury(scope), [scope]);
@@ -273,7 +331,7 @@ export function HollowPage({ studentName, progressScopeKey = "default", onBack }
   return (
     <main className="hollow-page" data-pal-world={activeTheme.id}>
       <header className="hollow-topbar">
-        <button className="hollow-back" type="button" onClick={onBack}>← Home</button>
+        {/* Global student back circle sits top-left; keep the corner clear. */}
         <h1 className="hollow-title">{studentName ? `${studentName}'s Hollow` : "My Hollow"}</h1>
         <nav className="hollow-tabs" aria-label="Hollow areas">
           {[
@@ -371,10 +429,7 @@ export function HollowPage({ studentName, progressScopeKey = "default", onBack }
           <div className="hollow-panel">
             <div className="hollow-pal-row">
               <div className="hollow-pal-stage">
-                {companion && <img className="hollow-pal-img" src={companion.image} alt={companion.name} onError={hideOnError} />}
-                {Object.entries(hollow.equipped).map(([slot, gearId]) => (
-                  <span key={slot} className={`hollow-worn hollow-worn-${slot}`}><ItemArt id={gearId} size={50} /></span>
-                ))}
+                <PalFigure companion={companion} equipped={hollow.equipped} />
                 <p className="hollow-pal-caption">
                   {Object.keys(hollow.equipped).length
                     ? `Wearing: ${Object.values(hollow.equipped).map(id => findCatalogItem(id)?.name).filter(Boolean).join(", ")}`

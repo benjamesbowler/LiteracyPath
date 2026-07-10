@@ -5,8 +5,12 @@ import AudioButton from "../AudioButton";
 import PhonicsButton from "../PhonicsButton";
 
 const SVG_NS = "http://www.w3.org/2000/svg";
-const THRESHOLD = 22;
-const STROKE_COMPLETION_PERCENT = 90;
+// Tuned 2026-07-10: 90%/22 demanded pixel-perfect stroke tips and frustrated
+// real kids; 8/22 (the pre-fix behaviour) accepted a single dot. 72% coverage
+// with a slightly wider finger radius still requires genuinely tracing the
+// whole stroke shape, but forgives wobbly starts and missed tail ends.
+const THRESHOLD = 26;
+const STROKE_COMPLETION_PERCENT = 72;
 const TOTAL_TRACE_SAMPLES = 200;
 const MIN_SAMPLES_PER_STROKE = 24;
 
