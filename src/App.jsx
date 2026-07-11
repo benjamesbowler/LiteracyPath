@@ -114,6 +114,7 @@ import {
   getPersistedAppView,
   getRestoredAppView,
   isFocusedAssessmentView,
+  isStudentAllowedView,
   shouldShowDashboardSummary,
   shouldShowFooterUtilityActions
 } from "./appState/appViewHelpers.js";
@@ -177,14 +178,11 @@ let guidedReadingBooksModulePromise = null;
 let assessmentSkillBankLoaderModulePromise = null;
 let assessmentMediaPickerModulePromise = null;
 const STUDENT_SESSION_STORAGE_KEY = "lp-student-session-v1";
-const STUDENT_ALLOWED_VIEWS = new Set([
-  APP_VIEWS.STUDENT_HOME,
-  APP_VIEWS.STUDENT_REWARDS,
-  APP_VIEWS.PHONICS_LEARN,
-  APP_VIEWS.SKILLS_BLOCK_QUEST,
-  APP_VIEWS.LEARN,
-  APP_VIEWS.GUIDED_READING
-]);
+// The student view allowlist now lives in appState/appViewHelpers.js (exported,
+// and held against the Student Home's own links by a unit test). It was a
+// private Set here, and that is precisely how Sound Seekers shipped with a
+// button that bounced straight back to the home screen: the guard only runs in
+// student mode, so it was invisible to every teacher-side check we had.
 
 function loadAudioManifestModule() {
   if (!audioManifestModulePromise) {
@@ -2215,7 +2213,7 @@ export default function App() {
 
   useEffect(() => {
     if (sessionMode !== "student") return;
-    if (!STUDENT_ALLOWED_VIEWS.has(appView)) {
+    if (!isStudentAllowedView(appView)) {
       const timeoutId = window.setTimeout(() => setAppView(APP_VIEWS.STUDENT_HOME), 0);
       return () => window.clearTimeout(timeoutId);
     }

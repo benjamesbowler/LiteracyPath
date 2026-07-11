@@ -162,13 +162,17 @@ export function recordStopResult(state, stopId, stars = 0) {
     mastery[target] = { ...mastery[target], box: boxAfterStop(mastery[target]), lastStop: stop.index };
   }
 
-  // A stone lights up when its sound is MASTERED — not when the stop is passed.
+  // A stone lights up when its SOUND is MASTERED — not when the stop is passed.
   // This is the one place the two tracks are visible side by side, and it is
   // the honest signal: you walked here, but you don't own this sound yet.
+  //
+  // Heart words ("hw:the") are mastery targets too, but they are NOT sounds, and
+  // the wall is a wall of sounds. They live on the Trickies shelf instead.
   const stones = [...new Set([
     ...(state.stones || []),
     ...Object.keys(mastery).filter(t =>
-      mastery[t].state === MASTERY_STATES.MASTERED || mastery[t].state === MASTERY_STATES.RETIRED)
+      !t.includes(":")
+      && (mastery[t].state === MASTERY_STATES.MASTERED || mastery[t].state === MASTERY_STATES.RETIRED))
   ])];
 
   return {

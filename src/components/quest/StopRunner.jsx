@@ -16,6 +16,8 @@ import KnowledgeTree from "./shells/KnowledgeTree.jsx";
 import SoundStones from "./shells/SoundStones.jsx";
 import BeastFeed from "./shells/BeastFeed.jsx";
 import StoneBridge from "./shells/StoneBridge.jsx";
+import EchoCave from "./shells/EchoCave.jsx";
+import WordBeast from "./shells/WordBeast.jsx";
 import GateCheck from "./shells/GateCheck.jsx";
 import { buildStop } from "../../utils/questRounds.js";
 import { makeCatchUp } from "../../utils/catchUpQueue.js";
@@ -23,12 +25,15 @@ import { starRubric } from "../../utils/starRubric.js";
 import { targetsForStop } from "../../utils/questReviewScheduler.js";
 import { getStop, targetsAtStop } from "../../data/questSequence.js";
 
-// Slice 1 runs these three. The stop data lists more; the rest arrive with
-// their shells, and an unbuilt shell is simply skipped rather than crashing.
+// The shells that exist. The stop data lists more (trail-run, sound-sort,
+// trail-signs, story-stones); an unbuilt shell is SKIPPED, not crashed on, so
+// the trail stays walkable while the rest are written.
 const SHELLS = {
   "sound-stones": SoundStones,
   "beast-feed": BeastFeed,
-  "stone-bridge": StoneBridge
+  "stone-bridge": StoneBridge,
+  "echo-cave": EchoCave,
+  "word-beast": WordBeast
 };
 
 const PHASES = { TEACH: "teach", SHELL: "shell", GATE: "gate" };

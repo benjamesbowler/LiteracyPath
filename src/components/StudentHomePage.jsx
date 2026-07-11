@@ -189,6 +189,26 @@ export function StudentHomePage({
             <strong>{studentName || "Reader"}</strong>
           </div>
         </div>
+
+        {/* Sound Seekers lives in the topbar, NOT in the card grid — the home
+            layout is finished and a sixth card would reflow it. This is a
+            temporary home for the entry point while the mode is in beta; it
+            sits in its own centre section so neither the left brand block nor
+            the right account block moves a pixel. */}
+        {onOpenSoundSeekers && (
+          <div className="student-home-topbar-centre">
+            <button
+              type="button"
+              className="student-home-seekers-btn"
+              onClick={onOpenSoundSeekers}
+              aria-label="Open Sound Seekers"
+            >
+              <span className="student-home-seekers-tag">Beta</span>
+              Sound Seekers
+            </button>
+          </div>
+        )}
+
         <div className="student-home-account">
           <button
             className="comic-topbar-gems"
@@ -317,21 +337,6 @@ export function StudentHomePage({
         subtitle="Follow the path and win stars"
         onClick={onOpenSkillsBlockQuest}
       />
-      {/* Sound Seekers. The art file does not exist yet on purpose — the card's
-          <img> has an onError that hides it, so the card works and looks
-          deliberate rather than broken, and the missing art is a named TODO
-          instead of a silent 404. */}
-      {onOpenSoundSeekers && (
-        <StudentHomeCard
-          className="student-home-card-seekers"
-          art="/images/learn-games/home/home-sound-seekers.webp"
-          meta="New adventure"
-          title="Sound Seekers"
-          subtitle="Hatch a creature and walk the Sound Trail"
-          cta="Start"
-          onClick={onOpenSoundSeekers}
-        />
-      )}
       <StudentHomeCard
         className="student-home-card-arcade"
         art="/images/learn-games/home/home-arcade.webp"

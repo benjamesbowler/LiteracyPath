@@ -162,6 +162,66 @@ export function buildStoneBridgeRound(word, { stopIndex, mastery, rng, extras = 
   };
 }
 
+// ── ECHO CAVE — hear the word, tap out its sounds IN ORDER ─────────────────
+// SEGMENTING: the reverse of blending, and the skill that becomes spelling.
+// A child who can blend but not segment can read and not write.
+//
+// The keyboard offers the word's own graphemes plus decoys, exactly like the
+// Stone Bridge tray — but there is no plank to show them the shape of the
+// answer, so they must hold the sounds in their head. That is the whole point.
+export function buildEchoCaveRound(word, { stopIndex, mastery, rng, extras = 3 }) {
+  const known = taughtThrough(stopIndex);
+  const sounds = segmentWord(word, { known });
+
+  const decoyPool = [...known].filter(g => !sounds.includes(g));
+  const weak = new Set(weakestTargets(mastery, 8).map(w => w.target));
+  const ordered = [
+    ...shuffle(decoyPool.filter(g => weak.has(g)), rng),
+    ...shuffle(decoyPool.filter(g => !weak.has(g)), rng)
+  ];
+
+  return {
+    shell: "echo-cave",
+    target: sounds[sounds.length - 1], // the END sound is the one children drop
+    word,
+    sounds,
+    keys: shuffle([...new Set([...sounds, ...ordered.slice(0, extras)])], rng),
+    answer: sounds
+  };
+}
+
+// ── WORD BEAST — heart words, as a COLLECTION ──────────────────────────────
+// Feed the Beast the right word three times and it JOINS you: the word becomes
+// a creature that lives in your Den. This is a straight lift of Teach Your
+// Monster's "Trickies", which is the single best sight-word mechanic in the
+// category — because it makes a sight word a thing you OWN, not a flashcard you
+// endure.
+//
+// Heart words are the ones that CANNOT be sounded out. Offering decodable
+// distractors would let a child solve it by decoding, which is exactly the skill
+// this is not testing — so the distractors are other heart words.
+// Heart-word mastery targets are NAMESPACED ("hw:the"), and that is load-bearing,
+// not tidiness. Without it, "the" enters the mastery map as a bare target, the
+// review scheduler later marks it due, and it gets handed to Sound Stones — which
+// would put a stone carved "the" in front of a child and ask them which one makes
+// that SOUND. It would also light up as a stone on the Den wall, which is for
+// sounds. Two tracks, two namespaces, no collision.
+export const HEART_PREFIX = "hw:";
+export const isHeartTarget = target => String(target || "").startsWith(HEART_PREFIX);
+export const heartWordOf = target => String(target || "").slice(HEART_PREFIX.length);
+
+export function buildWordBeastRound(word, { stopIndex, rng, choices = 3 }) {
+  const pool = heartWordsThrough(stopIndex).filter(w => w.toLowerCase() !== word.toLowerCase());
+  const distractors = shuffle(pool, rng).slice(0, choices - 1);
+  return {
+    shell: "word-beast",
+    target: `${HEART_PREFIX}${word}`,
+    word,
+    choices: shuffle([word, ...distractors], rng),
+    answer: word
+  };
+}
+
 // ── THE GATE — the mastery check. No hints, no retries, mixed shells. ───────
 // 6 items drawn across BOTH directions, because a gate that only ever asks one
 // way is a gate that measures one thing.
@@ -188,16 +248,26 @@ export function buildStop(stopId, { mastery = {}, targets, seed = 1 } = {}) {
   const rng = makeRng(seed);
   const stopIndex = stop.index;
   const list = (targets && targets.length ? targets : stop.teach.map(t => t.id))
-    // A blend/morph target has no single grapheme to tap, so the letter-choice
-    // shells skip it. (Slice 1 only reaches stop 1, which is all letters — but
-    // the guard belongs here, not in a shell.)
+    // A heart word is not a sound. It arrives here only because the review
+    // scheduler brought it back, and it must NEVER reach a letter-choice shell.
+    .filter(t => !isHeartTarget(t))
+    // A blend/morph target has no single grapheme to tap either, so the
+    // letter-choice shells skip it. The guard belongs here, not in a shell.
     .filter(t => {
       const entry = stop.teach.find(e => e.id === t);
       return !entry || (entry.kind !== "blend" && entry.kind !== "morph");
     });
 
   const known = taughtThrough(stopIndex);
-  const bridgeWords = stop.words.filter(w => isDecodable(w, known)).slice(0, 4);
+  const decodable = stop.words.filter(w => isDecodable(w, known));
+  const bridgeWords = decodable.slice(0, 4);
+  // Echo Cave takes DIFFERENT words from the Stone Bridge where it can. Making
+  // a child segment the same four words they just blended teaches them to
+  // remember the answer, not to hear the sounds.
+  const echoWords = (decodable.slice(4, 8).length >= 3 ? decodable.slice(4, 8) : decodable.slice(0, 4));
+
+  // Word Beast needs a heart word from THIS stop; a stop with none skips it.
+  const hearts = stop.heartWords || [];
 
   return {
     stopId,
@@ -212,6 +282,8 @@ export function buildStop(stopId, { mastery = {}, targets, seed = 1 } = {}) {
       "sound-stones": list.map(t => buildSoundStonesRound(t, { stopIndex, mastery, rng })),
       "beast-feed": list.map(t => buildBeastFeedRound(t, { stopIndex, mastery, rng })),
       "stone-bridge": bridgeWords.map(w => buildStoneBridgeRound(w, { stopIndex, mastery, rng })),
+      "echo-cave": echoWords.map(w => buildEchoCaveRound(w, { stopIndex, mastery, rng })),
+      "word-beast": hearts.map(w => buildWordBeastRound(w, { stopIndex, rng })),
       gate: buildGateRounds(list, { stopIndex, mastery, rng })
     }
   };

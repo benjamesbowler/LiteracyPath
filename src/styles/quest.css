@@ -466,6 +466,83 @@
 .qs-tile.is-used { opacity: .22; }
 .qs-tile.is-wobble { animation: q-shake 380ms; }
 
+/* Echo Cave — segmenting. No planks: the empty slots are dots, not blanks the
+   width of the answer, because a blank the right size is a hint. */
+.qs-echoes { display: flex; gap: 10px; }
+
+.qs-echo-slot {
+  display: grid;
+  place-items: center;
+  min-width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .3);
+  color: rgba(255, 255, 255, .35);
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.qs-echo-slot.is-said {
+  background: radial-gradient(circle at 40% 35%, #8fd3e8, #3f7f9b);
+  color: #0f2733;
+  box-shadow: 0 0 16px rgba(143, 211, 232, .55);
+  animation: q-drop 300ms cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.qs-keys { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; }
+
+.qs-key {
+  min-width: 64px;
+  height: 60px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ece5f5, #c6bcd8);
+  box-shadow: 0 5px 0 #877d99;
+  color: #241f33;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.qs-key.is-wobble { animation: q-shake 380ms; background: linear-gradient(180deg, #f0a6a6, #d16f6f); }
+
+/* Word Beast — heart words as a collection */
+.qs-bigbeast { position: relative; display: grid; justify-items: center; gap: 8px; }
+.qs-bigbeast svg { width: 150px; height: 138px; }
+.qs-bigbeast.is-chewing svg { animation: q-chew 500ms ease; }
+.qs-bigbeast.is-spitting svg { animation: q-shake 380ms; }
+.qs-bigbeast.is-tamed svg { animation: cr-cheer-jump 700ms cubic-bezier(.34, 1.56, .64, 1); }
+
+@keyframes q-chew {
+  0%, 100% { transform: scaleY(1); }
+  35% { transform: scaleY(0.88) scaleX(1.06); }
+  70% { transform: scaleY(1.05) scaleX(0.97); }
+}
+
+.qs-feeds { display: flex; gap: 6px; }
+.qs-feeds span { width: 12px; height: 12px; border-radius: 50%; background: rgba(255, 255, 255, .2); }
+.qs-feeds span.is-on { background: #ffd166; box-shadow: 0 0 10px rgba(255, 209, 102, .7); }
+
+.qs-wordcards { gap: 10px; }
+
+.qs-wordcard {
+  min-width: 106px;
+  height: 66px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fff3d4, #f0d69a);
+  box-shadow: 0 5px 0 #b3945a;
+  color: #3a2a06;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.qs-wordcard.is-right { background: linear-gradient(180deg, #9fe6a8, #63c47a); box-shadow: 0 5px 0 #3f8b52; }
+.qs-wordcard.is-wrong { background: linear-gradient(180deg, #f0a6a6, #d16f6f); box-shadow: 0 5px 0 #97494a; animation: q-shake 320ms; }
+.qs-tamed-line { margin: 0; font-size: 19px; }
+.qs-tamed-line strong { color: #ffd166; }
+
 /* Knowledge Tree */
 .qs-glyph {
   display: grid;

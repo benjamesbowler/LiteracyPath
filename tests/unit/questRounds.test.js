@@ -7,9 +7,11 @@ import {
   pickDistractors,
   wordsForTarget,
   sharesSound,
-  makeRng
+  makeRng,
+  isHeartTarget,
+  heartWordOf
 } from "../../src/utils/questRounds.js";
-import { taughtThrough, QUEST_STOPS } from "../../src/data/questSequence.js";
+import { taughtThrough, heartWordsThrough, QUEST_STOPS } from "../../src/data/questSequence.js";
 import { emptyRecord, MASTERY_STATES } from "../../src/utils/questMastery.js";
 
 const rng = () => makeRng(42);
@@ -164,6 +166,84 @@ test("the gate offers 4 choices, not 3 — a real check is harder than practice"
 test("a boss stop with nothing new to teach still builds a gate from review", () => {
   const built = buildStop("s8", { targets: ["a", "m", "sh"], seed: 4 });
   assert.equal(built.rounds.gate.length, 6);
+});
+
+// ── Echo Cave (segmenting) ──────────────────────────────────────────────────
+
+test("Echo Cave asks for the word's real sounds, in order", () => {
+  const built = buildStop("s9", { seed: 21 });
+  const round = built.rounds["echo-cave"].find(r => r.word === "ship") || built.rounds["echo-cave"][0];
+  assert.deepEqual(round.sounds, round.answer);
+  assert.ok(round.sounds.length >= 3);
+  for (const s of round.sounds) assert.ok(round.keys.includes(s), `key "${s}" missing from the keyboard`);
+});
+
+test("Echo Cave never uses a key the child has not been taught", () => {
+  for (const stop of QUEST_STOPS) {
+    const built = buildStop(stop.id, { seed: 17 });
+    const known = taughtThrough(stop.index);
+    for (const round of built.rounds["echo-cave"]) {
+      for (const key of round.keys) {
+        assert.ok(known.has(key), `${stop.id} "${round.word}": key "${key}" is not taught by stop ${stop.index}`);
+      }
+    }
+  }
+});
+
+test("Echo Cave avoids re-using the Stone Bridge's words where it can", () => {
+  // Segmenting the same four words the child just blended teaches them to
+  // remember the answer, not to hear the sounds.
+  const built = buildStop("s7", { seed: 31 });
+  const bridge = new Set(built.rounds["stone-bridge"].map(r => r.word));
+  const echo = built.rounds["echo-cave"].map(r => r.word);
+  const overlap = echo.filter(w => bridge.has(w));
+  assert.equal(overlap.length, 0, `stop 7 reuses ${overlap.join(", ")} in both shells`);
+});
+
+// ── Word Beast (heart words) ────────────────────────────────────────────────
+
+test("Word Beast distractors are other HEART words, never decodable ones", () => {
+  // Offer a decodable distractor and a child can win by sounding it out — which
+  // is exactly the skill a heart word is not testing.
+  for (const stop of QUEST_STOPS) {
+    const built = buildStop(stop.id, { seed: 23 });
+    const hearts = new Set(heartWordsThrough(stop.index).map(w => w.toLowerCase()));
+    for (const round of built.rounds["word-beast"]) {
+      for (const choice of round.choices) {
+        assert.ok(hearts.has(choice.toLowerCase()), `${stop.id}: "${choice}" is not a heart word`);
+      }
+      assert.equal(round.choices.filter(c => c === round.answer).length, 1);
+    }
+  }
+});
+
+test("a stop with no heart words simply has no Word Beast rounds", () => {
+  assert.equal(buildStop("s1", { seed: 2 }).rounds["word-beast"].length, 0);
+  assert.ok(buildStop("s3", { seed: 2 }).rounds["word-beast"].length > 0);
+});
+
+// ── THE COLLISION. Two tracks, two namespaces. ──────────────────────────────
+
+test("heart-word targets are NAMESPACED so they can never reach a letter shell", () => {
+  // Without the hw: prefix, "the" enters the mastery map as a bare target, the
+  // review scheduler marks it due at a later stop, and it gets handed to Sound
+  // Stones — which would show a child a stone carved "the" and ask which one
+  // makes that SOUND. It would also light up on the Den wall, which is a wall
+  // of sounds.
+  const built = buildStop("s3", { seed: 5 });
+  for (const round of built.rounds["word-beast"]) {
+    assert.ok(isHeartTarget(round.target), `"${round.target}" is not namespaced`);
+    assert.equal(heartWordOf(round.target), round.word);
+  }
+
+  // And a heart word that the scheduler drags back is dropped from the letter
+  // shells rather than rendered as a stone.
+  const withHeart = buildStop("s5", { targets: ["c", "g", "hw:the", "hw:is"], seed: 5 });
+  assert.deepEqual(withHeart.targets, ["c", "g"]);
+  for (const round of [...withHeart.rounds["sound-stones"], ...withHeart.rounds["beast-feed"], ...withHeart.rounds.gate]) {
+    assert.ok(!isHeartTarget(round.target));
+    for (const choice of round.choices) assert.ok(!choice.includes(":"));
+  }
 });
 
 // ── Determinism ─────────────────────────────────────────────────────────────

@@ -1,0 +1,88 @@
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import { APP_VIEWS } from "../../src/appState/appViews.js";
+import {
+  STUDENT_ALLOWED_VIEWS,
+  isStudentAllowedView,
+  isFocusedAssessmentView,
+  shouldShowFooterUtilityActions,
+  getRestoredAppView,
+  getPersistedAppView
+} from "../../src/appState/appViewHelpers.js";
+
+// ── THE REGRESSION THIS FILE EXISTS FOR ─────────────────────────────────────
+//
+// Sound Seekers shipped with a Student Home button that opened the mode and
+// then bounced straight back to the home screen — "I tap it and it flashes".
+//
+// Cause: App.jsx runs a guard in STUDENT MODE ONLY that force-redirects any
+// appView not on an allowlist. The allowlist was a private Set inside an
+// 8,400-line file, and the new view wasn't on it. A teacher previewing the exact
+// same screen saw nothing wrong, because the guard doesn't run for teachers — so
+// the bug was invisible to every check we had, and only a child could find it.
+//
+// The list is exported now, and this test holds it against the views the Student
+// Home actually links to. Add a student-facing view and forget the allowlist,
+// and this goes red instead of a five-year-old finding it.
+
+test("EVERY view the Student Home links to is on the student allowlist", () => {
+  // Read the real component rather than trusting a hand-kept list here — a
+  // second hand-kept list would rot exactly like the first one did.
+  const source = fs.readFileSync("src/App.jsx", "utf8");
+
+  // Each onOpenX handler on <StudentHomePage> sets an appView. Pull them out.
+  const homeProps = source.match(/<StudentHomePage[\s\S]*?\n\s{10}\/>/);
+  assert.ok(homeProps, "could not find the StudentHomePage element in App.jsx");
+
+  const views = [...homeProps[0].matchAll(/setAppView\(APP_VIEWS\.([A-Z_]+)\)/g)].map(m => m[1]);
+  assert.ok(views.length >= 5, `only found ${views.length} navigation targets on the Student Home — the regex has drifted`);
+
+  for (const name of views) {
+    const view = APP_VIEWS[name];
+    assert.ok(view, `Student Home navigates to APP_VIEWS.${name}, which does not exist`);
+    assert.ok(
+      isStudentAllowedView(view),
+      `Student Home has a button to APP_VIEWS.${name}, but it is NOT in STUDENT_ALLOWED_VIEWS — a student who taps it will be bounced straight back to the home screen ("the page just flashes")`
+    );
+  }
+});
+
+test("Sound Seekers specifically is reachable by a student", () => {
+  // The exact bug, pinned. Named so a failure reads as itself.
+  assert.ok(isStudentAllowedView(APP_VIEWS.PHONICS_QUEST));
+});
+
+test("the allowlist only contains real views", () => {
+  const all = new Set(Object.values(APP_VIEWS));
+  for (const view of STUDENT_ALLOWED_VIEWS) {
+    assert.ok(all.has(view), `STUDENT_ALLOWED_VIEWS contains "${view}", which is not an APP_VIEW`);
+  }
+});
+
+test("teacher-only views are NOT on the student allowlist", () => {
+  // The allowlist is a security boundary as well as a navigation one. Widening
+  // it carelessly is how a child ends up in the teacher dashboard.
+  for (const view of [APP_VIEWS.TEACHER_DASHBOARD, APP_VIEWS.ADMIN_DASHBOARD, APP_VIEWS.REPORTS, APP_VIEWS.WORKSHEETS, APP_VIEWS.PRESENT]) {
+    assert.equal(isStudentAllowedView(view), false, `${view} must not be reachable by a student`);
+  }
+});
+
+// ── The rest of the module ──────────────────────────────────────────────────
+
+test("focused assessment views are recognised", () => {
+  assert.equal(isFocusedAssessmentView(APP_VIEWS.ASSESSMENT), true);
+  assert.equal(isFocusedAssessmentView(APP_VIEWS.STUDENT_HOME), false);
+});
+
+test("the footer stays out of the way on full-screen child surfaces", () => {
+  assert.equal(shouldShowFooterUtilityActions({ appView: APP_VIEWS.PHONICS_QUEST }), false);
+  assert.equal(shouldShowFooterUtilityActions({ appView: APP_VIEWS.SKILLS_BLOCK_QUEST }), false);
+});
+
+test("an unknown stored view falls back rather than crashing", () => {
+  assert.equal(getRestoredAppView({ restoredStudentId: "s1", storedAppView: "nonsense" }), APP_VIEWS.OVERVIEW);
+  assert.equal(getRestoredAppView({ restoredStudentId: "", storedAppView: APP_VIEWS.LEARN }), APP_VIEWS.SELECT);
+  assert.equal(getPersistedAppView({ studentId: "s1", appView: APP_VIEWS.PHONICS_QUEST }), APP_VIEWS.PHONICS_QUEST);
+  assert.equal(getPersistedAppView({ studentId: "", appView: APP_VIEWS.PHONICS_QUEST }), APP_VIEWS.SELECT);
+});
