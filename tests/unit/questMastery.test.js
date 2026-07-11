@@ -69,16 +69,15 @@ test("BEING WRONG IN A NEW SHELL IS NOT EVIDENCE", () => {
   assert.equal(r.state, MASTERY_STATES.LEARNING);
 });
 
-test("A SHORT HISTORY IS NOT MASTERY: 8/8 across 2 shells and 2 days is not yet enough", () => {
-  // Correct >= 8, shells >= 2, sessions >= 2 — but only 8 attempts, so the
-  // 10-attempt accuracy window isn't full. We do not claim mastery on 8 data
-  // points; we wait two more.
+test("A SHORT HISTORY IS NOT MASTERY: too few attempts is still `learning`", () => {
+  // Shells >= 2, sessions >= 2 — but the accuracy window isn't full yet. We do
+  // not claim mastery on a handful of data points.
   const r = run(emptyRecord(), [
-    ...hits(4, "stones", "2026-07-11"),
-    ...hits(4, "bridge", "2026-07-12")
+    ...hits(1, "flower-patch", "2026-07-11"),
+    ...hits(1, "hungry-beast", "2026-07-12")
   ]);
-  assert.equal(r.correct, 8);
-  assert.equal(r.window.length, 8);
+  assert.equal(r.correct, 2);
+  assert.ok(r.window.length < MASTERY_RULES.accuracyWindow);
   assert.equal(r.state, MASTERY_STATES.LEARNING);
 });
 

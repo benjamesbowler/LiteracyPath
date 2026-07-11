@@ -994,3 +994,589 @@
   border-color: #ffd166;
   box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.28);
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * THE WALK — the world you move through.
+ *
+ * This replaces the "stop screen with a list of shells and a six-round gate",
+ * which was a quiz wearing a map. Most of a child's time here is WALKING; the
+ * things they meet stand in the path. If the ratio ever inverts, we are back
+ * where we started.
+ * ═══════════════════════════════════════════════════════════════════════════ */
+.qw-root { position: relative; overflow: hidden; background: #0b0918; }
+
+.qw-scene { position: absolute; inset: 0; overflow: hidden; }
+.qw-sky { position: absolute; inset: 0; }
+
+.qw-sun {
+  position: absolute;
+  top: 8%;
+  right: 14%;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  opacity: .55;
+  filter: blur(2px);
+  box-shadow: 0 0 90px 40px currentColor;
+}
+
+.qw-layer { position: absolute; bottom: 0; left: 0; will-change: transform; }
+.qw-world { position: absolute; inset: 0; will-change: transform; }
+
+/* Everything in the world is positioned by its world x. */
+.qw-creature,
+.qw-prop,
+.qw-drop,
+.qw-flag { position: absolute; transform: translateX(-50%); }
+
+.qw-creature { pointer-events: none; }
+
+.qw-drop {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 32%, #fff6cf, #ffd166 55%, #e0a52c);
+  box-shadow: 0 0 16px rgba(255, 209, 102, .8);
+  animation: qw-bob 1.8s ease-in-out infinite;
+}
+
+@keyframes qw-bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -10px); }
+}
+
+/* The props. Simple, but they are THINGS, standing in the path — and an unsolved
+   one physically blocks the way. That is the world gating the child, not a menu. */
+.qw-prop {
+  width: 84px;
+  height: 96px;
+  background: var(--q-deep, #2c4d24);
+  border-radius: 12px 12px 4px 4px;
+  box-shadow: 0 8px 0 rgba(0, 0, 0, .25);
+}
+
+.qw-prop-flower-patch { background: linear-gradient(180deg, var(--q-accent), var(--q-deep)); border-radius: 50% 50% 10px 10px; }
+.qw-prop-broken-bridge { width: 150px; height: 26px; border-radius: 4px; background: repeating-linear-gradient(90deg, #a97a44 0 22px, transparent 22px 40px); box-shadow: none; }
+.qw-prop-hungry-beast,
+.qw-prop-word-beast { border-radius: 50%; background: var(--q-accent); }
+.qw-prop-echo-cave { width: 130px; height: 118px; border-radius: 70px 70px 0 0; background: #241f33; }
+.qw-prop-sheep-pens { width: 150px; height: 60px; background: repeating-linear-gradient(90deg, #a97a44 0 8px, transparent 8px 26px); box-shadow: none; }
+.qw-prop-signpost { width: 20px; height: 110px; background: #7a5528; }
+.qw-prop-story-rock { width: 118px; height: 82px; border-radius: 40px 46px 10px 10px; background: #8e879f; }
+.qw-prop.is-solved { opacity: .45; filter: saturate(.5); }
+.qw-prop.is-active { animation: q-pulse 1.2s ease-in-out infinite; }
+
+.qw-flag {
+  width: 8px;
+  height: 120px;
+  background: #7a5528;
+  border-radius: 3px;
+}
+
+.qw-flag::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: 54px;
+  height: 34px;
+  background: #ffd166;
+  clip-path: polygon(0 0, 100% 0, 76% 50%, 100% 100%, 0 100%);
+}
+
+/* Tap anywhere on the ground to walk there. That is the entire control scheme —
+   a five-year-old does not need a second one. */
+.qw-tapzone {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.qw-hud {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  color: #fff;
+  pointer-events: none;
+}
+
+.qw-hud > * { pointer-events: auto; }
+.qw-stopname { padding: 6px 16px; border-radius: 999px; background: rgba(14, 12, 28, .55); font-weight: 800; }
+.qw-drops { padding: 6px 14px; border-radius: 999px; background: rgba(255, 209, 102, .2); color: #ffd166; font-weight: 800; }
+
+/* Meeting a new sound: three seconds, not a lesson screen. */
+.qw-meet {
+  position: absolute;
+  z-index: 30;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 16px;
+  background: rgba(10, 8, 22, .72);
+  backdrop-filter: blur(3px);
+}
+
+.qw-meet-glyph {
+  display: grid;
+  place-items: center;
+  width: 160px;
+  height: 160px;
+  border-radius: 32px;
+  background: linear-gradient(180deg, #ffd76b, #e9a733);
+  color: #40300a;
+  font-size: 82px;
+  font-weight: 800;
+  animation: q-pop 480ms cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.qw-go {
+  min-height: 60px;
+  padding: 0 30px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ffd166, #f0a93c);
+  box-shadow: 0 5px 0 #c07f22;
+  color: #3a2a06;
+  font-size: 19px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* ── An encounter: a panel BY the thing, not a full-screen quiz card. ─────── */
+.qw-panel {
+  position: absolute;
+  z-index: 25;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  padding: 0 12px 16px;
+}
+
+.qw-enc {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  width: min(620px, 100%);
+  padding: 16px 16px 18px;
+  border: 3px solid rgba(255, 255, 255, .16);
+  border-radius: 24px;
+  background: rgba(16, 13, 34, .9);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  text-align: center;
+  animation: qw-rise 300ms cubic-bezier(.22, .61, .36, 1);
+}
+
+@keyframes qw-rise {
+  from { transform: translateY(26px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+.qw-say { margin: 0; font-size: 19px; font-weight: 700; }
+.qw-hint { margin: -6px 0 0; font-size: 13px; opacity: .6; }
+.qw-word { margin: 0; font-size: 30px; font-weight: 800; }
+
+.qw-listen {
+  min-height: 46px;
+  padding: 0 18px;
+  border: 2px solid rgba(255, 255, 255, .3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .12);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.qw-pips { display: flex; gap: 5px; }
+.qw-pips span { width: 7px; height: 7px; border-radius: 50%; background: rgba(255, 255, 255, .22); }
+.qw-pips span.is-on { background: #ffd166; }
+
+/* flowers */
+.qw-flowerrow { display: flex; gap: 14px; }
+
+.qw-flower {
+  position: relative;
+  width: 92px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.qw-flower svg { width: 92px; height: 122px; }
+.qw-flower-letter {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #2b2030;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.qw-flower.is-bloom .qw-petals { animation: qw-bloom 620ms cubic-bezier(.34, 1.56, .64, 1); }
+.qw-flower.is-right svg { filter: drop-shadow(0 0 14px #7fd08a); }
+.qw-flower.is-wrong svg { animation: q-shake 320ms; }
+.qw-flower.is-reveal svg { filter: drop-shadow(0 0 14px #ffd166); }
+
+@keyframes qw-bloom {
+  0% { transform: scale(.6) rotate(-20deg); transform-origin: center; }
+  100% { transform: none; }
+}
+
+/* beast + fruit */
+.qw-beastface, .qw-bigbeast { position: relative; display: grid; justify-items: center; }
+.qw-beastface svg { width: 118px; height: 110px; }
+.qw-bigbeast svg { width: 146px; height: 134px; }
+.qw-bigbeast.is-chewing svg { animation: q-chew 480ms ease; }
+.qw-bigbeast.is-tamed svg { animation: cr-cheer-jump 700ms cubic-bezier(.34, 1.56, .64, 1); }
+
+.qw-beastsign {
+  position: absolute;
+  top: -10px;
+  right: -6px;
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 8px;
+  border: 3px solid #7a5528;
+  border-radius: 8px;
+  background: #e8cfa4;
+  color: #2b1d0c;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.qw-fruits { display: flex; gap: 16px; }
+
+.qw-fruit {
+  width: 76px;
+  padding: 6px;
+  border: 3px solid transparent;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .07);
+  cursor: pointer;
+}
+
+.qw-fruit svg { width: 58px; height: 64px; }
+.qw-fruit.is-heard { border-color: rgba(255, 209, 102, .8); }
+.qw-fruit.is-right { border-color: #63c47a; }
+.qw-fruit.is-wrong { border-color: #d16f6f; animation: q-shake 320ms; }
+.qw-fruit.is-reveal { outline: 3px solid #ffd166; }
+
+.qw-feeds { display: flex; gap: 5px; margin-top: 4px; }
+.qw-feeds span { width: 11px; height: 11px; border-radius: 50%; background: rgba(255, 255, 255, .2); }
+.qw-feeds span.is-on { background: #ffd166; }
+.qw-tamed { margin: 0; font-size: 18px; }
+.qw-tamed strong { color: #ffd166; }
+
+/* bridge + cave share the plank/tile language */
+.qw-span { display: flex; gap: 8px; padding: 8px 12px; border-radius: 12px; background: rgba(0, 0, 0, .3); }
+
+.qw-plank {
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 50px;
+  border: 2px dashed rgba(255, 255, 255, .28);
+  border-radius: 8px;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.qw-plank.is-laid {
+  border: 0;
+  background: linear-gradient(180deg, #d2a36a, #a97a44);
+  box-shadow: 0 4px 0 #7a5528;
+  color: #2b1d0c;
+  animation: q-drop 280ms cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.qw-echoes { display: flex; gap: 9px; }
+
+.qw-echo {
+  display: grid;
+  place-items: center;
+  min-width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .32);
+  color: rgba(255, 255, 255, .3);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.qw-echo.is-said {
+  background: radial-gradient(circle at 40% 35%, #8fd3e8, #3f7f9b);
+  color: #0f2733;
+  animation: q-drop 300ms cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.qw-tray { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; }
+
+.qw-tile {
+  min-width: 62px;
+  height: 56px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ece5f5, #c6bcd8);
+  box-shadow: 0 4px 0 #877d99;
+  color: #241f33;
+  font-size: 23px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.qw-tile.is-used { opacity: .2; }
+.qw-tile.is-wobble { animation: q-shake 380ms; background: linear-gradient(180deg, #f0a6a6, #d16f6f); }
+
+/* pens */
+.qw-penrow { display: flex; gap: 12px; width: 100%; }
+
+.qw-pen {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  flex: 1;
+  min-height: 108px;
+  padding: 10px 8px;
+  border: 3px dashed rgba(255, 255, 255, .3);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .06);
+  color: #fff;
+  cursor: pointer;
+}
+
+.qw-pen.is-live { border-color: #ffd166; background: rgba(255, 209, 102, .14); }
+.qw-pensign { font-size: 26px; font-weight: 800; }
+.qw-penwords { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
+.qw-penwords span { padding: 3px 9px; border-radius: 999px; background: rgba(255, 255, 255, .16); font-size: 14px; }
+.qw-sheeprow { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+
+.qw-sheep {
+  min-height: 48px;
+  padding: 0 14px;
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: #ece5f5;
+  box-shadow: 0 4px 0 #877d99;
+  color: #241f33;
+  font-size: 19px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.qw-sheep.is-held { border-color: #ffd166; transform: translateY(-4px); }
+
+/* cards, signs, story */
+.qw-cards { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+
+.qw-card {
+  min-height: 58px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fff3d4, #f0d69a);
+  box-shadow: 0 4px 0 #b3945a;
+  color: #3a2a06;
+  font-size: 23px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.qw-card.is-right { background: linear-gradient(180deg, #9fe6a8, #63c47a); box-shadow: 0 4px 0 #3f8b52; }
+.qw-card.is-wrong { background: linear-gradient(180deg, #f0a6a6, #d16f6f); animation: q-shake 320ms; }
+
+.qw-signboard {
+  padding: 12px 20px;
+  border: 4px solid #7a5528;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #e8cfa4, #cba875);
+  box-shadow: 0 5px 0 #5c3f1e;
+  color: #2b1d0c;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.qw-things { display: flex; gap: 16px; }
+
+.qw-thing {
+  display: grid;
+  place-items: center;
+  width: 104px;
+  height: 94px;
+  border: 3px solid transparent;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .08);
+  cursor: pointer;
+}
+
+.qw-thing svg { width: 80px; height: 70px; }
+.qw-thing.is-right { border-color: #63c47a; }
+.qw-thing.is-wrong { border-color: #d16f6f; animation: q-shake 320ms; }
+
+.qw-page { margin: 0; max-width: 32ch; font-size: 23px; font-weight: 600; line-height: 1.6; }
+
+.qw-pw {
+  min-height: 0;
+  padding: 2px 3px;
+  border: 0;
+  border-bottom: 2px dashed rgba(255, 209, 102, .45);
+  border-radius: 4px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.qw-pw.is-mute { border-bottom-color: transparent; cursor: default; }
+
+@media (prefers-reduced-motion: reduce) {
+  .qw-root *, .qw-root *::before, .qw-root *::after { animation: none !important; }
+}
+
+/* ── WORLD REPAIR ──────────────────────────────────────────────────────────
+ * "Turn mastery into world repair." Every prop has two states, and the CHANGE is
+ * the reward: the bridge gets its planks and you cross it, the flowers bloom, the
+ * beast sits down full and happy. A star counter is a receipt; this is a reward.
+ */
+.qw-prop { display: grid; place-items: end center; pointer-events: none; }
+.qw-art { width: auto; height: 132px; overflow: visible; }
+.qw-prop-broken-bridge .qw-art { height: 96px; }
+.qw-prop-echo-cave .qw-art { height: 150px; }
+.qw-prop-sheep-pens .qw-art { height: 108px; }
+.qw-prop-signpost .qw-art { height: 150px; }
+.qw-prop-word-beast .qw-art { height: 150px; }
+.qw-prop.is-active { animation: q-pulse 1.2s ease-in-out infinite; }
+
+/* the beast chews while it waits, so it reads as ALIVE and IN YOUR WAY */
+.qw-chomp { animation: q-chew 1.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center top; }
+.qw-full { animation: cr-cheer-jump 700ms cubic-bezier(.34, 1.56, .64, 1); }
+
+/* the flowers grow, one after another */
+.qw-grown { animation: qw-grow 520ms cubic-bezier(.34, 1.56, .64, 1) both; transform-box: fill-box; transform-origin: bottom center; }
+
+@keyframes qw-grow {
+  0% { transform: scale(0) translateY(14px); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+
+/* the planks drop into the gap, one at a time, and then you walk across */
+.qw-plankdrop { animation: qw-plankfall 420ms cubic-bezier(.34, 1.56, .64, 1) both; }
+
+@keyframes qw-plankfall {
+  0% { transform: translateY(-40px) rotate(-14deg); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+
+.qw-glow { animation: qw-pulseglow 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+
+@keyframes qw-pulseglow {
+  0%, 100% { transform: scale(1); opacity: .35; }
+  50% { transform: scale(1.14); opacity: .6; }
+}
+
+.qw-swing { animation: qw-swingsign 700ms cubic-bezier(.34, 1.56, .64, 1); transform-box: fill-box; transform-origin: top center; }
+
+@keyframes qw-swingsign {
+  0% { transform: rotate(0); }
+  40% { transform: rotate(-7deg); }
+  70% { transform: rotate(4deg); }
+  100% { transform: rotate(0); }
+}
+
+/* ── THE GUIDE ─────────────────────────────────────────────────────────────
+ * A character gives you the sound. The first version was a yellow square with a
+ * letter in it and a "Let's go" button — a flashcard with a drop shadow. A child
+ * does not travel anywhere for a flashcard.
+ */
+.qw-guide {
+  position: absolute;
+  z-index: 30;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(10, 8, 22, .74);
+  backdrop-filter: blur(3px);
+}
+
+.qw-guide-body {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  max-width: 620px;
+  animation: qw-rise 340ms cubic-bezier(.22, .61, .36, 1);
+}
+
+.qw-guide-art { flex: 0 0 auto; width: 118px; height: 128px; animation: cr-breathe 2.6s ease-in-out infinite; transform-box: fill-box; transform-origin: bottom center; }
+
+.qw-bubble {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 16px 20px 18px;
+  border: 3px solid rgba(255, 255, 255, .18);
+  border-radius: 22px;
+  background: rgba(20, 17, 42, .94);
+  color: #fff;
+  text-align: center;
+}
+
+.qw-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: 26px;
+  left: -13px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-right: 14px solid rgba(20, 17, 42, .94);
+  border-bottom: 10px solid transparent;
+}
+
+.qw-guide-name { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #ffd166; }
+.qw-guide-line { margin: 0; max-width: 30ch; font-size: 18px; line-height: 1.45; }
+.qw-guide-eg { margin: 0; font-size: 15px; letter-spacing: .04em; opacity: .65; }
+
+/* The sound itself IS the button. Tap it to hear it again. */
+.qw-bigsound {
+  display: grid;
+  place-items: center;
+  min-width: 108px;
+  height: 108px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 26px;
+  background: linear-gradient(180deg, #ffd76b, #e9a733);
+  box-shadow: 0 6px 0 #b3801f;
+  color: #40300a;
+  font-size: 54px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.qw-bigsound:active { transform: translateY(3px); box-shadow: 0 3px 0 #b3801f; }
+.qw-bigsound:disabled { opacity: .55; }
+
+@media (max-width: 640px) {
+  .qw-guide-body { flex-direction: column; align-items: center; }
+  .qw-bubble::before { display: none; }
+  .qw-guide-art { width: 92px; height: 100px; }
+}

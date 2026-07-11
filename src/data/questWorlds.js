@@ -46,3 +46,28 @@ export const QUEST_WORLDS = {
 export function worldPalette(worldId) {
   return QUEST_WORLDS[worldId] || QUEST_WORLDS.meadow;
 }
+
+// The signpost colours a child has to READ ("Tap the red rock"). They are not
+// world colours and they are not dye colours — they mean the word. They live
+// here because this is one of the two files allowed to hold a literal colour.
+export const SIGN_COLOURS = {
+  red: "#d9534f",
+  green: "#5aa469",
+  black: "#3a3a44"
+};
+
+// A highlight that is just light. Not a dye.
+export const HIGHLIGHT = "#ffffff";
+
+// The materials the world is built of. Wood is wood in every land — a plank that
+// changed colour with the palette would stop reading as a plank.
+export const MATERIALS = {
+  wood: "#d2a36a",
+  woodDark: "#7a5528",
+  woodPale: "#e8cfa4",
+  stone: "#8e879f",
+  stoneDark: "#6b6479",
+  rope: "#a97a44",
+  dull: "#8a7a63",
+  good: "#3f8b52"
+};

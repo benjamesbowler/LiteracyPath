@@ -1,7 +1,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { QUEST_STOPS, targetsAtStop, getStop } from "../../src/data/questSequence.js";
-import { buildStop, isHeartTarget } from "../../src/utils/questRounds.js";
+import { isHeartTarget } from "../../src/utils/questRounds.js";
+import { buildWalk, responsesInWalk } from "../../src/utils/questEncounters.js";
 import { targetsForStop } from "../../src/utils/questReviewScheduler.js";
 import {
   baseQuestState,
@@ -9,7 +10,9 @@ import {
   recordStopResult,
   currentStopIndex,
   isStopUnlocked,
-  availableSparks
+  availableSparks,
+  totalStars,
+  totalDrops
 } from "../../src/utils/questProgress.js";
 import { MASTERY_STATES, isMastered, countMastered } from "../../src/utils/questMastery.js";
 import { starRubric } from "../../src/utils/starRubric.js";
@@ -27,14 +30,18 @@ import { starRubric } from "../../src/utils/starRubric.js";
 // If either of those is false, the mode is broken in a way no unit test would
 // show, because every part would still work perfectly on its own.
 
-// Play one stop. `skill` is the probability the child gets a response right.
+// WALK one stop. `skill` is the probability the child gets a response right.
 // `day` advances per stop so the "2 different sessions" rule can be satisfied.
+//
+// This mirrors TrailWalk exactly: three encounters, a handful of beats, NO GATE.
+// The old version ran every shell plus a six-round boss quiz — ~20 responses a
+// stop. It is now ~5. That is the whole point of the rebuild, and this test is
+// where we find out whether mastery survives it.
 function playStop(state, stopId, { skill, day }) {
   const stop = getStop(stopId);
   const targets = targetsForStop(targetsAtStop(stopId), state.mastery, stop.index);
-  const built = buildStop(stopId, { mastery: state.mastery, targets, seed: stop.index });
+  const walk = buildWalk(stopId, { mastery: state.mastery, targets, seed: stop.index });
 
-  const shellIds = Object.keys(built.rounds).filter(id => id !== "gate" && built.rounds[id].length);
   let next = state;
   const tally = { correct: 0, total: 0, mistakes: 0 };
 
@@ -56,17 +63,15 @@ function playStop(state, stopId, { skill, day }) {
     }
   };
 
-  for (const shellId of shellIds) {
-    for (const round of built.rounds[shellId]) {
-      answer(round.target, Math.random() < skill, shellId);
+  for (const enc of walk.encounters) {
+    for (const beat of enc.beats) {
+      answer(beat.target, Math.random() < skill, enc.kind);
     }
-  }
-  for (const round of built.rounds.gate) {
-    answer(round.target, Math.random() < skill, "gate");
   }
 
   const stars = starRubric({ correct: tally.correct, total: tally.total, mistakes: tally.mistakes, deaths: 0 });
-  return { state: recordStopResult(next, stopId, stars), tally, stars };
+  // A child who reaches the end of the path picked up every sun-drop on it.
+  return { state: recordStopResult(next, stopId, stars, walk.drops.length), tally, stars, walk };
 }
 
 function walkTheTrail({ skill, passes = 1 }) {
@@ -82,20 +87,104 @@ function walkTheTrail({ skill, passes = 1 }) {
   return state;
 }
 
-test("a child who reads well walks the whole trail and ends up with the sounds MARKED as learnt", () => {
-  const state = walkTheTrail({ skill: 1, passes: 2 });
+// ── THE RATIO. This is the test that stops it turning back into a quiz. ─────
+
+test("A STOP IS A WALK, NOT A QUIZ: at most 3 encounters and 8 responses", () => {
+  // The first build asked ~20 questions per stop — five shells plus a six-round
+  // boss Gate — and it played like a worksheet with scenery. If anyone ever
+  // "adds one more mini-game to stop 7", this goes red and tells them why.
+  for (const stop of QUEST_STOPS) {
+    const walk = buildWalk(stop.id, { seed: stop.index });
+    assert.ok(walk.encounters.length >= 1, `${stop.id} has nothing in the path at all`);
+    assert.ok(
+      walk.encounters.length <= 3,
+      `${stop.id} has ${walk.encounters.length} encounters — past three it stops being a walk with things in it and becomes a quiz with scenery`
+    );
+    const responses = responsesInWalk(walk);
+    assert.ok(
+      responses <= 8,
+      `${stop.id} asks for ${responses} responses. A five-year-old walked here to explore, not to sit an exam.`
+    );
+  }
+
+  const avg = QUEST_STOPS.reduce((n, s) => n + responsesInWalk(buildWalk(s.id, { seed: s.index })), 0) / QUEST_STOPS.length;
+  assert.ok(avg <= 7, `averaging ${avg.toFixed(1)} responses a stop — the walk is being crowded out`);
+});
+
+test("there is NO GATE anywhere on the trail", () => {
+  // Teach Your Monster doesn't have one either. Mastery accrues quietly from
+  // ordinary play; it never needed a boss quiz to measure it, and a boss quiz at
+  // the end of every stop is the single most joyless thing we could add back.
+  for (const stop of QUEST_STOPS) {
+    const walk = buildWalk(stop.id, { seed: stop.index });
+    for (const enc of walk.encounters) {
+      assert.ok(enc.kind !== "gate", `${stop.id} has a gate`);
+      assert.ok(enc.beats.length <= 3, `${stop.id}: "${enc.kind}" has ${enc.beats.length} beats — an encounter is a moment, not a round of questions`);
+    }
+  }
+});
+
+test("every stop has real walking in it, and things to find along the way", () => {
+  for (const stop of QUEST_STOPS) {
+    const walk = buildWalk(stop.id, { seed: stop.index });
+    assert.ok(walk.length >= 5000, `${stop.id}: the path is only ${walk.length} long — that's a corridor, not a walk`);
+    assert.ok(walk.drops.length >= 8, `${stop.id}: only ${walk.drops.length} sun-drops — the path between encounters is empty`);
+    // Encounters must be spread out, not bunched at the start.
+    const xs = walk.encounters.map(e => e.x).sort((a, b) => a - b);
+    for (let i = 1; i < xs.length; i += 1) {
+      assert.ok(xs[i] - xs[i - 1] >= 800, `${stop.id}: two encounters only ${xs[i] - xs[i - 1]} apart — no walking between them`);
+    }
+  }
+});
+
+// The sounds we ever CLAIM. Blends ("st"), morphology ("suffix_ing") and
+// alternative pronunciations ("oo_short") are taught and practised, but never
+// claimed as mastered — the walk cannot produce two-different-kinds-of-evidence
+// for them without turning back into a quiz, and a claim you can't back is worse
+// than no claim. A blend isn't a grapheme anyway: Letters and Sounds Phase 4 adds
+// no new GPCs, because blending `st` is just applying `s` and `t`.
+const GRAPHEMES = [...new Set(
+  QUEST_STOPS.flatMap(s => s.teach.filter(e => !["blend", "morph", "alt"].includes(e.kind)).map(e => e.id))
+)];
+
+test("one walk of the trail teaches a lot, and does NOT pretend to have taught everything", () => {
+  // A child does not master seventy letter-sounds in one two-hour walk, and a
+  // game that says they did is lying to a parent. ~250 responses across ~70
+  // sounds is three each; the bar needs four, in two kinds, on two days.
+  const state = walkTheTrail({ skill: 1, passes: 1 });
 
   assert.equal(state.trail.stopsDone.length, 40, "did not finish the trail");
-  assert.equal(currentStopIndex(state), 40, "the trail should be complete");
+  assert.equal(currentStopIndex(state), 40);
 
-  // The bar needs 2 sessions and 2 shells; two passes over the trail supplies
-  // both. Every sound the trail teaches should now be mastered.
-  const taught = [...new Set(QUEST_STOPS.flatMap(s => s.teach.filter(e => e.kind !== "morph").map(e => e.id)))];
-  const unmastered = taught.filter(t => !isMastered(state.mastery, t));
-  assert.deepEqual(unmastered, [], `a perfect reader still has unmastered sounds: ${unmastered.join(", ")}`);
-
-  assert.ok(countMastered(state.mastery) >= taught.length);
+  const mastered = GRAPHEMES.filter(t => isMastered(state.mastery, t));
+  assert.ok(mastered.length >= 20, `only ${mastered.length} sounds mastered in a full perfect walk — the walk is too thin to teach anything`);
+  assert.ok(mastered.length < GRAPHEMES.length, "one walk claimed EVERY sound — the bar has gone soft");
   assert.ok(availableSparks(state) > 0, "no sparks earned for a perfect run");
+});
+
+test("KEEP WALKING AND EVERY SOUND IS REACHABLE — there is no ceiling", () => {
+  // The important one. A slow climb is fine; a CEILING is a bug. There was one:
+  // the new sounds filled every slot in the flower patch, so a sound from an
+  // earlier stop could never get a second KIND of encounter — and mastery needs
+  // two. Walking the trail six times over left fourteen sounds and thirteen
+  // blends permanently stuck, and no child would ever have known why.
+  //
+  // Six passes is not a play prediction. It is a proof that nothing is walled off.
+  const state = walkTheTrail({ skill: 1, passes: 6 });
+  const stuck = GRAPHEMES.filter(t => !isMastered(state.mastery, t));
+  assert.deepEqual(stuck, [], `these sounds can NEVER be mastered, however well the child reads: ${stuck.join(", ")}`);
+  assert.ok(countMastered(state.mastery) >= GRAPHEMES.length);
+});
+
+test("mastery climbs steadily with play — no plateau", () => {
+  // A plateau means something is structurally unreachable. Catch it as a shape,
+  // not as a specific number, so this survives tuning.
+  const counts = [1, 2, 4].map(passes => {
+    const state = walkTheTrail({ skill: 1, passes });
+    return GRAPHEMES.filter(t => isMastered(state.mastery, t)).length;
+  });
+  assert.ok(counts[1] > counts[0], `mastery stalled between 1 and 2 walks (${counts.join(" -> ")})`);
+  assert.ok(counts[2] > counts[1], `mastery stalled between 2 and 4 walks (${counts.join(" -> ")})`);
 });
 
 test("A CHILD WHO GETS EVERYTHING WRONG IS NEVER BLOCKED", () => {
@@ -113,8 +202,17 @@ test("A CHILD WHO GETS EVERYTHING WRONG IS NEVER BLOCKED", () => {
   assert.deepEqual(state.stones, [], "a child who got everything wrong has 'mastered' something");
   assert.equal(countMastered(state.mastery), 0);
 
-  // Zero stars means zero sparks. The economy cannot be farmed by failing.
-  assert.equal(availableSparks(state), 0);
+  // They still earn something, and that is DELIBERATE: they walked the whole
+  // trail and picked up every sun-drop on it. Walking is worth something on its
+  // own, or the walk is just the gap between questions — which is the trap this
+  // whole rebuild exists to climb out of.
+  //
+  // But they earn it from WALKING, not from reading: zero stars, so zero of the
+  // star payout. Reading well is worth six times more per unit. The economy
+  // rewards effort; it cannot be farmed by failing.
+  assert.equal(totalStars(state), 0, "a child who got everything wrong earned a star");
+  assert.ok(totalDrops(state) > 0, "walking the whole trail earned nothing at all");
+  assert.equal(availableSparks(state), totalDrops(state) * 2, "sparks came from somewhere other than the sun-drops");
 });
 
 test("the sounds a struggling child cannot do KEEP COMING BACK", () => {

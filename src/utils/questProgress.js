@@ -32,14 +32,26 @@ import { QUEST_STOPS, getStop, blendsThrough } from "../data/questSequence.js";
 // note on BLEND_RULES. Computed once: the trail is static.
 const ALL_BLENDS = blendsThrough(QUEST_STOPS.length);
 
+// Which targets are real GRAPHEMES — the only things we ever claim as learnt.
+// Everything else (blends, morphology, alternative pronunciations, heart words)
+// is taught and practised, and honestly not claimed.
+const GRAPHEME_TARGETS = new Set(
+  QUEST_STOPS.flatMap(s => s.teach.filter(e => !["blend", "morph", "alt"].includes(e.kind)).map(e => e.id))
+);
+
+export function isGraphemeTarget(target) {
+  return GRAPHEME_TARGETS.has(target);
+}
+
 export const SPARKS_PER_STAR = 12;
+export const SPARKS_PER_DROP = 2;
 
 export function baseQuestState() {
   return {
     v: 1,
     creature: defaultCreature(),
     hatched: false,
-    trail: { stopsDone: [], stars: {}, cutscenesSeen: [] },
+    trail: { stopsDone: [], stars: {}, drops: {}, cutscenesSeen: [] },
     mastery: {},
     stones: [],
     trickies: [],
@@ -63,6 +75,7 @@ export function normalizeQuestState(raw) {
     trail: {
       stopsDone: Array.isArray(state.trail?.stopsDone) ? [...new Set(state.trail.stopsDone)] : [],
       stars: state.trail?.stars && typeof state.trail.stars === "object" ? { ...state.trail.stars } : {},
+      drops: state.trail?.drops && typeof state.trail.drops === "object" ? { ...state.trail.drops } : {},
       cutscenesSeen: Array.isArray(state.trail?.cutscenesSeen) ? [...new Set(state.trail.cutscenesSeen)] : []
     },
     mastery: state.mastery && typeof state.mastery === "object" ? { ...state.mastery } : {},
@@ -94,8 +107,16 @@ export function totalStars(state) {
   return Object.values(state?.trail?.stars || {}).reduce((sum, n) => sum + (Number(n) || 0), 0);
 }
 
+// Sun-drops are the things you pick up WHILE WALKING. They exist so the path is
+// never empty — a walk with nothing on it is just a loading screen with grass.
+// They pay out, so walking is worth something on its own and not merely the gap
+// between questions.
+export function totalDrops(state) {
+  return Object.values(state?.trail?.drops || {}).reduce((sum, n) => sum + (Number(n) || 0), 0);
+}
+
 export function earnedSparks(state) {
-  return totalStars(state) * SPARKS_PER_STAR;
+  return totalStars(state) * SPARKS_PER_STAR + totalDrops(state) * SPARKS_PER_DROP;
 }
 
 export function spentSparks(state) {
@@ -155,12 +176,13 @@ export function recordQuestAttempt(state, { target, correct, shell, stopIndex = 
 //
 // NOTE what is NOT here: nothing checks mastery before advancing. That is the
 // point. The story never waits.
-export function recordStopResult(state, stopId, stars = 0) {
+export function recordStopResult(state, stopId, stars = 0, drops = 0) {
   const stop = getStop(stopId);
   if (!stop) return state;
 
   const stopsDone = [...new Set([...(state.trail?.stopsDone || []), stopId])];
   const prevStars = Number(state.trail?.stars?.[stopId]) || 0;
+  const prevDrops = Number(state.trail?.drops?.[stopId]) || 0;
 
   // Update the review BOX for every sound — but NOT `lastStop`.
   //
@@ -185,10 +207,16 @@ export function recordStopResult(state, stopId, stars = 0) {
   //
   // Heart words ("hw:the") are mastery targets too, but they are NOT sounds, and
   // the wall is a wall of sounds. They live on the Trickies shelf instead.
+  //
+  // Nor are blends ("st"), morphology ("suffix_ing") or alternative pronunciations
+  // ("oo_short"). All three are taught and practised, but the game cannot produce
+  // two-different-kinds-of-evidence for any of them without turning back into a
+  // quiz — so we do not CLAIM them. Only real graphemes become stones. A claim you
+  // can't back is worse than no claim.
   const stones = [...new Set([
     ...(state.stones || []),
     ...Object.keys(mastery).filter(t =>
-      !t.includes(":")
+      isGraphemeTarget(t)
       && (mastery[t].state === MASTERY_STATES.MASTERED || mastery[t].state === MASTERY_STATES.RETIRED))
   ])];
 
@@ -197,7 +225,8 @@ export function recordStopResult(state, stopId, stars = 0) {
     trail: {
       ...state.trail,
       stopsDone,
-      stars: { ...(state.trail?.stars || {}), [stopId]: Math.max(prevStars, stars) }
+      stars: { ...(state.trail?.stars || {}), [stopId]: Math.max(prevStars, stars) },
+      drops: { ...(state.trail?.drops || {}), [stopId]: Math.max(prevDrops, drops) }
     },
     mastery,
     stones,

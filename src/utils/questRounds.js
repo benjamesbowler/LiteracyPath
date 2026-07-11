@@ -180,7 +180,12 @@ export function buildStoneBridgeRound(word, { stopIndex, mastery, rng, extras = 
     // whose only shells are Stone Bridge and Echo Cave could NEVER reach the
     // two-shell bar and so could never be mastered. The child would have been
     // stuck on it forever, through no fault of their own.
-    target: [...new Set([...planks, ...blendsIn(word, blendsThrough(stopIndex))])],
+    // GRAPHEMES ONLY. Blends used to be credited here too, and chasing that was a
+    // category error: a blend is not a grapheme. Letters and Sounds Phase 4 adds
+    // NO new GPCs — blending `st` is just applying `s` and `t`, which this word
+    // already proves. Claiming "st" as a masterable unit invented a thing that
+    // needed two kinds of evidence, and the game could only ever produce one.
+    target: [...new Set(planks)],
     word,
     planks,
     tray: shuffle([...planks, ...ordered.slice(0, extras)], rng),
@@ -208,9 +213,8 @@ export function buildEchoCaveRound(word, { stopIndex, mastery, rng, extras = 3 }
 
   return {
     shell: "echo-cave",
-    // Same as the Stone Bridge: segmenting a word proves every sound in it —
-    // and every blend in it.
-    target: [...new Set([...sounds, ...blendsIn(word, blendsThrough(stopIndex))])],
+    // Graphemes only — same reasoning as the Stone Bridge above.
+    target: [...new Set(sounds)],
     word,
     sounds,
     keys: shuffle([...new Set([...sounds, ...ordered.slice(0, extras)])], rng),

@@ -21,10 +21,32 @@
 //
 // DOM-free and deterministic — unit-tested in tests/unit/questMastery.test.js.
 
+// THE BAR HAS TO FIT THE GAME THE CHILD IS ACTUALLY PLAYING.
+//
+// It used to be 8 correct across a 10-attempt window. That was tuned for the
+// first build, where every stop was a five-shell quiz plus a six-round Gate —
+// about twenty questions a stop. That game was joyless and it is gone.
+//
+// A stop is now a WALK: three things happen in the path, about five responses in
+// total, and most of the time is spent walking. Ten attempts per sound is simply
+// more evidence than this game will ever produce for a sound taught late on the
+// trail, so the bar would have quietly become unreachable — a child could read
+// perfectly and still watch the last stones stay dark forever.
+//
+// Four correct, 75% over the last four, in TWO DIFFERENT ENCOUNTERS, on TWO
+// DIFFERENT DAYS.
+//
+// The two conditions that carry the honesty are untouched, and they are the only
+// two that ever mattered:
+//   - two different days  -> you cannot cram it in one sitting
+//   - two different things -> you cannot fake it by learning one mini-game
+// The raw count was never the honest part. Demanding ten attempts of a game that
+// only ever offers four is not rigour; it is a bar nobody can clear, and the
+// child gets the blame.
 export const MASTERY_RULES = Object.freeze({
-  minCorrect: 8,
-  minAccuracy: 0.85,
-  accuracyWindow: 10,
+  minCorrect: 4,
+  minAccuracy: 0.75,
+  accuracyWindow: 4,
   minShells: 2,
   minSessions: 2,
   demoteAfterConsecutiveMisses: 2
@@ -44,9 +66,9 @@ export const MASTERY_RULES = Object.freeze({
 // real evidence for a unit this size. Demanding ten was demanding evidence the
 // game structurally cannot produce.
 export const BLEND_RULES = Object.freeze({
-  minCorrect: 4,
-  minAccuracy: 0.85,
-  accuracyWindow: 4,
+  minCorrect: 3,
+  minAccuracy: 0.75,
+  accuracyWindow: 3,
   minShells: 2,
   minSessions: 2,
   demoteAfterConsecutiveMisses: 2

@@ -59,14 +59,35 @@ function isDue(record, stopIndex) {
 }
 
 // How badly does this child need to see this sound again? Higher = sooner.
-// errorRate dominates; a long gap since we last saw it nudges it up.
+//
+// Three pulls, in order of strength:
+//
+//   1. ERROR RATE — the sounds they keep getting wrong come back first. Obvious.
+//
+//   2. ONE-KIND-SHORT — a sound the child has answered correctly again and again,
+//      but only ever in ONE kind of encounter. Mastery needs two, so this child
+//      is stuck one flower patch away from a stone they have plainly earned. This
+//      pull is what unsticks them, and without it most of the alphabet sat at
+//      "learning" forever on a perfect playthrough: `w` with five clean correct
+//      answers, all of them in flowers, marked as not-yet-learnt. That is not
+//      rigour, it is a bug wearing rigour's coat.
+//
+//   3. RECENCY — how long since we last saw it.
 export function reviewWeight(record, stopIndex) {
   const r = { ...emptyRecord(), ...(record || {}) };
   if (!r.seen) return 0;
+
   const errorRate = 1 - r.correct / r.seen;
   const gap = Math.max(0, stopIndex - (Number(r.lastStop) || 0));
   const recency = Math.min(1, gap / 12);
-  return errorRate * 2 + recency;
+  const oneKindShort = r.correct >= 2 && (r.shells || []).length < 2 ? 1.5 : 0;
+
+  return errorRate * 2 + oneKindShort + recency;
+}
+
+// Which kinds of encounter has this child already proved this sound in?
+export function provenIn(record) {
+  return new Set((record?.shells) || []);
 }
 
 // The review items due at this stop, worst-first, capped.

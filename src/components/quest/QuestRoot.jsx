@@ -14,7 +14,9 @@ import { createPortal } from "react-dom";
 import CreatureCreator from "./CreatureCreator.jsx";
 import DenScreen from "./DenScreen.jsx";
 import TrailMap from "./TrailMap.jsx";
-import StopRunner from "./StopRunner.jsx";
+// TrailWalk replaces StopRunner. StopRunner was a menu of quiz shells ending in a
+// six-round Gate — a question bank wearing a map. The world is the game now.
+import TrailWalk from "./world/TrailWalk.jsx";
 import RewardScreen from "./RewardScreen.jsx";
 import TradingPost from "./TradingPost.jsx";
 import { loadQuestProgress, saveQuestProgress } from "../../utils/questStore.js";
@@ -90,10 +92,10 @@ export default function QuestRoot({ progressScopeKey = "default", isSoundEnabled
     });
   }, [progressScopeKey]);
 
-  const handleFinish = useCallback((stars) => {
+  const handleFinish = useCallback((stars, tally = {}) => {
     setState(prev => {
       const before = new Set(prev.stones);
-      const next = recordStopResult(prev, activeStop, stars);
+      const next = recordStopResult(prev, activeStop, stars, tally.drops || 0);
       saveQuestProgress(progressScopeKey, next);
 
       const newStones = next.stones.filter(g => !before.has(g) && isMastered(next.mastery, g));
@@ -168,7 +170,7 @@ export default function QuestRoot({ progressScopeKey = "default", isSoundEnabled
       )}
 
       {view === VIEW.STOP && activeStop && (
-        <StopRunner
+        <TrailWalk
           stopId={activeStop}
           state={state}
           resume={resume}

@@ -265,9 +265,17 @@ test("blending a word credits EVERY sound in it, not just the first", () => {
   assert.deepEqual([...echo.target].sort(), ["a", "ch", "t"]);
 });
 
-test("EVERY sound taught on the trail is creditable in at least 2 different shells", () => {
-  // The end-to-end version of the same claim: walk the whole trail, and check
-  // that no sound is left unmasterable because too few shells ever credit it.
+test("EVERY REAL SOUND is creditable in at least 2 different kinds of thing", () => {
+  // Mastery needs a sound proved in two DIFFERENT encounters. A sound that only
+  // ever appears in one kind can never be mastered — not "slowly", ever.
+  //
+  // Blends, morphology and alternative pronunciations are excluded, and that is a
+  // decision, not an omission: a blend is not a grapheme (Letters and Sounds
+  // Phase 4 adds no new GPCs — blending `st` is just applying `s` and `t`), and
+  // an alt can only be taught by sorting words by SOUND. None of the three can
+  // produce two kinds of evidence without turning the walk back into a quiz, so
+  // they are taught and practised, and honestly never CLAIMED. A claim you can't
+  // back is worse than no claim.
   const credits = {};
   for (const stop of QUEST_STOPS) {
     const built = buildStop(stop.id, { seed: stop.index });
@@ -286,7 +294,7 @@ test("EVERY sound taught on the trail is creditable in at least 2 different shel
   const stuck = [];
   for (const stop of QUEST_STOPS) {
     for (const entry of stop.teach) {
-      if (entry.kind === "morph") continue;  // morphology scores no GPC mastery
+      if (["blend", "morph", "alt"].includes(entry.kind)) continue;
       const shells = credits[entry.id];
       if (!shells || shells.size < 2) stuck.push(`${entry.id} (${stop.id}) — creditable in ${shells ? [...shells].join(", ") : "NOTHING"}`);
     }
