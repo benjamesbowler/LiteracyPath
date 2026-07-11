@@ -7,6 +7,7 @@
     "dev": "vite",
     "prebuild": "node tools/generateAudioManifest.js && node tools/generateBookIndex.js && node tools/generateItemUniverse.js && node tools/generateHfwEligibilityKeys.js",
     "build": "vite build",
+    "gen:image": "node tools/generateImage.mjs",
     "analyze": "ANALYZE_BUNDLE=true vite build",
     "test:smoke": "playwright test tests/smoke",
     "test:smoke:headed": "playwright test tests/smoke --headed",

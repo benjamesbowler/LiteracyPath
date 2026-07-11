@@ -65,3 +65,31 @@ Rules:
 - If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
 - Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
 - After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+
+## Generating images — there is a tool, use it
+
+Never tell Benjamin you "can't generate images", and never hand-roll a one-off script.
+`OPENAI_API_KEY` is already in `.env`, and `openai` + `sharp` are already dependencies.
+
+```bash
+# one image
+npm run gen:image -- --prompt "..." --out public/images/learn-games/art/name.webp --width 640
+
+# a batch (preferred — keep jobs in tools/image-jobs/*.json)
+npm run gen:image -- --batch tools/image-jobs/arcade-icons.json
+```
+
+Tool: `tools/generateImage.mjs` (OpenAI `gpt-image-1` → sharp → .webp). It skips files that
+already exist unless you pass `--force` or set `"force": true` on the job.
+
+The Cowork sandbox has **no network access to the OpenAI API**, so *Claude cannot run this itself* —
+write the job JSON, then hand Benjamin the one-line `npm run gen:image` command to run on his Mac.
+
+Prompt rules (learned the hard way):
+- **Always** include "no text, no letters, no words, no numbers" — otherwise the model bakes in
+  garbled lettering (this is how `star-gallery.webp` ended up reading "Fanter").
+- Arcade icon house style: glossy 3D-rendered app-icon tile, one hero object centred, rounded-square
+  frame, soft rim lighting + ambient colour glow, plasticky claymation render, subtle depth of field.
+  Square **640×640**.
+- Art direction: realistic cartoon; fantasy / sci-fi / nature only; no rainbow motifs; no faces on
+  inanimate objects; not babyish.

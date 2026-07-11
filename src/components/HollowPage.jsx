@@ -6,6 +6,7 @@ import {
 } from "../utils/hollowEconomy.js";
 import { loadHollowLedger, recordPurchase, recordFeed, saveLayout, markCoinsSeen } from "../utils/hollowState.js";
 import { DEN_THEMES } from "../utils/denRewards.js";
+import { hollowSpotsFor, getCachedHollowOverride, loadHollowSpotsOverride } from "../data/hollowSpots.js";
 import { loadStudentProfile, saveStudentProfile, getCompanion } from "../utils/studentProfile.js";
 import { playStarChime } from "../utils/audio/gameSfx.js";
 import { CoinIcon, BerryIcon } from "./shared/CurrencyIcons.jsx";
@@ -62,26 +63,11 @@ function CoinPrice({ verdict, price }) {
   return <span className="hollow-price cant"><CoinIcon size={13} /> {price} · {verdict.short} to go</span>;
 }
 
-// Placement spots aligned to EACH scene's OWN shelves/niches — the layouts
-// differ per world, so a single shared set can't fit them. Verified on screen
-// (Aaron's Hollow) + against the raw art: meadow = flat plank (top) + 5-cubby
-// unit (bottom); dino = one row of arched wall niches; moonwood = one row of
-// teal knothole niches.
-const MAIN_SPOTS_BY_WORLD = {
-  meadow: [
-    { id: "s1", x: 31, y: 63 }, { id: "s2", x: 40, y: 34 }, { id: "s3", x: 48, y: 63 },
-    { id: "s4", x: 57, y: 34 }, { id: "s5", x: 66, y: 63 }, { id: "s6", x: 74, y: 34 }
-  ],
-  dino: [
-    { id: "s1", x: 20, y: 57 }, { id: "s2", x: 31, y: 57 }, { id: "s3", x: 43, y: 57 },
-    { id: "s4", x: 54, y: 57 }, { id: "s5", x: 65, y: 57 }, { id: "s6", x: 76, y: 57 }
-  ],
-  moonwood: [
-    { id: "s1", x: 17, y: 67 }, { id: "s2", x: 28, y: 67 }, { id: "s3", x: 40, y: 67 },
-    { id: "s4", x: 51, y: 67 }, { id: "s5", x: 63, y: 67 }, { id: "s6", x: 74, y: 67 }
-  ]
-};
-const EXPANSION_SPOTS = [{ x: 26, y: 64 }, { x: 43, y: 44 }, { x: 60, y: 64 }, { x: 76, y: 44 }];
+// Where the trophy/decoration spots sit on each room's painted shelves and
+// niches now lives in ../data/hollowSpots.js — defaults there, and an admin can
+// drag them into place in the "Hollow Spots" editor (Admin → Hollow Spots).
+// Spot ids are unchanged ("s1".."s6" for the main room, "<exp-id>-1".."-4" for
+// an expansion) so every child's already-placed items stay where they are.
 const ROOM_TINTS = {
   "exp-garden": "rgba(62, 137, 72, 0.30)",
   "exp-pond": "rgba(30, 90, 140, 0.30)",
@@ -171,6 +157,15 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   const [pickingWorld, setPickingWorld] = useState(false);
   const [hatched, setHatched] = useState(null);
   const [theme, setTheme] = useState(() => loadStudentProfile(scope).denTheme || "meadow");
+  // Admin-placed spot positions (Admin → Hollow Spots). Cached first so the
+  // room never renders with the wrong spots for a frame, then refreshed.
+  const [spotOverride, setSpotOverride] = useState(() => getCachedHollowOverride());
+
+  useEffect(() => {
+    let alive = true;
+    loadHollowSpotsOverride().then(ov => { if (alive) setSpotOverride(ov); }).catch(() => {});
+    return () => { alive = false; };
+  }, []);
 
   useEffect(() => {
     function handleHydrated(event) {
@@ -259,13 +254,15 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
       kind: "open", id: "main", name: "The Hollow",
       image: `url(/images/hollow/scene-${activeTheme.id}.webp), url(${activeTheme.art})`,
       tint: null,
-      spots: (MAIN_SPOTS_BY_WORLD[activeTheme.id] || MAIN_SPOTS_BY_WORLD.meadow).map(spot => ({ ...spot, spotId: spot.id }))
+      spots: hollowSpotsFor(activeTheme.id, spotOverride)
+        .map(([x, y], index) => ({ id: `s${index + 1}`, x, y, spotId: `s${index + 1}` }))
     },
     ...hollow.ownedExpansions.map(exp => ({
       kind: "open", id: exp.id, name: exp.name,
       image: `url(/images/hollow/band-${exp.id.slice(4)}.webp), url(${activeTheme.art})`,
       tint: ROOM_TINTS[exp.id] || null,
-      spots: EXPANSION_SPOTS.map((spot, index) => ({ ...spot, spotId: `${exp.id}-${index + 1}` }))
+      spots: hollowSpotsFor(exp.id, spotOverride)
+        .map(([x, y], index) => ({ x, y, spotId: `${exp.id}-${index + 1}` }))
     })),
     ...(nextExpansion ? [{
       kind: "locked", id: nextExpansion.id, name: nextExpansion.name,

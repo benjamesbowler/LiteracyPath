@@ -1,0 +1,26 @@
+[
+  {
+    "out": "public/images/learn-games/art/grammar-grind.webp",
+    "width": 640,
+    "size": "1024x1024",
+    "quality": "high",
+    "force": true,
+    "prompt": "A glossy 3D-rendered mobile game app icon: a skateboard mid-grind, sliding sideways along a polished metal rail with bright sparks kicking off the trucks. Rounded-square icon tile with a soft bevelled edge, a single hero object centred, plasticky claymation-style 3D render, cinematic studio lighting with a strong rim light, deep amber and charcoal ambient glow in the background, subtle depth of field, vibrant, high detail, confident and cool rather than babyish. No characters, no people, no faces. Absolutely no text, no letters, no words, no numbers, no logos and no watermarks anywhere in the image."
+  },
+  {
+    "out": "public/images/learn-games/art/sentence-express.webp",
+    "width": 640,
+    "size": "1024x1024",
+    "quality": "high",
+    "force": true,
+    "prompt": "A glossy 3D-rendered mobile game app icon: a handsome steam locomotive pulling one carriage along a curving railway track, soft puffs of steam rising from the funnel. Rounded-square icon tile with a soft bevelled edge, a single hero object centred, plasticky claymation-style 3D render, cinematic studio lighting with a strong rim light, deep violet and indigo ambient glow in the background, subtle depth of field, vibrant, high detail, not babyish. The locomotive is a machine: it must have NO face, no eyes and no cartoon expression. Absolutely no text, no letters, no words, no numbers, no logos and no watermarks anywhere in the image."
+  },
+  {
+    "out": "public/images/learn-games/art/star-gallery.webp",
+    "width": 640,
+    "size": "1024x1024",
+    "quality": "high",
+    "force": true,
+    "prompt": "A glossy 3D-rendered mobile game app icon: a magical moonlit grove of three tall trees with lush layered canopies, warm golden fireflies drifting between the trunks and a soft green glow deep inside the grove. Rounded-square icon tile with a soft bevelled edge, plasticky claymation-style 3D render, cinematic studio lighting with a strong rim light, deep purple ambient glow in the background, subtle depth of field, vibrant, high detail, not babyish. No characters and no faces. Absolutely no text, no letters, no words, no numbers, no logos and no watermarks anywhere in the image."
+  }
+]

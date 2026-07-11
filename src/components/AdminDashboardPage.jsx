@@ -2,6 +2,7 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import { MapStopEditor } from "./admin/MapStopEditor.jsx";
+import { HollowSpotEditor } from "./admin/HollowSpotEditor.jsx";
 import {
   buildMediaQaRecords,
   MEDIA_QA_STATUSES,
@@ -2167,7 +2168,8 @@ export function AdminDashboardPage({
       { id: "teachers", label: "Teachers", count: teachers.length },
       { id: "classes", label: "Classes", count: classes.length },
       { id: "students", label: "Students", count: students.length },
-      { id: "mapStops", label: "Map Stops", count: null }
+      { id: "mapStops", label: "Map Stops", count: null },
+      { id: "hollowSpots", label: "Hollow Spots", count: null }
     ];
 
   if (adminQaPage === "questionFlags") {
@@ -3661,6 +3663,7 @@ export function AdminDashboardPage({
       )}
 
       {!isTeacherMode && activeSection === "mapStops" && <MapStopEditor />}
+      {!isTeacherMode && activeSection === "hollowSpots" && <HollowSpotEditor />}
     </main>
   );
 }

@@ -23,6 +23,14 @@ const ARCADE_GAMES = GAME_LIST.filter(game => (game.surfaces || []).includes("ar
 const PRACTICE_GAMES = GAME_LIST.filter(game =>
   !(game.surfaces || []).includes("arcade") && !game.hidden && game.id !== "word-climb");
 
+// Two tabs: the arcade line-up, and the quieter phonics practice games. Before
+// the tabs the practice games sat in a shelf below the arcade grid, which
+// pushed the arcade off-screen once the line-up grew past eight.
+const TABS = [
+  { id: "arcade", label: "Arcade", games: ARCADE_GAMES },
+  { id: "practice", label: "Phonics Practice", games: PRACTICE_GAMES }
+];
+
 function Leaderboard({ refreshSignal }) {
   const [rows, setRows] = useState(null);
 
@@ -99,6 +107,7 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
   });
   const [leaderboardRefresh, setLeaderboardRefresh] = useState(0);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
+  const [tab, setTab] = useState("arcade");
 
   const totals = useMemo(() => {
     const completed = ARCADE_GAMES.filter(game => (getLearnGameProgress(progress, game.id).stars || 0) > 0).length;
@@ -139,9 +148,33 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
         </div>
       </div>
 
-      {/* 4-wide tile grid: large game image + name */}
-      <div className="lg-game-tilegrid">
-        {ARCADE_GAMES.map(game => {
+      {/* Tabs: the arcade line-up, and the phonics practice games */}
+      <div className="lg-arcade-tabs" role="tablist" aria-label="Game sets">
+        {TABS.map(entry => (
+          <button
+            key={entry.id}
+            type="button"
+            role="tab"
+            id={`lg-arcade-tab-${entry.id}`}
+            aria-selected={tab === entry.id}
+            aria-controls="lg-arcade-tabpanel"
+            className={tab === entry.id ? "lg-arcade-tab active" : "lg-arcade-tab"}
+            onClick={() => setTab(entry.id)}
+          >
+            {entry.label}
+            <span className="lg-arcade-tab-count">{entry.games.length}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* 6-wide tile grid: large game image + name (11 arcade games = 6 + 5) */}
+      <div
+        className="lg-game-tilegrid"
+        id="lg-arcade-tabpanel"
+        role="tabpanel"
+        aria-labelledby={`lg-arcade-tab-${tab}`}
+      >
+        {(TABS.find(entry => entry.id === tab) || TABS[0]).games.map(game => {
           const gameProgress = getLearnGameProgress(progress, game.id);
           return (
             <button
@@ -171,43 +204,6 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
           );
         })}
       </div>
-
-      {/* Practice shelf: the skill games from Daily Challenge, on demand */}
-      {PRACTICE_GAMES.length > 0 && (
-        <div className="lg-practice-shelf">
-          <h2 className="lg-practice-title">Practice games</h2>
-          <div className="lg-game-tilegrid lg-practice-grid">
-            {PRACTICE_GAMES.map(game => {
-              const gameProgress = getLearnGameProgress(progress, game.id);
-              return (
-                <button
-                  key={game.id}
-                  type="button"
-                  className="lg-game-tile lg-practice-tile"
-                  style={{ "--game-accent": game.accent, "--game-accent-soft": game.accentSoft }}
-                  onClick={() => setActiveGame(game)}
-                >
-                  <span className="lg-game-tile-art" aria-hidden="true">
-                    <img
-                      src={`/images/learn-games/art/${game.id}.webp`}
-                      alt=""
-                      onError={event => {
-                        event.currentTarget.onerror = null;
-                        event.currentTarget.src = game.icon;
-                        event.currentTarget.classList.add("is-icon");
-                      }}
-                    />
-                  </span>
-                  <span className="lg-game-tile-name">{game.title}</span>
-                  <span className="lg-game-tile-foot">
-                    <ProgressStars stars={gameProgress.stars || 0} />
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      )}
 
       {/* Slim bottom banner: points + high-score board */}
       <div className="lg-arcade-bottomband">
