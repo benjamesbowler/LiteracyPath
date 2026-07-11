@@ -12,6 +12,7 @@ import { sayGrapheme, sayWord, displayGrapheme } from "../shells/shellContract.j
 import { hasWordAudio, hasGraphemeAudio } from "../../../utils/questAudio.js";
 import { CREATURE_INK, CREATURE_PAPER } from "../../../data/creatureParts.js";
 import { SIGN_COLOURS } from "../../../data/questWorlds.js";
+import Piece from "./Piece.jsx";
 import {
   playCorrectChime, playSoftBuzz, playPopSound, playStarChime, playCelebrationFanfare
 } from "../../../utils/audio/gameSfx.js";
@@ -65,19 +66,24 @@ export function FlowerPatch({ beat, isSoundEnabled, onBeat, onDone, index, total
               disabled={Boolean(picked)}
               onClick={() => touch(g)}
             >
-              <svg viewBox="0 0 90 120" aria-hidden="true">
-                <path d="M45,118 L45,62" stroke="var(--q-deep)" strokeWidth="6" strokeLinecap="round" fill="none" />
-                <path d="M45,92 C32,88 24,78 24,68 C34,70 42,80 45,92 Z" fill="var(--q-deep)" />
-                <g className="qw-petals">
-                  <circle cx="45" cy="30" r="17" fill="var(--q-accent)" />
-                  <circle cx="24" cy="45" r="17" fill="var(--q-accent)" />
-                  <circle cx="66" cy="45" r="17" fill="var(--q-accent)" />
-                  <circle cx="33" cy="66" r="16" fill="var(--q-accent)" />
-                  <circle cx="57" cy="66" r="16" fill="var(--q-accent)" />
-                </g>
-                <circle cx="45" cy="48" r="20" fill={CREATURE_PAPER} />
-              </svg>
-              <span className="qw-flower-letter">{displayGrapheme(g)}</span>
+              <Piece
+                kind="flower"
+                label={displayGrapheme(g)}
+                fallback={(
+                  <svg viewBox="0 0 90 120" aria-hidden="true">
+                    <path d="M45,118 L45,62" stroke="var(--q-deep)" strokeWidth="6" strokeLinecap="round" fill="none" />
+                    <g className="qw-petals">
+                      <circle cx="45" cy="30" r="17" fill="var(--q-accent)" />
+                      <circle cx="24" cy="45" r="17" fill="var(--q-accent)" />
+                      <circle cx="66" cy="45" r="17" fill="var(--q-accent)" />
+                      <circle cx="33" cy="66" r="16" fill="var(--q-accent)" />
+                      <circle cx="57" cy="66" r="16" fill="var(--q-accent)" />
+                    </g>
+                    <circle cx="45" cy="48" r="20" fill={CREATURE_PAPER} />
+                    <text x="45" y="60" textAnchor="middle" fontSize="30" fontWeight="800" fill={CREATURE_INK}>{displayGrapheme(g)}</text>
+                  </svg>
+                )}
+              />
             </button>
           );
         })}
@@ -138,10 +144,15 @@ export function HungryBeast({ beat, isSoundEnabled, onBeat, onDone, index, total
               onClick={() => tap(g)}
               aria-label={heard.includes(g) ? "Feed this fruit" : "Hear this fruit"}
             >
-              <svg viewBox="0 0 60 66" aria-hidden="true">
-                <path d="M30,64 C12,64 4,50 4,36 C4,20 16,10 30,10 C44,10 56,20 56,36 C56,50 48,64 30,64 Z" fill="var(--q-road)" />
-                <path d="M30,12 C30,4 36,0 44,0 C42,8 38,12 30,12 Z" fill="var(--q-deep)" />
-              </svg>
+              <Piece
+                kind="fruit"
+                fallback={(
+                  <svg viewBox="0 0 60 66" aria-hidden="true">
+                    <path d="M30,64 C12,64 4,50 4,36 C4,20 16,10 30,10 C44,10 56,20 56,36 C56,50 48,64 30,64 Z" fill="var(--q-road)" />
+                    <path d="M30,12 C30,4 36,0 44,0 C42,8 38,12 30,12 Z" fill="var(--q-deep)" />
+                  </svg>
+                )}
+              />
             </button>
           );
         })}
@@ -191,7 +202,13 @@ export function BrokenBridge({ beat, isSoundEnabled, onBeat, onDone, index, tota
       <Listen onClick={() => sayWord(beat.word, isSoundEnabled)} disabled={!hasWordAudio(beat.word)} label="Hear the word" />
       <div className={`qw-span${crossed ? " is-crossed" : ""}`}>
         {beat.planks.map((pl, i) => (
-          <span key={i} className={`qw-plank${laid[i] ? " is-laid" : ""}`}>{laid[i] ? displayGrapheme(laid[i].tile) : ""}</span>
+          <span key={i} className={`qw-plank${laid[i] ? " is-laid" : ""}`}>
+            <Piece
+              kind={laid[i] ? "plank" : "plank-empty"}
+              label={laid[i] ? displayGrapheme(laid[i].tile) : null}
+              fallback={<span className="qw-plank-vec">{laid[i] ? displayGrapheme(laid[i].tile) : ""}</span>}
+            />
+          </span>
         ))}
       </div>
       {crossed && <p className="qw-word">{beat.word}</p>}
@@ -204,7 +221,7 @@ export function BrokenBridge({ beat, isSoundEnabled, onBeat, onDone, index, tota
             disabled={used.has(i) || crossed}
             onClick={() => tap(t, i)}
           >
-            {displayGrapheme(t)}
+            <Piece kind="plank" label={displayGrapheme(t)} fallback={<span className="qw-tile-vec">{displayGrapheme(t)}</span>} />
           </button>
         ))}
       </div>
@@ -251,14 +268,18 @@ export function EchoCaveEnc({ beat, isSoundEnabled, onBeat, onDone, index, total
       <Listen onClick={() => sayWord(beat.word, isSoundEnabled)} disabled={!hasWordAudio(beat.word)} label="Hear the word" />
       <div className="qw-echoes">
         {beat.sounds.map((_, i) => (
-          <span key={i} className={`qw-echo${said[i] ? " is-said" : ""}`}>{said[i] ? displayGrapheme(said[i]) : "·"}</span>
+          <span key={i} className={`qw-echo${said[i] ? " is-said" : ""}`}>
+            {said[i]
+              ? <Piece kind="stone" label={displayGrapheme(said[i])} fallback={<span className="qw-echo-vec">{displayGrapheme(said[i])}</span>} />
+              : <span className="qw-echo-empty">&middot;</span>}
+          </span>
         ))}
       </div>
       {over && <p className="qw-word">{beat.word}</p>}
       <div className="qw-tray">
         {beat.keys.map(k => (
           <button key={k} type="button" className={`qw-tile${wrong === k ? " is-wobble" : ""}`} disabled={over} onClick={() => tap(k)}>
-            {displayGrapheme(k)}
+            <Piece kind="stone" label={displayGrapheme(k)} fallback={<span className="qw-tile-vec">{displayGrapheme(k)}</span>} />
           </button>
         ))}
       </div>
@@ -318,7 +339,8 @@ export function SheepPens({ beat, isSoundEnabled, onBeat, onDone, index, total }
             className={`qw-sheep${held?.word === item.word ? " is-held" : ""}`}
             onClick={() => { sayWord(item.word, isSoundEnabled); setHeld(held?.word === item.word ? null : item); }}
           >
-            {item.word}
+            <Piece kind="sheep" fallback={null} />
+            <span className="qw-sheep-word">{item.word}</span>
           </button>
         ))}
       </div>
@@ -390,7 +412,7 @@ export function WordBeastEnc({ beat, isSoundEnabled, onBeat, onDone, index, tota
               disabled={Boolean(picked)}
               onClick={() => feed(w)}
             >
-              {w}
+              <Piece kind="card" label={w} fallback={<span className="qw-card-vec">{w}</span>} />
             </button>
           ))}
         </div>
@@ -428,7 +450,10 @@ export function Signpost({ beat, isSoundEnabled, onBeat, onDone, index, total })
   return (
     <div className="qw-enc qw-sign">
       {/* No Listen button. If the app reads the sign, the child never has to. */}
-      <div className="qw-signboard">{beat.text}</div>
+      <div className="qw-signboard">
+        <Piece kind="board" fallback={null} />
+        <span className="qw-signboard-text">{beat.text}</span>
+      </div>
       <div className="qw-things">
         {beat.things.map(t => (
           <button

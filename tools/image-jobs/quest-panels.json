@@ -1,0 +1,72 @@
+[
+  {
+    "out": "public/images/quest/ui/flower-bloom.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: ONE single tall flower in full bloom, seen straight on from the front, with a big round pale-cream centre disc and five broad warm-gold petals around it, on a green stem with two leaves. The pale centre disc must be LARGE, FLAT, PLAIN, EMPTY and UNMARKED — a big clear cream circle taking up most of the flower head — because the game prints a letter on top of it. Painterly gouache texture with visible brushwork, soft rim light, chunky readable silhouette, cheerful. Clean cutout, transparent background, NO ground, NO shadow plate, NO sky, NO scenery. No faces, no eyes on the flower. Absolutely no text, no letters, no words, no numbers, no markings on the centre, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/ui/fruit.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: ONE single plump round fantasy berry-fruit, deep coral-red with a soft bloom on its skin, a short brown stalk and one green leaf at the top, glossy highlight. Painterly gouache texture with visible brushwork, soft rim light, chunky readable silhouette, appetising and inviting. Clean cutout, transparent background, NO ground, NO shadow plate, NO sky, NO scenery, NO bowl, NO plate. No faces, no eyes on the fruit. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/ui/plank.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: ONE single horizontal wooden bridge plank, warm honey-coloured weathered timber with visible grain and two dark iron nails at each end, seen straight on from the front, a wide flat rectangle with slightly rounded worn corners. The face of the plank must be LARGE, FLAT and CLEAR — the game prints a letter on it. Painterly gouache texture with visible brushwork, soft rim light, chunky readable silhouette. Clean cutout, transparent background, NO ground, NO shadow plate, NO sky, NO scenery. Absolutely no text, no letters, no words, no numbers, no carvings, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/ui/plank-empty.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: an EMPTY GAP where a bridge plank should be — just two frayed rope ends and two rusty empty nail holes hanging in the space, with nothing between them, showing the plank is missing. Wide and horizontal, seen straight on from the front. Painterly gouache texture with visible brushwork. Clean cutout, transparent background, NO ground, NO sky, NO scenery, NO plank. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/ui/echo-stone.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: ONE single smooth round river pebble, pale blue-grey, seen straight on from the front, with a soft inner glow and a faint ring of light around it, as if it is about to sing. The face of the pebble must be LARGE, FLAT, PLAIN and UNMARKED — the game prints a letter on it. Painterly gouache texture with visible brushwork, soft rim light, chunky readable silhouette, gently magical. Clean cutout, transparent background, NO ground, NO shadow plate, NO sky, NO scenery. No faces. Absolutely no text, no letters, no words, no numbers, no carvings, no runes, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/ui/word-card.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: ONE single old parchment card, a warm cream rectangle with softly worn rounded corners, a faint deckle edge and a subtle aged texture, lying flat and seen straight on from the front. The face must be LARGE, FLAT, PLAIN and COMPLETELY BLANK — the game prints a word on it. Painterly gouache texture with visible brushwork, soft rim light, chunky readable silhouette. Clean cutout, transparent background, NO ground, NO shadow plate, NO sky, NO scenery. Absolutely no text, no letters, no words, no numbers, no writing, no ink, no marks of any kind on the parchment, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/ui/sheep.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game CHARACTER on a fully transparent background: ONE single small fluffy woolly creature like a friendly cloud on legs, cream-white curly wool, a soft dark face with big gentle eyes, four little legs, standing side-on and looking towards the viewer, charming and calm. Painterly gouache texture with visible brushwork, soft rim light, chunky readable silhouette, appealing, not babyish. Clean cutout, transparent background, NO ground, NO shadow plate, NO sky, NO grass, NO fence, NO scenery. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/ui/pen-post.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: ONE single wooden pen gate — a low weathered post-and-rail wooden gate seen straight on from the front, two upright posts with two horizontal rails between them, warm weathered timber with visible grain, a simple rope latch. Painterly gouache texture with visible brushwork, chunky readable silhouette. Clean cutout, transparent background, NO ground, NO grass, NO sky, NO animals, NO scenery. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/ui/sign-board.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: ONE single wide wooden sign board, a horizontal plank of warm weathered timber with visible grain, rounded worn ends, two iron nails, seen straight on from the front. The face of the board must be LARGE, FLAT, PALE and COMPLETELY BLANK — the game prints a sentence on it. Painterly gouache texture with visible brushwork, soft rim light, chunky readable silhouette. Clean cutout, transparent background, NO post, NO ground, NO sky, NO scenery. Absolutely no text, no letters, no words, no numbers, no carvings, no marks of any kind on the board, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/ui/page.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: ONE single open page of an old storybook, warm cream paper with a soft deckle edge, a gentle curl at one corner and a faint aged texture, lying flat and seen straight on from the front, filling the frame. The page must be LARGE, FLAT, PALE and COMPLETELY BLANK — the game prints the story on it. Painterly gouache texture with visible brushwork, soft warm light. Clean cutout, transparent background, NO book cover, NO ground, NO sky, NO scenery, NO hands. Absolutely no text, no letters, no words, no numbers, no writing, no ink, no lines, no marks of any kind on the paper, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  }
+]

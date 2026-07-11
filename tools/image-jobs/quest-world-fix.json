@@ -1,0 +1,10 @@
+[
+  {
+    "out": "public/images/quest/moonwood/mid.webp",
+    "size": "1536x1024",
+    "quality": "high",
+    "background": "transparent",
+    "force": true,
+    "prompt": "IMPORTANT COMPOSITION RULE, THIS IS THE MOST IMPORTANT PART OF THE BRIEF: the ENTIRE UPPER TWO THIRDS of this image must be COMPLETELY EMPTY AND FULLY TRANSPARENT — nothing painted there at all, pure alpha, no sky, no mist, no branches, no leaves, no canopy, no glow reaching up into it. Only the BOTTOM THIRD of the image contains any painting. Within that bottom third: a hand-painted children's storybook forest midground band — ancient mossy tree trunks with twisting roots, hanging lanterns, clusters of glowing pale-blue mushrooms and fireflies, deep greens and violets lit by warm lantern gold. The tops of the trunks are cut off flat by the edge of the painted band; do not draw a canopy above them. Painterly gouache texture with visible brushwork, magical, inviting, not frightening. This is a PARALLAX LAYER for a side-scrolling game: the painted band must tile seamlessly left-to-right, the far left and far right edges matching exactly, with no strong central focal object. No characters, no creatures, no faces. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  }
+]

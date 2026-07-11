@@ -1,0 +1,85 @@
+[
+  {
+    "out": "public/images/quest/meadow/sky.webp",
+    "size": "1536x1024",
+    "quality": "high",
+    "prompt": "A hand-painted children's storybook game background: a wide sunny sky over a meadow, soft warm daylight, gentle cumulus clouds, a pale golden sun low on the left, distant birds as tiny brush marks. Painterly gouache and digital-painting texture with visible brushwork, warm and inviting, high colour but not garish, cinematic depth. This is a SKY LAYER for a side-scrolling game: it must tile seamlessly left-to-right, so the far left edge and far right edge must match perfectly and there must be no strong central focal object. No ground, no horizon line, no hills, no trees, no characters, no people, no creatures. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks, no UI. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/meadow/far.webp",
+    "size": "1536x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game background layer with a FULLY TRANSPARENT sky: only a band of soft distant rolling green hills across the lower third, hazy blue-green with aerial perspective, a few far-off windmills and a tiny hilltop cottage as soft silhouettes, wildflower haze. Everything above the hills is completely transparent. Painterly gouache texture, warm and inviting. This is a PARALLAX LAYER for a side-scrolling game: it must tile seamlessly left-to-right, the far left and far right edges matching exactly, with no strong central focal object. No characters, no people, no creatures, no faces. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/meadow/mid.webp",
+    "size": "1536x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game midground layer with a FULLY TRANSPARENT sky: a band of leafy deciduous trees, hedgerows, tall grasses and clusters of wildflowers across the lower half, richer and more saturated green than a distant hill would be, dappled sunlight, soft rim light on the leaf tops. Everything above the treeline is completely transparent. Painterly gouache texture with visible brushwork, warm, inviting, storybook. This is a PARALLAX LAYER for a side-scrolling game: it must tile seamlessly left-to-right, the far left and far right edges matching exactly, with no strong central focal object. No characters, no people, no creatures, no faces. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/meadow/ground.webp",
+    "size": "1536x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game GROUND STRIP with a fully transparent top: the bottom third is a grassy bank with a warm sandy dirt footpath worn along it, small stones, tufts of grass, daisies and clover at the path edges, soft shadows. The top two thirds are completely transparent. Painterly gouache texture, warm sunlit greens and honey-coloured earth. This is a GROUND LAYER for a side-scrolling game: it must tile seamlessly left-to-right, the far left and far right edges matching exactly, with no strong central focal object. No characters, no people, no creatures. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+
+  {
+    "out": "public/images/quest/dino/sky.webp",
+    "size": "1536x1024",
+    "quality": "high",
+    "prompt": "A hand-painted children's storybook game background: a wide warm amber sky over a prehistoric fossil canyon, hazy afternoon light, high dusty clouds, a distant volcanic plume as a soft smudge on the horizon. Painterly gouache and digital-painting texture with visible brushwork, adventurous but friendly, warm ochre and coral tones. This is a SKY LAYER for a side-scrolling game: it must tile seamlessly left-to-right, the far left and far right edges matching exactly, with no strong central focal object. No ground, no hills, no characters, no creatures, no dinosaurs. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/dino/far.webp",
+    "size": "1536x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game background layer with a FULLY TRANSPARENT sky: only a band of distant layered sandstone mesas and canyon walls across the lower third, hazy dusty orange with aerial perspective, a few tall rock spires. Everything above the rock line is completely transparent. Painterly gouache texture, warm and adventurous. This is a PARALLAX LAYER for a side-scrolling game: it must tile seamlessly left-to-right, the far left and far right edges matching exactly, with no strong central focal object. No characters, no creatures, no dinosaurs, no faces. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/dino/mid.webp",
+    "size": "1536x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game midground layer with a FULLY TRANSPARENT sky: a band of tall tree ferns, cycads and jungle palms with rocky outcrops and half-buried fossil bones and ammonite shells, across the lower half, saturated jungle green against warm rock, dappled light. Everything above the canopy is completely transparent. Painterly gouache texture with visible brushwork, adventurous, storybook. This is a PARALLAX LAYER for a side-scrolling game: it must tile seamlessly left-to-right, the far left and far right edges matching exactly, with no strong central focal object. No characters, no living creatures, no dinosaurs, no faces. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/dino/ground.webp",
+    "size": "1536x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game GROUND STRIP with a fully transparent top: the bottom third is dry cracked red-ochre canyon floor with a worn dusty trail, scattered pebbles, small fossil fragments and tough scrub grass at the edges, soft shadows. The top two thirds are completely transparent. Painterly gouache texture, warm rust and sand tones. This is a GROUND LAYER for a side-scrolling game: it must tile seamlessly left-to-right, the far left and far right edges matching exactly, with no strong central focal object. No characters, no creatures. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+
+  {
+    "out": "public/images/quest/moonwood/sky.webp",
+    "size": "1536x1024",
+    "quality": "high",
+    "prompt": "A hand-painted children's storybook game background: a wide deep indigo and violet night sky over an enchanted forest, a big soft moon, drifting stars and a faint aurora shimmer, magical but calm and safe rather than frightening. Painterly gouache and digital-painting texture with visible brushwork, luminous, storybook. This is a SKY LAYER for a side-scrolling game: it must tile seamlessly left-to-right, the far left and far right edges matching exactly, with no strong central focal object. No ground, no trees, no characters, no creatures. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/moonwood/far.webp",
+    "size": "1536x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game background layer with a FULLY TRANSPARENT sky: only a band of distant misty pine forest across the lower third, deep blue-violet silhouettes with moonlit mist between the trunks, a far-off ruined stone tower. Everything above the treeline is completely transparent. Painterly gouache texture, luminous and magical, calm not scary. This is a PARALLAX LAYER for a side-scrolling game: it must tile seamlessly left-to-right, the far left and far right edges matching exactly, with no strong central focal object. No characters, no creatures, no faces. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/moonwood/mid.webp",
+    "size": "1536x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game midground layer with a FULLY TRANSPARENT sky: a band of ancient mossy trees with twisting roots, hanging lanterns and clusters of glowing pale-blue mushrooms and fireflies, across the lower half, deep greens and violets lit by warm lantern gold. Everything above the canopy is completely transparent. Painterly gouache texture with visible brushwork, magical, inviting, not frightening. This is a PARALLAX LAYER for a side-scrolling game: it must tile seamlessly left-to-right, the far left and far right edges matching exactly, with no strong central focal object. No characters, no creatures, no faces. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/moonwood/ground.webp",
+    "size": "1536x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game GROUND STRIP with a fully transparent top: the bottom third is a mossy forest floor with a pale winding path of flat stones, fallen leaves, small glowing mushrooms and ferns at the edges, soft moonlit shadows. The top two thirds are completely transparent. Painterly gouache texture, deep green and violet with warm lantern-gold highlights. This is a GROUND LAYER for a side-scrolling game: it must tile seamlessly left-to-right, the far left and far right edges matching exactly, with no strong central focal object. No characters, no creatures. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  }
+]

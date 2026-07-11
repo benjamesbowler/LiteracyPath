@@ -97,12 +97,19 @@ async function generate(job, index, total) {
   const quality = job.quality || args.quality || "high";
   console.log(`… ${label} — generating (${size}, ${quality})`);
 
+  // `background: "transparent"` is what makes a PROP a cutout rather than a
+  // picture of a prop on a square of sky. Without it every bridge, beast and
+  // signpost arrives glued to its own background and the world looks like a
+  // collage of stickers.
+  const background = job.background || args.background;
+
   const res = await client.images.generate({
     model: "gpt-image-1",
     prompt: job.prompt,
     size,
     quality,
-    n: 1
+    n: 1,
+    ...(background ? { background } : {})
   });
 
   const b64 = res?.data?.[0]?.b64_json;

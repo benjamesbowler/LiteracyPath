@@ -1,0 +1,158 @@
+[
+  {
+    "out": "public/images/quest/props/flower-patch.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: a cluster of five tall closed flower buds on green stems, drooping slightly, dull and sleepy, waiting to open. Painterly gouache texture with visible brushwork, soft rim light, chunky readable silhouette, warm storybook colours. It must be a clean cutout with a transparent background and NO ground, NO shadow plate, NO sky, NO scenery behind it. No characters, no faces, no eyes on the flowers. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/props/flower-patch-done.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: the SAME cluster of five flowers as before but now in full glorious bloom, tall and upright, big open petals in warm gold and coral with pale centres, a few petals drifting, sparkling with light. Painterly gouache texture with visible brushwork, soft rim light, chunky readable silhouette, joyful. It must be a clean cutout with a transparent background and NO ground, NO shadow plate, NO sky, NO scenery behind it. No characters, no faces, no eyes on the flowers. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+
+  {
+    "out": "public/images/quest/props/broken-bridge.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: a broken wooden rope bridge over a gap, most of its planks missing, only two or three weathered planks left dangling from frayed ropes, mossy stone anchor posts at each end. Seen from the side, flat-on, like a side-scrolling game prop. Painterly gouache texture with visible brushwork, chunky readable silhouette, warm weathered wood. It must be a clean cutout with a transparent background and NO water, NO ground, NO sky, NO scenery behind it. No characters, no faces. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/props/broken-bridge-done.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: the SAME rope bridge, now fully repaired and safe to cross, every wooden plank in place and freshly laid, taut ropes, mossy stone anchor posts at each end, a warm glow along the walkway. Seen from the side, flat-on, like a side-scrolling game prop. Painterly gouache texture with visible brushwork, chunky readable silhouette, warm honey-coloured wood. It must be a clean cutout with a transparent background and NO water, NO ground, NO sky, NO scenery behind it. No characters, no faces. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+
+  {
+    "out": "public/images/quest/props/hungry-beast.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game CHARACTER on a fully transparent background: a big round friendly furry creature sitting square in the middle of a path, mouth wide open and hopeful, tummy rumbling, wide eager eyes, floppy ears, stubby paws — hungry and gently in your way, never scary or threatening. Warm mossy-green and amber fur, painterly gouache texture with visible brushwork, soft rim light, chunky readable silhouette, appealing and characterful, not babyish. It must be a clean cutout with a transparent background and NO ground, NO shadow plate, NO sky, NO scenery behind it. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/props/hungry-beast-done.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game CHARACTER on a fully transparent background: the SAME big round furry creature, now full and blissfully happy — sitting back, round belly, eyes closed in a contented smile, one paw raised in a friendly wave to let you past. Warm mossy-green and amber fur, painterly gouache texture with visible brushwork, soft rim light, chunky readable silhouette, appealing and characterful, not babyish. It must be a clean cutout with a transparent background and NO ground, NO shadow plate, NO sky, NO scenery behind it. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+
+  {
+    "out": "public/images/quest/props/echo-cave.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: a mossy rocky cave mouth in a hillside, the opening pitch dark inside, a few crystals and ferns around the entrance, unlit and mysterious but not frightening. Seen flat-on from the side, like a side-scrolling game prop. Painterly gouache texture with visible brushwork, chunky readable silhouette. It must be a clean cutout with a transparent background and NO ground, NO sky, NO scenery behind it. No characters, no faces, no eyes in the darkness. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/props/echo-cave-done.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: the SAME mossy cave mouth, now warmly lit from within — glowing golden light spilling out of the opening, the crystals around the entrance shining, a welcoming safe passage through. Seen flat-on from the side, like a side-scrolling game prop. Painterly gouache texture with visible brushwork, chunky readable silhouette, luminous. It must be a clean cutout with a transparent background and NO ground, NO sky, NO scenery behind it. No characters, no faces. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+
+  {
+    "out": "public/images/quest/props/sheep-pens.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: two empty wooden livestock pens side by side, low weathered post-and-rail fences with a little gate on each, seen flat-on from the side like a side-scrolling game prop. Painterly gouache texture with visible brushwork, warm weathered wood, chunky readable silhouette. It must be a clean cutout with a transparent background and NO ground, NO grass, NO sky, NO scenery behind it. No animals, no characters, no faces. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/props/sheep-pens-done.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: the SAME two wooden pens, now each full of happy fluffy cream-coloured woolly creatures safely settled in, gates closed, contented. Seen flat-on from the side like a side-scrolling game prop. Painterly gouache texture with visible brushwork, warm weathered wood, chunky readable silhouette, charming. It must be a clean cutout with a transparent background and NO ground, NO grass, NO sky, NO scenery behind it. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+
+  {
+    "out": "public/images/quest/props/word-beast.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game CHARACTER on a fully transparent background: a huge shaggy gentle creature blocking the path, sitting up, enormous open mouth, big soft curious eyes, shaggy plum-purple and teal fur, oversized paws — imposing in size but plainly kind and never threatening. Painterly gouache texture with visible brushwork, soft rim light, chunky readable silhouette, characterful, not babyish. It must be a clean cutout with a transparent background and NO ground, NO shadow plate, NO sky, NO scenery behind it. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/props/word-beast-done.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game CHARACTER on a fully transparent background: the SAME huge shaggy creature, now tamed and delighted — beaming, eyes crinkled with joy, sitting up proudly with its chest out, one big paw held out in friendship. Shaggy plum-purple and teal fur. Painterly gouache texture with visible brushwork, soft rim light, chunky readable silhouette, characterful, not babyish. It must be a clean cutout with a transparent background and NO ground, NO shadow plate, NO sky, NO scenery behind it. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+
+  {
+    "out": "public/images/quest/props/signpost.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: an old weathered wooden signpost by a path, a single blank plank board nailed across a leaning post, empty and waiting, a little moss and a curl of ivy. Seen flat-on from the side like a side-scrolling game prop. Painterly gouache texture with visible brushwork, warm weathered wood, chunky readable silhouette. The sign board must be COMPLETELY BLANK — the game draws the words on it. It must be a clean cutout with a transparent background and NO ground, NO sky, NO scenery behind it. No characters, no faces. Absolutely no text, no letters, no words, no numbers, no carved marks, no logos, no watermarks anywhere. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/props/signpost-done.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: the SAME weathered wooden signpost, now standing straight and proud, freshly painted, with a warm golden glow and a few sparkles around it, ivy flowering. Seen flat-on from the side like a side-scrolling game prop. Painterly gouache texture with visible brushwork, chunky readable silhouette. The sign board must be COMPLETELY BLANK — the game draws the words on it. It must be a clean cutout with a transparent background and NO ground, NO sky, NO scenery behind it. No characters, no faces. Absolutely no text, no letters, no words, no numbers, no carved marks, no logos, no watermarks anywhere. Not flat vector art, not a 3D render, not photorealistic."
+  },
+
+  {
+    "out": "public/images/quest/props/story-rock.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: a large smooth standing stone by a path, weathered grey granite with moss and lichen, its flat face blank and dormant, a few small stones at its base. Seen flat-on from the side like a side-scrolling game prop. Painterly gouache texture with visible brushwork, chunky readable silhouette. The stone face must be COMPLETELY BLANK — no carvings, no runes, no marks. It must be a clean cutout with a transparent background and NO ground, NO sky, NO scenery behind it. No characters, no faces on the rock. Absolutely no text, no letters, no words, no numbers, no runes, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/props/story-rock-done.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: the SAME large standing stone, now awakened and glowing — warm golden light radiating from within the stone and pouring out through fine cracks, motes of light drifting up, moss flowering. Seen flat-on from the side like a side-scrolling game prop. Painterly gouache texture with visible brushwork, chunky readable silhouette, luminous and magical. The stone face must be COMPLETELY BLANK apart from the glow — no carvings, no runes, no marks. It must be a clean cutout with a transparent background and NO ground, NO sky, NO scenery behind it. No characters, no faces on the rock. Absolutely no text, no letters, no words, no numbers, no runes, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+
+  {
+    "out": "public/images/quest/props/guide-meadow.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game CHARACTER on a fully transparent background: a small friendly meadow guide creature — a round cheerful mouse-like being with big kind eyes, tall tufted ears, a mossy green cloak and a little acorn satchel, standing and gesturing warmly as if telling you something exciting. Warm greens and honey gold. Painterly gouache texture with visible brushwork, soft rim light, chunky readable silhouette, hugely appealing, characterful, not babyish. Full body, facing slightly to the right. It must be a clean cutout with a transparent background and NO ground, NO shadow plate, NO sky, NO scenery behind it. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/props/guide-dino.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game CHARACTER on a fully transparent background: a small friendly canyon guide creature — a chunky lizard-like being with warm amber scales, a fossil-tooth necklace, a wide grin and bright curious eyes, standing and gesturing warmly as if telling you something exciting. Warm ochre, rust and teal. Painterly gouache texture with visible brushwork, soft rim light, chunky readable silhouette, hugely appealing, characterful, not babyish. Full body, facing slightly to the right. It must be a clean cutout with a transparent background and NO ground, NO shadow plate, NO sky, NO scenery behind it. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/props/guide-moonwood.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game CHARACTER on a fully transparent background: a small friendly forest guide creature — a soft owl-like being with dusk-violet feathers, huge gentle luminous eyes, carrying a little glowing lantern, standing and gesturing warmly as if telling you something exciting. Deep indigo and violet lit by warm lantern gold. Painterly gouache texture with visible brushwork, soft rim light, chunky readable silhouette, hugely appealing, characterful, magical, not frightening and not babyish. Full body, facing slightly to the right. It must be a clean cutout with a transparent background and NO ground, NO shadow plate, NO sky, NO scenery behind it. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+
+  {
+    "out": "public/images/quest/props/sun-drop.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game COLLECTIBLE on a fully transparent background: a single glowing golden droplet of light, like a warm honey-coloured teardrop gem with an inner glow and a soft halo, floating. Painterly gouache texture with visible brushwork, luminous, precious, chunky readable silhouette. It must be a clean cutout with a transparent background and NO ground, NO sky, NO scenery behind it. No faces, no characters. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  },
+  {
+    "out": "public/images/quest/props/goal-flag.webp",
+    "size": "1024x1024",
+    "quality": "high",
+    "background": "transparent",
+    "prompt": "A hand-painted children's storybook game PROP on a fully transparent background: a tall wooden pole with a cheerful triangular pennant flag at the top in warm gold, fluttering, marking the end of a path, a little bunting of small flags. The flag fabric must be COMPLETELY BLANK — no emblem, no crest, no pattern. Seen flat-on from the side like a side-scrolling game prop. Painterly gouache texture with visible brushwork, chunky readable silhouette, celebratory. It must be a clean cutout with a transparent background and NO ground, NO sky, NO scenery behind it. No characters, no faces. Absolutely no text, no letters, no words, no numbers, no logos, no watermarks. Not flat vector art, not a 3D render, not photorealistic."
+  }
+]

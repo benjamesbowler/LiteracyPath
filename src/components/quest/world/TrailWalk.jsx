@@ -16,7 +16,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import CreatureFigure from "../CreatureFigure.jsx";
 import WorldScene from "./WorldScene.jsx";
-import Prop from "./Props.jsx";
+import Prop from "./Prop.jsx";
 import Guide from "./Guide.jsx";
 import { ENCOUNTER_VIEWS } from "./encounterViews.js";
 import { buildWalk, WALK_SPEED } from "../../../utils/questEncounters.js";
@@ -201,7 +201,9 @@ export default function TrailWalk({
       {/* The world layer: props and the creature, moving with the ground. */}
       <div className="qw-world" style={{ transform: `translate3d(${-camera}px,0,0)` }}>
         {walk.drops.filter(d => !picked.has(d.id)).map(d => (
-          <span key={d.id} className="qw-drop" style={{ left: d.x, bottom: `${18 + d.y * 90}px` }} />
+          <span key={d.id} className="qw-drop" style={{ left: d.x, bottom: `${18 + d.y * 90}px` }}>
+            <img src="/images/quest/props/sun-drop.webp" alt="" aria-hidden="true" draggable="false" onError={e => { e.currentTarget.style.display = "none"; }} />
+          </span>
         ))}
 
         {/* THE THINGS IN THE PATH. Each has two states, and the change IS the
@@ -219,7 +221,9 @@ export default function TrailWalk({
           </span>
         ))}
 
-        <span className="qw-flag" style={{ left: walk.endX + 60, bottom: SCENE_H - groundY - 40 }} aria-hidden="true" />
+        <span className="qw-flag" style={{ left: walk.endX + 60, bottom: SCENE_H - groundY - 40 }} aria-hidden="true">
+          <img src="/images/quest/props/goal-flag.webp" alt="" aria-hidden="true" draggable="false" onError={e => { e.currentTarget.style.display = "none"; }} />
+        </span>
 
         <div className="qw-creature" style={{ left: x, bottom: SCENE_H - groundY - 30 }}>
           <CreatureFigure key={mood} creature={state.creature} size={132} mood={mood} />
