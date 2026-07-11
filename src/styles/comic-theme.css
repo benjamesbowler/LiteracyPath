@@ -1185,6 +1185,9 @@
 /* Reading Library logo image */
 .student-guided-reading-page .guided-library-logo { margin: 0 0 12px; }
 .student-guided-reading-page .guided-library-logo img { height: clamp(70px, 10vw, 120px); width: auto; display: block; }
+/* Teacher guided-reading view renders outside the student scope — cap the logo
+   there too so it never balloons to natural size. */
+.teacher-guided-reading-page .guided-library-logo img { height: clamp(56px, 7vw, 96px); width: auto; display: block; }
 
 /* Daily strip: comic banner background behind the title + tasks */
 .student-mode-app .student-mission-banner {

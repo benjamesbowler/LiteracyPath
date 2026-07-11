@@ -755,8 +755,8 @@
     "semantic_hash": ""
   },
   "src/App.jsx": {
-    "mtime": 1783664478.1863368,
-    "ast_hash": "f71b96baac51178f2f415fb664227b26",
+    "mtime": 1783687195.956394,
+    "ast_hash": "e9bc7e83b31c4ead2c8f3b18de355616",
     "semantic_hash": ""
   },
   "src/appState/appViewHelpers.js": {
@@ -930,8 +930,8 @@
     "semantic_hash": ""
   },
   "src/components/elQuest/ElSkillsQuest.jsx": {
-    "mtime": 1783609886.0108361,
-    "ast_hash": "2da290d6081b05d1697653c2f624c674",
+    "mtime": 1783686804.4485369,
+    "ast_hash": "278aa7b23e24166dd6964b3729974944",
     "semantic_hash": ""
   },
   "src/components/elQuest/elQuestEngine.js": {
@@ -940,13 +940,13 @@
     "semantic_hash": ""
   },
   "src/components/guided-reading/BookQuiz.jsx": {
-    "mtime": 1783134739.7226229,
-    "ast_hash": "bafbf599470cce08a62a7be26dc43123",
+    "mtime": 1783687236.5208225,
+    "ast_hash": "b3196a0b20b46138118acdecc1dd2fa5",
     "semantic_hash": ""
   },
   "src/components/guided-reading/GuidedReadingPage.jsx": {
-    "mtime": 1783609869.0445526,
-    "ast_hash": "35a299908ebfbfb7f562be95de82b01c",
+    "mtime": 1783686784.920691,
+    "ast_hash": "f72ada3a206a3de05be4008991da10d4",
     "semantic_hash": ""
   },
   "src/components/learn/LearnCardMedia.jsx": {
@@ -975,18 +975,18 @@
     "semantic_hash": ""
   },
   "src/components/learn/games/GameArcadeHub.jsx": {
-    "mtime": 1783424328.9047718,
-    "ast_hash": "05fff2fb01170fb0288a05645fc50bc4",
+    "mtime": 1783687236.5165336,
+    "ast_hash": "8384a1387b00f43b0a91249cecbad19a",
     "semantic_hash": ""
   },
   "src/components/learn/games/GamePlayer.jsx": {
-    "mtime": 1783663690.5783176,
-    "ast_hash": "c5efec7d10c42e9c01b52b1bcdd5466a",
+    "mtime": 1783687115.412412,
+    "ast_hash": "722b6b1df4ff81643fa0303b56044bfd",
     "semantic_hash": ""
   },
   "src/components/learn/games/games/ArcadePracticeGame.jsx": {
-    "mtime": 1783616339.0632358,
-    "ast_hash": "9d3ed80b1d784841547283b4261f9ee2",
+    "mtime": 1783686804.4509084,
+    "ast_hash": "69b9f9901c362f7f54f85c74de678b7c",
     "semantic_hash": ""
   },
   "src/components/learn/games/games/BlendAndBuild.jsx": {
@@ -1020,13 +1020,13 @@
     "semantic_hash": ""
   },
   "src/components/learn/games/games/index.js": {
-    "mtime": 1783679999.7364988,
-    "ast_hash": "bf1d68b145fad9b19196a73beb046fe0",
+    "mtime": 1783694110.9548361,
+    "ast_hash": "1e8ee08f0fb77b6b75fa6292ed1fc8ce",
     "semantic_hash": ""
   },
   "src/components/learn/games/shared/ConfettiCelebration.jsx": {
-    "mtime": 1781067611.6401453,
-    "ast_hash": "87e41c2c171e1ad0996e83180cf4f9f2",
+    "mtime": 1783687115.408202,
+    "ast_hash": "4e2659c0dd9ea18a4ad4df400c8ec5f6",
     "semantic_hash": ""
   },
   "src/components/learn/games/shared/LetterTile.jsx": {
@@ -1550,8 +1550,8 @@
     "semantic_hash": ""
   },
   "src/data/learnGamesData.js": {
-    "mtime": 1783681923.509541,
-    "ast_hash": "35a6c24ddc22fce74b78e55ddff5ad35",
+    "mtime": 1783694132.371455,
+    "ast_hash": "b9c164391631871e8dbde9a491c9ecd6",
     "semantic_hash": ""
   },
   "src/data/levelOneContentQuality.js": {
@@ -1955,8 +1955,8 @@
     "semantic_hash": ""
   },
   "src/utils/dailyMission.js": {
-    "mtime": 1783501787.6934593,
-    "ast_hash": "651a37129441ce3d88875a4960d81e77",
+    "mtime": 1783686760.8795586,
+    "ast_hash": "c4b230d71550747b4acbca93b4eff7b0",
     "semantic_hash": ""
   },
   "src/utils/earlySkills/isRuntimeEligibleEarlySkillQuestion.js": {
@@ -2070,8 +2070,8 @@
     "semantic_hash": ""
   },
   "src/utils/progressMerge.js": {
-    "mtime": 1783609726.3778782,
-    "ast_hash": "0fd848d585e6bea10ee3402c3c1bc005",
+    "mtime": 1783687115.4065626,
+    "ast_hash": "437cca8c856fc1ef1f69b7de34901ffd",
     "semantic_hash": ""
   },
   "src/utils/progressSync.js": {
@@ -5110,8 +5110,8 @@
     "semantic_hash": ""
   },
   "src/utils/denRewards.js": {
-    "mtime": 1783171466.1759288,
-    "ast_hash": "9013a7232c1382d31388afa3e66d1c6d",
+    "mtime": 1783686546.5963387,
+    "ast_hash": "b7aec9801da8a05d73b581641951e216",
     "semantic_hash": ""
   },
   "docs/previews/letter_audio_audit.html": {
@@ -5145,8 +5145,8 @@
     "semantic_hash": ""
   },
   "src/components/learn/games/games/AdventureGame.jsx": {
-    "mtime": 1783599391.250782,
-    "ast_hash": "8c6409fce90ffdab3ad5d5a282f01343",
+    "mtime": 1783686804.4497712,
+    "ast_hash": "618ae759f6f94b9123fd45f208ced854",
     "semantic_hash": ""
   },
   "src/components/learn/games/games/LetterGarden.jsx": {
@@ -5195,8 +5195,8 @@
     "semantic_hash": ""
   },
   "src/components/learn/games/games/SoundRacerGame.jsx": {
-    "mtime": 1783656369.3839521,
-    "ast_hash": "5f8c988567791bcf1d62ecd3ff6c62bc",
+    "mtime": 1783687115.4114845,
+    "ast_hash": "d8c4ff025b51722a065ce9d11c8e6ed9",
     "semantic_hash": ""
   },
   "src/components/learn/games/games/WordBridgeGame.jsx": {
@@ -5430,8 +5430,8 @@
     "semantic_hash": ""
   },
   "src/components/HollowPage.jsx": {
-    "mtime": 1783666054.612665,
-    "ast_hash": "6ec27e25361259ce09e1be74f88f7307",
+    "mtime": 1783686888.7928023,
+    "ast_hash": "cf7071045106f7bc0dd5d94a2fb02f37",
     "semantic_hash": ""
   },
   "src/components/learn/games/games/Ps1ArcadeGame.jsx": {
@@ -5510,8 +5510,8 @@
     "semantic_hash": ""
   },
   "src/utils/hollowEconomy.js": {
-    "mtime": 1783503120.6721694,
-    "ast_hash": "c83eafdb85261d002311564a4dae1b5a",
+    "mtime": 1783686888.790822,
+    "ast_hash": "a97a07b9c214019107d80a09f8b636da",
     "semantic_hash": ""
   },
   "src/utils/hollowState.js": {
@@ -5695,8 +5695,8 @@
     "semantic_hash": ""
   },
   "src/components/learn/games/games/SentenceExpressGame.jsx": {
-    "mtime": 1783608563.94694,
-    "ast_hash": "da71eb02bad579092ffdb646c923a904",
+    "mtime": 1783687006.4246848,
+    "ast_hash": "23f8cb2a8122df367ddd4abd16ed0aa9",
     "semantic_hash": ""
   },
   "src/sentence-express-preview.jsx": {
@@ -5892,6 +5892,26 @@
   "tools/generateHfwEligibilityKeys.js": {
     "mtime": 1783685289.3686159,
     "ast_hash": "a20bc9861d771d951f15c21d6899b123",
+    "semantic_hash": ""
+  },
+  "src/components/learn/games/games/GrammarGrindGame.jsx": {
+    "mtime": 1783698561.4871747,
+    "ast_hash": "85814e8f31bff775b0dabe81f6e70cf8",
+    "semantic_hash": ""
+  },
+  "src/components/learn/games/games/SentenceExpressArcade.jsx": {
+    "mtime": 1783687006.4255617,
+    "ast_hash": "874081a8a16c3a69cf3ea4a6bd305aad",
+    "semantic_hash": ""
+  },
+  "src/grammar-grind-preview.jsx": {
+    "mtime": 1783694330.7322931,
+    "ast_hash": "f7622c36057a978f1a87a37f16370fd3",
+    "semantic_hash": ""
+  },
+  "src/utils/grammarGrindLevels.js": {
+    "mtime": 1783698148.0460093,
+    "ast_hash": "e966f4babe61c710eafe2b47c44b9b7e",
     "semantic_hash": ""
   }
 }

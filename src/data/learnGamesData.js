@@ -422,5 +422,17 @@ export const GAME_LIST = [
     description: "Couple the cars, fix the faults, and send the sentence train rolling.",
     fullBleed: true,
     surfaces: ["arcade"]
+  },
+  {
+    id: "grammar-grind",
+    title: "Grammar Grind",
+    skill: "Skate through grammar gates",
+    category: "Grammar",
+    ...GAME_ACCENTS.amber,
+    icon: "/images/learn-games/art/grammar-grind.webp",
+    description: "Push, jump, grind rails, and ride through the gate that fixes the sentence.",
+    is3D: true,
+    fullBleed: true,
+    surfaces: ["arcade"]
   }
 ];

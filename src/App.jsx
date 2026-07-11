@@ -7905,9 +7905,23 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   const isStudentMode = sessionMode === "student";
   const hasTeacherSchool = Boolean(teacherAccountRecord?.school_id || teacherSchoolName);
   const isFocusedShell = isStudentMode || appView === APP_VIEWS.STUDENT_LOGIN || isFocusedAssessment || (isStudentSurfaceView && learnFullscreen);
+  // A teacher previewing a child surface (Student Page, Guided Reading, Story
+  // Quests, Phonics, Adventure, Hollow) needs the child-facing CSS scope so the
+  // images/logos are constrained — without it they render at natural size and
+  // the whole preview balloons. Apply student-mode-app but KEEP the sidebar
+  // (no "no-sidebar", no world backdrop).
+  const isChildPreviewView = !isStudentMode && [
+    APP_VIEWS.STUDENT_HOME,
+    APP_VIEWS.GUIDED_READING,
+    APP_VIEWS.LEARN,
+    APP_VIEWS.PHONICS_LEARN,
+    APP_VIEWS.SKILLS_BLOCK_QUEST,
+    APP_VIEWS.STUDENT_REWARDS
+  ].includes(appView);
   const appShellClassName = [
     "app",
     isStudentMode ? "student-mode-app no-sidebar" : "",
+    isChildPreviewView ? "student-mode-app teacher-child-preview" : "",
     isFocusedAssessment ? "assessment-app no-sidebar" : "",
     effectiveAssessmentFullscreen ? "assessment-fullscreen-app" : "",
     isStudentSurfaceView && learnFullscreen ? "learn-fullscreen-app no-sidebar" : ""

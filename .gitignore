@@ -54,3 +54,15 @@ LP Assets/
 docs/audio-recording/incoming/
 docs/audio-recording/staged/
 *.wav
+
+# stray duplicate build output — do not commit
+dist 2/
+
+# stray duplicate build output — do not commit
+dist 2/
+
+# stray nested graphify output (not tracked on main) — regenerable dev artifact
+/src/graphify-out/
+
+# local Claude settings
+.claude/settings.local.json

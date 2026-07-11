@@ -9,12 +9,19 @@ import {
   reelReadMatches,
   reelReadStars
 } from "../../src/utils/reelReadLevels.js";
+import {
+  GRAMMAR_GRIND_LEVELS_PER_DIFFICULTY,
+  grammarGrindChoiceFeedback,
+  grammarGrindIsCorrect,
+  grammarGrindLadder
+} from "../../src/utils/grammarGrindLevels.js";
 
 const isArcade = game => (game.surfaces || []).includes("arcade");
 
 test("the arcade shows the flagship playable games", () => {
   const arcade = GAME_LIST.filter(isArcade).map(g => g.id).sort();
   assert.deepEqual(arcade, [
+    "grammar-grind",
     "letter-leap",
     "reel-read",
     "rhyme-pop",
@@ -90,4 +97,31 @@ test("Reel & Read uses the shared star rubric", () => {
   assert.equal(reelReadStars({ correct: 10, total: 10, mistakes: 0 }), 3);
   assert.equal(reelReadStars({ correct: 8, total: 10, mistakes: 2 }), 2);
   assert.equal(reelReadStars({ correct: 6, total: 10, mistakes: 4 }), 1);
+});
+
+test("Grammar Grind has ten unambiguous grammar skate levels per difficulty", () => {
+  for (const difficulty of ["easy", "medium", "hard"]) {
+    const ladder = grammarGrindLadder(difficulty);
+    const types = new Set(ladder.map(level => level.type));
+    assert.equal(ladder.length, GRAMMAR_GRIND_LEVELS_PER_DIFFICULTY, `${difficulty} should have ten levels`);
+    assert.ok(types.size >= 6, `${difficulty} should test a varied grammar skill mix`);
+    for (const level of ladder) {
+      assert.ok(level.prompt, `${difficulty} level ${level.level + 1} needs a prompt`);
+      assert.ok(level.sentence.includes("_"), `${difficulty} level ${level.level + 1} should show the missing part`);
+      assert.ok(level.cue, `${difficulty} level ${level.level + 1} needs a cue`);
+      assert.ok(level.focus, `${difficulty} level ${level.level + 1} needs a skill focus`);
+      assert.ok(level.teaching, `${difficulty} level ${level.level + 1} needs a teaching hint`);
+      assert.ok(level.success, `${difficulty} level ${level.level + 1} needs success feedback`);
+      assert.ok(level.wrongHint, `${difficulty} level ${level.level + 1} needs wrong-answer feedback`);
+      assert.equal(new Set(level.options).size, level.options.length, `${difficulty} level ${level.level + 1} repeats an option`);
+      assert.ok(level.options.includes(level.correct), `${difficulty} level ${level.level + 1} is missing its correct option`);
+      assert.equal(level.options.filter(option => grammarGrindIsCorrect(option, level)).length, 1, `${difficulty} level ${level.level + 1} should have one correct gate`);
+      assert.notEqual(level.type, "startsWith", `${difficulty} level ${level.level + 1} should not be an initial-sound task`);
+      for (const option of level.options.filter(option => !grammarGrindIsCorrect(option, level))) {
+        const feedback = grammarGrindChoiceFeedback(option, level);
+        assert.ok(feedback.includes(String(option)), `${difficulty} level ${level.level + 1} feedback should name the picked option`);
+        assert.ok(feedback.includes(String(level.correct)), `${difficulty} level ${level.level + 1} feedback should point back to the right choice`);
+      }
+    }
+  }
 });

@@ -222,9 +222,11 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   }
 
   function toggleGear(gear) {
+    // Key equipping by item id (not slot) so the pal can wear ANY number of
+    // items at once — buying more gear is never wasted.
     const equipped = { ...hollow.equipped };
-    if (equipped[gear.slot] === gear.id) delete equipped[gear.slot];
-    else equipped[gear.slot] = gear.id;
+    if (equipped[gear.id]) delete equipped[gear.id];
+    else equipped[gear.id] = gear.id;
     saveLayout(scope, { equipped, slots: hollow.slots });
     refresh();
   }
@@ -448,7 +450,7 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
               </div>
               <div className="hollow-gear-grid">
                 {hollow.ownedGear.map(gear => {
-                  const worn = hollow.equipped[gear.slot] === gear.id;
+                  const worn = Boolean(hollow.equipped[gear.id]);
                   return (
                     <button key={gear.id} type="button" className={`hollow-gear${worn ? " worn" : ""}`} onClick={() => toggleGear(gear)}>
                       <ItemArt id={gear.id} size={52} />

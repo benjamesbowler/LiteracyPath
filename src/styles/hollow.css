@@ -32,8 +32,9 @@
   align-items: center;
   gap: 14px;
   flex-wrap: wrap;
-  /* left padding clears the global back circle; right clears the fullscreen toggle */
-  padding: 10px 180px 10px 68px;
+  /* left padding clears the global Back button (wide pill in some contexts);
+     right clears the fullscreen toggle */
+  padding: 10px 180px 10px 112px;
   background: var(--hw-parchment-solid);
   border-bottom: 1px solid var(--hw-line);
   box-shadow: 0 4px 14px rgba(20, 15, 5, 0.25);
