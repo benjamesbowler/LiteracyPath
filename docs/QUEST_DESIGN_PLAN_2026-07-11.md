@@ -27,6 +27,30 @@ This is not my invention — it is Teach Your Monster's own diagnosis of their b
 
 ---
 
+## 2b. Dimension — decided 2026-07-11: **2.5D parallax**
+
+**Teach Your Monster is not a 3D game.** It is 2D cartoon art (illustrator Rich Wake, games studio Popleaf, in collaboration with Roehampton). **[observed]** What reads as depth in their tunnel sequences is perspective drawn *into* the illustration plus parallax layers moving at different speeds. There is no 3D geometry in it.
+
+So the question was never "can we match them" — it was "how far past them do we go". Three options were on the table:
+
+| | Cost | Verdict |
+|---|---|---|
+| **2.5D parallax** — vector creature, illustrated world, layered depth | Low | **CHOSEN** |
+| **3D world, 2D creature** (Paper Mario) — real Three.js scene, creature as a billboarded sprite | +1 slice | Viable later; the world can be upgraded without touching the creature |
+| **Full 3D** — real meshes and rigs | Very high | **Rejected**, and it should stay rejected |
+
+**Why full 3D is the wrong call, stated plainly so nobody relitigates it in three months:** the creature is 6 bodies × 12 dyes × 5 patterns × 10 eyes × 8 mouths × 10 crests × 8 tails × 6 feet = **13.8 million creatures from ~55 flat vector shapes**, and a dye is one CSS variable. In 3D those 55 shapes become 55 modelled, UV-mapped, rigged meshes that must attach correctly to **six different body topologies**, and every dye becomes a material variant. That is a studio pipeline. There is no 3D asset generator in this project, so the art could not be produced even if it were budgeted. Full 3D means throwing away the creature system — the exact thing that got approved.
+
+**What 2.5D means concretely:**
+- Backdrops are 3–4 stacked layers (far sky · mid terrain · near props · foreground fringe) that scroll at different rates. One `parallax.js` module, `transform: translate3d`, GPU-composited.
+- The trail road **recedes**: stops further along the path render smaller and higher, and the creature scales as it walks.
+- Props scale and blur slightly by depth band.
+- **The creature is untouched.** Same layered SVG, same 13.8M combinations.
+
+The world can be upgraded to a real Three.js scene later without touching the creature, the shells, the mastery track, or the save file — because none of them know how the backdrop is drawn. That is why this is a safe call and not a one-way door.
+
+---
+
 ## 3. Story, world, art direction
 
 **The premise.** A storm scattered the Sound Stones across the three lands. Your creature — hatched by you, in the first 90 seconds of play — sets out along the old road to bring them home. Each stone you carry back lights up the wall of your Den. When the wall is full, the Trail opens onto the Star Reach.

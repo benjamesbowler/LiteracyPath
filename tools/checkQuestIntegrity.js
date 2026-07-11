@@ -103,9 +103,13 @@ for (const piece of [...CREATURE_PARTS, ...CREATURE_GEAR]) {
 // table. Everything else must paint with a token.
 const EMOJI = /\p{Extended_Pictographic}/u;
 const HEX = /#[0-9a-fA-F]{3,8}\b/;
+// Colour lives in exactly TWO data files: one for the creature, one for the
+// world. A literal colour anywhere else is a colour that cannot be re-themed,
+// and it is how a world ends up half Meadow and half Moonwood.
 const COLOUR_ALLOWED = new Set([
-  "src/data/creatureParts.js",   // the dye table — colour lives here, by design
-  "src/data/creatureArt.js",     // no hex, but checked anyway
+  "src/data/creatureParts.js",   // the dye table
+  "src/data/creatureArt.js",     // no hex expected, but checked anyway
+  "src/data/questWorlds.js",     // the world palettes
   "src/styles/quest.css"         // a stylesheet is allowed to be a stylesheet
 ]);
 
@@ -121,13 +125,17 @@ function walk(dir) {
 const runtimeFiles = [
   ...walk(path.join(ROOT, "src/components/quest")),
   path.join(ROOT, "src/data/questSequence.js"),
+  path.join(ROOT, "src/data/questWorlds.js"),
   path.join(ROOT, "src/data/creatureParts.js"),
   path.join(ROOT, "src/data/creatureArt.js"),
   path.join(ROOT, "src/utils/questSegments.js"),
   path.join(ROOT, "src/utils/questMastery.js"),
   path.join(ROOT, "src/utils/questReviewScheduler.js"),
+  path.join(ROOT, "src/utils/questRounds.js"),
   path.join(ROOT, "src/utils/questProgress.js"),
-  path.join(ROOT, "src/utils/questAudio.js")
+  path.join(ROOT, "src/utils/questStore.js"),
+  path.join(ROOT, "src/utils/questAudio.js"),
+  path.join(ROOT, "src/utils/creatureLayout.js")
 ].filter(fs.existsSync);
 
 for (const file of runtimeFiles) {

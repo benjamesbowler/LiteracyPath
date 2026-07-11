@@ -146,6 +146,10 @@ import { insertWithRetry, startInsertQueueFlusher } from "./utils/insertQueue.js
 
 // dynamic mastery system
 
+// Sound Seekers: a whole mode, lazy so a child who never opens it doesn't pay
+// for it on first load. Default export, unlike the named-export pages below.
+const QuestRoot = lazyWithRetry(() => import("./components/quest/QuestRoot.jsx"));
+
 // Teacher-only pages: lazy so the student bundle never downloads them.
 const TeacherDashboardPage = lazyWithRetry(() =>
   import("./components/TeacherDashboardPage.jsx").then(module => ({
@@ -8013,6 +8017,10 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               setStudentArcadeOpen(false);
               setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST);
             }}
+            onOpenSoundSeekers={() => {
+              setStudentArcadeOpen(false);
+              setAppView(APP_VIEWS.PHONICS_QUEST);
+            }}
             onOpenStoryQuests={() => {
               setStudentArcadeOpen(false);
               setAppView(APP_VIEWS.LEARN);
@@ -8052,6 +8060,19 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
             progressScopeKey={studentId || studentName || "default"}
             onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.OVERVIEW)}
           />
+        </PageBoundary>
+      )}
+
+      {/* Sound Seekers. Lazy: it is a whole mode, and a child who never opens it
+          should not pay for it on first load. */}
+      {appView === APP_VIEWS.PHONICS_QUEST && nameSaved && (
+        <PageBoundary resetKey={`phonics-quest-${studentId}`}>
+          <Suspense fallback={<LazyPageFallback label="Loading Sound Seekers..." />}>
+            <QuestRoot
+              progressScopeKey={studentId || studentName || "default"}
+              onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.OVERVIEW)}
+            />
+          </Suspense>
         </PageBoundary>
       )}
 

@@ -1,0 +1,159 @@
+{
+  "reviewWorkbook": "present",
+  "totalHfwQuestionsReviewed": 1613,
+  "acceptedCount": 1613,
+  "rejectedCount": 0,
+  "rejectedByBand": {},
+  "rejectedByTargetWord": {},
+  "rejectedByReason": {},
+  "remainingSelectableByBand": {
+    "hfw_1_25": 528,
+    "hfw_26_50": 525,
+    "hfw_51_75": 329,
+    "hfw_76_100": 229
+  },
+  "runtimePoolByBand": {
+    "hfw_1_25": 688,
+    "hfw_26_50": 685,
+    "hfw_51_75": 329,
+    "hfw_76_100": 229
+  },
+  "bandWords": {
+    "hfw_1_25": 25,
+    "hfw_26_50": 25,
+    "hfw_51_75": 25,
+    "hfw_76_100": 25
+  },
+  "phaseDepth": [
+    {
+      "skillId": "hfw_1_25",
+      "level": 1,
+      "phase": 1,
+      "selectable": 132,
+      "sampleRound": 15,
+      "enoughForRound": true
+    },
+    {
+      "skillId": "hfw_1_25",
+      "level": 1,
+      "phase": 2,
+      "selectable": 132,
+      "sampleRound": 15,
+      "enoughForRound": true
+    },
+    {
+      "skillId": "hfw_1_25",
+      "level": 2,
+      "phase": 1,
+      "selectable": 132,
+      "sampleRound": 15,
+      "enoughForRound": true
+    },
+    {
+      "skillId": "hfw_1_25",
+      "level": 2,
+      "phase": 2,
+      "selectable": 132,
+      "sampleRound": 15,
+      "enoughForRound": true
+    },
+    {
+      "skillId": "hfw_26_50",
+      "level": 1,
+      "phase": 1,
+      "selectable": 128,
+      "sampleRound": 15,
+      "enoughForRound": true
+    },
+    {
+      "skillId": "hfw_26_50",
+      "level": 1,
+      "phase": 2,
+      "selectable": 134,
+      "sampleRound": 15,
+      "enoughForRound": true
+    },
+    {
+      "skillId": "hfw_26_50",
+      "level": 2,
+      "phase": 1,
+      "selectable": 133,
+      "sampleRound": 15,
+      "enoughForRound": true
+    },
+    {
+      "skillId": "hfw_26_50",
+      "level": 2,
+      "phase": 2,
+      "selectable": 130,
+      "sampleRound": 15,
+      "enoughForRound": true
+    },
+    {
+      "skillId": "hfw_51_75",
+      "level": 1,
+      "phase": 1,
+      "selectable": 83,
+      "sampleRound": 15,
+      "enoughForRound": true
+    },
+    {
+      "skillId": "hfw_51_75",
+      "level": 1,
+      "phase": 2,
+      "selectable": 83,
+      "sampleRound": 15,
+      "enoughForRound": true
+    },
+    {
+      "skillId": "hfw_51_75",
+      "level": 2,
+      "phase": 1,
+      "selectable": 83,
+      "sampleRound": 15,
+      "enoughForRound": true
+    },
+    {
+      "skillId": "hfw_51_75",
+      "level": 2,
+      "phase": 2,
+      "selectable": 80,
+      "sampleRound": 15,
+      "enoughForRound": true
+    },
+    {
+      "skillId": "hfw_76_100",
+      "level": 1,
+      "phase": 1,
+      "selectable": 57,
+      "sampleRound": 15,
+      "enoughForRound": true
+    },
+    {
+      "skillId": "hfw_76_100",
+      "level": 1,
+      "phase": 2,
+      "selectable": 60,
+      "sampleRound": 15,
+      "enoughForRound": true
+    },
+    {
+      "skillId": "hfw_76_100",
+      "level": 2,
+      "phase": 1,
+      "selectable": 57,
+      "sampleRound": 15,
+      "enoughForRound": true
+    },
+    {
+      "skillId": "hfw_76_100",
+      "level": 2,
+      "phase": 2,
+      "selectable": 55,
+      "sampleRound": 15,
+      "enoughForRound": true
+    }
+  ],
+  "enoughFor15QuestionRounds": true,
+  "examples": []
+}
