@@ -1,6 +1,6 @@
 # Repo Hygiene Audit
 
-Date: 2026-07-05T01:19:58.321Z
+Date: 2026-07-11T07:16:48.442Z
 
 This guardrail reports temporary, preview, stale request, generated, or accidental files that may be risky to commit. It does not delete or restore anything.
 
@@ -8,20 +8,46 @@ This guardrail reports temporary, preview, stale request, generated, or accident
 
 | Metric | Count |
 | --- | --- |
-| Failures | 0 |
-| Warnings | 54 |
-| Ignored/allowed items | 817 |
-| Git status entries | 33 |
-| Tracked files inspected | 21671 |
-| Untracked files inspected | 13 |
+| Failures | 25 |
+| Warnings | 60 |
+| Ignored/allowed items | 707 |
+| Git status entries | 43 |
+| Tracked files inspected | 21765 |
+| Untracked files inspected | 25 |
 
 ## Result
 
-PASS
+FAIL
 
 ## Failures
 
-_None._
+| Path | Reason | Suggested cleanup |
+| --- | --- | --- |
+| .DS_Store | .DS_Store file found. | rm -f .DS_Store |
+| Design Reference Folder - Style - layout/.DS_Store | .DS_Store file found. | rm -f Design Reference Folder - Style - layout/.DS_Store |
+| docs/.DS_Store | .DS_Store file found. | rm -f docs/.DS_Store |
+| grammar-grind-preview.html | Root preview HTML file found. | rm -f grammar-grind-preview.html |
+| letter-leap-preview.html | Root preview HTML file found. | rm -f letter-leap-preview.html |
+| mockups/.DS_Store | .DS_Store file found. | rm -f mockups/.DS_Store |
+| public/.DS_Store | .DS_Store file found. | rm -f public/.DS_Store |
+| public/audio/.DS_Store | .DS_Store file found. | rm -f public/audio/.DS_Store |
+| public/images/.DS_Store | .DS_Store file found. | rm -f public/images/.DS_Store |
+| public/images/learn-games/.DS_Store | .DS_Store file found. | rm -f public/images/learn-games/.DS_Store |
+| public/images/learn-games/home/.DS_Store | .DS_Store file found. | rm -f public/images/learn-games/home/.DS_Store |
+| quest-creature-preview.html | Root preview HTML file found. | rm -f quest-creature-preview.html |
+| reel-read-preview.html | Root preview HTML file found. | rm -f reel-read-preview.html |
+| rhyme-pop-preview.html | Root preview HTML file found. | rm -f rhyme-pop-preview.html |
+| rocket-run-preview.html | Root preview HTML file found. | rm -f rocket-run-preview.html |
+| sentence-express-preview.html | Root preview HTML file found. | rm -f sentence-express-preview.html |
+| sound-beat-preview.html | Root preview HTML file found. | rm -f sound-beat-preview.html |
+| sound-racer-preview.html | Root preview HTML file found. | rm -f sound-racer-preview.html |
+| sound-safari-preview.html | Root preview HTML file found. | rm -f sound-safari-preview.html |
+| star-gallery-preview.html | Root preview HTML file found. | rm -f star-gallery-preview.html |
+| tmp | Temporary path found at repo root. | rm -rf tmp |
+| tmp/imagegen | Temporary path found at repo root. | rm -rf tmp/imagegen |
+| tmp/imagegen/reel-read-boat.png | Temporary path found at repo root. | rm -f tmp/imagegen/reel-read-boat.png |
+| tmp/imagegen/reel-read-fish.png | Temporary path found at repo root. | rm -f tmp/imagegen/reel-read-fish.png |
+| word-bridge-preview.html | Root preview HTML file found. | rm -f word-bridge-preview.html |
 
 ## Warnings
 
@@ -66,10 +92,6 @@ _None._
 | docs/assets/kimi_strict_missing_media_import_report.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/missing_media_report.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
 | docs/assets/next_kimi_media_request_from_skill_audit.md | Existing active docs/assets media request document may be stale. | Review or archive if stale. |
-| docs/validation/app_image_inventory_audit.json | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/app_image_inventory_audit.json |
-| docs/validation/approved_runtime_sources_audit.json | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/approved_runtime_sources_audit.json |
-| docs/validation/approved_runtime_sources_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/approved_runtime_sources_audit.md |
-| docs/validation/media_overwrite_risk_audit.md | Generated/audit file has unstaged working-tree noise. | git restore docs/validation/media_overwrite_risk_audit.md |
 | src/data/generated/hfwApprovedQuestionBank.generated.js | Runtime source contains banned phrase "may choose a book". | Review whether this is validation-only text or selectable content. |
 | src/data/assessmentMediaPicker.js | Runtime source mentions photorealistic assessment imagery. | Review asset style and QA status. |
 | src/data/hfwQuestionImageReview.js | Runtime source mentions photorealistic assessment imagery. | Review asset style and QA status. |
@@ -77,8 +99,18 @@ _None._
 | public/learn-decks/cycle-01/lesson-02/Cycle-01-Lesson-02.pptx | Large file over 20 MB: 25.0 MB. | Review before committing. |
 | public/learn-decks/cycle-01/lesson-03/Cycle-01-Lesson-03.pptx | Large file over 20 MB: 20.1 MB. | Review before committing. |
 | docs/guided-reading/guided_reading_word_audio_inventory.json | Large file over 5 MB outside approved media folders: 13.0 MB. | Review before committing. |
+| graphify-out/graph 8.json | Large file over 5 MB outside approved media folders: 11.1 MB. | Review before committing. |
+| graphify-out/graph 7.json | Large file over 5 MB outside approved media folders: 11.1 MB. | Review before committing. |
+| graphify-out/graph 9.json | Large file over 5 MB outside approved media folders: 11.1 MB. | Review before committing. |
+| graphify-out/graph.json | Large file over 5 MB outside approved media folders: 11.1 MB. | Review before committing. |
+| graphify-out/graph 6.json | Large file over 5 MB outside approved media folders: 11.1 MB. | Review before committing. |
+| graphify-out/graph 5.json | Large file over 5 MB outside approved media folders: 11.0 MB. | Review before committing. |
+| graphify-out/graph 4.json | Large file over 5 MB outside approved media folders: 11.0 MB. | Review before committing. |
+| graphify-out/graph 3.json | Large file over 5 MB outside approved media folders: 11.0 MB. | Review before committing. |
+| graphify-out/graph 2.json | Large file over 5 MB outside approved media folders: 11.0 MB. | Review before committing. |
 | src/data/generated/mediaQaReviewItems.generated.js | Large file over 5 MB outside approved media folders: 10.3 MB. | Review before committing. |
-| docs/validation/app_image_inventory_audit.json | Large file over 5 MB outside approved media folders: 7.5 MB. | Review before committing. |
+| graphify-out/2026-07-07/graph.json | Large file over 5 MB outside approved media folders: 10.2 MB. | Review before committing. |
+| docs/validation/app_image_inventory_audit.json | Large file over 5 MB outside approved media folders: 7.6 MB. | Review before committing. |
 | docs/validation/repo_data_source_audit.json | Large file over 5 MB outside approved media folders: 7.2 MB. | Review before committing. |
 | src/data/generated/skillWordBank.generated.js | Large file over 5 MB outside approved media folders: 6.8 MB. | Review before committing. |
 
@@ -475,15 +507,6 @@ _None._
 | public/images/child-mode/digraphs/thumb.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/digraphs/whale.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/digraphs/wheel.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/echo-caves/cave-background.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/echo-caves/crystal-cluster.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/echo-caves/crystal-icon.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/echo-caves/mission-card-bg.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/echo-caves/reward-badge.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/echo-caves/sparkle-particles.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/echo-caves/stepping-stones.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/echo-caves/tunnel-entrance.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/echo-caves/ui-panel-bg.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/initial-sounds/ant.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/initial-sounds/apple.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/initial-sounds/axe.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
@@ -650,12 +673,10 @@ _None._
 | public/images/child-mode/minimal-pairs/bud.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/minimal-pairs/cot.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/minimal-pairs/cut.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/minimal-pairs/dig.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/minimal-pairs/dug.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/minimal-pairs/hit.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/minimal-pairs/hot.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/minimal-pairs/hut.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/minimal-pairs/pen.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/minimal-pairs/pin.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/minimal-pairs/pun.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/plurals/books.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
@@ -670,13 +691,6 @@ _None._
 | public/images/child-mode/r-controlled/corn.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/r-controlled/deer.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/r-controlled/horse.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/rumble/rumble-celebrating.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/rumble/rumble-encouraging.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/rumble/rumble-excited.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/rumble/rumble-happy.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/rumble/rumble-idle.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/rumble/rumble-listening.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/rumble/rumble-pointing.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/short-a/bag.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/short-a/bat.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/short-a/cap.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
@@ -725,55 +739,28 @@ _None._
 | public/images/child-mode/short-u/sun.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/ui/cave-button-panel.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/ui/cave-reward-icon.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/ui/cave_button_panel.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/ui/cave_reward_icon.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/ui/crystal-shards.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/ui/crystal-sparkle-particles.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/ui/crystal_shards.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/ui/crystal_sparkle_particles.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/ui/floating-crystal.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/ui/floating_crystal.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/ui/glow-burst.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/ui/glow_burst.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/ui/listen-icon.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/ui/magical-particles.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/ui/magical_particles.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/ui/mastery-badge.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/ui/mastery_badge.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/ui/reward-star.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/ui/reward_star.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/ui/success-sparkle.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/ui/success_sparkle.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/vowel-teams/bee.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/vowel-teams/cake.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/vowel-teams/home.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/vowel-teams/nose.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/vowel-teams/tree.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/vowels/bed.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/vowels/boat.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/vowels/bread.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/vowels/cat.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/vowels/coat.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/vowels/cow.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/vowels/fish.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/vowels/goat.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/vowels/road.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/child-mode/vowels/snow.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/child-mode/vowels/soap.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/comprehension/bird_on_fence.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/comprehension/burned_cookies.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/comprehension/community_cleanup.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/comprehension/curious_kitten_boxes.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/comprehension/girl_reading.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/comprehension/library_visit.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/comprehension/muddy_boots.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/comprehension/open_backpack_books.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/comprehension/paint_flower.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/comprehension/puppy_chewed_shoe.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/comprehension/rainy_day.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/comprehension/shared_umbrella.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/comprehension/sturdy_tower.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/comprehension/team_problem_solving.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/emotions/afraid_child.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/emotions/angry_child.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/emotions/calm_child.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
@@ -822,16 +809,6 @@ _None._
 | public/images/prepositions/goat_inside_barn.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/prepositions/rabbit_beside_basket.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/prepositions/shoes_near_door.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/scenes/birdhouse_retry.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/scenes/boy_approaching_gate.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/scenes/broken_glass_broom.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/scenes/chocolate_cake_mess.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/scenes/classroom_busy.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/scenes/girl_locating_book.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/scenes/lost_teddy.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/scenes/plant_wilting.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/scenes/raincoat_umbrella.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/images/scenes/team_building_blocks.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/vocabulary/apple.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/vocabulary/backpack.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/vocabulary/barn.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
@@ -842,68 +819,37 @@ _None._
 | public/images/vocabulary/friends.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/vocabulary/umbrella.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/images/vocabulary/winter.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/_rejected/2026-05-25/images/images--child-mode--short-u-nut-pre-color2.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/_rejected/images/child-mode/short-u-nut-pre-color2.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/_replaced/2026-05-25/assessment-area/public/images/child-mode/cvc/bag.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/_replaced/2026-05-25/assessment-area/public/images/child-mode/cvc/hat.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/_replaced/2026-05-25/assessment-area/public/images/child-mode/cvc/log.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/_replaced/2026-05-25/assessment-area/public/images/child-mode/cvc/mug.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/_replaced/2026-05-25/assessment-area/public/images/child-mode/cvc/pan.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/_replaced/2026-05-25/assessment-area/public/images/child-mode/cvc/pot.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/_replaced/2026-05-25/assessment-area/public/images/child-mode/cvc/sun.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/_replaced/2026-05-25/assessment-area/public/images/child-mode/minimal-pairs/pin.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/_replaced/2026-05-25/assessment-area/public/images/child-mode/short-a/jam.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/_replaced/2026-05-25/assessment-area/public/images/child-mode/short-e/jet.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/_replaced/2026-05-25/assessment-area/public/images/child-mode/short-i/lid.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/_replaced/2026-05-25/assessment-area/public/images/child-mode/short-i/wig.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/_replaced/2026-05-25/assessment-area/public/images/child-mode/short-o/sock.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/_replaced/2026-05-25/assessment-area/public/images/child-mode/short-u/nut.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-01/alligator.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-01/ant.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-01/apple.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-01/map.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-01/mat.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-01/moon.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-01/mouse.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-08/ball.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-08/bat.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-08/bear.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-08/bit.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-08/book.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-08/watch.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-08/watermelon.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-08/web.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-08/wolf.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-15/chair.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-15/cheese.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-15/chin.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-15/chip.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-15/chop.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-15/shark.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-15/sheep.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-15/ship.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-15/shop.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-15/teeth.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-15/thin.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-15/three-objects.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-15/thumb.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/media/learn/images/cycle-23/bang.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/media/learn/images/cycle-23/gong.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/media/learn/images/cycle-23/hang.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-23/hung.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-23/king.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-23/long.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-23/only.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-23/other.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/media/learn/images/cycle-23/rang.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-23/ring.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-23/rung.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-23/sang.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-23/sing.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | public/media/learn/images/cycle-23/song.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
-| public/media/learn/images/cycle-23/sung.png | Existing tracked legacy non-webp public media file. | Allowed in this pass unless changed. |
 | docs/assets/kimi_story_quest_last_two_books_image_redo_request.md | Approved active request document for current Story Quest image replacement pass. | Allowed. |
 
 ## Safe Cleanup Examples
 
-_None needed._
+- rm -f .DS_Store
+- rm -f Design Reference Folder - Style - layout/.DS_Store
+- rm -f docs/.DS_Store
+- rm -f grammar-grind-preview.html
+- rm -f letter-leap-preview.html
+- rm -f mockups/.DS_Store
+- rm -f public/.DS_Store
+- rm -f public/audio/.DS_Store
+- rm -f public/images/.DS_Store
+- rm -f public/images/learn-games/.DS_Store
+- rm -f public/images/learn-games/home/.DS_Store
+- rm -f quest-creature-preview.html
+- rm -f reel-read-preview.html
+- rm -f rhyme-pop-preview.html
+- rm -f rocket-run-preview.html
+- rm -f sentence-express-preview.html
+- rm -f sound-beat-preview.html
+- rm -f sound-racer-preview.html
+- rm -f sound-safari-preview.html
+- rm -f star-gallery-preview.html
+- rm -rf tmp
+- rm -rf tmp/imagegen
+- rm -f tmp/imagegen/reel-read-boat.png
+- rm -f tmp/imagegen/reel-read-fish.png
+- rm -f word-bridge-preview.html

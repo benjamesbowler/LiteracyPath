@@ -4,7 +4,8 @@
 // Every progress area we sync. Keep in step with localProgressStorageKey.
 export const PROGRESS_AREAS = [
   "story_quests", "phonics_letters", "cvc", "learn_games",
-  "el_quest", "daily_mission", "profile", "guided_reading", "hollow"
+  "el_quest", "daily_mission", "profile", "guided_reading", "hollow",
+  "phonics_quest"
 ];
 
 export function localProgressStorageKey(area, scopeKey) {
@@ -18,6 +19,7 @@ export function localProgressStorageKey(area, scopeKey) {
   if (area === "profile") return `lp-student-profile:${scopeKey || "default"}`;
   if (area === "guided_reading") return `literacyPath.guidedReadingRecords.${scope}`;
   if (area === "hollow") return `lp-hollow:${scopeKey || "default"}`;
+  if (area === "phonics_quest") return `lp-quest:${scopeKey || "default"}`;
   return "";
 }
 

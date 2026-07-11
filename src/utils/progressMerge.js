@@ -74,6 +74,57 @@ export function mergeRecordMap(localMap, cloudMap) {
   return out;
 }
 
+// ── Sound Seekers mastery records ────────────────────────────────────────────
+// These CANNOT go through mergeMonotonic. A mastery record holds:
+//   window: [1,1,0,1,...]  an ORDERED list of the last 10 results
+//   state:  "learning" | "mastered" | ...
+// mergeMonotonic would union the window (collapsing [1,1,0,1] to [1,0] and
+// destroying the accuracy calculation) and let a string state be overwritten by
+// whichever row arrived last.
+//
+// The rule instead: `seen` is the clock. The device that has seen the child
+// answer MORE times has the more complete history, so its ordered/volatile
+// fields (window, streak, misses, state, box, lastAt) are the truth. Counters
+// take the max; evidence sets (shells, sessions) union — evidence gathered on
+// any device is real evidence. Ties prefer cloud, as everywhere else here.
+//
+// This also preserves DEMOTION, which a naive forward-merge would silently undo:
+// if this device watched the child miss a "mastered" sound twice today, its
+// higher `seen` means the demotion sticks instead of being overwritten by a
+// stale cloud row that still says "mastered".
+const MASTERY_COUNTERS = ["seen", "correct", "streak"];
+const MASTERY_SETS = ["shells", "sessions"];
+
+export function mergeMasteryRecord(local, cloud) {
+  if (!local || typeof local !== "object") return cloud;
+  if (!cloud || typeof cloud !== "object") return local;
+
+  const newer = (Number(local.seen) || 0) > (Number(cloud.seen) || 0) ? local : cloud;
+  const out = { ...cloud, ...local, ...newer };
+
+  for (const key of MASTERY_COUNTERS) {
+    out[key] = Math.max(Number(local[key]) || 0, Number(cloud[key]) || 0);
+  }
+  for (const key of MASTERY_SETS) {
+    out[key] = unionArrays(local[key], cloud[key]);
+  }
+  out.window = Array.isArray(newer.window) ? [...newer.window] : [];
+  out.misses = Number(newer.misses) || 0;
+  out.state = newer.state;
+  out.box = Number(newer.box) || 1;
+  out.lastAt = newer.lastAt || "";
+  out.lastStop = Math.max(Number(local.lastStop) || 0, Number(cloud.lastStop) || 0);
+  return out;
+}
+
+export function mergeMasteryMap(localMap, cloudMap) {
+  const out = { ...(localMap && typeof localMap === "object" ? localMap : {}) };
+  if (cloudMap && typeof cloudMap === "object") {
+    for (const key of Object.keys(cloudMap)) out[key] = mergeMasteryRecord(out[key], cloudMap[key]);
+  }
+  return out;
+}
+
 // Shallow cloud-wins merge - used only for last-write-wins areas (daily_mission,
 // profile) where "latest state" is correct and a forward-merge would be wrong
 // (e.g. a streak that legitimately reset must not be inflated back up).
@@ -130,6 +181,49 @@ export function computeHydratedValue(area, key, existing, payload) {
   // Per-item progress records: forward-merge so completed/words/scores can't regress.
   if (area === "story_quests" || area === "guided_reading") {
     return { ...base, [key]: mergeMonotonic(base[key], payload) };
+  }
+
+  // Sound Seekers. Three different merge rules in one payload, because the
+  // three things it holds have three different truths:
+  //
+  //   mastery                       - see mergeMasteryRecord above. NOT a plain
+  //       forward-merge: the ordered accuracy window and the state field need
+  //       the `seen`-as-clock rule, or demotion gets silently undone.
+  //   trail/stones/trickies         - ACHIEVEMENT. Forward-only, by max/union.
+  //       A cloud row must never be able to un-light a stone or un-walk a stop.
+  //   ledger.purchases              - SPENDING. Union by id: a purchase made on
+  //       ANY device is kept (spending can never be un-spent by a stale row) and
+  //       never duplicates. Sparks EARNED is derived, never stored, so there is
+  //       nothing there to corrupt.
+  //   creature + checkpoint         - STATE, not achievement. Last-write-wins on
+  //       the creature (the child's latest choice IS the truth); this device
+  //       keeps its OWN checkpoint. Forward-merging a checkpoint would resurrect
+  //       a shell the child already finished, or teleport them mid-stop.
+  if (area === "phonics_quest") {
+    const cloud = payload && typeof payload === "object" ? payload : {};
+    const unionById = (a, b) => {
+      const seen = new Set();
+      const out = [];
+      for (const rec of [...(Array.isArray(a) ? a : []), ...(Array.isArray(b) ? b : [])]) {
+        const id = rec && typeof rec === "object" ? rec.id : rec;
+        if (!id || seen.has(id)) continue;
+        seen.add(id);
+        out.push(rec);
+      }
+      return out;
+    };
+    return {
+      ...base,
+      ...cloud,
+      creature: cloud.creature || base.creature,
+      hatched: Boolean(base.hatched) || Boolean(cloud.hatched),
+      trail: mergeMonotonic(base.trail, cloud.trail),
+      mastery: mergeMasteryMap(base.mastery, cloud.mastery),
+      stones: mergeMonotonic(base.stones, cloud.stones),
+      trickies: mergeMonotonic(base.trickies, cloud.trickies),
+      ledger: { purchases: unionById(base.ledger?.purchases, cloud.ledger?.purchases) },
+      checkpoint: base.checkpoint ?? null
+    };
   }
 
   // The Hollow ledger: purchases/feeds/chests are append-only records that
