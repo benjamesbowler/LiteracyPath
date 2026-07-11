@@ -16,6 +16,7 @@ import DenScreen from "./DenScreen.jsx";
 import TrailMap from "./TrailMap.jsx";
 import StopRunner from "./StopRunner.jsx";
 import RewardScreen from "./RewardScreen.jsx";
+import TradingPost from "./TradingPost.jsx";
 import { loadQuestProgress, saveQuestProgress } from "../../utils/questStore.js";
 import {
   recordQuestAttempt,
@@ -25,7 +26,7 @@ import {
   ownedPieces
 } from "../../utils/questProgress.js";
 import { isMastered } from "../../utils/questMastery.js";
-import { getStop } from "../../data/questSequence.js";
+import { getStop, QUEST_STOPS } from "../../data/questSequence.js";
 import { CREATURE_GEAR } from "../../data/creatureParts.js";
 import { startGameMusic, stopGameMusic } from "../../utils/audio/gameMusic.js";
 import { cancelGameSfx } from "../../utils/audio/gameSfx.js";
@@ -33,13 +34,22 @@ import { hushCue } from "./shells/shellContract.js";
 import { notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import "../../styles/quest.css";
 
-const VIEW = { CREATOR: "creator", DEN: "den", MAP: "map", STOP: "stop", REWARD: "reward" };
+const VIEW = { CREATOR: "creator", DEN: "den", MAP: "map", STOP: "stop", REWARD: "reward", POST: "post" };
 
 export default function QuestRoot({ progressScopeKey = "default", isSoundEnabled = true, onExit }) {
   const [state, setState] = useState(() => loadQuestProgress(progressScopeKey));
   const [view, setView] = useState(() => (loadQuestProgress(progressScopeKey).hatched ? VIEW.DEN : VIEW.CREATOR));
   const [activeStop, setActiveStop] = useState(null);
   const [reward, setReward] = useState(null);
+  // Open the map on the land the child is ACTUALLY in, not always the Meadow.
+  // A child three lands along who has to tap through two maps to get back to
+  // where they were will stop opening the map.
+  const [act, setAct] = useState(() => {
+    const saved = loadQuestProgress(progressScopeKey);
+    const done = new Set(saved.trail.stopsDone);
+    const next = QUEST_STOPS.find(s => !done.has(s.id));
+    return next ? next.act : 3;
+  });
 
   // One writer. Every state change goes through here, so there is exactly one
   // place a save can go wrong.
@@ -62,12 +72,15 @@ export default function QuestRoot({ progressScopeKey = "default", isSoundEnabled
   const resume = state.checkpoint && state.checkpoint.stopId === activeStop ? state.checkpoint : null;
 
   const handleAnswer = useCallback((target, correct, shell) => {
+    // stopIndex is not decoration: it is what the review scheduler measures
+    // "how long since the child last saw this sound" from.
+    const stopIndex = getStop(activeStop)?.index || 0;
     setState(prev => {
-      const next = recordQuestAttempt(prev, { target, correct, shell });
+      const next = recordQuestAttempt(prev, { target, correct, shell, stopIndex });
       saveQuestProgress(progressScopeKey, next);
       return next;
     });
-  }, [progressScopeKey]);
+  }, [progressScopeKey, activeStop]);
 
   const handleCheckpoint = useCallback(cp => {
     setState(prev => {
@@ -88,6 +101,12 @@ export default function QuestRoot({ progressScopeKey = "default", isSoundEnabled
       setReward({ stop: getStop(activeStop), stars, newStones, gear });
       setView(VIEW.REWARD);
       notifyMissionTaskDone(progressScopeKey, "game");
+
+      // Finishing the last stop of a land should walk you into the next one, not
+      // dump you back at a map you've finished.
+      const done = new Set(next.trail.stopsDone);
+      const upcoming = QUEST_STOPS.find(s => !done.has(s.id));
+      if (upcoming) setAct(upcoming.act);
       return next;
     });
   }, [activeStop, progressScopeKey]);
@@ -124,13 +143,24 @@ export default function QuestRoot({ progressScopeKey = "default", isSoundEnabled
           state={state}
           onWalk={() => setView(VIEW.MAP)}
           onEditCreature={() => setView(VIEW.CREATOR)}
+          onTradingPost={() => setView(VIEW.POST)}
+        />
+      )}
+
+      {view === VIEW.POST && (
+        <TradingPost
+          state={state}
+          isSoundEnabled={isSoundEnabled}
+          onBuy={next => commit(next)}
+          onBack={() => setView(VIEW.DEN)}
         />
       )}
 
       {view === VIEW.MAP && (
         <TrailMap
           state={state}
-          act={1}
+          act={act}
+          onAct={setAct}
           isSoundEnabled={isSoundEnabled}
           onBack={() => setView(VIEW.DEN)}
           onEnterStop={id => { setActiveStop(id); setView(VIEW.STOP); }}

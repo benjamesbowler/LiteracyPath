@@ -21,11 +21,16 @@ function pointAt(t) {
   return { x, y, depth };
 }
 
-export default function TrailMap({ state, act = 1, onEnterStop, onBack, isSoundEnabled = true }) {
+export default function TrailMap({ state, act = 1, onAct, onEnterStop, onBack, isSoundEnabled = true }) {
   const stops = useMemo(() => stopsForAct(act), [act]);
   const actMeta = QUEST_ACTS[act - 1];
   const nextIndex = currentStopIndex(state);
   const done = new Set(state.trail.stopsDone);
+
+  // An act is reachable once the child has walked to ANY of its stops. You can
+  // always go BACK to a land you've been to — the map is a place, not a menu,
+  // and a child who wants to re-walk the Meadow should be able to.
+  const reachable = a => stopsForAct(a)[0].index <= nextIndex;
 
   const [walking, setWalking] = useState(false);
   const walkTimer = useRef(null);
@@ -97,8 +102,30 @@ export default function TrailMap({ state, act = 1, onEnterStop, onBack, isSoundE
 
       <div className="q-map-bar">
         <button type="button" className="q-ghost" onClick={onBack}>Back to the Den</button>
-        <span className="q-act">{actMeta.title}</span>
-        <span className="q-progress">{done.size} / {stops.length}</span>
+
+        <span className="q-acts" role="tablist" aria-label="Lands">
+          {QUEST_ACTS.map(a => {
+            const open = reachable(a.n);
+            return (
+              <button
+                key={a.n}
+                type="button"
+                role="tab"
+                aria-selected={a.n === act}
+                className={`q-actchip${a.n === act ? " is-on" : ""}${open ? "" : " is-locked"}`}
+                disabled={!open}
+                onClick={() => onAct?.(a.n)}
+                title={open ? a.title : "Not reached yet"}
+              >
+                {open ? a.title : "???"}
+              </button>
+            );
+          })}
+        </span>
+
+        <span className="q-progress">
+          {stops.filter(s => done.has(s.id)).length} / {stops.length}
+        </span>
       </div>
     </div>
   );

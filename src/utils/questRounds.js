@@ -21,9 +21,29 @@
 //      grapheme comes from what has been taught by this stop. Never a sneak
 //      preview of a sound the child has not met.
 
-import { getStop, taughtThrough, wordsThrough, heartWordsThrough } from "../data/questSequence.js";
+import { getStop, taughtThrough, wordsThrough, heartWordsThrough, blendsThrough } from "../data/questSequence.js";
 import { segmentWord, isDecodable } from "./questSegments.js";
 import { weakestTargets, MASTERY_STATES } from "./questMastery.js";
+
+// Which taught BLENDS a word actually contains.
+//
+// A blend is two single-letter consonants sitting next to each other: "stop" has
+// `st`, "hand" has `nd`, "black" has `bl`. It is not a grapheme, so it never
+// appears in a segmentation — which is exactly why the blends at stops 12-15
+// were, until this existed, creditable by NOTHING and therefore impossible to
+// master. A child would have been stuck on every one of them forever, and
+// nothing on screen would have looked broken.
+//
+// The evidence for a blend is a child reading or spelling a word that has one.
+export function blendsIn(word, taughtBlends) {
+  const planks = segmentWord(word);
+  const found = [];
+  for (let i = 0; i + 1 < planks.length; i += 1) {
+    const pair = planks[i] + planks[i + 1];
+    if (planks[i].length === 1 && planks[i + 1].length === 1 && taughtBlends.has(pair)) found.push(pair);
+  }
+  return [...new Set(found)];
+}
 
 // Graphemes that make the SAME phoneme. Never offer two of these against one
 // spoken cue — both would be correct.
@@ -154,7 +174,13 @@ export function buildStoneBridgeRound(word, { stopIndex, mastery, rng, extras = 
 
   return {
     shell: "stone-bridge",
-    target: planks[0],
+    // EVERY grapheme in the word, not just the first. A child who blends "sat"
+    // correctly has demonstrated s, a AND t — crediting only `s` was throwing
+    // away two thirds of the evidence, and it meant a vowel taught at a stop
+    // whose only shells are Stone Bridge and Echo Cave could NEVER reach the
+    // two-shell bar and so could never be mastered. The child would have been
+    // stuck on it forever, through no fault of their own.
+    target: [...new Set([...planks, ...blendsIn(word, blendsThrough(stopIndex))])],
     word,
     planks,
     tray: shuffle([...planks, ...ordered.slice(0, extras)], rng),
@@ -182,7 +208,9 @@ export function buildEchoCaveRound(word, { stopIndex, mastery, rng, extras = 3 }
 
   return {
     shell: "echo-cave",
-    target: sounds[sounds.length - 1], // the END sound is the one children drop
+    // Same as the Stone Bridge: segmenting a word proves every sound in it —
+    // and every blend in it.
+    target: [...new Set([...sounds, ...blendsIn(word, blendsThrough(stopIndex))])],
     word,
     sounds,
     keys: shuffle([...new Set([...sounds, ...ordered.slice(0, extras)])], rng),
@@ -222,6 +250,151 @@ export function buildWordBeastRound(word, { stopIndex, rng, choices = 3 }) {
   };
 }
 
+// ── SOUND SORT — two pens, one sound each ──────────────────────────────────
+// The ONLY shell that can teach an alternative pronunciation. `snow` and `cow`
+// are both spelled `ow`; `book` and `moon` are both `oo`. Looking at the letters
+// tells you nothing — you have to hear it. Everything else in this game can be
+// solved by matching shapes; this cannot.
+export function buildSoundSortRounds(stop, { rng, itemsPerPen = 4 }) {
+  const stopIndex = stop.index;
+  const known = taughtThrough(stopIndex);
+
+  // Curated pairs (alternative pronunciations) win — they cannot be derived.
+  if (stop.sortPairs?.length) {
+    return stop.sortPairs.map(([a, b]) => {
+      const wordsA = shuffle(stop.sortWords[a] || [], rng).slice(0, itemsPerPen);
+      const wordsB = shuffle(stop.sortWords[b] || [], rng).slice(0, itemsPerPen);
+      return {
+        shell: "sound-sort",
+        target: a,
+        pens: [a, b],
+        items: shuffle([
+          ...wordsA.map(word => ({ word, pen: a })),
+          ...wordsB.map(word => ({ word, pen: b }))
+        ], rng)
+      };
+    });
+  }
+
+  // Otherwise derive it: two of the stop's own graphemes, and the words that
+  // contain each. Words are pulled from everything taught so far, not just this
+  // stop, so the pens aren't obviously "the four new words vs the four old ones".
+  const graphemes = stop.teach
+    .filter(e => e.kind !== "blend" && e.kind !== "alt" && e.kind !== "morph")
+    .map(e => e.id);
+  if (graphemes.length < 2) return [];
+
+  const pool = wordsThrough(stopIndex).filter(w => isDecodable(w, known));
+  const rounds = [];
+  for (let i = 0; i + 1 < graphemes.length; i += 2) {
+    const [a, b] = [graphemes[i], graphemes[i + 1]];
+    const wordsA = pool.filter(w => segmentWord(w, { known }).includes(a));
+    const wordsB = pool.filter(w => segmentWord(w, { known }).includes(b));
+    // A pen with one word in it is not a sort, it is a hint.
+    if (wordsA.length < 2 || wordsB.length < 2) continue;
+    rounds.push({
+      shell: "sound-sort",
+      target: a,
+      pens: [a, b],
+      items: shuffle([
+        ...shuffle(wordsA, rng).slice(0, itemsPerPen).map(word => ({ word, pen: a })),
+        ...shuffle(wordsB, rng).slice(0, itemsPerPen).map(word => ({ word, pen: b }))
+      ], rng)
+    });
+  }
+  return rounds;
+}
+
+// ── TRAIL RUN — the same recognition, but FAST ─────────────────────────────
+// Fluency is not knowing a sound; it is knowing it without stopping to think.
+// This is Sound Stones on a timer: the fork rushes toward you and you take the
+// one signed with the sound you just heard. Same question, different pressure —
+// which is also why it counts as a SECOND SHELL toward mastery.
+export function buildTrailRunRound(target, { stopIndex, mastery, rng, choices = 3, seconds = 6 }) {
+  const known = taughtThrough(stopIndex);
+  const distractors = pickDistractors(target, { known, mastery, count: choices - 1, rng });
+  return {
+    shell: "trail-run",
+    target,
+    cue: { kind: "phoneme", grapheme: target },
+    choices: shuffle([target, ...distractors], rng),
+    answer: target,
+    seconds
+  };
+}
+
+// ── TRAIL SIGNS — reading with a CONSEQUENCE ──────────────────────────────
+// A sign says "Tap the red rock." You do it, or you don't. There is no score to
+// game and nothing to match: the only way through is to read the words.
+const SIGN_THINGS = [
+  { id: "rock", word: "rock" },
+  { id: "log", word: "log" },
+  { id: "bug", word: "bug" },
+  { id: "cup", word: "cup" },
+  { id: "fish", word: "fish" },
+  { id: "nut", word: "nut" }
+];
+const SIGN_COLOURS = [
+  { id: "red", word: "red" },
+  { id: "green", word: "green" },
+  { id: "black", word: "black" }
+];
+
+export function buildTrailSignRounds(stop, { rng, count = 4 }) {
+  const stopIndex = stop.index;
+  const known = taughtThrough(stopIndex);
+  const hearts = heartWordsThrough(stopIndex).map(w => w.toLowerCase());
+
+  // Only things and colours the child can actually READ.
+  const things = SIGN_THINGS.filter(t => isDecodable(t.word, known));
+  const colours = SIGN_COLOURS.filter(c => isDecodable(c.word, known));
+  const canSayThe = hearts.includes("the");
+  if (things.length < 3 || !canSayThe) return [];
+
+  const rounds = [];
+  for (let i = 0; i < count; i += 1) {
+    const picked = shuffle(things, rng).slice(0, 3);
+    const answer = picked[0];
+    // A colour is only used once the child can read colour words — otherwise the
+    // sign says something they cannot decode, and the task becomes a guess.
+    const colour = colours.length ? pickOne(colours, rng) : null;
+    const useColour = Boolean(colour) && i % 2 === 1;
+
+    rounds.push({
+      shell: "trail-signs",
+      // NO mastery target. Reading an instruction is comprehension, not a
+      // grapheme response. Left as the bare word ("rock"), it would enter the
+      // mastery map, the review scheduler would later mark it due, and Sound
+      // Stones would put a stone carved "rock" in front of a child and ask which
+      // one makes that SOUND — the exact bug already fixed for heart words.
+      target: null,
+      text: useColour ? `Tap the ${colour.word} ${answer.word}.` : `Tap the ${answer.word}.`,
+      answer: answer.id,
+      colour: useColour ? colour.id : null,
+      things: shuffle(picked, rng).map(t => ({ ...t, colour: useColour && t.id === answer.id ? colour.id : null }))
+    });
+  }
+  return rounds;
+}
+
+function pickOne(list, rng) {
+  return list[Math.floor(rng() * list.length)];
+}
+
+// ── STORY STONES — a real page, read for meaning ──────────────────────────
+// The payoff. Every word is decodable by this stop or a heart word already
+// taught, and the content check fails the build otherwise — which is the only
+// thing between "a page" and "a page the child cannot read".
+export function buildStoryStoneRounds(stop) {
+  return (stop.pages || []).map((page, i) => ({
+    shell: "story-stones",
+    target: null,          // reading a page is not a GPC response; it scores no mastery
+    page: i,
+    text: page.text,
+    choices: page.choices
+  }));
+}
+
 // ── THE GATE — the mastery check. No hints, no retries, mixed shells. ───────
 // 6 items drawn across BOTH directions, because a gate that only ever asks one
 // way is a gate that measures one thing.
@@ -259,12 +432,73 @@ export function buildStop(stopId, { mastery = {}, targets, seed = 1 } = {}) {
     });
 
   const known = taughtThrough(stopIndex);
+  const taughtBlends = blendsThrough(stopIndex);
   const decodable = stop.words.filter(w => isDecodable(w, known));
-  const bridgeWords = decodable.slice(0, 4);
-  // Echo Cave takes DIFFERENT words from the Stone Bridge where it can. Making
-  // a child segment the same four words they just blended teaches them to
-  // remember the answer, not to hear the sounds.
-  const echoWords = (decodable.slice(4, 8).length >= 3 ? decodable.slice(4, 8) : decodable.slice(0, 4));
+
+  // Words are chosen to COVER what the stop teaches, not just taken off the top.
+  //
+  // Taking the first four words of stop 12 gives you `and, hand, land, sand` —
+  // every one of them the `nd` blend, and not a single `st`, `mp` or `ft`. Those
+  // three blends would then be credited by nothing, and could never be mastered.
+  // A greedy cover run separately for each shell guarantees every new sound and
+  // every new blend shows up in BOTH Stone Bridge and Echo Cave — which is also
+  // what gets them over the two-different-shells bar.
+  const newTargets = stop.teach
+    .filter(e => e.kind !== "alt" && e.kind !== "morph")
+    .map(e => e.id);
+
+  // HOW A BLEND IS REVIEWED.
+  //
+  // A blend can't be a letter-choice question — "which stone says /st/" is not a
+  // real question, because /st/ isn't one sound. So the letter shells skip them,
+  // which meant a blend was ONLY ever credited by the two words at its own stop:
+  // four attempts in a lifetime, against a mastery bar that needs a ten-attempt
+  // window. Even a PERFECT reader could never master `sn`, `sk`, `sm`, `sw`, `sl`
+  // or `pr`. The full-trail simulation caught it; no unit test could have.
+  //
+  // The right way to review a blend is to make the child READ A WORD WITH IT.
+  // So when the scheduler says a blend is due, it steers the Stone Bridge and
+  // Echo Cave word choice — and the words can come from ANY earlier stop, not
+  // just this one.
+  const dueBlends = (targets || []).filter(t => taughtBlends.has(t) && !newTargets.includes(t));
+  const coverTargets = [...newTargets, ...dueBlends];
+
+  const coveredBy = word => new Set([...segmentWord(word), ...blendsIn(word, taughtBlends)]);
+
+  const pickCovering = (pool, need) => {
+    const chosen = [];
+    const left = new Set(coverTargets);
+    for (const word of pool) {
+      if (chosen.length >= need) break;
+      const covers = coveredBy(word);
+      if ([...left].some(t => covers.has(t))) {
+        chosen.push(word);
+        for (const t of covers) left.delete(t);
+      }
+    }
+    for (const word of pool) {
+      if (chosen.length >= need) break;
+      if (!chosen.includes(word)) chosen.push(word);
+    }
+    return chosen;
+  };
+
+  // Enough words to cover everything the stop teaches AND everything due back. A
+  // stop that teaches SEVEN r-blends cannot demonstrate them all in four words,
+  // and the ones that fall off the end are credited by nothing.
+  const need = Math.max(4, coverTargets.length);
+
+  // This stop's own words first (they're the point of the stop), then anything
+  // the child can already read — which is where a due blend's word comes from.
+  const wider = wordsThrough(stopIndex).filter(w => isDecodable(w, known) && !decodable.includes(w));
+  const pool = [...decodable, ...wider];
+
+  const bridgeWords = pickCovering(pool, need);
+  // Echo Cave takes DIFFERENT words where it can. Making a child segment the same
+  // words they just blended teaches them to remember the answer, not to hear the
+  // sounds — but it still has to cover the same targets.
+  const echoPool = pool.filter(w => !bridgeWords.includes(w));
+  const echoWords = echoPool.length >= 3 ? pickCovering(echoPool, need) : bridgeWords;
 
   // Word Beast needs a heart word from THIS stop; a stop with none skips it.
   const hearts = stop.heartWords || [];
@@ -281,9 +515,13 @@ export function buildStop(stopId, { mastery = {}, targets, seed = 1 } = {}) {
     rounds: {
       "sound-stones": list.map(t => buildSoundStonesRound(t, { stopIndex, mastery, rng })),
       "beast-feed": list.map(t => buildBeastFeedRound(t, { stopIndex, mastery, rng })),
+      "trail-run": list.map(t => buildTrailRunRound(t, { stopIndex, mastery, rng })),
       "stone-bridge": bridgeWords.map(w => buildStoneBridgeRound(w, { stopIndex, mastery, rng })),
       "echo-cave": echoWords.map(w => buildEchoCaveRound(w, { stopIndex, mastery, rng })),
       "word-beast": hearts.map(w => buildWordBeastRound(w, { stopIndex, rng })),
+      "sound-sort": buildSoundSortRounds(stop, { rng }),
+      "trail-signs": buildTrailSignRounds(stop, { rng }),
+      "story-stones": buildStoryStoneRounds(stop),
       gate: buildGateRounds(list, { stopIndex, mastery, rng })
     }
   };

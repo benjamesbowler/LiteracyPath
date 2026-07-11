@@ -65,12 +65,33 @@ test("a vowel before the vowel blocks the split (house, please)", () => {
 });
 
 test("split digraphs are not applied before they are taught", () => {
-  // At stop 5 a child has c, a, k, e but NOT a_e. "cake" must come out as an
-  // undecodable four-letter word, not be silently rewritten into a legal one.
   const known = ["c", "a", "k", "e"];
   assert.deepEqual(segmentWord("cake", { known }), ["c", "a", "k", "e"]);
-  assert.equal(isDecodable("cake", known), true, "letter-by-letter it IS in the known set");
   assert.deepEqual(segmentWord("cake", { known: [...known, "a_e"] }), ["c", "a_e", "k"]);
+});
+
+test("DECODABILITY IS ABOUT REAL GRAPHEMES, NOT ABOUT LETTERS THE CHILD HAPPENS TO KNOW", () => {
+  // The bug this pins: isDecodable used to segment with the TAUGHT set, and the
+  // segmenter falls back to single letters for anything it can't match. So once
+  // a child knew all 26 letters — from stop 7 onward — every a-z word came out
+  // "decodable". "beautiful" -> b-e-a-u-t-i-f-u-l, all letters known, pass. The
+  // content check guarding 33 of the 40 stops was checking nothing at all.
+  //
+  // A child who knows c, a, k and e still cannot read "cake": the word really
+  // contains `a_e`, and they have never met it.
+  const letters = "abcdefghijklmnopqrstuvwxyz".split("");
+
+  assert.equal(isDecodable("cake", ["c", "a", "k", "e"]), false, "cake really contains a_e");
+  assert.equal(isDecodable("cake", ["c", "a_e", "k"]), true);
+
+  assert.equal(isDecodable("beautiful", letters), false, "beautiful really contains ea");
+  assert.equal(isDecodable("ship", letters), false, "ship really contains sh");
+  assert.equal(isDecodable("rock", letters), false, "rock really contains ck");
+  assert.equal(isDecodable("boat", letters), false, "boat really contains oa");
+
+  // …and knowing the whole alphabet DOES let you read a word made of it.
+  assert.equal(isDecodable("sat", letters), true);
+  assert.equal(isDecodable("jump", letters), true);
 });
 
 test("`le` is only a grapheme at the END of a word", () => {
@@ -94,10 +115,13 @@ test("doubles are one grapheme", () => {
   assert.deepEqual(segmentWord("hiss"), ["h", "i", "ss"]);
 });
 
-test("isDecodable / untaughtGraphemes name the exact culprit", () => {
+test("untaughtGraphemes names the REAL culprit, not a letter", () => {
   assert.equal(isDecodable("sat", ["s", "a", "t"]), true);
   assert.equal(isDecodable("ship", ["s", "a", "t", "i", "p"]), false);
-  assert.deepEqual(untaughtGraphemes("ship", ["s", "i", "p"]), ["h"]);
+  // "sh", not "h" — the child isn't missing the letter h, they're missing the
+  // sound sh. A check that says "h" sends you looking in the wrong place.
+  assert.deepEqual(untaughtGraphemes("ship", ["s", "i", "p"]), ["sh"]);
+  assert.deepEqual(untaughtGraphemes("cake", ["c", "k"]), ["a_e"]);
   assert.deepEqual(untaughtGraphemes("sat", ["s", "a", "t"]), []);
 });
 

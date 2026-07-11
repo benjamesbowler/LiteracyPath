@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {
   buildStop,
   buildStoneBridgeRound,
+  buildEchoCaveRound,
   buildGateRounds,
   pickDistractors,
   wordsForTarget,
@@ -243,6 +244,85 @@ test("heart-word targets are NAMESPACED so they can never reach a letter shell",
   for (const round of [...withHeart.rounds["sound-stones"], ...withHeart.rounds["beast-feed"], ...withHeart.rounds.gate]) {
     assert.ok(!isHeartTarget(round.target));
     for (const choice of round.choices) assert.ok(!choice.includes(":"));
+  }
+});
+
+// ── WHAT EACH SHELL CREDITS. This decides whether mastery is reachable. ─────
+
+test("blending a word credits EVERY sound in it, not just the first", () => {
+  // The bug this pins is nasty and silent. Mastery needs a sound proved in >= 2
+  // DIFFERENT shells. If Stone Bridge only ever credited planks[0], then a vowel
+  // taught at a stop whose only shells are Stone Bridge and Echo Cave could never
+  // reach the two-shell bar — and would therefore NEVER master, no matter how
+  // well the child read. They'd be stuck on it forever, through no fault of their
+  // own, and nothing would look broken.
+  const round = buildStoneBridgeRound("ship", { stopIndex: 9, mastery: {}, rng: rng() });
+  assert.ok(Array.isArray(round.target));
+  assert.deepEqual([...round.target].sort(), ["i", "p", "sh"]);
+
+  const echo = buildEchoCaveRound("chat", { stopIndex: 9, mastery: {}, rng: rng() });
+  assert.ok(Array.isArray(echo.target));
+  assert.deepEqual([...echo.target].sort(), ["a", "ch", "t"]);
+});
+
+test("EVERY sound taught on the trail is creditable in at least 2 different shells", () => {
+  // The end-to-end version of the same claim: walk the whole trail, and check
+  // that no sound is left unmasterable because too few shells ever credit it.
+  const credits = {};
+  for (const stop of QUEST_STOPS) {
+    const built = buildStop(stop.id, { seed: stop.index });
+    for (const [shell, rounds] of Object.entries(built.rounds)) {
+      if (shell === "gate") continue;
+      for (const round of rounds) {
+        const targets = round.target == null ? [] : (Array.isArray(round.target) ? round.target : [round.target]);
+        for (const t of targets) {
+          if (isHeartTarget(t)) continue;
+          (credits[t] ||= new Set()).add(shell);
+        }
+      }
+    }
+  }
+
+  const stuck = [];
+  for (const stop of QUEST_STOPS) {
+    for (const entry of stop.teach) {
+      if (entry.kind === "morph") continue;  // morphology scores no GPC mastery
+      const shells = credits[entry.id];
+      if (!shells || shells.size < 2) stuck.push(`${entry.id} (${stop.id}) — creditable in ${shells ? [...shells].join(", ") : "NOTHING"}`);
+    }
+  }
+  assert.deepEqual(stuck, [], `these sounds can never be mastered:\n  ${stuck.join("\n  ")}`);
+});
+
+test("Trail Signs and Story Stones write NO mastery — they are comprehension", () => {
+  // Left as a bare word ("rock"), a Trail Signs target enters the mastery map,
+  // the scheduler marks it due, and Sound Stones asks a child which stone makes
+  // the sound "rock". Same class of bug as the heart words.
+  const built = buildStop("s15", { seed: 3 });
+  for (const round of built.rounds["trail-signs"]) {
+    assert.equal(round.target, null, `trail-signs round for "${round.text}" writes a mastery target`);
+  }
+  for (const round of buildStop("s17", { seed: 3 }).rounds["story-stones"]) {
+    assert.equal(round.target, null);
+  }
+});
+
+test("no shell ever writes a mastery target that isn't a real sound", () => {
+  const legal = new Set(QUEST_STOPS.flatMap(s => s.teach.map(e => e.id)));
+  for (const stop of QUEST_STOPS) {
+    const built = buildStop(stop.id, { seed: stop.index });
+    for (const [shell, rounds] of Object.entries(built.rounds)) {
+      for (const round of rounds) {
+        const targets = round.target == null ? [] : (Array.isArray(round.target) ? round.target : [round.target]);
+        for (const t of targets) {
+          if (isHeartTarget(t)) continue;
+          assert.ok(
+            legal.has(t) || taughtThrough(40).has(t),
+            `${stop.id} ${shell}: writes mastery for "${t}", which is not a sound the trail teaches`
+          );
+        }
+      }
+    }
   }
 });
 

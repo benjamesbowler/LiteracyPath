@@ -137,18 +137,33 @@ export function graphemesIn(word, options) {
 }
 
 // Can a child who knows exactly `known` read this word by sounding it out?
+//
+// CRITICAL: this segments with the FULL grapheme set, not the taught one.
+//
+// The first version passed `{ known }` here, and it was VACUOUS. The segmenter
+// falls back to single letters for anything it cannot match, so once a child
+// knows all 26 letters — i.e. from stop 7 onward — EVERY a-z word came out as
+// "decodable". "beautiful" segmented to b-e-a-u-t-i-f-u-l, all taught, pass.
+// The content check that was supposed to stop a word running ahead of the
+// curriculum was, for 33 of the 40 stops, checking nothing at all.
+//
+// The right question is not "can these letters be found in the taught set". It
+// is "does the word's REAL grapheme spelling consist only of taught graphemes".
+// `beautiful` really contains `ea`; `cake` really contains `a_e`. If the child
+// hasn't met those, they cannot read the word, no matter how many of its letters
+// they know.
+//
 // Heart words are the whole point of heart words: they are NOT decodable, and
 // are taught by sight, so callers pass them separately and never through here.
 export function isDecodable(word, known) {
   const allowed = new Set(known || []);
-  const segments = segmentWord(word, { known: allowed });
+  const segments = segmentWord(word); // TRUE segmentation — no known-set filter
   return segments.length > 0 && segments.every(seg => allowed.has(seg));
 }
 
 // Which graphemes in a word the child has NOT been taught. Empty array = decodable.
-// This is what the content check reports, so a failure names the exact culprit
-// instead of just saying "not decodable".
+// This names the real culprit: for "ship" at stop 2 it says `sh`, not `h`.
 export function untaughtGraphemes(word, known) {
   const allowed = new Set(known || []);
-  return [...new Set(segmentWord(word, { known: allowed }).filter(seg => !allowed.has(seg)))];
+  return [...new Set(segmentWord(word).filter(seg => !allowed.has(seg)))];
 }

@@ -17,7 +17,7 @@ import { displayGrapheme } from "./shells/shellContract.js";
 // wall of 103 sockets on day one is a wall of things you haven't done.
 const WALL_LOOKAHEAD = 8;
 
-export default function DenScreen({ state, onWalk, onEditCreature }) {
+export default function DenScreen({ state, onWalk, onEditCreature, onTradingPost }) {
   const index = currentStopIndex(state);
   const visible = [...taughtThrough(Math.min(QUEST_STOPS.length, index + WALL_LOOKAHEAD))];
   const lit = visible.filter(g => isMastered(state.mastery, g)).length;
@@ -67,6 +67,7 @@ export default function DenScreen({ state, onWalk, onEditCreature }) {
             {index === 1 ? "Start the Trail" : "Walk the Trail"}
           </button>
           <button type="button" className="q-ghost" onClick={onEditCreature}>Change my creature</button>
+          <button type="button" className="q-ghost" onClick={onTradingPost}>Trading Post</button>
         </div>
       </div>
     </div>

@@ -18,6 +18,10 @@ import BeastFeed from "./shells/BeastFeed.jsx";
 import StoneBridge from "./shells/StoneBridge.jsx";
 import EchoCave from "./shells/EchoCave.jsx";
 import WordBeast from "./shells/WordBeast.jsx";
+import SoundSort from "./shells/SoundSort.jsx";
+import TrailRun from "./shells/TrailRun.jsx";
+import TrailSigns from "./shells/TrailSigns.jsx";
+import StoryStones from "./shells/StoryStones.jsx";
 import GateCheck from "./shells/GateCheck.jsx";
 import { buildStop } from "../../utils/questRounds.js";
 import { makeCatchUp } from "../../utils/catchUpQueue.js";
@@ -25,15 +29,19 @@ import { starRubric } from "../../utils/starRubric.js";
 import { targetsForStop } from "../../utils/questReviewScheduler.js";
 import { getStop, targetsAtStop } from "../../data/questSequence.js";
 
-// The shells that exist. The stop data lists more (trail-run, sound-sort,
-// trail-signs, story-stones); an unbuilt shell is SKIPPED, not crashed on, so
-// the trail stays walkable while the rest are written.
+// All nine playable shells. A stop that asks for one with no rounds available
+// (a Sound Sort at a stop with nothing to sort, a Word Beast at a stop with no
+// heart words) simply SKIPS it rather than showing an empty screen.
 const SHELLS = {
   "sound-stones": SoundStones,
   "beast-feed": BeastFeed,
+  "trail-run": TrailRun,
   "stone-bridge": StoneBridge,
   "echo-cave": EchoCave,
-  "word-beast": WordBeast
+  "sound-sort": SoundSort,
+  "word-beast": WordBeast,
+  "trail-signs": TrailSigns,
+  "story-stones": StoryStones
 };
 
 const PHASES = { TEACH: "teach", SHELL: "shell", GATE: "gate" };
@@ -102,11 +110,29 @@ export default function StopRunner({
     onCheckpoint?.({ stopId, phase: nextPhase, shellIndex: nextShell });
   }, [onCheckpoint, stopId]);
 
+  // ONE response in, zero-or-many mastery writes out.
+  //
+  //   a string  -> one grapheme (Sound Stones, Beast Feed, Trail Run, the Gate)
+  //   an array  -> every grapheme in the word (Stone Bridge, Echo Cave): blending
+  //                "sat" correctly proves s, a AND t, and crediting only the
+  //                first one threw away two thirds of the evidence
+  //   null      -> no mastery at all (Trail Signs, Story Stones). Reading an
+  //                instruction is comprehension, not a grapheme response; writing
+  //                it into the mastery map would put a stone carved "rock" in
+  //                front of a child and ask which one makes that sound.
+  //
+  // The tally still counts every response either way, so the star rubric is
+  // honest even for the shells that score no mastery.
   const record = useCallback((correct, target) => {
     tally.current.total += 1;
     if (correct) tally.current.correct += 1;
     else tally.current.mistakes += 1;
-    onAnswer?.(target, correct, phase === PHASES.GATE ? "gate" : shellId);
+
+    if (target == null) return;
+    const shell = phase === PHASES.GATE ? "gate" : shellId;
+    for (const one of Array.isArray(target) ? target : [target]) {
+      if (one) onAnswer?.(one, correct, shell);
+    }
   }, [onAnswer, phase, shellId]);
 
   const nextRound = useCallback(() => {

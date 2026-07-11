@@ -48,6 +48,89 @@ export const NEEDS_AUDIO = [
   "y_ie", "y_ee", "oo_short", "ow_ou", "c_s", "g_j", "ch_k", "ea_e"
 ];
 
+// ── SORT DATA — the one thing that CANNOT be derived ────────────────────────
+//
+// Sound Sort asks a child to put words in the pen for the sound they contain.
+// For most stops that is derivable: "which words have `sh` and which have `ch`"
+// falls straight out of the spelling.
+//
+// It does NOT work for ALTERNATIVE PRONUNCIATIONS, which is exactly where the
+// shell matters most. `snow` and `cow` are both spelled `ow`; `book` and `moon`
+// are both `oo`. No amount of looking at the letters tells you which sound they
+// make — that is the entire lesson. So those pairs are curated, by hand, here.
+//
+// `sortPairs` names the two pens; `sortWords` fills them.
+const SORT = {
+  s16: {
+    sortPairs: [["y_ie", "y_ee"]],
+    sortWords: {
+      y_ie: ["by", "my", "try", "why", "fly", "cry", "sky"],
+      y_ee: ["happy", "funny", "sunny", "muddy", "silly"]
+    }
+  },
+  s28: {
+    sortPairs: [["oo_short", "oo"]],
+    sortWords: {
+      oo_short: ["book", "look", "cook", "foot", "good", "wood", "hook", "took"],
+      oo: ["moon", "spoon", "food", "room", "soon"]
+    }
+  },
+  s29: {
+    sortPairs: [["ow_ou", "ow"]],
+    sortWords: {
+      ow_ou: ["cow", "now", "brown", "down", "town", "how"],
+      ow: ["snow", "grow", "slow", "show", "blow"]
+    }
+  },
+  s37: {
+    sortPairs: [["c_s", "c"], ["g_j", "g"], ["ch_k", "ch"], ["ea_e", "ea"]],
+    sortWords: {
+      c_s: ["city", "cell", "race", "ice"],
+      c: ["cat", "can", "cup", "cot"],
+      g_j: ["gem", "magic", "giant"],
+      g: ["got", "gas", "gap", "bag"],
+      ch_k: ["school", "echo"],
+      ch: ["chip", "chop", "chin", "rich"],
+      ea_e: ["bread", "head", "ready"],
+      ea: ["team", "beach", "eat", "seat"]
+    }
+  }
+};
+
+// ── STORY PAGES — decodable, and checked ────────────────────────────────────
+// Story Stones is the payoff: a real page, read for meaning, with a choice at
+// the end. Every word is either decodable by that stop or a heart word already
+// taught — tools/checkQuestIntegrity.js fails the build otherwise, which is the
+// only thing standing between "a page" and "a page a child cannot read".
+const PAGES = {
+  s17: [
+    // NOTE the choices are as constrained as the text — "Look" needs `oo` (stop
+    // 27) and "Say" needs `ay` (stop 23). The check caught both.
+    { text: "The frog sat on a big rock. It was not a rock. It was a shell!", choices: ["Run", "Jump"] },
+    { text: "A crab ran out. \"Do not jump on my shell,\" said the crab.", choices: ["Stop", "Run off"] }
+  ],
+  s36: [
+    { text: "The creature was not sure. The path was dark and the air was still.", choices: ["Go on", "Turn back"] },
+    { text: "A pure white light lit the way. It was a picture of a star.", choices: ["Follow it", "Wait here"] }
+  ],
+  s37: [
+    { text: "In the city, a giant tree grew. Its bark was hard as a shell.", choices: ["Climb it", "Rest"] },
+    { text: "You read the words on the bark. They said: the last stone is near.", choices: ["Go on", "Read again"] }
+  ],
+  s38: [
+    { text: "The birds were singing. The stars were waking up.", choices: ["Keep going", "Look up"] },
+    { text: "You jumped and landed on the last step. You had walked a long way.", choices: ["Go on", "Rest"] }
+  ],
+  s39: [
+    { text: "A little candle sat on a table. It made the room bright.", choices: ["Take it", "Leave it"] },
+    { text: "You could see a simple bridge. It went over a puzzle of rocks.", choices: ["Cross it", "Go round"] }
+  ],
+  s40: [
+    { text: "The Star Reach. Every stone you found is singing back at you.", choices: ["Listen", "Shout"] },
+    { text: "You can read. That was the whole quest. Go and read it all.", choices: ["Yes!", "Again!"] }
+  ]
+};
+
 const S = (id, act, index, name, teach, words, heartWords, shells, extra = {}) => ({
   id,
   act,
@@ -60,6 +143,8 @@ const S = (id, act, index, name, teach, words, heartWords, shells, extra = {}) =
   shells,
   boss: false,
   minWords: 6,
+  ...(SORT[id] || {}),
+  ...(PAGES[id] ? { pages: PAGES[id] } : {}),
   ...extra
 });
 
@@ -169,7 +254,10 @@ const ACT_II = [
 
   S("s15", 2, 15, "Claw Pass",
     [BL("br"), BL("cr"), BL("dr"), BL("fr"), BL("gr"), BL("pr"), BL("tr")],
-    ["brick", "bring", "crab", "crash", "drip", "drum", "frog", "from", "grab", "grin", "trip", "truck", "trash"],
+    // NOTE "prop"/"press": the first draft taught the `pr` blend and then gave
+    // the child not one single word containing it. Nothing could credit it, so
+    // it could never be mastered. The shell-credit test caught it.
+    ["brick", "bring", "crab", "crash", "drip", "drum", "frog", "from", "grab", "grin", "prop", "press", "trip", "truck", "trash"],
     ["do", "when", "out"],
     ["knowledge-tree", "trail-run", "stone-bridge", "echo-cave", "trail-signs"]),
 
@@ -383,6 +471,23 @@ export function taughtThrough(stopIndex) {
     for (const g of decodableFrom(stop)) known.add(g);
   }
   return known;
+}
+
+// Every BLEND taught by the end of `stopIndex`.
+//
+// A blend is not a grapheme — `st` is just s and t said quickly — so it never
+// enters the decodable set. But it IS a mastery target, and the evidence for it
+// is a child reading or spelling a word that contains it. Stone Bridge and Echo
+// Cave use this set to credit blends they see in the words they serve.
+export function blendsThrough(stopIndex) {
+  const blends = new Set();
+  for (const stop of QUEST_STOPS) {
+    if (stop.index > stopIndex) break;
+    for (const entry of stop.teach || []) {
+      if (entry.kind === "blend") blends.add(entry.id);
+    }
+  }
+  return blends;
 }
 
 // Every heart word taught by the end of `stopIndex`. Heart words are not

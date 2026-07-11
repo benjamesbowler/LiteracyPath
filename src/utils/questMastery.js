@@ -30,6 +30,28 @@ export const MASTERY_RULES = Object.freeze({
   demoteAfterConsecutiveMisses: 2
 });
 
+// BLENDS GET THEIR OWN BAR, and this is not a fudge to make a test pass.
+//
+// A blend is not a grapheme. `st` is s and t said quickly — there is no such
+// thing as "the /st/ stone", so a blend can never be a letter-choice question.
+// The only evidence for it is a child reading or spelling a word that contains
+// one, which means it gets ~2 exposures per stop against a bar that demands a
+// TEN-attempt window. A full-trail simulation showed the consequence: even a
+// PERFECT reader could never master sn, sk, sm, sw, sl or pr. Not "found it
+// hard" — could not, ever, by construction.
+//
+// Four correct reads, across two different task types, on two different days, is
+// real evidence for a unit this size. Demanding ten was demanding evidence the
+// game structurally cannot produce.
+export const BLEND_RULES = Object.freeze({
+  minCorrect: 4,
+  minAccuracy: 0.85,
+  accuracyWindow: 4,
+  minShells: 2,
+  minSessions: 2,
+  demoteAfterConsecutiveMisses: 2
+});
+
 export const MASTERY_STATES = Object.freeze({
   NOT_STARTED: "not-started",
   LEARNING: "learning",
@@ -64,20 +86,22 @@ function windowAccuracy(window) {
 
 // Does this record meet all four conditions RIGHT NOW?
 // Exported so the tests can assert each condition in isolation.
-export function meetsMasteryBar(record) {
+export function meetsMasteryBar(record, rules = MASTERY_RULES) {
   const r = { ...emptyRecord(), ...(record || {}) };
-  if (r.correct < MASTERY_RULES.minCorrect) return false;
-  if (r.shells.length < MASTERY_RULES.minShells) return false;
-  if (r.sessions.length < MASTERY_RULES.minSessions) return false;
+  if (r.correct < rules.minCorrect) return false;
+  if (r.shells.length < rules.minShells) return false;
+  if (r.sessions.length < rules.minSessions) return false;
   // Accuracy is measured over the last N attempts, and we need a full window
   // before we will claim mastery — 8/8 correct is not yet 10 attempts of proof.
-  if (r.window.length < MASTERY_RULES.accuracyWindow) return false;
-  return windowAccuracy(r.window) >= MASTERY_RULES.minAccuracy;
+  if (r.window.length < rules.accuracyWindow) return false;
+  return windowAccuracy(r.window) >= rules.minAccuracy;
 }
 
 // Record ONE response. `shell` is the mini-game it happened in, `at` an ISO
-// timestamp. Pure: returns a new record, mutates nothing.
-export function recordAttempt(record, { correct = false, shell = "", at = "" } = {}) {
+// timestamp, `stopIndex` where on the trail it happened (the review scheduler
+// needs that to know how long ago the child last saw this sound).
+// Pure: returns a new record, mutates nothing.
+export function recordAttempt(record, { correct = false, shell = "", at = "", stopIndex = 0, rules = MASTERY_RULES } = {}) {
   const prev = { ...emptyRecord(), ...(record || {}) };
   const day = dayOf(at);
 
@@ -87,10 +111,13 @@ export function recordAttempt(record, { correct = false, shell = "", at = "" } =
     correct: prev.correct + (correct ? 1 : 0),
     streak: correct ? prev.streak + 1 : 0,
     misses: correct ? 0 : prev.misses + 1,
-    window: [...prev.window, correct ? 1 : 0].slice(-MASTERY_RULES.accuracyWindow),
+    window: [...prev.window, correct ? 1 : 0].slice(-rules.accuracyWindow),
     shells: [...prev.shells],
     sessions: [...prev.sessions],
-    lastAt: at || prev.lastAt
+    lastAt: at || prev.lastAt,
+    // THE sound was practised HERE. This is the only place lastStop should be
+    // written — see the note in questProgress.recordStopResult.
+    lastStop: stopIndex || prev.lastStop || 0
   };
 
   // Only a CORRECT answer is evidence. Being wrong in a second shell on a
@@ -100,20 +127,20 @@ export function recordAttempt(record, { correct = false, shell = "", at = "" } =
     if (day && !next.sessions.includes(day)) next.sessions.push(day);
   }
 
-  next.state = nextState(prev, next);
+  next.state = nextState(prev, next, rules);
   return next;
 }
 
-function nextState(prev, next) {
+function nextState(prev, next, rules = MASTERY_RULES) {
   const wasMastered = prev.state === MASTERY_STATES.MASTERED || prev.state === MASTERY_STATES.RETIRED;
 
   // Demote: a sound you can't do any more is a sound you don't know.
-  if (wasMastered && next.misses >= MASTERY_RULES.demoteAfterConsecutiveMisses) {
+  if (wasMastered && next.misses >= rules.demoteAfterConsecutiveMisses) {
     return MASTERY_STATES.LEARNING;
   }
   if (wasMastered) return prev.state;
 
-  if (meetsMasteryBar(next)) return MASTERY_STATES.MASTERED;
+  if (meetsMasteryBar(next, rules)) return MASTERY_STATES.MASTERED;
   return next.seen > 0 ? MASTERY_STATES.LEARNING : MASTERY_STATES.NOT_STARTED;
 }
 

@@ -24,9 +24,13 @@
 //      never comes back.
 
 import { normalizeCreature, defaultCreature, CREATURE_GEAR, CREATURE_DYES, ALL_PIECES } from "../data/creatureParts.js";
-import { emptyRecord, recordAttempt, MASTERY_STATES } from "./questMastery.js";
+import { emptyRecord, recordAttempt, MASTERY_STATES, MASTERY_RULES, BLEND_RULES } from "./questMastery.js";
 import { boxAfterStop } from "./questReviewScheduler.js";
-import { QUEST_STOPS, getStop } from "../data/questSequence.js";
+import { QUEST_STOPS, getStop, blendsThrough } from "../data/questSequence.js";
+
+// A blend is not a grapheme and cannot be mastered on a grapheme's bar — see the
+// note on BLEND_RULES. Computed once: the trail is static.
+const ALL_BLENDS = blendsThrough(QUEST_STOPS.length);
 
 export const SPARKS_PER_STAR = 12;
 
@@ -138,10 +142,11 @@ export function recordPurchase(state, piece, at = new Date().toISOString()) {
 // ── Mastery + stones ────────────────────────────────────────────────────────
 
 // One response, from one shell. This is the ONLY way mastery ever changes.
-export function recordQuestAttempt(state, { target, correct, shell, at = new Date().toISOString() }) {
+export function recordQuestAttempt(state, { target, correct, shell, stopIndex = 0, at = new Date().toISOString() }) {
   if (!target) return state;
   const prev = state.mastery?.[target] || emptyRecord();
-  const next = recordAttempt(prev, { correct, shell, at });
+  const rules = ALL_BLENDS.has(target) ? BLEND_RULES : MASTERY_RULES;
+  const next = recordAttempt(prev, { correct, shell, at, stopIndex, rules });
   return { ...state, mastery: { ...state.mastery, [target]: next } };
 }
 
@@ -157,9 +162,21 @@ export function recordStopResult(state, stopId, stars = 0) {
   const stopsDone = [...new Set([...(state.trail?.stopsDone || []), stopId])];
   const prevStars = Number(state.trail?.stars?.[stopId]) || 0;
 
+  // Update the review BOX for every sound — but NOT `lastStop`.
+  //
+  // This used to stamp `lastStop: stop.index` onto every record, practised or
+  // not. That quietly destroyed the review scheduler: `lastStop` is what "how
+  // long since the child last saw this sound" is measured from, so stamping it
+  // everywhere made every gap equal 1, every recency score equal 0, and every
+  // weight a tie — leaving the review queue to fall back on its tiebreaker and
+  // serve the child the ALPHABETICALLY FIRST four sounds, forever. Spaced
+  // repetition that isn't spaced, and everything would have looked fine.
+  //
+  // `lastStop` is now written in recordAttempt, where a sound is actually
+  // practised, and nowhere else.
   const mastery = { ...state.mastery };
   for (const target of Object.keys(mastery)) {
-    mastery[target] = { ...mastery[target], box: boxAfterStop(mastery[target]), lastStop: stop.index };
+    mastery[target] = { ...mastery[target], box: boxAfterStop(mastery[target]) };
   }
 
   // A stone lights up when its SOUND is MASTERED — not when the stop is passed.

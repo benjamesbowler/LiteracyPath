@@ -19,6 +19,7 @@ const { QUEST_STOPS, QUEST_SHELL_IDS, NEEDS_AUDIO, taughtThrough } =
   await import(path.join(ROOT, "src/data/questSequence.js"));
 const { isDecodable, untaughtGraphemes } =
   await import(path.join(ROOT, "src/utils/questSegments.js"));
+const { heartWordsThrough } = await import(path.join(ROOT, "src/data/questSequence.js"));
 const { graphemeCandidates } =
   await import(path.join(ROOT, "src/utils/questAudio.js"));
 const { CREATURE_BODIES, CREATURE_PARTS, CREATURE_GEAR, ANCHOR_IDS } =
@@ -43,6 +44,40 @@ for (const stop of QUEST_STOPS) {
   }
   for (const shell of stop.shells) {
     if (!QUEST_SHELL_IDS.includes(shell)) fail(`${stop.id}: unknown shell "${shell}"`);
+  }
+
+  // ── Story pages. THE claim this check exists to defend. ──────────────────
+  // Every single word on a Story Stones page must be decodable by this stop, or
+  // a heart word already taught. Without this, a page is just prose — and a page
+  // a child cannot read is not a reward, it is a wall.
+  const hearts = new Set(heartWordsThrough(stop.index).map(w => w.toLowerCase()));
+  for (const page of stop.pages || []) {
+    if (!Array.isArray(page.choices) || page.choices.length !== 2) {
+      fail(`${stop.id}: a story page must offer exactly 2 choices`);
+    }
+    // The CHOICE BUTTONS count too. A child has to read those to answer, and a
+    // choice they cannot decode turns the whole page into a coin toss. (I only
+    // checked the page text first, which was a hole in this very check.)
+    const text = [page.text, ...(page.choices || [])].join(" ");
+    const words = text.toLowerCase().match(/[a-z']+/g) || [];
+    for (const raw of words) {
+      const word = raw.replace(/'s$/, "");
+      if (hearts.has(word)) continue;
+      if (isDecodable(word, known)) continue;
+      fail(`${stop.id} "${stop.name}": story word "${raw}" needs [${untaughtGraphemes(word, known).join(", ")}] — not taught by stop ${stop.index}, and it is not a heart word`);
+    }
+  }
+
+  // ── Sound Sort. Curated pairs must actually have words in both pens. ─────
+  for (const [a, b] of stop.sortPairs || []) {
+    for (const pen of [a, b]) {
+      const list = stop.sortWords?.[pen] || [];
+      if (list.length < 2) fail(`${stop.id}: sort pen "${pen}" has ${list.length} word(s) — a pen with one word is a hint, not a sort`);
+    }
+    const taught = new Set(stop.teach.map(e => e.id));
+    if (!taught.has(a) && !taughtThrough(stop.index).has(a)) {
+      fail(`${stop.id}: sort pen "${a}" is neither taught here nor earlier`);
+    }
   }
 }
 
