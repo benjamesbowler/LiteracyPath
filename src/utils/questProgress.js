@@ -19,9 +19,9 @@
 //
 //   3. THE CHECKPOINT IS NOT ACHIEVEMENT. It is resume state, and it is excluded
 //      from the forward merge — merging two devices' checkpoints would teleport
-//      a child mid-stop. It is written after EVERY SHELL, not every stop: losing
-//      a 90-second shell is a shrug; losing a 12-minute stop is a child who
-//      never comes back.
+//      a child mid-stop. It is written while walking, after every encounter, and
+//      on every exit: losing a few seconds is a shrug; losing a long trail
+//      section is a child who never comes back.
 
 import { normalizeCreature, defaultCreature, CREATURE_GEAR, CREATURE_DYES, ALL_PIECES } from "../data/creatureParts.js";
 import { emptyRecord, recordAttempt, MASTERY_STATES, MASTERY_RULES, BLEND_RULES } from "./questMastery.js";
@@ -51,7 +51,7 @@ export function baseQuestState() {
     v: 1,
     creature: defaultCreature(),
     hatched: false,
-    trail: { stopsDone: [], stars: {}, drops: {}, cutscenesSeen: [] },
+    trail: { stopsDone: [], stars: {}, drops: {}, cutscenesSeen: [], routeCursor: 1 },
     mastery: {},
     stones: [],
     trickies: [],
@@ -76,7 +76,8 @@ export function normalizeQuestState(raw) {
       stopsDone: Array.isArray(state.trail?.stopsDone) ? [...new Set(state.trail.stopsDone)] : [],
       stars: state.trail?.stars && typeof state.trail.stars === "object" ? { ...state.trail.stars } : {},
       drops: state.trail?.drops && typeof state.trail.drops === "object" ? { ...state.trail.drops } : {},
-      cutscenesSeen: Array.isArray(state.trail?.cutscenesSeen) ? [...new Set(state.trail.cutscenesSeen)] : []
+      cutscenesSeen: Array.isArray(state.trail?.cutscenesSeen) ? [...new Set(state.trail.cutscenesSeen)] : [],
+      routeCursor: Math.max(1, Math.min(QUEST_STOPS.length, Math.floor(Number(state.trail?.routeCursor) || 1)))
     },
     mastery: state.mastery && typeof state.mastery === "object" ? { ...state.mastery } : {},
     stones: Array.isArray(state.stones) ? [...new Set(state.stones)] : [],
@@ -226,7 +227,10 @@ export function recordStopResult(state, stopId, stars = 0, drops = 0) {
       ...state.trail,
       stopsDone,
       stars: { ...(state.trail?.stars || {}), [stopId]: Math.max(prevStars, stars) },
-      drops: { ...(state.trail?.drops || {}), [stopId]: Math.max(prevDrops, drops) }
+      drops: { ...(state.trail?.drops || {}), [stopId]: Math.max(prevDrops, drops) },
+      // After the first 40-stop journey, continue through the same curriculum as
+      // an adaptive review circuit instead of trapping the child at stop 40.
+      routeCursor: (stop.index % QUEST_STOPS.length) + 1
     },
     mastery,
     stones,
@@ -235,7 +239,7 @@ export function recordStopResult(state, stopId, stars = 0, drops = 0) {
   };
 }
 
-// ── Checkpoint: resume state, written after every shell ─────────────────────
+// ── Checkpoint: resume state, written throughout the journey ────────────────
 export function saveQuestCheckpoint(state, checkpoint) {
   return { ...state, checkpoint: checkpoint ? { ...checkpoint, at: new Date().toISOString() } : null };
 }

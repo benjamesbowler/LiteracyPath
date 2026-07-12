@@ -27,35 +27,39 @@ This is not my invention — it is Teach Your Monster's own diagnosis of their b
 
 ---
 
-## 2b. Dimension — decided 2026-07-11: **2.5D parallax**
+## 2b. Dimension — revised 2026-07-11: **3D guided trail + illustrated billboards**
 
 **Teach Your Monster is not a 3D game.** It is 2D cartoon art (illustrator Rich Wake, games studio Popleaf, in collaboration with Roehampton). **[observed]** What reads as depth in their tunnel sequences is perspective drawn *into* the illustration plus parallax layers moving at different speeds. There is no 3D geometry in it.
 
-So the question was never "can we match them" — it was "how far past them do we go". Three options were on the table:
+The original slice chose a receding 2.5D road. Its fixed lane and finish flag read as a side-scrolling level. The next build over-corrected into a small semi-open plaza: movement was free, but the world felt short, flat and disconnected from the 40-stop journey. **[observed: browser-tested `TrailWalk.jsx` and first `QuestHub.jsx`]** The live direction keeps 3D freedom while restoring a strong authored route.
 
 | | Cost | Verdict |
 |---|---|---|
-| **2.5D parallax** — vector creature, illustrated world, layered depth | Low | **CHOSEN** |
-| **3D world, 2D creature** (Paper Mario) — real Three.js scene, creature as a billboarded sprite | +1 slice | Viable later; the world can be upgraded without touching the creature |
+| **2.5D road** — vector creature, illustrated world, layered depth | Low | **RETIRED: reads like a Mario level** |
+| **Small 3D open hub** — free movement around a bounded plaza | Medium | **RETIRED: too short and directionless** |
+| **Long 3D guided trail, 2D creature** — winding corridor, forest walls, illustrated billboard creature and props | +1 slice | **CHOSEN AND LIVE** |
 | **Full 3D** — real meshes and rigs | Very high | **Rejected**, and it should stay rejected |
 
 **Why full 3D is the wrong call, stated plainly so nobody relitigates it in three months:** the creature is 6 bodies × 12 dyes × 5 patterns × 10 eyes × 8 mouths × 10 crests × 8 tails × 6 feet = **13.8 million creatures from ~55 flat vector shapes**, and a dye is one CSS variable. In 3D those 55 shapes become 55 modelled, UV-mapped, rigged meshes that must attach correctly to **six different body topologies**, and every dye becomes a material variant. That is a studio pipeline. There is no 3D asset generator in this project, so the art could not be produced even if it were budgeted. Full 3D means throwing away the creature system — the exact thing that got approved.
 
-**What 2.5D means concretely:**
-- Backdrops are 3–4 stacked layers (far sky · mid terrain · near props · foreground fringe) that scroll at different rates. One `parallax.js` module, `transform: translate3d`, GPU-composited.
-- The trail road **recedes**: stops further along the path render smaller and higher, and the creature scales as it walks.
-- Props scale and blur slightly by depth band.
-- **The creature is untouched.** Same layered SVG, same 13.8M combinations.
+**What the hybrid 3D direction means concretely:**
+- Each of the 40 curriculum stops is one long winding section, not one tiny map. Together they form the continuous Sound Trail.
+- Dense, impassable forest or rock walls define both sides. The child can move freely across the corridor, double back and collect things, but the landscape quietly points forward.
+- Three.js owns terrain, paths, lighting, shadows and the following camera.
+- The creature, residents, collectables and encounter props remain crisp illustrated billboards. The same layered SVG and all 13.8M creature combinations survive untouched.
+- The child meets a teaching friend, collects rewards while travelling, then meets 1–3 helpers in the exact curriculum order. Only the next helper is active.
+- The final helper's existing phonics task opens a physical gate. A miss retries supportively; the gate is not an extra six-question boss exam.
+- Movement, guide page, current encounter/beat, solved requests, collectibles and tally save while walking and on every exit.
 
-The world can be upgraded to a real Three.js scene later without touching the creature, the shells, the mastery track, or the save file — because none of them know how the backdrop is drawn. That is why this is a safe call and not a one-way door.
+`QuestHub.jsx` and `questHub.js` implement this boundary. The shells, mastery track, review scheduler and save file do not know how the world is rendered.
 
 ---
 
 ## 3. Story, world, art direction
 
-**The premise.** A storm scattered the Sound Stones across the three lands. Your creature — hatched by you, in the first 90 seconds of play — sets out along the old road to bring them home. Each stone you carry back lights up the wall of your Den. When the wall is full, the Trail opens onto the Star Reach.
+**The premise.** A storm scattered the Sound Stones across the three lands. Your creature — hatched by you in the first 90 seconds of play — explores each land, meets its residents and helps restore the places where sounds have gone missing. Each stone you carry home lights up the wall of your Den. When the wall is full, the Star Reach wakes.
 
-**Why this premise:** it gives us (a) a collection metaphor for graphemes that is *literally* the phonics content, not a token economy bolted on top; (b) a reason for the map to be a road rather than a menu; (c) a home base (the Den) that is both trophy cabinet and dress-up room; (d) an end that isn't an end.
+**Why this premise:** it gives us (a) a collection metaphor for graphemes that is *literally* the phonics content, not a token economy bolted on top; (b) character-led reasons to keep travelling; (c) a home base (the Den) that is both trophy cabinet and dress-up room; (d) visible, persistent world repair instead of disconnected levels.
 
 **Lands** map onto the existing `PAL_WORLDS` **[observed: `src/utils/palWorlds.js`]** so we inherit the whole colour system for free:
 
@@ -113,29 +117,28 @@ The world can be upgraded to a real Three.js scene later without touching the cr
 
 **Source of every word used:** the existing `masterWordLexicon` + `src/content/lexicon/queries.js` (`getDecodableWordsForSkill`, `getWordsWithDigraph`, `getRhymingWords`, `getMinimalPairs`) and `src/data/generated/skillWordBank.generated.js`. **[observed]** No new word lists are invented by hand; a content check (§13) fails the build if any stop cannot find ≥6 decodable words that use only sounds taught at or before that stop.
 
-### After stop 40 — Free Roam *(add-on, cuttable)*
-The Trail loops into an endless review mode: procedurally generated runs drawn from the review scheduler's pool, ranked by the child's own weakest sounds. This is what makes it "endless (more or less)". It is ~2 days of work on top of everything else and should be the last thing built.
+### After stop 40 — endless review circuit *(live)*
+The Trail returns to stop 1 and continues through the same 40 sections in order, but the review scheduler fills encounters with the child's own weakest due sounds. The authored world remains coherent while the learning content keeps changing. `trail.routeCursor` saves the current review section locally; it is journey state, not an achievement counter.
 
 ---
 
 ## 5. Session shape — what 15 minutes actually looks like
 
-One **stop** ≈ 8–12 minutes. One **leg** (3 stops) ≈ 30 minutes = one classroom session. **[inferred, calibrated against TYM's published "1 galaxy = 20–40 min = one class or home session"]**
+One **trail section** is designed for several minutes of walking, collecting and 1–3 short encounters. Several sections can run back-to-back as one uninterrupted play session.
 
 ```
-MAP  →  arrive at stop  (10s cutscene, creature walks in)
-     →  TEACH           (~60s)   Knowledge Tree: the new sound, one at a time
-     →  SHELL 1         (~90s)   recognise it
-     →  SHELL 2         (~90s)   use it in a word
-     →  SHELL 3         (~90s)   a different shell, mixed with review items
-     →  GATE            (~60s)   the mastery check — 6 items, no help
-     →  REWARD          (~20s)   stone lands on the wall; a part drops onto your creature
-     →  MAP             next stop unlocks
+TRAIL → walk and collect
+      → meet the land guide and hear the new sounds
+      → walk to helper 1; solve a short physical phonics task
+      → collect and explore within the corridor
+      → helper 2 / helper 3, drawn from new and due sounds
+      → final helper's task opens the physical gate
+      → walk through the gate; reward lands; next section begins
 ```
 
 Reward density is deliberately high — **one reward per sound, one reward per stop**, exactly as TYM does it, and the part appears on the creature *instantly*, not in a menu. **[observed as TYM's design; adopted]**
 
-**Stopping mid-way is a first-class case, not an edge case.** A checkpoint is written after every single shell (§9). Re-opening drops you back into the stop with your queue intact, showing "Keep going" / "Start this stop again".
+**Stopping mid-way is a first-class case, not an edge case.** A checkpoint is written while walking, after every guide page and encounter beat, and on Den, Close, tab hide, page hide and unmount. Re-opening restores the exact section position and active task.
 
 ---
 
@@ -229,12 +232,12 @@ Every shell obeys one contract so they are interchangeable:
     "eyes": "round-2", "mouth": "grin", "crest": "horns-3", "tail": "fan", "feet": "paws",
     "equipped": { "head": "leaf-cap", "back": "moth-wings", "neck": null, "held": null }
   },
-  "trail":   { "act": 2, "stop": 12, "stopsDone": ["s1","s2","…"], "cutscenesSeen": ["intro","act2"] },
+  "trail":   { "stopsDone": ["s1","s2","…"], "stars": { "s1": 3 }, "drops": { "s1": 14 }, "routeCursor": 12 },
   "mastery": { "sh": { "seen":14,"correct":12,"streak":3,"shells":["stones","bridge"],"sessions":2,"box":3,"state":"learning","lastAt":"2026-07-11" } },
   "stones":   ["a","m","t","s","n"],
   "trickies": ["the","is","to","and"],
   "ledger":   { "spent": 240, "purchases": [{ "id":"leaf-cap","at":"2026-07-10" }] },
-  "checkpoint": { "stopId": "s12", "phase": "shell", "shellIndex": 1, "queue": ["ai","ay","ee"], "score": 340 }
+  "checkpoint": { "stopId": "s12", "phase": "trail", "position": { "x": 1.2, "z": -67.4 }, "guideDone": true, "activeId": "s12-1", "beatIndex": 1, "solved": ["s12-0"], "drops": ["s12-drop-0"], "tally": { "correct": 4, "total": 5, "mistakes": 1 } }
 }
 ```
 
@@ -243,7 +246,7 @@ Every shell obeys one contract so they are interchangeable:
 - **Rewards are derived, never stored.** Sparks earned = a pure function of stars earned across stops. The *only* stored economy is the **spend** ledger. Same shape as `hollowState.js` / `hollowEconomy.js`. **[observed: this is rule #7 in `docs/IMPROVEMENT_LOOPS.md`]** Which means: a child cannot lose their gear by a sync race, and a teacher reset wipes cleanly.
 - **Forward-only merge.** Cloud can add, never wipe. Mastery counters merge by `max`, arrays by union, `state` by `mergeStatusForward` (never regresses via a merge — only via a real miss). **[observed: `src/utils/progressMerge.js`]**
 - **`checkpoint` is excluded from forward-merge** — it is resume state, not achievement. Merging two devices' checkpoints would teleport a child. **[observed: existing exclusion, keep it]**
-- **Checkpoint written after every shell**, not every stop. The cost of a lost 90-second shell is a shrug; the cost of a lost 12-minute stop is a child who never comes back.
+- **Checkpoint written throughout the journey and on every exit**, not only at stop completion. Movement saves are throttled; exit saves are immediate.
 - **Offline works.** The app is already offline-tolerant (local-first, queue-and-flush). The quest must not regress that: no shell may require a network call.
 
 ---

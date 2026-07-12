@@ -73,6 +73,16 @@ test("finishing a stop banks its heart words and keeps the best star score", () 
   assert.equal(state.trail.stars.s3, 3);
 });
 
+test("after stop 40 the route becomes an endless ordered review circuit", () => {
+  let state = baseQuestState();
+  for (let index = 1; index <= 40; index += 1) state = recordStopResult(state, `s${index}`, 2);
+  assert.equal(state.trail.routeCursor, 1);
+  state = recordStopResult(state, "s1", 2);
+  assert.equal(state.trail.routeCursor, 2);
+  state = recordStopResult(state, "s2", 2);
+  assert.equal(state.trail.routeCursor, 3);
+});
+
 // ── Rewards are DERIVED ─────────────────────────────────────────────────────
 
 test("sparks are DERIVED from stars and are never stored", () => {
@@ -123,6 +133,27 @@ test("the checkpoint round-trips and clears", () => {
   const state = saveQuestCheckpoint(baseQuestState(), cp);
   assert.equal(readQuestCheckpoint(state).shellIndex, 1);
   assert.equal(readQuestCheckpoint(clearQuestCheckpoint(state)), null);
+});
+
+test("a journey checkpoint preserves walking and in-encounter progress", () => {
+  const cp = {
+    stopId: "s7",
+    phase: "trail",
+    position: { x: 1.2, z: -67.4 },
+    guideDone: true,
+    meetIndex: 3,
+    activeId: "s7-1",
+    beatIndex: 1,
+    solved: ["s7-0"],
+    drops: ["s7-drop-0", "s7-drop-3"],
+    tally: { correct: 4, total: 5, mistakes: 1 }
+  };
+  const saved = readQuestCheckpoint(saveQuestCheckpoint(baseQuestState(), cp));
+  assert.deepEqual(saved.position, cp.position);
+  assert.equal(saved.activeId, "s7-1");
+  assert.equal(saved.beatIndex, 1);
+  assert.deepEqual(saved.solved, ["s7-0"]);
+  assert.deepEqual(saved.tally, cp.tally);
 });
 
 test("finishing a stop clears its checkpoint — there is nothing left to resume", () => {
@@ -198,6 +229,14 @@ test("MERGE: this device keeps its OWN checkpoint — a cloud one would teleport
 
   const noLocal = computeHydratedValue("phonics_quest", "__all__", {}, cloud);
   assert.equal(noLocal.checkpoint, null, "and an absent local checkpoint stays absent");
+});
+
+test("MERGE: this device keeps its own review-route position", () => {
+  const local = { trail: { stopsDone: ["s1"], routeCursor: 2 } };
+  const cloud = { trail: { stopsDone: ["s1", "s2"], routeCursor: 31 } };
+  const merged = computeHydratedValue("phonics_quest", "__all__", local, cloud);
+  assert.equal(merged.trail.routeCursor, 2);
+  assert.deepEqual(merged.trail.stopsDone.sort(), ["s1", "s2"]);
 });
 
 // ── Robustness ──────────────────────────────────────────────────────────────

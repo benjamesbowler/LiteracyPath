@@ -730,8 +730,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1783757001.3835928,
-    "ast_hash": "cf90d10eac9d2bb9d2da866dcb67fe2b",
+    "mtime": 1783772461.5856295,
+    "ast_hash": "159fcf7c0388ccccceb557e4b747452c",
     "semantic_hash": ""
   },
   "playwright.config.js": {
@@ -870,8 +870,8 @@
     "semantic_hash": ""
   },
   "src/components/StudentHomePage.jsx": {
-    "mtime": 1783763566.1315393,
-    "ast_hash": "67a4675bbcc1f01334cca75c72a75a73",
+    "mtime": 1783775552.516272,
+    "ast_hash": "768e3c52b392702ce94faf6488d30783",
     "semantic_hash": ""
   },
   "src/components/StudentLoginFlow.jsx": {
@@ -2070,8 +2070,8 @@
     "semantic_hash": ""
   },
   "src/utils/progressMerge.js": {
-    "mtime": 1783757012.287955,
-    "ast_hash": "cc93a319c7a3f7df7c62b929dd44b4a1",
+    "mtime": 1783778868.7518551,
+    "ast_hash": "84906f1ccd27ab5cd757e25d027088f2",
     "semantic_hash": ""
   },
   "src/utils/progressSync.js": {
@@ -6080,8 +6080,8 @@
     "semantic_hash": ""
   },
   "src/components/quest/DenScreen.jsx": {
-    "mtime": 1783765004.8207324,
-    "ast_hash": "4384d4cbc2795db0b0b3afae2c58984f",
+    "mtime": 1783775084.3610024,
+    "ast_hash": "1b7f7e770599ad310812755e648e46ee",
     "semantic_hash": ""
   },
   "src/components/quest/ParallaxScene.jsx": {
@@ -6090,8 +6090,8 @@
     "semantic_hash": ""
   },
   "src/components/quest/QuestRoot.jsx": {
-    "mtime": 1783765627.7800722,
-    "ast_hash": "65d8a7eee499e8b6025c1a48e0e06d76",
+    "mtime": 1783778704.072011,
+    "ast_hash": "54535ef299299ca95140837cd449d7c2",
     "semantic_hash": ""
   },
   "src/components/quest/RewardScreen.jsx": {
@@ -6115,18 +6115,18 @@
     "semantic_hash": ""
   },
   "src/components/quest/world/Encounters.jsx": {
-    "mtime": 1783765474.6835852,
-    "ast_hash": "56388deca002bd7d40b9327c3cb7f458",
+    "mtime": 1783775102.8023868,
+    "ast_hash": "909a0fbfab768ea86fe49efc60b99b11",
     "semantic_hash": ""
   },
   "src/components/quest/world/TrailWalk.jsx": {
-    "mtime": 1783765519.4562135,
-    "ast_hash": "d52f204b3b9c1267eadf3cb0b4601440",
+    "mtime": 1783772461.5922124,
+    "ast_hash": "7ed6a66ef3aa82b69604c3b5535e69b0",
     "semantic_hash": ""
   },
   "src/components/quest/world/WorldScene.jsx": {
-    "mtime": 1783765384.4345543,
-    "ast_hash": "832a14e9a53b9c88a1d2ee0388205f44",
+    "mtime": 1783772461.5923357,
+    "ast_hash": "71cfbd6929460b978b2e0a19e9cc1dfb",
     "semantic_hash": ""
   },
   "src/data/creatureArt.js": {
@@ -6150,8 +6150,8 @@
     "semantic_hash": ""
   },
   "src/data/questWorlds.js": {
-    "mtime": 1783760887.3138945,
-    "ast_hash": "7e8af3383ac1cbebf175365d87baf376",
+    "mtime": 1783767460.0829973,
+    "ast_hash": "aa4349417887c8612e404e2d8d70567b",
     "semantic_hash": ""
   },
   "src/quest-creature-preview.jsx": {
@@ -6175,27 +6175,27 @@
     "semantic_hash": ""
   },
   "src/utils/questEncounters.js": {
-    "mtime": 1783766239.156027,
-    "ast_hash": "3eae1e51a06a7b154b1430eb970648c9",
+    "mtime": 1783778816.9988396,
+    "ast_hash": "130568a933af57dc7ca1915d7f2cf283",
     "semantic_hash": ""
   },
   "src/utils/questMastery.js": {
-    "mtime": 1783765953.4691608,
+    "mtime": 1783767460.0860689,
     "ast_hash": "2212f27adc83e53033f1a0d52f5ff540",
     "semantic_hash": ""
   },
   "src/utils/questProgress.js": {
-    "mtime": 1783766254.6120641,
-    "ast_hash": "4f1c8145211a8d1fc4051ea71e127bcc",
+    "mtime": 1783778817.1798522,
+    "ast_hash": "f39fff1f619fe9c8e5e51487387ffd1c",
     "semantic_hash": ""
   },
   "src/utils/questReviewScheduler.js": {
-    "mtime": 1783766071.1394138,
+    "mtime": 1783767460.0866497,
     "ast_hash": "c4627e3bbaf7737d985d2fa6f3c176a7",
     "semantic_hash": ""
   },
   "src/utils/questRounds.js": {
-    "mtime": 1783766224.1842928,
+    "mtime": 1783767460.086934,
     "ast_hash": "3ffdca439b13794585c81477393e0c35",
     "semantic_hash": ""
   },
@@ -6220,18 +6220,18 @@
     "semantic_hash": ""
   },
   "tests/unit/questMastery.test.js": {
-    "mtime": 1783757012.2974138,
-    "ast_hash": "227f3a09db1d069adfad9b2318e5aa8a",
+    "mtime": 1783767460.0872037,
+    "ast_hash": "7dc2a3d96d3ef15b8485f5334ddc955b",
     "semantic_hash": ""
   },
   "tests/unit/questPlaythrough.test.js": {
-    "mtime": 1783765785.256907,
-    "ast_hash": "d2dcd8bdb130d88ce4e9a1b19ac200b5",
+    "mtime": 1783778817.0906482,
+    "ast_hash": "c83a85ed200dbbb74fec8c4f92c50431",
     "semantic_hash": ""
   },
   "tests/unit/questProgress.test.js": {
-    "mtime": 1783757012.2976737,
-    "ast_hash": "984c791a27899c31c61356d2645719be",
+    "mtime": 1783778838.6396685,
+    "ast_hash": "88a9e55a73eb90727771b1a5f40a4cf8",
     "semantic_hash": ""
   },
   "tests/unit/questReviewScheduler.test.js": {
@@ -6240,8 +6240,8 @@
     "semantic_hash": ""
   },
   "tests/unit/questRounds.test.js": {
-    "mtime": 1783765004.824422,
-    "ast_hash": "7f08d18367ebb96dd19f245f506385cc",
+    "mtime": 1783767460.0877688,
+    "ast_hash": "1a5a3cbaf385ee09387f788287ec995d",
     "semantic_hash": ""
   },
   "tests/unit/questSegments.test.js": {
@@ -6265,8 +6265,8 @@
     "semantic_hash": ""
   },
   "tools/generateImage.mjs": {
-    "mtime": 1783757012.3145225,
-    "ast_hash": "8baf19933ebbf4a6c680f6113067741a",
+    "mtime": 1783772461.5928552,
+    "ast_hash": "f2c5c8ab8b620ac29c0dfb63c22bcd55",
     "semantic_hash": ""
   },
   "tools/image-jobs/arcade-icons.json": {
@@ -6290,8 +6290,8 @@
     "semantic_hash": ""
   },
   "docs/QUEST_DESIGN_PLAN_2026-07-11.md": {
-    "mtime": 1783760887.246171,
-    "ast_hash": "9b116a3c98d03bb1cb821e1b722a4959",
+    "mtime": 1783778962.7389956,
+    "ast_hash": "25f091101a573aee18de7aa4880c2739",
     "semantic_hash": ""
   },
   "docs/QUEST_SLICE_1_SPEC_2026-07-11 2.md": {
@@ -6300,8 +6300,8 @@
     "semantic_hash": ""
   },
   "docs/QUEST_SLICE_1_SPEC_2026-07-11.md": {
-    "mtime": 1783757001.1092298,
-    "ast_hash": "002c9eee78b035b8ed2c2f4681434ad1",
+    "mtime": 1783778962.8250926,
+    "ast_hash": "3b81df67b3c2a5e6e0c0f66b5563b34e",
     "semantic_hash": ""
   },
   "docs/SEEDREAM_IMAGE_REQUESTS_assessment_cleanup_2026-07-10.md": {
@@ -6310,7 +6310,7 @@
     "semantic_hash": ""
   },
   "docs/TEACH_YOUR_MONSTER_TO_READ_RESEARCH_AND_BUILD_PLAN_2026-07-11.md": {
-    "mtime": 1783766194.2364254,
+    "mtime": 1783767460.0516782,
     "ast_hash": "66a761101c8aa9718a017bc45853a764",
     "semantic_hash": ""
   },
@@ -7017,6 +7017,86 @@
   "quest-preview.html": {
     "mtime": 1783760887.3086376,
     "ast_hash": "2071eefa708d4c3b8be3dc49d5b7fd25",
+    "semantic_hash": ""
+  },
+  "src/components/quest/world/Guide.jsx": {
+    "mtime": 1783772461.5919201,
+    "ast_hash": "63a0e73dbaffc4776268b54b3b817ef4",
+    "semantic_hash": ""
+  },
+  "src/components/quest/world/Piece.jsx": {
+    "mtime": 1783772461.592004,
+    "ast_hash": "f63b8a9cd32cba0708624d7eab4d25fc",
+    "semantic_hash": ""
+  },
+  "src/components/quest/world/Prop.jsx": {
+    "mtime": 1783772461.5920808,
+    "ast_hash": "f48b3bb2355325aaeb79e2e760389dcd",
+    "semantic_hash": ""
+  },
+  "src/components/quest/world/Props.jsx": {
+    "mtime": 1783767460.0774522,
+    "ast_hash": "6a39b3776bf39e5ecc8217598c454182",
+    "semantic_hash": ""
+  },
+  "src/components/quest/world/QuestHub.jsx": {
+    "mtime": 1783779412.3280187,
+    "ast_hash": "88d1450d82d6492bac12b810bc6de62e",
+    "semantic_hash": ""
+  },
+  "src/components/quest/world/encounterViews.js": {
+    "mtime": 1783767460.081587,
+    "ast_hash": "147fcb8d718dc2c8c0526d3269a3ddda",
+    "semantic_hash": ""
+  },
+  "src/utils/questHub.js": {
+    "mtime": 1783778459.0645223,
+    "ast_hash": "db2e7133357c243ebace5149a53b0bfc",
+    "semantic_hash": ""
+  },
+  "tests/unit/questHub.test.js": {
+    "mtime": 1783778816.9152238,
+    "ast_hash": "d4c4d45461c25f5c4a95fb57a8e7590d",
+    "semantic_hash": ""
+  },
+  "tools/buildQuestArtSheet.mjs": {
+    "mtime": 1783772461.592642,
+    "ast_hash": "ec6779b6719f04170767edce4b17e86b",
+    "semantic_hash": ""
+  },
+  "tools/checkQuestArt.mjs": {
+    "mtime": 1783772461.5927277,
+    "ast_hash": "2063d85728818d7aa62b013a7f203302",
+    "semantic_hash": ""
+  },
+  "tools/image-jobs/quest-panels.json": {
+    "mtime": 1783772461.5929585,
+    "ast_hash": "5ba3359425c8016530ea529abc1f161f",
+    "semantic_hash": ""
+  },
+  "tools/image-jobs/quest-props.json": {
+    "mtime": 1783772461.5930564,
+    "ast_hash": "6499af38a1b2e79724d4f534da9db74e",
+    "semantic_hash": ""
+  },
+  "tools/image-jobs/quest-world-fix.json": {
+    "mtime": 1783772461.5931456,
+    "ast_hash": "66caa44ffbb7fbc57b82368a6aa73ff2",
+    "semantic_hash": ""
+  },
+  "tools/image-jobs/quest-world.json": {
+    "mtime": 1783772461.5932355,
+    "ast_hash": "8646f9fbd7948011820bcb1cefbc206e",
+    "semantic_hash": ""
+  },
+  "tools/optimiseQuestArt.mjs": {
+    "mtime": 1783772461.59332,
+    "ast_hash": "6720fe0600de6c5f84463566360227e0",
+    "semantic_hash": ""
+  },
+  "docs/previews/quest-art-contact-sheet.html": {
+    "mtime": 1783776974.950197,
+    "ast_hash": "c2c1a3d9a7bca13b5894b82c95b082fd",
     "semantic_hash": ""
   }
 }

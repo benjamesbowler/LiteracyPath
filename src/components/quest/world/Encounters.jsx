@@ -98,12 +98,12 @@ export function HungryBeast({ beat, isSoundEnabled, onBeat, onDone, index, total
   const [done, mark] = useOnce(beat);
   const [heard, setHeard] = useState([]);
   const [picked, setPicked] = useState(null);
-
+  const canHearChoices = isSoundEnabled && beat.choices.every(hasGraphemeAudio);
 
   function tap(g) {
     if (picked || done) return;
-    if (!heard.includes(g)) {
-      if (isSoundEnabled) sayGrapheme(g, true);
+    if (canHearChoices && !heard.includes(g)) {
+      sayGrapheme(g, true);
       setHeard(h => [...h, g]);
       return;
     }
@@ -130,7 +130,7 @@ export function HungryBeast({ beat, isSoundEnabled, onBeat, onDone, index, total
         <span className="qw-beastsign">{displayGrapheme(beat.target)}</span>
       </div>
       <p className="qw-say">Feed it the fruit that says <strong>{displayGrapheme(beat.target)}</strong>.</p>
-      <p className="qw-hint">Tap a fruit to hear it. Tap again to feed.</p>
+      <p className="qw-hint">{canHearChoices ? "Tap a fruit to hear it. Tap again to feed." : "Choose the matching fruit."}</p>
       <div className="qw-fruits">
         {beat.choices.map(g => {
           const on = picked?.g === g;
@@ -142,15 +142,19 @@ export function HungryBeast({ beat, isSoundEnabled, onBeat, onDone, index, total
               className={`qw-fruit${heard.includes(g) ? " is-heard" : ""}${on ? (picked.right ? " is-right" : " is-wrong") : ""}${reveal && !on ? " is-reveal" : ""}`}
               disabled={Boolean(picked)}
               onClick={() => tap(g)}
-              aria-label={heard.includes(g) ? "Feed this fruit" : "Hear this fruit"}
+              aria-label={canHearChoices ? (heard.includes(g) ? "Feed this fruit" : "Hear this fruit") : `Fruit ${displayGrapheme(g)}`}
             >
               <Piece
                 kind="fruit"
+                label={canHearChoices ? null : displayGrapheme(g)}
                 fallback={(
-                  <svg viewBox="0 0 60 66" aria-hidden="true">
-                    <path d="M30,64 C12,64 4,50 4,36 C4,20 16,10 30,10 C44,10 56,20 56,36 C56,50 48,64 30,64 Z" fill="var(--q-road)" />
-                    <path d="M30,12 C30,4 36,0 44,0 C42,8 38,12 30,12 Z" fill="var(--q-deep)" />
-                  </svg>
+                  <span className="qw-fruit-fallback">
+                    <svg viewBox="0 0 60 66" aria-hidden="true">
+                      <path d="M30,64 C12,64 4,50 4,36 C4,20 16,10 30,10 C44,10 56,20 56,36 C56,50 48,64 30,64 Z" fill="var(--q-road)" />
+                      <path d="M30,12 C30,4 36,0 44,0 C42,8 38,12 30,12 Z" fill="var(--q-deep)" />
+                    </svg>
+                    {!canHearChoices && <span>{displayGrapheme(g)}</span>}
+                  </span>
                 )}
               />
             </button>

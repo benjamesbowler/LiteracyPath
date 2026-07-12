@@ -33,10 +33,9 @@ import { starRubric } from "../../src/utils/starRubric.js";
 // WALK one stop. `skill` is the probability the child gets a response right.
 // `day` advances per stop so the "2 different sessions" rule can be satisfied.
 //
-// This mirrors TrailWalk exactly: three encounters, a handful of beats, NO GATE.
-// The old version ran every shell plus a six-round boss quiz — ~20 responses a
-// stop. It is now ~5. That is the whole point of the rebuild, and this test is
-// where we find out whether mastery survives it.
+// This mirrors the trail content exactly: three encounters and a handful of
+// beats. The final encounter opens the physical gate; it does not add a separate
+// boss quiz. The old version ran every shell plus six extra gate questions.
 function playStop(state, stopId, { skill, day }) {
   const stop = getStop(stopId);
   const targets = targetsForStop(targetsAtStop(stopId), state.mastery, stop.index);
@@ -111,10 +110,10 @@ test("A STOP IS A WALK, NOT A QUIZ: at most 3 encounters and 8 responses", () =>
   assert.ok(avg <= 7, `averaging ${avg.toFixed(1)} responses a stop — the walk is being crowded out`);
 });
 
-test("there is NO GATE anywhere on the trail", () => {
-  // Teach Your Monster doesn't have one either. Mastery accrues quietly from
-  // ordinary play; it never needed a boss quiz to measure it, and a boss quiz at
-  // the end of every stop is the single most joyless thing we could add back.
+test("the trail gate adds no extra boss quiz", () => {
+  // The route now ends at a gate, but the last planned encounter is what opens
+  // it. Keeping `gate` out of the encounter list proves no extra assessment was
+  // smuggled into every stop.
   for (const stop of QUEST_STOPS) {
     const walk = buildWalk(stop.id, { seed: stop.index });
     for (const enc of walk.encounters) {

@@ -15,8 +15,9 @@
 //
 //   - 2 to 3 encounters per stop, not five shells plus a gate.
 //   - 1 to 3 beats per encounter, not ten rounds.
-//   - NO GATE. Teach Your Monster doesn't have one either. Mastery accrues
-//     quietly across the whole trail; it does not need a boss quiz to measure it.
+//   - The last ordinary encounter opens the trail gate. The gate is story and
+//     navigation, not an extra boss quiz; mastery still accrues quietly across
+//     the whole trail.
 //
 // The learning content still comes from questRounds.js — that part was right.
 // What changed is how much of it a child meets at once, and what it looks like

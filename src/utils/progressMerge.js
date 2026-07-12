@@ -212,12 +212,16 @@ export function computeHydratedValue(area, key, existing, payload) {
       }
       return out;
     };
+    const trail = mergeMonotonic(base.trail, cloud.trail) || {};
+    // routeCursor is local journey position, not an achievement counter. A max
+    // merge would pin a second circuit at stop 40 forever.
+    trail.routeCursor = Number(base.trail?.routeCursor) || Number(cloud.trail?.routeCursor) || 1;
     return {
       ...base,
       ...cloud,
       creature: cloud.creature || base.creature,
       hatched: Boolean(base.hatched) || Boolean(cloud.hatched),
-      trail: mergeMonotonic(base.trail, cloud.trail),
+      trail,
       mastery: mergeMasteryMap(base.mastery, cloud.mastery),
       stones: mergeMonotonic(base.stones, cloud.stones),
       trickies: mergeMonotonic(base.trickies, cloud.trickies),

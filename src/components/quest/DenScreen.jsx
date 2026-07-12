@@ -19,6 +19,7 @@ const WALL_LOOKAHEAD = 8;
 
 export default function DenScreen({ state, onWalk, onEditCreature, onTradingPost }) {
   const index = currentStopIndex(state);
+  const adventure = QUEST_STOPS[Math.min(QUEST_STOPS.length - 1, Math.max(0, index - 1))];
   const visible = [...taughtThrough(Math.min(QUEST_STOPS.length, index + WALL_LOOKAHEAD))];
   const lit = visible.filter(g => isMastered(state.mastery, g)).length;
 
@@ -34,6 +35,21 @@ export default function DenScreen({ state, onWalk, onEditCreature, onTradingPost
         <div className="q-den-head">
           <h1 className="q-title">Your Den</h1>
           <span className="q-sparks" title="Sparks">{availableSparks(state)}</span>
+        </div>
+
+        <div className="q-den-adventure">
+          <div>
+            <span className="q-den-kicker">The world outside</span>
+            <strong>{adventure?.name || "Sunlit Meadow"}</strong>
+          </div>
+          <button type="button" className="q-primary" onClick={onWalk}>
+            Explore
+          </button>
+        </div>
+
+        <div className="q-den-links">
+          <button type="button" className="q-ghost" onClick={onEditCreature}>Change my creature</button>
+          <button type="button" className="q-ghost" onClick={onTradingPost}>Trading Post</button>
         </div>
 
         <h2 className="q-subhead">
@@ -62,13 +78,6 @@ export default function DenScreen({ state, onWalk, onEditCreature, onTradingPost
           </>
         )}
 
-        <div className="q-den-actions">
-          <button type="button" className="q-primary" onClick={onWalk}>
-            {index === 1 ? "Start the Trail" : "Walk the Trail"}
-          </button>
-          <button type="button" className="q-ghost" onClick={onEditCreature}>Change my creature</button>
-          <button type="button" className="q-ghost" onClick={onTradingPost}>Trading Post</button>
-        </div>
       </div>
     </div>
   );

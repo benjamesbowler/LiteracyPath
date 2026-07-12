@@ -1,6 +1,12 @@
 # Sound Seekers — Slice 1 build spec
 ## The one playable stop · 2026-07-11
 
+> **Historical specification, superseded 2026-07-11.** The map, linear trail,
+> StopRunner and Gate flow described below are not the live product. Sound
+> Seekers now follows a long, bounded Three.js trail through `QuestHub.jsx`;
+> free movement sits inside a guided 40-stop curriculum corridor. Keep this
+> file only as a record of the first implementation.
+
 Companion to `docs/QUEST_DESIGN_PLAN_2026-07-11.md`. This is the exact scope of the first build, file by file.
 
 **Slice 1 exists to answer one question before we build 40 stops on top of it:**

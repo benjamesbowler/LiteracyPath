@@ -190,11 +190,9 @@ export function StudentHomePage({
           </div>
         </div>
 
-        {/* Sound Seekers lives in the topbar, NOT in the card grid — the home
-            layout is finished and a sixth card would reflow it. This is a
-            temporary home for the entry point while the mode is in beta; it
-            sits in its own centre section so neither the left brand block nor
-            the right account block moves a pixel. */}
+        {/* Sound Seekers is a standalone flagship mode, separate from the
+            practice-card grid. Its centre position keeps the account and child
+            identity controls stable on every breakpoint. */}
         {onOpenSoundSeekers && (
           <div className="student-home-topbar-centre">
             <button
@@ -203,7 +201,6 @@ export function StudentHomePage({
               onClick={onOpenSoundSeekers}
               aria-label="Open Sound Seekers"
             >
-              <span className="student-home-seekers-tag">Beta</span>
               Sound Seekers
             </button>
           </div>
