@@ -34,6 +34,59 @@ const LANDMARKS = Object.freeze({
   "story-rock": "Story stones"
 });
 
+export const WORLD_KITS = Object.freeze({
+  meadow: {
+    landmarks: ["windmill", "orchard", "farmstead", "lanternGrove"],
+    ambience: ["butterfly", "songbird", "pollen"],
+    repairs: ["windmill", "flowerBloom", "bridgeLamp", "sheepReturn"]
+  },
+  dino: {
+    landmarks: ["boneArch", "excavationCamp", "tarPool", "ropeBridge"],
+    ambience: ["dust", "ridgeBird", "heatWisp"],
+    repairs: ["fossilLamp", "steamVent", "campFlag", "bridgeTorch"]
+  },
+  moonwood: {
+    landmarks: ["lanternTree", "crystalPool", "observatory", "starGate"],
+    ambience: ["firefly", "moth", "starDust"],
+    repairs: ["lanternBloom", "crystalGlow", "observatorySpin", "starWake"]
+  }
+});
+
+const LIGHT_ARC = Object.freeze([
+  { id: "freshMorning", label: "fresh morning", warmth: 0.1, glow: 0.42 },
+  { id: "warmAfternoon", label: "warm afternoon", warmth: 0.34, glow: 0.56 },
+  { id: "festivalSunset", label: "festival sunset", warmth: 0.72, glow: 0.72 },
+  { id: "ridgeHeat", label: "ridge heat", warmth: 0.84, glow: 0.62 },
+  { id: "dustStorm", label: "dust storm", warmth: 0.64, glow: 0.48 },
+  { id: "moonTwilight", label: "moonwood twilight", warmth: 0.18, glow: 0.58 },
+  { id: "starGlow", label: "star glow", warmth: 0.04, glow: 0.86 },
+  { id: "dawnReach", label: "dawn reach", warmth: 0.28, glow: 0.95 }
+]);
+
+export const TRAIL_EVENTS = Object.freeze({
+  s8: {
+    id: "blendFestival",
+    mode: "act",
+    title: "The Blend Festival is waking",
+    line: "Banners lift over the meadow and the road opens toward Fossil Ridge.",
+    cue: "festival"
+  },
+  s17: {
+    id: "wordForge",
+    mode: "act",
+    title: "The Word Forge is running",
+    line: "The old machines turn, sparks rise, and Moonwood appears beyond the ridge.",
+    cue: "forge"
+  },
+  s40: {
+    id: "starReach",
+    mode: "finale",
+    title: "The Star Reach is awake",
+    line: "Every sound you carried is singing back along the trail.",
+    cue: "stars"
+  }
+});
+
 function finite(value, fallback = 0) {
   const number = Number(value);
   return Number.isFinite(number) ? number : fallback;
@@ -98,6 +151,83 @@ function dropPositions(walk, stopIndex, encounters) {
   return drops;
 }
 
+function kitFor(world) {
+  return WORLD_KITS[world] || WORLD_KITS.meadow;
+}
+
+function lightForStop(stopIndex, world) {
+  if (world === "meadow") {
+    if (stopIndex >= 8) return LIGHT_ARC[2];
+    if (stopIndex >= 4) return LIGHT_ARC[1];
+    return LIGHT_ARC[0];
+  }
+  if (world === "dino") return stopIndex >= 16 ? LIGHT_ARC[4] : LIGHT_ARC[3];
+  if (stopIndex >= 40) return LIGHT_ARC[7];
+  if (stopIndex >= 36) return LIGHT_ARC[6];
+  return LIGHT_ARC[5];
+}
+
+function ambientPositions(walk, stopIndex) {
+  const kit = kitFor(walk.world);
+  const count = walk.world === "moonwood" ? 28 : 22;
+  const items = [];
+  for (let index = 0; index < count; index += 1) {
+    const t = (index + 0.5) / count;
+    const z = TRAIL_BOUNDS.startZ - 8 - t * 112;
+    const center = trailCenterX(z, stopIndex);
+    const half = trailHalfWidth(z, stopIndex);
+    const kind = kit.ambience[index % kit.ambience.length];
+    const side = index % 2 === 0 ? -1 : 1;
+    const inset = 0.55 + ((index * 5) % 9) * 0.22;
+    items.push({
+      id: `${walk.stopId}-ambient-${index}`,
+      kind,
+      x: center + side * Math.max(0.4, half - inset),
+      z,
+      y: 0.7 + ((index * 7) % 11) * 0.13,
+      phase: (index * 1.618 + stopIndex * 0.37) % 6.28,
+      scale: 0.74 + ((index * 13) % 7) * 0.08
+    });
+  }
+  return items;
+}
+
+function repairKindFor(world, encounter, order) {
+  const kit = kitFor(world);
+  const byEncounter = {
+    meadow: {
+      "flower-patch": "flowerBloom",
+      "broken-bridge": "bridgeLamp",
+      "hungry-beast": "windmill",
+      "sheep-pens": "sheepReturn"
+    },
+    dino: {
+      "flower-patch": "fossilLamp",
+      "broken-bridge": "bridgeTorch",
+      "echo-cave": "steamVent",
+      "story-rock": "campFlag"
+    },
+    moonwood: {
+      "flower-patch": "lanternBloom",
+      "broken-bridge": "crystalGlow",
+      "echo-cave": "starWake",
+      "story-rock": "observatorySpin"
+    }
+  };
+  return byEncounter[world]?.[encounter.kind] || kit.repairs[order % kit.repairs.length];
+}
+
+export function trailEventForStop(stop) {
+  if (!stop) return null;
+  return TRAIL_EVENTS[stop.id] || {
+    id: `${stop.id}-gate`,
+    mode: "section",
+    title: "The trail keeps going",
+    line: "Your creature carries the reward forward to the next stop.",
+    cue: "gate"
+  };
+}
+
 export function firstUnsolvedEncounter(section, solved = []) {
   const done = solved instanceof Set ? solved : new Set(solved);
   return section?.encounters?.find(encounter => !done.has(encounter.id)) || null;
@@ -115,31 +245,49 @@ export function buildTrailSection(stopId, options = {}) {
   if (!walk) return null;
 
   const friends = FRIENDS[walk.world] || FRIENDS.meadow;
+  const kit = kitFor(walk.world);
   const encounters = walk.encounters.map((encounter, index, all) => {
     const z = encounterZ(index, all.length);
     const center = trailCenterX(z, walk.stopIndex);
+    const side = index % 2 === 0 ? -1 : 1;
     return {
       ...encounter,
       order: index,
-      x: center + (index % 2 === 0 ? -0.85 : 0.85),
+      x: center + side * 0.85,
       z,
       label: LANDMARKS[encounter.kind] || "Trail friend",
       friend: friends[(index + 1) % friends.length],
+      repair: {
+        kind: repairKindFor(walk.world, encounter, index),
+        x: center - side * 2.6,
+        z: z - 2.4
+      },
       atGate: index === all.length - 1
     };
   });
 
   const guideZ = -12;
+  const landmarkZ = -99;
+  const landmarkSide = walk.stopIndex % 2 === 0 ? 1 : -1;
   return {
     stopId: walk.stopId,
     stopIndex: walk.stopIndex,
     stop: walk.stop,
     world: walk.world,
+    kitId: walk.world,
+    lighting: lightForStop(walk.stopIndex, walk.world),
+    event: trailEventForStop(walk.stop),
     teach: walk.teach,
     guide: {
       x: trailCenterX(guideZ, walk.stopIndex) - 0.9,
       z: guideZ,
       friend: friends[0]
+    },
+    landmark: {
+      id: `${walk.stopId}-landmark`,
+      kind: kit.landmarks[(walk.stopIndex - 1) % kit.landmarks.length],
+      x: trailCenterX(landmarkZ, walk.stopIndex) + landmarkSide * (trailHalfWidth(landmarkZ, walk.stopIndex) + 2.8),
+      z: landmarkZ
     },
     gate: {
       x: trailCenterX(TRAIL_GATE_Z, walk.stopIndex),
@@ -150,7 +298,8 @@ export function buildTrailSection(stopId, options = {}) {
       z: TRAIL_EXIT_Z
     },
     encounters,
-    drops: dropPositions(walk, walk.stopIndex, encounters)
+    drops: dropPositions(walk, walk.stopIndex, encounters),
+    ambience: ambientPositions(walk, walk.stopIndex)
   };
 }
 

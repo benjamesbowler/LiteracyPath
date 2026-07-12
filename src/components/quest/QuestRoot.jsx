@@ -43,6 +43,11 @@ function nextAdventureId(state) {
   return QUEST_STOPS[cursor - 1]?.id || QUEST_STOPS[0]?.id || null;
 }
 
+function nextStopAfter(state) {
+  const id = nextAdventureId(state);
+  return id ? getStop(id) : null;
+}
+
 // `initialView` / `initialStop` exist for ONE reason: preview/quest.jsx, the
 // screenshot harness. Sound Seekers sits behind a student login, so without a way
 // to address a screen directly it cannot be looked at without an account — and a
@@ -127,8 +132,7 @@ export default function QuestRoot({
 
       const newStones = next.stones.filter(g => !before.has(g) && isMastered(next.mastery, g));
       const gear = CREATURE_GEAR.find(g => g.unlock === activeStop)?.id || null;
-      setReward({ stop: getStop(activeStop), stars, newStones, gear });
-      setView(VIEW.REWARD);
+      setReward({ stop: getStop(activeStop), nextStop: nextStopAfter(next), stars, newStones, gear });
       notifyMissionTaskDone(progressScopeKey, "game");
       return next;
     });
@@ -204,9 +208,29 @@ export default function QuestRoot({
         />
       )}
 
+      {view === VIEW.WORLD && reward && (
+        <RewardScreen
+          stop={reward.stop}
+          nextStop={reward.nextStop}
+          stars={reward.stars}
+          newStones={reward.newStones}
+          gear={reward.gear}
+          creature={state.creature}
+          isSoundEnabled={isSoundEnabled}
+          overlay
+          onContinue={() => {
+            const next = commit(clearQuestCheckpoint(state));
+            setReward(null);
+            setActiveStop(null);
+            enterWorld(next);
+          }}
+        />
+      )}
+
       {view === VIEW.REWARD && reward && (
         <RewardScreen
           stop={reward.stop}
+          nextStop={reward.nextStop}
           stars={reward.stars}
           newStones={reward.newStones}
           gear={reward.gear}

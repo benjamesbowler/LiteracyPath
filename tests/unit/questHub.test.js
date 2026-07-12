@@ -6,6 +6,7 @@ import {
   clampTrailPosition,
   firstUnsolvedEncounter,
   forwardLimitFor,
+  trailEventForStop,
   trailCenterX,
   trailHalfWidth,
   TRAIL_BOUNDS,
@@ -21,6 +22,10 @@ test("every curriculum stop becomes one long ordered trail section", () => {
     assert.ok(section.guide.z > section.encounters[0].z, `${stop.id} put the teacher after the first task`);
     assert.ok(section.encounters.length >= 1 && section.encounters.length <= 3);
     assert.ok(section.drops.length >= 10, `${stop.id} left the long walk empty`);
+    assert.ok(section.ambience.length >= 18, `${stop.id} has too little ambient life for a long trail`);
+    assert.ok(section.landmark?.kind, `${stop.id} has no authored section landmark`);
+    assert.ok(section.lighting?.id, `${stop.id} has no lighting phase`);
+    assert.equal(section.event.id, trailEventForStop(stop).id);
     assert.ok(section.gate.z < section.encounters.at(-1).z, `${stop.id} put its gate before the final helper`);
     assert.ok(section.exit.z < section.gate.z, `${stop.id} cannot be walked through its gate`);
 
@@ -30,6 +35,10 @@ test("every curriculum stop becomes one long ordered trail section", () => {
       assert.equal(section.encounters[index].order, index);
     }
 
+    for (const encounter of section.encounters) {
+      assert.ok(encounter.repair?.kind, `${stop.id} ${encounter.id} has no repair moment`);
+    }
+
     for (const item of [section.guide, ...section.encounters, ...section.drops, section.gate, section.exit]) {
       const center = trailCenterX(item.z, stop.index);
       const halfWidth = trailHalfWidth(item.z, stop.index);
@@ -37,6 +46,21 @@ test("every curriculum stop becomes one long ordered trail section", () => {
     }
     assert.ok(responsesInWalk(section) <= 8, `${stop.id} turned the journey back into a quiz`);
   }
+});
+
+test("boss stops carry authored act-event direction", () => {
+  const festival = buildTrailSection("s8", { seed: 8 });
+  const forge = buildTrailSection("s17", { seed: 17 });
+  const finale = buildTrailSection("s40", { seed: 40 });
+  const regular = buildTrailSection("s1", { seed: 1 });
+
+  assert.equal(festival.event.id, "blendFestival");
+  assert.equal(festival.event.mode, "act");
+  assert.equal(forge.event.id, "wordForge");
+  assert.equal(forge.event.mode, "act");
+  assert.equal(finale.event.id, "starReach");
+  assert.equal(finale.event.mode, "finale");
+  assert.equal(regular.event.mode, "section");
 });
 
 test("the forest corridor blocks progress until each planned encounter is done", () => {
