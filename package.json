@@ -68,6 +68,7 @@
     "optimise:quest-art": "node tools/optimiseQuestArt.mjs",
     "sheet:quest-art": "node tools/buildQuestArtSheet.mjs",
     "build:creature-sheet": "node tools/buildCreatureContactSheet.mjs",
+    "shots": "node tools/shootQuest.mjs",
     "generate:arcade-music": "node tools/generateArcadeMusicLoops.mjs",
     "check:practice-surface-regressions": "node tools/checkPracticeSurfaceRegressions.js",
     "check:release-readiness-surface": "node tools/checkReleaseReadinessSurface.js",

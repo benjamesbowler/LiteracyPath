@@ -43,10 +43,23 @@ function nextAdventureId(state) {
   return QUEST_STOPS[cursor - 1]?.id || QUEST_STOPS[0]?.id || null;
 }
 
-export default function QuestRoot({ progressScopeKey = "default", isSoundEnabled = true, onExit }) {
+// `initialView` / `initialStop` exist for ONE reason: preview/quest.jsx, the
+// screenshot harness. Sound Seekers sits behind a student login, so without a way
+// to address a screen directly it cannot be looked at without an account — and a
+// screen nobody can look at is a screen whose layout gets written by guesswork.
+// Both default to null, so the app's real behaviour is untouched.
+export default function QuestRoot({
+  progressScopeKey = "default",
+  isSoundEnabled = true,
+  onExit,
+  initialView = null,
+  initialStop = null
+}) {
   const [state, setState] = useState(() => loadQuestProgress(progressScopeKey));
-  const [view, setView] = useState(() => (loadQuestProgress(progressScopeKey).hatched ? VIEW.DEN : VIEW.CREATOR));
-  const [activeStop, setActiveStop] = useState(null);
+  const [view, setView] = useState(
+    () => initialView || (loadQuestProgress(progressScopeKey).hatched ? VIEW.DEN : VIEW.CREATOR)
+  );
+  const [activeStop, setActiveStop] = useState(() => (initialView === VIEW.WORLD ? initialStop : null));
   const [reward, setReward] = useState(null);
   const stateRef = useRef(state);
   const latestCheckpointRef = useRef(state.checkpoint);
