@@ -10,6 +10,10 @@ Everything else in this repo's instructions (the graphify notes below, the gated
 
 **Never claim success without a passing check you can name.** Not "should work," not "I made the change," not "this looks right." "Done" means a check ran and came back green, and you can say which check. Silent delegation — implying a check ran when it didn't — is the fastest way to destroy trust.
 
+## Standing quality instruction
+
+Benjamin's standing instruction is that all work in this repository should be completed to the highest practical degree of effort and accuracy. Treat that as a requirement for disciplined inspection, implementation, and verification; it does not permit unrequested scope expansion or unverified claims.
+
 ## The Loop — the default posture toward all work
 
 Inspect the real state (read the actual file/output, reproduce the real symptom — never operate on remembered state) → find the **root cause** (you can name the *mechanism* that produces exactly this symptom; if your explanation contains "somehow," you're still at symptom level) → make the **smallest correct** intervention (one hypothesis at a time; smallest-correct beats smallest-looking) → run **all** the relevant checks → **read the results honestly** (a red check is *yours* until you prove it was red before your change; a green that never touched your code is a blank, not a pass) → if not clean, loop back to **inspect** (not to another guess) → exit only on green, and **say exactly what green means** ("tests 137/137, lint clean; the prod build can't run here — run `npm run build && git push`, gated so nothing ships if it fails").

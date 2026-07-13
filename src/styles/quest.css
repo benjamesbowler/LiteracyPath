@@ -1004,6 +1004,34 @@
     rgba(20, 17, 42, .92);
 }
 
+.q-trail-notice {
+  position: fixed;
+  z-index: 80;
+  right: 22px;
+  bottom: 22px;
+  display: grid;
+  min-width: 238px;
+  max-width: min(360px, calc(100vw - 44px));
+  gap: 3px;
+  padding: 13px 15px 14px;
+  border-radius: 8px;
+  background: rgba(18, 31, 23, .82);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18), 0 20px 42px rgba(8, 18, 12, .28);
+  color: #fffbe6;
+  pointer-events: none;
+  text-shadow: 0 2px 9px rgba(7, 15, 10, .45);
+  backdrop-filter: blur(10px);
+  animation: q-trail-notice 420ms cubic-bezier(.22, 1, .36, 1);
+}
+.q-trail-notice span { color: rgba(255, 255, 255, .72); font-size: 12px; font-weight: 800; }
+.q-trail-notice strong { color: #f7d978; font-size: 19px; line-height: 1.12; }
+.q-trail-notice em { color: rgba(255, 255, 255, .78); font-size: 12px; font-style: normal; font-weight: 700; }
+
+@keyframes q-trail-notice {
+  from { opacity: 0; transform: translateY(12px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 @media (max-width: 720px) {
   .q-reward-card {
     grid-template-columns: 1fr;
@@ -1667,28 +1695,26 @@
   z-index: 30;
   inset: 0;
   display: grid;
-  place-items: center;
-  padding: 16px;
-  background: rgba(10, 8, 22, .74);
-  backdrop-filter: blur(3px);
+  place-items: end end;
+  padding: 16px clamp(24px, 5vw, 72px) 44px;
+  background:
+    radial-gradient(circle at 50% 43%, rgba(255, 236, 174, .1), rgba(10, 8, 22, .18) 32%, rgba(10, 8, 22, .66) 100%);
+  backdrop-filter: blur(1.5px);
 }
 
 .qw-guide-body {
-  display: flex;
-  align-items: flex-end;
-  gap: 10px;
-  max-width: 620px;
+  display: grid;
+  align-items: center;
+  width: min(390px, 42vw);
   animation: qw-rise 340ms cubic-bezier(.22, .61, .36, 1);
 }
-
-.qw-guide-art { flex: 0 0 auto; width: 118px; height: 128px; animation: cr-breathe 2.6s ease-in-out infinite; transform-box: fill-box; transform-origin: bottom center; }
 
 .qw-bubble {
   position: relative;
   display: grid;
   justify-items: center;
-  gap: 10px;
-  padding: 16px 20px 18px;
+  gap: 8px;
+  padding: 15px 20px 17px;
   border: 3px solid rgba(255, 255, 255, .18);
   border-radius: 22px;
   background: rgba(20, 17, 42, .94);
@@ -1699,13 +1725,14 @@
 .qw-bubble::before {
   content: "";
   position: absolute;
-  bottom: 26px;
+  top: 48%;
   left: -13px;
   width: 0;
   height: 0;
   border-top: 10px solid transparent;
   border-right: 14px solid rgba(20, 17, 42, .94);
   border-bottom: 10px solid transparent;
+  transform: translateY(-50%);
 }
 
 .qw-guide-name { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #ffd166; }
@@ -1733,9 +1760,17 @@
 .qw-bigsound:disabled { opacity: .55; }
 
 @media (max-width: 640px) {
-  .qw-guide-body { flex-direction: column; align-items: center; }
+  .qw-guide {
+    place-items: start center;
+    padding: 88px 12px 12px;
+  }
+  .qw-guide-body {
+    width: min(100%, 390px);
+    align-items: center;
+  }
   .qw-bubble::before { display: none; }
-  .qw-guide-art { width: 92px; height: 100px; }
+  .qw-guide-line { font-size: 16px; }
+  .qw-bigsound { min-width: 86px; height: 86px; border-radius: 20px; font-size: 46px; }
 }
 
 /* ── PAINTED WORLD ─────────────────────────────────────────────────────────
@@ -1799,12 +1834,9 @@
 .qw-drop img { display: block; width: 44px; height: 44px; object-fit: contain; filter: drop-shadow(0 0 12px rgba(255, 209, 102, .8)); }
 .qw-drop:has(img[style*="none"]) { background: radial-gradient(circle at 35% 32%, #fff6cf, #ffd166 55%, #e0a52c); }
 .qw-flag img { display: block; width: auto; height: 150px; object-fit: contain; filter: drop-shadow(0 8px 10px rgba(0, 0, 0, .28)); }
-.qw-guide-art { object-fit: contain; }
-img.qw-guide-art { width: 132px; height: 150px; filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .4)); }
-
 /* ── THE GUIDED TRAIL ─────────────────────────────────────────────────────
- * The terrain is real Three.js geometry. Illustrated creatures and props stay
- * crisp above it while dense forest walls make the route long and readable.
+ * The terrain, rigged cast, and physical task props share the Three.js world.
+ * Dense forest walls make the long route readable without flattening the cast.
  */
 .qh-root {
   --q-accent: #e4b94d;
@@ -1884,8 +1916,12 @@ img.qw-guide-art { width: 132px; height: 150px; filter: drop-shadow(0 8px 12px r
   pointer-events: none;
 }
 .qh-world-layer [hidden] { display: none !important; }
+.qh-world-layer.is-encounter-active .qh-landmark,
+.qh-world-layer.is-encounter-active .qh-resident {
+  opacity: 0 !important;
+  pointer-events: none;
+}
 
-.qh-player,
 .qh-landmark,
 .qh-resident,
 .qh-drop {
@@ -1896,44 +1932,39 @@ img.qw-guide-art { width: 132px; height: 150px; filter: drop-shadow(0 8px 12px r
   will-change: transform;
 }
 
-.qh-player {
-  width: 142px;
-  height: 142px;
-  filter: drop-shadow(0 12px 9px rgba(30, 45, 31, .3));
-}
-
 .qh-landmark {
   display: grid;
-  width: 188px;
-  min-height: 154px;
+  width: 138px;
+  min-height: 78px;
   padding: 0;
   border: 0;
   background: none;
-  place-items: end center;
+  place-items: center;
   pointer-events: auto;
   cursor: pointer;
   transition: filter 180ms ease, opacity 220ms ease;
 }
 
-.qh-landmark .qw-paintprop,
-.qh-landmark .qw-art {
-  grid-area: 1 / 1;
-  width: auto;
-  max-width: 152px;
-  height: 126px;
-  object-fit: contain;
-}
-
-.qh-friend {
+.qh-place-token {
   position: absolute;
-  z-index: 2;
-  right: 3px;
-  bottom: 22px;
-  width: 76px;
-  height: 94px;
-  object-fit: contain;
-  filter: drop-shadow(0 7px 7px rgba(20, 30, 23, .32));
-  transform: translateX(18%);
+  top: -40px;
+  left: 50%;
+  display: grid;
+  min-width: 54px;
+  max-width: 118px;
+  min-height: 30px;
+  padding: 5px 9px;
+  border-radius: 7px;
+  background: rgba(24, 38, 29, .72);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16), 0 7px 18px rgba(11, 21, 14, .18);
+  color: #f7d978;
+  font-size: 11px;
+  font-weight: 850;
+  line-height: 1;
+  place-items: center;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  backdrop-filter: blur(8px);
 }
 
 .qh-landmark:hover:not(:disabled),
@@ -1970,7 +2001,7 @@ img.qw-guide-art { width: 132px; height: 150px; filter: drop-shadow(0 8px 12px r
 
 .qh-place-name {
   position: absolute;
-  bottom: -24px;
+  bottom: -16px;
   left: 50%;
   padding: 4px 9px;
   border-radius: 6px;
@@ -2002,7 +2033,8 @@ img.qw-guide-art { width: 132px; height: 150px; filter: drop-shadow(0 8px 12px r
 
 .qh-resident {
   display: grid;
-  width: 112px;
+  width: 122px;
+  min-height: 58px;
   padding: 0;
   border: 0;
   background: none;
@@ -2010,8 +2042,7 @@ img.qw-guide-art { width: 132px; height: 150px; filter: drop-shadow(0 8px 12px r
   cursor: pointer;
   place-items: center;
 }
-.qh-resident img { width: 108px; height: 124px; object-fit: contain; filter: drop-shadow(0 8px 8px rgba(20, 30, 23, .3)); }
-.qh-resident span { margin-top: -8px; padding: 3px 9px; border-radius: 6px; background: rgba(25, 39, 29, .78); color: #fff; font-size: 12px; font-weight: 800; }
+.qh-resident-chip { padding: 4px 10px; border-radius: 6px; background: rgba(25, 39, 29, .78); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16); color: #fff; font-size: 12px; font-weight: 800; transform: translateY(-2px); }
 .qh-resident:hover { filter: drop-shadow(0 0 16px rgba(255, 231, 150, .72)); }
 .qh-resident:focus-visible { outline: 4px solid #fff1a6; outline-offset: 4px; }
 .qh-resident.is-next { filter: drop-shadow(0 0 18px rgba(255, 226, 126, .78)); }
@@ -2102,6 +2133,32 @@ img.qw-guide-art { width: 132px; height: 150px; filter: drop-shadow(0 8px 12px r
 .qh-next-call span { color: rgba(255, 255, 255, .78); font-size: 11px; font-weight: 650; }
 .qh-next-call.is-gate strong { color: #bce7a6; }
 
+.qh-field-hud {
+  position: absolute;
+  z-index: 24;
+  right: 16px;
+  bottom: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  max-width: min(420px, calc(100vw - 32px));
+  row-gap: 4px;
+  padding: 11px 14px 12px;
+  border-radius: 8px;
+  background: rgba(19, 34, 25, .84);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18), 0 16px 34px rgba(10, 20, 13, .26);
+  color: #fff;
+  text-align: right;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+}
+.qh-field-hud span,
+.qh-field-hud strong,
+.qh-field-hud em { grid-column: 1; }
+.qh-field-hud span { color: rgba(255, 255, 255, .7); font-size: 11px; font-weight: 850; text-transform: uppercase; }
+.qh-field-hud strong { color: #f7d978; font-size: clamp(17px, 2vw, 23px); line-height: 1.12; text-wrap: balance; }
+.qh-field-hud em { color: rgba(255, 255, 255, .76); font-size: 12px; font-style: normal; font-weight: 700; }
+
 .qh-quest-tray {
   position: absolute;
   z-index: 18;
@@ -2170,11 +2227,9 @@ img.qw-guide-art { width: 132px; height: 150px; filter: drop-shadow(0 8px 12px r
   .qh-route-meter { top: 114px; width: min(230px, 62vw); }
   .qh-next-call { right: 8px; bottom: 8px; min-width: 148px; padding: 7px 9px; }
   .qh-next-call strong { font-size: 12px; }
-  .qh-landmark { width: 144px; min-height: 126px; }
-  .qh-landmark .qw-paintprop,
-  .qh-landmark .qw-art { max-width: 120px; height: 102px; }
-  .qh-friend { right: 5px; bottom: 18px; width: 58px; height: 74px; }
-  .qh-player { width: 118px; height: 118px; }
+  .qh-field-hud { right: 8px; bottom: 8px; max-width: calc(100vw - 16px); padding: 9px 10px 10px; }
+  .qh-landmark { width: 118px; min-height: 68px; }
+  .qh-place-token { top: -36px; max-width: 104px; font-size: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

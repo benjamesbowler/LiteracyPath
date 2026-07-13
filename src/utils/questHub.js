@@ -52,6 +52,34 @@ export const WORLD_KITS = Object.freeze({
   }
 });
 
+export const WORLD_VARIANTS = Object.freeze({
+  meadow: [
+    { id: "orchardLane", label: "orchard lane", density: 1.08, scatter: "fruit", canopyShift: 0 },
+    { id: "pondGarden", label: "pond garden", density: 0.92, scatter: "ponds", canopyShift: 1 },
+    { id: "farmTrack", label: "farm track", density: 1.18, scatter: "fences", canopyShift: 2 },
+    { id: "lanternFair", label: "lantern fair", density: 1.04, scatter: "lanterns", canopyShift: 3 }
+  ],
+  dino: [
+    { id: "boneCanyon", label: "bone canyon", density: 0.9, scatter: "bones", canopyShift: 0 },
+    { id: "amberDig", label: "amber dig", density: 1.06, scatter: "crates", canopyShift: 1 },
+    { id: "tarFlats", label: "tar flats", density: 0.86, scatter: "tar", canopyShift: 2 },
+    { id: "ridgeCamp", label: "ridge camp", density: 1.14, scatter: "flags", canopyShift: 3 }
+  ],
+  moonwood: [
+    { id: "glowfen", label: "glowfen", density: 1.06, scatter: "fungi", canopyShift: 0 },
+    { id: "crystalRun", label: "crystal run", density: 0.94, scatter: "crystals", canopyShift: 1 },
+    { id: "starOrchard", label: "star orchard", density: 1.16, scatter: "stars", canopyShift: 2 },
+    { id: "observatoryPath", label: "observatory path", density: 0.98, scatter: "telescopes", canopyShift: 3 }
+  ]
+});
+
+export const FIELD_ENCOUNTERS = Object.freeze({
+  "flower-patch": { mode: "collect", object: "flower", line: "Collect the flower that makes the sound." },
+  "hungry-beast": { mode: "feed", object: "fruit", line: "Feed the creature the matching sound." },
+  signpost: { mode: "collect", object: "trail-object", line: "Read the sign, then collect the named thing." },
+  "word-beast": { mode: "feed", object: "cake", line: "Feed the creature the matching word." }
+});
+
 const LIGHT_ARC = Object.freeze([
   { id: "freshMorning", label: "fresh morning", warmth: 0.1, glow: 0.42 },
   { id: "warmAfternoon", label: "warm afternoon", warmth: 0.34, glow: 0.56 },
@@ -153,6 +181,15 @@ function dropPositions(walk, stopIndex, encounters) {
 
 function kitFor(world) {
   return WORLD_KITS[world] || WORLD_KITS.meadow;
+}
+
+function variantFor(world, stopIndex) {
+  const variants = WORLD_VARIANTS[world] || WORLD_VARIANTS.meadow;
+  return variants[(Math.max(1, finite(stopIndex, 1)) - 1) % variants.length];
+}
+
+function fieldModeFor(kind) {
+  return FIELD_ENCOUNTERS[kind] || null;
 }
 
 function lightForStop(stopIndex, world) {
@@ -257,6 +294,7 @@ export function buildTrailSection(stopId, options = {}) {
       z,
       label: LANDMARKS[encounter.kind] || "Trail friend",
       friend: friends[(index + 1) % friends.length],
+      field: fieldModeFor(encounter.kind),
       repair: {
         kind: repairKindFor(walk.world, encounter, index),
         x: center - side * 2.6,
@@ -275,6 +313,7 @@ export function buildTrailSection(stopId, options = {}) {
     stop: walk.stop,
     world: walk.world,
     kitId: walk.world,
+    variant: variantFor(walk.world, walk.stopIndex),
     lighting: lightForStop(walk.stopIndex, walk.world),
     event: trailEventForStop(walk.stop),
     teach: walk.teach,

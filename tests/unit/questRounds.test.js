@@ -315,6 +315,24 @@ test("Trail Signs and Story Stones write NO mastery — they are comprehension",
   }
 });
 
+test("Trail Signs include authored physical descriptor moments without outrunning the curriculum", () => {
+  const greenCake = buildStop("s35", { seed: 35 }).rounds["trail-signs"][0];
+  const bigFish = buildStop("s38", { seed: 38 }).rounds["trail-signs"][0];
+
+  assert.equal(greenCake.text, "Tap the green cake.");
+  assert.equal(greenCake.answer, "cake");
+  assert.deepEqual(
+    greenCake.things.filter(thing => thing.colour).map(thing => [thing.id, thing.colour]),
+    [["cake", "green"]]
+  );
+  assert.equal(bigFish.text, "Tap the big fish.");
+  assert.equal(bigFish.answer, "fish");
+  assert.deepEqual(
+    bigFish.things.filter(thing => thing.size).map(thing => [thing.id, thing.size]),
+    [["fish", "big"]]
+  );
+});
+
 test("no shell ever writes a mastery target that isn't a real sound", () => {
   const legal = new Set(QUEST_STOPS.flatMap(s => s.teach.map(e => e.id)));
   for (const stop of QUEST_STOPS) {

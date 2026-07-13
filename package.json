@@ -64,6 +64,7 @@
     "check:phonics-learn-media": "node tools/checkPhonicsLearnMedia.js",
     "check:learn-games": "node tools/checkLearnGamesIntegration.js",
     "check:quest": "node tools/checkQuestIntegrity.js",
+    "check:quest-3d": "node tools/checkQuest3DAssets.mjs",
     "check:quest-art": "node tools/checkQuestArt.mjs",
     "optimise:quest-art": "node tools/optimiseQuestArt.mjs",
     "sheet:quest-art": "node tools/buildQuestArtSheet.mjs",
@@ -110,21 +111,26 @@
     "kimi:image-qa-replacements": "node tools/generateImageQaKimiReplacementRequests.js"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@react-three/postprocessing": "^3.0.4",
     "@supabase/ssr": "^0.10.3",
     "@supabase/supabase-js": "^2.106.0",
     "canvas-confetti": "^1.9.4",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
-    "exceljs": "^4.4.0",
+    "exceljs": "^3.4.0",
     "express": "^5.2.1",
     "framer-motion": "^12.39.0",
     "howler": "^2.2.4",
     "jszip": "^3.10.1",
     "openai": "^6.38.0",
+    "postprocessing": "^6.39.2",
     "react": "^19.2.6",
     "react-confetti": "^6.4.0",
     "react-dom": "^19.2.6",
-    "three": "^0.185.1"
+    "three": "^0.185.1",
+    "three-stdlib": "^2.36.1"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",

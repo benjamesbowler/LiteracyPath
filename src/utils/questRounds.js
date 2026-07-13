@@ -336,33 +336,52 @@ const SIGN_THINGS = [
   { id: "bug", word: "bug" },
   { id: "cup", word: "cup" },
   { id: "fish", word: "fish" },
-  { id: "nut", word: "nut" }
+  { id: "nut", word: "nut" },
+  { id: "cake", word: "cake" }
 ];
 const SIGN_COLOURS = [
   { id: "red", word: "red" },
   { id: "green", word: "green" },
   { id: "black", word: "black" }
 ];
+const SIGN_SIZES = [
+  { id: "big", word: "big" },
+  { id: "small", word: "small" }
+];
+
+// These authored moments guarantee memorable read-and-act tasks while the
+// surrounding rounds remain seeded and varied. Every word is decodable here.
+const SIGN_FEATURES = {
+  s35: { thing: "cake", colour: "green" },
+  s38: { thing: "fish", size: "big" }
+};
 
 export function buildTrailSignRounds(stop, { rng, count = 4 }) {
   const stopIndex = stop.index;
   const known = taughtThrough(stopIndex);
   const hearts = heartWordsThrough(stopIndex).map(w => w.toLowerCase());
 
-  // Only things and colours the child can actually READ.
+  // Only things and descriptors the child can actually READ.
   const things = SIGN_THINGS.filter(t => isDecodable(t.word, known));
   const colours = SIGN_COLOURS.filter(c => isDecodable(c.word, known));
+  const sizes = SIGN_SIZES.filter(size => isDecodable(size.word, known));
   const canSayThe = hearts.includes("the");
   if (things.length < 3 || !canSayThe) return [];
 
   const rounds = [];
   for (let i = 0; i < count; i += 1) {
-    const picked = shuffle(things, rng).slice(0, 3);
+    const feature = i === 0 ? SIGN_FEATURES[stop.id] : null;
+    const featuredThing = feature ? things.find(thing => thing.id === feature.thing) : null;
+    const randomThings = shuffle(things.filter(thing => thing.id !== featuredThing?.id), rng);
+    const picked = featuredThing ? [featuredThing, ...randomThings.slice(0, 2)] : randomThings.slice(0, 3);
     const answer = picked[0];
-    // A colour is only used once the child can read colour words — otherwise the
-    // sign says something they cannot decode, and the task becomes a guess.
     const colour = colours.length ? pickOne(colours, rng) : null;
-    const useColour = Boolean(colour) && i % 2 === 1;
+    const size = sizes.length ? pickOne(sizes, rng) : null;
+    const featuredColour = feature?.colour ? colours.find(item => item.id === feature.colour) : null;
+    const featuredSize = feature?.size ? sizes.find(item => item.id === feature.size) : null;
+    const useColour = featuredColour || (i % 2 === 1 ? colour : null);
+    const useSize = featuredSize || (!useColour && i % 2 === 0 ? size : null);
+    const descriptor = useColour?.word || useSize?.word || null;
 
     rounds.push({
       shell: "trail-signs",
@@ -372,10 +391,15 @@ export function buildTrailSignRounds(stop, { rng, count = 4 }) {
       // Stones would put a stone carved "rock" in front of a child and ask which
       // one makes that SOUND — the exact bug already fixed for heart words.
       target: null,
-      text: useColour ? `Tap the ${colour.word} ${answer.word}.` : `Tap the ${answer.word}.`,
+      text: descriptor ? `Tap the ${descriptor} ${answer.word}.` : `Tap the ${answer.word}.`,
       answer: answer.id,
-      colour: useColour ? colour.id : null,
-      things: shuffle(picked, rng).map(t => ({ ...t, colour: useColour && t.id === answer.id ? colour.id : null }))
+      colour: useColour?.id || null,
+      size: useSize?.id || null,
+      things: shuffle(picked, rng).map(thing => ({
+        ...thing,
+        colour: useColour && thing.id === answer.id ? useColour.id : null,
+        size: useSize && thing.id === answer.id ? useSize.id : null
+      }))
     });
   }
   return rounds;

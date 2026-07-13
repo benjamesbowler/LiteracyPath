@@ -14,14 +14,12 @@ import { createPortal } from "react-dom";
 import CreatureCreator from "./CreatureCreator.jsx";
 import DenScreen from "./DenScreen.jsx";
 import QuestHub from "./world/QuestHub.jsx";
-import RewardScreen from "./RewardScreen.jsx";
 import TradingPost from "./TradingPost.jsx";
 import { loadQuestProgress, saveQuestProgress } from "../../utils/questStore.js";
 import {
   recordQuestAttempt,
   recordStopResult,
   saveQuestCheckpoint,
-  clearQuestCheckpoint,
   ownedPieces
 } from "../../utils/questProgress.js";
 import { isMastered } from "../../utils/questMastery.js";
@@ -33,7 +31,7 @@ import { hushCue } from "./shells/shellContract.js";
 import { notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import "../../styles/quest.css";
 
-const VIEW = { CREATOR: "creator", DEN: "den", WORLD: "world", REWARD: "reward", POST: "post" };
+const VIEW = { CREATOR: "creator", DEN: "den", WORLD: "world", POST: "post" };
 
 function nextAdventureId(state) {
   const done = new Set(state?.trail?.stopsDone || []);
@@ -65,7 +63,7 @@ export default function QuestRoot({
     () => initialView || (loadQuestProgress(progressScopeKey).hatched ? VIEW.DEN : VIEW.CREATOR)
   );
   const [activeStop, setActiveStop] = useState(() => (initialView === VIEW.WORLD ? initialStop : null));
-  const [reward, setReward] = useState(null);
+  const [trailNotice, setTrailNotice] = useState(null);
   const stateRef = useRef(state);
   const latestCheckpointRef = useRef(state.checkpoint);
 
@@ -84,6 +82,12 @@ export default function QuestRoot({
     else stopGameMusic();
     return () => { stopGameMusic(); cancelGameSfx(); hushCue(); };
   }, [isSoundEnabled]);
+
+  useEffect(() => {
+    if (!trailNotice) return undefined;
+    const timer = window.setTimeout(() => setTrailNotice(null), 4200);
+    return () => window.clearTimeout(timer);
+  }, [trailNotice]);
 
   // The child can leave through the app close button, browser navigation, or a
   // parent route change. Keep the last in-memory checkpoint durable in all three.
@@ -123,20 +127,33 @@ export default function QuestRoot({
   }, [progressScopeKey]);
 
   const handleFinish = useCallback((stars, tally = {}) => {
-    setState(prev => {
-      const before = new Set(prev.stones);
-      const next = recordStopResult(prev, activeStop, stars, tally.drops || 0);
-      stateRef.current = next;
-      latestCheckpointRef.current = null;
-      saveQuestProgress(progressScopeKey, next);
+    if (!activeStop) return;
+    const previous = stateRef.current;
+    const before = new Set(previous.stones);
+    const next = commit(recordStopResult(previous, activeStop, stars, tally.drops || 0));
+    const finishedStop = getStop(activeStop);
+    const nextStop = nextStopAfter(next);
+    const newStones = next.stones.filter(g => !before.has(g) && isMastered(next.mastery, g));
+    const gear = CREATURE_GEAR.find(g => g.unlock === activeStop)?.id || null;
 
-      const newStones = next.stones.filter(g => !before.has(g) && isMastered(next.mastery, g));
-      const gear = CREATURE_GEAR.find(g => g.unlock === activeStop)?.id || null;
-      setReward({ stop: getStop(activeStop), nextStop: nextStopAfter(next), stars, newStones, gear });
-      notifyMissionTaskDone(progressScopeKey, "game");
-      return next;
+    latestCheckpointRef.current = null;
+    setTrailNotice({
+      id: `${activeStop}-${Date.now()}`,
+      stop: finishedStop,
+      nextStop,
+      stars,
+      newStones,
+      gear
     });
-  }, [activeStop, progressScopeKey]);
+    if (nextStop?.id) {
+      setActiveStop(nextStop.id);
+      setView(VIEW.WORLD);
+    } else {
+      setActiveStop(null);
+      setView(VIEW.DEN);
+    }
+    notifyMissionTaskDone(progressScopeKey, "game");
+  }, [activeStop, commit, progressScopeKey]);
 
   const quitWorld = useCallback(() => {
     // Leaving the land keeps its position and completed requests.
@@ -208,41 +225,12 @@ export default function QuestRoot({
         />
       )}
 
-      {view === VIEW.WORLD && reward && (
-        <RewardScreen
-          stop={reward.stop}
-          nextStop={reward.nextStop}
-          stars={reward.stars}
-          newStones={reward.newStones}
-          gear={reward.gear}
-          creature={state.creature}
-          isSoundEnabled={isSoundEnabled}
-          overlay
-          onContinue={() => {
-            const next = commit(clearQuestCheckpoint(state));
-            setReward(null);
-            setActiveStop(null);
-            enterWorld(next);
-          }}
-        />
-      )}
-
-      {view === VIEW.REWARD && reward && (
-        <RewardScreen
-          stop={reward.stop}
-          nextStop={reward.nextStop}
-          stars={reward.stars}
-          newStones={reward.newStones}
-          gear={reward.gear}
-          creature={state.creature}
-          isSoundEnabled={isSoundEnabled}
-          onContinue={() => {
-            const next = commit(clearQuestCheckpoint(state));
-            setReward(null);
-            setActiveStop(null);
-            enterWorld(next);
-          }}
-        />
+      {view === VIEW.WORLD && trailNotice && (
+        <aside className="q-trail-notice" aria-live="polite" aria-label="Trail progress">
+          <span>{trailNotice.stop?.name || "Trail"} complete</span>
+          <strong>{trailNotice.nextStop ? `${trailNotice.nextStop.name} ahead` : "The whole trail is open"}</strong>
+          <em>{trailNotice.stars} stars · {trailNotice.newStones.length} new stones{trailNotice.gear ? " · new gear" : ""}</em>
+        </aside>
       )}
     </div>,
     document.body

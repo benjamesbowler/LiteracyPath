@@ -9,6 +9,8 @@ import {
   trailEventForStop,
   trailCenterX,
   trailHalfWidth,
+  FIELD_ENCOUNTERS,
+  WORLD_VARIANTS,
   TRAIL_BOUNDS,
   TRAIL_EXIT_Z
 } from "../../src/utils/questHub.js";
@@ -24,6 +26,7 @@ test("every curriculum stop becomes one long ordered trail section", () => {
     assert.ok(section.drops.length >= 10, `${stop.id} left the long walk empty`);
     assert.ok(section.ambience.length >= 18, `${stop.id} has too little ambient life for a long trail`);
     assert.ok(section.landmark?.kind, `${stop.id} has no authored section landmark`);
+    assert.ok(section.variant?.id, `${stop.id} has no scenery variant`);
     assert.ok(section.lighting?.id, `${stop.id} has no lighting phase`);
     assert.equal(section.event.id, trailEventForStop(stop).id);
     assert.ok(section.gate.z < section.encounters.at(-1).z, `${stop.id} put its gate before the final helper`);
@@ -37,6 +40,9 @@ test("every curriculum stop becomes one long ordered trail section", () => {
 
     for (const encounter of section.encounters) {
       assert.ok(encounter.repair?.kind, `${stop.id} ${encounter.id} has no repair moment`);
+      if (FIELD_ENCOUNTERS[encounter.kind]) {
+        assert.equal(encounter.field?.mode, FIELD_ENCOUNTERS[encounter.kind].mode, `${stop.id} ${encounter.kind} lost its physical task mode`);
+      }
     }
 
     for (const item of [section.guide, ...section.encounters, ...section.drops, section.gate, section.exit]) {
@@ -46,6 +52,30 @@ test("every curriculum stop becomes one long ordered trail section", () => {
     }
     assert.ok(responsesInWalk(section) <= 8, `${stop.id} turned the journey back into a quiz`);
   }
+});
+
+test("all worlds have enough scenery variants to make repeated stops feel different", () => {
+  for (const [world, variants] of Object.entries(WORLD_VARIANTS)) {
+    assert.ok(variants.length >= 4, `${world} needs at least four prototype variants`);
+    assert.equal(new Set(variants.map(variant => variant.id)).size, variants.length, `${world} repeats a variant id`);
+  }
+
+  const firstEight = QUEST_STOPS.slice(0, 8).map(stop => buildTrailSection(stop.id, { seed: stop.index }).variant.id);
+  assert.ok(new Set(firstEight).size >= 4, "the opening meadow repeats too quickly");
+});
+
+test("the authored descriptor tasks reach the physical trail encounters", () => {
+  const greenCake = buildTrailSection("s35", { seed: 35 });
+  const bigFish = buildTrailSection("s38", { seed: 38 });
+
+  assert.ok(
+    greenCake.encounters.some(encounter => encounter.kind === "signpost" && encounter.beats.some(beat => beat.text === "Tap the green cake.")),
+    "trail 35 lost its in-world green cake task"
+  );
+  assert.ok(
+    bigFish.encounters.some(encounter => encounter.kind === "signpost" && encounter.beats.some(beat => beat.text === "Tap the big fish.")),
+    "trail 38 lost its in-world big fish task"
+  );
 });
 
 test("boss stops carry authored act-event direction", () => {
