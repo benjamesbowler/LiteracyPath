@@ -66,6 +66,7 @@ export default function QuestRoot({
   const [trailNotice, setTrailNotice] = useState(null);
   const stateRef = useRef(state);
   const latestCheckpointRef = useRef(state.checkpoint);
+  const musicWorld = view === VIEW.WORLD ? getStop(activeStop)?.world || "meadow" : "meadow";
 
   // One writer. Every state change goes through here, so there is exactly one
   // place a save can go wrong.
@@ -78,10 +79,10 @@ export default function QuestRoot({
   }, [progressScopeKey]);
 
   useEffect(() => {
-    if (isSoundEnabled) startGameMusic("quest", { fallbackWorldId: "meadow" });
+    if (isSoundEnabled) startGameMusic(musicWorld, { fallbackWorldId: "meadow" });
     else stopGameMusic();
     return () => { stopGameMusic(); cancelGameSfx(); hushCue(); };
-  }, [isSoundEnabled]);
+  }, [isSoundEnabled, musicWorld]);
 
   useEffect(() => {
     if (!trailNotice) return undefined;

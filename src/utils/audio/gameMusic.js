@@ -40,19 +40,19 @@ const TRACKS = {
     sources: ["/audio/music/arcade/star-gallery-loop.mp3"]
   },
   meadow: {
-    title: "Sunny Meadow",
-    volume: 0.23,
-    sources: ["/audio/music/meadow-loop.mp3", "/audio/music/meadow-loop.mp3"]
+    title: "Morning on the Sound Trail",
+    volume: 0.16,
+    sources: ["/audio/music/quest/meadow-morning-loop.mp3", "/audio/music/meadow-loop.mp3"]
   },
   dino: {
-    title: "Sunny Hollow",
-    volume: 0.22,
-    sources: ["/audio/music/dino-loop.mp3", "/audio/music/dino-loop.mp3"]
+    title: "Fossil Footsteps",
+    volume: 0.15,
+    sources: ["/audio/music/quest/fossil-footsteps-loop.mp3", "/audio/music/dino-loop.mp3"]
   },
   moonwood: {
-    title: "Moonwood",
-    volume: 0.24,
-    sources: ["/audio/music/moonwood-loop.mp3", "/audio/music/moonwood-loop.mp3"]
+    title: "Lanterns in Moonwood",
+    volume: 0.15,
+    sources: ["/audio/music/quest/moonwood-lanterns-loop.mp3", "/audio/music/moonwood-loop.mp3"]
   }
 };
 

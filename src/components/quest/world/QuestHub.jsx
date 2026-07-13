@@ -1713,7 +1713,11 @@ export default function QuestHub({
   const initialGuideDone = Boolean(resume?.guideDone) || !section?.teach?.length;
   const initialMeetIndex = Math.max(0, Math.min(section?.teach?.length - 1 || 0, Number(resume?.meetIndex) || 0));
   const initialLimit = forwardLimitFor(section, { guideDone: initialGuideDone, solved: initialSolved });
-  const initialPosition = clampTrailPosition(resume?.position || TRAIL_START, section?.stopIndex, initialLimit);
+  // A checkpoint changes while the child walks. Keep the position that mounted
+  // this run stable so an autosave cannot tear down and recreate the 3D scene.
+  const [initialPosition] = useState(() => (
+    clampTrailPosition(resume?.position || TRAIL_START, section?.stopIndex, initialLimit)
+  ));
   const resumedActive = section?.encounters.find(encounter => encounter.id === resume?.activeId && !initialSolved.includes(encounter.id)) || null;
   const initialBeatIndex = Math.max(0, Math.min((resumedActive?.beats.length || 1) - 1, Number(resume?.beatIndex) || 0));
   const initialTally = resume?.tally && typeof resume.tally === "object"
@@ -1756,6 +1760,7 @@ export default function QuestHub({
   const [routePercent, setRoutePercent] = useState(initialRoutePercent);
 
   const canvasRef = useRef(null);
+  const sceneGenerationRef = useRef(0);
   const guideRef = useRef(null);
   const landmarkRefs = useRef(new Map());
   const dropRefs = useRef(new Map());
@@ -1830,6 +1835,8 @@ export default function QuestHub({
   useEffect(() => {
     if (!section || !canvasRef.current) return undefined;
     const canvas = canvasRef.current;
+    sceneGenerationRef.current += 1;
+    canvas.dataset.sceneGeneration = String(sceneGenerationRef.current);
     const quality = chooseTrailQuality();
     let renderer;
     try {
