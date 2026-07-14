@@ -69,3 +69,5 @@ dist 2/
 
 # Screenshot harness output (tools/shootQuest.mjs) — dev artefact, regenerate with: npm run shots
 docs/previews/shots/
+
+/public/models/library/

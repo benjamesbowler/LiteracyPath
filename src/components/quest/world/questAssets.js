@@ -1,7 +1,12 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { clone as cloneSkeleton } from "three/addons/utils/SkeletonUtils.js";
-import { trailCenterX, trailHalfWidth, TRAIL_BOUNDS } from "../../../utils/questHub.js";
+import {
+  FIELD_OBJECT_MODELS,
+  QUEST_CHAPTER_ASSET_KITS,
+  QUEST_STOP_ASSET_KITS
+} from "../../../data/threeAssetLibrary.js";
+import { routeDirectionAt, routeSidePoint } from "../../../utils/questHub.js";
 
 const MONSTER_ROOT = "/models/quest/monsters";
 const NATURE_ROOT = "/models/quest/nature";
@@ -91,7 +96,7 @@ function makeContactShadow(radius, opacity) {
   return shadow;
 }
 
-function physicalMaterialFrom(source, { tint = null, maxAnisotropy = 1 } = {}) {
+function physicalMaterialFrom(source, { tint = null, tintStrength = 0.24, maxAnisotropy = 1 } = {}) {
   const material = new THREE.MeshPhysicalMaterial({
     color: source.color || 0xffffff,
     map: source.map || null,
@@ -120,8 +125,7 @@ function physicalMaterialFrom(source, { tint = null, maxAnisotropy = 1 } = {}) {
   });
   material.name = source.name;
   if (tint) {
-    const tintMix = new THREE.Color(0xffffff).lerp(new THREE.Color(tint), 0.24);
-    material.color.multiply(tintMix);
+    material.color.lerp(new THREE.Color(tint), tintStrength);
   }
   for (const texture of [material.map, material.normalMap, material.roughnessMap, material.metalnessMap]) {
     if (texture) texture.anisotropy = Math.max(texture.anisotropy || 1, maxAnisotropy);
@@ -260,7 +264,7 @@ export async function createRiggedTrailCharacters(section, {
     { slot: "guide", modelKey: cast.guide, role: "guide" },
     ...section.encounters.map(encounter => ({
       slot: encounter.id,
-      modelKey: cast.residents[encounter.order % cast.residents.length],
+      modelKey: cast.residents[(encounter.order + Math.max(0, (section.chapterStop || 1) - 1)) % cast.residents.length],
       role: "resident"
     }))
   ];
@@ -281,6 +285,88 @@ export async function createRiggedTrailCharacters(section, {
     else result.residents.set(entry.slot, character);
   });
   return result;
+}
+
+function fitFieldVisual(visual, targetHeight, targetSize = null) {
+  visual.updateMatrixWorld(true);
+  const initial = new THREE.Box3().setFromObject(visual);
+  const size = initial.getSize(new THREE.Vector3());
+  const sourceMeasure = targetSize ? Math.max(size.x, size.y, size.z) : size.y;
+  const targetMeasure = targetSize || targetHeight;
+  if (!(sourceMeasure > 0) || !(targetMeasure > 0)) return;
+  visual.scale.multiplyScalar(targetMeasure / sourceMeasure);
+  visual.updateMatrixWorld(true);
+  const fitted = new THREE.Box3().setFromObject(visual);
+  visual.position.y -= fitted.min.y;
+}
+
+function prepareImportedFieldAvatar(gltf, shape, spec, { maxAnisotropy = 1 } = {}) {
+  const modelSpec = FIELD_OBJECT_MODELS[shape];
+  const root = new THREE.Group();
+  const visual = cloneSkeleton(gltf.scene);
+  const materialClones = new Map();
+  root.name = `imported-field-${shape}`;
+  visual.name = `${shape}-authored-model`;
+  visual.rotation.y = modelSpec.rotationY || 0;
+
+  visual.traverse(object => {
+    if (!object.isMesh) return;
+    const originals = Array.isArray(object.material) ? object.material : [object.material];
+    const replacements = originals.map(original => {
+      const key = `${original.uuid}:${spec.tint || "none"}`;
+      if (!materialClones.has(key)) {
+        const material = physicalMaterialFrom(original, {
+          tint: spec.tint,
+          tintStrength: modelSpec.tintStrength,
+          maxAnisotropy
+        });
+        if (shape.includes("lantern")) {
+          material.emissive = new THREE.Color(spec.tint || 0xffd86a);
+          material.emissiveIntensity = shape.startsWith("lit-") || shape.startsWith("awakened-") ? 1.25 : 0.42;
+        }
+        materialClones.set(key, material);
+      }
+      return materialClones.get(key);
+    });
+    object.material = Array.isArray(object.material) ? replacements : replacements[0];
+    object.castShadow = !object.isSkinnedMesh;
+    object.receiveShadow = true;
+  });
+
+  fitFieldVisual(visual, modelSpec.targetHeight, modelSpec.targetSize);
+  root.add(makeContactShadow(shape === "fish" ? 0.64 : 0.52, 0.22));
+  root.add(visual);
+  root.userData.fieldMaterials = [...materialClones.values()];
+
+  if (gltf.animations?.length) {
+    const mixer = new THREE.AnimationMixer(visual);
+    const wanted = String(modelSpec.animation || "idle").toLowerCase();
+    const clip = gltf.animations.find(animation => animation.name?.toLowerCase().includes(wanted))
+      || gltf.animations[0];
+    mixer.clipAction(clip).play();
+    root.userData.fieldMixer = mixer;
+  }
+  return root;
+}
+
+export async function createImportedFieldAvatars(specs, { maxAnisotropy = 1 } = {}) {
+  const supported = specs.filter(spec => FIELD_OBJECT_MODELS[spec.shape]);
+  const shapes = [...new Set(supported.map(spec => spec.shape))];
+  const settled = await Promise.allSettled(shapes.map(shape => loadModel(FIELD_OBJECT_MODELS[shape].url)));
+  const assets = new Map();
+  settled.forEach((result, index) => {
+    if (result.status === "fulfilled") assets.set(shapes[index], result.value);
+  });
+  const avatars = new Map();
+  for (const spec of supported) {
+    const asset = assets.get(spec.shape);
+    if (asset) avatars.set(spec.id, prepareImportedFieldAvatar(asset, spec.shape, spec, { maxAnisotropy }));
+  }
+  return avatars;
+}
+
+export function updateImportedFieldAvatar(root, dt) {
+  root?.userData.fieldMixer?.update(dt);
 }
 
 function cloneNatureMaterials(source, { tint = 0xffffff, maxAnisotropy = 1, wind = false } = {}) {
@@ -382,27 +468,28 @@ function treeLayout(section, rows, index) {
   const lane = index % perBand;
   const side = lane % 2 === 0 ? -1 : 1;
   const row = Math.floor(lane / 2);
-  const z = TRAIL_BOUNDS.startZ + 1 - band * 4.25 + (row % 2) * 1.15;
-  const center = trailCenterX(z, section.stopIndex);
-  const width = trailHalfWidth(z, section.stopIndex);
+  const progress = Math.min(1, (band * 4.25) / section.route.totalLength);
   const seed = section.stopIndex * 131 + index * 17;
+  const point = routeSidePoint(section.route, progress, side, 1.35 + row * 2.65 + seededUnit(seed) * 0.48);
+  const clearDestination = progress > (section.isChapterFinale ? 0.64 : 0.82);
   return {
-    x: center + side * (width + 1.35 + row * 2.65 + seededUnit(seed) * 0.48),
-    y: -0.02,
-    z: z + (seededUnit(seed + 4) - 0.5) * 0.74,
-    scale: 0.68 + seededUnit(seed + 8) * 0.22,
+    x: point.x,
+    y: point.y - 0.02,
+    z: point.z + (seededUnit(seed + 4) - 0.5) * 0.74,
+    scale: clearDestination ? 0.001 : 0.68 + seededUnit(seed + 8) * 0.22,
     rotationY: seededUnit(seed + 12) * Math.PI * 2
   };
 }
 
 function groundScatterLayout(section, index, { inset = 0.5, step = 5.6, scale = 1 } = {}) {
-  const z = TRAIL_BOUNDS.startZ - 5 - index * step;
+  const progress = Math.min(0.97, 0.035 + (index * step) / section.route.totalLength);
   const side = index % 2 === 0 ? -1 : 1;
   const seed = section.stopIndex * 79 + index * 23;
+  const point = routeSidePoint(section.route, progress, side, inset + seededUnit(seed) * 0.8);
   return {
-    x: trailCenterX(z, section.stopIndex) + side * (trailHalfWidth(z, section.stopIndex) + inset + seededUnit(seed) * 0.8),
-    y: 0.03,
-    z: z + (seededUnit(seed + 6) - 0.5) * 1.8,
+    x: point.x,
+    y: point.y + 0.03,
+    z: point.z + (seededUnit(seed + 6) - 0.5) * 1.8,
     scale: scale * (0.72 + seededUnit(seed + 11) * 0.48),
     rotationY: seededUnit(seed + 14) * Math.PI * 2
   };
@@ -432,7 +519,7 @@ export async function createImportedNature(section, theme, quality, { maxAnisotr
 
   const loadedTrees = treeResults.filter(result => result.status === "fulfilled");
   const rows = quality.treeRows >= 3 ? 2 : 1;
-  const bands = Math.ceil((TRAIL_BOUNDS.startZ - TRAIL_BOUNDS.endZ + 5) / 4.25);
+  const bands = Math.ceil(section.route.totalLength / 4.25);
   const totalTreeCount = bands * rows * 2;
   const treeTint = section.world === "moonwood" ? 0x9aa9bd : section.world === "dino" ? 0xc2a77e : 0xffffff;
   loadedTrees.forEach((treeResult, assetIndex) => {
@@ -509,6 +596,73 @@ export function updateImportedNature(group, now) {
   for (const material of group?.userData.windMaterials || []) {
     if (material.userData.windShader) material.userData.windShader.uniforms.questTime.value = now * 0.001;
   }
+}
+
+function prepareChapterAsset(gltf, spec, section, theme, { maxAnisotropy = 1 } = {}) {
+  const root = new THREE.Group();
+  const visual = cloneSkeleton(gltf.scene);
+  const materials = new Map();
+  root.userData.rotors = [];
+  visual.traverse(object => {
+    if (!object.isMesh) return;
+    const sourceMaterials = Array.isArray(object.material) ? object.material : [object.material];
+    const replacements = sourceMaterials.map(source => {
+      if (!materials.has(source.uuid)) {
+        const material = physicalMaterialFrom(source, { maxAnisotropy });
+        material.roughness = Math.min(0.76, material.roughness);
+        material.clearcoat = section.world === "moonwood" ? 0.32 : 0.18;
+        material.envMapIntensity = section.world === "moonwood" ? 1.14 : 0.94;
+        if (section.world === "moonwood" && /light|window|crystal|decor/i.test(`${source.name} ${object.name}`)) {
+          material.emissive = new THREE.Color(theme.glow);
+          material.emissiveIntensity = 0.34;
+        }
+        materials.set(source.uuid, material);
+      }
+      return materials.get(source.uuid);
+    });
+    object.material = Array.isArray(object.material) ? replacements : replacements[0];
+    object.castShadow = true;
+    object.receiveShadow = true;
+    if (/wheel|rotor|turbine|mill/i.test(object.name)) root.userData.rotors.push(object);
+  });
+  fitFieldVisual(visual, spec.height || 3, spec.size);
+  root.add(visual);
+  root.add(makeContactShadow(Math.max(0.8, (spec.height || 3) * 0.24), 0.2));
+  return root;
+}
+
+export async function createAuthoredChapterKit(section, theme, quality, { maxAnisotropy = 1 } = {}) {
+  const chapterKit = QUEST_CHAPTER_ASSET_KITS[section.chapter?.id] || [];
+  const stopKit = QUEST_STOP_ASSET_KITS[section.stopId] || [];
+  const kit = stopKit.length ? stopKit : chapterKit;
+  const limit = quality.id === "low" ? 2 : quality.id === "balanced" ? 3 : kit.length;
+  const specs = kit.slice(0, limit);
+  const settled = await Promise.allSettled(specs.map(spec => loadModel(spec.url)));
+  const group = new THREE.Group();
+  group.name = `authored-chapter-kit-${section.chapter?.id || section.world}`;
+  group.userData.rotors = [];
+
+  settled.forEach((result, specIndex) => {
+    if (result.status !== "fulfilled") return;
+    const spec = specs[specIndex];
+    const copies = quality.id === "low" ? 1 : Math.max(1, Number(spec.copies) || 1);
+    for (let copyIndex = 0; copyIndex < copies; copyIndex += 1) {
+      const asset = prepareChapterAsset(result.value, spec, section, theme, { maxAnisotropy });
+      const progress = Math.min(0.88, spec.progress + copyIndex * 0.035);
+      const side = copyIndex % 2 ? -spec.side : spec.side;
+      const point = routeSidePoint(section.route, progress, side, spec.offset + copyIndex * 0.34);
+      asset.position.set(point.x, point.y, point.z);
+      asset.rotation.y = routeDirectionAt(section.route, progress).heading + (side < 0 ? Math.PI : 0);
+      asset.scale.setScalar(0.92 + copyIndex * 0.04);
+      group.userData.rotors.push(...asset.userData.rotors);
+      group.add(asset);
+    }
+  });
+  return group.children.length ? group : null;
+}
+
+export function updateAuthoredChapterKit(group, dt) {
+  for (const rotor of group?.userData.rotors || []) rotor.rotation.z += dt * 0.72;
 }
 
 export function disposeAssetObject(root) {

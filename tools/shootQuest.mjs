@@ -72,22 +72,26 @@ function startServer() {
 }
 
 async function checkGateHandoff(browser) {
-  const page = await browser.newPage({ viewport: SIZES.ipad, deviceScaleFactor: 1 });
+  const page = await browser.newPage({ viewport: SIZES.phone, deviceScaleFactor: 1 });
   const errors = [];
   page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
   page.on("pageerror", error => errors.push(`PAGE ERROR: ${error.message}`));
   try {
-    await page.goto(`${BASE}/preview/quest.html?view=world&stop=s1&checkpoint=gate&creature=showcase`, {
+    await page.goto(`${BASE}/preview/quest.html?view=world&stop=s1&checkpoint=gate&creature=showcase&display=low`, {
       waitUntil: "domcontentloaded",
       timeout: 30_000
     });
-    await page.waitForFunction(() => window.__questReady === true, { timeout: 15_000 });
-    await page.getByRole("button", { name: /The gate is open/ }).click();
+    // The gate callout tracks an animated 3D target. Playwright's default click
+    // waits for geometry to stop moving, which can never happen on a live scene.
+    // Scope to the interactive journey layer and press the visible control.
+    const gateControl = page.locator(".q-journey-layer.is-active .qh-next-call");
+    await gateControl.waitFor({ state: "visible", timeout: 20_000 });
+    await gateControl.click({ force: true });
     await page.waitForFunction(() => (
       document.querySelector(".qh-root")
       && document.querySelector(".qh-land-title strong")?.textContent?.trim() === "Trail 2 of 40"
       && !document.querySelector(".q-den")
-    ), { timeout: 12_000 });
+    ), null, { timeout: 25_000 });
     const place = await page.locator(".qh-land-title span").textContent();
     return { ok: errors.length === 0, detail: `${place?.trim()} - Trail 2 of 40`, errors };
   } catch (error) {
@@ -143,7 +147,9 @@ async function main() {
         "--use-gl=angle",
         "--use-angle=swiftshader",
         "--enable-unsafe-swiftshader",
-        "--ignore-gpu-blocklist"
+        "--ignore-gpu-blocklist",
+        "--disable-frame-rate-limit",
+        "--disable-gpu-vsync"
       ]
     });
   } catch (err) {
@@ -203,7 +209,7 @@ async function main() {
       ]);
 
     await page.goto(BASE + shot.url, { waitUntil: "domcontentloaded", timeout: 30_000 });
-    await page.waitForFunction(() => window.__questReady === true, { timeout: 15_000 }).catch(() => {});
+    await page.waitForFunction(() => window.__questReady === true, null, { timeout: 15_000 }).catch(() => {});
     const stillLoading = await page.evaluate(() => document.readyState !== "complete").catch(() => true);
 
     await bounded(page.evaluate(() => document.fonts?.ready), 5_000, "fonts");

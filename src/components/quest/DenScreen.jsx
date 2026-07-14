@@ -10,18 +10,28 @@ import CreatureFigure from "./CreatureFigure.jsx";
 import ParallaxScene from "./ParallaxScene.jsx";
 import { QUEST_STOPS, taughtThrough } from "../../data/questSequence.js";
 import { isMastered, MASTERY_STATES } from "../../utils/questMastery.js";
-import { availableSparks, currentStopIndex } from "../../utils/questProgress.js";
+import { availableSparks, currentStopIndex, unlockedChapterRewards } from "../../utils/questProgress.js";
 import { displayGrapheme } from "./shells/shellContract.js";
+import { QUEST_DISPLAY_MODES } from "../../utils/questPerformance.js";
 
 // Only show stones for sounds the child could plausibly have met — an empty
 // wall of 103 sockets on day one is a wall of things you haven't done.
 const WALL_LOOKAHEAD = 8;
 
-export default function DenScreen({ state, onWalk, onEditCreature, onTradingPost }) {
+export default function DenScreen({
+  state,
+  displayMode = "auto",
+  onDisplayMode,
+  onWalk,
+  onReview,
+  onEditCreature,
+  onTradingPost
+}) {
   const index = currentStopIndex(state);
   const adventure = QUEST_STOPS[Math.min(QUEST_STOPS.length - 1, Math.max(0, index - 1))];
   const visible = [...taughtThrough(Math.min(QUEST_STOPS.length, index + WALL_LOOKAHEAD))];
   const lit = visible.filter(g => isMastered(state.mastery, g)).length;
+  const relics = unlockedChapterRewards(state);
 
   return (
     <div className="q-screen q-den">
@@ -43,14 +53,39 @@ export default function DenScreen({ state, onWalk, onEditCreature, onTradingPost
             <strong>{adventure?.name || "Sunlit Meadow"}</strong>
           </div>
           <button type="button" className="q-primary" onClick={onWalk}>
-            Explore
+            Open Trail Map
           </button>
         </div>
 
         <div className="q-den-links">
+          <button type="button" className="q-ghost" onClick={onReview}>Free Roam Review</button>
           <button type="button" className="q-ghost" onClick={onEditCreature}>Change my creature</button>
           <button type="button" className="q-ghost" onClick={onTradingPost}>Trading Post</button>
         </div>
+
+        <label className="q-display-mode">
+          <span>Visual mode</span>
+          <select value={displayMode} onChange={event => onDisplayMode?.(event.target.value)}>
+            {QUEST_DISPLAY_MODES.map(mode => <option key={mode.id} value={mode.id}>{mode.label}</option>)}
+          </select>
+        </label>
+
+        {relics.length > 0 && (
+          <>
+            <h2 className="q-subhead">Chapter Relics <span className="q-count">{relics.length} of 8</span></h2>
+            <div className="q-relic-shelf">
+              {relics.map((relic, relicIndex) => (
+                <article key={relic.id} className="q-relic" data-ability={relic.ability}>
+                  <span className="q-relic-mark" aria-hidden="true">{relicIndex + 1}</span>
+                  <span>
+                    <strong>{relic.label}</strong>
+                    <small>{relic.abilityLabel}</small>
+                  </span>
+                </article>
+              ))}
+            </div>
+          </>
+        )}
 
         <h2 className="q-subhead">
           The Stone Wall <span className="q-count">{lit} of {visible.length} lit</span>

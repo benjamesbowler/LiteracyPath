@@ -223,6 +223,7 @@ export function hasEngagementSignal(row = {}) {
     Number(row?.gamesPlayed) > 0 ||
     Number(row?.gameStars) > 0 ||
     Number(row?.questStars) > 0 ||
+    Number(row?.soundSeekerStars) > 0 ||
     Number(row?.storyQuestsCompleted) > 0 ||
     Number(row?.booksRead) > 0 ||
     Number(row?.coinsSpent) > 0 ||

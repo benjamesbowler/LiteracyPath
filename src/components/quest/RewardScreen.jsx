@@ -9,12 +9,12 @@
 // stop, and an unlit stone, and the sound comes back tomorrow.
 
 import { useEffect } from "react";
-import CreatureFigure from "./CreatureFigure.jsx";
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
 import { getPiece } from "../../data/creatureParts.js";
 import { displayGrapheme } from "./shells/shellContract.js";
 import { playStarChime, playCelebrationFanfare } from "../../utils/audio/gameSfx.js";
 import { trailEventForStop } from "../../utils/questHub.js";
+import { seedwakeSatchel } from "../../data/questChapterOne.js";
 
 export default function RewardScreen({
   stop,
@@ -22,13 +22,15 @@ export default function RewardScreen({
   stars,
   newStones = [],
   gear = null,
-  creature,
+  chapterReward = null,
+  state = null,
   isSoundEnabled = true,
   overlay = false,
   onContinue
 }) {
   const gearPiece = gear ? getPiece(gear) : null;
   const event = trailEventForStop(stop);
+  const satchel = seedwakeSatchel(state);
 
   useEffect(() => {
     if (!isSoundEnabled) return undefined;
@@ -37,11 +39,6 @@ export default function RewardScreen({
     const t = setTimeout(playCelebrationFanfare, 380);
     return () => clearTimeout(t);
   }, [stars, isSoundEnabled]);
-
-  // Show the creature WEARING the new gear immediately — that is the payoff.
-  const dressed = gearPiece
-    ? { ...creature, equipped: { ...creature.equipped, [gearPiece.slot]: gearPiece.id } }
-    : creature;
 
   return (
     <section
@@ -55,11 +52,38 @@ export default function RewardScreen({
           right teaches them the celebration is meaningless. */}
       <ConfettiCelebration show={stars > 0} />
 
-      <div className="q-reward-card">
+      <div className="q-reward-card q-reward-ceremony-card">
         <div className="q-reward-copy">
-          <span className="q-reward-kicker">{event.mode === "section" ? "trail gate" : "act event"}</span>
-          <h1 className="q-title">{event.mode === "section" ? stop.name : event.title}</h1>
+          <span className="q-reward-kicker">Chapter restored</span>
+          <h1 className="q-title">{chapterReward?.label || (event.mode === "section" ? stop.name : event.title)}</h1>
           <p className="q-reward-line">{event.line}</p>
+
+          {chapterReward && (
+            <div className="q-ceremony-relic">
+              <span aria-hidden="true" />
+              <div>
+                <strong>{chapterReward.label}</strong>
+                <small>{chapterReward.abilityLabel}</small>
+              </div>
+            </div>
+          )}
+
+          {chapterReward?.chapterId === "seedwake-meadow" && (
+            <div className="q-seedwake-summary">
+              <div>
+                <span>Seedwake satchel</span>
+                <strong>{satchel.total} finds · {satchel.sparksBanked} Sparks banked</strong>
+              </div>
+              <ol aria-label="Restored Seedwake landmarks">
+                {satchel.pockets.map(pocket => (
+                  <li key={pocket.id} className={pocket.repaired ? "is-restored" : ""}>
+                    <span>{pocket.count}</span>
+                    <strong>{pocket.repair.label}</strong>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
 
           <div className="q-reward-stars" aria-label={`${stars} of 3 stars`}>
             {[0, 1, 2].map(i => (
@@ -100,14 +124,10 @@ export default function RewardScreen({
           <button type="button" className="q-primary" onClick={onContinue}>Continue the trail</button>
         </div>
 
-        <div className="q-reward-stage" aria-hidden="true">
-          <div className="q-reward-gate" />
-          <CreatureFigure creature={dressed} size={186} mood="cheer" />
-          <div className="q-reward-sparks">
-            <span />
-            <span />
-            <span />
-          </div>
+        <div className="q-reward-stage q-ceremony-view" aria-hidden="true">
+          <span className="q-ceremony-ring is-outer" />
+          <span className="q-ceremony-ring is-inner" />
+          <span className="q-ceremony-relic-mark" />
         </div>
       </div>
     </section>

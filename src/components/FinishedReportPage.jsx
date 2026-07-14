@@ -33,6 +33,7 @@ import {
   collectStudentEngagementAreas
 } from "../utils/exportReportSections.js";
 import { importWithRetry } from "../utils/lazyWithRetry.js";
+import { buildQuestMasteryReport } from "../utils/questReport.js";
 
 const STATUS_TEXT = {
   on_track: "On Track",
@@ -996,6 +997,7 @@ function EngagementSection({ row }) {
     ["Daily mission streak", `${row.missionStreak} day${row.missionStreak === 1 ? "" : "s"}`],
     ["Games played", row.gamesPlayed],
     ["Game stars", row.gameStars],
+    ["Sound Seekers stars", row.soundSeekerStars],
     ["Story quests completed", row.storyQuestsCompleted],
     ["Books read", row.booksRead],
     ["Coins earned", row.coinsEarned],
@@ -1012,6 +1014,44 @@ function EngagementSection({ row }) {
           <strong className="report-engagement-value">{value}</strong>
         </article>
       ))}
+    </div>
+  );
+}
+
+function SoundSeekersSection({ report }) {
+  if (!report || (!report.stopsCompleted && !report.attempts && !report.sessions)) {
+    return <div className="student-report-muted-card">No Sound Seekers journey has been recorded yet.</div>;
+  }
+  return (
+    <div className="report-quest-summary">
+      <div className="report-engagement-grid" aria-label="Sound Seekers summary">
+        {[
+          ["Trails completed", `${report.stopsCompleted} of ${report.stopsTotal}`],
+          ["Sound stones lit", report.stonesLit],
+          ["Chapter relics", `${report.relicsUnlocked} of 8`],
+          ["Time on task", report.timeOnTask],
+          ["Responses", report.attempts],
+          ["Accuracy", report.accuracy == null ? "Not enough evidence" : `${report.accuracy}%`]
+        ].map(([label, value]) => (
+          <article className="report-engagement-card" key={label}>
+            <span className="report-engagement-label">{label}</span>
+            <strong className="report-engagement-value">{value}</strong>
+          </article>
+        ))}
+      </div>
+      <div className="report-quest-focus">
+        <h3>Adaptive review focus</h3>
+        {report.weakest.length ? (
+          <ul>
+            {report.weakest.map(row => (
+              <li key={row.target}>
+                <strong>{row.target}</strong>
+                <span>{Math.round(row.accuracy * 100)}% across {row.seen} responses · {String(row.state || "learning").replace("-", " ")}</span>
+              </li>
+            ))}
+          </ul>
+        ) : <p>More responses are needed before an adaptive review focus can be identified.</p>}
+      </div>
     </div>
   );
 }
@@ -1092,6 +1132,11 @@ export function FinishedReportPage({
     const areas = collectStudentEngagementAreas({ id: progressScopeKey });
     return buildEngagementRow({ studentName, studentId: progressScopeKey, className, areas });
   }, [progressScopeKey, studentName, className]);
+  const soundSeekersReport = useMemo(() => {
+    if (!progressScopeKey) return null;
+    const areas = collectStudentEngagementAreas({ id: progressScopeKey });
+    return buildQuestMasteryReport(areas.soundSeekers || {});
+  }, [progressScopeKey]);
 
   useEffect(() => {
     if (!hasGuidedReadingRecords) return undefined;
@@ -1207,6 +1252,13 @@ export function FinishedReportPage({
           storyQuestRawProgress={storyQuestRawProgress}
           storyQuestSummary={storyQuestSummary}
         />
+
+        {progressScopeKey && (
+          <>
+            <SectionBand title="Sound Seekers" subtitle="Journey progress, phonics mastery, adaptive review focus, and time on task" accent="#0F766E" />
+            <SoundSeekersSection report={soundSeekersReport} />
+          </>
+        )}
 
         {progressScopeKey && (
           <>

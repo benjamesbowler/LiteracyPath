@@ -6,6 +6,22 @@
 // legible and prevent the world becoming a flat plaza.
 
 import { buildWalk } from "./questEncounters.js";
+import {
+  chapterFinaleForStop,
+  chapterForStop,
+  chapterRouteTopology,
+  chapterStopNumber
+} from "../data/questChapters.js";
+import {
+  buildQuestRoute,
+  clampRoutePosition,
+  routeDirectionAt,
+  routePointAt,
+  routeProgressAt,
+  routeSidePoint
+} from "./questRouteGraph.js";
+
+export { routeDirectionAt, routePointAt, routeProgressAt, routeSidePoint };
 
 export const TRAIL_BOUNDS = Object.freeze({
   startZ: 10,
@@ -140,6 +156,9 @@ export function trailHalfWidth(z, stopIndex = 1) {
 }
 
 export function clampTrailPosition(position = TRAIL_START, stopIndex = 1, forwardLimit = TRAIL_BOUNDS.endZ) {
+  if (stopIndex?.route) {
+    return clampRoutePosition(position || stopIndex.start, stopIndex.route, forwardLimit);
+  }
   const z = Math.max(
     Math.max(TRAIL_BOUNDS.endZ, finite(forwardLimit, TRAIL_BOUNDS.endZ)),
     Math.min(TRAIL_BOUNDS.startZ, finite(position.z, TRAIL_START.z))
@@ -152,31 +171,55 @@ export function clampTrailPosition(position = TRAIL_START, stopIndex = 1, forwar
   };
 }
 
-function encounterZ(index, count) {
-  const first = -34;
-  const last = -108;
-  if (count === 1) return -79;
+function encounterProgress(index, count) {
+  if (count === 1) return 0.56;
+  const first = count === 2 ? 0.34 : 0.28;
+  const last = count === 2 ? 0.72 : 0.76;
   return first + ((last - first) * index) / (count - 1);
 }
 
-function dropPositions(walk, stopIndex, encounters) {
+function rewardCacheDrops(walk, route, rewardIds = [], bonusCacheCount = 0) {
+  const unlocked = new Set(rewardIds);
+  const relicCount = (unlocked.has("river-whistle") ? 2 : 0) + (unlocked.has("lantern-map") ? 1 : 0);
+  const count = Math.max(relicCount, Math.max(0, Number(bonusCacheCount) || 0));
+  if (!count) return [];
+  return Array.from({ length: count }, (_, index) => {
+    const branch = route.branches?.[index % Math.max(1, route.branches.length)];
+    const sample = branch?.samples?.[
+      Math.min(branch.samples.length - 1, Math.floor(branch.samples.length * (0.58 + index * 0.12)))
+    ];
+    const fallbackProgress = 0.4 + index * 0.14;
+    const fallback = routePointAt(route, fallbackProgress, (index % 2 ? -1 : 1) * 3.2);
+    const position = sample || fallback;
+    return {
+      id: `${walk.stopId}-relic-cache-${index}`,
+      x: position.x,
+      z: position.z,
+      y: position.y + 0.34,
+      progress: sample?.routeProgress ?? fallbackProgress,
+      cache: true
+    };
+  });
+}
+
+function dropPositions(walk, route, encounters, rewardIds = [], bonusCacheCount = 0) {
   const count = Math.min(22, Math.max(14, walk.drops.length));
   const drops = [];
   for (let index = 0; index < count; index += 1) {
-    const t = (index + 1) / (count + 1);
-    const z = 2 - t * 116;
-    if (encounters.some(encounter => Math.abs(encounter.z - z) < 4.5)) continue;
-    const center = trailCenterX(z, stopIndex);
+    const progress = 0.12 + ((index + 1) / (count + 1)) * 0.74;
+    if (encounters.some(encounter => Math.abs(encounter.progress - progress) < 0.035)) continue;
     const side = index % 2 === 0 ? -1 : 1;
     const spread = 0.75 + ((index * 7) % 10) * 0.19;
+    const position = routePointAt(route, progress, side * spread);
     drops.push({
       id: `${walk.stopId}-drop-${index}`,
-      x: center + side * spread,
-      z,
-      y: 0.2 + ((index * 13) % 7) * 0.04
+      x: position.x,
+      z: position.z,
+      y: position.y + 0.2 + ((index * 13) % 7) * 0.04,
+      progress
     });
   }
-  return drops;
+  return [...drops, ...rewardCacheDrops(walk, route, rewardIds, bonusCacheCount)];
 }
 
 function kitFor(world) {
@@ -204,25 +247,24 @@ function lightForStop(stopIndex, world) {
   return LIGHT_ARC[5];
 }
 
-function ambientPositions(walk, stopIndex) {
-  const kit = kitFor(walk.world);
-  const count = walk.world === "moonwood" ? 28 : 22;
+function ambientPositions(walk, route, world = walk.world) {
+  const kit = kitFor(world);
+  const count = world === "moonwood" ? 28 : 22;
   const items = [];
   for (let index = 0; index < count; index += 1) {
-    const t = (index + 0.5) / count;
-    const z = TRAIL_BOUNDS.startZ - 8 - t * 112;
-    const center = trailCenterX(z, stopIndex);
-    const half = trailHalfWidth(z, stopIndex);
+    const progress = 0.05 + ((index + 0.5) / count) * 0.88;
     const kind = kit.ambience[index % kit.ambience.length];
     const side = index % 2 === 0 ? -1 : 1;
     const inset = 0.55 + ((index * 5) % 9) * 0.22;
+    const position = routeSidePoint(route, progress, side, -inset);
     items.push({
       id: `${walk.stopId}-ambient-${index}`,
       kind,
-      x: center + side * Math.max(0.4, half - inset),
-      z,
-      y: 0.7 + ((index * 7) % 11) * 0.13,
-      phase: (index * 1.618 + stopIndex * 0.37) % 6.28,
+      x: position.x,
+      z: position.z,
+      y: position.y + 0.7 + ((index * 7) % 11) * 0.13,
+      progress,
+      phase: (index * 1.618 + walk.stopIndex * 0.37) % 6.28,
       scale: 0.74 + ((index * 13) % 7) * 0.08
     });
   }
@@ -256,6 +298,14 @@ function repairKindFor(world, encounter, order) {
 
 export function trailEventForStop(stop) {
   if (!stop) return null;
+  const finale = chapterFinaleForStop(stop);
+  if (finale) {
+    return {
+      ...finale,
+      mode: "chapter-finale",
+      line: finale.action
+    };
+  }
   return TRAIL_EVENTS[stop.id] || {
     id: `${stop.id}-gate`,
     mode: "section",
@@ -265,6 +315,31 @@ export function trailEventForStop(stop) {
   };
 }
 
+export function restoredWorldMoments(chapter, chapterStop, completedStopIds, route, world) {
+  if (!chapter || !route || chapterStop <= 1) return [];
+  const completed = completedStopIds instanceof Set ? completedStopIds : new Set(completedStopIds || []);
+  const kit = kitFor(world || chapter.worldKit);
+  return chapter.stopIds
+    .slice(0, chapterStop - 1)
+    .filter(stopId => completed.has(stopId))
+    .map((stopId, index) => {
+      const progress = 0.145 + index * 0.055;
+      const side = index % 2 === 0 ? -1 : 1;
+      const lateral = side * Math.max(1.8, (route.width || TRAIL_BOUNDS.halfWidth) - 0.82 - (index % 2) * 0.28);
+      const position = routePointAt(route, progress, lateral);
+      return {
+        id: `restored-${stopId}`,
+        sourceStopId: stopId,
+        kind: kit.repairs[index % kit.repairs.length],
+        x: position.x,
+        y: position.y,
+        z: position.z,
+        progress,
+        restored: true
+      };
+    });
+}
+
 export function firstUnsolvedEncounter(section, solved = []) {
   const done = solved instanceof Set ? solved : new Set(solved);
   return section?.encounters?.find(encounter => !done.has(encounter.id)) || null;
@@ -272,6 +347,11 @@ export function firstUnsolvedEncounter(section, solved = []) {
 
 export function forwardLimitFor(section, { guideDone = false, solved = [] } = {}) {
   if (!section) return TRAIL_BOUNDS.startZ;
+  if (section.route) {
+    if (!guideDone) return Math.max(0, section.guide.progress - 0.012);
+    const next = firstUnsolvedEncounter(section, solved);
+    return next ? Math.max(0, next.progress - 0.012) : 1;
+  }
   if (!guideDone) return section.guide.z + 1.35;
   const next = firstUnsolvedEncounter(section, solved);
   return next ? next.z + 1.35 : TRAIL_BOUNDS.endZ;
@@ -281,64 +361,114 @@ export function buildTrailSection(stopId, options = {}) {
   const walk = buildWalk(stopId, options);
   if (!walk) return null;
 
-  const friends = FRIENDS[walk.world] || FRIENDS.meadow;
-  const kit = kitFor(walk.world);
+  const chapter = chapterForStop(walk.stop);
+  const rewardIds = Array.isArray(options.rewardIds) ? [...new Set(options.rewardIds)] : [];
+  const completedStopIds = new Set(Array.isArray(options.completedStopIds) ? options.completedStopIds : []);
+  const chapterStop = chapterStopNumber(walk.stop);
+  const routeTopology = chapterRouteTopology(walk.stop);
+  const world = chapter?.worldKit || walk.world;
+  const route = buildQuestRoute({
+    topology: routeTopology,
+    seed: walk.stopIndex,
+    width: TRAIL_BOUNDS.halfWidth
+  });
+  const fallbackFriends = FRIENDS[world] || FRIENDS.meadow;
+  const friends = [
+    chapter?.cast?.guide?.name || fallbackFriends[0],
+    ...(chapter?.cast?.residents || []).map(resident => resident.name)
+  ];
+  const kit = kitFor(world);
   const encounters = walk.encounters.map((encounter, index, all) => {
-    const z = encounterZ(index, all.length);
-    const center = trailCenterX(z, walk.stopIndex);
+    const progress = encounterProgress(index, all.length);
     const side = index % 2 === 0 ? -1 : 1;
+    const position = routePointAt(route, progress, side * 0.85);
+    const repairPosition = routeSidePoint(route, Math.min(0.86, progress + 0.018), -side, 2.6);
     return {
       ...encounter,
       order: index,
-      x: center + side * 0.85,
-      z,
+      x: position.x,
+      y: position.y,
+      z: position.z,
+      progress,
       label: LANDMARKS[encounter.kind] || "Trail friend",
-      friend: friends[(index + 1) % friends.length],
+      friend: friends[1 + ((index + Math.max(0, chapterStop - 1)) % Math.max(1, friends.length - 1))],
       field: fieldModeFor(encounter.kind),
       repair: {
-        kind: repairKindFor(walk.world, encounter, index),
-        x: center - side * 2.6,
-        z: z - 2.4
+        kind: repairKindFor(world, encounter, index),
+        x: repairPosition.x,
+        y: repairPosition.y,
+        z: repairPosition.z,
+        progress: Math.min(0.86, progress + 0.018)
       },
       atGate: index === all.length - 1
     };
   });
 
-  const guideZ = -12;
-  const landmarkZ = -99;
   const landmarkSide = walk.stopIndex % 2 === 0 ? 1 : -1;
+  const start = routePointAt(route, 0.02);
+  const guide = routePointAt(route, 0.1, -0.9);
+  const landmark = routeSidePoint(route, 0.78, landmarkSide, 2.8);
+  const gate = routePointAt(route, 0.91);
+  const exit = routePointAt(route, 0.985);
+  const gateDirection = routeDirectionAt(route, 0.91);
   return {
     stopId: walk.stopId,
     stopIndex: walk.stopIndex,
     stop: walk.stop,
-    world: walk.world,
-    kitId: walk.world,
-    variant: variantFor(walk.world, walk.stopIndex),
-    lighting: lightForStop(walk.stopIndex, walk.world),
+    world,
+    chapter,
+    chapterStop,
+    isChapterFinale: chapterStop === 5,
+    finale: chapterFinaleForStop(walk.stop),
+    kitId: world,
+    topology: routeTopology,
+    route,
+    variant: variantFor(world, walk.stopIndex),
+    lighting: lightForStop(walk.stopIndex, world),
     event: trailEventForStop(walk.stop),
     teach: walk.teach,
     guide: {
-      x: trailCenterX(guideZ, walk.stopIndex) - 0.9,
-      z: guideZ,
+      x: guide.x,
+      y: guide.y,
+      z: guide.z,
+      progress: 0.1,
       friend: friends[0]
     },
     landmark: {
       id: `${walk.stopId}-landmark`,
       kind: kit.landmarks[(walk.stopIndex - 1) % kit.landmarks.length],
-      x: trailCenterX(landmarkZ, walk.stopIndex) + landmarkSide * (trailHalfWidth(landmarkZ, walk.stopIndex) + 2.8),
-      z: landmarkZ
+      x: landmark.x,
+      y: landmark.y,
+      z: landmark.z,
+      side: landmarkSide,
+      progress: 0.78
     },
     gate: {
-      x: trailCenterX(TRAIL_GATE_Z, walk.stopIndex),
-      z: TRAIL_GATE_Z
+      x: gate.x,
+      y: gate.y,
+      z: gate.z,
+      progress: 0.91,
+      heading: gateDirection.heading
     },
     exit: {
-      x: trailCenterX(TRAIL_EXIT_Z, walk.stopIndex),
-      z: TRAIL_EXIT_Z
+      x: exit.x,
+      y: exit.y,
+      z: exit.z,
+      progress: 0.985
     },
+    start: { x: start.x, y: start.y, z: start.z, progress: 0.02 },
+    continuity: {
+      chapterId: chapter?.id || walk.world,
+      previousStopId: walk.stopIndex > 1 ? `s${walk.stopIndex - 1}` : null,
+      nextStopId: walk.stopIndex < 40 ? `s${walk.stopIndex + 1}` : "s1",
+      continuesChapter: chapterStop < 5,
+      resetToMenu: false
+    },
+    rewardIds,
+    restoredMoments: restoredWorldMoments(chapter, chapterStop, completedStopIds, route, world),
     encounters,
-    drops: dropPositions(walk, walk.stopIndex, encounters),
-    ambience: ambientPositions(walk, walk.stopIndex)
+    drops: dropPositions(walk, route, encounters, rewardIds, options.rewardCacheCount),
+    ambience: ambientPositions(walk, route, world)
   };
 }
 

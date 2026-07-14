@@ -7,7 +7,9 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 export default defineConfig([
   globalIgnores(['dist', 'Phonics app extension/**', '_DELETE_ME_*/**']),
   {
-    files: ['tools/**/*.js', 'scripts/**/*.js', '*.config.js', 'server.js'],
+    // Node, not the browser. Tests run under `node --test`, so they get
+    // process/__dirname — linting them as browser code fails on `process`.
+    files: ['tools/**/*.js', 'scripts/**/*.js', 'tests/**/*.js', '*.config.js', 'server.js'],
     extends: [
       js.configs.recommended,
     ],
@@ -18,7 +20,7 @@ export default defineConfig([
   },
   {
     files: ['**/*.{js,jsx}'],
-    ignores: ['tools/**', 'scripts/**', '*.config.js', 'server.js'],
+    ignores: ['tools/**', 'scripts/**', 'tests/**', '*.config.js', 'server.js'],
     extends: [
       js.configs.recommended,
       reactHooks.configs.flat.recommended,

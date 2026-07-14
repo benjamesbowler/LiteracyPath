@@ -226,6 +226,11 @@ export function computeHydratedValue(area, key, existing, payload) {
       stones: mergeMonotonic(base.stones, cloud.stones),
       trickies: mergeMonotonic(base.trickies, cloud.trickies),
       ledger: { purchases: unionById(base.ledger?.purchases, cloud.ledger?.purchases) },
+      settings: cloud.settings || base.settings,
+      telemetry: {
+        sessions: unionById(base.telemetry?.sessions, cloud.telemetry?.sessions),
+        current: base.telemetry?.current || null
+      },
       checkpoint: base.checkpoint ?? null
     };
   }

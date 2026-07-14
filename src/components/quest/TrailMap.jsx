@@ -1,132 +1,144 @@
-// THE TRAIL — a 2.5D map.
-//
-// Not a menu of levels. A ROAD, that recedes: stops further along sit higher and
-// smaller, the creature scales as it walks, and the parallax bands shift with
-// the camera. This is the whole 2.5D decision made concrete, and it costs zero
-// image files — the road and the hills are procedural SVG.
-
 import { useEffect, useMemo, useRef, useState } from "react";
 import CreatureFigure from "./CreatureFigure.jsx";
-import ParallaxScene from "./ParallaxScene.jsx";
-import { stopsForAct, QUEST_ACTS } from "../../data/questSequence.js";
-import { currentStopIndex } from "../../utils/questProgress.js";
+import { QUEST_CHAPTERS } from "../../data/questChapters.js";
+import { getStop } from "../../data/questSequence.js";
+import { currentStopIndex, unlockedChapterRewards } from "../../utils/questProgress.js";
 import { playWhoosh } from "../../utils/audio/gameSfx.js";
 
-// The road runs left to right and RISES — the horizon is up and away. A stop at
-// t=0 is at the child's feet; a stop at t=1 is small and far.
-function pointAt(t) {
-  const x = 6 + t * 88;                       // %
-  const y = 78 - Math.sin(t * Math.PI * 0.55) * 34; // % — rises toward the horizon
-  const depth = 1 - t * 0.55;                 // 1.0 near -> 0.45 far
-  return { x, y, depth };
+const MAP_POINTS = Object.freeze([
+  { x: 9, y: 70 },
+  { x: 27, y: 52 },
+  { x: 47, y: 64 },
+  { x: 68, y: 43 },
+  { x: 89, y: 56 }
+]);
+
+function mapPath(points) {
+  if (!points.length) return "";
+  return points.reduce((path, point, index) => {
+    if (!index) return `M ${point.x} ${point.y}`;
+    const previous = points[index - 1];
+    const centreX = (previous.x + point.x) / 2;
+    return `${path} C ${centreX} ${previous.y}, ${centreX} ${point.y}, ${point.x} ${point.y}`;
+  }, "");
 }
 
-export default function TrailMap({ state, act = 1, onAct, onEnterStop, onBack, isSoundEnabled = true }) {
-  const stops = useMemo(() => stopsForAct(act), [act]);
-  const actMeta = QUEST_ACTS[act - 1];
+export default function TrailMap({
+  state,
+  act = 1,
+  onAct,
+  onEnterStop,
+  onFreeRoam,
+  onBack,
+  isSoundEnabled = true
+}) {
+  const chapter = QUEST_CHAPTERS[Math.max(0, Math.min(QUEST_CHAPTERS.length - 1, act - 1))];
+  const stops = useMemo(() => chapter.stopIds.map(getStop).filter(Boolean), [chapter]);
   const nextIndex = currentStopIndex(state);
-  const done = new Set(state.trail.stopsDone);
+  const done = new Set(state.trail?.stopsDone || []);
+  const relicIds = new Set(unlockedChapterRewards(state).map(relic => relic.chapterId));
+  const [walkingStop, setWalkingStop] = useState(null);
+  const walkTimer = useRef(0);
+  const positions = stops.map((stop, index) => ({ stop, ...MAP_POINTS[index] }));
+  const road = mapPath(positions);
+  const currentPosition = positions.find(({ stop }) => stop.index === nextIndex)
+    || [...positions].reverse().find(({ stop }) => done.has(stop.id))
+    || positions[0];
 
-  // An act is reachable once the child has walked to ANY of its stops. You can
-  // always go BACK to a land you've been to — the map is a place, not a menu,
-  // and a child who wants to re-walk the Meadow should be able to.
-  const reachable = a => stopsForAct(a)[0].index <= nextIndex;
+  useEffect(() => () => window.clearTimeout(walkTimer.current), []);
 
-  const [walking, setWalking] = useState(false);
-  const walkTimer = useRef(null);
+  const reachable = candidate => {
+    const first = Number(candidate.stopRange?.[0]) || 1;
+    return first <= nextIndex || candidate.stopIds.some(stopId => done.has(stopId));
+  };
 
-  const positions = stops.map((stop, i) => ({ stop, ...pointAt(stops.length === 1 ? 0 : i / (stops.length - 1)) }));
-  const here = positions.find(p => p.stop.index === nextIndex) || positions[positions.length - 1];
-
-  const road = useMemo(() => {
-    const pts = positions.map(p => `${p.x},${p.y}`);
-    return `M${pts.join(" L")}`;
-  }, [positions]);
-
-  useEffect(() => () => clearTimeout(walkTimer.current), []);
-
-  function enter(stop) {
-    if (stop.index > nextIndex) return;      // fogged: not walked to yet
-    setWalking(true);
+  const enter = stop => {
+    if (stop.index > nextIndex && !done.has(stop.id)) return;
+    setWalkingStop(stop.id);
     if (isSoundEnabled) playWhoosh();
-    walkTimer.current = setTimeout(() => {
-      setWalking(false);
+    walkTimer.current = window.setTimeout(() => {
+      setWalkingStop(null);
       onEnterStop?.(stop.id);
-    }, 620);
-  }
-
-  // The camera trails the child: further along the road = scene shifted left.
-  const camera = ((here.stop.index - stops[0].index) / Math.max(1, stops.length - 1)) * 18;
+    }, 520);
+  };
 
   return (
-    <div className="q-screen q-map">
-      <ParallaxScene world={actMeta.world} offset={camera} className="q-map-scene">
-        <svg className="q-road" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          <path d={road} fill="none" stroke="var(--q-deep)" strokeWidth="3.4" strokeLinecap="round" opacity="0.32" />
-          <path d={road} fill="none" stroke="var(--q-road)" strokeWidth="1.8" strokeLinecap="round" strokeDasharray="3 3" opacity="0.75" />
-        </svg>
+    <main className="q-screen q-map-v2" data-world={chapter.worldKit} data-chapter={chapter.id}>
+      <header className="q-map-v2-header">
+        <button type="button" className="q-ghost" onClick={onBack}>Back to the Den</button>
+        <div>
+          <span>World trail</span>
+          <h1>{chapter.title}</h1>
+          <p>{chapter.objective}</p>
+        </div>
+        <button type="button" className="q-primary q-map-review" onClick={onFreeRoam}>Free Roam</button>
+      </header>
 
-        {positions.map(({ stop, x, y, depth }) => {
+      <nav className="q-chapter-tabs" aria-label="Story chapters">
+        {QUEST_CHAPTERS.map(candidate => {
+          const open = reachable(candidate);
+          return (
+            <button
+              key={candidate.id}
+              type="button"
+              className={candidate.id === chapter.id ? "is-current" : ""}
+              disabled={!open}
+              aria-current={candidate.id === chapter.id ? "page" : undefined}
+              onClick={() => onAct?.(candidate.index)}
+            >
+              <span>{candidate.index}</span>
+              <strong>{open ? candidate.title : "Unexplored"}</strong>
+              <small>{relicIds.has(candidate.id) ? "Relic found" : `${candidate.stopIds.filter(stopId => done.has(stopId)).length} of 5`}</small>
+            </button>
+          );
+        })}
+      </nav>
+
+      <section className="q-map-v2-land" aria-label={`${chapter.title} trail map`}>
+        <div className="q-map-v2-weather" aria-hidden="true" />
+        <div className="q-map-v2-distant" aria-hidden="true" />
+        <svg className="q-map-v2-road" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d={road} className="q-map-road-edge" />
+          <path d={road} className="q-map-road-centre" />
+        </svg>
+        {positions.map(({ stop, x, y }, index) => {
           const isDone = done.has(stop.id);
           const isNext = stop.index === nextIndex;
-          const locked = stop.index > nextIndex;
-          const stars = state.trail.stars?.[stop.id] || 0;
+          const locked = stop.index > nextIndex && !isDone;
+          const stars = Number(state.trail?.stars?.[stop.id]) || 0;
           return (
             <button
               key={stop.id}
               type="button"
-              className={`q-marker${isDone ? " is-done" : ""}${isNext ? " is-next" : ""}${locked ? " is-locked" : ""}${stop.boss ? " is-boss" : ""}`}
-              style={{ left: `${x}%`, top: `${y}%`, "--depth": depth }}
+              className={`q-map-stop${isDone ? " is-done" : ""}${isNext ? " is-next" : ""}`}
+              style={{ left: `${x}%`, top: `${y}%` }}
               disabled={locked}
               onClick={() => enter(stop)}
-              aria-label={locked ? `${stop.name} — not reached yet` : `${stop.name}`}
+              aria-label={locked ? `${stop.name}, unexplored` : `${stop.name}, ${stars} stars`}
             >
-              <span className="q-marker-dot" />
-              <span className="q-marker-name">{locked ? "???" : stop.name}</span>
-              {isDone && (
-                <span className="q-marker-stars" aria-hidden="true">
-                  {"★".repeat(stars)}{"☆".repeat(Math.max(0, 3 - stars))}
-                </span>
-              )}
+              <span className="q-map-stop-number">{locked ? "" : index + 1}</span>
+              <strong>{locked ? "Unexplored" : stop.name}</strong>
+              <small>{locked ? "Not reached" : isDone ? `${stars} of 3 stars` : isNext ? "Continue here" : "Revisit"}</small>
             </button>
           );
         })}
 
-        <div
-          className="q-walker"
-          style={{ left: `${here.x}%`, top: `${here.y}%`, "--depth": here.depth }}
-        >
-          <CreatureFigure creature={state.creature} size={104} mood={walking ? "walk" : "idle"} />
-        </div>
-      </ParallaxScene>
+        {currentPosition && (
+          <div
+            className={`q-map-v2-walker${walkingStop ? " is-walking" : ""}`}
+            style={{ left: `${currentPosition.x}%`, top: `${currentPosition.y}%` }}
+            aria-hidden="true"
+          >
+            <CreatureFigure creature={state.creature} size={92} mood={walkingStop ? "walk" : "idle"} />
+          </div>
+        )}
 
-      <div className="q-map-bar">
-        <button type="button" className="q-ghost" onClick={onBack}>Back to the Den</button>
-
-        <span className="q-acts" role="tablist" aria-label="Lands">
-          {QUEST_ACTS.map(a => {
-            const open = reachable(a.n);
-            return (
-              <button
-                key={a.n}
-                type="button"
-                role="tab"
-                aria-selected={a.n === act}
-                className={`q-actchip${a.n === act ? " is-on" : ""}${open ? "" : " is-locked"}`}
-                disabled={!open}
-                onClick={() => onAct?.(a.n)}
-                title={open ? a.title : "Not reached yet"}
-              >
-                {open ? a.title : "???"}
-              </button>
-            );
-          })}
-        </span>
-
-        <span className="q-progress">
-          {stops.filter(s => done.has(s.id)).length} / {stops.length}
-        </span>
-      </div>
-    </div>
+        <aside className="q-map-destination">
+          <span>Chapter destination</span>
+          <strong>{chapter.destination}</strong>
+          <p>{chapter.finale.action}</p>
+        </aside>
+      </section>
+    </main>
   );
 }

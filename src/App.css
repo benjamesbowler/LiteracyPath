@@ -79,6 +79,30 @@
   --radius-card: var(--lp-radius-lg);
 }
 
+/* Sound Seekers reporting ----------------------------------------------- */
+.teacher-quest-cell {
+  display: grid;
+  gap: 3px;
+  min-width: 142px;
+}
+
+.teacher-quest-cell strong { color: #173f36; font-size: 13px; }
+.teacher-quest-cell span { color: #465c55; font-size: 12px; }
+.teacher-quest-cell small { color: #6a756f; font-size: 11px; line-height: 1.3; }
+
+.report-quest-summary { display: grid; gap: 18px; }
+.report-quest-focus { padding: 18px 0; border-top: 1px solid #d9dfdc; }
+.report-quest-focus h3 { margin: 0 0 10px; color: #164e43; font-size: 18px; letter-spacing: 0; }
+.report-quest-focus ul { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.report-quest-focus li { display: grid; grid-template-columns: minmax(64px, 110px) 1fr; align-items: baseline; gap: 12px; padding: 9px 0; border-bottom: 1px solid #e4e8e6; }
+.report-quest-focus li strong { color: #123f36; font-size: 19px; }
+.report-quest-focus li span { color: #52635d; font-size: 13px; }
+
+@media (max-width: 760px) {
+  .teacher-quest-cell { min-width: 124px; }
+  .report-quest-focus li { grid-template-columns: 1fr; gap: 3px; }
+}
+
 * {
   box-sizing: border-box;
 }

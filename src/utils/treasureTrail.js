@@ -45,6 +45,10 @@ function sumGameStars(games) {
   return Object.values(games?.games || {}).reduce((total, game) => total + (Number(game?.stars) || 0), 0);
 }
 
+function sumSoundSeekerStars(soundSeekers) {
+  return Object.values(soundSeekers?.trail?.stars || {}).reduce((total, stars) => total + (Number(stars) || 0), 0);
+}
+
 function countCompletedStories(stories) {
   return Object.values(stories || {}).filter(row => row && typeof row === "object" && row.completed).length;
 }
@@ -74,20 +78,22 @@ export function computeTreasury(scope) {
   return computeTreasuryFromAreas({
     quest: readArea("el_quest", scope),
     games: readArea("learn_games", scope),
+    soundSeekers: readArea("phonics_quest", scope),
     stories: readArea("story_quests", scope),
     reading: readArea("guided_reading", scope)
   });
 }
 
 // Pure core (unit-testable without a browser).
-export function computeTreasuryFromAreas({ quest, games, stories, reading } = {}) {
+export function computeTreasuryFromAreas({ quest, games, soundSeekers, stories, reading } = {}) {
   const questStars = sumQuestStars(quest);
   const gameStars = sumGameStars(games);
+  const soundSeekerStars = sumSoundSeekerStars(soundSeekers);
   const storiesDone = countCompletedStories(stories);
   const booksRead = countBooksRead(reading);
 
   // Every star is a gem; finishing a story quest pays two; every book read pays one.
-  const gems = questStars + gameStars + storiesDone * 2 + booksRead;
+  const gems = questStars + gameStars + soundSeekerStars + storiesDone * 2 + booksRead;
 
   const badges = completedCycleBadges(quest);
   const earnedTreasures = TRAIL_TREASURES.filter(t => gems >= t.at);
@@ -99,7 +105,7 @@ export function computeTreasuryFromAreas({ quest, games, stories, reading } = {}
 
   return {
     gems,
-    breakdown: { questStars, gameStars, storiesDone, booksRead },
+    breakdown: { questStars, gameStars, soundSeekerStars, storiesDone, booksRead },
     badges,
     treasures: earnedTreasures,
     nextTreasure,

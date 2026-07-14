@@ -9,13 +9,13 @@ import {
 import { computeHydratedValue } from "../../src/utils/progressMerge.js";
 import { PROGRESS_AREAS, localProgressStorageKey } from "../../src/utils/progressKeys.js";
 
-const BREAKDOWN = { questStars: 7, gameStars: 25, storiesDone: 0, booksRead: 5 };
+const BREAKDOWN = { questStars: 7, gameStars: 25, soundSeekerStars: 9, storiesDone: 0, booksRead: 5 };
 
 test("earnedCoins pays welcome gift + rates per derived progress unit", () => {
   assert.equal(earnedCoins({}, 0), WELCOME_GIFT);
   assert.equal(
     earnedCoins(BREAKDOWN, 3),
-    WELCOME_GIFT + 7 * COIN_RATES.questStar + 25 * COIN_RATES.gameStar + 5 * COIN_RATES.bookRead + 3 * COIN_RATES.dailyChest
+    WELCOME_GIFT + 7 * COIN_RATES.questStar + 25 * COIN_RATES.gameStar + 9 * COIN_RATES.soundSeekerStar + 5 * COIN_RATES.bookRead + 3 * COIN_RATES.dailyChest
   );
 });
 

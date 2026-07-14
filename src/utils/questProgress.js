@@ -27,6 +27,10 @@ import { normalizeCreature, defaultCreature, CREATURE_GEAR, CREATURE_DYES, ALL_P
 import { emptyRecord, recordAttempt, MASTERY_STATES, MASTERY_RULES, BLEND_RULES } from "./questMastery.js";
 import { boxAfterStop } from "./questReviewScheduler.js";
 import { QUEST_STOPS, getStop, blendsThrough } from "../data/questSequence.js";
+import { QUEST_CHAPTERS, chapterForStop } from "../data/questChapters.js";
+import { seedwakeSatchel } from "../data/questChapterOne.js";
+import { normalizeQuestSettings } from "./questPerformance.js";
+import { normalizeQuestTelemetry } from "./questTelemetry.js";
 
 // A blend is not a grapheme and cannot be mastered on a grapheme's bar — see the
 // note on BLEND_RULES. Computed once: the trail is static.
@@ -56,6 +60,8 @@ export function baseQuestState() {
     stones: [],
     trickies: [],
     ledger: { purchases: [] },
+    settings: normalizeQuestSettings(),
+    telemetry: normalizeQuestTelemetry(),
     checkpoint: null
   };
 }
@@ -83,6 +89,8 @@ export function normalizeQuestState(raw) {
     stones: Array.isArray(state.stones) ? [...new Set(state.stones)] : [],
     trickies: Array.isArray(state.trickies) ? [...new Set(state.trickies)] : [],
     ledger: { purchases: Array.isArray(state.ledger?.purchases) ? state.ledger.purchases : [] },
+    settings: normalizeQuestSettings(state.settings),
+    telemetry: normalizeQuestTelemetry(state.telemetry),
     checkpoint: state.checkpoint && typeof state.checkpoint === "object" ? state.checkpoint : null
   };
 }
@@ -126,6 +134,37 @@ export function spentSparks(state) {
 
 export function availableSparks(state) {
   return Math.max(0, earnedSparks(state) - spentSparks(state));
+}
+
+export function chapterRewardForStop(stopOrId) {
+  const chapter = chapterForStop(stopOrId);
+  const stopId = typeof stopOrId === "object" ? stopOrId?.id : String(stopOrId || "");
+  if (!chapter || chapter.stopIds.at(-1) !== stopId) return null;
+  return { ...chapter.chapterReward, chapterId: chapter.id, chapterTitle: chapter.title };
+}
+
+export function unlockedChapterRewards(state) {
+  const done = new Set(state?.trail?.stopsDone || []);
+  return QUEST_CHAPTERS
+    .filter(chapter => done.has(chapter.stopIds.at(-1)))
+    .map(chapter => ({ ...chapter.chapterReward, chapterId: chapter.id, chapterTitle: chapter.title }));
+}
+
+export function questRewardBonuses(state) {
+  const rewardIds = unlockedChapterRewards(state).map(reward => reward.id);
+  const unlocked = new Set(rewardIds);
+  const seedwakeCaches = seedwakeSatchel(state).cacheCount;
+  return {
+    rewardIds,
+    collectionRadius: 0.72 + (unlocked.has("seedwake-lantern") ? 0.34 : 0),
+    branchCacheCount: seedwakeCaches + (unlocked.has("river-whistle") ? 2 : 0) + (unlocked.has("lantern-map") ? 1 : 0),
+    projectionDistance: unlocked.has("fossil-compass") ? 56 : 35,
+    repairAura: unlocked.has("forge-tool"),
+    pathGlow: unlocked.has("mirror-reed"),
+    interactionRadius: 0.82 + (unlocked.has("storm-lens") ? 0.28 : 0),
+    routeFocusDistance: unlocked.has("lantern-map") ? 22 : 14,
+    worldLight: unlocked.has("first-reading-star")
+  };
 }
 
 export function ownedPieces(state) {

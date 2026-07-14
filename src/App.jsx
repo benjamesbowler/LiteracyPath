@@ -29,6 +29,7 @@ import { HollowPage } from "./components/HollowPage.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { SchoolNameInput } from "./components/SchoolNameInput.jsx";
 import { worldForScope } from "./utils/palWorlds.js";
+import { buildQuestMasteryReport } from "./utils/questReport.js";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
 import { ElSkillsQuest } from "./components/elQuest/ElSkillsQuest.jsx";
 import { normalize, shuffleArray } from "./utils/assessmentRoundBuilder";
@@ -3552,6 +3553,24 @@ export default function App() {
       console.error("Dashboard mastery error:", masteryError);
     }
 
+    const { data: soundSeekerRows, error: soundSeekerError } = await supabase
+      .from("student_progress")
+      .select("student_id, payload, updated_at")
+      .eq("area", "phonics_quest")
+      .eq("key", "__all__")
+      .in("student_id", studentIds);
+
+    if (soundSeekerError) {
+      console.error("Dashboard Sound Seekers progress error:", soundSeekerError);
+    }
+
+    const soundSeekersByStudent = new Map(
+      (soundSeekerRows || []).map(row => [row.student_id, {
+        ...buildQuestMasteryReport(row.payload || {}),
+        syncedAt: row.updated_at || ""
+      }])
+    );
+
     const rows =
       (students || []).map(student => {
         const studentAnswers =
@@ -3595,6 +3614,11 @@ export default function App() {
 
         const lastAnswer =
           studentAnswers[studentAnswers.length - 1];
+        const soundSeekers = soundSeekersByStudent.get(student.id) || null;
+        const lastActive = [lastAnswer?.answered_at, soundSeekers?.lastActiveAt, soundSeekers?.syncedAt]
+          .filter(Boolean)
+          .sort()
+          .at(-1) || null;
 
         return {
           id: student.id,
@@ -3604,7 +3628,8 @@ export default function App() {
           accuracy,
           masteredCount: mastered.length,
           currentSkill: firstUnmastered?.label || "Completed",
-          lastActive: lastAnswer?.answered_at || null
+          lastActive,
+          soundSeekers
         };
       });
 

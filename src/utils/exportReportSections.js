@@ -40,6 +40,7 @@ export const ENGAGEMENT_HEADERS = [
   "Games Played",
   "Game Stars",
   "Quest Stars",
+  "Sound Seekers Stars",
   "Story Quests Completed",
   "Books Read",
   "Coins Earned",
@@ -194,6 +195,7 @@ export function buildEngagementRow({ studentName = "", studentId = "", className
   const treasury = computeTreasuryFromAreas({
     quest: areas.quest,
     games: areas.games,
+    soundSeekers: areas.soundSeekers,
     stories: areas.stories,
     reading: areas.reading
   });
@@ -211,7 +213,12 @@ export function buildEngagementRow({ studentName = "", studentId = "", className
   const readingRows = Object.values(areas.reading || {}).filter(row => row && typeof row === "object");
   const lastReadAt = readingRows.map(row => row.lastReadAt || row.completedAt || row.updatedAt).filter(Boolean).sort().at(-1) || "";
   // Day keys ("YYYY-MM-DD") and ISO datetimes compare correctly as strings.
-  const lastActiveAt = [lastGamePlayedAt, lastStoryActivityAt, lastReadAt, mission.lastCompletedDay || ""]
+  const soundSeekersLastActiveAt = areas.soundSeekers?.telemetry?.sessions
+    ?.map(session => session?.endedAt || session?.lastActiveAt)
+    .filter(Boolean)
+    .sort()
+    .at(-1) || "";
+  const lastActiveAt = [lastGamePlayedAt, lastStoryActivityAt, lastReadAt, soundSeekersLastActiveAt, mission.lastCompletedDay || ""]
     .filter(Boolean)
     .sort()
     .at(-1) || "";
@@ -225,6 +232,7 @@ export function buildEngagementRow({ studentName = "", studentId = "", className
     gamesPlayed,
     gameStars: treasury.breakdown.gameStars,
     questStars: treasury.breakdown.questStars,
+    soundSeekerStars: treasury.breakdown.soundSeekerStars,
     storyQuestsCompleted: treasury.breakdown.storiesDone,
     booksRead: treasury.breakdown.booksRead,
     coinsEarned,
@@ -244,6 +252,7 @@ export function engagementRowToCells(row = {}) {
     "Games Played": Number(row.gamesPlayed) || 0,
     "Game Stars": Number(row.gameStars) || 0,
     "Quest Stars": Number(row.questStars) || 0,
+    "Sound Seekers Stars": Number(row.soundSeekerStars) || 0,
     "Story Quests Completed": Number(row.storyQuestsCompleted) || 0,
     "Books Read": Number(row.booksRead) || 0,
     "Coins Earned": Number(row.coinsEarned) || 0,
@@ -263,6 +272,7 @@ export function emptyEngagementCells(message = "No engagement records yet") {
     "Games Played": 0,
     "Game Stars": 0,
     "Quest Stars": 0,
+    "Sound Seekers Stars": 0,
     "Story Quests Completed": 0,
     "Books Read": 0,
     "Coins Earned": 0,
@@ -321,6 +331,7 @@ export function collectStudentEngagementAreas(student = {}, override = null) {
     mission: readLocalArea("daily_mission", scope),
     games: readLocalArea("learn_games", scope),
     quest: readLocalArea("el_quest", scope),
+    soundSeekers: readLocalArea("phonics_quest", scope),
     stories: readLocalArea("story_quests", scope),
     reading: readLocalArea("guided_reading", scope),
     hollow: readLocalArea("hollow", scope)

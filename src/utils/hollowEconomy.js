@@ -20,6 +20,7 @@ export const WELCOME_GIFT = 100;
 // alone ever could, so racing through carelessly is the slow way to earn.
 export const COIN_RATES = {
   questStar: 7,
+  soundSeekerStar: 7,
   gameStar: 7,
   storyQuest: 16,
   bookRead: 10,
@@ -30,6 +31,7 @@ export function earnedCoins(breakdown = {}, chestCount = 0) {
   const b = breakdown || {};
   return WELCOME_GIFT
     + (Number(b.questStars) || 0) * COIN_RATES.questStar
+    + (Number(b.soundSeekerStars) || 0) * COIN_RATES.soundSeekerStar
     + (Number(b.gameStars) || 0) * COIN_RATES.gameStar
     + (Number(b.storiesDone) || 0) * COIN_RATES.storyQuest
     + (Number(b.booksRead) || 0) * COIN_RATES.bookRead

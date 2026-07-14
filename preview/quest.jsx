@@ -21,6 +21,8 @@
 //   /preview/quest.html?view=den
 //   /preview/quest.html?view=world&stop=s01
 //   /preview/quest.html?view=world&stop=s12&done=11
+//   /preview/quest.html?view=world&stop=s5&done=4&checkpoint=gate&display=2d
+//   /preview/quest.html?view=ceremony&stop=s5&done=5
 //   /preview/quest.html?view=creator
 //   /preview/quest.html?view=post&done=20
 
@@ -45,7 +47,9 @@ import {
   saveQuestCheckpoint
 } from "../src/utils/questProgress.js";
 import { QUEST_STOPS, targetsAtStop } from "../src/data/questSequence.js";
-import { buildTrailSection, TRAIL_GATE_Z } from "../src/utils/questHub.js";
+import { buildTrailSection, routePointAt } from "../src/utils/questHub.js";
+import { buildPhysicalTask } from "../src/utils/questPhysicalMechanics.js";
+import { correctionKey, CORRECTION_MODES } from "../src/utils/questCorrection.js";
 import { targetsForStop } from "../src/utils/questReviewScheduler.js";
 
 const params = new URLSearchParams(window.location.search);
@@ -54,7 +58,11 @@ const stopId = params.get("stop") || "s1";
 const done = Number(params.get("done") || 0);
 const checkpointMode = params.get("checkpoint");
 const activeIndex = params.has("active") ? Number(params.get("active")) : null;
+const requestedBeatIndex = params.has("beat") ? Number(params.get("beat")) : 0;
+const requestedStageIndex = params.has("stage") ? Number(params.get("stage")) : 0;
+const correctionMode = params.get("correction");
 const creatureMode = params.get("creature");
+const displayMode = params.get("display");
 const SCOPE = "preview";
 
 // FAIL LOUDLY ON A BAD STOP ID.
@@ -85,6 +93,9 @@ if (view === "world" && !KNOWN.includes(stopId)) {
 // consistent with each other.
 function seedState() {
   let state = { ...baseQuestState(), hatched: true };
+  if (["auto", "rich", "balanced", "low", "2d"].includes(displayMode)) {
+    state = { ...state, settings: { ...state.settings, displayMode } };
+  }
   let n = 0;
   for (const stop of QUEST_STOPS) {
     if (n >= done) break;
@@ -114,7 +125,7 @@ function seedState() {
         crest: "crest-antenna",
         tail: "tail-fan",
         feet: "feet-webbed",
-        equipped: { head: "leaf-cap", back: "moth-wings", neck: null, held: null }
+        equipped: { head: "leaf-cap", back: "moth-wings", neck: "vine-scarf", held: "stone-staff" }
       }
     };
   }
@@ -132,12 +143,35 @@ function withPreviewCheckpoint(state) {
   const requestedEncounter = Number.isInteger(activeIndex)
     ? section.encounters[Math.max(0, Math.min(section.encounters.length - 1, activeIndex))]
     : null;
+  const beatIndex = requestedEncounter
+    ? Math.max(0, Math.min(requestedEncounter.beats.length - 1, requestedBeatIndex || 0))
+    : 0;
+  const requestedTask = requestedEncounter
+    ? buildPhysicalTask(section, requestedEncounter, requestedEncounter.beats[beatIndex], beatIndex)
+    : null;
+  const fieldStage = requestedTask
+    ? Math.max(0, Math.min(requestedTask.stages.length - 1, requestedStageIndex || 0))
+    : 0;
   const solved = checkpointMode === "gate"
     ? section.encounters.map(encounter => encounter.id)
     : section.encounters.slice(0, requestedEncounter?.order || 0).map(encounter => encounter.id);
   const position = checkpointMode === "gate"
-    ? { x: section.gate.x, z: TRAIL_GATE_Z + 2.2 }
-    : { x: requestedEncounter?.x || section.guide.x, z: (requestedEncounter?.z || section.guide.z) + 0.8 };
+    ? routePointAt(section.route, section.gate.progress - 0.018)
+    : routePointAt(section.route, (requestedEncounter?.progress || section.guide.progress) - 0.01);
+  const allowedCorrectionModes = new Set(Object.values(CORRECTION_MODES));
+  const previewCorrection = requestedEncounter && allowedCorrectionModes.has(correctionMode)
+    ? {
+      [correctionKey(requestedEncounter, beatIndex, fieldStage)]: {
+        mode: correctionMode,
+        misses: correctionMode === CORRECTION_MODES.RETRY
+          ? 1
+          : correctionMode === CORRECTION_MODES.NARROW
+            ? 2
+            : correctionMode === CORRECTION_MODES.DISCOVER ? 0 : 3,
+        lastWrongId: `${requestedEncounter.id}-b0-s0-f`
+      }
+    }
+    : {};
 
   return saveQuestCheckpoint(state, {
     stopId,
@@ -146,7 +180,12 @@ function withPreviewCheckpoint(state) {
     guideDone: true,
     meetIndex: 0,
     activeId: requestedEncounter?.id || null,
-    beatIndex: 0,
+    beatIndex,
+    fieldStage,
+    corrections: previewCorrection,
+    reviewQueue: correctionMode === CORRECTION_MODES.GUIDED ? [0] : [],
+    reviewedBeats: [],
+    remediationBeat: null,
     solved,
     drops: [],
     tally: { correct: solved.length, total: solved.length, mistakes: 0 }

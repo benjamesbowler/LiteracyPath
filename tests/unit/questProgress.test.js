@@ -11,6 +11,9 @@ import {
   earnedSparks,
   spentSparks,
   availableSparks,
+  chapterRewardForStop,
+  unlockedChapterRewards,
+  questRewardBonuses,
   ownedPieces,
   canBuy,
   recordPurchase,
@@ -21,6 +24,7 @@ import {
 import { computeHydratedValue, mergeMasteryRecord } from "../../src/utils/progressMerge.js";
 import { MASTERY_STATES, emptyRecord } from "../../src/utils/questMastery.js";
 import { getPiece } from "../../src/data/creatureParts.js";
+import { buildTrailSection } from "../../src/utils/questHub.js";
 
 const masteredRecord = () => ({
   ...emptyRecord(),
@@ -126,6 +130,45 @@ test("gear is GIVEN by walking the trail, not bought", () => {
   assert.equal(ownedPieces(state).has("leaf-cap"), true, "the stop-1 drop");
 });
 
+test("chapter relics unlock only at five-stop destination gates", () => {
+  let state = baseQuestState();
+  for (let index = 1; index <= 4; index += 1) state = recordStopResult(state, `s${index}`, 2);
+  assert.deepEqual(unlockedChapterRewards(state), []);
+  assert.equal(chapterRewardForStop("s4"), null);
+
+  state = recordStopResult(state, "s5", 2);
+  assert.equal(chapterRewardForStop("s5")?.id, "seedwake-lantern");
+  assert.deepEqual(unlockedChapterRewards(state).map(reward => reward.id), ["seedwake-lantern"]);
+  assert.equal(questRewardBonuses(state).collectionRadius, 1.06);
+});
+
+test("chapter relic abilities accumulate without stored reward state", () => {
+  let state = baseQuestState();
+  for (let index = 1; index <= 35; index += 1) state = recordStopResult(state, `s${index}`, 1);
+  const bonuses = questRewardBonuses(state);
+  assert.equal(bonuses.rewardIds.length, 7);
+  assert.equal(bonuses.branchCacheCount, 3);
+  assert.equal(bonuses.projectionDistance, 56);
+  assert.equal(bonuses.repairAura, true);
+  assert.equal(bonuses.pathGlow, true);
+  assert.equal(bonuses.interactionRadius, 1.1);
+  assert.equal(bonuses.routeFocusDistance, 22);
+  assert.equal(bonuses.worldLight, false);
+  assert.ok(!("chapterRewards" in state), "rewards are derived from completed chapter gates");
+});
+
+test("Seedwake satchel thresholds unlock useful route caches before the chapter relic", () => {
+  const fresh = baseQuestState();
+  const state = {
+    ...fresh,
+    trail: { ...fresh.trail, drops: { s1: 3, s2: 4, s3: 2 } }
+  };
+  const bonuses = questRewardBonuses(state);
+  assert.equal(bonuses.branchCacheCount, 2);
+  const section = buildTrailSection("s4", { seed: 4, rewardCacheCount: bonuses.branchCacheCount });
+  assert.equal(section.drops.filter(drop => drop.cache).length, 2);
+});
+
 // ── Checkpoints ─────────────────────────────────────────────────────────────
 
 test("the checkpoint round-trips and clears", () => {
@@ -144,6 +187,7 @@ test("a journey checkpoint preserves walking and in-encounter progress", () => {
     meetIndex: 3,
     activeId: "s7-1",
     beatIndex: 1,
+    fieldStage: 2,
     solved: ["s7-0"],
     drops: ["s7-drop-0", "s7-drop-3"],
     tally: { correct: 4, total: 5, mistakes: 1 }
@@ -152,6 +196,7 @@ test("a journey checkpoint preserves walking and in-encounter progress", () => {
   assert.deepEqual(saved.position, cp.position);
   assert.equal(saved.activeId, "s7-1");
   assert.equal(saved.beatIndex, 1);
+  assert.equal(saved.fieldStage, 2);
   assert.deepEqual(saved.solved, ["s7-0"]);
   assert.deepEqual(saved.tally, cp.tally);
 });

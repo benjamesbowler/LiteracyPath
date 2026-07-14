@@ -103,6 +103,7 @@ export function TeacherDashboardPage({
         accuracy: dashboardRow.accuracy ?? null,
         masteredCount: dashboardRow.masteredCount ?? 0,
         currentSkill: dashboardRow.currentSkill || "Not started",
+        soundSeekers: dashboardRow.soundSeekers || null,
         lastActive: dashboardRow.lastActive || student.lastActive || student.updated_at || student.created_at || null
       };
     }),
@@ -456,6 +457,7 @@ export function TeacherDashboardPage({
                   <th>Name</th>
                   <th>Focus</th>
                   <th>Progress</th>
+                  <th>Sound Seekers</th>
                   <th>Login</th>
                   <th>Last Active</th>
                   <th>Actions</th>
@@ -493,6 +495,15 @@ export function TeacherDashboardPage({
                           <span style={{ width: `${progressPercent}%` }} />
                         </div>
                       </div>
+                    </td>
+                    <td>
+                      {row.soundSeekers?.sessions ? (
+                        <div className="teacher-quest-cell">
+                          <strong>{row.soundSeekers.stopsCompleted}/40 trails</strong>
+                          <span>{row.soundSeekers.stonesLit} sounds lit · {row.soundSeekers.timeOnTask}</span>
+                          <small>{row.soundSeekers.currentFocus?.length ? `Review ${row.soundSeekers.currentFocus.slice(0, 3).join(", ")}` : "Building first sound profile"}</small>
+                        </div>
+                      ) : <span className="muted-text">Not started</span>}
                     </td>
                     <td>
                       <div className="teacher-login-cell">

@@ -1,0 +1,48 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {
+  SEEDWAKE_STOP_IDS,
+  seedwakeSatchel,
+  seedwakeStopSpec,
+  validateSeedwakeChapter
+} from "../../src/data/questChapterOne.js";
+
+test("Seedwake Meadow has five distinct authored mechanics, rewards, and repairs", () => {
+  assert.deepEqual(SEEDWAKE_STOP_IDS, ["s1", "s2", "s3", "s4", "s5"]);
+  assert.deepEqual(validateSeedwakeChapter(), []);
+  assert.equal(new Set(SEEDWAKE_STOP_IDS.map(id => seedwakeStopSpec(id).mechanic)).size, 5);
+});
+
+test("the Seedwake satchel derives durable inventory and useful cache unlocks", () => {
+  const state = {
+    trail: {
+      stopsDone: ["s1", "s2", "s3"],
+      drops: { s1: 3, s2: 4, s3: 2 }
+    }
+  };
+  const satchel = seedwakeSatchel(state);
+  assert.equal(satchel.total, 9);
+  assert.equal(satchel.cacheCount, 2);
+  assert.equal(satchel.nextCacheAt, 14);
+  assert.equal(satchel.repairs.length, 3);
+  assert.equal(satchel.sparksBanked, 18);
+  assert.equal(satchel.collectionComplete, false);
+});
+
+test("empty and corrupt Seedwake inventory is calm", () => {
+  assert.deepEqual(seedwakeSatchel(null), {
+    pockets: SEEDWAKE_STOP_IDS.map(stopId => ({
+      ...seedwakeStopSpec(stopId).collectible,
+      stopId,
+      count: 0,
+      repaired: false,
+      repair: seedwakeStopSpec(stopId).repair
+    })),
+    total: 0,
+    repairs: [],
+    cacheCount: 0,
+    nextCacheAt: 3,
+    sparksBanked: 0,
+    collectionComplete: false
+  });
+});

@@ -1,0 +1,19 @@
+CC0 1.0 Universal / Public Domain Dedication
+
+The three models in this folder were published as Public Domain (CC0) on their
+individual Poly Pizza pages. The creator and source page for every file are
+recorded in /models/library/manifest.json.
+
+Fish.glb
+Creator: Quaternius
+Source: https://poly.pizza/m/ypEYhCImAB
+
+Cupcake.glb
+Creator: Quaternius
+Source: https://poly.pizza/m/XL70IUDIrZ
+
+Boots.glb
+Creator: Isa Lousberg
+Source: https://poly.pizza/m/7XCvej7wZU
+
+CC0 legal code: https://creativecommons.org/publicdomain/zero/1.0/legalcode
