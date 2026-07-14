@@ -241,8 +241,9 @@ export function computeHollow(ledger = {}, breakdown = {}, date = new Date()) {
 
   // Equipped gear / placed items must actually be owned (merged ledgers win).
   const equipped = {};
-  for (const [slot, gearId] of Object.entries(layout.equipped || {})) {
-    if (ownedIds.has(gearId)) equipped[slot] = gearId;
+  for (const gearId of Object.values(layout.equipped || {})) {
+    const gear = findCatalogItem(gearId);
+    if (gear?.slot && ownedIds.has(gearId)) equipped[gear.slot] = gearId;
   }
   const slots = {};
   for (const [slotId, itemId] of Object.entries(layout.slots || {})) {

@@ -41,14 +41,20 @@ import {
   baseQuestState,
   normalizeQuestState,
   recordQuestAttempt,
-  recordStopResult
+  recordStopResult,
+  saveQuestCheckpoint
 } from "../src/utils/questProgress.js";
 import { QUEST_STOPS, targetsAtStop } from "../src/data/questSequence.js";
+import { buildTrailSection, TRAIL_GATE_Z } from "../src/utils/questHub.js";
+import { targetsForStop } from "../src/utils/questReviewScheduler.js";
 
 const params = new URLSearchParams(window.location.search);
 const view = params.get("view") || "den";
 const stopId = params.get("stop") || "s1";
 const done = Number(params.get("done") || 0);
+const checkpointMode = params.get("checkpoint");
+const activeIndex = params.has("active") ? Number(params.get("active")) : null;
+const creatureMode = params.get("creature");
 const SCOPE = "preview";
 
 // FAIL LOUDLY ON A BAD STOP ID.
@@ -96,10 +102,58 @@ function seedState() {
     state = recordStopResult(state, stop.id, 3, 12);
     n += 1;
   }
+  if (creatureMode === "showcase") {
+    state = {
+      ...state,
+      creature: {
+        body: "moth",
+        dye: "plum",
+        pattern: "pattern-spots",
+        eyes: "eyes-three",
+        mouth: "mouth-beak",
+        crest: "crest-antenna",
+        tail: "tail-fan",
+        feet: "feet-webbed",
+        equipped: { head: "leaf-cap", back: "moth-wings", neck: null, held: null }
+      }
+    };
+  }
   return normalizeQuestState(state);
 }
 
-const seeded = seedState();
+function withPreviewCheckpoint(state) {
+  if (view !== "world" || (!checkpointMode && activeIndex === null)) return state;
+  const stop = QUEST_STOPS.find(candidate => candidate.id === stopId);
+  const targets = targetsForStop(targetsAtStop(stopId), state.mastery, stop?.index || 1);
+  const seed = (stop?.index || 1) * 1000 + (state.trail.stopsDone.length || 0);
+  const section = buildTrailSection(stopId, { mastery: state.mastery, targets, seed });
+  if (!section) return state;
+
+  const requestedEncounter = Number.isInteger(activeIndex)
+    ? section.encounters[Math.max(0, Math.min(section.encounters.length - 1, activeIndex))]
+    : null;
+  const solved = checkpointMode === "gate"
+    ? section.encounters.map(encounter => encounter.id)
+    : section.encounters.slice(0, requestedEncounter?.order || 0).map(encounter => encounter.id);
+  const position = checkpointMode === "gate"
+    ? { x: section.gate.x, z: TRAIL_GATE_Z + 2.2 }
+    : { x: requestedEncounter?.x || section.guide.x, z: (requestedEncounter?.z || section.guide.z) + 0.8 };
+
+  return saveQuestCheckpoint(state, {
+    stopId,
+    phase: "trail",
+    position,
+    guideDone: true,
+    meetIndex: 0,
+    activeId: requestedEncounter?.id || null,
+    beatIndex: 0,
+    solved,
+    drops: [],
+    tally: { correct: solved.length, total: solved.length, mistakes: 0 }
+  });
+}
+
+const seeded = withPreviewCheckpoint(seedState());
 window.localStorage.setItem(localProgressStorageKey("phonics_quest", SCOPE), JSON.stringify(seeded));
 
 // The shot script waits on this instead of a fixed sleep — a timing guess is how

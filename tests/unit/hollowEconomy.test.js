@@ -112,6 +112,32 @@ test("equipped gear and placed items must be owned (merge-proof)", () => {
   assert.equal(hollow.slots.s1, undefined);
 });
 
+test("legacy multi-item equipment is normalized into composable wearable slots", () => {
+  const ledger = {
+    purchases: [
+      { id: "pack", item: "gear-explorer-pack", cost: 80 },
+      { id: "boots", item: "gear-trail-boots", cost: 60 },
+      { id: "crown", item: "gear-meadow-crown", cost: 120 },
+      { id: "hat", item: "gear-wizard-hat", cost: 110 }
+    ],
+    layout: {
+      at: "2026-07-14",
+      equipped: {
+        "gear-explorer-pack": "gear-explorer-pack",
+        "gear-trail-boots": "gear-trail-boots",
+        oldHead: "gear-meadow-crown",
+        newestHead: "gear-wizard-hat"
+      },
+      slots: {}
+    }
+  };
+  const hollow = computeHollow(ledger, BREAKDOWN, new Date("2026-01-06T12:00:00Z"));
+  assert.equal(hollow.equipped.back, "gear-explorer-pack");
+  assert.equal(hollow.equipped.feet, "gear-trail-boots");
+  assert.equal(hollow.equipped.head, "gear-wizard-hat");
+  assert.deepEqual(Object.keys(hollow.equipped).sort(), ["back", "feet", "head"]);
+});
+
 test("canBuy: blocks unknown/owned/too-expensive, allows repeat eggs", () => {
   const rich = computeHollow({ purchases: [{ id: "b1", item: "gear-trail-boots", cost: 60 }] }, { gameStars: 100 });
   assert.equal(canBuy(rich, "not-a-thing").ok, false);

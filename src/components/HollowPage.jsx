@@ -77,25 +77,21 @@ const ROOM_TINTS = {
 
 const GEAR_SLOT_LABELS = { head: "Head", neck: "Neck", back: "Back", held: "Held", feet: "Feet" };
 
-/* The dress-up pal. Art comes from tools/generate-pal-avatars.mjs:
-   - no gear   -> full-body base            (companions/full/<pal>.webp)
-   - any gear  -> the dressed variant image (full/<pal>--<gear>.webp) of the
-                  most recently equipped item. (Pixel-diff overlay stacking
-                  was tried and abandoned: the image model regenerates every
-                  pixel slightly, so diff masks cover the whole canvas.)
-   Falls back gracefully: dressed variant -> base -> portrait.
+/* The dress-up pal. Art comes from tools/generate-pal-avatars.mjs. Each dressed
+   image is aligned to the same base pose, so slot masks can reveal the relevant
+   part of every equipped variant at once. This keeps a pack, boots, hat, scarf,
+   and held item composable without pretending independently generated images
+   are pixel-perfect transparent layers.
+   Falls back gracefully: missing layer -> base -> portrait.
    Idle animation runs always; tapping the pal spins it in 3D. */
-function PalFigure({ companion, equipped = {} }) {
+export function PalFigure({ companion, equipped = {} }) {
   const [spinKey, setSpinKey] = useState(0);
   const [baseFailed, setBaseFailed] = useState(false);
   if (!companion) return null;
-  const gearIds = Object.values(equipped).filter(Boolean);
+  const gear = Object.values(equipped)
+    .map(findCatalogItem)
+    .filter(item => item?.slot);
   const base = `/images/companions/full/${companion.id}.webp`;
-  // Slot keys keep insertion order, so the last id is the newest change.
-  const shownGear = gearIds.length ? gearIds[gearIds.length - 1] : null;
-  const single = shownGear
-    ? `/images/companions/full/${companion.id}--${shownGear}.webp`
-    : null;
   return (
     <button
       type="button"
@@ -109,19 +105,21 @@ function PalFigure({ companion, equipped = {} }) {
       ) : (
         <>
           <img
-            className="hollow-pal-layer"
-            src={single || base}
+            className="hollow-pal-layer hollow-pal-base"
+            src={base}
             alt=""
-            onError={event => {
-              // Dressed variant missing -> fall back to base; base missing
-              // -> fall back to the portrait.
-              if (single && event.currentTarget.src.endsWith(`${shownGear}.webp`)) {
-                event.currentTarget.src = base;
-              } else {
-                setBaseFailed(true);
-              }
-            }}
+            onError={() => setBaseFailed(true)}
           />
+          {gear.map(item => (
+            <img
+              key={item.slot}
+              className={`hollow-pal-layer hollow-pal-gear hollow-pal-gear-${item.slot}`}
+              data-gear={item.id}
+              src={`/images/companions/full/${companion.id}--${item.id}.webp`}
+              alt=""
+              onError={hideOnError}
+            />
+          ))}
         </>
       )}
       <span className="hollow-pal-ground" aria-hidden="true" />
@@ -217,11 +215,9 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   }
 
   function toggleGear(gear) {
-    // Key equipping by item id (not slot) so the pal can wear ANY number of
-    // items at once — buying more gear is never wasted.
     const equipped = { ...hollow.equipped };
-    if (equipped[gear.id]) delete equipped[gear.id];
-    else equipped[gear.id] = gear.id;
+    if (equipped[gear.slot] === gear.id) delete equipped[gear.slot];
+    else equipped[gear.slot] = gear.id;
     saveLayout(scope, { equipped, slots: hollow.slots });
     refresh();
   }
@@ -447,7 +443,7 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
               </div>
               <div className="hollow-gear-grid">
                 {hollow.ownedGear.map(gear => {
-                  const worn = Boolean(hollow.equipped[gear.id]);
+                  const worn = hollow.equipped[gear.slot] === gear.id;
                   return (
                     <button key={gear.id} type="button" className={`hollow-gear${worn ? " worn" : ""}`} onClick={() => toggleGear(gear)}>
                       <ItemArt id={gear.id} size={52} />

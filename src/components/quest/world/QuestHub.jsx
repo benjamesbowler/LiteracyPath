@@ -43,7 +43,7 @@ import { targetsAtStop, getStop, QUEST_STOPS } from "../../../data/questSequence
 import { starRubric } from "../../../utils/starRubric.js";
 import { playCorrectChime, playSoftBuzz, playStarChime, playWhoosh } from "../../../utils/audio/gameSfx.js";
 import { displayGrapheme, sayGrapheme, sayWord } from "../shells/shellContract.js";
-import { getDye } from "../../../data/creatureParts.js";
+import { getDye, normalizeCreature } from "../../../data/creatureParts.js";
 
 const MOVE_SPEED = 4.6;
 const ENCOUNTER_REACH = 1.7;
@@ -1326,7 +1326,312 @@ function addCharacterMotif(model, world, materials, parts) {
   parts.tail = tail;
 }
 
-function buildCharacterAvatar({ palette, world = "meadow", scale = 1, role = "resident", phase = 0 }) {
+const CREATURE_BODY_PROFILES = Object.freeze({
+  tuft: { body: [1.05, 1.05, 0.82], head: [1.04, 0.92, 0.92], headY: 1.42, armX: 0.38, legX: 0.18 },
+  spike: { body: [0.9, 1.12, 0.78], head: [0.96, 1.02, 0.88], headY: 1.48, armX: 0.35, legX: 0.16 },
+  pebble: { body: [1.28, 0.76, 0.94], head: [1.2, 0.82, 0.98], headY: 1.31, armX: 0.45, legX: 0.22 },
+  stalk: { body: [0.72, 1.32, 0.72], head: [0.86, 1.06, 0.84], headY: 1.57, armX: 0.3, legX: 0.14 },
+  moth: { body: [0.98, 1.02, 0.74], head: [1.12, 0.9, 0.86], headY: 1.43, armX: 0.37, legX: 0.18 },
+  boulder: { body: [1.2, 1, 0.92], head: [1.12, 0.94, 0.94], headY: 1.43, armX: 0.43, legX: 0.22 }
+});
+
+function addCreaturePattern(root, pattern, materials, bodyY) {
+  if (!pattern || pattern === "pattern-none") return;
+  const group = new THREE.Group();
+  group.name = pattern;
+  if (pattern === "pattern-stripes") {
+    for (const [index, y] of [0.6, 0.82, 1.04].entries()) {
+      const stripe = new THREE.Mesh(new THREE.TorusGeometry(0.29 - index * 0.018, 0.025, 10, 30), materials.accent);
+      stripe.position.set(0, y, 0.25);
+      stripe.scale.set(1, 0.72, 0.25);
+      group.add(stripe);
+    }
+  } else {
+    const positions = pattern === "pattern-stars"
+      ? [[-0.18, bodyY + 0.18], [0.16, bodyY - 0.03], [-0.04, bodyY - 0.25]]
+      : [[-0.18, bodyY + 0.2], [0.17, bodyY + 0.05], [-0.08, bodyY - 0.22], [0.22, bodyY - 0.28]];
+    positions.forEach(([x, y], index) => {
+      const geometry = pattern === "pattern-stars"
+        ? new THREE.OctahedronGeometry(0.065, 0)
+        : pattern === "pattern-scales"
+          ? new THREE.TorusGeometry(0.065, 0.016, 8, 18, Math.PI)
+          : new THREE.SphereGeometry(0.06 + (index % 2) * 0.018, 18, 12);
+      const mark = new THREE.Mesh(geometry, materials.accent);
+      mark.position.set(x, y, 0.39);
+      mark.scale.z = 0.25;
+      if (pattern === "pattern-scales") mark.rotation.z = Math.PI;
+      group.add(mark);
+    });
+  }
+  root.add(group);
+}
+
+function addCreatureEyes(root, eyeId, materials, headY) {
+  const group = new THREE.Group();
+  group.name = eyeId;
+  let positions = [[-0.17, headY + 0.05], [0.17, headY + 0.05]];
+  if (eyeId === "eyes-one") positions = [[0, headY + 0.05]];
+  if (eyeId === "eyes-three") positions = [[-0.17, headY + 0.02], [0.17, headY + 0.02], [0, headY + 0.22]];
+  const size = eyeId === "eyes-big" ? 0.125 : eyeId === "eyes-tiny" ? 0.068 : 0.095;
+
+  positions.forEach(([x, y], index) => {
+    const stalk = eyeId === "eyes-stalks";
+    if (stalk) {
+      const stem = makeCapsule(0.025, 0.19, materials.skin, 6, 12);
+      stem.position.set(x, y + 0.15, 0.12);
+      stem.rotation.z = x * -0.7;
+      group.add(stem);
+      y += 0.27;
+    }
+    const eye = new THREE.Mesh(new THREE.SphereGeometry(size, 24, 16), materials.white);
+    eye.position.set(x, y, stalk ? 0.22 : 0.4);
+    eye.scale.set(eyeId === "eyes-wide" ? 1.32 : 1, eyeId === "eyes-sleepy" ? 0.5 : 1.1, 0.45);
+    group.add(eye);
+    const pupil = new THREE.Mesh(new THREE.SphereGeometry(size * 0.38, 16, 10), materials.dark);
+    pupil.position.set(x + (index % 2 ? -0.008 : 0.008), y - 0.008, stalk ? 0.268 : 0.457);
+    pupil.scale.z = 0.34;
+    group.add(pupil);
+    if (eyeId === "eyes-goggle") {
+      const rim = new THREE.Mesh(new THREE.TorusGeometry(size * 1.18, 0.018, 8, 22), materials.accent);
+      rim.position.set(x, y, stalk ? 0.276 : 0.466);
+      group.add(rim);
+    }
+  });
+
+  if (eyeId === "eyes-fierce") {
+    for (const side of [-1, 1]) {
+      const brow = makeCapsule(0.018, 0.13, materials.dark, 6, 12);
+      brow.position.set(side * 0.17, headY + 0.17, 0.47);
+      brow.rotation.z = side * 0.82;
+      group.add(brow);
+    }
+  }
+  root.add(group);
+}
+
+function addCreatureMouth(root, mouthId, materials, headY) {
+  const group = new THREE.Group();
+  group.name = mouthId;
+  const y = headY - 0.18;
+  if (mouthId === "mouth-beak") {
+    const beak = new THREE.Mesh(new THREE.ConeGeometry(0.13, 0.3, 20), materials.accent);
+    beak.position.set(0, y, 0.48);
+    beak.rotation.x = Math.PI / 2;
+    group.add(beak);
+  } else if (mouthId === "mouth-round") {
+    const mouth = new THREE.Mesh(new THREE.TorusGeometry(0.075, 0.024, 10, 24), materials.dark);
+    mouth.position.set(0, y, 0.47);
+    group.add(mouth);
+  } else if (mouthId === "mouth-snout") {
+    const snout = new THREE.Mesh(new THREE.SphereGeometry(0.17, 24, 14), materials.belly);
+    snout.position.set(0, y + 0.015, 0.41);
+    snout.scale.set(1.2, 0.58, 0.42);
+    group.add(snout);
+    for (const side of [-1, 1]) {
+      const nostril = new THREE.Mesh(new THREE.SphereGeometry(0.022, 10, 8), materials.dark);
+      nostril.position.set(side * 0.055, y + 0.025, 0.49);
+      group.add(nostril);
+    }
+  } else {
+    const mouth = mouthId === "mouth-grin"
+      ? new THREE.Mesh(new THREE.SphereGeometry(0.14, 22, 12), materials.white)
+      : smileMesh(materials.dark, mouthId === "mouth-whisker" ? 0.18 : 0.23, 0.055);
+    mouth.position.set(0, y, 0.465);
+    mouth.rotation.z = Math.PI;
+    if (mouthId === "mouth-grin") mouth.scale.set(1.2, 0.4, 0.18);
+    group.add(mouth);
+    if (["mouth-tusks", "mouth-fangs"].includes(mouthId)) {
+      for (const side of [-1, 1]) {
+        const tooth = new THREE.Mesh(new THREE.ConeGeometry(0.035, mouthId === "mouth-tusks" ? 0.17 : 0.12, 12), materials.white);
+        tooth.position.set(side * 0.09, y - 0.055, 0.49);
+        tooth.rotation.z = mouthId === "mouth-tusks" ? side * 0.35 + Math.PI : 0;
+        group.add(tooth);
+      }
+    }
+    if (mouthId === "mouth-whisker") {
+      for (const side of [-1, 1]) {
+        for (const offset of [-0.035, 0.035]) {
+          const whisker = makeCapsule(0.008, 0.2, materials.dark, 4, 8);
+          whisker.position.set(side * 0.19, y + offset, 0.46);
+          whisker.rotation.z = Math.PI / 2 + side * offset * 3;
+          group.add(whisker);
+        }
+      }
+    }
+  }
+  root.add(group);
+}
+
+function addCreatureCrest(root, crestId, materials, headY, parts) {
+  if (!crestId || crestId === "crest-none") return;
+  const group = new THREE.Group();
+  group.name = crestId;
+  group.position.y = headY + 0.41;
+  const addCone = (x, height, tilt = 0) => {
+    const cone = new THREE.Mesh(new THREE.ConeGeometry(0.07, height, 18), materials.accent);
+    cone.position.set(x, height * 0.42, 0);
+    cone.rotation.z = tilt;
+    group.add(cone);
+  };
+  if (["crest-horns", "crest-spikes", "crest-crown"].includes(crestId)) {
+    const count = crestId === "crest-horns" ? 2 : crestId === "crest-crown" ? 5 : 4;
+    for (let i = 0; i < count; i += 1) addCone((i - (count - 1) / 2) * 0.12, crestId === "crest-crown" ? 0.22 : 0.27 - Math.abs(i - (count - 1) / 2) * 0.02, (i - (count - 1) / 2) * -0.12);
+  } else if (crestId === "crest-antenna") {
+    for (const side of [-1, 1]) {
+      const stem = makeCapsule(0.022, 0.34, materials.dark, 6, 12);
+      stem.position.set(side * 0.13, 0.16, 0);
+      stem.rotation.z = side * -0.42;
+      const tip = new THREE.Mesh(new THREE.SphereGeometry(0.065, 16, 10), materials.accent);
+      tip.position.set(side * 0.2, 0.35, 0);
+      group.add(stem, tip);
+    }
+  } else if (crestId === "crest-ears") {
+    for (const side of [-1, 1]) {
+      const ear = new THREE.Mesh(new THREE.ConeGeometry(0.15, 0.42, 24), materials.skin);
+      ear.position.set(side * 0.26, 0.15, 0);
+      ear.rotation.z = side * -0.42;
+      group.add(ear);
+    }
+  } else if (crestId === "crest-shell") {
+    const shell = new THREE.Mesh(new THREE.TorusGeometry(0.17, 0.055, 10, 28, Math.PI * 1.7), materials.accent);
+    shell.rotation.z = -0.3;
+    group.add(shell);
+  } else if (crestId === "crest-frond") {
+    const stem = makeCapsule(0.025, 0.35, materials.dark, 6, 12);
+    stem.position.y = 0.16;
+    group.add(stem);
+    for (const side of [-1, 1]) {
+      const leaf = new THREE.Mesh(new THREE.SphereGeometry(0.09, 18, 10), materials.accent);
+      leaf.position.set(side * 0.09, 0.22 + (side + 1) * 0.055, 0);
+      leaf.scale.set(1.3, 0.55, 0.3);
+      leaf.rotation.z = side * 0.5;
+      group.add(leaf);
+    }
+  } else if (crestId === "crest-flame") {
+    const flame = new THREE.Mesh(new THREE.ConeGeometry(0.17, 0.48, 24), materials.accent);
+    flame.position.y = 0.2;
+    flame.scale.z = 0.7;
+    group.add(flame);
+  } else {
+    addCone(0, 0.42, crestId === "crest-fin" ? -0.3 : 0);
+  }
+  root.add(group);
+  parts.crest = group;
+}
+
+function addCreatureTail(root, tailId, materials, parts) {
+  if (!tailId || tailId === "tail-none") return;
+  const group = new THREE.Group();
+  group.name = tailId;
+  group.position.set(-0.43, 0.72, -0.18);
+  const stem = makeCapsule(tailId === "tail-spike" ? 0.095 : 0.06, tailId === "tail-curl" ? 0.62 : 0.48, materials.dark, 8, 18);
+  stem.rotation.set(0.12, 0.4, Math.PI / 2.4);
+  group.add(stem);
+  const tipMaterial = tailId === "tail-moon" ? materials.white : materials.accent;
+  if (tailId === "tail-fan" || tailId === "tail-fern") {
+    for (let index = -1; index <= 1; index += 1) {
+      const leaf = new THREE.Mesh(new THREE.SphereGeometry(0.12, 18, 10), tipMaterial);
+      leaf.position.set(-0.34, 0.08 + index * 0.1, 0);
+      leaf.scale.set(1.25, 0.5, 0.26);
+      leaf.rotation.z = index * 0.45;
+      group.add(leaf);
+    }
+  } else {
+    const tip = tailId === "tail-spade"
+      ? new THREE.Mesh(new THREE.ConeGeometry(0.13, 0.25, 4), tipMaterial)
+      : new THREE.Mesh(new THREE.SphereGeometry(tailId === "tail-tuft" ? 0.14 : 0.1, 18, 12), tipMaterial);
+    tip.position.set(-0.36, 0.08, 0);
+    if (tailId === "tail-moon") tip.scale.set(0.55, 1.25, 0.35);
+    group.add(tip);
+  }
+  root.add(group);
+  parts.tail = group;
+}
+
+function creatureFoot(feetId, side, materials) {
+  const group = new THREE.Group();
+  const material = feetId === "feet-webbed" ? materials.accent : materials.dark;
+  const foot = feetId === "feet-round"
+    ? new THREE.Mesh(new THREE.SphereGeometry(0.12, 18, 12), material)
+    : feetId === "feet-hoofs"
+      ? new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.12, 0.2, 18), material)
+      : makeCapsule(feetId === "feet-tall" ? 0.065 : 0.075, feetId === "feet-tall" ? 0.42 : 0.26, material, 8, 18);
+  foot.position.y = feetId === "feet-tall" ? -0.19 : -0.12;
+  if (!["feet-hoofs", "feet-round"].includes(feetId)) foot.rotation.x = Math.PI / 2;
+  foot.rotation.z = side * 0.08;
+  if (feetId === "feet-webbed") foot.scale.set(1.45, 1, 0.55);
+  group.add(foot);
+  if (feetId === "feet-claws") {
+    for (let index = -1; index <= 1; index += 1) {
+      const claw = new THREE.Mesh(new THREE.ConeGeometry(0.018, 0.1, 10), materials.white);
+      claw.position.set(index * 0.045, -0.15, 0.12);
+      claw.rotation.x = Math.PI / 2;
+      group.add(claw);
+    }
+  }
+  return group;
+}
+
+function addCreatureGear(root, equipped, materials, headY, parts) {
+  if (equipped?.back === "moth-wings") {
+    const wings = new THREE.Group();
+    wings.name = "moth-wings";
+    for (const side of [-1, 1]) {
+      const wing = new THREE.Mesh(new THREE.SphereGeometry(0.38, 28, 18), materials.accent);
+      wing.position.set(side * 0.42, 1.02, -0.18);
+      wing.scale.set(0.72, 1.18, 0.18);
+      wing.rotation.z = side * -0.45;
+      wings.add(wing);
+    }
+    root.add(wings);
+    parts.wings = wings;
+  }
+  if (equipped?.neck === "vine-scarf") {
+    const scarf = new THREE.Group();
+    const collar = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.045, 10, 32), materials.accent);
+    collar.position.set(0, headY - 0.39, 0.01);
+    collar.rotation.x = Math.PI / 2;
+    const end = makeCapsule(0.035, 0.34, materials.accent, 6, 12);
+    end.position.set(0.2, headY - 0.58, 0.32);
+    end.rotation.z = -0.2;
+    scarf.add(collar, end);
+    root.add(scarf);
+  }
+  if (["leaf-cap", "acorn-hat"].includes(equipped?.head)) {
+    const hat = new THREE.Group();
+    hat.name = equipped.head;
+    hat.position.set(0, headY + 0.35, 0.03);
+    const crown = new THREE.Mesh(
+      equipped.head === "acorn-hat" ? new THREE.SphereGeometry(0.27, 28, 14) : new THREE.SphereGeometry(0.32, 28, 14),
+      equipped.head === "acorn-hat" ? materials.dark : materials.accent
+    );
+    crown.scale.set(1, 0.46, 0.88);
+    crown.position.y = 0.06;
+    hat.add(crown);
+    const leaf = new THREE.Mesh(new THREE.SphereGeometry(0.14, 18, 10), materials.accent);
+    leaf.position.set(0.18, 0.18, 0);
+    leaf.scale.set(1.25, 0.45, 0.24);
+    leaf.rotation.z = -0.5;
+    hat.add(leaf);
+    root.add(hat);
+    parts.hat = hat;
+  }
+  if (equipped?.held === "stone-staff") {
+    const staff = new THREE.Group();
+    staff.name = "stone-staff";
+    staff.position.set(0.57, 0.56, 0.07);
+    const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.035, 1.15, 12), materials.dark);
+    shaft.position.y = 0.2;
+    shaft.rotation.z = -0.08;
+    const stone = new THREE.Mesh(new THREE.DodecahedronGeometry(0.14, 1), materials.accent);
+    stone.position.set(-0.045, 0.78, 0);
+    staff.add(shaft, stone);
+    root.add(staff);
+    parts.held = staff;
+  }
+}
+
+function buildCharacterAvatar({ palette, world = "meadow", scale = 1, role = "resident", phase = 0, creature = null }) {
   const root = new THREE.Group();
   root.name = `${role}-avatar`;
   root.scale.setScalar(scale);
@@ -1347,55 +1652,52 @@ function buildCharacterAvatar({ palette, world = "meadow", scale = 1, role = "re
     white: trackedMaterial(root, clayMat(0xfffbef, { roughness: 0.34, clearcoat: 0.34 }))
   };
 
+  const custom = role === "player" ? normalizeCreature(creature) : null;
+  const bodyId = custom?.body || "tuft";
+  const profile = CREATURE_BODY_PROFILES[bodyId] || CREATURE_BODY_PROFILES.tuft;
+
   addContactShadow(root, role === "player" ? 0.9 : 0.78, role === "player" ? 0.31 : 0.24);
 
-  const body = makeCapsule(0.36, 0.68, materials.skin, 16, 34);
+  const body = bodyId === "boulder"
+    ? new THREE.Mesh(new THREE.DodecahedronGeometry(0.54, 2), materials.skin)
+    : bodyId === "spike"
+      ? new THREE.Mesh(new THREE.ConeGeometry(0.46, 1.18, 36), materials.skin)
+      : makeCapsule(0.36, 0.68, materials.skin, 16, 34);
   body.name = "body";
   body.position.y = 0.82;
-  body.scale.set(1.05, 1.05, 0.82);
+  body.scale.set(...profile.body);
   body.castShadow = true;
   root.add(body);
 
   const belly = new THREE.Mesh(new THREE.SphereGeometry(0.27, 30, 18), materials.belly);
   belly.name = "belly";
-  belly.position.set(0, 0.72, 0.31);
-  belly.scale.set(0.9, 1.1, 0.22);
+  belly.position.set(0, bodyId === "pebble" ? 0.67 : 0.74, 0.31);
+  belly.scale.set(profile.body[0] * 0.86, profile.body[1] * 1.02, 0.22);
   root.add(belly);
 
   const head = new THREE.Mesh(new THREE.SphereGeometry(0.44, 36, 24), materials.skin);
   head.name = "head";
-  head.position.set(0, 1.42, 0.02);
-  head.scale.set(1.04, 0.92, 0.92);
+  head.position.set(0, profile.headY, 0.02);
+  head.scale.set(...profile.head);
   head.castShadow = true;
   root.add(head);
 
   const muzzle = new THREE.Mesh(new THREE.SphereGeometry(0.2, 26, 14), materials.belly);
   muzzle.name = "muzzle";
-  muzzle.position.set(0, 1.27, 0.39);
+  muzzle.position.set(0, profile.headY - 0.15, 0.39);
   muzzle.scale.set(1.25, 0.58, 0.2);
   root.add(muzzle);
 
-  for (const side of [-1, 1]) {
-    const eye = new THREE.Mesh(new THREE.SphereGeometry(0.095, 22, 14), materials.white);
-    eye.position.set(side * 0.17, 1.47, 0.39);
-    eye.scale.set(1, 1.1, 0.45);
-    root.add(eye);
-    const pupil = new THREE.Mesh(new THREE.SphereGeometry(0.035, 16, 10), materials.dark);
-    pupil.position.set(side * 0.185, 1.455, 0.45);
-    pupil.scale.set(1, 1, 0.36);
-    root.add(pupil);
-  }
-
-  const mouth = smileMesh(materials.dark, 0.23, 0.055);
-  mouth.name = "mouth";
-  mouth.position.set(0, 1.245, 0.465);
-  mouth.rotation.z = Math.PI;
-  root.add(mouth);
+  addCreaturePattern(root, custom?.pattern, materials, 0.82);
+  addCreatureEyes(root, custom?.eyes || "eyes-round", materials, profile.headY);
+  addCreatureMouth(root, custom?.mouth || "mouth-smile", materials, profile.headY);
+  addCreatureCrest(root, custom?.crest, materials, profile.headY, root.userData.parts);
+  addCreatureTail(root, custom?.tail, materials, root.userData.parts);
 
   for (const side of [-1, 1]) {
     const arm = new THREE.Group();
     arm.name = side < 0 ? "arm-left" : "arm-right";
-    arm.position.set(side * 0.38, 1.04, 0.02);
+    arm.position.set(side * profile.armX, 1.04, 0.02);
     const limb = makeCapsule(0.065, 0.48, materials.dark, 8, 18);
     limb.position.y = -0.26;
     limb.rotation.z = side * 0.12;
@@ -1409,18 +1711,18 @@ function buildCharacterAvatar({ palette, world = "meadow", scale = 1, role = "re
 
     const leg = new THREE.Group();
     leg.name = side < 0 ? "leg-left" : "leg-right";
-    leg.position.set(side * 0.18, 0.34, 0.04);
-    const foot = makeCapsule(0.075, 0.26, materials.dark, 8, 18);
-    foot.position.y = -0.12;
-    foot.rotation.x = Math.PI / 2;
-    foot.rotation.z = side * 0.08;
-    foot.castShadow = true;
+    leg.position.set(side * profile.legX, 0.34, 0.04);
+    const foot = creatureFoot(custom?.feet || "feet-paws", side, materials);
     leg.add(foot);
     root.add(leg);
     root.userData.parts[side < 0 ? "leftLeg" : "rightLeg"] = leg;
   }
 
-  addCharacterMotif(root, world, materials, root.userData.parts);
+  if (custom?.body === "moth" && custom.equipped?.back !== "moth-wings") {
+    addCreatureGear(root, { back: "moth-wings" }, materials, profile.headY, root.userData.parts);
+  }
+  addCreatureGear(root, custom?.equipped, materials, profile.headY, root.userData.parts);
+  if (!custom) addCharacterMotif(root, world, materials, root.userData.parts);
 
   root.traverse(child => {
     if (child.isMesh && child.name !== "contact-shadow") {
@@ -1490,6 +1792,13 @@ function updateCharacterMotion(model, {
   if (parts.crown) {
     parts.crown.rotation.z = Math.sin(time * 2.5) * 0.08;
   }
+  if (parts.crest) parts.crest.rotation.z = Math.sin(time * 2.2) * 0.045;
+  if (parts.hat) parts.hat.rotation.z = Math.sin(time * 2.05) * 0.035;
+  if (parts.wings) {
+    const flutter = 1 + Math.sin(time * (moving ? 8.6 : 3.4)) * (moving ? 0.08 : 0.025);
+    parts.wings.scale.set(flutter, 1, 1);
+  }
+  if (parts.held) parts.held.rotation.z = Math.sin(time * (moving ? 6.8 : 2)) * 0.06;
   setCharacterOpacity(model, solved ? 0.68 : 1);
 }
 
@@ -1498,9 +1807,10 @@ function buildTrailCharacters(scene, section, theme, creature) {
     player: buildCharacterAvatar({
       palette: creaturePalette(creature),
       world: section.world,
-      scale: 1.18,
+      scale: 0.82,
       role: "player",
-      phase: 0.2
+      phase: 0.2,
+      creature
     }),
     guide: buildCharacterAvatar({
       palette: residentPalette(section.world, 0),
@@ -1955,7 +2265,7 @@ export default function QuestHub({
 
     const maxAnisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
     const characterLoad = createRiggedTrailCharacters(section, {
-      playerTint: creaturePalette(state.creature).skin,
+      includePlayer: false,
       maxAnisotropy,
       compact: window.innerWidth < 640
     }).then(nextCharacters => {
@@ -2143,7 +2453,10 @@ export default function QuestHub({
         if (allSolved && player.z <= TRAIL_EXIT_Z + 0.15) {
           finishingRef.current = true;
           targetRef.current = { ...player };
-          checkpoint();
+          // Finishing records the complete tally and clears the old checkpoint
+          // in QuestRoot. Queuing one last checkpoint here races that commit and
+          // can remount the completed trail (or return to the Den) as the next
+          // trail is being created.
           const score = tallyRef.current;
           const stars = starRubric({ correct: score.correct, total: score.total, mistakes: score.mistakes, deaths: 0 });
           onFinish?.(stars, { ...score, drops: pickedRef.current.size });
@@ -2373,6 +2686,8 @@ export default function QuestHub({
       data-variant={section.variant?.id || section.world}
       data-light={section.lighting?.id || "trailLight"}
       data-event={section.event?.mode || "section"}
+      data-player-body={normalizeCreature(state.creature).body}
+      data-player-dye={normalizeCreature(state.creature).dye}
       style={{
         "--qh-backdrop": `url(/images/quest/${section.world}/sky.webp)`,
         "--qh-glow": section.lighting?.glow ?? 0.5

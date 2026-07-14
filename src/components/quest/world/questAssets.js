@@ -250,12 +250,13 @@ function castForWorld(world) {
 
 export async function createRiggedTrailCharacters(section, {
   playerTint,
+  includePlayer = true,
   maxAnisotropy = 1,
   compact = false
 } = {}) {
   const cast = castForWorld(section.world);
   const entries = [
-    { slot: "player", modelKey: cast.player, role: "player" },
+    ...(includePlayer ? [{ slot: "player", modelKey: cast.player, role: "player" }] : []),
     { slot: "guide", modelKey: cast.guide, role: "guide" },
     ...section.encounters.map(encounter => ({
       slot: encounter.id,

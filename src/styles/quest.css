@@ -2251,15 +2251,24 @@
 
 .qw-piece-label {
   position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  min-width: 0;
+  padding: .16em;
   color: #2b2030;
   font-weight: 800;
+  line-height: 1.22;
   text-shadow: 0 1px 0 rgba(255, 255, 255, .45);
+  white-space: nowrap;
+  overflow: visible;
   pointer-events: none;
 }
 
 /* Flower: the letter sits on the pale centre disc. */
 .qw-flower .qw-piece { width: 108px; height: 128px; }
-.qw-flower .qw-piece-label { top: 38%; font-size: 34px; }
+.qw-flower .qw-piece-label { inset: 20% 18% 38%; font-size: 34px; }
 .qw-flower svg { width: 108px; height: 128px; }
 
 /* Fruit: no letter — you HEAR it, you don't read it. Printing the letter here

@@ -70,6 +70,7 @@
     "sheet:quest-art": "node tools/buildQuestArtSheet.mjs",
     "build:creature-sheet": "node tools/buildCreatureContactSheet.mjs",
     "shots": "node tools/shootQuest.mjs",
+    "check:quest-gate": "node tools/shootQuest.mjs --gate-only",
     "generate:arcade-music": "node tools/generateArcadeMusicLoops.mjs",
     "generate:quest-music": "node tools/generateQuestMusicLoops.mjs",
     "check:quest-music": "node tools/checkQuestMusic.mjs",

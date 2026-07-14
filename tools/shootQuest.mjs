@@ -28,6 +28,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = path.join(ROOT, "docs/previews/shots");
 const PORT = 5199;
 const BASE = `http://127.0.0.1:${PORT}`;
+const GATE_ONLY = process.argv.includes("--gate-only");
 
 // The sizes children actually hold. An iPad in landscape is the primary target;
 // a phone is the cruellest test of a side-scroller; the desktop is what the
@@ -48,6 +49,9 @@ const SHOTS = [
   { name: "creator-ipad", url: "/preview/quest.html?view=creator", size: "ipad" },
   { name: "post-ipad", url: "/preview/quest.html?view=post&done=20", size: "ipad" },
   { name: "world-s1-phone", url: "/preview/quest.html?view=world&stop=s1", size: "phone" },
+  { name: "world-s1-question-phone", url: "/preview/quest.html?view=world&stop=s1&active=1&creature=showcase", size: "phone" },
+  { name: "world-s1-gate-ipad", url: "/preview/quest.html?view=world&stop=s1&checkpoint=gate&creature=showcase", size: "ipad" },
+  { name: "pal-three-items-phone", url: "/preview/pal.html?companion=chips&back=gear-explorer-pack&feet=gear-trail-boots&head=gear-wizard-hat", size: "phone" },
   { name: "den-phone", url: "/preview/quest.html?view=den&done=6", size: "phone" },
   { name: "world-s1-desktop", url: "/preview/quest.html?view=world&stop=s1", size: "desktop" }
 ];
@@ -56,7 +60,7 @@ function startServer() {
   // `detached` so the whole process group can be killed. Without it a crashed run
   // leaves a vite holding the port, and the NEXT run dies on --strictPort with a
   // message that has nothing to do with the real problem.
-  const proc = spawn("npx", ["vite", "--port", String(PORT), "--strictPort"], {
+  const proc = spawn("npx", ["vite", "--host", "127.0.0.1", "--port", String(PORT), "--strictPort"], {
     cwd: ROOT,
     detached: true,
     stdio: ["ignore", "pipe", "pipe"],
@@ -65,6 +69,32 @@ function startServer() {
   proc.stdout.on("data", () => {});
   proc.stderr.on("data", d => process.stderr.write(`  [vite] ${d}`));
   return proc;
+}
+
+async function checkGateHandoff(browser) {
+  const page = await browser.newPage({ viewport: SIZES.ipad, deviceScaleFactor: 1 });
+  const errors = [];
+  page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
+  page.on("pageerror", error => errors.push(`PAGE ERROR: ${error.message}`));
+  try {
+    await page.goto(`${BASE}/preview/quest.html?view=world&stop=s1&checkpoint=gate&creature=showcase`, {
+      waitUntil: "domcontentloaded",
+      timeout: 30_000
+    });
+    await page.waitForFunction(() => window.__questReady === true, { timeout: 15_000 });
+    await page.getByRole("button", { name: /The gate is open/ }).click();
+    await page.waitForFunction(() => (
+      document.querySelector(".qh-root")
+      && document.querySelector(".qh-land-title strong")?.textContent?.trim() === "Trail 2 of 40"
+      && !document.querySelector(".q-den")
+    ), { timeout: 12_000 });
+    const place = await page.locator(".qh-land-title span").textContent();
+    return { ok: errors.length === 0, detail: `${place?.trim()} - Trail 2 of 40`, errors };
+  } catch (error) {
+    return { ok: false, detail: String(error.message).split("\n")[0], errors };
+  } finally {
+    await page.close();
+  }
 }
 
 // Says what it is doing, every second. A silent tool that takes 40 seconds is
@@ -125,6 +155,17 @@ async function main() {
   }
 
   let problems = 0;
+  process.stdout.write("  gate handoff… ");
+  const handoff = await checkGateHandoff(browser);
+  if (!handoff.ok) problems += Math.max(1, handoff.errors.length);
+  console.log(handoff.ok ? `clean (${handoff.detail})` : `FAILED (${handoff.detail})`);
+
+  if (GATE_ONLY) {
+    await browser.close();
+    stop();
+    if (problems) process.exitCode = 1;
+    return;
+  }
 
   for (const [i, shot] of SHOTS.entries()) {
     const size = SIZES[shot.size];
