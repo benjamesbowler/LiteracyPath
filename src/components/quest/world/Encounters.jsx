@@ -4,14 +4,33 @@
 // happens, it resolves, you walk on. None of them is a screen. None of them has
 // a "1 of 6" counter. That was the whole mistake the first time.
 //
-// Each takes ONE beat at a time and calls onBeat(correct, target) exactly once
-// per response — the same guarantee as before, because that part was right.
+// THE ACCOUNTING CONTRACT — onBeat(correct, target) fires once per ATTEMPT,
+// not once per beat. It used to fire once per beat with a "slipped" flag,
+// while the 3D field tasks fired on every wrong tap — the same behaviour
+// scored two different ways, and the beat-level way hid evidence: twenty
+// wrong taps on a bridge counted as one mistake. Now every wrong tap records
+// a miss against the exact sound the child failed (the wanted plank, not the
+// whole word), and every correct action records a hit. The mastery gate sees
+// what actually happened.
+//
+// THE CORRECTION LADDER — a wrong answer never re-arms the identical wall.
+// Miss 1: try again. Miss 2: two choices. Miss 3: the answer shows itself and
+// says its sound, then asks again with two. Same ladder as the 3D field tasks
+// (utils/questCorrection.js) so a child meets ONE rule everywhere. It also
+// closes the brute-force hole: guessing now costs recorded misses and ends in
+// being taught, not in a lucky tap.
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { sayGrapheme, sayWord, displayGrapheme } from "../shells/shellContract.js";
 import { hasWordAudio, hasGraphemeAudio } from "../../../utils/questAudio.js";
 import { CREATURE_INK, CREATURE_PAPER } from "../../../data/creatureParts.js";
 import { SIGN_COLOURS } from "../../../data/questWorlds.js";
+import {
+  CORRECTION_MODES,
+  recordCorrectionMiss,
+  completeTeachBack,
+  correctionPresentation
+} from "../../../utils/questCorrection.js";
 import Piece from "./Piece.jsx";
 import {
   playCorrectChime, playSoftBuzz, playPopSound, playStarChime, playCelebrationFanfare
@@ -30,10 +49,56 @@ function Listen({ onClick, disabled, label = "Hear it" }) {
   );
 }
 
+// The choice-encounter correction ladder. Keyed by beat (same trick as
+// useOnce) so it resets when the beat changes without an effect; escalates per
+// miss; on the third miss it plays the sound while the answer glows, then
+// drops to guided (two choices). Timers are cleared on unmount so a child who
+// walks away mid-teach doesn't get a stray state update, and every timer
+// checks it still belongs to the live beat before acting.
+function useCorrection(beat, isSoundEnabled) {
+  const [entry, setEntry] = useState(null); // { beat, correction }
+  const timersRef = useRef([]);
+
+  useEffect(() => () => { for (const t of timersRef.current) window.clearTimeout(t); }, []);
+
+  const correction = entry && entry.beat === beat ? entry.correction : null;
+
+  const miss = choiceId => {
+    setEntry(prev => {
+      const previous = prev && prev.beat === beat ? prev.correction : null;
+      const next = recordCorrectionMiss(previous, choiceId);
+      if (next.mode === CORRECTION_MODES.TEACH) {
+        timersRef.current.push(window.setTimeout(() => {
+          if (isSoundEnabled) sayGrapheme(beat.target, true);
+        }, 350));
+        timersRef.current.push(window.setTimeout(() => {
+          setEntry(current => (
+            current && current.beat === beat && current.correction?.mode === CORRECTION_MODES.TEACH
+              ? { beat, correction: completeTeachBack(current.correction) }
+              : current
+          ));
+        }, 2100));
+      }
+      return { beat, correction: next };
+    });
+  };
+  return [correction, miss];
+}
+
+function choiceStage(beat) {
+  return {
+    items: beat.choices.map(g => ({ id: g, correct: g === beat.answer, label: displayGrapheme(g) }))
+  };
+}
+
 // ── 1. FLOWER PATCH — hear a sound, touch the flower that makes it ──────────
 export function FlowerPatch({ beat, isSoundEnabled, onBeat, onDone, index, total }) {
   const [done, mark] = useOnce(beat);
   const [picked, setPicked] = useState(null);
+  const [correction, miss] = useCorrection(beat, isSoundEnabled);
+  const view = correctionPresentation(choiceStage(beat), correction);
+  const teaching = view.mode === CORRECTION_MODES.TEACH;
+  const showing = beat.choices.filter(g => view.visibleIds.includes(g));
 
   // No state reset: TrailWalk remounts this with a fresh key per beat.
   useEffect(() => {
@@ -41,13 +106,21 @@ export function FlowerPatch({ beat, isSoundEnabled, onBeat, onDone, index, total
   }, [beat, isSoundEnabled]);
 
   function touch(g) {
-    if (picked || done) return;
+    if (picked || done || teaching) return;
     const right = g === beat.answer;
-    setPicked({ g, right });
-    mark();
     if (isSoundEnabled) (right ? playCorrectChime : playSoftBuzz)();
     onBeat(right, beat.target);
-    setTimeout(onDone, right ? 900 : 1300);
+    if (right) {
+      setPicked({ g, right: true });
+      mark();
+      setTimeout(onDone, 900);
+      return;
+    }
+    // A miss stays on the beat and climbs the ladder; it never re-arms the
+    // identical wall and never quietly advances past an unlearnt sound.
+    setPicked({ g, right: false });
+    miss(g);
+    setTimeout(() => setPicked(null), 650);
   }
 
   return (
@@ -55,15 +128,15 @@ export function FlowerPatch({ beat, isSoundEnabled, onBeat, onDone, index, total
       <p className="qw-say">Which flower makes this sound?</p>
       <Listen onClick={() => sayGrapheme(beat.target, isSoundEnabled)} disabled={!hasGraphemeAudio(beat.target)} />
       <div className="qw-flowerrow">
-        {beat.choices.map(g => {
+        {showing.map(g => {
           const on = picked?.g === g;
-          const reveal = picked && g === beat.answer;
+          const reveal = teaching && g === beat.answer;
           return (
             <button
               key={g}
               type="button"
-              className={`qw-flower${on ? (picked.right ? " is-right" : " is-wrong") : ""}${reveal && !on ? " is-reveal" : ""}${picked && picked.right && on ? " is-bloom" : ""}`}
-              disabled={Boolean(picked)}
+              className={`qw-flower${on ? (picked.right ? " is-right" : " is-wrong") : ""}${reveal ? " is-reveal" : ""}${picked && picked.right && on ? " is-bloom" : ""}`}
+              disabled={Boolean(picked) || teaching}
               onClick={() => touch(g)}
             >
               <Piece
@@ -88,6 +161,95 @@ export function FlowerPatch({ beat, isSoundEnabled, onBeat, onDone, index, total
           );
         })}
       </div>
+      {teaching && <p className="qw-hint">This one. Listen.</p>}
+      <Pips i={index} n={total} />
+    </div>
+  );
+}
+
+// ── 1b. TRAIL RUN — the same sound, but the fork is rushing toward you ──────
+// Fluency is not knowing a sound; it is knowing it WITHOUT stopping to think.
+// This is the flower patch on a clock: hear the cue, take the fork signed with
+// it before the clock runs out. A timeout is a real miss (hesitation is the
+// thing being measured), said kindly: the cue replays and the clock re-arms.
+// The correction ladder applies exactly as everywhere else.
+export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total }) {
+  const [done, mark] = useOnce(beat);
+  const [picked, setPicked] = useState(null);
+  const [lap, setLap] = useState(0);
+  const [correction, miss] = useCorrection(beat, isSoundEnabled);
+  const view = correctionPresentation(choiceStage(beat), correction);
+  const teaching = view.mode === CORRECTION_MODES.TEACH;
+  const showing = beat.choices.filter(g => view.visibleIds.includes(g));
+  // Speed ramps across the encounter's beats, and eases off while corrected.
+  const seconds = Math.max(3, (Number(beat.seconds) || 6) - index + (correction ? 1 : 0));
+
+  useEffect(() => {
+    if (isSoundEnabled) sayGrapheme(beat.target, true);
+  }, [beat, isSoundEnabled]);
+
+  // The clock pauses while a tap is being judged or the answer is being
+  // taught, and re-arms fresh after either — hesitation is what it measures,
+  // not the time the game itself spends talking.
+  useEffect(() => {
+    if (done || teaching || picked) return undefined;
+    const timer = window.setTimeout(() => {
+      if (isSoundEnabled) playSoftBuzz();
+      onBeat(false, beat.target);
+      miss(null);
+      if (isSoundEnabled) sayGrapheme(beat.target, true);
+      setLap(l => l + 1);
+    }, seconds * 1000);
+    return () => window.clearTimeout(timer);
+  }, [lap, done, teaching, picked, beat, seconds, isSoundEnabled]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  function dash(g) {
+    if (picked || done || teaching) return;
+    const right = g === beat.answer;
+    if (isSoundEnabled) (right ? playCorrectChime : playSoftBuzz)();
+    onBeat(right, beat.target);
+    if (right) {
+      setPicked({ g, right: true });
+      mark();
+      setTimeout(onDone, 900);
+      return;
+    }
+    setPicked({ g, right: false });
+    miss(g);
+    setTimeout(() => { setPicked(null); setLap(l => l + 1); }, 650);
+  }
+
+  return (
+    <div className="qw-enc qw-run">
+      <p className="qw-say">Quick — take the fork that says it!</p>
+      <Listen onClick={() => sayGrapheme(beat.target, isSoundEnabled)} disabled={!hasGraphemeAudio(beat.target)} />
+      {!done && !teaching && (
+        <span className="qw-run-clock" aria-hidden="true">
+          <span key={`${lap}-${beat.target}-${index}`} className="qw-run-sand" style={{ animationDuration: `${seconds}s` }} />
+        </span>
+      )}
+      <div className="qw-run-forks">
+        {showing.map(g => {
+          const on = picked?.g === g;
+          const reveal = teaching && g === beat.answer;
+          return (
+            <button
+              key={g}
+              type="button"
+              className={`qw-runsign${on ? (picked.right ? " is-right" : " is-wrong") : ""}${reveal ? " is-reveal" : ""}`}
+              disabled={Boolean(picked) || teaching}
+              onClick={() => dash(g)}
+            >
+              <svg viewBox="0 0 96 110" aria-hidden="true">
+                <path d="M46,104 L46,44" stroke="var(--q-deep)" strokeWidth="8" strokeLinecap="round" fill="none" />
+                <path d="M14,14 L70,14 L86,31 L70,48 L14,48 Z" fill="var(--q-accent)" stroke="var(--q-deep)" strokeWidth="3" strokeLinejoin="round" />
+                <text x="44" y="41" textAnchor="middle" fontSize="30" fontWeight="800" fill={CREATURE_INK}>{displayGrapheme(g)}</text>
+              </svg>
+            </button>
+          );
+        })}
+      </div>
+      {teaching && <p className="qw-hint">This one. Listen.</p>}
       <Pips i={index} n={total} />
     </div>
   );
@@ -98,21 +260,31 @@ export function HungryBeast({ beat, isSoundEnabled, onBeat, onDone, index, total
   const [done, mark] = useOnce(beat);
   const [heard, setHeard] = useState([]);
   const [picked, setPicked] = useState(null);
+  const [correction, miss] = useCorrection(beat, isSoundEnabled);
+  const view = correctionPresentation(choiceStage(beat), correction);
+  const teaching = view.mode === CORRECTION_MODES.TEACH;
+  const showing = beat.choices.filter(g => view.visibleIds.includes(g));
   const canHearChoices = isSoundEnabled && beat.choices.every(hasGraphemeAudio);
 
   function tap(g) {
-    if (picked || done) return;
+    if (picked || done || teaching) return;
     if (canHearChoices && !heard.includes(g)) {
       sayGrapheme(g, true);
       setHeard(h => [...h, g]);
       return;
     }
     const right = g === beat.answer;
-    setPicked({ g, right });
-    mark();
     if (isSoundEnabled) (right ? playCorrectChime : playSoftBuzz)();
     onBeat(right, beat.target);
-    setTimeout(onDone, right ? 900 : 1300);
+    if (right) {
+      setPicked({ g, right: true });
+      mark();
+      setTimeout(onDone, 900);
+      return;
+    }
+    setPicked({ g, right: false });
+    miss(g);
+    setTimeout(() => setPicked(null), 650);
   }
 
   return (
@@ -130,17 +302,17 @@ export function HungryBeast({ beat, isSoundEnabled, onBeat, onDone, index, total
         <span className="qw-beastsign">{displayGrapheme(beat.target)}</span>
       </div>
       <p className="qw-say">Feed it the fruit that says <strong>{displayGrapheme(beat.target)}</strong>.</p>
-      <p className="qw-hint">{canHearChoices ? "Tap a fruit to hear it. Tap again to feed." : "Choose the matching fruit."}</p>
+      <p className="qw-hint">{teaching ? "This one. Listen." : canHearChoices ? "Tap a fruit to hear it. Tap again to feed." : "Choose the matching fruit."}</p>
       <div className="qw-fruits">
-        {beat.choices.map(g => {
+        {showing.map(g => {
           const on = picked?.g === g;
-          const reveal = picked && g === beat.answer;
+          const reveal = teaching && g === beat.answer;
           return (
             <button
               key={g}
               type="button"
               className={`qw-fruit${heard.includes(g) ? " is-heard" : ""}${on ? (picked.right ? " is-right" : " is-wrong") : ""}${reveal && !on ? " is-reveal" : ""}`}
-              disabled={Boolean(picked)}
+              disabled={Boolean(picked) || teaching}
               onClick={() => tap(g)}
               aria-label={canHearChoices ? (heard.includes(g) ? "Feed this fruit" : "Hear this fruit") : `Fruit ${displayGrapheme(g)}`}
             >
@@ -170,8 +342,8 @@ export function HungryBeast({ beat, isSoundEnabled, onBeat, onDone, index, total
 export function BrokenBridge({ beat, isSoundEnabled, onBeat, onDone, index, total }) {
   const [done, mark] = useOnce(beat);
   const [laid, setLaid] = useState([]);
-  const [slipped, setSlipped] = useState(false);
   const [wobble, setWobble] = useState(null);
+  const [stuck, setStuck] = useState(0); // consecutive misses on the CURRENT plank
   const [crossed, setCrossed] = useState(false);
 
   useEffect(() => {
@@ -182,24 +354,36 @@ export function BrokenBridge({ beat, isSoundEnabled, onBeat, onDone, index, tota
     if (crossed || done) return;
     const want = beat.planks[laid.length];
     if (tile !== want) {
-      setWobble(i); setSlipped(true);
-      if (isSoundEnabled) playSoftBuzz();
+      // The miss belongs to the sound the child failed to lay — the wanted
+      // plank — not to every grapheme in the word.
+      setWobble(i);
+      onBeat(false, want);
+      const misses = stuck + 1;
+      setStuck(misses);
+      if (isSoundEnabled) {
+        playSoftBuzz();
+        // Third miss on the same plank: the plank says its own sound and glows
+        // (see the is-reveal class on the tray below). Rescue, not punishment.
+        if (misses >= 3) setTimeout(() => sayGrapheme(want, true), 300);
+      }
       setTimeout(() => setWobble(null), 400);
       return;
     }
+    onBeat(true, want);
+    setStuck(0);
     const next = [...laid, { tile, from: i }];
     setLaid(next);
     if (isSoundEnabled) { playPopSound(); sayGrapheme(tile, true); }
     if (next.length === beat.planks.length) {
       setCrossed(true);
       mark();
-      onBeat(!slipped, beat.target);
       if (isSoundEnabled) setTimeout(() => { playCorrectChime(); sayWord(beat.word, true); }, 300);
       setTimeout(onDone, 1700);
     }
   }
 
   const used = new Set(laid.map(l => l.from));
+  const want = beat.planks[laid.length];
   return (
     <div className="qw-enc qw-bridge">
       <p className="qw-say">The bridge is out. Lay a plank for every sound.</p>
@@ -221,7 +405,7 @@ export function BrokenBridge({ beat, isSoundEnabled, onBeat, onDone, index, tota
           <button
             key={`${t}-${i}`}
             type="button"
-            className={`qw-tile${used.has(i) ? " is-used" : ""}${wobble === i ? " is-wobble" : ""}`}
+            className={`qw-tile${used.has(i) ? " is-used" : ""}${wobble === i ? " is-wobble" : ""}${stuck >= 3 && t === want && !used.has(i) ? " is-reveal" : ""}`}
             disabled={used.has(i) || crossed}
             onClick={() => tap(t, i)}
           >
@@ -238,8 +422,8 @@ export function BrokenBridge({ beat, isSoundEnabled, onBeat, onDone, index, tota
 export function EchoCaveEnc({ beat, isSoundEnabled, onBeat, onDone, index, total }) {
   const [done, mark] = useOnce(beat);
   const [said, setSaid] = useState([]);
-  const [slipped, setSlipped] = useState(false);
   const [wrong, setWrong] = useState(null);
+  const [stuck, setStuck] = useState(0);
   const [over, setOver] = useState(false);
 
   useEffect(() => {
@@ -248,23 +432,33 @@ export function EchoCaveEnc({ beat, isSoundEnabled, onBeat, onDone, index, total
 
   function tap(k) {
     if (over || done) return;
-    if (k !== beat.sounds[said.length]) {
-      setWrong(k); setSlipped(true);
-      if (isSoundEnabled) playSoftBuzz();
+    const want = beat.sounds[said.length];
+    if (k !== want) {
+      setWrong(k);
+      onBeat(false, want);
+      const misses = stuck + 1;
+      setStuck(misses);
+      if (isSoundEnabled) {
+        playSoftBuzz();
+        if (misses >= 3) setTimeout(() => sayGrapheme(want, true), 300);
+      }
       setTimeout(() => setWrong(null), 400);
       return;
     }
+    onBeat(true, want);
+    setStuck(0);
     const next = [...said, k];
     setSaid(next);
     if (isSoundEnabled) { playPopSound(); sayGrapheme(k, true); }
     if (next.length === beat.sounds.length) {
       setOver(true);
       mark();
-      onBeat(!slipped, beat.target);
       if (isSoundEnabled) setTimeout(() => { playCorrectChime(); sayWord(beat.word, true); }, 300);
       setTimeout(onDone, 1600);
     }
   }
+
+  const want = beat.sounds[said.length];
 
   return (
     <div className="qw-enc qw-cave">
@@ -282,7 +476,7 @@ export function EchoCaveEnc({ beat, isSoundEnabled, onBeat, onDone, index, total
       {over && <p className="qw-word">{beat.word}</p>}
       <div className="qw-tray">
         {beat.keys.map(k => (
-          <button key={k} type="button" className={`qw-tile${wrong === k ? " is-wobble" : ""}`} disabled={over} onClick={() => tap(k)}>
+          <button key={k} type="button" className={`qw-tile${wrong === k ? " is-wobble" : ""}${stuck >= 3 && k === want ? " is-reveal" : ""}`} disabled={over} onClick={() => tap(k)}>
             <Piece kind="stone" label={displayGrapheme(k)} fallback={<span className="qw-tile-vec">{displayGrapheme(k)}</span>} />
           </button>
         ))}
@@ -296,7 +490,7 @@ export function EchoCaveEnc({ beat, isSoundEnabled, onBeat, onDone, index, total
 export function SheepPens({ beat, isSoundEnabled, onBeat, onDone, index, total }) {
   const [done, mark] = useOnce(beat);
   const [sorted, setSorted] = useState({});
-  const [slipped, setSlipped] = useState(false);
+  const [stuck, setStuck] = useState(0);
   const [held, setHeld] = useState(null);
 
 
@@ -305,16 +499,24 @@ export function SheepPens({ beat, isSoundEnabled, onBeat, onDone, index, total }
   function pen(id) {
     if (!held || done) return;
     if (held.pen !== id) {
-      setSlipped(true); setHeld(null);
-      if (isSoundEnabled) playSoftBuzz();
+      // The evidence belongs to the sound this word actually contains.
+      onBeat(false, held.pen);
+      const misses = stuck + 1;
+      setStuck(misses);
+      if (isSoundEnabled) {
+        playSoftBuzz();
+        if (misses >= 3) setTimeout(() => sayGrapheme(held.pen, true), 300);
+      }
+      setHeld(null);
       return;
     }
+    onBeat(true, held.pen);
+    setStuck(0);
     if (isSoundEnabled) playPopSound();
     const next = { ...sorted, [held.word]: id };
     setSorted(next); setHeld(null);
     if (Object.keys(next).length === beat.items.length) {
       mark();
-      onBeat(!slipped, beat.target);
       if (isSoundEnabled) playCorrectChime();
       setTimeout(onDone, 1200);
     }
@@ -325,7 +527,7 @@ export function SheepPens({ beat, isSoundEnabled, onBeat, onDone, index, total }
       <p className="qw-say">Herd each sheep into its pen.</p>
       <div className="qw-penrow">
         {beat.pens.map(id => (
-          <button key={id} type="button" className={`qw-pen${held ? " is-live" : ""}`} disabled={!held} onClick={() => pen(id)}>
+          <button key={id} type="button" className={`qw-pen${held ? " is-live" : ""}${stuck >= 3 && held && held.pen === id ? " is-reveal" : ""}`} disabled={!held} onClick={() => pen(id)}>
             <span className="qw-pensign" onClick={e => { e.stopPropagation(); sayGrapheme(id, isSoundEnabled); }} role="presentation">
               {displayGrapheme(id.split("_")[0])}
             </span>
@@ -357,7 +559,6 @@ export function SheepPens({ beat, isSoundEnabled, onBeat, onDone, index, total }
 export function WordBeastEnc({ beat, isSoundEnabled, onBeat, onDone, index, total }) {
   const [done, mark] = useOnce(beat);
   const [fed, setFed] = useState(0);
-  const [missed, setMissed] = useState(false);
   const [picked, setPicked] = useState(null);
   const [tamed, setTamed] = useState(false);
 
@@ -370,7 +571,9 @@ export function WordBeastEnc({ beat, isSoundEnabled, onBeat, onDone, index, tota
     const right = w === beat.answer;
     setPicked({ w, right });
     if (!right) {
-      setMissed(true);
+      // Every wrong card is a recorded miss on the heart word — feeding the
+      // beast by elimination is no longer free.
+      onBeat(false, beat.target);
       if (isSoundEnabled) playSoftBuzz();
       setTimeout(() => setPicked(null), 850);
       return;
@@ -381,7 +584,9 @@ export function WordBeastEnc({ beat, isSoundEnabled, onBeat, onDone, index, tota
     if (n >= 3) {
       setTamed(true);
       mark();
-      onBeat(!missed, beat.target);
+      // Three feeds are three sightings of ONE word; the evidence is one hit,
+      // recorded when the word is truly known (the beast is tamed).
+      onBeat(true, beat.target);
       if (isSoundEnabled) setTimeout(playCelebrationFanfare, 250);
       setTimeout(onDone, 1900);
       return;
@@ -463,7 +668,7 @@ export function Signpost({ beat, isSoundEnabled, onBeat, onDone, index, total })
           <button
             key={t.id}
             type="button"
-            className={`qw-thing${picked?.id === t.id ? (picked.right ? " is-right" : " is-wrong") : ""}`}
+            className={`qw-thing${picked?.id === t.id ? (picked.right ? " is-right" : " is-wrong") : ""}${picked && !picked.right && t.id === beat.answer ? " is-reveal" : ""}`}
             disabled={Boolean(picked)}
             onClick={() => tap(t)}
             aria-label={t.word}

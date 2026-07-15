@@ -118,14 +118,26 @@ export function pickDistractors(answer, { known, mastery = {}, count = 2, rng })
 
 // Words a child can read at this stop, decodable-only, no heart words (those
 // are taught whole, not sounded out) — and containing `target` if asked.
+//
+// A BLEND IS NEVER A SEGMENT — that is the founding insight of this file (see
+// buildStoneBridgeRound). But it means the segment filter below returns ZERO
+// example words for every blend, so the guide used to introduce `st` while
+// showing the child not one word containing it, across four consecutive stops
+// (s12–s15, 22 blends). A blend's example words are found by the same rule
+// that credits one: the word contains the two taught consonants adjacent
+// (`blendsIn`), not "the word segments into it".
 export function wordsForTarget(target, stopIndex, { max = 6 } = {}) {
   const known = taughtThrough(stopIndex);
   const hearts = new Set(heartWordsThrough(stopIndex).map(w => w.toLowerCase()));
-  return wordsThrough(stopIndex)
+  const readable = wordsThrough(stopIndex)
     .filter(w => !hearts.has(w.toLowerCase()))
-    .filter(w => isDecodable(w, known))
-    .filter(w => !target || segmentWord(w, { known }).includes(target))
-    .slice(0, max);
+    .filter(w => isDecodable(w, known));
+  if (!target) return readable.slice(0, max);
+  const taughtBlends = blendsThrough(stopIndex);
+  if (taughtBlends.has(target)) {
+    return readable.filter(w => blendsIn(w, taughtBlends).includes(target)).slice(0, max);
+  }
+  return readable.filter(w => segmentWord(w, { known }).includes(target)).slice(0, max);
 }
 
 // ── SOUND STONES — hear the sound, tap the letter ───────────────────────────

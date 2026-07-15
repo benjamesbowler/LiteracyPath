@@ -16,6 +16,7 @@ export const QUEST_QUALITY_TIERS = Object.freeze({
     decorationStep: 8,
     ambientScale: 1,
     particleScale: 1,
+    motionScale: 1,
     water: true,
     postEffects: true
   }),
@@ -28,6 +29,7 @@ export const QUEST_QUALITY_TIERS = Object.freeze({
     decorationStep: 11,
     ambientScale: 0.72,
     particleScale: 0.62,
+    motionScale: 0.7,
     water: true,
     postEffects: true
   }),
@@ -40,6 +42,7 @@ export const QUEST_QUALITY_TIERS = Object.freeze({
     decorationStep: 16,
     ambientScale: 0.38,
     particleScale: 0.24,
+    motionScale: 0.35,
     water: false,
     postEffects: false
   }),
@@ -52,10 +55,13 @@ export const QUEST_QUALITY_TIERS = Object.freeze({
     decorationStep: 24,
     ambientScale: 0,
     particleScale: 0,
+    motionScale: 0,
     water: false,
     postEffects: false
   })
 });
+
+const STILL_TIER = Object.freeze({ ...QUEST_QUALITY_TIERS.low, motionScale: 0 });
 
 export function normalizeQuestSettings(raw = {}) {
   const requested = String(raw?.displayMode || "auto");
@@ -81,8 +87,15 @@ export function resolveQuestQuality({
 
   const memory = Number(deviceMemory) || 4;
   const cores = Number(hardwareConcurrency) || 4;
+  if (reducedMotion) {
+    // The OS asked for less motion; lowering the TIER was never the same as
+    // honouring that. This variant keeps the low tier's cheap rendering and
+    // freezes the decorative clock entirely (QuestHub's ambient loop reads
+    // motionScale). Gameplay reveals and the camera still work.
+    return STILL_TIER;
+  }
   if (saveData || memory <= 2 || cores <= 2) return QUEST_QUALITY_TIERS.low;
-  if (reducedMotion || memory <= 4 || cores <= 4 || Number(width) < 760) return QUEST_QUALITY_TIERS.balanced;
+  if (memory <= 4 || cores <= 4 || Number(width) < 760) return QUEST_QUALITY_TIERS.balanced;
   return QUEST_QUALITY_TIERS.rich;
 }
 

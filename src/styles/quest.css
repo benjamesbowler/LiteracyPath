@@ -175,20 +175,31 @@
   pointer-events: none;
 }
 
-/* Touch targets: 64px minimum. A five-year-old's finger is not a mouse. */
+/* Touch targets: 64px minimum for the things a child must hit mid-game, 56px
+   floor for chrome. A five-year-old's finger is not a mouse. NOTE: this rule
+   once pointed at `.qs-*` — the v1 shell classes, present in zero JSX today —
+   while the live buttons drifted to 40-46px. If you rename a class, move it
+   HERE in the same commit. */
 .q-primary,
 .q-ghost,
 .q-tab,
 .q-option,
-.qs-stone,
-.qs-beast,
-.qs-tile,
-.qs-listen,
-.qs-example,
+.qw-tile,
+.qw-card,
+.qw-go,
+.qw-bigsound,
 .q-marker {
   min-height: 56px;
   font: inherit;
   cursor: pointer;
+}
+
+.qw-tile,
+.qw-card,
+.qw-go,
+.qw-bigsound {
+  min-height: 64px;
+  min-width: 64px;
 }
 
 .q-primary {
@@ -1452,8 +1463,8 @@
 .qw-word { margin: 0; font-size: 30px; font-weight: 800; }
 
 .qw-listen {
-  min-height: 46px;
-  padding: 0 18px;
+  min-height: 64px; /* the replay-the-sound lifeline — never the smallest thing on screen */
+  padding: 0 22px;
   border: 2px solid rgba(255, 255, 255, .3);
   border-radius: 999px;
   background: rgba(255, 255, 255, .12);
@@ -1543,6 +1554,47 @@
 .qw-fruit.is-right { border-color: #63c47a; }
 .qw-fruit.is-wrong { border-color: #d16f6f; animation: q-shake 320ms; }
 .qw-fruit.is-reveal { outline: 3px solid #ffd166; }
+
+/* ── Trail Run — the fork on a clock ─────────────────────────────────────── */
+.qw-run-forks { display: flex; gap: 18px; justify-content: center; align-items: flex-end; }
+.qw-runsign {
+  background: none;
+  border: 0;
+  padding: 6px;
+  min-width: 96px;
+  min-height: 110px; /* a five-year-old's finger is not a mouse */
+  cursor: pointer;
+}
+.qw-runsign svg { width: 96px; height: 110px; }
+.qw-runsign.is-right svg { filter: drop-shadow(0 0 14px #7fd08a); }
+.qw-runsign.is-wrong svg { animation: q-shake 320ms; }
+.qw-runsign.is-reveal svg { filter: drop-shadow(0 0 14px #ffd166); }
+.qw-run-clock {
+  display: block;
+  width: min(280px, 60%);
+  height: 10px;
+  margin: 4px auto 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+.qw-run-sand {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: #ffd166;
+  transform-origin: left center;
+  animation: qw-run-drain linear forwards; /* duration set inline per beat */
+}
+@keyframes qw-run-drain {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+
+/* Reveal states for the rescue step (3rd miss shows the way) */
+.qw-tile.is-reveal { outline: 4px solid #ffd166; outline-offset: 2px; border-radius: 10px; }
+.qw-pen.is-reveal { outline: 4px solid #ffd166; outline-offset: 2px; }
+.qw-thing.is-reveal svg { filter: drop-shadow(0 0 14px #ffd166); }
 
 .qw-feeds { display: flex; gap: 5px; margin-top: 4px; }
 .qw-feeds span { width: 11px; height: 11px; border-radius: 50%; background: rgba(255, 255, 255, .2); }
@@ -1699,8 +1751,12 @@
 .qw-page { margin: 0; max-width: 32ch; font-size: 23px; font-weight: 600; line-height: 1.6; }
 
 .qw-pw {
-  min-height: 0;
-  padding: 2px 3px;
+  /* "Stuck on a word? Tap it." — the help feature was the smallest target in
+     the game (2x3px padding). Inline words can't be 64px tall without wrecking
+     the line, so: comfortable padding plus an invisible hit-area extension. */
+  position: relative;
+  min-height: 44px;
+  padding: 8px 6px;
   border: 0;
   border-bottom: 2px dashed rgba(255, 209, 102, .45);
   border-radius: 4px;
@@ -1708,6 +1764,12 @@
   color: inherit;
   font: inherit;
   cursor: pointer;
+}
+
+.qw-pw::after {
+  content: "";
+  position: absolute;
+  inset: -8px -4px;
 }
 
 .qw-pw.is-mute { border-bottom-color: transparent; cursor: default; }
@@ -1818,7 +1880,27 @@
 
 .qw-guide-name { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #ffd166; }
 .qw-guide-line { margin: 0; max-width: 30ch; font-size: 18px; line-height: 1.45; }
-.qw-guide-eg { margin: 0; font-size: 15px; letter-spacing: .04em; opacity: .65; }
+.qw-guide-eg { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0; font-size: 16px; letter-spacing: .04em; }
+
+.qw-guide-egword {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 2px solid rgba(255, 209, 102, .4);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .08);
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.qw-guide-egword.is-mute {
+  display: inline-flex;
+  align-items: center;
+  border-color: transparent;
+  opacity: .6;
+  cursor: default;
+}
 
 /* The sound itself IS the button. Tap it to hear it again. */
 .qw-bigsound {
@@ -2805,6 +2887,22 @@
 .q2d-teach, .q2d-gate { display: grid; justify-items: center; gap: 12px; text-align: center; }
 .q2d-teach h1, .q2d-gate h1 { margin: 0; font-size: clamp(34px, 7vw, 68px); letter-spacing: 0; }
 .q2d-teach p, .q2d-gate p { max-width: 560px; margin: 0; font-size: 18px; line-height: 1.5; }
+
+/* The grapheme itself is the play button — tap the sound to hear the sound. */
+.q2d-teach-sound {
+  min-width: 120px;
+  min-height: 96px;
+  padding: 8px 30px;
+  border: 3px solid rgba(255, 209, 102, .5);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .08);
+  color: inherit;
+  font: 800 clamp(34px, 7vw, 68px)/1.1 inherit;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.q2d-teach-sound:disabled { border-color: transparent; cursor: default; }
 .q2d-kicker { color: #53655c; font-size: 12px; font-weight: 900; text-transform: uppercase; }
 
 .q-display-mode { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 16px 0 6px; padding: 12px 0; border-top: 1px solid rgba(42, 52, 48, .15); border-bottom: 1px solid rgba(42, 52, 48, .15); font-weight: 800; }

@@ -118,6 +118,52 @@ test("daily_mission: a genuinely NEWER cloud day wins outright (legit resets pro
 
 // ── mergeMonotonic primitives ────────────────────────────────────────────────
 
+// ── phonics_quest (Sound Seekers) — the one area a naive forward-merge corrupts ─
+// These fixtures mirror supabase/migrations/20260715090000_phonics_quest_merge.sql
+// exactly; if a rule changes here, change it there in the same commit.
+
+test("phonics_quest: the ordered accuracy window is NEVER union-collapsed", () => {
+  const local = { mastery: { s: { seen: 6, correct: 5, streak: 2, window: [1, 1, 0, 1], state: "learning", box: 2, shells: ["stones"], sessions: ["d1"], misses: 1, lastAt: "2026-07-14", lastStop: 3 } } };
+  const cloud = { mastery: { s: { seen: 4, correct: 4, streak: 4, window: [1, 0], state: "learning", box: 2, shells: ["bridge"], sessions: ["d2"], misses: 0, lastAt: "2026-07-13", lastStop: 2 } } };
+  const merged = computeHydratedValue("phonics_quest", "__all__", local, cloud);
+  assert.deepEqual(merged.mastery.s.window, [1, 1, 0, 1], "window must come intact from the higher-seen side");
+  assert.equal(merged.mastery.s.seen, 6, "counters take the max");
+  assert.deepEqual([...merged.mastery.s.shells].sort(), ["bridge", "stones"], "evidence sets union");
+});
+
+test("phonics_quest: a demotion witnessed on this device is not undone by a stale mastered row", () => {
+  const local = { mastery: { sh: { seen: 12, correct: 9, streak: 0, window: [0, 0, 1, 1], state: "learning", box: 1, shells: ["stones", "cave"], sessions: ["d1", "d2"], misses: 2, lastAt: "2026-07-15", lastStop: 9 } } };
+  const cloud = { mastery: { sh: { seen: 10, correct: 9, streak: 4, window: [1, 1, 1, 1], state: "mastered", box: 4, shells: ["stones"], sessions: ["d1"], misses: 0, lastAt: "2026-07-12", lastStop: 8 } } };
+  const merged = computeHydratedValue("phonics_quest", "__all__", local, cloud);
+  assert.equal(merged.mastery.sh.state, "learning", "demotion sticks: higher-seen side owns state");
+  assert.equal(merged.mastery.sh.box, 1, "box follows the same clock");
+});
+
+test("phonics_quest: routeCursor is journey state, not an achievement — no max-merge", () => {
+  const local = { trail: { stopsDone: ["s1"], stars: { s1: 2 }, routeCursor: 3 } };
+  const cloud = { trail: { stopsDone: ["s1", "s2"], stars: { s1: 3 }, routeCursor: 40 } };
+  const merged = computeHydratedValue("phonics_quest", "__all__", local, cloud);
+  assert.equal(merged.trail.routeCursor, 3, "this device keeps its own journey position");
+  assert.equal(merged.trail.stars.s1, 3, "stars still merge forward");
+  assert.deepEqual([...merged.trail.stopsDone].sort(), ["s1", "s2"], "stops walked anywhere are kept");
+});
+
+test("phonics_quest: purchases union by id — different timestamps do not duplicate a purchase", () => {
+  const local = { ledger: { purchases: [{ id: "leaf-cap", at: "2026-07-10T09:00:00Z" }] } };
+  const cloud = { ledger: { purchases: [{ id: "leaf-cap", at: "2026-07-10T09:00:03Z" }, { id: "moth-wings", at: "2026-07-11" }] } };
+  const merged = computeHydratedValue("phonics_quest", "__all__", local, cloud);
+  assert.equal(merged.ledger.purchases.length, 2, "one leaf-cap, one moth-wings");
+  assert.deepEqual(merged.ledger.purchases.map(p => p.id).sort(), ["leaf-cap", "moth-wings"]);
+});
+
+test("phonics_quest: checkpoint is resume state — a cloud checkpoint never teleports this device", () => {
+  const local = { checkpoint: { stopId: "s3", beatIndex: 1 }, stones: ["a", "m"] };
+  const cloud = { checkpoint: { stopId: "s9", beatIndex: 0 }, stones: ["a", "t"] };
+  const merged = computeHydratedValue("phonics_quest", "__all__", local, cloud);
+  assert.equal(merged.checkpoint.stopId, "s3", "this device keeps its own checkpoint");
+  assert.deepEqual([...merged.stones].sort(), ["a", "m", "t"], "stones union");
+});
+
 test("mergeMonotonic: numbers max, booleans OR, arrays union, missing sides", () => {
   assert.equal(mergeMonotonic(2, 5), 5);
   assert.equal(mergeMonotonic(5, 2), 5);

@@ -2,7 +2,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { QUEST_STOPS, targetsAtStop, getStop } from "../../src/data/questSequence.js";
 import { isHeartTarget } from "../../src/utils/questRounds.js";
-import { buildWalk, responsesInWalk } from "../../src/utils/questEncounters.js";
+import { buildWalk, responsesInWalk, ENCOUNTERS } from "../../src/utils/questEncounters.js";
+import { hasGraphemeAudio } from "../../src/utils/questAudio.js";
 import { targetsForStop } from "../../src/utils/questReviewScheduler.js";
 import {
   baseQuestState,
@@ -159,6 +160,49 @@ test("one walk of the trail teaches a lot, and does NOT pretend to have taught e
   assert.ok(mastered.length >= 20, `only ${mastered.length} sounds mastered in a full perfect walk — the walk is too thin to teach anything`);
   assert.ok(mastered.length < GRAPHEMES.length, "one walk claimed EVERY sound — the bar has gone soft");
   assert.ok(availableSparks(state) > 0, "no sparks earned for a perfect run");
+});
+
+test("EVERY DECLARED SHELL HAS A MAPPING AND BUILDS — nothing is silently dropped", () => {
+  // `trail-run` was declared at ~15 stops for the mode's whole life while
+  // FROM_SHELL had no key for it, so `.filter(Boolean)` swallowed it and the
+  // only automaticity mechanic never ran. This test makes that class of bug
+  // impossible to reintroduce: every shell a stop declares must map to an
+  // encounter, and every mapped kind must actually build somewhere on the trail.
+  for (const stop of QUEST_STOPS) {
+    for (const shell of stop.shells) {
+      if (shell === "knowledge-tree") continue; // the guide page, not an encounter
+      assert.ok(
+        Object.values(ENCOUNTERS).some(meta => meta.from === shell),
+        `${stop.id} declares shell '${shell}' and no encounter maps to it — it would be silently dropped`
+      );
+    }
+  }
+
+  const built = new Set();
+  for (const stop of QUEST_STOPS) {
+    const walk = buildWalk(stop.id, { seed: stop.index });
+    for (const enc of walk.encounters) built.add(enc.kind);
+  }
+  assert.ok(built.has("trail-run"), "trail-run is declared but never builds — fluency is silently gone again");
+});
+
+test("A MUTE SOUND-SORT NEVER SHIPS — pens are gated on their audio actually resolving", () => {
+  // The sort's own premise (questSequence): "no amount of looking at the
+  // letters tells you which sound they make". A pen with no sound is therefore
+  // unsolvable BY DESIGN. s16 sorts y-as-/ie/ from y-as-/ee/; while those alt
+  // clips are missing the pens must not build, and the moment the recordings
+  // land in the manifest they must come back with no code change.
+  const s16 = QUEST_STOPS.find(stop => stop.index === 16);
+  const walk = buildWalk(s16.id, { seed: 16 });
+  const hasPens = walk.encounters.some(enc => enc.kind === "sheep-pens");
+  const altsAudible = hasGraphemeAudio("y_ie") && hasGraphemeAudio("y_ee");
+  assert.equal(
+    hasPens,
+    altsAudible,
+    altsAudible
+      ? "alt clips are recorded but the sort still does not build"
+      : "the sort shipped with silent pens — a child is being asked to sort by a sound that never plays"
+  );
 });
 
 test("KEEP WALKING AND EVERY SOUND IS REACHABLE — there is no ceiling", () => {

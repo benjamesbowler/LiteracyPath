@@ -4,6 +4,7 @@ import { seedwakeStopSpec } from "../data/questChapterOne.js";
 export const PHYSICAL_MECHANICS_BY_ENCOUNTER = Object.freeze({
   "flower-patch": "sound-hunt",
   "hungry-beast": "creature-feed",
+  "trail-run": "fork-sprint",
   "broken-bridge": "bridge-build",
   "echo-cave": "echo-sequence",
   "sheep-pens": "herd-and-sort",
@@ -363,6 +364,20 @@ export function buildPhysicalTask(section, encounter, beat, beatIndex = 0) {
       items: positionedItems(section, encounter, beatIndex, 0, beat.choices || [], {
         answer: beat.answer,
         shape: flower ? "flower" : "fruit"
+      })
+    }];
+  } else if (!stages.length && encounter.kind === "trail-run") {
+    // Fluency in the world: the trail forks, one arrow board per choice, and
+    // the child RUNS into the one signed with the sound they heard. The DOM
+    // view carries the clock; in the field the sprint itself is the pressure.
+    stages = [{
+      id: `${mechanic}-0`,
+      prompt: "Run to the fork that says it",
+      help: "Listen, then sprint into the signed fork before the sound fades.",
+      audioCue: { kind: "grapheme", value: beat.target },
+      items: positionedItems(section, encounter, beatIndex, 0, beat.choices || [], {
+        answer: beat.answer,
+        shape: "fork-sign"
       })
     }];
   } else if (!stages.length && encounter.kind === "word-beast") {

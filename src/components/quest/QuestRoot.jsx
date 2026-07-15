@@ -19,6 +19,7 @@ import QuestHub from "./world/QuestHub.jsx";
 import QuestTrail2D from "./world/QuestTrail2D.jsx";
 import TradingPost from "./TradingPost.jsx";
 import { loadQuestProgress, saveQuestProgress } from "../../utils/questStore.js";
+import { computeHydratedValue } from "../../utils/progressMerge.js";
 import {
   recordQuestAttempt,
   recordStopResult,
@@ -137,6 +138,30 @@ export default function QuestRoot({
     saveQuestProgress(progressScopeKey, next);
     return next;
   }, [progressScopeKey]);
+
+  // A fresh device can open Sound Seekers BEFORE the async cloud hydrate lands.
+  // The mount snapshot above would then clobber the just-hydrated save on the
+  // next commit — the exact race every other progress surface already guards
+  // against (StudentHomePage.jsx). When the hydrate event fires for this child,
+  // fold the now-hydrated stored state into whatever has happened in memory
+  // since, using the same per-area merge the hydrator itself uses, and persist
+  // the union so neither side is lost.
+  useEffect(() => {
+    function handleHydrated(event) {
+      if (event.detail?.studentId && event.detail.studentId !== progressScopeKey) return;
+      const stored = loadQuestProgress(progressScopeKey);
+      const merged = computeHydratedValue("phonics_quest", "__all__", stateRef.current, stored);
+      const wasUnhatched = !stateRef.current.hatched;
+      commit(merged);
+      // A child parked on the hatch screen whose cloud save turns out to have a
+      // creature should not be asked to make a second one.
+      if (wasUnhatched && merged.hatched) {
+        setView(current => (current === VIEW.CREATOR ? VIEW.DEN : current));
+      }
+    }
+    window.addEventListener("lp-progress-hydrated", handleHydrated);
+    return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);
+  }, [commit, progressScopeKey]);
 
   useEffect(() => {
     if (view !== VIEW.WORLD || !stateRef.current.telemetry?.current) return undefined;
@@ -385,7 +410,13 @@ export default function QuestRoot({
 
   return createPortal(
     <div className="q-root" data-fullbleed="">
-      <button type="button" className="q-exit" onClick={closeQuest} aria-label="Close Sound Seekers">Close</button>
+      {/* ONE exit per screen. The Den (and the hatch screen) own "Close" —
+          leaving the whole mode is a Den decision. Everywhere else the only
+          way out is "Back to the Den", so a child is never shown two doors
+          marked leave and asked to know the difference. */}
+      {[VIEW.DEN, VIEW.CREATOR].includes(view) && (
+        <button type="button" className="q-exit" onClick={closeQuest} aria-label="Close Sound Seekers">Close</button>
+      )}
 
       {view === VIEW.CREATOR && (
         <CreatureCreator
@@ -484,7 +515,7 @@ export default function QuestRoot({
         <aside className="q-trail-notice" aria-live="polite" aria-label="Trail progress">
           <span>{trailNotice.stop?.name || "Trail"} complete</span>
           <strong>{trailNotice.seedwake?.success || trailNotice.chapterReward?.label || (trailNotice.nextStop ? `${trailNotice.nextStop.name} ahead` : "The whole trail is open")}</strong>
-          <em>{trailNotice.stars} stars · {trailNotice.drops} {trailNotice.seedwake?.collectible.plural || "finds"}{trailNotice.gear ? " · new gear" : ""}</em>
+          <em>{trailNotice.stars} {trailNotice.stars === 1 ? "star" : "stars"} · {trailNotice.drops} {trailNotice.drops === 1 ? (trailNotice.seedwake?.collectible.label || "find") : (trailNotice.seedwake?.collectible.plural || "finds")}{trailNotice.gear ? " · new gear" : ""}</em>
           {trailNotice.chapterReward && <em>{trailNotice.chapterReward.abilityLabel}</em>}
         </aside>
       )}

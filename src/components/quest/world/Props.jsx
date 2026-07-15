@@ -140,6 +140,23 @@ function SignpostProp({ done }) {
   );
 }
 
+// The trail forks: two arrow boards on one post, pointing opposite ways. Done =
+// one arrow drops away and the way through is clear.
+function TrailForkProp({ done }) {
+  return (
+    <svg viewBox="0 0 130 150" className="qw-art" aria-hidden="true">
+      <rect x="60" y="34" width="12" height="116" fill={MATERIALS.woodDark} rx="3" />
+      <g className={done ? "qw-swing" : ""}>
+        <path d="M14,26 L92,26 L112,42 L92,58 L14,58 Z" fill={MATERIALS.woodPale} stroke={MATERIALS.woodDark} strokeWidth="4" strokeLinejoin="round" />
+      </g>
+      {!done && (
+        <path d="M118,66 L38,66 L20,82 L38,98 L118,98 Z" fill={MATERIALS.woodPale} stroke={MATERIALS.woodDark} strokeWidth="4" strokeLinejoin="round" opacity="0.85" />
+      )}
+      {done && <circle className="qw-glow" cx="66" cy="42" r="20" fill={HIGHLIGHT} opacity="0.5" />}
+    </svg>
+  );
+}
+
 function StoryRockProp({ done }) {
   return (
     <svg viewBox="0 0 150 110" className="qw-art" aria-hidden="true">
@@ -157,6 +174,7 @@ const PROPS = {
   "word-beast": p => Beast({ ...p, big: true }),
   "echo-cave": Cave,
   "sheep-pens": Pens,
+  "trail-run": TrailForkProp,
   signpost: SignpostProp,
   "story-rock": StoryRockProp
 };

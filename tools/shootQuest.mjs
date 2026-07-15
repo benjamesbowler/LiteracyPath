@@ -281,7 +281,7 @@ async function main() {
     ].join("\n");
     fs.writeFileSync(path.join(OUT, `${shot.name}.txt`), report);
 
-    const bad = errors.length + failedRequests.length;
+    const bad = errors.length + failedRequests.length + (stillLoading ? 1 : 0);
     problems += bad;
     console.log(
       `${bad ? `${errors.length} errors, ${[...new Set(failedRequests)].length} failed` : "clean"}`
@@ -296,7 +296,15 @@ async function main() {
   stop();
 
   console.log(`\nWrote ${SHOTS.length} screenshots to docs/previews/shots/`);
-  if (problems) console.log(`${problems} console errors / failed requests — see the .txt beside each shot.`);
+  if (problems) console.log(`${problems} console errors / failed requests / stuck loads — see the .txt beside each shot.`);
+
+  // A diagnostic that cannot fail is not a gate. The Jul-14 gate screen
+  // shipped as a fully blank world with ZERO console errors and this tool
+  // printed "clean" — but a console error, a 404'd asset, or a document that
+  // never finishes loading is exactly the class of silent screen-level break
+  // this tool exists to catch, so from now on any of them fails the run (and
+  // CI). Pixel-level blank detection lives in check:quest-route-visual.
+  if (problems > 0) process.exitCode = 1;
   console.log("\nOpen the folder:  open docs/previews/shots");
 }
 

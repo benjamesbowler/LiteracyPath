@@ -9,8 +9,11 @@ import {
   weakestTargets,
   retire,
   MASTERY_STATES,
-  MASTERY_RULES
+  MASTERY_RULES,
+  BLEND_RULES,
+  RETIRE_REVIEW_GAP
 } from "../../src/utils/questMastery.js";
+import { BOX_INTERVALS } from "../../src/utils/questReviewScheduler.js";
 
 // Helper: run n attempts through the gate.
 function run(record, attempts) {
@@ -138,6 +141,65 @@ test("a correct answer resets the miss counter, so misses must be CONSECUTIVE", 
   ]);
   assert.equal(r.misses, 1);
   assert.equal(r.state, MASTERY_STATES.MASTERED);
+});
+
+// ── Retirement: live in production via recordAttempt, not just via retire() ──
+
+function masteredRecord() {
+  // Mastered honestly: two shells, two days, clean window; last practised stop 1.
+  return run(emptyRecord(), [
+    { correct: true, shell: "stones", at: "2026-07-11T10:00:00Z", stopIndex: 1 },
+    { correct: true, shell: "stones", at: "2026-07-11T10:01:00Z", stopIndex: 1 },
+    { correct: true, shell: "bridge", at: "2026-07-12T10:00:00Z", stopIndex: 1 },
+    { correct: true, shell: "bridge", at: "2026-07-12T10:01:00Z", stopIndex: 1 }
+  ]);
+}
+
+test("RETIRE_REVIEW_GAP matches the scheduler's box-4 interval (the numbers must agree)", () => {
+  assert.equal(RETIRE_REVIEW_GAP, BOX_INTERVALS[4]);
+});
+
+test("a mastered sound that survives review one full interval later is RETIRED", () => {
+  const m = masteredRecord();
+  assert.equal(m.state, MASTERY_STATES.MASTERED);
+  const reviewed = recordAttempt(m, {
+    correct: true, shell: "cave", at: "2026-07-20T10:00:00Z", stopIndex: 1 + RETIRE_REVIEW_GAP
+  });
+  assert.equal(reviewed.state, MASTERY_STATES.RETIRED, "survived spaced recall => retired");
+  assert.equal(isMastered({ x: reviewed }, "x"), true, "retired still counts as known");
+});
+
+test("a correct review INSIDE the interval keeps `mastered` — retirement needs distance", () => {
+  const m = masteredRecord();
+  const early = recordAttempt(m, {
+    correct: true, shell: "cave", at: "2026-07-13T10:00:00Z", stopIndex: 1 + RETIRE_REVIEW_GAP - 1
+  });
+  assert.equal(early.state, MASTERY_STATES.MASTERED);
+});
+
+test("a MISS at review distance does not retire — and two misses demote even a retired sound", () => {
+  const m = masteredRecord();
+  const missed = recordAttempt(m, { correct: false, shell: "cave", at: "2026-07-20T10:00:00Z", stopIndex: 13 });
+  assert.equal(missed.state, MASTERY_STATES.MASTERED, "one miss never demotes or retires");
+  const retired = recordAttempt(m, { correct: true, shell: "cave", at: "2026-07-20T10:00:00Z", stopIndex: 13 });
+  const twoMisses = run(retired, [
+    { correct: false, shell: "pens", at: "2026-07-25T10:00:00Z", stopIndex: 20 },
+    { correct: false, shell: "pens", at: "2026-07-25T10:01:00Z", stopIndex: 20 }
+  ]);
+  assert.equal(twoMisses.state, MASTERY_STATES.LEARNING, "retired is a claim too, and claims get retested");
+});
+
+// ── Blend bar arithmetic: one slip in three reads must not block a blend ─────
+
+test("BLEND_RULES: 2-of-3 in the window passes (the old 0.75/3 demanded a PERFECT 3)", () => {
+  const blend = run(emptyRecord(), [
+    { correct: true, shell: "bridge", at: "2026-07-11T10:00:00Z", stopIndex: 12, rules: BLEND_RULES },
+    { correct: false, shell: "cave", at: "2026-07-12T10:00:00Z", stopIndex: 13, rules: BLEND_RULES },
+    { correct: true, shell: "cave", at: "2026-07-12T10:01:00Z", stopIndex: 13, rules: BLEND_RULES },
+    { correct: true, shell: "bridge", at: "2026-07-12T10:02:00Z", stopIndex: 13, rules: BLEND_RULES }
+  ]);
+  assert.equal(blend.correct >= BLEND_RULES.minCorrect, true);
+  assert.equal(blend.state, MASTERY_STATES.MASTERED, "3 correct, one slip, two shells, two days = mastered");
 });
 
 test("retire only applies to a mastered sound", () => {

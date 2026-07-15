@@ -5,13 +5,14 @@
 // tuning by feel.
 
 import {
-  FlowerPatch, HungryBeast, BrokenBridge, EchoCaveEnc,
+  FlowerPatch, HungryBeast, TrailRun, BrokenBridge, EchoCaveEnc,
   SheepPens, WordBeastEnc, Signpost, StoryRock
 } from "./Encounters.jsx";
 
 export const ENCOUNTER_VIEWS = {
   "flower-patch": FlowerPatch,
   "hungry-beast": HungryBeast,
+  "trail-run": TrailRun,
   "broken-bridge": BrokenBridge,
   "echo-cave": EchoCaveEnc,
   "sheep-pens": SheepPens,

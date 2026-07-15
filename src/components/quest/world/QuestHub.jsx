@@ -1432,6 +1432,21 @@ function buildFieldAvatar(spec, theme, { interactive = true } = {}) {
     nut.scale.set(0.9, 1.18, 0.9);
     nut.position.y = 0.42;
     group.add(nut);
+  } else if (spec.shape === "fork-sign") {
+    // Trail Run: an arrow board at the mouth of a fork. The child runs into
+    // the one signed with the sound they heard.
+    const post = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.075, 1.05, 10), dark);
+    post.position.y = 0.52;
+    group.add(post);
+    const board = new THREE.Mesh(new THREE.BoxGeometry(0.78, 0.36, 0.08), primary);
+    board.position.set(0.06, 0.94, 0);
+    group.add(board);
+    const tip = new THREE.Mesh(new THREE.ConeGeometry(0.19, 0.24, 4), primary);
+    tip.rotation.z = -Math.PI / 2;
+    tip.position.set(0.56, 0.94, 0);
+    group.add(tip);
+    group.userData.motionParts.push({ object: board, type: "leaf", baseRotation: board.rotation.z });
+    addFieldLabel(group, spec.label, 1.36);
   } else {
     const rock = new THREE.Mesh(new THREE.DodecahedronGeometry(0.42, 0), spec.shape === "rock" ? mat(theme.stone) : primary);
     rock.scale.set(1.18, 0.72, 0.92);
@@ -1441,7 +1456,7 @@ function buildFieldAvatar(spec, theme, { interactive = true } = {}) {
 
   const labelledShapes = new Set([
     "flower", "fruit", "cake", "bridge-plank", "river-plank", "placed-plank", "echo-orb", "echo-rune",
-    "sound-pen", "sorted-token", "story-path"
+    "sound-pen", "sorted-token", "story-path", "fork-sign"
   ]);
   if (spec.label && !labelledShapes.has(spec.shape)) {
     addFieldLabel(group, spec.label, 1.05);
@@ -1498,9 +1513,12 @@ function attachImportedFieldAvatars(tasks, avatars) {
   }
 }
 
-function updateFieldTasks(tasks, active, beatIndex, stageIndex, correction, now, camera, dt, player, action) {
+function updateFieldTasks(tasks, active, beatIndex, stageIndex, correction, now, camera, dt, player, action, ambientNow = now) {
   const liveKey = active ? physicalTaskKey(active, beatIndex) : null;
-  const time = now * 0.001;
+  // Two clocks: `now` drives FUNCTIONAL feedback (action reveals compare
+  // against real timestamps), `ambientNow` drives decoration and freezes
+  // under reduced motion.
+  const time = ambientNow * 0.001;
   const visibleChoices = correction?.visibleIds ? new Set(correction.visibleIds) : null;
   for (const [key, task] of tasks) {
     const live = key === liveKey && !task.resolved;
@@ -3050,6 +3068,7 @@ export default function QuestHub({
     let authoredChapterKit = null;
     let previous = performance.now();
     let lastRenderedFrame = -Infinity;
+    let ambientNow = performance.now();
     let wasMoving = false;
     let lastAutosave = performance.now();
     let lastPercent = Math.round(routeProgressAt(section.route, playerRef.current) * 100);
@@ -3400,6 +3419,12 @@ export default function QuestHub({
       lastRenderedFrame = now;
       const dt = Math.max(0, Math.min(0.045, (now - previous) / 1000));
       previous = now;
+      // Decorative motion runs on its own clock so reduced-motion can freeze
+      // it without touching gameplay. motionScale 1 = full ambience; 0 = the
+      // birds, petals, bobbing drops and flame flicker hold still while the
+      // child, the camera and every reveal keep working on real time.
+      const motionScale = Number.isFinite(renderQuality.motionScale) ? renderQuality.motionScale : 1;
+      ambientNow += dt * 1000 * motionScale;
       if (!interactiveRef.current && !ceremonyRef.current) {
         if (!firstFrameRendered && journeyStatusRef.current === "preloading") {
           renderPipeline.renderBackdrop();
@@ -3613,11 +3638,11 @@ export default function QuestHub({
       landscape.gate.left.rotation.y = -gateAmount * 1.33;
       landscape.gate.right.rotation.y = gateAmount * 1.33;
 
-      for (const item of landscape.ambience) updateAmbientLife(item, now);
+      for (const item of landscape.ambience) updateAmbientLife(item, ambientNow);
       for (const repair of landscape.repairs) {
-        updateRepairMoment(repair, repair.restored || solvedRef.current.has(repair.id), dt, now, rewardBonuses.repairAura);
+        updateRepairMoment(repair, repair.restored || solvedRef.current.has(repair.id), dt, ambientNow, rewardBonuses.repairAura);
       }
-      updateActEvent(landscape.actEvent, now, gateAmount);
+      updateActEvent(landscape.actEvent, ambientNow, gateAmount);
 
       const rawRouteDirection = routeDirectionAt(section.route, playerProgress);
       desiredTrailDirection.set(rawRouteDirection.x, 0, rawRouteDirection.z).normalize();
@@ -3753,7 +3778,8 @@ export default function QuestHub({
         camera,
         dt,
         player,
-        liveInteraction
+        liveInteraction,
+        ambientNow
       );
       const debugTask = liveEncounter
         ? landscape.fieldTasks.get(physicalTaskKey(liveEncounter, beatIndexRef.current))
@@ -4030,7 +4056,11 @@ export default function QuestHub({
         if (nextCorrection.misses >= 3 && remediationBeatRef.current === null) {
           reviewQueueRef.current = [...new Set([...reviewQueueRef.current, beatIndexRef.current])];
         }
-        answer(false, beat.target);
+        // The miss belongs to the sound THIS stage wanted, not to every
+        // grapheme in the word — beat.target is an array for word beats, and
+        // fanning a miss across all of them punished sounds the child never
+        // even got to attempt.
+        answer(false, stage.items?.find(item => item.correct)?.value || beat.target);
         checkpoint({
           active: current,
           corrections: correctionRecordsRef.current,

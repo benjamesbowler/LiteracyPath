@@ -75,7 +75,10 @@ function AccountIcon() {
 const ARCADE_REQUIRES_DAILY_TASKS = false;
 
 const MISSION_TILES = [
-  { kind: "quest", label: "Quest", art: "/images/learn-games/art/word-hopscotch.webp" },
+  // "Skills Quest", not "Quest": this tile routes to the EL Skills Quest, and
+  // the bare word "Quest" sat one header away from the Sound Seekers button —
+  // two different modes, one name, and the flagship lost the coin toss.
+  { kind: "quest", label: "Skills Quest", art: "/images/learn-games/art/word-hopscotch.webp" },
   { kind: "book", label: "Book", art: "/images/learn-games/home/home-reading-library.webp" },
   { kind: "game", label: "Game", art: "/images/learn-games/art/pop-the-word.webp" }
 ];

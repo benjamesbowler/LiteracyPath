@@ -1,11 +1,12 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import CreatureFigure from "../CreatureFigure.jsx";
 import { ENCOUNTER_VIEWS } from "./encounterViews.js";
 import { buildTrailSection } from "../../../utils/questHub.js";
 import { targetsForStop } from "../../../utils/questReviewScheduler.js";
 import { getStop, targetsAtStop } from "../../../data/questSequence.js";
 import { starRubric } from "../../../utils/starRubric.js";
-import { displayGrapheme } from "../shells/shellContract.js";
+import { displayGrapheme, sayGrapheme, sayWord } from "../shells/shellContract.js";
+import { hasGraphemeAudio, hasWordAudio } from "../../../utils/questAudio.js";
 
 export default function QuestTrail2D({
   stopId,
@@ -36,6 +37,14 @@ export default function QuestTrail2D({
   const [beatIndex, setBeatIndex] = useState(0);
   const [collected, setCollected] = useState(() => new Set());
   const tallyRef = useRef({ correct: 0, total: 0, mistakes: 0 });
+  const teachEntry = phase === "teach" ? (section?.teach?.[teachIndex] || null) : null;
+
+  // The 2D mode is the ACCESSIBILITY mode — and it was the one place the
+  // teach moment made no sound at all. The sound is the lesson; say it the
+  // moment it appears, exactly as the 3D guide does.
+  useEffect(() => {
+    if (teachEntry && isSoundEnabled) sayGrapheme(teachEntry.id, true);
+  }, [teachEntry, isSoundEnabled]);
 
   if (!section) return null;
   const encounter = section.encounters[encounterIndex] || null;
@@ -59,7 +68,14 @@ export default function QuestTrail2D({
     tallyRef.current.total += 1;
     tallyRef.current.correct += correct ? 1 : 0;
     tallyRef.current.mistakes += correct ? 0 : 1;
-    if (target) onAnswer?.(target, correct, encounter?.kind || "2d-trail");
+    if (target == null) return;
+    // Bridge/cave beats carry an ARRAY of graphemes. QuestHub and TrailWalk
+    // both fan it out; this path passed the array straight through, so the 2D
+    // mode was writing mastery records under garbage keys like "s,a,t" and the
+    // real sounds earned nothing. One rule, all three paths.
+    for (const one of Array.isArray(target) ? target : [target]) {
+      if (one) onAnswer?.(one, correct, encounter?.kind || "2d-trail");
+    }
   };
 
   const nextBeat = () => {
@@ -122,8 +138,25 @@ export default function QuestTrail2D({
         {phase === "teach" && teach && (
           <div className="q2d-teach">
             <span className="q2d-kicker">Meet {section.guide.friend}</span>
-            <h1>{displayGrapheme(teach.id)}</h1>
+            <button
+              type="button"
+              className="q2d-teach-sound"
+              disabled={!hasGraphemeAudio(teach.id)}
+              onClick={() => sayGrapheme(teach.id, isSoundEnabled)}
+              aria-label={`Hear the sound ${displayGrapheme(teach.id)}`}
+            >
+              {displayGrapheme(teach.id)}
+            </button>
             <p>{teach.prompt || teach.line || `This sound is ${displayGrapheme(teach.id)}.`}</p>
+            {teach.examples?.length > 0 && (
+              <p className="qw-guide-eg">
+                {teach.examples.map(word => (
+                  hasWordAudio(word)
+                    ? <button key={word} type="button" className="qw-guide-egword" onClick={() => sayWord(word, isSoundEnabled)}>{word}</button>
+                    : <span key={word} className="qw-guide-egword is-mute">{word}</span>
+                ))}
+              </p>
+            )}
             <button type="button" className="q-primary" onClick={() => {
               if (teachIndex + 1 < section.teach.length) {
                 setTeachIndex(index => index + 1);
@@ -151,8 +184,8 @@ export default function QuestTrail2D({
           <div className="q2d-gate" role="status">
             <span className="q2d-kicker">Trail restored</span>
             <h1>{section.isChapterFinale ? section.finale?.title : "The gate is open"}</h1>
-            <p>You found {collected.size} sun drops. Your progress and sound evidence are ready to bank.</p>
-            <button type="button" className="q-primary" onClick={finish}>Continue through the gate</button>
+            <p>You did it! You found {collected.size} {collected.size === 1 ? "sun drop" : "sun drops"}.</p>
+            <button type="button" className="q-primary" onClick={finish}>Walk through</button>
           </div>
         )}
       </section>

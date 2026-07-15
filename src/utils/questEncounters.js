@@ -30,6 +30,7 @@ import {
   buildEchoCaveRound,
   buildSoundSortRounds,
   buildWordBeastRound,
+  buildTrailRunRound,
   buildTrailSignRounds,
   buildStoryStoneRounds,
   wordsForTarget,
@@ -37,14 +38,23 @@ import {
 } from "./questRounds.js";
 import { getStop, taughtThrough, blendsThrough, QUEST_STOPS } from "../data/questSequence.js";
 import { segmentWord, isDecodable } from "./questSegments.js";
+import { hasGraphemeAudio, hasWordAudio } from "./questAudio.js";
 
 // target id -> what kind of thing it is. Static: the trail doesn't change.
 const QUEST_KINDS = new Map(QUEST_STOPS.flatMap(s => s.teach.map(e => [e.id, e.kind])));
 
 // Every encounter is a THING IN THE WORLD, not a screen.
+//
+// "trail-run" was missing from this table from the day the file was written.
+// Fifteen stops declared it; FROM_SHELL had no key for it; `.filter(Boolean)`
+// swallowed the undefined; and the only mechanic in the game that trains
+// AUTOMATICITY — recognition under time pressure, the difference between
+// decoding and reading — silently never ran. Nothing on screen looked broken.
+// A test now walks every stop and asserts every declared shell actually builds.
 export const ENCOUNTERS = {
   "flower-patch": { from: "sound-stones", label: "Flower patch", beats: 3 },
   "hungry-beast": { from: "beast-feed", label: "Hungry beast", beats: 2 },
+  "trail-run": { from: "trail-run", label: "Trail run", beats: 3 },
   "broken-bridge": { from: "stone-bridge", label: "Broken bridge", beats: 1 },
   "echo-cave": { from: "echo-cave", label: "Echo cave", beats: 1 },
   "sheep-pens": { from: "sound-sort", label: "Sheep pens", beats: 1 },
@@ -97,23 +107,48 @@ export function buildWalk(stopId, { mastery = {}, targets, seed = 1 } = {}) {
 
   const decodable = stop.words.filter(w => isDecodable(w, known));
 
-  // Words for the bridge / cave. Chosen to cover what the stop teaches, so the
-  // blends still get their evidence (see blendsIn in questRounds.js).
+  // Words for the bridge / cave. Chosen to cover what the stop teaches, the
+  // blends that are due (see blendsIn in questRounds.js) — AND the review
+  // sounds the scheduler dragged back. Review used to reach a child only
+  // through the single reserved letter slot; a due sound that lost that one
+  // race was invisible at the stop, so a struggling child saw `a` stop coming
+  // back, and a late sound shown once in a flower patch (`ur`) could stay
+  // one-kind-short forever. A word credits every grapheme inside it, so the
+  // cheapest place to keep review alive is the words the child reads anyway —
+  // the full-trail simulation asserts both cases now.
   const newTargets = stop.teach.filter(e => e.kind !== "alt" && e.kind !== "morph").map(e => e.id);
   const dueBlends = (targets || []).filter(t => taughtBlends.has(t) && !newTargets.includes(t));
-  const coverTargets = [...newTargets, ...dueBlends];
+  const dueLetters = list.filter(t => !newTargets.includes(t));
+  const coverTargets = [...newTargets, ...dueBlends, ...dueLetters];
   const covers = w => new Set([...segmentWord(w), ...blendsIn(w, taughtBlends)]);
 
+  // Greedy set-cover, not first-match. The old first-match walk spent its two
+  // or three words on whatever the pool offered first, which was fine when the
+  // want-list was four new sounds — and starved `ll`/`ss`/`zz` the moment the
+  // want-list also carried review. Picking the word that covers the MOST
+  // still-uncovered wants keeps every want reachable inside the same word
+  // budget. Deterministic: ties go to the earlier pool word.
   const pickCovering = (pool, need, want = coverTargets) => {
     const chosen = [];
     const left = new Set(want);
-    for (const word of pool) {
-      if (chosen.length >= need) break;
-      const c = covers(word);
-      if ([...left].some(t => c.has(t))) {
-        chosen.push(word);
-        for (const t of c) left.delete(t);
+    // `want` is ORDERED, most-starved first, and the order must bite: with a
+    // flat count, "jam" (covers j, already shown in the letter encounter) ties
+    // with "bell" (covers ll, shown nowhere) and wins on pool order — which is
+    // exactly how ll/ss/zz went uncoverable. Rank-weight the hits instead.
+    const rank = new Map([...want].map((t, i) => [t, want.length - i]));
+    while (chosen.length < need && left.size) {
+      let best = null;
+      let bestHit = 0;
+      for (const word of pool) {
+        if (chosen.includes(word)) continue;
+        const c = covers(word);
+        let hit = 0;
+        for (const t of left) if (c.has(t)) hit += rank.get(t) || 1;
+        if (hit > bestHit) { best = word; bestHit = hit; }
       }
+      if (!best) break;
+      chosen.push(best);
+      for (const t of covers(best)) left.delete(t);
     }
     for (const word of pool) {
       if (chosen.length >= need) break;
@@ -139,7 +174,7 @@ export function buildWalk(stopId, { mastery = {}, targets, seed = 1 } = {}) {
     .map(s => FROM_SHELL[s])
     .filter(Boolean);
 
-  const LETTER = ["flower-patch", "hungry-beast"];
+  const LETTER = ["flower-patch", "hungry-beast", "trail-run"];
   const WORD = ["broken-bridge", "echo-cave"];
 
   // BOTH BUCKETS ALTERNATE ALONG THE TRAIL, and this is load-bearing.
@@ -152,20 +187,57 @@ export function buildWalk(stopId, { mastery = {}, targets, seed = 1 } = {}) {
   //
   // Alternating by stop means a sound met in a flower patch gets fed to a beast
   // when review brings it back a stop or two later. Two kinds, honestly earned.
-  const even = stopIndex % 2 === 0;
-  const letterFirst = even ? LETTER : [...LETTER].reverse();
-  const wordFirst = even ? WORD : [...WORD].reverse();
+  //
+  // The letter bucket rotates through THREE kinds now that Trail Run exists —
+  // same phoneme-to-grapheme question, three different pressures (find it /
+  // recall it / find it FAST) — so the rotation still guarantees a second kind
+  // within two stops of any first meeting.
+  const wordFirst = stopIndex % 2 === 0 ? WORD : [...WORD].reverse();
   const first = pool => pool.map(k => wanted.find(w => w === k)).find(Boolean);
 
+  // THE LETTER KIND ROTATES AMONG WHAT THE STOP DECLARES — not among the
+  // global list. Rotating the global list silently benched any kind whose
+  // declaring stops all fell on the wrong rotation slot (creature-feed
+  // vanished from the whole game that way; the physical-mechanics test
+  // caught it). Indexing into the stop's OWN declared kinds guarantees every
+  // declared kind actually runs somewhere, while stops with identical
+  // declarations still alternate by position on the trail.
+  const declaredLetters = LETTER.filter(k => wanted.includes(k));
+  let letterChoice = declaredLetters.length
+    ? declaredLetters[stopIndex % declaredLetters.length]
+    : undefined;
+
+  // NEED BEATS ROTATION. Rotation alone has a blind spot the full-trail
+  // simulation found: a sound whose reviews happen to land on stops that all
+  // rotate to the same letter kind (`ew` came back at s27 and s39 — both
+  // flower stops) stays one-kind-short FOREVER, and mastery needs two kinds.
+  // So before taking the rotation's pick, ask whether any due target is one
+  // proven kind away from the bar and this stop declares a kind it still
+  // needs — if so, run that kind here. Variety is a preference; the ceiling
+  // is a bug.
+  for (const t of targets || []) {
+    const shells = mastery[t]?.shells || [];
+    if (shells.length !== 1) continue;
+    const needed = declaredLetters.find(k => !shells.includes(k));
+    if (needed) { letterChoice = needed; break; }
+  }
+
   const chosen = [
-    first(letterFirst),
+    letterChoice,
     first(wordFirst),
     wanted.find(k => !LETTER.includes(k) && !WORD.includes(k))
   ].filter(Boolean);
 
+  // Top-up from the remaining declared shells — but never a SECOND letter kind
+  // or a SECOND word kind. Two of a bucket is how a stop climbs past the
+  // 8-response walk budget and turns back into a quiz (run 3 + bridge 3 +
+  // cave 3 = 9); one letter thing, one word thing, one other is the walk.
   for (const kind of wanted) {
     if (chosen.length >= MAX_ENCOUNTERS) break;
-    if (!chosen.includes(kind)) chosen.push(kind);
+    if (chosen.includes(kind)) continue;
+    if (LETTER.includes(kind) && chosen.some(k => LETTER.includes(k))) continue;
+    if (WORD.includes(kind) && chosen.some(k => WORD.includes(k))) continue;
+    chosen.push(kind);
   }
 
   // WHO SHOWS WHAT.
@@ -204,7 +276,7 @@ export function buildWalk(stopId, { mastery = {}, targets, seed = 1 } = {}) {
   //
   // Now: most of the slots go to what the stop teaches, and at least one goes to
   // something old that needs proving in a different way.
-  const letterSlots = letterKind === "flower-patch" ? 3 : 2;
+  const letterSlots = letterKind === "hungry-beast" ? 2 : 3;
   const keepForReview = review.length ? 1 : 0;
   const newSlots = Math.max(1, letterSlots - keepForReview);
   const letterTargets = [
@@ -214,14 +286,23 @@ export function buildWalk(stopId, { mastery = {}, targets, seed = 1 } = {}) {
 
   const flowerTargets = letterKind === "flower-patch" ? letterTargets : [];
   const beastTargets = letterKind === "hungry-beast" ? letterTargets : [];
+  const runTargets = letterKind === "trail-run" ? letterTargets : [];
+
+  // NOTE: targets shown in the letter encounter are NOT excluded from the word
+  // coverage below. Mastery needs two KINDS of evidence, and the letter slot is
+  // only one of them — excluding shown targets meant a sound whose review only
+  // ever landed in flower patches could never earn its second kind. The words
+  // are being read regardless; letting them also cover the shown targets costs
+  // nothing and closes the ceiling.
   const shown = new Set(letterTargets);
-  const mustCoverInWords = [...coverTargets.filter(t => !shown.has(t))];
+  const priority = [...coverTargets.filter(t => !shown.has(t)), ...coverTargets.filter(t => shown.has(t))];
+  const mustCoverInWords = priority;
 
   const built = [];
   for (const kind of chosen.slice(0, MAX_ENCOUNTERS)) {
     const encounter = buildEncounter(kind, {
       stop, stopIndex, mastery, rng, list, decodable, pickCovering,
-      flowerTargets, beastTargets, mustCoverInWords, coverTargets
+      flowerTargets, beastTargets, runTargets, mustCoverInWords, coverTargets
     });
     if (encounter) built.push(encounter);
   }
@@ -268,7 +349,7 @@ export function buildWalk(stopId, { mastery = {}, targets, seed = 1 } = {}) {
 function buildEncounter(kind, ctx) {
   const {
     stop, stopIndex, mastery, rng, decodable, pickCovering,
-    flowerTargets, beastTargets, mustCoverInWords, coverTargets
+    flowerTargets, beastTargets, runTargets, mustCoverInWords, coverTargets
   } = ctx;
 
   switch (kind) {
@@ -290,6 +371,18 @@ function buildEncounter(kind, ctx) {
       };
     }
 
+    case "trail-run": {
+      // Fluency: the same sound-to-letter question, on a timer. A cue with no
+      // recording cannot be run against a clock, so silent targets are skipped
+      // here rather than shipped as an unwinnable race.
+      const audible = (runTargets || []).filter(t => hasGraphemeAudio(t));
+      if (!audible.length) return null;
+      return {
+        kind,
+        beats: audible.map(t => buildTrailRunRound(t, { stopIndex, mastery, rng, choices: 3 }))
+      };
+    }
+
     // The word encounters carry the coverage load: one word credits every sound
     // AND every blend inside it, so two words can catch what the flowers missed.
     case "broken-bridge": {
@@ -305,7 +398,23 @@ function buildEncounter(kind, ctx) {
     }
 
     case "sheep-pens": {
-      const rounds = buildSoundSortRounds(stop, { rng, itemsPerPen: 3 });
+      // AN ALT SORT IS UNSOLVABLE WITHOUT SOUND — that is its entire lesson
+      // (questSequence: "No amount of looking at the letters tells you which
+      // sound they make"). The alt clips live at /audio/quest/alt/, which does
+      // not exist yet, so those stops were asking a child to sort `snow` from
+      // `cow` by ear with no ear available. Alt rounds are therefore gated on
+      // BOTH pen cues and EVERY sheep's word clip resolving; when the
+      // recordings land in the manifest they come back with no code change.
+      // Ordinary grapheme sorts (`er` vs `ir`) stay: the spelling is visible
+      // on the sheep, so they are solvable by reading even where a word clip
+      // is missing.
+      const isAltRound = round => round.pens.some(pen => String(pen).includes("_"));
+      const rounds = buildSoundSortRounds(stop, { rng, itemsPerPen: 3 })
+        .filter(round => {
+          if (!isAltRound(round)) return true;
+          return round.pens.every(pen => hasGraphemeAudio(pen))
+            && round.items.every(item => hasWordAudio(item.word));
+        });
       if (!rounds.length) return null;
       return { kind, beats: [rounds[0]] };
     }

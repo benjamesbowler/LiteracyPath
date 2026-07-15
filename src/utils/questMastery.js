@@ -4,14 +4,18 @@
 // "we couldn't be certain that a letter sound was actually learnt, or simply
 // seen." A child there can be pushed into digraphs while still failing `s`.
 //
-// Here, mastery is a CLAIM ABOUT THE CHILD, and claims must be earned:
+// Here, mastery is a CLAIM ABOUT THE CHILD, and claims must be earned.
+// The live bar (MASTERY_RULES below — this summary MUST match the code):
 //
-//   1. >= 8 correct responses
-//   2. >= 85% accuracy over the LAST 10 attempts (not lifetime — a child who
+//   1. >= 4 correct responses
+//   2. >= 75% accuracy over the LAST 4 attempts (not lifetime — a child who
 //      has learnt it should not be punished for the day they hadn't)
 //   3. proved in >= 2 DIFFERENT mini-game shells  (kills shell-specific
 //      pattern-matching: "I know it's the third stone")
 //   4. proved on >= 2 DIFFERENT days               (kills same-sitting cramming)
+//
+// (The bar was 8-correct/85%-of-10 in the v1 quiz build; the "why it changed"
+// note above MASTERY_RULES tells that story.)
 //
 // A mastered sound falls back to `learning` if it is missed twice in a row.
 //
@@ -62,12 +66,18 @@ export const MASTERY_RULES = Object.freeze({
 // PERFECT reader could never master sn, sk, sm, sw, sl or pr. Not "found it
 // hard" — could not, ever, by construction.
 //
-// Four correct reads, across two different task types, on two different days, is
-// real evidence for a unit this size. Demanding ten was demanding evidence the
-// game structurally cannot produce.
+// Three correct reads, across two different task types, on two different days,
+// is real evidence for a unit this size. Demanding ten was demanding evidence
+// the game structurally cannot produce.
+//
+// The window arithmetic matters and once shipped wrong: a 3-attempt window at
+// 0.75 means 2/3 (= 0.667) FAILS, so a blend needed a PERFECT 3-of-3 — a
+// stricter bar than a grapheme's 3-of-4, the exact opposite of this comment's
+// argument. 0.66 makes 2-of-3 pass: one slip in three reads does not un-know
+// a blend.
 export const BLEND_RULES = Object.freeze({
   minCorrect: 3,
-  minAccuracy: 0.75,
+  minAccuracy: 0.66,
   accuracyWindow: 3,
   minShells: 2,
   minSessions: 2,
@@ -80,6 +90,11 @@ export const MASTERY_STATES = Object.freeze({
   MASTERED: "mastered",
   RETIRED: "retired"
 });
+
+// One full box-4 interval. Must equal BOX_INTERVALS[4] in questReviewScheduler
+// (which imports from this file, so importing it back would be a cycle) — a
+// unit test asserts the two numbers agree.
+export const RETIRE_REVIEW_GAP = 12;
 
 export function emptyRecord() {
   return {
@@ -114,7 +129,7 @@ export function meetsMasteryBar(record, rules = MASTERY_RULES) {
   if (r.shells.length < rules.minShells) return false;
   if (r.sessions.length < rules.minSessions) return false;
   // Accuracy is measured over the last N attempts, and we need a full window
-  // before we will claim mastery — 8/8 correct is not yet 10 attempts of proof.
+  // before we will claim mastery — 3/3 correct is not yet a full window of proof.
   if (r.window.length < rules.accuracyWindow) return false;
   return windowAccuracy(r.window) >= rules.minAccuracy;
 }
@@ -150,6 +165,23 @@ export function recordAttempt(record, { correct = false, shell = "", at = "", st
   }
 
   next.state = nextState(prev, next, rules);
+
+  // RETIREMENT — the transition the review scheduler was built around and that,
+  // until 2026-07-15, nothing in production ever performed (retire() was only
+  // called by tests, so box 5's "sampled 1-in-10, nothing rots" promise was
+  // dead). A mastered sound that comes back on review at least one full box-4
+  // interval later and is answered CORRECTLY has survived spaced recall — that
+  // is the definition of retired. It stays sampled 1-in-10 by the scheduler and
+  // can still be demoted by two consecutive misses like any mastered sound.
+  if (
+    correct &&
+    prev.state === MASTERY_STATES.MASTERED &&
+    next.state === MASTERY_STATES.MASTERED &&
+    stopIndex > 0 &&
+    stopIndex - (Number(prev.lastStop) || 0) >= RETIRE_REVIEW_GAP
+  ) {
+    next.state = MASTERY_STATES.RETIRED;
+  }
   return next;
 }
 

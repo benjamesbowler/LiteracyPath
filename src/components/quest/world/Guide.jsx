@@ -13,8 +13,8 @@
 // One guide per land, so the world has someone in it who knows you.
 
 import { useEffect } from "react";
-import { sayGrapheme, sayLetterName, displayGrapheme } from "../shells/shellContract.js";
-import { hasGraphemeAudio, letterNameSrc } from "../../../utils/questAudio.js";
+import { sayGrapheme, sayLetterName, sayWord, displayGrapheme } from "../shells/shellContract.js";
+import { hasGraphemeAudio, hasWordAudio, letterNameSrc } from "../../../utils/questAudio.js";
 import { playTapSound } from "../../../utils/audio/gameSfx.js";
 
 const GUIDES = {
@@ -61,9 +61,28 @@ export default function Guide({ world = "meadow", entry, isSoundEnabled, onNext,
             </button>
           )}
 
-          {/* Example words: not a lesson, just three things it lives in. */}
+          {/* Example words: not a lesson, just three things it lives in — and
+              every one is TAPPABLE. The design rule is "every word in every
+              sentence tappable for audio"; the guide's own examples were the
+              one place it didn't hold. 697 word recordings already exist;
+              words without one render as plain text rather than a dead button. */}
           {entry.examples?.length > 0 && (
-            <p className="qw-guide-eg">{entry.examples.join(" · ")}</p>
+            <p className="qw-guide-eg">
+              {entry.examples.map(word => (
+                hasWordAudio(word)
+                  ? (
+                    <button
+                      key={word}
+                      type="button"
+                      className="qw-guide-egword"
+                      onClick={() => sayWord(word, isSoundEnabled)}
+                    >
+                      {word}
+                    </button>
+                  )
+                  : <span key={word} className="qw-guide-egword is-mute">{word}</span>
+              ))}
+            </p>
           )}
 
           <button type="button" className="qw-go" onClick={onNext}>
