@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { clone as cloneSkeleton } from "three/addons/utils/SkeletonUtils.js";
+import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 import {
   FIELD_OBJECT_MODELS,
   QUEST_CHAPTER_ASSET_KITS,
@@ -82,11 +83,14 @@ function makeContactShadow(radius, opacity) {
   }
   const shadow = new THREE.Mesh(
     new THREE.PlaneGeometry(radius * 2.2, radius * 1.42),
-    new THREE.MeshBasicMaterial({
+    new THREE.MeshStandardMaterial({
+      color: 0x000000,
       map: contactShadowTexture,
       transparent: true,
       opacity,
-      depthWrite: false
+      depthWrite: false,
+      roughness: 1,
+      metalness: 0
     })
   );
   shadow.name = "rigged-contact-shadow";
@@ -369,15 +373,20 @@ export function updateImportedFieldAvatar(root, dt) {
   root?.userData.fieldMixer?.update(dt);
 }
 
-function cloneNatureMaterials(source, { tint = 0xffffff, maxAnisotropy = 1, wind = false } = {}) {
+function cloneNatureMaterials(source, {
+  tint = 0xffffff,
+  foliageTint = null,
+  maxAnisotropy = 1,
+  wind = false
+} = {}) {
   const originals = Array.isArray(source) ? source : [source];
   const materials = originals.map(original => {
     const material = original.clone();
-    material.color.multiply(new THREE.Color(tint));
+    const isCutout = /leaves|flowers/i.test(material.name);
+    material.color.multiply(new THREE.Color(isCutout && foliageTint ? foliageTint : tint));
     material.roughness = Math.max(0.62, material.roughness || 0.5);
     material.metalness = 0;
     material.envMapIntensity = 0.72;
-    const isCutout = /leaves|flowers/i.test(material.name);
     if (material.transparent || isCutout) {
       material.transparent = false;
       material.alphaTest = Math.max(isCutout ? 0.42 : 0.32, material.alphaTest || 0);
@@ -407,7 +416,7 @@ function addWindShader(material) {
     );
     material.userData.windShader = shader;
   };
-  material.customProgramCacheKey = () => "sound-seekers-wind-v1";
+  material.customProgramCacheKey = () => `sound-seekers-wind-${material.userData.windStrength}`;
 }
 
 function sourceMeshes(asset) {
@@ -468,15 +477,31 @@ function treeLayout(section, rows, index) {
   const lane = index % perBand;
   const side = lane % 2 === 0 ? -1 : 1;
   const row = Math.floor(lane / 2);
-  const progress = Math.min(1, (band * 4.25) / section.route.totalLength);
+  const progress = Math.min(1, (band * 6.15) / section.route.totalLength);
   const seed = section.stopIndex * 131 + index * 17;
-  const point = routeSidePoint(section.route, progress, side, 1.35 + row * 2.65 + seededUnit(seed) * 0.48);
+  const routeSamples = [
+    ...section.route.samples,
+    ...section.route.branches.flatMap(branch => branch.samples)
+  ];
+  let offset = 2.75 + row * 3.15 + seededUnit(seed) * 0.62;
+  let point = routeSidePoint(section.route, progress, side, offset);
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const crossesRoad = routeSamples.some(sample => (
+      Math.hypot(sample.x - point.x, sample.z - point.z) < section.route.width + 1.25
+    ));
+    if (!crossesRoad) break;
+    offset += 2.15;
+    point = routeSidePoint(section.route, progress, side, offset);
+  }
   const clearDestination = progress > (section.isChapterFinale ? 0.64 : 0.82);
+  const clearTaskGlade = [section.guide, ...section.encounters].some(taskPoint => (
+    Math.hypot(taskPoint.x - point.x, taskPoint.z - point.z) < 10.5
+  ));
   return {
     x: point.x,
     y: point.y - 0.02,
     z: point.z + (seededUnit(seed + 4) - 0.5) * 0.74,
-    scale: clearDestination ? 0.001 : 0.68 + seededUnit(seed + 8) * 0.22,
+    scale: clearDestination || clearTaskGlade ? 0.001 : 0.68 + seededUnit(seed + 8) * 0.22,
     rotationY: seededUnit(seed + 12) * Math.PI * 2
   };
 }
@@ -493,6 +518,86 @@ function groundScatterLayout(section, index, { inset = 0.5, step = 5.6, scale = 
     scale: scale * (0.72 + seededUnit(seed + 11) * 0.48),
     rotationY: seededUnit(seed + 14) * Math.PI * 2
   };
+}
+
+function createInstancedGrass(section, theme, quality) {
+  if (quality.id === "low" || section.world === "dino") return null;
+  const bladeSpecs = [
+    { rotation: 0, x: 0, z: 0, height: 0.48 },
+    { rotation: Math.PI / 3, x: 0.1, z: 0.04, height: 0.38 },
+    { rotation: -Math.PI / 3, x: -0.1, z: 0.03, height: 0.42 },
+    { rotation: Math.PI / 1.8, x: 0.04, z: -0.09, height: 0.34 },
+    { rotation: -Math.PI / 1.8, x: -0.04, z: -0.08, height: 0.36 }
+  ];
+  const bladeParts = bladeSpecs.map(({ rotation, x, z, height }, index) => {
+    const blade = new THREE.PlaneGeometry(0.15 - index * 0.006, height, 1, 3);
+    const positions = blade.attributes.position;
+    for (let vertex = 0; vertex < positions.count; vertex += 1) {
+      const localY = positions.getY(vertex);
+      const t = THREE.MathUtils.clamp(localY / height + 0.5, 0, 1);
+      positions.setX(vertex, positions.getX(vertex) * (1 - t * 0.9) + t * t * (index % 2 ? -0.035 : 0.035));
+    }
+    positions.needsUpdate = true;
+    blade.translate(x, height * 0.5, z);
+    blade.rotateY(rotation);
+    blade.computeVertexNormals();
+    return blade;
+  });
+  const geometry = mergeGeometries(bladeParts, false);
+  bladeParts.forEach(blade => blade.dispose());
+  if (!geometry) return null;
+
+  const material = new THREE.MeshStandardMaterial({
+    color: 0xffffff,
+    emissive: section.world === "moonwood" ? 0x102b28 : 0x173315,
+    emissiveIntensity: 0.025,
+    roughness: 0.84,
+    metalness: 0,
+    side: THREE.DoubleSide
+  });
+  addWindShader(material);
+  material.userData.windStrength = 0.052;
+
+  const count = quality.id === "rich" ? 700 : 320;
+  const mesh = new THREE.InstancedMesh(geometry, material, count);
+  const helper = new THREE.Object3D();
+  const colour = new THREE.Color();
+  const palette = section.world === "moonwood"
+    ? [0x5f8a7a, 0x719785, 0x527b70]
+    : [0x4d713f, 0x5d824a, 0x6e9156, 0x436739];
+  const taskPoints = [section.guide, ...section.encounters];
+
+  for (let index = 0; index < count; index += 1) {
+    const progress = 0.025 + (index / Math.max(1, count - 1)) * 0.92;
+    const side = index % 2 === 0 ? -1 : 1;
+    const seed = section.stopIndex * 193 + index * 29;
+    const offset = section.route.width + 0.65 + seededUnit(seed) * 5.4;
+    const point = routeSidePoint(section.route, progress, side, offset);
+    const clearsTask = taskPoints.every(task => Math.hypot(task.x - point.x, task.z - point.z) > 5.8);
+    const scale = clearsTask ? 0.46 + seededUnit(seed + 7) * 0.54 : 0.001;
+    helper.position.set(
+      point.x + (seededUnit(seed + 3) - 0.5) * 1.4,
+      point.y + 0.025,
+      point.z + (seededUnit(seed + 5) - 0.5) * 1.4
+    );
+    helper.rotation.set(0, seededUnit(seed + 11) * Math.PI * 2, (seededUnit(seed + 13) - 0.5) * 0.12);
+    helper.scale.set(scale * (0.82 + seededUnit(seed + 17) * 0.3), scale, scale);
+    helper.updateMatrix();
+    mesh.setMatrixAt(index, helper.matrix);
+    colour.setHex(palette[index % palette.length]).offsetHSL(
+      (seededUnit(seed + 19) - 0.5) * 0.035,
+      0,
+      (seededUnit(seed + 23) - 0.5) * 0.07
+    );
+    mesh.setColorAt(index, colour);
+  }
+  mesh.instanceMatrix.needsUpdate = true;
+  if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
+  mesh.castShadow = false;
+  mesh.receiveShadow = true;
+  mesh.computeBoundingSphere();
+  mesh.name = "wind-reactive-grass-detail";
+  return mesh;
 }
 
 export async function createImportedNature(section, theme, quality, { maxAnisotropy = 1 } = {}) {
@@ -519,9 +624,10 @@ export async function createImportedNature(section, theme, quality, { maxAnisotr
 
   const loadedTrees = treeResults.filter(result => result.status === "fulfilled");
   const rows = quality.treeRows >= 3 ? 2 : 1;
-  const bands = Math.ceil(section.route.totalLength / 4.25);
+  const bands = Math.ceil(section.route.totalLength / 6.15);
   const totalTreeCount = bands * rows * 2;
-  const treeTint = section.world === "moonwood" ? 0x9aa9bd : section.world === "dino" ? 0xc2a77e : 0xffffff;
+  const treeTint = section.world === "moonwood" ? 0x9aa9bd : section.world === "dino" ? 0xc2a77e : 0xd7c6ad;
+  const foliageTint = section.world === "meadow" ? 0x78a477 : null;
   loadedTrees.forEach((treeResult, assetIndex) => {
     const count = Math.ceil(totalTreeCount / loadedTrees.length);
     const trees = makeInstancedAsset(
@@ -530,6 +636,7 @@ export async function createImportedNature(section, theme, quality, { maxAnisotr
       index => treeLayout(section, rows, index * loadedTrees.length + assetIndex),
       {
         tint: treeTint,
+        foliageTint,
         maxAnisotropy,
         wind: section.world === "meadow"
       }
@@ -587,6 +694,12 @@ export async function createImportedNature(section, theme, quality, { maxAnisotr
       group.add(dryScrub);
       group.userData.windMaterials.push(...windMaterialsFor(dryScrub));
     }
+  }
+
+  const grass = createInstancedGrass(section, theme, quality);
+  if (grass) {
+    group.add(grass);
+    group.userData.windMaterials.push(grass.material);
   }
 
   return group.children.length ? group : null;

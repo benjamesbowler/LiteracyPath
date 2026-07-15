@@ -2,16 +2,16 @@ export const THREE_ASSET_MANIFEST_URL = "/models/library/manifest.json";
 
 export const FIELD_OBJECT_MODELS = Object.freeze({
   "seed-lantern": Object.freeze({
-    url: "/models/library/kaykit/halloween/models/lantern_standing.gltf",
+    url: "/models/library/kaykit/medieval/models/decoration/props/resource_stone.gltf",
     targetHeight: 0.86,
     rotationY: 0,
-    tintStrength: 0.18
+    tintStrength: 0.42
   }),
   "awakened-lantern": Object.freeze({
-    url: "/models/library/kaykit/halloween/models/lantern_hanging.gltf",
+    url: "/models/library/kaykit/medieval/models/decoration/props/resource_stone.gltf",
     targetHeight: 0.9,
-    rotationY: 0,
-    tintStrength: 0.12
+    rotationY: Math.PI / 5,
+    tintStrength: 0.5
   }),
   "jump-flower": Object.freeze({
     url: "/models/library/kaykit/medieval/models/decoration/nature/waterlily_A.gltf",
@@ -26,34 +26,34 @@ export const FIELD_OBJECT_MODELS = Object.freeze({
     tintStrength: 0.2
   }),
   "sound-parcel": Object.freeze({
-    url: "/models/library/kaykit/restaurant/models/crate.gltf",
+    url: "/models/library/kaykit/medieval/models/decoration/props/crate_A_small.gltf",
     targetSize: 0.94,
     rotationY: Math.PI / 7,
     tintStrength: 0.24
   }),
   "delivered-parcel": Object.freeze({
-    url: "/models/library/kaykit/restaurant/models/crate_lid.gltf",
+    url: "/models/library/kaykit/medieval/models/decoration/props/crate_open.gltf",
     targetSize: 0.88,
     rotationY: -Math.PI / 8,
     tintStrength: 0.18
   }),
   "delivery-marker": Object.freeze({
-    url: "/models/library/kaykit/halloween/models/post_lantern.gltf",
+    url: "/models/library/kaykit/medieval/models/decoration/nature/rock_single_A.gltf",
     targetHeight: 1.36,
     rotationY: 0,
-    tintStrength: 0.1
+    tintStrength: 0.46
   }),
   "chorus-lantern": Object.freeze({
-    url: "/models/library/kaykit/halloween/models/lantern_standing.gltf",
+    url: "/models/library/kaykit/medieval/models/decoration/props/resource_stone.gltf",
     targetHeight: 1.02,
     rotationY: 0,
-    tintStrength: 0.34
+    tintStrength: 0.52
   }),
   "lit-chorus-lantern": Object.freeze({
-    url: "/models/library/kaykit/halloween/models/lantern_hanging.gltf",
+    url: "/models/library/kaykit/medieval/models/decoration/props/resource_stone.gltf",
     targetHeight: 1.04,
-    rotationY: 0,
-    tintStrength: 0.18
+    rotationY: Math.PI / 4,
+    tintStrength: 0.58
   }),
   cake: Object.freeze({
     url: "/models/library/poly-pizza/objectives/Cupcake.glb",
@@ -82,7 +82,7 @@ export const FIELD_OBJECT_MODELS = Object.freeze({
 export const QUEST_STOP_ASSET_KITS = Object.freeze({
   s1: Object.freeze([
     { url: "/models/library/kaykit/medieval/models/decoration/nature/trees_A_large.gltf", height: 6.6, progress: 0.72, side: -1, offset: 3.2 },
-    { url: "/models/library/kaykit/halloween/models/lantern_hanging.gltf", height: 1.4, progress: 0.36, side: 1, offset: 2.5, copies: 4 },
+    { url: "/models/library/kaykit/medieval/models/decoration/props/resource_stone.gltf", height: 1.4, progress: 0.36, side: 1, offset: 2.5, copies: 4 },
     { url: "/models/library/kaykit/medieval/models/buildings/green/building_well_green.gltf", height: 2.8, progress: 0.58, side: 1, offset: 3 }
   ]),
   s2: Object.freeze([
@@ -91,8 +91,8 @@ export const QUEST_STOP_ASSET_KITS = Object.freeze({
     { url: "/models/library/kaykit/medieval/models/decoration/nature/trees_B_medium.gltf", height: 4.2, progress: 0.56, side: -1, offset: 3.4 }
   ]),
   s3: Object.freeze([
-    { url: "/models/library/kaykit/medieval/models/buildings/yellow/building_windmill_yellow.gltf", height: 6.4, progress: 0.76, side: -1, offset: 3.4 },
-    { url: "/models/library/kaykit/restaurant/models/crate.gltf", height: 0.82, progress: 0.38, side: 1, offset: 2.5, copies: 4 },
+    { url: "/models/library/kaykit/medieval/models/buildings/green/building_windmill_green.gltf", height: 6.4, progress: 0.76, side: -1, offset: 3.4 },
+    { url: "/models/library/kaykit/medieval/models/decoration/props/crate_A_small.gltf", height: 0.82, progress: 0.38, side: 1, offset: 2.5, copies: 4 },
     { url: "/models/library/kaykit/medieval/models/decoration/nature/rock_single_C.gltf", height: 1.35, progress: 0.6, side: 1, offset: 3, copies: 3 }
   ]),
   s4: Object.freeze([
@@ -101,11 +101,45 @@ export const QUEST_STOP_ASSET_KITS = Object.freeze({
     { url: "/models/library/kaykit/medieval/models/decoration/nature/waterlily_B.gltf", size: 1.4, progress: 0.4, side: 1, offset: 2.4, copies: 4 }
   ]),
   s5: Object.freeze([
-    { url: "/models/library/kaykit/halloween/models/arch_gate.gltf", height: 5.8, progress: 0.78, side: 1, offset: 3.1 },
-    { url: "/models/library/kaykit/halloween/models/tree_dead_large_decorated.gltf", height: 6.2, progress: 0.57, side: -1, offset: 3.5 },
-    { url: "/models/library/kaykit/halloween/models/lantern_standing.gltf", height: 1.45, progress: 0.36, side: 1, offset: 2.6, copies: 5 }
+    { url: "/models/library/kaykit/medieval/models/buildings/neutral/wall_straight_gate.gltf", height: 5.8, progress: 0.78, side: 1, offset: 3.1 },
+    { url: "/models/library/kaykit/medieval/models/decoration/nature/trees_A_large.gltf", height: 6.2, progress: 0.57, side: -1, offset: 3.5 },
+    { url: "/models/library/kaykit/medieval/models/decoration/props/resource_stone.gltf", height: 1.45, progress: 0.36, side: 1, offset: 2.6, copies: 5 }
   ])
 });
+
+export const SEEDWAKE_FIELD_SHAPES = Object.freeze([
+  "seed-lantern",
+  "awakened-lantern",
+  "jump-flower",
+  "flower-step",
+  "sound-parcel",
+  "delivery-marker",
+  "delivered-parcel",
+  "chorus-lantern",
+  "lit-chorus-lantern"
+]);
+
+export const SEEDWAKE_ASSET_ALLOWLIST = Object.freeze([
+  ...new Set([
+    ...SEEDWAKE_FIELD_SHAPES.map(shape => FIELD_OBJECT_MODELS[shape]?.url).filter(Boolean),
+    ...Object.values(QUEST_STOP_ASSET_KITS).slice(0, 5).flatMap(kit => kit.map(asset => asset.url))
+  ])
+]);
+
+export function seedwakeAssetManifest() {
+  return Object.freeze({
+    kitId: "seedwake-meadow",
+    fieldShapes: Object.freeze([...SEEDWAKE_FIELD_SHAPES]),
+    urls: Object.freeze([
+      ...new Set([
+        ...SEEDWAKE_FIELD_SHAPES.map(shape => FIELD_OBJECT_MODELS[shape]?.url).filter(Boolean),
+        ...Object.entries(QUEST_STOP_ASSET_KITS)
+          .filter(([stopId]) => ["s1", "s2", "s3", "s4", "s5"].includes(stopId))
+          .flatMap(([, kit]) => kit.map(asset => asset.url))
+      ])
+    ])
+  });
+}
 
 // Authored chapter silhouettes. These are deliberately small curated kits, not
 // random manifest searches at runtime: each chapter keeps a recognisable visual

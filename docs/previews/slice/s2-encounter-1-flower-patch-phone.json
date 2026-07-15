@@ -1,0 +1,67 @@
+{
+  "proof": {
+    "stopId": "s2",
+    "encounterId": "s2-0",
+    "encounterKind": "flower-patch",
+    "beatIndex": 0,
+    "stageIndex": 0,
+    "safeArea": {
+      "left": 22,
+      "top": 116,
+      "right": 368,
+      "bottom": 720
+    },
+    "hudNodes": 2,
+    "camera": {
+      "position": [
+        32.3221260191647,
+        7.958932243497061,
+        -0.5917831867290594
+      ],
+      "delta": 0.003110249404464725,
+      "settled": true
+    },
+    "items": [
+      {
+        "id": "s2-0-0-0-0-t",
+        "value": "t",
+        "rect": {
+          "left": 240.45014705147995,
+          "top": 387.9541934737953,
+          "right": 335.86011583857584,
+          "bottom": 478.4390021774947
+        },
+        "insideSafeArea": true,
+        "firstHit": "Mesh",
+        "rayClear": true
+      },
+      {
+        "id": "s2-0-0-0-1-s",
+        "value": "s",
+        "rect": {
+          "left": 150.45241496528087,
+          "top": 379.23891967865666,
+          "right": 238.1991977085074,
+          "bottom": 465.18006486080054
+        },
+        "insideSafeArea": true,
+        "firstHit": "Mesh",
+        "rayClear": true
+      },
+      {
+        "id": "s2-0-0-0-2-n",
+        "value": "n",
+        "rect": {
+          "left": 61.96181257608329,
+          "top": 394.44154252720716,
+          "right": 144.5067622999864,
+          "bottom": 482.664117359549
+        },
+        "insideSafeArea": true,
+        "firstHit": "Mesh",
+        "rayClear": true
+      }
+    ]
+  },
+  "problems": []
+}

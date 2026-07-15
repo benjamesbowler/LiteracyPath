@@ -16,12 +16,13 @@ import {
   buildQuestRoute,
   clampRoutePosition,
   routeDirectionAt,
+  routeMovementVector,
   routePointAt,
   routeProgressAt,
   routeSidePoint
 } from "./questRouteGraph.js";
 
-export { routeDirectionAt, routePointAt, routeProgressAt, routeSidePoint };
+export { routeDirectionAt, routeMovementVector, routePointAt, routeProgressAt, routeSidePoint };
 
 export const TRAIL_BOUNDS = Object.freeze({
   startZ: 10,

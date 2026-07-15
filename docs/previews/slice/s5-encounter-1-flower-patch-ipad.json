@@ -1,0 +1,67 @@
+{
+  "proof": {
+    "stopId": "s5",
+    "encounterId": "s5-0",
+    "encounterKind": "flower-patch",
+    "beatIndex": 0,
+    "stageIndex": 0,
+    "safeArea": {
+      "left": 34,
+      "top": 104,
+      "right": 1160,
+      "bottom": 728
+    },
+    "hudNodes": 2,
+    "camera": {
+      "position": [
+        3.5254766009579996,
+        6.437384212244881,
+        -24.328219952358918
+      ],
+      "delta": 0.0030791765048044715,
+      "settled": true
+    },
+    "items": [
+      {
+        "id": "s5-0-0-0-0-c",
+        "value": "c",
+        "rect": {
+          "left": 679.3720288187473,
+          "top": 319.0540197910449,
+          "right": 909.7744517328174,
+          "bottom": 538.1091224112407
+        },
+        "insideSafeArea": true,
+        "firstHit": "resource_stone",
+        "rayClear": true
+      },
+      {
+        "id": "s5-0-0-0-1-b",
+        "value": "b",
+        "rect": {
+          "left": 474.0016557117317,
+          "top": 305.2674433475962,
+          "right": 689.1365652502511,
+          "bottom": 511.3333064124441
+        },
+        "insideSafeArea": true,
+        "firstHit": "resource_stone",
+        "rayClear": true
+      },
+      {
+        "id": "s5-0-0-0-2-d",
+        "value": "d",
+        "rect": {
+          "left": 278.6500773813748,
+          "top": 357.8215498552122,
+          "right": 508.85270710498713,
+          "bottom": 590.7825664649299
+        },
+        "insideSafeArea": true,
+        "firstHit": "resource_stone",
+        "rayClear": true
+      }
+    ]
+  },
+  "problems": []
+}

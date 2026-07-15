@@ -5,10 +5,22 @@ import {
   buildQuestRoute,
   clampRoutePosition,
   routeDirectionAt,
+  routeMovementVector,
   routePointAt,
   routeProgressAt,
   routeSidePoint
 } from "../../src/utils/questRouteGraph.js";
+
+test("route-relative controls keep screen left and right correctly oriented", () => {
+  const north = { x: 0, z: -1 };
+  assert.deepEqual(routeMovementVector(north, { lateral: -1 }), { x: -1, z: 0 });
+  assert.deepEqual(routeMovementVector(north, { lateral: 1 }), { x: 1, z: 0 });
+  assert.deepEqual(routeMovementVector(north, { forward: 1 }), { x: 0, z: -1 });
+
+  const east = { x: 1, z: 0 };
+  assert.deepEqual(routeMovementVector(east, { lateral: -1 }), { x: 0, z: -1 });
+  assert.deepEqual(routeMovementVector(east, { lateral: 1 }), { x: 0, z: 1 });
+});
 
 test("every route topology builds a traversable high-resolution graph", () => {
   for (const [index, topology] of QUEST_ROUTE_TOPOLOGIES.entries()) {
@@ -58,4 +70,23 @@ test("branching route graphs expose optional walkable edges", () => {
     assert.ok(branch.totalLength > 5);
     assert.ok(branch.startProgress >= 0 && branch.startProgress <= 1);
   });
+});
+
+test("route samples turn continuously without polyline corner snaps", () => {
+  for (const [index, topology] of QUEST_ROUTE_TOPOLOGIES.entries()) {
+    const route = buildQuestRoute({ topology, seed: index + 1 });
+    let largestTurn = 0;
+    for (let sampleIndex = 1; sampleIndex < route.samples.length; sampleIndex += 1) {
+      const before = route.samples[sampleIndex - 1];
+      const after = route.samples[sampleIndex];
+      const dot = Math.max(-1, Math.min(1,
+        before.tangentX * after.tangentX
+        + before.tangentY * after.tangentY
+        + before.tangentZ * after.tangentZ
+      ));
+      largestTurn = Math.max(largestTurn, Math.acos(dot));
+      assert.ok(after.progress > before.progress, `${topology} route progress went backwards`);
+    }
+    assert.ok(largestTurn < 0.5, `${topology} still contains a hard ${largestTurn.toFixed(3)} radian corner`);
+  }
 });

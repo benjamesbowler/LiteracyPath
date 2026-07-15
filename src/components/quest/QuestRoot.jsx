@@ -22,6 +22,7 @@ import { loadQuestProgress, saveQuestProgress } from "../../utils/questStore.js"
 import {
   recordQuestAttempt,
   recordStopResult,
+  earnedGearReward,
   saveQuestCheckpoint,
   ownedPieces,
   chapterRewardForStop
@@ -87,15 +88,17 @@ export default function QuestRoot({
   initialView = null,
   initialStop = null
 }) {
+  const previewState = initialView === VIEW.CEREMONY ? loadQuestProgress(progressScopeKey) : null;
   const previewCeremony = initialView === VIEW.CEREMONY && getStop(initialStop)
     ? {
       id: `preview-${initialStop}`,
       stop: getStop(initialStop),
       nextStop: QUEST_STOPS[getStop(initialStop).index] || null,
       stars: 3,
-      newStones: [],
+      newStones: previewState?.stones?.slice(-5) || [],
       gear: CREATURE_GEAR.find(item => item.unlock === initialStop)?.id || null,
-      chapterReward: chapterRewardForStop(initialStop)
+      chapterReward: chapterRewardForStop(initialStop),
+      state: previewState
     }
     : null;
   const [state, setState] = useState(() => loadQuestProgress(progressScopeKey));
@@ -179,7 +182,7 @@ export default function QuestRoot({
     handoffTimerRef.current = window.setTimeout(() => {
       setActiveStop(arriving.stopId);
       setWorldLayers([{ stopId: arriving.stopId, status: "active", ready: true, anticipatedFrom: null }]);
-    }, 760);
+    }, 440);
     return () => window.clearTimeout(handoffTimerRef.current);
   }, [worldLayers]);
 
@@ -257,7 +260,8 @@ export default function QuestRoot({
     const finishedStop = getStop(finishedStopId);
     const nextStop = nextStopAfter(next);
     const newStones = next.stones.filter(g => !before.has(g) && isMastered(next.mastery, g));
-    const gear = CREATURE_GEAR.find(g => g.unlock === finishedStopId)?.id || null;
+    const gearReward = earnedGearReward(next, finishedStopId);
+    const gear = gearReward?.equipped ? gearReward.id : null;
     const chapterReward = completedBefore ? null : chapterRewardForStop(finishedStopId);
 
     latestCheckpointRef.current = null;
@@ -443,6 +447,7 @@ export default function QuestRoot({
               resume: layerResume,
               isSoundEnabled,
               isInteractive: interactive,
+              journeyStatus: layer.status,
               mode: journeyMode.kind,
               targetsOverride: journeyMode.targets,
               onAnswer: (target, correct, shell) => handleAnswer(layer.stopId, target, correct, shell),

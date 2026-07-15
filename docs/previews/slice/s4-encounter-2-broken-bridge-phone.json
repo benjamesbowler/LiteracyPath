@@ -1,0 +1,67 @@
+{
+  "proof": {
+    "stopId": "s4",
+    "encounterId": "s4-1",
+    "encounterKind": "broken-bridge",
+    "beatIndex": 0,
+    "stageIndex": 0,
+    "safeArea": {
+      "left": 22,
+      "top": 116,
+      "right": 368,
+      "bottom": 720
+    },
+    "hudNodes": 2,
+    "camera": {
+      "position": [
+        -47.43802328979214,
+        9.107217615961032,
+        -0.1419947567478196
+      ],
+      "delta": 0.00311435905550402,
+      "settled": true
+    },
+    "items": [
+      {
+        "id": "s4-1-0-0-0-u",
+        "value": "u",
+        "rect": {
+          "left": 253.53180340193572,
+          "top": 396.4885674746964,
+          "right": 320.0006017805396,
+          "bottom": 466.53990054637535
+        },
+        "insideSafeArea": true,
+        "firstHit": "Mesh",
+        "rayClear": true
+      },
+      {
+        "id": "s4-1-0-0-1-s",
+        "value": "s",
+        "rect": {
+          "left": 165.75726586497035,
+          "top": 383.4219918684529,
+          "right": 225.14782736173203,
+          "bottom": 449.29201175788563
+        },
+        "insideSafeArea": true,
+        "firstHit": "Mesh",
+        "rayClear": true
+      },
+      {
+        "id": "s4-1-0-0-2-a",
+        "value": "a",
+        "rect": {
+          "left": 73.21755503537901,
+          "top": 393.02665229273384,
+          "right": 132.69084092684562,
+          "bottom": 459.7438397944709
+        },
+        "insideSafeArea": true,
+        "firstHit": "Mesh",
+        "rayClear": true
+      }
+    ]
+  },
+  "problems": []
+}

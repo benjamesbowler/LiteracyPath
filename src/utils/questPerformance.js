@@ -11,7 +11,7 @@ export const QUEST_QUALITY_TIERS = Object.freeze({
     id: "rich",
     pixelRatio: 1.75,
     shadows: true,
-    shadowSize: 1536,
+    shadowSize: 2048,
     treeRows: 3,
     decorationStep: 8,
     ambientScale: 1,

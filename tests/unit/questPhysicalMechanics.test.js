@@ -6,6 +6,9 @@ import {
   PHYSICAL_ENCOUNTER_KINDS,
   PHYSICAL_MECHANICS_BY_ENCOUNTER,
   buildPhysicalTask,
+  fieldCollisionStep,
+  physicalTaskForwardLimit,
+  physicalTaskResidentPoint,
   physicalStage
 } from "../../src/utils/questPhysicalMechanics.js";
 import { SEEDWAKE_STOP_IDS, seedwakeStopSpec } from "../../src/data/questChapterOne.js";
@@ -89,4 +92,110 @@ test("Rook Stones requires picking up a parcel and physically delivering it", ()
   assert.equal(task.stages[1].playerAction, "carry");
   assert.equal(task.stages[1].items[0].shape, "delivery-marker");
   assert.equal(task.stages[1].items[0].correct, true);
+});
+
+test("a new floor-letter stage cannot retrigger until the player leaves the old collision zone", () => {
+  const firstTouch = fieldCollisionStep({
+    armed: true,
+    player: { x: 0, z: 0 },
+    interactionRadius: 1,
+    items: [{ x: 0, z: 0, visible: true, choice: { value: "h", stage: 0 } }]
+  });
+  assert.equal(firstTouch.choice.value, "h");
+  assert.equal(firstTouch.armed, false);
+
+  const nextStageOverlap = fieldCollisionStep({
+    armed: firstTouch.armed,
+    player: { x: 0, z: 0 },
+    stage: 1,
+    interactionRadius: 1,
+    items: [
+      { x: 0.2, z: 0, visible: true, choice: { value: "h", stage: 0 } },
+      { x: 0, z: 0, visible: true, choice: { value: "a", stage: 1 } }
+    ]
+  });
+  assert.equal(nextStageOverlap.choice, null);
+  assert.equal(nextStageOverlap.armed, false);
+
+  const movedClear = fieldCollisionStep({
+    armed: nextStageOverlap.armed,
+    player: { x: 1.6, z: 0 },
+    stage: 1,
+    interactionRadius: 1,
+    items: [
+      { x: 1.7, z: 0, visible: true, choice: { value: "h", stage: 0 } },
+      { x: 0, z: 0, visible: true, choice: { value: "a", stage: 1 } }
+    ]
+  });
+  assert.equal(movedClear.choice, null);
+  assert.equal(movedClear.armed, true);
+
+  const secondTouch = fieldCollisionStep({
+    armed: movedClear.armed,
+    player: { x: 0, z: 0 },
+    interactionRadius: 1,
+    items: [{ x: 0, z: 0, visible: true, choice: { value: "a", stage: 1 } }]
+  });
+  assert.equal(secondTouch.choice.value, "a");
+});
+
+test("physical-task residents stand outside the choice spread", () => {
+  const section = buildTrailSection("s3", { seed: 3 });
+  for (const encounter of section.encounters) {
+    const task = buildPhysicalTask(section, encounter, encounter.beats[0], 0);
+    const resident = physicalTaskResidentPoint(section, encounter);
+    const closestItem = Math.min(...task.items.map(item => Math.hypot(item.x - resident.x, item.z - resident.z)));
+    assert.ok(closestItem > 1.35, `${encounter.id} resident still obscures a choice (${closestItem.toFixed(2)})`);
+  }
+});
+
+test("early phonics encounters hide the answer in the cue and use three widely spaced choices", () => {
+  const section = buildTrailSection("s1", { seed: 1 });
+  for (const encounter of section.encounters) {
+    for (const [beatIndex, beat] of encounter.beats.entries()) {
+      const task = buildPhysicalTask(section, encounter, beat, beatIndex);
+      if (encounter.kind === "hungry-beast") {
+        assert.ok(task.completions.every(completion => completion.label === ""), "a solved ornament repeats the answer letter");
+        assert.ok(task.completions.every(completion => completion.showToken === false), "a solved ornament still creates a letter token");
+      }
+      for (const [stageIndex, stage] of task.stages.entries()) {
+        if (stage.audioCue?.kind === "grapheme") {
+          assert.equal(stage.prompt, "Find the letter that matches the sound");
+        } else if (stage.audioCue?.kind === "word") {
+          assert.equal(
+            stage.prompt,
+            stageIndex === 0
+              ? `Find the letter that starts '${beat.word}'`
+              : `Find the next sound in '${beat.word}'`
+          );
+        }
+        for (const answer of Array.isArray(beat.answer) ? beat.answer : [beat.answer]) {
+          assert.doesNotMatch(stage.prompt, new RegExp(`\\b${answer}\\b[.!?]?$`, "i"));
+        }
+        assert.ok(stage.prompt.split(/\s+/).length <= 8, `${stage.prompt} is too long for a child cue`);
+        assert.ok(stage.items.length <= 3, `${encounter.id} still presents ${stage.items.length} choices`);
+        for (let first = 0; first < stage.items.length; first += 1) {
+          for (let second = first + 1; second < stage.items.length; second += 1) {
+            const distance = Math.hypot(
+              stage.items[first].x - stage.items[second].x,
+              stage.items[first].z - stage.items[second].z
+            );
+            assert.ok(distance > 2.1, `${encounter.id} choices are still clustered (${distance.toFixed(2)})`);
+          }
+        }
+      }
+    }
+  }
+});
+
+test("delivery markers are reachable without unlocking the next encounter", () => {
+  const section = buildTrailSection("s3", { seed: 3 });
+  const encounter = section.encounters[0];
+  const task = buildPhysicalTask(section, encounter, encounter.beats[0], 0);
+  const baseLimit = encounter.progress - 0.012;
+  const limit = physicalTaskForwardLimit(section, encounter, task, baseLimit, 1.5);
+  const marker = task.stages[1].items[0];
+  const nextEncounter = section.encounters[1];
+  assert.ok(limit >= marker.progress, "the carry marker remains beyond the encounter barrier");
+  assert.ok(limit < nextEncounter.progress - 0.01, "the task opened the next encounter early");
 });

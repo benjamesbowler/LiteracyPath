@@ -7,17 +7,14 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import {
-  BloomEffect,
-  EffectComposer,
-  EffectPass,
-  RenderPass,
-  SMAAEffect,
-  VignetteEffect
-} from "postprocessing";
-import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import Guide from "./Guide.jsx";
 import { ENCOUNTER_VIEWS } from "./encounterViews.js";
+import {
+  QuestRenderPipeline,
+  attachBeveledLetterTokens,
+  disposeQuestScene,
+  loadQuestTokenFont
+} from "./questPremiumRender.js";
 import {
   createAuthoredChapterKit,
   createImportedFieldAvatars,
@@ -35,6 +32,7 @@ import {
   firstUnsolvedEncounter,
   forwardLimitFor,
   routeDirectionAt,
+  routeMovementVector,
   routePointAt,
   routeProgressAt,
   routeSidePoint,
@@ -44,7 +42,7 @@ import { targetsForStop } from "../../../utils/questReviewScheduler.js";
 import { targetsAtStop, getStop, QUEST_STOPS } from "../../../data/questSequence.js";
 import { starRubric } from "../../../utils/starRubric.js";
 import { playCorrectChime, playSoftBuzz, playStarChime, playWhoosh } from "../../../utils/audio/gameSfx.js";
-import { sayGrapheme, sayWord } from "../shells/shellContract.js";
+import { displayGrapheme, sayGrapheme, sayWord } from "../shells/shellContract.js";
 import { getDye, normalizeCreature } from "../../../data/creatureParts.js";
 import { questCreatureRigSpec } from "../../../utils/questCreature3D.js";
 import {
@@ -55,7 +53,10 @@ import {
 import { detectQuestQuality } from "../../../utils/questPerformance.js";
 import {
   buildPhysicalTask,
+  fieldCollisionStep,
   isPhysicalEncounter,
+  physicalTaskForwardLimit,
+  physicalTaskResidentPoint,
   physicalStage,
   physicalTaskKey
 } from "../../../utils/questPhysicalMechanics.js";
@@ -68,10 +69,29 @@ import {
   recordCorrectionMiss
 } from "../../../utils/questCorrection.js";
 import { seedwakeSatchel, seedwakeStopSpec } from "../../../data/questChapterOne.js";
+import { segmentWord } from "../../../utils/questSegments.js";
+import {
+  advancePhonemeSlotState,
+  applySeedwakeVerbInput,
+  createPhonemeSlotState,
+  createQuestLocomotionState,
+  createSeedwakeVerbState,
+  encounterCameraPose,
+  isChapterGateOpen,
+  projectedRectInsideSafeArea,
+  seedwakeEncounterHudModel,
+  seedwakeResidentPerformance,
+  sliceSafeArea,
+  stepQuestLocomotion
+} from "../../../utils/questSliceSystems.js";
 
 const MOVE_SPEED = 4.6;
 const ENCOUNTER_REACH = 1.7;
 const AUTOSAVE_MS = 1200;
+
+function physicalTaskAnswers(task) {
+  return (task?.stages || []).map(stage => stage.items.find(item => item.correct)?.value).filter(value => value != null);
+}
 
 const SIGN_OBJECT_COLOURS = {
   red: 0xc95043,
@@ -82,15 +102,15 @@ const SIGN_OBJECT_COLOURS = {
 const WORLD_THEMES = {
   meadow: {
     name: "Sunlit Meadow",
-    sky: 0xcfeab8,
+    sky: 0xa9d4df,
     sun: 0xfff1c2,
-    hemi: 0xfff7d7,
-    ground: 0x719956,
-    path: 0xd8bc80,
-    pathEdge: 0xa9834e,
-    canopy: [0x3f7638, 0x568a43, 0x6f9b4c, 0x86aa59],
+    hemi: 0xd7e8df,
+    ground: 0x537a49,
+    path: 0xc9aa72,
+    pathEdge: 0x7f633e,
+    canopy: [0x315f36, 0x447743, 0x5e8c50, 0x789d5d],
     trunk: 0x705035,
-    fog: 0xcce0aa,
+    fog: 0xb8d2c8,
     stone: 0x849181,
     gate: 0x85522f,
     structure: 0xb87943,
@@ -139,50 +159,122 @@ const WORLD_THEMES = {
   }
 };
 
-function surfaceTexture(seed, { repeatX = 4, repeatY = 20, contrast = 18 } = {}) {
+function surfaceMaps(seed, {
+  repeatX = 4,
+  repeatY = 20,
+  contrast = 18,
+  kind = "ground",
+  anisotropy = 4,
+  detail = "rich"
+} = {}) {
+  const lowDetail = detail === "low";
+  const size = lowDetail ? 128 : 256;
   const canvas = document.createElement("canvas");
-  canvas.width = 256;
-  canvas.height = 256;
-  const context = canvas.getContext("2d");
-  context.fillStyle = "rgb(224, 224, 218)";
-  context.fillRect(0, 0, 256, 256);
-  for (let index = 0; index < 180; index += 1) {
-    const randomX = Math.abs(Math.sin(seed * 19.13 + index * 71.7) * 43758.5453) % 1;
-    const randomY = Math.abs(Math.sin(seed * 31.71 + index * 43.3) * 23421.631) % 1;
-    const randomSize = Math.abs(Math.sin(seed * 7.11 + index * 11.9) * 18117.13) % 1;
-    const shade = 224 + Math.round((randomSize - 0.5) * contrast);
-    context.fillStyle = `rgba(${shade}, ${shade}, ${Math.max(0, shade - 4)}, ${0.12 + randomSize * 0.14})`;
-    context.beginPath();
-    context.ellipse(randomX * 256, randomY * 256, 3 + randomSize * 18, 2 + randomSize * 8, randomX * Math.PI, 0, Math.PI * 2);
-    context.fill();
+  const heightCanvas = lowDetail ? null : document.createElement("canvas");
+  canvas.width = size;
+  canvas.height = size;
+  if (heightCanvas) {
+    heightCanvas.width = size;
+    heightCanvas.height = size;
   }
-  const texture = new THREE.CanvasTexture(canvas);
-  texture.colorSpace = THREE.SRGBColorSpace;
-  texture.wrapS = THREE.RepeatWrapping;
-  texture.wrapT = THREE.RepeatWrapping;
-  texture.repeat.set(repeatX, repeatY);
-  texture.anisotropy = 4;
-  texture.userData.questSurface = true;
-  return texture;
+  const context = canvas.getContext("2d");
+  const heightContext = heightCanvas?.getContext("2d") || null;
+  const image = context.createImageData(size, size);
+  const heightImage = heightContext?.createImageData(size, size) || null;
+  const fade = value => value * value * (3 - 2 * value);
+  const hash = (x, y, salt) => {
+    const value = Math.sin(x * 127.1 + y * 311.7 + salt * 74.7) * 43758.5453;
+    return (value - Math.floor(value)) * 2 - 1;
+  };
+  const tileNoise = (u, v, cells, salt) => {
+    const gridX = u * cells;
+    const gridY = v * cells;
+    const cellX = Math.floor(gridX);
+    const cellY = Math.floor(gridY);
+    const nextX = (cellX + 1) % cells;
+    const nextY = (cellY + 1) % cells;
+    const wrappedX = cellX % cells;
+    const wrappedY = cellY % cells;
+    const blendX = fade(gridX - cellX);
+    const blendY = fade(gridY - cellY);
+    const top = THREE.MathUtils.lerp(hash(wrappedX, wrappedY, salt), hash(nextX, wrappedY, salt), blendX);
+    const bottom = THREE.MathUtils.lerp(hash(wrappedX, nextY, salt), hash(nextX, nextY, salt), blendX);
+    return THREE.MathUtils.lerp(top, bottom, blendY);
+  };
+  for (let y = 0; y < size; y += 1) {
+    for (let x = 0; x < size; x += 1) {
+      const index = (y * size + x) * 4;
+      const u = x / (size - 1);
+      const v = y / (size - 1);
+      const broad = tileNoise(u, v, 4, seed) * 0.52
+        + tileNoise(u, v, 9, seed + 17) * 0.31
+        + tileNoise(u, v, 21, seed + 31) * 0.17;
+      const grain = tileNoise(u, v, 67, seed + 47);
+      const fibre = kind === "path"
+        ? Math.sin(Math.PI * 2 * (u * 29 + v * 83 + seed * 0.043)) * 0.08
+        : Math.sin(Math.PI * 2 * (u * 101 - v * 17 + seed * 0.059)) * 0.055;
+      const value = THREE.MathUtils.clamp(218 + broad * contrast + grain * 7 + fibre * contrast, 174, 246);
+      image.data[index] = value + (kind === "ground" ? 3 : 5);
+      image.data[index + 1] = value + (kind === "ground" ? 5 : 3);
+      image.data[index + 2] = value - (kind === "ground" ? 4 : 7);
+      image.data[index + 3] = 255;
+      if (heightImage) {
+        const height = THREE.MathUtils.clamp(128 + broad * 42 + grain * 18 + fibre * 34, 38, 224);
+        heightImage.data[index] = height;
+        heightImage.data[index + 1] = height;
+        heightImage.data[index + 2] = height;
+        heightImage.data[index + 3] = 255;
+      }
+    }
+  }
+  context.putImageData(image, 0, 0);
+  if (heightContext && heightImage) heightContext.putImageData(heightImage, 0, 0);
+  const markCount = lowDetail ? (kind === "path" ? 42 : 78) : (kind === "path" ? 96 : 180);
+  for (let index = 0; index < markCount; index += 1) {
+    const randomX = 0.05 + (Math.abs(Math.sin(seed * 19.13 + index * 71.7) * 43758.5453) % 1) * 0.9;
+    const randomY = 0.05 + (Math.abs(Math.sin(seed * 31.71 + index * 43.3) * 23421.631) % 1) * 0.9;
+    const randomSize = Math.abs(Math.sin(seed * 7.11 + index * 11.9) * 18117.13) % 1;
+    context.strokeStyle = kind === "path" ? "rgba(90, 74, 52, 0.17)" : "rgba(53, 84, 41, 0.2)";
+    context.lineWidth = 0.8 + randomSize * 1.4;
+    context.beginPath();
+    context.moveTo(randomX * size, randomY * size);
+    context.lineTo(
+      randomX * size + (kind === "path" ? 2 : 7 + randomSize * 6),
+      randomY * size + (kind === "path" ? 4 + randomSize * 5 : -5 - randomSize * 8)
+    );
+    context.stroke();
+  }
+  const map = new THREE.CanvasTexture(canvas);
+  const bumpMap = heightCanvas ? new THREE.CanvasTexture(heightCanvas) : null;
+  map.colorSpace = THREE.SRGBColorSpace;
+  for (const texture of [map, bumpMap].filter(Boolean)) {
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.RepeatWrapping;
+    texture.repeat.set(repeatX, repeatY);
+    texture.anisotropy = anisotropy;
+    texture.userData.questSurface = true;
+  }
+  return bumpMap ? { map, bumpMap } : { map };
 }
 
-function pathRibbon(points, width, y, color, seed) {
-  const curve = new THREE.CatmullRomCurve3(
-    points.map(point => new THREE.Vector3(point.x, (point.y || 0) + y, point.z)),
-    false,
-    "catmullrom",
-    0.34
-  );
-  const steps = 150;
+function pathRibbon(points, width, y, color, seed, anisotropy = 4, detail = "rich") {
+  const steps = Math.max(1, points.length - 1);
   const vertices = [];
   const uvs = [];
   const indices = [];
   for (let index = 0; index <= steps; index += 1) {
-    const t = index / steps;
-    const point = curve.getPoint(t);
-    const tangent = curve.getTangent(t).normalize();
+    const point = points[index];
+    const t = Number.isFinite(point.progress) ? point.progress : index / steps;
+    const before = points[Math.max(0, index - 1)];
+    const after = points[Math.min(steps, index + 1)];
+    const tangent = new THREE.Vector3(
+      Number.isFinite(point.tangentX) ? point.tangentX : after.x - before.x,
+      Number.isFinite(point.tangentY) ? point.tangentY : (after.y || 0) - (before.y || 0),
+      Number.isFinite(point.tangentZ) ? point.tangentZ : after.z - before.z
+    ).normalize();
     const side = new THREE.Vector3(-tangent.z, 0, tangent.x).multiplyScalar(width / 2);
-    vertices.push(point.x + side.x, point.y, point.z + side.z, point.x - side.x, point.y, point.z - side.z);
+    const pointY = (point.y || 0) + y;
+    vertices.push(point.x + side.x, pointY, point.z + side.z, point.x - side.x, pointY, point.z - side.z);
     uvs.push(0, t, 1, t);
     if (index < steps) {
       const a = index * 2;
@@ -194,14 +286,26 @@ function pathRibbon(points, width, y, color, seed) {
   geometry.setAttribute("uv", new THREE.Float32BufferAttribute(uvs, 2));
   geometry.setIndex(indices);
   geometry.computeVertexNormals();
+  const maps = surfaceMaps(seed + Math.round(y * 1000), {
+    repeatX: 2.2,
+    repeatY: 34,
+    contrast: 22,
+    kind: "path",
+    anisotropy,
+    detail
+  });
   const mesh = new THREE.Mesh(
     geometry,
     new THREE.MeshStandardMaterial({
       color: new THREE.Color(color).multiplyScalar(y >= 0.1 ? 0.66 : 0.78),
-      map: surfaceTexture(seed + Math.round(y * 1000), { repeatX: 2.2, repeatY: 34, contrast: 22 }),
-      roughness: 1,
+      ...maps,
+      bumpScale: y >= 0.1 ? 0.055 : 0.08,
+      roughness: 0.9,
       metalness: 0,
-      envMapIntensity: 0.18,
+      envMapIntensity: 0.34,
+      polygonOffset: true,
+      polygonOffsetFactor: -1,
+      polygonOffsetUnits: -1,
       side: THREE.DoubleSide
     })
   );
@@ -1046,8 +1150,20 @@ function addFieldLabel(group, label, y = 1.22, width = 0.98) {
   lines.slice(0, 3).forEach((line, index) => ctx.fillText(line, 256, firstY + index * lineHeight, 430));
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
-  const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true, depthWrite: false });
+  texture.userData.questOwned = true;
+  const material = new THREE.MeshStandardMaterial({
+    color: 0xffffff,
+    map: texture,
+    emissive: 0xffffff,
+    emissiveMap: texture,
+    emissiveIntensity: 0.42,
+    transparent: true,
+    depthWrite: false,
+    roughness: 0.3,
+    metalness: 0
+  });
   const tag = new THREE.Mesh(new THREE.PlaneGeometry(width, width * 0.375), material);
+  tag.name = "field-label";
   tag.position.y = y;
   tag.position.z = 0.08;
   group.add(tag);
@@ -1238,7 +1354,19 @@ function buildFieldAvatar(spec, theme, { interactive = true } = {}) {
     }
     const shimmer = new THREE.Mesh(
       new THREE.CircleGeometry(0.62, 32),
-      new THREE.MeshBasicMaterial({ color: theme.glow, transparent: true, opacity: 0.22, depthWrite: false, side: THREE.DoubleSide })
+      new THREE.MeshPhysicalMaterial({
+        color: theme.glow,
+        emissive: theme.glow,
+        emissiveIntensity: 0.54,
+        transparent: true,
+        opacity: 0.22,
+        depthWrite: false,
+        side: THREE.DoubleSide,
+        roughness: 0.3,
+        metalness: 0,
+        transmission: 0.08,
+        thickness: 0.25
+      })
     );
     shimmer.position.y = 0.9;
     shimmer.scale.y = 1.55;
@@ -1439,6 +1567,7 @@ function updateFieldTasks(tasks, active, beatIndex, stageIndex, correction, now,
       for (const billboard of item.userData.billboards || []) {
         billboard.quaternion.copy(camera.quaternion);
       }
+      item.userData.updateHudWorldPosition?.();
     });
     task.completions.forEach((item, index) => {
       const spec = item.userData.fieldSpec || {};
@@ -1449,6 +1578,7 @@ function updateFieldTasks(tasks, active, beatIndex, stageIndex, correction, now,
       if (!item.visible) return;
       item.position.y = (item.userData.baseY || 0) + Math.sin(time * 2 + index) * 0.025;
       for (const billboard of item.userData.billboards || []) billboard.quaternion.copy(camera.quaternion);
+      item.userData.updateHudWorldPosition?.();
       for (const part of item.userData.motionParts || []) {
         if (part.type === "orbit") part.object.rotation.z += dt * 0.55;
         else if (part.type === "nod") part.object.rotation.z = Math.sin(time * 2.5 + index) * 0.08;
@@ -1474,11 +1604,14 @@ function makeContactShadowMaterial(opacity = 0.28) {
     contactShadowTexture = new THREE.CanvasTexture(canvas);
     contactShadowTexture.colorSpace = THREE.SRGBColorSpace;
   }
-  return new THREE.MeshBasicMaterial({
+  return new THREE.MeshStandardMaterial({
+    color: 0x000000,
     map: contactShadowTexture,
     transparent: true,
     opacity,
-    depthWrite: false
+    depthWrite: false,
+    roughness: 1,
+    metalness: 0
   });
 }
 
@@ -2040,9 +2173,11 @@ function updateCharacterMotion(model, {
   next = false,
   visible = true,
   turn = 0,
-  activity = null
+  activity = null,
+  bank = 0,
+  performance = null
 }) {
-  if (updateRiggedCharacter(model, {
+  const rigged = updateRiggedCharacter(model, {
     now,
     dt,
     mood,
@@ -2051,7 +2186,17 @@ function updateCharacterMotion(model, {
     next,
     visible,
     turn
-  })) return;
+  });
+  if (rigged) {
+    if (!visible) return;
+    const performanceProgress = performance
+      ? THREE.MathUtils.clamp(1 - (performance.until - now) / Math.max(1, performance.duration), 0, 1)
+      : 0;
+    const success = performance?.outcome === "correct";
+    model.position.y += success ? Math.sin(performanceProgress * Math.PI) * 0.42 : 0;
+    model.rotation.z = -bank * 0.34 + (performance && !success ? Math.sin(performanceProgress * Math.PI) * 0.1 : 0);
+    return;
+  }
   model.visible = visible;
   if (!visible) return;
   const phase = model.userData.phase || 0;
@@ -2067,11 +2212,24 @@ function updateCharacterMotion(model, {
     ? THREE.MathUtils.clamp(1 - (activity.until - now) / Math.max(1, activity.duration), 0, 1)
     : 0;
   const actionLift = activity?.kind === "jump" ? Math.sin(actionProgress * Math.PI) * 0.9 : 0;
+  const performanceProgress = performance
+    ? THREE.MathUtils.clamp(1 - (performance.until - now) / Math.max(1, performance.duration), 0, 1)
+    : 0;
+  const successPerformance = performance?.outcome === "correct";
+  const performanceLift = successPerformance
+    ? Math.sin(performanceProgress * Math.PI) * (performance.clip?.includes("bounce") ? 0.62 : 0.38)
+    : 0;
+  const recoveryLean = performance && !successPerformance
+    ? Math.sin(performanceProgress * Math.PI) * (performance.clip?.includes("measure") ? 0.14 : 0.08)
+    : 0;
 
   model.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 1 - Math.pow(0.015, dt));
-  model.position.y = (model.userData.groundY || 0) + idleLift + walkLift + actionLift + cheer * Math.sin(time * 7.2) * 0.035;
+  model.position.y = (model.userData.groundY || 0) + idleLift + walkLift + actionLift + performanceLift + cheer * Math.sin(time * 7.2) * 0.035;
   model.rotation.y = THREE.MathUtils.lerp(model.rotation.y, turn, 1 - Math.pow(0.01, dt));
-  model.rotation.z = Math.sin(time * 7.4) * 0.035 * walk + Math.sin(time * 2.1) * 0.025 * teach;
+  model.rotation.z = Math.sin(time * 7.4) * 0.035 * walk
+    + Math.sin(time * 2.1) * 0.025 * teach
+    - bank * 0.36
+    + recoveryLean;
 
   if (parts.leftLeg) parts.leftLeg.rotation.x = Math.sin(time * 7.4) * 0.42 * walk;
   if (parts.rightLeg) parts.rightLeg.rotation.x = -Math.sin(time * 7.4) * 0.42 * walk;
@@ -2085,6 +2243,10 @@ function updateCharacterMotion(model, {
       parts.leftArm.rotation.x = -0.8 + Math.sin(actionProgress * Math.PI * 2) * 0.5;
     } else if (activity?.kind === "conduct") {
       parts.leftArm.rotation.z = -0.7 - Math.sin(actionProgress * Math.PI * 2) * 0.36;
+    } else if (performance?.clip?.includes("hammer")) {
+      parts.leftArm.rotation.x = -0.9 + Math.sin(performanceProgress * Math.PI * 4) * 0.68;
+    } else if (successPerformance) {
+      parts.leftArm.rotation.z -= Math.sin(performanceProgress * Math.PI) * 0.72;
     }
   }
   if (parts.rightArm) {
@@ -2097,6 +2259,10 @@ function updateCharacterMotion(model, {
       parts.rightArm.rotation.x = -1.2 - Math.sin(actionProgress * Math.PI * 2) * 0.55;
     } else if (activity?.kind === "conduct") {
       parts.rightArm.rotation.z = 0.7 + Math.sin(actionProgress * Math.PI * 2) * 0.36;
+    } else if (performance?.clip?.includes("conduct")) {
+      parts.rightArm.rotation.z = 0.62 + Math.sin(performanceProgress * Math.PI * 4) * 0.42;
+    } else if (successPerformance) {
+      parts.rightArm.rotation.z += Math.sin(performanceProgress * Math.PI) * 0.72;
     }
   }
   if (parts.bodyJoint) {
@@ -2107,6 +2273,9 @@ function updateCharacterMotion(model, {
     parts.headJoint.rotation.y = Math.sin(time * 1.35) * 0.055 + turn * 0.45;
     parts.headJoint.rotation.x = Math.sin(time * 1.9) * 0.018 - walkLift * 0.22;
     parts.headJoint.rotation.z = Math.sin(time * 2.15) * 0.025 + cheer * Math.sin(time * 5.4) * 0.06;
+    if (performance && !successPerformance) {
+      parts.headJoint.rotation.x += Math.sin(performanceProgress * Math.PI * 2) * 0.09;
+    }
   }
   if (parts.tail) {
     parts.tail.rotation.y = 0.35 + Math.sin(time * (moving ? 6.4 : 2.2)) * 0.25;
@@ -2202,7 +2371,9 @@ function updateTrailCharacters(characters, section, {
   mood,
   now,
   dt,
-  activity
+  activity,
+  bank,
+  reaction
 }) {
   characters.player.position.x = player.x;
   characters.player.position.z = player.z;
@@ -2213,7 +2384,7 @@ function updateTrailCharacters(characters, section, {
     characters.player.userData.facing = Math.atan2(travelX, travelZ);
   }
   const turn = characters.player.userData.facing || routeDirectionAt(section.route, routeProgressAt(section.route, player)).heading;
-  updateCharacterMotion(characters.player, { now, dt, mood, moving, turn, activity });
+  updateCharacterMotion(characters.player, { now, dt, mood, moving, turn, activity, bank, performance: reaction });
   if (characters.relic) {
     const time = now * 0.001;
     characters.relic.position.y = 1.58 + Math.sin(time * 2.4) * 0.08;
@@ -2224,13 +2395,17 @@ function updateTrailCharacters(characters, section, {
   const activeTask = active ? buildPhysicalTask(section, active, active.beats[beatIndex], beatIndex) : null;
   const guideVisible = !guideDone || !active;
   characters.guide.userData.groundY = section.guide.y || 0;
+  const guideFacing = Math.atan2(
+    player.x - characters.guide.position.x,
+    player.z - characters.guide.position.z
+  );
   updateCharacterMotion(characters.guide, {
     now,
     dt,
     mood: guideDone ? "idle" : "teach",
     next: !guideDone,
     visible: guideVisible,
-    turn: 0.12
+    turn: guideFacing
   });
 
   for (const encounter of section.encounters) {
@@ -2240,15 +2415,20 @@ function updateTrailCharacters(characters, section, {
     const isNext = nextEncounter?.id === encounter.id && guideDone;
     const isActive = active?.id === encounter.id;
     if (isActive && activeTask) {
-      const itemMid = activeTask.items[Math.floor(activeTask.items.length / 2)] || encounter;
-      resident.position.x = THREE.MathUtils.lerp(resident.position.x, itemMid.x - 1.35, 0.08);
-      resident.position.z = THREE.MathUtils.lerp(resident.position.z, itemMid.z + 1.05, 0.08);
-      resident.userData.groundY = itemMid.y || encounter.y || 0;
+      const shoulder = physicalTaskResidentPoint(section, encounter);
+      const settle = 1 - Math.pow(0.018, dt);
+      resident.position.x = THREE.MathUtils.lerp(resident.position.x, shoulder.x, settle);
+      resident.position.z = THREE.MathUtils.lerp(resident.position.z, shoulder.z, settle);
+      resident.userData.groundY = shoulder.y || encounter.y || 0;
     } else {
       resident.position.x = THREE.MathUtils.lerp(resident.position.x, encounter.x, 0.08);
       resident.position.z = THREE.MathUtils.lerp(resident.position.z, encounter.z, 0.08);
       resident.userData.groundY = encounter.y || 0;
     }
+    const residentFacing = Math.atan2(
+      player.x - resident.position.x,
+      player.z - resident.position.z
+    );
     updateCharacterMotion(resident, {
       now,
       dt,
@@ -2256,7 +2436,8 @@ function updateTrailCharacters(characters, section, {
       solved: isSolved,
       next: isNext,
       visible: !active || isActive,
-      turn: isActive ? -0.2 : isNext ? 0.2 : 0
+      turn: isActive || isNext ? residentFacing : routeDirectionAt(section.route, encounter.progress).heading,
+      performance: isActive ? reaction : null
     });
   }
 }
@@ -2402,41 +2583,71 @@ function updateQuestAtmosphere(atmosphere, now, dt, ceremonyActive) {
   }
 }
 
-function buildLandscape(scene, section, theme, quality) {
+function buildLandscape(scene, section, theme, quality, maxAnisotropy = 4) {
   const bounds = section.route.bounds;
   const groundWidth = Math.max(34, bounds.maxX - bounds.minX);
   const groundDepth = Math.max(34, bounds.maxZ - bounds.minZ);
-  const groundGeometry = new THREE.PlaneGeometry(groundWidth, groundDepth, 48, 48);
+  const groundCentreX = (bounds.minX + bounds.maxX) / 2;
+  const groundCentreZ = (bounds.minZ + bounds.maxZ) / 2;
+  const groundSegments = quality.id === "low" ? 36 : 72;
+  const groundGeometry = new THREE.PlaneGeometry(groundWidth, groundDepth, groundSegments, groundSegments);
   const positions = groundGeometry.attributes.position;
+  const routeSamples = [
+    ...section.route.samples,
+    ...section.route.branches.flatMap(branch => branch.samples)
+  ];
   for (let index = 0; index < positions.count; index += 1) {
-    const x = positions.getX(index);
-    const y = positions.getY(index);
-    positions.setZ(index, Math.sin(x * 0.54) * 0.05 + Math.cos(y * 0.19) * 0.07);
+    const worldX = groundCentreX + positions.getX(index);
+    const worldZ = groundCentreZ - positions.getY(index);
+    let nearest = routeSamples[0];
+    let nearestDistanceSquared = Infinity;
+    for (const sample of routeSamples) {
+      const distanceSquared = (sample.x - worldX) ** 2 + (sample.z - worldZ) ** 2;
+      if (distanceSquared < nearestDistanceSquared) {
+        nearestDistanceSquared = distanceSquared;
+        nearest = sample;
+      }
+    }
+    const nearestDistance = Math.sqrt(nearestDistanceSquared);
+    const routeBlend = 1 - THREE.MathUtils.smoothstep(nearestDistance, 4.4, 12.5);
+    const fineRelief = Math.sin(worldX * 0.54 + section.stopIndex) * 0.035
+      + Math.cos(worldZ * 0.27 - section.stopIndex * 0.4) * 0.045
+      + Math.sin((worldX + worldZ) * 0.83) * 0.018;
+    positions.setZ(index, (nearest?.y || 0) * routeBlend + fineRelief * (0.45 + routeBlend * 0.55));
   }
   groundGeometry.computeVertexNormals();
+  const groundMaps = surfaceMaps(section.stopIndex * 47, {
+    repeatX: 8,
+    repeatY: 30,
+    contrast: 30,
+    kind: "ground",
+    anisotropy: maxAnisotropy,
+    detail: quality.id
+  });
   const ground = new THREE.Mesh(
     groundGeometry,
     mat(theme.ground, {
-      map: surfaceTexture(section.stopIndex * 47, { repeatX: 7, repeatY: 26, contrast: 28 }),
-      roughness: 0.92,
-      envMapIntensity: 0.42
+      ...groundMaps,
+      bumpScale: 0.075,
+      roughness: 0.86,
+      envMapIntensity: 0.52
     })
   );
   ground.name = "trail-ground";
   ground.rotation.x = -Math.PI / 2;
-  ground.position.set((bounds.minX + bounds.maxX) / 2, -0.02, (bounds.minZ + bounds.maxZ) / 2);
+  ground.position.set(groundCentreX, -0.035, groundCentreZ);
   ground.receiveShadow = true;
   scene.add(ground);
 
-  const points = section.route.samples.filter((_, index) => index % 5 === 0 || index === section.route.samples.length - 1);
-  scene.add(pathRibbon(points, 7.35, 0.075, theme.pathEdge, section.stopIndex * 13));
-  scene.add(pathRibbon(points, 6.6, 0.105, theme.path, section.stopIndex * 17));
+  const points = section.route.samples;
+  scene.add(pathRibbon(points, 7.35, 0.065, theme.pathEdge, section.stopIndex * 13, maxAnisotropy, quality.id));
+  scene.add(pathRibbon(points, 6.6, 0.105, theme.path, section.stopIndex * 17, maxAnisotropy, quality.id));
   section.route.branches.forEach((branch, index) => {
-    const branchPoints = branch.samples.filter((_, sampleIndex) => sampleIndex % 4 === 0 || sampleIndex === branch.samples.length - 1);
-    scene.add(pathRibbon(branchPoints, 5.7, 0.07, theme.pathEdge, section.stopIndex * 29 + index));
-    scene.add(pathRibbon(branchPoints, 5.05, 0.1, theme.path, section.stopIndex * 31 + index));
+    const branchPoints = branch.samples;
+    scene.add(pathRibbon(branchPoints, 5.7, 0.06, theme.pathEdge, section.stopIndex * 29 + index, maxAnisotropy, quality.id));
+    scene.add(pathRibbon(branchPoints, 5.05, 0.1, theme.path, section.stopIndex * 31 + index, maxAnisotropy, quality.id));
     if (section.rewardIds?.includes("mirror-reed")) {
-      const pathGlow = pathRibbon(branchPoints, 0.24, 0.13, theme.glow, section.stopIndex * 37 + index);
+      const pathGlow = pathRibbon(branchPoints, 0.24, 0.13, theme.glow, section.stopIndex * 37 + index, maxAnisotropy, quality.id);
       pathGlow.material.map?.dispose();
       pathGlow.material.map = null;
       pathGlow.material.color.set(theme.glow);
@@ -2538,6 +2749,7 @@ export default function QuestHub({
   resume = null,
   isSoundEnabled = true,
   isInteractive = true,
+  journeyStatus = "active",
   mode = "journey",
   targetsOverride = null,
   qualityTier = null,
@@ -2603,7 +2815,7 @@ export default function QuestHub({
     ? { correct: Number(resume.tally.correct) || 0, total: Number(resume.tally.total) || 0, mistakes: Number(resume.tally.mistakes) || 0 }
     : { correct: 0, total: 0, mistakes: 0 };
   const initialPhase = resume?.phase === "teach" && !initialGuideDone ? "teach" : "trail";
-  const initialGateOpen = section?.encounters.every(encounter => initialSolved.includes(encounter.id)) || false;
+  const initialGateOpen = isChapterGateOpen(section?.encounters, initialSolved);
   const initialRoutePercent = Math.round(routeProgressAt(section.route, initialPosition) * 100);
 
   const playerRef = useRef({ ...initialPosition });
@@ -2624,16 +2836,23 @@ export default function QuestHub({
   const onSceneReadyRef = useRef(onSceneReady);
   const onSceneErrorRef = useRef(onSceneError);
   const interactiveRef = useRef(Boolean(isInteractive));
+  const journeyStatusRef = useRef(journeyStatus);
   const ceremonyRef = useRef(Boolean(ceremony));
   const finishingRef = useRef(false);
   const fieldTaskSelectRef = useRef(null);
   const fieldChoiceLockRef = useRef(false);
+  const fieldCollisionArmedRef = useRef(true);
   const interactionActionRef = useRef(null);
   const correctionRecordsRef = useRef(initialCorrections);
   const correctionRef = useRef(initialCorrection);
   const reviewQueueRef = useRef(initialReviewQueue);
   const reviewedBeatsRef = useRef(initialReviewedBeats);
   const remediationBeatRef = useRef(initialRemediationBeat);
+  const verbStateRef = useRef(
+    resumedTask ? createSeedwakeVerbState(resumedTask.mechanic, physicalTaskAnswers(resumedTask)) : null
+  );
+  const verbTaskKeyRef = useRef(resumedTask?.key || null);
+  const reactionRef = useRef(null);
 
   const [phase, setPhase] = useState(initialPhase);
   const [guideDone, setGuideDone] = useState(initialGuideDone);
@@ -2653,6 +2872,8 @@ export default function QuestHub({
   const [gateOpen, setGateOpen] = useState(initialGateOpen);
   const [routePercent, setRoutePercent] = useState(initialRoutePercent);
   const [pickupNotice, setPickupNotice] = useState(null);
+  const [phonemeFillCount, setPhonemeFillCount] = useState(initialFieldStage);
+  const [interactionFeedback, setInteractionFeedback] = useState(null);
 
   const canvasRef = useRef(null);
   const sceneGenerationRef = useRef(0);
@@ -2683,6 +2904,7 @@ export default function QuestHub({
   useEffect(() => { onSceneReadyRef.current = onSceneReady; }, [onSceneReady]);
   useEffect(() => { onSceneErrorRef.current = onSceneError; }, [onSceneError]);
   useEffect(() => { interactiveRef.current = Boolean(isInteractive); }, [isInteractive]);
+  useEffect(() => { journeyStatusRef.current = journeyStatus; }, [journeyStatus]);
   useEffect(() => { ceremonyRef.current = Boolean(ceremony); }, [ceremony]);
   useEffect(() => { meetIndexRef.current = meetIndex; }, [meetIndex]);
   useEffect(() => { beatIndexRef.current = beatIndex; }, [beatIndex]);
@@ -2694,6 +2916,12 @@ export default function QuestHub({
     const timer = window.setTimeout(() => setPickupNotice(null), 1800);
     return () => window.clearTimeout(timer);
   }, [pickupNotice]);
+
+  useEffect(() => {
+    if (!interactionFeedback) return undefined;
+    const timer = window.setTimeout(() => setInteractionFeedback(null), interactionFeedback.duration || 1000);
+    return () => window.clearTimeout(timer);
+  }, [interactionFeedback]);
 
   useEffect(() => {
     if (mode !== "review" && gateOpen && section?.continuity?.nextStopId) {
@@ -2762,13 +2990,28 @@ export default function QuestHub({
     sceneGenerationRef.current += 1;
     canvas.dataset.sceneGeneration = String(sceneGenerationRef.current);
     const quality = qualityTier?.id ? qualityTier : detectQuestQuality(state.settings);
-    let renderer;
+    const scene = new THREE.Scene();
+    const lightMood = section.lighting || { glow: 0.5, warmth: 0.3 };
+    const skyFallback = new THREE.Color(theme.sky);
+    scene.background = skyFallback;
+    scene.fog = new THREE.Fog(theme.fog, 29 + lightMood.warmth * 4, 88 + lightMood.glow * 20);
+    const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 170);
+    camera.position.set(initialPosition.x, (initialPosition.y || 0) + 4.7, initialPosition.z + 7.4);
+    let renderPipeline;
     try {
-      renderer = new THREE.WebGLRenderer({
+      renderPipeline = new QuestRenderPipeline({
         canvas,
-        antialias: quality.id !== "low",
-        alpha: true,
-        powerPreference: quality.id === "low" ? "low-power" : "high-performance"
+        scene,
+        camera,
+        quality,
+        theme,
+        lightMood,
+        initialPosition: {
+          x: initialPosition.x,
+          y: initialPosition.y,
+          z: initialPosition.z
+        },
+        worldLight: rewardBonuses.worldLight
       });
     } catch {
       queueMicrotask(() => {
@@ -2777,72 +3020,19 @@ export default function QuestHub({
       });
       return undefined;
     }
-
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, quality.pixelRatio));
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 0.76 + (section.lighting?.glow || 0.5) * 0.05;
-    renderer.shadowMap.enabled = quality.shadows;
-    renderer.shadowMap.type = THREE.PCFShadowMap;
-
-    const scene = new THREE.Scene();
-    const lightMood = section.lighting || { glow: 0.5, warmth: 0.3 };
-    scene.background = new THREE.Color(theme.sky);
-    scene.fog = new THREE.Fog(theme.fog, 15 + lightMood.warmth * 2, 38 + lightMood.glow * 7);
-    const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 95);
-    camera.position.set(initialPosition.x, (initialPosition.y || 0) + 4.05, initialPosition.z + 6.45);
-    const pmrem = new THREE.PMREMGenerator(renderer);
-    const environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
-    scene.environment = environment;
-    const landscape = buildLandscape(scene, section, theme, quality);
-    const atmosphere = buildQuestAtmosphere(scene, section, theme, quality);
+    const renderQuality = renderPipeline.quality;
+    const maxAnisotropy = renderPipeline.maxAnisotropy;
+    const landscape = buildLandscape(scene, section, theme, renderQuality, maxAnisotropy);
+    const atmosphere = buildQuestAtmosphere(scene, section, theme, renderQuality);
     const characters = buildTrailCharacters(scene, section, theme, state.creature);
-
-    scene.add(new THREE.HemisphereLight(theme.hemi, theme.ground, 0.72 + lightMood.glow * 0.34 + (rewardBonuses.worldLight ? 0.18 : 0)));
-    const sun = new THREE.DirectionalLight(theme.sun, 1.18 + lightMood.glow * 0.48 + (rewardBonuses.worldLight ? 0.28 : 0));
-    sun.position.set(-7 + lightMood.warmth * 3, 13 + lightMood.glow * 2, 8 - lightMood.warmth * 2);
-    sun.castShadow = quality.shadows;
-    sun.shadow.mapSize.set(quality.shadowSize, quality.shadowSize);
-    sun.shadow.camera.left = -12;
-    sun.shadow.camera.right = 12;
-    sun.shadow.camera.top = 14;
-    sun.shadow.camera.bottom = -10;
-    scene.add(sun);
-
-    const rim = new THREE.DirectionalLight(theme.glow, 0.34 + lightMood.glow * 0.32);
-    rim.position.set(5, 4.6, -7);
-    scene.add(rim);
-
-    let composer = null;
-    if (quality.postEffects) {
-      try {
-        composer = new EffectComposer(renderer);
-        composer.addPass(new RenderPass(scene, camera));
-        const effects = [
-          new SMAAEffect(),
-          new BloomEffect({
-            intensity: 0.1 + lightMood.glow * 0.08,
-            luminanceThreshold: 0.78,
-            luminanceSmoothing: 0.38,
-            mipmapBlur: true
-          }),
-          new VignetteEffect({ darkness: 0.18, offset: 0.25 })
-        ];
-        composer.addPass(new EffectPass(camera, ...effects));
-      } catch {
-        composer = null;
-      }
-    }
+    const { sun, sunOffset } = renderPipeline.lighting;
 
     const viewport = { width: 1, height: 1 };
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
       viewport.width = Math.max(1, rect.width);
       viewport.height = Math.max(1, rect.height);
-      renderer.setSize(viewport.width, viewport.height, false);
-      composer?.setSize(viewport.width, viewport.height);
-      camera.aspect = viewport.width / viewport.height;
-      camera.updateProjectionMatrix();
+      renderPipeline.resize(viewport.width, viewport.height);
     };
     const observer = new ResizeObserver(resize);
     observer.observe(canvas);
@@ -2859,15 +3049,43 @@ export default function QuestHub({
     let importedNature = null;
     let authoredChapterKit = null;
     let previous = performance.now();
+    let lastRenderedFrame = -Infinity;
     let wasMoving = false;
     let lastAutosave = performance.now();
     let lastPercent = Math.round(routeProgressAt(section.route, playerRef.current) * 100);
-    let gateAmount = section.encounters.every(encounter => solvedRef.current.has(encounter.id)) ? 1 : 0;
+    let gateAmount = isChapterGateOpen(section.encounters, solvedRef.current) ? 1 : 0;
+    let locomotionState = createQuestLocomotionState(
+      routeDirectionAt(section.route, routeProgressAt(section.route, playerRef.current)).heading
+    );
+    const skyTexture = new THREE.TextureLoader().load(
+      `/images/quest/${section.world}/sky.webp`,
+      texture => {
+        if (assetsDisposed) {
+          texture.dispose();
+          return;
+        }
+        scene.background = texture;
+      },
+      undefined,
+      () => {
+        if (!assetsDisposed) scene.background = skyFallback;
+      }
+    );
+    skyTexture.colorSpace = THREE.SRGBColorSpace;
+    skyTexture.minFilter = THREE.LinearMipmapLinearFilter;
+    skyTexture.magFilter = THREE.LinearFilter;
+    skyTexture.userData.questOwned = true;
     const lookTarget = new THREE.Vector3(
       playerRef.current.x,
       (playerRef.current.y || 0) + 1.02,
       playerRef.current.z - 0.18
     );
+    const initialRouteDirection = routeDirectionAt(section.route, routeProgressAt(section.route, playerRef.current));
+    const trailCameraDirection = new THREE.Vector3(initialRouteDirection.x, 0, initialRouteDirection.z).normalize();
+    const desiredTrailDirection = trailCameraDirection.clone();
+    const desiredSunPosition = new THREE.Vector3();
+    const desiredSunTarget = new THREE.Vector3();
+    let encounterCameraState = null;
     camera.lookAt(lookTarget);
 
     const revealScene = () => {
@@ -2894,7 +3112,6 @@ export default function QuestHub({
       return replacement;
     };
 
-    const maxAnisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
     const characterLoad = createRiggedTrailCharacters(section, {
       includePlayer: false,
       maxAnisotropy,
@@ -2912,7 +3129,7 @@ export default function QuestHub({
       }
     }).catch(() => undefined);
 
-    const natureLoad = createImportedNature(section, theme, quality, { maxAnisotropy })
+    const natureLoad = createImportedNature(section, theme, renderQuality, { maxAnisotropy })
       .then(nextNature => {
         if (!nextNature) return;
         if (assetsDisposed) {
@@ -2929,7 +3146,7 @@ export default function QuestHub({
       })
       .catch(() => undefined);
 
-    const chapterKitLoad = createAuthoredChapterKit(section, theme, quality, { maxAnisotropy })
+    const chapterKitLoad = createAuthoredChapterKit(section, theme, renderQuality, { maxAnisotropy })
       .then(nextKit => {
         if (!nextKit) return;
         if (assetsDisposed) {
@@ -2960,22 +3177,142 @@ export default function QuestHub({
         attachImportedFieldAvatars(landscape.fieldTasks, avatars);
       })
       .catch(() => undefined);
+    const letterTokenLoad = Promise.all([fieldAvatarLoad, loadQuestTokenFont()])
+      .then(([, font]) => {
+        if (assetsDisposed) return;
+        attachBeveledLetterTokens(landscape.fieldTasks, font);
+      })
+      .catch(() => undefined);
 
     const visualAssetTimeout = window.setTimeout(() => {
       visualAssetsSettled = true;
       revealScene();
     }, 3600);
-    Promise.allSettled([characterLoad, natureLoad, fieldAvatarLoad, chapterKitLoad]).then(() => {
+    Promise.allSettled([characterLoad, natureLoad, letterTokenLoad, chapterKitLoad]).then(() => {
       if (assetsDisposed) return;
       window.clearTimeout(visualAssetTimeout);
       visualAssetsSettled = true;
       revealScene();
     });
 
-    const currentLimit = () => forwardLimitFor(section, {
-      guideDone: guideDoneRef.current,
-      solved: solvedRef.current
-    });
+    const currentLimit = () => {
+      const baseLimit = forwardLimitFor(section, {
+        guideDone: guideDoneRef.current,
+        solved: solvedRef.current
+      });
+      const current = activeRef.current;
+      const currentBeat = current?.beats?.[beatIndexRef.current];
+      const task = current ? buildPhysicalTask(section, current, currentBeat, beatIndexRef.current) : null;
+      return physicalTaskForwardLimit(
+        section,
+        current,
+        task,
+        baseLimit,
+        rewardBonuses.interactionRadius
+      );
+    };
+
+    const sliceDebug = import.meta.env.DEV ? {
+      snapshot: null,
+      motion: null,
+      journey: null,
+      choose(outcome = "correct") {
+        const current = activeRef.current;
+        const task = current
+          ? landscape.fieldTasks.get(physicalTaskKey(current, beatIndexRef.current))
+          : null;
+        const choice = task?.items.find(item => (
+          item.userData.fieldChoice?.stage === fieldStageRef.current
+          && Boolean(item.userData.fieldChoice?.correct) === (outcome === "correct")
+        ))?.userData.fieldChoice;
+        return Boolean(choice && fieldTaskSelectRef.current?.(choice));
+      }
+    } : null;
+    if (sliceDebug && interactiveRef.current) window.__questSliceDebug = sliceDebug;
+
+    const visibleThroughParents = object => {
+      let current = object;
+      while (current) {
+        if (!current.visible) return false;
+        current = current.parent;
+      }
+      return true;
+    };
+    const belongsTo = (object, root) => {
+      let current = object;
+      while (current) {
+        if (current === root) return true;
+        current = current.parent;
+      }
+      return false;
+    };
+    const boxScreenRect = box => {
+      const corners = [];
+      for (const x of [box.min.x, box.max.x]) {
+        for (const y of [box.min.y, box.max.y]) {
+          for (const z of [box.min.z, box.max.z]) corners.push(new THREE.Vector3(x, y, z).project(camera));
+        }
+      }
+      const xs = corners.map(point => (point.x * 0.5 + 0.5) * viewport.width);
+      const ys = corners.map(point => (-point.y * 0.5 + 0.5) * viewport.height);
+      return {
+        left: Math.min(...xs),
+        top: Math.min(...ys),
+        right: Math.max(...xs),
+        bottom: Math.max(...ys)
+      };
+    };
+    const updateSliceDebug = (task, cameraTarget) => {
+      if (!sliceDebug || !task) return;
+      scene.updateMatrixWorld(true);
+      camera.updateMatrixWorld(true);
+      const safeArea = sliceSafeArea(viewport.width, viewport.height);
+      const stageItems = task.items.filter(item => (
+        item.visible && item.userData.fieldChoice?.stage === fieldStageRef.current
+      ));
+      const previousCamera = sliceDebug.snapshot?.camera?.position;
+      const cameraPosition = camera.position.toArray();
+      const cameraDelta = previousCamera
+        ? Math.hypot(...cameraPosition.map((value, index) => value - previousCamera[index]))
+        : Infinity;
+      const itemEvidence = stageItems.map(item => {
+        const box = new THREE.Box3().setFromObject(item);
+        const rect = boxScreenRect(box);
+        const target = box.getCenter(new THREE.Vector3());
+        const direction = target.clone().sub(camera.position);
+        const targetDistance = direction.length();
+        raycaster.set(camera.position, direction.normalize());
+        const firstHit = raycaster.intersectObjects(scene.children, true).find(hit => (
+          hit.distance <= targetDistance + 0.3
+          && visibleThroughParents(hit.object)
+          && hit.object.isMesh
+          && hit.object.name !== "field-label"
+        ));
+        return {
+          id: item.userData.fieldChoice.id,
+          value: item.userData.fieldChoice.value,
+          rect,
+          insideSafeArea: projectedRectInsideSafeArea(rect, safeArea),
+          firstHit: firstHit?.object?.name || firstHit?.object?.type || null,
+          rayClear: Boolean(firstHit && belongsTo(firstHit.object, item))
+        };
+      });
+      sliceDebug.snapshot = {
+        stopId,
+        encounterId: activeRef.current?.id || null,
+        encounterKind: activeRef.current?.kind || null,
+        beatIndex: beatIndexRef.current,
+        stageIndex: fieldStageRef.current,
+        safeArea,
+        hudNodes: document.querySelectorAll("[data-quest-hud-node]").length,
+        camera: {
+          position: cameraPosition,
+          delta: cameraDelta,
+          settled: cameraTarget ? camera.position.distanceTo(cameraTarget) < 0.02 : false
+        },
+        items: itemEvidence
+      };
+    };
 
     const onPointer = event => {
       if (!interactiveRef.current || phaseRef.current !== "trail") return;
@@ -2988,7 +3325,10 @@ export default function QuestHub({
       if (currentActive) {
         const task = landscape.fieldTasks.get(physicalTaskKey(currentActive, beatIndexRef.current));
         if (task?.group.visible && !fieldChoiceLockRef.current) {
-          const hit = raycaster.intersectObjects(task.items, true)[0];
+          const stageItems = task.items.filter(item => (
+            item.visible && item.userData.fieldChoice?.stage === fieldStageRef.current
+          ));
+          const hit = raycaster.intersectObjects(stageItems, true)[0];
           let node = hit?.object || null;
           while (node && !node.userData.fieldChoice) node = node.parent;
           if (node?.userData.fieldChoice) {
@@ -2996,7 +3336,6 @@ export default function QuestHub({
             return;
           }
         }
-        return;
       }
 
       const hit = raycaster.intersectObject(landscape.ground, false)[0];
@@ -3019,28 +3358,57 @@ export default function QuestHub({
     window.addEventListener("keyup", onKeyUp);
 
     const beginEncounter = encounter => {
+      const firstTask = buildPhysicalTask(section, encounter, encounter.beats[0], 0);
       activeRef.current = encounter;
       selectedRef.current = null;
       targetRef.current = { ...playerRef.current };
+      locomotionState = createQuestLocomotionState(characters.player.userData.facing || locomotionState.heading);
       beatIndexRef.current = 0;
       fieldStageRef.current = 0;
       fieldChoiceLockRef.current = false;
+      fieldCollisionArmedRef.current = true;
       reviewQueueRef.current = [];
       reviewedBeatsRef.current = [];
       remediationBeatRef.current = null;
+      verbStateRef.current = firstTask
+        ? createSeedwakeVerbState(firstTask.mechanic, physicalTaskAnswers(firstTask))
+        : null;
+      verbTaskKeyRef.current = firstTask?.key || null;
       setCorrectionFor(encounter, 0, 0);
       lastCorrectRef.current = encounter.kind === "story-rock";
       setSelectedId(null);
       setBeatIndex(0);
       setFieldStage(0);
+      setPhonemeFillCount(0);
+      setInteractionFeedback(null);
       setActive(encounter);
       cuePhysicalTask(encounter, 0, 0);
       checkpoint({ active: encounter, beatIndex: 0, fieldStage: 0, phase: "trail" });
     };
 
     const animate = now => {
+      if (sliceDebug && interactiveRef.current && window.__questSliceDebug !== sliceDebug) {
+        window.__questSliceDebug = sliceDebug;
+      }
+      const minimumFrameInterval = interactiveRef.current
+        ? renderQuality.id === "low" ? 1000 / 30 : 0
+        : 50;
+      if (now - lastRenderedFrame < minimumFrameInterval) {
+        frame = requestAnimationFrame(animate);
+        return;
+      }
+      lastRenderedFrame = now;
       const dt = Math.max(0, Math.min(0.045, (now - previous) / 1000));
       previous = now;
+      if (!interactiveRef.current && !ceremonyRef.current) {
+        if (!firstFrameRendered && journeyStatusRef.current === "preloading") {
+          renderPipeline.renderBackdrop();
+          firstFrameRendered = true;
+        }
+        revealScene();
+        frame = requestAnimationFrame(animate);
+        return;
+      }
       const player = playerRef.current;
       let moving = false;
       const physicalBeat = activeRef.current?.beats?.[beatIndexRef.current];
@@ -3053,19 +3421,25 @@ export default function QuestHub({
         if (keys.has("arrowright") || keys.has("d")) inputX += 1;
         if (keys.has("arrowup") || keys.has("w")) inputForward += 1;
         if (keys.has("arrowdown") || keys.has("s")) inputForward -= 1;
-        const cameraForward = new THREE.Vector3();
-        camera.getWorldDirection(cameraForward);
-        cameraForward.y = 0;
-        cameraForward.normalize();
-        const cameraRight = new THREE.Vector3(-cameraForward.z, 0, cameraForward.x);
-        const dx = cameraRight.x * inputX + cameraForward.x * inputForward;
-        const dz = cameraRight.z * inputX + cameraForward.z * inputForward;
+        const routeControl = routeDirectionAt(section.route, routeProgressAt(section.route, player));
+        const routeMovement = routeMovementVector(routeControl, {
+          lateral: inputX,
+          forward: inputForward
+        });
+        const dx = routeMovement.x;
+        const dz = routeMovement.z;
 
         if (dx || dz) {
           const length = Math.hypot(dx, dz);
+          locomotionState = stepQuestLocomotion(locomotionState, {
+            desiredX: dx / length,
+            desiredZ: dz / length,
+            dt,
+            maxSpeed: MOVE_SPEED
+          });
           const next = clampTrailPosition({
-            x: player.x + (dx / length) * MOVE_SPEED * dt,
-            z: player.z + (dz / length) * MOVE_SPEED * dt
+            x: player.x + locomotionState.x * dt,
+            z: player.z + locomotionState.z * dt
           }, section, currentLimit());
           Object.assign(player, next);
           targetRef.current = { ...player };
@@ -3090,13 +3464,30 @@ export default function QuestHub({
           const tz = routeWaypoint.z - player.z;
           const distance = Math.hypot(tx, tz);
           if (distance > 0.04) {
-            const step = Math.min(distance, MOVE_SPEED * dt);
+            locomotionState = stepQuestLocomotion(locomotionState, {
+              desiredX: tx / distance,
+              desiredZ: tz / distance,
+              dt,
+              maxSpeed: MOVE_SPEED
+            });
+            const step = Math.min(distance, locomotionState.speed * dt);
             const next = clampTrailPosition({
               x: player.x + (tx / distance) * step,
               z: player.z + (tz / distance) * step
             }, section, currentLimit());
             Object.assign(player, next);
             moving = true;
+          } else {
+            locomotionState = stepQuestLocomotion(locomotionState, { dt, maxSpeed: MOVE_SPEED });
+            if (!locomotionState.settled) {
+              const next = clampTrailPosition({
+                x: player.x + locomotionState.x * dt,
+                z: player.z + locomotionState.z * dt
+              }, section, currentLimit());
+              Object.assign(player, next);
+              targetRef.current = { ...player };
+              moving = true;
+            }
           }
         }
 
@@ -3118,11 +3509,21 @@ export default function QuestHub({
           ? landscape.fieldTasks.get(physicalTaskKey(activeRef.current, beatIndexRef.current))
           : null;
         if (activeTask?.group.visible && !fieldChoiceLockRef.current) {
-          const foundItem = activeTask.items.find(item => (
-            item.visible && Math.hypot(item.position.x - player.x, item.position.z - player.z) < rewardBonuses.interactionRadius
-          ));
-          if (foundItem?.userData.fieldChoice) {
-            fieldTaskSelectRef.current?.(foundItem.userData.fieldChoice);
+          const collision = fieldCollisionStep({
+            armed: fieldCollisionArmedRef.current,
+            player,
+            stage: fieldStageRef.current,
+            interactionRadius: rewardBonuses.interactionRadius,
+            items: activeTask.items.map(item => ({
+              visible: item.visible,
+              x: item.position.x,
+              z: item.position.z,
+              choice: item.userData.fieldChoice
+            }))
+          });
+          fieldCollisionArmedRef.current = collision.armed;
+          if (collision.choice) {
+            fieldTaskSelectRef.current?.(collision.choice);
             moving = false;
           }
         }
@@ -3143,8 +3544,9 @@ export default function QuestHub({
           checkpoint({ picked: next });
         }
 
-        const allSolved = section.encounters.every(encounter => solvedRef.current.has(encounter.id));
-        if (allSolved && routeProgressAt(section.route, player) >= section.exit.progress - 0.004) {
+        const allSolved = isChapterGateOpen(section.encounters, solvedRef.current);
+        const gateHandoffProgress = Math.min(section.exit.progress, section.gate.progress + 0.042);
+        if (allSolved && routeProgressAt(section.route, player) >= gateHandoffProgress) {
           finishingRef.current = true;
           targetRef.current = { ...player };
           // Finishing records the complete tally and clears the old checkpoint
@@ -3161,6 +3563,15 @@ export default function QuestHub({
         wasMoving = moving;
         setTrailMood(moving ? "walk" : "idle");
       }
+      if (sliceDebug) {
+        sliceDebug.motion = {
+          speed: locomotionState.speed,
+          bank: locomotionState.bank,
+          heading: locomotionState.heading,
+          settled: locomotionState.settled,
+          moving
+        };
+      }
 
       if (moving && now - lastAutosave >= AUTOSAVE_MS) {
         lastAutosave = now;
@@ -3168,13 +3579,36 @@ export default function QuestHub({
       }
 
       const playerProgress = routeProgressAt(section.route, player);
+      desiredSunPosition.set(player.x + sunOffset.x, (player.y || 0) + sunOffset.y, player.z + sunOffset.z);
+      desiredSunTarget.set(player.x, player.y || 0, player.z);
+      const lightFollow = 1 - Math.pow(0.025, dt);
+      sun.position.lerp(desiredSunPosition, lightFollow);
+      sun.target.position.lerp(desiredSunTarget, lightFollow);
+      sun.target.updateMatrixWorld();
       const percent = Math.round(playerProgress * 100);
       if (percent !== lastPercent && percent % 2 === 0) {
         lastPercent = percent;
         setRoutePercent(percent);
       }
 
-      const allSolved = section.encounters.every(encounter => solvedRef.current.has(encounter.id));
+      const allSolved = isChapterGateOpen(section.encounters, solvedRef.current);
+      if (sliceDebug) {
+        sliceDebug.journey = {
+          stopId,
+          phase: phaseRef.current,
+          guideDone: guideDoneRef.current,
+          meetIndex: meetIndexRef.current,
+          activeId: activeRef.current?.id || null,
+          beatIndex: beatIndexRef.current,
+          stageIndex: fieldStageRef.current,
+          inputLocked: fieldChoiceLockRef.current,
+          lastCorrect: lastCorrectRef.current,
+          solvedCount: solvedRef.current.size,
+          encounterCount: section.encounters.length,
+          gateOpen: allSolved,
+          playerProgress
+        };
+      }
       gateAmount = THREE.MathUtils.lerp(gateAmount, allSolved ? 1 : 0, 1 - Math.pow(0.003, dt));
       landscape.gate.left.rotation.y = -gateAmount * 1.33;
       landscape.gate.right.rotation.y = gateAmount * 1.33;
@@ -3185,79 +3619,93 @@ export default function QuestHub({
       }
       updateActEvent(landscape.actEvent, now, gateAmount);
 
-      const routeDirection = routeDirectionAt(section.route, playerProgress);
+      const rawRouteDirection = routeDirectionAt(section.route, playerProgress);
+      desiredTrailDirection.set(rawRouteDirection.x, 0, rawRouteDirection.z).normalize();
+      trailCameraDirection.lerp(desiredTrailDirection, 1 - Math.pow(0.035, dt)).normalize();
+      const routeDirection = {
+        x: trailCameraDirection.x,
+        y: rawRouteDirection.y,
+        z: trailCameraDirection.z,
+        heading: Math.atan2(trailCameraDirection.x, trailCameraDirection.z)
+      };
       let focus = new THREE.Vector3(
         player.x + routeDirection.x * 1.25,
         (player.y || 0) + 1.02,
         player.z + routeDirection.z * 1.25
       );
       let desiredCamera = new THREE.Vector3(
-        player.x - routeDirection.x * 6.45,
-        (player.y || 0) + 4.05,
-        player.z - routeDirection.z * 6.45
+        player.x - routeDirection.x * 7.4,
+        (player.y || 0) + 4.7,
+        player.z - routeDirection.z * 7.4
       );
-      let desiredFov = 40;
+      let desiredFov = 50;
       const currentActive = activeRef.current;
       if (phaseRef.current === "teach") {
+        encounterCameraState = null;
         const direction = routeDirectionAt(section.route, section.guide.progress);
         focus = new THREE.Vector3(section.guide.x, (section.guide.y || 0) + 1.28, section.guide.z);
         desiredCamera = new THREE.Vector3(
-          section.guide.x - direction.x * 6.6 - direction.z * 1.7,
-          (section.guide.y || 0) + 4.35,
-          section.guide.z - direction.z * 6.6 + direction.x * 1.7
+          section.guide.x - direction.x * 7.7 - direction.z * 1.8,
+          (section.guide.y || 0) + 5,
+          section.guide.z - direction.z * 7.7 + direction.x * 1.8
         );
       } else if (currentActive) {
-        const side = currentActive.order % 2 === 0 ? 1 : -1;
         const direction = routeDirectionAt(section.route, currentActive.progress);
         const liveTask = landscape.fieldTasks.get(physicalTaskKey(currentActive, beatIndexRef.current));
-        const compactTaskView = Boolean(liveTask && viewport.width < 640);
-        const visibleTaskItems = liveTask?.items.filter(item => item.visible) || [];
-        const taskCentreX = visibleTaskItems.length
-          ? visibleTaskItems.reduce((sum, item) => sum + item.position.x, 0) / visibleTaskItems.length
-          : currentActive.x;
-        const taskCentreZ = visibleTaskItems.length
-          ? visibleTaskItems.reduce((sum, item) => sum + item.position.z, 0) / visibleTaskItems.length
-          : currentActive.z;
-        focus = new THREE.Vector3(taskCentreX, (currentActive.y || 0) + (compactTaskView ? 0.84 : 1.12), taskCentreZ);
-        desiredFov = compactTaskView ? 82 : 40;
-        desiredCamera = compactTaskView
-          ? new THREE.Vector3(
-            taskCentreX - direction.x * 13.4 + direction.z * 1.55,
-            (currentActive.y || 0) + 6.6,
-            taskCentreZ - direction.z * 13.4 - direction.x * 1.55
-          )
-          : new THREE.Vector3(
-            currentActive.x - direction.x * 6.25 - direction.z * side * 2.05,
-            (currentActive.y || 0) + 4.35,
-            currentActive.z - direction.z * 6.25 + direction.x * side * 2.05
-          );
+        const cameraItems = liveTask?.items
+          .filter(item => item.userData.fieldChoice?.stage === fieldStageRef.current)
+          .map(item => ({
+            x: item.userData.baseX,
+            y: item.userData.baseY,
+            z: item.userData.baseZ
+          })) || [currentActive];
+        const cameraKey = `${currentActive.id}:${beatIndexRef.current}:${fieldStageRef.current}:${viewport.width}x${viewport.height}`;
+        if (encounterCameraState?.key !== cameraKey) {
+          encounterCameraState = {
+            key: cameraKey,
+            ...encounterCameraPose(cameraItems, direction, viewport)
+          };
+        }
+        focus = new THREE.Vector3(
+          encounterCameraState.focus.x,
+          encounterCameraState.focus.y,
+          encounterCameraState.focus.z
+        );
+        desiredCamera = new THREE.Vector3(
+          encounterCameraState.position.x,
+          encounterCameraState.position.y,
+          encounterCameraState.position.z
+        );
+        desiredFov = encounterCameraState.fov;
       } else if (allSolved && playerProgress > section.gate.progress - 0.15) {
+        encounterCameraState = null;
         if (section.isChapterFinale) {
           const finalePoint = routePointAt(section.route, 0.865);
           const finaleDirection = routeDirectionAt(section.route, 0.865);
           const compactFinaleView = viewport.width < 640;
-          const finaleDistance = compactFinaleView ? 13.4 : 8.4;
+          const finaleDistance = compactFinaleView ? 18.5 : 9.2;
           const finaleSide = compactFinaleView ? 1.35 : 1.8;
           focus = new THREE.Vector3(
             finalePoint.x,
             (finalePoint.y || 0) + (compactFinaleView ? 2.55 : 2.15),
             finalePoint.z
           );
-          desiredFov = compactFinaleView ? 64 : 43;
+          desiredFov = 50;
           desiredCamera = new THREE.Vector3(
             finalePoint.x - finaleDirection.x * finaleDistance - finaleDirection.z * finaleSide,
-            (finalePoint.y || 0) + (compactFinaleView ? 5.7 : 4.9),
+            (finalePoint.y || 0) + (compactFinaleView ? 8 : 5.25),
             finalePoint.z - finaleDirection.z * finaleDistance + finaleDirection.x * finaleSide
           );
         } else {
           focus = new THREE.Vector3(section.gate.x, (section.gate.y || 0) + 1.45, section.gate.z);
           desiredCamera = new THREE.Vector3(
-            player.x - routeDirection.x * 10.2,
-            (player.y || 0) + 6.8,
-            player.z - routeDirection.z * 10.2
+            player.x - routeDirection.x * 11,
+            (player.y || 0) + 7.2,
+            player.z - routeDirection.z * 11
           );
         }
       } else {
+        encounterCameraState = null;
         const nextFocus = !guideDoneRef.current
           ? section.guide
           : firstUnsolvedEncounter(section, solvedRef.current);
@@ -3268,15 +3716,17 @@ export default function QuestHub({
             player.z * 0.72 + nextFocus.z * 0.28
           );
           desiredCamera = new THREE.Vector3(
-            player.x - routeDirection.x * 6.7,
-            (player.y || 0) + 4.25,
-            player.z - routeDirection.z * 6.7
+            player.x - routeDirection.x * 7.8,
+            (player.y || 0) + 4.8,
+            player.z - routeDirection.z * 7.8
           );
         }
       }
-      camera.position.lerp(desiredCamera, 1 - Math.pow(0.002, dt));
-      lookTarget.lerp(focus, 1 - Math.pow(0.004, dt));
-      const nextFov = THREE.MathUtils.lerp(camera.fov, desiredFov, 1 - Math.pow(0.002, dt));
+      camera.position.lerp(desiredCamera, 1 - Math.pow(0.028, dt));
+      lookTarget.lerp(focus, 1 - Math.pow(0.018, dt));
+      if (currentActive && camera.position.distanceTo(desiredCamera) < 0.012) camera.position.copy(desiredCamera);
+      if (currentActive && lookTarget.distanceTo(focus) < 0.008) lookTarget.copy(focus);
+      const nextFov = THREE.MathUtils.lerp(camera.fov, desiredFov, 1 - Math.pow(0.028, dt));
       if (Math.abs(nextFov - camera.fov) > 0.001) {
         camera.fov = nextFov;
         camera.updateProjectionMatrix();
@@ -3305,6 +3755,14 @@ export default function QuestHub({
         player,
         liveInteraction
       );
+      const debugTask = liveEncounter
+        ? landscape.fieldTasks.get(physicalTaskKey(liveEncounter, beatIndexRef.current))
+        : null;
+      updateSliceDebug(debugTask, desiredCamera);
+      const accentTask = liveEncounter
+        ? landscape.fieldTasks.get(physicalTaskKey(liveEncounter, beatIndexRef.current))
+        : null;
+      renderPipeline.updateTargetLights(accentTask?.items || []);
       updateTrailCharacters(characters, section, {
         player,
         target: targetRef.current,
@@ -3317,15 +3775,21 @@ export default function QuestHub({
         mood: ceremonyRef.current ? "cheer" : moodRef.current,
         now,
         dt,
-        activity: liveInteraction
+        activity: liveInteraction,
+        bank: locomotionState.bank,
+        reaction: reactionRef.current?.until > now ? reactionRef.current : null
       });
       updateImportedNature(importedNature, now);
       updateAuthoredChapterKit(authoredChapterKit, dt);
       updateQuestAtmosphere(atmosphere, now, dt, ceremonyRef.current);
-      const clearCameraCorridor = Boolean(currentActive)
-        || playerProgress > (section.isChapterFinale ? 0.62 : 0.8);
-      if (importedNature) importedNature.visible = !clearCameraCorridor;
-      if (landscape.fallbackTrees) landscape.fallbackTrees.visible = !clearCameraCorridor;
+      const clearCameraCorridor = playerProgress > (section.isChapterFinale ? 0.62 : 0.88);
+      const clearEncounterStage = Boolean(liveEncounter);
+      if (importedNature) importedNature.visible = !clearCameraCorridor && !clearEncounterStage;
+      if (landscape.fallbackTrees) landscape.fallbackTrees.visible = !clearCameraCorridor && !clearEncounterStage;
+      if (authoredChapterKit) authoredChapterKit.visible = !clearEncounterStage;
+      if (landscape.proceduralScenery) {
+        landscape.proceduralScenery.visible = !authoredChapterKit && !clearEncounterStage;
+      }
 
       projectElement(guideRef.current, section.guide, camera, viewport, { lift: 1.65, scale: 0.72, anchor: "-20%" });
       for (const encounter of section.encounters) {
@@ -3340,8 +3804,7 @@ export default function QuestHub({
         });
       }
 
-      if (composer) composer.render(dt);
-      else renderer.render(scene, camera);
+      renderPipeline.render(dt);
       firstFrameRendered = true;
       revealScene();
       frame = requestAnimationFrame(animate);
@@ -3356,18 +3819,11 @@ export default function QuestHub({
       canvas.removeEventListener("pointerdown", onPointer);
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
-      scene.traverse(object => {
-        object.geometry?.dispose?.();
-        const materials = Array.isArray(object.material) ? object.material : object.material ? [object.material] : [];
-        materials.forEach(material => {
-          if (material.map?.userData.questSurface) material.map.dispose();
-          material.dispose();
-        });
-      });
-      composer?.dispose?.();
-      environment.dispose();
-      pmrem.dispose();
-      renderer.dispose();
+      if (scene.background === skyTexture) scene.background = null;
+      if (sliceDebug && window.__questSliceDebug === sliceDebug) delete window.__questSliceDebug;
+      skyTexture.dispose();
+      disposeQuestScene(scene);
+      renderPipeline.destroy();
     };
   }, [
     section,
@@ -3392,6 +3848,18 @@ export default function QuestHub({
     tallyRef.current.total += 1;
     if (correct) tallyRef.current.correct += 1;
     else tallyRef.current.mistakes += 1;
+    const reaction = {
+      outcome: correct ? "correct" : "wrong",
+      clip: seedwakeResidentPerformance(stopId, correct ? "correct" : "wrong"),
+      duration: correct ? 900 : 720,
+      until: performance.now() + (correct ? 900 : 720)
+    };
+    reactionRef.current = reaction;
+    setInteractionFeedback({
+      kind: correct ? "success" : "retry",
+      announcement: correct ? "Correct. The sound is in place." : "Try again. Listen for the sound.",
+      duration: correct ? 1100 : 820
+    });
     setTrailMood(correct ? "cheer" : "sad");
     if (target == null) return;
     for (const one of Array.isArray(target) ? target : [target]) {
@@ -3409,10 +3877,14 @@ export default function QuestHub({
     reviewQueueRef.current = [];
     reviewedBeatsRef.current = [];
     remediationBeatRef.current = null;
+    verbStateRef.current = null;
+    verbTaskKeyRef.current = null;
     setSolved(nextSolved);
     setActive(null);
     setBeatIndex(0);
     setFieldStage(0);
+    setPhonemeFillCount(0);
+    setInteractionFeedback(null);
     setRemediationBeat(null);
     setCorrectionFor(null, 0, 0, { reset: true });
     setTrailMood("cheer");
@@ -3427,7 +3899,7 @@ export default function QuestHub({
       remediationBeat: null
     });
 
-    if (section.encounters.every(encounter => nextSolved.has(encounter.id))) {
+    if (isChapterGateOpen(section.encounters, nextSolved)) {
       setGateOpen(true);
       if (isSoundEnabled) playWhoosh();
     }
@@ -3442,6 +3914,11 @@ export default function QuestHub({
     beatIndexRef.current = reviewIndex;
     fieldStageRef.current = 0;
     fieldChoiceLockRef.current = false;
+    const reviewTask = buildPhysicalTask(section, current, current.beats[reviewIndex], reviewIndex);
+    verbStateRef.current = reviewTask
+      ? createSeedwakeVerbState(reviewTask.mechanic, physicalTaskAnswers(reviewTask))
+      : null;
+    verbTaskKeyRef.current = reviewTask?.key || null;
     lastCorrectRef.current = current.kind === "story-rock";
     setBeatIndex(reviewIndex);
     setFieldStage(0);
@@ -3491,7 +3968,13 @@ export default function QuestHub({
       lastCorrectRef.current = current.kind === "story-rock";
       setBeatIndex(nextIndex);
       setFieldStage(0);
+      setPhonemeFillCount(0);
       setCorrectionFor(current, nextIndex, 0);
+      const followingTask = buildPhysicalTask(section, current, current.beats[nextIndex], nextIndex);
+      verbStateRef.current = followingTask
+        ? createSeedwakeVerbState(followingTask.mechanic, physicalTaskAnswers(followingTask))
+        : null;
+      verbTaskKeyRef.current = followingTask?.key || null;
       cuePhysicalTask(current, nextIndex, 0);
       checkpoint({ active: current, beatIndex: nextIndex, fieldStage: 0 });
       return;
@@ -3504,14 +3987,29 @@ export default function QuestHub({
 
   useEffect(() => {
     fieldTaskSelectRef.current = choice => {
-      if (!choice || fieldChoiceLockRef.current) return;
+      if (!choice || fieldChoiceLockRef.current) return false;
       const current = activeRef.current;
       const beat = current?.beats?.[beatIndexRef.current];
       const task = buildPhysicalTask(section, current, beat, beatIndexRef.current);
       const stage = physicalStage(task, fieldStageRef.current);
-      if (!stage || choice.stage !== fieldStageRef.current) return;
+      if (!stage || choice.stage !== fieldStageRef.current) return false;
+      fieldCollisionArmedRef.current = false;
+      targetRef.current = { ...playerRef.current };
+      selectedRef.current = null;
+      setSelectedId(null);
       fieldChoiceLockRef.current = true;
-      const right = Boolean(choice.correct);
+      if (!verbStateRef.current || verbTaskKeyRef.current !== task.key) {
+        verbStateRef.current = createSeedwakeVerbState(task.mechanic, physicalTaskAnswers(task));
+        verbTaskKeyRef.current = task.key;
+      }
+      const verbResult = applySeedwakeVerbInput(task.mechanic, verbStateRef.current, {
+        type: stage.playerAction,
+        correct: Boolean(choice.correct),
+        value: choice.value,
+        stage: fieldStageRef.current
+      });
+      verbStateRef.current = verbResult.state;
+      const right = Boolean(choice.correct && verbResult.accepted);
       const actionKind = stage.playerAction === "pick-up" ? "carry" : stage.playerAction;
       interactionActionRef.current = {
         taskKey: task.key,
@@ -3560,10 +4058,11 @@ export default function QuestHub({
             cuePhysicalTask(current, beatIndexRef.current, fieldStageRef.current);
           }, 820);
         }
-        return;
+        return true;
       }
 
       const nextStage = fieldStageRef.current + 1;
+      setPhonemeFillCount(Math.min(task.stages.length, nextStage));
       if (nextStage < task.stages.length) {
         window.setTimeout(() => {
           fieldStageRef.current = nextStage;
@@ -3574,11 +4073,24 @@ export default function QuestHub({
           cuePhysicalTask(current, beatIndexRef.current, nextStage);
           checkpoint({ active: current, beatIndex: beatIndexRef.current, fieldStage: nextStage });
         }, 480);
-        return;
+        return true;
       }
 
       answer(true, beat.target);
-      window.setTimeout(nextBeat, 640);
+      const blendComplete = Boolean(beat.word && task.stages.length > 1);
+      if (blendComplete) {
+        const graphemes = physicalTaskAnswers(task);
+        let slotState = createPhonemeSlotState(graphemes);
+        for (const grapheme of graphemes) slotState = advancePhonemeSlotState(slotState, grapheme, true);
+        setInteractionFeedback({
+          kind: "blend",
+          announcement: slotState.announcement || `Word complete: ${beat.word}`,
+          duration: 1250
+        });
+        window.setTimeout(() => sayWord(beat.word, isSoundEnabled), 300);
+      }
+      window.setTimeout(nextBeat, blendComplete ? 1180 : 640);
+      return true;
     };
   });
 
@@ -3606,6 +4118,26 @@ export default function QuestHub({
   } : state;
   const satchel = seedwakeSatchel(liveSeedwakeState);
   const currentPocket = satchel.pockets.find(pocket => pocket.stopId === stopId);
+  const activeBeat = active?.beats?.[beatIndex] || null;
+  const taskParts = activeFieldTask ? physicalTaskAnswers(activeFieldTask) : [];
+  const activeWordParts = activeBeat?.word
+    && activeFieldTask?.stages?.length > 1
+    && (activeFieldTask.mechanic === "bridge-build" || active?.kind === "echo-cave")
+    ? (taskParts.length > 1 ? taskParts : segmentWord(activeBeat.word))
+    : [];
+  let activeSlotState = createPhonemeSlotState(activeWordParts);
+  for (const grapheme of activeWordParts.slice(0, phonemeFillCount)) {
+    activeSlotState = advancePhonemeSlotState(activeSlotState, grapheme, true);
+  }
+  const encounterHud = activeFieldStage
+    ? seedwakeEncounterHudModel({
+      objective: activeCorrection.prompt,
+      rewardLabel: seedwakeSpec?.collectible.plural || "finds",
+      rewardCount: currentPocket?.count || 0,
+      stageIndex: fieldStage,
+      stageCount: activeFieldTask?.stages.length || 1
+    })
+    : [];
 
   const leaveWorld = () => {
     onQuit?.();
@@ -3630,7 +4162,7 @@ export default function QuestHub({
 
   return (
     <main
-      className={`q-screen qh-root${sceneReady ? " is-ready" : ""}${sceneError ? " has-fallback" : ""}`}
+      className={`q-screen qh-root${sceneReady ? " is-ready" : ""}${sceneError ? " has-fallback" : ""}${active ? " is-encounter-active" : ""}`}
       data-world={section.world}
       data-chapter={section.chapter?.id || section.world}
       data-route-topology={section.topology}
@@ -3700,7 +4232,7 @@ export default function QuestHub({
         </button>
       </div>
 
-      <header className="qh-hud">
+      {!active && <header className="qh-hud">
         <button type="button" className="q-ghost qh-leave" onClick={leaveWorld}>Back to the Den</button>
         <div className="qh-land-title">
           <span>{stop?.name || theme.name}</span>
@@ -3719,11 +4251,11 @@ export default function QuestHub({
             <span>{liveSparks}</span>
           </div>
         </div>
-      </header>
+      </header>}
 
-      <div className="qh-route-meter" aria-label={`${routePercent}% through this trail`}>
+      {!active && <div className="qh-route-meter" aria-label={`${routePercent}% through this trail`}>
         <span style={{ "--qh-progress": `${routePercent}%` }} />
-      </div>
+      </div>}
 
       {seedwakeSpec && phase === "trail" && !active && (
         <aside className="qh-mission" aria-label="Current mission">
@@ -3733,6 +4265,59 @@ export default function QuestHub({
       )}
 
       {pickupNotice && <div className="qh-pickup-notice" aria-live="polite">{pickupNotice}</div>}
+
+      {sceneReady && activeFieldStage && (
+        <header className="qh-encounter-hud" aria-label="Current objective and reward">
+          <button
+            type="button"
+            className="qh-objective-cue"
+            data-quest-hud-node="objective"
+            onClick={() => cuePhysicalTask(active, beatIndex, fieldStage)}
+            aria-label={`${encounterHud[0]?.label}. Play the sound again.`}
+          >
+            <span aria-hidden="true" />
+            <strong>{encounterHud[0]?.label}</strong>
+          </button>
+          <div
+            className="qh-encounter-reward"
+            data-quest-hud-node="reward"
+            aria-label={`${encounterHud[1]?.count || 0} ${encounterHud[1]?.label || "finds"}; ${encounterHud[1]?.progress || "1 of 1"}`}
+          >
+            <span className="qh-satchel-mark" aria-hidden="true" />
+            <strong>{encounterHud[1]?.count || 0}</strong>
+            <small>{encounterHud[1]?.progress}</small>
+          </div>
+        </header>
+      )}
+
+      {activeWordParts.length > 1 && (
+        <div
+          className={`qh-phoneme-build${activeSlotState.complete ? " is-complete" : ""}${interactionFeedback?.kind === "blend" ? " is-blending" : ""}`}
+          data-word={activeBeat.word}
+          aria-label={`Build ${activeBeat.word}`}
+        >
+          <div className="qh-phoneme-slots">
+            {activeWordParts.map((grapheme, index) => (
+              <span
+                key={`${grapheme}-${index}`}
+                className={index < activeSlotState.filled.length ? "is-filled" : ""}
+                data-filled={index < activeSlotState.filled.length ? "true" : "false"}
+              >
+                {index < activeSlotState.filled.length ? displayGrapheme(grapheme) : ""}
+              </span>
+            ))}
+          </div>
+          {activeSlotState.complete && (
+            <strong className="qh-success-marker" aria-label="Word complete">
+              <span aria-hidden="true" />{activeBeat.word}
+            </strong>
+          )}
+        </div>
+      )}
+
+      <div className="q-visually-hidden" aria-live="assertive" aria-atomic="true">
+        {interactionFeedback?.announcement || ""}
+      </div>
 
       {phase === "trail" && !active && (
         <button type="button" className={`qh-next-call${gateOpen ? " is-gate" : ""}`} onClick={moveToNext} aria-live="polite">
@@ -3772,15 +4357,17 @@ export default function QuestHub({
         />
       )}
 
-      {activeFieldTask && activeFieldStage && (
+      {sceneReady && activeFieldTask?.storyText && activeFieldStage && (
         <div
-          className={`qh-field-hud is-${activeCorrection.mode}`}
+          key={`${active.id}-${beatIndex}-${fieldStage}-${activeCorrection.mode}-${remediationBeat ?? "main"}`}
+          className={`qh-field-hud is-${activeCorrection.mode}${activeFieldTask.storyText ? " is-story" : ""}`}
           data-correction-mode={activeCorrection.mode}
           data-visible-choices={activeCorrection.visibleIds.length}
+          aria-label={`${active.friend}: ${activeCorrection.prompt}`}
           aria-live="polite"
         >
-          <span>{active.friend} · {remediationBeat !== null ? "practice return" : activeFieldTask.chapterVerb} · {fieldStage + 1}/{activeFieldTask.stages.length}</span>
-          {activeFieldTask.storyText && <p>{activeFieldTask.storyText}</p>}
+          <span>{active.friend}</span>
+          <p>{activeFieldTask.storyText}</p>
           <strong>{activeCorrection.prompt}</strong>
           <em>{activeCorrection.help}</em>
         </div>

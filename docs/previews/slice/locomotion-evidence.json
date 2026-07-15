@@ -1,0 +1,23 @@
+{
+  "before": {
+    "speed": 0,
+    "bank": 0,
+    "heading": -0.7031869730191518,
+    "settled": true,
+    "moving": false
+  },
+  "banked": {
+    "speed": 1.0365600000000046,
+    "bank": 0.059531534718710685,
+    "heading": 0.08122920254241749,
+    "settled": false,
+    "moving": true
+  },
+  "settled": {
+    "speed": 0,
+    "bank": 0.006801336017460667,
+    "heading": 0.08122920254241749,
+    "settled": true,
+    "moving": false
+  }
+}

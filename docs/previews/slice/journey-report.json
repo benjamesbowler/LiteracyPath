@@ -1,0 +1,660 @@
+{
+  "visitedStops": [
+    "s1",
+    "s2",
+    "s3",
+    "s4",
+    "s5"
+  ],
+  "encountersCompleted": 13,
+  "correctSelections": 62,
+  "rewardGear": "stone-staff",
+  "events": [
+    {
+      "type": "walk",
+      "stopId": "s1"
+    },
+    {
+      "type": "guide",
+      "stopId": "s1",
+      "meetIndex": 0,
+      "label": "What else?"
+    },
+    {
+      "type": "guide",
+      "stopId": "s1",
+      "meetIndex": 1,
+      "label": "What else?"
+    },
+    {
+      "type": "guide",
+      "stopId": "s1",
+      "meetIndex": 2,
+      "label": "What else?"
+    },
+    {
+      "type": "guide",
+      "stopId": "s1",
+      "meetIndex": 3,
+      "label": "Let's go"
+    },
+    {
+      "type": "walk",
+      "stopId": "s1"
+    },
+    {
+      "type": "correct",
+      "stopId": "s1",
+      "activeId": "s1-0",
+      "beatIndex": 0,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s1",
+      "activeId": "s1-0",
+      "beatIndex": 1,
+      "stageIndex": 0
+    },
+    {
+      "type": "walk",
+      "stopId": "s1"
+    },
+    {
+      "type": "correct",
+      "stopId": "s1",
+      "activeId": "s1-1",
+      "beatIndex": 0,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s1",
+      "activeId": "s1-1",
+      "beatIndex": 0,
+      "stageIndex": 1
+    },
+    {
+      "type": "correct",
+      "stopId": "s1",
+      "activeId": "s1-1",
+      "beatIndex": 1,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s1",
+      "activeId": "s1-1",
+      "beatIndex": 1,
+      "stageIndex": 1
+    },
+    {
+      "type": "correct",
+      "stopId": "s1",
+      "activeId": "s1-1",
+      "beatIndex": 1,
+      "stageIndex": 2
+    },
+    {
+      "type": "gate-cross",
+      "stopId": "s1"
+    },
+    {
+      "type": "walk",
+      "stopId": "s2"
+    },
+    {
+      "type": "guide",
+      "stopId": "s2",
+      "meetIndex": 0,
+      "label": "What else?"
+    },
+    {
+      "type": "guide",
+      "stopId": "s2",
+      "meetIndex": 1,
+      "label": "What else?"
+    },
+    {
+      "type": "guide",
+      "stopId": "s2",
+      "meetIndex": 2,
+      "label": "What else?"
+    },
+    {
+      "type": "guide",
+      "stopId": "s2",
+      "meetIndex": 3,
+      "label": "Let's go"
+    },
+    {
+      "type": "walk",
+      "stopId": "s2"
+    },
+    {
+      "type": "correct",
+      "stopId": "s2",
+      "activeId": "s2-0",
+      "beatIndex": 0,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s2",
+      "activeId": "s2-0",
+      "beatIndex": 1,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s2",
+      "activeId": "s2-0",
+      "beatIndex": 2,
+      "stageIndex": 0
+    },
+    {
+      "type": "walk",
+      "stopId": "s2"
+    },
+    {
+      "type": "correct",
+      "stopId": "s2",
+      "activeId": "s2-1",
+      "beatIndex": 0,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s2",
+      "activeId": "s2-1",
+      "beatIndex": 0,
+      "stageIndex": 1
+    },
+    {
+      "type": "correct",
+      "stopId": "s2",
+      "activeId": "s2-1",
+      "beatIndex": 1,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s2",
+      "activeId": "s2-1",
+      "beatIndex": 1,
+      "stageIndex": 1
+    },
+    {
+      "type": "correct",
+      "stopId": "s2",
+      "activeId": "s2-1",
+      "beatIndex": 1,
+      "stageIndex": 2
+    },
+    {
+      "type": "gate-cross",
+      "stopId": "s2"
+    },
+    {
+      "type": "walk",
+      "stopId": "s3"
+    },
+    {
+      "type": "guide",
+      "stopId": "s3",
+      "meetIndex": 0,
+      "label": "What else?"
+    },
+    {
+      "type": "guide",
+      "stopId": "s3",
+      "meetIndex": 1,
+      "label": "What else?"
+    },
+    {
+      "type": "guide",
+      "stopId": "s3",
+      "meetIndex": 2,
+      "label": "What else?"
+    },
+    {
+      "type": "guide",
+      "stopId": "s3",
+      "meetIndex": 3,
+      "label": "Let's go"
+    },
+    {
+      "type": "walk",
+      "stopId": "s3"
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-0",
+      "beatIndex": 0,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-0",
+      "beatIndex": 0,
+      "stageIndex": 1
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-0",
+      "beatIndex": 1,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-0",
+      "beatIndex": 1,
+      "stageIndex": 1
+    },
+    {
+      "type": "walk",
+      "stopId": "s3"
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 0,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 0,
+      "stageIndex": 1
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 0,
+      "stageIndex": 2
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 0,
+      "stageIndex": 3
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 0,
+      "stageIndex": 4
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 0,
+      "stageIndex": 5
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 1,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 1,
+      "stageIndex": 1
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 1,
+      "stageIndex": 2
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 1,
+      "stageIndex": 3
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 1,
+      "stageIndex": 4
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 1,
+      "stageIndex": 5
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 2,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 2,
+      "stageIndex": 1
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 2,
+      "stageIndex": 2
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 2,
+      "stageIndex": 3
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 2,
+      "stageIndex": 4
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-1",
+      "beatIndex": 2,
+      "stageIndex": 5
+    },
+    {
+      "type": "walk",
+      "stopId": "s3"
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-2",
+      "beatIndex": 0,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s3",
+      "activeId": "s3-2",
+      "beatIndex": 0,
+      "stageIndex": 1
+    },
+    {
+      "type": "gate-cross",
+      "stopId": "s3"
+    },
+    {
+      "type": "walk",
+      "stopId": "s4"
+    },
+    {
+      "type": "guide",
+      "stopId": "s4",
+      "meetIndex": 0,
+      "label": "What else?"
+    },
+    {
+      "type": "guide",
+      "stopId": "s4",
+      "meetIndex": 1,
+      "label": "What else?"
+    },
+    {
+      "type": "guide",
+      "stopId": "s4",
+      "meetIndex": 2,
+      "label": "What else?"
+    },
+    {
+      "type": "guide",
+      "stopId": "s4",
+      "meetIndex": 3,
+      "label": "Let's go"
+    },
+    {
+      "type": "walk",
+      "stopId": "s4"
+    },
+    {
+      "type": "correct",
+      "stopId": "s4",
+      "activeId": "s4-0",
+      "beatIndex": 0,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s4",
+      "activeId": "s4-0",
+      "beatIndex": 1,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s4",
+      "activeId": "s4-0",
+      "beatIndex": 2,
+      "stageIndex": 0
+    },
+    {
+      "type": "walk",
+      "stopId": "s4"
+    },
+    {
+      "type": "correct",
+      "stopId": "s4",
+      "activeId": "s4-1",
+      "beatIndex": 0,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s4",
+      "activeId": "s4-1",
+      "beatIndex": 0,
+      "stageIndex": 1
+    },
+    {
+      "type": "correct",
+      "stopId": "s4",
+      "activeId": "s4-1",
+      "beatIndex": 1,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s4",
+      "activeId": "s4-1",
+      "beatIndex": 1,
+      "stageIndex": 1
+    },
+    {
+      "type": "correct",
+      "stopId": "s4",
+      "activeId": "s4-1",
+      "beatIndex": 1,
+      "stageIndex": 2
+    },
+    {
+      "type": "walk",
+      "stopId": "s4"
+    },
+    {
+      "type": "correct",
+      "stopId": "s4",
+      "activeId": "s4-2",
+      "beatIndex": 0,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s4",
+      "activeId": "s4-2",
+      "beatIndex": 0,
+      "stageIndex": 1
+    },
+    {
+      "type": "correct",
+      "stopId": "s4",
+      "activeId": "s4-2",
+      "beatIndex": 1,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s4",
+      "activeId": "s4-2",
+      "beatIndex": 1,
+      "stageIndex": 1
+    },
+    {
+      "type": "correct",
+      "stopId": "s4",
+      "activeId": "s4-2",
+      "beatIndex": 1,
+      "stageIndex": 2
+    },
+    {
+      "type": "gate-cross",
+      "stopId": "s4"
+    },
+    {
+      "type": "walk",
+      "stopId": "s5"
+    },
+    {
+      "type": "guide",
+      "stopId": "s5",
+      "meetIndex": 0,
+      "label": "What else?"
+    },
+    {
+      "type": "guide",
+      "stopId": "s5",
+      "meetIndex": 1,
+      "label": "What else?"
+    },
+    {
+      "type": "guide",
+      "stopId": "s5",
+      "meetIndex": 2,
+      "label": "What else?"
+    },
+    {
+      "type": "guide",
+      "stopId": "s5",
+      "meetIndex": 3,
+      "label": "Let's go"
+    },
+    {
+      "type": "walk",
+      "stopId": "s5"
+    },
+    {
+      "type": "correct",
+      "stopId": "s5",
+      "activeId": "s5-0",
+      "beatIndex": 0,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s5",
+      "activeId": "s5-0",
+      "beatIndex": 1,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s5",
+      "activeId": "s5-0",
+      "beatIndex": 2,
+      "stageIndex": 0
+    },
+    {
+      "type": "walk",
+      "stopId": "s5"
+    },
+    {
+      "type": "correct",
+      "stopId": "s5",
+      "activeId": "s5-1",
+      "beatIndex": 0,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s5",
+      "activeId": "s5-1",
+      "beatIndex": 0,
+      "stageIndex": 1
+    },
+    {
+      "type": "correct",
+      "stopId": "s5",
+      "activeId": "s5-1",
+      "beatIndex": 0,
+      "stageIndex": 2
+    },
+    {
+      "type": "correct",
+      "stopId": "s5",
+      "activeId": "s5-1",
+      "beatIndex": 1,
+      "stageIndex": 0
+    },
+    {
+      "type": "correct",
+      "stopId": "s5",
+      "activeId": "s5-1",
+      "beatIndex": 1,
+      "stageIndex": 1
+    },
+    {
+      "type": "correct",
+      "stopId": "s5",
+      "activeId": "s5-1",
+      "beatIndex": 1,
+      "stageIndex": 2
+    },
+    {
+      "type": "walk",
+      "stopId": "s5"
+    },
+    {
+      "type": "correct",
+      "stopId": "s5",
+      "activeId": "s5-2",
+      "beatIndex": 0,
+      "stageIndex": 0
+    },
+    {
+      "type": "gate-cross",
+      "stopId": "s5"
+    }
+  ]
+}

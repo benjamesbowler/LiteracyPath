@@ -1,4 +1,4 @@
-import { routePointAt } from "./questRouteGraph.js";
+import { routeDirectionAt, routePointAt } from "./questRouteGraph.js";
 import { seedwakeStopSpec } from "../data/questChapterOne.js";
 
 export const PHYSICAL_MECHANICS_BY_ENCOUNTER = Object.freeze({
@@ -25,6 +25,62 @@ export function isPhysicalEncounter(encounter, beat) {
   return Boolean(encounter && beat && PHYSICAL_MECHANICS_BY_ENCOUNTER[encounter.kind]);
 }
 
+export function fieldCollisionStep({
+  armed = true,
+  player,
+  items = [],
+  stage = null,
+  interactionRadius = 1.5,
+  releasePadding = 0.48
+} = {}) {
+  const visibleItems = items.filter(item => (
+    item
+    && item.visible !== false
+    && item.choice
+    && (stage == null || item.choice.stage === stage)
+  ));
+  const radius = Math.max(0.1, Number(interactionRadius) || 1.5);
+  const distanceTo = item => Math.hypot(
+    (Number(item.x) || 0) - (Number(player?.x) || 0),
+    (Number(item.z) || 0) - (Number(player?.z) || 0)
+  );
+  if (!armed) {
+    const clear = visibleItems.every(item => distanceTo(item) >= radius + Math.max(0.2, Number(releasePadding) || 0.48));
+    return { armed: clear, choice: null };
+  }
+  const touched = visibleItems.find(item => distanceTo(item) < radius);
+  return touched
+    ? { armed: false, choice: touched.choice }
+    : { armed: true, choice: null };
+}
+
+export function physicalTaskResidentPoint(section, encounter) {
+  if (!section?.route || !encounter) return { x: 0, y: 0, z: 0 };
+  const side = encounter.order % 2 === 0 ? -1 : 1;
+  return routePointAt(
+    section.route,
+    Math.min(0.88, Math.max(0, encounter.progress + 0.012)),
+    side * 0.48
+  );
+}
+
+export function physicalTaskForwardLimit(section, encounter, task, baseLimit = 0, interactionRadius = 1.5) {
+  if (!section?.route || !encounter || !task?.items?.length) return Math.max(0, Math.min(1, Number(baseLimit) || 0));
+  const itemLimit = Math.max(
+    encounter.progress || 0,
+    ...task.items.map(item => Number.isFinite(item.progress) ? item.progress : encounter.progress || 0)
+  );
+  const nextEncounter = section.encounters?.find(candidate => candidate.order === encounter.order + 1);
+  const lockedBoundary = nextEncounter
+    ? nextEncounter.progress - 0.018
+    : (section.gate?.progress ?? 1) - 0.008;
+  const approachRoom = Math.max(0.006, (Number(interactionRadius) || 1.5) / Math.max(1, section.route.totalLength));
+  return Math.max(
+    Math.max(0, Math.min(1, Number(baseLimit) || 0)),
+    Math.min(lockedBoundary, itemLimit + approachRoom)
+  );
+}
+
 function positionedItems(section, encounter, beatIndex, stageIndex, choices, {
   answer,
   shape,
@@ -32,12 +88,39 @@ function positionedItems(section, encounter, beatIndex, stageIndex, choices, {
   decorate = () => ({}),
   allCorrect = false
 } = {}) {
-  const count = Math.max(1, choices.length);
-  const middle = (count - 1) / 2;
-  const spacing = count > 4 ? 0.95 : count > 3 ? 1.12 : 1.48;
-  return choices.map((choice, choiceIndex) => {
-    const progress = Math.min(0.88, encounter.progress + 0.012 + Math.abs(choiceIndex - middle) * 0.003);
-    const position = routePointAt(section.route, progress, (choiceIndex - middle) * spacing);
+  const available = unique(choices);
+  const answerIndex = available.indexOf(answer);
+  const seed = Math.abs((encounter.order + 1) * 31 + beatIndex * 11 + stageIndex * 17);
+  const distractors = available.filter(choice => choice !== answer);
+  const selectedDistractors = distractors.length > 2
+    ? [distractors[seed % distractors.length], distractors[(seed + 1) % distractors.length]]
+    : distractors;
+  const presented = allCorrect || answerIndex < 0 || available.length <= 3
+    ? available
+    : available.filter(choice => choice === answer || selectedDistractors.includes(choice));
+  const count = Math.max(1, presented.length);
+  const centreProgress = Math.min(0.88, encounter.progress + 0.028);
+  const centre = routePointAt(section.route, centreProgress);
+  const direction = routeDirectionAt(section.route, centreProgress);
+  const right = { x: direction.z, z: -direction.x };
+  const radius = count === 1 ? 2.15 : count <= 3 ? 2.75 : 2.9;
+  return presented.map((choice, choiceIndex) => {
+    const angle = count === 1
+      ? 0
+      : count <= 3
+        ? -0.88 + (choiceIndex / (count - 1)) * 1.76
+        : (choiceIndex / count) * Math.PI * 2;
+    const forward = count <= 3 ? Math.cos(angle) : Math.cos(angle) * 0.82;
+    const lateral = Math.sin(angle);
+    const progress = Math.min(
+      0.89,
+      centreProgress + Math.max(0, forward) * radius / Math.max(1, section.route.totalLength)
+    );
+    const position = {
+      x: centre.x + direction.x * forward * radius + right.x * lateral * radius,
+      y: centre.y,
+      z: centre.z + direction.z * forward * radius + right.z * lateral * radius
+    };
     return {
       id: `${encounter.id}-${beatIndex}-${stageIndex}-${choiceIndex}-${choice}`,
       value: choice,
@@ -49,7 +132,7 @@ function positionedItems(section, encounter, beatIndex, stageIndex, choices, {
       y: position.y,
       z: position.z,
       progress,
-      order: choiceIndex,
+      order: available.indexOf(choice),
       ...decorate(choice, choiceIndex)
     };
   });
@@ -58,10 +141,12 @@ function positionedItems(section, encounter, beatIndex, stageIndex, choices, {
 function completionFor(section, encounter, beatIndex, stageIndex, stageCount, answer, shape) {
   const middle = (stageCount - 1) / 2;
   const position = routePointAt(section.route, Math.min(0.89, encounter.progress + 0.025), (stageIndex - middle) * 0.72);
+  const keepsSequenceLabel = shape === "placed-plank" || shape === "echo-rune";
   return {
     id: `${encounter.id}-${beatIndex}-complete-${stageIndex}`,
     value: answer,
-    label: label(answer),
+    label: keepsSequenceLabel ? label(answer) : "",
+    showToken: keepsSequenceLabel,
     shape,
     x: position.x,
     y: position.y,
@@ -90,6 +175,19 @@ function seedwakeAudioCue(beat) {
   }
   if (beat?.word) return { kind: "word", value: beat.word };
   return null;
+}
+
+function letterSoundPrompt(beat, stageIndex = 0, stageCount = 1) {
+  if (!beat?.word) return "Find the letter that matches the sound";
+  return stageCount > 1 && stageIndex > 0
+    ? `Find the next sound in '${beat.word}'`
+    : `Find the letter that starts '${beat.word}'`;
+}
+
+function sequenceSoundPrompt(beat) {
+  return beat?.word
+    ? `Find the next sound in '${beat.word}'`
+    : "Find the next sound you hear";
 }
 
 function seedwakeStageSeries(section, encounter, beat, beatIndex, {
@@ -132,9 +230,7 @@ function seedwakeDeliveryStages(section, encounter, beat, beatIndex) {
     return [
       {
         id: `delivery-pick-${chooseStage}`,
-        prompt: beat.word
-          ? `Pick up the parcel for ${beat.word}.`
-          : `Pick up the ${label(answer)} parcel.`,
+        prompt: beat.word ? `Find the parcel for '${beat.word}'` : "Find the matching parcel",
         help: "Read the labels, then walk into the matching parcel.",
         playerAction: "pick-up",
         audioCue: seedwakeAudioCue(beat),
@@ -146,7 +242,7 @@ function seedwakeDeliveryStages(section, encounter, beat, beatIndex) {
       },
       {
         id: `delivery-carry-${deliverStage}`,
-        prompt: `Carry ${label(answer)} to Bramble's rook marker.`,
+        prompt: "Take it to the marker",
         help: "Keep moving. The parcel travels with your Beastie.",
         playerAction: "carry",
         audioCue: null,
@@ -185,7 +281,7 @@ function buildSeedwakeTask(section, encounter, beat, beatIndex, spec) {
       mechanic,
       shape: "seed-lantern",
       completionShape: "awakened-lantern",
-      prompt: (answer, index, count) => `Wake lantern ${index + 1} of ${count}: find ${label(answer)}.`,
+      prompt: (_answer, stageIndex, stageCount) => letterSoundPrompt(beat, stageIndex, stageCount),
       help: "Follow the glow and listen for the sleeping lantern's sound.",
       playerAction: "search"
     });
@@ -194,7 +290,7 @@ function buildSeedwakeTask(section, encounter, beat, beatIndex, spec) {
       mechanic,
       shape: "jump-flower",
       completionShape: "flower-step",
-      prompt: (answer, index, count) => `Jump to ${label(answer)}. Step ${index + 1} of ${count}.`,
+      prompt: (_answer, stageIndex, stageCount) => letterSoundPrompt(beat, stageIndex, stageCount),
       help: "Run into the matching bloom and your Beastie will jump.",
       playerAction: "jump"
     });
@@ -205,7 +301,7 @@ function buildSeedwakeTask(section, encounter, beat, beatIndex, spec) {
       mechanic,
       shape: "river-plank",
       completionShape: "placed-plank",
-      prompt: (answer, index, count) => `Build the crossing: place ${label(answer)} (${index + 1} of ${count}).`,
+      prompt: () => sequenceSoundPrompt(beat),
       help: "Walk the sound piece onto Otter Ford. Each right piece stays in place.",
       playerAction: "build"
     });
@@ -214,7 +310,7 @@ function buildSeedwakeTask(section, encounter, beat, beatIndex, spec) {
       mechanic,
       shape: "chorus-lantern",
       completionShape: "lit-chorus-lantern",
-      prompt: (answer, index, count) => `Conduct ${label(answer)}. Lantern ${index + 1} of ${count}.`,
+      prompt: (_answer, stageIndex, stageCount) => letterSoundPrompt(beat, stageIndex, stageCount),
       help: "Touch the matching lantern to add its note to Bramble Gate.",
       playerAction: "conduct"
     });
@@ -261,7 +357,7 @@ export function buildPhysicalTask(section, encounter, beat, beatIndex = 0) {
     const flower = encounter.kind === "flower-patch";
     stages = [{
       id: `${mechanic}-0`,
-      prompt: flower ? `Find the ${label(beat.target)} flower.` : `Feed the creature ${label(beat.target)} fruit.`,
+      prompt: letterSoundPrompt(beat),
       help: flower ? "Listen, then move to the matching flower." : "Carry the matching sound to the creature.",
       audioCue: { kind: "grapheme", value: beat.target },
       items: positionedItems(section, encounter, beatIndex, 0, beat.choices || [], {
@@ -272,7 +368,7 @@ export function buildPhysicalTask(section, encounter, beat, beatIndex = 0) {
   } else if (!stages.length && encounter.kind === "word-beast") {
     stages = [{
       id: `${mechanic}-0`,
-      prompt: `Deliver ${beat.word}.`,
+      prompt: "Find the word you hear",
       help: "Read the cakes and carry the right word to the creature.",
       audioCue: { kind: "word", value: beat.word },
       items: positionedItems(section, encounter, beatIndex, 0, beat.choices || [], {
@@ -308,7 +404,7 @@ export function buildPhysicalTask(section, encounter, beat, beatIndex = 0) {
       mechanic,
       shape: "bridge-plank",
       completionShape: "placed-plank",
-      prompt: (index, count) => `Build ${beat.word}: choose sound ${index + 1} of ${count}.`,
+      prompt: () => sequenceSoundPrompt(beat),
       help: () => "Walk the sound pieces onto the bridge in order."
     });
   } else if (!stages.length && encounter.kind === "echo-cave") {
@@ -318,7 +414,7 @@ export function buildPhysicalTask(section, encounter, beat, beatIndex = 0) {
       mechanic,
       shape: "echo-orb",
       completionShape: "echo-rune",
-      prompt: (index, count) => `Echo ${beat.word}: choose sound ${index + 1} of ${count}.`,
+      prompt: () => sequenceSoundPrompt(beat),
       help: () => "Catch the sound lights in the order you hear them."
     });
   } else if (!stages.length && encounter.kind === "sheep-pens") {

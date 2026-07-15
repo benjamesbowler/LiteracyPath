@@ -47,6 +47,22 @@ const ROUTE_TEMPLATES = Object.freeze({
 
 export const QUEST_ROUTE_TOPOLOGIES = Object.freeze(Object.keys(ROUTE_TEMPLATES));
 
+export function routeMovementVector(direction, { lateral = 0, forward = 0 } = {}) {
+  const directionX = finite(direction?.x);
+  const directionZ = finite(direction?.z, -1);
+  const planarLength = Math.hypot(directionX, directionZ) || 1;
+  const forwardX = directionX / planarLength;
+  const forwardZ = directionZ / planarLength;
+  const rightX = -forwardZ;
+  const rightZ = forwardX;
+  const x = rightX * finite(lateral) + forwardX * finite(forward);
+  const z = rightZ * finite(lateral) + forwardZ * finite(forward);
+  return {
+    x: Math.abs(x) < Number.EPSILON ? 0 : x,
+    z: Math.abs(z) < Number.EPSILON ? 0 : z
+  };
+}
+
 function distance(a, b) {
   return Math.hypot(b.x - a.x, b.y - a.y, b.z - a.z);
 }
@@ -63,44 +79,64 @@ function transformPoint(source, origin, rotation, mirror) {
   };
 }
 
+function hermitePoint(a, b, c, d, t, tension = 0.16) {
+  const tangentScale = (1 - tension) * 0.5;
+  const m1 = {
+    x: (c.x - a.x) * tangentScale,
+    y: (c.y - a.y) * tangentScale,
+    z: (c.z - a.z) * tangentScale
+  };
+  const m2 = {
+    x: (d.x - b.x) * tangentScale,
+    y: (d.y - b.y) * tangentScale,
+    z: (d.z - b.z) * tangentScale
+  };
+  const t2 = t * t;
+  const t3 = t2 * t;
+  const h00 = 2 * t3 - 3 * t2 + 1;
+  const h10 = t3 - 2 * t2 + t;
+  const h01 = -2 * t3 + 3 * t2;
+  const h11 = t3 - t2;
+  return {
+    x: h00 * b.x + h10 * m1.x + h01 * c.x + h11 * m2.x,
+    y: h00 * b.y + h10 * m1.y + h01 * c.y + h11 * m2.y,
+    z: h00 * b.z + h10 * m1.z + h01 * c.z + h11 * m2.z
+  };
+}
+
 function samplePolyline(points, density = 1.35) {
-  const lengths = [];
-  let totalLength = 0;
-  for (let index = 1; index < points.length; index += 1) {
-    const length = distance(points[index - 1], points[index]);
-    lengths.push(length);
-    totalLength += length;
-  }
-  const samples = [];
-  points.slice(0, -1).forEach((start, index) => {
+  if (points.length < 2) return { samples: points.map(source => ({ ...source, distance: 0, progress: 0 })), totalLength: 0 };
+  const rawSamples = [];
+  for (let index = 0; index < points.length - 1; index += 1) {
+    const previous = points[Math.max(0, index - 1)];
+    const start = points[index];
     const end = points[index + 1];
-    const segmentLength = lengths[index];
-    const steps = Math.max(2, Math.ceil(segmentLength * density));
-    const distanceBefore = lengths.slice(0, index).reduce((sum, value) => sum + value, 0);
-    for (let step = index ? 1 : 0; step < steps; step += 1) {
-      const t = step / steps;
-      samples.push({
-        x: start.x + (end.x - start.x) * t,
-        y: start.y + (end.y - start.y) * t,
-        z: start.z + (end.z - start.z) * t,
-        distance: distanceBefore + segmentLength * t,
-        progress: (distanceBefore + segmentLength * t) / totalLength,
-        tangentX: (end.x - start.x) / segmentLength,
-        tangentY: (end.y - start.y) / segmentLength,
-        tangentZ: (end.z - start.z) / segmentLength
-      });
+    const next = points[Math.min(points.length - 1, index + 2)];
+    const steps = Math.max(8, Math.ceil(distance(start, end) * density));
+    for (let step = index ? 1 : 0; step <= steps; step += 1) {
+      rawSamples.push(hermitePoint(previous, start, end, next, step / steps));
     }
-  });
-  const previous = points.at(-2);
-  const end = points.at(-1);
-  const lastLength = lengths.at(-1);
-  samples.push({
-    ...end,
-    distance: totalLength,
-    progress: 1,
-    tangentX: (end.x - previous.x) / lastLength,
-    tangentY: (end.y - previous.y) / lastLength,
-    tangentZ: (end.z - previous.z) / lastLength
+  }
+
+  let totalLength = 0;
+  const cumulative = [0];
+  for (let index = 1; index < rawSamples.length; index += 1) {
+    totalLength += distance(rawSamples[index - 1], rawSamples[index]);
+    cumulative.push(totalLength);
+  }
+
+  const samples = rawSamples.map((source, index) => {
+    const before = rawSamples[Math.max(0, index - 1)];
+    const after = rawSamples[Math.min(rawSamples.length - 1, index + 1)];
+    const tangentLength = distance(before, after) || 1;
+    return {
+      ...source,
+      distance: cumulative[index],
+      progress: totalLength ? cumulative[index] / totalLength : 0,
+      tangentX: (after.x - before.x) / tangentLength,
+      tangentY: (after.y - before.y) / tangentLength,
+      tangentZ: (after.z - before.z) / tangentLength
+    };
   });
   return { samples, totalLength };
 }

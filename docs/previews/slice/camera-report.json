@@ -1,0 +1,161 @@
+{
+  "failures": 0,
+  "reports": [
+    {
+      "scenario": "s1-encounter-1-hungry-beast-phone",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s1-encounter-1-hungry-beast-ipad",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s1-encounter-2-broken-bridge-phone",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s1-encounter-2-broken-bridge-ipad",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s2-encounter-1-flower-patch-phone",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s2-encounter-1-flower-patch-ipad",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s2-encounter-2-broken-bridge-phone",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s2-encounter-2-broken-bridge-ipad",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s3-encounter-1-hungry-beast-phone",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s3-encounter-1-hungry-beast-ipad",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s3-encounter-2-broken-bridge-phone",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s3-encounter-2-broken-bridge-ipad",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s3-encounter-3-word-beast-phone",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s3-encounter-3-word-beast-ipad",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s4-encounter-1-flower-patch-phone",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s4-encounter-1-flower-patch-ipad",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s4-encounter-2-broken-bridge-phone",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s4-encounter-2-broken-bridge-ipad",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s4-encounter-3-echo-cave-phone",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s4-encounter-3-echo-cave-ipad",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s5-encounter-1-flower-patch-phone",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s5-encounter-1-flower-patch-ipad",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s5-encounter-2-broken-bridge-phone",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s5-encounter-2-broken-bridge-ipad",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s5-encounter-3-word-beast-phone",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    },
+    {
+      "scenario": "s5-encounter-3-word-beast-ipad",
+      "ok": true,
+      "problems": [],
+      "failedItems": []
+    }
+  ]
+}

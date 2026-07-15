@@ -63,6 +63,7 @@ const requestedStageIndex = params.has("stage") ? Number(params.get("stage")) : 
 const correctionMode = params.get("correction");
 const creatureMode = params.get("creature");
 const displayMode = params.get("display");
+const soundEnabled = params.get("sound") === "1";
 const SCOPE = "preview";
 
 // FAIL LOUDLY ON A BAD STOP ID.
@@ -152,12 +153,17 @@ function withPreviewCheckpoint(state) {
   const fieldStage = requestedTask
     ? Math.max(0, Math.min(requestedTask.stages.length - 1, requestedStageIndex || 0))
     : 0;
+  const turnProgress = 0.4;
   const solved = checkpointMode === "gate"
     ? section.encounters.map(encounter => encounter.id)
-    : section.encounters.slice(0, requestedEncounter?.order || 0).map(encounter => encounter.id);
+    : checkpointMode === "turn"
+      ? section.encounters.filter(encounter => encounter.progress < turnProgress).map(encounter => encounter.id)
+      : section.encounters.slice(0, requestedEncounter?.order || 0).map(encounter => encounter.id);
   const position = checkpointMode === "gate"
     ? routePointAt(section.route, section.gate.progress - 0.018)
-    : routePointAt(section.route, (requestedEncounter?.progress || section.guide.progress) - 0.01);
+    : checkpointMode === "turn"
+      ? routePointAt(section.route, turnProgress)
+      : routePointAt(section.route, (requestedEncounter?.progress || section.guide.progress) - 0.01);
   const allowedCorrectionModes = new Set(Object.values(CORRECTION_MODES));
   const previewCorrection = requestedEncounter && allowedCorrectionModes.has(correctionMode)
     ? {
@@ -207,7 +213,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <QuestRoot
       progressScopeKey={SCOPE}
-      isSoundEnabled={false}
+      isSoundEnabled={soundEnabled}
       initialView={view}
       initialStop={stopId}
       onExit={() => { window.__questExited = true; }}

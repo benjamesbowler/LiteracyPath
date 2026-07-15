@@ -1,0 +1,67 @@
+{
+  "proof": {
+    "stopId": "s1",
+    "encounterId": "s1-0",
+    "encounterKind": "hungry-beast",
+    "beatIndex": 0,
+    "stageIndex": 0,
+    "safeArea": {
+      "left": 22,
+      "top": 116,
+      "right": 368,
+      "bottom": 720
+    },
+    "hudNodes": 2,
+    "camera": {
+      "position": [
+        5.895419089112312,
+        8.00246214607596,
+        -24.63753118465064
+      ],
+      "delta": 0.0030489068713700812,
+      "settled": true
+    },
+    "items": [
+      {
+        "id": "s1-0-0-0-0-a",
+        "value": "a",
+        "rect": {
+          "left": 243.41057503607334,
+          "top": 393.6046378822897,
+          "right": 326.4977581331284,
+          "bottom": 481.294047488346
+        },
+        "insideSafeArea": true,
+        "firstHit": "resource_stone",
+        "rayClear": true
+      },
+      {
+        "id": "s1-0-0-0-1-m",
+        "value": "m",
+        "rect": {
+          "left": 160.9610505464539,
+          "top": 378.6624226785139,
+          "right": 236.26655796883608,
+          "bottom": 459.81250379775963
+        },
+        "insideSafeArea": true,
+        "firstHit": "resource_stone",
+        "rayClear": true
+      },
+      {
+        "id": "s1-0-0-0-2-t",
+        "value": "t",
+        "rect": {
+          "left": 58.968746905273115,
+          "top": 386.33464760466825,
+          "right": 146.70591269453357,
+          "bottom": 473.2743117647189
+        },
+        "insideSafeArea": true,
+        "firstHit": "resource_stone",
+        "rayClear": true
+      }
+    ]
+  },
+  "problems": []
+}

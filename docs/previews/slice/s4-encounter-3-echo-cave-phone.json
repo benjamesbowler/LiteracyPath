@@ -1,0 +1,67 @@
+{
+  "proof": {
+    "stopId": "s4",
+    "encounterId": "s4-2",
+    "encounterKind": "echo-cave",
+    "beatIndex": 0,
+    "stageIndex": 0,
+    "safeArea": {
+      "left": 22,
+      "top": 116,
+      "right": 368,
+      "bottom": 720
+    },
+    "hudNodes": 2,
+    "camera": {
+      "position": [
+        -69.8226374128697,
+        9.826074019972198,
+        -12.981710779592458
+      ],
+      "delta": 0.0029949959019062483,
+      "settled": true
+    },
+    "items": [
+      {
+        "id": "s4-2-0-0-0-d",
+        "value": "d",
+        "rect": {
+          "left": 252.19943396705807,
+          "top": 386.06678886835147,
+          "right": 317.910981846376,
+          "bottom": 456.8593432154953
+        },
+        "insideSafeArea": true,
+        "firstHit": "Mesh",
+        "rayClear": true
+      },
+      {
+        "id": "s4-2-0-0-1-u",
+        "value": "u",
+        "rect": {
+          "left": 157.898546802041,
+          "top": 379.298531609219,
+          "right": 218.64692746073396,
+          "bottom": 446.6515072289912
+        },
+        "insideSafeArea": true,
+        "firstHit": "Mesh",
+        "rayClear": true
+      },
+      {
+        "id": "s4-2-0-0-2-s",
+        "value": "s",
+        "rect": {
+          "left": 72.60933303169854,
+          "top": 396.4484407541789,
+          "right": 139.13275633495175,
+          "bottom": 469.6335944104176
+        },
+        "insideSafeArea": true,
+        "firstHit": "Mesh",
+        "rayClear": true
+      }
+    ]
+  },
+  "problems": []
+}

@@ -192,6 +192,30 @@ export function canBuy(state, piece) {
   return availableSparks(state) >= (piece.cost || 0);
 }
 
+export function equipEarnedQuestGear(state, stopId) {
+  const gear = CREATURE_GEAR.find(piece => piece.unlock === stopId);
+  if (!gear) return state;
+  const creature = normalizeCreature(state?.creature);
+  if (creature.equipped?.[gear.slot] === gear.id) return state;
+  return {
+    ...state,
+    creature: {
+      ...creature,
+      equipped: { ...creature.equipped, [gear.slot]: gear.id }
+    }
+  };
+}
+
+export function earnedGearReward(state, stopId) {
+  const gear = CREATURE_GEAR.find(piece => piece.unlock === stopId);
+  if (!gear) return null;
+  return {
+    id: gear.id,
+    slot: gear.slot,
+    equipped: normalizeCreature(state?.creature).equipped?.[gear.slot] === gear.id
+  };
+}
+
 export function recordPurchase(state, piece, at = new Date().toISOString()) {
   if (!canBuy(state, piece)) return state;
   return {
@@ -260,7 +284,7 @@ export function recordStopResult(state, stopId, stars = 0, drops = 0) {
       && (mastery[t].state === MASTERY_STATES.MASTERED || mastery[t].state === MASTERY_STATES.RETIRED))
   ])];
 
-  return {
+  return equipEarnedQuestGear({
     ...state,
     trail: {
       ...state.trail,
@@ -275,7 +299,7 @@ export function recordStopResult(state, stopId, stars = 0, drops = 0) {
     stones,
     trickies: [...new Set([...(state.trickies || []), ...(stop.heartWords || [])])],
     checkpoint: null
-  };
+  }, stopId);
 }
 
 // ── Checkpoint: resume state, written throughout the journey ────────────────

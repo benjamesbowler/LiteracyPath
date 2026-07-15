@@ -2,6 +2,8 @@ import { chromium } from "playwright";
 import sharp from "sharp";
 
 const BASE = process.env.QUEST_PREVIEW_URL || "http://127.0.0.1:5174";
+const SOFTWARE_RENDERER_STARTUP_TIMEOUT = 45_000;
+const SOFTWARE_GATE_HANDOFF_TIMEOUT = 60_000;
 
 async function pixelEvidence(buffer) {
   const { data, info } = await sharp(buffer).removeAlpha().raw().toBuffer({ resolveWithObject: true });
@@ -36,7 +38,7 @@ async function inspectWorld(browser, scenario) {
     await page.waitForFunction(
       () => document.querySelector(".qh-root.is-ready, .qh-root.has-fallback"),
       null,
-      { timeout: 30_000 }
+      { timeout: SOFTWARE_RENDERER_STARTUP_TIMEOUT }
     );
     const state = await page.evaluate(() => {
       const root = document.querySelector(".qh-root");
@@ -74,13 +76,17 @@ async function inspectGateHandoff(browser) {
       waitUntil: "domcontentloaded",
       timeout: 30_000
     });
-    await page.waitForFunction(() => document.querySelector(".qh-root.is-ready"), null, { timeout: 30_000 });
+    await page.waitForFunction(
+      () => document.querySelector(".qh-root.is-ready"),
+      null,
+      { timeout: SOFTWARE_RENDERER_STARTUP_TIMEOUT }
+    );
     const gate = page.getByRole("button", { name: /The gate is open/ });
     await gate.click({ force: true, timeout: 5_000 });
     await page.waitForFunction(
       () => document.querySelector(".qh-land-title strong")?.textContent?.trim() === "Trail 9 of 40",
       null,
-      { timeout: 45_000 }
+      { timeout: SOFTWARE_GATE_HANDOFF_TIMEOUT }
     );
     const state = await page.evaluate(() => ({
       trail: document.querySelector(".qh-land-title strong")?.textContent?.trim(),

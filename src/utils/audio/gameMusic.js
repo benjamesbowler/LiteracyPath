@@ -41,17 +41,17 @@ const TRACKS = {
   },
   meadow: {
     title: "Morning on the Sound Trail",
-    volume: 0.16,
+    volume: 0.21,
     sources: ["/audio/music/quest/meadow-morning-loop.mp3", "/audio/music/meadow-loop.mp3"]
   },
   dino: {
     title: "Fossil Footsteps",
-    volume: 0.15,
+    volume: 0.2,
     sources: ["/audio/music/quest/fossil-footsteps-loop.mp3", "/audio/music/dino-loop.mp3"]
   },
   moonwood: {
     title: "Lanterns in Moonwood",
-    volume: 0.15,
+    volume: 0.2,
     sources: ["/audio/music/quest/moonwood-lanterns-loop.mp3", "/audio/music/moonwood-loop.mp3"]
   }
 };
@@ -74,21 +74,11 @@ function canPlaySource(audio, source) {
   return true;
 }
 
-async function sourceExists(source) {
-  if (typeof fetch !== "function") return true;
-  try {
-    const response = await fetch(source, { method: "HEAD", cache: "force-cache" });
-    return response.ok;
-  } catch {
-    return !source.endsWith(".mp3");
-  }
-}
-
-async function pickSource(track) {
+function pickSource(track) {
   const probe = new Audio();
   for (const source of track.sources) {
     if (!canPlaySource(probe, source)) continue;
-    if (await sourceExists(source)) return source;
+    return source;
   }
   return track.sources[track.sources.length - 1];
 }
@@ -150,7 +140,10 @@ function tryPlay(audio, targetVolume) {
   const promise = audio.play();
   if (promise?.then) {
     promise
-      .then(() => fadeTo(targetVolume, 0.65))
+      .then(() => {
+        removeRetryListeners();
+        fadeTo(targetVolume, 0.65);
+      })
       .catch(() => queueRetry(() => tryPlay(audio, targetVolume)));
     return;
   }
@@ -181,7 +174,10 @@ export async function startGameMusic(trackId, options = {}) {
 
   if (active?.trackId === resolvedTrackId && active.audio) {
     active.targetVolume = targetVolume;
-    if (active.audio.paused) tryPlay(active.audio, targetVolume);
+    if (active.audio.paused) {
+      queueRetry(() => tryPlay(active.audio, targetVolume));
+      tryPlay(active.audio, targetVolume);
+    }
     else fadeTo(targetVolume, 0.25);
     return active;
   }
@@ -189,7 +185,7 @@ export async function startGameMusic(trackId, options = {}) {
   stopPendingFades();
   stopGameMusic({ fadeSeconds: 0 });
   const token = ++requestToken;
-  const source = await pickSource(track);
+  const source = pickSource(track);
   if (!canUseAudio() || token !== requestToken) return null;
 
   const audio = new Audio(source);
@@ -197,6 +193,7 @@ export async function startGameMusic(trackId, options = {}) {
   audio.preload = "auto";
   audio.volume = 0;
   active = { audio, source, track, targetVolume, trackId: resolvedTrackId };
+  queueRetry(() => tryPlay(audio, targetVolume));
   tryPlay(audio, targetVolume);
   return active;
 }

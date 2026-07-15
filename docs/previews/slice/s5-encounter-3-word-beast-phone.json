@@ -1,0 +1,67 @@
+{
+  "proof": {
+    "stopId": "s5",
+    "encounterId": "s5-2",
+    "encounterKind": "word-beast",
+    "beatIndex": 0,
+    "stageIndex": 0,
+    "safeArea": {
+      "left": 22,
+      "top": 116,
+      "right": 368,
+      "bottom": 720
+    },
+    "hudNodes": 2,
+    "camera": {
+      "position": [
+        -13.115324225599556,
+        11.122169169989656,
+        -66.66291356472671
+      ],
+      "delta": 0.0031335967857328796,
+      "settled": true
+    },
+    "items": [
+      {
+        "id": "s5-2-0-0-0-to",
+        "value": "to",
+        "rect": {
+          "left": 233.13153685550023,
+          "top": 390.73301648438286,
+          "right": 340.96961490081287,
+          "bottom": 485.5524989018317
+        },
+        "insideSafeArea": true,
+        "firstHit": "resource_stone",
+        "rayClear": true
+      },
+      {
+        "id": "s5-2-0-0-1-is",
+        "value": "is",
+        "rect": {
+          "left": 148.58336052774104,
+          "top": 379.56047796848407,
+          "right": 246.2696433913865,
+          "bottom": 467.7932859149512
+        },
+        "insideSafeArea": true,
+        "firstHit": "resource_stone",
+        "rayClear": true
+      },
+      {
+        "id": "s5-2-0-0-2-go",
+        "value": "go",
+        "rect": {
+          "left": 58.06412642920414,
+          "top": 391.52428190701494,
+          "right": 148.36225085441617,
+          "bottom": 480.1377047917125
+        },
+        "insideSafeArea": true,
+        "firstHit": "resource_stone",
+        "rayClear": true
+      }
+    ]
+  },
+  "problems": []
+}

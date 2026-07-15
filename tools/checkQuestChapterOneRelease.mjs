@@ -10,7 +10,12 @@ import {
   seedwakeStopSpec,
   validateSeedwakeChapter
 } from "../src/data/questChapterOne.js";
-import { FIELD_OBJECT_MODELS, QUEST_STOP_ASSET_KITS } from "../src/data/threeAssetLibrary.js";
+import {
+  FIELD_OBJECT_MODELS,
+  QUEST_STOP_ASSET_KITS,
+  SEEDWAKE_ASSET_ALLOWLIST,
+  seedwakeAssetManifest
+} from "../src/data/threeAssetLibrary.js";
 import { buildTrailSection } from "../src/utils/questHub.js";
 import { buildPhysicalTask } from "../src/utils/questPhysicalMechanics.js";
 
@@ -24,6 +29,8 @@ const expectedShapes = Object.freeze({
   s4: ["river-plank", "placed-plank"],
   s5: ["chorus-lantern", "lit-chorus-lantern"]
 });
+const seedwakeAssets = seedwakeAssetManifest();
+const seedwakeAllowlist = new Set(SEEDWAKE_ASSET_ALLOWLIST);
 
 function localAssetExists(url) {
   return typeof url === "string" && url.startsWith("/") && fs.existsSync(path.join(ROOT, "public", url.slice(1)));
@@ -87,6 +94,12 @@ for (const stopId of SEEDWAKE_STOP_IDS) {
     if (!model) fail(`${stopId}: ${shape} has no authored field model`);
     else if (!localAssetExists(model.url)) fail(`${stopId}: ${shape} model is missing (${model.url})`);
   }
+}
+
+for (const url of seedwakeAssets.urls) {
+  if (!seedwakeAllowlist.has(url)) fail(`Seedwake asset is outside the allowlist (${url})`);
+  if (!url.startsWith("/models/library/kaykit/medieval/")) fail(`Seedwake mixes a non-meadow model (${url})`);
+  if (!localAssetExists(url)) fail(`Seedwake allowlist model is missing (${url})`);
 }
 
 if (residentNames.size < 3) fail(`the five opening trails only rotate ${residentNames.size} distinct residents`);

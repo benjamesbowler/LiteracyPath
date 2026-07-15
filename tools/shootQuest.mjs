@@ -29,6 +29,8 @@ const OUT = path.join(ROOT, "docs/previews/shots");
 const PORT = 5199;
 const BASE = `http://127.0.0.1:${PORT}`;
 const GATE_ONLY = process.argv.includes("--gate-only");
+const SOFTWARE_SCENE_TIMEOUT = 45_000;
+const SOFTWARE_HANDOFF_TIMEOUT = 60_000;
 
 // The sizes children actually hold. An iPad in landscape is the primary target;
 // a phone is the cruellest test of a side-scroller; the desktop is what the
@@ -81,19 +83,28 @@ async function checkGateHandoff(browser) {
       waitUntil: "domcontentloaded",
       timeout: 30_000
     });
+    await page.waitForFunction(
+      () => document.querySelector(".q-journey-layer.is-active .qh-root.is-ready"),
+      null,
+      { timeout: SOFTWARE_SCENE_TIMEOUT }
+    );
     // The gate callout tracks an animated 3D target. Playwright's default click
     // waits for geometry to stop moving, which can never happen on a live scene.
     // Scope to the interactive journey layer and press the visible control.
     const gateControl = page.locator(".q-journey-layer.is-active .qh-next-call");
     await gateControl.waitFor({ state: "visible", timeout: 20_000 });
     await gateControl.click({ force: true });
-    await page.waitForFunction(() => (
-      document.querySelector(".qh-root")
-      && document.querySelector(".qh-land-title strong")?.textContent?.trim() === "Trail 2 of 40"
-      && !document.querySelector(".q-den")
-    ), null, { timeout: 25_000 });
-    const place = await page.locator(".qh-land-title span").textContent();
-    return { ok: errors.length === 0, detail: `${place?.trim()} - Trail 2 of 40`, errors };
+    const handoffState = await page.waitForFunction(() => {
+      const activeLayer = document.querySelector(".q-journey-layer.is-active");
+      const trail = activeLayer?.querySelector(".qh-land-title strong")?.textContent?.trim();
+      if (!activeLayer?.querySelector(".qh-root") || trail !== "Trail 2 of 40" || document.querySelector(".q-den")) return false;
+      return {
+        place: activeLayer.querySelector(".qh-land-title span")?.textContent?.trim() || "Next trail",
+        trail
+      };
+    }, null, { timeout: SOFTWARE_HANDOFF_TIMEOUT });
+    const destination = await handoffState.jsonValue();
+    return { ok: errors.length === 0, detail: `${destination.place} - ${destination.trail}`, errors };
   } catch (error) {
     return { ok: false, detail: String(error.message).split("\n")[0], errors };
   } finally {

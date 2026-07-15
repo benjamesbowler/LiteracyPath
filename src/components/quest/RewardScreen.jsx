@@ -15,6 +15,7 @@ import { displayGrapheme } from "./shells/shellContract.js";
 import { playStarChime, playCelebrationFanfare } from "../../utils/audio/gameSfx.js";
 import { trailEventForStop } from "../../utils/questHub.js";
 import { seedwakeSatchel } from "../../data/questChapterOne.js";
+import CreatureFigure from "./CreatureFigure.jsx";
 
 export default function RewardScreen({
   stop,
@@ -124,10 +125,22 @@ export default function RewardScreen({
           <button type="button" className="q-primary" onClick={onContinue}>Continue the trail</button>
         </div>
 
-        <div className="q-reward-stage q-ceremony-view" aria-hidden="true">
-          <span className="q-ceremony-ring is-outer" />
-          <span className="q-ceremony-ring is-inner" />
-          <span className="q-ceremony-relic-mark" />
+        <div
+          className="q-reward-stage q-ceremony-view"
+          data-equipped-gear={gearPiece?.id || "none"}
+          aria-label={gearPiece ? `Your Beastie is wearing ${gearPiece.label}` : "Your Beastie celebrating"}
+        >
+          <span className="q-ceremony-ring is-outer" aria-hidden="true" />
+          <span className="q-ceremony-ring is-inner" aria-hidden="true" />
+          <span className="q-ceremony-relic-mark" aria-hidden="true" />
+          {state?.creature && (
+            <CreatureFigure
+              creature={state.creature}
+              size={230}
+              mood="cheer"
+              title={gearPiece ? `Your Beastie wearing ${gearPiece.label}` : "Your Beastie celebrating"}
+            />
+          )}
         </div>
       </div>
     </section>

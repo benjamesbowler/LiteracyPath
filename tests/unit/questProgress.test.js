@@ -5,6 +5,7 @@ import {
   normalizeQuestState,
   recordQuestAttempt,
   recordStopResult,
+  earnedGearReward,
   currentStopIndex,
   isStopUnlocked,
   totalStars,
@@ -128,6 +129,21 @@ test("gear is GIVEN by walking the trail, not bought", () => {
   assert.equal(ownedPieces(fresh).has("leaf-cap"), false);
   const state = recordStopResult(fresh, "s1", 1);
   assert.equal(ownedPieces(state).has("leaf-cap"), true, "the stop-1 drop");
+  assert.equal(state.creature.equipped.head, "leaf-cap", "the earned gear lands on the creature");
+  assert.deepEqual(earnedGearReward(state, "s1"), { id: "leaf-cap", slot: "head", equipped: true });
+});
+
+test("the Seedwake gate reward carries a fully equipped cumulative creature", () => {
+  let state = baseQuestState();
+  for (let index = 1; index <= 5; index += 1) state = recordStopResult(state, `s${index}`, 3, 4);
+  assert.deepEqual(state.creature.equipped, {
+    head: "acorn-hat",
+    back: "moth-wings",
+    neck: "vine-scarf",
+    held: "stone-staff"
+  });
+  assert.deepEqual(earnedGearReward(state, "s5"), { id: "stone-staff", slot: "held", equipped: true });
+  assert.ok(chapterRewardForStop("s5"));
 });
 
 test("chapter relics unlock only at five-stop destination gates", () => {

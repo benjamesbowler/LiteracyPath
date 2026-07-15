@@ -1,0 +1,67 @@
+{
+  "proof": {
+    "stopId": "s5",
+    "encounterId": "s5-1",
+    "encounterKind": "broken-bridge",
+    "beatIndex": 0,
+    "stageIndex": 0,
+    "safeArea": {
+      "left": 22,
+      "top": 116,
+      "right": 368,
+      "bottom": 720
+    },
+    "hudNodes": 2,
+    "camera": {
+      "position": [
+        -9.086551378739886,
+        9.991367850337108,
+        -43.23043332435962
+      ],
+      "delta": 0.0033744536949827965,
+      "settled": true
+    },
+    "items": [
+      {
+        "id": "s5-1-0-0-0-y",
+        "value": "y",
+        "rect": {
+          "left": 235.9213516839991,
+          "top": 383.1392877139868,
+          "right": 336.69613731146336,
+          "bottom": 475.8000126304243
+        },
+        "insideSafeArea": true,
+        "firstHit": "resource_stone",
+        "rayClear": true
+      },
+      {
+        "id": "s5-1-0-0-1-u",
+        "value": "u",
+        "rect": {
+          "left": 144.9992665824484,
+          "top": 380.9039076959208,
+          "right": 234.82620334299534,
+          "bottom": 467.846314746624
+        },
+        "insideSafeArea": true,
+        "firstHit": "resource_stone",
+        "rayClear": true
+      },
+      {
+        "id": "s5-1-0-0-2-i",
+        "value": "i",
+        "rect": {
+          "left": 51.80125737436297,
+          "top": 394.6342828266141,
+          "right": 158.7625217016636,
+          "bottom": 491.1069346140702
+        },
+        "insideSafeArea": true,
+        "firstHit": "resource_stone",
+        "rayClear": true
+      }
+    ]
+  },
+  "problems": []
+}

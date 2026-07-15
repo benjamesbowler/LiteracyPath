@@ -1,0 +1,67 @@
+{
+  "proof": {
+    "stopId": "s1",
+    "encounterId": "s1-0",
+    "encounterKind": "hungry-beast",
+    "beatIndex": 0,
+    "stageIndex": 0,
+    "safeArea": {
+      "left": 34,
+      "top": 104,
+      "right": 1160,
+      "bottom": 728
+    },
+    "hudNodes": 2,
+    "camera": {
+      "position": [
+        -2.2915126658727916,
+        5.3978645271670675,
+        -33.6518420372843
+      ],
+      "delta": 0.0032437819943141035,
+      "settled": true
+    },
+    "items": [
+      {
+        "id": "s1-0-0-0-0-a",
+        "value": "a",
+        "rect": {
+          "left": 702.6139140469271,
+          "top": 352.7265650763065,
+          "right": 897.179693635305,
+          "bottom": 564.6804756048205
+        },
+        "insideSafeArea": true,
+        "firstHit": "Mesh",
+        "rayClear": true
+      },
+      {
+        "id": "s1-0-0-0-1-m",
+        "value": "m",
+        "rect": {
+          "left": 517.1596729945178,
+          "top": 319.0422054223669,
+          "right": 677.0224587494857,
+          "bottom": 500.09153338094234
+        },
+        "insideSafeArea": true,
+        "firstHit": "Mesh",
+        "rayClear": true
+      },
+      {
+        "id": "s1-0-0-0-2-t",
+        "value": "t",
+        "rect": {
+          "left": 292.1650251234396,
+          "top": 344.4581263179973,
+          "right": 487.4326138989813,
+          "bottom": 547.9370634823543
+        },
+        "insideSafeArea": true,
+        "firstHit": "Mesh",
+        "rayClear": true
+      }
+    ]
+  },
+  "problems": []
+}
