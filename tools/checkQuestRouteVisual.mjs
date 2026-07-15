@@ -1,9 +1,48 @@
+import { spawn } from "node:child_process";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 import sharp from "sharp";
 
 const BASE = process.env.QUEST_PREVIEW_URL || "http://127.0.0.1:5174";
 const SOFTWARE_RENDERER_STARTUP_TIMEOUT = 45_000;
 const SOFTWARE_GATE_HANDOFF_TIMEOUT = 60_000;
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+
+// This gate used to ASSUME a dev server was already listening on BASE — true
+// on a laptop with `npm run dev` open, false on every fresh CI machine, so the
+// first CI run ever died with ERR_CONNECTION_REFUSED before checking a single
+// pixel. Same pattern as shootQuest.mjs / checkQuestSliceCamera.mjs now: use a
+// server if one is there, boot our own if not, and kill the whole process
+// group on exit so a crashed run can't squat on the port.
+async function reachable() {
+  try {
+    const response = await fetch(BASE, { signal: AbortSignal.timeout(1500) });
+    return response.ok || response.status < 500;
+  } catch {
+    return false;
+  }
+}
+
+async function ensureServer() {
+  if (await reachable()) return () => {};
+  const port = new URL(BASE).port || "5174";
+  const proc = spawn("npx", ["vite", "--host", "127.0.0.1", "--port", port, "--strictPort"], {
+    cwd: ROOT,
+    detached: true,
+    stdio: ["ignore", "ignore", "pipe"],
+    env: { ...process.env, BROWSER: "none" }
+  });
+  proc.stderr.on("data", data => process.stderr.write(`  [vite] ${data}`));
+  for (let attempt = 0; attempt < 60; attempt += 1) {
+    if (await reachable()) {
+      return () => { try { process.kill(-proc.pid, "SIGTERM"); } catch { /* already gone */ } };
+    }
+    await new Promise(resolve => setTimeout(resolve, 500));
+  }
+  try { process.kill(-proc.pid, "SIGTERM"); } catch { /* already gone */ }
+  throw new Error(`Quest preview did not start on ${BASE}`);
+}
 
 async function pixelEvidence(buffer) {
   const { data, info } = await sharp(buffer).removeAlpha().raw().toBuffer({ resolveWithObject: true });
@@ -100,6 +139,7 @@ async function inspectGateHandoff(browser) {
   }
 }
 
+const stopServer = await ensureServer();
 const browser = await chromium.launch({
   args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"]
 });
@@ -128,6 +168,7 @@ try {
   if (!handoff.ok) failed = true;
 } finally {
   await browser.close();
+  stopServer();
 }
 
 if (failed) process.exitCode = 1;
