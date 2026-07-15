@@ -12,6 +12,23 @@ export function formatQuestDuration(milliseconds = 0) {
   return remainder ? `${hours} hr ${remainder} min` : `${hours} hr`;
 }
 
+// The teacher-facing sort language — "Got it / Almost there / Needs
+// re-teaching" — is the exit-ticket vocabulary from the published
+// Anthropic / Learning Commons K-2 materials (tools/rubrics/). It maps onto
+// the mastery model honestly:
+//   got it          proved by the four-condition gate (mastered or retired)
+//   almost there    learning, with real evidence banked (>= 2 correct)
+//   needs re-teach  attempted but struggling (< 2 correct, or currently on
+//                   a consecutive-miss run)
+export function sortBuckets(mastery = {}) {
+  const rows = Object.values(mastery).filter(row => (Number(row?.seen) || 0) > 0);
+  const gotIt = rows.filter(row => ["mastered", "retired"].includes(row?.state)).length;
+  const needsReteaching = rows.filter(row =>
+    !["mastered", "retired"].includes(row?.state)
+    && ((Number(row?.correct) || 0) < 2 || (Number(row?.misses) || 0) >= 2)).length;
+  return { gotIt, almostThere: Math.max(0, rows.length - gotIt - needsReteaching), needsReteaching };
+}
+
 export function buildQuestMasteryReport(state = {}) {
   const mastery = state?.mastery || {};
   const weak = weakestTargets(mastery, 5);
@@ -22,6 +39,7 @@ export function buildQuestMasteryReport(state = {}) {
   const stopped = new Set(state?.trail?.stopsDone || []);
 
   return {
+    buckets: sortBuckets(mastery),
     stopsCompleted: stopped.size,
     stopsTotal: QUEST_STOPS.length,
     stars: totalStars(state),

@@ -1027,11 +1027,11 @@ function SoundSeekersSection({ report }) {
       <div className="report-engagement-grid" aria-label="Sound Seekers summary">
         {[
           ["Trails completed", `${report.stopsCompleted} of ${report.stopsTotal}`],
-          ["Sound stones lit", report.stonesLit],
-          ["Chapter relics", `${report.relicsUnlocked} of 8`],
+          ["Got it", report.buckets?.gotIt ?? report.stonesLit],
+          ["Almost there", report.buckets?.almostThere ?? "-"],
+          ["Needs re-teaching", report.buckets?.needsReteaching ?? "-"],
           ["Time on task", report.timeOnTask],
-          ["Responses", report.attempts],
-          ["Accuracy", report.accuracy == null ? "Not enough evidence" : `${report.accuracy}%`]
+          ["Accuracy", report.accuracy == null ? "Not enough evidence" : `${report.accuracy}% across ${report.attempts} responses`]
         ].map(([label, value]) => (
           <article className="report-engagement-card" key={label}>
             <span className="report-engagement-label">{label}</span>

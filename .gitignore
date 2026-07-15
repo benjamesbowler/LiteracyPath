@@ -71,3 +71,4 @@ dist 2/
 docs/previews/shots/
 
 /public/models/library/
+__pycache__/

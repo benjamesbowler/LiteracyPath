@@ -501,7 +501,7 @@ export function TeacherDashboardPage({
                         <div className="teacher-quest-cell">
                           <strong>{row.soundSeekers.stopsCompleted}/40 trails</strong>
                           <span>{row.soundSeekers.stonesLit} sounds lit · {row.soundSeekers.timeOnTask}</span>
-                          <small>{row.soundSeekers.currentFocus?.length ? `Review ${row.soundSeekers.currentFocus.slice(0, 3).join(", ")}` : "Building first sound profile"}</small>
+                          <small>{row.soundSeekers.currentFocus?.length ? `Needs re-teaching: ${row.soundSeekers.currentFocus.slice(0, 3).join(", ")}` : "Building first sound profile"}</small>
                         </div>
                       ) : <span className="muted-text">Not started</span>}
                     </td>

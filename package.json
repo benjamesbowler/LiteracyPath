@@ -116,7 +116,9 @@
     "build:image-qa-contact-sheets": "node tools/buildImageQaContactSheets.js",
     "check:image-qa-heuristics": "node tools/checkImageQaHeuristics.js",
     "import:image-qa-review": "node tools/importImageQaReview.js",
-    "kimi:image-qa-replacements": "node tools/generateImageQaKimiReplacementRequests.js"
+    "kimi:image-qa-replacements": "node tools/generateImageQaKimiReplacementRequests.js",
+    "check:content-rubric": "node tools/checkContentRubric.mjs",
+    "export:practice-sheet": "node tools/practiceSheet/buildPracticeSheet.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

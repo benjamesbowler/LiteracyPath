@@ -41,6 +41,8 @@ jobs:
         run: npm test
       - name: Quest content gate
         run: npm run check:quest
+      - name: Content rubric gate (no three-cueing — tools/rubrics P-E4)
+        run: npm run check:content-rubric
       - name: Quest chapter-one release gate
         run: npm run check:quest-chapter-one
       - name: Quest 3D asset gate
