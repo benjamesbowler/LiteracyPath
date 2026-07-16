@@ -3,7 +3,7 @@
     "out": "public/images/home-sage/sound-seekers.webp",
     "width": 1200,
     "size": "1536x1024",
-    "quality": "high",
+    "quality": "medium",
     "force": true,
     "prompt": "A wide storybook landscape for a children's reading app hero card: a winding warm-tan dirt trail through gentle rolling meadow hills, a small friendly round green creature with tiny golden horns walking the path away from the viewer, soft standing stones beside the trail with a gentle golden glow, big cream clouds in a soft sage-tinted sky. Calm flat-matte gouache illustration, restrained palette of sage green, cream, forest green and warm tan, generous negative space in the sky, soft morning light, storybook texture, gentle and inviting, not busy, not neon. Absolutely no text, no letters, no words, no numbers, no logos and no watermarks anywhere in the image. No rainbow motifs. No faces on inanimate objects."
   },
@@ -11,7 +11,7 @@
     "out": "public/images/home-sage/phonics.webp",
     "width": 900,
     "size": "1536x1024",
-    "quality": "high",
+    "quality": "medium",
     "force": true,
     "prompt": "A calm storybook illustration for a children's phonics practice card: a warm wooden desk seen slightly from above with a small stack of blank wooden letter tiles (completely blank faces, no letters on them), a chunky friendly pencil, and soft round sound-ripple shapes floating gently above the tiles like quiet musical notes made of light. Flat-matte gouache style, restrained palette of sage green, cream, warm tan and forest green, soft daylight, generous negative space, gentle and tidy, not busy, not neon. Absolutely no text, no letters, no words, no numbers, no logos and no watermarks anywhere in the image. No rainbow motifs. No faces on inanimate objects."
   },
@@ -19,7 +19,7 @@
     "out": "public/images/home-sage/adventure-map.webp",
     "width": 900,
     "size": "1536x1024",
-    "quality": "high",
+    "quality": "medium",
     "force": true,
     "prompt": "A gentle top-down storybook adventure map for a children's learning card: a cream parchment landscape with a winding warm-tan path curving over soft sage-green rolling hills, past a small blue pond and a little forest of round trees, ending at a tiny hill with a soft golden star-shaped standing stone glowing at the summit. Small carved stone waypoint markers along the path (blank, no symbols). Flat-matte gouache illustration, restrained palette of sage green, cream, forest green, warm tan and one soft gold accent, calm and tidy, generous spacing, not busy, not neon. Absolutely no text, no letters, no words, no numbers, no logos and no watermarks anywhere in the image. No rainbow motifs. No faces on inanimate objects."
   },
@@ -27,7 +27,7 @@
     "out": "public/images/home-sage/arcade.webp",
     "width": 900,
     "size": "1536x1024",
-    "quality": "high",
+    "quality": "medium",
     "force": true,
     "prompt": "A cosy storybook illustration for a children's games card: a small friendly toy rocket ship resting on a launch pad made of smooth wooden blocks, a soft golden star floating above it, and one chunky rounded wooden joystick beside the pad. Flat-matte gouache style, restrained palette of sage green, cream, warm tan, forest green and one soft coral accent on the rocket, soft even light, generous negative space, playful but calm, not neon, no arcade cabinets, no glowing tubes. Absolutely no text, no letters, no words, no numbers, no logos and no watermarks anywhere in the image. No rainbow motifs. No faces on inanimate objects."
   },
@@ -35,15 +35,15 @@
     "out": "public/images/home-sage/story-quests.webp",
     "width": 900,
     "size": "1536x1024",
-    "quality": "high",
+    "quality": "medium",
     "force": true,
-    "prompt": "A gentle storybook illustration for a children's stories card: a large open book lying on a cream surface, and rising softly out of its blank pages a tiny dreamlike scene — a small round castle on a green hill with one tiny friendly green dragon flying a slow loop above it, little cream clouds drifting at page height. The book pages are completely blank. Flat-matte gouache style, restrained palette of sage green, cream, forest green and warm tan, soft golden evening light, calm and magical, not busy, not neon. Absolutely no text, no letters, no words, no numbers, no logos and no watermarks anywhere in the image. No rainbow motifs. No faces on inanimate objects."
+    "prompt": "A gentle storybook illustration for a children's stories card: a large open book lying on a cream surface, and rising softly out of its blank pages a tiny dreamlike scene \u2014 a small round castle on a green hill with one tiny friendly green dragon flying a slow loop above it, little cream clouds drifting at page height. The book pages are completely blank. Flat-matte gouache style, restrained palette of sage green, cream, forest green and warm tan, soft golden evening light, calm and magical, not busy, not neon. Absolutely no text, no letters, no words, no numbers, no logos and no watermarks anywhere in the image. No rainbow motifs. No faces on inanimate objects."
   },
   {
     "out": "public/images/home-sage/reading-library.webp",
     "width": 900,
     "size": "1536x1024",
-    "quality": "high",
+    "quality": "medium",
     "force": true,
     "prompt": "A cosy storybook illustration for a children's reading library card: a warm wooden bookshelf with neat rows of books in sage green, cream, tan and forest green cloth covers (all spines completely blank), a soft reading lamp casting a gentle golden pool of light, and a plump cream floor cushion in front of the shelf. Flat-matte gouache style, restrained palette of sage green, cream, warm tan and forest green, quiet and inviting, generous negative space, not busy, not neon. Absolutely no text, no letters, no words, no numbers, no logos and no watermarks anywhere in the image. No rainbow motifs. No faces on inanimate objects."
   },
@@ -51,7 +51,7 @@
     "out": "public/images/home-sage/daily-challenge.webp",
     "width": 700,
     "size": "1024x1024",
-    "quality": "high",
+    "quality": "medium",
     "force": true,
     "prompt": "A small square storybook illustration for a daily challenge badge: three smooth round river stones stacked gently on cream ground, the top stone glowing with a soft warm golden light, tiny sparkles drifting above, one small sage-green leaf resting beside the stack. Flat-matte gouache style, restrained palette of warm tan, cream, sage green and soft gold, calm and encouraging, generous negative space, not busy, not neon. Absolutely no text, no letters, no words, no numbers, no logos and no watermarks anywhere in the image. No rainbow motifs. No faces on inanimate objects."
   }
