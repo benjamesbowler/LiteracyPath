@@ -16,9 +16,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-// The same global layers main.jsx loads, in the same order (see quest.jsx for
-// why the order is load-bearing).
+// The same global layers the real app loads, in the same order. App.css is
+// NOT optional here: leaving it out is exactly how the deployed build got a
+// letterboxed home and centred card titles while this harness looked perfect
+// — App.css's generic .app/button rules are part of the environment the page
+// really lives in.
 import "../src/index.css";
+import "../src/App.css";
 import "../src/styles/student-vibrant.css";
 import "../src/styles/comic-theme.css";
 import "../src/styles/hollow.css";
@@ -47,19 +51,27 @@ const noop = () => {};
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <div className={`student-mode-app${skin === "sage" ? " lp-skin-sage" : ""}`}>
-      <StudentHomePage
-        studentName={name}
-        progressScopeKey={SCOPE}
-        onOpenPhonicsLearn={noop}
-        onOpenArcade={noop}
-        onOpenSkillsBlockQuest={noop}
-        onOpenSoundSeekers={noop}
-        onOpenStoryQuests={noop}
-        onOpenGuidedReading={noop}
-        onOpenRewards={noop}
-        onLogout={noop}
-      />
+    {/* Mirror the REAL shell chain (lg-app-shell > lg-content-area > .app...).
+        The .app wrapper is a shrink-to-fit flex item in production; without
+        this chain the harness showed a full-width page while the deployed app
+        letterboxed — the harness must fail the same way the app fails. */}
+    <div className="lg-app-shell no-sidebar" data-pal-world="meadow">
+      <div className="lg-content-area">
+        <div className={`app student-mode-app no-sidebar${skin === "sage" ? " lp-skin-sage" : ""}`}>
+          <StudentHomePage
+            studentName={name}
+            progressScopeKey={SCOPE}
+            onOpenPhonicsLearn={noop}
+            onOpenArcade={noop}
+            onOpenSkillsBlockQuest={noop}
+            onOpenSoundSeekers={noop}
+            onOpenStoryQuests={noop}
+            onOpenGuidedReading={noop}
+            onOpenRewards={noop}
+            onLogout={noop}
+          />
+        </div>
+      </div>
     </div>
   </StrictMode>
 );

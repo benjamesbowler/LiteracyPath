@@ -8,6 +8,19 @@
    untouchable from this file. The skin is flag-gated in StudentHomePage
    (localStorage lp-home-skin, or ?homeSkin=sage) for A/B with real kids. */
 
+/* THE LETTERBOX FIX. In the real app the student wrapper (.app) sits inside a
+   flex row and SHRINKS TO FIT its content, so the sage home rendered as a
+   ~1000px column with the decorative shell backdrop filling both sides of a
+   laptop screen (observed on the deployed build, 227px auto-margins each
+   side). Same class of bug the Skills Quest already fixed with :has() in
+   comic-theme.css:1491 — same cure here. The preview harness now mirrors the
+   real shell chain so this can never hide from the screenshots again. */
+.app.student-mode-app.lp-skin-sage {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
 .lp-home-sage {
   --hs-sage: #5CA091;
   --hs-sage-deep: #4C8B7D;
@@ -289,12 +302,18 @@
   padding: 11px 13px 12px;
   display: flex;
   flex-direction: column;
+  /* App.css's generic button styling centres flex children; stretch is
+     load-bearing here or every title and chip row centres (observed on the
+     deployed build). */
+  align-items: stretch;
   text-align: left;
   font-family: inherit;
   color: inherit;
   cursor: pointer;
   transition: transform 0.12s, box-shadow 0.12s;
 }
+
+.lp-home-sage .hs-card h2 { text-align: left; }
 
 .lp-home-sage .hs-card:hover {
   transform: translateY(-3px);
