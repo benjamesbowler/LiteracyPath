@@ -9,6 +9,10 @@ import './styles/student-vibrant.css'
 import './styles/comic-theme.css'
 // Rewards V2 (My Hollow) layer - after comic-theme so its pop-art rules win.
 import './styles/hollow.css'
+// The flag-gated "sage" home skin. Everything inside is scoped under
+// .lp-home-sage, so load order only matters in that it must come after the
+// comic layer it overrides when the flag is on.
+import './styles/home-sage.css'
 import { ErrorBoundary } from './components/ErrorBoundary.jsx'
 import { AppCrashFallback } from './components/AppCrashFallback.jsx'
 import { DYNAMIC_IMPORT_ERROR_EVENT, reloadOnceForNewVersion } from './utils/lazyWithRetry.js'

@@ -83,6 +83,72 @@ const MISSION_TILES = [
   { kind: "game", label: "Game", art: "/images/learn-games/art/pop-the-word.webp" }
 ];
 
+// ── the "sage" home skin ─────────────────────────────────────────────────────
+// A calmer shell around the same activities (see src/styles/home-sage.css and
+// mockups/kids-home-chalkie-style.html). Flag-gated so it can be A/B tested
+// with real children against the comic skin: localStorage lp-home-skin, or
+// ?homeSkin=sage for a one-off look. Both skins share every handler, all
+// mission/wallet state, and the overlays — the skin is presentation only.
+const HOME_SKIN_KEY = "lp-home-skin";
+
+function readHomeSkin() {
+  try {
+    const fromQuery = new URLSearchParams(window.location.search).get("homeSkin");
+    if (fromQuery === "sage" || fromQuery === "comic") return fromQuery;
+    return window.localStorage.getItem(HOME_SKIN_KEY) === "sage" ? "sage" : "comic";
+  } catch {
+    return "comic";
+  }
+}
+
+const SAGE_ICON_PATHS = {
+  home: "M3 11.5 12 4l9 7.5M5.5 10v9h13v-9",
+  sound: "M4 19c4-1 5-4 5-7 0-3 2-6 6-6 3 0 5 2 5 5 0 5-4 9-10 9-2.5 0-4.5-.4-6-1Z",
+  phonics: "M5 19h14M7 15 12 4l5 11M8.8 11.5h6.4",
+  map: "M9 4 4 6v14l5-2 6 2 5-2V4l-5 2-6-2ZM9 4v14M15 6v14",
+  arcade: "M4 8h16v10H4zM8 11v4M6 13h4M15 12h.01M18 14h.01",
+  book: "M12 6c-2-1.6-4.5-2-8-2v14c3.5 0 6 .4 8 2 2-1.6 4.5-2 8-2V4c-3.5 0-6 .4-8 2ZM12 6v14",
+  story: "m12 4 2 4.2 4.6.6-3.4 3.2.9 4.6L12 14.4l-4.1 2.2.9-4.6L5.4 8.8 10 8.2Z",
+  hollow: "M12 3 4 9v11h16V9l-8-6ZM9.5 20v-6h5v6",
+  person: "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4.5 20c1.5-3.5 4.2-5 7.5-5s6 1.5 7.5 5",
+  play: "M7 5.5v13l11-6.5-11-6.5Z",
+  swap: "M7 8h10l-3-3M17 16H7l3 3"
+};
+
+function SageIcon({ name }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d={SAGE_ICON_PATHS[name] || SAGE_ICON_PATHS.home} />
+    </svg>
+  );
+}
+
+function SageCard({ hero = false, art, title, fillChip, lineChips = [], foot, footNote, locked = false, lockedLabel, onClick }) {
+  return (
+    <button
+      type="button"
+      className={["hs-card", hero ? "is-hero" : "", locked ? "is-locked" : ""].filter(Boolean).join(" ")}
+      onClick={onClick}
+      aria-disabled={locked || undefined}
+    >
+      <span className="hs-thumb" aria-hidden="true">
+        <img src={art} alt="" loading="eager" decoding="async" onError={hideOnError} />
+      </span>
+      <h2>{title}</h2>
+      <span className="hs-chips">
+        {fillChip && <span className="hs-chip is-fill">{fillChip}</span>}
+        {lineChips.map(chip => <span key={chip} className="hs-chip is-line">{chip}</span>)}
+      </span>
+      <hr />
+      <span className="hs-foot">
+        <span className="hs-mini"><SageIcon name={locked ? "arcade" : "play"} /></span>
+        {locked && lockedLabel ? lockedLabel : foot}
+        {footNote && !locked && <em>&nbsp;· {footNote}</em>}
+      </span>
+    </button>
+  );
+}
+
 export function StudentHomePage({
   studentName,
   progressScopeKey = "default",
@@ -174,6 +240,240 @@ export function StudentHomePage({
     game: () => openArcade(mission.game?.gameId || "")
   };
 
+  const [homeSkin, setHomeSkin] = useState(readHomeSkin);
+  function switchHomeSkin(next) {
+    setHomeSkin(next);
+    setAccountOpen(false);
+    try { window.localStorage.setItem(HOME_SKIN_KEY, next); } catch { /* best effort */ }
+  }
+
+  // Shared by both skins — the skin is presentation only.
+  const overlays = (
+    <>
+      {freshCoins > 0 && (
+        <div className="kid-reward-toast" role="status">
+          <span className="kid-reward-toast-icon" aria-hidden="true"><CoinIcon size={30} /></span>
+          <div>
+            <strong>You earned {freshCoins} coin{freshCoins === 1 ? "" : "s"}!</strong>
+            <small>Spend them at the Market in your Hollow</small>
+          </div>
+          <button className="kid-den-button" type="button" onClick={onOpenRewards}>Go spend!</button>
+          <button className="kid-reward-toast-close" type="button" aria-label="Close" onClick={() => setFreshCoins(0)}>×</button>
+        </div>
+      )}
+
+      {(pickingCompanion || !companion) && (
+        <div className="companion-picker" role="dialog" aria-label="Choose your companion">
+          <div className="companion-picker-card">
+            <h2>{companion ? "Change your companion" : "Choose your companion!"}</h2>
+            <p>Your companion learns with you every day.</p>
+            <div className="companion-grid">
+              {COMPANIONS.map(item => (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={companion?.id === item.id ? "active" : ""}
+                  onClick={() => {
+                    setCompanion(progressScopeKey, item.id);
+                    setCompanionState(item);
+                    setPickingCompanion(false);
+                  }}
+                >
+                  <img src={item.image} alt="" loading="lazy" onError={hideOnError} />
+                  <span>{item.name}</span>
+                  {item.series && <em className="companion-series">{item.series}</em>}
+                </button>
+              ))}
+            </div>
+            {companion && (
+              <button className="text-button" type="button" onClick={() => setPickingCompanion(false)}>
+                Keep {companion.name}
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+
+      {showCelebration && (
+        <div className="student-mission-celebrate" role="dialog" aria-label="Mission complete">
+          <ConfettiCelebration show />
+          <div className="student-mission-celebrate-card">
+            <img src="/images/learn-games/phinny-cheering.webp" alt="" onError={hideOnError} />
+            <h2>Mission complete!</h2>
+            <p>
+              {status.streak > 1
+                ? `That's ${status.streak} school days in a row. See you tomorrow!`
+                : "Your streak starts today. See you tomorrow!"}
+            </p>
+            <button className="main-button" type="button" onClick={() => setShowCelebration(false)}>
+              Keep exploring
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+
+  if (homeSkin === "sage") {
+    const missionLeft = MISSION_TILES.filter(tile => !status.done[tile.kind]).length;
+    const nextMission = MISSION_TILES.find(tile => !status.done[tile.kind]);
+    const arcadeLocked = ARCADE_REQUIRES_DAILY_TASKS && !status.missionComplete;
+    const sageNav = [
+      { id: "sounds", label: "Sound Seekers", icon: "sound", go: onOpenSoundSeekers },
+      { id: "phonics", label: "Phonics", icon: "phonics", go: onOpenPhonicsLearn },
+      { id: "map", label: "Adventure Map", icon: "map", go: onOpenSkillsBlockQuest },
+      { id: "books", label: "Books", icon: "book", go: onOpenGuidedReading ? () => onOpenGuidedReading("") : null },
+      { id: "arcade", label: "Arcade", icon: "arcade", go: arcadeLocked ? null : () => openArcade() },
+      { id: "hollow", label: "My Hollow", icon: "hollow", go: onOpenRewards }
+    ].filter(item => item.go);
+
+    return (
+      <main className="lp-home-sage">
+        <aside className="hs-side">
+          <span className="hs-avatar" aria-hidden="true">
+            {companion
+              ? <img src={companion.image} alt="" onError={hideOnError} />
+              : <strong style={{ fontSize: 34, color: "var(--hs-ink)" }}>{String(studentName || "S").slice(0, 1).toUpperCase()}</strong>}
+          </span>
+          <span className="hs-name">{studentName || "Reader"}</span>
+          <button className="hs-coins" type="button" onClick={onOpenRewards} aria-label={`${hollow.coins} coins. Open your Hollow.`}>
+            <CoinIcon size={16} /> {hollow.coins}
+          </button>
+
+          <nav className="hs-nav" aria-label="Places to play">
+            <button type="button" className="is-active"><SageIcon name="home" />Home</button>
+            {sageNav.map(item => (
+              <button key={item.id} type="button" onClick={item.go}><SageIcon name={item.icon} />{item.label}</button>
+            ))}
+          </nav>
+
+          <span className="hs-side-spacer" />
+
+          <div className="hs-daily">
+            <h3>Daily challenge</h3>
+            <p>A quest, a book and a game</p>
+            <div className="hs-daily-dots" aria-label={`${status.doneCount} of 3 complete`}>
+              {MISSION_TILES.map(tile => (
+                <span key={tile.kind} className={status.done[tile.kind] ? "is-done" : ""} />
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={() => (nextMission ? missionTargets[nextMission.kind]?.() : onOpenRewards?.())}
+            >
+              {status.missionComplete ? "All done — go spend!" : missionLeft === 1 ? "One to go — play it" : `${missionLeft} to go — play one`}
+            </button>
+          </div>
+        </aside>
+
+        <div className="hs-main">
+          <div className="hs-topbar">
+            <span className="hs-logo" aria-hidden="true"><strong>Literacy</strong>Pals</span>
+            <div className="hs-top-actions">
+              <button
+                className="hs-btn-ghost"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded={accountOpen}
+                onClick={() => setAccountOpen(value => !value)}
+              >
+                <SageIcon name="person" />Grown-ups
+              </button>
+              {(onOpenSoundSeekers || onOpenSkillsBlockQuest) && (
+                <button className="hs-btn-primary" type="button" onClick={onOpenSoundSeekers || onOpenSkillsBlockQuest}>
+                  <SageIcon name="play" />Keep playing
+                </button>
+              )}
+              {accountOpen && (
+                <div className="hs-menu" role="menu">
+                  <button type="button" role="menuitem" onClick={() => { setAccountOpen(false); setPickingCompanion(true); }}>
+                    <SageIcon name="person" />Change companion
+                  </button>
+                  <button type="button" role="menuitem" onClick={() => switchHomeSkin("comic")}>
+                    <SageIcon name="swap" />Back to classic look
+                  </button>
+                  <button type="button" role="menuitem" onClick={onLogout} aria-label={logoutAriaLabel}>
+                    <SignOutIcon />{logoutLabel}
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <section className="hs-sheet" aria-label="Student learning areas">
+            <div className="hs-sheet-head">
+              <h1>Hello, {studentName || "friend"}!</h1>
+              <p className="hs-sub">
+                {status.missionComplete
+                  ? "All three tasks done. Anything you like now!"
+                  : "What shall we play today?"}
+              </p>
+            </div>
+
+            <div className="hs-grid">
+              {onOpenSoundSeekers && (
+                <SageCard
+                  hero
+                  art="/images/quest/meadow/sky.webp"
+                  title="Sound Seekers"
+                  fillChip="Adventure"
+                  lineChips={["The Sound Trail"]}
+                  foot="Walk the trail"
+                  footNote="your creature is waiting"
+                  onClick={onOpenSoundSeekers}
+                />
+              )}
+              <SageCard
+                art="/images/learn-games/home/home-phonics.webp"
+                title="Phonics Learning"
+                fillChip="Practice"
+                lineChips={["Letters and sounds"]}
+                foot="Build some words"
+                onClick={onOpenPhonicsLearn}
+              />
+              <SageCard
+                art="/images/learn-games/home/home-skills-quest.webp"
+                title="Adventure Map"
+                fillChip="Adventure"
+                lineChips={["Win stars"]}
+                foot="Follow the path"
+                onClick={onOpenSkillsBlockQuest}
+              />
+              <SageCard
+                art="/images/learn-games/home/home-arcade.webp"
+                title="Arcade"
+                fillChip="Games"
+                lineChips={["11 games"]}
+                foot="Jump into a game"
+                locked={arcadeLocked}
+                lockedLabel="Finish your 3 tasks to unlock"
+                onClick={() => { if (!arcadeLocked) openArcade(); }}
+              />
+              <SageCard
+                art="/images/learn-games/home/home-story-quests.webp"
+                title="Story Quests"
+                fillChip="Stories"
+                lineChips={["You choose"]}
+                foot="Read and choose"
+                onClick={onOpenStoryQuests}
+              />
+              <SageCard
+                art="/images/learn-games/home/home-reading-library.webp"
+                title="Reading Library"
+                fillChip="Read"
+                lineChips={["Real books"]}
+                foot="Pick a book"
+                onClick={() => onOpenGuidedReading?.("")}
+              />
+            </div>
+          </section>
+        </div>
+
+        {overlays}
+      </main>
+    );
+  }
+
   return (
     <main className="student-home-page">
       <header className="student-home-topbar student-home-topbar-comic">
@@ -249,6 +549,9 @@ export function StudentHomePage({
               <div className="student-home-account-menu" role="menu">
                 <button type="button" role="menuitem" onClick={() => { setAccountOpen(false); setPickingCompanion(true); }}>
                   Change companion
+                </button>
+                <button type="button" role="menuitem" onClick={() => switchHomeSkin("sage")}>
+                  Try the new look
                 </button>
                 <button type="button" role="menuitem" onClick={onLogout} aria-label={logoutAriaLabel}>
                   <SignOutIcon />{logoutLabel}
@@ -366,67 +669,7 @@ export function StudentHomePage({
       />
       </section>
 
-      {freshCoins > 0 && (
-        <div className="kid-reward-toast" role="status">
-          <span className="kid-reward-toast-icon" aria-hidden="true"><CoinIcon size={30} /></span>
-          <div>
-            <strong>You earned {freshCoins} coin{freshCoins === 1 ? "" : "s"}!</strong>
-            <small>Spend them at the Market in your Hollow</small>
-          </div>
-          <button className="kid-den-button" type="button" onClick={onOpenRewards}>Go spend!</button>
-          <button className="kid-reward-toast-close" type="button" aria-label="Close" onClick={() => setFreshCoins(0)}>×</button>
-        </div>
-      )}
-
-      {(pickingCompanion || !companion) && (
-        <div className="companion-picker" role="dialog" aria-label="Choose your companion">
-          <div className="companion-picker-card">
-            <h2>{companion ? "Change your companion" : "Choose your companion!"}</h2>
-            <p>Your companion learns with you every day.</p>
-            <div className="companion-grid">
-              {COMPANIONS.map(item => (
-                <button
-                  key={item.id}
-                  type="button"
-                  className={companion?.id === item.id ? "active" : ""}
-                  onClick={() => {
-                    setCompanion(progressScopeKey, item.id);
-                    setCompanionState(item);
-                    setPickingCompanion(false);
-                  }}
-                >
-                  <img src={item.image} alt="" loading="lazy" onError={hideOnError} />
-                  <span>{item.name}</span>
-                  {item.series && <em className="companion-series">{item.series}</em>}
-                </button>
-              ))}
-            </div>
-            {companion && (
-              <button className="text-button" type="button" onClick={() => setPickingCompanion(false)}>
-                Keep {companion.name}
-              </button>
-            )}
-          </div>
-        </div>
-      )}
-
-      {showCelebration && (
-        <div className="student-mission-celebrate" role="dialog" aria-label="Mission complete">
-          <ConfettiCelebration show />
-          <div className="student-mission-celebrate-card">
-            <img src="/images/learn-games/phinny-cheering.webp" alt="" onError={hideOnError} />
-            <h2>Mission complete!</h2>
-            <p>
-              {status.streak > 1
-                ? `That's ${status.streak} school days in a row. See you tomorrow!`
-                : "Your streak starts today. See you tomorrow!"}
-            </p>
-            <button className="main-button" type="button" onClick={() => setShowCelebration(false)}>
-              Keep exploring
-            </button>
-          </div>
-        </div>
-      )}
+      {overlays}
     </main>
   );
 }

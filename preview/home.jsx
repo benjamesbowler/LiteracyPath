@@ -1,0 +1,64 @@
+// STUDENT HOME — THE PREVIEW HARNESS. Dev only; never bundled into the app.
+//
+// Same reason preview/quest.jsx exists: the home page lives behind a student
+// login, and a screen nobody can look at is a screen whose layout gets written
+// by guesswork. This mounts the REAL StudentHomePage with the REAL stylesheets
+// against a synthetic scope — no login, no Supabase, no App.jsx — so both home
+// skins can be eyeballed and screenshotted by tools/shootQuest.mjs.
+//
+//   /preview/home.html                 comic skin (the default)
+//   /preview/home.html?skin=sage       the flag-gated sage skin
+//   /preview/home.html?skin=sage&name=Ava
+//
+// The skin flows through the same query parameter the app itself reads
+// (?homeSkin=...), so the harness exercises the real flag path.
+
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+
+// The same global layers main.jsx loads, in the same order (see quest.jsx for
+// why the order is load-bearing).
+import "../src/index.css";
+import "../src/styles/student-vibrant.css";
+import "../src/styles/comic-theme.css";
+import "../src/styles/hollow.css";
+import "../src/styles/home-sage.css";
+
+import { StudentHomePage } from "../src/components/StudentHomePage.jsx";
+import { setCompanion } from "../src/utils/studentProfile.js";
+
+const params = new URLSearchParams(window.location.search);
+const skin = params.get("skin") === "sage" ? "sage" : "comic";
+const name = params.get("name") || "Sam";
+const SCOPE = "preview-home";
+
+// StudentHomePage reads the skin from ?homeSkin= — mirror the harness param
+// into the URL the component actually inspects, without reloading.
+if (params.get("homeSkin") !== skin) {
+  params.set("homeSkin", skin);
+  window.history.replaceState(null, "", `${window.location.pathname}?${params}`);
+}
+
+// A companion so the picker dialog doesn't cover the page in screenshots.
+setCompanion(SCOPE, "chips");
+
+const noop = () => {};
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <div className="student-mode-app">
+      <StudentHomePage
+        studentName={name}
+        progressScopeKey={SCOPE}
+        onOpenPhonicsLearn={noop}
+        onOpenArcade={noop}
+        onOpenSkillsBlockQuest={noop}
+        onOpenSoundSeekers={noop}
+        onOpenStoryQuests={noop}
+        onOpenGuidedReading={noop}
+        onOpenRewards={noop}
+        onLogout={noop}
+      />
+    </div>
+  </StrictMode>
+);
