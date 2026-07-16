@@ -115,7 +115,21 @@ function SageIcon({ name }) {
   );
 }
 
-function SageCard({ hero = false, art, title, fillChip, lineChips = [], foot, footNote, locked = false, lockedLabel, onClick }) {
+// Sage card art lives in /images/home-sage/ (generated via
+// tools/image-jobs/home-sage-cards.json — calm palette, house prompt rules).
+// Until a file is generated, the card falls back to the comic-era art rather
+// than showing an empty tile, so the skin never depends on the image batch
+// having run. The comic skin's own files are never overwritten.
+function SageCard({ hero = false, art, fallbackArt, title, fillChip, lineChips = [], foot, footNote, locked = false, lockedLabel, onClick }) {
+  function artError(event) {
+    const img = event.currentTarget;
+    if (fallbackArt && img.dataset.fellBack !== "true") {
+      img.dataset.fellBack = "true";
+      img.src = fallbackArt;
+      return;
+    }
+    hideOnError(event);
+  }
   return (
     <button
       type="button"
@@ -124,7 +138,7 @@ function SageCard({ hero = false, art, title, fillChip, lineChips = [], foot, fo
       aria-disabled={locked || undefined}
     >
       <span className="hs-thumb" aria-hidden="true">
-        <img src={art} alt="" loading="eager" decoding="async" onError={hideOnError} />
+        <img src={art} alt="" loading="eager" decoding="async" onError={artError} />
       </span>
       <h2>{title}</h2>
       <span className="hs-chips">
@@ -406,7 +420,8 @@ export function StudentHomePage({
               {onOpenSoundSeekers && (
                 <SageCard
                   hero
-                  art="/images/quest/meadow/sky.webp"
+                  art="/images/home-sage/sound-seekers.webp"
+                  fallbackArt="/images/quest/meadow/sky.webp"
                   title="Sound Seekers"
                   fillChip="Adventure"
                   lineChips={["The Sound Trail"]}
@@ -416,7 +431,8 @@ export function StudentHomePage({
                 />
               )}
               <SageCard
-                art="/images/learn-games/home/home-phonics.webp"
+                art="/images/home-sage/phonics.webp"
+                fallbackArt="/images/learn-games/home/home-phonics.webp"
                 title="Phonics Learning"
                 fillChip="Practice"
                 lineChips={["Letters and sounds"]}
@@ -424,7 +440,8 @@ export function StudentHomePage({
                 onClick={onOpenPhonicsLearn}
               />
               <SageCard
-                art="/images/learn-games/home/home-skills-quest.webp"
+                art="/images/home-sage/adventure-map.webp"
+                fallbackArt="/images/learn-games/home/home-skills-quest.webp"
                 title="Adventure Map"
                 fillChip="Adventure"
                 lineChips={["Win stars"]}
@@ -432,7 +449,8 @@ export function StudentHomePage({
                 onClick={onOpenSkillsBlockQuest}
               />
               <SageCard
-                art="/images/learn-games/home/home-arcade.webp"
+                art="/images/home-sage/arcade.webp"
+                fallbackArt="/images/learn-games/home/home-arcade.webp"
                 title="Arcade"
                 fillChip="Games"
                 lineChips={["11 games"]}
@@ -442,7 +460,8 @@ export function StudentHomePage({
                 onClick={() => { if (!arcadeLocked) openArcade(); }}
               />
               <SageCard
-                art="/images/learn-games/home/home-story-quests.webp"
+                art="/images/home-sage/story-quests.webp"
+                fallbackArt="/images/learn-games/home/home-story-quests.webp"
                 title="Story Quests"
                 fillChip="Stories"
                 lineChips={["You choose"]}
@@ -450,7 +469,8 @@ export function StudentHomePage({
                 onClick={onOpenStoryQuests}
               />
               <SageCard
-                art="/images/learn-games/home/home-reading-library.webp"
+                art="/images/home-sage/reading-library.webp"
+                fallbackArt="/images/learn-games/home/home-reading-library.webp"
                 title="Reading Library"
                 fillChip="Read"
                 lineChips={["Real books"]}
