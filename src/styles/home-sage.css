@@ -249,7 +249,11 @@
 .lp-home-sage .hs-sheet {
   background: #fff;
   border-radius: 26px;
-  margin: 6px 20px 20px;
+  /* Cap the sheet: on a wide desktop the cards were stretching into a thin
+     sparse band edge-to-edge. Chalkie holds its sheet at a readable measure
+     and lets the cream breathe around it. */
+  width: min(1240px, calc(100% - 40px));
+  margin: 6px auto 20px;
   padding: 30px 34px 36px;
   flex: 1;
   box-shadow: 0 1px 3px rgba(30, 40, 30, 0.05);
@@ -319,6 +323,10 @@
   height: 100%;
   object-fit: cover;
 }
+
+/* The hero uses the meadow sky painting; its bottom edge darkens into the
+   horizon and crops murky. Hold the bright top of the sky instead. */
+.lp-home-sage .hs-card.is-hero .hs-thumb img { object-position: center top; }
 
 .lp-home-sage .hs-card h2 {
   margin: 11px 0 0;
