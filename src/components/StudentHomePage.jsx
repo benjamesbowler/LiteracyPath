@@ -12,6 +12,7 @@ import { warmStudentAssets } from "../utils/preloadAssets.js";
 import { computeTreasury } from "../utils/treasureTrail.js";
 import { computeHollow } from "../utils/hollowEconomy.js";
 import { loadHollowLedger, coinsSinceLastVisit } from "../utils/hollowState.js";
+import { readHomeSkin, setHomeSkin, subscribeHomeSkin } from "../utils/homeSkin.js";
 import { CoinIcon } from "./shared/CurrencyIcons.jsx";
 
 // Decorative art must never show a broken-image icon to kids; hide it instead.
@@ -84,22 +85,13 @@ const MISSION_TILES = [
 ];
 
 // ── the "sage" home skin ─────────────────────────────────────────────────────
-// A calmer shell around the same activities (see src/styles/home-sage.css and
-// mockups/kids-home-chalkie-style.html). Flag-gated so it can be A/B tested
-// with real children against the comic skin: localStorage lp-home-skin, or
-// ?homeSkin=sage for a one-off look. Both skins share every handler, all
-// mission/wallet state, and the overlays — the skin is presentation only.
-const HOME_SKIN_KEY = "lp-home-skin";
-
-function readHomeSkin() {
-  try {
-    const fromQuery = new URLSearchParams(window.location.search).get("homeSkin");
-    if (fromQuery === "sage" || fromQuery === "comic") return fromQuery;
-    return window.localStorage.getItem(HOME_SKIN_KEY) === "sage" ? "sage" : "comic";
-  } catch {
-    return "comic";
-  }
-}
+// The default since 2026-07-15: a calmer shell around the same activities
+// (see src/styles/home-sage.css and mockups/kids-home-chalkie-style.html).
+// The comic skin is kept fully intact behind the account-menu switch
+// ("Back to classic look") in case we ever want it back. Both skins share
+// every handler, all mission/wallet state, and the overlays — the skin is
+// presentation only. Flag plumbing lives in utils/homeSkin.js so App.jsx can
+// recolour the sub-pages from the same source of truth.
 
 const SAGE_ICON_PATHS = {
   home: "M3 11.5 12 4l9 7.5M5.5 10v9h13v-9",
@@ -240,11 +232,11 @@ export function StudentHomePage({
     game: () => openArcade(mission.game?.gameId || "")
   };
 
-  const [homeSkin, setHomeSkin] = useState(readHomeSkin);
+  const [homeSkin, setHomeSkinState] = useState(readHomeSkin);
+  useEffect(() => subscribeHomeSkin(setHomeSkinState), []);
   function switchHomeSkin(next) {
-    setHomeSkin(next);
     setAccountOpen(false);
-    try { window.localStorage.setItem(HOME_SKIN_KEY, next); } catch { /* best effort */ }
+    setHomeSkin(next); // persists + notifies App.jsx, which recolours the sub-pages
   }
 
   // Shared by both skins — the skin is presentation only.

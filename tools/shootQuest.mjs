@@ -56,9 +56,9 @@ const SHOTS = [
   { name: "pal-three-items-phone", url: "/preview/pal.html?companion=chips&back=gear-explorer-pack&feet=gear-trail-boots&head=gear-wizard-hat", size: "phone" },
   { name: "den-phone", url: "/preview/quest.html?view=den&done=6", size: "phone" },
   { name: "world-s1-desktop", url: "/preview/quest.html?view=world&stop=s1", size: "desktop" },
-  { name: "home-comic-ipad", url: "/preview/home.html", size: "ipad" },
-  { name: "home-sage-ipad", url: "/preview/home.html?skin=sage", size: "ipad" },
-  { name: "home-sage-phone", url: "/preview/home.html?skin=sage", size: "phone" }
+  { name: "home-sage-ipad", url: "/preview/home.html", size: "ipad" },
+  { name: "home-sage-phone", url: "/preview/home.html", size: "phone" },
+  { name: "home-comic-ipad", url: "/preview/home.html?skin=comic", size: "ipad" }
 ];
 
 function startServer() {

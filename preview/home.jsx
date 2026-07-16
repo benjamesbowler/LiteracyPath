@@ -23,12 +23,13 @@ import "../src/styles/student-vibrant.css";
 import "../src/styles/comic-theme.css";
 import "../src/styles/hollow.css";
 import "../src/styles/home-sage.css";
+import "../src/styles/sage-subpages.css";
 
 import { StudentHomePage } from "../src/components/StudentHomePage.jsx";
 import { setCompanion } from "../src/utils/studentProfile.js";
 
 const params = new URLSearchParams(window.location.search);
-const skin = params.get("skin") === "sage" ? "sage" : "comic";
+const skin = params.get("skin") === "comic" ? "comic" : "sage"; // sage is the default, as in the app
 const name = params.get("name") || "Sam";
 const SCOPE = "preview-home";
 
@@ -46,7 +47,7 @@ const noop = () => {};
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <div className="student-mode-app">
+    <div className={`student-mode-app${skin === "sage" ? " lp-skin-sage" : ""}`}>
       <StudentHomePage
         studentName={name}
         progressScopeKey={SCOPE}

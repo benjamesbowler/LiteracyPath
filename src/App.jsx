@@ -29,6 +29,7 @@ import { HollowPage } from "./components/HollowPage.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { SchoolNameInput } from "./components/SchoolNameInput.jsx";
 import { worldForScope } from "./utils/palWorlds.js";
+import { readHomeSkin, subscribeHomeSkin } from "./utils/homeSkin.js";
 import { buildQuestMasteryReport } from "./utils/questReport.js";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
 import { ElSkillsQuest } from "./components/elQuest/ElSkillsQuest.jsx";
@@ -1799,6 +1800,10 @@ export default function App() {
   const [allowPassageAudio, setAllowPassageAudio] = useState(false);
   const [learnFullscreen, setLearnFullscreen] = useState(false);
   const [studentArcadeOpen, setStudentArcadeOpen] = useState(false);
+  // The student-side skin (sage default, comic behind the account-menu
+  // switch). Presentation only — nothing but className may read it.
+  const [homeSkin, setHomeSkinState] = useState(readHomeSkin);
+  useEffect(() => subscribeHomeSkin(setHomeSkinState), []);
   const [assessmentFullscreen, setAssessmentFullscreen] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
@@ -7949,6 +7954,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     "app",
     isStudentMode ? "student-mode-app no-sidebar" : "",
     isChildPreviewView ? "student-mode-app teacher-child-preview" : "",
+    (isStudentMode || isChildPreviewView) && homeSkin === "sage" ? "lp-skin-sage" : "",
     isFocusedAssessment ? "assessment-app no-sidebar" : "",
     effectiveAssessmentFullscreen ? "assessment-fullscreen-app" : "",
     isStudentSurfaceView && learnFullscreen ? "learn-fullscreen-app no-sidebar" : ""

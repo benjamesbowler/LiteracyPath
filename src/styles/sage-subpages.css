@@ -1,0 +1,62 @@
+/* SUB-PAGES under the "sage" skin — colour remap only.
+
+   The comic theme is entirely variable-driven (comic-theme.css :root), so the
+   sub-pages keep their layouts, sizes and images and ONLY the palette moves:
+   loud pop-art yellows/blues/magentas become the sage/cream/forest system the
+   home page established. Redefining the variables on the student shell means
+   every hard offset shadow, border and banner softens with the ink — zero
+   layout properties in this file, by rule.
+
+   TWO SURFACES ARE EXEMPT BY OWNER DECISION (2026-07-15): the Arcade and the
+   Hollow keep the comic palette exactly. Their subtrees re-declare the
+   original values below, and the fullscreen GamePlayer portals to
+   document.body — outside this scope — so in-game screens were never touched
+   to begin with. Sound Seekers likewise portals to body and owns its own
+   look (quest.css). */
+
+.student-mode-app.lp-skin-sage {
+  --comic-ink: #1E2B25;
+  --comic-ink-soft: #44544C;
+  --comic-paper: #FBF4EA;
+  --comic-dot: rgba(30, 43, 37, 0.05);
+  --comic-yellow: #5CA091;
+  --comic-yellow-deep: #4C8B7D;
+  --comic-red: #D85A30;
+  --comic-red-deep: #993C1D;
+  --comic-blue: #2E4B3E;
+  --comic-blue-deep: #243B31;
+  --comic-green: #3B6D11;
+  --comic-green-deep: #27500A;
+  --comic-purple: #6B5E9B;
+  --comic-teal: #4C8B7D;
+  --comic-orange: #D9924E;
+  --comic-magenta: #C98F54;
+  --comic-cyan: #7FB5A7;
+  --comic-success: #3B6D11;
+  /* --comic-star and --comic-gem stay untouched: coins, stars and gems keep
+     their identity everywhere, both skins. */
+}
+
+/* ── the exemptions: original comic values restored verbatim ─────────────── */
+.student-surface-shell-arcade .student-mode-app.lp-skin-sage,
+.student-mode-app.lp-skin-sage .student-surface-arcade,
+.student-mode-app.lp-skin-sage .hollow-page {
+  --comic-ink: #12141f;
+  --comic-ink-soft: #2a2d3d;
+  --comic-paper: #faf6ec;
+  --comic-dot: rgba(18, 20, 31, 0.08);
+  --comic-yellow: #ffcf1a;
+  --comic-yellow-deep: #f0a800;
+  --comic-red: #da2119;
+  --comic-red-deep: #b52a1d;
+  --comic-blue: #0056b6;
+  --comic-blue-deep: #123f9e;
+  --comic-green: #2fa341;
+  --comic-green-deep: #01661d;
+  --comic-purple: #4e2c8b;
+  --comic-teal: #018c90;
+  --comic-orange: #f28a1b;
+  --comic-magenta: #e8368f;
+  --comic-cyan: #23c4de;
+  --comic-success: #25c76f;
+}
