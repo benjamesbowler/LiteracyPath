@@ -28,6 +28,7 @@ import "../src/styles/comic-theme.css";
 import "../src/styles/hollow.css";
 import "../src/styles/home-sage.css";
 import "../src/styles/sage-subpages.css";
+import "../src/styles/sage-soft.generated.css";
 
 import { StudentHomePage } from "../src/components/StudentHomePage.jsx";
 import { setCompanion } from "../src/utils/studentProfile.js";

@@ -16,6 +16,9 @@ import './styles/hollow.css'
 // after the comic layer they override.
 import './styles/home-sage.css'
 import './styles/sage-subpages.css'
+// Generated: soft borders/shadows for every comic-heavy rule under the sage
+// skin (Arcade + Hollow exempt). Regenerate: npm run generate:sage-soft.
+import './styles/sage-soft.generated.css'
 import { ErrorBoundary } from './components/ErrorBoundary.jsx'
 import { AppCrashFallback } from './components/AppCrashFallback.jsx'
 import { DYNAMIC_IMPORT_ERROR_EVENT, reloadOnceForNewVersion } from './utils/lazyWithRetry.js'
