@@ -23,6 +23,14 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
+import { AxeBuilder } from "@axe-core/playwright";
+
+// ACCESSIBILITY: axe-core runs on every shot marked `a11y: true` and its
+// serious/critical violations land in the .txt beside the PNG. It sat in
+// devDependencies with zero usages for weeks — a tool you never run is a
+// tool you don't have. Report-first: set A11Y_ENFORCE=1 to make violations
+// fail the run (flip it in CI once the baseline count is known and zero).
+const A11Y_ENFORCE = process.env.A11Y_ENFORCE === "1";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = path.join(ROOT, "docs/previews/shots");
@@ -44,7 +52,7 @@ const SIZES = {
 // Stop ids are s1…s40 — NOT zero-padded. "s01" resolves to nothing and renders a
 // silent blank screen. Don't reintroduce it.
 const SHOTS = [
-  { name: "den-ipad", url: "/preview/quest.html?view=den&done=6", size: "ipad" },
+  { name: "den-ipad", url: "/preview/quest.html?view=den&done=6", size: "ipad", a11y: true },
   { name: "world-s1-ipad", url: "/preview/quest.html?view=world&stop=s1", size: "ipad" },
   { name: "world-s12-ipad", url: "/preview/quest.html?view=world&stop=s12&done=11", size: "ipad" },
   { name: "world-s24-ipad", url: "/preview/quest.html?view=world&stop=s24&done=23", size: "ipad" },
@@ -56,9 +64,9 @@ const SHOTS = [
   { name: "pal-three-items-phone", url: "/preview/pal.html?companion=chips&back=gear-explorer-pack&feet=gear-trail-boots&head=gear-wizard-hat", size: "phone" },
   { name: "den-phone", url: "/preview/quest.html?view=den&done=6", size: "phone" },
   { name: "world-s1-desktop", url: "/preview/quest.html?view=world&stop=s1", size: "desktop" },
-  { name: "home-sage-ipad", url: "/preview/home.html", size: "ipad" },
+  { name: "home-sage-ipad", url: "/preview/home.html", size: "ipad", a11y: true },
   { name: "home-sage-phone", url: "/preview/home.html", size: "phone" },
-  { name: "home-comic-ipad", url: "/preview/home.html?skin=comic", size: "ipad" }
+  { name: "home-comic-ipad", url: "/preview/home.html?skin=comic", size: "ipad", a11y: true }
 ];
 
 function startServer() {
@@ -263,9 +271,24 @@ async function main() {
         .map(e => `  PENDING (never settled): ${e.name}`)
     );
 
+    // Accessibility scan — serious/critical only (minor/moderate would bury
+    // the signal; fix the screaming first).
+    let axeViolations = [];
+    if (shot.a11y) {
+      try {
+        const axe = await new AxeBuilder({ page }).analyze();
+        axeViolations = axe.violations
+          .filter(v => ["serious", "critical"].includes(v.impact))
+          .map(v => `  ${v.impact.toUpperCase()} ${v.id}: ${v.help} (${v.nodes.length} node${v.nodes.length === 1 ? "" : "s"})`);
+      } catch (axeError) {
+        axeViolations = [`  AXE FAILED TO RUN: ${axeError.message}`];
+      }
+    }
+
     const report = [
       `${shot.name}  —  ${shot.url}  @ ${size.width}x${size.height}`,
       "",
+      ...(shot.a11y ? [`A11Y (serious/critical): ${axeViolations.length ? axeViolations.length : "none"}`, ...axeViolations, ""] : []),
       `DOCUMENT STATE: ${stillLoading ? "STILL LOADING — the load event never fired" : "complete"}`,
       ...(pending.length ? ["", `IN-FLIGHT REQUESTS (${pending.length}) — these are why:`, ...pending] : []),
       "",
@@ -284,7 +307,11 @@ async function main() {
     ].join("\n");
     fs.writeFileSync(path.join(OUT, `${shot.name}.txt`), report);
 
-    const bad = errors.length + failedRequests.length + (stillLoading ? 1 : 0);
+    const bad = errors.length + failedRequests.length + (stillLoading ? 1 : 0)
+      + (A11Y_ENFORCE ? axeViolations.length : 0);
+    if (!A11Y_ENFORCE && axeViolations.length) {
+      console.log(`  a11y: ${axeViolations.length} serious/critical (reported, not enforced — A11Y_ENFORCE=1 to gate)`);
+    }
     problems += bad;
     console.log(
       `${bad ? `${errors.length} errors, ${[...new Set(failedRequests)].length} failed` : "clean"}`

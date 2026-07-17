@@ -3641,6 +3641,47 @@ export default function App() {
     setClassDashboard(rows);
   }
 
+  // PRACTICE-ASSIGN — the teacher picks sounds on a child's heat map; the
+  // child's Free Roam serves exactly those sounds next session
+  // (questReviewMode.pendingAssignment). The assignment rides INSIDE the
+  // phonics_quest payload: the server's BEFORE UPDATE merge folds
+  // { assignment } into the existing row without touching mastery/trail
+  // (unknown keys are incoming-wins under the phonics_quest merge migration;
+  // under the older naive merge it is still additive-safe, but REPLACING or
+  // CLEARING an assignment needs 20260715090000_phonics_quest_merge.sql
+  // applied — the naive merge unions the old targets back in).
+  async function saveQuestAssignment(studentRowId, targets = [], note = "") {
+    if (!teacherId || !studentRowId) return false;
+    const assignment = {
+      targets: [...new Set(targets)].filter(Boolean).slice(0, 6),
+      note: String(note || "").slice(0, 120),
+      assignedAt: new Date().toISOString(),
+      by: "teacher"
+    };
+    const { error } = await supabase.from("student_progress").upsert({
+      student_id: studentRowId,
+      area: "phonics_quest",
+      key: "__all__",
+      payload: { assignment },
+      updated_at: new Date().toISOString()
+    }, { onConflict: "student_id,area,key" });
+    if (error) {
+      console.error("Assign practice error:", error);
+      setMessage("Could not save the practice assignment.");
+      return false;
+    }
+    await loadClassDashboard(selectedClassId);
+    return true;
+  }
+
+  async function assignQuestPractice(studentRowId, targets, note = "") {
+    return saveQuestAssignment(studentRowId, targets, note);
+  }
+
+  async function clearQuestPractice(studentRowId) {
+    return saveQuestAssignment(studentRowId, [], "");
+  }
+
   async function updateStudentSymbolPassword(studentRowId, sequence, selectedStudentName = "student") {
     if (!teacherId || !studentRowId || !/^[1-9]{3}$/.test(sequence)) return;
     // No teacher_id filter here: RLS already restricts writes to the
@@ -8143,6 +8184,8 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               studentList={studentList}
               loadingStudents={loadingStudents}
               loadStudents={loadStudents}
+              assignQuestPractice={assignQuestPractice}
+              clearQuestPractice={clearQuestPractice}
               onLoadStudent={async (id, name) => {
                 await loadStudentProgress(id, name);
                 setAppView(APP_VIEWS.OVERVIEW);

@@ -16158,3 +16158,71 @@ body {
     page-break-inside: avoid;
   }
 }
+
+/* ── Sound heat map + practice-assign (teacher dashboard) ─────────────────── */
+.teacher-heat-row td { padding: 0 10px 14px; }
+
+.quest-heat-panel {
+  background: #f8f6f0;
+  border: 1px solid #e4ddcf;
+  border-radius: 12px;
+  padding: 14px 16px 12px;
+}
+
+.quest-heat-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.quest-heat-legend { display: inline-flex; gap: 12px; flex-wrap: wrap; font-size: 12px; }
+.quest-heat-legend em { font-style: normal; padding-left: 16px; position: relative; }
+.quest-heat-legend em::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 11px;
+  height: 11px;
+  border-radius: 4px;
+}
+.quest-heat-legend .is-got-it::before { background: #4c8b7d; }
+.quest-heat-legend .is-almost::before { background: #e8b33c; }
+.quest-heat-legend .is-reteach::before { background: #d85a30; }
+.quest-heat-legend .is-unseen::before { background: #fff; border: 1.5px solid #cfc8b8; }
+
+.quest-heat-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.quest-heat-tile {
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0 8px;
+  border-radius: 9px;
+  border: 1.5px solid transparent;
+  font: 700 14px/1 inherit;
+  cursor: pointer;
+  color: #fff;
+}
+.quest-heat-tile.is-got-it { background: #4c8b7d; }
+.quest-heat-tile.is-almost { background: #e8b33c; color: #4a3608; }
+.quest-heat-tile.is-reteach { background: #d85a30; }
+.quest-heat-tile.is-unseen { background: #fff; color: #8b857a; border-color: #cfc8b8; }
+.quest-heat-tile.is-selected {
+  outline: 3px solid #12141f;
+  outline-offset: 1px;
+}
+
+.quest-heat-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.quest-heat-assigned { font-size: 13.5px; display: inline-flex; gap: 10px; align-items: baseline; }

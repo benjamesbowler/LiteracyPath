@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { SymbolPasswordPad, SymbolSequence } from "./SymbolPasswordPad.jsx";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import { symbolIconByDigit } from "../data/symbolPasswordIcons.js";
@@ -50,6 +50,89 @@ function StudentInitial({ name }) {
   );
 }
 
+// THE SOUND HEAT MAP + PRACTICE-ASSIGN.
+//
+// One tile per grapheme, in the order the trail teaches them, coloured by the
+// honest buckets (got it / almost there / needs re-teaching / not met yet) —
+// and tappable: pick up to six sounds, press Assign, and that child's Free
+// Roam serves exactly those sounds next session (questReviewMode reads the
+// assignment out of the phonics_quest payload). This pair of features is the
+// mode's whole commercial argument made visible: evidence in, action out.
+function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
+  const [selected, setSelected] = useState([]);
+  const [busy, setBusy] = useState(false);
+  const tiles = report?.heat || [];
+  const assignment = report?.assignment || null;
+
+  function toggle(id) {
+    setSelected(current => current.includes(id)
+      ? current.filter(t => t !== id)
+      : current.length >= 6 ? current : [...current, id]);
+  }
+
+  async function assign() {
+    if (!selected.length || busy) return;
+    setBusy(true);
+    const saved = await onAssign?.(selected);
+    setBusy(false);
+    if (saved) setSelected([]);
+  }
+
+  async function clear() {
+    if (busy) return;
+    setBusy(true);
+    await onClear?.();
+    setBusy(false);
+  }
+
+  if (!tiles.length) return <p className="muted-text">No sound map yet — the trail builds one from the first session.</p>;
+
+  const counts = report?.buckets || {};
+  return (
+    <div className="quest-heat-panel">
+      <div className="quest-heat-head">
+        <strong>{studentName}&rsquo;s sounds</strong>
+        <span className="quest-heat-legend" aria-hidden="true">
+          <em className="is-got-it">Got it {counts.gotIt ?? 0}</em>
+          <em className="is-almost">Almost there {counts.almostThere ?? 0}</em>
+          <em className="is-reteach">Needs re-teaching {counts.needsReteaching ?? 0}</em>
+          <em className="is-unseen">Not met yet</em>
+        </span>
+      </div>
+      <div className="quest-heat-grid" role="group" aria-label={`Sound mastery for ${studentName}. Tap sounds to build a practice assignment.`}>
+        {tiles.map(tile => (
+          <button
+            key={tile.id}
+            type="button"
+            className={`quest-heat-tile is-${tile.bucket}${selected.includes(tile.id) ? " is-selected" : ""}`}
+            title={`${tile.label} · ${tile.stopName} · ${tile.bucket === "unseen" ? "not met yet" : `${tile.accuracy}% over ${tile.seen} response${tile.seen === 1 ? "" : "s"}`}`}
+            aria-pressed={selected.includes(tile.id)}
+            onClick={() => toggle(tile.id)}
+          >
+            {tile.label}
+          </button>
+        ))}
+      </div>
+      <div className="quest-heat-actions">
+        {assignment ? (
+          <span className="quest-heat-assigned">
+            Assigned: <strong>{assignment.targets.join(", ")}</strong>
+            <button className="text-button" type="button" disabled={busy} onClick={clear}>Clear</button>
+          </span>
+        ) : <span className="muted-text">Tap sounds, then assign them as this child&rsquo;s next practice.</span>}
+        <button
+          className="lp-button lp-button-secondary"
+          type="button"
+          disabled={!selected.length || busy}
+          onClick={assign}
+        >
+          {busy ? "Saving..." : selected.length ? `Assign ${selected.length} sound${selected.length === 1 ? "" : "s"}` : "Assign practice"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export function TeacherDashboardPage({
   classList = [],
   selectedClassId,
@@ -58,6 +141,8 @@ export function TeacherDashboardPage({
   studentList = [],
   loadingStudents = false,
   loadStudents,
+  assignQuestPractice,
+  clearQuestPractice,
   onLoadStudent,
   createClass,
   newClassName,
@@ -82,6 +167,7 @@ export function TeacherDashboardPage({
   const [visiblePasswords, setVisiblePasswords] = useState({});
   const [editingStudent, setEditingStudent] = useState(null);
   const [editingSequence, setEditingSequence] = useState("");
+  const [heatOpenId, setHeatOpenId] = useState(null);
   const loadStudentsRef = useRef(loadStudents);
   const loadClassDashboardRef = useRef(loadClassDashboard);
   const newStudentInputRef = useRef(null);
@@ -468,7 +554,8 @@ export function TeacherDashboardPage({
                   const progressPercent = getProgressPercent(row, skillTotal);
                   const loginReady = Boolean(row.symbol_password);
                   return (
-                  <tr className={loginReady ? "login-ready" : "login-missing"} key={row.id}>
+                  <Fragment key={row.id}>
+                  <tr className={loginReady ? "login-ready" : "login-missing"}>
                     <td>
                       <div className="teacher-student-cell">
                         <StudentInitial name={row.name} />
@@ -502,6 +589,14 @@ export function TeacherDashboardPage({
                           <strong>{row.soundSeekers.stopsCompleted}/40 trails</strong>
                           <span>{row.soundSeekers.stonesLit} sounds lit · {row.soundSeekers.timeOnTask}</span>
                           <small>{row.soundSeekers.currentFocus?.length ? `Needs re-teaching: ${row.soundSeekers.currentFocus.slice(0, 3).join(", ")}` : "Building first sound profile"}</small>
+                          <button
+                            className="text-button"
+                            type="button"
+                            aria-expanded={heatOpenId === row.id}
+                            onClick={() => setHeatOpenId(current => (current === row.id ? null : row.id))}
+                          >
+                            {heatOpenId === row.id ? "Hide sound map" : row.soundSeekers.assignment ? "Sound map · practice assigned" : "Sound map"}
+                          </button>
                         </div>
                       ) : <span className="muted-text">Not started</span>}
                     </td>
@@ -534,6 +629,19 @@ export function TeacherDashboardPage({
                       </button>
                     </td>
                   </tr>
+                  {heatOpenId === row.id && row.soundSeekers && (
+                    <tr className="teacher-heat-row">
+                      <td colSpan={7}>
+                        <QuestHeatPanel
+                          report={row.soundSeekers}
+                          studentName={row.name}
+                          onAssign={targets => assignQuestPractice?.(row.id, targets)}
+                          onClear={() => clearQuestPractice?.(row.id)}
+                        />
+                      </td>
+                    </tr>
+                  )}
+                  </Fragment>
                   );
                 })}
               </tbody>
