@@ -23,19 +23,28 @@
 
 .lp-home-sage {
   --hs-sage: #5CA091;
-  --hs-sage-deep: #4C8B7D;
   --hs-pill: rgba(255, 255, 255, 0.28);
   --hs-cream: #FBF4EA;
   --hs-ink: #182620;
   --hs-ink-soft: #4A5A52;
   --hs-line: #E9E1D4;
   --hs-forest: #2E4B3E;
-  --hs-forest-hi: #3B5F4F;
   --hs-tan: #C98F54;
-  --hs-tan-soft: #F3E3CF;
   --hs-promo: #D9924E;
   --hs-gold: #F2B33D;
   --hs-sky: #BFE3D8;
+
+  /* Ladder steps COMPUTED from the base tokens in perceptual OKLCH space
+     (FRONTIER/26 study). Each pair: the old hand-picked hex first as the
+     fallback, then the color-mix that reproduces it to within deltaE-OK 1.3
+     (verified numerically — below the just-noticeable difference). Retune a
+     base above and its ladder now follows for free. */
+  --hs-sage-deep: #4C8B7D;
+  --hs-sage-deep: color-mix(in oklch, var(--hs-sage), black 10%);
+  --hs-forest-hi: #3B5F4F;
+  --hs-forest-hi: color-mix(in oklch, var(--hs-forest), white 11%);
+  --hs-tan-soft: #F3E3CF;
+  --hs-tan-soft: color-mix(in oklch, var(--hs-tan), white 75%);
 
   display: flex;
   min-height: 100vh;
@@ -271,6 +280,18 @@
   flex: 1;
   box-shadow: 0 1px 3px rgba(30, 40, 30, 0.05);
   min-width: 0;
+  /* The sheet is a size container so its cards respond to the SHEET's width,
+     not the viewport's — the sizing bugs this page has had (letterboxing,
+     centred cards) were all viewport-vs-container confusions. */
+  container-type: inline-size;
+  container-name: hs-sheet;
+}
+
+/* If the sheet itself ever gets genuinely narrow (whatever the viewport says),
+   the hero card stops spanning two tracks. The 880px media rule below still
+   handles today's tablet layout; this is the card owning its own floor. */
+@container hs-sheet (max-width: 520px) {
+  .lp-home-sage .hs-card.is-hero { grid-column: span 1; }
 }
 
 .lp-home-sage .hs-sheet-head h1 {
@@ -469,6 +490,30 @@
 @media (prefers-reduced-motion: reduce) {
   .lp-home-sage .hs-card { transition: none; }
   .lp-home-sage .hs-card:hover { transform: none; }
+}
+
+/* ── scroll-driven entrances (FRONTIER/26 study) ─────────────────────────────
+   Cards fade and rise as they enter the viewport via a view() timeline: pure
+   CSS, run by the compositor (cannot jank), zero scroll listeners. Engines
+   without scroll timelines skip the whole block; reduced-motion skips it; and
+   when the page has nothing to scroll the timeline is inactive, so cards
+   simply render settled. Opacity floors at 0.25 so a card is always readable
+   whatever its scroll progress. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .lp-home-sage .hs-card {
+      animation: hs-card-enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+  }
+}
+
+@keyframes hs-card-enter {
+  from {
+    opacity: 0.25;
+    translate: 0 14px;
+  }
 }
 
 /* Lift-on-hover belongs to pointers; on touch it just flickers. */

@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars, no-control-regex, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { flushSync } from "react-dom";
 import Confetti from "react-confetti";
 import { motion, useReducedMotion } from "framer-motion";
 import "./App.css";
@@ -1753,7 +1754,26 @@ export default function App() {
   const [selectedClassId, setSelectedClassId] = useState(null);
   const [newClassName, setNewClassName] = useState("");
   const [classDashboard, setClassDashboard] = useState([]);
-  const [appView, setAppView] = useState(APP_VIEWS.SELECT);
+  const [appView, rawSetAppView] = useState(APP_VIEWS.SELECT);
+
+  // Page changes MORPH instead of cutting. document.startViewTransition
+  // snapshots the old frame and cross-fades to the new one (duration set in
+  // App.css on ::view-transition-*). Engines without the API — and children
+  // who ask for reduced motion — get exactly the instant swap they get today:
+  // the wrapper is pure progressive enhancement around the raw setter.
+  const setAppView = useCallback(next => {
+    if (
+      typeof document !== "undefined"
+      && typeof document.startViewTransition === "function"
+      && !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      document.startViewTransition(() => {
+        flushSync(() => rawSetAppView(next));
+      });
+      return;
+    }
+    rawSetAppView(next);
+  }, []);
   const [profileLoaded, setProfileLoaded] = useState(false);
   const [nameSaved, setNameSaved] = useState(false);
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
@@ -2224,7 +2244,7 @@ export default function App() {
       return () => window.clearTimeout(timeoutId);
     }
     return undefined;
-  }, [sessionMode, appView]);
+  }, [sessionMode, appView, setAppView]);
 
   function getGuidedReadingStorageKey(selectedStudentId = studentId) {
     // TODO(guided-reading-persistence): Move these records into Supabase once a stable table/schema is approved.
@@ -2536,7 +2556,7 @@ export default function App() {
     }
 
     setProfileLoaded(true);
-  }, [authReady, teacherId, profileStorageKey, teacherAccountStatus, isAdmin, sessionMode]);
+  }, [authReady, teacherId, profileStorageKey, teacherAccountStatus, isAdmin, sessionMode, setAppView]);
 
   useEffect(() => {
     if (!profileLoaded || !profileStorageKey) return;
@@ -7719,7 +7739,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     if (appView === APP_VIEWS.SELECT) {
       setAppView(APP_VIEWS.TEACHER_DASHBOARD);
     }
-  }, [appView, authReady, teacherAccountStatus, teacherUser, isAdmin]);
+  }, [appView, authReady, teacherAccountStatus, teacherUser, isAdmin, setAppView]);
 
   // When a child finishes one of Today's Mission tasks (book, game, or
   // quest station), bring them back to the mission screen.
@@ -7732,7 +7752,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     }
     window.addEventListener("lp-mission-task-done", handleMissionTaskDone);
     return () => window.removeEventListener("lp-mission-task-done", handleMissionTaskDone);
-  }, [sessionMode]);
+  }, [sessionMode, setAppView]);
 
   if (showSkillsQuestPrototype) {
     return (

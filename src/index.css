@@ -20,3 +20,32 @@ body {
   min-height: 100svh;
   box-sizing: border-box;
 }
+
+/* ── modern-platform polish (FRONTIER/26 study) ──────────────────────────────
+   Every rule below is progressive enhancement: engines that lack the feature
+   render exactly what they render today. */
+
+/* Page changes cross-fade via the View Transitions API (triggered in App.jsx's
+   setAppView wrapper). Kept brief — navigation should feel soft, not slow. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
+/* Typographic line-breaking, judged by the browser: balanced headings, no
+   one-word last lines in paragraphs. Arcade and the Hollow keep their exact
+   current rendering (house rule: those surfaces do not change). */
+:is(h1, h2, h3, h4):not(:is(.hollow-page, .student-surface-arcade) *) {
+  text-wrap: balance;
+}
+
+p:not(:is(.hollow-page, .student-surface-arcade) *) {
+  text-wrap: pretty;
+}

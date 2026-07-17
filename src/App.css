@@ -4130,6 +4130,47 @@ body {
   padding: 0 12px 12px;
 }
 
+/* Note boxes grow with their content instead of scrolling inside themselves
+   (field-sizing, FRONTIER/26 study). Engines without it keep the fixed box;
+   manual vertical resize still wins either way. */
+@supports (field-sizing: content) {
+  .guided-note-field textarea,
+  .guided-notes-panel textarea {
+    field-sizing: content;
+    max-height: 60vh;
+  }
+}
+
+/* The note drawer and the report's attempt rows animate open to their natural
+   height — the old "unsolvable" auto-height transition, now two declarations.
+   interpolate-size is scoped to these elements (it inherits) so nothing else
+   in the app changes how it treats keyword sizes. */
+@supports (interpolate-size: allow-keywords) {
+  .guided-note-drawer,
+  .checkpoint-attempt-details {
+    interpolate-size: allow-keywords;
+  }
+
+  .guided-note-drawer::details-content,
+  .checkpoint-attempt-details::details-content {
+    block-size: 0;
+    overflow-y: clip;
+    transition: content-visibility 0.25s allow-discrete, block-size 0.25s ease;
+  }
+
+  .guided-note-drawer[open]::details-content,
+  .checkpoint-attempt-details[open]::details-content {
+    block-size: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .guided-note-drawer::details-content,
+    .checkpoint-attempt-details::details-content {
+      transition: none;
+    }
+  }
+}
+
 .guided-note-field textarea,
 .guided-notes-panel textarea {
   width: 100%;
