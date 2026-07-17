@@ -224,7 +224,7 @@
   border-width: 1.5px;
 }
 
-.lp-skin-sage .lg-floating-options button.popping::after:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
+.lp-skin-sage .lg-floating-options button.popping:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *)::after {
   border-width: 1.5px;
 }
 
@@ -236,7 +236,7 @@
   border-width: 1.5px;
 }
 
-.lp-skin-sage .den-trail-stop::before:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
+.lp-skin-sage .den-trail-stop:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *)::before {
   border-top-width: 1.5px;
 }
 
@@ -553,7 +553,7 @@
   border-width: 1.5px;
 }
 
-.lp-skin-sage .stroke-arrow::after:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
+.lp-skin-sage .stroke-arrow:not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *)::after {
   border-top-width: 1.5px;
   border-bottom-width: 1.5px;
   border-left-width: 1.5px;
