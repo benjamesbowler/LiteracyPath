@@ -1052,6 +1052,39 @@ function SoundSeekersSection({ report }) {
           </ul>
         ) : <p>More responses are needed before an adaptive review focus can be identified.</p>}
       </div>
+
+      {/* Every sound on the trail, in teaching order — the same honest heat
+          map the teacher sees, so home and school read one picture. */}
+      {report.heat?.length > 0 && (
+        <div className="report-quest-focus report-quest-heat">
+          <h3>Every sound, one tile each</h3>
+          <p className="report-heat-key" aria-hidden="true">
+            <em className="is-got-it">Got it</em>
+            <em className="is-almost">Almost there</em>
+            <em className="is-reteach">Needs re-teaching</em>
+            <em className="is-unseen">Not met yet</em>
+          </p>
+          <div className="quest-heat-grid is-compact" role="img" aria-label={
+            `Sound map: ${report.buckets?.gotIt ?? 0} got it, ${report.buckets?.almostThere ?? 0} almost there, ${report.buckets?.needsReteaching ?? 0} need re-teaching.`
+          }>
+            {report.heat.map(tile => (
+              <span
+                key={tile.id}
+                className={`quest-heat-tile is-${tile.bucket}`}
+                title={`${tile.label} · ${tile.bucket === "unseen" ? "not met yet" : `${tile.accuracy}% over ${tile.seen} response${tile.seen === 1 ? "" : "s"}`}`}
+              >
+                {tile.label}
+              </span>
+            ))}
+          </div>
+          {report.assignment && (
+            <p className="report-heat-assignment">
+              Practice set by the teacher: <strong>{report.assignment.targets.join(", ")}</strong>
+              {report.assignment.note ? ` — ${report.assignment.note}` : ""}
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 }

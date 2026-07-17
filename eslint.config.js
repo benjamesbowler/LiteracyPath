@@ -9,17 +9,23 @@ export default defineConfig([
   {
     // Node, not the browser. Tests run under `node --test`, so they get
     // process/__dirname — linting them as browser code fails on `process`.
-    files: ['tools/**/*.js', 'scripts/**/*.js', 'tests/**/*.js', '*.config.js', 'server.js'],
+    // `.mjs` is in the glob because five quest gates and the screenshot tool
+    // are .mjs files that were entirely unlinted for weeks (neither this
+    // pattern nor the browser one matched them — a gate nobody lints is a
+    // gate that drifts).
+    files: ['tools/**/*.{js,mjs}', 'scripts/**/*.{js,mjs}', 'tests/**/*.{js,mjs}', '*.config.js', 'server.js'],
     extends: [
       js.configs.recommended,
     ],
     languageOptions: {
-      globals: globals.node,
+      // node AND browser: the Playwright gates embed page.evaluate(() => ...)
+      // blocks that legitimately touch window/document from a node file.
+      globals: { ...globals.node, ...globals.browser },
       parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
     },
   },
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['**/*.{js,jsx,mjs}'],
     ignores: ['tools/**', 'scripts/**', 'tests/**', '*.config.js', 'server.js'],
     extends: [
       js.configs.recommended,

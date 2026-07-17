@@ -18,8 +18,6 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = path.join(ROOT, "docs/previews/quest-art-contact-sheet.html");
-const props = JSON.parse(fs.readFileSync(path.join(ROOT, "tools/image-jobs/quest-props.json"), "utf8"));
-
 const WORLDS = ["meadow", "dino", "moonwood"];
 const PAIRS = ["flower-patch", "broken-bridge", "hungry-beast", "echo-cave", "sheep-pens", "word-beast", "signpost", "story-rock"];
 const SINGLES = ["guide-meadow", "guide-dino", "guide-moonwood", "sun-drop", "goal-flag"];

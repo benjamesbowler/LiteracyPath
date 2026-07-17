@@ -14,7 +14,7 @@
  *   node tools/generate-game-backgrounds.mjs
  *   git add public/images/games/bg-*.webp && git commit -m "Letter Leap world backgrounds"
  */
-import { writeFile, mkdir } from "node:fs/promises";
+import { mkdir } from "node:fs/promises";
 import { dirname } from "node:path";
 import sharp from "sharp";
 

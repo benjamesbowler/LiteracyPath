@@ -452,3 +452,26 @@
   .lp-home-sage .hs-card.is-hero { grid-column: span 1; }
   .lp-home-sage .hs-topbar { padding: 10px 14px 4px; }
 }
+
+/* ── keyboard + motion accessibility ─────────────────────────────────────── */
+.lp-home-sage .hs-nav button:focus-visible,
+.lp-home-sage .hs-card:focus-visible,
+.lp-home-sage .hs-coins:focus-visible,
+.lp-home-sage .hs-btn-ghost:focus-visible,
+.lp-home-sage .hs-btn-primary:focus-visible,
+.lp-home-sage .hs-daily button:focus-visible,
+.lp-home-sage .hs-menu button:focus-visible,
+.lp-home-sage .icon-btn:focus-visible {
+  outline: 3px solid #F2B33D;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-home-sage .hs-card { transition: none; }
+  .lp-home-sage .hs-card:hover { transform: none; }
+}
+
+/* Lift-on-hover belongs to pointers; on touch it just flickers. */
+@media (hover: none) {
+  .lp-home-sage .hs-card:hover { transform: none; box-shadow: none; }
+}

@@ -21,7 +21,7 @@
  *   # then review public/images/learn-games/icon-*.webp and:
  *   #   git add public/images/learn-games/icon-*.webp && git commit -m "Arcade game icons"
  */
-import { writeFile, mkdir } from "node:fs/promises";
+import { mkdir } from "node:fs/promises";
 import { dirname } from "node:path";
 import sharp from "sharp";
 

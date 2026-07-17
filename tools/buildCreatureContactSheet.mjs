@@ -106,7 +106,7 @@ function renderCreature(creature, size, mood = "idle") {
 const rand = mulberry32(11);
 const wall = Array.from({ length: 36 }, () => randomCreature(rand));
 
-const wallCells = wall.map((c, i) => `<figure class="cell">${renderCreature(c, 132)}<figcaption>${c.body} &middot; ${c.dye}</figcaption></figure>`).join("\n");
+const wallCells = wall.map(c => `<figure class="cell">${renderCreature(c, 132)}<figcaption>${c.body} &middot; ${c.dye}</figcaption></figure>`).join("\n");
 
 // Every body, same parts, so you can check the anchors hold across all six.
 const anchorRow = CREATURE_BODIES.map(body => {

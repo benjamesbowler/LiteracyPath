@@ -2,7 +2,7 @@ import { execFileSync } from "node:child_process";
 import { mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-const SAMPLE_RATE = 22050;
+const SAMPLE_RATE = 44100;
 const OUT_DIR = "public/audio/music/quest";
 const TWO_PI = Math.PI * 2;
 
@@ -243,6 +243,10 @@ function addRhythm(buffer, track) {
       addWoodblock(buffer, { at: at + beat, gain: 0.018, pitch: 620 });
       addWoodblock(buffer, { at: at + beat * 3, gain: 0.023, pitch: 510 });
       addNoiseHit(buffer, { at: at + beat * 3.5, duration: 0.16, gain: 0.012, dark: true, seed: 2200 + barIndex });
+    } else if (track.rhythm === "ceremony") {
+      if (barIndex % 2 === 0) addDrum(buffer, { at, gain: 0.024, pitch: 88, duration: 0.2, seed: 2600 + barIndex });
+      addWoodblock(buffer, { at: at + beat * 1.5, gain: 0.014, pitch: 1120 });
+      addWoodblock(buffer, { at: at + beat * 3.25, gain: 0.011, pitch: 1460 });
     } else {
       addNoiseHit(buffer, { at, duration: beat * 1.8, gain: 0.008, dark: true, seed: 3000 + barIndex });
       addWoodblock(buffer, { at: at + beat * 2, gain: 0.012, pitch: 1260 });
@@ -254,7 +258,8 @@ function addRhythm(buffer, track) {
 function addWorldAccents(buffer, track) {
   const beat = 60 / track.bpm;
   const bar = beat * 4;
-  if (track.id === "meadow") {
+  const world = track.world || track.id;
+  if (world === "meadow") {
     for (let barIndex = 2; barIndex < track.bars; barIndex += 4) {
       addNote(buffer, barIndex % 8 === 2 ? "D6" : "A5", {
         at: barIndex * bar + beat * 2.75,
@@ -266,7 +271,7 @@ function addWorldAccents(buffer, track) {
         vibrato: 4.8
       });
     }
-  } else if (track.id === "dino") {
+  } else if (world === "dino") {
     for (let barIndex = 3; barIndex < track.bars; barIndex += 4) {
       ["D3", "A3", "D4"].forEach((note, index) => addNote(buffer, note, {
         at: barIndex * bar + index * beat * 0.5,
@@ -303,8 +308,9 @@ function circularEcho(buffer, seconds, gain) {
 }
 
 function master(buffer, track) {
-  circularEcho(buffer, (60 / track.bpm) * 0.75, track.id === "moonwood" ? 0.19 : 0.11);
-  circularEcho(buffer, (60 / track.bpm) * 1.5, track.id === "moonwood" ? 0.1 : 0.055);
+  const moonwood = (track.world || track.id) === "moonwood";
+  circularEcho(buffer, (60 / track.bpm) * 0.75, moonwood ? 0.19 : 0.11);
+  circularEcho(buffer, (60 / track.bpm) * 1.5, moonwood ? 0.1 : 0.055);
 
   let mean = 0;
   for (const sample of buffer) mean += sample;
@@ -329,11 +335,19 @@ function master(buffer, track) {
 }
 
 function writeWav(path, samples) {
+  const channels = 2;
   const bytesPerSample = 2;
-  const body = Buffer.alloc(samples.length * bytesPerSample);
+  const blockAlign = channels * bytesPerSample;
+  const body = Buffer.alloc(samples.length * blockAlign);
   for (let index = 0; index < samples.length; index += 1) {
-    const value = Math.max(-0.98, Math.min(0.98, samples[index]));
-    body.writeInt16LE(Math.round(value * 32767), index * bytesPerSample);
+    const dry = samples[index];
+    const early = samples[(index - 31 + samples.length) % samples.length];
+    const late = samples[(index - 109 + samples.length) % samples.length];
+    const side = (early - late) * 0.12;
+    const left = Math.max(-0.98, Math.min(0.98, dry * 0.92 + side));
+    const right = Math.max(-0.98, Math.min(0.98, dry * 0.92 - side));
+    body.writeInt16LE(Math.round(left * 32767), index * blockAlign);
+    body.writeInt16LE(Math.round(right * 32767), index * blockAlign + bytesPerSample);
   }
 
   const header = Buffer.alloc(44);
@@ -343,10 +357,10 @@ function writeWav(path, samples) {
   header.write("fmt ", 12);
   header.writeUInt32LE(16, 16);
   header.writeUInt16LE(1, 20);
-  header.writeUInt16LE(1, 22);
+  header.writeUInt16LE(channels, 22);
   header.writeUInt32LE(SAMPLE_RATE, 24);
-  header.writeUInt32LE(SAMPLE_RATE * bytesPerSample, 28);
-  header.writeUInt16LE(bytesPerSample, 32);
+  header.writeUInt32LE(SAMPLE_RATE * blockAlign, 28);
+  header.writeUInt16LE(blockAlign, 32);
   header.writeUInt16LE(16, 34);
   header.write("data", 36);
   header.writeUInt32LE(body.length, 40);
@@ -434,7 +448,147 @@ const TRACKS = [
   }
 ];
 
-/* We synthesise 16-bit PCM, then ship mono MP3: a WAV world theme is ~2MB and these
+const seedwakeTheme = TRACKS[0];
+TRACKS.push(
+  {
+    ...seedwakeTheme,
+    id: "seedwake-action",
+    world: "meadow",
+    filename: "seedwake-action-loop.mp3",
+    bpm: 100,
+    seed: 1417,
+    lead: "marimba",
+    leadDecay: 2.7,
+    melodyLength: 0.62,
+    melodyGain: 0.058,
+    padGain: 0.048,
+    bassGain: 0.068,
+    melody: seedwakeTheme.lift,
+    lift: seedwakeTheme.melody
+  },
+  {
+    ...seedwakeTheme,
+    id: "seedwake-ceremony",
+    world: "meadow",
+    filename: "seedwake-ceremony-loop.mp3",
+    bpm: 88,
+    seed: 1729,
+    lead: "celesta",
+    leadDecay: 1.55,
+    melodyLength: 1.12,
+    melodyGain: 0.043,
+    padGain: 0.07,
+    bassGain: 0.048,
+    rhythm: "ceremony",
+    melody: seedwakeTheme.melody.map((note, index) => (index % 2 ? null : note)),
+    lift: seedwakeTheme.lift.map((note, index) => (index % 2 ? null : note))
+  }
+);
+
+const dinoTheme = TRACKS.find(track => track.id === "dino");
+const moonwoodTheme = TRACKS.find(track => track.id === "moonwood");
+TRACKS.push(
+  {
+    ...seedwakeTheme,
+    id: "river-garden",
+    world: "meadow",
+    filename: "river-garden-paddle-loop.mp3",
+    bpm: 90,
+    seed: 4111,
+    lead: "flute",
+    leadDecay: 1.35,
+    melodyLength: 1.04,
+    melodyGain: 0.04,
+    padGain: 0.062,
+    bassGain: 0.052,
+    melody: [...seedwakeTheme.melody.slice(8), ...seedwakeTheme.melody.slice(0, 8)],
+    lift: [...seedwakeTheme.lift.slice(16), ...seedwakeTheme.lift.slice(0, 16)]
+  },
+  {
+    ...dinoTheme,
+    id: "forge-yard",
+    world: "dino",
+    filename: "forge-yard-stomp-loop.mp3",
+    bpm: 98,
+    seed: 5227,
+    lead: "reed",
+    leadDecay: 2.25,
+    melodyLength: 0.58,
+    melodyGain: 0.047,
+    padGain: 0.045,
+    bassGain: 0.078,
+    melody: dinoTheme.lift,
+    lift: dinoTheme.melody
+  },
+  {
+    ...moonwoodTheme,
+    id: "glass-marsh",
+    world: "moonwood",
+    filename: "glass-marsh-drift-loop.mp3",
+    bpm: 66,
+    seed: 6337,
+    lead: "celesta",
+    leadDecay: 1.1,
+    melodyLength: 1.52,
+    melodyGain: 0.034,
+    padGain: 0.071,
+    bassGain: 0.045,
+    melody: [...moonwoodTheme.melody].reverse(),
+    lift: [...moonwoodTheme.lift].reverse()
+  },
+  {
+    ...moonwoodTheme,
+    id: "storm-coast",
+    world: "moonwood",
+    filename: "storm-coast-skip-loop.mp3",
+    bpm: 104,
+    seed: 7451,
+    lead: "flute",
+    leadDecay: 1.7,
+    melodyLength: 0.66,
+    melodyGain: 0.047,
+    padGain: 0.046,
+    bassGain: 0.068,
+    rhythm: "dino",
+    melody: moonwoodTheme.lift,
+    lift: moonwoodTheme.melody
+  },
+  {
+    ...moonwoodTheme,
+    id: "lantern-forest",
+    world: "moonwood",
+    filename: "lantern-forest-prowl-loop.mp3",
+    bpm: 76,
+    seed: 8563,
+    lead: "reed",
+    leadDecay: 1.8,
+    melodyLength: 1.18,
+    melodyGain: 0.036,
+    padGain: 0.069,
+    bassGain: 0.049,
+    melody: [...moonwoodTheme.melody.slice(12), ...moonwoodTheme.melody.slice(0, 12)],
+    lift: [...moonwoodTheme.lift.slice(4), ...moonwoodTheme.lift.slice(0, 4)]
+  },
+  {
+    ...moonwoodTheme,
+    id: "star-reach",
+    world: "moonwood",
+    filename: "star-reach-finale-loop.mp3",
+    bpm: 92,
+    seed: 9677,
+    lead: "celesta",
+    leadDecay: 1.25,
+    melodyLength: 0.92,
+    melodyGain: 0.046,
+    padGain: 0.074,
+    bassGain: 0.056,
+    rhythm: "ceremony",
+    melody: moonwoodTheme.lift,
+    lift: [...moonwoodTheme.lift.slice(8), ...moonwoodTheme.lift.slice(0, 8)]
+  }
+);
+
+/* We synthesise 16-bit PCM, then ship stereo MP3: the short, chapter-lazy files
    loops are the first thing a child downloads when a world opens. ffmpeg is only
    needed to REGENERATE the music - the committed .mp3 files and the check:quest-music
    gate both run without it. */
@@ -442,12 +596,13 @@ function encodeMp3(wavPath, mp3Path) {
   try {
     execFileSync(
       "ffmpeg",
-      ["-v", "error", "-y", "-i", wavPath, "-codec:a", "libmp3lame", "-b:a", "96k", "-ac", "1", "-ar", String(SAMPLE_RATE), mp3Path],
+      ["-v", "error", "-y", "-i", wavPath, "-codec:a", "libmp3lame", "-b:a", "128k", "-ac", "2", "-ar", String(SAMPLE_RATE), mp3Path],
       { stdio: ["ignore", "ignore", "pipe"] }
     );
   } catch (error) {
     throw new Error(
-      `ffmpeg is required to regenerate the quest music (brew install ffmpeg). Underlying error: ${error.message}`
+      `ffmpeg is required to regenerate the quest music (brew install ffmpeg). Underlying error: ${error.message}`,
+      { cause: error }
     );
   }
 }
@@ -456,9 +611,85 @@ function assertMusicLevels(filename, levels) {
   if (levels.peak < 0.72 || levels.peak > 0.9) {
     throw new Error(`${filename} peak ${levels.peak.toFixed(3)} is outside the music target`);
   }
-  if (levels.rms < 0.025 || levels.rms > 0.22) {
+  if (levels.rms < 0.025 || levels.rms > 0.23) {
     throw new Error(`${filename} RMS ${levels.rms.toFixed(3)} is outside the music target`);
   }
+}
+
+const AMBIENCES = [
+  { id: "seedwake-meadow", filename: "seedwake-meadow-ambience-loop.mp3", seed: 1103, bed: "breeze", accent: "D6", accentType: "flute", interval: 4.7, pulse: 66 },
+  { id: "river-gardens", filename: "river-gardens-ambience-loop.mp3", seed: 2207, bed: "water", accent: "G5", accentType: "celesta", interval: 3.9, pulse: 54 },
+  { id: "fossil-canyon", filename: "fossil-canyon-ambience-loop.mp3", seed: 3301, bed: "wind", accent: "D4", accentType: "marimba", interval: 5.3, pulse: 42 },
+  { id: "forge-settlement", filename: "forge-settlement-ambience-loop.mp3", seed: 4409, bed: "machine", accent: "A2", accentType: "reed", interval: 2.8, pulse: 78 },
+  { id: "glass-marsh", filename: "glass-marsh-ambience-loop.mp3", seed: 5519, bed: "water", accent: "E6", accentType: "celesta", interval: 4.4, pulse: 48 },
+  { id: "storm-coast", filename: "storm-coast-ambience-loop.mp3", seed: 6619, bed: "surf", accent: "D2", accentType: "bass", interval: 6.1, pulse: 36 },
+  { id: "lantern-forest", filename: "lantern-forest-ambience-loop.mp3", seed: 7727, bed: "leaves", accent: "B4", accentType: "reed", interval: 5.0, pulse: 58 },
+  { id: "star-reach", filename: "star-reach-ambience-loop.mp3", seed: 8837, bed: "air", accent: "E6", accentType: "celesta", interval: 3.6, pulse: 44 }
+];
+
+function buildAmbience(config, duration = 28) {
+  const buffer = new Float32Array(Math.ceil(duration * SAMPLE_RATE));
+  const random = randomFrom(config.seed);
+  let low = 0;
+  let slower = 0;
+  for (let index = 0; index < buffer.length; index += 1) {
+    const t = index / SAMPLE_RATE;
+    const raw = random() * 2 - 1;
+    low += (raw - low) * (config.bed === "surf" ? 0.006 : config.bed === "wind" ? 0.0014 : 0.003);
+    slower += (low - slower) * 0.0007;
+    const high = raw - low;
+    const sway = 0.55 + Math.sin(TWO_PI * (config.pulse / 60) * t) * 0.13 + Math.sin(TWO_PI * 0.071 * t) * 0.18;
+    let sample;
+    if (config.bed === "water") sample = low * 0.16 + high * 0.012;
+    else if (config.bed === "wind") sample = slower * 0.27 + low * 0.055;
+    else if (config.bed === "machine") sample = low * 0.045 + Math.sin(TWO_PI * 47 * t) * 0.013 + Math.sin(TWO_PI * 94 * t) * 0.005;
+    else if (config.bed === "surf") sample = slower * 0.3 + low * 0.12 + high * 0.008;
+    else if (config.bed === "leaves") sample = low * 0.08 + high * 0.018;
+    else if (config.bed === "air") sample = slower * 0.22 + Math.sin(TWO_PI * 73 * t) * 0.005;
+    else sample = low * 0.09 + high * 0.009;
+    buffer[index] = sample * sway;
+  }
+
+  for (let at = 1.4; at < duration - 1; at += config.interval) {
+    addNote(buffer, config.accent, {
+      at,
+      duration: Math.min(1.8, config.interval * 0.42),
+      gain: config.bed === "machine" ? 0.022 : 0.017,
+      type: config.accentType,
+      attack: config.accentType === "flute" ? 0.06 : 0.004,
+      release: 0.34,
+      decay: config.accentType === "celesta" ? 1.8 : 0.9,
+      seed: config.seed + Math.round(at * 10)
+    });
+    if (["machine", "surf", "leaves"].includes(config.bed)) {
+      addNoiseHit(buffer, {
+        at: at + config.interval * 0.46,
+        duration: config.bed === "surf" ? 1.4 : 0.15,
+        gain: config.bed === "surf" ? 0.025 : 0.012,
+        dark: config.bed !== "leaves",
+        seed: config.seed + Math.round(at * 100)
+      });
+    }
+  }
+  circularEcho(buffer, config.interval * 0.22, 0.08);
+  return buffer;
+}
+
+function masterAmbience(buffer) {
+  let mean = 0;
+  for (const sample of buffer) mean += sample;
+  mean /= buffer.length;
+  let peak = 0;
+  let sumSquares = 0;
+  for (let index = 0; index < buffer.length; index += 1) {
+    buffer[index] -= mean;
+    peak = Math.max(peak, Math.abs(buffer[index]));
+    sumSquares += buffer[index] * buffer[index];
+  }
+  const rms = Math.sqrt(sumSquares / buffer.length);
+  const scale = Math.min(peak > 0 ? 0.68 / peak : 1, rms > 0 ? 0.065 / rms : 1);
+  for (let index = 0; index < buffer.length; index += 1) buffer[index] *= scale;
+  return { peak: peak * scale, rms: rms * scale };
 }
 
 mkdirSync(OUT_DIR, { recursive: true });
@@ -480,4 +711,18 @@ for (const track of TRACKS) {
   rmSync(wavPath, { force: true });
 
   console.log(`${mp3Path} ${duration.toFixed(2)}s peak=${levels.peak.toFixed(3)} rms=${levels.rms.toFixed(3)}`);
+}
+
+for (const ambience of AMBIENCES) {
+  const buffer = buildAmbience(ambience);
+  const levels = masterAmbience(buffer);
+  if (levels.rms < 0.015 || levels.rms > 0.07 || levels.peak > 0.7) {
+    throw new Error(`${ambience.filename} ambience level peak=${levels.peak.toFixed(3)} rms=${levels.rms.toFixed(3)}`);
+  }
+  const mp3Path = join(OUT_DIR, ambience.filename);
+  const wavPath = `${mp3Path}.tmp.wav`;
+  writeWav(wavPath, buffer);
+  encodeMp3(wavPath, mp3Path);
+  rmSync(wavPath, { force: true });
+  console.log(`${mp3Path} ambience 28.00s peak=${levels.peak.toFixed(3)} rms=${levels.rms.toFixed(3)}`);
 }

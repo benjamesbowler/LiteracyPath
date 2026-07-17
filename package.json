@@ -79,6 +79,7 @@
     "generate:arcade-music": "node tools/generateArcadeMusicLoops.mjs",
     "generate:quest-music": "node tools/generateQuestMusicLoops.mjs",
     "check:quest-music": "node tools/checkQuestMusic.mjs",
+    "check:quest-pixel": "node tools/checkQuestPixel.mjs",
     "check:practice-surface-regressions": "node tools/checkPracticeSurfaceRegressions.js",
     "check:release-readiness-surface": "node tools/checkReleaseReadinessSurface.js",
     "check:teacher-dashboard-data": "node tools/checkTeacherDashboardDataContracts.js",
@@ -118,7 +119,8 @@
     "import:image-qa-review": "node tools/importImageQaReview.js",
     "kimi:image-qa-replacements": "node tools/generateImageQaKimiReplacementRequests.js",
     "check:content-rubric": "node tools/checkContentRubric.mjs",
-    "export:practice-sheet": "node tools/practiceSheet/buildPracticeSheet.mjs"
+    "export:practice-sheet": "node tools/practiceSheet/buildPracticeSheet.mjs",
+    "export:rubric-judge": "node tools/exportRubricJudgeBatch.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
@@ -135,6 +137,7 @@
     "howler": "^2.2.4",
     "jszip": "^3.10.1",
     "openai": "^6.38.0",
+    "phaser": "^4.2.0",
     "postprocessing": "^6.39.2",
     "react": "^19.2.6",
     "react-confetti": "^6.4.0",

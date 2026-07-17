@@ -16226,3 +16226,33 @@ body {
 }
 
 .quest-heat-assigned { font-size: 13.5px; display: inline-flex; gap: 10px; align-items: baseline; }
+
+/* Compact heat strip on the parent/finished report */
+.quest-heat-grid.is-compact { gap: 4px; }
+.quest-heat-grid.is-compact .quest-heat-tile {
+  min-width: 30px;
+  min-height: 30px;
+  padding: 0 6px;
+  font-size: 12.5px;
+  border-radius: 7px;
+  cursor: default;
+}
+.report-heat-key { display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; margin: 4px 0 10px; }
+.report-heat-key em { font-style: normal; padding-left: 16px; position: relative; }
+.report-heat-key em::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 11px;
+  height: 11px;
+  border-radius: 4px;
+}
+.report-heat-key .is-got-it::before { background: #4c8b7d; }
+.report-heat-key .is-almost::before { background: #e8b33c; }
+.report-heat-key .is-reteach::before { background: #d85a30; }
+.report-heat-key .is-unseen::before { background: #fff; border: 1.5px solid #cfc8b8; }
+.report-heat-assignment { margin-top: 10px; font-size: 13.5px; }
+
+.quest-heat-tile:focus-visible { outline: 3px solid #12141f; outline-offset: 2px; }

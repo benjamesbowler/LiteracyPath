@@ -124,7 +124,7 @@ console.log(`Seedream (${MODEL}) - dress-up avatars for ${pals.length} pal(s) x 
 
 for (const pal of pals) {
   const basePath = `${FULL_DIR}/${pal.id}.webp`;
-  let baseWebp = null;
+  let baseWebp;
   try {
     if (!FORCE && await exists(basePath)) {
       baseWebp = await readFile(basePath);

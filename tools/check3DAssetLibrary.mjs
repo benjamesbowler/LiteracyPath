@@ -70,7 +70,6 @@ for (const pack of manifest.packs || []) {
 
 const listedPaths = new Set();
 const ids = new Set();
-let modelBytes = 0;
 for (const model of manifest.models || []) {
   if (ids.has(model.id)) fail(`duplicate model id: ${model.id}`);
   ids.add(model.id);
@@ -91,7 +90,6 @@ for (const model of manifest.models || []) {
     continue;
   }
   const bytes = fs.statSync(filename).size;
-  modelBytes += bytes;
   if (bytes !== model.bytes) fail(`${model.id}: manifest byte count is stale`);
   if (bytes > MAX_MODEL_BYTES) fail(`${model.id}: exceeds the 6MB per-model budget`);
   try {

@@ -288,7 +288,7 @@ async function captureFullJourney(browser) {
           trailNotice: document.querySelector(".q-trail-notice")?.textContent?.trim() || "",
           bodyText: document.body.textContent?.replace(/\s+/g, " ").trim().slice(0, 800) || ""
         }));
-        throw new Error(`${error.message} during handoff ${JSON.stringify({ handoff, problems })}`);
+        throw new Error(`${error.message} during handoff ${JSON.stringify({ handoff, problems })}`, { cause: error });
       }
       continue;
     }
@@ -338,7 +338,7 @@ async function captureFullJourney(browser) {
           snapshot: window.__questSliceDebug?.snapshot || null,
           feedback: document.querySelector('[aria-live="assertive"]')?.textContent?.trim() || ""
         }));
-        throw new Error(`${error.message} after ${JSON.stringify({ previous, after })}`);
+        throw new Error(`${error.message} after ${JSON.stringify({ previous, after })}`, { cause: error });
       }
       continue;
     }
@@ -368,7 +368,7 @@ async function captureFullJourney(browser) {
           interactive: layer.querySelector(".qh-root")?.getAttribute("data-interactive") || null
         }))
       }));
-      throw new Error(`${error.message} while walking ${JSON.stringify(blocked)}`);
+      throw new Error(`${error.message} while walking ${JSON.stringify(blocked)}`, { cause: error });
     }
     events.push({ type: state.journey.gateOpen ? "gate-cross" : "walk", stopId: priorStopId });
   }
