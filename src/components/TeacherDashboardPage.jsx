@@ -2,6 +2,7 @@ import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { SymbolPasswordPad, SymbolSequence } from "./SymbolPasswordPad.jsx";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import { symbolIconByDigit } from "../data/symbolPasswordIcons.js";
+import { printPracticePack, packStopIndex, packTargetLabel } from "../utils/worksheets/practicePack.js";
 import logoUrl from "../assets/logo.svg";
 
 function formatLastActive(value) {
@@ -61,6 +62,7 @@ function StudentInitial({ name }) {
 function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
   const [selected, setSelected] = useState([]);
   const [busy, setBusy] = useState(false);
+  const [packNote, setPackNote] = useState("");
   const tiles = report?.heat || [];
   const assignment = report?.assignment || null;
 
@@ -83,6 +85,30 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
     setBusy(true);
     await onClear?.();
     setBusy(false);
+  }
+
+  // Print the home practice pack straight from this child's evidence: the
+  // sounds the teacher tapped, or the weakest five when nothing is tapped,
+  // with every word decodable at the furthest stop the child has reached.
+  function printPack() {
+    const targets = selected.length ? selected : (report?.weakest || []).map(row => row.target);
+    const stop = packStopIndex(report);
+    if (!targets.length || !stop) {
+      setPackNote("Nothing needs extra practice right now — tap sounds to build a custom pack.");
+      return;
+    }
+    try {
+      const result = printPracticePack({ name: studentName, targets, stopIndex: stop });
+      if (!result) {
+        setPackNote("Please allow pop-ups for this site so the pack can open.");
+        return;
+      }
+      setPackNote(result.skipped.length
+        ? `Skipped (too few decodable words yet): ${result.skipped.map(packTargetLabel).join(", ")}`
+        : "");
+    } catch (error) {
+      setPackNote(error.message || "Could not build that pack.");
+    }
   }
 
   if (!tiles.length) return <p className="muted-text">No sound map yet — the trail builds one from the first session.</p>;
@@ -128,7 +154,11 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
         >
           {busy ? "Saving..." : selected.length ? `Assign ${selected.length} sound${selected.length === 1 ? "" : "s"}` : "Assign practice"}
         </button>
+        <button className="lp-button lp-button-secondary" type="button" onClick={printPack}>
+          {selected.length ? `Print pack (${selected.length} sound${selected.length === 1 ? "" : "s"})` : "Print practice pack"}
+        </button>
       </div>
+      {packNote && <p className="muted-text quest-heat-note" role="status">{packNote}</p>}
     </div>
   );
 }

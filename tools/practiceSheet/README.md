@@ -16,5 +16,8 @@ rendered .html previews and editable .docx per page.
 Anthropic PBC + Learning Commons — NOTICE and LICENSE inside). Requires
 python3 + python-docx for the .docx output; the JSON and HTML render without it.
 
-Follow-up (not built yet): a button on the teacher dashboard that calls this
-with the live weakest-five for the selected child.
+This pack also lives IN the app now (`src/utils/worksheets/practicePack.js`):
+each child's Sound map on the teacher dashboard has a "Print practice pack"
+button (tapped sounds, or the live weakest-five, at the child's furthest
+stop), and the Worksheet generator page has a manual per-child builder. The
+in-app version prints via the browser; keep this CLI for editable .docx.

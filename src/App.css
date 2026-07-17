@@ -16225,6 +16225,11 @@ body {
   margin-top: 12px;
 }
 
+.quest-heat-note {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+}
+
 .quest-heat-assigned { font-size: 13.5px; display: inline-flex; gap: 10px; align-items: baseline; }
 
 /* Compact heat strip on the parent/finished report */

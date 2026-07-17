@@ -12,6 +12,7 @@ import {
   saveWorksheetRecipe,
   deleteWorksheetRecipe
 } from "../utils/worksheets/worksheetBank.js";
+import { printPracticePack, packStopOptions } from "../utils/worksheets/practicePack.js";
 import "../styles/worksheets.css";
 
 const TYPE_LABEL = Object.fromEntries(WORKSHEET_TYPES.map(t => [t.id, t.label]));
@@ -33,6 +34,15 @@ export function WorksheetGeneratorPage() {
   const [bank, setBank] = useState([]);
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState("");
+
+  // Sound practice pack (per child) — the Sound Seekers home pack, built by
+  // hand here. Each child's Sound map on the class dashboard prints the same
+  // pack pre-filled from that child's own evidence.
+  const packStops = useMemo(() => packStopOptions(), []);
+  const [packName, setPackName] = useState("");
+  const [packTargets, setPackTargets] = useState("");
+  const [packStop, setPackStop] = useState(packStops[packStops.length - 1]?.index || 1);
+  const [packNote, setPackNote] = useState("");
 
   const cycle = useMemo(() => getWorksheetCycle(cycleId), [cycleId]);
   const availableTypes = useMemo(() => availableWorksheetTypes(cycle), [cycle]);
@@ -96,11 +106,30 @@ export function WorksheetGeneratorPage() {
     await refreshBank();
   }
 
+  function handlePackPrint() {
+    try {
+      const result = printPracticePack({
+        name: packName,
+        targets: packTargets.split(","),
+        stopIndex: packStop
+      });
+      if (!result) {
+        setPackNote("Please allow pop-ups for this site so the pack can open.");
+        return;
+      }
+      setPackNote(result.skipped.length
+        ? `Pack opened. Skipped (too few decodable words at this stop): ${result.skipped.join(", ")}`
+        : "Pack opened in a new window.");
+    } catch (error) {
+      setPackNote(error.message || "Could not build that pack.");
+    }
+  }
+
   return (
     <div className="ws-page">
       <header className="ws-page-head">
         <h1>Worksheet generator</h1>
-        <p>Build printable worksheets straight from a cycle's curriculum. Choose a cycle, a worksheet type and how many pages, then download a PDF.</p>
+        <p>Build printable worksheets straight from a cycle's curriculum — or a per-child sound practice pack from Sound Seekers. Choose your options, then download a PDF.</p>
       </header>
 
       <section className="ws-builder" aria-label="Worksheet options">
@@ -142,6 +171,53 @@ export function WorksheetGeneratorPage() {
           </button>
         </div>
         {note && <p className="ws-note" role="status">{note}</p>}
+      </section>
+
+      <section className="ws-builder" aria-label="Sound practice pack">
+        <h2 className="ws-subhead">Sound practice pack (per child)</h2>
+
+        <label className="ws-field">
+          <span>Child&rsquo;s first name</span>
+          <input
+            type="text"
+            value={packName}
+            maxLength={40}
+            placeholder="Sam"
+            onChange={e => setPackName(e.target.value)}
+          />
+        </label>
+
+        <label className="ws-field">
+          <span>Sounds, weakest first</span>
+          <input
+            type="text"
+            value={packTargets}
+            placeholder="sh, ch, e, ll, st"
+            onChange={e => setPackTargets(e.target.value)}
+          />
+        </label>
+
+        <label className="ws-field">
+          <span>Taught up to</span>
+          <select value={packStop} onChange={e => setPackStop(Number(e.target.value))}>
+            {packStops.map(stop => (
+              <option key={stop.index} value={stop.index}>Stop {stop.index} — {stop.name}</option>
+            ))}
+          </select>
+        </label>
+
+        <p className="ws-blurb">
+          Two pages: a five-minute daily routine for the adult, and a large-type word page for the child.
+          Every word is fully decodable at the chosen stop. Tip: each child&rsquo;s Sound map on the class
+          dashboard prints this pack pre-filled from their own evidence.
+        </p>
+
+        <div className="ws-actions">
+          <button type="button" className="ws-primary" onClick={handlePackPrint} disabled={!packName.trim() || !packTargets.trim()}>
+            Print practice pack
+          </button>
+        </div>
+        {packNote && <p className="ws-note" role="status">{packNote}</p>}
       </section>
 
       <section className="ws-bank" aria-label="Saved worksheets">
