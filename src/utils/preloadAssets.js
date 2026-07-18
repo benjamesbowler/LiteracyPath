@@ -17,6 +17,10 @@ const HOME_TILE_ART = [
 let warmed = false;
 const KEEP_ALIVE = [];
 
+// Arcade games with no art/<id>.webp on disk (reel-read's art lives in
+// /images/learn-games/reel-read/). Preloading those URLs is a guaranteed 404.
+const GAMES_WITHOUT_CARD_ART = new Set(["reel-read"]);
+
 function preloadImage(src) {
   if (!src) return;
   const img = new Image();
@@ -53,11 +57,12 @@ export function warmStudentAssets(world) {
     HOME_TILE_ART.forEach(preloadImage);
     (COMPANIONS || []).forEach(companion => preloadImage(companion.image));
 
-    // Game card art so the arcade grid pops in instantly
-    GAME_LIST.forEach(game => {
-      preloadImage(`/images/learn-games/art/${game.id}.webp`);
-      preloadImage(game.icon);
-    });
+    // Game card art so the arcade grid pops in instantly. Only arcade games
+    // show card art, entries with no art file on disk are skipped (they would
+    // be guaranteed 404s), and the legacy PNG icons are no longer warmed.
+    GAME_LIST.filter(game =>
+      (game.surfaces || []).includes("arcade") && !GAMES_WITHOUT_CARD_ART.has(game.id)
+    ).forEach(game => preloadImage(`/images/learn-games/art/${game.id}.webp`));
 
     // Most-played instruction audio
     [

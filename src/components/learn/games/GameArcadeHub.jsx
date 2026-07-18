@@ -31,37 +31,62 @@ const TABS = [
   { id: "practice", label: "Phonics Practice", games: PRACTICE_GAMES }
 ];
 
+function readSchoolId() {
+  try {
+    return JSON.parse(window.localStorage.getItem("lp-student-session-v1") || "null")?.schoolId || null;
+  } catch {
+    return null; // no session / not parseable
+  }
+}
+
 function Leaderboard({ refreshSignal }) {
-  const [rows, setRows] = useState(null);
+  // Privacy: the board is scoped to the child's own school. Without a school
+  // id we never query — showing nothing is correct, never a global list.
+  const [rows, setRows] = useState(() => (readSchoolId() ? null : [])); // null = still loading
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
-    // Privacy: the board is scoped to the child's own school. Without a school
-    // id we never query — showing nothing is correct, never a global list.
-    let schoolId = null;
-    try {
-      schoolId = JSON.parse(window.localStorage.getItem("lp-student-session-v1") || "null")?.schoolId || null;
-    } catch { /* no session / not parseable - leave schoolId null */ }
-    if (!schoolId) {
-      // No school in session: never query. rows stays empty, board renders nothing.
-      return () => { cancelled = true; };
-    }
+    const schoolId = readSchoolId();
+    if (!schoolId) return undefined; // rows stays [] from the lazy init - never query
     supabase
       .rpc("get_game_leaderboard", { p_limit: 5, p_school_id: schoolId })
       .then(({ data, error }) => {
         if (cancelled) return;
         if (error || !Array.isArray(data)) {
-          setRows([]);
+          setFailed(true);
           return;
         }
+        setFailed(false);
         setRows(data.filter(row => (row.total_points || 0) > 0));
+      })
+      .catch(() => {
+        if (!cancelled) setFailed(true);
       });
     return () => {
       cancelled = true;
     };
   }, [refreshSignal]);
 
-  if (!rows || rows.length === 0) {
+  if (failed) {
+    return (
+      <div className="lg-leaderboard" aria-label="High scores">
+        <div className="lg-leaderboard-head"><h2>Top Readers</h2></div>
+        <p className="lg-leaderboard-empty">High scores are taking a break — try again in a little while.</p>
+      </div>
+    );
+  }
+
+  if (!rows) {
+    return (
+      <div className="lg-leaderboard" aria-label="High scores">
+        <div className="lg-leaderboard-head"><h2>Top Readers</h2></div>
+        <p className="lg-leaderboard-empty">Loading high scores…</p>
+      </div>
+    );
+  }
+
+  if (rows.length === 0) {
     return (
       <div className="lg-leaderboard" aria-label="High scores">
         <div className="lg-leaderboard-head"><h2>Top Readers</h2></div>
@@ -107,7 +132,12 @@ export function GameArcadeHub({ progressScopeKey = "default" }) {
   });
   const [leaderboardRefresh, setLeaderboardRefresh] = useState(0);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
-  const [tab, setTab] = useState("arcade");
+  // A Today's-Mission deep link opens straight into a game; land on the tab
+  // that game lives in, so closing the player returns to the right shelf.
+  const [tab, setTab] = useState(() => {
+    const homeTab = TABS.find(entry => entry.games.some(game => game.id === activeGame?.id));
+    return homeTab ? homeTab.id : "arcade";
+  });
 
   const totals = useMemo(() => {
     const completed = ARCADE_GAMES.filter(game => (getLearnGameProgress(progress, game.id).stars || 0) > 0).length;

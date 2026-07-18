@@ -1,4 +1,4 @@
-import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { Component, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { GAME_LIST } from "../../../data/learnGamesData";
 import { cancelSpeech, hasRecordedSpeech, speak } from "../../../utils/learnGamesAudio";
@@ -12,7 +12,7 @@ import {
   saveGameCheckpoint,
   clearGameCheckpoint
 } from "../../../utils/learnGamesProgress";
-import { notifyMissionTaskDone } from "../../../utils/dailyMission.js";
+import { announceMissionReturn, notifyMissionTaskDone } from "../../../utils/dailyMission.js";
 import { SoundToggle } from "./shared/SoundToggle.jsx";
 import { worldForDifficulty, worldStyle, sceneForKey } from "../../../utils/palWorlds.js";
 import { LEARN_GAMES } from "./games/index.js";
@@ -23,6 +23,36 @@ function CloseIcon() {
       <path d="m6 6 12 12M18 6 6 18" />
     </svg>
   );
+}
+
+// A render throw inside a game must never unmount the whole app. Swap in a
+// calm recovery card instead; "Back to Arcade" closes the player cleanly.
+class GameErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { failed: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+
+  componentDidCatch(error) {
+    console.error("Learn game crashed:", error);
+  }
+
+  render() {
+    if (this.state.failed) {
+      return (
+        <div className="lg-game-stage" role="alert">
+          <h2>That game tripped over!</h2>
+          <p>No worries — your stars are safe. Pick another game to keep playing.</p>
+          <button type="button" className="lg-game-primary" onClick={this.props.onExit}>Back to Arcade</button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
 }
 
 export function GamePlayer({
@@ -44,8 +74,12 @@ export function GamePlayer({
   // Continue / Start-over prompt and hold the game until the child chooses.
   const [resumePoint, setResumePoint] = useState(() => loadGameCheckpoint(progressScopeKey, game.id, difficulty));
   const [startLevel, setStartLevel] = useState(() => (loadGameCheckpoint(progressScopeKey, game.id, difficulty) ? null : 0));
+  const [scoreAnnouncement, setScoreAnnouncement] = useState("");
   const wasFullscreenRef = useRef(false);
   const engineRef = useRef(null);
+  const announcedMilestoneRef = useRef(0);
+  const missionReturnPendingRef = useRef(false);
+  const keepPlayingRef = useRef(null);
   const GameComponent = LEARN_GAMES[game.id];
   const world = worldForDifficulty(difficulty);
   const scene = sceneForKey(world, game.id);
@@ -73,7 +107,9 @@ export function GamePlayer({
   }, [soundEnabled]);
 
   useEffect(() => {
-    if (soundEnabled) startGameMusic(game.id, { fallbackWorldId: world.id });
+    // Sound Beat runs its own BPM-synced music engine; the fixed-tempo loop
+    // would play on top of it, so the generic track is skipped for that game.
+    if (soundEnabled && game.id !== "sound-beat") startGameMusic(game.id, { fallbackWorldId: world.id });
     else stopGameMusic();
     return () => stopGameMusic();
   }, [soundEnabled, world.id, game.id]);
@@ -91,6 +127,46 @@ export function GamePlayer({
     return () => document.removeEventListener("visibilitychange", onVis);
   }, [showQuit]);
 
+  // Closes the player, first firing any held mission return from this
+  // session's win (see handleComplete) so the celebration is never cut off.
+  const closePlayer = useCallback(() => {
+    if (missionReturnPendingRef.current) {
+      missionReturnPendingRef.current = false;
+      announceMissionReturn("game");
+    }
+    onClose();
+  }, [onClose]);
+
+  // The score chip updates constantly; screen readers only get 50-point
+  // milestones so the live region never chatters over the game.
+  useEffect(() => {
+    const milestone = Math.floor(score / 50) * 50;
+    if (milestone >= 50 && milestone > announcedMilestoneRef.current) {
+      announcedMilestoneRef.current = milestone;
+      setScoreAnnouncement(`${milestone} points!`);
+    }
+  }, [score]);
+
+  // Focus the quit dialog's safe primary button when it opens.
+  useEffect(() => {
+    if (showQuit) keepPlayingRef.current?.focus();
+  }, [showQuit]);
+
+  // Esc mirrors the close button: opens the quit prompt during play, closes
+  // it when open, and leaves directly once the game is complete. The resume
+  // prompt (startLevel === null) keeps Esc to itself.
+  useEffect(() => {
+    const onKeyDown = event => {
+      if (event.key !== "Escape") return;
+      if (startLevel === null) return;
+      if (showQuit) setShowQuit(false);
+      else if (completed) closePlayer();
+      else setShowQuit(true);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [showQuit, completed, startLevel, closePlayer]);
+
   function handleComplete(stars, finalScore, wordsCompleted) {
     setCompleted(true);
     // The game reports its score from a stale closure that can miss the
@@ -99,7 +175,12 @@ export function GamePlayer({
     const settledScore = Math.max(Number(finalScore) || 0, Number(score) || 0);
     const nextProgress = saveLearnGameResult(progressScopeKey, game.id, stars, settledScore, wordsCompleted);
     clearGameCheckpoint(progressScopeKey, game.id, difficulty); // finished the ladder, nothing to resume
-    notifyMissionTaskDone(progressScopeKey, "game");
+    // Credit the mission's game task now but hold the auto-return: the win
+    // celebration is still on screen, and the 1.6s auto-navigate would cut
+    // it off. closePlayer() announces the return when the child leaves.
+    if (notifyMissionTaskDone(progressScopeKey, "game", { deferReturn: true })) {
+      missionReturnPendingRef.current = true;
+    }
     // Rewards are coins only (derived from stars in the Hollow economy) -
     // no separate gem/collectible awards.
     onProgressChange?.(nextProgress);
@@ -136,7 +217,7 @@ export function GamePlayer({
 
   function requestClose() {
     if (completed) {
-      onClose();
+      closePlayer();
       return;
     }
     setShowQuit(true);
@@ -169,7 +250,8 @@ export function GamePlayer({
           <span>{Math.min(progressStatus.current, progressStatus.total)}/{progressStatus.total}</span>
         </div>
         <div className="lg-game-player-actions">
-          <span className="lg-game-score" aria-live="polite" aria-atomic="true">{score} pts</span>
+          <span className="lg-game-score">{score} pts</span>
+          <span className="lg-sr-only" role="status">{scoreAnnouncement}</span>
           {hasRecordedSpeech(`${game.title}. ${game.description}`) && (
             <button
               type="button"
@@ -189,27 +271,29 @@ export function GamePlayer({
       </header>
 
       <main className="lg-game-player-main">
-        <Suspense
-          fallback={
-            <div className="lg-game-loading">
-              <img src="/images/learn-games/phinny-thinking.webp" alt="" width="110" height="110" onError={event => { event.currentTarget.style.display = "none"; }} />
-              Loading game...
-            </div>
-          }
-        >
-          {startLevel !== null && (
-            <GameComponent
-              difficulty={difficulty}
-              startLevel={startLevel}
-              onScoreUpdate={setScore}
-              onProgressUpdate={handleProgressUpdate}
-              onComplete={handleComplete}
-              onCheckpoint={handleCheckpoint}
-              onEngineReady={api => { engineRef.current = api; }}
-              isSoundEnabled={soundEnabled}
-            />
-          )}
-        </Suspense>
+        <GameErrorBoundary onExit={closePlayer}>
+          <Suspense
+            fallback={
+              <div className="lg-game-loading">
+                <img src="/images/learn-games/phinny-thinking.webp" alt="" width="110" height="110" onError={event => { event.currentTarget.style.display = "none"; }} />
+                Loading game...
+              </div>
+            }
+          >
+            {startLevel !== null && (
+              <GameComponent
+                difficulty={difficulty}
+                startLevel={startLevel}
+                onScoreUpdate={setScore}
+                onProgressUpdate={handleProgressUpdate}
+                onComplete={handleComplete}
+                onCheckpoint={handleCheckpoint}
+                onEngineReady={api => { engineRef.current = api; }}
+                isSoundEnabled={soundEnabled}
+              />
+            )}
+          </Suspense>
+        </GameErrorBoundary>
       </main>
 
       {resumePoint && startLevel === null && (
@@ -231,8 +315,8 @@ export function GamePlayer({
             <h2>Leave this game?</h2>
             <p>Your current round will not be saved.</p>
             <div>
-              <button type="button" onClick={() => setShowQuit(false)}>Keep playing</button>
-              <button type="button" className="danger" onClick={onClose}>Leave</button>
+              <button type="button" ref={keepPlayingRef} onClick={() => setShowQuit(false)}>Keep playing</button>
+              <button type="button" className="danger" onClick={closePlayer}>Leave</button>
             </div>
           </div>
         </div>

@@ -26,26 +26,6 @@
 }
 .lg-arcade > * { position: relative; z-index: 1; }
 
-/* Header */
-.lg-arcade .pal-world-banner {
-  background: transparent !important;
-  box-shadow: none !important;
-  border-color: transparent !important;
-}
-.lg-arcade .pal-world-chip {
-  background: rgba(255,255,255,.08) !important;
-  color: #bcd0ff !important;
-  border: 1px solid rgba(255,255,255,.14) !important;
-}
-.lg-section-rule { background: linear-gradient(180deg, #ffd34e, transparent) !important; }
-
-/* Summary chips */
-.lg-arcade-points-chip {
-  background: rgba(255,211,77,.16) !important;
-  color: #ffd34e !important;
-  border: 1px solid rgba(255,211,77,.32) !important;
-}
-
 /* Controls */
 .lg-segmented-control {
   background: rgba(255,255,255,.06) !important;
@@ -56,19 +36,6 @@
   background: linear-gradient(160deg, #ffd34e, #ffab1e) !important;
   color: #12183a !important;
 }
-
-/* Recommended-next featured card */
-.lg-arcade-next {
-  background: linear-gradient(115deg, #203a8f 0%, #3a2b7a 60%, #5a2a6e 100%) !important;
-  border: 0 !important;
-  color: #eaf0ff !important;
-  box-shadow: 0 18px 44px rgba(20,30,80,.5) !important;
-}
-.lg-arcade-next p { color: #c9d3ff !important; }
-.lg-arcade-next strong { color: #fff !important; }
-.lg-arcade-next span { color: #d6deff !important; }
-.lg-arcade-progress-track { background: rgba(255,255,255,.18) !important; }
-.lg-arcade-progress-track span { background: linear-gradient(90deg, #5fe0a0, #3fd6a0) !important; }
 
 .lg-game-primary,
 .lg-game-audio {
@@ -90,6 +57,24 @@
   box-shadow: 0 4px 0 #c9781a !important;
 }
 
-/* Leaderboard panel, if present, sits on the dark surface */
-.lg-arcade .lg-leaderboard,
+/* Leaderboard panel: dark surface with light text (learn-games.css styles it
+   as ~80% white glass, which the light text below would disappear into) */
+.lg-arcade .lg-leaderboard {
+  background: rgba(11, 16, 36, 0.82);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #cdd7f2;
+}
+.lg-arcade .lg-leaderboard-head h2 { color: #eef2ff; }
+.lg-arcade .lg-leaderboard-head span,
+.lg-arcade .lg-leaderboard-who em,
+.lg-arcade .lg-leaderboard-empty { color: #9aa8d6; }
+.lg-arcade .lg-leaderboard-list li {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.lg-arcade .lg-leaderboard-list li.first {
+  background: rgba(255, 211, 77, 0.14);
+  border-color: rgba(255, 211, 77, 0.35);
+}
+.lg-arcade .lg-leaderboard-points { color: #ffd34e; }
 .lg-arcade table { color: #cdd7f2; }
