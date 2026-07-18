@@ -73,6 +73,7 @@ export const QUEST_CHAPTERS = Object.freeze([
   {
     id: "seedwake-meadow",
     index: 1,
+    releaseStatus: "production",
     title: "Seedwake Meadow",
     stopRange: [1, 5],
     stopIds: stopIds(1, 5),
@@ -80,6 +81,14 @@ export const QUEST_CHAPTERS = Object.freeze([
     destination: "Bramble Gate",
     conflict: "The meadow's sound-lanterns have gone dark and the gate vines will not open.",
     objective: "Wake the five lantern gardens and carry their notes to Bramble Gate.",
+    optionalDiscovery: { title: "Bramble's trail note", message: "Bramble left a warm lantern here." },
+    shortcut: { id: "lantern-run", label: "Lantern Run", action: "Follow the flowers between restored gardens.", effect: "Carries tricky sounds through the places you repaired." },
+    memoryStories: [
+      { speaker: "Moss", line: "The seeds you woke are lighting new sound paths.", change: "Lantern flowers now mark the return lane." },
+      { speaker: "Tumble", line: "Your bridge held through the night rain.", change: "The ford is open for every meadow friend." },
+      { speaker: "Bramble", line: "The gate heard your sounds and grew another arch.", change: "A warm shortcut now crosses the brambles." },
+      { speaker: "Moss", line: "I planted your brightest Spark beside the trail.", change: "Restored gardens point toward hidden caches." }
+    ],
     finale: CHAPTER_FINALES["seedwake-meadow"],
     cast: {
       guide: { name: "Pip", role: "lantern keeper", archetype: "meadow-scout" },
@@ -89,7 +98,7 @@ export const QUEST_CHAPTERS = Object.freeze([
         { name: "Bramble", role: "gate keeper", archetype: "gate-warden" }
       ]
     },
-    chapterReward: { id: "seedwake-lantern", label: "Seedwake Lantern", ability: "spark-magnet", abilityLabel: "Draws nearby sparks to you", worldEffect: "The meadow flowers sing when the player passes." },
+    chapterReward: { id: "seedwake-lantern", label: "Seedwake Lantern", ability: "spark-magnet", abilityLabel: "Draws nearby sparks to you", worldEffect: "The meadow flowers sing when you pass." },
     mechanicRotation: ["sound-hunt", "flower-jump", "delivery-run", "bridge-build", "gate-chorus"],
     routeTopologies: ["meander", "branching-grove", "horseshoe", "switchback", "ridge-climb"],
     visual: { terrain: "flower meadow and shallow streams", landmark: "windmill lantern", weather: "bright morning to warm sunset", propSet: "orchards, reeds, stepping stones, woven fences" },
@@ -98,6 +107,7 @@ export const QUEST_CHAPTERS = Object.freeze([
   {
     id: "river-gardens",
     index: 2,
+    releaseStatus: "software-ready",
     title: "River Gardens",
     stopRange: [6, 10],
     stopIds: stopIds(6, 10),
@@ -105,6 +115,14 @@ export const QUEST_CHAPTERS = Object.freeze([
     destination: "The Singing Weir",
     conflict: "Runaway waterwheels are sending the garden boats down the wrong channels.",
     objective: "Redirect the river, rescue the sound cargo and restart the Singing Weir.",
+    optionalDiscovery: { title: "Rill's river note", message: "Rill hid a ferry whistle by the water." },
+    shortcut: { id: "lily-ferry", label: "Lily Ferry", action: "Ride the restored channel across the gardens.", effect: "Revisits weak sounds beside the working waterwheels." },
+    memoryStories: [
+      { speaker: "Fizz", line: "The sluice you sorted is watering every terrace.", change: "A lily ferry now stops at this bank." },
+      { speaker: "Quill", line: "I drew your safe channel onto the river map.", change: "Blue markers reveal the return current." },
+      { speaker: "Rill", line: "The rescued fish brought the missing bell home.", change: "The weir sings when your ferry passes." },
+      { speaker: "Fizz", line: "Your wheel sequence keeps the upper garden flowing.", change: "A fast channel now links both riverbanks." }
+    ],
     finale: CHAPTER_FINALES["river-gardens"],
     cast: {
       guide: { name: "Nori", role: "river pilot", archetype: "otter-pilot" },
@@ -123,6 +141,7 @@ export const QUEST_CHAPTERS = Object.freeze([
   {
     id: "fossil-canyon",
     index: 3,
+    releaseStatus: "software-ready",
     title: "Fossil Canyon",
     stopRange: [11, 15],
     stopIds: stopIds(11, 15),
@@ -130,6 +149,14 @@ export const QUEST_CHAPTERS = Object.freeze([
     destination: "Claw Pass",
     conflict: "A dust fall has buried the fossil trail and separated the dig team.",
     objective: "Read the bone marks, find the missing crew and reopen Claw Pass.",
+    optionalDiscovery: { title: "Amber's ridge note", message: "Amber marked a safe trail through the rocks." },
+    shortcut: { id: "survey-zipline", label: "Survey Zipline", action: "Take the reopened ridge line over the fossil beds.", effect: "Returns to weak sounds along the marked dig route." },
+    memoryStories: [
+      { speaker: "Rook", line: "Your bone trail led us to a whole new footprint.", change: "Survey flags now mark the return ridge." },
+      { speaker: "Amber", line: "The tracks you sorted brought the dig carts home.", change: "A rope line now crosses the lower shelf." },
+      { speaker: "Claw", line: "That fossil frame survived the canyon wind.", change: "The restored arch points toward safe ground." },
+      { speaker: "Rook", line: "The crew you found mapped a faster pass.", change: "The survey zipline now spans the canyon." }
+    ],
     finale: CHAPTER_FINALES["fossil-canyon"],
     cast: {
       guide: { name: "Fen", role: "fossil ranger", archetype: "ridge-ranger" },
@@ -148,6 +175,7 @@ export const QUEST_CHAPTERS = Object.freeze([
   {
     id: "forge-settlement",
     index: 4,
+    releaseStatus: "software-ready",
     title: "Forge Settlement",
     stopRange: [16, 20],
     stopIds: stopIds(16, 20),
@@ -155,6 +183,14 @@ export const QUEST_CHAPTERS = Object.freeze([
     destination: "The Word Forge",
     conflict: "The settlement's word machines are jammed and the night train cannot leave.",
     objective: "Repair the workshops, fuel the forge and assemble the train's reading plates.",
+    optionalDiscovery: { title: "Bellows' forge note", message: "Bellows saved the first gear from the forge." },
+    shortcut: { id: "night-train", label: "Night Train", action: "Board the repaired train between the workshops.", effect: "Carries review sounds past every working machine." },
+    memoryStories: [
+      { speaker: "Bolt", line: "The machine you restarted has not missed a beat.", change: "Its signal opens the workshop return rail." },
+      { speaker: "Soot", line: "Your sorted ore forged three new reading plates.", change: "Loaded carts now clear the side platform." },
+      { speaker: "Bellows", line: "The recipe you built is glowing in the master book.", change: "A lit gantry joins both forge floors." },
+      { speaker: "Bolt", line: "The night train remembers the route you repaired.", change: "The shortcut train now waits at the gate." }
+    ],
     finale: CHAPTER_FINALES["forge-settlement"],
     cast: {
       guide: { name: "Cinder", role: "forge apprentice", archetype: "forge-smith" },
@@ -173,6 +209,7 @@ export const QUEST_CHAPTERS = Object.freeze([
   {
     id: "glass-marsh",
     index: 5,
+    releaseStatus: "software-ready",
     title: "Glass Marsh",
     stopRange: [21, 25],
     stopIds: stopIds(21, 25),
@@ -180,6 +217,14 @@ export const QUEST_CHAPTERS = Object.freeze([
     destination: "Mirror Fen",
     conflict: "Moon mist has frozen the reed mirrors and hidden the safe path across the marsh.",
     objective: "Tune the reed lights, free the marsh creatures and relight Mirror Fen.",
+    optionalDiscovery: { title: "Glint's marsh note", message: "Glint left a moon-bright reed in the mist." },
+    shortcut: { id: "silver-causeway", label: "Silver Causeway", action: "Follow the relit mirrors across the mist.", effect: "Reflects weak sounds through restored reed gardens." },
+    memoryStories: [
+      { speaker: "Ripple", line: "The reed you tuned now answers the evening insects.", change: "Its note lights the first causeway stone." },
+      { speaker: "Mica", line: "Your lily route is carrying glass seeds again.", change: "Silver ripples mark a safe return path." },
+      { speaker: "Glint", line: "The marsh creatures returned to the clear pools.", change: "Their lights reveal the hidden crossing." },
+      { speaker: "Ripple", line: "Every mirror you matched is holding its beam.", change: "The Silver Causeway now spans the mist." }
+    ],
     finale: CHAPTER_FINALES["glass-marsh"],
     cast: {
       guide: { name: "Vale", role: "marsh lightkeeper", archetype: "fen-guide" },
@@ -198,6 +243,7 @@ export const QUEST_CHAPTERS = Object.freeze([
   {
     id: "storm-coast",
     index: 6,
+    releaseStatus: "software-ready",
     title: "Storm Coast",
     stopRange: [26, 30],
     stopIds: stopIds(26, 30),
@@ -205,6 +251,14 @@ export const QUEST_CHAPTERS = Object.freeze([
     destination: "Thunder Lighthouse",
     conflict: "The lighthouse lens is scattered across coves while a reading storm closes in.",
     objective: "Cross the cliffs, recover the lens pieces and guide the sound fleet home.",
+    optionalDiscovery: { title: "Prism's coast note", message: "Prism left a weather flag for lost boats." },
+    shortcut: { id: "harbour-boardwalk", label: "Harbour Boardwalk", action: "Race the repaired boardwalk beneath the lighthouse beam.", effect: "Reviews weak sounds between calm windbreaks." },
+    memoryStories: [
+      { speaker: "Kelp", line: "Your cliff markers stayed bright through the squall.", change: "Rope lights now line the return ledge." },
+      { speaker: "Boom", line: "The cargo you carried reached every harbour boat.", change: "A raised boardwalk crosses the tide pools." },
+      { speaker: "Prism", line: "Your storm shelter kept the sound flags dry.", change: "Calm windbreaks open a coastal shortcut." },
+      { speaker: "Kelp", line: "The lens pieces are still sweeping the cove.", change: "The lighthouse beam marks the fast route." }
+    ],
     finale: CHAPTER_FINALES["storm-coast"],
     cast: {
       guide: { name: "Skiff", role: "coast runner", archetype: "cliff-scout" },
@@ -223,6 +277,7 @@ export const QUEST_CHAPTERS = Object.freeze([
   {
     id: "lantern-forest",
     index: 7,
+    releaseStatus: "software-ready",
     title: "Lantern Forest",
     stopRange: [31, 35],
     stopIds: stopIds(31, 35),
@@ -230,6 +285,14 @@ export const QUEST_CHAPTERS = Object.freeze([
     destination: "The Sleeping Observatory",
     conflict: "The forest paths keep rearranging and the observatory has lost the sky.",
     objective: "Wake the lantern trees, map the moving paths and turn the observatory dome.",
+    optionalDiscovery: { title: "Orbit's moth map", message: "Orbit drew a star path on this moth map." },
+    shortcut: { id: "mothway", label: "Living Mothway", action: "Follow the lantern moths between remembered branches.", effect: "Guides weak sounds through the restored forest." },
+    memoryStories: [
+      { speaker: "Luma", line: "The moths you guided built a new lantern roost.", change: "Their lights gather above the return branch." },
+      { speaker: "Wisp", line: "Your lantern pattern is still travelling tree to tree.", change: "Root lights mark a stable forest lane." },
+      { speaker: "Orbit", line: "The path you remembered stopped moving at last.", change: "A living mothway crosses the deep grove." },
+      { speaker: "Luma", line: "Your telescope showed the moths their first star.", change: "They now guide visitors to the observatory." }
+    ],
     finale: CHAPTER_FINALES["lantern-forest"],
     cast: {
       guide: { name: "Echo", role: "lantern cartographer", archetype: "forest-mapper" },
@@ -248,6 +311,7 @@ export const QUEST_CHAPTERS = Object.freeze([
   {
     id: "star-reach",
     index: 8,
+    releaseStatus: "software-ready",
     title: "Star Reach",
     stopRange: [36, 40],
     stopIds: stopIds(36, 40),
@@ -255,6 +319,14 @@ export const QUEST_CHAPTERS = Object.freeze([
     destination: "The First Reading Star",
     conflict: "The final sky road is broken and every sound gathered on the journey is fading.",
     objective: "Rebuild the constellations, carry every sound home and wake the First Reading Star.",
+    optionalDiscovery: { title: "A first reader's page", message: "The first readers left a page for you." },
+    shortcut: { id: "constellation-rail", label: "Constellation Rail", action: "Ride the completed sky road between restored stars.", effect: "Carries every weak sound through the final memories." },
+    memoryStories: [
+      { speaker: "Comet", line: "The route you rebuilt is carrying dawn parcels.", change: "A comet rail now stops at the first garden." },
+      { speaker: "Aster", line: "Your sound cargo became a new constellation.", change: "Star markers join the archive to the road." },
+      { speaker: "Dawn", line: "The sorted lights are waking the eastern sky.", change: "A bright bridge now crosses the cloud gap." },
+      { speaker: "Comet", line: "Every journey memory found its place in the sky.", change: "The Constellation Rail now runs end to end." }
+    ],
     finale: CHAPTER_FINALES["star-reach"],
     cast: {
       guide: { name: "Nova", role: "star road keeper", archetype: "star-guide" },
@@ -308,13 +380,38 @@ export function validateQuestChapters(chapters = QUEST_CHAPTERS) {
   const errors = [];
   const stopSet = new Set();
   const rewardSet = new Set();
+  const shortcutSet = new Set();
   chapters.forEach((chapter, chapterIndex) => {
     if (chapter.index !== chapterIndex + 1) errors.push(`${chapter.id}: chapter index is not sequential`);
+    if (!["production", "software-ready", "prototype"].includes(chapter.releaseStatus)) errors.push(`${chapter.id}: invalid release status`);
     if (chapter.stopIds.length !== 5) errors.push(`${chapter.id}: expected exactly five stops`);
     if (new Set(chapter.routeTopologies).size < 4) errors.push(`${chapter.id}: route topology repeats too often`);
     if (chapter.mechanicRotation.length !== 5) errors.push(`${chapter.id}: expected five mechanic beats`);
     if (!chapter.finale?.id || !chapter.finale?.cue || !chapter.finale?.action || !chapter.finale?.consequence) {
       errors.push(`${chapter.id}: chapter finale is incomplete`);
+    }
+    if (!chapter.optionalDiscovery?.title || !chapter.optionalDiscovery?.message) {
+      errors.push(`${chapter.id}: optional discovery is incomplete`);
+    }
+    if (!chapter.shortcut?.id || !chapter.shortcut?.label || !chapter.shortcut?.action || !chapter.shortcut?.effect) {
+      errors.push(`${chapter.id}: chapter shortcut is incomplete`);
+    } else if (shortcutSet.has(chapter.shortcut.id)) {
+      errors.push(`${chapter.shortcut.id}: duplicate chapter shortcut`);
+    } else {
+      shortcutSet.add(chapter.shortcut.id);
+    }
+    if (!Array.isArray(chapter.memoryStories) || chapter.memoryStories.length !== 4) {
+      errors.push(`${chapter.id}: expected four restored-world memories`);
+    } else {
+      const residents = new Set((chapter.cast?.residents || []).map(resident => resident.name));
+      chapter.memoryStories.forEach((story, memoryIndex) => {
+        if (!residents.has(story?.speaker) || !story?.line || !story?.change) {
+          errors.push(`${chapter.id}: memory ${memoryIndex + 1} is incomplete`);
+        }
+      });
+      if (new Set(chapter.memoryStories.map(story => story.line)).size !== chapter.memoryStories.length) {
+        errors.push(`${chapter.id}: restored-world memory lines must be unique`);
+      }
     }
     chapter.stopIds.forEach(stopId => {
       if (stopSet.has(stopId)) errors.push(`${stopId}: assigned to more than one chapter`);

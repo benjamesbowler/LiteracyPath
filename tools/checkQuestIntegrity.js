@@ -137,7 +137,7 @@ for (const piece of [...CREATURE_PARTS, ...CREATURE_GEAR]) {
 // and no raw hex outside the one file that is ALLOWED to hold colour: the dye
 // table. Everything else must paint with a token.
 const EMOJI = /\p{Extended_Pictographic}/u;
-const HEX = /#[0-9a-fA-F]{3,8}\b/;
+const HEX = /(?<!&)#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})\b/;
 // Colour lives in exactly TWO data files: one for the creature, one for the
 // world. A literal colour anywhere else is a colour that cannot be re-themed,
 // and it is how a world ends up half Meadow and half Moonwood.
@@ -145,6 +145,8 @@ const COLOUR_ALLOWED = new Set([
   "src/data/creatureParts.js",   // the dye table
   "src/data/creatureArt.js",     // no hex expected, but checked anyway
   "src/data/questWorlds.js",     // the world palettes
+  "src/components/quest/world/questPixelRuntime.js", // isolated authored pixel-world palette
+  "src/components/quest/world/questPixelAvatar.js",  // authored gear colours; body paint still uses dye tokens
   "src/styles/quest.css"         // a stylesheet is allowed to be a stylesheet
 ]);
 

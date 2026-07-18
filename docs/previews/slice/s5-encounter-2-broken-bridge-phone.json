@@ -14,51 +14,51 @@
     "hudNodes": 2,
     "camera": {
       "position": [
-        -9.086551378739886,
-        9.991367850337108,
-        -43.23043332435962
+        0.9111821740540798,
+        13.59177996427083,
+        -49.11545054244205
       ],
-      "delta": 0.0033744536949827965,
+      "delta": 0,
       "settled": true
     },
     "items": [
       {
-        "id": "s5-1-0-0-0-y",
-        "value": "y",
-        "rect": {
-          "left": 235.9213516839991,
-          "top": 383.1392877139868,
-          "right": 336.69613731146336,
-          "bottom": 475.8000126304243
-        },
-        "insideSafeArea": true,
-        "firstHit": "resource_stone",
-        "rayClear": true
-      },
-      {
-        "id": "s5-1-0-0-1-u",
-        "value": "u",
-        "rect": {
-          "left": 144.9992665824484,
-          "top": 380.9039076959208,
-          "right": 234.82620334299534,
-          "bottom": 467.846314746624
-        },
-        "insideSafeArea": true,
-        "firstHit": "resource_stone",
-        "rayClear": true
-      },
-      {
-        "id": "s5-1-0-0-2-i",
+        "id": "s5-1-0-0-0-i",
         "value": "i",
         "rect": {
-          "left": 51.80125737436297,
-          "top": 394.6342828266141,
-          "right": 158.7625217016636,
-          "bottom": 491.1069346140702
+          "left": 204.72170393323304,
+          "top": 385.5134845676069,
+          "right": 253.97375803417816,
+          "bottom": 459.70978182234194
         },
         "insideSafeArea": true,
-        "firstHit": "resource_stone",
+        "firstHit": "field-hit-proxy",
+        "rayClear": true
+      },
+      {
+        "id": "s5-1-0-0-1-y",
+        "value": "y",
+        "rect": {
+          "left": 169.63072096579845,
+          "top": 369.5309319110272,
+          "right": 217.58098553002128,
+          "bottom": 439.05909447304737
+        },
+        "insideSafeArea": true,
+        "firstHit": "field-hit-proxy",
+        "rayClear": true
+      },
+      {
+        "id": "s5-1-0-0-2-u",
+        "value": "u",
+        "rect": {
+          "left": 107.34659243028464,
+          "top": 368.4620029818147,
+          "right": 151.04619387731822,
+          "bottom": 435.2219475283573
+        },
+        "insideSafeArea": true,
+        "firstHit": "field-hit-proxy",
         "rayClear": true
       }
     ]

@@ -14,51 +14,51 @@
     "hudNodes": 2,
     "camera": {
       "position": [
-        -47.43802328979214,
-        9.107217615961032,
-        -0.1419947567478196
+        -69.64124187315386,
+        9.588267925012964,
+        13.954553658214353
       ],
-      "delta": 0.00311435905550402,
+      "delta": 0,
       "settled": true
     },
     "items": [
       {
-        "id": "s4-1-0-0-0-u",
-        "value": "u",
+        "id": "s4-1-0-0-0-t",
+        "value": "t",
         "rect": {
-          "left": 253.53180340193572,
-          "top": 396.4885674746964,
-          "right": 320.0006017805396,
-          "bottom": 466.53990054637535
+          "left": 232.35376719487934,
+          "top": 359.6555745346775,
+          "right": 300.018916347382,
+          "bottom": 454.6304580311085
         },
         "insideSafeArea": true,
-        "firstHit": "Mesh",
+        "firstHit": "field-hit-proxy",
         "rayClear": true
       },
       {
-        "id": "s4-1-0-0-1-s",
-        "value": "s",
+        "id": "s4-1-0-0-1-b",
+        "value": "b",
         "rect": {
-          "left": 165.75726586497035,
-          "top": 383.4219918684529,
-          "right": 225.14782736173203,
-          "bottom": 449.29201175788563
+          "left": 141.804565529489,
+          "top": 364.6779591296871,
+          "right": 213.6749810944747,
+          "bottom": 461.79708767751623
         },
         "insideSafeArea": true,
-        "firstHit": "Mesh",
+        "firstHit": "field-hit-proxy",
         "rayClear": true
       },
       {
-        "id": "s4-1-0-0-2-a",
-        "value": "a",
+        "id": "s4-1-0-0-2-d",
+        "value": "d",
         "rect": {
-          "left": 73.21755503537901,
-          "top": 393.02665229273384,
-          "right": 132.69084092684562,
-          "bottom": 459.7438397944709
+          "left": 92.79006125565735,
+          "top": 388.14582757735286,
+          "right": 163.6467076100754,
+          "bottom": 491.90684544846255
         },
         "insideSafeArea": true,
-        "firstHit": "Mesh",
+        "firstHit": "field-hit-proxy",
         "rayClear": true
       }
     ]

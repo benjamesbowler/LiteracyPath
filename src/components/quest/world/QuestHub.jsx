@@ -5,8 +5,9 @@
 // next story encounter is active, so the 40-stop curriculum stays coherent
 // without making movement feel like a side-scrolling level.
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
+import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
 import Guide from "./Guide.jsx";
 import { ENCOUNTER_VIEWS } from "./encounterViews.js";
 import {
@@ -50,11 +51,14 @@ import {
   questRewardBonuses,
   SPARKS_PER_DROP
 } from "../../../utils/questProgress.js";
-import { detectQuestQuality } from "../../../utils/questPerformance.js";
+import {
+  createQuestFrameBudgetState,
+  detectQuestQuality,
+  sampleQuestFrameBudget
+} from "../../../utils/questPerformance.js";
 import {
   buildPhysicalTask,
   fieldCollisionStep,
-  isPhysicalEncounter,
   physicalTaskForwardLimit,
   physicalTaskResidentPoint,
   physicalStage,
@@ -72,13 +76,17 @@ import { seedwakeSatchel, seedwakeStopSpec } from "../../../data/questChapterOne
 import { segmentWord } from "../../../utils/questSegments.js";
 import {
   advancePhonemeSlotState,
-  applySeedwakeVerbInput,
+  applyQuestTaskInput,
   createPhonemeSlotState,
   createQuestLocomotionState,
   createSeedwakeVerbState,
   encounterCameraPose,
   isChapterGateOpen,
   projectedRectInsideSafeArea,
+  questMechanicProfile,
+  questRhythmPulse,
+  resolveQuestPointerIntent,
+  restoreSeedwakeVerbState,
   seedwakeEncounterHudModel,
   seedwakeResidentPerformance,
   sliceSafeArea,
@@ -89,7 +97,22 @@ const MOVE_SPEED = 4.6;
 const ENCOUNTER_REACH = 1.7;
 const AUTOSAVE_MS = 1200;
 
+const RESIDENT_CREATURE_CAST = Object.freeze([
+  Object.freeze({ body: "pebble", pattern: "pattern-spots", eyes: "eyes-big", mouth: "mouth-grin", crest: "crest-frond", tail: "tail-fern", feet: "feet-round" }),
+  Object.freeze({ body: "stalk", pattern: "pattern-stripes", eyes: "eyes-wide", mouth: "mouth-smile", crest: "crest-ears", tail: "tail-curl", feet: "feet-tall" }),
+  Object.freeze({ body: "moth", pattern: "pattern-stars", eyes: "eyes-sleepy", mouth: "mouth-round", crest: "crest-antenna", tail: "tail-fan", feet: "feet-paws" }),
+  Object.freeze({ body: "boulder", pattern: "pattern-scales", eyes: "eyes-tiny", mouth: "mouth-tusks", crest: "crest-horns", tail: "tail-spade", feet: "feet-hoofs" }),
+  Object.freeze({ body: "spike", pattern: "pattern-none", eyes: "eyes-one", mouth: "mouth-beak", crest: "crest-fin", tail: "tail-spike", feet: "feet-claws" })
+]);
+
+function residentCreatureSpec(index, world = "meadow") {
+  const worldOffset = world === "dino" ? 2 : world === "moonwood" ? 4 : 0;
+  const spec = RESIDENT_CREATURE_CAST[(Math.max(0, index) + worldOffset) % RESIDENT_CREATURE_CAST.length];
+  return { ...spec, dye: "moss", equipped: { head: null, back: null, neck: null, held: null } };
+}
+
 function physicalTaskAnswers(task) {
+  if (task?.learningSequence?.length) return [...task.learningSequence];
   return (task?.stages || []).map(stage => stage.items.find(item => item.correct)?.value).filter(value => value != null);
 }
 
@@ -158,6 +181,37 @@ const WORLD_THEMES = {
     dust: 0xaec8ff
   }
 };
+
+const SEEDWAKE_VISUAL_MOODS = Object.freeze({
+  s1: Object.freeze({
+    ground: 0x4d7650, path: 0xcaa878, pathEdge: 0x71543d, stone: 0x6f8079,
+    structure: 0xa96845, water: 0x70aeb0, flower: 0xe4aa66, glow: 0xffc95e, fog: 0xaac9bd
+  }),
+  s2: Object.freeze({
+    ground: 0x426d58, path: 0xbab486, pathEdge: 0x626b4c, stone: 0x72857d,
+    structure: 0x8a6e50, water: 0x479ca0, flower: 0xc89bd7, glow: 0xaee5a0, fog: 0x9fc9c2
+  }),
+  s3: Object.freeze({
+    ground: 0x687548, path: 0xc99a68, pathEdge: 0x72543b, stone: 0x776d65,
+    structure: 0xb66445, water: 0x6da2a2, flower: 0xe7bd58, glow: 0xf2b85a, fog: 0xbfc7a8
+  }),
+  s4: Object.freeze({
+    ground: 0x466b5d, path: 0xa99a78, pathEdge: 0x586554, stone: 0x687c7a,
+    structure: 0xa85d4d, water: 0x397f91, flower: 0xd39aaf, glow: 0xb9e5d5, fog: 0x9abbb7
+  }),
+  s5: Object.freeze({
+    ground: 0x505d49, path: 0x9f896d, pathEdge: 0x5d5044, stone: 0x746f7d,
+    structure: 0x765773, water: 0x5d8092, flower: 0xe8b65f, glow: 0xd2b2f2, fog: 0xa9a9b3
+  })
+});
+
+const SEEDWAKE_LIGHT_MOODS = Object.freeze({
+  s1: Object.freeze({ id: "lantern-dawn", warmth: 0.24, glow: 0.5 }),
+  s2: Object.freeze({ id: "fern-morning", warmth: 0.06, glow: 0.56 }),
+  s3: Object.freeze({ id: "rook-noon", warmth: 0.48, glow: 0.52 }),
+  s4: Object.freeze({ id: "river-mist", warmth: 0.02, glow: 0.62 }),
+  s5: Object.freeze({ id: "gate-gloaming", warmth: 0.66, glow: 0.8 })
+});
 
 function surfaceMaps(seed, {
   repeatX = 4,
@@ -313,6 +367,75 @@ function pathRibbon(points, width, y, color, seed, anisotropy = 4, detail = "ric
   return mesh;
 }
 
+function irregularGladeGeometry(radius, segments, seed) {
+  const geometry = new THREE.CircleGeometry(radius, segments);
+  const positions = geometry.attributes.position;
+  for (let index = 0; index < positions.count; index += 1) {
+    const x = positions.getX(index);
+    const y = positions.getY(index);
+    const distance = Math.hypot(x, y);
+    if (distance < radius * 0.5) continue;
+    const angle = Math.atan2(y, x);
+    const edge = 0.955
+      + Math.sin(angle * 3 + seed * 0.71) * 0.028
+      + Math.sin(angle * 7 - seed * 0.39) * 0.018;
+    positions.setXY(index, x * edge, y * edge);
+  }
+  positions.needsUpdate = true;
+  geometry.computeVertexNormals();
+  return geometry;
+}
+
+function buildEncounterGlades(scene, section, theme, quality, maxAnisotropy) {
+  const glades = new THREE.Group();
+  glades.name = "authored-encounter-glades";
+  const taskPoints = [section.guide, ...section.encounters];
+  taskPoints.forEach((taskPoint, index) => {
+    const radius = index === 0 ? 3.15 : 4.25;
+    const centre = index === 0
+      ? taskPoint
+      : routePointAt(section.route, Math.min(0.9, taskPoint.progress + 0.042));
+    const segments = quality.id === "low" ? 36 : 64;
+    const maps = surfaceMaps(section.stopIndex * 61 + index * 17, {
+      repeatX: 3,
+      repeatY: 3,
+      contrast: 18,
+      kind: "path",
+      anisotropy: maxAnisotropy,
+      detail: quality.id
+    });
+    const edge = new THREE.Mesh(
+      irregularGladeGeometry(radius, segments, section.stopIndex * 13 + index),
+      mat(theme.pathEdge, { roughness: 0.84, envMapIntensity: 0.34 })
+    );
+    edge.name = `encounter-glade-edge-${index + 1}`;
+    edge.rotation.x = -Math.PI / 2;
+    edge.position.set(centre.x, (centre.y || 0) + 0.109, centre.z);
+    edge.receiveShadow = true;
+    glades.add(edge);
+
+    const fill = new THREE.Mesh(
+      irregularGladeGeometry(radius - 0.2, segments, section.stopIndex * 13 + index + 0.17),
+      mat(new THREE.Color(theme.path).multiplyScalar(0.74), {
+        ...maps,
+        bumpScale: 0.045,
+        roughness: 0.86,
+        envMapIntensity: 0.42,
+        polygonOffset: true,
+        polygonOffsetFactor: -2,
+        polygonOffsetUnits: -2
+      })
+    );
+    fill.name = `encounter-glade-${index + 1}`;
+    fill.rotation.x = -Math.PI / 2;
+    fill.position.set(centre.x, (centre.y || 0) + 0.114, centre.z);
+    fill.receiveShadow = true;
+    glades.add(fill);
+  });
+  scene.add(glades);
+  return glades;
+}
+
 function addTree(scene, x, z, size, theme, shade = 0) {
   const group = new THREE.Group();
   group.position.set(x, 0, z);
@@ -383,12 +506,13 @@ function glowMat(color, opacity = 0.42) {
 function clayMat(color, options = {}) {
   return new THREE.MeshPhysicalMaterial({
     color,
-    roughness: 0.62,
-    metalness: 0.01,
-    clearcoat: 0.22,
-    clearcoatRoughness: 0.64,
-    sheen: 0.18,
-    envMapIntensity: 0.86,
+    roughness: 0.38,
+    metalness: 0,
+    clearcoat: 0.3,
+    clearcoatRoughness: 0.5,
+    sheen: 0.24,
+    sheenRoughness: 0.72,
+    envMapIntensity: 0.98,
     ...options
   });
 }
@@ -590,37 +714,75 @@ function buildGate(scene, section, theme) {
   group.position.set(section.gate.x, section.gate.y || 0, section.gate.z);
   group.rotation.y = section.gate.heading || 0;
   const wood = mat(theme.gate, { roughness: 0.84 });
-  const cap = mat(theme.pathEdge, { roughness: 0.9 });
+  const cap = mat(theme.pathEdge, { roughness: 0.64 });
+  const vine = mat(theme.canopy[1], { roughness: 0.72 });
+  const lantern = glowMat(theme.glow, 0.78);
 
-  for (const x of [-3.35, 3.35]) {
-    const post = new THREE.Mesh(new THREE.BoxGeometry(0.42, 3.7, 0.5), wood);
+  for (const x of [-3.25, 3.25]) {
+    const post = new THREE.Mesh(new RoundedBoxGeometry(0.62, 3.85, 0.72, 4, 0.16), wood);
     post.position.set(x, 1.75, 0);
     post.castShadow = true;
+    post.receiveShadow = true;
     group.add(post);
-    const top = new THREE.Mesh(new THREE.ConeGeometry(0.4, 0.6, 5), cap);
-    top.position.set(x, 3.9, 0);
+    const collar = new THREE.Mesh(new THREE.CylinderGeometry(0.48, 0.54, 0.26, 10), cap);
+    collar.position.set(x, 3.67, 0);
+    collar.castShadow = true;
+    group.add(collar);
+    const top = new THREE.Mesh(new THREE.SphereGeometry(0.38, 16, 10), cap);
+    top.scale.y = 1.35;
+    top.position.set(x, 4.06, 0);
     top.castShadow = true;
     group.add(top);
+    for (let leafIndex = 0; leafIndex < 5; leafIndex += 1) {
+      const leaf = new THREE.Mesh(new THREE.SphereGeometry(0.18, 10, 7), vine);
+      leaf.scale.set(1.35, 0.58, 0.5);
+      leaf.rotation.z = (leafIndex % 2 ? -1 : 1) * 0.55;
+      leaf.position.set(x + (leafIndex % 2 ? -0.28 : 0.28), 0.72 + leafIndex * 0.58, 0.4);
+      leaf.castShadow = true;
+      group.add(leaf);
+    }
   }
 
-  const lintel = new THREE.Mesh(new THREE.BoxGeometry(7.1, 0.48, 0.55), wood);
-  lintel.position.set(0, 3.25, 0);
+  const lintel = new THREE.Mesh(new RoundedBoxGeometry(7.12, 0.68, 0.78, 5, 0.18), wood);
+  lintel.position.set(0, 3.34, 0);
   lintel.castShadow = true;
+  lintel.receiveShadow = true;
   group.add(lintel);
+  const arch = new THREE.Mesh(new THREE.TorusGeometry(2.55, 0.16, 10, 44, Math.PI), vine);
+  arch.position.set(0, 2.55, 0.42);
+  arch.castShadow = true;
+  group.add(arch);
+
+  for (const x of [-2.35, 2.35]) {
+    const light = new THREE.Mesh(new THREE.SphereGeometry(0.18, 14, 10), lantern.clone());
+    light.position.set(x, 3.24, 0.52);
+    group.add(light);
+  }
 
   const left = new THREE.Group();
   left.position.set(-3.1, 0, 0);
-  const leftDoor = new THREE.Mesh(new THREE.BoxGeometry(3.05, 2.5, 0.26), wood);
+  const leftDoor = new THREE.Mesh(new RoundedBoxGeometry(3.05, 2.58, 0.34, 4, 0.12), wood);
   leftDoor.position.set(1.5, 1.3, 0);
   leftDoor.castShadow = true;
+  leftDoor.receiveShadow = true;
   left.add(leftDoor);
 
   const right = new THREE.Group();
   right.position.set(3.1, 0, 0);
-  const rightDoor = new THREE.Mesh(new THREE.BoxGeometry(3.05, 2.5, 0.26), wood);
+  const rightDoor = new THREE.Mesh(new RoundedBoxGeometry(3.05, 2.58, 0.34, 4, 0.12), wood);
   rightDoor.position.set(-1.5, 1.3, 0);
   rightDoor.castShadow = true;
+  rightDoor.receiveShadow = true;
   right.add(rightDoor);
+
+  for (const door of [left, right]) {
+    const direction = door === left ? 1 : -1;
+    for (let slatIndex = 0; slatIndex < 3; slatIndex += 1) {
+      const slat = new THREE.Mesh(new RoundedBoxGeometry(0.08, 2.18, 0.07, 2, 0.025), cap);
+      slat.position.set(direction * (0.75 + slatIndex * 0.72), 1.3, 0.21);
+      door.add(slat);
+    }
+  }
 
   group.add(left, right);
   scene.add(group);
@@ -1276,6 +1438,29 @@ function buildFieldAvatar(spec, theme, { interactive = true } = {}) {
     group.add(flame);
     group.userData.motionParts.push({ object: flame, type: "flame" });
     addFieldLabel(group, spec.label, 1.34, 1.26);
+  } else if (spec.shape === "bridge-slot") {
+    const dock = new THREE.Mesh(
+      new THREE.BoxGeometry(1.5, 0.12, 0.72),
+      new THREE.MeshPhysicalMaterial({
+        color: theme.water,
+        emissive: theme.glow,
+        emissiveIntensity: 0.72,
+        transparent: true,
+        opacity: 0.68,
+        roughness: 0.28,
+        metalness: 0,
+        transmission: 0.08,
+        thickness: 0.18
+      })
+    );
+    dock.position.y = 0.11;
+    dock.rotation.y = Math.PI / 2;
+    group.add(dock);
+    const rim = new THREE.Mesh(new THREE.TorusGeometry(0.52, 0.045, 10, 36), glowMat(theme.glow, 1.15));
+    rim.position.y = 0.2;
+    rim.rotation.x = Math.PI / 2;
+    group.add(rim);
+    group.userData.motionParts.push({ object: rim, type: "orbit" });
   } else if (["bridge-plank", "river-plank", "placed-plank"].includes(spec.shape)) {
     const placed = spec.shape === "placed-plank";
     const plank = new THREE.Mesh(
@@ -1462,8 +1647,27 @@ function buildFieldAvatar(spec, theme, { interactive = true } = {}) {
     addFieldLabel(group, spec.label, 1.05);
   }
 
+  if (interactive) {
+    const hitProxy = new THREE.Mesh(
+      new THREE.CapsuleGeometry(0.54, 0.82, 6, 12),
+      new THREE.MeshStandardMaterial({
+        color: 0x000000,
+        roughness: 1,
+        metalness: 0,
+        transparent: true,
+        opacity: 0,
+        depthWrite: false,
+        colorWrite: false
+      })
+    );
+    hitProxy.name = "field-hit-proxy";
+    hitProxy.position.y = 0.68;
+    hitProxy.scale.set(1.12, 1.08, 1.12);
+    group.add(hitProxy);
+  }
+
   group.traverse(child => {
-    child.castShadow = true;
+    child.castShadow = child.name !== "field-hit-proxy";
     if (interactive) child.userData.fieldChoice = spec;
   });
   return group;
@@ -1524,11 +1728,13 @@ function updateFieldTasks(tasks, active, beatIndex, stageIndex, correction, now,
     const live = key === liveKey && !task.resolved;
     task.group.visible = live;
     if (!live) continue;
+    const liveStage = task.stages[stageIndex];
+    const rhythmPulse = liveStage?.rhythm ? questRhythmPulse(now) : null;
     task.items.forEach((item, index) => {
       const choice = item.userData.fieldChoice;
-      const carried = task.mechanic === "delivery-run"
-        && stageIndex % 2 === 1
-        && choice?.stage === stageIndex - 1
+      const currentStage = task.stages[stageIndex];
+      const carried = Number.isInteger(currentStage?.carryFromStage)
+        && choice?.stage === currentStage.carryFromStage
         && choice?.correct;
       item.visible = carried || (live
         && choice?.stage === stageIndex
@@ -1546,14 +1752,26 @@ function updateFieldTasks(tasks, active, beatIndex, stageIndex, correction, now,
         item.position.x = item.userData.baseX;
         item.position.z = item.userData.baseZ;
         item.scale.setScalar(choice?.size === "big" ? 1.32 : choice?.size === "small" ? 0.76 : 1);
+        if (rhythmPulse && choice?.stage === stageIndex) {
+          item.scale.multiplyScalar(0.96 + rhythmPulse.intensity * 0.16);
+        }
       }
       const teaching = correction?.mode === "teach" && correction.correctId === choice.id;
       if (!carried) {
         const actionProgress = action?.choiceId === choice.id
           ? THREE.MathUtils.clamp(1 - (action.until - now) / Math.max(1, action.duration), 0, 1)
           : 0;
+        const liftByAction = {
+          jump: 0.72,
+          search: 0.38,
+          build: 0.26,
+          "lift-plank": 0.34,
+          "place-plank": 0.28,
+          conduct: 0.18,
+          carry: 0.2
+        };
         const rightLift = action?.correct && action?.choiceId === choice.id
-          ? Math.sin(actionProgress * Math.PI) * 0.42
+          ? Math.sin(actionProgress * Math.PI) * (liftByAction[action.kind] || 0.34)
           : 0;
         item.position.y = (item.userData.baseY || 0)
           + Math.sin(time * (teaching ? 5.2 : 2.8) + item.userData.phase) * (teaching ? 0.12 : 0.06)
@@ -1561,11 +1779,14 @@ function updateFieldTasks(tasks, active, beatIndex, stageIndex, correction, now,
           + rightLift;
         item.rotation.y = Math.sin(time * (teaching ? 1.8 : 0.82) + item.userData.phase) * (teaching ? 0.42 : 0.24)
           + actionProgress * Math.PI * (action?.correct ? 1.6 : 0.08);
+        if (action?.correct && action.taskKey === task.key && task.mechanic === "gate-chorus") {
+          item.scale.multiplyScalar(1 + Math.sin(actionProgress * Math.PI) * 0.11);
+        }
       }
       for (const material of item.userData.importedFieldAvatar?.userData.fieldMaterials || []) {
         if (!material.emissive) continue;
         material.emissiveIntensity = Math.max(
-          choice.shape?.includes("lantern") ? 0.42 : 0,
+          rhythmPulse && choice?.stage === stageIndex ? 0.3 + rhythmPulse.intensity * 0.62 : choice.shape?.includes("lantern") ? 0.34 : 0,
           teaching ? 1.5 : action?.correct && action?.choiceId === choice.id ? 1.9 : 0
         );
       }
@@ -1595,6 +1816,18 @@ function updateFieldTasks(tasks, active, beatIndex, stageIndex, correction, now,
       item.visible = live && (Number(spec.revealStage ?? index) < stageIndex || justCompleted);
       if (!item.visible) return;
       item.position.y = (item.userData.baseY || 0) + Math.sin(time * 2 + index) * 0.025;
+      if (justCompleted) {
+        const revealProgress = THREE.MathUtils.clamp(
+          1 - (action.until - now) / Math.max(1, action.duration),
+          0,
+          1
+        );
+        const revealScale = 0.72 + (1 - (1 - revealProgress) ** 3) * 0.28;
+        item.scale.setScalar(revealScale);
+        item.position.y += Math.sin(revealProgress * Math.PI) * (task.mechanic === "bridge-build" ? 0.34 : 0.2);
+      } else {
+        item.scale.setScalar(1);
+      }
       for (const billboard of item.userData.billboards || []) billboard.quaternion.copy(camera.quaternion);
       item.userData.updateHudWorldPosition?.();
       for (const part of item.userData.motionParts || []) {
@@ -1811,10 +2044,12 @@ function addCreatureEyes(root, eyeId, materials, headY) {
     const eye = new THREE.Mesh(new THREE.SphereGeometry(size, 24, 16), materials.white);
     eye.position.set(x, y, stalk ? 0.22 : 0.4);
     eye.scale.set(eyeId === "eyes-wide" ? 1.32 : 1, eyeId === "eyes-sleepy" ? 0.5 : 1.1, 0.45);
+    eye.userData.blinkBaseY = eye.scale.y;
     group.add(eye);
     const pupil = new THREE.Mesh(new THREE.SphereGeometry(size * 0.38, 16, 10), materials.dark);
     pupil.position.set(x + (index % 2 ? -0.008 : 0.008), y - 0.008, stalk ? 0.268 : 0.457);
     pupil.scale.z = 0.34;
+    pupil.userData.blinkBaseY = pupil.scale.y;
     group.add(pupil);
     if (eyeId === "eyes-goggle") {
       const rim = new THREE.Mesh(new THREE.TorusGeometry(size * 1.18, 0.018, 8, 22), materials.accent);
@@ -1832,6 +2067,7 @@ function addCreatureEyes(root, eyeId, materials, headY) {
     }
   }
   root.add(group);
+  return group;
 }
 
 function addCreatureMouth(root, mouthId, materials, headY) {
@@ -2070,17 +2306,17 @@ function buildCharacterAvatar({ palette, world = "meadow", scale = 1, role = "re
 
   const materials = {
     skin: trackedMaterial(root, clayMat(palette.skin)),
-    belly: trackedMaterial(root, clayMat(palette.belly, { roughness: 0.7, clearcoat: 0.14 })),
+    belly: trackedMaterial(root, clayMat(palette.belly, { roughness: 0.4, clearcoat: 0.2 })),
     dark: trackedMaterial(root, inkMat({ color: palette.dark })),
     accent: trackedMaterial(root, clayMat(palette.accent, {
-      roughness: 0.45,
+      roughness: 0.34,
       emissive: new THREE.Color(palette.accent).multiplyScalar(0.12),
       emissiveIntensity: 0.55
     })),
     white: trackedMaterial(root, clayMat(0xfffbef, { roughness: 0.34, clearcoat: 0.34 }))
   };
 
-  const custom = role === "player" ? normalizeCreature(creature) : null;
+  const custom = creature ? normalizeCreature(creature) : null;
   if (custom) {
     root.userData.avatarSpec = questCreatureRigSpec(custom);
     root.userData.rigKind = "articulated-modular-creature";
@@ -2131,7 +2367,7 @@ function buildCharacterAvatar({ palette, world = "meadow", scale = 1, role = "re
   headJoint.add(muzzle);
 
   addCreaturePattern(bodyJoint, custom?.pattern, materials, 0.82);
-  addCreatureEyes(headJoint, custom?.eyes || "eyes-round", materials, profile.headY);
+  root.userData.parts.eyes = addCreatureEyes(headJoint, custom?.eyes || "eyes-round", materials, profile.headY);
   addCreatureMouth(headJoint, custom?.mouth || "mouth-smile", materials, profile.headY);
   addCreatureCrest(headJoint, custom?.crest, materials, profile.headY, root.userData.parts);
   addCreatureTail(root, custom?.tail, materials, root.userData.parts);
@@ -2295,6 +2531,15 @@ function updateCharacterMotion(model, {
       parts.headJoint.rotation.x += Math.sin(performanceProgress * Math.PI * 2) * 0.09;
     }
   }
+  if (parts.eyes) {
+    const blinkPhase = (time + phase * 0.83) % 4.35;
+    const blinkAmount = blinkPhase > 4.18 ? 0.08 : 1;
+    const blend = 1 - Math.pow(0.0002, dt);
+    parts.eyes.traverse(part => {
+      if (!Number.isFinite(part.userData?.blinkBaseY)) return;
+      part.scale.y = THREE.MathUtils.lerp(part.scale.y, part.userData.blinkBaseY * blinkAmount, blend);
+    });
+  }
   if (parts.tail) {
     parts.tail.rotation.y = 0.35 + Math.sin(time * (moving ? 6.4 : 2.2)) * 0.25;
   }
@@ -2335,7 +2580,7 @@ function buildTrailCharacters(scene, section, theme, creature) {
     player: buildCharacterAvatar({
       palette: creaturePalette(creature),
       world: section.world,
-      scale: 0.82,
+      scale: 0.9,
       role: "player",
       phase: 0.2,
       creature
@@ -2345,7 +2590,8 @@ function buildTrailCharacters(scene, section, theme, creature) {
       world: section.world,
       scale: 1.1,
       role: "guide",
-      phase: 1.1
+      phase: 1.1,
+      creature: residentCreatureSpec(section.stopIndex + 1, section.world)
     }),
     residents: new Map(),
     relic: null
@@ -2366,7 +2612,8 @@ function buildTrailCharacters(scene, section, theme, creature) {
       world: section.world,
       scale: 1.06,
       role: "resident",
-      phase: 1.8 + encounter.order * 0.73
+      phase: 1.8 + encounter.order * 0.73,
+      creature: residentCreatureSpec(section.stopIndex + encounter.order + 2, section.world)
     });
     resident.position.set(encounter.x, encounter.y || 0, encounter.z);
     resident.userData.groundY = encounter.y || 0;
@@ -2466,8 +2713,12 @@ function seededParticle(seed, index, spread) {
 
 function buildQuestAtmosphere(scene, section, theme, quality) {
   const chapterIndex = section.chapter?.index || 1;
-  const weatherKind = chapterIndex <= 2
-    ? "pollen"
+  const weatherKind = section.stopId === "s4"
+    ? "mist"
+    : section.stopId === "s5"
+      ? "stars"
+      : chapterIndex <= 2
+        ? "pollen"
     : chapterIndex <= 4
       ? "dust"
       : chapterIndex === 6
@@ -2488,10 +2739,10 @@ function buildQuestAtmosphere(scene, section, theme, quality) {
   const weatherGeometry = new THREE.BufferGeometry();
   weatherGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
   const weatherMaterial = new THREE.PointsMaterial({
-    color: weatherKind === "rain" ? 0xc6e9ff : weatherKind === "dust" ? 0xe6be77 : theme.glow,
-    size: weatherKind === "rain" ? 0.055 : weatherKind === "stars" ? 0.11 : 0.075,
+    color: weatherKind === "rain" || weatherKind === "mist" ? 0xc6e9ff : weatherKind === "dust" ? 0xe6be77 : theme.glow,
+    size: weatherKind === "rain" ? 0.055 : weatherKind === "mist" ? 0.1 : weatherKind === "stars" ? 0.11 : 0.075,
     transparent: true,
-    opacity: weatherKind === "rain" ? 0.42 : 0.58,
+    opacity: weatherKind === "rain" ? 0.42 : weatherKind === "mist" ? 0.24 : 0.58,
     depthWrite: false,
     blending: weatherKind === "stars" ? THREE.AdditiveBlending : THREE.NormalBlending
   });
@@ -2501,9 +2752,13 @@ function buildQuestAtmosphere(scene, section, theme, quality) {
   scene.add(weather);
 
   let water = null;
-  if (quality.water && [2, 5, 6].includes(chapterIndex)) {
-    const point = routeSidePoint(section.route, 0.66, chapterIndex === 5 ? 1 : -1, 4.8);
-    const geometry = new THREE.CircleGeometry(chapterIndex === 6 ? 7.5 : 5.5, 48);
+  const seedwakeWater = ["s2", "s4"].includes(section.stopId);
+  if (quality.water && (seedwakeWater || [2, 5, 6].includes(chapterIndex))) {
+    const progress = section.stopId === "s4" ? 0.36 : section.stopId === "s2" ? 0.38 : 0.66;
+    const side = section.stopId === "s4" ? 1 : chapterIndex === 5 ? 1 : -1;
+    const point = routeSidePoint(section.route, progress, side, seedwakeWater ? (section.stopId === "s4" ? 2.9 : 3.4) : 4.8);
+    const waterRadius = section.stopId === "s4" ? 7 : chapterIndex === 6 ? 7.5 : 5.5;
+    const geometry = new THREE.CircleGeometry(waterRadius, 48);
     const material = new THREE.ShaderMaterial({
       transparent: true,
       depthWrite: false,
@@ -2532,7 +2787,7 @@ function buildQuestAtmosphere(scene, section, theme, quality) {
           float ripple = sin((vUv.x + vUv.y) * 34.0 + questTime * 2.0) * 0.5 + 0.5;
           vec3 colour = mix(waterColour, glowColour, 0.08 + ripple * 0.12);
           float edge = 1.0 - smoothstep(0.38, 0.5, distance(vUv, vec2(0.5)));
-          gl_FragColor = vec4(colour, (0.56 + ripple * 0.1) * edge);
+          gl_FragColor = vec4(colour, (0.74 + ripple * 0.12) * edge);
         }
       `
     });
@@ -2540,6 +2795,15 @@ function buildQuestAtmosphere(scene, section, theme, quality) {
     water.name = "authored-water-surface";
     water.rotation.x = -Math.PI / 2;
     water.position.set(point.x, point.y + 0.045, point.z);
+    const waterBank = new THREE.Mesh(
+      new THREE.RingGeometry(waterRadius * 0.94, waterRadius, 64),
+      mat(theme.pathEdge, { roughness: 0.84, metalness: 0, envMapIntensity: 0.5 })
+    );
+    waterBank.name = "authored-water-bank";
+    waterBank.rotation.x = -Math.PI / 2;
+    waterBank.position.set(point.x, point.y + 0.035, point.z);
+    waterBank.receiveShadow = true;
+    scene.add(waterBank);
     scene.add(water);
   }
 
@@ -2658,12 +2922,12 @@ function buildLandscape(scene, section, theme, quality, maxAnisotropy = 4) {
   scene.add(ground);
 
   const points = section.route.samples;
-  scene.add(pathRibbon(points, 7.35, 0.065, theme.pathEdge, section.stopIndex * 13, maxAnisotropy, quality.id));
-  scene.add(pathRibbon(points, 6.6, 0.105, theme.path, section.stopIndex * 17, maxAnisotropy, quality.id));
+  scene.add(pathRibbon(points, 5.85, 0.065, theme.pathEdge, section.stopIndex * 13, maxAnisotropy, quality.id));
+  scene.add(pathRibbon(points, 5.25, 0.105, theme.path, section.stopIndex * 17, maxAnisotropy, quality.id));
   section.route.branches.forEach((branch, index) => {
     const branchPoints = branch.samples;
-    scene.add(pathRibbon(branchPoints, 5.7, 0.06, theme.pathEdge, section.stopIndex * 29 + index, maxAnisotropy, quality.id));
-    scene.add(pathRibbon(branchPoints, 5.05, 0.1, theme.path, section.stopIndex * 31 + index, maxAnisotropy, quality.id));
+    scene.add(pathRibbon(branchPoints, 4.7, 0.06, theme.pathEdge, section.stopIndex * 29 + index, maxAnisotropy, quality.id));
+    scene.add(pathRibbon(branchPoints, 4.15, 0.1, theme.path, section.stopIndex * 31 + index, maxAnisotropy, quality.id));
     if (section.rewardIds?.includes("mirror-reed")) {
       const pathGlow = pathRibbon(branchPoints, 0.24, 0.13, theme.glow, section.stopIndex * 37 + index, maxAnisotropy, quality.id);
       pathGlow.material.map?.dispose();
@@ -2676,6 +2940,7 @@ function buildLandscape(scene, section, theme, quality, maxAnisotropy = 4) {
       scene.add(pathGlow);
     }
   });
+  const glades = buildEncounterGlades(scene, section, theme, quality, maxAnisotropy);
 
   // This belt is a load-safe fallback. Textured instanced trees replace it once
   // the glTF nature set is ready, so a network or GPU failure never removes the
@@ -2704,7 +2969,7 @@ function buildLandscape(scene, section, theme, quality, maxAnisotropy = 4) {
   for (let index = 0; index < 18; index += 1) {
     const progress = 0.04 + index / 19 * 0.91;
     const side = index % 2 ? 1 : -1;
-    const point = routeSidePoint(section.route, progress, side, -0.25);
+    const point = routeSidePoint(section.route, progress, side, (section.route.width || 3) + 0.75);
     const rock = new THREE.Mesh(new THREE.DodecahedronGeometry(0.24 + (index % 3) * 0.07, 0), rockMaterial);
     rock.scale.y = 0.62;
     rock.position.set(point.x, point.y + 0.2, point.z);
@@ -2730,6 +2995,7 @@ function buildLandscape(scene, section, theme, quality, maxAnisotropy = 4) {
 
   return {
     ground,
+    glades,
     fallbackTrees,
     proceduralScenery,
     gate: buildGate(scene, section, theme),
@@ -2775,9 +3041,11 @@ export default function QuestHub({
   onAnswer,
   onCheckpoint,
   onFinish,
-  onGateReady,
+  onPrepareNext,
   onSceneReady,
   onSceneError,
+  onRuntimeSignal,
+  onAudioState,
   onQuit
 }) {
   const stop = getStop(stopId);
@@ -2796,7 +3064,10 @@ export default function QuestHub({
       completedStopIds: state.trail.stopsDone
     });
   });
-  const theme = WORLD_THEMES[section?.world] || WORLD_THEMES.meadow;
+  const theme = useMemo(() => ({
+    ...(WORLD_THEMES[section?.world] || WORLD_THEMES.meadow),
+    ...(SEEDWAKE_VISUAL_MOODS[stopId] || {})
+  }), [section?.world, stopId]);
 
   const validEncounterIds = new Set(section?.encounters.map(encounter => encounter.id) || []);
   const validDropIds = new Set(section?.drops.map(drop => drop.id) || []);
@@ -2853,6 +3124,8 @@ export default function QuestHub({
   const onFinishRef = useRef(onFinish);
   const onSceneReadyRef = useRef(onSceneReady);
   const onSceneErrorRef = useRef(onSceneError);
+  const onRuntimeSignalRef = useRef(onRuntimeSignal);
+  const sceneLoadStartedAtRef = useRef(null);
   const interactiveRef = useRef(Boolean(isInteractive));
   const journeyStatusRef = useRef(journeyStatus);
   const ceremonyRef = useRef(Boolean(ceremony));
@@ -2867,14 +3140,21 @@ export default function QuestHub({
   const reviewedBeatsRef = useRef(initialReviewedBeats);
   const remediationBeatRef = useRef(initialRemediationBeat);
   const verbStateRef = useRef(
-    resumedTask ? createSeedwakeVerbState(resumedTask.mechanic, physicalTaskAnswers(resumedTask)) : null
+    resumedTask
+      ? restoreSeedwakeVerbState(
+        resumedTask.mechanic,
+        physicalTaskAnswers(resumedTask),
+        resumedTask.stages,
+        initialFieldStage
+      )
+      : null
   );
   const verbTaskKeyRef = useRef(resumedTask?.key || null);
   const reactionRef = useRef(null);
 
   const [phase, setPhase] = useState(initialPhase);
   const [guideDone, setGuideDone] = useState(initialGuideDone);
-  const [meetIndex, setMeetIndex] = useState(initialMeetIndex);
+  const [meetIndex] = useState(initialMeetIndex);
   const [solved, setSolved] = useState(() => new Set(initialSolved));
   const [picked, setPicked] = useState(() => new Set(initialPicked));
   const [selectedId, setSelectedId] = useState(null);
@@ -2892,17 +3172,39 @@ export default function QuestHub({
   const [pickupNotice, setPickupNotice] = useState(null);
   const [phonemeFillCount, setPhonemeFillCount] = useState(initialFieldStage);
   const [interactionFeedback, setInteractionFeedback] = useState(null);
+  const [fieldChoicesLocked, setFieldChoicesLocked] = useState(false);
 
   const canvasRef = useRef(null);
+  const lightweightCeremonyMount = ceremony && !isInteractive;
   const sceneGenerationRef = useRef(0);
   const guideRef = useRef(null);
   const landmarkRefs = useRef(new Map());
   const dropRefs = useRef(new Map());
   const moodRef = useRef("idle");
+  const delayedActionsRef = useRef(new Set());
+
+  const scheduleAction = useCallback((callback, delay) => {
+    const timer = window.setTimeout(() => {
+      delayedActionsRef.current.delete(timer);
+      callback();
+    }, delay);
+    delayedActionsRef.current.add(timer);
+    return timer;
+  }, []);
+
+  useEffect(() => () => {
+    for (const timer of delayedActionsRef.current) window.clearTimeout(timer);
+    delayedActionsRef.current.clear();
+  }, []);
 
   const setTrailMood = useCallback(nextMood => {
     moodRef.current = nextMood;
     setMood(nextMood);
+  }, []);
+
+  const setFieldChoiceLock = useCallback(locked => {
+    fieldChoiceLockRef.current = Boolean(locked);
+    setFieldChoicesLocked(Boolean(locked));
   }, []);
 
   const setCorrectionFor = useCallback((encounter, nextBeatIndex, nextStageIndex, { reset = false } = {}) => {
@@ -2916,11 +3218,15 @@ export default function QuestHub({
 
   useEffect(() => { phaseRef.current = phase; }, [phase]);
   useEffect(() => { activeRef.current = active; }, [active]);
+  useEffect(() => {
+    onAudioState?.(ceremony ? "ceremony" : active ? "encounter" : "travel");
+  }, [active, ceremony, onAudioState]);
   useEffect(() => { selectedRef.current = selectedId; }, [selectedId]);
   useEffect(() => { onCheckpointRef.current = onCheckpoint; }, [onCheckpoint]);
   useEffect(() => { onFinishRef.current = onFinish; }, [onFinish]);
   useEffect(() => { onSceneReadyRef.current = onSceneReady; }, [onSceneReady]);
   useEffect(() => { onSceneErrorRef.current = onSceneError; }, [onSceneError]);
+  useEffect(() => { onRuntimeSignalRef.current = onRuntimeSignal; }, [onRuntimeSignal]);
   useEffect(() => { interactiveRef.current = Boolean(isInteractive); }, [isInteractive]);
   useEffect(() => { journeyStatusRef.current = journeyStatus; }, [journeyStatus]);
   useEffect(() => { ceremonyRef.current = Boolean(ceremony); }, [ceremony]);
@@ -2928,6 +3234,10 @@ export default function QuestHub({
   useEffect(() => { beatIndexRef.current = beatIndex; }, [beatIndex]);
   useEffect(() => { fieldStageRef.current = fieldStage; }, [fieldStage]);
   useEffect(() => { moodRef.current = mood; }, [mood]);
+
+  useEffect(() => {
+    if (initialGateOpen) onPrepareNext?.(stopId);
+  }, [initialGateOpen, onPrepareNext, stopId]);
 
   useEffect(() => {
     if (!pickupNotice) return undefined;
@@ -2940,12 +3250,6 @@ export default function QuestHub({
     const timer = window.setTimeout(() => setInteractionFeedback(null), interactionFeedback.duration || 1000);
     return () => window.clearTimeout(timer);
   }, [interactionFeedback]);
-
-  useEffect(() => {
-    if (mode !== "review" && gateOpen && section?.continuity?.nextStopId) {
-      onGateReady?.(stopId, section.continuity.nextStopId);
-    }
-  }, [gateOpen, mode, onGateReady, section, stopId]);
 
   const checkpoint = useCallback((overrides = {}) => {
     const currentActive = overrides.active === undefined ? activeRef.current : overrides.active;
@@ -3004,12 +3308,16 @@ export default function QuestHub({
 
   useEffect(() => {
     if (!section || !canvasRef.current) return undefined;
+    sceneLoadStartedAtRef.current = Date.now();
     const canvas = canvasRef.current;
     sceneGenerationRef.current += 1;
     canvas.dataset.sceneGeneration = String(sceneGenerationRef.current);
     const quality = qualityTier?.id ? qualityTier : detectQuestQuality(state.settings);
     const scene = new THREE.Scene();
-    const lightMood = section.lighting || { glow: 0.5, warmth: 0.3 };
+    const lightMood = {
+      ...(section.lighting || { glow: 0.5, warmth: 0.3 }),
+      ...(SEEDWAKE_LIGHT_MOODS[stopId] || {})
+    };
     const skyFallback = new THREE.Color(theme.sky);
     scene.background = skyFallback;
     scene.fog = new THREE.Fog(theme.fog, 29 + lightMood.warmth * 4, 88 + lightMood.glow * 20);
@@ -3062,8 +3370,12 @@ export default function QuestHub({
     let frame = 0;
     let readySent = false;
     let firstFrameRendered = false;
-    let visualAssetsSettled = false;
+    // The authored fallback is a complete playable frame. Reveal it on the
+    // first render, then stream heavier glTF upgrades without holding a child
+    // on a loading screen while models parse or shaders compile.
+    let visualAssetsSettled = true;
     let assetsDisposed = false;
+    const deferredAssetTimers = new Set();
     let importedNature = null;
     let authoredChapterKit = null;
     let previous = performance.now();
@@ -3076,6 +3388,36 @@ export default function QuestHub({
     let locomotionState = createQuestLocomotionState(
       routeDirectionAt(section.route, routeProgressAt(section.route, playerRef.current)).heading
     );
+    let frameBudget = createQuestFrameBudgetState(renderQuality.id);
+    let contextFailed = false;
+    const sendRuntimeSignal = signal => {
+      if (!signal || !interactiveRef.current) return;
+      onRuntimeSignalRef.current?.({
+        ...signal,
+        stopId,
+        at: new Date().toISOString()
+      });
+    };
+    const handleContextLost = event => {
+      event.preventDefault();
+      if (contextFailed || assetsDisposed) return;
+      contextFailed = true;
+      checkpoint();
+      sendRuntimeSignal({
+        type: "context-lost",
+        fromTier: renderQuality.id,
+        toTier: "2d"
+      });
+      setSceneError(true);
+    };
+    const handleContextRestored = () => {
+      sendRuntimeSignal({
+        type: "context-restored",
+        tierId: renderQuality.id
+      });
+    };
+    canvas.addEventListener("webglcontextlost", handleContextLost, false);
+    canvas.addEventListener("webglcontextrestored", handleContextRestored, false);
     const skyTexture = new THREE.TextureLoader().load(
       `/images/quest/${section.world}/sky.webp`,
       texture => {
@@ -3111,44 +3453,34 @@ export default function QuestHub({
       if (readySent || assetsDisposed || !firstFrameRendered || !visualAssetsSettled) return;
       readySent = true;
       setSceneReady(true);
+      sendRuntimeSignal({
+        type: "scene-ready",
+        tierId: renderQuality.id,
+        loadMs: Date.now() - sceneLoadStartedAtRef.current
+      });
       onSceneReadyRef.current?.(section);
     };
 
-    const disposeCharacterSet = set => {
-      disposeAssetObject(set?.player);
-      disposeAssetObject(set?.guide);
-      for (const resident of set?.residents?.values?.() || []) disposeAssetObject(resident);
-    };
+    const deferAssetLoad = (factory, delay) => new Promise(resolve => {
+      const timer = window.setTimeout(() => {
+        deferredAssetTimers.delete(timer);
+        if (assetsDisposed) {
+          resolve(undefined);
+          return;
+        }
+        Promise.resolve()
+          .then(factory)
+          .then(resolve, () => resolve(undefined));
+      }, delay);
+      deferredAssetTimers.add(timer);
+    });
 
-    const replaceCharacter = (current, replacement) => {
-      if (!replacement) return current;
-      replacement.position.copy(current.position);
-      replacement.rotation.copy(current.rotation);
-      replacement.visible = current.visible;
-      scene.remove(current);
-      disposeAssetObject(current);
-      scene.add(replacement);
-      return replacement;
-    };
-
-    const characterLoad = createRiggedTrailCharacters(section, {
-      includePlayer: false,
-      maxAnisotropy,
-      compact: window.innerWidth < 640
-    }).then(nextCharacters => {
-      if (assetsDisposed) {
-        disposeCharacterSet(nextCharacters);
-        return;
-      }
-      characters.guide = replaceCharacter(characters.guide, nextCharacters.guide);
-      for (const [encounterId, replacement] of nextCharacters.residents) {
-        const current = characters.residents.get(encounterId);
-        if (current) characters.residents.set(encounterId, replaceCharacter(current, replacement));
-        else disposeAssetObject(replacement);
-      }
-    }).catch(() => undefined);
-
-    const natureLoad = createImportedNature(section, theme, renderQuality, { maxAnisotropy })
+    const natureLoad = lightweightCeremonyMount
+      ? Promise.resolve(undefined)
+      : deferAssetLoad(
+        () => createImportedNature(section, theme, renderQuality, { maxAnisotropy }),
+        680
+      )
       .then(nextNature => {
         if (!nextNature) return;
         if (assetsDisposed) {
@@ -3165,7 +3497,12 @@ export default function QuestHub({
       })
       .catch(() => undefined);
 
-    const chapterKitLoad = createAuthoredChapterKit(section, theme, renderQuality, { maxAnisotropy })
+    const chapterKitLoad = lightweightCeremonyMount
+      ? Promise.resolve(undefined)
+      : deferAssetLoad(
+        () => createAuthoredChapterKit(section, theme, renderQuality, { maxAnisotropy }),
+        220
+      )
       .then(nextKit => {
         if (!nextKit) return;
         if (assetsDisposed) {
@@ -3178,17 +3515,60 @@ export default function QuestHub({
       })
       .catch(() => undefined);
 
+    const riggedCastLoad = (lightweightCeremonyMount
+      ? Promise.resolve(undefined)
+      : deferAssetLoad(() => createRiggedTrailCharacters(section, {
+        includePlayer: false,
+        maxAnisotropy,
+        compact: viewport.width < 640
+      }), 90)).then(nextCast => {
+      if (!nextCast) return;
+      if (assetsDisposed) {
+        if (nextCast.guide) disposeAssetObject(nextCast.guide);
+        for (const resident of nextCast.residents.values()) disposeAssetObject(resident);
+        return;
+      }
+      if (nextCast.guide) {
+        const previousGuide = characters.guide;
+        nextCast.guide.position.copy(previousGuide.position);
+        nextCast.guide.userData.groundY = previousGuide.userData.groundY || 0;
+        scene.remove(previousGuide);
+        disposeAssetObject(previousGuide);
+        characters.guide = nextCast.guide;
+        scene.add(characters.guide);
+      }
+      for (const [encounterId, nextResident] of nextCast.residents) {
+        const previousResident = characters.residents.get(encounterId);
+        if (!previousResident) {
+          disposeAssetObject(nextResident);
+          continue;
+        }
+        nextResident.position.copy(previousResident.position);
+        nextResident.userData.groundY = previousResident.userData.groundY || 0;
+        scene.remove(previousResident);
+        disposeAssetObject(previousResident);
+        characters.residents.set(encounterId, nextResident);
+        scene.add(nextResident);
+      }
+    }).catch(() => undefined);
+
     const fieldSpecs = [...landscape.fieldTasks.values()].flatMap(task => (
       [...task.items, ...task.completions].map(item => {
         const spec = item.userData.fieldSpec;
         return {
           ...spec,
-          tint: spec.shape === "cake" || spec.colour ? taskColour(spec, theme) : null
+          tint: spec.shape === "cake" || spec.shape?.includes("lantern") || spec.colour ? taskColour(spec, theme) : null
         };
       })
     ));
-    const fieldAvatarLoad = createImportedFieldAvatars(fieldSpecs, { maxAnisotropy })
+    const fieldAvatarLoad = lightweightCeremonyMount
+      ? Promise.resolve(undefined)
+      : deferAssetLoad(
+        () => createImportedFieldAvatars(fieldSpecs, { maxAnisotropy }),
+        420
+      )
       .then(avatars => {
+        if (!avatars) return;
         if (assetsDisposed) {
           for (const avatar of avatars.values()) disposeAssetObject(avatar);
           return;
@@ -3196,23 +3576,17 @@ export default function QuestHub({
         attachImportedFieldAvatars(landscape.fieldTasks, avatars);
       })
       .catch(() => undefined);
-    const letterTokenLoad = Promise.all([fieldAvatarLoad, loadQuestTokenFont()])
+    const letterTokenLoad = Promise.all([
+      fieldAvatarLoad,
+      lightweightCeremonyMount ? Promise.resolve(undefined) : deferAssetLoad(() => loadQuestTokenFont(), 540)
+    ])
       .then(([, font]) => {
-        if (assetsDisposed) return;
+        if (assetsDisposed || !font) return;
         attachBeveledLetterTokens(landscape.fieldTasks, font);
       })
       .catch(() => undefined);
 
-    const visualAssetTimeout = window.setTimeout(() => {
-      visualAssetsSettled = true;
-      revealScene();
-    }, 3600);
-    Promise.allSettled([characterLoad, natureLoad, letterTokenLoad, chapterKitLoad]).then(() => {
-      if (assetsDisposed) return;
-      window.clearTimeout(visualAssetTimeout);
-      visualAssetsSettled = true;
-      revealScene();
-    });
+    Promise.allSettled([natureLoad, letterTokenLoad, chapterKitLoad, riggedCastLoad]);
 
     const currentLimit = () => {
       const baseLimit = forwardLimitFor(section, {
@@ -3245,6 +3619,10 @@ export default function QuestHub({
           && Boolean(item.userData.fieldChoice?.correct) === (outcome === "correct")
         ))?.userData.fieldChoice;
         return Boolean(choice && fieldTaskSelectRef.current?.(choice));
+      },
+      loseContext() {
+        handleContextLost({ preventDefault() {} });
+        return true;
       }
     } : null;
     if (sliceDebug && interactiveRef.current) window.__questSliceDebug = sliceDebug;
@@ -3350,11 +3728,29 @@ export default function QuestHub({
           const hit = raycaster.intersectObjects(stageItems, true)[0];
           let node = hit?.object || null;
           while (node && !node.userData.fieldChoice) node = node.parent;
-          if (node?.userData.fieldChoice) {
-            fieldTaskSelectRef.current?.(node.userData.fieldChoice);
+          const intent = resolveQuestPointerIntent({
+            encounterActive: true,
+            fieldChoice: node?.userData.fieldChoice || null,
+            mechanic: task.mechanic
+          });
+          if (intent.type === "activate") {
+            fieldTaskSelectRef.current?.(intent.fieldChoice);
+            return;
+          }
+          if (intent.type === "approach") {
+            const destination = stageItems.find(item => belongsTo(hit?.object, item));
+            if (!destination) return;
+            selectedRef.current = intent.fieldChoice.id;
+            setSelectedId(intent.fieldChoice.id);
+            targetRef.current = clampTrailPosition({
+              x: destination.userData.baseX,
+              y: destination.userData.baseY || 0,
+              z: destination.userData.baseZ
+            }, section, currentLimit());
             return;
           }
         }
+        return;
       }
 
       const hit = raycaster.intersectObject(landscape.ground, false)[0];
@@ -3384,7 +3780,7 @@ export default function QuestHub({
       locomotionState = createQuestLocomotionState(characters.player.userData.facing || locomotionState.heading);
       beatIndexRef.current = 0;
       fieldStageRef.current = 0;
-      fieldChoiceLockRef.current = false;
+      setFieldChoiceLock(false);
       fieldCollisionArmedRef.current = true;
       reviewQueueRef.current = [];
       reviewedBeatsRef.current = [];
@@ -3406,6 +3802,18 @@ export default function QuestHub({
     };
 
     const animate = now => {
+      if (contextFailed || assetsDisposed) return;
+      try {
+        animateFrame(now);
+      } catch (error) {
+        contextFailed = true;
+        checkpoint();
+        setSceneError(true);
+        onSceneErrorRef.current?.(error instanceof Error ? error.message : String(error));
+      }
+    };
+
+    const animateFrame = now => {
       if (sliceDebug && interactiveRef.current && window.__questSliceDebug !== sliceDebug) {
         window.__questSliceDebug = sliceDebug;
       }
@@ -3417,8 +3825,17 @@ export default function QuestHub({
         return;
       }
       lastRenderedFrame = now;
-      const dt = Math.max(0, Math.min(0.045, (now - previous) / 1000));
+      const renderedFrameMs = now - previous;
+      const dt = Math.max(0, Math.min(0.045, renderedFrameMs / 1000));
       previous = now;
+      if (interactiveRef.current && !contextFailed) {
+        const sample = sampleQuestFrameBudget(frameBudget, renderedFrameMs);
+        frameBudget = sample.state;
+        if (sample.signal) {
+          checkpoint();
+          sendRuntimeSignal(sample.signal);
+        }
+      }
       // Decorative motion runs on its own clock so reduced-motion can freeze
       // it without touching gameplay. motionScale 1 = full ambience; 0 = the
       // birds, petals, bobbing drops and flame flicker hold still while the
@@ -3437,7 +3854,13 @@ export default function QuestHub({
       const player = playerRef.current;
       let moving = false;
       const physicalBeat = activeRef.current?.beats?.[beatIndexRef.current];
-      const physicalTaskActive = isPhysicalEncounter(activeRef.current, physicalBeat) && !fieldChoiceLockRef.current;
+      const currentPhysicalTask = activeRef.current
+        ? buildPhysicalTask(section, activeRef.current, physicalBeat, beatIndexRef.current)
+        : null;
+      const physicalTaskActive = Boolean(currentPhysicalTask) && !fieldChoiceLockRef.current;
+      const mechanicProfile = questMechanicProfile(
+        currentPhysicalTask?.chapterAuthored ? currentPhysicalTask.mechanic : null
+      );
 
       if (interactiveRef.current && phaseRef.current === "trail" && (!activeRef.current || physicalTaskActive) && !finishingRef.current) {
         let inputX = 0;
@@ -3460,7 +3883,7 @@ export default function QuestHub({
             desiredX: dx / length,
             desiredZ: dz / length,
             dt,
-            maxSpeed: MOVE_SPEED
+            maxSpeed: MOVE_SPEED * mechanicProfile.speed
           });
           const next = clampTrailPosition({
             x: player.x + locomotionState.x * dt,
@@ -3493,7 +3916,7 @@ export default function QuestHub({
               desiredX: tx / distance,
               desiredZ: tz / distance,
               dt,
-              maxSpeed: MOVE_SPEED
+                maxSpeed: MOVE_SPEED * mechanicProfile.speed
             });
             const step = Math.min(distance, locomotionState.speed * dt);
             const next = clampTrailPosition({
@@ -3503,7 +3926,10 @@ export default function QuestHub({
             Object.assign(player, next);
             moving = true;
           } else {
-            locomotionState = stepQuestLocomotion(locomotionState, { dt, maxSpeed: MOVE_SPEED });
+            locomotionState = stepQuestLocomotion(locomotionState, {
+              dt,
+              maxSpeed: MOVE_SPEED * mechanicProfile.speed
+            });
             if (!locomotionState.settled) {
               const next = clampTrailPosition({
                 x: player.x + locomotionState.x * dt,
@@ -3538,7 +3964,7 @@ export default function QuestHub({
             armed: fieldCollisionArmedRef.current,
             player,
             stage: fieldStageRef.current,
-            interactionRadius: rewardBonuses.interactionRadius,
+            interactionRadius: rewardBonuses.interactionRadius * mechanicProfile.collision,
             items: activeTask.items.map(item => ({
               visible: item.visible,
               x: item.position.x,
@@ -3563,8 +3989,8 @@ export default function QuestHub({
           setPicked(next);
           const collectible = seedwakeStopSpec(stopId)?.collectible;
           setPickupNotice(foundDrop.cache
-            ? "Route cache opened"
-            : `Found a ${collectible?.label || "sun drop"}`);
+            ? `Route cache opened · +${SPARKS_PER_DROP} Sparks`
+            : `${collectible?.label || "Trail find"} · +${SPARKS_PER_DROP} Sparks`);
           if (isSoundEnabled) playStarChime();
           checkpoint({ picked: next });
         }
@@ -3684,11 +4110,32 @@ export default function QuestHub({
             y: item.userData.baseY,
             z: item.userData.baseZ
           })) || [currentActive];
+        const residentPoint = physicalTaskResidentPoint(section, currentActive);
+        cameraItems.push(
+          { x: residentPoint.x, y: residentPoint.y || 0, z: residentPoint.z },
+          { x: player.x, y: player.y || 0, z: player.z }
+        );
         const cameraKey = `${currentActive.id}:${beatIndexRef.current}:${fieldStageRef.current}:${viewport.width}x${viewport.height}`;
         if (encounterCameraState?.key !== cameraKey) {
+          const basePose = encounterCameraPose(cameraItems, direction, viewport);
+          const profile = questMechanicProfile(liveTask?.chapterAuthored ? liveTask.mechanic : null);
+          const baseFocus = new THREE.Vector3(basePose.focus.x, basePose.focus.y, basePose.focus.z);
+          const basePosition = new THREE.Vector3(basePose.position.x, basePose.position.y, basePose.position.z);
+          const offset = basePosition.sub(baseFocus).multiplyScalar(profile.distance);
+          const right = new THREE.Vector3(direction.z, 0, -direction.x);
+          const profiledPosition = baseFocus.clone()
+            .add(offset)
+            .addScaledVector(right, profile.side);
+          profiledPosition.y += profile.elevation;
           encounterCameraState = {
             key: cameraKey,
-            ...encounterCameraPose(cameraItems, direction, viewport)
+            focus: basePose.focus,
+            position: {
+              x: profiledPosition.x,
+              y: profiledPosition.y,
+              z: profiledPosition.z
+            },
+            fov: profile.fov
           };
         }
         focus = new THREE.Vector3(
@@ -3747,8 +4194,13 @@ export default function QuestHub({
           );
         }
       }
-      camera.position.lerp(desiredCamera, 1 - Math.pow(0.028, dt));
-      lookTarget.lerp(focus, 1 - Math.pow(0.018, dt));
+      if (currentActive && !firstFrameRendered) {
+        camera.position.copy(desiredCamera);
+        lookTarget.copy(focus);
+      } else {
+        camera.position.lerp(desiredCamera, 1 - Math.pow(0.028, dt));
+        lookTarget.lerp(focus, 1 - Math.pow(0.018, dt));
+      }
       if (currentActive && camera.position.distanceTo(desiredCamera) < 0.012) camera.position.copy(desiredCamera);
       if (currentActive && lookTarget.distanceTo(focus) < 0.008) lookTarget.copy(focus);
       const nextFov = THREE.MathUtils.lerp(camera.fov, desiredFov, 1 - Math.pow(0.028, dt));
@@ -3810,11 +4262,19 @@ export default function QuestHub({
       updateQuestAtmosphere(atmosphere, now, dt, ceremonyRef.current);
       const clearCameraCorridor = playerProgress > (section.isChapterFinale ? 0.62 : 0.88);
       const clearEncounterStage = Boolean(liveEncounter);
-      if (importedNature) importedNature.visible = !clearCameraCorridor && !clearEncounterStage;
+      if (importedNature) {
+        importedNature.visible = !clearCameraCorridor;
+        for (const layer of importedNature.children) {
+          layer.visible = !clearEncounterStage || !layer.name.startsWith("textured-tree-belt");
+        }
+      }
       if (landscape.fallbackTrees) landscape.fallbackTrees.visible = !clearCameraCorridor && !clearEncounterStage;
-      if (authoredChapterKit) authoredChapterKit.visible = !clearEncounterStage;
+      if (authoredChapterKit) authoredChapterKit.visible = true;
+      for (const asset of authoredChapterKit?.children || []) {
+        asset.visible = !(clearEncounterStage && asset.userData.hideDuringEncounter);
+      }
       if (landscape.proceduralScenery) {
-        landscape.proceduralScenery.visible = !authoredChapterKit && !clearEncounterStage;
+        landscape.proceduralScenery.visible = !authoredChapterKit;
       }
 
       projectElement(guideRef.current, section.guide, camera, viewport, { lift: 1.65, scale: 0.72, anchor: "-20%" });
@@ -3839,10 +4299,13 @@ export default function QuestHub({
 
     return () => {
       assetsDisposed = true;
-      window.clearTimeout(visualAssetTimeout);
+      for (const timer of deferredAssetTimers) window.clearTimeout(timer);
+      deferredAssetTimers.clear();
       cancelAnimationFrame(frame);
       observer.disconnect();
       canvas.removeEventListener("pointerdown", onPointer);
+      canvas.removeEventListener("webglcontextlost", handleContextLost, false);
+      canvas.removeEventListener("webglcontextrestored", handleContextRestored, false);
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
       if (scene.background === skyTexture) scene.background = null;
@@ -3863,10 +4326,12 @@ export default function QuestHub({
     checkpoint,
     cuePhysicalTask,
     setCorrectionFor,
+    setFieldChoiceLock,
     setTrailMood,
     rewardBonuses,
     qualityTier,
-    state.settings
+    state.settings,
+    lightweightCeremonyMount
   ]);
 
   const answer = (correct, target) => {
@@ -3899,7 +4364,7 @@ export default function QuestHub({
     activeRef.current = null;
     beatIndexRef.current = 0;
     fieldStageRef.current = 0;
-    fieldChoiceLockRef.current = false;
+    setFieldChoiceLock(false);
     reviewQueueRef.current = [];
     reviewedBeatsRef.current = [];
     remediationBeatRef.current = null;
@@ -3927,6 +4392,7 @@ export default function QuestHub({
 
     if (isChapterGateOpen(section.encounters, nextSolved)) {
       setGateOpen(true);
+      onPrepareNext?.(stopId);
       if (isSoundEnabled) playWhoosh();
     }
   };
@@ -3939,7 +4405,7 @@ export default function QuestHub({
     remediationBeatRef.current = reviewIndex;
     beatIndexRef.current = reviewIndex;
     fieldStageRef.current = 0;
-    fieldChoiceLockRef.current = false;
+    setFieldChoiceLock(false);
     const reviewTask = buildPhysicalTask(section, current, current.beats[reviewIndex], reviewIndex);
     verbStateRef.current = reviewTask
       ? createSeedwakeVerbState(reviewTask.mechanic, physicalTaskAnswers(reviewTask))
@@ -3970,7 +4436,7 @@ export default function QuestHub({
     // The final helper owns the physical gate. A miss gets another friendly try
     // at the same beat; there is no extra boss quiz and no permanent failure.
     if (current.atGate && !lastCorrectRef.current) {
-      fieldChoiceLockRef.current = false;
+      setFieldChoiceLock(false);
       setRetryNonce(value => value + 1);
       setTrailMood("idle");
       cuePhysicalTask(current, beatIndexRef.current, fieldStageRef.current);
@@ -3990,7 +4456,7 @@ export default function QuestHub({
       const nextIndex = beatIndexRef.current + 1;
       beatIndexRef.current = nextIndex;
       fieldStageRef.current = 0;
-      fieldChoiceLockRef.current = false;
+      setFieldChoiceLock(false);
       lastCorrectRef.current = current.kind === "story-rock";
       setBeatIndex(nextIndex);
       setFieldStage(0);
@@ -4023,20 +4489,34 @@ export default function QuestHub({
       targetRef.current = { ...playerRef.current };
       selectedRef.current = null;
       setSelectedId(null);
-      fieldChoiceLockRef.current = true;
+      setFieldChoiceLock(true);
       if (!verbStateRef.current || verbTaskKeyRef.current !== task.key) {
-        verbStateRef.current = createSeedwakeVerbState(task.mechanic, physicalTaskAnswers(task));
+        verbStateRef.current = task.chapterAuthored
+          ? restoreSeedwakeVerbState(
+            task.mechanic,
+            physicalTaskAnswers(task),
+            task.stages,
+            fieldStageRef.current
+          )
+          : null;
         verbTaskKeyRef.current = task.key;
       }
-      const verbResult = applySeedwakeVerbInput(task.mechanic, verbStateRef.current, {
-        type: stage.playerAction,
-        correct: Boolean(choice.correct),
-        value: choice.value,
-        stage: fieldStageRef.current
+      const verbResult = applyQuestTaskInput({
+        chapterAuthored: task.chapterAuthored,
+        mechanic: task.mechanic,
+        state: verbStateRef.current,
+        input: {
+          type: stage.playerAction,
+          correct: Boolean(choice.correct),
+          value: choice.value,
+          stage: fieldStageRef.current,
+          onBeat: task.mechanic !== "gate-chorus" || questRhythmPulse(performance.now()).open
+        }
       });
       verbStateRef.current = verbResult.state;
       const right = Boolean(choice.correct && verbResult.accepted);
-      const actionKind = stage.playerAction === "pick-up" ? "carry" : stage.playerAction;
+      const motorRetry = Boolean(choice.correct && verbResult.recordAttempt === false);
+      const actionKind = stage.playerAction === "pick-up" ? "carry" : stage.playerAction || task.mechanic;
       interactionActionRef.current = {
         taskKey: task.key,
         choiceId: choice.id,
@@ -4046,8 +4526,20 @@ export default function QuestHub({
         duration: right ? 620 : 380,
         until: performance.now() + (right ? 620 : 380)
       };
-      if (isSoundEnabled) (right ? playCorrectChime : playSoftBuzz)();
+      if (isSoundEnabled && !motorRetry) (right ? playCorrectChime : playSoftBuzz)();
       if (!right) {
+        if (motorRetry) {
+          setInteractionFeedback({
+            kind: "rhythm",
+            announcement: "Wait for the bright glow",
+            duration: 560
+          });
+          scheduleAction(() => {
+            setFieldChoiceLock(false);
+            setTrailMood("idle");
+          }, 420);
+          return true;
+        }
         const key = correctionKey(current, beatIndexRef.current, fieldStageRef.current);
         const nextCorrection = recordCorrectionMiss(correctionRecordsRef.current[key], choice.id);
         correctionRecordsRef.current = { ...correctionRecordsRef.current, [key]: nextCorrection };
@@ -4071,19 +4563,19 @@ export default function QuestHub({
         if (nextCorrection.mode === "teach") {
           setTrailMood("teach");
           cuePhysicalTask(current, beatIndexRef.current, fieldStageRef.current);
-          window.setTimeout(() => {
+          scheduleAction(() => {
             const guided = completeTeachBack(correctionRecordsRef.current[key]);
             correctionRecordsRef.current = { ...correctionRecordsRef.current, [key]: guided };
             correctionRef.current = guided;
             setCorrection(guided);
-            fieldChoiceLockRef.current = false;
+            setFieldChoiceLock(false);
             setTrailMood("idle");
             cuePhysicalTask(current, beatIndexRef.current, fieldStageRef.current);
             checkpoint({ corrections: correctionRecordsRef.current, reviewQueue: reviewQueueRef.current });
           }, 1450);
         } else {
-          window.setTimeout(() => {
-            fieldChoiceLockRef.current = false;
+          scheduleAction(() => {
+            setFieldChoiceLock(false);
             setTrailMood("idle");
             cuePhysicalTask(current, beatIndexRef.current, fieldStageRef.current);
           }, 820);
@@ -4094,9 +4586,9 @@ export default function QuestHub({
       const nextStage = fieldStageRef.current + 1;
       setPhonemeFillCount(Math.min(task.stages.length, nextStage));
       if (nextStage < task.stages.length) {
-        window.setTimeout(() => {
+        scheduleAction(() => {
           fieldStageRef.current = nextStage;
-          fieldChoiceLockRef.current = false;
+          setFieldChoiceLock(false);
           setFieldStage(nextStage);
           setCorrectionFor(current, beatIndexRef.current, nextStage);
           setTrailMood("cheer");
@@ -4117,9 +4609,9 @@ export default function QuestHub({
           announcement: slotState.announcement || `Word complete: ${beat.word}`,
           duration: 1250
         });
-        window.setTimeout(() => sayWord(beat.word, isSoundEnabled), 300);
+        scheduleAction(() => sayWord(beat.word, isSoundEnabled), 300);
       }
-      window.setTimeout(nextBeat, blendComplete ? 1180 : 640);
+      scheduleAction(nextBeat, blendComplete ? 1180 : 640);
       return true;
     };
   });
@@ -4159,13 +4651,20 @@ export default function QuestHub({
   for (const grapheme of activeWordParts.slice(0, phonemeFillCount)) {
     activeSlotState = advancePhonemeSlotState(activeSlotState, grapheme, true);
   }
+  const encounterTasks = active?.beats?.map((encounterBeat, encounterBeatIndex) => (
+    buildPhysicalTask(section, active, encounterBeat, encounterBeatIndex)
+  )) || [];
+  const encounterStageCount = encounterTasks.reduce((total, task) => total + (task?.stages.length || 0), 0);
+  const encounterStageIndex = encounterTasks
+    .slice(0, beatIndex)
+    .reduce((total, task) => total + (task?.stages.length || 0), 0) + fieldStage;
   const encounterHud = activeFieldStage
     ? seedwakeEncounterHudModel({
       objective: activeCorrection.prompt,
       rewardLabel: seedwakeSpec?.collectible.plural || "finds",
       rewardCount: currentPocket?.count || 0,
-      stageIndex: fieldStage,
-      stageCount: activeFieldTask?.stages.length || 1
+      stageIndex: encounterStageIndex,
+      stageCount: encounterStageCount || 1
     })
     : [];
 
@@ -4266,13 +4765,13 @@ export default function QuestHub({
         <button type="button" className="q-ghost qh-leave" onClick={leaveWorld}>Back to the Den</button>
         <div className="qh-land-title">
           <span>{stop?.name || theme.name}</span>
-          <strong>{mode === "review" ? "Free-roam review" : `Trail ${sectionNumber} of ${QUEST_STOPS.length}`}</strong>
+          <strong>{mode === "review" ? "Sound practice" : `Trail ${sectionNumber} of ${QUEST_STOPS.length}`}</strong>
         </div>
         <div className="qh-economy">
           {seedwakeSpec && (
-            <div className="qh-satchel" aria-label={`${currentPocket?.count || 0} ${seedwakeSpec.collectible.plural}, ${satchel.total} Seedwake finds in total`}>
+            <div className="qh-satchel" aria-label={`${satchel.total} chapter finds, including ${currentPocket?.count || 0} ${seedwakeSpec.collectible.plural}`}>
               <span className="qh-satchel-mark" aria-hidden="true" />
-              <span><strong>{currentPocket?.count || 0}</strong><small>{seedwakeSpec.collectible.plural}</small></span>
+              <span><strong>{satchel.total}</strong><small>chapter finds</small></span>
               <em>{satchel.nextCacheAt ? `${satchel.nextCacheAt - satchel.total} to cache` : "caches open"}</em>
             </div>
           )}
@@ -4286,13 +4785,6 @@ export default function QuestHub({
       {!active && <div className="qh-route-meter" aria-label={`${routePercent}% through this trail`}>
         <span style={{ "--qh-progress": `${routePercent}%` }} />
       </div>}
-
-      {seedwakeSpec && phase === "trail" && !active && (
-        <aside className="qh-mission" aria-label="Current mission">
-          <span>{seedwakeSpec.verb}</span>
-          <strong>{seedwakeSpec.mission}</strong>
-        </aside>
-      )}
 
       {pickupNotice && <div className="qh-pickup-notice" aria-live="polite">{pickupNotice}</div>}
 
@@ -4318,6 +4810,29 @@ export default function QuestHub({
             <small>{encounterHud[1]?.progress}</small>
           </div>
         </header>
+      )}
+
+      {sceneReady && activeFieldStage && (
+        <div className="qh-semantic-choices" role="group" aria-label="Answer choices">
+          {activeFieldStage.items
+            .filter(item => activeCorrection.visibleIds.includes(item.id))
+            .map(item => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => fieldTaskSelectRef.current?.(item)}
+                onKeyDown={event => {
+                  if (!['Enter', ' '].includes(event.key)) return;
+                  event.preventDefault();
+                  fieldTaskSelectRef.current?.(item);
+                }}
+                disabled={fieldChoicesLocked}
+                aria-label={`Choose ${item.label}`}
+              >
+                {displayGrapheme(item.label)}
+              </button>
+            ))}
+        </div>
       )}
 
       {activeWordParts.length > 1 && (
@@ -4367,22 +4882,14 @@ export default function QuestHub({
         <Guide
           key={teach.id}
           world={section.world}
-          entry={teach}
+          entries={section.teach}
           isSoundEnabled={isSoundEnabled}
-          last={meetIndex + 1 >= section.teach.length}
           onNext={() => {
-            if (meetIndex + 1 < section.teach.length) {
-              const nextIndex = meetIndex + 1;
-              meetIndexRef.current = nextIndex;
-              setMeetIndex(nextIndex);
-              checkpoint({ phase: "teach", meetIndex: nextIndex });
-            } else {
-              guideDoneRef.current = true;
-              setGuideDone(true);
-              phaseRef.current = "trail";
-              setPhase("trail");
-              checkpoint({ phase: "trail", guideDone: true });
-            }
+            guideDoneRef.current = true;
+            setGuideDone(true);
+            phaseRef.current = "trail";
+            setPhase("trail");
+            checkpoint({ phase: "trail", guideDone: true, meetIndex: 0 });
           }}
         />
       )}

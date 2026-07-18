@@ -7,7 +7,7 @@ import {
   QUEST_CHAPTER_ASSET_KITS,
   QUEST_STOP_ASSET_KITS
 } from "../../../data/threeAssetLibrary.js";
-import { routeDirectionAt, routeSidePoint } from "../../../utils/questHub.js";
+import { routeDirectionAt, routeProgressAt, routeSidePoint } from "../../../utils/questHub.js";
 
 const MONSTER_ROOT = "/models/quest/monsters";
 const NATURE_ROOT = "/models/quest/nature";
@@ -31,7 +31,9 @@ const WORLD_CASTS = Object.freeze({
   meadow: {
     player: "mushnubEvolved",
     guide: "bunny",
-    residents: ["frog", "mushroomKing", "greenBlob", "pinkBlob"]
+    // Seedwake is a five-stop chapter. Give every stop a recognisable resident
+    // silhouette instead of dropping back to the two near-featureless blobs.
+    residents: ["frog", "mushroomKing", "mushnub", "yeti", "wizard"]
   },
   dino: {
     player: "mushnubEvolved",
@@ -112,11 +114,11 @@ function physicalMaterialFrom(source, { tint = null, tintStrength = 0.24, maxAni
     normalScale: source.normalScale || new THREE.Vector2(1, 1),
     roughnessMap: source.roughnessMap || null,
     metalnessMap: source.metalnessMap || null,
-    roughness: 0.58,
-    metalness: 0.015,
-    clearcoat: 0.18,
-    clearcoatRoughness: 0.72,
-    sheen: 0.12,
+    roughness: 0.4,
+    metalness: 0,
+    clearcoat: 0.24,
+    clearcoatRoughness: 0.58,
+    sheen: 0.18,
     sheenRoughness: 0.78,
     envMapIntensity: 0.92,
     transparent: source.transparent,
@@ -171,8 +173,8 @@ function prepareRiggedCharacter(gltf, modelKey, {
     object.receiveShadow = true;
   });
 
-  const desktopScale = role === "player" ? 0.58 : role === "guide" ? 0.74 : 0.7;
-  const roleScale = desktopScale * (compact ? (role === "player" ? 0.72 : 0.86) : 1);
+  const desktopScale = role === "player" ? 0.82 : role === "guide" ? 1.34 : 1.46;
+  const roleScale = desktopScale * (compact ? (role === "player" ? 0.76 : 0.9) : 1);
   root.name = `${role}-${modelKey}-rigged`;
   root.userData.baseScale = roleScale;
   root.userData.groundY = spec.groundY || 0;
@@ -495,7 +497,7 @@ function treeLayout(section, rows, index) {
   }
   const clearDestination = progress > (section.isChapterFinale ? 0.64 : 0.82);
   const clearTaskGlade = [section.guide, ...section.encounters].some(taskPoint => (
-    Math.hypot(taskPoint.x - point.x, taskPoint.z - point.z) < 10.5
+    Math.hypot(taskPoint.x - point.x, taskPoint.z - point.z) < 6.1
   ));
   return {
     x: point.x,
@@ -573,7 +575,7 @@ function createInstancedGrass(section, theme, quality) {
     const seed = section.stopIndex * 193 + index * 29;
     const offset = section.route.width + 0.65 + seededUnit(seed) * 5.4;
     const point = routeSidePoint(section.route, progress, side, offset);
-    const clearsTask = taskPoints.every(task => Math.hypot(task.x - point.x, task.z - point.z) > 5.8);
+    const clearsTask = taskPoints.every(task => Math.hypot(task.x - point.x, task.z - point.z) > 4.8);
     const scale = clearsTask ? 0.46 + seededUnit(seed + 7) * 0.54 : 0.001;
     helper.position.set(
       point.x + (seededUnit(seed + 3) - 0.5) * 1.4,
@@ -761,7 +763,11 @@ export async function createAuthoredChapterKit(section, theme, quality, { maxAni
     const copies = quality.id === "low" ? 1 : Math.max(1, Number(spec.copies) || 1);
     for (let copyIndex = 0; copyIndex < copies; copyIndex += 1) {
       const asset = prepareChapterAsset(result.value, spec, section, theme, { maxAnisotropy });
-      const progress = Math.min(0.88, spec.progress + copyIndex * 0.035);
+      asset.userData.hideDuringEncounter = Boolean(spec.hideDuringEncounter);
+      const encounterProgress = Number.isInteger(spec.encounter)
+        ? routeProgressAt(section.route, section.encounters[spec.encounter] || section.guide)
+        : null;
+      const progress = Math.min(0.9, (encounterProgress ?? spec.progress) + copyIndex * 0.035);
       const side = copyIndex % 2 ? -spec.side : spec.side;
       const point = routeSidePoint(section.route, progress, side, spec.offset + copyIndex * 0.34);
       asset.position.set(point.x, point.y, point.z);

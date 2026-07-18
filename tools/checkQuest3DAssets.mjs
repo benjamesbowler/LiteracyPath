@@ -9,6 +9,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const ASSET_ROOT = path.join(ROOT, "public/models/quest");
 const errors = [];
 const checkedUris = new Set();
+const questHubSource = fs.readFileSync(path.join(ROOT, "src/components/quest/world/QuestHub.jsx"), "utf8");
 
 const MONSTERS = [
   "Bunny.gltf",
@@ -34,6 +35,10 @@ const NATURE = [
   "Bush_Large.gltf",
   "Flower_1_Clump.gltf"
 ];
+
+if (!/createRiggedTrailCharacters\s*\(/.test(questHubSource)) {
+  fail("QuestHub does not instantiate the verified rigged character cast");
+}
 
 function fail(message) {
   errors.push(message);

@@ -16,6 +16,9 @@ const PORT = 5207;
 const BASE = `http://127.0.0.1:${PORT}`;
 const turnOnly = process.argv.includes("--turn-only");
 const journeyOnly = process.argv.includes("--journey-only");
+const slotsOnly = process.argv.includes("--slots-only");
+const rewardOnly = process.argv.includes("--reward-only");
+const stopFilter = process.argv.find(argument => argument.startsWith("--stop="))?.slice(7) || null;
 const VIEWPORTS = Object.freeze({
   phone: Object.freeze({ width: 390, height: 844 }),
   ipad: Object.freeze({ width: 1194, height: 834 })
@@ -43,6 +46,20 @@ async function waitForServer(timeout = 60_000) {
     await new Promise(resolve => setTimeout(resolve, 350));
   }
   throw new Error(`Quest preview did not start on ${BASE}`);
+}
+
+function launchBrowser() {
+  return chromium.launch({
+    args: journeyOnly ? [
+      "--use-angle=metal",
+      "--ignore-gpu-blocklist"
+    ] : [
+      "--use-gl=angle",
+      "--use-angle=swiftshader",
+      "--enable-unsafe-swiftshader",
+      "--ignore-gpu-blocklist"
+    ]
+  });
 }
 
 function scenarios() {
@@ -80,7 +97,7 @@ async function openEncounter(browser, scenario, viewportName) {
   page.on("pageerror", error => problems.push(error.message));
   const done = Math.max(0, Number(scenario.stopId.slice(1)) - 1);
   const url = `${BASE}/preview/quest.html?view=world&stop=${scenario.stopId}&done=${done}`
-    + `&active=${scenario.encounterIndex}&beat=${scenario.beatIndex || 0}&display=low&sound=0`;
+    + `&active=${scenario.encounterIndex}&beat=${scenario.beatIndex || 0}&display=low&sound=0&adapt=0`;
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30_000 });
   await page.waitForFunction(() => document.querySelector(".qh-root.is-ready"), null, { timeout: RENDER_TIMEOUT });
   await page.waitForFunction(() => {
@@ -107,7 +124,7 @@ async function captureWideFrames(browser) {
   for (const stopId of SEEDWAKE_STOP_IDS) {
     const page = await browser.newPage({ viewport: VIEWPORTS.ipad, deviceScaleFactor: 1 });
     const done = Math.max(0, Number(stopId.slice(1)) - 1);
-    await page.goto(`${BASE}/preview/quest.html?view=world&stop=${stopId}&done=${done}&display=low&sound=0`, {
+    await page.goto(`${BASE}/preview/quest.html?view=world&stop=${stopId}&done=${done}&display=low&sound=0&adapt=0`, {
       waitUntil: "domcontentloaded",
       timeout: 30_000
     });
@@ -125,12 +142,24 @@ async function captureSlotSequence(browser, scenario) {
   try {
     await page.screenshot({ path: path.join(OUT, "phoneme-slots-empty.png"), fullPage: false, timeout: 60_000 });
     for (let stage = 0; stage < scenario.stages; stage += 1) {
-      const selected = await page.evaluate(() => window.__questSliceDebug.choose("correct"));
+      await page.waitForFunction(() => typeof window.__questSliceDebug?.choose === "function", null, { timeout: RENDER_TIMEOUT });
+      const selected = await page.evaluate(() => window.__questSliceDebug?.choose?.("correct") || false);
       if (!selected) throw new Error(`Could not select the correct bridge piece at stage ${stage}`);
       if (stage < scenario.stages - 1) {
-        await page.waitForFunction(expected => (
-          window.__questSliceDebug?.snapshot?.stageIndex === expected
-        ), stage + 1, { timeout: 8_000 });
+        try {
+          await page.waitForFunction(expected => (
+            window.__questSliceDebug?.snapshot?.stageIndex === expected
+          ), stage + 1, { timeout: 8_000 });
+        } catch (error) {
+          const evidence = await page.evaluate(() => ({
+            snapshot: window.__questSliceDebug?.snapshot || null,
+            journey: window.__questSliceDebug?.journey || null,
+            screen: document.querySelector(".qh-root")?.className || null,
+            feedback: document.querySelector(".qh-interaction-feedback")?.textContent?.trim() || null,
+            prompt: document.querySelector(".qh-objective")?.textContent?.trim() || null
+          }));
+          throw new Error(`Bridge stage ${stage} did not advance: ${JSON.stringify(evidence)}`, { cause: error });
+        }
         await page.screenshot({ path: path.join(OUT, `phoneme-slots-fill-${stage + 1}.png`), fullPage: false, timeout: 60_000 });
       } else {
         await page.waitForFunction(() => document.querySelector(".qh-phoneme-build.is-blending .qh-success-marker"), null, { timeout: 4_000 });
@@ -148,11 +177,12 @@ async function captureAccessibleSuccess(browser, scenario) {
   await page.emulateMedia({ reducedMotion: "reduce" });
   const done = Math.max(0, Number(scenario.stopId.slice(1)) - 1);
   const url = `${BASE}/preview/quest.html?view=world&stop=${scenario.stopId}&done=${done}`
-    + `&active=${scenario.encounterIndex}&beat=${scenario.beatIndex}&display=low&sound=0`;
+    + `&active=${scenario.encounterIndex}&beat=${scenario.beatIndex}&display=low&sound=0&adapt=0`;
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30_000 });
   await page.waitForFunction(() => window.__questSliceDebug?.snapshot?.camera?.settled, null, { timeout: RENDER_TIMEOUT });
   for (let stage = 0; stage < scenario.stages; stage += 1) {
-    const selected = await page.evaluate(() => window.__questSliceDebug.choose("correct"));
+    await page.waitForFunction(() => typeof window.__questSliceDebug?.choose === "function", null, { timeout: RENDER_TIMEOUT });
+    const selected = await page.evaluate(() => window.__questSliceDebug?.choose?.("correct") || false);
     if (!selected) throw new Error(`Accessible success could not choose stage ${stage}`);
     if (stage < scenario.stages - 1) {
       await page.waitForFunction(expected => window.__questSliceDebug?.snapshot?.stageIndex === expected, stage + 1, { timeout: 8_000 });
@@ -180,7 +210,7 @@ async function captureAccessibleSuccess(browser, scenario) {
 
 async function captureGateAndReward(browser) {
   const gate = await browser.newPage({ viewport: VIEWPORTS.ipad, deviceScaleFactor: 1 });
-  await gate.goto(`${BASE}/preview/quest.html?view=world&stop=s5&done=4&checkpoint=gate&display=low&sound=0`, {
+  await gate.goto(`${BASE}/preview/quest.html?view=world&stop=s5&done=4&checkpoint=gate&display=low&sound=0&adapt=0`, {
     waitUntil: "domcontentloaded",
     timeout: 30_000
   });
@@ -189,18 +219,18 @@ async function captureGateAndReward(browser) {
   await gate.close();
 
   const reward = await browser.newPage({ viewport: VIEWPORTS.ipad, deviceScaleFactor: 1 });
-  await reward.goto(`${BASE}/preview/quest.html?view=ceremony&stop=s5&done=5&display=low&sound=0`, {
+  await reward.goto(`${BASE}/preview/quest.html?view=ceremony&stop=s5&done=5&display=low&sound=0&adapt=0`, {
     waitUntil: "domcontentloaded",
     timeout: 30_000
   });
-  await reward.waitForFunction(() => document.querySelector('[data-equipped-gear="stone-staff"] .cr-figure'), null, { timeout: RENDER_TIMEOUT });
+  await reward.waitForFunction(() => document.querySelector('[data-equipped-gear="stone-staff"] .q-ceremony-pixel-beastie'), null, { timeout: RENDER_TIMEOUT });
   await reward.screenshot({ path: path.join(OUT, "seedwake-reward-equipped.png"), fullPage: false, timeout: 60_000 });
   await reward.close();
 }
 
 async function captureTurnPerformance(browser) {
   const page = await browser.newPage({ viewport: VIEWPORTS.ipad, deviceScaleFactor: 1 });
-  await page.goto(`${BASE}/preview/quest.html?view=world&stop=s3&done=2&checkpoint=turn&display=low&sound=0`, {
+  await page.goto(`${BASE}/preview/quest.html?view=world&stop=s3&done=2&checkpoint=turn&display=low&sound=0&adapt=0`, {
     waitUntil: "domcontentloaded",
     timeout: 30_000
   });
@@ -252,7 +282,7 @@ async function captureFullJourney(browser) {
   const problems = [];
   page.on("console", message => { if (message.type() === "error") problems.push(message.text()); });
   page.on("pageerror", error => problems.push(error.message));
-  await page.goto(`${BASE}/preview/quest.html?view=world&stop=s1&done=0&display=low&sound=0`, {
+  await page.goto(`${BASE}/preview/quest.html?view=world&stop=s1&done=0&display=low&sound=0&adapt=0`, {
     waitUntil: "domcontentloaded",
     timeout: 30_000
   });
@@ -373,7 +403,7 @@ async function captureFullJourney(browser) {
     events.push({ type: state.journey.gateOpen ? "gate-cross" : "walk", stopId: priorStopId });
   }
 
-  await page.waitForFunction(() => document.querySelector('[data-equipped-gear="stone-staff"] .cr-figure'), null, { timeout: RENDER_TIMEOUT });
+  await page.waitForFunction(() => document.querySelector('[data-equipped-gear="stone-staff"] .q-ceremony-pixel-beastie'), null, { timeout: RENDER_TIMEOUT });
   const missingStops = SEEDWAKE_STOP_IDS.filter(stopId => !visitedStops.has(stopId));
   const missingEncounters = [...expected.keys()].filter(key => !selections.has(key));
   const unknownEncounters = [...selections.keys()].filter(key => !expected.has(key));
@@ -427,25 +457,25 @@ const stopServer = () => {
 
 try {
   await waitForServer();
-  browser = await chromium.launch({
-    args: journeyOnly ? [
-      "--use-angle=metal",
-      "--ignore-gpu-blocklist"
-    ] : [
-      "--use-gl=angle",
-      "--use-angle=swiftshader",
-      "--enable-unsafe-swiftshader",
-      "--ignore-gpu-blocklist"
-    ]
-  });
+  browser = await launchBrowser();
   if (turnOnly) {
     await captureTurnPerformance(browser);
     console.log("check:quest-slice-camera turn proof OK - acceleration, bank and settled deceleration captured");
   } else if (journeyOnly) {
     await captureFullJourney(browser);
     console.log("check:quest-slice-camera journey proof OK - s1-s5 completed through the live gates and reward");
+  } else if (slotsOnly) {
+    await captureSlotSequence(browser, slotScenario());
+    console.log("check:quest-slice-camera slot proof OK - every phoneme advances and blends in order");
+  } else if (rewardOnly) {
+    await captureGateAndReward(browser);
+    console.log("check:quest-slice-camera reward proof OK - open gate and equipped Beastie captured");
   } else {
-    for (const scenario of scenarios()) {
+    const encounterScenarios = stopFilter
+      ? scenarios().filter(scenario => scenario.stopId === stopFilter)
+      : scenarios();
+    if (stopFilter && !encounterScenarios.length) throw new Error(`Unknown camera stop filter: ${stopFilter}`);
+    for (const scenario of encounterScenarios) {
       for (const viewportName of Object.keys(VIEWPORTS)) {
         let result;
         try {
@@ -478,21 +508,25 @@ try {
         }
       }
     }
-    await captureWideFrames(browser);
-    const wordScenario = slotScenario();
-    await captureSlotSequence(browser, wordScenario);
-    await captureAccessibleSuccess(browser, wordScenario);
-    await captureGateAndReward(browser);
-    await captureTurnPerformance(browser);
-    await buildContactSheet();
+    if (!stopFilter) {
+      await browser.close();
+      browser = await launchBrowser();
+      await captureWideFrames(browser);
+      const wordScenario = slotScenario();
+      await captureSlotSequence(browser, wordScenario);
+      await captureAccessibleSuccess(browser, wordScenario);
+      await captureGateAndReward(browser);
+      await captureTurnPerformance(browser);
+      await buildContactSheet();
+    }
   }
 } finally {
   await browser?.close();
   stopServer();
 }
 
-if (!turnOnly && !journeyOnly) {
-  fs.writeFileSync(path.join(OUT, "camera-report.json"), `${JSON.stringify({ failures, reports }, null, 2)}\n`);
+if (!turnOnly && !journeyOnly && !slotsOnly && !rewardOnly) {
+  if (!stopFilter) fs.writeFileSync(path.join(OUT, "camera-report.json"), `${JSON.stringify({ failures, reports }, null, 2)}\n`);
   if (failures) {
     console.error(`check:quest-slice-camera found ${failures} failing scenario${failures === 1 ? "" : "s"}`);
     process.exitCode = 1;

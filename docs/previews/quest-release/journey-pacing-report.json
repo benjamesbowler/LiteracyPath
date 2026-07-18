@@ -1,0 +1,2195 @@
+{
+  "summary": {
+    "stopCount": 40,
+    "actionBudget": 8,
+    "totalActions": 269,
+    "averageActions": 6.72,
+    "minimumActions": 4,
+    "maximumActions": 8,
+    "maximumLoadStops": [
+      "s7",
+      "s9",
+      "s10",
+      "s11",
+      "s15",
+      "s16",
+      "s23",
+      "s24",
+      "s25",
+      "s27",
+      "s28",
+      "s32",
+      "s35",
+      "s39"
+    ],
+    "longestMaximumLoadRun": 3,
+    "chapterSummaries": [
+      {
+        "id": "seedwake-meadow",
+        "title": "Seedwake Meadow",
+        "actions": [
+          7,
+          6,
+          7,
+          7,
+          7
+        ],
+        "averageActions": 6.8,
+        "minimumActions": 6,
+        "maximumActions": 7
+      },
+      {
+        "id": "river-gardens",
+        "title": "River Gardens",
+        "actions": [
+          7,
+          8,
+          6,
+          8,
+          8
+        ],
+        "averageActions": 7.4,
+        "minimumActions": 6,
+        "maximumActions": 8
+      },
+      {
+        "id": "fossil-canyon",
+        "title": "Fossil Canyon",
+        "actions": [
+          8,
+          7,
+          5,
+          7,
+          8
+        ],
+        "averageActions": 7,
+        "minimumActions": 5,
+        "maximumActions": 8
+      },
+      {
+        "id": "forge-settlement",
+        "title": "Forge Settlement",
+        "actions": [
+          8,
+          4,
+          6,
+          6,
+          6
+        ],
+        "averageActions": 6,
+        "minimumActions": 4,
+        "maximumActions": 8
+      },
+      {
+        "id": "glass-marsh",
+        "title": "Glass Marsh",
+        "actions": [
+          6,
+          5,
+          8,
+          8,
+          8
+        ],
+        "averageActions": 7,
+        "minimumActions": 5,
+        "maximumActions": 8
+      },
+      {
+        "id": "storm-coast",
+        "title": "Storm Coast",
+        "actions": [
+          7,
+          8,
+          8,
+          4,
+          7
+        ],
+        "averageActions": 6.8,
+        "minimumActions": 4,
+        "maximumActions": 8
+      },
+      {
+        "id": "lantern-forest",
+        "title": "Lantern Forest",
+        "actions": [
+          4,
+          8,
+          7,
+          7,
+          8
+        ],
+        "averageActions": 6.8,
+        "minimumActions": 4,
+        "maximumActions": 8
+      },
+      {
+        "id": "star-reach",
+        "title": "Star Reach",
+        "actions": [
+          5,
+          4,
+          6,
+          8,
+          7
+        ],
+        "averageActions": 6,
+        "minimumActions": 4,
+        "maximumActions": 8
+      }
+    ]
+  },
+  "stops": [
+    {
+      "id": "s1",
+      "name": "Hollow Tree",
+      "chapterId": "seedwake-meadow",
+      "chapterTitle": "Seedwake Meadow",
+      "chapterStop": 1,
+      "actions": 7,
+      "encounters": 2,
+      "beats": 4,
+      "deferredBeats": 0,
+      "patterns": [
+        "search",
+        "assembly"
+      ],
+      "tasks": [
+        {
+          "encounter": "hungry-beast",
+          "mechanic": "sound-hunt",
+          "pattern": "search",
+          "chapterAuthored": true,
+          "stages": 1,
+          "actions": [
+            "search"
+          ]
+        },
+        {
+          "encounter": "hungry-beast",
+          "mechanic": "sound-hunt",
+          "pattern": "search",
+          "chapterAuthored": true,
+          "stages": 1,
+          "actions": [
+            "search"
+          ]
+        },
+        {
+          "encounter": "hungry-beast",
+          "mechanic": "sound-hunt",
+          "pattern": "search",
+          "chapterAuthored": true,
+          "stages": 1,
+          "actions": [
+            "search"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 4,
+          "actions": [
+            "build",
+            "build",
+            "build",
+            "build"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "name": "Fern Steps",
+      "chapterId": "seedwake-meadow",
+      "chapterTitle": "Seedwake Meadow",
+      "chapterStop": 2,
+      "actions": 6,
+      "encounters": 2,
+      "beats": 4,
+      "deferredBeats": 0,
+      "patterns": [
+        "jump",
+        "assembly"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "flower-jump",
+          "pattern": "jump",
+          "chapterAuthored": true,
+          "stages": 1,
+          "actions": [
+            "jump"
+          ]
+        },
+        {
+          "encounter": "flower-patch",
+          "mechanic": "flower-jump",
+          "pattern": "jump",
+          "chapterAuthored": true,
+          "stages": 1,
+          "actions": [
+            "jump"
+          ]
+        },
+        {
+          "encounter": "flower-patch",
+          "mechanic": "flower-jump",
+          "pattern": "jump",
+          "chapterAuthored": true,
+          "stages": 1,
+          "actions": [
+            "jump"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "build",
+            "build",
+            "build"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "name": "Rook Stones",
+      "chapterId": "seedwake-meadow",
+      "chapterTitle": "Seedwake Meadow",
+      "chapterStop": 3,
+      "actions": 7,
+      "encounters": 2,
+      "beats": 3,
+      "deferredBeats": 1,
+      "patterns": [
+        "delivery",
+        "assembly"
+      ],
+      "tasks": [
+        {
+          "encounter": "hungry-beast",
+          "mechanic": "delivery-run",
+          "pattern": "delivery",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "pick-up",
+            "carry"
+          ]
+        },
+        {
+          "encounter": "hungry-beast",
+          "mechanic": "delivery-run",
+          "pattern": "delivery",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "pick-up",
+            "carry"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "build",
+            "build",
+            "build"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "name": "Otter Ford",
+      "chapterId": "seedwake-meadow",
+      "chapterTitle": "Seedwake Meadow",
+      "chapterStop": 4,
+      "actions": 7,
+      "encounters": 2,
+      "beats": 3,
+      "deferredBeats": 1,
+      "patterns": [
+        "assembly"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "lift-plank",
+            "place-plank"
+          ]
+        },
+        {
+          "encounter": "flower-patch",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "lift-plank",
+            "place-plank"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "build",
+            "build",
+            "build"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "name": "Bramble Gate",
+      "chapterId": "seedwake-meadow",
+      "chapterTitle": "Seedwake Meadow",
+      "chapterStop": 5,
+      "actions": 7,
+      "encounters": 2,
+      "beats": 3,
+      "deferredBeats": 1,
+      "patterns": [
+        "rhythm",
+        "assembly"
+      ],
+      "tasks": [
+        {
+          "encounter": "trail-run",
+          "mechanic": "gate-chorus",
+          "pattern": "rhythm",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-note",
+            "conduct"
+          ]
+        },
+        {
+          "encounter": "trail-run",
+          "mechanic": "gate-chorus",
+          "pattern": "rhythm",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-note",
+            "conduct"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "build",
+            "build",
+            "build"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "name": "Beehive Bluff",
+      "chapterId": "river-gardens",
+      "chapterTitle": "River Gardens",
+      "chapterStop": 1,
+      "actions": 7,
+      "encounters": 2,
+      "beats": 3,
+      "deferredBeats": 3,
+      "patterns": [
+        "sort",
+        "assembly"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "canal-sort",
+          "pattern": "sort",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-sluice",
+            "open-sluice"
+          ]
+        },
+        {
+          "encounter": "flower-patch",
+          "mechanic": "canal-sort",
+          "pattern": "sort",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-sluice",
+            "open-sluice"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "build",
+            "build",
+            "build"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "name": "Lily Ferry",
+      "chapterId": "river-gardens",
+      "chapterTitle": "River Gardens",
+      "chapterStop": 2,
+      "actions": 8,
+      "encounters": 3,
+      "beats": 3,
+      "deferredBeats": 4,
+      "patterns": [
+        "steer",
+        "assembly",
+        "delivery"
+      ],
+      "tasks": [
+        {
+          "encounter": "trail-run",
+          "mechanic": "ferry-delivery",
+          "pattern": "steer",
+          "chapterAuthored": true,
+          "stages": 4,
+          "actions": [
+            "board-ferry",
+            "steer-ferry",
+            "steer-ferry",
+            "steer-ferry"
+          ]
+        },
+        {
+          "encounter": "echo-cave",
+          "mechanic": "echo-sequence",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "collect",
+            "collect",
+            "collect"
+          ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s8",
+      "name": "Fishpool Reach",
+      "chapterId": "river-gardens",
+      "chapterTitle": "River Gardens",
+      "chapterStop": 3,
+      "actions": 6,
+      "encounters": 2,
+      "beats": 4,
+      "deferredBeats": 0,
+      "patterns": [
+        "pursuit",
+        "search"
+      ],
+      "tasks": [
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "fish-rescue",
+          "pattern": "pursuit",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "spot-fish",
+            "net-fish"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "fish-rescue",
+          "pattern": "pursuit",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "spot-fish",
+            "net-fish"
+          ]
+        },
+        {
+          "encounter": "signpost",
+          "mechanic": "object-collect",
+          "pattern": "search",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "collect"
+          ]
+        },
+        {
+          "encounter": "signpost",
+          "mechanic": "object-collect",
+          "pattern": "search",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "collect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s9",
+      "name": "Wheelhouse Bend",
+      "chapterId": "river-gardens",
+      "chapterTitle": "River Gardens",
+      "chapterStop": 4,
+      "actions": 8,
+      "encounters": 3,
+      "beats": 4,
+      "deferredBeats": 1,
+      "patterns": [
+        "assembly",
+        "delivery"
+      ],
+      "tasks": [
+        {
+          "encounter": "hungry-beast",
+          "mechanic": "waterwheel-sequence",
+          "pattern": "assembly",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "lift-paddle",
+            "fit-paddle"
+          ]
+        },
+        {
+          "encounter": "hungry-beast",
+          "mechanic": "waterwheel-sequence",
+          "pattern": "assembly",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "lift-paddle",
+            "fit-paddle"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "build",
+            "build",
+            "build"
+          ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s10",
+      "name": "The Singing Weir",
+      "chapterId": "river-gardens",
+      "chapterTitle": "River Gardens",
+      "chapterStop": 5,
+      "actions": 8,
+      "encounters": 3,
+      "beats": 3,
+      "deferredBeats": 2,
+      "patterns": [
+        "rhythm",
+        "assembly",
+        "sort"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "weir-concert",
+          "pattern": "rhythm",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-note",
+            "ring-bell"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "build",
+            "build",
+            "build"
+          ]
+        },
+        {
+          "encounter": "sheep-pens",
+          "mechanic": "herd-and-sort",
+          "pattern": "sort",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "sort",
+            "sort",
+            "sort"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s11",
+      "name": "Amber Ridge",
+      "chapterId": "fossil-canyon",
+      "chapterTitle": "Fossil Canyon",
+      "chapterStop": 1,
+      "actions": 8,
+      "encounters": 3,
+      "beats": 4,
+      "deferredBeats": 3,
+      "patterns": [
+        "tool",
+        "assembly",
+        "delivery"
+      ],
+      "tasks": [
+        {
+          "encounter": "trail-run",
+          "mechanic": "bone-hunt",
+          "pattern": "tool",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-fossil",
+            "brush-fossil"
+          ]
+        },
+        {
+          "encounter": "trail-run",
+          "mechanic": "bone-hunt",
+          "pattern": "tool",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-fossil",
+            "brush-fossil"
+          ]
+        },
+        {
+          "encounter": "echo-cave",
+          "mechanic": "echo-sequence",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "collect",
+            "collect",
+            "collect"
+          ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s12",
+      "name": "Rattlebones",
+      "chapterId": "fossil-canyon",
+      "chapterTitle": "Fossil Canyon",
+      "chapterStop": 2,
+      "actions": 7,
+      "encounters": 2,
+      "beats": 4,
+      "deferredBeats": 0,
+      "patterns": [
+        "route",
+        "delivery"
+      ],
+      "tasks": [
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "track-sort",
+          "pattern": "route",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-track",
+            "follow-track"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "track-sort",
+          "pattern": "route",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-track",
+            "follow-track"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "track-sort",
+          "pattern": "route",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-track",
+            "follow-track"
+          ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s13",
+      "name": "Ash Flats",
+      "chapterId": "fossil-canyon",
+      "chapterTitle": "Fossil Canyon",
+      "chapterStop": 3,
+      "actions": 5,
+      "encounters": 2,
+      "beats": 2,
+      "deferredBeats": 2,
+      "patterns": [
+        "assembly",
+        "delivery"
+      ],
+      "tasks": [
+        {
+          "encounter": "echo-cave",
+          "mechanic": "dig-and-build",
+          "pattern": "assembly",
+          "chapterAuthored": true,
+          "stages": 4,
+          "actions": [
+            "lift-bone",
+            "fit-bone",
+            "lift-bone",
+            "fit-bone"
+          ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s14",
+      "name": "Fern Canyon",
+      "chapterId": "fossil-canyon",
+      "chapterTitle": "Fossil Canyon",
+      "chapterStop": 4,
+      "actions": 7,
+      "encounters": 2,
+      "beats": 4,
+      "deferredBeats": 0,
+      "patterns": [
+        "pursuit",
+        "delivery"
+      ],
+      "tasks": [
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "rescue-chase",
+          "pattern": "pursuit",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "spot-signal",
+            "chase-flag"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "rescue-chase",
+          "pattern": "pursuit",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "spot-signal",
+            "chase-flag"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "rescue-chase",
+          "pattern": "pursuit",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "spot-signal",
+            "chase-flag"
+          ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s15",
+      "name": "Claw Pass",
+      "chapterId": "fossil-canyon",
+      "chapterTitle": "Fossil Canyon",
+      "chapterStop": 5,
+      "actions": 8,
+      "encounters": 2,
+      "beats": 4,
+      "deferredBeats": 1,
+      "patterns": [
+        "signal",
+        "search"
+      ],
+      "tasks": [
+        {
+          "encounter": "echo-cave",
+          "mechanic": "pass-signal",
+          "pattern": "signal",
+          "chapterAuthored": true,
+          "stages": 3,
+          "actions": [
+            "choose-signal",
+            "send-signal",
+            "send-signal"
+          ]
+        },
+        {
+          "encounter": "echo-cave",
+          "mechanic": "pass-signal",
+          "pattern": "signal",
+          "chapterAuthored": true,
+          "stages": 3,
+          "actions": [
+            "choose-signal",
+            "send-signal",
+            "send-signal"
+          ]
+        },
+        {
+          "encounter": "signpost",
+          "mechanic": "object-collect",
+          "pattern": "search",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "collect"
+          ]
+        },
+        {
+          "encounter": "signpost",
+          "mechanic": "object-collect",
+          "pattern": "search",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "collect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s16",
+      "name": "Gearworks Gate",
+      "chapterId": "forge-settlement",
+      "chapterTitle": "Forge Settlement",
+      "chapterStop": 1,
+      "actions": 8,
+      "encounters": 1,
+      "beats": 2,
+      "deferredBeats": 0,
+      "patterns": [
+        "assembly"
+      ],
+      "tasks": [
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "machine-sequence",
+          "pattern": "assembly",
+          "chapterAuthored": true,
+          "stages": 4,
+          "actions": [
+            "lift-gear",
+            "fit-gear",
+            "lift-gear",
+            "fit-gear"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "machine-sequence",
+          "pattern": "assembly",
+          "chapterAuthored": true,
+          "stages": 4,
+          "actions": [
+            "lift-gear",
+            "fit-gear",
+            "lift-gear",
+            "fit-gear"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s17",
+      "name": "Ore Hopper",
+      "chapterId": "forge-settlement",
+      "chapterTitle": "Forge Settlement",
+      "chapterStop": 2,
+      "actions": 4,
+      "encounters": 1,
+      "beats": 2,
+      "deferredBeats": 0,
+      "patterns": [
+        "sort"
+      ],
+      "tasks": [
+        {
+          "encounter": "echo-cave",
+          "mechanic": "ore-sort",
+          "pattern": "sort",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-ore",
+            "sort-ore"
+          ]
+        },
+        {
+          "encounter": "echo-cave",
+          "mechanic": "ore-sort",
+          "pattern": "sort",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-ore",
+            "sort-ore"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s18",
+      "name": "Plate Foundry",
+      "chapterId": "forge-settlement",
+      "chapterTitle": "Forge Settlement",
+      "chapterStop": 3,
+      "actions": 6,
+      "encounters": 3,
+      "beats": 3,
+      "deferredBeats": 0,
+      "patterns": [
+        "assembly",
+        "delivery"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "forge-recipe",
+          "pattern": "assembly",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "lift-rune",
+            "feed-forge"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "build",
+            "build",
+            "build"
+          ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s19",
+      "name": "Night Train Yard",
+      "chapterId": "forge-settlement",
+      "chapterTitle": "Forge Settlement",
+      "chapterStop": 4,
+      "actions": 6,
+      "encounters": 3,
+      "beats": 3,
+      "deferredBeats": 0,
+      "patterns": [
+        "delivery",
+        "assembly"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "rail-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "load-crate",
+            "deliver-crate"
+          ]
+        },
+        {
+          "encounter": "echo-cave",
+          "mechanic": "echo-sequence",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "collect",
+            "collect",
+            "collect"
+          ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s20",
+      "name": "The Word Forge",
+      "chapterId": "forge-settlement",
+      "chapterTitle": "Forge Settlement",
+      "chapterStop": 5,
+      "actions": 6,
+      "encounters": 3,
+      "beats": 3,
+      "deferredBeats": 0,
+      "patterns": [
+        "rhythm",
+        "assembly",
+        "delivery"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "word-forge",
+          "pattern": "rhythm",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-plate",
+            "strike-plate"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "build",
+            "build",
+            "build"
+          ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s21",
+      "name": "Reedlight Landing",
+      "chapterId": "glass-marsh",
+      "chapterTitle": "Glass Marsh",
+      "chapterStop": 1,
+      "actions": 6,
+      "encounters": 3,
+      "beats": 3,
+      "deferredBeats": 0,
+      "patterns": [
+        "rhythm",
+        "assembly",
+        "delivery"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "reed-listen",
+          "pattern": "rhythm",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-reed",
+            "tune-reed"
+          ]
+        },
+        {
+          "encounter": "echo-cave",
+          "mechanic": "echo-sequence",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "collect",
+            "collect",
+            "collect"
+          ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s22",
+      "name": "Ripple Pool",
+      "chapterId": "glass-marsh",
+      "chapterTitle": "Glass Marsh",
+      "chapterStop": 2,
+      "actions": 5,
+      "encounters": 2,
+      "beats": 2,
+      "deferredBeats": 0,
+      "patterns": [
+        "route",
+        "assembly"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "lily-route",
+          "pattern": "route",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-lily",
+            "cross-lily"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "build",
+            "build",
+            "build"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s23",
+      "name": "Mica Steps",
+      "chapterId": "glass-marsh",
+      "chapterTitle": "Glass Marsh",
+      "chapterStop": 3,
+      "actions": 8,
+      "encounters": 3,
+      "beats": 3,
+      "deferredBeats": 2,
+      "patterns": [
+        "pursuit",
+        "assembly",
+        "sort"
+      ],
+      "tasks": [
+        {
+          "encounter": "trail-run",
+          "mechanic": "marsh-fishing",
+          "pattern": "pursuit",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "spot-marsh-fish",
+            "net-marsh-fish"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "build",
+            "build",
+            "build"
+          ]
+        },
+        {
+          "encounter": "sheep-pens",
+          "mechanic": "herd-and-sort",
+          "pattern": "sort",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "sort",
+            "sort",
+            "sort"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s24",
+      "name": "Glint Causeway",
+      "chapterId": "glass-marsh",
+      "chapterTitle": "Glass Marsh",
+      "chapterStop": 4,
+      "actions": 8,
+      "encounters": 3,
+      "beats": 3,
+      "deferredBeats": 2,
+      "patterns": [
+        "assembly",
+        "sort"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "mirror-match",
+          "pattern": "assembly",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "lift-shard",
+            "fit-shard"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "build",
+            "build",
+            "build"
+          ]
+        },
+        {
+          "encounter": "sheep-pens",
+          "mechanic": "herd-and-sort",
+          "pattern": "sort",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "sort",
+            "sort",
+            "sort"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s25",
+      "name": "Mirror Fen",
+      "chapterId": "glass-marsh",
+      "chapterTitle": "Glass Marsh",
+      "chapterStop": 5,
+      "actions": 8,
+      "encounters": 2,
+      "beats": 3,
+      "deferredBeats": 1,
+      "patterns": [
+        "signal",
+        "assembly"
+      ],
+      "tasks": [
+        {
+          "encounter": "trail-run",
+          "mechanic": "fen-beacon",
+          "pattern": "signal",
+          "chapterAuthored": true,
+          "stages": 3,
+          "actions": [
+            "choose-light",
+            "flash-light",
+            "flash-light"
+          ]
+        },
+        {
+          "encounter": "echo-cave",
+          "mechanic": "echo-sequence",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "collect",
+            "collect",
+            "collect"
+          ]
+        },
+        {
+          "encounter": "echo-cave",
+          "mechanic": "echo-sequence",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 2,
+          "actions": [
+            "collect",
+            "collect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s26",
+      "name": "Galecliff Path",
+      "chapterId": "storm-coast",
+      "chapterTitle": "Storm Coast",
+      "chapterStop": 1,
+      "actions": 7,
+      "encounters": 2,
+      "beats": 2,
+      "deferredBeats": 5,
+      "patterns": [
+        "climb",
+        "assembly"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "cliff-route",
+          "pattern": "climb",
+          "chapterAuthored": true,
+          "stages": 4,
+          "actions": [
+            "choose-climb",
+            "climb-route",
+            "climb-route",
+            "climb-route"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "build",
+            "build",
+            "build"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s27",
+      "name": "Shellhaven",
+      "chapterId": "storm-coast",
+      "chapterTitle": "Storm Coast",
+      "chapterStop": 2,
+      "actions": 8,
+      "encounters": 3,
+      "beats": 4,
+      "deferredBeats": 3,
+      "patterns": [
+        "delivery",
+        "assembly"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "harbour-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "lift-crate",
+            "dock-crate"
+          ]
+        },
+        {
+          "encounter": "flower-patch",
+          "mechanic": "harbour-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "lift-crate",
+            "dock-crate"
+          ]
+        },
+        {
+          "encounter": "echo-cave",
+          "mechanic": "echo-sequence",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "collect",
+            "collect",
+            "collect"
+          ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s28",
+      "name": "Signal Harbour",
+      "chapterId": "storm-coast",
+      "chapterTitle": "Storm Coast",
+      "chapterStop": 3,
+      "actions": 8,
+      "encounters": 1,
+      "beats": 2,
+      "deferredBeats": 0,
+      "patterns": [
+        "assembly"
+      ],
+      "tasks": [
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "storm-shelter",
+          "pattern": "assembly",
+          "chapterAuthored": true,
+          "stages": 4,
+          "actions": [
+            "lift-board",
+            "lock-board",
+            "lift-board",
+            "lock-board"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "storm-shelter",
+          "pattern": "assembly",
+          "chapterAuthored": true,
+          "stages": 4,
+          "actions": [
+            "lift-board",
+            "lock-board",
+            "lift-board",
+            "lock-board"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s29",
+      "name": "Stormglass Cove",
+      "chapterId": "storm-coast",
+      "chapterTitle": "Storm Coast",
+      "chapterStop": 4,
+      "actions": 4,
+      "encounters": 2,
+      "beats": 2,
+      "deferredBeats": 0,
+      "patterns": [
+        "assembly"
+      ],
+      "tasks": [
+        {
+          "encounter": "trail-run",
+          "mechanic": "lens-assembly",
+          "pattern": "assembly",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "lift-lens",
+            "fit-lens"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 2,
+          "actions": [
+            "build",
+            "build"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s30",
+      "name": "Thunder Lighthouse",
+      "chapterId": "storm-coast",
+      "chapterTitle": "Storm Coast",
+      "chapterStop": 5,
+      "actions": 7,
+      "encounters": 3,
+      "beats": 3,
+      "deferredBeats": 2,
+      "patterns": [
+        "signal",
+        "assembly",
+        "delivery"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "fleet-signal",
+          "pattern": "signal",
+          "chapterAuthored": true,
+          "stages": 3,
+          "actions": [
+            "choose-flag",
+            "wave-flag",
+            "wave-flag"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "build",
+            "build",
+            "build"
+          ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s31",
+      "name": "Mothlight Gate",
+      "chapterId": "lantern-forest",
+      "chapterTitle": "Lantern Forest",
+      "chapterStop": 1,
+      "actions": 4,
+      "encounters": 2,
+      "beats": 2,
+      "deferredBeats": 0,
+      "patterns": [
+        "pursuit",
+        "assembly"
+      ],
+      "tasks": [
+        {
+          "encounter": "trail-run",
+          "mechanic": "moth-herding",
+          "pattern": "pursuit",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "spot-moth",
+            "guide-moth"
+          ]
+        },
+        {
+          "encounter": "echo-cave",
+          "mechanic": "echo-sequence",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 2,
+          "actions": [
+            "collect",
+            "collect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s32",
+      "name": "Echo Roots",
+      "chapterId": "lantern-forest",
+      "chapterTitle": "Lantern Forest",
+      "chapterStop": 2,
+      "actions": 8,
+      "encounters": 3,
+      "beats": 3,
+      "deferredBeats": 4,
+      "patterns": [
+        "rhythm",
+        "assembly",
+        "sort"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "lantern-pattern",
+          "pattern": "rhythm",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-lantern",
+            "light-lantern"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "build",
+            "build",
+            "build"
+          ]
+        },
+        {
+          "encounter": "sheep-pens",
+          "mechanic": "herd-and-sort",
+          "pattern": "sort",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "sort",
+            "sort",
+            "sort"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s33",
+      "name": "Wispwood Turn",
+      "chapterId": "lantern-forest",
+      "chapterTitle": "Lantern Forest",
+      "chapterStop": 3,
+      "actions": 7,
+      "encounters": 3,
+      "beats": 3,
+      "deferredBeats": 4,
+      "patterns": [
+        "route",
+        "assembly",
+        "sort"
+      ],
+      "tasks": [
+        {
+          "encounter": "trail-run",
+          "mechanic": "path-memory",
+          "pattern": "route",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-memory-path",
+            "follow-memory-path"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 2,
+          "actions": [
+            "build",
+            "build"
+          ]
+        },
+        {
+          "encounter": "sheep-pens",
+          "mechanic": "herd-and-sort",
+          "pattern": "sort",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "sort",
+            "sort",
+            "sort"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s34",
+      "name": "Orbit Hollow",
+      "chapterId": "lantern-forest",
+      "chapterTitle": "Lantern Forest",
+      "chapterStop": 4,
+      "actions": 7,
+      "encounters": 3,
+      "beats": 3,
+      "deferredBeats": 2,
+      "patterns": [
+        "assembly",
+        "sort"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "telescope-build",
+          "pattern": "assembly",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "lift-telescope-part",
+            "fit-telescope-part"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 2,
+          "actions": [
+            "build",
+            "build"
+          ]
+        },
+        {
+          "encounter": "sheep-pens",
+          "mechanic": "herd-and-sort",
+          "pattern": "sort",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "sort",
+            "sort",
+            "sort"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s35",
+      "name": "The Sleeping Observatory",
+      "chapterId": "lantern-forest",
+      "chapterTitle": "Lantern Forest",
+      "chapterStop": 5,
+      "actions": 8,
+      "encounters": 3,
+      "beats": 4,
+      "deferredBeats": 0,
+      "patterns": [
+        "turn",
+        "assembly",
+        "search"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "observatory-turn",
+          "pattern": "turn",
+          "chapterAuthored": true,
+          "stages": 4,
+          "actions": [
+            "choose-orbit",
+            "turn-orbit",
+            "turn-orbit",
+            "turn-orbit"
+          ]
+        },
+        {
+          "encounter": "echo-cave",
+          "mechanic": "echo-sequence",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 2,
+          "actions": [
+            "collect",
+            "collect"
+          ]
+        },
+        {
+          "encounter": "signpost",
+          "mechanic": "object-collect",
+          "pattern": "search",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "collect"
+          ]
+        },
+        {
+          "encounter": "signpost",
+          "mechanic": "object-collect",
+          "pattern": "search",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "collect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s36",
+      "name": "Comet Stair",
+      "chapterId": "star-reach",
+      "chapterTitle": "Star Reach",
+      "chapterStop": 1,
+      "actions": 5,
+      "encounters": 3,
+      "beats": 3,
+      "deferredBeats": 0,
+      "patterns": [
+        "route",
+        "assembly"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "constellation-route",
+          "pattern": "route",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-star",
+            "step-star"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 2,
+          "actions": [
+            "build",
+            "build"
+          ]
+        },
+        {
+          "encounter": "story-rock",
+          "mechanic": "story-choice",
+          "pattern": "route",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "choose-path"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s37",
+      "name": "Aster Archive",
+      "chapterId": "star-reach",
+      "chapterTitle": "Star Reach",
+      "chapterStop": 2,
+      "actions": 4,
+      "encounters": 1,
+      "beats": 2,
+      "deferredBeats": 0,
+      "patterns": [
+        "delivery"
+      ],
+      "tasks": [
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "sky-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "lift-sky-parcel",
+            "deliver-sky-parcel"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "sky-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "lift-sky-parcel",
+            "deliver-sky-parcel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s38",
+      "name": "Dawn Causeway",
+      "chapterId": "star-reach",
+      "chapterTitle": "Star Reach",
+      "chapterStop": 3,
+      "actions": 6,
+      "encounters": 2,
+      "beats": 4,
+      "deferredBeats": 0,
+      "patterns": [
+        "sort",
+        "search"
+      ],
+      "tasks": [
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "star-sort",
+          "pattern": "sort",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-star",
+            "sort-star"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "star-sort",
+          "pattern": "sort",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-star",
+            "sort-star"
+          ]
+        },
+        {
+          "encounter": "signpost",
+          "mechanic": "object-collect",
+          "pattern": "search",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "collect"
+          ]
+        },
+        {
+          "encounter": "signpost",
+          "mechanic": "object-collect",
+          "pattern": "search",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "collect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s39",
+      "name": "Reading Skybridge",
+      "chapterId": "star-reach",
+      "chapterTitle": "Star Reach",
+      "chapterStop": 4,
+      "actions": 8,
+      "encounters": 3,
+      "beats": 3,
+      "deferredBeats": 0,
+      "patterns": [
+        "assembly",
+        "route"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "memory-journey",
+          "pattern": "assembly",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "lift-memory",
+            "restore-memory"
+          ]
+        },
+        {
+          "encounter": "echo-cave",
+          "mechanic": "echo-sequence",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 5,
+          "actions": [
+            "collect",
+            "collect",
+            "collect",
+            "collect",
+            "collect"
+          ]
+        },
+        {
+          "encounter": "story-rock",
+          "mechanic": "story-choice",
+          "pattern": "route",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "choose-path"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s40",
+      "name": "The First Reading Star",
+      "chapterId": "star-reach",
+      "chapterTitle": "Star Reach",
+      "chapterStop": 5,
+      "actions": 7,
+      "encounters": 3,
+      "beats": 3,
+      "deferredBeats": 0,
+      "patterns": [
+        "rhythm",
+        "assembly",
+        "route"
+      ],
+      "tasks": [
+        {
+          "encounter": "flower-patch",
+          "mechanic": "reading-finale",
+          "pattern": "rhythm",
+          "chapterAuthored": true,
+          "stages": 2,
+          "actions": [
+            "choose-reading-sound",
+            "release-reading-sound"
+          ]
+        },
+        {
+          "encounter": "broken-bridge",
+          "mechanic": "bridge-build",
+          "pattern": "assembly",
+          "chapterAuthored": false,
+          "stages": 4,
+          "actions": [
+            "build",
+            "build",
+            "build",
+            "build"
+          ]
+        },
+        {
+          "encounter": "story-rock",
+          "mechanic": "story-choice",
+          "pattern": "route",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "choose-path"
+          ]
+        }
+      ]
+    }
+  ]
+}

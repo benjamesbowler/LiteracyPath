@@ -1,6 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { fileURLToPath, URL } from 'node:url'
+import { questOfflinePlugin } from './tools/viteQuestOfflinePlugin.mjs'
+
+const releaseQuestPreview = process.env.QUEST_RELEASE_PREVIEW === 'true'
+const offlineBuildVariant = process.env.QUEST_OFFLINE_BUILD_VARIANT || ''
 
 function bundleAnalysisPlugin() {
   return {
@@ -42,14 +46,46 @@ function bundleAnalysisPlugin() {
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), bundleAnalysisPlugin()],
+  plugins: [react(), bundleAnalysisPlugin(), questOfflinePlugin({
+    includeQuestPreview: releaseQuestPreview,
+    buildVariant: offlineBuildVariant
+  })],
+  define: {
+    global: 'globalThis',
+    'typeof CANVAS_RENDERER': 'true',
+    'typeof WEBGL_RENDERER': 'false',
+    'typeof WEBGL_DEBUG': 'false',
+    'typeof FEATURE_SOUND': 'true'
+  },
+  optimizeDeps: {
+    include: ['phaser'],
+    rolldownOptions: {
+      transform: {
+        define: {
+          global: 'globalThis',
+          'typeof CANVAS_RENDERER': 'true',
+          'typeof WEBGL_RENDERER': 'false',
+          'typeof WEBGL_DEBUG': 'false',
+          'typeof FEATURE_SOUND': 'true'
+        }
+      }
+    }
+  },
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      phaser: fileURLToPath(new URL('./src/vendor/phaserSoundSeekers.cjs', import.meta.url))
     }
   },
   build: {
     rollupOptions: {
+      ...(releaseQuestPreview ? {
+        input: {
+          main: fileURLToPath(new URL('./index.html', import.meta.url)),
+          quest: fileURLToPath(new URL('./preview/quest.html', import.meta.url)),
+          questEvidence: fileURLToPath(new URL('./preview/quest-evidence.html', import.meta.url))
+        }
+      } : {}),
       output: {
         manualChunks(id) {
           if (id.includes('/node_modules/react') || id.includes('/node_modules/framer-motion') || id.includes('/node_modules/motion-')) {

@@ -1,0 +1,67 @@
+{
+  "proof": {
+    "stopId": "s5",
+    "encounterId": "s5-0",
+    "encounterKind": "trail-run",
+    "beatIndex": 0,
+    "stageIndex": 0,
+    "safeArea": {
+      "left": 34,
+      "top": 104,
+      "right": 1160,
+      "bottom": 728
+    },
+    "hudNodes": 2,
+    "camera": {
+      "position": [
+        0.05385986278529842,
+        6.903288399954214,
+        -25.58826030596205
+      ],
+      "delta": 0,
+      "settled": true
+    },
+    "items": [
+      {
+        "id": "s5-0-0-0-0-b",
+        "value": "b",
+        "rect": {
+          "left": 529.1432329102582,
+          "top": 415.33801878248306,
+          "right": 732.0951626404376,
+          "bottom": 687.3460959473427
+        },
+        "insideSafeArea": true,
+        "firstHit": "field-hit-proxy",
+        "rayClear": true
+      },
+      {
+        "id": "s5-0-0-0-1-d",
+        "value": "d",
+        "rect": {
+          "left": 402.3134066243278,
+          "top": 285.161454200838,
+          "right": 529.7390867683758,
+          "bottom": 447.122436000329
+        },
+        "insideSafeArea": true,
+        "firstHit": "field-hit-proxy",
+        "rayClear": true
+      },
+      {
+        "id": "s5-0-0-0-2-c",
+        "value": "c",
+        "rect": {
+          "left": 780.6076424904614,
+          "top": 294.380687609848,
+          "right": 924.630986835939,
+          "bottom": 467.54822089130005
+        },
+        "insideSafeArea": true,
+        "firstHit": "field-hit-proxy",
+        "rayClear": true
+      }
+    ]
+  },
+  "problems": []
+}

@@ -81,6 +81,46 @@ export function questHeatTiles(state = {}) {
   });
 }
 
+export function questEvidenceGuidance({
+  attempts = 0,
+  sessions = 0,
+  highControlLoad = false,
+  highLearningLoad = false,
+  weakest = []
+} = {}) {
+  const responseCount = Math.max(0, Number(attempts) || 0);
+  const sessionCount = Math.max(0, Number(sessions) || 0);
+  const focus = weakest.slice(0, 2).map(row => tileLabel(row.target)).filter(Boolean);
+  if (responseCount < 10 || sessionCount < 2) {
+    return {
+      strength: "Early evidence",
+      nextAction: "Keep normal play going. Wait for at least two sessions and ten responses before changing teaching."
+    };
+  }
+  if (highControlLoad && !highLearningLoad) {
+    return {
+      strength: responseCount >= 30 && sessionCount >= 4 ? "Stable pattern" : "Developing evidence",
+      nextAction: "Compare one accessible 2D session before changing phonics teaching; movement or timing may be adding load."
+    };
+  }
+  if (highLearningLoad && focus.length) {
+    return {
+      strength: responseCount >= 30 && sessionCount >= 4 ? "Stable pattern" : "Developing evidence",
+      nextAction: `Re-teach ${focus.join(" and ")} explicitly, then use a short free-roam review to check transfer.`
+    };
+  }
+  if (focus.length) {
+    return {
+      strength: responseCount >= 30 && sessionCount >= 4 ? "Stable pattern" : "Developing evidence",
+      nextAction: `Use the next free-roam review for ${focus.join(" and ")}; keep the main trail moving.`
+    };
+  }
+  return {
+    strength: responseCount >= 30 && sessionCount >= 4 ? "Stable pattern" : "Developing evidence",
+    nextAction: "Continue the next trail and review the report again after another session."
+  };
+}
+
 export function buildQuestMasteryReport(state = {}) {
   const mastery = state?.mastery || {};
   const weak = weakestTargets(mastery, 5);
@@ -89,6 +129,29 @@ export function buildQuestMasteryReport(state = {}) {
   const correct = Object.values(mastery).reduce((sum, row) => sum + (Number(row?.correct) || 0), 0);
   const developing = Object.values(mastery).filter(row => ["learning", "practising", "at-risk"].includes(row?.state)).length;
   const stopped = new Set(state?.trail?.stopsDone || []);
+  const interactionEvidence = telemetry.responses;
+  const highControlLoad = interactionEvidence >= 5
+    && telemetry.motorRetries >= 3
+    && telemetry.motorRetryRate >= 0.2;
+  const highLearningLoad = interactionEvidence >= 5
+    && telemetry.correctionMisses >= 3
+    && (telemetry.correctionMisses / interactionEvidence) >= 0.3;
+  const interactionInterpretation = interactionEvidence < 5
+    ? "More play is needed before separating sound knowledge from control difficulty."
+    : highControlLoad && !highLearningLoad
+      ? "Timing or movement retries may be slowing play more than sound knowledge."
+      : highLearningLoad && !highControlLoad
+        ? "Sound choices caused more difficulty than timing or movement controls."
+        : highControlLoad && highLearningLoad
+          ? "Both sound choices and timing or movement controls affected this session."
+          : "Responses were completed without a strong control or re-teaching signal.";
+  const guidance = questEvidenceGuidance({
+    attempts: Math.max(attempts, interactionEvidence),
+    sessions: telemetry.sessions,
+    highControlLoad,
+    highLearningLoad,
+    weakest: weak
+  });
 
   return {
     buckets: sortBuckets(mastery),
@@ -118,15 +181,68 @@ export function buildQuestMasteryReport(state = {}) {
     timeOnTask: formatQuestDuration(telemetry.activeMs),
     sessions: telemetry.sessions,
     reviewSessions: telemetry.reviewSessions,
+    shortcutSessions: telemetry.shortcutSessions,
     lastActiveAt: telemetry.lastActiveAt,
     currentFocus: weak.map(row => row.target),
+    interaction: {
+      prompts: telemetry.prompts,
+      responses: telemetry.responses,
+      averageResponseMs: Math.round(telemetry.averageResponseMs),
+      slowResponseRate: Math.round(telemetry.slowResponseRate * 1000) / 10,
+      motorRetries: telemetry.motorRetries,
+      motorRetryRate: Math.round(telemetry.motorRetryRate * 1000) / 10,
+      correctionMisses: telemetry.correctionMisses,
+      teachBacks: telemetry.teachBacks,
+      trailFinds: telemetry.drops,
+      pacingAdaptations: telemetry.pacingAdaptations,
+      deferredBeats: telemetry.deferredBeats,
+      optionalRouteVisits: telemetry.optionalRouteVisits,
+      optionalDiscoveries: telemetry.optionalDiscoveries,
+      restoredFriendsMet: telemetry.restoredFriendsMet,
+      accessibleTimingSupports: telemetry.accessibleTimingSupports,
+      accessibleSessions: telemetry.accessibleSessions,
+      promptCompletionRate: Math.round(telemetry.promptCompletionRate * 1000) / 10,
+      highControlLoad,
+      highLearningLoad,
+      interpretation: interactionInterpretation,
+      evidenceStrength: guidance.strength,
+      nextAction: guidance.nextAction
+    },
     runtime: {
       sampledFrames: telemetry.sampledFrames,
       averageFrameMs: Math.round(telemetry.averageFrameMs * 10) / 10,
       longFrameRate: Math.round(telemetry.longFrameRate * 1000) / 10,
       qualityTransitions: telemetry.qualityTransitions,
       contextLosses: telemetry.contextLosses,
-      fallbackSessions: telemetry.fallbackSessions
+      fallbackSessions: telemetry.fallbackSessions,
+      sceneStarts: telemetry.sceneStarts,
+      averageSceneLoadMs: Math.round(telemetry.averageSceneLoadMs),
+      slowSceneStarts: telemetry.slowSceneStarts,
+      slowSceneStartRate: Math.round(telemetry.slowSceneStartRate * 1000) / 10,
+      averageSceneAssetRequests: Math.round(telemetry.averageSceneAssetRequests),
+      averageSceneAssetBytes: Math.round(telemetry.averageSceneAssetBytes),
+      peakSceneAssetRequests: telemetry.peakSceneAssetRequests,
+      peakSceneAssetBytes: telemetry.peakSceneAssetBytes,
+      healthSamples: telemetry.healthSamples,
+      peakDisplayObjects: telemetry.peakDisplayObjects,
+      peakTweens: telemetry.peakTweens,
+      peakTextures: telemetry.peakTextures,
+      peakActiveChoices: telemetry.peakActiveChoices,
+      networkInterruptions: telemetry.networkInterruptions,
+      syncDeferrals: telemetry.syncDeferrals,
+      syncRecoveries: telemetry.syncRecoveries,
+      offlineShellReady: telemetry.offlineShellReady,
+      offlineColdStarts: telemetry.offlineColdStarts,
+      offlineWarmups: telemetry.offlineWarmups,
+      offlineWarmupFailures: telemetry.offlineWarmupFailures,
+      offlineShellErrors: telemetry.offlineShellErrors,
+      offlineUpdates: telemetry.offlineUpdates,
+      offlineUpdatesApplied: telemetry.offlineUpdatesApplied,
+      lastOfflineWarmAt: telemetry.lastOfflineWarmAt,
+      lastOfflineUpdateAt: telemetry.lastOfflineUpdateAt,
+      lastOfflineBuildId: telemetry.lastOfflineBuildId,
+      syncPending: telemetry.syncPending,
+      lastSyncRecoveredAt: telemetry.lastSyncRecoveredAt
     }
   };
 }

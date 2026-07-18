@@ -1031,7 +1031,24 @@ function SoundSeekersSection({ report }) {
           ["Almost there", report.buckets?.almostThere ?? "-"],
           ["Needs re-teaching", report.buckets?.needsReteaching ?? "-"],
           ["Time on task", report.timeOnTask],
-          ["Accuracy", report.accuracy == null ? "Not enough evidence" : `${report.accuracy}% across ${report.attempts} responses`]
+          ["Accuracy", report.accuracy == null ? "Not enough evidence" : `${report.accuracy}% across ${report.attempts} responses`],
+          ["Response pace", report.interaction?.responses
+            ? `${(report.interaction.averageResponseMs / 1000).toFixed(1)} sec average`
+            : "Not enough evidence"],
+          ["Timing retries", report.interaction?.motorRetries ?? 0],
+          ["Guided teach-backs", report.interaction?.teachBacks ?? 0],
+          ["Pacing adjustments", report.interaction?.pacingAdaptations
+            ? `${report.interaction.pacingAdaptations} (${report.interaction.deferredBeats} prompts saved for review)`
+            : "None needed"],
+          ["Practice journeys", report.reviewSessions
+            ? `${report.reviewSessions} reviews · ${report.shortcutSessions || 0} earned shortcuts`
+            : "No review journeys recorded"],
+          ["Exploration", report.interaction?.optionalRouteVisits || report.interaction?.optionalDiscoveries || report.interaction?.restoredFriendsMet
+            ? `${report.interaction.optionalRouteVisits} side routes · ${report.interaction.optionalDiscoveries} discoveries · ${report.interaction.restoredFriendsMet} returning friends`
+            : "No optional visits recorded"],
+          ["Accessible play", report.interaction?.accessibleSessions
+            ? `${report.interaction.accessibleSessions} sessions · ${report.interaction.accessibleTimingSupports} timing barriers removed`
+            : "No 2D sessions recorded"]
         ].map(([label, value]) => (
           <article className="report-engagement-card" key={label}>
             <span className="report-engagement-label">{label}</span>
@@ -1039,6 +1056,58 @@ function SoundSeekersSection({ report }) {
           </article>
         ))}
       </div>
+      <div className="report-quest-focus">
+        <h3>Reading and control evidence</h3>
+        <p><strong>{report.interaction?.evidenceStrength || "Early evidence"}.</strong> {report.interaction?.nextAction}</p>
+        <p>{report.interaction?.interpretation || "More play is needed before separating sound knowledge from control difficulty."}</p>
+        {report.interaction?.responses > 0 && (
+          <p>
+            {report.interaction.responses} physical choices · {report.interaction.correctionMisses} sound-choice corrections · {report.interaction.motorRetries} timing retries · {report.interaction.trailFinds} trail finds
+          </p>
+        )}
+      </div>
+      {(report.runtime?.sceneStarts > 0
+        || report.runtime?.fallbackSessions > 0
+        || report.runtime?.networkInterruptions > 0
+        || report.runtime?.offlineShellReady) && (
+        <div className="report-quest-focus">
+          <h3>Device experience</h3>
+          <p>
+            {report.runtime.sceneStarts > 0
+              ? `${(report.runtime.averageSceneLoadMs / 1000).toFixed(1)} sec average adventure start · ${report.runtime.slowSceneStarts} slow starts`
+              : "No measured adventure starts"}
+            {` · ${report.runtime.fallbackSessions} automatic 2D fallbacks · ${report.runtime.contextLosses} graphics interruptions`}
+          </p>
+          {report.runtime.networkInterruptions > 0 && (
+            <p>
+              {report.runtime.networkInterruptions} connection {report.runtime.networkInterruptions === 1 ? "interruption" : "interruptions"}
+              {` · ${report.runtime.syncRecoveries} recovered cloud ${report.runtime.syncRecoveries === 1 ? "save" : "saves"}`}
+              {report.runtime.syncPending ? " · Latest progress is safe on this device and waiting to sync" : " · Latest progress is synced"}
+            </p>
+          )}
+          {report.runtime.offlineShellReady && (
+            <>
+              <p>
+                Offline play ready
+                {` · ${report.runtime.offlineWarmups} chapter ${report.runtime.offlineWarmups === 1 ? "cache" : "caches"} prepared`}
+                {` · ${report.runtime.offlineColdStarts} cold offline ${report.runtime.offlineColdStarts === 1 ? "start" : "starts"}`}
+                {report.runtime.offlineWarmupFailures > 0
+                  ? ` · ${report.runtime.offlineWarmupFailures} asset cache failures`
+                  : " · No asset cache failures"}
+              </p>
+              {(report.runtime.offlineUpdates > 0 || report.runtime.offlineUpdatesApplied > 0) && (
+                <p>
+                  {`${report.runtime.offlineUpdates} app ${report.runtime.offlineUpdates === 1 ? "update" : "updates"} prepared after play`}
+                  {` · ${report.runtime.offlineUpdatesApplied} applied safely`}
+                </p>
+              )}
+            </>
+          )}
+          {report.runtime.offlineShellErrors > 0 && (
+            <p>{report.runtime.offlineShellErrors} offline shell {report.runtime.offlineShellErrors === 1 ? "error" : "errors"} recorded</p>
+          )}
+        </div>
+      )}
       <div className="report-quest-focus">
         <h3>Adaptive review focus</h3>
         {report.weakest.length ? (

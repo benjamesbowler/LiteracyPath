@@ -8,14 +8,52 @@
 // not softened. A child who guessed their way through gets the gear and the
 // stop, and an unlit stone, and the sound comes back tomorrow.
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.jsx";
 import { getPiece } from "../../data/creatureParts.js";
 import { displayGrapheme } from "./shells/shellContract.js";
 import { playStarChime, playCelebrationFanfare } from "../../utils/audio/gameSfx.js";
 import { trailEventForStop } from "../../utils/questHub.js";
-import { seedwakeSatchel } from "../../data/questChapterOne.js";
-import CreatureFigure from "./CreatureFigure.jsx";
+import { availableSparks } from "../../utils/questProgress.js";
+
+function useCeremonyPixelArt({ chapterId, world, cast, creature }) {
+  const [art, setArt] = useState({ beastieSheet: "", friends: [] });
+
+  useEffect(() => {
+    if (!chapterId || !creature) return undefined;
+    let active = true;
+    Promise.all([
+      import("./world/questPixelAvatar.js"),
+      import("../../data/questPixelCast.js")
+    ]).then(([avatar, residents]) => {
+      if (!active) return;
+      setArt({
+        beastieSheet: avatar.createPixelBeastieSheet(creature).toDataURL("image/png"),
+        friends: cast.map(friend => {
+          const residentKey = residents.questPixelResidentKey(chapterId, friend.name, world);
+          return {
+            ...friend,
+            spritePath: residents.questPixelResidentJumpPath(residentKey)
+              || residents.questPixelResidentPath(residentKey)
+          };
+        })
+      });
+    });
+    return () => { active = false; };
+  }, [cast, chapterId, creature, world]);
+
+  return art;
+}
+
+function PixelBeastieCelebration({ sheet }) {
+  return (
+    <span
+      className="q-ceremony-pixel-beastie"
+      style={sheet ? { backgroundImage: `url(${sheet})` } : undefined}
+      aria-hidden="true"
+    />
+  );
+}
 
 export default function RewardScreen({
   stop,
@@ -24,14 +62,47 @@ export default function RewardScreen({
   newStones = [],
   gear = null,
   chapterReward = null,
+  sparkGain = 0,
   state = null,
   isSoundEnabled = true,
   overlay = false,
-  onContinue
+  onContinue,
+  onTradingPost
 }) {
   const gearPiece = gear ? getPiece(gear) : null;
   const event = trailEventForStop(stop);
-  const satchel = seedwakeSatchel(state);
+  const sparkBalance = availableSparks(state);
+  const completedStops = new Set(state?.trail?.stopsDone || []);
+  const restoredPlaces = (chapterReward?.stopIds || []).filter(stopId => completedStops.has(stopId)).length;
+  const ceremonyCast = chapterReward?.cast || [];
+  const { beastieSheet, friends: visualCast } = useCeremonyPixelArt({
+    chapterId: chapterReward?.chapterId,
+    world: stop.world,
+    cast: ceremonyCast,
+    creature: state?.creature
+  });
+  const finale = chapterReward?.finale || null;
+  const ceremonyLine = chapterReward
+    ? `${chapterReward.destination} is awake. ${chapterReward.worldEffect}`
+    : event.line;
+  const dialogRef = useRef(null);
+  const continueRef = useRef(null);
+  const skipRef = useRef(null);
+  const [ceremonyStage, setCeremonyStage] = useState(overlay ? 0 : 3);
+  const reducedMotion = Boolean(state?.settings?.reducedMotion);
+
+  useEffect(() => {
+    if (!overlay) return undefined;
+    if (reducedMotion || window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) {
+      const timer = window.setTimeout(() => setCeremonyStage(3), 0);
+      return () => window.clearTimeout(timer);
+    }
+    const timers = [1, 2, 3].map(stage => window.setTimeout(
+      () => setCeremonyStage(stage),
+      stage * 1050
+    ));
+    return () => timers.forEach(timer => window.clearTimeout(timer));
+  }, [overlay, reducedMotion]);
 
   useEffect(() => {
     if (!isSoundEnabled) return undefined;
@@ -41,13 +112,37 @@ export default function RewardScreen({
     return () => clearTimeout(t);
   }, [stars, isSoundEnabled]);
 
+  useEffect(() => {
+    if (!overlay) return undefined;
+    const previousFocus = document.activeElement;
+    skipRef.current?.focus();
+    return () => previousFocus?.focus?.();
+  }, [overlay]);
+
+  const containFocus = event => {
+    if (!overlay || event.key !== "Tab") return;
+    const controls = [...(dialogRef.current?.querySelectorAll("button:not([disabled]), [href], [tabindex]:not([tabindex='-1'])") || [])];
+    if (!controls.length) return;
+    const first = controls[0];
+    const last = controls.at(-1);
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
   return (
     <section
-      className={`q-reward${overlay ? " q-reward-overlay" : " q-screen"}`}
+      className={`q-reward${overlay ? " q-reward-overlay" : " q-screen"}${reducedMotion ? " q-reward-reduced-motion" : ""}`}
+      ref={dialogRef}
       data-event={event.mode}
       aria-modal={overlay ? "true" : undefined}
       role={overlay ? "dialog" : undefined}
       aria-label={`${stop.name} reward`}
+      onKeyDown={containFocus}
     >
       {/* No stars, no confetti. Celebrating a run where the child got nothing
           right teaches them the celebration is meaningless. */}
@@ -55,91 +150,113 @@ export default function RewardScreen({
 
       <div className="q-reward-card q-reward-ceremony-card">
         <div className="q-reward-copy">
-          <span className="q-reward-kicker">Chapter restored</span>
-          <h1 className="q-title">{chapterReward?.label || (event.mode === "section" ? stop.name : event.title)}</h1>
-          <p className="q-reward-line">{event.line}</p>
+          <span className="q-reward-kicker">{chapterReward ? `${chapterReward.chapterTitle} restored` : "Trail repaired"}</span>
+          <h1 className="q-title">{chapterReward?.destination || (event.mode === "section" ? stop.name : event.title)}</h1>
+          <p className="q-reward-line">{ceremonyLine}</p>
 
-          {chapterReward && (
-            <div className="q-ceremony-relic">
+          <div className={`q-ceremony-step${ceremonyStage >= 0 ? " is-revealed" : ""}`} aria-live="polite">
+            {chapterReward && (
+              <div className="q-seedwake-summary">
+                <div>
+                  <span>Chapter trail</span>
+                  <strong>{restoredPlaces} of {chapterReward.stopIds.length} places repaired</strong>
+                </div>
+                {ceremonyCast.length > 0 && (
+                  <ul className="q-ceremony-friends" aria-label="Friends celebrating with you">
+                    {visualCast.map(friend => (
+                      <li key={`${friend.name}-${friend.role}`}>
+                        <span
+                          className="q-ceremony-friend-sprite"
+                          style={{ backgroundImage: `url(${friend.spritePath})` }}
+                          aria-hidden="true"
+                        />
+                        <div><strong>{friend.name}</strong><small>{friend.role}</small></div>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {finale && (
+                  <p className="q-ceremony-finale">
+                    <strong>{finale.title}</strong>
+                    <span>{finale.action}</span>
+                  </p>
+                )}
+              </div>
+            )}
+          </div>
+
+          {chapterReward && ceremonyStage >= 1 && (
+            <div className="q-ceremony-relic q-ceremony-step is-revealed" aria-live="polite">
               <span aria-hidden="true" />
               <div>
                 <strong>{chapterReward.label}</strong>
                 <small>{chapterReward.abilityLabel}</small>
+                <small>{chapterReward.worldEffect}</small>
               </div>
             </div>
           )}
 
-          {chapterReward?.chapterId === "seedwake-meadow" && (
-            <div className="q-seedwake-summary">
-              <div>
-                <span>Seedwake satchel</span>
-                <strong>{satchel.total} finds · {satchel.sparksBanked} Sparks banked</strong>
-              </div>
-              <ol aria-label="Restored Seedwake landmarks">
-                {satchel.pockets.map(pocket => (
-                  <li key={pocket.id} className={pocket.repaired ? "is-restored" : ""}>
-                    <span>{pocket.count}</span>
-                    <strong>{pocket.repair.label}</strong>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          )}
-
-          <div className="q-reward-stars" aria-label={`${stars} of 3 stars`}>
-            {[0, 1, 2].map(i => (
-              <span key={i} className={`q-star${i < stars ? " is-on" : ""}`} style={{ animationDelay: `${i * 140}ms` }}>★</span>
-            ))}
-          </div>
-
-          {gearPiece && (
-            <p className="q-reward-gear">
-              Found: <strong>{gearPiece.label}</strong>
-            </p>
-          )}
-
-          {newStones.length > 0 ? (
-            <div className="q-reward-stones">
-              <p className="q-note">New stones for your wall:</p>
-              <div className="q-wall">
-                {newStones.map((g, i) => (
-                  <span key={g} className="q-stone q-stone-mastered is-landing" style={{ animationDelay: `${i * 120}ms` }}>
-                    {displayGrapheme(g)}
-                  </span>
+          {ceremonyStage >= 2 && (
+            <div className="q-ceremony-step q-ceremony-achievement is-revealed" aria-live="polite">
+              <div className="q-reward-stars" aria-label={`${stars} of 3 stars`}>
+                {[0, 1, 2].map(i => (
+                  <span key={i} className={`q-star${i < stars ? " is-on" : ""}`} style={{ animationDelay: `${i * 140}ms` }}>★</span>
                 ))}
               </div>
+
+              <div className="q-reward-earned" aria-label="Rewards earned">
+                {gearPiece && <span>New gear: <strong>{gearPiece.label}</strong></span>}
+                <span>
+                  {sparkGain > 0 ? <><strong>+{sparkGain} Sparks</strong> this trail · </> : null}
+                  <strong>{sparkBalance} ready to spend</strong>
+                </span>
+                <span>
+                  {newStones.length
+                    ? `New sound stones: ${newStones.map(displayGrapheme).join(", ")}`
+                    : "These sounds will return for more practice."}
+                </span>
+              </div>
             </div>
-          ) : (
-            // Honest, and gentle. No "you failed" — there is no failing here.
-            <p className="q-note q-reward-none">
-              No new stones yet. These sounds will come back.
-            </p>
           )}
 
-          {nextStop && (
+          {nextStop && ceremonyStage >= 3 && (
             <p className="q-reward-next">
               Next trail: <strong>{nextStop.name}</strong>
             </p>
           )}
 
-          <button type="button" className="q-primary" onClick={onContinue}>Continue the trail</button>
+          {ceremonyStage < 3 ? (
+            <button ref={skipRef} type="button" className="q-ghost q-ceremony-skip" onClick={() => setCeremonyStage(3)}>Show rewards now</button>
+          ) : (
+            <div className="q-ceremony-actions">
+              <button ref={continueRef} type="button" className="q-primary" onClick={onContinue}>Continue the trail</button>
+              {onTradingPost && <button type="button" className="q-ghost" onClick={onTradingPost}>Choose new gear</button>}
+            </div>
+          )}
         </div>
 
         <div
           className="q-reward-stage q-ceremony-view"
           data-equipped-gear={gearPiece?.id || "none"}
+          role="img"
           aria-label={gearPiece ? `Your Beastie is wearing ${gearPiece.label}` : "Your Beastie celebrating"}
         >
           <span className="q-ceremony-ring is-outer" aria-hidden="true" />
           <span className="q-ceremony-ring is-inner" aria-hidden="true" />
           <span className="q-ceremony-relic-mark" aria-hidden="true" />
-          {state?.creature && (
-            <CreatureFigure
-              creature={state.creature}
-              size={230}
-              mood="cheer"
-              title={gearPiece ? `Your Beastie wearing ${gearPiece.label}` : "Your Beastie celebrating"}
-            />
+          {visualCast.length > 0 && (
+            <span className="q-ceremony-cast-stage" aria-hidden="true">
+              {visualCast.map(friend => (
+                <span
+                  key={`stage-${friend.name}-${friend.role}`}
+                  className="q-ceremony-friend-sprite"
+                  style={{ backgroundImage: `url(${friend.spritePath})` }}
+                />
+              ))}
+            </span>
+          )}
+          {beastieSheet && (
+            <PixelBeastieCelebration sheet={beastieSheet} />
           )}
         </div>
       </div>

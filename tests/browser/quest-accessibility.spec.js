@@ -1,0 +1,702 @@
+import AxeBuilder from "@axe-core/playwright";
+import { expect, test } from "@playwright/test";
+
+const PREVIEW = "/preview/quest.html?sound=0&creature=showcase&adapt=0";
+
+async function expectNoHorizontalOverflow(page) {
+  const dimensions = await page.evaluate(() => ({
+    viewport: document.documentElement.clientWidth,
+    content: document.documentElement.scrollWidth
+  }));
+  expect(dimensions.content).toBeLessThanOrEqual(dimensions.viewport);
+}
+
+async function expectNoSeriousAxeViolations(page) {
+  const result = await new AxeBuilder({ page }).include(".q-root").analyze();
+  const serious = result.violations.filter(item => ["serious", "critical"].includes(item.impact));
+  expect(serious, serious.map(item => `${item.id}: ${item.help}`).join("\n")).toEqual([]);
+}
+
+async function expectVisibleButtonsReachable(page, minimumHeight = 44) {
+  const viewport = page.viewportSize();
+  const buttons = page.locator(".q-root button:visible");
+  const failures = [];
+  for (const button of await buttons.all()) {
+    const inactive = await button.evaluate(element => Boolean(
+      element.closest("[inert], [aria-hidden='true']")
+    ));
+    if (inactive) continue;
+    const box = await button.boundingBox();
+    if (!box) continue;
+    if (box.height < minimumHeight || box.x < 0 || box.x + box.width > (viewport?.width || 0)) {
+      failures.push({
+        label: (await button.getAttribute("aria-label")) || (await button.textContent())?.trim(),
+        x: Math.round(box.x),
+        right: Math.round(box.x + box.width),
+        height: Math.round(box.height)
+      });
+    }
+  }
+  expect(failures).toEqual([]);
+}
+
+test("accessible trail keeps its prompt and child-sized controls at 320 pixels", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto(`${PREVIEW}&view=world&stop=s7&done=6&display=2d&active=0`);
+
+  await expect(page.getByRole("group", { name: "Find j" })).toBeVisible();
+  const choices = page.locator(".q2d-choices button");
+  await expect(choices).toHaveCount(3);
+  for (const choice of await choices.all()) {
+    const box = await choice.boundingBox();
+    expect(box?.width || 0).toBeGreaterThanOrEqual(44);
+    expect(box?.height || 0).toBeGreaterThanOrEqual(44);
+    expect(box?.x || 0).toBeGreaterThanOrEqual(0);
+    expect((box?.x || 0) + (box?.width || 0)).toBeLessThanOrEqual(320);
+  }
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+});
+
+test("the authored Seedwake resident remains legible in the 320-pixel accessible game", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto(`${PREVIEW}&view=world&stop=s1&display=2d&active=0`);
+
+  await expect(page.locator(".q2d-resident > span", { hasText: "Moss" })).toBeVisible();
+  await expect(page.getByRole("group", { name: "Find a" })).toBeVisible();
+  const resident = page.locator(".q2d-resident > i");
+  await expect(resident).toBeVisible();
+  const box = await resident.boundingBox();
+  expect(box?.width || 0).toBeGreaterThanOrEqual(64);
+  expect(box?.height || 0).toBeGreaterThanOrEqual(64);
+  expect(box?.x || 0).toBeGreaterThanOrEqual(0);
+  expect((box?.x || 0) + (box?.width || 0)).toBeLessThanOrEqual(320);
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+});
+
+test("the authored River Gardens cast remains legible in the 320-pixel accessible game", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto(`${PREVIEW}&view=world&stop=s6&done=5&display=2d&active=0`);
+
+  await expect(page.locator(".q2d-resident > span", { hasText: "Fizz" })).toBeVisible();
+  await expect(page.getByRole("group", { name: "Find x" })).toBeVisible();
+  const resident = page.locator(".q2d-resident > i");
+  await expect(resident).toBeVisible();
+  const box = await resident.boundingBox();
+  expect(box?.width || 0).toBeGreaterThanOrEqual(64);
+  expect(box?.height || 0).toBeGreaterThanOrEqual(64);
+  expect(box?.x || 0).toBeGreaterThanOrEqual(0);
+  expect((box?.x || 0) + (box?.width || 0)).toBeLessThanOrEqual(320);
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+});
+
+test("the authored Fossil Canyon cast remains legible in the 320-pixel accessible game", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto(`${PREVIEW}&view=world&stop=s11&done=10&display=2d&active=0`);
+
+  await expect(page.locator(".q2d-resident > span", { hasText: "Rook" })).toBeVisible();
+  await expect(page.getByRole("group", { name: "Find nk" })).toBeVisible();
+  const resident = page.locator(".q2d-resident > i");
+  await expect(resident).toBeVisible();
+  const box = await resident.boundingBox();
+  expect(box?.width || 0).toBeGreaterThanOrEqual(64);
+  expect(box?.height || 0).toBeGreaterThanOrEqual(64);
+  expect(box?.x || 0).toBeGreaterThanOrEqual(0);
+  expect((box?.x || 0) + (box?.width || 0)).toBeLessThanOrEqual(320);
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+});
+
+test("the authored Forge Settlement cast remains legible in the 320-pixel accessible game", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto(`${PREVIEW}&view=world&stop=s16&done=15&display=2d&active=0`);
+
+  await expect(page.locator(".q2d-resident > span", { hasText: "Bolt" })).toBeVisible();
+  await expect(page.getByRole("group", { name: "Find a" })).toBeVisible();
+  const resident = page.locator(".q2d-resident > i");
+  await expect(resident).toBeVisible();
+  const box = await resident.boundingBox();
+  expect(box?.width || 0).toBeGreaterThanOrEqual(64);
+  expect(box?.height || 0).toBeGreaterThanOrEqual(64);
+  expect(box?.x || 0).toBeGreaterThanOrEqual(0);
+  expect((box?.x || 0) + (box?.width || 0)).toBeLessThanOrEqual(320);
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+});
+
+test("Forge sorting keeps its machine, cast, and moving answers in separate safe bays", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__questFeedbackSeen = [];
+    new MutationObserver(() => {
+      const feedback = document.querySelector(".qp-cue.has-feedback strong")?.textContent?.trim();
+      if (feedback) window.__questFeedbackSeen.push(feedback);
+    }).observe(document, { subtree: true, childList: true, attributes: true });
+  });
+
+  const verifyLayout = async screenshotPath => {
+    await page.waitForFunction(() => (
+      window.__questPixelRuntime?.getLayoutSnapshot?.().choices?.length === 3
+    ));
+    const snapshot = await page.evaluate(() => window.__questPixelRuntime.getLayoutSnapshot());
+    expect(snapshot.player).toBeTruthy();
+    expect(snapshot.resident).toBeTruthy();
+    expect(snapshot.decor).toBeTruthy();
+    expect(snapshot.choices).toHaveLength(3);
+
+    for (const choice of snapshot.choices) {
+      const playerClearance = Math.hypot(
+        choice.x - snapshot.player.x,
+        choice.y - snapshot.player.y
+      ) - choice.radius;
+      const residentClearance = Math.hypot(
+        choice.x - snapshot.resident.x,
+        choice.y - snapshot.resident.y
+      ) - choice.radius;
+      expect(playerClearance).toBeGreaterThanOrEqual(22);
+      expect(residentClearance).toBeGreaterThanOrEqual(22);
+      expect(choice.x - choice.radius).toBeGreaterThanOrEqual(snapshot.camera.left);
+      expect(choice.x + choice.radius).toBeLessThanOrEqual(snapshot.camera.right);
+    }
+    for (let first = 0; first < snapshot.choices.length; first += 1) {
+      for (let second = first + 1; second < snapshot.choices.length; second += 1) {
+        const a = snapshot.choices[first];
+        const b = snapshot.choices[second];
+        const gap = Math.hypot(a.x - b.x, a.y - b.y) - a.radius - b.radius;
+        expect(gap, JSON.stringify(snapshot)).toBeGreaterThanOrEqual(2);
+      }
+    }
+    await page.screenshot({ path: screenshotPath });
+  };
+
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${PREVIEW}&view=world&stop=s17&done=16&display=pixel&active=0`);
+  await expect(page.getByRole("button", { name: "3. a" })).toBeVisible();
+  await page.waitForTimeout(3200);
+  expect(await page.evaluate(() => window.__questFeedbackSeen)).toEqual([]);
+  await verifyLayout("docs/previews/quest-release/forge-sorting-desktop.png");
+  await page.getByRole("button", { name: "3. a" }).press("Enter");
+  await expect(page.getByText("Tip it into the hopper", { exact: true })).toBeVisible();
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${PREVIEW}&view=world&stop=s17&done=16&display=pixel&active=0`);
+  await expect(page.getByRole("button", { name: "3. a" })).toBeVisible();
+  await page.waitForTimeout(3200);
+  expect(await page.evaluate(() => window.__questFeedbackSeen)).toEqual([]);
+  await verifyLayout("docs/previews/quest-release/forge-sorting-phone.png");
+  const tallyContainsText = await page.locator(".qp-tally").evaluate(element => (
+    element.scrollWidth <= element.clientWidth
+    && [...element.querySelectorAll("span, small")].every(child => child.scrollWidth <= child.clientWidth)
+  ));
+  expect(tallyContainsText).toBe(true);
+  await expectNoHorizontalOverflow(page);
+});
+
+test("the authored Glass Marsh cast remains legible in the 320-pixel accessible game", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto(`${PREVIEW}&view=world&stop=s21&done=20&display=2d&active=0`);
+
+  await expect(page.locator(".q2d-resident > span", { hasText: "Ripple" })).toBeVisible();
+  await expect(page.getByRole("group", { name: "Find ue" })).toBeVisible();
+  const resident = page.locator(".q2d-resident > i");
+  await expect(resident).toBeVisible();
+  const box = await resident.boundingBox();
+  expect(box?.width || 0).toBeGreaterThanOrEqual(64);
+  expect(box?.height || 0).toBeGreaterThanOrEqual(64);
+  expect(box?.x || 0).toBeGreaterThanOrEqual(0);
+  expect((box?.x || 0) + (box?.width || 0)).toBeLessThanOrEqual(320);
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+});
+
+test("the authored Storm Coast cast remains legible in the 320-pixel accessible game", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto(`${PREVIEW}&view=world&stop=s26&done=25&display=2d&active=0`);
+
+  await expect(page.locator(".q2d-resident > span", { hasText: "Kelp" })).toBeVisible();
+  await expect(page.getByRole("group", { name: "Find oa" })).toBeVisible();
+  const resident = page.locator(".q2d-resident > i");
+  await expect(resident).toBeVisible();
+  const box = await resident.boundingBox();
+  expect(box?.width || 0).toBeGreaterThanOrEqual(64);
+  expect(box?.height || 0).toBeGreaterThanOrEqual(64);
+  expect(box?.x || 0).toBeGreaterThanOrEqual(0);
+  expect((box?.x || 0) + (box?.width || 0)).toBeLessThanOrEqual(320);
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+});
+
+test("the authored Lantern Forest cast remains legible in the 320-pixel accessible game", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto(`${PREVIEW}&view=world&stop=s31&done=30&display=2d&active=0`);
+
+  await expect(page.locator(".q2d-resident > span", { hasText: "Luma" })).toBeVisible();
+  await expect(page.getByRole("group", { name: "Find ar" })).toBeVisible();
+  const resident = page.locator(".q2d-resident > i");
+  await expect(resident).toBeVisible();
+  const box = await resident.boundingBox();
+  expect(box?.width || 0).toBeGreaterThanOrEqual(64);
+  expect(box?.height || 0).toBeGreaterThanOrEqual(64);
+  expect(box?.x || 0).toBeGreaterThanOrEqual(0);
+  expect((box?.x || 0) + (box?.width || 0)).toBeLessThanOrEqual(320);
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+});
+
+test("the authored Star Reach cast remains legible in the 320-pixel accessible game", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto(`${PREVIEW}&view=world&stop=s36&done=35&display=2d&active=0`);
+
+  await expect(page.locator(".q2d-resident > span", { hasText: "Comet" })).toBeVisible();
+  await expect(page.getByRole("group", { name: "Find ure" })).toBeVisible();
+  const resident = page.locator(".q2d-resident > i");
+  await expect(resident).toBeVisible();
+  const box = await resident.boundingBox();
+  expect(box?.width || 0).toBeGreaterThanOrEqual(64);
+  expect(box?.height || 0).toBeGreaterThanOrEqual(64);
+  expect(box?.x || 0).toBeGreaterThanOrEqual(0);
+  expect((box?.x || 0) + (box?.width || 0)).toBeLessThanOrEqual(320);
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+});
+
+test("the completed Star Reach map keeps all five authored landmarks inside a 320-pixel screen", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto(`${PREVIEW}&view=map&stop=s40&done=40&display=pixel`);
+
+  await expect(page.getByRole("heading", { name: "Star Reach" })).toBeVisible();
+  await expect(page.getByText("Whole trail restored", { exact: true })).toBeVisible();
+  const landmarks = page.locator(".q-map-stop-landmark");
+  await expect(landmarks).toHaveCount(5);
+  for (const landmark of await landmarks.all()) {
+    await expect(landmark).toBeVisible();
+    const loaded = await landmark.evaluate(image => image.complete && image.naturalWidth > 0);
+    expect(loaded).toBe(true);
+    const box = await landmark.boundingBox();
+    expect(box?.x || 0).toBeGreaterThanOrEqual(0);
+    expect((box?.x || 0) + (box?.width || 0)).toBeLessThanOrEqual(320);
+  }
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+});
+
+test("a restored chapter exposes its earned shortcut and launches the named review route", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${PREVIEW}&view=map&stop=s5&done=5&display=pixel`);
+
+  const shortcut = page.getByRole("button", {
+    name: "Lantern Run. Follow the flowers between restored gardens.",
+    exact: true
+  });
+  await expect(shortcut).toBeVisible();
+  const shortcutBox = await shortcut.boundingBox();
+  expect(shortcutBox?.x || 0).toBeGreaterThanOrEqual(0);
+  expect((shortcutBox?.x || 0) + (shortcutBox?.width || 0)).toBeLessThanOrEqual(390);
+  await shortcut.click();
+  await expect(page.locator(".qp-place > span", { hasText: "Lantern Run" })).toBeVisible();
+  await expect(page.locator(".qp-root")).toHaveAttribute("data-world", "meadow");
+});
+
+test("accessible play performs and checkpoints a restored resident memory", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${PREVIEW}&view=world&stop=s5&done=4&display=2d&active=0`);
+
+  const memory = page.getByRole("button", { name: "Visit Moss at the restored trail", exact: true });
+  await expect(memory).toBeVisible();
+  await memory.click();
+  const story = page.locator(".q2d-memory-story");
+  await expect(story).toContainText("The seeds you woke are lighting new sound paths.");
+  await expect(story).toContainText("Lantern flowers now mark the return lane.");
+  await expect(page.getByRole("button", { name: "Close restored trail story", exact: true })).toBeVisible();
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+  const checkpoint = await page.evaluate(() => JSON.parse(localStorage.getItem("lp-quest:preview") || "null"));
+  expect(checkpoint?.checkpoint?.visitedMemoryIds).toContain("restored-s1");
+});
+
+test("the Singing Weir gate crosses directly into the River Gardens ceremony", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${PREVIEW}&view=world&stop=s10&done=9&display=pixel&checkpoint=gate`);
+
+  const world = page.locator(".qp-root[data-ready='true']");
+  await expect(world).toBeVisible({ timeout: 10_000 });
+  await expect(page.getByText("Walk through the open gate")).toBeVisible();
+  await page.keyboard.down("ArrowUp");
+  await expect(page.locator(".qp-root[data-ceremony='true']")).toBeVisible({ timeout: 5_000 });
+  await page.keyboard.up("ArrowUp");
+  await expect(page.getByText("Everyone made it to The Singing Weir")).toBeVisible();
+});
+
+test("the Claw Pass rib arch crosses directly into the Fossil Canyon ceremony", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${PREVIEW}&view=world&stop=s15&done=14&display=pixel&checkpoint=gate`);
+
+  const world = page.locator(".qp-root[data-ready='true']");
+  await expect(world).toBeVisible({ timeout: 10_000 });
+  await expect(page.getByText("Walk through the open gate")).toBeVisible();
+  await page.keyboard.down("ArrowUp");
+  await expect(page.locator(".qp-root[data-ceremony='true']")).toBeVisible({ timeout: 5_000 });
+  await page.keyboard.up("ArrowUp");
+  await expect(page.getByText("Everyone made it to Claw Pass")).toBeVisible();
+});
+
+test("the Word Forge gate crosses directly into the Forge Settlement ceremony", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${PREVIEW}&view=world&stop=s20&done=19&display=pixel&checkpoint=gate`);
+
+  const world = page.locator(".qp-root[data-ready='true']");
+  await expect(world).toBeVisible({ timeout: 10_000 });
+  await expect(page.getByText("Walk through the open gate")).toBeVisible();
+  await page.keyboard.down("ArrowUp");
+  await expect(page.locator(".qp-root[data-ceremony='true']")).toBeVisible({ timeout: 5_000 });
+  await page.keyboard.up("ArrowUp");
+  await expect(page.getByText("Everyone made it to The Word Forge")).toBeVisible();
+});
+
+test("the Mirror Fen beacon crosses directly into the Glass Marsh ceremony", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${PREVIEW}&view=world&stop=s25&done=24&display=pixel&checkpoint=gate`);
+
+  const world = page.locator(".qp-root[data-ready='true']");
+  await expect(world).toBeVisible({ timeout: 10_000 });
+  await expect(page.getByText("Walk through the open gate")).toBeVisible();
+  await page.keyboard.down("ArrowUp");
+  await expect(page.locator(".qp-root[data-ceremony='true']")).toBeVisible({ timeout: 5_000 });
+  await page.keyboard.up("ArrowUp");
+  await expect(page.getByText("Everyone made it to Mirror Fen")).toBeVisible();
+});
+
+test("the Thunder Lighthouse gate crosses directly into the Storm Coast ceremony", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${PREVIEW}&view=world&stop=s30&done=29&display=pixel&checkpoint=gate`);
+
+  const world = page.locator(".qp-root[data-ready='true']");
+  await expect(world).toBeVisible({ timeout: 10_000 });
+  await expect(page.getByText("Walk through the open gate")).toBeVisible();
+  await page.keyboard.down("ArrowUp");
+  await expect(page.locator(".qp-root[data-ceremony='true']")).toBeVisible({ timeout: 5_000 });
+  await page.keyboard.up("ArrowUp");
+  await expect(page.getByText("Everyone made it to Thunder Lighthouse")).toBeVisible();
+});
+
+test("the Sleeping Observatory gate rewards Lantern Forest and hands off to Star Reach", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${PREVIEW}&view=world&stop=s35&done=34&display=pixel&checkpoint=gate`);
+
+  const world = page.locator(".qp-root[data-ready='true']");
+  await expect(world).toBeVisible({ timeout: 10_000 });
+  await expect(page.getByText("Walk through the open gate")).toBeVisible();
+  await page.keyboard.down("ArrowUp");
+  await expect(page.locator(".qp-root[data-ceremony='true']")).toBeVisible({ timeout: 5_000 });
+  await page.keyboard.up("ArrowUp");
+  await expect(page.getByText("Everyone made it to The Sleeping Observatory")).toBeVisible();
+
+  const reward = page.getByRole("dialog", { name: "The Sleeping Observatory reward" });
+  await expect(reward).toBeVisible({ timeout: 6_000 });
+  await expect(reward.getByText("Living Lantern Map", { exact: true })).toBeVisible();
+  await expect(reward.getByText("Echo", { exact: true })).toBeVisible();
+  await expect(reward.getByText("Luma", { exact: true })).toBeVisible();
+  await expect(reward.getByText("Wisp", { exact: true })).toBeVisible();
+  await expect(reward.getByText("Orbit", { exact: true })).toBeVisible();
+  await reward.getByRole("button", { name: "Continue the trail" }).click();
+  await expect(page.getByRole("heading", { name: "Star Reach" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Comet Stair, 0 stars" })).toBeEnabled();
+});
+
+test("the First Reading Star gate completes the journey without freezing", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${PREVIEW}&view=world&stop=s40&done=39&display=pixel&checkpoint=gate`);
+
+  const world = page.locator(".qp-root[data-ready='true']");
+  await expect(world).toBeVisible({ timeout: 10_000 });
+  await expect(page.getByText("Walk through the open gate")).toBeVisible();
+  await page.keyboard.down("ArrowUp");
+  await expect(page.locator(".qp-root[data-ceremony='true']")).toBeVisible({ timeout: 5_000 });
+  await page.keyboard.up("ArrowUp");
+  await expect(page.getByText("Everyone made it to The First Reading Star")).toBeVisible();
+
+  const reward = page.getByRole("dialog", { name: "The First Reading Star reward" });
+  await expect(reward).toBeVisible({ timeout: 6_000 });
+  await expect(reward.getByRole("heading", { name: "The First Reading Star" })).toBeVisible();
+  await expect(reward.getByText("First Reading Star", { exact: true })).toBeVisible();
+  await expect(reward.getByText("Illuminates every restored landmark", { exact: true })).toBeVisible();
+  await expect(reward.getByText("Nova", { exact: true })).toBeVisible();
+  await expect(reward.getByText("Comet", { exact: true })).toBeVisible();
+  await expect(reward.getByText("Aster", { exact: true })).toBeVisible();
+  await expect(reward.getByText("Dawn", { exact: true })).toBeVisible();
+  await reward.getByRole("button", { name: "Continue the trail" }).click();
+
+  await expect(page.getByRole("heading", { name: "Star Reach" })).toBeVisible();
+  await expect(page.getByText("Whole trail restored", { exact: true })).toBeVisible();
+  await expect(page.getByText("Journey complete", { exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "The First Reading Star, 3 stars" })).toBeEnabled();
+});
+
+test("the 320-pixel gate keeps its required action reachable", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto(`${PREVIEW}&view=world&stop=s7&done=6&display=2d&checkpoint=gate`);
+
+  const walkThrough = page.getByRole("button", { name: "Walk through" });
+  await expect(walkThrough).toBeVisible();
+  await walkThrough.scrollIntoViewIfNeeded();
+  const box = await walkThrough.boundingBox();
+  expect(box?.height || 0).toBeGreaterThanOrEqual(44);
+  expect(box?.x || 0).toBeGreaterThanOrEqual(0);
+  expect((box?.x || 0) + (box?.width || 0)).toBeLessThanOrEqual(320);
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+});
+
+test("Trading Post reflows at the 640 CSS pixels produced by 200 percent zoom", async ({ page }) => {
+  await page.setViewportSize({ width: 640, height: 720 });
+  await page.goto(`${PREVIEW}&view=post&done=5`);
+
+  await expect(page.getByRole("heading", { name: "Trading Post" })).toBeVisible();
+  await expect(page.getByRole("tab", { name: "Crest" })).toBeVisible();
+  await expect(page.getByRole("tabpanel")).toBeVisible();
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+});
+
+test("automatic mode avoids the pixel engine on a genuinely constrained device", async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "deviceMemory", { configurable: true, get: () => 1 });
+    Object.defineProperty(navigator, "hardwareConcurrency", { configurable: true, get: () => 1 });
+  });
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto(`${PREVIEW}&view=world&stop=s36&done=35&display=auto&active=0`);
+
+  await expect(page.locator(".q2d-root")).toBeVisible();
+  await expect(page.locator(".qp-root")).toHaveCount(0);
+  const pixelEngineRequests = await page.evaluate(() => performance.getEntriesByType("resource")
+    .map(entry => entry.name)
+    .filter(name => name.includes("QuestPixelWorld") || name.includes("questPixelRuntime")));
+  expect(pixelEngineRequests).toEqual([]);
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+});
+
+test("an interrupted journey queues immediately, recovers on reconnect, and resumes its exact task", async ({ page, context }) => {
+  const cloudWrites = [];
+  await page.route("**/rest/v1/rpc/student_save_progress", async route => {
+    cloudWrites.push(route.request().postDataJSON());
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ ok: true })
+    });
+  });
+
+  const url = `${PREVIEW}&view=world&stop=s1&done=0&display=2d&active=0&sync=1`;
+  await page.goto(url);
+  await expect(page.locator(".q2d-root")).toBeVisible();
+  await expect(page.locator(".q2d-choices button").first()).toBeVisible();
+
+  await context.setOffline(true);
+  await page.evaluate(() => window.dispatchEvent(new Event("offline")));
+  await page.locator(".q2d-choices button").first().click();
+
+  const readOfflineEvidence = () => page.evaluate(() => {
+    const state = JSON.parse(localStorage.getItem("lp-quest:preview") || "null");
+    const queue = JSON.parse(localStorage.getItem("lp-progress-sync-queue-v1") || "[]");
+    return {
+      checkpoint: state?.checkpoint || null,
+      interruptions: state?.telemetry?.current?.runtime?.networkInterruptions || 0,
+      pending: Boolean(state?.telemetry?.current?.runtime?.syncPending),
+      queued: queue.length,
+      recoveryMarked: Boolean(queue[0]?.needsRecovery),
+      revision: queue[0]?.revision || ""
+    };
+  });
+  await expect.poll(readOfflineEvidence).toMatchObject({
+    interruptions: 1,
+    pending: true,
+    queued: 1,
+    recoveryMarked: true
+  });
+  const offlineEvidence = await readOfflineEvidence();
+  const interruptedCheckpoint = offlineEvidence.checkpoint;
+  expect(interruptedCheckpoint?.activeId).toBeTruthy();
+  expect(offlineEvidence.revision).toBeTruthy();
+
+  await context.setOffline(false);
+  await page.evaluate(() => window.dispatchEvent(new Event("online")));
+  await expect.poll(() => cloudWrites.length).toBeGreaterThan(0);
+  await expect.poll(() => page.evaluate(() => {
+    const state = JSON.parse(localStorage.getItem("lp-quest:preview") || "null");
+    const queue = JSON.parse(localStorage.getItem("lp-progress-sync-queue-v1") || "[]");
+    return {
+      recoveries: state?.telemetry?.current?.runtime?.syncRecoveries || 0,
+      pending: Boolean(state?.telemetry?.current?.runtime?.syncPending),
+      queued: queue.length
+    };
+  }), { timeout: 8_000 }).toEqual({ recoveries: 1, pending: false, queued: 0 });
+
+  await page.goto(`${url}&resume=1`);
+  await expect(page.locator(".q2d-root")).toBeVisible();
+  const resumedCheckpoint = await page.evaluate(() => JSON.parse(
+    localStorage.getItem("lp-quest:preview") || "null"
+  )?.checkpoint || null);
+  expect(resumedCheckpoint).toEqual(interruptedCheckpoint);
+});
+
+test("Star Reach loads only its active chapter art and reports the cost", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${PREVIEW}&view=world&stop=s36&done=35&display=pixel&active=0`);
+
+  const world = page.locator(".qp-root[data-ready='true']");
+  await expect(world).toBeVisible({ timeout: 10_000 });
+  const stats = await world.evaluate(element => ({
+    requests: Number(element.getAttribute("data-scene-asset-requests")),
+    bytes: Number(element.getAttribute("data-scene-asset-bytes"))
+  }));
+  expect(stats.requests).toBeGreaterThan(0);
+  expect(stats.requests).toBeLessThan(50);
+  expect(stats.bytes).toBeGreaterThan(0);
+
+  const premiumChapterRequests = await page.evaluate(() => performance.getEntriesByType("resource")
+    .map(entry => entry.name)
+    .filter(name => name.includes("/game-assets/quest-pixel/") && name.includes("-premium/")));
+  expect(premiumChapterRequests.some(name => name.includes("/star-reach/"))).toBe(true);
+  expect(premiumChapterRequests.every(name => name.includes("/star-reach/"))).toBe(true);
+});
+
+test("the customised Beastie has a distinct authored pose for every quest action", async ({ page }) => {
+  await page.setViewportSize({ width: 1200, height: 520 });
+  await page.goto("/preview/quest.html?view=beastie-atlas");
+  await expect(page.getByRole("heading", { name: "Custom Beastie action atlas" })).toBeVisible();
+  await expect(page.locator("#beastie-action-atlas")).toBeVisible();
+
+  const report = await page.evaluate(() => {
+    const sheet = document.getElementById("beastie-action-atlas");
+    const directions = JSON.parse(sheet.dataset.directions);
+    const poses = JSON.parse(sheet.dataset.actions);
+    const context = sheet.getContext("2d");
+    const frameSize = Number(sheet.dataset.frameSize);
+    const framePixels = (row, frame) => context.getImageData(
+      frame * frameSize,
+      row * frameSize,
+      frameSize,
+      frameSize
+    ).data;
+    const occupied = pixels => {
+      let count = 0;
+      for (let offset = 3; offset < pixels.length; offset += 4) {
+        if (pixels[offset] > 0) count += 1;
+      }
+      return count;
+    };
+    const difference = (first, second) => {
+      let count = 0;
+      for (let offset = 0; offset < first.length; offset += 4) {
+        if (
+          first[offset] !== second[offset]
+          || first[offset + 1] !== second[offset + 1]
+          || first[offset + 2] !== second[offset + 2]
+          || first[offset + 3] !== second[offset + 3]
+        ) count += 1;
+      }
+      return count;
+    };
+
+    const actions = [];
+    for (let row = 0; row < directions.length; row += 1) {
+      const idle = framePixels(row, 0);
+      for (let action = 0; action < poses.length; action += 1) {
+        const pixels = framePixels(row, action + 4);
+        actions.push({
+          direction: directions[row],
+          pose: poses[action],
+          occupied: occupied(pixels),
+          differenceFromIdle: difference(idle, pixels)
+        });
+      }
+    }
+    return {
+      width: sheet.width,
+      height: sheet.height,
+      actions
+    };
+  });
+
+  expect(report.width).toBe(1024);
+  expect(report.height).toBe(256);
+  expect(report.actions).toHaveLength(48);
+  expect(report.actions.every(action => action.occupied > 220)).toBe(true);
+  expect(report.actions.every(action => action.differenceFromIdle > 80)).toBe(true);
+  await page.locator("#beastie-action-atlas").screenshot({
+    path: "docs/previews/quest-release/beastie-action-atlas.png"
+  });
+});
+
+test("the mobile release surface keeps the Den and settings child-reachable", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${PREVIEW}&view=den&done=20`);
+
+  await expect(page.getByRole("heading", { name: "Your Den" })).toBeVisible();
+  await expectVisibleButtonsReachable(page);
+  await page.getByRole("button", { name: "Settings" }).click();
+  const settings = page.getByRole("dialog", { name: "Display, sound and access" });
+  await expect(settings).toBeVisible();
+  await expect(settings.getByLabel("Picture style")).toBeVisible();
+  await expect(settings.getByLabel("Reduce motion")).toBeVisible();
+  await expect(settings.getByLabel("High contrast")).toBeVisible();
+  await expect(settings.getByLabel("Quiet soundscape (spoken sounds stay on)")).toBeVisible();
+  await expectVisibleButtonsReachable(page);
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+  await page.screenshot({ path: "docs/previews/quest-release/mobile-den-settings.png" });
+});
+
+test("the mobile release surface keeps creature creation child-reachable", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${PREVIEW}&view=creator&done=20`);
+
+  await expect(page.getByRole("heading", { name: "Change your creature" })).toBeVisible();
+  await expect(page.getByRole("tab", { name: "Body" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Done" })).toBeVisible();
+  await expectVisibleButtonsReachable(page);
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+  await page.screenshot({ path: "docs/previews/quest-release/mobile-creature-creator.png" });
+});
+
+test("the mobile release surface keeps the chapter map child-reachable", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${PREVIEW}&view=map&stop=s16&done=20`);
+
+  await expect(page.getByRole("heading", { name: "Forge Settlement" })).toBeVisible();
+  await expect(page.getByLabel("Choose a story chapter")).toBeVisible();
+  await expect(page.locator(".q-map-stop-landmark")).toHaveCount(5);
+  await expectVisibleButtonsReachable(page);
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+  await page.screenshot({ path: "docs/previews/quest-release/mobile-trail-map.png" });
+});
+
+test("the mobile release surface keeps the Trading Post child-reachable", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${PREVIEW}&view=post&done=20`);
+
+  await expect(page.getByRole("heading", { name: "Trading Post" })).toBeVisible();
+  await expect(page.getByRole("tabpanel")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Back to the Den" })).toBeVisible();
+  await expectVisibleButtonsReachable(page);
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+  await page.screenshot({ path: "docs/previews/quest-release/mobile-trading-post.png" });
+});
+
+test("the mobile release surface keeps the chapter ceremony child-reachable", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${PREVIEW}&view=ceremony&stop=s5&done=5&display=2d&motion=reduce`);
+
+  const reward = page.getByRole("dialog", { name: "Bramble Gate reward" });
+  await expect(reward).toBeVisible({ timeout: 10_000 });
+  await expect(reward.getByRole("button", { name: "Continue the trail" })).toBeVisible();
+  await expectVisibleButtonsReachable(page);
+  await expectNoHorizontalOverflow(page);
+  await expectNoSeriousAxeViolations(page);
+  await page.screenshot({ path: "docs/previews/quest-release/mobile-chapter-ceremony.png" });
+});

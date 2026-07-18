@@ -6,7 +6,9 @@ import { FontLoader } from "three/addons/loaders/FontLoader.js";
 import {
   createBeveledLetterToken,
   disposeQuestScene,
-  isPhonicsTokenSpec
+  isPhonicsTokenSpec,
+  PREMIUM_QUEST_PALETTE,
+  premiumTokenTextColour
 } from "../../src/components/quest/world/questPremiumRender.js";
 
 const fontJson = JSON.parse(readFileSync(
@@ -23,6 +25,17 @@ test("phonics token selection is limited to compact labels on learning objects",
   assert.equal(isPhonicsTokenSpec({ shape: "story-path", label: "go home" }), false);
 });
 
+test("premium token glyphs choose the strongest contrast in the authored palette", () => {
+  for (const colour of [
+    PREMIUM_QUEST_PALETTE.terracotta,
+    PREMIUM_QUEST_PALETTE.sage,
+    PREMIUM_QUEST_PALETTE.lavender,
+    PREMIUM_QUEST_PALETTE.sky
+  ]) {
+    assert.equal(premiumTokenTextColour(colour), PREMIUM_QUEST_PALETTE.ink);
+  }
+});
+
 test("letter token factory creates beveled physical meshes and a world HUD anchor", () => {
   const token = createBeveledLetterToken({ font, text: "sh", order: 2 });
   token.position.set(3, 1, -4);
@@ -36,6 +49,7 @@ test("letter token factory creates beveled physical meshes and a world HUD ancho
   assert.ok(meshes.every(mesh => mesh.material.isMeshPhysicalMaterial));
   assert.ok(meshes.every(mesh => mesh.material.metalness === 0));
   assert.equal(meshes.find(mesh => mesh.geometry.type === "TextGeometry").geometry.parameters.options.bevelEnabled, true);
+  assert.equal(meshes.find(mesh => mesh.geometry.type === "TextGeometry").material.color.getHex(), PREMIUM_QUEST_PALETTE.ink);
   assert.deepEqual(token.userData.updateHudWorldPosition().toArray().map(value => Number(value.toFixed(2))), [3, 1.62, -4]);
   assert.equal(token.userData.allocations.geometries.length, 3);
   assert.equal(typeof token.userData.dispose, "function");

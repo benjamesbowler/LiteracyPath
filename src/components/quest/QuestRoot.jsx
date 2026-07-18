@@ -9,13 +9,12 @@
 // This component owns the save file and the view; everything under it is a pure
 // function of the state it is handed.
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import CreatureCreator from "./CreatureCreator.jsx";
 import DenScreen from "./DenScreen.jsx";
 import RewardScreen from "./RewardScreen.jsx";
 import TrailMap from "./TrailMap.jsx";
-import QuestHub from "./world/QuestHub.jsx";
 import QuestTrail2D from "./world/QuestTrail2D.jsx";
 import TradingPost from "./TradingPost.jsx";
 import { loadQuestProgress, saveQuestProgress } from "../../utils/questStore.js";
@@ -26,30 +25,45 @@ import {
   earnedGearReward,
   saveQuestCheckpoint,
   ownedPieces,
-  chapterRewardForStop
+  chapterRewardForStop,
+  availableSparks
 } from "../../utils/questProgress.js";
 import { isMastered } from "../../utils/questMastery.js";
 import { getStop, QUEST_STOPS } from "../../data/questSequence.js";
 import { CREATURE_GEAR } from "../../data/creatureParts.js";
 import { chapterForStop } from "../../data/questChapters.js";
 import { seedwakeStopSpec } from "../../data/questChapterOne.js";
-import { startGameMusic, stopGameMusic } from "../../utils/audio/gameMusic.js";
+import {
+  setGameAudioSuspended,
+  startGameAmbience,
+  startGameMusic,
+  stopGameAmbience,
+  stopGameMusic
+} from "../../utils/audio/gameMusic.js";
 import { cancelGameSfx } from "../../utils/audio/gameSfx.js";
+import { setCueAudioSuspended } from "../../utils/audio/cuePlayer.js";
 import { hushCue } from "./shells/shellContract.js";
 import { notifyMissionTaskDone } from "../../utils/dailyMission.js";
 import { logStudentActivity } from "../../utils/progressSync.js";
+import { detectQuestQuality, QUEST_QUALITY_TIERS } from "../../utils/questPerformance.js";
+import {
+  OFFLINE_EVENT,
+  offlineShellHistory,
+  warmQuestOfflineAssets
+} from "../../utils/offlineShell.js";
+import { chapterShortcutReviewPlan, freeRoamReviewPlan } from "../../utils/questReviewMode.js";
 import {
   anticipatedJourneyState,
   finishJourneyLayer,
   markJourneyLayerReady,
   prepareJourneyLayer
 } from "../../utils/questJourney.js";
-import { detectQuestQuality, QUEST_QUALITY_TIERS } from "../../utils/questPerformance.js";
-import { freeRoamReviewPlan } from "../../utils/questReviewMode.js";
 import {
   addQuestActiveTime,
   beginQuestSession,
   endQuestSession,
+  recordQuestInteractionEvent,
+  recordQuestRuntimeEvent,
   recordQuestTelemetryAnswer,
   recordQuestTelemetryStop
 } from "../../utils/questTelemetry.js";
@@ -63,6 +77,19 @@ const VIEW = {
   CEREMONY: "ceremony",
   POST: "post"
 };
+
+const OFFLINE_RUNTIME_EVENT_TYPES = Object.freeze({
+  "shell-ready": "offline-shell-ready",
+  "offline-start": "offline-cold-start",
+  "quest-warm-complete": "offline-warm-complete",
+  "quest-warm-timeout": "offline-warm-failed",
+  "shell-error": "offline-shell-error",
+  "update-ready": "offline-update-ready",
+  "update-applied": "offline-update-applied"
+});
+
+const QuestPixelWorld = lazy(() => import("./world/QuestPixelWorld.jsx"));
+const QuestHub = lazy(() => import("./world/QuestHub.jsx"));
 
 function nextAdventureId(state) {
   const done = new Set(state?.trail?.stopsDone || []);
@@ -87,7 +114,8 @@ export default function QuestRoot({
   isSoundEnabled = true,
   onExit,
   initialView = null,
-  initialStop = null
+  initialStop = null,
+  disableAdaptiveQuality = false
 }) {
   const previewState = initialView === VIEW.CEREMONY ? loadQuestProgress(progressScopeKey) : null;
   const previewCeremony = initialView === VIEW.CEREMONY && getStop(initialStop)
@@ -118,16 +146,44 @@ export default function QuestRoot({
   const [mapChapter, setMapChapter] = useState(() => chapterForStop(initialStop)?.index || 1);
   const [journeyMode, setJourneyMode] = useState({ kind: "journey", targets: null });
   const [ceremony, setCeremony] = useState(previewCeremony);
+  const [ceremonyOverlayVisible, setCeremonyOverlayVisible] = useState(() => (
+    Boolean(previewCeremony && previewState?.settings?.reducedMotion)
+  ));
   const [force2d, setForce2d] = useState(false);
+  const [runtimeQualityId, setRuntimeQualityId] = useState(null);
+  const [runtimeNotice, setRuntimeNotice] = useState(null);
+  const [musicState, setMusicState] = useState("travel");
   const stateRef = useRef(state);
   const latestCheckpointRef = useRef(state.checkpoint);
-  const handoffTimerRef = useRef(0);
+  const journeyTransitionTimerRef = useRef(0);
   const quality = useMemo(() => detectQuestQuality(state.settings), [state.settings]);
-  const activeQuality = force2d ? QUEST_QUALITY_TIERS["2d"] : quality;
+  const runtimeQuality = runtimeQualityId && QUEST_QUALITY_TIERS[runtimeQualityId]
+    ? QUEST_QUALITY_TIERS[runtimeQualityId]
+    : quality;
+  const activeQuality = force2d ? QUEST_QUALITY_TIERS["2d"] : runtimeQuality;
   const use2d = activeQuality.id === "2d";
-  const musicWorld = [VIEW.WORLD, VIEW.CEREMONY].includes(view)
-    ? chapterForStop(activeStop)?.worldKit || "meadow"
-    : "meadow";
+  const usePixel = activeQuality.id === "pixel";
+  const useSimpleWorld = use2d || usePixel;
+  const musicChapter = [VIEW.WORLD, VIEW.CEREMONY].includes(view) ? chapterForStop(activeStop) : null;
+  const baseMusicTrack = musicChapter?.audio?.score || "meadow";
+  const musicTrack = musicChapter?.id === "seedwake-meadow"
+    ? view === VIEW.CEREMONY
+      ? "seedwake-ramble-ceremony"
+      : musicState === "encounter"
+        ? "seedwake-ramble-action"
+        : "seedwake-ramble"
+    : baseMusicTrack;
+  const musicMode = view === VIEW.CEREMONY ? "ceremony" : musicState;
+  const musicFallback = musicChapter?.worldKit || "meadow";
+  const soundscapeEnabled = isSoundEnabled && !state.settings?.quietSoundscape;
+  const ceremonyWorldReady = worldLayers.some(layer => layer.status === "active" && layer.ready);
+
+  useEffect(() => {
+    if (view !== VIEW.CEREMONY || !ceremony || ceremonyOverlayVisible) return undefined;
+    if (!use2d && !ceremonyWorldReady) return undefined;
+    const timer = window.setTimeout(() => setCeremonyOverlayVisible(true), 1150);
+    return () => window.clearTimeout(timer);
+  }, [ceremony, ceremonyOverlayVisible, ceremonyWorldReady, use2d, view]);
 
   // One writer. Every state change goes through here, so there is exactly one
   // place a save can go wrong.
@@ -164,6 +220,45 @@ export default function QuestRoot({
   }, [commit, progressScopeKey]);
 
   useEffect(() => {
+    const recordConnectionEvent = event => {
+      const current = stateRef.current;
+      const recorded = recordQuestRuntimeEvent(current, event);
+      if (recorded !== current) commit(recorded);
+    };
+    const handleOffline = () => recordConnectionEvent({ type: "network-offline" });
+    const handleOnline = () => recordConnectionEvent({ type: "network-online" });
+    const handleProgressSync = event => {
+      const detail = event.detail || {};
+      if (detail.studentId !== progressScopeKey || detail.area !== "phonics_quest") return;
+      if (detail.status === "deferred") recordConnectionEvent({ type: "sync-deferred" });
+      if (detail.status === "recovered") recordConnectionEvent({ type: "sync-recovered" });
+    };
+    window.addEventListener("offline", handleOffline);
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("lp-progress-sync-state", handleProgressSync);
+    if (navigator.onLine === false) handleOffline();
+    return () => {
+      window.removeEventListener("offline", handleOffline);
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("lp-progress-sync-state", handleProgressSync);
+    };
+  }, [commit, progressScopeKey]);
+
+  useEffect(() => {
+    const recordOfflineEvidence = detail => {
+      const type = OFFLINE_RUNTIME_EVENT_TYPES[detail?.type];
+      if (!type) return;
+      const current = stateRef.current;
+      const recorded = recordQuestRuntimeEvent(current, { ...detail, type });
+      if (recorded !== current) commit(recorded);
+    };
+    const handleOfflineEvidence = event => recordOfflineEvidence(event.detail);
+    for (const detail of offlineShellHistory()) recordOfflineEvidence(detail);
+    window.addEventListener(OFFLINE_EVENT, handleOfflineEvidence);
+    return () => window.removeEventListener(OFFLINE_EVENT, handleOfflineEvidence);
+  }, [commit, state.telemetry?.current?.id]);
+
+  useEffect(() => {
     if (view !== VIEW.WORLD || !stateRef.current.telemetry?.current) return undefined;
     let last = performance.now();
     const bankTime = () => {
@@ -189,10 +284,53 @@ export default function QuestRoot({
   }, [commit, view]);
 
   useEffect(() => {
-    if (isSoundEnabled) startGameMusic(musicWorld, { fallbackWorldId: "meadow" });
+    if (soundscapeEnabled) startGameMusic(musicTrack, { fallbackWorldId: musicFallback, mode: musicMode });
     else stopGameMusic();
-    return () => { stopGameMusic(); cancelGameSfx(); hushCue(); };
-  }, [isSoundEnabled, musicWorld]);
+  }, [musicFallback, musicMode, musicTrack, soundscapeEnabled]);
+
+  useEffect(() => {
+    if (soundscapeEnabled && musicChapter?.id) {
+      startGameAmbience(musicChapter.id, {
+        mode: musicMode
+      });
+    } else stopGameAmbience();
+  }, [musicChapter?.id, musicMode, soundscapeEnabled]);
+
+  useEffect(() => {
+    if (!import.meta.env.PROD || ![VIEW.DEN, VIEW.MAP, VIEW.WORLD, VIEW.CEREMONY].includes(view)) return undefined;
+    const timer = window.setTimeout(() => {
+      if (typeof performance.getEntriesByType !== "function") return;
+      const urls = performance.getEntriesByType("resource")
+        .map(entry => entry.name)
+        .filter(name => name.includes("/game-assets/quest-pixel/") || name.includes("/audio/music/quest/"));
+      if (urls.length) {
+        void warmQuestOfflineAssets(urls, { chapterId: musicChapter?.id || "" });
+      }
+    }, 1800);
+    return () => window.clearTimeout(timer);
+  }, [musicChapter?.id, view]);
+
+  useEffect(() => {
+    const syncAudioVisibility = () => {
+      const hidden = document.visibilityState === "hidden";
+      setGameAudioSuspended(hidden);
+      setCueAudioSuspended(hidden);
+    };
+    syncAudioVisibility();
+    document.addEventListener("visibilitychange", syncAudioVisibility);
+    return () => {
+      document.removeEventListener("visibilitychange", syncAudioVisibility);
+      setCueAudioSuspended(false);
+      setGameAudioSuspended(false);
+    };
+  }, []);
+
+  useEffect(() => () => {
+    stopGameMusic();
+    stopGameAmbience({ fadeSeconds: 0 });
+    cancelGameSfx();
+    hushCue();
+  }, []);
 
   useEffect(() => {
     if (!trailNotice) return undefined;
@@ -201,15 +339,10 @@ export default function QuestRoot({
   }, [trailNotice]);
 
   useEffect(() => {
-    const arriving = worldLayers.find(layer => layer.status === "arriving");
-    if (!arriving) return undefined;
-    window.clearTimeout(handoffTimerRef.current);
-    handoffTimerRef.current = window.setTimeout(() => {
-      setActiveStop(arriving.stopId);
-      setWorldLayers([{ stopId: arriving.stopId, status: "active", ready: true, anticipatedFrom: null }]);
-    }, 440);
-    return () => window.clearTimeout(handoffTimerRef.current);
-  }, [worldLayers]);
+    if (!runtimeNotice) return undefined;
+    const timer = window.setTimeout(() => setRuntimeNotice(null), 4200);
+    return () => window.clearTimeout(timer);
+  }, [runtimeNotice]);
 
   // The child can leave through the app close button, browser navigation, or a
   // parent route change. Keep the last in-memory checkpoint durable in all three.
@@ -246,14 +379,76 @@ export default function QuestRoot({
     });
   }, [progressScopeKey]);
 
-  const handleGateReady = useCallback((fromStopId, nextStopId) => {
-    if (!getStop(nextStopId)) return;
-    setWorldLayers(layers => prepareJourneyLayer(layers, fromStopId, nextStopId));
-  }, []);
+  const handleInteraction = useCallback((stopId, event) => {
+    if (!event?.type) return;
+    setState(prev => {
+      const next = recordQuestInteractionEvent(prev, event);
+      stateRef.current = next;
+      saveQuestProgress(progressScopeKey, next);
+      return next;
+    });
+    if (["motor-retry", "teach-back"].includes(event.type)) {
+      logStudentActivity("phonics_quest", stopId, "interaction_support", {
+        type: event.type,
+        mechanic: event.mechanic || null
+      });
+    }
+  }, [progressScopeKey]);
 
   const handleLayerReady = useCallback(stopId => {
     setWorldLayers(layers => markJourneyLayerReady(layers, stopId));
   }, []);
+
+  const handleRuntimeSignal = useCallback(signal => {
+    if (!signal?.type) return;
+    if (disableAdaptiveQuality && ["frame-window", "quality-change"].includes(signal.type)) return;
+    const current = stateRef.current;
+    const recorded = recordQuestRuntimeEvent(current, signal);
+    if (recorded !== current) commit(recorded);
+
+    if (signal.type === "quality-change" && signal.toTier && signal.toTier !== "2d") {
+      setRuntimeQualityId(signal.toTier);
+    }
+    if (["context-lost", "renderer-error"].includes(signal.type) || signal.toTier === "2d") {
+      setForce2d(true);
+      setRuntimeQualityId("2d");
+      const detail = import.meta.env.DEV && signal.reason ? ` (${signal.reason})` : "";
+      const renderer = signal.fromTier === "pixel" ? "Adventure view" : "3D";
+      setRuntimeNotice(`${renderer} paused${detail}. Your trail is continuing in 2D.`);
+    }
+    if (!["frame-window", "runtime-health"].includes(signal.type)) {
+      logStudentActivity("phonics_quest", signal.stopId || activeStop, "runtime", {
+        type: signal.type,
+        fromTier: signal.fromTier || null,
+        toTier: signal.toTier || signal.tierId || null,
+        averageFrameMs: Number(signal.averageFrameMs) || 0,
+        longFrames: Number(signal.longFrames) || 0
+      });
+    }
+  }, [activeStop, commit, disableAdaptiveQuality]);
+
+  const prepareNextLayer = useCallback(finishedStopId => {
+    if (useSimpleWorld || journeyMode.kind !== "journey" || chapterRewardForStop(finishedStopId)) return;
+    const finishedStop = getStop(finishedStopId);
+    const nextStop = finishedStop ? QUEST_STOPS[finishedStop.index] : null;
+    if (!nextStop) return;
+    setWorldLayers(layers => prepareJourneyLayer(layers, finishedStopId, nextStop.id));
+  }, [journeyMode.kind, useSimpleWorld]);
+
+  useEffect(() => {
+    const arriving = worldLayers.find(layer => layer.status === "arriving");
+    if (!arriving) return undefined;
+    window.clearTimeout(journeyTransitionTimerRef.current);
+    journeyTransitionTimerRef.current = window.setTimeout(() => {
+      setWorldLayers(layers => {
+        const incoming = layers.find(layer => layer.stopId === arriving.stopId);
+        return incoming
+          ? [{ ...incoming, status: "active", ready: true, anticipatedFrom: null }]
+          : layers;
+      });
+    }, 460);
+    return () => window.clearTimeout(journeyTransitionTimerRef.current);
+  }, [worldLayers]);
 
   const handleFinish = useCallback((finishedStopId, stars, tally = {}) => {
     if (!finishedStopId) return;
@@ -281,9 +476,11 @@ export default function QuestRoot({
     const before = new Set(previous.stones);
     const completedBefore = previous.trail.stopsDone.includes(finishedStopId);
     const recorded = recordStopResult(previous, finishedStopId, stars, tally.drops || 0);
+    const sparkGain = Math.max(0, availableSparks(recorded) - availableSparks(previous));
     const next = commit(recordQuestTelemetryStop(recorded, finishedStopId));
     const finishedStop = getStop(finishedStopId);
-    const nextStop = nextStopAfter(next);
+    const journeyComplete = QUEST_STOPS.every(stop => next.trail?.stopsDone?.includes(stop.id));
+    const nextStop = journeyComplete ? null : nextStopAfter(next);
     const newStones = next.stones.filter(g => !before.has(g) && isMastered(next.mastery, g));
     const gearReward = earnedGearReward(next, finishedStopId);
     const gear = gearReward?.equipped ? gearReward.id : null;
@@ -299,6 +496,7 @@ export default function QuestRoot({
       gear,
       chapterReward,
       drops: Number(tally.drops) || 0,
+      sparkGain,
       seedwake: seedwakeStopSpec(finishedStopId)
     };
     if (chapterReward) {
@@ -308,13 +506,15 @@ export default function QuestRoot({
         .filter(layer => layer.stopId === finishedStopId)
         .map(layer => ({ ...layer, status: "active", ready: true, anticipatedFrom: null })));
       setCeremony({ ...reward, state: ended });
+      setCeremonyOverlayVisible(Boolean(ended.settings?.reducedMotion || use2d));
       setView(VIEW.CEREMONY);
     } else if (nextStop?.id) {
       setTrailNotice(reward);
-      if (use2d) {
+      if (useSimpleWorld) {
         setActiveStop(nextStop.id);
         setWorldLayers([{ stopId: nextStop.id, status: "active", ready: true, anticipatedFrom: null }]);
       } else {
+        setActiveStop(nextStop.id);
         setWorldLayers(layers => finishJourneyLayer(layers, finishedStopId, nextStop.id));
       }
       setView(VIEW.WORLD);
@@ -332,7 +532,7 @@ export default function QuestRoot({
       correct: Number(tally.correct) || 0,
       chapterReward: chapterReward?.id || null
     });
-  }, [commit, journeyMode.kind, progressScopeKey, use2d]);
+  }, [commit, journeyMode.kind, progressScopeKey, use2d, useSimpleWorld]);
 
   const quitWorld = useCallback(() => {
     // Leaving the land keeps its position and completed requests.
@@ -358,16 +558,28 @@ export default function QuestRoot({
     const started = beginQuestSession(nextState, {
       mode: kind,
       qualityTier: activeQuality.id,
-      stopId: id
+      stopId: id,
+      source: options.source || null
     });
     commit(started);
-    setJourneyMode({ kind, targets: options.targets || null });
+    setJourneyMode({
+      kind,
+      targets: options.targets || null,
+      title: options.title || null,
+      source: options.source || null
+    });
     setCeremony(null);
+    setCeremonyOverlayVisible(false);
     setForce2d(false);
+    setRuntimeQualityId(null);
     setActiveStop(id);
     setWorldLayers([{ stopId: id, status: "active", ready: false, anticipatedFrom: null }]);
     setView(VIEW.WORLD);
-    logStudentActivity("phonics_quest", id, "session_start", { mode: kind, qualityTier: activeQuality.id });
+    logStudentActivity("phonics_quest", id, "session_start", {
+      mode: kind,
+      source: options.source || null,
+      qualityTier: activeQuality.id
+    });
   }, [activeQuality.id, commit]);
 
   const openMap = useCallback(() => {
@@ -382,19 +594,52 @@ export default function QuestRoot({
     enterWorld(stateRef.current, { stopId: plan.stopId, mode: "review", targets: plan.targets });
   }, [enterWorld]);
 
+  const enterShortcut = useCallback(chapterId => {
+    const plan = chapterShortcutReviewPlan(stateRef.current, chapterId);
+    if (!plan) return;
+    setMapChapter(chapterForStop(plan.stopId)?.index || 1);
+    enterWorld(stateRef.current, {
+      stopId: plan.stopId,
+      mode: "review",
+      targets: plan.targets,
+      title: plan.title,
+      source: plan.source
+    });
+  }, [enterWorld]);
+
   const continueAfterCeremony = useCallback(() => {
     const nextStop = ceremony?.nextStop;
+    const completedStopId = ceremony?.stop?.id || ceremony?.stop;
+    const destinationChapter = chapterForStop(nextStop?.id || nextStop)
+      || chapterForStop(completedStopId);
     setWorldLayers([]);
     setActiveStop(null);
     setCeremony(null);
-    setMapChapter(chapterForStop(nextStop)?.index || chapterForStop(ceremony?.stop)?.index || 1);
+    setCeremonyOverlayVisible(false);
+    setMapChapter(destinationChapter?.index || 1);
     setView(VIEW.MAP);
   }, [ceremony]);
+
+  const visitTradingPostAfterCeremony = useCallback(() => {
+    setWorldLayers([]);
+    setActiveStop(null);
+    setCeremony(null);
+    setCeremonyOverlayVisible(false);
+    setView(VIEW.POST);
+  }, []);
 
   const updateDisplayMode = useCallback(displayMode => {
     const current = stateRef.current;
     commit({ ...current, settings: { ...current.settings, displayMode } });
     setForce2d(false);
+    setRuntimeQualityId(null);
+  }, [commit]);
+
+  const updateAccessibilitySetting = useCallback((key, value) => {
+    const current = stateRef.current;
+    commit({ ...current, settings: { ...current.settings, [key]: Boolean(value) } });
+    setForce2d(false);
+    setRuntimeQualityId(null);
   }, [commit]);
 
   const closeQuest = useCallback(() => {
@@ -409,7 +654,11 @@ export default function QuestRoot({
   }, [activeStop, onExit, progressScopeKey]);
 
   return createPortal(
-    <div className="q-root" data-fullbleed="">
+    <div
+      className="q-root"
+      data-fullbleed=""
+      data-high-contrast={state.settings?.highContrast ? "true" : undefined}
+    >
       {/* ONE exit per screen. The Den (and the hatch screen) own "Close" —
           leaving the whole mode is a Den decision. Everywhere else the only
           way out is "Back to the Den", so a child is never shown two doors
@@ -433,7 +682,13 @@ export default function QuestRoot({
         <DenScreen
           state={state}
           displayMode={state.settings?.displayMode || "auto"}
+          reducedMotion={Boolean(state.settings?.reducedMotion)}
+          highContrast={Boolean(state.settings?.highContrast)}
+          quietSoundscape={Boolean(state.settings?.quietSoundscape)}
           onDisplayMode={updateDisplayMode}
+          onReducedMotion={value => updateAccessibilitySetting("reducedMotion", value)}
+          onHighContrast={value => updateAccessibilitySetting("highContrast", value)}
+          onQuietSoundscape={value => updateAccessibilitySetting("quietSoundscape", value)}
           onWalk={openMap}
           onReview={enterReview}
           onEditCreature={() => setView(VIEW.CREATOR)}
@@ -448,6 +703,7 @@ export default function QuestRoot({
           onAct={setMapChapter}
           onEnterStop={stopId => enterWorld(stateRef.current, { stopId })}
           onFreeRoam={enterReview}
+          onShortcut={enterShortcut}
           onBack={() => setView(VIEW.DEN)}
           isSoundEnabled={isSoundEnabled}
         />
@@ -466,7 +722,7 @@ export default function QuestRoot({
         <div className="q-journey-stack">
           {worldLayers.map(layer => {
             const interactive = view === VIEW.WORLD && layer.status === "active";
-            const layerState = layer.status === "preloading"
+            const layerState = layer.anticipatedFrom
               ? anticipatedJourneyState(state, layer.anticipatedFrom)
               : state;
             const layerResume = interactive && state.checkpoint?.stopId === layer.stopId
@@ -480,30 +736,59 @@ export default function QuestRoot({
               isInteractive: interactive,
               journeyStatus: layer.status,
               mode: journeyMode.kind,
+              routeLabel: journeyMode.title,
               targetsOverride: journeyMode.targets,
               onAnswer: (target, correct, shell) => handleAnswer(layer.stopId, target, correct, shell),
+              onInteraction: interactive ? event => handleInteraction(layer.stopId, event) : undefined,
               onCheckpoint: interactive ? handleCheckpoint : undefined,
               onFinish: interactive ? (stars, tally) => handleFinish(layer.stopId, stars, tally) : undefined,
-              onQuit: interactive ? quitWorld : undefined
+              onQuit: interactive ? quitWorld : undefined,
+              onAudioState: layer.status === "active" ? setMusicState : undefined
             };
             return (
               <div
                 key={layer.stopId}
                 className={`q-journey-layer is-${layer.status}`}
                 aria-hidden={!interactive}
+                inert={!interactive ? true : undefined}
                 data-stop={layer.stopId}
               >
                 {use2d ? (
                   <QuestTrail2D {...sharedProps} />
+                ) : usePixel ? (
+                  <Suspense fallback={<div className="q-screen qp-root"><div className="qp-loading" role="status">Opening the trail…</div></div>}>
+                    <QuestPixelWorld
+                      {...sharedProps}
+                      ceremony={view === VIEW.CEREMONY && layer.status === "active"}
+                      onSceneReady={() => handleLayerReady(layer.stopId)}
+                      onRuntimeSignal={handleRuntimeSignal}
+                      onSceneError={reason => handleRuntimeSignal({
+                        type: "renderer-error",
+                        fromTier: "pixel",
+                        toTier: "2d",
+                        stopId: layer.stopId,
+                        reason
+                      })}
+                    />
+                  </Suspense>
                 ) : (
-                  <QuestHub
-                    {...sharedProps}
-                    qualityTier={activeQuality}
-                    ceremony={view === VIEW.CEREMONY && layer.status === "active"}
-                    onGateReady={interactive ? handleGateReady : undefined}
-                    onSceneReady={() => handleLayerReady(layer.stopId)}
-                    onSceneError={() => setForce2d(true)}
-                  />
+                  <Suspense fallback={<div className="q-screen qp-root"><div className="qp-loading" role="status">Opening the 3D trail…</div></div>}>
+                    <QuestHub
+                      {...sharedProps}
+                      qualityTier={activeQuality}
+                      ceremony={view === VIEW.CEREMONY && layer.status === "active"}
+                      onPrepareNext={interactive ? prepareNextLayer : undefined}
+                      onSceneReady={() => handleLayerReady(layer.stopId)}
+                      onSceneError={reason => handleRuntimeSignal({
+                        type: "renderer-error",
+                        fromTier: activeQuality.id,
+                        toTier: "2d",
+                        stopId: layer.stopId,
+                        reason
+                      })}
+                      onRuntimeSignal={handleRuntimeSignal}
+                    />
+                  </Suspense>
                 )}
               </div>
             );
@@ -515,23 +800,30 @@ export default function QuestRoot({
         <aside className="q-trail-notice" aria-live="polite" aria-label="Trail progress">
           <span>{trailNotice.stop?.name || "Trail"} complete</span>
           <strong>{trailNotice.seedwake?.success || trailNotice.chapterReward?.label || (trailNotice.nextStop ? `${trailNotice.nextStop.name} ahead` : "The whole trail is open")}</strong>
-          <em>{trailNotice.stars} {trailNotice.stars === 1 ? "star" : "stars"} · {trailNotice.drops} {trailNotice.drops === 1 ? (trailNotice.seedwake?.collectible.label || "find") : (trailNotice.seedwake?.collectible.plural || "finds")}{trailNotice.gear ? " · new gear" : ""}</em>
+          <em>{trailNotice.stars} {trailNotice.stars === 1 ? "star" : "stars"} · {trailNotice.drops} {trailNotice.drops === 1 ? (trailNotice.seedwake?.collectible.label || "find") : (trailNotice.seedwake?.collectible.plural || "finds")}{trailNotice.sparkGain ? ` · +${trailNotice.sparkGain} Sparks` : ""}{trailNotice.gear ? " · new gear" : ""}</em>
           {trailNotice.chapterReward && <em>{trailNotice.chapterReward.abilityLabel}</em>}
         </aside>
       )}
 
-      {view === VIEW.CEREMONY && ceremony && (
+      {view === VIEW.WORLD && runtimeNotice && (
+        <aside className="q-runtime-notice" role="status">{runtimeNotice}</aside>
+      )}
+
+      {view === VIEW.CEREMONY && ceremony && ceremonyOverlayVisible && (
         <RewardScreen
+          key={ceremony.id}
           stop={ceremony.stop}
           nextStop={ceremony.nextStop}
           stars={ceremony.stars}
           newStones={ceremony.newStones}
           gear={ceremony.gear}
           chapterReward={ceremony.chapterReward}
+          sparkGain={ceremony.sparkGain}
           state={ceremony.state || state}
           isSoundEnabled={isSoundEnabled}
           overlay
           onContinue={continueAfterCeremony}
+          onTradingPost={visitTradingPostAfterCeremony}
         />
       )}
     </div>,

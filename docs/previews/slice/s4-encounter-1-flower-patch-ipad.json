@@ -14,51 +14,51 @@
     "hudNodes": 2,
     "camera": {
       "position": [
-        -29.851385490226786,
-        6.074642475420126,
-        20.800720404365144
+        -35.04607199264766,
+        7.315854967660598,
+        15.64219689324904
       ],
-      "delta": 0.003321009078974936,
+      "delta": 0,
       "settled": true
     },
     "items": [
       {
-        "id": "s4-0-0-0-0-b",
-        "value": "b",
-        "rect": {
-          "left": 732.4978259757761,
-          "top": 349.6295359113982,
-          "right": 866.3892161107993,
-          "bottom": 510.3731563820939
-        },
-        "insideSafeArea": true,
-        "firstHit": "Mesh",
-        "rayClear": true
-      },
-      {
-        "id": "s4-0-0-0-1-f",
+        "id": "s4-0-0-0-0-f",
         "value": "f",
         "rect": {
-          "left": 527.8061733049183,
-          "top": 319.7477682205741,
-          "right": 653.9260727685869,
-          "bottom": 465.63822175646334
+          "left": 790.6533179279198,
+          "top": 330.82571107334434,
+          "right": 898.2646301825229,
+          "bottom": 470.4271128539595
         },
         "insideSafeArea": true,
-        "firstHit": "Mesh",
+        "firstHit": "field-hit-proxy",
         "rayClear": true
       },
       {
-        "id": "s4-0-0-0-2-n",
+        "id": "s4-0-0-0-1-n",
         "value": "n",
         "rect": {
-          "left": 310.6470280693222,
-          "top": 360.35943879133026,
-          "right": 462.5555580488447,
-          "bottom": 520.8948610546538
+          "left": 571.7236519072582,
+          "top": 299.16937392898694,
+          "right": 646.5473871212802,
+          "bottom": 419.704604498904
         },
         "insideSafeArea": true,
-        "firstHit": "Mesh",
+        "firstHit": "field-hit-proxy",
+        "rayClear": true
+      },
+      {
+        "id": "s4-0-0-0-2-b",
+        "value": "b",
+        "rect": {
+          "left": 371.8471539742205,
+          "top": 342.7270010809974,
+          "right": 485.0438280489808,
+          "bottom": 489.0521958497965
+        },
+        "insideSafeArea": true,
+        "firstHit": "field-hit-proxy",
         "rayClear": true
       }
     ]

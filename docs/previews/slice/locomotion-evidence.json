@@ -7,16 +7,16 @@
     "moving": false
   },
   "banked": {
-    "speed": 1.0365600000000046,
-    "bank": 0.059531534718710685,
-    "heading": 0.08122920254241749,
+    "speed": 1.134,
+    "bank": 0.05475198570000627,
+    "heading": 0.08098483431381669,
     "settled": false,
     "moving": true
   },
   "settled": {
     "speed": 0,
-    "bank": 0.006801336017460667,
-    "heading": 0.08122920254241749,
+    "bank": 0.007820848550137281,
+    "heading": 0.08098483431381669,
     "settled": true,
     "moving": false
   }

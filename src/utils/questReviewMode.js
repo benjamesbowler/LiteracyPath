@@ -1,4 +1,5 @@
 import { QUEST_STOPS, targetsAtStop } from "../data/questSequence.js";
+import { QUEST_CHAPTERS } from "../data/questChapters.js";
 import { weakestTargets } from "./questMastery.js";
 
 function stopContainsTarget(stop, target) {
@@ -47,5 +48,38 @@ export function freeRoamReviewPlan(state, limit = 5) {
       : weak.length
         ? `A trail built from ${weak.length} sound${weak.length === 1 ? "" : "s"} that need the most practice.`
         : "A trail using the sounds you have met most recently."
+  };
+}
+
+export function chapterShortcutReviewPlan(state, chapterId, limit = 5) {
+  const chapter = QUEST_CHAPTERS.find(candidate => candidate.id === chapterId);
+  if (!chapter) return null;
+  const completed = new Set(state?.trail?.stopsDone || []);
+  if (!chapter.stopIds.every(stopId => completed.has(stopId))) return null;
+
+  const chapterStops = chapter.stopIds
+    .map(stopId => QUEST_STOPS.find(stop => stop.id === stopId))
+    .filter(Boolean);
+  const weak = weakestTargets(state?.mastery || {}, 20)
+    .filter(row => chapterStops.some(stop => stopContainsTarget(stop, row.target)));
+  const targets = weak.slice(0, limit).map(row => row.target);
+  const fallbackStop = chapterStops.at(-1);
+  const targetStop = targets
+    .map(target => chapterStops.find(stop => stopContainsTarget(stop, target)))
+    .filter(Boolean)
+    .sort((a, b) => b.index - a.index)[0] || fallbackStop;
+  const planTargets = targets.length
+    ? targets
+    : targetsAtStop(targetStop.id).slice(0, limit);
+
+  return {
+    id: `shortcut-${chapter.id}`,
+    chapterId: chapter.id,
+    stopId: targetStop.id,
+    targets: planTargets,
+    weakest: weak.slice(0, limit),
+    title: chapter.shortcut.label,
+    description: chapter.shortcut.effect,
+    source: "chapter-shortcut"
   };
 }

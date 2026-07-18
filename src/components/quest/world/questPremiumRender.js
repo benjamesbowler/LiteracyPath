@@ -64,6 +64,26 @@ function paletteColour(text, order = 0) {
   return colours[Math.abs(hash) % colours.length];
 }
 
+function relativeLuminance(hex) {
+  const value = Number(hex) || 0;
+  const channels = [16, 8, 0].map(shift => ((value >> shift) & 0xff) / 255).map(channel => (
+    channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4
+  ));
+  return channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722;
+}
+
+export function premiumTokenTextColour(background) {
+  const backgroundLuminance = relativeLuminance(background);
+  const contrast = candidate => {
+    const candidateLuminance = relativeLuminance(candidate);
+    return (Math.max(backgroundLuminance, candidateLuminance) + 0.05)
+      / (Math.min(backgroundLuminance, candidateLuminance) + 0.05);
+  };
+  return contrast(PREMIUM_QUEST_PALETTE.ink) >= contrast(PREMIUM_QUEST_PALETTE.cream)
+    ? PREMIUM_QUEST_PALETTE.ink
+    : PREMIUM_QUEST_PALETTE.cream;
+}
+
 function premiumPhysicalMaterial(color, options = {}) {
   return new THREE.MeshPhysicalMaterial({
     color,
@@ -145,10 +165,12 @@ function createCinematicLighting(scene, {
   const rim = new THREE.DirectionalLight(PREMIUM_QUEST_PALETTE.lavender, 0.22 + lightMood.glow * 0.12);
   rim.position.set(6, 5.5, -8);
 
-  const accents = [
-    new THREE.PointLight(PREMIUM_QUEST_PALETTE.honey, 0, 4.2, 2),
-    new THREE.PointLight(PREMIUM_QUEST_PALETTE.lavender, 0, 4.2, 2)
-  ];
+  const accents = Array.from({ length: 4 }, (_, index) => new THREE.PointLight(
+    index % 2 ? PREMIUM_QUEST_PALETTE.lavender : PREMIUM_QUEST_PALETTE.honey,
+    0,
+    3.4,
+    2
+  ));
   for (const light of accents) {
     light.visible = false;
     light.userData.questTargetAccent = true;
@@ -174,9 +196,9 @@ function createPostPipeline(renderer, scene, camera, quality, lightMood) {
       bias: 0.02
     }) : null,
     new BloomEffect({
-      intensity: 0.1 + lightMood.glow * 0.07,
-      luminanceThreshold: 0.8,
-      luminanceSmoothing: 0.34,
+      intensity: 0.045 + lightMood.glow * 0.025,
+      luminanceThreshold: 0.92,
+      luminanceSmoothing: 0.22,
       mipmapBlur: true
     }),
     new VignetteEffect({ darkness: 0.13, offset: 0.3 })
@@ -212,7 +234,9 @@ export class QuestRenderPipeline {
     this.renderer.toneMappingExposure = 1;
     if (scene.background?.isColor) this.renderer.setClearColor(scene.background, 1);
     this.renderer.shadowMap.enabled = true;
-    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    // Three r185 maps the deprecated PCFSoft constant back to PCF and logs on
+    // every scene mount. PCFShadowMap is the supported filtered shadow path.
+    this.renderer.shadowMap.type = THREE.PCFShadowMap;
     this.renderer.shadowMap.autoUpdate = true;
     this.maxAnisotropy = Math.min(8, this.renderer.capabilities.getMaxAnisotropy());
 
@@ -235,7 +259,7 @@ export class QuestRenderPipeline {
       worldLight
     });
     this.composer = createPostPipeline(this.renderer, scene, camera, this.quality, lightMood);
-    this.targetLightIntensity = this.quality.id === "rich" ? 8 : this.quality.id === "balanced" ? 4.5 : 0;
+    this.targetLightIntensity = this.quality.id === "rich" ? 1.4 : this.quality.id === "balanced" ? 0.8 : 0;
     this.cameraForward = new THREE.Vector3();
     this.worldPosition = new THREE.Vector3();
     this.destroyed = false;
@@ -361,11 +385,11 @@ export function createBeveledLetterToken({
   const width = Math.max(0.001, bounds.max.x - bounds.min.x);
   const height = Math.max(0.001, bounds.max.y - bounds.min.y);
   const fit = Math.min(1, 0.74 / width, 0.56 / height);
-  const textMaterial = premiumPhysicalMaterial(PREMIUM_QUEST_PALETTE.cream, {
-    roughness: 0.26,
-    clearcoat: 0.42,
-    clearcoatRoughness: 0.28,
-    envMapIntensity: 1.2
+  const textMaterial = premiumPhysicalMaterial(premiumTokenTextColour(colour), {
+    roughness: 0.34,
+    clearcoat: 0.18,
+    clearcoatRoughness: 0.42,
+    envMapIntensity: 0.72
   });
   const glyph = new THREE.Mesh(textGeometry, textMaterial);
   glyph.scale.setScalar(fit);

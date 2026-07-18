@@ -12,6 +12,9 @@ const SAVE_DEBOUNCE_MS = 1800;
 
 let activeSession = null;
 const pendingTimers = new Map();
+const inFlightFlushes = new Map();
+let onlineListenerInstalled = false;
+let revisionSequence = 0;
 
 function isBrowser() {
   return typeof window !== "undefined";
@@ -66,20 +69,61 @@ export function getCachedCloudProgressRows(studentId) {
   return readJson(CLOUD_ROW_STORAGE_KEY, {})[studentId] || [];
 }
 
+function entryIdentity(entry) {
+  return `${entry.studentId}:${entry.area}:${entry.key}`;
+}
+
+function emitProgressSyncState(status, entry) {
+  if (!isBrowser() || !entry?.studentId) return;
+  const pending = readJson(SYNC_QUEUE_KEY, [])
+    .filter(item => item.studentId === entry.studentId).length;
+  window.dispatchEvent(new CustomEvent("lp-progress-sync-state", {
+    detail: {
+      status,
+      studentId: entry.studentId,
+      area: entry.area,
+      key: entry.key,
+      pending
+    }
+  }));
+}
+
+function handleProgressOnline() {
+  void flushQueuedProgressWrites(activeSession);
+}
+
 export function configureProgressSync(session = null) {
   activeSession = session?.studentId ? session : null;
+  if (isBrowser() && !onlineListenerInstalled) {
+    window.addEventListener("online", handleProgressOnline);
+    onlineListenerInstalled = true;
+  }
 }
 
 export function getActiveProgressSyncSession() {
   return activeSession;
 }
 
-function enqueueWrite(entry) {
+function enqueueWrite(entry, { deferred = false } = {}) {
   const queue = readJson(SYNC_QUEUE_KEY, []);
+  const identity = entryIdentity(entry);
+  const existing = queue.find(item => entryIdentity(item) === identity);
+  const next = {
+    ...entry,
+    queuedAt: existing?.queuedAt || entry.queuedAt || new Date().toISOString(),
+    revision: entry.revision || `${Date.now()}-${revisionSequence += 1}`,
+    needsRecovery: Boolean(
+      entry.needsRecovery
+      || existing?.needsRecovery
+      || deferred
+      || (typeof navigator !== "undefined" && navigator.onLine === false)
+    )
+  };
   writeJson(SYNC_QUEUE_KEY, [
-    ...queue.filter(item => !(item.studentId === entry.studentId && item.area === entry.area && item.key === entry.key)),
-    { ...entry, queuedAt: new Date().toISOString() }
+    ...queue.filter(item => entryIdentity(item) !== identity),
+    next
   ]);
+  return next;
 }
 
 async function saveCloudProgress(entry) {
@@ -109,14 +153,55 @@ async function saveCloudProgress(entry) {
 }
 
 async function flushEntry(entry) {
+  if (typeof navigator !== "undefined" && navigator.onLine === false) {
+    const queued = enqueueWrite(entry, { deferred: true });
+    emitProgressSyncState("deferred", queued);
+    return { ok: false, needsRecovery: true };
+  }
   try {
     await saveCloudProgress(entry);
     const queue = readJson(SYNC_QUEUE_KEY, []);
     writeJson(SYNC_QUEUE_KEY, queue.filter(item =>
-      !(item.studentId === entry.studentId && item.area === entry.area && item.key === entry.key)
+      !(entryIdentity(item) === entryIdentity(entry) && item.revision === entry.revision)
     ));
+    return { ok: true, needsRecovery: Boolean(entry.needsRecovery) };
   } catch {
-    enqueueWrite(entry);
+    const queued = enqueueWrite(entry, { deferred: true });
+    emitProgressSyncState("deferred", queued);
+    return { ok: false, needsRecovery: true };
+  }
+}
+
+async function flushQueuedKey(identity, session = activeSession) {
+  if (!session?.studentId) return false;
+  if (inFlightFlushes.has(identity)) return inFlightFlushes.get(identity);
+
+  const task = (async () => {
+    let recovered = false;
+    let lastEntry = null;
+    while (true) {
+      const queued = readJson(SYNC_QUEUE_KEY, []);
+      const current = queued.find(item => entryIdentity(item) === identity);
+      if (!current || current.studentId !== session.studentId) {
+        if (recovered && lastEntry) emitProgressSyncState("recovered", lastEntry);
+        return true;
+      }
+      lastEntry = current;
+      const result = await flushEntry({
+        ...current,
+        mode: session.mode || current.mode || "teacher",
+        token: session.token || current.token || ""
+      });
+      recovered = recovered || result.needsRecovery;
+      if (!result.ok) return false;
+    }
+  })();
+
+  inFlightFlushes.set(identity, task);
+  try {
+    return await task;
+  } finally {
+    if (inFlightFlushes.get(identity) === task) inFlightFlushes.delete(identity);
   }
 }
 
@@ -130,11 +215,12 @@ export function queueProgressSave(area, key, payload, { scopeKey } = {}) {
     key,
     payload
   };
-  const timerKey = `${entry.studentId}:${area}:${key}`;
+  const queued = enqueueWrite(entry);
+  const timerKey = entryIdentity(queued);
   window.clearTimeout?.(pendingTimers.get(timerKey));
   const timer = window.setTimeout(() => {
     pendingTimers.delete(timerKey);
-    void flushEntry(entry);
+    void flushQueuedKey(timerKey, activeSession);
   }, SAVE_DEBOUNCE_MS);
   pendingTimers.set(timerKey, timer);
 }
@@ -143,12 +229,9 @@ export async function flushQueuedProgressWrites(session = activeSession) {
   if (!session?.studentId) return;
   const queue = readJson(SYNC_QUEUE_KEY, []);
   const own = queue.filter(item => item.studentId === session.studentId);
-  for (const item of own) {
-    await flushEntry({
-      ...item,
-      mode: session.mode || item.mode || "teacher",
-      token: session.token || item.token || ""
-    });
+  const identities = [...new Set(own.map(entryIdentity))];
+  for (const identity of identities) {
+    await flushQueuedKey(identity, session);
   }
 }
 
@@ -210,6 +293,10 @@ export function clearProgressSyncSession() {
   activeSession = null;
   pendingTimers.forEach(timer => window.clearTimeout?.(timer));
   pendingTimers.clear();
+  if (isBrowser() && onlineListenerInstalled) {
+    window.removeEventListener("online", handleProgressOnline);
+    onlineListenerInstalled = false;
+  }
 }
 
 /* Lightweight engagement logging. Records a learning event to the existing

@@ -18,6 +18,7 @@ import {
   ownedPieces,
   canBuy,
   recordPurchase,
+  recordPurchaseAndEquip,
   saveQuestCheckpoint,
   readQuestCheckpoint,
   clearQuestCheckpoint
@@ -124,6 +125,17 @@ test("you cannot buy what you cannot afford", () => {
   assert.equal(recordPurchase(state, crown).ledger.purchases.length, 0);
 });
 
+test("a Trading Post purchase equips immediately without removing earned gear", () => {
+  let state = recordStopResult(baseQuestState(), "s3", 3, 8);
+  const wings = state.creature.equipped.back;
+  const fierceEyes = getPiece("eyes-fierce");
+  state = recordPurchaseAndEquip(state, fierceEyes, "2026-07-11T10:00:00Z");
+
+  assert.equal(state.creature.eyes, "eyes-fierce");
+  assert.equal(state.creature.equipped.back, wings);
+  assert.ok(ownedPieces(state).has("eyes-fierce"));
+});
+
 test("gear is GIVEN by walking the trail, not bought", () => {
   const fresh = baseQuestState();
   assert.equal(ownedPieces(fresh).has("leaf-cap"), false);
@@ -153,7 +165,12 @@ test("chapter relics unlock only at five-stop destination gates", () => {
   assert.equal(chapterRewardForStop("s4"), null);
 
   state = recordStopResult(state, "s5", 2);
-  assert.equal(chapterRewardForStop("s5")?.id, "seedwake-lantern");
+  const seedwakeReward = chapterRewardForStop("s5");
+  assert.equal(seedwakeReward?.id, "seedwake-lantern");
+  assert.equal(seedwakeReward.destination, "Bramble Gate");
+  assert.equal(seedwakeReward.finale.cue, "bramble-gate");
+  assert.deepEqual(seedwakeReward.stopIds, ["s1", "s2", "s3", "s4", "s5"]);
+  assert.deepEqual(seedwakeReward.cast.map(friend => friend.name), ["Pip", "Moss", "Tumble", "Bramble"]);
   assert.deepEqual(unlockedChapterRewards(state).map(reward => reward.id), ["seedwake-lantern"]);
   assert.equal(questRewardBonuses(state).collectionRadius, 1.06);
 });
@@ -206,6 +223,7 @@ test("a journey checkpoint preserves walking and in-encounter progress", () => {
     fieldStage: 2,
     solved: ["s7-0"],
     drops: ["s7-drop-0", "s7-drop-3"],
+    completionMarks: [{ id: "s7-0-complete", encounterId: "s7-0", shape: "placed-plank" }],
     tally: { correct: 4, total: 5, mistakes: 1 }
   };
   const saved = readQuestCheckpoint(saveQuestCheckpoint(baseQuestState(), cp));
@@ -214,6 +232,7 @@ test("a journey checkpoint preserves walking and in-encounter progress", () => {
   assert.equal(saved.beatIndex, 1);
   assert.equal(saved.fieldStage, 2);
   assert.deepEqual(saved.solved, ["s7-0"]);
+  assert.deepEqual(saved.completionMarks, cp.completionMarks);
   assert.deepEqual(saved.tally, cp.tally);
 });
 

@@ -14,51 +14,51 @@
     "hudNodes": 2,
     "camera": {
       "position": [
-        5.895419089112312,
-        8.00246214607596,
-        -24.63753118465064
+        15.804135390429353,
+        15.354965920988889,
+        -6.887298557106224
       ],
-      "delta": 0.0030489068713700812,
+      "delta": 0,
       "settled": true
     },
     "items": [
       {
-        "id": "s1-0-0-0-0-a",
-        "value": "a",
-        "rect": {
-          "left": 243.41057503607334,
-          "top": 393.6046378822897,
-          "right": 326.4977581331284,
-          "bottom": 481.294047488346
-        },
-        "insideSafeArea": true,
-        "firstHit": "resource_stone",
-        "rayClear": true
-      },
-      {
-        "id": "s1-0-0-0-1-m",
+        "id": "s1-0-0-0-0-m",
         "value": "m",
         "rect": {
-          "left": 160.9610505464539,
-          "top": 378.6624226785139,
-          "right": 236.26655796883608,
-          "bottom": 459.81250379775963
+          "left": 270.12148293576945,
+          "top": 402.32752199269356,
+          "right": 314.73450399872416,
+          "bottom": 459.5018765957987
         },
         "insideSafeArea": true,
-        "firstHit": "resource_stone",
+        "firstHit": "field-hit-proxy",
         "rayClear": true
       },
       {
-        "id": "s1-0-0-0-2-t",
+        "id": "s1-0-0-0-1-t",
         "value": "t",
         "rect": {
-          "left": 58.968746905273115,
-          "top": 386.33464760466825,
-          "right": 146.70591269453357,
-          "bottom": 473.2743117647189
+          "left": 192.04507333676654,
+          "top": 378.85200360567984,
+          "right": 229.39728780900796,
+          "bottom": 429.89314851516457
         },
         "insideSafeArea": true,
-        "firstHit": "resource_stone",
+        "firstHit": "field-hit-proxy",
+        "rayClear": true
+      },
+      {
+        "id": "s1-0-0-0-2-a",
+        "value": "a",
+        "rect": {
+          "left": 114.89126332657007,
+          "top": 395.2981817557865,
+          "right": 158.99558312969603,
+          "bottom": 450.9672216221451
+        },
+        "insideSafeArea": true,
+        "firstHit": "field-hit-proxy",
         "rayClear": true
       }
     ]

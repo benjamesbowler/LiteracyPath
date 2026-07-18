@@ -14,51 +14,51 @@
     "hudNodes": 2,
     "camera": {
       "position": [
-        8.193142714871305,
-        7.885431085435158,
-        86.14367014383546
+        -25.569967833487443,
+        13.526521397102949,
+        87.54517815537675
       ],
-      "delta": 0.002973905760927616,
+      "delta": 0,
       "settled": true
     },
     "items": [
       {
-        "id": "s3-1-0-0-0-s",
-        "value": "s",
+        "id": "s3-1-0-0-0-o",
+        "value": "o",
         "rect": {
-          "left": 249.07679326456056,
-          "top": 406.84349431657546,
-          "right": 307.3862531908278,
-          "bottom": 489.5171583213777
+          "left": 200.0125199149629,
+          "top": 388.3609805924324,
+          "right": 236.93952089068415,
+          "bottom": 445.4286000894011
         },
         "insideSafeArea": true,
-        "firstHit": "Mesh",
+        "firstHit": "field-hit-proxy",
         "rayClear": true
       },
       {
         "id": "s3-1-0-0-1-h",
         "value": "h",
         "rect": {
-          "left": 178.13694959767912,
-          "top": 385.0572047737656,
-          "right": 229.06271849858723,
-          "bottom": 461.8934065357806
+          "left": 152.55941775705983,
+          "top": 382.2535487688729,
+          "right": 188.21395806561793,
+          "bottom": 438.06626840887265
         },
         "insideSafeArea": true,
-        "firstHit": "Mesh",
+        "firstHit": "field-hit-proxy",
         "rayClear": true
       },
       {
-        "id": "s3-1-0-0-2-o",
-        "value": "o",
+        "id": "s3-1-0-0-2-a",
+        "value": "a",
         "rect": {
-          "left": 80.15445447425328,
-          "top": 385.59494534056114,
-          "right": 128.78651115596193,
-          "bottom": 463.92395124178415
+          "left": 103.95452144827851,
+          "top": 388.58439765809425,
+          "right": 134.82979286260166,
+          "bottom": 443.9943723940123
         },
         "insideSafeArea": true,
-        "firstHit": "Mesh",
+        "firstHit": "field-hit-proxy",
         "rayClear": true
       }
     ]

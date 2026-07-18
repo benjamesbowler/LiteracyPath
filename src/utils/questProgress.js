@@ -23,7 +23,7 @@
 //      on every exit: losing a few seconds is a shrug; losing a long trail
 //      section is a child who never comes back.
 
-import { normalizeCreature, defaultCreature, CREATURE_GEAR, CREATURE_DYES, ALL_PIECES } from "../data/creatureParts.js";
+import { normalizeCreature, defaultCreature, CREATURE_GEAR, CREATURE_DYES, CREATURE_SLOTS, ALL_PIECES } from "../data/creatureParts.js";
 import { emptyRecord, recordAttempt, MASTERY_STATES, MASTERY_RULES, BLEND_RULES } from "./questMastery.js";
 import { boxAfterStop } from "./questReviewScheduler.js";
 import { QUEST_STOPS, getStop, blendsThrough } from "../data/questSequence.js";
@@ -140,14 +140,32 @@ export function chapterRewardForStop(stopOrId) {
   const chapter = chapterForStop(stopOrId);
   const stopId = typeof stopOrId === "object" ? stopOrId?.id : String(stopOrId || "");
   if (!chapter || chapter.stopIds.at(-1) !== stopId) return null;
-  return { ...chapter.chapterReward, chapterId: chapter.id, chapterTitle: chapter.title };
+  return {
+    ...chapter.chapterReward,
+    chapterId: chapter.id,
+    chapterTitle: chapter.title,
+    destination: chapter.destination,
+    objective: chapter.objective,
+    finale: chapter.finale,
+    stopIds: [...chapter.stopIds],
+    cast: [chapter.cast.guide, ...chapter.cast.residents]
+  };
 }
 
 export function unlockedChapterRewards(state) {
   const done = new Set(state?.trail?.stopsDone || []);
   return QUEST_CHAPTERS
     .filter(chapter => done.has(chapter.stopIds.at(-1)))
-    .map(chapter => ({ ...chapter.chapterReward, chapterId: chapter.id, chapterTitle: chapter.title }));
+    .map(chapter => ({
+      ...chapter.chapterReward,
+      chapterId: chapter.id,
+      chapterTitle: chapter.title,
+      destination: chapter.destination,
+      objective: chapter.objective,
+      finale: chapter.finale,
+      stopIds: [...chapter.stopIds],
+      cast: [chapter.cast.guide, ...chapter.cast.residents]
+    }));
 }
 
 export function questRewardBonuses(state) {
@@ -221,6 +239,43 @@ export function recordPurchase(state, piece, at = new Date().toISOString()) {
   return {
     ...state,
     ledger: { purchases: [...(state.ledger?.purchases || []), { id: piece.id, cost: piece.cost || 0, at }] }
+  };
+}
+
+export function recordPurchaseAndEquip(state, piece, at = new Date().toISOString()) {
+  const purchased = recordPurchase(state, piece, at);
+  if (purchased === state) return state;
+
+  return equipOwnedPiece(purchased, piece);
+}
+
+export function equipOwnedPiece(state, piece) {
+  if (!piece || !ownedPieces(state).has(piece.id)) return state;
+
+  const creature = normalizeCreature(state?.creature);
+  if (piece.slot === "colour") creature.dye = piece.id;
+  else if (piece.slot === "body") creature.body = piece.id;
+  else if (CREATURE_SLOTS.some(slot => slot.kind === "part" && slot.id === piece.slot)) {
+    creature[piece.slot] = piece.id;
+  } else if (CREATURE_SLOTS.some(slot => slot.kind === "gear" && slot.id === piece.slot)) {
+    creature.equipped = { ...creature.equipped, [piece.slot]: piece.id };
+  } else {
+    return state;
+  }
+
+  return { ...state, creature: normalizeCreature(creature) };
+}
+
+export function unequipQuestGear(state, slot) {
+  if (!CREATURE_SLOTS.some(entry => entry.kind === "gear" && entry.id === slot)) return state;
+  const creature = normalizeCreature(state?.creature);
+  if (!creature.equipped?.[slot]) return state;
+  return {
+    ...state,
+    creature: normalizeCreature({
+      ...creature,
+      equipped: { ...creature.equipped, [slot]: null }
+    })
   };
 }
 

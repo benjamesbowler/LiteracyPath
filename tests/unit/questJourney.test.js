@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import {
   anticipatedJourneyState,
   finishJourneyLayer,
@@ -38,4 +39,18 @@ test("preloading anticipates the completed trail without mutating real progress"
   assert.deepEqual(anticipated.trail.stopsDone, ["s7", "s8"]);
   assert.equal(prepareJourneyLayer(active(), "s8", "s9").length, 2);
   assert.equal(prepareJourneyLayer(active(), "s8", "s8").length, 1);
+});
+
+test("the live QuestRoot wires the tested journey handoff into world completion", () => {
+  const source = fs.readFileSync(new URL("../../src/components/quest/QuestRoot.jsx", import.meta.url), "utf8");
+  for (const helper of [
+    "anticipatedJourneyState",
+    "prepareJourneyLayer",
+    "markJourneyLayerReady",
+    "finishJourneyLayer"
+  ]) {
+    assert.match(source, new RegExp(`\\b${helper}\\(`), `${helper} must be called by the live root`);
+  }
+  assert.match(source, /onPrepareNext=\{interactive \? prepareNextLayer/);
+  assert.match(source, /status === "arriving"/);
 });

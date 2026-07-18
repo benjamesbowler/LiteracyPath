@@ -16,6 +16,7 @@ node_modules
 playwright-report/
 test-results/
 dist
+dist-quest-offline
 dist-ssr
 *.local
 raw/
@@ -46,6 +47,9 @@ LP Assets/
 
 # Local build output / stuck build cleanup
 /dist/
+/dist-quest-offline/
+/dist-quest-update-a/
+/dist-quest-update-b/
 /dist_stuck_*/
 /_DELETE_ME_*/
 .vercel

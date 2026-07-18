@@ -14,51 +14,51 @@
     "hudNodes": 2,
     "camera": {
       "position": [
-        -3.4769840147028983,
-        5.398256395781176,
-        85.8351442924124
+        -25.137126138001598,
+        5.4,
+        63.625593367506646
       ],
-      "delta": 0.0033723346224277563,
+      "delta": 0,
       "settled": true
     },
     "items": [
       {
-        "id": "s3-1-0-0-0-s",
-        "value": "s",
+        "id": "s3-1-0-0-0-o",
+        "value": "o",
         "rect": {
-          "left": 713.3068208524742,
-          "top": 375.28647659615007,
-          "right": 874.6998021375177,
-          "bottom": 572.577305342651
+          "left": 592.7924010834599,
+          "top": 319.5923491005049,
+          "right": 708.4518079629801,
+          "bottom": 479.2808682889505
         },
         "insideSafeArea": true,
-        "firstHit": "Mesh",
+        "firstHit": "field-hit-proxy",
         "rayClear": true
       },
       {
         "id": "s3-1-0-0-1-h",
         "value": "h",
         "rect": {
-          "left": 551.2264002790953,
-          "top": 323.7994560320932,
-          "right": 667.5814495287577,
-          "bottom": 490.3751430937997
+          "left": 459.90703217529585,
+          "top": 312.64726577316554,
+          "right": 563.8048249725576,
+          "bottom": 464.1628484857984
         },
         "insideSafeArea": true,
-        "firstHit": "Mesh",
+        "firstHit": "field-hit-proxy",
         "rayClear": true
       },
       {
-        "id": "s3-1-0-0-2-o",
-        "value": "o",
+        "id": "s3-1-0-0-2-a",
+        "value": "a",
         "rect": {
-          "left": 343.9028191083266,
-          "top": 335.2317256060926,
-          "right": 458.63467003251833,
-          "bottom": 509.9963650571755
+          "left": 319.94569267739837,
+          "top": 330.1745544425688,
+          "right": 421.2608031421138,
+          "bottom": 490.55332798545027
         },
         "insideSafeArea": true,
-        "firstHit": "Mesh",
+        "firstHit": "field-hit-proxy",
         "rayClear": true
       }
     ]

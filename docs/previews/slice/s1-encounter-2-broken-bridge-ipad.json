@@ -14,11 +14,11 @@
     "hudNodes": 2,
     "camera": {
       "position": [
-        -3.7074145228282536,
-        5.398034522316436,
-        -83.049156214903
+        -5.961607618419016,
+        5.4,
+        -78.60764634845337
       ],
-      "delta": 0.003218568792719522,
+      "delta": 0,
       "settled": true
     },
     "items": [
@@ -26,39 +26,39 @@
         "id": "s1-1-0-0-0-s",
         "value": "s",
         "rect": {
-          "left": 702.702739666365,
-          "top": 349.1010997558861,
-          "right": 906.8077790707192,
-          "bottom": 556.1515212749379
+          "left": 594.315899608103,
+          "top": 323.74704707270007,
+          "right": 711.4850031740314,
+          "bottom": 489.54872234370345
         },
         "insideSafeArea": true,
-        "firstHit": "Mesh",
+        "firstHit": "field-hit-proxy",
         "rayClear": true
       },
       {
-        "id": "s1-1-0-0-1-a",
-        "value": "a",
-        "rect": {
-          "left": 522.7658635516283,
-          "top": 317.4589798382603,
-          "right": 674.0930591324765,
-          "bottom": 494.0664698488779
-        },
-        "insideSafeArea": true,
-        "firstHit": "Mesh",
-        "rayClear": true
-      },
-      {
-        "id": "s1-1-0-0-2-m",
+        "id": "s1-1-0-0-1-m",
         "value": "m",
         "rect": {
-          "left": 296.95180880484776,
-          "top": 342.63442715459996,
-          "right": 490.5625095732425,
-          "bottom": 553.6667660095366
+          "left": 445.73933686732164,
+          "top": 308.29069151831305,
+          "right": 571.4697503459274,
+          "bottom": 470.43664919631914
         },
         "insideSafeArea": true,
-        "firstHit": "Mesh",
+        "firstHit": "field-hit-proxy",
+        "rayClear": true
+      },
+      {
+        "id": "s1-1-0-0-2-t",
+        "value": "t",
+        "rect": {
+          "left": 293.8265915681491,
+          "top": 329.8814265735299,
+          "right": 436.9443790757327,
+          "bottom": 509.3995682414465
+        },
+        "insideSafeArea": true,
+        "firstHit": "field-hit-proxy",
         "rayClear": true
       }
     ]

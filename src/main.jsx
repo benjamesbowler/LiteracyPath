@@ -22,6 +22,7 @@ import './styles/sage-soft.generated.css'
 import { ErrorBoundary } from './components/ErrorBoundary.jsx'
 import { AppCrashFallback } from './components/AppCrashFallback.jsx'
 import { DYNAMIC_IMPORT_ERROR_EVENT, reloadOnceForNewVersion } from './utils/lazyWithRetry.js'
+import { registerOfflineShell } from './utils/offlineShell.js'
 
 const CLIENT_ERROR_LOG_KEY = 'lp-client-error-log'
 
@@ -68,3 +69,5 @@ createRoot(document.getElementById('root')).render(
     </ErrorBoundary>
   </StrictMode>,
 )
+
+if (import.meta.env.PROD) void registerOfflineShell()

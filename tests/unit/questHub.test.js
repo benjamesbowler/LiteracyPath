@@ -113,6 +113,8 @@ test("completed trails reappear as restored world moments later in their chapter
   });
   assert.deepEqual(section.restoredMoments.map(moment => moment.sourceStopId), ["s1", "s2", "s3", "s4"]);
   assert.equal(new Set(section.restoredMoments.map(moment => moment.id)).size, 4);
+  assert.deepEqual(section.restoredMoments.map(moment => moment.story), section.chapter.memoryStories);
+  assert.equal(section.shortcut, section.chapter.shortcut);
   assert.deepEqual(
     restoredWorldMoments(section.chapter, section.chapterStop, ["s1"], section.route, section.world).map(moment => moment.sourceStopId),
     ["s1"]

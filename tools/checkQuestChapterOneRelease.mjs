@@ -31,6 +31,11 @@ const expectedShapes = Object.freeze({
 });
 const seedwakeAssets = seedwakeAssetManifest();
 const seedwakeAllowlist = new Set(SEEDWAKE_ASSET_ALLOWLIST);
+const seedwakeCompatibleFamilies = [
+  "/models/library/kaykit/medieval/",
+  "/models/library/kaykit/halloween/models/lantern_",
+  "/models/library/kaykit/halloween/models/post_lantern."
+];
 
 function localAssetExists(url) {
   return typeof url === "string" && url.startsWith("/") && fs.existsSync(path.join(ROOT, "public", url.slice(1)));
@@ -47,6 +52,7 @@ if (firstChapterIds.join(",") !== SEEDWAKE_STOP_IDS.join(",")) {
 const kitSignatures = new Set();
 const residentNames = new Set();
 let tasksChecked = 0;
+let signatureTasksChecked = 0;
 
 for (const stopId of SEEDWAKE_STOP_IDS) {
   const stop = QUEST_STOPS.find(entry => entry.id === stopId);
@@ -69,14 +75,25 @@ for (const stopId of SEEDWAKE_STOP_IDS) {
         fail(`${stopId}: encounter ${encounterIndex + 1}, beat ${beatIndex + 1} falls back to a popup`);
         continue;
       }
-      if (task.mechanic !== spec.mechanic) fail(`${stopId}: uses ${task.mechanic}, expected ${spec.mechanic}`);
-      if (task.mission !== spec.mission) fail(`${stopId}: task mission drifted from the chapter story`);
+      if (task.chapterAuthored) {
+        signatureTasksChecked += 1;
+        if (encounterIndex !== 0) fail(`${stopId}: signature event escaped the opening story encounter`);
+        if (task.mechanic !== spec.mechanic) fail(`${stopId}: signature uses ${task.mechanic}, expected ${spec.mechanic}`);
+        if (task.mission !== spec.mission) fail(`${stopId}: signature mission drifted from the chapter story`);
+      } else if (task.mission) {
+        fail(`${stopId}: a supporting encounter claims the signature mission`);
+      }
       if (!task.stages?.length) fail(`${stopId}: task has no physical stages`);
       if (task.stages?.some(stage => !stage.playerAction || !stage.prompt || !stage.items?.length)) {
         fail(`${stopId}: every stage must have an action, readable prompt, and physical items`);
       }
       if (!task.stages?.some(stage => stage.completion)) fail(`${stopId}: task leaves no persistent physical result`);
     }
+  }
+  if (!(section.encounters?.[0]?.beats || []).some((beat, beatIndex) => (
+    buildPhysicalTask(section, section.encounters[0], beat, beatIndex)?.chapterAuthored
+  ))) {
+    fail(`${stopId}: has no authored chapter-signature event`);
   }
 
   const kit = QUEST_STOP_ASSET_KITS[stopId];
@@ -98,7 +115,9 @@ for (const stopId of SEEDWAKE_STOP_IDS) {
 
 for (const url of seedwakeAssets.urls) {
   if (!seedwakeAllowlist.has(url)) fail(`Seedwake asset is outside the allowlist (${url})`);
-  if (!url.startsWith("/models/library/kaykit/medieval/")) fail(`Seedwake mixes a non-meadow model (${url})`);
+  if (!seedwakeCompatibleFamilies.some(prefix => url.startsWith(prefix))) {
+    fail(`Seedwake mixes a model outside its compatible authored families (${url})`);
+  }
   if (!localAssetExists(url)) fail(`Seedwake allowlist model is missing (${url})`);
 }
 
@@ -125,5 +144,6 @@ if (errors.length) {
 
 console.log(
   `check:quest-chapter-one OK - 5 distinct trails, ${tasksChecked} physical tasks, ` +
+  `${signatureTasksChecked} signature tasks, ` +
   `${residentNames.size} residents, 15 landmark groups, 60 finds, 120 Sparks`
 );

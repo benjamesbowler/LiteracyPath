@@ -2,14 +2,14 @@ export const THREE_ASSET_MANIFEST_URL = "/models/library/manifest.json";
 
 export const FIELD_OBJECT_MODELS = Object.freeze({
   "seed-lantern": Object.freeze({
-    url: "/models/library/kaykit/medieval/models/decoration/props/resource_stone.gltf",
-    targetHeight: 0.86,
+    url: "/models/library/kaykit/halloween/models/lantern_standing.gltf",
+    targetHeight: 1.18,
     rotationY: 0,
     tintStrength: 0.42
   }),
   "awakened-lantern": Object.freeze({
-    url: "/models/library/kaykit/medieval/models/decoration/props/resource_stone.gltf",
-    targetHeight: 0.9,
+    url: "/models/library/kaykit/halloween/models/lantern_standing.gltf",
+    targetHeight: 1.24,
     rotationY: Math.PI / 5,
     tintStrength: 0.5
   }),
@@ -44,14 +44,14 @@ export const FIELD_OBJECT_MODELS = Object.freeze({
     tintStrength: 0.46
   }),
   "chorus-lantern": Object.freeze({
-    url: "/models/library/kaykit/medieval/models/decoration/props/resource_stone.gltf",
-    targetHeight: 1.02,
+    url: "/models/library/kaykit/halloween/models/post_lantern.gltf",
+    targetHeight: 1.72,
     rotationY: 0,
     tintStrength: 0.52
   }),
   "lit-chorus-lantern": Object.freeze({
-    url: "/models/library/kaykit/medieval/models/decoration/props/resource_stone.gltf",
-    targetHeight: 1.04,
+    url: "/models/library/kaykit/halloween/models/post_lantern.gltf",
+    targetHeight: 1.78,
     rotationY: Math.PI / 4,
     tintStrength: 0.58
   }),
@@ -81,29 +81,39 @@ export const FIELD_OBJECT_MODELS = Object.freeze({
 // reading a single label.
 export const QUEST_STOP_ASSET_KITS = Object.freeze({
   s1: Object.freeze([
-    { url: "/models/library/kaykit/medieval/models/decoration/nature/trees_A_large.gltf", height: 6.6, progress: 0.72, side: -1, offset: 3.2 },
-    { url: "/models/library/kaykit/medieval/models/decoration/props/resource_stone.gltf", height: 1.4, progress: 0.36, side: 1, offset: 2.5, copies: 4 },
-    { url: "/models/library/kaykit/medieval/models/buildings/green/building_well_green.gltf", height: 2.8, progress: 0.58, side: 1, offset: 3 }
+    { url: "/models/library/kaykit/medieval/models/buildings/green/building_well_green.gltf", height: 2.8, encounter: 0, side: 1, offset: 4.8 },
+    { url: "/models/library/kaykit/medieval/models/buildings/neutral/fence_wood_straight_gate.gltf", height: 2.1, encounter: 1, side: -1, offset: 4.5 },
+    { url: "/models/library/kaykit/medieval/models/decoration/nature/tree_single_A.gltf", height: 4.8, encounter: 0, side: -1, offset: 6.8, copies: 2, hideDuringEncounter: true },
+    { url: "/models/library/kaykit/medieval/models/decoration/props/resource_stone.gltf", height: 1.25, progress: 0.46, side: 1, offset: 2.8, copies: 3 },
+    { url: "/models/library/kaykit/medieval/models/decoration/nature/hills_A_trees.gltf", height: 7.2, progress: 0.82, side: 1, offset: 7.8 }
   ]),
   s2: Object.freeze([
-    { url: "/models/library/kaykit/medieval/models/decoration/nature/waterlily_A.gltf", size: 1.45, progress: 0.34, side: -1, offset: 2.2, copies: 5 },
-    { url: "/models/library/kaykit/medieval/models/buildings/green/building_tower_base_green.gltf", height: 4.6, progress: 0.74, side: 1, offset: 3.2 },
-    { url: "/models/library/kaykit/medieval/models/decoration/nature/trees_B_medium.gltf", height: 4.2, progress: 0.56, side: -1, offset: 3.4 }
+    { url: "/models/library/kaykit/medieval/models/buildings/blue/building_well_blue.gltf", height: 2.7, encounter: 0, side: 1, offset: 4.6 },
+    { url: "/models/library/kaykit/medieval/models/buildings/green/building_tower_base_green.gltf", height: 4.6, encounter: 1, side: 1, offset: 5.2 },
+    { url: "/models/library/kaykit/medieval/models/decoration/nature/waterlily_A.gltf", size: 1.45, encounter: 0, side: -1, offset: 2.8, copies: 5, hideDuringEncounter: true },
+    { url: "/models/library/kaykit/medieval/models/decoration/nature/tree_single_B.gltf", height: 4.2, encounter: 1, side: -1, offset: 6.6, copies: 2, hideDuringEncounter: true },
+    { url: "/models/library/kaykit/medieval/models/decoration/nature/hills_B_trees.gltf", height: 7.4, progress: 0.84, side: -1, offset: 8 }
   ]),
   s3: Object.freeze([
-    { url: "/models/library/kaykit/medieval/models/buildings/green/building_windmill_green.gltf", height: 6.4, progress: 0.76, side: -1, offset: 3.4 },
-    { url: "/models/library/kaykit/medieval/models/decoration/props/crate_A_small.gltf", height: 0.82, progress: 0.38, side: 1, offset: 2.5, copies: 4 },
-    { url: "/models/library/kaykit/medieval/models/decoration/nature/rock_single_C.gltf", height: 1.35, progress: 0.6, side: 1, offset: 3, copies: 3 }
+    { url: "/models/library/kaykit/medieval/models/buildings/green/building_windmill_green.gltf", height: 6.4, encounter: 1, side: -1, offset: 6.1 },
+    { url: "/models/library/kaykit/medieval/models/buildings/neutral/fence_wood_straight.gltf", height: 1.9, encounter: 0, side: -1, offset: 4.6 },
+    { url: "/models/library/kaykit/medieval/models/decoration/props/crate_A_small.gltf", height: 0.92, encounter: 0, side: 1, offset: 3.8, copies: 3, hideDuringEncounter: true },
+    { url: "/models/library/kaykit/medieval/models/decoration/nature/rock_single_C.gltf", height: 1.35, encounter: 1, side: 1, offset: 4.1, copies: 3 },
+    { url: "/models/library/kaykit/medieval/models/decoration/nature/hills_C_trees.gltf", height: 7.6, progress: 0.84, side: 1, offset: 8.2 }
   ]),
   s4: Object.freeze([
-    { url: "/models/library/kaykit/medieval/models/buildings/neutral/building_bridge_B.gltf", height: 3.4, progress: 0.74, side: 1, offset: 3.15 },
-    { url: "/models/library/kaykit/medieval/models/buildings/blue/building_watermill_blue.gltf", height: 4.8, progress: 0.34, side: -1, offset: 5.2 },
-    { url: "/models/library/kaykit/medieval/models/decoration/nature/waterlily_B.gltf", size: 1.4, progress: 0.4, side: 1, offset: 2.4, copies: 4 }
+    { url: "/models/library/kaykit/medieval/models/buildings/neutral/building_bridge_B.gltf", height: 3.4, encounter: 0, side: 1, offset: 5.4 },
+    { url: "/models/library/kaykit/medieval/models/buildings/blue/building_watermill_blue.gltf", height: 5.2, encounter: 1, side: -1, offset: 6.2 },
+    { url: "/models/library/kaykit/medieval/models/decoration/nature/waterlily_B.gltf", size: 1.4, encounter: 0, side: -1, offset: 3.4, copies: 4 },
+    { url: "/models/library/kaykit/medieval/models/buildings/neutral/fence_stone_straight.gltf", height: 1.7, encounter: 1, side: 1, offset: 4.6, copies: 2 },
+    { url: "/models/library/kaykit/medieval/models/decoration/nature/mountain_A_grass_trees.gltf", height: 8.2, progress: 0.86, side: 1, offset: 8.5 }
   ]),
   s5: Object.freeze([
-    { url: "/models/library/kaykit/medieval/models/buildings/neutral/wall_straight_gate.gltf", height: 5.8, progress: 0.78, side: 1, offset: 3.1 },
-    { url: "/models/library/kaykit/medieval/models/decoration/nature/trees_A_large.gltf", height: 6.2, progress: 0.57, side: -1, offset: 3.5 },
-    { url: "/models/library/kaykit/medieval/models/decoration/props/resource_stone.gltf", height: 1.45, progress: 0.36, side: 1, offset: 2.6, copies: 5 }
+    { url: "/models/library/kaykit/medieval/models/buildings/neutral/wall_straight_gate.gltf", height: 6.2, encounter: 1, side: 1, offset: 5.7 },
+    { url: "/models/library/kaykit/medieval/models/decoration/nature/tree_single_A.gltf", height: 5.2, encounter: 0, side: -1, offset: 7, copies: 2, hideDuringEncounter: true },
+    { url: "/models/library/kaykit/medieval/models/buildings/neutral/fence_stone_straight_gate.gltf", height: 2.3, encounter: 0, side: 1, offset: 4.8 },
+    { url: "/models/library/kaykit/medieval/models/decoration/props/resource_stone.gltf", height: 1.45, encounter: 1, side: -1, offset: 4.1, copies: 4 },
+    { url: "/models/library/kaykit/medieval/models/decoration/nature/mountain_B_grass_trees.gltf", height: 8.4, progress: 0.86, side: -1, offset: 8.6 }
   ])
 });
 

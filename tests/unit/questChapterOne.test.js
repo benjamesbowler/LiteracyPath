@@ -51,14 +51,14 @@ test("empty and corrupt Seedwake inventory is calm", () => {
   });
 });
 
-test("every Seedwake model belongs to one explicit meadow asset kit", () => {
+test("every Seedwake model belongs to the explicit, style-matched meadow asset kit", () => {
   const manifest = seedwakeAssetManifest();
   const allowed = new Set(SEEDWAKE_ASSET_ALLOWLIST);
   assert.equal(manifest.kitId, "seedwake-meadow");
   assert.ok(manifest.urls.length >= 12);
   assert.ok(manifest.urls.every(url => allowed.has(url)), "a Seedwake model escaped the declared allowlist");
   assert.ok(
-    manifest.urls.every(url => url.startsWith("/models/library/kaykit/medieval/")),
-    "the meadow slice mixes model packs or themes"
+    manifest.urls.every(url => /^\/models\/library\/kaykit\/(medieval|halloween)\//.test(url)),
+    "the meadow slice mixes unrelated model authors or visual families"
   );
 });

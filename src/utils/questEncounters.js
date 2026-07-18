@@ -135,7 +135,7 @@ export function buildWalk(stopId, { mastery = {}, targets, seed = 1 } = {}) {
     // flat count, "jam" (covers j, already shown in the letter encounter) ties
     // with "bell" (covers ll, shown nowhere) and wins on pool order — which is
     // exactly how ll/ss/zz went uncoverable. Rank-weight the hits instead.
-    const rank = new Map([...want].map((t, i) => [t, want.length - i]));
+    const rank = new Map([...want].map((t, i) => [t, (want.length - i) ** 2]));
     while (chosen.length < need && left.size) {
       let best = null;
       let bestHit = 0;
@@ -222,10 +222,11 @@ export function buildWalk(stopId, { mastery = {}, targets, seed = 1 } = {}) {
     if (needed) { letterChoice = needed; break; }
   }
 
+  const encounterLimit = stopIndex <= 5 ? 2 : MAX_ENCOUNTERS;
   const chosen = [
     letterChoice,
     first(wordFirst),
-    wanted.find(k => !LETTER.includes(k) && !WORD.includes(k))
+    stopIndex > 5 ? wanted.find(k => !LETTER.includes(k) && !WORD.includes(k)) : null
   ].filter(Boolean);
 
   // Top-up from the remaining declared shells — but never a SECOND letter kind
@@ -233,7 +234,7 @@ export function buildWalk(stopId, { mastery = {}, targets, seed = 1 } = {}) {
   // 8-response walk budget and turns back into a quiz (run 3 + bridge 3 +
   // cave 3 = 9); one letter thing, one word thing, one other is the walk.
   for (const kind of wanted) {
-    if (chosen.length >= MAX_ENCOUNTERS) break;
+    if (chosen.length >= encounterLimit) break;
     if (chosen.includes(kind)) continue;
     if (LETTER.includes(kind) && chosen.some(k => LETTER.includes(k))) continue;
     if (WORD.includes(kind) && chosen.some(k => WORD.includes(k))) continue;
@@ -276,7 +277,7 @@ export function buildWalk(stopId, { mastery = {}, targets, seed = 1 } = {}) {
   //
   // Now: most of the slots go to what the stop teaches, and at least one goes to
   // something old that needs proving in a different way.
-  const letterSlots = letterKind === "hungry-beast" ? 2 : 3;
+  const letterSlots = stopIndex <= 5 ? 3 : letterKind === "hungry-beast" ? 2 : 3;
   const keepForReview = review.length ? 1 : 0;
   const newSlots = Math.max(1, letterSlots - keepForReview);
   const letterTargets = [
@@ -299,7 +300,7 @@ export function buildWalk(stopId, { mastery = {}, targets, seed = 1 } = {}) {
   const mustCoverInWords = priority;
 
   const built = [];
-  for (const kind of chosen.slice(0, MAX_ENCOUNTERS)) {
+  for (const kind of chosen.slice(0, encounterLimit)) {
     const encounter = buildEncounter(kind, {
       stop, stopIndex, mastery, rng, list, decodable, pickCovering,
       flowerTargets, beastTargets, runTargets, mustCoverInWords, coverTargets
@@ -356,43 +357,50 @@ function buildEncounter(kind, ctx) {
     case "flower-patch": {
       // THREE flowers, one after another. Not "question 1 of 3" — a patch of
       // flowers you walk into, and each one opens when you find its sound.
-      if (!flowerTargets?.length) return null;
+      const rounds = (flowerTargets || [])
+        .map(t => buildAudibleLetterRound(buildSoundStonesRound, t, { stopIndex, mastery, rng, choices: 3 }))
+        .filter(Boolean);
+      if (!rounds.length) return null;
       return {
         kind,
-        beats: flowerTargets.map(t => buildSoundStonesRound(t, { stopIndex, mastery, rng, choices: 3 }))
+        beats: rounds
       };
     }
 
     case "hungry-beast": {
-      if (!beastTargets?.length) return null;
+      const rounds = (beastTargets || [])
+        .map(t => buildAudibleLetterRound(buildBeastFeedRound, t, { stopIndex, mastery, rng, choices: 3 }))
+        .filter(Boolean);
+      if (!rounds.length) return null;
       return {
         kind,
-        beats: beastTargets.map(t => buildBeastFeedRound(t, { stopIndex, mastery, rng, choices: 3 }))
+        beats: rounds
       };
     }
 
     case "trail-run": {
-      // Fluency: the same sound-to-letter question, on a timer. A cue with no
-      // recording cannot be run against a clock, so silent targets are skipped
-      // here rather than shipped as an unwinnable race.
-      const audible = (runTargets || []).filter(t => hasGraphemeAudio(t));
-      if (!audible.length) return null;
+      // Fluency remains audio-led. Where a clean isolated phoneme has not yet
+      // been recorded, a clean example word supplies an honest position cue.
+      const rounds = (runTargets || [])
+        .map(t => buildAudibleLetterRound(buildTrailRunRound, t, { stopIndex, mastery, rng, choices: 3 }))
+        .filter(Boolean);
+      if (!rounds.length) return null;
       return {
         kind,
-        beats: audible.map(t => buildTrailRunRound(t, { stopIndex, mastery, rng, choices: 3 }))
+        beats: rounds
       };
     }
 
     // The word encounters carry the coverage load: one word credits every sound
     // AND every blend inside it, so two words can catch what the flowers missed.
     case "broken-bridge": {
-      const words = wordsFor(mustCoverInWords, coverTargets, decodable, pickCovering);
+      const words = wordsFor(mustCoverInWords, coverTargets, decodable, pickCovering, stopIndex <= 5 ? 1 : 3);
       if (!words.length) return null;
       return { kind, beats: words.map(w => buildStoneBridgeRound(w, { stopIndex, mastery, rng })) };
     }
 
     case "echo-cave": {
-      const words = wordsFor(mustCoverInWords, coverTargets, decodable, pickCovering);
+      const words = wordsFor(mustCoverInWords, coverTargets, decodable, pickCovering, stopIndex <= 5 ? 1 : 3);
       if (!words.length) return null;
       return { kind, beats: words.map(w => buildEchoCaveRound(w, { stopIndex, mastery, rng })) };
     }
@@ -442,13 +450,30 @@ function buildEncounter(kind, ctx) {
   }
 }
 
+function buildAudibleLetterRound(builder, target, options) {
+  const round = builder(target, options);
+  if (hasGraphemeAudio(target)) return round;
+  const word = wordsForTarget(target, options.stopIndex, { max: 24 }).find(hasWordAudio);
+  if (!word) return null;
+  const sounds = segmentWord(word, { known: taughtThrough(options.stopIndex) });
+  const targetIndex = sounds.indexOf(target);
+  const cuePosition = targetIndex === 0 ? "first" : targetIndex === sounds.length - 1 ? "ending" : "middle";
+  return {
+    ...round,
+    cue: { kind: "word", word },
+    cueWord: word,
+    cuePosition
+  };
+}
+
 // Words for a bridge or a cave: cover what the flowers and the beast missed
 // first, then everything else the stop teaches. Two words, sometimes three when
 // there is more to catch — never more, because an encounter is a moment.
-function wordsFor(mustCover, coverTargets, decodable, pickCovering) {
-  const need = mustCover.length ? Math.min(3, Math.max(2, mustCover.length)) : 2;
+function wordsFor(mustCover, coverTargets, decodable, pickCovering, maxWords = 3) {
+  const cap = Math.max(1, Math.min(3, Number(maxWords) || 3));
+  const need = mustCover.length ? Math.min(cap, Math.max(1, mustCover.length)) : Math.min(2, cap);
   const covering = pickCovering(decodable, need, mustCover.length ? mustCover : coverTargets);
-  return covering.slice(0, 3);
+  return covering.slice(0, cap);
 }
 
 // Local copy so this module doesn't import questRounds' internals circularly.

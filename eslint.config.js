@@ -5,7 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist', 'Phonics app extension/**', '_DELETE_ME_*/**']),
+  globalIgnores(['dist', 'dist-quest-offline', 'Phonics app extension/**', '_DELETE_ME_*/**']),
   {
     // Node, not the browser. Tests run under `node --test`, so they get
     // process/__dirname — linting them as browser code fails on `process`.

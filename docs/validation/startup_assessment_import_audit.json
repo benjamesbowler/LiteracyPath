@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-10T02:16:38.476Z",
+  "generatedAt": "2026-07-17T06:07:15.646Z",
   "startupFiles": [
     "src/App.jsx",
     "src/data/loadAssessmentSkillBank.js",
@@ -13,8 +13,8 @@
     {
       "file": "src/data/generated/earlySkillQuestions.generated.js",
       "stats": {
-        "bytes": 533,
-        "lines": 13
+        "bytes": 801,
+        "lines": 17
       },
       "loading": "dynamic via loadAssessmentSkillBank(skillId)"
     },
@@ -93,7 +93,7 @@
     {
       "file": "src/data/generated/languageSkillQuestions.generated.js",
       "stats": {
-        "bytes": 2942826,
+        "bytes": 2942844,
         "lines": 114852
       },
       "loading": "dynamic via loadAssessmentSkillBank(skillId)"

@@ -332,6 +332,7 @@ export function restoredWorldMoments(chapter, chapterStop, completedStopIds, rou
         id: `restored-${stopId}`,
         sourceStopId: stopId,
         kind: kit.repairs[index % kit.repairs.length],
+        story: chapter.memoryStories?.[index] || null,
         x: position.x,
         y: position.y,
         z: position.z,
@@ -465,6 +466,7 @@ export function buildTrailSection(stopId, options = {}) {
       continuesChapter: chapterStop < 5,
       resetToMenu: false
     },
+    shortcut: chapter?.shortcut || null,
     rewardIds,
     restoredMoments: restoredWorldMoments(chapter, chapterStop, completedStopIds, route, world),
     encounters,
