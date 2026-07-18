@@ -22,13 +22,10 @@
 import { wordsForTarget } from "../questRounds.js";
 import { heartWordsThrough, QUEST_STOPS } from "../../data/questSequence.js";
 
-// "a_e" prints as "a–e" — the split digraph a child knows as "magic e".
-// Local copy of shellContract's displayGrapheme rule rather than importing
-// the shell contract, which drags browser audio modules into node test runs.
-export function packTargetLabel(id) {
-  const g = String(id || "");
-  return g.includes("_") ? g.replace("_", "–") : g;
-}
+// "a_e" prints as "a–e" — the shared label rule from questLabels.js (DOM-free,
+// so worksheets stay printable from node too).
+import { graphemeLabel } from "../questLabels.js";
+export const packTargetLabel = graphemeLabel;
 
 function esc(value) {
   return String(value).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));

@@ -3,11 +3,11 @@ import { countMastered, weakestTargets } from "./questMastery.js";
 import { totalStars, unlockedChapterRewards } from "./questProgress.js";
 import { questTelemetryTotals } from "./questTelemetry.js";
 
-// "y_ie" renders as "y" — same rule the sheep pens use. Local copy rather than
-// importing the shell contract, which drags browser audio modules into node.
-function tileLabel(id) {
-  return String(id || "").split("_")[0];
-}
+import { graphemeLabel } from "./questLabels.js";
+
+// One label rule everywhere: "a_e" tiles read "a–e" (not a bare "a" colliding
+// with short a), alts keep their base letter, morphs read "–s".
+const tileLabel = graphemeLabel;
 
 export function formatQuestDuration(milliseconds = 0) {
   const minutes = Math.round(Math.max(0, Number(milliseconds) || 0) / 60000);

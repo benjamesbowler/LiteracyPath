@@ -45,34 +45,47 @@ export function blendsIn(word, taughtBlends) {
   return [...new Set(found)];
 }
 
-// Graphemes that make the SAME phoneme. Never offer two of these against one
-// spoken cue — both would be correct.
-const SAME_SOUND = {
-  c: ["k", "ck"],
-  k: ["c", "ck"],
-  ck: ["c", "k"],
-  w: ["wh"],
-  wh: ["w"],
-  s: ["ss"],
-  ss: ["s"],
-  f: ["ff"],
-  ff: ["f"],
-  l: ["ll"],
-  ll: ["l"],
-  z: ["zz"],
-  zz: ["z"],
-  ai: ["ay"],
-  ay: ["ai"],
-  ee: ["ea"],
-  ea: ["ee"],
-  igh: ["ie"],
-  ie: ["igh"],
-  oi: ["oy"],
-  oy: ["oi"],
-  er: ["ir", "ur"],
-  ir: ["er", "ur"],
-  ur: ["er", "ir"]
-};
+// Graphemes that make the SAME phoneme — or LOOK identical on a tile. Never
+// offer two members of one class against one spoken cue: both would be
+// defensible, and a child marked wrong for a correct answer learns that the
+// game lies. Declared as classes (one line per phoneme family) and expanded
+// to the lookup below, so adding a spelling can't miss its symmetric pairs.
+// The trail's own same-sound teaching stops (s26 oa/ow/oe, s27 oo/ue/ew,
+// s32 or/aw/ore, s34 air/are) are exactly the families listed here.
+const SAME_SOUND_CLASSES = [
+  ["c", "k", "ck", "ch_k"],
+  ["w", "wh"],
+  ["s", "ss", "c_s"],
+  ["f", "ff"],
+  ["l", "ll"],
+  ["z", "zz"],
+  ["j", "g_j"],
+  ["e", "ea_e"],
+  ["ai", "ay", "a_e"],
+  // "y" legitimately spells /ee/ (happy) and /igh/ (fly) once s16 teaches the
+  // alternatives, so it can never stand as a distractor for either family.
+  ["ee", "ea", "e_e", "y_ee", "y"],
+  ["igh", "ie", "i_e", "y_ie", "y"],
+  ["oi", "oy"],
+  ["er", "ir", "ur"],
+  ["oa", "ow", "oe", "o_e"],
+  // oo_short says a different sound (book vs moon) but renders as the same
+  // two letters — two identical-looking tiles is the same broken question.
+  ["oo", "oo_short", "ue", "ew", "u_e"],
+  ["ou", "ow", "ow_ou"],
+  ["air", "are"],
+  ["or", "ore", "aw"]
+];
+
+const SAME_SOUND = {};
+for (const family of SAME_SOUND_CLASSES) {
+  for (const grapheme of family) {
+    SAME_SOUND[grapheme] = [...new Set([
+      ...(SAME_SOUND[grapheme] || []),
+      ...family.filter(member => member !== grapheme)
+    ])];
+  }
+}
 
 export function sharesSound(a, b) {
   const x = String(a || "").toLowerCase();

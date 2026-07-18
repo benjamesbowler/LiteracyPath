@@ -70,9 +70,8 @@ export function hushCue() {
   stopCueAudio();
 }
 
-// How a grapheme is WRITTEN on a stone. A split digraph is a_e, but a child
-// should see "a-e", and never a bare underscore.
-export function displayGrapheme(grapheme) {
-  const g = String(grapheme || "");
-  return g.includes("_") ? g.replace("_", "–") : g;
-}
+// How a grapheme is WRITTEN on a stone — the shared rule in questLabels.js:
+// split digraphs read "a–e", morphs read "–s" (not "suffix–s"), and alt
+// pronunciations keep their base letter ("y", not "y–ie"). Child shells and
+// the teacher heat map now say the same thing.
+export { graphemeLabel as displayGrapheme } from "../../../utils/questLabels.js";

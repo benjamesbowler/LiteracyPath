@@ -67,11 +67,29 @@ test("A NEVER-MASTERED SOUND KEEPS COMING BACK FOREVER", () => {
   }
 });
 
-test("a retired sound is still sampled, so nothing rots", () => {
-  const mastery = { s: rec({ seen: 30, correct: 29, box: 5, lastStop: 2, state: MASTERY_STATES.RETIRED }) };
-  assert.deepEqual(dueTargets(mastery, 11), [], "not due on an ordinary stop");
-  assert.deepEqual(dueTargets(mastery, 20), ["s"], "sampled every 10th stop");
-  assert.deepEqual(dueTargets(mastery, 30), ["s"]);
+test("a retired sound is still sampled, so nothing rots — and retired sounds TRICKLE, never mob", () => {
+  const retired = target => rec({ seen: 30, correct: 29, box: 5, lastStop: 2, state: MASTERY_STATES.RETIRED });
+  const mastery = { s: retired("s") };
+
+  // Exactly one due stop per ten — deterministic, phase set by the target id
+  // so two devices agree.
+  const dueStops = [];
+  for (let stop = 3; stop <= 42; stop += 1) {
+    if (dueTargets(mastery, stop).includes("s")) dueStops.push(stop);
+  }
+  assert.equal(dueStops.length, 4, "sampled once per ten stops across forty");
+  assert.equal(dueStops[1] - dueStops[0], 10);
+
+  // Thirty retired sounds must NOT all go due on the same stop (the old
+  // global %10 mobbed every tenth stop and crowded out struggling sounds).
+  const crowd = {};
+  for (let i = 0; i < 30; i += 1) crowd[`t${i}`] = retired(`t${i}`);
+  let maxDueAtOnce = 0;
+  for (let stop = 3; stop <= 42; stop += 1) {
+    const due = Object.keys(crowd).filter(target => dueTargets({ [target]: crowd[target] }, stop).length);
+    maxDueAtOnce = Math.max(maxDueAtOnce, due.length);
+  }
+  assert.ok(maxDueAtOnce < 30, "retired sounds spread across stops instead of mobbing one");
 });
 
 test("review is capped so a struggling child never faces a wall", () => {

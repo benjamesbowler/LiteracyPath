@@ -45,7 +45,15 @@ export function boxAfterStop(record) {
   return Math.min(3, Math.max(1, r.box || 1));
 }
 
-function isDue(record, stopIndex) {
+// Deterministic tiny hash so each retired sound gets its OWN sampling phase.
+function targetPhase(target) {
+  let hash = 0;
+  const text = String(target || "");
+  for (let i = 0; i < text.length; i += 1) hash = (hash * 31 + text.charCodeAt(i)) >>> 0;
+  return hash % 10;
+}
+
+function isDue(record, stopIndex, target = "") {
   const r = { ...emptyRecord(), ...(record || {}) };
   const box = Math.min(MAX_BOX, Math.max(1, r.box || 1));
   const lastStop = Number(r.lastStop) || 0;
@@ -53,8 +61,10 @@ function isDue(record, stopIndex) {
 
   // Box 5 (retired) is never "due" in the normal sense — it is sampled, so a
   // child still sees `s` occasionally in year two. Index-based, not random, so
-  // two devices agree and the test can assert it.
-  if (box === MAX_BOX) return stopIndex % 10 === 0;
+  // two devices agree and the test can assert it. PER-TARGET phase, so retired
+  // sounds trickle back one or two at a stop instead of all thirty mobbing
+  // every tenth stop and crowding out the sounds that actually need review.
+  if (box === MAX_BOX) return (stopIndex + targetPhase(target)) % 10 === 0;
   return gap >= BOX_INTERVALS[box];
 }
 
@@ -93,7 +103,7 @@ export function provenIn(record) {
 // The review items due at this stop, worst-first, capped.
 export function dueTargets(mastery, stopIndex, limit = MAX_REVIEW_PER_STOP) {
   return Object.entries(mastery || {})
-    .filter(([, record]) => (record?.seen || 0) > 0 && isDue(record, stopIndex))
+    .filter(([target, record]) => (record?.seen || 0) > 0 && isDue(record, stopIndex, target))
     .map(([target, record]) => ({ target, weight: reviewWeight(record, stopIndex) }))
     .sort((a, b) => b.weight - a.weight || a.target.localeCompare(b.target))
     .slice(0, limit)

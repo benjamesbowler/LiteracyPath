@@ -84,6 +84,22 @@ export const BLEND_RULES = Object.freeze({
   demoteAfterConsecutiveMisses: 2
 });
 
+// HEART WORDS GET THEIR OWN BAR for the same honest reason blends do.
+// A sight word is taught whole and practised in exactly ONE shell — the word
+// beast — so a `minShells: 2` bar is a bar no heart word can ever clear.
+// Under the general rules every met heart word sat permanently in "needs
+// re-teaching" on the teacher's screen and stole review slots from sounds
+// that actually needed them. One shell is legitimate here; two different
+// days still guards against same-sitting cramming.
+export const HEART_RULES = Object.freeze({
+  minCorrect: 3,
+  minAccuracy: 0.75,
+  accuracyWindow: 3,
+  minShells: 1,
+  minSessions: 2,
+  demoteAfterConsecutiveMisses: 2
+});
+
 export const MASTERY_STATES = Object.freeze({
   NOT_STARTED: "not-started",
   LEARNING: "learning",
@@ -111,8 +127,13 @@ export function emptyRecord() {
   };
 }
 
+// The "different days" anti-cram rule counts days in the CHILD'S life, not
+// UTC's. Slicing the ISO string meant any child west of Greenwich crossed a
+// "day" mid-evening — 23:30Z and 00:30Z, one sitting, satisfied minSessions.
 function dayOf(at) {
-  return String(at || "").slice(0, 10);
+  const date = new Date(at || "");
+  if (Number.isNaN(date.getTime())) return String(at || "").slice(0, 10);
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 }
 
 function windowAccuracy(window) {

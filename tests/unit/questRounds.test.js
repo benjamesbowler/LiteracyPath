@@ -75,16 +75,42 @@ test("two graphemes that make the SAME sound never appear together", () => {
   assert.equal(sharesSound("ai", "ay"), true);
   assert.equal(sharesSound("a", "m"), false);
 
-  for (const stop of QUEST_STOPS.slice(0, 20)) {
-    const built = buildStop(stop.id, { seed: 5 });
-    for (const round of [...built.rounds["sound-stones"], ...built.rounds.gate]) {
-      for (const choice of round.choices) {
-        if (choice === round.answer) continue;
-        assert.equal(
-          sharesSound(round.answer, choice),
-          false,
-          `${stop.id}: "${choice}" makes the same sound as the answer "${round.answer}" — both are correct`
-        );
+  // The deep-review regressions: every vowel-team, split-digraph, r-controlled
+  // and alternative-pronunciation family the trail teaches TOGETHER must be
+  // one exclusion class. Verified live draws once served ew against an oo cue
+  // and are against air — homophones marked wrong.
+  const regressionPairs = [
+    ["oo", "ew"], ["oo", "ue"], ["oo", "u_e"], ["oo", "oo_short"],
+    ["air", "are"], ["or", "ore"], ["or", "aw"],
+    ["oa", "ow"], ["oa", "oe"], ["oa", "o_e"], ["ou", "ow"], ["ou", "ow_ou"],
+    ["a_e", "ai"], ["a_e", "ay"], ["e_e", "ee"], ["i_e", "igh"], ["i_e", "ie"],
+    ["y", "ee"], ["y", "igh"], ["y_ee", "ee"], ["y_ie", "igh"],
+    ["c_s", "s"], ["c_s", "ss"], ["g_j", "j"], ["ch_k", "k"], ["ch_k", "ck"],
+    ["ea_e", "e"]
+  ];
+  for (const [a, b] of regressionPairs) {
+    assert.equal(sharesSound(a, b), true, `${a} and ${b} say the same sound — must exclude each other`);
+    assert.equal(sharesSound(b, a), true, `sharesSound must be symmetric for ${b}/${a}`);
+  }
+  // And sounds that genuinely differ still make honest distractors.
+  assert.equal(sharesSound("sh", "ch"), false);
+  assert.equal(sharesSound("oa", "oo"), false);
+  assert.equal(sharesSound("air", "er"), false);
+
+  // Sweep EVERY stop — the old 20-stop sweep is exactly why the late
+  // vowel-team stops (s26, s27, s32, s34) shipped with two-right-answer draws.
+  for (const stop of QUEST_STOPS) {
+    for (const seed of [5, 10009]) {
+      const built = buildStop(stop.id, { seed });
+      for (const round of [...built.rounds["sound-stones"], ...built.rounds.gate]) {
+        for (const choice of round.choices) {
+          if (choice === round.answer) continue;
+          assert.equal(
+            sharesSound(round.answer, choice),
+            false,
+            `${stop.id} seed ${seed}: "${choice}" makes the same sound as the answer "${round.answer}" — both are correct`
+          );
+        }
       }
     }
   }

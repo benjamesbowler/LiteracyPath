@@ -430,7 +430,13 @@ function buildEncounter(kind, ctx) {
     case "word-beast": {
       const hearts = stop.heartWords || [];
       if (!hearts.length) return null;
-      return { kind, beats: [buildWordBeastRound(hearts[0], { stopIndex, rng })] };
+      // EVERY declared heart word deserves a beat, not just the first — 44 of
+      // 60 heart words were "awarded" without ever being practised, invisible
+      // to the review scheduler and the teacher heat map, and (now that
+      // Trickies need evidence) unbankable. Capped at 2 because a stop is a
+      // WALK, NOT A QUIZ (8-response budget, enforced by the playthrough
+      // sim); a third heart word waits for the replay or free-roam review.
+      return { kind, beats: hearts.slice(0, 2).map(word => buildWordBeastRound(word, { stopIndex, rng })) };
     }
 
     case "signpost": {
@@ -442,7 +448,9 @@ function buildEncounter(kind, ctx) {
     case "story-rock": {
       const rounds = buildStoryStoneRounds(stop);
       if (!rounds.length) return null;
-      return { kind, beats: [rounds[0]] };
+      // Both authored pages, not page one of two — six second pages
+      // (s17, s36-s40) were written, tested, and unreachable.
+      return { kind, beats: rounds };
     }
 
     default:

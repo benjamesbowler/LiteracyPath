@@ -24,7 +24,7 @@
 //      section is a child who never comes back.
 
 import { normalizeCreature, defaultCreature, CREATURE_GEAR, CREATURE_DYES, CREATURE_SLOTS, ALL_PIECES } from "../data/creatureParts.js";
-import { emptyRecord, recordAttempt, MASTERY_STATES, MASTERY_RULES, BLEND_RULES } from "./questMastery.js";
+import { emptyRecord, recordAttempt, MASTERY_STATES, MASTERY_RULES, BLEND_RULES, HEART_RULES } from "./questMastery.js";
 import { boxAfterStop } from "./questReviewScheduler.js";
 import { QUEST_STOPS, getStop, blendsThrough } from "../data/questSequence.js";
 import { QUEST_CHAPTERS, chapterForStop } from "../data/questChapters.js";
@@ -285,7 +285,9 @@ export function unequipQuestGear(state, slot) {
 export function recordQuestAttempt(state, { target, correct, shell, stopIndex = 0, at = new Date().toISOString() }) {
   if (!target) return state;
   const prev = state.mastery?.[target] || emptyRecord();
-  const rules = ALL_BLENDS.has(target) ? BLEND_RULES : MASTERY_RULES;
+  const rules = String(target).startsWith("hw:")
+    ? HEART_RULES
+    : ALL_BLENDS.has(target) ? BLEND_RULES : MASTERY_RULES;
   const next = recordAttempt(prev, { correct, shell, at, stopIndex, rules });
   return { ...state, mastery: { ...state.mastery, [target]: next } };
 }
