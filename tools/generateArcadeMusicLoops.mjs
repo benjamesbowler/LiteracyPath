@@ -281,6 +281,47 @@ function arrangeSentenceGrove(buffer, bpm, bars) {
   addArp(buffer, ["E5", null, "A5", null, "G5", null, "E5", "D5", "C5", null, "E5", null, "G5", null, "A5", null], beat, bars, { gain: 0.044, type: "bell", length: 0.9, release: 0.12 });
 }
 
+function arrangeReelRead(buffer, bpm, bars) {
+  const beat = 60 / bpm;
+  const bar = beat * 4;
+  addProgression(buffer, bpm, bars, ["C3", "A2", "F2", "G2"], [
+    ["C4", "E4", "G4"], ["A3", "C4", "E4"], ["F3", "A3", "C4"], ["G3", "B3", "D4"]
+  ], { bassType: "sine", bassGain: 0.058, bassAttack: 0.05, bassRelease: 0.26, chordGain: 0.05, chordType: "triangle", chordAttack: 0.07, chordRelease: 0.22, chordLength: 0.85 });
+  addDrums(buffer, beat, bar, bars, 1000, "soft");
+  addArp(buffer, ["E5", null, "G5", "A5", null, "G5", "E5", null, "D5", "C5", null, "D5", "E5", null, "D5", null], beat, bars, { gain: 0.042, type: "flute", attack: 0.04, release: 0.18, length: 0.9, vibrato: 4.1 });
+  for (let b = 0; b < bars; b += 1) addNoise(buffer, { at: b * bar + beat * 1.5, duration: 0.32, gain: 0.011, seed: 1300 + b, tone: 0.95 });
+}
+
+function arrangeSentenceExpress(buffer, bpm, bars) {
+  const beat = 60 / bpm;
+  const bar = beat * 4;
+  addProgression(buffer, bpm, bars, ["G2", "C3", "D3", "G2"], [
+    ["G3", "B3", "D4"], ["C4", "E4", "G4"], ["D4", "F#4", "A4"], ["G3", "B3", "D4"]
+  ], { bassType: "square-soft", bassGain: 0.08, chordGain: 0.042, chordType: "pluck", chordLength: 0.42 });
+  addDrums(buffer, beat, bar, bars, 1100);
+  for (let b = 0; b < bars; b += 1) {
+    addNoise(buffer, { at: b * bar + beat * 0.5, duration: 0.05, gain: 0.018, seed: 1400 + b * 3, tone: 0.84 });
+    addNoise(buffer, { at: b * bar + beat * 2.5, duration: 0.05, gain: 0.018, seed: 1400 + b * 3 + 1, tone: 0.84 });
+  }
+  addArp(buffer, ["D5", "G5", null, "B5", "A5", null, "G5", "D5", "E5", null, "G5", "B5", "D6", null, "B5", "G5"], beat, bars, { gain: 0.05, type: "pluck" });
+  addChord(buffer, ["B5", "D6"], { at: 0, duration: beat * 1.5, gain: 0.05, type: "flute", attack: 0.06, release: 0.2, vibrato: 5 });
+  addChord(buffer, ["B5", "D6"], { at: 4 * bar, duration: beat * 1.5, gain: 0.05, type: "flute", attack: 0.06, release: 0.2, vibrato: 5 });
+}
+
+function arrangeGrammarGrind(buffer, bpm, bars) {
+  const beat = 60 / bpm;
+  const bar = beat * 4;
+  addProgression(buffer, bpm, bars, ["E2", "G2", "D3", "A2"], [
+    ["E3", "B3"], ["G3", "D4"], ["D4", "A4"], ["A3", "E4"]
+  ], { bassType: "saw-soft", bassGain: 0.09, chordGain: 0.05, chordType: "square-soft", chordLength: 0.36, chordDecay: 2.2 });
+  addDrums(buffer, beat, bar, bars, 1200);
+  for (let b = 0; b < bars; b += 1) {
+    addNoise(buffer, { at: b * bar + beat, duration: 0.09, gain: 0.042, seed: 1500 + b * 2, tone: 0.58 });
+    addNoise(buffer, { at: b * bar + beat * 3, duration: 0.09, gain: 0.042, seed: 1500 + b * 2 + 1, tone: 0.58 });
+  }
+  addArp(buffer, ["E5", "E5", null, "G5", "A5", null, "G5", "E5", "B5", null, "A5", "G5", "E5", null, "D5", null], beat, bars, { gain: 0.05, type: "square-soft", length: 0.5 });
+}
+
 function writeWav(path, samples) {
   const bytesPerSample = 2;
   const dataSize = samples.length * bytesPerSample;
@@ -345,9 +386,17 @@ const tracks = [
   { filename: "sound-beat-loop.wav", bpm: 124, bars: 8, arranger: arrangeSoundBeat },
   { filename: "rhyme-pop-loop.wav", bpm: 118, bars: 8, arranger: arrangeRhymePop },
   { filename: "sound-safari-loop.wav", bpm: 108, bars: 8, arranger: arrangeSoundSafari },
-  { filename: "star-gallery-loop.wav", bpm: 96, bars: 8, arranger: arrangeSentenceGrove }
-].map(render);
+  { filename: "star-gallery-loop.wav", bpm: 96, bars: 8, arranger: arrangeSentenceGrove },
+  { filename: "reel-read-loop.wav", bpm: 88, bars: 8, arranger: arrangeReelRead },
+  { filename: "sentence-express-loop.wav", bpm: 126, bars: 8, arranger: arrangeSentenceExpress },
+  { filename: "grammar-grind-loop.wav", bpm: 142, bars: 8, arranger: arrangeGrammarGrind }
+];
 
-for (const track of tracks) {
+const requested = process.argv.slice(2);
+const selected = requested.length
+  ? tracks.filter(track => requested.some(name => track.filename.startsWith(name)))
+  : tracks;
+
+for (const track of selected.map(render)) {
   console.log(`${track.path} ${track.duration.toFixed(2)}s peak=${track.peak.toFixed(3)} rms=${track.rms.toFixed(3)}`);
 }

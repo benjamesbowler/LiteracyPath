@@ -39,6 +39,21 @@ const TRACKS = {
     volume: 0.24,
     sources: ["/audio/music/arcade/star-gallery-loop.mp3"]
   },
+  "reel-read": {
+    title: "Reel Read",
+    volume: 0.23,
+    sources: ["/audio/music/arcade/reel-read-loop.mp3"]
+  },
+  "sentence-express": {
+    title: "Sentence Express",
+    volume: 0.25,
+    sources: ["/audio/music/arcade/sentence-express-loop.mp3"]
+  },
+  "grammar-grind": {
+    title: "Grammar Grind",
+    volume: 0.26,
+    sources: ["/audio/music/arcade/grammar-grind-loop.mp3"]
+  },
   meadow: {
     title: "Morning on the Sound Trail",
     volume: 0.21,
