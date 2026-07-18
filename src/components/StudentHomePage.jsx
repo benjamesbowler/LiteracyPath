@@ -16,6 +16,20 @@ import { readHomeSkin, setHomeSkin, subscribeHomeSkin } from "../utils/homeSkin.
 import { CoinIcon } from "./shared/CurrencyIcons.jsx";
 
 // Decorative art must never show a broken-image icon to kids; hide it instead.
+// Branded placeholder for card/tile artwork: a sage-sky rounded tile with a
+// cream star. Missing art must never collapse a card's layout (REVIEW.md,
+// Designer #10) — decorative images (logos, avatars) still just hide.
+const ART_PLACEHOLDER = "data:image/svg+xml," + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120"><rect width="160" height="120" rx="12" fill="#BFE3D8"/><path d="M80 38l7.5 15.2 16.8 2.4-12.1 11.8 2.9 16.7L80 76.2l-15.1 7.9 2.9-16.7-12.1-11.8 16.8-2.4z" fill="#FBF4EA"/></svg>'
+);
+
+function placeholderOnError(event) {
+  const img = event.currentTarget;
+  if (img.dataset.placeholdered === "true") return;
+  img.dataset.placeholdered = "true";
+  img.src = ART_PLACEHOLDER;
+}
+
 function hideOnError(event) {
   event.currentTarget.style.display = "none";
 }
@@ -128,7 +142,7 @@ function SageCard({ hero = false, art, fallbackArt, title, fillChip, lineChips =
       img.src = fallbackArt;
       return;
     }
-    hideOnError(event);
+    placeholderOnError(event);
   }
   return (
     <button
@@ -285,7 +299,7 @@ export function StudentHomePage({
                     setPickingCompanion(false);
                   }}
                 >
-                  <img src={item.image} alt="" loading="lazy" onError={hideOnError} />
+                  <img src={item.image} alt="" loading="lazy" onError={placeholderOnError} />
                   <span>{item.name}</span>
                   {item.series && <em className="companion-series">{item.series}</em>}
                 </button>
@@ -356,8 +370,8 @@ export function StudentHomePage({
           <span className="hs-side-spacer" />
 
           <div className="hs-daily">
-            <h3>Daily challenge</h3>
-            <p>A quest, a book and a game</p>
+            <h3>Today&rsquo;s adventure</h3>
+            <p>Quest, story, then game — go!</p>
             <div className="hs-daily-dots" aria-label={`${status.doneCount} of 3 complete`}>
               {MISSION_TILES.map(tile => (
                 <span key={tile.kind} className={status.done[tile.kind] ? "is-done" : ""} />
@@ -575,7 +589,7 @@ export function StudentHomePage({
       </header>
 
       <section className="student-home-board" aria-label="Student learning areas">
-        <section className="student-mission student-mission-banner" aria-label="Daily challenge">
+        <section className="student-mission student-mission-banner" aria-label="Today's adventure">
           <div className="student-mission-head">
             <span
               className="pal-sprite"
@@ -583,9 +597,9 @@ export function StudentHomePage({
               style={{ "--pal-sprite-sheet": `url(/images/pals/sprites/${worldForScope(progressScopeKey).id}-idle-4.webp)` }}
             />
             <div>
-              <span className="student-board-kicker">Daily challenge</span>
-              <h1>Three quick tasks</h1>
-              <p>{status.missionComplete ? "All done. Choose another area to keep going." : "A quest, a book, and an arcade round."}</p>
+              <span className="student-board-kicker">Today&rsquo;s adventure</span>
+              <h1>Three brave deeds</h1>
+              <p>{status.missionComplete ? "Adventure complete! Play anywhere you like." : "Do the quest, read the story, win the game!"}</p>
             </div>
             <div className="student-mission-tracker" aria-label={`${status.doneCount} of 3 complete`}>
               {MISSION_TILES.map(tile => (
@@ -609,7 +623,7 @@ export function StudentHomePage({
                   onClick={missionTargets[tile.kind]}
                 >
                   <span className="student-mission-art" aria-hidden="true">
-                    <img src={tile.art} alt="" loading="eager" decoding="async" onError={hideOnError} />
+                    <img src={tile.art} alt="" loading="eager" decoding="async" onError={placeholderOnError} />
                     {done && <span className="student-mission-done-badge"><CheckIcon /></span>}
                   </span>
                   <span className="student-mission-copy">

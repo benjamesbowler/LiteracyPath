@@ -2736,7 +2736,7 @@ export function AssessmentPage({
       initial={{ scale: 0.96, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
     >
-      <h2>{feedback.isCorrect ? "Correct!" : feedback.support?.type === "pair_selection" ? "Sorry, incorrect." : "Let's learn from that one"}</h2>
+      <h2>{feedback.isCorrect ? "Correct!" : feedback.support?.type === "pair_selection" ? "Let's look closer!" : "Let's learn from that one"}</h2>
 
       {feedback.support?.type !== "pair_selection" && (
         <>

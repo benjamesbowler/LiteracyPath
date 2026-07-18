@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars, react-hooks/set-state-in-effect -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
+import { readErrorLog, clearErrorLog } from "../utils/errorLog.js";
 import { MapStopEditor } from "./admin/MapStopEditor.jsx";
 import { HollowSpotEditor } from "./admin/HollowSpotEditor.jsx";
 import {
@@ -3664,6 +3665,44 @@ export function AdminDashboardPage({
 
       {!isTeacherMode && activeSection === "mapStops" && <MapStopEditor />}
       {!isTeacherMode && activeSection === "hollowSpots" && <HollowSpotEditor />}
+      <CrashLogPanel />
     </main>
+  );
+}
+
+// The flight recorder, surfaced: render errors caught by any ErrorBoundary on
+// THIS device (localStorage ring buffer — see ErrorBoundary.jsx). No external
+// crash service exists yet, so this panel is how a grown-up finds out what a
+// child's "Oops" screen was hiding.
+function CrashLogPanel() {
+  const [rows, setRows] = useState(() => readErrorLog());
+  if (!rows.length) return null;
+  return (
+    <section className="card page-stack crash-log-panel">
+      <details>
+        <summary>
+          Recent app errors on this device ({rows.length})
+        </summary>
+        <p className="muted-text">
+          Caught by the in-app safety net. Children saw a friendly &ldquo;try again&rdquo; screen;
+          the details land here for you.
+        </p>
+        <ul className="crash-log-list">
+          {rows.map((row, index) => (
+            <li key={`${row.at}-${index}`}>
+              <strong>{row.label}</strong> · {new Date(row.at).toLocaleString()}
+              <div className="crash-log-message">{row.message}</div>
+            </li>
+          ))}
+        </ul>
+        <button
+          className="report-button"
+          type="button"
+          onClick={() => { clearErrorLog(); setRows([]); }}
+        >
+          Clear log
+        </button>
+      </details>
+    </section>
   );
 }

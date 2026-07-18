@@ -81,6 +81,85 @@ export function questHeatTiles(state = {}) {
   });
 }
 
+// THE CLASS HEAT MAP (REVIEW.md, Educator #7). Each child already carries a
+// full curriculum-ordered heat array; stacking them gives the teacher the
+// class truth per sound: how many have proven it, how many are close, how
+// many need re-teaching — and, the actionable part, WHICH children to sit
+// together. Grouping hints are the top sounds with >= 2 strugglers, so the
+// teacher gets "these four need sh" rather than a wall of tiles.
+export function classHeatSummary(students = []) {
+  const byId = new Map();
+  let studentsWithEvidence = 0;
+
+  // A child's furthest evidenced stop — group practice sheets print at the
+  // LOWEST member's stop so every word is decodable for the whole group.
+  function furthestStop(heat) {
+    let furthest = 0;
+    for (const tile of heat) {
+      if (tile.bucket !== "unseen" && (Number(tile.stopIndex) || 0) > furthest) furthest = Number(tile.stopIndex);
+    }
+    return furthest;
+  }
+
+  for (const student of students) {
+    const heat = student?.report?.heat;
+    if (!Array.isArray(heat) || !heat.length) continue;
+    const stop = furthestStop(heat);
+    if (stop > 0) studentsWithEvidence += 1;
+    for (const tile of heat) {
+      let row = byId.get(tile.id);
+      if (!row) {
+        row = {
+          id: tile.id,
+          label: tile.label,
+          kind: tile.kind,
+          stopIndex: tile.stopIndex,
+          stopName: tile.stopName,
+          gotIt: 0,
+          almost: 0,
+          reteach: 0,
+          unseen: 0,
+          strugglers: [],
+          strugglerStops: []
+        };
+        byId.set(tile.id, row);
+      }
+      if (tile.bucket === "got-it") row.gotIt += 1;
+      else if (tile.bucket === "almost") row.almost += 1;
+      else if (tile.bucket === "reteach") {
+        row.reteach += 1;
+        row.strugglers.push(String(student.name || "Student"));
+        row.strugglerStops.push(stop);
+      } else row.unseen += 1;
+    }
+  }
+
+  // Maps preserve insertion order and every heat array shares the same full
+  // curriculum ordering, so a stable sort by stopIndex keeps trail order.
+  const tiles = [...byId.values()].sort((a, b) => a.stopIndex - b.stopIndex);
+  for (const tile of tiles) {
+    tile.met = tile.gotIt + tile.almost + tile.reteach;
+    tile.reteachShare = tile.met ? tile.reteach / tile.met : 0;
+  }
+
+  const groups = tiles
+    .filter(tile => tile.reteach >= 2)
+    .sort((a, b) => b.reteach - a.reteach || a.stopIndex - b.stopIndex)
+    .slice(0, 3)
+    .map(tile => {
+      const memberStops = tile.strugglerStops.filter(stop => stop > 0);
+      return {
+        id: tile.id,
+        label: tile.label,
+        students: tile.strugglers.slice(0, 8),
+        count: tile.reteach,
+        stopIndex: memberStops.length ? Math.min(...memberStops) : tile.stopIndex
+      };
+    });
+
+  return { tiles, groups, studentsWithEvidence };
+}
+
 export function questEvidenceGuidance({
   attempts = 0,
   sessions = 0,

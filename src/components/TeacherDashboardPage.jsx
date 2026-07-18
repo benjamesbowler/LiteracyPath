@@ -3,6 +3,8 @@ import { SymbolPasswordPad, SymbolSequence } from "./SymbolPasswordPad.jsx";
 import { SchoolNameInput } from "./SchoolNameInput.jsx";
 import { symbolIconByDigit } from "../data/symbolPasswordIcons.js";
 import { printPracticePack, packStopIndex, packTargetLabel } from "../utils/worksheets/practicePack.js";
+import { classHeatSummary } from "../utils/questReport.js";
+import { QUESTION_TYPE_GUIDE } from "../data/questionTypeGuide.js";
 import logoUrl from "../assets/logo.svg";
 
 function formatLastActive(value) {
@@ -159,6 +161,98 @@ function QuestHeatPanel({ report, studentName, onAssign, onClear }) {
         </button>
       </div>
       {packNote && <p className="muted-text quest-heat-note" role="status">{packNote}</p>}
+    </div>
+  );
+}
+
+// THE CLASS SOUND MAP (REVIEW.md, Educator #7). One row of tiles for the
+// whole class — coloured by how many children still need each sound — plus
+// concrete grouping hints: "sh — Sam, Maya, Leo need re-teaching" with a
+// one-click group practice sheet printed at the LOWEST member's curriculum
+// stop, so every word on it is decodable for every child in the group.
+function ClassHeatPanel({ rows }) {
+  const [open, setOpen] = useState(false);
+  const [note, setNote] = useState("");
+  const summary = useMemo(
+    () => classHeatSummary(rows
+      .filter(row => row.soundSeekers)
+      .map(row => ({ name: row.name, report: row.soundSeekers }))),
+    [rows]
+  );
+
+  // One child is a heat map (their own panel below); a class view needs two.
+  if (summary.studentsWithEvidence < 2) return null;
+
+  function severityClass(tile) {
+    if (!tile.met) return "is-unseen";
+    if (tile.reteachShare >= 0.5) return "is-reteach";
+    if (tile.reteachShare >= 0.25 || tile.almost > tile.gotIt) return "is-almost";
+    return "is-got-it";
+  }
+
+  function printGroupPack(group) {
+    try {
+      const result = printPracticePack({
+        name: `The ${group.label} group`,
+        targets: [group.id],
+        stopIndex: group.stopIndex
+      });
+      setNote(result ? "" : "Please allow pop-ups for this site so the pack can open.");
+    } catch (error) {
+      setNote(error.message || "Could not build that group pack.");
+    }
+  }
+
+  const groupSummary = summary.groups.length
+    ? `${summary.groups.length} sound${summary.groups.length === 1 ? "" : "s"} could use a small group`
+    : "no sound needs a group right now";
+
+  return (
+    <div className="quest-heat-panel class-heat-panel">
+      <div className="quest-heat-head">
+        <strong>Class sound map</strong>
+        <span className="muted-text">
+          {summary.studentsWithEvidence} students with evidence · {groupSummary}
+        </span>
+        <button className="text-button" type="button" aria-expanded={open} onClick={() => setOpen(value => !value)}>
+          {open ? "Hide" : "Show"}
+        </button>
+      </div>
+      {open && (
+        <>
+          <div
+            className="quest-heat-grid"
+            role="img"
+            aria-label={`Class sound map. ${summary.groups.length
+              ? summary.groups.map(group => `${group.label}: ${group.count} students need re-teaching`).join(". ")
+              : "No sound currently needs a re-teaching group."}`}
+          >
+            {summary.tiles.map(tile => (
+              <span
+                key={tile.id}
+                aria-hidden="true"
+                className={`quest-heat-tile ${severityClass(tile)}`}
+                title={`${tile.label} · ${tile.stopName} · ${tile.gotIt} got it · ${tile.almost} almost · ${tile.reteach} need re-teaching · ${tile.unseen} not met yet`}
+              >
+                {tile.label}
+              </span>
+            ))}
+          </div>
+          {summary.groups.length > 0 && (
+            <ul className="class-heat-groups">
+              {summary.groups.map(group => (
+                <li key={group.id}>
+                  <strong>{group.label}</strong> — {group.students.join(", ")}
+                  <button className="text-button" type="button" onClick={() => printGroupPack(group)}>
+                    Print group pack
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+          {note && <p className="muted-text quest-heat-note" role="status">{note}</p>}
+        </>
+      )}
     </div>
   );
 }
@@ -540,6 +634,10 @@ export function TeacherDashboardPage({
           </div>
         )}
 
+        {selectedClass && !loadingStudents && studentRows.length > 0 && (
+          <ClassHeatPanel rows={studentRows} />
+        )}
+
         {!selectedClass ? (
           <div className="report-empty-state teacher-onboard-empty">
             <div className="teacher-onboard-steps" aria-hidden="true">
@@ -679,6 +777,39 @@ export function TeacherDashboardPage({
           </div>
         )}
       </section>
+
+      <section className="card page-stack question-type-guide" aria-label="Question type guide">
+        <details>
+          <summary>What each check actually tests</summary>
+          <p className="muted-text">
+            Every question format, in plain teacher language: what the child does, the literacy skill a
+            correct answer proves, and what a miss usually means.
+          </p>
+          <div className="table-scroll">
+            <table className="dashboard-table question-guide-table">
+              <thead>
+                <tr>
+                  <th>Check</th>
+                  <th>The child&hellip;</th>
+                  <th>Skill it proves</th>
+                  <th>If they miss it</th>
+                </tr>
+              </thead>
+              <tbody>
+                {QUESTION_TYPE_GUIDE.map(row => (
+                  <tr key={row.id}>
+                    <td><strong>{row.name}</strong></td>
+                    <td>{row.what}</td>
+                    <td>{row.skill}</td>
+                    <td>{row.onMiss}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </section>
+
       {editingStudent && (
         <div className="symbol-password-modal" role="dialog" aria-modal="true" aria-label={`Change password for ${editingStudent.name}`}>
           <div className="symbol-password-modal-card">

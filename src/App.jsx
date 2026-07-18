@@ -5,7 +5,7 @@ import Confetti from "react-confetti";
 import { motion, useReducedMotion } from "framer-motion";
 import "./App.css";
 import logoUrl from "./assets/logo.svg";
-import { supabase } from "./supabaseClient";
+import { supabase, isSupabaseConfigured } from "./supabaseClient";
 import { getMasteryRule } from "./masterySystem";
 import { skillTree } from "./skillTree";
 import {
@@ -262,12 +262,32 @@ const PhonicsLearnPage = lazyWithRetry(() =>
   }))
 );
 
+// A load screen a child can enjoy: three letter tiles hop while a reading tip
+// shows (rotates every 20s so repeat loads feel fresh). Reduced-motion users
+// get static tiles; screen readers get the label via role=status as before.
+const LOADING_TIPS = [
+  "Sound it out, then say it smoothly.",
+  "Tricky words are just words you have not met yet.",
+  "Five minutes of reading a day grows a mighty brain.",
+  "Reading out loud to a pet still counts as reading out loud."
+];
+
+// Picked once at module load (render must stay pure): each app session shows
+// a different tip, which is rotation enough for a loading screen.
+const LOADING_TIP_INDEX = Math.floor(Date.now() / 20000) % LOADING_TIPS.length;
+
 function LazyPageFallback({ label = "Loading..." }) {
+  const tip = LOADING_TIPS[LOADING_TIP_INDEX];
   return (
     <div className="lazy-page-fallback" role="status" aria-live="polite">
       <div className="lazy-page-fallback-card">
-        <div className="lazy-page-fallback-spinner" aria-hidden="true" />
+        <div className="lazy-letter-row" aria-hidden="true">
+          <span className="lazy-letter">a</span>
+          <span className="lazy-letter">b</span>
+          <span className="lazy-letter">c</span>
+        </div>
         <strong>{label}</strong>
+        <p className="lazy-page-tip">{tip}</p>
       </div>
     </div>
   );
@@ -8064,6 +8084,13 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       )}
       <div className="lg-content-area">
       <div className={appShellClassName}>
+      {!isSupabaseConfigured && !isStudentMode && (
+        <div className="supabase-config-banner" role="alert">
+          <strong>Nothing is being saved.</strong> This build has no Supabase configuration —
+          logins and progress will silently do nothing. Set <code>VITE_SUPABASE_URL</code> and{" "}
+          <code>VITE_SUPABASE_ANON_KEY</code> in the deploy environment.
+        </div>
+      )}
       {showConfetti && !prefersReducedMotion && <Confetti recycle={false} numberOfPieces={90} />}
 
       {isStudentMode && appView !== APP_VIEWS.STUDENT_HOME && (

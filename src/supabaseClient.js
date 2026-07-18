@@ -5,6 +5,23 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
 
+// FAIL FAST, FAIL LOUD (REVIEW.md, Engineer #4). The old mock resolved every
+// call quietly, so a deploy with missing env vars LOOKED alive while saving
+// nothing — the worst possible failure for an app holding children's
+// progress. Reads still resolve empty (previews and screenshots depend on
+// that), but every WRITE now screams in the console with a stack trace and
+// raises an app-visible event so the shell can show a banner.
+function shoutUnconfiguredWrite(operation) {
+  console.error(
+    `[LiteracyPath] BLOCKED ${operation}: Supabase is NOT configured, nothing is being saved. `
+    + "Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in the deploy environment.",
+    new Error("unconfigured supabase write").stack
+  );
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent("lp-supabase-unconfigured", { detail: { operation } }));
+  }
+}
+
 function createMissingSupabaseClient() {
   const missingConfigError = {
     message: "Supabase is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to the frontend environment."
@@ -14,13 +31,13 @@ function createMissingSupabaseClient() {
     return Promise.resolve({ data, error: missingConfigError });
   }
 
-  function queryBuilder() {
+  function queryBuilder(table) {
     const builder = {
       select: () => builder,
-      insert: () => builder,
-      upsert: () => builder,
-      update: () => builder,
-      delete: () => builder,
+      insert: () => { shoutUnconfiguredWrite(`insert into "${table}"`); return builder; },
+      upsert: () => { shoutUnconfiguredWrite(`upsert into "${table}"`); return builder; },
+      update: () => { shoutUnconfiguredWrite(`update of "${table}"`); return builder; },
+      delete: () => { shoutUnconfiguredWrite(`delete from "${table}"`); return builder; },
       order: () => builder,
       eq: () => builder,
       neq: () => builder,
@@ -49,18 +66,22 @@ function createMissingSupabaseClient() {
           }
         }
       }),
-      signUp: () => response(),
-      signInWithPassword: () => response(),
-      resetPasswordForEmail: () => response(),
-      updateUser: () => response(),
+      signUp: () => { shoutUnconfiguredWrite("auth.signUp"); return response(); },
+      signInWithPassword: () => { shoutUnconfiguredWrite("auth.signInWithPassword"); return response(); },
+      resetPasswordForEmail: () => { shoutUnconfiguredWrite("auth.resetPasswordForEmail"); return response(); },
+      updateUser: () => { shoutUnconfiguredWrite("auth.updateUser"); return response(); },
       signOut: () => response()
     },
-    from: () => queryBuilder()
+    from: table => queryBuilder(table)
   };
 }
 
 if (!isSupabaseConfigured) {
-  console.error("Supabase frontend environment is missing. The app will show the login screen, but Supabase actions will be unavailable.");
+  console.error(
+    "[LiteracyPath] Supabase frontend environment is MISSING. The app will render, "
+    + "but logins fail and NO progress is saved. Set VITE_SUPABASE_URL and "
+    + "VITE_SUPABASE_ANON_KEY before trusting anything this build appears to do."
+  );
 }
 
 export const supabase = isSupabaseConfigured
