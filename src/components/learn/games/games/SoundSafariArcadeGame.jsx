@@ -9,6 +9,22 @@ import {
 } from "../../../../utils/audio/gameSfx.js";
 import { speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { soundSafariLadder, soundSafariStars } from "../../../../utils/soundSafariRounds.js";
+import {
+  TWO_PI,
+  clamp,
+  easeOut,
+  titleWord,
+  text,
+  roundedRect,
+  imageReady,
+  createGameCanvas,
+  sizeCanvasToMount,
+  prefersReducedMotion,
+  canvasPoint,
+  createSoundGate,
+  createScoreReporter,
+  createFrameLoop
+} from "../shared/canvasUtils.js";
 
 const CONFIG = {
   "sound-safari": {
@@ -36,7 +52,6 @@ const CONFIG = {
   }
 };
 
-const TWO_PI = Math.PI * 2;
 const SAFARI_LAYOUTS = {
   4: [
     { x: 0.2, y: 0.36 },
@@ -89,33 +104,6 @@ const CREATURE_COLORS = [
   ["#f7f0d0", "#63572e"]
 ];
 
-function clamp(value, min, max) {
-  return Math.max(min, Math.min(max, value));
-}
-
-function easeOut(value) {
-  return 1 - Math.pow(1 - clamp(value, 0, 1), 3);
-}
-
-function titleWord(value) {
-  const word = String(value || "");
-  return word ? `${word.slice(0, 1).toUpperCase()}${word.slice(1)}` : "";
-}
-
-function text(ctx, value, x, y, size, color = "#fff", align = "left", weight = 800) {
-  ctx.save();
-  ctx.font = `${weight} ${size}px "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif`;
-  ctx.textAlign = align;
-  ctx.textBaseline = "middle";
-  ctx.lineJoin = "round";
-  ctx.lineWidth = Math.max(3, size * 0.13);
-  ctx.strokeStyle = "rgba(0,0,0,.76)";
-  ctx.strokeText(String(value), x, y);
-  ctx.fillStyle = color;
-  ctx.fillText(String(value), x, y);
-  ctx.restore();
-}
-
 function plateText(ctx, value, x, y, maxWidth, maxSize, minSize = 24) {
   const label = String(value);
   let size = maxSize;
@@ -134,21 +122,6 @@ function plateText(ctx, value, x, y, maxWidth, maxSize, minSize = 24) {
   ctx.fillStyle = "#07101d";
   ctx.fillText(label, x, y);
   ctx.restore();
-}
-
-function roundedRect(ctx, x, y, w, h, r) {
-  const radius = Math.min(r, w / 2, h / 2);
-  ctx.beginPath();
-  ctx.moveTo(x + radius, y);
-  ctx.lineTo(x + w - radius, y);
-  ctx.quadraticCurveTo(x + w, y, x + w, y + radius);
-  ctx.lineTo(x + w, y + h - radius);
-  ctx.quadraticCurveTo(x + w, y + h, x + w - radius, y + h);
-  ctx.lineTo(x + radius, y + h);
-  ctx.quadraticCurveTo(x, y + h, x, y + h - radius);
-  ctx.lineTo(x, y + radius);
-  ctx.quadraticCurveTo(x, y, x + radius, y);
-  ctx.closePath();
 }
 
 function psxPanel(ctx, x, y, w, h, color = "rgba(5,10,22,.72)", stroke = "rgba(255,255,255,.3)", cut = 16) {
@@ -220,10 +193,6 @@ function loadImage(src) {
   const image = new Image();
   image.src = src;
   return image;
-}
-
-function imageReady(image) {
-  return Boolean(image?.complete && image.naturalWidth);
 }
 
 function drawPalSprite(ctx, image, frameIndex, centerX, footY, maxW, maxH) {
@@ -1138,20 +1107,9 @@ function startSoundSafariArcadeGame(mount, options) {
     pals: Object.fromEntries(Object.entries(config.palSpritesByWorld).map(([world, src]) => [world, loadImage(src)]))
   };
 
-  const canvas = document.createElement("canvas");
-  canvas.style.cssText = "display:block;width:100%;height:100%;touch-action:none;background:#06101d";
-  mount.appendChild(canvas);
-  const ctx = canvas.getContext("2d");
-  const reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  const sfx = fn => {
-    if (options.getSound ? options.getSound() : options.isSoundEnabled) {
-      try { fn(); } catch { /* optional sound */ }
-    }
-  };
-
-  function soundAllowed() {
-    return options.getSound ? options.getSound() : options.isSoundEnabled;
-  }
+  const { canvas, ctx } = createGameCanvas(mount);
+  const reduceMotion = prefersReducedMotion();
+  const { soundAllowed, sfx } = createSoundGate(options);
 
   const state = {
     stage: clamp(Number(options.startLevel) || 0, 0, 9),
@@ -1186,8 +1144,6 @@ function startSoundSafariArcadeGame(mount, options) {
     net: { x: 0, y: 0, targetX: 0, targetY: 0, angle: 0, swingDir: 1, swingT: 0 }
   };
 
-  let raf = 0;
-  let last = performance.now() / 1000;
   let w = 1;
   let h = 1;
   let dpr = 1;
@@ -1199,13 +1155,10 @@ function startSoundSafariArcadeGame(mount, options) {
   function resize() {
     const prevW = w;
     const prevH = h;
-    const rect = mount.getBoundingClientRect();
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    w = Math.max(320, rect.width || mount.clientWidth || 640);
-    h = Math.max(280, rect.height || mount.clientHeight || 420);
-    canvas.width = Math.floor(w * dpr);
-    canvas.height = Math.floor(h * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const size = sizeCanvasToMount(mount, canvas, ctx);
+    w = size.width;
+    h = size.height;
+    dpr = size.dpr;
     const hasNetPosition = state.net.x > 0 && state.net.y > 0;
     state.net.x = clamp(hasNetPosition ? state.net.x : w * 0.86, w * 0.12, w * 0.92);
     state.net.y = clamp(hasNetPosition ? state.net.y : h * 0.76, h * 0.2, h * 0.79);
@@ -1214,10 +1167,7 @@ function startSoundSafariArcadeGame(mount, options) {
     repositionCritters(prevW, prevH);
   }
 
-  function setScore(next) {
-    state.score = Math.max(0, Math.round(next));
-    options.onScoreUpdate?.(state.score);
-  }
+  const setScore = createScoreReporter(state, options);
 
   function levelUnits() {
     return state.tasks.reduce((sum, task) => sum + taskUnits(task), 0) || 1;
@@ -1456,11 +1406,7 @@ function startSoundSafariArcadeGame(mount, options) {
   }
 
   function pointerPosition(event) {
-    const rect = canvas.getBoundingClientRect();
-    return {
-      x: (event.clientX - rect.left) * (w / rect.width),
-      y: (event.clientY - rect.top) * (h / rect.height)
-    };
+    return canvasPoint(canvas, event, w, h);
   }
 
   function onPointerMove(event) {
@@ -1560,14 +1506,12 @@ function startSoundSafariArcadeGame(mount, options) {
     }
   }
 
-  function tick() {
-    const now = performance.now() / 1000;
-    const dt = Math.min(0.05, now - last);
-    last = now;
+  function tickFrame(now, dt) {
     if (!state.paused && !state.ended) update(dt);
     draw();
-    raf = window.requestAnimationFrame(tick);
   }
+
+  const loop = createFrameLoop(tickFrame);
 
   function draw() {
     ctx.save();
@@ -1589,7 +1533,7 @@ function startSoundSafariArcadeGame(mount, options) {
   resizeObserver.observe(mount);
   resize();
   startLevel();
-  tick();
+  loop.start();
 
   const api = {
     pause() {
@@ -1597,11 +1541,11 @@ function startSoundSafariArcadeGame(mount, options) {
     },
     resume() {
       state.paused = false;
-      last = performance.now() / 1000;
+      loop.reset();
     },
     destroy() {
       state.ended = true;
-      window.cancelAnimationFrame(raf);
+      loop.cancel();
       resizeObserver.disconnect();
       canvas.removeEventListener("pointermove", onPointerMove);
       canvas.removeEventListener("pointerdown", onPointerDown);

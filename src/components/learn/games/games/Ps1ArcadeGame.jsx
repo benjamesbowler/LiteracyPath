@@ -9,6 +9,25 @@ import {
 } from "../../../../utils/audio/gameSfx.js";
 import { speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { soundBeatLadder, soundBeatStars } from "../../../../utils/soundBeatTracks.js";
+import {
+  TWO_PI,
+  clamp,
+  easeOut,
+  text,
+  roundedRect,
+  cutRect,
+  panel,
+  drawCover,
+  drawFallback,
+  drawScreenGrade,
+  createGameCanvas,
+  sizeCanvasToMount,
+  prefersReducedMotion,
+  canvasPoint,
+  createSoundGate,
+  createScoreReporter,
+  createFrameLoop
+} from "../shared/canvasUtils.js";
 
 const CONFIG = {
   "sound-beat": {
@@ -22,132 +41,12 @@ const CONFIG = {
   }
 };
 
-const TWO_PI = Math.PI * 2;
 const BEAT_LANES = [
   { color: "#52fff0", dark: "#073738" },
   { color: "#ffd23d", dark: "#433206" },
   { color: "#ff4f5f", dark: "#4a0810" },
   { color: "#d85cff", dark: "#3d0a4c" }
 ];
-
-function clamp(value, min, max) {
-  return Math.max(min, Math.min(max, value));
-}
-
-function easeOut(value) {
-  return 1 - Math.pow(1 - clamp(value, 0, 1), 3);
-}
-
-function text(ctx, value, x, y, size, color = "#fff", align = "left", weight = 800) {
-  ctx.save();
-  ctx.font = `${weight} ${size}px "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif`;
-  ctx.textAlign = align;
-  ctx.textBaseline = "middle";
-  ctx.lineJoin = "round";
-  ctx.lineWidth = Math.max(3, size * 0.13);
-  ctx.strokeStyle = "rgba(0,0,0,.72)";
-  ctx.strokeText(String(value), x, y);
-  ctx.fillStyle = color;
-  ctx.fillText(String(value), x, y);
-  ctx.restore();
-}
-
-function roundedRect(ctx, x, y, w, h, r) {
-  const radius = Math.min(r, w / 2, h / 2);
-  ctx.beginPath();
-  ctx.moveTo(x + radius, y);
-  ctx.lineTo(x + w - radius, y);
-  ctx.quadraticCurveTo(x + w, y, x + w, y + radius);
-  ctx.lineTo(x + w, y + h - radius);
-  ctx.quadraticCurveTo(x + w, y + h, x + w - radius, y + h);
-  ctx.lineTo(x + radius, y + h);
-  ctx.quadraticCurveTo(x, y + h, x, y + h - radius);
-  ctx.lineTo(x, y + radius);
-  ctx.quadraticCurveTo(x, y, x + radius, y);
-  ctx.closePath();
-}
-
-function cutRect(ctx, x, y, w, h, cut = 12) {
-  const c = Math.min(cut, w / 3, h / 3);
-  ctx.beginPath();
-  ctx.moveTo(x + c, y);
-  ctx.lineTo(x + w - c, y);
-  ctx.lineTo(x + w, y + c);
-  ctx.lineTo(x + w, y + h - c);
-  ctx.lineTo(x + w - c, y + h);
-  ctx.lineTo(x + c, y + h);
-  ctx.lineTo(x, y + h - c);
-  ctx.lineTo(x, y + c);
-  ctx.closePath();
-}
-
-function drawCover(ctx, image, w, h) {
-  if (!image.complete || !image.naturalWidth) return false;
-  const scale = Math.max(w / image.naturalWidth, h / image.naturalHeight);
-  const dw = image.naturalWidth * scale;
-  const dh = image.naturalHeight * scale;
-  ctx.drawImage(image, (w - dw) / 2, (h - dh) / 2, dw, dh);
-  return true;
-}
-
-function drawFallback(ctx, w, h, config, time) {
-  const g = ctx.createLinearGradient(0, 0, w, h);
-  g.addColorStop(0, "#101a36");
-  g.addColorStop(0.45, "#24425a");
-  g.addColorStop(1, "#08101d");
-  ctx.fillStyle = g;
-  ctx.fillRect(0, 0, w, h);
-  for (let i = 0; i < 42; i += 1) {
-    const x = ((i * 137 + time * 18) % (w + 180)) - 90;
-    const y = 40 + ((i * 71) % Math.max(120, h - 120));
-    ctx.fillStyle = i % 2 ? "rgba(255,255,255,.08)" : `${config.accent}33`;
-    ctx.beginPath();
-    ctx.arc(x, y, 2 + (i % 5), 0, TWO_PI);
-    ctx.fill();
-  }
-}
-
-function drawScreenGrade(ctx, w, h) {
-  const vignette = ctx.createRadialGradient(w * 0.5, h * 0.45, h * 0.12, w * 0.5, h * 0.48, h * 0.85);
-  vignette.addColorStop(0, "rgba(255,255,255,0)");
-  vignette.addColorStop(0.62, "rgba(2,6,18,.12)");
-  vignette.addColorStop(1, "rgba(0,0,0,.58)");
-  ctx.fillStyle = vignette;
-  ctx.fillRect(0, 0, w, h);
-
-  ctx.fillStyle = "rgba(0,0,0,.12)";
-  for (let y = 0; y < h; y += 4) ctx.fillRect(0, y, w, 1);
-
-  ctx.globalAlpha = 0.18;
-  ctx.fillStyle = "#fff";
-  for (let i = 0; i < 260; i += 1) {
-    const x = (i * 83) % w;
-    const y = (i * 47) % h;
-    ctx.fillRect(x, y, 1, 1);
-  }
-  ctx.globalAlpha = 1;
-}
-
-function panel(ctx, x, y, w, h, color = "rgba(5,10,22,.72)", stroke = "rgba(255,255,255,.28)") {
-  ctx.save();
-  cutRect(ctx, x, y, w, h, Math.min(18, h * 0.32));
-  ctx.fillStyle = color;
-  ctx.fill();
-  ctx.globalAlpha = 0.42;
-  const gloss = ctx.createLinearGradient(0, y, 0, y + h);
-  gloss.addColorStop(0, "rgba(255,255,255,.28)");
-  gloss.addColorStop(0.16, "rgba(255,255,255,.08)");
-  gloss.addColorStop(1, "rgba(255,255,255,0)");
-  ctx.fillStyle = gloss;
-  cutRect(ctx, x + 2, y + 2, w - 4, Math.max(6, h * 0.34), Math.min(14, h * 0.24));
-  ctx.fill();
-  ctx.globalAlpha = 1;
-  ctx.lineWidth = 2;
-  ctx.strokeStyle = stroke;
-  cutRect(ctx, x, y, w, h, Math.min(18, h * 0.32));
-  ctx.stroke();
-  ctx.restore();
-}
 
 function drawBeatBackdrop(ctx, state, config, w, h) {
   const pulse = state.beatPulse || 0;
@@ -721,19 +620,9 @@ function startPs1ArcadeGame(mount, options) {
   const image = new Image();
   image.src = config.bg;
 
-  const canvas = document.createElement("canvas");
-  canvas.style.cssText = "display:block;width:100%;height:100%;touch-action:none;background:#06101d";
-  mount.appendChild(canvas);
-  const ctx = canvas.getContext("2d");
-  const reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  const sfx = fn => {
-    if (options.getSound ? options.getSound() : options.isSoundEnabled) {
-      try { fn(); } catch { /* sound is optional */ }
-    }
-  };
-  function soundAllowed() {
-    return options.getSound ? options.getSound() : options.isSoundEnabled;
-  }
+  const { canvas, ctx } = createGameCanvas(mount);
+  const reduceMotion = prefersReducedMotion();
+  const { soundAllowed, sfx } = createSoundGate(options);
 
   let music = null;
   let musicBpm = 0;
@@ -800,26 +689,18 @@ function startPs1ArcadeGame(mount, options) {
     pointer: { x: 0, y: 0 }
   };
 
-  let raf = 0;
-  let last = performance.now() / 1000;
   let w = 1;
   let h = 1;
   let dpr = 1;
 
   function resize() {
-    const rect = mount.getBoundingClientRect();
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    w = Math.max(320, rect.width || mount.clientWidth || 640);
-    h = Math.max(280, rect.height || mount.clientHeight || 420);
-    canvas.width = Math.floor(w * dpr);
-    canvas.height = Math.floor(h * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const size = sizeCanvasToMount(mount, canvas, ctx);
+    w = size.width;
+    h = size.height;
+    dpr = size.dpr;
   }
 
-  function setScore(next) {
-    state.score = Math.max(0, Math.round(next));
-    options.onScoreUpdate?.(state.score);
-  }
+  const setScore = createScoreReporter(state, options);
 
   function updateProgress() {
     const clearedInLevel = state.tasks.slice(0, state.taskIndex).reduce((sum, task) => sum + taskUnits(options.kind, task), 0);
@@ -1001,11 +882,7 @@ function startPs1ArcadeGame(mount, options) {
   }
 
   function pointerPosition(event) {
-    const rect = canvas.getBoundingClientRect();
-    return {
-      x: (event.clientX - rect.left) * (w / rect.width),
-      y: (event.clientY - rect.top) * (h / rect.height)
-    };
+    return canvasPoint(canvas, event, w, h);
   }
 
   function onPointerMove(event) {
@@ -1024,10 +901,7 @@ function startPs1ArcadeGame(mount, options) {
     if (!state.paused && !state.ended && state.countdown <= 0) tapBeat();
   }
 
-  function tick() {
-    const now = performance.now() / 1000;
-    const dt = Math.min(0.05, now - last);
-    last = now;
+  function tickFrame(now, dt) {
     if (!state.paused && !state.ended) {
       state.soundEnabled = soundAllowed();
       state.time += reduceMotion ? dt * 0.35 : dt;
@@ -1059,8 +933,9 @@ function startPs1ArcadeGame(mount, options) {
       }
     }
     draw(now);
-    raf = window.requestAnimationFrame(tick);
   }
+
+  const loop = createFrameLoop(tickFrame);
 
   function draw(now) {
     ctx.save();
@@ -1080,7 +955,7 @@ function startPs1ArcadeGame(mount, options) {
   resizeObserver.observe(mount);
   resize();
   startLevel();
-  tick();
+  loop.start();
 
   const api = {
     pause() {
@@ -1097,13 +972,13 @@ function startPs1ArcadeGame(mount, options) {
       if (state.pausedAt) state.noteStart += nowSec - state.pausedAt;
       state.pausedAt = 0;
       state.paused = false;
-      last = nowSec;
+      loop.reset(nowSec);
       ensureMusic();
     },
     destroy() {
       state.ended = true;
       stopMusic();
-      window.cancelAnimationFrame(raf);
+      loop.cancel();
       resizeObserver.disconnect();
       canvas.removeEventListener("pointermove", onPointerMove);
       canvas.removeEventListener("pointerdown", onPointerDown);
