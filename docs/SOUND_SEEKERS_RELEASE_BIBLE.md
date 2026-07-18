@@ -3,11 +3,13 @@
 **Status:** Active product and engineering ground truth  
 **Supersedes:** `docs/SOUND_SEEKERS_SLICE_LOOP.md` for all new Sound Seekers work  
 **Applies to:** The complete Sound Seekers experience, with Seedwake Meadow as the release-quality reference chapter
-**Last software certification:** 18 July 2026, Pass 97  
-**Certified scope:** Complete 40-stop local software journey across all eight authored pixel chapters, including continuity, responsive UI, accessible parity, animation, pacing, performed restored-world stories, earned chapter shortcuts, audio systems, rewards, reporting, constrained-device fallback, durable reconnect, production cold-offline startup, safe two-build update activation, an integrity-sealed physical-device acceptance harness, privacy-safe aggregate human-evidence gates, and a browser-based field acceptance console  
-**Full-world status:** All eight chapters meet the current local software contract; physical-device, assistive-technology, classroom, child-play, final-voice, and professional mix sign-off remain external acceptance requirements  
+**Last software audit:** 18 July 2026, Pass 100 full-world authorship and release-gate audit
+
+**Certification status:** Software release candidate. The complete 40-stop journey passes the local software gates; premium production certification remains withheld until the physical-device, assistive-technology, child, teacher, classroom-audio, final-voice, and professional art/audio acceptance evidence exists.
+
+**Full-world status:** Eight chapter identities and a complete journey exist. All 40 stops now use explicit route-authored layouts with stop-specific navigation, task-safe staging, scenery, landmarks, terrain features, and optional exploration where appropriate. No stop is reported as generated.
 **Latest critical audit:** `docs/SOUND_SEEKERS_10_OUT_OF_10_CRITIQUE_2026-07-17.md`  
-**Current premium-game score:** 9.8/10; 10/10 remains the release acceptance standard, not the claimed result
+**Current premium-game score:** 7.6/10; 10/10 remains the release acceptance standard, not the claimed result
 
 This document converts the July 2026 game-design, browser-play, code, curriculum, accessibility, performance, and release review into an ordered delivery contract. It is not a wishlist. A finding is fixed only when the child-facing behaviour, code path, automated gate, and inspected visual proof all agree.
 
@@ -25,6 +27,31 @@ The target result is:
 - Accessible and low-power modes preserve the same learning evidence and reward outcomes.
 - Automated release gates exercise the same rich renderer and real input paths used by children.
 
+## Pass 98 Audit Correction
+
+The project previously treated feature inventory, asset counts, named motifs, and source-code wiring assertions as near-release evidence. The independent browser and code re-audit rejected that scoring method. A system can be sophisticated and still produce a repetitive or visually inconsistent game.
+
+From Pass 98 onward:
+
+- Generated routes must be labelled generated. A unique motif name is not authored level design.
+- A visual score requires inspected desktop and phone evidence from the actual renderer.
+- A gameplay score requires real movement and interaction, not DOM shortcuts alone.
+- Regex tests may protect wiring, but they cannot prove quality, delight, legibility, animation craft, or level authorship.
+- Child, teacher, assistive-technology, classroom-audio, and physical-device criteria cannot receive 10 without those participants or devices.
+- Every score increase must name the visible defect fixed, the behavioural evidence added, and the remaining limitation.
+
+## Pass 99 Delivery Record
+
+Pass 99 authors River Gardens s6-s10, brings the route-authored total to ten, adds authored crossing positions and optional branches, makes all rendered roads continuous, replaces square encounter clearings, prevents legacy scene templates from contaminating authored task bays, stabilises consecutive-resident contact, keeps full answer artwork below the live instruction HUD, and separates Forge sorting formations on desktop and phone. These are verified visible and behavioural improvements. They do not certify the remaining 30 generated maps or resolve the mixed-resolution art direction, repeated verb presentation, wider HUD quality, final audio, or external acceptance requirements.
+
+## Pass 100 Delivery Record
+
+Pass 100 completes the software-authorship conversion for Fossil Canyon, Forge Settlement, Glass Marsh, Storm Coast, Lantern Forest, and Star Reach. All 40 stops now have explicit routes rather than topology formulas. The new maps include bends, forks, hubs, loops, side paths, stop-specific landmarks, terrain crossings, chapter-authored scenery, animated environmental props, and clear task bays. Permanent checks require 40 route-authored maps, 40 distinct live-renderer signatures, and minimum scenery/landmark clearance from every active route.
+
+The pass also adds tidal boardwalks and gale motion to Storm Coast, luminous roots and fluttering life to Lantern Forest, constellation rails and floating scenery to Star Reach, and a unique First Reading Star destination at s40. The compact immutable map representation keeps this authored data inside the established pixel-world bundle budget rather than weakening the performance gate.
+
+Local release evidence is clean: 565 unit tests, 40 browser journeys, production build, lint, 40-stop pacing, pixel asset/map audit, and the analysed pixel-world bundle gate all pass. The current lazy game chunk is 870.00 KB minified / 233.28 KB gzip across 1,023 modules, within the permanent 870 KB / 235 KB ceilings. This closes the generated-route blocker. It does not manufacture real child response, physical-device performance, assistive-technology use, final voice, or professional art/audio approval.
+
 ## 16 July 2026 Pixel-Direction Decision
 
 The imperative Three.js implementation remains supported while a replacement direction is proved. New environment expansion must not continue inside the monolithic 3D scene by default. The preferred candidate is now a **top-down authored pixel world** inspired by the craft principles visible in Drakantos: fixed readable framing, dense hand-composed maps, strong silhouettes, layered occlusion, Y-sorting, extensive character animation, environmental storytelling, disciplined palettes, and restrained effects.
@@ -35,7 +62,7 @@ This is not permission to copy Drakantos characters, maps, lore, interface, or c
 
 - Phaser 4.2 runs imperatively inside React while React remains the DOM HUD and save owner.
 - The pixel renderer is selectable as `displayMode: "pixel"`; 3D and accessible 2D remain intact during evaluation.
-- A runtime-generated four-direction Beastie represents body, dye, pattern, eyes, mouth, crest, tail, feet, and all equipped gear, with four walk frames per direction.
+- A runtime-generated four-direction Beastie represents body, dye, pattern, eyes, mouth, crest, tail, feet, and all equipped gear, with sixteen movement frames per direction and twelve dedicated action poses.
 - CC0 authored tiles, residents, landmarks, items, animation sheets, and effects are curated under `public/game-assets/quest-pixel/` with retained provenance.
 - In-world letter choices are spread around a facing resident. A wrong collision fires once, moves the player clear, preserves correction state, and cannot vibrate or replay every frame.
 - Browser play proves a correct choice replaces the stage, left decreases world X, right increases X, touch controls work, phone/tablet layouts remain legible, and the s1 gate enters s2 without returning to a menu.
@@ -48,7 +75,7 @@ This is not permission to copy Drakantos characters, maps, lore, interface, or c
 
 ### Honest current status
 
-The pixel runtime carries eight authored chapter identities, 40 unique stop compositions, chapter-specific casts, recurring environment silhouettes, physical task objects, world material sound layers, score and ambience identities, resident work and celebration performances, cumulative Beastie appearance, continuous gates, ceremonies, and a completed map. All 40 stops pass a 4-8 physical-action budget and every gate through the First Reading Star passes in the real browser path. This is a complete local software journey, not evidence of final child readiness. Physical school devices, assistive technology, observed children, teachers, classroom acoustics, the deferred final voice set, and professional art/audio sign-off still determine whether any 9.9 category can truthfully become 10.
+The pixel runtime carries eight chapter identities, 40 route-authored maps, chapter-specific casts, recurring environment silhouettes, physical task objects, sound layers, rewards, continuous gates, ceremonies, and a completed map. All 40 stops pass a 4-8 physical-action budget, consume distinct routes in the live renderer, and complete the gate journey under browser coverage. This is a software release candidate and a strong educational system. It is not yet a certified 10/10 premium game because the required external acceptance matrices remain empty.
 
 ### Pixel promotion record
 
@@ -66,16 +93,16 @@ This ledger is the handoff point for every future pass. `DONE` means implemented
 
 | Workstream | Result | Verified outcome | Next release condition |
 | --- | --- | --- | --- |
-| 1. Interaction and perception | DONE for local software scope | Desktop pointer, phone touch surfaces, keyboard choices, stable miss consumption, forgiving hit proxies, contrast-aware glyphs, moving-answer clearance, and actor-safe staging pass. | Validate latency, reach, and comprehension with children on physical touch and controller devices. |
-| 2. Learning load and pacing | DONE for local software scope | All 40 stops enforce 4-8 child actions, a 6.72 journey average, no maximum-load streak beyond three, short instructions, and staged rather than inflated verbs. | Validate fatigue, voluntary replay, and threshold tuning through observed sessions. |
-| 3. Physical verbs | DONE for local software scope | Eleven physical families and 35 later-chapter recipes carry distinct state, movement, camera, animation, sound, checkpoint, and visible world-action contracts. | Observe whether children identify every intended action without adult explanation. |
+| 1. Interaction and perception | PARTIAL | Desktop pointer, keyboard choices, stable miss consumption, hit proxies, contrast-aware glyphs, and real held-key movement pass locally. Steering feel, stopping, collision tuning, touch latency, and first-time comprehension remain below acceptance. | Tune against physical touch/controller play and observed children, then repeat the movement and encounter audit. |
+| 2. Learning load and pacing | PARTIAL | All 40 stops enforce 4-8 child actions, a 6.72 journey average, no maximum-load streak beyond three, and short prompts. Repeated letter-selection and assembly patterns still create likely fatigue. | Diversify the felt learning actions and validate fatigue, voluntary replay, and threshold tuning through observed sessions. |
+| 3. Physical verbs | PARTIAL | Eleven response families and 35 later-chapter recipes carry distinct state, movement, camera, animation, sound, and checkpoint contracts. Many still begin with or collapse back into labelled-object selection. | Make each family visually, spatially, and physically recognisable before reading its prompt, then test without adult explanation. |
 | 4. Journey continuity | DONE for local software scope | Every chapter gate and the final First Reading Star handoff complete without reset, freeze, spin, menu bounce, or loss of the completed map. Interrupted progress queues immediately, reconnects in order, and resumes the exact task. | Complete physical-device network-switching and long-session journeys. |
-| 5. Art direction | DONE for local software scope | Eight authored chapter kits, 40 stop compositions, chapter casts, custom four-direction/action Beastie, landmarks, learning objects, weather, particles, water, occlusion, and chapter palettes pass the pixel release audit. | Complete professional polish and child-legibility review on target displays. |
-| 6. UI, map, ceremony, and shop | DONE for local software scope | Den, settings, creator, map, earned chapter shortcuts, Trading Post, cumulative equipment, game HUD, and ceremony pass 390-pixel reachability; game and shop also pass 320-pixel and 200-percent reflow contracts. | Run first-time child comprehension and physical safe-area sessions. |
-| 7. Accessibility and fallback | DONE for local software scope | Accessible 2D preserves tasks, correction, mastery, rewards, keyboard semantics, focus recovery, reduced motion, high contrast, and severe-device automatic fallback. | Certify with VoiceOver, NVDA, physical switch input, colour-vision review, and low-end hardware. |
-| 8. Rewards, economy, and music | DONE for local software scope | Finds persist, unlock caches, bank Sparks, preserve relic abilities, purchase and cumulatively equip gear, and flow through chapter ceremonies. Eleven scores, eight ambience beds, eight action cues, and eight material layers pass. | Complete child economy observation, classroom mix review, and the deferred single-voice production. |
-| 9. Chapters 2-8 | DONE for local software scope | Every chapter owns authored maps, named cast, animation performances, physical task signatures, scenery and interaction assets, score, ambience, ceremony, gate, reward, accessible parity, and representative browser evidence. | Complete external device, child, teacher, audio, and art acceptance for the full journey. |
-| 10. Certification and reporting | DONE for local software scope, external sign-off outstanding | 560 unit tests, 35 ordinary browser checks, two production cold-offline journeys, one two-build production update journey, one live device-recorder soak smoke, 40-stop pacing, 373-asset audit, audio gates, bundle and offline-shell budgets, lint, production build, complete gate journey, constrained fallback, interrupted-network recovery, mobile release surfaces, telemetry, adult reporting, physical-device evidence, privacy-safe human-evidence gates, and the five-profile field console pass. | Complete the integrity-sealed physical-device, assistive-technology, child, teacher, reward-choice, and classroom-audio matrices. |
+| 5. Art direction | PARTIAL | Eight chapter palettes and kits, animated casts, a custom Beastie, landmarks, task props, weather, water, particles, and 40 explicit route compositions exist. The Beastie/cast styles still diverge and several app surfaces remain visually basic. | Unify sprite craft, scale, outlines, animation timing, and export resolution, then complete professional art and child-legibility review on target displays. |
+| 6. UI, map, ceremony, and shop | PARTIAL | Den, settings, creator, map, Trading Post, cumulative equipment, HUD, and ceremony are reachable on tested small screens. Desktop creator composition, map art, HUD weight, ceremony staging, and first-time comprehension remain unfinished. | Redesign the weak surfaces, inspect phone and desktop output, and run first-time child comprehension sessions. |
+| 7. Accessibility and fallback | PARTIAL | Accessible 2D preserves tasks, correction, mastery, rewards, keyboard semantics, focus recovery, reduced motion, high contrast, and severe-device fallback. Its emotional and visual parity is incomplete and no physical assistive-technology matrix has passed. | Reach experience parity, then certify with VoiceOver, NVDA, physical switch input, colour-vision review, and low-end hardware. |
+| 8. Rewards, economy, and music | PARTIAL | Finds persist, unlock caches, bank Sparks, preserve relic abilities, purchase cumulative gear, and flow through ceremonies. Pickup consequence, reward delight, professional composition/mix evidence, and the unified voice set remain incomplete. | Improve immediate reward consequence, observe child choices, review the classroom mix, and produce the final voice set. |
+| 9. Chapters 2-8 | DONE for local software scope | Every chapter has a named cast, five explicit route-authored maps, physical-task signatures, scenery, interaction assets, score routing, ceremony, gate, reward, and accessible path. All chapter handoffs and the final completion gate pass in the browser. | Complete external device, child, teacher, assistive-technology, audio, and professional art acceptance. |
+| 10. Certification and reporting | PARTIAL | The project has broad unit, browser, offline, update, pacing, asset, audio, bundle, telemetry, reporting, and field-evidence harnesses. Much of that proves systems and wiring, not premium child-facing quality. | Keep software gates, add visual and behavioural acceptance, and complete the sealed physical-device, assistive-technology, child, teacher, reward-choice, and classroom-audio matrices. |
 
 The dated evidence and exact command results live in `docs/previews/quest-release/2026-07-15-seedwake-release-report.md`.
 
@@ -90,7 +117,7 @@ The dated evidence and exact command results live in `docs/previews/quest-releas
 - `npm test`: 477 passed, 0 failed. `npm run check:quest-pixel`: passed. `npm run lint`: passed with 0 errors and 19 pre-existing warnings. `npm run build`: passed in 16.03 seconds.
 - The production build still reports repository-wide bundle-size, ExcelJS direct-eval, and ineffective-dynamic-import warnings. Sound Seekers now uses a maintained Canvas-only Phaser surface: the lazy pixel chunk is 845.11 KB minified / 225.93 KB gzip under its permanent analysed-build gate, down 22.0 and 21.5 percent respectively from the Pass 89 baseline.
 
-This evidence certifies the current local implementation, not a 10/10 child-ready result. All eight chapters meet the software contract; final audio, physical-device soaks, the assistive-technology matrix, and observed child and teacher sessions remain acceptance requirements.
+This is retained as dated Pass 97 evidence. Pass 98 withdrew its release-certification interpretation: the checks remain useful, but they do not establish premium child-facing quality. Final authorship, audio, physical-device soaks, the assistive-technology matrix, and observed child and teacher sessions remain acceptance requirements.
 
 ## Non-Negotiable Rules
 

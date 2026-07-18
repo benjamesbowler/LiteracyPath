@@ -1,16 +1,16 @@
 # Graph Report - LiteracyPath  (2026-07-18)
 
 ## Corpus Check
-- 1383 files · ~8,829,693 words
+- 1384 files · ~8,834,776 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 15193 nodes · 27222 edges · 1088 communities (997 shown, 91 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 749 edges (avg confidence: 0.68)
+- 15210 nodes · 27265 edges · 1076 communities (986 shown, 90 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 750 edges (avg confidence: 0.68)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `894ea7bf`
+- Built from commit: `ec3bc4a9`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -806,7 +806,6 @@
 - [[_COMMUNITY_Round Selection Audit|Round Selection Audit]]
 - [[_COMMUNITY_Skill Routing Purity Audit|Skill Routing Purity Audit]]
 - [[_COMMUNITY_WordHopscotch.tsx|WordHopscotch.tsx]]
-- [[_COMMUNITY_generateImage.mjs|generateImage.mjs]]
 - [[_COMMUNITY_LiteracyPath — Child Learning Experience Layer|LiteracyPath — Child Learning Experience Layer]]
 - [[_COMMUNITY_LiteracyPath — Teacher Assessment Module|LiteracyPath — Teacher Assessment Module]]
 - [[_COMMUNITY_3. Assessment Flow UX|3. Assessment Flow UX]]
@@ -966,13 +965,11 @@
 - [[_COMMUNITY_13. R-Controlled Vowels|13. R-Controlled Vowels]]
 - [[_COMMUNITY_14. Nouns|14. Nouns]]
 - [[_COMMUNITY_15. Verbs|15. Verbs]]
-- [[_COMMUNITY_16. Adjectives|16. Adjectives]]
 - [[_COMMUNITY_17. Prepositions of Place|17. Prepositions of Place]]
 - [[_COMMUNITY_18. Plurals|18. Plurals]]
 - [[_COMMUNITY_19. Prefixes and Suffixes|19. Prefixes and Suffixes]]
 - [[_COMMUNITY_20. Antonyms and Synonyms|20. Antonyms and Synonyms]]
 - [[_COMMUNITY_21. Homophones and Homonyms|21. Homophones and Homonyms]]
-- [[_COMMUNITY_22. Sentence Comprehension|22. Sentence Comprehension]]
 - [[_COMMUNITY_23. Key Details|23. Key Details]]
 - [[_COMMUNITY_24. Sequencing|24. Sequencing]]
 - [[_COMMUNITY_25. Main Idea|25. Main Idea]]
@@ -1000,15 +997,11 @@
 - [[_COMMUNITY_Skill Level Depth Audit|Skill Level Depth Audit]]
 - [[_COMMUNITY_phonics_images_readme 2|phonics_images_readme 2.md]]
 - [[_COMMUNITY_generateQuestMusicLoops.mjs|generateQuestMusicLoops.mjs]]
-- [[_COMMUNITY_questRuntimeSystems.test.js|questRuntimeSystems.test.js]]
 - [[_COMMUNITY_exportGuidedReadingCompletionExcel.js|exportGuidedReadingCompletionExcel.js]]
-- [[_COMMUNITY_checkHighFrequencyWordsCoverage.js|checkHighFrequencyWordsCoverage.js]]
 - [[_COMMUNITY_MASTERY_STATES_REF|MASTERY_STATES_REF]]
 - [[_COMMUNITY_drawSafari|drawSafari]]
 - [[_COMMUNITY_questChapters.js|questChapters.js]]
-- [[_COMMUNITY_buildPracticeSheet.mjs|buildPracticeSheet.mjs]]
 - [[_COMMUNITY_Theme|Theme]]
-- [[_COMMUNITY_checkHfwAudioQuality.js|checkHfwAudioQuality.js]]
 - [[_COMMUNITY_check3DAssetLibrary.mjs|check3DAssetLibrary.mjs]]
 - [[_COMMUNITY_checkElAssessmentDashboardExport.js|checkElAssessmentDashboardExport.js]]
 - [[_COMMUNITY_Sound Seekers Seedwake Vertical Slice Report|Sound Seekers Seedwake Vertical Slice Report]]
@@ -1017,14 +1010,12 @@
 - [[_COMMUNITY_checkQuestPixelBundle.mjs|checkQuestPixelBundle.mjs]]
 - [[_COMMUNITY_Sound Seekers — Critique & Upgrade Plan|Sound Seekers — Critique & Upgrade Plan]]
 - [[_COMMUNITY_Sound Seekers — Vertical Slice Loop to Completion|Sound Seekers — Vertical Slice: Loop to Completion]]
-- [[_COMMUNITY_checkLearnAreaContracts.js|checkLearnAreaContracts.js]]
 - [[_COMMUNITY_hfwQualityRules.js|hfwQualityRules.js]]
 - [[_COMMUNITY_initialSoundPairAssets.js|initialSoundPairAssets.js]]
 - [[_COMMUNITY_serveQuestOfflineUpdateFixtures.mjs|serveQuestOfflineUpdateFixtures.mjs]]
 - [[_COMMUNITY_masterWordLexicon.js|masterWordLexicon.js]]
 - [[_COMMUNITY_render|render]]
 - [[_COMMUNITY_wordAudioPath|wordAudioPath]]
-- [[_COMMUNITY_SkillsBlockQuestMockup.jsx|SkillsBlockQuestMockup.jsx]]
 - [[_COMMUNITY_build3DAssetLibraryManifest.mjs|build3DAssetLibraryManifest.mjs]]
 - [[_COMMUNITY_checkQuest3DAssets.mjs|checkQuest3DAssets.mjs]]
 - [[_COMMUNITY_Sound Seekers Release Bible|Sound Seekers Release Bible]]
@@ -1034,16 +1025,12 @@
 - [[_COMMUNITY_BookQuiz.jsx|BookQuiz.jsx]]
 - [[_COMMUNITY_wordBridgeLevels.js|wordBridgeLevels.js]]
 - [[_COMMUNITY_checkContentRubric.mjs|checkContentRubric.mjs]]
-- [[_COMMUNITY_signature|signature]]
 - [[_COMMUNITY_checkQuestOffline.mjs|checkQuestOffline.mjs]]
 - [[_COMMUNITY_Sound Seekers — Push 2 (Codex brief)|Sound Seekers — Push 2 (Codex brief)]]
-- [[_COMMUNITY_build-recording-docs.py|build-recording-docs.py]]
-- [[_COMMUNITY_letterStrokes.js|letterStrokes.js]]
 - [[_COMMUNITY_checkQuestMusic.mjs|checkQuestMusic.mjs]]
 - [[_COMMUNITY_stageUsedModels.mjs|stageUsedModels.mjs]]
 - [[_COMMUNITY_LiteracyPath 3D asset library|LiteracyPath 3D asset library]]
 - [[_COMMUNITY_Major Experience Findings|Major Experience Findings]]
-- [[_COMMUNITY_RhymeTime.tsx|RhymeTime.tsx]]
 - [[_COMMUNITY_FakeAudio|FakeAudio]]
 - [[_COMMUNITY__emit_table|_emit_table]]
 - [[_COMMUNITY_Sound Seekers Seedwake Release Report|Sound Seekers Seedwake Release Report]]
@@ -1076,6 +1063,7 @@
 - [[_COMMUNITY_README|README.md]]
 - [[_COMMUNITY_quest_human_acceptance|quest_human_acceptance.md]]
 - [[_COMMUNITY_README|README.md]]
+- [[_COMMUNITY_Release-Blocking Findings|Release-Blocking Findings]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `cn()` - 270 edges
@@ -1092,19 +1080,19 @@
 ## Surprising Connections (you probably didn't know these)
 - `QuestHub()` --indirect_call--> `scene()`  [INFERRED]
   src/components/quest/world/QuestHub.jsx → tools/generate-sentence-scene-images.mjs
-- `getInitialSoundItemsByLevel()` --indirect_call--> `level()`  [INFERRED]
-  src/content/initialSounds/initialSoundWordBank.js → tools/checkAssessmentLevel1ContentMedia.js
 - `recordRound()` --indirect_call--> `word()`  [INFERRED]
   tools/checkFinalSoundProgression.js → src/data/phonicsLessons.js
 - `parseHeuristicRows()` --indirect_call--> `word()`  [INFERRED]
   tools/checkMediaQualityManifest.js → src/data/phonicsLessons.js
 - `playSoundFile()` --calls--> `fallback`  [INFERRED]
   src/utils/audio/gameSfx.js → tools/checkQuestPixel.mjs
+- `BlendAndBuild()` --indirect_call--> `word()`  [INFERRED]
+  Phonics app extension/src/games/BlendAndBuild.tsx → src/data/phonicsLessons.js
 
 ## Import Cycles
 - None detected.
 
-## Communities (1088 total, 91 thin omitted)
+## Communities (1076 total, 90 thin omitted)
 
 ### Community 0 - "CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION"
 Cohesion: 0.03
@@ -1195,8 +1183,8 @@ Cohesion: 0.06
 Nodes (33): 10. The creature — creator, renderer, animation, 11. Screens & UI, 12. Audio — full spec, 13. Images — full spec, 14. Teacher side, 15. Checks — what "done" means for this feature, 16. Names, 17. Build order — vertical slices (+25 more)
 
 ### Community 22 - "12. THE COMBINATORIAL VARIATION ENGINE"
-Cohesion: 0.16
-Nodes (30): stripHfwQuestionImageFields(), addDiverseWords(), answerValue(), balanceShortVowelDiscriminationChoices(), buildBalancedShortVowelChoices(), candidateWordsForVowel(), deterministicHash(), enrichOption() (+22 more)
+Cohesion: 0.14
+Nodes (32): getImportedVocabularyMedia(), importedVocabularyMedia, importedVocabularyMediaManifest, addDiverseWords(), answerValue(), balanceShortVowelDiscriminationChoices(), buildBalancedShortVowelChoices(), candidateWordsForVowel() (+24 more)
 
 ### Community 23 - "8. ANTI-AI-SLOP RULES"
 Cohesion: 0.08
@@ -1215,8 +1203,8 @@ Cohesion: 0.06
 Nodes (30): 10. FINAL PRE-FLIGHT CHECK, 1. ACTIVE BASELINE CONFIGURATION, 2. DEFAULT ARCHITECTURE & CONVENTIONS, 3. DESIGN ENGINEERING DIRECTIVES (Bias Correction), 4. CREATIVE PROACTIVITY (Anti-Slop Implementation), 5. PERFORMANCE GUARDRAILS, 6. TECHNICAL REFERENCE (Dial Definitions), 7. AI TELLS (Forbidden Patterns) (+22 more)
 
 ### Community 27 - "Full-Output Enforcement"
-Cohesion: 0.05
-Nodes (81): initialSoundWordBank, finalSoundLevelOneForbiddenItemKeys, isQuestionBlockedByMediaQa(), answerAudioGap(), answerImageGap(), answerOptions(), approvedPromptAudioGap(), audioPathFromOption() (+73 more)
+Cohesion: 0.04
+Nodes (99): hasImportedInitialSoundAudio(), finalSoundLevelOneForbiddenItemKeys, isQuestionBlockedByMediaQa(), phaseDepth(), assetCountsForInitialSounds(), assetCountsForQuestionSkill(), fileWord(), initialProgress (+91 more)
 
 ### Community 28 - "33. CATEGORY-SPECIFIC BIAS"
 Cohesion: 0.07
@@ -1239,8 +1227,8 @@ Cohesion: 0.08
 Nodes (25): 1. Safe candidate groups, 2. Unsafe / deferred groups, 3. Reason for deferring early phonics, 4. Current eager imports still present, 5. Recommended Phase 7 plan, Assessment Data Loading Audit, Current Eager Assessment Imports, Dynamic audio manifest (+17 more)
 
 ### Community 33 - "0. BRIEF INFERENCE (Read the Room Before Anything Else)"
-Cohesion: 0.08
-Nodes (54): ALL_GRAPHEMES, buildHuntRounds(), buildLetterRounds(), buildPatternPowerRounds(), buildPoemRounds(), buildQuickWordRounds(), buildSoundRounds(), buildSpeedyWordRounds() (+46 more)
+Cohesion: 0.09
+Nodes (52): ALL_GRAPHEMES, buildHuntRounds(), buildLetterRounds(), buildPatternPowerRounds(), buildPoemRounds(), buildQuickWordRounds(), buildSoundRounds(), buildSpeedyWordRounds() (+44 more)
 
 ### Community 34 - "12. THE BLOCK LIBRARY (Contract - Implementations Land Here Iteratively)"
 Cohesion: 0.08
@@ -1260,27 +1248,27 @@ Nodes (24): Blends, Candidate Handling, Candidate Handling, Candidate Handling, 
 
 ### Community 38 - "1. THE THREE DIALS (Core Configuration)"
 Cohesion: 0.04
-Nodes (85): AdminDashboardPage, applyItemMetadata(), APPROVED_REPLACEMENT_SOURCES, blendPatterns, buildCoverageSnapshot(), buildQuestionExportText(), buildShortVowelWordOption(), comparableSentenceAnswer() (+77 more)
+Nodes (71): AdminDashboardPage, APPROVED_REPLACEMENT_SOURCES, blendPatterns, buildQuestionExportText(), buildShortVowelWordOption(), comparableSentenceAnswer(), DEBUG_ASSESSMENT_COVERAGE, dedupeQuestionsByRuntimeSignature() (+63 more)
 
 ### Community 39 - "7. DIAL DEFINITIONS (Technical Reference)"
-Cohesion: 0.32
-Nodes (6): buildCycleOneSlides(), countInteractiveSlides(), cycleOneLessonDecks, LEARN_DECK_INTERACTIVE_TYPES, learnDecks, pad()
+Cohesion: 0.21
+Nodes (18): ALL_BLEND_PATTERNS, BEGINNING_BLEND_PATTERNS, BLEND_PATTERN_GROUPS, ENDING_BLEND_PATTERNS, isAllowedBlendPattern(), isBeginningBlendPattern(), isEndingBlendPattern(), normalizeBlendPattern() (+10 more)
 
 ### Community 40 - "33. DEFAULT SECTION PACKS"
 Cohesion: 0.08
 Nodes (24): compilerOptions, allowImportingTsExtensions, baseUrl, erasableSyntaxOnly, jsx, lib, module, moduleDetection (+16 more)
 
 ### Community 41 - "14. HERO MINIMALISM RULES"
-Cohesion: 0.06
-Nodes (65): PIXEL_BEASTIE_DIRECTIONS, addChoiceArt(), addPixelLowercaseGlyph(), authoredChoiceSprite(), BEASTIE_ACTION_FRAMES, CEREMONY_FINALE_NODE_SHAPES, CEREMONY_RELIC_SHAPES, CHAPTER_IDS_BY_STOP (+57 more)
+Cohesion: 0.07
+Nodes (64): QuestHub(), updateFieldTasks(), PIXEL_BEASTIE_DIRECTIONS, BEASTIE_ACTION_FRAMES, CEREMONY_FINALE_NODE_SHAPES, CEREMONY_RELIC_SHAPES, CHAPTER_IDS_BY_STOP, CHAPTER_PIXEL_PROFILES (+56 more)
 
 ### Community 42 - "37. EXAMPLE INTERPRETATIONS"
 Cohesion: 0.09
 Nodes (22): Already Lazy, Assessment banks in `src/App.jsx`, Bundle Size Audit, Deferred Reduction, Did Phase 7 change chunk sizes?, Generated bank imports in `src/content/skillMedia/skillAssetRegistry.js`, Latest build chunk sizes, Latest Chunk Sizes (+14 more)
 
 ### Community 43 - "2. PLATFORM MODE RULE"
-Cohesion: 0.08
-Nodes (20): addPixelShadow(), addTextureFrame(), chapterPixelProfile(), completedShape(), completionLateral(), completionMotion(), createArenaPlazaCanvas(), createEncounterClearingCanvas() (+12 more)
+Cohesion: 0.07
+Nodes (27): addChoiceArt(), addPixelLowercaseGlyph(), addPixelShadow(), addTextureFrame(), authoredChoiceSprite(), chapterPixelProfile(), completedShape(), completionLateral() (+19 more)
 
 ### Community 44 - "37. EXAMPLE INTERPRETATIONS"
 Cohesion: 0.09
@@ -1288,7 +1276,7 @@ Nodes (22): Already Lazy, Assessment banks in `src/App.jsx`, Bundle Size Audit, 
 
 ### Community 45 - "graphify reference: add a URL and watch a folder"
 Cohesion: 0.10
-Nodes (20): Adjectives, Antonyms and Synonyms, Full Assessment Production Readiness Audit, Layout Risk Warnings, Long Vowels and Silent E, Media, Media, Media (+12 more)
+Nodes (20): Adjectives, Full Assessment Production Readiness Audit, Layout Risk Warnings, Long Vowels and Silent E, Main Idea, Media, Media, Media (+12 more)
 
 ### Community 46 - "graphify reference: commit hook and native CLAUDE.md integration"
 Cohesion: 0.10
@@ -1311,8 +1299,8 @@ Cohesion: 0.10
 Nodes (19): compilerOptions, allowImportingTsExtensions, erasableSyntaxOnly, lib, module, moduleDetection, moduleResolution, noEmit (+11 more)
 
 ### Community 51 - "CLAUDE.md"
-Cohesion: 0.24
-Nodes (19): sourceSheet(), contentKeyFor(), imagePolicyFor(), levelPhaseFor(), main(), moduleText(), normalizeRow(), normalizeText() (+11 more)
+Cohesion: 0.14
+Nodes (14): AdventureGame(), GardenStage(), RescueStage(), ConfettiCelebration(), ProgressStars(), adventureStars(), buildGardenRounds(), buildRescueRounds() (+6 more)
 
 ### Community 52 - "extraction-spec.md"
 Cohesion: 0.11
@@ -1320,27 +1308,27 @@ Nodes (18): 1. Define the Atmosphere, 2. Map the Color Palette, 3. Establish Typ
 
 ### Community 53 - "presentationBuilder.js"
 Cohesion: 0.07
-Nodes (63): lastPresentedCycle(), PresentPage(), EL_CYCLE_POEMS, themeWorldForCycle(), assembleSlides(), audioButton(), BLEND_DIGRAPHS, blendSlides() (+55 more)
+Nodes (73): wordAudioPath(), lastPresentedCycle(), PresentPage(), themeWorldForCycle(), assembleSlides(), audioButton(), BLEND_DIGRAPHS, blendSlides() (+65 more)
 
 ### Community 54 - "ArcadePracticeGame.jsx"
 Cohesion: 0.20
 Nodes (15): attributionPath, commonsTitle(), __dirname, downloadAudio(), getCommonsMetadata(), getDictionaryMetadata(), getTopMissingSingleWordChoices(), legacyAttributionPath (+7 more)
 
 ### Community 55 - "treasureTrail.js"
-Cohesion: 0.10
-Nodes (24): params, BerryIcon(), CoinIcon(), MISSION_TILES, SAGE_ICON_PATHS, StudentHomePage(), coinsSinceLastVisit(), readHomeSkin() (+16 more)
+Cohesion: 0.12
+Nodes (22): params, MISSION_TILES, SAGE_ICON_PATHS, StudentHomePage(), coinsSinceLastVisit(), readHomeSkin(), setHomeSkin(), subscribeHomeSkin() (+14 more)
 
 ### Community 56 - "Deployment Audit — 2026-07-04"
 Cohesion: 0.11
 Nodes (18): App State Architecture Audit, appView/routing state, assessment/session state, child mode/reward state, Derived Values That Could Be Memoized, First Safe Extraction Pass, Functions Risky To Extract, Functions Safe To Extract (+10 more)
 
 ### Community 57 - "letterStrokes.js"
-Cohesion: 0.21
-Nodes (21): hasImportedInitialSoundMedia(), getQuestionAudioPaths(), getQuestionChoices(), getQuestionImagePaths(), getSkillBankItems(), inferFinalSoundTarget(), inferRuntimeTarget(), keepRuntimeQuestion() (+13 more)
+Cohesion: 0.17
+Nodes (24): addScenery(), emissiveMaterial(), FOREST_TOKEN_SLOTS, makeAtmosphere(), makeCloud(), makeCollectibleTexture(), makeCourse(), makeCrystal() (+16 more)
 
 ### Community 58 - "18. EXTRA CREATIVITY & IMPLEMENTATION EDGE"
-Cohesion: 0.15
-Nodes (15): cardVariants, containerVariants, PhonicsAlphabetPicker(), getAllLetters(), getAvailableLetters(), lessons, PHONIC_AUDIO_BY_LETTER, checkAsset() (+7 more)
+Cohesion: 0.22
+Nodes (9): lessons, checkAsset(), __dirname, failures, letters, publicPathExists(), rootDir, summary (+1 more)
 
 ### Community 59 - "Repo Hygiene Audit"
 Cohesion: 0.11
@@ -1363,8 +1351,8 @@ Cohesion: 0.11
 Nodes (18): aliases, components, hooks, lib, ui, utils, iconLibrary, registries (+10 more)
 
 ### Community 64 - "Approved Runtime Sources Audit"
-Cohesion: 0.31
-Nodes (11): buildAll(), HollowSpotEditor(), DEFAULT_HOLLOW_SPOTS, getCachedHollowOverride(), HOLLOW_ROOMS, hollowSpotsFor(), isBrowser(), loadHollowSpotsOverride() (+3 more)
+Cohesion: 0.25
+Nodes (14): buildAll(), HollowSpotEditor(), HollowPage(), DEFAULT_HOLLOW_SPOTS, getCachedHollowOverride(), HOLLOW_ROOMS, hollowSpotsFor(), isBrowser() (+6 more)
 
 ### Community 65 - "15. DEFAULT SITE PACKS"
 Cohesion: 0.11
@@ -1372,7 +1360,7 @@ Nodes (17): 1. Meta Information & Core Directive, 2. THE "ABSOLUTE ZERO" DIRECTI
 
 ### Community 66 - "20. EXAMPLE INTERPRETATIONS"
 Cohesion: 0.07
-Nodes (54): responsesInWalk(), ambientPositions(), buildTrailSection(), clampTrailPosition(), dropPositions(), encounterProgress(), FIELD_ENCOUNTERS, fieldModeFor() (+46 more)
+Nodes (53): responsesInWalk(), ambientPositions(), buildTrailSection(), clampTrailPosition(), dropPositions(), encounterProgress(), FIELD_ENCOUNTERS, fieldModeFor() (+45 more)
 
 ### Community 67 - "Kimi Audio Request — re-record 3 short words (gold voice, whole words)"
 Cohesion: 0.11
@@ -1387,48 +1375,48 @@ Cohesion: 0.11
 Nodes (15): createExcelWorkbook(), loadAssessmentMediaPickerModule(), loadAssessmentSkillBankLoaderModule(), loadFinishedReportPageModule(), loadGuidedReadingBooksModule(), AppCrashFallback(), ErrorBoundary, LEARN_GAMES (+7 more)
 
 ### Community 70 - "STATIONS"
-Cohesion: 0.06
-Nodes (50): addWindShader(), castForWorld(), clipForMotion(), cloneNatureMaterials(), createImportedFieldAvatars(), createImportedNature(), createInstancedGrass(), createRiggedTrailCharacters() (+42 more)
+Cohesion: 0.12
+Nodes (34): addWindShader(), castForWorld(), clipForMotion(), cloneNatureMaterials(), createAuthoredChapterKit(), createImportedFieldAvatars(), createImportedNature(), createInstancedGrass() (+26 more)
 
 ### Community 71 - "isQuestionValid"
 Cohesion: 0.03
-Nodes (121): getAudioPreferenceForPath(), getAudioReviewNote(), isDeprecatedAudioPath(), isReviewNeededAudioPath(), kimiDataset7Candidates, kimiDataset7Summary, isPairSelectionQuestion(), audioPathsForQuestion() (+113 more)
+Nodes (116): isDeprecatedAudioPath(), isReviewNeededAudioPath(), kimiDataset7Candidates, kimiDataset7Summary, isPairSelectionQuestion(), activeAssetGapRows(), activeOldInitialSoundQuestions, addGroupedValue() (+108 more)
 
 ### Community 72 - "StudentHomePage.jsx"
-Cohesion: 0.05
-Nodes (46): aliasPairs, assessmentSkillAliases, BLEND_PATTERNS, classifyComprehensionQuestion(), classifyPhonicsQuestion(), classifySpellingQuestion(), DIGRAPH_PATTERNS, getAssessmentSkillLabel() (+38 more)
+Cohesion: 0.09
+Nodes (20): addUsage(), AUDIO_EXTENSIONS, audioRows, canonicalSkillId(), fileSize(), formatBytes(), IMAGE_EXTENSIONS, imageRows (+12 more)
 
 ### Community 73 - "getRuntimeQuestionSignature"
-Cohesion: 0.11
-Nodes (45): QuestHub(), updateFieldTasks(), createQuestPixelRuntime(), learningSequence(), PIXEL_COLLECTIBLES, QuestPixelWorld(), shortPrompt(), learningSequence() (+37 more)
+Cohesion: 0.18
+Nodes (19): AMBIENCES, canPlaySource(), canUseAudio(), fadeAmbienceTo(), fadeOutAudio(), finishAudio(), GAME_AUDIO_MIXES, getGameAmbienceTrack() (+11 more)
 
 ### Community 74 - "normalizeShortVowelWordCategoryOptions"
 Cohesion: 0.01
 Nodes (139): scripts, analyze, audit:app-image-inventory, audit:approved-hfw-media, audit:assessment-integrity, audit:assessment-media-registry, audit:checkpoints, audit:hfw-curated-source (+131 more)
 
 ### Community 75 - "0. BRIEF INFERENCE (Read the Room Before Anything Else)"
-Cohesion: 0.05
-Nodes (90): isInitialSoundPairQuestion(), blendAnchors, digraphAnchors, finalSoundAnchors, initialSoundAnchors, shortVowelAnchors, addProblem(), allQuestions (+82 more)
+Cohesion: 0.04
+Nodes (106): enrichInitialSoundPairQuestion(), getInitialSoundPairDiagnostics(), getVariantWords(), hasCompleteCards(), hasCompleteInitialSoundPairAssets(), initialLetter(), initialSoundPairItemKeys, initialSoundPairSets (+98 more)
 
 ### Community 76 - "inferItemMetadata"
 Cohesion: 0.08
-Nodes (51): assetsDir, audit(), buildClaudeRequest(), buildFinalSoundsSpecial(), buildInitialSoundsSpecial(), buildMarkdown(), buildMediaRequest(), buildRhymingSpecial() (+43 more)
+Nodes (52): assetsDir, audit(), buildClaudeRequest(), buildFinalSoundsSpecial(), buildInitialSoundsSpecial(), buildMarkdown(), buildMediaRequest(), buildRhymingSpecial() (+44 more)
 
 ### Community 77 - "isMissingTableError"
 Cohesion: 0.04
 Nodes (61): Avatar(), AvatarFallback(), AvatarImage(), BreadcrumbEllipsis(), BreadcrumbItem(), BreadcrumbLink(), BreadcrumbList(), BreadcrumbPage() (+53 more)
 
 ### Community 78 - "appViews.js"
-Cohesion: 0.08
-Nodes (51): assetsDir, audioRequests, audioRequired(), buildKimiMarkdown(), buildMarkdown(), comprehensionSkills, countBy(), dragDropFormats (+43 more)
+Cohesion: 0.05
+Nodes (71): mediaBreakdown(), approvedRegistry, audit, currentQuestionMediaUsage(), increment(), OUT_JSON, OUT_MD, phaseKey() (+63 more)
 
 ### Community 79 - "Five Loop Prompts — Market-Ready LiteracyPath"
 Cohesion: 0.12
 Nodes (16): 10. SECTION RHYTHM RULE, 12. DENSITY & SPACING DISCIPLINE, 14. IMAGE / MEDIA DIRECTION, 16. MULTI-IMAGE CONSISTENCY RULE, 17. CLARITY CHECK, 19. RESPONSE BEHAVIOR, 1. ACTIVE BASELINE CONFIGURATION, 21. FINAL GOAL (+8 more)
 
 ### Community 80 - "StudentHomePage.jsx"
-Cohesion: 0.07
-Nodes (55): PatternRound(), Preview(), rootElement, Preview(), rootElement, Preview(), rootElement, Preview() (+47 more)
+Cohesion: 0.11
+Nodes (27): Preview(), rootElement, Preview(), rootElement, Preview(), rootElement, Preview(), rootElement (+19 more)
 
 ### Community 81 - "Market Readiness — 2026-07-04 (Loops 1–5 verdict)"
 Cohesion: 0.12
@@ -1439,8 +1427,8 @@ Cohesion: 0.12
 Nodes (15): Early Phonics Special Checks, Exact Missing Media Needs, Exact Missing Question Needs, Final Sounds, HFW Level 2 Decision, Initial Sounds, LiteracyPath Strict Production Assessment Audit, Missing Audio (+7 more)
 
 ### Community 83 - "hasAnchorChoiceLeakage"
-Cohesion: 0.08
-Nodes (47): addScenery(), ANSWER_START_CLEARANCE, answerPositionIsClear(), answerStartClearance(), assignTokenPositions(), clamp(), clampPointToBounds(), CONFIG (+39 more)
+Cohesion: 0.09
+Nodes (23): ANSWER_START_CLEARANCE, answerPositionIsClear(), answerStartClearance(), assignTokenPositions(), clamp(), clampPointToBounds(), CONFIG, createHud() (+15 more)
 
 ### Community 84 - "Recording Script — one take, 61 items (print this page)"
 Cohesion: 0.12
@@ -1451,32 +1439,32 @@ Cohesion: 0.12
 Nodes (15): Assessment Choice Rendering Diagnostics, Assessment Skill Integrity Audit, CVC / Short Vowel Rendering Guardrails, Duplicate IDs, Missing Required Fields, Progression Logic Concerns, Red Flags, Skills Below 30 Unique Usable Questions For Either Level (+7 more)
 
 ### Community 86 - "index.js"
-Cohesion: 0.08
-Nodes (51): activeGalleryAnswer(), BEAT_LANES, beatLanePoint(), clamp(), CONFIG, drawBeat(), drawBeatBackdrop(), drawBeatBurst() (+43 more)
+Cohesion: 0.13
+Nodes (38): activeGalleryAnswer(), BEAT_LANES, beatLanePoint(), clamp(), CONFIG, drawBeat(), drawBeatBackdrop(), drawBeatBurst() (+30 more)
 
 ### Community 87 - "STATIONS"
 Cohesion: 0.12
 Nodes (15): Assessment Choice Rendering Diagnostics, Assessment Skill Integrity Audit, CVC / Short Vowel Rendering Guardrails, Duplicate IDs, Missing Required Fields, Progression Logic Concerns, Red Flags, Skills Below 30 Unique Usable Questions For Either Level (+7 more)
 
 ### Community 88 - "writeFile"
-Cohesion: 0.04
-Nodes (89): DIRECT_HFW_PROMPT_PATTERNS, escapeRegex(), getHfwAllowedFormatsForPhase(), getHfwDirectAnswerLeakageIssues(), HFW_ALLOWED_FORMATS, HFW_CLOZE_FORMATS, HFW_DIRECT_RECOGNITION_FORMATS, HFW_FORMATS_BY_PHASE (+81 more)
+Cohesion: 0.03
+Nodes (119): DIRECT_HFW_PROMPT_PATTERNS, escapeRegex(), getHfwAllowedFormatsForPhase(), getHfwDirectAnswerLeakageIssues(), HFW_ALLOWED_FORMATS, HFW_CLOZE_FORMATS, HFW_DIRECT_RECOGNITION_FORMATS, HFW_FORMATS_BY_PHASE (+111 more)
 
 ### Community 89 - "loadAssessmentSkillBank.js"
 Cohesion: 0.11
 Nodes (33): ASSESSMENT_SKILL_GROUPS, AUTHORED_COMPREHENSION_BANKS, COMPREHENSION_SKILLS, dedupeQuestions(), DYNAMIC_BANK_LOADERS, dynamicBankCache, EARLY_PHONICS_GENERATED_SKILLS, EXPANSION_BANK_LOADERS (+25 more)
 
 ### Community 90 - "audioPreferenceManifest.js"
-Cohesion: 0.06
-Nodes (31): activeReviewNeededWordAudio, approvedAssessmentWordAudioOverrideReviewPaths, approvedAssessmentWordAudioOverrides, approvedFinalSoundsBWordAudio, approvedGuidedReadingVocabularyAudio, approvedHfwAudioKeys, approvedInitialSoundAudioPaths, approvedLowerSkillGraphemeAudio (+23 more)
+Cohesion: 0.04
+Nodes (49): activeReviewNeededWordAudio, approvedAssessmentWordAudioOverrideReviewPaths, approvedAssessmentWordAudioOverrides, approvedFinalSoundsBWordAudio, approvedGuidedReadingVocabularyAudio, approvedHfwAudioKeys, approvedInitialSoundAudioPaths, approvedLowerSkillGraphemeAudio (+41 more)
 
 ### Community 91 - "hfwRuntimeEligibility.js"
-Cohesion: 0.03
-Nodes (122): buildMarkdown(), getRawQuestionFilterReason(), getRuntimeIssues(), mediaBreakdown(), runtimeReason(), approvedRegistry, audit, currentQuestionMediaUsage() (+114 more)
+Cohesion: 0.13
+Nodes (28): MediaQaPage(), addDeletedMediaRecords(), deletedMediaManifest, getDeletedMediaPaths(), isGuidedReadingAssetDeleted(), isGuidedReadingBookDeleted(), isMediaDeleted(), normalizePath() (+20 more)
 
 ### Community 92 - "skillTemplateRouting.js"
 Cohesion: 0.09
-Nodes (37): ALL_DIGRAPH_PATTERNS, isAllowedDigraphPattern(), normalizeDigraphPattern(), DIGRAPHS_ALLOWED_FORMATS, getAnswerOptions(), getDigraphsRuntimeEligibilityIssues(), getFormat(), getImageCards() (+29 more)
+Nodes (38): ALL_DIGRAPH_PATTERNS, isAllowedDigraphPattern(), normalizeDigraphPattern(), DIGRAPHS_ALLOWED_FORMATS, getAnswerOptions(), getDigraphsRuntimeEligibilityIssues(), getFormat(), getImageCards() (+30 more)
 
 ### Community 93 - "checkGuidedReadingSeriesBooks.js"
 Cohesion: 0.03
@@ -1507,72 +1495,72 @@ Cohesion: 0.07
 Nodes (55): aidenCoverPath(), aidenPagePath(), coverPath(), createAidenAndBettyBook(), createAidenPage(), createBobAndNanBook(), createDinoPage(), createDinoPalsBook() (+47 more)
 
 ### Community 100 - "importSkillWordBankWorkbook.js"
-Cohesion: 0.08
-Nodes (57): cell(), ARTICLE_WORDS, blankTarget(), buildLetterTiles(), cellText(), DETERMINER_WORDS, ensureDir(), fullSentenceFor() (+49 more)
+Cohesion: 0.07
+Nodes (58): cell(), ARTICLE_WORDS, blankTarget(), buildLetterTiles(), cellText(), DETERMINER_WORDS, ensureDir(), fullSentenceFor() (+50 more)
 
 ### Community 101 - "skillAssetRegistry.js"
 Cohesion: 0.21
 Nodes (24): addArp(), addChord(), addDrums(), addKick(), addNoise(), addNote(), addProgression(), arrangeLetterLeap() (+16 more)
 
 ### Community 102 - "assessmentMediaPicker.js"
-Cohesion: 0.11
-Nodes (51): answerValue(), createAssessmentSessionMediaUsage(), currentAudioPath(), currentImagePath(), ensureSet(), getApprovedMediaForTarget(), getQuestionMediaContentKey(), getQuestionPromptKey() (+43 more)
+Cohesion: 0.10
+Nodes (55): answerValue(), createAssessmentSessionMediaUsage(), currentAudioPath(), currentImagePath(), ensureSet(), getApprovedMediaForTarget(), getQuestionMediaContentKey(), getQuestionPromptKey() (+47 more)
 
 ### Community 103 - "exportHfwQuestionReviewWorkbook.js"
-Cohesion: 0.15
-Nodes (26): normalizeHfwSentenceFrame(), addRows(), addSummary(), answerOf(), bandLabel(), columns, contentKey(), csvPath (+18 more)
+Cohesion: 0.07
+Nodes (53): normalizeHfwSentenceFrame(), addRows(), addSummary(), answerOf(), bandLabel(), columns, contentKey(), csvPath (+45 more)
 
 ### Community 104 - "auditFullAssessmentProductionReadiness.js"
 Cohesion: 0.08
 Nodes (24): getActiveAssessmentSkillIds(), activeSkillIds, activeSkillIdSet, canonicalAliases, canonicalSkillId(), explicitCheckRows, failures, groupRows (+16 more)
 
 ### Community 105 - "generateSecondBlockSkillQuestions.js"
-Cohesion: 0.09
-Nodes (55): getImportedVocabularyMedia(), options(), ADJECTIVE_SENTENCES, ANTONYM_PAIRS, approvedAudio(), baseQuestion(), counts, duplicateIds (+47 more)
+Cohesion: 0.05
+Nodes (76): dependencies, canvas-confetti, cors, dotenv, exceljs, express, framer-motion, jszip (+68 more)
 
 ### Community 106 - "auditInitialSoundsMedia.js"
 Cohesion: 0.05
-Nodes (47): normalizeInitialSoundWord(), activeInitialSoundItems, activeMissingAudioItems, activeMissingImageItems, analysis, blockedInitialSoundItems, blockedRows, completeItems (+39 more)
+Nodes (46): activeInitialSoundItems, activeMissingAudioItems, activeMissingImageItems, analysis, blockedInitialSoundItems, blockedRows, completeItems, copyZipEntryIfNeeded() (+38 more)
 
 ### Community 107 - "consolidateLocalAssets.js"
-Cohesion: 0.14
-Nodes (25): archiveExts, audioExts, cleanFilename(), cleanNamePart(), csvEscape(), destinationSubdir(), destRoot, docExts (+17 more)
+Cohesion: 0.07
+Nodes (35): RGBColor, buildCycleOneSlides(), countInteractiveSlides(), cycleOneLessonDecks, LEARN_DECK_INTERACTIVE_TYPES, learnDecks, pad(), chunk() (+27 more)
 
 ### Community 108 - "auditAssessmentSkillIntegrity.js"
 Cohesion: 0.11
-Nodes (49): CONDITIONAL_TEXT_TILE_FORMATS, getAssessmentChoiceLabels(), hasOptionImageChoiceLeak(), IMAGE_CHOICE_FORMATS, isCompactLetterPattern(), isGraphemeChoiceQuestion(), isImageChoiceQuestion(), isShortGraphemeLabel() (+41 more)
+Nodes (50): CONDITIONAL_TEXT_TILE_FORMATS, getAssessmentChoiceLabels(), hasOptionImageChoiceLeak(), IMAGE_CHOICE_FORMATS, isCompactLetterPattern(), isGraphemeChoiceQuestion(), isImageChoiceQuestion(), isShortGraphemeLabel() (+42 more)
 
 ### Community 109 - "auditKimiVocabularyMediaImport.js"
 Cohesion: 0.07
-Nodes (45): ABSTRACT_OR_SPATIAL, ACTION_WORDS, applyImport, audioPreferences, categoryForWord(), cleanByWord, cleanPlan, compactWord() (+37 more)
+Nodes (47): inferFinalSound(), inferRime(), ABSTRACT_OR_SPATIAL, ACTION_WORDS, applyImport, audioPreferences, categoryForWord(), cleanByWord (+39 more)
 
 ### Community 110 - "AdminDashboardPage.jsx"
 Cohesion: 0.07
-Nodes (37): AdminDashboardPage(), buildGuidedImageQaRecords(), buildReleaseReadinessModel(), ClassReportPage(), csvEscape(), downloadTextFile(), FormalClassReportDocument(), formatClassReportDate() (+29 more)
+Nodes (37): getGuidedReadingStorageKey(), AdminDashboardPage(), buildGuidedImageQaRecords(), buildReleaseReadinessModel(), ClassReportPage(), csvEscape(), downloadTextFile(), FormalClassReportDocument() (+29 more)
 
 ### Community 111 - "word"
-Cohesion: 0.21
-Nodes (28): createRecord(), EARLY_ASSESSMENT_SKILLS, getAssessmentMediaRegistry(), getPhonicsPatternTags(), getWordRime(), HFW_BANDS, imageRoleForKimiHighQualityTask(), inferAudioType() (+20 more)
+Cohesion: 0.22
+Nodes (26): createRecord(), EARLY_ASSESSMENT_SKILLS, getAssessmentMediaRegistry(), getPhonicsPatternTags(), getWordRime(), HFW_BANDS, imageRoleForKimiHighQualityTask(), inferAudioType() (+18 more)
 
 ### Community 112 - "exportElAssessmentExcel.js"
 Cohesion: 0.14
 Nodes (23): prepositionClozeScenes, sceneForPrepositionQuestion(), assertLanguageQuality(), assetFor(), __dirname, FALLBACK_ADJECTIVE_ROWS, FALLBACK_NOUN_ROWS, FALLBACK_VERB_ROWS (+15 more)
 
 ### Community 113 - "checkHfwTrueVariation.js"
-Cohesion: 0.26
-Nodes (18): allowsPendingTargetAudio(), answerInChoices(), approvedTargetAudio(), cardAudioPath(), choices(), compactTemplateType(), correctAnswerCount(), fieldValue() (+10 more)
+Cohesion: 0.10
+Nodes (29): adjectiveItems, advancedPassageSets, advancedPhonics8, finalSoundItems, makeComprehensionQuestions(), makeFinalSoundQuestion(), morphologyItems8, pluralItems8 (+21 more)
 
 ### Community 114 - "checkEarlyPhonicsValidity.js"
-Cohesion: 0.10
-Nodes (49): activeGalleryAnswer(), BEAT_LANES, beatLanePoint(), clamp(), CONFIG, cutRect(), drawBeat(), drawBeatBackdrop() (+41 more)
+Cohesion: 0.11
+Nodes (46): activeGalleryAnswer(), BEAT_LANES, beatLanePoint(), clamp(), CONFIG, cutRect(), drawBeat(), drawBeatBackdrop() (+38 more)
 
 ### Community 115 - "instructional_standards.md"
 Cohesion: 0.04
 Nodes (44): 10. Telemetry, 1. A teacher/parent view of the mastery gate — *the single highest-value thing on this list*, 2. Turn the DOM encounters into a real 2D fallback mode, 3. Re-connect `RewardScreen` and `TrailMap`, 4. A real correction loop, 5. Voice the UI, 6. Bridge the two mastery models, 7. Ship the fluency mechanic (+36 more)
 
 ### Community 116 - "FinishedReportPage.jsx"
-Cohesion: 0.05
-Nodes (64): AllSkillsBarChart(), AREA_ORDER, buildElAssessmentCards(), CheckpointAttemptReview(), ChipTextList(), clampPercent(), ElAssessmentSection(), ElSkillSummary() (+56 more)
+Cohesion: 0.06
+Nodes (55): AllSkillsBarChart(), AREA_ORDER, buildElAssessmentCards(), CheckpointAttemptReview(), ChipTextList(), clampPercent(), ElAssessmentSection(), ElSkillSummary() (+47 more)
 
 ### Community 117 - "checkAssessmentPreloadCoverage.js"
 Cohesion: 0.06
@@ -1580,11 +1568,11 @@ Nodes (52): addSrc(), audioPreloadCache, collectMediaFromValue(), collectQuestio
 
 ### Community 118 - "generateEarlySkillQuestions.js"
 Cohesion: 0.12
-Nodes (42): level(), audioStemMatchesWord(), balancedCvcOptions(), balancedRhymeOptions(), balancedWordOptions(), buildGeneratedQuestions(), byRotatingIndex(), CURATED_SVD_KEYS (+34 more)
+Nodes (41): audioStemMatchesWord(), balancedCvcOptions(), balancedRhymeOptions(), balancedWordOptions(), buildGeneratedQuestions(), byRotatingIndex(), CURATED_SVD_KEYS, __dirname (+33 more)
 
 ### Community 119 - "dependencies"
-Cohesion: 0.28
-Nodes (15): HfwQuestionImageQaPage(), canUseLocalStorage(), findHfwQuestionImageReview(), getHfwQuestionId(), getHfwQuestionImagePairKey(), getHfwQuestionImagePath(), HFW_QUESTION_IMAGE_QA_STATUSES, HFW_QUESTION_IMAGE_REJECTION_REASONS (+7 more)
+Cohesion: 0.06
+Nodes (43): LetterWriter(), LETTER_EXAMPLES, CVC_WORDS, GAME_ACCENTS, MAGIC_E_FAMILIES, RHYMING_PAIRS, SENTENCE_FIX, SENTENCES (+35 more)
 
 ### Community 120 - "utils.ts"
 Cohesion: 0.04
@@ -1595,20 +1583,20 @@ Cohesion: 0.06
 Nodes (40): Sheet(), SheetContent(), SheetDescription(), SheetFooter(), SheetHeader(), SheetOverlay(), SheetTitle(), Sidebar() (+32 more)
 
 ### Community 122 - "learnGamesData.js"
-Cohesion: 0.17
-Nodes (15): answerValue(), buildReviewItem(), byArea, decisionById, decisions, hfwSkillIds, imageFrom(), items (+7 more)
+Cohesion: 0.15
+Nodes (16): storyQuests, answerValue(), buildReviewItem(), byArea, decisionById, decisions, hfwSkillIds, imageFrom() (+8 more)
 
 ### Community 123 - "checkFinalSoundsLevel1ProgressionDepth.js"
 Cohesion: 0.07
 Nodes (43): finalSoundLevelOneAllowedItemKeys, buildFinalSoundAvailabilitySummary(), buildFinalSoundAvailableWordMap(), evaluateFinalSoundLevelOneMasteryDepth(), FINAL_SOUND_LEVEL_ONE_REQUIRED_CONTENT_WORDS_BY_SOUND, finalSoundLevelOneTargets, getFinalSoundLevelOneRequiredContentWords(), getFinalSoundTargetFromEvidence() (+35 more)
 
 ### Community 124 - "checkHfwRuntimeSmoke.js"
-Cohesion: 0.07
-Nodes (50): CreatureCreator(), PART_TABS, CreatureFigure(), Shape(), TABS, TradingPost(), artFor(), BODY_ART (+42 more)
+Cohesion: 0.06
+Nodes (61): CreatureCreator(), PART_TABS, CreatureFigure(), Shape(), artFor(), BODY_ART, CREATURE_ART, CREST_ART (+53 more)
 
 ### Community 125 - "isRuntimeEligibleEarlySkillQuestion.js"
 Cohesion: 0.08
-Nodes (57): isFinalSoundsLevel1Question(), addCvcShortVowelIssues(), addFinalSoundsLevelOneIssues(), addShortVowelDiscriminationIssues(), EARLY_SKILL_IDS, FINAL_SOUNDS_LEVEL_ONE_ALLOWED, FINAL_SOUNDS_LEVEL_ONE_FORBIDDEN, getAnswerOptions() (+49 more)
+Nodes (59): isFinalSoundsLevel1Question(), addCvcShortVowelIssues(), addFinalSoundsLevelOneIssues(), addShortVowelDiscriminationIssues(), EARLY_SKILL_IDS, FINAL_SOUNDS_LEVEL_ONE_ALLOWED, FINAL_SOUNDS_LEVEL_ONE_FORBIDDEN, getAnswerOptions() (+51 more)
 
 ### Community 126 - "auditNewMediaReachability.js"
 Cohesion: 0.04
@@ -1620,19 +1608,19 @@ Nodes (41): activeLevelOneItems, ADVANCED_LEVEL_ONE_BLOCKLIST, ADVANCED_WORD_BLO
 
 ### Community 128 - "progress.ts"
 Cohesion: 0.08
-Nodes (25): App(), Footer(), FooterProps, GameOverlay(), GameOverlayProps, HeroWave, HeroWaveProps, Layout() (+17 more)
+Nodes (26): App(), Footer(), FooterProps, GameOverlay(), GameOverlayProps, HeroWave, HeroWaveProps, Layout() (+18 more)
 
 ### Community 129 - "worksheetBuilder.js"
-Cohesion: 0.10
-Nodes (39): TYPE_LABEL, WorksheetGeneratorPage(), packStopOptions(), deleteWorksheetRecipe(), listWorksheetRecipes(), saveWorksheetRecipe(), availableWorksheetTypes(), buildWorksheetDocument() (+31 more)
+Cohesion: 0.09
+Nodes (42): TYPE_LABEL, WorksheetGeneratorPage(), EL_CYCLE_POEMS, packStopOptions(), deleteWorksheetRecipe(), listWorksheetRecipes(), saveWorksheetRecipe(), availableWorksheetTypes() (+34 more)
 
 ### Community 130 - "initialSoundWordBank.js"
 Cohesion: 0.07
-Nodes (35): getInitialSoundCoverage(), getInitialSoundCoverageWarnings(), blockedInitialSoundTargets, countSyllables(), distractorLettersFor(), getInitialSoundItemsByLevel(), INITIAL_SOUND_LETTERS, initialSoundBankSummary (+27 more)
+Nodes (36): getInitialSoundCoverage(), getInitialSoundCoverageWarnings(), blockedInitialSoundTargets, countSyllables(), distractorLettersFor(), INITIAL_SOUND_LETTERS, initialSoundBankSummary, initialSoundCoreWords (+28 more)
 
 ### Community 131 - "earlyPhonicsValidation.js"
-Cohesion: 0.27
-Nodes (19): createEmptyEntry(), BOSSY_R, COMMON_FINAL_PATTERNS, COMMON_INITIAL_BLENDS, COMMON_INITIAL_DIGRAPHS, DIPHTHONGS, inferFinalSound(), inferInitialSound() (+11 more)
+Cohesion: 0.09
+Nodes (12): byArea, columns, IMAGE_EXTENSIONS, images, outputCsvPath, outputJsonPath, outputMdPath, publicRoot (+4 more)
 
 ### Community 132 - "guidedReadingBooks.js"
 Cohesion: 0.07
@@ -1643,36 +1631,36 @@ Cohesion: 0.09
 Nodes (35): addDetail(), ADVANCED_PHONICS_PATTERNS, buildClassElFormalAssessmentReport(), buildIndividualElFormalAssessmentReport(), countCellByStudent(), finalizeCell(), formatDate(), getClassId() (+27 more)
 
 ### Community 134 - "guidedReadingBooks"
-Cohesion: 0.05
-Nodes (40): guidedReadingBooks, buildTitlePage(), fallbackAuthors, fallbackIllustrators, getGuidedReadingCredits(), getReadableBookStatus(), getStableNameIndex(), normalizePage() (+32 more)
+Cohesion: 0.07
+Nodes (35): guidedReadingBooks, buildTitlePage(), fallbackAuthors, fallbackIllustrators, getGuidedReadingCredits(), getReadableBookStatus(), getStableNameIndex(), normalizePage() (+27 more)
 
 ### Community 135 - "checkK3WordBankMediaCoverage.js"
 Cohesion: 0.10
 Nodes (37): addExistingPath(), AUDIO_EXTENSIONS, audioManifestIndex, audioPrompt(), buildAudioManifestIndex(), buildReport(), buildRequestCsv(), buildRequestMarkdown() (+29 more)
 
 ### Community 136 - "auditAssessmentAudio.js"
-Cohesion: 0.09
-Nodes (38): audioPreferenceManifest, ASSESSMENT_AUDIO_STANDARD, classifyAssessmentAudioPath(), normalizeAssessmentAudioText(), REPLACEMENT_VOICE_INSTRUCTIONS, replacementInstructionForAudio(), AUDIO_EXTENSIONS, audioMetadata() (+30 more)
+Cohesion: 0.10
+Nodes (37): ASSESSMENT_AUDIO_STANDARD, classifyAssessmentAudioPath(), normalizeAssessmentAudioText(), REPLACEMENT_VOICE_INSTRUCTIONS, replacementInstructionForAudio(), AUDIO_EXTENSIONS, audioMetadata(), baselineCandidateFromPreference() (+29 more)
 
 ### Community 137 - "studentDetailedReportBuilder.js"
 Cohesion: 0.10
-Nodes (37): getGuidedReadingWordStatusRows(), aggregateAttempts(), buildClassRecommendations(), buildGrowth(), buildGuidedReadingSection(), buildIndividualStudentDetailedReport(), buildRecommendations(), buildWholeClassDetailedReport() (+29 more)
+Nodes (38): getGuidedReadingWordStatusRows(), aggregateAttempts(), buildClassRecommendations(), buildGrowth(), buildGuidedReadingSection(), buildIndividualStudentDetailedReport(), buildRecommendations(), buildWholeClassDetailedReport() (+30 more)
 
 ### Community 138 - "checkHfwDistractorAmbiguity.js"
-Cohesion: 0.17
-Nodes (22): buildCanonicalPosMap(), buildKimiRequest(), buildReport(), candidateImagePathsForValue(), choiceValue(), collectGrammarRecords(), existingFilePaths(), POS_SKILLS (+14 more)
+Cohesion: 0.16
+Nodes (23): buildCanonicalPosMap(), buildKimiRequest(), buildReport(), candidateImagePathsForValue(), choiceValue(), collectGrammarRecords(), existingFilePaths(), POS_SKILLS (+15 more)
 
 ### Community 139 - "auditAllSkillLevelsAndMedia.js"
-Cohesion: 0.08
-Nodes (38): assessPhaseReadiness(), assetsDir, buildFinalSoundsSpecialAudit(), countBy(), earlySkillIds, finalSoundsSpecial, getAnswerOptions(), getQuestionLevel() (+30 more)
+Cohesion: 0.06
+Nodes (65): managedAssessmentSkillDepthConfig, SKILL_LEVEL_DEPTH_TARGETS, getQuestionText(), isListenPrompt(), assessPhaseReadiness(), assetsDir, buildFinalSoundsSpecialAudit(), countBy() (+57 more)
 
 ### Community 140 - "checkRepoHygiene.js"
 Cohesion: 0.09
 Nodes (53): ACTIVE_REQUEST_PATTERNS, addFinding(), ALLOWED_NEW_REQUEST_DOCS, BACKUP_EXTENSIONS, basename(), collectGitContext(), collectLargeFiles(), collectStaticImports() (+45 more)
 
 ### Community 141 - "GamePlayer.jsx"
-Cohesion: 0.12
-Nodes (40): activeGalleryAnswer(), BEAT_LANES, beatLanePoint(), clamp(), CONFIG, cutRect(), drawBeat(), drawBeatBackdrop() (+32 more)
+Cohesion: 0.15
+Nodes (34): activeGalleryAnswer(), BEAT_LANES, beatLanePoint(), clamp(), CONFIG, cutRect(), drawBeat(), drawBeatBackdrop() (+26 more)
 
 ### Community 142 - "auditImageQuality.js"
 Cohesion: 0.05
@@ -1680,19 +1668,19 @@ Nodes (32): activeExcludedWordRows, activeImageRows, activeItems, activeKnownUns
 
 ### Community 143 - "auditGuidedReadingWholeBookAudio.js"
 Cohesion: 0.11
-Nodes (33): getGuidedReadingBookAudioPath(), getGuidedReadingPageAudioPath(), getGuidedReadingReadAloudState(), getReadAloudMode(), guidedReadingReadAloudPolicy, bookRows(), buildEstimatedPageTimings(), countWords() (+25 more)
+Nodes (33): getGuidedReadingBookAudioPath(), getGuidedReadingBookSyncPath(), getGuidedReadingPageAudioPath(), getGuidedReadingReadAloudState(), getReadAloudMode(), guidedReadingReadAloudPolicy, bookRows(), buildEstimatedPageTimings() (+25 more)
 
 ### Community 144 - "Runtime Content Coverage Audit"
-Cohesion: 0.21
-Nodes (42): chapterVerbForSection(), chapterVerbRecipe(), balancedSortItems(), beatAnswers(), beatChoices(), buildChapterAuthoredTask(), buildPhysicalTask(), buildSeedwakeTask() (+34 more)
+Cohesion: 0.18
+Nodes (45): CHAPTER_VERB_RECIPES, chapterVerbForSection(), chapterVerbRecipe(), balancedSortItems(), beatAnswers(), beatChoices(), buildChapterAuthoredTask(), buildPhysicalTask() (+37 more)
 
 ### Community 145 - "Skill Coverage Details"
 Cohesion: 0.14
 Nodes (13): canRunWithoutImage(), hfwSkillIds, kimiCsv, kimiMd, kimiRows, markdownEscape(), markdownTable(), outJson (+5 more)
 
 ### Community 146 - "ElSkillsQuest.jsx"
-Cohesion: 0.15
-Nodes (20): buildAll(), MapStopEditor(), buildRoutePath(), ElSkillsQuest(), loadQuestProgress(), MAP_VIEW, playCue(), WORLD_MAP_POINTS (+12 more)
+Cohesion: 0.11
+Nodes (25): buildAll(), MapStopEditor(), buildRoutePath(), ElSkillsQuest(), loadQuestProgress(), MAP_VIEW, PictureChoice(), playCue() (+17 more)
 
 ### Community 147 - "assessmentHistoryStore.js"
 Cohesion: 0.11
@@ -1700,15 +1688,15 @@ Nodes (36): TeacherReportsPage(), GrowthSection(), buildAssessmentAttemptRecord(
 
 ### Community 148 - "skillLevelDepthShared.js"
 Cohesion: 0.10
-Nodes (58): QuestHeatPanel(), blendsThrough(), heartWordsThrough(), taughtThrough(), wordsThrough(), blendsIn(), buildAudibleLetterRound(), buildEncounter() (+50 more)
+Nodes (59): QuestHeatPanel(), blendsThrough(), heartWordsThrough(), taughtThrough(), wordsThrough(), blendsIn(), buildAudibleLetterRound(), buildEncounter() (+51 more)
 
 ### Community 149 - "elAssessmentReportStore.js"
 Cohesion: 0.16
 Nodes (34): average(), buildAdvancedPhonicsSummary(), buildAttemptRows(), buildClassElAssessmentReportData(), buildClassSkillRows(), buildDateRange(), buildGuidedReadingExportSection(), buildHeatmapRows() (+26 more)
 
 ### Community 150 - "reportingSystem.js"
-Cohesion: 0.14
-Nodes (33): average(), buildClassReportModel(), buildRecommendations(), buildStudentReportModel(), buildWeeklyAccuracy(), clampPercent(), CLASS_REPORT_GROUP_STYLES, CLASS_REPORT_SKILL_ALIASES (+25 more)
+Cohesion: 0.13
+Nodes (36): average(), buildClassReportModel(), buildRecommendations(), buildStudentReportModel(), buildWeeklyAccuracy(), clampPercent(), CLASS_REPORT_GROUP_STYLES, CLASS_REPORT_SKILL_ALIASES (+28 more)
 
 ### Community 151 - "Full Question Bank Audit"
 Cohesion: 0.13
@@ -1723,24 +1711,24 @@ Cohesion: 0.13
 Nodes (14): cvc_short_vowels, Early Skill Runtime Eligibility Audit, final_sounds, initial_sounds, Level 1, Level 1, Level 1, Level 1 (+6 more)
 
 ### Community 154 - "StudentLoginFlow.jsx"
-Cohesion: 0.24
-Nodes (9): normalizeSpeechText(), prepareNaturalSpeechText(), PRONUNCIATION_MAP, teacherAssessmentAudioPolicy, speakLine(), speakFallback(), getPreferredVoice(), scoreVoice() (+1 more)
+Cohesion: 0.12
+Nodes (14): normalizeSpeechText(), prepareNaturalSpeechText(), PRONUNCIATION_MAP, teacherAssessmentAudioPolicy, getProgressStep(), speakLine(), STEP_ITEMS, StepProgress() (+6 more)
 
 ### Community 155 - "getChildWordAsset"
 Cohesion: 0.13
 Nodes (14): cvc_short_vowels, Early Skill Runtime Eligibility Audit, final_sounds, initial_sounds, Level 1, Level 1, Level 1, Level 1 (+6 more)
 
 ### Community 156 - "elSkillsBlockCycles.js"
-Cohesion: 0.11
-Nodes (33): applyCardDetails(), applyPriorityCycleContent(), buildCycle(), buildSections(), CYCLE_SEEDS, DEFAULT_DAYS, EL_LEARN_SECTION_LABELS, FORMATION (+25 more)
+Cohesion: 0.07
+Nodes (46): applyCardDetails(), applyPriorityCycleContent(), buildCycle(), buildSections(), CYCLE_SEEDS, DEFAULT_DAYS, EL_LEARN_SECTION_IDS, EL_LEARN_SECTION_LABELS (+38 more)
 
 ### Community 157 - "CVCTrain.tsx"
-Cohesion: 0.11
-Nodes (28): ConfettiCelebration(), ConfettiCelebrationProps, BlendAndBuild(), FAMILY_KEYS_EASY, FAMILY_KEYS_HARD, FAMILY_KEYS_MEDIUM, getOnset(), getRimeKey() (+20 more)
+Cohesion: 0.13
+Nodes (29): BlendAndBuild(), FAMILY_KEYS_EASY, FAMILY_KEYS_HARD, FAMILY_KEYS_MEDIUM, getOnset(), getRimeKey(), WORD_EMOJIS, CarriageSlot (+21 more)
 
 ### Community 158 - "mediaResolver.js"
 Cohesion: 0.05
-Nodes (39): assets, avatar, chapterMechanics, component, fallback, packageJson, performance, performanceResidentDirectories (+31 more)
+Nodes (41): assets, avatar, chapterMechanics, component, fallback, generatedMaps, packageJson, performance (+33 more)
 
 ### Community 159 - "dataSourceAuditUtils.js"
 Cohesion: 0.06
@@ -1759,8 +1747,8 @@ Cohesion: 0.14
 Nodes (14): 2. THE COMBINATORIAL VARIATION ENGINE, Background Character, Background Mode (per-section), Composition Anchor (per-section), CTA Variation, Hero Architecture, Hero Scale (per-page), Motion-Implied Language (+6 more)
 
 ### Community 163 - "mediaQaManifest.js"
-Cohesion: 0.17
-Nodes (11): AdventureGame(), ConfettiCelebration(), adventureStars(), buildGardenRounds(), buildRescueRounds(), buildSortRounds(), cleanPool(), GARDEN_FLOWERS (+3 more)
+Cohesion: 0.08
+Nodes (60): TABS, TradingPost(), CREATURE_GEAR, ENCOUNTERS, BLEND_RULES, countMastered(), dayOf(), emptyRecord() (+52 more)
 
 ### Community 164 - "checkRepeatSelection.js"
 Cohesion: 0.14
@@ -1776,11 +1764,11 @@ Nodes (20): conflictRows, conflicts, __dirname, duplicateSourceNames, failures, 
 
 ### Community 167 - "assessmentContentValidation.js"
 Cohesion: 0.08
-Nodes (33): App(), buildQuestionBankCoverage(), calculateWeaknessSnapshot(), isInvalidRefreshTokenError(), FOCUSED_ASSESSMENT_VIEWS, FOOTER_HIDDEN_VIEWS, getPersistedAppView(), getRestoredAppView() (+25 more)
+Nodes (32): App(), buildQuestionBankCoverage(), calculateWeaknessSnapshot(), isInvalidRefreshTokenError(), FOCUSED_ASSESSMENT_VIEWS, FOOTER_HIDDEN_VIEWS, getPersistedAppView(), getRestoredAppView() (+24 more)
 
 ### Community 168 - "cvcHelpers.js"
-Cohesion: 0.04
-Nodes (67): HFW_ZERO_TOLERANCE_FILLER_PHRASES, AMBIGUOUS_ARTICLE_CHOICE_PAIRS, approvedQuestionId(), approvedTextKey(), getApprovedSourceIssues(), getFormat(), getHfwRuntimeEligibilityIssues(), getOptionValues() (+59 more)
+Cohesion: 0.09
+Nodes (16): acceptedTemplates, activeItems, allItems, byLevel, byTemplate, __dirname, duplicateSignatures, failures (+8 more)
 
 ### Community 169 - "ixlStyleSeedQuestions.js"
 Cohesion: 0.07
@@ -1791,16 +1779,16 @@ Cohesion: 0.06
 Nodes (24): allFiles, approvedWords, AUDIO_EXTENSIONS, bySkill, currentUsage, docsDir, expansionCandidates, expansionPlanRows (+16 more)
 
 ### Community 171 - "gameData.ts"
-Cohesion: 0.08
-Nodes (27): CloudDecoration, CloudDecorationProps, GameCard(), GameCardProps, ProgressStars(), ProgressStarsProps, StarIcon, StarIconProps (+19 more)
+Cohesion: 0.11
+Nodes (23): CloudDecoration, CloudDecorationProps, GameCard(), GameCardProps, ProgressStars(), ProgressStarsProps, StarIcon, StarIconProps (+15 more)
 
 ### Community 172 - "checkAssessmentSkillBankLoader.js"
 Cohesion: 0.11
 Nodes (27): challengeSettings(), CONFIG, CREATURE_COLORS, critterCenter(), critterLabels(), DIFFICULTY_RANK, difficultyRank(), drawCreatureBody() (+19 more)
 
 ### Community 173 - "checkRuntimeUsesOnlyApprovedSources.js"
-Cohesion: 0.13
-Nodes (30): ARCADE_GAMES, DIFFICULTIES, GameArcadeHub(), PRACTICE_GAMES, TABS, GamePlayer(), SoundToggle(), cancelGameSfx() (+22 more)
+Cohesion: 0.14
+Nodes (28): ARCADE_GAMES, DIFFICULTIES, GameArcadeHub(), PRACTICE_GAMES, TABS, GamePlayer(), SoundToggle(), GAME_LIST (+20 more)
 
 ### Community 174 - "auditApprovedHfwMediaCoverage.js"
 Cohesion: 0.07
@@ -1808,31 +1796,31 @@ Nodes (27): allowedPolicies, bySkill, byTarget, csvRows, embeddedTextRows, escap
 
 ### Community 175 - "checkInitialSoundProgression.js"
 Cohesion: 0.07
-Nodes (28): coreWord(), coreWordStatus(), coverageRows, coveredL1, coveredL2, __dirname, duplicateValues(), failures (+20 more)
+Nodes (30): completeLetters(), coreWord(), coreWordStatus(), coverageRows, coveredL1, coveredL2, __dirname, duplicateValues() (+22 more)
 
 ### Community 176 - "importPublicWordAudioPilot.js"
 Cohesion: 0.14
 Nodes (14): A/a, Beat Builder, Call and Response, Child Goal, Cycle 1: Meet A and M, Focus, Games, HFW Cards (+6 more)
 
 ### Community 177 - "GuidedReadingPage.jsx"
-Cohesion: 0.14
-Nodes (26): buildWholeBookPageCues(), countReadingWordsForSync(), fetchWholeBookSyncData(), getGuidedBookCover(), getGuidedReadingLevelBooks(), getGuidedReadingTypeStats(), getRuntimeGuidedReadingBooks(), GuidedBookCover() (+18 more)
+Cohesion: 0.16
+Nodes (24): buildWholeBookPageCues(), countReadingWordsForSync(), fetchWholeBookSyncData(), getGuidedBookCover(), getGuidedReadingLevelBooks(), getGuidedReadingTypeStats(), getRuntimeGuidedReadingBooks(), GuidedBookCover() (+16 more)
 
 ### Community 178 - "Skill Bank Master Audit"
 Cohesion: 0.14
 Nodes (14): A/a, Beat Builder, Call and Response, Child Goal, Cycle 1: Meet A and M, Focus, Games, HFW Cards (+6 more)
 
 ### Community 179 - "masterWordLexicon.js"
-Cohesion: 0.25
-Nodes (19): applyQuestionFormatMetadata(), FORMAT_TYPES, getAllowedQuestionFormatValues(), getQuestionFormatMetadata(), getQuestionText(), getSkillText(), hasPatternTrap(), inferFormatType() (+11 more)
+Cohesion: 0.11
+Nodes (35): applyQuestionFormatMetadata(), FORMAT_TYPES, getAllowedQuestionFormatValues(), getQuestionFormatMetadata(), getQuestionText(), getSkillText(), hasPatternTrap(), inferFormatType() (+27 more)
 
 ### Community 180 - "checkMediaOverwriteRisk.js"
 Cohesion: 0.15
 Nodes (27): collectChangedPaths(), __dirname, ensureReportDirectory(), escapeMarkdown(), getExtension(), IMAGE_ROOTS, isLiveImagePath(), isLiveMediaPath() (+19 more)
 
 ### Community 181 - "validateKimiDataset7.js"
-Cohesion: 0.09
-Nodes (41): ONSET_DIGRAPHS, onsetGrapheme(), sharesSound(), difficultyCount(), startGame(), mapForLevel(), startGame(), LANES (+33 more)
+Cohesion: 0.05
+Nodes (62): ONSET_DIGRAPHS, onsetGrapheme(), sharesSound(), difficultyCount(), LANES, loadThree(), RocketRunGame(), ROUND_THEMES (+54 more)
 
 ### Community 182 - "Kimi Image Request — Replace 25 book page sets (embedded gibberish text fix)"
 Cohesion: 0.14
@@ -1843,12 +1831,12 @@ Cohesion: 0.11
 Nodes (19): AlertDialogAction(), AlertDialogCancel(), AlertDialogContent(), AlertDialogDescription(), AlertDialogFooter(), AlertDialogHeader(), AlertDialogOverlay(), AlertDialogTitle() (+11 more)
 
 ### Community 184 - "initialSoundSelector.js"
-Cohesion: 0.18
-Nodes (23): buildInitialSoundsProgressFromAnswerHistory(), emptyLevelProgress(), getInitialSoundRound(), getInitialSoundRoundPlan(), getProgressSets(), inferRoundPhase(), itemsForLetter(), levelKey() (+15 more)
+Cohesion: 0.08
+Nodes (40): BLOCKED_QA_STATUSES, getInitialSoundMediaEligibility(), isInitialSoundRuntimeEligible(), hasImportedInitialSoundImage(), buildInitialSoundsProgressFromAnswerHistory(), emptyLevelProgress(), getInitialSoundRound(), getInitialSoundRoundPlan() (+32 more)
 
 ### Community 185 - "generateSkillLevelGapQuestions.js"
-Cohesion: 0.05
-Nodes (96): rhymingLevelTwoExpectedItemKeys, managedAssessmentSkillDepthById, managedAssessmentSkillDepthConfig, SKILL_LEVEL_DEPTH_TARGETS, APPROVED_SIGHT_WORDS, phaseSummary(), audits, gapSections (+88 more)
+Cohesion: 0.07
+Nodes (67): kimiVocabulary500Lexicon, kimiVocabulary500LexiconByWord, APPROVED_SIGHT_WORDS, ANTONYM_SYNONYM, baseQuestion(), buildHigherStoryQuestion(), buildSentenceComprehensionStory(), byWord() (+59 more)
 
 ### Community 186 - "checkAssessmentActiveMediaSizes.js"
 Cohesion: 0.14
@@ -1859,8 +1847,8 @@ Cohesion: 0.10
 Nodes (22): AUDIO_EXTENSIONS, byType, failures, files, findings, IMAGE_EXTENSIONS, isGuidedReadingCover(), isGuidedReadingImage() (+14 more)
 
 ### Community 188 - "importSkillMediaPack.js"
-Cohesion: 0.04
-Nodes (84): PictureChoice(), getApprovedAudioPath(), getChildAudioPath(), getChildWordAsset(), normalizeAssetKey(), blendsFormatExpansionQuestions, blendTargets, comprehensionParagraphExpansionQuestions (+76 more)
+Cohesion: 0.03
+Nodes (98): getApprovedAudioPath(), CHILD_ACTIVITY_FORMATS, childImageAssets, introQuestions, masteryPrepQuestions, mixedPracticeQuestions, practiceQuestions, shortAEchoCavesQuestions (+90 more)
 
 ### Community 189 - "GAME 2 — SOUND RACER (working title)"
 Cohesion: 0.14
@@ -1876,7 +1864,7 @@ Nodes (25): auditJsonPath, auditPath, classify(), collectReferences(), contactSh
 
 ### Community 192 - "checkAssessmentQuestionIntegrity.js"
 Cohesion: 0.06
-Nodes (56): audioIssue(), BLEND_PATTERNS, choices(), containsPattern(), countMatchingChoices(), DIGRAPH_PATTERNS, expectedTarget(), finalUnit() (+48 more)
+Nodes (57): audioIssue(), BLEND_PATTERNS, choices(), containsPattern(), countMatchingChoices(), DIGRAPH_PATTERNS, expectedTarget(), finalUnit() (+49 more)
 
 ### Community 193 - "checkMediaQualityManifest.js"
 Cohesion: 0.08
@@ -1896,27 +1884,27 @@ Nodes (13): Deck Metadata, Folder Structure, Optional App Games, PPTX Rule, Purp
 
 ### Community 197 - "assessmentSkillMapping.js"
 Cohesion: 0.03
-Nodes (131): cvcShortVowelExpansionQuestions, cvcTargets, fixSentenceQuestions, initialSoundCoverageQuestions, finalSoundItems, kimiDataset7RuntimeQuestions, masteryCoreQuestions, masteryExtraQuestions (+123 more)
+Nodes (149): hasImportedInitialSoundMedia(), getQuestionAudioPaths(), getQuestionChoices(), getQuestionImagePaths(), getSkillBankItems(), inferFinalSoundTarget(), inferRuntimeTarget(), keepRuntimeQuestion() (+141 more)
 
 ### Community 198 - "applyQuestionBankFixWorkbook.js"
-Cohesion: 0.12
-Nodes (35): displayGrapheme(), sayGrapheme(), sayLetterName(), sayWord(), BrokenBridge(), choiceStage(), EchoCaveEnc(), FlowerPatch() (+27 more)
+Cohesion: 0.07
+Nodes (66): displayGrapheme(), sayGrapheme(), sayLetterName(), sayWord(), BrokenBridge(), choiceStage(), EchoCaveEnc(), FlowerPatch() (+58 more)
 
 ### Community 199 - "optimizeAssessmentActiveMedia.js"
 Cohesion: 0.10
 Nodes (19): backupFile(), backupRoot, candidates, canonicalSkillId(), IMAGE_EXTENSIONS, markdown, normalizeSkillId(), optimized (+11 more)
 
 ### Community 200 - "childAssets.js"
-Cohesion: 0.15
-Nodes (19): findAssessmentMediaCandidates(), ARTICLE_WORDS, audit, buildAudit(), COLLECTIONS, countBy(), DETERMINER_WORDS, duplicateRows() (+11 more)
+Cohesion: 0.16
+Nodes (18): ARTICLE_WORDS, audit, buildAudit(), COLLECTIONS, countBy(), DETERMINER_WORDS, duplicateRows(), ensureDir() (+10 more)
 
 ### Community 201 - "storyQuests.js"
-Cohesion: 0.05
-Nodes (48): activeLegacyDinoPalsStoryQuestIds, dewdropFlintLostGlowTargetWords, dinoPalsAudioPath(), dinoPalsImagePath(), dinoPalsPage(), dinoPalsStoryQuestMetadata, dinoPalsStoryQuests, dinoPalsV2MediaPendingStoryQuestDrafts (+40 more)
+Cohesion: 0.12
+Nodes (19): activeLegacyDinoPalsStoryQuestIds, dewdropFlintLostGlowTargetWords, dinoPalsAudioPath(), dinoPalsImagePath(), dinoPalsPage(), dinoPalsStoryQuestMetadata, dinoPalsStoryQuests, dinoPalsV2MediaPendingStoryQuestDrafts (+11 more)
 
 ### Community 202 - "progressSync.js"
-Cohesion: 0.22
-Nodes (23): saveQuestProgress(), applyResetTombstone(), cacheCloudRows(), clearLocalProgressForStudent(), clearProgressSyncSession(), configureProgressSync(), emitProgressSyncState(), enqueueWrite() (+15 more)
+Cohesion: 0.24
+Nodes (22): applyResetTombstone(), cacheCloudRows(), clearLocalProgressForStudent(), clearProgressSyncSession(), configureProgressSync(), emitProgressSyncState(), enqueueWrite(), entryIdentity() (+14 more)
 
 ### Community 203 - "buildImageQaContactSheets.js"
 Cohesion: 0.14
@@ -1927,20 +1915,20 @@ Cohesion: 0.14
 Nodes (13): 0.1 Separate the pure core from the impure shell (Operating Manual, Ch 2), 0.2 The React component skeleton (copy this shape verbatim), 0.3 The imperative engine returns `{ teardown, pause, resume }` (mandatory), 0.4 Register + list the game, 0.5 Reuse the shared framework — do not reinvent it, 0.6 Three.js rules (Sound Racer, if you go 3D) — these are paid-for lessons, obey them, 0. THE ARCADE-GAME CONTRACT (both games must follow this exactly), ACCEPTANCE CRITERIA (+5 more)
 
 ### Community 205 - "PhonicsLearnTab.jsx"
-Cohesion: 0.17
-Nodes (14): useCvcSoundCue(), GameArcadeHub, getInitialIsland(), PhonicsLearnTab(), loadCvcProgress(), normalizeProgressMap(), normalizeStatus(), saveCvcProgress() (+6 more)
+Cohesion: 0.12
+Nodes (20): cardVariants, containerVariants, PhonicsAlphabetPicker(), GameArcadeHub, getInitialIsland(), PhonicsLearnTab(), getAllLetters(), getAvailableLetters() (+12 more)
 
 ### Community 206 - "checkInitialSoundsMediaRegression.js"
-Cohesion: 0.11
-Nodes (18): BLOCKED_QA_STATUSES, getInitialSoundMediaEligibility(), isInitialSoundRuntimeEligible(), hasImportedInitialSoundImage(), getMediaCompleteLetters(), completeLetters(), allButUHistory, badSelected (+10 more)
+Cohesion: 0.14
+Nodes (19): buildMarkdown(), evaluateCheckpoint(), duplicateTopUpTargets(), failures, fakeOrBlockedTargets, format(), getLevel(), isAudioPromptQuestion() (+11 more)
 
 ### Community 207 - "checkFinalSoundsLevel1Purity.js"
-Cohesion: 0.10
-Nodes (35): companion, equipped, params, EMOJI, GEAR_SLOT_LABELS, HollowPage(), MARKET_SHELVES, PalFigure() (+27 more)
+Cohesion: 0.19
+Nodes (21): BEASTIES, canBuy(), CARAVANS, COIN_RATES, computeHollow(), earnedBerries(), earnedCoins(), EGG_REACHABLE_RARITIES (+13 more)
 
 ### Community 208 - "auditStoryQuestAssets.js"
-Cohesion: 0.06
-Nodes (28): CHILD_ACTIVITY_FORMATS, childImageAssets, introQuestions, masteryPrepQuestions, mixedPracticeQuestions, practiceQuestions, shortAEchoCavesQuestions, blockAssessmentImageIfNeeded() (+20 more)
+Cohesion: 0.11
+Nodes (16): buildMissingMediaRequestRows(), blockedAssessmentImagePaths, detailSections, __dirname, excludedAssessmentWords, excludedWeirdWordRows, failures, __filename (+8 more)
 
 ### Community 209 - "checkGrammarImageCoverage.js"
 Cohesion: 0.11
@@ -1951,20 +1939,20 @@ Cohesion: 0.13
 Nodes (22): AUDIO_ROOTS, audioSlug(), buildInventory(), candidateAudioPaths(), collectActiveBooks(), __dirname, ensureDir(), __filename (+14 more)
 
 ### Community 211 - "speak"
-Cohesion: 0.14
-Nodes (23): LetterTile(), LetterTileProps, sizeMap, TileState, sizeMap, stateStyles, TileState, WordTile() (+15 more)
+Cohesion: 0.16
+Nodes (18): LetterTile(), LetterTileProps, sizeMap, TileState, sizeMap, stateStyles, TileState, WordTile() (+10 more)
 
 ### Community 212 - "questionFlagStore.js"
-Cohesion: 0.22
-Nodes (17): flagTypeLabel(), QuestionFlagReviewPage(), addQuestionFlag(), canUseLocalStorage(), clearQuestionFlags(), deleteQuestionFlag(), getQuestionAnswerChoices(), getQuestionImageContexts() (+9 more)
+Cohesion: 0.21
+Nodes (18): flagTypeLabel(), QuestionFlagReviewPage(), addQuestionFlag(), canUseLocalStorage(), clearQuestionFlags(), deleteQuestionFlag(), getQuestionAnswerChoices(), getQuestionImageContexts() (+10 more)
 
 ### Community 213 - "exportGuidedReadingCompletionExcel.js"
 Cohesion: 0.14
 Nodes (13): 1a. Add a route path per world, 1b. Render an SVG route overlay inside `.sbq-mapboard`, 1c. Tween the avatar ALONG the path, 1d. Keep the avatar in view, 2a. Restructure each stop button, 2b. Marker + tooltip CSS — replace the whole `.sbq-mapboard .sbq-stop*` block, Acceptance checks, Codex prompt — Skills Quest map upgrade (path-following avatar + diegetic place markers) (+5 more)
 
 ### Community 214 - "auditAppImageInventory.js"
-Cohesion: 0.12
-Nodes (33): canonicalQuestDeviceEvidence(), canonicalValue(), captureQuestDeviceSample(), createQuestDeviceRecorder(), currentSurface(), evaluateQuestDeviceEvidence(), evidenceChecks(), finite() (+25 more)
+Cohesion: 0.06
+Nodes (55): normalizedResidentName(), QUEST_PIXEL_CHAPTER_CASTS, QUEST_PIXEL_NAMED_CASTS, QUEST_PIXEL_RESIDENT_IDLE_PATHS, QUEST_PIXEL_RESIDENT_ITEM_PATHS, QUEST_PIXEL_RESIDENT_JUMP_PATHS, QUEST_PIXEL_RESIDENT_PATHS, questPixelCeremonyCast() (+47 more)
 
 ### Community 215 - "Full Assessment Production Readiness Audit"
 Cohesion: 0.14
@@ -1972,11 +1960,11 @@ Nodes (13): ACCEPTANCE CRITERIA (all must hold), Bug 1.1 — Ghost words survive
 
 ### Community 216 - "usePhonicsAudio.js"
 Cohesion: 0.11
-Nodes (42): correctAnswerTokens(), finalSoundLevelIssues(), LEVEL_ONE_FINAL_SOUND_ALLOWED, LEVEL_ONE_FINAL_SOUND_BLOCKLIST, promptText(), validateSkillBankItem(), ALLOWED_Q_WORDS, AMBIGUOUS_FINAL_WORDS (+34 more)
+Nodes (43): correctAnswerTokens(), finalSoundLevelIssues(), LEVEL_ONE_FINAL_SOUND_ALLOWED, LEVEL_ONE_FINAL_SOUND_BLOCKLIST, promptText(), validateSkillBankItem(), ALLOWED_Q_WORDS, AMBIGUOUS_FINAL_WORDS (+35 more)
 
 ### Community 217 - "PhonicsLearningFlow.jsx"
 Cohesion: 0.09
-Nodes (59): deleteSavedElAssessmentReport(), deleteSavedElAssessmentReportsForStudent(), getSavedElAssessmentReports(), getStorageKey(), safeParse(), saveElAssessmentReport(), getSkillArea(), addRowsOrEmpty() (+51 more)
+Nodes (56): deleteSavedElAssessmentReport(), deleteSavedElAssessmentReportsForStudent(), getSavedElAssessmentReports(), getStorageKey(), safeParse(), saveElAssessmentReport(), addRowsOrEmpty(), applyFill() (+48 more)
 
 ### Community 218 - "expandSkillQuestionBank.js"
 Cohesion: 0.14
@@ -1987,12 +1975,12 @@ Cohesion: 0.12
 Nodes (20): guidedReadingBookCandidates, activeErrors, activePages, allBooksForValidation, bookResults, disabledBooks, disabledPages, forbiddenStrings (+12 more)
 
 ### Community 220 - "auditSkillQuestionDepthFromWorkbook.js"
-Cohesion: 0.13
-Nodes (28): MediaQaPage(), addDeletedMediaRecords(), deletedMediaManifest, getDeletedMediaPaths(), isGuidedReadingAssetDeleted(), isGuidedReadingBookDeleted(), isMediaDeleted(), normalizePath() (+20 more)
+Cohesion: 0.28
+Nodes (15): HfwQuestionImageQaPage(), canUseLocalStorage(), findHfwQuestionImageReview(), getHfwQuestionId(), getHfwQuestionImagePairKey(), getHfwQuestionImagePath(), HFW_QUESTION_IMAGE_QA_STATUSES, HFW_QUESTION_IMAGE_REJECTION_REASONS (+7 more)
 
 ### Community 221 - "OPUS TASK — Arcade Quality Pass: longer, harder, SNES/PS1-grade (Wipeout × Super Mario World)"
-Cohesion: 0.11
-Nodes (33): label_text(), Normalized label string — strips a trailing colon so renderers can add their own, add_md(), _box(), _cant_split(), _cell_borders(), emit_block(), _emit_callout() (+25 more)
+Cohesion: 0.10
+Nodes (32): label_text(), Normalized label string — strips a trailing colon so renderers can add their own, resolve_callout_kind(), add_md(), _cell_borders(), _content_width(), emit_block(), _emit_callout() (+24 more)
 
 ### Community 222 - "devDependencies"
 Cohesion: 0.14
@@ -2003,12 +1991,12 @@ Cohesion: 0.14
 Nodes (13): Files, Modified — existing files, New — assets (Slice 1 only), New — pure logic (no DOM, no React, all unit-tested), New — React, Order of work, and the check that closes each step, Preview harness (how you look at it without me guessing), Sound Seekers — Slice 1 build spec (+5 more)
 
 ### Community 224 - "checkSkillProgression.js"
-Cohesion: 0.09
-Nodes (25): questions, ambiguousPairs, clean(), cleanedGenerated, cleanedQuestions, containsAmbiguousPair(), isBadQuestion(), cleanedGenerated (+17 more)
+Cohesion: 0.10
+Nodes (25): activeQuestions, audioIssues(), blockedAudioCandidates, correctAnswers(), cvcRuntimeFailures, cvcSelectable, guidedReadingReplacementPath, guidedRows (+17 more)
 
 ### Community 225 - "questionFormatFramework.js"
-Cohesion: 0.26
-Nodes (11): commonFields(), curatedSentenceByTextKey, curatedSentenceFor(), hasUsableLetterTiles(), normalizeWord(), optionObjects(), outputPath, questionForApprovedRow() (+3 more)
+Cohesion: 0.12
+Nodes (26): aliasPairs, assessmentSkillAliases, BLEND_PATTERNS, classifyComprehensionQuestion(), classifyPhonicsQuestion(), classifySpellingQuestion(), DIGRAPH_PATTERNS, getAssessmentSkillLabel() (+18 more)
 
 ### Community 226 - "checkGuidedReadingExperience.js"
 Cohesion: 0.11
@@ -2016,7 +2004,7 @@ Nodes (19): allowedFictionIds, failures, fileExists(), microphaseCounts, microph
 
 ### Community 227 - "importApprovedHfwQuestionBank.js"
 Cohesion: 0.03
-Nodes (70): antonymCards, assessmentQaReplacementQuestions, pluralCards, prepositionCards, rControlledItems, vowelTeamItems, shortVowelDiscriminationPhase2Questions, byArea (+62 more)
+Nodes (75): antonymCards, assessmentQaReplacementQuestions, pluralCards, prepositionCards, rControlledItems, vowelTeamItems, shortVowelDiscriminationPhase2Questions, blockedRows (+67 more)
 
 ### Community 228 - "App State Architecture Audit"
 Cohesion: 0.14
@@ -2031,36 +2019,36 @@ Cohesion: 0.14
 Nodes (13): Coverage Targets, Coverage Targets, Coverage Targets, Coverage Targets, cvc_short_vowels, final_sounds, Generated Early Skill Question Bank, rhyming (+5 more)
 
 ### Community 231 - "components.json"
-Cohesion: 0.17
-Nodes (23): BLEND_RULES, dayOf(), emptyRecord(), isMastered(), MASTERY_RULES, masteryState(), meetsMasteryBar(), nextState() (+15 more)
+Cohesion: 0.15
+Nodes (11): audit, auditJsonPath, auditMdPath, blocklistPath, headers, repoRoot, rows, sheet (+3 more)
 
 ### Community 232 - "field.tsx"
 Cohesion: 0.13
 Nodes (16): ButtonGroup(), ButtonGroupSeparator(), ButtonGroupText(), buttonGroupVariants, Field(), FieldContent(), FieldDescription(), FieldError() (+8 more)
 
 ### Community 233 - "auditSkillBanks.js"
-Cohesion: 0.06
-Nodes (56): LetterLeapGame(), startGame(), WORLD_THEME, LANES, loadThree(), RocketRunGame(), ROUND_THEMES, statusStyle (+48 more)
+Cohesion: 0.25
+Nodes (7): makeTasks(), RhymePopArcadeGame(), startRhymePopArcadeGame(), taskUnits(), totalUnits(), RhymePopGame(), startSoundBeatMusic()
 
 ### Community 234 - "templateValidationRules.js"
 Cohesion: 0.14
 Nodes (13): 2a. Committed graphify churn — 93 MB, 2b. macOS " 2" duplicate files — 183 files, 122 MB, 2c. `LP Assets/` — 878 MB, gitignored local staging, 3a. Truly dead — nothing anywhere imports them (21 files, ~190 KB), 3b. Not dead — used only by `tools/` and `tests/` (19 files, 9.2 MB) — **KEEP**, ✅ EXECUTED in this pass, Nice-to-haves, Project Folder Cleanup Audit — 2026-07-12 (+5 more)
 
 ### Community 235 - "phonicsPageAnalyzer.js"
-Cohesion: 0.10
-Nodes (31): _as_blocks(), btype(), _doc_text(), expand_blocks(), expand_document(), expand_from_shared(), _facet_text(), _faceted() (+23 more)
+Cohesion: 0.13
+Nodes (26): _as_blocks(), btype(), _doc_text(), expand_blocks(), expand_document(), expand_from_shared(), _facet_text(), _faceted() (+18 more)
 
 ### Community 236 - "CODEX/OPUS PROMPT — Comic-Book Redesign (Mockup Fidelity Pass)"
-Cohesion: 0.18
-Nodes (10): PhonicsButton, WordImage(), WordTile, Blendy, expressionConfig, shuffleItems(), CvcLearningFlow(), StepBuildWord (+2 more)
+Cohesion: 0.35
+Nodes (10): activeAudio, audioBases, playQuestActionSfx(), QUEST_ACTION_SFX, QUEST_CHAPTER_MATERIAL_SFX, questActionSfxEntry(), questActionSfxId(), questActionSfxMixScale() (+2 more)
 
 ### Community 237 - "CODEX/OPUS PROMPT — Comic-Book Redesign (Mockup Fidelity Pass)"
-Cohesion: 0.07
-Nodes (29): HFW_WORD_BANDS, answerOf(), audit, curatedSourceIssues(), curatedTextKey(), escapeMarkdown(), examples, failureRows (+21 more)
+Cohesion: 0.38
+Nodes (9): PatternRound(), playCueAudio(), setCueAudioSuspended(), stopCueAudio(), duckGameMusic(), fadeTo(), restoreGameMusic(), setGameMusicVolume() (+1 more)
 
 ### Community 238 - "phonicsLessons.js"
-Cohesion: 0.20
-Nodes (8): OUT, PAIRS, ROOT, SINGLES, stacks, url(), WORLDS, listPublicMedia()
+Cohesion: 0.18
+Nodes (9): OUT, PAIRS, ROOT, SINGLES, stacks, url(), WORLDS, listPublicMedia() (+1 more)
 
 ### Community 239 - "auditAssessmentMediaRegistry.js"
 Cohesion: 0.14
@@ -2076,7 +2064,7 @@ Nodes (12): Cycle Navigation, Data Structure, EL Skills Block Learn Area, Full-S
 
 ### Community 242 - "ReadingRace.tsx"
 Cohesion: 0.05
-Nodes (69): assessmentSkillContracts, assessmentSkillContractsById, baseContract(), hfwContract(), hfwPhaseRequirements(), incompleteContract(), makePhase(), normalizeList() (+61 more)
+Nodes (59): assessmentSkillContracts, assessmentSkillContractsById, baseContract(), hfwContract(), hfwPhaseRequirements(), incompleteContract(), makePhase(), normalizeList() (+51 more)
 
 ### Community 243 - "buildUnifiedMediaQaReviewData.js"
 Cohesion: 0.15
@@ -2103,8 +2091,8 @@ Cohesion: 0.15
 Nodes (12): 1. @axe-core/playwright — automated accessibility checks, 2. Kokoro TTS — free local narration for drafts and QA, 3. CMUdict + IPA + frequency list — phoneme ground truth, 4. microsoft/PhoneticMatching — sound-alike comparison, 5. StoryWeaver Open + GlotStoryBook — thousands of CC-licensed kids' books, 6. MinerU — PDF → clean text/markdown, 7. voicebox — local voice studio, Adoption order (+4 more)
 
 ### Community 249 - "Skill Progression Audit"
-Cohesion: 0.20
-Nodes (21): areaLabel(), buildAreaOptions(), csvEscape(), MediaQaReviewPage(), optionValue(), reviewItemsToCsv(), statusLabel(), applyMediaQaDecision() (+13 more)
+Cohesion: 0.23
+Nodes (19): areaLabel(), buildAreaOptions(), csvEscape(), MediaQaReviewPage(), optionValue(), reviewItemsToCsv(), statusLabel(), applyMediaQaDecision() (+11 more)
 
 ### Community 250 - "LiteracyPath Strict Production Assessment Audit"
 Cohesion: 0.17
@@ -2127,12 +2115,12 @@ Cohesion: 0.17
 Nodes (11): Adaptive Mastery Philosophy, Child Mode, Core Experience, Core Goal, Core Identity, Emotional Design Principles, Instructional Philosophy, LiteracyPath Product Vision (+3 more)
 
 ### Community 255 - "auditAnswerOptionRendering.js"
-Cohesion: 0.21
-Nodes (15): params, rootElement, EMPTY, loadHollowLedger(), persist(), recordDailyChest(), recordFeed(), recordId() (+7 more)
+Cohesion: 0.12
+Nodes (22): companion, equipped, params, EMOJI, GEAR_SLOT_LABELS, MARKET_SHELVES, PalFigure(), ROOM_TINTS (+14 more)
 
 ### Community 256 - "initialSoundPairAssets.js"
 Cohesion: 0.06
-Nodes (27): DUST, FAULT_LABELS, PHASES, playWord(), SentenceExpressGame(), TONES, WORLD_LABELS, params (+19 more)
+Nodes (28): DUST, FAULT_LABELS, PHASES, playWord(), SentenceExpressGame(), TONES, WORLD_LABELS, params (+20 more)
 
 ### Community 257 - "questionBankExpansion8.js"
 Cohesion: 0.17
@@ -2147,8 +2135,8 @@ Cohesion: 0.17
 Nodes (11): Audio, Dino Pals Level B Books 1-10 Import Audit, Imported Books, Next Steps, QA Status, Result, Source, Summary (+3 more)
 
 ### Community 260 - "dependencies"
-Cohesion: 0.09
-Nodes (22): dependencies, canvas-confetti, cors, dotenv, exceljs, express, framer-motion, jszip (+14 more)
+Cohesion: 0.16
+Nodes (22): AUDIO_EXTENSIONS, audioRoot, collectAssetReferences(), __dirname, escapeMarkdown(), fileExists(), findAlternateExtensions(), formatStatus() (+14 more)
 
 ### Community 261 - "levelOneContentQuality.js"
 Cohesion: 0.33
@@ -2175,8 +2163,8 @@ Cohesion: 0.17
 Nodes (11): Build and Codex Stability, Bundle Size and Repo Hygiene Audit, Current Build Output, Generated Docs Churn, JavaScript and CSS Chunks, Largest Static Asset Areas, Likely Bundle Causes, Repo Hygiene Findings (+3 more)
 
 ### Community 267 - "importHfwQuestionImageReviewWorkbook.js"
-Cohesion: 0.23
-Nodes (21): deriveQuestionIdFromAnswerRecord(), findQuestionForAnswerRecord(), getQuestionTargetWord(), getRuntimeQuestionPromptAnswerSignature(), getRuntimeQuestionSignature(), hydrateAnswerRecord(), getAnswerRecordPromptAnswerSignature(), getAnswerRecordSignature() (+13 more)
+Cohesion: 0.21
+Nodes (22): deriveQuestionIdFromAnswerRecord(), findQuestionForAnswerRecord(), getQuestionTargetWord(), getRuntimeQuestionPromptAnswerSignature(), getRuntimeQuestionSignature(), getStageIndex(), hydrateAnswerRecord(), getAnswerRecordPromptAnswerSignature() (+14 more)
 
 ### Community 268 - "guided-story-adaptation-system.md"
 Cohesion: 0.17
@@ -2203,12 +2191,12 @@ Cohesion: 0.19
 Nodes (29): applyVectorPlacement(), bodyMetrics(), createPixelBeastieSheet(), drawActionArms(), drawActionProp(), drawBackGear(), drawBody(), drawCrest() (+21 more)
 
 ### Community 274 - "0. THE ARCADE-GAME CONTRACT (both games must follow this exactly)"
-Cohesion: 0.18
-Nodes (13): howler, AudioButton, WordCard, shuffleTiles(), evictOldestHowlIfNeeded(), failedSources, generatedVowelFormants, getHowl() (+5 more)
+Cohesion: 0.10
+Nodes (22): AudioButton, Celebration, StepListen, WordCard, shuffleTiles(), StepMatch, calculateStrokeProgress(), getStrokeCoverages() (+14 more)
 
 ### Community 275 - "Codex prompt — Skills Quest map upgrade (path-following avatar + diegetic place markers)"
-Cohesion: 0.18
-Nodes (11): 0.A Read these signals first, 0.B Output a one-line "Design Read" before generating, 0. BRIEF INFERENCE (Read the Room Before Anything Else), 0.C If the brief is ambiguous, ask one question, do not guess, 0.D Anti-Default Discipline, 13. OUT OF SCOPE, 14. FINAL PRE-FLIGHT CHECK, 2.A When to reach for a real design system (use official packages) (+3 more)
+Cohesion: 0.13
+Nodes (15): 0.A Read these signals first, 0.B Output a one-line "Design Read" before generating, 0. BRIEF INFERENCE (Read the Room Before Anything Else), 0.C If the brief is ambiguous, ask one question, do not guess, 0.D Anti-Default Discipline, 13. OUT OF SCOPE, 14. FINAL PRE-FLIGHT CHECK, 1.A Dial Inference (design read → dial values) (+7 more)
 
 ### Community 276 - "OPUS TASK — Arcade Fix Round: Rocket Run ghosts/audio/visuals + Letter Leap level design v2"
 Cohesion: 0.18
@@ -2235,8 +2223,8 @@ Cohesion: 0.20
 Nodes (11): FormControl(), FormDescription(), FormFieldContext, FormFieldContextValue, FormItem(), FormItemContext, FormItemContextValue, FormLabel() (+3 more)
 
 ### Community 282 - "auditSkillBanks.js"
-Cohesion: 0.06
-Nodes (32): getManagedSkillIds(), getDuplicateValues(), hasMediaForItem(), isPathPresent(), makeSkillItemSignature(), normalizeSkillAssetPath(), summarizeSkillBankItems(), buildMissingMediaRequestRows() (+24 more)
+Cohesion: 0.13
+Nodes (16): getManagedSkillIds(), getDuplicateValues(), hasMediaForItem(), isPathPresent(), makeSkillItemSignature(), normalizeSkillAssetPath(), summarizeSkillBankItems(), __dirname (+8 more)
 
 ### Community 283 - "auditStartupAssessmentImports.js"
 Cohesion: 0.18
@@ -2287,8 +2275,8 @@ Cohesion: 0.15
 Nodes (11): allowedFictionIds, failures, fictionBooks, nonfictionBooks, removedNonfictionIds, removedNonfictionRestored, repoRoot, report (+3 more)
 
 ### Community 293 - "checkInitialSoundsRuntimeDepth.js"
-Cohesion: 0.15
-Nodes (10): failures, history, l1Covered, l2Covered, lines, missingL1, missingL2, roundSummaries (+2 more)
+Cohesion: 0.11
+Nodes (17): initialSoundAudioMediaIds, initialSoundCompleteMediaIds, initialSoundImageMediaIds, attachInitialSoundMediaStatus(), hasInitialSoundAudio(), hasInitialSoundImage(), initialSoundMediaManifest, failures (+9 more)
 
 ### Community 294 - "generatePublicMediaInventory.js"
 Cohesion: 0.17
@@ -2304,7 +2292,7 @@ Nodes (10): Current Content Issues Found, Cycle 15: sh, ch, th, Cycle 1: Meet A 
 
 ### Community 297 - "Dino Pals Level B Books 11-20 Import Audit"
 Cohesion: 0.33
-Nodes (5): RhymePopArcadeGame(), startRhymePopArcadeGame(), RhymePopGame(), playSfx(), soundAllowed()
+Nodes (6): params, rootElement, localProgressKeysForStudent(), localProgressStorageKey(), PROGRESS_AREAS, shouldApplyReset()
 
 ### Community 298 - "Dino Pals Level B Books 1-10 Import Audit"
 Cohesion: 0.36
@@ -2355,16 +2343,16 @@ Cohesion: 0.18
 Nodes (10): Biggest Immediate Opportunities, Inventory Summary, Machine Summary, Metadata Shape, New Vocabulary and Media Usage Audit, Notes, Practical Read, Scope (+2 more)
 
 ### Community 310 - "LOOP PROMPT — Student/Teacher restructure + full audio recording document"
-Cohesion: 0.20
-Nodes (8): headerMap, jsString(), outputPath, rejected, repoRoot, workbook, workbookPath, writeBlocklist()
+Cohesion: 0.33
+Nodes (9): applyItemMetadata(), buildCoverageSnapshot(), debugAssessmentCoverage(), findPatternInText(), getConfiguredPhaseItemKeys(), getCoverageItemKeysForStage(), getItemMasteryStateKeyForValues(), inferItemMetadata() (+1 more)
 
 ### Community 311 - "Comic Redesign — Image Generation Prompt Pack (2026-07-07)"
 Cohesion: 0.20
 Nodes (10): 10. REFERENCE VOCABULARY (Pattern Names the Agent Should Know), Animation Library Choice, Cards & Containers, Galleries & Media, Hero Paradigms, Layout & Grids, Micro-Interactions & Effects, Navigation & Menus (+2 more)
 
 ### Community 312 - "Comic Redesign — Image Generation Prompt Pack (2026-07-07)"
-Cohesion: 0.11
-Nodes (24): checkpointed, checkpointMode, correctionMode, creatureMode, displayMode, done, downloadQuestEvidence(), installQuestDeviceRecorder() (+16 more)
+Cohesion: 0.22
+Nodes (8): makeTasks(), Ps1ArcadeGame(), startPs1ArcadeGame(), taskUnits(), totalUnits(), SoundBeatGame(), playSfx(), soundAllowed()
 
 ### Community 313 - "Aiden and Betty Level C Import Audit"
 Cohesion: 0.20
@@ -2403,8 +2391,8 @@ Cohesion: 0.18
 Nodes (8): autoTaggingReportPath, __dirname, duplicateWords, missingCoreTags, missingMedia, repoRoot, reportPath, unresolved
 
 ### Community 322 - "speakWithBrowser.js"
-Cohesion: 0.09
-Nodes (17): AuthPage(), SchoolNameInput(), getProgressStep(), STEP_ITEMS, StepProgress(), StudentLoginFlow(), VOICE_LINES, SymbolPasswordPad() (+9 more)
+Cohesion: 0.23
+Nodes (9): SymbolPasswordPad(), SymbolSequence(), formatLastActive(), getProgressPercent(), TeacherDashboardPage(), isCompleteSymbolSequence(), normalizeSymbolSequence(), SYMBOL_PASSWORD_ICONS (+1 more)
 
 ### Community 323 - "BookQuiz.jsx"
 Cohesion: 0.14
@@ -2415,12 +2403,12 @@ Cohesion: 0.20
 Nodes (9): Imported Books, Meadow Pals Level A Import Audit, Missing or Unclear Items, Result, Sequence Check, Source, Summary, Target (+1 more)
 
 ### Community 325 - "rhymingDistractors.js"
-Cohesion: 0.06
-Nodes (29): generatedQuestions, assignImage(), imageMap, shouldSkipImage(), updated, calibrated, clamp(), estimateDifficulty() (+21 more)
+Cohesion: 0.04
+Nodes (54): generatedQuestions, questions, assignImage(), imageMap, shouldSkipImage(), updated, calibrated, clamp() (+46 more)
 
 ### Community 326 - "templateComprehensionAdvanced.js"
 Cohesion: 0.07
-Nodes (76): createAuthoredChapterKit(), updateRiggedCharacter(), addBoneArch(), addCharacterMotif(), addContactShadow(), addCottage(), addCreatureCrest(), addCreatureEyes() (+68 more)
+Nodes (72): addBoneArch(), addCharacterMotif(), addContactShadow(), addCottage(), addCreatureCrest(), addCreatureEyes(), addCreatureGear(), addCreatureMouth() (+64 more)
 
 ### Community 327 - "checkStoryQuestIntegrity.js"
 Cohesion: 0.20
@@ -2479,24 +2467,24 @@ Cohesion: 0.20
 Nodes (9): Blocked Runtime Level 1 Candidates, Coverage, Failures, Final Sounds Level 1 Purity Audit, Leak Source And Fix, Level 1 Rule, Sample Fresh Round, Sample Remediation Round (+1 more)
 
 ### Community 341 - "navigation-menu.tsx"
-Cohesion: 0.17
-Nodes (9): Celebration, StepListen, StepMatch, calculateStrokeProgress(), getStrokeCoverages(), StepTracer, PhonicsProgressBar(), PhonicsLearningFlow() (+1 more)
+Cohesion: 0.22
+Nodes (5): adminSource, bookIds, dataSource, failures, learnSource
 
 ### Community 342 - "PopTheWord.tsx"
-Cohesion: 0.25
-Nodes (7): Balloon, BALLOON_COLORS, DIFFICULTY_CONFIG, pickWords(), PopParticle, PopParticles, shuffle()
+Cohesion: 0.24
+Nodes (8): Balloon, BALLOON_COLORS, DIFFICULTY_CONFIG, pickWords(), PopParticle, PopParticles, PopTheWord(), shuffle()
 
 ### Community 343 - "preloadMedia.js"
 Cohesion: 0.07
-Nodes (72): seedState(), DenScreen(), nextAdventureId(), nextStopAfter(), OFFLINE_RUNTIME_EVENT_TYPES, QuestHub, QuestPixelWorld, QuestRoot() (+64 more)
+Nodes (57): checkpointed, checkpointMode, correctionMode, creatureMode, displayMode, done, downloadQuestEvidence(), installQuestDeviceRecorder() (+49 more)
 
 ### Community 344 - "progressMerge.js"
-Cohesion: 0.17
-Nodes (19): computeHydratedValue(), MASTERY_COUNTERS, MASTERY_SETS, mergeMasteryMap(), mergeMasteryRecord(), mergeMonotonic(), mergePayload(), mergeRecordMap() (+11 more)
+Cohesion: 0.29
+Nodes (12): computeHydratedValue(), MASTERY_COUNTERS, MASTERY_SETS, mergeMasteryMap(), mergeMasteryRecord(), mergeMonotonic(), mergePayload(), mergeRecordMap() (+4 more)
 
 ### Community 345 - "generateHfwQuestionImageReview.js"
-Cohesion: 0.22
-Nodes (16): addItem(), audit, buildAudit(), COMMON_PREPOSITIONS, generatedLanguageRuntimeGapIds(), hfwPriorityItems(), LANGUAGE_SKILLS, languagePriorityItems() (+8 more)
+Cohesion: 0.21
+Nodes (17): findAssessmentMediaCandidates(), addItem(), audit, buildAudit(), COMMON_PREPOSITIONS, generatedLanguageRuntimeGapIds(), hfwPriorityItems(), LANGUAGE_SKILLS (+9 more)
 
 ### Community 346 - "checkAssessmentShellRegressions.js"
 Cohesion: 0.20
@@ -2527,8 +2515,8 @@ Cohesion: 0.22
 Nodes (9): NavigationMenu(), NavigationMenuContent(), NavigationMenuIndicator(), NavigationMenuItem(), NavigationMenuLink(), NavigationMenuList(), NavigationMenuTrigger(), navigationMenuTriggerStyle (+1 more)
 
 ### Community 353 - "Guided Reading Experience Audit"
-Cohesion: 0.29
-Nodes (8): initialSoundAudioMediaIds, initialSoundCompleteMediaIds, initialSoundImageMediaIds, attachInitialSoundMediaStatus(), hasImportedInitialSoundAudio(), hasInitialSoundAudio(), hasInitialSoundImage(), initialSoundMediaManifest
+Cohesion: 0.50
+Nodes (4): md_tokens(), normalize_text(), Format-agnostic text fixups applied before any inline-markdown parse., Parse mini-markdown into format-neutral tokens.      Returns a list of (text, at
 
 ### Community 354 - "Guided Reading Layout Audit"
 Cohesion: 0.22
@@ -2583,8 +2571,8 @@ Cohesion: 0.22
 Nodes (8): Commit Hygiene Recommendation, Current Phase 1 Action, Current Shape, Generated But Not Usually Committed, Generated Docs Churn Plan, Ignore Later, Move To `docs/generated/` Later, Should Stay Tracked
 
 ### Community 367 - "Lesson Deck Model"
-Cohesion: 0.05
-Nodes (56): GardenStage(), RescueStage(), ArcadePracticeGame(), BuildGame(), DISTRACTOR_LETTERS, FamilyGame(), FixGame(), MatchGame() (+48 more)
+Cohesion: 0.08
+Nodes (35): howler, ArcadePracticeGame(), BuildGame(), DISTRACTOR_LETTERS, FamilyGame(), FixGame(), MatchGame(), pickSightWords() (+27 more)
 
 ### Community 368 - "initialSoundPairAssets.js"
 Cohesion: 0.22
@@ -2655,8 +2643,8 @@ Cohesion: 0.22
 Nodes (8): CVC Short Vowels, Failures, Failures, Failures, Final Sounds, Rhyming Words, Skill Routing Purity Audit, Summary
 
 ### Community 385 - "Slide Type Specifications"
-Cohesion: 0.16
-Nodes (20): clamp(), drawCover(), fillRound(), loadImage(), ReelReadGame(), roundRect(), startGame(), strokeRound() (+12 more)
+Cohesion: 0.83
+Nodes (3): regions(), run(), seg_mean()
 
 ### Community 386 - "Teacher Dashboard Redesign Audit"
 Cohesion: 0.13
@@ -2875,8 +2863,8 @@ Cohesion: 0.25
 Nodes (7): Failures, Ignored Or Allowed Items, Repo Hygiene Audit, Result, Safe Cleanup Examples, Summary, Warnings
 
 ### Community 440 - "toggle-group.tsx"
-Cohesion: 0.44
-Nodes (10): getLexiconEntry(), masterWordLexicon, by(), getDecodableWordsForSkill(), getMinimalPairs(), getRhymingWords(), getWordsByFinalSound(), getWordsByInitialSound() (+2 more)
+Cohesion: 0.46
+Nodes (11): getLexiconEntry(), masterWordLexicon, by(), getDecodableWordsForSkill(), getMinimalPairs(), getRhymingWords(), getWordsByFinalSound(), getWordsByInitialSound() (+3 more)
 
 ### Community 441 - "tsconfig.json"
 Cohesion: 0.25
@@ -3239,8 +3227,8 @@ Cohesion: 0.33
 Nodes (5): For /graphify explain, For /graphify path, graphify reference: query, path, explain, Step 0 — Constrained query expansion (REQUIRED before traversal), Step 1 — Traversal
 
 ### Community 531 - "package.json"
-Cohesion: 0.12
-Nodes (22): CVC_VOWELS, getLetterAudio(), getLetterSoundCue(), makeCvcWordModel(), makeCvcWordModels(), useCvcWordModels(), VOWEL_SOUND_FALLBACKS, cardVariants (+14 more)
+Cohesion: 0.09
+Nodes (32): PhonicsProgressBar(), WordImage(), Blendy, expressionConfig, CVC_VOWELS, getLetterAudio(), getLetterSoundCue(), makeCvcWordModel() (+24 more)
 
 ### Community 532 - "reducedMotionTeaching.test.js"
 Cohesion: 0.40
@@ -3307,8 +3295,8 @@ Cohesion: 0.33
 Nodes (6): Level A, Level B, Level C, Level D, Level E, Production Level Requirements
 
 ### Community 552 - "assessmentSkillContracts.js"
-Cohesion: 0.09
-Nodes (13): ACT_I, ACT_II, ACT_III, ALL_TARGETS, decodableFrom(), NEEDS_AUDIO, NON_GRAPHEME_KINDS, PAGES (+5 more)
+Cohesion: 0.05
+Nodes (47): DenScreen(), MAP_LANDMARKS, MAP_POINTS, mapPath(), TrailMap(), ENCOUNTER_VIEWS, TrailWalk(), QUEST_CHAPTERS (+39 more)
 
 ### Community 553 - "Kimi Audio Request — Guided Reading word-tap audio (308 words)"
 Cohesion: 0.33
@@ -3783,8 +3771,8 @@ Cohesion: 0.40
 Nodes (5): Layout Risk Warnings, Media, Rejected Examples, Rejection Reasons, Short Vowel Discrimination
 
 ### Community 698 - "insertQueue.js"
-Cohesion: 0.56
-Nodes (8): flushInsertQueue(), insertWithRetry(), isBrowser(), readQueue(), sig(), startInsertQueueFlusher(), tryInsert(), writeQueue()
+Cohesion: 0.23
+Nodes (11): AuthPage(), SchoolNameInput(), isSupabaseConfigured, flushInsertQueue(), insertWithRetry(), isBrowser(), readQueue(), sig() (+3 more)
 
 ### Community 699 - "removeBadRhyming.js"
 Cohesion: 0.40
@@ -3815,8 +3803,8 @@ Cohesion: 0.40
 Nodes (4): Failures, HFW Curated Sentence Source Audit, Summary, Workbook-Derived Examples
 
 ### Community 716 - "SoundSlide.tsx"
-Cohesion: 0.43
-Nodes (6): getWordsForDifficulty(), pickRandomWord(), shuffleArray(), SoundSlide(), TilePosition, WORD_EMOJIS
+Cohesion: 0.21
+Nodes (13): ConfettiCelebration(), ConfettiCelebrationProps, Card, getWordsForDifficulty(), shuffleArray(), SightWordMemory(), getWordsForDifficulty(), pickRandomWord() (+5 more)
 
 ### Community 717 - "generateHfwQuestionImageKimiRequest.js"
 Cohesion: 0.20
@@ -3835,8 +3823,8 @@ Cohesion: 0.40
 Nodes (4): HFW Question Quality Audit, Rejected / Quarantined Examples, Runtime Format Counts, Summary
 
 ### Community 722 - "removeBadPhonicsAll.js"
-Cohesion: 0.11
-Nodes (22): clamp(), distanceToSegment(), GrammarGrindGame(), makeGroundTexture(), makeMat(), makeSkater(), makeSkyTexture(), MAX_SPEED (+14 more)
+Cohesion: 0.05
+Nodes (48): clamp(), distanceToSegment(), GrammarGrindGame(), makeGroundTexture(), makeMat(), makeSkater(), makeSkyTexture(), MAX_SPEED (+40 more)
 
 ### Community 723 - "ABSTRACT_HFW"
 Cohesion: 0.40
@@ -3875,8 +3863,8 @@ Cohesion: 0.40
 Nodes (4): Failures, Level/Phase Detail, Replacement Skill Round Depth Audit, Summary
 
 ### Community 734 - "removeBadRhyming.js"
-Cohesion: 0.50
-Nodes (4): 1.A Dial Inference (design read → dial values), 1.B Use-Case Presets, 1.C How the Dials Drive Output, 1. THE THREE DIALS (Core Configuration)
+Cohesion: 0.15
+Nodes (19): audit, auditSkill(), contentKey(), countDuplicates(), ensureDir(), generatedQuestions, generatedSkillId(), jsonPath (+11 more)
 
 ### Community 735 - "speakWithBrowser.js"
 Cohesion: 0.39
@@ -3911,8 +3899,8 @@ Cohesion: 0.50
 Nodes (4): 2. PLATFORM MODE RULE, Android-native premium, Cross-platform premium neutral, iOS-native premium
 
 ### Community 746 - "calibrateDifficulty.js"
-Cohesion: 0.20
-Nodes (14): GameEntry, GAMES_MAP, buildQuiz(), DIFFICULTY_CONFIG, generateDistractors(), QuizItem, shuffle(), Card (+6 more)
+Cohesion: 0.19
+Nodes (13): GameEntry, buildQuiz(), DIFFICULTY_CONFIG, generateDistractors(), QuizItem, ReadingRace(), shuffle(), Fish (+5 more)
 
 ### Community 747 - "checkHfwQuestionQuality.js"
 Cohesion: 0.50
@@ -3991,8 +3979,8 @@ Cohesion: 0.22
 Nodes (6): errors, layers, panels, props, ROOT, warnings
 
 ### Community 776 - "buildCreatureContactSheet.mjs"
-Cohesion: 0.16
-Nodes (12): anchorRow, css, dyeRow, moodRow, OUTPUTS, pathTag(), pick(), rand (+4 more)
+Cohesion: 0.67
+Nodes (3): Antonyms and Synonyms, Layout Risk Warnings, Media
 
 ### Community 777 - "EL Skills Block Learn Area"
 Cohesion: 0.50
@@ -4023,8 +4011,8 @@ Cohesion: 0.17
 Nodes (8): COLOUR_ALLOWED, errors, gameList, needsAudio, ROOT, runtimeFiles, silent, warnings
 
 ### Community 784 - "7. MVP Vertical Slice"
-Cohesion: 0.09
-Nodes (15): SEEDWAKE_STOP_IDS, captureFullJourney(), captureSlotSequence(), journeyExpectations(), journeyOnly, openEncounter(), OUT, reports (+7 more)
+Cohesion: 0.05
+Nodes (39): SEEDWAKE_CACHE_THRESHOLDS, SEEDWAKE_STOP_IDS, SEEDWAKE_STOP_SPECS, seedwakeCollectibleForStop(), seedwakeSatchel(), seedwakeStopSpec(), validateSeedwakeChapter(), FIELD_OBJECT_MODELS (+31 more)
 
 ### Community 785 - "EL Learn Area Content Quality Audit"
 Cohesion: 0.50
@@ -4101,10 +4089,6 @@ Nodes (4): 5. Short Vowel Discrimination, Level Details, Media, Rejected / Exclu
 ### Community 804 - "Skill Routing Purity Audit"
 Cohesion: 0.50
 Nodes (4): 2. Final Sounds, Level Details, Media, Rejected / Excluded Examples
-
-### Community 806 - "generateImage.mjs"
-Cohesion: 0.22
-Nodes (6): apiKey, args, client, generate(), jobs, ROOT
 
 ### Community 807 - "LiteracyPath — Child Learning Experience Layer"
 Cohesion: 0.50
@@ -4702,10 +4686,6 @@ Nodes (3): Inference, Layout Risk Warnings, Media
 Cohesion: 0.67
 Nodes (3): Key Details, Layout Risk Warnings, Media
 
-### Community 966 - "16. Adjectives"
-Cohesion: 0.67
-Nodes (3): Layout Risk Warnings, Main Idea, Media
-
 ### Community 967 - "17. Prepositions of Place"
 Cohesion: 0.67
 Nodes (3): Layout Risk Warnings, Media, Theme and Higher Comprehension
@@ -4722,17 +4702,9 @@ Nodes (3): Layout Risk Warnings, Media, Sentence Comprehension
 Cohesion: 0.14
 Nodes (20): addChord(), addDrum(), addMelody(), addNoiseHit(), addNote(), addProgression(), addRhythm(), addWoodblock() (+12 more)
 
-### Community 1005 - "questRuntimeSystems.test.js"
-Cohesion: 0.19
-Nodes (18): normalizedResidentName(), QUEST_PIXEL_CHAPTER_CASTS, QUEST_PIXEL_NAMED_CASTS, QUEST_PIXEL_PREMIUM_RESIDENTS, QUEST_PIXEL_RESIDENT_IDLE_PATHS, QUEST_PIXEL_RESIDENT_ITEM_PATHS, QUEST_PIXEL_RESIDENT_JUMP_PATHS, QUEST_PIXEL_RESIDENT_PATHS (+10 more)
-
 ### Community 1006 - "exportGuidedReadingCompletionExcel.js"
 Cohesion: 0.17
 Nodes (21): addRowsOrEmpty(), buildGuidedReadingCompletionWorkbookData(), collectGuidedReadingCompletionRecords(), createGuidedReadingCompletionWorkbook(), exportGuidedReadingCompletionExcel(), formatDate(), getBookSeries(), getClassName() (+13 more)
-
-### Community 1007 - "checkHighFrequencyWordsCoverage.js"
-Cohesion: 0.09
-Nodes (16): acceptedTemplates, activeItems, allItems, byLevel, byTemplate, __dirname, duplicateSignatures, failures (+8 more)
 
 ### Community 1009 - "drawSafari"
 Cohesion: 0.21
@@ -4742,17 +4714,9 @@ Nodes (21): clamp(), drawBolt(), drawCaptureBurst(), drawCoach(), drawCountdown(
 Cohesion: 0.18
 Nodes (16): CHAPTER_BY_STOP, CHAPTER_FINALES, chapterFinaleForStop(), chapterForStop(), chapterRouteTopology(), chapterStopNumber(), validateQuestChapters(), EVIDENCE_DOMAINS (+8 more)
 
-### Community 1011 - "buildPracticeSheet.mjs"
-Cohesion: 0.10
-Nodes (17): childName, hearts, HERE, jsonPath, known, material, outBase, outDir (+9 more)
-
 ### Community 1012 - "Theme"
-Cohesion: 0.15
-Nodes (17): coerce_marks(), label_sep(), Number-line marks: bare numbers or {position/value, label} dicts -> [(value, lab, Resolve a workspace block's height in points (format-agnostic)., Separator after a label: numeric labels (task numbers like "1", "2a") get a peri, Minimum height (pt) for a table row containing empty writing-space cells.     An, table_row_height(), Theme (+9 more)
-
-### Community 1013 - "checkHfwAudioQuality.js"
-Cohesion: 0.12
-Nodes (15): audioFormats, badOrSuspicious, badRows, hfwSkillIds, knownBadStillApproved, knownBadWholeWordAudio, liveBad, liveRows (+7 more)
+Cohesion: 0.13
+Nodes (19): coerce_marks(), label_sep(), preamble_blocks(), Number-line marks: bare numbers or {position/value, label} dicts -> [(value, lab, Resolve a workspace block's height in points (format-agnostic)., Separator after a label: numeric labels (task numbers like "1", "2a") get a peri, Minimum height (pt) for a table row containing empty writing-space cells.     An, Top-level standard / prerequisite / practices blocks rendered between the header (+11 more)
 
 ### Community 1014 - "check3DAssetLibrary.mjs"
 Cohesion: 0.12
@@ -4767,12 +4731,12 @@ Cohesion: 0.12
 Nodes (15): Gates, New Files, Outcome, Repository Safety, Self-Critique, Sound Seekers Seedwake Vertical Slice Report, Test Coverage Changed, Workstreams (+7 more)
 
 ### Community 1017 - "Sound Seekers: 10/10 Standard Critique"
-Cohesion: 0.12
-Nodes (15): Current Scorecard After Pass 97, Definition Of 10/10, Final local release evidence, P0. Audio-led tasks can expose a silent replay button, P0. Phone layouts can hide a required answer, P1. Carry visibility has a zero-index bug, P1. Named verbs do not yet create enough different play, P1. The physical action budget breaks the intended pacing contract (+7 more)
+Cohesion: 0.15
+Nodes (12): Definition Of 10/10, Final local release evidence, Independent Pass 98 Re-audit, Pass 99 Critical Blockers, Pass 99 Re-critique And Improvement, Review Method, Scorecard, Sequence To Reach 10/10 (+4 more)
 
 ### Community 1018 - "checkLearnAreaContentQuality.js"
-Cohesion: 0.18
-Nodes (14): cycle(), cycle1, cycle15, cycle23, cycle8, fail(), failures, priorityCycles (+6 more)
+Cohesion: 0.11
+Nodes (25): cycleNumberValue(), getCycleTitle(), getFocusCards(), getPhaseLabel(), getStudentGoal(), makePrompt(), PHASE_COLORS, PHASE_LABELS (+17 more)
 
 ### Community 1019 - "checkQuestPixelBundle.mjs"
 Cohesion: 0.12
@@ -4786,37 +4750,29 @@ Nodes (14): 1. Verdict in one paragraph, 2. Status of the 2026-07-14 audit — r
 Cohesion: 0.13
 Nodes (14): Architecture ground truth — read before coding, do not re-derive, Definition of done — every box checked, each with its proof, Report contract (write this at the end, honestly), Sound Seekers — Vertical Slice: Loop to Completion, The loop protocol, The one rule that governs all others, The slice, Workstream 1 — Encounter camera: guarantee an unobstructed answer (+6 more)
 
-### Community 1022 - "checkLearnAreaContracts.js"
-Cohesion: 0.14
-Nodes (13): EL_LEARN_SECTION_IDS, appPagesSource, appSource, cssSource, cycle1, cycle15, cycle23, cycleNumbers (+5 more)
-
 ### Community 1023 - "hfwQualityRules.js"
-Cohesion: 0.30
-Nodes (14): AMBIGUOUS_HFW_GROUPS, escapeRegex(), getHfwFillerPhraseHits(), getHfwQuestionAnswer(), getHfwQuestionOptions(), getHfwQuestionSentence(), getMultiplePlausibleHfwAnswerIssues(), getWeakGenericHfwPromptIssues() (+6 more)
+Cohesion: 0.04
+Nodes (72): AMBIGUOUS_HFW_GROUPS, escapeRegex(), getHfwFillerPhraseHits(), getHfwQuestionAnswer(), getHfwQuestionOptions(), getHfwQuestionSentence(), getMultiplePlausibleHfwAnswerIssues(), getWeakGenericHfwPromptIssues() (+64 more)
 
 ### Community 1024 - "initialSoundPairAssets.js"
-Cohesion: 0.29
-Nodes (14): enrichInitialSoundPairQuestion(), getInitialSoundPairDiagnostics(), getVariantWords(), hasCompleteCards(), hasCompleteInitialSoundPairAssets(), initialLetter(), initialSoundPairItemKeys, initialSoundPairSets (+6 more)
+Cohesion: 0.30
+Nodes (9): LearnAreaPage(), resolveStoryQuestLevel(), STORY_QUEST_LEVELS, formatStoryQuestStatus(), getStoryQuestWords(), loadStoryQuestProgress(), saveStoryQuestProgress(), storyQuestProgressStorageKey() (+1 more)
 
 ### Community 1025 - "serveQuestOfflineUpdateFixtures.mjs"
 Cohesion: 0.19
 Nodes (11): buildFixture(), buildQuestOfflineUpdateFixtures(), fixtureBuildRecord(), PROJECT_ROOT, UPDATE_FIXTURES, VITE_BIN, CONTENT_TYPES, PORT (+3 more)
 
 ### Community 1026 - "masterWordLexicon.js"
-Cohesion: 0.24
-Nodes (12): buildMasterWordLexicon(), cleanWordCandidate(), collectWordsFromQuestion(), masterWordLexiconByWord, mergeKimiVocabularyEntry(), mergeSource(), resolveAudioUrl(), resolveImageUrl() (+4 more)
+Cohesion: 0.17
+Nodes (26): buildMasterWordLexicon(), cleanWordCandidate(), collectWordsFromQuestion(), createEmptyEntry(), masterWordLexiconByWord, mergeKimiVocabularyEntry(), mergeSource(), resolveAudioUrl() (+18 more)
 
 ### Community 1027 - "render"
-Cohesion: 0.15
-Nodes (14): answer_profile(), build_header(), grade_number(), meta_text(), preamble_blocks(), Normalize `meta` to a display string. The schema says it's a string, but models, Best-effort grade parse: 0 for K, 1-12, or None., Grade-banded writing-space defaults:     (height pt, ruled line gap pt, table-ro (+6 more)
+Cohesion: 0.25
+Nodes (8): answer_profile(), build_header(), grade_number(), meta_text(), Normalize `meta` to a display string. The schema says it's a string, but models, Best-effort grade parse: 0 for K, 1-12, or None., Grade-banded writing-space defaults:     (height pt, ruled line gap pt, table-ro, Format-agnostic header fields: eyebrow, title, meta string, optional name_line.
 
 ### Community 1028 - "wordAudioPath"
-Cohesion: 0.41
-Nodes (13): wordAudioPath(), changeFirstCands(), changeRimeCands(), chipRow(), compoundDeleteCands(), deleteCandidate(), onsetDeleteCands(), paSkillCandidateSets() (+5 more)
-
-### Community 1029 - "SkillsBlockQuestMockup.jsx"
-Cohesion: 0.28
-Nodes (11): cycleNumberValue(), getCycleTitle(), getFocusCards(), getPhaseLabel(), getStudentGoal(), makePrompt(), PHASE_COLORS, PHASE_LABELS (+3 more)
+Cohesion: 0.24
+Nodes (6): addError(), addWarning(), describeQuest(), errors, validateSerializable(), warnings
 
 ### Community 1030 - "build3DAssetLibraryManifest.mjs"
 Cohesion: 0.18
@@ -4827,12 +4783,12 @@ Cohesion: 0.18
 Nodes (12): ASSET_ROOT, checkedUris, checkExternalUris(), errors, fail(), MONSTERS, NATURE, notices (+4 more)
 
 ### Community 1032 - "Sound Seekers Release Bible"
-Cohesion: 0.17
-Nodes (11): 17 July 2026 multi-chapter pixel evidence, Definition Of Release Ready, Desired Final Result, Engineering Structure Required To Support The Work, Global Gates, July 2026 Implementation Ledger, Loop Protocol, Non-Negotiable Rules (+3 more)
+Cohesion: 0.14
+Nodes (13): 17 July 2026 multi-chapter pixel evidence, Definition Of Release Ready, Desired Final Result, Engineering Structure Required To Support The Work, Global Gates, July 2026 Implementation Ledger, Loop Protocol, Non-Negotiable Rules (+5 more)
 
 ### Community 1033 - "questActionAudio.js"
-Cohesion: 0.35
-Nodes (10): activeAudio, audioBases, playQuestActionSfx(), QUEST_ACTION_SFX, QUEST_CHAPTER_MATERIAL_SFX, questActionSfxEntry(), questActionSfxId(), questActionSfxMixScale() (+2 more)
+Cohesion: 0.25
+Nodes (6): DIFFICULTY_CONFIG, Sentence, SENTENCES, shuffle(), Tile, WordHopscotch()
 
 ### Community 1034 - "exportRubricJudgeBatch.mjs"
 Cohesion: 0.17
@@ -4843,36 +4799,24 @@ Cohesion: 0.36
 Nodes (9): AssessmentAudioButton(), getTargetWordAudioPath(), inferShortVowelFromWord(), isGenericInstructionAudioPath(), isListenChooseVowelQuestion(), normalizeAssessmentAudioRoles(), normalizeVowelAnswer(), VOWEL_CHOICES (+1 more)
 
 ### Community 1036 - "BookQuiz.jsx"
-Cohesion: 0.33
-Nodes (9): BookQuiz(), bookWords(), generateQuestions(), loadAuthoredQuiz(), otherBooksWords(), preloadQuestionImages(), shuffle(), ProgressStars() (+1 more)
+Cohesion: 0.42
+Nodes (8): BookQuiz(), bookWords(), generateQuestions(), loadAuthoredQuiz(), otherBooksWords(), preloadQuestionImages(), shuffle(), guidedReadingSeriesBooks
 
 ### Community 1037 - "wordBridgeLevels.js"
-Cohesion: 0.35
-Nodes (9): ALL_CONSONANTS, buildLetterTiles(), buildLevel(), buildWordTiles(), getLetterDecoys(), getWordDecoys(), hashString(), seededShuffle() (+1 more)
+Cohesion: 0.07
+Nodes (39): LetterLeapGame(), startGame(), WORLD_THEME, chamferPath(), clamp(), fillChamfer(), fillRound(), roundRect() (+31 more)
 
 ### Community 1038 - "checkContentRubric.mjs"
 Cohesion: 0.33
 Nodes (9): hits(), CUE_PATTERNS, main(), ROOT, SCAN_DIRS, SCAN_EXTENSIONS, scanSource(), stringLiterals() (+1 more)
 
-### Community 1039 - "signature"
-Cohesion: 0.31
-Nodes (11): answerValue(), markdownTable(), normalize(), signature(), simulateRound(), stageFor(), targetWord(), writeAudioDoc() (+3 more)
-
 ### Community 1040 - "checkQuestOffline.mjs"
-Cohesion: 0.22
-Nodes (10): fail(), failures, indexHtml, manifest, outputDir, readJson(), readText(), shellRuntimePath (+2 more)
+Cohesion: 0.20
+Nodes (11): evidenceEntryExists, fail(), failures, indexHtml, manifest, outputDir, readJson(), readText() (+3 more)
 
 ### Community 1041 - "Sound Seekers — Push 2 (Codex brief)"
 Cohesion: 0.20
 Nodes (9): 0. BLOCKER — do this before anything else (2 minutes), 1. The fluency mechanic does not exist — ship it or delete it, 2. Long-term retention never runs — `retire()` is dead, 3. Gear is still earned, announced, and unwearable, 4. The server merge still destroys the mastery data the client protects, 5. `BLEND_RULES` gives blends a *harsher* bar than the comment argues for, 6. There is still no CI — and this is why every other item recurs, Definition of done (+1 more)
-
-### Community 1042 - "build-recording-docs.py"
-Cohesion: 0.20
-Nodes (7): RGBColor, chunk(), heading(), # NOTE: blocklisted words are INCLUDED - in this app the blocklist means the, _emit_phase_header(), _hex_rgb(), setup_styles()
-
-### Community 1043 - "letterStrokes.js"
-Cohesion: 0.31
-Nodes (6): LetterWriter(), LETTER_GUIDES, LETTER_STROKES, strokesForChar(), LOWER, UPPER
 
 ### Community 1044 - "checkQuestMusic.mjs"
 Cohesion: 0.22
@@ -4890,13 +4834,9 @@ Nodes (8): Conditional sources, Import checklist, Imported packs, LiteracyPath 3
 Cohesion: 0.22
 Nodes (9): Accessibility, reliability, and performance, Art and world composition, Character performance, Educational quality, Major Experience Findings, Movement and camera, Music and sound, Rewards, narrative, and motivation (+1 more)
 
-### Community 1048 - "RhymeTime.tsx"
-Cohesion: 0.36
-Nodes (7): getPairsForDifficulty(), getRimeHint(), RhymeTime(), shuffleArray(), Tile, WORD_EMOJIS, shuffled()
-
 ### Community 1050 - "_emit_table"
-Cohesion: 0.36
-Nodes (8): coerce_headers(), coerce_rows(), _parse_pipe_rows(), Normalize model-emitted table rows. Each row must be a list of cells, but models, Normalize table headers. A bare string ("Item | Cost") is the pipe-joined header, _emit_fill_table(), _emit_table(), _shade_cell()
+Cohesion: 0.18
+Nodes (17): coerce_headers(), coerce_rows(), _parse_pipe_rows(), Normalize model-emitted table rows. Each row must be a list of cells, but models, Normalize table headers. A bare string ("Item | Cost") is the pipe-joined header, _box(), _cant_split(), _emit_cards() (+9 more)
 
 ### Community 1051 - "Sound Seekers Seedwake Release Report"
 Cohesion: 0.29
@@ -4994,25 +4934,29 @@ Nodes (3): Content rubrics — vendored from anthropics/k12-teacher-skills, File
 Cohesion: 0.67
 Nodes (3): fail(), pngDimensions(), requireText()
 
+### Community 1088 - "Release-Blocking Findings"
+Cohesion: 0.33
+Nodes (6): P0. Audio-led tasks can expose a silent replay button, P0. Phone layouts can hide a required answer, P1. Carry visibility has a zero-index bug, P1. Named verbs do not yet create enough different play, P1. The physical action budget breaks the intended pacing contract, Release-Blocking Findings
+
 ## Knowledge Gaps
-- **7305 isolated node(s):** `$schema`, `style`, `rsc`, `tsx`, `config` (+7300 more)
+- **7311 isolated node(s):** `$schema`, `style`, `rsc`, `tsx`, `config` (+7306 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **91 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **90 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `word()` connect `word` to `initialSoundPairAssets.js`, `Slide Type Specifications`, `initialSoundWordBank.js`, `masterWordLexicon.js`, `guidedReadingBooks.js`, `worksheetBuilder.js`, `checkK3WordBankMediaCoverage.js`, `studentDetailedReportBuilder.js`, `checkHfwDistractorAmbiguity.js`, `BookQuiz.jsx`, `GamePlayer.jsx`, `wordBridgeLevels.js`, `0. THE ARCADE-GAME CONTRACT (both games must follow this exactly)`, `package.json`, `skillLevelDepthShared.js`, `elAssessmentReportStore.js`, `12. THE COMBINATORIAL VARIATION ENGINE`, `Full-Output Enforcement`, `elSkillsBlockCycles.js`, `CVCTrain.tsx`, `0. BRIEF INFERENCE (Read the Room Before Anything Else)`, `mediaQaManifest.js`, `normalizeLexiconWord`, `cvcHelpers.js`, `GuidedReadingPage.jsx`, `presentationBuilder.js`, `validateKimiDataset7.js`, `initialSoundSelector.js`, `generateSkillLevelGapQuestions.js`, `18. EXTRA CREATIVITY & IMPLEMENTATION EDGE`, `importSkillMediaPack.js`, `checkAssessmentQuestionIntegrity.js`, `checkMediaQualityManifest.js`, `validateGuidedReadingRegenPack.js`, `BookQuiz.jsx`, `templateComprehensionAdvanced.js`, `STATIONS`, `StudentHomePage.jsx`, `storyQuests.js`, `childAssets.js`, `0. BRIEF INFERENCE (Read the Room Before Anything Else)`, `SoundSlide.tsx`, `generateHfwQuestionImageKimiRequest.js`, `speak`, `index.js`, `usePhonicsAudio.js`, `writeFile`, `hfwRuntimeEligibility.js`, `checkSkillProgression.js`, `guidedReadingSeriesBooks.js`, `importSkillWordBankWorkbook.js`, `generateSecondBlockSkillQuestions.js`, `calibrateDifficulty.js`, `auditAssessmentSkillIntegrity.js`, `Lesson Deck Model`, `exportElAssessmentExcel.js`, `checkEarlyPhonicsValidity.js`, `FinishedReportPage.jsx`, `generateEarlySkillQuestions.js`, `checkFinalSoundsLevel1ProgressionDepth.js`, `checkFinalSoundProgression.js`?**
-  _High betweenness centrality (0.061) - this node is a cross-community bridge._
-- **Why does `dependencies` connect `dependencies` to `0. THE ARCADE-GAME CONTRACT (both games must follow this exactly)`, `devDependencies`?**
-  _High betweenness centrality (0.018) - this node is a cross-community bridge._
-- **Why does `getChildWordAsset()` connect `importSkillMediaPack.js` to `initialSoundPairAssets.js`, `worksheetBuilder.js`, `checkK3WordBankMediaCoverage.js`, `checkHfwDistractorAmbiguity.js`, `ElSkillsQuest.jsx`, `package.json`, `12. THE COMBINATORIAL VARIATION ENGINE`, `11. REDESIGN PROTOCOL`, `checkRhymingCoverage.js`, `ixlStyleSeedQuestions.js`, `presentationBuilder.js`, `18. EXTRA CREATIVITY & IMPLEMENTATION EDGE`, `checkAssessmentQuestionIntegrity.js`, `isQuestionValid`, `auditStoryQuestAssets.js`, `audioPreferenceManifest.js`, `word`, `Lesson Deck Model`, `exportElAssessmentExcel.js`, `generateEarlySkillQuestions.js`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+- **Why does `word()` connect `0. BRIEF INFERENCE (Read the Room Before Anything Else)` to `initialSoundPairAssets.js`, `worksheetBuilder.js`, `initialSoundWordBank.js`, `masterWordLexicon.js`, `guidedReadingBooks.js`, `checkK3WordBankMediaCoverage.js`, `studentDetailedReportBuilder.js`, `checkHfwDistractorAmbiguity.js`, `BookQuiz.jsx`, `7. MVP Vertical Slice`, `0. THE ARCADE-GAME CONTRACT (both games must follow this exactly)`, `package.json`, `skillLevelDepthShared.js`, `elAssessmentReportStore.js`, `12. THE COMBINATORIAL VARIATION ENGINE`, `Full-Output Enforcement`, `elSkillsBlockCycles.js`, `CVCTrain.tsx`, `normalizeLexiconWord`, `GuidedReadingPage.jsx`, `CLAUDE.md`, `presentationBuilder.js`, `validateKimiDataset7.js`, `Comic Redesign — Image Generation Prompt Pack (2026-07-07)`, `initialSoundSelector.js`, `generateSkillLevelGapQuestions.js`, `importSkillMediaPack.js`, `checkAssessmentQuestionIntegrity.js`, `checkMediaQualityManifest.js`, `validateGuidedReadingRegenPack.js`, `BookQuiz.jsx`, `rhymingDistractors.js`, `templateComprehensionAdvanced.js`, `childAssets.js`, `storyQuests.js`, `0. BRIEF INFERENCE (Read the Room Before Anything Else)`, `SoundSlide.tsx`, `PhonicsLearnTab.jsx`, `generateHfwQuestionImageKimiRequest.js`, `removeBadPhonicsAll.js`, `speak`, `index.js`, `usePhonicsAudio.js`, `writeFile`, `removeBadRhyming.js`, `questionFormatFramework.js`, `guidedReadingSeriesBooks.js`, `importApprovedHfwQuestionBank.js`, `importSkillWordBankWorkbook.js`, `auditSkillBanks.js`, `generateSecondBlockSkillQuestions.js`, `auditAssessmentSkillIntegrity.js`, `Lesson Deck Model`, `word`, `exportElAssessmentExcel.js`, `ReadingRace.tsx`, `generateEarlySkillQuestions.js`, `checkFinalSoundsLevel1ProgressionDepth.js`, `checkFinalSoundProgression.js`?**
+  _High betweenness centrality (0.048) - this node is a cross-community bridge._
+- **Why does `dependencies` connect `generateSecondBlockSkillQuestions.js` to `Lesson Deck Model`, `devDependencies`?**
+  _High betweenness centrality (0.017) - this node is a cross-community bridge._
+- **Why does `getChildWordAsset()` connect `importSkillMediaPack.js` to `worksheetBuilder.js`, `checkK3WordBankMediaCoverage.js`, `checkHfwDistractorAmbiguity.js`, `ElSkillsQuest.jsx`, `package.json`, `12. THE COMBINATORIAL VARIATION ENGINE`, `11. REDESIGN PROTOCOL`, `0. BRIEF INFERENCE (Read the Room Before Anything Else)`, `checkRhymingCoverage.js`, `ixlStyleSeedQuestions.js`, `presentationBuilder.js`, `checkAssessmentQuestionIntegrity.js`, `isQuestionValid`, `0. BRIEF INFERENCE (Read the Room Before Anything Else)`, `PhonicsLearnTab.jsx`, `audioPreferenceManifest.js`, `word`, `Lesson Deck Model`, `checkHfwTrueVariation.js`, `exportElAssessmentExcel.js`, `generateEarlySkillQuestions.js`, `dependencies`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
 - **Are the 138 inferred relationships involving `word()` (e.g. with `BlendAndBuild()` and `CVCTrain()`) actually correct?**
   _`word()` has 138 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 10 inferred relationships involving `normalizeWord()` (e.g. with `answerSetKey()` and `correctAnswers()`) actually correct?**
   _`normalizeWord()` has 10 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `$schema`, `style`, `rsc` to the rest of the system?**
-  _7343 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _7349 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `CORE DIRECTIVE: AWWWARDS-LEVEL IMAGE ART DIRECTION` be split into smaller, more focused modules?**
   _Cohesion score 0.03333333333333333 - nodes in this community are weakly interconnected._

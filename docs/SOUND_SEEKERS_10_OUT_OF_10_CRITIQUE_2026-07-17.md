@@ -1,7 +1,7 @@
 # Sound Seekers: 10/10 Standard Critique
 
-**Review date:** 17 July 2026  
-**Build reviewed:** Local pixel-mode build after chapter-scoped cast loading, stable name-to-character identity, project-authored casts with role-specific work and celebration performances across all eight chapters, chapter-authored scenery and learning-object kits across the full 40-stop journey, a vector-derived customised Beastie with sixteen frames per direction and twelve dedicated action poses, blended encounter camera framing, returning-resident memory continuity, unique chapter-finale casting, analog-control parity, solid-scenery contact and pointer avoidance, stable navigable optional-route lanes with reward-bearing exploration and chapter-resident discoveries, untimed accessible-2D motor tasks with focus recovery and roving answer navigation, pursuit, route, sorting, tool-use, observatory-turn, ferry-steering, positional-signal, cliff-climbing, choice-aware forward reach, bounded travel-camera anticipation, runtime-allocation hardening, Canvas/Arcade-only engine packaging, live scene-health telemetry, exploration/social/accessibility reporting, persistent quiet-soundscape play that preserves phonics cues, animated pixel-cast rewards, physical relic handoffs, chapter-textured finale plazas, timed chapter-material ceremony sound arcs, scene-state score and ambience mixes, hidden-tab score, ambience, and phonics-cue suspension with position-preserving resume, and a journey-complete map that preserves the finished 40-stop state  
+**Review date:** 18 July 2026
+**Build reviewed:** Local pixel-mode build with 40 explicit route-authored maps; chapter-scoped cast loading; stable name-to-character identity; project-authored casts, scenery, terrain, and learning-object kits across all eight chapters; a vector-derived customised Beastie with sixteen frames per direction and twelve dedicated action poses; blended encounter camera framing; returning-resident memory continuity; unique chapter finales; analog-control parity; solid-scenery contact and pointer avoidance; stable optional-route lanes with reward-bearing exploration; untimed accessible-2D motor tasks with focus recovery and roving answer navigation; pursuit, route, sorting, tool-use, observatory-turn, ferry-steering, positional-signal, and cliff-climbing interactions; bounded travel-camera anticipation; runtime-allocation hardening; Canvas/Arcade-only engine packaging; live scene-health telemetry; persistent quiet-soundscape play that preserves phonics cues; physical relic handoffs; chapter-textured ceremony plazas; scene-state score and ambience mixes; hidden-tab suspension with position-preserving resume; and a journey-complete map that preserves the finished 40-stop state
 **Standard used:** A premium commercial children's adventure, not a technically functional educational prototype
 
 ## Review Method
@@ -13,21 +13,24 @@ This review combines:
 - Wrong-answer recovery and active-choice stability checks.
 - Code inspection of the pixel runtime, physical task expansion, verb handlers, music routing, accessibility parity, progression, mastery, rewards, telemetry, and reporting.
 - Generated analysis of every stop's physical response count and opening prompt.
-- The current 555-test release suite, twenty-nine dedicated browser accessibility/reflow/journey/animation/mobile-surface/network-recovery tests, and production build evidence.
+- The current 565-test unit suite, 40 dedicated browser accessibility/reflow/journey/animation/mobile-surface/network-recovery tests, and production build evidence.
 
 ## Verdict
 
-Sound Seekers is now a credible and unusually well-instrumented educational game prototype. It is not yet a premium 10/10 game.
+Sound Seekers is now a complete local software release candidate and an unusually well-instrumented educational game. It is not yet an externally certified premium 10/10 game.
 
-The strongest work is below the surface: decodability, mastery integrity, correction, review scheduling, persistence, cumulative equipment, accessible parity, telemetry, and reporting. The weakest work is the part the child actually feels: physical control variety, authored level composition, character performance, animation, visual consistency, pacing, sound identity, and moment-to-moment narrative consequence.
+The strongest work is decodability, mastery integrity, correction, review scheduling, persistence, cumulative equipment, accessible parity, continuity, authored route coverage, telemetry, and reporting. The weakest remaining work is character and sprite cohesion, repeated task presentation, professional audio and voice, first-time child comprehension, and demonstrated performance on representative physical devices.
 
-**Overall premium-game score: 5.3/10**  
-**Educational systems score: 7.8/10**  
-**Production release readiness: 4.5/10**
+**Current overall premium-game score: 7.6/10**
 
-The game should remain labelled preview outside Seedwake. A green test suite proves that the systems are coherent. It does not prove that the experience is delightful, legible on every device, or ready for a child audience.
+**Current educational systems score: 8.4/10**
+**Current local software readiness: 9.2/10; external production certification is incomplete**
 
-## Scorecard
+All eight chapters may be labelled software-ready. A green test suite and inspected renderer prove that the complete local experience is coherent; they do not prove delight, classroom suitability, physical-device stability, or child comprehension.
+
+## Original Baseline Scorecard
+
+This table is retained as the starting point for the audit trail. Pass 100 is the current scorecard.
 
 | Area | Score | Critical judgement |
 | --- | ---: | --- |
@@ -46,9 +49,137 @@ The game should remain labelled preview outside Seedwake. A green test suite pro
 | Narrative and emotional arc | 5.0 | Chapter conflicts, destinations, relics, and ceremony exist, but residents mostly function as task dispensers and world repairs rarely change play in a memorable way. |
 | Telemetry and reporting | 8.0 | Mastery, attempts, time-on-task, review, and teacher reporting are among the strongest systems in the game. They still need validation against observed child behaviour. |
 
-## Current Scorecard After Pass 97
+## Independent Pass 98 Re-audit
 
-The table above is the baseline that started this loop. The current audited position is:
+Pass 98 restarted the review from the visible child experience instead of carrying forward previous scores. It replayed the Den, map, creature creator, Trading Post, ceremony, accessible 2D mode, and representative stops from all eight chapters at desktop and phone sizes. It also inspected the 40-stop content model, runtime, generated task distribution, map composition data, accessibility path, progression, audio routing, performance controls, telemetry, and automated evidence.
+
+The previous 9.8 score is withdrawn. It overvalued feature presence, regex wiring tests, asset counts, and named variation while underweighting composition, art coherence, repeated play, interaction depth, and what was actually visible in the browser. In particular, 40 unique topology and motif labels were incorrectly treated as 40 authored maps even though every main route was generated by formulas.
+
+Pass 98 has already corrected two concrete issues: pixel sampling is now crisp instead of blurred, and Seedwake's five routes now use explicit hand-composed control points, landmark anchors, encounter sides, and one authored side trail. The data contract labels the other 35 routes as generated until they receive equivalent authorship.
+
+| Area | Pass 98 | Evidence-based judgement |
+| --- | ---: | --- |
+| Core movement and camera | 7.2 | A real held-key browser test proves continuous visible animation and camera containment. Steering, stopping, cornering, collision feel, touch latency, and child preference still need work and physical-device proof. |
+| Gameplay variety and feel | 6.8 | Eleven response families and 269 physical stages exist, but 186 stages still present letter-only labels and the dominant felt loop remains approach, choose, receive feedback, continue. |
+| Level and world design | 6.3 | Eight chapter identities are recognisable and Seedwake now has five explicit route layouts. Thirty-five routes remain generated, most encounters reuse one composition, and exploration is narrow. |
+| Graphics and art direction | 6.6 | Crisp nearest-neighbour rendering materially improves the pixel presentation. Asset resolution, palette discipline, tile-road finish, density, scale, Beastie/resident consistency, map art, Den, and creator remain below premium commercial work. |
+| Characters and animation | 6.3 | The Beastie has directional and action frames and residents animate, but the custom avatar reads as a simpler vector-derived sprite beside more detailed resident and prop art. Performances lack authored timing and personality. |
+| UI and child UX | 7.2 | Prompts are short, choices are reachable, phone reflow is generally strong, and task feedback is clear. The HUD is heavy, the creator wastes desktop space, the map is visually flat, and some ceremonies are compositionally confused. |
+| Educational architecture | 8.4 | Scope, sequence, decodability, correction, mastery integrity, weak-sound review, and reporting are strong. Letter recognition and assembly dominate too much of the child-facing interaction, and the final voice set is deferred. |
+| Content and pacing | 7.4 | All stops now fit a 4-8 action budget with a 6.72 average, but prompt and mechanic repetition can still make the 40-stop journey feel long. No observed-child boredom or replay evidence exists. |
+| Rewards and economy | 7.0 | Sparks, persistent finds, relic abilities, shop purchases, cumulative equipment, caches, and ceremonies connect. Ordinary pickups still lack enough immediate strategic or expressive consequence. |
+| Music, sound, and feedback | 6.3 | Cue ownership, ducking, score routing, and chapter beds exist. Browser inspection cannot certify mix quality, the requested unified voice is deferred, and the music lacks professional listening evidence. |
+| Accessibility and fallback | 8.3 | Accessible 2D has semantic controls, shared learning state, correction, focus recovery, reduced motion, high contrast, and phone support. It is visually and emotionally thinner than pixel mode and lacks assistive-technology and switch-device sessions. |
+| Reliability and performance | 8.7 | Local continuity, offline/update paths, fallback controls, bundle budgets, diagnostics, and automated journeys are substantial. Representative iPad, Chromebook, Android, thermal, memory, touch, and long-session evidence is absent. |
+| Narrative and emotional arc | 6.6 | Named residents, chapter problems, restored memories, relics, and ceremonies exist. Residents still mostly function as task presenters and the repaired world rarely changes the next minute of play in a memorable way. |
+| Telemetry and reporting | 8.8 | Mastery, attempts, active time, reviews, controls, runtime health, network state, and teacher-facing guidance are unusually comprehensive. Adult interpretation and outcome validity remain untested with real users. |
+
+**Pass 98 overall premium-game score: 7.3/10**
+
+**Pass 98 educational systems score: 8.4/10**
+
+**Pass 98 production readiness: 6.8/10; the complete journey works locally, but player-facing authorship and external acceptance are not release-ready**
+
+No category may move to 10 from code presence or passing regex assertions. A 10 requires the acceptance result to be visible in representative play, supported by behavioural tests, and, where the criterion concerns children, audio, accessibility, or hardware, confirmed through the corresponding external evidence.
+
+## Pass 99 Re-critique And Improvement
+
+Pass 99 replayed the first River Gardens task with real number-key input, travelled to the next resident using held movement, inspected Forge sorting at desktop and phone sizes, and reviewed the resulting renderer screenshots. It also re-read the route, encounter, locomotion, staging, map, task, accessibility, telemetry, and release-check code touched by the defects.
+
+The pass fixed genuine child-facing failures rather than changing scores around them:
+
+- River Gardens now has five explicit routes, scenery plans, resident sides, landmarks, crossings, and two optional branches. Ten of 40 stops are route-authored; 30 remain explicitly generated.
+- Authored route movement now follows bends when the child holds forward, while still allowing manual steering. A real browser regression completes Fizz's task and reaches Quill's next prompt without a freeze, spin, or missed contact.
+- Resident transitions re-arm safely when React has not accepted an early contact, preventing the post-task dead state.
+- Roads across every chapter now render as continuous curved ribbons from the movement route instead of tile-step masks. Generated routes remain labelled generated.
+- Old square encounter clearings were replaced by organic textured work areas. River crossings were moved away from resident staging.
+- Authored stops no longer receive a second layer of generic grove, terrace, crossing, workyard, or arena decoration, removing the low-resolution cottage and fixed template shapes that invaded task-safe bays.
+- Three-choice formations are more widely separated and remain screen-readable around bends.
+- Forge sorting chooses the bay opposite the approaching player and moves the conveyor and all three tokens as one bounded formation. Desktop and phone collision-clearance checks pass.
+- Encounter framing now protects the instruction HUD. A screen-space regression uses each answer object's actual rendered bounds and proves that all three Singing Weir signs remain below the live prompt.
+
+| Area | Pass 99 | Evidence-based judgement |
+| --- | ---: | --- |
+| Core movement and camera | 7.8 | Consecutive-resident flow, forward bend assistance, braking, camera containment, and gate continuity are now covered with real held input. Touch feel, collision softness, full-route free steering, and device latency are still unproved. |
+| Gameplay variety and feel | 7.1 | Sorting now stages as a coherent physical lane and encounter formations are clearer. The journey still relies heavily on approaching labelled choices and many later verbs remain more distinct in code than in felt play. |
+| Level and world design | 6.8 | Seedwake and River Gardens now provide ten explicit maps with authored props and crossing positions. Thirty stops still use generated route formulas and exploration remains shallow. |
+| Graphics and art direction | 7.0 | Curved roads, organic clearings, crisp sampling, and cleaner staging remove conspicuous tile seams. Coarse base terrain, high-detail prop sheets, simpler character art, and mixed sprite scales still look assembled rather than art-directed as one game. |
+| Characters and animation | 6.4 | Scale and encounter placement read more clearly, and task flow no longer leaves residents unreachable. Beastie/resident craft, animation timing, facial acting, and silhouette consistency remain well below the reference quality. |
+| UI and child UX | 7.4 | Immediate prompts and answer formations are clearer, phone sorting is bounded, and actual rendered answer art now clears the instruction HUD. The dark stacked HUD, weak visual hierarchy, small status language, and uneven non-game surfaces remain unfinished. |
+| Educational architecture | 8.4 | Scope, sequence, correction, mastery, weak-sound review, and reporting remain strong. This pass did not solve the deferred final voice or the overuse of letter-selection presentation. |
+| Content and pacing | 7.4 | The 4-8 action budget still passes, but generated chapters and repeated encounter cadence remain likely sources of fatigue. |
+| Rewards and economy | 7.0 | Persistent finds, Sparks, relics, shop purchases, and cumulative equipment work. Ordinary collection still lacks enough immediate strategic or expressive consequence. |
+| Music, sound, and feedback | 6.3 | Routing and ducking are present, but this pass added no professional composition, mix, classroom-speaker, sensory-comfort, or final-voice evidence. |
+| Accessibility and fallback | 8.3 | Semantic 2D parity, keyboard use, small-screen reachability, reduced motion, and high contrast remain substantial. Emotional parity and physical assistive-technology evidence are still absent. |
+| Reliability and performance | 9.0 | The 39-scenario browser suite now covers held movement, consecutive resident flow, authored route consumption, full-artwork HUD clearance, Forge layout safety, gates, recovery, fallback, and mobile surfaces. Real low-end hardware, thermal, memory, touch, and long-session certification remain open. |
+| Narrative and emotional arc | 6.6 | Better resident placement supports meetings, but most characters still present tasks rather than drive memorable local stories or visible world change. |
+| Telemetry and reporting | 8.8 | The reporting and runtime evidence remain unusually complete, but adult interpretation and educational outcome validity still require external sessions. |
+
+**Pass 99 overall premium-game score: 7.5/10**
+
+**Pass 99 educational systems score: 8.4/10**
+
+**Pass 99 production readiness: 7.2/10**
+
+### Pass 99 Critical Blockers
+
+1. Author the remaining 30 stop layouts, including encounter composition, side routes, traversal landmarks, task clearings, and scenery hierarchy.
+2. Replace the mixed-resolution environment and cast with one controlled pixel-art specification for scale, palette, outlines, lighting direction, animation count, and export resolution.
+3. Restage decorative props around task-safe bays so authored landmarks never compete with residents, choices, or machinery.
+4. Make each later verb identifiable from motion and spatial setup before the child reads the prompt.
+5. Redesign the HUD, map, creator, Den, shop, and ceremonies to the same visual standard as the strongest in-world assets.
+6. Complete the final voice, professional music and mix review, physical-device matrix, assistive-technology matrix, and observed child and teacher acceptance work.
+
+## Pass 100 Full-World Authorship Re-critique
+
+Pass 100 addresses the largest code-led blocker from Pass 99: the 30 remaining formula-generated routes. Fossil Canyon, Forge Settlement, Glass Marsh, Storm Coast, Lantern Forest, and Star Reach now join Seedwake and River Gardens as explicit route-authored chapters. Browser inspection covered representative desktop and phone stops in the newly converted lands, and the live renderer now proves 40 distinct route signatures.
+
+Implemented and checked:
+
+- All 40 stops own immutable route points, resident sides, task-safe scenery, landmark placement, terrain anchors, and optional paths where the composition calls for them. The pixel audit reports 40 route-authored maps and zero generated maps.
+- Fossil, Forge, and Glass use different bends, loops, workyards, ridges, crossings, and chapter landmarks rather than recoloured copies of one corridor.
+- Storm Coast adds tidal boardwalks, coastal crossings, buoy motion, and gale-reactive scenery. Lantern Forest adds root bridges, fork/hub/spiral layouts, luminous crossings, and fluttering life. Star Reach adds sky-road branches, constellation rails, floating scenery, and a unique final First Reading Star destination.
+- Every active route keeps authored scenery at least 90 pixels away and landmarks at least 100 pixels away, preventing task objects and residents from being hidden behind decorative art.
+- The complete browser suite passes 40/40: all chapter gates, the final journey handoff, continuous movement, consecutive residents, 320-pixel layouts, accessible parity, constrained-device fallback, recovery, and all authored routes.
+- The complete unit suite passes 565/565. Production build, full lint, pacing, pixel asset/map audit, and the permanent analysed bundle gate pass.
+- Compact map storage keeps the lazy pixel-world chunk at 870.00 KB minified / 233.28 KB gzip across 1,023 modules, inside the unchanged 870 KB / 235 KB release ceiling.
+
+| Area | Pass 100 | Evidence-based judgement |
+| --- | ---: | --- |
+| Core movement and camera | 7.8 | Continuous movement, bend assistance, camera containment, contact recovery, and all gates pass locally. Physical touch feel and device latency remain unproved. |
+| Gameplay variety and feel | 7.3 | Route shape, optional paths, terrain, and staging vary across all 40 stops, but several learning tasks still resolve through labelled-object contact. |
+| Level and world design | 8.2 | All 40 routes are explicit and distinct, with chapter-specific topology, landmarks, scenery, and safe task composition. Deeper interiors, systemic secrets, and observed exploration behaviour remain. |
+| Graphics and art direction | 7.5 | Animated chapter terrain and authored compositions create a clearer visual identity. Mixed sprite resolution, silhouette craft, and character/environment cohesion remain below premium commercial art. |
+| Characters and animation | 6.4 | The customised Beastie and cast remain functional and animated, but this pass does not replace their synthetic timing or mixed craft level. |
+| UI and child UX | 7.4 | Phone reachability, task clearance, map, shop, creator, and ceremonies pass the browser gates. First-use hierarchy and comprehension still require observed children. |
+| Educational architecture | 8.4 | Scope, sequence, correction, mastery, weak-sound review, and reporting remain strong; final unified voice and presentation variety remain open. |
+| Content and pacing | 7.8 | The 4-8 action budget and varied travel reduce structural repetition, but a child cohort must determine fatigue and replay value. |
+| Rewards and economy | 7.0 | Persistent finds, Sparks, relics, cumulative gear, and shortcuts work. Immediate pickup consequence and observed reward choice remain limited. |
+| Music, sound, and feedback | 6.3 | Routing, ducking, chapter beds, and action feedback work; final voice and professional composition/mix acceptance remain deferred. |
+| Accessibility and fallback | 8.3 | Accessible 2D, keyboard, reduced motion, high contrast, small-screen support, and severe-device fallback pass locally. Physical assistive-technology evidence is absent. |
+| Reliability and performance | 9.2 | Unit, browser, build, lint, pacing, asset/map, continuity, recovery, and unchanged bundle budgets pass. Physical thermal, memory, latency, and long-session evidence remain open. |
+| Narrative and emotional arc | 6.9 | Distinct destinations and paths improve place identity, but residents still need richer local stories and consequences visible in immediate play. |
+| Telemetry and reporting | 8.8 | The evidence and reporting systems remain unusually complete; adult interpretation and outcome validity still require real sessions. |
+
+**Pass 100 overall premium-game score: 7.6/10**
+
+**Pass 100 educational systems score: 8.4/10**
+
+**Pass 100 local software readiness: 9.2/10**
+
+**Re-critique:** The generated-route problem is closed in full, and the world now has 40 explicit compositions with reliable local continuity. The game is ready for a controlled release-candidate build and real acceptance testing. It is not honest to call it 10/10 yet: no code pass can substitute for child comprehension and delight, representative hardware, VoiceOver/NVDA/switch use, classroom listening, the final unified voice, or professional art and audio review.
+
+### Pass 100 Remaining Acceptance Bar
+
+1. Run the sealed physical matrix on representative iPad, Chromebook, Android tablet, VoiceOver, NVDA, and switch setups.
+2. Run the defined child, repeat-play, reward-choice, teacher/parent, and classroom-audio cohorts without weakening their thresholds.
+3. Produce the final unified voice set and complete professional music, mix, and sensory-comfort review.
+4. Complete one professional sprite/animation cohesion pass across the Beastie, residents, props, HUD, map, creator, shop, and ceremonies.
+5. Treat failed external evidence as a new targeted product pass, then repeat the same gate. Do not award 10 from local automation alone.
+
+## Withdrawn Pass 97 Scorecard
+
+This table is retained only as an audit trail. Its scores are superseded by Pass 98 and Pass 99 and must not be quoted as the current state.
 
 | Area | Current | What still prevents 10 |
 | --- | ---: | --- |
@@ -67,11 +198,13 @@ The table above is the baseline that started this loop. The current audited posi
 | Narrative and emotional arc | 9.9 | Named identities, 32 authored returning memories, resident performances, lasting world changes, earned return routes, and four-friend ceremonies now hold together. Child emotional-response evidence still prevents 10. |
 | Telemetry and reporting | 9.9 | Connection interruption, deferred-save, recovery, offline-shell readiness, chapter-cache preparation, cold offline starts, cache failures, waiting updates, safely applied updates, earned-shortcut sessions, returning-friend visits, and still-pending evidence reach the adult report alongside learning, control, accessibility, scene, asset, and runtime health evidence. Teacher comprehension, false-positive, action-uptake, outcome-validity, and physical-device baseline studies still prevent 10. |
 
-**Current overall premium-game score: 9.8/10**  
-**Current educational systems score: 9.6/10**  
-**Current production readiness: 9.9/10 locally across the complete 40-stop journey; external device, child, teacher, and assistive-technology certification remains outstanding**
+**Withdrawn overall premium-game score: 9.8/10**
 
-This is the honest ceiling of the present code-and-local-browser loop. Awarding 10s now would contradict the acceptance definition below: several remaining results require authored production assets and sessions with children, teachers, assistive technology, tablets, and school-class devices.
+**Withdrawn educational systems score: 9.6/10**
+
+**Withdrawn production-readiness score: 9.9/10**
+
+These scores were not an honest representation of the visible experience. They are preserved to show why the independent re-audit was necessary.
 
 ### Final local release evidence
 

@@ -541,11 +541,22 @@ test("pixel choice staging clamps long answer art inside a phone camera", () => 
   assert.ok(phone.some(([x]) => x > 0));
 
   const desktop = questPixelChoiceOffsets("circle", 3, { viewportWidth: 1280, zoom: 3.2 });
-  assert.deepEqual(desktop, [[-82, 28], [0, -58], [82, 28]]);
+  assert.deepEqual(desktop, [[-96, 30], [0, -84], [96, 30]]);
   assert.ok(desktop.some(([, forward]) => forward < 0), "three choices no longer form a ring around the resident");
   assert.ok(Math.hypot(...desktop[0]) >= 86 && Math.hypot(...desktop[2]) >= 86, "side answers can still merge with a premium resident silhouette");
   assert.ok(desktop.every(([lateral, forward]) => Math.hypot(lateral, forward) >= 58), "an answer can still merge with the resident silhouette");
   assert.ok(desktop.every(([lateral, forward]) => Math.hypot(lateral, forward - 90) >= 64), "an answer can still sit in the player's approach lane");
+
+  const authoredLayouts = ["scatter", "stepping", "delivery", "workshop", "circle"]
+    .map(layout => questPixelChoiceOffsets(layout, 3, { viewportWidth: 1280, zoom: 3.2 }));
+  assert.equal(
+    new Set(authoredLayouts.map(offsets => JSON.stringify(offsets))).size,
+    authoredLayouts.length,
+    "Seedwake's five physical verbs still collapse into the same answer triangle"
+  );
+  assert.ok(authoredLayouts.every(offsets => offsets.every((point, index) => (
+    offsets.every((other, otherIndex) => otherIndex === index || Math.hypot(point[0] - other[0], point[1] - other[1]) >= 100)
+  ))), "three-choice props can still merge into one visual knot");
 
   assert.deepEqual(
     questPixelChoiceOffsets("tool-work", 1, { viewportWidth: 390, zoom: 1.8 }),
@@ -575,6 +586,17 @@ test("pixel choice staging clamps long answer art inside a phone camera", () => 
   assert.ok(sideBay.points.every(point => Math.hypot(point.x - 320, point.y - 504) >= 46), "a sorting token can still merge with the player");
   assert.ok(sideBay.points.every(point => Math.hypot(point.x - 320, point.y - 420) >= 46), "a sorting token can still merge with the resident");
 
+  const oppositePlayer = questPixelSortLaneLayout({
+    resident: { x: 320, y: 420 },
+    player: { x: 374, y: 492 },
+    forward: { x: 0, y: 1 },
+    right: { x: 1, y: 0 },
+    choiceLeft: 190,
+    choiceRight: 450,
+    count: 3
+  });
+  assert.equal(oppositePlayer.side, -1, "the sorting lane still opens underneath a side-approaching player");
+
   const edgeBay = questPixelSortLaneLayout({
     resident: { x: 242, y: 420 },
     player: { x: 242, y: 504 },
@@ -586,6 +608,23 @@ test("pixel choice staging clamps long answer art inside a phone camera", () => 
   });
   assert.equal(edgeBay.side, 1, "a sorting lane near the left edge should move into the open bay");
   assert.ok(edgeBay.points.every(point => point.x >= 225 && point.x <= 415));
+
+  const narrowBay = questPixelSortLaneLayout({
+    resident: { x: 356, y: 420 },
+    player: { x: 356, y: 504 },
+    forward: { x: 0, y: 1 },
+    right: { x: 1, y: 0 },
+    choiceLeft: 280,
+    choiceRight: 382,
+    count: 3
+  });
+  assert.ok(narrowBay.points.every(point => point.x >= 280 && point.x <= 382));
+  assert.deepEqual(
+    narrowBay.points.slice(1).map((point, index) => point.x - narrowBay.points[index].x),
+    [36, 36],
+    "fitting a sorting lane into a narrow camera must move the formation as one group"
+  );
+  assert.equal(narrowBay.center.x, narrowBay.points[1].x, "the conveyor must move with its answer tokens");
 
   const shifted = questPixelAvoidActorOverlap({
     point: { x: 0, y: 42 },

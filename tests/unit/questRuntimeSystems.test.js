@@ -58,6 +58,20 @@ import {
   questPixelResidentPath
 } from "../../src/data/questPixelCast.js";
 import { QUEST_CHAPTERS } from "../../src/data/questChapters.js";
+import {
+  AUTHORED_PIXEL_MAPS,
+  authoredPixelRouteCenters,
+  FOSSIL_AUTHORED_MAPS,
+  FORGE_AUTHORED_MAPS,
+  GLASS_AUTHORED_MAPS,
+  LANTERN_AUTHORED_MAPS,
+  RIVER_AUTHORED_MAPS,
+  samplePixelMapRoute,
+  SEEDWAKE_AUTHORED_MAPS,
+  STAR_AUTHORED_MAPS,
+  STORM_AUTHORED_MAPS,
+  STOP_PIXEL_MAPS
+} from "../../src/data/questPixelMaps.js";
 
 function pngDimensions(filePath) {
   const png = fs.readFileSync(filePath);
@@ -727,6 +741,7 @@ test("the pixel renderer keeps educational parity and debounces physical contact
   assert.match(runtime, /setStrokeStyle\(2, 0xfff0a2/, "touch movement gives no visible acknowledgement");
   assert.match(runtime, /facingX < 0 \? "left" : "right"/, "horizontal animation mapping is reversed");
   assert.match(runtime, /questPixelCameraZoom\(/, "pixel scale still enlarges the low-resolution kit without a framing contract");
+  assert.match(runtime, /\.setScale\(0\.74\)/, "the custom Beastie no longer shares the authored cast's on-screen silhouette scale");
   assert.match(runtime, /zoomTo\(zoom, 260, "Sine\.easeInOut", true\)/, "task camera changes still snap between scales");
   assert.match(runtime, /cameraTargetZoom/, "answer staging ignores the destination view while the camera is moving");
   assert.match(runtime, /choiceInside\.has\(choice\.id\)/, "standing on a choice can retrigger it every frame");
@@ -757,13 +772,76 @@ test("the pixel renderer keeps educational parity and debounces physical contact
   for (const landmark of ["singing-weir", "rib-camp", "word-forge", "mirror-fen", "thunder-lighthouse", "sleeping-observatory", "reading-star"]) {
     assert.match(runtime, new RegExp(`landmark: "${landmark}"`), `${landmark} is not represented in the live pixel world`);
   }
-  const mapBlock = runtime.match(/const STOP_MAP_DEFINITIONS = \[([\s\S]*?)\n\];/)?.[1] || "";
-  const stopMaps = [...mapBlock.matchAll(/^\s+\["([a-z-]+)", "([a-z-]+)", "([a-z0-9-]+)"\],?$/gm)];
-  assert.equal(stopMaps.length, 40, "all forty stops do not have authored map compositions");
-  assert.equal(new Set(stopMaps.map(match => match[3])).size, 40, "stop map motifs are repeated");
-  assert.ok(new Set(stopMaps.map(match => match[1])).size >= 8, "route topology still collapses into one corridor");
-  assert.deepEqual(new Set(stopMaps.map(match => match[2])), new Set(["grove", "terraces", "crossing", "workyard", "arena"]));
+  const stopMaps = Object.values(STOP_PIXEL_MAPS);
+  assert.equal(stopMaps.length, 40, "the forty-stop map brief is incomplete");
+  assert.equal(new Set(stopMaps.map(map => map.motif)).size, 40, "stop map motifs are repeated");
+  assert.ok(new Set(stopMaps.map(map => map.topology)).size >= 8, "route topology still collapses into one corridor");
+  assert.deepEqual(new Set(stopMaps.map(map => map.scene)), new Set(["grove", "terraces", "crossing", "workyard", "arena"]));
+  assert.equal(stopMaps.filter(map => map.authorship === "route-authored").length, 40, "generated routes are being misreported as authored maps");
+  assert.equal(stopMaps.filter(map => map.authorship === "generated").length, 0, "the generated-map backlog is not empty");
+  for (const [stopId, map] of Object.entries(AUTHORED_PIXEL_MAPS)) {
+    assert.ok(map.routePoints.length >= 8, `${stopId} has no hand-composed route`);
+    assert.deepEqual(map.routePoints[0], [0, 320], `${stopId} does not join the arrival gate`);
+    assert.deepEqual(map.routePoints.at(-1), [1, 320], `${stopId} does not join the departure gate`);
+    assert.ok(map.landmarkAnchor.progress > 0.4 && map.landmarkAnchor.progress < 0.8, `${stopId} landmark is not staged inside play`);
+    assert.ok(Math.abs(map.landmarkAnchor.lateral) >= 140, `${stopId} landmark obstructs the main trail`);
+    assert.ok(map.sceneryAnchors.length >= 10, `${stopId} still relies on repeated procedural scenery`);
+    assert.ok(map.sceneryAnchors.every(anchor => Math.abs(anchor.lateral) >= 130), `${stopId} authored scenery obstructs its playable route`);
+    for (const anchor of map.sceneryAnchors) {
+      const anchorX = samplePixelMapRoute(map.routePoints, anchor.progress) + anchor.lateral;
+      const routeClearance = Math.min(...authoredPixelRouteCenters(map, anchor.progress).map(routeX => Math.abs(routeX - anchorX)));
+      assert.ok(routeClearance >= 90, `${stopId} authored scenery blocks an optional route`);
+    }
+    const landmarkX = samplePixelMapRoute(map.routePoints, map.landmarkAnchor.progress) + map.landmarkAnchor.lateral;
+    const landmarkClearance = Math.min(...authoredPixelRouteCenters(map, map.landmarkAnchor.progress).map(routeX => Math.abs(routeX - landmarkX)));
+    assert.ok(landmarkClearance >= 100, `${stopId} landmark blocks an optional route`);
+  }
+  assert.equal(samplePixelMapRoute(SEEDWAKE_AUTHORED_MAPS.s1.routePoints, 0), 320);
+  assert.equal(samplePixelMapRoute(SEEDWAKE_AUTHORED_MAPS.s1.routePoints, 1), 320);
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s1, 0.5).length, 1);
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s2, 0.5).length, 2, "Seedwake's authored side trail is disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s7, 0.5).length, 2, "River Gardens' island route is disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s8, 0.45).length, 2, "River Gardens' branch route is disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s12, 0.45).length, 2, "Fossil Canyon's ravine route is disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s14, 0.45).length, 2, "Fossil Canyon's rescue route is disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s16, 0.5).length, 3, "Forge Settlement's gearworks spokes are disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s18, 0.5).length, 2, "Forge Settlement's foundry loop is disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s20, 0.5).length, 2, "Forge Settlement's Word Forge island route is disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s21, 0.5).length, 2, "Glass Marsh's reedlight branch is disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s22, 0.5).length, 2, "Glass Marsh's ripple island is disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s25, 0.5).length, 2, "Glass Marsh's Mirror Fen loop is disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s27, 0.5).length, 2, "Storm Coast's harbour route is disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s29, 0.5).length, 2, "Storm Coast's lens-yard route is disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s30, 0.5).length, 2, "Storm Coast's lighthouse route is disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s31, 0.5).length, 2, "Lantern Forest's mothlight branch is disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s33, 0.5).length, 3, "Lantern Forest's map-hub spokes are disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s34, 0.5).length, 2, "Lantern Forest's hollow loop is disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s37, 0.5).length, 3, "Star Reach's archive spokes are disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s38, 0.5).length, 2, "Star Reach's skybridge loop is disconnected");
+  assert.equal(authoredPixelRouteCenters(STOP_PIXEL_MAPS.s39, 0.5).length, 2, "Star Reach's memory-yard branch is disconnected");
+  assert.equal(Object.keys(RIVER_AUTHORED_MAPS).length, 5, "River Gardens is not fully route-authored");
+  assert.ok(Object.values(RIVER_AUTHORED_MAPS).every(map => map.terrainAnchors.length >= 2), "River crossings still use one repeated global placement");
+  assert.ok(new Set(Object.values(RIVER_AUTHORED_MAPS).map(map => map.terrainAnchors.join(":"))).size === 5, "River crossing compositions are still repeated");
+  assert.equal(Object.keys(FOSSIL_AUTHORED_MAPS).length, 5, "Fossil Canyon is not fully route-authored");
+  assert.ok(Object.values(FOSSIL_AUTHORED_MAPS).every(map => map.terrainAnchors.length >= 2), "Fossil Canyon has no authored shelf crossings");
+  assert.equal(new Set(Object.values(FOSSIL_AUTHORED_MAPS).map(map => map.terrainAnchors.join(":"))).size, 5, "Fossil Canyon bridge compositions are repeated");
+  assert.equal(Object.keys(FORGE_AUTHORED_MAPS).length, 5, "Forge Settlement is not fully route-authored");
+  assert.ok(Object.values(FORGE_AUTHORED_MAPS).every(map => map.terrainAnchors.length >= 2), "Forge Settlement has no authored rail crossings");
+  assert.equal(new Set(Object.values(FORGE_AUTHORED_MAPS).map(map => map.terrainAnchors.join(":"))).size, 5, "Forge Settlement rail compositions are repeated");
+  assert.equal(Object.keys(GLASS_AUTHORED_MAPS).length, 5, "Glass Marsh is not fully route-authored");
+  assert.ok(Object.values(GLASS_AUTHORED_MAPS).every(map => map.terrainAnchors.length >= 2), "Glass Marsh has no authored boardwalk crossings");
+  assert.equal(new Set(Object.values(GLASS_AUTHORED_MAPS).map(map => map.terrainAnchors.join(":"))).size, 5, "Glass Marsh boardwalk compositions are repeated");
+  assert.equal(Object.keys(STORM_AUTHORED_MAPS).length, 5, "Storm Coast is not fully route-authored");
+  assert.ok(Object.values(STORM_AUTHORED_MAPS).every(map => map.terrainAnchors.length >= 2), "Storm Coast has no authored tidal crossings");
+  assert.equal(new Set(Object.values(STORM_AUTHORED_MAPS).map(map => map.terrainAnchors.join(":"))).size, 5, "Storm Coast tidal compositions are repeated");
+  assert.equal(Object.keys(LANTERN_AUTHORED_MAPS).length, 5, "Lantern Forest is not fully route-authored");
+  assert.ok(Object.values(LANTERN_AUTHORED_MAPS).every(map => map.terrainAnchors.length >= 2), "Lantern Forest has no authored root crossings");
+  assert.equal(new Set(Object.values(LANTERN_AUTHORED_MAPS).map(map => map.terrainAnchors.join(":"))).size, 5, "Lantern Forest root-crossing compositions are repeated");
+  assert.equal(Object.keys(STAR_AUTHORED_MAPS).length, 5, "Star Reach is not fully route-authored");
+  assert.ok(Object.values(STAR_AUTHORED_MAPS).every(map => map.terrainAnchors.length >= 2), "Star Reach has no authored constellation crossings");
+  assert.equal(new Set(Object.values(STAR_AUTHORED_MAPS).map(map => map.terrainAnchors.join(":"))).size, 5, "Star Reach constellation compositions are repeated");
   assert.match(runtime, /createStopMapComposition\(\)/, "authored map composition is disconnected from scene creation");
+  assert.match(runtime, /setData\("authoredStopScenery", true\)/, "authored scenery anchors are disconnected from the live scene");
   assert.match(runtime, /createEncounterEdgeDetails\(\)/, "wider encounter framing exposes empty procedural clearings");
   assert.match(runtime, /function createEncounterClearingCanvas/, "arena encounters still sit on flat vector circles");
   assert.doesNotMatch(runtime, /fillCircle\(point\.x, point\.y \+ 6, 72\)/, "the prototype encounter target circle returned");
@@ -839,6 +917,10 @@ test("the pixel renderer keeps educational parity and debounces physical contact
   assert.match(fallback2d, /questChoiceFocusIndex/, "accessible choices have no predictable arrow-key order");
   assert.match(fallback2d, /aria-describedby="q2d-active-prompt q2d-active-progress"/, "answer controls do not carry their prompt and progress context");
   assert.match(runtime, /type: Phaser\.CANVAS/, "pixel mode still pays for an unnecessary WebGL context");
+  assert.match(runtime, /antialias: false/, "pixel art is blurred by canvas antialiasing");
+  assert.match(runtime, /smoothPixelArt: false/, "pixel art uses smoothing instead of authored texels");
+  assert.match(runtime, /pixelArt: true/, "the pixel renderer no longer declares its sampling contract");
+  assert.match(runtime, /roundPixels: true/, "fractional camera positions can shimmer the hero and scenery");
   assert.match(runtime, /const activeProfile = chapterPixelProfile\(this\.model\.section\)/, "pixel scenes do not share one active chapter load profile");
   assert.match(runtime, /const activeResidents = \[\.\.\.new Set\(activeProfile\.residents\)\]/, "pixel scenes still preload residents from every chapter");
   assert.match(runtime, /for \(const key of activeResidents\)/, "active cast loading is not chapter-scoped");

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { buildTrailSection, routePointAt } from "../../../utils/questHub.js";
 import {
   buildPhysicalTask,
@@ -162,6 +162,9 @@ export default function QuestPixelWorld({
   const sceneResourcesStartedAtRef = useRef(null);
   const firstTeachEntry = phase === "teach" ? (section?.teach?.[0] || null) : null;
   const encounter = section?.encounters[encounterIndex] || null;
+  useLayoutEffect(() => {
+    encounterRef.current = encounter;
+  }, [encounter]);
   const beat = encounter?.beats?.[beatIndex] || null;
   const task = useMemo(
     () => encounter && beat ? buildPhysicalTask(section, encounter, beat, beatIndex) : null,
@@ -448,7 +451,6 @@ export default function QuestPixelWorld({
   }, [onInteraction]);
 
   useEffect(() => {
-    encounterRef.current = encounter;
     chooseRef.current = choose;
     checkpointRef.current = checkpoint;
     finishRef.current = () => {

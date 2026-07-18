@@ -385,8 +385,18 @@ export function questPixelChoiceOffsets(layout, count, {
     offsets = [layout === "tool-work"
       ? [0, 50]
       : ["destination", "crossing"].includes(layout) ? [72, -8] : [0, -44]];
+  } else if (count === 3 && layout === "scatter") {
+    offsets = [[-108, 48], [-8, -88], [102, 12]];
+  } else if (count === 3 && layout === "stepping") {
+    offsets = [[-96, 58], [0, -30], [96, -108]];
+  } else if (count === 3 && layout === "delivery") {
+    offsets = [[-100, 30], [0, -82], [100, 30]];
+  } else if (count === 3 && (layout === "workshop" || layout === "crossing")) {
+    offsets = [[-100, -34], [0, 68], [100, -34]];
+  } else if (count === 3 && (layout === "circle" || layout === "rhythm")) {
+    offsets = [[-96, 30], [0, -84], [96, 30]];
   } else if (count === 3) {
-    offsets = [[-82, 28], [0, -58], [82, 28]];
+    offsets = [[-96, 32], [0, -74], [96, 32]];
   } else if (count >= 4) {
     offsets = [[-72, 18], [-28, -50], [28, -50], [72, 18]];
   } else if (layout === "circle" || layout === "rhythm") {
@@ -449,9 +459,42 @@ export function questPixelSortLaneLayout({
   };
   const leftBay = candidate(-1);
   const rightBay = candidate(1);
-  const selected = rightBay.edgeRoom > leftBay.edgeRoom ? rightBay : leftBay;
+  const playerLateral = (
+    ((Number(player?.x) || 0) - (Number(resident?.x) || 0)) * (Number(right.x) || 0)
+  ) + (
+    ((Number(player?.y) || 0) - (Number(resident?.y) || 0)) * (Number(right.y) || 0)
+  );
+  const preferred = playerLateral > 8 ? leftBay : playerLateral < -8 ? rightBay : leftBay;
+  const alternate = preferred === leftBay ? rightBay : leftBay;
+  const selected = preferred.edgeRoom >= 0 || preferred.edgeRoom >= alternate.edgeRoom
+    ? preferred
+    : alternate;
+  const minX = Math.min(...selected.points.map(point => point.x));
+  const maxX = Math.max(...selected.points.map(point => point.x));
+  let groupShiftX = 0;
+  if (Number.isFinite(choiceLeft) && minX < choiceLeft) {
+    groupShiftX = choiceLeft - minX;
+  }
+  if (Number.isFinite(choiceRight) && maxX + groupShiftX > choiceRight) {
+    groupShiftX += choiceRight - (maxX + groupShiftX);
+  }
+  const fittedPoints = selected.points.map(point => ({
+    x: point.x + groupShiftX,
+    y: point.y
+  }));
   return {
     ...selected,
+    center: {
+      x: selected.center.x + groupShiftX,
+      y: selected.center.y
+    },
+    points: fittedPoints,
+    edgeRoom: fittedPoints.reduce((minimum, point) => Math.min(
+      minimum,
+      point.x - choiceLeft,
+      choiceRight - point.x
+    ), Infinity),
+    groupShiftX,
     forwardDistance,
     lateralDistance,
     spacing

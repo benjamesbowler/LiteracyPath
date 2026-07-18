@@ -12,7 +12,19 @@ async function expectNoHorizontalOverflow(page) {
 }
 
 async function expectNoSeriousAxeViolations(page) {
-  const result = await new AxeBuilder({ page }).include(".q-root").analyze();
+  let result;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      await page.waitForLoadState("domcontentloaded");
+      await expect(page.locator(".q-root")).toBeVisible();
+      result = await new AxeBuilder({ page }).include(".q-root").analyze();
+      break;
+    } catch (error) {
+      const navigationInterruptedScan = /execution context was destroyed|navigation/i.test(String(error));
+      if (!navigationInterruptedScan || attempt > 0) throw error;
+    }
+  }
+  if (!result) throw new Error("Accessibility scan did not return a result");
   const serious = result.violations.filter(item => ["serious", "critical"].includes(item.impact));
   expect(serious, serious.map(item => `${item.id}: ${item.help}`).join("\n")).toEqual([]);
 }
@@ -191,6 +203,144 @@ test("Forge sorting keeps its machine, cast, and moving answers in separate safe
   ));
   expect(tallyContainsText).toBe(true);
   await expectNoHorizontalOverflow(page);
+});
+
+test("continuous movement keeps the customised Beastie visible, animated, and inside the camera", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${PREVIEW}&view=world&stop=s6&done=5&display=pixel`);
+  await page.getByRole("button", { name: "Let's go", exact: true }).click();
+  await expect(page.locator(".qp-root[data-ready='true']")).toBeVisible({ timeout: 10_000 });
+  await page.waitForFunction(() => window.__questPixelRuntime?.getLayoutSnapshot?.().player);
+
+  const initial = await page.evaluate(() => window.__questPixelRuntime.getLayoutSnapshot());
+  await page.keyboard.down("ArrowUp");
+  try {
+    await expect.poll(() => page.evaluate(() => window.__questPixelRuntime.getLayoutSnapshot()), {
+      timeout: 3_000
+    }).toMatchObject({
+      player: {
+        visible: true,
+        active: true,
+        alpha: 1,
+        animation: "beastie-up",
+        animationPlaying: true
+      }
+    });
+    await expect.poll(() => page.evaluate(() => window.__questPixelRuntime.getLayoutSnapshot().player.y), {
+      timeout: 3_000
+    }).toBeLessThan(initial.player.y - 12);
+  } finally {
+    await page.keyboard.up("ArrowUp");
+  }
+
+  const moving = await page.evaluate(() => window.__questPixelRuntime.getLayoutSnapshot());
+  expect(moving.player.x).toBeGreaterThan(moving.camera.left);
+  expect(moving.player.x).toBeLessThan(moving.camera.right);
+  expect(moving.player.y).toBeGreaterThan(moving.camera.top);
+  expect(moving.player.y).toBeLessThan(moving.camera.bottom);
+  expect(moving.camera.zoom).toBeGreaterThan(1);
+});
+
+test("a completed River task can flow directly into the next resident encounter", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${PREVIEW}&view=world&stop=s6&done=5&display=pixel&active=0`);
+  await expect(page.locator(".qp-root[data-ready='true']")).toBeVisible({ timeout: 10_000 });
+
+  await page.keyboard.press("3");
+  await expect(page.locator(".qp-semantic-choices[aria-label='Carry it to the sluice']")).toBeAttached();
+  await page.keyboard.press("1");
+  await expect(page.locator(".qp-semantic-choices[aria-label='Find e']")).toBeAttached();
+  await page.keyboard.press("3");
+  await expect(page.locator(".qp-semantic-choices[aria-label='Carry it to the sluice']")).toBeAttached();
+  await page.keyboard.press("1");
+  await expect(page.locator(".qp-progress")).toHaveAttribute("aria-label", "1 of 2 trail tasks complete");
+
+  await page.keyboard.down("ArrowUp");
+  try {
+    await expect.poll(() => page.evaluate(() => {
+      const snapshot = window.__questPixelRuntime.getLayoutSnapshot();
+      const state = {
+        activeId: snapshot.encounter.activeId,
+        latch: snapshot.encounter.latch,
+        player: snapshot.player ? { x: Math.round(snapshot.player.x), y: Math.round(snapshot.player.y) } : null,
+        resident: snapshot.resident ? { x: Math.round(snapshot.resident.x), y: Math.round(snapshot.resident.y) } : null,
+        prompt: document.querySelector(".qp-semantic-choices")?.getAttribute("aria-label") || null
+      };
+      return state.prompt === "Find k" ? "triggered" : JSON.stringify(state);
+    }), { timeout: 10_000 }).toBe("triggered");
+  } finally {
+    await page.keyboard.up("ArrowUp");
+  }
+
+  const snapshot = await page.evaluate(() => window.__questPixelRuntime.getLayoutSnapshot());
+  expect(snapshot.encounter.activeId).toBe("s6-1");
+  expect(snapshot.encounter.latch).toBe("s6-1");
+  expect(snapshot.choices).toHaveLength(3);
+});
+
+test("all forty stops consume distinct authored routes in the live renderer", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  const signatures = [];
+  for (let stop = 1; stop <= 40; stop += 1) {
+    await page.goto(`${PREVIEW}&view=world&stop=s${stop}&done=${stop - 1}&display=pixel&active=0`);
+    await expect(page.locator(".qp-root[data-ready='true']")).toBeVisible({ timeout: 10_000 });
+    await page.waitForFunction(() => window.__questPixelRuntime?.getLayoutSnapshot?.().map);
+    const snapshot = await page.evaluate(() => window.__questPixelRuntime.getLayoutSnapshot());
+    expect(snapshot.map.stopId).toBe(`s${stop}`);
+    expect(snapshot.map.authorship).toBe("route-authored");
+    expect(snapshot.map.routeSignature).toHaveLength(5);
+    expect(snapshot.map.landmarkAnchor).toBeTruthy();
+    signatures.push(snapshot.map.routeSignature.join(":"));
+  }
+  expect(new Set(signatures).size).toBe(40);
+});
+
+test("Claw Pass signal relays advance through the accessible controls without freezing", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${PREVIEW}&view=world&stop=s15&done=14&display=pixel&active=0`);
+  await expect(page.locator(".qp-root[data-ready='true']")).toBeVisible({ timeout: 10_000 });
+
+  await expect(page.locator(".qp-semantic-choices[aria-label='Find a']")).toBeAttached();
+  await page.keyboard.press("3");
+  await expect(page.locator(".qp-semantic-choices[aria-label='Stand on the glowing relay']")).toBeAttached();
+
+  await page.keyboard.press("1");
+  await expect(page.locator(".qp-semantic-choices[aria-label='Send the final signal']")).toBeAttached();
+
+  await page.keyboard.press("1");
+  await expect.poll(() => page.evaluate(() => {
+    const snapshot = window.__questPixelRuntime.getLayoutSnapshot();
+    return {
+      activeId: snapshot.encounter.activeId,
+      choices: snapshot.choices.length,
+      playerActive: snapshot.player?.active,
+      playerVisible: snapshot.player?.visible
+    };
+  })).toEqual({ activeId: "s15-1", choices: 1, playerActive: true, playerVisible: true });
+  await expect(page.locator(".qp-root[data-ready='true']")).toBeVisible();
+});
+
+test("the Singing Weir keeps every answer below the real instruction HUD", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${PREVIEW}&view=world&stop=s10&done=9&display=pixel&active=0`);
+  await expect(page.getByRole("button", { name: "3. th" })).toBeVisible();
+  await page.waitForFunction(() => window.__questPixelRuntime?.getLayoutSnapshot?.().choices?.length === 3);
+  await page.waitForTimeout(1200);
+
+  const [snapshot, canvasBox, promptBox] = await Promise.all([
+    page.evaluate(() => window.__questPixelRuntime.getLayoutSnapshot()),
+    page.locator(".qp-canvas canvas").boundingBox(),
+    page.locator(".qp-cue").boundingBox()
+  ]);
+  expect(canvasBox).toBeTruthy();
+  expect(promptBox).toBeTruthy();
+  const promptBottom = promptBox.y + promptBox.height + 8;
+  const screenScaleY = canvasBox.height / (snapshot.camera.bottom - snapshot.camera.top);
+  for (const choice of snapshot.choices) {
+    expect(choice.bounds).toBeTruthy();
+    const screenTop = canvasBox.y + ((choice.bounds.top - snapshot.camera.top) * screenScaleY);
+    expect(screenTop, JSON.stringify({ choice, snapshot, promptBox })).toBeGreaterThanOrEqual(promptBottom);
+  }
 });
 
 test("the authored Glass Marsh cast remains legible in the 320-pixel accessible game", async ({ page }) => {

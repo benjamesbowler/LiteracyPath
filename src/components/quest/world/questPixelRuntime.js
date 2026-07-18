@@ -44,6 +44,11 @@ import {
   questPixelResidentPath,
   questPixelResidentWorldScale
 } from "../../../data/questPixelCast.js";
+import {
+  authoredPixelRouteCenters,
+  samplePixelMapRoute,
+  stopPixelMap
+} from "../../../data/questPixelMaps.js";
 
 export const PIXEL_WORLD = Object.freeze({ width: 640, height: 1120, tile: 16 });
 
@@ -51,7 +56,7 @@ const PIXEL_ASSET_ROOT = "/game-assets/quest-pixel";
 const ASSET_ROOT = `${PIXEL_ASSET_ROOT}/seedwake`;
 const PLAYER_SPEED = 104;
 const CHOICE_DISTANCE = 19;
-const ENCOUNTER_DISTANCE = 34;
+const ENCOUNTER_DISTANCE = 56;
 const DROP_DISTANCE = 16;
 const RUNTIME_HEALTH_FIRST_SAMPLE_MS = 1500;
 const RUNTIME_HEALTH_INTERVAL_MS = 10000;
@@ -258,74 +263,6 @@ export const CHAPTER_PIXEL_PROFILES = Object.freeze({
   })
 });
 
-const STOP_MAP_DEFINITIONS = [
-  ["meander", "grove", "dew-lantern-grove"],
-  ["branching-grove", "terraces", "fern-step-terraces"],
-  ["horseshoe", "crossing", "rook-stone-ford"],
-  ["switchback", "workyard", "tumble-bridge-yard"],
-  ["ridge-climb", "arena", "bramble-chorus-bowl"],
-  ["horseshoe", "grove", "beehive-canal-orchard"],
-  ["island-loop", "crossing", "fizzle-ferry-isles"],
-  ["branching-grove", "terraces", "lily-channel-gardens"],
-  ["figure-eight", "workyard", "waterwheel-crossroads"],
-  ["switchback", "arena", "singing-weir-stage"],
-  ["ridge-climb", "terraces", "sun-bone-shelves"],
-  ["switchback", "crossing", "red-rock-ravine"],
-  ["horseshoe", "workyard", "amber-dig-basin"],
-  ["branching-grove", "grove", "rescue-track-camp"],
-  ["figure-eight", "arena", "claw-pass-ring"],
-  ["hub-and-spokes", "workyard", "first-gear-square"],
-  ["switchback", "terraces", "ore-chute-steps"],
-  ["figure-eight", "crossing", "steam-pipe-crossing"],
-  ["ridge-climb", "grove", "rail-siding-market"],
-  ["island-loop", "arena", "word-forge-court"],
-  ["branching-grove", "grove", "glass-reed-garden"],
-  ["island-loop", "crossing", "moon-lily-isles"],
-  ["spiral", "terraces", "mica-pool-spiral"],
-  ["horseshoe", "workyard", "mirror-maker-walk"],
-  ["figure-eight", "arena", "mirror-fen-beacon"],
-  ["ridge-climb", "terraces", "black-cliff-stairs"],
-  ["horseshoe", "crossing", "harbour-rope-cove"],
-  ["switchback", "grove", "rain-shelter-bend"],
-  ["branching-grove", "workyard", "storm-lens-yard"],
-  ["spiral", "arena", "thunder-light-ring"],
-  ["branching-grove", "grove", "moth-lantern-bowers"],
-  ["spiral", "terraces", "stormlight-root-stairs"],
-  ["hub-and-spokes", "workyard", "fernturn-map-hub"],
-  ["figure-eight", "crossing", "hare-hollow-bridges"],
-  ["ridge-climb", "arena", "listening-rock-dome"],
-  ["spiral", "terraces", "creature-falls-ascent"],
-  ["hub-and-spokes", "grove", "knowledge-tree-court"],
-  ["figure-eight", "crossing", "tallgrass-sky-bridges"],
-  ["branching-grove", "workyard", "kettle-memory-yard"],
-  ["ridge-climb", "arena", "first-reading-star"]
-];
-
-export const STOP_PIXEL_MAPS = Object.freeze(Object.fromEntries(
-  STOP_MAP_DEFINITIONS.map(([topology, scene, motif], index) => [
-    `s${index + 1}`,
-    Object.freeze({
-      topology,
-      scene,
-      motif,
-      phase: ((index * 0.37) + ((index % 5) * 0.11)) % (Math.PI * 2),
-      residentSides: Object.freeze(
-        topology === "hub-and-spokes" ? [0, -1, 1]
-          : topology === "island-loop" ? [-1, 1, 0]
-            : topology === "branching-grove" ? [1, -1, 1]
-              : index % 2 ? [-1, 1, -1] : [1, -1, 1]
-      )
-    })
-  ])
-));
-
-export function stopPixelMap(sectionOrStop = 1) {
-  const stopId = typeof sectionOrStop === "object"
-    ? sectionOrStop?.stopId || `s${sectionOrStop?.stopIndex || 1}`
-    : typeof sectionOrStop === "string" ? sectionOrStop : `s${sectionOrStop}`;
-  return STOP_PIXEL_MAPS[stopId] || STOP_PIXEL_MAPS.s1;
-}
-
 function worldTheme(world) {
   return WORLD_THEMES[world] || WORLD_THEMES.meadow;
 }
@@ -369,6 +306,8 @@ export function pixelRouteX(y, stopIndex = 1, chapterId = null) {
   const map = stopPixelMap(stopIndex);
   const offset = ((Math.max(1, stopIndex) - 1) % 5) * 0.31;
   const progress = Math.max(0, Math.min(1, (1060 - Number(y || 1060)) / 980));
+  const authoredX = samplePixelMapRoute(map.routePoints, progress);
+  if (authoredX !== null) return authoredX;
   const phase = offset + route.phase + map.phase;
   const base = Math.sin((y / route.longScale) + phase) * route.amplitude;
   const detail = Math.sin((y / route.shortScale) + (offset * 2)) * route.shortAmplitude;
@@ -402,9 +341,11 @@ export function pixelRouteX(y, stopIndex = 1, chapterId = null) {
 }
 
 function pixelRoutePathsX(y, stopIndex) {
-  const main = pixelRouteX(y, stopIndex);
   const map = stopPixelMap(stopIndex);
   const progress = Math.max(0, Math.min(1, (1060 - Number(y || 1060)) / 980));
+  const authored = authoredPixelRouteCenters(map, progress);
+  if (authored) return authored;
+  const main = pixelRouteX(y, stopIndex);
   return questOptionalRouteCenters({ main, topology: map.topology, progress, stopIndex });
 }
 
@@ -474,27 +415,10 @@ function createGroundCanvas(scene, section) {
   const grassFrame = profile.groundFrame ?? theme.groundFrame;
   const map = stopPixelMap(section);
   for (let row = 0; row < rows; row += 1) {
-    const worldY = (row * tile) + (tile / 2);
-    const routes = pixelRoutePathsX(worldY, stopIndex);
     for (let column = 0; column < columns; column += 1) {
-      const worldX = (column * tile) + (tile / 2);
-      let distance = Math.min(...routes.map(route => Math.abs(worldX - route)));
-      if (map.topology === "hub-and-spokes" && Math.abs(worldY - 550) < 38) {
-        distance = Math.min(distance, Math.abs(worldY - 550));
-      }
-      const noise = seededValue((row * 97) + (column * 17) + (stopIndex * 997));
-      let frame = grassFrame;
-      const useAuthoredRoute = ["glass-marsh", "storm-coast", "lantern-forest", "star-reach"].includes(section.chapter?.id);
-      if (!useAuthoredRoute && distance < profile.route.pathWidth + (noise * 7)) {
-        frame = profile.pathFrame ?? theme.pathFrame;
-      }
-      const sourceX = (frame % 5) * tile;
-      const sourceY = Math.floor(frame / 5) * tile;
+      const sourceX = (grassFrame % 5) * tile;
+      const sourceY = Math.floor(grassFrame / 5) * tile;
       ctx.drawImage(source, sourceX, sourceY, tile, tile, column * tile, row * tile, tile, tile);
-      if (!useAuthoredRoute && distance < profile.route.pathWidth + (noise * 7) && (profile.pathTint || theme.pathTint)) {
-        ctx.fillStyle = profile.pathTint || theme.pathTint;
-        ctx.fillRect(column * tile, row * tile, tile, tile);
-      }
     }
   }
 
@@ -505,12 +429,15 @@ function createGroundCanvas(scene, section) {
     ctx.globalCompositeOperation = "source-over";
   }
 
-  if (["forge-settlement", "glass-marsh", "storm-coast", "lantern-forest", "star-reach"].includes(section.chapter?.id)) {
-    const traceRoute = (strokeStyle, lineWidth) => {
+  {
+    const tracePoints = (points, strokeStyle, lineWidth, from = 0, to = 1) => {
       ctx.beginPath();
-      for (let y = height + 8; y >= -8; y -= 8) {
-        const x = pixelRouteX(y, stopIndex);
-        if (y === height + 8) ctx.moveTo(x, y);
+      const firstY = points ? 1060 - (from * 980) : height + 8;
+      const lastY = points ? 1060 - (to * 980) : -8;
+      for (let y = firstY; y >= lastY; y -= 4) {
+        const progress = Math.max(0, Math.min(1, (1060 - y) / 980));
+        const x = points ? samplePixelMapRoute(points, progress) : pixelRouteX(y, stopIndex);
+        if (y === firstY) ctx.moveTo(x, y);
         else ctx.lineTo(x, y);
       }
       ctx.strokeStyle = strokeStyle;
@@ -518,6 +445,12 @@ function createGroundCanvas(scene, section) {
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
       ctx.stroke();
+    };
+    const traceRoute = (strokeStyle, lineWidth) => {
+      tracePoints(map.routePoints, strokeStyle, lineWidth);
+      for (const route of map.optionalRoutes) {
+        tracePoints(route.points, strokeStyle, lineWidth, route.from, route.to);
+      }
     };
     if (section.chapter?.id === "glass-marsh") {
       traceRoute("rgba(62, 57, 103, 0.94)", profile.route.pathWidth * 2.45);
@@ -531,9 +464,32 @@ function createGroundCanvas(scene, section) {
     } else if (section.chapter?.id === "star-reach") {
       traceRoute("rgba(28, 27, 70, 0.98)", profile.route.pathWidth * 2.32);
       traceRoute("rgba(119, 105, 177, 0.36)", profile.route.pathWidth * 1.68);
-    } else {
+    } else if (section.chapter?.id === "forge-settlement") {
       traceRoute("rgba(62, 47, 48, 0.66)", profile.route.pathWidth * 1.72);
       traceRoute("rgba(143, 91, 62, 0.16)", profile.route.pathWidth * 1.35);
+    } else if (section.chapter?.id === "fossil-canyon") {
+      traceRoute("rgba(72, 48, 40, 0.72)", profile.route.pathWidth * 2.06);
+      traceRoute("rgba(190, 137, 84, 0.97)", profile.route.pathWidth * 1.9);
+      traceRoute("rgba(239, 194, 126, 0.2)", profile.route.pathWidth * 1.42);
+      ctx.fillStyle = "rgba(122, 70, 46, 0.3)";
+      for (let progress = 0.035; progress < 0.98; progress += 0.052) {
+        const y = 1060 - (progress * 980);
+        const center = pixelRouteX(y, stopIndex);
+        const jitter = (seededValue((progress * 10000) + (stopIndex * 719)) - 0.5) * profile.route.pathWidth;
+        ctx.fillRect(Math.round(center + jitter) - 2, Math.round(y) - 1, 4, 2);
+      }
+    } else {
+      const river = section.chapter?.id === "river-gardens";
+      traceRoute(river ? "rgba(62, 76, 58, 0.58)" : "rgba(83, 74, 54, 0.56)", profile.route.pathWidth * 2);
+      traceRoute(river ? "rgba(202, 166, 108, 0.96)" : "rgba(205, 171, 112, 0.96)", profile.route.pathWidth * 1.88);
+      traceRoute(river ? "rgba(239, 209, 151, 0.2)" : "rgba(244, 219, 163, 0.18)", profile.route.pathWidth * 1.4);
+      ctx.fillStyle = river ? "rgba(96, 113, 76, 0.34)" : "rgba(115, 91, 55, 0.28)";
+      for (let progress = 0.025; progress < 0.99; progress += 0.035) {
+        const y = 1060 - (progress * 980);
+        const center = pixelRouteX(y, stopIndex);
+        const jitter = (seededValue((progress * 10000) + (stopIndex * 719)) - 0.5) * profile.route.pathWidth;
+        ctx.fillRect(Math.round(center + jitter) - 2, Math.round(y) - 1, 4, 2);
+      }
     }
   }
 
@@ -584,47 +540,56 @@ function createArenaPlazaCanvas(scene, section, palette) {
 
 function createEncounterClearingCanvas(scene, section, palette, encounterIndex) {
   const tile = PIXEL_WORLD.tile;
-  const rowWidths = [5, 7, 8, 9, 9, 8, 7, 5];
-  const columns = Math.max(...rowWidths);
   const canvas = document.createElement("canvas");
-  canvas.width = columns * tile;
-  canvas.height = rowWidths.length * tile;
+  canvas.width = 176;
+  canvas.height = 112;
   const ctx = canvas.getContext("2d");
   ctx.imageSmoothingEnabled = false;
   const theme = worldTheme(section.world);
   const profile = chapterPixelProfile(section);
   const source = scene.textures.get(theme.groundKey).getSourceImage();
-  const groundFrame = profile.groundFrame ?? theme.groundFrame;
   const pathFrame = profile.pathFrame ?? theme.pathFrame;
+  const rgba = (colour, alpha) => `rgba(${(colour >> 16) & 255}, ${(colour >> 8) & 255}, ${colour & 255}, ${alpha})`;
+  const centreX = canvas.width / 2;
+  const centreY = canvas.height / 2;
 
-  rowWidths.forEach((widthInTiles, row) => {
-    const startColumn = Math.floor((columns - widthInTiles) / 2);
-    for (let localColumn = 0; localColumn < widthInTiles; localColumn += 1) {
-      const column = startColumn + localColumn;
-      const border = row === 0
-        || row === rowWidths.length - 1
-        || localColumn === 0
-        || localColumn === widthInTiles - 1;
-      const variation = seededValue(
-        (section.stopIndex * 977) + (encounterIndex * 113) + (row * 37) + localColumn
-      );
-      const frame = border && variation > 0.2 ? groundFrame : pathFrame;
-      const sourceX = (frame % 5) * tile;
-      const sourceY = Math.floor(frame / 5) * tile;
-      const x = column * tile;
-      const y = row * tile;
+  ctx.fillStyle = rgba(palette.outer, section.chapter?.id === "glass-marsh" ? 0.58 : 0.3);
+  ctx.beginPath();
+  ctx.ellipse(centreX, centreY, 82, 49, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.save();
+  ctx.beginPath();
+  ctx.ellipse(centreX, centreY - 1, 78, 45, 0, 0, Math.PI * 2);
+  ctx.clip();
+  const sourceX = (pathFrame % 5) * tile;
+  const sourceY = Math.floor(pathFrame / 5) * tile;
+  for (let y = 0; y < canvas.height; y += tile) {
+    for (let x = 0; x < canvas.width; x += tile) {
       ctx.drawImage(source, sourceX, sourceY, tile, tile, x, y, tile, tile);
-      const glassMarsh = section.chapter?.id === "glass-marsh";
-      ctx.fillStyle = border
-        ? `rgba(${(palette.outer >> 16) & 255}, ${(palette.outer >> 8) & 255}, ${palette.outer & 255}, ${glassMarsh ? 0.64 : 0.16})`
-        : `rgba(${(palette.inner >> 16) & 255}, ${(palette.inner >> 8) & 255}, ${palette.inner & 255}, ${glassMarsh ? 0.48 : 0.08})`;
-      ctx.fillRect(x, y, tile, tile);
-      if (!border && variation < 0.14) {
-        ctx.fillStyle = `rgba(${(palette.highlight >> 16) & 255}, ${(palette.highlight >> 8) & 255}, ${palette.highlight & 255}, 0.62)`;
-        ctx.fillRect(x + 4 + ((row + localColumn) % 4), y + 5 + ((row * 2 + localColumn) % 5), 3, 2);
-      }
     }
-  });
+  }
+  ctx.fillStyle = rgba(palette.inner, section.chapter?.id === "glass-marsh" ? 0.5 : 0.14);
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  for (let fleck = 0; fleck < 22; fleck += 1) {
+    const variation = seededValue((section.stopIndex * 977) + (encounterIndex * 113) + (fleck * 37));
+    const angle = variation * Math.PI * 2;
+    const radius = 12 + (seededValue((fleck * 61) + section.stopIndex) * 60);
+    ctx.fillStyle = rgba(palette.highlight, 0.28 + (variation * 0.28));
+    ctx.fillRect(
+      Math.round(centreX + (Math.cos(angle) * radius)),
+      Math.round(centreY + (Math.sin(angle) * radius * 0.52)),
+      fleck % 3 === 0 ? 3 : 2,
+      2
+    );
+  }
+  ctx.restore();
+
+  ctx.strokeStyle = rgba(palette.highlight, 0.18);
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.ellipse(centreX, centreY - 1, 79, 46, 0, 0, Math.PI * 2);
+  ctx.stroke();
   return canvas;
 }
 
@@ -1167,6 +1132,7 @@ class QuestPixelScene extends Phaser.Scene {
     this.playerActionLockedUntil = 0;
     this.gateGlowTween = null;
     this.encounterLatch = null;
+    this.encounterAttemptAt = 0;
     this.gateLatch = false;
     this.lastFacing = "down";
     this.lastModelSignature = "";
@@ -1584,25 +1550,53 @@ class QuestPixelScene extends Phaser.Scene {
     const pondX = pixelRouteX(555, this.model.section.stopIndex) + (pondSide * 104);
     this.navigationObstacles.push({ x: pondX, y: 550, radius: 40 });
     if (chapterId === "fossil-canyon") {
-      addPixelShadow(this, pondX, 566, 82, 18);
-      this.add.sprite(pondX, 552, "dino-quicksand").setScale(2.25).play("dino-quicksand-idle").setDepth(553);
-      this.add.image(pondX - 48, 570, "dino-rock").setScale(1.45).setDepth(571);
-      this.add.image(pondX + 46, 546, "dino-bone").setScale(1.55).setAngle(28).setDepth(547);
+      const fossilHazards = [
+        ["fossil-premium-dig-camp", 0.34],
+        ["fossil-premium-rib-arch", 0.38],
+        ["fossil-premium-bone-signal", 0.36],
+        ["fossil-premium-amber-outcrop", 0.4],
+        ["fossil-premium-survey-station", 0.35]
+      ];
+      const [hazardKey, hazardScale] = fossilHazards[(this.model.section.stopIndex - 1) % 5];
+      addPixelShadow(this, pondX, 566, 54, 12);
+      this.add.image(pondX, 570, hazardKey)
+        .setOrigin(0.5, 1)
+        .setScale(hazardScale)
+        .setFlipX(this.model.section.stopIndex % 2 === 0)
+        .setDepth(569);
       return;
     }
     if (chapterId === "forge-settlement") {
-      const trough = this.add.graphics().setDepth(558);
-      trough.fillStyle(0x292f3c, 1).fillRoundedRect(pondX - 53, 532, 106, 36, 5);
-      trough.fillStyle(0x68484a, 1).fillRoundedRect(pondX - 48, 536, 96, 28, 3);
-      trough.fillStyle(0xe06f3e, 0.9).fillRect(pondX - 43, 541, 86, 17);
-      trough.fillStyle(0xffc45c, 0.8).fillRect(pondX - 34, 543, 44, 4);
+      const forgeHazards = [
+        ["forge-premium-steam-pipes", 0.3],
+        ["forge-premium-ore-cart", 0.3],
+        ["forge-premium-tool-rack", 0.3],
+        ["forge-premium-rail-signal", 0.28],
+        ["forge-premium-sorting-conveyor", 0.31]
+      ];
+      const [hazardKey, hazardScale] = forgeHazards[(this.model.section.stopIndex - 1) % 5];
+      addPixelShadow(this, pondX, 566, 45, 10);
+      this.add.image(pondX, 570, hazardKey)
+        .setOrigin(0.5, 1)
+        .setScale(hazardScale)
+        .setFlipX(this.model.section.stopIndex % 2 === 0)
+        .setDepth(569);
       return;
     }
     if (chapterId === "glass-marsh") {
-      addPixelShadow(this, pondX, 568, 80, 15);
-      this.add.image(pondX, 568, "glass-premium-ripple-pool")
+      const glassHazards = [
+        ["glass-premium-reeds", 0.3],
+        ["glass-premium-lilies", 0.32],
+        ["glass-premium-lantern", 0.26],
+        ["glass-premium-mirror-pool", 0.32],
+        ["glass-premium-boardwalk", 0.32]
+      ];
+      const [hazardKey, hazardScale] = glassHazards[(this.model.section.stopIndex - 1) % 5];
+      addPixelShadow(this, pondX, 568, 50, 11);
+      this.add.image(pondX, 568, hazardKey)
         .setOrigin(0.5, 1)
-        .setScale(0.44)
+        .setScale(hazardScale)
+        .setFlipX(this.model.section.stopIndex % 2 === 0)
         .setDepth(559);
       return;
     }
@@ -1695,7 +1689,7 @@ class QuestPixelScene extends Phaser.Scene {
 
     section.encounters.forEach((encounter, index) => {
       const point = pixelResidentPoint(section, encounter, index);
-      if (chapterId === "forge-settlement" && index === 0) {
+      if (chapterId === "forge-settlement" && index === 0 && map.authorship !== "route-authored") {
         const localStop = (section.stopIndex - 1) % 5;
         const landmarks = [
           ["forge-premium-gearworks-gate", 0.4],
@@ -1713,7 +1707,7 @@ class QuestPixelScene extends Phaser.Scene {
           .setFlipX(landmarkKey === "forge-premium-night-train" && landmarkSide < 0)
           .setDepth(point.y + 36);
       }
-      if (chapterId === "glass-marsh" && index === 0) {
+      if (chapterId === "glass-marsh" && index === 0 && map.authorship !== "route-authored") {
         const localStop = (section.stopIndex - 1) % 5;
         const landmarks = [
           ["glass-premium-reedlight-landing", 0.4],
@@ -1730,7 +1724,7 @@ class QuestPixelScene extends Phaser.Scene {
           .setFlipX(landmarkKey === "glass-premium-glint-causeway" && landmarkSide > 0)
           .setDepth(point.y + 35);
       }
-      if (chapterId === "storm-coast" && index === 0) {
+      if (chapterId === "storm-coast" && index === 0 && map.authorship !== "route-authored") {
         const localStop = (section.stopIndex - 1) % 5;
         const landmarks = [
           ["storm-premium-galecliff-path", 0.35],
@@ -1746,7 +1740,7 @@ class QuestPixelScene extends Phaser.Scene {
           .setScale(landmarkScale)
           .setDepth(point.y + 38);
       }
-      if (chapterId === "lantern-forest" && index === 0) {
+      if (chapterId === "lantern-forest" && index === 0 && map.authorship !== "route-authored") {
         const localStop = (section.stopIndex - 1) % 5;
         const landmarks = [
           ["lantern-premium-mothlight-gate", 0.35],
@@ -1762,7 +1756,7 @@ class QuestPixelScene extends Phaser.Scene {
           .setScale(landmarkScale)
           .setDepth(point.y + 38);
       }
-      if (chapterId === "star-reach" && index === 0) {
+      if (chapterId === "star-reach" && index === 0 && map.authorship !== "route-authored") {
         const localStop = (section.stopIndex - 1) % 5;
         const landmarks = [
           ["star-premium-comet-stair", 0.35],
@@ -1816,6 +1810,17 @@ class QuestPixelScene extends Phaser.Scene {
               .setFlipX(side > 0)
               .setAlpha(0.72)
               .setDepth(point.y - 3);
+          }
+        } else if (map.authorship === "route-authored") {
+          ground.fillStyle(palette.outer, 0.18).fillEllipse(point.x, point.y + 10, 118, 68);
+          ground.fillStyle(palette.inner, 0.2).fillEllipse(point.x, point.y + 8, 104, 56);
+          for (let petal = 0; petal < 8; petal += 1) {
+            const angle = (Math.PI * 2 * petal) / 8;
+            ground.fillStyle(palette.highlight, 0.68).fillCircle(
+              point.x + Math.cos(angle) * 54,
+              point.y + 10 + Math.sin(angle) * 30,
+              petal % 2 ? 2 : 3
+            );
           }
         } else {
           const clearingKey = `quest-encounter-clearing-${section.stopId}-${index}`;
@@ -1933,12 +1938,12 @@ class QuestPixelScene extends Phaser.Scene {
         if (chapterId === "fossil-canyon") {
           this.add.image(point.x, point.y + 28, "fossil-premium-dig-basin")
             .setOrigin(0.5)
-            .setScale(0.64)
+            .setScale(0.52)
             .setDepth(-894);
         } else if (chapterId === "forge-settlement") {
           this.add.image(point.x, point.y + 21, "forge-premium-gear-socket")
             .setOrigin(0.5)
-            .setScale(0.9)
+            .setScale(0.7)
             .setAlpha(0.84)
             .setDepth(-894);
         } else if (chapterId === "glass-marsh") {
@@ -2010,6 +2015,10 @@ class QuestPixelScene extends Phaser.Scene {
         this.add.image(point.x, point.y + 8, clearingKey).setDepth(-894);
       }
     });
+
+    // Authored maps already own their scenery hierarchy and terrain anchors.
+    // Do not layer legacy scene templates back over their task-safe bays.
+    if (map.sceneryAnchors.length) return;
 
     if (map.scene === "grove") {
       for (const [progress, side] of [[0.24, -1], [0.51, 1], [0.76, -1]]) {
@@ -2596,7 +2605,10 @@ class QuestPixelScene extends Phaser.Scene {
     const stopIndex = this.model.section.stopIndex;
     const localStop = (stopIndex - 1) % 5;
     if (profile.landmark === "singing-weir") {
-      for (const y of [760, 332]) {
+      const crossings = stopPixelMap(this.model.section).terrainAnchors.length
+        ? stopPixelMap(this.model.section).terrainAnchors.map(progress => 1060 - (progress * 980))
+        : [760, 332];
+      for (const y of crossings) {
         const center = pixelRouteX(y, stopIndex);
         const water = this.add.graphics().setDepth(-910);
         water.fillStyle(0x183f50, 1).fillRect(0, y - 18, PIXEL_WORLD.width, 38);
@@ -2609,8 +2621,33 @@ class QuestPixelScene extends Phaser.Scene {
         }
       }
     }
+    if (profile.landmark === "rib-camp") {
+      const crossings = stopPixelMap(this.model.section).terrainAnchors
+        .map(progress => 1060 - (progress * 980));
+      crossings.forEach((y, index) => {
+        const center = pixelRouteX(y, stopIndex);
+        const ravine = this.add.graphics().setDepth(-910);
+        ravine.fillStyle(0x3b2827, 0.98)
+          .fillRect(0, y - 19, Math.max(0, center - 54), 38)
+          .fillRect(center + 54, y - 19, Math.max(0, PIXEL_WORLD.width - center - 54), 38);
+        ravine.fillStyle(0x7f4935, 0.94)
+          .fillRect(0, y - 19, Math.max(0, center - 54), 4)
+          .fillRect(center + 54, y - 19, Math.max(0, PIXEL_WORLD.width - center - 54), 4);
+        ravine.fillStyle(0xd28b55, 0.5)
+          .fillRect(0, y + 14, Math.max(0, center - 54), 3)
+          .fillRect(center + 54, y + 14, Math.max(0, PIXEL_WORLD.width - center - 54), 3);
+        this.add.image(center, y + 43, "fossil-premium-rope-bridge")
+          .setOrigin(0.5, 1)
+          .setScale(index % 2 ? 0.4 : 0.42)
+          .setFlipX(index % 2 === 1)
+          .setDepth(-889);
+      });
+    }
     if (profile.landmark === "word-forge") {
-      for (const y of [820, 260]) {
+      const crossings = stopPixelMap(this.model.section).terrainAnchors.length
+        ? stopPixelMap(this.model.section).terrainAnchors.map(progress => 1060 - (progress * 980))
+        : [820, 260];
+      for (const y of crossings) {
         const center = pixelRouteX(y, stopIndex);
         const rail = this.add.graphics().setDepth(-870);
         for (const [start, width] of [[0, Math.max(0, center - 72)], [center + 72, Math.max(0, PIXEL_WORLD.width - center - 72)]]) {
@@ -2637,12 +2674,42 @@ class QuestPixelScene extends Phaser.Scene {
         sea.fillStyle(0x6aa0ae, 0.5).fillRoundedRect(waveX - (seaOnLeft ? 0 : 48), y, 48, 3, 1);
         sea.fillStyle(0xc3dbe0, 0.4).fillRoundedRect(waveX + (seaOnLeft ? 18 : -38), y + 6, 28, 2, 1);
       }
+      const crossings = stopPixelMap(this.model.section).terrainAnchors
+        .map(progress => 1060 - (progress * 980));
+      crossings.forEach((y, index) => {
+        const center = pixelRouteX(y, stopIndex);
+        const wash = this.add.graphics().setDepth(-912);
+        const start = seaOnLeft ? 0 : center + 54;
+        const width = seaOnLeft ? Math.max(0, center - 54) : Math.max(0, PIXEL_WORLD.width - center - 54);
+        wash.fillStyle(0x173d50, 0.94).fillRect(start, y - 16, width, 33);
+        wash.fillStyle(0x5e97a6, 0.58).fillRect(start, y - 9, width, 18);
+        wash.fillStyle(0xc2dce0, 0.46).fillRect(start, y - 4, width, 3);
+        this.add.image(center, y + 27, "storm-premium-boardwalk")
+          .setOrigin(0.5, 1)
+          .setScale(index % 2 ? 0.42 : 0.45)
+          .setFlipX(index % 2 === 1)
+          .setDepth(-889);
+      });
     }
     if (profile.landmark === "mirror-fen") {
+      const crossings = stopPixelMap(this.model.section).terrainAnchors
+        .map(progress => 1060 - (progress * 980));
+      crossings.forEach((y, index) => {
+        const center = pixelRouteX(y, stopIndex);
+        const channel = this.add.graphics().setDepth(-910);
+        channel.fillStyle(0x173b50, 0.96).fillRect(0, y - 18, PIXEL_WORLD.width, 36);
+        channel.fillStyle(0x4f7f91, 0.58).fillRect(0, y - 11, PIXEL_WORLD.width, 22);
+        channel.fillStyle(0xb7d9d6, 0.42).fillRect(0, y - 5, PIXEL_WORLD.width, 3);
+        this.add.image(center, y + 31, "glass-premium-boardwalk")
+          .setOrigin(0.5, 1)
+          .setScale(index % 2 ? 0.46 : 0.48)
+          .setFlipX(index % 2 === 1)
+          .setDepth(-889);
+      });
       this.model.section.encounters.forEach((encounter, index) => {
         const point = progressToPixel(encounter.progress, stopIndex, index % 2 ? 132 : -132);
         this.add.image(point.x, point.y + 13, "glass-premium-mirror-pool")
-          .setScale(0.62)
+          .setScale(0.46)
           .setAlpha(0.82)
           .setDepth(-890);
         this.add.image(point.x + (index % 2 ? -64 : 64), point.y + 18, index % 2 ? "glass-premium-lilies" : "glass-premium-reeds")
@@ -2663,6 +2730,20 @@ class QuestPixelScene extends Phaser.Scene {
       });
     }
     if (profile.landmark === "sleeping-observatory") {
+      const crossings = stopPixelMap(this.model.section).terrainAnchors
+        .map(progress => 1060 - (progress * 980));
+      crossings.forEach((y, index) => {
+        const center = pixelRouteX(y, stopIndex);
+        const rootBed = this.add.graphics().setDepth(-912);
+        rootBed.fillStyle(0x132638, 0.96).fillRect(0, y - 15, PIXEL_WORLD.width, 31);
+        rootBed.fillStyle(0x335668, 0.72).fillRect(0, y - 8, PIXEL_WORLD.width, 17);
+        rootBed.fillStyle(0xc8c36b, 0.28).fillRect(0, y - 3, PIXEL_WORLD.width, 3);
+        this.add.image(center, y + 31, "lantern-premium-root-bridge")
+          .setOrigin(0.5, 1)
+          .setScale(index % 2 ? 0.43 : 0.46)
+          .setFlipX(index % 2 === 1)
+          .setDepth(-889);
+      });
       this.model.section.encounters.forEach((encounter, index) => {
         const point = progressToPixel(encounter.progress, stopIndex, index % 2 ? 142 : -142);
         const terrainKey = index % 2 ? "lantern-premium-tree" : "lantern-premium-roots";
@@ -2676,7 +2757,10 @@ class QuestPixelScene extends Phaser.Scene {
     if (profile.landmark === "reading-star") {
       const voidMask = this.add.graphics().setDepth(-925);
       voidMask.fillStyle(0x11102f, 1).fillRect(0, 0, 118, PIXEL_WORLD.height).fillRect(522, 0, 118, PIXEL_WORLD.height);
-      for (const y of [190, 410, 650, 890]) {
+      const railCrossings = stopPixelMap(this.model.section).terrainAnchors.length
+        ? stopPixelMap(this.model.section).terrainAnchors.map(progress => 1060 - (progress * 980))
+        : [190, 410, 650, 890];
+      for (const y of railCrossings) {
         const center = pixelRouteX(y, stopIndex);
         this.add.image(center, y + 48, "star-premium-constellation-rail")
           .setOrigin(0.5, 1)
@@ -2700,9 +2784,11 @@ class QuestPixelScene extends Phaser.Scene {
   createChapterLandmark(profile) {
     const stopIndex = this.model.section.stopIndex;
     const localStop = (stopIndex - 1) % 5;
-    const progress = 0.57 + ((localStop % 3) * 0.055);
-    const side = localStop % 2 === 0 ? -1 : 1;
-    const point = progressToPixel(progress, stopIndex, side * 154);
+    const map = stopPixelMap(this.model.section);
+    const progress = map.landmarkAnchor?.progress ?? (0.57 + ((localStop % 3) * 0.055));
+    const lateral = map.landmarkAnchor?.lateral ?? ((localStop % 2 === 0 ? -1 : 1) * 154);
+    const side = Math.sign(lateral) || 1;
+    const point = progressToPixel(progress, stopIndex, lateral);
     addPixelShadow(this, point.x, point.y + 5, 58, 13);
 
     if (profile.landmark === "lantern-garden") {
@@ -2830,7 +2916,7 @@ class QuestPixelScene extends Phaser.Scene {
         ["star-premium-aster-archive", 0.42],
         ["star-premium-dawn-causeway", 0.43],
         ["star-premium-reading-skybridge", 0.42],
-        ["star-premium-workshop", 0.42]
+        ["star-premium-first-reading-star", 0.42]
       ];
       const [landmarkKey, landmarkScale] = landmarks[localStop];
       this.add.image(point.x, point.y, landmarkKey)
@@ -3103,10 +3189,164 @@ class QuestPixelScene extends Phaser.Scene {
     }
 
     const stopIndex = this.model.section.stopIndex;
+    const map = stopPixelMap(this.model.section);
     const encounterClearings = this.model.section.encounters.map(encounter => (
       progressToPixel(encounter.progress, stopIndex)
     ));
-    for (let y = 42; y < PIXEL_WORLD.height - 20; y += 46) {
+    if (map.sceneryAnchors.length) {
+      for (const anchor of map.sceneryAnchors) {
+        const point = progressToPixel(anchor.progress, stopIndex, anchor.lateral);
+        const shrub = anchor.key === "seedwake-premium-shrub";
+        const riverProp = anchor.key.startsWith("river-premium-");
+        const fossilProp = anchor.key.startsWith("fossil-premium-");
+        const forgeProp = anchor.key.startsWith("forge-premium-");
+        const glassProp = anchor.key.startsWith("glass-premium-");
+        const stormProp = anchor.key.startsWith("storm-premium-");
+        const lanternProp = anchor.key.startsWith("lantern-premium-");
+        const starProp = anchor.key.startsWith("star-premium-");
+        const compactRiverProp = [
+          "river-premium-canal-map",
+          "river-premium-lily-ferry",
+          "river-premium-sluice-gate"
+        ].includes(anchor.key);
+        const compactFossilProp = [
+          "fossil-premium-amber-outcrop",
+          "fossil-premium-bone-signal",
+          "fossil-premium-survey-station"
+        ].includes(anchor.key);
+        const compactForgeProp = [
+          "forge-premium-steam-pipes",
+          "forge-premium-tool-rack",
+          "forge-premium-rail-signal",
+          "forge-premium-ore-cart"
+        ].includes(anchor.key);
+        const compactGlassProp = [
+          "glass-premium-reeds",
+          "glass-premium-lilies",
+          "glass-premium-lantern",
+          "glass-premium-mirror-pool",
+          "glass-premium-boardwalk"
+        ].includes(anchor.key);
+        const compactStormProp = [
+          "storm-premium-black-cliff",
+          "storm-premium-tide-pool",
+          "storm-premium-buoy",
+          "storm-premium-boardwalk",
+          "storm-premium-windbreak"
+        ].includes(anchor.key);
+        const compactLanternProp = [
+          "lantern-premium-tree",
+          "lantern-premium-roots",
+          "lantern-premium-moths",
+          "lantern-premium-root-bridge",
+          "lantern-premium-telescope-pedestal"
+        ].includes(anchor.key);
+        const compactStarProp = [
+          "star-premium-floating-garden",
+          "star-premium-constellation-rail",
+          "star-premium-skybridge-island",
+          "star-premium-comet-beacon",
+          "star-premium-dawn-crystals"
+        ].includes(anchor.key);
+        addPixelShadow(
+          this,
+          point.x,
+          point.y + 1,
+          shrub ? 22 : compactRiverProp ? 28 : riverProp ? 36 : compactFossilProp || compactForgeProp || compactGlassProp || compactStormProp || compactLanternProp || compactStarProp ? 30 : fossilProp || forgeProp || glassProp || stormProp || lanternProp || starProp ? 42 : 38,
+          shrub ? 7 : compactRiverProp || compactFossilProp || compactForgeProp || compactGlassProp || compactStormProp || compactLanternProp || compactStarProp ? 8 : fossilProp || forgeProp || glassProp || stormProp || lanternProp || starProp ? 10 : 9
+        );
+        const scenery = this.add.image(point.x, point.y, anchor.key)
+          .setOrigin(0.5, 1)
+          .setScale(anchor.scale)
+          .setFlipX(Boolean(anchor.flipX))
+          .setDepth(point.y);
+        scenery.setData("authoredStopScenery", true);
+        if (!this.model.reducedMotion && anchor.motion === "steam") {
+          this.tweens.add({
+            targets: scenery,
+            y: point.y - 2,
+            alpha: { from: 0.86, to: 1 },
+            duration: 1280,
+            yoyo: true,
+            repeat: -1,
+            ease: "Sine.easeInOut"
+          });
+        } else if (!this.model.reducedMotion && anchor.motion === "signal") {
+          this.tweens.add({
+            targets: scenery,
+            alpha: { from: 0.76, to: 1 },
+            duration: 720,
+            yoyo: true,
+            repeat: -1,
+            ease: "Sine.easeInOut"
+          });
+        } else if (!this.model.reducedMotion && anchor.motion === "glow") {
+          this.tweens.add({
+            targets: scenery,
+            y: point.y - 1,
+            alpha: { from: 0.78, to: 1 },
+            duration: 1500,
+            yoyo: true,
+            repeat: -1,
+            ease: "Sine.easeInOut"
+          });
+        } else if (!this.model.reducedMotion && anchor.motion === "bob") {
+          this.tweens.add({
+            targets: scenery,
+            y: point.y - 3,
+            angle: { from: -1.5, to: 1.5 },
+            duration: 1180,
+            yoyo: true,
+            repeat: -1,
+            ease: "Sine.easeInOut"
+          });
+        } else if (!this.model.reducedMotion && anchor.motion === "gale") {
+          this.tweens.add({
+            targets: scenery,
+            angle: { from: -1, to: 1 },
+            alpha: { from: 0.88, to: 1 },
+            duration: 940,
+            yoyo: true,
+            repeat: -1,
+            ease: "Sine.easeInOut"
+          });
+        } else if (!this.model.reducedMotion && anchor.motion === "flutter") {
+          this.tweens.add({
+            targets: scenery,
+            x: point.x + (anchor.flipX ? -3 : 3),
+            y: point.y - 3,
+            angle: { from: -2, to: 2 },
+            duration: 820,
+            yoyo: true,
+            repeat: -1,
+            ease: "Sine.easeInOut"
+          });
+        } else if (!this.model.reducedMotion && anchor.motion === "float") {
+          this.tweens.add({
+            targets: scenery,
+            y: point.y - 3,
+            alpha: { from: 0.86, to: 1 },
+            duration: 1420,
+            yoyo: true,
+            repeat: -1,
+            ease: "Sine.easeInOut"
+          });
+        }
+        if (!anchor.passable) {
+          this.navigationObstacles.push({
+            x: point.x,
+            y: point.y - 4,
+            radius: shrub ? 11 : compactRiverProp ? 14 : riverProp ? 18 : compactFossilProp || compactForgeProp || compactGlassProp || compactStormProp || compactLanternProp || compactStarProp ? 15 : fossilProp || forgeProp || glassProp || stormProp || lanternProp || starProp ? 21 : 19
+          });
+        }
+      }
+      return;
+    }
+    const proceduralSceneryRows = map.sceneryAnchors.length
+      ? []
+      : Array.from({ length: 24 }, (_, index) => 42 + (index * 46))
+          .filter(y => y < PIXEL_WORLD.height - 20);
+    for (const y of proceduralSceneryRows) {
       const center = pixelRouteX(y, stopIndex);
       for (const side of [-1, 1]) {
         const noise = seededValue((y * 13) + (side * 117) + (stopIndex * 41));
@@ -3416,6 +3656,8 @@ class QuestPixelScene extends Phaser.Scene {
 
   createReactiveFoliage() {
     const profile = chapterPixelProfile(this.model.section);
+    const authoredMap = stopPixelMap(this.model.section).authorship === "route-authored";
+    const fossilCanyon = this.model.section.chapter?.id === "fossil-canyon";
     const forgeSettlement = this.model.section.chapter?.id === "forge-settlement";
     const glassMarsh = this.model.section.chapter?.id === "glass-marsh";
     const stormCoast = this.model.section.chapter?.id === "storm-coast";
@@ -3423,6 +3665,7 @@ class QuestPixelScene extends Phaser.Scene {
     const starReach = this.model.section.chapter?.id === "star-reach";
     const forgeKeys = ["forge-premium-steam-pipes", "forge-premium-rail-signal", "forge-premium-ore-cart"];
     for (let index = 0; index < 12; index += 1) {
+      if (authoredMap || fossilCanyon) continue;
       const progress = 0.14 + (index * 0.063);
       const side = index % 2 === 0 ? -1 : 1;
       const point = progressToPixel(progress, this.model.section.stopIndex, side * (78 + (index % 3) * 9));
@@ -3867,10 +4110,10 @@ class QuestPixelScene extends Phaser.Scene {
           ? progressToPixel(Math.max(0, this.model.section.gate.progress - 0.045), this.model.section.stopIndex)
         : null);
     const start = resume || progressToPixel(this.model.section.start.progress, this.model.section.stopIndex);
-    this.playerShadow = addPixelShadow(this, start.x, start.y + 5, 30, 8);
+    this.playerShadow = addPixelShadow(this, start.x, start.y + 5, 27, 7);
     this.player = this.physics.add.sprite(start.x, start.y, "pixel-beastie", 0)
       .setOrigin(0.5, 0.78)
-      .setScale(0.82)
+      .setScale(0.74)
       .setDepth(start.y + 2);
     this.player.body.setSize(18, 12).setOffset(23, 44).setCollideWorldBounds(true);
     const activeResident = this.residents.get(this.model.activeEncounterId);
@@ -3904,10 +4147,12 @@ class QuestPixelScene extends Phaser.Scene {
     return this.model.phase === "gate"
       ? this.gatePoint.y - 48
       : activeResident
-        ? questActiveChoiceForwardLimit({
-            residentLimit: activeResident.point.y - 74,
-            choices: this.choiceObjects
-          })
+        ? this.model.activeStage
+          ? questActiveChoiceForwardLimit({
+              residentLimit: activeResident.point.y - 74,
+              choices: this.choiceObjects
+            })
+          : activeResident.point.y + 24
         : this.gatePoint.y + 18;
   }
 
@@ -4058,11 +4303,10 @@ class QuestPixelScene extends Phaser.Scene {
       viewportWidth: this.scale.width,
       zoom: stagingZoom
     });
-    const approachX = (this.player?.x ?? resident.point.x) - resident.point.x;
-    const approachY = (this.player?.y ?? resident.point.y + 1) - resident.point.y;
-    const approachLength = Math.hypot(approachX, approachY) || 1;
-    const forward = { x: approachX / approachLength, y: approachY / approachLength };
-    const right = { x: forward.y, y: -forward.x };
+    // Keep answer formations readable even when a child reaches a resident
+    // from the side of a bend. Movement can curve; the choice ring should not.
+    const forward = { x: 0, y: 1 };
+    const right = { x: 1, y: 0 };
     const visibleHalfWidth = this.scale.width / (stagingZoom * 2);
     const cameraCentreX = Phaser.Math.Clamp(resident.point.x, visibleHalfWidth, PIXEL_WORLD.width - visibleHalfWidth);
     const choiceLeft = cameraCentreX - visibleHalfWidth + 48;
@@ -4299,7 +4543,7 @@ class QuestPixelScene extends Phaser.Scene {
         }
       }
       const objectScale = movingSortLane
-        ? 0.74
+        ? 0.62
         : String(item.label ?? item.value ?? "").length > 4 ? 0.94 : 0.84;
       container.setScale(objectScale);
       if (!this.model.reducedMotion) {
@@ -4601,7 +4845,7 @@ class QuestPixelScene extends Phaser.Scene {
     });
     const residentFocus = resident ? {
       x: Phaser.Math.Linear(resident.point.x + profile.cameraSide, this.player.x, 0.42),
-      y: Phaser.Math.Linear(resident.point.y + profile.cameraLead, this.player.y, 0.38)
+      y: resident.point.y - 24
     } : null;
     const targetX = travelChoice
       ? Phaser.Math.Linear(this.player.x, travelChoice.container.x, 0.58)
@@ -4712,11 +4956,20 @@ class QuestPixelScene extends Phaser.Scene {
       this.bridge.onInteraction?.({ type: "optional-route" });
     }
     this.optionalRouteActive = optionalRouteActive;
+    const activeMap = stopPixelMap(this.model.section);
+    const visibleRouteWidth = chapterPixelProfile(this.model.section).route.pathWidth;
+    const forwardAssist = activeMap.authorship === "route-authored" && Math.abs(x) < 0.05 && y < -0.05;
     const branchBoundary = gateApproach
       ? { innerRadius: 18, outerRadius: 46, returnAcceleration: 1120 }
       : routeCenters.length > 1
         ? { innerRadius: 36, outerRadius: 52 }
-        : {};
+        : activeMap.authorship === "route-authored"
+          ? {
+              innerRadius: forwardAssist ? 10 : visibleRouteWidth + 16,
+              outerRadius: forwardAssist ? 28 : visibleRouteWidth + 38,
+              returnAcceleration: forwardAssist ? 1480 : 980
+            }
+          : {};
     const routeBoundary = stepQuestRouteBoundary({
       x: this.player.x,
       velocityX: body.velocity.x,
@@ -4780,10 +5033,23 @@ class QuestPixelScene extends Phaser.Scene {
     const reachScale = Math.max(1, Number(this.model.section.rewardBonuses?.interactionRadius || 0.82) / 0.82);
     if (distance <= ENCOUNTER_DISTANCE * reachScale && this.encounterLatch !== activeId) {
       this.encounterLatch = activeId;
+      this.encounterAttemptAt = this.time.now;
       this.pointerTarget = null;
       this.bridge.onEncounter?.(activeId);
     }
-    if (distance > (ENCOUNTER_DISTANCE * reachScale) + 18 && this.encounterLatch === activeId) this.encounterLatch = null;
+    if (
+      distance <= ENCOUNTER_DISTANCE * reachScale
+      && this.encounterLatch === activeId
+      && this.time.now - this.encounterAttemptAt > 420
+    ) {
+      // React may still have been committing the previous encounter when the
+      // first contact arrived. Re-arm until an active stage confirms receipt.
+      this.encounterLatch = null;
+    }
+    if (distance > (ENCOUNTER_DISTANCE * reachScale) + 18 && this.encounterLatch === activeId) {
+      this.encounterLatch = null;
+      this.encounterAttemptAt = 0;
+    }
   }
 
   updateMemoryCameos() {
@@ -5281,20 +5547,59 @@ class QuestPixelScene extends Phaser.Scene {
       ? this.residents.get(this.model.activeEncounterId)
       : null;
     const view = this.cameras?.main?.worldView;
+    const map = stopPixelMap(this.model.section);
     return {
-      player: this.player ? { x: this.player.x, y: this.player.y } : null,
+      map: {
+        stopId: this.model.section.stopId,
+        authorship: map.authorship,
+        topology: map.topology,
+        routeSignature: [0.1, 0.3, 0.5, 0.7, 0.9].map(progress => (
+          Math.round(pixelRouteX(1060 - (progress * 980), this.model.section.stopIndex))
+        )),
+        landmarkAnchor: map.landmarkAnchor
+      },
+      player: this.player ? {
+        x: this.player.x,
+        y: this.player.y,
+        visible: this.player.visible,
+        active: this.player.active,
+        alpha: this.player.alpha,
+        frame: this.player.frame?.name ?? this.player.frame?.index ?? null,
+        animation: this.player.anims?.currentAnim?.key || null,
+        animationPlaying: Boolean(this.player.anims?.isPlaying)
+      } : null,
       resident: resident?.point ? { x: resident.point.x, y: resident.point.y } : null,
-      choices: this.choiceObjects.map(choice => ({
-        id: choice.id,
-        x: choice.container.x,
-        y: choice.container.y,
-        radius: choice.radius
-      })),
+      encounter: {
+        activeId: this.model?.activeEncounterId || null,
+        latch: this.encounterLatch,
+        attemptAt: this.encounterAttemptAt
+      },
+      choices: this.choiceObjects.map(choice => {
+        const bounds = choice.container.getBounds?.();
+        return {
+          id: choice.id,
+          x: choice.container.x,
+          y: choice.container.y,
+          radius: choice.radius,
+          bounds: bounds ? {
+            left: bounds.left,
+            top: bounds.top,
+            right: bounds.right,
+            bottom: bounds.bottom
+          } : null
+        };
+      }),
       decor: this.choiceStageDecor
         ? { x: this.choiceStageDecor.x, y: this.choiceStageDecor.y }
         : null,
       camera: view
-        ? { left: view.x, top: view.y, right: view.right, bottom: view.bottom }
+        ? {
+            left: view.x,
+            top: view.y,
+            right: view.right,
+            bottom: view.bottom,
+            zoom: this.cameras.main.zoom
+          }
         : null
     };
   }
@@ -5330,10 +5635,10 @@ export function createQuestPixelRuntime(parent, initialModel, bridge = {}) {
     backgroundColor: chapterPixelProfile(initialModel.section).background,
     transparent: false,
     render: {
-      antialias: true,
-      smoothPixelArt: true,
-      pixelArt: false,
-      roundPixels: false,
+      antialias: false,
+      smoothPixelArt: false,
+      pixelArt: true,
+      roundPixels: true,
       powerPreference: "high-performance"
     },
     scale: {

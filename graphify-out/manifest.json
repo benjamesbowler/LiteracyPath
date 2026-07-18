@@ -7065,7 +7065,7 @@
     "semantic_hash": ""
   },
   "docs/previews/quest-release/journey-pacing-report.json": {
-    "mtime": 1784344634.4161444,
+    "mtime": 1784362640.7313719,
     "ast_hash": "bd718f2d2a4f946a91cf2c3531c66b64",
     "semantic_hash": ""
   },
@@ -7265,8 +7265,8 @@
     "semantic_hash": ""
   },
   "preview/quest-evidence.jsx": {
-    "mtime": 1784346335.3868732,
-    "ast_hash": "3250ee0b4e1e5a46f184cea3b7dfb4d0",
+    "mtime": 1784347971.3754497,
+    "ast_hash": "e6a70ab968900ecf2eff2f756693d869",
     "semantic_hash": ""
   },
   "src/components/quest/QuestFieldStudyConsole.jsx": {
@@ -7275,8 +7275,8 @@
     "semantic_hash": ""
   },
   "src/components/quest/world/QuestPixelWorld.jsx": {
-    "mtime": 1784343240.2227793,
-    "ast_hash": "c9c55fc242b512510a6cd641a80fe9ca",
+    "mtime": 1784360591.5350294,
+    "ast_hash": "a4bcfba9480fcfb377a65d99145540de",
     "semantic_hash": ""
   },
   "src/components/quest/world/QuestTrail2D.jsx": {
@@ -7295,8 +7295,8 @@
     "semantic_hash": ""
   },
   "src/components/quest/world/questPixelRuntime.js": {
-    "mtime": 1784345478.010214,
-    "ast_hash": "df8accfb43620ea9d2f3e025b7e684e3",
+    "mtime": 1784362552.2731907,
+    "ast_hash": "267c0169cc937c5ca28541780fa650ad",
     "semantic_hash": ""
   },
   "src/components/quest/world/questPremiumRender.js": {
@@ -7405,8 +7405,8 @@
     "semantic_hash": ""
   },
   "src/utils/questSliceSystems.js": {
-    "mtime": 1784343963.861361,
-    "ast_hash": "1300499b53218facf6a34719dbe0045b",
+    "mtime": 1784361474.3874192,
+    "ast_hash": "0e3a56b63aadb9e41f08f2d5cbb95cc4",
     "semantic_hash": ""
   },
   "src/utils/questTelemetry.js": {
@@ -7425,8 +7425,8 @@
     "semantic_hash": ""
   },
   "tests/browser/quest-accessibility.spec.js": {
-    "mtime": 1784344296.6890903,
-    "ast_hash": "5935c14284af3e0ff36dca995fce2a00",
+    "mtime": 1784362552.3593478,
+    "ast_hash": "0d3d6ad1ed59b03b28d1d8064828651e",
     "semantic_hash": ""
   },
   "tests/browser/quest-evidence.spec.js": {
@@ -7435,8 +7435,8 @@
     "semantic_hash": ""
   },
   "tests/quest-offline/quest-offline.spec.js": {
-    "mtime": 1784338000.6828954,
-    "ast_hash": "2993bb914b4ae0ebcbe2e6803bad23dd",
+    "mtime": 1784347971.4815118,
+    "ast_hash": "49cbae69e11a27a65565f9989bd8bf11",
     "semantic_hash": ""
   },
   "tests/quest-soak/quest-soak.spec.js": {
@@ -7520,13 +7520,13 @@
     "semantic_hash": ""
   },
   "tests/unit/questRuntimeSystems.test.js": {
-    "mtime": 1784346942.6444454,
-    "ast_hash": "4b6776b80e2d8ae47fc55ba32c5746de",
+    "mtime": 1784359965.2510757,
+    "ast_hash": "61bf2c767a7ed4c2f5525a2a46cc36e9",
     "semantic_hash": ""
   },
   "tests/unit/questSliceSystems.test.js": {
-    "mtime": 1784343996.4697018,
-    "ast_hash": "96bda3b6d52ccdec73f31f786609a552",
+    "mtime": 1784361474.474271,
+    "ast_hash": "6f24b8a366f977141fdb50637ff1a38a",
     "semantic_hash": ""
   },
   "tests/unit/questTeacherTools.test.js": {
@@ -7595,8 +7595,8 @@
     "semantic_hash": ""
   },
   "tools/checkQuestOffline.mjs": {
-    "mtime": 1784341400.1872373,
-    "ast_hash": "c99ea2385a166168b2909ba3243f84a8",
+    "mtime": 1784348134.549911,
+    "ast_hash": "2db6a0fe9e459ab531a047731bc9a48d",
     "semantic_hash": ""
   },
   "tools/checkQuestPacing.mjs": {
@@ -7605,8 +7605,8 @@
     "semantic_hash": ""
   },
   "tools/checkQuestPixel.mjs": {
-    "mtime": 1784335815.2805452,
-    "ast_hash": "c5bdc4f0fa8653c46e22c640b70d390c",
+    "mtime": 1784361826.017792,
+    "ast_hash": "4f96a18b677674940014a40ad38eef03",
     "semantic_hash": ""
   },
   "tools/checkQuestPixelBundle.mjs": {
@@ -7690,8 +7690,8 @@
     "semantic_hash": ""
   },
   "tools/viteQuestOfflinePlugin.mjs": {
-    "mtime": 1784341030.7347705,
-    "ast_hash": "1e076c12a77f9ee2f18781c15a624813",
+    "mtime": 1784348134.3017075,
+    "ast_hash": "854c41957cf5d7fae7116d97358e589c",
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
@@ -7705,8 +7705,8 @@
     "semantic_hash": ""
   },
   "docs/SOUND_SEEKERS_10_OUT_OF_10_CRITIQUE_2026-07-17.md": {
-    "mtime": 1784347825.812712,
-    "ast_hash": "8be0956531d6305ab6ac443a52abd9e0",
+    "mtime": 1784362688.6370716,
+    "ast_hash": "7a936ad0c626034f6d40a12bc71f335c",
     "semantic_hash": ""
   },
   "docs/SOUND_SEEKERS_3D_ASSET_NOTICES.md": {
@@ -7735,8 +7735,8 @@
     "semantic_hash": ""
   },
   "docs/SOUND_SEEKERS_RELEASE_BIBLE.md": {
-    "mtime": 1784347825.59932,
-    "ast_hash": "1dc845f55a40d4ca3d0026293db97d64",
+    "mtime": 1784362688.735129,
+    "ast_hash": "bd746e401160a42aaa2b945fb4392915",
     "semantic_hash": ""
   },
   "docs/SOUND_SEEKERS_SLICE_LOOP.md": {
@@ -7830,43 +7830,43 @@
     "semantic_hash": ""
   },
   "docs/previews/quest-release/beastie-action-atlas.png": {
-    "mtime": 1784347260.4991815,
+    "mtime": 1784362755.792544,
     "ast_hash": "43358fac8db8c43353a329bd6630ed93",
     "semantic_hash": ""
   },
   "docs/previews/quest-release/forge-sorting-desktop.png": {
-    "mtime": 1784347199.8648326,
-    "ast_hash": "24ab9260643f577dbafae566f072e249",
+    "mtime": 1784362682.49491,
+    "ast_hash": "10abf6c59d6a5c0028a7c63532443c32",
     "semantic_hash": ""
   },
   "docs/previews/quest-release/forge-sorting-phone.png": {
-    "mtime": 1784347204.9874473,
-    "ast_hash": "45bd16878c51401e99a6a18df07ed545",
+    "mtime": 1784362687.1108763,
+    "ast_hash": "e9d625951b07e0f461abb85ac5dcfb59",
     "semantic_hash": ""
   },
   "docs/previews/quest-release/mobile-chapter-ceremony.png": {
-    "mtime": 1784347271.536482,
-    "ast_hash": "aaf254c5a7c4ce3343f8c4cd8cf62ec8",
+    "mtime": 1784362766.9955003,
+    "ast_hash": "2832dfc2fa2db1776f26318808f1eb4e",
     "semantic_hash": ""
   },
   "docs/previews/quest-release/mobile-creature-creator.png": {
-    "mtime": 1784347264.9463887,
-    "ast_hash": "eb6f18f28d988816f6252f1885148035",
+    "mtime": 1784362760.2525737,
+    "ast_hash": "61391b2ffec5314570fbb24b21a36651",
     "semantic_hash": ""
   },
   "docs/previews/quest-release/mobile-den-settings.png": {
-    "mtime": 1784347262.7079656,
-    "ast_hash": "145aed98f3cfa4abef29a731bcf53aee",
+    "mtime": 1784362757.9460614,
+    "ast_hash": "21d5688d344e26cef02c36b599d00691",
     "semantic_hash": ""
   },
   "docs/previews/quest-release/mobile-trading-post.png": {
-    "mtime": 1784347269.41535,
-    "ast_hash": "4c8a967340694b54b4e4299c9ec2d5aa",
+    "mtime": 1784362764.9190648,
+    "ast_hash": "f7c0c44a7d4af0edaedc4e0f46eb198c",
     "semantic_hash": ""
   },
   "docs/previews/quest-release/mobile-trail-map.png": {
-    "mtime": 1784347266.983293,
-    "ast_hash": "3e884b44a97643d2c2bc9f7204bc7373",
+    "mtime": 1784362762.5698977,
+    "ast_hash": "b4caaccb6e874d962c2a980b5ffc4eb3",
     "semantic_hash": ""
   },
   "docs/previews/slice/locomotion-turn-banked.png": {
@@ -8122,6 +8122,11 @@
   "docs/previews/slice/slice-contact-sheet.jpg": {
     "mtime": 1784340518.1235535,
     "ast_hash": "21759a460d4bd81eac1bb8056bffb19f",
+    "semantic_hash": ""
+  },
+  "src/data/questPixelMaps.js": {
+    "mtime": 1784359772.9098585,
+    "ast_hash": "cbd7cd8c628e911ee98532ee21c22957",
     "semantic_hash": ""
   }
 }

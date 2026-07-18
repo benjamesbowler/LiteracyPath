@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { STOP_PIXEL_MAPS } from "../src/data/questPixelMaps.js";
 
 const ROOT = process.cwd();
 const read = file => fs.readFileSync(path.join(ROOT, file), "utf8");
@@ -65,7 +66,10 @@ requireText(root, "lazy(() => import(\"./world/QuestPixelWorld.jsx\"))", "lazy r
 requireText(root, "usePixel", "QuestRoot pixel branch");
 requireText(root, "ceremonyOverlayVisible", "in-world finale reveal window");
 requireText(component, "ceremony: Boolean(ceremony)", "pixel finale scene state");
-requireText(runtime, "smoothPixelArt: true", "Phaser renderer");
+requireText(runtime, "antialias: false", "crisp Phaser renderer");
+requireText(runtime, "smoothPixelArt: false", "crisp Phaser renderer");
+requireText(runtime, "pixelArt: true", "crisp Phaser renderer");
+requireText(runtime, "roundPixels: true", "crisp Phaser renderer");
 requireText(runtime, "powerPreference: \"high-performance\"", "Phaser renderer");
 requireText(runtime, "choiceInside.has(choice.id)", "choice contact debounce");
 requireText(runtime, "distance <= choice.radius + 12", "new-stage overlap latch");
@@ -77,12 +81,14 @@ requireText(runtime, "resolveQuestObstacleContacts", "solid scenery contact and 
 requireText(runtime, "this.navigationObstacles.push", "authored solid scenery registry");
 requireText(runtime, "questCeremonySfxSequence", "timed chapter-material ceremony sound arc");
 requireText(runtime, "for (const timer of this.ceremonyTimers) timer.remove(false)", "ceremony sound timer teardown");
-requireText(runtime, "const approachLength = Math.hypot", "route-relative choice staging");
+requireText(runtime, "const forward = { x: 0, y: 1 }", "stable screen-readable choice staging");
 requireText(runtime, "syncCarriedObject", "visible carry-state prop");
 requireText(runtime, "stage?.carryFromStage == null", "stage-zero carry support");
 requireText(runtime, "questPixelChoiceOffsets", "phone-safe answer staging");
 requireText(runtime, "questPixelAvoidActorOverlap", "actor-safe answer staging");
+requireText(sliceSystems, "groupShiftX", "group-safe narrow-screen sorting lane fit");
 requireText(runtime, "createEncounterClearingCanvas", "tile-authored encounter clearings");
+requireText(runtime, "ctx.ellipse(centreX, centreY", "organic encounter clearing edge");
 requireText(runtime, "const embeddedLabel", "diegetic short-grapheme labels");
 requireText(runtime, "PIXEL_LOWERCASE_GLYPHS", "renderer-stable lowercase task alphabet");
 requireText(runtime, "const authoredLabelBadge", "body-mounted authored-object labels");
@@ -127,10 +133,20 @@ requireText(runtime, "CHAPTER_PIXEL_PROFILES", "chapter-specific pixel art direc
 requireText(runtime, "createStopMapComposition", "stop-authored scene composition");
 requireText(runtime, "pixelResidentPoint", "stop-authored resident staging");
 requireText(runtime, "const choiceLeft = cameraCentreX - visibleHalfWidth + 48", "camera-safe authored clearings");
-const stopMapBlock = runtime.match(/const STOP_MAP_DEFINITIONS = \[([\s\S]*?)\n\];/)?.[1] || "";
-const stopMapRows = [...stopMapBlock.matchAll(/^\s+\["([a-z-]+)", "([a-z-]+)", "([a-z0-9-]+)"\],?$/gm)];
-if (stopMapRows.length !== 40) fail(`expected 40 authored stop maps, found ${stopMapRows.length}`);
-if (new Set(stopMapRows.map(match => match[3])).size !== 40) fail("authored stop map motifs are not unique");
+const stopMaps = Object.values(STOP_PIXEL_MAPS);
+const routeAuthoredMaps = stopMaps.filter(map => map.authorship === "route-authored");
+const generatedMaps = stopMaps.filter(map => map.authorship === "generated");
+if (stopMaps.length !== 40) fail(`expected 40 stop map briefs, found ${stopMaps.length}`);
+if (new Set(stopMaps.map(map => map.motif)).size !== 40) fail("stop map motifs are not unique");
+if (routeAuthoredMaps.length !== 40) fail(`expected all 40 stop maps to be route-authored, found ${routeAuthoredMaps.length}`);
+if (generatedMaps.length !== 0) fail(`expected no generated-map backlog, found ${generatedMaps.length}`);
+for (const [index, map] of routeAuthoredMaps.entries()) {
+  if (!Array.isArray(map.routePoints) || map.routePoints.length < 8) fail(`s${index + 1} has no authored route coordinates`);
+  if (!map.landmarkAnchor) fail(`s${index + 1} has no authored landmark anchor`);
+  if (!Array.isArray(map.sceneryAnchors) || map.sceneryAnchors.length < 10) fail(`s${index + 1} has no authored scenery composition`);
+}
+requireText(runtime, "samplePixelMapRoute(map.routePoints, progress)", "authored route runtime");
+requireText(runtime, 'setData("authoredStopScenery", true)', "authored scenery runtime");
 for (const chapter of [
   "seedwake-meadow",
   "river-gardens",
@@ -915,5 +931,5 @@ for (const [asset, [width, height]] of Object.entries(premiumStarInteraction)) {
 }
 
 if (!process.exitCode) {
-  console.log(`Pixel quest check passed: ${assets.length} curated assets, renderer contract, Beastie layers, learning parity, and gate continuity are present.`);
+  console.log(`Pixel quest check passed: ${assets.length} curated assets, crisp renderer contract, all 40 route-authored maps, Beastie layers, learning parity, and gate continuity are present.`);
 }
