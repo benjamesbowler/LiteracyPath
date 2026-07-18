@@ -30,6 +30,7 @@ import {
   QUEST_ACTION_SFX,
   questCeremonySfxSequence,
   questActionSfxEntry,
+  questActionSfxMixScale,
   questChapterMaterialSfxEntry
 } from "../../../utils/questActionAudio.js";
 import {
@@ -4683,7 +4684,9 @@ class QuestPixelScene extends Phaser.Scene {
 
   playSfx(key, volume = 0.28) {
     if (!this.model?.soundEnabled || !this.cache.audio.exists(key) || this.sound?.locked) return;
-    this.sound.play(key, { volume });
+    // Duck under a live phonics cue exactly like the 2D path does — the
+    // Phaser tier was the only renderer whose SFX talked over the phoneme.
+    this.sound.play(key, { volume: volume * questActionSfxMixScale() });
   }
 
   playFeedback(kind, choiceId = null) {

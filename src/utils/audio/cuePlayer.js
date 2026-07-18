@@ -71,6 +71,34 @@ export function playCueAudio(src, { volume = 0.95, onUnavailable } = {}) {
   }
 }
 
+// Play clips back to back with a small breath between — the blend fallback
+// ("st" = /s/ then /t/, said quickly) and any future phoneme-then-name
+// sequence. One-voice rule holds: if anything else grabs the voice mid-chain,
+// the chain stops instead of talking over it.
+export function playCueSequence(srcs = [], { volume = 0.95, gapMs = 150 } = {}) {
+  const queue = (srcs || []).filter(Boolean);
+  if (!queue.length) return;
+  let index = 0;
+  const playNext = () => {
+    if (index >= queue.length) return;
+    const src = queue[index];
+    index += 1;
+    playCueAudio(src, { volume });
+    const audio = currentCue;
+    if (!audio) {
+      playNext();
+      return;
+    }
+    audio.addEventListener("ended", () => {
+      if (index >= queue.length) return;
+      window.setTimeout(() => {
+        if (currentCue === null) playNext();
+      }, gapMs);
+    }, { once: true });
+  };
+  playNext();
+}
+
 export function setCueAudioSuspended(suspended = true) {
   const next = Boolean(suspended);
   if (cueSuspended === next) return cueSuspended;

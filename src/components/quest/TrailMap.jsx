@@ -86,8 +86,11 @@ export default function TrailMap({
 
   const enter = stop => {
     if (stop.index > nextIndex && !done.has(stop.id)) return;
+    // Excited double-taps must not double-fire world entry.
+    if (walkingStop) return;
     setWalkingStop(stop.id);
     if (isSoundEnabled) playWhoosh();
+    window.clearTimeout(walkTimer.current);
     walkTimer.current = window.setTimeout(() => {
       setWalkingStop(null);
       onEnterStop?.(stop.id);

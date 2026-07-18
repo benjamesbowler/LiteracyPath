@@ -24,6 +24,14 @@
 
 import { AUDIO_FILE_PATHS } from "../data/generated/audioFilePaths.generated.js";
 import { hasKnownBadWordAudio, isKnownBadAudioPath } from "../data/knownBadWordAudio.js";
+import { QUEST_STOPS } from "../data/questSequence.js";
+
+// The blends the trail actually teaches (st, bl, sw…). ONLY these may fall
+// back to component-phoneme playback — a digraph (sh) is ONE sound and must
+// never be spelled out as s-then-h.
+const TAUGHT_BLENDS = new Set(
+  QUEST_STOPS.flatMap(stop => (stop.teach || []).filter(entry => entry.kind === "blend").map(entry => entry.id))
+);
 
 const CLEAN = "/audio/child-mode/clean-human/graphemes";
 const VOWELS = new Set(["a", "e", "i", "o", "u"]);
@@ -44,6 +52,16 @@ export function graphemeCandidates(grapheme) {
   const g = String(grapheme || "").toLowerCase().trim();
   if (!g) return [];
 
+  // Alternative pronunciations and morphs (y_ie, oo_short, c_s, suffix_s…)
+  // live in /audio/quest/alt/. This branch is what makes the alt lessons
+  // SELF-REVIVING: the pens gate checks hasGraphemeAudio, which resolves
+  // through here — record the clip and the sort re-enables with no code
+  // change. (Previously altPronunciationSrc pointed at the folder but nothing
+  // ever called it, so even recorded clips could never revive the lesson.)
+  if (g.includes("_") && !SPLIT.test(g)) {
+    return [`/audio/quest/alt/${g}.mp3`];
+  }
+
   if (g.length === 1 && VOWELS.has(g)) {
     return [`/audio/phonemes/short_${g}.mp3`, `${CLEAN}/short_vowels/short_${g}.mp3`];
   }
@@ -63,8 +81,20 @@ export function graphemeSrc(grapheme) {
   return firstExisting(graphemeCandidates(grapheme));
 }
 
+// A blend can be SAID even with no clip of its own: it is two sounds the
+// child already owns, played back to back (see sayGrapheme's fallback).
+export function hasBlendAudio(blend) {
+  const g = String(blend || "").toLowerCase().trim();
+  if (!TAUGHT_BLENDS.has(g)) return false;
+  return blendCandidateSrcs(g).length === g.length;
+}
+
+// "Can this be spoken at all" — its own clip, or a complete component
+// sequence for a taught blend. 17 of 22 taught blends had no recording and
+// every teach button gated here, so three whole stops taught in silence
+// while the component clips sat on disk.
 export function hasGraphemeAudio(grapheme) {
-  return Boolean(graphemeSrc(grapheme));
+  return Boolean(graphemeSrc(grapheme)) || hasBlendAudio(grapheme);
 }
 
 // The letter NAME, not the sound. Teach Your Monster never says letter names,

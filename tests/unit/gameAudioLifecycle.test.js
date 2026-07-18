@@ -53,7 +53,7 @@ test("quest music and ambience resume from the same place after a hidden tab", a
 
     score.audio.currentTime = 17.25;
     ambience.audio.currentTime = 8.5;
-    assert.ok(Math.abs(score.targetVolume - 0.212) < 0.000001);
+    assert.ok(Math.abs(score.targetVolume - 0.16) < 0.000001);
     assert.ok(Math.abs(ambience.targetVolume - 0.0464) < 0.000001);
     assert.equal(score.audio.paused, false);
     assert.equal(ambience.audio.paused, false);

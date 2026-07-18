@@ -4761,6 +4761,15 @@ export default function QuestHub({
         </button>
       </div>
 
+      {/* Mid-encounter, the full HUD hides but the DOOR STAYS: a child deep
+          in a task must always have one visible way out (the other two
+          renderers never lose theirs). Quitting checkpoints via the unmount
+          save, so no progress is lost. */}
+      {active && (
+        <button type="button" className="q-ghost qh-leave qh-leave-floating" onClick={leaveWorld}>
+          &#8592; Den
+        </button>
+      )}
       {!active && <header className="qh-hud">
         <button type="button" className="q-ghost qh-leave" onClick={leaveWorld}>Back to the Den</button>
         <div className="qh-land-title">

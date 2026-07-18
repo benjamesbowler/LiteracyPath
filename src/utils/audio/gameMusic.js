@@ -134,7 +134,10 @@ const AMBIENCES = Object.freeze({
 
 const GAME_AUDIO_MIXES = Object.freeze({
   travel: Object.freeze({ music: 1, ambience: 1 }),
-  encounter: Object.freeze({ music: 1.06, ambience: 0.58 }),
+  // Encounters are the LISTENING-critical phase — a child is discriminating
+  // phonemes. Music sits DOWN in the mix there, never up (it was 1.06: six
+  // percent louder during the one moment quiet matters most).
+  encounter: Object.freeze({ music: 0.8, ambience: 0.58 }),
   ceremony: Object.freeze({ music: 0.92, ambience: 0.46 })
 });
 

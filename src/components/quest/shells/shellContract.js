@@ -19,8 +19,8 @@
 // useAnswerOnce below makes that structurally impossible.
 
 import { useCallback, useRef, useEffect } from "react";
-import { playCueAudio, stopCueAudio } from "../../../utils/audio/cuePlayer.js";
-import { graphemeSrc, wordSrc, letterNameSrc } from "../../../utils/questAudio.js";
+import { playCueAudio, playCueSequence, stopCueAudio } from "../../../utils/audio/cuePlayer.js";
+import { graphemeSrc, wordSrc, letterNameSrc, hasBlendAudio, blendCandidateSrcs } from "../../../utils/questAudio.js";
 
 // Guarantees onAnswer fires once and only once per round, no matter how many
 // times a child taps, double-taps, or hammers the screen.
@@ -45,9 +45,18 @@ export function useAnswerOnce(round, onAnswer) {
 export function sayGrapheme(grapheme, enabled = true) {
   if (!enabled) return false;
   const src = graphemeSrc(grapheme);
-  if (!src) return false;
-  playCueAudio(src);
-  return true;
+  if (src) {
+    playCueAudio(src);
+    return true;
+  }
+  // A taught blend with no clip of its own is two sounds the child already
+  // owns, said quickly — play the components back to back (s…t for "st").
+  // Digraphs never take this path: hasBlendAudio only knows taught blends.
+  if (hasBlendAudio(grapheme)) {
+    playCueSequence(blendCandidateSrcs(grapheme), { gapMs: 120 });
+    return true;
+  }
+  return false;
 }
 
 export function sayWord(word, enabled = true) {

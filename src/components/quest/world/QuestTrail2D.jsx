@@ -488,8 +488,12 @@ export default function QuestTrail2D({
         reviewQueueRef.current = [...new Set([...reviewQueueRef.current, beatIndex])];
       }
       setFeedback(nextCorrection.mode === "teach" ? "This one. Listen." : "Try again. Listen for the sound.");
-      if (stage.audioCue?.kind === "grapheme") sayGrapheme(stage.audioCue.value, isSoundEnabled);
-      else if (stage.audioCue?.kind === "word") sayWord(stage.audioCue.value, isSoundEnabled);
+      // The corrective cue waits for the buzz to land — played together they
+      // mask each other. Same 350ms scheduling the 3D path already proved.
+      window.setTimeout(() => {
+        if (stage.audioCue?.kind === "grapheme") sayGrapheme(stage.audioCue.value, isSoundEnabled);
+        else if (stage.audioCue?.kind === "word") sayWord(stage.audioCue.value, isSoundEnabled);
+      }, 350);
       checkpoint({
         corrections: correctionsRef.current,
         reviewQueue: reviewQueueRef.current,

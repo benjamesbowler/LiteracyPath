@@ -68,9 +68,12 @@ test("every quest chapter has its own quiet environmental soundscape", () => {
 
 test("quest travel, encounter, and ceremony mixes preserve cue headroom", () => {
   assert.deepEqual(getGameAudioMix("travel"), { music: 1, ambience: 1 });
-  assert.deepEqual(getGameAudioMix("encounter"), { music: 1.06, ambience: 0.58 });
+  assert.deepEqual(getGameAudioMix("encounter"), { music: 0.8, ambience: 0.58 });
   assert.deepEqual(getGameAudioMix("ceremony"), { music: 0.92, ambience: 0.46 });
   assert.equal(getGameAudioMix("unknown"), getGameAudioMix("travel"));
-  assert.ok(getGameAudioMix("encounter").music > getGameAudioMix("travel").music);
+  // Encounters are the phoneme-discrimination moment: the music must sit DOWN
+  // in the mix there, below travel — it used to be 6% LOUDER, eating the very
+  // headroom this test's name promises.
+  assert.ok(getGameAudioMix("encounter").music < getGameAudioMix("travel").music);
   assert.ok(getGameAudioMix("ceremony").ambience < getGameAudioMix("encounter").ambience);
 });
