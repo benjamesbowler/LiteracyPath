@@ -40,6 +40,9 @@ function pickFoeType(worldKey, levelIndex, k) {
 
 const GRAV = 0.62, MOVE = 4.8, JUMP = 13.6, GROUND_H = 96;
 const SEG = 440, WORD_GAP = 560, MAXH = 5;
+// First-run onboarding dismissal is remembered once per device; a denied
+// storage (private mode) simply shows the card again next session.
+const ONBOARD_KEY = "lp-arcade-onboarded-v1:letter-leap";
 
 function startGame(mount, opts) {
   const world = worldForGameDifficulty(opts.difficulty);
@@ -455,6 +458,39 @@ function startGame(mount, opts) {
       '<button data-ll="cta" style="' + ctaStyle + ';margin-top:4px">' + btnLabel + '</button></div>';
     overlay.style.display = "grid";
     overlay.querySelector('[data-ll="cta"]').onclick = () => { overlay.style.display = "none"; sfx(playTapSound); fn(); };
+  }
+
+  // First-run onboarding: one goal line + the controls (desktop AND touch),
+  // shown once per device. Gameplay stays frozen behind it (pause path) until
+  // the child dismisses the card.
+  function showOnboarding() {
+    overlay.innerHTML =
+      '<div style="max-width:520px;padding:24px 30px;background:linear-gradient(140deg,rgba(7,12,32,.92),rgba(22,39,83,.72));border:1px solid rgba(126,232,255,.36);clip-path:polygon(18px 0,100% 0,calc(100% - 18px) 100%,0 100%);box-shadow:0 20px 60px rgba(0,0,0,.42),inset 0 0 0 1px rgba(255,255,255,.08)"><h1 style="font-size:clamp(1.6rem,6vw,2.6rem);margin:0">Letter Leap</h1>' +
+      '<p style="opacity:.9;margin:10px auto 14px;max-width:440px;line-height:1.4">Run and jump to grab each letter in order and spell the word!</p>' +
+      '<ul style="text-align:left;opacity:.9;margin:0 auto 22px;max-width:400px;line-height:1.55;padding-left:20px">' +
+        '<li><b>Desktop:</b> Arrow keys to run, Space or Up arrow to jump.</li>' +
+        '<li><b>Touch:</b> hold &#9664; &#9654; to move, tap JUMP to leap.</li>' +
+        '<li>Catch the glowing next letter — steer clear of wrong letters and grumpers.</li></ul>' +
+      '<button data-ll="cta" style="' + ctaStyle + '">Tap to play</button></div>';
+    overlay.style.display = "grid";
+    const btn = overlay.querySelector('[data-ll="cta"]');
+    if (btn) btn.focus(); // keyboard kids can dismiss with Enter/Space
+    btn.onclick = () => {
+      try { window.localStorage.setItem(ONBOARD_KEY, "1"); } catch { /* storage optional */ }
+      overlay.style.display = "none";
+      keys.left = keys.right = keys.jump = false; jumpBufT = 0; // the dismiss tap/key never leaks a buffered jump
+      onboarding = false;
+      sfx(playTapSound);
+      resume();
+    };
+  }
+  function maybeOnboard() {
+    let seen;
+    try { seen = window.localStorage.getItem(ONBOARD_KEY) === "1"; } catch { seen = false; }
+    if (seen) return;
+    onboarding = true; // set BEFORE pause so a chrome resume can't slip past it
+    pause();
+    showOnboarding();
   }
 
   // ── input ─────────────────────────────────────────────────────────────────
@@ -916,9 +952,10 @@ function startGame(mount, opts) {
   rafId = requestAnimationFrame(loop);
   startStage();
 
-  let paused = false, savedRunning = false;
+  let paused = false, savedRunning = false, onboarding = false;
   function pause() { if (paused) return; paused = true; savedRunning = running; running = false; }
-  function resume() { if (!paused) return; paused = false; last = performance.now(); if (savedRunning) running = true; }
+  function resume() { if (!paused || onboarding) return; paused = false; last = performance.now(); if (savedRunning) running = true; }
+  maybeOnboard();
   function teardown() {
     running = false;
     cancelAnimationFrame(rafId);

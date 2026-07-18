@@ -30,6 +30,11 @@ const CONFIG = {
   "sound-safari": {
     title: "Sound Safari",
     action: "Net the sounds in order",
+    onboardingHints: [
+      "Listen to the word, then net its sounds in order.",
+      "Click or tap a critter to catch it.",
+      "Arrows move the net, Space catches."
+    ],
     guide: "/images/learn-games/ps1-arcade/sound-safari-guide-v1.webp",
     net: "/images/learn-games/ps1-arcade/sound-safari-net-v1.webp",
     bgByWorld: {
@@ -103,6 +108,59 @@ const CREATURE_COLORS = [
   ["#cba3ff", "#382861"],
   ["#f7f0d0", "#63572e"]
 ];
+
+// First-run onboarding: one intro card per device, dismissed forever after.
+// Storage may be denied (private mode) — then the card shows again next
+// session, but it must never crash the game.
+function hasSeenOnboarding(kind) {
+  try {
+    return window.localStorage.getItem(`lp-arcade-onboarded-v1:${kind}`) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function markOnboardingSeen(kind) {
+  try {
+    window.localStorage.setItem(`lp-arcade-onboarded-v1:${kind}`, "1");
+  } catch { /* storage denied: the card simply returns next session */ }
+}
+
+// Hint lines shrink to fit the panel instead of overflowing narrow screens.
+function drawFittedHint(ctx, value, x, y, maxWidth, size, color) {
+  let fitted = size;
+  ctx.save();
+  ctx.font = `700 ${fitted}px "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif`;
+  while (fitted > 12 && ctx.measureText(value).width > maxWidth) {
+    fitted -= 1;
+    ctx.font = `700 ${fitted}px "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif`;
+  }
+  ctx.restore();
+  text(ctx, value, x, y, fitted, color, "center", 700);
+}
+
+function drawOnboarding(ctx, state, config, theme, w, h) {
+  if (!state.onboarding) return;
+  ctx.save();
+  ctx.fillStyle = "rgba(2,5,16,.84)";
+  ctx.fillRect(0, 0, w, h);
+  const panelW = Math.min(w * 0.86, 600);
+  const panelH = Math.min(h * 0.66, 400);
+  const px = (w - panelW) / 2;
+  const py = (h - panelH) / 2;
+  psxPanel(ctx, px, py, panelW, panelH, "rgba(3,8,18,.94)", `${theme.accent}aa`, 24);
+  text(ctx, config.title, w / 2, py + panelH * 0.17, clamp(w * 0.05, 30, 52), theme.accent, "center", 900);
+  text(ctx, config.action, w / 2, py + panelH * 0.31, clamp(w * 0.026, 17, 24), "#fff", "center", 900);
+  const hints = config.onboardingHints || [];
+  const hintSize = clamp(w * 0.021, 14, 20);
+  const firstY = py + panelH * 0.46;
+  const gap = panelH * 0.125;
+  for (let i = 0; i < hints.length; i += 1) {
+    drawFittedHint(ctx, hints[i], w / 2, firstY + i * gap, panelW * 0.86, hintSize, "#eaf8ff");
+  }
+  text(ctx, "Tap to play · or press any key", w / 2, py + panelH * 0.88, clamp(w * 0.024, 16, 22), theme.accent2, "center", 900);
+  ctx.restore();
+}
 
 function plateText(ctx, value, x, y, maxWidth, maxSize, minSize = 24) {
   const label = String(value);
@@ -1128,6 +1186,7 @@ function startSoundSafariArcadeGame(mount, options) {
     progress: 0,
     paused: false,
     ended: false,
+    onboarding: !hasSeenOnboarding(options.kind),
     time: 0,
     pulse: 0,
     judgement: "",
@@ -1207,9 +1266,19 @@ function startSoundSafariArcadeGame(mount, options) {
     state.coachText = "";
     state.coachT = 0;
     if (!state.currentTask) return;
-    if (soundAllowed()) speakWord(state.currentTask.item.word);
+    // Held while the first-run card is up; dismissOnboarding says it instead.
+    if (!state.onboarding && soundAllowed()) speakWord(state.currentTask.item.word);
     state.waveSeed += 1;
     setupCritters();
+  }
+
+  // First-run intro card: dropping the flag lets the frozen countdown start.
+  // Independent of state.paused so the chrome pause and the card never fight.
+  function dismissOnboarding() {
+    if (!state.onboarding) return;
+    state.onboarding = false;
+    markOnboardingSeen(options.kind);
+    if (state.currentTask && soundAllowed()) speakWord(state.currentTask.item.word);
   }
 
   function setupCritters() {
@@ -1328,7 +1397,7 @@ function startSoundSafariArcadeGame(mount, options) {
 
   function captureAt(x, y) {
     const task = state.currentTask;
-    if (!task || state.paused || state.ended || state.countdown > 0 || state.pendingAdvance) return;
+    if (!task || state.paused || state.ended || state.onboarding || state.countdown > 0 || state.pendingAdvance) return;
     state.net.targetX = clamp(x || state.net.x, w * 0.1, w * 0.93);
     state.net.targetY = clamp(y || state.net.y, h * 0.18, h * 0.79);
     state.net.swingDir = x < state.net.x ? -1 : 1;
@@ -1419,10 +1488,21 @@ function startSoundSafariArcadeGame(mount, options) {
   function onPointerDown(event) {
     const point = pointerPosition(event);
     state.pointer = point;
+    if (state.onboarding) {
+      dismissOnboarding();
+      return;
+    }
     captureAt(point.x, point.y);
   }
 
   function onKeyDown(event) {
+    // Any key starts play from the intro card (Esc stays with the chrome).
+    if (state.onboarding) {
+      if (event.key === "Escape") return;
+      if (event.key === " " || event.key === "Enter" || event.key.startsWith("Arrow")) event.preventDefault();
+      dismissOnboarding();
+      return;
+    }
     const move = 48;
     let handled = true;
     if (event.key === "ArrowLeft") state.net.targetX -= move;
@@ -1507,7 +1587,7 @@ function startSoundSafariArcadeGame(mount, options) {
   }
 
   function tickFrame(now, dt) {
-    if (!state.paused && !state.ended) update(dt);
+    if (!state.paused && !state.ended && !state.onboarding) update(dt);
     draw();
   }
 
@@ -1523,6 +1603,7 @@ function startSoundSafariArcadeGame(mount, options) {
     drawScreenGrade(ctx, w, h);
     drawHud(ctx, state, config, activeTheme, w, h);
     drawCountdown(ctx, state, config, activeTheme, w, h);
+    drawOnboarding(ctx, state, config, activeTheme, w, h);
     ctx.restore();
   }
 
@@ -1563,6 +1644,7 @@ function startSoundSafariArcadeGame(mount, options) {
         combo: state.combo,
         taskIndex: state.taskIndex,
         countdown: state.countdown,
+        onboarding: state.onboarding,
         needed: neededSound(state.currentTask),
         currentTask: state.currentTask,
         critters: state.critters.map(critter => ({

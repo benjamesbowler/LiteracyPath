@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { CVC_WORDS, SENTENCE_FIX, SENTENCES, SIGHT_WORDS, WORD_FAMILIES } from "../../../../data/learnGamesData";
 import { getChildWordAsset } from "../../../../data/childAssets";
-import { hasRecordedSpeech, speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
+import { cancelSpeech, hasRecordedSpeech, speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
 import { hasKnownBadWordAudio } from "../../../../data/knownBadWordAudio.js";
 import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz } from "../../../../utils/audio/gameSfx";
 import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
@@ -108,6 +108,7 @@ export function ArcadePracticeGame({
   onProgressUpdate,
   onComplete,
   onCheckpoint,
+  onEngineReady,
   isSoundEnabled = true
 }) {
   const totalRounds = difficulty === "hard" ? 10 : difficulty === "medium" ? 8 : 6;
@@ -127,8 +128,12 @@ export function ArcadePracticeGame({
   // no side effects inside state updaters, which StrictMode double-invokes).
   const scoreRef = useRef(0);
   const streakRef = useRef(0);
-  // Every pending timeout id, cleared on unmount so quitting can't fire finish/onComplete.
+  // Pending timeouts live as {id, fn, remaining, startedAt} entries: cleared on
+  // unmount so quitting can't fire finish/onComplete, and frozen by the engine
+  // pause contract (GamePlayer pauses on tab-hide and while its quit dialog is
+  // open) - pause stops timers and speech, resume re-arms what was left.
   const timersRef = useRef(new Set());
+  const pausedRef = useRef(false);
 
   const gameState = useMemo(() => {
     // Restart increments version purely to re-roll random word/order choices.
@@ -167,18 +172,48 @@ export function ArcadePracticeGame({
   }, [difficulty, mode, totalRounds, version]);
 
   useEffect(() => () => {
-    timersRef.current.forEach(id => clearTimeout(id));
+    timersRef.current.forEach(entry => clearTimeout(entry.id));
     timersRef.current.clear();
   }, []);
 
-  function schedule(fn, ms) {
-    const id = setTimeout(() => {
-      timersRef.current.delete(id);
-      fn();
-    }, ms);
-    timersRef.current.add(id);
-    return id;
+  function armTimer(entry) {
+    entry.startedAt = Date.now();
+    entry.id = setTimeout(() => {
+      timersRef.current.delete(entry);
+      entry.fn();
+    }, entry.remaining);
   }
+
+  function schedule(fn, ms) {
+    const entry = { id: 0, fn, remaining: ms, startedAt: 0 };
+    timersRef.current.add(entry);
+    if (!pausedRef.current) armTimer(entry);
+    return entry.id;
+  }
+
+  function pauseEngine() {
+    if (pausedRef.current) return;
+    pausedRef.current = true;
+    cancelSpeech();
+    const now = Date.now();
+    timersRef.current.forEach(entry => {
+      clearTimeout(entry.id);
+      entry.remaining = Math.max(0, entry.remaining - (now - entry.startedAt));
+    });
+  }
+
+  function resumeEngine() {
+    if (!pausedRef.current) return;
+    pausedRef.current = false;
+    timersRef.current.forEach(entry => armTimer(entry));
+  }
+
+  // GamePlayer chrome pauses the engine on tab-hide and while its quit dialog
+  // is open. Callbacks only touch refs, so register once.
+  useEffect(() => {
+    onEngineReady?.({ pause: pauseEngine, resume: resumeEngine });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- engine callbacks only touch refs, register once
+  }, []);
 
   useEffect(() => {
     onScoreUpdate?.(score);

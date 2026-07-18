@@ -31,6 +31,9 @@ const MISS_HINTS = {
   crate: "That is not the missing word."
 };
 const TONES = [["#4a90d9", "#2f5d94"], ["#e9a23b", "#a96f16"], ["#3aa17e", "#256b52"], ["#8d6bd9", "#5a3f93"]];
+// First-run onboarding dismissal is remembered once per device; a denied
+// storage (private mode) simply shows the card again next session.
+const ONBOARD_KEY = "lp-arcade-onboarded-v1:sentence-express";
 
 // -- SVG rolling stock --------------------------------------------------------
 function Wheel({ cx, cy, r }) {
@@ -345,6 +348,12 @@ export default function SentenceExpressGame({
   const [blast, setBlast] = useState(false);     // whistle steam burst
   const [comboToast, setComboToast] = useState("");
   const [hint, setHint] = useState(""); // one-line corrective hint after a miss
+  // First-run onboarding: shown over the (already idle) intro ticket once per
+  // device; the train never rolls in until the child reaches the yard, so the
+  // whole game is naturally frozen behind the card.
+  const [showOnboarding, setShowOnboarding] = useState(() => {
+    try { return window.localStorage.getItem(ONBOARD_KEY) !== "1"; } catch { return true; }
+  });
   const paused = useRef(false);
   const audioRef = useRef(null);
   const chuffStop = useRef(null);
@@ -613,6 +622,11 @@ export default function SentenceExpressGame({
     setPhase(PHASES.SHUNT);
   }
 
+  function dismissOnboarding() {
+    try { window.localStorage.setItem(ONBOARD_KEY, "1"); } catch { /* storage optional */ }
+    setShowOnboarding(false);
+  }
+
   const faultList = [...new Set(level.trains.flatMap(t => t.faults))]
     .map(f => FAULT_LABELS[f]).filter(Boolean).join(" - ");
   const rolling = phase === PHASES.DEPART;
@@ -766,7 +780,20 @@ export default function SentenceExpressGame({
       {comboToast && <div className="sx-combotoast" aria-hidden="true">{comboToast}</div>}
       {banner && <div className="sx-banner">{banner}</div>}
 
-      {phase === PHASES.INTRO && (
+      {phase === PHASES.INTRO && showOnboarding && (
+        <section className="sx-ticket" role="dialog" aria-label="How to play Sentence Express">
+          <h2>HOW TO PLAY</h2>
+          <p className="sx-ticketsub">Rebuild the sentence train so it rolls away reading just right!</p>
+          <ul style={{ textAlign: "left", margin: "0 0 14px", paddingLeft: 20, lineHeight: 1.55, fontSize: 14, fontWeight: 600 }}>
+            <li>Tap (or click) the siding cars in order to couple the sentence.</li>
+            <li>Fix the faults: pick the capital engine, swap the rusty car, load the lost crate, choose the end-mark caboose.</li>
+            <li>Tap "Hear it again" to listen, then PULL WHISTLE when the track is ready.</li>
+          </ul>
+          <button type="button" className="sx-golden" onClick={dismissOnboarding}>TAP TO PLAY</button>
+        </section>
+      )}
+
+      {phase === PHASES.INTRO && !showOnboarding && (
         <section className="sx-ticket sx-introticket">
           <h2>{WORLD_LABELS[world]}</h2>
           <p className="sx-ticketsub">Level {levelIndex + 1}{level.isGoldRun ? " - GOLD MAIL RUN" : ""} - {level.trains.length} trains</p>

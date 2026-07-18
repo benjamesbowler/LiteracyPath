@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
+import { cancelSpeech, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
 import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz } from "../../../../utils/audio/gameSfx";
 import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../shared/ProgressStars.jsx";
@@ -13,6 +13,112 @@ import {
 // The three adventure games share one engine: rounds in, planks/bins/flowers
 // out. Every mistake coaches (replay + retry), every win is a visible thing
 // the child MADE (a bridge, a sorted factory line, a garden).
+
+// First-run onboarding is remembered per device and per arcade game id (the
+// three modes are three separate games in the hub); storage can be denied
+// (private mode), in which case the intro simply shows again next session.
+const ONBOARD = {
+  rescue: {
+    key: "lp-arcade-onboarded-v1:word-rescue",
+    goal: "Build the bridge by matching each word you hear!",
+    hints: [
+      'Tap "Hear word" to listen to the word again.',
+      "Click or tap the matching word to lay a plank.",
+      "A wrong pick only wobbles - try again!"
+    ]
+  },
+  sort: {
+    key: "lp-arcade-onboarded-v1:sound-sort-factory",
+    goal: "Sort every word into the bin with the same starting sound!",
+    hints: [
+      "Read the word riding the factory belt.",
+      "Click or tap the bin whose sound it starts with.",
+      "Sort them all to finish the factory line."
+    ]
+  },
+  garden: {
+    key: "lp-arcade-onboarded-v1:letter-garden",
+    goal: "Spell each word to grow a flower!",
+    hints: [
+      'Tap "Hear word" to listen to the word again.',
+      "Click or tap the letters in order.",
+      "Finish the word and the flower blooms."
+    ]
+  }
+};
+
+function readOnboarded(key) {
+  try {
+    return window.localStorage.getItem(key) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function markOnboarded(key) {
+  try {
+    window.localStorage.setItem(key, "1");
+  } catch {
+    /* onboarding is optional */
+  }
+}
+
+// Static card (no animated intro) so prefers-reduced-motion is respected;
+// light panel matches the lg-game-complete card these games already use.
+function AdventureOnboarding({ title, copy, onStart }) {
+  useEffect(() => {
+    const onKey = event => {
+      if (event.key === "Escape") return; // GamePlayer owns Esc (quit dialog).
+      onStart();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onStart]);
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={`How to play ${title}`}
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 1, // below GamePlayer's quit/resume dialogs (z-index 2)
+        display: "grid",
+        placeItems: "center",
+        background: "rgba(15, 23, 42, 0.55)",
+        padding: 20,
+        cursor: "pointer"
+      }}
+      onClick={onStart}
+    >
+      <div
+        style={{
+          width: "min(100%, 420px)",
+          display: "grid",
+          gap: 12,
+          justifyItems: "center",
+          border: "1px solid var(--lg-border, #CBD5E1)",
+          borderRadius: "var(--lg-radius, 16px)",
+          background: "var(--lg-surface, #ffffff)",
+          boxShadow: "var(--lp-shadow-soft, 0 18px 40px rgba(15, 23, 42, 0.18))",
+          padding: "clamp(22px, 4vw, 32px)",
+          textAlign: "center"
+        }}
+      >
+        <h2 style={{ margin: 0, color: "#0F172A", fontSize: "clamp(1.4rem, 3vw, 1.9rem)", fontWeight: 700 }}>{title}</h2>
+        <p style={{ margin: 0, color: "#475569", fontWeight: 600, lineHeight: 1.4 }}>{copy.goal}</p>
+        <div style={{ display: "grid", gap: 8, textAlign: "left", color: "#334155", fontSize: "0.9rem", lineHeight: 1.45, fontWeight: 600 }}>
+          {copy.hints.map(hint => <span key={hint}>{hint}</span>)}
+        </div>
+        <div>
+          <button type="button" className="lg-game-primary" onClick={onStart}>Tap to play</button>
+          <div style={{ marginTop: 8, fontSize: "0.74rem", fontWeight: 700, color: "#64748B" }}>or press any key</div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Complete({ title, stars, score, onRestart }) {
   return (
@@ -155,8 +261,10 @@ function GardenStage({ rounds, state, isSoundEnabled }) {
   );
 }
 
-export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, isSoundEnabled = true }) {
+export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
   const [version, setVersion] = useState(0);
+  const onboard = ONBOARD[mode] || ONBOARD.garden;
+  const [introOpen, setIntroOpen] = useState(() => !readOnboarded(onboard.key));
 
   const rescue = useMemo(() => (mode === "rescue" ? buildRescueRounds(difficulty) : []), [mode, difficulty, version]);
   const sort = useMemo(() => (mode === "sort" ? buildSortRounds(difficulty) : null), [mode, difficulty, version]);
@@ -177,9 +285,13 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   const [beltKey, setBeltKey] = useState(0);
   // Busy blocks all input between a correct tap and the scheduled advance, so
   // double-taps can't double-count or fire onComplete twice. timeoutsRef tracks
-  // every pending timer so unmount (quit) can cancel them before finish fires.
+  // every pending timer as {id, fn, remaining, startedAt} entries so unmount
+  // (quit) can cancel them before finish fires, and so the engine pause
+  // contract can freeze and re-arm them (GamePlayer pauses on tab-hide and
+  // while its quit dialog is open).
   const busyRef = useRef(false);
   const timeoutsRef = useRef([]);
+  const pausedRef = useRef(false);
 
   useEffect(() => { onScoreUpdate?.(score); }, [onScoreUpdate, score]);
   useEffect(() => { onProgressUpdate?.(Math.min(index + 1, total), total || 1); }, [onProgressUpdate, index, total]);
@@ -187,17 +299,47 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   // A quit unmounts the game: pending timers must die with it, or a scheduled
   // finish would still fire onComplete and save results after the child left.
   useEffect(() => () => {
-    timeoutsRef.current.forEach(id => window.clearTimeout(id));
+    timeoutsRef.current.forEach(entry => window.clearTimeout(entry.id));
     timeoutsRef.current = [];
   }, []);
 
-  function later(fn, ms) {
-    const id = window.setTimeout(() => {
-      timeoutsRef.current = timeoutsRef.current.filter(t => t !== id);
-      fn();
-    }, ms);
-    timeoutsRef.current.push(id);
+  function armTimeout(entry) {
+    entry.startedAt = Date.now();
+    entry.id = window.setTimeout(() => {
+      timeoutsRef.current = timeoutsRef.current.filter(t => t !== entry);
+      entry.fn();
+    }, entry.remaining);
   }
+
+  function later(fn, ms) {
+    const entry = { id: 0, fn, remaining: ms, startedAt: 0 };
+    timeoutsRef.current.push(entry);
+    if (!pausedRef.current) armTimeout(entry);
+  }
+
+  function pauseEngine() {
+    if (pausedRef.current) return;
+    pausedRef.current = true;
+    cancelSpeech();
+    const now = Date.now();
+    timeoutsRef.current.forEach(entry => {
+      window.clearTimeout(entry.id);
+      entry.remaining = Math.max(0, entry.remaining - (now - entry.startedAt));
+    });
+  }
+
+  function resumeEngine() {
+    if (!pausedRef.current) return;
+    pausedRef.current = false;
+    timeoutsRef.current.forEach(entry => armTimeout(entry));
+  }
+
+  // GamePlayer chrome pauses the engine on tab-hide and while its quit dialog
+  // is open. Callbacks only touch refs, so register once.
+  useEffect(() => {
+    onEngineReady?.({ pause: pauseEngine, resume: resumeEngine });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- engine callbacks only touch refs, register once
+  }, []);
 
   function finish(correctCount) {
     const earned = adventureStars(correctCount, total, wrongs);
@@ -239,6 +381,21 @@ export function AdventureGame({ title, mode, difficulty = "easy", startLevel = 0
   }
 
   if (completed) return <Complete title={title} stars={stars} score={score} onRestart={restart} />;
+
+  // First-run intro: the stage mounts only after dismissal, so gameplay is
+  // trivially frozen behind the overlay (no timers or speech can run).
+  if (introOpen) {
+    return (
+      <AdventureOnboarding
+        title={title}
+        copy={onboard}
+        onStart={() => {
+          markOnboarded(onboard.key);
+          setIntroOpen(false);
+        }}
+      />
+    );
+  }
 
   if (mode === "rescue") {
     const state = {

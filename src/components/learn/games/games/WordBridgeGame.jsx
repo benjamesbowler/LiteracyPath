@@ -96,6 +96,9 @@ const WORLD_THEME = {
 
 const KEY_WIDTH = 44;
 const KEY_HEIGHT = 50;
+// First-run onboarding dismissal is remembered once per device; a denied
+// storage (private mode) simply shows the card again next session.
+const ONBOARD_KEY = "lp-arcade-onboarded-v1:word-bridge";
 
 function clamp(value, min, max) {
   return Math.max(min, Math.min(max, value));
@@ -365,6 +368,7 @@ function startGame(mount, opts) {
   let actionQueued = false;
   let running = false;
   let paused = false;
+  let onboarding = false;
   let rafId = 0;
   let levelCompleteTimer = 0;
   let last = 0;
@@ -793,6 +797,45 @@ function startGame(mount, opts) {
         `<button id="wb-ov-btn" style="font-family:inherit;font-weight:950;font-size:1.02rem;color:#20140a;background:linear-gradient(160deg,#fff0a8,#ffbd38);border:1px solid rgba(255,255,255,.5);padding:13px 27px;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);box-shadow:inset 0 -6px 0 rgba(0,0,0,.24);cursor:pointer">${btnText}</button>` +
       "</div>";
     overlay.querySelector("#wb-ov-btn").addEventListener("click", onClick);
+  }
+
+  // First-run onboarding: one goal line + the controls (desktop AND touch),
+  // shown once per device. The stage stays frozen behind it (GET_READY never
+  // ticks while paused) until the child dismisses the card.
+  function showOnboarding() {
+    overlay.style.display = "grid";
+    overlay.innerHTML =
+      '<div style="width:min(88vw,490px);display:grid;gap:14px;justify-items:center;padding:28px 24px;color:#f8fbff;text-shadow:0 4px 20px rgba(0,0,0,.72);background:linear-gradient(160deg,rgba(17,27,53,.78),rgba(6,9,22,.82));border:1px solid rgba(255,255,255,.22);clip-path:polygon(22px 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,0 100%,0 22px);box-shadow:0 22px 52px rgba(0,0,0,.46),inset 0 1px 0 rgba(255,255,255,.18)">' +
+        '<div style="font-size:2.05rem;font-weight:950;line-height:1">Word Bridge</div>' +
+        '<div style="font-size:1.02rem;line-height:1.45;color:rgba(255,255,255,.82);max-width:34ch">Carry each letter tile into the gap to build the word bridge, so the pals can cross!</div>' +
+        '<ul style="text-align:left;font-size:.95rem;line-height:1.55;color:rgba(255,255,255,.82);margin:0;padding-left:20px;max-width:38ch">' +
+          '<li><b>Desktop:</b> Arrow keys or A/D to walk; Space, E, or Enter to pick up and drop tiles.</li>' +
+          '<li><b>Touch:</b> the walk buttons and PICK/DROP — or tap a tile, slot, or the bell to walk there.</li>' +
+          '<li>Fill every slot, then ring the bell to call the pals across.</li>' +
+        '</ul>' +
+        '<button id="wb-onboard-btn" style="font-family:inherit;font-weight:950;font-size:1.02rem;color:#20140a;background:linear-gradient(160deg,#fff0a8,#ffbd38);border:1px solid rgba(255,255,255,.5);padding:13px 27px;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);box-shadow:inset 0 -6px 0 rgba(0,0,0,.24);cursor:pointer">Tap to play</button>' +
+      "</div>";
+    const btn = overlay.querySelector("#wb-onboard-btn");
+    if (btn) btn.focus(); // keyboard kids can dismiss with Enter/Space
+    btn.addEventListener("click", () => {
+      try { window.localStorage.setItem(ONBOARD_KEY, "1"); } catch { /* storage optional */ }
+      overlay.style.display = "none";
+      keys.left = keys.right = keys.action = false; // the dismiss tap/key never leaks input
+      actionQueued = false;
+      actionConsumed = false;
+      onboarding = false;
+      sfx(playTapSound);
+      resume();
+    });
+  }
+
+  function maybeOnboard() {
+    let seen;
+    try { seen = window.localStorage.getItem(ONBOARD_KEY) === "1"; } catch { seen = false; }
+    if (seen) return;
+    onboarding = true; // set BEFORE pause so a chrome resume can't slip past it
+    pause();
+    showOnboarding();
   }
 
   function finishGame() {
@@ -2094,7 +2137,7 @@ function startGame(mount, opts) {
   }
 
   function resume() {
-    if (!paused) return;
+    if (!paused || onboarding) return;
     paused = false;
     last = performance.now();
     ensureLoop();
@@ -2116,6 +2159,7 @@ function startGame(mount, opts) {
   }
 
   startStage();
+  maybeOnboard(); // first run only: freeze the stage behind the how-to card
 
   return { teardown, pause, resume };
 }
