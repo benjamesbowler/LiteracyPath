@@ -28,6 +28,13 @@ import {
   attachSteerZones,
   attachSwipeSteer,
   prefersReducedMotion,
+  detectQualityTier,
+  applyQualityTier,
+  shadowMapForTier,
+  particleCountForTier,
+  QUALITY_TIERS,
+  hasSeenOnboarding,
+  markOnboardingSeen,
   disposeRenderer,
   disposeObject as disposeGroup
 } from "../shared/threeShell.js";
@@ -83,6 +90,9 @@ function startGame(THREE, mount, opts) {
   // with sound off nothing is spoken and the game stays fully playable.
   const say = fn => { if (opts.getSound ? opts.getSound() : opts.isSoundEnabled) { try { fn(); } catch { /* speech optional */ } } };
   const reduceMotion = prefersReducedMotion();
+  // Hardware quality tier: scales the DPR cap, shadow mode and particle counts
+  // so weak devices get a lighter scene instead of a stuttery one.
+  const qualityTier = detectQualityTier();
   function makeNebulaTexture() {
     const canvas = document.createElement("canvas");
     canvas.width = 1024;
@@ -215,11 +225,12 @@ function startGame(THREE, mount, opts) {
   const renderer = createRenderer(THREE, {
     antialias: true,
     powerPreference: "default",
-    pixelRatioCap: 2,
+    pixelRatioCap: QUALITY_TIERS[qualityTier].pixelRatioCap,
     srgbOutput: true,
     toneMappingExposure: 1.12,
-    shadowMap: "pcf"
+    shadowMap: shadowMapForTier(qualityTier, "pcf")
   });
+  applyQualityTier(renderer, qualityTier);
   renderer.setSize(width(), height());
   renderer.domElement.style.display = "block";
   renderer.domElement.style.filter = "contrast(1.08) saturate(1.16)";
@@ -287,7 +298,7 @@ function startGame(THREE, mount, opts) {
   scene.add(ambient);
   const key = new THREE.DirectionalLight(0xffffff, 0.9);
   key.position.set(3, 8, 6);
-  key.castShadow = true;
+  key.castShadow = qualityTier !== "low";
   key.shadow.mapSize.width = 1024;
   key.shadow.mapSize.height = 1024;
   key.shadow.camera.near = 1;
@@ -1001,7 +1012,7 @@ function startGame(THREE, mount, opts) {
 
   function burst(position, color) {
     if (reduceMotion) return;
-    const n = 14;
+    const n = particleCountForTier(qualityTier, 14);
     const geo = new THREE.BufferGeometry();
     const pos = new Float32Array(n * 3);
     for (let i = 0; i < n; i += 1) { pos[i * 3] = position.x; pos[i * 3 + 1] = position.y; pos[i * 3 + 2] = position.z; }
@@ -1377,9 +1388,43 @@ function startGame(THREE, mount, opts) {
   const loop = createFrameLoop(tick);
   loop.start();
 
-  let paused = false, savedRunning = false;
+  let paused = false, savedRunning = false, introActive = false;
   function pause() { if (paused) return; paused = true; savedRunning = running; running = false; }
-  function resume() { if (!paused) return; paused = false; last = performance.now(); if (savedRunning) running = true; }
+  function resume() { if (!paused || introActive) return; paused = false; last = performance.now(); if (savedRunning) running = true; }
+
+  // First-run onboarding: one goal line + the controls, shown once per device.
+  // Gameplay freezes through the game's own pause path (countdown and spawns
+  // are both gated on paused/running), so the GamePlayer chrome pause and this
+  // overlay can't fight — a chrome resume is ignored until the child dismisses.
+  function dismissIntro() {
+    if (!introActive) return;
+    introActive = false;
+    markOnboardingSeen("rocket-run");
+    const overlay = el("overlay");
+    if (overlay) overlay.style.display = "none";
+    window.removeEventListener("keydown", onIntroKey, true);
+    resume();
+  }
+  function onIntroKey(event) {
+    event.preventDefault();
+    dismissIntro();
+  }
+  if (!hasSeenOnboarding("rocket-run")) {
+    introActive = true;
+    pause();
+    const overlay = showOverlay(
+      '<div style="display:grid;gap:12px;justify-items:center;max-width:min(520px,88vw)">' +
+      '<div style="font-size:.8rem;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:#7ff0ff">Rocket Run</div>' +
+      '<div style="font-size:clamp(1.2rem,3.6vw,1.6rem);font-weight:800;line-height:1.25;text-wrap:balance">Catch the words that start with the target sound — and dodge the asteroids!</div>' +
+      '<div style="font-size:.98rem;font-weight:700;line-height:1.55;opacity:.92">Steer with the ← → arrow keys, or tap the left and right sides of the screen.<br>On a touch screen you can also swipe or drag to change lanes.</div>' +
+      '<button data-rr="intro-play" style="' + overlayButtonStyle + '">Tap to play</button>' +
+      '<div style="font-size:.78rem;font-weight:700;opacity:.65">or press any key</div>' +
+      '</div>'
+    );
+    overlay.querySelector('[data-rr="intro-play"]').addEventListener("click", dismissIntro);
+    overlay.addEventListener("pointerdown", dismissIntro);
+    window.addEventListener("keydown", onIntroKey, true);
+  }
   const detachContextGuard = attachContextLossGuard(renderer, { onLost: pause, onRestored: resume });
   function teardown() {
     loop.stop();
@@ -1387,6 +1432,7 @@ function startGame(THREE, mount, opts) {
     detachSteerZones();
     detachSwipeSteer();
     window.removeEventListener("keydown", onKey);
+    window.removeEventListener("keydown", onIntroKey, true);
     detachResize();
     for (const b of bubbles) { scene.remove(b); disposeGroup(b); }
     scene.remove(ship); disposeGroup(ship);

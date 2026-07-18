@@ -211,6 +211,96 @@ export function prefersReducedMotion() {
   return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 }
 
+// ── Quality tiering ──────────────────────────────────────────────────────────
+// One small hardware probe shared by all four 3D games so a weak tablet gets a
+// lighter scene instead of a stuttery one. Every signal is guarded: a browser
+// that hides hardwareConcurrency/deviceMemory (Safari, Firefox) just scores
+// "unknown" on that axis and lands on the medium default — never a crash, and
+// never a forced low tier from missing data alone.
+export const QUALITY_TIERS = Object.freeze({
+  low: { pixelRatioCap: 1, shadowMap: "off", particleScale: 0.4 },
+  medium: { pixelRatioCap: 1.5, shadowMap: "pcf", particleScale: 0.7 },
+  high: { pixelRatioCap: 2, shadowMap: "pcfsoft", particleScale: 1 }
+});
+
+function readQualitySignals() {
+  const nav = typeof navigator === "undefined" ? {} : navigator;
+  return {
+    cores: nav.hardwareConcurrency,
+    memory: nav.deviceMemory,
+    devicePixelRatio: typeof window === "undefined" ? 1 : window.devicePixelRatio,
+    reducedMotion: typeof window === "undefined" ? false : prefersReducedMotion()
+  };
+}
+
+// detectQualityTier() -> "low" | "medium" | "high". Callers may pass their own
+// signals object ({ cores, memory, devicePixelRatio, reducedMotion }); with no
+// argument the live browser signals are read. prefers-reduced-motion always
+// wins: the user asked for less work, so the game renders the light scene.
+export function detectQualityTier(signals) {
+  const input = signals || readQualitySignals();
+  if (input.reducedMotion) return "low";
+  const cores = Number(input.cores) || 0;       // 0 = signal unavailable
+  const memory = Number(input.memory) || 0;     // 0 = signal unavailable
+  const dpr = Math.max(1, Number(input.devicePixelRatio) || 1);
+  let score = 0;
+  if (cores >= 8) score += 2; else if (cores >= 4) score += 1; else if (cores > 0) score -= 2;
+  if (memory >= 8) score += 2; else if (memory >= 4) score += 1; else if (memory > 0) score -= 2;
+  if (dpr > 2.5) score -= 1; // very high-DPR screens multiply fragment work even after the cap
+  if (score < 0) return "low";
+  if (score >= 2) return "high";
+  return "medium";
+}
+
+// createRenderer's `shadowMap` option, capped at the tier's ceiling: low
+// disables shadow maps entirely, medium forces the cheap basic PCF map, high
+// keeps the game's own pick (pcf or pcfsoft).
+export function shadowMapForTier(tier, preferred = null) {
+  if (!preferred || tier === "low") return null;
+  if (tier === "medium") return "pcf";
+  return preferred;
+}
+
+// Scale a particle/effect count for the tier (never zero — a catch burst that
+// simply doesn't happen reads as a bug to a child; a smaller one doesn't).
+export function particleCountForTier(tier, baseCount) {
+  const scale = (QUALITY_TIERS[tier] || QUALITY_TIERS.high).particleScale;
+  return Math.max(1, Math.round((Number(baseCount) || 0) * scale));
+}
+
+// Re-apply the tier to a live renderer: DPR cap (low=1, medium=1.5, high=2)
+// plus the shadow-map off/basic/full switch. Call right after createRenderer
+// (and from resize handlers that used to re-cap to a fixed ratio). Games
+// create shadow-casting lights only when the tier allows it, so toggling
+// shadowMap.enabled here is a belt-and-braces guarantee, not a restyle.
+export function applyQualityTier(renderer, tier, { floor = 0 } = {}) {
+  const settings = QUALITY_TIERS[tier] || QUALITY_TIERS.high;
+  applyPixelRatio(renderer, { cap: settings.pixelRatioCap, floor });
+  if (renderer.shadowMap) renderer.shadowMap.enabled = settings.shadowMap !== "off";
+  return settings;
+}
+
+// ── First-run onboarding persistence ─────────────────────────────────────────
+// One dismissal per device per game (keyed by the game's real id). Storage can
+// throw (private mode, denied storage): a failed read shows the overlay every
+// session and a failed write just means it shows again next time — the game
+// must never crash on it.
+export function hasSeenOnboarding(gameId) {
+  try {
+    return window.localStorage.getItem("lp-arcade-onboarded-v1:" + gameId) === "1";
+  } catch {
+    return false;
+  }
+}
+
+export function markOnboardingSeen(gameId) {
+  try {
+    window.localStorage.setItem("lp-arcade-onboarded-v1:" + gameId, "1");
+  } catch {
+    /* storage is optional — the overlay simply shows again next session */
+  }
+}
+
 // ── Touch steer zones ────────────────────────────────────────────────────────
 // The invisible left/right screen-half buttons the lane games overlay for
 // touch steering. With keyboardClick, Enter/Space activation (which fires a

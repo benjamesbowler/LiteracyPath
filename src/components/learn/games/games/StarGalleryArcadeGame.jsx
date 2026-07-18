@@ -16,7 +16,13 @@ import {
   attachResize,
   createFrameLoop,
   attachContextLossGuard,
-  applyPixelRatio,
+  detectQualityTier,
+  applyQualityTier,
+  shadowMapForTier,
+  particleCountForTier,
+  QUALITY_TIERS,
+  hasSeenOnboarding,
+  markOnboardingSeen,
   disposeRenderer,
   disposeObject
 } from "../shared/threeShell.js";
@@ -1186,15 +1192,20 @@ function createStarGalleryEngine(mount, options) {
   const total = ladder.reduce((sum, level) => sum + level.items.length, 0);
   const previousPosition = mount.style.position;
   if (!previousPosition) mount.style.position = "relative";
+  // Hardware quality tier: scales the DPR cap, shadow mode and trail particle
+  // pool so weak devices get a lighter scene instead of a stuttery one.
+  const qualityTier = detectQualityTier();
 
   const renderer = createRenderer(THREE, {
     antialias: false,
     powerPreference: "high-performance",
     retryWithoutAntialias: false,
+    pixelRatioCap: QUALITY_TIERS[qualityTier].pixelRatioCap,
     srgbOutput: true,
     toneMappingExposure: 1.08,
-    shadowMap: "pcfsoft"
+    shadowMap: shadowMapForTier(qualityTier, "pcfsoft")
   });
+  applyQualityTier(renderer, qualityTier, { floor: 1 });
   renderer.domElement.style.cssText = "position:absolute;inset:0;width:100%;height:100%;display:block;background:#050716;touch-action:none";
   mount.appendChild(renderer.domElement);
 
@@ -1266,7 +1277,7 @@ function createStarGalleryEngine(mount, options) {
     return Math.max(280, rect.height || mount.clientHeight || 420);
   };
   const handleResize = () => {
-    applyPixelRatio(renderer, { cap: 2, floor: 1 });
+    applyQualityTier(renderer, qualityTier, { floor: 1 });
     // Collapse the fixed side panels on narrow screens so they stop overlapping the center prompt.
     const narrowHud = mountWidth() < 650;
     nodes.panelLeft.style.display = narrowHud ? "none" : "";
@@ -1349,7 +1360,7 @@ function createStarGalleryEngine(mount, options) {
     root.add(hemi);
     const sun = new THREE.DirectionalLight("#fff3cc", world === "moonwood" ? 2.0 : 2.45);
     sun.position.set(-18, 24, 18);
-    sun.castShadow = true;
+    sun.castShadow = qualityTier !== "low";
     sun.shadow.mapSize.set(1024, 1024);
     sun.shadow.camera.near = 1;
     sun.shadow.camera.far = 170;
@@ -1379,7 +1390,7 @@ function createStarGalleryEngine(mount, options) {
     state.vehicle = makeVehicle(theme, world);
     worldRoot.add(state.vehicle);
     state.trailRoot = new THREE.Group();
-    state.trailParticles = Array.from({ length: 34 }, () => {
+    state.trailParticles = Array.from({ length: particleCountForTier(qualityTier, 34) }, () => {
       const particle = makeTrailParticle(theme);
       state.trailRoot.add(particle);
       return particle;
@@ -1996,11 +2007,52 @@ function createStarGalleryEngine(mount, options) {
   });
   startLevel(state.stage, { countdown: true });
 
+  // First-run onboarding: one goal line + the controls, shown once per device.
+  // update() returns immediately while state.paused is set, so the countdown
+  // and every actor freeze behind the overlay, and a GamePlayer chrome resume
+  // is ignored until the child dismisses — the two pauses can't fight.
+  let introActive = false;
+  let introEl = null;
+  function dismissIntro() {
+    if (!introActive) return;
+    introActive = false;
+    markOnboardingSeen(options.kind || "star-gallery");
+    if (introEl) introEl.style.display = "none";
+    window.removeEventListener("keydown", onIntroKey, true);
+    state.paused = false;
+    clock.getDelta(); // discard the time spent reading, so the countdown doesn't lurch
+  }
+  function onIntroKey(event) {
+    event.preventDefault();
+    dismissIntro();
+  }
+  if (!hasSeenOnboarding(options.kind || "star-gallery")) {
+    introActive = true;
+    state.paused = true;
+    introEl = document.createElement("div");
+    introEl.style.cssText = "position:absolute;inset:0;display:grid;place-items:center;text-align:center;background:rgba(2,4,16,.88);pointer-events:auto;cursor:pointer";
+    introEl.innerHTML =
+      '<div style="display:grid;gap:14px;justify-items:center;max-width:min(560px,88vw);padding:20px">' +
+        '<div style="font-size:13px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:#7fffe9">Sentence Grove</div>' +
+        '<div style="font-size:clamp(20px,3.4vw,28px);font-weight:900;line-height:1.25;text-wrap:balance">Drive through the grove and cut the tree with the word that fixes the sentence.</div>' +
+        '<div style="font-size:15px;font-weight:800;line-height:1.6;opacity:.92">Drive with the arrow keys or WASD — on a touch screen, press and drag to steer.<br>Press Space, Enter, or the CUT button to cut a tree. Hold Shift for a boost.</div>' +
+        '<div style="font-size:17px;font-weight:900;color:#052e2b;background:#52ffe1;border:3px solid rgba(255,255,255,.88);border-radius:14px;padding:12px 30px;box-shadow:0 4px 0 rgba(0,0,0,.45)">Tap to play</div>' +
+        '<div style="font-size:12px;font-weight:800;opacity:.65">or press any key</div>' +
+      '</div>';
+    introEl.addEventListener("pointerdown", event => {
+      event.preventDefault();
+      dismissIntro();
+    });
+    window.addEventListener("keydown", onIntroKey, true);
+    overlay.appendChild(introEl);
+  }
+
   const api = {
     pause() {
       state.paused = true;
     },
     resume() {
+      if (introActive) return;
       state.paused = false;
       clock.getDelta();
     },
@@ -2014,6 +2066,7 @@ function createStarGalleryEngine(mount, options) {
       detachResize();
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
+      window.removeEventListener("keydown", onIntroKey, true);
       renderer.domElement.removeEventListener("pointerdown", onPointerDown);
       renderer.domElement.removeEventListener("pointermove", onPointerMove);
       renderer.domElement.removeEventListener("pointerup", onPointerUp);

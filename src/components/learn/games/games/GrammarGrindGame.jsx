@@ -23,6 +23,13 @@ import {
   attachResize,
   createFrameLoop,
   attachContextLossGuard,
+  detectQualityTier,
+  applyQualityTier,
+  shadowMapForTier,
+  particleCountForTier,
+  QUALITY_TIERS,
+  hasSeenOnboarding,
+  markOnboardingSeen,
   disposeRenderer,
   disposeObject
 } from "../shared/threeShell.js";
@@ -455,14 +462,20 @@ function startGame(mount, opts) {
       /* sound is optional */
     }
   };
+  // Hardware quality tier: scales the DPR cap, shadow mode and burst/trail
+  // particle rates so weak devices get a lighter scene instead of a stuttery one.
+  const qualityTier = detectQualityTier();
+  const particleScale = QUALITY_TIERS[qualityTier].particleScale;
 
   const renderer = createRenderer(THREE, {
     antialias: true,
     powerPreference: "high-performance",
     retryWithoutAntialias: false,
+    pixelRatioCap: QUALITY_TIERS[qualityTier].pixelRatioCap,
     srgbOutput: false,
-    shadowMap: "pcf"
+    shadowMap: shadowMapForTier(qualityTier, "pcf")
   });
+  applyQualityTier(renderer, qualityTier);
   renderer.domElement.style.cssText = "position:absolute;inset:0;display:block;width:100%;height:100%;touch-action:none";
   mount.appendChild(renderer.domElement);
 
@@ -474,7 +487,7 @@ function startGame(mount, opts) {
   scene.add(hemi);
   const sun = new THREE.DirectionalLight("#ffffff", 2.1);
   sun.position.set(-44, 82, 38);
-  sun.castShadow = true;
+  sun.castShadow = qualityTier !== "low";
   sun.shadow.mapSize.set(1024, 1024);
   sun.shadow.camera.left = -90;
   sun.shadow.camera.right = 90;
@@ -1250,6 +1263,7 @@ function startGame(mount, opts) {
   }
 
   function spawnBurst(position, color, count = 18) {
+    count = particleCountForTier(qualityTier, count);
     const mat = makeMat(color, { emissive: color, emissiveIntensity: 0.8 });
     for (let i = 0; i < count; i += 1) {
       const mesh = new THREE.Mesh(new THREE.IcosahedronGeometry(0.18 + Math.random() * 0.12, 0), mat.clone());
@@ -1560,7 +1574,8 @@ function startGame(mount, opts) {
     trailTimer -= dt;
     if (trailTimer <= 0 && phase === "playing") {
       spawnTrail(time);
-      trailTimer = boostFlash > 0 ? 0.045 : 0.09;
+      // Weaker tiers spawn trail streaks at a slower cadence (same look, fewer meshes).
+      trailTimer = (boostFlash > 0 ? 0.045 : 0.09) / particleScale;
     }
     for (let i = trails.length - 1; i >= 0; i -= 1) {
       const trail = trails[i];
@@ -1713,13 +1728,55 @@ function startGame(mount, opts) {
   camera.lookAt(0, 1.8, 0);
   loop.start();
 
+  // First-run onboarding: one goal line + the skate/grind controls, shown once
+  // per device. update() returns immediately while paused is set, so the
+  // countdown, skater and particles all freeze behind the overlay, and a
+  // GamePlayer chrome resume is ignored until the child dismisses — the two
+  // pauses can't fight. (paused is set directly here, not via api.pause(), so
+  // the level intro speech keeps playing while the child reads.)
+  let introActive = false;
+  let introEl = null;
+  function dismissIntro() {
+    if (!introActive) return;
+    introActive = false;
+    markOnboardingSeen("grammar-grind");
+    if (introEl) introEl.remove();
+    introEl = null;
+    window.removeEventListener("keydown", onIntroKey, true);
+    paused = false;
+  }
+  function onIntroKey(event) {
+    event.preventDefault();
+    dismissIntro();
+  }
+  if (!hasSeenOnboarding("grammar-grind")) {
+    introActive = true;
+    paused = true;
+    introEl = document.createElement("div");
+    introEl.style.cssText = "position:absolute;inset:0;display:grid;place-items:center;text-align:center;background:rgba(4,8,22,.9);pointer-events:auto;cursor:pointer";
+    introEl.innerHTML =
+      '<div style="display:grid;gap:12px;justify-items:center;max-width:min(600px,88vw);padding:20px">' +
+        '<div style="font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:#9bf4ff;font-weight:900">Grammar Grind</div>' +
+        '<div style="font-size:clamp(1.25rem,3.6vw,1.8rem);font-weight:950;line-height:1.25;text-wrap:balance">Skate the park and ride through the gate with the word that completes the sentence.</div>' +
+        '<div style="font-size:.95rem;font-weight:800;line-height:1.6;opacity:.92">Steer with ← →, push with ↑, brake with ↓ — or use the on-screen buttons.<br>Press Space (or TRICK) to jump — land on a rail to grind for style points.<br>Hold Shift (or BOOST) for a speed burst.</div>' +
+        '<div style="padding:12px 28px;border:1px solid rgba(255,255,255,.58);background:linear-gradient(160deg,#fff0a8,#ffc83d 55%,#f59e0b);color:#201400;font-weight:950;border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.3),inset 0 -8px 0 rgba(0,0,0,.2)">Tap to play</div>' +
+        '<div style="font-size:.74rem;font-weight:800;opacity:.65">or press any key</div>' +
+      '</div>';
+    introEl.addEventListener("pointerdown", event => {
+      event.preventDefault();
+      dismissIntro();
+    });
+    window.addEventListener("keydown", onIntroKey, true);
+    overlay.appendChild(introEl);
+  }
+
   const api = {
     pause() {
       paused = true;
       speechToken += 1;
     },
     resume() {
-      paused = false;
+      if (!introActive) paused = false;
     },
     teardown() {
       running = false;
@@ -1727,6 +1784,7 @@ function startGame(mount, opts) {
       detachContextGuard();
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
+      window.removeEventListener("keydown", onIntroKey, true);
       detachResize();
       clearGates();
       clearPickups();

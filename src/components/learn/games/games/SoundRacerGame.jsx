@@ -23,6 +23,13 @@ import {
   attachSteerZones,
   attachSwipeSteer,
   prefersReducedMotion,
+  detectQualityTier,
+  applyQualityTier,
+  shadowMapForTier,
+  particleCountForTier,
+  QUALITY_TIERS,
+  hasSeenOnboarding,
+  markOnboardingSeen,
   disposeRenderer,
   disposeObject
 } from "../shared/threeShell.js";
@@ -266,6 +273,9 @@ function startGame(THREE, mount, opts) {
   const levelCount = LEVELS_PER_DIFFICULTY;
   const startLevelIdx = Math.max(0, Math.min(Number(opts.startLevel) || 0, levelCount - 1));
   const reduceMotion = prefersReducedMotion();
+  // Hardware quality tier: scales the DPR cap, shadow mode and burst particle
+  // counts so weak devices get a lighter scene instead of a stuttery one.
+  const qualityTier = detectQualityTier();
   const sfx = fn => {
     try {
       if (opts.getSound && opts.getSound()) fn();
@@ -290,11 +300,12 @@ function startGame(THREE, mount, opts) {
   const renderer = createRenderer(THREE, {
     antialias: false,
     powerPreference: "default",
-    pixelRatioCap: 1.65,
+    pixelRatioCap: QUALITY_TIERS[qualityTier].pixelRatioCap,
     srgbOutput: true,
     toneMappingExposure: 1.0,
-    shadowMap: "pcf"
+    shadowMap: shadowMapForTier(qualityTier, "pcf")
   });
+  applyQualityTier(renderer, qualityTier);
   renderer.setSize(width(), height());
   renderer.domElement.style.display = "block";
   renderer.domElement.style.width = "100%";
@@ -305,7 +316,7 @@ function startGame(THREE, mount, opts) {
   scene.add(ambient);
   const keyLight = new THREE.DirectionalLight(0xffffff, 1.1);
   keyLight.position.set(4, 9, 6);
-  keyLight.castShadow = true;
+  keyLight.castShadow = qualityTier !== "low";
   keyLight.shadow.mapSize.width = 1024;
   keyLight.shadow.mapSize.height = 1024;
   keyLight.shadow.camera.near = 1;
@@ -2590,6 +2601,7 @@ function startGame(THREE, mount, opts) {
 
   function addBurst(x, y, z, color, count = 16) {
     if (reduceMotion) return;
+    count = particleCountForTier(qualityTier, count);
     for (let i = 0; i < count; i += 1) {
       const mesh = new THREE.Mesh(
         new THREE.TetrahedronGeometry(0.08 + Math.random() * 0.12, 0),
@@ -2955,11 +2967,45 @@ function startGame(THREE, mount, opts) {
     running = false;
   }
 
+  let introActive = false;
   function resume() {
-    if (!paused) return;
+    if (!paused || introActive) return;
     paused = false;
     last = performance.now();
     if (savedRunning) running = true;
+  }
+
+  // First-run onboarding: one goal line + the controls, shown once per device.
+  // Gameplay freezes through the game's own pause path (the tick renders but
+  // never advances while paused), so the GamePlayer chrome pause and this
+  // overlay can't fight — a chrome resume is ignored until the child dismisses.
+  function dismissIntro() {
+    if (!introActive) return;
+    introActive = false;
+    markOnboardingSeen("sound-racer");
+    hideOverlay();
+    window.removeEventListener("keydown", onIntroKey, true);
+    resume();
+  }
+  function onIntroKey(event) {
+    event.preventDefault();
+    dismissIntro();
+  }
+  if (!hasSeenOnboarding("sound-racer")) {
+    introActive = true;
+    pause();
+    const overlay = showOverlay(
+      '<div style="display:grid;gap:14px;justify-items:center;padding:24px;max-width:min(560px,88vw)">' +
+        '<div style="font-size:.85rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.78)">Sound Racer</div>' +
+        '<div style="font-size:clamp(1.3rem,4vw,1.8rem);font-weight:900;line-height:1.25;text-wrap:balance">Catch the words that start with the target sound. Dodge everything else!</div>' +
+        '<div style="font-size:.98rem;font-weight:700;line-height:1.6;opacity:.92">Steer with the ← → arrow keys or A and D, or tap the left and right sides of the screen.<br>On a touch screen you can also swipe to change lanes.</div>' +
+        '<button data-sr="intro-play" style="font-family:inherit;font-weight:900;font-size:1.1rem;color:#071033;background:#ffd34e;border:0;padding:13px 30px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">Tap to play</button>' +
+        '<div style="font-size:.78rem;font-weight:700;opacity:.65">or press any key</div>' +
+      '</div>'
+    );
+    overlay.querySelector('[data-sr="intro-play"]').addEventListener("click", dismissIntro);
+    overlay.addEventListener("pointerdown", dismissIntro);
+    window.addEventListener("keydown", onIntroKey, true);
   }
 
   const detachContextGuard = attachContextLossGuard(renderer, { onLost: pause, onRestored: resume });
@@ -2968,6 +3014,7 @@ function startGame(THREE, mount, opts) {
     loop.stop();
     detachContextGuard();
     window.removeEventListener("keydown", onKey);
+    window.removeEventListener("keydown", onIntroKey, true);
     detachSwipeSteer();
     detachSteerZones();
     detachResize();
