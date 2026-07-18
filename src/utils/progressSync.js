@@ -255,8 +255,12 @@ export async function fetchStudentCloudProgress(session) {
 // wipe the device's local progress before merging - so a reset propagates to
 // every shared iPad, not just the one the teacher used. The reset itself leaves
 // an empty cloud (just the sentinel), so after this there is nothing to merge.
+// Returns true when a wipe actually happened, so the hydrate event can tell
+// open surfaces to REPLACE their in-memory state instead of merging it back —
+// a forward-only merge applied across a reset resurrects everything the
+// teacher just deleted.
 function applyResetTombstone(studentId, rows) {
-  if (!isBrowser() || !studentId) return;
+  if (!isBrowser() || !studentId) return false;
   const resetRow = rows.find(row => row.area === RESET_AREA);
   const cloudResetAt = resetRow?.payload?.at || "";
   const markerKey = `${RESET_APPLIED_PREFIX}${studentId}`;
@@ -265,12 +269,14 @@ function applyResetTombstone(studentId, rows) {
   if (shouldApplyReset(cloudResetAt, appliedAt)) {
     clearLocalProgressForStudent(studentId);
     try { window.localStorage.setItem(markerKey, cloudResetAt); } catch { /* ignore */ }
+    return true;
   }
+  return false;
 }
 
 export async function hydrateCloudProgress(session) {
   const rows = await fetchStudentCloudProgress(session);
-  applyResetTombstone(session.studentId, rows);
+  const resetApplied = applyResetTombstone(session.studentId, rows);
   cacheCloudRows(session.studentId, rows);
   rows.forEach(row => {
     const storageKey = localProgressStorageKey(row.area, session.studentId);
@@ -283,7 +289,7 @@ export async function hydrateCloudProgress(session) {
   await flushQueuedProgressWrites(session);
   if (isBrowser()) {
     window.dispatchEvent(new CustomEvent("lp-progress-hydrated", {
-      detail: { studentId: session.studentId, rows }
+      detail: { studentId: session.studentId, rows, resetApplied }
     }));
   }
   return rows;

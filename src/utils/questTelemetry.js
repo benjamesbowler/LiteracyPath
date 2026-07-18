@@ -93,6 +93,11 @@ export function normalizeQuestTelemetry(raw = {}) {
   return { sessions, current };
 }
 
+// A current session older than this is a ZOMBIE — a tab that closed without
+// unmounting cleanly. Folding it away on the next begin keeps one crashed
+// visit from swallowing every later session into a single multi-day record.
+const STALE_SESSION_MS = 6 * 60 * 60 * 1000;
+
 export function beginQuestSession(state, {
   id = `quest-${Date.now()}`,
   at = new Date().toISOString(),
@@ -101,8 +106,18 @@ export function beginQuestSession(state, {
   stopId = null,
   source = null
 } = {}) {
-  const telemetry = normalizeQuestTelemetry(state?.telemetry);
-  if (telemetry.current?.id) return state;
+  let telemetry = normalizeQuestTelemetry(state?.telemetry);
+  if (telemetry.current?.id) {
+    const lastActive = Date.parse(telemetry.current.lastActiveAt || telemetry.current.startedAt || "");
+    const staleMs = Date.parse(at) - (Number.isFinite(lastActive) ? lastActive : Date.parse(at));
+    if (!(staleMs >= STALE_SESSION_MS)) return state;
+    // Recover the zombie into history, then begin fresh below.
+    const recovered = { ...telemetry.current, endedAt: telemetry.current.lastActiveAt || at, reason: "recovered" };
+    telemetry = {
+      current: null,
+      sessions: [...telemetry.sessions.filter(session => session.id !== recovered.id), recovered].slice(-MAX_SESSION_HISTORY)
+    };
+  }
   return {
     ...state,
     telemetry: {

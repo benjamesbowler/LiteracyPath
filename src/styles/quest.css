@@ -1948,7 +1948,38 @@
 }
 
 .qw-pen.is-live { border-color: #ffd166; background: rgba(255, 209, 102, .14); }
-.qw-pensign { font-size: 26px; font-weight: 800; }
+
+/* The pen is a div holding two real buttons: an always-tappable sound sign
+   and the drop target. (The sign used to be a span inside a disabled button,
+   which made it untappable before a sheep was held.) */
+.qw-pensign {
+  font-size: 26px;
+  font-weight: 800;
+  font-family: inherit;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  min-height: 44px;
+  border-radius: 10px;
+}
+
+.qw-pensign:focus-visible { outline: 3px solid #ffd166; outline-offset: 2px; }
+
+.qw-pendrop {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  min-height: 56px;
+  border-radius: 10px;
+  display: grid;
+  align-content: start;
+}
+
+.qw-pendrop:disabled { cursor: default; }
+.qw-pendrop:focus-visible { outline: 3px solid #ffd166; outline-offset: 2px; }
 .qw-penwords { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
 .qw-penwords span { padding: 3px 9px; border-radius: 999px; background: rgba(255, 255, 255, .16); font-size: 14px; }
 .qw-sheeprow { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }

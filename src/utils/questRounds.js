@@ -304,8 +304,19 @@ export function buildSoundSortRounds(stop, { rng, itemsPerPen = 4 }) {
   const rounds = [];
   for (let i = 0; i + 1 < graphemes.length; i += 2) {
     const [a, b] = [graphemes[i], graphemes[i + 1]];
-    const wordsA = pool.filter(w => segmentWord(w, { known }).includes(a));
-    const wordsB = pool.filter(w => segmentWord(w, { known }).includes(b));
+    // A word containing BOTH pen sounds ("thing" is th|i|ng at the stop that
+    // pens th against ng) has two defensible answers — and the pens shell
+    // completes by counting sorted words, so a duplicated cross-pen word
+    // could never be fully sorted and soft-locked the stop. Cross-pen words
+    // are simply not sortable; exclude them from both pens.
+    const wordsA = pool.filter(w => {
+      const seg = segmentWord(w, { known });
+      return seg.includes(a) && !seg.includes(b);
+    });
+    const wordsB = pool.filter(w => {
+      const seg = segmentWord(w, { known });
+      return seg.includes(b) && !seg.includes(a);
+    });
     // A pen with one word in it is not a sort, it is a hint.
     if (wordsA.length < 2 || wordsB.length < 2) continue;
     rounds.push({

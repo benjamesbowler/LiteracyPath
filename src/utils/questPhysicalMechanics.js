@@ -1251,7 +1251,12 @@ export function buildPhysicalTask(section, encounter, beat, beatIndex = 0) {
       prompt: letterSoundPrompt(beat),
       help: flower ? "Listen, then move to the matching flower." : "Carry the matching sound to the creature.",
       playerAction: flower ? "search" : "carry",
-      audioCue: { kind: "grapheme", value: beat.target },
+      // seedwakeAudioCue honours a word-cue fallback (cue:{kind:"word"}) for
+      // graphemes with no recording — hardcoding grapheme here left the Act
+      // III sounds (aw, ore, air, are, ear, ure, le, tion) silent in the
+      // field AND unable to record mastery, because stageCueAvailable was
+      // false for them.
+      audioCue: seedwakeAudioCue(beat),
       items: positionedItems(section, encounter, beatIndex, 0, beat.choices || [], {
         answer: beat.answer,
         shape: flower ? "flower" : "fruit"
@@ -1266,7 +1271,7 @@ export function buildPhysicalTask(section, encounter, beat, beatIndex = 0) {
       prompt: "Run to the fork that says it",
       help: "Listen, then sprint into the signed fork before the sound fades.",
       playerAction: "sprint",
-      audioCue: { kind: "grapheme", value: beat.target },
+      audioCue: seedwakeAudioCue(beat),
       items: positionedItems(section, encounter, beatIndex, 0, beat.choices || [], {
         answer: beat.answer,
         shape: "fork-sign"

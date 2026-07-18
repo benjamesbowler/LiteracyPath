@@ -348,11 +348,23 @@ export function recordStopResult(state, stopId, stars = 0, drops = 0) {
       drops: { ...(state.trail?.drops || {}), [stopId]: Math.max(prevDrops, drops) },
       // After the first 40-stop journey, continue through the same curriculum as
       // an adaptive review circuit instead of trapping the child at stop 40.
-      routeCursor: (stop.index % QUEST_STOPS.length) + 1
+      // ADVANCE-ONLY: the cursor moves only when the child completes the stop
+      // it points at. Replaying s5 for fun while the cursor sits at s30 must
+      // never teleport "Continue" back to s6.
+      routeCursor: stop.index === (Number(state.trail?.routeCursor) || 1)
+        ? (stop.index % QUEST_STOPS.length) + 1
+        : (Number(state.trail?.routeCursor) || 1)
     },
     mastery,
     stones,
-    trickies: [...new Set([...(state.trickies || []), ...(stop.heartWords || [])])],
+    // A Trickie joins the party when the child has actually fed it — at least
+    // one correct heart-word answer on record — not merely for walking past.
+    // The fiction says "feed it three times and it JOINS you"; the save file
+    // should tell the same story.
+    trickies: [...new Set([
+      ...(state.trickies || []),
+      ...(stop.heartWords || []).filter(word => (Number(mastery[`hw:${word}`]?.correct) || 0) > 0)
+    ])],
     checkpoint: null
   }, stopId);
 }

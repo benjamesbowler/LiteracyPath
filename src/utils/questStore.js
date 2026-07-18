@@ -35,7 +35,13 @@ export function loadQuestProgress(scopeKey = DEFAULT_SCOPE) {
 export function saveQuestProgress(scopeKey = DEFAULT_SCOPE, state) {
   const next = normalizeQuestState(state);
   if (typeof window !== "undefined") {
-    window.localStorage.setItem(storageKey(scopeKey), JSON.stringify(next));
+    try {
+      window.localStorage.setItem(storageKey(scopeKey), JSON.stringify(next));
+    } catch {
+      // Quota/private-mode failures must never throw into a React handler and
+      // white-screen a child mid-game. The cloud queue below still carries
+      // the progress; local storage catches up on the next successful save.
+    }
   }
   queueProgressSave("phonics_quest", "__all__", next, { scopeKey });
   return next;

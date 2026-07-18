@@ -494,7 +494,12 @@ export function SheepPens({ beat, isSoundEnabled, onBeat, onDone, index, total }
   const [held, setHeld] = useState(null);
 
 
-  const left = beat.items.filter(i => !sorted[i.word]);
+  // Items are identified by their INDEX, not their word: the same word can
+  // legitimately appear twice in a round, and word-keying once made
+  // completion unreachable (the s10 "thing" incident).
+  const left = beat.items
+    .map((item, idx) => ({ ...item, idx }))
+    .filter(item => sorted[item.idx] === undefined);
 
   function pen(id) {
     if (!held || done) return;
@@ -513,7 +518,7 @@ export function SheepPens({ beat, isSoundEnabled, onBeat, onDone, index, total }
     onBeat(true, held.pen);
     setStuck(0);
     if (isSoundEnabled) playPopSound();
-    const next = { ...sorted, [held.word]: id };
+    const next = { ...sorted, [held.idx]: id };
     setSorted(next); setHeld(null);
     if (Object.keys(next).length === beat.items.length) {
       mark();
@@ -526,24 +531,44 @@ export function SheepPens({ beat, isSoundEnabled, onBeat, onDone, index, total }
     <div className="qw-enc qw-pens">
       <p className="qw-say">Herd each sheep into its pen.</p>
       <div className="qw-penrow">
-        {beat.pens.map(id => (
-          <button key={id} type="button" className={`qw-pen${held ? " is-live" : ""}${stuck >= 3 && held && held.pen === id ? " is-reveal" : ""}`} disabled={!held} onClick={() => pen(id)}>
-            <span className="qw-pensign" onClick={e => { e.stopPropagation(); sayGrapheme(id, isSoundEnabled); }} role="presentation">
-              {displayGrapheme(id.split("_")[0])}
-            </span>
-            <span className="qw-penwords">
-              {beat.items.filter(i => sorted[i.word] === id).map(i => <span key={i.word}>{i.word}</span>)}
-            </span>
-          </button>
-        ))}
+        {beat.pens.map(id => {
+          const label = displayGrapheme(id.split("_")[0]);
+          return (
+            /* The sign is a REAL sibling button, not a span inside a disabled
+               button: browsers suppress clicks on descendants of disabled
+               buttons, which made the pen sound unreachable exactly when a
+               child needed it — before picking up a sheep. */
+            <div key={id} className={`qw-pen${held ? " is-live" : ""}${stuck >= 3 && held && held.pen === id ? " is-reveal" : ""}`}>
+              <button
+                type="button"
+                className="qw-pensign"
+                aria-label={`Hear the sound ${label}`}
+                onClick={() => sayGrapheme(id, isSoundEnabled)}
+              >
+                {label}
+              </button>
+              <button
+                type="button"
+                className="qw-pendrop"
+                disabled={!held}
+                aria-label={`Put the sheep in the ${label} pen`}
+                onClick={() => pen(id)}
+              >
+                <span className="qw-penwords">
+                  {beat.items.map((item, idx) => (sorted[idx] === id ? <span key={idx}>{item.word}</span> : null))}
+                </span>
+              </button>
+            </div>
+          );
+        })}
       </div>
       <div className="qw-sheeprow">
         {left.map(item => (
           <button
-            key={item.word}
+            key={item.idx}
             type="button"
-            className={`qw-sheep${held?.word === item.word ? " is-held" : ""}`}
-            onClick={() => { sayWord(item.word, isSoundEnabled); setHeld(held?.word === item.word ? null : item); }}
+            className={`qw-sheep${held?.idx === item.idx ? " is-held" : ""}`}
+            onClick={() => { sayWord(item.word, isSoundEnabled); setHeld(held?.idx === item.idx ? null : item); }}
           >
             <Piece kind="sheep" fallback={null} />
             <span className="qw-sheep-word">{item.word}</span>

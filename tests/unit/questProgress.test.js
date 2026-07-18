@@ -67,12 +67,17 @@ test("a stone lights only when its sound is MASTERED, not when the stop is passe
   assert.deepEqual(state.stones, ["m"]);
 });
 
-test("finishing a stop banks its heart words and keeps the best star score", () => {
+test("heart words bank as Trickies only with real evidence; best star score is kept", () => {
+  // Walking past a stop banks NOTHING — the fiction says "feed it and it
+  // joins you", so an unfed heart word must not appear in the save file.
   let state = recordStopResult(baseQuestState(), "s3", 2);
-  assert.deepEqual(state.trickies, ["I", "the", "is", "a"]);
+  assert.deepEqual(state.trickies, [], "no correct feed, no Trickie");
   assert.equal(state.trail.stars.s3, 2);
 
+  // One correct heart-word answer on record: that word joins, the rest wait.
+  state = { ...state, mastery: { ...state.mastery, "hw:the": { seen: 1, correct: 1 } } };
   state = recordStopResult(state, "s3", 1);
+  assert.deepEqual(state.trickies, ["the"]);
   assert.equal(state.trail.stars.s3, 2, "a worse replay must not lower the score");
 
   state = recordStopResult(state, "s3", 3);

@@ -206,7 +206,13 @@ export default function QuestRoot({
     function handleHydrated(event) {
       if (event.detail?.studentId && event.detail.studentId !== progressScopeKey) return;
       const stored = loadQuestProgress(progressScopeKey);
-      const merged = computeHydratedValue("phonics_quest", "__all__", stateRef.current, stored);
+      // ACROSS A TEACHER RESET THERE IS NOTHING TO MERGE. The forward-only
+      // union would fold this tab's pre-reset in-memory state straight back
+      // into the freshly wiped save — silently undoing the reset from any
+      // open session. Replace instead; the wiped store is the truth now.
+      const merged = event.detail?.resetApplied
+        ? stored
+        : computeHydratedValue("phonics_quest", "__all__", stateRef.current, stored);
       const wasUnhatched = !stateRef.current.hatched;
       commit(merged);
       // A child parked on the hatch screen whose cloud save turns out to have a
@@ -218,6 +224,18 @@ export default function QuestRoot({
     window.addEventListener("lp-progress-hydrated", handleHydrated);
     return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);
   }, [commit, progressScopeKey]);
+
+  // Belt-and-braces against zombie telemetry: if this component unmounts with
+  // a session still open (navigation paths that skip handleExit), close it in
+  // the save file. beginQuestSession also recovers >6h-stale sessions, so a
+  // hard crash costs one recovered record, not every future session.
+  useEffect(() => () => {
+    const ended = endQuestSession(stateRef.current, { reason: "unmount" });
+    if (ended !== stateRef.current) {
+      stateRef.current = ended;
+      saveQuestProgress(progressScopeKey, ended);
+    }
+  }, [progressScopeKey]);
 
   useEffect(() => {
     const recordConnectionEvent = event => {
