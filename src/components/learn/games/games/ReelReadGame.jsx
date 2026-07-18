@@ -14,6 +14,7 @@ import {
   reelReadMatches,
   reelReadStars
 } from "../../../../utils/reelReadLevels.js";
+import { speakWord } from "../../../../utils/learnGamesAudio.js";
 
 const THEMES = {
   meadow: {
@@ -200,6 +201,7 @@ function startGame(mount, opts) {
   const difficulty = ["easy", "medium", "hard"].includes(String(opts.difficulty)) ? String(opts.difficulty) : "easy";
   const ladder = reelReadLadder(difficulty);
   const startAt = clamp(Number(opts.startLevel) || 0, 0, ladder.length - 1);
+  const reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
   const canvas = document.createElement("canvas");
   canvas.style.cssText = "position:absolute;inset:0;display:block;width:100%;height:100%";
@@ -233,6 +235,7 @@ function startGame(mount, opts) {
   let level = ladder[levelIndex];
   let theme = THEMES[level.world] || THEMES.meadow;
   let caught = [];
+  let wordsCaught = 0;
   let mistakes = 0;
   let stageStars = [];
   let phase = "countdown";
@@ -269,6 +272,14 @@ function startGame(mount, opts) {
       if (opts.getSound?.()) fn();
     } catch {
       /* sound is optional */
+    }
+  }
+
+  function speakCue(word) {
+    try {
+      if (opts.getSound?.()) speakWord(word);
+    } catch {
+      /* speech is optional */
     }
   }
 
@@ -392,15 +403,19 @@ function startGame(mount, opts) {
     banner = level.prompt;
     bannerTimer = 4.1;
     refillFish();
-    opts.onProgressUpdate?.(levelIndex, ladder.length);
+    opts.onProgressUpdate?.(levelIndex + 1, ladder.length);
     opts.onCheckpoint?.(levelIndex, ladder.length);
+    speakCue(level.target);
     render();
   }
 
   function completeLevel() {
     phase = "level-complete";
     phaseTimer = 2.0;
-    const stars = reelReadStars({ correct: caught.length, total: caught.length + mistakes, mistakes });
+    // Ladders here have only 2-3 targets, where one slip used to cost two
+    // whole stars; forgive the first mistake on those small ladders.
+    const gradedMistakes = level.correctWords.length <= 3 ? Math.max(0, mistakes - 1) : mistakes;
+    const stars = reelReadStars({ correct: caught.length, total: caught.length + gradedMistakes, mistakes: gradedMistakes });
     stageStars[levelIndex] = stars;
     score += 80 + stars * 60;
     opts.onScoreUpdate?.(score);
@@ -415,7 +430,7 @@ function startGame(mount, opts) {
     const totalStars = stageStars.reduce((sum, stars) => sum + (Number(stars) || 0), 0);
     const finalStars = stageStars.length ? Math.max(1, Math.round(totalStars / stageStars.length)) : 0;
     sfx(playCelebrationFanfare);
-    opts.onComplete?.(finalStars, score, levelIndex + 1);
+    opts.onComplete?.(finalStars, score, wordsCaught);
   }
 
   function requestCast() {
@@ -432,20 +447,27 @@ function startGame(mount, opts) {
   function catchFish(item) {
     boat.caughtFish = item;
     boat.hookState = "returning";
-    fish = fish.filter(f => f !== item);
     if (reelReadIsCorrectCatch(item.word, level, caught) && !caught.includes(item.word)) {
+      fish = fish.filter(f => f !== item);
       caught.push(item.word);
+      wordsCaught += 1;
       score += 120;
       addBurst(item.x, item.y, theme.accent, 14);
       addFloater(item.x, item.y - 28, `+ ${item.word}`, "#fff7b8");
       sfx(playCorrectChime);
+      speakCue(item.word);
       opts.onScoreUpdate?.(score);
       if (caught.length >= level.correctWords.length) completeLevel();
     } else {
+      // Release the wrong fish back instead of removing it, and name what's needed.
+      item.vx = -item.vx;
+      const needed = level.orderMatters
+        ? `You need ${reelReadExpectedWord(level, caught)} first`
+        : `Need: ${remainingWords().join(", ")}`;
       mistakes += 1;
       score = Math.max(0, score - 25);
       addBurst(item.x, item.y, "rgba(255,92,92,.86)", 10);
-      addFloater(item.x, item.y - 28, level.orderMatters ? "Not yet" : "Not this one", "#ffd0d0");
+      addFloater(item.x, item.y - 28, needed, "#ffd0d0");
       sfx(playSoftBuzz);
       opts.onScoreUpdate?.(score);
     }
@@ -518,7 +540,9 @@ function startGame(mount, opts) {
       item.wobble += dt * 4;
       item.flash = Math.max(0, item.flash - dt);
     });
-    fish = fish.filter(item => item.x > -180 && item.x < w + 180);
+    // Cull band must exceed the farthest spawn entryX (~±780px), otherwise
+    // entering fish are deleted the frame they spawn and refillFish churns.
+    fish = fish.filter(item => item.x > -900 && item.x < w + 900);
     refillFish();
 
     if (boat.hookState === "dropping") {
@@ -641,6 +665,8 @@ function startGame(mount, opts) {
     gradient.addColorStop(1, theme.deep);
     ctx.fillStyle = gradient;
     ctx.fillRect(0, waterTop, w, h - waterTop);
+
+    if (reduceMotion) return;
 
     ctx.save();
     ctx.globalCompositeOperation = "screen";
@@ -972,7 +998,7 @@ function startGame(mount, opts) {
     ctx.clearRect(0, 0, w, h);
     if (images.bg.ready) drawCover(ctx, images.bg.image, 0, 0, w, h, 0.5, 0.5);
     else drawFallbackBackground(time);
-    drawSceneParallax(time);
+    if (!reduceMotion) drawSceneParallax(time);
     drawWater(time);
     drawBoatReflection(time);
     fish
@@ -981,7 +1007,7 @@ function startGame(mount, opts) {
       .forEach(item => drawFish(item, time));
     drawHook(time);
     drawBoat(time);
-    drawWaterSurface(time);
+    if (!reduceMotion) drawWaterSurface(time);
     drawParticles();
     drawForeground(time);
     drawHud();
@@ -994,7 +1020,7 @@ function startGame(mount, opts) {
     const dt = Math.min(0.05, (now - lastTime || 16) / 1000);
     lastTime = now;
     update(dt);
-    render();
+    if (!paused) render();
     rafId = window.requestAnimationFrame(loop);
   }
 

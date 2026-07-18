@@ -34,6 +34,30 @@ test("Rhyme Pop distractors stay separate and outnumber visible rhymes", () => {
   }
 });
 
+test("Rhyme Pop difficulty tiers actually differ", () => {
+  const easyLadder = rhymePopLadder("easy");
+  const mediumLadder = rhymePopLadder("medium");
+  const hardLadder = rhymePopLadder("hard");
+
+  const easyRimes = new Set(easyLadder.map(level => level.rime));
+  assert.ok(!easyRimes.has("-ight"), "easy should not use the -ight family");
+  assert.ok(!easyRimes.has("-air"), "easy should not use the -air family");
+
+  assert.notEqual(
+    mediumLadder.map(level => level.rime).join(","),
+    easyLadder.map(level => level.rime).join(","),
+    "medium should not reuse the easy family sequence"
+  );
+
+  assert.ok(easyLadder.every(level => level.correctVisible === 3), "easy shows more rhyming balloons");
+  assert.ok(hardLadder.every(level => level.correctVisible === 2), "hard shows fewer rhyming balloons");
+
+  const hardNight = hardLadder.find(level => level.rime === "-ight");
+  assert.ok(hardNight, "hard should include the -ight family");
+  assert.ok(hardNight.distractors.includes("knot"), "hard mixes near-rime foils into distractors");
+  assert.ok(mediumLadder.every(level => !level.distractors.includes("knot")), "near-rime foils stay at hard");
+});
+
 test("rhymePopStars follows the shared star rubric", () => {
   assert.equal(rhymePopStars({ correct: 0, total: 6, mistakes: 0 }), 0);
   assert.equal(rhymePopStars({ correct: 6, total: 6, mistakes: 0 }), 3);

@@ -51,16 +51,18 @@ function buildWordTiles(words) {
 const ALL_CONSONANTS = "BCDFGHJKLMNPQRSTVWXYZ".split("");
 
 // Letter decoys: never a needed letter, never a sound-homophone of a needed letter.
-function getLetterDecoys(targetWord, world) {
+function getLetterDecoys(targetWord, world, seed) {
   const needed = new Set(String(targetWord).toUpperCase().split(""));
 
-  const pool = ALL_CONSONANTS.filter((c) => {
+  // Seeded shuffle keeps picks deterministic but no longer alphabetically
+  // predictable (previously always the first N consonants of the pool).
+  const pool = seededShuffle(ALL_CONSONANTS.filter((c) => {
     if (needed.has(c)) return false;
     for (const n of needed) {
       if (sharesSound(c, n)) return false;
     }
     return true;
-  });
+  }), seed);
 
   const baseCount = { meadow: 2, dino: 3, moonwood: 4 }[world] || 2;
   const count = Math.min(baseCount + Math.floor(targetWord.length / 4), pool.length);
@@ -69,7 +71,7 @@ function getLetterDecoys(targetWord, world) {
 
 // Word decoys for sentence mode: words drawn from other sentences in the same bank,
 // never a word that appears in the target sentence.
-function getWordDecoys(targetWords, world) {
+function getWordDecoys(targetWords, world, seed) {
   const targetSet = new Set(targetWords.map((w) => String(w).toLowerCase()));
   const bank = (world === "moonwood"
     ? SENTENCES.level3
@@ -85,7 +87,7 @@ function getWordDecoys(targetWords, world) {
     .filter((w, i, arr) => arr.indexOf(w) === i);
 
   const baseCount = { meadow: 2, dino: 3, moonwood: 3 }[world] || 2;
-  return pool.slice(0, Math.min(baseCount, pool.length));
+  return seededShuffle(pool, seed).slice(0, Math.min(baseCount, pool.length));
 }
 
 // ── public API ────────────────────────────────────────────────────────────
@@ -109,11 +111,13 @@ export function buildLevel({ world, cycle, mode, target }) {
     : buildLetterTiles(target);
 
   const decoyValues = isSentence
-    ? getWordDecoys(target, world)
-    : getLetterDecoys(target, world);
+    ? getWordDecoys(target, world, seed)
+    : getLetterDecoys(target, world, seed);
 
+  // Sentence decoys keep their natural (bank) casing so they blend in with
+  // the correct word tiles; letter tiles are uppercase by design.
   const decoyTiles = decoyValues.map((glyph) => ({
-    glyph: String(glyph).toUpperCase(),
+    glyph: isSentence ? String(glyph) : String(glyph).toUpperCase(),
     correct: false,
     order: -1
   }));

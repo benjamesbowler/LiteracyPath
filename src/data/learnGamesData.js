@@ -120,7 +120,7 @@ export const SYLLABLE_WORDS = {
     ["but", "ter", "fly"],
     ["di", "no", "saur"],
     ["um", "brel", "la"],
-    ["he", "li", "cop"],
+    ["hel", "i", "cop", "ter"],
     ["to", "ma", "to"],
     ["kan", "ga", "roo"],
     ["oc", "to", "pus"],

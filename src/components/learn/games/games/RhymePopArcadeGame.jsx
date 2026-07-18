@@ -4,10 +4,10 @@ import {
   playPopSound,
   playSoftBuzz,
   playStarChime,
-  startSoundBeatMusic,
   playTapSound,
   playWhoosh
 } from "../../../../utils/audio/gameSfx.js";
+import { cancelSpeech, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { rhymePopLadder, rhymePopStars } from "../../../../utils/rhymePopLevels.js";
 
 const CONFIG = {
@@ -27,12 +27,6 @@ const CONFIG = {
 };
 
 const TWO_PI = Math.PI * 2;
-const BEAT_LANES = [
-  { color: "#52fff0", dark: "#073738" },
-  { color: "#ffd23d", dark: "#433206" },
-  { color: "#ff4f5f", dark: "#4a0810" },
-  { color: "#d85cff", dark: "#3d0a4c" }
-];
 const RHYME_ORB_COLORS = [
   ["#58f6ff", "#103858"],
   ["#ffd94c", "#6a3700"],
@@ -166,467 +160,7 @@ function panel(ctx, x, y, w, h, color = "rgba(5,10,22,.72)", stroke = "rgba(255,
   ctx.restore();
 }
 
-function drawBeatBackdrop(ctx, state, config, w, h) {
-  const pulse = state.beatPulse || 0;
-  const glow = ctx.createRadialGradient(w * 0.5, h * 0.44, 20, w * 0.5, h * 0.44, h * (0.56 + pulse * 0.06));
-  glow.addColorStop(0, `${config.accent}44`);
-  glow.addColorStop(0.38, `${config.accent2}1f`);
-  glow.addColorStop(1, "rgba(0,0,0,0)");
-  ctx.fillStyle = glow;
-  ctx.fillRect(0, 0, w, h);
-
-  ctx.save();
-  ctx.globalCompositeOperation = "screen";
-  const beamCount = 7;
-  for (let i = 0; i < beamCount; i += 1) {
-    const t = state.time * 0.7 + i * 0.8;
-    const x = w * (0.18 + i * 0.11) + Math.sin(t) * w * 0.025;
-    const beam = ctx.createLinearGradient(x, h * 0.2, x + Math.sin(t * 0.7) * 140, h);
-    beam.addColorStop(0, `${i % 2 ? config.accent : config.accent2}00`);
-    beam.addColorStop(0.35, `${i % 2 ? config.accent : config.accent2}${pulse > 0.2 ? "3d" : "24"}`);
-    beam.addColorStop(1, "rgba(255,255,255,0)");
-    ctx.strokeStyle = beam;
-    ctx.lineWidth = 18 + pulse * 20;
-    ctx.beginPath();
-    ctx.moveTo(x, h * 0.22);
-    ctx.lineTo(w * 0.5 + (i - 3) * w * 0.1, h);
-    ctx.stroke();
-  }
-  ctx.restore();
-
-  const baseY = h * 0.9;
-  for (let i = 0; i < 24; i += 1) {
-    const barW = w * 0.012;
-    const x = w * 0.18 + i * w * 0.028;
-    const height = (18 + Math.sin(state.time * 7 + i * 0.9) * 14 + pulse * 35) * (0.8 + (i % 5) * 0.12);
-    ctx.fillStyle = i % 3 === 0 ? `${config.accent}90` : `${config.accent2}78`;
-    roundedRect(ctx, x, baseY - height, barW, height, 5);
-    ctx.fill();
-  }
-}
-
-function beatLanePoint(lane, progress, w, h) {
-  const targetY = h * 0.86;
-  const stageY = h * 0.48;
-  const bottomLeft = w * 0.25;
-  const bottomRight = w * 0.75;
-  const topLeft = w * 0.39;
-  const topRight = w * 0.61;
-  const bottomStep = (bottomRight - bottomLeft) / (BEAT_LANES.length - 1);
-  const topStep = (topRight - topLeft) / (BEAT_LANES.length - 1);
-  const p = clamp(progress, 0, 1);
-  const y = stageY + (targetY - stageY) * p;
-  const xTop = topLeft + lane * topStep;
-  const xBottom = bottomLeft + lane * bottomStep;
-  return {
-    x: xTop + (xBottom - xTop) * p,
-    y,
-    scale: 0.48 + p * 0.72
-  };
-}
-
-function drawSoundBeatRunway(ctx, state, config, w, h) {
-  const pulse = state.beatPulse || 0;
-  const topY = h * 0.48;
-  const bottomY = h * 0.91;
-  const leftTop = w * 0.33;
-  const rightTop = w * 0.67;
-  const leftBottom = w * 0.1;
-  const rightBottom = w * 0.9;
-
-  ctx.save();
-  const runway = ctx.createLinearGradient(0, topY, 0, bottomY);
-  runway.addColorStop(0, "rgba(7,14,28,.62)");
-  runway.addColorStop(0.55, "rgba(5,10,22,.82)");
-  runway.addColorStop(1, "rgba(1,4,12,.96)");
-  ctx.fillStyle = runway;
-  ctx.beginPath();
-  ctx.moveTo(leftTop, topY);
-  ctx.lineTo(rightTop, topY);
-  ctx.lineTo(rightBottom, bottomY);
-  ctx.lineTo(leftBottom, bottomY);
-  ctx.closePath();
-  ctx.fill();
-
-  ctx.strokeStyle = "rgba(111,241,255,.82)";
-  ctx.lineWidth = 5 + pulse * 3;
-  ctx.beginPath();
-  ctx.moveTo(leftTop, topY);
-  ctx.lineTo(leftBottom, bottomY);
-  ctx.moveTo(rightTop, topY);
-  ctx.lineTo(rightBottom, bottomY);
-  ctx.stroke();
-
-  for (let i = 0; i < 9; i += 1) {
-    const p = i / 8;
-    const y = topY + (bottomY - topY) * p;
-    const inset = p * (leftTop - leftBottom);
-    ctx.strokeStyle = `rgba(255,255,255,${0.08 + p * 0.16})`;
-    ctx.lineWidth = 1 + p * 3;
-    ctx.beginPath();
-    ctx.moveTo(leftTop - inset, y);
-    ctx.lineTo(rightTop + inset, y);
-    ctx.stroke();
-  }
-
-  for (let lane = 0; lane < BEAT_LANES.length; lane += 1) {
-    const laneStyle = BEAT_LANES[lane];
-    const top = beatLanePoint(lane, 0, w, h);
-    const bottom = beatLanePoint(lane, 1, w, h);
-    const glow = ctx.createLinearGradient(top.x, top.y, bottom.x, bottom.y);
-    glow.addColorStop(0, `${laneStyle.color}16`);
-    glow.addColorStop(0.58, `${laneStyle.color}54`);
-    glow.addColorStop(1, `${laneStyle.color}d4`);
-    ctx.strokeStyle = glow;
-    ctx.lineWidth = 15 + pulse * 4;
-    ctx.beginPath();
-    ctx.moveTo(top.x, top.y);
-    ctx.lineTo(bottom.x, bottom.y);
-    ctx.stroke();
-    ctx.strokeStyle = "rgba(255,255,255,.38)";
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(top.x, top.y);
-    ctx.lineTo(bottom.x, bottom.y);
-    ctx.stroke();
-  }
-
-  ctx.globalCompositeOperation = "screen";
-  const footGlow = ctx.createRadialGradient(w * 0.5, h * 0.88, 18, w * 0.5, h * 0.88, w * 0.45);
-  footGlow.addColorStop(0, `${config.accent2}32`);
-  footGlow.addColorStop(0.5, `${config.accent}18`);
-  footGlow.addColorStop(1, "rgba(0,0,0,0)");
-  ctx.fillStyle = footGlow;
-  ctx.fillRect(0, h * 0.48, w, h * 0.52);
-  ctx.restore();
-}
-
-function drawBeatTarget(ctx, lane, state, w, h, active) {
-  const point = beatLanePoint(lane, 1, w, h);
-  const laneStyle = BEAT_LANES[lane];
-  const pulse = active ? state.beatPulse || 0 : 0;
-  ctx.save();
-  ctx.globalCompositeOperation = "screen";
-  const glow = ctx.createRadialGradient(point.x, point.y, 8, point.x, point.y, 64 + pulse * 30);
-  glow.addColorStop(0, `${laneStyle.color}78`);
-  glow.addColorStop(0.55, `${laneStyle.color}22`);
-  glow.addColorStop(1, "rgba(0,0,0,0)");
-  ctx.fillStyle = glow;
-  ctx.fillRect(point.x - 90, point.y - 90, 180, 180);
-  ctx.restore();
-
-  ctx.save();
-  ctx.lineWidth = 5 + pulse * 5;
-  ctx.strokeStyle = laneStyle.color;
-  ctx.beginPath();
-  ctx.arc(point.x, point.y, 34 + pulse * 10, 0, TWO_PI);
-  ctx.stroke();
-  ctx.lineWidth = 2;
-  ctx.strokeStyle = "rgba(255,255,255,.88)";
-  ctx.beginPath();
-  ctx.arc(point.x, point.y, 21 + pulse * 6, 0, TWO_PI);
-  ctx.stroke();
-  ctx.fillStyle = active ? `${laneStyle.color}cc` : "rgba(255,255,255,.14)";
-  ctx.beginPath();
-  ctx.arc(point.x, point.y, 8 + pulse * 5, 0, TWO_PI);
-  ctx.fill();
-  ctx.restore();
-}
-
-function drawBeatPad(ctx, label, lane, progress, active, config, state, w, h) {
-  const point = beatLanePoint(lane, progress, w, h);
-  const laneStyle = BEAT_LANES[lane];
-  const width = 76 * point.scale;
-  const height = 48 * point.scale;
-  const pulse = active ? state.beatPulse || 0 : 0;
-
-  ctx.save();
-  ctx.translate(point.x, point.y);
-  ctx.scale(1, 0.9);
-  ctx.fillStyle = "rgba(0,0,0,.34)";
-  roundedRect(ctx, -width * 0.52 + 6, -height * 0.5 + 8, width * 1.04, height, 10 * point.scale);
-  ctx.fill();
-
-  const fill = ctx.createLinearGradient(-width / 2, -height / 2, width / 2, height / 2);
-  fill.addColorStop(0, active ? "#ffffff" : "rgba(255,255,255,.72)");
-  fill.addColorStop(0.2, laneStyle.color);
-  fill.addColorStop(1, laneStyle.dark);
-  ctx.fillStyle = fill;
-  roundedRect(ctx, -width / 2, -height / 2, width, height, 10 * point.scale);
-  ctx.fill();
-  ctx.lineWidth = active ? 5 + pulse * 3 : 3;
-  ctx.strokeStyle = active ? "#f8ffff" : "rgba(255,255,255,.62)";
-  ctx.stroke();
-  ctx.globalCompositeOperation = "screen";
-  ctx.strokeStyle = `${laneStyle.color}cc`;
-  ctx.lineWidth = 9 + pulse * 6;
-  roundedRect(ctx, -width / 2, -height / 2, width, height, 10 * point.scale);
-  ctx.stroke();
-  ctx.restore();
-
-  text(ctx, label, point.x, point.y + 1, clamp(25 * point.scale, 14, 34), "#ffffff", "center", 900);
-}
-
-function drawSoundBeatPortrait(ctx, x, y, scale, now) {
-  ctx.save();
-  ctx.translate(x, y + Math.sin(now * 2.3) * 1.6);
-  ctx.scale(scale, scale);
-
-  ctx.fillStyle = "rgba(0,0,0,.26)";
-  ctx.beginPath();
-  ctx.ellipse(0, 45, 36, 12, 0, 0, TWO_PI);
-  ctx.fill();
-
-  ctx.fillStyle = "#e34158";
-  ctx.beginPath();
-  ctx.moveTo(-36, 58);
-  ctx.lineTo(-21, 19);
-  ctx.lineTo(21, 19);
-  ctx.lineTo(38, 58);
-  ctx.closePath();
-  ctx.fill();
-  ctx.strokeStyle = "rgba(0,0,0,.58)";
-  ctx.lineWidth = 4;
-  ctx.stroke();
-
-  const face = ctx.createLinearGradient(-18, -34, 22, 30);
-  face.addColorStop(0, "#f3b36e");
-  face.addColorStop(0.7, "#c66f32");
-  face.addColorStop(1, "#8a401f");
-  ctx.fillStyle = face;
-  ctx.beginPath();
-  ctx.ellipse(0, -6, 30, 34, 0, 0, TWO_PI);
-  ctx.fill();
-  ctx.strokeStyle = "rgba(0,0,0,.58)";
-  ctx.lineWidth = 4;
-  ctx.stroke();
-
-  ctx.fillStyle = "#2a170f";
-  ctx.beginPath();
-  ctx.moveTo(-30, -18);
-  ctx.lineTo(-18, -45);
-  ctx.lineTo(-6, -26);
-  ctx.lineTo(8, -48);
-  ctx.lineTo(17, -23);
-  ctx.lineTo(33, -36);
-  ctx.lineTo(25, -9);
-  ctx.lineTo(-25, -7);
-  ctx.closePath();
-  ctx.fill();
-
-  ctx.strokeStyle = "#39e6df";
-  ctx.lineWidth = 7;
-  ctx.beginPath();
-  ctx.arc(0, -15, 38, Math.PI * 1.08, Math.PI * 1.92);
-  ctx.stroke();
-  ctx.fillStyle = "#1c4d58";
-  ctx.strokeStyle = "rgba(0,0,0,.62)";
-  ctx.lineWidth = 4;
-  ctx.beginPath();
-  ctx.roundRect?.(-43, -20, 16, 31, 7);
-  if (!ctx.roundRect) roundedRect(ctx, -43, -20, 16, 31, 7);
-  ctx.fill();
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.roundRect?.(27, -20, 16, 31, 7);
-  if (!ctx.roundRect) roundedRect(ctx, 27, -20, 16, 31, 7);
-  ctx.fill();
-  ctx.stroke();
-
-  ctx.fillStyle = "#07101d";
-  ctx.beginPath();
-  ctx.arc(-10, -6, 3.5, 0, TWO_PI);
-  ctx.arc(13, -6, 3.5, 0, TWO_PI);
-  ctx.fill();
-  ctx.strokeStyle = "#551d1d";
-  ctx.lineWidth = 2.5;
-  ctx.beginPath();
-  ctx.arc(2, 6, 11, 0.13 * Math.PI, 0.87 * Math.PI);
-  ctx.stroke();
-
-  ctx.fillStyle = "#ffd23d";
-  ctx.beginPath();
-  ctx.moveTo(0, 21);
-  ctx.lineTo(5, 31);
-  ctx.lineTo(17, 32);
-  ctx.lineTo(8, 39);
-  ctx.lineTo(11, 51);
-  ctx.lineTo(0, 44);
-  ctx.lineTo(-11, 51);
-  ctx.lineTo(-8, 39);
-  ctx.lineTo(-17, 32);
-  ctx.lineTo(-5, 31);
-  ctx.closePath();
-  ctx.fill();
-  ctx.restore();
-}
-
-function drawHudNote(ctx, x, y, color) {
-  ctx.save();
-  ctx.strokeStyle = color;
-  ctx.fillStyle = color;
-  ctx.lineWidth = 5;
-  ctx.lineCap = "round";
-  ctx.beginPath();
-  ctx.moveTo(x + 8, y - 23);
-  ctx.lineTo(x + 8, y + 8);
-  ctx.lineTo(x + 30, y + 2);
-  ctx.lineTo(x + 30, y - 29);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.ellipse(x, y + 12, 10, 7, -0.18, 0, TWO_PI);
-  ctx.ellipse(x + 22, y + 6, 10, 7, -0.18, 0, TWO_PI);
-  ctx.fill();
-  ctx.restore();
-}
-
-function drawHudBolt(ctx, x, y, color) {
-  ctx.save();
-  ctx.fillStyle = color;
-  ctx.strokeStyle = "rgba(0,0,0,.52)";
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  ctx.moveTo(x + 4, y - 18);
-  ctx.lineTo(x - 9, y + 3);
-  ctx.lineTo(x + 2, y + 3);
-  ctx.lineTo(x - 5, y + 22);
-  ctx.lineTo(x + 15, y - 5);
-  ctx.lineTo(x + 3, y - 5);
-  ctx.closePath();
-  ctx.fill();
-  ctx.stroke();
-  ctx.restore();
-}
-
-function drawHudStar(ctx, x, y, radius, fill, stroke) {
-  ctx.save();
-  ctx.fillStyle = fill;
-  ctx.strokeStyle = stroke;
-  ctx.lineWidth = 2.5;
-  ctx.beginPath();
-  for (let i = 0; i < 10; i += 1) {
-    const angle = -Math.PI / 2 + i * Math.PI / 5;
-    const r = i % 2 === 0 ? radius : radius * 0.47;
-    const px = x + Math.cos(angle) * r;
-    const py = y + Math.sin(angle) * r;
-    if (i === 0) ctx.moveTo(px, py);
-    else ctx.lineTo(px, py);
-  }
-  ctx.closePath();
-  ctx.fill();
-  ctx.stroke();
-  ctx.restore();
-}
-
-function drawSoundBeatHud(ctx, state, config, w) {
-  const current = state.currentTask?.item;
-  const totalBeats = current ? current.beats.length + 1 : 4;
-  const filledBeats = Math.min(totalBeats, state.beatIndex || 0);
-  const hudY = 16;
-
-  ctx.save();
-  ctx.fillStyle = "rgba(3,7,18,.78)";
-  ctx.strokeStyle = "rgba(180,220,255,.7)";
-  ctx.lineWidth = 3;
-  ctx.beginPath();
-  for (let i = 0; i < 8; i += 1) {
-    const angle = Math.PI / 8 + i * Math.PI / 4;
-    const x = 70 + Math.cos(angle) * 58;
-    const y = 70 + Math.sin(angle) * 58;
-    if (i === 0) ctx.moveTo(x, y);
-    else ctx.lineTo(x, y);
-  }
-  ctx.closePath();
-  ctx.fill();
-  ctx.stroke();
-  drawSoundBeatPortrait(ctx, 70, 78, 0.78, state.time);
-
-  panel(ctx, 150, hudY, 260, 72, "rgba(3,7,18,.8)", "rgba(255,255,255,.34)");
-  drawHudNote(ctx, 174, hudY + 31, config.accent2);
-  text(ctx, String(state.score).padStart(6, "0"), 220, hudY + 31, 31, "#f8d64b", "left", 900);
-  const bars = Math.max(1, Math.min(8, state.combo + 1));
-  for (let i = 0; i < 8; i += 1) {
-    ctx.fillStyle = i < bars ? "#55fff0" : "rgba(255,255,255,.16)";
-    roundedRect(ctx, 202 + i * 18, hudY + 53, 13, 11, 4);
-    ctx.fill();
-  }
-  drawHudBolt(ctx, 376, hudY + 48, "#ffdf3d");
-
-  const meterX = w * 0.38;
-  const meterY = 42;
-  const meterW = w * 0.28;
-  panel(ctx, meterX, hudY + 6, meterW, 50, "rgba(3,7,18,.78)", "rgba(255,255,255,.34)");
-  for (let i = 0; i < 10; i += 1) {
-    const dotX = meterX + 32 + i * ((meterW - 64) / 9);
-    ctx.fillStyle = i < filledBeats ? config.accent2 : (i < totalBeats ? config.accent : "rgba(255,255,255,.18)");
-    ctx.beginPath();
-    ctx.arc(dotX, meterY, 9, 0, TWO_PI);
-    ctx.fill();
-    ctx.strokeStyle = "rgba(0,0,0,.55)";
-    ctx.lineWidth = 2;
-    ctx.stroke();
-  }
-  const activeDotX = meterX + 32 + Math.min(9, filledBeats) * ((meterW - 64) / 9);
-  ctx.strokeStyle = "#ffb13d";
-  ctx.lineWidth = 4;
-  ctx.beginPath();
-  ctx.moveTo(activeDotX, meterY - 30);
-  ctx.lineTo(activeDotX, meterY + 30);
-  ctx.stroke();
-
-  panel(ctx, w - 360, hudY, 344, 72, "rgba(3,7,18,.8)", "rgba(255,255,255,.34)");
-  for (let i = 0; i < 5; i += 1) {
-    drawHudStar(
-      ctx,
-      w - 332 + i * 38,
-      hudY + 31,
-      15,
-      i < 3 ? "#ffd53b" : "rgba(255,255,255,.08)",
-      i < 3 ? "rgba(0,0,0,.45)" : "rgba(255,255,255,.38)"
-    );
-  }
-  for (let i = 0; i < 3; i += 1) {
-    const x = w - 116 + i * 34;
-    ctx.fillStyle = i < 2 ? "#ff4f5f" : "rgba(255,255,255,.18)";
-    ctx.beginPath();
-    ctx.moveTo(x, hudY + 43);
-    ctx.bezierCurveTo(x - 20, hudY + 25, x - 20, hudY + 5, x, hudY + 18);
-    ctx.bezierCurveTo(x + 20, hudY + 5, x + 20, hudY + 25, x, hudY + 43);
-    ctx.fill();
-    ctx.strokeStyle = "rgba(0,0,0,.42)";
-    ctx.lineWidth = 2;
-    ctx.stroke();
-  }
-  ctx.restore();
-}
-
-function drawBeatBurst(ctx, burst) {
-  const p = clamp(burst.t / burst.life, 0, 1);
-  const r = 18 + p * 72;
-  ctx.save();
-  ctx.globalAlpha = 1 - p;
-  ctx.strokeStyle = burst.color;
-  ctx.lineWidth = 4 * (1 - p) + 1;
-  ctx.beginPath();
-  ctx.arc(burst.x, burst.y, r, 0, TWO_PI);
-  ctx.stroke();
-  for (let i = 0; i < 10; i += 1) {
-    const a = i * TWO_PI / 10 + burst.seed;
-    const inner = r * 0.4;
-    const outer = r * (0.9 + (i % 3) * 0.08);
-    ctx.beginPath();
-    ctx.moveTo(burst.x + Math.cos(a) * inner, burst.y + Math.sin(a) * inner);
-    ctx.lineTo(burst.x + Math.cos(a) * outer, burst.y + Math.sin(a) * outer);
-    ctx.stroke();
-  }
-  ctx.restore();
-}
-
 function drawHud(ctx, state, config, w, h) {
-  if (config.title === "Sound Beat") {
-    drawSoundBeatHud(ctx, state, config, w, h);
-    return;
-  }
   panel(ctx, 16, 14, Math.min(520, w - 32), 62, "rgba(7,10,24,.74)", `${config.accent}88`);
   text(ctx, config.title, 38, 35, 23, config.accent);
   text(ctx, config.action, 38, 61, 14, "#dce8ff", "left", 700);
@@ -674,97 +208,26 @@ function drawCountdown(ctx, state, config, w, h) {
 }
 
 function makeTasks(kind, level) {
-  if (kind === "sound-beat") {
-    return level.items.map(item => ({ type: kind, item, attempts: 0 }));
-  }
-  if (kind === "rhyme-pop") {
-    return [{
-      type: kind,
-      level,
-      targetWord: level.targetWord,
-      totalRhymes: level.rhymingWords.length,
-      correctFound: 0,
-      remainingRhymes: [...level.rhymingWords],
-      unusedDistractors: [...level.distractors],
-      usedWords: [],
-      attempts: 0
-    }];
-  }
-  if (kind === "sound-safari") {
-    return level.words.map(word => ({ type: kind, word, index: 0, attempts: 0 }));
-  }
-  return level.items.map(item => ({ type: kind, item, answerIndex: 0, attempts: 0 }));
+  return [{
+    type: kind,
+    level,
+    targetWord: level.targetWord,
+    totalRhymes: level.rhymingWords.length,
+    correctFound: 0,
+    remainingRhymes: [...level.rhymingWords],
+    unusedDistractors: [...level.distractors],
+    usedWords: [],
+    attempts: 0
+  }];
 }
 
 function taskUnits(kind, task) {
   if (kind === "rhyme-pop") return task.totalRhymes || task.level?.rhymingWords?.length || 1;
-  if (kind === "sound-safari") return task.word.graphemes.length;
-  if (kind === "star-gallery") return task.item.answers?.length || 1;
   return 1;
 }
 
 function totalUnits(kind, ladder) {
   return ladder.reduce((sum, level) => sum + makeTasks(kind, level).reduce((inner, task) => inner + taskUnits(kind, task), 0), 0);
-}
-
-function drawBeat(ctx, state, config, w, h, now) {
-  const task = state.currentTask;
-  if (!task) return;
-  const item = task.item;
-  const notes = [...item.beats, "blend"];
-  const spacing = 60 / state.level.bpm;
-  const approachSeconds = Math.max(1.65, spacing * 3.8);
-
-  ctx.save();
-  drawBeatBackdrop(ctx, state, config, w, h);
-
-  ctx.save();
-  const titlePanel = ctx.createLinearGradient(w * 0.29, h * 0.22, w * 0.71, h * 0.4);
-  titlePanel.addColorStop(0, "rgba(3,15,14,.42)");
-  titlePanel.addColorStop(1, "rgba(1,6,18,.22)");
-  ctx.fillStyle = titlePanel;
-  roundedRect(ctx, w * 0.31, h * 0.2, w * 0.38, h * 0.16, 8);
-  ctx.fill();
-  text(ctx, item.say, w / 2, h * 0.265, clamp(w * 0.055, 38, 74), "#fff", "center", 900);
-  text(ctx, `${state.level.bpm} BPM`, w / 2, h * 0.335, 18, config.accent, "center", 900);
-  ctx.restore();
-
-  drawSoundBeatRunway(ctx, state, config, w, h);
-
-  for (let lane = 0; lane < BEAT_LANES.length; lane += 1) {
-    drawBeatTarget(ctx, lane, state, w, h, lane === state.beatIndex % BEAT_LANES.length);
-  }
-
-  for (let i = state.beatIndex; i < notes.length; i += 1) {
-    const noteTime = state.noteStart + i * spacing;
-    const progress = 1 - (noteTime - now) / approachSeconds;
-    if (progress < -0.04 || progress > 1.18) continue;
-    const timeToHit = Math.abs(noteTime - now);
-    const active = i === state.beatIndex;
-    const nearHit = 1 - clamp(timeToHit / 0.5, 0, 1);
-    drawBeatPad(ctx, notes[i] === "blend" ? "GO" : notes[i], i % BEAT_LANES.length, progress, active && nearHit > 0.2, config, state, w, h);
-  }
-
-  const slotW = Math.min(78, (w * 0.34) / notes.length);
-  const slotStart = w * 0.5 - (slotW * notes.length) / 2;
-  for (let i = 0; i < notes.length; i += 1) {
-    const filled = i < state.beatIndex;
-    panel(ctx, slotStart + i * slotW, h - 142, slotW - 10, 38, filled ? `${config.accent}d8` : "rgba(5,10,22,.64)", filled ? "#f4ffd8" : "rgba(255,255,255,.22)");
-    text(ctx, filled ? (notes[i] === "blend" ? "GO" : notes[i]) : "", slotStart + i * slotW + slotW / 2 - 5, h - 123, 18, filled ? "#07101d" : "#fff", "center", 900);
-  }
-
-  for (const burst of state.hitBursts) drawBeatBurst(ctx, burst);
-  if (state.judgementT > 0) {
-    const p = clamp(state.judgementT / 0.72, 0, 1);
-    const lanePoint = beatLanePoint(Math.max(0, (state.beatIndex - 1) % BEAT_LANES.length), 1, w, h);
-    text(ctx, state.judgement, lanePoint.x, lanePoint.y - 92 - (1 - p) * 20, 34, state.judgement === "MISS" ? "#ff8d8d" : config.accent, "center", 900);
-  }
-
-  if (state.soundEnabled && !state.audioArmed) {
-    text(ctx, "TAP / SPACE TO START MUSIC", w / 2, h * 0.74, clamp(w * 0.026, 20, 32), "#fff", "center", 900);
-  }
-  text(ctx, "SPACE / TAP", w / 2, h * 0.96, 16, "#dff7ff", "center", 900);
-  ctx.restore();
 }
 
 function drawBubble(ctx, x, y, r, label, fill, stroke = "rgba(255,255,255,.8)") {
@@ -784,6 +247,12 @@ function drawBubble(ctx, x, y, r, label, fill, stroke = "rgba(255,255,255,.8)") 
 
 function rhymeLauncherPoint(w, h) {
   return { x: w / 2, y: h * 0.825 };
+}
+
+// The "Rhymes with X" panel drawn by drawRhymeLauncher. Tapping it repeats the
+// target word aloud instead of firing a shot.
+function rhymeTargetPanelHit(x, y, w, h) {
+  return x >= w * 0.34 && x <= w * 0.66 && y >= h * 0.65 && y <= h * 0.65 + 72;
 }
 
 // Deterministic Fisher-Yates shuffle so which slots hold the rhymes varies from
@@ -1083,14 +552,6 @@ function drawRhymeOrb(ctx, bubble, task, state, now, w, h) {
   cutRect(ctx, center.x - labelW / 2, center.y - labelH / 2 + 2, labelW, labelH, Math.min(10, labelH * 0.28));
   ctx.stroke();
   text(ctx, label, center.x, center.y + 2, labelSize, "#fff", "center", 900);
-
-  if (bubble.kind === "rhyme" && state.judgement === "POP!") {
-    ctx.strokeStyle = "#fffbd1";
-    ctx.lineWidth = 3;
-    ctx.beginPath();
-    ctx.arc(center.x, center.y, r + 13 + Math.sin(now * 9) * 3, 0, TWO_PI);
-    ctx.stroke();
-  }
   ctx.restore();
 }
 
@@ -1258,6 +719,19 @@ function drawRhymePop(ctx, state, config, w, h) {
 
   for (const shot of state.shots || []) drawRhymeShot(ctx, shot, state.time);
   for (const burst of state.rhymeBursts || []) drawRhymeBurst(ctx, burst);
+  // Highlight ring for ONLY the balloon that was just popped (drawn at its last
+  // position; ringing every remaining rhyme balloon telegraphed the answers).
+  if (state.popRing) {
+    const ringP = clamp(state.popRing.t / 0.72, 0, 1);
+    ctx.save();
+    ctx.globalAlpha = ringP;
+    ctx.strokeStyle = "#fffbd1";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(state.popRing.x, state.popRing.y, state.popRing.r + 13 + Math.sin(state.time * 9) * 3, 0, TWO_PI);
+    ctx.stroke();
+    ctx.restore();
+  }
   drawRhymeLauncher(ctx, state, config, w, h);
 
   if (state.judgementT > 0) {
@@ -1267,83 +741,6 @@ function drawRhymePop(ctx, state, config, w, h) {
   }
   drawRhymeCoach(ctx, state, config, w, h);
   drawRhymeRoundClear(ctx, state, config, w, h);
-}
-
-function drawCritter(ctx, critter, needed, config, now) {
-  const bob = Math.sin(now * 2 + critter.phase) * 7;
-  const x = critter.x + Math.sin(now * critter.speed + critter.phase) * 12;
-  const y = critter.y + bob;
-  ctx.fillStyle = "rgba(0,0,0,.28)";
-  ctx.beginPath();
-  ctx.ellipse(x, y + critter.r * 0.78, critter.r * 0.78, critter.r * 0.24, 0, 0, TWO_PI);
-  ctx.fill();
-  ctx.fillStyle = critter.label === needed ? config.accent : "rgba(190,220,255,.96)";
-  ctx.beginPath();
-  ctx.arc(x, y, critter.r, 0, TWO_PI);
-  ctx.fill();
-  ctx.strokeStyle = "rgba(0,0,0,.52)";
-  ctx.lineWidth = 3;
-  ctx.stroke();
-  ctx.fillStyle = "rgba(255,255,255,.75)";
-  ctx.beginPath();
-  ctx.arc(x - critter.r * 0.28, y - critter.r * 0.28, critter.r * 0.18, 0, TWO_PI);
-  ctx.fill();
-  text(ctx, critter.label, x, y + 2, Math.max(18, critter.r * 0.62), "#07101d", "center", 900);
-  critter.hitX = x;
-  critter.hitY = y;
-}
-
-function drawSafari(ctx, state, config, w, h) {
-  const task = state.currentTask;
-  if (!task) return;
-  const needed = task.word.graphemes[task.index];
-  text(ctx, task.word.word, w / 2, h * 0.17, clamp(w * 0.05, 33, 68), "#fff", "center", 900);
-  text(ctx, `Next sound: ${needed}`, w / 2, h * 0.24, 24, config.accent, "center", 900);
-  for (const critter of state.critters || []) drawCritter(ctx, critter, needed, config, state.time);
-
-  const slotW = Math.min(90, (w - 80) / Math.max(4, task.word.graphemes.length));
-  const startX = w / 2 - (slotW * task.word.graphemes.length) / 2;
-  for (let i = 0; i < task.word.graphemes.length; i += 1) {
-    panel(ctx, startX + i * slotW, h - 92, slotW - 8, 54, i < task.index ? `${config.accent}cc` : "rgba(5,10,22,.72)", "rgba(255,255,255,.32)");
-    text(ctx, i < task.index ? task.word.graphemes[i] : "?", startX + i * slotW + slotW / 2 - 4, h - 65, 23, i < task.index ? "#07101d" : "#fff", "center", 900);
-  }
-
-  const px = state.pointer.x || w * 0.5;
-  const py = state.pointer.y || h * 0.56;
-  ctx.strokeStyle = "rgba(255,255,255,.85)";
-  ctx.lineWidth = 4;
-  ctx.beginPath();
-  ctx.arc(px, py, 42, 0, TWO_PI);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(px + 27, py + 32);
-  ctx.lineTo(px + 84, py + 86);
-  ctx.stroke();
-}
-
-function activeGalleryAnswer(task) {
-  if (task.item.answers?.length) return task.item.answers[task.answerIndex || 0];
-  return task.item;
-}
-
-function drawGallery(ctx, state, config, w, h) {
-  const task = state.currentTask;
-  if (!task) return;
-  const answer = activeGalleryAnswer(task);
-  panel(ctx, w * 0.08, h * 0.14, w * 0.84, 118, "rgba(4,8,20,.78)", `${config.accent2}88`);
-  text(ctx, answer.prompt, w / 2, h * 0.18, 21, config.accent2, "center", 900);
-  text(ctx, answer.display, w / 2, h * 0.245, clamp(w * 0.03, 22, 42), "#fff", "center", 900);
-
-  for (const card of state.cards || []) {
-    ctx.save();
-    ctx.translate(card.x, card.y);
-    ctx.rotate(Math.sin(state.time * 1.5 + card.phase) * 0.05);
-    panel(ctx, -58, -42, 116, 84, card.label === answer.answer ? "rgba(255,242,155,.94)" : "rgba(210,235,255,.92)", "rgba(255,255,255,.86)");
-    text(ctx, card.label, 0, 1, card.label.length > 5 ? 24 : 35, "#07101d", "center", 900);
-    ctx.restore();
-  }
-  drawLowPolyPal(ctx, w * 0.18, h * 0.78, 0.95, config, state.time);
-  text(ctx, task.item.answers?.length ? `Fix ${task.answerIndex + 1}/2` : "Fix it", w * 0.82, h * 0.79, 28, config.accent, "center", 900);
 }
 
 function drawLowPolyPal(ctx, x, y, scale, config, now) {
@@ -1406,29 +803,16 @@ function startRhymePopArcadeGame(mount, options) {
       try { fn(); } catch { /* sound is optional */ }
     }
   };
-  let music = null;
 
   function soundAllowed() {
     return options.getSound ? options.getSound() : options.isSoundEnabled;
   }
 
-  function ensureMusic() {
-    if (options.kind !== "sound-beat" || music || !state.audioArmed || state.paused || state.ended || !soundAllowed()) return;
-    const nextMusic = startSoundBeatMusic({ bpm: state.level?.bpm || 96, volume: 0.16 });
-    if (nextMusic) music = nextMusic;
-  }
-
-  function stopMusic() {
-    if (!music) return;
-    music.stop();
-    music = null;
-  }
-
-  function armSoundBeatMusic() {
-    if (options.kind !== "sound-beat") return;
-    state.audioArmed = true;
-    state.soundEnabled = soundAllowed();
-    ensureMusic();
+  // Speech follows the same live sound flag as the SFX helper: never speak when
+  // sound is off, and never let a speech failure break play.
+  function speakCue(word) {
+    if (!soundAllowed()) return;
+    try { speakWord(word); } catch { /* speech is optional */ }
   }
 
   const state = {
@@ -1449,8 +833,6 @@ function startRhymePopArcadeGame(mount, options) {
     paused: false,
     ended: false,
     time: 0,
-    beatIndex: 0,
-    noteStart: 0,
     judgement: "",
     judgementT: 0,
     coachText: "",
@@ -1459,14 +841,11 @@ function startRhymePopArcadeGame(mount, options) {
     roundClearLabel: "",
     roundPendingAdvance: false,
     beatPulse: 0,
-    audioArmed: false,
     soundEnabled: soundAllowed(),
-    hitBursts: [],
+    popRing: null,
     rhymeBursts: [],
     shots: [],
     bubbles: [],
-    critters: [],
-    cards: [],
     nextBubbleId: 1,
     pointer: { x: 0, y: 0 }
   };
@@ -1502,7 +881,6 @@ function startRhymePopArcadeGame(mount, options) {
   }
 
   function startLevel() {
-    if (options.kind === "sound-beat") stopMusic();
     state.level = ladder[state.stage];
     image.src = config.bgByWorld?.[state.level.world] || config.bg;
     state.tasks = makeTasks(options.kind, state.level);
@@ -1510,6 +888,7 @@ function startRhymePopArcadeGame(mount, options) {
     state.combo = 0;
     state.shots = [];
     state.rhymeBursts = [];
+    state.popRing = null;
     state.coachText = "";
     state.coachT = 0;
     state.roundClearT = 0;
@@ -1538,22 +917,18 @@ function startRhymePopArcadeGame(mount, options) {
     }
     setupTask();
     updateProgress();
+    // "Listen and rhyme": say the target word as each level starts.
+    speakCue(state.level.targetWord);
   }
 
   function countdownTarget() {
-    if (options.kind === "sound-beat") return `Tap sounds in ${state.level.world}`;
-    if (options.kind === "rhyme-pop") return `Shoot all the words that rhyme with ${titleWord(state.level.targetWord)}`;
-    if (options.kind === "sound-safari") return "Net the sounds in order";
-    return "Find the sentence fix";
+    return `Shoot all the words that rhyme with ${titleWord(state.level.targetWord)}`;
   }
 
   function setupTask() {
     state.currentTask = state.tasks[state.taskIndex] || null;
-    state.beatIndex = 0;
     state.shots = [];
     if (!state.currentTask) return;
-    const now = performance.now() / 1000;
-    if (options.kind === "sound-beat") state.noteStart = now + 1.05;
     if (options.kind === "rhyme-pop") {
       state.bubbles = [];
       initialiseRhymeRound(state.currentTask);
@@ -1680,47 +1055,6 @@ function startRhymePopArcadeGame(mount, options) {
     if (options.kind === "rhyme-pop") {
       rebuildRhymeBalloons(task);
     }
-    if (options.kind === "sound-safari") {
-      const labels = [...task.word.graphemes, ...task.word.decoys];
-      state.critters = labels.map((label, index) => ({
-        label,
-        x: w * (0.17 + (index % 4) * 0.22),
-        y: h * (0.34 + Math.floor(index / 4) * 0.19),
-        r: clamp(w * 0.026, 25, 42),
-        phase: index * 1.7,
-        speed: 0.7 + (index % 4) * 0.13
-      }));
-    }
-    if (options.kind === "star-gallery") {
-      const answer = activeGalleryAnswer(task);
-      state.cards = answer.options.map((label, index) => ({
-        label,
-        x: w * (0.22 + index * 0.23),
-        y: h * (0.47 + (index % 2) * 0.13),
-        phase: index * 1.9
-      }));
-    }
-  }
-
-  function requeueTask() {
-    const task = state.currentTask;
-    if (task && (task.attempts || 0) < 2) {
-      state.tasks.push({ ...task, attempts: (task.attempts || 0) + 1, index: 0, answerIndex: 0 });
-    }
-  }
-
-  function missCurrent({ requeue = true } = {}) {
-    if (!state.currentTask || state.ended) return;
-    state.mistakes += 1;
-    state.combo = 0;
-    if (options.kind === "sound-beat") {
-      state.judgement = "MISS";
-      state.judgementT = 0.72;
-      state.beatPulse = 0.65;
-    }
-    if (requeue) requeueTask();
-    sfx(playSoftBuzz);
-    nextTask();
   }
 
   function finishUnit(points = 100) {
@@ -1728,11 +1062,6 @@ function startRhymePopArcadeGame(mount, options) {
     state.combo += 1;
     setScore(state.score + points + Math.min(6, state.combo) * 20);
     sfx(state.combo > 2 ? playStarChime : playCorrectChime);
-  }
-
-  function finishTask(points = 100) {
-    finishUnit(points);
-    nextTask();
   }
 
   function nextTask() {
@@ -1751,7 +1080,6 @@ function startRhymePopArcadeGame(mount, options) {
     options.onCheckpoint?.(nextStage, ladder.length);
     if (nextStage >= ladder.length) {
       state.ended = true;
-      stopMusic();
       state.progress = 1;
       options.onProgressUpdate?.(ladder.length, ladder.length);
       options.onComplete?.(config.stars({ correct: state.correct, total, mistakes: state.mistakes }), state.score, total);
@@ -1759,38 +1087,6 @@ function startRhymePopArcadeGame(mount, options) {
     }
     state.stage = nextStage;
     startLevel();
-  }
-
-  function tapBeat() {
-    const task = state.currentTask;
-    if (!task || state.countdown > 0) return;
-    ensureMusic();
-    const now = performance.now() / 1000;
-    const notes = [...task.item.beats, "blend"];
-    const spacing = 60 / state.level.bpm;
-    const targetTime = state.noteStart + state.beatIndex * spacing;
-    const windowSeconds = state.level.hitWindowMs / 1000;
-    const delta = Math.abs(now - targetTime);
-    if (delta <= windowSeconds) {
-      const quality = delta <= windowSeconds * 0.33 ? "PERFECT" : delta <= windowSeconds * 0.66 ? "GREAT" : "GOOD";
-      state.judgement = quality;
-      state.judgementT = 0.72;
-      state.beatPulse = quality === "PERFECT" ? 1 : quality === "GREAT" ? 0.82 : 0.65;
-      const burstPoint = beatLanePoint(state.beatIndex % BEAT_LANES.length, 1, w, h);
-      state.hitBursts.push({
-        x: burstPoint.x,
-        y: burstPoint.y,
-        t: 0,
-        life: 0.5,
-        seed: state.time + state.beatIndex,
-        color: quality === "PERFECT" ? config.accent : config.accent2
-      });
-      sfx(playTapSound);
-      state.beatIndex += 1;
-      if (state.beatIndex >= notes.length) finishTask(180);
-    } else {
-      missCurrent();
-    }
   }
 
   function fireRhymeShot(x, y) {
@@ -1842,10 +1138,16 @@ function startRhymePopArcadeGame(mount, options) {
       seed: state.time + shot.seed,
       color: correct ? config.accent : "#ff7a8a"
     });
+    // Say every popped word so the game works as "listen and rhyme".
+    speakCue(bubble.word);
     if (correct) {
       state.judgement = "POP!";
       state.judgementT = 0.72;
       state.beatPulse = 1;
+      // Ring ONLY the balloon just popped (it is already out of state.bubbles,
+      // so the ring draws at its last position) — ringing every remaining rhyme
+      // balloon telegraphed the answers.
+      state.popRing = { x: bubble.hitX || bubble.x, y: bubble.hitY || bubble.y, r: bubble.r, t: 0.72 };
       sfx(playPopSound);
       task.correctFound = (task.correctFound || 0) + 1;
       finishUnit(140);
@@ -1869,44 +1171,13 @@ function startRhymePopArcadeGame(mount, options) {
   }
 
   function tapRhyme(x, y) {
+    const task = state.currentTask;
+    // Tapping the target panel repeats the word instead of firing a shot.
+    if (task && rhymeTargetPanelHit(x, y, w, h)) {
+      speakCue(task.targetWord);
+      return;
+    }
     fireRhymeShot(x, y);
-  }
-
-  function tapSafari(x, y) {
-    const task = state.currentTask;
-    if (!task) return;
-    const hit = state.critters.find(critter => Math.hypot(x - (critter.hitX || critter.x), y - (critter.hitY || critter.y)) <= critter.r + 16);
-    if (!hit) return;
-    const needed = task.word.graphemes[task.index];
-    if (hit.label === needed) {
-      finishUnit(80);
-      task.index += 1;
-      if (task.index >= task.word.graphemes.length) nextTask();
-      else setupEntities();
-    } else {
-      state.mistakes += 1;
-      state.combo = 0;
-      sfx(playSoftBuzz);
-    }
-  }
-
-  function tapGallery(x, y) {
-    const task = state.currentTask;
-    if (!task) return;
-    const hit = state.cards.find(card => Math.abs(x - card.x) <= 66 && Math.abs(y - card.y) <= 52);
-    if (!hit) return;
-    const answer = activeGalleryAnswer(task);
-    if (hit.label === answer.answer) {
-      finishUnit(120);
-      if (task.item.answers?.length && task.answerIndex < task.item.answers.length - 1) {
-        task.answerIndex += 1;
-        setupEntities();
-      } else {
-        nextTask();
-      }
-    } else {
-      missCurrent();
-    }
   }
 
   function pointerPosition(event) {
@@ -1924,24 +1195,13 @@ function startRhymePopArcadeGame(mount, options) {
   function onPointerDown(event) {
     const point = pointerPosition(event);
     state.pointer = point;
-    if (options.kind === "sound-beat") {
-      armSoundBeatMusic();
-      if (state.paused || state.ended || state.countdown > 0) return;
-      tapBeat();
-    }
-    else if (state.paused || state.ended || state.countdown > 0) return;
-    else if (options.kind === "rhyme-pop") tapRhyme(point.x, point.y);
-    else if (options.kind === "sound-safari") tapSafari(point.x, point.y);
-    else tapGallery(point.x, point.y);
+    if (state.paused || state.ended || state.countdown > 0) return;
+    if (options.kind === "rhyme-pop") tapRhyme(point.x, point.y);
   }
 
   function onKeyDown(event) {
     if (event.key !== " " && event.key !== "Enter" && event.key !== "ArrowUp") return;
     event.preventDefault();
-    if (options.kind === "sound-beat") {
-      armSoundBeatMusic();
-      if (!state.paused && !state.ended && state.countdown <= 0) tapBeat();
-    }
     if (options.kind === "rhyme-pop" && !state.paused && !state.ended && state.countdown <= 0) {
       fireRhymeShot(state.pointer.x || w / 2, state.pointer.y || h * 0.34);
     }
@@ -1972,7 +1232,11 @@ function startRhymePopArcadeGame(mount, options) {
       else if (shot.x > rightWall) { shot.x = rightWall; shot.vx = -Math.abs(shot.vx); }
       // Hit whatever the shot actually touches FIRST — a wrong balloon in the
       // way gets popped (a miss), so obstacles matter and there is no auto-aim.
+      // Easy mode lets shots pass through distractors so a drifting wrong
+      // balloon can't turn good aim into a mistake.
+      const easyAim = state.level?.difficulty === "easy";
       const hit = state.bubbles.find(bubble => {
+        if (easyAim && bubble.kind !== "rhyme") return false;
         const center = rhymeBubbleCenter(bubble, state.time);
         return Math.hypot(shot.x - center.x, shot.y - center.y) <= bubble.r + shot.r * 0.85;
       });
@@ -2003,26 +1267,11 @@ function startRhymePopArcadeGame(mount, options) {
       state.beatPulse = Math.max(0, state.beatPulse - dt * 2.8);
       state.judgementT = Math.max(0, state.judgementT - dt);
       state.coachT = Math.max(0, state.coachT - dt);
-      state.hitBursts = state.hitBursts
-        .map(burst => ({ ...burst, t: burst.t + dt }))
-        .filter(burst => burst.t < burst.life);
-      const countdownBefore = state.countdown;
+      if (state.popRing) {
+        state.popRing.t -= dt;
+        if (state.popRing.t <= 0) state.popRing = null;
+      }
       state.countdown = Math.max(0, state.countdown - dt);
-      if (options.kind === "sound-beat" && countdownBefore > 0 && state.countdown === 0) {
-        state.beatIndex = 0;
-        state.noteStart = now + 0.82;
-        ensureMusic();
-      }
-      if (options.kind === "sound-beat" && state.currentTask && state.countdown <= 0) {
-        if (!soundAllowed()) stopMusic();
-        else ensureMusic();
-        const notes = [...state.currentTask.item.beats, "blend"];
-        const spacing = 60 / state.level.bpm;
-        const targetTime = state.noteStart + state.beatIndex * spacing;
-        if (state.beatIndex < notes.length && now - targetTime > state.level.hitWindowMs / 1000 + 0.12) {
-          missCurrent();
-        }
-      }
       if (options.kind === "rhyme-pop") {
         if (state.roundPendingAdvance) {
           state.roundClearT = Math.max(0, state.roundClearT - dt);
@@ -2034,26 +1283,17 @@ function startRhymePopArcadeGame(mount, options) {
           updateRhymePop(dt);
         }
       }
-      if (options.kind === "star-gallery") {
-        for (const card of state.cards) {
-          card.x += state.level.driftSpeed * dt * 38;
-          if (card.x > w + 80) card.x = -90;
-        }
-      }
     }
-    draw(now);
+    draw();
     raf = window.requestAnimationFrame(tick);
   }
 
-  function draw(now) {
+  function draw() {
     ctx.save();
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     if (!drawCover(ctx, image, w, h)) drawFallback(ctx, w, h, config, state.time);
     drawScreenGrade(ctx, w, h);
-    if (options.kind === "sound-beat") drawBeat(ctx, state, config, w, h, now);
-    else if (options.kind === "rhyme-pop") drawRhymePop(ctx, state, config, w, h);
-    else if (options.kind === "sound-safari") drawSafari(ctx, state, config, w, h);
-    else drawGallery(ctx, state, config, w, h);
+    drawRhymePop(ctx, state, config, w, h);
     drawHud(ctx, state, config, w, h);
     drawCountdown(ctx, state, config, w, h);
     ctx.restore();
@@ -2071,7 +1311,7 @@ function startRhymePopArcadeGame(mount, options) {
   const api = {
     pause() {
       state.paused = true;
-      stopMusic();
+      cancelSpeech();
     },
     resume() {
       state.paused = false;
@@ -2079,7 +1319,7 @@ function startRhymePopArcadeGame(mount, options) {
     },
     destroy() {
       state.ended = true;
-      stopMusic();
+      cancelSpeech();
       window.cancelAnimationFrame(raf);
       resizeObserver.disconnect();
       canvas.removeEventListener("pointermove", onPointerMove);
@@ -2096,9 +1336,9 @@ function startRhymePopArcadeGame(mount, options) {
         taskIndex: state.taskIndex,
         countdown: state.countdown,
         countdownTarget: state.countdownTarget,
-        audioArmed: state.audioArmed,
+        audioArmed: false,
         soundEnabled: state.soundEnabled,
-        musicActive: Boolean(music),
+        musicActive: false,
         backgroundSrc: image.src,
         bubbles: state.bubbles?.map(bubble => ({
           id: bubble.id,

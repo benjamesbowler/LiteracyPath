@@ -19,6 +19,26 @@ function cleanPool(words) {
 }
 
 // ── Word Rescue: each word read correctly lays a bridge plank ─────────────
+// Foils must force a real read: random pool words can be eliminated by length
+// or first letter, so prefer lookalikes - minimal pairs (cat/cap, ship/shop),
+// then same-length same-initial words, then same length, then same initial -
+// falling back to any pool word only so the choice set is always full.
+function foilRank(candidate, word) {
+  if (candidate.length === word.length) {
+    const differences = [...word].reduce((count, letter, i) => count + (candidate[i] === letter ? 0 : 1), 0);
+    if (differences === 1) return 0; // minimal pair
+    if (candidate[0] === word[0]) return 1;
+    return 2;
+  }
+  return candidate[0] === word[0] ? 3 : 4;
+}
+
+export function pickRescueFoils(word, pool, count = 2) {
+  return shuffle(pool.filter(w => w !== word))
+    .sort((a, b) => foilRank(a, word) - foilRank(b, word))
+    .slice(0, count);
+}
+
 export function buildRescueRounds(difficulty = "easy") {
   const pool = cleanPool(
     difficulty === "hard"
@@ -30,7 +50,7 @@ export function buildRescueRounds(difficulty = "easy") {
   const words = shuffle(pool).slice(0, 6);
   return words.map(word => ({
     word,
-    choices: shuffle([word, ...shuffle(pool.filter(w => w !== word)).slice(0, 2)])
+    choices: shuffle([word, ...pickRescueFoils(word, pool)])
   }));
 }
 

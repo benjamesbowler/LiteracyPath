@@ -109,7 +109,8 @@ function stopCurrentCues() {
 
 export async function speakPhoneme(letter, options = {}) {
   stopCurrentCues();
-  const normalizedLetter = normalizedText(letter).slice(0, 1);
+  const normalized = normalizedText(letter);
+  const normalizedLetter = normalized.slice(0, 1);
   const cue = getLetterSoundCue(normalizedLetter, { vowel: VOWELS.has(normalizedLetter) ? normalizedLetter : "" });
   const spokenFallback = VOWEL_SOUND_TEXT[normalizedLetter] || normalizedLetter;
 
@@ -117,6 +118,12 @@ export async function speakPhoneme(letter, options = {}) {
   // labels) > legacy grapheme recordings > browser speech. The phonemes
   // folder activates automatically once its files are generated.
   const candidates = [];
+  // Multi-letter graphemes (sh, ch, th, wh, qu, ck, ng…) have their own
+  // pure-phoneme recordings — try the full cluster first so "sh" is never
+  // truncated to /s/. Falls through to the first-letter path when absent.
+  if (normalized.length > 1) {
+    candidates.push(`/audio/phonemes/${normalized}.mp3`);
+  }
   if (VOWELS.has(normalizedLetter)) {
     // No legacy fallback here: the old short-vowel recordings say the label
     // "short A" instead of the sound, which teaches the wrong thing.

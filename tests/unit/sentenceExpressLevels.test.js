@@ -39,6 +39,8 @@ test("fault choices have exactly one correct option", () => {
         if (train.caboose) assert.equal(new Set(train.caboose.options).size, train.caboose.options.length);
         for (const fault of [train.rusty, train.gap].filter(Boolean)) {
           assert.equal(fault.options.filter(o => o === fault.correct).length, 1, `${train.id} unique fix`);
+          // A panel with only 2 options is a coin flip: always offer 3+.
+          assert.ok(fault.options.length >= 3, `${train.id} panel offers fewer than 3 options`);
           // Distractors are real different words, never elsewhere in the sentence.
           const lower = train.words.map(w => w.toLowerCase());
           for (const o of fault.options) {

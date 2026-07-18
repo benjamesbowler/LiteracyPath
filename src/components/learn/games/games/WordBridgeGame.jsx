@@ -14,6 +14,7 @@ import {
 import { makeCatchUp } from "../../../../utils/catchUpQueue.js";
 import { starRubric } from "../../../../utils/starRubric.js";
 import { wordBridgeLadder } from "../../../../utils/wordBridgeLevels.js";
+import { speak, speakWord, cancelSpeech } from "../../../../utils/learnGamesAudio.js";
 
 const WORLD_THEME = {
   meadow: {
@@ -279,8 +280,20 @@ function startGame(mount, opts) {
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
   }
 
+  // ResizeObserver callbacks fire asynchronously, after startGame has finished
+  // initializing, so it is safe to touch level state here. Geometry (ground,
+  // gap, slots, tile homes, HUD) is recomputed instead of only rescaling.
+  function onResize() {
+    resize();
+    if (!currentLevel || !builder) return;
+    layoutScene(false);
+    layoutHud();
+    renderTargetHUD();
+    render();
+  }
+
   resize();
-  const ro = new ResizeObserver(resize);
+  const ro = new ResizeObserver(onResize);
   ro.observe(mount);
 
   const hud = document.createElement("div");
@@ -290,7 +303,8 @@ function startGame(mount, opts) {
     '<div data-wb-panel="target" style="position:absolute;top:14px;left:16px;display:flex;align-items:center;gap:12px;background:rgba(7,10,22,.72);border:1px solid rgba(255,255,255,.18);box-shadow:0 12px 26px rgba(0,0,0,.26);padding:9px 16px 10px 10px;clip-path:polygon(0 0,100% 0,calc(100% - 15px) 100%,0 100%)">' +
       '<div data-wb="level" style="min-width:54px;height:54px;display:grid;place-items:center;font-size:1.35rem;font-weight:950;color:#071033;background:#ffd34e;box-shadow:inset 0 -6px 0 rgba(0,0,0,.24)">1</div>' +
       '<div style="display:grid;gap:4px"><div data-wb="lab" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.78">Build the word</div>' +
-      '<div data-wb="target" style="display:flex;gap:6px;align-items:center"></div></div></div>' +
+      '<div data-wb="target" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"></div></div>' +
+      '<button data-wb="hear" type="button" aria-label="Hear the word" style="pointer-events:auto;width:46px;height:46px;flex:none;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;font-size:1.25rem;display:grid;place-items:center;cursor:pointer;clip-path:polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px)">&#128266;</button></div>' +
     '<div data-wb-panel="status" style="position:absolute;top:16px;right:16px;text-align:right;background:rgba(7,10,22,.64);border:1px solid rgba(255,255,255,.16);box-shadow:0 12px 24px rgba(0,0,0,.22);padding:9px 12px;min-width:154px;clip-path:polygon(12px 0,100% 0,100% 100%,0 100%,0 12px)">' +
       '<div data-wb="stars" style="font-size:1.22rem;letter-spacing:2px;color:#ffd34e;filter:drop-shadow(0 2px 4px rgba(0,0,0,.45))">☆☆☆</div>' +
       '<div data-wb="world" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.84;margin-top:2px">Meadow</div>' +
@@ -305,6 +319,15 @@ function startGame(mount, opts) {
   const elWorld = hud.querySelector('[data-wb="world"]');
   const elPatience = hud.querySelector('[data-wb="patience"]');
   const elBanner = hud.querySelector('[data-wb="banner"]');
+  const elHear = hud.querySelector('[data-wb="hear"]');
+
+  // "Hear the word" — additive speech, only ever fires when sound is on.
+  function speakTarget() {
+    if (!currentLevel || !opts.getSound?.()) return;
+    if (Array.isArray(currentLevel.target)) speak(currentLevel.target.join(" "));
+    else speakWord(String(currentLevel.target));
+  }
+  elHear?.addEventListener("click", speakTarget);
 
   function layoutHud() {
     const compact = W < 590;
@@ -343,6 +366,7 @@ function startGame(mount, opts) {
   let running = false;
   let paused = false;
   let rafId = 0;
+  let levelCompleteTimer = 0;
   let last = 0;
   let currentLevel = null;
   let builder = null;
@@ -431,7 +455,14 @@ function startGame(mount, opts) {
     return key === " " || key === "e" || key === "Enter" || key === "ArrowUp";
   }
 
+  // Keys are only captured while the stage is actually interactive — when
+  // paused (quit dialog) or behind an overlay, arrows/space must reach the page.
+  function keysActive() {
+    return !paused && (phase === "GET_READY" || phase === "PLAYING" || phase === "BELL_READY");
+  }
+
   function onKeyDown(e) {
+    if (!keysActive()) return;
     if (e.key === "ArrowLeft" || e.key === "a") {
       e.preventDefault();
       keys.left = true;
@@ -453,16 +484,19 @@ function startGame(mount, opts) {
   }
 
   function onKeyUp(e) {
+    // Always release key state (the phase may have changed mid-press), but
+    // only swallow the event while the game is interactive.
+    const active = keysActive();
     if (e.key === "ArrowLeft" || e.key === "a") {
-      e.preventDefault();
+      if (active) e.preventDefault();
       keys.left = false;
     }
     if (e.key === "ArrowRight" || e.key === "d") {
-      e.preventDefault();
+      if (active) e.preventDefault();
       keys.right = false;
     }
     if (isActionKey(e.key)) {
-      e.preventDefault();
+      if (active) e.preventDefault();
       keys.action = false;
       actionConsumed = false;
     }
@@ -570,6 +604,144 @@ function startGame(mount, opts) {
       : String(level.target).toUpperCase().split("");
   }
 
+  // Geometry for the current stage. startStage calls this with initial=true to
+  // (re)create slots/tiles/pals; the ResizeObserver calls it with initial=false
+  // so positions track the container without resetting stage progress.
+  function layoutScene(initial) {
+    const items = targetItemsFor(currentLevel);
+    const isSentence = Array.isArray(currentLevel.target);
+    GROUND_Y = Math.max(330, H - 86);
+
+    const gapPad = isSentence ? 70 : 54;
+    const baseSlotGap = isSentence ? 7 : 9;
+    const maxGapW = Math.min(W - 128, isSentence ? 520 : 380);
+    const totalFor = (widths, sGap) =>
+      widths.reduce((sum, width) => sum + width, 0) + sGap * Math.max(0, widths.length - 1);
+    // Long sentences must shrink to fit the available gap instead of spilling
+    // past the bridge onto the tile banks (happens below ~700px wide).
+    const baseWidths = items.map(item => tileWidthFor(item, isSentence));
+    const fitScale = Math.min(1, Math.max(140, maxGapW - gapPad) / Math.max(1, totalFor(baseWidths, baseSlotGap)));
+    const tileFitWidth = width => Math.max(isSentence ? 30 : 26, Math.round(width * fitScale));
+    const widths = baseWidths.map(tileFitWidth);
+    const slotGap = Math.max(3, Math.round(baseSlotGap * fitScale));
+    const slotTotal = totalFor(widths, slotGap);
+    const gapW = clamp(slotTotal + gapPad, 190, maxGapW);
+    const gapX = (W - gapW) / 2;
+    gap = { x: gapX, w: gapW };
+
+    const slotY = GROUND_Y - KEY_HEIGHT + 7;
+    let cursor = gapX + (gapW - slotTotal) / 2;
+    const rects = items.map((item, i) => {
+      const rect = { x: cursor, y: slotY, w: widths[i], h: KEY_HEIGHT };
+      cursor += widths[i] + slotGap;
+      return rect;
+    });
+
+    if (initial) {
+      slots = rects.map((rect, i) => ({
+        ...rect,
+        filled: false,
+        needed: items[i],
+        placedGlyph: "",
+        order: i,
+        snap: 0
+      }));
+
+      builder = {
+        x: Math.max(58, gapX - 122),
+        y: GROUND_Y - 36,
+        w: 28,
+        h: 38,
+        vx: 0,
+        speed: W < 560 ? 190 : 210,
+        carrying: null,
+        anim: 0,
+        facing: 1
+      };
+
+      const leftTiles = [];
+      const rightTiles = [];
+      currentLevel.tiles.forEach((tile, i) => {
+        if (i % 2 === 0) leftTiles.push({ tile, i });
+        else rightTiles.push({ tile, i });
+      });
+
+      function placeTile(entry, sideIndex, sideCount, side) {
+        const glyph = String(entry.tile.glyph);
+        const w = tileFitWidth(tileWidthFor(glyph, isSentence));
+        const bankStart = side < 0 ? 52 : gapX + gapW + 46;
+        const bankEnd = side < 0 ? gapX - 42 : W - 52;
+        const bankWidth = Math.max(60, bankEnd - bankStart);
+        const x = bankStart + (sideIndex + 0.5) * (bankWidth / Math.max(sideCount, 1));
+        return {
+          ...entry.tile,
+          glyph,
+          x: clamp(x, 38 + w / 2, W - 38 - w / 2),
+          y: GROUND_Y - 29 - (entry.i % 3) * 5,
+          w,
+          h: KEY_HEIGHT,
+          placed: false,
+          lost: false,
+          bob: Math.random() * Math.PI * 2,
+          homeX: x,
+          bankSide: side,
+          bankIndex: sideIndex,
+          bankCount: sideCount,
+          bankRow: entry.i % 3
+        };
+      }
+
+      tiles = [
+        ...leftTiles.map((entry, i) => placeTile(entry, i, leftTiles.length, -1)),
+        ...rightTiles.map((entry, i) => placeTile(entry, i, rightTiles.length, 1))
+      ];
+    } else {
+      // Relayout only: keep fill/carry state, refresh positions and sizes.
+      slots = slots.map((slot, i) => ({ ...slot, ...rects[i] }));
+      if (builder) {
+        builder.y = GROUND_Y - 36;
+        builder.x = clamp(builder.x, 18, W - 18);
+        builder.speed = W < 560 ? 190 : 210;
+        if (builder.carrying) {
+          builder.carrying.w = tileFitWidth(tileWidthFor(String(builder.carrying.glyph), isSentence));
+          builder.carrying.h = KEY_HEIGHT;
+        }
+      }
+      for (const t of tiles) {
+        t.w = tileFitWidth(tileWidthFor(String(t.glyph), isSentence));
+        t.h = KEY_HEIGHT;
+        if (t.placed || t.lost) continue;
+        const bankStart = t.bankSide < 0 ? 52 : gap.x + gap.w + 46;
+        const bankEnd = t.bankSide < 0 ? gap.x - 42 : W - 52;
+        const bankWidth = Math.max(60, bankEnd - bankStart);
+        const x = bankStart + (t.bankIndex + 0.5) * (bankWidth / Math.max(t.bankCount, 1));
+        t.homeX = x;
+        t.x = clamp(x, 38 + t.w / 2, W - 38 - t.w / 2);
+        t.y = GROUND_Y - 29 - t.bankRow * 5;
+      }
+    }
+
+    const palSpacing = clamp((gap.x - 92) / Math.max(1, currentLevel.pals - 1), 28, 48);
+    if (initial) {
+      pals = Array.from({ length: currentLevel.pals }, (_, i) => ({
+        x: 32 + i * palSpacing,
+        homeX: 32 + i * palSpacing,
+        y: GROUND_Y - 9,
+        state: "waiting",
+        t: i * 0.8,
+        speed: 80 + (i % 3) * 8,
+        color: i % 2 ? theme.palA : theme.palB
+      }));
+    } else {
+      pals.forEach((pal, i) => {
+        pal.homeX = 32 + i * palSpacing;
+        pal.y = GROUND_Y - 9;
+      });
+    }
+
+    bell = { x: W - 54, y: GROUND_Y - 96, r: 21 };
+  }
+
   function startStage() {
     stageIdx = stageQueue.peek();
     if (stageIdx == null) {
@@ -578,9 +750,7 @@ function startGame(mount, opts) {
     }
 
     currentLevel = ladder[stageIdx];
-    const items = targetItemsFor(currentLevel);
     const isSentence = Array.isArray(currentLevel.target);
-    GROUND_Y = Math.max(330, H - 86);
     levelMistakes = 0;
     patienceLeft = currentLevel.patience;
     particles = [];
@@ -592,95 +762,14 @@ function startGame(mount, opts) {
     pendingTapAction = null;
     overlay.style.display = "none";
 
-    const gapPad = isSentence ? 70 : 54;
-    const slotGap = isSentence ? 7 : 9;
-    const widths = items.map(item => tileWidthFor(item, isSentence));
-    const slotTotal = widths.reduce((sum, width) => sum + width, 0) + slotGap * Math.max(0, widths.length - 1);
-    const gapW = clamp(slotTotal + gapPad, 190, Math.min(W - 128, isSentence ? 520 : 380));
-    const gapX = (W - gapW) / 2;
-    gap = { x: gapX, w: gapW };
+    layoutScene(true);
 
-    const slotY = GROUND_Y - KEY_HEIGHT + 7;
-    let cursor = gapX + (gapW - slotTotal) / 2;
-    slots = items.map((item, i) => {
-      const width = widths[i];
-      const slot = {
-        x: cursor,
-        y: slotY,
-        w: width,
-        h: KEY_HEIGHT,
-        filled: false,
-        needed: item,
-        placedGlyph: "",
-        order: i,
-        snap: 0
-      };
-      cursor += width + slotGap;
-      return slot;
-    });
-
-    builder = {
-      x: Math.max(58, gapX - 122),
-      y: GROUND_Y - 36,
-      w: 28,
-      h: 38,
-      vx: 0,
-      speed: W < 560 ? 190 : 210,
-      carrying: null,
-      anim: 0,
-      facing: 1
-    };
-
-    const leftTiles = [];
-    const rightTiles = [];
-    currentLevel.tiles.forEach((tile, i) => {
-      if (i % 2 === 0) leftTiles.push({ tile, i });
-      else rightTiles.push({ tile, i });
-    });
-
-    function placeTile(entry, sideIndex, sideCount, side) {
-      const glyph = String(entry.tile.glyph);
-      const w = tileWidthFor(glyph, isSentence);
-      const bankStart = side < 0 ? 52 : gapX + gapW + 46;
-      const bankEnd = side < 0 ? gapX - 42 : W - 52;
-      const bankWidth = Math.max(60, bankEnd - bankStart);
-      const x = bankStart + (sideIndex + 0.5) * (bankWidth / Math.max(sideCount, 1));
-      return {
-        ...entry.tile,
-        glyph,
-        x: clamp(x, 38 + w / 2, W - 38 - w / 2),
-        y: GROUND_Y - 29 - (entry.i % 3) * 5,
-        w,
-        h: KEY_HEIGHT,
-        placed: false,
-        lost: false,
-        bob: Math.random() * Math.PI * 2,
-        homeX: x
-      };
-    }
-
-    tiles = [
-      ...leftTiles.map((entry, i) => placeTile(entry, i, leftTiles.length, -1)),
-      ...rightTiles.map((entry, i) => placeTile(entry, i, rightTiles.length, 1))
-    ];
-
-    const palSpacing = clamp((gap.x - 92) / Math.max(1, currentLevel.pals - 1), 28, 48);
-    pals = Array.from({ length: currentLevel.pals }, (_, i) => ({
-      x: 32 + i * palSpacing,
-      homeX: 32 + i * palSpacing,
-      y: GROUND_Y - 9,
-      state: "waiting",
-      t: i * 0.8,
-      speed: 80 + (i % 3) * 8,
-      color: i % 2 ? theme.palA : theme.palB
-    }));
-
-    bell = { x: W - 54, y: GROUND_Y - 96, r: 21 };
     phase = "GET_READY";
     phaseTimer = 2.0;
     setBanner(isSentence ? "Build the sentence" : `Build ${String(currentLevel.target).toUpperCase()}`, 1.9);
 
     elLab.textContent = isSentence ? "Build the sentence" : "Build the word";
+    elHear?.setAttribute("aria-label", isSentence ? "Hear the sentence" : "Hear the word");
     elLevel.textContent = String(stageIdx + 1);
     elWorld.textContent = `${theme.name} · ${stageIdx + 1}/${LEVELS_PER_DIFFICULTY}`;
     elStars.textContent = "☆☆☆";
@@ -746,7 +835,9 @@ function startGame(mount, opts) {
     opts.onScoreUpdate?.(score);
     opts.onProgressUpdate?.(wordsDone, ladder.length);
 
-    window.setTimeout(() => {
+    window.clearTimeout(levelCompleteTimer);
+    levelCompleteTimer = window.setTimeout(() => {
+      levelCompleteTimer = 0;
       if (phase === "LEVEL_COMPLETE") startStage();
     }, 1800);
   }
@@ -856,7 +947,9 @@ function startGame(mount, opts) {
       const carried = builder.carrying;
       const carriedValue = normalizeGlyph(carried.glyph);
       const neededValue = normalizeGlyph(slot.needed);
-      const isRightTile = carried.correct && carried.order === slot.order && carriedValue === neededValue;
+      // Match by glyph, not by tile order: with duplicate letters (the two Ts
+      // in "tent") either copy may fill any unfilled slot showing that glyph.
+      const isRightTile = carried.correct && carriedValue === neededValue;
 
       if (isRightTile) {
         slot.filled = true;
@@ -947,6 +1040,13 @@ function startGame(mount, opts) {
 
       if (phase === "PLAYING") {
         patienceLeft = Math.max(0, patienceLeft - dt);
+        if (patienceLeft <= 0) {
+          // Gentle consequence: the timer refills and the pals drift back to
+          // the gap start (progress resets to 0 below). No star penalty, no
+          // lost tiles — just a nudge to keep building.
+          patienceLeft = currentLevel.patience;
+          setBanner("The pals wander back", 1.4);
+        }
         const progress = clamp(1 - patienceLeft / Math.max(1, currentLevel.patience), 0, 1);
         const edge = gap.x - 18;
         for (let i = 0; i < pals.length; i += 1) {
@@ -2004,6 +2104,11 @@ function startGame(mount, opts) {
     running = false;
     cancelAnimationFrame(rafId);
     rafId = 0;
+    // Cancel the level-complete timer too, or it fires after unmount and
+    // restarts the render loop on a detached canvas.
+    window.clearTimeout(levelCompleteTimer);
+    levelCompleteTimer = 0;
+    cancelSpeech();
     window.removeEventListener("keydown", onKeyDown);
     window.removeEventListener("keyup", onKeyUp);
     ro.disconnect();

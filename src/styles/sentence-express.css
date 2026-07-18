@@ -384,6 +384,8 @@ button.sx-carbox:active { transform: translateY(2px); }
   box-shadow: 4px 4px 0 rgba(10, 15, 24, 0.4); color: var(--sx-ink);
 }
 .sx-bubble p { margin: 0 0 6px; font-weight: 600; font-size: 13px; }
+.sx-bubble .sx-sayit { margin: 0; font-weight: 700; font-size: 14px; }
+.sx-bubble .sx-hint { margin: 6px 0 0; font-weight: 700; font-size: 12.5px; color: #a03a2a; }
 .sx-bell {
   display: inline-flex; align-items: center; gap: 5px;
   background: #2f6b4f; color: #fff; border: 2px solid var(--sx-ink);
@@ -427,7 +429,7 @@ button.sx-carbox:active { transform: translateY(2px); }
   background: rgba(5, 8, 14, 0.84); color: #eef2f9;
   border: 2px solid #3aa17e; border-radius: 999px;
   padding: 14px 32px; font-size: clamp(19px, 2.6vw, 30px); font-weight: 700;
-  text-align: center; white-space: nowrap; overflow: hidden;
+  text-align: center; line-height: 1.4; overflow-wrap: break-word;
 }
 .sx-word-lit { color: var(--sx-brass); text-decoration: underline; }
 .sx-stamp {

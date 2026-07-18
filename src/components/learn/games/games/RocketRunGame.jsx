@@ -15,6 +15,8 @@ import {
   rocketRunLadder
 } from "../../../../utils/rocketRunRounds.js";
 import { starRubric } from "../../../../utils/starRubric.js";
+import { speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
 
 // Rocket Run: a real, steer-and-collect 3D game (not an animated worksheet).
 // The child flies a rocket across three lanes to catch the words that START
@@ -85,6 +87,9 @@ function startGame(THREE, mount, opts) {
   const ladder = rocketRunLadder(opts.difficulty);
   const targets = ladder.length ? ladder : rocketRunTargets();
   const sfx = fn => { if (opts.getSound ? opts.getSound() : opts.isSoundEnabled) { try { fn(); } catch { /* audio optional */ } } };
+  // Speech rides the same live sound gate as sfx and is purely additive —
+  // with sound off nothing is spoken and the game stays fully playable.
+  const say = fn => { if (opts.getSound ? opts.getSound() : opts.isSoundEnabled) { try { fn(); } catch { /* speech optional */ } } };
   const reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   function disposeGroup(obj) {
     if (!obj) return;
@@ -263,24 +268,34 @@ function startGame(THREE, mount, opts) {
   mount.appendChild(hud);
   const el = key => hud.querySelector('[data-rr="' + key + '"]');
   let bannerT = 0;
-  function showBanner(text) {
+  function showBanner(text, seconds = 1.2) {
     const b = el("banner"); if (!b) return;
     b.textContent = text;
     b.style.opacity = "1"; b.style.transform = "translateX(0)";
-    bannerT = 1.2;
+    bannerT = seconds;
   }
   // Start-of-round "get ready" popup: the target letter, big, plus a 3-2-1 count.
   // Spawning is gated on running=false until the countdown flips it true (in tick).
   function showCountdown(target) {
     const cd = el("countdown"); if (!cd) return;
+    // One-time steering hint, shown during the session's first countdown only.
+    const steerHint = steeringHintShown ? "" :
+      '<div style="margin-top:16px;font-size:.95rem;font-weight:700;color:#bfe6ff;opacity:.92">Tap the sides or use the arrow keys to steer</div>';
+    steeringHintShown = true;
     cd.innerHTML =
       '<div>' +
       '<div style="font-size:.78rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#7ff0ff;margin-bottom:12px">Find words beginning with</div>' +
       '<div style="width:136px;height:120px;margin:0 auto;display:grid;place-items:center;font-size:5rem;font-weight:900;color:#071033;background:linear-gradient(160deg,#ffe879,#ff9f24);clip-path:polygon(10% 0,100% 0,90% 100%,0 100%);box-shadow:0 10px 0 #9a5a14,inset 0 0 0 2px rgba(255,255,255,.28)">' + target + '</div>' +
       '<div data-rr="cd-num" style="font-size:3.6rem;font-weight:900;margin-top:18px;letter-spacing:.08em;text-shadow:0 3px 18px rgba(0,0,0,.75),0 0 24px rgba(127,240,255,.55)">3</div>' +
+      steerHint +
       '</div>';
     cd.style.display = "grid";
     countdownT = 3.4;
+    // Hear the target sound as the round is introduced. speakPhoneme only
+    // takes single letters; digraph targets route through speak() and stay
+    // silent if the word bank has no clip — never the wrong sound.
+    if (target.length === 1) say(() => speakPhoneme(target));
+    else say(() => speak(target));
   }
 
   const ambient = new THREE.AmbientLight(0x8899ff, 0.7);
@@ -849,6 +864,7 @@ function startGame(THREE, mount, opts) {
   let caught = 0;
   let needed = 0;
   let wrongHits = 0;
+  let missed = 0; // correct words that flew past uncaught this round
   let roundIx = Math.max(0, Math.min(Number(opts.startLevel) || 0, ROUNDS_PER_GAME - 1));
   let running = false;
   let raf = 0;
@@ -856,7 +872,7 @@ function startGame(THREE, mount, opts) {
   let shakeV = 0;
   let hearts = 3;
   let elapsed = 0;
-  let score = 0, caughtTotal = 0, neededTotal = 0, wrongTotal = 0, deaths = 0;
+  let score = 0, caughtTotal = 0, neededTotal = 0, wrongTotal = 0, missedTotal = 0, deaths = 0;
   const bursts = [];
   // ── quality-pass state (missions 1-5) ────────────────────────────────────
   let rollT = 0, rollDir = 0, shipPulse = 0;       // bank flourish + catch pulse
@@ -867,6 +883,7 @@ function startGame(THREE, mount, opts) {
   let cometStreakT = 6 + Math.random() * 14;       // ambient comet streak timer
   let countdownT = 0;                              // start-of-round get-ready countdown
   let roundTarget = "";                            // current target grapheme (for refill)
+  let steeringHintShown = false;                   // one-time "how to steer" countdown hint
   // (speedLines is declared up in the scene-setup section, before it's populated)
 
   function setFuel() { el("fuel").style.width = Math.round(needed ? (100 * caught) / needed : 0) + "%"; }
@@ -895,8 +912,10 @@ function startGame(THREE, mount, opts) {
     // Catch-up: a correct word that slipped past comes back. After 2 tries it
     // returns in the ship's OWN lane (a guaranteed catch) — a word is never lost.
     const tries = (data.tries || 0) + 1;
+    missed += 1; // a missed catch counts as a mistake in the end-of-game rubric
     resetCombo(); // a correct word slipping past breaks the streak
     missCue();
+    say(() => speakWord(data.word)); // hear the word that slipped past
     if (tries <= 2) queue.splice(Math.min(3, queue.length), 0, { word: data.word, correct: true, tries });
     else queue.splice(Math.min(1, queue.length), 0, { word: data.word, correct: true, tries, guaranteed: true });
   }
@@ -975,6 +994,7 @@ function startGame(THREE, mount, opts) {
     needed = round.needed;
     caught = 0;
     wrongHits = 0;
+    missed = 0;
     hearts = 3;
     bubbles = [];
     spawnTimer = 0.3;
@@ -985,7 +1005,7 @@ function startGame(THREE, mount, opts) {
     showBanner("Round " + (roundIx + 1) + " — " + theme.name);
     showCountdown(target);    // big target letter + 3-2-1 before any words fly
     if (roundIx === ROUNDS_PER_GAME - 1 && !finaleComet) spawnFinaleComet(); // Comet Chase finale
-    if (opts.onProgressUpdate) opts.onProgressUpdate(roundIx, ROUNDS_PER_GAME);
+    if (opts.onProgressUpdate) opts.onProgressUpdate(roundIx + 1, ROUNDS_PER_GAME);
     if (opts.onCheckpoint) opts.onCheckpoint(roundIx, ROUNDS_PER_GAME);
   }
 
@@ -1038,13 +1058,23 @@ function startGame(THREE, mount, opts) {
       setFuel();
       sfx(playCorrectChime);
       sfx(playPopSound);
+      say(() => speakWord(bubble.userData.word)); // hear the word you caught
       burst(bubble.position, 0x8affc0);
     } else if (hit && !bubble.userData.correct) {
-      // Hitting a WRONG word now costs a life (loseHeart handles wrongHits, the
-      // buzz, the shake, and ending the round if this was the last heart).
+      // Wrong word = SOFT penalty (hearts are for meteors only): the bubble
+      // bounces off the shield, the combo breaks, and we flash + speak the
+      // contrast ("map starts with m") so the hit teaches the sound difference.
       resetCombo();
-      burst(bubble.position, 0xff7a66);
-      loseHeart();
+      rollT = 0.38; rollDir = bubble.userData.lane === 0 ? 1 : -1; // flinch away
+      shakeV = 0.3;
+      sfx(playSoftBuzz);
+      const onset = onsetGrapheme(bubble.userData.word);
+      showBanner("'" + bubble.userData.word + "' starts with '" + onset + "'", 2.4);
+      say(() => {
+        const said = speakWord(bubble.userData.word);
+        if (onset.length === 1) said.then(() => speakPhoneme(onset)).catch(() => {});
+      });
+      burst(bubble.position, 0xffd34e);
     }
     scene.remove(bubble); disposeGroup(bubble);
     if (caught >= needed) endRound();
@@ -1106,7 +1136,7 @@ function startGame(THREE, mount, opts) {
     if (!running) return; // idempotent — a death and a caught>=needed can both fire in one frame
     running = false;
     clearField();
-    caughtTotal += caught; neededTotal += needed; wrongTotal += wrongHits;
+    caughtTotal += caught; neededTotal += needed; wrongTotal += wrongHits; missedTotal += missed;
     const stars = rocketRunStars(caught, needed, wrongHits);
     el("stars").textContent = "★".repeat(stars) + "✩".repeat(3 - stars);
     sfx(playStarChime);
@@ -1129,7 +1159,10 @@ function startGame(THREE, mount, opts) {
 
   function finishGame() {
     sfx(playCelebrationFanfare);
-    const stars = starRubric({ correct: caughtTotal, total: neededTotal, mistakes: wrongTotal, deaths });
+    // Mistakes = heart-losing hits + correct words that flew past uncaught.
+    // Without the misses, endRound only fires at caught >= needed, so rubric
+    // accuracy was a structural 100% and stars could never drop below 2.
+    const stars = starRubric({ correct: caughtTotal, total: neededTotal, mistakes: wrongTotal + missedTotal, deaths });
     // Comet Chase finale: a burst of confetti as the run completes.
     const confettiColors = [0xffd34e, 0x59ffe0, 0xff7a9c, 0x8affc0];
     for (let i = 0; i < 6; i += 1) burst({ x: (Math.random() - 0.5) * 6, y: 1 + Math.random() * 3, z: 3 }, confettiColors[i % 4]);
@@ -1292,11 +1325,12 @@ function startGame(THREE, mount, opts) {
     if (bannerT > 0) { bannerT -= dt; if (bannerT <= 0) { const b = el("banner"); if (b) { b.style.opacity = "0"; b.style.transform = "translateX(-40px)"; } } }
 
     // Start-of-round get-ready countdown (3-2-1-GO); holds spawning until it finishes.
+    // Frozen while paused, so it can't flip running=true behind the quit dialog.
     if (countdownT > 0) {
-      countdownT -= dt;
+      if (!paused) countdownT -= dt;
       const cd = el("countdown");
       if (cd) { const n = cd.querySelector('[data-rr="cd-num"]'); if (n) n.textContent = countdownT > 0.5 ? String(Math.max(1, Math.ceil(countdownT - 0.4))) : "GO!"; }
-      if (countdownT <= 0) { if (cd) cd.style.display = "none"; running = true; }
+      if (countdownT <= 0 && !paused) { if (cd) cd.style.display = "none"; running = true; }
     }
 
     if (running) {

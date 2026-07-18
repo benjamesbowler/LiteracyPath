@@ -10,9 +10,12 @@ import {
 import { soundRacerLadder, buildTrack, worldObstacles } from "../../../../utils/soundRacerTracks.js";
 import { worldForGameDifficulty, LEVELS_PER_DIFFICULTY } from "../../../../utils/curriculumLadder.js";
 import { starRubric } from "../../../../utils/starRubric.js";
+import { speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
 
 const THREE_SRC = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
 const LANES = [-3.15, 0, 3.15];
+const LANE_NAMES = ["left", "middle", "right"];
 const TRACK_UNIT = 3.05;
 const TRACK_WIDTH = 9.6;
 const TRACK_SEGMENT_LENGTH = 8;
@@ -251,19 +254,16 @@ function mapForLevel(world, levelIdx) {
   return maps[levelIdx % maps.length];
 }
 
-function instructionFor(difficulty) {
-  const d = String(difficulty || "").toLowerCase();
-  return d === "hard" || d === "high"
-    ? "Catch words carrying this sound"
-    : "Catch words that start with";
+function instructionFor() {
+  // Matching is initial-sound only at every difficulty, so the copy must
+  // say "start with" everywhere (hard mode used to promise "carrying this
+  // sound", which the track builder does not deliver).
+  return "Catch words that start with";
 }
 
-function countdownPrompt(target, difficulty) {
+function countdownPrompt(target) {
   const letter = String(target || "").toUpperCase();
-  const d = String(difficulty || "").toLowerCase();
-  return d === "hard" || d === "high"
-    ? `Find Words With ${letter}`
-    : `Find Words Beginning With ${letter}`;
+  return `Find Words Beginning With ${letter}`;
 }
 
 function disposeObject(obj) {
@@ -406,6 +406,7 @@ function startGame(THREE, mount, opts) {
   let speed = 0;
   let timeMs = 0;
   let score = 0;
+  let levelStartScore = 0;
   let wordsCorrect = 0;
   let wordsWrong = 0;
   let missedCorrect = 0;
@@ -1005,12 +1006,14 @@ function startGame(THREE, mount, opts) {
 
   function makeWordGate(gate) {
     const group = new THREE.Group();
-    const accent = gate.correct ? currentMap.gate : currentMap.wrong;
+    // Correct and wrong gates look identical until passed through: the lesson
+    // is reading the word on the gate, not spotting which ring glows.
+    const accent = currentMap.gate;
     const torus = new THREE.Mesh(
       new THREE.TorusGeometry(0.92, 0.075, 8, 24),
       basic(accent, {
         transparent: true,
-        opacity: gate.correct ? 0.9 : 0.42,
+        opacity: 0.9,
         blending: THREE.AdditiveBlending,
         depthWrite: false
       })
@@ -1024,7 +1027,7 @@ function startGame(THREE, mount, opts) {
         metalness: 0.15,
         roughness: 0.36,
         emissive: accent,
-        emissiveIntensity: gate.correct ? 0.45 : 0.06
+        emissiveIntensity: 0.45
       })
     );
     core.position.y = -0.02;
@@ -1032,7 +1035,7 @@ function startGame(THREE, mount, opts) {
     group.add(core);
 
     const sprite = new THREE.Sprite(new THREE.SpriteMaterial({
-      map: labelTexture(gate.word, accent, !gate.correct),
+      map: labelTexture(gate.word, accent, false),
       transparent: true,
       depthTest: false,
       depthWrite: false
@@ -1041,7 +1044,7 @@ function startGame(THREE, mount, opts) {
     sprite.scale.set(3.65, 1.78, 1);
     sprite.position.set(0, 1.24, 0.25);
     group.add(sprite);
-    group.userData.spin = gate.correct ? 1.15 : 0.55;
+    group.userData.spin = 1.15;
     group.userData.sprite = sprite;
     return setModelShadows(group, true, false);
   }
@@ -1084,7 +1087,7 @@ function startGame(THREE, mount, opts) {
     mesh.position.set(LANES[gate.lane], 0.98, -100);
     mesh.visible = false;
     gateGroup.add(mesh);
-    return { ...gate, mesh, resolved: false, tries: gate.tries || 0, baseLane: gate.lane };
+    return { ...gate, mesh, resolved: false, tries: gate.tries || 0, baseLane: gate.lane, hintShown: false };
   }
 
   function makeBoostCone(x, y, z, radius = 0.24, length = 1.18) {
@@ -2555,6 +2558,15 @@ function startGame(THREE, mount, opts) {
     running = false;
     hideOverlay();
     showCountdown(target);
+    // Speak the target sound at countdown (single letters get the pure phoneme
+    // clip; digraphs get an example word from the track, since speakPhoneme
+    // only handles one letter).
+    if (/^[a-z]$/.test(target)) {
+      sfx(() => speakPhoneme(target));
+    } else {
+      const example = track.gates.find(gate => gate.correct)?.word;
+      if (example) sfx(() => speakWord(example));
+    }
     showBanner(`Track ${levelIdx + 1} — ${currentMap.name}`);
 
     el("target").textContent = target;
@@ -2623,7 +2635,9 @@ function startGame(THREE, mount, opts) {
     if (!track || !word) return;
     catchUpSerial += 1;
     const z = Math.max(track.totalLength + 18, playerZ + 28 + (catchUpSerial % 3) * 9);
-    const lane = tries >= 2 ? laneIx : Math.floor(Math.random() * LANES.length);
+    // Always a random lane: placing repeat words in the player's current lane
+    // after two misses made the game catch the word by itself.
+    const lane = Math.floor(Math.random() * LANES.length);
     const gate = { kind: "word", word, correct: true, lane, z, catchup: true, tries };
     track.totalLength = Math.max(track.totalLength, z + 36);
     gateObjects.push(makeGateObject(gate));
@@ -2652,6 +2666,7 @@ function startGame(THREE, mount, opts) {
         addScore(100 + Math.max(0, shield - 1) * 15);
         sfx(playCorrectChime);
         sfx(playWhoosh);
+        sfx(() => speakWord(obj.word));
         addBurst(LANES[obj.lane], 1.1, CATCH_Z, currentMap.gate, 20);
       }
     } else if (obj.kind === "obstacle" && hit) {
@@ -2661,6 +2676,9 @@ function startGame(THREE, mount, opts) {
     } else if (hit && obj.kind === "word" && !obj.correct) {
       wordsWrong += 1;
       hurtShip("wrong");
+      // Name the word's real onset so a wrong catch teaches something.
+      const onset = onsetGrapheme(obj.word);
+      if (onset) showBanner(`${obj.word} starts with ${String(onset).toUpperCase()}`);
       addBurst(LANES[obj.lane], 1.1, CATCH_Z, 0xff7a66, 12);
     } else if (obj.correct && !hit) {
       missedCorrect += 1;
@@ -2686,8 +2704,18 @@ function startGame(THREE, mount, opts) {
     const result = levelResult();
     levelResults[levelIdx] = result;
     const best = getBest(levelIdx);
-    const isNewBest = !best || result.timeMs < best.bestTimeMs || result.stars > best.stars;
-    if (isNewBest) setBest(levelIdx, { bestTimeMs: result.timeMs, stars: result.stars, accuracy: result.accuracy });
+    const newBestTime = !best || result.timeMs < best.bestTimeMs;
+    const newBestStars = !best || result.stars > best.stars;
+    const isNewBest = newBestTime || newBestStars;
+    // Time and stars are stored independently: beating one must never
+    // overwrite (regress) the other.
+    if (isNewBest) {
+      setBest(levelIdx, {
+        bestTimeMs: newBestTime ? result.timeMs : best.bestTimeMs,
+        stars: newBestStars ? result.stars : best.stars,
+        accuracy: Math.max(best?.accuracy || 0, result.accuracy)
+      });
+    }
     opts.onProgressUpdate?.(levelIdx + 1, levelCount);
     sfx(playStarChime);
 
@@ -2708,11 +2736,16 @@ function startGame(THREE, mount, opts) {
     );
     overlay.querySelector('[data-sr="retry"]').addEventListener("click", () => {
       sfx(playTapSound);
+      // Restore the score snapshot taken when this track started so retrying
+      // a track cannot farm points on top of the previous attempt.
+      score = levelStartScore;
+      opts.onScoreUpdate?.(score);
       startLevel();
     });
     overlay.querySelector('[data-sr="next"]').addEventListener("click", () => {
       sfx(playTapSound);
       levelIdx += 1;
+      levelStartScore = score;
       startLevel();
     });
   }
@@ -2749,8 +2782,14 @@ function startGame(THREE, mount, opts) {
 
   const onLeft = () => moveLane(-1);
   const onRight = () => moveLane(1);
+  // Keyboard activation (Enter/Space) fires click with detail 0; pointer taps
+  // already steered on pointerdown, so only detail 0 clicks may steer here.
+  const onLeftClick = event => { if (event.detail === 0) onLeft(); };
+  const onRightClick = event => { if (event.detail === 0) onRight(); };
   el("left").addEventListener("pointerdown", onLeft);
   el("right").addEventListener("pointerdown", onRight);
+  el("left").addEventListener("click", onLeftClick);
+  el("right").addEventListener("click", onRightClick);
 
   const onKey = event => {
     if (event.key === "ArrowLeft" || event.key === "a") moveLane(-1);
@@ -2830,6 +2869,13 @@ function startGame(THREE, mount, opts) {
         obj.mesh.scale.setScalar(scale);
         obj.mesh.rotation.y += dt * obj.mesh.userData.spin;
         if (obj.kind === "obstacle") obj.mesh.rotation.x += dt * 0.8;
+      }
+      if (obj.catchup && obj.tries >= 2 && !obj.hintShown && distance > 0 && distance <= VIEW_DISTANCE) {
+        // After two misses the word stays in a random lane, but the player
+        // gets a lane callout instead of the word landing in their lap.
+        obj.hintShown = true;
+        showBanner(`${obj.word} — ${LANE_NAMES[obj.lane]} lane!`);
+        sfx(() => speakWord(obj.word));
       }
       if (distance <= CATCH_WINDOW) resolveGate(obj);
     }
@@ -2927,7 +2973,7 @@ function startGame(THREE, mount, opts) {
     updateShip(dt, now);
     updateBursts(dt);
 
-    const wantedFov = boostT > 0 ? 73 : cameraBaseFov;
+    const wantedFov = boostT > 0 && !reduceMotion ? 73 : cameraBaseFov;
     if (Math.abs(fov - wantedFov) > 0.1) {
       fov += (wantedFov - fov) * Math.min(1, dt * 5);
       camera.fov = fov;
@@ -2968,6 +3014,8 @@ function startGame(THREE, mount, opts) {
     renderer.domElement.removeEventListener("pointerup", onPointerUp);
     el("left").removeEventListener("pointerdown", onLeft);
     el("right").removeEventListener("pointerdown", onRight);
+    el("left").removeEventListener("click", onLeftClick);
+    el("right").removeEventListener("click", onRightClick);
     ro.disconnect();
     if (ship) {
       scene.remove(ship);

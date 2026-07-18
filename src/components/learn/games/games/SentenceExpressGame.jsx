@@ -19,6 +19,17 @@ const FAULT_LABELS = {
   order: "carriages scrambled", engine: "engine missing", caboose: "caboose missing",
   rusty: "one rusty car", gap: "one crate lost"
 };
+// One-line corrective hint per miss kind (the engine shed's
+// "Only a capital can lead the train!" is the model).
+const MISS_HINTS = {
+  order: "Not that car - which word comes next?",
+  rusty: "Rusty car! Swap it at the repair shed first.",
+  engine: "Only a capital can lead the train!",
+  caboose: "That mark does not end this sentence.",
+  "early-caboose": "Couple every carriage first!",
+  repair: "That is not the word the master said.",
+  crate: "That is not the missing word."
+};
 const TONES = [["#4a90d9", "#2f5d94"], ["#e9a23b", "#a96f16"], ["#3aa17e", "#256b52"], ["#8d6bd9", "#5a3f93"]];
 
 // -- SVG rolling stock --------------------------------------------------------
@@ -273,6 +284,26 @@ function playWord(word, onEnd) {
   } catch { onEnd?.(); return null; }
 }
 
+// Every timeout and word-audio element is registered so pause and unmount
+// can cancel all of them (GamePlayer pauses on tab-hide and quit dialog).
+function later(registry, ms, fn) {
+  const id = window.setTimeout(() => { registry.delete(id); fn(); }, ms);
+  registry.add(id);
+  return id;
+}
+function cancelLater(registry, id) {
+  registry.delete(id);
+  window.clearTimeout(id);
+}
+function playWordTracked(registry, word, onEnd) {
+  const audio = playWord(word, onEnd);
+  if (audio) {
+    registry.add(audio);
+    audio.addEventListener("ended", () => registry.delete(audio), { once: true });
+  }
+  return audio;
+}
+
 // -- Game ---------------------------------------------------------------------
 export default function SentenceExpressGame({
   difficulty = "easy",
@@ -280,6 +311,8 @@ export default function SentenceExpressGame({
   isSoundEnabled = true,
   onComplete = () => {},
   onQuit = () => {},
+  // GamePlayer pauses on tab-hide and while its quit dialog is open.
+  onEngineReady,
   // The arcade shell (GamePlayer) has its own close button; hide ours there
   // so onQuit fires only at the true end of the 10-level run.
   showQuit = true
@@ -311,9 +344,16 @@ export default function SentenceExpressGame({
   const [motion, setMotion] = useState("enter"); // enter -> idle -> out
   const [blast, setBlast] = useState(false);     // whistle steam burst
   const [comboToast, setComboToast] = useState("");
+  const [hint, setHint] = useState(""); // one-line corrective hint after a miss
   const paused = useRef(false);
   const audioRef = useRef(null);
   const chuffStop = useRef(null);
+  const timers = useRef(new Set());       // every pending timeout id
+  const wordAudios = useRef(new Set());   // every live word-audio element
+  const departResume = useRef(null);      // depart read-back continuation while paused
+  const announceResume = useRef(null);    // station-master read-aloud continuation
+  const phaseRef = useRef(PHASES.INTRO);
+  const soundRef = useRef(isSoundEnabled);
 
   // The corrected word sequence the child must rebuild.
   const solution = useMemo(() => train.words.map((w, i) => {
@@ -328,12 +368,49 @@ export default function SentenceExpressGame({
     && (!train.caboose || cabooseChoice === train.endMark)
     && (!train.engine || engineChoice === train.engine.correct);
 
+  useEffect(() => { soundRef.current = isSoundEnabled; }, [isSoundEnabled]);
+  useEffect(() => { phaseRef.current = phase; }, [phase]);
+
+  // GamePlayer freezes the game on tab-hide and while its quit dialog is
+  // open: stop the chuff loop, checkpoint the depart chain, and pause any
+  // playing word audio; resume picks everything back up.
+  function enginePause() {
+    if (paused.current) return;
+    paused.current = true;
+    chuffStop.current?.();
+    chuffStop.current = null;
+    audioRef.current?.pause?.();
+  }
+  function engineResume() {
+    if (!paused.current) return;
+    paused.current = false;
+    const pending = departResume.current || announceResume.current;
+    departResume.current = null;
+    announceResume.current = null;
+    if (pending) pending();
+    else {
+      const audio = audioRef.current;
+      if (audio && !audio.ended && audio.paused) audio.play().catch(() => { /* needs a gesture first */ });
+    }
+    if (phaseRef.current === PHASES.DEPART && soundRef.current && !chuffStop.current) {
+      chuffStop.current = sfx.startChuff();
+    }
+  }
+
   useEffect(() => {
-    const onVis = () => { paused.current = document.hidden; };
-    document.addEventListener("visibilitychange", onVis);
+    onEngineReady?.({ pause: enginePause, resume: engineResume });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- callbacks only touch refs, register once
+  }, []);
+
+  useEffect(() => {
+    const pendingTimers = timers.current;
+    const liveAudios = wordAudios.current;
     return () => {
-      document.removeEventListener("visibilitychange", onVis);
+      for (const id of pendingTimers) window.clearTimeout(id);
+      pendingTimers.clear();
       chuffStop.current?.();
+      for (const audio of liveAudios) { try { audio.pause(); } catch { /* already gone */ } }
+      liveAudios.clear();
     };
   }, []);
 
@@ -342,8 +419,9 @@ export default function SentenceExpressGame({
     audioRef.current?.pause?.();
     let i = 0;
     const speakNext = () => {
-      if (paused.current || i >= solution.length) return;
-      audioRef.current = playWord(solution[i], () => { i += 1; speakNext(); });
+      if (i >= solution.length) return;
+      if (paused.current) { announceResume.current = speakNext; return; }
+      audioRef.current = playWordTracked(wordAudios.current, solution[i], () => { i += 1; speakNext(); });
     };
     speakNext();
   }
@@ -351,13 +429,16 @@ export default function SentenceExpressGame({
   // the target sentence.
   useEffect(() => {
     if (phase !== PHASES.SHUNT) return undefined;
-    const t0 = window.setTimeout(() => setMotion("enter"), 0);
-    const tIn = window.setTimeout(() => setMotion("idle"), 90);
+    const registry = timers.current;
+    const t0 = later(registry, 0, () => setMotion("enter"));
+    const tIn = later(registry, 90, () => setMotion("idle"));
     const stopArrivalChuff = isSoundEnabled ? sfx.startChuff() : () => {};
-    const tChuff = window.setTimeout(stopArrivalChuff, 1300);
-    const tSay = window.setTimeout(() => announce(), 1500);
+    chuffStop.current = stopArrivalChuff; // so enginePause silences it too
+    const tChuff = later(registry, 1300, stopArrivalChuff);
+    const tSay = later(registry, 1500, () => announce());
     return () => {
-      window.clearTimeout(t0); window.clearTimeout(tIn); window.clearTimeout(tChuff); window.clearTimeout(tSay);
+      cancelLater(registry, t0); cancelLater(registry, tIn);
+      cancelLater(registry, tChuff); cancelLater(registry, tSay);
       stopArrivalChuff();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- run once per train entry
@@ -365,9 +446,17 @@ export default function SentenceExpressGame({
 
   useEffect(() => {
     if (!banner) return undefined;
-    const t = window.setTimeout(() => setBanner(""), 1300);
-    return () => window.clearTimeout(t);
+    const registry = timers.current;
+    const t = later(registry, 1300, () => setBanner(""));
+    return () => cancelLater(registry, t);
   }, [banner]);
+
+  useEffect(() => {
+    if (!hint) return undefined;
+    const registry = timers.current;
+    const t = later(registry, 1700, () => setHint(""));
+    return () => cancelLater(registry, t);
+  }, [hint]);
 
   function miss(kind) {
     if (isSoundEnabled) sfx.buzz();
@@ -375,7 +464,8 @@ export default function SentenceExpressGame({
     setDelay(d => d + 1);
     setMistakes(m => m + 1);
     setCombo(1);
-    window.setTimeout(() => setJolt(false), 460);
+    setHint(MISS_HINTS[kind] || "Try again!");
+    later(timers.current, 460, () => setJolt(false));
     // Only order-type misses need the sentence again; panel misses just buzz.
     if ((kind === "order" || kind === "rusty") && isSoundEnabled) announce();
   }
@@ -383,7 +473,7 @@ export default function SentenceExpressGame({
   function goodBump() {
     if (isSoundEnabled) sfx.clunk();
     setBump(true);
-    window.setTimeout(() => setBump(false), 240);
+    later(timers.current, 240, () => setBump(false));
   }
 
   function couple(wordIndex) {
@@ -432,13 +522,13 @@ export default function SentenceExpressGame({
       setCombo(next);
       if (next > 1) {
         setComboToast(`COMBO x${next}!`);
-        window.setTimeout(() => setComboToast(""), 1400);
+        later(timers.current, 1400, () => setComboToast(""));
       }
       setStamp(true);
-      if (isSoundEnabled) window.setTimeout(() => sfx.stamp(), 550);
+      if (isSoundEnabled) later(timers.current, 550, () => sfx.stamp());
     }
     setBlast(true);
-    window.setTimeout(() => setBlast(false), 1100);
+    later(timers.current, 1100, () => setBlast(false));
     if (isSoundEnabled) {
       sfx.whistle();
       sfx.crossingBell();
@@ -446,20 +536,31 @@ export default function SentenceExpressGame({
     }
     setPhase(PHASES.DEPART);
     let i = 0;
+    const leaveStation = () => {
+      // Read-back done: the train accelerates out of the scene.
+      setMotion("out");
+      later(timers.current, 1500, () => {
+        if (paused.current) { departResume.current = finishTrain; return; }
+        finishTrain();
+      });
+    };
+    // Pause checkpoints the chain: a timer that fires while paused stores its
+    // continuation instead of advancing, and engineResume runs it later.
     const step = () => {
+      if (paused.current) { departResume.current = step; return; }
       if (i >= solution.length) {
-        // Read-back done: the train accelerates out of the scene.
-        window.setTimeout(() => {
-          setMotion("out");
-          window.setTimeout(finishTrain, 1500);
-        }, 450);
+        later(timers.current, 450, () => {
+          if (paused.current) { departResume.current = leaveStation; return; }
+          leaveStation();
+        });
         return;
       }
       setLitWord(i);
-      if (isSoundEnabled) playWord(solution[i], () => { i += 1; step(); });
-      else window.setTimeout(() => { i += 1; step(); }, 560);
+      if (isSoundEnabled) {
+        audioRef.current = playWordTracked(wordAudios.current, solution[i], () => { i += 1; step(); });
+      } else later(timers.current, 560, () => { i += 1; step(); });
     };
-    window.setTimeout(step, 950);
+    later(timers.current, 950, step);
   }
 
   function finishTrain() {
@@ -643,7 +744,13 @@ export default function SentenceExpressGame({
             <span className="sx-pal" aria-hidden="true"><LanternBadge /></span>
             <div className="sx-bubble">
               <p>Build the train that says...</p>
-              <button type="button" className="sx-bell" onClick={announce}><BellIcon /> Hear it again</button>
+              {isSoundEnabled ? (
+                <button type="button" className="sx-bell" onClick={announce}><BellIcon /> Hear it again</button>
+              ) : (
+                // Sound off: the listen button would no-op, so read it instead.
+                <p className="sx-sayit">"{solution.join(" ")}{train.endMark}"</p>
+              )}
+              {hint && <p className="sx-hint" role="status">{hint}</p>}
             </div>
           </div>
 

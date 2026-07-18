@@ -105,9 +105,9 @@ const LEVELS = {
     {
       mode: "wordParts",
       prompt: "Build the two-part word",
-      cue: "Target word: rocket",
-      target: "rocket",
-      correctWords: ["rock", "et"],
+      cue: "Target word: sunset",
+      target: "sunset",
+      correctWords: ["sun", "set"],
       distractors: ["sock", "kit", "red", "fish", "moon", "table", "rain", "cup", "plant", "star"]
     },
     {
@@ -145,9 +145,9 @@ const LEVELS = {
     {
       mode: "wordParts",
       prompt: "Build the two-part word",
-      cue: "Target word: magnet",
-      target: "magnet",
-      correctWords: ["mag", "net"],
+      cue: "Target word: basket",
+      target: "basket",
+      correctWords: ["bas", "ket"],
       distractors: ["map", "nut", "mat", "get", "fish", "sun", "cup", "rock", "plant", "rain"]
     },
     {
@@ -179,9 +179,9 @@ const LEVELS = {
     {
       mode: "wordParts",
       prompt: "Build the three-part word",
-      cue: "Target word: volcano",
-      target: "volcano",
-      correctWords: ["vol", "ca", "no"],
+      cue: "Target word: kangaroo",
+      target: "kangaroo",
+      correctWords: ["kan", "ga", "roo"],
       distractors: ["van", "can", "go", "stone", "river", "moon", "cloud", "spark", "bird", "tree"]
     },
     {

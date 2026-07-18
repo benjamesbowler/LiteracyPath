@@ -28,6 +28,13 @@ test("every correct word truly starts with the target sound", () => {
   }
 });
 
+test("every target has a deep word pool (12+) so rounds don't recycle the same words", () => {
+  for (const g of rocketRunTargets()) {
+    const pool = wordsStartingWith(g);
+    assert.ok(pool.length >= 12, `${g}: only ${pool.length} onset words — rounds would recycle`);
+  }
+});
+
 test("every round is winnable and every distractor is sound-distinct from the target", () => {
   for (const g of rocketRunTargets()) {
     for (let i = 0; i < 12; i += 1) {

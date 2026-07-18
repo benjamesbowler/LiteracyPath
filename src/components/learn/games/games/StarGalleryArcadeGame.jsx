@@ -8,6 +8,7 @@ import {
   playTapSound
 } from "../../../../utils/audio/gameSfx.js";
 import { starGalleryLadder, starGalleryStars } from "../../../../utils/starGalleryRounds.js";
+import { cancelSpeech, speak } from "../../../../utils/learnGamesAudio.js";
 
 // PS2-style architecture note for future learners:
 // The browser is standing in for the PS2 hardware here. The JS update loop acts like the EE core
@@ -990,23 +991,7 @@ function makeVehicle(theme, world) {
     group.add(broom, bristles);
   }
 
-  const carryAnchor = new THREE.Group();
-  carryAnchor.position.set(0, 3.1, 0.15);
-  carryAnchor.visible = false;
-  group.add(carryAnchor);
-
-  const navArrow = new THREE.Group();
-  const arrowShaft = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.14, 1.45), emissiveMaterial(theme.accent2, 0.62));
-  arrowShaft.position.z = -0.1;
-  const arrowTip = new THREE.Mesh(new THREE.ConeGeometry(0.44, 0.85, 5), emissiveMaterial(theme.accent, 0.86));
-  arrowTip.position.z = -1.0;
-  arrowTip.rotation.x = -Math.PI / 2;
-  navArrow.add(arrowShaft, arrowTip);
-  navArrow.position.set(0, 4.2, 0);
-  navArrow.visible = false;
-  group.add(navArrow);
-
-  group.userData = { wheels, carryAnchor, navArrow };
+  group.userData = { wheels };
   group.traverse(child => {
     child.castShadow = true;
     child.receiveShadow = true;
@@ -1022,10 +1007,11 @@ function makeToken(label, isCorrect, answer, theme, position) {
   stump.position.y = 0.17;
   const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.5, 3.05, 7), material("#784b2b"));
   trunk.position.y = 1.68;
-  const cutMark = new THREE.Mesh(new THREE.BoxGeometry(0.74, 0.18, 0.08), emissiveMaterial(isCorrect ? theme.accent2 : theme.danger, 0.42));
+  // Every tree renders identically — correctness is only revealed after the player cuts.
+  const cutMark = new THREE.Mesh(new THREE.BoxGeometry(0.74, 0.18, 0.08), emissiveMaterial(theme.accent, 0.42));
   cutMark.position.set(0, 1.06, -0.42);
   cutMark.rotation.z = -0.3;
-  const foliageMat = material(isCorrect ? theme.ground2 : theme.ground, { emissive: new THREE.Color(isCorrect ? theme.ground2 : theme.ground), emissiveIntensity: isCorrect ? 0.08 : 0.02 });
+  const foliageMat = material(theme.ground, { emissive: new THREE.Color(theme.ground), emissiveIntensity: 0.02 });
   const lower = new THREE.Mesh(new THREE.ConeGeometry(1.55, 1.85, 6), foliageMat);
   lower.position.y = 3.0;
   const mid = new THREE.Mesh(new THREE.ConeGeometry(1.28, 1.7, 6), foliageMat);
@@ -1050,7 +1036,7 @@ function makeToken(label, isCorrect, answer, theme, position) {
     material("#f5f8ff", { roughness: 0.62, metalness: 0.02, transparent: true, opacity: 0.94 })
   );
   face.position.set(0, 2.24, -0.78);
-  const signRail = new THREE.Mesh(new THREE.BoxGeometry(faceWidth + 0.28, 0.16, 0.22), emissiveMaterial(isCorrect ? theme.accent2 : theme.accent, 0.28));
+  const signRail = new THREE.Mesh(new THREE.BoxGeometry(faceWidth + 0.28, 0.16, 0.22), emissiveMaterial(theme.accent, 0.28));
   signRail.position.set(0, 2.94, -0.75);
   const signBottom = signRail.clone();
   signBottom.position.y = 1.52;
@@ -1073,9 +1059,9 @@ function makeToken(label, isCorrect, answer, theme, position) {
   labelMesh.scale.set(labelWidth, 2.34, 1);
   labelMesh.position.set(0, 2.28, -1.1);
   labelMesh.renderOrder = 10;
-  const beacon = new THREE.Mesh(new THREE.OctahedronGeometry(0.38, 0), emissiveMaterial(isCorrect ? theme.accent2 : theme.accent, 0.72));
+  const beacon = new THREE.Mesh(new THREE.OctahedronGeometry(0.38, 0), emissiveMaterial(theme.accent, 0.72));
   beacon.position.y = 5.68;
-  const glow = new THREE.PointLight(isCorrect ? theme.accent2 : theme.accent, isCorrect ? 1.45 : 0.78, 12, 2.2);
+  const glow = new THREE.PointLight(theme.accent, 0.78, 12, 2.2);
   glow.position.y = 3.5;
   group.add(shadow, stump, trunk, cutMark, lower, mid, top, face, signRail, signBottom, leftPeg, rightPeg, labelMesh, beacon, glow);
   group.position.set(position[0], 0, position[1]);
@@ -1093,6 +1079,8 @@ function makeToken(label, isCorrect, answer, theme, position) {
     baseScale: labelMesh.scale.clone(),
     beacon,
     glow,
+    cutMark,
+    signRail,
     home: group.position.clone(),
     trunk,
     face,
@@ -1152,15 +1140,16 @@ function createHud() {
     "text-shadow:0 2px 0 rgba(0,0,0,.9),0 0 12px rgba(0,0,0,.8)"
   ].join(";");
   overlay.innerHTML = `
-    <div style="position:absolute;left:16px;top:12px;width:218px;padding:12px 16px;background:rgba(3,7,18,.76);border:2px solid rgba(105,255,230,.6);clip-path:polygon(9% 0,100% 0,100% 76%,90% 100%,0 100%,0 18%);">
+    <div data-role="panel-left" style="position:absolute;left:16px;top:12px;width:218px;padding:12px 16px;background:rgba(3,7,18,.76);border:2px solid rgba(105,255,230,.6);clip-path:polygon(9% 0,100% 0,100% 76%,90% 100%,0 100%,0 18%);">
       <div data-role="title" style="font-size:22px;font-weight:900;color:#7fffe9;">Sentence Grove</div>
       <div data-role="room" style="margin-top:4px;font-size:13px;font-weight:800;"></div>
     </div>
-    <div style="position:absolute;left:50%;top:88px;transform:translateX(-50%);width:min(560px,82vw);padding:12px 18px;background:rgba(3,7,18,.78);border:2px solid rgba(255,226,92,.68);clip-path:polygon(5% 0,96% 0,100% 26%,94% 100%,5% 100%,0 70%,0 18%);text-align:center;">
+    <div data-role="prompt-panel" style="position:absolute;left:50%;top:88px;transform:translateX(-50%);width:min(560px,82vw);padding:12px 18px;background:rgba(3,7,18,.78);border:2px solid rgba(255,226,92,.68);clip-path:polygon(5% 0,96% 0,100% 26%,94% 100%,5% 100%,0 70%,0 18%);text-align:center;pointer-events:auto;cursor:pointer;">
       <div data-role="prompt" style="font-size:clamp(14px,2.2vw,18px);font-weight:900;color:#ffe45c;text-wrap:balance;"></div>
       <div data-role="display" style="margin-top:4px;font-size:clamp(19px,3.2vw,28px);font-weight:900;line-height:1.12;overflow-wrap:anywhere;"></div>
+      <div style="margin-top:6px;font-size:11px;font-weight:800;color:#9fffe9;opacity:.8;">Tap to hear it again</div>
     </div>
-    <div style="position:absolute;right:16px;top:12px;width:205px;padding:12px 16px;background:rgba(3,7,18,.78);border:2px solid rgba(255,226,92,.6);clip-path:polygon(0 0,90% 0,100% 22%,100% 100%,8% 100%,0 78%);text-align:right;">
+    <div data-role="panel-right" style="position:absolute;right:16px;top:12px;width:205px;padding:12px 16px;background:rgba(3,7,18,.78);border:2px solid rgba(255,226,92,.6);clip-path:polygon(0 0,90% 0,100% 22%,100% 100%,8% 100%,0 78%);text-align:right;">
       <div data-role="score" style="font-size:22px;font-weight:900;">0 pts</div>
       <div data-role="streak" style="margin-top:4px;font-size:13px;font-weight:900;color:#fff1a8;"></div>
     </div>
@@ -1173,6 +1162,7 @@ function createHud() {
         <div data-role="focus" style="height:100%;width:0%;background:#ffffff;"></div>
       </div>
     </div>
+    <button data-role="cut" type="button" style="position:absolute;right:22px;bottom:48px;pointer-events:auto;min-width:132px;padding:14px 24px;font-family:inherit;font-size:23px;font-weight:900;color:#052e2b;background:#52ffe1;border:3px solid rgba(255,255,255,.88);border-radius:18px;box-shadow:0 4px 0 rgba(0,0,0,.45);cursor:pointer;touch-action:none;">CUT</button>
     <div data-role="feedback" style="position:absolute;left:50%;top:166px;transform:translateX(-50%);min-width:min(360px,78vw);max-width:680px;padding:14px 22px;background:rgba(3,7,18,.84);border:2px solid rgba(255,226,92,.68);clip-path:polygon(4% 0,97% 0,100% 24%,96% 100%,4% 100%,0 76%,0 18%);text-align:center;opacity:0;transition:opacity .12s linear;">
       <div data-role="feedback-main" style="font-size:27px;font-weight:900;color:#ffe45c;"></div>
       <div data-role="feedback-sub" style="font-size:15px;font-weight:800;margin-top:4px;"></div>
@@ -1205,7 +1195,7 @@ function createStarGalleryEngine(mount, options) {
   renderer.toneMappingExposure = 1.08;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-  renderer.domElement.style.cssText = "position:absolute;inset:0;width:100%;height:100%;display:block;background:#050716";
+  renderer.domElement.style.cssText = "position:absolute;inset:0;width:100%;height:100%;display:block;background:#050716;touch-action:none";
   mount.appendChild(renderer.domElement);
 
   const { overlay, nodes } = createHud();
@@ -1224,17 +1214,12 @@ function createStarGalleryEngine(mount, options) {
     worldRoot: null,
     tokenRoot: null,
     levelRoot: null,
-    trackSamples: [],
-    trackWidth: 6.8,
     mapBounds: { ...MAP_BOUNDS },
     frameGroup: null,
     vehicle: null,
     sceneryActors: [],
     player: { x: 0, z: 0, yaw: 0, speed: 0 },
     steerVisual: 0,
-    offRoad: false,
-    carrying: null,
-    carryPlaque: null,
     tokens: [],
     hazards: [],
     trailRoot: null,
@@ -1244,6 +1229,8 @@ function createStarGalleryEngine(mount, options) {
     score: 0,
     correct: 0,
     mistakes: 0,
+    hazardHits: 0,
+    itemMisses: 0,
     combo: 0,
     focus: 28,
     rush: 0,
@@ -1282,6 +1269,10 @@ function createStarGalleryEngine(mount, options) {
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
+    // Collapse the fixed side panels on narrow screens so they stop overlapping the center prompt.
+    const narrowHud = w < 650;
+    nodes.panelLeft.style.display = narrowHud ? "none" : "";
+    nodes.panelRight.style.display = narrowHud ? "none" : "";
   }
 
   function setScore(nextScore) {
@@ -1337,7 +1328,6 @@ function createStarGalleryEngine(mount, options) {
     state.frameGroup = null;
     state.vehicle = null;
     state.sceneryActors = [];
-    state.carryPlaque = null;
     state.tokens = [];
     state.hazards = [];
     state.trailRoot = null;
@@ -1377,8 +1367,6 @@ function createStarGalleryEngine(mount, options) {
     worldRoot.add(makeGround(theme, world));
     const map = makeCourse(worldRoot, theme, world);
     state.mapBounds = map.bounds;
-    state.trackSamples = [];
-    state.trackWidth = Math.max(mapWidth(map.bounds), mapDepth(map.bounds));
     addScenery(worldRoot, theme, world, state.sceneryActors);
 
     state.frameGroup = makeFrame(theme, { x: placement.frame[0], z: placement.frame[1], yaw: 0 });
@@ -1392,7 +1380,6 @@ function createStarGalleryEngine(mount, options) {
 
     state.vehicle = makeVehicle(theme, world);
     worldRoot.add(state.vehicle);
-    state.carryPlaque = null;
     state.trailRoot = new THREE.Group();
     state.trailParticles = Array.from({ length: 34 }, () => {
       const particle = makeTrailParticle(theme);
@@ -1441,6 +1428,7 @@ function createStarGalleryEngine(mount, options) {
     const positions = assignTokenPositions(rotatedChoices, slots, state);
     state.gateLocked = false;
     state.nearTreeLabel = "";
+    state.itemMisses = 0;
     state.gateSerial += 1;
     state.tokens = rotatedChoices.map((entry, index) => {
       const position = positions[index] || slotPosition(slots[index % slots.length], state.stage, state.itemIndex, index + entry.copy);
@@ -1451,6 +1439,7 @@ function createStarGalleryEngine(mount, options) {
     });
     if (feedback) {
       setFeedback(respawn ? "SEARCH AGAIN" : "FORESTER BRIEF", "Find and cut the tree with the missing part", respawn ? "bad" : "good", 1.05);
+      speakItem();
     }
   }
 
@@ -1458,7 +1447,6 @@ function createStarGalleryEngine(mount, options) {
     state.stage = clamp(stage, 0, ladder.length - 1);
     state.level = ladder[state.stage];
     state.itemIndex = 0;
-    state.carrying = null;
     state.transitioning = false;
     state.gateLocked = false;
     state.gateSerial = 0;
@@ -1481,7 +1469,6 @@ function createStarGalleryEngine(mount, options) {
 
   function nextItemOrLevel() {
     state.itemIndex += 1;
-    state.carrying = null;
     state.transitioning = false;
     state.gateLocked = false;
     if (state.itemIndex < state.level.items.length) {
@@ -1504,8 +1491,48 @@ function createStarGalleryEngine(mount, options) {
     buildItemTokens({ feedback: true });
   }
 
+  // Category rule reminders for wrong cuts — the literal answer is only revealed
+  // after a second miss on the same item so trial-and-error never pays.
+  function hintForRepair(repair) {
+    const categoryHints = {
+      capital: "Start the sentence with a capital letter",
+      punctuation: "Say the sentence aloud — how should it end?",
+      "short vowel": "Listen for the vowel sound",
+      "sight word": "Remember how the tricky word is spelled",
+      blend: "Say the sounds together — which blend fits?",
+      "vowel team": "Sound out the vowel team",
+      digraph: "Two letters, one sound — say it slowly",
+      contraction: "Two words squeezed into one — which letters hide?",
+      suffix: "Look at the word ending",
+      usage: "Which word makes the sentence sound right?"
+    };
+    return categoryHints[repair?.category] || repair?.prompt || "Check the sentence and try another tree";
+  }
+
+  // Trees all look identical until cut — only then does the choice get colour-coded.
+  function revealTokenColors(token) {
+    const theme = themeFor(state);
+    const reveal = new THREE.Color(token.isCorrect ? theme.accent2 : theme.danger);
+    for (const mesh of [token.cutMark, token.signRail, token.beacon]) {
+      if (mesh?.material) {
+        mesh.material.color.copy(reveal);
+        mesh.material.emissive.copy(reveal);
+      }
+    }
+    if (token.glow) token.glow.color.copy(reveal);
+  }
+
+  // Speech is additive polish: always gated on the game's live sound flag.
+  function speakItem() {
+    if (!soundAllowed(options)) return;
+    const repair = repairForState(state);
+    if (!repair) return;
+    speak(`${repair.prompt}. ${repair.display}`);
+  }
+
   function cutChoiceTree(token) {
     if (state.gateLocked || token.cooldown > 0 || token.smashed) return;
+    revealTokenColors(token);
     if (token.isCorrect) {
       state.gateLocked = true;
       state.correct += 1;
@@ -1532,13 +1559,20 @@ function createStarGalleryEngine(mount, options) {
       schedule(nextItemOrLevel, 720);
     } else {
       state.mistakes += 1;
+      state.itemMisses += 1;
       state.combo = 0;
       state.focus = clamp(state.focus - 18, 0, 100);
-      token.cooldown = 1.2;
+      token.cooldown = 1.2 + (state.itemMisses - 1) * 0.8;
       token.bump = 0.56;
       state.player.speed *= 0.28;
       setScore(state.score - settingsFor(state).wrongPenalty);
-      setFeedback("WRONG TREE", `Look for ${token.answer}`, "bad", 0.95);
+      const revealAnswer = state.itemMisses >= 2;
+      setFeedback(
+        "WRONG TREE",
+        revealAnswer ? `Look for ${token.answer}` : hintForRepair(repairForState(state)),
+        "bad",
+        revealAnswer ? 1.15 : 0.95
+      );
       playSfx(options, playSoftBuzz);
     }
   }
@@ -1566,7 +1600,9 @@ function createStarGalleryEngine(mount, options) {
   function hazardHit(hazard) {
     if (state.invulnerable > 0 || state.countdown > 0 || hazard.stun > 0) return;
     state.invulnerable = 1.1;
-    state.mistakes += 1;
+    // Hazard bumps are driving slips, not literacy mistakes — tracked separately
+    // so they never feed the star rubric.
+    state.hazardHits += 1;
     state.combo = 0;
     state.focus = clamp(state.focus - 14, 0, 100);
     state.player.speed = state.player.speed >= 0 ? Math.max(3.6, state.player.speed * 0.54) : Math.min(-1.6, state.player.speed * 0.54);
@@ -1580,7 +1616,6 @@ function createStarGalleryEngine(mount, options) {
     const settings = settingsFor(state);
     const steerInput = (keys.left ? 1 : 0) - (keys.right ? 1 : 0) + state.pointer.steer;
     const throttleInput = (keys.up ? 1 : 0) - (keys.down ? 0.72 : 0) + state.pointer.throttle;
-    state.offRoad = false;
     state.steerVisual += (clamp(steerInput, -1, 1) - state.steerVisual) * Math.min(1, dt * 8);
     const maxSpeed = settings.maxSpeed * 0.62 * (state.rush > 0 || keys.boost ? 1.18 : 1);
     state.player.speed += throttleInput * settings.accel * 0.68 * dt;
@@ -1607,32 +1642,13 @@ function createStarGalleryEngine(mount, options) {
   function updateVehicle(dt) {
     if (!state.vehicle) return;
     const speedNorm = clamp(Math.abs(state.player.speed) / Math.max(1, settingsFor(state).maxSpeed), 0, 1);
-    const bounce = Math.sin(clock.elapsedTime * (7 + speedNorm * 10)) * (state.offRoad ? 0.16 : 0.04) * speedNorm;
-    const roll = -state.steerVisual * 0.22 * speedNorm + (state.offRoad ? Math.sin(clock.elapsedTime * 14) * 0.035 : 0);
-    const pitch = -Math.sign(state.player.speed) * speedNorm * 0.035 + (state.offRoad ? Math.sin(clock.elapsedTime * 9) * 0.018 : 0);
+    const bounce = Math.sin(clock.elapsedTime * (7 + speedNorm * 10)) * 0.04 * speedNorm;
+    const roll = -state.steerVisual * 0.22 * speedNorm;
+    const pitch = -Math.sign(state.player.speed) * speedNorm * 0.035;
     state.vehicle.position.set(state.player.x, 0.04 + bounce, state.player.z);
     state.vehicle.rotation.set(pitch, state.player.yaw, roll);
     for (const wheel of state.vehicle.userData.wheels || []) {
       wheel.rotation.x += state.player.speed * dt * 2.2;
-    }
-    if (state.carryPlaque) {
-      state.carryPlaque.position.y = Math.sin(clock.elapsedTime * 4.2) * 0.1;
-      const carriedLabel = state.carryPlaque.userData.labelMesh;
-      const carriedScale = state.carryPlaque.userData.baseScale;
-      if (carriedLabel && carriedScale) {
-        carriedLabel.scale.copy(carriedScale).multiplyScalar(1 + Math.sin(clock.elapsedTime * 5.2) * 0.05);
-      }
-    }
-    const navArrow = state.vehicle.userData.navArrow;
-    if (navArrow) {
-      navArrow.visible = Boolean(state.carrying && state.frameGroup);
-      if (navArrow.visible) {
-        const dx = state.frameGroup.position.x - state.player.x;
-        const dz = state.frameGroup.position.z - state.player.z;
-        navArrow.rotation.y = Math.atan2(dx, dz) - state.player.yaw;
-        navArrow.position.y = 4.15 + Math.sin(clock.elapsedTime * 5) * 0.16;
-        navArrow.scale.setScalar(1 + Math.sin(clock.elapsedTime * 6) * 0.08);
-      }
     }
   }
 
@@ -1746,10 +1762,9 @@ function createStarGalleryEngine(mount, options) {
       token.beacon.rotation.y += dt * 1.6;
       token.beacon.position.y = 5.68 + Math.sin(clock.elapsedTime * 4 + token.home.x) * 0.18;
       token.glow.intensity = (dist < 6 ? 1.75 : 0.82) + Math.sin(clock.elapsedTime * 4) * 0.12 + token.bump * 1.8;
-      if (!state.gateLocked && dist < 2.05) {
-        cutChoiceTree(token);
-      }
     }
+    // Cutting is always deliberate: Space/Enter/E, or the on-screen CUT button
+    // (see tryCutNearestTree) — never a proximity accident.
     state.nearTreeLabel = closest && closestDistance < 5.2 ? closest.label : "";
   }
 
@@ -1841,6 +1856,7 @@ function createStarGalleryEngine(mount, options) {
     nodes.focus.style.width = `${Math.round((state.rush > 0 ? 1 : state.focus / 100) * 100)}%`;
     nodes.focus.style.background = state.rush > 0 ? theme.accent2 : "#ffffff";
     nodes.status.textContent = state.nearTreeLabel ? `Cut ${state.nearTreeLabel}?` : `Fixed ${state.correct}/${total}`;
+    nodes.cut.style.opacity = state.nearTreeLabel ? "1" : "0.55";
 
     nodes.feedback.style.opacity = state.feedback.life > 0 ? String(easeOut(state.feedback.life / state.feedback.maxLife)) : "0";
     nodes.feedbackMain.textContent = state.feedback.text;
@@ -1961,6 +1977,17 @@ function createStarGalleryEngine(mount, options) {
   renderer.domElement.addEventListener("pointermove", onPointerMove);
   renderer.domElement.addEventListener("pointerup", onPointerUp);
   renderer.domElement.addEventListener("pointercancel", onPointerUp);
+  nodes.cut.addEventListener("pointerdown", event => {
+    event.preventDefault();
+    event.stopPropagation();
+    playSfx(options, playTapSound);
+    tryCutNearestTree();
+  });
+  nodes.promptPanel.addEventListener("pointerdown", event => {
+    event.preventDefault();
+    event.stopPropagation();
+    speakItem();
+  });
   resize();
   startLevel(state.stage, { countdown: true });
 
@@ -1974,6 +2001,7 @@ function createStarGalleryEngine(mount, options) {
     },
     destroy() {
       state.ended = true;
+      cancelSpeech();
       window.cancelAnimationFrame(raf);
       timers.forEach(timer => window.clearTimeout(timer));
       timers.clear();
@@ -2002,6 +2030,7 @@ function createStarGalleryEngine(mount, options) {
         correct: state.correct,
         total,
         mistakes: state.mistakes,
+        hazardHits: state.hazardHits,
         combo: state.combo,
         countdown: state.countdown,
         currentRepair: repairForState(state),

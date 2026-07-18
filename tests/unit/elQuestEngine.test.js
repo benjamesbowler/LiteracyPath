@@ -4,6 +4,7 @@ import {
   STATIONS,
   buildStationRounds,
   graphemeAudioPath,
+  onsetGrapheme,
   starsForAccuracy,
   shuffleItems
 } from "../../src/components/elQuest/elQuestEngine.js";
@@ -50,6 +51,20 @@ test("every STATION has an id and a title", () => {
   for (const s of STATIONS) {
     assert.ok(s.id && s.title);
   }
+});
+
+// Sound rounds must cue the first SOUND, not the first letters: "one" is /w/,
+// "who"/"whole" are /h/, "use" is /y/. Without these overrides "one" was a
+// correct O word and a W distractor, and "whole" a correct wh word.
+test("onsetGrapheme applies phonetic onsets before spelling rules", () => {
+  assert.equal(onsetGrapheme("one"), "w");
+  assert.equal(onsetGrapheme("whole"), "h");
+  assert.equal(onsetGrapheme("use"), "y");
+  assert.equal(onsetGrapheme("who"), "h");
+  assert.equal(onsetGrapheme("wheel"), "wh");
+  assert.equal(onsetGrapheme("ship"), "sh");
+  assert.equal(onsetGrapheme("cat"), "c");
+  assert.equal(onsetGrapheme("octopus"), "o");
 });
 
 test("shuffleItems keeps the same elements", () => {

@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { buildRescueRounds, buildSortRounds, buildGardenRounds, adventureStars, GARDEN_FLOWERS } from "../../src/utils/adventureRounds.js";
+import { buildRescueRounds, buildSortRounds, buildGardenRounds, adventureStars, pickRescueFoils, GARDEN_FLOWERS } from "../../src/utils/adventureRounds.js";
 
 const tiers = ["easy", "medium", "hard"];
 
@@ -16,6 +16,45 @@ test("Word Rescue: every round is winnable with the target among 3 choices", () 
       }
     }
   }
+});
+
+test("Word Rescue: at least one foil per round is a lookalike (length or first letter)", () => {
+  // Random foils could be eliminated by length or first letter, giving the
+  // answer away. Every tier's pool is dense enough that at least one of the
+  // two foils can always share the target's length or initial.
+  for (const tier of tiers) {
+    for (let i = 0; i < 10; i += 1) {
+      const rounds = buildRescueRounds(tier);
+      for (const r of rounds) {
+        const foils = r.choices.filter(w => w !== r.word);
+        assert.ok(
+          foils.some(f => f.length === r.word.length || f[0] === r.word[0]),
+          `${tier}: foils ${foils} are all strangers to "${r.word}"`
+        );
+      }
+    }
+  }
+});
+
+test("Word Rescue: foil picker prefers minimal pairs, then lookalikes", () => {
+  // "cap"/"can" are minimal pairs for "cat"; "cow" shares length+initial;
+  // "dog" shares only length; "coconut" shares only the initial; "elephant"
+  // is a stranger. The two best foils must always win.
+  const pool = ["cat", "cap", "can", "cow", "dog", "coconut", "elephant"];
+  for (let i = 0; i < 10; i += 1) {
+    const foils = pickRescueFoils("cat", pool, 2);
+    assert.equal(foils.length, 2);
+    assert.ok(foils.every(f => ["cap", "can"].includes(f)), `expected minimal-pair foils, got ${foils}`);
+  }
+  // With no minimal pairs available, the best remaining lookalikes win.
+  const foils = pickRescueFoils("cat", ["cat", "cow", "dog", "elephant"], 2);
+  assert.deepEqual(new Set(foils), new Set(["cow", "dog"]));
+});
+
+test("Word Rescue: foil picker falls back to strangers so choices are always full", () => {
+  const foils = pickRescueFoils("cat", ["cat", "dog", "sun"], 2);
+  assert.deepEqual(new Set(foils), new Set(["dog", "sun"]));
+  assert.ok(!foils.includes("cat"));
 });
 
 test("Sound Sort: every item belongs to exactly one bin, decidable by spelling", () => {

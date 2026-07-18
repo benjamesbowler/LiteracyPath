@@ -15,6 +15,7 @@ import {
   grammarGrindLadder,
   grammarGrindStars
 } from "../../../../utils/grammarGrindLevels.js";
+import { hasRecordedSpeech, speak } from "../../../../utils/learnGamesAudio.js";
 
 const THEMES = {
   easy: {
@@ -267,7 +268,7 @@ function makeTextTexture(text, theme, options = {}) {
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.minFilter = THREE.LinearFilter;
-  texture.magFilter = THREE.NearestFilter;
+  texture.magFilter = THREE.LinearFilter;
   return texture;
 }
 
@@ -445,7 +446,7 @@ function startGame(mount, opts) {
     }
   };
 
-  const renderer = new THREE.WebGLRenderer({ antialias: false, powerPreference: "high-performance" });
+  const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFShadowMap;
@@ -727,6 +728,7 @@ function startGame(mount, opts) {
       '<div data-gg="sentence" style="margin-top:5px;font-size:clamp(.84rem,1.5vw,1.08rem);font-weight:850;color:#eaf8ff"></div>' +
       '<div data-gg="cue" style="margin-top:4px;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#9bf4ff;font-weight:900"></div>' +
       '<div data-gg="coach" style="margin:7px auto 0;max-width:560px;font-size:.82rem;line-height:1.15;color:#ffe7a3;font-weight:850"></div>' +
+      '<button data-gg="hear" type="button" aria-label="Hear the sentence" style="margin-top:7px;padding:4px 14px;border:1px solid rgba(125,242,255,.5);background:rgba(6,10,28,.72);color:#9bf4ff;font-weight:900;border-radius:8px;font-size:.72rem;letter-spacing:.12em;pointer-events:auto;cursor:pointer">HEAR</button>' +
     '</div>' +
     '<div data-gg-panel="right" style="position:absolute;top:14px;right:16px;text-align:right;background:linear-gradient(135deg,rgba(6,10,28,.9),rgba(20,32,70,.72));border:1px solid rgba(125,242,255,.32);padding:12px 16px;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 100%,12px 100%);box-shadow:0 12px 34px rgba(0,0,0,.32)">' +
       '<div data-gg="world" style="font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;color:#9bf4ff;font-weight:900"></div>' +
@@ -846,6 +848,7 @@ function startGame(mount, opts) {
     sentence: overlay.querySelector('[data-gg="sentence"]'),
     cue: overlay.querySelector('[data-gg="cue"]'),
     coach: overlay.querySelector('[data-gg="coach"]'),
+    hear: overlay.querySelector('[data-gg="hear"]'),
     world: overlay.querySelector('[data-gg="world"]'),
     speed: overlay.querySelector('[data-gg="speed"]'),
     trick: overlay.querySelector('[data-gg="trick"]'),
@@ -864,8 +867,12 @@ function startGame(mount, opts) {
   let level = ladder[levelIndex];
   let score = 0;
   let correct = 0;
-  let attempts = 0;
   let mistakes = 0;
+  let levelMisses = 0;
+  let scoreDirty = false;
+  let lastScoreSent = 0;
+  let lastScoreSentAt = 0;
+  let speechToken = 0;
   let combo = 1;
   let comboTimer = 0;
   let gateCooldown = 0;
@@ -889,6 +896,7 @@ function startGame(mount, opts) {
     speed: 0,
     vy: 0,
     air: 0,
+    airTime: 0,
     onGround: true,
     stun: 0,
     grind: 0,
@@ -1156,9 +1164,30 @@ function startGame(mount, opts) {
     }
   }
 
+  function levelSpeechParts() {
+    return [level.prompt, level.sentence, ...level.options.filter(option => /[a-z]/i.test(option))];
+  }
+
+  // speak() stops any clip that is already playing, so the parts are chained
+  // one after another instead of fired together. Silent when sound is off or
+  // no recorded clip exists - the game stays fully playable either way.
+  function speakLevelAloud() {
+    if (!getSound()) return;
+    const token = (speechToken += 1);
+    const parts = levelSpeechParts();
+    const playPart = partIndex => {
+      if (!running || token !== speechToken || !getSound() || partIndex >= parts.length) return;
+      Promise.resolve(speak(parts[partIndex]))
+        .catch(() => {})
+        .then(() => playPart(partIndex + 1));
+    };
+    playPart(0);
+  }
+
   function loadLevel(index, introMessage = "Choose the right gate", introCoach = null) {
     levelIndex = clamp(index, 0, ladder.length - 1);
     level = ladder[levelIndex];
+    levelMisses = 0;
     placeGates();
     placePickups();
     placeLineNodes();
@@ -1166,13 +1195,33 @@ function startGame(mount, opts) {
     coachText = introCoach || level.teaching || level.cue;
     messageTimer = 1.25;
     gateCooldown = 0.6;
+    el.hear.style.display = levelSpeechParts().some(part => hasRecordedSpeech(part)) ? "" : "none";
     opts.onProgressUpdate?.(levelIndex, ladder.length);
     opts.onCheckpoint?.(levelIndex, ladder.length);
     updateHud();
+    speakLevelAloud();
   }
 
   function addScore(amount) {
     score = Math.max(0, score + amount);
+    scoreDirty = true;
+  }
+
+  // Grinding adds fractional points every frame; only tell the host when the
+  // rounded score actually changes, at most ~10Hz, so React isn't re-rendering
+  // 60 times a second. force flushes the final value at game end.
+  function flushScore(force = false) {
+    if (!scoreDirty) return;
+    const rounded = Math.max(0, Math.round(score));
+    if (rounded === lastScoreSent) {
+      scoreDirty = false;
+      return;
+    }
+    const now = performance.now();
+    if (!force && now - lastScoreSentAt < 100) return;
+    lastScoreSent = rounded;
+    lastScoreSentAt = now;
+    scoreDirty = false;
     opts.onScoreUpdate?.(score);
   }
 
@@ -1223,17 +1272,19 @@ function startGame(mount, opts) {
     if (completed) return;
     completed = true;
     phase = "complete";
-    const stars = grammarGrindStars({ correct, total: Math.max(attempts, correct), mistakes });
+    // Rate accuracy against the levels this run actually presented (a resumed
+    // checkpoint run only plays ladder.length - startAt targets).
+    const stars = grammarGrindStars({ correct, total: Math.max(1, ladder.length - startAt), mistakes });
     opts.onProgressUpdate?.(ladder.length, ladder.length);
     sfx(playCelebrationFanfare);
     message = stars === 3 ? "Perfect run" : "Park cleared";
     messageTimer = 3.5;
+    flushScore(true);
     opts.onComplete?.(stars, score, ladder.length);
   }
 
   function handleGate(gate) {
     if (phase !== "playing" || gateCooldown > 0 || gate.cooldown > 0) return;
-    attempts += 1;
     gate.cooldown = 1.4;
     if (grammarGrindIsCorrect(gate.choice, level)) {
       correct += 1;
@@ -1246,7 +1297,7 @@ function startGame(mount, opts) {
       boostFlash = 0.32;
       spawnBurst(gate.pos, theme.correct, 22);
       sfx(playCorrectChime);
-      sfx(playStarChime);
+      if (lineBonus > 0) sfx(playStarChime);
       message = lineBonus > 0 ? `Line solve +${lineBonus}` : styleBonus > 0 ? `Style solve +${styleBonus}` : `Correct: ${gate.choice}`;
       coachText = level.success || level.teaching || level.cue;
       messageTimer = 1.25;
@@ -1257,6 +1308,7 @@ function startGame(mount, opts) {
       else loadLevel(levelIndex + 1, message, ladder[levelIndex + 1]?.teaching);
     } else {
       mistakes += 1;
+      levelMisses += 1;
       combo = 1;
       player.stun = 0.34;
       player.speed *= -0.28;
@@ -1267,7 +1319,7 @@ function startGame(mount, opts) {
       spawnBurst(gate.pos, theme.wrong, 12);
       sfx(playSoftBuzz);
       message = "Grammar check";
-      coachText = grammarGrindChoiceFeedback(gate.choice, level);
+      coachText = grammarGrindChoiceFeedback(gate.choice, level, { reveal: levelMisses >= 2 });
       messageTimer = 1.6;
       gateCooldown = 0.8;
     }
@@ -1280,8 +1332,8 @@ function startGame(mount, opts) {
     player.vy = 11 + Math.min(4, Math.abs(player.speed) * 0.14);
     player.onGround = false;
     player.air = 0.02;
+    player.airTime = 0;
     player.trick = 0.8;
-    awardStyle(10, "Style +10");
     sfx(playWhoosh);
   }
 
@@ -1303,6 +1355,7 @@ function startGame(mount, opts) {
           player.vy = 10.5 + zone.height * 0.55 + Math.min(5, Math.abs(player.speed) * 0.1);
           player.onGround = false;
           player.air = 0.02;
+          player.airTime = 0;
           player.trick = 1;
           player.rampLock = 1.2;
           zone.cooldown = 1.4;
@@ -1342,6 +1395,7 @@ function startGame(mount, opts) {
         player.grind = 0.95;
         player.grindRail = rail;
         player.grindT = hit.t;
+        player.airTime = 0;
         combo = clamp(combo + 1, 1, 9);
         awardStyle(24, "Rail +24");
         sfx(playPopSound);
@@ -1394,11 +1448,17 @@ function startGame(mount, opts) {
     if (!player.onGround && player.grind <= 0) {
       player.vy -= 24 * dt;
       player.air += player.vy * dt;
+      player.airTime += dt;
       if (player.air <= surfaceHeight) {
         player.air = surfaceHeight;
         player.vy = 0;
         player.onGround = true;
         player.trick = 0;
+        // Style is earned by real air (speed-boosted jumps, ramp launches) -
+        // a stationary hop (~0.92s) stays below the threshold, so TRICK-spam
+        // in place no longer farms style points and boost.
+        if (player.airTime >= 0.95) awardStyle(10, "Style +10");
+        player.airTime = 0;
         if (Math.abs(player.speed) > 6) addScore(12 * combo);
       }
     } else if (player.onGround && player.grind <= 0) {
@@ -1494,6 +1554,7 @@ function startGame(mount, opts) {
           coachText = "Grammar line complete. Solve the sentence for a bonus.";
           message = "Line ready";
           messageTimer = 1;
+          sfx(playStarChime);
         }
       }
     });
@@ -1582,6 +1643,7 @@ function startGame(mount, opts) {
     updateParticles(dt);
     updateSkater(time);
     updateCamera(dt);
+    flushScore();
     updateHud();
   }
 
@@ -1649,6 +1711,7 @@ function startGame(mount, opts) {
   bindButton("brake", "brake");
   bindButton("boost", "boost");
   bindButton("jump", "jump");
+  el.hear.addEventListener("click", speakLevelAloud);
 
   loadLevel(startAt);
   camera.position.set(0, 10, 42);
@@ -1658,6 +1721,7 @@ function startGame(mount, opts) {
   return {
     pause() {
       paused = true;
+      speechToken += 1;
     },
     resume() {
       paused = false;

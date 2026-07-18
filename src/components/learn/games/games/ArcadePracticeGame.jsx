@@ -1,9 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
-import { CVC_WORDS, RHYMING_PAIRS, SENTENCE_FIX, SENTENCES, SIGHT_WORDS, WORD_FAMILIES } from "../../../../data/learnGamesData";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { CVC_WORDS, SENTENCE_FIX, SENTENCES, SIGHT_WORDS, WORD_FAMILIES } from "../../../../data/learnGamesData";
 import { getChildWordAsset } from "../../../../data/childAssets";
 import { hasRecordedSpeech, speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
 import { hasKnownBadWordAudio } from "../../../../data/knownBadWordAudio.js";
-import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz, playTrainWhistle } from "../../../../utils/audio/gameSfx";
+import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz } from "../../../../utils/audio/gameSfx";
 import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../shared/ProgressStars.jsx";
 
@@ -78,7 +78,7 @@ function WordImageCard({ word, secret = false }) {
     <div className="lg-game-picture">
       <img
         src={src}
-        alt={asset?.alt || `Picture for ${word}`}
+        alt={secret ? "" : asset?.alt || `Picture for ${word}`}
         loading="lazy"
         decoding="async"
         width="120"
@@ -103,14 +103,19 @@ export function ArcadePracticeGame({
   title,
   mode,
   difficulty = "easy",
+  startLevel = 0,
   onScoreUpdate,
   onProgressUpdate,
   onComplete,
+  onCheckpoint,
   isSoundEnabled = true
 }) {
+  const totalRounds = difficulty === "hard" ? 10 : difficulty === "medium" ? 8 : 6;
+
   const [score, setScore] = useState(0);
   const [wrongs, setWrongs] = useState(0);
-  const [round, setRound] = useState(0);
+  // Honor the resume contract: startLevel is a 0-based round index from GamePlayer.
+  const [round, setRound] = useState(() => Math.max(0, Math.min(Number(startLevel) || 0, totalRounds - 1)));
   const [correct, setCorrect] = useState(0);
   const [completed, setCompleted] = useState(false);
   const [stars, setStars] = useState(0);
@@ -118,8 +123,12 @@ export function ArcadePracticeGame({
   const [shaking, setShaking] = useState(false);
   // Streak: consecutive correct answers earn a growing bonus and a combo chip.
   const [streak, setStreak] = useState(0);
-
-  const totalRounds = difficulty === "hard" ? 10 : difficulty === "medium" ? 8 : 6;
+  // Ref mirrors so addScore/finish never read a stale render closure (StrictMode-safe:
+  // no side effects inside state updaters, which StrictMode double-invokes).
+  const scoreRef = useRef(0);
+  const streakRef = useRef(0);
+  // Every pending timeout id, cleared on unmount so quitting can't fire finish/onComplete.
+  const timersRef = useRef(new Set());
 
   const gameState = useMemo(() => {
     // Restart increments version purely to re-roll random word/order choices.
@@ -129,11 +138,6 @@ export function ArcadePracticeGame({
       const pairCount = difficulty === "hard" ? 10 : difficulty === "medium" ? 6 : 3;
       const words = pickSightWords(difficulty, pairCount);
       return withReroll({ cards: shuffle([...words, ...words].map((word, index) => ({ id: `${word}-${index}`, word }))) });
-    }
-
-    if (mode === "rhyme") {
-      const pairs = RHYMING_PAIRS.slice(0, difficulty === "hard" ? 8 : difficulty === "medium" ? 6 : 4);
-      return withReroll({ cards: shuffle(pairs.flat().map((word, index) => ({ id: `${word}-${index}`, word }))), pairTotal: pairs.length });
     }
 
     if (mode === "family") {
@@ -162,29 +166,51 @@ export function ArcadePracticeGame({
     return withReroll({ words: pickWords(difficulty, totalRounds) });
   }, [difficulty, mode, totalRounds, version]);
 
+  useEffect(() => () => {
+    timersRef.current.forEach(id => clearTimeout(id));
+    timersRef.current.clear();
+  }, []);
+
+  function schedule(fn, ms) {
+    const id = setTimeout(() => {
+      timersRef.current.delete(id);
+      fn();
+    }, ms);
+    timersRef.current.add(id);
+    return id;
+  }
+
   useEffect(() => {
     onScoreUpdate?.(score);
   }, [onScoreUpdate, score]);
 
   useEffect(() => {
-    const total = mode === "rhyme"
-      ? gameState.pairTotal
+    onCheckpoint?.(round, totalRounds);
+  }, [onCheckpoint, round, totalRounds]);
+
+  useEffect(() => {
+    const total = mode === "memory"
+      ? gameState.cards.length / 2
       : mode === "family"
         ? gameState.total
         : mode === "quiz"
           ? gameState.fixes?.length
           : totalRounds;
-    onProgressUpdate?.(mode === "rhyme" || mode === "family" ? correct : round + 1, total || 1);
-  }, [correct, gameState.fixes?.length, gameState.pairTotal, gameState.total, mode, onProgressUpdate, round, totalRounds]);
+    onProgressUpdate?.(mode === "memory" || mode === "family" ? correct : round + 1, total || 1);
+  }, [correct, gameState.cards, gameState.fixes?.length, gameState.total, mode, onProgressUpdate, round, totalRounds]);
 
   function addScore(amount, sfx = playCorrectChime) {
     // Streak bonus: +2 per answer already in the run, capped so scores stay sane.
-    setScore(current => current + amount + Math.min(10, streak * 2));
-    setStreak(current => current + 1);
+    const bonus = Math.min(10, streakRef.current * 2);
+    streakRef.current += 1;
+    scoreRef.current += amount + bonus;
+    setStreak(streakRef.current);
+    setScore(scoreRef.current);
     if (isSoundEnabled) sfx();
   }
 
   function miss() {
+    streakRef.current = 0;
     setWrongs(current => current + 1);
     setStreak(0);
     setShaking(true);
@@ -192,14 +218,18 @@ export function ArcadePracticeGame({
   }
 
   function finish(nextCorrect = correct) {
-    const nextStars = starScore(nextCorrect, mode === "rhyme" ? gameState.pairTotal : mode === "family" ? gameState.total : totalRounds, wrongs);
+    // Memory's max correct is the pair count, not totalRounds — grade against pairs.
+    const total = mode === "memory" ? gameState.cards.length / 2 : mode === "family" ? gameState.total : totalRounds;
+    const nextStars = starScore(nextCorrect, total, wrongs);
     setStars(nextStars);
     setCompleted(true);
     if (isSoundEnabled) playCelebrationFanfare();
-    onComplete?.(nextStars, score, nextCorrect);
+    onComplete?.(nextStars, scoreRef.current, nextCorrect);
   }
 
   function restart() {
+    scoreRef.current = 0;
+    streakRef.current = 0;
     setScore(0);
     setWrongs(0);
     setStreak(0);
@@ -215,10 +245,9 @@ export function ArcadePracticeGame({
   }
 
   let stage;
-  if (mode === "memory" || mode === "rhyme") {
+  if (mode === "memory") {
     stage = (
       <MatchGame
-        mode={mode}
         state={gameState}
         isSoundEnabled={isSoundEnabled}
         correct={correct}
@@ -226,6 +255,7 @@ export function ArcadePracticeGame({
         addScore={addScore}
         miss={miss}
         finish={finish}
+        schedule={schedule}
       />
     );
   } else if (mode === "family") {
@@ -238,6 +268,7 @@ export function ArcadePracticeGame({
         addScore={addScore}
         miss={miss}
         finish={finish}
+        schedule={schedule}
       />
     );
   } else if (mode === "sentence") {
@@ -253,6 +284,8 @@ export function ArcadePracticeGame({
         miss={miss}
         finish={finish}
         isSoundEnabled={isSoundEnabled}
+        difficulty={difficulty}
+        schedule={schedule}
       />
     );
   } else if (mode === "quiz") {
@@ -269,6 +302,7 @@ export function ArcadePracticeGame({
         finish={finish}
         isSoundEnabled={isSoundEnabled}
         totalRounds={totalRounds}
+        schedule={schedule}
       />
     );
   } else if (mode === "target") {
@@ -284,13 +318,13 @@ export function ArcadePracticeGame({
         finish={finish}
         isSoundEnabled={isSoundEnabled}
         totalRounds={totalRounds}
+        schedule={schedule}
       />
     );
   } else {
     stage = (
       <BuildGame
         key={`b-${version}-${round}`}
-        variant={mode}
         state={gameState}
         round={round}
         setRound={setRound}
@@ -301,6 +335,7 @@ export function ArcadePracticeGame({
         finish={finish}
         isSoundEnabled={isSoundEnabled}
         totalRounds={totalRounds}
+        schedule={schedule}
       />
     );
   }
@@ -320,16 +355,19 @@ export function ArcadePracticeGame({
   );
 }
 
-function BuildGame({ variant, state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds }) {
+function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds, schedule }) {
   const targetWord = state.words[round] || state.words[0];
   // placed = [{ letter, tileIndex }] so duplicate letters keep their own tile.
   const [placed, setPlaced] = useState([]);
   const [checking, setChecking] = useState(false);
+  // Failed spellings on this word; after 2 the word text appears as a scaffold
+  // (many hard words have no image asset, so there is no other visual target).
+  const [attempts, setAttempts] = useState(0);
   const letters = useMemo(() => {
     const targetLetters = targetWord.split("");
-    const distractors = shuffle(DISTRACTOR_LETTERS.filter(letter => !targetLetters.includes(letter))).slice(0, variant === "build" ? 3 : 5);
+    const distractors = shuffle(DISTRACTOR_LETTERS.filter(letter => !targetLetters.includes(letter))).slice(0, 3);
     return shuffle([...targetLetters, ...distractors]);
-  }, [targetWord, variant]);
+  }, [targetWord]);
 
   useEffect(() => {
     if (isSoundEnabled) speakWord(targetWord);
@@ -346,11 +384,11 @@ function BuildGame({ variant, state, round, setRound, correct, setCorrect, addSc
     if (next.length !== targetWord.length) return;
 
     if (next.map(item => item.letter).join("") === targetWord) {
-      addScore(variant === "train" ? 30 : 25, variant === "train" ? playTrainWhistle : playCorrectChime);
+      addScore(25);
       const nextCorrect = correct + 1;
       setCorrect(nextCorrect);
       setChecking(true);
-      setTimeout(() => {
+      schedule(() => {
         if (round + 1 >= totalRounds) {
           finish(nextCorrect);
         } else {
@@ -360,8 +398,9 @@ function BuildGame({ variant, state, round, setRound, correct, setCorrect, addSc
     } else {
       // Wrong word: shake, tip the letters back out, let them try again.
       miss();
+      setAttempts(current => current + 1);
       setChecking(true);
-      setTimeout(() => {
+      schedule(() => {
         setPlaced([]);
         setChecking(false);
         if (isSoundEnabled) speakWord(targetWord);
@@ -375,10 +414,15 @@ function BuildGame({ variant, state, round, setRound, correct, setCorrect, addSc
   }
 
   return (
-    <section className={`lg-game-stage lg-game-${variant || "build"}`}>
-      <p>{variant === "slide" ? "Touch each sound, then blend the word." : variant === "train" ? "Load the train in sound order." : "Build the word you hear."}</p>
+    <section className="lg-game-stage lg-game-build">
+      <p>Build the word you hear.</p>
       <button type="button" className="lg-game-audio" onClick={() => speakWord(targetWord)}>Hear word</button>
       <WordImageCard word={targetWord} secret />
+      {attempts >= 2 && (
+        <div className="lg-game-picture lg-game-picture-text" aria-label={`Hint: the word is ${targetWord}`}>
+          <span>{targetWord}</span>
+        </div>
+      )}
       <div className="lg-game-slots" aria-label="Word letters. Tap a filled box to take the letter out.">
         {targetWord.split("").map((letter, index) => (
           placed[index] ? (
@@ -414,46 +458,43 @@ function BuildGame({ variant, state, round, setRound, correct, setCorrect, addSc
   );
 }
 
-function MatchGame({ mode, state, isSoundEnabled, correct, setCorrect, addScore, miss, finish }) {
+function MatchGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss, finish, schedule }) {
   const [selected, setSelected] = useState([]);
   const [matchedIds, setMatchedIds] = useState([]);
   const cards = state.cards;
-  const targetMatches = mode === "rhyme" ? state.pairTotal : cards.length / 2;
-
-  function isMatch(first, second) {
-    if (mode === "memory") return first.word === second.word;
-    return first.word !== second.word && first.word.slice(-2) === second.word.slice(-2);
-  }
+  const targetMatches = cards.length / 2;
 
   function choose(card) {
-    if (matchedIds.includes(card.id) || selected.some(item => item.id === card.id)) return;
+    // Two cards already face-up (pending flip-back): ignore further taps so an
+    // extra click during the animation can't score a second penalty.
+    if (selected.length >= 2 || matchedIds.includes(card.id) || selected.some(item => item.id === card.id)) return;
     if (isSoundEnabled) speakWord(card.word);
     const nextSelected = [...selected, card];
     setSelected(nextSelected);
 
     if (nextSelected.length < 2) return;
 
-    if (isMatch(nextSelected[0], nextSelected[1])) {
+    if (nextSelected[0].word === nextSelected[1].word) {
       const nextCorrect = correct + 1;
       setCorrect(nextCorrect);
-      addScore(mode === "memory" ? 12 : 18);
+      addScore(12);
       setMatchedIds(current => [...current, nextSelected[0].id, nextSelected[1].id]);
       setSelected([]);
       if (nextCorrect >= targetMatches) {
-        setTimeout(() => finish(nextCorrect), 400);
+        schedule(() => finish(nextCorrect), 400);
       }
     } else {
       miss();
-      setTimeout(() => setSelected([]), 650);
+      schedule(() => setSelected([]), 650);
     }
   }
 
   return (
     <section className="lg-game-stage">
-      <p>{mode === "memory" ? "Find the matching sight words." : "Find the rhyming words."}</p>
-      <div className={`lg-card-grid ${mode === "memory" ? "memory" : "rhyme"}`}>
+      <p>Find the matching sight words.</p>
+      <div className="lg-card-grid memory">
         {cards.map(card => {
-          const visible = mode === "rhyme" || matchedIds.includes(card.id) || selected.some(item => item.id === card.id);
+          const visible = matchedIds.includes(card.id) || selected.some(item => item.id === card.id);
           return (
             <button
               key={card.id}
@@ -474,22 +515,39 @@ function MatchGame({ mode, state, isSoundEnabled, correct, setCorrect, addScore,
   );
 }
 
-function FamilyGame({ state, isSoundEnabled, correct, setCorrect, addScore, finish }) {
+function FamilyGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss, finish, schedule }) {
   const [built, setBuilt] = useState([]);
   const [activeFamily, setActiveFamily] = useState(state.familyIds[0]);
-  const familyWords = state.words.filter(item => item.familyId === activeFamily);
   const builtWords = new Set(built);
 
-  function choose(item) {
-    const word = item.word;
-    if (builtWords.has(word)) return;
-    if (isSoundEnabled) speakWord(word);
+  // Each family round mixes its real onsets with 1-2 decoys borrowed from the
+  // other families in play, so a tap can actually be wrong.
+  const options = useMemo(() => {
+    const familyOnsets = state.words
+      .filter(item => item.familyId === activeFamily)
+      .map(item => ({ onset: item.onset || item.word[0], word: item.word }));
+    const decoys = [];
+    for (const item of shuffle(state.words.filter(entry => entry.familyId !== activeFamily))) {
+      const onset = item.onset || item.word[0];
+      if (!familyOnsets.some(option => option.onset === onset) && !decoys.includes(onset)) decoys.push(onset);
+      if (decoys.length >= 2) break;
+    }
+    return shuffle([...familyOnsets, ...decoys.map(onset => ({ onset, word: "" }))]);
+  }, [activeFamily, state.words]);
+
+  function choose(option) {
+    if (!option.word) {
+      miss();
+      return;
+    }
+    if (builtWords.has(option.word)) return;
+    if (isSoundEnabled) speakWord(option.word);
     const nextCorrect = correct + 1;
-    setBuilt(current => [...current, word]);
+    setBuilt(current => [...current, option.word]);
     setCorrect(nextCorrect);
     addScore(12);
     if (nextCorrect >= state.total) {
-      setTimeout(() => finish(nextCorrect), 400);
+      schedule(() => finish(nextCorrect), 400);
     }
   }
 
@@ -506,9 +564,9 @@ function FamilyGame({ state, isSoundEnabled, correct, setCorrect, addScore, fini
       <div className="lg-family-board">
         <div className="lg-rime-tile">{activeFamily}</div>
         <div className="lg-game-letter-bank">
-          {familyWords.map(item => (
-            <button key={item.word} type="button" disabled={builtWords.has(item.word)} onClick={() => choose(item)}>
-              {item.onset || item.word[0]}
+          {options.map(option => (
+            <button key={option.onset} type="button" disabled={builtWords.has(option.word)} onClick={() => choose(option)}>
+              {option.onset}
             </button>
           ))}
         </div>
@@ -521,7 +579,7 @@ function FamilyGame({ state, isSoundEnabled, correct, setCorrect, addScore, fini
   );
 }
 
-function TargetGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds }) {
+function TargetGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds, schedule }) {
   const target = state.words[round] || state.words[0];
   const options = useMemo(() => shuffle([target, ...shuffle(state.words.filter(word => word !== target)).slice(0, 5)]), [state.words, target]);
   // The bubble the child just popped (plays its burst before the next round)
@@ -544,7 +602,7 @@ function TargetGame({ state, round, setRound, correct, setCorrect, addScore, mis
     const nextCorrect = correct + 1;
     setCorrect(nextCorrect);
     addScore(18, playPopSound);
-    setTimeout(() => {
+    schedule(() => {
       setPopped("");
       if (round + 1 >= totalRounds) finish(nextCorrect);
       else setRound(round + 1);
@@ -574,7 +632,7 @@ function TargetGame({ state, round, setRound, correct, setCorrect, addScore, mis
   );
 }
 
-function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled }) {
+function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, difficulty, schedule }) {
   const sentence = state.sentences[round] || state.sentences[0];
   const words = useMemo(() => sentence.replace(/[.?!]/g, "").split(/\s+/), [sentence]);
   const [position, setPosition] = useState(0);
@@ -597,7 +655,7 @@ function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, m
       setCorrect(nextCorrect);
       addScore(20);
       if (round + 1 >= state.sentences.length) {
-        setTimeout(() => finish(nextCorrect), 360);
+        schedule(() => finish(nextCorrect), 360);
       } else {
         setRound(round + 1);
       }
@@ -612,7 +670,7 @@ function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, m
       {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(sentence)}>Hear sentence</button>}
       <div className="lg-sentence-path">
         {words.map((word, index) => (
-          <span key={`${word}-${index}`} className={index < position ? "done" : index === position ? "active" : ""}>
+          <span key={`${word}-${index}`} className={index < position ? "done" : index === position && difficulty !== "hard" ? "active" : ""}>
             {word}
           </span>
         ))}
@@ -629,7 +687,7 @@ function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, m
   );
 }
 
-function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled }) {
+function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, schedule }) {
   const total = state.fixes.length;
   const fix = state.fixes[round] || state.fixes[0];
   const [solved, setSolved] = useState(false);
@@ -652,7 +710,7 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
     setCorrect(nextCorrect);
     addScore(25);
     if (isSoundEnabled && canHear) speak(fix.say);
-    setTimeout(() => {
+    schedule(() => {
       if (round + 1 >= total) {
         finish(nextCorrect);
       } else {

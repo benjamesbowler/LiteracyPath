@@ -7,6 +7,7 @@ import {
   playTapSound,
   playWhoosh
 } from "../../../../utils/audio/gameSfx.js";
+import { speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { soundSafariLadder, soundSafariStars } from "../../../../utils/soundSafariRounds.js";
 
 const CONFIG = {
@@ -690,6 +691,15 @@ function neededSound(task) {
   return task?.item.graphemes[task.index] || "";
 }
 
+// speakPhoneme only handles single letters; multi-letter graphemes route
+// through the word bank and stay silent when no recording exists.
+function speakGrapheme(grapheme) {
+  const value = String(grapheme || "");
+  if (!value) return;
+  if (value.length === 1) speakPhoneme(value);
+  else speak(value);
+}
+
 function rotate(values, amount) {
   if (!values.length) return [];
   const offset = ((amount % values.length) + values.length) % values.length;
@@ -749,7 +759,7 @@ function drawSoundSlots(ctx, task, theme, w, h) {
   }
 }
 
-function drawFieldGuide(ctx, task, theme, w, h) {
+function drawFieldGuide(ctx, task, theme, w, h, showNeeded) {
   const guideW = Math.min(560, w * 0.62);
   const x = w / 2 - guideW / 2;
   psxPanel(ctx, x, h * 0.112, guideW, 112, "rgba(3,8,18,.72)", `${theme.accent2}92`, 24);
@@ -761,8 +771,10 @@ function drawFieldGuide(ctx, task, theme, w, h) {
   }
   ctx.restore();
   text(ctx, titleWord(task.item.word), w / 2, h * 0.156, clamp(w * 0.046, 35, 66), "#fff", "center", 900);
-  psxPanel(ctx, w / 2 - Math.min(280, guideW * 0.42) / 2, h * 0.198, Math.min(280, guideW * 0.42), 38, "rgba(0,0,0,.38)", `${theme.accent}86`, 10);
-  text(ctx, `Next sound: ${neededSound(task)}`, w / 2, h * 0.222, clamp(w * 0.024, 20, 30), theme.accent, "center", 900);
+  if (showNeeded) {
+    psxPanel(ctx, w / 2 - Math.min(280, guideW * 0.42) / 2, h * 0.198, Math.min(280, guideW * 0.42), 38, "rgba(0,0,0,.38)", `${theme.accent}86`, 10);
+    text(ctx, `Next sound: ${neededSound(task)}`, w / 2, h * 0.222, clamp(w * 0.024, 20, 30), theme.accent, "center", 900);
+  }
 }
 
 function drawGuide(ctx, image, theme, w, h, time) {
@@ -1088,14 +1100,17 @@ function drawWordClear(ctx, state, theme, w, h) {
 function drawSafari(ctx, state, config, theme, images, w, h) {
   const task = state.currentTask;
   if (!task) return;
+  // Easy always shows the needed sound; medium/hard reveal it only as an
+  // adaptive hint after 2 mistakes on the current grapheme.
+  const showHint = state.rank === 0 || task.attempts >= 2;
   drawWorldAtmosphere(ctx, state, theme, w, h);
   drawHabitatFloor(ctx, state, theme, w, h);
   drawWorldGeometry(ctx, state, theme, w, h, "back");
   drawWorldMotion(ctx, state, theme, w, h);
-  drawFieldGuide(ctx, task, theme, w, h);
+  drawFieldGuide(ctx, task, theme, w, h, showHint);
   const palSprite = images.pals[state.level?.world] || images.pals.meadow;
   for (const critter of [...state.critters].sort((a, b) => (a.hitY || a.y) - (b.hitY || b.y))) {
-    drawCritter(ctx, critter, neededSound(task), theme, state.time, state.level?.world || "meadow", palSprite);
+    drawCritter(ctx, critter, showHint ? neededSound(task) : "", theme, state.time, state.level?.world || "meadow", palSprite);
   }
   for (const burst of state.bursts) drawCaptureBurst(ctx, burst);
   drawSoundSlots(ctx, task, theme, w, h);
@@ -1140,6 +1155,7 @@ function startSoundSafariArcadeGame(mount, options) {
 
   const state = {
     stage: clamp(Number(options.startLevel) || 0, 0, 9),
+    rank: difficultyRank(options.difficulty),
     level: null,
     tasks: [],
     taskIndex: 0,
@@ -1150,6 +1166,7 @@ function startSoundSafariArcadeGame(mount, options) {
     combo: 0,
     correct: 0,
     mistakes: 0,
+    wordsCompleted: 0,
     progress: 0,
     paused: false,
     ended: false,
@@ -1166,8 +1183,7 @@ function startSoundSafariArcadeGame(mount, options) {
     critters: [],
     bursts: [],
     pointer: { x: 0, y: 0 },
-    net: { x: 0, y: 0, targetX: 0, targetY: 0, angle: 0, swingDir: 1, swingT: 0 },
-    soundEnabled: soundAllowed()
+    net: { x: 0, y: 0, targetX: 0, targetY: 0, angle: 0, swingDir: 1, swingT: 0 }
   };
 
   let raf = 0;
@@ -1181,6 +1197,8 @@ function startSoundSafariArcadeGame(mount, options) {
   }
 
   function resize() {
+    const prevW = w;
+    const prevH = h;
     const rect = mount.getBoundingClientRect();
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     w = Math.max(320, rect.width || mount.clientWidth || 640);
@@ -1193,7 +1211,7 @@ function startSoundSafariArcadeGame(mount, options) {
     state.net.y = clamp(hasNetPosition ? state.net.y : h * 0.76, h * 0.2, h * 0.79);
     state.net.targetX = state.net.x;
     state.net.targetY = state.net.y;
-    setupCritters();
+    repositionCritters(prevW, prevH);
   }
 
   function setScore(next) {
@@ -1226,7 +1244,7 @@ function startSoundSafariArcadeGame(mount, options) {
     state.wordClearT = 0;
     state.pendingAdvance = false;
     state.waveSeed = state.stage * 9;
-    state.countdown = 3.45;
+    state.countdown = 3.0;
     setupTask();
     state.countdownTarget = countdownTarget();
     updateProgress();
@@ -1239,6 +1257,7 @@ function startSoundSafariArcadeGame(mount, options) {
     state.coachText = "";
     state.coachT = 0;
     if (!state.currentTask) return;
+    if (soundAllowed()) speakWord(state.currentTask.item.word);
     state.waveSeed += 1;
     setupCritters();
   }
@@ -1294,6 +1313,23 @@ function startSoundSafariArcadeGame(mount, options) {
     });
   }
 
+  // Resize must not rebuild critters: recreating them would resurrect caught
+  // ones. Scale their positions into the new bounds instead.
+  function repositionCritters(prevW, prevH) {
+    if (!state.critters.length || prevW < 10 || prevH < 10) return;
+    const scaleX = w / prevW;
+    const scaleY = h / prevH;
+    const maxY = h - clamp(h * 0.34, 178, 244);
+    for (const critter of state.critters) {
+      critter.x = clamp(critter.x * scaleX, w * 0.12, w * 0.9);
+      critter.y = clamp(critter.y * scaleY, h * 0.3, maxY);
+      critter.homeX = clamp(critter.homeX * scaleX, w * 0.12, w * 0.9);
+      critter.homeY = clamp(critter.homeY * scaleY, h * 0.3, maxY);
+      critter.orbitX *= scaleX;
+      critter.orbitY *= scaleY;
+    }
+  }
+
   function setCoach(message) {
     state.coachText = message;
     state.coachT = 1.15;
@@ -1310,6 +1346,7 @@ function startSoundSafariArcadeGame(mount, options) {
     state.pendingAdvance = true;
     state.wordClearT = 1.08;
     state.wordClearLabel = `${titleWord(task.item.word)} complete`;
+    state.wordsCompleted += 1;
     state.critters = [];
     sfx(playWhoosh);
   }
@@ -1332,7 +1369,7 @@ function startSoundSafariArcadeGame(mount, options) {
       state.ended = true;
       state.progress = 1;
       options.onProgressUpdate?.(ladder.length, ladder.length);
-      options.onComplete?.(config.stars({ correct: state.correct, total, mistakes: state.mistakes }), state.score, total);
+      options.onComplete?.(config.stars({ correct: state.correct, total, mistakes: state.mistakes }), state.score, state.wordsCompleted);
       return;
     }
     state.stage = nextStage;
@@ -1367,12 +1404,15 @@ function startSoundSafariArcadeGame(mount, options) {
 
     const needed = neededSound(task);
     if (!hit) {
-      setCoach(`Find ${needed} next`);
+      // Medium/hard conceal the needed grapheme until the adaptive hint
+      // unlocks (2 misses on this grapheme), matching drawSafari's showHint.
+      setCoach(state.rank === 0 || task.attempts >= 2 ? `Find ${needed} next` : "Say the word slowly — which sound is next?");
       return;
     }
 
     if (hit.critter.label !== needed) {
       state.mistakes += 1;
+      task.attempts += 1;
       state.combo = 0;
       state.judgement = "TRY AGAIN";
       state.judgementT = 0.72;
@@ -1380,7 +1420,7 @@ function startSoundSafariArcadeGame(mount, options) {
       hit.critter.scareT = 0.7;
       hit.critter.vx += (hit.center.x >= x ? 1 : -1) * 60;
       hit.critter.vy += (hit.center.y >= y ? 1 : -1) * 34;
-      setCoach(`Need ${needed} before ${hit.critter.label}`);
+      setCoach(state.rank === 0 || task.attempts >= 2 ? `Need ${needed} before ${hit.critter.label}` : "Not that one — listen to the word again!");
       sfx(playSoftBuzz);
       return;
     }
@@ -1399,13 +1439,17 @@ function startSoundSafariArcadeGame(mount, options) {
     state.pulse = 1;
     task.found.push(needed);
     task.index += 1;
+    task.attempts = 0;
     finishUnit(95);
     sfx(playPopSound);
+    if (soundAllowed()) speakGrapheme(needed);
     updateProgress();
     if (task.index >= task.item.graphemes.length) {
       scheduleWordClear(task);
     } else {
-      setCoach(`Now find ${neededSound(task)}`);
+      // Medium/hard: naming the next grapheme here would undo the concealment
+      // (attempts resets on each catch), so coach without revealing it.
+      setCoach(state.rank === 0 ? `Now find ${neededSound(task)}` : "Caught! Which sound is next?");
       state.waveSeed += 1;
       setupCritters();
     }
@@ -1438,10 +1482,8 @@ function startSoundSafariArcadeGame(mount, options) {
     if (event.key === "ArrowLeft") state.net.targetX -= move;
     else if (event.key === "ArrowRight") state.net.targetX += move;
     else if (event.key === "ArrowDown") state.net.targetY += move;
-    else if (event.key === "ArrowUp") {
-      if (state.countdown <= 0) captureAt(state.net.x, state.net.y);
-      else state.net.targetY -= move;
-    } else if (event.key === " " || event.key === "Enter") {
+    else if (event.key === "ArrowUp") state.net.targetY -= move;
+    else if (event.key === " " || event.key === "Enter") {
       captureAt(state.net.x, state.net.y);
     } else {
       handled = false;
@@ -1453,7 +1495,6 @@ function startSoundSafariArcadeGame(mount, options) {
   }
 
   function update(dt) {
-    state.soundEnabled = soundAllowed();
     state.time += reduceMotion ? dt * 0.35 : dt;
     state.pulse = Math.max(0, state.pulse - dt * 2.7);
     state.judgementT = Math.max(0, state.judgementT - dt);

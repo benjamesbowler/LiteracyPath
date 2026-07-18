@@ -20,7 +20,7 @@ const SOUND_RACER_EXTRA_WORDS = {
   y: ["yam", "yard", "yell", "yolk", "yuck", "yawn", "young", "yummy", "yearn", "yield", "yodel", "yoga"],
   z: ["zone", "zest", "zinc", "zero", "zebra", "zigzag", "zesty", "zippy", "zipper", "zombie", "zoom"],
   ch: ["chat", "chill", "chick", "chain", "chase", "chess", "check", "charm", "cheer", "chime"],
-  wh: ["wheel", "whale", "white", "wheat", "whip", "while", "where", "whole", "whizz", "whisk"]
+  wh: ["wheel", "whale", "white", "wheat", "whip", "while", "where", "whizz", "whisk"]
 };
 
 // Sound Racer needs longer laps than Rocket Run, so it uses the Rocket Run

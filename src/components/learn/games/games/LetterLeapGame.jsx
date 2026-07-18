@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import {
   playCorrectChime,
   playPopSound,
@@ -15,6 +15,7 @@ import {
 } from "../../../../utils/curriculumLadder.js";
 import { makeCatchUp } from "../../../../utils/catchUpQueue.js";
 import { starRubric } from "../../../../utils/starRubric.js";
+import { speak } from "../../../../utils/learnGamesAudio.js";
 
 // Letter Leap — a real side-scrolling platformer (ported from the approved
 // preview) wired to the shared curriculum framework:
@@ -196,6 +197,7 @@ function startGame(mount, opts) {
   let player, level, words, wIx, word, nextIx, hearts, running = false, cam = 0, last = 0, invuln = 0;
   let particles = [], spores = [], floats = [];
   let score = 0, wrongHits = 0, deaths = 0, wordsDoneGlobal = 0;
+  let wordsDoneAtStageStart = 0; // rollback point: a requeued stage replays, so its words must not double-count
   // Modern game-feel state (Mission 1)
   const COYOTE = 0.12, JUMP_BUFFER = 0.14;
   let coyoteT = 0, jumpBufT = 0, runDustT = 0, shakeT = 0;
@@ -329,6 +331,7 @@ function startGame(mount, opts) {
   function startStage() {
     stageIdx = stageQueue.peek();
     if (stageIdx == null) { finishGame(); return; }
+    wordsDoneAtStageStart = wordsDoneGlobal; // if this stage is requeued, progress rolls back to here
     const plan = ladder[stageIdx];
     legs = allStageSentences[stageIdx]; legIx = 0;
     words = (legs ? legs[0] : allStageWords[stageIdx]).slice();
@@ -372,10 +375,12 @@ function startGame(mount, opts) {
 
   function hurt() {
     if (invuln > 0) return;
-    hearts -= 1; updateHearts(); wrongHits += 1; sfx(playSoftBuzz); invuln = 1.3; burst(player.x, player.y, "#ff7a66");
+    hearts -= 1; updateHearts(); sfx(playSoftBuzz); invuln = 1.3; burst(player.x, player.y, "#ff7a66");
     if (hearts <= 0) {
       running = false; deaths += 1;
       stageQueue.miss(); // this stage comes back later (catch-up)
+      wordsDoneGlobal = wordsDoneAtStageStart; // the stage replays — don't double-count its words
+      opts.onProgressUpdate && opts.onProgressUpdate(wordsDoneGlobal, totalWords);
       showOverlay("Catch up later!", "The grumpers got you — this stage will come back around. Keep going!", "Keep going", () => { player = null; startStage(); });
     } else {
       player.x = player.spawnX; player.y = groundY() - 46; player.vx = 0; player.vy = 0; cam = Math.max(0, player.x - W * 0.35);
@@ -495,7 +500,7 @@ function startGame(mount, opts) {
     p.y += p.vy;
     const wasAir = !p.onGround; p.onGround = false;
     const feet = p.y + p.h / 2;
-    for (const pl of level.plats) { if (p.x + p.w / 2 > pl.x && p.x - p.w / 2 < pl.x + pl.w && p.vy >= 0 && feet >= pl.y && feet <= pl.y + 24) { p.y = pl.y - p.h / 2; p.vy = 0; p.onGround = true; p.spawnX = p.x; p.stood = pl; } }
+    for (const pl of level.plats) { if (p.x + p.w / 2 > pl.x && p.x - p.w / 2 < pl.x + pl.w && p.vy >= 0 && feet >= pl.y && feet <= pl.y + 24) { p.y = pl.y - p.h / 2; p.vy = 0; p.onGround = true; if (!inPit(p.x)) p.spawnX = p.x; p.stood = pl; } }
     for (const sp of level.springs) { if (Math.abs(sp.x - p.x) < 24 && p.onGround && p.y + p.h / 2 >= groundY() - 10) { p.vy = -19; p.onGround = false; p.squash = -0.45; sp.press = 0.2; sfx(playWhoosh); } }
     for (const bl of level.blocks) {
       if (bl.broken) continue;
@@ -508,7 +513,7 @@ function startGame(mount, opts) {
         else if (bl.type === "prize" && !bl.used) { bl.used = true; sfx(playStarChime); level.pickups.push({ x: bl.x + bl.w / 2, y: bl.y - 16, taken: false }); }
       }
     }
-    if (feet >= groundY()) { if (inPit(p.x)) { if (p.y > H + 40) hurt(); } else { p.y = groundY() - p.h / 2; p.vy = 0; p.onGround = true; if (p.x > 70) p.spawnX = Math.max(p.spawnX, p.x - 24); } }
+    if (feet >= groundY()) { if (inPit(p.x)) { if (p.y > H + 40) hurt(); } else { p.y = groundY() - p.h / 2; p.vy = 0; p.onGround = true; if (p.x > 70 && !inPit(p.x - 24)) p.spawnX = Math.max(p.spawnX, p.x - 24); } }
     if (p.onGround && wasAir) {
       p.squash = 0.35;
       for (let i = 0; i < 6; i += 1) particles.push({ x: p.x + (Math.random() - 0.5) * 20, y: p.y + p.h / 2 - 2, vx: (Math.random() - 0.5) * 4, vy: -Math.random() * 1.5, life: 0.5, c: "#cfc9bd" });
@@ -529,7 +534,14 @@ function startGame(mount, opts) {
     for (const b of level.bubbles) {
       if (b.taken) continue;
       if (Math.abs(b.x - p.x) < 34 && Math.abs(b.y - p.y) < 42) {
-        if (b.word === -1) { b.taken = true; burst(b.x, b.y, "#ff7a66"); hurt(); }
+        if (b.word === -1) {
+          if (invuln > 0) continue; // i-frames: never consume a decoy for free
+          b.taken = true; wrongHits += 1; // literacy mistakes — the ONLY mistakes the star rubric sees
+          burst(b.x, b.y, "#ff7a66"); sfx(playSoftBuzz);
+          const tip = "That's " + b.ch + " — you need " + word[Math.min(nextIx, word.length - 1)] + "!";
+          addFloat(b.x, b.y - 26, tip); // teach, don't punish: no heart lost
+          sfx(() => speak(tip));
+        }
         else if (b.word === wIx && b.order === nextIx) {
           b.taken = true; nextIx += 1; sfx(playPopSound); addScore(10); burst(b.x, b.y, "#ffd34e"); addFloat(b.x, b.y - 22, "+10");
           if (nextIx >= word.length) wordDone(); else renderWord();
@@ -921,7 +933,6 @@ function startGame(mount, opts) {
 export default function LetterLeapGame({ difficulty = "easy", startLevel = 0, onScoreUpdate, onProgressUpdate, onComplete, onCheckpoint, onEngineReady, isSoundEnabled = true }) {
   const mountRef = useRef(null);
   const soundRef = useRef(isSoundEnabled);
-  const [ready] = useState(true);
   useEffect(() => { soundRef.current = isSoundEnabled; }, [isSoundEnabled]);
   useEffect(() => {
     if (!mountRef.current) return undefined;
@@ -943,7 +954,6 @@ export default function LetterLeapGame({ difficulty = "easy", startLevel = 0, on
       className="letter-leap"
       ref={mountRef}
       style={{ position: "relative", width: "100%", height: "100%", minHeight: "460px", overflow: "hidden", background: "#0a1020", touchAction: "none" }}
-      data-ready={ready ? "1" : "0"}
     />
   );
 }

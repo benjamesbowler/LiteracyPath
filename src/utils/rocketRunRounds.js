@@ -9,6 +9,44 @@ import { onsetGrapheme, sharesSound } from "../components/elQuest/elQuestEngine.
 const CLEAN = word => /^[a-z]{2,6}$/.test(word);
 const ALL_WORDS = [...new Set(Object.values(LETTER_EXAMPLES).flat())].filter(CLEAN);
 
+// Extra onset words per grapheme, vetted by hand for this game: 2-6 letters
+// (CLEAN-passing), genuinely starting with the grapheme (hard c/g only, no
+// silent letters like knee/knit, no soft c/g like city/gem), and concrete and
+// age-appropriate for ages 4-8. LETTER_EXAMPLES alone yields only 3-6 usable
+// words per sound after CLEAN filtering, so rounds recycled the same handful;
+// with these extras every grapheme the game targets reaches 12+ onset words.
+// Keys intentionally match the existing rocketRunTargets() set exactly, so no
+// new grapheme (u, qu, x) is promoted into a target by accident.
+const EXTRA_WORDS = {
+  a: ["add", "am", "an", "and", "as", "ask", "at", "act", "ash", "alley", "ankle", "arrow", "actor", "after", "angry", "animal", "answer"],
+  m: ["mad", "man", "men", "milk", "mop", "mud", "mug", "mom", "mitt", "moss", "melon", "muffin"],
+  t: ["tag", "tan", "ten", "tin", "tip", "toe", "toy", "tub", "tug", "tall", "tick", "toast"],
+  s: ["sad", "sap", "set", "six", "sob", "sand", "seed", "sick", "sing", "soap", "soft", "sour"],
+  n: ["nag", "new", "nod", "not", "nut", "nail", "near", "neck", "need", "nine", "noon", "note"],
+  i: ["if", "ill", "in", "inn", "it", "inch", "into", "issue", "image", "indoor"],
+  f: ["fat", "fed", "fin", "fit", "fog", "fun", "fur", "fall", "fast", "feet", "five", "flag"],
+  d: ["dad", "dam", "day", "den", "did", "dim", "dip", "dot", "dark", "dish", "doll", "down"],
+  o: ["odd", "off", "old", "olive", "omelet", "opera", "orbit", "onset", "often", "orange", "oxygen"],
+  l: ["lab", "lad", "leg", "lid", "lip", "lit", "lot", "luck", "lamb", "lake", "list", "lock"],
+  r: ["rag", "rat", "ray", "rib", "rip", "rob", "rod", "row", "rain", "rest", "ring", "rock"],
+  h: ["had", "ham", "hay", "hid", "hit", "hot", "hug", "hut", "hand", "hard", "help", "hill"],
+  b: ["bad", "bed", "bee", "big", "bit", "boy", "bug", "bus", "back", "bike", "bird", "boat"],
+  w: ["wag", "way", "wet", "win", "wait", "walk", "wash", "week", "well", "west", "will", "wish"],
+  c: ["cab", "car", "cod", "cop", "cow", "cub", "cut", "cake", "call", "camp", "card", "coat", "cold", "cook", "cool", "corn"],
+  g: ["gas", "get", "got", "guy", "game", "gate", "girl", "give", "glad", "goal", "gold", "golf", "good", "grin"],
+  p: ["pad", "paw", "pay", "pen", "pet", "pie", "pin", "pop", "pack", "park", "pick", "play", "pond", "pool"],
+  y: ["yam", "yap", "yet", "yum", "yard", "yawn", "year", "yell", "yoga", "yolk", "your", "young", "yours", "youth"],
+  e: ["ebb", "elf", "elk", "elm", "edge", "else", "envy", "epic", "elbow", "enter", "error", "edgy", "ember", "engine"],
+  v: ["vat", "vow", "vast", "veil", "vent", "verb", "very", "veto", "void", "vote"],
+  k: ["keg", "key", "kin", "keen", "keep", "kelp", "kept", "kick", "kind", "king", "kiss"],
+  j: ["jab", "jar", "jaw", "jig", "job", "jog", "joy", "jail", "jazz", "jeep", "joke", "just"],
+  z: ["zag", "zen", "zig", "zit", "zany", "zest", "zinc", "zone", "zoom", "zebra", "zipper"],
+  sh: ["she", "shy", "shed", "shoe", "shot", "show", "shade", "shake", "share", "sharp", "sheet", "shine", "shirt", "short"],
+  ch: ["chew", "chain", "chalk", "champ", "chase", "check", "cheek", "cheer", "chest", "chick", "child", "chill", "chime", "chunk"],
+  th: ["than", "the", "them", "then", "they", "this", "thud", "thank", "thick", "thief", "thorn", "those", "throw", "thump"],
+  wh: ["why", "whip", "whiz", "whale", "wheat", "wheel", "where", "which", "while", "white"]
+};
+
 function shuffle(items) {
   const copy = [...items];
   for (let i = copy.length - 1; i > 0; i -= 1) {
@@ -20,9 +58,13 @@ function shuffle(items) {
 
 // Example words that TRULY start with the grapheme (drops "six"/"teeth"/"ball"
 // style entries where the grapheme is not the onset - see elQuestEngine onset fix).
+// Merges the vetted EXTRA_WORDS so every target has a deep enough pool that
+// rounds serve distinct words instead of recycling the same 3-6.
 export function wordsStartingWith(grapheme) {
   const g = String(grapheme || "").toLowerCase();
-  return (LETTER_EXAMPLES[g] || []).filter(CLEAN).filter(word => onsetGrapheme(word) === g);
+  return [...new Set([...(LETTER_EXAMPLES[g] || []), ...(EXTRA_WORDS[g] || [])])]
+    .filter(CLEAN)
+    .filter(word => onsetGrapheme(word) === g);
 }
 
 // Graphemes that make a valid "which starts with this sound?" target: at least a

@@ -87,8 +87,8 @@ const MEDIUM = [
   {
     type: "agreement",
     prompt: "Choose the verb that agrees.",
-    sentence: "The birds _ in the tree.",
-    cue: "More than one bird uses sing, not sings.",
+    sentence: "Right now, the birds _ in the tree.",
+    cue: "Right now means it is happening now, and birds is plural, so use sing.",
     correct: "sing",
     options: ["sing", "sings", "sang"]
   },
@@ -193,11 +193,11 @@ const HARD = [
   },
   {
     type: "agreement",
-    prompt: "Choose the collective noun verb.",
-    sentence: "The team _ ready.",
-    cue: "Team acts as one group in this sentence.",
-    correct: "is",
-    options: ["are", "is", "were"]
+    prompt: "Choose the verb that agrees.",
+    sentence: "My two brothers _ soccer every weekend.",
+    cue: "Brothers is more than one, and every weekend means it happens again and again, so use play.",
+    correct: "play",
+    options: ["play", "plays", "playing"]
   },
   {
     type: "pronoun",
@@ -319,12 +319,13 @@ export function grammarGrindIsCorrect(choice, level) {
   return String(choice) === String(level?.correct ?? "");
 }
 
-export function grammarGrindChoiceFeedback(choice, level) {
+export function grammarGrindChoiceFeedback(choice, level, { reveal = false } = {}) {
   if (!level) return "Read the sentence again, then choose the grammar that fits.";
   if (grammarGrindIsCorrect(choice, level)) return level.success || level.cue || "That choice fits the sentence.";
   const chosen = String(choice);
-  const correct = String(level.correct ?? "");
   const cue = level.cue || level.teaching || TEACHING_BY_TYPE[level.type] || "Use the rule shown in the sentence.";
+  if (!reveal) return `"${chosen}" does not fit here. ${cue}`;
+  const correct = String(level.correct ?? "");
   return `"${chosen}" does not fit here. ${cue} Aim for "${correct}".`;
 }
 

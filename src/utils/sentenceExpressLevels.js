@@ -68,16 +68,16 @@ const BANK = {
 // clearly wrong in context, real K-readable words. Keyed by the word they
 // replace; fallback pools by rough part of speech.
 const CONFUSION = {
-  run: ["nap", "sit"], play: ["dig", "nap"], see: ["hug", "pat"],
-  big: ["wet", "sad"], red: ["wet", "old"], hop: ["sip", "dig"],
-  swim: ["hop", "clap"], jump: ["clap", "nap"], fast: ["wet", "sad"],
-  sat: ["ran", "hid"], like: ["dig", "pat"], stops: ["digs", "sits"],
-  runs: ["digs", "sits"], hot: ["wet", "old"], small: ["wet", "old"],
-  gold: ["wet", "old"], strong: ["wet", "sad"], little: ["wet", "old"]
+  run: ["nap", "sit", "dig"], play: ["dig", "nap", "sit"], see: ["hug", "pat", "dig"],
+  big: ["wet", "sad", "cold"], red: ["wet", "old", "sad"], hop: ["sip", "dig", "nap"],
+  swim: ["hop", "clap", "dig"], jump: ["clap", "nap", "sit"], fast: ["wet", "sad", "slow"],
+  sat: ["ran", "hid", "dug"], like: ["dig", "pat", "hug"], stops: ["digs", "sits", "runs"],
+  runs: ["digs", "sits", "stops"], hot: ["wet", "old", "cold"], small: ["wet", "old", "big"],
+  gold: ["wet", "old", "red"], strong: ["wet", "sad", "old"], little: ["wet", "old", "big"]
 };
-const FALLBACK_VERBS = ["nap", "dig", "clap", "sip", "pat", "sit"];
-const FALLBACK_ADJ = ["wet", "old", "sad", "damp"];
-const FALLBACK_NOUNS = ["mop", "pot", "log", "bin", "cot"];
+const FALLBACK_VERBS = ["nap", "dig", "clap", "sip", "pat", "sit", "hop", "hug"];
+const FALLBACK_ADJ = ["wet", "old", "sad", "damp", "cold", "soft", "flat", "dark"];
+const FALLBACK_NOUNS = ["mop", "pot", "log", "bin", "cot", "van", "mat", "box"];
 
 // ── Seeded PRNG (mulberry32, same idiom as the other game builders) ─────────
 function seedFrom(text) {
@@ -124,10 +124,18 @@ export function faultsForLevel(difficulty, level) {
 function looksLikeVerb(word) { return /(s|ed|ing)$/.test(word) || FALLBACK_VERBS.includes(word) || CONFUSION[word]; }
 
 function wrongWordsFor(word, sentenceWords, rand) {
-  const base = CONFUSION[word.toLowerCase()]
-    || (looksLikeVerb(word.toLowerCase()) ? FALLBACK_VERBS : /[aeiou]/.test(word) && word.length <= 4 ? FALLBACK_ADJ : FALLBACK_NOUNS);
-  const clean = base.filter(w => !sentenceWords.includes(w) && w !== word.toLowerCase());
-  return shuffled(clean, rand).slice(0, 2);
+  const lower = word.toLowerCase();
+  const base = CONFUSION[lower]
+    || (looksLikeVerb(lower) ? FALLBACK_VERBS : /[aeiou]/.test(word) && word.length <= 4 ? FALLBACK_ADJ : FALLBACK_NOUNS);
+  const usable = w => !sentenceWords.includes(w) && w !== lower;
+  const clean = shuffled(base.filter(usable), rand);
+  if (clean.length < 2) {
+    // Top up from the wider pools: a rusty/gap panel always offers 3+ options.
+    const extras = [...FALLBACK_VERBS, ...FALLBACK_ADJ, ...FALLBACK_NOUNS]
+      .filter(w => usable(w) && !clean.includes(w));
+    clean.push(...shuffled(extras, rand).slice(0, 2 - clean.length));
+  }
+  return clean.slice(0, 2);
 }
 
 // Pick a swappable content word (never the first word, never 1-2 letter glue).

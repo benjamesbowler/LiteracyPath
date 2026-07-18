@@ -118,9 +118,11 @@ test("Grammar Grind has ten unambiguous grammar skate levels per difficulty", ()
       assert.equal(level.options.filter(option => grammarGrindIsCorrect(option, level)).length, 1, `${difficulty} level ${level.level + 1} should have one correct gate`);
       assert.notEqual(level.type, "startsWith", `${difficulty} level ${level.level + 1} should not be an initial-sound task`);
       for (const option of level.options.filter(option => !grammarGrindIsCorrect(option, level))) {
-        const feedback = grammarGrindChoiceFeedback(option, level);
-        assert.ok(feedback.includes(String(option)), `${difficulty} level ${level.level + 1} feedback should name the picked option`);
-        assert.ok(feedback.includes(String(level.correct)), `${difficulty} level ${level.level + 1} feedback should point back to the right choice`);
+        const firstMiss = grammarGrindChoiceFeedback(option, level);
+        assert.ok(firstMiss.includes(String(option)), `${difficulty} level ${level.level + 1} feedback should name the picked option`);
+        assert.ok(!firstMiss.includes("Aim for"), `${difficulty} level ${level.level + 1} first miss should hint the rule, not reveal the answer`);
+        const repeatMiss = grammarGrindChoiceFeedback(option, level, { reveal: true });
+        assert.ok(repeatMiss.includes(String(level.correct)), `${difficulty} level ${level.level + 1} second miss should point back to the right choice`);
       }
     }
   }
