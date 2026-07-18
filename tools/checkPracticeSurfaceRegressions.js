@@ -39,9 +39,10 @@ const checks = [
   {
     file: "src/components/learn/games/GameArcadeHub.jsx",
     needles: [
-      "lg-arcade-next",
-      "Recommended next",
-      "Play Next"
+      "lg-arcade-tab",
+      "Arcade Area",
+      "Phonics Practice",
+      "High Scores"
     ]
   },
   {
