@@ -12,8 +12,21 @@ import { worldForGameDifficulty, LEVELS_PER_DIFFICULTY } from "../../../../utils
 import { starRubric } from "../../../../utils/starRubric.js";
 import { speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
+import {
+  loadThree,
+  createRenderer,
+  createScene,
+  createPerspectiveCamera,
+  attachResize,
+  createFrameLoop,
+  attachContextLossGuard,
+  attachSteerZones,
+  attachSwipeSteer,
+  prefersReducedMotion,
+  disposeRenderer,
+  disposeObject
+} from "../shared/threeShell.js";
 
-const THREE_SRC = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
 const LANES = [-3.15, 0, 3.15];
 const LANE_NAMES = ["left", "middle", "right"];
 const TRACK_UNIT = 3.05;
@@ -197,28 +210,6 @@ const WORLD_MAPS = {
   ]
 };
 
-function loadThree() {
-  return new Promise((resolve, reject) => {
-    if (window.THREE) {
-      resolve(window.THREE);
-      return;
-    }
-    const existing = document.querySelector("script[data-three-cdn]");
-    if (existing) {
-      existing.addEventListener("load", () => resolve(window.THREE));
-      existing.addEventListener("error", () => reject(new Error("three-load-failed")));
-      return;
-    }
-    const script = document.createElement("script");
-    script.src = THREE_SRC;
-    script.async = true;
-    script.dataset.threeCdn = "1";
-    script.onload = () => resolve(window.THREE);
-    script.onerror = () => reject(new Error("three-load-failed"));
-    document.head.appendChild(script);
-  });
-}
-
 function formatTime(ms) {
   const seconds = Math.floor(ms / 1000);
   const min = Math.floor(seconds / 60);
@@ -266,18 +257,6 @@ function countdownPrompt(target) {
   return `Find Words Beginning With ${letter}`;
 }
 
-function disposeObject(obj) {
-  if (!obj) return;
-  obj.traverse(node => {
-    if (node.geometry) node.geometry.dispose();
-    const materials = Array.isArray(node.material) ? node.material : (node.material ? [node.material] : []);
-    for (const material of materials) {
-      if (material.map) material.map.dispose();
-      material.dispose();
-    }
-  });
-}
-
 function startGame(THREE, mount, opts) {
   const width = () => mount.clientWidth || 720;
   const height = () => mount.clientHeight || 460;
@@ -286,7 +265,7 @@ function startGame(THREE, mount, opts) {
   const ladder = soundRacerLadder(difficulty);
   const levelCount = LEVELS_PER_DIFFICULTY;
   const startLevelIdx = Math.max(0, Math.min(Number(opts.startLevel) || 0, levelCount - 1));
-  const reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const reduceMotion = prefersReducedMotion();
   const sfx = fn => {
     try {
       if (opts.getSound && opts.getSound()) fn();
@@ -295,29 +274,28 @@ function startGame(THREE, mount, opts) {
     }
   };
 
-  const scene = new THREE.Scene();
+  const scene = createScene(THREE);
   const cameraBaseFov = 64;
   const cameraBaseY = 3.95;
   const cameraBaseZ = 10.45;
-  const camera = new THREE.PerspectiveCamera(cameraBaseFov, width() / height(), 0.1, 190);
-  camera.position.set(0, cameraBaseY, cameraBaseZ);
-  camera.lookAt(0, 1.0, -11.8);
+  const camera = createPerspectiveCamera(THREE, {
+    fov: cameraBaseFov,
+    aspect: width() / height(),
+    near: 0.1,
+    far: 190,
+    position: [0, cameraBaseY, cameraBaseZ],
+    lookAt: [0, 1.0, -11.8]
+  });
 
-  let renderer;
-  try {
-    renderer = new THREE.WebGLRenderer({ antialias: false, powerPreference: "default" });
-  } catch {
-    renderer = new THREE.WebGLRenderer({ antialias: false });
-  }
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.65));
+  const renderer = createRenderer(THREE, {
+    antialias: false,
+    powerPreference: "default",
+    pixelRatioCap: 1.65,
+    srgbOutput: true,
+    toneMappingExposure: 1.0,
+    shadowMap: "pcf"
+  });
   renderer.setSize(width(), height());
-  renderer.outputEncoding = THREE.sRGBEncoding;
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.0;
-  if (renderer.shadowMap) {
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFShadowMap;
-  }
   renderer.domElement.style.display = "block";
   renderer.domElement.style.width = "100%";
   renderer.domElement.style.height = "100%";
@@ -422,7 +400,6 @@ function startGame(THREE, mount, opts) {
   let shakeT = 0;
   let catchUpSerial = 0;
   let elapsed = 0;
-  let raf = 0;
   let last = 0;
   let fov = cameraBaseFov;
   const levelResults = new Array(levelCount);
@@ -2783,13 +2760,9 @@ function startGame(THREE, mount, opts) {
   const onLeft = () => moveLane(-1);
   const onRight = () => moveLane(1);
   // Keyboard activation (Enter/Space) fires click with detail 0; pointer taps
-  // already steered on pointerdown, so only detail 0 clicks may steer here.
-  const onLeftClick = event => { if (event.detail === 0) onLeft(); };
-  const onRightClick = event => { if (event.detail === 0) onRight(); };
-  el("left").addEventListener("pointerdown", onLeft);
-  el("right").addEventListener("pointerdown", onRight);
-  el("left").addEventListener("click", onLeftClick);
-  el("right").addEventListener("click", onRightClick);
+  // already steered on pointerdown, so the steer zones only forward detail 0
+  // clicks to steering (handled inside attachSteerZones).
+  const detachSteerZones = attachSteerZones({ left: el("left"), right: el("right"), onLeft, onRight, keyboardClick: true });
 
   const onKey = event => {
     if (event.key === "ArrowLeft" || event.key === "a") moveLane(-1);
@@ -2797,26 +2770,9 @@ function startGame(THREE, mount, opts) {
   };
   window.addEventListener("keydown", onKey);
 
-  let dragX = null;
-  const onPointerDown = event => { dragX = event.clientX; };
-  const onPointerUp = event => {
-    if (dragX == null) return;
-    const dx = event.clientX - dragX;
-    if (Math.abs(dx) > 40) moveLane(dx > 0 ? 1 : -1);
-    dragX = null;
-  };
-  renderer.domElement.addEventListener("pointerdown", onPointerDown);
-  renderer.domElement.addEventListener("pointerup", onPointerUp);
+  const detachSwipeSteer = attachSwipeSteer(renderer.domElement, { threshold: 40, onSteer: dir => moveLane(dir) });
 
-  const onResize = () => {
-    camera.aspect = width() / height();
-    camera.updateProjectionMatrix();
-    renderer.setSize(width(), height());
-    layoutHud();
-  };
-  window.addEventListener("resize", onResize);
-  const ro = new ResizeObserver(onResize);
-  ro.observe(mount);
+  const detachResize = attachResize({ mount, renderer, camera, width, height, onResize: layoutHud });
 
   function updateTrackVisuals() {
     const travel = ((playerZ * TRACK_UNIT) % TRACK_SEGMENT_LENGTH + TRACK_SEGMENT_LENGTH) % TRACK_SEGMENT_LENGTH;
@@ -2925,7 +2881,6 @@ function startGame(THREE, mount, opts) {
   }
 
   function tick(now) {
-    raf = requestAnimationFrame(tick);
     const dt = Math.min(0.05, ((now - last) || 16) / 1000);
     last = now;
     if (paused) {
@@ -2990,7 +2945,8 @@ function startGame(THREE, mount, opts) {
   }
 
   startLevel();
-  raf = requestAnimationFrame(tick);
+  const loop = createFrameLoop(tick);
+  loop.start();
 
   function pause() {
     if (paused) return;
@@ -3006,17 +2962,15 @@ function startGame(THREE, mount, opts) {
     if (savedRunning) running = true;
   }
 
+  const detachContextGuard = attachContextLossGuard(renderer, { onLost: pause, onRestored: resume });
+
   function teardown() {
-    cancelAnimationFrame(raf);
+    loop.stop();
+    detachContextGuard();
     window.removeEventListener("keydown", onKey);
-    window.removeEventListener("resize", onResize);
-    renderer.domElement.removeEventListener("pointerdown", onPointerDown);
-    renderer.domElement.removeEventListener("pointerup", onPointerUp);
-    el("left").removeEventListener("pointerdown", onLeft);
-    el("right").removeEventListener("pointerdown", onRight);
-    el("left").removeEventListener("click", onLeftClick);
-    el("right").removeEventListener("click", onRightClick);
-    ro.disconnect();
+    detachSwipeSteer();
+    detachSteerZones();
+    detachResize();
     if (ship) {
       scene.remove(ship);
       disposeObject(ship);
@@ -3029,13 +2983,7 @@ function startGame(THREE, mount, opts) {
     disposeObject(railGroup);
     disposeObject(sceneryGroup);
     disposeObject(burstGroup);
-    try {
-      renderer.dispose();
-      renderer.forceContextLoss?.();
-    } catch {
-      /* ignore teardown errors */
-    }
-    if (renderer.domElement.parentNode) renderer.domElement.parentNode.removeChild(renderer.domElement);
+    disposeRenderer(renderer, { forceContextLoss: true });
     if (hud.parentNode) hud.parentNode.removeChild(hud);
   }
 

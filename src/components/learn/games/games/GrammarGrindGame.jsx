@@ -16,6 +16,16 @@ import {
   grammarGrindStars
 } from "../../../../utils/grammarGrindLevels.js";
 import { hasRecordedSpeech, speak } from "../../../../utils/learnGamesAudio.js";
+import {
+  createRenderer,
+  createScene,
+  createPerspectiveCamera,
+  attachResize,
+  createFrameLoop,
+  attachContextLossGuard,
+  disposeRenderer,
+  disposeObject
+} from "../shared/threeShell.js";
 
 const THEMES = {
   easy: {
@@ -446,17 +456,19 @@ function startGame(mount, opts) {
     }
   };
 
-  const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFShadowMap;
+  const renderer = createRenderer(THREE, {
+    antialias: true,
+    powerPreference: "high-performance",
+    retryWithoutAntialias: false,
+    srgbOutput: false,
+    shadowMap: "pcf"
+  });
   renderer.domElement.style.cssText = "position:absolute;inset:0;display:block;width:100%;height:100%;touch-action:none";
   mount.appendChild(renderer.domElement);
 
-  const scene = new THREE.Scene();
+  const scene = createScene(THREE, new THREE.Fog(theme.fog, 86, 190));
   scene.background = new THREE.Color(theme.sky);
-  scene.fog = new THREE.Fog(theme.fog, 86, 190);
-  const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 360);
+  const camera = createPerspectiveCamera(THREE, { fov: 60, aspect: 1, near: 0.1, far: 360 });
 
   const hemi = new THREE.HemisphereLight("#ffffff", theme.ground, 1.9);
   scene.add(hemi);
@@ -857,11 +869,8 @@ function startGame(mount, opts) {
     banner: overlay.querySelector('[data-gg="banner"]')
   };
 
-  let width = 1;
-  let height = 1;
   let running = true;
   let paused = false;
-  let frameId = 0;
   let lastTime = 0;
   let levelIndex = startAt;
   let level = ladder[levelIndex];
@@ -912,28 +921,15 @@ function startGame(mount, opts) {
   const particles = [];
   const trails = [];
 
-  function resize() {
-    width = mount.clientWidth || 960;
-    height = mount.clientHeight || 560;
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
-    renderer.setSize(width, height, false);
-  }
-
-  const observer = new ResizeObserver(resize);
-  observer.observe(mount);
-  resize();
-
-  function disposeObject(object) {
-    object.traverse(child => {
-      if (child.geometry) child.geometry.dispose();
-      const materials = Array.isArray(child.material) ? child.material : [child.material];
-      materials.filter(Boolean).forEach(material => {
-        if (material.map) material.map.dispose();
-        material.dispose?.();
-      });
-    });
-  }
+  const detachResize = attachResize({
+    mount,
+    renderer,
+    camera,
+    width: () => mount.clientWidth || 960,
+    height: () => mount.clientHeight || 560,
+    listenToWindow: false,
+    updateStyle: false
+  });
 
   function clearGates() {
     while (gates.length) {
@@ -1648,14 +1644,13 @@ function startGame(mount, opts) {
   }
 
   function render(now) {
-    if (!running) return;
     const time = now * 0.001;
     const dt = Math.min(0.04, (now - lastTime || 16) / 1000);
     lastTime = now;
     update(dt, time);
     renderer.render(scene, camera);
-    frameId = window.requestAnimationFrame(render);
   }
+  const loop = createFrameLoop(render);
 
   function setKey(key, value) {
     if (key === "jump" && value && !keys.jump) keys.jumpPressed = true;
@@ -1716,9 +1711,9 @@ function startGame(mount, opts) {
   loadLevel(startAt);
   camera.position.set(0, 10, 42);
   camera.lookAt(0, 1.8, 0);
-  frameId = window.requestAnimationFrame(render);
+  loop.start();
 
-  return {
+  const api = {
     pause() {
       paused = true;
       speechToken += 1;
@@ -1728,10 +1723,11 @@ function startGame(mount, opts) {
     },
     teardown() {
       running = false;
-      window.cancelAnimationFrame(frameId);
+      loop.stop();
+      detachContextGuard();
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
-      observer.disconnect();
+      detachResize();
       clearGates();
       clearPickups();
       clearLineNodes();
@@ -1745,11 +1741,12 @@ function startGame(mount, opts) {
         trailsRoot.remove(child);
         disposeObject(child);
       });
-      renderer.dispose();
-      renderer.domElement.remove();
+      disposeRenderer(renderer);
       overlay.remove();
     }
   };
+  const detachContextGuard = attachContextLossGuard(renderer, { onLost: () => api.pause(), onRestored: () => api.resume() });
+  return api;
 }
 
 export default function GrammarGrindGame({

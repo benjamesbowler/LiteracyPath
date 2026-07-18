@@ -9,6 +9,17 @@ import {
 } from "../../../../utils/audio/gameSfx.js";
 import { starGalleryLadder, starGalleryStars } from "../../../../utils/starGalleryRounds.js";
 import { cancelSpeech, speak } from "../../../../utils/learnGamesAudio.js";
+import {
+  createRenderer,
+  createScene,
+  createPerspectiveCamera,
+  attachResize,
+  createFrameLoop,
+  attachContextLossGuard,
+  applyPixelRatio,
+  disposeRenderer,
+  disposeObject
+} from "../shared/threeShell.js";
 
 // PS2-style architecture note for future learners:
 // The browser is standing in for the PS2 hardware here. The JS update loop acts like the EE core
@@ -174,19 +185,6 @@ function emissiveMaterial(color, intensity = 0.7) {
     roughness: 0.62,
     metalness: 0.08,
     flatShading: true
-  });
-}
-
-function disposeObject(object) {
-  object.traverse(child => {
-    if (child.geometry) child.geometry.dispose();
-    if (child.material) {
-      const materials = Array.isArray(child.material) ? child.material : [child.material];
-      for (const mat of materials) {
-        if (mat.map) mat.map.dispose();
-        mat.dispose();
-      }
-    }
   });
 }
 
@@ -1189,20 +1187,22 @@ function createStarGalleryEngine(mount, options) {
   const previousPosition = mount.style.position;
   if (!previousPosition) mount.style.position = "relative";
 
-  const renderer = new THREE.WebGLRenderer({ antialias: false, powerPreference: "high-performance" });
-  renderer.outputColorSpace = THREE.SRGBColorSpace;
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.08;
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  const renderer = createRenderer(THREE, {
+    antialias: false,
+    powerPreference: "high-performance",
+    retryWithoutAntialias: false,
+    srgbOutput: true,
+    toneMappingExposure: 1.08,
+    shadowMap: "pcfsoft"
+  });
   renderer.domElement.style.cssText = "position:absolute;inset:0;width:100%;height:100%;display:block;background:#050716;touch-action:none";
   mount.appendChild(renderer.domElement);
 
   const { overlay, nodes } = createHud();
   mount.appendChild(overlay);
 
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(56, 16 / 9, 0.1, 220);
+  const scene = createScene(THREE);
+  const camera = createPerspectiveCamera(THREE, { fov: 56, aspect: 16 / 9, near: 0.1, far: 220 });
   const clock = new THREE.Clock();
   const keys = { left: false, right: false, up: false, down: false, boost: false };
   const timers = new Set();
@@ -1248,10 +1248,6 @@ function createStarGalleryEngine(mount, options) {
     pointer: { active: false, steer: 0, throttle: 0 },
     total
   };
-  let raf = 0;
-  let w = 1;
-  let h = 1;
-
   function schedule(fn, ms) {
     const timer = window.setTimeout(() => {
       timers.delete(timer);
@@ -1261,19 +1257,21 @@ function createStarGalleryEngine(mount, options) {
     return timer;
   }
 
-  function resize() {
+  const mountWidth = () => {
     const rect = mount.getBoundingClientRect();
-    w = Math.max(320, rect.width || mount.clientWidth || 640);
-    h = Math.max(280, rect.height || mount.clientHeight || 420);
-    renderer.setPixelRatio(Math.max(1, Math.min(2, window.devicePixelRatio || 1)));
-    renderer.setSize(w, h, false);
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
+    return Math.max(320, rect.width || mount.clientWidth || 640);
+  };
+  const mountHeight = () => {
+    const rect = mount.getBoundingClientRect();
+    return Math.max(280, rect.height || mount.clientHeight || 420);
+  };
+  const handleResize = () => {
+    applyPixelRatio(renderer, { cap: 2, floor: 1 });
     // Collapse the fixed side panels on narrow screens so they stop overlapping the center prompt.
-    const narrowHud = w < 650;
+    const narrowHud = mountWidth() < 650;
     nodes.panelLeft.style.display = narrowHud ? "none" : "";
     nodes.panelRight.style.display = narrowHud ? "none" : "";
-  }
+  };
 
   function setScore(nextScore) {
     state.score = Math.max(0, Math.round(nextScore));
@@ -1907,8 +1905,8 @@ function createStarGalleryEngine(mount, options) {
   function animate() {
     update(clock.getDelta());
     renderer.render(scene, camera);
-    raf = window.requestAnimationFrame(animate);
   }
+  const loop = createFrameLoop(animate);
 
   function onKeyDown(event) {
     if (state.ended) return;
@@ -1969,8 +1967,16 @@ function createStarGalleryEngine(mount, options) {
     state.pointer.throttle = 0;
   }
 
-  const resizeObserver = new ResizeObserver(resize);
-  resizeObserver.observe(mount);
+  const detachResize = attachResize({
+    mount,
+    renderer,
+    camera,
+    width: mountWidth,
+    height: mountHeight,
+    listenToWindow: false,
+    updateStyle: false,
+    onResize: handleResize
+  });
   window.addEventListener("keydown", onKeyDown);
   window.addEventListener("keyup", onKeyUp);
   renderer.domElement.addEventListener("pointerdown", onPointerDown);
@@ -1988,7 +1994,6 @@ function createStarGalleryEngine(mount, options) {
     event.stopPropagation();
     speakItem();
   });
-  resize();
   startLevel(state.stage, { countdown: true });
 
   const api = {
@@ -2002,10 +2007,11 @@ function createStarGalleryEngine(mount, options) {
     destroy() {
       state.ended = true;
       cancelSpeech();
-      window.cancelAnimationFrame(raf);
+      loop.stop();
+      detachContextGuard();
       timers.forEach(timer => window.clearTimeout(timer));
       timers.clear();
-      resizeObserver.disconnect();
+      detachResize();
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
       renderer.domElement.removeEventListener("pointerdown", onPointerDown);
@@ -2013,8 +2019,7 @@ function createStarGalleryEngine(mount, options) {
       renderer.domElement.removeEventListener("pointerup", onPointerUp);
       renderer.domElement.removeEventListener("pointercancel", onPointerUp);
       clearLevel();
-      renderer.dispose();
-      if (renderer.domElement.parentNode === mount) mount.removeChild(renderer.domElement);
+      disposeRenderer(renderer);
       if (overlay.parentNode === mount) mount.removeChild(overlay);
       if (options.debugGlobalName && window[options.debugGlobalName] === api) delete window[options.debugGlobalName];
       mount.style.position = previousPosition;
@@ -2067,10 +2072,11 @@ function createStarGalleryEngine(mount, options) {
       return api.debugSnapshot();
     }
   };
+  const detachContextGuard = attachContextLossGuard(renderer, { onLost: () => api.pause(), onRestored: () => api.resume() });
   if (options.debugGlobalName) window[options.debugGlobalName] = api;
   if (window.location.pathname.includes("star-gallery-preview")) window.__starGalleryEngine = api;
   options.onEngineReady?.(api);
-  animate();
+  loop.start(true); // immediate first tick preserves the old synchronous animate() call
   return api;
 }
 

@@ -17,12 +17,26 @@ import {
 import { starRubric } from "../../../../utils/starRubric.js";
 import { speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
 import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
+import {
+  loadThree,
+  createRenderer,
+  createScene,
+  createPerspectiveCamera,
+  attachResize,
+  createFrameLoop,
+  attachContextLossGuard,
+  attachSteerZones,
+  attachSwipeSteer,
+  prefersReducedMotion,
+  disposeRenderer,
+  disposeObject as disposeGroup
+} from "../shared/threeShell.js";
 
 // Rocket Run: a real, steer-and-collect 3D game (not an animated worksheet).
 // The child flies a rocket across three lanes to catch the words that START
-// with the target sound and dodge the rest. Three.js loads from a CDN at
-// runtime, so it adds nothing to the app bundle and fails gracefully offline.
-const THREE_SRC = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
+// with the target sound and dodge the rest. Three.js r128 is vendored locally
+// (src/vendor/three) and loads through the shared 3D shell — no CDN, so the
+// game works offline and adds nothing to the app bundle.
 const LANES = [-2.2, 0, 2.2];
 const ROUNDS_PER_GAME = 8;
 const SHIP_BASE_SCALE = 0.74;
@@ -44,28 +58,6 @@ const ROUND_THEMES = [
   { name: "Star Nursery",  fog: 0x201a08, ambient: 0xffe09a, meteorMul: 1.5, star: 0xfff0c0, rail: 0xffcf4a, sun: 0xc89a2a, deck: 0x473614, pad: 0xffdd67 },
   { name: "Comet Chase",   fog: 0x0a1230, ambient: 0xaaccff, meteorMul: 2.6, star: 0xcfe6ff, rail: 0x7fd8ff, sun: 0x3a5aa8, deck: 0x182e5f, pad: 0xa5e8ff }
 ];
-
-function loadThree() {
-  return new Promise((resolve, reject) => {
-    if (window.THREE) {
-      resolve(window.THREE);
-      return;
-    }
-    const existing = document.querySelector("script[data-three-cdn]");
-    if (existing) {
-      existing.addEventListener("load", () => resolve(window.THREE));
-      existing.addEventListener("error", () => reject(new Error("three-load-failed")));
-      return;
-    }
-    const script = document.createElement("script");
-    script.src = THREE_SRC;
-    script.async = true;
-    script.dataset.threeCdn = "1";
-    script.onload = () => resolve(window.THREE);
-    script.onerror = () => reject(new Error("three-load-failed"));
-    document.head.appendChild(script);
-  });
-}
 
 function difficultyCount(difficulty) {
   return difficulty === "hard" ? 12 : difficulty === "medium" ? 10 : 8;
@@ -90,15 +82,7 @@ function startGame(THREE, mount, opts) {
   // Speech rides the same live sound gate as sfx and is purely additive —
   // with sound off nothing is spoken and the game stays fully playable.
   const say = fn => { if (opts.getSound ? opts.getSound() : opts.isSoundEnabled) { try { fn(); } catch { /* speech optional */ } } };
-  const reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  function disposeGroup(obj) {
-    if (!obj) return;
-    obj.traverse(node => {
-      if (node.geometry) node.geometry.dispose();
-      const mats = Array.isArray(node.material) ? node.material : (node.material ? [node.material] : []);
-      for (const m of mats) { if (m.map) m.map.dispose(); m.dispose(); }
-    });
-  }
+  const reduceMotion = prefersReducedMotion();
   function makeNebulaTexture() {
     const canvas = document.createElement("canvas");
     canvas.width = 1024;
@@ -219,23 +203,24 @@ function startGame(THREE, mount, opts) {
   //    on a constrained GPU). Doing it before the HUD means a failure produces a
   //    clean error instead of an orphaned HUD sitting behind the fallback text,
   //    and we retry once without antialias before giving up. ─────────────────
-  const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x070b1e, 0.055);
-  const camera = new THREE.PerspectiveCamera(CAMERA_FOV, width() / height(), 0.1, 100);
-  camera.position.set(0, 2.65, 8.35);
-  camera.lookAt(0, 1.1, -6);
-  let renderer;
-  try { renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "default" }); }
-  catch { renderer = new THREE.WebGLRenderer({ antialias: false }); }
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  const scene = createScene(THREE, new THREE.FogExp2(0x070b1e, 0.055));
+  const camera = createPerspectiveCamera(THREE, {
+    fov: CAMERA_FOV,
+    aspect: width() / height(),
+    near: 0.1,
+    far: 100,
+    position: [0, 2.65, 8.35],
+    lookAt: [0, 1.1, -6]
+  });
+  const renderer = createRenderer(THREE, {
+    antialias: true,
+    powerPreference: "default",
+    pixelRatioCap: 2,
+    srgbOutput: true,
+    toneMappingExposure: 1.12,
+    shadowMap: "pcf"
+  });
   renderer.setSize(width(), height());
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.12;
-  renderer.outputEncoding = THREE.sRGBEncoding;
-  if (renderer.shadowMap) {
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFShadowMap;
-  }
   renderer.domElement.style.display = "block";
   renderer.domElement.style.filter = "contrast(1.08) saturate(1.16)";
   mount.appendChild(renderer.domElement);
@@ -867,7 +852,6 @@ function startGame(THREE, mount, opts) {
   let missed = 0; // correct words that flew past uncaught this round
   let roundIx = Math.max(0, Math.min(Number(opts.startLevel) || 0, ROUNDS_PER_GAME - 1));
   let running = false;
-  let raf = 0;
   let last = 0;
   let shakeV = 0;
   let hearts = 3;
@@ -1201,35 +1185,18 @@ function startGame(THREE, mount, opts) {
   // ── Controls ─────────────────────────────────────────────────────────────
   const onLeft = () => moveLane(-1);
   const onRight = () => moveLane(1);
-  el("left").addEventListener("pointerdown", onLeft);
-  el("right").addEventListener("pointerdown", onRight);
+  const detachSteerZones = attachSteerZones({ left: el("left"), right: el("right"), onLeft, onRight });
   const onKey = event => {
     if (event.key === "ArrowLeft") moveLane(-1);
     else if (event.key === "ArrowRight") moveLane(1);
   };
   window.addEventListener("keydown", onKey);
-  let dragX = null;
-  const onDown = event => { dragX = event.clientX; };
-  const onUp = event => {
-    if (dragX == null) return;
-    const dx = event.clientX - dragX;
-    if (Math.abs(dx) > 40) moveLane(dx > 0 ? 1 : -1);
-    dragX = null;
-  };
-  renderer.domElement.addEventListener("pointerdown", onDown);
-  renderer.domElement.addEventListener("pointerup", onUp);
+  const detachSwipeSteer = attachSwipeSteer(renderer.domElement, { threshold: 40, onSteer: dir => moveLane(dir) });
 
-  const onResize = () => {
-    camera.aspect = width() / height();
-    camera.updateProjectionMatrix();
-    renderer.setSize(width(), height());
-  };
-  window.addEventListener("resize", onResize);
-  const ro = new ResizeObserver(onResize); ro.observe(mount);
+  const detachResize = attachResize({ mount, renderer, camera, width, height });
 
   // ── Loop ─────────────────────────────────────────────────────────────────
   function tick(now) {
-    raf = requestAnimationFrame(tick);
     const dt = Math.min(0.05, ((now - last) || 16) / 1000);
     last = now;
     elapsed += dt;
@@ -1407,16 +1374,20 @@ function startGame(THREE, mount, opts) {
     renderer.render(scene, camera);
   }
   startRound();
-  raf = requestAnimationFrame(tick);
+  const loop = createFrameLoop(tick);
+  loop.start();
 
   let paused = false, savedRunning = false;
   function pause() { if (paused) return; paused = true; savedRunning = running; running = false; }
   function resume() { if (!paused) return; paused = false; last = performance.now(); if (savedRunning) running = true; }
+  const detachContextGuard = attachContextLossGuard(renderer, { onLost: pause, onRestored: resume });
   function teardown() {
-    cancelAnimationFrame(raf);
+    loop.stop();
+    detachContextGuard();
+    detachSteerZones();
+    detachSwipeSteer();
     window.removeEventListener("keydown", onKey);
-    window.removeEventListener("resize", onResize);
-    ro.disconnect();
+    detachResize();
     for (const b of bubbles) { scene.remove(b); disposeGroup(b); }
     scene.remove(ship); disposeGroup(ship);
     scene.remove(shipShadow); disposeGroup(shipShadow);
@@ -1436,8 +1407,7 @@ function startGame(THREE, mount, opts) {
     scene.remove(themeSun); disposeGroup(themeSun);
     if (sceneBackground?.dispose) sceneBackground.dispose();
     if (finaleComet) { scene.remove(finaleComet); disposeGroup(finaleComet); }
-    try { renderer.dispose(); if (renderer.forceContextLoss) renderer.forceContextLoss(); } catch { /* ignore */ }
-    if (renderer.domElement && renderer.domElement.parentNode) renderer.domElement.parentNode.removeChild(renderer.domElement);
+    disposeRenderer(renderer, { forceContextLoss: true });
     if (hud.parentNode) hud.parentNode.removeChild(hud);
   }
   return { teardown, pause, resume };
