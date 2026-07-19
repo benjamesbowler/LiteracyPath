@@ -15,7 +15,7 @@ import { targetsForStop } from "../../../utils/questReviewScheduler.js";
 import { getStop, targetsAtStop } from "../../../data/questSequence.js";
 import { starRubric } from "../../../utils/starRubric.js";
 import { hasGraphemeAudio, hasWordAudio } from "../../../utils/questAudio.js";
-import { sayGrapheme, sayWord } from "../shells/shellContract.js";
+import { sayGrapheme, sayGraphemeWithName, sayWord } from "../shells/shellContract.js";
 import {
   applyQuestTaskInput,
   createSeedwakeVerbState,
@@ -443,7 +443,7 @@ export default function QuestPixelWorld({
   const replayCue = useCallback(() => {
     if (stageAudioKind === "grapheme") sayGrapheme(stageAudioValue, isSoundEnabled);
     else if (stageAudioKind === "word") sayWord(stageAudioValue, isSoundEnabled);
-    else if (firstTeachEntry?.id) sayGrapheme(firstTeachEntry.id, isSoundEnabled);
+    else if (firstTeachEntry?.id) sayGraphemeWithName(firstTeachEntry.id, isSoundEnabled);
   }, [firstTeachEntry, isSoundEnabled, stageAudioKind, stageAudioValue]);
 
   useEffect(() => {
@@ -515,7 +515,8 @@ export default function QuestPixelWorld({
 
   useEffect(() => {
     if (!teachCueAvailable || !isSoundEnabled) return;
-    sayGrapheme(firstTeachEntry.id, true);
+    // Phoneme first, letter name second - the teach moment says both.
+    sayGraphemeWithName(firstTeachEntry.id, true);
   }, [firstTeachEntry?.id, isSoundEnabled, teachCueAvailable]);
 
   useEffect(() => {

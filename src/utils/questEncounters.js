@@ -302,7 +302,7 @@ export function buildWalk(stopId, { mastery = {}, targets, seed = 1 } = {}) {
   const built = [];
   for (const kind of chosen.slice(0, encounterLimit)) {
     const encounter = buildEncounter(kind, {
-      stop, stopIndex, mastery, rng, list, decodable, pickCovering,
+      stop, stopIndex, mastery, rng, list, decodable, pickCovering, covers,
       flowerTargets, beastTargets, runTargets, mustCoverInWords, coverTargets
     });
     if (encounter) built.push(encounter);
@@ -338,18 +338,46 @@ export function buildWalk(stopId, { mastery = {}, targets, seed = 1 } = {}) {
     length: PATH_LENGTH,
     startX: START_X,
     endX: END_X,
-    teach: stop.teach.map(entry => ({
-      ...entry,
-      examples: wordsForTarget(entry.id, stopIndex, { max: 3 })
-    })),
+    // The teach moment never announces a sound it cannot SAY: an alt with no
+    // recording would show its chip, play nothing, and teach a pre-reader
+    // that buttons lie. Filtered entries return automatically when their
+    // clips land (hasGraphemeAudio resolves /audio/quest/alt/ and blend
+    // component sequences). Example words are audible-first for the same
+    // reason.
+    teach: stop.teach
+      .filter(entry => entry.kind !== "alt" || hasGraphemeAudio(entry.id))
+      .map(entry => {
+        const examples = wordsForTarget(entry.id, stopIndex, { max: 12 });
+        const audible = examples.filter(hasWordAudio);
+        return {
+          ...entry,
+          examples: (audible.length ? audible : examples).slice(0, 3)
+        };
+      }),
     encounters: placed,
     drops
   };
 }
 
+// Audible-first word pool that never sacrifices coverage: keep every word
+// with a recording, and for any cover target whose carriers are ALL silent,
+// keep its carriers too (the shells speak those as grapheme sequences).
+function audiblePreferredPool(decodable, coverTargets = [], covers) {
+  const audible = decodable.filter(hasWordAudio);
+  if (!audible.length) return decodable;
+  const pool = new Set(audible);
+  for (const target of coverTargets) {
+    if ([...pool].some(word => covers(word).has(target))) continue;
+    for (const word of decodable) {
+      if (covers(word).has(target)) pool.add(word);
+    }
+  }
+  return decodable.filter(word => pool.has(word));
+}
+
 function buildEncounter(kind, ctx) {
   const {
-    stop, stopIndex, mastery, rng, decodable, pickCovering,
+    stop, stopIndex, mastery, rng, decodable, pickCovering, covers,
     flowerTargets, beastTargets, runTargets, mustCoverInWords, coverTargets
   } = ctx;
 
@@ -394,13 +422,20 @@ function buildEncounter(kind, ctx) {
     // The word encounters carry the coverage load: one word credits every sound
     // AND every blend inside it, so two words can catch what the flowers missed.
     case "broken-bridge": {
-      const words = wordsFor(mustCoverInWords, coverTargets, decodable, pickCovering, stopIndex <= 5 ? 1 : 3);
+      // A pre-reader's segmenting task starts from HEARING the word. Prefer
+      // words with recordings — but COVERAGE BEATS AUDIO: a target whose
+      // only carriers are silent (qu at s11: quit/quiz have no clips) keeps
+      // its carriers in the pool, and the shell speaks those words as their
+      // taught sounds in order (sayGraphemeSequence), never in silence.
+      const pool = audiblePreferredPool(decodable, coverTargets, covers);
+      const words = wordsFor(mustCoverInWords, coverTargets, pool, pickCovering, stopIndex <= 5 ? 1 : 3);
       if (!words.length) return null;
       return { kind, beats: words.map(w => buildStoneBridgeRound(w, { stopIndex, mastery, rng })) };
     }
 
     case "echo-cave": {
-      const words = wordsFor(mustCoverInWords, coverTargets, decodable, pickCovering, stopIndex <= 5 ? 1 : 3);
+      const pool = audiblePreferredPool(decodable, coverTargets, covers);
+      const words = wordsFor(mustCoverInWords, coverTargets, pool, pickCovering, stopIndex <= 5 ? 1 : 3);
       if (!words.length) return null;
       return { kind, beats: words.map(w => buildEchoCaveRound(w, { stopIndex, mastery, rng })) };
     }

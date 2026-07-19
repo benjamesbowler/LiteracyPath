@@ -111,7 +111,7 @@ function nextStopAfter(state) {
 // Both default to null, so the app's real behaviour is untouched.
 export default function QuestRoot({
   progressScopeKey = "default",
-  isSoundEnabled = true,
+  isSoundEnabled: isSoundEnabledProp = true,
   onExit,
   initialView = null,
   initialStop = null,
@@ -175,6 +175,9 @@ export default function QuestRoot({
     : baseMusicTrack;
   const musicMode = view === VIEW.CEREMONY ? "ceremony" : musicState;
   const musicFallback = musicChapter?.worldKit || "meadow";
+  // The quest finally has its own mute: the host prop AND the child's Den
+  // setting must both agree before anything plays.
+  const isSoundEnabled = isSoundEnabledProp && state.settings?.soundEnabled !== false;
   const soundscapeEnabled = isSoundEnabled && !state.settings?.quietSoundscape;
   const ceremonyWorldReady = worldLayers.some(layer => layer.status === "active" && layer.ready);
 
@@ -707,10 +710,12 @@ export default function QuestRoot({
           reducedMotion={Boolean(state.settings?.reducedMotion)}
           highContrast={Boolean(state.settings?.highContrast)}
           quietSoundscape={Boolean(state.settings?.quietSoundscape)}
+          soundEnabled={state.settings?.soundEnabled !== false}
           onDisplayMode={updateDisplayMode}
           onReducedMotion={value => updateAccessibilitySetting("reducedMotion", value)}
           onHighContrast={value => updateAccessibilitySetting("highContrast", value)}
           onQuietSoundscape={value => updateAccessibilitySetting("quietSoundscape", value)}
+          onSoundEnabled={value => updateAccessibilitySetting("soundEnabled", value)}
           onWalk={openMap}
           onReview={enterReview}
           onEditCreature={() => setView(VIEW.CREATOR)}

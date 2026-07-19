@@ -26,10 +26,12 @@ export default function DenScreen({
   reducedMotion = false,
   highContrast = false,
   quietSoundscape = false,
+  soundEnabled = true,
   onDisplayMode,
   onReducedMotion,
   onHighContrast,
   onQuietSoundscape,
+  onSoundEnabled,
   onWalk,
   onReview,
   onEditCreature,
@@ -157,6 +159,7 @@ export default function DenScreen({
           <label><input type="checkbox" checked={reducedMotion} onChange={event => onReducedMotion?.(event.target.checked)} />Reduce motion</label>
           <label><input type="checkbox" checked={highContrast} onChange={event => onHighContrast?.(event.target.checked)} />High contrast</label>
           <label><input type="checkbox" checked={quietSoundscape} onChange={event => onQuietSoundscape?.(event.target.checked)} />Quiet soundscape (spoken sounds stay on)</label>
+          <label><input type="checkbox" checked={soundEnabled} onChange={event => onSoundEnabled?.(event.target.checked)} />Sound on</label>
         </fieldset>
         <button type="button" className="q-primary q-settings-done" onClick={() => setSettingsOpen(false)}>Done</button>
       </dialog>

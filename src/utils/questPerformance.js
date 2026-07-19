@@ -104,7 +104,11 @@ export function normalizeQuestSettings(raw = {}) {
     displayMode,
     reducedMotion: Boolean(raw?.reducedMotion),
     highContrast: Boolean(raw?.highContrast),
-    quietSoundscape: Boolean(raw?.quietSoundscape)
+    quietSoundscape: Boolean(raw?.quietSoundscape),
+    // Sound on/off for the whole mode (speech AND sfx) — the quest was the
+    // one surface in the app a child could not mute. Default ON: sound is
+    // the lesson.
+    soundEnabled: raw?.soundEnabled !== false
   };
 }
 

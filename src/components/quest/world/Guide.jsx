@@ -13,7 +13,7 @@
 // One guide per land, so the world has someone in it who knows you.
 
 import { useEffect } from "react";
-import { sayGrapheme, displayGrapheme } from "../shells/shellContract.js";
+import { sayGraphemeWithName, displayGrapheme } from "../shells/shellContract.js";
 import { hasGraphemeAudio } from "../../../utils/questAudio.js";
 import { playTapSound } from "../../../utils/audio/gameSfx.js";
 
@@ -31,7 +31,7 @@ export default function Guide({ world = "meadow", entries = [], entry, isSoundEn
   // The guide SAYS the sound the moment they show up. A child should not have to
   // hunt for a button to find out what the question is.
   useEffect(() => {
-    if (isSoundEnabled && firstSound) sayGrapheme(firstSound, true);
+    if (isSoundEnabled && firstSound) sayGraphemeWithName(firstSound, true);
   }, [firstSound, isSoundEnabled]);
 
   if (!sounds.length) return null;
@@ -50,7 +50,7 @@ export default function Guide({ world = "meadow", entries = [], entry, isSoundEn
                 type="button"
                 className="qw-bigsound"
                 disabled={!hasGraphemeAudio(sound.id)}
-                onClick={() => { if (isSoundEnabled) { playTapSound(); sayGrapheme(sound.id, true); } }}
+                onClick={() => { if (isSoundEnabled) { playTapSound(); sayGraphemeWithName(sound.id, true); } }}
                 aria-label={`Hear the sound ${displayGrapheme(sound.id)}`}
               >
                 {displayGrapheme(sound.id)}

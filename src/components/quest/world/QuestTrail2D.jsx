@@ -15,7 +15,7 @@ import {
 import { targetsForStop } from "../../../utils/questReviewScheduler.js";
 import { getStop, targetsAtStop } from "../../../data/questSequence.js";
 import { starRubric } from "../../../utils/starRubric.js";
-import { displayGrapheme, sayGrapheme, sayWord } from "../shells/shellContract.js";
+import { displayGrapheme, sayGrapheme, sayGraphemeWithName, sayWord } from "../shells/shellContract.js";
 import { hasGraphemeAudio, hasWordAudio } from "../../../utils/questAudio.js";
 import { seedwakeStopSpec } from "../../../data/questChapterOne.js";
 import {
@@ -172,7 +172,7 @@ export default function QuestTrail2D({
   // teach moment made no sound at all. The sound is the lesson; say it the
   // moment it appears, exactly as the 3D guide does.
   useEffect(() => {
-    if (firstTeachEntry && isSoundEnabled) sayGrapheme(firstTeachEntry.id, true);
+    if (firstTeachEntry && isSoundEnabled) sayGraphemeWithName(firstTeachEntry.id, true);
   }, [firstTeachEntry, isSoundEnabled]);
 
   const encounter = section?.encounters[encounterIndex] || null;

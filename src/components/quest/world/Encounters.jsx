@@ -21,7 +21,7 @@
 // being taught, not in a lucky tap.
 
 import { useEffect, useRef, useState } from "react";
-import { sayGrapheme, sayWord, displayGrapheme } from "../shells/shellContract.js";
+import { sayGrapheme, sayWord, sayGraphemeSequence, displayGrapheme } from "../shells/shellContract.js";
 import { hasWordAudio, hasGraphemeAudio } from "../../../utils/questAudio.js";
 import { CREATURE_INK, CREATURE_PAPER } from "../../../data/creatureParts.js";
 import { SIGN_COLOURS } from "../../../data/questWorlds.js";
@@ -210,7 +210,7 @@ export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total })
     if (picked || done || teaching) return;
     const right = g === beat.answer;
     if (isSoundEnabled) (right ? playCorrectChime : playSoftBuzz)();
-    onBeat(right, beat.target);
+    onBeat(right, beat.target, { promptLevel: promptLevelForMode(view.mode) });
     if (right) {
       setPicked({ g, right: true });
       mark();
@@ -278,7 +278,7 @@ export function HungryBeast({ beat, isSoundEnabled, onBeat, onDone, index, total
     }
     const right = g === beat.answer;
     if (isSoundEnabled) (right ? playCorrectChime : playSoftBuzz)();
-    onBeat(right, beat.target);
+    onBeat(right, beat.target, { promptLevel: promptLevelForMode(view.mode) });
     if (right) {
       setPicked({ g, right: true });
       mark();
@@ -350,7 +350,9 @@ export function BrokenBridge({ beat, isSoundEnabled, onBeat, onDone, index, tota
   const [crossed, setCrossed] = useState(false);
 
   useEffect(() => {
-    if (isSoundEnabled) sayWord(beat.word, true);
+    // A silent word is spoken as its planks, in order - the child hears
+    // exactly the segmentation they are about to lay. Never silence.
+    if (isSoundEnabled && !sayWord(beat.word, true)) sayGraphemeSequence(beat.planks, true);
   }, [beat, isSoundEnabled]);
 
   function tap(tile, i) {
@@ -390,7 +392,7 @@ export function BrokenBridge({ beat, isSoundEnabled, onBeat, onDone, index, tota
   return (
     <div className="qw-enc qw-bridge">
       <p className="qw-say">The bridge is out. Lay a plank for every sound.</p>
-      <Listen onClick={() => sayWord(beat.word, isSoundEnabled)} disabled={!hasWordAudio(beat.word)} label="Hear the word" />
+      <Listen onClick={() => { if (!sayWord(beat.word, isSoundEnabled)) sayGraphemeSequence(beat.sounds, isSoundEnabled); }} label="Hear the word" />
       <div className={`qw-span${crossed ? " is-crossed" : ""}`}>
         {beat.planks.map((pl, i) => (
           <span key={i} className={`qw-plank${laid[i] ? " is-laid" : ""}`}>
@@ -430,7 +432,7 @@ export function EchoCaveEnc({ beat, isSoundEnabled, onBeat, onDone, index, total
   const [over, setOver] = useState(false);
 
   useEffect(() => {
-    if (isSoundEnabled) sayWord(beat.word, true);
+    if (isSoundEnabled && !sayWord(beat.word, true)) sayGraphemeSequence(beat.sounds, true);
   }, [beat, isSoundEnabled]);
 
   function tap(k) {

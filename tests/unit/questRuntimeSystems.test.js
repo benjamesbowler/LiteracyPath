@@ -87,8 +87,12 @@ test("performance tiers respect explicit accessibility and low-device signals", 
     displayMode: "auto",
     reducedMotion: false,
     highContrast: false,
-    quietSoundscape: true
+    quietSoundscape: true,
+    soundEnabled: true
   });
+  // The quest's own mute: sticky, and only an explicit false turns it off.
+  assert.equal(normalizeQuestSettings({ soundEnabled: false }).soundEnabled, false);
+  assert.equal(normalizeQuestSettings({}).soundEnabled, true);
   assert.equal(resolveQuestQuality({ displayMode: "pixel", webglAvailable: false }).id, "pixel");
   assert.equal(resolveQuestQuality({ displayMode: "2d" }).id, "2d");
   assert.equal(resolveQuestQuality({ displayMode: "rich", deviceMemory: 1 }).id, "rich");

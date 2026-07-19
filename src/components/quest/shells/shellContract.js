@@ -75,6 +75,33 @@ export function sayLetterName(letter, enabled = true) {
   return true;
 }
 
+// The teach moment says BOTH: phoneme first, letter name second ("/s/ …
+// s"). Teach Your Monster never says letter names and it is one of the
+// loudest complaints in their parent reviews; 26 name recordings sat on
+// disk with nothing playing them. Single letters only — letterNameSrc
+// already guards — and blends still fall through to component playback.
+export function sayGraphemeWithName(grapheme, enabled = true) {
+  if (!enabled) return false;
+  const phoneme = graphemeSrc(grapheme);
+  const name = letterNameSrc(grapheme);
+  if (phoneme && name) {
+    playCueSequence([phoneme, name], { gapMs: 240 });
+    return true;
+  }
+  return sayGrapheme(grapheme, enabled);
+}
+
+// A word with no recording, spoken as its taught sounds in order — the
+// honest fallback for segmenting shells (the child hears exactly the
+// planks they are about to lay). Never a browser voice.
+export function sayGraphemeSequence(graphemes = [], enabled = true) {
+  if (!enabled) return false;
+  const srcs = (graphemes || []).map(graphemeSrc).filter(Boolean);
+  if (srcs.length !== (graphemes || []).length || !srcs.length) return false;
+  playCueSequence(srcs, { gapMs: 160 });
+  return true;
+}
+
 export function hushCue() {
   stopCueAudio();
 }
