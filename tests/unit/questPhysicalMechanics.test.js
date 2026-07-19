@@ -494,14 +494,30 @@ test("early phonics encounters hide the answer in the cue and use three widely s
         assert.ok(task.completions.every(completion => completion.showToken === false), "a solved ornament still creates a letter token");
       }
       for (const [stageIndex, stage] of task.stages.entries()) {
-        if (stage.audioCue?.kind === "grapheme") {
-          assert.equal(stage.prompt, "Find the letter that matches the sound");
-        } else if (stage.audioCue?.kind === "word") {
+        // The prompt is keyed to the SHAPE OF THE TASK, not to the kind of cue.
+        // It used to be keyed to the cue: grapheme cue => "Find the letter...",
+        // word cue => "Find the first/next sound in 'sat'". That coupling broke
+        // when sequence builds started cueing the actual sound instead of
+        // replaying the whole word at every stage (see normaliseStageCue). A
+        // bridge stage now plays /a/ AND says "Find the next sound in 'sat'",
+        // which is strictly more information than either version gave before.
+        if (beat.word) {
           assert.equal(
             stage.prompt,
             stageIndex === 0
               ? `Find the first sound in '${beat.word}'`
-              : `Find the next sound in '${beat.word}'`
+              : `Find the next sound in '${beat.word}'`,
+            "a word build must tell the child which position it wants"
+          );
+        } else if (stage.audioCue?.kind === "grapheme") {
+          assert.equal(stage.prompt, "Find the letter that matches the sound");
+        }
+        // A stage that builds a word must ask for one sound at a time, by ear.
+        if (beat.word && stage.audioCue) {
+          assert.equal(
+            stage.audioCue.kind,
+            "grapheme",
+            `${encounter.id} stage ${stageIndex} replays the whole word instead of the sound it wants`
           );
         }
         for (const answer of Array.isArray(beat.answer) ? beat.answer : [beat.answer]) {

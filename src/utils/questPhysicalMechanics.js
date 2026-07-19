@@ -1,4 +1,6 @@
 import { routeDirectionAt, routePointAt } from "./questRouteGraph.js";
+// Data-only (a generated path manifest), so this stays Node-testable.
+import { hasGraphemeAudio, hasWordAudio } from "./questAudio.js";
 import { seedwakeStopSpec } from "../data/questChapterOne.js";
 import { chapterVerbForSection, chapterVerbRecipe } from "../data/questChapterMechanics.js";
 
@@ -254,6 +256,127 @@ function seedwakeAudioCue(beat) {
   }
   if (beat?.word) return { kind: "word", value: beat.word };
   return null;
+}
+
+// ── THE CUE MUST NAME THE ANSWER ────────────────────────────────────────────
+//
+// THE BUG THIS EXISTS TO KILL, found in playtest:
+//
+//   A child on the Broken Bridge at stop 3 builds "hot" — three stages, answers
+//   h, then o, then t. Every one of those stages played the cue for the WHOLE
+//   WORD, "hot", because the cue was derived once from the BEAT and reused for
+//   every stage. At stage 3 the tray offers n / h / t, the child hears "hot",
+//   taps `h` — the sound they can plainly hear at the front of the word they
+//   were just played — and is marked WRONG. The answer was `t`.
+//
+//   The only thing that distinguished stage 2 from stage 3 was the written
+//   prompt, "Find the next sound in 'hot'", which the child we are teaching to
+//   read cannot read. So the game asked for one sound, played another, and
+//   blamed the child. That is not a rendering bug; for the length of that
+//   encounter the app was actively teaching the wrong grapheme-phoneme
+//   correspondence, which is the single worst thing a phonics product can do.
+//
+// THE INVARIANT, enforced here for every stage of every task, centrally, so no
+// individual builder can opt out of it by accident:
+//
+//   A stage's audio cue must name that stage's OWN correct item — or say
+//   nothing at all. It must never name anything else.
+//
+// Silence is a legitimate outcome and is handled downstream: the 2D views set
+// stageSoundDelivered=false, fall back to a prompt that NAMES the target
+// ("Find t"), and decline to record mastery for a sound they never played.
+// That is honest. A confident wrong cue is not.
+//
+// WHY THERE IS AN EXEMPTION, and why it is exactly one:
+//
+//   Sound Sort asks "where does `book` belong?" — the cue is the word being
+//   CLASSIFIED and the correct item is a PEN (`oo_short`). Cue and answer are
+//   different by design, and that is the whole mechanic. Those stages declare
+//   cueScope:"prompt-word". Every other stage is cueScope:"answer" and is
+//   checked. Enforced by tests/unit/questCueIntegrity.test.js across all 40
+//   stops, so this cannot regress quietly the way it arrived.
+// WHAT IS AND IS NOT A LEGITIMATE WORD CUE — the distinction the first draft
+// of this fix got wrong, and the reason three existing tests caught it:
+//
+//   LEGITIMATE. Eight graphemes still have no gold-voice clip (aw, ore, air,
+//   are, ear, ure, le, tion). For those the BEAT declares an example word and
+//   a position — cue:{kind:"word", word:"claw"}, cuePosition:"ending" — and
+//   the child hears "claw" and hunts the ending sound. The sound is audible,
+//   the target is stated, and the task is honest. Deleting that would have
+//   made the whole back half of Act III silent.
+//
+//   THE BUG. A multi-stage word build (bridge, echo cave) fell through to a
+//   bare `beat.word` cue with NO position: the same "hot" played at stage 1,
+//   2 and 3 while the answer moved h -> o -> t. Audibly identical, and the
+//   only thing separating them was written text.
+//
+// So the rule is not "never play a word". It is: PREFER THE SOUND ITSELF, and
+// accept a word only when it is a declared, positioned example standing in for
+// a grapheme we genuinely cannot play.
+const CUE_SCOPE_ANSWER = "answer";
+const CUE_SCOPE_PROMPT_WORD = "prompt-word";
+const CUE_SCOPE_EXAMPLE_WORD = "example-word";
+
+function normaliseStageCue(stage, beat) {
+  if (!stage) return stage;
+  const scope = stage.cueScope || CUE_SCOPE_ANSWER;
+  if (scope === CUE_SCOPE_PROMPT_WORD) return { ...stage, cueScope: scope };
+
+  // NEVER INVENT A CUE. Silence is frequently deliberate and load-bearing:
+  //   - "Take it to the marker" is a carry, not a question.
+  //   - Trail Signs is silent ON PURPOSE — "if the app reads the sign, the
+  //     child never has to" (Encounters.jsx). Speaking it would delete the
+  //     only comprehension task in the game.
+  //   - Story Rock choices are a route, not a sound.
+  // The first draft of this function derived a cue from whatever the correct
+  // item happened to be, which turned marker ids into "graphemes" and started
+  // reading the signposts aloud. Only ever CORRECT an existing cue.
+  if (!stage.audioCue) return { ...stage, cueScope: scope };
+
+  const correct = (stage.items || []).find(item => item.correct);
+  if (!correct || correct.value == null) return { ...stage, cueScope: scope };
+
+  const value = String(correct.value);
+
+  // A heart word ("hw:the") is a WORD learnt whole, not a sound to sound out.
+  if (value.startsWith("hw:")) {
+    return { ...stage, cueScope: scope, audioCue: { kind: "word", value: value.slice(3) } };
+  }
+
+  // The answer already IS the cue (Word Beast: carry the cake that says "the").
+  if (stage.audioCue.kind === "word" && stage.audioCue.value === value) {
+    return { ...stage, cueScope: scope };
+  }
+
+  // Say the sound itself whenever we own a recording of it.
+  if (hasGraphemeAudio(value)) {
+    return { ...stage, cueScope: scope, audioCue: { kind: "grapheme", value } };
+  }
+
+  // No recording. Fall back to a DECLARED, POSITIONED example word — the beat
+  // must have asked for it, and it must be a word we can actually play. That
+  // keeps aw/ore/air/are/ear/ure/le/tion audible without ever standing in for
+  // a sound we could have said properly.
+  const declaredExample = beat?.cue?.kind === "word" && beat.cue.word === stage.audioCue.value;
+  if (stage.audioCue.kind === "word" && declaredExample && hasWordAudio(stage.audioCue.value)) {
+    return { ...stage, cueScope: CUE_SCOPE_EXAMPLE_WORD };
+  }
+
+  // Nothing honest left to play. Silence, and the views name the target.
+  return { ...stage, cueScope: scope, audioCue: null };
+}
+
+// Does this stage's cue name its own answer? The test gate calls this; so does
+// anything that wants to assert the invariant at runtime.
+export function stageCueNamesAnswer(stage) {
+  if (!stage) return false;
+  if ((stage.cueScope || CUE_SCOPE_ANSWER) === CUE_SCOPE_PROMPT_WORD) return true;
+  // A silent stage makes no claim, so it cannot make a false one.
+  if (!stage.audioCue) return true;
+  const correct = (stage.items || []).find(item => item.correct);
+  if (!correct || correct.value == null) return true;
+  const expected = String(correct.value).replace(/^hw:/, "");
+  return String(stage.audioCue.value) === expected;
 }
 
 function letterSoundPrompt(beat, stageIndex = 0, stageCount = 1) {
@@ -1344,6 +1467,9 @@ export function buildPhysicalTask(section, encounter, beat, beatIndex = 0) {
       prompt: `Where does ${item.word} belong?`,
       help: `Listen and move to a sound pen. ${stageIndex + 1} of ${words.length}`,
       playerAction: "sort",
+      // The ONE place cue and answer legitimately differ: the child hears the
+      // word and chooses the PEN it belongs in. See normaliseStageCue.
+      cueScope: CUE_SCOPE_PROMPT_WORD,
       audioCue: { kind: "word", value: item.word },
       items: positionedItems(section, encounter, beatIndex, stageIndex, beat.pens || [], {
         answer: item.pen,
@@ -1373,7 +1499,9 @@ export function buildPhysicalTask(section, encounter, beat, beatIndex = 0) {
   // encounters keep their own movement, camera, sound and performance family;
   // otherwise every activity in a stop feels like the opening task in disguise.
   const verbPattern = physicalVerbPattern(mechanic, chapterAuthored ? verbRecipe : null);
-  stages = stages.map(stage => ({ ...stage, verbPattern }));
+  // Every stage, every builder, no exceptions: the cue names its own answer or
+  // says nothing. Applied last so a builder cannot route around it.
+  stages = stages.map(stage => normaliseStageCue({ ...stage, verbPattern }, beat));
   return {
     key: physicalTaskKey(encounter, beatIndex),
     chapterAuthored,

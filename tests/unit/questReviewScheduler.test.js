@@ -68,8 +68,8 @@ test("A NEVER-MASTERED SOUND KEEPS COMING BACK FOREVER", () => {
 });
 
 test("a retired sound is still sampled, so nothing rots — and retired sounds TRICKLE, never mob", () => {
-  const retired = target => rec({ seen: 30, correct: 29, box: 5, lastStop: 2, state: MASTERY_STATES.RETIRED });
-  const mastery = { s: retired("s") };
+  const retired = () => rec({ seen: 30, correct: 29, box: 5, lastStop: 2, state: MASTERY_STATES.RETIRED });
+  const mastery = { s: retired() };
 
   // Exactly one due stop per ten — deterministic, phase set by the target id
   // so two devices agree.

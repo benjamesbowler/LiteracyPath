@@ -67,8 +67,11 @@ import {
   physicalTaskForwardLimit,
   physicalTaskResidentPoint,
   physicalStage,
+  physicalStagePrompt,
+  physicalStageRecordsMastery,
   physicalTaskKey
 } from "../../../utils/questPhysicalMechanics.js";
+import { hasGraphemeAudio, hasWordAudio } from "../../../utils/questAudio.js";
 import {
   completeTeachBack,
   correctionKey,
@@ -1719,6 +1722,105 @@ function attachImportedFieldAvatars(tasks, avatars) {
       item.userData.motionParts = [];
       item.userData.importedFieldAvatar = imported;
       item.add(imported);
+    }
+  }
+}
+
+// ── SIGHTLINE: NOTHING STANDS BETWEEN A CHILD AND THE ANSWER ────────────────
+//
+// Playtest: "sometimes the letter is covered by a tree or a pot and we can't
+// read it." A choice the child cannot see is a question they cannot answer,
+// and they get marked wrong for the scenery.
+//
+// The scene already MEASURED this — updateSliceDebug raycasts camera->choice
+// and reports rayClear — but nothing ever acted on it, so the harness went
+// green while real play stayed blocked. Measuring a problem is not fixing it.
+//
+// This is the fix: while a task is on screen, anything intruding on the line
+// from the camera to a choice fades out of the way, and fades back the moment
+// it stops intruding. Fading rather than hiding, because a tree that pops out
+// of existence reads as a bug; a tree that ghosts reads as the world getting
+// out of your way.
+//
+// Materials are cloned on first fade (`questSightlineClone`) because scenery
+// shares materials — fading the shared one would ghost every tree in the world
+// at once.
+const SIGHTLINE_FADE_OPACITY = 0.16;
+const SIGHTLINE_FADE_PER_SECOND = 5.2;
+
+function sightlineMaterials(object) {
+  const list = Array.isArray(object.material) ? object.material : object.material ? [object.material] : [];
+  if (!object.userData.questSightlineClone && list.length) {
+    // Clone once, so this object can fade without taking its siblings with it.
+    const cloned = list.map(material => {
+      const copy = material.clone();
+      copy.transparent = true;
+      copy.depthWrite = false;
+      return copy;
+    });
+    object.material = Array.isArray(object.material) ? cloned : cloned[0];
+    object.userData.questSightlineClone = true;
+    object.userData.questSightlineBaseOpacity = list[0]?.opacity ?? 1;
+  }
+  return Array.isArray(object.material) ? object.material : object.material ? [object.material] : [];
+}
+
+// Choices, characters, the ground and the labels are never occluders — they
+// are either the thing we are protecting or the surface it stands on.
+function sightlineCanFade(object) {
+  if (!object?.isMesh) return false;
+  if (object.userData.fieldChoice || object.userData.questNeverFade) return false;
+  if (object.name === "field-label" || object.name === "ground") return false;
+  let node = object;
+  while (node) {
+    if (node.userData?.fieldChoice || node.userData?.questCharacter) return false;
+    node = node.parent;
+  }
+  return true;
+}
+
+function updateSightline(scene, camera, task, active, beatIndex, stageIndex, faded, dt) {
+  const visible = task?.group?.visible && active;
+  const blocking = new Set();
+
+  if (visible) {
+    const raycaster = new THREE.Raycaster();
+    const origin = camera.position.clone();
+    const target = new THREE.Vector3();
+    for (const item of task.items) {
+      if (!item.visible) continue;
+      item.getWorldPosition(target);
+      const direction = target.clone().sub(origin);
+      const distance = direction.length();
+      if (distance < 0.001) continue;
+      raycaster.set(origin, direction.normalize());
+      raycaster.far = distance - 0.12; // stop just short of the choice itself
+      for (const hit of raycaster.intersectObjects(scene.children, true)) {
+        if (sightlineCanFade(hit.object)) blocking.add(hit.object);
+      }
+    }
+  }
+
+  // Fade the blockers down, everything previously faded back up.
+  for (const object of blocking) faded.add(object);
+  for (const object of [...faded]) {
+    const wants = blocking.has(object) ? SIGHTLINE_FADE_OPACITY : (object.userData.questSightlineBaseOpacity ?? 1);
+    const materials = sightlineMaterials(object);
+    let settled = true;
+    for (const material of materials) {
+      const next = THREE.MathUtils.damp(material.opacity, wants, SIGHTLINE_FADE_PER_SECOND, dt);
+      material.opacity = next;
+      if (Math.abs(next - wants) > 0.01) settled = false;
+    }
+    // Fully restored and no longer blocking: stop tracking it.
+    if (settled && !blocking.has(object)) {
+      for (const material of materials) {
+        material.opacity = object.userData.questSightlineBaseOpacity ?? 1;
+        material.depthWrite = true;
+      }
+      faded.delete(object);
+    } else if (blocking.has(object)) {
+      for (const material of materials) material.depthWrite = false;
     }
   }
 }
@@ -3393,6 +3495,8 @@ export default function QuestHub({
     let previous = performance.now();
     let lastRenderedFrame = -Infinity;
     let ambientNow = performance.now();
+    // Scenery currently ghosted out of the child's sightline — see updateSightline.
+    const sightlineFaded = new Set();
     let wasMoving = false;
     let lastAutosave = performance.now();
     let lastPercent = Math.round(routeProgressAt(section.route, playerRef.current) * 100);
@@ -4260,6 +4364,18 @@ export default function QuestHub({
       const debugTask = liveEncounter
         ? landscape.fieldTasks.get(physicalTaskKey(liveEncounter, beatIndexRef.current))
         : null;
+      // Clear the sightline BEFORE the debug snapshot measures it, so rayClear
+      // reports what the child will actually see this frame.
+      updateSightline(
+        scene,
+        camera,
+        debugTask,
+        liveEncounter,
+        beatIndexRef.current,
+        fieldStageRef.current,
+        sightlineFaded,
+        dt
+      );
       updateSliceDebug(debugTask, desiredCamera);
       const accentTask = liveEncounter
         ? landscape.fieldTasks.get(physicalTaskKey(liveEncounter, beatIndexRef.current))
@@ -4668,6 +4784,25 @@ export default function QuestHub({
   const activeFieldTask = active ? buildPhysicalTask(section, active, active.beats[beatIndex], beatIndex) : null;
   const activeFieldStage = physicalStage(activeFieldTask, fieldStage);
   const activeCorrection = correctionPresentation(activeFieldStage, correction);
+
+  // WHEN THE SOUND CANNOT PLAY, SAY WHAT TO FIND — the 2D views already did
+  // this and the 3D world did not, which is how the field ended up asking for
+  // a sound it had no recording of and showing a prompt a non-reader cannot
+  // read. Eight graphemes are still awaiting a gold-voice clip (aw, ore, air,
+  // are, ear, ure, le, tion — see NEEDS_AUDIO); the house rule forbids a
+  // browser voice and forbids a substitute clip, so the honest fallback is to
+  // NAME the target on screen and decline to bank mastery for a sound we never
+  // actually played.
+  const stageCueKind = activeFieldStage?.audioCue?.kind || null;
+  const stageCueValue = activeFieldStage?.audioCue?.value || null;
+  const stageCueAvailable = stageCueKind === "grapheme"
+    ? hasGraphemeAudio(stageCueValue)
+    : stageCueKind === "word" && hasWordAudio(stageCueValue);
+  const stageSoundDelivered = Boolean(isSoundEnabled && stageCueAvailable);
+  const stageRecordsMastery = physicalStageRecordsMastery(activeFieldStage, stageSoundDelivered);
+  const fieldPrompt = stageRecordsMastery
+    ? activeCorrection.prompt
+    : physicalStagePrompt(activeFieldStage, false);
   const previousBestDrops = Number(state.trail?.drops?.[stopId]) || 0;
   const pendingDropSparks = Math.max(0, picked.size - previousBestDrops) * SPARKS_PER_DROP;
   const liveSparks = availableSparks(state) + pendingDropSparks;
@@ -4686,9 +4821,36 @@ export default function QuestHub({
   const currentPocket = satchel.pockets.find(pocket => pocket.stopId === stopId);
   const activeBeat = active?.beats?.[beatIndex] || null;
   const taskParts = activeFieldTask ? physicalTaskAnswers(activeFieldTask) : [];
-  const activeWordParts = activeBeat?.word
-    && activeFieldTask?.stages?.length > 1
-    && (activeFieldTask.mechanic === "bridge-build" || active?.kind === "echo-cave")
+  // SHOW THE WORD BEING BUILT WHEREVER A WORD IS BEING BUILT.
+  //
+  // This used to be an allowlist of two mechanics ("bridge-build" and the
+  // echo cave), which meant every authored chapter sequence — dig-and-build,
+  // waterwheel-sequence, forge-recipe, telescope-build and the rest — spelt a
+  // word out one sound at a time and never showed the child the word taking
+  // shape. Same task, same learning moment, no builder, purely because the
+  // mechanic had a different name.
+  //
+  // The real condition is structural, not nominal: there is a word, and the
+  // stages answer with SUCCESSIVE DIFFERENT sounds of it.
+  //
+  // "More than one stage" is not enough, and getting that wrong showed a word
+  // builder reading "m". Several authored verbs are two-stage but single-sound
+  // — fish-rescue spots the letter and then chases it, so both stages answer
+  // `m` and the child is only ever asked for one sound. Collapsing repeats
+  // separates "spell m-a-t" from "find m, twice".
+  // Only the word's OWN sounds count. Many verbs answer a sound and then a
+  // place — track-sort picks `a` and then a route, delivery picks a parcel and
+  // then a marker. Those destination ids are not phonemes and must never land
+  // in a slot.
+  const activeWordSounds = activeBeat?.word ? new Set(segmentWord(activeBeat.word)) : new Set();
+  const stageAnswers = (activeFieldTask?.stages || [])
+    .map(stage => (stage.items || []).find(item => item.correct)?.value)
+    .filter(value => value != null)
+    .map(String)
+    .filter(value => activeWordSounds.has(value))
+    .filter((value, index, all) => value !== all[index - 1]);
+  const buildsAWord = Boolean(activeBeat?.word) && stageAnswers.length > 1;
+  const activeWordParts = buildsAWord
     ? (taskParts.length > 1 ? taskParts : segmentWord(activeBeat.word))
     : [];
   let activeSlotState = createPhonemeSlotState(activeWordParts);
@@ -4955,12 +5117,12 @@ export default function QuestHub({
           className={`qh-field-hud is-${activeCorrection.mode}${activeFieldTask.storyText ? " is-story" : ""}`}
           data-correction-mode={activeCorrection.mode}
           data-visible-choices={activeCorrection.visibleIds.length}
-          aria-label={`${active.friend}: ${activeCorrection.prompt}`}
+          aria-label={`${active.friend}: ${fieldPrompt}`}
           aria-live="polite"
         >
           <span>{active.friend}</span>
           <p>{activeFieldTask.storyText}</p>
-          <strong>{activeCorrection.prompt}</strong>
+          <strong>{fieldPrompt}</strong>
           <em>{activeCorrection.help}</em>
         </div>
       )}

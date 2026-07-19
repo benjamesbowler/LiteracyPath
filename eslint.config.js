@@ -5,7 +5,10 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist', 'dist-quest-offline', 'dist-quest-update-*', 'Phonics app extension/**', '_DELETE_ME_*/**']),
+  // src/vendor holds third-party builds (minified three.js). Linting a vendored
+  // bundle reports thousands of errors in code we neither own nor edit, and
+  // buries the ones that matter.
+  globalIgnores(['dist', 'dist-quest-offline', 'dist-quest-update-*', 'src/vendor/**', 'Phonics app extension/**', '_DELETE_ME_*/**']),
   {
     // Node, not the browser. Tests run under `node --test`, so they get
     // process/__dirname — linting them as browser code fails on `process`.
