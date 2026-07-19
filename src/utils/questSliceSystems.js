@@ -2,6 +2,15 @@ import { CHAPTER_VERB_RECIPES } from "../data/questChapterMechanics.js";
 
 const clamp = (value, minimum, maximum) => Math.max(minimum, Math.min(maximum, value));
 
+// Every input step any authored verb understands. Used by
+// resyncSeedwakeVerbState to unstick a machine that is refusing a correct
+// answer, without it needing to know which verb it is talking to.
+const VERB_INPUT_STEPS = Object.freeze([
+  "search", "jump", "pick-up", "carry",
+  "lift-plank", "place-plank",
+  "choose-note", "conduct"
+]);
+
 const VERB_INPUTS = Object.freeze({
   "sound-hunt": "search",
   "flower-jump": "jump",
@@ -321,6 +330,38 @@ export function applySeedwakeVerbInput(mechanic, state, input) {
   const handler = seedwakeVerbHandler(mechanic);
   if (!handler || !state) return result(state, false, false, "unsupported");
   return handler.apply(state, input || {});
+}
+
+// Force a verb forward after a correct answer the verb refused.
+//
+// The verbs are small state machines (hold a plank, choose a note, then
+// conduct it). When their state drifts out of step with the stage the child is
+// actually on, they start rejecting the RIGHT answer — and the child is simply
+// ignored, which is the one failure a learning game must never produce. The
+// caller accepts the answer anyway; this re-syncs the machine so the next
+// stage does not inherit the same disagreement.
+//
+// It re-derives cleanly rather than patching fields, so it cannot invent a
+// state the verb's own `create` would never produce.
+export function resyncSeedwakeVerbState(mechanic, state, value, stageIndex = 0, action = null) {
+  const handler = seedwakeVerbHandler(mechanic);
+  if (!handler || !state) return state;
+
+  // Try the action the child actually performed first, then the other inputs
+  // this family understands. A verb is a two-step machine (pick up, then place;
+  // choose a note, then conduct it) and which step is stuck depends on where
+  // the drift happened — so we ask rather than assume.
+  const candidates = [action, handler.input, ...VERB_INPUT_STEPS]
+    .filter((entry, index, all) => typeof entry === "string" && entry && all.indexOf(entry) === index);
+
+  for (const type of candidates) {
+    const attempt = handler.apply(state, { type, correct: true, value, stage: stageIndex, onBeat: true });
+    if (attempt.accepted) return attempt.state;
+  }
+  // Nothing the verb understands moved it. Leave the state alone rather than
+  // fabricate one its own `create` would never produce — the caller still
+  // credits the child, which is the part that matters.
+  return state;
 }
 
 export function restoreSeedwakeVerbState(mechanic, expected = [], stages = [], stageIndex = 0) {

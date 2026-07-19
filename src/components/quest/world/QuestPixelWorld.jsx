@@ -20,7 +20,8 @@ import {
   applyQuestTaskInput,
   createSeedwakeVerbState,
   questRhythmPulse,
-  restoreSeedwakeVerbState
+  restoreSeedwakeVerbState,
+  resyncSeedwakeVerbState
 } from "../../../utils/questSliceSystems.js";
 import {
   completeTeachBack,
@@ -354,7 +355,22 @@ export default function QuestPixelWorld({
   }, []);
 
   const choose = useCallback(choiceId => {
-    const choice = visibleChoices.find(item => item.id === choiceId);
+    // A CORRECT ANSWER MUST NEVER SILENTLY DO NOTHING.
+    //
+    // Playtest, Bramble Gate: "the answer is 'c' but when you go to it it does
+    // nothing; the other two say wrong and bump you." A child who has found
+    // the right answer, walked to it, and been ignored has no way to tell that
+    // from being wrong — except that being wrong at least ANSWERS them. Silence
+    // on the correct choice is worse than a buzz: it teaches that the right
+    // answer is the one that does not work.
+    //
+    // Resolve against the full stage, not just the currently visible subset.
+    // The runtime draws from its own object list, so any drift between what is
+    // on screen and what `visibleChoices` believes (a stale sprite, a narrowed
+    // correction set, a re-render mid-walk) used to land here as an early
+    // `return` — no feedback, no bump, nothing.
+    const choice = visibleChoices.find(item => item.id === choiceId)
+      || stage?.items?.find(item => item.id === choiceId);
     if (!choice || !stage || !task) return;
     if (task.chapterAuthored && (!verbStateRef.current || verbTaskKeyRef.current !== task.key)) {
       verbTaskKeyRef.current = task.key;
@@ -373,12 +389,36 @@ export default function QuestPixelWorld({
       }
     });
     verbStateRef.current = verbResult.state;
-    const right = Boolean(choice.correct && verbResult.accepted);
-    if (!right && choice.correct && verbResult.recordAttempt === false) {
-      emitStageInteraction("motor-retry", { mechanic: task.mechanic });
-      runtimeRef.current?.playFeedback?.("wait", choice.id);
-      setFeedback("Wait for the glow");
-      return;
+    let right = Boolean(choice.correct && verbResult.accepted);
+
+    // THE VERB MAY DELAY A CORRECT ANSWER. IT MAY NOT SWALLOW ONE.
+    //
+    // The rhythm gate ("conduct on the pulse") legitimately asks the child to
+    // wait — the window is open ~60% of the time, so walking in again lands
+    // it. But every OTHER rejection of a correct choice is the verb's own
+    // state machine disagreeing with the answer, and the child pays for it by
+    // being ignored. `gate-chorus` returning "chorus-recue" because `selected`
+    // drifted out of step is not the child's mistake.
+    //
+    // So: a correct choice that the verb refuses for a non-rhythm reason is
+    // ACCEPTED. The verb is there to shape how an answer is given, never to
+    // decide whether a right answer counts.
+    if (!right && choice.correct) {
+      const waitingForPulse = Boolean(stage.rhythm) && verbResult.recordAttempt === false;
+      if (waitingForPulse) {
+        emitStageInteraction("motor-retry", { mechanic: task.mechanic });
+        runtimeRef.current?.playFeedback?.("wait", choice.id);
+        setFeedback("Wait for the glow");
+        return;
+      }
+      right = true;
+      verbStateRef.current = resyncSeedwakeVerbState(
+        task.mechanic,
+        verbStateRef.current,
+        choice.value,
+        fieldStage,
+        stage.playerAction
+      );
     }
     if (!right) {
       emitStageInteraction("response", { correct: false, mechanic: task.mechanic });
