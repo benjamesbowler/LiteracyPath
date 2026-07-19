@@ -209,7 +209,16 @@ export function hatchSpecies(tier, purchaseId, ownedSpeciesIds = []) {
 //           layout:{ at, equipped:{slot:gearId}, slots:{slotId:itemId} } }
 // breakdown: treasury breakdown from treasureTrail.computeTreasuryFromAreas.
 export function computeHollow(ledger = {}, breakdown = {}, date = new Date()) {
-  const purchases = Array.isArray(ledger.purchases) ? ledger.purchases : [];
+  // Deterministic order regardless of which device's ledger arrived first:
+  // hatching prefers unowned species, so purchase ORDER decides which
+  // beasties exist. Sorted by (at, id), every device hatches the same
+  // collection from the same history — merge-order can no longer fork it.
+  const purchases = (Array.isArray(ledger.purchases) ? [...ledger.purchases] : []).sort((a, b) => {
+    const at = String(a?.at || ""); const bt = String(b?.at || "");
+    if (at !== bt) return at < bt ? -1 : 1;
+    const ai = String(a?.id || ""); const bi = String(b?.id || "");
+    return ai < bi ? -1 : ai > bi ? 1 : 0;
+  });
   const feeds = Array.isArray(ledger.feeds) ? ledger.feeds : [];
   const chests = Array.isArray(ledger.chests) ? ledger.chests : [];
   const layout = ledger.layout && typeof ledger.layout === "object" ? ledger.layout : {};
@@ -217,6 +226,9 @@ export function computeHollow(ledger = {}, breakdown = {}, date = new Date()) {
   const coinsEarnedTotal = earnedCoins(breakdown, chests.length);
   const coinsSpent = purchases.reduce((total, p) => total + Math.max(0, Number(p?.cost) || 0), 0);
   const coins = Math.max(0, coinsEarnedTotal - coinsSpent);
+  // Cross-device double-spends are resolved GENEROUSLY (never un-buy from a
+  // child) but no longer silently: the flag reaches the teacher report.
+  const overspent = coinsSpent > coinsEarnedTotal;
 
   // Hatch eggs in purchase order so "prefer unowned" is stable.
   const beastieMap = new Map();
@@ -253,7 +265,7 @@ export function computeHollow(ledger = {}, breakdown = {}, date = new Date()) {
   }
 
   return {
-    coins, coinsEarnedTotal, coinsSpent,
+    coins, coinsEarnedTotal, coinsSpent, overspent,
     berries, berriesEarnedTotal,
     chestCount: chests.length,
     beasties,

@@ -47,6 +47,40 @@ export function isGraphemeTarget(target) {
   return GRAPHEME_TARGETS.has(target);
 }
 
+const KNOWN_STOP_IDS = new Set(QUEST_STOPS.map(stop => stop.id));
+const ALL_HEART_WORDS = new Set(QUEST_STOPS.flatMap(stop => stop.heartWords || []));
+const STAR_MAX = 3;
+const DROP_MAX = 40;
+
+// Whitelist an id→number map to known stop ids and clamp the values. The
+// derived economy trusts these numbers absolutely, so a tampered or corrupted
+// save (stars: { s1: 9999 }) must be neutralised at the door, not honoured.
+function clampStopNumbers(raw, max) {
+  const out = {};
+  for (const [stopId, value] of Object.entries(raw && typeof raw === "object" ? raw : {})) {
+    if (!KNOWN_STOP_IDS.has(stopId)) continue;
+    const n = Math.floor(Number(value) || 0);
+    if (n <= 0) continue;
+    out[stopId] = Math.min(max, n);
+  }
+  return out;
+}
+
+// A teacher-set practice assignment is data the CHILD's client must carry but
+// never invent: validate shape hard, and normalizeQuestState owns the field
+// so `...state` spreads can't be the only thing keeping it alive.
+function normalizeAssignment(raw) {
+  if (!raw || typeof raw !== "object" || !Array.isArray(raw.targets)) return null;
+  const targets = raw.targets.map(t => String(t || "").trim()).filter(Boolean).slice(0, 6);
+  if (!targets.length) return null;
+  return {
+    targets,
+    note: typeof raw.note === "string" ? raw.note.slice(0, 120) : "",
+    assignedAt: typeof raw.assignedAt === "string" ? raw.assignedAt : "",
+    by: typeof raw.by === "string" ? raw.by : "teacher"
+  };
+}
+
 export const SPARKS_PER_STAR = 12;
 export const SPARKS_PER_DROP = 2;
 
@@ -54,12 +88,19 @@ export function baseQuestState() {
   return {
     v: 1,
     creature: defaultCreature(),
+    // Last-write-wins clocks for the two cloud-wins-without-a-clock fields:
+    // a child who hatches on a fresh device in the first minute must not have
+    // their creature (or a parent's reducedMotion) replaced by a stale cloud
+    // row. Stamped at the write sites; the merge picks the later side.
+    creatureAt: "",
+    settingsAt: "",
     hatched: false,
-    trail: { stopsDone: [], stars: {}, drops: {}, cutscenesSeen: [], routeCursor: 1 },
+    trail: { stopsDone: [], stars: {}, drops: {}, routeCursor: 1 },
     mastery: {},
     stones: [],
     trickies: [],
     ledger: { purchases: [] },
+    assignment: null,
     settings: normalizeQuestSettings(),
     telemetry: normalizeQuestTelemetry(),
     checkpoint: null
@@ -77,18 +118,27 @@ export function normalizeQuestState(raw) {
     ...state,
     v: 1,
     creature: normalizeCreature(state.creature),
+    creatureAt: typeof state.creatureAt === "string" ? state.creatureAt : "",
+    settingsAt: typeof state.settingsAt === "string" ? state.settingsAt : "",
     hatched: Boolean(state.hatched),
     trail: {
-      stopsDone: Array.isArray(state.trail?.stopsDone) ? [...new Set(state.trail.stopsDone)] : [],
-      stars: state.trail?.stars && typeof state.trail.stars === "object" ? { ...state.trail.stars } : {},
-      drops: state.trail?.drops && typeof state.trail.drops === "object" ? { ...state.trail.drops } : {},
-      cutscenesSeen: Array.isArray(state.trail?.cutscenesSeen) ? [...new Set(state.trail.cutscenesSeen)] : [],
+      stopsDone: Array.isArray(state.trail?.stopsDone)
+        ? [...new Set(state.trail.stopsDone.filter(id => KNOWN_STOP_IDS.has(id)))]
+        : [],
+      stars: clampStopNumbers(state.trail?.stars, STAR_MAX),
+      drops: clampStopNumbers(state.trail?.drops, DROP_MAX),
       routeCursor: Math.max(1, Math.min(QUEST_STOPS.length, Math.floor(Number(state.trail?.routeCursor) || 1)))
     },
     mastery: state.mastery && typeof state.mastery === "object" ? { ...state.mastery } : {},
-    stones: Array.isArray(state.stones) ? [...new Set(state.stones)] : [],
-    trickies: Array.isArray(state.trickies) ? [...new Set(state.trickies)] : [],
+    // Stones only for claimable graphemes; Trickies only for real heart words.
+    stones: Array.isArray(state.stones)
+      ? [...new Set(state.stones.filter(isGraphemeTarget))]
+      : [],
+    trickies: Array.isArray(state.trickies)
+      ? [...new Set(state.trickies.filter(word => ALL_HEART_WORDS.has(word)))]
+      : [],
     ledger: { purchases: Array.isArray(state.ledger?.purchases) ? state.ledger.purchases : [] },
+    assignment: normalizeAssignment(state.assignment),
     settings: normalizeQuestSettings(state.settings),
     telemetry: normalizeQuestTelemetry(state.telemetry),
     checkpoint: state.checkpoint && typeof state.checkpoint === "object" ? state.checkpoint : null

@@ -143,6 +143,23 @@ export function resolveQuestQuality({
   return QUEST_QUALITY_TIERS.rich;
 }
 
+// One real WebGL probe per page load. resolveQuestQuality has always taken a
+// webglAvailable flag with a fallback to the 2D trail — but nothing ever
+// PROBED, so a device with broken WebGL picked a 3D tier and crashed into
+// the renderer instead of walking the complete 2D trail.
+let webglProbeResult = null;
+function probeWebglAvailable(browser) {
+  if (webglProbeResult !== null) return webglProbeResult;
+  try {
+    const canvas = browser?.document?.createElement?.("canvas");
+    if (!canvas) return true; // non-DOM environment (tests): assume capable
+    webglProbeResult = Boolean(canvas.getContext("webgl2") || canvas.getContext("webgl"));
+  } catch {
+    webglProbeResult = false;
+  }
+  return webglProbeResult;
+}
+
 export function detectQuestQuality(settings = {}, browser = globalThis) {
   const normalized = normalizeQuestSettings(settings);
   const navigatorValue = browser?.navigator || {};
@@ -154,7 +171,8 @@ export function detectQuestQuality(settings = {}, browser = globalThis) {
     hardwareConcurrency: navigatorValue.hardwareConcurrency,
     width: browser?.innerWidth,
     saveData: Boolean(navigatorValue.connection?.saveData),
-    reducedMotion
+    reducedMotion,
+    webglAvailable: probeWebglAvailable(browser)
   });
 }
 

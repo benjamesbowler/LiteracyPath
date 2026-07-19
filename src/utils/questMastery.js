@@ -123,7 +123,8 @@ export function emptyRecord() {
     sessions: [],       // distinct YYYY-MM-DD days the child has been right on
     state: MASTERY_STATES.NOT_STARTED,
     box: 1,             // Leitner box, owned by questReviewScheduler
-    lastAt: ""
+    lastAt: "",
+    lastStop: 0         // trail position of the last attempt (review gaps)
   };
 }
 

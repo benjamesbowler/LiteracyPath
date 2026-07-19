@@ -124,7 +124,9 @@ export function evaluateQuestHumanAcceptance(records = []) {
   const duplicateRecords = [];
   const valid = [];
   for (const record of records.filter(candidate => validateQuestHumanObservation(candidate).status === "valid")) {
-    const key = `${record.profileId}:${String(record.sessionId).toLowerCase()}`;
+    // Participant is part of identity: two children observed in the same
+    // session id (paired testing) are two observations, not a duplicate.
+    const key = `${record.profileId}:${String(record.sessionId).toLowerCase()}:${String(record.participant?.anonymousId || "").toLowerCase()}`;
     if (seenSessions.has(key)) {
       duplicateRecords.push(record);
       continue;

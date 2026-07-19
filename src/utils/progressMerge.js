@@ -201,6 +201,11 @@ export function computeHydratedValue(area, key, existing, payload) {
   //       a shell the child already finished, or teleport them mid-stop.
   if (area === "phonics_quest") {
     const cloud = payload && typeof payload === "object" ? payload : {};
+    // Union by id, DETERMINISTICALLY ORDERED by (at, id): unionById used to
+    // preserve arrival order, and prefer-unowned hatching made the child's
+    // beastie collection depend on which device synced first — permanently
+    // divergent collections from one shared ledger. Sorting makes every
+    // device hatch the same eggs from the same history.
     const unionById = (a, b) => {
       const seen = new Set();
       const out = [];
@@ -210,8 +215,27 @@ export function computeHydratedValue(area, key, existing, payload) {
         seen.add(id);
         out.push(rec);
       }
-      return out;
+      return out.sort((x, y) => {
+        const ax = String((x && typeof x === "object" && x.at) || "");
+        const ay = String((y && typeof y === "object" && y.at) || "");
+        if (ax !== ay) return ax < ay ? -1 : 1;
+        const ix = String((x && typeof x === "object" ? x.id : x) || "");
+        const iy = String((y && typeof y === "object" ? y.id : y) || "");
+        return ix < iy ? -1 : ix > iy ? 1 : 0;
+      });
     };
+    // Last-write-wins needs a CLOCK: "cloud || base" silently replaced a
+    // fresh device's first-minute creature (or a parent's reducedMotion)
+    // with the stale cloud row. Ties and legacy saves without stamps keep
+    // the old cloud-wins behaviour.
+    const later = (baseAt, cloudAt, baseValue, cloudValue) => {
+      const b = String(baseAt || "");
+      const c = String(cloudAt || "");
+      if (b && (!c || b > c)) return { value: baseValue, at: b };
+      return { value: cloudValue ?? baseValue, at: c || b };
+    };
+    const creaturePick = later(base.creatureAt, cloud.creatureAt, base.creature, cloud.creature);
+    const settingsPick = later(base.settingsAt, cloud.settingsAt, base.settings, cloud.settings);
     const trail = mergeMonotonic(base.trail, cloud.trail) || {};
     // routeCursor is local journey position, not an achievement counter. A max
     // merge would pin a second circuit at stop 40 forever.
@@ -219,16 +243,21 @@ export function computeHydratedValue(area, key, existing, payload) {
     return {
       ...base,
       ...cloud,
-      creature: cloud.creature || base.creature,
+      creature: creaturePick.value || base.creature,
+      creatureAt: creaturePick.at,
       hatched: Boolean(base.hatched) || Boolean(cloud.hatched),
       trail,
       mastery: mergeMasteryMap(base.mastery, cloud.mastery),
       stones: mergeMonotonic(base.stones, cloud.stones),
       trickies: mergeMonotonic(base.trickies, cloud.trickies),
       ledger: { purchases: unionById(base.ledger?.purchases, cloud.ledger?.purchases) },
-      settings: cloud.settings || base.settings,
+      settings: settingsPick.value || base.settings,
+      settingsAt: settingsPick.at,
       telemetry: {
-        sessions: unionById(base.telemetry?.sessions, cloud.telemetry?.sessions),
+        // Bounded: merged histories must respect the same cap the telemetry
+        // module enforces (questTelemetry MAX_SESSION_HISTORY = 80), or
+        // year-two save files grow without limit.
+        sessions: unionById(base.telemetry?.sessions, cloud.telemetry?.sessions).slice(-80),
         current: base.telemetry?.current || null
       },
       checkpoint: base.checkpoint ?? null

@@ -43,6 +43,14 @@ export function saveQuestProgress(scopeKey = DEFAULT_SCOPE, state) {
       // the progress; local storage catches up on the next successful save.
     }
   }
-  queueProgressSave("phonics_quest", "__all__", next, { scopeKey });
+  // TEACHER-OWNED KEYS NEVER TRAVEL UP FROM THE CHILD. The child's client
+  // echoes its whole state on every save; with an older `assignment` inside,
+  // a Thursday-night offline flush could erase a Friday assignment. The
+  // server merge (20260715090000_phonics_quest_merge.sql, live) keeps the
+  // existing value when a key is absent from the incoming payload — so the
+  // strip is safe AND sufficient. Locally the assignment stays (line above).
+  const { assignment, ...uploadPayload } = next;
+  void assignment;
+  queueProgressSave("phonics_quest", "__all__", uploadPayload, { scopeKey });
   return next;
 }

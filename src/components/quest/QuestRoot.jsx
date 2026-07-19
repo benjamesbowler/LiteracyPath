@@ -648,14 +648,16 @@ export default function QuestRoot({
 
   const updateDisplayMode = useCallback(displayMode => {
     const current = stateRef.current;
-    commit({ ...current, settings: { ...current.settings, displayMode } });
+    // settingsAt is the last-write-wins clock the cloud merge respects — a
+    // stale cloud row can no longer overwrite a fresh device's settings.
+    commit({ ...current, settings: { ...current.settings, displayMode }, settingsAt: new Date().toISOString() });
     setForce2d(false);
     setRuntimeQualityId(null);
   }, [commit]);
 
   const updateAccessibilitySetting = useCallback((key, value) => {
     const current = stateRef.current;
-    commit({ ...current, settings: { ...current.settings, [key]: Boolean(value) } });
+    commit({ ...current, settings: { ...current.settings, [key]: Boolean(value) }, settingsAt: new Date().toISOString() });
     setForce2d(false);
     setRuntimeQualityId(null);
   }, [commit]);
@@ -691,8 +693,8 @@ export default function QuestRoot({
           owned={owned}
           hatched={state.hatched}
           isSoundEnabled={isSoundEnabled}
-          onChange={creature => commit({ ...state, creature })}
-          onDone={() => { commit({ ...state, hatched: true }); setView(VIEW.DEN); }}
+          onChange={creature => commit({ ...state, creature, creatureAt: new Date().toISOString() })}
+          onDone={() => { commit({ ...state, hatched: true, creatureAt: new Date().toISOString() }); setView(VIEW.DEN); }}
         />
       )}
 

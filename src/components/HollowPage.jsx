@@ -182,6 +182,13 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   const refresh = () => setLedgerVersion(v => v + 1);
 
   function grant(item) {
+    // Idempotent for one-time gifts: a fast double-tap on "Crack it open!"
+    // must not grant two welcome eggs.
+    if (item?.id === WELCOME_EGG.id
+      && loadHollowLedger(scope).purchases?.some(p => p?.item === WELCOME_EGG.id)) {
+      refresh();
+      return;
+    }
     const before = new Set(hollow.beasties.map(b => b.id));
     recordPurchase(scope, item);
     playStarChime();
