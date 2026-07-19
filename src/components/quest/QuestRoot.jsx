@@ -16,6 +16,7 @@ import DenScreen from "./DenScreen.jsx";
 import RewardScreen from "./RewardScreen.jsx";
 import TrailMap from "./TrailMap.jsx";
 import QuestTrail2D from "./world/QuestTrail2D.jsx";
+import CreatureFigure from "./CreatureFigure.jsx";
 import TradingPost from "./TradingPost.jsx";
 import { loadQuestProgress, saveQuestProgress } from "../../utils/questStore.js";
 import { computeHydratedValue } from "../../utils/progressMerge.js";
@@ -143,6 +144,7 @@ export default function QuestRoot({
       : []
   ));
   const [trailNotice, setTrailNotice] = useState(null);
+  const [trailCheer, setTrailCheer] = useState(null);
   const [mapChapter, setMapChapter] = useState(() => chapterForStop(initialStop)?.index || 1);
   const [journeyMode, setJourneyMode] = useState({ kind: "journey", targets: null });
   const [ceremony, setCeremony] = useState(previewCeremony);
@@ -355,9 +357,15 @@ export default function QuestRoot({
 
   useEffect(() => {
     if (!trailNotice) return undefined;
-    const timer = window.setTimeout(() => setTrailNotice(null), 4200);
+    const timer = window.setTimeout(() => setTrailNotice(null), 6000);
     return () => window.clearTimeout(timer);
   }, [trailNotice]);
+
+  useEffect(() => {
+    if (!trailCheer) return undefined;
+    const timer = window.setTimeout(() => setTrailCheer(null), 2600);
+    return () => window.clearTimeout(timer);
+  }, [trailCheer]);
 
   useEffect(() => {
     if (!runtimeNotice) return undefined;
@@ -533,6 +541,10 @@ export default function QuestRoot({
       setView(VIEW.CEREMONY);
     } else if (nextStop?.id) {
       setTrailNotice(reward);
+      // The per-stop reward MOMENT: a 2.6s creature-and-stars beat, not just
+      // an auto-dismissing toast in a corner. Reduced motion keeps the calm
+      // toast only.
+      if (!next.settings?.reducedMotion) setTrailCheer(reward);
       if (useSimpleWorld) {
         setActiveStop(nextStop.id);
         setWorldLayers([{ stopId: nextStop.id, status: "active", ready: true, anticipatedFrom: null }]);
@@ -635,13 +647,21 @@ export default function QuestRoot({
     const completedStopId = ceremony?.stop?.id || ceremony?.stop;
     const destinationChapter = chapterForStop(nextStop?.id || nextStop)
       || chapterForStop(completedStopId);
-    setWorldLayers([]);
-    setActiveStop(null);
     setCeremony(null);
     setCeremonyOverlayVisible(false);
+    // "Continue the trail" CONTINUES THE TRAIL: straight into the next stop.
+    // The map is the fallback only when the whole journey is complete.
+    if (nextStop?.id) {
+      setWorldLayers([]);
+      setActiveStop(null);
+      enterWorld(stateRef.current, { stopId: nextStop.id, source: "ceremony" });
+      return;
+    }
+    setWorldLayers([]);
+    setActiveStop(null);
     setMapChapter(destinationChapter?.index || 1);
     setView(VIEW.MAP);
-  }, [ceremony]);
+  }, [ceremony, enterWorld]);
 
   const visitTradingPostAfterCeremony = useCallback(() => {
     setWorldLayers([]);
@@ -699,7 +719,14 @@ export default function QuestRoot({
           hatched={state.hatched}
           isSoundEnabled={isSoundEnabled}
           onChange={creature => commit({ ...state, creature, creatureAt: new Date().toISOString() })}
-          onDone={() => { commit({ ...state, hatched: true, creatureAt: new Date().toISOString() }); setView(VIEW.DEN); }}
+          onDone={() => {
+            const hatched = commit({ ...state, hatched: true, creatureAt: new Date().toISOString() });
+            // FIRST-RUN EXPRESS: a brand-new child goes from hatching straight
+            // into trail 1 - not through five text-navigation screens. The Den
+            // is one tap away the moment they leave the world.
+            if (!hatched.trail?.stopsDone?.length) enterWorld(hatched, { source: "first-run" });
+            else setView(VIEW.DEN);
+          }}
         />
       )}
 
@@ -820,6 +847,21 @@ export default function QuestRoot({
               </div>
             );
           })}
+        </div>
+      )}
+
+      {view === VIEW.WORLD && trailCheer && (
+        <div className="q-trail-cheer" role="status" onClick={() => setTrailCheer(null)}>
+          <div className="q-trail-cheer-card">
+            <CreatureFigure creature={state.creature} mood="cheer" size={92} />
+            <strong>{trailCheer.stop?.name || "Trail"} complete!</strong>
+            <span className="q-trail-cheer-stars" aria-label={`${trailCheer.stars} stars`}>
+              {[0, 1, 2].map(slot => (
+                <em key={slot} className={slot < trailCheer.stars ? "is-lit" : ""}>&#9733;</em>
+              ))}
+            </span>
+            {trailCheer.gear && <small>New gear for your Beastie!</small>}
+          </div>
         </div>
       )}
 

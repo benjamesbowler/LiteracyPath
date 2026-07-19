@@ -4632,7 +4632,18 @@ export default function QuestHub({
     };
   });
 
-  if (!section) return null;
+  if (!section) {
+    // A section that failed to build must never render NOTHING - a black
+    // screen with no exit is a dead end for a child. Show a door.
+    return (
+      <div className="qh-root qh-root-empty">
+        <button type="button" className="q-ghost qh-leave qh-leave-floating" onClick={onQuit}>
+          &#8592; Den
+        </button>
+        <p className="qh-empty-note">This trail could not open. Tap the door to go back.</p>
+      </div>
+    );
+  }
   const View = active ? ENCOUNTER_VIEWS[active.kind] : null;
   const teach = section.teach[meetIndex];
   const nextEncounter = firstUnsolvedEncounter(section, solved);
@@ -4889,7 +4900,9 @@ export default function QuestHub({
         {interactionFeedback?.announcement || ""}
       </div>
 
-      {phase === "trail" && !active && (
+      {/* Rendered only when it HAS a next action - a primary button with
+          nothing written on it is worse than no button. */}
+      {phase === "trail" && !active && (gateOpen || !guideDone || nextEncounter) && (
         <button type="button" className={`qh-next-call${gateOpen ? " is-gate" : ""}`} onClick={moveToNext} aria-live="polite">
           {gateOpen ? (
             section.isChapterFinale
@@ -4897,9 +4910,9 @@ export default function QuestHub({
               : <><strong>The gate is open</strong><span>Walk through to the next trail</span></>
           ) : !guideDone ? (
             <><strong>{section.guide.friend} is waiting</strong><span>Follow the path</span></>
-          ) : nextEncounter ? (
+          ) : (
             <><strong>{nextEncounter.friend} needs help</strong><span>{nextEncounter.label}</span></>
-          ) : null}
+          )}
         </button>
       )}
 

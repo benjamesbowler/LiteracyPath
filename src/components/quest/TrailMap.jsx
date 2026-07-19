@@ -111,7 +111,7 @@ export default function TrailMap({
           <h1>{chapter.title}</h1>
           <p>{journeyComplete && chapter.id === "star-reach" ? "Every sound is home. The First Reading Star is shining." : chapter.objective}</p>
         </div>
-        <button type="button" className="q-primary q-map-review" onClick={onFreeRoam}>
+        <button type="button" className="q-ghost q-map-review" onClick={onFreeRoam}>
           {reviewPlan.weakest.length ? "Practise sounds" : "Explore sounds"}
         </button>
       </header>

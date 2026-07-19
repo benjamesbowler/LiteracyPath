@@ -145,6 +145,9 @@ export default function TradingPost({ state, isSoundEnabled = true, onBuy, onBac
   return (
     <div className="q-screen q-post">
       <div className="q-post-head">
+        {/* The door is in the header, matching the map - not a ghost at the
+            bottom of a scrollable column a child may never reach. */}
+        <button type="button" className="q-ghost q-post-back" onClick={onBack}>&#8592; Den</button>
         <div>
           <span className="q-post-kicker">Bramble's wagon</span>
           <h1 className="q-title">Trading Post</h1>
@@ -249,7 +252,6 @@ export default function TradingPost({ state, isSoundEnabled = true, onBuy, onBac
         })}
       </div>
 
-      <button type="button" className="q-ghost" onClick={onBack}>Back to the Den</button>
     </div>
   );
 }
