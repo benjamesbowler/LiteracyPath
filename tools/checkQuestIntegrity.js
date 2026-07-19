@@ -138,6 +138,9 @@ for (const piece of [...CREATURE_PARTS, ...CREATURE_GEAR]) {
 // table. Everything else must paint with a token.
 const EMOJI = /\p{Extended_Pictographic}/u;
 const HEX = /(?<!&)#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})\b/;
+// THREE.js colours are written 0xRRGGBB - the old rule only matched #hex, so
+// an entire numeric palette lived invisible to it inside QuestHub.jsx.
+const NUMERIC_HEX = /\b0x[0-9a-fA-F]{6}\b/;
 // Colour lives in exactly TWO data files: one for the creature, one for the
 // world. A literal colour anywhere else is a colour that cannot be re-themed,
 // and it is how a world ends up half Meadow and half Moonwood.
@@ -181,6 +184,27 @@ for (const file of runtimeFiles) {
   if (EMOJI.test(source)) fail(`${rel}: contains an emoji. Every icon in this app is an SVG or a WebP.`);
   if (HEX.test(source) && !COLOUR_ALLOWED.has(rel)) {
     fail(`${rel}: contains a raw hex colour. Paint with a token (skin/skinDark/belly/accent) so dyes work.`);
+  }
+  // The KNOWN numeric-palette holders, exempted BY NAME until the hub split
+  // relocates them into questWorlds.js. The moment this rule landed it found
+  // two more hidden palettes (questAssets, questPremiumRender) - which is
+  // exactly why new 0x colours anywhere else fail the build today.
+  const NUMERIC_HEX_HOLDERS = new Set([
+    "src/components/quest/world/QuestHub.jsx",
+    "src/components/quest/world/questAssets.js",
+    "src/components/quest/world/questPremiumRender.js"
+  ]);
+  if (NUMERIC_HEX.test(source) && !COLOUR_ALLOWED.has(rel) && !NUMERIC_HEX_HOLDERS.has(rel)) {
+    fail(`${rel}: contains a raw 0x colour. Palettes live in questWorlds.js.`);
+  }
+}
+
+// ── 4b. The mechanic matrix stays true to the stops it describes ───────────
+{
+  const { validateMechanicMatrix } = await import("../src/data/questMechanicMatrix.js");
+  const { QUEST_STOPS } = await import("../src/data/questSequence.js");
+  for (const problem of validateMechanicMatrix(QUEST_STOPS)) {
+    fail(`questMechanicMatrix: ${problem}`);
   }
 }
 

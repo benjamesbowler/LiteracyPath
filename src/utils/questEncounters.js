@@ -34,7 +34,8 @@ import {
   buildTrailSignRounds,
   buildStoryStoneRounds,
   wordsForTarget,
-  makeRng
+  makeRng,
+  blendsIn
 } from "./questRounds.js";
 import { getStop, taughtThrough, blendsThrough, QUEST_STOPS } from "../data/questSequence.js";
 import { segmentWord, isDecodable } from "./questSegments.js";
@@ -68,12 +69,11 @@ const FROM_SHELL = Object.fromEntries(
   Object.entries(ENCOUNTERS).map(([id, meta]) => [meta.from, id])
 );
 
-// The path is this long, in world units. At WALK_SPEED it takes about a minute
-// to walk end to end — which, with three encounters at ~25s each, makes a stop
-// roughly three minutes and puts the MAJORITY of that time on the walk. That
-// ratio is the whole design; if it ever inverts, we're back to a quiz.
+// The path is this long, in world units — about a minute of ambling to walk
+// end to end, which with three encounters at ~25s each makes a stop roughly
+// three minutes and puts the MAJORITY of that time on the walk. That ratio is
+// the whole design; if it ever inverts, we're back to a quiz.
 export const PATH_LENGTH = 6000;
-export const WALK_SPEED = 115; // world units per second
 const START_X = 200;
 const END_X = PATH_LENGTH - 300;
 
@@ -520,15 +520,6 @@ function wordsFor(mustCover, coverTargets, decodable, pickCovering, maxWords = 3
 }
 
 // Local copy so this module doesn't import questRounds' internals circularly.
-function blendsIn(word, taughtBlends) {
-  const planks = segmentWord(word);
-  const found = [];
-  for (let i = 0; i + 1 < planks.length; i += 1) {
-    const pair = planks[i] + planks[i + 1];
-    if (planks[i].length === 1 && planks[i + 1].length === 1 && taughtBlends.has(pair)) found.push(pair);
-  }
-  return [...new Set(found)];
-}
 
 // How many responses a stop asks for. The whole point of the rebuild is that
 // this number is SMALL — a test asserts it.

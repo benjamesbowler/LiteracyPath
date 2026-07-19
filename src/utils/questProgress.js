@@ -316,7 +316,7 @@ export function equipOwnedPiece(state, piece) {
   return { ...state, creature: normalizeCreature(creature) };
 }
 
-export function unequipQuestGear(state, slot) {
+function unequipQuestGear(state, slot) { // eslint-disable-line no-unused-vars -- kept: inverse of equip, documented API shape
   if (!CREATURE_SLOTS.some(entry => entry.kind === "gear" && entry.id === slot)) return state;
   const creature = normalizeCreature(state?.creature);
   if (!creature.equipped?.[slot]) return state;

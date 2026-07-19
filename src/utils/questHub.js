@@ -31,8 +31,6 @@ export const TRAIL_BOUNDS = Object.freeze({
 });
 
 export const TRAIL_START = Object.freeze({ x: 0, z: 7.5 });
-export const TRAIL_GATE_Z = -121;
-export const TRAIL_EXIT_Z = -128.5;
 
 const FRIENDS = Object.freeze({
   meadow: ["Pip", "Moss", "Tumble", "Bramble"],
@@ -476,7 +474,6 @@ export function buildTrailSection(stopId, options = {}) {
 }
 
 // Kept as a compatibility name for saved previews and older imports.
-export const buildHub = buildTrailSection;
-export const clampHubPosition = clampTrailPosition;
-export const HUB_START = TRAIL_START;
-export const HUB_BOUNDS = Object.freeze({ x: TRAIL_BOUNDS.halfWidth, z: Math.abs(TRAIL_BOUNDS.endZ) });
+// (The hub-era compat aliases - buildHub, clampHubPosition, HUB_START,
+// HUB_BOUNDS - are gone: zero callers, and an alias block is a promise to
+// maintain two names forever.)

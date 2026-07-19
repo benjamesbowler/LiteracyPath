@@ -95,10 +95,7 @@ export function reviewWeight(record, stopIndex) {
   return errorRate * 2 + oneKindShort + recency;
 }
 
-// Which kinds of encounter has this child already proved this sound in?
-export function provenIn(record) {
-  return new Set((record?.shells) || []);
-}
+
 
 // The review items due at this stop, worst-first, capped.
 export function dueTargets(mastery, stopIndex, limit = MAX_REVIEW_PER_STOP) {

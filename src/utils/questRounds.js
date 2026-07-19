@@ -23,7 +23,7 @@
 
 import { getStop, taughtThrough, wordsThrough, heartWordsThrough, blendsThrough } from "../data/questSequence.js";
 import { segmentWord, isDecodable, evidenceTargetFor } from "./questSegments.js";
-import { weakestTargets, MASTERY_STATES } from "./questMastery.js";
+import { weakestTargets } from "./questMastery.js";
 
 // Which taught BLENDS a word actually contains.
 //
@@ -601,4 +601,4 @@ export function buildStop(stopId, { mastery = {}, targets, seed = 1 } = {}) {
   };
 }
 
-export const MASTERY_STATES_REF = MASTERY_STATES;
+
