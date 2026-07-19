@@ -409,6 +409,13 @@ function createGroundCanvas(scene, section) {
   canvas.height = height;
   const ctx = canvas.getContext("2d", { alpha: false });
   ctx.imageSmoothingEnabled = false;
+  // One missing texture must never collapse the whole tier: degrade to the
+  // theme's base colour instead of throwing out of scene creation.
+  if (!scene.textures.exists(theme.groundKey)) {
+    ctx.fillStyle = chapterPixelProfile(section).background || "#244f43";
+    ctx.fillRect(0, 0, width, height);
+    return canvas;
+  }
   const source = scene.textures.get(theme.groundKey).getSourceImage();
   const columns = width / tile;
   const rows = height / tile;
@@ -507,6 +514,11 @@ function createArenaPlazaCanvas(scene, section, palette) {
   ctx.imageSmoothingEnabled = false;
   const theme = worldTheme(section.world);
   const profile = chapterPixelProfile(section);
+  if (!scene.textures.exists(theme.groundKey)) {
+    ctx.fillStyle = profile.background || "#244f43";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    return canvas;
+  }
   const source = scene.textures.get(theme.groundKey).getSourceImage();
   const groundFrame = profile.groundFrame ?? theme.groundFrame;
   const pathFrame = profile.pathFrame ?? theme.pathFrame;
@@ -4215,14 +4227,25 @@ class QuestPixelScene extends Phaser.Scene {
       activeStage: Boolean(this.model?.activeStage)
     });
     this.cameraTargetZoom = zoom;
+    const zoomChanged = Math.abs((this.lastAppliedZoom ?? -1) - zoom) > 0.025;
     const animate = this.cameraZoomReady
       && !this.model?.reducedMotion
       && Math.abs(this.cameras.main.zoom - zoom) > 0.025;
     if (animate) this.cameras.main.zoomTo(zoom, 260, "Sine.easeInOut", true);
     else this.cameras.main.setZoom(zoom);
     this.cameraZoomReady = true;
-    if (this.model?.activeStage && this.model?.activeEncounterId) {
-      this.rebuildChoices(this.model.activeStage, this.model.activeEncounterId);
+    this.lastAppliedZoom = zoom;
+    // Routine iOS URL-bar resizes fire this constantly. Rebuilding every
+    // choice container on each one could destroy a tap target UNDER the
+    // child's finger - only rebuild when the zoom bucket truly changed, and
+    // debounced so a resize storm settles first.
+    if (zoomChanged && this.model?.activeStage && this.model?.activeEncounterId) {
+      window.clearTimeout(this.resizeRebuildTimer);
+      this.resizeRebuildTimer = window.setTimeout(() => {
+        if (this.model?.activeStage && this.model?.activeEncounterId) {
+          this.rebuildChoices(this.model.activeStage, this.model.activeEncounterId);
+        }
+      }, 150);
     }
     this.syncCarriedObject(this.model?.activeStage);
   }
@@ -4570,7 +4593,10 @@ class QuestPixelScene extends Phaser.Scene {
         } else if (profile.response === "route") {
           this.tweens.add({ targets: visual.glow, scale: { from: 0.86, to: 1.22 }, alpha: { from: 0.14, to: 0.46 }, duration: 560, yoyo: true, repeat: -1 });
         } else if (profile.response === "turn") {
-          this.tweens.add({ targets: visual.art, angle: 360, duration: 1800, repeat: -1, ease: "Linear" });
+          // Infinite rotation is the most expensive animation a CANVAS
+          // Graphics object can run (full re-tessellation per frame) and it
+          // blurs pixel art. A scale pulse reads as the same "alive" cue.
+          this.tweens.add({ targets: visual.art, scale: { from: 1, to: 1.08 }, duration: 900, yoyo: true, repeat: -1, ease: "Sine.easeInOut" });
           this.tweens.add({ targets: visual.glow, scale: { from: 0.9, to: 1.24 }, alpha: { from: 0.16, to: 0.5 }, duration: 620, yoyo: true, repeat: -1 });
         } else if (profile.response === "steer") {
           this.tweens.add({ targets: container, angle: { from: -2.5, to: 2.5 }, duration: 540, yoyo: true, repeat: -1, ease: "Sine.easeInOut" });
@@ -4644,7 +4670,7 @@ class QuestPixelScene extends Phaser.Scene {
         this.time.delayedCall(280, () => {
           if (!container.active) return;
           if (motion === "turn") {
-            this.tweens.add({ targets: [visual.art, visual.authoredSprite].filter(Boolean), angle: 360, duration: 2600, repeat: -1 });
+            this.tweens.add({ targets: [visual.art, visual.authoredSprite].filter(Boolean), scale: { from: 1, to: 1.06 }, duration: 1100, yoyo: true, repeat: -1, ease: "Sine.easeInOut" });
           } else if (motion === "glow") {
             this.tweens.add({ targets: visual.glow, alpha: { from: 0.12, to: 0.42 }, duration: 720, yoyo: true, repeat: -1, ease: "Sine.easeInOut" });
           } else if (motion === "bob") {
@@ -5621,6 +5647,7 @@ class QuestPixelScene extends Phaser.Scene {
     this.gateGlowTween?.remove();
     this.gateGlowTween = null;
     this.scale.off("resize", this.handleResize, this);
+    window.clearTimeout(this.resizeRebuildTimer);
   }
 }
 
@@ -5635,6 +5662,10 @@ export function createQuestPixelRuntime(parent, initialModel, bridge = {}) {
     parent,
     width: Math.max(320, parent.clientWidth || 960),
     height: Math.max(320, parent.clientHeight || 540),
+    // Retina tablets rendered at CSS pixels and let the browser upscale -
+    // shimmering, soft pixel art on exactly the screens children use most.
+    // Cap at 2x: beyond that the canvas cost outweighs the crispness.
+    resolution: Math.min((typeof window !== "undefined" && window.devicePixelRatio) || 1, 2),
     backgroundColor: chapterPixelProfile(initialModel.section).background,
     transparent: false,
     render: {

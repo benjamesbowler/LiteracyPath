@@ -736,8 +736,18 @@ function finishPixelBeastieSheet(source) {
   return finished;
 }
 
+// The 64-frame sheet re-rendered ON THE MAIN THREAD at every stop mount
+// (the Phaser game is destroyed and rebuilt per stopId) and AGAIN on the
+// reward screen. The creature rarely changes: cache the finished canvas by
+// its normalized signature, bounded so a customization spree can't grow it.
+const BEASTIE_SHEET_CACHE = new Map();
+const BEASTIE_SHEET_CACHE_LIMIT = 8;
+
 export function createPixelBeastieSheet(rawCreature) {
   const creature = normalizeCreature(rawCreature);
+  const signature = JSON.stringify(creature);
+  const cached = BEASTIE_SHEET_CACHE.get(signature);
+  if (cached) return cached;
   const canvas = document.createElement("canvas");
   canvas.width = PIXEL_BEASTIE_FRAME * PIXEL_BEASTIE_FRAMES_PER_DIRECTION;
   canvas.height = PIXEL_BEASTIE_FRAME * PIXEL_BEASTIE_DIRECTIONS.length;
@@ -754,5 +764,10 @@ export function createPixelBeastieSheet(rawCreature) {
       }
     }
   }
-  return finishPixelBeastieSheet(canvas);
+  const finishedSheet = finishPixelBeastieSheet(canvas);
+  BEASTIE_SHEET_CACHE.set(signature, finishedSheet);
+  if (BEASTIE_SHEET_CACHE.size > BEASTIE_SHEET_CACHE_LIMIT) {
+    BEASTIE_SHEET_CACHE.delete(BEASTIE_SHEET_CACHE.keys().next().value);
+  }
+  return finishedSheet;
 }

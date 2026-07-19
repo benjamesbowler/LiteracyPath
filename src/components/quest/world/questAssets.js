@@ -9,6 +9,8 @@ import {
 } from "../../../data/threeAssetLibrary.js";
 import { routeDirectionAt, routeProgressAt, routeSidePoint } from "../../../utils/questHub.js";
 
+const SCRATCH_SCALE = new THREE.Vector3();
+
 const MONSTER_ROOT = "/models/quest/monsters";
 const NATURE_ROOT = "/models/quest/nature";
 
@@ -243,7 +245,10 @@ export function updateRiggedCharacter(root, {
   const baseScale = root.userData.baseScale || 1;
   const targetScale = baseScale * (next ? 1.06 : solved ? 0.98 : 1);
   const scaleBlend = 1 - Math.pow(0.015, dt);
-  root.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), scaleBlend);
+  // Module-level scratch vector: this ran per character per frame, and a
+  // fresh Vector3 every frame is allocation churn the GC pays for.
+  SCRATCH_SCALE.set(targetScale, targetScale, targetScale);
+  root.scale.lerp(SCRATCH_SCALE, scaleBlend);
   root.rotation.y = THREE.MathUtils.lerp(
     root.rotation.y,
     (root.userData.facing || 0) + turn,

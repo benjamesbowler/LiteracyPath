@@ -3130,6 +3130,7 @@ export default function QuestHub({
   const phaseRef = useRef(initialPhase);
   const tallyRef = useRef(initialTally);
   const firstTallyRef = useRef(new Map());
+  const frameTaskCacheRef = useRef({ key: null, task: null });
   const lastCorrectRef = useRef(resumedActive?.kind === "story-rock");
   const onCheckpointRef = useRef(onCheckpoint);
   const onFinishRef = useRef(onFinish);
@@ -3865,9 +3866,21 @@ export default function QuestHub({
       const player = playerRef.current;
       let moving = false;
       const physicalBeat = activeRef.current?.beats?.[beatIndexRef.current];
-      const currentPhysicalTask = activeRef.current
-        ? buildPhysicalTask(section, activeRef.current, physicalBeat, beatIndexRef.current)
+      // Memoized per (encounter, beat, stage): this used to rebuild the FULL
+      // task object EVERY RENDERED FRAME of the 3D loop - the pixel tier
+      // already cached the identical computation.
+      const taskCacheKey = activeRef.current
+        ? `${activeRef.current.id}:${beatIndexRef.current}:${fieldStageRef.current}`
         : null;
+      if (taskCacheKey !== frameTaskCacheRef.current.key) {
+        frameTaskCacheRef.current = {
+          key: taskCacheKey,
+          task: activeRef.current
+            ? buildPhysicalTask(section, activeRef.current, physicalBeat, beatIndexRef.current)
+            : null
+        };
+      }
+      const currentPhysicalTask = frameTaskCacheRef.current.task;
       const physicalTaskActive = Boolean(currentPhysicalTask) && !fieldChoiceLockRef.current;
       const mechanicProfile = questMechanicProfile(
         currentPhysicalTask?.chapterAuthored ? currentPhysicalTask.mechanic : null
