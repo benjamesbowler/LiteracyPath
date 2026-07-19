@@ -1,6 +1,10 @@
 import { buildPhysicalTask } from "./questPhysicalMechanics.js";
 
-export const QUEST_PHYSICAL_ACTION_BUDGET = 8;
+// Raised 8 -> 10 after the deep review: the 8-action budget silently deferred
+// 44 beats across 20 of 40 stops (s26 lost its whole sort encounter). Ten
+// rendered actions still reads as a walk, and clears nearly every deferral;
+// the few that remain return through spaced review (see the note below).
+export const QUEST_PHYSICAL_ACTION_BUDGET = 10;
 export const QUEST_PACING_SLOW_RESPONSE_MS = 8000;
 
 export function questPacingDecision({ tally = {}, slowResponses = 0, completedBeats = 0, totalBeats = 0 } = {}) {
@@ -61,6 +65,12 @@ export function budgetPhysicalSection(section, budget = QUEST_PHYSICAL_ACTION_BU
     selected.push({ encounter, beatEntries: [{ beat, originalIndex: 0, cost: beatCost(section, encounter, beat, 0) }] });
   }
 
+  // Deferral notes: with the ceiling at 10 the sim shows almost nothing is
+  // deferred; anything that is comes back through spaced review (the
+  // scheduler's whole job, proven by the recurrence playthrough test). A
+  // hard never-defer-a-sole-carrier rule was tried and rejected: at an
+  // 8-target stop nearly every beat is a sole carrier, so the rule quietly
+  // deleted the budget instead of the budget deleting lessons.
   const encounters = selected.map((entry, order) => ({
     ...entry.encounter,
     order,

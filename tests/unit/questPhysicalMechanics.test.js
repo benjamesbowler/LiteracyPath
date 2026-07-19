@@ -375,7 +375,7 @@ test("the pixel and accessible journey budget the actions a child actually perfo
     assert.ok(section.encounters.every((encounter, index) => encounter.order === index));
     assert.equal(section.encounters.at(-1).atGate, true);
   }
-  assert.equal(maximum, 8, "the journey no longer exercises its intentional eight-action ceiling");
+  assert.equal(maximum, QUEST_PHYSICAL_ACTION_BUDGET, "the journey no longer exercises its intentional action ceiling");
 });
 
 test("pacing defers surplus evidence only after repeated struggle and enough completed play", () => {

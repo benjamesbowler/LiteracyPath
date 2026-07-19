@@ -24,13 +24,20 @@ const ROUTE_TEMPLATES = Object.freeze({
     points: [point(0, 8, 0), point(7, -8, 0.3), point(-5, -24, 0.8), point(10, -40, 1.45), point(-8, -57, 2.1), point(7, -74, 2.85), point(-3, -92, 3.4), point(2, -112, 3.8)]
   },
   "island-loop": {
-    points: [point(0, 8), point(-12, -2), point(-20, -18), point(-18, -37), point(-5, -48), point(12, -46), point(21, -32), point(19, -13), point(9, -1), point(4, -18), point(5, -39), point(1, -62)]
+    // The exit leaves AROUND the loop's east side. The old tail dived through
+    // the ring's middle 0.26 units from an earlier strand (trail half-width
+    // 4.5): a child walking the tail stood on the earlier path, and
+    // routeProgressAt snapped their progress between the two strands.
+    points: [point(0, 8), point(-12, -2), point(-20, -18), point(-18, -37), point(-5, -48), point(12, -46), point(21, -32), point(24, -14), point(32, -2), point(38, -22), point(32, -46), point(18, -62), point(2, -70)]
   },
   "figure-eight": {
     points: [point(0, 8), point(-13, -5), point(-18, -23), point(-8, -38), point(7, -44, 0.5), point(19, -57, 1.2), point(17, -76, 1.2), point(4, -88, 0.4), point(-10, -91), point(-18, -106), point(-7, -122), point(5, -128)]
   },
   spiral: {
-    points: [point(0, 8), point(-14, 1), point(-24, -13), point(-25, -31), point(-15, -47), point(2, -54), point(17, -48), point(24, -34), point(21, -19), point(10, -10), point(-1, -13), point(-7, -24), point(-5, -38), point(4, -48), point(10, -61)]
+    // The gate sits at the spiral's HEART. The old tail exited through the
+    // outer ring 0.28 units from it - same cross-strand collision as the
+    // island loop. A spiral that ends at its centre crosses nothing.
+    points: [point(0, 8), point(-14, 1), point(-24, -13), point(-25, -31), point(-15, -47), point(2, -54), point(17, -48), point(24, -34), point(21, -19), point(10, -10), point(-1, -13), point(-8, -25), point(-3, -35)]
   },
   "hub-and-spokes": {
     points: [point(0, 8), point(-5, -9), point(1, -27), point(0, -46), point(7, -64), point(-4, -82), point(2, -102), point(0, -122)],

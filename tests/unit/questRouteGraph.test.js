@@ -90,3 +90,28 @@ test("route samples turn continuously without polyline corner snaps", () => {
     assert.ok(largestTurn < 0.5, `${topology} still contains a hard ${largestTurn.toFixed(3)} radian corner`);
   }
 });
+
+test("no topology ever crosses its own strands within a trail's width", () => {
+  // island-loop and spiral once passed 0.26 units from an earlier strand
+  // (trail half-width 4.5): a child walking the exit stood on the earlier
+  // path, and routeProgressAt snapped between the two — camera, heading and
+  // gate flicker on six of eight chapters. Distant progress points must stay
+  // at least a full trail width (2 x 4.5) apart.
+  const SAMPLES = 400;
+  for (const topology of QUEST_ROUTE_TOPOLOGIES) {
+    const route = buildQuestRoute({ topology, seed: 7 });
+    const pts = [];
+    for (let i = 0; i <= SAMPLES; i += 1) {
+      pts.push({ p: i / SAMPLES, ...routePointAt(route, i / SAMPLES) });
+    }
+    let min = Infinity;
+    for (let i = 0; i < pts.length; i += 1) {
+      for (let j = i + 1; j < pts.length; j += 1) {
+        if (Math.abs(pts[i].p - pts[j].p) < 0.12) continue;
+        const d = Math.hypot(pts[i].x - pts[j].x, (pts[i].z ?? pts[i].y) - (pts[j].z ?? pts[j].y));
+        if (d < min) min = d;
+      }
+    }
+    assert.ok(min >= 9, `${topology}: strands pass ${min.toFixed(2)} units apart — closer than one trail width`);
+  }
+});

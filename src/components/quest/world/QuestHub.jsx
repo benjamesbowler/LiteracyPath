@@ -10,6 +10,7 @@ import * as THREE from "three";
 import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
 import Guide from "./Guide.jsx";
 import { ENCOUNTER_VIEWS } from "./encounterViews.js";
+import { budgetPhysicalSection } from "../../../utils/questPhysicalPlan.js";
 import {
   QuestRenderPipeline,
   attachBeveledLetterTokens,
@@ -3056,7 +3057,7 @@ export default function QuestHub({
       ? [...new Set(targetsOverride)]
       : targetsForStop(targetsAtStop(stopId), state.mastery, stop?.index || 1);
     const seed = (stop?.index || 1) * 1000 + (state.trail.stopsDone.length || 0) + (mode === "review" ? 509 : 0);
-    return buildTrailSection(stopId, {
+    const built = buildTrailSection(stopId, {
       mastery: state.mastery,
       targets,
       seed,
@@ -3064,6 +3065,10 @@ export default function QuestHub({
       rewardCacheCount: rewardBonuses.branchCacheCount,
       completedStopIds: state.trail.stopsDone
     });
+    // SAME budget as the 2D and pixel renderers: one stop, one content plan.
+    // The hub used to skip budgeting entirely, so the same stop served
+    // different beats depending on which renderer a device landed in.
+    return budgetPhysicalSection({ ...built, rewardBonuses });
   });
   const theme = useMemo(() => ({
     ...(WORLD_THEMES[section?.world] || WORLD_THEMES.meadow),

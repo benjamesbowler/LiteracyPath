@@ -131,7 +131,9 @@ export default function QuestTrail2D({
     const built = buildTrailSection(stopId, {
       mastery: state.mastery,
       targets,
-      seed: (stop?.index || 1) * 1000 + (mode === "review" ? 509 : 0),
+      // stopsDone.length matches QuestHub's seed: replays vary here too,
+      // instead of the accessibility mode being the easier-to-memorise mode.
+      seed: (stop?.index || 1) * 1000 + (state.trail?.stopsDone?.length || 0) + (mode === "review" ? 509 : 0),
       completedStopIds: state.trail?.stopsDone || [],
       rewardIds: rewardBonuses.rewardIds,
       rewardCacheCount: rewardBonuses.branchCacheCount

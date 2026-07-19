@@ -108,7 +108,7 @@ export default function QuestPixelWorld({
     const built = buildTrailSection(stopId, {
       mastery: state.mastery,
       targets,
-      seed: (stop?.index || 1) * 1000 + (mode === "review" ? 509 : 0),
+      seed: (stop?.index || 1) * 1000 + (state.trail?.stopsDone?.length || 0) + (mode === "review" ? 509 : 0),
       completedStopIds: state.trail?.stopsDone || [],
       rewardIds: rewardBonuses.rewardIds,
       rewardCacheCount: rewardBonuses.branchCacheCount

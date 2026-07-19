@@ -66,23 +66,23 @@ function useCorrection(beat, isSoundEnabled) {
   const correction = entry && entry.beat === beat ? entry.correction : null;
 
   const miss = choiceId => {
-    setEntry(prev => {
-      const previous = prev && prev.beat === beat ? prev.correction : null;
-      const next = recordCorrectionMiss(previous, choiceId);
-      if (next.mode === CORRECTION_MODES.TEACH) {
-        timersRef.current.push(window.setTimeout(() => {
-          if (isSoundEnabled) sayGrapheme(beat.target, true);
-        }, 350));
-        timersRef.current.push(window.setTimeout(() => {
-          setEntry(current => (
-            current && current.beat === beat && current.correction?.mode === CORRECTION_MODES.TEACH
-              ? { beat, correction: completeTeachBack(current.correction) }
-              : current
-          ));
-        }, 2100));
-      }
-      return { beat, correction: next };
-    });
+    // Side effects live OUTSIDE the setState updater: React may invoke an
+    // updater twice (StrictMode), which double-armed the teach timers.
+    const previous = entry && entry.beat === beat ? entry.correction : null;
+    const next = recordCorrectionMiss(previous, choiceId);
+    setEntry({ beat, correction: next });
+    if (next.mode === CORRECTION_MODES.TEACH) {
+      timersRef.current.push(window.setTimeout(() => {
+        if (isSoundEnabled) sayGrapheme(beat.target, true);
+      }, 350));
+      timersRef.current.push(window.setTimeout(() => {
+        setEntry(current => (
+          current && current.beat === beat && current.correction?.mode === CORRECTION_MODES.TEACH
+            ? { beat, correction: completeTeachBack(current.correction) }
+            : current
+        ));
+      }, 2100));
+    }
   };
   return [correction, miss];
 }
