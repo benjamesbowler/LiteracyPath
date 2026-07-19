@@ -159,18 +159,36 @@ export function meetsMasteryBar(record, rules = MASTERY_RULES) {
 // Record ONE response. `shell` is the mini-game it happened in, `at` an ISO
 // timestamp, `stopIndex` where on the trail it happened (the review scheduler
 // needs that to know how long ago the child last saw this sound).
+//
+// promptLevel is the assistance the child had WHEN answering:
+//   0 = independent   (discover / retry — no help shown)
+//   1 = narrowed      (choices reduced for them)
+//   2 = guided        (the answer was shown — post-teach re-ask)
+// Only INDEPENDENT answers are mastery evidence: a tap on the glowing answer
+// proves compliance, not knowledge. Assisted attempts still count exposure
+// (seen) and misses (a miss WITH help is real struggle), but never fill the
+// accuracy window, correct count, shells or sessions.
+//
+// reason:"timeout" (Trail Run's clock expiring) is a FLUENCY event, not a
+// knowledge failure: slow-but-accurate children must not accrue mastery
+// misses for hesitation. Exposure only.
+//
 // Pure: returns a new record, mutates nothing.
-export function recordAttempt(record, { correct = false, shell = "", at = "", stopIndex = 0, rules = MASTERY_RULES } = {}) {
+export function recordAttempt(record, { correct = false, shell = "", at = "", stopIndex = 0, rules = MASTERY_RULES, promptLevel = 0, reason = "" } = {}) {
   const prev = { ...emptyRecord(), ...(record || {}) };
   const day = dayOf(at);
+  const timeout = reason === "timeout";
+  const independent = promptLevel === 0 && !timeout;
 
   const next = {
     ...prev,
     seen: prev.seen + 1,
-    correct: prev.correct + (correct ? 1 : 0),
-    streak: correct ? prev.streak + 1 : 0,
-    misses: correct ? 0 : prev.misses + 1,
-    window: [...prev.window, correct ? 1 : 0].slice(-rules.accuracyWindow),
+    correct: prev.correct + (correct && independent ? 1 : 0),
+    streak: independent ? (correct ? prev.streak + 1 : 0) : prev.streak,
+    misses: timeout ? prev.misses : (correct ? 0 : prev.misses + 1),
+    window: independent
+      ? [...prev.window, correct ? 1 : 0].slice(-rules.accuracyWindow)
+      : [...prev.window],
     shells: [...prev.shells],
     sessions: [...prev.sessions],
     lastAt: at || prev.lastAt,
@@ -179,9 +197,10 @@ export function recordAttempt(record, { correct = false, shell = "", at = "", st
     lastStop: stopIndex || prev.lastStop || 0
   };
 
-  // Only a CORRECT answer is evidence. Being wrong in a second shell on a
-  // second day proves nothing, and must not count toward conditions 3 and 4.
-  if (correct) {
+  // Only an INDEPENDENT correct answer is evidence. Being wrong in a second
+  // shell on a second day proves nothing — and being RIGHT with the answer
+  // glowing proves nothing either.
+  if (correct && independent) {
     if (shell && !next.shells.includes(shell)) next.shells.push(shell);
     if (day && !next.sessions.includes(day)) next.sessions.push(day);
   }

@@ -29,7 +29,8 @@ import {
   CORRECTION_MODES,
   recordCorrectionMiss,
   completeTeachBack,
-  correctionPresentation
+  correctionPresentation,
+  promptLevelForMode
 } from "../../../utils/questCorrection.js";
 import Piece from "./Piece.jsx";
 import {
@@ -109,7 +110,7 @@ export function FlowerPatch({ beat, isSoundEnabled, onBeat, onDone, index, total
     if (picked || done || teaching) return;
     const right = g === beat.answer;
     if (isSoundEnabled) (right ? playCorrectChime : playSoftBuzz)();
-    onBeat(right, beat.target);
+    onBeat(right, beat.target, { promptLevel: promptLevelForMode(view.mode) });
     if (right) {
       setPicked({ g, right: true });
       mark();
@@ -195,7 +196,9 @@ export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total })
     if (done || teaching || picked) return undefined;
     const timer = window.setTimeout(() => {
       if (isSoundEnabled) playSoftBuzz();
-      onBeat(false, beat.target);
+      // A timeout is HESITATION, not a wrong answer: tagged so mastery logs
+      // exposure without a knowledge miss (recordAttempt reason semantics).
+      onBeat(false, beat.target, { reason: "timeout" });
       miss(null);
       if (isSoundEnabled) sayGrapheme(beat.target, true);
       setLap(l => l + 1);
@@ -357,7 +360,7 @@ export function BrokenBridge({ beat, isSoundEnabled, onBeat, onDone, index, tota
       // The miss belongs to the sound the child failed to lay — the wanted
       // plank — not to every grapheme in the word.
       setWobble(i);
-      onBeat(false, want);
+      onBeat(false, want, { promptLevel: stuck >= 3 ? 2 : 0 });
       const misses = stuck + 1;
       setStuck(misses);
       if (isSoundEnabled) {
@@ -369,7 +372,7 @@ export function BrokenBridge({ beat, isSoundEnabled, onBeat, onDone, index, tota
       setTimeout(() => setWobble(null), 400);
       return;
     }
-    onBeat(true, want);
+    onBeat(true, want, { promptLevel: stuck >= 3 ? 2 : 0 });
     setStuck(0);
     const next = [...laid, { tile, from: i }];
     setLaid(next);
@@ -435,7 +438,7 @@ export function EchoCaveEnc({ beat, isSoundEnabled, onBeat, onDone, index, total
     const want = beat.sounds[said.length];
     if (k !== want) {
       setWrong(k);
-      onBeat(false, want);
+      onBeat(false, want, { promptLevel: stuck >= 3 ? 2 : 0 });
       const misses = stuck + 1;
       setStuck(misses);
       if (isSoundEnabled) {
@@ -445,7 +448,7 @@ export function EchoCaveEnc({ beat, isSoundEnabled, onBeat, onDone, index, total
       setTimeout(() => setWrong(null), 400);
       return;
     }
-    onBeat(true, want);
+    onBeat(true, want, { promptLevel: stuck >= 3 ? 2 : 0 });
     setStuck(0);
     const next = [...said, k];
     setSaid(next);
@@ -505,7 +508,7 @@ export function SheepPens({ beat, isSoundEnabled, onBeat, onDone, index, total }
     if (!held || done) return;
     if (held.pen !== id) {
       // The evidence belongs to the sound this word actually contains.
-      onBeat(false, held.pen);
+      onBeat(false, held.pen, { promptLevel: stuck >= 3 ? 2 : 0 });
       const misses = stuck + 1;
       setStuck(misses);
       if (isSoundEnabled) {
@@ -515,7 +518,7 @@ export function SheepPens({ beat, isSoundEnabled, onBeat, onDone, index, total }
       setHeld(null);
       return;
     }
-    onBeat(true, held.pen);
+    onBeat(true, held.pen, { promptLevel: stuck >= 3 ? 2 : 0 });
     setStuck(0);
     if (isSoundEnabled) playPopSound();
     const next = { ...sorted, [held.idx]: id };

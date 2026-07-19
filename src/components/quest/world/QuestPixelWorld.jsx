@@ -27,6 +27,7 @@ import {
   correctionKey,
   correctionPresentation,
   nextQueuedReview,
+  promptLevelForMode,
   recordCorrectionMiss
 } from "../../../utils/questCorrection.js";
 import { createQuestPixelRuntime } from "./questPixelRuntime.js";
@@ -152,6 +153,7 @@ export default function QuestPixelWorld({
   const feedbackTimerRef = useRef(0);
   const pickupTimerRef = useRef(0);
   const tallyRef = useRef(resume?.tally || { correct: 0, total: 0, mistakes: 0 });
+  const firstTallyRef = useRef(new Map());
   const slowResponsesRef = useRef(Math.max(0, Number(resume?.slowResponses) || 0));
   const pacingDeferredRef = useRef(Math.max(0, Number(resume?.pacingDeferred) || 0));
   const encounterRef = useRef(null);
@@ -226,18 +228,25 @@ export default function QuestPixelWorld({
     });
   }, [beatIndex, encounter?.id, fieldStage, onCheckpoint, phase, section, snapshotPosition, stopId]);
 
-  const answer = useCallback((correct, target, recordMastery = true) => {
-    tallyRef.current = {
-      total: tallyRef.current.total + 1,
-      correct: tallyRef.current.correct + (correct ? 1 : 0),
-      mistakes: tallyRef.current.mistakes + (correct ? 0 : 1)
-    };
+  const answer = useCallback((correct, target, recordMastery = true, meta = {}) => {
+    // FIRST ATTEMPT PER BEAT is what stars score: the correction ladder is
+    // the intended teaching path, and counting every rung as a fresh mistake
+    // punished the child for using it.
+    const beatKey = meta.key || `${encounter?.id || "enc"}:${Array.isArray(target) ? target.join("+") : target}`;
+    if (!firstTallyRef.current.has(beatKey)) {
+      firstTallyRef.current.set(beatKey, correct);
+      tallyRef.current = {
+        total: tallyRef.current.total + 1,
+        correct: tallyRef.current.correct + (correct ? 1 : 0),
+        mistakes: tallyRef.current.mistakes + (correct ? 0 : 1)
+      };
+    }
     if (recordMastery) {
       for (const one of Array.isArray(target) ? target : [target]) {
-        if (one) onAnswer?.(one, correct, encounter?.kind || "pixel-trail");
+        if (one) onAnswer?.(one, correct, encounter?.kind || "pixel-trail", meta);
       }
     }
-  }, [encounter?.kind, onAnswer]);
+  }, [encounter?.id, encounter?.kind, onAnswer]);
 
   const beginBeat = useCallback((nextIndex, remediation = null) => {
     remediationBeatRef.current = remediation;
@@ -370,10 +379,11 @@ export default function QuestPixelWorld({
     if (!right) {
       emitStageInteraction("response", { correct: false, mechanic: task.mechanic });
       runtimeRef.current?.playFeedback?.("wrong", choice.id);
+      const preAttemptLevel = promptLevelForMode(correctionsRef.current[activeCorrectionKey]?.mode);
       const nextCorrection = recordCorrectionMiss(correctionsRef.current[activeCorrectionKey], choice.id);
       correctionsRef.current = { ...correctionsRef.current, [activeCorrectionKey]: nextCorrection };
       setCorrections(correctionsRef.current);
-      answer(false, stage.items.find(item => item.correct)?.value || beat?.target, stageRecordsMastery);
+      answer(false, stage.items.find(item => item.correct)?.value || beat?.target, stageRecordsMastery, { promptLevel: preAttemptLevel, key: activeCorrectionKey });
       if (nextCorrection.misses >= 3) reviewQueueRef.current = [...new Set([...reviewQueueRef.current, beatIndex])];
       setFeedback(nextCorrection.mode === "teach" ? "This one. Listen." : "Try again. Listen.");
       // Cue after the buzz, not on top of it (mirrors the 3D path's 350ms).
@@ -420,7 +430,7 @@ export default function QuestPixelWorld({
       checkpoint({ fieldStage: nextStage });
       return;
     }
-    answer(true, task.learningSequence?.length ? task.learningSequence : beat?.target, stageRecordsMastery);
+    answer(true, task.learningSequence?.length ? task.learningSequence : beat?.target, stageRecordsMastery, { promptLevel: promptLevelForMode(correctionsRef.current[activeCorrectionKey]?.mode), key: activeCorrectionKey });
     nextBeat();
   }, [activeCorrectionKey, answer, beat?.target, beatIndex, checkpoint, emitStageInteraction, encounter?.id, fieldStage, isSoundEnabled, nextBeat, rhythmOpen, stage, stageRecordsMastery, task, visibleChoices]);
 

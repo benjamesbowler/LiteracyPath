@@ -225,3 +225,47 @@ test("weakestTargets ranks by accuracy and ignores sounds never met", () => {
   assert.deepEqual(weak, ["th", "ch", "sh"]);
   assert.ok(!weak.includes("ng"), "a sound you have never met is not a sound you are weak at");
 });
+
+// ── Assisted vs independent evidence (the promptLevel contract) ─────────────
+
+test("a guided tap on the shown answer is compliance, not evidence", () => {
+  // promptLevel 2 = the answer was glowing. The child tapping it proves they
+  // can follow a light, not that they know the sound.
+  const guided = run(emptyRecord(), [
+    { correct: true, shell: "flowers", at: "2026-01-01T10:00:00Z", promptLevel: 2 },
+    { correct: true, shell: "beast", at: "2026-01-02T10:00:00Z", promptLevel: 2 },
+    { correct: true, shell: "flowers", at: "2026-01-03T10:00:00Z", promptLevel: 2 },
+    { correct: true, shell: "beast", at: "2026-01-04T10:00:00Z", promptLevel: 2 }
+  ]);
+  assert.equal(guided.seen, 4, "exposure still counts");
+  assert.equal(guided.correct, 0, "no independent corrects");
+  assert.deepEqual(guided.shells, [], "no shell evidence");
+  assert.deepEqual(guided.sessions, [], "no session evidence");
+  assert.deepEqual(guided.window, [], "accuracy window untouched");
+  assert.equal(guided.state, MASTERY_STATES.LEARNING);
+  assert.ok(!meetsMasteryBar(guided), "a child can NEVER master a sound on guided answers alone");
+});
+
+test("an assisted MISS still counts as struggle; a timeout counts as nothing but exposure", () => {
+  const assisted = recordAttempt(emptyRecord(), { correct: false, promptLevel: 1, at: "2026-01-01T10:00:00Z" });
+  assert.equal(assisted.misses, 1, "missing WITH narrowed choices is real struggle");
+  assert.deepEqual(assisted.window, [], "but it does not pollute the accuracy window");
+
+  const before = run(emptyRecord(), [
+    { correct: true, shell: "flowers", at: "2026-01-01T10:00:00Z" },
+    { correct: true, shell: "flowers", at: "2026-01-01T10:01:00Z" }
+  ]);
+  const timeout = recordAttempt(before, { correct: false, reason: "timeout", at: "2026-01-01T10:02:00Z" });
+  assert.equal(timeout.seen, before.seen + 1, "exposure recorded");
+  assert.equal(timeout.misses, 0, "hesitation is not a knowledge miss");
+  assert.equal(timeout.streak, before.streak, "a slow child keeps their streak");
+  assert.deepEqual(timeout.window, before.window, "the window never sees fluency events");
+});
+
+test("two attempts in the same sitting are one session day", () => {
+  const record = run(emptyRecord(), [
+    { correct: true, shell: "flowers", at: "2026-01-01T10:00:00Z" },
+    { correct: true, shell: "beast", at: "2026-01-01T10:30:00Z" }
+  ]);
+  assert.equal(record.sessions.length, 1, "same local day = one session, however many answers");
+});

@@ -373,18 +373,20 @@ export default function QuestRoot({
 
   const owned = useMemo(() => ownedPieces(state), [state]);
 
-  const handleAnswer = useCallback((stopId, target, correct, shell) => {
+  const handleAnswer = useCallback((stopId, target, correct, shell, meta = {}) => {
     // stopIndex is not decoration: it is what the review scheduler measures
     // "how long since the child last saw this sound" from.
     const stopIndex = getStop(stopId)?.index || 0;
+    const promptLevel = Number(meta?.promptLevel) || 0;
+    const reason = typeof meta?.reason === "string" ? meta.reason : "";
     setState(prev => {
-      const attempted = recordQuestAttempt(prev, { target, correct, shell, stopIndex });
+      const attempted = recordQuestAttempt(prev, { target, correct, shell, stopIndex, promptLevel, reason });
       const next = recordQuestTelemetryAnswer(attempted, correct);
       stateRef.current = next;
       saveQuestProgress(progressScopeKey, next);
       return next;
     });
-    logStudentActivity("phonics_quest", stopId, "answer", { target, correct, shell });
+    logStudentActivity("phonics_quest", stopId, "answer", { target, correct, shell, promptLevel, reason });
   }, [progressScopeKey]);
 
   const handleCheckpoint = useCallback(cp => {
@@ -758,7 +760,7 @@ export default function QuestRoot({
               mode: journeyMode.kind,
               routeLabel: journeyMode.title,
               targetsOverride: journeyMode.targets,
-              onAnswer: (target, correct, shell) => handleAnswer(layer.stopId, target, correct, shell),
+              onAnswer: (target, correct, shell, meta) => handleAnswer(layer.stopId, target, correct, shell, meta),
               onInteraction: interactive ? event => handleInteraction(layer.stopId, event) : undefined,
               onCheckpoint: interactive ? handleCheckpoint : undefined,
               onFinish: interactive ? (stars, tally) => handleFinish(layer.stopId, stars, tally) : undefined,

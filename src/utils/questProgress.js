@@ -332,13 +332,13 @@ export function unequipQuestGear(state, slot) {
 // ── Mastery + stones ────────────────────────────────────────────────────────
 
 // One response, from one shell. This is the ONLY way mastery ever changes.
-export function recordQuestAttempt(state, { target, correct, shell, stopIndex = 0, at = new Date().toISOString() }) {
+export function recordQuestAttempt(state, { target, correct, shell, stopIndex = 0, at = new Date().toISOString(), promptLevel = 0, reason = "" }) {
   if (!target) return state;
   const prev = state.mastery?.[target] || emptyRecord();
   const rules = String(target).startsWith("hw:")
     ? HEART_RULES
     : ALL_BLENDS.has(target) ? BLEND_RULES : MASTERY_RULES;
-  const next = recordAttempt(prev, { correct, shell, at, stopIndex, rules });
+  const next = recordAttempt(prev, { correct, shell, at, stopIndex, rules, promptLevel, reason });
   return { ...state, mastery: { ...state.mastery, [target]: next } };
 }
 

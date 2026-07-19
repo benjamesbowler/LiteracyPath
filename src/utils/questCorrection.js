@@ -10,6 +10,15 @@ export function correctionKey(encounter, beatIndex = 0, stageIndex = 0) {
   return `${encounter?.id || "none"}:${beatIndex}:${stageIndex}`;
 }
 
+// The assistance level a child had at the moment they answered, from the
+// correction mode that was ACTIVE before the attempt. Feeds recordAttempt's
+// promptLevel: 0 = independent evidence, 1 = narrowed, 2 = answer shown.
+export function promptLevelForMode(mode) {
+  if (mode === CORRECTION_MODES.NARROW) return 1;
+  if (mode === CORRECTION_MODES.TEACH || mode === CORRECTION_MODES.GUIDED) return 2;
+  return 0;
+}
+
 export function normalizeCorrection(value) {
   const misses = Math.max(0, Math.floor(Number(value?.misses) || 0));
   const allowedModes = new Set(Object.values(CORRECTION_MODES));

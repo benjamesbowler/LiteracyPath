@@ -70,6 +70,7 @@ import {
   correctionPresentation,
   nextQueuedReview,
   normalizeCorrection,
+  promptLevelForMode,
   recordCorrectionMiss
 } from "../../../utils/questCorrection.js";
 import { seedwakeSatchel, seedwakeStopSpec } from "../../../data/questChapterOne.js";
@@ -3119,6 +3120,7 @@ export default function QuestHub({
   const fieldStageRef = useRef(initialFieldStage);
   const phaseRef = useRef(initialPhase);
   const tallyRef = useRef(initialTally);
+  const firstTallyRef = useRef(new Map());
   const lastCorrectRef = useRef(resumedActive?.kind === "story-rock");
   const onCheckpointRef = useRef(onCheckpoint);
   const onFinishRef = useRef(onFinish);
@@ -4334,11 +4336,19 @@ export default function QuestHub({
     lightweightCeremonyMount
   ]);
 
-  const answer = (correct, target) => {
+  const answer = (correct, target, meta = {}) => {
     lastCorrectRef.current = correct;
-    tallyRef.current.total += 1;
-    if (correct) tallyRef.current.correct += 1;
-    else tallyRef.current.mistakes += 1;
+    // FIRST ATTEMPT PER BEAT is what stars score. The correction ladder
+    // (retry -> narrow -> teach) is the intended teaching path; counting
+    // every rung as a fresh mistake punished the child for using it — a
+    // ladder child landed at 1 star where a guesser's luck earned 3.
+    const beatKey = `${activeRef.current?.id || "field"}:${beatIndexRef.current}:${Array.isArray(target) ? target.join("+") : target}`;
+    if (!firstTallyRef.current.has(beatKey)) {
+      firstTallyRef.current.set(beatKey, correct);
+      tallyRef.current.total += 1;
+      if (correct) tallyRef.current.correct += 1;
+      else tallyRef.current.mistakes += 1;
+    }
     const reaction = {
       outcome: correct ? "correct" : "wrong",
       clip: seedwakeResidentPerformance(stopId, correct ? "correct" : "wrong"),
@@ -4354,7 +4364,7 @@ export default function QuestHub({
     setTrailMood(correct ? "cheer" : "sad");
     if (target == null) return;
     for (const one of Array.isArray(target) ? target : [target]) {
-      if (one) onAnswer?.(one, correct, activeRef.current?.kind || "trail");
+      if (one) onAnswer?.(one, correct, activeRef.current?.kind || "trail", meta);
     }
   };
 
@@ -4541,6 +4551,7 @@ export default function QuestHub({
           return true;
         }
         const key = correctionKey(current, beatIndexRef.current, fieldStageRef.current);
+        const preAttemptLevel = promptLevelForMode(correctionRecordsRef.current[key]?.mode);
         const nextCorrection = recordCorrectionMiss(correctionRecordsRef.current[key], choice.id);
         correctionRecordsRef.current = { ...correctionRecordsRef.current, [key]: nextCorrection };
         correctionRef.current = nextCorrection;
@@ -4552,7 +4563,7 @@ export default function QuestHub({
         // grapheme in the word — beat.target is an array for word beats, and
         // fanning a miss across all of them punished sounds the child never
         // even got to attempt.
-        answer(false, stage.items?.find(item => item.correct)?.value || beat.target);
+        answer(false, stage.items?.find(item => item.correct)?.value || beat.target, { promptLevel: preAttemptLevel });
         checkpoint({
           active: current,
           corrections: correctionRecordsRef.current,
@@ -4598,7 +4609,7 @@ export default function QuestHub({
         return true;
       }
 
-      answer(true, beat.target);
+      answer(true, beat.target, { promptLevel: promptLevelForMode(correctionRef.current?.mode) });
       const blendComplete = Boolean(beat.word && task.stages.length > 1);
       if (blendComplete) {
         const graphemes = physicalTaskAnswers(task);

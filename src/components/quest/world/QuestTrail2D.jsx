@@ -34,6 +34,7 @@ import {
   correctionKey,
   correctionPresentation,
   nextQueuedReview,
+  promptLevelForMode,
   recordCorrectionMiss
 } from "../../../utils/questCorrection.js";
 import { playSoftBuzz } from "../../../utils/audio/gameSfx.js";
@@ -151,6 +152,7 @@ export default function QuestTrail2D({
   const [visitedMemoryIds, setVisitedMemoryIds] = useState(() => new Set(resume?.visitedMemoryIds || []));
   const [memoryStory, setMemoryStory] = useState(null);
   const tallyRef = useRef(resume?.tally || { correct: 0, total: 0, mistakes: 0 });
+  const firstTallyRef = useRef(new Map());
   const slowResponsesRef = useRef(Math.max(0, Number(resume?.slowResponses) || 0));
   const pacingDeferredRef = useRef(Math.max(0, Number(resume?.pacingDeferred) || 0));
   const correctionsRef = useRef(resume?.corrections || {});
@@ -339,17 +341,24 @@ export default function QuestTrail2D({
     checkpoint({ visitedMemoryIds: [...nextVisited] });
   };
 
-  const answer = (correct, target, recordMastery = true) => {
-    tallyRef.current.total += 1;
-    tallyRef.current.correct += correct ? 1 : 0;
-    tallyRef.current.mistakes += correct ? 0 : 1;
+  const answer = (correct, target, recordMastery = true, meta = {}) => {
+    // FIRST ATTEMPT PER BEAT is what stars score: the correction ladder is
+    // the intended teaching path, and counting every rung as a fresh mistake
+    // punished the child for using it.
+    const beatKey = meta.key || activeCorrectionKey;
+    if (!firstTallyRef.current.has(beatKey)) {
+      firstTallyRef.current.set(beatKey, correct);
+      tallyRef.current.total += 1;
+      tallyRef.current.correct += correct ? 1 : 0;
+      tallyRef.current.mistakes += correct ? 0 : 1;
+    }
     if (target == null || !recordMastery) return;
     // Bridge/cave beats carry an ARRAY of graphemes. QuestHub and TrailWalk
     // both fan it out; this path passed the array straight through, so the 2D
     // mode was writing mastery records under garbage keys like "s,a,t" and the
     // real sounds earned nothing. One rule, all three paths.
     for (const one of Array.isArray(target) ? target : [target]) {
-      if (one) onAnswer?.(one, correct, encounter?.kind || "2d-trail");
+      if (one) onAnswer?.(one, correct, encounter?.kind || "2d-trail", meta);
     }
   };
 
@@ -480,10 +489,11 @@ export default function QuestTrail2D({
     if (!right) {
       emitStageInteraction("response", { correct: false, mechanic: task.mechanic });
       if (isSoundEnabled) playSoftBuzz();
+      const preAttemptLevel = promptLevelForMode(correctionsRef.current[activeCorrectionKey]?.mode);
       const nextCorrection = recordCorrectionMiss(correctionsRef.current[activeCorrectionKey], choice.id);
       correctionsRef.current = { ...correctionsRef.current, [activeCorrectionKey]: nextCorrection };
       setCorrections(correctionsRef.current);
-      answer(false, stage.items.find(item => item.correct)?.value || beat?.target, stageRecordsMastery);
+      answer(false, stage.items.find(item => item.correct)?.value || beat?.target, stageRecordsMastery, { promptLevel: preAttemptLevel, key: activeCorrectionKey });
       if (nextCorrection.misses >= 3) {
         reviewQueueRef.current = [...new Set([...reviewQueueRef.current, beatIndex])];
       }
@@ -541,7 +551,7 @@ export default function QuestTrail2D({
       checkpoint({ fieldStage: nextStage });
       return;
     }
-    answer(true, task.learningSequence?.length ? task.learningSequence : beat?.target, stageRecordsMastery);
+    answer(true, task.learningSequence?.length ? task.learningSequence : beat?.target, stageRecordsMastery, { promptLevel: promptLevelForMode(correctionsRef.current[activeCorrectionKey]?.mode), key: activeCorrectionKey });
     nextBeat();
   };
 
