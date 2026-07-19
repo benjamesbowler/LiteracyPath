@@ -13,7 +13,6 @@ import { QUEST_STOPS, taughtThrough } from "../../data/questSequence.js";
 import { isMastered, MASTERY_STATES } from "../../utils/questMastery.js";
 import { availableSparks, currentStopIndex, unlockedChapterRewards } from "../../utils/questProgress.js";
 import { displayGrapheme } from "./shells/shellContract.js";
-import { QUEST_DISPLAY_MODES } from "../../utils/questPerformance.js";
 import { freeRoamReviewPlan } from "../../utils/questReviewMode.js";
 
 // Only show stones for sounds the child could plausibly have met — an empty
@@ -22,22 +21,23 @@ const WALL_LOOKAHEAD = 8;
 
 export default function DenScreen({
   state,
-  displayMode = "auto",
   reducedMotion = false,
   highContrast = false,
   quietSoundscape = false,
   soundEnabled = true,
-  onDisplayMode,
   onReducedMotion,
   onHighContrast,
   onQuietSoundscape,
   onSoundEnabled,
+  onResetCreature,
+  onResetProgress,
   onWalk,
   onReview,
   onEditCreature,
   onTradingPost
 }) {
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [confirmingReset, setConfirmingReset] = useState(false);
   const settingsRef = useRef(null);
   const index = currentStopIndex(state);
   const adventure = QUEST_STOPS[Math.min(QUEST_STOPS.length - 1, Math.max(0, index - 1))];
@@ -156,13 +156,16 @@ export default function DenScreen({
           </div>
           <button type="button" className="q-settings-close" onClick={() => setSettingsOpen(false)} aria-label="Close settings">Close</button>
         </div>
-        <p>Choose the clearest, most comfortable way to play.</p>
-        <label className="q-display-mode">
-          <span>Picture style</span>
-          <select value={displayMode} onChange={event => onDisplayMode?.(event.target.value)}>
-            {QUEST_DISPLAY_MODES.map(mode => <option key={mode.id} value={mode.id}>{mode.label}</option>)}
-          </select>
-        </label>
+        {/* NO PICTURE-STYLE CHOICE.
+          *
+          * Sound Seekers is a pixel game. It had a "Picture style" dropdown
+          * offering Automatic / Pixel / Rich 3D / Balanced 3D / Low-power 3D /
+          * Accessible 2D — six renderers, presented to a five-year-old, three
+          * of which drop them into a different-looking game entirely. A child
+          * cannot make that choice meaningfully and should never be asked to.
+          * The renderers still exist as automatic fallbacks; they are simply
+          * no longer a question the child has to answer. */}
+        <p>Choose the most comfortable way to play.</p>
         <fieldset className="q-accessibility-options">
           <legend>Comfort</legend>
           <label><input type="checkbox" checked={reducedMotion} onChange={event => onReducedMotion?.(event.target.checked)} />Reduce motion</label>
@@ -170,6 +173,51 @@ export default function DenScreen({
           <label><input type="checkbox" checked={quietSoundscape} onChange={event => onQuietSoundscape?.(event.target.checked)} />Quiet soundscape (spoken sounds stay on)</label>
           <label><input type="checkbox" checked={soundEnabled} onChange={event => onSoundEnabled?.(event.target.checked)} />Sound on</label>
         </fieldset>
+
+        {/* START AGAIN.
+          *
+          * Two separate doors, because they are two very different regrets.
+          * "I don't like how my creature looks" is a five-second fix and must
+          * cost nothing — every sound the child has learnt stays exactly where
+          * it is. "I want to start the whole adventure again" throws away real
+          * work, so it asks twice and says plainly what will be lost. */}
+        <fieldset className="q-reset-options">
+          <legend>Start again</legend>
+          <button
+            type="button"
+            className="q-ghost q-reset-creature"
+            onClick={() => onResetCreature?.()}
+          >
+            Make a new creature
+          </button>
+          <small>Your sounds, stones and stars all stay.</small>
+
+          {confirmingReset ? (
+            <div className="q-reset-confirm" role="group" aria-label="Confirm starting over">
+              <strong>Start the whole adventure again?</strong>
+              <small>Your stones, stars and creature go back to the beginning. This cannot be undone.</small>
+              <div className="q-reset-confirm-actions">
+                <button type="button" className="q-ghost" onClick={() => setConfirmingReset(false)}>No, keep going</button>
+                <button
+                  type="button"
+                  className="q-danger"
+                  onClick={() => { setConfirmingReset(false); onResetProgress?.(); }}
+                >
+                  Yes, start again
+                </button>
+              </div>
+            </div>
+          ) : (
+            <button
+              type="button"
+              className="q-ghost q-reset-progress"
+              onClick={() => setConfirmingReset(true)}
+            >
+              Start the adventure again
+            </button>
+          )}
+        </fieldset>
+
         <button type="button" className="q-primary q-settings-done" onClick={() => setSettingsOpen(false)}>Done</button>
       </dialog>
     </div>

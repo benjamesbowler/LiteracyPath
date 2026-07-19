@@ -27,11 +27,12 @@ import {
   saveQuestCheckpoint,
   ownedPieces,
   chapterRewardForStop,
-  availableSparks
+  availableSparks,
+  baseQuestState
 } from "../../utils/questProgress.js";
 import { isMastered } from "../../utils/questMastery.js";
 import { getStop, QUEST_STOPS } from "../../data/questSequence.js";
-import { CREATURE_GEAR } from "../../data/creatureParts.js";
+import { CREATURE_GEAR, defaultCreature } from "../../data/creatureParts.js";
 import { chapterForStop } from "../../data/questChapters.js";
 import { seedwakeStopSpec } from "../../data/questChapterOne.js";
 import {
@@ -686,20 +687,55 @@ export default function QuestRoot({
     setView(VIEW.POST);
   }, []);
 
-  const updateDisplayMode = useCallback(displayMode => {
-    const current = stateRef.current;
-    // settingsAt is the last-write-wins clock the cloud merge respects — a
-    // stale cloud row can no longer overwrite a fresh device's settings.
-    commit({ ...current, settings: { ...current.settings, displayMode }, settingsAt: new Date().toISOString() });
-    setForce2d(false);
-    setRuntimeQualityId(null);
-  }, [commit]);
-
   const updateAccessibilitySetting = useCallback((key, value) => {
     const current = stateRef.current;
     commit({ ...current, settings: { ...current.settings, [key]: Boolean(value) }, settingsAt: new Date().toISOString() });
     setForce2d(false);
     setRuntimeQualityId(null);
+  }, [commit]);
+
+  // ── START AGAIN ────────────────────────────────────────────────────────────
+  //
+  // Two doors, because they are two different regrets and only one of them is
+  // expensive.
+  //
+  // A child who dislikes their creature must be able to make another one for
+  // free. Their mastery, stones, stars, sparks and trail position are evidence
+  // of what they have LEARNT and have nothing to do with what their beastie
+  // looks like — tying the two together would mean a child keeps a creature
+  // they don't like, or throws away a term of reading to change it.
+  const resetCreature = useCallback(() => {
+    const current = stateRef.current;
+    commit({ ...current, creature: defaultCreature(), hatched: false, creatureAt: new Date().toISOString() });
+    setView(VIEW.CREATOR);
+  }, [commit]);
+
+  // Starting the adventure over is the destructive one, and it goes through
+  // baseQuestState so a wipe can never leave a half-cleared save: no lingering
+  // checkpoint pointing at a stop that is no longer done, no orphaned mastery.
+  // Purchases go too — sparks are DERIVED from stars (questProgress rule #1),
+  // so keeping a ledger against zero stars would leave the child in debt.
+  const resetProgress = useCallback(() => {
+    const current = stateRef.current;
+    const fresh = baseQuestState();
+    latestCheckpointRef.current = null;
+    setCeremony(null);
+    setCeremonyOverlayVisible(false);
+    setWorldLayers([]);
+    setActiveStop(null);
+    setTrailNotice(null);
+    setJourneyMode({ kind: "journey", targets: null });
+    // Settings are a property of the DEVICE and the child's comfort, not of
+    // their progress — a reset must not silently switch high contrast or
+    // reduced motion back off for a child who needs them.
+    commit({
+      ...fresh,
+      settings: current.settings,
+      settingsAt: current.settingsAt,
+      creatureAt: new Date().toISOString()
+    });
+    logStudentActivity("phonics_quest", null, "reset_progress", {});
+    setView(VIEW.CREATOR);
   }, [commit]);
 
   const closeQuest = useCallback(() => {
@@ -748,12 +784,12 @@ export default function QuestRoot({
       {view === VIEW.DEN && (
         <DenScreen
           state={state}
-          displayMode={state.settings?.displayMode || "auto"}
           reducedMotion={Boolean(state.settings?.reducedMotion)}
           highContrast={Boolean(state.settings?.highContrast)}
           quietSoundscape={Boolean(state.settings?.quietSoundscape)}
           soundEnabled={state.settings?.soundEnabled !== false}
-          onDisplayMode={updateDisplayMode}
+          onResetCreature={resetCreature}
+          onResetProgress={resetProgress}
           onReducedMotion={value => updateAccessibilitySetting("reducedMotion", value)}
           onHighContrast={value => updateAccessibilitySetting("highContrast", value)}
           onQuietSoundscape={value => updateAccessibilitySetting("quietSoundscape", value)}

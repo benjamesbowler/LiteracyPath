@@ -44,7 +44,7 @@ function outcomeForCorrectPick(task, stageIndex) {
   const correct = (stage.items || []).find(item => item.correct);
   if (!correct) return "no-answer-on-stage";
 
-  let state = restoreSeedwakeVerbState(
+  const state = restoreSeedwakeVerbState(
     task.mechanic,
     learningSequence(task),
     task.stages,
@@ -67,10 +67,17 @@ function outcomeForCorrectPick(task, stageIndex) {
   if (verbResult.accepted) return "accepted";
 
   // The runtime's guarantee: a non-rhythm refusal of a correct value is
-  // overridden and the machine re-synced.
+  // overridden and the machine re-synced. The resync must return a usable
+  // state — never undefined, which would strand the next stage.
   if (!stage.rhythm) {
-    state = resyncSeedwakeVerbState(task.mechanic, state, correct.value, stageIndex);
-    return "accepted-by-override";
+    const resynced = resyncSeedwakeVerbState(
+      task.mechanic,
+      state,
+      correct.value,
+      stageIndex,
+      stage.playerAction
+    );
+    return resynced ? "accepted-by-override" : "override-lost-state";
   }
   return "waiting-for-pulse";
 }

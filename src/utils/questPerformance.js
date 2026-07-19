@@ -1,11 +1,23 @@
+// SOUND SEEKERS IS A PIXEL GAME.
+//
+// This list used to be six renderers offered to the child in a dropdown —
+// Automatic, Pixel, Rich 3D, Balanced 3D, Low-power 3D, Accessible 2D. Three
+// of them dropped a five-year-old into a game that looked nothing like the one
+// they were playing, and no child can make that choice meaningfully.
+//
+// The pixel world is now THE game. The 3D and DOM renderers survive only as
+// automatic fallbacks for devices that genuinely cannot run Phaser — chosen by
+// the device, never offered as a question. Keeping the ids here (rather than
+// deleting them) means an old saved setting, or a cloud row written by a
+// previous build, still resolves to something real instead of falling over.
 export const QUEST_DISPLAY_MODES = Object.freeze([
   { id: "auto", label: "Automatic" },
-  { id: "pixel", label: "Pixel adventure" },
-  { id: "rich", label: "Rich 3D" },
-  { id: "balanced", label: "Balanced 3D" },
-  { id: "low", label: "Low-power 3D" },
-  { id: "2d", label: "Accessible 2D" }
+  { id: "pixel", label: "Pixel adventure" }
 ]);
+
+// Legacy ids that may still be sitting in a saved profile or a cloud row.
+// They are accepted on read and mapped to the pixel world, never surfaced.
+const RETIRED_DISPLAY_MODES = Object.freeze(["rich", "balanced", "low", "2d"]);
 
 export const QUEST_QUALITY_TIERS = Object.freeze({
   pixel: Object.freeze({
@@ -99,7 +111,11 @@ const SEVERE_FRAME_STREAK = 8;
 
 export function normalizeQuestSettings(raw = {}) {
   const requested = String(raw?.displayMode || "auto");
-  const displayMode = QUEST_DISPLAY_MODES.some(mode => mode.id === requested) ? requested : "auto";
+  // A child who was parked on "Rich 3D" by the old settings panel comes back
+  // to the pixel game, not to a renderer they can no longer choose or leave.
+  const displayMode = RETIRED_DISPLAY_MODES.includes(requested)
+    ? "auto"
+    : QUEST_DISPLAY_MODES.some(mode => mode.id === requested) ? requested : "auto";
   return {
     displayMode,
     reducedMotion: Boolean(raw?.reducedMotion),
