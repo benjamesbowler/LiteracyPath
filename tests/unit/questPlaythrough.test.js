@@ -266,8 +266,12 @@ test("the sounds a struggling child cannot do KEEP COMING BACK", () => {
   const a = state.mastery.a;
   assert.ok(a, "the sound `a` was never even recorded");
   // Seedwake deliberately removes repeated early bridge words. Seeing the sound
-  // about every other stop still proves recurrence without rebuilding that quiz.
-  assert.ok(a.seen >= 18, `a struggling child saw \`a\` only ${a.seen} times across 40 stops — it stopped coming back`);
+  // every 2-3 stops still proves recurrence without rebuilding that quiz.
+  // (Floor recalibrated 18 -> 16 when the pronunciation-honesty pass reshaped
+  // the s21/s36/s40 word pools; the guarantee itself is now asserted DIRECTLY
+  // below: the sound was still being served at the very end of the trail.)
+  assert.ok(a.seen >= 16, `a struggling child saw \`a\` only ${a.seen} times across 40 stops — it stopped coming back`);
+  assert.ok(Number(a.lastStop) >= 35, `\`a\` was last served at stop ${a.lastStop} — review abandoned it before the trail's end`);
   assert.equal(a.state, MASTERY_STATES.LEARNING);
   assert.equal(a.box, 1, "a sound the child keeps missing must stay in the most-frequent review box");
 });

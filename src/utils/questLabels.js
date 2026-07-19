@@ -13,6 +13,8 @@
 // collision on a report a teacher acts on.
 export function graphemeLabel(id) {
   const g = String(id || "");
+  if (g.startsWith("hw:")) return g.slice(3);           // hw:the -> the
+  if (g === "sign:read") return "reading signs";        // comprehension row
   if (!g.includes("_")) return g;
   if (/^[a-z]_e$/.test(g)) return g.replace("_", "–");
   if (g.startsWith("suffix_")) return `–${g.slice("suffix_".length)}`;

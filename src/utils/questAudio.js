@@ -69,11 +69,21 @@ export function graphemeCandidates(grapheme) {
   if (R_CONTROLLED.has(g)) return [`${CLEAN}/r_controlled/${g}.mp3`, `/audio/phonemes/${g}.mp3`];
   if (VOWEL_TEAMS.has(g)) return [`${CLEAN}/vowel_teams/${g}.mp3`, `/audio/phonemes/${g}.mp3`];
 
-  return [
+  const candidates = [
     `/audio/phonemes/${g}.mp3`,
     `${CLEAN}/consonants/${g}.mp3`,
     `${CLEAN}/digraphs_blends/${g}.mp3`
   ];
+  // A doubled consonant (pp in "happy") says its single letter's sound — the
+  // floss rule adds no new phoneme, so the single letter's clip IS its clip.
+  const doubled = /^([bdgmnprt])\1$/.exec(g);
+  if (doubled) {
+    candidates.push(
+      `/audio/phonemes/${doubled[1]}.mp3`,
+      `${CLEAN}/consonants/${doubled[1]}.mp3`
+    );
+  }
+  return candidates;
 }
 
 // "" when nothing is recorded. Callers MUST treat "" as "hide the button".

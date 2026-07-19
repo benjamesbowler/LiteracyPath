@@ -158,11 +158,12 @@ test("Stone Bridge only ever uses words the child can decode", () => {
     const built = buildStop(stop.id, { seed: 13 });
     const known = taughtThrough(stop.index);
     for (const round of built.rounds["stone-bridge"]) {
+      const plankKnown = plank => known.has(plank) || (/^([bdgmnprt])\1$/.test(plank) && known.has(plank[0]));
       for (const plank of round.planks) {
-        assert.ok(known.has(plank), `${stop.id} "${round.word}": plank "${plank}" is not taught yet`);
+        assert.ok(plankKnown(plank), `${stop.id} "${round.word}": plank "${plank}" is not taught yet`);
       }
       for (const tile of round.tray) {
-        assert.ok(known.has(tile), `${stop.id} "${round.word}": tray tile "${tile}" is not taught yet`);
+        assert.ok(plankKnown(tile), `${stop.id} "${round.word}": tray tile "${tile}" is not taught yet`);
       }
     }
   }
@@ -209,9 +210,12 @@ test("Echo Cave never uses a key the child has not been taught", () => {
   for (const stop of QUEST_STOPS) {
     const built = buildStop(stop.id, { seed: 17 });
     const known = taughtThrough(stop.index);
+    // A doubled consonant key (pp) is known as soon as its single letter is —
+    // the floss rule adds spelling, not sound.
+    const keyKnown = key => known.has(key) || (/^([bdgmnprt])\1$/.test(key) && known.has(key[0]));
     for (const round of built.rounds["echo-cave"]) {
       for (const key of round.keys) {
-        assert.ok(known.has(key), `${stop.id} "${round.word}": key "${key}" is not taught by stop ${stop.index}`);
+        assert.ok(keyKnown(key), `${stop.id} "${round.word}": key "${key}" is not taught by stop ${stop.index}`);
       }
     }
   }
@@ -328,35 +332,41 @@ test("EVERY REAL SOUND is creditable in at least 2 different kinds of thing", ()
   assert.deepEqual(stuck, [], `these sounds can never be mastered:\n  ${stuck.join("\n  ")}`);
 });
 
-test("Trail Signs and Story Stones write NO mastery — they are comprehension", () => {
-  // Left as a bare word ("rock"), a Trail Signs target enters the mastery map,
-  // the scheduler marks it due, and Sound Stones asks a child which stone makes
-  // the sound "rock". Same class of bug as the heart words.
+test("Trail Signs write NAMESPACED comprehension evidence; Story Stones write none", () => {
+  // Never a bare word ("rock" would become a Sound Stones question), and
+  // never null (null produced zero evidence — the teacher could not see
+  // instruction-reading failures at all). sign: is skipped by the review
+  // scheduler and rendered "reading signs" on teacher surfaces.
   const built = buildStop("s15", { seed: 3 });
+  assert.ok(built.rounds["trail-signs"].length > 0);
   for (const round of built.rounds["trail-signs"]) {
-    assert.equal(round.target, null, `trail-signs round for "${round.text}" writes a mastery target`);
+    assert.equal(round.target, "sign:read", `trail-signs round for "${round.text}" must carry the sign: namespace`);
   }
   for (const round of buildStop("s17", { seed: 3 }).rounds["story-stones"]) {
     assert.equal(round.target, null);
   }
 });
 
-test("Trail Signs include authored physical descriptor moments without outrunning the curriculum", () => {
+test("Trail Signs cannot be solved without reading: the named descriptor is SHARED", () => {
   const greenCake = buildStop("s35", { seed: 35 }).rounds["trail-signs"][0];
   const bigFish = buildStop("s38", { seed: 38 }).rounds["trail-signs"][0];
 
   assert.equal(greenCake.text, "Tap the green cake.");
   assert.equal(greenCake.answer, "cake");
-  assert.deepEqual(
-    greenCake.things.filter(thing => thing.colour).map(thing => [thing.id, thing.colour]),
-    [["cake", "green"]]
-  );
+  // EVERY thing is coloured, and at least two share the sign's colour — the
+  // old build coloured only the answer, solvable as odd-one-out without
+  // reading a single letter.
+  assert.ok(greenCake.things.every(thing => thing.colour), "every thing must be coloured");
+  const greens = greenCake.things.filter(thing => thing.colour === "green");
+  assert.ok(greens.length >= 2, "green alone must not identify the answer");
+  assert.ok(greens.some(thing => thing.id === "cake"), "the answer is green as promised");
+
   assert.equal(bigFish.text, "Tap the big fish.");
   assert.equal(bigFish.answer, "fish");
-  assert.deepEqual(
-    bigFish.things.filter(thing => thing.size).map(thing => [thing.id, thing.size]),
-    [["fish", "big"]]
-  );
+  assert.ok(bigFish.things.every(thing => thing.size), "every thing has a size");
+  const bigs = bigFish.things.filter(thing => thing.size === "big");
+  assert.ok(bigs.length >= 2, "big alone must not identify the answer");
+  assert.ok(bigs.some(thing => thing.id === "fish"), "the answer is big as promised");
 });
 
 test("no shell ever writes a mastery target that isn't a real sound", () => {
@@ -367,7 +377,9 @@ test("no shell ever writes a mastery target that isn't a real sound", () => {
       for (const round of rounds) {
         const targets = round.target == null ? [] : (Array.isArray(round.target) ? round.target : [round.target]);
         for (const t of targets) {
-          if (isHeartTarget(t)) continue;
+          // Namespaced evidence rows (hw: sight words, sign: comprehension)
+          // are legitimate non-sound records with their own reachable rules.
+          if (isHeartTarget(t) || String(t).startsWith("sign:")) continue;
           assert.ok(
             legal.has(t) || taughtThrough(40).has(t),
             `${stop.id} ${shell}: writes mastery for "${t}", which is not a sound the trail teaches`

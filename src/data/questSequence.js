@@ -297,7 +297,9 @@ const ACT_III = [
 
   S("s21", 3, 21, "Reedlight Landing",
     [SP("u_e")],
-    ["cube", "tube", "cute", "huge", "mule", "flute", "rude", "June"],
+    // Pronunciation-honest: u_e here is /yoo/ (cube, mute). flute/rude/June
+    // say /oo/ and taught a different sound under the same spelling lesson.
+    ["cube", "tube", "cute", "huge", "mule", "mute", "use", "amuse", "fuse"],
     ["asked", "your"],
     ["knowledge-tree", "sound-stones", "stone-bridge", "echo-cave", "word-beast"]),
 
@@ -387,7 +389,10 @@ const ACT_III = [
 
   S("s36", 3, 36, "Comet Stair",
     [TM("ure")],
-    ["sure", "pure", "cure", "picture", "creature", "adventure"],
+    // Pronunciation-honest: every word here says /yoor/ (or near it) - the
+    // -ture words say /cher/ and "sure" starts /sh/, so three pronunciations
+    // was not one lesson. secure carries the recorded word cue.
+    ["pure", "cure", "secure", "endure", "obscure", "manure"],
     [],
     ["knowledge-tree", "sound-stones", "stone-bridge", "story-stones", "echo-cave"]),
 
@@ -411,7 +416,9 @@ const ACT_III = [
 
   S("s40", 3, 40, "The First Reading Star",
     [SUF("tion")],
-    ["station", "action", "fiction", "motion", "nation", "question"],
+    // Pronunciation-honest: -tion says /shun/ in every word here. "question"
+    // says /chun/ and taught the exception before the rule.
+    ["station", "action", "fiction", "motion", "nation", "lotion"],
     [],
     ["knowledge-tree", "sound-stones", "stone-bridge", "story-stones", "trail-signs"],
     { boss: true })

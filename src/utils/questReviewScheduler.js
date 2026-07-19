@@ -103,7 +103,10 @@ export function provenIn(record) {
 // The review items due at this stop, worst-first, capped.
 export function dueTargets(mastery, stopIndex, limit = MAX_REVIEW_PER_STOP) {
   return Object.entries(mastery || {})
-    .filter(([target, record]) => (record?.seen || 0) > 0 && isDue(record, stopIndex, target))
+    .filter(([target, record]) => (record?.seen || 0) > 0
+      // sign: rows are comprehension evidence - no sound shell can serve them.
+      && !String(target).startsWith("sign:")
+      && isDue(record, stopIndex, target))
     .map(([target, record]) => ({ target, weight: reviewWeight(record, stopIndex) }))
     .sort((a, b) => b.weight - a.weight || a.target.localeCompare(b.target))
     .slice(0, limit)

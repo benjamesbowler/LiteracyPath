@@ -22,7 +22,7 @@
 //      preview of a sound the child has not met.
 
 import { getStop, taughtThrough, wordsThrough, heartWordsThrough, blendsThrough } from "../data/questSequence.js";
-import { segmentWord, isDecodable } from "./questSegments.js";
+import { segmentWord, isDecodable, evidenceTargetFor } from "./questSegments.js";
 import { weakestTargets, MASTERY_STATES } from "./questMastery.js";
 
 // Which taught BLENDS a word actually contains.
@@ -210,7 +210,8 @@ export function buildStoneBridgeRound(word, { stopIndex, mastery, rng, extras = 
     // NO new GPCs — blending `st` is just applying `s` and `t`, which this word
     // already proves. Claiming "st" as a masterable unit invented a thing that
     // needed two kinds of evidence, and the game could only ever produce one.
-    target: [...new Set(planks)],
+    // Doubled planks (pp) credit their SINGLE letter - /p/ is the sound.
+    target: [...new Set(planks.map(evidenceTargetFor))],
     word,
     planks,
     tray: shuffle([...planks, ...ordered.slice(0, extras)], rng),
@@ -239,7 +240,7 @@ export function buildEchoCaveRound(word, { stopIndex, mastery, rng, extras = 3 }
   return {
     shell: "echo-cave",
     // Graphemes only — same reasoning as the Stone Bridge above.
-    target: [...new Set(sounds)],
+    target: [...new Set(sounds.map(evidenceTargetFor))],
     word,
     sounds,
     keys: shuffle([...new Set([...sounds, ...ordered.slice(0, extras)])], rng),
@@ -419,23 +420,32 @@ export function buildTrailSignRounds(stop, { rng, count = 4 }) {
     const useSize = featuredSize || (!useColour && i % 2 === 0 ? size : null);
     const descriptor = useColour?.word || useSize?.word || null;
 
+    // EVERY thing gets a descriptor, and the named one is SHARED by the
+    // answer and one decoy — colour alone can never solve the sign, the
+    // child must read the thing word too. (It used to decorate only the
+    // answer: solvable as odd-one-out without reading a letter.)
+    const otherColours = colours.filter(item => item.id !== useColour?.id);
+    const otherSize = useSize ? sizes.find(item => item.id !== useSize.id) : null;
+    const dressed = picked.map((thing, position) => ({
+      ...thing,
+      colour: useColour
+        ? (position <= 1 ? useColour.id : (otherColours.length ? otherColours[position % otherColours.length].id : useColour.id))
+        : (colours.length ? colours[position % colours.length].id : null),
+      size: useSize ? (position <= 1 ? useSize.id : (otherSize?.id || useSize.id)) : null
+    }));
     rounds.push({
       shell: "trail-signs",
-      // NO mastery target. Reading an instruction is comprehension, not a
-      // grapheme response. Left as the bare word ("rock"), it would enter the
-      // mastery map, the review scheduler would later mark it due, and Sound
-      // Stones would put a stone carved "rock" in front of a child and ask which
-      // one makes that SOUND — the exact bug already fixed for heart words.
-      target: null,
+      // Namespaced COMPREHENSION evidence: sign: records can never be served
+      // by a sound shell (the review scheduler skips them), never light a
+      // stone, and render as "reading signs" on teacher surfaces. Left as a
+      // bare word it would have become a Sound Stones question; left null it
+      // produced no evidence at all.
+      target: "sign:read",
       text: descriptor ? `Tap the ${descriptor} ${answer.word}.` : `Tap the ${answer.word}.`,
       answer: answer.id,
       colour: useColour?.id || null,
       size: useSize?.id || null,
-      things: shuffle(picked, rng).map(thing => ({
-        ...thing,
-        colour: useColour && thing.id === answer.id ? useColour.id : null,
-        size: useSize && thing.id === answer.id ? useSize.id : null
-      }))
+      things: shuffle(dressed, rng)
     });
   }
   return rounds;

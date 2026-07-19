@@ -25,8 +25,18 @@ export const MULTI_GRAPHEMES = [
   "ar", "er", "ir", "or", "ur",
   "sh", "ch", "th", "wh", "ph", "ck", "ng", "nk", "qu",
   "ff", "ll", "ss", "zz",
+  // The rest of the floss-rule family: one sound, doubled spelling. Without
+  // these, "happy" segmented as h|a|p|p|y — five planks for four phonemes,
+  // and Echo Cave asked the child to tap a letter that represents no sound.
+  "bb", "dd", "gg", "mm", "nn", "pp", "rr", "tt",
   "le"
 ].sort((a, b) => b.length - a.length);
+
+// A doubled consonant says its single letter's sound (the floss rule adds no
+// new phoneme), so it is decodable the moment the single letter is taught —
+// it never needs its own teach entry, clip, or stone. ff/ll/ss/zz are NOT
+// here: those are formally taught with their own ids and recordings.
+const DOUBLE_OF_SINGLE = /^([bdgmnprt])\1$/;
 // NOTE `ing` is deliberately NOT here. It is MORPHOLOGY, not a grapheme: a child
 // decodes "sing" as s-i-ng and "jumping" as j-u-m-p-i-ng. Leave `ing` in and
 // "thing" segments as th|ing, which is a syllable, not a sound — and the Stone
@@ -91,7 +101,9 @@ function segmentRun(run, allowed) {
   while (i < run.length) {
     const hit = MULTI_GRAPHEMES.find(g => {
       if (!run.startsWith(g, i)) return false;
-      if (allowed && !allowed.has(g)) return false;
+      // segmentIsKnown, not a bare has(): a doubled consonant plank (pp) is
+      // usable as soon as its single letter is taught.
+      if (allowed && !segmentIsKnown(g, allowed)) return false;
       if (FINAL_ONLY.has(g) && i + g.length !== run.length) return false;
       return true;
     });
@@ -155,15 +167,29 @@ export function graphemesIn(word, options) {
 //
 // Heart words are the whole point of heart words: they are NOT decodable, and
 // are taught by sight, so callers pass them separately and never through here.
+// The mastery target a plank's evidence belongs to: a doubled consonant's
+// evidence goes to the SINGLE letter (tapping pp in "happy" proves /p/ —
+// there is no such sound as "double p", and no such stone).
+export function evidenceTargetFor(seg) {
+  const doubled = DOUBLE_OF_SINGLE.exec(String(seg || ""));
+  return doubled ? doubled[1] : seg;
+}
+
+function segmentIsKnown(seg, allowed) {
+  if (allowed.has(seg)) return true;
+  const doubled = DOUBLE_OF_SINGLE.exec(seg);
+  return Boolean(doubled && allowed.has(doubled[1]));
+}
+
 export function isDecodable(word, known) {
   const allowed = new Set(known || []);
   const segments = segmentWord(word); // TRUE segmentation — no known-set filter
-  return segments.length > 0 && segments.every(seg => allowed.has(seg));
+  return segments.length > 0 && segments.every(seg => segmentIsKnown(seg, allowed));
 }
 
 // Which graphemes in a word the child has NOT been taught. Empty array = decodable.
 // This names the real culprit: for "ship" at stop 2 it says `sh`, not `h`.
 export function untaughtGraphemes(word, known) {
   const allowed = new Set(known || []);
-  return [...new Set(segmentWord(word).filter(seg => !allowed.has(seg)))];
+  return [...new Set(segmentWord(word).filter(seg => !segmentIsKnown(seg, allowed)))];
 }

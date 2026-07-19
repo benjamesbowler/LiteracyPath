@@ -23,6 +23,7 @@
 import { useEffect, useRef, useState } from "react";
 import { sayGrapheme, sayWord, sayGraphemeSequence, displayGrapheme } from "../shells/shellContract.js";
 import { hasWordAudio, hasGraphemeAudio } from "../../../utils/questAudio.js";
+import { evidenceTargetFor } from "../../../utils/questSegments.js";
 import { CREATURE_INK, CREATURE_PAPER } from "../../../data/creatureParts.js";
 import { SIGN_COLOURS } from "../../../data/questWorlds.js";
 import {
@@ -362,7 +363,7 @@ export function BrokenBridge({ beat, isSoundEnabled, onBeat, onDone, index, tota
       // The miss belongs to the sound the child failed to lay — the wanted
       // plank — not to every grapheme in the word.
       setWobble(i);
-      onBeat(false, want, { promptLevel: stuck >= 3 ? 2 : 0 });
+      onBeat(false, evidenceTargetFor(want), { promptLevel: stuck >= 3 ? 2 : 0 });
       const misses = stuck + 1;
       setStuck(misses);
       if (isSoundEnabled) {
@@ -374,7 +375,7 @@ export function BrokenBridge({ beat, isSoundEnabled, onBeat, onDone, index, tota
       setTimeout(() => setWobble(null), 400);
       return;
     }
-    onBeat(true, want, { promptLevel: stuck >= 3 ? 2 : 0 });
+    onBeat(true, evidenceTargetFor(want), { promptLevel: stuck >= 3 ? 2 : 0 });
     setStuck(0);
     const next = [...laid, { tile, from: i }];
     setLaid(next);
@@ -440,7 +441,7 @@ export function EchoCaveEnc({ beat, isSoundEnabled, onBeat, onDone, index, total
     const want = beat.sounds[said.length];
     if (k !== want) {
       setWrong(k);
-      onBeat(false, want, { promptLevel: stuck >= 3 ? 2 : 0 });
+      onBeat(false, evidenceTargetFor(want), { promptLevel: stuck >= 3 ? 2 : 0 });
       const misses = stuck + 1;
       setStuck(misses);
       if (isSoundEnabled) {
@@ -450,7 +451,7 @@ export function EchoCaveEnc({ beat, isSoundEnabled, onBeat, onDone, index, total
       setTimeout(() => setWrong(null), 400);
       return;
     }
-    onBeat(true, want, { promptLevel: stuck >= 3 ? 2 : 0 });
+    onBeat(true, evidenceTargetFor(want), { promptLevel: stuck >= 3 ? 2 : 0 });
     setStuck(0);
     const next = [...said, k];
     setSaid(next);
@@ -668,22 +669,37 @@ const THING_ART = {
   bug: "M44,14 C58,14 68,26 68,40 C68,52 58,60 44,60 C30,60 20,52 20,40 C20,26 30,14 44,14 Z",
   cup: "M18,20 L70,20 L64,58 C63,62 60,64 56,64 L32,64 C28,64 25,62 24,58 Z",
   fish: "M12,38 C22,20 48,18 62,32 L78,20 L74,38 L78,56 L62,44 C48,58 22,56 12,38 Z",
-  nut: "M44,12 C60,12 70,26 70,42 C70,56 58,64 44,64 C30,64 18,56 18,42 C18,26 28,12 44,12 Z"
+  nut: "M44,12 C60,12 70,26 70,42 C70,56 58,64 44,64 C30,64 18,56 18,42 C18,26 28,12 44,12 Z",
+  cake: "M20,60 L68,60 L68,40 C68,36 64,34 60,34 L28,34 C24,34 20,36 20,40 Z M28,34 L28,24 C28,20 32,18 36,18 L52,18 C56,18 60,20 60,24 L60,34"
 };
 
 
 export function Signpost({ beat, isSoundEnabled, onBeat, onDone, index, total }) {
   const [done, mark] = useOnce(beat);
   const [picked, setPicked] = useState(null);
+  // The same correction ladder as every other choice shell: a wrong tap used
+  // to ADVANCE the encounter — the one place in the game where being wrong
+  // moved you forward with nothing taught.
+  const [correction, miss] = useCorrection(beat, isSoundEnabled);
+  const stage = { items: beat.things.map(t => ({ id: t.id, correct: t.id === beat.answer, label: t.word })) };
+  const view = correctionPresentation(stage, correction);
+  const teaching = view.mode === CORRECTION_MODES.TEACH;
+  const showing = beat.things.filter(t => view.visibleIds.includes(t.id));
 
   function tap(t) {
-    if (picked || done) return;
+    if (picked || done || teaching) return;
     const right = t.id === beat.answer;
-    setPicked({ id: t.id, right });
-    mark();
     if (isSoundEnabled) (right ? playCorrectChime : playSoftBuzz)();
-    onBeat(right, beat.target);
-    setTimeout(onDone, right ? 900 : 1300);
+    onBeat(right, beat.target, { promptLevel: promptLevelForMode(view.mode) });
+    if (right) {
+      setPicked({ id: t.id, right: true });
+      mark();
+      setTimeout(onDone, 900);
+      return;
+    }
+    setPicked({ id: t.id, right: false });
+    miss(t.id);
+    setTimeout(() => setPicked(null), 650);
   }
 
   return (
@@ -694,21 +710,23 @@ export function Signpost({ beat, isSoundEnabled, onBeat, onDone, index, total })
         <span className="qw-signboard-text">{beat.text}</span>
       </div>
       <div className="qw-things">
-        {beat.things.map(t => (
+        {showing.map(t => (
           <button
             key={t.id}
             type="button"
-            className={`qw-thing${picked?.id === t.id ? (picked.right ? " is-right" : " is-wrong") : ""}${picked && !picked.right && t.id === beat.answer ? " is-reveal" : ""}`}
-            disabled={Boolean(picked)}
+            className={`qw-thing${picked?.id === t.id ? (picked.right ? " is-right" : " is-wrong") : ""}${teaching && t.id === beat.answer ? " is-reveal" : ""}`}
+            disabled={Boolean(picked) || teaching}
             onClick={() => tap(t)}
-            aria-label={t.word}
+            aria-label={`${t.size ? `${t.size} ` : ""}${t.word}`}
           >
-            <svg viewBox="0 0 88 76" aria-hidden="true">
+            {/* Size is RENDERED, not implied: a "small" thing draws small. */}
+            <svg viewBox="0 0 88 76" aria-hidden="true" style={t.size === "small" ? { transform: "scale(0.62)" } : undefined}>
               <path d={THING_ART[t.id]} fill={t.colour ? SIGN_COLOURS[t.colour] : "var(--q-accent)"} stroke={CREATURE_INK} strokeWidth="3" strokeLinejoin="round" />
             </svg>
           </button>
         ))}
       </div>
+      {teaching && <p className="qw-hint">This one. Look again.</p>}
       <Pips i={index} n={total} />
     </div>
   );

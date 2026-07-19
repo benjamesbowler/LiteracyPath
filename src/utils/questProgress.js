@@ -335,7 +335,9 @@ export function unequipQuestGear(state, slot) {
 export function recordQuestAttempt(state, { target, correct, shell, stopIndex = 0, at = new Date().toISOString(), promptLevel = 0, reason = "" }) {
   if (!target) return state;
   const prev = state.mastery?.[target] || emptyRecord();
-  const rules = String(target).startsWith("hw:")
+  // hw: and sign: are one-shell namespaces - the general minShells:2 bar
+  // would leave them permanently "needs re-teaching" on teacher screens.
+  const rules = String(target).startsWith("hw:") || String(target).startsWith("sign:")
     ? HEART_RULES
     : ALL_BLENDS.has(target) ? BLEND_RULES : MASTERY_RULES;
   const next = recordAttempt(prev, { correct, shell, at, stopIndex, rules, promptLevel, reason });

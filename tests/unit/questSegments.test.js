@@ -98,7 +98,8 @@ test("`le` is only a grapheme at the END of a word", () => {
   // Without the final-only rule, "le" swallows the start of "let" and "less".
   assert.deepEqual(segmentWord("let"), ["l", "e", "t"]);
   assert.deepEqual(segmentWord("less"), ["l", "e", "ss"]);
-  assert.deepEqual(segmentWord("little"), ["l", "i", "t", "t", "le"]);
+  // tt is one plank now (floss family): four phonemes, four planks.
+  assert.deepEqual(segmentWord("little"), ["l", "i", "tt", "le"]);
   assert.deepEqual(segmentWord("table"), ["t", "a", "b", "le"]);
 });
 
