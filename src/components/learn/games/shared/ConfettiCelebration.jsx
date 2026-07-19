@@ -1,7 +1,7 @@
 import Confetti from "react-confetti";
 import { useEffect, useState } from "react";
 
-export function ConfettiCelebration({ show }) {
+export function ConfettiCelebration({ show, reducedMotion = false }) {
   const [size, setSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
@@ -16,7 +16,9 @@ export function ConfettiCelebration({ show }) {
 
   const prefersReducedMotion = typeof window !== "undefined" &&
     window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
-  if (!show || prefersReducedMotion) return null;
+  // The in-app "Reduce motion" toggle reaches the confetti too - it used to
+  // check only the OS query, so the Den setting quietly did nothing here.
+  if (!show || prefersReducedMotion || reducedMotion) return null;
   return (
     <Confetti
       width={size.width}

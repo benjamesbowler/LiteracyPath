@@ -58,14 +58,27 @@ export default function CreatureCreator({ creature, owned, isSoundEnabled = true
       </div>
 
       <div className="q-tabs" role="tablist">
-        {tabs.map(t => (
+        {tabs.map((t, tabIndex) => (
           <button
             key={t.id}
             type="button"
             role="tab"
             aria-selected={tab === t.id}
+            /* Roving tabIndex + arrow keys: the full tablist pattern (same as
+               the Trading Post) - half an ARIA pattern reads as broken to a
+               screen reader. */
+            tabIndex={tab === t.id ? 0 : -1}
             className={`q-tab${tab === t.id ? " is-on" : ""}`}
             onClick={() => setTab(t.id)}
+            onKeyDown={event => {
+              if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
+              event.preventDefault();
+              const nextIndex = event.key === "Home" ? 0
+                : event.key === "End" ? tabs.length - 1
+                : (tabIndex + (event.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length;
+              setTab(tabs[nextIndex].id);
+              event.currentTarget.parentElement?.children[nextIndex]?.focus();
+            }}
           >
             {t.label}
           </button>

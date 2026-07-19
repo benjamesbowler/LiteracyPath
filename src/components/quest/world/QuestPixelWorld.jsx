@@ -43,6 +43,10 @@ import {
 } from "../../../utils/questPerformance.js";
 import { warmQuestOfflineAssets } from "../../../utils/offlineShell.js";
 
+// Touch devices get the big-answer strip PINNED: focus-within only ever
+// helped keyboard users; a sighted motor-impaired child on touch saw nothing.
+const COARSE_POINTER = typeof window !== "undefined" && Boolean(window.matchMedia?.("(pointer: coarse)")?.matches);
+
 function learningSequence(task) {
   if (task?.learningSequence?.length) return [...task.learningSequence];
   return (task?.stages || [])
@@ -766,7 +770,7 @@ export default function QuestPixelWorld({
       </nav>}
 
       {!ceremony && encounterStarted && visibleChoices.length > 0 && (
-        <div className="qp-semantic-choices" aria-label={shortPrompt(stage, stageSoundDelivered)}>
+        <div className={`qp-semantic-choices${COARSE_POINTER ? " is-pinned" : ""}`} aria-label={shortPrompt(stage, stageSoundDelivered)}>
           {visibleChoices.map((choice, index) => (
             <button key={choice.id} type="button" onClick={() => choose(choice.id)}>
               {index + 1}. {choice.label ?? choice.value}

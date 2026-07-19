@@ -146,7 +146,7 @@ export default function RewardScreen({
     >
       {/* No stars, no confetti. Celebrating a run where the child got nothing
           right teaches them the celebration is meaningless. */}
-      <ConfettiCelebration show={stars > 0} />
+      <ConfettiCelebration show={stars > 0} reducedMotion={Boolean(state?.settings?.reducedMotion)} />
 
       <div className="q-reward-card q-reward-ceremony-card">
         <div className="q-reward-copy">

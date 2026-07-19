@@ -2748,6 +2748,14 @@
   .qh-semantic-choices { transition: none; }
 }
 
+/* Pinned: the big-answers strip stays visible. Focus-within only helped
+   keyboard users; a sighted motor-impaired child on touch saw nothing. */
+.qh-semantic-choices.is-pinned {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .qh-land-title { display: grid; justify-items: center; padding: 5px 16px 7px; border-radius: 7px; background: rgba(18, 29, 22, .34); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); text-shadow: 0 2px 7px rgba(13, 24, 16, .7); backdrop-filter: blur(8px); }
 .qh-land-title span { font-family: var(--q-font, system-ui, sans-serif); font-size: clamp(23px, 3vw, 34px); font-weight: 800; text-wrap: balance; }
 .qh-land-title strong { margin-top: 2px; font-size: 13px; font-weight: 650; }
@@ -4107,3 +4115,58 @@
 
 .qh-root-empty { position: absolute; inset: 0; display: grid; place-items: center; background: #16251b; }
 .qh-empty-note { color: rgba(255, 255, 255, .8); font-size: 15px; max-width: 260px; text-align: center; }
+
+
+/* ── landscape phones: scroll, never clip ──────────────────────────────── */
+@media (max-height: 500px) {
+  .q-map-v2 { min-height: 340px; overflow-y: auto; }
+  .q-map-v2-land { min-height: 340px; }
+  .q2d-root { overflow-y: auto; }
+  .q2d-task { min-height: 0; }
+}
+
+/* ── non-colour mastery glyphs on the Stone Wall ───────────────────────── */
+.q-stone { position: relative; }
+.q-stone::after {
+  position: absolute;
+  right: 3px;
+  bottom: 1px;
+  font-size: 10px;
+  line-height: 1;
+}
+.q-stone-mastered::after, .q-stone-retired::after { content: "\2605"; }
+.q-stone-learning::after { content: "\00B7"; font-size: 16px; }
+.q-stone-not-started::after { content: "\25CB"; opacity: .55; }
+
+/* ── rapid kid-tapping must never trigger double-tap zoom ──────────────── */
+.q-primary,
+.q-ghost,
+.q-option,
+.qw-tile,
+.qw-card,
+.qw-go,
+.qw-bigsound,
+.q2d-choices button,
+.qp-dpad button,
+.qh-semantic-choices button,
+.qp-semantic-choices button {
+  touch-action: manipulation;
+}
+
+/* ── 12px floor for child-visible text on small screens ────────────────── */
+.qp-place span { font-size: 12px; }
+.q-map-stop strong { font-size: 12px; }
+.qh-place-token { font-size: 12px; }
+.qh-place-name strong { font-size: 13px; }
+
+.qp-semantic-choices.is-pinned {
+  left: 50%;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  transform: translateX(-50%);
+  border: 2px solid #fff4ca;
+  border-radius: 6px;
+  background: #1f2b2a;
+  overflow: visible;
+}

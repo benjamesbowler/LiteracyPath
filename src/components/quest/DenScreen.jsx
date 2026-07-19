@@ -110,12 +110,21 @@ export default function DenScreen({
         </h2>
         <p className="q-note">A stone lights up when you really know its sound — not just when you walk past it.</p>
 
-        <div className="q-wall">
+        <div className="q-wall" role="list">
           {visible.map(g => {
             const record = state.mastery?.[g];
             const state_ = record?.state || MASTERY_STATES.NOT_STARTED;
+            // role=list + per-stone labels: the old title tooltips never
+            // appear on touch and said nothing to a screen reader; the
+            // ::after glyph (star / dot / hollow) carries the state without
+            // colour.
             return (
-              <span key={g} className={`q-stone q-stone-${state_}`} title={state_.replace("-", " ")}>
+              <span
+                key={g}
+                role="listitem"
+                className={`q-stone q-stone-${state_}`}
+                aria-label={`${displayGrapheme(g)}: ${state_.replace("-", " ")}`}
+              >
                 {displayGrapheme(g)}
               </span>
             );

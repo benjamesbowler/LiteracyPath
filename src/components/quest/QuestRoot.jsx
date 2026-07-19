@@ -230,6 +230,21 @@ export default function QuestRoot({
     return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);
   }, [commit, progressScopeKey]);
 
+  // A child whose OS asks for MORE contrast gets it on first run without
+  // finding a toggle - the Den setting remains the override thereafter
+  // (settingsAt empty = the family has never touched quest settings).
+  useEffect(() => {
+    const current = stateRef.current;
+    if (current.settingsAt || current.settings?.highContrast) return;
+    if (window.matchMedia?.("(prefers-contrast: more)")?.matches) {
+      commit({
+        ...current,
+        settings: { ...current.settings, highContrast: true },
+        settingsAt: new Date().toISOString()
+      });
+    }
+  }, [commit]);
+
   // Belt-and-braces against zombie telemetry: if this component unmounts with
   // a session still open (navigation paths that skip handleExit), close it in
   // the save file. beginQuestSession also recovers >6h-stale sessions, so a
