@@ -1,0 +1,512 @@
+/* SUB-PAGES — THE PALETTES AND THE FORM THE MIGRATION NEVER REACHED.
+ *
+ * ── HOW THIS FILE WAS WRITTEN, AND WHY THAT MATTERS ──────────────────────
+ *
+ * Every selector below was taken from the RENDERED DOM of the deployed app,
+ * not from reading the stylesheets. That distinction is the whole point.
+ *
+ * Two earlier attempts at this failed the same way. `sage-soft.generated.css`
+ * was produced by parsing comic-theme.css and emitting soft overrides for the
+ * selectors it found there — 128 borders, 66 shadows. It is committed,
+ * deployed, and softens almost nothing, because `.comic-btn`, `.comic-chip`,
+ * `.comic-tab`, `.comic-banner` and `.comic-title` appear ZERO times in any
+ * JSX file. They are classes the stylesheet still describes and the app
+ * stopped rendering. My own first draft of this file made the identical
+ * mistake, for the identical reason: I read CSS instead of the app.
+ *
+ * This is the same bug as the quest's dead 56px tap-target rule, which
+ * targeted `.qs-*` selectors no component uses. A rule that matches nothing
+ * costs nothing to write, passes every check, and does nothing forever.
+ *
+ * So: the classes here were collected by walking `.app *` in the live page and
+ * asking each element what it actually computes — hard offset shadow, border
+ * >= 3px, uppercase, rotation, background image. If a name appears below, an
+ * element genuinely wearing that property was found on screen.
+ *
+ * ── SCOPE ────────────────────────────────────────────────────────────────
+ * Everything is under `.student-mode-app.lp-skin-sage`. Exempt, as everywhere:
+ * the Arcade and the Hollow (owner decision — they are worlds, not menus) and
+ * Sound Seekers (portals to body, owns quest.css).
+ */
+
+/* ═════════════════════════════════════════════════════════════════════════
+ * PART 1 — THE PALETTES NOTHING EVER BRIDGED
+ *
+ * sage-subpages.css remaps `--comic-*`, and that works: on the deployed build
+ * `--comic-yellow` computes to #5ca091. But the Phonics page was still bright
+ * yellow, because its yellow was never `--comic-yellow`. There are twelve
+ * custom-property namespaces in the student styles and only one was bridged.
+ * ═════════════════════════════════════════════════════════════════════════ */
+
+.student-mode-app.lp-skin-sage {
+  /* The Phonics island ran an entire parallel system — teal/amber/lavender,
+     AND a different typeface (Lexend + Inter) while the rest of the child app
+     is Nunito. Two typefaces one tap apart reads as two products before a
+     single colour is noticed. */
+  --phonics-ocean-blue: #2E4B3E;
+  --phonics-sun-yellow: #C98F54;
+  --phonics-sky-green: #5CA091;
+  --phonics-coral: #D9924E;
+  --phonics-lavender: #4C8B7D;
+  --phonics-peach: #F3E3CF;
+  --phonics-cloud: #FBF4EA;
+  --phonics-ink: #182620;
+  --phonics-soft-ink: #4A5A52;
+  --phonics-font-display: "Nunito", system-ui, sans-serif;
+  --phonics-font-body: "Nunito", system-ui, sans-serif;
+
+  --kid-sky: #BFE3D8;
+  --kid-sky-deep: #5CA091;
+  --kid-green: #5CA091;
+  --kid-green-deep: #4C8B7D;
+  --kid-sun: #F2B33D;
+  --kid-sun-deep: #C98F54;
+  --kid-coral: #D9924E;
+  --kid-coral-deep: #B4472C;
+  --kid-berry: #C98F54;
+  --kid-berry-deep: #A8703C;
+  --kid-ink: #182620;
+  --kid-card: #FFFFFF;
+  --kid-font-display: "Nunito", system-ui, sans-serif;
+
+  --pal-accent: #5CA091;
+  --pal-accent-soft: #BFE3D8;
+  --pal-deep: #2E4B3E;
+  --pal-sky: #BFE3D8;
+  --pal-banner: #2E4B3E;
+  --pal-activity-bg: #FBF4EA;
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+ * PART 2 — FORM, AGAINST CLASSES THAT ACTUALLY RENDER
+ *
+ * Collected live from Phonics, Reading Library, Story Quests and Adventure
+ * Map. Grouped by page so a future reader can re-run the same DOM sweep and
+ * check this list is still true.
+ * ═════════════════════════════════════════════════════════════════════════ */
+
+/* The four page families, named once. */
+.student-mode-app.lp-skin-sage :is(
+  /* Phonics */
+  .phonics-practice-overview, .phonics-island-card, .phonics-letter-card,
+  .phonics-picker-progress, .phonics-practice-kicker,
+  /* Reading Library */
+  .guided-shelf, .guided-shelf-head, .guided-shelf-card, .guided-book-cover,
+  .guided-shelf-card-tag, .guided-goal-panel, .guided-goal-bar,
+  .guided-reader-empty,
+  /* Story Quests */
+  .learn-story-quest-library, .story-quest-library-stats,
+  .learn-story-level-button, .story-quest-continue-strip,
+  .learn-story-level-section, .learn-story-quest-card, .story-quest-kicker,
+  .story-quest-title-logo,
+  /* Adventure Map */
+  .sbq-top, .sbq-kicker, .sbq-mapwrap, .sbq-stop-marker, .sbq-stop-tip,
+  .sbq-stop-name, .sbq-stop-skill,
+  /* shared floats */
+  .student-home-float, .learn-fullscreen-toggle
+):not(:is(.hollow-page, .student-surface-arcade, .companion-picker) *) {
+  /* 1. Hard offset shadows -> soft diffuse.
+     `box-shadow: 6px 6px 0` stamps a solid silhouette behind an element: it
+     is ink on paper, not light on a surface. This is the loudest single
+     comic signal and it was on nearly every element above. */
+  box-shadow: 0 2px 10px rgba(24, 38, 32, 0.06);
+
+  /* 2. Thick hard borders -> hairline. Up to 5px of near-black outline was in
+     play (.guided-goal-panel, .sbq-kicker, .sbq-mapwrap). One hairline does
+     the same separating job without the shout. */
+  border-width: 1px;
+  border-color: #E9E1D4;
+
+  /* 3. Rotation -> level. A tilted badge is pure pop art and no recolour can
+     reach it. Playful angles stay welcome on CONTENT — a creature, a prop, a
+     celebration — but never on furniture a child navigates by. */
+  transform: none;
+
+  /* 4. Shouting capitals -> sentence case. Beyond volume, ALL-CAPS strips the
+     ascender/descender word shape that an early reader leans on. In a
+     literacy product our own chrome must not be the hardest text on screen. */
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Rounded like the home cards. Pills and tags stay fully round. */
+.student-mode-app.lp-skin-sage :is(
+  .phonics-practice-overview, .phonics-island-card, .phonics-letter-card,
+  .guided-shelf, .guided-shelf-card, .guided-goal-panel, .guided-reader-empty,
+  .learn-story-quest-library, .story-quest-library-stats,
+  .learn-story-level-section, .learn-story-quest-card,
+  .story-quest-continue-strip, .sbq-top, .sbq-mapwrap
+):not(:is(.hollow-page, .student-surface-arcade) *) {
+  border-radius: 18px;
+}
+
+.student-mode-app.lp-skin-sage :is(
+  .guided-shelf-card-tag, .learn-story-level-button, .sbq-stop-skill,
+  .phonics-practice-kicker, .story-quest-kicker, .sbq-kicker
+):not(:is(.hollow-page, .student-surface-arcade) *) {
+  border-radius: 999px;
+}
+
+/* The active tab is a filled forest pill — the home rail's own language,
+   rather than a bordered comic chip. */
+.student-mode-app.lp-skin-sage :is(.learn-story-level-button, .sbq-tab, .guided-level-tab).active:not(:is(.hollow-page, .student-surface-arcade) *),
+.student-mode-app.lp-skin-sage :is(.learn-story-level-button, .sbq-tab, .guided-level-tab)[aria-selected="true"]:not(:is(.hollow-page, .student-surface-arcade) *) {
+  border-color: transparent;
+  background: #2E4B3E;
+  color: #FFFFFF;
+}
+
+/* Headings inside the sub-pages shouted too — the sweep found bare H1/H3/SPAN
+   and STRONG running uppercase. */
+.student-mode-app.lp-skin-sage :is(.guided-reading-page, .learn-story-quest-library, .sbq-top, .phonics-practice-overview)
+:is(h1, h2, h3, h4, span, strong):not(:is(.hollow-page, .student-surface-arcade) *) {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ── ONE GROUND ────────────────────────────────────────────────────────────
+ * Sub-pages sat on white or on photographic bookshelf/windowsill backdrops
+ * while home sat on cream, so every move between sections was a cut rather
+ * than a continuation. The map, the books and the quests ARE the picture; a
+ * second picture behind them is competition, not atmosphere.
+ *
+ * The map BOARD keeps its artwork (.sbq-mapboard) — that is content. */
+.student-mode-app.lp-skin-sage :is(
+  .guided-reading-page, .teacher-product-page, .learn-story-quest-library,
+  .phonics-practice-overview, .sbq-top
+):not(:is(.hollow-page, .student-surface-arcade) *) {
+  background-color: #FBF4EA;
+  background-image: none;
+}
+
+/* The full-bleed page frames themselves. Measured live at rgb(255,253,250) —
+   a near-white that is NOT the home cream, so stepping from Home into Phonics
+   was a visible change of paper even after everything on top of it matched.
+   These are the outermost surfaces a sub-page paints, so they are named
+   explicitly rather than relying on an ancestor. */
+.student-mode-app.lp-skin-sage :is(
+  .learn-area-page, .phonics-learn-page, .learn-fullscreen-frame,
+  .student-surface-frame, .phonics-tab-shell, .phonics-island-view,
+  .story-quest-learn-page, .student-guided-reading-page, .skills-block-quest
+):not(:is(.hollow-page, .student-surface-arcade) *) {
+  background-color: #FBF4EA;
+  background-image: none;
+}
+
+/* body itself was #F1F5F9 — the cold slate from the original App.css system.
+   It shows through wherever a page does not paint to the edges. */
+.student-mode-app.lp-skin-sage {
+  background-color: #FBF4EA;
+}
+
+/* THE DECORATIVE BACKDROP LIVES OUTSIDE THE SKIN.
+ *
+ * The painted bookshelf/windowsill sits on `.lg-app-shell`, which is the
+ * PARENT of `.app.lp-skin-sage` — so every rule scoped inside the skin was
+ * structurally unable to reach it, no matter how specific. That is why the
+ * Reading Library kept its photographic backdrop while everything on top of
+ * it went sage.
+ *
+ * `:has()` lets the shell respond to the skin it contains without adding a
+ * class in App.jsx. The books, the map and the quests ARE the picture; a
+ * second picture behind them is competition, not atmosphere — and on a page
+ * that only half-fills the viewport it left a large decorative dead zone
+ * below the content. */
+.lg-app-shell:has(.lp-skin-sage) {
+  background-color: #FBF4EA;
+  background-image: none;
+}
+
+/* THE BACKDROP IS ON THE PAGE'S OWN ::before.
+ *
+ * Three attempts missed this because I kept clearing `background-image` on the
+ * ELEMENTS. The painted bookshelf/windowsill is drawn by
+ * `.teacher-product-page.guided-reading-page::before` — a full-height layer
+ * (measured 1180x2183) carrying a wash gradient over the photograph. Clearing
+ * the element does nothing; the pseudo-element is a separate box.
+ *
+ * Found by sweeping every node over 250px tall and asking ::before/::after
+ * what they paint, rather than reasoning about which rule "should" own it. */
+.student-mode-app.lp-skin-sage :is(
+  .guided-reading-page, .teacher-product-page, .learn-story-quest-library,
+  .story-quest-learn-page, .skills-block-quest, .phonics-learn-page,
+  .learn-area-page
+)::before {
+  background-image: none;
+  background-color: transparent;
+}
+
+/* The shell's own layers, kept for the case where a page does not paint to
+   the edges.
+
+   TWO other rules paint that pseudo-element and both tie my specificity:
+     pal-worlds.css:128      .lg-app-shell[data-pal-world]::before
+     student-vibrant.css:1787 .lg-app-shell.student-surface-shell::before
+   A tie is resolved by source order, and neither file's position is
+   guaranteed relative to this one (pal-worlds is imported from a component,
+   not main.jsx). Repeating the class lifts this to 0,3,0 so it wins on
+   specificity rather than on import order — which is the thing that would
+   silently change the day someone reorders an import. */
+.lg-app-shell.lg-app-shell:has(.lp-skin-sage)::before {
+  background-image: none;
+  background-color: #FBF4EA;
+}
+
+/* ── THE RAIL SHELL ON SUB-PAGES ───────────────────────────────────────────
+ * `.lp-home-sage` already supplies the flex row, the cream ground and the
+ * palette; the rail and the content pane are its two children. Sub-pages were
+ * built assuming they owned the full viewport, so the content pane needs to
+ * scroll independently rather than pushing the rail off-screen. */
+.lp-rail-shell {
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.lp-rail-shell .lp-rail-main {
+  flex: 1;
+  min-width: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #FBF4EA;
+}
+
+/* The rail must not scroll away with the page it sits beside. */
+.lp-rail-shell .hs-side {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  flex: 0 0 auto;
+}
+
+/* Sub-pages that set their own full-viewport height would double the scroll
+   inside the pane. Inside the rail shell they fill the pane instead. */
+.lp-rail-shell :is(
+  .learn-fullscreen-frame, .student-surface-frame,
+  .teacher-product-page, .guided-reading-page, .skills-block-quest
+) {
+  min-height: 100%;
+  height: auto;
+}
+
+/* The floating "Back" chip is redundant once the rail is present — the rail IS
+   the way back, and two competing back affordances is worse than one. It also
+   lands on top of the avatar.
+   It is rendered at APP level, as a SIBLING of the rail shell rather than
+   inside it (position: fixed, z-index 120), so it has to be reached from the
+   common ancestor. */
+.app:has(.lp-rail-shell) :is(.student-home-float, .lg-back-chip, .comic-back-chip) {
+  display: none;
+}
+
+/* ── GUIDED READING LEVEL TABS ─────────────────────────────────────────────
+ * These are bare <button>s with no class of their own (only `.active`), so
+ * they can only be reached through their page. Measured live at 3px near-black
+ * borders and uppercase — the last hard comic chrome on the page. */
+.student-mode-app.lp-skin-sage .guided-reading-page button:not(:is(.hollow-page, .student-surface-arcade) *) {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.student-mode-app.lp-skin-sage .guided-reading-page > :is(div, nav, header) button:not(.guided-shelf-card):not(:is(.hollow-page, .student-surface-arcade) *) {
+  border-width: 1px;
+  border-color: #E9E1D4;
+  box-shadow: 0 2px 10px rgba(24, 38, 32, 0.06);
+  min-height: 44px;
+}
+
+.student-mode-app.lp-skin-sage .guided-reading-page > :is(div, nav, header) button.active:not(:is(.hollow-page, .student-surface-arcade) *) {
+  border-color: transparent;
+  background: #2E4B3E;
+  color: #FFFFFF;
+}
+
+/* comic-theme.css:1311 sets the goal panel heading to italic uppercase in the
+   comic display face, at a specificity my page-level heading rule cannot
+   reach. Named directly. */
+.student-mode-app.lp-skin-sage :is(.student-guided-reading-page, .guided-reading-page) .guided-goal-panel :is(h1, h2, h3, h4) {
+  text-transform: none;
+  font-style: normal;
+  letter-spacing: 0;
+  font-family: "Nunito", system-ui, sans-serif;
+}
+
+/* Same treatment for the other panel headings that shout inside a card. */
+.student-mode-app.lp-skin-sage :is(
+  .guided-goal-panel, .story-quest-library-stats, .learn-story-level-section,
+  .story-quest-continue-strip, .sbq-top
+) :is(h1, h2, h3, h4, strong, span, small):not(:is(.hollow-page, .student-surface-arcade) *) {
+  text-transform: none;
+  font-style: normal;
+  letter-spacing: 0;
+}
+
+/* The "Recommended" flag was the last saturated red-orange block. */
+.student-mode-app.lp-skin-sage .guided-shelf-head.recommend:not(:is(.hollow-page, .student-surface-arcade) *) {
+  background: #DCEDE7;
+  color: #2E4B3E;
+}
+
+/* ── TAP TARGET FLOOR ──────────────────────────────────────────────────────
+ * Stated once, against selectors that exist. The rule this replaces set 56px
+ * against `.qs-*` classes present in no JSX file, so it applied to nothing. */
+.student-mode-app.lp-skin-sage :is(
+  .learn-story-level-button, .phonics-island-card, .phonics-letter-card,
+  .guided-shelf-card, .sbq-stop-marker
+):not(:is(.hollow-page, .student-surface-arcade) *) {
+  min-height: 44px;
+}
+
+/* ── THE STARBURST LOGOS ───────────────────────────────────────────────────
+ * Reading Library and Story Quests each render a comic-burst sticker — yellow
+ * and red halftone, hard outline, rotated — as an IMAGE. No stylesheet can
+ * recolour a raster, so the assets have to go. Hiding the image and promoting
+ * the adjacent text keeps the section titled without shipping new art.
+ *
+ * `.story-quest-title-logo` is the element; the sweep found an IMG inside it
+ * inheriting uppercase. */
+.student-mode-app.lp-skin-sage :is(.story-quest-title-logo, .guided-library-logo, .guided-title-logo) img:not(:is(.hollow-page, .student-surface-arcade) *) {
+  display: none;
+}
+
+.student-mode-app.lp-skin-sage :is(.story-quest-title-logo, .guided-library-logo, .guided-title-logo):not(:is(.hollow-page, .student-surface-arcade) *) {
+  display: block;
+  margin: 0 0 8px;
+  color: #182620;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: clamp(26px, 3.2vw, 38px);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  transform: none;
+}
+
+/* ═════════════════════════════════════════════════════════════════════════
+ * PART 3 — THE HARDCODED COLOURS NO VARIABLE CAN REACH
+ *
+ * Found by sweeping the rendered page for saturated non-sage colour after the
+ * palette bridge was in place. These are literal hexes written directly into
+ * rules, so remapping a variable does nothing for them — the value never
+ * referenced a variable in the first place.
+ *
+ * e.g. student-vibrant.css:2052
+ *   .student-mode-app .student-surface-phonics .phonics-island-card.active {
+ *     background: #ffd23f; color: #172033;
+ *   }
+ *
+ * Selectors here mirror the originals' specificity and load later, so they
+ * win without needing !important.
+ * ═════════════════════════════════════════════════════════════════════════ */
+
+/* The selected tab was electric yellow — the single loudest thing on Phonics.
+   Filled forest, exactly like the home rail's active item. */
+.student-mode-app.lp-skin-sage .student-surface-phonics .phonics-island-card.active,
+.student-mode-app.lp-skin-sage .phonics-island-card.active {
+  background: #2E4B3E;
+  color: #FFFFFF;
+}
+
+.student-mode-app.lp-skin-sage .student-surface-phonics .phonics-island-card.active :is(strong, small, span) {
+  color: #FFFFFF;
+}
+
+/* Body ink was #172033 — a blue-black from the ORIGINAL App.css system, not
+   the sage ink. Side by side with the home page it reads faintly cold/blue. */
+.student-mode-app.lp-skin-sage :is(
+  .learn-area-page, .phonics-learn-page, .phonics-tab-shell, .phonics-island-view,
+  .phonics-practice-overview, .phonics-practice-stats, .learn-fullscreen-frame,
+  .student-surface-frame, .student-home-float, .learn-fullscreen-toggle
+):not(:is(.hollow-page, .student-surface-arcade) *) {
+  color: #182620;
+  border-color: #E9E1D4;
+}
+
+/* The kicker chip carried the old phonics teal at 10%. */
+.student-mode-app.lp-skin-sage :is(.phonics-practice-kicker, .story-quest-kicker, .sbq-kicker):not(:is(.hollow-page, .student-surface-arcade) *) {
+  background: #DCEDE7;
+  color: #2E4B3E;
+}
+
+/* Reading Library's orange goal panel and Story Quests' level buttons were the
+   two other saturated blocks. Both become sage-family fills. */
+.student-mode-app.lp-skin-sage .guided-goal-panel:not(:is(.hollow-page, .student-surface-arcade) *) {
+  background: #2E4B3E;
+  color: #FFFFFF;
+}
+
+.student-mode-app.lp-skin-sage .guided-shelf-card-tag:not(:is(.hollow-page, .student-surface-arcade) *) {
+  background: #DCEDE7;
+  color: #2E4B3E;
+}
+
+.student-mode-app.lp-skin-sage .learn-story-level-button.active:not(:is(.hollow-page, .student-surface-arcade) *),
+.student-mode-app.lp-skin-sage .story-quest-learn-page .learn-story-level-button[aria-pressed="true"]:not(:is(.hollow-page, .student-surface-arcade) *) {
+  background: #2E4B3E;
+  color: #FFFFFF;
+}
+
+.student-mode-app.lp-skin-sage .story-quest-learn-page .learn-story-level-button[aria-pressed="true"] *:not(:is(.hollow-page, .student-surface-arcade) *) {
+  color: #FFFFFF;
+}
+
+/* ── STORY QUESTS' CLASHING PALETTE ────────────────────────────────────────
+ * Measured live: level sections on pale yellow (#FFF6BF) and pale pink, cards
+ * in olive / dark green / PURPLE (#6B5E9B), and the active level button in
+ * red-orange (#D85A30). Five unrelated hues in one viewport is what read as
+ * "clashing" — and it is the one page where a child sees them all at once.
+ *
+ * Cards keep DIFFERENT tones so they stay distinguishable at a glance, but all
+ * of them now come from the sage family rather than from five separate ideas.
+ * The card colours are per-instance inline/nth styles, so they are set on the
+ * element itself rather than through a variable. */
+.student-mode-app.lp-skin-sage .learn-story-level-section:not(:is(.hollow-page, .student-surface-arcade) *) {
+  background: #FFFFFF;
+  border: 1px solid #E9E1D4;
+}
+
+.student-mode-app.lp-skin-sage .learn-story-quest-card:not(:is(.hollow-page, .student-surface-arcade) *) {
+  background: #2E4B3E;
+}
+
+.student-mode-app.lp-skin-sage .learn-story-quest-card:nth-child(2n):not(:is(.hollow-page, .student-surface-arcade) *) {
+  background: #4C8B7D;
+}
+
+.student-mode-app.lp-skin-sage .learn-story-quest-card:nth-child(3n):not(:is(.hollow-page, .student-surface-arcade) *) {
+  background: #5CA091;
+}
+
+/* The active level button was the last saturated red-orange.
+   It is painted by a `background: linear-gradient(...)` shorthand, so setting
+   only a colour leaves the gradient IMAGE on top and nothing appears to
+   change. Both layers are named, and the class is repeated to clear the
+   gradient rule's own specificity without reaching for !important. */
+.student-mode-app.lp-skin-sage .learn-story-level-button.active.active,
+.student-mode-app.lp-skin-sage .learn-story-level-button[aria-pressed="true"] {
+  background-color: #2E4B3E;
+  background-image: none;
+  color: #FFFFFF;
+  border-color: transparent;
+}
+
+.student-mode-app.lp-skin-sage .learn-story-level-button.active.active :is(strong, span, small),
+.student-mode-app.lp-skin-sage .learn-story-level-button[aria-pressed="true"] :is(strong, span, small) {
+  color: #FFFFFF;
+}
+
+/* The map stop markers were hard-bordered comic pins. */
+.student-mode-app.lp-skin-sage .sbq-stop-marker:not(:is(.hollow-page, .student-surface-arcade) *) {
+  border-color: #E9E1D4;
+  background: #FFFFFF;
+  color: #2E4B3E;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .student-mode-app.lp-skin-sage :is(.phonics-island-card, .guided-shelf-card, .learn-story-quest-card) {
+    transition: none;
+  }
+}

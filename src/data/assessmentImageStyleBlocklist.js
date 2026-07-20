@@ -1,0 +1,106 @@
+// Human-reviewed assessment images that violate the app's visual style rules.
+// Keep this list separate from generated QA output so a regenerated workbook
+// cannot silently re-approve a known unsuitable asset.
+
+const rows = [
+  // Current Initial Sounds pack: faces on objects, food, vehicles, or scenery.
+  ["/media/initial-sounds/images/a/album.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/a/ambulance.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/a/antenna.webp", "wrong_target_or_character_substitution"],
+  ["/media/initial-sounds/images/a/apricot.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/a/avocado.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/a/ax.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/b/balloon.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/b/bed.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/b/broccoli.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/b/bus.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/c/cake.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/c/camera.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/c/car.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/d/daisy.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/d/desk.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/d/door.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/d/drum.webp", "character_clutter_or_target_confusion"],
+  ["/media/initial-sounds/images/e/earmuffs.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/e/engine.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/f/ferry.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/f/flashlight.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/g/gingerbread.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/g/globe.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/h/honey.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/i/instrument.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/i/island.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/j/juice.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/l/lighthouse.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/m/marshmallow.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/n/noodle.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/p/pot.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/q/quartz.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/q/quicksand.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/s/scooter.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/s/star.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/t/table.webp", "baby_kawaii_style"],
+  ["/media/initial-sounds/images/t/thermometer.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/u/utensils.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/v/vegetable-soup.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/y/yo-yo-string.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/y/yucca-plant.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/z/zero.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/z/zesty-lemon.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/z/zigzag.webp", "face_on_inanimate_object"],
+  ["/media/initial-sounds/images/z/zinnia.webp", "face_on_inanimate_object"],
+
+  // Current Initial Sounds pack: decorative rainbow treatment on ordinary targets.
+  ["/media/initial-sounds/images/a/apron.webp", "rainbow_styled_ordinary_object"],
+  ["/media/initial-sounds/images/c/candy.webp", "rainbow_styled_ordinary_object"],
+  ["/media/initial-sounds/images/f/fox.webp", "rainbow_styled_ordinary_object"],
+  ["/media/initial-sounds/images/f/frog.webp", "rainbow_styled_ordinary_object"],
+  ["/media/initial-sounds/images/h/hummingbird.webp", "rainbow_styled_ordinary_object"],
+  ["/media/initial-sounds/images/i/illustration.webp", "rainbow_styled_ordinary_object"],
+  ["/media/initial-sounds/images/l/lollipop.webp", "rainbow_styled_ordinary_object"],
+  ["/media/initial-sounds/images/m/mermaid.webp", "rainbow_styled_ordinary_object"],
+  ["/media/initial-sounds/images/q/quilted-blanket.webp", "rainbow_styled_ordinary_object"],
+  ["/media/initial-sounds/images/r/roller-skates.webp", "rainbow_styled_ordinary_object"],
+  ["/media/initial-sounds/images/s/sock.webp", "rainbow_styled_ordinary_object"],
+  ["/media/initial-sounds/images/s/spaceship.webp", "rainbow_styled_ordinary_object"],
+  ["/media/initial-sounds/images/w/wildflower.webp", "baby_kawaii_style"],
+
+  // Legacy fallbacks that were being re-indexed into live assessment sessions.
+  ["/images/child-mode/initial-sounds/bad.png", "wrong_target_or_character_substitution"],
+  ["/images/child-mode/initial-sounds/bag.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/bed.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/bid.png", "wrong_target_or_character_substitution"],
+  ["/images/child-mode/initial-sounds/bud.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/cap.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/cut.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/dug.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/jet.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/lid.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/log.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/mop.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/mud.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/mug.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/net.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/nut.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/orange.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/pan.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/pin.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/pot.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/pun.png", "wrong_target_or_character_substitution"],
+  ["/images/child-mode/initial-sounds/ship.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/sun.png", "face_on_inanimate_object"],
+  ["/images/child-mode/initial-sounds/white.png", "wrong_target_or_character_substitution"],
+  ["/images/child-mode/initial-sounds/wig.png", "rainbow_styled_ordinary_object"],
+  ["/images/child-mode/initial-sounds/zip.png", "face_on_inanimate_object"]
+];
+
+export const assessmentImageStyleBlocklist = Object.freeze(rows.map(([path, issueType]) => ({
+  path,
+  issueType,
+  status: "rejected",
+  reviewerNotes: "Human visual review: unsuitable for live child assessment."
+})));
+
+export const assessmentImageStyleBlockedPaths = new Set(
+  assessmentImageStyleBlocklist.map(row => row.path)
+);
