@@ -1,6 +1,6 @@
 # Guided Reading Relevel Audit
 
-Date: 2026-07-04T02:24:13.447Z
+Date: 2026-07-20T13:12:57.056Z
 
 ## Current Policy
 
@@ -12,7 +12,7 @@ Guided Reading fiction books and fiction drafts were permanently removed. This a
 - Active fiction books: 100
 - Active nonfiction books: 76
 - Guided story drafts exported: 0
-- Validation failures: 1
+- Validation failures: 0
 
 ## Relevel Table
 
@@ -100,7 +100,7 @@ Guided Reading fiction books and fiction drafts were permanently removed. This a
 | bob-and-nan-04-beach | Bob and Nan go to the Beach | A | A | 7 | 4.4 | Level remains appropriate for current text length. |
 | bob-and-nan-05-school | Bob and Nan's First Day at School | A | A | 7 | 4.7 | Level remains appropriate for current text length. |
 | bob-and-nan-06-zoo | Nan and Bob go to the Zoo | A | A | 8 | 6.6 | Level remains appropriate for current text length. |
-| bob-and-nan-07-birthday | Nan and Bob: Bob's Birthday Party | A | A | 8 | 6.1 | Level remains appropriate for current text length. |
+| bob-and-nan-07-birthday | Nan and Bob: Bob's Birthday Party | A | A | 8 | 6 | Level remains appropriate for current text length. |
 | bob-and-nan-08-sick | Nan and Bob get Sick | A | A | 8 | 6.5 | Level remains appropriate for current text length. |
 | bob-and-nan-09-read | Nan and Bob Learn to Read | A | A | 8 | 6.8 | Level remains appropriate for current text length. |
 | bob-and-nan-10-vet | Fluff Visits the Vet | A | A | 8 | 6.3 | Level remains appropriate for current text length. |
@@ -117,8 +117,8 @@ Guided Reading fiction books and fiction drafts were permanently removed. This a
 | ab-c-01 | Aiden and Betty Start Grade 1 | C | C | 13 | 39.2 | Level remains appropriate for current text length. |
 | ab-c-02 | Aiden and Betty have a Yard Sale | C | C | 13 | 49.3 | Level remains appropriate for current text length. |
 | ab-c-03 | Aiden and Betty go on Holiday | C | C | 13 | 49.2 | Level remains appropriate for current text length. |
-| ab-c-04 | Aiden and Betty and Socks | C | C | 14 | 50.1 | Level remains appropriate for current text length. |
-| ab-c-05 | Socks Goes Missing | C | C | 14 | 49.4 | Level remains appropriate for current text length. |
+| ab-c-04 | Aiden and Betty and Socks | C | C | 14 | 48.5 | Level remains appropriate for current text length. |
+| ab-c-05 | Socks Goes Missing | C | C | 14 | 47.1 | Level remains appropriate for current text length. |
 | ab-c-06 | Aiden and Betty and the Science Fair | C | C | 13 | 35.9 | Level remains appropriate for current text length. |
 | ab-c-07 | Aiden, Betty and Socks's Big Adventure | C | C | 13 | 42.1 | Level remains appropriate for current text length. |
 | ab-c-08 | Aiden and Betty and the Bully | C | C | 13 | 38.9 | Level remains appropriate for current text length. |
@@ -195,7 +195,7 @@ Guided Reading fiction books and fiction drafts were permanently removed. This a
 | moonwood-tales-c-24 | Glimmer Breathes Fire at Last | C | C | 12 | 23.7 | Level remains appropriate for current text length. |
 | moonwood-tales-c-25 | One Night in the Deep Dark | C | C | 12 | 26.9 | Level remains appropriate for current text length. |
 
-## Failures
+## Status
 
-- Fiction books remain active: bob-and-nan-01, bob-and-nan-02-park, bob-and-nan-03-fluff, bob-and-nan-04-beach, bob-and-nan-05-school, bob-and-nan-06-zoo, bob-and-nan-07-birthday, bob-and-nan-08-sick, bob-and-nan-09-read, bob-and-nan-10-vet, james-and-anna-01-space, james-and-anna-02-chips, james-and-anna-03-shopping, james-and-anna-04-dentist, james-and-anna-05-tree-house, ja-b-06, ja-b-07, ja-b-08, ja-b-09, ja-b-10, ab-c-01, ab-c-02, ab-c-03, ab-c-04, ab-c-05, ab-c-06, ab-c-07, ab-c-08, ab-c-09, ab-c-10, dino-pals-01-chompys-big-lunch, dino-pals-02-sunnys-rainy-day, dino-pals-03-dozy-wont-wake-up, dino-pals-04-grumpy-needs-help, dino-pals-05-bossy-makes-a-plan, dino-pals-06-bouncy-bumps-into-everything, dino-pals-07-wigglys-messy-day, dino-pals-08-zippy-slows-down, dino-pals-09-honkys-inside-voice, dino-pals-10-cheekys-prank-goes-wrong, dino-pals-11-shys-secret-gift, dino-pals-12-fancys-bad-day, dino-pals-13-clumsy-to-the-rescue, dino-pals-14-what-is-flappy, dino-pals-15-sneezy-and-the-waterfall, dino-pals-16-chompy-and-grumpys-day-out, dino-pals-17-the-sunny-hollow-games, dino-pals-18-dozys-wonderful-dream, dino-pals-19-zippys-race, dino-pals-20-the-big-storm, meadow-pals-01-muddy-has-a-bath, meadow-pals-02-woolly-cant-sleep, meadow-pals-03-clucky-lays-an-egg, meadow-pals-04-bouncy-wont-stop, meadow-pals-05-grumpy-gets-a-surprise, meadow-pals-06-sleepy-cant-wake-up, meadow-pals-07-noisy-tries-to-be-quiet, meadow-pals-08-tiny-is-very-small, meadow-pals-09-shy-comes-out-to-play, meadow-pals-10-giggly-has-the-hiccups, meadow-pals-11-brave-climbs-the-hay-bale, meadow-pals-12-hungry-eats-everything, meadow-pals-13-splashy-finds-a-puddle, meadow-pals-14-speedy-slows-down, meadow-pals-15-cuddly-wants-a-hug, meadow-pals-16-muddy-and-splashy-make-a-mess, meadow-pals-17-bouncy-and-speedy-have-a-race, meadow-pals-18-noisy-wakes-everyone-up, meadow-pals-19-tiny-and-brave-go-on-an-adventure, meadow-pals-20-shy-and-cuddly-find-each-other, meadow-pals-21-woolly-and-grumpy-are-stuck, meadow-pals-22-sleepys-big-dream, meadow-pals-23-giggly-and-clucky-bake-a-cake, meadow-pals-24-grumpys-secret, meadow-pals-25-the-big-farm-party, moonwood-tales-c-01, moonwood-tales-c-02, moonwood-tales-c-03, moonwood-tales-c-04, moonwood-tales-c-05, moonwood-tales-c-06, moonwood-tales-c-07, moonwood-tales-c-08, moonwood-tales-c-09, moonwood-tales-c-10, moonwood-tales-c-11, moonwood-tales-c-12, moonwood-tales-c-13, moonwood-tales-c-14, moonwood-tales-c-15, moonwood-tales-c-16, moonwood-tales-c-17, moonwood-tales-c-18, moonwood-tales-c-19, moonwood-tales-c-20, moonwood-tales-c-21, moonwood-tales-c-22, moonwood-tales-c-23, moonwood-tales-c-24, moonwood-tales-c-25
+PASS
 

@@ -281,22 +281,6 @@ function tokenizeReadingText(text = "") {
   });
 }
 
-function speakWithBrowserVoice(text = "", onEnd) {
-  if (typeof window === "undefined" || !window.speechSynthesis || !text) {
-    onEnd?.();
-    return false;
-  }
-
-  window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.rate = 0.86;
-  utterance.pitch = 1;
-  utterance.onend = () => onEnd?.();
-  utterance.onerror = () => onEnd?.();
-  window.speechSynthesis.speak(utterance);
-  return true;
-}
-
 function sentenceParts(text = "") {
   const matches = String(text || "").match(/[^.!?]+[.!?]*/g) || [];
   return matches.map(sentence => sentence.trim()).filter(Boolean);
@@ -1869,9 +1853,9 @@ export function GuidedReadingPage({
                     <summary>Comprehension prompts</summary>
                     <div className="guided-comprehension-prompts">
                       {(enrichedSelectedBook?.comprehensionQuestionSeeds || []).map(prompt => (
-                        <button key={prompt} className="guided-comprehension-chip" onClick={() => speakWithBrowserVoice(prompt)} type="button">
+                        <span key={prompt} className="guided-comprehension-chip">
                           {prompt}
-                        </button>
+                        </span>
                       ))}
                     </div>
                   </details>}

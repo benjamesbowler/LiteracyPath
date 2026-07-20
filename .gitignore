@@ -54,6 +54,9 @@ LP Assets/
 /_DELETE_ME_*/
 .vercel
 
+# Guided-reading image factory: resumable local database and generated review candidates
+.artifacts/guided-reading-image-factory/
+
 # WIP voice-recording sources/cuts (final mp3s live in public/audio)
 docs/audio-recording/incoming/
 docs/audio-recording/staged/

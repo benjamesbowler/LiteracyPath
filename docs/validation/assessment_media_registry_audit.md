@@ -1,78 +1,78 @@
 # Assessment Media Registry Audit
 
-Generated: 2026-06-04T08:51:48.772Z
+Generated: 2026-07-18T11:12:40.079Z
 
 ## Registry Summary
-- totalAssets: 5444
-- totalImageAssets: 3613
-- totalAudioAssets: 1831
-- approvedImageAssets: 3586
-- approvedAudioAssets: 1666
-- blockedRejectedDeprecatedAssets: 192
+- totalAssets: 5689
+- totalImageAssets: 4042
+- totalAudioAssets: 1647
+- approvedImageAssets: 3951
+- approvedAudioAssets: 1498
+- blockedRejectedDeprecatedAssets: 240
 - assetsWithNoWordOrTag: 0
 - assetsWithNoSkillEligibility: 0
-- missingPublicFiles: 412
-- reachableApprovedAssets: 1601
-- unreachableApprovedAssets: 3651
+- missingPublicFiles: 568
+- reachableApprovedAssets: 592
+- unreachableApprovedAssets: 4857
 
 ## Skill Diversity
 | Skill | Selectable | Unique targets | Unique images | Approved skill images | Weak diversity |
 | --- | ---: | ---: | ---: | ---: | --- |
-| initial_sounds | 108 | 100 | 113 | 3586 | no |
-| final_sounds | 379 | 221 | 226 | 3586 | no |
-| rhyming | 496 | 143 | 594 | 572 | no |
-| cvc_short_vowels | 394 | 101 | 137 | 1210 | no |
-| short_vowel_discrimination | 230 | 139 | 171 | 1210 | no |
-| hfw_1_25 | 100 | 25 | 100 | 154 | no |
-| hfw_26_50 | 100 | 25 | 100 | 144 | no |
-| hfw_51_75 | 100 | 25 | 100 | 137 | no |
-| hfw_76_100 | 100 | 25 | 100 | 141 | no |
+| initial_sounds | 130 | 80 | 157 | 3951 | no |
+| final_sounds | 460 | 244 | 276 | 3951 | no |
+| rhyming | 666 | 146 | 163 | 572 | no |
+| cvc_short_vowels | 412 | 107 | 110 | 1324 | no |
+| short_vowel_discrimination | 304 | 144 | 156 | 1324 | no |
+| hfw_1_25 | 147 | 25 | 0 | 590 | YES |
+| hfw_26_50 | 149 | 25 | 0 | 563 | YES |
+| hfw_51_75 | 148 | 25 | 0 | 371 | YES |
+| hfw_76_100 | 144 | 25 | 0 | 265 | YES |
 
 ## Top Overused Images
-- 413x /images/child-mode/digraphs/chair.png
-- 393x /media/vocabulary/images/gain.webp
-- 333x /images/child-mode/cvc/dog.png
-- 294x /media/learn/images/cycle-23/bang.png
-- 275x /images/child-mode/short-i/fin.png
-- 269x /images/child-mode/short-i/pig.png
-- 229x /images/child-mode/short-o/mop.png
-- 213x /media/vocabulary/images/lip.webp
-- 192x /images/child-mode/cvc/dig.png
-- 182x /media/initial-sounds/images/a/astronaut.webp
-- 181x /images/child-mode/cvc/cap.png
-- 177x /images/child-mode/initial-sounds/hot.png
-- 177x /images/child-mode/short-u/cup.png
-- 175x /images/child-mode/short-e/jet.png
-- 165x /images/child-mode/short-i/sit.png
-- 158x /media/initial-sounds/images/a/accordion.webp
-- 158x /media/initial-sounds/images/a/acorn.webp
-- 158x /media/vocabulary/images/above.webp
-- 154x /images/child-mode/initial-sounds/gum.png
-- 154x /images/child-mode/initial-sounds/hen.png
+- 562x /images/child-mode/short-i/big.png
+- 421x /images/child-mode/cvc/dog.png
+- 379x /images/child-mode/short-e/red.png
+- 376x /images/child-mode/cvc/dig.png
+- 368x /images/child-mode/initial-sounds/hen.png
+- 330x /images/child-mode/short-a/jam.png
+- 328x /images/child-mode/short-u/cup.png
+- 317x /media/rhyming/images/tag.webp
+- 309x /images/child-mode/cvc/cat.png
+- 298x /images/child-mode/short-e/leg.png
+- 291x /media/vocabulary/images/clock.webp
+- 286x /media/vocabulary/images/fig.webp
+- 279x /images/child-mode/minimal-pairs/pin.png
+- 257x /images/child-mode/cvc/pan.png
+- 251x /images/child-mode/short-i/fin.png
+- 244x /images/child-mode/short-o/mop.png
+- 240x /media/vocabulary/images/fun.webp
+- 234x /media/vocabulary/images/can.webp
+- 220x /media/vocabulary/images/sack.webp
+- 206x /media/vocabulary/images/rag.webp
 
 ## Top Overused Audio
-- 139x /audio/child-mode/clean-human/words/chair.mp3
-- 131x /media/vocabulary/audio/gain.mp3
-- 104x /audio/child-mode/clean-human/words/pig.mp3
-- 99x /audio/child-mode/clean-human/words/dog.mp3
-- 95x /audio/child-mode/clean-human/words/fin.mp3
-- 84x /audio/child-mode/clean-human/words/mop.mp3
-- 83x /audio/child-mode/clean-human/words/lip.mp3
-- 82x /audio/child-mode/clean-human/words/cup.mp3
-- 74x /audio/child-mode/clean-human/words/sun.mp3
-- 72x /audio/child-mode/clean-human/words/pen.mp3
-- 69x /audio/child-mode/clean-human/words/hot.mp3
-- 66x /audio/child-mode/clean-human/words/bug.mp3
-- 65x /audio/child-mode/clean-human/words/sit.mp3
-- 63x /audio/child-mode/clean-human/words/bed.mp3
-- 63x /audio/child-mode/clean-human/words/jet.mp3
-- 63x /audio/child-mode/clean-human/words/map.mp3
-- 59x /audio/child-mode/clean-human/words/jam.mp3
-- 58x /audio/child-mode/clean-human/words/bag.mp3
-- 53x /audio/child-mode/clean-human/words/pan.mp3
-- 49x /audio/child-mode/clean-human/words/leg.mp3
+- 246x /audio/child-mode/clean-human/phrases/listen-and-find.mp3
+- 151x /audio/child-mode/clean-human/words/cat.mp3
+- 97x /audio/child-mode/clean-human/words/dog.mp3
+- 88x /audio/child-mode/clean-human/words/jam.mp3
+- 86x /audio/child-mode/clean-human/words/sun.mp3
+- 73x /audio/child-mode/clean-human/words/pan.mp3
+- 73x /audio/child-mode/clean-human/words/pen.mp3
+- 65x /audio/child-mode/clean-human/words/tap.mp3
+- 64x /audio/child-mode/clean-human/words/leg.mp3
+- 61x /audio/child-mode/clean-human/words/cup.mp3
+- 60x /media/vocabulary/audio/fig.mp3
+- 58x /audio/child-mode/clean-human/words/pin.mp3
+- 56x /audio/child-mode/clean-human/words/hat.mp3
+- 56x /audio/child-mode/clean-human/words/log.mp3
+- 55x /audio/child-mode/clean-human/words/bug.mp3
+- 54x /audio/child-mode/clean-human/words/map.mp3
+- 54x /audio/child-mode/clean-human/words/pot.mp3
+- 54x /audio/child-mode/clean-human/words/red.mp3
+- 51x /audio/child-mode/clean-human/words/bat.mp3
+- 51x /audio/child-mode/clean-human/words/fin.mp3
 
 ## Safety Findings
-- reachable unsafe assets: 0
-- missing whole-word audio cases: 0
-- image role/word mismatches: 0
+- reachable unsafe assets: 200
+- missing whole-word audio cases: 200
+- image role/word mismatches: 167

@@ -2620,14 +2620,15 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 2,
         "sourcePageNumber": 3,
-        "text": "Most penguins live in cold places. Emperor penguins live in Antarctica, the coldest and windiest place on Earth. Temperatures can drop below minus 60 degrees!",
+        "text": "Many penguins live in cold places. Emperor penguins live in Antarctica, the coldest and windiest place on Earth. Temperatures can drop below minus 60 degrees!",
         "image": "/guided-reading/nonfiction/level-c/book-03/page-002.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-03/audio/page-002.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-03/audio/page-002.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "Most",
-            "audioPath": "/guided-reading/audio/words/most.mp3"
+            "text": "Many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
           },
           {
             "text": "penguins",
@@ -3023,10 +3024,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 5,
         "sourcePageNumber": 6,
-        "text": "When the egg hatches, a tiny chick comes out. The chick has thick grey fluffy feathers. It cuddles close to its parent to stay warm.",
+        "text": "When the egg hatches, a tiny chick comes out. The chick has soft grey down. It stays close to its parent to stay warm.",
         "image": "/guided-reading/nonfiction/level-c/book-03/page-005.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-03/audio/page-005.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-03/audio/page-005.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "When",
@@ -3077,28 +3079,24 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/has.mp3"
           },
           {
-            "text": "thick",
-            "audioPath": "/guided-reading/audio/words/thick.mp3"
+            "text": "soft",
+            "audioPath": "/guided-reading/audio/words/soft.mp3"
           },
           {
             "text": "grey",
             "audioPath": "/guided-reading/audio/words/grey.mp3"
           },
           {
-            "text": "fluffy",
-            "audioPath": "/guided-reading/audio/words/fluffy.mp3"
-          },
-          {
-            "text": "feathers",
-            "audioPath": "/guided-reading/audio/words/feathers.mp3"
+            "text": "down",
+            "audioPath": "/guided-reading/audio/words/down.mp3"
           },
           {
             "text": "It",
             "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
-            "text": "cuddles",
-            "audioPath": "/guided-reading/audio/words/cuddles.mp3"
+            "text": "stays",
+            "audioPath": "/guided-reading/audio/words/stays.mp3"
           },
           {
             "text": "close",
@@ -3136,13 +3134,18 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 6,
         "sourcePageNumber": 7,
-        "text": "Penguins are extraordinary swimmers. They can swim at 25 kilometres per hour. They leap in and out of the water and can dive very deep to catch fish.",
+        "text": "Emperor penguins are extraordinary swimmers. They can swim at up to 14 kilometres per hour. They leap in and out of the water and can dive very deep to catch fish.",
         "image": "/guided-reading/nonfiction/level-c/book-03/page-006.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-03/audio/page-006.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-03/audio/page-006.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "Penguins",
+            "text": "Emperor",
+            "audioPath": "/guided-reading/audio/words/emperor.mp3"
+          },
+          {
+            "text": "penguins",
             "audioPath": "/guided-reading/audio/words/penguins.mp3"
           },
           {
@@ -3174,8 +3177,16 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/at.mp3"
           },
           {
-            "text": "25",
-            "audioPath": "/guided-reading/audio/words/25.mp3"
+            "text": "up",
+            "audioPath": "/guided-reading/audio/words/up.mp3"
+          },
+          {
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "14",
+            "audioPath": "/guided-reading/audio/words/14.mp3"
           },
           {
             "text": "kilometres",
@@ -3519,10 +3530,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 9,
         "sourcePageNumber": 10,
-        "text": "There are 18 species of penguin. Not all live in cold places. Little blue penguins live in Australia. African penguins live on warm, sunny beaches. Every kind of penguin is remarkable.",
+        "text": "There are 18 species of penguin. Not all live in cold places. African penguins live on warm, sunny coasts in southern Africa. Every kind of penguin is remarkable.",
         "image": "/guided-reading/nonfiction/level-c/book-03/page-009.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-03/audio/page-009.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-03/audio/page-009.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "There",
@@ -3573,30 +3585,6 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/places.mp3"
           },
           {
-            "text": "Little",
-            "audioPath": "/guided-reading/audio/words/little.mp3"
-          },
-          {
-            "text": "blue",
-            "audioPath": "/guided-reading/audio/words/blue.mp3"
-          },
-          {
-            "text": "penguins",
-            "audioPath": "/guided-reading/audio/words/penguins.mp3"
-          },
-          {
-            "text": "live",
-            "audioPath": "/guided-reading/audio/words/live.mp3"
-          },
-          {
-            "text": "in",
-            "audioPath": "/guided-reading/audio/words/in.mp3"
-          },
-          {
-            "text": "Australia",
-            "audioPath": "/guided-reading/audio/words/australia.mp3"
-          },
-          {
             "text": "African",
             "audioPath": "/guided-reading/audio/words/african.mp3"
           },
@@ -3621,8 +3609,20 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/sunny.mp3"
           },
           {
-            "text": "beaches",
-            "audioPath": "/guided-reading/audio/words/beaches.mp3"
+            "text": "coasts",
+            "audioPath": "/guided-reading/audio/words/coasts.mp3"
+          },
+          {
+            "text": "in",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
+          },
+          {
+            "text": "southern",
+            "audioPath": "/guided-reading/audio/words/southern.mp3"
+          },
+          {
+            "text": "Africa",
+            "audioPath": "/guided-reading/audio/words/africa.mp3"
           },
           {
             "text": "Every",

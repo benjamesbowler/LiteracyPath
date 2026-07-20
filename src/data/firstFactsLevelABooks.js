@@ -11300,10 +11300,11 @@ const firstFactsLevelABooks = [
       },
       {
         "pageNumber": 5,
-        "text": "We wash in water. Water keeps us clean.",
+        "text": "We wash with water. Water helps to keep us clean.",
         "image": "/guided-reading/nonfiction/first-facts/book-25/page-005.webp",
         "audio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-005.mp3",
         "pageAudio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-005.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "We",
@@ -11314,8 +11315,8 @@ const firstFactsLevelABooks = [
             "audioPath": "/guided-reading/audio/words/wash.mp3"
           },
           {
-            "text": "in",
-            "audioPath": "/guided-reading/audio/words/in.mp3"
+            "text": "with",
+            "audioPath": "/guided-reading/audio/words/with.mp3"
           },
           {
             "text": "water",
@@ -11326,8 +11327,16 @@ const firstFactsLevelABooks = [
             "audioPath": "/guided-reading/audio/words/water.mp3"
           },
           {
-            "text": "keeps",
-            "audioPath": "/guided-reading/audio/words/keeps.mp3"
+            "text": "helps",
+            "audioPath": "/guided-reading/audio/words/helps.mp3"
+          },
+          {
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "keep",
+            "audioPath": "/guided-reading/audio/words/keep.mp3"
           },
           {
             "text": "us",
@@ -11380,10 +11389,11 @@ const firstFactsLevelABooks = [
       },
       {
         "pageNumber": 7,
-        "text": "Water can be liquid, ice, or steam. Water changes!",
+        "text": "Water can be liquid, solid ice, or water vapour. Water changes!",
         "image": "/guided-reading/nonfiction/first-facts/book-25/page-007.webp",
         "audio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-007.mp3",
         "pageAudio": "/guided-reading/nonfiction/first-facts/book-25/audio/page-007.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Water",
@@ -11402,6 +11412,10 @@ const firstFactsLevelABooks = [
             "audioPath": "/guided-reading/audio/words/liquid.mp3"
           },
           {
+            "text": "solid",
+            "audioPath": "/guided-reading/audio/words/solid.mp3"
+          },
+          {
             "text": "ice",
             "audioPath": "/guided-reading/audio/words/ice.mp3"
           },
@@ -11410,8 +11424,12 @@ const firstFactsLevelABooks = [
             "audioPath": "/guided-reading/audio/words/or.mp3"
           },
           {
-            "text": "steam",
-            "audioPath": "/guided-reading/audio/words/steam.mp3"
+            "text": "water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "vapour",
+            "audioPath": "/guided-reading/audio/words/vapour.mp3"
           },
           {
             "text": "Water",

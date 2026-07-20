@@ -1,6 +1,6 @@
 # Guided Reading Image/Text Alignment Audit
 
-Generated: 2026-06-02T23:11:39.533Z
+Generated: 2026-07-20T20:15:54.760Z
 
 ## What This Check Proves
 
@@ -695,8 +695,8 @@ We are small. |
 | bob-and-nan-03-fluff | 2 | 1 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-001.webp | Bob and Nan sat in the sun. |
 | bob-and-nan-03-fluff | 3 | 2 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-002.webp | Bob saw a pup! |
 | bob-and-nan-03-fluff | 4 | 3 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-003.webp | The pup ran to Nan. |
-| bob-and-nan-03-fluff | 5 | 4 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-004.webp | Nan pat the pup. |
-| bob-and-nan-03-fluff | 6 | 5 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-005.webp | Bob pat the pup. |
+| bob-and-nan-03-fluff | 5 | 4 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-004.webp | Nan pats the pup. |
+| bob-and-nan-03-fluff | 6 | 5 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-005.webp | Bob pats the pup. |
 | bob-and-nan-03-fluff | 7 | 6 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-006.webp | Bob and Nan call the pup Fluff. |
 | bob-and-nan-03-fluff | 8 | 7 | yes | yes | /guided-reading/series/bob-and-nan/book-03/page-007.webp | Fluff is our pup! |
 | bob-and-nan-04-beach | 2 | 1 | yes | yes | /guided-reading/series/bob-and-nan/book-04/page-001.webp | Bob and Nan go to the beach. |
@@ -724,7 +724,7 @@ We are small. |
 | bob-and-nan-07-birthday | 2 | 1 | yes | yes | /guided-reading/series/bob-and-nan/book-07/page-001.webp | It is Bob's big day! |
 | bob-and-nan-07-birthday | 3 | 2 | yes | yes | /guided-reading/series/bob-and-nan/book-07/page-002.webp | Nan has a big gift for Bob. |
 | bob-and-nan-07-birthday | 4 | 3 | yes | yes | /guided-reading/series/bob-and-nan/book-07/page-003.webp | Bob rips it! It is a red bat! |
-| bob-and-nan-07-birthday | 5 | 4 | yes | yes | /guided-reading/series/bob-and-nan/book-07/page-004.webp | Mum lit the big cake. |
+| bob-and-nan-07-birthday | 5 | 4 | yes | yes | /guided-reading/series/bob-and-nan/book-07/page-004.webp | Mum lit the candles. |
 | bob-and-nan-07-birthday | 6 | 5 | yes | yes | /guided-reading/series/bob-and-nan/book-07/page-005.webp | Bob can see six big candles. |
 | bob-and-nan-07-birthday | 7 | 6 | yes | yes | /guided-reading/series/bob-and-nan/book-07/page-006.webp | Nan and Bob ate the big cake! |
 | bob-and-nan-07-birthday | 8 | 7 | yes | yes | /guided-reading/series/bob-and-nan/book-07/page-007.webp | Nan and Bob run and hop! |
@@ -923,45 +923,45 @@ We are small. |
 | ab-c-03 | 13 | 12 | yes | yes | /guided-reading/series/aiden-and-betty/book-03/page-012.webp | Betty found a small smooth white pebble at the shoreline and turned it over and  |
 | ab-c-03 | 14 | 13 | yes | yes | /guided-reading/series/aiden-and-betty/book-03/page-013.webp | The drive home felt half as long as the drive there, which Aiden thought was mat |
 | ab-c-04 | 2 | 1 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-001.webp | It was an ordinary Saturday in late August when Uncle Eddie arrived at the door  |
-| ab-c-04 | 3 | 2 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-002.webp | Uncle Eddie was Dad's younger brother, and he was a wildlife researcher who had  |
-| ab-c-04 | 4 | 3 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-003.webp | Carefully, Uncle Eddie unzipped the carry-case. Inside, curled up like a small c |
-| ab-c-04 | 5 | 4 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-004.webp | "His name is Socks," said Uncle Eddie. "He was orphaned when he was very small,  |
-| ab-c-04 | 6 | 5 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-005.webp | Socks looked at Aiden. Then he looked at Betty. Then he reached out one small bl |
-| ab-c-04 | 7 | 6 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-006.webp | Uncle Eddie explained that he was returning to the rainforest for six months and |
-| ab-c-04 | 8 | 7 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-007.webp | Socks explored the house in eleven minutes. He opened every drawer he could reac |
+| ab-c-04 | 3 | 2 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-002.webp | Uncle Eddie was Dad's younger brother and an animal behaviour researcher. He had |
+| ab-c-04 | 4 | 3 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-003.webp | Carefully, Uncle Eddie opened the carrier door. Inside, curled up like a small c |
+| ab-c-04 | 5 | 4 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-004.webp | "His name is Socks," said Uncle Eddie. "He was found alone when he was very smal |
+| ab-c-04 | 6 | 5 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-005.webp | Socks looked at Aiden. Then he looked at Betty. Aiden set his watch on the low t |
+| ab-c-04 | 7 | 6 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-006.webp | Uncle Eddie explained that he was joining a rescue team overseas for six months  |
+| ab-c-04 | 8 | 7 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-007.webp | Socks explored the house in eleven minutes. He nudged open every low drawer he c |
 | ab-c-04 | 9 | 8 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-008.webp | "He loves shiny objects," Uncle Eddie explained at dinner. "He adores warm spots |
-| ab-c-04 | 10 | 9 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-009.webp | Socks sat at the table in a tiny red waistcoat that Uncle Eddie had stitched for |
-| ab-c-04 | 11 | 10 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-010.webp | That night, Dad built Socks a cosy sleeping box — a wooden crate lined with a so |
+| ab-c-04 | 10 | 9 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-009.webp | Socks wore the little red harness that Uncle Eddie had fitted for him. He watche |
+| ab-c-04 | 11 | 10 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-010.webp | That night, Dad made Socks a cosy sleeping box — a wooden crate lined with a sof |
 | ab-c-04 | 12 | 11 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-011.webp | Over the following weeks, Socks wove himself into the house. He had his own peg  |
-| ab-c-04 | 13 | 12 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-012.webp | He was also, as promised, occasionally naughty. He dropped a teaspoon into the t |
+| ab-c-04 | 13 | 12 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-012.webp | He was also, as promised, occasionally naughty. He carried three clean clothes p |
 | ab-c-04 | 14 | 13 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-013.webp | "He is completely impossible," said Mum, as she did most evenings. But she had a |
-| ab-c-04 | 15 | 14 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-014.webp | Aiden had been keeping a field notebook — just as Uncle Eddie had shown him. He  |
-| ab-c-05 | 2 | 1 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-001.webp | It started with the waistcoat hook being empty. |
-| ab-c-05 | 3 | 2 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-002.webp | Every morning, Socks sat on the kitchen counter and waited while Betty did up th |
+| ab-c-04 | 15 | 14 | yes | yes | /guided-reading/series/aiden-and-betty/book-04/page-014.webp | Aiden had been keeping a field notebook, just as Uncle Eddie had shown him. He h |
+| ab-c-05 | 2 | 1 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-001.webp | It started with the red harness hook being empty. |
+| ab-c-05 | 3 | 2 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-002.webp | Every morning, Socks sat on his kitchen mat while Betty clipped on his little re |
 | ab-c-05 | 4 | 3 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-003.webp | They searched everywhere. Aiden checked under every sofa cushion and behind ever |
-| ab-c-05 | 5 | 4 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-004.webp | "He couldn't have got out," said Dad. "All the windows were shut last night." Th |
+| ab-c-05 | 5 | 4 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-004.webp | "He couldn't have got out," said Dad. "All the doors were shut last night." Then |
 | ab-c-05 | 6 | 5 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-005.webp | They went out onto the pavement and called his name. "Socks! Socks!" The October |
-| ab-c-05 | 7 | 6 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-006.webp | Betty designed a MISSING MONKEY poster on her tablet in under five minutes. It h |
+| ab-c-05 | 7 | 6 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-006.webp | Betty designed a MISSING DOG poster on her tablet in under five minutes. It had  |
 | ab-c-05 | 8 | 7 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-007.webp | Aiden re-read his field notebook carefully, looking for anything useful. He had  |
-| ab-c-05 | 9 | 8 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-008.webp | By three o'clock, the sky had gone grey and the wind had picked up. Aiden was si |
+| ab-c-05 | 9 | 8 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-008.webp | By three o'clock, the sky had gone grey and the wind had picked up. Aiden sat on |
 | ab-c-05 | 10 | 9 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-009.webp | Then the phone rang. It was their neighbour Mrs Obi, from number thirty-seven, t |
 | ab-c-05 | 11 | 10 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-010.webp | They ran. All four of them, in their socks, without stopping to find shoes, down |
-| ab-c-05 | 12 | 11 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-011.webp | There was Socks, sitting on Mrs Obi's kitchen counter beside an open shortbread  |
+| ab-c-05 | 12 | 11 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-011.webp | There was Socks, curled on Mrs Obi's kitchen mat beside the radiator. He was wea |
 | ab-c-05 | 13 | 12 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-012.webp | "How on earth did he get in?" asked Dad. Mrs Obi pointed to the cat flap in her  |
-| ab-c-05 | 14 | 13 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-013.webp | Aiden picked him up and held him. Socks was warm and solid and smelled faintly o |
-| ab-c-05 | 15 | 14 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-014.webp | On the way home, Betty said they needed a tracker collar. Aiden said they needed |
+| ab-c-05 | 14 | 13 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-013.webp | Aiden knelt and held him close. Socks was warm and solid and smelled faintly of  |
+| ab-c-05 | 15 | 14 | yes | yes | /guided-reading/series/aiden-and-betty/book-05/page-014.webp | On the way home, Betty said they needed a tracker tag. Aiden said they needed a  |
 | ab-c-06 | 2 | 1 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-001.webp | Miss Okafor announced the Science Fair on a grey Wednesday in February. Every pa |
 | ab-c-06 | 3 | 2 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-002.webp | "What shall we study?" said Betty. They sat with the notebook between them and l |
 | ab-c-06 | 4 | 3 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-003.webp | They decided to grow crystals. It was Betty's original idea and Aiden's second c |
-| ab-c-06 | 5 | 4 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-004.webp | The crystal-growing worked perfectly. Blue copper sulphate crystals grew on a th |
-| ab-c-06 | 6 | 5 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-005.webp | Then Socks found the crystal jar. He did not eat it. He simply moved it from the |
-| ab-c-06 | 7 | 6 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-006.webp | "Socks!" said Aiden and Betty. Socks examined the jar from every angle, turning  |
-| ab-c-06 | 8 | 7 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-007.webp | They made their display board on a rainy Saturday — a bright blue background, a  |
+| ab-c-06 | 5 | 4 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-004.webp | The kit used safe crystal salts. Mum read the instructions with them. They put o |
+| ab-c-06 | 6 | 5 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-005.webp | They kept the closed jar on a high shelf where Socks could not reach it. Socks s |
+| ab-c-06 | 7 | 6 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-006.webp | Each morning, Mum lifted down the closed jar. Aiden took a photograph and Betty  |
+| ab-c-06 | 8 | 7 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-007.webp | On a rainy Saturday, they made their bright blue display board. They added one p |
 | ab-c-06 | 9 | 8 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-008.webp | On the morning of the Science Fair, Betty packed the display board in a folder w |
 | ab-c-06 | 10 | 9 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-009.webp | The school hall was full of projects — a volcano that erupted three times, a mod |
 | ab-c-06 | 11 | 10 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-010.webp | The judges spent a very long time with Aiden and Betty's crystals — because Bett |
 | ab-c-06 | 12 | 11 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-011.webp | Third place, with a commendation for experimental method, went to HOW DO CRYSTAL |
-| ab-c-06 | 13 | 12 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-012.webp | That evening, Aiden added a new page to his field notebook: WHAT MAKES A GOOD EX |
+| ab-c-06 | 13 | 12 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-012.webp | That evening, Aiden added a new page to his field notebook. He wrote down six th |
 | ab-c-06 | 14 | 13 | yes | yes | /guided-reading/series/aiden-and-betty/book-06/page-013.webp | "I think he might be learning," said Aiden carefully, watching Socks watch the p |
 | ab-c-07 | 2 | 1 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-001.webp | Uncle Eddie came back for a long weekend in June — browner from the sun, with a  |
 | ab-c-07 | 3 | 2 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-002.webp | Uncle Eddie told them about the nature reserve two miles from town — woodland, a |
@@ -1305,7 +1305,6 @@ Shy hid. |
 | meadow-pals-09-shy-comes-out-to-play | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-09/page-006.webp | Cuddly did not go away. |
 | meadow-pals-09-shy-comes-out-to-play | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-09/page-007.webp | Shy sat next to Cuddly. |
 | meadow-pals-09-shy-comes-out-to-play | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-09/page-008.webp | Then Shy came out. |
-| meadow-pals-09-shy-comes-out-to-play | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-09/page-009.webp | Shy is playing! |
 | meadow-pals-10-giggly-has-the-hiccups | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-10/page-001.webp | Giggly has the hiccups. |
 | meadow-pals-10-giggly-has-the-hiccups | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-10/page-002.webp | Hic! Hic! Hic! |
 | meadow-pals-10-giggly-has-the-hiccups | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-10/page-003.webp | Giggly began to giggle.

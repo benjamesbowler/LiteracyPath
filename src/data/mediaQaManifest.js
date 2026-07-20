@@ -1,5 +1,13 @@
 import { initialSoundWordBank } from "../content/initialSounds/initialSoundWordBank.js";
 import { isMediaDeleted } from "./deletedMediaManifest.js";
+import {
+  assessmentImageStyleBlockedPaths,
+  assessmentImageStyleBlocklist
+} from "./assessmentImageStyleBlocklist.js";
+import {
+  imageQaReviewBlockedPaths,
+  imageQaReviewNeededPaths
+} from "./generated/imageQaReviewBlocklist.generated.js";
 
 export const MEDIA_QA_STATUSES = ["unreviewed", "approved", "rejected", "needs_kimi", "blocked", "deleted"];
 
@@ -50,8 +58,29 @@ function buildInitialSoundMediaQaSeedManifest() {
   });
 }
 
+function buildAssessmentImageStyleSeedManifest() {
+  return assessmentImageStyleBlocklist.map(row => ({
+    id: getMediaQaId("image", row.path),
+    mediaType: "image",
+    targetWord: row.path.split("/").pop()?.replace(/\.[a-z0-9]+$/i, "").replace(/[-_]+/g, " ") || "",
+    skillId: "assessment",
+    skillName: "Assessment image QA",
+    level: "",
+    filePath: row.path,
+    linkedQuestionIds: [],
+    status: row.status,
+    rejectionReason: row.issueType,
+    reviewerNotes: row.reviewerNotes,
+    reviewedAt: "2026-07-18",
+    reviewedBy: "Codex visual audit",
+    heuristicFlags: [row.issueType],
+    replacementPath: ""
+  }));
+}
+
 export const mediaQaSeedManifest = [
-  ...buildInitialSoundMediaQaSeedManifest()
+  ...buildInitialSoundMediaQaSeedManifest(),
+  ...buildAssessmentImageStyleSeedManifest()
 ];
 
 export function readMediaQaOverrides() {
@@ -191,6 +220,11 @@ export function buildMediaQaRecords(questions = [], overrides = readMediaQaOverr
 
 export function isMediaQaRuntimeAllowed(filePath, mediaType = "image", options = {}) {
   if (isMediaDeleted(filePath)) return false;
+  if (mediaType === "image" && (
+    assessmentImageStyleBlockedPaths.has(filePath) ||
+    imageQaReviewBlockedPaths.has(filePath) ||
+    imageQaReviewNeededPaths.has(filePath)
+  )) return false;
   const id = getMediaQaId(mediaType, filePath);
   const override = readMediaQaOverrides()[id];
   if (override?.status) {

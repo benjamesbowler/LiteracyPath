@@ -19,6 +19,10 @@ import './styles/sage-subpages.css'
 // Generated: soft borders/shadows for every comic-heavy rule under the sage
 // skin (Arcade + Hollow exempt). Regenerate: npm run generate:sage-soft.
 import './styles/sage-soft.generated.css'
+// The palettes sage-subpages.css never bridged (--phonics-, --kid-, --pal-,
+// and the hardcoded home tile accents) plus the three form tells the generator
+// does not cover: uppercase, rotation, halftone. Last, so it wins.
+import './styles/sage-form.css'
 import { ErrorBoundary } from './components/ErrorBoundary.jsx'
 import { AppCrashFallback } from './components/AppCrashFallback.jsx'
 import { DYNAMIC_IMPORT_ERROR_EVENT, reloadOnceForNewVersion } from './utils/lazyWithRetry.js'

@@ -58,6 +58,9 @@ const issueTypes = [
   "too_dark",
   "not_child_friendly",
   "duplicate_or_near_duplicate",
+  "face_on_inanimate_object",
+  "rainbow_styled_ordinary_object",
+  "baby_kawaii_style",
   "other"
 ];
 
@@ -142,7 +145,7 @@ for (const [groupName, predicate] of Object.entries(areaGroups)) {
     contactSheets.push(contactSheet);
     pageRows.forEach((row, index) => {
       reviewRows.push({
-        acceptable: "Y",
+        acceptable: "REVIEW",
         issue_type: "",
         severity: "",
         replacement_needed: "N",

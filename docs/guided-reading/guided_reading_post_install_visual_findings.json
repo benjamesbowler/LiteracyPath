@@ -1,0 +1,1559 @@
+{
+  "schemaVersion": 1,
+  "auditDate": "2026-07-20",
+  "scope": {
+    "booksReviewed": 176,
+    "activePageImagesReviewed": 1616,
+    "flaggedBooks": 84,
+    "flaggedPageImages": 346
+  },
+  "rule": "These findings come from a fresh full-library visual inspection after the original replacement queue was installed. Every listed page is reopened and must not inherit approved-and-installed status until it passes a new sequence audit.",
+  "resolved": {
+    "1": [
+      6
+    ],
+    "8": [
+      4
+    ],
+    "12": [
+      4,
+      6
+    ],
+    "21": [
+      6
+    ],
+    "23": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "24": [
+      5
+    ],
+    "25": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "26": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "27": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "28": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "30": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "31": [
+      1,
+      2
+    ],
+    "32": [
+      6
+    ],
+    "33": [
+      7
+    ],
+    "34": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "36": [
+      7
+    ],
+    "37": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "38": [
+      2,
+      3
+    ],
+    "40": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "42": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "46": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "54": [
+      3,
+      4
+    ],
+    "57": [
+      6
+    ],
+    "62": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "63": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "64": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "66": [
+      2,
+      5,
+      7
+    ],
+    "100": [
+      10
+    ],
+    "102": [
+      1,
+      2,
+      3,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "103": [
+      3,
+      9,
+      10
+    ]
+  },
+  "findings": [
+    {
+      "bookNumber": 1,
+      "bookId": "gr-a-26",
+      "title": "Pets",
+      "pages": [
+        6
+      ],
+      "issues": [
+        "tone",
+        "continuity"
+      ],
+      "finding": "Page 6 uses a prominent rainbow-striped shirt and its child/dog/cat grouping has a noticeably different illustrative treatment from pages 1-5. Replace with a plain, muted top and the same polished warm editorial style."
+    },
+    {
+      "bookNumber": 8,
+      "bookId": "gr-b-34",
+      "title": "Day and Night",
+      "pages": [
+        4
+      ],
+      "issues": [
+        "anthropomorphic"
+      ],
+      "finding": "The bedside lamp/night-light appears to have an animal face, breaking the no-face-on-objects rule. Replace it with a simple non-sentient warm night-light while preserving the sleeping child scene."
+    },
+    {
+      "bookNumber": 12,
+      "bookId": "gr-c-39",
+      "title": "Shapes",
+      "pages": [
+        4
+      ],
+      "issues": [
+        "text"
+      ],
+      "finding": "Page 4's book cover contains decorative pseudo-writing. Replace with a clearly rectangular, blank-covered book with no symbols or lettering."
+    },
+    {
+      "bookNumber": 12,
+      "bookId": "gr-c-39",
+      "title": "Shapes",
+      "pages": [
+        6
+      ],
+      "issues": [
+        "text"
+      ],
+      "finding": "Page 6 embeds clock numerals and other tiny wall details in a general shapes scene. Replace with a clean room scene using recognizable unlabeled shapes and a blank clock face, with no letters or numerals."
+    },
+    {
+      "bookNumber": 21,
+      "bookId": "gr-e-50",
+      "title": "Our Five Senses",
+      "pages": [
+        6
+      ],
+      "issues": [
+        "composition",
+        "tone"
+      ],
+      "finding": "Page 6 combines a rainbow, musical-note symbols, an apple, rabbit, flowers, and a rainbow-striped dress into an overloaded generic summary. Replace with one coherent natural scene where a child clearly uses several senses, in plain clothing, with no decorative symbols."
+    },
+    {
+      "bookNumber": 23,
+      "bookId": "first-facts-level-a-02-farm-animals",
+      "title": "Farm Animals",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "issues": [
+        "continuity",
+        "tone"
+      ],
+      "finding": "The sequence shifts between flat cartoon animals, polished renderings, and a photographic final group. Rebuild the seven pages as one coherent Level A natural-history illustration set with consistent line, lighting, scale, and farm setting."
+    },
+    {
+      "bookNumber": 24,
+      "bookId": "first-facts-level-a-03-big-and-little",
+      "title": "Big and Little",
+      "pages": [
+        5
+      ],
+      "issues": [
+        "continuity"
+      ],
+      "finding": "Page 5 abruptly switches from the book's simple illustrated comparison style to photoreal space imagery. Replace with a matching clean editorial illustration of a large natural Sun and much smaller Moon, with no faces."
+    },
+    {
+      "bookNumber": 25,
+      "bookId": "first-facts-level-a-04-water",
+      "title": "Water",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "issues": [
+        "continuity",
+        "tone"
+      ],
+      "finding": "The book alternates between flat cartoons, a photograph, and a four-panel mixed-media summary. Rebuild all seven pages as one coherent, observational water-use sequence with consistent child-safe visual language."
+    },
+    {
+      "bookNumber": 26,
+      "bookId": "first-facts-level-a-05-the-sky",
+      "title": "The Sky",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "issues": [
+        "continuity",
+        "science"
+      ],
+      "finding": "The sequence alternates photographs and flat cartoons; page 2 uses five-point symbols as stars and page 7 combines day and night unrealistically. Rebuild all seven pages in one naturalistic nonfiction style with scientifically plausible sky objects."
+    },
+    {
+      "bookNumber": 27,
+      "bookId": "first-facts-level-a-06-animals-can",
+      "title": "Animals Can!",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "issues": [
+        "continuity",
+        "composition"
+      ],
+      "finding": "The animal actions jump between cartoons and photographs, and the final page replaces animals with three unrelated children. Rebuild the full sequence in one naturalistic style, keeping the final summary focused on the same animals."
+    },
+    {
+      "bookNumber": 28,
+      "bookId": "first-facts-level-a-07-bugs",
+      "title": "Bugs",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "issues": [
+        "continuity",
+        "anthropomorphic"
+      ],
+      "finding": "The book mixes cartoons and macro photographs; pages 1 and 4 give bugs face-like cartoon expressions, and page 5 is an awkward cropped child/insect composition. Rebuild all pages as a coherent child-readable natural-history set."
+    },
+    {
+      "bookNumber": 30,
+      "bookId": "first-facts-level-a-09-hot-and-cold",
+      "title": "Hot and Cold",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "issues": [
+        "continuity",
+        "safety"
+      ],
+      "finding": "The book alternates photographs and flat cartoons, and page 3 shows a hand reaching into the fire area. Rebuild all seven pages in one coherent realistic editorial style with clearly safe fire presentation."
+    },
+    {
+      "bookNumber": 31,
+      "bookId": "first-facts-level-a-10-shapes",
+      "title": "Shapes",
+      "pages": [
+        1,
+        2
+      ],
+      "issues": [
+        "misleading",
+        "textMatch"
+      ],
+      "finding": "Page 1 labels a three-dimensional ball as a circle, while page 2 calls a wall-mounted flat square a box. Replace with a clearly circular flat object paired to the ball wording and a front-facing square box or box lid that visibly matches the text."
+    },
+    {
+      "bookNumber": 32,
+      "bookId": "first-facts-level-a-11-at-the-farm",
+      "title": "At the Farm",
+      "pages": [
+        6
+      ],
+      "issues": [
+        "textMatch",
+        "composition"
+      ],
+      "finding": "The 'big dog' is tiny and distant, making the target noun/action hard to read. Bring the same black-and-white farm dog into the foreground, running clearly, while preserving the child and farm location."
+    },
+    {
+      "bookNumber": 33,
+      "bookId": "first-facts-level-a-12-in-the-sea",
+      "title": "In the Sea",
+      "pages": [
+        7
+      ],
+      "issues": [
+        "continuity"
+      ],
+      "finding": "Page 7 abruptly switches from the six-page marine illustration style to a photograph of a child and adult. Replace with a matching illustrated shoreline scene of the child swimming safely with an adult."
+    },
+    {
+      "bookNumber": 34,
+      "bookId": "first-facts-level-a-13-fruit",
+      "title": "Fruit",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "issues": [
+        "continuity",
+        "tone"
+      ],
+      "finding": "The book alternates isolated photographs, flat fruit icons, and unrelated cartoon children. Rebuild all seven pages as one coherent observational fruit set with consistent rendering and one locked child for eating/summary pages."
+    },
+    {
+      "bookNumber": 36,
+      "bookId": "first-facts-level-a-15-baby-animals",
+      "title": "Baby Animals",
+      "pages": [
+        7
+      ],
+      "issues": [
+        "continuity"
+      ],
+      "finding": "Page 7 changes from the established warm cartoon animal style to a photograph. Replace with a matching illustrated group of the same baby-animal species with their larger adults."
+    },
+    {
+      "bookNumber": 37,
+      "bookId": "first-facts-level-a-16-fast-and-slow",
+      "title": "Fast and Slow",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "issues": [
+        "continuity",
+        "tone"
+      ],
+      "finding": "The comparison jumps between realistic vehicles, cartoon invertebrates, and a photographic turtle; page 5 also uses an unnecessary arrow symbol. Rebuild the sequence in one coherent observational style with motion shown naturally."
+    },
+    {
+      "bookNumber": 38,
+      "bookId": "first-facts-level-a-17-a-seed-grows",
+      "title": "A Seed Grows",
+      "pages": [
+        2,
+        3
+      ],
+      "issues": [
+        "textMatch",
+        "science"
+      ],
+      "finding": "Page 2 does not show rain or wet soil despite the text, and page 3 uses an implausible rectangular cutaway while the child appears to be planting again. Replace with a clear rain-soaked pot and a scientifically readable cutaway of one root growing down from the same seed."
+    },
+    {
+      "bookNumber": 40,
+      "bookId": "first-facts-level-a-19-day-and-night",
+      "title": "Day and Night",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "issues": [
+        "continuity",
+        "textMatch",
+        "science"
+      ],
+      "finding": "The sequence mixes photography and cartoons; page 3 duplicates page 1 and shows no birds, while page 7 unrealistically places day and night in one sky. Rebuild all seven pages as one coherent same-location day-to-night progression."
+    },
+    {
+      "bookNumber": 42,
+      "bookId": "first-facts-a-01-look-at-the-colours",
+      "title": "Look at the Colours!",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "issues": [
+        "continuity",
+        "tone"
+      ],
+      "finding": "The sequence changes abruptly from flat outlined cartoons to realistic fox/grape plates and back again. Rebuild all seven pages in one consistent, bright observational nonfiction illustration style."
+    },
+    {
+      "bookNumber": 46,
+      "bookId": "first-facts-a-05-flowers-and-trees",
+      "title": "Flowers and Trees",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "issues": [
+        "continuity",
+        "tone"
+      ],
+      "finding": "The book alternates naturalistic botanical plates, flat cartoons, a split seasonal panel, and a photographic summary. Rebuild the full sequence in one coherent natural-history editorial style while preserving the precise plant facts."
+    },
+    {
+      "bookNumber": 54,
+      "bookId": "first-facts-a-13-big-and-small",
+      "title": "Big and Small",
+      "pages": [
+        3,
+        4
+      ],
+      "issues": [
+        "textMatch",
+        "composition"
+      ],
+      "finding": "Page 3 contains no visible toy car for the small comparison, and page 4 contains no readable small flower beside the big tree. Replace both with explicit side-by-side size comparisons using the same child and village visual style."
+    },
+    {
+      "bookNumber": 57,
+      "bookId": "first-facts-a-16-push-and-pull",
+      "title": "Push and Pull",
+      "pages": [
+        6
+      ],
+      "issues": [
+        "textMatch",
+        "composition"
+      ],
+      "finding": "Page 6 shows two toy vehicles but no readable metal pin being pulled by a magnet. Replace with the same child and adult at the table using a clearly visible bar magnet to pull one safe metal pin or paperclip."
+    },
+    {
+      "bookNumber": 62,
+      "bookId": "first-facts-a-21-how-i-grow",
+      "title": "How I Grow",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "issues": [
+        "continuity",
+        "composition"
+      ],
+      "finding": "The growth sequence repeatedly crops the child out, duplicates figures in strips, and loses the first-person subject on pages 3 and 6. Rebuild all seven pages as a clear chronological sequence of the same child at baby, toddler, and present ages, with the same caregiver."
+    },
+    {
+      "bookNumber": 63,
+      "bookId": "first-facts-a-22-staying-healthy",
+      "title": "Staying Healthy",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "issues": [
+        "continuity",
+        "textMatch",
+        "composition"
+      ],
+      "finding": "The supposed child health sequence often substitutes the father as the acting subject, crops the child out, and ends with a split montage. Rebuild every page around one locked child performing each healthy habit, with the father only as support."
+    },
+    {
+      "bookNumber": 64,
+      "bookId": "first-facts-a-23-my-body",
+      "title": "My Body",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "issues": [
+        "continuity",
+        "composition"
+      ],
+      "finding": "Several pages use awkward vertical crops, repeated duplicate figures, and split montages instead of one clear body action. Rebuild the eight pages as consistent single scenes of the same girl, with full limbs and body parts visible."
+    },
+    {
+      "bookNumber": 66,
+      "bookId": "first-facts-a-25-water-everywhere",
+      "title": "Water Everywhere",
+      "pages": [
+        2,
+        5,
+        7
+      ],
+      "issues": [
+        "textMatch",
+        "composition"
+      ],
+      "finding": "Page 2 does not show rain, page 5 crops away the washing action and child, and page 7 duplicates the child in a vertical montage. Replace with clear single scenes of rainfall, the same child washing, and the same water changing through liquid/ice/steam."
+    },
+    {
+      "bookNumber": 69,
+      "bookId": "level-c-nonfiction-03-penguins",
+      "title": "Penguins",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "issues": [
+        "continuity",
+        "science",
+        "tone"
+      ],
+      "finding": "The book mixes flat cartoons and isolated photographs; page 1 confusingly pairs a penguin with a flying songbird, and the visual species/setting changes repeatedly. Rebuild all nine pages as one coherent emperor-penguin natural-history sequence, with page 9 accurately showing a different temperate species."
+    },
+    {
+      "bookNumber": 70,
+      "bookId": "level-c-nonfiction-04-the-moon",
+      "title": "The Moon",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "issues": [
+        "continuity",
+        "science",
+        "text"
+      ],
+      "finding": "The sequence alternates space renders, cartoons, photographs, a labeled lab scene, and an unrelated basketball comparison. Rebuild all nine pages in one accurate natural-history/space editorial style with no embedded labels or five-point star symbols."
+    },
+    {
+      "bookNumber": 71,
+      "bookId": "level-c-nonfiction-05-how-seeds-grow",
+      "title": "How Seeds Grow",
+      "pages": [
+        1,
+        8
+      ],
+      "issues": [
+        "continuity",
+        "composition"
+      ],
+      "finding": "Page 1 is a flat seed clip-art collage unlike the photographic growth sequence, while page 8 crams wind, fur, water, bird, deer, dandelion, and a coconut into one incoherent dispersal scene. Replace both with matching realistic educational plates: a clean seed variety study and a clearly separated natural dispersal composition."
+    },
+    {
+      "bookNumber": 72,
+      "bookId": "level-c-nonfiction-06-spiders",
+      "title": "Spiders",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "issues": [
+        "continuity",
+        "anthropomorphic",
+        "text"
+      ],
+      "finding": "The book switches between macro photos and babyfied cartoon spiders; page 4 contains embedded labels and pages 6-7 give spiders large human-like eyes/faces. Rebuild all nine pages as one coherent macro natural-history sequence with unlabeled web comparisons."
+    },
+    {
+      "bookNumber": 73,
+      "bookId": "level-c-nonfiction-07-under-the-ocean",
+      "title": "Under the Ocean",
+      "pages": [
+        3,
+        4
+      ],
+      "issues": [
+        "continuity",
+        "text"
+      ],
+      "finding": "Pages 3-4 switch from the book's cinematic realistic ocean treatment to bright clip-art, and page 4 embeds labels. Replace with matching natural-history reef and coral-polyp cutaway plates with no written labels."
+    },
+    {
+      "bookNumber": 74,
+      "bookId": "level-c-nonfiction-08-butterflies",
+      "title": "Butterflies",
+      "pages": [
+        3,
+        7,
+        8
+      ],
+      "issues": [
+        "continuity",
+        "composition"
+      ],
+      "finding": "Pages 3, 7, and 8 switch from macro photography to cartoon lifecycle/infographic art; page 8 is cluttered with decorative icons. Replace with matching macro natural-history scenes of eggs, emergence, and nectar feeding."
+    },
+    {
+      "bookNumber": 75,
+      "bookId": "level-c-nonfiction-09-caves",
+      "title": "Caves",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "issues": [
+        "continuity",
+        "text",
+        "safety"
+      ],
+      "finding": "The cave sequence alternates cartoons and realistic plates, page 1 contains embedded labels, and page 9 introduces an open flame. Rebuild all nine pages as one coherent geological natural-history sequence, including a safe historical cave-painting reconstruction without visible open flame."
+    },
+    {
+      "bookNumber": 76,
+      "bookId": "level-c-nonfiction-10-frogs",
+      "title": "Frogs",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "issues": [
+        "continuity",
+        "anthropomorphic",
+        "science"
+      ],
+      "finding": "The sequence mixes pond photography, cartoons, and an infographic; several frogs/eggs have human-like eyes or expressions. Rebuild all nine pages as one scientifically coherent natural-history sequence of a single frog species, with accurate anatomy and life stages."
+    },
+    {
+      "bookNumber": 81,
+      "bookId": "bob-and-nan-05-school",
+      "title": "Bob and Nan's First Day at School",
+      "pages": [
+        6
+      ],
+      "issues": [
+        "text"
+      ],
+      "finding": "Page 6 fills the classroom wall with AI-generated alphabet/word posters, including malformed mixed lettering. Replace with the same Bob and Nan at the desk against a clean classroom wall using only pictures or blank coloured shapes."
+    },
+    {
+      "bookNumber": 82,
+      "bookId": "bob-and-nan-06-zoo",
+      "title": "Nan and Bob go to the Zoo",
+      "pages": [
+        1,
+        8
+      ],
+      "issues": [
+        "text",
+        "continuity"
+      ],
+      "finding": "Pages 1 and 8 embed zoo/enclosure signage inside the art. Replace with the same arrival and departure scenes using recognizable gate/habitat architecture and animal silhouettes but no written signs."
+    },
+    {
+      "bookNumber": 85,
+      "bookId": "bob-and-nan-09-read",
+      "title": "Nan and Bob Learn to Read",
+      "pages": [
+        1
+      ],
+      "issues": [
+        "text",
+        "textMatch"
+      ],
+      "finding": "The red book cover contains unrelated generated title text ('Cattle') and a cat graphic. Replace with the same Nan reading a large plain red book; the book cover must be blank."
+    },
+    {
+      "bookNumber": 89,
+      "bookId": "james-and-anna-03-shopping",
+      "title": "Shopping",
+      "pages": [
+        2,
+        4,
+        10
+      ],
+      "issues": [
+        "text"
+      ],
+      "finding": "Pages 2 and 4 contain AI-generated pseudo-writing on shopping lists, and page 10 embeds a BAKERY sign. Replace with a clean pictogram/blank-line list and a sign-free bakery setting."
+    },
+    {
+      "bookNumber": 90,
+      "bookId": "james-and-anna-04-dentist",
+      "title": "The Dentist",
+      "pages": [
+        12
+      ],
+      "issues": [
+        "text",
+        "anthropomorphic"
+      ],
+      "finding": "The clinic exterior uses written/tooth-face branding. Replace with the same family outside a recognizable clinic using neutral architectural cues and no written or face-like object signage."
+    },
+    {
+      "bookNumber": 91,
+      "bookId": "james-and-anna-05-tree-house",
+      "title": "The Tree House",
+      "pages": [
+        4,
+        6
+      ],
+      "issues": [
+        "text"
+      ],
+      "finding": "Page 4 contains generated writing on Dad's plan and page 6 embeds BANG/WHIRR words. Preserve the actions with a blank diagram sheet and visual motion cues only."
+    },
+    {
+      "bookNumber": 94,
+      "bookId": "ja-b-08",
+      "title": "Chips's Play Date",
+      "pages": [
+        11
+      ],
+      "issues": [
+        "text"
+      ],
+      "finding": "The two bowls have embedded BELLA and CHIPS lettering. Replace with the same feeding scene using visually distinct but completely blank bowls."
+    },
+    {
+      "bookNumber": 95,
+      "bookId": "ja-b-09",
+      "title": "New Bikes",
+      "pages": [
+        13
+      ],
+      "issues": [
+        "continuity",
+        "safety"
+      ],
+      "finding": "James and Anna are shown asleep while still wearing bicycle helmets. Replace with the same children in pajamas, helmets placed beside the beds and bicycles parked safely."
+    },
+    {
+      "bookNumber": 97,
+      "bookId": "ab-c-01",
+      "title": "Aiden and Betty Start Grade 1",
+      "pages": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        11
+      ],
+      "issues": [
+        "text",
+        "textMatch"
+      ],
+      "finding": "The classroom sequence repeatedly contains generated alphabet strips, board writing, worksheets, name-label claims without a readable label, sums, and science-poster text. Rebuild these pages with clean picture-only classroom displays; when the story requires writing, show blank ruled marks or add verified typography outside the generated artwork."
+    },
+    {
+      "bookNumber": 98,
+      "bookId": "ab-c-02",
+      "title": "Aiden and Betty have a Yard Sale",
+      "pages": [
+        3,
+        4,
+        9,
+        10
+      ],
+      "issues": [
+        "text"
+      ],
+      "finding": "Sorting labels, yard-sale signs, sale records, and the lemonade sign contain embedded/generated lettering. Preserve the sale actions with blank colour-coded cards and sign boards, leaving all readable wording to the page text layer."
+    },
+    {
+      "bookNumber": 100,
+      "bookId": "ab-c-04",
+      "title": "Aiden and Betty and Socks",
+      "pages": [
+        10
+      ],
+      "issues": [
+        "textMatch",
+        "continuity"
+      ],
+      "finding": "The text introduces Socks's wooden sleeping crate lined with fleece, but the image places him on Aiden's full-size bed. Replace with Socks asleep in a clearly visible low wooden crate and fleece blanket in the same bedroom."
+    },
+    {
+      "bookNumber": 102,
+      "bookId": "ab-c-06",
+      "title": "Aiden and Betty and the Science Fair",
+      "pages": [
+        1,
+        2,
+        3,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "issues": [
+        "text",
+        "continuity",
+        "anthropomorphic"
+      ],
+      "finding": "The fair pages contain extensive generated poster, calendar, certificate, and notebook writing. Worse, pages 12-13 replace Socks the brown-and-white dog with a large-eyed monkey-like animal. Rebuild with clean diagram-only displays and the locked Socks dog model on pages 12-13."
+    },
+    {
+      "bookNumber": 103,
+      "bookId": "ab-c-07",
+      "title": "Aiden, Betty and Socks's Big Adventure",
+      "pages": [
+        3,
+        9,
+        10
+      ],
+      "issues": [
+        "continuity",
+        "composition"
+      ],
+      "finding": "Page 3 overlays digital sound-wave icons on the reserve scene. Pages 9-10 substitute Dad's checked-shirt/glasses model for Uncle Eddie, who is leading this outing. Remove the icons and restore Uncle Eddie's locked dreadlocked, tan-jacket model."
+    },
+    {
+      "bookNumber": 104,
+      "bookId": "ab-c-08",
+      "title": "Aiden and Betty and the Bully",
+      "pages": [
+        4,
+        9,
+        13
+      ],
+      "issues": [
+        "continuity",
+        "anthropomorphic"
+      ],
+      "finding": "Pages 4 and 9 replace Socks the dog with a capuchin/monkey companion, and page 13 replaces Miss Okafor with a different teacher. Restore Socks as the same small brown-and-white dog and Miss Okafor as the same tall Black teacher with high bun, round gold glasses, and patterned dress."
+    },
+    {
+      "bookNumber": 105,
+      "bookId": "ab-c-09",
+      "title": "Aiden and Betty: New Teeth",
+      "pages": [
+        1,
+        2,
+        3,
+        8,
+        12
+      ],
+      "issues": [
+        "continuity",
+        "anthropomorphic"
+      ],
+      "finding": "A monkey-like companion repeatedly appears in Socks's established place, culminating on page 12 where the text explicitly names Socks. Restore the same small brown-and-white Socks dog model, or omit him on pages where he is not part of the action."
+    },
+    {
+      "bookNumber": 106,
+      "bookId": "ab-c-10",
+      "title": "Aiden and Betty and the Castle",
+      "pages": [
+        1,
+        4,
+        7,
+        11,
+        13
+      ],
+      "issues": [
+        "continuity",
+        "text"
+      ],
+      "finding": "A monkey-like character appears on Dad's shoulder, in the shop, and beside Aiden's notebook despite not belonging to the family; information boards/notebook also contain generated writing. Remove the monkey, use picture-only museum boards, and keep Aiden's field notebook to clean non-letter line work."
+    },
+    {
+      "bookNumber": 109,
+      "bookId": "dino-pals-03-dozy-wont-wake-up",
+      "title": "Dozy Won't Wake Up",
+      "pages": [
+        3,
+        4,
+        7
+      ],
+      "issues": [
+        "tone",
+        "continuity"
+      ],
+      "finding": "Pages 3-4 use prominent decorative rainbow trails/rings, and page 7 shifts to a glossy large-eyed rendering unlike the surrounding line-art cast. Replace with natural speed/bird-call motion cues and the locked Dozy model/style."
+    },
+    {
+      "bookNumber": 110,
+      "bookId": "dino-pals-04-grumpy-needs-help",
+      "title": "Grumpy Needs Help",
+      "pages": [
+        7
+      ],
+      "issues": [
+        "text"
+      ],
+      "finding": "Page 7 embeds a giant comic-book POP word inside the illustration. Show the tail springing free through pose, dust, and rock movement only."
+    },
+    {
+      "bookNumber": 112,
+      "bookId": "dino-pals-06-bouncy-bumps-into-everything",
+      "title": "Bouncy Bumps Into Everything",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "issues": [
+        "text",
+        "tone"
+      ],
+      "finding": "Five pages embed giant sound-effect words; pages 2-3 also use prominent rainbow waterfall/trail/sail decoration. Rebuild those actions with clean motion arcs, splashes, leaves, and expressions only, preserving the locked Dino Pals palette without rainbow motifs."
+    },
+    {
+      "bookNumber": 113,
+      "bookId": "dino-pals-07-wigglys-messy-day",
+      "title": "Wiggly's Messy Day",
+      "pages": [
+        3
+      ],
+      "issues": [
+        "text"
+      ],
+      "finding": "Grumpy's favourite rock contains small generated lettering. Keep the same distinctive rock through shape and colour only, with no carved or printed word."
+    },
+    {
+      "bookNumber": 114,
+      "bookId": "dino-pals-08-zippy-slows-down",
+      "title": "Zippy Slows Down",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "issues": [
+        "tone",
+        "text",
+        "continuity"
+      ],
+      "finding": "The full sequence relies on rainbow speed trails/waterfall motifs, repeated duplicate Zippys, embedded WHOOSH text and a written boundary sign; Zippy also wears a rainbow-striped scarf throughout. Rebuild with one locked Zippy per scene, a simple two-colour scarf, dust/pose motion, and no written signage."
+    },
+    {
+      "bookNumber": 115,
+      "bookId": "dino-pals-09-honkys-inside-voice",
+      "title": "Honky's Inside Voice",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "issues": [
+        "tone",
+        "text",
+        "continuity"
+      ],
+      "finding": "Every page gives Honky a rainbow crest or rainbow sound arc, while several embed large GOOD MORNING, SORRY, TOOT, or IT IS OKAY text. Lock Honky to a simple coral-and-gold crest and show loudness through leaves, posture, and clean air ripples only."
+    },
+    {
+      "bookNumber": 116,
+      "bookId": "dino-pals-10-cheekys-prank-goes-wrong",
+      "title": "Cheeky's Prank Goes Wrong",
+      "pages": [
+        3,
+        4,
+        5
+      ],
+      "issues": [
+        "text"
+      ],
+      "finding": "The prank sequence embeds BOING, HEE HEE, OH, and SPLAT words. Preserve each cause-and-effect beat using elastic tail pose, mud splash, and character reactions without any lettering."
+    },
+    {
+      "bookNumber": 117,
+      "bookId": "dino-pals-11-shys-secret-gift",
+      "title": "Shy's Secret Gift",
+      "pages": [
+        7
+      ],
+      "issues": [
+        "text"
+      ],
+      "finding": "Page 7 embeds Z sleep lettering in the night scene. Show Cheeky asleep through posture and closed eyes only."
+    },
+    {
+      "bookNumber": 118,
+      "bookId": "dino-pals-12-fancys-bad-day",
+      "title": "Fancy's Bad Day",
+      "pages": [
+        1,
+        7,
+        11
+      ],
+      "issues": [
+        "tone",
+        "continuity"
+      ],
+      "finding": "Pages 1 and 11 use prominent rainbow waterfalls and page 7 reintroduces Honky's rainbow crest. Use natural pale-blue water and the locked coral-and-gold Honky design."
+    },
+    {
+      "bookNumber": 119,
+      "bookId": "dino-pals-13-clumsy-to-the-rescue",
+      "title": "Clumsy to the Rescue",
+      "pages": [
+        2,
+        5
+      ],
+      "issues": [
+        "tone"
+      ],
+      "finding": "Page 2 uses Zippy's rainbow speed trail and page 5 places a decorative rainbow in the waterfall landscape. Replace with dust motion and natural pale-blue falling water."
+    },
+    {
+      "bookNumber": 120,
+      "bookId": "dino-pals-14-what-is-flappy",
+      "title": "What is Flappy?",
+      "pages": [
+        4
+      ],
+      "issues": [
+        "continuity",
+        "science"
+      ],
+      "finding": "The text says Flappy asks Sunny, but the image invents a second yellow feathered dinosaur instead of the locked yellow triceratops Sunny. Restore Sunny's established triceratops model beside Flappy."
+    },
+    {
+      "bookNumber": 121,
+      "bookId": "dino-pals-15-sneezy-and-the-waterfall",
+      "title": "Sneezy and the Waterfall",
+      "pages": [
+        5,
+        10,
+        11
+      ],
+      "issues": [
+        "text"
+      ],
+      "finding": "Pages 5, 10, and 11 embed CLONK/ACHOO lettering. Preserve the rock impact and enormous sneeze through action, flying dust, leaves, and rocks; retain the plot-required natural rainbow at the restored waterfall but no sound-effect text."
+    },
+    {
+      "bookNumber": 123,
+      "bookId": "dino-pals-17-the-sunny-hollow-games",
+      "title": "The Sunny Hollow Games",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        10
+      ],
+      "issues": [
+        "text",
+        "tone"
+      ],
+      "finding": "The games sequence embeds character-name labels, a cluttered generated event sheet, finish signs, score marks, and a 1st PLACE rosette; Honky's event also uses a decorative rainbow blast. Replace with picture-only staging, simple blank markers, consistent cast, and clean air/leaf motion."
+    },
+    {
+      "bookNumber": 124,
+      "bookId": "dino-pals-18-dozys-wonderful-dream",
+      "title": "Dozy's Wonderful Dream",
+      "pages": [
+        1
+      ],
+      "issues": [
+        "text"
+      ],
+      "finding": "Page 1 embeds Z sleep lettering. Show Dozy asleep through relaxed posture and closed eyes only."
+    },
+    {
+      "bookNumber": 125,
+      "bookId": "dino-pals-19-zippys-race",
+      "title": "Zippy's Race",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "issues": [
+        "continuity",
+        "text",
+        "tone"
+      ],
+      "finding": "Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion."
+    },
+    {
+      "bookNumber": 126,
+      "bookId": "dino-pals-20-the-big-storm",
+      "title": "The Big Storm",
+      "pages": [
+        2,
+        6,
+        8
+      ],
+      "issues": [
+        "text",
+        "tone"
+      ],
+      "finding": "Page 2 contains tiny character-name labels, page 6 uses Honky's rainbow sound bands, and page 8 embeds COZY CAVE signage. Remove all lettering and show the call and safe cave location through pose, leaves, rock opening, and the established cast."
+    },
+    {
+      "bookNumber": 128,
+      "bookId": "meadow-pals-02-woolly-cant-sleep",
+      "title": "Woolly Can't Sleep",
+      "pages": [
+        6
+      ],
+      "issues": [
+        "textMatch",
+        "continuity"
+      ],
+      "finding": "The text says Hungry moos, but the image shows Muddy the pig at the stall. Replace Muddy with the locked cow character Hungry outside Woolly's stall."
+    },
+    {
+      "bookNumber": 134,
+      "bookId": "meadow-pals-08-tiny-is-very-small",
+      "title": "Tiny is Very Small",
+      "pages": [
+        9
+      ],
+      "issues": [
+        "composition",
+        "textMatch"
+      ],
+      "finding": "The final page adds an unexplained blue ball inside the log, distracting from the point that Tiny's small size lets Tiny fit. Remove the stray object and show the locked grey mouse comfortably inside the same hollow log."
+    },
+    {
+      "bookNumber": 135,
+      "bookId": "meadow-pals-09-shy-comes-out-to-play",
+      "title": "Shy Comes Out to Play",
+      "pages": [
+        3,
+        4,
+        7
+      ],
+      "issues": [
+        "continuity"
+      ],
+      "finding": "Shy is the pale-grey rabbit on pages 2 and 8, but becomes a mouse on pages 3 and 7; page 4 also changes Tiny from the locked grey mouse into a brown mouse. Restore Shy as the same rabbit peeking/sitting beside Cuddly and Tiny as the same grey mouse."
+    },
+    {
+      "bookNumber": 138,
+      "bookId": "meadow-pals-12-hungry-eats-everything",
+      "title": "Hungry Eats Everything",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "issues": [
+        "continuity",
+        "textMatch"
+      ],
+      "finding": "Hungry is established as the cow who moos, but all seven pages depict a mud-spotted pig nearly identical to Muddy. Rebuild the full sequence with one locked, friendly cow character eating the same grass, flower, hat, map, and cake beats; Muddy must remain a separate pig."
+    },
+    {
+      "bookNumber": 145,
+      "bookId": "meadow-pals-19-tiny-and-brave-go-on-an-adventure",
+      "title": "Tiny and Brave Go on an Adventure",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "issues": [
+        "continuity",
+        "composition"
+      ],
+      "finding": "The joke depends on Tiny wearing the supposedly lost tiny red hat all along, but it vanishes or migrates onto Tiny's back/ear between scenes. Keep the same small red hat visibly and consistently perched on Tiny's head through all six search pages."
+    },
+    {
+      "bookNumber": 146,
+      "bookId": "meadow-pals-20-shy-and-cuddly-find-each-other",
+      "title": "Shy and Cuddly Find Each Other",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "issues": [
+        "continuity"
+      ],
+      "finding": "Every page replaces the established pale-grey rabbit Shy with a grey mouse, making Shy indistinguishable from Tiny. Rebuild the full sequence with the locked rabbit Shy and orange cat Cuddly; use a low sturdy branch for the tree scene."
+    },
+    {
+      "bookNumber": 147,
+      "bookId": "meadow-pals-21-woolly-and-grumpy-are-stuck",
+      "title": "Woolly and Grumpy Are Stuck",
+      "pages": [
+        3,
+        7
+      ],
+      "issues": [
+        "text"
+      ],
+      "finding": "Pages 3 and 7 embed dialogue inside speech bubbles. Preserve pulling and mutual frustration through poses and expressions only; all words stay in the book's text layer."
+    },
+    {
+      "bookNumber": 148,
+      "bookId": "meadow-pals-22-sleepys-big-dream",
+      "title": "Sleepy's Big Dream",
+      "pages": [
+        1,
+        8
+      ],
+      "issues": [
+        "text",
+        "continuity"
+      ],
+      "finding": "The opening and closing sleep scenes embed Z lettering and omit Sleepy's established red ear bow. Restore the same grey donkey with red bow and show sleep using posture/closed eyes only."
+    },
+    {
+      "bookNumber": 151,
+      "bookId": "meadow-pals-25-the-big-farm-party",
+      "title": "The Big Farm Party",
+      "pages": [
+        7,
+        8,
+        12,
+        13
+      ],
+      "issues": [
+        "continuity",
+        "textMatch"
+      ],
+      "finding": "Pages 7-8 make Shy a mouse, while pages 12-13 show a second mouse and omit much of the cast despite saying everyone is present. Restore Shy as the pale-grey rabbit, retain Tiny as the only mouse, and stage the complete locked Meadow Pals cast in both finale images."
+    },
+    {
+      "bookNumber": 152,
+      "bookId": "moonwood-tales-c-01",
+      "title": "Pip and the Bravery Stone",
+      "pages": [
+        5,
+        6
+      ],
+      "issues": [
+        "safety"
+      ],
+      "finding": "Pip climbs a high exposed cliff on a loose rope with no secure harness or anchor. Preserve the bravery beat while showing a properly anchored safety line/harness, stable footholds, and Burrow spotting from below."
+    },
+    {
+      "bookNumber": 153,
+      "bookId": "moonwood-tales-c-02",
+      "title": "Fern Grows Too Much",
+      "pages": [
+        6
+      ],
+      "issues": [
+        "text"
+      ],
+      "finding": "Luna's open book contains generated pseudo-writing. Keep Luna behind the leaves with a closed or blank open book using only clean botanical diagrams."
+    },
+    {
+      "bookNumber": 154,
+      "bookId": "moonwood-tales-c-03",
+      "title": "Stone Crosses the Bridge",
+      "pages": [
+        2
+      ],
+      "issues": [
+        "continuity"
+      ],
+      "finding": "The rope bridge established on every other page becomes a stone arch bridge on page 2. Restore the same narrow wooden rope bridge over the Crystal Stream."
+    },
+    {
+      "bookNumber": 156,
+      "bookId": "moonwood-tales-c-05",
+      "title": "Wren and the Backwards Spell",
+      "pages": [
+        1,
+        3,
+        5,
+        6,
+        11
+      ],
+      "issues": [
+        "text"
+      ],
+      "finding": "The spellbook repeatedly contains generated pseudo-writing. Preserve the required spellbook with clean repeatable non-letter sigils/diagrams only, and keep those marks consistent wherever the same spell is shown."
+    },
+    {
+      "bookNumber": 160,
+      "bookId": "moonwood-tales-c-09",
+      "title": "Spark's Very Big Sneeze",
+      "pages": [
+        8,
+        12
+      ],
+      "issues": [
+        "text",
+        "continuity"
+      ],
+      "finding": "Page 8 embeds ACHOO lettering in the magic burst, and page 12 changes Wren from her locked straight/tousled dark-haired design to a different curly-haired adult-like model. Use pure magic motion and restore the established young Wren."
+    },
+    {
+      "bookNumber": 168,
+      "bookId": "moonwood-tales-c-17",
+      "title": "Fern and Wren and the Wrong Potion",
+      "pages": [
+        5,
+        7,
+        9,
+        10,
+        11
+      ],
+      "issues": [
+        "anthropomorphic",
+        "continuity"
+      ],
+      "finding": "The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return."
+    },
+    {
+      "bookNumber": 175,
+      "bookId": "moonwood-tales-c-24",
+      "title": "Glimmer Breathes Fire at Last",
+      "pages": [
+        1
+      ],
+      "issues": [
+        "text",
+        "continuity"
+      ],
+      "finding": "The opening text depends on a performance sign, but the image contains no sign at all. Add the Hollow Oak door sign with the exact readable wording 'GLIMMER'S FIRE PERFORMANCE - TODAY', compositing the lettering after generation so there is no pseudo-writing."
+    },
+    {
+      "bookNumber": 176,
+      "bookId": "moonwood-tales-c-25",
+      "title": "One Night in the Deep Dark",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "issues": [
+        "style",
+        "continuity",
+        "duplication"
+      ],
+      "finding": "The finale switches from the established painterly Moonwood storybook style to flatter outlined cartoon art, changes several locked cast designs, repeats near-identical group compositions, and page 5 contains two stacked versions of the same scene. Rebuild the full sequence as one coherent painterly book using the locked Moonwood cast, the same black silver-eyed creature throughout, distinct progressive scenes, and no multi-panel images."
+    }
+  ]
+}

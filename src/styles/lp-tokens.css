@@ -1,0 +1,186 @@
+/* LITERACYPALS — THE SHARED DESIGN TOKENS.
+ *
+ * WHY THIS FILE EXISTS
+ *
+ * The sage migration recoloured the sub-pages and left their SHAPES alone.
+ * sage-subpages.css says so in its own header: "the sub-pages keep their
+ * layouts, sizes and images and ONLY the palette moves ... zero layout
+ * properties in this file, by rule."
+ *
+ * That rule is why the app still reads as two different products. What a child
+ * (or a parent) perceives as "comic book" is not the palette — it is the FORM:
+ *
+ *   - hard offset drop shadows      (box-shadow: 6px 6px 0)
+ *   - thick hard borders            (border: 3px solid black)
+ *   - rotated / skewed stickers     (transform: rotate(-3deg))
+ *   - ALL-CAPS condensed display    (text-transform: uppercase)
+ *
+ * You cannot recolour your way out of any of those. A recoloured comic is
+ * still a comic. So this file owns form as well as colour, and the two travel
+ * together from here on.
+ *
+ * WHY :root AND NOT A CLASS
+ *
+ * sage-subpages.css scopes its remap to `.student-mode-app.lp-skin-sage`.
+ * Anything rendering OUTSIDE that subtree keeps raw comic values — the file
+ * admits this for the fullscreen GamePlayer, and QuestRoot portals to
+ * document.body for the same reason. That is why Phonics still showed
+ * unmapped comic yellow. A token set whose reach depends on DOM position will
+ * keep springing leaks; these live at :root so a portal cannot escape them.
+ */
+
+:root {
+  /* ── Colour ─────────────────────────────────────────────────────────────
+   * Lifted verbatim from home-sage.css so the home page remains the single
+   * source of truth for the palette; it now simply consumes these instead of
+   * declaring its own copy. */
+  --lp-sage: #5CA091;
+  --lp-cream: #FBF4EA;
+  --lp-ink: #182620;
+  --lp-ink-soft: #4A5A52;
+  --lp-line: #E9E1D4;
+  --lp-forest: #2E4B3E;
+  --lp-tan: #C98F54;
+  --lp-promo: #D9924E;
+  --lp-gold: #F2B33D;
+  --lp-sky: #BFE3D8;
+  --lp-pill: rgba(255, 255, 255, 0.28);
+  --lp-white: #FFFFFF;
+
+  /* Danger is the one hue the sage palette never defined, and "start the
+     adventure again" needs one that reads as serious without reading as
+     alarming to a five-year-old. */
+  --lp-danger: #B4472C;
+
+  /* ── Form ───────────────────────────────────────────────────────────────
+   * The half of the design system the recolour could never express.
+   *
+   * Note what is deliberately ABSENT and must never be reintroduced outside
+   * the Arcade: hard offset shadows, borders thicker than 2px, and rotation
+   * on chrome. Those three are the comic look. */
+  --lp-radius-sm: 10px;
+  --lp-radius-card: 18px;
+  --lp-radius-lg: 24px;
+  --lp-radius-pill: 999px;
+
+  --lp-border-width: 1px;
+  --lp-border: var(--lp-border-width) solid var(--lp-line);
+  --lp-border-strong: 2px solid var(--lp-forest);
+
+  /* Diffuse and low-opacity: light falls on a soft surface, it does not get
+     stamped behind it. */
+  --lp-shadow-card: 0 2px 10px rgba(24, 38, 32, 0.06);
+  --lp-shadow-raised: 0 8px 24px rgba(24, 38, 32, 0.10);
+  --lp-shadow-float: 0 14px 34px rgba(24, 38, 32, 0.14);
+
+  --lp-space-1: 4px;
+  --lp-space-2: 8px;
+  --lp-space-3: 12px;
+  --lp-space-4: 16px;
+  --lp-space-5: 24px;
+  --lp-space-6: 32px;
+
+  --lp-font: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* A child's tap target. Named so it can never quietly drift below the floor
+     again — a previous rule set 56px against selectors that matched nothing,
+     and the smallest live control in the quest ended up 2px of padding. */
+  --lp-tap-min: 44px;
+  --lp-tap-comfortable: 56px;
+
+  --lp-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --lp-duration: 180ms;
+}
+
+/* ── THE SOFT FORM PRIMITIVES ───────────────────────────────────────────────
+ * Four shapes. Every student surface that is a MENU (as opposed to a world)
+ * should be built from these rather than reimplementing chrome per page.
+ * They are plain classes, not components, so a page can adopt them one
+ * element at a time without a rewrite. */
+
+.lp-card {
+  border-radius: var(--lp-radius-card);
+  border: var(--lp-border);
+  background: var(--lp-white);
+  box-shadow: var(--lp-shadow-card);
+  transition: transform var(--lp-duration) var(--lp-ease),
+              box-shadow var(--lp-duration) var(--lp-ease);
+}
+
+.lp-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--lp-shadow-raised);
+}
+
+.lp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--lp-space-2);
+  min-height: 28px;
+  padding: 4px 12px;
+  border-radius: var(--lp-radius-pill);
+  border: var(--lp-border);
+  background: var(--lp-white);
+  color: var(--lp-ink-soft);
+  font-weight: 700;
+  font-size: 13px;
+  /* Sentence case. The old chips shouted in condensed capitals, which is
+     both louder and measurably harder for an early reader to decode. */
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.lp-pill.is-accent {
+  border-color: transparent;
+  background: var(--lp-tan);
+  color: var(--lp-white);
+}
+
+.lp-tab {
+  min-height: var(--lp-tap-min);
+  padding: 10px 18px;
+  border-radius: var(--lp-radius-pill);
+  border: var(--lp-border);
+  background: var(--lp-white);
+  color: var(--lp-ink);
+  font-family: var(--lp-font);
+  font-weight: 800;
+  font-size: 15px;
+  text-transform: none;
+  letter-spacing: 0;
+  cursor: pointer;
+  transition: background var(--lp-duration) var(--lp-ease),
+              color var(--lp-duration) var(--lp-ease);
+}
+
+.lp-tab.is-active {
+  border-color: transparent;
+  background: var(--lp-forest);
+  color: var(--lp-white);
+}
+
+/* The replacement for every rotated starburst sticker. A section says its own
+   name in the app's voice; it does not need a badge shouting it. */
+.lp-section-header { margin: 0 0 var(--lp-space-5); }
+
+.lp-section-header h1 {
+  margin: 0;
+  color: var(--lp-ink);
+  font-family: var(--lp-font);
+  font-size: clamp(26px, 3.2vw, 38px);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+.lp-section-header p {
+  margin: 6px 0 0;
+  color: var(--lp-ink-soft);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-card, .lp-tab { transition: none; }
+  .lp-card:hover { transform: none; }
+}

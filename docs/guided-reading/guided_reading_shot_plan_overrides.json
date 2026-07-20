@@ -1,0 +1,1674 @@
+{
+  "101:7": {
+    "pageNumber": 7,
+    "visualMoment": "Aiden sits alone at the kitchen table studying his field notebook with a serious, thoughtful expression, but the open page is angled away from the camera so its contents cannot be seen.",
+    "subjects": [
+      "Aiden (1)",
+      "field notebook (1)",
+      "plain pen (1)"
+    ],
+    "requiredVisible": [
+      "Aiden in his orange hoodie leaning over the notebook",
+      "one field notebook with the page surface turned away from the viewer",
+      "one plain pen lying beside it",
+      "Aiden's thoughtful pause as he considers the final clue"
+    ],
+    "composition": "Medium three-quarter view from the far side of Aiden, keeping his face clear while the notebook is seen mostly from its closed spine and page edges. The actual page surface must be hidden by perspective.",
+    "continuityDetails": [
+      "match Aiden's established face, freckles, hair and orange hoodie",
+      "use the same warm family kitchen as adjacent pages"
+    ],
+    "forbidden": [
+      "no visible writing, letters, numbers, pictograms, clue icons, paw symbols or pseudo-text",
+      "no thought bubbles or inset images",
+      "no extra characters or pets"
+    ]
+  },
+  "101:12": {
+    "pageNumber": 12,
+    "visualMoment": "Inside Mrs Obi's kitchen, Mrs Obi points clearly to the cat flap in her back door while Dad looks from the muddy pawprints on the mat to the opening and understands how Socks got inside.",
+    "subjects": [
+      "Mrs Obi (1)",
+      "Dad (1)"
+    ],
+    "requiredVisible": [
+      "Mrs Obi as an older Black woman with silver box braids, plum cardigan and round glasses",
+      "Dad as the established Black man with round glasses and checked shirt",
+      "one cat flap in the back door",
+      "one short trail of small muddy dog pawprints on the mat"
+    ],
+    "composition": "Medium-wide kitchen view with the cat flap in the left third, Mrs Obi beside it pointing down, and Dad on the right following her gesture. Keep both faces and the flap fully visible.",
+    "continuityDetails": [
+      "Mrs Obi must be visually distinct from Mum",
+      "Dad must match the established family reference",
+      "the pawprints are small dog prints leading from the flap"
+    ],
+    "forbidden": [
+      "no Mum, Aiden, Betty, Socks, cat or extra neighbour",
+      "no visible writing or signs",
+      "no duplicated subjects"
+    ]
+  },
+  "101:14": {
+    "pageNumber": 14,
+    "visualMoment": "Aiden, Betty, Mum and Dad walk home together along the autumn pavement, laughing with relief while Socks trots safely between them on his red lead and harness.",
+    "subjects": [
+      "Aiden (1)",
+      "Betty (1)",
+      "Mum (1)",
+      "Dad (1)",
+      "Socks (1)"
+    ],
+    "requiredVisible": [
+      "all four family members matching their established designs",
+      "Socks on the ground wearing his brick-red harness",
+      "one red lead held by Mum",
+      "warm late-afternoon autumn street and fallen leaves",
+      "natural shared laughter and relaxed walking poses"
+    ],
+    "composition": "Warm wide street-level group shot with the five subjects in one loose line, Socks centered low between the family members and everyone moving in the same direction.",
+    "continuityDetails": [
+      "the family is returning from Mrs Obi's house, not travelling to school",
+      "Socks remains the compact domestic terrier with the locked markings"
+    ],
+    "forbidden": [
+      "no thought bubbles, speech bubbles, icons, diagrams or inset pictures",
+      "no backpacks, school bags, tracker device, phone display or latch close-up",
+      "no visible writing or extra characters"
+    ]
+  },
+  "102:4": {
+    "pageNumber": 4,
+    "visualMoment": "Aiden photographs the closed jar of blue crystals on its stable tray while Betty compares it with a simple abstract growth chart and Mum calmly supervises from behind them.",
+    "subjects": [
+      "Aiden (1)",
+      "Betty (1)",
+      "Mum (1)"
+    ],
+    "requiredVisible": [
+      "Aiden and Betty both wearing clear safety goggles",
+      "one closed unlabelled jar with a single thread of blue geometric crystals",
+      "one stable shallow tray beneath the jar",
+      "one clipboard showing only five clean coloured bars with no writing",
+      "Mum standing directly behind the children supervising"
+    ],
+    "composition": "Clean medium table-height view centered on the jar and tray, with Aiden photographing from the left, Betty holding the clipboard on the right, and Mum visible between them in the background.",
+    "continuityDetails": [
+      "match the established Aiden, Betty and Mum designs",
+      "the experimental container remains closed and untouched"
+    ],
+    "forbidden": [
+      "no Socks or any other animal anywhere in frame",
+      "no dog bed, harness or pet object",
+      "no visible letters, numbers, labels or pseudo-writing",
+      "no open jar or direct handling"
+    ]
+  },
+  "103:6": {
+    "pageNumber": 6,
+    "visualMoment": "The wide fallen tree remains visible across the shallow river as story context, but Socks waits safely on the far bank while Uncle Eddie leads Aiden and Betty across a nearby low wooden footbridge with two sturdy handrails.",
+    "subjects": [
+      "Socks (1)",
+      "Uncle Eddie (1)",
+      "Aiden (1)",
+      "Betty (1)"
+    ],
+    "requiredVisible": [
+      "one unused wide fallen tree spanning the river",
+      "one low wooden footbridge with two sturdy handrails",
+      "Socks standing on the far bank at ground level",
+      "Uncle Eddie leading Aiden and Betty across the railed footbridge",
+      "shallow calm river with visible stones"
+    ],
+    "composition": "Wide side view showing both routes clearly: the unused fallen tree in the background and the family centered on the nearby railed footbridge. Socks waits on stable ground at the far end and looks back toward them.",
+    "continuityDetails": [
+      "Socks remains the compact domestic terrier and stays on the ground",
+      "Uncle Eddie remains within arm's reach of both children",
+      "the footbridge, not the fallen tree, is the only route being used"
+    ],
+    "forbidden": [
+      "no person or pet on the fallen tree",
+      "no unsupervised water crossing",
+      "no bare feet",
+      "no duplicate characters",
+      "no visible writing or signs"
+    ]
+  },
+  "103:12": {
+    "pageNumber": 12,
+    "visualMoment": "At the family table that evening, Aiden and Betty begin matching nature notebooks by carefully arranging a pressed leaf, a small fallen feather and one clear dragonfly sketch on otherwise clean pages.",
+    "subjects": [
+      "Aiden (1)",
+      "Betty (1)",
+      "nature notebooks (2)"
+    ],
+    "requiredVisible": [
+      "Aiden and Betty matching their established designs",
+      "exactly two open nature notebooks",
+      "one simple recognisable leaf study in Aiden's notebook",
+      "one simple recognisable dragonfly study in Betty's notebook",
+      "one small fallen feather laid between the books"
+    ],
+    "composition": "Warm evening medium shot across the table, showing both children and both notebook spreads at a readable visual scale while keeping the pages sparse and clean.",
+    "continuityDetails": [
+      "the books are new and only partly begun",
+      "the nature studies are deliberate single drawings, not decorative symbols"
+    ],
+    "forbidden": [
+      "no letters, words, dates, numerals, tally marks, pseudo-writing or dense scribbles",
+      "no duplicate books, extra children, Socks or adult",
+      "no collage panels or thought bubbles"
+    ]
+  },
+  "120:6": {
+    "pageNumber": 6,
+    "visualMoment": "A full-body view of Flappy attempting one tiny stomp on soft earth: one small foot is planted beside a single shallow footprint, the other foot is just lifting, and Flappy's fully visible face shows determined concentration.",
+    "subjects": [
+      "Flappy (1)"
+    ],
+    "requiredVisible": [
+      "Flappy's complete locked golden-orange Archaeopteryx body from crest to tail tip and both feet",
+      "Flappy's complete face and both eyes",
+      "one small shallow footprint in soft earth",
+      "one planted foot and one slightly raised foot"
+    ],
+    "composition": "Medium-wide eye-level shot with all of Flappy contained inside a generous 15 percent edge margin. Keep the entire crest, face, wings, body, long tail and both feet visible. The footprint sits immediately beside the planted foot.",
+    "continuityDetails": [
+      "match the Flappy master reference exactly in colour, markings, anatomy and rendering",
+      "the stomp is deliberately tiny and goes unnoticed because no one else is present"
+    ],
+    "forbidden": [
+      "no cropped head, face, crest, wings, tail or feet",
+      "no close-up framing",
+      "no extra character, animal, caption, impact word or motion text",
+      "no change to Flappy's locked palette or proportions"
+    ]
+  },
+  "69:9": {
+    "pageNumber": 9,
+    "visualMoment": "A natural group of African penguins stands and waddles among sun-warmed rocks beside the blue sea, clearly showing a penguin species adapted to a warm coastal habitat.",
+    "subjects": [
+      "African penguins (7)"
+    ],
+    "requiredVisible": [
+      "seven anatomically accurate African penguins with black facial masks and white eye markings",
+      "sunny rocky South African shoreline",
+      "blue coastal water and sparse warm-climate vegetation",
+      "natural varied standing and waddling poses"
+    ],
+    "composition": "Naturalistic medium-wide wildlife photograph at penguin eye level, with the group spread irregularly across the rocky shore and habitat clearly visible behind them.",
+    "continuityDetails": [
+      "use factual African penguin anatomy and plumage",
+      "the scene communicates species diversity through a real warm-habitat example, not counting objects"
+    ],
+    "forbidden": [
+      "no arranged stones, counters, tokens, diagrams, labels, writing or numerals",
+      "no emperor penguins, snow, ice, zoo furniture, human or decorative composition",
+      "no duplicated or fused birds"
+    ]
+  },
+  "155:11": {
+    "pageNumber": 11,
+    "visualMoment": "Glimmer stands alone on a bare stone clearing and releases one small, controlled jet of brilliant orange flame across the empty ground as the startled fox turns and runs safely away; the closed seed pouch remains untouched beside a rock.",
+    "subjects": [
+      "Glimmer (1)",
+      "red fox (1)",
+      "closed seed pouch (1)"
+    ],
+    "requiredVisible": [
+      "Glimmer matching the established compact purple-and-gold young dragon model",
+      "one tiny controlled orange flame puff aimed only across bare stone and ending near the centre of the clearing",
+      "one fox already running in the far-right background at least two full fox body lengths beyond the end of the flame",
+      "one closed seed pouch safely resting beside a rock",
+      "all plants and trees undamaged"
+    ],
+    "composition": "Dynamic wide side view with Glimmer in the far-left third, the tiny flame ending in the centre, and the fox retreating in the far-right background. Leave a clearly empty gap at least two fox body lengths wide between the final flame tip and the fox's tail. Keep the seed pouch safely in the near foreground beside a rock.",
+    "continuityDetails": [
+      "match Glimmer's cover design, proportions, markings and painterly outlined Moonwood style exactly",
+      "the controlled flame succeeds after Glimmer's practice and does not touch any character or vegetation"
+    ],
+    "forbidden": [
+      "no Flint, Pip, helper, adult, bucket, practice ring, sign, label or safety equipment",
+      "no flame touching, reaching, overlapping, chasing or pointing directly at the fox",
+      "no forest fire, burning plant, smoke cloud, injury or frightened baby styling",
+      "no visible words, letters, numbers or pseudo-writing"
+    ]
+  },
+  "151:9": {
+    "pageNumber": 9,
+    "visualMoment": "At the decorated party yard, Grumpy the brown goat sits alone on one low hay bale at the back, watching the celebration from a comfortable distance.",
+    "subjects": [
+      "Grumpy the brown goat (1)",
+      "low hay bale (1)"
+    ],
+    "requiredVisible": [
+      "Grumpy matching the canonical dark-brown goat with long tan horns, white muzzle, chest patch and goatee",
+      "one low hay bale used as a seat",
+      "party bunting, balloons and the edge of the cake table clearly visible in the middle or foreground",
+      "Grumpy positioned spatially behind the party decorations"
+    ],
+    "composition": "Wide party-yard view with an unoccupied decorated table edge and balloons in the near foreground, while Grumpy sits fully visible on the hay bale in the back third near the fence. No other animal appears.",
+    "continuityDetails": [
+      "use the same red barn, bunting, balloons and sunny light as pages 1-8",
+      "Grumpy is reserved but not isolated outside the party"
+    ],
+    "forbidden": [
+      "no rabbit, donkey, sheep or other animal",
+      "no empty undecorated field",
+      "no words, letters, signs or labels",
+      "no standing on or climbing the hay bale"
+    ]
+  },
+  "151:10": {
+    "pageNumber": 10,
+    "visualMoment": "Grumpy the brown goat sits beside the decorated party table holding one plate with four clearly separate slices of cake, looking quietly satisfied after having a lot of cake.",
+    "subjects": [
+      "Grumpy the brown goat (1)",
+      "plate (1)",
+      "cake slices (4)"
+    ],
+    "requiredVisible": [
+      "Grumpy matching the canonical dark-brown goat model",
+      "exactly one plate holding exactly four distinct modest cake slices",
+      "a few cake crumbs on the plate",
+      "party bunting, balloons and the decorated table continuing from adjacent pages"
+    ],
+    "composition": "Medium party-table view with Grumpy seated on the left and his single plate on the table at centre. Keep all four slices countable and the decorated farmyard visible behind.",
+    "continuityDetails": [
+      "same party location and daylight as pages 9 and 11",
+      "Grumpy is satisfied without body-shaming or an exaggerated belly"
+    ],
+    "forbidden": [
+      "no stack or tower of plates, extra plate, giant cake, whole cake or excessive food pile",
+      "no rabbit, donkey or extra animal",
+      "no words, letters, signs or labels",
+      "no udder or visible genitals"
+    ]
+  },
+  "151:11": {
+    "pageNumber": 11,
+    "visualMoment": "At the same decorated party table, Grumpy the brown goat looks up with a small genuine smile and relaxed eyebrows, clearly discovering that he likes the party.",
+    "subjects": [
+      "Grumpy the brown goat (1)",
+      "plate with one cake slice (1)"
+    ],
+    "requiredVisible": [
+      "Grumpy matching the canonical dark-brown goat model from pages 9-10",
+      "one restrained but unmistakable happy smile",
+      "one plate with one remaining cake slice",
+      "party bunting, balloons and decorated table clearly visible"
+    ],
+    "composition": "Warm medium close-up at table height, keeping Grumpy's complete horns, face, white goatee and upper body visible with party decorations softly behind him.",
+    "continuityDetails": [
+      "same party location and daylight as pages 9-10",
+      "the emotional change is gentle and believable"
+    ],
+    "forbidden": [
+      "no empty undecorated field",
+      "no rabbit, donkey or extra animal",
+      "no giant eyes, distorted horns, missing goatee, udder or visible genitals",
+      "no words, letters, signs or labels"
+    ]
+  },
+  "151:12": {
+    "pageNumber": 12,
+    "visualMoment": "Exactly eight canonical Meadow Pals gather once each around one small decorated party table in the sunny farmyard, clearly showing that everyone in this story is present.",
+    "subjects": [
+      "Muddy pink pig (1)",
+      "Clucky orange hen (1)",
+      "Noisy orange rooster (1)",
+      "Bouncy yellow spring-legged sheep (1)",
+      "Tiny small blue-grey mouse (1)",
+      "Shy larger pale-grey mouse (1)",
+      "Cuddly orange tabby cat (1)",
+      "Grumpy dark-brown goat (1)"
+    ],
+    "requiredVisible": [
+      "all eight named characters fully identifiable and appearing exactly once",
+      "Bouncy's four coil-spring legs and red neck ribbon",
+      "Tiny visibly smaller than Shy",
+      "Grumpy's two long tan horns, white muzzle, chest patch and pointed goatee",
+      "one small party table, one continuous tidy bunting string and four tied balloons"
+    ],
+    "composition": "Balanced medium-wide group scene in two shallow rows around the small table. Keep every face, defining body feature and limb unobstructed, with smaller characters in the front row and taller characters behind.",
+    "continuityDetails": [
+      "match each canonical cover reference exactly",
+      "use the same red barn, green yard and flat outlined series style as pages 1-11"
+    ],
+    "forbidden": [
+      "no ninth animal, duplicate, rabbit, donkey, duck, dog, cow, generic sheep or extra chicken",
+      "no udder, visible genitals, malformed horn, fused limb, missing spring leg or hybrid character",
+      "no loose, broken, empty or V-shaped bunting marks",
+      "no words, letters, PARTY banner, signs or labels"
+    ]
+  },
+  "157:5": {
+    "pageNumber": 5,
+    "visualMoment": "Flint stands alone in a dense unfamiliar forest clearing, looking from the real wall of trees around him to his finished cream map and realizing that the two do not match.",
+    "subjects": [
+      "Flint (1)",
+      "finished cream parchment map (1)"
+    ],
+    "requiredVisible": [
+      "Flint matching his locked red-haired tan-clothed mapmaker model",
+      "one finished map showing only one broad blue stream band, one cluster of three green trees, three simple grey rock peaks and one dark dotted route",
+      "dense real trees filling the clearing where the sparse map implies open ground",
+      "Flint's puzzled comparison between map and forest"
+    ],
+    "composition": "Medium three-quarter view with Flint and the map in the left half and the dense empty forest filling the right half. Keep the map large enough to verify its four clean symbols but sparse and uncluttered.",
+    "continuityDetails": [
+      "Flint is completely alone",
+      "use the same cream parchment and locked symbol shapes as adjacent pages"
+    ],
+    "forbidden": [
+      "no Pip, companion, helper, animal, flag or safety kit",
+      "no words, letters, numerals, pseudo-writing, tiny marks, decorative border, compass, dense hatching or extra symbols",
+      "no pinned map or indoor scene"
+    ]
+  },
+  "157:9": {
+    "pageNumber": 9,
+    "visualMoment": "At warm dusk, Flint arrives back at the Hollow Oak looking mildly puzzled but pleased, carrying exactly three new cream map pages rolled together under one arm with only their clean blank backs facing the viewer.",
+    "subjects": [
+      "Flint (1)",
+      "Hollow Oak home (1)",
+      "new map pages (3)"
+    ],
+    "requiredVisible": [
+      "Flint matching his locked model approaching the Hollow Oak door",
+      "exactly three separate rolled cream parchment pages visible under one arm",
+      "only blank parchment backs and rolled edges visible",
+      "warm safe dusk light and Flint's gently amused, slightly lost expression"
+    ],
+    "composition": "Medium-wide arrival scene with Flint in the left third walking toward the Hollow Oak entrance in the right third. Frame all three parchment rolls clearly but turn every marked surface away from the camera.",
+    "continuityDetails": [
+      "Flint is alone on this page",
+      "the Hollow Oak matches pages 1 and 10-12"
+    ],
+    "forbidden": [
+      "no visible map marks, words, letters, numerals, pseudo-writing, symbols or diagrams on the parchment backs",
+      "no Pip, companion, helper, animal, flag or safety equipment",
+      "no extra parchment roll"
+    ]
+  },
+  "161:3": {
+    "pageNumber": 3,
+    "visualMoment": "Pip stands safely on a broad Hollow Oak root below Luna's low branch, looking up and asking what she remembers while Luna pauses with one wing slightly raised and turns her thoughtful face toward the open woodland outside.",
+    "subjects": [
+      "Luna owl (1)",
+      "Pip woodland child (1)"
+    ],
+    "requiredVisible": [
+      "Luna matching the locked slate-grey owl model, perched with both talons on one low branch",
+      "Pip matching the locked auburn-haired green-clothed model, standing with both boots on one broad ground-level root",
+      "an open view of trees and sky beyond them",
+      "Luna's clear pause of partial recollection"
+    ],
+    "composition": "Medium landscape two-shot with Luna upper-left on a low branch and Pip lower-right on the broad root, their eye lines meeting. Keep the height modest and the ground visible beneath Pip.",
+    "continuityDetails": [
+      "exactly one Luna and one Pip",
+      "Luna remains on her familiar branch while Pip stays safely at ground level",
+      "no silver box or seeds are visible yet"
+    ],
+    "forbidden": [
+      "no child perched, standing or climbing on a branch",
+      "no extra resident, animal, box, seed or prop",
+      "no words, letters, captions, labels or speech bubbles"
+    ]
+  },
+  "161:4": {
+    "pageNumber": 4,
+    "visualMoment": "Fern and Burrow stand on the broad roots beneath Luna's low branch, each making a simple questioning gesture while Luna looks between them with an uncertain expression.",
+    "subjects": [
+      "Luna owl (1)",
+      "Fern fern sprite (1)",
+      "Burrow mole (1)"
+    ],
+    "requiredVisible": [
+      "one locked Luna perched with both talons on the low branch",
+      "one locked Fern on a root with empty open hands",
+      "one locked Burrow on a neighbouring root with empty paws",
+      "all three unobstructed and facing one another"
+    ],
+    "composition": "Balanced medium landscape group with Luna slightly elevated at centre and Fern and Burrow at ground level on either side, forming a clear triangle of eye lines.",
+    "continuityDetails": [
+      "exactly these three characters, each once",
+      "preserve their canonical species, clothing and relative scale",
+      "the scene continues outside Hollow Oak"
+    ],
+    "forbidden": [
+      "no satchel, bag, seed, box, notebook, lantern or invented prop",
+      "no extra residents or duplicate figures",
+      "no words, letters, captions, labels or speech bubbles"
+    ]
+  },
+  "161:5": {
+    "pageNumber": 5,
+    "visualMoment": "Luna, Pip, Fern, Burrow and Dewdrop search together around Hollow Oak: Luna scans from a low branch, Fern checks the open doorway, Burrow peers into one ground-level nook, Pip looks along the path, and Dewdrop surveys the meadow edge, all finding nothing.",
+    "subjects": [
+      "Luna owl (1)",
+      "Pip woodland child (1)",
+      "Fern fern sprite (1)",
+      "Burrow mole (1)",
+      "Dewdrop water sprite (1)"
+    ],
+    "requiredVisible": [
+      "exactly five locked characters, each fully identifiable and appearing once",
+      "Hollow Oak doorway and one ground-level nook",
+      "one continuous woodland path leading toward a small meadow opening",
+      "five distinct searching poses with empty hands"
+    ],
+    "composition": "Wide landscape tableau with Hollow Oak on the left, path through the middle and meadow opening on the right. Keep every character at ground level except Luna on one low branch, with no overlap or tiny background figures.",
+    "continuityDetails": [
+      "use the exact canonical cast models from the Moonwood reference sheet",
+      "all searching remains safe and close to Hollow Oak",
+      "no memory clue has appeared yet"
+    ],
+    "forbidden": [
+      "no lantern, magnifying glass, map, tool, bag, box, seed or invented prop",
+      "no climbing, hidden face, extra character or duplicate",
+      "no words, letters, captions, labels or speech bubbles"
+    ]
+  },
+  "161:11": {
+    "pageNumber": 11,
+    "visualMoment": "Luna stands before two immense ancient Moonwood trunks with the same ornate silver box open on a low mossy stump, revealing all twelve glowing seeds still arranged inside as she explains what they are for.",
+    "subjects": [
+      "Luna owl (1)",
+      "ornate silver box (1)",
+      "glowing seeds (12)"
+    ],
+    "requiredVisible": [
+      "Luna matching her exact locked owl model",
+      "one open palm-sized ornate silver box matching pages 8-10",
+      "exactly twelve distinct gold seeds arranged in three clean rows of four inside the box",
+      "two immense old tree trunks and roots behind Luna"
+    ],
+    "composition": "Medium landscape scene with Luna beside the stump in the left half, the open box angled clearly toward the viewer in the lower centre, and the ancient trunks filling the background. Keep all twelve seeds separate and countable.",
+    "continuityDetails": [
+      "all twelve seeds remain in the box before distribution",
+      "the box design, scale and silver ornament match pages 8-10",
+      "Luna is the only character present"
+    ],
+    "forbidden": [
+      "no seed outside the box, missing seed, extra seed or second box",
+      "no other resident or generic animal",
+      "no words, letters, tree plaques, captions, labels or speech bubbles"
+    ]
+  },
+  "161:12": {
+    "pageNumber": 12,
+    "visualMoment": "The ten established Moonwood residents form one shallow semicircle, nine residents each holding one glowing seed while Luna holds the tenth seed gently at the tip of one wing; the open silver box rests on a low stump in front of Luna with exactly two reserve seeds inside.",
+    "subjects": [
+      "Luna owl (1)",
+      "Pip (1)",
+      "Fern (1)",
+      "Stone (1)",
+      "Glimmer (1)",
+      "Wren (1)",
+      "Flint (1)",
+      "Dewdrop (1)",
+      "Burrow (1)",
+      "Spark (1)",
+      "ornate silver box (1)"
+    ],
+    "requiredVisible": [
+      "exactly the ten canonical cast members from the reference sheet, each once and unobstructed",
+      "exactly one glowing seed held by each resident, including Luna",
+      "one open ornate silver box on a low stump showing exactly two additional seeds",
+      "twelve total seeds across the complete image"
+    ],
+    "composition": "Wide landscape group portrait in one shallow semicircle, with smaller Fern and Burrow in front and taller figures behind without overlap. Luna and the stump are central. Each held seed and the two box seeds must be separately visible and countable.",
+    "continuityDetails": [
+      "preserve all ten locked identities, species, clothing and scale",
+      "nine held seeds plus Luna's held seed plus two box seeds equals twelve",
+      "the silver box matches pages 8-11"
+    ],
+    "forbidden": [
+      "no invented eleventh resident, ordinary human substitution, duplicate, fused figure or hidden face",
+      "no extra seed, missing seed or second box",
+      "no words, letters, captions, labels or speech bubbles"
+    ]
+  },
+  "161:13": {
+    "pageNumber": 13,
+    "visualMoment": "In golden afternoon light the ten established residents plant their ten distributed seeds at evenly spaced points in a clear ring around Hollow Oak; Luna presses her seed into one shallow hole with a talon while the open silver box beside her still contains the two reserve seeds.",
+    "subjects": [
+      "ten canonical Moonwood residents (1 each)",
+      "Hollow Oak (1)",
+      "ornate silver box (1)"
+    ],
+    "requiredVisible": [
+      "exactly the ten canonical residents, each once at a separate planting point",
+      "one central Hollow Oak and one clear circular ring of ten shallow planting spots",
+      "one open silver box beside Luna containing exactly two reserve seeds",
+      "safe hand, paw, foreclaw or talon planting poses on level soil"
+    ],
+    "composition": "Wide elevated oblique landscape view with Hollow Oak central and the residents distributed around a complete circular ring. Keep every face and defining feature visible while retaining enough ground view to read the ring and separate planting spots.",
+    "continuityDetails": [
+      "each resident plants the same seed received on page 12",
+      "two reserve seeds remain visibly in the matching box",
+      "use the exact canonical cast reference and warm golden afternoon palette"
+    ],
+    "forbidden": [
+      "no extra resident, duplicate, generic human, fused body or obscured character",
+      "no eleventh planted seed, extra box, tool, sign or marker",
+      "no words, letters, captions, labels or speech bubbles"
+    ]
+  },
+  "163:9": {
+    "pageNumber": 9,
+    "visualMoment": "The move has just finished safely: the rounded boulder now rests completely still in the empty flat pocket beside the channel, the three plain singing stones are fully exposed, Fern holds the slack vine on the bank and Dewdrop lets the last controlled stream of water subside.",
+    "subjects": [
+      "Fern fern sprite (1)",
+      "Dewdrop water sprite (1)",
+      "rounded boulder (1)",
+      "plain singing stones (3)"
+    ],
+    "requiredVisible": [
+      "one boulder fully settled on stable flat ground outside the stream channel",
+      "exactly three smooth dark-grey river stones with subtle pale-gold mineral veins and no carved features",
+      "Fern safely on the bank holding one slack thick green vine",
+      "Dewdrop safely on the opposite bank with a small water flow fading away",
+      "clear empty space between both characters and the settled boulder"
+    ],
+    "composition": "Vertical portrait view with the three exposed stones low-centre in the shallow stream, the settled boulder in its dry side pocket behind them, and Fern and Dewdrop on opposite safe banks. Nothing is airborne or still rolling.",
+    "continuityDetails": [
+      "the boulder has completed its short move and cannot roll farther",
+      "the same single vine remains wrapped around the boulder but is visibly slack",
+      "the three stones match their plain natural appearance on pages 5-8 and 10"
+    ],
+    "forbidden": [
+      "no moving, floating, falling or suspended boulder",
+      "no character downhill, in the water, behind the boulder or in its former path",
+      "no eyes, mouths, cheeks, faces, expressions, limbs, spirals, carvings, symbols or glyphs on any stone",
+      "no extra character, tool, words, letters, captions or musical notes"
+    ]
+  },
+  "164:10": {
+    "pageNumber": 10,
+    "visualMoment": "Glimmer glides safely just above level grass for a short five-step distance, wings spread and body relaxed, while Spark watches nearby with a pleased, encouraging expression.",
+    "subjects": [
+      "Glimmer dragon (1)",
+      "Spark wizard (1)"
+    ],
+    "requiredVisible": [
+      "one locked Glimmer in a low controlled glide with clear grass immediately beneath her",
+      "one locked Spark standing on level ground several paces away",
+      "the same open Moonwood practice clearing in clear third-day daylight with blue sky filtered through green leaves",
+      "a short, safe glide path with no height, edge or obstacle"
+    ],
+    "composition": "Vertical portrait daytime action scene with Glimmer crossing the middle of the frame less than one body-height above grass and Spark in the lower-right third. Keep the continuous level ground visible from take-off to landing area, under clear daylight with no moon or stars.",
+    "continuityDetails": [
+      "exactly one Glimmer and one Spark",
+      "Glimmer's purple-blue scales, gold flecks, cream belly, teal eyes and small lavender wings match the reference",
+      "the moment shows modest progress, not full flight",
+      "this is daytime on the third practice day, before the sunset on page 11"
+    ],
+    "forbidden": [
+      "no footprint markers, dots, arrows, numerals, counting symbols or motion glyphs",
+      "no cliff, drop, high flight, fall, fire, extra character or pet",
+      "no moon, stars, night sky, words, letters, captions, labels or speech bubbles"
+    ]
+  }
+  ,
+  "88:3": {
+    "pageNumber": 3,
+    "visualMoment": "In the sunny family garden, Chips calmly chews long green grass beside three harmless fallen twigs while Dad kneels beside him holding his dark-green brimmed hat safely up and away; one small nibbled edge makes the earlier mischief clear, but the hat is intact and Chips is not touching it.",
+    "subjects": [
+      "Chips, exactly 1 goat",
+      "Dad, exactly 1 adult"
+    ],
+    "requiredVisible": [
+      "Chips' exact white-and-brown markings, horns, goatee, blue collar and single bell",
+      "Dad matching the approved page reference",
+      "one clearly recognisable dark-green brimmed hat held fully away from Chips",
+      "one strip of long green grass and exactly three fallen twigs"
+    ],
+    "composition": "Landscape medium shot at goat-eye height, with Chips full-body at left chewing grass and Dad fully visible kneeling at right holding the hat above shoulder height. Keep both faces, the bell collar and entire hat inside the safe frame.",
+    "continuityDetails": [
+      "Match the approved James-and-Anna cel-colour cartoon exactly",
+      "The nibbled hat edge is minor and the adult response is calm and corrective"
+    ],
+    "forbidden": [
+      "No children or extra characters",
+      "No hat, fabric or non-food object in Chips' mouth",
+      "No choking, distress, torn fragments or encouragement",
+      "No words, letters, numerals, speech bubbles or sound effects"
+    ]
+  },
+  "165:1": {
+    "pageNumber": 1,
+    "visualMoment": "At a sunlit safe woodland path fork, Flint confidently holds the one sparse cream parchment map while Wren stands beside him with her closed olive-green spell book and one simple glowing direction needle; both look toward the straight path, ready to travel together.",
+    "subjects": [
+      "Wren, exactly 1",
+      "Flint, exactly 1"
+    ],
+    "requiredVisible": [
+      "Flint's tan field clothes, leather satchel and one sparse cream map",
+      "Wren's bent dark-navy hat, patched robe and closed olive-green spell book",
+      "one broad level fork with three clearly safe paths"
+    ],
+    "composition": "Full portrait frame, medium three-quarter view with Flint left, Wren right and the path fork opening behind them in warm daylight. Keep both full figures and their two story props clear.",
+    "continuityDetails": [
+      "The map contains only broad colour regions and one dark dotted route",
+      "The direction needle is one clean non-text shape with no glyphs"
+    ],
+    "forbidden": [
+      "No water bottle, whistle, compass, token, sign, safety kit or extra prop",
+      "No extra character, helper, animal or mushroom face",
+      "No words, letters, numerals, labels, compass letters or pseudo-writing"
+    ]
+  },
+  "165:2": {
+    "pageNumber": 2,
+    "visualMoment": "At the same sunlit three-way path fork, Flint holds the single cream map showing only one large clean left-pointing arrow while Wren's open olive-green spell book produces one glowing right-pointing direction needle; standing together, they both gesture toward the unmarked centre path.",
+    "subjects": [
+      "Wren, exactly 1",
+      "Flint, exactly 1"
+    ],
+    "requiredVisible": [
+      "Flint's exact clothes, satchel and one map with exactly one clean left arrow",
+      "Wren's exact clothes and one open spell book with exactly one glowing right needle",
+      "one broad fork with exactly three safe paths"
+    ],
+    "composition": "Full portrait medium-wide view with both complete figures in the lower half and the three paths clearly separating behind them. Keep the map arrow and spell needle large and isolated without any other mark.",
+    "continuityDetails": [
+      "The centre path is the route they choose together",
+      "The two opposite direction indicators are the only symbols in frame"
+    ],
+    "forbidden": [
+      "No water bottle, flask, whistle, compass, route marker, token, badge, medallion, safety kit, extra map or extra prop",
+      "No word, letter, numeral, label, pseudo-writing, contour line or decorative map mark",
+      "No extra character, animal, sign or mushroom"
+    ]
+  },
+  "165:3": {
+    "pageNumber": 3,
+    "visualMoment": "An hour later on one narrowing misty woodland path, Wren and Flint stand together and realise the familiar paths have vanished; Flint checks the same completely blank cream map while Wren scans the unfamiliar trees with concern.",
+    "subjects": [
+      "Wren, exactly 1",
+      "Flint, exactly 1"
+    ],
+    "requiredVisible": [
+      "both complete locked characters standing together",
+      "Flint's single blank cream map and cross-body satchel",
+      "Wren's closed olive-green spell book",
+      "one safe level path fading into light woodland mist"
+    ],
+    "composition": "Full portrait three-quarter view with Flint foreground-right checking the blank map, Wren left looking into the unfamiliar trees, and the path receding between them. Keep all props and limbs inside the frame.",
+    "continuityDetails": [
+      "Concerned and puzzled, never panicked",
+      "The pair remain side by side on firm ground"
+    ],
+    "forbidden": [
+      "No ribbon, route marker, water bottle, flask, whistle, compass, token, badge, medallion, safety kit, envelope or extra map",
+      "No visible map or book marks, writing, symbols, labels or pseudo-writing",
+      "No extra character, animal, mushroom face, cliff, road or deep water"
+    ]
+  },
+  "165:4": {
+    "pageNumber": 4,
+    "visualMoment": "Flint points to one spot on the same blank cream map while Wren looks past him at low grey fog beginning to thread between the woodland trees, recognising the nearby Fog Marsh and realising they are far from the meadow.",
+    "subjects": [
+      "Wren, exactly 1",
+      "Flint, exactly 1"
+    ],
+    "requiredVisible": [
+      "both complete locked characters together on a firm level path",
+      "one blank cream map held by Flint with his finger touching its unmarked surface",
+      "Wren's closed olive-green spell book",
+      "thin harmless grey fog remaining in the background between trees"
+    ],
+    "composition": "Full portrait medium view with Flint left holding the blank map and Wren right looking toward the distant fog. Keep the path foreground clear and the fog visibly separate from both figures.",
+    "continuityDetails": [
+      "The map is the same single map and stays unmarked",
+      "The fog suggests place and distance without danger"
+    ],
+    "forbidden": [
+      "No water bottle, flask, whistle, compass, route marker, token, badge, medallion, safety kit, envelope or extra map",
+      "No visible map marks, writing, labels, symbols or pseudo-writing",
+      "No extra character, animal, deep water, hazardous marsh crossing or panic"
+    ]
+  },
+  "165:5": {
+    "pageNumber": 5,
+    "visualMoment": "Wren holds her open olive-green spell book as one and only one glowing direction arrow finishes spinning and points directly at Flint; Flint looks back with dry amusement while both remain together on the level woodland path.",
+    "subjects": [
+      "Wren, exactly 1",
+      "Flint, exactly 1"
+    ],
+    "requiredVisible": [
+      "Wren's exact model holding one open spell book",
+      "exactly one glowing non-text arrow pointing at Flint",
+      "Flint's exact model with his satchel and one rolled blank map"
+    ],
+    "composition": "Full portrait medium-wide view with Wren left, Flint right and the single glowing arrow isolated between them. Keep both complete figures visible and give the arrow clear empty space.",
+    "continuityDetails": [
+      "The arrow has just completed three spins but only one arrow exists",
+      "The scene is gently comic, not alarming"
+    ],
+    "forbidden": [
+      "No second arrow, repeated arrow trail, letter, rune, glyph or writing",
+      "No water bottle, flask, whistle, compass, route marker, token, badge, medallion, safety kit, envelope or extra map",
+      "No extra character, animal or mushroom"
+    ]
+  },
+  "165:6": {
+    "pageNumber": 6,
+    "visualMoment": "Flint opens his otherwise empty leather satchel and exactly seven separate blank cream maps tumble onto the safe woodland path while Wren watches in surprise; every map is fully visible, distinct and countable.",
+    "subjects": [
+      "Wren, exactly 1",
+      "Flint, exactly 1",
+      "blank cream maps, exactly 7"
+    ],
+    "requiredVisible": [
+      "both complete locked characters",
+      "one open empty satchel held by Flint",
+      "exactly seven maps arranged with no overlap: three rolled, two folded and two flat blank sheets",
+      "Wren's one closed olive-green spell book"
+    ],
+    "composition": "Full portrait medium-wide view with Flint and Wren in the upper half. Arrange the seven maps across the lower half as one clear row of four and one clear row of three, 4 + 3 = 7, leaving visible ground between every map.",
+    "continuityDetails": [
+      "All seven maps are blank cream parchment with no visible marks",
+      "The satchel contains nothing else"
+    ],
+    "forbidden": [
+      "No sixth or eighth map, overlapping maps, envelope, note or item inside the satchel",
+      "No water bottle, flask, whistle, compass, route marker, token, badge, medallion or safety kit",
+      "No writing, lines, symbols, labels, pseudo-writing, extra character or animal"
+    ]
+  },
+  "165:7": {
+    "pageNumber": 7,
+    "visualMoment": "Tired but safe, Wren and Flint sit together on dry ground beneath one broad glowing mushroom beside the woodland path; Wren holds her closed spell book and Flint rests his hands on the single closed satchel.",
+    "subjects": [
+      "Wren, exactly 1",
+      "Flint, exactly 1",
+      "large glowing mushroom, exactly 1"
+    ],
+    "requiredVisible": [
+      "both complete locked characters seated side by side",
+      "one broad inanimate mushroom glowing warmly above them",
+      "one closed satchel, one closed spell book and no loose maps"
+    ],
+    "composition": "Full portrait restful view with the mushroom cap forming a canopy in the upper third and both seated figures wholly visible below. Keep the path and firm dry ground clear.",
+    "continuityDetails": [
+      "The mushroom is natural and has no face or limbs",
+      "The pair are tired and thoughtful, never distressed"
+    ],
+    "forbidden": [
+      "No water bottle, flask, whistle, compass, route marker, token, badge, medallion, safety kit, envelope, loose map or extra prop",
+      "No mushroom face, speech bubble, text, symbol or pseudo-writing",
+      "No extra character or animal"
+    ]
+  },
+  "165:8": {
+    "pageNumber": 8,
+    "visualMoment": "Still seated beside the path, Wren closes her spell book and quietly addresses the same single glowing mushroom while Flint listens beside her with the one closed satchel and one rolled blank map.",
+    "subjects": [
+      "Wren, exactly 1",
+      "Flint, exactly 1",
+      "large glowing mushroom, exactly 1"
+    ],
+    "requiredVisible": [
+      "Wren's exact model holding one visibly closed olive-green spell book",
+      "Flint's exact model listening with one closed satchel and one rolled blank map",
+      "the same broad inanimate glowing mushroom"
+    ],
+    "composition": "Full portrait medium view with Wren nearest the mushroom on the right and Flint seated behind-left. Keep both complete figures and the entire mushroom cap and stem visible.",
+    "continuityDetails": [
+      "Wren speaks politely through pose only, with no speech text",
+      "The mushroom remains inanimate and unchanged from page 7"
+    ],
+    "forbidden": [
+      "No water bottle, flask, whistle, compass, route marker, token, badge, medallion, safety kit, envelope, extra map or extra prop",
+      "No open book, visible map marks, mushroom face, text, glyph or pseudo-writing",
+      "No extra character or animal"
+    ]
+  },
+  "165:9": {
+    "pageNumber": 9,
+    "visualMoment": "Wren and Flint stand together beside the first glowing mushroom as its light pulses toward a continuous trail of other inanimate glowing mushrooms receding along the safe woodland path.",
+    "subjects": [
+      "Wren, exactly 1",
+      "Flint, exactly 1",
+      "one continuous trail of glowing mushrooms"
+    ],
+    "requiredVisible": [
+      "both complete locked characters looking along the trail",
+      "Wren's closed book, Flint's closed satchel and one rolled blank map",
+      "a clear sequence of separate faceless glowing mushrooms following the path into depth"
+    ],
+    "composition": "Full portrait depth view with both characters in the lower-left, the first mushroom foreground-right and the trail receding through the centre. Use changing light intensity to imply one pulse without drawing an arrow or symbol.",
+    "continuityDetails": [
+      "The mushroom trail itself points the way through spatial sequence",
+      "Every mushroom remains a natural inanimate plant form"
+    ],
+    "forbidden": [
+      "No glowing arrow, water bottle, flask, whistle, compass, route marker, token, badge, medallion, safety kit, envelope or extra map",
+      "No mushroom face, limb, writing, map mark, text, glyph or pseudo-writing",
+      "No extra character or animal"
+    ]
+  },
+  "165:10": {
+    "pageNumber": 10,
+    "visualMoment": "Wren and Flint walk together along the safe trail of inanimate glowing mushrooms as the forest opens ahead into the golden daylight of the Whispering Meadow.",
+    "subjects": [
+      "Wren, exactly 1",
+      "Flint, exactly 1",
+      "one continuous trail of glowing mushrooms"
+    ],
+    "requiredVisible": [
+      "both complete locked characters walking side by side",
+      "Wren's closed book and Flint's closed satchel with one rolled blank map",
+      "faceless glowing mushrooms along the path and the golden meadow clearly ahead"
+    ],
+    "composition": "Full portrait rear three-quarter walking view with both complete figures in the lower half, the mushroom trail leading through the centre and the meadow opening brightly across the upper background.",
+    "continuityDetails": [
+      "The pair remain together on firm level ground",
+      "The meadow is recognisably the destination from page 1"
+    ],
+    "forbidden": [
+      "No water bottle, flask, whistle, compass, route marker, token, badge, medallion, safety kit, envelope, loose map or extra prop",
+      "No mushroom face, text, map writing, glyph, symbol or pseudo-writing",
+      "No extra character or animal"
+    ]
+  },
+  "165:11": {
+    "pageNumber": 11,
+    "visualMoment": "At the safe edge of the golden Whispering Meadow, Flint holds the same cream map at a steep side angle and touches a short pencil to it while Wren watches with relief; the map face is hidden from the viewer so the writing action is clear but no marks can be seen.",
+    "subjects": [
+      "Wren, exactly 1",
+      "Flint, exactly 1"
+    ],
+    "requiredVisible": [
+      "same Flint, Wren, satchel, map and spell book",
+      "one short plain pencil touching the hidden map surface",
+      "the bright Whispering Meadow behind them"
+    ],
+    "composition": "Portrait medium shot from beside and slightly behind Flint's map hand, with the parchment seen almost edge-on. Both faces remain fully visible and the meadow fills the background.",
+    "continuityDetails": [
+      "The pair have arrived safely together",
+      "The map is the same sparse cream parchment from earlier pages"
+    ],
+    "forbidden": [
+      "No visible writing, dots, map marks, labels, letters, numerals or pseudo-text",
+      "No extra character, animal, sign or mushroom face"
+    ]
+  },
+  "165:12": {
+    "pageNumber": 12,
+    "visualMoment": "At the safe edge of the golden Whispering Meadow, Wren and Flint look back together along the woodland path as the final small inanimate mushroom gives one last soft pulse and then dims.",
+    "subjects": [
+      "Wren, exactly 1",
+      "Flint, exactly 1",
+      "final glowing mushroom, exactly 1"
+    ],
+    "requiredVisible": [
+      "both complete locked characters looking back with relieved smiles",
+      "Wren's closed book and Flint's closed satchel with one rolled blank map",
+      "one final faceless mushroom dimming on the path",
+      "the golden meadow around them"
+    ],
+    "composition": "Full portrait rear three-quarter view with both figures in the lower foreground, the single final mushroom mid-path and the woodland receding behind. Keep all props and bodies fully inside the frame.",
+    "continuityDetails": [
+      "The mushroom remains inanimate; changing light conveys the blink",
+      "Wren and Flint have arrived safely together"
+    ],
+    "forbidden": [
+      "No water bottle, flask, whistle, compass, route marker, token, badge, medallion, safety kit, envelope, loose map or extra prop",
+      "Exactly one mushroom in the entire image: one stem and one cap only; no second mushroom, smaller mushroom, mushroom bud, mushroom cluster, stacked mushroom or mushroom-shaped growth",
+      "No mushroom face, eye, limb, text, map writing, symbol, glyph or pseudo-writing",
+      "No extra character or animal"
+    ]
+  },
+  "166:1": {
+    "pageNumber": 1,
+    "visualMoment": "Burrow works alone in one low, broad, stable earthen tunnel, calmly scooping a small amount of loose soil from the wall with his natural digging paws and enjoying the quiet darkness.",
+    "subjects": [
+      "Burrow, exactly 1 mole"
+    ],
+    "requiredVisible": [
+      "Burrow's exact dark-brown fur, pink snout and paws, tiny gold spectacles and brown waistcoat",
+      "one shallow stable tunnel with compacted walls and level floor",
+      "one small neat mound of loose soil"
+    ],
+    "composition": "Full portrait tunnel view at Burrow's eye height, with his complete figure centred and warm indirect daylight entering from the distant tunnel mouth.",
+    "continuityDetails": [
+      "Burrow digs with his natural mole paws",
+      "The tunnel remains broad, stable and free of hazards"
+    ],
+    "forbidden": [
+      "No Luna, human, helper or duplicate",
+      "No lantern, peg, ventilation tube, helmet, machinery or invented safety prop",
+      "No cave-in, fall, deep shaft or unstable roof",
+      "No writing, labels, runes or glyphs"
+    ]
+  },
+  "166:2": {
+    "pageNumber": 2,
+    "visualMoment": "A thin earthen partition at the end of Burrow's low tunnel has gently opened into a large ancient stone room; Burrow sits safely on the same level floor just beyond the opening amid one small soft spill of soil, unhurt and surprised.",
+    "subjects": [
+      "Burrow, exactly 1 mole"
+    ],
+    "requiredVisible": [
+      "Burrow's exact mole model and waistcoat",
+      "one thin broken earthen partition behind him",
+      "one level tunnel-to-room threshold with no drop",
+      "one small soft soil spill"
+    ],
+    "composition": "Full portrait three-quarter interior view with the tunnel opening in the lower left and the high ancient room rising behind Burrow. Keep Burrow's whole seated body visible on the level floor.",
+    "continuityDetails": [
+      "This is a gentle breakthrough, not a fall or collapse",
+      "The room architecture continues unchanged through the book"
+    ],
+    "forbidden": [
+      "No lantern, peg, ventilation tube, equipment or helper",
+      "No Luna or extra character",
+      "No cave-in, falling debris, injury, deep shaft or unstable roof",
+      "No writing, labels, runes or glyphs"
+    ]
+  },
+  "166:7": {
+    "pageNumber": 7,
+    "visualMoment": "Luna walks slowly beside the carved wall and gently touches one broad tree-branch bas-relief with the tip of one folded wing; the relief glows blue and gold exactly at the wingtip while Burrow watches from a short distance behind.",
+    "subjects": [
+      "Luna, exactly 1 owl",
+      "Burrow, exactly 1 mole"
+    ],
+    "requiredVisible": [
+      "Luna's exact owl body standing on exactly two bare orange taloned feet",
+      "one wingtip touching one tree-branch relief with a local blue-gold glow",
+      "Burrow watching beside one closed warm lantern",
+      "nearby unlit botanical reliefs"
+    ],
+    "composition": "Full portrait interior mid-shot with Luna right foreground in side profile, both feet clearly visible on the floor and one ordinary feathered wingtip reaching the wall. Burrow and the lantern sit left-midground without overlap.",
+    "continuityDetails": [
+      "Touch is made by a feathered wingtip, not a hand, finger, claw or extra foot",
+      "The glow begins only at the contact point and follows the relief"
+    ],
+    "forbidden": [
+      "No third leg, third foot, hand, finger, arm, wing claw, human anatomy or extra limb on Luna",
+      "No letter, word, numeral, rune, glyph, label or pseudo-writing in the carvings",
+      "No extra character, object carried by Luna or unsafe pose"
+    ]
+  },
+  "169:2": {
+    "pageNumber": 2,
+    "visualMoment": "Dewdrop kneels entirely on the dry mossy bank and leans over the ankle-deep stream to inspect the same calm silver-white fish, whose complete head, eye, gills, body and tail remain clearly visible in the open gap between two separate rounded rocks.",
+    "subjects": [
+      "Dewdrop, exactly 1",
+      "the same stuck fish, exactly 1"
+    ],
+    "requiredVisible": [
+      "Dewdrop's complete body, knees and both hands wholly on dry bank ground",
+      "one complete silver-white fish with pale-gold fins visible from nose to forked tail",
+      "exactly two separate rounded rocks with clear water gaps around the fish"
+    ],
+    "composition": "Full portrait side view with Dewdrop safely in the upper-left bank area and the fish centred below in transparent shallow water. Leave visible water between every part of the fish and each rock so no anatomy can merge with stone.",
+    "continuityDetails": [
+      "Use the same stream bank, two rocks and fish as page 1",
+      "The fish is gently wedged but alive, calm and anatomically intact"
+    ],
+    "forbidden": [
+      "No Dewdrop foot, knee, body or clothing in the stream",
+      "No fish head, eye, gill, fin or body intersecting, entering or merging with a rock",
+      "No extra fish, character, tool, text, label or inset panel"
+    ]
+  },
+  "169:7": {
+    "pageNumber": 7,
+    "visualMoment": "Stone sits securely on the dry bank with both bare three-toed feet planted away from the water; he rolls up exactly one edge of his sleeveless tunic shoulder and then extends exactly one correctly formed broad three-fingered hand toward the stream while Dewdrop and the still-stuck fish remain visible.",
+    "subjects": [
+      "Stone, exactly 1",
+      "Dewdrop, exactly 1",
+      "the same stuck fish, exactly 1"
+    ],
+    "requiredVisible": [
+      "Stone's complete seated body and both three-toed feet on dry bank ground",
+      "exactly one extended broad hand with exactly three digits total: one thumb and two fingers",
+      "Dewdrop on the bank and one complete fish still between two rocks"
+    ],
+    "composition": "Full portrait three-quarter bank view with Stone's face, body, feet and one extended arm all readable. Keep the three-fingered hand silhouetted against clear water without overlap, and place Dewdrop plus the fish beyond it.",
+    "continuityDetails": [
+      "Stone prepares to help but has not put his hand into the water yet",
+      "The fish remains fully visible and separate from both rocks"
+    ],
+    "forbidden": [
+      "The extended hand must visibly end in exactly three separated rounded tips total: one side thumb tip and two forward finger tips; no third forward finger, no four-digit hand, no more or fewer than three total digits, no fused fingers, duplicate arm or hidden feet",
+      "Both bare feet must each visibly end in exactly three separated toe tips total; no fourth toe, no four-toed foot, no cropped toe and no hidden foot",
+      "Stone's extended palm is completely empty and bare: no orb, bubble, bead, token, droplet, glow, pebble or object in or above the hand",
+      "No submerged Stone body, lifted rock, extra fish, helper or tool",
+      "No text, labels, speech bubbles or inset panels"
+    ]
+  },
+  "169:8": {
+    "pageNumber": 8,
+    "visualMoment": "Stone sits firmly on the dry bank as exactly one broad three-fingered hand and forearm enter the ankle-deep stream from the side and grip the same rounded rock; his unhappy but determined face remains visible above while Dewdrop watches from safe ground.",
+    "subjects": [
+      "Stone, exactly 1",
+      "Dewdrop, exactly 1",
+      "the same stuck fish, exactly 1"
+    ],
+    "requiredVisible": [
+      "one and only one Stone forearm in shallow water",
+      "one correctly formed hand gripping the rock laterally with exactly three digits total: one thumb and two fingers",
+      "Stone's body and both three-toed feet firmly on the dry bank",
+      "Dewdrop on the bank and the fish still between the two rocks"
+    ],
+    "composition": "Full portrait frame with Stone's face and seated body in the upper half, his single extended arm leading diagonally into the clear shallow water below, and Dewdrop plus the fish visible without cropping.",
+    "continuityDetails": [
+      "Use the same two rounded rocks, stream bank and fish as pages 1-7",
+      "Stone reaches from the side and never beneath the rock"
+    ],
+    "forbidden": [
+      "The gripping hand must visibly end in exactly three separated rounded tips total: one side thumb tip and two forward finger tips; no third forward finger, no four-digit hand, no more or fewer than three total digits, no horizontal crop, duplicate arm, fused hand or submerged body",
+      "Both bare feet must each visibly end in exactly three separated toe tips total; no fourth toe, no four-toed foot, no cropped toe and no hidden foot",
+      "Exactly two large rounded rocks total in the entire scene; no third rock, extra boulder, pebble cluster or rock-like object",
+      "No deep water, hand beneath the rock, helper, tool or extra fish",
+      "No text, labels, speech bubbles or inset panels"
+    ]
+  },
+  "169:9": {
+    "pageNumber": 9,
+    "visualMoment": "Stone remains seated on the dry bank and uses exactly one correctly formed broad three-fingered hand to push one rounded rock sideways into a nearby empty stable pocket; the same complete silver-white fish is already swimming free through clear water while Dewdrop watches from the opposite bank.",
+    "subjects": [
+      "Stone, exactly 1",
+      "Dewdrop, exactly 1",
+      "the same freed fish, exactly 1"
+    ],
+    "requiredVisible": [
+      "Stone's body and both three-toed feet firmly on dry bank ground",
+      "exactly one visible hand pushing one rock from the side with exactly three digits total: one thumb and two fingers",
+      "one complete fish swimming freely away from the rocks and hand",
+      "Dewdrop dry and safely positioned on the opposite bank"
+    ],
+    "composition": "Full portrait action view with Stone high-left on the bank, his single three-fingered hand leading to the sideways-moving rock at centre, the unobstructed fish swimming right through clear water, and Dewdrop safely above the far bank.",
+    "continuityDetails": [
+      "The rock moves sideways only into an empty stable pocket",
+      "The fish has cleared the two rocks and never touches Stone's hand"
+    ],
+    "forbidden": [
+      "The pushing hand must visibly end in exactly three separated rounded tips total: one side thumb tip and two forward finger tips; no third forward finger, no four-digit hand, no more or fewer than three total digits, no fused anatomy, hand under rock or submerged body",
+      "Both bare feet must each visibly end in exactly three separated toe tips total; no fourth toe, no four-toed foot, no cropped toe and no hidden foot",
+      "No fish merged with a rock, trapped fish, duplicate fish, helper or tool",
+      "No arrow, pointer, diagram, path line, motion line, annotation, symbol, marker, graphic overlay or drawn instruction anywhere",
+      "No text, labels, speech bubbles or inset panels"
+    ]
+  },
+  "170:1": {
+    "pageNumber": 1,
+    "visualMoment": "Luna stands alone in the Hollow Oak clearing and looks down with quiet worry into the same open ornate silver seed box resting on moss; its interior is plainly empty with zero seeds.",
+    "subjects": [
+      "Luna, exactly 1",
+      "ornate silver seed box, exactly 1"
+    ],
+    "requiredVisible": [
+      "Luna's exact round slate-grey owl body, cream heart-shaped face, amber eyes and one correctly formed pair of tiny round gold spectacles worn on her beak",
+      "one open palm-sized ornate silver box with a clearly visible empty interior",
+      "the familiar Hollow Oak clearing floor"
+    ],
+    "composition": "Full portrait intimate three-quarter view with Luna in the upper-left and the open empty box in the lower-right. Keep both spectacle lenses joined by one bridge and resting naturally on Luna's beak; both wings remain free of jewellery or loose rings.",
+    "continuityDetails": [
+      "The box matches the approved silver box reference",
+      "Luna's spectacles are worn normally and never held or dangling"
+    ],
+    "forbidden": [
+      "No detached lens, extra ring, monocle, chain, jewellery or spectacles held in a wing",
+      "No seed, seedling, extra character, animal, text, glyph or inset panel"
+    ]
+  },
+  "170:2": {
+    "pageNumber": 2,
+    "visualMoment": "Outside Hollow Oak, Luna stands beside the open empty silver seed box while the other nine established Moonwood residents form one loose worried semicircle around her, each of the ten cast members shown exactly once and individually readable.",
+    "subjects": [
+      "Luna, Pip, Fern, Stone, Glimmer, Wren, Flint, Dewdrop, Burrow and Spark, exactly once each",
+      "ornate silver seed box, exactly 1"
+    ],
+    "requiredVisible": [
+      "exactly ten characters total with every locked cast identity present once",
+      "one open silver box showing zero seeds",
+      "Flint carrying only one rolled cream map with no page surface visible",
+      "Hollow Oak and the continuous daylight clearing"
+    ],
+    "composition": "Full portrait wide group scene. Place Luna and the empty box at centre; arrange Pip, Fern, Stone and Glimmer clearly along the left arc, and Wren, Flint, Dewdrop, Burrow and Spark clearly along the right arc. Keep every face, complete species silhouette and prop separate.",
+    "continuityDetails": [
+      "Count the cast before rendering: Luna plus exactly nine named residents equals ten",
+      "Flint's map stays tightly rolled and Wren's book stays closed"
+    ],
+    "forbidden": [
+      "No missing, extra, duplicate, fused or cropped cast member",
+      "No open map, visible map surface, marks, pseudo-writing, seed, seedling, animal, text or inset panel"
+    ]
+  },
+  "170:3": {
+    "pageNumber": 3,
+    "visualMoment": "Luna remains stationary beside Hollow Oak while the other nine established residents leave in three distinct groups along three broad safe paths, every one of the ten cast members visible exactly once and no seeds present.",
+    "subjects": [
+      "Luna, exactly 1",
+      "Pip, Fern, Stone, Glimmer, Wren, Flint, Dewdrop, Burrow and Spark, exactly once each"
+    ],
+    "requiredVisible": [
+      "Luna standing alone at the central path fork beside Hollow Oak",
+      "Pip, Fern and Stone departing together along the left path",
+      "Glimmer, Wren and Spark departing together along the middle path",
+      "Flint, Dewdrop and Burrow departing together along the right path",
+      "Flint's one map tightly rolled with no visible page surface"
+    ],
+    "composition": "Full portrait high three-quarter view of exactly three path branches. Luna is central and stationary; the three named groups occupy separate branches with generous gaps, their faces and silhouettes readable and all figures moving away from the clearing.",
+    "continuityDetails": [
+      "Exactly ten characters total: Luna plus three groups of three",
+      "All paths remain broad, level and visibly safe",
+      "Luna wears no cloak, cape, robe or jewellery; Flint's map is rolled into a tight cylinder with no visible page face"
+    ],
+    "forbidden": [
+      "No fourth path, missing, extra, duplicate, fused or cropped character",
+      "No cloak or clothing on Luna; no open map, map marks, pseudo-writing, seed, seedling, animal, text or inset panel"
+    ]
+  },
+  "170:4": {
+    "pageNumber": 4,
+    "visualMoment": "At one natural forked Moonwood path, Pip searches the shallow muddy Fog Marsh edge in the lower-left foreground while Flint stands on the stable rocky right-hand foothill path studying exactly three new landmarks; both searches are visible in one continuous landscape with no seeds found.",
+    "subjects": [
+      "Pip, exactly 1",
+      "Flint, exactly 1"
+    ],
+    "requiredVisible": [
+      "Pip's exact green outfit at firm shallow mud",
+      "Flint's exact tan field clothes, satchel and rolled map",
+      "exactly three harmless landmarks near Flint: one spiral-weathered stone, one wind-bent shrub and one pale crystal outcrop",
+      "zero seeds and zero seedlings"
+    ],
+    "composition": "Full portrait frame using depth rather than panels: Pip occupies the lower-left marsh edge, the fork rises through centre, and Flint stands on the higher right path with the three landmarks around him. No dividing line or collage.",
+    "continuityDetails": [
+      "Both locations belong to the same continuous Moonwood fork",
+      "Flint observes the landmarks without showing written map marks"
+    ],
+    "forbidden": [
+      "No split panel, border, inset, notebook, visible map writing or labels",
+      "No seed, extra character, duplicate, deep water or unsafe slope",
+      "No words, letters, numerals or pseudo-writing"
+    ]
+  },
+  "170:8": {
+    "pageNumber": 8,
+    "visualMoment": "Fern kneels alone in the familiar daylight clearing beside exactly twelve separate tiny green shoots emerging from the soil, each with a faint natural glow; she has stopped to listen and now recognises what she found.",
+    "subjects": [
+      "Fern, exactly 1",
+      "glowing shoots, exactly 12"
+    ],
+    "requiredVisible": [
+      "Fern's exact leaf-green model and two fern-frond wings",
+      "exactly twelve distinct countable shoots with no overlap",
+      "the same clearing and Hollow Oak root edge"
+    ],
+    "composition": "Full portrait low-angle scene with Fern alone in the upper third. Across the lower two-thirds, arrange exactly twelve shoots in three clean staggered rows of four, with large gaps and no overlap: 4 + 4 + 4 = 12. Keep every shoot wholly visible inside the safe frame.",
+    "continuityDetails": [
+      "The twelve shoots correspond exactly to the twelve missing seeds",
+      "Their glow is subtle daylight green, not a face or magical symbol"
+    ],
+    "forbidden": [
+      "No thirteenth shoot, missing shoot, other character, silver box, loose seed, animal or duplicate shoot",
+      "No face, eyes or mouth on any plant",
+      "No text, labels, numerals, glyphs or inset panel"
+    ]
+  },
+  "170:9": {
+    "pageNumber": 9,
+    "visualMoment": "Direct moonlit flashback in the same clearing: Fern alone places one small dark magic seed into a prepared shallow hole while the same open ornate silver box beside her contains exactly eleven remaining seeds, proving a total of twelve before planting.",
+    "subjects": [
+      "Fern, exactly 1",
+      "magic seeds, exactly 12 total",
+      "ornate silver box, exactly 1"
+    ],
+    "requiredVisible": [
+      "one seed held clearly between Fern's fingers above one shallow hole",
+      "exactly eleven separate seeds fully visible and countable inside the open box",
+      "cool moonlit version of the same clearing"
+    ],
+    "composition": "EDIT THE FIRST REFERENCE IMAGE, preserving its Fern, moonlit clearing, silver box, planting hole and every existing seed. The reference contains ten seeds inside the box and one in Fern's fingers. Add exactly one matching seed alone in the clear centre gap between the two five-seed rows, producing 5 + 1 + 5 = exactly 11 seeds inside the box and one in her fingers, exactly 12 total. Change nothing else.",
+    "continuityDetails": [
+      "The box exactly matches Luna's approved silver seed box",
+      "The count is eleven in the box plus one in Fern's fingers, exactly twelve total",
+      "Preserve the first reference image composition and add only the single missing centre seed"
+    ],
+    "forbidden": [
+      "No other character, duplicate Fern, thought bubble, flashback border or inset",
+      "No removal, movement or redesign of an existing seed; no tenth or twelfth seed inside the box and no more or fewer than twelve total seeds",
+      "No text, labels, numerals, captions, glyphs or faces on objects"
+    ]
+  },
+  "170:10": {
+    "pageNumber": 10,
+    "visualMoment": "Back in daylight, Fern sits in the centre among exactly twelve glowing seedlings while all nine other established Moonwood residents form a clear semicircle around her; edit the first reference by adding the one missing Luna owl and preserving every existing subject.",
+    "subjects": [
+      "the complete established Moonwood cast, exactly 10 characters total",
+      "glowing seedlings, exactly 12"
+    ],
+    "requiredVisible": [
+      "Fern seated once at centre",
+      "Luna, Pip, Stone, Glimmer, Wren, Flint, Dewdrop, Burrow and Spark each once around her",
+      "exactly twelve distinct seedlings, all countable"
+    ],
+    "composition": "EDIT THE FIRST REFERENCE IMAGE. Preserve its exact nine characters, exact twelve seedlings, clearing, spacing and crop. Add exactly one Luna owl matching the cast reference in the open upper-centre background between Dewdrop and Wren, without covering any figure or seedling. Luna is the only new subject. Change nothing else.",
+    "continuityDetails": [
+      "Use only the locked ten-member cast and preserve all relative scales",
+      "The seedlings match page 8 and the same clearing remains continuous",
+      "The first reference already contains Pip, Fern, Stone, Glimmer, Wren, Flint, Dewdrop, Burrow, Spark and exactly twelve seedlings; preserve all of them and add Luna only"
+    ],
+    "forbidden": [
+      "No removal, movement, redesign or duplication of an existing character; no extra, missing, fused or cropped character after Luna is added",
+      "No thirteenth seedling, missing seedling, open map, visible map writing or pseudo-writing",
+      "No ordinary human child, animal, text, speech bubble, label, numeral or inset panel"
+    ]
+  },
+  "170:11": {
+    "pageNumber": 11,
+    "visualMoment": "Luna bends beside Fern to examine exactly twelve now-strong glowing seedlings arranged continuously along the nearby paths and around the Hollow Oak root, while Fern watches with relieved pride.",
+    "subjects": [
+      "Luna, exactly 1",
+      "Fern, exactly 1",
+      "strong seedlings, exactly 12"
+    ],
+    "requiredVisible": [
+      "exact Luna owl and exact Fern sprite",
+      "exactly twelve distinct seedlings, each fully visible and countable",
+      "the same Hollow Oak clearing and path layout"
+    ],
+    "composition": "Full portrait medium-wide view with Luna and Fern in the upper centre, six seedlings following the path and six around the oak root across the lower frame, all separated clearly.",
+    "continuityDetails": [
+      "The seedlings are stronger versions of page 10's same twelve plants",
+      "Their glow remains natural and subtle"
+    ],
+    "forbidden": [
+      "No other character, animal, duplicate plant or extra seed",
+      "No more or fewer than twelve seedlings",
+      "No plant faces, text, labels, numerals, captions or glyphs"
+    ]
+  },
+  "170:12": {
+    "pageNumber": 12,
+    "visualMoment": "At night outside Hollow Oak, all ten established Moonwood residents sit together exactly once while exactly twelve glowing seedlings illuminate the ground; edit the first reference by adding only the two missing seedlings and preserving the exact cast.",
+    "subjects": [
+      "the complete established Moonwood cast, exactly 10 characters total",
+      "glowing seedlings, exactly 12"
+    ],
+    "requiredVisible": [
+      "Luna, Pip, Fern, Stone, Glimmer, Wren, Flint, Dewdrop, Burrow and Spark each once",
+      "exactly twelve distinct seedlings arranged in an open ring",
+      "Hollow Oak at night and warm shared body language"
+    ],
+    "composition": "EDIT THE FIRST REFERENCE IMAGE. Preserve its exact ten correctly identified characters, exact ten existing glowing seedlings, Hollow Oak, night lighting and crop. Add exactly two matching seedlings in the two clear foreground gaps between the current upper and lower plant rows, one left of centre and one right of centre, making exactly twelve. Change nothing else.",
+    "continuityDetails": [
+      "The cast matches the approved reference sheet exactly",
+      "The twelve seedlings are the same plants from pages 8-11",
+      "The first reference already has the exact ten-member cast and ten seedlings; preserve all and add only two seedlings"
+    ],
+    "forbidden": [
+      "No removal, movement, redesign or duplication of an existing character or seedling; no missing Luna, extra, duplicated, fused or cropped character",
+      "No thirteenth seedling, missing seedling, open silver box, open map, visible writing or pseudo-writing",
+      "No ordinary animal or human child, plant face, text, speech bubble, label, numeral or inset panel"
+    ]
+  },
+  "70:1": {
+    "pageNumber": 1,
+    "visualMoment": "A single clean deep-space view shows one blue-white Earth and one separate grey cratered Moon, with the Moon unmistakably much smaller and nearby only in the compositional sense.",
+    "subjects": ["Earth, exactly 1", "Moon, exactly 1"],
+    "requiredVisible": ["one natural Earth with oceans and clouds", "one natural grey Moon about one quarter Earth's diameter", "clear empty space separating both bodies"],
+    "composition": "Wide landscape space view with Earth large at left and the Moon small at right, both fully visible and naturally sunlit against a restrained star field.",
+    "continuityDetails": ["Moon surface matches the same grey cratered Moon used throughout the book", "relative diameters are approximately four to one"],
+    "forbidden": ["No orbital line, arrow, label, diagram mark or inset", "No duplicate planet or moon", "No face, fantasy glow, astronaut, spacecraft, flag, text or numeral"]
+  },
+  "70:3": {
+    "pageNumber": 3,
+    "visualMoment": "Eight large, evenly spaced views of the same Moon show one complete scientifically ordered phase cycle from new Moon through waxing phases, full Moon and waning phases.",
+    "subjects": ["Moon phase discs, exactly 8"],
+    "requiredVisible": ["exactly eight same-sized Moon discs", "new, waxing crescent, first quarter, waxing gibbous, full, waning gibbous, last quarter and waning crescent in that order", "consistent crater pattern, upright orientation and sunlight direction", "detailed natural star field with a faint soft Milky Way band"],
+    "composition": "One wide horizontal row of eight large separated Moon discs filling most of the landscape width, centred against a richly detailed blue-black natural star field with many subtle small stars.",
+    "continuityDetails": ["all discs are the same physical Moon under changing illumination", "terminators are smooth and geometrically plausible"],
+    "forbidden": ["No ninth Moon, duplicate phase, eclipse, Earth shadow explanation or glowing outline", "No face, label, phase name, arrow, numeral, caption, border or diagram grid"]
+  },
+  "70:6": {
+    "pageNumber": 6,
+    "visualMoment": "Two factual views compare exactly the same rocky beach from exactly the same fixed camera: high tide covers the lower rocks, while low tide exposes wet sand and those same rocks.",
+    "subjects": ["same shoreline in two time-separated views", "three fixed shoreline rocks"],
+    "requiredVisible": ["left view with the waterline high around three fixed rocks", "right view with the waterline far lower and the same three rocks exposed", "identical headland, horizon and camera position in both views"],
+    "composition": "Intentional two-panel comparison with equal panels, identical framing and a clean central division. Let the changed waterline be the only important difference.",
+    "continuityDetails": ["same beach, rocks, weather and camera in both panels", "natural tidal water levels with no dangerous people at the shore"],
+    "forbidden": ["No Moon duplicated across the panels", "No arrows, labels, captions, numerals or diagrams", "No people, pets, boats, fantasy waves or anthropomorphic objects"]
+  },
+  "72:2": {
+    "pageNumber": 2,
+    "visualMoment": "A true rear macro view of one garden orb-weaver shows the underside tip of its abdomen facing the camera as one fine silk strand emerges directly from the visible spinnerets and anchors to a nearby plant tip.",
+    "subjects": ["garden orb-weaver, exactly 1", "silk strand, exactly 1"],
+    "requiredVisible": ["one abdomen with paired spinnerets clearly visible at its rear underside", "one single silk thread visibly beginning at those spinnerets", "all eight legs attached to the cephalothorax and arranged naturally", "one nearby plant tip holding the far end"],
+    "composition": "Rear three-quarter macro from slightly below the abdomen, with spinnerets at the exact visual centre and the spider's head pointing away from the camera. The silk runs backward from the abdomen to the plant tip.",
+    "continuityDetails": ["anatomically plausible orb-weaver body and leg attachment", "silk origin is unambiguously posterior rather than mouth or front legs"],
+    "forbidden": ["No silk from mouth, chelicerae, face, forelegs or cephalothorax", "No cropped abdomen, extra spider, prey or web mass", "No cartoon face, text, label, arrow, caption or numeral"]
+  },
+  "73:1": {
+    "pageNumber": 1,
+    "visualMoment": "One immense ocean cross-section runs continuously from a bright open surface down through blue midwater into a mostly empty black abyss, where one tiny research submersible reveals the scale of the unexplored deep.",
+    "subjects": ["continuous open-ocean cross-section", "research submersible, exactly 1"],
+    "requiredVisible": ["one bright surface region", "one gradual blue-to-black depth transition", "one vast mostly empty deep region", "one tiny realistic submersible deep below"],
+    "composition": "Wide landscape cutaway with the water surface across the top and depth falling diagonally toward the darkest, largest area. Keep all zones in one continuous ocean without panel boxes.",
+    "continuityDetails": ["submersible model matches pages 2 and 9", "species remain sparse and broadly appropriate to their depth"],
+    "forbidden": ["No Earth inset, globe, diagram key or boxed panel", "No fantasy ruins, mermaid, treasure or smiling animal", "No text, labels, arrows, numerals or depth marks"]
+  },
+  "73:8": {
+    "pageNumber": 8,
+    "visualMoment": "A natural-history macro view just beneath the sunlit ocean surface shows a rich suspended field of microscopic phytoplankton cells catching the light, with a few tiny oxygen bubbles rising naturally.",
+    "subjects": ["mixed realistic phytoplankton field", "sunlit surface water"],
+    "requiredVisible": ["many varied microscopic phytoplankton cells at plausible relative scale", "surface light penetrating from above", "a few very small natural bubble trails"],
+    "composition": "Immersive horizontal macro field with the bright water surface along the upper edge and cells distributed through clear blue water; no object is mascot-sized.",
+    "continuityDetails": ["render cells with credible natural-history detail", "keep bubbles subtle so they do not imply large underwater plants"],
+    "forbidden": ["No submersible, fish, diver or giant plant in this microscopic view", "No face, smile or cartoon styling", "No labels, arrows, formulae, captions, text or numerals"]
+  },
+  "74:1": {
+    "pageNumber": 1,
+    "visualMoment": "One adult monarch rests in a high three-quarter natural-history view with its wings partly open and all six legs separated clearly: four long walking legs plus the monarch's two much shorter reduced forelegs held close to the thorax.",
+    "subjects": ["adult monarch butterfly, exactly 1", "milkweed leaf, exactly 1"],
+    "requiredVisible": ["exactly four wings with accurate monarch pattern", "exactly four long walking legs touching the leaf", "exactly two short reduced forelegs folded near the front of the thorax", "two antennae and clear head, thorax and abdomen"],
+    "composition": "Close top-front three-quarter macro with the butterfly diagonally across one broad milkweed leaf, wings open enough to separate all four wing surfaces and camera angle low enough to see all six legs without overlap.",
+    "continuityDetails": ["real monarch anatomy, including reduced forelegs characteristic of brush-footed butterflies", "same milkweed and photographic treatment as the lifecycle pages"],
+    "forbidden": ["No four-legged, five-legged, seven-legged or eight-legged butterfly", "No duplicate wing, extra antenna, human hand, face or cartoon styling", "No text, label, arrow, caption or numeral"]
+  },
+  "74:5": {
+    "pageNumber": 5,
+    "visualMoment": "Exactly one intact jade-green monarch chrysalis hangs naturally head-down from a milkweed stem, attached at its upper cremaster and marked by a delicate row of metallic-gold dots.",
+    "subjects": ["monarch chrysalis, exactly 1", "milkweed stem, exactly 1"],
+    "requiredVisible": ["one head-down monarch chrysalis", "upper cremaster attachment beneath the stem", "jade-green casing and characteristic gold dots"],
+    "composition": "Single natural-history macro portrait of the chrysalis and its attachment, with the milkweed habitat softly receding behind.",
+    "continuityDetails": ["same monarch species and milkweed as other lifecycle pages", "biologically correct hanging orientation"],
+    "forbidden": ["No head-up or upright chrysalis", "No cocoon, extra chrysalis, exposed caterpillar, human hand or face", "No text, arrows, labels, captions or numerals"]
+  },
+  "74:6": {
+    "pageNumber": 6,
+    "visualMoment": "The same single head-down monarch chrysalis remains attached by its upper cremaster as its casing becomes naturally dark and translucent enough to reveal tightly folded orange-black-white adult wing markings.",
+    "subjects": ["late-stage monarch chrysalis, exactly 1", "milkweed stem, exactly 1"],
+    "requiredVisible": ["one naturally darkening translucent chrysalis", "folded adult monarch wing pattern beneath the casing", "correct upper cremaster attachment and head-down orientation"],
+    "composition": "Close natural-history macro from the same side and scale as page 5, with a shallow depth of field and no cutaway graphics.",
+    "continuityDetails": ["same individual chrysalis and stem as page 5", "translucence remains realistic, not glass-like or magical"],
+    "forbidden": ["No upright chrysalis, liquid body, anatomical cutaway, fantasy glow or second specimen", "No human hand, face, text, arrows, labels, captions or numerals"]
+  },
+  "74:9": {
+    "pageNumber": 9,
+    "visualMoment": "A broad stream of real monarch butterflies moves south across an autumn landscape toward a distant stand of oyamel firs, with nearer individuals detailed and the far stream naturally receding into depth.",
+    "subjects": ["migrating monarch butterfly stream", "oyamel fir forest"],
+    "requiredVisible": ["dozens of recognisable orange-black-white monarchs at varied distances", "a coherent common flight direction", "distant mountain forest of oyamel firs"],
+    "composition": "Wide cinematic migration view with several crisp foreground monarchs, a long airy stream across the middle distance and the fir forest destination on the horizon.",
+    "continuityDetails": ["every clearly visible butterfly is a monarch", "flight and landscape remain naturalistic rather than diagrammatic"],
+    "forbidden": ["No demand for an exact large count", "No map, border, flag, route line, arrow, text, label, caption or numeral", "No other butterfly species, rainbow wings or mascot faces"]
+  },
+  "75:2": {
+    "pageNumber": 2,
+    "visualMoment": "A natural geological cutaway shows rain entering one narrow crack in a layered limestone hillside and the same water enlarging a small smooth underground passage below.",
+    "subjects": ["limestone hillside cutaway", "rainwater seep", "developing cave passage"],
+    "requiredVisible": ["layered limestone hillside", "one narrow water-filled crack from the surface", "one small rounded underground cavity connected to that crack", "damp subtly dissolved rock surfaces"],
+    "composition": "One coherent natural karst hillside cross-section, with irregular weathered limestone beds beneath soil and grass, the rainy surface above, and a small winding cave passage directly beneath the fissure. Rock layers must look geological and naturally broken, never like a wall.",
+    "continuityDetails": ["cool limestone colour and realistic wet mineral texture match the book", "erosion is subtle and geological, not explosive"],
+    "forbidden": ["No straight masonry courses, bricks, blocks, mortar joints, oval pipe or man-made tunnel", "No people, helmets, viewing platform, railing or equipment", "No arrows, labels, text, captions, numerals or inset", "No fantasy crystals, faces or rainbow rock"]
+  },
+  "75:5": {
+    "pageNumber": 5,
+    "visualMoment": "One mineral-rich droplet hangs just above one floor-growing stalagmite directly beneath a wet ceiling point, with the stalagmite's rounded upward tip catching the drip.",
+    "subjects": ["stalagmite, exactly 1", "mineral droplet, exactly 1"],
+    "requiredVisible": ["one clearly floor-rooted stalagmite rising upward", "one droplet directly above its tip", "damp limestone floor and ceiling context"],
+    "composition": "Low macro cave view centred on the stalagmite and descending droplet, with enough ceiling context to explain where the drip originated.",
+    "continuityDetails": ["same limestone cave materials and restrained lighting as adjacent pages", "formation grows from the floor, never hangs"],
+    "forbidden": ["No people, helmets, paths, tools or animals", "No hanging stalagmite or floor stalactite", "No face, text, arrow, label, caption or numeral"]
+  },
+  "75:6": {
+    "pageNumber": 6,
+    "visualMoment": "One mature limestone column forms a continuous natural join from cave ceiling to floor, while one separate stalactite and one separate stalagmite nearby make the joined structure easy to understand.",
+    "subjects": ["limestone column, exactly 1", "separate stalactite, exactly 1", "separate stalagmite, exactly 1"],
+    "requiredVisible": ["one unbroken central ceiling-to-floor column", "one nearby ceiling-hanging stalactite", "one nearby floor-rising stalagmite", "damp cave chamber"],
+    "composition": "Wide natural cave interior with the central column dominant and the two smaller, clearly separated comparison formations on opposite sides.",
+    "continuityDetails": ["credible limestone deposition and scale", "same cave palette and moisture as pages 4-5"],
+    "forbidden": ["No people, helmets, rails, tools or animals", "No touching comparison formations or extra central column", "No face, text, arrow, label, caption or numeral"]
+  },
+  "105:11": {
+    "pageNumber": 11,
+    "visualMoment": "Aiden studies his own reflection after losing a front baby tooth while Betty stands beside him and calmly tells him that the small gap makes him look older, not strange.",
+    "subjects": ["Aiden (1)", "Betty (1)", "wall mirror (1)"],
+    "requiredVisible": ["canonical Aiden in his orange hoodie", "canonical Betty in teal shirt, white short overalls and blue headband", "one small natural gap where one of Aiden's upper front baby teeth has fallen out", "Aiden's uncertain expression changing toward relief", "Betty's simple reassuring smile"],
+    "composition": "Warm medium bathroom or hallway mirror view. Aiden faces the mirror at a slight angle so both his real face and one reflection are understandable, while Betty remains beside him outside the mirror plane. Keep the single tooth gap subtle but visible.",
+    "continuityDetails": ["Aiden has lost one baby tooth; no replacement adult tooth is emerging yet", "Betty's own earlier tooth gap may be subtly visible but remains secondary", "match the established Aiden-and-Betty family cartoon style"],
+    "forbidden": ["No duplicate real Aiden mistaken for a second child", "No oversized new tooth, multiple missing teeth, blood, pain, dental instrument or dentist", "No text, label, diagram, inset or face-bearing tooth"]
+  },
+  "111:1": {
+    "pageNumber": 1,
+    "visualMoment": "Bossy perches on one low rock and announces a plan through an energetic open-wing gesture while exactly Chompy, Sunny, Grumpy, Dozy and Wiggly gather to listen.",
+    "subjects": ["Bossy (1)", "Chompy (1)", "Sunny (1)", "Grumpy (1)", "Dozy (1)", "Wiggly (1)"],
+    "requiredVisible": ["all six locked Dino Pals exactly once", "Dozy as the compact lavender stegosaur with dark-purple plates", "Wiggly as the tall pale-blue long-neck with darker blue spots and a cream underside", "Bossy on one low rock addressing the group", "one modest pile of berries", "one modest pile of leaves", "one bundle of four thin branches"],
+    "composition": "Clear medium-wide group scene with Bossy raised slightly at left and the five listeners arranged in one shallow arc. Keep each species silhouette and face unobstructed; props remain low and secondary.",
+    "continuityDetails": ["the three work piles begin tidy and remain in the same clearing on later pages", "Bossy has normal pterosaur wings and no added hands"],
+    "forbidden": ["No written plan, sign, label, symbol, numeral or decorative typography", "No extra or duplicate dinosaur", "No face, heart or emotion on the landscape"]
+  },
+  "111:3": {
+    "pageNumber": 3,
+    "visualMoment": "Chompy has eaten the gathered berries while Bossy reacts; Sunny, Grumpy, Dozy and Wiggly continue sorting the remaining leaves and four branches.",
+    "subjects": ["Bossy (1)", "Chompy (1)", "Sunny (1)", "Grumpy (1)", "Dozy (1)", "Wiggly (1)"],
+    "requiredVisible": ["all six locked Dino Pals exactly once", "Dozy as the compact lavender stegosaur with dark-purple plates", "Wiggly as the tall pale-blue long-neck with darker blue spots and a cream underside", "Chompy beside the now-empty berry place with a few harmless berry stains around the mouth", "Bossy leaning toward Chompy from the same low rock", "one still-tidy leaf pile", "four branches still clearly present"],
+    "composition": "Medium-wide continuation of the same clearing, with Chompy and the empty berry patch prominent in the foreground and Bossy's reaction readable behind. Keep the four working pals clearly separated.",
+    "continuityDetails": ["same low rock and prop locations as page 1", "the berries are gone but the leaves and branches remain organised"],
+    "forbidden": ["No demand for an exact leaf or berry count", "No text, label, speech bubble, duplicate pal or face-bearing landscape"]
+  },
+  "111:4": {
+    "pageNumber": 4,
+    "visualMoment": "Wiggly's one connected pale-blue long-neck tail accidentally sweeps through the organised work area, sending a modest handful of leaves and the four thin branches tumbling while Bossy and the other pals react.",
+    "subjects": ["Bossy (1)", "Chompy (1)", "Sunny (1)", "Grumpy (1)", "Dozy (1)", "Wiggly (1)"],
+    "requiredVisible": ["all six locked Dino Pals exactly once", "Wiggly as the tall pale-blue long-neck with darker blue spots and a cream underside", "Dozy separately visible as the compact lavender stegosaur with dark-purple plates", "Wiggly's single connected long-neck tail in a readable low sweep", "several leaves and exactly four branches displaced naturally", "Bossy reacting from the same low rock"],
+    "composition": "Dynamic wide view across the same clearing. Wiggly occupies one side, the tail and modest prop movement cross the centre, and the five other characters remain safely clear and individually readable.",
+    "continuityDetails": ["the berry patch remains empty", "Wiggly's tail has no face and stays anatomically attached"],
+    "forbidden": ["No exact large leaf count, dangerous projectile, collision or injury", "No second tail, tail face, duplicate character, words or action text"]
+  },
+  "111:5": {
+    "pageNumber": 5,
+    "visualMoment": "Dozy has fallen asleep beside the scattered leaves and four branches while Bossy calls toward him from the same low rock and the other four pals continue tidying.",
+    "subjects": ["Bossy (1)", "Chompy (1)", "Sunny (1)", "Grumpy (1)", "Dozy (1)", "Wiggly (1)"],
+    "requiredVisible": ["all six locked Dino Pals exactly once", "Dozy as the compact lavender stegosaur with dark-purple plates, asleep safely on the ground with closed eyes", "Wiggly as the tall pale-blue long-neck with darker blue spots and a cream underside", "Bossy addressing Dozy", "a modest scatter of leaves and exactly four branches", "the empty berry patch"],
+    "composition": "Warm medium-wide continuation with sleeping Dozy low in the foreground, Bossy on the familiar rock, and the four awake pals spaced around the tidy-up. Every species remains readable.",
+    "continuityDetails": ["same clearing, rock and props as pages 1, 3 and 4", "sleep is communicated only by relaxed posture and closed eyes"],
+    "forbidden": ["No written Z symbols, caption, label, speech bubble or exact large leaf count", "No extra or duplicate dinosaur, pillow, bed or anthropomorphic landscape"]
+  },
+  "119:9": {
+    "pageNumber": 9,
+    "visualMoment": "Clumsy stands securely on a broad dry rock shelf beside a deep clear pool, all four feet fully visible and well back from the edge, lowering his long golden neck to look at one blue sleeping pillow submerged beyond reach.",
+    "subjects": ["Clumsy (1)", "blue sleeping pillow (1)", "waterfall and pool (1)"],
+    "requiredVisible": ["Clumsy as the canonical golden-yellow spotted long-neck", "all four of Clumsy's feet dry, visible and planted on the level shelf", "one blue pillow clearly underwater beyond reach", "one broad stable rock shelf beside the clear pool"],
+    "composition": "Readable side view with Clumsy on the dry shelf at left and the clear pool at right. Keep the pillow visible through the water and leave safe space between Clumsy's feet and the edge.",
+    "continuityDetails": ["Clumsy remains completely dry on this page", "the pillow is the same single blue sleeping pillow from the previous scene"],
+    "forbidden": ["No hidden or submerged feet, unstable pose, reaching into the water or falling", "No Wiggly, Dozy, pet, extra pillow, rainbow, text, caption, label or speech bubble"]
+  },
+  "122:8": {
+    "pageNumber": 8,
+    "visualMoment": "Grumpy has left the flat rock and stands with all four feet on level ground at the edge of a shallow ditch while Chompy stands waist-deep below; they face one another without any decorative sigh symbol.",
+    "subjects": ["Grumpy (1)", "Chompy (1)", "flat rock (1)", "shallow ditch (1)"],
+    "requiredVisible": ["Grumpy's four feet firmly planted on level ground", "Grumpy's single connected tail resting naturally on the ground", "Chompy waist-deep in the shallow ditch and not yet muddy", "the flat rock visible behind Grumpy"],
+    "composition": "Medium side view across the ditch, with Grumpy just outside the rim and Chompy below at a safe readable depth. Separate both silhouettes and faces clearly.",
+    "continuityDetails": ["Grumpy has just climbed down from the same flat rock", "Chompy is still clean before the next muddy action"],
+    "forbidden": ["No text, symbol, sigh puff, speech bubble, duplicate character or unrelated background pal", "No deep ravine, fall, injury or detached tail"]
+  },
+  "124:9": {
+    "pageNumber": 9,
+    "visualMoment": "All fifteen Dino Pals gather exactly once on a broad safe plateau near the top of Mount Rumble, with Dozy at the centre of the happy group after waking from his dream.",
+    "subjects": ["Chompy (1)", "Sunny (1)", "Grumpy (1)", "Bossy (1)", "Bouncy (1)", "Wiggly (1)", "Dozy (1)", "Zippy (1)", "Honky (1)", "Cheeky (1)", "Fancy (1)", "Clumsy (1)", "Sneezy (1)", "Shy (1)", "Flappy (1)"],
+    "requiredVisible": ["exactly fifteen Dino Pals, each present once", "Dozy as the compact lavender stegosaur with dark-purple plates at centre", "Wiggly as the tall pale-blue spotted long-neck", "all thirteen other canonical pals with distinct unobstructed silhouettes", "one broad level plateau near Mount Rumble's top"],
+    "composition": "Wide ensemble portrait in two shallow staggered rows on the safe plateau. Put shorter pals in front and taller or flying pals behind so every full head, face and species silhouette is readable.",
+    "continuityDetails": ["the cast is exactly Chompy, Sunny, Grumpy, Bossy, Bouncy, Wiggly, Dozy, Zippy, Honky, Cheeky, Fancy, Clumsy, Sneezy, Shy and Flappy", "Dozy has just awakened and remains the emotional focus"],
+    "forbidden": ["No sixteenth character, missing pal, duplicate pal or fused body", "No heart, rainbow, text, label, speech bubble, unsafe cliff edge or character blocking another face"]
+  },
+  "126:9": {
+    "pageNumber": 9,
+    "visualMoment": "Bouncy reaches the safe apex of one controlled low bounce as a loose vine is already looped around a sturdy branch; both metal coil springs are fully extended and exactly three tipped empty baskets lie below.",
+    "subjects": ["Bouncy (1)", "loose vine (1)", "sturdy branch (1)", "empty baskets (3)"],
+    "requiredVisible": ["canonical lime-green domed Bouncy with exactly two metal spring feet", "both coil springs fully extended while Bouncy is airborne", "one loose vine already looped around one sturdy branch", "exactly three tipped empty baskets on safe level ground below"],
+    "composition": "Dynamic medium-wide side view with Bouncy only a short distance above the ground, the looped vine and branch in the upper third, and all three baskets separated below.",
+    "continuityDetails": ["the bounce remains low and controlled", "the vine is secure around an unbroken branch before Bouncy descends"],
+    "forbidden": ["No compressed springs while airborne, extra spring, extra basket or extra character", "No dangerous height, broken branch, heart cloud, text, label, caption, speech bubble or face-bearing prop"]
+  },
+  "115:6": {
+    "pageNumber": 6,
+    "visualMoment": "One natural lightning flash brightens the rainy Hollow while Dozy, the compact lavender stegosaur, wakes frightened beneath a broad dry rock overhang beside Honky, Bossy and Chompy; Dozy's fixed dark-purple plates remain anatomically unchanged.",
+    "subjects": ["Dozy (1)", "Honky (1)", "Bossy (1)", "Chompy (1)", "rock overhang (1)", "lightning flash (1)"],
+    "requiredVisible": ["Dozy as the compact lavender stegosaur with all fixed back plates in their normal position", "Honky as the coral-orange parasaurolophus", "Bossy as the turquoise pterosaur", "Chompy as the orange tyrannosaur with white neckerchief", "all four pals entirely beneath one broad dry rock overhang", "ordinary rain and one distant lightning flash outside the shelter"],
+    "composition": "Medium-wide shelter view from inside the overhang. Keep the four separated faces in the dry foreground and frame the rain and distant flash beyond the shelter edge.",
+    "continuityDetails": ["Dozy has just awakened and communicates fear through wide eyes and a low braced posture", "stegosaur plates are rigid body anatomy and do not lift, fan, move or change shape"],
+    "forbidden": ["No raised, moving or detachable stegosaur plates", "No character in rainwater, open water or lightning contact", "No text, sound word, speech bubble, face on weather, heart cloud, rainbow, duplicate or extra dinosaur"]
+  },
+  "130:1": {
+    "pageNumber": 1,
+    "visualMoment": "Bouncy, the bright-yellow sheep, makes one safe low hop over the farm path with exactly four metal coil-spring legs fully extended beneath the connected fleece body.",
+    "subjects": ["Bouncy (1)", "farm path (1)", "red barn (1)"],
+    "requiredVisible": ["one canonical bright-yellow Bouncy with red neck ribbon", "exactly four metal coil-spring legs, each physically attached to the body and ending in one small dark hoof", "all four springs readable and extended in the low airborne pose", "one small dust puff at the takeoff point"],
+    "composition": "Medium-wide side view with Bouncy fully visible a short safe distance over the dirt path, red barn and fence behind.",
+    "continuityDetails": ["Bouncy keeps the same four-spring model on every page", "the hop is low and controlled with no motion clone"],
+    "forbidden": ["No ordinary flesh legs, missing spring, extra spring, duplicate Bouncy, dangerous height or collision", "No text, written hop, motion word, face on scenery, rainbow, human or border"]
+  },
+  "130:2": {
+    "pageNumber": 2,
+    "visualMoment": "The same Bouncy reaches one soft landing on the path with exactly four metal coil springs visibly compressed under even weight, ready to rebound for another hop.",
+    "subjects": ["Bouncy (1)", "farm path (1)", "red barn (1)"],
+    "requiredVisible": ["one canonical bright-yellow Bouncy with red neck ribbon", "exactly four metal coil-spring legs compressed evenly beneath the body", "four separate dark hooves touching the path", "one short settled dust trail suggesting repeated hopping without duplicate bodies"],
+    "composition": "Medium side view slightly farther along the same path than page 1, with the full sheep and all four compressed springs separated clearly.",
+    "continuityDetails": ["same path, barn, fence, light direction and Bouncy model as page 1", "repetition is conveyed through dust and pose only"],
+    "forbidden": ["No ordinary flesh legs, motion clone, extra sheep, extra spring, unsafe impact or flattened body", "No text, written hop, symbol, face on scenery, rainbow, human or border"]
+  },
+  "130:3": {
+    "pageNumber": 3,
+    "visualMoment": "Bouncy makes another safe low hop with all four coil-spring legs extended while Grumpy, the dark-brown goat, stands firmly on the grassy verge and asks Bouncy to stop through a stern grounded pose.",
+    "subjects": ["Bouncy (1)", "Grumpy (1)", "farm path (1)", "red barn (1)"],
+    "requiredVisible": ["one canonical Bouncy with exactly four attached metal spring legs and four dark hooves", "one canonical Grumpy goat with two tan ridged horns, white muzzle and goatee", "Grumpy entirely off the landing path", "one low controlled hop"],
+    "composition": "Medium view across the path with Bouncy left mid-air and Grumpy right on level grass, both full bodies and faces visible.",
+    "continuityDetails": ["same Bouncy model and farm geography as pages 1-2", "the request to stop is conveyed only through Grumpy's expression and planted stance"],
+    "forbidden": ["No ordinary legs on Bouncy, missing spring, physical blocking, contact, duplicate animal or unsafe landing", "No text, stop sign, speech bubble, rainbow, face on scenery or human"]
+  },
+  "130:4": {
+    "pageNumber": 4,
+    "visualMoment": "Bouncy continues one safe low hop on the path with all four coil-spring legs extended while Clucky, the plump orange-red hen, stands on the grassy verge and asks Bouncy to stop through her firm posture.",
+    "subjects": ["Bouncy (1)", "Clucky (1)", "farm path (1)", "red barn (1)"],
+    "requiredVisible": ["one canonical Bouncy with exactly four attached metal coil-spring legs and four dark hooves", "one canonical Clucky with red comb and wattle, yellow beak and two yellow legs", "Clucky entirely off the landing path", "one low controlled hop"],
+    "composition": "Medium-wide view with Bouncy left of centre and Clucky on the right verge, both full silhouettes separated against the same barnyard.",
+    "continuityDetails": ["same Bouncy model, path, barn, fence and light as pages 1-3", "Clucky communicates the request through stance only"],
+    "forbidden": ["No ordinary legs on Bouncy, missing spring, hen in landing lane, collision, duplicate or extra animal", "No text, written stop, speech bubble, rainbow, face on scenery or human"]
+  },
+  "130:5": {
+    "pageNumber": 5,
+    "visualMoment": "Bouncy makes one safe low hop with exactly four extended coil-spring legs while Grumpy, Clucky, Muddy and Tiny stand together on the grassy verge and make a unified quiet request for Bouncy to stop.",
+    "subjects": ["Bouncy (1)", "Grumpy (1)", "Clucky (1)", "Muddy (1)", "Tiny (1)"],
+    "requiredVisible": ["one canonical Bouncy with exactly four attached metal coil springs and four hooves", "one dark-brown Grumpy goat", "one orange-red Clucky hen", "one compact round pink Muddy pig", "one very small blue-grey Tiny mouse", "all four supporting pals safely off the landing path"],
+    "composition": "Medium-wide group view with Bouncy hopping in the left half and the four pals in one separated shallow group on the right verge; Tiny remains visibly much smaller.",
+    "continuityDetails": ["the group is exactly Grumpy, Clucky, Muddy and Tiny, each once", "same Bouncy model and barnyard continuity as pages 1-4"],
+    "forbidden": ["No rabbit, duck, lamb, piglet, extra pal, duplicate animal or ordinary legs on Bouncy", "No text, stop sign, speech bubble, collision, rainbow, face on scenery or human"]
+  },
+  "130:6": {
+    "pageNumber": 6,
+    "visualMoment": "Bouncy has finally stopped at the centre of the path, standing calmly with exactly four metal coil-spring legs gently and evenly compressed beneath the body while Grumpy, Clucky, Muddy and Tiny relax on the verge.",
+    "subjects": ["Bouncy (1)", "Grumpy (1)", "Clucky (1)", "Muddy (1)", "Tiny (1)"],
+    "requiredVisible": ["one canonical Bouncy with exactly four attached metal coil springs", "all four springs equally compressed with four hooves flat on level ground", "one Grumpy, one Clucky, one Muddy and one Tiny, each relaxed and separate", "settled dust and no active motion cue"],
+    "composition": "Medium-wide centred view with Bouncy's four springs unobstructed and the four pals in a loose shallow arc safely behind and to one side.",
+    "continuityDetails": ["the exact page-5 cast remains", "stopping is shown through equal spring compression, balanced posture and settled dust"],
+    "forbidden": ["No ordinary legs, raised hoof, missing spring, extra spring, rabbit, duck, lamb, piglet, duplicate or unsafe crowding", "No text, symbol, motion arc, rainbow, face on scenery or human"]
+  },
+  "130:7": {
+    "pageNumber": 7,
+    "visualMoment": "The same Bouncy begins one new low hop: the rear two coil springs compress for takeoff while the front two extend and lift, all four spring legs visible, as Grumpy, Clucky, Muddy and Tiny react with affectionate resignation from the safe verge.",
+    "subjects": ["Bouncy (1)", "Grumpy (1)", "Clucky (1)", "Muddy (1)", "Tiny (1)"],
+    "requiredVisible": ["one canonical Bouncy with exactly four physically attached metal coil springs", "two rear springs compressed and two front springs beginning to extend in a plausible takeoff", "one Grumpy, one Clucky, one Muddy and one Tiny, each once and safely clear", "one tiny dust puff behind the rear hooves"],
+    "composition": "Medium-wide three-quarter view with Bouncy beginning takeoff left of centre and the four pals grouped on the right verge, every face and body separated.",
+    "continuityDetails": ["same exact cast, farm geography and Bouncy model as pages 5-6", "the new hop remains low and controlled"],
+    "forbidden": ["No ordinary legs, missing spring, extra spring, rabbit, duck, lamb, piglet, duplicate, contact or dangerous height", "No text, written hop, speech bubble, rainbow, face on scenery or human"]
+  },
+  "156:5": {
+    "pageNumber": 5,
+    "visualMoment": "One-inch-tall Wren stands with both boots on the lower edge of her enormous open olive-green spell book, one hand braced on the thick page and the other tracing toward the opposite page edge as she realizes she read the spell backwards.",
+    "subjects": ["tiny Wren (1)", "open olive-green spell book (1)", "heavy wooden desk (1)"],
+    "requiredVisible": ["one complete one-inch Wren with canonical navy patched hat, wild dark hair, patched robe, striped leggings and both brown boots", "one enormous open battered olive-green book with brass corners", "faint abstract organic squiggle rows that do not form readable writing", "stable wooden desktop and oversized study props for scale"],
+    "composition": "Low book-level wide shot with the open page filling the foreground and tiny Wren fully visible near its lower edge. Use the book thickness, quill and lantern as large scale cues without blocking Wren.",
+    "continuityDetails": ["Wren is the identical canonical model reduced uniformly to one inch", "the open book and desk remain in the same position on page 6"],
+    "forbidden": ["No mirror, reflection, duplicate Wren, fairy wings, doll body, giant human hand or unsafe page edge", "No readable letters, words, numerals, title, label, runes, arrow, text or face on book"]
+  },
+  "156:6": {
+    "pageNumber": 6,
+    "visualMoment": "The same one-inch-tall Wren walks carefully across the same open spell-book page toward its opposite beginning edge, one boot lifted mid-step and one tiny hand following the faint abstract line in the correct forward direction.",
+    "subjects": ["tiny Wren (1)", "open olive-green spell book (1)", "heavy wooden desk (1)"],
+    "requiredVisible": ["one complete tiny canonical Wren with hat, robe, striped leggings, two hands and both boots", "the same enormous open olive-green book and page spread from page 5", "faint abstract organic squiggle rows with no recognizable writing", "both wide page edges safely visible"],
+    "composition": "Low side view along the book surface, with Wren moving steadily from the right half toward the left beginning edge. Keep her full silhouette clear against the pale page and all feet safely over the page surface.",
+    "continuityDetails": ["same tiny scale, book orientation, desk and warm lantern light as page 5", "forward reading is shown only by Wren's deliberate movement and tracing gesture"],
+    "forbidden": ["No mirror, reflection, duplicate Wren, second book, fairy wings, missing hat or hidden boot", "No readable letters, words, numerals, title, label, rune alphabet, arrow, text or face on book"]
+  },
+  "156:10": {
+    "pageNumber": 10,
+    "visualMoment": "Normal-size Wren stands full-body beside the same heavy desk, looking down thoughtfully at her own unchanged robe, hands and boots after discovering she is exactly the same height as before.",
+    "subjects": ["normal-size Wren (1)", "closed olive-green spell book (1)", "heavy wooden desk (1)"],
+    "requiredVisible": ["one complete normal-size canonical Wren with green eyes, wild dark hair, patched navy hat and robe, striped leggings and both brown boots", "the same olive-green spell book resting closed on the desk", "the warm Hollow Oak study with familiar lantern and shelves"],
+    "composition": "Warm medium-wide full-body view with Wren beside the desk, both feet grounded and hands lightly checking the robe and hat. Leave the book visible behind her but secondary.",
+    "continuityDetails": ["Wren has returned to exactly her established normal size and model", "disappointment is conveyed through thoughtful posture only"],
+    "forbidden": ["No mirror, reflection, duplicate Wren, ruler, measuring marks, height chart, giant or tiny second Wren", "No readable text, title, label, numeral, speech bubble, face on furniture or rainbow"]
+  },
+  "156:12": {
+    "pageNumber": 12,
+    "visualMoment": "Normal-size Wren stands at the heavy desk holding the same olive-green spell book open in both hands and carefully traces the next abstract spell line forward with one finger before reading on.",
+    "subjects": ["normal-size Wren (1)", "open olive-green spell book (1)", "heavy wooden desk (1)"],
+    "requiredVisible": ["one canonical normal-size Wren with complete hat, wild hair, patched robe, striped leggings and both boots", "one open battered olive-green book with brass corners supported safely in both hands and against the desk edge", "faint organic squiggle rows that remain entirely unreadable", "warm Hollow Oak study continuity"],
+    "composition": "Medium-wide three-quarter view across the desk. Keep Wren's face, tracing hand and open pages readable as action while preserving her full grounded silhouette.",
+    "continuityDetails": ["same Wren, book, desk and room as pages 5, 6 and 10", "careful forward reading is communicated by one deliberate tracing gesture and focused expression"],
+    "forbidden": ["No mirror, reflection, duplicate Wren, second book, floating book, missing hat, hidden hand or unsafe balancing", "No readable letters, words, numerals, title, label, rune alphabet, text, speech bubble or face on book"]
+  },
+  "175:3": {
+    "pageNumber": 3,
+    "visualMoment": "Glimmer releases one tiny, perfect orange flame straight down into the bare centre of the low stone ring while Luna, Pip and Stone watch calmly from behind the safety line.",
+    "subjects": ["Glimmer, exactly 1", "Luna, exactly 1", "Pip, exactly 1", "Stone, exactly 1"],
+    "requiredVisible": ["exact purple-blue Glimmer breathing one short contained flame", "exact Luna owl supervising", "exact Pip and Stone behind the line", "one stone ring, one lidded water bucket and one red extinguisher"],
+    "composition": "Medium portrait shot with Glimmer and the small flame in the lower centre, the three observers clearly separated behind, and both safety items visible at the ring edge.",
+    "continuityDetails": ["all four match locked Moonwood models", "flame stays below Glimmer's shoulder height and entirely within bare earth"],
+    "forbidden": ["No other resident, duplicate dragon or human Luna", "No fire outside the ring, burning plant, smoke column or panic", "No text, label, sign, caption or speech bubble"]
+  },
+  "175:4": {
+    "pageNumber": 4,
+    "visualMoment": "Beside the tiny controlled flame, Pip covers their mouth, Stone's eyes widen and Luna lifts her tiny spectacles a fraction in astonishment while Glimmer looks proudly toward them.",
+    "subjects": ["Glimmer, exactly 1", "Pip, exactly 1", "Stone, exactly 1", "Luna, exactly 1"],
+    "requiredVisible": ["exact Glimmer beside the contained flame", "exact Pip with one hand over mouth", "exact Stone reacting with three-digit hands visible", "exact Luna owl holding her own gold spectacles"],
+    "composition": "Tight four-character group portrait around the near side of the ring, with every face and full silhouette separated and the tiny flame low in the foreground.",
+    "continuityDetails": ["Luna remains a small slate-grey owl", "Stone has exactly three digits per hand", "same ring and evening clearing as page 3"],
+    "forbidden": ["No background crowd, extra resident, human Luna or duplicate", "No large flame, burning object or unsafe contact", "No text, label, sign, caption or speech bubble"]
+  },
+  "175:5": {
+    "pageNumber": 5,
+    "visualMoment": "Glimmer makes one slightly longer but still low steady flame inside the stone ring, warm light revealing pearly flecks across the purple-blue scales as Luna, Pip and Stone supervise.",
+    "subjects": ["Glimmer, exactly 1", "Luna, exactly 1", "Pip, exactly 1", "Stone, exactly 1"],
+    "requiredVisible": ["exact Glimmer and one low contained flame", "exact Luna, Pip and Stone behind the safety line", "one lidded water bucket and one red extinguisher at the ring edge"],
+    "composition": "Three-quarter portrait of Glimmer foreground centre, flame directed into bare earth, with the three observers arranged clearly behind and safety equipment unobscured.",
+    "continuityDetails": ["same four exact models as pages 3-4", "Glimmer's scale colour and anatomy do not change in the warm light"],
+    "forbidden": ["No other resident, duplicate Glimmer or substitute dragon", "No fire outside the ring, burning vegetation or smoke damage", "No text, label, sign, caption or speech bubble"]
+  },
+  "175:6": {
+    "pageNumber": 6,
+    "visualMoment": "Glimmer draws one visibly over-deep breath but has not exhaled; Pip raises one open stop hand, Stone takes one small step back and Luna watches closely beside the ready safety equipment.",
+    "subjects": ["Glimmer, exactly 1", "Pip, exactly 1", "Stone, exactly 1", "Luna, exactly 1"],
+    "requiredVisible": ["exact Glimmer inhaling with no flame", "exact Pip's single open-palm stop gesture", "exact Stone stepping back", "exact Luna supervising", "cold stone ring, lidded water bucket and red extinguisher"],
+    "composition": "Medium-wide portrait with Glimmer at the ring and the three reactions readable on one horizontal depth plane behind the safety line.",
+    "continuityDetails": ["same evening clearing and four locked models", "tension is alert but calm, never panicked"],
+    "forbidden": ["No active flame, smoke, panic, running or equipment handling", "No other resident, duplicate or human Luna", "No text, label, sign, caption or speech bubble"]
+  },
+  "175:7": {
+    "pageNumber": 7,
+    "visualMoment": "Glimmer's single taller vertical flame remains wholly inside the stone ring and touches one suspended amber magical lantern, which sends one thin gold light trail toward the first unburnt Hollow Oak lamp while Luna, Pip and Stone remain safely behind the line.",
+    "subjects": ["Glimmer, exactly 1", "Luna, exactly 1", "Pip, exactly 1", "Stone, exactly 1"],
+    "requiredVisible": ["exact Glimmer and one vertical contained flame", "one suspended amber lantern", "one thin magical light trail to one Hollow Oak lamp", "exact three observers", "water bucket and extinguisher"],
+    "composition": "Tall portrait composition with ring and Glimmer low, the lantern directly above, the safe observers to one side and the first oak lamp visible in the upper background.",
+    "continuityDetails": ["the gold trail is magic light, not fire", "Hollow Oak, trees and ground remain green, intact and unburnt"],
+    "forbidden": ["No fire touching a tree, building, mushroom, torch or vegetation", "No other resident, duplicate dragon or human Luna", "No horizontal wildfire, smoke damage, text, label, sign or caption"]
+  },
+  "175:8": {
+    "pageNumber": 8,
+    "visualMoment": "From the safe clearing, Glimmer, Luna, Pip and Stone watch one continuous gold magical light thread travel away through Moonwood, waking lamps, inanimate mushrooms and path stones without heat or fire.",
+    "subjects": ["Glimmer, exactly 1", "Luna, exactly 1", "Pip, exactly 1", "Stone, exactly 1", "magical light thread, exactly 1"],
+    "requiredVisible": ["four exact observers small but recognisable at the cold ring", "one continuous gold light thread", "several lamps, mushrooms and stones lighting sequentially", "healthy intact forest"],
+    "composition": "Wide portrait vista from behind and beside the four observers, with the winding illuminated path carrying the eye deep into the forest.",
+    "continuityDetails": ["same four models and clearing as pages 3-7", "all glow is cool-safe magic illumination rather than combustion"],
+    "forbidden": ["No other resident, duplicate character or substitute", "No flame, burning tree, smoke, scorch mark or heat distortion", "No faces on mushrooms or stones, text, label, sign, caption or arrow"]
+  }
+}

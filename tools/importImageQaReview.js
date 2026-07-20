@@ -13,8 +13,8 @@ const auditMdPath = path.join(repoRoot, "docs", "validation", "image_qa_review_i
 function normalizeDecision(value = "") {
   const text = String(value || "").trim().toUpperCase();
   if (["N", "NO", "REJECT", "REJECTED", "DELETE"].includes(text)) return "rejected";
-  if (text === "REVIEW") return "review_needed";
-  return "accepted";
+  if (["Y", "YES", "ACCEPT", "ACCEPTED", "APPROVE", "APPROVED"].includes(text)) return "accepted";
+  return "review_needed";
 }
 
 function cell(row, headers, key) {
