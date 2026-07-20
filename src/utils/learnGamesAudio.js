@@ -71,9 +71,28 @@ function playAudio(src) {
     }
 
     const soundId = howl.play();
-    howl.once("end", () => resolve(src), soundId);
-    howl.once("loaderror", () => reject(new Error(`Unable to load ${src}`)), soundId);
-    howl.once("playerror", () => reject(new Error(`Unable to play ${src}`)), soundId);
+    // Settle exactly once and detach every sibling listener. A clip cut off by
+    // Howler.stop() fires "stop" (never "end"); without that handler the
+    // promise hung forever and its listeners accumulated on the cached Howl —
+    // a real leak on the hottest clips during a long tap-happy session.
+    let settled = false;
+    const onEnd = () => settle(resolve, src);
+    const onStop = () => settle(resolve, src); // interrupted by a newer cue counts as done
+    const onLoadError = () => settle(reject, new Error(`Unable to load ${src}`));
+    const onPlayError = () => settle(reject, new Error(`Unable to play ${src}`));
+    function settle(finish, value) {
+      if (settled) return;
+      settled = true;
+      howl.off("end", onEnd, soundId);
+      howl.off("stop", onStop, soundId);
+      howl.off("loaderror", onLoadError, soundId);
+      howl.off("playerror", onPlayError, soundId);
+      finish(value);
+    }
+    howl.once("end", onEnd, soundId);
+    howl.once("stop", onStop, soundId);
+    howl.once("loaderror", onLoadError, soundId);
+    howl.once("playerror", onPlayError, soundId);
   });
 }
 

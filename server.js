@@ -7,8 +7,28 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
-app.use(express.json({ limit: "10mb" }));
+// Local dev tool: only accept requests from local dev servers, and never
+// expose an open proxy to the OpenAI account.
+app.use(cors({
+  origin: [/^http:\/\/localhost(:\d+)?$/, /^http:\/\/127\.0\.0\.1(:\d+)?$/]
+}));
+app.use(express.json({ limit: "100kb" }));
+
+// Minimal in-memory rate limit: each /generate-question call costs real money
+// (chat completion + image generation), so cap the burn rate even locally.
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX = 10;
+let rateWindowStart = Date.now();
+let rateWindowCount = 0;
+function rateLimited() {
+  const now = Date.now();
+  if (now - rateWindowStart > RATE_LIMIT_WINDOW_MS) {
+    rateWindowStart = now;
+    rateWindowCount = 0;
+  }
+  rateWindowCount += 1;
+  return rateWindowCount > RATE_LIMIT_MAX;
+}
 const mediaCacheOptions = {
   immutable: false,
   maxAge: "7d"
@@ -24,6 +44,10 @@ const openai = new OpenAI({
 });
 
 app.post("/generate-question", async (req, res) => {
+  if (rateLimited()) {
+    res.status(429).json({ error: "Too many requests; try again in a minute." });
+    return;
+  }
   try {
     const topics = [
       "animals",
@@ -91,7 +115,8 @@ Rules:
   }
 });
 
-app.listen(3001, () => {
+// Bind to loopback: this dev helper must never be reachable from the network.
+app.listen(3001, "127.0.0.1", () => {
   console.log(
     "Server running on http://localhost:3001"
   );

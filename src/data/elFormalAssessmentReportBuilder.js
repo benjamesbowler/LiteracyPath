@@ -203,9 +203,11 @@ export function buildIndividualElFormalAssessmentReport({
   assessmentHistory = []
 } = {}) {
   const studentId = getStudentId(student);
+  // A student without an id must match NO attempts, not all of them —
+  // otherwise their individual report absorbs the entire class's history.
   const records = (Array.isArray(assessmentHistory) ? assessmentHistory : [])
     .map(normalizeAssessmentAttempt)
-    .filter(record => !studentId || record.studentId === studentId);
+    .filter(record => Boolean(studentId) && record.studentId === studentId);
 
   const letterMap = new Map(EL_FORMAL_LETTERS.map(letter => [
     letter,

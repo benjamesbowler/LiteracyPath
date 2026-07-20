@@ -30,8 +30,12 @@ export function getRepeatPrompt(question = {}) {
 }
 
 export function getRepeatCorrectAnswer(question = {}) {
+  // correctAnswers can be an empty array, which is truthy — guard on length so
+  // a scalar answer field still contributes to the repeat signature.
   const answer =
-    question.correctAnswers ||
+    (Array.isArray(question.correctAnswers)
+      ? (question.correctAnswers.length ? question.correctAnswers : null)
+      : question.correctAnswers) ||
     question.correctAnswer ||
     question.answer ||
     question.correctSentence ||
@@ -65,9 +69,13 @@ export function getRepeatTargetWord(question = {}) {
   }
 
   const pairAnswer =
-    question.correctAnswers ||
-    (Array.isArray(question.answer) ? question.answer : null) ||
-    (Array.isArray(question.correctAnswer) ? question.correctAnswer : null);
+    (Array.isArray(question.correctAnswers)
+      ? (question.correctAnswers.length ? question.correctAnswers : null)
+      : question.correctAnswers) ||
+    (Array.isArray(question.answer) && question.answer.length ? question.answer : null) ||
+    (Array.isArray(question.correctAnswer) && question.correctAnswer.length
+      ? question.correctAnswer
+      : null);
 
   if (pairAnswer) {
     return normalizeRepeatValue(pairAnswer);

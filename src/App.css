@@ -605,6 +605,12 @@ body {
   font-weight: 800;
   cursor: pointer;
   padding: 0;
+  /* 44px tap-target floor: this class is a dismiss control in child-facing
+     dialogs (e.g. the companion picker), so it must be comfortably tappable. */
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .symbol-password-modal {

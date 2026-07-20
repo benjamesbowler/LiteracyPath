@@ -26,6 +26,7 @@ import {
 import { Sidebar } from "./components/Sidebar.jsx";
 import { StudentEntryPage } from "./components/StudentEntryPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
+import StudentRail from "./components/StudentRail.jsx";
 import { HollowPage } from "./components/HollowPage.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { SchoolNameInput } from "./components/SchoolNameInput.jsx";
@@ -344,6 +345,7 @@ function getStageIndex(question) {
   }
 
   const skill = normalize(question.skillId || question.skill || question.skillName || question.stage);
+  if (!skill) return -1;
 
   const exactIndex = skillTree.findIndex(stage =>
     stage.id === skill ||
@@ -391,8 +393,11 @@ function getQuestionAnswer(question) {
 }
 
 function normalizeMultiSelectAnswer(answer) {
+  // Lowercase so scoring matches validation (isQuestionValid compares via
+  // normalizeItemKey, which lowercases): cards "Cat"/"Hat" must satisfy
+  // correctAnswers ["cat","hat"].
   return (Array.isArray(answer) ? answer : String(answer || "").split("|"))
-    .map(value => String(value || "").trim())
+    .map(value => String(value || "").trim().toLowerCase())
     .filter(Boolean)
     .sort()
     .join("|");
@@ -2536,9 +2541,20 @@ export default function App() {
         setNameSaved(Boolean(restoredStudentId && restoredStudentName));
         setAppView(restoredAppView);
         setCurrentSkillIndex(restoredSkillIndex);
+        // Restore the round's repeat-guard memory alongside its answers: the
+        // in-round dedupe and coverage scoring index these arrays against
+        // roundAnswers, so they must stay the same length and order.
+        const restoredRoundItemKeys = Array.isArray(data.roundItemKeys)
+          ? data.roundItemKeys.slice(0, restoredRoundAnswers.length)
+          : [];
+        const restoredRoundQuestionIds = Array.isArray(data.roundQuestionIds)
+          ? data.roundQuestionIds.slice(0, restoredRoundAnswers.length)
+          : [];
         setRoundAnswers(restoredRoundAnswers);
-        setRoundItemKeys([]);
-        setRoundQuestionIds([]);
+        setRoundItemKeys(restoredRoundItemKeys);
+        setRoundQuestionIds(restoredRoundQuestionIds);
+        roundItemKeysRef.current = restoredRoundItemKeys;
+        roundQuestionIdsRef.current = restoredRoundQuestionIds;
         setUsedByStage(data.usedByStage || {});
         setMastery(data.mastery || {});
         setTotalAnswered(data.totalAnswered || 0);
@@ -2559,6 +2575,9 @@ export default function App() {
 
         loadStudents(savedClassId);
         if (restoredAppView === APP_VIEWS.ASSESSMENT) {
+          // Without this flag the correct-answer auto-advance timeout bails out
+          // and the restored session soft-locks on the feedback screen.
+          assessmentActiveRef.current = true;
           setAssessmentTransitioning(true);
           setTimeout(() => {
             pickQuestion(data.assessmentMode || "mastery", restoredRoundAnswers.length, restoredSkillIndex);
@@ -2591,6 +2610,8 @@ export default function App() {
         assessmentMode,
         currentSkillIndex,
         roundAnswers,
+        roundItemKeys,
+        roundQuestionIds,
         usedByStage,
         mastery,
         totalAnswered,
@@ -2613,6 +2634,8 @@ export default function App() {
     assessmentMode,
     currentSkillIndex,
     roundAnswers,
+    roundItemKeys,
+    roundQuestionIds,
     usedByStage,
     mastery,
     totalAnswered,
@@ -5357,15 +5380,16 @@ export default function App() {
       [key]: true
     }));
 
-    setItemMastery(prev => {
-      const nextRow = nextItemMasteryRow(prev[key], metadata, isCorrect, isNewSessionSeen, formatMetadata, source);
-      saveItemMasteryToSupabase(nextRow);
-
-      return {
-        ...prev,
-        [key]: nextRow
-      };
-    });
+    // Compute outside the state updater: React may invoke updaters more than
+    // once (StrictMode / replays), and a Supabase upsert inside one fires per
+    // invocation. Same-event calls always target distinct keys, so reading the
+    // render-scope snapshot here is safe.
+    const nextRow = nextItemMasteryRow(itemMastery[key], metadata, isCorrect, isNewSessionSeen, formatMetadata, source);
+    saveItemMasteryToSupabase(nextRow);
+    setItemMastery(prev => ({
+      ...prev,
+      [key]: nextRow
+    }));
   }
 
   async function persistCompletedAssessmentAttempt(attemptRecord, { mergeIntoMastery = false } = {}) {
@@ -5876,9 +5900,10 @@ export default function App() {
     const itemStateKey = itemMetadata?.itemKey && itemMetadata?.itemType
       ? getItemMasteryStateKey(itemMetadata.itemKey, itemMetadata.itemType)
       : "";
-    const nextRoundItemKeys = itemStateKey
-      ? [...roundItemKeys, itemStateKey]
-      : [...roundItemKeys];
+    // Always append (empty placeholder for keyless questions) so this array
+    // stays index-aligned with nextRound; the coverage filter below indexes
+    // answers by position. Set-building consumers filter out falsy keys.
+    const nextRoundItemKeys = [...roundItemKeys, itemStateKey];
     const nextRoundQuestionIds = answeredQuestion.id
       ? [...roundQuestionIdsRef.current, answeredQuestion.id]
       : [...roundQuestionIdsRef.current];
@@ -5892,10 +5917,8 @@ export default function App() {
     roundQuestionIdsRef.current = nextRoundQuestionIds.filter(Boolean);
     setRoundQuestionIds(roundQuestionIdsRef.current);
 
-    if (itemStateKey) {
-      roundItemKeysRef.current = nextRoundItemKeys;
-      setRoundItemKeys(nextRoundItemKeys);
-    }
+    roundItemKeysRef.current = nextRoundItemKeys;
+    setRoundItemKeys(nextRoundItemKeys);
 
     setTotalAnswered(n => n + 1);
 
@@ -8053,6 +8076,52 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
     ].join(" ")
     : "";
 
+  // ── THE RAIL ON MENU SUB-PAGES ──────────────────────────────────────────
+  //
+  // The sage rail used to live inside StudentHomePage, so it existed on
+  // exactly one screen. Phonics, Adventure Map, Reading Library and Story
+  // Quests each replaced it with a small floating "Back" chip in the corner.
+  //
+  // For a 4-7 year old that costs more than consistency: they lose the only
+  // persistent map of the app, their avatar and coin count vanish, and moving
+  // between two sections becomes two taps through an intermediate screen
+  // instead of one. Keeping the rail also drags the visual language into line
+  // for free — it forces the cream ground, type scale and spacing to agree.
+  //
+  // WORLDS KEEP THEIR FULLSCREEN. Sound Seekers, My Hollow, the Arcade and an
+  // open book are places, not menus; the rail would break the immersion that
+  // is their whole point. Only menus get it.
+  const goStudentHome = () => {
+    setStudentArcadeOpen(false);
+    setAppView(APP_VIEWS.STUDENT_HOME);
+  };
+  const railNav = [
+    { id: "sounds", label: "Sound Seekers", icon: "sound", go: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.PHONICS_QUEST); } },
+    { id: "phonics", label: "Phonics", icon: "phonics", go: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.PHONICS_LEARN); } },
+    { id: "map", label: "Adventure Map", icon: "map", go: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.SKILLS_BLOCK_QUEST); } },
+    { id: "books", label: "Books", icon: "book", go: () => { setStudentArcadeOpen(false); setGuidedInitialBookId(""); setAppView(APP_VIEWS.GUIDED_READING); } },
+    { id: "arcade", label: "Arcade", icon: "arcade", go: () => { setStudentArcadeOpen(true); setAppView(APP_VIEWS.PHONICS_LEARN); } },
+    { id: "hollow", label: "My Hollow", icon: "hollow", go: () => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.STUDENT_REWARDS); } }
+  ];
+  // Wraps a menu sub-page so it keeps the rail. Fullscreen mode still strips
+  // it — a child who asked for fullscreen asked for the content, not the menu.
+  const withStudentRail = (activeId, content) => {
+    if (!isStudentMode || studentArcadeOpen || learnFullscreen) return content;
+    return (
+      <div className="lp-home-sage lp-rail-shell">
+        <StudentRail
+          studentName={studentName}
+          scopeKey={studentId || studentName || "default"}
+          active={activeId}
+          nav={railNav}
+          onHome={goStudentHome}
+          onCoins={() => { setStudentArcadeOpen(false); setAppView(APP_VIEWS.STUDENT_REWARDS); }}
+        />
+        <div className="hs-main lp-rail-main">{content}</div>
+      </div>
+    );
+  };
+
   return (
     <ErrorBoundary resetKey={`app-shell-${appView}-${studentId || "none"}`} fallback={<PageErrorFallback />}>
     <div
@@ -8172,11 +8241,13 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
       {appView === APP_VIEWS.SKILLS_BLOCK_QUEST && nameSaved && (
         <PageBoundary resetKey={`skills-block-quest-${studentId}`}>
-          <ElSkillsQuest
-            studentName={studentName || "Reader"}
-            progressScopeKey={studentId || studentName || "default"}
-            onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.OVERVIEW)}
-          />
+          {withStudentRail("map", (
+            <ElSkillsQuest
+              studentName={studentName || "Reader"}
+              progressScopeKey={studentId || studentName || "default"}
+              onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.OVERVIEW)}
+            />
+          ))}
         </PageBoundary>
       )}
 
@@ -8320,25 +8391,29 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
 
       {appView === APP_VIEWS.GUIDED_READING && nameSaved && (
         <PageBoundary resetKey={`guided-reading-${studentId}`}>
-          <GuidedReadingPage
-            initialBookId={guidedInitialBookId}
-            studentId={studentId}
-            studentName={studentName}
-            mode={sessionMode === "student" ? "student" : "teacher"}
-            guidedReadingRecords={guidedReadingRecords}
-            saveGuidedReadingRecord={saveGuidedReadingRecord}
-            speakText={speakText}
-          />
+          {withStudentRail("books", (
+            <GuidedReadingPage
+              initialBookId={guidedInitialBookId}
+              studentId={studentId}
+              studentName={studentName}
+              mode={sessionMode === "student" ? "student" : "teacher"}
+              guidedReadingRecords={guidedReadingRecords}
+              saveGuidedReadingRecord={saveGuidedReadingRecord}
+              speakText={speakText}
+            />
+          ))}
         </PageBoundary>
       )}
 
       {appView === APP_VIEWS.LEARN && nameSaved && (
         <PageBoundary resetKey={`learn-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading Story Quest..." />}>
-            <div className="learn-fullscreen-frame student-surface-frame student-surface-story">
-              {renderLearnFullscreenButton()}
-              <LearnAreaPage key={studentId || studentName || "default"} progressScopeKey={studentId || studentName || "default"} />
-            </div>
+            {withStudentRail("stories", (
+              <div className="learn-fullscreen-frame student-surface-frame student-surface-story">
+                {renderLearnFullscreenButton()}
+                <LearnAreaPage key={studentId || studentName || "default"} progressScopeKey={studentId || studentName || "default"} />
+              </div>
+            ))}
           </Suspense>
         </PageBoundary>
       )}
@@ -8346,13 +8421,15 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       {appView === APP_VIEWS.PHONICS_LEARN && nameSaved && (
         <PageBoundary resetKey={`phonics-learn-${studentId}`}>
           <Suspense fallback={<LazyPageFallback label="Loading Learn..." />}>
-            <div className={`learn-fullscreen-frame student-surface-frame ${studentArcadeOpen ? "student-surface-arcade" : "student-surface-phonics"}`}>
-              {renderLearnFullscreenButton()}
-              <PhonicsLearnPage
-                initialIsland={studentArcadeOpen ? "games" : "letters"}
-                progressScopeKey={studentId || studentName || "default"}
-              />
-            </div>
+            {withStudentRail(studentArcadeOpen ? "arcade" : "phonics", (
+              <div className={`learn-fullscreen-frame student-surface-frame ${studentArcadeOpen ? "student-surface-arcade" : "student-surface-phonics"}`}>
+                {renderLearnFullscreenButton()}
+                <PhonicsLearnPage
+                  initialIsland={studentArcadeOpen ? "games" : "letters"}
+                  progressScopeKey={studentId || studentName || "default"}
+                />
+              </div>
+            ))}
           </Suspense>
         </PageBoundary>
       )}

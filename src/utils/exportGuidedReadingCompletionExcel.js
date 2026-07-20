@@ -170,7 +170,9 @@ export function collectGuidedReadingCompletionRecords({
         studentId: row.studentId
       });
       const completed = Boolean(progress.completed);
-      const rereadCount = Math.max(0, Number(progress.readCount || 0) - (completed ? 1 : 0));
+      // Rereads only make sense after a completion; partial reads of an
+      // unfinished book must not count as rereads.
+      const rereadCount = completed ? Math.max(0, Number(progress.readCount || 0) - 1) : 0;
       completionRows.push({
         studentId: row.studentId,
         studentName: student.name || record.studentName || "Unknown Student",
@@ -180,7 +182,9 @@ export function collectGuidedReadingCompletionRecords({
         series: getBookSeries(book, record),
         level: book.level || record.level || progress.level || "",
         completed,
-        completionDate: formatDate(record.completedAt || progress.firstReadAt),
+        // Only completed books get a completion date — falling back to
+        // firstReadAt stamped a date on books the child never finished.
+        completionDate: completed ? formatDate(record.completedAt || progress.firstReadAt) : "",
         lastReadDate: formatDate(progress.lastReadAt),
         rereadCount,
         pagesRead: Number(progress.completedPages || 0),
@@ -188,7 +192,7 @@ export function collectGuidedReadingCompletionRecords({
         markedWordsCount: getMarkedWordsCount(record),
         notes: getRecordNotes(record, progress),
         rawLastReadAt: progress.lastReadAt || record.updatedAt || "",
-        rawCompletedAt: record.completedAt || progress.firstReadAt || ""
+        rawCompletedAt: completed ? (record.completedAt || progress.firstReadAt || "") : ""
       });
     });
   });
@@ -234,15 +238,19 @@ export function buildGuidedReadingCompletionWorkbookData(options = {}) {
       studentsCompleted: new Set(),
       totalCompletions: 0,
       totalRereads: 0,
+      lastCompletedRaw: "",
       lastCompletedDate: ""
     };
     existing.studentsCompleted.add(row.studentId || row.studentName);
     existing.totalCompletions += 1;
     existing.totalRereads += row.rereadCount;
-    existing.lastCompletedDate = [existing.lastCompletedDate, row.completionDate, row.lastReadDate]
+    // Compare on the raw ISO timestamps (formatted dates don't sort), and use
+    // only completion timestamps — a later reread is not a completion date.
+    existing.lastCompletedRaw = [existing.lastCompletedRaw, row.rawCompletedAt]
       .filter(Boolean)
       .sort()
       .at(-1) || "";
+    existing.lastCompletedDate = existing.lastCompletedRaw ? formatDate(existing.lastCompletedRaw) : "";
     booksById.set(row.bookId, existing);
   });
 

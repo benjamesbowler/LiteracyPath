@@ -745,6 +745,9 @@
 
 .lg-game-stage-shell.lg-shake .lg-game-stage {
   animation: lg-shake-kf 360ms ease-out;
+  /* Static cue as well as the shake: with Reduce Motion on, the animation is
+     suppressed and this ring is the only visible miss feedback. */
+  box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.45);
 }
 
 /* Correct-answer pops: triggered automatically when these classes appear */

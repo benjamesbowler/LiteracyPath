@@ -35,13 +35,18 @@ export function loadCvcProgress(scopeKey) {
 }
 
 export function saveCvcProgress(scopeKey, progress) {
+  const normalized = normalizeProgressMap(progress);
   try {
-    const normalized = normalizeProgressMap(progress);
     localStorage.setItem(STORAGE_PREFIX + scopeKey, JSON.stringify(normalized));
+  } catch {
+    // Storage may be unavailable in private browsing or locked-down webviews.
+    // The cloud queue below still carries the progress.
+  }
+  try {
     Object.entries(normalized).forEach(([key, status]) => {
       queueProgressSave("cvc", key, { v: 2, status }, { scopeKey });
     });
   } catch {
-    // Storage may be unavailable in private browsing or locked-down webviews.
+    // Cloud sync is best-effort; local play must never be blocked by it.
   }
 }

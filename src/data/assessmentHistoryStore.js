@@ -54,9 +54,15 @@ function buildWeeklyAccuracySummary(records = []) {
     if (!record.completedAt) return;
     const date = new Date(record.completedAt);
     if (!Number.isFinite(date.getTime())) return;
-    const day = date.getUTCDay() || 7;
-    const monday = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() - day + 1));
-    const key = monday.toISOString().slice(0, 10);
+    // Bucket by the teacher's local week, not UTC: a Monday-morning attempt in
+    // AEST must not land in the previous week's row.
+    const day = date.getDay() || 7;
+    const monday = new Date(date.getFullYear(), date.getMonth(), date.getDate() - day + 1);
+    const key = [
+      monday.getFullYear(),
+      String(monday.getMonth() + 1).padStart(2, "0"),
+      String(monday.getDate()).padStart(2, "0")
+    ].join("-");
     const row = weeks.get(key) || {
       weekStart: key,
       attempts: 0,
@@ -336,9 +342,14 @@ export function mergeAssessmentAttemptIntoItemMastery(itemMastery = {}, record =
       attempts,
       correct,
       lastSeen: row.lastAssessed || attempt.completedAt,
-      lastResult: row.correct > 0,
+      // "Last result correct" only when every instance in the latest attempt
+      // was correct — 1-of-6 right must not read as a correct last answer.
+      lastResult: row.attempts > 0 && row.correct >= row.attempts,
       sessionsSeen: Number(previous.sessionsSeen || 0) + 1,
-      mastered: Boolean(previous.mastered || row.mastered || accuracy >= 80),
+      // Recompute each merge instead of carrying previous.mastered forward:
+      // a child who later fails an item repeatedly must drop out of "mastered"
+      // so remediation can re-teach it.
+      mastered: Boolean(row.mastered || accuracy >= 80),
       examples: Array.from(new Set([...(previous.examples || []), ...row.examples])).slice(0, 8),
       missedExamples: Array.from(new Set([...(previous.missedExamples || []), ...row.missedExamples])).slice(0, 8),
       updatedAt: attempt.completedAt
@@ -357,13 +368,29 @@ export function loadAssessmentAttempts({ teacherId = "local", studentId = "", cl
     .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt));
 }
 
+// Cap the locally retained history so months of attempts (each with full
+// question records) cannot exhaust the ~5MB localStorage quota.
+const MAX_LOCAL_ATTEMPTS = 400;
+
 export function saveAssessmentAttemptLocal(record, { teacherId = record.teacherId || "local" } = {}) {
   if (typeof localStorage === "undefined") return [normalizeAssessmentAttempt(record)];
   const normalized = normalizeAssessmentAttempt({ ...record, teacherId: record.teacherId || teacherId });
   const existing = loadAssessmentAttempts({ teacherId });
   const withoutDuplicate = existing.filter(item => item.attemptId !== normalized.attemptId);
-  const next = [normalized, ...withoutDuplicate].sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt));
-  localStorage.setItem(getStorageKey(teacherId), JSON.stringify(next));
+  const next = [normalized, ...withoutDuplicate]
+    .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))
+    .slice(0, MAX_LOCAL_ATTEMPTS);
+  try {
+    localStorage.setItem(getStorageKey(teacherId), JSON.stringify(next));
+  } catch (error) {
+    // Quota exceeded: retry with a much smaller window rather than throwing —
+    // a failed local write must never take the cloud upsert down with it.
+    try {
+      localStorage.setItem(getStorageKey(teacherId), JSON.stringify(next.slice(0, 50)));
+    } catch {
+      console.warn("Assessment attempt could not be saved to localStorage (quota).", error);
+    }
+  }
   return next;
 }
 
@@ -387,11 +414,16 @@ export function deleteAssessmentAttemptsForStudent({ teacherId = "local", studen
 
 export async function saveAssessmentAttempt(record, { teacherId = record.teacherId || "local", supabase = null } = {}) {
   const normalized = normalizeAssessmentAttempt({ ...record, teacherId: record.teacherId || teacherId });
-  const localRecords = saveAssessmentAttemptLocal(normalized, { teacherId });
+  let localRecords = [normalized];
+  try {
+    localRecords = saveAssessmentAttemptLocal(normalized, { teacherId });
+  } catch (error) {
+    console.warn("Local assessment attempt save failed; still attempting the cloud write.", error);
+  }
 
   if (supabase) {
     try {
-      await supabase
+      const { error } = await supabase
         .from("assessment_attempts")
         .upsert({
           attempt_id: normalized.attemptId,
@@ -409,6 +441,11 @@ export async function saveAssessmentAttempt(record, { teacherId = record.teacher
           status: normalized.status,
           payload: normalized
         }, { onConflict: "attempt_id" });
+      if (error) {
+        // Supabase resolves with an error object (e.g. RLS rejection) instead
+        // of throwing — surface it or the failure is invisible.
+        console.warn("Supabase assessment_attempts upsert rejected; attempt only exists locally.", error);
+      }
     } catch (error) {
       console.warn("Assessment attempt saved locally; Supabase assessment_attempts write is unavailable.", error);
     }

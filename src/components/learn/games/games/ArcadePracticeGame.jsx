@@ -249,6 +249,10 @@ export function ArcadePracticeGame({
     setWrongs(current => current + 1);
     setStreak(0);
     setShaking(true);
+    // Clear on a timer, not animationend: under prefers-reduced-motion the
+    // shake animation never runs, so animationend never fires and the state
+    // (and its static red ring) would stick forever.
+    schedule(() => setShaking(false), 420);
     if (isSoundEnabled) playSoftBuzz();
   }
 
@@ -378,7 +382,6 @@ export function ArcadePracticeGame({
   return (
     <div
       className={`lg-game-stage-shell lg-ps2-practice${shaking ? " lg-shake" : ""}`}
-      onAnimationEnd={() => setShaking(false)}
     >
       {streak >= 2 && (
         <div className="kid-combo" data-level={streak >= 4 ? "hot" : "warm"} key={streak} aria-live="polite">
@@ -451,7 +454,7 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
   return (
     <section className="lg-game-stage lg-game-build">
       <p>Build the word you hear.</p>
-      <button type="button" className="lg-game-audio" onClick={() => speakWord(targetWord)}>Hear word</button>
+      <button type="button" className="lg-game-audio" onClick={() => speakWord(targetWord)}><span aria-hidden="true">🔊</span> Hear word</button>
       <WordImageCard word={targetWord} secret />
       {attempts >= 2 && (
         <div className="lg-game-picture lg-game-picture-text" aria-label={`Hint: the word is ${targetWord}`}>
@@ -630,6 +633,9 @@ function TargetGame({ state, round, setRound, correct, setCorrect, addScore, mis
     if (popped) return;
     if (word !== target) {
       setWrongWord(`${word}-${index}`);
+      // Timer, not animationend: reduced-motion suppresses the wobble, so
+      // animationend never fires and the wrong state would stick.
+      schedule(() => setWrongWord(""), 420);
       miss();
       return;
     }
@@ -647,7 +653,7 @@ function TargetGame({ state, round, setRound, correct, setCorrect, addScore, mis
   return (
     <section className="lg-game-stage lg-target-stage">
       <p>Listen, then pop the matching bubble!</p>
-      <button type="button" className="lg-game-audio" onClick={() => speakWord(target)}>Hear word</button>
+      <button type="button" className="lg-game-audio" onClick={() => speakWord(target)}><span aria-hidden="true">🔊</span> Hear word</button>
       <div className="lg-floating-options">
         {options.map((word, index) => (
           <button
@@ -656,7 +662,6 @@ function TargetGame({ state, round, setRound, correct, setCorrect, addScore, mis
             className={`${popped === word && word === target ? "popping" : ""}${wrongWord === `${word}-${index}` ? " wrong" : ""}`}
             style={{ "--float-delay": `${index * 0.12}s` }}
             onClick={() => choose(word, index)}
-            onAnimationEnd={() => { if (wrongWord === `${word}-${index}`) setWrongWord(""); }}
           >
             {word}
           </button>
@@ -702,7 +707,7 @@ function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, m
   return (
     <section className="lg-game-stage">
       <p>Hop on the next word in the sentence.</p>
-      {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(sentence)}>Hear sentence</button>}
+      {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(sentence)}><span aria-hidden="true">🔊</span> Hear sentence</button>}
       <div className="lg-sentence-path">
         {words.map((word, index) => (
           <span key={`${word}-${index}`} className={index < position ? "done" : index === position && difficulty !== "hard" ? "active" : ""}>
@@ -759,7 +764,7 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
   return (
     <section className="lg-game-stage lg-race-stage">
       <p>{fix.prompt}</p>
-      {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(fix.say)}>Hear sentence</button>}
+      {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(fix.say)}><span aria-hidden="true">🔊</span> Hear sentence</button>}
       <div className="lg-race-track"><span style={{ width: `${Math.max(8, (correct / total) * 100)}%` }}><RaceMarker /></span></div>
       <div className="lg-reading-sentence lg-fix-sentence">
         {sentenceParts[0]}

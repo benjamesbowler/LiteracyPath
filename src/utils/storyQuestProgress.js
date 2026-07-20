@@ -19,6 +19,11 @@ export function saveStoryQuestProgress(progressScopeKey = "default", progress = 
   if (typeof window === "undefined") return;
   try {
     window.localStorage.setItem(storyQuestProgressStorageKey(progressScopeKey), JSON.stringify(progress));
+  } catch {
+    // Storage may be unavailable (private browsing / quota). The cloud queue
+    // below still carries the progress.
+  }
+  try {
     Object.entries(progress || {}).forEach(([questId, payload]) => {
       queueProgressSave("story_quests", questId, { v: 1, ...payload }, { scopeKey: progressScopeKey });
     });

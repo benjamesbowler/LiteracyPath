@@ -101,6 +101,8 @@
   font: 800 13.5px "Nunito", sans-serif;
   cursor: pointer;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
+  /* 44px child-sized tap target */
+  min-height: 44px;
 }
 
 .lp-home-sage .hs-nav {
