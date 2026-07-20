@@ -39,6 +39,7 @@ import {
 } from "../../../utils/questCorrection.js";
 import { playSoftBuzz } from "../../../utils/audio/gameSfx.js";
 import { playQuestActionSfx, stopQuestActionSfx } from "../../../utils/questActionAudio.js";
+import { clampQuestWorldResume } from "../../../utils/questWorldResume.js";
 import {
   questPixelMemoryResidentKey,
   questPixelResidentFrameSize,
@@ -140,13 +141,11 @@ export default function QuestTrail2D({
     });
     return budgetPhysicalSection({ ...built, rewardBonuses });
   });
-  const resumedEncounterIndex = Math.max(0, section?.encounters.findIndex(item => item.id === resume?.activeId) || 0);
-  const [phase, setPhase] = useState(() => (
-    resume?.phase || (resume?.guideDone || !section?.teach?.length ? "trail" : "teach")
-  ));
-  const [encounterIndex, setEncounterIndex] = useState(resumedEncounterIndex);
-  const [beatIndex, setBeatIndex] = useState(Math.max(0, Number(resume?.beatIndex) || 0));
-  const [fieldStage, setFieldStage] = useState(Math.max(0, Number(resume?.fieldStage) || 0));
+  const [initialResume] = useState(() => clampQuestWorldResume(section, resume));
+  const [phase, setPhase] = useState(initialResume.phase);
+  const [encounterIndex, setEncounterIndex] = useState(initialResume.encounterIndex);
+  const [beatIndex, setBeatIndex] = useState(initialResume.beatIndex);
+  const [fieldStage, setFieldStage] = useState(initialResume.fieldStage);
   const [feedback, setFeedback] = useState("");
   const [corrections, setCorrections] = useState(() => resume?.corrections || {});
   const [collected, setCollected] = useState(() => new Set(resume?.drops || []));
@@ -164,6 +163,7 @@ export default function QuestTrail2D({
   const verbStateRef = useRef(null);
   const verbTaskKeyRef = useRef(null);
   const teachTimerRef = useRef(0);
+  const cueTimerRef = useRef(0);
   const interactionRef = useRef(onInteraction);
   const completionMarksRef = useRef(completionMarks);
   const stageShownAtRef = useRef({ key: null, at: 0 });
@@ -303,6 +303,7 @@ export default function QuestTrail2D({
 
   useEffect(() => () => {
     if (teachTimerRef.current) window.clearTimeout(teachTimerRef.current);
+    if (cueTimerRef.current) window.clearTimeout(cueTimerRef.current);
     stopQuestActionSfx();
   }, []);
 
@@ -347,7 +348,7 @@ export default function QuestTrail2D({
     // FIRST ATTEMPT PER BEAT is what stars score: the correction ladder is
     // the intended teaching path, and counting every rung as a fresh mistake
     // punished the child for using it.
-    const beatKey = meta.key || activeCorrectionKey;
+    const beatKey = `${encounter?.id || "enc"}:${beatIndex}`;
     if (!firstTallyRef.current.has(beatKey)) {
       firstTallyRef.current.set(beatKey, correct);
       tallyRef.current.total += 1;
@@ -502,7 +503,8 @@ export default function QuestTrail2D({
       setFeedback(nextCorrection.mode === "teach" ? "This one. Listen." : "Try again. Listen for the sound.");
       // The corrective cue waits for the buzz to land — played together they
       // mask each other. Same 350ms scheduling the 3D path already proved.
-      window.setTimeout(() => {
+      window.clearTimeout(cueTimerRef.current);
+      cueTimerRef.current = window.setTimeout(() => {
         if (stage.audioCue?.kind === "grapheme") sayGrapheme(stage.audioCue.value, isSoundEnabled);
         else if (stage.audioCue?.kind === "word") sayWord(stage.audioCue.value, isSoundEnabled);
       }, 350);
@@ -580,6 +582,12 @@ export default function QuestTrail2D({
     onFinish?.(stars, { ...score, drops: collected.size });
   };
 
+  const displayedEncounterProgress = phase === "gate"
+    ? section.encounters.length
+    : phase === "trail"
+      ? Math.min(section.encounters.length, encounterIndex + 1)
+      : 0;
+
   return (
     <main
       className="q-screen q2d-root"
@@ -594,7 +602,7 @@ export default function QuestTrail2D({
           <strong>{stop?.name}</strong>
         </div>
         <span className="q2d-progress" data-live-sparks={liveSparks}>
-          {Math.min(section.encounters.length, encounterIndex + (phase === "gate" ? 1 : 0))} / {section.encounters.length}
+          {displayedEncounterProgress} / {section.encounters.length}
           <small>{liveSparks} Sparks</small>
         </span>
       </header>
@@ -725,6 +733,15 @@ export default function QuestTrail2D({
             </div>
             <p className="q2d-feedback" role="status" aria-live="assertive" aria-atomic="true">{feedback}</p>
             <span id="q2d-active-progress" className="q2d-stage-progress">{Math.min(encounterStageCount, encounterStageIndex + 1)} of {Math.max(1, encounterStageCount)}</span>
+          </div>
+        )}
+
+        {phase === "trail" && !stage && (
+          <div className="q2d-gate" role="status" ref={taskFocusRef} tabIndex={-1}>
+            <span className="q2d-kicker">Trail updated</span>
+            <h1>Keep going</h1>
+            <p>This part of the trail changed while you were away.</p>
+            <button type="button" className="q-primary" onClick={completeEncounter}>Continue</button>
           </div>
         )}
 

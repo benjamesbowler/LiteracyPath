@@ -65,9 +65,11 @@ export default function TrailMap({
     ? mapPath([positions[0], { x: 50, y: 28 }, positions.at(-1)])
     : "";
   const readyToPlay = releaseStatus => ["production", "software-ready"].includes(releaseStatus);
-  const currentPosition = positions.find(({ stop }) => stop.index === nextIndex)
-    || [...positions].reverse().find(({ stop }) => done.has(stop.id))
-    || positions[0];
+  const currentPosition = journeyComplete
+    ? null
+    : positions.find(({ stop }) => stop.index === nextIndex)
+      || [...positions].reverse().find(({ stop }) => done.has(stop.id))
+      || positions[0];
 
   useEffect(() => () => window.clearTimeout(walkTimer.current), []);
 
@@ -177,7 +179,7 @@ export default function TrailMap({
         )}
         {positions.map(({ stop, x, y }, index) => {
           const isDone = done.has(stop.id);
-          const isNext = stop.index === nextIndex;
+          const isNext = !journeyComplete && !isDone && stop.index === nextIndex;
           const locked = stop.index > nextIndex && !isDone;
           const stars = Number(state.trail?.stars?.[stop.id]) || 0;
           return (

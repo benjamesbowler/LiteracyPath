@@ -88,6 +88,7 @@ export const QUEST_QUALITY_TIERS = Object.freeze({
 });
 
 const STILL_TIER = Object.freeze({ ...QUEST_QUALITY_TIERS.low, motionScale: 0 });
+const STILL_PIXEL_TIER = Object.freeze({ ...QUEST_QUALITY_TIERS.pixel, motionScale: 0 });
 
 const QUEST_TIER_FALLBACK = Object.freeze({
   pixel: "2d",
@@ -142,12 +143,12 @@ export function resolveQuestQuality({
   // data-saving connection or a genuinely minimal one-core/1 GB device enters
   // the complete 2D trail before paying for Phaser and chapter art. An explicit
   // Pixel adventure choice remains an override.
-  if (displayMode === "pixel") return QUEST_QUALITY_TIERS.pixel;
+  if (displayMode === "pixel") return reducedMotion ? STILL_PIXEL_TIER : QUEST_QUALITY_TIERS.pixel;
   const memory = Number(deviceMemory) || 4;
   const cores = Number(hardwareConcurrency) || 4;
   if (displayMode === "auto") {
     if (saveData || memory <= 1 || cores <= 1) return QUEST_QUALITY_TIERS["2d"];
-    return QUEST_QUALITY_TIERS.pixel;
+    return reducedMotion ? STILL_PIXEL_TIER : QUEST_QUALITY_TIERS.pixel;
   }
   if (!webglAvailable || displayMode === "2d") return QUEST_QUALITY_TIERS["2d"];
   if (reducedMotion) {
@@ -228,17 +229,22 @@ function frameSignal(state, type, extra = {}) {
 // The warmup ignores scene compilation, and a whole sustained window must miss
 // budget before quality changes. One hitch can never throw a child into 2D.
 export function sampleQuestFrameBudget(previous, frameMs) {
-  const state = { ...(previous || createQuestFrameBudgetState()) };
+  // This runs once per rendered frame. The budget is dedicated mutable runtime
+  // state, so preserve its identity and return null on ordinary frames instead
+  // of allocating and collecting a result wrapper 60 times a second. Signal
+  // windows return the existing envelope; a quality change also carries a fresh,
+  // reset budget for the newly selected tier below.
+  const state = previous || createQuestFrameBudgetState();
   const duration = Number(frameMs);
   if (!Number.isFinite(duration) || duration < 4 || duration > 2000 || state.tierId === "2d") {
-    return { state, signal: null };
+    return null;
   }
   const observedDuration = Math.min(250, duration);
   const longFrame = observedDuration >= 34 ? 1 : 0;
   state.severeFrameStreak = observedDuration >= SEVERE_FRAME_MS ? state.severeFrameStreak + 1 : 0;
   if (state.warmupFrames < FRAME_WARMUP) {
     state.warmupFrames += 1;
-    if (state.severeFrameStreak < SEVERE_FRAME_STREAK) return { state, signal: null };
+    if (state.severeFrameStreak < SEVERE_FRAME_STREAK) return null;
   }
 
   state.decisionFrames += 1;
@@ -282,5 +288,5 @@ export function sampleQuestFrameBudget(previous, frameMs) {
     state.reportLongFrames = 0;
     return { state, signal };
   }
-  return { state, signal: null };
+  return null;
 }

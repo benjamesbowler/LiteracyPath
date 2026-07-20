@@ -90,32 +90,40 @@ async function checkGateHandoff(browser) {
   page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
   page.on("pageerror", error => errors.push(`PAGE ERROR: ${error.message}`));
   try {
-    await page.goto(`${BASE}/preview/quest.html?view=world&stop=s1&checkpoint=gate&creature=showcase&display=low`, {
+    await page.goto(`${BASE}/preview/quest.html?view=world&stop=s1&checkpoint=gate&creature=showcase&display=pixel`, {
       waitUntil: "domcontentloaded",
       timeout: 30_000
     });
     await page.waitForFunction(
-      () => document.querySelector(".q-journey-layer.is-active .qh-root.is-ready"),
+      () => document.querySelector(".q-journey-layer.is-active .qp-root[data-ready='true']"),
       null,
       { timeout: SOFTWARE_SCENE_TIMEOUT }
     );
-    // The gate callout tracks an animated 3D target. Playwright's default click
-    // waits for geometry to stop moving, which can never happen on a live scene.
-    // Scope to the interactive journey layer and press the visible control.
-    const gateControl = page.locator(".q-journey-layer.is-active .qh-next-call");
-    await gateControl.waitFor({ state: "visible", timeout: 20_000 });
-    await gateControl.click({ force: true });
-    const handoffState = await page.waitForFunction(() => {
-      const activeLayer = document.querySelector(".q-journey-layer.is-active");
-      const trail = activeLayer?.querySelector(".qh-land-title strong")?.textContent?.trim();
-      if (!activeLayer?.querySelector(".qh-root") || trail !== "Trail 2 of 40" || document.querySelector(".q-den")) return false;
-      return {
-        place: activeLayer.querySelector(".qh-land-title span")?.textContent?.trim() || "Next trail",
-        trail
-      };
-    }, null, { timeout: SOFTWARE_HANDOFF_TIMEOUT });
+    // Exercise the renderer children actually receive. A gate is crossed by
+    // sustained movement, so keep ArrowUp held until the active journey layer
+    // is the next authored stop; a one-frame key tap would be a timing guess.
+    await page.keyboard.down("ArrowUp");
+    let handoffState;
+    try {
+      handoffState = await page.waitForFunction(() => {
+        const activeLayer = document.querySelector(".q-journey-layer.is-active");
+        const root = activeLayer?.querySelector(".qp-root[data-ready='true']");
+        if (!root || activeLayer?.getAttribute("data-stop") !== "s2" || document.querySelector(".q-den")) return false;
+        return {
+          stopId: activeLayer.getAttribute("data-stop"),
+          place: activeLayer.querySelector(".qp-place span")?.textContent?.trim() || "Next trail",
+          trail: activeLayer.querySelector(".qp-place strong")?.textContent?.trim() || ""
+        };
+      }, null, { timeout: SOFTWARE_HANDOFF_TIMEOUT });
+    } finally {
+      await page.keyboard.up("ArrowUp");
+    }
     const destination = await handoffState.jsonValue();
-    return { ok: errors.length === 0, detail: `${destination.place} - ${destination.trail}`, errors };
+    return {
+      ok: destination.stopId === "s2" && errors.length === 0,
+      detail: `${destination.place} - ${destination.trail}`,
+      errors
+    };
   } catch (error) {
     return { ok: false, detail: String(error.message).split("\n")[0], errors };
   } finally {

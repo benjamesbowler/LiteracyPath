@@ -161,15 +161,14 @@ test("all later chapters expose real stateful physical verbs", () => {
   const ferryStart = createSeedwakeVerbState("ferry-delivery", ["m"]);
   const boarded = applySeedwakeVerbInput("ferry-delivery", ferryStart, { type: ferry.actions[0], correct: true, value: "m" });
   assert.equal(boarded.state.selected, "m");
-  assert.equal(boarded.completed, false);
   const firstGate = applySeedwakeVerbInput("ferry-delivery", boarded.state, { type: ferry.actions[1], correct: true, value: "gate-1", stage: 1 });
   assert.equal(firstGate.state.gates, 1);
-  assert.equal(firstGate.completed, false);
   const secondGate = applySeedwakeVerbInput("ferry-delivery", firstGate.state, { type: ferry.actions[1], correct: true, value: "gate-2", stage: 2 });
-  assert.equal(secondGate.completed, false);
   const docked = applySeedwakeVerbInput("ferry-delivery", secondGate.state, { type: ferry.actions[1], correct: true, value: "gate-3", stage: 3 });
   assert.equal(docked.state.gates, 3);
-  assert.equal(docked.completed, true);
+  for (const step of [boarded, firstGate, secondGate, docked]) {
+    assert.equal("completed" in step, false, "steer progress is completed by the renderer's real stage list");
+  }
 
   const forge = CHAPTER_VERB_RECIPES["machine-sequence"];
   const machine = createSeedwakeVerbState("machine-sequence", ["m", "a"]);
@@ -183,10 +182,11 @@ test("all later chapters expose real stateful physical verbs", () => {
   const beacon = createSeedwakeVerbState("pass-signal", ["m"]);
   const selected = applySeedwakeVerbInput("pass-signal", beacon, { type: signal.actions[0], correct: true, value: "m" });
   const firstRelay = applySeedwakeVerbInput("pass-signal", selected.state, { type: signal.actions[1], correct: true, value: "relay-1", stage: 1 });
-  assert.equal(firstRelay.completed, false);
   const sent = applySeedwakeVerbInput("pass-signal", firstRelay.state, { type: signal.actions[1], correct: true, value: "relay-2", stage: 2 });
   assert.equal(sent.state.relays, 2);
-  assert.equal(sent.completed, true);
+  for (const step of [selected, firstRelay, sent]) {
+    assert.equal("completed" in step, false, "signal progress does not claim a magic stage threshold");
+  }
 
   const route = CHAPTER_VERB_RECIPES["track-sort"];
   const trail = createSeedwakeVerbState("track-sort", ["m"]);
@@ -200,7 +200,9 @@ test("all later chapters expose real stateful physical verbs", () => {
   const secondHold = applySeedwakeVerbInput("cliff-route", firstHold.state, { type: climb.actions[1], correct: true, value: "hold-2", stage: 2 });
   const cliffTop = applySeedwakeVerbInput("cliff-route", secondHold.state, { type: climb.actions[1], correct: true, value: "hold-3", stage: 3 });
   assert.equal(cliffTop.state.holds, 3);
-  assert.equal(cliffTop.completed, true);
+  for (const step of [chosenCliff, firstHold, secondHold, cliffTop]) {
+    assert.equal("completed" in step, false, "climb progress does not claim a magic stage threshold");
+  }
   assert.equal(chosenTrail.state.selected, "m");
   const crossedTrail = applySeedwakeVerbInput("track-sort", chosenTrail.state, { type: route.actions[1], correct: true, value: "marker" });
   assert.equal(crossedTrail.completed, true);
@@ -240,10 +242,10 @@ test("all later chapters expose real stateful physical verbs", () => {
   const firstTurn = applySeedwakeVerbInput("observatory-turn", chosenOrbit.state, { type: turn.actions[1], correct: true, value: "node-1", stage: 1 });
   const secondTurn = applySeedwakeVerbInput("observatory-turn", firstTurn.state, { type: turn.actions[1], correct: true, value: "node-2", stage: 2 });
   const finalTurn = applySeedwakeVerbInput("observatory-turn", secondTurn.state, { type: turn.actions[1], correct: true, value: "node-3", stage: 3 });
-  assert.equal(firstTurn.completed, false);
-  assert.equal(secondTurn.completed, false);
-  assert.equal(finalTurn.completed, true);
   assert.equal(finalTurn.state.turns, 3);
+  for (const step of [chosenOrbit, firstTurn, secondTurn, finalTurn]) {
+    assert.equal("completed" in step, false, "turn progress does not claim a magic stage threshold");
+  }
 });
 
 test("each Seedwake verb has its own camera and movement feel", () => {
@@ -596,6 +598,30 @@ test("pixel choice staging clamps long answer art inside a phone camera", () => 
     count: 3
   });
   assert.equal(oppositePlayer.side, -1, "the sorting lane still opens underneath a side-approaching player");
+
+  const fittedPhoneBay = questPixelSortLaneLayout({
+    resident: { x: 416.25, y: 785.6 },
+    player: { x: 455.76, y: 856.16 },
+    forward: { x: 0, y: 1 },
+    right: { x: 1, y: 0 },
+    choiceLeft: 336.7,
+    choiceRight: 495.8,
+    count: 3
+  });
+  assert.equal(fittedPhoneBay.side, -1, "camera fitting moved the Forge lane back underneath the child");
+  for (const travel of [-10, 10]) {
+    for (const point of fittedPhoneBay.points) {
+      const movingPoint = { x: point.x + travel, y: point.y };
+      assert.ok(
+        Math.hypot(movingPoint.x - 455.76, movingPoint.y - 856.16) - 13.92 >= 22,
+        "a moving Forge token can enter the child's safe bay"
+      );
+      assert.ok(
+        Math.hypot(movingPoint.x - 416.25, movingPoint.y - 785.6) - 13.92 >= 22,
+        "a moving Forge token can enter the resident's safe bay"
+      );
+    }
+  }
 
   const edgeBay = questPixelSortLaneLayout({
     resident: { x: 242, y: 420 },

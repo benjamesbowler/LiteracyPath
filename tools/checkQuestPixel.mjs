@@ -62,7 +62,9 @@ for (const subsystem of [
 ]) {
   if (phaserSurface.includes(subsystem)) fail(`trimmed Phaser surface imports ${subsystem}`);
 }
-requireText(root, "lazy(() => import(\"./world/QuestPixelWorld.jsx\"))", "lazy renderer boundary");
+requireText(root, "const QuestPixelWorld = lazyWithRetry(", "retrying lazy renderer boundary");
+requireText(root, "() => import(\"./world/QuestPixelWorld.jsx\")", "pixel renderer dynamic import");
+requireText(root, "{ reloadOnFailure: false }", "in-place 2D fallback policy");
 requireText(root, "usePixel", "QuestRoot pixel branch");
 requireText(root, "ceremonyOverlayVisible", "in-world finale reveal window");
 requireText(component, "ceremony: Boolean(ceremony)", "pixel finale scene state");
@@ -205,7 +207,7 @@ requireText(fallback, "const [section] = useState(", "stable 2D stop plan");
 requireText(fallback, "stageCueAvailable", "honest 2D replay controls");
 requireText(component, "budgetPhysicalSection(", "pixel physical-action budget");
 requireText(fallback, "budgetPhysicalSection(", "2D physical-action budget");
-requireText(physicalPlan, "QUEST_PHYSICAL_ACTION_BUDGET = 8", "real child-action budget");
+requireText(physicalPlan, "QUEST_PHYSICAL_ACTION_BUDGET = 10", "real child-action budget");
 requireText(read("src/utils/questEncounters.js"), "buildAudibleLetterRound", "audible advanced-sound fallback");
 requireText(sliceSystems, "CHAPTER_VERB_HANDLERS", "later-chapter stateful verb handlers");
 for (const pattern of ["delivery", "assembly", "pursuit", "route", "sort", "tool", "turn", "steer", "signal", "climb", "rhythm"]) {

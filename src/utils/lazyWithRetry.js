@@ -30,7 +30,7 @@ export function reloadOnceForNewVersion() {
   }
 }
 
-export async function importWithRetry(importer) {
+export async function importWithRetry(importer, { reloadOnFailure = true } = {}) {
   try {
     return await importer();
   } catch (error) {
@@ -44,13 +44,13 @@ export async function importWithRetry(importer) {
   } catch (retryError) {
     if (!isDynamicImportError(retryError)) throw retryError;
     notifyDynamicImportFailure(retryError);
-    if (reloadOnceForNewVersion()) {
+    if (reloadOnFailure && reloadOnceForNewVersion()) {
       return new Promise(() => {});
     }
     throw retryError;
   }
 }
 
-export function lazyWithRetry(importer) {
-  return lazy(() => importWithRetry(importer));
+export function lazyWithRetry(importer, options) {
+  return lazy(() => importWithRetry(importer, options));
 }

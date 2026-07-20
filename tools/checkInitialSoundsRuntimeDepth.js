@@ -13,6 +13,7 @@ import {
   hasImportedInitialSoundAudio,
   hasImportedInitialSoundImage
 } from "../src/content/initialSounds/initialSoundMediaManifest.js";
+import { isInitialSoundRuntimeEligible } from "../src/content/initialSounds/initialSoundMediaEligibility.js";
 import { repoRoot, writeFile } from "./phonicsRuntimeUtils.js";
 
 const failures = [];
@@ -20,7 +21,8 @@ const warnings = [];
 
 const selectableItems = initialSoundWordBank.filter(item =>
   item.active !== false &&
-  hasImportedInitialSoundImage(item)
+  hasImportedInitialSoundImage(item) &&
+  isInitialSoundRuntimeEligible(item)
 );
 const imageBacked = selectableItems.length;
 const audioBacked = selectableItems.filter(hasImportedInitialSoundAudio).length;

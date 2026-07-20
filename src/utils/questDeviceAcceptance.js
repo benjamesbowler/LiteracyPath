@@ -11,13 +11,30 @@ export const QUEST_DEVICE_RELEASE_PROFILES = Object.freeze([
 ]);
 
 const PROFILE_POLICY = Object.freeze({
-  "local-smoke": Object.freeze({ mode: "pixel", minDurationMs: 20_000, minSamples: 4, minHealthSamples: 2, minFrames: 600, maxAverageFrameMs: 45, maxLongFrameRate: 0.5, minInputEvents: 3, maxInputP95Ms: 150 }),
-  ipad: Object.freeze({ mode: "pixel", minDurationMs: 1_200_000, minSamples: 100, minHealthSamples: 100, minFrames: 20_000, maxAverageFrameMs: 33.4, maxLongFrameRate: 0.25, minInputEvents: 10, maxInputP95Ms: 100 }),
-  chromebook: Object.freeze({ mode: "pixel", minDurationMs: 1_200_000, minSamples: 100, minHealthSamples: 100, minFrames: 20_000, maxAverageFrameMs: 33.4, maxLongFrameRate: 0.25, minInputEvents: 10, maxInputP95Ms: 100 }),
-  "android-tablet": Object.freeze({ mode: "pixel", minDurationMs: 1_200_000, minSamples: 100, minHealthSamples: 100, minFrames: 20_000, maxAverageFrameMs: 33.4, maxLongFrameRate: 0.25, minInputEvents: 10, maxInputP95Ms: 100 }),
-  voiceover: Object.freeze({ mode: "2d", minDurationMs: 1_200_000, minSamples: 100, minHealthSamples: 0, minFrames: 0, minInputEvents: 10, maxInputP95Ms: 150, assistiveTechnology: "VoiceOver" }),
-  nvda: Object.freeze({ mode: "2d", minDurationMs: 1_200_000, minSamples: 100, minHealthSamples: 0, minFrames: 0, minInputEvents: 10, maxInputP95Ms: 150, assistiveTechnology: "NVDA" }),
-  switch: Object.freeze({ mode: "2d", minDurationMs: 1_200_000, minSamples: 100, minHealthSamples: 0, minFrames: 0, minInputEvents: 10, maxInputP95Ms: 180, assistiveTechnology: "Switch" })
+  "local-smoke": Object.freeze({ mode: "pixel", minDurationMs: 20_000, minSamples: 4, minHealthSamples: 2, minFrames: 600, maxAverageFrameMs: 45, maxLongFrameRate: 0.5, minInputEvents: 3, maxInputP95Ms: 150, minStopsAdvanced: 1, allowCheckpointProgress: true }),
+  ipad: Object.freeze({ mode: "pixel", minDurationMs: 1_200_000, minSamples: 100, minHealthSamples: 100, minFrames: 20_000, maxAverageFrameMs: 33.4, maxLongFrameRate: 0.25, minInputEvents: 10, maxInputP95Ms: 100, minStopsAdvanced: 1 }),
+  chromebook: Object.freeze({ mode: "pixel", minDurationMs: 1_200_000, minSamples: 100, minHealthSamples: 100, minFrames: 20_000, maxAverageFrameMs: 33.4, maxLongFrameRate: 0.25, minInputEvents: 10, maxInputP95Ms: 100, minStopsAdvanced: 1 }),
+  "android-tablet": Object.freeze({ mode: "pixel", minDurationMs: 1_200_000, minSamples: 100, minHealthSamples: 100, minFrames: 20_000, maxAverageFrameMs: 33.4, maxLongFrameRate: 0.25, minInputEvents: 10, maxInputP95Ms: 100, minStopsAdvanced: 1 }),
+  voiceover: Object.freeze({ mode: "2d", minDurationMs: 1_200_000, minSamples: 100, minHealthSamples: 0, minFrames: 0, minInputEvents: 10, maxInputP95Ms: 150, assistiveTechnology: "VoiceOver", minStopsAdvanced: 1 }),
+  nvda: Object.freeze({ mode: "2d", minDurationMs: 1_200_000, minSamples: 100, minHealthSamples: 0, minFrames: 0, minInputEvents: 10, maxInputP95Ms: 150, assistiveTechnology: "NVDA", minStopsAdvanced: 1 }),
+  switch: Object.freeze({ mode: "2d", minDurationMs: 1_200_000, minSamples: 100, minHealthSamples: 0, minFrames: 0, minInputEvents: 10, maxInputP95Ms: 180, assistiveTechnology: "Switch", minStopsAdvanced: 1 })
+});
+
+const SAFARI_RESOURCE_LIMITS = Object.freeze({
+  peakDisplayObjects: 900,
+  peakTextures: 180,
+  peakTweens: 120,
+  peakActiveChoices: 12
+});
+
+// High-water marks can stay under an absolute ceiling while climbing at every
+// sample — the signature of a slow leak. A healthy 20-minute run may grow while
+// warming chapters, but its latter half must settle within these allowances.
+const SAFARI_LATE_GROWTH_ALLOWANCE = Object.freeze({
+  peakDisplayObjects: 120,
+  peakTextures: 24,
+  peakTweens: 20,
+  peakActiveChoices: 3
 });
 
 function finite(value) {
@@ -79,6 +96,46 @@ function evidenceChecks(evidence) {
   const firstHeap = heap[0] || 0;
   const heapGrowth = heap.length > 1 ? heap.at(-1) - firstHeap : 0;
   const heapAllowance = Math.max(64 * 1024 * 1024, firstHeap * 0.5);
+  const resourceSampleEntries = samples
+    .map((sample, index) => ({ index, runtime: sample?.runtime }))
+    .filter(({ runtime }) => runtime && Object.keys(SAFARI_RESOURCE_LIMITS).some(key => finite(runtime[key]) > 0));
+  const resourceSamples = resourceSampleEntries.map(({ runtime }) => runtime);
+  const resourcePeaks = Object.fromEntries(Object.keys(SAFARI_RESOURCE_LIMITS).map(key => [
+    key,
+    Math.max(0, ...resourceSamples.map(runtime => finite(runtime[key])))
+  ]));
+  const resourceGrowth = Object.fromEntries(Object.keys(SAFARI_RESOURCE_LIMITS).map(key => {
+    const series = resourceSamples.map(runtime => finite(runtime[key]));
+    const late = series.slice(Math.floor(series.length / 2));
+    const lateGrowth = late.length > 1 ? late.at(-1) - late[0] : 0;
+    const increasingSteps = late.slice(1).filter((value, index) => value > late[index]).length;
+    const increaseRate = late.length > 1 ? increasingSteps / (late.length - 1) : 0;
+    return [key, {
+      lateGrowth,
+      increaseRate,
+      sustained: late.length >= 10
+        && lateGrowth > SAFARI_LATE_GROWTH_ALLOWANCE[key]
+        && increaseRate >= 0.25
+    }];
+  }));
+  const sustainedResourceGrowth = Object.entries(resourceGrowth)
+    .filter(([, growth]) => growth.sustained)
+    .map(([key]) => key);
+  // Safari has no performance.memory. Its resource proxy is release evidence
+  // only when it spans the same health-sample window the profile requires. Two
+  // early samples cannot prove that a 20-minute run settled in its latter half.
+  const requiredResourceSamples = Math.max(2, policy.minHealthSamples);
+  const lateWindowStart = Math.floor(samples.length / 2);
+  const lateResourceSamples = resourceSampleEntries.filter(({ index }) => index >= lateWindowStart).length;
+  const requiredLateResourceSamples = Math.max(1, Math.ceil(requiredResourceSamples / 2));
+  const resourceProxyAvailable = resourceSamples.length >= requiredResourceSamples
+    && lateResourceSamples >= requiredLateResourceSamples;
+  const resourceProxyPass = resourceProxyAvailable
+    && Object.entries(SAFARI_RESOURCE_LIMITS).every(([key, limit]) => resourcePeaks[key] <= limit)
+    && sustainedResourceGrowth.length === 0;
+  const heapPass = heap.length > 1
+    ? heapGrowth <= heapAllowance
+    : resourceProxyPass;
   const surfaces = new Set(samples.map(sample => sample.surface));
   // Suspense loads legitimately sample as "unknown" for a moment — a
   // 20-minute release run must not fail on one mid-load sample. Tolerate
@@ -87,6 +144,21 @@ function evidenceChecks(evidence) {
   const unknownTolerable = samples.length > 0 && unknownCount / samples.length <= 0.1;
   const inputP95Ms = finite(evidence.input?.p95Ms);
   const release = evidence.runMode === "release";
+  const initialStops = finite(evidence.initialProgress?.stopsDone);
+  const finalStops = finite(evidence.finalProgress?.stopsDone);
+  const stopDelta = finalStops - initialStops;
+  const initialCheckpoint = evidence.initialProgress?.checkpoint;
+  const finalCheckpoint = evidence.finalProgress?.checkpoint;
+  const phaseRank = phase => ({ teach: 0, trail: 1, gate: 2 }[phase] ?? -1);
+  const checkpointAdvanced = Boolean(finalCheckpoint && (
+    !initialCheckpoint
+    || finalCheckpoint.stopId !== initialCheckpoint.stopId
+    || finite(finalCheckpoint.beatIndex) > finite(initialCheckpoint.beatIndex)
+    || finite(finalCheckpoint.fieldStage) > finite(initialCheckpoint.fieldStage)
+    || phaseRank(finalCheckpoint.phase) > phaseRank(initialCheckpoint.phase)
+  ));
+  const progressPass = stopDelta >= policy.minStopsAdvanced
+    || Boolean(policy.allowCheckpointProgress && checkpointAdvanced);
   const checks = [
     { id: "schema", pass: evidence.schemaVersion === QUEST_DEVICE_EVIDENCE_VERSION, detail: `schema ${evidence.schemaVersion || "missing"}` },
     { id: "profile", pass: Boolean(PROFILE_POLICY[evidence.profileId]), detail: evidence.profileId || "missing profile" },
@@ -96,11 +168,23 @@ function evidenceChecks(evidence) {
     { id: "context", pass: finite(telemetry.contextLosses) === 0, detail: `${finite(telemetry.contextLosses)} context losses` },
     { id: "shell", pass: finite(telemetry.offlineShellErrors) === 0 && finite(telemetry.offlineWarmupFailures) === 0, detail: `${finite(telemetry.offlineShellErrors)} shell errors, ${finite(telemetry.offlineWarmupFailures)} warm failures` },
     { id: "dom", pass: samples.every(sample => finite(sample.canvases) <= 1 && finite(sample.domNodes) <= 2500), detail: `${Math.max(0, ...samples.map(sample => finite(sample.domNodes)))} nodes, ${Math.max(0, ...samples.map(sample => finite(sample.canvases)))} canvases` },
-    { id: "heap", pass: !heap.length || heapGrowth <= heapAllowance, detail: heap.length ? `${Math.round(heapGrowth / 1048576)} MB growth` : "heap API unavailable" },
+    {
+      id: "heap",
+      pass: policy.mode !== "pixel" || heapPass,
+      detail: heap.length > 1
+        ? `${Math.round(heapGrowth / 1048576)} MB growth`
+        : resourceProxyAvailable
+          ? `Safari proxy: ${resourcePeaks.peakDisplayObjects} objects, ${resourcePeaks.peakTextures} textures, ${resourcePeaks.peakTweens} tweens${sustainedResourceGrowth.length ? `; sustained growth in ${sustainedResourceGrowth.join(", ")}` : "; late samples settled"}`
+          : `heap API unavailable; Safari proxy coverage ${resourceSamples.length}/${requiredResourceSamples} samples, ${lateResourceSamples}/${requiredLateResourceSamples} late`
+    },
     // stopsDone is the monotone truth; the route cursor legitimately WRAPS
     // 40 -> 1 into the review circuit, so comparing it punished the exact
     // journey the game intends.
-    { id: "progress", pass: finite(evidence.finalProgress?.stopsDone) >= finite(evidence.initialProgress?.stopsDone), detail: `${finite(evidence.initialProgress?.stopsDone)} to ${finite(evidence.finalProgress?.stopsDone)} stops` },
+    {
+      id: "progress",
+      pass: progressPass,
+      detail: `${initialStops} to ${finalStops} stops${checkpointAdvanced ? "; checkpoint advanced" : ""}; needs +${policy.minStopsAdvanced}${policy.allowCheckpointProgress ? " or checkpoint progress" : ""}`
+    },
     { id: "errors", pass: !evidence.errors?.length, detail: `${evidence.errors?.length || 0} uncaught errors` },
     { id: "input", pass: finite(evidence.input?.events) >= policy.minInputEvents && inputP95Ms <= policy.maxInputP95Ms, detail: `${finite(evidence.input?.events)} events, ${Math.round(inputP95Ms)} ms p95` }
   ];

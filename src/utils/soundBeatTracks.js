@@ -86,3 +86,16 @@ export function soundBeatLadder(difficulty = "easy") {
 export function soundBeatStars({ correct, total, mistakes } = {}) {
   return starRubric({ correct, total, mistakes, deaths: 0 });
 }
+
+// Graduated motor-access mercy for a single word. The first miss still
+// rehearses the whole blend; later misses keep the child on the current beat
+// with a wider window, and four misses advance without credit so nobody can be
+// trapped indefinitely on one word.
+export function soundBeatMercyPolicy(attempts = 0) {
+  const count = Math.max(0, Number(attempts) || 0);
+  return {
+    windowScale: 1 + Math.min(count, 3) * 0.3,
+    replayFromStart: count < 2,
+    advanceWithoutCredit: count >= 4
+  };
+}

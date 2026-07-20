@@ -9,8 +9,9 @@
 // This component owns the save file and the view; everything under it is a pure
 // function of the state it is handed.
 
-import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { ErrorBoundary } from "../ErrorBoundary.jsx";
 import CreatureCreator from "./CreatureCreator.jsx";
 import DenScreen from "./DenScreen.jsx";
 import RewardScreen from "./RewardScreen.jsx";
@@ -18,7 +19,13 @@ import TrailMap from "./TrailMap.jsx";
 import QuestTrail2D from "./world/QuestTrail2D.jsx";
 import CreatureFigure from "./CreatureFigure.jsx";
 import TradingPost from "./TradingPost.jsx";
-import { loadQuestProgress, saveQuestProgress } from "../../utils/questStore.js";
+import {
+  loadQuestProgress,
+  questProgressStorageKey,
+  saveQuestProgress
+} from "../../utils/questStore.js";
+import { QUEST_STORAGE_STATUS_EVENT } from "../../utils/questStorageRecovery.js";
+import { lazyWithRetry } from "../../utils/lazyWithRetry.js";
 import { computeHydratedValue } from "../../utils/progressMerge.js";
 import {
   recordQuestAttempt,
@@ -90,8 +97,32 @@ const OFFLINE_RUNTIME_EVENT_TYPES = Object.freeze({
   "update-applied": "offline-update-applied"
 });
 
-const QuestPixelWorld = lazy(() => import("./world/QuestPixelWorld.jsx"));
-const QuestHub = lazy(() => import("./world/QuestHub.jsx"));
+const QuestPixelWorld = lazyWithRetry(
+  () => import("./world/QuestPixelWorld.jsx"),
+  { reloadOnFailure: false }
+);
+const QuestHub = lazyWithRetry(
+  () => import("./world/QuestHub.jsx"),
+  { reloadOnFailure: false }
+);
+
+const ANSWER_SAVE_DELAY_MS = 400;
+const TELEMETRY_SAVE_DELAY_MS = 15000;
+
+function QuestWorldErrorFallback({ error, onRecover }) {
+  const recoveredRef = useRef(false);
+  const reason = String(error?.message || error || "world-render-failed");
+  useEffect(() => {
+    if (recoveredRef.current) return;
+    recoveredRef.current = true;
+    onRecover(reason);
+  }, [onRecover, reason]);
+  return (
+    <div className="q-screen qp-root">
+      <div className="qp-loading" role="status">Switching to the calm trail…</div>
+    </div>
+  );
+}
 
 function nextAdventureId(state) {
   const done = new Set(state?.trail?.stopsDone || []);
@@ -117,9 +148,12 @@ export default function QuestRoot({
   onExit,
   initialView = null,
   initialStop = null,
-  disableAdaptiveQuality = false
+  disableAdaptiveQuality = false,
+  previewForce2d = false,
+  previewForceLegacy3d = false
 }) {
-  const previewState = initialView === VIEW.CEREMONY ? loadQuestProgress(progressScopeKey) : null;
+  const [state, setState] = useState(() => loadQuestProgress(progressScopeKey));
+  const previewState = initialView === VIEW.CEREMONY ? state : null;
   const previewCeremony = initialView === VIEW.CEREMONY && getStop(initialStop)
     ? {
       id: `preview-${initialStop}`,
@@ -132,9 +166,8 @@ export default function QuestRoot({
       state: previewState
     }
     : null;
-  const [state, setState] = useState(() => loadQuestProgress(progressScopeKey));
   const [view, setView] = useState(
-    () => initialView || (loadQuestProgress(progressScopeKey).hatched ? VIEW.DEN : VIEW.CREATOR)
+    () => initialView || (state.hatched ? VIEW.DEN : VIEW.CREATOR)
   );
   const [activeStop, setActiveStop] = useState(() => (
     [VIEW.WORLD, VIEW.CEREMONY].includes(initialView) ? initialStop : null
@@ -155,15 +188,29 @@ export default function QuestRoot({
   const [force2d, setForce2d] = useState(false);
   const [runtimeQualityId, setRuntimeQualityId] = useState(null);
   const [runtimeNotice, setRuntimeNotice] = useState(null);
+  const [storageNotice, setStorageNotice] = useState(null);
   const [musicState, setMusicState] = useState("travel");
   const stateRef = useRef(state);
   const latestCheckpointRef = useRef(state.checkpoint);
+  const pendingSaveRef = useRef(null);
+  const saveTimerRef = useRef(0);
+  const saveDeadlineRef = useRef(0);
+  const unmountGenerationRef = useRef(0);
   const journeyTransitionTimerRef = useRef(0);
+  const portalRef = useRef(null);
+  const previousViewRef = useRef(view);
   const quality = useMemo(() => detectQuestQuality(state.settings), [state.settings]);
   const runtimeQuality = runtimeQualityId && QUEST_QUALITY_TIERS[runtimeQualityId]
     ? QUEST_QUALITY_TIERS[runtimeQualityId]
     : quality;
-  const activeQuality = force2d ? QUEST_QUALITY_TIERS["2d"] : runtimeQuality;
+  // These preview overrides belong to the authenticated-free QA harness only.
+  // Retired child settings still migrate to Automatic. Accessibility/offline
+  // checks can exercise the complete DOM fallback, while the legacy camera
+  // diagnostic can explicitly mount QuestHub without exposing or persisting a
+  // 3D choice in the Den. A real runtime failure always wins and falls to 2D.
+  const activeQuality = force2d || previewForce2d
+    ? QUEST_QUALITY_TIERS["2d"]
+    : previewForceLegacy3d ? QUEST_QUALITY_TIERS.low : runtimeQuality;
   const use2d = activeQuality.id === "2d";
   const usePixel = activeQuality.id === "pixel";
   const useSimpleWorld = use2d || usePixel;
@@ -191,15 +238,65 @@ export default function QuestRoot({
     return () => window.clearTimeout(timer);
   }, [ceremony, ceremonyOverlayVisible, ceremonyWorldReady, use2d, view]);
 
-  // One writer. Every state change goes through here, so there is exactly one
-  // place a save can go wrong.
-  const commit = useCallback(next => {
+  // World renderers move focus to each new task themselves. The non-world
+  // screens still need an explicit hand-off when React swaps Den/Map/Post/
+  // Creator in place; otherwise keyboard and screen-reader focus remains on a
+  // button that no longer exists. Focus the new screen's heading after commit.
+  useEffect(() => {
+    const previous = previousViewRef.current;
+    previousViewRef.current = view;
+    if (previous === view || [VIEW.WORLD, VIEW.CEREMONY].includes(view)) return undefined;
+    const frame = window.requestAnimationFrame(() => {
+      const heading = portalRef.current?.querySelector(".q-screen h1");
+      if (!(heading instanceof HTMLElement)) return;
+      heading.tabIndex = -1;
+      heading.focus({ preventScroll: true });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [view]);
+
+  const flushPendingSave = useCallback(() => {
+    window.clearTimeout(saveTimerRef.current);
+    saveTimerRef.current = 0;
+    saveDeadlineRef.current = 0;
+    const pending = pendingSaveRef.current;
+    pendingSaveRef.current = null;
+    if (pending) saveQuestProgress(progressScopeKey, pending.state, { syncCloud: pending.syncCloud });
+  }, [progressScopeKey]);
+
+  const scheduleSave = useCallback((next, delayMs = 0, { syncCloud = true } = {}) => {
+    pendingSaveRef.current = {
+      state: next,
+      // A later telemetry sample may replace the pending state snapshot, but
+      // it must not downgrade an already-pending answer/checkpoint cloud save.
+      syncCloud: Boolean(syncCloud || pendingSaveRef.current?.syncCloud)
+    };
+    if (!(delayMs > 0)) {
+      flushPendingSave();
+      return;
+    }
+    const deadline = Date.now() + delayMs;
+    if (saveTimerRef.current && saveDeadlineRef.current <= deadline) return;
+    window.clearTimeout(saveTimerRef.current);
+    saveDeadlineRef.current = deadline;
+    saveTimerRef.current = window.setTimeout(flushPendingSave, delayMs);
+  }, [flushPendingSave]);
+
+  useEffect(() => () => flushPendingSave(), [flushPendingSave]);
+
+  // One writer. Every state change is computed synchronously from stateRef and
+  // reaches React through this function, so a queued replacement cannot clobber
+  // a pending functional updater. Low-value runtime samples share a bounded
+  // persistence cadence; completions and navigation still flush immediately.
+  const commit = useCallback((update, { persistDelayMs = 0, syncCloud = true } = {}) => {
+    const next = typeof update === "function" ? update(stateRef.current) : update;
+    if (!next || next === stateRef.current) return stateRef.current;
     stateRef.current = next;
     latestCheckpointRef.current = next.checkpoint;
     setState(next);
-    saveQuestProgress(progressScopeKey, next);
+    scheduleSave(next, persistDelayMs, { syncCloud });
     return next;
-  }, [progressScopeKey]);
+  }, [scheduleSave]);
 
   // A fresh device can open Sound Seekers BEFORE the async cloud hydrate lands.
   // The mount snapshot above would then clobber the just-hydrated save on the
@@ -231,6 +328,37 @@ export default function QuestRoot({
     return () => window.removeEventListener("lp-progress-hydrated", handleHydrated);
   }, [commit, progressScopeKey]);
 
+  // Open tabs reconcile through the same forward-only merge as cloud hydrate.
+  // A tab that receives an already-merged value does nothing, which prevents a
+  // storage-event echo loop while preserving checkpoints owned by this tab.
+  useEffect(() => {
+    const key = questProgressStorageKey(progressScopeKey);
+    function handleExternalSave(event) {
+      if (event.storageArea !== window.localStorage || event.key !== key || !event.newValue) return;
+      const current = stateRef.current;
+      const stored = loadQuestProgress(progressScopeKey);
+      const merged = computeHydratedValue("phonics_quest", "__all__", current, stored);
+      if (JSON.stringify(merged) === JSON.stringify(current)) return;
+      commit(merged);
+    }
+    window.addEventListener("storage", handleExternalSave);
+    return () => window.removeEventListener("storage", handleExternalSave);
+  }, [commit, progressScopeKey]);
+
+  useEffect(() => {
+    function handleStorageStatus(event) {
+      const detail = event.detail || {};
+      if (detail.scopeKey !== progressScopeKey) return;
+      if (detail.status === "recovered") {
+        setRuntimeNotice("Storage was full. Older diagnostics were cleared and your trail is saving again.");
+      } else {
+        setStorageNotice("Progress may not be saving on this device. Ask a grown-up for help before closing.");
+      }
+    }
+    window.addEventListener(QUEST_STORAGE_STATUS_EVENT, handleStorageStatus);
+    return () => window.removeEventListener(QUEST_STORAGE_STATUS_EVENT, handleStorageStatus);
+  }, [progressScopeKey]);
+
   // A child whose OS asks for MORE contrast gets it on first run without
   // finding a toggle - the Den setting remains the override thereafter
   // (settingsAt empty = the family has never touched quest settings).
@@ -246,23 +374,33 @@ export default function QuestRoot({
     }
   }, [commit]);
 
-  // Belt-and-braces against zombie telemetry: if this component unmounts with
-  // a session still open (navigation paths that skip handleExit), close it in
-  // the save file. beginQuestSession also recovers >6h-stale sessions, so a
-  // hard crash costs one recovered record, not every future session.
-  useEffect(() => () => {
-    const ended = endQuestSession(stateRef.current, { reason: "unmount" });
-    if (ended !== stateRef.current) {
-      stateRef.current = ended;
-      saveQuestProgress(progressScopeKey, ended);
-    }
+  // Belt-and-braces against zombie telemetry and an unsaved final checkpoint.
+  // React StrictMode rehearses every effect as setup -> cleanup -> setup. A
+  // synchronous cleanup used to end the child's brand-new session during that
+  // rehearsal. Defer to a microtask and cancel by generation when the effect is
+  // immediately re-established; a real route unmount still saves in the same
+  // browser task, before a timer could be discarded by navigation.
+  useEffect(() => {
+    const generation = unmountGenerationRef.current + 1;
+    unmountGenerationRef.current = generation;
+    return () => {
+      queueMicrotask(() => {
+        if (unmountGenerationRef.current !== generation) return;
+        const checkpointed = latestCheckpointRef.current
+          ? saveQuestCheckpoint(stateRef.current, latestCheckpointRef.current)
+          : stateRef.current;
+        const ended = endQuestSession(checkpointed, { reason: "unmount" });
+        stateRef.current = ended;
+        saveQuestProgress(progressScopeKey, ended);
+      });
+    };
   }, [progressScopeKey]);
 
   useEffect(() => {
     const recordConnectionEvent = event => {
       const current = stateRef.current;
       const recorded = recordQuestRuntimeEvent(current, event);
-      if (recorded !== current) commit(recorded);
+      if (recorded !== current) commit(recorded, { syncCloud: false });
     };
     const handleOffline = () => recordConnectionEvent({ type: "network-offline" });
     const handleOnline = () => recordConnectionEvent({ type: "network-online" });
@@ -271,6 +409,9 @@ export default function QuestRoot({
       if (detail.studentId !== progressScopeKey || detail.area !== "phonics_quest") return;
       if (detail.status === "deferred") recordConnectionEvent({ type: "sync-deferred" });
       if (detail.status === "recovered") recordConnectionEvent({ type: "sync-recovered" });
+      if (detail.status === "storage-failed") {
+        setStorageNotice("Progress may not be saving or backing up. Ask a grown-up for help before closing.");
+      }
     };
     window.addEventListener("offline", handleOffline);
     window.addEventListener("online", handleOnline);
@@ -289,13 +430,16 @@ export default function QuestRoot({
       if (!type) return;
       const current = stateRef.current;
       const recorded = recordQuestRuntimeEvent(current, { ...detail, type });
-      if (recorded !== current) commit(recorded);
+      if (recorded !== current) commit(recorded, {
+        persistDelayMs: TELEMETRY_SAVE_DELAY_MS,
+        syncCloud: false
+      });
     };
     const handleOfflineEvidence = event => recordOfflineEvidence(event.detail);
     for (const detail of offlineShellHistory()) recordOfflineEvidence(detail);
     window.addEventListener(OFFLINE_EVENT, handleOfflineEvidence);
     return () => window.removeEventListener(OFFLINE_EVENT, handleOfflineEvidence);
-  }, [commit, state.telemetry?.current?.id]);
+  }, [commit]);
 
   useEffect(() => {
     if (view !== VIEW.WORLD || !stateRef.current.telemetry?.current) return undefined;
@@ -307,7 +451,10 @@ export default function QuestRoot({
       if (elapsed < 250) return;
       const current = stateRef.current;
       const next = addQuestActiveTime(current, elapsed);
-      if (next !== current) commit(next);
+      if (next !== current) commit(next, {
+        persistDelayMs: TELEMETRY_SAVE_DELAY_MS,
+        syncCloud: false
+      });
     };
     const timer = window.setInterval(bankTime, 15000);
     const onVisibility = () => {
@@ -389,15 +536,6 @@ export default function QuestRoot({
     return () => window.clearTimeout(timer);
   }, [runtimeNotice]);
 
-  // The child can leave through the app close button, browser navigation, or a
-  // parent route change. Keep the last in-memory checkpoint durable in all three.
-  useEffect(() => () => {
-    const current = latestCheckpointRef.current
-      ? saveQuestCheckpoint(stateRef.current, latestCheckpointRef.current)
-      : stateRef.current;
-    saveQuestProgress(progressScopeKey, current);
-  }, [progressScopeKey]);
-
   const owned = useMemo(() => ownedPieces(state), [state]);
 
   const handleAnswer = useCallback((stopId, target, correct, shell, meta = {}) => {
@@ -406,33 +544,25 @@ export default function QuestRoot({
     const stopIndex = getStop(stopId)?.index || 0;
     const promptLevel = Number(meta?.promptLevel) || 0;
     const reason = typeof meta?.reason === "string" ? meta.reason : "";
-    setState(prev => {
-      const attempted = recordQuestAttempt(prev, { target, correct, shell, stopIndex, promptLevel, reason });
-      const next = recordQuestTelemetryAnswer(attempted, correct);
-      stateRef.current = next;
-      saveQuestProgress(progressScopeKey, next);
-      return next;
-    });
+    commit(prev => {
+      const attempted = meta?.recordsMastery === false
+        ? prev
+        : recordQuestAttempt(prev, { target, correct, shell, stopIndex, promptLevel, reason });
+      return recordQuestTelemetryAnswer(attempted, correct);
+    }, { persistDelayMs: ANSWER_SAVE_DELAY_MS });
     logStudentActivity("phonics_quest", stopId, "answer", { target, correct, shell, promptLevel, reason });
-  }, [progressScopeKey]);
+  }, [commit]);
 
   const handleCheckpoint = useCallback(cp => {
     latestCheckpointRef.current = cp;
-    setState(prev => {
-      const next = saveQuestCheckpoint(prev, cp);
-      stateRef.current = next;
-      saveQuestProgress(progressScopeKey, next);
-      return next;
-    });
-  }, [progressScopeKey]);
+    commit(prev => saveQuestCheckpoint(prev, cp), { persistDelayMs: ANSWER_SAVE_DELAY_MS });
+  }, [commit]);
 
   const handleInteraction = useCallback((stopId, event) => {
     if (!event?.type) return;
-    setState(prev => {
-      const next = recordQuestInteractionEvent(prev, event);
-      stateRef.current = next;
-      saveQuestProgress(progressScopeKey, next);
-      return next;
+    commit(prev => recordQuestInteractionEvent(prev, event), {
+      persistDelayMs: TELEMETRY_SAVE_DELAY_MS,
+      syncCloud: false
     });
     if (["motor-retry", "teach-back"].includes(event.type)) {
       logStudentActivity("phonics_quest", stopId, "interaction_support", {
@@ -440,7 +570,7 @@ export default function QuestRoot({
         mechanic: event.mechanic || null
       });
     }
-  }, [progressScopeKey]);
+  }, [commit]);
 
   const handleLayerReady = useCallback(stopId => {
     setWorldLayers(layers => markJourneyLayerReady(layers, stopId));
@@ -451,7 +581,10 @@ export default function QuestRoot({
     if (disableAdaptiveQuality && ["frame-window", "quality-change"].includes(signal.type)) return;
     const current = stateRef.current;
     const recorded = recordQuestRuntimeEvent(current, signal);
-    if (recorded !== current) commit(recorded);
+    if (recorded !== current) commit(recorded, {
+      persistDelayMs: TELEMETRY_SAVE_DELAY_MS,
+      syncCloud: false
+    });
 
     if (signal.type === "quality-change" && signal.toTier && signal.toTier !== "2d") {
       setRuntimeQualityId(signal.toTier);
@@ -751,8 +884,10 @@ export default function QuestRoot({
 
   return createPortal(
     <div
+      ref={portalRef}
       className="q-root"
       data-fullbleed=""
+      data-view={view}
       data-high-contrast={state.settings?.highContrast ? "true" : undefined}
     >
       {/* ONE exit per screen. The Den (and the hatch screen) own "Close" —
@@ -861,39 +996,67 @@ export default function QuestRoot({
                 {use2d ? (
                   <QuestTrail2D {...sharedProps} />
                 ) : usePixel ? (
-                  <Suspense fallback={<div className="q-screen qp-root"><div className="qp-loading" role="status">Opening the trail…</div></div>}>
-                    <QuestPixelWorld
-                      {...sharedProps}
-                      ceremony={view === VIEW.CEREMONY && layer.status === "active"}
-                      onSceneReady={() => handleLayerReady(layer.stopId)}
-                      onRuntimeSignal={handleRuntimeSignal}
-                      onSceneError={reason => handleRuntimeSignal({
+                  <ErrorBoundary
+                    resetKey={`pixel-${layer.stopId}-${activeQuality.id}`}
+                    logLabel="Sound Seekers pixel world"
+                    fallback={({ error }) => (
+                      <QuestWorldErrorFallback error={error} onRecover={reason => handleRuntimeSignal({
                         type: "renderer-error",
                         fromTier: "pixel",
                         toTier: "2d",
                         stopId: layer.stopId,
                         reason
-                      })}
-                    />
-                  </Suspense>
+                      })} />
+                    )}
+                  >
+                    <Suspense fallback={<div className="q-screen qp-root"><div className="qp-loading" role="status">Opening the trail…</div></div>}>
+                      <QuestPixelWorld
+                        {...sharedProps}
+                        ceremony={view === VIEW.CEREMONY && layer.status === "active"}
+                        onSceneReady={() => handleLayerReady(layer.stopId)}
+                        onRuntimeSignal={handleRuntimeSignal}
+                        onSceneError={reason => handleRuntimeSignal({
+                          type: "renderer-error",
+                          fromTier: "pixel",
+                          toTier: "2d",
+                          stopId: layer.stopId,
+                          reason
+                        })}
+                      />
+                    </Suspense>
+                  </ErrorBoundary>
                 ) : (
-                  <Suspense fallback={<div className="q-screen qp-root"><div className="qp-loading" role="status">Opening the 3D trail…</div></div>}>
-                    <QuestHub
-                      {...sharedProps}
-                      qualityTier={activeQuality}
-                      ceremony={view === VIEW.CEREMONY && layer.status === "active"}
-                      onPrepareNext={interactive ? prepareNextLayer : undefined}
-                      onSceneReady={() => handleLayerReady(layer.stopId)}
-                      onSceneError={reason => handleRuntimeSignal({
+                  <ErrorBoundary
+                    resetKey={`three-${layer.stopId}-${activeQuality.id}`}
+                    logLabel="Sound Seekers 3D world"
+                    fallback={({ error }) => (
+                      <QuestWorldErrorFallback error={error} onRecover={reason => handleRuntimeSignal({
                         type: "renderer-error",
                         fromTier: activeQuality.id,
                         toTier: "2d",
                         stopId: layer.stopId,
                         reason
-                      })}
-                      onRuntimeSignal={handleRuntimeSignal}
-                    />
-                  </Suspense>
+                      })} />
+                    )}
+                  >
+                    <Suspense fallback={<div className="q-screen qp-root"><div className="qp-loading" role="status">Opening the 3D trail…</div></div>}>
+                      <QuestHub
+                        {...sharedProps}
+                        qualityTier={activeQuality}
+                        ceremony={view === VIEW.CEREMONY && layer.status === "active"}
+                        onPrepareNext={interactive ? prepareNextLayer : undefined}
+                        onSceneReady={() => handleLayerReady(layer.stopId)}
+                        onSceneError={reason => handleRuntimeSignal({
+                          type: "renderer-error",
+                          fromTier: activeQuality.id,
+                          toTier: "2d",
+                          stopId: layer.stopId,
+                          reason
+                        })}
+                        onRuntimeSignal={handleRuntimeSignal}
+                      />
+                    </Suspense>
+                  </ErrorBoundary>
                 )}
               </div>
             );
@@ -925,8 +1088,12 @@ export default function QuestRoot({
         </aside>
       )}
 
-      {view === VIEW.WORLD && runtimeNotice && (
+      {runtimeNotice && (
         <aside className="q-runtime-notice" role="status">{runtimeNotice}</aside>
+      )}
+
+      {storageNotice && (
+        <aside className="q-runtime-notice is-storage" role="alert">{storageNotice}</aside>
       )}
 
       {view === VIEW.CEREMONY && ceremony && ceremonyOverlayVisible && (

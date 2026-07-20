@@ -52,6 +52,29 @@ async function expectVisibleButtonsReachable(page, minimumHeight = 44) {
   expect(failures).toEqual([]);
 }
 
+async function activateCorrectSemanticChoice(page) {
+  const group = page.locator(".qp-semantic-choices");
+  await expect(group).toBeAttached();
+  const prompt = await group.getAttribute("aria-label");
+  let choice = group.getByRole("button").first();
+  if (prompt?.startsWith("Find ")) {
+    const target = prompt.slice("Find ".length);
+    const escaped = target.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    choice = group.getByRole("button", { name: new RegExp(`^\\d+\\. ${escaped}$`) });
+  }
+  await expect(choice).toBeAttached();
+  await choice.press("Enter");
+}
+
+test("a failed pixel-world chunk recovers into the bundled 2D trail", async ({ page }) => {
+  await page.route("**/src/components/quest/world/QuestPixelWorld.jsx*", route => route.abort());
+  await page.goto(`${PREVIEW}&view=world&stop=s1&display=pixel&active=0`);
+
+  await expect(page.getByRole("group", { name: "Find a" })).toBeVisible({ timeout: 15_000 });
+  await expect(page.locator(".q2d-root")).toBeVisible();
+  await expect(page.getByText("Something went wrong", { exact: false })).toHaveCount(0);
+});
+
 test("accessible trail keeps its prompt and child-sized controls at 320 pixels", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 568 });
   await page.goto(`${PREVIEW}&view=world&stop=s7&done=6&display=2d&active=0`);
@@ -246,13 +269,13 @@ test("a completed River task can flow directly into the next resident encounter"
   await page.goto(`${PREVIEW}&view=world&stop=s6&done=5&display=pixel&active=0`);
   await expect(page.locator(".qp-root[data-ready='true']")).toBeVisible({ timeout: 10_000 });
 
-  await page.keyboard.press("3");
+  await activateCorrectSemanticChoice(page);
   await expect(page.locator(".qp-semantic-choices[aria-label='Carry it to the sluice']")).toBeAttached();
-  await page.keyboard.press("1");
+  await activateCorrectSemanticChoice(page);
   await expect(page.locator(".qp-semantic-choices[aria-label='Find e']")).toBeAttached();
-  await page.keyboard.press("3");
+  await activateCorrectSemanticChoice(page);
   await expect(page.locator(".qp-semantic-choices[aria-label='Carry it to the sluice']")).toBeAttached();
-  await page.keyboard.press("1");
+  await activateCorrectSemanticChoice(page);
   await expect(page.locator(".qp-progress")).toHaveAttribute("aria-label", "1 of 2 trail tasks complete");
 
   await page.keyboard.down("ArrowUp");
@@ -301,29 +324,40 @@ test("Claw Pass signal relays advance through the accessible controls without fr
   await expect(page.locator(".qp-root[data-ready='true']")).toBeVisible({ timeout: 10_000 });
 
   await expect(page.locator(".qp-semantic-choices[aria-label='Find a']")).toBeAttached();
-  await page.keyboard.press("3");
+  await activateCorrectSemanticChoice(page);
   await expect(page.locator(".qp-semantic-choices[aria-label='Stand on the glowing relay']")).toBeAttached();
 
-  await page.keyboard.press("1");
+  await activateCorrectSemanticChoice(page);
   await expect(page.locator(".qp-semantic-choices[aria-label='Send the final signal']")).toBeAttached();
 
-  await page.keyboard.press("1");
+  await activateCorrectSemanticChoice(page);
   await expect.poll(() => page.evaluate(() => {
     const snapshot = window.__questPixelRuntime.getLayoutSnapshot();
     return {
       activeId: snapshot.encounter.activeId,
-      choices: snapshot.choices.length,
       playerActive: snapshot.player?.active,
       playerVisible: snapshot.player?.visible
     };
-  })).toEqual({ activeId: "s15-1", choices: 1, playerActive: true, playerVisible: true });
+  })).toEqual({ activeId: "s15-1", playerActive: true, playerVisible: true });
+
+  await page.keyboard.down("ArrowUp");
+  try {
+    await expect(page.locator(".qp-semantic-choices")).toBeAttached({ timeout: 10_000 });
+    await expect.poll(() => page.evaluate(() => (
+      window.__questPixelRuntime.getLayoutSnapshot().choices.length
+    ))).toBeGreaterThan(0);
+  } finally {
+    await page.keyboard.up("ArrowUp");
+  }
   await expect(page.locator(".qp-root[data-ready='true']")).toBeVisible();
 });
 
 test("the Singing Weir keeps every answer below the real instruction HUD", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 720 });
   await page.goto(`${PREVIEW}&view=world&stop=s10&done=9&display=pixel&active=0`);
-  await expect(page.getByRole("button", { name: "3. th" })).toBeVisible();
+  const choices = page.locator(".qp-semantic-choices[aria-label='Find th']");
+  await expect(choices).toBeAttached();
+  await expect(choices.getByRole("button", { name: /^\d+\. th$/ })).toBeVisible();
   await page.waitForFunction(() => window.__questPixelRuntime?.getLayoutSnapshot?.().choices?.length === 3);
   await page.waitForTimeout(1200);
 
@@ -550,8 +584,11 @@ test("the Sleeping Observatory gate rewards Lantern Forest and hands off to Star
   await expect(reward.getByText("Wisp", { exact: true })).toBeVisible();
   await expect(reward.getByText("Orbit", { exact: true })).toBeVisible();
   await reward.getByRole("button", { name: "Continue the trail" }).click();
-  await expect(page.getByRole("heading", { name: "Star Reach" })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Comet Stair, 0 stars" })).toBeEnabled();
+  const nextWorld = page.locator(".q-journey-layer.is-active .qp-root[data-ready='true']");
+  await expect(nextWorld).toBeVisible();
+  await expect(nextWorld.locator(".qp-place > span")).toHaveText("Star Reach");
+  await expect(nextWorld.locator(".qp-place > strong")).toHaveText("Comet Stair");
+  await expect(nextWorld.getByRole("button", { name: "Let's go", exact: true })).toBeVisible();
 });
 
 test("the First Reading Star gate completes the journey without freezing", async ({ page }) => {
@@ -581,6 +618,61 @@ test("the First Reading Star gate completes the journey without freezing", async
   await expect(page.getByText("Whole trail restored", { exact: true })).toBeVisible();
   await expect(page.getByText("Journey complete", { exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "The First Reading Star, 3 stars" })).toBeEnabled();
+});
+
+test("an auto-advancing chapter reward moves focus to Continue", async ({ page }) => {
+  await page.goto(`${PREVIEW}&view=ceremony&stop=s5&done=5&display=2d`);
+  const reward = page.getByRole("dialog", { name: "Bramble Gate reward" });
+  await expect(reward).toBeVisible({ timeout: 5_000 });
+  const continueButton = reward.getByRole("button", { name: "Continue the trail" });
+  await expect(continueButton).toBeVisible({ timeout: 6_000 });
+  await expect(continueButton).toBeFocused();
+});
+
+test("Show rewards now hands focus to the revealed Continue action", async ({ page }) => {
+  await page.goto(`${PREVIEW}&view=ceremony&stop=s5&done=5&display=2d`);
+  const reward = page.getByRole("dialog", { name: "Bramble Gate reward" });
+  const showNow = reward.getByRole("button", { name: "Show rewards now" });
+  await expect(showNow).toBeVisible({ timeout: 5_000 });
+  await showNow.press("Enter");
+  const continueButton = reward.getByRole("button", { name: "Continue the trail" });
+  await expect(continueButton).toBeVisible();
+  await expect(continueButton).toBeFocused();
+});
+
+test("a mounted reward stops staged motion when the OS preference changes", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto(`${PREVIEW}&view=ceremony&stop=s5&done=5&display=2d`);
+  const reward = page.getByRole("dialog", { name: "Bramble Gate reward" });
+  await expect(reward.getByRole("button", { name: "Show rewards now" })).toBeVisible();
+  await expect(reward.locator("canvas")).toHaveCount(1);
+
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(reward.locator("canvas")).toHaveCount(0);
+  const continueButton = reward.getByRole("button", { name: "Continue the trail" });
+  await expect(continueButton).toBeVisible();
+  await expect(continueButton).toBeFocused();
+
+  // Returning to no-preference must not replay a ceremony the child already saw.
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.waitForTimeout(1200);
+  await expect(continueButton).toBeVisible();
+  await expect(reward.getByRole("button", { name: "Show rewards now" })).toHaveCount(0);
+});
+
+test("shared mounted confetti follows live OS reduced-motion changes", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/preview/home.html?view=confetti");
+  const preview = page.locator("[data-preview='confetti']");
+  await expect(preview.locator("canvas")).toHaveCount(1);
+
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(preview.locator("canvas")).toHaveCount(0);
+
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await expect(preview.locator("canvas")).toHaveCount(1);
+  await preview.getByRole("button", { name: "Unmount confetti" }).click();
+  await expect(preview.locator("canvas")).toHaveCount(0);
 });
 
 test("the 320-pixel gate keeps its required action reachable", async ({ page }) => {
@@ -627,6 +719,240 @@ test("automatic mode avoids the pixel engine on a genuinely constrained device",
   await expectNoSeriousAxeViolations(page);
 });
 
+test("Den and map transitions move focus to the new screen heading", async ({ page }) => {
+  await page.goto(`${PREVIEW}&view=den&display=2d`);
+  await expect(page.getByRole("heading", { name: "Your Den", level: 1 })).toBeVisible();
+
+  await page.getByRole("button", { name: "Open the trail map" }).click();
+  const mapHeading = page.locator(".q-map-v2 h1");
+  await expect(mapHeading).toBeVisible();
+  await expect(mapHeading).toBeFocused();
+
+  await page.getByRole("button", { name: "Back to the Den" }).click();
+  const denHeading = page.getByRole("heading", { name: "Your Den", level: 1 });
+  await expect(denHeading).toBeVisible();
+  await expect(denHeading).toBeFocused();
+});
+
+test("the mounted pixel world follows live OS reduced-motion changes", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto(`${PREVIEW}&view=world&stop=s1&done=0&display=pixel&active=0`);
+  await expect(page.locator(".qp-root")).toBeVisible();
+  const runtimeHasModel = () => page.evaluate(() => Boolean(
+    window.__questPixelRuntime?.game?.scene?.scenes?.[0]?.model
+  ));
+  const runtimeReducedMotion = () => page.evaluate(() => Boolean(
+    window.__questPixelRuntime?.game?.scene?.scenes?.[0]?.model?.reducedMotion
+  ));
+  await expect.poll(runtimeHasModel).toBe(true);
+  await expect.poll(runtimeReducedMotion).toBe(false);
+
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect.poll(runtimeReducedMotion).toBe(true);
+
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await expect.poll(runtimeReducedMotion).toBe(false);
+});
+
+test("replaying the letter trace demo uses recorded gold-voice instructions", async ({ page }) => {
+  const pageErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+  await page.addInitScript(() => {
+    window.__tracerPlayedAudio = [];
+    window.Audio = class TestAudio extends EventTarget {
+      constructor(src) {
+        super();
+        this.src = String(src || "");
+        this.currentTime = 0;
+        this.volume = 1;
+      }
+
+      play() {
+        window.__tracerPlayedAudio.push(new URL(this.src, window.location.href).pathname);
+        window.setTimeout(() => this.dispatchEvent(new Event("ended")), 5);
+        return Promise.resolve();
+      }
+
+      pause() {}
+    };
+  });
+  await page.goto("/preview/home.html?view=tracer&letter=a");
+  await expect(page.getByRole("heading", { name: "Trace the Letter" })).toBeVisible();
+
+  await page.getByRole("button", { name: "Skip" }).click();
+  await expect.poll(() => page.evaluate(() => window.__tracerPlayedAudio || [])).toContain(
+    "/audio/child-mode/phrases/now-you-try.mp3"
+  );
+  const replay = page.getByRole("button", { name: "Show me" });
+  await expect(replay).toBeVisible();
+  await page.evaluate(() => { window.__tracerPlayedAudio = []; });
+  await replay.click();
+  await expect.poll(() => page.evaluate(() => window.__tracerPlayedAudio || [])).toEqual([
+    "/audio/child-mode/phrases/watch-me-first.mp3",
+    "/audio/child-mode/phrases/start-at-the-top.mp3"
+  ]);
+  expect(pageErrors).toEqual([]);
+});
+
+test("the phonics trace step has a keyboard and switch-completable path", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/preview/home.html?view=tracer&letter=a");
+  const firstStroke = page.getByRole("button", { name: "Trace stroke 1 of 2" });
+  await expect(firstStroke).toBeVisible();
+  await firstStroke.focus();
+  await page.keyboard.press("Enter");
+
+  const secondStroke = page.getByRole("button", { name: "Trace stroke 2 of 2" });
+  await expect(secondStroke).toBeFocused();
+  await page.keyboard.press("Enter");
+
+  const nextStep = page.getByRole("button", { name: "Next Step" });
+  await expect(nextStep).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page.getByRole("status")).toHaveText("Trace step complete");
+});
+
+test("settings remains modal when native dialog methods are unavailable", async ({ page }) => {
+  const pageErrors = [];
+  page.on("pageerror", error => pageErrors.push(error.message));
+  await page.addInitScript(() => {
+    Object.defineProperty(HTMLDialogElement.prototype, "showModal", {
+      configurable: true,
+      value: undefined
+    });
+    Object.defineProperty(HTMLDialogElement.prototype, "close", {
+      configurable: true,
+      value: undefined
+    });
+  });
+  await page.goto(`${PREVIEW}&view=den&display=2d`);
+  const trigger = page.getByRole("button", { name: "Open settings" });
+  await trigger.focus();
+  await page.keyboard.press("Enter");
+
+  const settings = page.getByRole("dialog", { name: "Display, sound and access" });
+  await expect(settings).toBeVisible();
+  await expect(settings).toHaveAttribute("data-fallback-modal", "true");
+  await expect(settings).toHaveAttribute("aria-modal", "true");
+  await expect(page.locator(".q-den-panel")).toHaveAttribute("inert", "");
+  const close = settings.getByRole("button", { name: "Close settings" });
+  const done = settings.getByRole("button", { name: "Done" });
+  await expect(close).toBeFocused();
+  await page.keyboard.press("Shift+Tab");
+  await expect(done).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(close).toBeFocused();
+
+  await page.keyboard.press("Escape");
+  await expect(settings).toBeHidden();
+  await expect(trigger).toBeFocused();
+  await expect(page.locator(".q-den-panel")).not.toHaveAttribute("inert", "");
+  expect(pageErrors).toEqual([]);
+});
+
+test("a local-storage quota failure warns before the child closes the quest", async ({ page }) => {
+  await page.goto(`${PREVIEW}&view=world&stop=s1&done=0&display=2d&active=0`);
+  await expect(page.locator(".q2d-choices button").first()).toBeVisible();
+  await page.evaluate(() => {
+    const originalSetItem = Storage.prototype.setItem;
+    Storage.prototype.setItem = function setItem(key, value) {
+      if (key === "lp-quest:preview") {
+        throw new DOMException("The quota has been exceeded", "QuotaExceededError");
+      }
+      return originalSetItem.call(this, key, value);
+    };
+  });
+
+  await page.locator(".q2d-choices button").first().click();
+  await expect(page.getByText("Progress may not be saving on this device", { exact: false }))
+    .toBeVisible({ timeout: 5_000 });
+});
+
+test("a cloud-queue storage failure is surfaced instead of silently dropping the save", async ({ page, context }) => {
+  await page.goto(`${PREVIEW}&view=world&stop=s1&done=0&display=2d&active=0&sync=1`);
+  await expect(page.locator(".q2d-choices button").first()).toBeVisible();
+  await page.evaluate(() => {
+    const originalSetItem = Storage.prototype.setItem;
+    Storage.prototype.setItem = function setItem(key, value) {
+      if (key.startsWith("lp-progress-sync-entry-v2:")) {
+        throw new DOMException("The quota has been exceeded", "QuotaExceededError");
+      }
+      return originalSetItem.call(this, key, value);
+    };
+  });
+  await context.setOffline(true);
+  await page.locator(".q2d-choices button").first().click();
+
+  await expect(page.getByText("Progress may not be saving or backing up", { exact: false }))
+    .toBeVisible({ timeout: 5_000 });
+  await context.setOffline(false);
+});
+
+test("two open tabs preserve each other's forward quest progress", async ({ page, context }) => {
+  const sibling = await context.newPage();
+  const url = `${PREVIEW}&view=world&stop=s1&done=0&display=2d&active=0`;
+  await Promise.all([page.goto(url), sibling.goto(url)]);
+  await expect(page.locator(".q2d-choices button").first()).toBeVisible();
+  await expect(sibling.locator(".q2d-choices button").first()).toBeVisible();
+
+  await page.evaluate(() => {
+    const key = "lp-quest:preview";
+    const state = JSON.parse(localStorage.getItem(key));
+    state.trail = { ...state.trail, stopsDone: [...new Set([...(state.trail?.stopsDone || []), "s40"])] };
+    localStorage.setItem(key, JSON.stringify(state));
+  });
+  await expect.poll(() => sibling.evaluate(() => (
+    JSON.parse(localStorage.getItem("lp-quest:preview"))?.trail?.stopsDone || []
+  ))).toContain("s40");
+
+  await sibling.locator(".q2d-choices button").first().click();
+  await expect.poll(() => sibling.evaluate(() => (
+    JSON.parse(localStorage.getItem("lp-quest:preview"))?.trail?.stopsDone || []
+  )), { timeout: 5_000 }).toContain("s40");
+  await sibling.close();
+});
+
+test("simultaneous tabs keep both offline cloud-queue revisions", async ({ page, context }) => {
+  const sibling = await context.newPage();
+  const url = `${PREVIEW}&view=den&display=2d&sync=1`;
+  await Promise.all([page.goto(url), sibling.goto(url)]);
+
+  // Warm the already-bundled module before taking the context offline, then
+  // enqueue the same whole-state identity from two renderer processes at once.
+  await Promise.all([
+    page.evaluate(() => import("/src/utils/progressSync.js")),
+    sibling.evaluate(() => import("/src/utils/progressSync.js"))
+  ]);
+  await context.setOffline(true);
+  await Promise.all([
+    page.evaluate(async () => {
+      const { configureProgressSync, queueProgressSave } = await import("/src/utils/progressSync.js");
+      configureProgressSync({ studentId: "preview", mode: "student", token: "preview-browser-token" });
+      queueProgressSave("phonics_quest", "__all__", {
+        trail: { stopsDone: ["s1"], routeCursor: 2 }
+      }, { scopeKey: "preview" });
+    }),
+    sibling.evaluate(async () => {
+      const { configureProgressSync, queueProgressSave } = await import("/src/utils/progressSync.js");
+      configureProgressSync({ studentId: "preview", mode: "student", token: "preview-browser-token" });
+      queueProgressSave("phonics_quest", "__all__", {
+        trail: { stopsDone: ["s40"], routeCursor: 40 }
+      }, { scopeKey: "preview" });
+    })
+  ]);
+
+  const queuedStops = await page.evaluate(async () => {
+    const { mergeProgressQueueRecords, readProgressQueueRecords } = await import("/src/utils/progressQueue.js");
+    const records = readProgressQueueRecords(localStorage)
+      .filter(record => record.entry.area === "phonics_quest" && record.entry.key === "__all__");
+    return mergeProgressQueueRecords(records)?.payload?.trail?.stopsDone || [];
+  });
+  expect([...queuedStops].sort()).toEqual(["s1", "s40"]);
+
+  await context.setOffline(false);
+  await sibling.close();
+});
+
 test("an interrupted journey queues immediately, recovers on reconnect, and resumes its exact task", async ({ page, context }) => {
   const cloudWrites = [];
   await page.route("**/rest/v1/rpc/student_save_progress", async route => {
@@ -649,7 +975,14 @@ test("an interrupted journey queues immediately, recovers on reconnect, and resu
 
   const readOfflineEvidence = () => page.evaluate(() => {
     const state = JSON.parse(localStorage.getItem("lp-quest:preview") || "null");
-    const queue = JSON.parse(localStorage.getItem("lp-progress-sync-queue-v1") || "[]");
+    const queue = [];
+    for (let index = 0; index < localStorage.length; index += 1) {
+      const key = localStorage.key(index) || "";
+      if (key.startsWith("lp-progress-sync-entry-v2:")) {
+        queue.push(JSON.parse(localStorage.getItem(key)));
+      }
+    }
+    queue.push(...JSON.parse(localStorage.getItem("lp-progress-sync-queue-v1") || "[]"));
     return {
       checkpoint: state?.checkpoint || null,
       interruptions: state?.telemetry?.current?.runtime?.networkInterruptions || 0,
@@ -673,9 +1006,20 @@ test("an interrupted journey queues immediately, recovers on reconnect, and resu
   await context.setOffline(false);
   await page.evaluate(() => window.dispatchEvent(new Event("online")));
   await expect.poll(() => cloudWrites.length).toBeGreaterThan(0);
+  expect(cloudWrites.every(write => (
+    write?.p_payload?.telemetry === undefined
+    && write?.p_payload?.assignment === undefined
+  ))).toBe(true);
   await expect.poll(() => page.evaluate(() => {
     const state = JSON.parse(localStorage.getItem("lp-quest:preview") || "null");
-    const queue = JSON.parse(localStorage.getItem("lp-progress-sync-queue-v1") || "[]");
+    const queue = [];
+    for (let index = 0; index < localStorage.length; index += 1) {
+      const key = localStorage.key(index) || "";
+      if (key.startsWith("lp-progress-sync-entry-v2:")) {
+        queue.push(JSON.parse(localStorage.getItem(key)));
+      }
+    }
+    queue.push(...JSON.parse(localStorage.getItem("lp-progress-sync-queue-v1") || "[]"));
     return {
       recoveries: state?.telemetry?.current?.runtime?.syncRecoveries || 0,
       pending: Boolean(state?.telemetry?.current?.runtime?.syncPending),
@@ -699,11 +1043,19 @@ test("Star Reach loads only its active chapter art and reports the cost", async 
   await expect(world).toBeVisible({ timeout: 10_000 });
   const stats = await world.evaluate(element => ({
     requests: Number(element.getAttribute("data-scene-asset-requests")),
-    bytes: Number(element.getAttribute("data-scene-asset-bytes"))
+    bytes: Number(element.getAttribute("data-scene-asset-bytes")),
+    audioRequests: Number(element.getAttribute("data-scene-audio-asset-requests")),
+    audioBytes: Number(element.getAttribute("data-scene-audio-asset-bytes")),
+    totalRequests: Number(element.getAttribute("data-scene-total-asset-requests")),
+    totalBytes: Number(element.getAttribute("data-scene-total-asset-bytes"))
   }));
   expect(stats.requests).toBeGreaterThan(0);
   expect(stats.requests).toBeLessThan(50);
   expect(stats.bytes).toBeGreaterThan(0);
+  expect(stats.audioRequests).toBeGreaterThan(0);
+  expect(stats.audioBytes).toBeGreaterThan(0);
+  expect(stats.totalRequests).toBe(stats.requests + stats.audioRequests);
+  expect(stats.totalBytes).toBe(stats.bytes + stats.audioBytes);
 
   const premiumChapterRequests = await page.evaluate(() => performance.getEntriesByType("resource")
     .map(entry => entry.name)
@@ -789,10 +1141,11 @@ test("the mobile release surface keeps the Den and settings child-reachable", as
   await page.getByRole("button", { name: "Settings" }).click();
   const settings = page.getByRole("dialog", { name: "Display, sound and access" });
   await expect(settings).toBeVisible();
-  await expect(settings.getByLabel("Picture style")).toBeVisible();
+  await expect(settings.getByLabel("Picture style")).toHaveCount(0);
   await expect(settings.getByLabel("Reduce motion")).toBeVisible();
   await expect(settings.getByLabel("High contrast")).toBeVisible();
   await expect(settings.getByLabel("Quiet soundscape (spoken sounds stay on)")).toBeVisible();
+  await expect(settings.getByLabel("Sound on")).toBeVisible();
   await expectVisibleButtonsReachable(page);
   await expectNoHorizontalOverflow(page);
   await expectNoSeriousAxeViolations(page);

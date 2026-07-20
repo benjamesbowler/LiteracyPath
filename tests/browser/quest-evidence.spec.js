@@ -18,7 +18,7 @@ async function expectNoHorizontalOverflow(page) {
 async function fillFirstUseObservation(page, { includeAdultPrompts = true } = {}) {
   await page.getByLabel("Anonymous session code").fill("SESSION-101");
   await page.getByLabel("Observer code").fill("OBS-01");
-  await page.getByLabel("Setting code").fill("ROOM-QUIET");
+  await page.getByLabel("Setting code").fill("ROOM-101");
   await page.getByLabel("Child study code").fill("CHILD-101");
   await page.getByLabel("Age in years").fill("6");
   await page.getByLabel("Tasks shown").fill("8");
@@ -88,10 +88,10 @@ test("imports reject tampering and count only verified unique sessions", async (
   const record = await sealQuestHumanObservation({
     schemaVersion: 1,
     profileId: "teacher-report",
-    sessionId: "TEACHER-001",
+    sessionId: "SESSION-201",
     observedAt: "2026-07-18T09:00:00.000Z",
     observerId: "OBS-02",
-    settingId: "ROOM-STAFF",
+    settingId: "ROOM-202",
     consentConfirmed: true,
     participant: { anonymousId: "ADULT-001", role: "teacher" },
     measures: {
@@ -116,7 +116,7 @@ test("imports reject tampering and count only verified unique sessions", async (
   await picker.setInputFiles({
     name: "teacher-report-tampered.json",
     mimeType: "application/json",
-    buffer: Buffer.from(JSON.stringify({ ...record, settingId: "ROOM-CHANGED" }))
+    buffer: Buffer.from(JSON.stringify({ ...record, settingId: "ROOM-203" }))
   });
   await expect(page.getByRole("status")).toContainText("Integrity seal");
   await expect(page.getByText("1 sealed records", { exact: true })).toBeVisible();

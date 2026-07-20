@@ -76,6 +76,24 @@ const activeAudio = new Set();
 const INSTRUCTION_ACTION_SCALE = 0.12;
 let instructionCueActive = false;
 
+export function warmQuestSfxEntries(entries = []) {
+  if (typeof Audio === "undefined") return 0;
+  let warmed = 0;
+  for (const entry of entries) {
+    if (!entry?.src || audioBases.has(entry.src)) continue;
+    try {
+      const base = new Audio(entry.src);
+      base.preload = "auto";
+      base.load?.();
+      audioBases.set(entry.src, base);
+      warmed += 1;
+    } catch {
+      // A failed warm-up stays retryable when the action actually plays.
+    }
+  }
+  return warmed;
+}
+
 export function questActionSfxMixScale({ instructionActive = instructionCueActive } = {}) {
   return instructionActive ? INSTRUCTION_ACTION_SCALE : 1;
 }
@@ -91,6 +109,28 @@ export function setQuestActionSfxInstructionActive(active = true) {
   return instructionCueActive;
 }
 
+export function playQuestSfxEntry(entry, { enabled = true, volume = 0.42 } = {}) {
+  if (!enabled || !entry?.src || typeof Audio === "undefined") return null;
+  try {
+    warmQuestSfxEntries([entry]);
+    const base = audioBases.get(entry.src);
+    if (!base) return null;
+    const sound = base.cloneNode();
+    const nominalVolume = Math.max(0, Math.min(1, Number(volume) || 0));
+    sound.volume = nominalVolume * questActionSfxMixScale();
+    const activeEntry = { sound, nominalVolume };
+    activeAudio.add(activeEntry);
+    const release = () => activeAudio.delete(activeEntry);
+    sound.addEventListener("ended", release, { once: true });
+    sound.addEventListener("error", release, { once: true });
+    const result = sound.play();
+    if (result?.catch) result.catch(release);
+    return sound;
+  } catch {
+    return null;
+  }
+}
+
 export function playQuestActionSfx({ enabled = true, volume = 0.42, ...options } = {}) {
   if (!enabled || typeof Audio === "undefined") return null;
   const entry = questActionSfxEntry(options);
@@ -101,29 +141,12 @@ export function playQuestActionSfx({ enabled = true, volume = 0.42, ...options }
       ? [{ ...questChapterMaterialSfxEntry(options.chapterId), volume: Math.min(0.2, volume * 0.36) }]
       : [])
   ];
-  try {
-    return entries.map(soundEntry => {
-      let base = audioBases.get(soundEntry.src);
-      if (!base) {
-        base = new Audio(soundEntry.src);
-        base.preload = "auto";
-        audioBases.set(soundEntry.src, base);
-      }
-      const sound = base.cloneNode();
-      const nominalVolume = Math.max(0, Math.min(1, Number(soundEntry.volume) || 0));
-      sound.volume = nominalVolume * questActionSfxMixScale();
-      const activeEntry = { sound, nominalVolume };
-      activeAudio.add(activeEntry);
-      const release = () => activeAudio.delete(activeEntry);
-      sound.addEventListener("ended", release, { once: true });
-      sound.addEventListener("error", release, { once: true });
-      const result = sound.play();
-      if (result?.catch) result.catch(release);
-      return sound;
-    });
-  } catch {
-    return null;
-  }
+  return entries
+    .map(soundEntry => playQuestSfxEntry(soundEntry, {
+      enabled,
+      volume: soundEntry.volume
+    }))
+    .filter(Boolean);
 }
 
 export function stopQuestActionSfx() {

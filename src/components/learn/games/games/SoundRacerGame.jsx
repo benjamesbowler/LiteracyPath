@@ -11,6 +11,7 @@ import { soundRacerLadder, buildTrack, worldObstacles } from "../../../../utils/
 import { worldForGameDifficulty, LEVELS_PER_DIFFICULTY } from "../../../../utils/curriculumLadder.js";
 import { starRubric } from "../../../../utils/starRubric.js";
 import { speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import { playCueAudio, stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
 import { onsetGrapheme } from "../../../elQuest/elQuestEngine.js";
 import {
   loadThree,
@@ -31,7 +32,8 @@ import {
   hasSeenOnboarding,
   markOnboardingSeen,
   disposeRenderer,
-  disposeObject
+  disposeObject,
+  setTextureSrgb
 } from "../shared/threeShell.js";
 
 const LANES = [-3.15, 0, 3.15];
@@ -272,10 +274,11 @@ function startGame(THREE, mount, opts) {
   const ladder = soundRacerLadder(difficulty);
   const levelCount = LEVELS_PER_DIFFICULTY;
   const startLevelIdx = Math.max(0, Math.min(Number(opts.startLevel) || 0, levelCount - 1));
-  const reduceMotion = prefersReducedMotion();
+  const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)") || null;
+  let reduceMotion = motionQuery?.matches ?? prefersReducedMotion();
   // Hardware quality tier: scales the DPR cap, shadow mode and burst particle
   // counts so weak devices get a lighter scene instead of a stuttery one.
-  const qualityTier = detectQualityTier();
+  let qualityTier = detectQualityTier();
   const sfx = fn => {
     try {
       if (opts.getSound && opts.getSound()) fn();
@@ -283,6 +286,29 @@ function startGame(THREE, mount, opts) {
       /* audio is optional */
     }
   };
+  const recordedCueTimers = new Set();
+  function queueRecordedCue(src, delayMs = 0) {
+    if (!(opts.getSound && opts.getSound())) return null;
+    if (delayMs <= 0) {
+      playCueAudio(src);
+      return null;
+    }
+    const timer = window.setTimeout(() => {
+      recordedCueTimers.delete(timer);
+      if (opts.getSound && opts.getSound()) playCueAudio(src);
+    }, delayMs);
+    recordedCueTimers.add(timer);
+    return timer;
+  }
+  function cancelRecordedCue(timer) {
+    if (timer == null) return;
+    window.clearTimeout(timer);
+    recordedCueTimers.delete(timer);
+  }
+  opts.registerCleanup?.(() => {
+    for (const timer of recordedCueTimers) window.clearTimeout(timer);
+    recordedCueTimers.clear();
+  });
 
   const scene = createScene(THREE);
   const cameraBaseFov = 64;
@@ -305,6 +331,9 @@ function startGame(THREE, mount, opts) {
     toneMappingExposure: 1.0,
     shadowMap: shadowMapForTier(qualityTier, "pcf")
   });
+  // Registered immediately so the React wrapper can release a context even if
+  // a later scene constructor throws before startGame returns its full API.
+  opts.registerCleanup?.(() => disposeRenderer(renderer, { forceContextLoss: true }));
   applyQualityTier(renderer, qualityTier);
   renderer.setSize(width(), height());
   renderer.domElement.style.display = "block";
@@ -329,6 +358,22 @@ function startGame(THREE, mount, opts) {
   const fillLight = new THREE.HemisphereLight(0xffffff, 0x101020, 0.6);
   scene.add(fillLight);
 
+  function reassessQualityTier() {
+    const nextTier = detectQualityTier();
+    if (nextTier === qualityTier) return;
+    qualityTier = nextTier;
+    applyQualityTier(renderer, qualityTier);
+    keyLight.castShadow = qualityTier !== "low";
+    renderer.setSize(width(), height(), false);
+  }
+
+  const syncMotionPreference = event => {
+    reduceMotion = Boolean(event.matches);
+    reassessQualityTier();
+  };
+  motionQuery?.addEventListener?.("change", syncMotionPreference);
+  opts.registerCleanup?.(() => motionQuery?.removeEventListener?.("change", syncMotionPreference));
+
   const hud = document.createElement("div");
   hud.className = "sound-racer-hud";
   hud.style.cssText = "position:absolute;inset:0;pointer-events:none;font-family:var(--kid-font-display,Fredoka,sans-serif);color:#f8fbff;z-index:4";
@@ -352,6 +397,9 @@ function startGame(THREE, mount, opts) {
     '<div style="position:absolute;inset:0;pointer-events:none;z-index:14;opacity:.16;background:repeating-linear-gradient(0deg,rgba(255,255,255,.16) 0,rgba(255,255,255,.16) 1px,rgba(0,0,0,0) 1px,rgba(0,0,0,0) 4px);mix-blend-mode:overlay"></div>' +
     '<div data-sr="overlay" style="position:absolute;inset:0;display:none;place-items:center;text-align:center;background:radial-gradient(120% 90% at 50% 24%,rgba(25,34,72,.76),rgba(5,7,18,.95));pointer-events:auto;z-index:20"></div>';
   mount.appendChild(hud);
+  opts.registerCleanup?.(() => {
+    if (hud.parentNode) hud.parentNode.removeChild(hud);
+  });
   const el = key => hud.querySelector(`[data-sr="${key}"]`);
   function layoutHud() {
     const targetPanel = hud.querySelector('[data-sr-panel="target"]');
@@ -403,6 +451,7 @@ function startGame(THREE, mount, opts) {
   let shield = 3;
   let running = false;
   let paused = false;
+  let overlayActive = false;
   let savedRunning = false;
   let countdownT = 0;
   let bannerT = 0;
@@ -413,8 +462,15 @@ function startGame(THREE, mount, opts) {
   let elapsed = 0;
   let last = 0;
   let fov = cameraBaseFov;
+  let pausedFrameRendered = false;
+  let completionSent = false;
+  let overlayCueTimer = null;
+  let introCueTimer = null;
   const levelResults = new Array(levelCount);
   const caughtCorrectWords = new Set();
+  const textureCanvasCache = new Map();
+  const idleHandles = new Map();
+  const prewarmingMaps = new Set();
   // Bests are per-student (scoped by the signed-in session), not per-device:
   // two siblings on one iPad must not share ghost times.
   let bestScope = "default";
@@ -466,20 +522,31 @@ function startGame(THREE, mount, opts) {
     return root;
   }
 
-  function canvasTexture(width, height, draw) {
-    const canvas = document.createElement("canvas");
-    canvas.width = width;
-    canvas.height = height;
-    const ctx = canvas.getContext("2d");
-    draw(ctx, width, height);
+  function canvasTexture(width, height, draw, cacheKey = "") {
+    const scale = qualityTier === "low" ? 0.5 : qualityTier === "medium" ? 0.75 : 1;
+    const resolvedKey = cacheKey ? `${qualityTier}:${cacheKey}` : "";
+    let canvas = resolvedKey ? textureCanvasCache.get(resolvedKey) : null;
+    if (!canvas) {
+      canvas = document.createElement("canvas");
+      canvas.width = Math.max(1, Math.round(width * scale));
+      canvas.height = Math.max(1, Math.round(height * scale));
+      const ctx = canvas.getContext("2d");
+      ctx.setTransform(scale, 0, 0, scale, 0, 0);
+      draw(ctx, width, height);
+      if (resolvedKey) textureCanvasCache.set(resolvedKey, canvas);
+    }
     const tex = new THREE.CanvasTexture(canvas);
     tex.needsUpdate = true;
-    tex.encoding = THREE.sRGBEncoding;
+    setTextureSrgb(THREE, tex);
     return tex;
   }
 
+  function cachedCanvasTexture(cacheKey, widthValue, heightValue, draw) {
+    return canvasTexture(widthValue, heightValue, draw, cacheKey);
+  }
+
   function makeMountainTexture(layer) {
-    return canvasTexture(1024, 384, (ctx, w, h) => {
+    return cachedCanvasTexture(`${currentMap.name}:mountain:${layer}`, 1024, 384, (ctx, w, h) => {
       ctx.clearRect(0, 0, w, h);
       const ranges = layer === 0
         ? [
@@ -638,7 +705,7 @@ function startGame(THREE, mount, opts) {
   }
 
   function makeCloudTexture() {
-    return canvasTexture(1024, 256, (ctx, w, h) => {
+    return cachedCanvasTexture(`${world}:clouds`, 1024, 256, (ctx, w, h) => {
       ctx.clearRect(0, 0, w, h);
       for (let i = 0; i < 18; i += 1) {
         const x = (i * 137) % w;
@@ -666,7 +733,7 @@ function startGame(THREE, mount, opts) {
   }
 
   function makeForestTexture(layer) {
-    return canvasTexture(1024, 360, (ctx, w, h) => {
+    return cachedCanvasTexture(`${currentMap.name}:forest:${layer}`, 1024, 360, (ctx, w, h) => {
       ctx.clearRect(0, 0, w, h);
       const trunk = mixHex(currentMap.ground, 0x1a100b, 0.55);
       const count = layer === 0 ? 48 : 70;
@@ -768,7 +835,7 @@ function startGame(THREE, mount, opts) {
   }
 
   function makeTrackTexture() {
-    const texture = canvasTexture(768, 1536, (ctx, w, h) => {
+    const texture = cachedCanvasTexture(`${currentMap.name}:track`, 768, 1536, (ctx, w, h) => {
       const bg = ctx.createLinearGradient(0, 0, w, 0);
       bg.addColorStop(0, colorStyle(mixHex(currentMap.trackA, 0x000000, 0.38), 1));
       bg.addColorStop(0.16, colorStyle(mixHex(currentMap.trackA, currentMap.rail, 0.08), 1));
@@ -860,7 +927,7 @@ function startGame(THREE, mount, opts) {
   }
 
   function makeGroundTexture() {
-    const texture = canvasTexture(512, 512, (ctx, w, h) => {
+    const texture = cachedCanvasTexture(`${currentMap.name}:ground`, 512, 512, (ctx, w, h) => {
       const base = ctx.createLinearGradient(0, 0, w, h);
       base.addColorStop(0, colorStyle(mixHex(currentMap.ground, 0xffffff, world === "meadow" ? 0.18 : 0.04), 1));
       base.addColorStop(0.52, colorStyle(currentMap.ground, 1));
@@ -917,7 +984,7 @@ function startGame(THREE, mount, opts) {
   }
 
   function makeParticleTexture() {
-    return canvasTexture(96, 96, (ctx, w, h) => {
+    return cachedCanvasTexture(`${world}:particle`, 96, 96, (ctx, w, h) => {
       const glow = ctx.createRadialGradient(w / 2, h / 2, 1, w / 2, h / 2, w / 2);
       glow.addColorStop(0, "rgba(255,255,255,.95)");
       glow.addColorStop(0.28, "rgba(255,255,255,.42)");
@@ -928,7 +995,7 @@ function startGame(THREE, mount, opts) {
   }
 
   function makeHorizonGlowTexture() {
-    return canvasTexture(1024, 256, (ctx, w, h) => {
+    return cachedCanvasTexture(`${currentMap.name}:horizon`, 1024, 256, (ctx, w, h) => {
       ctx.clearRect(0, 0, w, h);
       const glow = ctx.createRadialGradient(w * 0.5, h * 0.62, 12, w * 0.5, h * 0.62, w * 0.5);
       glow.addColorStop(0, colorStyle(currentMap.sun, world === "moonwood" ? 0.28 : 0.22));
@@ -988,7 +1055,7 @@ function startGame(THREE, mount, opts) {
     ctx.fillRect(76, 82, 126, 4);
     const tex = new THREE.CanvasTexture(canvas);
     tex.needsUpdate = true;
-    tex.encoding = THREE.sRGBEncoding;
+    setTextureSrgb(THREE, tex);
     return tex;
   }
 
@@ -2317,6 +2384,63 @@ function startGame(THREE, mount, opts) {
     return plane;
   }
 
+  function scheduleIdle(callback) {
+    const useIdle = typeof window.requestIdleCallback === "function";
+    let handle = 0;
+    const wrapped = deadline => {
+      idleHandles.delete(handle);
+      callback(deadline);
+    };
+    handle = useIdle
+      ? window.requestIdleCallback(wrapped, { timeout: 500 })
+      : window.setTimeout(() => wrapped({ timeRemaining: () => 8 }), 32);
+    idleHandles.set(handle, useIdle);
+  }
+
+  function cancelIdleWork() {
+    for (const [handle, useIdle] of idleHandles) {
+      if (useIdle) window.cancelIdleCallback?.(handle);
+      else window.clearTimeout(handle);
+    }
+    idleHandles.clear();
+  }
+  opts.registerCleanup?.(cancelIdleWork);
+
+  // Build the next map's expensive canvases one at a time while the current
+  // 3.8-second countdown/game is running. Level transitions then upload cached
+  // canvases instead of synchronously redrawing thousands of shapes.
+  function prewarmMapTextures(nextLevelIndex) {
+    const map = mapForLevel(world, nextLevelIndex);
+    const prewarmKey = `${qualityTier}:${map.name}`;
+    if (prewarmingMaps.has(prewarmKey)) return;
+    prewarmingMaps.add(prewarmKey);
+    const jobs = [
+      () => makeMountainTexture(0),
+      () => makeMountainTexture(1),
+      () => makeForestTexture(0),
+      () => makeForestTexture(1),
+      makeTrackTexture,
+      makeGroundTexture,
+      makeHorizonGlowTexture
+    ];
+    let jobIndex = 0;
+    const runNext = () => {
+      if (jobIndex >= jobs.length) return;
+      const previousMap = currentMap;
+      currentMap = map;
+      let texture;
+      try {
+        texture = jobs[jobIndex]();
+      } finally {
+        currentMap = previousMap;
+        jobIndex += 1;
+      }
+      texture?.dispose?.();
+      if (jobIndex < jobs.length) scheduleIdle(runNext);
+    };
+    scheduleIdle(runNext);
+  }
+
   function resetSceneForMap() {
     for (const obj of gateObjects) {
       gateGroup.remove(obj.mesh);
@@ -2523,6 +2647,8 @@ function startGame(THREE, mount, opts) {
   }
 
   function startLevel() {
+    cancelRecordedCue(overlayCueTimer);
+    overlayCueTimer = null;
     currentMap = mapForLevel(world, levelIdx);
     resetSceneForMap();
     const target = ladder[levelIdx % ladder.length];
@@ -2564,17 +2690,28 @@ function startGame(THREE, mount, opts) {
 
     opts.onCheckpoint?.(levelIdx, levelCount);
     opts.onProgressUpdate?.(levelIdx, levelCount);
+    prewarmMapTextures(levelIdx + 1);
   }
 
   function hideOverlay() {
     const overlay = el("overlay");
-    if (overlay) overlay.style.display = "none";
+    overlayActive = false;
+    pausedFrameRendered = false;
+    if (overlay) {
+      overlay.style.display = "none";
+      overlay.removeAttribute("aria-modal");
+      overlay.removeAttribute("role");
+    }
   }
 
   function showOverlay(html) {
     const overlay = el("overlay");
+    overlayActive = true;
+    pausedFrameRendered = false;
     overlay.innerHTML = html;
     overlay.style.display = "grid";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
     return overlay;
   }
 
@@ -2713,14 +2850,17 @@ function startGame(THREE, mount, opts) {
       return;
     }
 
+    overlayCueTimer = queueRecordedCue("/audio/ui/voice/great-job.mp3", 320);
+
     const overlay = showOverlay(
       '<div style="display:grid;gap:14px;justify-items:center;padding:24px">' +
+        '<div aria-hidden="true" style="width:68px;height:68px;display:grid;place-items:center;border-radius:50%;background:#7cf0b6;color:#071033;font-size:2.6rem;font-weight:950">✓</div>' +
         `<div style="font-size:2rem;font-weight:900">Track cleared</div>` +
         (isNewBest ? '<div style="font-size:1rem;font-weight:900;color:#071033;background:#ffd34e;padding:6px 18px">New best split</div>' : "") +
         `<div style="font-size:1.08rem;line-height:1.9;text-align:left;min-width:230px">Time <b>${formatTime(result.timeMs)}</b><br>Words <b>${result.correct} / ${track.needed}</b><br>Accuracy <b>${result.accuracy}%</b><br>Stars <b>${"★".repeat(result.stars)}${"✩".repeat(3 - result.stars)}</b></div>` +
         '<div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">' +
-          '<button data-sr="retry" style="font-family:inherit;font-weight:900;font-size:1.05rem;color:#f8fbff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);padding:13px 22px;cursor:pointer">Retry track</button>' +
-          '<button data-sr="next" style="font-family:inherit;font-weight:900;font-size:1.05rem;color:#071033;background:#ffd34e;border:0;padding:13px 24px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">Next map</button>' +
+          '<button data-sr="retry" aria-label="Retry this track" style="font-family:inherit;font-weight:900;font-size:1.05rem;color:#f8fbff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);padding:13px 22px;cursor:pointer">↻ Retry track</button>' +
+          '<button data-sr="next" aria-label="Go to the next map" style="font-family:inherit;font-weight:900;font-size:1.05rem;color:#071033;background:#ffd34e;border:0;padding:13px 24px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">➜ Next map</button>' +
         '</div></div>'
     );
     overlay.querySelector('[data-sr="retry"]').addEventListener("click", () => {
@@ -2746,18 +2886,26 @@ function startGame(THREE, mount, opts) {
     const mistakes = results.reduce((sum, item) => sum + item.mistakes, 0);
     const stars = starRubric({ correct, total, mistakes, deaths: 0 });
     sfx(playCelebrationFanfare);
+    overlayCueTimer = queueRecordedCue("/audio/ui/voice/great-job.mp3", 1100);
     opts.onProgressUpdate?.(levelCount, levelCount);
     const overlay = showOverlay(
       '<div style="display:grid;gap:14px;justify-items:center;padding:24px">' +
+        '<div aria-hidden="true" style="font-size:3rem;line-height:1;color:#ffd34e">★</div>' +
         '<div style="font-size:2.05rem;font-weight:900">Cup complete</div>' +
         `<div style="font-size:2.45rem;letter-spacing:8px">${"★".repeat(stars)}${"✩".repeat(3 - stars)}</div>` +
         `<div style="font-size:1.1rem;opacity:.92">Score <b>${score}</b> · Words <b>${correct}</b></div>` +
-        '<button data-sr="done" style="font-family:inherit;font-weight:900;font-size:1.1rem;color:#071033;background:#ffd34e;border:0;padding:13px 30px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">Done</button>' +
+        '<button data-sr="done" aria-label="Finish Sound Racer" style="font-family:inherit;font-weight:900;font-size:1.1rem;color:#071033;background:#ffd34e;border:0;padding:13px 30px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">➜ Done</button>' +
       '</div>'
     );
-    overlay.querySelector('[data-sr="done"]').addEventListener("click", () => {
+    const doneButton = overlay.querySelector('[data-sr="done"]');
+    doneButton.addEventListener("click", () => {
+      if (completionSent) return;
+      completionSent = true;
+      doneButton.disabled = true;
+      doneButton.setAttribute("aria-disabled", "true");
+      doneButton.style.pointerEvents = "none";
       opts.onComplete?.(stars, score, correct);
-    });
+    }, { once: true });
   }
 
   function moveLane(dir) {
@@ -2775,20 +2923,36 @@ function startGame(THREE, mount, opts) {
   // already steered on pointerdown, so the steer zones only forward detail 0
   // clicks to steering (handled inside attachSteerZones).
   const detachSteerZones = attachSteerZones({ left: el("left"), right: el("right"), onLeft, onRight, keyboardClick: true });
+  opts.registerCleanup?.(detachSteerZones);
 
   const onKey = event => {
     if (event.key === "ArrowLeft" || event.key === "a") moveLane(-1);
     if (event.key === "ArrowRight" || event.key === "d") moveLane(1);
   };
   window.addEventListener("keydown", onKey);
+  opts.registerCleanup?.(() => window.removeEventListener("keydown", onKey));
 
   const detachSwipeSteer = attachSwipeSteer(renderer.domElement, { threshold: 40, onSteer: dir => moveLane(dir) });
+  opts.registerCleanup?.(detachSwipeSteer);
 
-  const detachResize = attachResize({ mount, renderer, camera, width, height, onResize: layoutHud });
+  const detachResize = attachResize({
+    mount,
+    renderer,
+    camera,
+    width,
+    height,
+    onResize: () => {
+      layoutHud();
+      reassessQualityTier();
+      pausedFrameRendered = false;
+    }
+  });
+  opts.registerCleanup?.(detachResize);
 
-  function updateTrackVisuals() {
+  function updateTrackVisuals(dt) {
+    const opticalFlowScale = reduceMotion ? 0.45 : 1;
     const travel = ((playerZ * TRACK_UNIT) % TRACK_SEGMENT_LENGTH + TRACK_SEGMENT_LENGTH) % TRACK_SEGMENT_LENGTH;
-    if (roadTexture) roadTexture.offset.y = (playerZ * 0.012 + elapsed * 0.045) % 1;
+    if (roadTexture) roadTexture.offset.y = (playerZ * 0.012 + elapsed * 0.045 * opticalFlowScale) % 1;
     for (let i = 0; i < trackSegments.length; i += 1) {
       trackSegments[i].position.z = CATCH_Z + travel - i * TRACK_SEGMENT_LENGTH;
     }
@@ -2800,20 +2964,23 @@ function startGame(THREE, mount, opts) {
     for (const prop of sceneryGroup.children) {
       const scrollFactor = prop.userData?.scrollFactor;
       if (!scrollFactor) continue;
-      prop.position.z += speed * TRACK_UNIT * scrollFactor;
+      // Preserve the authored 60fps rate while making the motion frame-rate
+      // independent and materially calmer under reduced motion.
+      prop.position.z += speed * TRACK_UNIT * scrollFactor * dt * 60 * opticalFlowScale;
       if (prop.position.z > SCENERY_RESET_Z) prop.position.z = SCENERY_WRAP_Z - Math.random() * 28;
     }
   }
 
   function updateAtmosphere(now) {
     const t = now * 0.001;
+    const ambientMotionScale = reduceMotion ? 0.2 : 1;
     for (const obj of pulseObjects) {
       const phase = obj.userData.float ?? obj.userData.pulse ?? 0;
       const baseOpacity = obj.userData.baseOpacity ?? obj.material?.opacity ?? 0.5;
       const breath = 0.72 + Math.sin(t * 1.7 + phase) * 0.18 + Math.cos(t * 0.73 + phase * 0.7) * 0.08;
       if (obj.isSprite) {
-        obj.position.x = obj.userData.baseX + Math.sin(t * 0.76 + phase) * 0.34;
-        obj.position.y = obj.userData.baseY + Math.cos(t * 0.9 + phase) * 0.28;
+        obj.position.x = obj.userData.baseX + Math.sin(t * 0.76 + phase) * 0.34 * ambientMotionScale;
+        obj.position.y = obj.userData.baseY + Math.cos(t * 0.9 + phase) * 0.28 * ambientMotionScale;
         obj.material.opacity = Math.max(0.04, baseOpacity * breath);
       } else if (obj.material && obj.material.transparent) {
         obj.material.opacity = Math.max(0.05, baseOpacity * breath);
@@ -2860,16 +3027,16 @@ function startGame(THREE, mount, opts) {
     const targetX = LANES[laneIx];
     ship.position.x += (targetX - ship.position.x) * Math.min(1, dt * 10);
     ship.rotation.z = (targetX - ship.position.x) * -0.22;
-    ship.rotation.x = Math.sin(now * 0.004) * 0.045;
-    ship.position.y = 1.03 + Math.sin(now * 0.006) * 0.045;
+    ship.rotation.x = reduceMotion ? 0 : Math.sin(now * 0.004) * 0.045;
+    ship.position.y = reduceMotion ? 1.03 : 1.03 + Math.sin(now * 0.006) * 0.045;
     const boostScale = boostT > 0 ? 1.55 : 1;
     if (ship.userData.engines) {
       for (const engine of ship.userData.engines) {
-        engine.scale.set(1, (0.76 + Math.random() * 0.38) * boostScale, 1);
-        engine.material.opacity = 0.58 + Math.random() * 0.3;
+        engine.scale.set(1, (reduceMotion ? 0.94 : 0.76 + Math.random() * 0.38) * boostScale, 1);
+        engine.material.opacity = reduceMotion ? 0.7 : 0.58 + Math.random() * 0.3;
       }
     }
-    if (ship.userData.light) ship.userData.light.intensity = 1.0 + Math.random() * 0.8 * boostScale;
+    if (ship.userData.light) ship.userData.light.intensity = reduceMotion ? 1.15 : 1.0 + Math.random() * 0.8 * boostScale;
   }
 
   function updateBursts(dt) {
@@ -2895,8 +3062,13 @@ function startGame(THREE, mount, opts) {
   function tick(now) {
     const dt = Math.min(0.05, ((now - last) || 16) / 1000);
     last = now;
-    if (paused) {
-      renderer.render(scene, camera);
+    if (paused || (overlayActive && !running)) {
+      // The scene is static behind pause/onboarding overlays. Render it once,
+      // then stop submitting identical WebGL frames until state changes.
+      if (!pausedFrameRendered) {
+        renderer.render(scene, camera);
+        pausedFrameRendered = true;
+      }
       return;
     }
 
@@ -2930,12 +3102,12 @@ function startGame(THREE, mount, opts) {
       boostT = Math.max(0, boostT - dt);
       dragT = Math.max(0, dragT - dt);
       shakeT = Math.max(0, shakeT - dt);
-      playerZ += speed * dt;
+      playerZ += speed * dt * (reduceMotion ? 0.55 : 1);
       updateGates(dt);
       updateHud();
     }
 
-    updateTrackVisuals();
+    updateTrackVisuals(dt);
     updateAtmosphere(now);
     updateShip(dt, now);
     updateBursts(dt);
@@ -2959,10 +3131,12 @@ function startGame(THREE, mount, opts) {
   startLevel();
   const loop = createFrameLoop(tick);
   loop.start();
+  opts.registerCleanup?.(() => loop.stop());
 
   function pause() {
     if (paused) return;
     paused = true;
+    pausedFrameRendered = false;
     savedRunning = running;
     running = false;
   }
@@ -2971,6 +3145,7 @@ function startGame(THREE, mount, opts) {
   function resume() {
     if (!paused || introActive) return;
     paused = false;
+    pausedFrameRendered = false;
     last = performance.now();
     if (savedRunning) running = true;
   }
@@ -2982,12 +3157,18 @@ function startGame(THREE, mount, opts) {
   function dismissIntro() {
     if (!introActive) return;
     introActive = false;
+    cancelRecordedCue(introCueTimer);
+    introCueTimer = null;
+    stopCueAudio();
     markOnboardingSeen("sound-racer");
     hideOverlay();
     window.removeEventListener("keydown", onIntroKey, true);
     resume();
   }
   function onIntroKey(event) {
+    const key = String(event.key || "").toLowerCase();
+    const activates = key === " " || key === "enter" || key === "arrowleft" || key === "arrowright" || key === "a" || key === "d";
+    if (!activates) return;
     event.preventDefault();
     dismissIntro();
   }
@@ -2998,21 +3179,36 @@ function startGame(THREE, mount, opts) {
       '<div style="display:grid;gap:14px;justify-items:center;padding:24px;max-width:min(560px,88vw)">' +
         '<div style="font-size:.85rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.78)">Sound Racer</div>' +
         '<div style="font-size:clamp(1.3rem,4vw,1.8rem);font-weight:900;line-height:1.25;text-wrap:balance">Catch the words that start with the target sound. Dodge everything else!</div>' +
+        '<div aria-hidden="true" style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap">' +
+          '<span style="width:58px;height:58px;display:grid;place-items:center;background:#ffd34e;color:#071033;font-size:2rem;font-weight:950">S</span>' +
+          '<span style="font-size:1.8rem">→</span>' +
+          '<span style="min-width:94px;height:58px;display:grid;place-items:center;border:3px solid #7cf0b6;color:#fff;font-size:1.35rem;font-weight:900">sun</span>' +
+          '<span style="font-size:2rem;color:#7cf0b6">✓</span>' +
+          '<span style="width:58px;height:58px;display:grid;place-items:center;border:3px solid #ff8d8d;color:#ffb0b0;font-size:2rem;font-weight:950">×</span>' +
+        '</div>' +
         '<div style="font-size:.98rem;font-weight:700;line-height:1.6;opacity:.92">Steer with the ← → arrow keys or A and D, or tap the left and right sides of the screen.<br>On a touch screen you can also swipe to change lanes.</div>' +
         '<button data-sr="intro-play" style="font-family:inherit;font-weight:900;font-size:1.1rem;color:#071033;background:#ffd34e;border:0;padding:13px 30px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);cursor:pointer">Tap to play</button>' +
-        '<div style="font-size:.78rem;font-weight:700;opacity:.65">or press any key</div>' +
+        '<div style="font-size:.78rem;font-weight:700;opacity:.65">or press Space / Enter / a steer key</div>' +
       '</div>'
     );
     overlay.querySelector('[data-sr="intro-play"]').addEventListener("click", dismissIntro);
     overlay.addEventListener("pointerdown", dismissIntro);
     window.addEventListener("keydown", onIntroKey, true);
+    opts.registerCleanup?.(() => window.removeEventListener("keydown", onIntroKey, true));
+    introCueTimer = queueRecordedCue("/audio/child-mode/clean-human/phrases/listen-and-find.mp3", 650);
   }
 
   const detachContextGuard = attachContextLossGuard(renderer, { onLost: pause, onRestored: resume });
+  opts.registerCleanup?.(detachContextGuard);
 
   function teardown() {
     loop.stop();
+    cancelIdleWork();
+    for (const timer of recordedCueTimers) window.clearTimeout(timer);
+    recordedCueTimers.clear();
+    stopCueAudio();
     detachContextGuard();
+    motionQuery?.removeEventListener?.("change", syncMotionPreference);
     window.removeEventListener("keydown", onKey);
     window.removeEventListener("keydown", onIntroKey, true);
     detachSwipeSteer();
@@ -3031,6 +3227,7 @@ function startGame(THREE, mount, opts) {
     disposeObject(sceneryGroup);
     disposeObject(burstGroup);
     disposeRenderer(renderer, { forceContextLoss: true });
+    textureCanvasCache.clear();
     if (hud.parentNode) hud.parentNode.removeChild(hud);
   }
 
@@ -3055,20 +3252,30 @@ export default function SoundRacerGame({
 
   useEffect(() => {
     let cancelled = false;
-    let api = { teardown() {} };
+    const startupCleanups = [];
+    let api = {
+      teardown() {
+        for (const cleanup of startupCleanups.splice(0).reverse()) {
+          try { cleanup(); } catch { /* continue releasing remaining resources */ }
+        }
+      }
+    };
     loadThree()
       .then(THREE => {
         if (cancelled || !mountRef.current || !THREE) return;
         try {
-          api = startGame(THREE, mountRef.current, {
+          const startedApi = startGame(THREE, mountRef.current, {
             difficulty,
             startLevel,
             onScoreUpdate,
             onProgressUpdate,
             onComplete,
             onCheckpoint,
-            getSound: () => soundRef.current
+            getSound: () => soundRef.current,
+            registerCleanup: cleanup => startupCleanups.push(cleanup)
           });
+          startupCleanups.length = 0;
+          api = startedApi;
           onEngineReady?.(api);
           setStatus("playing");
         } catch (err) {

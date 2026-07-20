@@ -1,12 +1,13 @@
 import { memo, useCallback } from "react";
 import { motion } from "framer-motion";
-import { usePhonicsAudio } from "../../../../../hooks/usePhonicsAudio";
+import { hasPhonicsAudioSource, usePhonicsAudio } from "../../../../../hooks/usePhonicsAudio";
 import AudioButton from "../AudioButton";
 import PhonicsButton from "../PhonicsButton";
 import { WordImage } from "../WordImage";
 
 const WordCard = memo(function WordCard({ word, index }) {
   const { play, isPlaying } = usePhonicsAudio(word.audio, word.phonemeBreakdown || word.word);
+  const canHear = hasPhonicsAudioSource(word.audio);
 
   const handleTap = useCallback(() => {
     play();
@@ -19,24 +20,28 @@ const WordCard = memo(function WordCard({ word, index }) {
       transition={{ delay: 0.5 + index * 0.1, type: "spring", stiffness: 250, damping: 18 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      onClick={handleTap}
+      onClick={canHear ? handleTap : undefined}
+      disabled={!canHear}
       className="phonics-listen-card"
-      aria-label={`Word: ${word.word}`}
+      aria-label={canHear ? `Hear the word ${word.word}` : `Word: ${word.word}`}
       type="button"
     >
       <span className="phonics-word-image-wrap">
         <WordImage src={word.image} word={word.word} />
       </span>
       <span className="phonics-word-label">{word.word}</span>
-      <motion.span className="phonics-mini-audio-dot" animate={isPlaying ? { scale: [1, 1.2, 1] } : {}}>
-        Audio
-      </motion.span>
+      {canHear && (
+        <motion.span className="phonics-mini-audio-dot" animate={isPlaying ? { scale: [1, 1.2, 1] } : {}}>
+          Audio
+        </motion.span>
+      )}
     </motion.button>
   );
 });
 
 const StepListen = memo(function StepListen({ lesson, onComplete }) {
   const { play: playPhonic } = usePhonicsAudio(lesson.phonicAudio, lesson.phonicSound);
+  const canHearPhoneme = hasPhonicsAudioSource(lesson.phonicAudio);
 
   const handlePhonicClick = useCallback(() => {
     playPhonic();
@@ -58,7 +63,7 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
         {lesson.letter} {lesson.letter.toLowerCase()}
       </motion.p>
 
-      <motion.div className="phonics-sound-button-group" initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }}>
+      {canHearPhoneme && <motion.div className="phonics-sound-button-group" initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }}>
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -71,7 +76,7 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
           <span aria-hidden="true">Audio</span>
         </motion.button>
         <span>Tap to hear!</span>
-      </motion.div>
+      </motion.div>}
 
       <motion.p className="phonics-is-for" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         {lesson.letter} is for...
@@ -83,9 +88,11 @@ const StepListen = memo(function StepListen({ lesson, onComplete }) {
         ))}
       </div>
 
-      <motion.p className="phonics-instruction" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-        Tap the pictures to hear the words!
-      </motion.p>
+      {lesson.words.some(word => hasPhonicsAudioSource(word.audio)) && (
+        <motion.p className="phonics-instruction" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          Tap the pictures to hear the words!
+        </motion.p>
+      )}
 
       <motion.div className="phonics-step-actions" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
         <AudioButton src={lesson.phonicAudio} fallbackText={lesson.phonicSound} size={64} />

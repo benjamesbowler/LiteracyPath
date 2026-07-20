@@ -663,9 +663,8 @@ function drawVectorBodyLighting(ctx, layout) {
   ctx.restore();
 }
 
-function drawVectorBeastieFrame(ctx, creature, direction, frame, offsetX, offsetY, pose = null) {
+function drawVectorBeastieFrame(ctx, layout, direction, frame, offsetX, offsetY, pose = null) {
   if (typeof Path2D !== "function") return false;
-  const layout = layoutCreature(creature);
   const directionScaleX = direction === "left" ? -1 : 1;
   const faceShift = direction === "left" ? -8 : direction === "right" ? 8 : 0;
   const artScale = (PIXEL_BEASTIE_FRAME - 8) / VECTOR_VIEWBOX;
@@ -753,13 +752,16 @@ export function createPixelBeastieSheet(rawCreature) {
   canvas.height = PIXEL_BEASTIE_FRAME * PIXEL_BEASTIE_DIRECTIONS.length;
   const ctx = canvas.getContext("2d", { alpha: true });
   ctx.imageSmoothingEnabled = false;
+  // Creature layout is invariant across direction, locomotion frame, and
+  // performance pose. Compute it once per sheet, not once for all 64 frames.
+  const layout = layoutCreature(creature);
   for (let row = 0; row < PIXEL_BEASTIE_DIRECTIONS.length; row += 1) {
     for (let frame = 0; frame < PIXEL_BEASTIE_FRAMES_PER_DIRECTION; frame += 1) {
       const direction = PIXEL_BEASTIE_DIRECTIONS[row];
       const offsetX = frame * PIXEL_BEASTIE_FRAME;
       const offsetY = row * PIXEL_BEASTIE_FRAME;
       const pose = frame >= 4 ? PIXEL_BEASTIE_ACTION_POSES[frame - 4] : null;
-      if (!drawVectorBeastieFrame(ctx, creature, direction, frame, offsetX, offsetY, pose)) {
+      if (!drawVectorBeastieFrame(ctx, layout, direction, frame, offsetX, offsetY, pose)) {
         drawFrame(ctx, creature, direction, frame, offsetX, offsetY, pose);
       }
     }

@@ -9,11 +9,12 @@
 //   /preview/home.html                 comic skin (the default)
 //   /preview/home.html?skin=sage       the flag-gated sage skin
 //   /preview/home.html?skin=sage&name=Ava
+//   /preview/home.html?view=tracer     recorded tracer-instruction QA
 //
 // The skin flows through the same query parameter the app itself reads
 // (?homeSkin=...), so the harness exercises the real flag path.
 
-import { StrictMode } from "react";
+import { StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
 
 // The same global layers the real app loads, in the same order. App.css is
@@ -29,13 +30,20 @@ import "../src/styles/hollow.css";
 import "../src/styles/home-sage.css";
 import "../src/styles/sage-subpages.css";
 import "../src/styles/sage-soft.generated.css";
+import "../src/styles/phonics.css";
 
 import { StudentHomePage } from "../src/components/StudentHomePage.jsx";
+import StepTracer from "../src/components/learn/phonics/components/learning/StepTracer.jsx";
+import { ConfettiCelebration } from "../src/components/learn/games/shared/ConfettiCelebration.jsx";
+import { getLessonByLetter } from "../src/data/phonicsLessons.js";
 import { setCompanion } from "../src/utils/studentProfile.js";
 
 const params = new URLSearchParams(window.location.search);
 const skin = params.get("skin") === "comic" ? "comic" : "sage"; // sage is the default, as in the app
 const name = params.get("name") || "Sam";
+const tracerLesson = params.get("view") === "tracer"
+  ? getLessonByLetter(params.get("letter") || "a")
+  : null;
 const SCOPE = "preview-home";
 
 // StudentHomePage reads the skin from ?homeSkin= — mirror the harness param
@@ -50,6 +58,27 @@ setCompanion(SCOPE, "chips");
 
 const noop = () => {};
 
+export function ConfettiPreview() {
+  const [mounted, setMounted] = useState(true);
+  return (
+    <div data-preview="confetti">
+      <button type="button" onClick={() => setMounted(false)}>Unmount confetti</button>
+      {mounted && <ConfettiCelebration show />}
+    </div>
+  );
+}
+
+export function TracerPreview({ lesson }) {
+  const [advanced, setAdvanced] = useState(false);
+  return (
+    <div className="phonics-tab-shell" data-preview="tracer">
+      {advanced
+        ? <p role="status">Trace step complete</p>
+        : <StepTracer lesson={lesson} onComplete={() => setAdvanced(true)} />}
+    </div>
+  );
+}
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     {/* Mirror the REAL shell chain (lg-app-shell > lg-content-area > .app...).
@@ -59,18 +88,24 @@ createRoot(document.getElementById("root")).render(
     <div className="lg-app-shell no-sidebar" data-pal-world="meadow">
       <div className="lg-content-area">
         <div className={`app student-mode-app no-sidebar${skin === "sage" ? " lp-skin-sage" : ""}`}>
-          <StudentHomePage
-            studentName={name}
-            progressScopeKey={SCOPE}
-            onOpenPhonicsLearn={noop}
-            onOpenArcade={noop}
-            onOpenSkillsBlockQuest={noop}
-            onOpenSoundSeekers={noop}
-            onOpenStoryQuests={noop}
-            onOpenGuidedReading={noop}
-            onOpenRewards={noop}
-            onLogout={noop}
-          />
+          {params.get("view") === "confetti" ? (
+            <ConfettiPreview />
+          ) : tracerLesson ? (
+            <TracerPreview lesson={tracerLesson} />
+          ) : (
+            <StudentHomePage
+              studentName={name}
+              progressScopeKey={SCOPE}
+              onOpenPhonicsLearn={noop}
+              onOpenArcade={noop}
+              onOpenSkillsBlockQuest={noop}
+              onOpenSoundSeekers={noop}
+              onOpenStoryQuests={noop}
+              onOpenGuidedReading={noop}
+              onOpenRewards={noop}
+              onLogout={noop}
+            />
+          )}
         </div>
       </div>
     </div>

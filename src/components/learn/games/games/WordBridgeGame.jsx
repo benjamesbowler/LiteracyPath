@@ -14,7 +14,7 @@ import {
 import { makeCatchUp } from "../../../../utils/catchUpQueue.js";
 import { starRubric } from "../../../../utils/starRubric.js";
 import { wordBridgeLadder } from "../../../../utils/wordBridgeLevels.js";
-import { speak, speakWord, cancelSpeech } from "../../../../utils/learnGamesAudio.js";
+import { speak, speakWord, cancelSpeech, hasRecordedSpeech } from "../../../../utils/learnGamesAudio.js";
 
 const WORLD_THEME = {
   meadow: {
@@ -307,7 +307,7 @@ function startGame(mount, opts) {
       '<div data-wb="level" style="min-width:54px;height:54px;display:grid;place-items:center;font-size:1.35rem;font-weight:950;color:#071033;background:#ffd34e;box-shadow:inset 0 -6px 0 rgba(0,0,0,.24)">1</div>' +
       '<div style="display:grid;gap:4px"><div data-wb="lab" style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.78">Build the word</div>' +
       '<div data-wb="target" style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"></div></div>' +
-      '<button data-wb="hear" type="button" aria-label="Hear the word" style="pointer-events:auto;width:46px;height:46px;flex:none;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;font-size:1.25rem;display:grid;place-items:center;cursor:pointer;clip-path:polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px)">&#128266;</button></div>' +
+      '<button data-wb="hear" type="button" aria-label="Hear the word" style="pointer-events:auto;width:46px;height:46px;flex:none;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;font-size:1.25rem;display:grid;place-items:center;cursor:pointer;clip-path:polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px)">♪</button></div>' +
     '<div data-wb-panel="status" style="position:absolute;top:16px;right:16px;text-align:right;background:rgba(7,10,22,.64);border:1px solid rgba(255,255,255,.16);box-shadow:0 12px 24px rgba(0,0,0,.22);padding:9px 12px;min-width:154px;clip-path:polygon(12px 0,100% 0,100% 100%,0 100%,0 12px)">' +
       '<div data-wb="stars" style="font-size:1.22rem;letter-spacing:2px;color:#ffd34e;filter:drop-shadow(0 2px 4px rgba(0,0,0,.45))">☆☆☆</div>' +
       '<div data-wb="world" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.84;margin-top:2px">Meadow</div>' +
@@ -324,9 +324,27 @@ function startGame(mount, opts) {
   const elBanner = hud.querySelector('[data-wb="banner"]');
   const elHear = hud.querySelector('[data-wb="hear"]');
 
-  // "Hear the word" — additive speech, only ever fires when sound is on.
+  function targetSpeechText() {
+    if (!currentLevel) return "";
+    return Array.isArray(currentLevel.target)
+      ? currentLevel.target.join(" ")
+      : String(currentLevel.target);
+  }
+
+  function canHearTarget() {
+    return Boolean(opts.getSound?.() && hasRecordedSpeech(targetSpeechText()));
+  }
+
+  function syncHearControl() {
+    if (!elHear) return;
+    const available = canHearTarget();
+    elHear.style.display = available ? "grid" : "none";
+    elHear.disabled = !available;
+  }
+
+  // "Hear the word" is exposed only when this exact target has a recording.
   function speakTarget() {
-    if (!currentLevel || !opts.getSound?.()) return;
+    if (!currentLevel || !canHearTarget()) return;
     if (Array.isArray(currentLevel.target)) speak(currentLevel.target.join(" "));
     else speakWord(String(currentLevel.target));
   }
@@ -774,6 +792,7 @@ function startGame(mount, opts) {
 
     elLab.textContent = isSentence ? "Build the sentence" : "Build the word";
     elHear?.setAttribute("aria-label", isSentence ? "Hear the sentence" : "Hear the word");
+    syncHearControl();
     elLevel.textContent = String(stageIdx + 1);
     elWorld.textContent = `${theme.name} · ${stageIdx + 1}/${LEVELS_PER_DIFFICULTY}`;
     elStars.textContent = "☆☆☆";
@@ -2096,6 +2115,7 @@ function startGame(mount, opts) {
   }
 
   function render() {
+    syncHearControl();
     const now = performance.now() * 0.001;
     ctx.clearRect(0, 0, W, H);
     if (!currentLevel || !builder) return;

@@ -37,6 +37,7 @@ import { hasGraphemeAudio, hasWordAudio } from "../../src/utils/questAudio.js";
 import {
   budgetPhysicalSection,
   QUEST_PHYSICAL_ACTION_BUDGET,
+  QUEST_PHYSICAL_ENRICHMENT_TARGET,
   questPacingDecision
 } from "../../src/utils/questPhysicalPlan.js";
 
@@ -364,18 +365,50 @@ test("Seedwake trails stay within a child-sized physical action budget", () => {
 
 test("the pixel and accessible journey budget the actions a child actually performs", () => {
   let maximum = 0;
+  let totalActions = 0;
   for (const stop of QUEST_STOPS) {
     const full = buildTrailSection(stop.id, { seed: stop.index });
     const section = budgetPhysicalSection(full);
     const actions = physicalResponsesInSection(section);
     maximum = Math.max(maximum, actions);
+    totalActions += actions;
     assert.ok(section.encounters.length >= 1, `${stop.id} lost every physical encounter`);
     assert.ok(actions <= QUEST_PHYSICAL_ACTION_BUDGET, `${stop.id} still asks for ${actions} physical actions`);
     assert.equal(section.physicalPlan.actions, actions, `${stop.id} reports the wrong physical budget`);
     assert.ok(section.encounters.every((encounter, index) => encounter.order === index));
     assert.equal(section.encounters.at(-1).atGate, true);
+
+    let remainingBreadthBudget = QUEST_PHYSICAL_ACTION_BUDGET;
+    const expectedBreadth = [];
+    let breadthActions = 0;
+    for (const encounter of full.encounters) {
+      const beat = encounter.beats?.[0];
+      const cost = beat ? (buildPhysicalTask(full, encounter, beat, 0)?.stages.length || 0) : 0;
+      if (!cost || cost > remainingBreadthBudget) continue;
+      expectedBreadth.push(encounter.kind);
+      breadthActions += cost;
+      remainingBreadthBudget -= cost;
+    }
+    assert.deepEqual(
+      section.encounters.map(encounter => encounter.kind),
+      expectedBreadth,
+      `${stop.id} dropped an encounter that fit inside the breadth ceiling`
+    );
+    if (actions > QUEST_PHYSICAL_ENRICHMENT_TARGET) {
+      assert.equal(actions, breadthActions, `${stop.id} exceeded the soft target for optional enrichment`);
+    }
   }
   assert.equal(maximum, QUEST_PHYSICAL_ACTION_BUDGET, "the journey no longer exercises its intentional action ceiling");
+  assert.ok(
+    totalActions / QUEST_STOPS.length <= 7.25,
+    `journey average ${totalActions / QUEST_STOPS.length} escaped the child-sized pacing band`
+  );
+
+  const stormSort = budgetPhysicalSection(buildTrailSection("s26", { seed: 26 }));
+  assert.ok(
+    stormSort.encounters.some(encounter => encounter.kind === "sheep-pens"),
+    "the breadth ceiling no longer protects s26's authored sound sort"
+  );
 });
 
 test("pacing defers surplus evidence only after repeated struggle and enough completed play", () => {

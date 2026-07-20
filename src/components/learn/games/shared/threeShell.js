@@ -5,43 +5,27 @@
 // reduced-motion detection, and the touch steer zones. Everything game-specific
 // (tracks, cars, obstacles, scoring, level data) stays in each game file.
 //
-// Two three.js runtimes coexist on purpose:
-//   - Rocket Run / Sound Racer load the pinned r128 UMD build vendored at
-//     src/vendor/three/three.min.js (via loadThree below) and code against the
-//     r128 API (sRGBEncoding etc.).
-//   - Star Gallery / Grammar Grind import the bundled npm `three` package and
-//     use newer APIs (outputColorSpace). Converting them to r128 would break
-//     them, so both paths stay.
-// Every helper here takes the game's THREE instance, so it works with either.
+// All 3D surfaces share the repository's npm Three.js module. Keeping one
+// runtime prevents Rocket Run / Sound Racer from downloading a second legacy
+// UMD build after another arcade game or the quest has loaded.
 
-import threeMinUrl from "../../../../vendor/three/three.min.js?url";
+import * as THREE_MODULE from "three";
 
 // ── three.js loader ──────────────────────────────────────────────────────────
-// Idempotent, promise-based script loader for the vendored r128 build. Same
-// call shape the games always had: loadThree().then(THREE => ...). The script
-// URL goes through Vite's ?url asset pipeline, so it resolves in dev and is
-// emitted with a content hash in production builds — no CDN, no SRI gap, and
-// it keeps working offline.
+// Preserve the promise-shaped API used by the lane games while resolving to
+// the same ESM namespace imported by every other Three.js surface.
 export function loadThree() {
-  return new Promise((resolve, reject) => {
-    if (window.THREE) {
-      resolve(window.THREE);
-      return;
-    }
-    const existing = document.querySelector("script[data-three-vendor]");
-    if (existing) {
-      existing.addEventListener("load", () => resolve(window.THREE));
-      existing.addEventListener("error", () => reject(new Error("three-load-failed")));
-      return;
-    }
-    const script = document.createElement("script");
-    script.src = threeMinUrl;
-    script.async = true;
-    script.dataset.threeVendor = "1";
-    script.onload = () => resolve(window.THREE);
-    script.onerror = () => reject(new Error("three-load-failed"));
-    document.head.appendChild(script);
-  });
+  return Promise.resolve(THREE_MODULE);
+}
+
+export function setTextureSrgb(THREE, texture) {
+  if (!texture) return texture;
+  if ("colorSpace" in texture && THREE.SRGBColorSpace !== undefined) {
+    texture.colorSpace = THREE.SRGBColorSpace;
+  } else if (THREE.sRGBEncoding !== undefined) {
+    texture.encoding = THREE.sRGBEncoding;
+  }
+  return texture;
 }
 
 // ── GPU disposal ─────────────────────────────────────────────────────────────

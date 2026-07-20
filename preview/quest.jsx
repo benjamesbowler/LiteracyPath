@@ -75,6 +75,7 @@ const requestedStageIndex = params.has("stage") ? Number(params.get("stage")) : 
 const correctionMode = params.get("correction");
 const creatureMode = params.get("creature");
 const displayMode = params.get("display");
+const previewLegacyRenderer = params.get("renderer") === "legacy3d";
 const reducedMotion = params.get("motion") === "reduce";
 const highContrast = params.get("contrast") === "high";
 const quietSoundscape = params.get("quiet") === "1";
@@ -300,6 +301,8 @@ if (view === "beastie-atlas") {
         initialView={view}
         initialStop={stopId}
         disableAdaptiveQuality={disableAdaptiveQuality}
+        previewForce2d={displayMode === "2d"}
+        previewForceLegacy3d={previewLegacyRenderer}
         onExit={() => { window.__questExited = true; }}
       />
     </StrictMode>

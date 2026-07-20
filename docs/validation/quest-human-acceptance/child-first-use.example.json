@@ -4,10 +4,10 @@
   "sessionId": "SESSION-001",
   "observedAt": "2026-07-18T09:00:00.000Z",
   "observerId": "OBS-01",
-  "settingId": "ROOM-QUIET",
+  "settingId": "ROOM-001",
   "consentConfirmed": true,
   "participant": {
-    "anonymousId": "C-001",
+    "anonymousId": "CHILD-001",
     "ageYears": 6
   },
   "measures": {

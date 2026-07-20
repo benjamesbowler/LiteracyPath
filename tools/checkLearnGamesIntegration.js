@@ -2,6 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { CVC_WORDS, GAME_LIST, RHYMING_PAIRS, WORD_FAMILIES } from "../src/data/learnGamesData.js";
 import { getChildWordAsset } from "../src/data/childAssets.js";
+import { soundSafariAudioCoverage } from "../src/utils/soundSafariRounds.js";
+import { AUDIO_FILE_PATHS } from "../src/data/generated/audioFilePaths.generated.js";
 
 const root = process.cwd();
 const requiredFiles = [
@@ -67,6 +69,18 @@ if (emojiOffenders.length) {
   process.exit(1);
 }
 
+// Gold-voice is a production-wide invariant, not merely a convention in the
+// current game. Direct browser speech must never creep back into another page.
+const productionTtsOffenders = fs.readdirSync(path.join(root, "src"), { recursive: true })
+  .map(file => path.join(root, "src", file))
+  .filter(file => fs.statSync(file).isFile() && /\.(jsx?|tsx?)$/.test(file))
+  .filter(file => /SpeechSynthesisUtterance|speechSynthesis\.speak\s*\(/.test(fs.readFileSync(file, "utf8")))
+  .map(file => path.relative(root, file));
+if (productionTtsOffenders.length) {
+  console.error(`Browser TTS found in production source:\n${productionTtsOffenders.map(file => `- ${file}`).join("\n")}`);
+  process.exit(1);
+}
+
 const learnGamesCss = fs.readFileSync(path.join(root, "src/styles/learn-games.css"), "utf8");
 const rawHexes = [...learnGamesCss.matchAll(/#[0-9a-fA-F]{3,8}\b/g)].map(match => match[0]);
 const disallowedHexes = [...new Set(rawHexes.filter(hex => !allowedLearnGameHexes.has(hex)))];
@@ -97,4 +111,26 @@ if (missingWordImages.length) {
   process.exit(1);
 }
 
-console.log(`Learn Games integration guard passed. Word image coverage: ${gameWords.size - fallbackWordCards.length}/${gameWords.size}; text fallback cards: ${fallbackWordCards.length}.`);
+const safariCoverage = soundSafariAudioCoverage();
+const invalidSafariBanks = Object.entries(safariCoverage).filter(([, result]) => (
+  result.total !== 30 || result.recorded.length !== 30 || result.missing.length > 0
+));
+if (invalidSafariBanks.length) {
+  console.error(`Sound Safari gold-voice coverage failed:\n${invalidSafariBanks.map(([difficulty, result]) => (
+    `- ${difficulty}: ${result.recorded.length}/${result.total} recorded; missing ${result.missing.join(", ") || "bank entries"}`
+  )).join("\n")}`);
+  process.exit(1);
+}
+
+const requiredArcadeVoiceCues = [
+  "/audio/child-mode/clean-human/phrases/listen-and-find.mp3",
+  "/audio/child-mode/clean-human/phrases/tap.mp3",
+  "/audio/ui/voice/great-job.mp3"
+];
+const missingArcadeVoiceCues = requiredArcadeVoiceCues.filter(src => !AUDIO_FILE_PATHS.has(src));
+if (missingArcadeVoiceCues.length) {
+  console.error(`Required recorded arcade/reward cues are missing:\n${missingArcadeVoiceCues.map(src => `- ${src}`).join("\n")}`);
+  process.exit(1);
+}
+
+console.log(`Learn Games integration guard passed. Word image coverage: ${gameWords.size - fallbackWordCards.length}/${gameWords.size}; text fallback cards: ${fallbackWordCards.length}; Sound Safari gold voice: 90/90; arcade/reward voice cues: 3/3; browser TTS: blocked.`);

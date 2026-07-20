@@ -1,6 +1,6 @@
 # Sound Seekers Human Evidence
 
-This folder holds anonymised, integrity-sealed observation records. Never record a child or adult name, email, phone number, address, school identifier, date of birth, or internal student identifier. Use short study codes such as `C-014`, `T-006`, `OBS-02`, and `ROOM-LIBRARY`.
+This folder holds anonymised, integrity-sealed observation records. Never record a child or adult name, email, phone number, address, school identifier, date of birth, or internal student identifier. Codes use a fixed word plus digits only: `SESSION-014`, `OBS-02`, `ROOM-003`, and `CHILD-014`, `ADULT-006`, or `AUDIO-003` according to the profile. Do not put a name or location label after the prefix.
 
 The aggregate release gate requires:
 
@@ -14,7 +14,7 @@ The aggregate release gate requires:
 
 ## Field console
 
-Open `/preview/quest-evidence.html` from a release-preview build to collect observations without editing JSON. The console provides all five profile-specific forms, rejects incomplete and direct-identifier fields, seals each valid record with SHA-256, downloads the individual record, retains a verified local copy, imports existing records, rejects tampering and duplicated profile/session codes, and shows the live aggregate matrix. It is excluded from the normal child application build.
+Open `/preview/quest-evidence.html` from a release-preview build to collect observations without editing JSON. The console provides all five profile-specific forms, rejects incomplete and direct-identifier fields, seals each valid record with SHA-256, downloads the individual record, retains a verified local copy, imports existing records, rejects tampering and duplicated profile/session/participant codes, and shows the live aggregate matrix. Different participant codes may share one session code for paired testing. It is excluded from the normal child application build.
 
 Every numeric measure must be answered explicitly, including a genuine zero. Each child and adult cohort must contain the required number of distinct anonymous participant codes; repeating one participant or one session cannot satisfy the release gate.
 
@@ -27,9 +27,9 @@ Every record uses this common envelope:
   "sessionId": "SESSION-001",
   "observedAt": "2026-07-18T09:00:00.000Z",
   "observerId": "OBS-01",
-  "settingId": "ROOM-QUIET",
+  "settingId": "ROOM-001",
   "consentConfirmed": true,
-  "participant": { "anonymousId": "C-001", "ageYears": 6 },
+  "participant": { "anonymousId": "CHILD-001", "ageYears": 6 },
   "measures": {}
 }
 ```

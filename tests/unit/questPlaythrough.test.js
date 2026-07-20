@@ -205,6 +205,22 @@ test("A MUTE SOUND-SORT NEVER SHIPS — pens are gated on their audio actually r
   );
 });
 
+test("a crowded teaching stop covers every new grapheme before reserving a review beat", () => {
+  // s7 has six new graphemes, three letter beats and three word beats. Due
+  // review for r/u must not displace one of ff/ll/ss/zz from its only first
+  // exposure; an unseen target cannot be selected by the later scheduler.
+  const walk = buildWalk("s7", {
+    targets: ["j", "z", "ff", "ll", "ss", "zz", "r", "u"],
+    seed: 7
+  });
+  const encountered = new Set(walk.encounters.flatMap(encounter => (
+    encounter.beats.flatMap(beat => Array.isArray(beat.target) ? beat.target : [beat.target])
+  )));
+  for (const target of ["j", "z", "ff", "ll", "ss", "zz"]) {
+    assert.ok(encountered.has(target), `${target} was announced as new but never encountered at s7`);
+  }
+});
+
 test("KEEP WALKING AND EVERY SOUND IS REACHABLE — there is no ceiling", () => {
   // The important one. A slow climb is fine; a CEILING is a bug. There was one:
   // the new sounds filled every slot in the flower patch, so a sound from an

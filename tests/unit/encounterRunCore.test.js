@@ -43,6 +43,21 @@ test("stars score the FIRST attempt only; the ladder still records every answer 
   assert.equal(run.events.length, 1, "but the mastery event still fires per attempt");
 });
 
+test("a fumbled then completed multi-stage word contributes exactly one star-tally beat", () => {
+  let run = createEncounterRun({ encounterId: "word-bridge", beatCount: 1 });
+  run = attempt(run, { correct: false, target: "s", choiceId: "m" });
+  run = encounterRunReducer(run, { type: "advance-stage" });
+  run = attempt(run, { correct: true, target: "a" });
+  run = encounterRunReducer(run, { type: "advance-stage" });
+  run = attempt(run, { correct: true, target: "t" });
+  assert.deepEqual(
+    run.tally,
+    { total: 1, correct: 0, mistakes: 1 },
+    "later grapheme stages must not rescore the same word beat"
+  );
+  assert.equal(Object.keys(run.firstTally).length, 1);
+});
+
 test("attempts made under the ladder report their assistance level automatically", () => {
   let run = createEncounterRun({ encounterId: "e1", beatCount: 1 });
   run = attempt(run, { correct: false });

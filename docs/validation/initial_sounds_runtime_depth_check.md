@@ -2,8 +2,8 @@
 
 Date: 2026-05-25
 
-- Runtime-selectable image-backed items: 473
-- Runtime-selectable image+audio-backed items: 473
+- Runtime-selectable image-backed items: 404
+- Runtime-selectable image+audio-backed items: 404
 - Level 1 reachable letters: 25/25
 - Level 2 reachable letters: 25/25
 - Failures: 0
@@ -27,25 +27,25 @@ Date: 2026-05-25
 
 - Phase: 1
 - Letters: s, o, n, a, g, v, b, e, j, w, f, l, z, m, c
-- Words: sandwich, orangutan, newspaper, astronaut, gorilla, volleyball, banana, elevator, jellyfish, watermelon, firefighter, lighthouse, zipline, mushroom, calculator
+- Words: sandwich, octagon, newspaper, astronaut, gorilla, volleyball, banana, elevator, jellyfish, watermelon, firefighter, ladybug, zipline, mushroom, calculator
 
 ### Round 4 - Level 2
 
 - Phase: 2
 - Letters: u, t, p, k, h, y, i, q, d, r, a, b, f, g, o
-- Words: unicycle, telescope, pineapple, kitchen, hospital, yogurt cup, iceberg, question mark, doctor, rainbow, ambulance, basket, flamingo, giraffe, octagon
+- Words: underground, telescope, pineapple, kitchen, hospital, yogurt cup, instructor, question mark, doctor, rainbow, athlete, basket, flamingo, goggles, omelet
 
 ### Round 5 - Level 1
 
 - Phase: 3
-- Letters: n, h, s, i, c, o, t, w, u, g, p, k, j, d, b
-- Words: net, ham, sock, igloo, cup, octopus, top, window, under, gate, pin, kite, jet, duck, ball
+- Letters: n, s, i, c, o, t, k, j, d, b, y, a, m, v, z
+- Words: net, sock, igloo, cup, octopus, top, kite, jet, duck, ball, yam, apple, milk, vest, zebra
 
 ### Round 6 - Level 2
 
 - Phase: 3
-- Letters: s, e, a, d, h, g, l, v, c, z, b, p, w, y, q
-- Words: sailboat, eraser, apartment, dinosaur, helicopter, goggles, ladybug, veterinarian, camera, zigzag road, balloon, parachute, wheelbarrow, yardstick, quicksand
+- Letters: s, e, d, h, l, v, c, z, p, w, y, q, t, i, k
+- Words: sailboat, exercise, dinosaur, helicopter, lemonade, veterinarian, caterpillar, zigzag road, parachute, wheelbarrow, yardstick, quarterback, telephone, invitation, kayak
 
 ## Failures
 

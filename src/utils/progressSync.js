@@ -1,20 +1,28 @@
 import { supabase } from "../supabaseClient.js";
-import { computeHydratedValue } from "./progressMerge.js";
+import { computeHydratedValue, sanitizeCloudProgressPayload } from "./progressMerge.js";
 import { localProgressStorageKey, localProgressKeysForStudent, RESET_AREA, shouldApplyReset } from "./progressKeys.js";
+import {
+  clearProgressQueueForStudent,
+  enqueueProgressQueueEntry,
+  mergeProgressQueueEntries,
+  mergeProgressQueueRecords,
+  progressEntryIdentity,
+  readProgressQueueRecords,
+  removeProgressQueueRecords
+} from "./progressQueue.js";
 
 export { PROGRESS_AREAS, localProgressKeysForStudent, RESET_AREA } from "./progressKeys.js";
 
 const RESET_APPLIED_PREFIX = "lp-reset-applied:";
 
-const SYNC_QUEUE_KEY = "lp-progress-sync-queue-v1";
 const CLOUD_ROW_STORAGE_KEY = "lp-cloud-progress-rows-v1";
 const SAVE_DEBOUNCE_MS = 1800;
 
 let activeSession = null;
 const pendingTimers = new Map();
 const inFlightFlushes = new Map();
+const volatileEntries = new Map();
 let onlineListenerInstalled = false;
-let revisionSequence = 0;
 
 function isBrowser() {
   return typeof window !== "undefined";
@@ -30,11 +38,13 @@ function readJson(key, fallback) {
 }
 
 function writeJson(key, value) {
-  if (!isBrowser()) return;
+  if (!isBrowser()) return false;
   try {
     window.localStorage.setItem(key, JSON.stringify(value));
+    return true;
   } catch {
     // Local progress buffering must never block the child experience.
+    return false;
   }
 }
 
@@ -47,10 +57,10 @@ export function clearLocalProgressForStudent(studentId) {
     try { window.localStorage.removeItem(key); } catch { /* best effort */ }
   }
   // Drop this student's queued writes so they don't re-push deleted progress.
-  try {
-    const queue = readJson(SYNC_QUEUE_KEY, []);
-    writeJson(SYNC_QUEUE_KEY, queue.filter(item => item.studentId !== studentId));
-  } catch { /* best effort */ }
+  try { clearProgressQueueForStudent(window.localStorage, studentId); } catch { /* best effort */ }
+  for (const [identity, entry] of volatileEntries) {
+    if (entry.studentId === studentId) volatileEntries.delete(identity);
+  }
   // Drop their cached cloud rows.
   try {
     const cache = readJson(CLOUD_ROW_STORAGE_KEY, {});
@@ -69,21 +79,19 @@ export function getCachedCloudProgressRows(studentId) {
   return readJson(CLOUD_ROW_STORAGE_KEY, {})[studentId] || [];
 }
 
-function entryIdentity(entry) {
-  return `${entry.studentId}:${entry.area}:${entry.key}`;
-}
-
 function emitProgressSyncState(status, entry) {
   if (!isBrowser() || !entry?.studentId) return;
-  const pending = readJson(SYNC_QUEUE_KEY, [])
-    .filter(item => item.studentId === entry.studentId).length;
+  const pending = readProgressQueueRecords(window.localStorage)
+    .filter(record => record.entry.studentId === entry.studentId).length;
+  const volatilePending = [...volatileEntries.values()]
+    .filter(candidate => candidate.studentId === entry.studentId).length;
   window.dispatchEvent(new CustomEvent("lp-progress-sync-state", {
     detail: {
       status,
       studentId: entry.studentId,
       area: entry.area,
       key: entry.key,
-      pending
+      pending: pending + volatilePending
     }
   }));
 }
@@ -105,36 +113,30 @@ export function getActiveProgressSyncSession() {
 }
 
 function enqueueWrite(entry, { deferred = false } = {}) {
-  const queue = readJson(SYNC_QUEUE_KEY, []);
-  const identity = entryIdentity(entry);
-  const existing = queue.find(item => entryIdentity(item) === identity);
-  const next = {
-    ...entry,
-    queuedAt: existing?.queuedAt || entry.queuedAt || new Date().toISOString(),
-    revision: entry.revision || `${Date.now()}-${revisionSequence += 1}`,
-    needsRecovery: Boolean(
-      entry.needsRecovery
-      || existing?.needsRecovery
-      || deferred
-      || (typeof navigator !== "undefined" && navigator.onLine === false)
-    )
-  };
-  writeJson(SYNC_QUEUE_KEY, [
-    ...queue.filter(item => entryIdentity(item) !== identity),
-    next
-  ]);
-  return next;
+  const identity = progressEntryIdentity(entry);
+  const candidate = mergeProgressQueueEntries(volatileEntries.get(identity), entry);
+  const result = enqueueProgressQueueEntry(window.localStorage, candidate, { deferred });
+  if (result.stored) {
+    volatileEntries.delete(identity);
+  } else {
+    result.entry = mergeProgressQueueEntries(volatileEntries.get(identity), result.entry);
+    volatileEntries.set(identity, result.entry);
+  }
+  return result;
 }
 
 async function saveCloudProgress(entry) {
   if (!entry?.studentId) return;
+  // Defence in depth for old queued rows and future callers: privacy-bound
+  // fields must not leave the device even if they predate queue sanitisation.
+  const uploadPayload = sanitizeCloudProgressPayload(entry.area, entry.payload);
 
   if (entry.mode === "student" && entry.token) {
     const { data, error } = await supabase.rpc("student_save_progress", {
       p_token: entry.token,
       p_area: entry.area,
       p_key: entry.key,
-      p_payload: entry.payload
+      p_payload: uploadPayload
     });
     if (error || data?.ok === false) throw error || new Error(data?.error || "student_save_progress failed");
     return;
@@ -146,28 +148,32 @@ async function saveCloudProgress(entry) {
       student_id: entry.studentId,
       area: entry.area,
       key: entry.key,
-      payload: entry.payload,
+      payload: uploadPayload,
       updated_at: new Date().toISOString()
     }, { onConflict: "student_id,area,key" });
   if (error) throw error;
 }
 
-async function flushEntry(entry) {
+async function flushEntry(entry, records, volatileRevision = null) {
   if (typeof navigator !== "undefined" && navigator.onLine === false) {
     const queued = enqueueWrite(entry, { deferred: true });
-    emitProgressSyncState("deferred", queued);
+    emitProgressSyncState(queued.stored ? "deferred" : "storage-failed", queued.entry);
     return { ok: false, needsRecovery: true };
   }
   try {
     await saveCloudProgress(entry);
-    const queue = readJson(SYNC_QUEUE_KEY, []);
-    writeJson(SYNC_QUEUE_KEY, queue.filter(item =>
-      !(entryIdentity(item) === entryIdentity(entry) && item.revision === entry.revision)
-    ));
+    // Remove only the revisions represented by this upload. A second tab can
+    // append while the request is in flight and its unique record survives for
+    // the next loop instead of being erased by a broad identity filter.
+    removeProgressQueueRecords(window.localStorage, records);
+    const identity = progressEntryIdentity(entry);
+    if (volatileRevision && volatileEntries.get(identity)?.revision === volatileRevision) {
+      volatileEntries.delete(identity);
+    }
     return { ok: true, needsRecovery: Boolean(entry.needsRecovery) };
   } catch {
     const queued = enqueueWrite(entry, { deferred: true });
-    emitProgressSyncState("deferred", queued);
+    emitProgressSyncState(queued.stored ? "deferred" : "storage-failed", queued.entry);
     return { ok: false, needsRecovery: true };
   }
 }
@@ -180,8 +186,12 @@ async function flushQueuedKey(identity, session = activeSession) {
     let recovered = false;
     let lastEntry = null;
     while (true) {
-      const queued = readJson(SYNC_QUEUE_KEY, []);
-      const current = queued.find(item => entryIdentity(item) === identity);
+      const records = readProgressQueueRecords(window.localStorage)
+        .filter(record => progressEntryIdentity(record.entry) === identity);
+      const volatile = volatileEntries.get(identity) || null;
+      const current = mergeProgressQueueRecords(volatile
+        ? [...records, { storageKey: null, legacy: false, entry: volatile }]
+        : records);
       if (!current || current.studentId !== session.studentId) {
         if (recovered && lastEntry) emitProgressSyncState("recovered", lastEntry);
         return true;
@@ -191,7 +201,7 @@ async function flushQueuedKey(identity, session = activeSession) {
         ...current,
         mode: session.mode || current.mode || "teacher",
         token: session.token || current.token || ""
-      });
+      }, records, volatile?.revision || null);
       recovered = recovered || result.needsRecovery;
       if (!result.ok) return false;
     }
@@ -213,23 +223,30 @@ export function queueProgressSave(area, key, payload, { scopeKey } = {}) {
     studentId: activeSession.studentId,
     area,
     key,
-    payload
+    payload: sanitizeCloudProgressPayload(area, payload)
   };
   const queued = enqueueWrite(entry);
-  const timerKey = entryIdentity(queued);
+  if (!queued.stored) emitProgressSyncState("storage-failed", queued.entry);
+  const timerKey = progressEntryIdentity(queued.entry);
   window.clearTimeout?.(pendingTimers.get(timerKey));
   const timer = window.setTimeout(() => {
     pendingTimers.delete(timerKey);
     void flushQueuedKey(timerKey, activeSession);
   }, SAVE_DEBOUNCE_MS);
   pendingTimers.set(timerKey, timer);
+  return queued.stored;
 }
 
 export async function flushQueuedProgressWrites(session = activeSession) {
   if (!session?.studentId) return;
-  const queue = readJson(SYNC_QUEUE_KEY, []);
-  const own = queue.filter(item => item.studentId === session.studentId);
-  const identities = [...new Set(own.map(entryIdentity))];
+  const own = readProgressQueueRecords(window.localStorage)
+    .filter(record => record.entry.studentId === session.studentId);
+  const identities = [...new Set([
+    ...own.map(record => progressEntryIdentity(record.entry)),
+    ...[...volatileEntries.entries()]
+      .filter(([, entry]) => entry.studentId === session.studentId)
+      .map(([identity]) => identity)
+  ])];
   for (const identity of identities) {
     await flushQueuedKey(identity, session);
   }

@@ -40,27 +40,48 @@ function average(values) {
   return values.length ? values.reduce((total, value) => total + finite(value), 0) / values.length : 0;
 }
 
-function hasDirectIdentifier(value) {
-  if (Array.isArray(value)) return value.some(hasDirectIdentifier);
+function hasDirectIdentifier(value, parentKey = "") {
+  if (Array.isArray(value)) return value.some(child => hasDirectIdentifier(child, parentKey));
+  if (typeof value === "string") {
+    const text = value.trim();
+    if (!text) return false;
+    if (/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i.test(text)) return true;
+    if (!['observedat', 'evidencehash'].includes(parentKey)
+      && /(?:\+?\d[\d ()-]{6,}\d)/.test(text)) return true;
+    if (/\b(?:name|student|child|teacher)\s*[:=]\s*[A-Za-z]/i.test(text)) return true;
+    // Format checks reject these code values too, but privacy must independently
+    // flag name-shaped VALUES so imported evidence is never called anonymous.
+    if (parentKey !== "devicemodel" && /^[A-Z]{2,20}-[A-Z]{2,20}$/.test(text)) return true;
+    if (parentKey !== "devicemodel" && /^(?:Mr|Mrs|Ms|Miss|Dr)[A-Z][A-Za-z]{1,30}[0-9]*$/.test(text)) return true;
+    if (parentKey !== "devicemodel" && /^[A-Z][a-z]{1,20}(?:[ -][A-Z][a-z]{1,20})+$/.test(text)) return true;
+    return false;
+  }
   if (!value || typeof value !== "object") return false;
-  return Object.entries(value).some(([key, child]) =>
-    DIRECT_IDENTIFIER_KEYS.has(key.toLowerCase().replace(/[^a-z]/g, "")) || hasDirectIdentifier(child));
+  return Object.entries(value).some(([key, child]) => {
+    const normalizedKey = key.toLowerCase().replace(/[^a-z]/g, "");
+    return DIRECT_IDENTIFIER_KEYS.has(normalizedKey) || hasDirectIdentifier(child, normalizedKey);
+  });
 }
 
-function idIsAnonymous(value) {
-  return /^[A-Z0-9][A-Z0-9-]{2,23}$/i.test(String(value || ""));
+function idIsAnonymous(value, prefixes) {
+  const allowed = Array.isArray(prefixes) ? prefixes : [prefixes];
+  const match = /^([A-Z]+)-([0-9]{1,4})$/.exec(String(value || "").trim());
+  return Boolean(match && allowed.includes(match[1]));
 }
 
 function commonChecks(record) {
+  const participantPrefix = record.profileId === "teacher-report"
+    ? "ADULT"
+    : record.profileId === "classroom-audio" ? "AUDIO" : "CHILD";
   return [
     { id: "schema", pass: record.schemaVersion === QUEST_HUMAN_EVIDENCE_VERSION },
     { id: "profile", pass: QUEST_HUMAN_PROFILES.includes(record.profileId) },
-    { id: "session", pass: idIsAnonymous(record.sessionId) },
-    { id: "observer", pass: idIsAnonymous(record.observerId) },
-    { id: "participant", pass: idIsAnonymous(record.participant?.anonymousId) },
+    { id: "session", pass: idIsAnonymous(record.sessionId, "SESSION") },
+    { id: "observer", pass: idIsAnonymous(record.observerId, "OBS") },
+    { id: "participant", pass: idIsAnonymous(record.participant?.anonymousId, participantPrefix) },
     { id: "consent", pass: record.consentConfirmed === true },
     { id: "date", pass: Number.isFinite(Date.parse(record.observedAt || "")) },
-    { id: "setting", pass: idIsAnonymous(record.settingId) },
+    { id: "setting", pass: idIsAnonymous(record.settingId, "ROOM") },
     { id: "privacy", pass: !hasDirectIdentifier(record) }
   ];
 }
@@ -96,7 +117,7 @@ function profileChecks(record) {
   }
   if (record.profileId === "classroom-audio") {
     return [
-      { id: "room", pass: idIsAnonymous(measures.roomProfile) },
+      { id: "room", pass: idIsAnonymous(measures.roomProfile, "ROOM") },
       { id: "device", pass: Boolean(String(measures.deviceModel || "").trim()) },
       { id: "prompts", pass: numberBetween(measures.promptsPlayed, 10) && numberBetween(measures.promptsUnderstood, 0, finite(measures.promptsPlayed)) },
       { id: "masking", pass: numberBetween(measures.maskingIncidents, 0) },

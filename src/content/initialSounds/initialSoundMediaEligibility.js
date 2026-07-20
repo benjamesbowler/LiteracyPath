@@ -9,6 +9,7 @@ const BLOCKED_QA_STATUSES = new Set([
   "draft_needs_assets",
   "bad_image",
   "bad_audio",
+  "excluded_initial_phoneme_mismatch",
   "excluded_unsuitable_word",
   "excluded_phrase_target",
   "excluded_ambiguous_word"

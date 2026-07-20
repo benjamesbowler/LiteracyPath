@@ -51,6 +51,27 @@ function Listen({ onClick, disabled, label = "Hear it" }) {
   );
 }
 
+function letterBeatCue(beat) {
+  if (beat?.cue?.kind === "word" && (beat.cue.word || beat.cueWord)) {
+    return { kind: "word", value: beat.cue.word || beat.cueWord };
+  }
+  return { kind: "grapheme", value: beat?.target };
+}
+
+function playLetterBeatCue(beat, enabled) {
+  const cue = letterBeatCue(beat);
+  return cue.kind === "word"
+    ? sayWord(cue.value, enabled)
+    : sayGrapheme(cue.value, enabled);
+}
+
+function hasLetterBeatCue(beat) {
+  const cue = letterBeatCue(beat);
+  return cue.kind === "word"
+    ? hasWordAudio(cue.value)
+    : hasGraphemeAudio(cue.value);
+}
+
 // The choice-encounter correction ladder. Keyed by beat (same trick as
 // useOnce) so it resets when the beat changes without an effect; escalates per
 // miss; on the third miss it plays the sound while the answer glows, then
@@ -73,7 +94,7 @@ function useCorrection(beat, isSoundEnabled) {
     setEntry({ beat, correction: next });
     if (next.mode === CORRECTION_MODES.TEACH) {
       timersRef.current.push(window.setTimeout(() => {
-        if (isSoundEnabled) sayGrapheme(beat.target, true);
+        if (isSoundEnabled) playLetterBeatCue(beat, true);
       }, 350));
       timersRef.current.push(window.setTimeout(() => {
         setEntry(current => (
@@ -104,7 +125,7 @@ export function FlowerPatch({ beat, isSoundEnabled, onBeat, onDone, index, total
 
   // No state reset: TrailWalk remounts this with a fresh key per beat.
   useEffect(() => {
-    if (isSoundEnabled) sayGrapheme(beat.target, true);
+    if (isSoundEnabled) playLetterBeatCue(beat, true);
   }, [beat, isSoundEnabled]);
 
   function touch(g) {
@@ -128,7 +149,7 @@ export function FlowerPatch({ beat, isSoundEnabled, onBeat, onDone, index, total
   return (
     <div className="qw-enc qw-flowers">
       <p className="qw-say">Which flower makes this sound?</p>
-      <Listen onClick={() => sayGrapheme(beat.target, isSoundEnabled)} disabled={!hasGraphemeAudio(beat.target)} />
+      <Listen onClick={() => playLetterBeatCue(beat, isSoundEnabled)} disabled={!hasLetterBeatCue(beat)} />
       <div className="qw-flowerrow">
         {showing.map(g => {
           const on = picked?.g === g;
@@ -140,6 +161,7 @@ export function FlowerPatch({ beat, isSoundEnabled, onBeat, onDone, index, total
               className={`qw-flower${on ? (picked.right ? " is-right" : " is-wrong") : ""}${reveal ? " is-reveal" : ""}${picked && picked.right && on ? " is-bloom" : ""}`}
               disabled={Boolean(picked) || teaching}
               onClick={() => touch(g)}
+              aria-label={`Choose the flower marked ${displayGrapheme(g)}`}
             >
               <Piece
                 kind="flower"
@@ -187,7 +209,7 @@ export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total })
   const seconds = Math.max(3, (Number(beat.seconds) || 6) - index + (correction ? 1 : 0));
 
   useEffect(() => {
-    if (isSoundEnabled) sayGrapheme(beat.target, true);
+    if (isSoundEnabled) playLetterBeatCue(beat, true);
   }, [beat, isSoundEnabled]);
 
   // The clock pauses while a tap is being judged or the answer is being
@@ -201,7 +223,7 @@ export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total })
       // exposure without a knowledge miss (recordAttempt reason semantics).
       onBeat(false, beat.target, { reason: "timeout" });
       miss(null);
-      if (isSoundEnabled) sayGrapheme(beat.target, true);
+      if (isSoundEnabled) playLetterBeatCue(beat, true);
       setLap(l => l + 1);
     }, seconds * 1000);
     return () => window.clearTimeout(timer);
@@ -226,7 +248,7 @@ export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total })
   return (
     <div className="qw-enc qw-run">
       <p className="qw-say">Quick — take the fork that says it!</p>
-      <Listen onClick={() => sayGrapheme(beat.target, isSoundEnabled)} disabled={!hasGraphemeAudio(beat.target)} />
+      <Listen onClick={() => playLetterBeatCue(beat, isSoundEnabled)} disabled={!hasLetterBeatCue(beat)} />
       {!done && !teaching && (
         <span className="qw-run-clock" aria-hidden="true">
           <span key={`${lap}-${beat.target}-${index}`} className="qw-run-sand" style={{ animationDuration: `${seconds}s` }} />
@@ -243,6 +265,7 @@ export function TrailRun({ beat, isSoundEnabled, onBeat, onDone, index, total })
               className={`qw-runsign${on ? (picked.right ? " is-right" : " is-wrong") : ""}${reveal ? " is-reveal" : ""}`}
               disabled={Boolean(picked) || teaching}
               onClick={() => dash(g)}
+              aria-label={`Take the trail fork marked ${displayGrapheme(g)}`}
             >
               <svg viewBox="0 0 96 110" aria-hidden="true">
                 <path d="M46,104 L46,44" stroke="var(--q-deep)" strokeWidth="8" strokeLinecap="round" fill="none" />

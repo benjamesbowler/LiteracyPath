@@ -62,7 +62,7 @@ export function getLetterSoundCue(letter, family) {
     const vowel = targetVowel || normalizedLetter;
     // Pure /a/-style phoneme recording (same file the EL Skills Quest uses) so
     // sounding out "cat" is c-a-t, NOT the synthetic buzz and NOT the spoken
-    // "short a" label. Browser speech is only the last-resort fallback.
+    // "short a" label. If the recording is missing, the control stays silent.
     return {
       src: `/audio/phonemes/short_${vowel}.mp3`,
       fallbackText: VOWEL_SOUND_FALLBACKS[vowel] || vowel

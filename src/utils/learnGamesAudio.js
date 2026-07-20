@@ -30,6 +30,18 @@ function slugify(value) {
   return normalizedText(value).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
+function wordAudioCandidates(slug) {
+  if (!slug || hasKnownBadWordAudio(slug)) return [];
+  return [
+    `/audio/child-mode/clean-human/words/${slug}.mp3`,
+    `/audio/child-mode/words/${slug}.mp3`,
+    `/audio/child-mode/clean-human/hfw/${slug}.mp3`,
+    `/audio/child-mode/hfw/${slug}.mp3`,
+    `/guided-reading/audio/words/${slug}.mp3`,
+    `/audio/vocabulary/${slug}.mp3`
+  ];
+}
+
 function getHowl(src) {
   if (!src) return null;
   if (howlCache.has(src)) {
@@ -101,15 +113,15 @@ async function playFirstAvailable(paths) {
     try {
       return await playAudio(path);
     } catch {
-      // Try the next local media candidate before speech synthesis fallback.
+      // Try the next local recording; if all fail the caller stays silent.
     }
   }
   return null;
 }
 
-// Gold-voice policy: we NEVER play the robotic browser TTS. When no recorded
-// clip exists we stay silent (games use hasRecordedSpeech() to hide Listen
-// buttons). Kept as a no-op so the call sites don't need to change.
+// Gold-voice policy: we NEVER play robotic browser TTS. When no recorded clip
+// exists we stay silent (games use hasRecordedSpeech() to hide Listen buttons).
+// Kept as a no-op so older call sites fail safely.
 function speakWithBrowser() {}
 
 export function cancelSpeech() {
@@ -133,16 +145,25 @@ export async function speakPhoneme(letter, options = {}) {
   const cue = getLetterSoundCue(normalizedLetter, { vowel: VOWELS.has(normalizedLetter) ? normalizedLetter : "" });
   const spokenFallback = VOWEL_SOUND_TEXT[normalizedLetter] || normalizedLetter;
 
-  // Priority: clean pure-phoneme recordings (no letter names, no "short A"
-  // labels) > legacy grapheme recordings > browser speech. The phonemes
-  // folder activates automatically once its files are generated.
-  const candidates = [];
-  // Multi-letter graphemes (sh, ch, th, wh, qu, ck, ng…) have their own
-  // pure-phoneme recordings — try the full cluster first so "sh" is never
-  // truncated to /s/. Falls through to the first-letter path when absent.
+  // Multi-letter graphemes must never degrade to their first letter: saying
+  // short /a/ after a child catches "ai" teaches the wrong sound. Try every
+  // recorded gold-voice grapheme folder, then stay silent if none exists.
   if (normalized.length > 1) {
-    candidates.push(`/audio/phonemes/${normalized}.mp3`);
+    const played = await playFirstAvailable([
+      `/audio/phonemes/${normalized}.mp3`,
+      `/audio/child-mode/clean-human/graphemes/digraphs_blends/${normalized}.mp3`,
+      `/audio/child-mode/clean-human/graphemes/silent_e/${normalized}.mp3`,
+      `/audio/child-mode/clean-human/graphemes/r_controlled/${normalized}.mp3`,
+      `/audio/child-mode/clean-human/graphemes/vowel_teams/${normalized}.mp3`
+    ]);
+    if (played) return;
+    speakWithBrowser(normalized, options);
+    return;
   }
+
+  // Priority: clean pure-phoneme recordings (no letter names, no "short A"
+  // labels) > legacy grapheme recordings. Missing clips stay silent.
+  const candidates = [];
   if (VOWELS.has(normalizedLetter)) {
     // No legacy fallback here: the old short-vowel recordings say the label
     // "short A" instead of the sound, which teaches the wrong thing.
@@ -165,16 +186,9 @@ export async function speakPhoneme(letter, options = {}) {
 export async function speakWord(word, options = {}) {
   stopCurrentCues();
   const slug = slugify(word);
-  // Words whose only recordings are defective: never play the bad clip.
-  // The browser voice at least says the right word.
-  const candidates = hasKnownBadWordAudio(slug) ? [] : [
-    `/audio/child-mode/clean-human/words/${slug}.mp3`,
-    `/audio/child-mode/words/${slug}.mp3`,
-    `/audio/child-mode/clean-human/hfw/${slug}.mp3`,
-    `/audio/child-mode/hfw/${slug}.mp3`,
-    `/guided-reading/audio/words/${slug}.mp3`,
-    `/audio/vocabulary/${slug}.mp3`
-  ];
+  // Words whose only recordings are defective stay silent; never substitute a
+  // synthetic voice for a phonics model.
+  const candidates = wordAudioCandidates(slug);
   const played = await playFirstAvailable(candidates);
   if (!played) speakWithBrowser(word, options);
 }
@@ -185,8 +199,8 @@ export function hasRecordedSpeech(text) {
   const value = String(text || "").trim();
   if (!value) return false;
   if (hasKnownBadWordAudio(value)) return false; // only defective recordings exist
-  if (/^[a-z]+$/i.test(value)) return true; // single words route through the word bank
   const slug = slugify(value);
+  if (/^[a-z]+$/i.test(value)) return existingAudioPaths(wordAudioCandidates(slug)).length > 0;
   return existingAudioPaths([
     `/audio/learn-games/instructions/${slug}.mp3`,
     `/audio/learn-games/sentences/${slug}.mp3`,

@@ -271,7 +271,7 @@ const ACT_II = [
     [],
     ["ship", "chop", "thing", "duck", "hand", "swim", "flag", "grin", "happy", "black", "sing", "whip"],
     [],
-    ["echo-cave", "sound-sort", "trail-run", "trail-signs", "story-stones"],
+    ["echo-cave", "stone-bridge", "trail-run", "trail-signs", "story-stones"],
     { boss: true })
 ];
 
@@ -307,7 +307,7 @@ const ACT_III = [
     [SP("e_e")],
     ["these", "theme", "delete", "complete", "extreme", "athlete"],
     ["water", "where"],
-    ["knowledge-tree", "sound-stones", "sound-sort", "stone-bridge", "word-beast"]),
+    ["knowledge-tree", "sound-stones", "echo-cave", "stone-bridge", "word-beast"]),
 
   S("s23", 3, 23, "Mica Steps",
     [TM("ai"), TM("ay")],
@@ -471,10 +471,10 @@ function decodableFrom(stop) {
 // Every grapheme a child can decode with by the END of `stopIndex` (1-based).
 // This is the set the content check and the shells use to guarantee nothing
 // runs ahead of the curriculum.
-export function taughtThrough(stopIndex) {
+export function taughtThrough(stopIndex, stops = QUEST_STOPS) {
   const known = new Set();
-  for (const stop of QUEST_STOPS) {
-    if (stop.index > stopIndex) break;
+  for (const stop of stops) {
+    if (stop.index > stopIndex) continue;
     for (const g of decodableFrom(stop)) known.add(g);
   }
   return known;
@@ -486,10 +486,10 @@ export function taughtThrough(stopIndex) {
 // enters the decodable set. But it IS a mastery target, and the evidence for it
 // is a child reading or spelling a word that contains it. Stone Bridge and Echo
 // Cave use this set to credit blends they see in the words they serve.
-export function blendsThrough(stopIndex) {
+export function blendsThrough(stopIndex, stops = QUEST_STOPS) {
   const blends = new Set();
-  for (const stop of QUEST_STOPS) {
-    if (stop.index > stopIndex) break;
+  for (const stop of stops) {
+    if (stop.index > stopIndex) continue;
     for (const entry of stop.teach || []) {
       if (entry.kind === "blend") blends.add(entry.id);
     }
@@ -499,10 +499,10 @@ export function blendsThrough(stopIndex) {
 
 // Every heart word taught by the end of `stopIndex`. Heart words are not
 // decodable by design — they are the exception list, learnt whole.
-export function heartWordsThrough(stopIndex) {
+export function heartWordsThrough(stopIndex, stops = QUEST_STOPS) {
   const words = [];
-  for (const stop of QUEST_STOPS) {
-    if (stop.index > stopIndex) break;
+  for (const stop of stops) {
+    if (stop.index > stopIndex) continue;
     for (const word of stop.heartWords || []) {
       if (!words.includes(word)) words.push(word);
     }
@@ -512,10 +512,10 @@ export function heartWordsThrough(stopIndex) {
 
 // Every word a child can read by the end of `stopIndex` — the pool the review
 // shells and the Story Stones pages draw from.
-export function wordsThrough(stopIndex) {
+export function wordsThrough(stopIndex, stops = QUEST_STOPS) {
   const words = [];
-  for (const stop of QUEST_STOPS) {
-    if (stop.index > stopIndex) break;
+  for (const stop of stops) {
+    if (stop.index > stopIndex) continue;
     for (const word of stop.words || []) {
       if (!words.includes(word)) words.push(word);
     }

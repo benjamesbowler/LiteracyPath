@@ -23,6 +23,14 @@ function result(state, accepted, completed, cue, { recordAttempt = true } = {}) 
   return { state, accepted, completed, cue, recordAttempt };
 }
 
+// These progress-style verbs are completed by the renderer's actual stage
+// list. They intentionally do not advertise a second, contradictory completion
+// contract: their authored learning sequence contains one sound while the
+// physical route contains three or four action stages.
+function progressResult(state, accepted, cue, { recordAttempt = true } = {}) {
+  return { state, accepted, cue, recordAttempt };
+}
+
 export const SEEDWAKE_VERB_HANDLERS = Object.freeze({
   "sound-hunt": Object.freeze({
     id: "find-and-enter",
@@ -214,13 +222,13 @@ function chapterVerbHandler(recipe) {
       create: () => ({ selected: null, turns: 0 }),
       apply: (state, input) => {
         if (input.type === firstAction && input.correct) {
-          return result({ ...state, selected: input.value }, true, false, "turn-ready");
+          return progressResult({ ...state, selected: input.value }, true, "turn-ready");
         }
         if (input.type === secondAction && input.correct && state.selected) {
           const turns = state.turns + 1;
-          return result({ ...state, turns }, true, Number(input.stage) >= 3, "dial-turn");
+          return progressResult({ ...state, turns }, true, "dial-turn");
         }
-        return result(state, false, false, state.selected ? "keep-turning" : "choose-orbit");
+        return progressResult(state, false, state.selected ? "keep-turning" : "choose-orbit");
       }
     });
   }
@@ -231,13 +239,13 @@ function chapterVerbHandler(recipe) {
       create: () => ({ selected: null, gates: 0 }),
       apply: (state, input) => {
         if (input.type === firstAction && input.correct) {
-          return result({ ...state, selected: input.value }, true, false, "ferry-ready");
+          return progressResult({ ...state, selected: input.value }, true, "ferry-ready");
         }
         if (input.type === secondAction && input.correct && state.selected) {
           const gates = state.gates + 1;
-          return result({ ...state, gates }, true, Number(input.stage) >= 3, "ferry-gate");
+          return progressResult({ ...state, gates }, true, "ferry-gate");
         }
-        return result(state, false, false, state.selected ? "keep-steering" : "choose-ferry-cargo");
+        return progressResult(state, false, state.selected ? "keep-steering" : "choose-ferry-cargo");
       }
     });
   }
@@ -248,13 +256,13 @@ function chapterVerbHandler(recipe) {
       create: () => ({ selected: null, relays: 0 }),
       apply: (state, input) => {
         if (input.type === firstAction && input.correct) {
-          return result({ ...state, selected: input.value }, true, false, "signal-ready");
+          return progressResult({ ...state, selected: input.value }, true, "signal-ready");
         }
         if (input.type === secondAction && input.correct && state.selected) {
           const relays = state.relays + 1;
-          return result({ ...state, relays }, true, Number(input.stage) >= 2, "signal-sent");
+          return progressResult({ ...state, relays }, true, "signal-sent");
         }
-        return result(state, false, false, state.selected ? "hold-signal" : "choose-signal");
+        return progressResult(state, false, state.selected ? "hold-signal" : "choose-signal");
       }
     });
   }
@@ -265,13 +273,13 @@ function chapterVerbHandler(recipe) {
       create: () => ({ selected: null, holds: 0 }),
       apply: (state, input) => {
         if (input.type === firstAction && input.correct) {
-          return result({ ...state, selected: input.value }, true, false, "climb-ready");
+          return progressResult({ ...state, selected: input.value }, true, "climb-ready");
         }
         if (input.type === secondAction && input.correct && state.selected) {
           const holds = state.holds + 1;
-          return result({ ...state, holds }, true, Number(input.stage) >= 3, "climb-hold");
+          return progressResult({ ...state, holds }, true, "climb-hold");
         }
-        return result(state, false, false, state.selected ? "keep-climbing" : "choose-climb");
+        return progressResult(state, false, state.selected ? "keep-climbing" : "choose-climb");
       }
     });
   }
@@ -505,37 +513,57 @@ export function questPixelSortLaneLayout({
   ) + (
     ((Number(player?.y) || 0) - (Number(resident?.y) || 0)) * (Number(right.y) || 0)
   );
-  const preferred = playerLateral > 8 ? leftBay : playerLateral < -8 ? rightBay : leftBay;
-  const alternate = preferred === leftBay ? rightBay : leftBay;
-  const selected = preferred.edgeRoom >= 0 || preferred.edgeRoom >= alternate.edgeRoom
+  const fitCandidate = bay => {
+    const minX = Math.min(...bay.points.map(point => point.x));
+    const maxX = Math.max(...bay.points.map(point => point.x));
+    let groupShiftX = 0;
+    if (Number.isFinite(choiceLeft) && minX < choiceLeft) {
+      groupShiftX = choiceLeft - minX;
+    }
+    if (Number.isFinite(choiceRight) && maxX + groupShiftX > choiceRight) {
+      groupShiftX += choiceRight - (maxX + groupShiftX);
+    }
+    const points = bay.points.map(point => ({
+      x: point.x + groupShiftX,
+      y: point.y
+    }));
+    const actors = [resident, player].filter(Boolean);
+    const actorClearance = points.reduce((minimum, point) => Math.min(
+      minimum,
+      ...actors.map(actor => Math.hypot(
+        point.x - (Number(actor?.x) || 0),
+        point.y - (Number(actor?.y) || 0)
+      ))
+    ), Infinity);
+    return {
+      ...bay,
+      center: {
+        x: bay.center.x + groupShiftX,
+        y: bay.center.y
+      },
+      points,
+      edgeRoom: points.reduce((minimum, point) => Math.min(
+        minimum,
+        point.x - choiceLeft,
+        choiceRight - point.x
+      ), Infinity),
+      groupShiftX,
+      actorClearance
+    };
+  };
+  const fittedLeft = fitCandidate(leftBay);
+  const fittedRight = fitCandidate(rightBay);
+  const preferred = playerLateral > 8 ? fittedLeft : playerLateral < -8 ? fittedRight : fittedLeft;
+  const alternate = preferred === fittedLeft ? fittedRight : fittedLeft;
+  // Camera fitting can move a nominally "open" lane back under the child.
+  // Choose using the final fitted geometry so the moving tokens remain in the
+  // bay with the most room around both the player and the resident. A tiny tie
+  // keeps the deterministic side preference stable instead of flickering.
+  const selected = preferred.actorClearance >= alternate.actorClearance - 0.5
     ? preferred
     : alternate;
-  const minX = Math.min(...selected.points.map(point => point.x));
-  const maxX = Math.max(...selected.points.map(point => point.x));
-  let groupShiftX = 0;
-  if (Number.isFinite(choiceLeft) && minX < choiceLeft) {
-    groupShiftX = choiceLeft - minX;
-  }
-  if (Number.isFinite(choiceRight) && maxX + groupShiftX > choiceRight) {
-    groupShiftX += choiceRight - (maxX + groupShiftX);
-  }
-  const fittedPoints = selected.points.map(point => ({
-    x: point.x + groupShiftX,
-    y: point.y
-  }));
   return {
     ...selected,
-    center: {
-      x: selected.center.x + groupShiftX,
-      y: selected.center.y
-    },
-    points: fittedPoints,
-    edgeRoom: fittedPoints.reduce((minimum, point) => Math.min(
-      minimum,
-      point.x - choiceLeft,
-      choiceRight - point.x
-    ), Infinity),
-    groupShiftX,
     forwardDistance,
     lateralDistance,
     spacing

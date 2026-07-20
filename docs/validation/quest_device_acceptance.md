@@ -1,6 +1,6 @@
 # Sound Seekers Device Acceptance
 
-Generated: 2026-07-18T04:10:54.533Z
+Generated: 2026-07-20T12:22:50.558Z
 
 | Profile | Status | Device | Operator | Duration | Frame average | Long frames | Input p95 |
 | --- | --- | --- | --- | ---: | ---: | ---: | ---: |

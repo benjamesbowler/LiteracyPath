@@ -30,8 +30,10 @@ import {
   QUEST_ACTION_SFX,
   questCeremonySfxSequence,
   questActionSfxEntry,
-  questActionSfxMixScale,
-  questChapterMaterialSfxEntry
+  questChapterMaterialSfxEntry,
+  playQuestSfxEntry,
+  stopQuestActionSfx,
+  warmQuestSfxEntries
 } from "../../../utils/questActionAudio.js";
 import {
   QUEST_PIXEL_CHAPTER_CASTS,
@@ -55,6 +57,15 @@ export const PIXEL_WORLD = Object.freeze({ width: 640, height: 1120, tile: 16 })
 
 const PIXEL_ASSET_ROOT = "/game-assets/quest-pixel";
 const ASSET_ROOT = `${PIXEL_ASSET_ROOT}/seedwake`;
+const PIXEL_FEEDBACK_SFX = Object.freeze({
+  "seedwake-success": Object.freeze({ key: "seedwake-success", src: `${ASSET_ROOT}/audio/success.wav` }),
+  "seedwake-pickup": Object.freeze({ key: "seedwake-pickup", src: `${ASSET_ROOT}/audio/pickup.wav` }),
+  "seedwake-wrong": Object.freeze({ key: "seedwake-wrong", src: `${ASSET_ROOT}/audio/wrong.wav` }),
+  "seedwake-magic": Object.freeze({ key: "seedwake-magic", src: `${ASSET_ROOT}/audio/magic.wav` })
+});
+const PIXEL_ACTION_SFX_BY_KEY = Object.freeze(Object.fromEntries(
+  Object.values(QUEST_ACTION_SFX).map(entry => [entry.key, entry])
+));
 const PLAYER_SPEED = 104;
 const CHOICE_DISTANCE = 19;
 const ENCOUNTER_DISTANCE = 56;
@@ -1149,10 +1160,25 @@ class QuestPixelScene extends Phaser.Scene {
     this.gateLatch = false;
     this.lastFacing = "down";
     this.lastModelSignature = "";
+    this.lastCarriedSignature = "";
+    this.failedAssetKeys = new Set();
+    this.failedTextureKeys = new Set();
+    this.sceneShuttingDown = false;
     this.nextRuntimeHealthAt = RUNTIME_HEALTH_FIRST_SAMPLE_MS;
   }
 
   preload() {
+    this.load.on("loaderror", file => {
+      const key = String(file?.key || "unknown");
+      this.failedAssetKeys.add(key);
+      if (file?.type === "image") this.failedTextureKeys.add(key);
+      this.bridge.onRuntimeSignal?.({
+        type: "asset-error",
+        key,
+        url: String(file?.url || ""),
+        assetType: String(file?.type || "unknown")
+      });
+    });
     const world = this.model.section.world;
     const chapterId = this.model.section.chapter?.id;
     const minimalStarReachLoad = chapterId === "star-reach";
@@ -1346,17 +1372,12 @@ class QuestPixelScene extends Phaser.Scene {
     if (activeProfile.atmosphere === "starfall") {
       this.load.spritesheet("quest-weather-snow", `${PIXEL_ASSET_ROOT}/weather/snow.png`, { frameWidth: 8, frameHeight: 8 });
     }
-    if (this.model.soundEnabled) {
-      this.load.audio("seedwake-success", `${ASSET_ROOT}/audio/success.wav`);
-      this.load.audio("seedwake-pickup", `${ASSET_ROOT}/audio/pickup.wav`);
-      this.load.audio("seedwake-wrong", `${ASSET_ROOT}/audio/wrong.wav`);
-      this.load.audio("seedwake-magic", `${ASSET_ROOT}/audio/magic.wav`);
-      for (const actionSound of Object.values(QUEST_ACTION_SFX)) {
-        this.load.audio(actionSound.key, actionSound.src);
-      }
-      const materialSound = questChapterMaterialSfxEntry(this.model.section.chapter?.id);
-      if (materialSound) this.load.audio(materialSound.key, materialSound.src);
-    }
+    const materialSound = questChapterMaterialSfxEntry(this.model.section.chapter?.id);
+    warmQuestSfxEntries([
+      ...Object.values(PIXEL_FEEDBACK_SFX),
+      ...Object.values(QUEST_ACTION_SFX),
+      materialSound
+    ]);
     if (world === "dino") {
       this.load.image("dino-field", `${PIXEL_ASSET_ROOT}/dino/tiles/field.png`);
       this.load.image("dino-desert", `${PIXEL_ASSET_ROOT}/dino/tiles/desert.png`);
@@ -1381,8 +1402,33 @@ class QuestPixelScene extends Phaser.Scene {
     }
   }
 
+  createNeutralTexture(key) {
+    if (!key || this.textures.exists(key)) return;
+    const texture = this.textures.createCanvas(key, 32, 32);
+    const ctx = texture?.getContext?.();
+    if (!ctx) return;
+    ctx.clearRect(0, 0, 32, 32);
+    ctx.fillStyle = "#5c4d66";
+    ctx.beginPath();
+    ctx.arc(16, 17, 12, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "#f4e6bd";
+    ctx.fillRect(10, 10, 12, 12);
+    ctx.fillStyle = "#d9b866";
+    ctx.fillRect(13, 7, 6, 18);
+    ctx.fillRect(7, 13, 18, 6);
+    texture.refresh();
+  }
+
+  ensureAssetFallbackTextures() {
+    this.createNeutralTexture("quest-neutral-placeholder");
+    for (const key of this.failedTextureKeys) this.createNeutralTexture(key);
+  }
+
   create() {
     try {
+      this.events.once(Phaser.Scenes.Events.SHUTDOWN, this.shutdown, this);
+      this.ensureAssetFallbackTextures();
       this.physics.world.setBounds(0, 0, PIXEL_WORLD.width, PIXEL_WORLD.height);
       this.createPlayerTexture();
       this.createAnimations();
@@ -1429,12 +1475,13 @@ class QuestPixelScene extends Phaser.Scene {
       }
     }
     for (const key of chapterPixelProfile(this.model.section).residents) {
+      if (this.failedAssetKeys.has(key) || !this.textures.exists(key)) continue;
       const idleSheet = `${key}-idle-sheet`;
-      const idleTexture = this.textures.exists(idleSheet) ? idleSheet : key;
+      const idleTexture = !this.failedAssetKeys.has(idleSheet) && this.textures.exists(idleSheet) ? idleSheet : key;
       const itemSheet = `${key}-item-sheet`;
-      const itemTexture = this.textures.exists(itemSheet) ? itemSheet : idleTexture;
+      const itemTexture = !this.failedAssetKeys.has(itemSheet) && this.textures.exists(itemSheet) ? itemSheet : idleTexture;
       const jumpSheet = `${key}-jump-sheet`;
-      const jumpTexture = this.textures.exists(jumpSheet) ? jumpSheet : idleTexture;
+      const jumpTexture = !this.failedAssetKeys.has(jumpSheet) && this.textures.exists(jumpSheet) ? jumpSheet : idleTexture;
       const workFrames = [
         { key: idleTexture, frame: 0, duration: 140 },
         { key: itemTexture, frame: 0, duration: 260 },
@@ -3760,11 +3807,12 @@ class QuestPixelScene extends Phaser.Scene {
       const point = pixelResidentPoint(this.model.section, encounter, index);
       const premiumResident = questPixelResidentFrameSize(key) > 16;
       const shadow = addPixelShadow(this, point.x, point.y + 2, premiumResident ? 34 : 18, premiumResident ? 8 : 6);
-      const sprite = this.add.sprite(point.x, point.y, key)
+      const animated = !this.failedAssetKeys.has(key) && this.textures.exists(key);
+      const sprite = this.add.sprite(point.x, point.y, animated ? key : "quest-neutral-placeholder")
         .setOrigin(0.5, 0.88)
         .setScale(questPixelResidentWorldScale(key))
-        .setDepth(point.y)
-        .play(`${key}-idle`);
+        .setDepth(point.y);
+      if (animated) sprite.play(`${key}-idle`);
       if (profile.residentTint) sprite.setTint(profile.residentTint);
       sprite.setData("encounterId", encounter.id);
       sprite.setData("baseX", point.x);
@@ -3776,6 +3824,7 @@ class QuestPixelScene extends Phaser.Scene {
         sprite,
         shadow,
         key,
+        animated,
         workFacing: point.x >= routeCentre ? "left" : "right",
         performanceMode: null,
         performanceLockedUntil: 0
@@ -3796,6 +3845,7 @@ class QuestPixelScene extends Phaser.Scene {
     sprite.setFlipX(mode === "work" && workFacing === "right");
     shadow?.setPosition(point.x, point.y + 2).setDepth(point.y - 1).setAlpha(0.28);
     entry.performanceMode = mode;
+    if (!entry.animated) return;
     sprite.play(mode === "work" ? `${key}-work-${workFacing}` : `${key}-idle`, true);
     if (this.model.reducedMotion) return;
     if (mode === "work") {
@@ -4216,7 +4266,7 @@ class QuestPixelScene extends Phaser.Scene {
     return questPixelVerbProfile(stage?.verbPattern || "single", stage?.mechanic || "trail");
   }
 
-  handleResize(gameSize) {
+  handleResize(gameSize, scheduleChoiceRebuild = true) {
     if (!this.cameras?.main) return;
     const width = Number(gameSize?.width) || this.scale.width;
     const height = Number(gameSize?.height) || this.scale.height;
@@ -4239,15 +4289,14 @@ class QuestPixelScene extends Phaser.Scene {
     // choice container on each one could destroy a tap target UNDER the
     // child's finger - only rebuild when the zoom bucket truly changed, and
     // debounced so a resize storm settles first.
-    if (zoomChanged && this.model?.activeStage && this.model?.activeEncounterId) {
+    if (scheduleChoiceRebuild && zoomChanged && this.model?.activeStage && this.model?.activeEncounterId) {
       window.clearTimeout(this.resizeRebuildTimer);
       this.resizeRebuildTimer = window.setTimeout(() => {
-        if (this.model?.activeStage && this.model?.activeEncounterId) {
+        if (!this.sceneShuttingDown && this.sys?.isActive?.() && this.model?.activeStage && this.model?.activeEncounterId) {
           this.rebuildChoices(this.model.activeStage, this.model.activeEncounterId);
         }
       }, 150);
     }
-    this.syncCarriedObject(this.model?.activeStage);
   }
 
   isMovementLocked() {
@@ -4299,7 +4348,13 @@ class QuestPixelScene extends Phaser.Scene {
       : "none";
     if (signature !== this.lastModelSignature) {
       this.lastModelSignature = signature;
-      this.handleResize({ width: this.scale.width, height: this.scale.height });
+      // A stage transition is not a resize. Refresh the camera target without
+      // entering the resize debounce, then rebuild immediately so beat N can
+      // never retain beat N-1's answer objects on a stable viewport.
+      this.handleResize({ width: this.scale.width, height: this.scale.height }, false);
+      window.clearTimeout(this.resizeRebuildTimer);
+      this.rebuildChoices(model.activeStage, model.activeEncounterId);
+      this.syncCarriedObject(this.model?.activeStage);
       this.choiceInside.clear();
       if (this.player) {
         for (const choice of this.choiceObjects) {
@@ -4682,10 +4737,15 @@ class QuestPixelScene extends Phaser.Scene {
   }
 
   syncCarriedObject(stage) {
+    const steering = stage?.verbPattern === "steer" && Boolean(stage?.steerStep);
+    const carriedSignature = stage
+      ? `${stage.id}:${steering ? "steer" : "carry"}:${stage.carryFromStage ?? "none"}:${stage.playerAction || "none"}:${stage.items?.[0]?.shape || "none"}`
+      : "none";
+    if (carriedSignature === this.lastCarriedSignature) return;
+    this.lastCarriedSignature = carriedSignature;
     this.destroyTweenedObject(this.carriedObject);
     this.carriedObject = null;
     this.carriedObjectMode = null;
-    const steering = stage?.verbPattern === "steer" && Boolean(stage?.steerStep);
     if (!steering && stage?.carryFromStage == null && !["carry", "place-plank"].includes(stage?.playerAction)) return;
     const destinationShape = String(stage.items?.[0]?.shape || "");
     const shape = steering
@@ -4709,10 +4769,11 @@ class QuestPixelScene extends Phaser.Scene {
   }
 
   playSfx(key, volume = 0.28) {
-    if (!this.model?.soundEnabled || !this.cache.audio.exists(key) || this.sound?.locked) return;
-    // Duck under a live phonics cue exactly like the 2D path does — the
-    // Phaser tier was the only renderer whose SFX talked over the phoneme.
-    this.sound.play(key, { volume: volume * questActionSfxMixScale() });
+    const material = questChapterMaterialSfxEntry(this.model?.section?.chapter?.id);
+    const entry = PIXEL_FEEDBACK_SFX[key]
+      || PIXEL_ACTION_SFX_BY_KEY[key]
+      || (material?.key === key ? material : null);
+    playQuestSfxEntry(entry, { enabled: this.model?.soundEnabled, volume });
   }
 
   playFeedback(kind, choiceId = null) {
@@ -5634,6 +5695,8 @@ class QuestPixelScene extends Phaser.Scene {
   }
 
   shutdown() {
+    if (this.sceneShuttingDown) return;
+    this.sceneShuttingDown = true;
     if (this.ceremonyActive) this.clearCeremony(false);
     this.clearMemoryStory();
     for (const moment of this.discoveryMoments) {
@@ -5646,8 +5709,13 @@ class QuestPixelScene extends Phaser.Scene {
     this.gateGlowTween?.stop();
     this.gateGlowTween?.remove();
     this.gateGlowTween = null;
-    this.scale.off("resize", this.handleResize, this);
+    // React can unmount while Phaser is still booting, or after Phaser has
+    // already released the scene systems. In both cases shutdown must remain
+    // idempotent and must not turn a harmless route change into an error-boundary
+    // recovery.
+    this.scale?.off?.("resize", this.handleResize, this);
     window.clearTimeout(this.resizeRebuildTimer);
+    stopQuestActionSfx();
   }
 }
 
@@ -5662,10 +5730,9 @@ export function createQuestPixelRuntime(parent, initialModel, bridge = {}) {
     parent,
     width: Math.max(320, parent.clientWidth || 960),
     height: Math.max(320, parent.clientHeight || 540),
-    // Retina tablets rendered at CSS pixels and let the browser upscale -
-    // shimmering, soft pixel art on exactly the screens children use most.
-    // Cap at 2x: beyond that the canvas cost outweighs the crispness.
-    resolution: Math.min((typeof window !== "undefined" && window.devicePixelRatio) || 1, 2),
+    // Phaser 4's Canvas renderer deliberately runs this low-overhead pixel
+    // scene at CSS-pixel resolution. There is no supported `resolution` game
+    // config in Phaser 4; an old inert key falsely claimed a 2x DPR cap.
     backgroundColor: chapterPixelProfile(initialModel.section).background,
     transparent: false,
     render: {
@@ -5683,6 +5750,9 @@ export function createQuestPixelRuntime(parent, initialModel, bridge = {}) {
       default: "arcade",
       arcade: { debug: false }
     },
+    // Pixel SFX use the shared, duck-aware HTMLAudio pool. Keeping Phaser's
+    // separate WebAudio/HTML5 managers would ship two audio stacks.
+    audio: { noAudio: true },
     scene
   });
 
@@ -5716,6 +5786,7 @@ export function createQuestPixelRuntime(parent, initialModel, bridge = {}) {
       scene.playFeedback(kind, choiceId);
     },
     destroy() {
+      scene.shutdown();
       game.destroy(true);
     }
   };

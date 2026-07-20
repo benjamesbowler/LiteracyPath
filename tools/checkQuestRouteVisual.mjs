@@ -75,19 +75,23 @@ async function inspectWorld(browser, scenario) {
   try {
     await page.goto(`${BASE}${scenario.url}`, { waitUntil: "domcontentloaded", timeout: 30_000 });
     await page.waitForFunction(
-      () => document.querySelector(".qh-root.is-ready, .qh-root.has-fallback"),
+      () => document.querySelector(".qp-root[data-ready='true'], .q-world-error"),
       null,
       { timeout: SOFTWARE_RENDERER_STARTUP_TIMEOUT }
     );
     const state = await page.evaluate(() => {
-      const root = document.querySelector(".qh-root");
-      const canvas = document.querySelector(".qh-canvas");
+      const root = document.querySelector(".qp-root");
+      const canvas = document.querySelector(".qp-canvas canvas");
       const rectangle = canvas?.getBoundingClientRect();
+      const map = window.__questPixelRuntime?.getLayoutSnapshot?.().map || null;
       return {
-        ready: root?.classList.contains("is-ready"),
-        error: root?.classList.contains("has-fallback"),
-        chapter: root?.dataset.chapter,
-        topology: root?.dataset.routeTopology,
+        ready: root?.dataset.ready === "true",
+        error: Boolean(document.querySelector(".q-world-error")),
+        chapter: root?.querySelector(".qp-place span")?.textContent?.trim() || null,
+        stopId: map?.stopId || null,
+        authorship: map?.authorship || null,
+        topology: map?.topology || null,
+        routeSignature: map?.routeSignature || [],
         canvas: rectangle ? { width: rectangle.width, height: rectangle.height } : null
       };
     });
@@ -95,7 +99,14 @@ async function inspectWorld(browser, scenario) {
     const expectedCanvas = state.canvas?.width === scenario.viewport.width && state.canvas?.height === scenario.viewport.height;
     const nonBlank = pixels.deviation > 18 && pixels.colourBins > 80;
     return {
-      ok: state.ready && !state.error && expectedCanvas && nonBlank && errors.length === 0,
+      ok: state.ready
+        && !state.error
+        && state.authorship === "route-authored"
+        && Boolean(state.topology)
+        && state.routeSignature.length === 5
+        && expectedCanvas
+        && nonBlank
+        && errors.length === 0,
       state,
       pixels,
       errors
@@ -111,29 +122,33 @@ async function inspectGateHandoff(browser) {
   page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
   page.on("pageerror", error => errors.push(error.message));
   try {
-    await page.goto(`${BASE}/preview/quest.html?view=world&stop=s8&done=7&checkpoint=gate&creature=showcase&display=low`, {
+    await page.goto(`${BASE}/preview/quest.html?view=world&stop=s8&done=7&checkpoint=gate&creature=showcase&display=pixel`, {
       waitUntil: "domcontentloaded",
       timeout: 30_000
     });
     await page.waitForFunction(
-      () => document.querySelector(".qh-root.is-ready"),
+      () => document.querySelector(".q-journey-layer.is-active .qp-root[data-ready='true']"),
       null,
       { timeout: SOFTWARE_RENDERER_STARTUP_TIMEOUT }
     );
-    const gate = page.getByRole("button", { name: /The gate is open/ });
-    await gate.click({ force: true, timeout: 5_000 });
-    await page.waitForFunction(
-      () => document.querySelector(".qh-land-title strong")?.textContent?.trim() === "Trail 9 of 40",
-      null,
-      { timeout: SOFTWARE_GATE_HANDOFF_TIMEOUT }
-    );
+    await page.keyboard.down("ArrowUp");
+    try {
+      await page.waitForFunction(() => {
+        const activeLayer = document.querySelector(".q-journey-layer.is-active");
+        return activeLayer?.getAttribute("data-stop") === "s9"
+          && Boolean(activeLayer.querySelector(".qp-root[data-ready='true']"));
+      }, null, { timeout: SOFTWARE_GATE_HANDOFF_TIMEOUT });
+    } finally {
+      await page.keyboard.up("ArrowUp");
+    }
     const state = await page.evaluate(() => ({
-      trail: document.querySelector(".qh-land-title strong")?.textContent?.trim(),
-      chapter: document.querySelector(".qh-root")?.dataset.chapter,
-      topology: document.querySelector(".qh-root")?.dataset.routeTopology,
-      inWorld: Boolean(document.querySelector(".qh-root")) && !document.querySelector(".q-den")
+      stopId: document.querySelector(".q-journey-layer.is-active")?.getAttribute("data-stop") || null,
+      trail: document.querySelector(".q-journey-layer.is-active .qp-place strong")?.textContent?.trim() || null,
+      chapter: document.querySelector(".q-journey-layer.is-active .qp-place span")?.textContent?.trim() || null,
+      topology: window.__questPixelRuntime?.getLayoutSnapshot?.().map?.topology || null,
+      inWorld: Boolean(document.querySelector(".q-journey-layer.is-active .qp-root[data-ready='true']")) && !document.querySelector(".q-den")
     }));
-    return { ok: state.trail === "Trail 9 of 40" && state.inWorld && errors.length === 0, state, errors };
+    return { ok: state.stopId === "s9" && state.trail === "Wheelhouse Bend" && state.inWorld && errors.length === 0, state, errors };
   } finally {
     await page.close();
   }
@@ -150,12 +165,12 @@ try {
     {
       name: "desktop-meander",
       viewport: { width: 1180, height: 820 },
-      url: "/preview/quest.html?view=world&stop=s1&creature=showcase"
+      url: "/preview/quest.html?view=world&stop=s1&creature=showcase&display=pixel"
     },
     {
       name: "phone-island-loop",
       viewport: { width: 390, height: 844 },
-      url: "/preview/quest.html?view=world&stop=s20&done=19&creature=showcase"
+      url: "/preview/quest.html?view=world&stop=s20&done=19&creature=showcase&display=pixel"
     }
   ];
   for (const scenario of scenarios) {

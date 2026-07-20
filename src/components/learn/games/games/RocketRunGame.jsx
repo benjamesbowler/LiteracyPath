@@ -36,14 +36,15 @@ import {
   hasSeenOnboarding,
   markOnboardingSeen,
   disposeRenderer,
-  disposeObject as disposeGroup
+  disposeObject as disposeGroup,
+  setTextureSrgb
 } from "../shared/threeShell.js";
 
 // Rocket Run: a real, steer-and-collect 3D game (not an animated worksheet).
 // The child flies a rocket across three lanes to catch the words that START
-// with the target sound and dodge the rest. Three.js r128 is vendored locally
-// (src/vendor/three) and loads through the shared 3D shell — no CDN, so the
-// game works offline and adds nothing to the app bundle.
+// with the target sound and dodge the rest. The shared 3D shell resolves the
+// same bundled Three.js module as the other 3D games, so it remains offline
+// without downloading a second legacy runtime.
 const LANES = [-2.2, 0, 2.2];
 const ROUNDS_PER_GAME = 8;
 const SHIP_BASE_SCALE = 0.74;
@@ -89,10 +90,11 @@ function startGame(THREE, mount, opts) {
   // Speech rides the same live sound gate as sfx and is purely additive —
   // with sound off nothing is spoken and the game stays fully playable.
   const say = fn => { if (opts.getSound ? opts.getSound() : opts.isSoundEnabled) { try { fn(); } catch { /* speech optional */ } } };
-  const reduceMotion = prefersReducedMotion();
+  const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)") || null;
+  let reduceMotion = motionQuery?.matches ?? prefersReducedMotion();
   // Hardware quality tier: scales the DPR cap, shadow mode and particle counts
   // so weak devices get a lighter scene instead of a stuttery one.
-  const qualityTier = detectQualityTier();
+  let qualityTier = detectQualityTier();
   function makeNebulaTexture() {
     const canvas = document.createElement("canvas");
     canvas.width = 1024;
@@ -135,7 +137,7 @@ function startGame(THREE, mount, opts) {
     }
     ctx.globalAlpha = 1;
     const tex = new THREE.CanvasTexture(canvas);
-    tex.encoding = THREE.sRGBEncoding;
+    setTextureSrgb(THREE, tex);
     tex.needsUpdate = true;
     return tex;
   }
@@ -308,6 +310,18 @@ function startGame(THREE, mount, opts) {
   key.shadow.camera.top = 8;
   key.shadow.camera.bottom = -8;
   scene.add(key);
+
+  function reassessQualityTier() {
+    const nextTier = detectQualityTier();
+    qualityTier = nextTier;
+    applyQualityTier(renderer, qualityTier);
+    key.castShadow = qualityTier !== "low";
+  }
+  const syncMotionPreference = event => {
+    reduceMotion = Boolean(event.matches);
+    reassessQualityTier();
+  };
+  motionQuery?.addEventListener?.("change", syncMotionPreference);
   scene.add(new THREE.HemisphereLight(0x9fc0ff, 0x1a1440, 0.55));
   const sceneBackground = makeNebulaTexture();
   scene.background = sceneBackground;
@@ -1204,7 +1218,14 @@ function startGame(THREE, mount, opts) {
   window.addEventListener("keydown", onKey);
   const detachSwipeSteer = attachSwipeSteer(renderer.domElement, { threshold: 40, onSteer: dir => moveLane(dir) });
 
-  const detachResize = attachResize({ mount, renderer, camera, width, height });
+  const detachResize = attachResize({
+    mount,
+    renderer,
+    camera,
+    width,
+    height,
+    onResize: reassessQualityTier
+  });
 
   // ── Loop ─────────────────────────────────────────────────────────────────
   function tick(now) {
@@ -1431,6 +1452,7 @@ function startGame(THREE, mount, opts) {
     detachContextGuard();
     detachSteerZones();
     detachSwipeSteer();
+    motionQuery?.removeEventListener?.("change", syncMotionPreference);
     window.removeEventListener("keydown", onKey);
     window.removeEventListener("keydown", onIntroKey, true);
     detachResize();

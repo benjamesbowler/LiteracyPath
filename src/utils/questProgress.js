@@ -17,11 +17,12 @@
 //   2. FORWARD-ONLY. A cloud merge can add; it can never take away. Mastery
 //      counters merge by max, arrays by union. See progressMerge.js.
 //
-//   3. THE CHECKPOINT IS NOT ACHIEVEMENT. It is resume state, and it is excluded
-//      from the forward merge — merging two devices' checkpoints would teleport
-//      a child mid-stop. It is written while walking, after every encounter, and
-//      on every exit: losing a few seconds is a shrug; losing a long trail
-//      section is a child who never comes back.
+//   3. THE CHECKPOINT IS NOT ACHIEVEMENT. It is resume state: a local checkpoint
+//      wins, while a fresh device may restore the cloud checkpoint only when it
+//      matches the merged current stop. Blindly forward-merging two devices'
+//      checkpoints would teleport a child mid-stop. It is written while walking,
+//      after every encounter, and on every exit: losing a few seconds is a shrug;
+//      losing a long trail section is a child who never comes back.
 
 import { normalizeCreature, defaultCreature, CREATURE_GEAR, CREATURE_DYES, CREATURE_SLOTS, ALL_PIECES } from "../data/creatureParts.js";
 import { emptyRecord, recordAttempt, MASTERY_STATES, MASTERY_RULES, BLEND_RULES, HEART_RULES } from "./questMastery.js";
@@ -103,6 +104,9 @@ export function baseQuestState() {
     assignment: null,
     settings: normalizeQuestSettings(),
     telemetry: normalizeQuestTelemetry(),
+    // One-render event used by RewardScreen; normalization deliberately clears
+    // it so replay/reload can never re-announce an old gear award.
+    lastEarnedGearStop: null,
     checkpoint: null
   };
 }
@@ -141,6 +145,7 @@ export function normalizeQuestState(raw) {
     assignment: normalizeAssignment(state.assignment),
     settings: normalizeQuestSettings(state.settings),
     telemetry: normalizeQuestTelemetry(state.telemetry),
+    lastEarnedGearStop: null,
     checkpoint: state.checkpoint && typeof state.checkpoint === "object" ? state.checkpoint : null
   };
 }
@@ -275,6 +280,7 @@ export function equipEarnedQuestGear(state, stopId) {
 }
 
 export function earnedGearReward(state, stopId) {
+  if (state?.lastEarnedGearStop !== stopId) return null;
   const gear = CREATURE_GEAR.find(piece => piece.unlock === stopId);
   if (!gear) return null;
   return {
@@ -353,6 +359,7 @@ export function recordStopResult(state, stopId, stars = 0, drops = 0) {
   const stop = getStop(stopId);
   if (!stop) return state;
 
+  const completedBefore = (state.trail?.stopsDone || []).includes(stopId);
   const stopsDone = [...new Set([...(state.trail?.stopsDone || []), stopId])];
   const prevStars = Number(state.trail?.stars?.[stopId]) || 0;
   const prevDrops = Number(state.trail?.drops?.[stopId]) || 0;
@@ -393,8 +400,9 @@ export function recordStopResult(state, stopId, stars = 0, drops = 0) {
       && (mastery[t].state === MASTERY_STATES.MASTERED || mastery[t].state === MASTERY_STATES.RETIRED))
   ])];
 
-  return equipEarnedQuestGear({
+  const next = {
     ...state,
+    lastEarnedGearStop: null,
     trail: {
       ...state.trail,
       stopsDone,
@@ -420,7 +428,11 @@ export function recordStopResult(state, stopId, stars = 0, drops = 0) {
       ...(stop.heartWords || []).filter(word => (Number(mastery[`hw:${word}`]?.correct) || 0) > 0)
     ])],
     checkpoint: null
-  }, stopId);
+  };
+  if (completedBefore) return next;
+  const gear = CREATURE_GEAR.find(piece => piece.unlock === stopId);
+  if (!gear) return next;
+  return { ...equipEarnedQuestGear(next, stopId), lastEarnedGearStop: stopId };
 }
 
 // ── Checkpoint: resume state, written throughout the journey ────────────────

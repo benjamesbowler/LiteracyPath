@@ -464,8 +464,9 @@ function startGame(mount, opts) {
   };
   // Hardware quality tier: scales the DPR cap, shadow mode and burst/trail
   // particle rates so weak devices get a lighter scene instead of a stuttery one.
-  const qualityTier = detectQualityTier();
-  const particleScale = QUALITY_TIERS[qualityTier].particleScale;
+  const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)") || null;
+  let qualityTier = detectQualityTier();
+  let particleScale = QUALITY_TIERS[qualityTier].particleScale;
 
   const renderer = createRenderer(THREE, {
     antialias: true,
@@ -494,6 +495,15 @@ function startGame(mount, opts) {
   sun.shadow.camera.top = 90;
   sun.shadow.camera.bottom = -90;
   scene.add(sun);
+
+  function reassessQualityTier() {
+    qualityTier = detectQualityTier();
+    particleScale = QUALITY_TIERS[qualityTier].particleScale;
+    applyQualityTier(renderer, qualityTier);
+    sun.castShadow = qualityTier !== "low";
+  }
+  const syncMotionPreference = () => reassessQualityTier();
+  motionQuery?.addEventListener?.("change", syncMotionPreference);
 
   const root = new THREE.Group();
   scene.add(root);
@@ -941,7 +951,8 @@ function startGame(mount, opts) {
     width: () => mount.clientWidth || 960,
     height: () => mount.clientHeight || 560,
     listenToWindow: false,
-    updateStyle: false
+    updateStyle: false,
+    onResize: reassessQualityTier
   });
 
   function clearGates() {
@@ -1141,6 +1152,9 @@ function startGame(mount, opts) {
   }
 
   function updateHud() {
+    const canHearLevel = getSound() && levelSpeechParts().some(part => hasRecordedSpeech(part));
+    el.hear.style.display = canHearLevel ? "" : "none";
+    el.hear.disabled = !canHearLevel;
     el.level.textContent = `Level ${levelIndex + 1}/${ladder.length}`;
     el.score.textContent = `${Math.max(0, Math.round(score))} pts`;
     el.combo.textContent = `Combo x${combo}`;
@@ -1204,7 +1218,6 @@ function startGame(mount, opts) {
     coachText = introCoach || level.teaching || level.cue;
     messageTimer = 1.25;
     gateCooldown = 0.6;
-    el.hear.style.display = levelSpeechParts().some(part => hasRecordedSpeech(part)) ? "" : "none";
     opts.onProgressUpdate?.(levelIndex, ladder.length);
     opts.onCheckpoint?.(levelIndex, ladder.length);
     updateHud();
@@ -1785,6 +1798,7 @@ function startGame(mount, opts) {
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
       window.removeEventListener("keydown", onIntroKey, true);
+      motionQuery?.removeEventListener?.("change", syncMotionPreference);
       detachResize();
       clearGates();
       clearPickups();

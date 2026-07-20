@@ -1,6 +1,7 @@
 import { memo, useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { usePhonicsAudio } from "../../../../../hooks/usePhonicsAudio";
+import { playCueAudio, playCueSequence, stopCueAudio } from "../../../../../utils/audio/cuePlayer";
 import AudioButton from "../AudioButton";
 import PhonicsButton from "../PhonicsButton";
 
@@ -13,6 +14,10 @@ const THRESHOLD = 26;
 const STROKE_COMPLETION_PERCENT = 72;
 const TOTAL_TRACE_SAMPLES = 200;
 const MIN_SAMPLES_PER_STROKE = 24;
+const WATCH_ME_FIRST_AUDIO = "/audio/child-mode/phrases/watch-me-first.mp3";
+const START_AT_TOP_AUDIO = "/audio/child-mode/phrases/start-at-the-top.mp3";
+const NOW_YOU_TRY_AUDIO = "/audio/child-mode/phrases/now-you-try.mp3";
+const DEMO_VOICE_MIN_MS = 3400;
 
 function splitTraceSubpaths(tracePath = "") {
   return String(tracePath || "")
@@ -74,6 +79,8 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   const isDrawingRef = useRef(false);
   const lastCanvasPoint = useRef(null);
   const traceDonePlayedRef = useRef(false);
+  const accessibleTraceUsedRef = useRef(false);
+  const nextActionRef = useRef(null);
   const [progress, setProgress] = useState(0);
   const [strokeCoverages, setStrokeCoverages] = useState([]);
   const [renderStrokes, setRenderStrokes] = useState([]);
@@ -82,10 +89,8 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
   const [demoStrokeIndex, setDemoStrokeIndex] = useState(0);
   const [demoStrokeProgress, setDemoStrokeProgress] = useState(0);
   const [demoMarker, setDemoMarker] = useState(null);
-  const [demoVoiceText, setDemoVoiceText] = useState("");
   const [isComplete, setIsComplete] = useState(false);
-  const { play: playTraceDone } = usePhonicsAudio("/audio/child-mode/clean-human/phrases/amazing-work.mp3", "Amazing work");
-  const { play: playDemoVoice } = usePhonicsAudio("", demoVoiceText);
+  const { play: playTraceDone } = usePhonicsAudio("/audio/child-mode/clean-human/phrases/amazing-work.mp3");
   const reduceMotion = useReducedMotion();
   const tracePath = lesson.traceSVG;
 
@@ -126,28 +131,33 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
     setDemoStrokeProgress(0);
     setDemoMarker(strokes[0]?.points?.[0] || null);
     traceDonePlayedRef.current = false;
+    accessibleTraceUsedRef.current = false;
     clearCanvas();
     lastCanvasPoint.current = null;
   }, [clearCanvas, reduceMotion, tracePath]);
 
-  useEffect(() => {
-    if (!demoVoiceText) return;
-    playDemoVoice();
-  }, [demoVoiceText, playDemoVoice]);
+  useEffect(() => () => stopCueAudio(), []);
 
   useEffect(() => {
     if (!demoActive || !renderStrokes.length) return undefined;
 
-    setDemoVoiceText("Watch first. Start at the top!");
-    const strokeDuration = 900;
     const pauseDuration = 220;
+    // Keep the visual demonstration present for the complete two-clip recorded
+    // instruction; a one-stroke letter used to finish before the voice did.
+    const strokeDuration = Math.max(
+      900,
+      Math.ceil(DEMO_VOICE_MIN_MS / renderStrokes.length) - pauseDuration
+    );
     const perStrokeDuration = strokeDuration + pauseDuration;
     const startedAt = performance.now();
+    playCueSequence([WATCH_ME_FIRST_AUDIO, START_AT_TOP_AUDIO], { gapMs: 150 });
 
     const animate = now => {
       const elapsed = now - startedAt;
       const rawStrokeIndex = Math.floor(elapsed / perStrokeDuration);
-      const nextStrokeIndex = Math.min(rawStrokeIndex, renderStrokes.length - 1);
+      // A browser may deliver the first rAF with a frame timestamp captured a
+      // fraction before this effect's performance.now(). Never index -1.
+      const nextStrokeIndex = Math.max(0, Math.min(rawStrokeIndex, renderStrokes.length - 1));
       const strokeElapsed = elapsed - rawStrokeIndex * perStrokeDuration;
       const nextProgress = Math.min(1, strokeElapsed / strokeDuration);
       const stroke = renderStrokes[nextStrokeIndex];
@@ -161,7 +171,7 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
         setDemoActive(false);
         setDemoDone(true);
         setDemoStrokeProgress(1);
-        setDemoVoiceText("Now you try!");
+        playCueAudio(NOW_YOU_TRY_AUDIO);
         return;
       }
 
@@ -230,6 +240,27 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
       setProgress(nextProgress);
       if (allComplete) setIsComplete(true);
     }
+  }, []);
+
+  const completeNextStroke = useCallback(() => {
+    const strokes = strokesRef.current;
+    const visitedSets = visitedByStrokeRef.current;
+    // A switch cannot draw a freehand pointer path. Advance the same sampled
+    // subpaths, in the same order, and feed them through the same coverage
+    // calculation instead of bypassing the trace with a separate completion
+    // flag. Each activation therefore completes exactly one authored stroke.
+    const strokeIndex = strokes.findIndex((stroke, index) => (
+      ((visitedSets[index]?.size || 0) / Math.max(1, stroke.points.length)) * 100
+    ) < STROKE_COMPLETION_PERCENT);
+    if (strokeIndex < 0) return;
+    accessibleTraceUsedRef.current = true;
+    const visited = visitedSets[strokeIndex];
+    strokes[strokeIndex].points.forEach((_, index) => visited.add(index));
+    const coverages = getStrokeCoverages(strokes, visitedSets);
+    const { progress: nextProgress, allComplete } = calculateStrokeProgress(strokes, visitedSets);
+    setStrokeCoverages(coverages);
+    setProgress(nextProgress);
+    if (allComplete) setIsComplete(true);
   }, []);
 
   const drawOnCanvas = useCallback((clientX, clientY) => {
@@ -318,12 +349,21 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
     }
   }, [isComplete, playTraceDone]);
 
+  useEffect(() => {
+    if (!isComplete || !accessibleTraceUsedRef.current) return undefined;
+    const frame = window.requestAnimationFrame(() => {
+      nextActionRef.current?.querySelector("button:last-of-type")?.focus();
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [isComplete]);
+
   const handleReset = useCallback(() => {
     visitedByStrokeRef.current = strokesRef.current.map(() => new Set());
     setProgress(0);
     setStrokeCoverages(strokesRef.current.map(() => 0));
     setIsComplete(false);
     traceDonePlayedRef.current = false;
+    accessibleTraceUsedRef.current = false;
     isDrawingRef.current = false;
     lastCanvasPoint.current = null;
     clearCanvas();
@@ -343,8 +383,12 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
     demoFrameRef.current = null;
     setDemoActive(false);
     setDemoDone(true);
-    setDemoVoiceText("Now you try!");
+    playCueAudio(NOW_YOU_TRY_AUDIO);
   }, []);
+
+  const nextAccessibleStroke = strokeCoverages.findIndex(coverage => (
+    coverage < STROKE_COMPLETION_PERCENT
+  ));
 
   return (
     <motion.div
@@ -494,9 +538,15 @@ const StepTracer = memo(function StepTracer({ lesson, onComplete }) {
             Show me
           </PhonicsButton>
         )}
+        {demoDone && !isComplete && nextAccessibleStroke >= 0 && (
+          <PhonicsButton variant="secondary" size="small" onClick={completeNextStroke}>
+            Trace stroke {nextAccessibleStroke + 1} of {renderStrokes.length}
+          </PhonicsButton>
+        )}
         <AnimatePresence>
           {isComplete && (
             <motion.div
+              ref={nextActionRef}
               className="phonics-inline-actions"
               initial={{ opacity: 0, scale: 0.8, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}

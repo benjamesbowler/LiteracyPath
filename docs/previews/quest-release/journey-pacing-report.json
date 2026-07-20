@@ -1,40 +1,27 @@
 {
   "summary": {
     "stopCount": 40,
-    "actionBudget": 8,
-    "totalActions": 269,
-    "averageActions": 6.72,
+    "actionBudget": 10,
+    "totalActions": 264,
+    "averageActions": 6.6,
     "minimumActions": 4,
-    "maximumActions": 8,
+    "maximumActions": 10,
     "maximumLoadStops": [
-      "s7",
-      "s9",
-      "s10",
-      "s11",
-      "s15",
-      "s16",
-      "s23",
-      "s24",
-      "s25",
-      "s27",
-      "s28",
-      "s32",
-      "s35",
-      "s39"
+      "s26"
     ],
-    "longestMaximumLoadRun": 3,
+    "longestMaximumLoadRun": 1,
     "chapterSummaries": [
       {
         "id": "seedwake-meadow",
         "title": "Seedwake Meadow",
         "actions": [
-          7,
+          6,
           6,
           7,
           7,
           7
         ],
-        "averageActions": 6.8,
+        "averageActions": 6.6,
         "minimumActions": 6,
         "maximumActions": 7
       },
@@ -45,10 +32,10 @@
           7,
           8,
           6,
-          8,
+          7,
           8
         ],
-        "averageActions": 7.4,
+        "averageActions": 7.2,
         "minimumActions": 6,
         "maximumActions": 8
       },
@@ -56,57 +43,57 @@
         "id": "fossil-canyon",
         "title": "Fossil Canyon",
         "actions": [
-          8,
           7,
-          5,
           7,
-          8
+          6,
+          7,
+          7
         ],
-        "averageActions": 7,
-        "minimumActions": 5,
-        "maximumActions": 8
+        "averageActions": 6.8,
+        "minimumActions": 6,
+        "maximumActions": 7
       },
       {
         "id": "forge-settlement",
         "title": "Forge Settlement",
         "actions": [
-          8,
           4,
           6,
+          7,
           6,
-          6
+          7
         ],
         "averageActions": 6,
         "minimumActions": 4,
-        "maximumActions": 8
+        "maximumActions": 7
       },
       {
         "id": "glass-marsh",
         "title": "Glass Marsh",
         "actions": [
-          6,
-          5,
+          7,
+          7,
           8,
           8,
-          8
+          6
         ],
-        "averageActions": 7,
-        "minimumActions": 5,
+        "averageActions": 7.2,
+        "minimumActions": 6,
         "maximumActions": 8
       },
       {
         "id": "storm-coast",
         "title": "Storm Coast",
         "actions": [
-          7,
-          8,
-          8,
+          10,
+          6,
+          4,
           4,
           7
         ],
-        "averageActions": 6.8,
+        "averageActions": 6.2,
         "minimumActions": 4,
-        "maximumActions": 8
+        "maximumActions": 10
       },
       {
         "id": "lantern-forest",
@@ -116,9 +103,9 @@
           8,
           7,
           7,
-          8
+          7
         ],
-        "averageActions": 6.8,
+        "averageActions": 6.6,
         "minimumActions": 4,
         "maximumActions": 8
       },
@@ -126,15 +113,15 @@
         "id": "star-reach",
         "title": "Star Reach",
         "actions": [
-          5,
+          7,
           4,
           6,
-          8,
+          7,
           7
         ],
-        "averageActions": 6,
+        "averageActions": 6.2,
         "minimumActions": 4,
-        "maximumActions": 8
+        "maximumActions": 7
       }
     ]
   },
@@ -145,7 +132,7 @@
       "chapterId": "seedwake-meadow",
       "chapterTitle": "Seedwake Meadow",
       "chapterStop": 1,
-      "actions": 7,
+      "actions": 6,
       "encounters": 2,
       "beats": 4,
       "deferredBeats": 0,
@@ -189,9 +176,8 @@
           "mechanic": "bridge-build",
           "pattern": "assembly",
           "chapterAuthored": false,
-          "stages": 4,
+          "stages": 3,
           "actions": [
-            "build",
             "build",
             "build",
             "build"
@@ -470,7 +456,7 @@
       "actions": 8,
       "encounters": 3,
       "beats": 3,
-      "deferredBeats": 4,
+      "deferredBeats": 5,
       "patterns": [
         "steer",
         "assembly",
@@ -579,26 +565,15 @@
       "chapterId": "river-gardens",
       "chapterTitle": "River Gardens",
       "chapterStop": 4,
-      "actions": 8,
+      "actions": 7,
       "encounters": 3,
       "beats": 4,
-      "deferredBeats": 1,
+      "deferredBeats": 2,
       "patterns": [
         "assembly",
         "delivery"
       ],
       "tasks": [
-        {
-          "encounter": "hungry-beast",
-          "mechanic": "waterwheel-sequence",
-          "pattern": "assembly",
-          "chapterAuthored": true,
-          "stages": 2,
-          "actions": [
-            "lift-paddle",
-            "fit-paddle"
-          ]
-        },
         {
           "encounter": "hungry-beast",
           "mechanic": "waterwheel-sequence",
@@ -620,6 +595,16 @@
             "build",
             "build",
             "build"
+          ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
           ]
         },
         {
@@ -693,27 +678,16 @@
       "chapterId": "fossil-canyon",
       "chapterTitle": "Fossil Canyon",
       "chapterStop": 1,
-      "actions": 8,
+      "actions": 7,
       "encounters": 3,
       "beats": 4,
-      "deferredBeats": 3,
+      "deferredBeats": 4,
       "patterns": [
         "tool",
         "assembly",
         "delivery"
       ],
       "tasks": [
-        {
-          "encounter": "trail-run",
-          "mechanic": "bone-hunt",
-          "pattern": "tool",
-          "chapterAuthored": true,
-          "stages": 2,
-          "actions": [
-            "choose-fossil",
-            "brush-fossil"
-          ]
-        },
         {
           "encounter": "trail-run",
           "mechanic": "bone-hunt",
@@ -746,6 +720,16 @@
           "actions": [
             "carry"
           ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
         }
       ]
     },
@@ -758,7 +742,7 @@
       "actions": 7,
       "encounters": 2,
       "beats": 4,
-      "deferredBeats": 0,
+      "deferredBeats": 1,
       "patterns": [
         "route",
         "delivery"
@@ -815,9 +799,9 @@
       "chapterId": "fossil-canyon",
       "chapterTitle": "Fossil Canyon",
       "chapterStop": 3,
-      "actions": 5,
+      "actions": 6,
       "encounters": 2,
-      "beats": 2,
+      "beats": 3,
       "deferredBeats": 2,
       "patterns": [
         "assembly",
@@ -846,6 +830,16 @@
           "actions": [
             "carry"
           ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
         }
       ]
     },
@@ -858,7 +852,7 @@
       "actions": 7,
       "encounters": 2,
       "beats": 4,
-      "deferredBeats": 0,
+      "deferredBeats": 1,
       "patterns": [
         "pursuit",
         "delivery"
@@ -915,10 +909,10 @@
       "chapterId": "fossil-canyon",
       "chapterTitle": "Fossil Canyon",
       "chapterStop": 5,
-      "actions": 8,
+      "actions": 7,
       "encounters": 2,
-      "beats": 4,
-      "deferredBeats": 1,
+      "beats": 3,
+      "deferredBeats": 2,
       "patterns": [
         "signal",
         "search"
@@ -957,16 +951,6 @@
           "actions": [
             "collect"
           ]
-        },
-        {
-          "encounter": "signpost",
-          "mechanic": "object-collect",
-          "pattern": "search",
-          "chapterAuthored": false,
-          "stages": 1,
-          "actions": [
-            "collect"
-          ]
         }
       ]
     },
@@ -976,27 +960,14 @@
       "chapterId": "forge-settlement",
       "chapterTitle": "Forge Settlement",
       "chapterStop": 1,
-      "actions": 8,
+      "actions": 4,
       "encounters": 1,
-      "beats": 2,
-      "deferredBeats": 0,
+      "beats": 1,
+      "deferredBeats": 1,
       "patterns": [
         "assembly"
       ],
       "tasks": [
-        {
-          "encounter": "broken-bridge",
-          "mechanic": "machine-sequence",
-          "pattern": "assembly",
-          "chapterAuthored": true,
-          "stages": 4,
-          "actions": [
-            "lift-gear",
-            "fit-gear",
-            "lift-gear",
-            "fit-gear"
-          ]
-        },
         {
           "encounter": "broken-bridge",
           "mechanic": "machine-sequence",
@@ -1018,12 +989,13 @@
       "chapterId": "forge-settlement",
       "chapterTitle": "Forge Settlement",
       "chapterStop": 2,
-      "actions": 4,
-      "encounters": 1,
-      "beats": 2,
+      "actions": 6,
+      "encounters": 2,
+      "beats": 4,
       "deferredBeats": 0,
       "patterns": [
-        "sort"
+        "sort",
+        "search"
       ],
       "tasks": [
         {
@@ -1047,6 +1019,26 @@
             "choose-ore",
             "sort-ore"
           ]
+        },
+        {
+          "encounter": "signpost",
+          "mechanic": "object-collect",
+          "pattern": "search",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "collect"
+          ]
+        },
+        {
+          "encounter": "signpost",
+          "mechanic": "object-collect",
+          "pattern": "search",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "collect"
+          ]
         }
       ]
     },
@@ -1056,9 +1048,9 @@
       "chapterId": "forge-settlement",
       "chapterTitle": "Forge Settlement",
       "chapterStop": 3,
-      "actions": 6,
+      "actions": 7,
       "encounters": 3,
-      "beats": 3,
+      "beats": 4,
       "deferredBeats": 0,
       "patterns": [
         "assembly",
@@ -1086,6 +1078,16 @@
             "build",
             "build",
             "build"
+          ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
           ]
         },
         {
@@ -1156,9 +1158,9 @@
       "chapterId": "forge-settlement",
       "chapterTitle": "Forge Settlement",
       "chapterStop": 5,
-      "actions": 6,
+      "actions": 7,
       "encounters": 3,
-      "beats": 3,
+      "beats": 4,
       "deferredBeats": 0,
       "patterns": [
         "rhythm",
@@ -1198,6 +1200,16 @@
           "actions": [
             "carry"
           ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
         }
       ]
     },
@@ -1207,9 +1219,9 @@
       "chapterId": "glass-marsh",
       "chapterTitle": "Glass Marsh",
       "chapterStop": 1,
-      "actions": 6,
+      "actions": 7,
       "encounters": 3,
-      "beats": 3,
+      "beats": 4,
       "deferredBeats": 0,
       "patterns": [
         "rhythm",
@@ -1249,6 +1261,16 @@
           "actions": [
             "carry"
           ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
         }
       ]
     },
@@ -1258,13 +1280,14 @@
       "chapterId": "glass-marsh",
       "chapterTitle": "Glass Marsh",
       "chapterStop": 2,
-      "actions": 5,
-      "encounters": 2,
-      "beats": 2,
+      "actions": 7,
+      "encounters": 3,
+      "beats": 4,
       "deferredBeats": 0,
       "patterns": [
         "route",
-        "assembly"
+        "assembly",
+        "delivery"
       ],
       "tasks": [
         {
@@ -1288,6 +1311,26 @@
             "build",
             "build",
             "build"
+          ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
+          ]
+        },
+        {
+          "encounter": "word-beast",
+          "mechanic": "word-delivery",
+          "pattern": "delivery",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "carry"
           ]
         }
       ]
@@ -1403,10 +1446,10 @@
       "chapterId": "glass-marsh",
       "chapterTitle": "Glass Marsh",
       "chapterStop": 5,
-      "actions": 8,
+      "actions": 6,
       "encounters": 2,
-      "beats": 3,
-      "deferredBeats": 1,
+      "beats": 2,
+      "deferredBeats": 2,
       "patterns": [
         "signal",
         "assembly"
@@ -1435,17 +1478,6 @@
             "collect",
             "collect"
           ]
-        },
-        {
-          "encounter": "echo-cave",
-          "mechanic": "echo-sequence",
-          "pattern": "assembly",
-          "chapterAuthored": false,
-          "stages": 2,
-          "actions": [
-            "collect",
-            "collect"
-          ]
         }
       ]
     },
@@ -1455,13 +1487,14 @@
       "chapterId": "storm-coast",
       "chapterTitle": "Storm Coast",
       "chapterStop": 1,
-      "actions": 7,
-      "encounters": 2,
-      "beats": 2,
-      "deferredBeats": 5,
+      "actions": 10,
+      "encounters": 3,
+      "beats": 3,
+      "deferredBeats": 4,
       "patterns": [
         "climb",
-        "assembly"
+        "assembly",
+        "sort"
       ],
       "tasks": [
         {
@@ -1488,6 +1521,18 @@
             "build",
             "build"
           ]
+        },
+        {
+          "encounter": "sheep-pens",
+          "mechanic": "herd-and-sort",
+          "pattern": "sort",
+          "chapterAuthored": false,
+          "stages": 3,
+          "actions": [
+            "sort",
+            "sort",
+            "sort"
+          ]
         }
       ]
     },
@@ -1497,26 +1542,15 @@
       "chapterId": "storm-coast",
       "chapterTitle": "Storm Coast",
       "chapterStop": 2,
-      "actions": 8,
+      "actions": 6,
       "encounters": 3,
-      "beats": 4,
-      "deferredBeats": 3,
+      "beats": 3,
+      "deferredBeats": 4,
       "patterns": [
         "delivery",
         "assembly"
       ],
       "tasks": [
-        {
-          "encounter": "flower-patch",
-          "mechanic": "harbour-delivery",
-          "pattern": "delivery",
-          "chapterAuthored": true,
-          "stages": 2,
-          "actions": [
-            "lift-crate",
-            "dock-crate"
-          ]
-        },
         {
           "encounter": "flower-patch",
           "mechanic": "harbour-delivery",
@@ -1558,27 +1592,14 @@
       "chapterId": "storm-coast",
       "chapterTitle": "Storm Coast",
       "chapterStop": 3,
-      "actions": 8,
+      "actions": 4,
       "encounters": 1,
-      "beats": 2,
-      "deferredBeats": 0,
+      "beats": 1,
+      "deferredBeats": 1,
       "patterns": [
         "assembly"
       ],
       "tasks": [
-        {
-          "encounter": "broken-bridge",
-          "mechanic": "storm-shelter",
-          "pattern": "assembly",
-          "chapterAuthored": true,
-          "stages": 4,
-          "actions": [
-            "lift-board",
-            "lock-board",
-            "lift-board",
-            "lock-board"
-          ]
-        },
         {
           "encounter": "broken-bridge",
           "mechanic": "storm-shelter",
@@ -1641,7 +1662,7 @@
       "actions": 7,
       "encounters": 3,
       "beats": 3,
-      "deferredBeats": 2,
+      "deferredBeats": 3,
       "patterns": [
         "signal",
         "assembly",
@@ -1885,10 +1906,10 @@
       "chapterId": "lantern-forest",
       "chapterTitle": "Lantern Forest",
       "chapterStop": 5,
-      "actions": 8,
+      "actions": 7,
       "encounters": 3,
-      "beats": 4,
-      "deferredBeats": 0,
+      "beats": 3,
+      "deferredBeats": 1,
       "patterns": [
         "turn",
         "assembly",
@@ -1928,16 +1949,6 @@
           "actions": [
             "collect"
           ]
-        },
-        {
-          "encounter": "signpost",
-          "mechanic": "object-collect",
-          "pattern": "search",
-          "chapterAuthored": false,
-          "stages": 1,
-          "actions": [
-            "collect"
-          ]
         }
       ]
     },
@@ -1947,10 +1958,10 @@
       "chapterId": "star-reach",
       "chapterTitle": "Star Reach",
       "chapterStop": 1,
-      "actions": 5,
+      "actions": 7,
       "encounters": 3,
       "beats": 3,
-      "deferredBeats": 0,
+      "deferredBeats": 1,
       "patterns": [
         "route",
         "assembly"
@@ -1972,8 +1983,10 @@
           "mechanic": "bridge-build",
           "pattern": "assembly",
           "chapterAuthored": false,
-          "stages": 2,
+          "stages": 4,
           "actions": [
+            "build",
+            "build",
             "build",
             "build"
           ]
@@ -2093,10 +2106,10 @@
       "chapterId": "star-reach",
       "chapterTitle": "Star Reach",
       "chapterStop": 4,
-      "actions": 8,
+      "actions": 7,
       "encounters": 3,
       "beats": 3,
-      "deferredBeats": 0,
+      "deferredBeats": 1,
       "patterns": [
         "assembly",
         "route"
@@ -2118,9 +2131,8 @@
           "mechanic": "echo-sequence",
           "pattern": "assembly",
           "chapterAuthored": false,
-          "stages": 5,
+          "stages": 4,
           "actions": [
-            "collect",
             "collect",
             "collect",
             "collect",
@@ -2147,7 +2159,7 @@
       "chapterStop": 5,
       "actions": 7,
       "encounters": 3,
-      "beats": 3,
+      "beats": 4,
       "deferredBeats": 0,
       "patterns": [
         "rhythm",
@@ -2171,12 +2183,21 @@
           "mechanic": "bridge-build",
           "pattern": "assembly",
           "chapterAuthored": false,
-          "stages": 4,
+          "stages": 3,
           "actions": [
             "build",
             "build",
-            "build",
             "build"
+          ]
+        },
+        {
+          "encounter": "story-rock",
+          "mechanic": "story-choice",
+          "pattern": "route",
+          "chapterAuthored": false,
+          "stages": 1,
+          "actions": [
+            "choose-path"
           ]
         },
         {

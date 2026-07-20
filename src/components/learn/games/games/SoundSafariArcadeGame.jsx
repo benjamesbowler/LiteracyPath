@@ -7,8 +7,13 @@ import {
   playTapSound,
   playWhoosh
 } from "../../../../utils/audio/gameSfx.js";
-import { speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
-import { soundSafariLadder, soundSafariStars } from "../../../../utils/soundSafariRounds.js";
+import { speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
+import {
+  selectSafariCapture,
+  soundSafariLadder,
+  soundSafariStars,
+  soundSafariPresentedStars
+} from "../../../../utils/soundSafariRounds.js";
 import {
   TWO_PI,
   clamp,
@@ -149,12 +154,25 @@ function drawOnboarding(ctx, state, config, theme, w, h) {
   const px = (w - panelW) / 2;
   const py = (h - panelH) / 2;
   psxPanel(ctx, px, py, panelW, panelH, "rgba(3,8,18,.94)", `${theme.accent}aa`, 24);
-  text(ctx, config.title, w / 2, py + panelH * 0.17, clamp(w * 0.05, 30, 52), theme.accent, "center", 900);
-  text(ctx, config.action, w / 2, py + panelH * 0.31, clamp(w * 0.026, 17, 24), "#fff", "center", 900);
+  text(ctx, config.title, w / 2, py + panelH * 0.14, clamp(w * 0.05, 30, 52), theme.accent, "center", 900);
+  text(ctx, config.action, w / 2, py + panelH * 0.25, clamp(w * 0.026, 17, 24), "#fff", "center", 900);
+
+  // Picture-first rule: listen -> find the shown sound -> net the critter.
+  // The text remains for readers/translation, but is no longer the only way a
+  // pre-reader can understand the first-run card.
+  const iconY = py + panelH * 0.39;
+  const iconSize = clamp(panelH * 0.13, 42, 58);
+  const iconXs = [w / 2 - iconSize * 1.65, w / 2, w / 2 + iconSize * 1.65];
+  for (const iconX of iconXs) psxPanel(ctx, iconX - iconSize / 2, iconY - iconSize / 2, iconSize, iconSize, "rgba(255,255,255,.1)", `${theme.accent2}aa`, 9);
+  text(ctx, "♪", iconXs[0], iconY + 2, iconSize * 0.62, theme.accent2, "center", 900);
+  text(ctx, "sh", iconXs[1], iconY + 1, iconSize * 0.42, "#fff", "center", 900);
+  text(ctx, "◎", iconXs[2], iconY + 2, iconSize * 0.62, theme.accent, "center", 900);
+  text(ctx, "→", (iconXs[0] + iconXs[1]) / 2, iconY + 2, iconSize * 0.42, "#fff", "center", 900);
+  text(ctx, "→", (iconXs[1] + iconXs[2]) / 2, iconY + 2, iconSize * 0.42, "#fff", "center", 900);
   const hints = config.onboardingHints || [];
   const hintSize = clamp(w * 0.021, 14, 20);
-  const firstY = py + panelH * 0.46;
-  const gap = panelH * 0.125;
+  const firstY = py + panelH * 0.57;
+  const gap = panelH * 0.09;
   for (let i = 0; i < hints.length; i += 1) {
     drawFittedHint(ctx, hints[i], w / 2, firstY + i * gap, panelW * 0.86, hintSize, "#eaf8ff");
   }
@@ -710,21 +728,16 @@ function taskUnits(task) {
   return task.item.graphemes.length;
 }
 
-function totalUnits(ladder) {
-  return ladder.reduce((sum, level) => sum + makeTasks(level).reduce((inner, task) => inner + taskUnits(task), 0), 0);
-}
-
 function neededSound(task) {
   return task?.item.graphemes[task.index] || "";
 }
 
-// speakPhoneme only handles single letters; multi-letter graphemes route
-// through the word bank and stay silent when no recording exists.
 function speakGrapheme(grapheme) {
   const value = String(grapheme || "");
   if (!value) return;
-  if (value.length === 1) speakPhoneme(value);
-  else speak(value);
+  // speakPhoneme handles both letters and recorded digraphs (sh/ch/th/wh/ck/ng).
+  // Sending a digraph through speak() incorrectly looks for a word named "sh".
+  speakPhoneme(value);
 }
 
 function rotate(values, amount) {
@@ -802,6 +815,30 @@ function drawFieldGuide(ctx, task, theme, w, h, showNeeded) {
     psxPanel(ctx, w / 2 - Math.min(280, guideW * 0.42) / 2, h * 0.198, Math.min(280, guideW * 0.42), 38, "rgba(0,0,0,.38)", `${theme.accent}86`, 10);
     text(ctx, `Next sound: ${neededSound(task)}`, w / 2, h * 0.222, clamp(w * 0.024, 20, 30), theme.accent, "center", 900);
   }
+
+  // The whole field guide is a generous replay target; this speaker mark gives
+  // pre-readers a persistent, language-independent way to hear the word again.
+  const speakerX = x + guideW - 40;
+  const speakerY = h * 0.156;
+  ctx.save();
+  ctx.fillStyle = `${theme.accent}2e`;
+  ctx.strokeStyle = `${theme.accent}b8`;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(speakerX, speakerY, 25, 0, TWO_PI);
+  ctx.fill();
+  ctx.stroke();
+  text(ctx, "♪", speakerX, speakerY + 1, 27, theme.accent, "center", 900);
+  ctx.restore();
+}
+
+function fieldGuideReplayBox(w, h) {
+  const guideW = Math.min(560, w * 0.62);
+  return { x: w / 2 - guideW / 2, y: h * 0.112, w: guideW, h: 112 };
+}
+
+function pointInside(box, x, y) {
+  return Boolean(box && x >= box.x && x <= box.x + box.w && y >= box.y && y <= box.y + box.h);
 }
 
 function drawGuide(ctx, image, theme, w, h, time) {
@@ -1028,7 +1065,9 @@ function drawCritter(ctx, critter, needed, theme, time, world, sprite) {
 
   critter.hitX = center.x;
   critter.hitY = center.y + r * 0.18;
-  critter.hitRadius = Math.max(r + 62, spriteMaxH * 0.58);
+  // Keep touch targets generous without letting them engulf adjacent critters;
+  // ambiguous overlap is resolved separately by selectSafariCapture().
+  critter.hitRadius = Math.max(r + 40, spriteMaxH * 0.52);
   critter.labelBox = {
     x: center.x - plateW / 2,
     y: plateY,
@@ -1157,7 +1196,6 @@ function drawSafari(ctx, state, config, theme, images, w, h) {
 function startSoundSafariArcadeGame(mount, options) {
   const config = CONFIG[options.kind] || CONFIG["sound-safari"];
   const ladder = config.ladder(options.difficulty);
-  const total = totalUnits(ladder);
   const images = {
     guide: loadImage(config.guide),
     net: loadImage(config.net),
@@ -1166,7 +1204,10 @@ function startSoundSafariArcadeGame(mount, options) {
   };
 
   const { canvas, ctx } = createGameCanvas(mount);
-  const reduceMotion = prefersReducedMotion();
+  const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)") || null;
+  let reduceMotion = motionQuery?.matches ?? prefersReducedMotion();
+  const syncReducedMotion = event => { reduceMotion = Boolean(event.matches); };
+  motionQuery?.addEventListener?.("change", syncReducedMotion);
   const { soundAllowed, sfx } = createSoundGate(options);
 
   const state = {
@@ -1183,6 +1224,8 @@ function startSoundSafariArcadeGame(mount, options) {
     correct: 0,
     mistakes: 0,
     wordsCompleted: 0,
+    presentedUnits: 0,
+    presentedTaskIds: new Set(),
     progress: 0,
     paused: false,
     ended: false,
@@ -1266,6 +1309,10 @@ function startSoundSafariArcadeGame(mount, options) {
     state.coachText = "";
     state.coachT = 0;
     if (!state.currentTask) return;
+    if (!state.presentedTaskIds.has(state.currentTask.id)) {
+      state.presentedTaskIds.add(state.currentTask.id);
+      state.presentedUnits += taskUnits(state.currentTask);
+    }
     // Held while the first-run card is up; dismissOnboarding says it instead.
     if (!state.onboarding && soundAllowed()) speakWord(state.currentTask.item.word);
     state.waveSeed += 1;
@@ -1388,7 +1435,11 @@ function startSoundSafariArcadeGame(mount, options) {
       state.ended = true;
       state.progress = 1;
       options.onProgressUpdate?.(ladder.length, ladder.length);
-      options.onComplete?.(config.stars({ correct: state.correct, total, mistakes: state.mistakes }), state.score, state.wordsCompleted);
+      options.onComplete?.(soundSafariPresentedStars({
+        correct: state.correct,
+        presentedUnits: state.presentedUnits,
+        mistakes: state.mistakes
+      }), state.score, state.wordsCompleted);
       return;
     }
     state.stage = nextStage;
@@ -1404,7 +1455,13 @@ function startSoundSafariArcadeGame(mount, options) {
     state.net.swingT = 0.22;
     sfx(playTapSound);
 
-    const hit = state.critters
+    if (pointInside(fieldGuideReplayBox(w, h), x, y)) {
+      if (soundAllowed()) speakWord(task.item.word);
+      setCoach("Listen, then catch each sound");
+      return;
+    }
+
+    const hitEntries = state.critters
       .map(critter => {
         const center = critterCenter(critter, state.time);
         const labelBox = critter.labelBox;
@@ -1417,15 +1474,15 @@ function startSoundSafariArcadeGame(mount, options) {
         );
         const distance = Math.hypot(x - (critter.hitX || center.x), y - (critter.hitY || center.y));
         return { critter, center, distance, inLabel };
-      })
-      .sort((a, b) => (a.inLabel ? 0 : a.distance) - (b.inLabel ? 0 : b.distance))
-      .find(entry => entry.inLabel || entry.distance <= (entry.critter.hitRadius || entry.critter.r + 54));
+      });
 
     const needed = neededSound(task);
+    const hit = selectSafariCapture(hitEntries, needed);
     if (!hit) {
       // Medium/hard conceal the needed grapheme until the adaptive hint
       // unlocks (2 misses on this grapheme), matching drawSafari's showHint.
       setCoach(state.rank === 0 || task.attempts >= 2 ? `Find ${needed} next` : "Say the word slowly — which sound is next?");
+      if (soundAllowed()) speakWord(task.item.word);
       return;
     }
 
@@ -1441,6 +1498,7 @@ function startSoundSafariArcadeGame(mount, options) {
       hit.critter.vy += (hit.center.y >= y ? 1 : -1) * 34;
       setCoach(state.rank === 0 || task.attempts >= 2 ? `Need ${needed} before ${hit.critter.label}` : "Not that one — listen to the word again!");
       sfx(playSoftBuzz);
+      if (soundAllowed()) speakWord(task.item.word);
       return;
     }
 
@@ -1496,10 +1554,12 @@ function startSoundSafariArcadeGame(mount, options) {
   }
 
   function onKeyDown(event) {
-    // Any key starts play from the intro card (Esc stays with the chrome).
+    // Only game activation keys dismiss the card. Tab and assistive-tech or
+    // browser shortcuts must continue to work while onboarding is visible.
     if (state.onboarding) {
-      if (event.key === "Escape") return;
-      if (event.key === " " || event.key === "Enter" || event.key.startsWith("Arrow")) event.preventDefault();
+      const activates = event.key === " " || event.key === "Enter" || event.key.startsWith("Arrow");
+      if (!activates) return;
+      event.preventDefault();
       dismissOnboarding();
       return;
     }
@@ -1521,7 +1581,8 @@ function startSoundSafariArcadeGame(mount, options) {
   }
 
   function update(dt) {
-    state.time += reduceMotion ? dt * 0.35 : dt;
+    const motionDt = reduceMotion ? dt * 0.35 : dt;
+    state.time += motionDt;
     state.pulse = Math.max(0, state.pulse - dt * 2.7);
     state.judgementT = Math.max(0, state.judgementT - dt);
     state.coachT = Math.max(0, state.coachT - dt);
@@ -1541,24 +1602,24 @@ function startSoundSafariArcadeGame(mount, options) {
       if (critter.moveStyle === "orbit") {
         const targetX = critter.homeX + Math.sin(t * 0.92 * critter.speedScale) * critter.orbitX;
         const targetY = critter.homeY + Math.cos(t * 0.78 * critter.speedScale) * critter.orbitY;
-        critter.x += (targetX - critter.x) * clamp(dt * 2.4, 0, 1);
-        critter.y += (targetY - critter.y) * clamp(dt * 2.1, 0, 1);
+        critter.x += (targetX - critter.x) * clamp(motionDt * 2.4, 0, 1);
+        critter.y += (targetY - critter.y) * clamp(motionDt * 2.1, 0, 1);
       } else if (critter.moveStyle === "zigzag") {
-        critter.x += critter.vx * dt;
-        critter.y += (critter.vy + Math.sin(t * 3.1) * 24 * critter.speedScale) * dt;
+        critter.x += critter.vx * motionDt;
+        critter.y += (critter.vy + Math.sin(t * 3.1) * 24 * critter.speedScale) * motionDt;
       } else if (critter.moveStyle === "peek") {
         const peek = Math.max(0, Math.sin(t * 1.35));
         const targetX = critter.homeX + Math.sin(t * 0.72) * critter.orbitX * 1.35;
         const targetY = critter.homeY - peek * critter.orbitY * 1.7;
-        critter.x += (targetX - critter.x) * clamp(dt * 2.8, 0, 1);
-        critter.y += (targetY - critter.y) * clamp(dt * 3.1, 0, 1);
+        critter.x += (targetX - critter.x) * clamp(motionDt * 2.8, 0, 1);
+        critter.y += (targetY - critter.y) * clamp(motionDt * 3.1, 0, 1);
       } else {
-        critter.x += critter.vx * dt;
-        critter.y += critter.vy * dt;
+        critter.x += critter.vx * motionDt;
+        critter.y += critter.vy * motionDt;
       }
       if (critter.scareT > 0) {
-        critter.x += Math.cos(t * 4.7) * critter.scareT * 48 * dt;
-        critter.y += Math.sin(t * 5.1) * critter.scareT * 30 * dt;
+        critter.x += Math.cos(t * 4.7) * critter.scareT * 48 * motionDt;
+        critter.y += Math.sin(t * 5.1) * critter.scareT * 30 * motionDt;
       }
       critter.depth = clamp((critter.y - h * 0.28) / (h * 0.38), 0, 1);
       const edgePad = Math.max(76, critter.r * 1.75);
@@ -1631,6 +1692,7 @@ function startSoundSafariArcadeGame(mount, options) {
       canvas.removeEventListener("pointermove", onPointerMove);
       canvas.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("keydown", onKeyDown);
+      motionQuery?.removeEventListener?.("change", syncReducedMotion);
       if (canvas.parentNode === mount) mount.removeChild(canvas);
     },
     debugSnapshot() {
@@ -1658,6 +1720,8 @@ function startSoundSafariArcadeGame(mount, options) {
         })),
         judgement: state.judgement,
         coachText: state.coachText,
+        presentedUnits: state.presentedUnits,
+        reducedMotion: reduceMotion,
         wordClearT: state.wordClearT,
         backgroundReady: Boolean(images.backgrounds[state.level?.world]?.complete),
         guideReady: Boolean(images.guide?.complete),

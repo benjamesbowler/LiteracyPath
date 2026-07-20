@@ -322,6 +322,10 @@ function prepareImportedFieldAvatar(gltf, shape, spec, { maxAnisotropy = 1 } = {
 
   visual.traverse(object => {
     if (!object.isMesh) return;
+    // cloneSkeleton intentionally shares geometry with the cached glTF. Field
+    // avatars are disposed with their scene, so give each avatar ownership of
+    // its buffers before teardown can invalidate the cache or a sibling.
+    object.geometry = object.geometry.clone();
     const originals = Array.isArray(object.material) ? object.material : [object.material];
     const replacements = originals.map(original => {
       const key = `${original.uuid}:${spec.tint || "none"}`;

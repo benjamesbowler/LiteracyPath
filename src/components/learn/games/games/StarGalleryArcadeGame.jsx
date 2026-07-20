@@ -1194,7 +1194,8 @@ function createStarGalleryEngine(mount, options) {
   if (!previousPosition) mount.style.position = "relative";
   // Hardware quality tier: scales the DPR cap, shadow mode and trail particle
   // pool so weak devices get a lighter scene instead of a stuttery one.
-  const qualityTier = detectQualityTier();
+  const motionQuery = window.matchMedia?.("(prefers-reduced-motion: reduce)") || null;
+  let qualityTier = detectQualityTier();
 
   const renderer = createRenderer(THREE, {
     antialias: false,
@@ -1277,12 +1278,25 @@ function createStarGalleryEngine(mount, options) {
     return Math.max(280, rect.height || mount.clientHeight || 420);
   };
   const handleResize = () => {
-    applyQualityTier(renderer, qualityTier, { floor: 1 });
+    reassessQualityTier();
     // Collapse the fixed side panels on narrow screens so they stop overlapping the center prompt.
     const narrowHud = mountWidth() < 650;
     nodes.panelLeft.style.display = narrowHud ? "none" : "";
     nodes.panelRight.style.display = narrowHud ? "none" : "";
   };
+
+  function reassessQualityTier() {
+    qualityTier = detectQualityTier();
+    applyQualityTier(renderer, qualityTier, { floor: 1 });
+    if (renderer.shadowMap) {
+      renderer.shadowMap.type = qualityTier === "high" ? THREE.PCFSoftShadowMap : THREE.PCFShadowMap;
+    }
+    state.levelRoot?.traverse?.(node => {
+      if (node.isDirectionalLight) node.castShadow = qualityTier !== "low";
+    });
+  }
+  const syncMotionPreference = () => reassessQualityTier();
+  motionQuery?.addEventListener?.("change", syncMotionPreference);
 
   function setScore(nextScore) {
     state.score = Math.max(0, Math.round(nextScore));
@@ -1702,8 +1716,9 @@ function createStarGalleryEngine(mount, options) {
   function updateTrails(dt) {
     state.trailClock -= dt;
     const speed = Math.abs(state.player.speed);
-    if (state.trailParticles.length && speed > 4.2 && state.trailClock <= 0) {
-      const particle = state.trailParticles[state.trailCursor % state.trailParticles.length];
+    const activeTrailCount = Math.min(state.trailParticles.length, particleCountForTier(qualityTier, 34));
+    if (activeTrailCount && speed > 4.2 && state.trailClock <= 0) {
+      const particle = state.trailParticles[state.trailCursor % activeTrailCount];
       state.trailCursor += 1;
       const side = Math.sin(clock.elapsedTime * 19 + state.trailCursor) * 0.34;
       const forward = new THREE.Vector3(Math.sin(state.player.yaw), 0, Math.cos(state.player.yaw));
@@ -2064,6 +2079,7 @@ function createStarGalleryEngine(mount, options) {
       timers.forEach(timer => window.clearTimeout(timer));
       timers.clear();
       detachResize();
+      motionQuery?.removeEventListener?.("change", syncMotionPreference);
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
       window.removeEventListener("keydown", onIntroKey, true);

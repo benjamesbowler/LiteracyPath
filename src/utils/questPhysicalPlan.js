@@ -1,10 +1,12 @@
 import { buildPhysicalTask } from "./questPhysicalMechanics.js";
 
-// Raised 8 -> 10 after the deep review: the 8-action budget silently deferred
-// 44 beats across 20 of 40 stops (s26 lost its whole sort encounter). Ten
-// rendered actions still reads as a walk, and clears nearly every deferral;
-// the few that remain return through spaced review (see the note below).
+// Ten is a hard breadth ceiling, not a target. Some authored stops need up to
+// ten actions to preserve one complete beat from every resident/shell (s26 is
+// the important case); once that breadth is safe, optional later beats stop at
+// seven actions so the journey still satisfies the measured child-sized pacing
+// band. Deferred evidence returns through spaced review.
 export const QUEST_PHYSICAL_ACTION_BUDGET = 10;
+export const QUEST_PHYSICAL_ENRICHMENT_TARGET = 7;
 export const QUEST_PACING_SLOW_RESPONSE_MS = 8000;
 
 export function questPacingDecision({ tally = {}, slowResponses = 0, completedBeats = 0, totalBeats = 0 } = {}) {
@@ -33,7 +35,8 @@ function beatCost(section, encounter, beat, beatIndex) {
 
 export function budgetPhysicalSection(section, budget = QUEST_PHYSICAL_ACTION_BUDGET) {
   if (!section?.encounters?.length) return section;
-  let remaining = Math.max(1, Number(budget) || QUEST_PHYSICAL_ACTION_BUDGET);
+  const actionBudget = Math.max(1, Number(budget) || QUEST_PHYSICAL_ACTION_BUDGET);
+  let remaining = actionBudget;
   const selected = [];
 
   // First preserve breadth: one complete physical moment from as many residents
@@ -45,6 +48,13 @@ export function budgetPhysicalSection(section, budget = QUEST_PHYSICAL_ACTION_BU
     selected.push({ encounter, beatEntries: [{ beat, originalIndex: 0, cost }] });
     remaining -= cost;
   }
+
+  // Breadth is non-negotiable: an authored encounter must not vanish merely
+  // because an earlier encounter used the normal enrichment allowance. Extra
+  // beats are the flexible part, so only those are held to the soft target.
+  const breadthActions = actionBudget - remaining;
+  const enrichmentTarget = Math.min(actionBudget, QUEST_PHYSICAL_ENRICHMENT_TARGET);
+  remaining = Math.min(remaining, Math.max(0, enrichmentTarget - breadthActions));
 
   // Then use spare room for later evidence without crowding out a different
   // character or activity. Unplayed evidence returns through spaced review.
@@ -65,12 +75,11 @@ export function budgetPhysicalSection(section, budget = QUEST_PHYSICAL_ACTION_BU
     selected.push({ encounter, beatEntries: [{ beat, originalIndex: 0, cost: beatCost(section, encounter, beat, 0) }] });
   }
 
-  // Deferral notes: with the ceiling at 10 the sim shows almost nothing is
-  // deferred; anything that is comes back through spaced review (the
-  // scheduler's whole job, proven by the recurrence playthrough test). A
-  // hard never-defer-a-sole-carrier rule was tried and rejected: at an
-  // 8-target stop nearly every beat is a sole carrier, so the rule quietly
-  // deleted the budget instead of the budget deleting lessons.
+  // Deferral notes: anything beyond the soft enrichment target comes back
+  // through spaced review (the scheduler's whole job, proven by the recurrence
+  // playthrough test). A hard never-defer-a-sole-carrier rule was tried and
+  // rejected: at an 8-target stop nearly every beat is a sole carrier, so the
+  // rule quietly deleted the budget instead of the budget deleting lessons.
   const encounters = selected.map((entry, order) => ({
     ...entry.encounter,
     order,
@@ -82,7 +91,7 @@ export function budgetPhysicalSection(section, budget = QUEST_PHYSICAL_ACTION_BU
     ...section,
     encounters,
     physicalPlan: {
-      budget: Math.max(1, Number(budget) || QUEST_PHYSICAL_ACTION_BUDGET),
+      budget: actionBudget,
       actions: encounters.reduce((total, encounter) => (
         total + encounter.beats.reduce((beatTotal, beat, beatIndex) => (
           beatTotal + beatCost({ ...section, encounters }, encounter, beat, beatIndex)

@@ -78,7 +78,7 @@ const PROFILE_DEFINITIONS = Object.freeze([
     target: "3 different room profiles",
     description: "Play phonics prompts with the normal score and room noise present. Record intelligibility, cue masking, and sensory discomfort exactly as observed.",
     fields: [
-      { key: "roomProfile", label: "Anonymous room profile", type: "text", hint: "For example ROOM-LIBRARY" },
+      { key: "roomProfile", label: "Anonymous room profile", type: "text", hint: "For example ROOM-001" },
       { key: "deviceModel", label: "Playback device model", type: "text" },
       { key: "promptsPlayed", label: "Prompts played", type: "number", min: 10 },
       { key: "promptsUnderstood", label: "Prompts understood", type: "number", min: 0 },
@@ -174,7 +174,7 @@ function observationFromDraft(profileId, draft) {
 }
 
 function recordKey(record) {
-  return `${record.profileId}:${String(record.sessionId || "").toLowerCase()}`;
+  return `${record.profileId}:${String(record.sessionId || "").toLowerCase()}:${String(record.participant?.anonymousId || "").toLowerCase()}`;
 }
 
 function downloadJson(fileName, value) {
@@ -188,7 +188,9 @@ function downloadJson(fileName, value) {
 }
 
 function safeFileName(record) {
-  return `${record.profileId}-${record.sessionId}`.toLowerCase().replace(/[^a-z0-9-]+/g, "-");
+  return `${record.profileId}-${record.sessionId}-${record.participant?.anonymousId || "participant"}`
+    .toLowerCase()
+    .replace(/[^a-z0-9-]+/g, "-");
 }
 
 function profileCount(records, profileId) {
@@ -309,7 +311,7 @@ export default function QuestFieldStudyConsole() {
       return;
     }
     if (records.some(record => recordKey(record) === recordKey(candidate))) {
-      setMessage({ tone: "error", text: "That study type and session code already exist. Use a new anonymous session code." });
+      setMessage({ tone: "error", text: "That study type, session, and participant code already exist." });
       return;
     }
     const sealed = await sealQuestHumanObservation(candidate);
@@ -465,7 +467,7 @@ export default function QuestFieldStudyConsole() {
                 </label>
                 <label className="qe-field" htmlFor="setting-id">
                   <span>Setting code</span>
-                  <input id="setting-id" value={draft.settingId} autoComplete="off" spellCheck="false" placeholder="ROOM-QUIET" onChange={event => updateDraft("settingId", event.target.value)} />
+                  <input id="setting-id" value={draft.settingId} autoComplete="off" spellCheck="false" placeholder="ROOM-001" onChange={event => updateDraft("settingId", event.target.value)} />
                 </label>
               </div>
             </fieldset>
@@ -475,7 +477,7 @@ export default function QuestFieldStudyConsole() {
               <div className="qe-field-grid">
                 <label className="qe-field" htmlFor="participant-id">
                   <span>{participantLabel}</span>
-                  <input id="participant-id" value={draft.participantId} autoComplete="off" spellCheck="false" placeholder={profileId === "teacher-report" ? "ADULT-001" : "CHILD-001"} onChange={event => updateDraft("participantId", event.target.value)} />
+                  <input id="participant-id" value={draft.participantId} autoComplete="off" spellCheck="false" placeholder={profileId === "teacher-report" ? "ADULT-001" : profileId === "classroom-audio" ? "AUDIO-001" : "CHILD-001"} onChange={event => updateDraft("participantId", event.target.value)} />
                 </label>
                 {["child-first-use", "child-repeat-play", "reward-choice"].includes(profileId) && (
                   <label className="qe-field" htmlFor="age-years">

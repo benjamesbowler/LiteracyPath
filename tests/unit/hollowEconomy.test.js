@@ -1,11 +1,18 @@
 // Rewards V2 economy - the maths a child's wallet depends on.
 import test from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import {
   WELCOME_GIFT, COIN_RATES, earnedCoins, earnedBerries,
   seasonForDate, marketCatalog, stageForFeeds, hatchSpecies,
-  computeHollow, canBuy, GEAR, EGGS, BEASTIES, CARAVANS
+  computeHollow, canBuy, tryHollowFeed, tryHollowPurchase,
+  GEAR, EGGS, BEASTIES, CARAVANS
 } from "../../src/utils/hollowEconomy.js";
+import {
+  MAX_HOLLOW_PURCHASE_RECORDS,
+  MAX_HOLLOW_FEEDS_PER_SPECIES
+} from "../../src/utils/hollowLedgerPolicy.js";
+import { DEN_THEMES, isDenThemeUnlocked } from "../../src/utils/denRewards.js";
 import { computeHydratedValue } from "../../src/utils/progressMerge.js";
 import { PROGRESS_AREAS, localProgressStorageKey } from "../../src/utils/progressKeys.js";
 
@@ -71,6 +78,23 @@ test("bronze eggs hatch commons; gold eggs never hatch a common", () => {
     assert.equal(bronze.rarity, "common");
     const gold = hatchSpecies("gold", `seed-${i}`, []);
     assert.ok(gold.rarity === "rare" || gold.rarity === "epic");
+  }
+});
+
+test("silver and gold eggs fall through an exhausted rolled rarity instead of charging for a duplicate", () => {
+  const rares = BEASTIES.filter(species => species.rarity === "rare");
+  const epics = BEASTIES.filter(species => species.rarity === "epic");
+  const missingEpic = epics.at(-1);
+  const goldOwned = [...rares, ...epics.slice(0, -1)].map(species => species.id);
+  for (let index = 0; index < 40; index += 1) {
+    assert.equal(hatchSpecies("gold", `gold-fallback-${index}`, goldOwned).id, missingEpic.id);
+  }
+
+  const commons = BEASTIES.filter(species => species.rarity === "common");
+  const missingRare = rares.at(-1);
+  const silverOwned = [...commons, ...rares.slice(0, -1)].map(species => species.id);
+  for (let index = 0; index < 40; index += 1) {
+    assert.equal(hatchSpecies("silver", `silver-fallback-${index}`, silverOwned).id, missingRare.id);
   }
 });
 
@@ -148,6 +172,68 @@ test("canBuy: blocks unknown/owned/too-expensive, allows repeat eggs", () => {
   assert.equal(verdict.ok, false);
   assert.equal(verdict.reason, "coins");
   assert.ok(verdict.short > 0);
+});
+
+test("the Hollow mutation gate re-checks the fresh ledger before a second fast purchase", () => {
+  const first = tryHollowPurchase({}, {}, "gear-explorer-pack", {
+    id: "buy-first",
+    at: "2026-07-20T10:00:00.000Z"
+  });
+  assert.ok(first);
+  assert.equal(first.record.cost, 80);
+  assert.equal(
+    tryHollowPurchase(first.ledger, {}, "gear-trail-boots", {
+      id: "buy-second",
+      at: "2026-07-20T10:00:00.001Z"
+    }),
+    null,
+    "the stale UI's second individually-affordable tap must not overspend the fresh wallet"
+  );
+});
+
+test("feeding stops at Grand and append-only Hollow history stays bounded after merge", () => {
+  const egg = tryHollowPurchase({}, { booksRead: 20 }, "egg-welcome", {
+    id: "welcome",
+    at: "2026-07-20T09:00:00.000Z"
+  });
+  const species = computeHollow(egg.ledger, { booksRead: 20 }).beasties[0].id;
+  let ledger = egg.ledger;
+  for (let index = 0; index < MAX_HOLLOW_FEEDS_PER_SPECIES; index += 1) {
+    const fed = tryHollowFeed(ledger, { booksRead: 20 }, species, {
+      id: `feed-${index}`,
+      at: `2026-07-20T10:00:${String(index).padStart(2, "0")}.000Z`
+    });
+    assert.ok(fed);
+    ledger = fed.ledger;
+  }
+  assert.equal(tryHollowFeed(ledger, { booksRead: 20 }, species, { id: "feed-extra" }), null);
+
+  const local = {
+    purchases: Array.from({ length: 90 }, (_, index) => ({ id: `local-buy-${index}`, at: `a-${String(index).padStart(3, "0")}` })),
+    feeds: Array.from({ length: 60 }, (_, index) => ({ id: `local-feed-${index}`, species, at: `a-${String(index).padStart(3, "0")}` }))
+  };
+  const cloud = {
+    purchases: Array.from({ length: 90 }, (_, index) => ({ id: `cloud-buy-${index}`, at: `b-${String(index).padStart(3, "0")}` })),
+    feeds: Array.from({ length: 60 }, (_, index) => ({ id: `cloud-feed-${index}`, species, at: `b-${String(index).padStart(3, "0")}` }))
+  };
+  const merged = computeHydratedValue("hollow", "__all__", local, cloud);
+  assert.equal(merged.purchases.length, MAX_HOLLOW_PURCHASE_RECORDS);
+  assert.equal(merged.feeds.length, MAX_HOLLOW_FEEDS_PER_SPECIES);
+});
+
+test("Den themes enforce their lifetime-gem unlock thresholds", () => {
+  const meadow = DEN_THEMES.find(theme => theme.id === "meadow");
+  const dino = DEN_THEMES.find(theme => theme.id === "dino");
+  const moonwood = DEN_THEMES.find(theme => theme.id === "moonwood");
+  assert.equal(isDenThemeUnlocked(meadow, 0), true);
+  assert.equal(isDenThemeUnlocked(dino, 19), false);
+  assert.equal(isDenThemeUnlocked(dino, 20), true);
+  assert.equal(isDenThemeUnlocked(moonwood, 44), false);
+  assert.equal(isDenThemeUnlocked(moonwood, 45), true);
+
+  const page = fs.readFileSync("src/components/HollowPage.jsx", "utf8");
+  assert.match(page, /if \(!isDenThemeUnlocked\(next, treasury\.gems\)\) return/, "direct selection bypasses the threshold");
+  assert.match(page, /disabled=\{!unlocked\}/, "locked backdrops remain selectable");
 });
 
 test("hollow progress area exists and has a storage key", () => {

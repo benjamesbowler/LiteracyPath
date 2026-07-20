@@ -10,12 +10,20 @@ test("the device recorder measures a stable live pixel session and seals its evi
 
   const canvas = page.locator(".qp-canvas canvas");
   await expect(canvas).toBeVisible();
-  const box = await canvas.boundingBox();
-  expect(box).toBeTruthy();
-  for (const ratio of [0.44, 0.56, 0.48, 0.52]) {
-    await canvas.click({ position: { x: box.width * ratio, y: box.height * 0.72 } });
-    await page.waitForTimeout(350);
+  expect(await canvas.boundingBox()).toBeTruthy();
+
+  // Exercise real supported inputs. Random canvas taps used to count as
+  // activity but no longer advance a visible semantic answer task, so they
+  // could manufacture a long run with zero learning progress.
+  for (const key of ["ArrowLeft", "ArrowRight", "ArrowLeft"]) {
+    await page.keyboard.press(key);
   }
+  const choices = page.locator(".qp-semantic-choices");
+  await expect(choices).toHaveAttribute("aria-label", "Find a");
+  await choices.getByRole("button", { name: /^\d+\. a$/ }).press("Enter");
+  await expect.poll(() => page.evaluate(() => (
+    window.__questDeviceRecorder.snapshot().evaluation.failures.includes("progress")
+  ))).toBe(false);
 
   await expect.poll(() => page.evaluate(() => window.__questDeviceRecorder.snapshot().durationMs), {
     timeout: 35_000,

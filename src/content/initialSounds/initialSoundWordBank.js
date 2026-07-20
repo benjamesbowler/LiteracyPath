@@ -174,19 +174,19 @@ export const initialSoundCoreWords = {
     f: "firefighter",
     g: "gorilla",
     h: "hospital",
-    i: "iceberg",
+    i: "instructor",
     j: "jellyfish",
     k: "kitchen",
     l: "lighthouse",
     m: "mushroom",
     n: "newspaper",
-    o: "orangutan",
+    o: "octagon",
     p: "pineapple",
     q: "question mark",
     r: "rainbow",
     s: "sandwich",
     t: "telescope",
-    u: "unicycle",
+    u: "underground",
     v: "volleyball",
     w: "watermelon",
     y: "yogurt cup",
@@ -231,10 +231,70 @@ export const initialSoundPrioritySubstitutions = INITIAL_SOUND_LETTERS.flatMap(l
 const distractorLettersFor = (letter, difficulty) => {
   const index = INITIAL_SOUND_LETTERS.indexOf(letter);
   const offsets = difficulty === "easy" ? [5, 11, 17] : [1, 6, 13];
-  return [letter, ...offsets.map(offset => INITIAL_SOUND_LETTERS[(index + offset) % INITIAL_SOUND_LETTERS.length])];
+  const sameInitialSound = (a, b) => a === b || ([a, b].every(value => ["c", "k"].includes(value)));
+  const candidates = [
+    ...offsets.map(offset => INITIAL_SOUND_LETTERS[(index + offset) % INITIAL_SOUND_LETTERS.length]),
+    ...INITIAL_SOUND_LETTERS
+  ];
+  const options = [letter];
+  for (const candidate of candidates) {
+    if (options.includes(candidate) || sameInitialSound(letter, candidate)) continue;
+    options.push(candidate);
+    if (options.length === 4) break;
+  }
+  return options;
 };
 
+// The assessment asks for the first SOUND, so a target whose spoken onset is a
+// different vowel/phoneme cannot be made safe by its printed first letter.
+// Keep the media in the catalogue for auditability, but never serve it as a
+// scored Initial Sounds item.
+export const initialSoundPhonemeMismatchTargets = Object.freeze({
+  acorn: "Acorn begins with long /a/, not the short /a/ target used by this bank.",
+  apron: "Apron begins with long /a/, not the short /a/ target used by this bank.",
+  eagle: "Eagle begins with long /e/, not the short /e/ target used by this bank.",
+  ear: "Ear begins with an ear/r-controlled onset, not the short /e/ target used by this bank.",
+  island: "Island begins with long /i/, not the short /i/ target used by this bank.",
+  ivy: "Ivy begins with long /i/, not the short /i/ target used by this bank.",
+  ocean: "Ocean begins with long /o/, not the short /o/ target used by this bank.",
+  orange: "Orange begins with an r-coloured vowel in the app's reference accent, not the short /o/ target used by this bank.",
+  oven: "Oven begins with /u/, not the short /o/ target used by this bank.",
+  oval: "Oval begins with long /o/, not the short /o/ target used by this bank.",
+  owl: "Owl begins with /ow/, not the short /o/ target used by this bank.",
+  utensil: "Utensil begins with /y/, not the short /u/ target used by this bank.",
+  ukulele: "Ukulele does not begin with the short /u/ target used by this bank.",
+  urchin: "Urchin begins with an r-controlled vowel, not the short /u/ target used by this bank.",
+  apartment: "Apartment begins with a schwa, not the short /a/ target used by this bank.",
+  accordion: "Accordion begins with a schwa, not the short /a/ target used by this bank.",
+  airport: "Airport begins with /air/, not the short /a/ target used by this bank.",
+  apricot: "Apricot begins with long /a/ in the app's reference accent, not the short /a/ target used by this bank.",
+  eraser: "Eraser does not begin with the short /e/ target used by this bank.",
+  earmuffs: "Earmuffs begins with an ear/r-controlled onset, not the short /e/ target used by this bank.",
+  earthworm: "Earthworm begins with an r-controlled vowel, not the short /e/ target used by this bank.",
+  electrician: "Electrician does not begin with the short /e/ target used by this bank.",
+  easel: "Easel begins with long /e/, not the short /e/ target used by this bank.",
+  giraffe: "Giraffe begins with /j/, not the hard /g/ target used by this bank.",
+  gingerbread: "Gingerbread begins with /j/, not the hard /g/ target used by this bank.",
+  iceberg: "Iceberg begins with long /i/, not the short /i/ target used by this bank.",
+  icicle: "Icicle begins with long /i/, not the short /i/ target used by this bank.",
+  icebox: "Icebox begins with long /i/, not the short /i/ target used by this bank.",
+  iron: "Iron begins with long /i/, not the short /i/ target used by this bank.",
+  overalls: "Overalls begins with long /o/, not the short /o/ target used by this bank.",
+  orangutan: "Orangutan does not begin with the short /o/ target used by this bank.",
+  orchard: "Orchard begins with an r-controlled vowel, not the short /o/ target used by this bank.",
+  oatmeal: "Oatmeal begins with long /o/, not the short /o/ target used by this bank.",
+  thermometer: "Thermometer begins with /th/, not the /t/ target used by this bank.",
+  unicycle: "Unicycle begins with /y/, not the short /u/ target used by this bank.",
+  uniform: "Uniform begins with /y/, not the short /u/ target used by this bank.",
+  utensils: "Utensils begins with /y/, not the short /u/ target used by this bank.",
+  knapsack: "Knapsack begins with /n/; its initial k is silent."
+});
+
 const blockedInitialSoundTargets = {
+  ...Object.fromEntries(Object.entries(initialSoundPhonemeMismatchTargets).map(([word, reason]) => [word, {
+    status: "excluded_initial_phoneme_mismatch",
+    reason
+  }])),
   zinnia: {
     status: "excluded_unsuitable_word",
     reason: "Zinnia is too unusual for this K-2 Initial Sounds assessment bank and should be replaced with a simpler /z/ word."
@@ -349,6 +409,25 @@ const blockedInitialSoundTargets = {
   }
 };
 
+// These previously approved images are deliberately selected over unsuitable
+// generated variants. The source paths remain blocked globally so they cannot
+// return through assessment media variation.
+export const initialSoundImageOverrides = {
+  ax: "/images/child-mode/initial-sounds/axe.png",
+  balloon: "/media/initial-sounds/images/u/up.webp",
+  bus: "/images/child-mode/initial-sounds/bus.png",
+  cake: "/images/child-mode/initial-sounds/cake.png",
+  car: "/images/child-mode/initial-sounds/car.png",
+  desk: "/images/child-mode/initial-sounds/desk.png",
+  drum: "/images/child-mode/initial-sounds/drum.png",
+  fox: "/images/child-mode/initial-sounds/fox.png",
+  frog: "/images/child-mode/initial-sounds/frog.png",
+  noodle: "/media/initial-sounds/images/n/noodles.webp",
+  sock: "/images/child-mode/initial-sounds/sock.png",
+  star: "/images/child-mode/initial-sounds/star.png",
+  zigzag: "/media/initial-sounds/images/z/zigzag-road.webp"
+};
+
 function makeInitialSoundItem(letter, targetWord, level, index) {
   const wordKey = normalizeInitialSoundWord(targetWord);
   const difficulty = level === 1 ? "easy" : "challenge";
@@ -359,6 +438,7 @@ function makeInitialSoundItem(letter, targetWord, level, index) {
   const roundPriority = isCoreWord
     ? INITIAL_SOUND_LETTERS.indexOf(letter) + 1
     : 100 + index;
+  const imageUrl = initialSoundImageOverrides[wordKey] || `/media/initial-sounds/images/${letter}/${wordKey}.webp`;
 
   return {
     id: `fs_${letter}_${wordKey}_l${level}`,
@@ -372,8 +452,8 @@ function makeInitialSoundItem(letter, targetWord, level, index) {
     syllables,
     phoneme: phonemeByLetter[letter],
     imageKey: `${letter}/${wordKey}`,
-    imageUrl: `/media/initial-sounds/images/${letter}/${wordKey}.webp`,
-    imagePath: `/media/initial-sounds/images/${letter}/${wordKey}.webp`,
+    imageUrl,
+    imagePath: imageUrl,
     audioKey: `${letter}/${wordKey}`,
     audioUrl: `/media/initial-sounds/audio/${letter}/${wordKey}.mp3`,
     audioPath: `/media/initial-sounds/audio/${letter}/${wordKey}.mp3`,

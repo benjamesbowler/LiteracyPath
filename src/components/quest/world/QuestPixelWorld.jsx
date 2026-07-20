@@ -43,6 +43,7 @@ import {
   sampleQuestFrameBudget
 } from "../../../utils/questPerformance.js";
 import { warmQuestOfflineAssets } from "../../../utils/offlineShell.js";
+import { clampQuestWorldResume } from "../../../utils/questWorldResume.js";
 
 // Touch devices get the big-answer strip PINNED: focus-within only ever
 // helped keyboard users; a sighted motor-impaired child on touch saw nothing.
@@ -120,14 +121,12 @@ export default function QuestPixelWorld({
     });
     return budgetPhysicalSection({ ...built, rewardBonuses });
   });
-  const initialEncounterIndex = Math.max(0, section?.encounters.findIndex(item => item.id === resume?.activeId) || 0);
-  const [phase, setPhase] = useState(() => (
-    resume?.phase || (resume?.guideDone || !section?.teach?.length ? "trail" : "teach")
-  ));
-  const [encounterIndex, setEncounterIndex] = useState(initialEncounterIndex);
-  const [encounterStarted, setEncounterStarted] = useState(Boolean(resume?.activeId));
-  const [beatIndex, setBeatIndex] = useState(Math.max(0, Number(resume?.beatIndex) || 0));
-  const [fieldStage, setFieldStage] = useState(Math.max(0, Number(resume?.fieldStage) || 0));
+  const [initialResume] = useState(() => clampQuestWorldResume(section, resume));
+  const [phase, setPhase] = useState(initialResume.phase);
+  const [encounterIndex, setEncounterIndex] = useState(initialResume.encounterIndex);
+  const [encounterStarted, setEncounterStarted] = useState(Boolean(initialResume.activeIdValid && resume?.activeId));
+  const [beatIndex, setBeatIndex] = useState(initialResume.beatIndex);
+  const [fieldStage, setFieldStage] = useState(initialResume.fieldStage);
   const [feedback, setFeedback] = useState("");
   const [corrections, setCorrections] = useState(() => resume?.corrections || {});
   const [rhythmOpen, setRhythmOpen] = useState(true);
@@ -157,6 +156,7 @@ export default function QuestPixelWorld({
   const teachTimerRef = useRef(0);
   const feedbackTimerRef = useRef(0);
   const pickupTimerRef = useRef(0);
+  const cueTimerRef = useRef(0);
   const tallyRef = useRef(resume?.tally || { correct: 0, total: 0, mistakes: 0 });
   const firstTallyRef = useRef(new Map());
   const slowResponsesRef = useRef(Math.max(0, Number(resume?.slowResponses) || 0));
@@ -164,6 +164,7 @@ export default function QuestPixelWorld({
   const encounterRef = useRef(null);
   const interactionRef = useRef(onInteraction);
   const stageShownAtRef = useRef({ key: null, at: 0 });
+  const taskFocusRef = useRef(null);
   const chooseRef = useRef(() => {});
   const checkpointRef = useRef(() => {});
   const finishRef = useRef(() => {});
@@ -197,6 +198,24 @@ export default function QuestPixelWorld({
   const pendingDropCount = Math.max(0, collected.size - previousBestDrops);
   const liveSparks = availableSparks(state) + (pendingDropCount * SPARKS_PER_DROP);
   const seedwakeFinds = seedwakeSatchel(state).total;
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => Boolean(
+    typeof window !== "undefined"
+    && window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches
+  ));
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return undefined;
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncReducedMotion = () => setPrefersReducedMotion(Boolean(query.matches));
+    syncReducedMotion();
+    query.addEventListener?.("change", syncReducedMotion);
+    // Older Safari exposes MediaQueryList.addListener instead of EventTarget.
+    if (!query.addEventListener) query.addListener?.(syncReducedMotion);
+    return () => {
+      query.removeEventListener?.("change", syncReducedMotion);
+      if (!query.removeEventListener) query.removeListener?.(syncReducedMotion);
+    };
+  }, []);
 
   const snapshotPosition = useCallback(() => {
     const pixelPosition = runtimeRef.current?.getPlayerPosition?.() || resume?.pixelPosition || null;
@@ -237,7 +256,7 @@ export default function QuestPixelWorld({
     // FIRST ATTEMPT PER BEAT is what stars score: the correction ladder is
     // the intended teaching path, and counting every rung as a fresh mistake
     // punished the child for using it.
-    const beatKey = meta.key || `${encounter?.id || "enc"}:${Array.isArray(target) ? target.join("+") : target}`;
+    const beatKey = `${encounter?.id || "enc"}:${beatIndex}`;
     if (!firstTallyRef.current.has(beatKey)) {
       firstTallyRef.current.set(beatKey, correct);
       tallyRef.current = {
@@ -251,7 +270,7 @@ export default function QuestPixelWorld({
         if (one) onAnswer?.(one, correct, encounter?.kind || "pixel-trail", meta);
       }
     }
-  }, [encounter?.id, encounter?.kind, onAnswer]);
+  }, [beatIndex, encounter?.id, encounter?.kind, onAnswer]);
 
   const beginBeat = useCallback((nextIndex, remediation = null) => {
     remediationBeatRef.current = remediation;
@@ -431,7 +450,8 @@ export default function QuestPixelWorld({
       if (nextCorrection.misses >= 3) reviewQueueRef.current = [...new Set([...reviewQueueRef.current, beatIndex])];
       setFeedback(nextCorrection.mode === "teach" ? "This one. Listen." : "Try again. Listen.");
       // Cue after the buzz, not on top of it (mirrors the 3D path's 350ms).
-      window.setTimeout(() => {
+      window.clearTimeout(cueTimerRef.current);
+      cueTimerRef.current = window.setTimeout(() => {
         if (stage.audioCue?.kind === "grapheme") sayGrapheme(stage.audioCue.value, isSoundEnabled);
         else if (stage.audioCue?.kind === "word") sayWord(stage.audioCue.value, isSoundEnabled);
       }, 350);
@@ -564,6 +584,13 @@ export default function QuestPixelWorld({
   }, [firstTeachEntry?.id, isSoundEnabled, teachCueAvailable]);
 
   useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      taskFocusRef.current?.focus({ preventScroll: true });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [encounterStarted, phase, stage?.id]);
+
+  useEffect(() => {
     if (phase !== "gate") return undefined;
     const timer = window.setTimeout(() => setHiddenGateHint(stopId), 1800);
     return () => window.clearTimeout(timer);
@@ -573,7 +600,7 @@ export default function QuestPixelWorld({
     section,
     resume,
     creature: state.creature,
-    reducedMotion: Boolean(state.settings?.reducedMotion),
+    reducedMotion: Boolean(state.settings?.reducedMotion || prefersReducedMotion),
     soundEnabled: Boolean(isSoundEnabled),
     interactive: isInteractive,
     ceremony: Boolean(ceremony),
@@ -585,7 +612,7 @@ export default function QuestPixelWorld({
     activeStage: phase === "trail" && encounterStarted && stage
       ? { ...stage, mechanic: task?.mechanic, verbPattern: task?.verbPattern, items: visibleChoices }
       : null
-  }), [ceremony, collected, completionMarks, encounter?.id, encounterStarted, isInteractive, isSoundEnabled, phase, resume, section, solved, stage, state.creature, state.settings?.reducedMotion, task?.mechanic, task?.verbPattern, visibleChoices]);
+  }), [ceremony, collected, completionMarks, encounter?.id, encounterStarted, isInteractive, isSoundEnabled, phase, prefersReducedMotion, resume, section, solved, stage, state.creature, state.settings?.reducedMotion, task?.mechanic, task?.verbPattern, visibleChoices]);
 
   useEffect(() => {
     if (!mountRef.current || !section) return undefined;
@@ -595,26 +622,50 @@ export default function QuestPixelWorld({
       const runtime = createQuestPixelRuntime(mountRef.current, runtimeModel, {
         onReady: () => {
           const loadMs = Date.now() - sceneLoadStartedAtRef.current;
-          const assetEntries = typeof performance.getEntriesByType === "function"
+          const sceneAssetEntries = typeof performance.getEntriesByType === "function"
             ? performance.getEntriesByType("resource").filter(entry => (
               entry.startTime >= sceneResourcesStartedAtRef.current
               && entry.name.includes("/game-assets/quest-pixel/")
             ))
             : [];
-          const uniqueAssetEntries = [...new Map(assetEntries.map(entry => [entry.name, entry])).values()];
-          const assetRequests = uniqueAssetEntries.length;
-          const assetRequestAttempts = assetEntries.length;
-          const assetBytes = uniqueAssetEntries.reduce((total, entry) => (
+          // Voice/action clips deliberately live beside the pixel pack. Keep
+          // their transfer cost visible, but do not count them as chapter art:
+          // otherwise pre-warming honest offline audio makes the visual budget
+          // look larger without loading a single extra texture.
+          const visualAssetEntries = sceneAssetEntries.filter(entry => !entry.name.includes("/audio/"));
+          const audioAssetEntries = sceneAssetEntries.filter(entry => entry.name.includes("/audio/"));
+          const uniqueVisualAssetEntries = [...new Map(visualAssetEntries.map(entry => [entry.name, entry])).values()];
+          const uniqueAudioAssetEntries = [...new Map(audioAssetEntries.map(entry => [entry.name, entry])).values()];
+          const uniqueSceneAssetEntries = [...new Map(sceneAssetEntries.map(entry => [entry.name, entry])).values()];
+          const assetRequests = uniqueVisualAssetEntries.length;
+          const assetRequestAttempts = visualAssetEntries.length;
+          const assetBytes = uniqueVisualAssetEntries.reduce((total, entry) => (
             total + Number(entry.encodedBodySize || entry.transferSize || entry.decodedBodySize || 0)
           ), 0);
-          if (uniqueAssetEntries.length) {
-            void warmQuestOfflineAssets(uniqueAssetEntries.map(entry => entry.name), {
+          const audioAssetRequests = uniqueAudioAssetEntries.length;
+          const audioAssetRequestAttempts = audioAssetEntries.length;
+          const audioAssetBytes = uniqueAudioAssetEntries.reduce((total, entry) => (
+            total + Number(entry.encodedBodySize || entry.transferSize || entry.decodedBodySize || 0)
+          ), 0);
+          const totalAssetBytes = assetBytes + audioAssetBytes;
+          if (uniqueSceneAssetEntries.length) {
+            void warmQuestOfflineAssets(uniqueSceneAssetEntries.map(entry => entry.name), {
               chapterId: section.chapter?.id || ""
             });
           }
           setReady(true);
           setSceneLoadMs(loadMs);
-          setSceneAssetStats({ requests: assetRequests, attempts: assetRequestAttempts, bytes: assetBytes });
+          setSceneAssetStats({
+            requests: assetRequests,
+            attempts: assetRequestAttempts,
+            bytes: assetBytes,
+            audioRequests: audioAssetRequests,
+            audioAttempts: audioAssetRequestAttempts,
+            audioBytes: audioAssetBytes,
+            totalRequests: uniqueSceneAssetEntries.length,
+            totalAttempts: sceneAssetEntries.length,
+            totalBytes: totalAssetBytes
+          });
           if (isInteractive) {
             onRuntimeSignal?.({
               type: "scene-ready",
@@ -624,16 +675,32 @@ export default function QuestPixelWorld({
               assetRequests,
               assetRequestAttempts,
               assetBytes,
+              audioAssetRequests,
+              audioAssetRequestAttempts,
+              audioAssetBytes,
+              totalAssetRequests: uniqueSceneAssetEntries.length,
+              totalAssetRequestAttempts: sceneAssetEntries.length,
+              totalAssetBytes,
               at: new Date().toISOString()
             });
           }
           onSceneReady?.();
         },
         onError: reason => onSceneError?.(reason),
+        onRuntimeSignal: signal => {
+          if (!isInteractive || !signal) return;
+          onRuntimeSignal?.({
+            ...signal,
+            tierId: signal.tierId || "pixel",
+            stopId,
+            at: signal.at || new Date().toISOString()
+          });
+        },
         onFrame: frameMs => {
-          const sample = sampleQuestFrameBudget(frameBudgetRef.current, frameMs);
-          frameBudgetRef.current = sample.state;
-          if (sample.signal) onRuntimeSignal?.({ ...sample.signal, stopId });
+          const emitted = sampleQuestFrameBudget(frameBudgetRef.current, frameMs);
+          if (!emitted) return;
+          frameBudgetRef.current = emitted.state;
+          onRuntimeSignal?.({ ...emitted.signal, stopId });
         },
         onDiagnostics: diagnostics => {
           setRuntimeHealth(diagnostics);
@@ -678,6 +745,7 @@ export default function QuestPixelWorld({
         window.clearTimeout(teachTimerRef.current);
         window.clearTimeout(feedbackTimerRef.current);
         window.clearTimeout(pickupTimerRef.current);
+        window.clearTimeout(cueTimerRef.current);
         if (window.__questPixelRuntime === runtime) delete window.__questPixelRuntime;
         runtimeRef.current = null;
         runtime.destroy();
@@ -720,6 +788,12 @@ export default function QuestPixelWorld({
       data-scene-asset-requests={sceneAssetStats?.requests ?? undefined}
       data-scene-asset-request-attempts={sceneAssetStats?.attempts ?? undefined}
       data-scene-asset-bytes={sceneAssetStats?.bytes ?? undefined}
+      data-scene-audio-asset-requests={sceneAssetStats?.audioRequests ?? undefined}
+      data-scene-audio-asset-request-attempts={sceneAssetStats?.audioAttempts ?? undefined}
+      data-scene-audio-asset-bytes={sceneAssetStats?.audioBytes ?? undefined}
+      data-scene-total-asset-requests={sceneAssetStats?.totalRequests ?? undefined}
+      data-scene-total-asset-request-attempts={sceneAssetStats?.totalAttempts ?? undefined}
+      data-scene-total-asset-bytes={sceneAssetStats?.totalBytes ?? undefined}
       data-runtime-display-objects={runtimeHealth?.displayObjects ?? undefined}
       data-runtime-tweens={runtimeHealth?.tweens ?? undefined}
       data-runtime-textures={runtimeHealth?.textures ?? undefined}
@@ -740,7 +814,7 @@ export default function QuestPixelWorld({
           data-live-sparks={liveSparks}
           aria-label={`${collected.size} ${collectible.label} found, ${liveSparks} Sparks ready`}
         >
-          <img src={collectible.image} alt="" />
+          <img src={collectible.image} alt="" onError={event => { event.currentTarget.hidden = true; }} />
           <span><strong>{collected.size}</strong><small>{liveSparks} Sparks</small></span>
         </div>
       </header>
@@ -759,7 +833,13 @@ export default function QuestPixelWorld({
       )}
 
       {cueVisible && (
-        <section key={`${stage?.id || phase}:${feedback || "prompt"}`} className={`qp-cue ${feedback ? "has-feedback" : ""} ${cueCompact ? "is-compact" : ""}`} aria-live="polite">
+        <section
+          key={`${stage?.id || phase}:${feedback || "prompt"}`}
+          ref={taskFocusRef}
+          tabIndex={-1}
+          className={`qp-cue ${feedback ? "has-feedback" : ""} ${cueCompact ? "is-compact" : ""}`}
+          aria-live="polite"
+        >
           {phase === "teach" ? (
             <>
               <span>New sound</span>

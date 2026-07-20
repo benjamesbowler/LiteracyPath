@@ -15,7 +15,12 @@ const emptyLevelProgress = () => ({
   masteredLetters: [],
   usedTargetWordsByLetter: {},
   incorrectLetters: [],
-  recentlySeenWords: []
+  recentlySeenWords: [],
+  recentlySeenItemIds: [],
+  answeredCorrectWords: [],
+  answeredCorrectItemIds: [],
+  repeatedMistakes: {},
+  incorrectDistractorPatterns: {}
 });
 
 function normalizeUsedWords(value = {}) {
@@ -43,7 +48,12 @@ export function normalizeInitialSoundsProgress(studentProgress = {}) {
       masteredLetters: [...normalizeSet(source.masteredLetters || (shouldUseLegacy ? legacyMastered : []))],
       usedTargetWordsByLetter: normalizeUsedWords(source.usedTargetWordsByLetter || {}),
       incorrectLetters: [...normalizeSet(source.incorrectLetters || (shouldUseLegacy ? legacyIncorrect : []))],
-      recentlySeenWords: Array.isArray(source.recentlySeenWords) ? source.recentlySeenWords.map(String) : []
+      recentlySeenWords: Array.isArray(source.recentlySeenWords) ? source.recentlySeenWords.map(String) : [],
+      recentlySeenItemIds: [...normalizeSet(source.recentlySeenItemIds || (shouldUseLegacy ? studentProgress.recentlySeenItemIds : []))],
+      answeredCorrectWords: [...normalizeSet(source.answeredCorrectWords || (shouldUseLegacy ? studentProgress.answeredCorrectWords : []))],
+      answeredCorrectItemIds: [...normalizeSet(source.answeredCorrectItemIds || (shouldUseLegacy ? studentProgress.answeredCorrectItemIds : []))],
+      repeatedMistakes: { ...(source.repeatedMistakes || (shouldUseLegacy ? studentProgress.repeatedMistakes : {}) || {}) },
+      incorrectDistractorPatterns: { ...(source.incorrectDistractorPatterns || (shouldUseLegacy ? studentProgress.incorrectDistractorPatterns : {}) || {}) }
     };
 
     return progress;
@@ -56,6 +66,8 @@ export function buildInitialSoundsProgressFromAnswerHistory(answerHistory = []) 
     level2: emptyLevelProgress()
   };
 
+  const outcomes = { level1: {}, level2: {} };
+
   (answerHistory || [])
     .filter(record =>
       (record.skillId === "initial_sounds" || record.stage === "Initial Sounds" || record.skill === "Initial Sounds" || record.skill === "initial sounds") &&
@@ -66,12 +78,20 @@ export function buildInitialSoundsProgressFromAnswerHistory(answerHistory = []) 
       const key = levelKey(level);
       const letter = String(record.itemKey || "").toLowerCase();
       const word = String(record.targetWord || record.diagnosticTarget || "").toLowerCase();
+      const itemId = String(record.questionId || record.itemId || record.id || "");
       if (!INITIAL_SOUND_LETTERS.includes(letter)) return;
 
       const levelProgress = progress[key];
       if (!levelProgress.coveredLetters.includes(letter)) levelProgress.coveredLetters.push(letter);
-      if (record.isCorrect && !levelProgress.masteredLetters.includes(letter)) levelProgress.masteredLetters.push(letter);
-      if (!record.isCorrect && !levelProgress.incorrectLetters.includes(letter)) levelProgress.incorrectLetters.push(letter);
+      outcomes[key][letter] = [...(outcomes[key][letter] || []), Boolean(record.isCorrect)];
+      if (itemId) levelProgress.recentlySeenItemIds = [...levelProgress.recentlySeenItemIds, itemId].slice(-45);
+      if (record.isCorrect) {
+        if (word && !levelProgress.answeredCorrectWords.includes(word)) levelProgress.answeredCorrectWords.push(word);
+        if (itemId && !levelProgress.answeredCorrectItemIds.includes(itemId)) levelProgress.answeredCorrectItemIds.push(itemId);
+      } else {
+        levelProgress.repeatedMistakes[letter] = (Number(levelProgress.repeatedMistakes[letter]) || 0) + 1;
+        levelProgress.incorrectDistractorPatterns[letter] = (Number(levelProgress.incorrectDistractorPatterns[letter]) || 0) + 1;
+      }
       if (word) {
         levelProgress.usedTargetWordsByLetter[letter] = [
           ...(levelProgress.usedTargetWordsByLetter[letter] || []),
@@ -80,6 +100,15 @@ export function buildInitialSoundsProgressFromAnswerHistory(answerHistory = []) 
         levelProgress.recentlySeenWords = [...levelProgress.recentlySeenWords, word].slice(-45);
       }
     });
+
+  for (const key of ["level1", "level2"]) {
+    const levelProgress = progress[key];
+    for (const [letter, letterOutcomes] of Object.entries(outcomes[key])) {
+      const lastTwo = letterOutcomes.slice(-2);
+      if (lastTwo.length === 2 && lastTwo.every(Boolean)) levelProgress.masteredLetters.push(letter);
+      if (letterOutcomes.at(-1) === false) levelProgress.incorrectLetters.push(letter);
+    }
+  }
 
   return progress;
 }
@@ -108,7 +137,7 @@ function itemsForLetter({ letter, level, includeInactive, requireImportedMedia, 
   );
 }
 
-function pickItemForLetter({ letter, level, progress, includeInactive, requireImportedMedia, itemFilter, random }) {
+function pickItemForLetter({ letter, level, progress, includeInactive, requireImportedMedia, itemFilter, random, sets, context }) {
   const items = itemsForLetter({ letter, level, includeInactive, requireImportedMedia, itemFilter });
   const usedWords = new Set((progress.usedTargetWordsByLetter?.[letter] || []).map(word => String(word).toLowerCase()));
   const unused = items.filter(item => !usedWords.has(String(item.targetWord).toLowerCase()));
@@ -116,6 +145,8 @@ function pickItemForLetter({ letter, level, progress, includeInactive, requireIm
   if (!pool.length) return null;
   return shuffleItems(pool, random)
     .sort((a, b) => {
+      const scoreDelta = scoreItem(b, sets, context) - scoreItem(a, sets, context);
+      if (scoreDelta) return scoreDelta;
       const bandRank = band => String(band || "").includes("core") ? 0 : 1;
       const bandDelta = bandRank(a.progressionBand) - bandRank(b.progressionBand);
       if (bandDelta) return bandDelta;
@@ -144,7 +175,7 @@ function stableShuffleLetters(letters, random) {
 function getProgressSets(studentProgress = {}) {
   return {
     masteredLetters: normalizeSet(studentProgress.masteredLetters || studentProgress.masteredItemKeys),
-    assessedLetters: normalizeSet(studentProgress.assessedLetters || studentProgress.seenItemKeys),
+    assessedLetters: normalizeSet(studentProgress.assessedLetters || studentProgress.coveredLetters || studentProgress.seenItemKeys),
     incorrectLetters: normalizeSet(studentProgress.incorrectLetters || studentProgress.unmasteredLetters),
     answeredCorrectItemIds: normalizeSet(studentProgress.answeredCorrectItemIds || studentProgress.correctQuestionIds),
     answeredCorrectWords: normalizeSet(studentProgress.answeredCorrectWords || studentProgress.correctTargetWords),
@@ -239,6 +270,7 @@ export function getInitialSoundRoundPlan({
   const safeLevel = Number(level) === 2 ? 2 : 1;
   const random = createSeededRandom(seed);
   const progress = normalizeInitialSoundsProgress(studentProgress)[levelKey(safeLevel)] || emptyLevelProgress();
+  const sets = getProgressSets(progress);
   const availableLetters = getMediaCompleteLetters(safeLevel, {
     includeInactive,
     requireImportedMedia,
@@ -253,7 +285,15 @@ export function getInitialSoundRoundPlan({
   // selectable pool drops the already-asked letters.
   const excludeSet = new Set((excludeLetters || []).map(letter => String(letter)));
   const selectableLetters = availableLetters.filter(letter => !excludeSet.has(letter));
-  const prioritizedLetters = stableShuffleLetters(selectableLetters, random);
+  const context = { level: safeLevel, roundNumber: Number(roundNumber) || phase };
+  const prioritizedLetters = stableShuffleLetters(selectableLetters, random)
+    .sort((a, b) => {
+      const bestScore = letter => {
+        const items = itemsForLetter({ letter, level: safeLevel, includeInactive, requireImportedMedia, itemFilter });
+        return items.length ? Math.max(...items.map(item => scoreItem(item, sets, context))) : Number.NEGATIVE_INFINITY;
+      };
+      return bestScore(b) - bestScore(a);
+    });
   const uncoveredLetters = prioritizedLetters.filter(letter => !covered.has(letter));
   const reviewLetters = prioritizedLetters.filter(letter => covered.has(letter));
   const weakLetters = prioritizedLetters.filter(letter => incorrect.has(letter) || (covered.has(letter) && !mastered.has(letter)));
@@ -296,7 +336,9 @@ export function getInitialSoundRoundPlan({
         includeInactive,
         requireImportedMedia,
         itemFilter,
-        random
+        random,
+        sets,
+        context
       });
       if (!item) return null;
       const wasCovered = covered.has(letter);

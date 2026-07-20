@@ -1748,6 +1748,19 @@ function attachImportedFieldAvatars(tasks, avatars) {
 const SIGHTLINE_FADE_OPACITY = 0.16;
 const SIGHTLINE_FADE_PER_SECOND = 5.2;
 
+function sectionGateIsOpen(encounters = [], solved = []) {
+  return encounters.length === 0 || isChapterGateOpen(encounters, solved);
+}
+
+function fieldStageRecordsMastery(stage, soundEnabled) {
+  const kind = stage?.audioCue?.kind || null;
+  const value = stage?.audioCue?.value || null;
+  const available = kind === "grapheme"
+    ? hasGraphemeAudio(value)
+    : kind === "word" && hasWordAudio(value);
+  return physicalStageRecordsMastery(stage, Boolean(soundEnabled && available));
+}
+
 function sightlineMaterials(object) {
   const list = Array.isArray(object.material) ? object.material : object.material ? [object.material] : [];
   if (!object.userData.questSightlineClone && list.length) {
@@ -1779,27 +1792,62 @@ function sightlineCanFade(object) {
   return true;
 }
 
-function updateSightline(scene, camera, task, active, beatIndex, stageIndex, faded, dt) {
-  const visible = task?.group?.visible && active;
-  const blocking = new Set();
+function sightlineIsVisible(object) {
+  let node = object;
+  while (node) {
+    if (!node.visible) return false;
+    node = node.parent;
+  }
+  return true;
+}
 
-  if (visible) {
-    const raycaster = new THREE.Raycaster();
-    const origin = camera.position.clone();
-    const target = new THREE.Vector3();
+function createSightlineState() {
+  return {
+    raycaster: new THREE.Raycaster(),
+    origin: new THREE.Vector3(),
+    target: new THREE.Vector3(),
+    direction: new THREE.Vector3(),
+    occluders: [],
+    blocking: new Set(),
+    frame: 0,
+    liveKey: ""
+  };
+}
+
+function refreshSightlineOccluders(scene, sightline) {
+  const occluders = [];
+  scene.traverse(object => {
+    if (sightlineCanFade(object)) occluders.push(object);
+  });
+  sightline.occluders = occluders;
+}
+
+function updateSightline(camera, task, active, beatIndex, stageIndex, faded, dt, sightline) {
+  const visible = task?.group?.visible && active;
+  const liveKey = visible ? `${active.id}:${beatIndex}:${stageIndex}` : "";
+  const refreshBlocking = visible && (liveKey !== sightline.liveKey || sightline.frame % 4 === 0);
+  sightline.frame += 1;
+
+  if (!visible) {
+    sightline.blocking.clear();
+  } else if (refreshBlocking) {
+    sightline.blocking.clear();
+    sightline.origin.copy(camera.position);
     for (const item of task.items) {
       if (!item.visible) continue;
-      item.getWorldPosition(target);
-      const direction = target.clone().sub(origin);
-      const distance = direction.length();
+      item.getWorldPosition(sightline.target);
+      sightline.direction.subVectors(sightline.target, sightline.origin);
+      const distance = sightline.direction.length();
       if (distance < 0.001) continue;
-      raycaster.set(origin, direction.normalize());
-      raycaster.far = distance - 0.12; // stop just short of the choice itself
-      for (const hit of raycaster.intersectObjects(scene.children, true)) {
-        if (sightlineCanFade(hit.object)) blocking.add(hit.object);
+      sightline.raycaster.set(sightline.origin, sightline.direction.normalize());
+      sightline.raycaster.far = distance - 0.12; // stop just short of the choice itself
+      for (const hit of sightline.raycaster.intersectObjects(sightline.occluders, false)) {
+        if (sightlineIsVisible(hit.object)) sightline.blocking.add(hit.object);
       }
     }
   }
+  sightline.liveKey = liveKey;
+  const blocking = sightline.blocking;
 
   // Fade the blockers down, everything previously faded back up.
   for (const object of blocking) faded.add(object);
@@ -2738,7 +2786,7 @@ function updateTrailCharacters(characters, section, {
   moving,
   guideDone,
   active,
-  beatIndex,
+  activeTask,
   solved,
   nextEncounter,
   mood,
@@ -2765,7 +2813,6 @@ function updateTrailCharacters(characters, section, {
     characters.relic.userData.ring.rotation.z += dt * 0.7;
   }
 
-  const activeTask = active ? buildPhysicalTask(section, active, active.beats[beatIndex], beatIndex) : null;
   const guideVisible = !guideDone || !active;
   characters.guide.userData.groundY = section.guide.y || 0;
   const guideFacing = Math.atan2(
@@ -3216,7 +3263,7 @@ export default function QuestHub({
     ? { correct: Number(resume.tally.correct) || 0, total: Number(resume.tally.total) || 0, mistakes: Number(resume.tally.mistakes) || 0 }
     : { correct: 0, total: 0, mistakes: 0 };
   const initialPhase = resume?.phase === "teach" && !initialGuideDone ? "teach" : "trail";
-  const initialGateOpen = isChapterGateOpen(section?.encounters, initialSolved);
+  const initialGateOpen = sectionGateIsOpen(section?.encounters || [], initialSolved);
   const initialRoutePercent = Math.round(routeProgressAt(section.route, initialPosition) * 100);
 
   const playerRef = useRef({ ...initialPosition });
@@ -3294,6 +3341,19 @@ export default function QuestHub({
   const guideRef = useRef(null);
   const landmarkRefs = useRef(new Map());
   const dropRefs = useRef(new Map());
+  const landmarkRefCallbacks = useMemo(() => new Map(
+    (section?.encounters || []).map(encounter => [encounter.id, node => {
+      if (node) landmarkRefs.current.set(encounter.id, node);
+      else landmarkRefs.current.delete(encounter.id);
+    }])
+  ), [section]);
+  const dropRefCallbacks = useMemo(() => new Map(
+    (section?.drops || []).map(drop => [drop.id, node => {
+      if (node) dropRefs.current.set(drop.id, node);
+      else dropRefs.current.delete(drop.id);
+    }])
+  ), [section]);
+  const viewFocusRef = useRef(null);
   const moodRef = useRef("idle");
   const delayedActionsRef = useRef(new Set());
 
@@ -3336,6 +3396,13 @@ export default function QuestHub({
     onAudioState?.(ceremony ? "ceremony" : active ? "encounter" : "travel");
   }, [active, ceremony, onAudioState]);
   useEffect(() => { selectedRef.current = selectedId; }, [selectedId]);
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      viewFocusRef.current?.focus({ preventScroll: true });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [active?.id, beatIndex, fieldStage, gateOpen, guideDone, phase]);
   useEffect(() => { onCheckpointRef.current = onCheckpoint; }, [onCheckpoint]);
   useEffect(() => { onFinishRef.current = onFinish; }, [onFinish]);
   useEffect(() => { onSceneReadyRef.current = onSceneReady; }, [onSceneReady]);
@@ -3497,10 +3564,12 @@ export default function QuestHub({
     let ambientNow = performance.now();
     // Scenery currently ghosted out of the child's sightline — see updateSightline.
     const sightlineFaded = new Set();
+    const sightline = createSightlineState();
+    refreshSightlineOccluders(scene, sightline);
     let wasMoving = false;
     let lastAutosave = performance.now();
     let lastPercent = Math.round(routeProgressAt(section.route, playerRef.current) * 100);
-    let gateAmount = isChapterGateOpen(section.encounters, solvedRef.current) ? 1 : 0;
+    let gateAmount = sectionGateIsOpen(section.encounters, solvedRef.current) ? 1 : 0;
     let locomotionState = createQuestLocomotionState(
       routeDirectionAt(section.route, routeProgressAt(section.route, playerRef.current)).heading
     );
@@ -3563,6 +3632,22 @@ export default function QuestHub({
     const desiredSunPosition = new THREE.Vector3();
     const desiredSunTarget = new THREE.Vector3();
     let encounterCameraState = null;
+    const cachedPhysicalTask = () => {
+      const currentActive = activeRef.current;
+      const currentBeatIndex = beatIndexRef.current;
+      const taskCacheKey = currentActive
+        ? `${currentActive.id}:${currentBeatIndex}`
+        : null;
+      if (taskCacheKey !== frameTaskCacheRef.current.key) {
+        frameTaskCacheRef.current = {
+          key: taskCacheKey,
+          task: currentActive
+            ? buildPhysicalTask(section, currentActive, currentActive.beats?.[currentBeatIndex], currentBeatIndex)
+            : null
+        };
+      }
+      return frameTaskCacheRef.current.task;
+    };
     camera.lookAt(lookTarget);
 
     const revealScene = () => {
@@ -3610,6 +3695,7 @@ export default function QuestHub({
           disposeAssetObject(landscape.fallbackTrees);
           landscape.fallbackTrees = null;
         }
+        refreshSightlineOccluders(scene, sightline);
       })
       .catch(() => undefined);
 
@@ -3628,6 +3714,7 @@ export default function QuestHub({
         authoredChapterKit = nextKit;
         scene.add(authoredChapterKit);
         if (landscape.proceduralScenery) landscape.proceduralScenery.visible = false;
+        refreshSightlineOccluders(scene, sightline);
       })
       .catch(() => undefined);
 
@@ -3666,6 +3753,7 @@ export default function QuestHub({
         characters.residents.set(encounterId, nextResident);
         scene.add(nextResident);
       }
+      refreshSightlineOccluders(scene, sightline);
     }).catch(() => undefined);
 
     const fieldSpecs = [...landscape.fieldTasks.values()].flatMap(task => (
@@ -3690,6 +3778,7 @@ export default function QuestHub({
           return;
         }
         attachImportedFieldAvatars(landscape.fieldTasks, avatars);
+        refreshSightlineOccluders(scene, sightline);
       })
       .catch(() => undefined);
     const letterTokenLoad = Promise.all([
@@ -3945,11 +4034,11 @@ export default function QuestHub({
       const dt = Math.max(0, Math.min(0.045, renderedFrameMs / 1000));
       previous = now;
       if (interactiveRef.current && !contextFailed) {
-        const sample = sampleQuestFrameBudget(frameBudget, renderedFrameMs);
-        frameBudget = sample.state;
-        if (sample.signal) {
+        const emitted = sampleQuestFrameBudget(frameBudget, renderedFrameMs);
+        if (emitted) {
+          frameBudget = emitted.state;
           checkpoint();
-          sendRuntimeSignal(sample.signal);
+          sendRuntimeSignal(emitted.signal);
         }
       }
       // Decorative motion runs on its own clock so reduced-motion can freeze
@@ -3969,22 +4058,10 @@ export default function QuestHub({
       }
       const player = playerRef.current;
       let moving = false;
-      const physicalBeat = activeRef.current?.beats?.[beatIndexRef.current];
-      // Memoized per (encounter, beat, stage): this used to rebuild the FULL
+      // Memoized per (encounter, beat): this used to rebuild the FULL
       // task object EVERY RENDERED FRAME of the 3D loop - the pixel tier
       // already cached the identical computation.
-      const taskCacheKey = activeRef.current
-        ? `${activeRef.current.id}:${beatIndexRef.current}:${fieldStageRef.current}`
-        : null;
-      if (taskCacheKey !== frameTaskCacheRef.current.key) {
-        frameTaskCacheRef.current = {
-          key: taskCacheKey,
-          task: activeRef.current
-            ? buildPhysicalTask(section, activeRef.current, physicalBeat, beatIndexRef.current)
-            : null
-        };
-      }
-      const currentPhysicalTask = frameTaskCacheRef.current.task;
+      const currentPhysicalTask = cachedPhysicalTask();
       const physicalTaskActive = Boolean(currentPhysicalTask) && !fieldChoiceLockRef.current;
       const mechanicProfile = questMechanicProfile(
         currentPhysicalTask?.chapterAuthored ? currentPhysicalTask.mechanic : null
@@ -4123,7 +4200,7 @@ export default function QuestHub({
           checkpoint({ picked: next });
         }
 
-        const allSolved = isChapterGateOpen(section.encounters, solvedRef.current);
+        const allSolved = sectionGateIsOpen(section.encounters, solvedRef.current);
         const gateHandoffProgress = Math.min(section.exit.progress, section.gate.progress + 0.042);
         if (allSolved && routeProgressAt(section.route, player) >= gateHandoffProgress) {
           finishingRef.current = true;
@@ -4170,7 +4247,7 @@ export default function QuestHub({
         setRoutePercent(percent);
       }
 
-      const allSolved = isChapterGateOpen(section.encounters, solvedRef.current);
+      const allSolved = sectionGateIsOpen(section.encounters, solvedRef.current);
       if (sliceDebug) {
         sliceDebug.journey = {
           stopId,
@@ -4338,10 +4415,10 @@ export default function QuestHub({
       }
       camera.lookAt(lookTarget);
       const liveEncounter = activeRef.current;
-      const liveBeat = liveEncounter?.beats?.[beatIndexRef.current];
-      const liveTask = liveEncounter
-        ? buildPhysicalTask(section, liveEncounter, liveBeat, beatIndexRef.current)
-        : null;
+      // A collision can advance the beat earlier in this frame. Re-read through
+      // the same cache so the new beat builds once while an unchanged beat is
+      // reused by movement, field rendering, camera and character animation.
+      const liveTask = cachedPhysicalTask();
       const liveStage = physicalStage(liveTask, fieldStageRef.current);
       const liveInteraction = interactionActionRef.current?.until > now
         ? interactionActionRef.current
@@ -4367,14 +4444,14 @@ export default function QuestHub({
       // Clear the sightline BEFORE the debug snapshot measures it, so rayClear
       // reports what the child will actually see this frame.
       updateSightline(
-        scene,
         camera,
         debugTask,
         liveEncounter,
         beatIndexRef.current,
         fieldStageRef.current,
         sightlineFaded,
-        dt
+        dt,
+        sightline
       );
       updateSliceDebug(debugTask, desiredCamera);
       const accentTask = liveEncounter
@@ -4387,7 +4464,7 @@ export default function QuestHub({
         moving,
         guideDone: guideDoneRef.current,
         active: activeRef.current,
-        beatIndex: beatIndexRef.current,
+        activeTask: liveTask,
         solved: solvedRef.current,
         nextEncounter: firstUnsolvedEncounter(section, solvedRef.current),
         mood: ceremonyRef.current ? "cheer" : moodRef.current,
@@ -4480,7 +4557,7 @@ export default function QuestHub({
     // (retry -> narrow -> teach) is the intended teaching path; counting
     // every rung as a fresh mistake punished the child for using it — a
     // ladder child landed at 1 star where a guesser's luck earned 3.
-    const beatKey = `${activeRef.current?.id || "field"}:${beatIndexRef.current}:${Array.isArray(target) ? target.join("+") : target}`;
+    const beatKey = `${activeRef.current?.id || "field"}:${beatIndexRef.current}`;
     if (!firstTallyRef.current.has(beatKey)) {
       firstTallyRef.current.set(beatKey, correct);
       tallyRef.current.total += 1;
@@ -4538,7 +4615,7 @@ export default function QuestHub({
       remediationBeat: null
     });
 
-    if (isChapterGateOpen(section.encounters, nextSolved)) {
+    if (sectionGateIsOpen(section.encounters, nextSolved)) {
       setGateOpen(true);
       onPrepareNext?.(stopId);
       if (isSoundEnabled) playWhoosh();
@@ -4562,6 +4639,7 @@ export default function QuestHub({
     lastCorrectRef.current = current.kind === "story-rock";
     setBeatIndex(reviewIndex);
     setFieldStage(0);
+    setPhonemeFillCount(0);
     setRemediationBeat(reviewIndex);
     setRetryNonce(value => value + 1);
     setCorrectionFor(current, reviewIndex, 0, { reset: true });
@@ -4701,7 +4779,10 @@ export default function QuestHub({
         // grapheme in the word — beat.target is an array for word beats, and
         // fanning a miss across all of them punished sounds the child never
         // even got to attempt.
-        answer(false, stage.items?.find(item => item.correct)?.value || beat.target, { promptLevel: preAttemptLevel });
+        answer(false, stage.items?.find(item => item.correct)?.value || beat.target, {
+          promptLevel: preAttemptLevel,
+          recordsMastery: fieldStageRecordsMastery(stage, isSoundEnabled)
+        });
         checkpoint({
           active: current,
           corrections: correctionRecordsRef.current,
@@ -4747,7 +4828,10 @@ export default function QuestHub({
         return true;
       }
 
-      answer(true, beat.target, { promptLevel: promptLevelForMode(correctionRef.current?.mode) });
+      answer(true, beat.target, {
+        promptLevel: promptLevelForMode(correctionRef.current?.mode),
+        recordsMastery: fieldStageRecordsMastery(stage, isSoundEnabled)
+      });
       const blendComplete = Boolean(beat.word && task.stages.length > 1);
       if (blendComplete) {
         const graphemes = physicalTaskAnswers(task);
@@ -4765,6 +4849,54 @@ export default function QuestHub({
     };
   });
 
+  const activeFieldTask = useMemo(() => (
+    active ? buildPhysicalTask(section, active, active.beats[beatIndex], beatIndex) : null
+  ), [active, beatIndex, section]);
+  const encounterTasks = useMemo(() => (
+    active?.beats?.map((encounterBeat, encounterBeatIndex) => (
+      buildPhysicalTask(section, active, encounterBeat, encounterBeatIndex)
+    )) || []
+  ), [active, section]);
+  const previousBestDrops = Number(state.trail?.drops?.[stopId]) || 0;
+  const seedwakeSpec = seedwakeStopSpec(stopId);
+  const liveSeedwakeState = useMemo(() => (seedwakeSpec ? {
+    ...state,
+    trail: {
+      ...state.trail,
+      drops: {
+        ...state.trail?.drops,
+        [stopId]: Math.max(previousBestDrops, picked.size)
+      }
+    }
+  } : state), [picked.size, previousBestDrops, seedwakeSpec, state, stopId]);
+  const satchel = useMemo(() => seedwakeSatchel(liveSeedwakeState), [liveSeedwakeState]);
+  const activeBeat = active?.beats?.[beatIndex] || null;
+  const wordBuild = useMemo(() => {
+    const taskParts = activeFieldTask ? physicalTaskAnswers(activeFieldTask) : [];
+    const activeWordSounds = activeBeat?.word ? new Set(segmentWord(activeBeat.word)) : new Set();
+    const stageAnswers = (activeFieldTask?.stages || [])
+      .map(stage => (stage.items || []).find(item => item.correct)?.value)
+      .filter(value => value != null)
+      .map(String)
+      .filter(value => activeWordSounds.has(value))
+      .filter((value, index, all) => value !== all[index - 1]);
+    const activeWordParts = Boolean(activeBeat?.word) && stageAnswers.length > 1
+      ? (taskParts.length > 1 ? taskParts : segmentWord(activeBeat.word))
+      : [];
+    let activeSlotState = createPhonemeSlotState(activeWordParts);
+    for (const grapheme of activeWordParts.slice(0, phonemeFillCount)) {
+      activeSlotState = advancePhonemeSlotState(activeSlotState, grapheme, true);
+    }
+    return { activeSlotState, activeWordParts };
+  }, [activeBeat, activeFieldTask, phonemeFillCount]);
+  const encounterProgress = useMemo(() => {
+    const stageCount = encounterTasks.reduce((total, task) => total + (task?.stages.length || 0), 0);
+    const stageIndex = encounterTasks
+      .slice(0, beatIndex)
+      .reduce((total, task) => total + (task?.stages.length || 0), 0) + fieldStage;
+    return { stageCount, stageIndex };
+  }, [beatIndex, encounterTasks, fieldStage]);
+
   if (!section) {
     // A section that failed to build must never render NOTHING - a black
     // screen with no exit is a dead end for a child. Show a door.
@@ -4781,7 +4913,6 @@ export default function QuestHub({
   const teach = section.teach[meetIndex];
   const nextEncounter = firstUnsolvedEncounter(section, solved);
   const sectionNumber = stop?.index || 1;
-  const activeFieldTask = active ? buildPhysicalTask(section, active, active.beats[beatIndex], beatIndex) : null;
   const activeFieldStage = physicalStage(activeFieldTask, fieldStage);
   const activeCorrection = correctionPresentation(activeFieldStage, correction);
 
@@ -4803,24 +4934,9 @@ export default function QuestHub({
   const fieldPrompt = stageRecordsMastery
     ? activeCorrection.prompt
     : physicalStagePrompt(activeFieldStage, false);
-  const previousBestDrops = Number(state.trail?.drops?.[stopId]) || 0;
   const pendingDropSparks = Math.max(0, picked.size - previousBestDrops) * SPARKS_PER_DROP;
   const liveSparks = availableSparks(state) + pendingDropSparks;
-  const seedwakeSpec = seedwakeStopSpec(stopId);
-  const liveSeedwakeState = seedwakeSpec ? {
-    ...state,
-    trail: {
-      ...state.trail,
-      drops: {
-        ...state.trail?.drops,
-        [stopId]: Math.max(previousBestDrops, picked.size)
-      }
-    }
-  } : state;
-  const satchel = seedwakeSatchel(liveSeedwakeState);
   const currentPocket = satchel.pockets.find(pocket => pocket.stopId === stopId);
-  const activeBeat = active?.beats?.[beatIndex] || null;
-  const taskParts = activeFieldTask ? physicalTaskAnswers(activeFieldTask) : [];
   // SHOW THE WORD BEING BUILT WHEREVER A WORD IS BEING BUILT.
   //
   // This used to be an allowlist of two mechanics ("bridge-build" and the
@@ -4842,28 +4958,9 @@ export default function QuestHub({
   // place — track-sort picks `a` and then a route, delivery picks a parcel and
   // then a marker. Those destination ids are not phonemes and must never land
   // in a slot.
-  const activeWordSounds = activeBeat?.word ? new Set(segmentWord(activeBeat.word)) : new Set();
-  const stageAnswers = (activeFieldTask?.stages || [])
-    .map(stage => (stage.items || []).find(item => item.correct)?.value)
-    .filter(value => value != null)
-    .map(String)
-    .filter(value => activeWordSounds.has(value))
-    .filter((value, index, all) => value !== all[index - 1]);
-  const buildsAWord = Boolean(activeBeat?.word) && stageAnswers.length > 1;
-  const activeWordParts = buildsAWord
-    ? (taskParts.length > 1 ? taskParts : segmentWord(activeBeat.word))
-    : [];
-  let activeSlotState = createPhonemeSlotState(activeWordParts);
-  for (const grapheme of activeWordParts.slice(0, phonemeFillCount)) {
-    activeSlotState = advancePhonemeSlotState(activeSlotState, grapheme, true);
-  }
-  const encounterTasks = active?.beats?.map((encounterBeat, encounterBeatIndex) => (
-    buildPhysicalTask(section, active, encounterBeat, encounterBeatIndex)
-  )) || [];
-  const encounterStageCount = encounterTasks.reduce((total, task) => total + (task?.stages.length || 0), 0);
-  const encounterStageIndex = encounterTasks
-    .slice(0, beatIndex)
-    .reduce((total, task) => total + (task?.stages.length || 0), 0) + fieldStage;
+  const { activeSlotState, activeWordParts } = wordBuild;
+  const encounterStageCount = encounterProgress.stageCount;
+  const encounterStageIndex = encounterProgress.stageIndex;
   const encounterHud = activeFieldStage
     ? seedwakeEncounterHudModel({
       objective: activeCorrection.prompt,
@@ -4924,7 +5021,7 @@ export default function QuestHub({
         {section.drops.map(drop => (
           <span
             key={drop.id}
-            ref={node => { if (node) dropRefs.current.set(drop.id, node); else dropRefs.current.delete(drop.id); }}
+            ref={dropRefCallbacks.get(drop.id)}
             className={`qh-drop${drop.cache ? " is-cache" : ""}${picked.has(drop.id) ? " is-picked" : ""}`}
           >
             <img src="/images/quest/props/sun-drop.webp" alt="" draggable="false" />
@@ -4937,7 +5034,7 @@ export default function QuestHub({
           return (
             <button
               key={encounter.id}
-              ref={node => { if (node) landmarkRefs.current.set(encounter.id, node); else landmarkRefs.current.delete(encounter.id); }}
+              ref={landmarkRefCallbacks.get(encounter.id)}
               type="button"
               className={`qh-landmark${isSolved ? " is-solved" : ""}${isNext ? " is-next" : ""}${selectedId === encounter.id ? " is-selected" : ""}`}
               disabled={!isNext || Boolean(active)}
@@ -5028,7 +5125,7 @@ export default function QuestHub({
       )}
 
       {sceneReady && activeFieldStage && (
-        <div className={`qh-semantic-choices${COARSE_POINTER ? " is-pinned" : ""}`} role="group" aria-label="Answer choices">
+        <div ref={viewFocusRef} tabIndex={-1} className={`qh-semantic-choices${COARSE_POINTER ? " is-pinned" : ""}`} role="group" aria-label="Answer choices">
           {activeFieldStage.items
             .filter(item => activeCorrection.visibleIds.includes(item.id))
             .map(item => (
@@ -5082,7 +5179,7 @@ export default function QuestHub({
       {/* Rendered only when it HAS a next action - a primary button with
           nothing written on it is worse than no button. */}
       {phase === "trail" && !active && (gateOpen || !guideDone || nextEncounter) && (
-        <button type="button" className={`qh-next-call${gateOpen ? " is-gate" : ""}`} onClick={moveToNext} aria-live="polite">
+        <button ref={viewFocusRef} type="button" className={`qh-next-call${gateOpen ? " is-gate" : ""}`} onClick={moveToNext} aria-live="polite">
           {gateOpen ? (
             section.isChapterFinale
               ? <><strong>{section.finale.title}</strong><span>Walk into the restored destination</span></>
@@ -5096,19 +5193,21 @@ export default function QuestHub({
       )}
 
       {phase === "teach" && teach && (
-        <Guide
-          key={teach.id}
-          world={section.world}
-          entries={section.teach}
-          isSoundEnabled={isSoundEnabled}
-          onNext={() => {
-            guideDoneRef.current = true;
-            setGuideDone(true);
-            phaseRef.current = "trail";
-            setPhase("trail");
-            checkpoint({ phase: "trail", guideDone: true, meetIndex: 0 });
-          }}
-        />
+        <div ref={viewFocusRef} tabIndex={-1}>
+          <Guide
+            key={teach.id}
+            world={section.world}
+            entries={section.teach}
+            isSoundEnabled={isSoundEnabled}
+            onNext={() => {
+              guideDoneRef.current = true;
+              setGuideDone(true);
+              phaseRef.current = "trail";
+              setPhase("trail");
+              checkpoint({ phase: "trail", guideDone: true, meetIndex: 0 });
+            }}
+          />
+        </div>
       )}
 
       {sceneReady && activeFieldTask?.storyText && activeFieldStage && (

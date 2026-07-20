@@ -1,5 +1,5 @@
 import { QUEST_STOPS } from "../data/questSequence.js";
-import { countMastered, weakestTargets } from "./questMastery.js";
+import { countMastered, independentAttemptCount, weakestTargets } from "./questMastery.js";
 import { totalStars, unlockedChapterRewards } from "./questProgress.js";
 import { questTelemetryTotals } from "./questTelemetry.js";
 
@@ -31,7 +31,10 @@ export function sortBuckets(mastery = {}) {
   const gotIt = rows.filter(row => ["mastered", "retired"].includes(row?.state)).length;
   const needsReteaching = rows.filter(row =>
     !["mastered", "retired"].includes(row?.state)
-    && ((Number(row?.correct) || 0) < 2 || (Number(row?.misses) || 0) >= 2)).length;
+    && (
+      (Number(row?.misses) || 0) >= 2
+      || (independentAttemptCount(row) > 0 && (Number(row?.correct) || 0) < 2)
+    )).length;
   return { gotIt, almostThere: Math.max(0, rows.length - gotIt - needsReteaching), needsReteaching };
 }
 
@@ -59,13 +62,18 @@ export function questHeatTiles(state = {}) {
   return seenOrder.map(entry => {
     const record = mastery[entry.id];
     const seen = Number(record?.seen) || 0;
+    const independentSeen = independentAttemptCount(record);
     const correct = Number(record?.correct) || 0;
+    const struggled = (Number(record?.misses) || 0) > 0;
+    const hasKnowledgeEvidence = independentSeen > 0 || struggled;
     const mastered = ["mastered", "retired"].includes(record?.state);
     const bucket = !seen
       ? "unseen"
       : mastered
         ? "got-it"
-        : (correct < 2 || (Number(record?.misses) || 0) >= 2)
+        : !hasKnowledgeEvidence
+          ? "almost"
+          : ((independentSeen > 0 && correct < 2) || (Number(record?.misses) || 0) >= 2)
           ? "reteach"
           : "almost";
     return {
@@ -76,7 +84,8 @@ export function questHeatTiles(state = {}) {
       stopName: entry.stopName,
       bucket,
       seen,
-      accuracy: seen ? Math.round((correct / seen) * 100) : null
+      independentSeen,
+      accuracy: independentSeen ? Math.round(Math.min(1, correct / independentSeen) * 100) : null
     };
   });
 }
@@ -205,6 +214,7 @@ export function buildQuestMasteryReport(state = {}) {
   const weak = weakestTargets(mastery, 5);
   const telemetry = questTelemetryTotals(state?.telemetry);
   const attempts = Object.values(mastery).reduce((sum, row) => sum + (Number(row?.seen) || 0), 0);
+  const independentAttempts = Object.values(mastery).reduce((sum, row) => sum + independentAttemptCount(row), 0);
   const correct = Object.values(mastery).reduce((sum, row) => sum + (Number(row?.correct) || 0), 0);
   const developing = Object.values(mastery).filter(row => ["learning", "practising", "at-risk"].includes(row?.state)).length;
   const stopped = new Set(state?.trail?.stopsDone || []);
@@ -225,7 +235,7 @@ export function buildQuestMasteryReport(state = {}) {
           ? "Both sound choices and timing or movement controls affected this session."
           : "Responses were completed without a strong control or re-teaching signal.";
   const guidance = questEvidenceGuidance({
-    attempts: Math.max(attempts, interactionEvidence),
+    attempts: Math.max(independentAttempts, interactionEvidence),
     sessions: telemetry.sessions,
     highControlLoad,
     highLearningLoad,
@@ -254,7 +264,8 @@ export function buildQuestMasteryReport(state = {}) {
     relicsUnlocked: unlockedChapterRewards(state).length,
     soundsDeveloping: developing,
     attempts,
-    accuracy: attempts ? Math.round((correct / attempts) * 100) : null,
+    independentAttempts,
+    accuracy: independentAttempts ? Math.round(Math.min(1, correct / independentAttempts) * 100) : null,
     weakest: weak,
     activeMs: telemetry.activeMs,
     timeOnTask: formatQuestDuration(telemetry.activeMs),

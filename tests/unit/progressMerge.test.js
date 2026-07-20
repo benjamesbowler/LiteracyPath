@@ -1,9 +1,11 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import {
   computeHydratedValue,
   mergeMonotonic,
-  mergeStatusForward
+  mergeStatusForward,
+  sanitizeCloudProgressPayload
 } from "../../src/utils/progressMerge.js";
 
 // ── The core promise: hydrating from the cloud never loses local progress ─────
@@ -14,6 +16,16 @@ test("learn_games: cloud row keeps games earned on another device (no clobber)",
   const next = computeHydratedValue("learn_games", "__all__", local, cloud);
   assert.equal(next.games.hop.stars, 3, "local-only game must survive hydrate");
   assert.equal(next.games.match.stars, 2, "cloud-only game is added");
+});
+
+test("phonics_quest cloud payloads never include assignment or telemetry", () => {
+  const safe = sanitizeCloudProgressPayload("phonics_quest", {
+    trail: { stopsDone: ["s1"] },
+    assignment: { targets: ["m"] },
+    telemetry: { sessions: [{ id: "private-session" }] }
+  });
+  assert.deepEqual(safe, { trail: { stopsDone: ["s1"] } });
+  assert.equal(sanitizeCloudProgressPayload("learn_games", { telemetry: true }).telemetry, true);
 });
 
 test("learn_games: a cleared checkpoint is NOT resurrected by a stale cloud row", () => {
@@ -139,6 +151,28 @@ test("phonics_quest: a demotion witnessed on this device is not undone by a stal
   assert.equal(merged.mastery.sh.box, 1, "box follows the same clock");
 });
 
+test("phonics_quest: a newer demotion epoch owns resettable mastery evidence", () => {
+  const local = { mastery: { sh: {
+    seen: 14, independentSeen: 0, correct: 0, streak: 0, window: [],
+    state: "learning", box: 1, shells: [], sessions: [], misses: 2,
+    evidenceEpoch: 1, lastAt: "2026-07-15", lastStop: 9
+  } } };
+  const cloud = { mastery: { sh: {
+    seen: 15, independentSeen: 12, correct: 12, streak: 4, window: [1, 1, 1, 1],
+    state: "mastered", box: 4, shells: ["stones", "bridge"], sessions: ["d1", "d2"], misses: 0,
+    evidenceEpoch: 0, lastAt: "2026-07-12", lastStop: 8
+  } } };
+  const merged = computeHydratedValue("phonics_quest", "__all__", local, cloud).mastery.sh;
+  assert.equal(merged.seen, 15, "lifetime exposure remains monotone");
+  assert.equal(merged.evidenceEpoch, 1);
+  assert.equal(merged.state, "learning");
+  assert.equal(merged.correct, 0, "stale pre-demotion corrects cannot resurrect the claim");
+  assert.equal(merged.independentSeen, 0);
+  assert.deepEqual(merged.window, []);
+  assert.deepEqual(merged.shells, []);
+  assert.deepEqual(merged.sessions, []);
+});
+
 test("phonics_quest: routeCursor is journey state, not an achievement — no max-merge", () => {
   const local = { trail: { stopsDone: ["s1"], stars: { s1: 2 }, routeCursor: 3 } };
   const cloud = { trail: { stopsDone: ["s1", "s2"], stars: { s1: 3 }, routeCursor: 40 } };
@@ -146,6 +180,13 @@ test("phonics_quest: routeCursor is journey state, not an achievement — no max
   assert.equal(merged.trail.routeCursor, 3, "this device keeps its own journey position");
   assert.equal(merged.trail.stars.s1, 3, "stars still merge forward");
   assert.deepEqual([...merged.trail.stopsDone].sort(), ["s1", "s2"], "stops walked anywhere are kept");
+});
+
+test("phonics_quest: a synthetic fresh-device cursor does not erase the cloud review position", () => {
+  const local = { trail: { stopsDone: [], routeCursor: 1 } };
+  const cloud = { trail: { stopsDone: ["s1", "s40"], routeCursor: 30 } };
+  const merged = computeHydratedValue("phonics_quest", "__all__", local, cloud);
+  assert.equal(merged.trail.routeCursor, 30);
 });
 
 test("phonics_quest: purchases union by id — different timestamps do not duplicate a purchase", () => {
@@ -164,6 +205,20 @@ test("phonics_quest: checkpoint is resume state — a cloud checkpoint never tel
   assert.deepEqual([...merged.stones].sort(), ["a", "m", "t"], "stones union");
 });
 
+test("phonics_quest: a fresh device resumes only a cloud checkpoint at its merged current stop", () => {
+  const current = computeHydratedValue("phonics_quest", "__all__", {}, {
+    trail: { stopsDone: ["s1", "s2"], routeCursor: 3 },
+    checkpoint: { stopId: "s3", beatIndex: 1 }
+  });
+  assert.deepEqual(current.checkpoint, { stopId: "s3", beatIndex: 1 });
+
+  const stale = computeHydratedValue("phonics_quest", "__all__", {}, {
+    trail: { stopsDone: ["s1", "s2"], routeCursor: 3 },
+    checkpoint: { stopId: "s9", beatIndex: 1 }
+  });
+  assert.equal(stale.checkpoint, null, "a stale mid-stop row cannot teleport the child");
+});
+
 test("mergeMonotonic: numbers max, booleans OR, arrays union, missing sides", () => {
   assert.equal(mergeMonotonic(2, 5), 5);
   assert.equal(mergeMonotonic(5, 2), 5);
@@ -172,4 +227,17 @@ test("mergeMonotonic: numbers max, booleans OR, arrays union, missing sides", ()
   assert.deepEqual(mergeMonotonic([1, 2], [2, 3]), [1, 2, 3]);
   assert.equal(mergeMonotonic(undefined, 4), 4);
   assert.equal(mergeMonotonic(4, undefined), 4);
+});
+
+test("server merge mirrors demotion epochs, safe resume, daily missions, and Hollow bounds", () => {
+  const migration = fs.readFileSync("supabase/migrations/20260720153000_sound_seekers_audit_integrity.sql", "utf8");
+  assert.match(migration, /a_epoch <> b_epoch/);
+  assert.match(migration, /'independentSeen'/);
+  assert.match(migration, /incoming_has_progress[\s\S]*?jsonb_array_length/);
+  assert.match(migration, /existing_checkpoint ->> 'stopId'[\s\S]*?trunc\(cursor_val\)/);
+  assert.match(migration, /incoming_creature_at[\s\S]*?existing_creature_at[\s\S]*?'creatureAt'/);
+  assert.match(migration, /when p_area = 'daily_mission' then public\.lp_merge_daily_mission/);
+  assert.match(migration, /when p_area = 'hollow' then public\.lp_merge_hollow/);
+  assert.match(migration, /species_rank <= 8/);
+  assert.match(migration, /'purchases'.*128/s);
 });

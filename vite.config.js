@@ -55,7 +55,7 @@ export default defineConfig({
     'typeof CANVAS_RENDERER': 'true',
     'typeof WEBGL_RENDERER': 'false',
     'typeof WEBGL_DEBUG': 'false',
-    'typeof FEATURE_SOUND': 'true'
+    'typeof FEATURE_SOUND': 'false'
   },
   optimizeDeps: {
     include: ['phaser'],
@@ -66,7 +66,7 @@ export default defineConfig({
           'typeof CANVAS_RENDERER': 'true',
           'typeof WEBGL_RENDERER': 'false',
           'typeof WEBGL_DEBUG': 'false',
-          'typeof FEATURE_SOUND': 'true'
+          'typeof FEATURE_SOUND': 'false'
         }
       }
     }

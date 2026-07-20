@@ -6,6 +6,8 @@
 
 import { localProgressStorageKey } from "./progressKeys.js";
 import { queueProgressSave, logStudentActivity } from "./progressSync.js";
+import { tryHollowFeed, tryHollowPurchase } from "./hollowEconomy.js";
+import { boundedHollowFeeds, boundedHollowPurchases, uniqueHollowRecords } from "./hollowLedgerPolicy.js";
 
 const EMPTY = { purchases: [], feeds: [], chests: [], layout: { at: "", equipped: {}, slots: {} } };
 
@@ -15,9 +17,9 @@ export function loadHollowLedger(scope) {
     const raw = JSON.parse(window.localStorage.getItem(localProgressStorageKey("hollow", scope)) || "null");
     if (!raw || typeof raw !== "object") return { ...EMPTY };
     return {
-      purchases: Array.isArray(raw.purchases) ? raw.purchases : [],
-      feeds: Array.isArray(raw.feeds) ? raw.feeds : [],
-      chests: Array.isArray(raw.chests) ? raw.chests : [],
+      purchases: boundedHollowPurchases(raw.purchases),
+      feeds: boundedHollowFeeds(raw.feeds),
+      chests: uniqueHollowRecords(raw.chests),
       layout: raw.layout && typeof raw.layout === "object"
         ? { at: raw.layout.at || "", equipped: raw.layout.equipped || {}, slots: raw.layout.slots || {} }
         : { ...EMPTY.layout }
@@ -29,33 +31,46 @@ export function loadHollowLedger(scope) {
 
 function persist(scope, ledger) {
   if (typeof window === "undefined") return;
+  const bounded = {
+    ...ledger,
+    purchases: boundedHollowPurchases(ledger.purchases),
+    feeds: boundedHollowFeeds(ledger.feeds),
+    chests: uniqueHollowRecords(ledger.chests)
+  };
   try {
-    window.localStorage.setItem(localProgressStorageKey("hollow", scope), JSON.stringify(ledger));
+    window.localStorage.setItem(localProgressStorageKey("hollow", scope), JSON.stringify(bounded));
   } catch { /* best effort */ }
-  queueProgressSave("hollow", "__all__", ledger, { scopeKey: scope });
+  queueProgressSave("hollow", "__all__", bounded, { scopeKey: scope });
 }
 
 function recordId(prefix) {
   return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
-// Buying: the caller validates with hollowEconomy.canBuy first; this records
-// cost at time of purchase so later price changes never rewrite history.
-export function recordPurchase(scope, item) {
+// Re-check against the freshly loaded ledger at the mutation boundary. React's
+// rendered wallet is only a snapshot and two fast taps can otherwise both pass
+// the caller's stale affordability check.
+export function recordPurchase(scope, item, breakdown = {}) {
   const ledger = loadHollowLedger(scope);
-  const record = { id: recordId("buy"), item: item.id, cost: item.price, at: new Date().toISOString() };
-  ledger.purchases = [...ledger.purchases, record];
-  persist(scope, ledger);
-  logStudentActivity("hollow", item.id, "purchase", { cost: item.price });
-  return record;
+  const applied = tryHollowPurchase(ledger, breakdown, item?.id, {
+    id: recordId("buy"),
+    at: new Date().toISOString()
+  });
+  if (!applied) return null;
+  persist(scope, applied.ledger);
+  logStudentActivity("hollow", applied.record.item, "purchase", { cost: applied.record.cost });
+  return applied.record;
 }
 
-export function recordFeed(scope, speciesId) {
+export function recordFeed(scope, speciesId, breakdown = {}) {
   const ledger = loadHollowLedger(scope);
-  const record = { id: recordId("feed"), species: speciesId, at: new Date().toISOString() };
-  ledger.feeds = [...ledger.feeds, record];
-  persist(scope, ledger);
-  return record;
+  const applied = tryHollowFeed(ledger, breakdown, speciesId, {
+    id: recordId("feed"),
+    at: new Date().toISOString()
+  });
+  if (!applied) return null;
+  persist(scope, applied.ledger);
+  return applied.record;
 }
 
 // One chest per calendar day, recorded when the daily mission completes.

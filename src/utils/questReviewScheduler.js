@@ -16,7 +16,7 @@
 // DOM-free and deterministic (the 1-in-10 sample is index-based, not random),
 // so it is unit-testable — tests/unit/questReviewScheduler.test.js.
 
-import { MASTERY_STATES, emptyRecord } from "./questMastery.js";
+import { MASTERY_STATES, emptyRecord, independentAttemptCount } from "./questMastery.js";
 
 export const BOX_INTERVALS = Object.freeze({ 1: 0, 2: 2, 3: 5, 4: 12, 5: 30 });
 export const MAX_BOX = 5;
@@ -39,9 +39,9 @@ export function demote(record) {
 // Update the box for one target after a stop, from its mastery record.
 export function boxAfterStop(record) {
   const r = { ...emptyRecord(), ...(record || {}) };
+  if (r.misses > 0) return 1;
   if (r.state === MASTERY_STATES.RETIRED) return 5;
   if (r.state === MASTERY_STATES.MASTERED) return 4;
-  if (r.misses > 0) return 1;
   return Math.min(3, Math.max(1, r.box || 1));
 }
 
@@ -57,7 +57,7 @@ function isDue(record, stopIndex, target = "") {
   const r = { ...emptyRecord(), ...(record || {}) };
   const box = Math.min(MAX_BOX, Math.max(1, r.box || 1));
   const lastStop = Number(r.lastStop) || 0;
-  const gap = stopIndex - lastStop;
+  const gap = Math.max(0, stopIndex - lastStop);
 
   // Box 5 (retired) is never "due" in the normal sense — it is sampled, so a
   // child still sees `s` occasionally in year two. Index-based, not random, so
@@ -87,7 +87,10 @@ export function reviewWeight(record, stopIndex) {
   const r = { ...emptyRecord(), ...(record || {}) };
   if (!r.seen) return 0;
 
-  const errorRate = 1 - r.correct / r.seen;
+  const independentSeen = independentAttemptCount(record);
+  const errorRate = independentSeen > 0
+    ? Math.max(0, Math.min(1, 1 - r.correct / independentSeen))
+    : (r.misses > 0 ? 1 : 0);
   const gap = Math.max(0, stopIndex - (Number(r.lastStop) || 0));
   const recency = Math.min(1, gap / 12);
   const oneKindShort = r.correct >= 2 && (r.shells || []).length < 2 ? 1.5 : 0;

@@ -1,6 +1,6 @@
 import { memo, useCallback } from "react";
 import { motion } from "framer-motion";
-import { usePhonicsAudio } from "../../../../hooks/usePhonicsAudio";
+import { hasPhonicsAudioSource, usePhonicsAudio } from "../../../../hooks/usePhonicsAudio";
 
 const AudioButton = memo(function AudioButton({
   src,
@@ -9,10 +9,13 @@ const AudioButton = memo(function AudioButton({
   className = ""
 }) {
   const { play, isPlaying } = usePhonicsAudio(src, fallbackText);
+  const canPlay = hasPhonicsAudioSource(src);
 
   const handleClick = useCallback(() => {
     play();
   }, [play]);
+
+  if (!canPlay) return null;
 
   return (
     <motion.button

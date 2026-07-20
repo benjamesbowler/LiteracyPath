@@ -13,6 +13,7 @@ import { ConfettiCelebration } from "../learn/games/shared/ConfettiCelebration.j
 import { getPiece } from "../../data/creatureParts.js";
 import { displayGrapheme } from "./shells/shellContract.js";
 import { playStarChime, playCelebrationFanfare } from "../../utils/audio/gameSfx.js";
+import { playCueAudio, stopCueAudio } from "../../utils/audio/cuePlayer.js";
 import { trailEventForStop } from "../../utils/questHub.js";
 import { availableSparks } from "../../utils/questProgress.js";
 
@@ -89,16 +90,47 @@ export default function RewardScreen({
   const continueRef = useRef(null);
   const skipRef = useRef(null);
   const [ceremonyStage, setCeremonyStage] = useState(overlay ? 0 : 3);
-  const reducedMotion = Boolean(state?.settings?.reducedMotion);
+  const ceremonyStageRef = useRef(ceremonyStage);
+  const [osReducedMotion, setOsReducedMotion] = useState(() => Boolean(
+    typeof window !== "undefined"
+    && window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches
+  ));
+  const reducedMotion = Boolean(state?.settings?.reducedMotion || osReducedMotion);
+
+  useEffect(() => {
+    ceremonyStageRef.current = ceremonyStage;
+  }, [ceremonyStage]);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return undefined;
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncReducedMotion = () => setOsReducedMotion(Boolean(query.matches));
+    syncReducedMotion();
+    query.addEventListener?.("change", syncReducedMotion);
+    if (!query.addEventListener) query.addListener?.(syncReducedMotion);
+    return () => {
+      query.removeEventListener?.("change", syncReducedMotion);
+      if (!query.removeEventListener) query.removeListener?.(syncReducedMotion);
+    };
+  }, []);
 
   useEffect(() => {
     if (!overlay) return undefined;
-    if (reducedMotion || window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) {
-      const timer = window.setTimeout(() => setCeremonyStage(3), 0);
+    if (reducedMotion) {
+      const timer = window.setTimeout(() => {
+        ceremonyStageRef.current = 3;
+        setCeremonyStage(3);
+      }, 0);
       return () => window.clearTimeout(timer);
     }
+    // Turning Reduce Motion back off must not restart an already-stable reward.
+    if (ceremonyStageRef.current >= 3) return undefined;
     const timers = [1, 2, 3].map(stage => window.setTimeout(
-      () => setCeremonyStage(stage),
+      () => setCeremonyStage(current => {
+        const next = Math.max(current, stage);
+        ceremonyStageRef.current = next;
+        return next;
+      }),
       stage * 1050
     ));
     return () => timers.forEach(timer => window.clearTimeout(timer));
@@ -107,9 +139,18 @@ export default function RewardScreen({
   useEffect(() => {
     if (!isSoundEnabled) return undefined;
     playStarChime();
-    if (stars < 2) return undefined;
-    const t = setTimeout(playCelebrationFanfare, 380);
-    return () => clearTimeout(t);
+    const timers = [];
+    if (stars >= 2) timers.push(setTimeout(playCelebrationFanfare, 380));
+    // Existing recorded child voice; never substitute browser TTS if it fails.
+    // The visual reward symbols and arrow action remain the fallback.
+    if (stars > 0) timers.push(setTimeout(
+      () => playCueAudio("/audio/ui/voice/great-job.mp3", { volume: 0.9 }),
+      stars >= 2 ? 1550 : 420
+    ));
+    return () => {
+      timers.forEach(timer => clearTimeout(timer));
+      stopCueAudio();
+    };
   }, [stars, isSoundEnabled]);
 
   useEffect(() => {
@@ -118,6 +159,15 @@ export default function RewardScreen({
     skipRef.current?.focus();
     return () => previousFocus?.focus?.();
   }, [overlay]);
+
+  useEffect(() => {
+    if (!overlay || ceremonyStage < 3) return undefined;
+    // The staged reveal removes the focused Skip button. Hand focus to the
+    // primary action on both timer completion and the explicit skip path so a
+    // keyboard/switch user is never stranded on <body> inside a modal.
+    const frame = window.requestAnimationFrame(() => continueRef.current?.focus());
+    return () => window.cancelAnimationFrame(frame);
+  }, [ceremonyStage, overlay]);
 
   const containFocus = event => {
     if (!overlay || event.key !== "Tab") return;
@@ -146,7 +196,7 @@ export default function RewardScreen({
     >
       {/* No stars, no confetti. Celebrating a run where the child got nothing
           right teaches them the celebration is meaningless. */}
-      <ConfettiCelebration show={stars > 0} reducedMotion={Boolean(state?.settings?.reducedMotion)} />
+      <ConfettiCelebration show={stars > 0} reducedMotion={reducedMotion} />
 
       <div className="q-reward-card q-reward-ceremony-card">
         <div className="q-reward-copy">
@@ -205,12 +255,14 @@ export default function RewardScreen({
               </div>
 
               <div className="q-reward-earned" aria-label="Rewards earned">
-                {gearPiece && <span>New gear: <strong>{gearPiece.label}</strong></span>}
+                {gearPiece && <span><span aria-hidden="true">◆ </span>New gear: <strong>{gearPiece.label}</strong></span>}
                 <span>
+                  <span aria-hidden="true">✦ </span>
                   {sparkGain > 0 ? <><strong>+{sparkGain} Sparks</strong> this trail · </> : null}
                   <strong>{sparkBalance} ready to spend</strong>
                 </span>
                 <span>
+                  <span aria-hidden="true">● </span>
                   {newStones.length
                     ? `New sound stones: ${newStones.map(displayGrapheme).join(", ")}`
                     : "These sounds will return for more practice."}
@@ -226,11 +278,11 @@ export default function RewardScreen({
           )}
 
           {ceremonyStage < 3 ? (
-            <button ref={skipRef} type="button" className="q-ghost q-ceremony-skip" onClick={() => setCeremonyStage(3)}>Show rewards now</button>
+            <button ref={skipRef} type="button" className="q-ghost q-ceremony-skip" onClick={() => setCeremonyStage(3)}><span aria-hidden="true">★ </span>Show rewards now</button>
           ) : (
             <div className="q-ceremony-actions">
-              <button ref={continueRef} type="button" className="q-primary" onClick={onContinue}>Continue the trail</button>
-              {onTradingPost && <button type="button" className="q-ghost" onClick={onTradingPost}>Choose new gear</button>}
+              <button ref={continueRef} type="button" className="q-primary" onClick={onContinue}><span aria-hidden="true">➜ </span>Continue the trail</button>
+              {onTradingPost && <button type="button" className="q-ghost" onClick={onTradingPost}><span aria-hidden="true">◆ </span>Choose new gear</button>}
             </div>
           )}
         </div>

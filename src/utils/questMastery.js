@@ -115,6 +115,7 @@ export const RETIRE_REVIEW_GAP = 12;
 export function emptyRecord() {
   return {
     seen: 0,
+    independentSeen: 0, // denominator for knowledge accuracy; help/timeouts are exposure only
     correct: 0,
     streak: 0,
     misses: 0,          // consecutive misses, reset by any correct
@@ -123,9 +124,26 @@ export function emptyRecord() {
     sessions: [],       // distinct YYYY-MM-DD days the child has been right on
     state: MASTERY_STATES.NOT_STARTED,
     box: 1,             // Leitner box, owned by questReviewScheduler
+    evidenceEpoch: 0,   // increments when demotion invalidates the old proof set
     lastAt: "",
     lastStop: 0         // trail position of the last attempt (review gaps)
   };
+}
+
+export function independentAttemptCount(record) {
+  if (!record || typeof record !== "object") return 0;
+  if (Object.prototype.hasOwnProperty.call(record, "independentSeen")) {
+    const independent = Math.max(0, Number(record.independentSeen) || 0);
+    // Defensive migration for hand-built/partially migrated records: a positive
+    // independent-correct counter cannot coexist with zero independent attempts.
+    if (independent === 0 && (Number(record.correct) || 0) > 0) {
+      return Math.max(0, Number(record.seen) || Number(record.correct) || 0);
+    }
+    return independent;
+  }
+  // Legacy saves predate the split and cannot distinguish assistance. Preserve
+  // their historical denominator; all newly recorded attempts are exact.
+  return Math.max(0, Number(record.seen) || 0);
 }
 
 // The "different days" anti-cram rule counts days in the CHILD'S life, not
@@ -175,7 +193,12 @@ export function meetsMasteryBar(record, rules = MASTERY_RULES) {
 //
 // Pure: returns a new record, mutates nothing.
 export function recordAttempt(record, { correct = false, shell = "", at = "", stopIndex = 0, rules = MASTERY_RULES, promptLevel = 0, reason = "" } = {}) {
-  const prev = { ...emptyRecord(), ...(record || {}) };
+  const stored = record && typeof record === "object" ? record : {};
+  const prev = {
+    ...emptyRecord(),
+    ...stored,
+    independentSeen: independentAttemptCount(stored)
+  };
   const day = dayOf(at);
   const timeout = reason === "timeout";
   const independent = promptLevel === 0 && !timeout;
@@ -183,6 +206,7 @@ export function recordAttempt(record, { correct = false, shell = "", at = "", st
   const next = {
     ...prev,
     seen: prev.seen + 1,
+    independentSeen: prev.independentSeen + (independent ? 1 : 0),
     correct: prev.correct + (correct && independent ? 1 : 0),
     streak: independent ? (correct ? prev.streak + 1 : 0) : prev.streak,
     misses: timeout ? prev.misses : (correct ? 0 : prev.misses + 1),
@@ -194,7 +218,7 @@ export function recordAttempt(record, { correct = false, shell = "", at = "", st
     lastAt: at || prev.lastAt,
     // THE sound was practised HERE. This is the only place lastStop should be
     // written — see the note in questProgress.recordStopResult.
-    lastStop: stopIndex || prev.lastStop || 0
+    lastStop: timeout ? (prev.lastStop || 0) : (stopIndex || prev.lastStop || 0)
   };
 
   // Only an INDEPENDENT correct answer is evidence. Being wrong in a second
@@ -222,6 +246,33 @@ export function recordAttempt(record, { correct = false, shell = "", at = "", st
     stopIndex - (Number(prev.lastStop) || 0) >= RETIRE_REVIEW_GAP
   ) {
     next.state = MASTERY_STATES.RETIRED;
+  }
+
+  // One clean independent recall advances the Leitner interval. A miss always
+  // returns immediately to box 1, including the first miss of a still-mastered
+  // sound. Assisted/timeout events do not move the knowledge schedule.
+  if (independent) {
+    if (!correct) next.box = 1;
+    else if (next.state === MASTERY_STATES.RETIRED) next.box = 5;
+    else if (next.state === MASTERY_STATES.MASTERED) next.box = 4;
+    else next.box = Math.min(3, Math.max(1, Number(prev.box) || 1) + 1);
+  }
+
+  // Forgetting invalidates the evidence set that supported the old claim.
+  // Re-mastery must again be shown in two shells on two days, rather than
+  // borrowing shells/sessions banked before the child was demonstrably stuck.
+  if (
+    (prev.state === MASTERY_STATES.MASTERED || prev.state === MASTERY_STATES.RETIRED)
+    && next.state === MASTERY_STATES.LEARNING
+  ) {
+    next.correct = 0;
+    next.independentSeen = 0;
+    next.streak = 0;
+    next.window = [];
+    next.shells = [];
+    next.sessions = [];
+    next.box = 1;
+    next.evidenceEpoch = (Number(prev.evidenceEpoch) || 0) + 1;
   }
   return next;
 }
@@ -265,11 +316,16 @@ export function countMastered(mastery) {
 // "weak", they are simply not met yet, so they are excluded.
 export function weakestTargets(mastery, n = 5) {
   return Object.entries(mastery || {})
-    .filter(([, r]) => (r?.seen || 0) > 0 && r?.state !== MASTERY_STATES.RETIRED)
+    .filter(([, r]) =>
+      (independentAttemptCount(r) > 0 || (Number(r?.misses) || 0) > 0)
+      && r?.state !== MASTERY_STATES.RETIRED)
     .map(([target, r]) => ({
       target,
-      accuracy: r.seen ? r.correct / r.seen : 0,
+      accuracy: independentAttemptCount(r)
+        ? Math.max(0, Math.min(1, r.correct / independentAttemptCount(r)))
+        : 0,
       seen: r.seen,
+      independentSeen: independentAttemptCount(r),
       state: r.state
     }))
     .sort((a, b) => a.accuracy - b.accuracy || b.seen - a.seen || a.target.localeCompare(b.target))

@@ -57,17 +57,19 @@ export function encounterRunReducer(state, action) {
   const run = state || createEncounterRun();
   switch (action?.type) {
     case "attempt": {
-      const key = action.key
+      const correctionRecordKey = action.key
         || correctionKey({ id: run.encounterId }, run.beatIndex, run.stageIndex);
-      const preMode = run.corrections[key]?.mode;
+      const tallyKey = `${run.encounterId}:${run.beatIndex}`;
+      const preMode = run.corrections[correctionRecordKey]?.mode;
       const promptLevel = action.promptLevel ?? promptLevelForMode(preMode);
       const correct = Boolean(action.correct);
 
-      // First attempt per beat is what stars score; the ladder is teaching.
+      // First attempt per BEAT is what stars score; a word may have several
+      // stage-specific correction records, but it is still one learning beat.
       const firstTally = { ...run.firstTally };
       const tally = { ...run.tally };
-      if (!(key in firstTally)) {
-        firstTally[key] = correct;
+      if (!(tallyKey in firstTally)) {
+        firstTally[tallyKey] = correct;
         tally.total += 1;
         if (correct) tally.correct += 1;
         else tally.mistakes += 1;
@@ -76,8 +78,8 @@ export function encounterRunReducer(state, action) {
       const corrections = { ...run.corrections };
       const reviewQueue = [...run.reviewQueue];
       if (!correct) {
-        const next = recordCorrectionMiss(corrections[key], action.choiceId ?? null);
-        corrections[key] = next;
+        const next = recordCorrectionMiss(corrections[correctionRecordKey], action.choiceId ?? null);
+        corrections[correctionRecordKey] = next;
         if (next.misses >= 3 && !reviewQueue.includes(run.beatIndex)) {
           reviewQueue.push(run.beatIndex);
         }

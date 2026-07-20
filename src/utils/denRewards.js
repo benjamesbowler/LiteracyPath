@@ -8,3 +8,6 @@ export const DEN_THEMES = [
   { id: "moonwood", name: "Moonwood Forest", at: 45, art: "/images/pals/moonwood-panorama.webp" }
 ];
 
+export function isDenThemeUnlocked(theme, lifetimeGems = 0) {
+  return Boolean(theme) && Math.max(0, Number(lifetimeGems) || 0) >= Math.max(0, Number(theme.at) || 0);
+}

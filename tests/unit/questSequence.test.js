@@ -1,5 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import {
   QUEST_STOPS,
   QUEST_ACTS,
@@ -9,6 +10,7 @@ import {
   stopsForAct,
   targetsAtStop,
   taughtThrough,
+  blendsThrough,
   heartWordsThrough,
   wordsThrough,
   NEEDS_AUDIO
@@ -107,6 +109,17 @@ test("the taught set grows monotonically and never loses a sound", () => {
   assert.ok(actI.has("qu") && actI.has("ff") && actI.has("ll") && actI.has("ss") && actI.has("zz"));
 });
 
+test("cumulative curriculum helpers are independent of source-array order", () => {
+  const reversed = [...QUEST_STOPS].reverse();
+  const sorted = values => [...values].sort();
+  for (const stopIndex of [1, 8, 17, 22, 40]) {
+    assert.deepEqual(sorted(taughtThrough(stopIndex, reversed)), sorted(taughtThrough(stopIndex)));
+    assert.deepEqual(sorted(blendsThrough(stopIndex, reversed)), sorted(blendsThrough(stopIndex)));
+    assert.deepEqual(sorted(heartWordsThrough(stopIndex, reversed)), sorted(heartWordsThrough(stopIndex)));
+    assert.deepEqual(sorted(wordsThrough(stopIndex, reversed)), sorted(wordsThrough(stopIndex)));
+  }
+});
+
 test("the trail reaches the whole advanced code", () => {
   const end = taughtThrough(TOTAL_STOPS);
   for (const g of ["a_e", "i_e", "o_e", "u_e", "e_e"]) assert.ok(end.has(g), `missing split digraph ${g}`);
@@ -137,6 +150,13 @@ test("every stop names real shells, and every shell is used somewhere", () => {
   }
 });
 
+test("single-target and boss stops do not advertise an impossible sound-sort", () => {
+  assert.equal(getStop("s17").shells.includes("sound-sort"), false);
+  assert.equal(getStop("s22").shells.includes("sound-sort"), false);
+  assert.ok(getStop("s17").shells.includes("stone-bridge"));
+  assert.ok(getStop("s22").shells.includes("echo-cave"));
+});
+
 test("teach entries are well-formed and alts name a base that was taught earlier", () => {
   const kinds = new Set(["letter", "vowel", "double", "digraph", "split", "team", "r-controlled", "suffix", "blend", "alt", "morph"]);
   for (const stop of QUEST_STOPS) {
@@ -158,6 +178,20 @@ test("targetsAtStop returns the mastery targets, not the graphemes", () => {
   assert.deepEqual(targetsAtStop("s1"), ["a", "m", "t", "s"]);
   assert.deepEqual(targetsAtStop("s16"), ["y_ie", "y_ee"]);
   assert.deepEqual(targetsAtStop("s8"), [], "a boss stop teaches nothing new");
+});
+
+test("the design plan and runtime agree on the four s37 alternatives", () => {
+  assert.deepEqual(targetsAtStop("s37"), ["c_s", "g_j", "ch_k", "ea_e"]);
+  assert.deepEqual(targetsAtStop("s29"), ["ou", "ow_ou"]);
+  assert.deepEqual(getStop("s29").sortPairs, [["ow_ou", "ow"]]);
+
+  const plan = readFileSync(new URL("../../docs/QUEST_DESIGN_PLAN_2026-07-11.md", import.meta.url), "utf8");
+  const knowledgeTreeLine = plan.split("\n").find(line => line.startsWith("*The Knowledge Tree*"));
+  assert.ok(knowledgeTreeLine, "the design plan must name the Knowledge Tree curriculum");
+  for (const contrast of ["`c`=/s/", "`g`=/j/", "`ea`=/e/", "`ch`=/k/"]) {
+    assert.match(knowledgeTreeLine, new RegExp(contrast.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+  assert.match(knowledgeTreeLine, /`ow`=\/oa\/ contrast is already taught at stop 29/);
 });
 
 test("the boss stops are where they should be", () => {

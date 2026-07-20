@@ -5,7 +5,7 @@ import {
   COIN_RATES, BEASTIES, EXPANSIONS, WELCOME_EGG, CARAVAN_ICONS
 } from "../utils/hollowEconomy.js";
 import { loadHollowLedger, recordPurchase, recordFeed, saveLayout, markCoinsSeen } from "../utils/hollowState.js";
-import { DEN_THEMES } from "../utils/denRewards.js";
+import { DEN_THEMES, isDenThemeUnlocked } from "../utils/denRewards.js";
 import { hollowSpotsFor, getCachedHollowOverride, loadHollowSpotsOverride } from "../data/hollowSpots.js";
 import { loadStudentProfile, saveStudentProfile, getCompanion } from "../utils/studentProfile.js";
 import { playStarChime } from "../utils/audio/gameSfx.js";
@@ -190,7 +190,11 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
       return;
     }
     const before = new Set(hollow.beasties.map(b => b.id));
-    recordPurchase(scope, item);
+    const purchase = recordPurchase(scope, item, treasury.breakdown);
+    if (!purchase) {
+      refresh();
+      return;
+    }
     playStarChime();
     if (item.id.startsWith("egg-")) {
       const next = computeHollow(loadHollowLedger(scope), treasury.breakdown);
@@ -207,7 +211,11 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
 
   function feed(speciesId) {
     if (hollow.berries < 1) return;
-    recordFeed(scope, speciesId);
+    const recorded = recordFeed(scope, speciesId, treasury.breakdown);
+    if (!recorded) {
+      refresh();
+      return;
+    }
     playStarChime();
     refresh();
   }
@@ -230,13 +238,14 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
   }
 
   function chooseTheme(next) {
+    if (!isDenThemeUnlocked(next, treasury.gems)) return;
     setTheme(next.id);
     setPickingWorld(false);
     const profile = loadStudentProfile(scope);
     saveStudentProfile(scope, { ...profile, denTheme: next.id });
   }
 
-  const activeTheme = DEN_THEMES.find(t => t.id === theme) || DEN_THEMES[0];
+  const activeTheme = DEN_THEMES.find(t => t.id === theme && isDenThemeUnlocked(t, treasury.gems)) || DEN_THEMES[0];
   const placedIds = new Set(Object.values(hollow.slots));
   const placeable = hollow.ownedHollowItems.filter(i => !placedIds.has(i.id));
   const nextExpansion = EXPANSIONS.find(e => !hollow.ownedIds.has(e.id));
@@ -389,12 +398,15 @@ export function HollowPage({ studentName, progressScopeKey = "default" }) {
                 </button>
                 {pickingWorld && (
                   <div className="hollow-world-pop" role="dialog" aria-label="Choose your world">
-                    {DEN_THEMES.map(world => (
-                      <button key={world.id} type="button" className={`hollow-world-thumb${activeTheme.id === world.id ? " active" : ""}`} onClick={() => chooseTheme(world)}>
-                        <img src={world.art} alt="" onError={hideOnError} />
-                        <span>{world.name}</span>
-                      </button>
-                    ))}
+                    {DEN_THEMES.map(world => {
+                      const unlocked = isDenThemeUnlocked(world, treasury.gems);
+                      return (
+                        <button key={world.id} type="button" disabled={!unlocked} className={`hollow-world-thumb${activeTheme.id === world.id ? " active" : ""}`} onClick={() => chooseTheme(world)}>
+                          <img src={world.art} alt="" onError={hideOnError} />
+                          <span>{unlocked ? world.name : `${world.name} · ${world.at} gems`}</span>
+                        </button>
+                      );
+                    })}
                   </div>
                 )}
               </div>

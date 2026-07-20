@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "../supabaseClient.js";
-import { speakWithBrowser } from "../utils/audio/speakWithBrowser.js";
 import { playCueAudio } from "../utils/audio/cuePlayer.js";
+import { AUDIO_FILE_PATHS } from "../data/generated/audioFilePaths.generated.js";
 import { SYMBOL_PASSWORD_LENGTH } from "../data/symbolPasswordIcons.js";
 import { SymbolPasswordPad } from "./SymbolPasswordPad.jsx";
 
-// Recorded child-voice prompts (public/audio/ui/voice). Browser speech is
-// only the fallback while a recording is missing.
+// Recorded child-voice prompts (public/audio/ui/voice). Missing clips stay
+// silent and the picture-first UI remains usable; browser TTS is never used.
 const VOICE_LINES = {
   "class-code": "Ask your teacher for your class code.",
   "who-are-you": "Who are you?",
@@ -20,12 +20,11 @@ const VOICE_LINES = {
 };
 
 function speakLine(key, options = {}) {
-  const text = VOICE_LINES[key];
-  if (!text) return;
-  playCueAudio(`/audio/ui/voice/${key}.mp3`, {
-    volume: 0.9,
-    onUnavailable: () => speakWithBrowser(text, options)
-  });
+  if (!VOICE_LINES[key]) return false;
+  const src = `/audio/ui/voice/${key}.mp3`;
+  if (!AUDIO_FILE_PATHS.has(src)) return false;
+  playCueAudio(src, { volume: options.volume ?? 0.9 });
+  return true;
 }
 
 // Remember the whole class context on this device so a shared classroom iPad

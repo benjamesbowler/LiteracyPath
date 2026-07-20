@@ -192,15 +192,30 @@ function tierPool(tier, roll) {
   return roll % 10 < 6 ? rares : epics; // gold: rare or better, always
 }
 
+function tierFallbackPool(tier, primaryPool) {
+  const allowed = tier === "bronze"
+    ? ["common"]
+    : tier === "silver"
+      ? ["common", "rare"]
+      : ["rare", "epic"];
+  const primaryIds = new Set(primaryPool.map(species => species.id));
+  return BEASTIES.filter(species => allowed.includes(species.rarity) && !primaryIds.has(species.id));
+}
+
 export function hatchSpecies(tier, purchaseId, ownedSpeciesIds = []) {
   const roll = hashString(purchaseId);
   const pool = tierPool(tier, roll);
   const owned = new Set(ownedSpeciesIds);
-  const start = roll % pool.length;
-  for (let i = 0; i < pool.length; i += 1) {
-    const candidate = pool[(start + i) % pool.length];
-    if (!owned.has(candidate.id)) return candidate;
+  const pools = [pool, tierFallbackPool(tier, pool)];
+  for (const candidatePool of pools) {
+    if (!candidatePool.length) continue;
+    const start = roll % candidatePool.length;
+    for (let i = 0; i < candidatePool.length; i += 1) {
+      const candidate = candidatePool[(start + i) % candidatePool.length];
+      if (!owned.has(candidate.id)) return candidate;
+    }
   }
+  const start = roll % pool.length;
   return pool[start]; // everything owned - duplicates allowed, collection complete
 }
 
@@ -300,4 +315,24 @@ export function canBuy(hollow, itemId) {
   }
   if (hollow.coins < item.price) return { ok: false, reason: "coins", short: item.price - hollow.coins };
   return { ok: true, item };
+}
+
+// Pure mutation gates used by hollowState. Keeping the decision here makes the
+// stale-render race testable without importing browser storage or Supabase.
+export function tryHollowPurchase(ledger = {}, breakdown = {}, itemId, { id, at, date = new Date() } = {}) {
+  const purchases = Array.isArray(ledger.purchases) ? ledger.purchases : [];
+  if (itemId === WELCOME_EGG.id && purchases.some(purchase => purchase?.item === WELCOME_EGG.id)) return null;
+  const verdict = canBuy(computeHollow(ledger, breakdown, date), itemId);
+  if (!verdict.ok || !id) return null;
+  const record = { id, item: verdict.item.id, cost: verdict.item.price, at: at || new Date().toISOString() };
+  return { ledger: { ...ledger, purchases: [...purchases, record] }, record };
+}
+
+export function tryHollowFeed(ledger = {}, breakdown = {}, speciesId, { id, at, date = new Date() } = {}) {
+  const feeds = Array.isArray(ledger.feeds) ? ledger.feeds : [];
+  const hollow = computeHollow(ledger, breakdown, date);
+  const beastie = hollow.beasties.find(candidate => candidate.id === speciesId);
+  if (!id || hollow.berries < 1 || !beastie?.growth?.next) return null;
+  const record = { id, species: speciesId, at: at || new Date().toISOString() };
+  return { ledger: { ...ledger, feeds: [...feeds, record] }, record };
 }

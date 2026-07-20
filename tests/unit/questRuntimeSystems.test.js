@@ -9,6 +9,8 @@ import {
   sampleQuestFrameBudget
 } from "../../src/utils/questPerformance.js";
 import { chapterShortcutReviewPlan, freeRoamReviewPlan } from "../../src/utils/questReviewMode.js";
+import { buildTrailSection } from "../../src/utils/questHub.js";
+import { clampQuestWorldResume } from "../../src/utils/questWorldResume.js";
 import {
   addQuestActiveTime,
   beginQuestSession,
@@ -97,6 +99,9 @@ test("performance tiers respect explicit accessibility and low-device signals", 
   assert.equal(resolveQuestQuality({ displayMode: "2d" }).id, "2d");
   assert.equal(resolveQuestQuality({ displayMode: "rich", deviceMemory: 1 }).id, "rich");
   assert.equal(resolveQuestQuality({ displayMode: "rich", reducedMotion: true }).motionScale, 0);
+  assert.equal(resolveQuestQuality({ displayMode: "auto", reducedMotion: true }).id, "pixel");
+  assert.equal(resolveQuestQuality({ displayMode: "auto", reducedMotion: true }).motionScale, 0);
+  assert.equal(resolveQuestQuality({ displayMode: "pixel", reducedMotion: true }).motionScale, 0);
   assert.equal(resolveQuestQuality({ deviceMemory: 1, hardwareConcurrency: 8 }).id, "2d");
   assert.equal(resolveQuestQuality({ deviceMemory: 8, hardwareConcurrency: 1 }).id, "2d");
   assert.equal(resolveQuestQuality({ saveData: true }).id, "2d");
@@ -106,25 +111,41 @@ test("performance tiers respect explicit accessibility and low-device signals", 
   assert.equal(resolveQuestQuality({ webglAvailable: false }).id, "pixel");
   assert.equal(resolveQuestQuality({ displayMode: "low", deviceMemory: 8 }).id, "low");
   const root = fs.readFileSync("src/components/quest/QuestRoot.jsx", "utf8");
-  assert.match(root, /lazy\(\(\) => import\("\.\/world\/QuestHub\.jsx"\)\)/, "the opt-in 3D renderer still inflates the flagship's initial download");
+  assert.match(root, /lazyWithRetry\([\s\S]*?import\("\.\/world\/QuestHub\.jsx"\)/, "the opt-in 3D renderer still inflates the flagship's initial download");
   assert.doesNotMatch(root, /import QuestHub from/, "the opt-in 3D renderer is still eagerly imported");
+});
+
+test("ordinary frame-budget sampling returns no allocation wrapper", () => {
+  const budget = createQuestFrameBudgetState("pixel");
+  for (let index = 0; index < 120; index += 1) {
+    assert.equal(sampleQuestFrameBudget(budget, 16.7), null);
+  }
+  assert.equal(budget.tierId, "pixel");
+  assert.equal(budget.reportFrames, 75);
 });
 
 test("runtime quality only falls after sustained missed frame budgets", () => {
   let budget = createQuestFrameBudgetState("rich");
+  const originalBudget = budget;
   let signal = null;
   for (let index = 0; index < 250; index += 1) {
-    const sample = sampleQuestFrameBudget(budget, 16.7);
-    budget = sample.state;
-    signal = sample.signal || signal;
+    const emitted = sampleQuestFrameBudget(budget, 16.7);
+    assert.equal(emitted, null, "ordinary frame sampling must not allocate a result wrapper");
   }
+  assert.equal(budget, originalBudget, "healthy sampling must not allocate replacement budget objects");
   assert.equal(signal, null, "healthy rendering must stay rich");
 
   budget = createQuestFrameBudgetState("rich");
   for (let index = 0; index < 220 && !signal; index += 1) {
-    const sample = sampleQuestFrameBudget(budget, 40);
-    budget = sample.state;
-    signal = sample.signal;
+    const priorBudget = budget;
+    const emitted = sampleQuestFrameBudget(budget, 40);
+    if (!emitted) {
+      assert.equal(budget, priorBudget, "pre-signal sampling must retain budget identity");
+      continue;
+    }
+    assert.notEqual(emitted.state, priorBudget, "a quality change must reset into a fresh tier budget");
+    budget = emitted.state;
+    signal = emitted.signal;
   }
   assert.equal(signal?.type, "quality-change");
   assert.equal(signal?.fromTier, "rich");
@@ -136,9 +157,10 @@ test("an emergency severe-frame streak bypasses the normal warmup", () => {
   let budget = createQuestFrameBudgetState("low");
   let signal = null;
   for (let index = 0; index < 8; index += 1) {
-    const sample = sampleQuestFrameBudget(budget, 140);
-    budget = sample.state;
-    signal = sample.signal || signal;
+    const emitted = sampleQuestFrameBudget(budget, 140);
+    if (!emitted) continue;
+    budget = emitted.state;
+    signal = emitted.signal;
   }
   assert.equal(signal?.fromTier, "low");
   assert.equal(signal?.toTier, "2d");
@@ -149,9 +171,10 @@ test("the pixel renderer reports sustained frame failure and falls back to acces
   let budget = createQuestFrameBudgetState("pixel");
   let signal = null;
   for (let index = 0; index < 8; index += 1) {
-    const sample = sampleQuestFrameBudget(budget, 140);
-    budget = sample.state;
-    signal = sample.signal || signal;
+    const emitted = sampleQuestFrameBudget(budget, 140);
+    if (!emitted) continue;
+    budget = emitted.state;
+    signal = emitted.signal;
   }
   assert.equal(signal?.fromTier, "pixel");
   assert.equal(signal?.toTier, "2d");
@@ -346,7 +369,11 @@ test("device acceptance evidence separates local smoke from physical release pro
     durationMs: 21_000,
     samples,
     initialProgress: { stopsDone: 0, routeCursor: 1 },
-    finalProgress: { stopsDone: 0, routeCursor: 1 },
+    finalProgress: {
+      stopsDone: 0,
+      routeCursor: 1,
+      checkpoint: { stopId: "s1", phase: "trail", activeId: "s1-0", beatIndex: 0, fieldStage: 1 }
+    },
     telemetry: {
       healthSamples: 2,
       sampledFrames: 1_200,
@@ -361,6 +388,11 @@ test("device acceptance evidence separates local smoke from physical release pro
     errors: []
   };
   assert.equal(evaluateQuestDeviceEvidence(smoke).status, "pass");
+  const stationarySmoke = {
+    ...smoke,
+    finalProgress: { ...smoke.initialProgress }
+  };
+  assert.ok(evaluateQuestDeviceEvidence(stationarySmoke).failures.includes("progress"), "zero progress cannot pass even a smoke gate");
 
   const releaseWithoutDevice = {
     ...smoke,
@@ -382,7 +414,83 @@ test("device acceptance evidence separates local smoke from physical release pro
   assert.equal(releaseResult.status, "fail");
   assert.ok(releaseResult.failures.includes("physical"));
   assert.ok(releaseResult.failures.includes("operator"));
+  assert.ok(releaseResult.failures.includes("progress"), "release evidence must complete at least one stop");
   assert.deepEqual(QUEST_DEVICE_RELEASE_PROFILES, ["ipad", "chromebook", "android-tablet", "voiceover", "nvda", "switch"]);
+
+  const physicalRelease = {
+    ...releaseWithoutDevice,
+    physicalDevice: true,
+    operator: "OBS-1",
+    device: { model: "iPad 10", os: "iPadOS", browser: "Safari" }
+  };
+  const zeroProgress = evaluateQuestDeviceEvidence(physicalRelease);
+  assert.deepEqual(zeroProgress.failures, ["progress"], "standing still is not release proof");
+
+  const noMemoryEvidence = {
+    ...physicalRelease,
+    finalProgress: { stopsDone: 1, routeCursor: 2 },
+    samples: physicalRelease.samples.map(sample => ({ ...sample, heapUsedBytes: 0 }))
+  };
+  const noMemoryResult = evaluateQuestDeviceEvidence(noMemoryEvidence);
+  assert.ok(noMemoryResult.failures.includes("heap"), "Safari cannot silently pass when both memory signals are absent");
+
+  const safariProxyEvidence = {
+    ...noMemoryEvidence,
+    samples: noMemoryEvidence.samples.map(sample => ({
+      ...sample,
+      runtime: {
+        peakDisplayObjects: 148,
+        peakTextures: 49,
+        peakTweens: 12,
+        peakActiveChoices: 3
+      }
+    }))
+  };
+  assert.equal(evaluateQuestDeviceEvidence(safariProxyEvidence).status, "pass", "bounded runtime resources are valid Safari leak evidence");
+  const leakingSafariProxy = {
+    ...safariProxyEvidence,
+    samples: safariProxyEvidence.samples.map((sample, index) => ({
+      ...sample,
+      runtime: {
+        ...sample.runtime,
+        peakDisplayObjects: index === safariProxyEvidence.samples.length - 1 ? 901 : sample.runtime.peakDisplayObjects
+      }
+    }))
+  };
+  assert.ok(evaluateQuestDeviceEvidence(leakingSafariProxy).failures.includes("heap"), "an over-limit Safari proxy must fail the leak gate");
+  const slowlyLeakingSafariProxy = {
+    ...safariProxyEvidence,
+    samples: safariProxyEvidence.samples.map((sample, index) => ({
+      ...sample,
+      runtime: {
+        peakDisplayObjects: 140 + index * 3,
+        peakTextures: 45 + Math.floor(index / 3),
+        peakTweens: 12,
+        peakActiveChoices: 3
+      }
+    }))
+  };
+  assert.ok(
+    evaluateQuestDeviceEvidence(slowlyLeakingSafariProxy).failures.includes("heap"),
+    "sustained Safari resource growth cannot pass merely because it remains below an absolute ceiling"
+  );
+  const sparseSafariProxy = {
+    ...safariProxyEvidence,
+    samples: safariProxyEvidence.samples.map((sample, index) => ({
+      ...sample,
+      runtime: index < 2 ? sample.runtime : {}
+    }))
+  };
+  const sparseSafariResult = evaluateQuestDeviceEvidence(sparseSafariProxy);
+  assert.ok(
+    sparseSafariResult.failures.includes("heap"),
+    "two early Safari resource samples cannot certify a full release window"
+  );
+  assert.match(
+    sparseSafariResult.checks.find(check => check.id === "heap")?.detail || "",
+    /Safari proxy coverage 2\/100 samples, 0\/50 late/,
+    "the sparse-proxy failure must name the missing full-window and late-window coverage"
+  );
 
   const sealed = await sealQuestDeviceEvidence(smoke);
   assert.match(sealed.evidenceHash, /^[a-f0-9]{64}$/);
@@ -393,12 +501,15 @@ test("human acceptance aggregates cohorts without storing direct identifiers", a
   const observation = (profileId, index, measures, participant = {}) => ({
     schemaVersion: 1,
     profileId,
-    sessionId: `S-${profileId.split("-").map(part => part[0]).join("").toUpperCase()}-${index}`,
+    sessionId: `SESSION-${index + 1}`,
     observedAt: `2026-07-18T${String(9 + (index % 8)).padStart(2, "0")}:00:00.000Z`,
-    observerId: "OBS-01",
-    settingId: `ROOM-${index % 3}`,
+    observerId: "OBS-1",
+    settingId: `ROOM-${(index % 3) + 1}`,
     consentConfirmed: true,
-    participant: { anonymousId: `${profileId.slice(0, 2).toUpperCase()}-${index}`, ...participant },
+    participant: {
+      anonymousId: `${profileId === "teacher-report" ? "ADULT" : profileId === "classroom-audio" ? "AUDIO" : "CHILD"}-${index + 1}`,
+      ...participant
+    },
     measures
   });
   const records = [
@@ -434,7 +545,7 @@ test("human acceptance aggregates cohorts without storing direct identifiers", a
       usefulnessRating: 5
     }, { role: "teacher" })),
     ...Array.from({ length: 3 }, (_, index) => observation("classroom-audio", index, {
-      roomProfile: `AUDIO-${index}`,
+      roomProfile: `ROOM-${index + 10}`,
       deviceModel: `Tablet-${index}`,
       promptsPlayed: 20,
       promptsUnderstood: 20,
@@ -451,6 +562,19 @@ test("human acceptance aggregates cohorts without storing direct identifiers", a
   assert.equal(unsafeResult.status, "invalid");
   assert.ok(unsafeResult.failures.includes("privacy"));
 
+  for (const [field, record] of [
+    ["participant name", { ...records[0], participant: { ...records[0].participant, anonymousId: "EMMA-SMITH" } }],
+    ["session name", { ...records[0], sessionId: "MrsJohnson3" }],
+    ["room name", { ...records[0], settingId: "ROOM-KAYLA" }],
+    ["email value", { ...records[0], notes: "observer@example.com" }],
+    ["phone value", { ...records[0], notes: "+44 7700 900123" }],
+    ["labelled name value", { ...records[0], notes: "child: Emma Smith" }]
+  ]) {
+    const result = validateQuestHumanObservation(record);
+    assert.equal(result.status, "invalid", `${field} was accepted`);
+    assert.ok(result.failures.includes("privacy"), `${field} did not trip the privacy gate`);
+  }
+
   const omittedZero = {
     ...records[0],
     measures: Object.fromEntries(Object.entries(records[0].measures).filter(([key]) => key !== "adultPrompts"))
@@ -466,7 +590,7 @@ test("human acceptance aggregates cohorts without storing direct identifiers", a
 
   const repeatedParticipant = records.slice(0, 8).map(record => ({
     ...record,
-    participant: { ...record.participant, anonymousId: "CHILD-SAME" }
+    participant: { ...record.participant, anonymousId: "CHILD-999" }
   }));
   const repeatedParticipantResult = evaluateQuestHumanAcceptance(repeatedParticipant);
   assert.equal(repeatedParticipantResult.categoryStatus["child-first-use"], "incomplete");
@@ -477,14 +601,24 @@ test("human acceptance aggregates cohorts without storing direct identifiers", a
   assert.equal(canonicalQuestHumanObservation(sealed), canonicalQuestHumanObservation(records[0]));
   assert.equal((await verifyQuestHumanObservation(sealed)).status, "valid");
   assert.equal((await verifyQuestHumanObservation({ ...sealed, settingId: "ROOM-TAMPERED" })).status, "invalid");
+
+  const consoleSource = fs.readFileSync("src/components/quest/QuestFieldStudyConsole.jsx", "utf8");
+  assert.match(consoleSource, /record\.profileId[\s\S]*?record\.sessionId[\s\S]*?record\.participant\?\.anonymousId/, "paired-session records still collide in the console");
+  const sealTool = fs.readFileSync("tools/sealQuestHumanObservation.mjs", "utf8");
+  assert.match(sealTool, /draft\.profileId[\s\S]*?draft\.sessionId[\s\S]*?draft\.participant\?\.anonymousId/, "paired-session records still collide in the terminal sealer");
 });
 
 test("progress sync durably queues before network work and recovers on the online event", () => {
   const sync = fs.readFileSync("src/utils/progressSync.js", "utf8");
+  const queue = fs.readFileSync("src/utils/progressQueue.js", "utf8");
   const saveBlock = sync.match(/export function queueProgressSave[\s\S]*?\n}\n\nexport async function flushQueuedProgressWrites/)?.[0] || "";
   assert.match(saveBlock, /const queued = enqueueWrite\(entry\)/, "a save can vanish before the debounce timer runs");
-  assert.match(sync, /item\.revision === entry\.revision/, "an older response can remove a newer queued payload");
   assert.match(sync, /inFlightFlushes/, "writes for one progress key are not serialised");
+  assert.match(queue, /PROGRESS_QUEUE_ENTRY_PREFIX = "lp-progress-sync-entry-v2:"/, "cross-tab writes still share one replaceable array");
+  assert.match(queue, /storage\.setItem\(storageKey[\s\S]*for \(const record of previous\)/, "a replacement can delete its predecessor before becoming durable");
+  assert.match(sync, /removeProgressQueueRecords\(window\.localStorage, records\)/, "a response does not remove only its exact uploaded revisions");
+  assert.match(queue, /existing\.payload,[\s\S]*incoming\.payload/, "same-key writes from two tabs are not forward-merged");
+  assert.match(queue, /LEGACY_PROGRESS_QUEUE_KEY/, "pending v1 rows have no migration path");
   assert.match(sync, /window\.addEventListener\("online", handleProgressOnline\)/, "reconnect does not flush without another child action");
   assert.match(sync, /emitProgressSyncState\("recovered"/, "the adult report cannot know a deferred save recovered");
 });
@@ -697,6 +831,38 @@ test("teacher report combines journey, mastery, and time-on-task evidence", () =
   assert.match(dashboard, /timing barriers removed/, "teacher reports do not explain untimed support in plain language");
 });
 
+test("teacher accuracy uses independent attempts while retaining total exposure", () => {
+  const state = baseQuestState();
+  state.mastery = {
+    s: {
+      seen: 10,
+      independentSeen: 2,
+      correct: 2,
+      misses: 0,
+      state: "learning",
+      shells: ["stones"],
+      sessions: ["2026-07-20"]
+    },
+    a: {
+      seen: 5,
+      independentSeen: 0,
+      correct: 0,
+      misses: 0,
+      state: "learning",
+      shells: [],
+      sessions: []
+    }
+  };
+  const report = buildQuestMasteryReport(state);
+  assert.equal(report.attempts, 15, "the report still shows all exposure");
+  assert.equal(report.independentAttempts, 2);
+  assert.equal(report.accuracy, 100, "assistance/timeouts cannot depress knowledge accuracy");
+  assert.equal(report.heat.find(tile => tile.id === "s").accuracy, 100);
+  assert.equal(report.heat.find(tile => tile.id === "a").bucket, "almost", "timeout-only exposure is not a re-teach claim");
+  assert.equal(report.heat.find(tile => tile.id === "a").accuracy, null);
+  assert.equal(report.weakest.some(row => row.target === "a"), false);
+});
+
 test("the 2D renderer is wired to the shared verbs, correction ladder and deferred review", () => {
   const source = fs.readFileSync("src/components/quest/world/QuestTrail2D.jsx", "utf8");
   for (const integration of [
@@ -714,6 +880,128 @@ test("the 2D renderer is wired to the shared verbs, correction ladder and deferr
   assert.match(source, /type: "prompt-shown"/, "2D play does not record physical prompts");
   assert.match(source, /stageRecordsMastery/, "2D muted guidance can still claim independent mastery");
   assert.match(source, /const \[section\] = useState\(/, "2D play can regenerate the active puzzle after a mastery update");
+});
+
+test("world resume checkpoints clamp to rebuilt encounters and never create an actionless trail", () => {
+  const section = buildTrailSection("s1", { targets: ["m", "s", "a"], seed: 3 });
+  const wordEncounter = section.encounters.find(encounter => encounter.beats.some(beat => beat.word));
+  assert.ok(wordEncounter, "fixture needs a multi-stage word encounter");
+
+  const clamped = clampQuestWorldResume(section, {
+    activeId: wordEncounter.id,
+    beatIndex: 999,
+    fieldStage: 999,
+    phase: "trail"
+  });
+  assert.equal(clamped.activeIdValid, true);
+  assert.equal(clamped.encounterIndex, section.encounters.indexOf(wordEncounter));
+  assert.equal(clamped.beatIndex, wordEncounter.beats.length - 1);
+  assert.equal(clamped.fieldStage, 2, "the three-part word task must clamp to its last playable stage");
+
+  assert.deepEqual(clampQuestWorldResume(section, {
+    activeId: "removed-by-content-update",
+    beatIndex: 9,
+    fieldStage: 9,
+    phase: "trail"
+  }), {
+    activeIdValid: false,
+    encounterIndex: 0,
+    beatIndex: 0,
+    fieldStage: 0,
+    phase: "trail"
+  });
+  assert.equal(clampQuestWorldResume({ encounters: [], teach: [] }, { phase: "trail" }).phase, "gate");
+  assert.equal(clampQuestWorldResume(section, { phase: "invalid" }).phase, "teach");
+
+  const fallback2d = fs.readFileSync("src/components/quest/world/QuestTrail2D.jsx", "utf8");
+  assert.match(fallback2d, /phase === "trail" && !stage/, "a malformed rebuilt task can still leave an empty 2D panel");
+  assert.match(fallback2d, /encounterIndex \+ 1/, "the active 2D encounter progress is still zero-based");
+});
+
+test("Den destinations pair non-reading symbols with an audible transition cue", () => {
+  const den = fs.readFileSync("src/components/quest/DenScreen.jsx", "utf8");
+  assert.match(den, /if \(soundEnabled\) playWhoosh\(\)/, "Den navigation has no recorded transition cue");
+  for (const kind of ["settings", "map", "review", "creature", "post"]) {
+    assert.match(den, new RegExp(`<DenNavIcon kind="${kind}"`), `${kind} destination still depends on text alone`);
+  }
+  for (const accessibleName of [
+    "Open settings",
+    "Open the trail map",
+    "Change my creature",
+    "Open the Trading Post"
+  ]) {
+    assert.match(den, new RegExp(`aria-label="${accessibleName}"`), `${accessibleName} has no stable accessible name`);
+  }
+});
+
+test("Den settings provides a modal fallback without native dialog methods", () => {
+  const den = fs.readFileSync("src/components/quest/DenScreen.jsx", "utf8");
+  const css = fs.readFileSync("src/styles/quest.css", "utf8");
+  assert.match(den, /typeof dialog\.showModal === "function"/);
+  assert.match(den, /dialog\.setAttribute\("open", ""\)/);
+  assert.match(den, /data-fallback-modal=/);
+  assert.match(den, /onKeyDown=\{containSettingsFocus\}/);
+  assert.match(den, /settingsTriggerRef\.current\?\.focus\(\)/);
+  assert.match(css, /\.q-settings-dialog\[data-fallback-modal="true"\]/);
+});
+
+test("QuestRoot hands focus to each newly mounted non-world screen", () => {
+  const root = fs.readFileSync("src/components/quest/QuestRoot.jsx", "utf8");
+  assert.match(root, /previousViewRef/, "view changes have no stable focus-transition guard");
+  assert.match(root, /portalRef\.current\?\.querySelector\("\.q-screen h1"\)/, "the new screen heading is not selected");
+  assert.match(root, /heading\.focus\(\{ preventScroll: true \}\)/, "focus is not moved after a Den/Map/Post/Creator transition");
+});
+
+test("pixel-world audit guards cover stage rebuild, teardown, asset failure, motion and hot-path allocation", () => {
+  const component = fs.readFileSync("src/components/quest/world/QuestPixelWorld.jsx", "utf8");
+  const runtime = fs.readFileSync("src/components/quest/world/questPixelRuntime.js", "utf8");
+  const avatar = fs.readFileSync("src/components/quest/world/questPixelAvatar.js", "utf8");
+  const assets = fs.readFileSync("src/components/quest/world/questAssets.js", "utf8");
+  const encounters = fs.readFileSync("src/components/quest/world/Encounters.jsx", "utf8");
+  const gameConfig = runtime.slice(runtime.indexOf("export function createQuestPixelRuntime"));
+
+  assert.match(runtime, /this\.rebuildChoices\(model\.activeStage, model\.activeEncounterId\)/, "stage transitions can retain stale answer objects");
+  assert.match(runtime, /this\.events\.once\(Phaser\.Scenes\.Events\.SHUTDOWN, this\.shutdown, this\)/, "scene cleanup is not wired to Phaser teardown");
+  assert.match(runtime, /!this\.sceneShuttingDown && this\.sys\?\.isActive\?\.\(\)/, "a resize timer can rebuild a destroyed scene");
+  assert.match(runtime, /this\.load\.on\("loaderror"/, "pixel asset failures are not observed");
+  assert.match(runtime, /type: "asset-error"/, "asset failures do not reach runtime telemetry");
+  assert.match(runtime, /quest-neutral-placeholder/, "failed resident art has no child-safe fallback");
+  assert.doesNotMatch(gameConfig, /^\s*resolution:/m, "Phaser 4 still receives its inert resolution setting");
+  assert.match(runtime, /carriedSignature === this\.lastCarriedSignature/, "resize storms can keep rebuilding the carried prop");
+  assert.match(component, /clearTimeout\(cueTimerRef\.current\)/, "post-buzz speech can escape pixel-world teardown");
+  assert.match(component, /prefers-reduced-motion: reduce/, "the live pixel model ignores OS reduced-motion");
+  assert.match(component, /addEventListener\?\.\("change", syncReducedMotion\)/, "the live pixel model freezes the initial OS motion preference");
+  assert.match(component, /removeEventListener\?\.\("change", syncReducedMotion\)/, "the live OS motion listener leaks on teardown");
+  assert.match(component, /event\.currentTarget\.hidden = true/, "the HUD collectible can show a broken-image glyph");
+  assert.match(component, /onRuntimeSignal: signal =>/, "runtime asset errors stop at the Phaser boundary");
+  assert.match(avatar, /const layout = layoutCreature\(creature\)[\s\S]*drawVectorBeastieFrame\(ctx, layout,/, "Beastie layout is still recomputed per sprite frame");
+  assert.match(assets, /object\.geometry = object\.geometry\.clone\(\)/, "field avatars still dispose cache-shared geometry");
+  assert.match(encounters, /beat\?\.cue\?\.kind === "word"/, "letter encounters still ignore word-cue fallbacks");
+  assert.match(encounters, /hasWordAudio\(cue\.value\)/, "word-fallback replay can remain disabled");
+});
+
+test("QuestHub audit guards keep scoring beat-based and the encounter render path bounded", () => {
+  const hub = fs.readFileSync("src/components/quest/world/QuestHub.jsx", "utf8");
+  const sightline = hub.slice(hub.indexOf("function updateSightline"), hub.indexOf("function updateTrailCharacters"));
+  const characterUpdates = hub.slice(hub.indexOf("function updateTrailCharacters"), hub.indexOf("function seededParticle"));
+  const deferredReview = hub.slice(hub.indexOf("const beginDeferredReview"), hub.indexOf("const nextBeat"));
+
+  assert.match(hub, /const beatKey = `\$\{activeRef\.current\?\.id \|\| "field"\}:\$\{beatIndexRef\.current\}`/, "multi-stage word beats can be tallied more than once");
+  assert.ok((hub.match(/recordsMastery: fieldStageRecordsMastery/g) || []).length >= 2, "muted or unavailable cues can still bank mastery");
+  assert.match(sightline, /intersectObjects\(sightline\.occluders, false\)/, "sightline still recursively raycasts the whole scene");
+  assert.doesNotMatch(sightline, /new THREE\.Raycaster/, "sightline allocates a raycaster in its per-frame function");
+  assert.doesNotMatch(characterUpdates, /buildPhysicalTask\(/, "character animation rebuilds the active physical task every frame");
+  assert.match(hub, /const liveTask = cachedPhysicalTask\(\)/, "late-frame rendering bypasses the physical-task cache");
+  assert.match(hub, /activeTask: liveTask/, "character animation does not receive the cached physical task");
+  assert.match(hub, /const activeFieldTask = useMemo/, "the active physical task is rebuilt on every render");
+  assert.match(hub, /const encounterTasks = useMemo/, "all encounter tasks are rebuilt on every render");
+  assert.match(hub, /const satchel = useMemo/, "the satchel is rebuilt on every render");
+  assert.match(hub, /const dropRefCallbacks = useMemo/, "drop refs still detach and reattach every commit");
+  assert.match(hub, /const landmarkRefCallbacks = useMemo/, "landmark refs still detach and reattach every commit");
+  assert.match(deferredReview, /setPhonemeFillCount\(0\)/, "deferred word review can inherit filled slots");
+  assert.match(hub, /encounters\.length === 0 \|\| isChapterGateOpen/, "an empty generated section can still strand the child");
+  assert.match(hub, /if \(isSoundEnabled\) playStarChime\(\)/, "pickup rewards remain text-only");
+  assert.match(hub, /if \(isSoundEnabled\) playWhoosh\(\)/, "gate and route transitions remain text-only");
 });
 
 test("the pixel renderer keeps educational parity and debounces physical contacts", () => {
@@ -891,13 +1179,14 @@ test("the pixel renderer keeps educational parity and debounces physical contact
   assert.match(component, /SEEDWAKE_CACHE_THRESHOLDS/, "pixel finds never reveal the next route-cache unlock");
   assert.match(component, /const cueCompact = phase === "trail" && encounterStarted;/, "the active task announcement does not start in its compact play state");
   assert.doesNotMatch(component, /setCollapsedCueStage/, "the active task announcement still hides the field before its delayed collapse");
-  assert.doesNotMatch(component, /cueTimerRef/, "the removed announcement timer can still crash React teardown");
+  assert.match(component, /clearTimeout\(cueTimerRef\.current\)/, "the corrective cue timer can still update React after teardown");
   assert.match(component, /cueCompact \? "is-compact"/, "the brief task announcement has no compact play state");
   assert.match(component, /type: "scene-ready"/, "pixel scene load time is not reported");
   assert.match(component, /data-scene-asset-requests/, "pixel scene asset cost is not exposed for device audits");
   assert.match(runtime, /const minimalStarReachLoad = chapterId === "star-reach"/, "Star Reach still pays for the complete legacy meadow and Moonwood kit");
   assert.doesNotMatch(runtime, /star-premium-star-road-workshop/, "Star Reach restored memories still request a nonexistent workshop texture");
-  assert.match(runtime, /if \(this\.model\.soundEnabled\)/, "muted pixel play still decodes every sound effect before opening");
+  assert.match(runtime, /warmQuestSfxEntries\(\[/, "muted pixel play no longer warms every sound effect before opening");
+  assert.doesNotMatch(runtime, /this\.load\.audio/, "the pixel scene shipped Phaser's duplicate audio loader again");
   assert.match(runtime, /QUEST_ACTION_SFX/, "physical verbs still share one generic feedback sound");
   assert.match(runtime, /questActionSfxEntry/, "the active physical action does not select its own feedback sound");
   assert.doesNotMatch(runtime, /kind === "wrong" \|\| kind === "wait"/, "timing guidance still sounds and animates like a reading error");
@@ -1525,11 +1814,13 @@ test("the Den, map and Trading Post keep their complete phone controls", () => {
   const shop = fs.readFileSync("src/components/quest/TradingPost.jsx", "utf8");
   const css = fs.readFileSync("src/styles/quest.css", "utf8");
 
-  assert.match(den, />Settings<\/button>/, "adult display controls still use unexplained child-facing jargon");
+  assert.match(den, /aria-label="Open settings"/, "the adult comfort controls are not clearly named");
   assert.match(map, /className="q-chapter-picker"/, "the phone map has no complete chapter picker");
   assert.match(map, /Choose a story chapter/, "the phone chapter picker is not named for assistive technology");
   assert.match(map, /\{ x: 15, y: 70 \}/, "the first stop can clip at 320px");
   assert.match(map, /\{ x: 85, y: 56 \}/, "the last stop can clip at 320px");
+  assert.match(map, /const currentPosition = journeyComplete\s*\? null/, "the walker remains on a completed final stop");
+  assert.match(map, /const isNext = !journeyComplete && !isDone && stop\.index === nextIndex/, "the final stop remains both done and current");
   assert.match(css, /\.q-post > \* \{ flex: 0 0 auto; \}/, "shop rows can collapse and overlap while scrolling");
   assert.match(css, /\.q-tabs\.q-post-tabs \{[\s\S]*?grid-template-columns: repeat\(4/, "phone shop shelves do not override the generic scrolling tabs");
   assert.match(css, /@media \(max-width: 420px\)[\s\S]*?\.q-tabs\.q-post-tabs \{ grid-template-columns: repeat\(3/, "the smallest phone cannot show every shop shelf label");

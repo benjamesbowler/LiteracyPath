@@ -14,6 +14,7 @@ import {
   initialSoundWordBank
 } from "../src/content/initialSounds/initialSoundWordBank.js";
 import { hasImportedInitialSoundImage } from "../src/content/initialSounds/initialSoundMediaManifest.js";
+import { isInitialSoundRuntimeEligible } from "../src/content/initialSounds/initialSoundMediaEligibility.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -33,7 +34,8 @@ function completeLetters(level) {
       item.letter === letter &&
       item.level === level &&
       item.active !== false &&
-      hasImportedInitialSoundImage(item)
+      hasImportedInitialSoundImage(item) &&
+      isInitialSoundRuntimeEligible(item)
     )
   );
 }
@@ -43,7 +45,8 @@ function completeCount(letter, level) {
     item.letter === letter &&
     item.level === level &&
     item.active !== false &&
-    hasImportedInitialSoundImage(item)
+    hasImportedInitialSoundImage(item) &&
+    isInitialSoundRuntimeEligible(item)
   ).length;
 }
 
@@ -68,6 +71,7 @@ function coreWordStatus(letter, level) {
   if (!requestedItem) return `substituted because requested word "${requested}" is not in Level ${level} bank`;
   if (requestedItem.active === false) return `substituted because requested word "${requested}" is blocked: ${requestedItem.qaNotes || requestedItem.qaStatus || "inactive"}`;
   if (!hasImportedInitialSoundImage(requestedItem)) return `substituted because requested word "${requested}" is missing imported image`;
+  if (!isInitialSoundRuntimeEligible(requestedItem)) return `substituted because requested word "${requested}" is blocked by runtime media QA`;
   return `substituted to keep Level ${level} difficulty and media safety`;
 }
 
@@ -102,7 +106,7 @@ function simulateRound({ label, level, expectedNewLetters = [], pool = [] }) {
         item.level === level &&
         item.targetWord.toLowerCase() === coreWord(letter, level)
       );
-      return coreItem?.active !== false && hasImportedInitialSoundImage(coreItem);
+      return coreItem?.active !== false && hasImportedInitialSoundImage(coreItem) && isInitialSoundRuntimeEligible(coreItem);
     })
     .map(letter => `${letter}: expected ${coreWord(letter, level)}, got ${words[letters.indexOf(letter)]}`);
 

@@ -400,6 +400,39 @@ function sequenceSoundPrompt(beat, stageIndex = 0) {
     : "Find the next sound you hear";
 }
 
+// ── FIVE STOPS, FIVE THINGS THE BODY ACTUALLY DOES ─────────────────────────
+//
+// Playtest: "all of the mini games tasks are exactly the same — always find
+// the letter?" That was correct, and the reason is here: every Seedwake stage
+// decorated its items as plain `target`/`distractor`, which the Phaser runtime
+// resolves with a single instant collision. So the parcel, the bloom, the
+// lantern and the plank were the same act wearing four costumes — walk into
+// the thing with the right letter on it.
+//
+// The variety was never missing from the engine. questPixelRuntime already
+// implements hold-to-charge (tool-work), hold-on-pulse (signal-pad) and
+// press-and-stay (climb-hold), each with its own feedback, and the LATER
+// chapters use them. Chapter one — the only chapter most children will ever
+// see — used none of them.
+//
+// So the five stops now ask for five genuinely different physical demands:
+//
+//   s1 Hollow Tree   touch          walk to the lantern that says it
+//   s2 Fern Steps    land and stay  press down on the bloom to make it bounce
+//   s3 Rook Stones   carry          pick a sound up and take it somewhere
+//   s4 Otter Ford    sustained work hammer the plank until it sets
+//   s5 Bramble Gate  timed hold     hold the note ON the beat
+//
+// Stop 1 stays a plain touch on purpose. It is the first thing a four-year-old
+// ever does in this game and it should ask for nothing but "go to that one".
+// The demand grows across the chapter rather than starting complicated.
+const SEEDWAKE_INTERACTION = Object.freeze({
+  "sound-hunt": null,                                        // plain touch
+  "flower-jump": { role: "climb-hold", climbHoldMs: 420 },   // land and stay
+  "bridge-build": { role: "tool-work", toolHoldMs: 900 },    // sustained work
+  "gate-chorus": { role: "signal-pad", signalHoldMs: 620 }   // hold on the beat
+});
+
 function seedwakeStageSeries(section, encounter, beat, beatIndex, {
   mechanic,
   shape,
@@ -411,6 +444,7 @@ function seedwakeStageSeries(section, encounter, beat, beatIndex, {
 }) {
   const answers = beatAnswers(beat);
   const choices = beatChoices(beat);
+  const interaction = SEEDWAKE_INTERACTION[mechanic] || null;
   return answers.map((answer, stageIndex) => ({
     id: `${mechanic}-${stageIndex}`,
     prompt: prompt(answer, stageIndex, answers.length),
@@ -422,7 +456,25 @@ function seedwakeStageSeries(section, encounter, beat, beatIndex, {
       answer,
       shape,
       layout,
-      decorate: choice => ({ role: choice === answer ? "target" : "distractor" })
+      // The interaction is applied to EVERY item, not just the right one —
+      // otherwise the correct answer would be the one that behaves
+      // differently, and a child would learn to spot it by feel instead of by
+      // sound. Same demand on all of them; only the sound tells you which.
+      // `role` means HOW A THING BEHAVES, and every option behaves alike.
+      // `answerRole` is the separate question of which one is right.
+      //
+      // Those two used to be the same field: the correct item was role
+      // "target" and the others "distractor". Nothing reads those strings
+      // (questCorrection keys off item.correct), so they were inert — but a
+      // field that names the answer, sitting on the object the renderer
+      // consumes, is one careless `if` away from lighting the right answer up.
+      // Keeping behaviour and correctness in separate fields means that
+      // mistake has to be made deliberately rather than by accident.
+      decorate: choice => ({
+        role: interaction ? interaction.role : "touch",
+        answerRole: choice === answer ? "target" : "distractor",
+        ...(interaction || {})
+      })
     }),
     completion: {
       ...completionFor(section, encounter, beatIndex, stageIndex, answers.length, answer, completionShape),
@@ -452,7 +504,13 @@ function seedwakeDeliveryStages(section, encounter, beat, beatIndex) {
           answer,
           shape: "sound-parcel",
           layout: "delivery",
-          decorate: choice => ({ role: choice === answer ? "target" : "distractor" })
+          // Rook Stones is the CARRY stop, and its distinctiveness is the
+          // second stage — picking up is a plain touch so the difficulty sits
+          // in taking the thing somewhere, not in grabbing it.
+          decorate: choice => ({
+            role: "touch",
+            answerRole: choice === answer ? "target" : "distractor"
+          })
         })
       },
       {
@@ -511,7 +569,14 @@ function seedwakeBridgeStages(section, encounter, beat, beatIndex) {
           answer,
           shape: "river-plank",
           layout: "workshop",
-          decorate: choice => ({ role: choice === answer ? "target" : "distractor" })
+          // Otter Ford is the WORK stop: a plank has to be hammered until it
+          // sets, not tapped. The longest hold on the trail (900ms), so
+          // building a bridge feels like effort rather than another selection.
+          decorate: choice => ({
+            role: "tool-work",
+            toolHoldMs: 900,
+            answerRole: choice === answer ? "target" : "distractor"
+          })
         })
       },
       {
@@ -560,7 +625,14 @@ function seedwakeChorusStages(section, encounter, beat, beatIndex) {
       answer,
       shape: "chorus-lantern",
       layout: "circle",
-      decorate: choice => ({ role: choice === answer ? "target" : "distractor" })
+      // Bramble Gate is the RHYTHM stop: a note is held on the pulse. The
+      // signal-pad interaction gives it its own pulsing feedback, so choosing
+      // here already feels unlike touching a lantern at stop 1.
+      decorate: choice => ({
+        role: "signal-pad",
+        signalHoldMs: 620,
+        answerRole: choice === answer ? "target" : "distractor"
+      })
     });
     const selected = chooseItems.find(item => item.correct);
     return [

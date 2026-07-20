@@ -33,6 +33,24 @@ test("one attempt moves a sound to learning, never to mastered", () => {
   assert.equal(r.state, MASTERY_STATES.LEARNING);
   assert.equal(r.correct, 1);
   assert.equal(r.seen, 1);
+  assert.equal(r.independentSeen, 1);
+  assert.equal(r.box, 2, "one clean recall starts the spaced-review interval");
+});
+
+test("clean learning recalls advance through Leitner boxes and a miss resets immediately", () => {
+  const first = recordAttempt(emptyRecord(), {
+    correct: true, shell: "stones", at: "2026-07-11T10:00:00Z", stopIndex: 1
+  });
+  const second = recordAttempt(first, {
+    correct: true, shell: "stones", at: "2026-07-11T10:01:00Z", stopIndex: 3
+  });
+  assert.equal(first.box, 2);
+  assert.equal(second.box, 3);
+
+  const missed = recordAttempt(second, {
+    correct: false, shell: "bridge", at: "2026-07-11T10:02:00Z", stopIndex: 8
+  });
+  assert.equal(missed.box, 1);
 });
 
 // ── THE FOUR NEGATIVE CASES. These are the tests that matter. ───────────────
@@ -127,6 +145,20 @@ test("a mastered sound missed TWICE IN A ROW falls back to learning", () => {
 
   const twice = recordAttempt(once, { correct: false, shell: "runner", at: "2026-08-01T10:01:00Z" });
   assert.equal(twice.state, MASTERY_STATES.LEARNING, "mastery is a claim, and claims get retested");
+  assert.equal(twice.correct, 0, "old correct evidence cannot remaster the sound immediately");
+  assert.equal(twice.independentSeen, 0);
+  assert.deepEqual(twice.window, []);
+  assert.deepEqual(twice.shells, []);
+  assert.deepEqual(twice.sessions, []);
+  assert.equal(twice.box, 1);
+  assert.equal(twice.evidenceEpoch, 1);
+
+  const sameDayRecall = recordAttempt(twice, {
+    correct: true, shell: "runner", at: "2026-08-01T10:02:00Z"
+  });
+  assert.equal(sameDayRecall.state, MASTERY_STATES.LEARNING, "re-mastery must prove two shells and two days again");
+  assert.deepEqual(sameDayRecall.shells, ["runner"]);
+  assert.deepEqual(sameDayRecall.sessions, ["2026-08-01"]);
 });
 
 test("a correct answer resets the miss counter, so misses must be CONSECUTIVE", () => {
@@ -226,6 +258,17 @@ test("weakestTargets ranks by accuracy and ignores sounds never met", () => {
   assert.ok(!weak.includes("ng"), "a sound you have never met is not a sound you are weak at");
 });
 
+test("timeout-only exposure is neutral in weakest-target rankings", () => {
+  const timeoutOnly = run(emptyRecord(), [
+    { correct: false, reason: "timeout", at: "2026-01-01T10:00:00Z", stopIndex: 4 },
+    { correct: false, reason: "timeout", at: "2026-01-01T10:01:00Z", stopIndex: 4 }
+  ]);
+  const realMiss = recordAttempt(emptyRecord(), {
+    correct: false, shell: "stones", at: "2026-01-01T10:02:00Z", stopIndex: 4
+  });
+  assert.deepEqual(weakestTargets({ slow: timeoutOnly, struggling: realMiss }, 5).map(entry => entry.target), ["struggling"]);
+});
+
 // ── Assisted vs independent evidence (the promptLevel contract) ─────────────
 
 test("a guided tap on the shown answer is compliance, not evidence", () => {
@@ -238,6 +281,7 @@ test("a guided tap on the shown answer is compliance, not evidence", () => {
     { correct: true, shell: "beast", at: "2026-01-04T10:00:00Z", promptLevel: 2 }
   ]);
   assert.equal(guided.seen, 4, "exposure still counts");
+  assert.equal(guided.independentSeen, 0, "assistance never widens the knowledge-accuracy denominator");
   assert.equal(guided.correct, 0, "no independent corrects");
   assert.deepEqual(guided.shells, [], "no shell evidence");
   assert.deepEqual(guided.sessions, [], "no session evidence");
@@ -257,8 +301,10 @@ test("an assisted MISS still counts as struggle; a timeout counts as nothing but
   ]);
   const timeout = recordAttempt(before, { correct: false, reason: "timeout", at: "2026-01-01T10:02:00Z" });
   assert.equal(timeout.seen, before.seen + 1, "exposure recorded");
+  assert.equal(timeout.independentSeen, before.independentSeen, "timeouts do not depress knowledge accuracy");
   assert.equal(timeout.misses, 0, "hesitation is not a knowledge miss");
   assert.equal(timeout.streak, before.streak, "a slow child keeps their streak");
+  assert.equal(timeout.lastStop, before.lastStop, "a timeout does not postpone the next real review");
   assert.deepEqual(timeout.window, before.window, "the window never sees fluency events");
 });
 

@@ -1031,7 +1031,9 @@ function SoundSeekersSection({ report }) {
           ["Almost there", report.buckets?.almostThere ?? "-"],
           ["Needs re-teaching", report.buckets?.needsReteaching ?? "-"],
           ["Time on task", report.timeOnTask],
-          ["Accuracy", report.accuracy == null ? "Not enough evidence" : `${report.accuracy}% across ${report.attempts} responses`],
+          ["Accuracy", report.accuracy == null
+            ? "Not enough independent evidence"
+            : `${report.accuracy}% across ${report.independentAttempts ?? report.attempts} independent responses · ${report.attempts} total exposures`],
           ["Response pace", report.interaction?.responses
             ? `${(report.interaction.averageResponseMs / 1000).toFixed(1)} sec average`
             : "Not enough evidence"],
@@ -1115,7 +1117,7 @@ function SoundSeekersSection({ report }) {
             {report.weakest.map(row => (
               <li key={row.target}>
                 <strong>{row.target}</strong>
-                <span>{Math.round(row.accuracy * 100)}% across {row.seen} responses · {String(row.state || "learning").replace("-", " ")}</span>
+                <span>{Math.round(row.accuracy * 100)}% across {row.independentSeen ?? row.seen} independent responses · {row.seen} total exposures · {String(row.state || "learning").replace("-", " ")}</span>
               </li>
             ))}
           </ul>
@@ -1140,7 +1142,11 @@ function SoundSeekersSection({ report }) {
               <span
                 key={tile.id}
                 className={`quest-heat-tile is-${tile.bucket}`}
-                title={`${tile.label} · ${tile.bucket === "unseen" ? "not met yet" : `${tile.accuracy}% over ${tile.seen} response${tile.seen === 1 ? "" : "s"}`}`}
+                title={`${tile.label} · ${tile.bucket === "unseen"
+                  ? "not met yet"
+                  : tile.accuracy == null
+                    ? `${tile.seen} exposures; awaiting an independent response`
+                    : `${tile.accuracy}% over ${tile.independentSeen ?? tile.seen} independent response${(tile.independentSeen ?? tile.seen) === 1 ? "" : "s"}; ${tile.seen} total exposures`}`}
               >
                 {tile.label}
               </span>

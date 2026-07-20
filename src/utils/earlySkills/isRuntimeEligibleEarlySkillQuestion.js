@@ -4,6 +4,7 @@ import {
   isFinalSoundsLevel1Question
 } from "../../data/earlyPhonicsValidation.js";
 import { getQuestionRoutingIssue } from "../../data/skillTemplateRouting.js";
+import { isMediaQaRuntimeAllowed as isApprovedMediaQaPath } from "../../data/mediaQaManifest.js";
 
 export const EARLY_SKILL_IDS = new Set([
   "initial_sounds",
@@ -87,9 +88,8 @@ function getQuestionMediaPaths(question = {}) {
 }
 
 function isMediaQaRuntimeAllowed(path = "", mediaType = "image", options = {}) {
-  void path;
-  void mediaType;
-  return !MEDIA_QA_BLOCKING_STATUSES.has(options.qaStatus);
+  if (MEDIA_QA_BLOCKING_STATUSES.has(options.qaStatus)) return false;
+  return isApprovedMediaQaPath(path, mediaType, options);
 }
 
 function isQuestionBlockedByMediaQa(question = {}) {

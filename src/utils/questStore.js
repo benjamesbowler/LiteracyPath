@@ -11,19 +11,38 @@
 // isn't.
 
 import { queueProgressSave } from "./progressSync.js";
+import { sanitizeCloudProgressPayload } from "./progressMerge.js";
 import { localProgressStorageKey } from "./progressKeys.js";
 import { baseQuestState, normalizeQuestState } from "./questProgress.js";
+import {
+  QUEST_STORAGE_STATUS_EVENT,
+  writeQuestStateWithRecovery
+} from "./questStorageRecovery.js";
 
 const DEFAULT_SCOPE = "default";
 
-function storageKey(scopeKey = DEFAULT_SCOPE) {
+const warnedStorageScopes = new Set();
+
+export function questProgressStorageKey(scopeKey = DEFAULT_SCOPE) {
   return localProgressStorageKey("phonics_quest", scopeKey);
+}
+
+function emitStorageStatus(scopeKey, result) {
+  if (typeof window === "undefined" || warnedStorageScopes.has(scopeKey)) return;
+  warnedStorageScopes.add(scopeKey);
+  window.dispatchEvent(new CustomEvent(QUEST_STORAGE_STATUS_EVENT, {
+    detail: {
+      scopeKey,
+      status: result.ok ? "recovered" : "failed",
+      compacted: Boolean(result.compacted)
+    }
+  }));
 }
 
 export function loadQuestProgress(scopeKey = DEFAULT_SCOPE) {
   if (typeof window === "undefined") return baseQuestState();
   try {
-    const parsed = JSON.parse(window.localStorage.getItem(storageKey(scopeKey)) || "null");
+    const parsed = JSON.parse(window.localStorage.getItem(questProgressStorageKey(scopeKey)) || "null");
     return normalizeQuestState(parsed);
   } catch {
     // A corrupt save is a bad day; a white screen is a child who never comes
@@ -32,16 +51,18 @@ export function loadQuestProgress(scopeKey = DEFAULT_SCOPE) {
   }
 }
 
-export function saveQuestProgress(scopeKey = DEFAULT_SCOPE, state) {
+export function saveQuestProgress(scopeKey = DEFAULT_SCOPE, state, { syncCloud = true } = {}) {
   const next = normalizeQuestState(state);
   if (typeof window !== "undefined") {
-    try {
-      window.localStorage.setItem(storageKey(scopeKey), JSON.stringify(next));
-    } catch {
-      // Quota/private-mode failures must never throw into a React handler and
-      // white-screen a child mid-game. The cloud queue below still carries
-      // the progress; local storage catches up on the next successful save.
-    }
+    const result = writeQuestStateWithRecovery(
+      window.localStorage,
+      questProgressStorageKey(scopeKey),
+      next
+    );
+    // The sync queue uses this same localStorage, and anonymous play has no
+    // cloud queue at all. Never promise a cloud safety net here: report the
+    // first storage failure honestly, after making the bounded recovery pass.
+    if (result.recovered || !result.ok) emitStorageStatus(scopeKey, result);
   }
   // TEACHER-OWNED KEYS NEVER TRAVEL UP FROM THE CHILD. The child's client
   // echoes its whole state on every save; with an older `assignment` inside,
@@ -49,8 +70,9 @@ export function saveQuestProgress(scopeKey = DEFAULT_SCOPE, state) {
   // server merge (20260715090000_phonics_quest_merge.sql, live) keeps the
   // existing value when a key is absent from the incoming payload — so the
   // strip is safe AND sufficient. Locally the assignment stays (line above).
-  const { assignment, ...uploadPayload } = next;
-  void assignment;
-  queueProgressSave("phonics_quest", "__all__", uploadPayload, { scopeKey });
+  if (syncCloud) {
+    const uploadPayload = sanitizeCloudProgressPayload("phonics_quest", next);
+    queueProgressSave("phonics_quest", "__all__", uploadPayload, { scopeKey });
+  }
   return next;
 }

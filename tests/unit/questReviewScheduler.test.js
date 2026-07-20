@@ -29,6 +29,8 @@ test("a miss sends a sound STRAIGHT BACK to box 1, not one box back", () => {
 test("boxAfterStop maps mastery state to a review interval", () => {
   assert.equal(boxAfterStop(rec({ state: MASTERY_STATES.RETIRED })), 5);
   assert.equal(boxAfterStop(rec({ state: MASTERY_STATES.MASTERED })), 4);
+  assert.equal(boxAfterStop(rec({ state: MASTERY_STATES.MASTERED, misses: 1, box: 4 })), 1, "one fresh mastery miss is due now");
+  assert.equal(boxAfterStop(rec({ state: MASTERY_STATES.RETIRED, misses: 1, box: 5 })), 1, "retired claims are pulled back immediately too");
   assert.equal(boxAfterStop(rec({ state: MASTERY_STATES.LEARNING, misses: 1, box: 3 })), 1, "a recent miss resets the interval");
   assert.equal(boxAfterStop(rec({ state: MASTERY_STATES.LEARNING, misses: 0, box: 2 })), 2);
 });
@@ -42,6 +44,13 @@ test("a box-1 sound is due immediately; a box-3 sound waits 5 stops", () => {
   assert.deepEqual(dueTargets(mastery, 15).sort(), ["ch", "sh"]);
 });
 
+test("backward replay still carries box-1 review instead of producing a negative gap", () => {
+  const mastery = {
+    sh: rec({ seen: 4, independentSeen: 4, correct: 2, box: 1, lastStop: 30 })
+  };
+  assert.deepEqual(dueTargets(mastery, 4), ["sh"]);
+});
+
 test("worst-first: the sound the child is failing comes back before the one they mostly know", () => {
   const mastery = {
     good: rec({ seen: 10, correct: 9, box: 1, lastStop: 5 }),
@@ -50,6 +59,15 @@ test("worst-first: the sound the child is failing comes back before the one they
   };
   assert.deepEqual(dueTargets(mastery, 6), ["bad", "middling", "good"]);
   assert.ok(reviewWeight(mastery.bad, 6) > reviewWeight(mastery.good, 6));
+});
+
+test("assistance and timeout exposure do not depress review accuracy", () => {
+  const clean = rec({ seen: 2, independentSeen: 2, correct: 2, box: 1, lastStop: 5 });
+  const exposed = rec({ seen: 20, independentSeen: 2, correct: 2, box: 1, lastStop: 5 });
+  assert.equal(reviewWeight(exposed, 6), reviewWeight(clean, 6));
+
+  const timeoutOnly = rec({ seen: 20, independentSeen: 0, correct: 0, misses: 0, box: 1, lastStop: 5 });
+  assert.equal(reviewWeight(timeoutOnly, 6), 1 / 12, "neutral exposure contributes only ordinary recency");
 });
 
 test("a sound never attempted is never `due` — you can't review what you've never met", () => {

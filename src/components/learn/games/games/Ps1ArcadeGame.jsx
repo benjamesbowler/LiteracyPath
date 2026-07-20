@@ -8,7 +8,7 @@ import {
   startSoundBeatMusic
 } from "../../../../utils/audio/gameSfx.js";
 import { speak, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio.js";
-import { soundBeatLadder, soundBeatStars } from "../../../../utils/soundBeatTracks.js";
+import { soundBeatLadder, soundBeatMercyPolicy, soundBeatStars } from "../../../../utils/soundBeatTracks.js";
 import {
   TWO_PI,
   clamp,
@@ -757,19 +757,28 @@ function startPs1ArcadeGame(mount, options) {
 
   function missCurrent() {
     if (!state.currentTask || state.ended) return;
+    state.currentTask.attempts += 1;
+    const mercy = soundBeatMercyPolicy(state.currentTask.attempts);
     state.mistakes += 1;
     state.combo = 0;
     state.judgement = "TRY AGAIN";
     state.judgementT = 0.85;
     state.beatPulse = 0.7;
     sfx(playSoftBuzz);
-    // Miss = replay THIS word from its first sound. Not the level, not the
-    // next word — just this one, after a short beat. No "restart" screen.
-    // The replay is practice only: the word turns unclean, so it will advance
-    // without correctness credit and the star rubric's accuracy band applies.
-    state.beatIndex = 0;
     state.currentWordClean = false;
-    state.noteStart = performance.now() / 1000 + 0.9;
+    if (mercy.advanceWithoutCredit) {
+      state.judgement = "KEEP GOING";
+      state.inputLockedUntil = performance.now() / 1000 + 0.2;
+      endCurrentWord(0);
+      return;
+    }
+
+    // First miss rehearses the blend from sound one. Repeated misses retain
+    // the current beat and widen its timing window instead of bouncing a
+    // motor-delayed child back to the beginning forever.
+    if (mercy.replayFromStart) state.beatIndex = 0;
+    const spacing = 60 / (state.roundBpm || state.level.bpm);
+    state.noteStart = performance.now() / 1000 + 0.9 - state.beatIndex * spacing;
     speakActiveNote();
   }
 
@@ -850,11 +859,20 @@ function startPs1ArcadeGame(mount, options) {
     const spacing = 60 / (state.roundBpm || state.level.bpm);
     const targetTime = state.noteStart + state.beatIndex * spacing;
     const isBlend = notes[state.beatIndex] === "blend";
-    const windowSeconds = (state.roundWindow || state.level.hitWindowMs) / 1000;
-    const delta = Math.abs(now - targetTime);
+    const mercy = soundBeatMercyPolicy(task.attempts);
+    const windowSeconds = ((state.roundWindow || state.level.hitWindowMs) / 1000) * mercy.windowScale;
+    const signedDelta = now - targetTime;
+    const delta = Math.abs(signedDelta);
     // Real timing: you must tap the beat inside its window. The final "GO"/blend
     // is the one forgiving beat — it waits for the tap so a good run is never
     // lost at the finish line. Everything else is a proper rhythm hit or a miss.
+    if (!isBlend && signedDelta < -windowSeconds) {
+      // An eager tap before the approach window is guidance, not a mistake.
+      state.judgement = "WAIT";
+      state.judgementT = 0.5;
+      state.inputLockedUntil = now + 0.12;
+      return;
+    }
     if (isBlend || delta <= windowSeconds) {
       const quality = isBlend
         ? "PERFECT"
@@ -923,7 +941,8 @@ function startPs1ArcadeGame(mount, options) {
         const notes = [...state.currentTask.item.beats, "blend"];
         const spacing = 60 / (state.roundBpm || state.level.bpm);
         const targetTime = state.noteStart + state.beatIndex * spacing;
-        const autoMissWindow = (state.roundWindow || state.level.hitWindowMs) / 1000;
+        const autoMissWindow = ((state.roundWindow || state.level.hitWindowMs) / 1000)
+          * soundBeatMercyPolicy(state.currentTask.attempts).windowScale;
         // Letter beats time out if you never tap them (that's the rhythm). The
         // final "GO"/blend is exempt — it waits for the tap so the word is never
         // lost at the finish line.

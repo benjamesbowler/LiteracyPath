@@ -395,6 +395,7 @@ export function ArcadePracticeGame({
 
 function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds, schedule }) {
   const targetWord = state.words[round] || state.words[0];
+  const canHearTarget = isSoundEnabled && hasRecordedSpeech(targetWord);
   // placed = [{ letter, tileIndex }] so duplicate letters keep their own tile.
   const [placed, setPlaced] = useState([]);
   const [checking, setChecking] = useState(false);
@@ -408,8 +409,8 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
   }, [targetWord]);
 
   useEffect(() => {
-    if (isSoundEnabled) speakWord(targetWord);
-  }, [isSoundEnabled, targetWord]);
+    if (canHearTarget) speakWord(targetWord);
+  }, [canHearTarget, targetWord]);
 
   const usedTiles = new Set(placed.map(item => item.tileIndex));
 
@@ -441,7 +442,7 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
       schedule(() => {
         setPlaced([]);
         setChecking(false);
-        if (isSoundEnabled) speakWord(targetWord);
+        if (canHearTarget) speakWord(targetWord);
       }, 750);
     }
   }
@@ -453,9 +454,9 @@ function BuildGame({ state, round, setRound, correct, setCorrect, addScore, miss
 
   return (
     <section className="lg-game-stage lg-game-build">
-      <p>Build the word you hear.</p>
-      <button type="button" className="lg-game-audio" onClick={() => speakWord(targetWord)}><span aria-hidden="true">🔊</span> Hear word</button>
-      <WordImageCard word={targetWord} secret />
+      <p>{canHearTarget ? "Build the word you hear." : "Build this word."}</p>
+      {canHearTarget && <button type="button" className="lg-game-audio" onClick={() => speakWord(targetWord)}><span aria-hidden="true">♪</span> Hear word</button>}
+      <WordImageCard word={targetWord} secret={canHearTarget} />
       {attempts >= 2 && (
         <div className="lg-game-picture lg-game-picture-text" aria-label={`Hint: the word is ${targetWord}`}>
           <span>{targetWord}</span>
@@ -619,6 +620,7 @@ function FamilyGame({ state, isSoundEnabled, correct, setCorrect, addScore, miss
 
 function TargetGame({ state, round, setRound, correct, setCorrect, addScore, miss, finish, isSoundEnabled, totalRounds, schedule }) {
   const target = state.words[round] || state.words[0];
+  const canHearTarget = isSoundEnabled && hasRecordedSpeech(target);
   const options = useMemo(() => shuffle([target, ...shuffle(state.words.filter(word => word !== target)).slice(0, 5)]), [state.words, target]);
   // The bubble the child just popped (plays its burst before the next round)
   // and the bubble that wobbled because it was wrong.
@@ -626,8 +628,8 @@ function TargetGame({ state, round, setRound, correct, setCorrect, addScore, mis
   const [wrongWord, setWrongWord] = useState("");
 
   useEffect(() => {
-    if (isSoundEnabled) speakWord(target);
-  }, [isSoundEnabled, target]);
+    if (canHearTarget) speakWord(target);
+  }, [canHearTarget, target]);
 
   function choose(word, index) {
     if (popped) return;
@@ -652,8 +654,10 @@ function TargetGame({ state, round, setRound, correct, setCorrect, addScore, mis
 
   return (
     <section className="lg-game-stage lg-target-stage">
-      <p>Listen, then pop the matching bubble!</p>
-      <button type="button" className="lg-game-audio" onClick={() => speakWord(target)}><span aria-hidden="true">🔊</span> Hear word</button>
+      <p>{canHearTarget ? "Listen, then pop the matching bubble!" : "Pop the matching bubble!"}</p>
+      {canHearTarget
+        ? <button type="button" className="lg-game-audio" onClick={() => speakWord(target)}><span aria-hidden="true">♪</span> Hear word</button>
+        : <div className="lg-game-picture lg-game-picture-text" aria-label={`Find ${target}`}><span>{target}</span></div>}
       <div className="lg-floating-options">
         {options.map((word, index) => (
           <button
@@ -707,7 +711,7 @@ function SentenceGame({ state, round, setRound, correct, setCorrect, addScore, m
   return (
     <section className="lg-game-stage">
       <p>Hop on the next word in the sentence.</p>
-      {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(sentence)}><span aria-hidden="true">🔊</span> Hear sentence</button>}
+      {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(sentence)}><span aria-hidden="true">♪</span> Hear sentence</button>}
       <div className="lg-sentence-path">
         {words.map((word, index) => (
           <span key={`${word}-${index}`} className={index < position ? "done" : index === position && difficulty !== "hard" ? "active" : ""}>
@@ -764,7 +768,7 @@ function FixGame({ state, round, setRound, correct, setCorrect, addScore, miss, 
   return (
     <section className="lg-game-stage lg-race-stage">
       <p>{fix.prompt}</p>
-      {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(fix.say)}><span aria-hidden="true">🔊</span> Hear sentence</button>}
+      {canHear && <button type="button" className="lg-game-audio" onClick={() => speak(fix.say)}><span aria-hidden="true">♪</span> Hear sentence</button>}
       <div className="lg-race-track"><span style={{ width: `${Math.max(8, (correct / total) * 100)}%` }}><RaceMarker /></span></div>
       <div className="lg-reading-sentence lg-fix-sentence">
         {sentenceParts[0]}

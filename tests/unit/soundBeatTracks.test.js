@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   soundBeatLadder,
+  soundBeatMercyPolicy,
   soundBeatStars
 } from "../../src/utils/soundBeatTracks.js";
 
@@ -54,4 +55,15 @@ test("soundBeatStars follows the shared star rubric", () => {
   assert.equal(soundBeatStars({ correct: 8, total: 8, mistakes: 0 }), 3);
   assert.equal(soundBeatStars({ correct: 6, total: 8, mistakes: 4 }), 2);
   assert.equal(soundBeatStars({ correct: 2, total: 8, mistakes: 7 }), 1);
+});
+
+test("Sound Beat mercy widens timing, retains the current beat, then guarantees progress", () => {
+  assert.deepEqual(soundBeatMercyPolicy(0), {
+    windowScale: 1,
+    replayFromStart: true,
+    advanceWithoutCredit: false
+  });
+  assert.equal(soundBeatMercyPolicy(2).replayFromStart, false);
+  assert.ok(soundBeatMercyPolicy(2).windowScale > 1);
+  assert.equal(soundBeatMercyPolicy(4).advanceWithoutCredit, true);
 });

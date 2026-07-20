@@ -8,6 +8,8 @@ import {
   questActionSfxId,
   questActionSfxMixScale,
   questChapterMaterialSfxEntry,
+  playQuestSfxEntry,
+  warmQuestSfxEntries,
   setQuestActionSfxInstructionActive
 } from "../../src/utils/questActionAudio.js";
 
@@ -44,13 +46,52 @@ test("instructional audio keeps physical feedback below the phonics cue", () => 
   assert.equal(setQuestActionSfxInstructionActive(false), false);
 });
 
-test("every action sound exports a stable Phaser key and public source", () => {
+test("every action sound exports a stable lookup key and public source", () => {
   assert.deepEqual(Object.keys(QUEST_ACTION_SFX), [
     "discover", "hop", "interact", "lift", "place", "build", "pulse", "wait"
   ]);
   for (const [id, entry] of Object.entries(QUEST_ACTION_SFX)) {
     assert.equal(entry.key, `quest-action-${id}`);
     assert.equal(entry.src, `/game-assets/quest-pixel/seedwake/audio/action-${id}.wav`);
+  }
+});
+
+test("the shared action pool warms once and plays a clone without Phaser audio", () => {
+  const OriginalAudio = globalThis.Audio;
+  const created = [];
+  class FakeAudio {
+    constructor(src) {
+      this.src = src;
+      this.volume = 1;
+      this.preload = "";
+      this.listeners = new Map();
+      created.push(this);
+    }
+    load() { this.loaded = true; }
+    cloneNode() {
+      const clone = Object.create(FakeAudio.prototype);
+      clone.src = this.src;
+      clone.volume = 1;
+      clone.preload = this.preload;
+      clone.listeners = new Map();
+      created.push(clone);
+      return clone;
+    }
+    addEventListener(type, handler) { this.listeners.set(type, handler); }
+    play() { this.played = true; return Promise.resolve(); }
+  }
+  globalThis.Audio = FakeAudio;
+  try {
+    const entry = { key: "test-action", src: "/audio/test-action.wav" };
+    assert.equal(warmQuestSfxEntries([entry, entry]), 1);
+    assert.equal(warmQuestSfxEntries([entry]), 0);
+    const sound = playQuestSfxEntry(entry, { volume: 0.33 });
+    assert.equal(sound.src, entry.src);
+    assert.equal(sound.volume, 0.33);
+    assert.equal(sound.played, true);
+    assert.equal(created.length, 2, "one preloaded base plus one playable clone");
+  } finally {
+    globalThis.Audio = OriginalAudio;
   }
 });
 

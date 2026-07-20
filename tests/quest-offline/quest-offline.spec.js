@@ -66,14 +66,9 @@ test("the production shell cold-starts the saved chapter, accessible task, Den, 
   await pixelPage.close();
 
   const accessiblePage = await context.newPage();
-  await accessiblePage.addInitScript(key => {
-    const state = JSON.parse(localStorage.getItem(key) || "null");
-    localStorage.setItem(key, JSON.stringify({
-      ...state,
-      settings: { ...state.settings, displayMode: "2d" }
-    }));
-  }, STORAGE_KEY);
-  const accessibleNavigation = await accessiblePage.goto(`${QUEST_URL}&resume=1`);
+  const accessibleNavigation = await accessiblePage.goto(
+    `${QUEST_URL.replace("display=pixel", "display=2d")}&resume=1`
+  );
   expect(accessibleNavigation?.fromServiceWorker()).toBe(true);
   await expect(accessiblePage.locator(".q2d-root")).toBeVisible();
   await expect(accessiblePage.getByRole("group", { name: /Find/ })).toBeVisible();

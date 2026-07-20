@@ -27,7 +27,13 @@ if (validation.status !== "valid") {
 }
 
 const sealed = await sealQuestHumanObservation(draft);
-const safeName = `${draft.profileId}-${draft.sessionId}`.toLowerCase().replace(/[^a-z0-9-]+/g, "-");
+// Participant is part of the evidence identity, matching the console and
+// aggregate duplicate contract. Paired observations may share one session;
+// omitting the participant here made the second valid record look like a file
+// collision in the terminal workflow.
+const safeName = `${draft.profileId}-${draft.sessionId}-${draft.participant?.anonymousId || "participant"}`
+  .toLowerCase()
+  .replace(/[^a-z0-9-]+/g, "-");
 const outputPath = path.resolve("docs/validation/quest-human-acceptance", `${safeName}.json`);
 if (fs.existsSync(outputPath)) {
   console.error(`Observation already exists: ${outputPath}`);

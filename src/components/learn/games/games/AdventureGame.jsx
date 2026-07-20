@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { cancelSpeech, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
+import { cancelSpeech, hasRecordedSpeech, speakPhoneme, speakWord } from "../../../../utils/learnGamesAudio";
 import { playCelebrationFanfare, playCorrectChime, playPopSound, playSoftBuzz } from "../../../../utils/audio/gameSfx";
 import { ConfettiCelebration } from "../shared/ConfettiCelebration.jsx";
 import { ProgressStars } from "../shared/ProgressStars.jsx";
@@ -138,15 +138,16 @@ function Complete({ title, stars, score, onRestart }) {
 function RescueStage({ rounds, state, isSoundEnabled }) {
   const { index, planks, wrongWord, choose } = state;
   const round = rounds[index] || rounds[rounds.length - 1];
+  const canHearWord = isSoundEnabled && hasRecordedSpeech(round?.word);
 
   useEffect(() => {
-    if (isSoundEnabled && round) speakWord(round.word);
-  }, [isSoundEnabled, round]);
+    if (canHearWord && round) speakWord(round.word);
+  }, [canHearWord, round]);
 
   return (
     <section className="lg-game-stage adv-rescue">
-      <p>{isSoundEnabled ? "Hear the word, then tap the matching word!" : "Tap the matching word to build the bridge!"}</p>
-      {isSoundEnabled ? (
+      <p>{canHearWord ? "Hear the word, then tap the matching word!" : "Tap the matching word to build the bridge!"}</p>
+      {canHearWord ? (
         <button type="button" className="lg-game-audio" onClick={() => speakWord(round.word)}>Hear word</button>
       ) : (
         // Sound off: the target only exists as audio, so show it as a card.
@@ -216,15 +217,16 @@ function SortStage({ sort, state, isSoundEnabled }) {
 function GardenStage({ rounds, state, isSoundEnabled }) {
   const { index, typed, grown, wrongLetter, pickLetter } = state;
   const round = rounds[index] || rounds[rounds.length - 1];
+  const canHearWord = isSoundEnabled && hasRecordedSpeech(round?.word);
 
   useEffect(() => {
-    if (isSoundEnabled && round) speakWord(round.word);
-  }, [isSoundEnabled, round]);
+    if (canHearWord && round) speakWord(round.word);
+  }, [canHearWord, round]);
 
   return (
     <section className="lg-game-stage adv-garden">
       <p>Build the word to grow a flower!</p>
-      {isSoundEnabled ? (
+      {canHearWord ? (
         <button type="button" className="lg-game-audio" onClick={() => speakWord(round.word)}>Hear word</button>
       ) : (
         // Sound off: the target only exists as audio, so show it as a card.

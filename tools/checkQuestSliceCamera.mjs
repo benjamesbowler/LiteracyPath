@@ -97,7 +97,7 @@ async function openEncounter(browser, scenario, viewportName) {
   page.on("pageerror", error => problems.push(error.message));
   const done = Math.max(0, Number(scenario.stopId.slice(1)) - 1);
   const url = `${BASE}/preview/quest.html?view=world&stop=${scenario.stopId}&done=${done}`
-    + `&active=${scenario.encounterIndex}&beat=${scenario.beatIndex || 0}&display=low&sound=0&adapt=0`;
+    + `&active=${scenario.encounterIndex}&beat=${scenario.beatIndex || 0}&renderer=legacy3d&sound=0&adapt=0`;
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30_000 });
   await page.waitForFunction(() => document.querySelector(".qh-root.is-ready"), null, { timeout: RENDER_TIMEOUT });
   await page.waitForFunction(() => {
@@ -124,7 +124,7 @@ async function captureWideFrames(browser) {
   for (const stopId of SEEDWAKE_STOP_IDS) {
     const page = await browser.newPage({ viewport: VIEWPORTS.ipad, deviceScaleFactor: 1 });
     const done = Math.max(0, Number(stopId.slice(1)) - 1);
-    await page.goto(`${BASE}/preview/quest.html?view=world&stop=${stopId}&done=${done}&display=low&sound=0&adapt=0`, {
+    await page.goto(`${BASE}/preview/quest.html?view=world&stop=${stopId}&done=${done}&renderer=legacy3d&sound=0&adapt=0`, {
       waitUntil: "domcontentloaded",
       timeout: 30_000
     });
@@ -177,7 +177,7 @@ async function captureAccessibleSuccess(browser, scenario) {
   await page.emulateMedia({ reducedMotion: "reduce" });
   const done = Math.max(0, Number(scenario.stopId.slice(1)) - 1);
   const url = `${BASE}/preview/quest.html?view=world&stop=${scenario.stopId}&done=${done}`
-    + `&active=${scenario.encounterIndex}&beat=${scenario.beatIndex}&display=low&sound=0&adapt=0`;
+    + `&active=${scenario.encounterIndex}&beat=${scenario.beatIndex}&renderer=legacy3d&sound=0&adapt=0`;
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30_000 });
   await page.waitForFunction(() => window.__questSliceDebug?.snapshot?.camera?.settled, null, { timeout: RENDER_TIMEOUT });
   for (let stage = 0; stage < scenario.stages; stage += 1) {
@@ -210,7 +210,7 @@ async function captureAccessibleSuccess(browser, scenario) {
 
 async function captureGateAndReward(browser) {
   const gate = await browser.newPage({ viewport: VIEWPORTS.ipad, deviceScaleFactor: 1 });
-  await gate.goto(`${BASE}/preview/quest.html?view=world&stop=s5&done=4&checkpoint=gate&display=low&sound=0&adapt=0`, {
+  await gate.goto(`${BASE}/preview/quest.html?view=world&stop=s5&done=4&checkpoint=gate&renderer=legacy3d&sound=0&adapt=0`, {
     waitUntil: "domcontentloaded",
     timeout: 30_000
   });
@@ -219,7 +219,7 @@ async function captureGateAndReward(browser) {
   await gate.close();
 
   const reward = await browser.newPage({ viewport: VIEWPORTS.ipad, deviceScaleFactor: 1 });
-  await reward.goto(`${BASE}/preview/quest.html?view=ceremony&stop=s5&done=5&display=low&sound=0&adapt=0`, {
+  await reward.goto(`${BASE}/preview/quest.html?view=ceremony&stop=s5&done=5&renderer=legacy3d&sound=0&adapt=0`, {
     waitUntil: "domcontentloaded",
     timeout: 30_000
   });
@@ -230,7 +230,7 @@ async function captureGateAndReward(browser) {
 
 async function captureTurnPerformance(browser) {
   const page = await browser.newPage({ viewport: VIEWPORTS.ipad, deviceScaleFactor: 1 });
-  await page.goto(`${BASE}/preview/quest.html?view=world&stop=s3&done=2&checkpoint=turn&display=low&sound=0&adapt=0`, {
+  await page.goto(`${BASE}/preview/quest.html?view=world&stop=s3&done=2&checkpoint=turn&renderer=legacy3d&sound=0&adapt=0`, {
     waitUntil: "domcontentloaded",
     timeout: 30_000
   });
@@ -282,7 +282,7 @@ async function captureFullJourney(browser) {
   const problems = [];
   page.on("console", message => { if (message.type() === "error") problems.push(message.text()); });
   page.on("pageerror", error => problems.push(error.message));
-  await page.goto(`${BASE}/preview/quest.html?view=world&stop=s1&done=0&display=low&sound=0&adapt=0`, {
+  await page.goto(`${BASE}/preview/quest.html?view=world&stop=s1&done=0&renderer=legacy3d&sound=0&adapt=0`, {
     waitUntil: "domcontentloaded",
     timeout: 30_000
   });

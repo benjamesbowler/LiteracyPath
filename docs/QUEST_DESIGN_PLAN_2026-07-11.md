@@ -111,7 +111,7 @@ The original slice chose a receding 2.5D road. Its fixed lane and finish flag re
 *Split digraphs* — 18 `a_e` · 19 `i_e` · 20 `o_e` · 21 `u_e` · 22 `e_e`
 *Vowel teams* — 23 `ai`/`ay` · 24 `ee`/`ea` · 25 `igh`/`ie` · 26 `oa`/`ow`/`oe` · 27 `oo` (long) + `ue`/`ew` · 28 `oo` (short) · 29 `ou`/`ow` · 30 `oi`/`oy`
 *R-controlled* — 31 `ar` · 32 `or`/`ore`/`aw` · 33 `er`/`ir`/`ur` · 34 `air`/`are` · 35 `ear` · 36 `ure`
-*The Knowledge Tree* — 37 alternative pronunciations: `c`=/s/, `g`=/j/, `ow`=/oa/, `ea`=/e/, `ch`=/k/
+*The Knowledge Tree* — 37 alternative pronunciations: `c`=/s/, `g`=/j/, `ea`=/e/, `ch`=/k/. The `ow`=/oa/ contrast is already taught at stop 29 alongside `ow`=/ou/ and is not repeated here.
 *Morphology* — 38 `-s` `-ing` `-ed` · 39 `-le` · 40 `tion`
 **Stop 40 doubles as the final boss: the Star Reach.**
 

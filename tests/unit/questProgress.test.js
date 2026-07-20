@@ -150,6 +150,18 @@ test("gear is GIVEN by walking the trail, not bought", () => {
   assert.deepEqual(earnedGearReward(state, "s1"), { id: "leaf-cap", slot: "head", equipped: true });
 });
 
+test("replaying a gear stop neither re-equips nor re-announces old gear", () => {
+  let state = recordStopResult(baseQuestState(), "s1", 2);
+  state = recordStopResult(state, "s2", 2);
+  assert.equal(state.creature.equipped.head, "acorn-hat");
+  assert.deepEqual(earnedGearReward(state, "s2"), { id: "acorn-hat", slot: "head", equipped: true });
+
+  state = recordStopResult(state, "s1", 3);
+  assert.equal(state.creature.equipped.head, "acorn-hat", "the child's later cosmetic choice survives review");
+  assert.equal(earnedGearReward(state, "s1"), null, "a replay is not new gear");
+  assert.equal(state.lastEarnedGearStop, null);
+});
+
 test("the Seedwake gate reward carries a fully equipped cumulative creature", () => {
   let state = baseQuestState();
   for (let index = 1; index <= 5; index += 1) state = recordStopResult(state, `s${index}`, 3, 4);
@@ -313,7 +325,17 @@ test("MERGE: this device keeps its OWN checkpoint — a cloud one would teleport
   assert.deepEqual(merged.checkpoint, { stopId: "s4", shellIndex: 2 });
 
   const noLocal = computeHydratedValue("phonics_quest", "__all__", {}, cloud);
-  assert.equal(noLocal.checkpoint, null, "and an absent local checkpoint stays absent");
+  assert.deepEqual(noLocal.checkpoint, { stopId: "s1", shellIndex: 0 }, "a fresh device resumes a checkpoint at its current stop");
+
+  const staleCloud = {
+    trail: { stopsDone: ["s1"], routeCursor: 2 },
+    checkpoint: { stopId: "s9", shellIndex: 0 }
+  };
+  assert.equal(
+    computeHydratedValue("phonics_quest", "__all__", {}, staleCloud).checkpoint,
+    null,
+    "a checkpoint away from the merged route cursor is discarded"
+  );
 });
 
 test("MERGE: this device keeps its own review-route position", () => {
@@ -322,6 +344,13 @@ test("MERGE: this device keeps its own review-route position", () => {
   const merged = computeHydratedValue("phonics_quest", "__all__", local, cloud);
   assert.equal(merged.trail.routeCursor, 2);
   assert.deepEqual(merged.trail.stopsDone.sort(), ["s1", "s2"]);
+});
+
+test("MERGE: a normalized empty device accepts the cloud review-route position", () => {
+  const local = { trail: { stopsDone: [], routeCursor: 1 } };
+  const cloud = { trail: { stopsDone: ["s1", "s40"], routeCursor: 31 } };
+  const merged = computeHydratedValue("phonics_quest", "__all__", local, cloud);
+  assert.equal(merged.trail.routeCursor, 31);
 });
 
 // ── Robustness ──────────────────────────────────────────────────────────────

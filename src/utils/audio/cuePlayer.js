@@ -46,9 +46,16 @@ export function playCueAudio(src, { volume = 0.95, onUnavailable } = {}) {
       setQuestActionSfxInstructionActive(false);
       restoreGameMusic();
     };
+    let unavailableNotified = false;
+    const unavailable = () => {
+      if (currentCue !== audio || unavailableNotified) return;
+      unavailableNotified = true;
+      finish();
+      onUnavailable?.();
+    };
     currentCueFinish = finish;
     audio.addEventListener("ended", finish, { once: true });
-    audio.addEventListener("error", finish, { once: true });
+    audio.addEventListener("error", unavailable, { once: true });
     if (cueSuspended) {
       cueResumeAfterSuspend = true;
       return;
@@ -56,10 +63,7 @@ export function playCueAudio(src, { volume = 0.95, onUnavailable } = {}) {
     duckGameMusic();
     const result = audio.play();
     if (result?.catch) {
-      result.catch(() => {
-        finish();
-        onUnavailable?.();
-      });
+      result.catch(unavailable);
     }
   } catch {
     currentCue = null;
@@ -83,18 +87,22 @@ export function playCueSequence(srcs = [], { volume = 0.95, gapMs = 150 } = {}) 
     if (index >= queue.length) return;
     const src = queue[index];
     index += 1;
-    playCueAudio(src, { volume });
-    const audio = currentCue;
-    if (!audio) {
-      playNext();
-      return;
-    }
-    audio.addEventListener("ended", () => {
-      if (index >= queue.length) return;
+    let advanced = false;
+    const advance = () => {
+      if (advanced || index >= queue.length) return;
+      advanced = true;
       window.setTimeout(() => {
         if (currentCue === null) playNext();
       }, gapMs);
-    }, { once: true });
+    };
+    playCueAudio(src, { volume, onUnavailable: advance });
+    const audio = currentCue;
+    if (!audio) {
+      advance();
+      return;
+    }
+    audio.addEventListener("ended", advance, { once: true });
+    audio.addEventListener("error", advance, { once: true });
   };
   playNext();
 }

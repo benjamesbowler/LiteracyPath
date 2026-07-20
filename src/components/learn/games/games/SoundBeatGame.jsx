@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Ps1ArcadeGame from "./Ps1ArcadeGame.jsx";
+import { playCueAudio, stopCueAudio } from "../../../../utils/audio/cuePlayer.js";
 
 // First-run onboarding: one intro card per device, dismissed forever after.
 // Storage may be denied (private mode) — then the card shows again next
@@ -20,8 +21,8 @@ const ONBOARDING_HINTS = [
   "Finish with GO to say the whole word."
 ];
 
-export default function SoundBeatGame({ onEngineReady, ...props }) {
-  const [showOnboarding, setShowOnboarding] = useState(readOnboarded);
+export default function SoundBeatGame({ onEngineReady, isSoundEnabled = true, ...props }) {
+  const [showOnboarding, setShowOnboarding] = useState(() => !readOnboarded());
   const showOnboardingRef = useRef(showOnboarding);
   const engineRef = useRef(null);
 
@@ -51,21 +52,36 @@ export default function SoundBeatGame({ onEngineReady, ...props }) {
     engineRef.current?.resume();
   }, []);
 
-  // Any key starts play from the intro card (Esc stays with the chrome).
+  // Only game activation keys start play. Tab and browser/assistive shortcuts
+  // remain available while the dialog is open.
   useEffect(() => {
     if (!showOnboarding) return undefined;
     const onKeyDown = event => {
-      if (event.key === "Escape") return;
-      if (event.key === " " || event.key === "Enter" || event.key.startsWith("Arrow")) event.preventDefault();
+      const activates = event.key === " " || event.key === "Enter" || event.key === "ArrowUp";
+      if (!activates) return;
+      event.preventDefault();
       dismissOnboarding();
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [showOnboarding, dismissOnboarding]);
 
+  // A short recorded child-voice action cue complements the picture sequence.
+  // If autoplay is blocked, the visual card remains fully usable; never TTS.
+  useEffect(() => {
+    if (!showOnboarding || !isSoundEnabled) return undefined;
+    const timer = window.setTimeout(() => {
+      playCueAudio("/audio/child-mode/clean-human/phrases/tap.mp3", { volume: 0.88 });
+    }, 180);
+    return () => {
+      window.clearTimeout(timer);
+      stopCueAudio();
+    };
+  }, [showOnboarding, isSoundEnabled]);
+
   return (
     <div style={{ position: "relative", width: "100%", height: "100%", minHeight: "100dvh" }}>
-      <Ps1ArcadeGame kind="sound-beat" {...props} onEngineReady={handleEngineReady} />
+      <Ps1ArcadeGame kind="sound-beat" {...props} isSoundEnabled={isSoundEnabled} onEngineReady={handleEngineReady} />
       {showOnboarding && (
         <div
           role="dialog"
@@ -100,13 +116,23 @@ export default function SoundBeatGame({ onEngineReady, ...props }) {
             <p style={{ fontSize: 19, fontWeight: 800, color: "#fff", margin: "10px 0 14px" }}>
               Tap each sound on the beat.
             </p>
+            <div
+              aria-hidden="true"
+              style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, margin: "8px 0 16px" }}
+            >
+              <span style={{ width: 58, height: 58, display: "grid", placeItems: "center", border: "2px solid #52fff0", borderRadius: 12, color: "#52fff0", fontSize: 30 }}>♪</span>
+              <span style={{ color: "#fff", fontSize: 26 }}>→</span>
+              <span style={{ width: 116, height: 58, display: "grid", placeItems: "center", border: "2px solid #ffd23d", borderRadius: 12, color: "#ffd23d", fontSize: 25, letterSpacing: 8 }}>●●●</span>
+              <span style={{ color: "#fff", fontSize: 26 }}>→</span>
+              <span style={{ width: 58, height: 58, display: "grid", placeItems: "center", background: "#b8ff3d", borderRadius: 12, color: "#07101d", fontSize: 19, fontWeight: 950 }}>GO</span>
+            </div>
             <ul style={{ listStyle: "none", margin: 0, padding: 0, fontSize: 16, fontWeight: 700, lineHeight: 1.6, color: "#dce8ff" }}>
               {ONBOARDING_HINTS.map(hint => (
                 <li key={hint}>{hint}</li>
               ))}
             </ul>
             <div style={{ marginTop: 16, fontSize: 17, fontWeight: 900, color: "#ff3d8b" }}>
-              Tap to play · or press any key
+              Tap to play · or press Space / Enter
             </div>
           </div>
         </div>

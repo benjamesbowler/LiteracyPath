@@ -278,7 +278,18 @@ export function buildWalk(stopId, { mastery = {}, targets, seed = 1 } = {}) {
   // Now: most of the slots go to what the stop teaches, and at least one goes to
   // something old that needs proving in a different way.
   const letterSlots = stopIndex <= 5 ? 3 : letterKind === "hungry-beast" ? 2 : 3;
-  const keepForReview = review.length ? 1 : 0;
+  const wordBeatCapacity = chosen.some(kind => WORD.includes(kind))
+    ? (stopIndex <= 5 ? 1 : 3)
+    : 0;
+  // Reserve a letter beat for review only when every newly taught grapheme can
+  // still be encountered in this walk. Stop 7 teaches six targets and has a
+  // three-beat word encounter; spending one of its three letter beats on due
+  // review left four doubles competing for three words, so `zz` was never seen
+  // and therefore could never enter later review. New teaching is the hard
+  // coverage contract; an older due target can also ride in a word or return at
+  // the next stop.
+  const canReserveReview = newHere.length <= Math.max(1, letterSlots - 1) + wordBeatCapacity;
+  const keepForReview = review.length && canReserveReview ? 1 : 0;
   const newSlots = Math.max(1, letterSlots - keepForReview);
   const letterTargets = [
     ...newHere.slice(0, newSlots),
@@ -310,7 +321,23 @@ export function buildWalk(stopId, { mastery = {}, targets, seed = 1 } = {}) {
 
   // Never let a stop be a walk with NOTHING in it.
   if (!built.length && list.length) {
-    built.push(buildEncounter("flower-patch", { stop, stopIndex, mastery, rng, list, decodable, pickCovering }));
+    const fallbackTargets = letterTargets.length ? letterTargets : list.slice(0, 3);
+    const fallback = buildEncounter("flower-patch", {
+      stop,
+      stopIndex,
+      mastery,
+      rng,
+      list,
+      decodable,
+      pickCovering,
+      covers,
+      flowerTargets: fallbackTargets,
+      beastTargets: [],
+      runTargets: [],
+      mustCoverInWords,
+      coverTargets
+    });
+    if (fallback) built.push(fallback);
   }
 
   // Space them along the path with real walking in between — that gap IS the

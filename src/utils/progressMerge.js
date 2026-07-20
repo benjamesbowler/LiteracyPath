@@ -1,4 +1,4 @@
-// Pure, import-free merge rules for hydrating cloud progress into local storage.
+// Pure merge rules for hydrating cloud progress into local storage.
 // Kept separate from progressSync.js so it can be unit-tested without pulling in
 // the Supabase client (which needs the browser/Vite env).
 //
@@ -6,6 +6,8 @@
 // disagree, we keep whichever represents more progress - we never let an older or
 // emptier cloud row wipe out stars, completions, or words the child already earned
 // (the cause of "my stars disappeared when I reloaded").
+
+import { boundedHollowFeeds, boundedHollowPurchases, uniqueHollowRecords } from "./hollowLedgerPolicy.js";
 
 // ── Scalar status (phonics letters, cvc) ─────────────────────────────────────
 const STATUS_RANK = { default: 0, locked: 1, inprogress: 2, completed: 3 };
@@ -92,12 +94,46 @@ export function mergeRecordMap(localMap, cloudMap) {
 // if this device watched the child miss a "mastered" sound twice today, its
 // higher `seen` means the demotion sticks instead of being overwritten by a
 // stale cloud row that still says "mastered".
-const MASTERY_COUNTERS = ["seen", "correct", "streak"];
+const MASTERY_COUNTERS = ["seen", "correct"];
 const MASTERY_SETS = ["shells", "sessions"];
+
+function independentMasteryCount(record) {
+  if (!record || typeof record !== "object") return 0;
+  if (!Object.prototype.hasOwnProperty.call(record, "independentSeen")) {
+    return Math.max(0, Number(record.seen) || 0);
+  }
+  const independent = Math.max(0, Number(record.independentSeen) || 0);
+  return independent === 0 && (Number(record.correct) || 0) > 0
+    ? Math.max(0, Number(record.seen) || Number(record.correct) || 0)
+    : independent;
+}
 
 export function mergeMasteryRecord(local, cloud) {
   if (!local || typeof local !== "object") return cloud;
   if (!cloud || typeof cloud !== "object") return local;
+
+  const localEpoch = Math.max(0, Number(local.evidenceEpoch) || 0);
+  const cloudEpoch = Math.max(0, Number(cloud.evidenceEpoch) || 0);
+  if (localEpoch !== cloudEpoch) {
+    const authoritative = localEpoch > cloudEpoch ? local : cloud;
+    return {
+      ...cloud,
+      ...local,
+      ...authoritative,
+      seen: Math.max(Number(local.seen) || 0, Number(cloud.seen) || 0),
+      evidenceEpoch: Math.max(localEpoch, cloudEpoch),
+      independentSeen: Math.max(0, Number(authoritative.independentSeen) || 0),
+      correct: Math.max(0, Number(authoritative.correct) || 0),
+      streak: Math.max(0, Number(authoritative.streak) || 0),
+      window: Array.isArray(authoritative.window) ? [...authoritative.window] : [],
+      shells: Array.isArray(authoritative.shells) ? [...authoritative.shells] : [],
+      sessions: Array.isArray(authoritative.sessions) ? [...authoritative.sessions] : [],
+      misses: Math.max(0, Number(authoritative.misses) || 0),
+      box: Math.max(1, Number(authoritative.box) || 1),
+      lastAt: authoritative.lastAt || "",
+      lastStop: Math.max(0, Number(authoritative.lastStop) || 0)
+    };
+  }
 
   const newer = (Number(local.seen) || 0) > (Number(cloud.seen) || 0) ? local : cloud;
   const out = { ...cloud, ...local, ...newer };
@@ -105,10 +141,13 @@ export function mergeMasteryRecord(local, cloud) {
   for (const key of MASTERY_COUNTERS) {
     out[key] = Math.max(Number(local[key]) || 0, Number(cloud[key]) || 0);
   }
+  out.independentSeen = Math.max(independentMasteryCount(local), independentMasteryCount(cloud));
   for (const key of MASTERY_SETS) {
     out[key] = unionArrays(local[key], cloud[key]);
   }
   out.window = Array.isArray(newer.window) ? [...newer.window] : [];
+  out.evidenceEpoch = localEpoch;
+  out.streak = Number(newer.streak) || 0;
   out.misses = Number(newer.misses) || 0;
   out.state = newer.state;
   out.box = Number(newer.box) || 1;
@@ -133,6 +172,17 @@ export function mergePayload(current, incoming) {
   if (!incoming || typeof incoming !== "object") return current;
   if (Array.isArray(current) || Array.isArray(incoming)) return incoming;
   return { ...current, ...incoming };
+}
+
+// The quest's local state contains two classes of data that are deliberately
+// device-only / authority-owned. Keep the policy pure and shared so queue
+// coalescing cannot reintroduce keys that questStore removed before upload.
+export function sanitizeCloudProgressPayload(area, payload) {
+  if (area !== "phonics_quest" || !payload || typeof payload !== "object") return payload;
+  const { assignment, telemetry, ...safePayload } = payload;
+  void assignment;
+  void telemetry;
+  return safePayload;
 }
 
 // Decide the value to write to local storage for one hydrated cloud row.
@@ -196,9 +246,10 @@ export function computeHydratedValue(area, key, existing, payload) {
   //       never duplicates. Sparks EARNED is derived, never stored, so there is
   //       nothing there to corrupt.
   //   creature + checkpoint         - STATE, not achievement. Last-write-wins on
-  //       the creature (the child's latest choice IS the truth); this device
-  //       keeps its OWN checkpoint. Forward-merging a checkpoint would resurrect
-  //       a shell the child already finished, or teleport them mid-stop.
+  //       the creature (the child's latest choice IS the truth); a local
+  //       checkpoint wins. A fresh device accepts a cloud checkpoint only when
+  //       it matches the merged route cursor, so shared-iPad resume works without
+  //       resurrecting a finished shell or teleporting the child mid-stop.
   if (area === "phonics_quest") {
     const cloud = payload && typeof payload === "object" ? payload : {};
     // Union by id, DETERMINISTICALLY ORDERED by (at, id): unionById used to
@@ -239,7 +290,15 @@ export function computeHydratedValue(area, key, existing, payload) {
     const trail = mergeMonotonic(base.trail, cloud.trail) || {};
     // routeCursor is local journey position, not an achievement counter. A max
     // merge would pin a second circuit at stop 40 forever.
-    trail.routeCursor = Number(base.trail?.routeCursor) || Number(cloud.trail?.routeCursor) || 1;
+    const hasLocalTrailProgress = Array.isArray(base.trail?.stopsDone) && base.trail.stopsDone.length > 0;
+    trail.routeCursor = hasLocalTrailProgress
+      ? (Number(base.trail?.routeCursor) || Number(cloud.trail?.routeCursor) || 1)
+      : (Number(cloud.trail?.routeCursor) || Number(base.trail?.routeCursor) || 1);
+    const localCheckpoint = base.checkpoint && typeof base.checkpoint === "object" ? base.checkpoint : null;
+    const cloudCheckpoint = cloud.checkpoint && typeof cloud.checkpoint === "object" ? cloud.checkpoint : null;
+    const resumableCloudCheckpoint = cloudCheckpoint?.stopId === `s${trail.routeCursor}`
+      ? cloudCheckpoint
+      : null;
     return {
       ...base,
       ...cloud,
@@ -260,7 +319,7 @@ export function computeHydratedValue(area, key, existing, payload) {
         sessions: unionById(base.telemetry?.sessions, cloud.telemetry?.sessions).slice(-80),
         current: base.telemetry?.current || null
       },
-      checkpoint: base.checkpoint ?? null
+      checkpoint: localCheckpoint || resumableCloudCheckpoint
     };
   }
 
@@ -284,9 +343,9 @@ export function computeHydratedValue(area, key, existing, payload) {
     const localLayout = base.layout && typeof base.layout === "object" ? base.layout : { at: "" };
     const cloudLayout = cloud.layout && typeof cloud.layout === "object" ? cloud.layout : { at: "" };
     return {
-      purchases: unionById(base.purchases, cloud.purchases),
-      feeds: unionById(base.feeds, cloud.feeds),
-      chests: unionById(base.chests, cloud.chests),
+      purchases: boundedHollowPurchases(unionById(base.purchases, cloud.purchases)),
+      feeds: boundedHollowFeeds(unionById(base.feeds, cloud.feeds)),
+      chests: uniqueHollowRecords(unionById(base.chests, cloud.chests)),
       layout: (localLayout.at || "") > (cloudLayout.at || "") ? localLayout : cloudLayout
     };
   }
