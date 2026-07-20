@@ -27,14 +27,12 @@ import { Sidebar } from "./components/Sidebar.jsx";
 import { StudentEntryPage } from "./components/StudentEntryPage.jsx";
 import { StudentHomePage } from "./components/StudentHomePage.jsx";
 import StudentRail from "./components/StudentRail.jsx";
-import { HollowPage } from "./components/HollowPage.jsx";
 import { StudentLoginFlow } from "./components/StudentLoginFlow.jsx";
 import { SchoolNameInput } from "./components/SchoolNameInput.jsx";
 import { worldForScope } from "./utils/palWorlds.js";
 import { readHomeSkin, subscribeHomeSkin } from "./utils/homeSkin.js";
 import { buildQuestMasteryReport } from "./utils/questReport.js";
 import { ErrorBoundary } from "./components/ErrorBoundary.jsx";
-import { ElSkillsQuest } from "./components/elQuest/ElSkillsQuest.jsx";
 import { normalize, shuffleArray } from "./utils/assessmentRoundBuilder";
 
 import {
@@ -154,6 +152,20 @@ import { insertWithRetry, startInsertQueueFlusher } from "./utils/insertQueue.js
 // Sound Seekers: a whole mode, lazy so a child who never opens it doesn't pay
 // for it on first load. Default export, unlike the named-export pages below.
 const QuestRoot = lazyWithRetry(() => import("./components/quest/QuestRoot.jsx"));
+
+// Whole student modes: lazy so their engines (elQuest, the Hollow/rewards
+// surface) drop out of the initial App bundle and only load when a child opens
+// them.
+const ElSkillsQuest = lazyWithRetry(() =>
+  import("./components/elQuest/ElSkillsQuest.jsx").then(module => ({
+    default: module.ElSkillsQuest
+  }))
+);
+const HollowPage = lazyWithRetry(() =>
+  import("./components/HollowPage.jsx").then(module => ({
+    default: module.HollowPage
+  }))
+);
 
 // Teacher-only pages: lazy so the student bundle never downloads them.
 const TeacherDashboardPage = lazyWithRetry(() =>
@@ -1898,6 +1910,10 @@ export default function App() {
   const initialSoundRoundQueueRef = useRef([]);
   const initialSoundRoundMetaRef = useRef(null);
   const initialSoundForcedLevelRef = useRef(null);
+  // Letters already asked in the current assessment round; cleared on every
+  // fresh-round reset (via resetInitialSoundRoundQueue) so a mid-round queue
+  // rebuild won't re-ask them.
+  const initialSoundRoundAskedLettersRef = useRef(new Set());
   const lastAuthUserIdRef = useRef(null);
   const freshAuthActionRef = useRef(false);
   const freshLoginResetPendingRef = useRef(false);
@@ -2129,7 +2145,17 @@ export default function App() {
     assessmentWarmupStartedRef.current = true;
     let cancelled = false;
     const warmAssessmentBanks = async () => {
-      for (const stage of skillTree) {
+      // Warm only the banks a session is likely to reach first: the active
+      // student's current + next stage, plus the first few foundational stages
+      // most early readers sit in. Every other bank still loads on demand at
+      // assessment start (see startAssessment / startTargetedReview), so this
+      // trims eager downloads on low-end iPads without dropping any coverage.
+      const activeIndex = Number.isInteger(currentSkillIndex) ? currentSkillIndex : 0;
+      const priorityIndexes = new Set([activeIndex, activeIndex + 1, 0, 1, 2]);
+      const stages = [...priorityIndexes]
+        .filter(index => index >= 0 && index < skillTree.length)
+        .map(index => skillTree[index]);
+      for (const stage of stages) {
         if (cancelled) return;
         try {
           await loadRuntimeQuestionsForSkill(stage.id);
@@ -2345,7 +2371,7 @@ export default function App() {
     setCheckpointDecision(null);
     setResetProgressDialogOpen(false);
     setResettingProgress(false);
-    initialSoundRoundQueueRef.current = [];
+    resetInitialSoundRoundQueue();
     initialSoundRoundMetaRef.current = null;
     answerInFlightRef.current = false;
   }
@@ -2365,7 +2391,7 @@ export default function App() {
     setGuidedReadingRecords({});
     setItemSessionSeen({});
     setCheckpointDecision(null);
-    initialSoundRoundQueueRef.current = [];
+    resetInitialSoundRoundQueue();
     initialSoundRoundMetaRef.current = null;
     roundItemKeysRef.current = [];
     roundQuestionIdsRef.current = [];
@@ -3498,7 +3524,7 @@ export default function App() {
 
     const { data, error } = await supabase
       .from("classes")
-      .select("id, name, school_id, created_at")
+      .select("id, name, school_id, access_code, created_at")
       .eq("teacher_id", teacherId)
       .order("name", { ascending: true });
 
@@ -3509,6 +3535,18 @@ export default function App() {
     }
 
     setClassList(data || []);
+  }
+
+  async function regenerateClassCode(classId = selectedClassId) {
+    if (!classId) return;
+    const { data, error } = await supabase.rpc("teacher_regenerate_class_code", { p_class_id: classId });
+    if (error || !data?.ok) {
+      console.error("Regenerate class code error:", error || data?.error);
+      setMessage("Could not make a new class code.");
+      return;
+    }
+    await loadClasses();
+    setMessage(`New class code: ${data.access_code}. Students on shared devices will need it next time.`);
   }
 
   async function createClass() {
@@ -3803,7 +3841,7 @@ export default function App() {
     answerHistoryRef.current = [];
     roundItemKeysRef.current = [];
     roundQuestionIdsRef.current = [];
-    initialSoundRoundQueueRef.current = [];
+    resetInitialSoundRoundQueue();
     initialSoundRoundMetaRef.current = null;
     setCurrentSkillIndex(0);
     setRoundAnswers([]);
@@ -4370,7 +4408,15 @@ export default function App() {
     return levelOneComplete ? 2 : 1;
   }
 
-  function buildInitialSoundRoundQueue() {
+  // Clear the queue AND forget which letters this round has asked. Every
+  // fresh-round reset routes through here; a mid-round rebuild does not, so it
+  // still sees the round's asked letters.
+  function resetInitialSoundRoundQueue() {
+    initialSoundRoundQueueRef.current = [];
+    initialSoundRoundAskedLettersRef.current = new Set();
+  }
+
+  function buildInitialSoundRoundQueue({ excludeLetters = [] } = {}) {
     const progress = getInitialSoundStageProgress();
     const forcedLevel = initialSoundForcedLevelRef.current;
     const level = forcedLevel || getNextInitialSoundLevel(progress);
@@ -4380,6 +4426,7 @@ export default function App() {
       level,
       roundNumber: null,
       seed: Date.now() + Math.floor(Math.random() * 1000000),
+      excludeLetters,
       itemFilter: item => isRuntimeEligibleEarlySkillQuestion(item, {
         skillId: "initial_sounds",
         level
@@ -4405,12 +4452,18 @@ export default function App() {
 
   function getNextInitialSoundQuestion() {
     if (initialSoundRoundQueueRef.current.length === 0) {
-      buildInitialSoundRoundQueue();
+      // Mid-round rebuild (asked-letters set is non-empty): exclude letters
+      // already asked so we don't repeat them. Fresh rounds cleared the set via
+      // resetInitialSoundRoundQueue, so nothing is excluded there.
+      buildInitialSoundRoundQueue({
+        excludeLetters: [...initialSoundRoundAskedLettersRef.current]
+      });
     }
 
     const next = initialSoundRoundQueueRef.current.shift();
     if (!next) return null;
 
+    if (next.letter) initialSoundRoundAskedLettersRef.current.add(next.letter);
     return next;
   }
 
@@ -7422,7 +7475,7 @@ export default function App() {
       return;
     }
 
-    initialSoundRoundQueueRef.current = [];
+    resetInitialSoundRoundQueue();
     initialSoundRoundMetaRef.current = null;
     // Heads-up (not a blocker) when a skill's bank is too thin for a full
     // round of distinct items - the teacher learns BEFORE starting, instead
@@ -7502,7 +7555,7 @@ export default function App() {
     setRoundAnswers([]);
     setRoundItemKeys([]);
     setRoundQuestionIds([]);
-    initialSoundRoundQueueRef.current = [];
+    resetInitialSoundRoundQueue();
     initialSoundRoundMetaRef.current = null;
     resetAssessmentMediaUsage();
     setMessage("");
@@ -7519,7 +7572,7 @@ export default function App() {
     setCheckpointDecision(null);
     setRoundItemKeys([]);
     setRoundQuestionIds([]);
-    initialSoundRoundQueueRef.current = [];
+    resetInitialSoundRoundQueue();
     initialSoundRoundMetaRef.current = null;
     resetAssessmentMediaUsage();
     setShowReport(true);
@@ -7800,7 +7853,9 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   if (showSkillsQuestPrototype) {
     return (
       <PageBoundary resetKey="skills-quest-preview">
-        <ElSkillsQuest studentName={studentName || "Reader"} progressScopeKey={studentId || "preview"} />
+        <Suspense fallback={<LazyPageFallback label="Loading Skills Quest..." />}>
+          <ElSkillsQuest studentName={studentName || "Reader"} progressScopeKey={studentId || "preview"} />
+        </Suspense>
       </PageBoundary>
     );
   }
@@ -8231,10 +8286,12 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
         <PageBoundary resetKey={`student-rewards-${studentId}`}>
           <div className="student-surface-frame student-surface-rewards">
             {renderLearnFullscreenButton()}
-            <HollowPage
-              studentName={studentName}
-              progressScopeKey={studentId || studentName || "default"}
-            />
+            <Suspense fallback={<LazyPageFallback label="Loading your Hollow..." />}>
+              <HollowPage
+                studentName={studentName}
+                progressScopeKey={studentId || studentName || "default"}
+              />
+            </Suspense>
           </div>
         </PageBoundary>
       )}
@@ -8242,11 +8299,13 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       {appView === APP_VIEWS.SKILLS_BLOCK_QUEST && nameSaved && (
         <PageBoundary resetKey={`skills-block-quest-${studentId}`}>
           {withStudentRail("map", (
-            <ElSkillsQuest
-              studentName={studentName || "Reader"}
-              progressScopeKey={studentId || studentName || "default"}
-              onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.OVERVIEW)}
-            />
+            <Suspense fallback={<LazyPageFallback label="Loading Skills Quest..." />}>
+              <ElSkillsQuest
+                studentName={studentName || "Reader"}
+                progressScopeKey={studentId || studentName || "default"}
+                onExit={() => setAppView(isStudentMode ? APP_VIEWS.STUDENT_HOME : APP_VIEWS.OVERVIEW)}
+              />
+            </Suspense>
           ))}
         </PageBoundary>
       )}
@@ -8309,6 +8368,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
                 setAppView(APP_VIEWS.OVERVIEW);
               }}
               createClass={createClass}
+              regenerateClassCode={regenerateClassCode}
               newClassName={newClassName}
               setNewClassName={setNewClassName}
               createStudent={createStudentForSelectedClass}

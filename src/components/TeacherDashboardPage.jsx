@@ -269,6 +269,7 @@ export function TeacherDashboardPage({
   clearQuestPractice,
   onLoadStudent,
   createClass,
+  regenerateClassCode,
   newClassName,
   setNewClassName,
   createStudent,
@@ -462,6 +463,41 @@ export function TeacherDashboardPage({
           <strong>{hasSchool ? schoolName : "Not set"}</strong>
           <small>{selectedClass ? `${studentRows.length} student${studentRows.length === 1 ? "" : "s"}` : className}</small>
         </div>
+        {selectedClass?.access_code && (
+          <div className="teacher-dashboard-context teacher-class-code" aria-label="Class sign-in code">
+            <span>Class code</span>
+            <strong className="teacher-class-code-value">{selectedClass.access_code}</strong>
+            <small>Children enter this on their device to sign in. Keep it inside the classroom.</small>
+            <div className="teacher-login-actions">
+              <button
+                className="text-button"
+                type="button"
+                onClick={() => {
+                  try {
+                    navigator.clipboard?.writeText?.(selectedClass.access_code);
+                  } catch {
+                    // Clipboard is best-effort; the code is visible above regardless.
+                  }
+                }}
+              >
+                Copy
+              </button>
+              {regenerateClassCode && (
+                <button
+                  className="text-button"
+                  type="button"
+                  onClick={() => {
+                    if (window.confirm("Make a new class code? The old code stops working, and shared devices will need the new one.")) {
+                      regenerateClassCode(selectedClass.id);
+                    }
+                  }}
+                >
+                  New code
+                </button>
+              )}
+            </div>
+          </div>
+        )}
       </section>
 
       {message && <p className="message teacher-dashboard-message">{message}</p>}

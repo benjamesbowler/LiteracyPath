@@ -190,7 +190,6 @@ export function preloadAudio(src) {
   }
 
   const promise = new Promise(resolve => {
-    const audio = new Audio();
     let settled = false;
     let timeoutId = null;
 
@@ -198,42 +197,50 @@ export function preloadAudio(src) {
       if (settled) return;
       settled = true;
       if (timeoutId) window.clearTimeout(timeoutId);
-      audio.onloadedmetadata = null;
-      audio.oncanplaythrough = null;
-      audio.onerror = null;
       debugPreload("audio settled", { src: normalized, result });
       resolve(result);
     };
-
-    audio.preload = "auto";
-    audio.onloadedmetadata = () => finish(true);
-    audio.oncanplaythrough = () => finish(true);
-    audio.onerror = () => finish(false);
 
     if (typeof window !== "undefined") {
       timeoutId = window.setTimeout(() => finish(false), 8000);
     }
 
+    // Prefer a single fetch to warm the HTTP cache: the <audio> element created
+    // at playback then reads from cache. Using BOTH a detached audio.load() and
+    // fetch double-downloaded every clip on iOS Safari (the media stack's range
+    // requests don't share the fetch download), which — with the media tree's
+    // caching — meant paying twice on a cold cache.
+    if (typeof fetch === "function") {
+      debugPreload("audio fetch hint", { src: normalized, cache: "force-cache" });
+      fetch(normalized, { cache: "force-cache" })
+        .then(response => {
+          debugPreload("audio fetch result", { src: normalized, ok: response.ok, status: response.status });
+          finish(response.ok);
+        })
+        .catch(error => {
+          debugPreload("audio fetch failed", { src: normalized, message: error?.message || String(error) });
+          finish(false);
+        });
+      return;
+    }
+
+    // Fallback for environments without fetch: the media element preload.
+    const audio = new Audio();
+    const clearHandlers = () => {
+      audio.onloadedmetadata = null;
+      audio.oncanplaythrough = null;
+      audio.onerror = null;
+    };
+    audio.preload = "auto";
+    audio.onloadedmetadata = () => { clearHandlers(); finish(true); };
+    audio.oncanplaythrough = () => { clearHandlers(); finish(true); };
+    audio.onerror = () => { clearHandlers(); finish(false); };
     audio.src = normalized;
     try {
       audio.load();
-      if (typeof fetch === "function") {
-        debugPreload("audio fetch hint", { src: normalized, cache: "force-cache" });
-        fetch(normalized, { cache: "force-cache" })
-          .then(response => {
-            debugPreload("audio fetch result", {
-              src: normalized,
-              ok: response.ok,
-              status: response.status
-            });
-            if (response.ok) finish(true);
-          })
-          .catch(error => {
-            debugPreload("audio fetch failed", { src: normalized, message: error?.message || String(error) });
-          });
-      }
     } catch {
       debugPreload("audio load failed", { src: normalized });
+      clearHandlers();
       finish(false);
     }
   });

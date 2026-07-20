@@ -228,7 +228,13 @@ export function getInitialSoundRoundPlan({
   seed = Date.now(),
   includeInactive = false,
   requireImportedMedia = true,
-  itemFilter = null
+  itemFilter = null,
+  // Letters already asked earlier in the current assessment round. On a
+  // mid-round plan rebuild (the queue emptied before the round did) these are
+  // excluded so questions 6-8 can't re-ask a letter/word from questions 1-5.
+  // If excluding them would leave nothing selectable, the round ends gracefully
+  // (empty items) rather than repeating.
+  excludeLetters = []
 } = {}) {
   const safeLevel = Number(level) === 2 ? 2 : 1;
   const random = createSeededRandom(seed);
@@ -243,7 +249,11 @@ export function getInitialSoundRoundPlan({
   const covered = new Set(progress.coveredLetters || []);
   const mastered = new Set(progress.masteredLetters || []);
   const incorrect = new Set(progress.incorrectLetters || []);
-  const prioritizedLetters = stableShuffleLetters(availableLetters, random);
+  // availableLetters (and therefore phase/meta) stays complete; only the
+  // selectable pool drops the already-asked letters.
+  const excludeSet = new Set((excludeLetters || []).map(letter => String(letter)));
+  const selectableLetters = availableLetters.filter(letter => !excludeSet.has(letter));
+  const prioritizedLetters = stableShuffleLetters(selectableLetters, random);
   const uncoveredLetters = prioritizedLetters.filter(letter => !covered.has(letter));
   const reviewLetters = prioritizedLetters.filter(letter => covered.has(letter));
   const weakLetters = prioritizedLetters.filter(letter => incorrect.has(letter) || (covered.has(letter) && !mastered.has(letter)));

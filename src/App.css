@@ -343,6 +343,21 @@ body {
   font: 700 22px var(--lp-font-reading);
 }
 
+.student-flow-code {
+  text-align: center;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 34px;
+  font-variant-numeric: tabular-nums;
+}
+
+.student-flow-code-go {
+  display: block;
+  width: min(100%, 640px);
+  margin: 16px auto 0;
+  min-height: 56px;
+}
+
 .student-flow-stepper {
   display: flex;
   flex-wrap: wrap;
@@ -2342,6 +2357,13 @@ body {
 .teacher-dashboard-context small {
   color: var(--lp-color-text-muted);
   font-weight: 800;
+}
+
+.teacher-class-code-value {
+  font-size: 24px !important;
+  letter-spacing: 0.18em;
+  font-variant-numeric: tabular-nums;
+  color: var(--lp-color-primary) !important;
 }
 
 .teacher-roster-metrics {

@@ -8,8 +8,7 @@ import { SymbolPasswordPad } from "./SymbolPasswordPad.jsx";
 // Recorded child-voice prompts (public/audio/ui/voice). Browser speech is
 // only the fallback while a recording is missing.
 const VOICE_LINES = {
-  "pick-your-school": "Pick your school.",
-  "pick-your-class": "Pick your class.",
+  "class-code": "Ask your teacher for your class code.",
   "who-are-you": "Who are you?",
   "tap-your-pictures": "Tap your three secret pictures.",
   "choose-your-pictures": "Choose your three secret pictures.",
@@ -29,17 +28,29 @@ function speakLine(key, options = {}) {
   });
 }
 
-const SCHOOL_STORAGE_KEY = "lp-student-login-school";
-const CLASS_STORAGE_KEY = "lp-student-login-class";
+// Remember the whole class context on this device so a shared classroom iPad
+// jumps straight to the name list. The code is the roster key, so it is what we
+// re-check on launch; the id/name are only a cached label for the header.
+const CLASS_CONTEXT_STORAGE_KEY = "lp-student-login-class-context-v1";
 const STEP_ITEMS = [
-  { id: "school", label: "School" },
-  { id: "class", label: "Class" },
+  { id: "code", label: "Class" },
   { id: "student", label: "Name" },
   { id: "pictures", label: "Pictures" }
 ];
 
 function normalizeRows(data) {
   return Array.isArray(data) ? data : [];
+}
+
+function readRememberedContext() {
+  try {
+    const raw = window.localStorage.getItem(CLASS_CONTEXT_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed.code === "string" ? parsed : null;
+  } catch {
+    return null;
+  }
 }
 
 function FriendlyBack({ onClick }) {
@@ -121,13 +132,14 @@ function TileGrid({ rows, onPick, selectedId, renderTitle, disabled = false }) {
 }
 
 export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
-  const [step, setStep] = useState("school");
-  const [schools, setSchools] = useState([]);
-  const [classes, setClasses] = useState([]);
+  const [step, setStep] = useState("code");
+  // Seed from the remembered class so a shared device shows its code while the
+  // roster re-verifies (avoids a setState-in-effect just to prefill this).
+  const [codeInput, setCodeInput] = useState(() => readRememberedContext()?.code || "");
+  const [classCode, setClassCode] = useState("");
   const [students, setStudents] = useState([]);
-  const [query, setQuery] = useState("");
-  const [selectedSchool, setSelectedSchool] = useState(null);
   const [selectedClass, setSelectedClass] = useState(null);
+  const [selectedSchool, setSelectedSchool] = useState(null);
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [sequence, setSequence] = useState("");
   const [confirmSequence, setConfirmSequence] = useState("");
@@ -140,88 +152,82 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
   // before React state updates land.
   const busyRef = useRef(false);
 
-  const filteredSchools = useMemo(() => {
-    const clean = query.trim().toLowerCase();
-    if (!clean) return schools;
-    return schools.filter(row => String(row.name || "").toLowerCase().includes(clean));
-  }, [query, schools]);
+  const normalizedCodeInput = useMemo(
+    () => codeInput.replace(/[^A-Za-z0-9]/g, "").toUpperCase().slice(0, 6),
+    [codeInput]
+  );
 
+  // Apply a resolved class roster (from a code lookup) to state.
+  function applyClassContext(payload, code) {
+    setClassCode(code);
+    setSelectedClass(payload.class || null);
+    setSelectedSchool(payload.school || null);
+    setStudents(normalizeRows(payload.students));
+    setSelectedStudent(null);
+    setStatus("");
+    setStep("student");
+    speakLine("who-are-you", { rate: 0.9 });
+    try {
+      window.localStorage.setItem(
+        CLASS_CONTEXT_STORAGE_KEY,
+        JSON.stringify({ code, class: payload.class || null, school: payload.school || null })
+      );
+    } catch {
+      // Remembering the class is only a convenience.
+    }
+  }
+
+  async function resolveCode(rawCode, { silentOnFail = false } = {}) {
+    const code = String(rawCode || "").replace(/[^A-Za-z0-9]/g, "").toUpperCase();
+    if (code.length < 4) {
+      if (!silentOnFail) setStatus("Enter the class code your teacher gave you.");
+      return false;
+    }
+    setLoading(true);
+    const { data, error } = await supabase.rpc("student_class_by_code", { p_code: code });
+    setLoading(false);
+    if (error || !data?.ok) {
+      if (!silentOnFail) {
+        setStatus(data?.error === "not_found" ? "That code did not match. Check with your teacher." : "Class list is not ready yet. Ask your teacher.");
+      }
+      return false;
+    }
+    applyClassContext(data, code);
+    return true;
+  }
+
+  // On a shared classroom device, re-verify the remembered code and jump to the
+  // name list. If the teacher regenerated the code, this fails silently and the
+  // child sees the code entry screen.
   useEffect(() => {
     let cancelled = false;
-    async function loadSchools() {
-      setLoading(true);
-      const { data, error } = await supabase.rpc("student_list_schools");
+    const remembered = readRememberedContext();
+    if (!remembered) return undefined;
+    (async () => {
       if (cancelled) return;
-      setLoading(false);
-      if (error) {
-        console.error("Student school list failed.", error);
-        setStatus("School list is not ready yet. Ask your teacher for help.");
-        return;
+      const ok = await resolveCode(remembered.code, { silentOnFail: true });
+      if (!ok && !cancelled) {
+        try {
+          window.localStorage.removeItem(CLASS_CONTEXT_STORAGE_KEY);
+        } catch {
+          // ignore
+        }
       }
-      const rows = normalizeRows(data);
-      setSchools(rows);
-      try {
-        const rememberedId = window.localStorage.getItem(SCHOOL_STORAGE_KEY);
-        const remembered = rows.find(row => row.id === rememberedId);
-        if (remembered) setSelectedSchool(remembered);
-      } catch {
-        // Remembered choices are only a convenience.
-      }
-    }
-    loadSchools();
+    })();
     return () => {
       cancelled = true;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  async function pickSchool(row) {
+  async function submitCode() {
     if (busyRef.current) return;
     busyRef.current = true;
-    setSelectedSchool(row);
-    setSelectedClass(null);
-    setSelectedStudent(null);
-    setStatus("");
     try {
-      window.localStorage.setItem(SCHOOL_STORAGE_KEY, row.id);
-    } catch {
-      // Ignore local storage failures.
+      await resolveCode(normalizedCodeInput);
+    } finally {
+      busyRef.current = false;
     }
-    setLoading(true);
-    const { data, error } = await supabase.rpc("student_list_classes", { p_school_id: row.id });
-    setLoading(false);
-    busyRef.current = false;
-    if (error) {
-      console.error("Student class list failed.", error);
-      setStatus("Classes are not ready yet.");
-      return;
-    }
-    const rows = normalizeRows(data);
-    setClasses(rows);
-    setStep("class");
-  }
-
-  async function pickClass(row) {
-    if (busyRef.current) return;
-    busyRef.current = true;
-    setSelectedClass(row);
-    setSelectedStudent(null);
-    setStatus("");
-    try {
-      window.localStorage.setItem(CLASS_STORAGE_KEY, row.id);
-    } catch {
-      // Ignore local storage failures.
-    }
-    setLoading(true);
-    const { data, error } = await supabase.rpc("student_list_students", { p_class_id: row.id });
-    setLoading(false);
-    busyRef.current = false;
-    if (error) {
-      console.error("Student list failed.", error);
-      setStatus("Names are not ready yet.");
-      return;
-    }
-    setStudents(normalizeRows(data));
-    setStep("student");
   }
 
   function pickStudent(row) {
@@ -233,6 +239,22 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
     setLocked(false);
     setStep(row.has_password ? "password" : "setup");
     speakLine(row.has_password ? "tap-your-pictures" : "choose-your-pictures", { rate: 0.84 });
+  }
+
+  function forgetClass() {
+    try {
+      window.localStorage.removeItem(CLASS_CONTEXT_STORAGE_KEY);
+    } catch {
+      // ignore
+    }
+    setClassCode("");
+    setCodeInput("");
+    setStudents([]);
+    setSelectedClass(null);
+    setSelectedSchool(null);
+    setSelectedStudent(null);
+    setStatus("");
+    setStep("code");
   }
 
   function startSession(result = {}) {
@@ -306,7 +328,8 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
     setLoading(true);
     const { data, error } = await supabase.rpc("student_set_password", {
       p_student_id: selectedStudent.id,
-      p_sequence: nextSequence
+      p_sequence: nextSequence,
+      p_code: classCode
     });
     setLoading(false);
     if (error || !data?.ok) {
@@ -320,41 +343,32 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
   return (
     <main className="student-login-flow">
       <section className={`student-flow-card${status ? " has-status" : ""}${locked ? " locked" : ""}`}>
-        {step === "school" && (
+        {step === "code" && (
           <>
-            <StepHeader title="Pick your school" subtitle="Tap the big tile." />
+            <StepHeader title="Enter your class code" subtitle="Your teacher will tell you the code." />
             <StepProgress step={step} />
             <input
-              className="student-flow-search"
-              value={query}
-              placeholder="Find school"
-              onChange={event => setQuery(event.target.value)}
-              type="search"
-              aria-label="Find school"
+              className="student-flow-search student-flow-code"
+              value={codeInput}
+              placeholder="ABC123"
+              onChange={event => setCodeInput(event.target.value)}
+              onKeyDown={event => {
+                if (event.key === "Enter") submitCode();
+              }}
+              autoComplete="off"
+              autoCapitalize="characters"
+              spellCheck={false}
+              aria-label="Class code"
+              inputMode="text"
             />
-            {loading ? (
-              <StudentFlowState title="Loading schools" detail="This should only take a moment." loading />
-            ) : filteredSchools.length > 0 ? (
-              <TileGrid rows={filteredSchools} selectedId={selectedSchool?.id} onPick={pickSchool} />
-            ) : schools.length > 0 ? (
-              <StudentFlowState title="No school matches that search" detail="Try a shorter school name." />
-            ) : (
-              <StudentFlowState title="No schools are ready yet" detail="Ask your teacher to finish school setup." />
-            )}
-          </>
-        )}
-
-        {step === "class" && (
-          <>
-            <StepHeader title="Pick your class" subtitle={selectedSchool?.name} />
-            <StepProgress step={step} />
-            {loading ? (
-              <StudentFlowState title="Loading classes" loading />
-            ) : classes.length > 0 ? (
-              <TileGrid rows={classes} selectedId={selectedClass?.id} onPick={pickClass} />
-            ) : (
-              <StudentFlowState title="No classes are ready yet" detail="Ask your teacher to add your class." />
-            )}
+            <button
+              className="lp-button lp-button-primary student-flow-code-go"
+              type="button"
+              onClick={submitCode}
+              disabled={loading || normalizedCodeInput.length < 4}
+            >
+              {loading ? "Checking…" : "Go"}
+            </button>
           </>
         )}
 
@@ -405,10 +419,16 @@ export function StudentLoginFlow({ onTeacherEntry, onSessionStart }) {
 
         {status && <p className="student-flow-status" role="status" aria-live="polite">{status}</p>}
         <div className="student-flow-footer">
-          {step !== "school" && (
+          {step === "student" && (
+            <button className="student-flow-back" onClick={forgetClass} type="button">
+              Not your class?
+            </button>
+          )}
+          {(step === "password" || step === "setup") && (
             <button className="student-flow-back" onClick={() => {
               setStatus("");
-              setStep(step === "class" ? "school" : step === "student" ? "class" : "student");
+              setLocked(false);
+              setStep("student");
             }} type="button">
               Back
             </button>
