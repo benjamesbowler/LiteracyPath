@@ -9,6 +9,7 @@ import {
   questAnalogVector,
   questCameraResponse,
   questCameraTravelTarget,
+  questChoiceCorridorRadius,
   questPixelAvoidActorOverlap,
   questPointerDestination,
   questPointerObstacleVector,
@@ -21,6 +22,7 @@ import {
   questGateCrossingReached,
   questOptionalRouteCenters,
   questRestoredMemoryPlacement,
+  questRouteBoundaryProfile,
   questRouteLaneSelection,
   resolveQuestObstacleContacts,
   stepQuestForwardBoundary,
@@ -1132,6 +1134,7 @@ class QuestPixelScene extends Phaser.Scene {
     this.bridge = options.bridge;
     this.model = options.model;
     this.choiceObjects = [];
+    this.choiceCorridorRadius = 0;
     this.choiceInside = new Set();
     this.choiceStageDecor = null;
     this.dropObjects = new Map();
@@ -3904,6 +3907,7 @@ class QuestPixelScene extends Phaser.Scene {
 
     for (const choice of this.choiceObjects) this.destroyTweenedObject(choice.container);
     this.choiceObjects = [];
+    this.choiceCorridorRadius = 0;
     this.choiceInside.clear();
     for (const drop of this.dropObjects.values()) drop.setVisible(false);
     this.destroyTweenedObject(this.choiceStageDecor);
@@ -4232,7 +4236,7 @@ class QuestPixelScene extends Phaser.Scene {
       y: targetY,
       routeCenterX: lane.center,
       forwardLimit: this.forwardMovementLimit(),
-      corridorRadius: routeCenters.length > 1 ? 48 : 100
+      corridorRadius: Math.max(routeCenters.length > 1 ? 48 : 100, this.choiceCorridorRadius + 22)
     });
     this.pointerTarget = target;
     if (!showMarker) return;
@@ -4371,6 +4375,7 @@ class QuestPixelScene extends Phaser.Scene {
   rebuildChoices(stage, encounterId) {
     for (const entry of this.choiceObjects) this.destroyTweenedObject(entry.container);
     this.choiceObjects = [];
+    this.choiceCorridorRadius = 0;
     this.destroyTweenedObject(this.choiceStageDecor);
     this.choiceStageDecor = null;
     if (!stage || !encounterId) return;
@@ -4685,6 +4690,17 @@ class QuestPixelScene extends Phaser.Scene {
         sortRightY: movingSortLane ? right.y : null,
         sortPhase: movingSortLane ? 0 : null
       });
+    });
+    const lateralMotionPadding = profile.response === "sort"
+      ? 10
+      : profile.response === "chase" ? 20 : 0;
+    this.choiceCorridorRadius = questChoiceCorridorRadius({
+      choices: this.choiceObjects.map(choice => ({
+        x: choice.container.x,
+        radius: choice.radius,
+        routeCenters: pixelRoutePathsX(choice.container.y, this.model.section.stopIndex),
+        motionPadding: lateralMotionPadding
+      }))
     });
   }
 
@@ -5049,17 +5065,14 @@ class QuestPixelScene extends Phaser.Scene {
     const activeMap = stopPixelMap(this.model.section);
     const visibleRouteWidth = chapterPixelProfile(this.model.section).route.pathWidth;
     const forwardAssist = activeMap.authorship === "route-authored" && Math.abs(x) < 0.05 && y < -0.05;
-    const branchBoundary = gateApproach
-      ? { innerRadius: 18, outerRadius: 46, returnAcceleration: 1120 }
-      : routeCenters.length > 1
-        ? { innerRadius: 36, outerRadius: 52 }
-        : activeMap.authorship === "route-authored"
-          ? {
-              innerRadius: forwardAssist ? 10 : visibleRouteWidth + 16,
-              outerRadius: forwardAssist ? 28 : visibleRouteWidth + 38,
-              returnAcceleration: forwardAssist ? 1480 : 980
-            }
-          : {};
+    const branchBoundary = questRouteBoundaryProfile({
+      gateApproach,
+      routeCount: routeCenters.length,
+      authored: activeMap.authorship === "route-authored",
+      pathWidth: visibleRouteWidth,
+      forwardAssist,
+      choiceCorridorRadius: this.model.activeStage ? this.choiceCorridorRadius : 0
+    });
     const routeBoundary = stepQuestRouteBoundary({
       x: this.player.x,
       velocityX: body.velocity.x,
@@ -5679,6 +5692,7 @@ class QuestPixelScene extends Phaser.Scene {
           } : null
         };
       }),
+      choiceCorridorRadius: this.choiceCorridorRadius,
       decor: this.choiceStageDecor
         ? { x: this.choiceStageDecor.x, y: this.choiceStageDecor.y }
         : null,

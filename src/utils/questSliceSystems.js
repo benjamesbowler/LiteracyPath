@@ -692,6 +692,75 @@ export function stepQuestRouteBoundary({
   return { x: correctedX, velocityX: correctedVelocity, pressure };
 }
 
+// Answer art is deliberately staged around residents, while movement is
+// constrained around the authored route. On a tight bend those two coordinate
+// systems can disagree far enough that an answer circle never intersects the
+// legal player corridor. Derive the active corridor from the exact rendered
+// choice positions so collision and navigation always describe the same
+// reachable space. `motionPadding` covers choices that sway or travel.
+export function questChoiceCorridorRadius({
+  choices = [],
+  baseRadius = 0,
+  contactInset = 4
+} = {}) {
+  const inset = Math.max(0, Number(contactInset) || 0);
+  return (Array.isArray(choices) ? choices : []).reduce((requiredRadius, choice) => {
+    const x = Number(choice?.x);
+    const routeCenters = (Array.isArray(choice?.routeCenters) ? choice.routeCenters : [])
+      .map(Number)
+      .filter(Number.isFinite);
+    if (!Number.isFinite(x) || !routeCenters.length) return requiredRadius;
+    // Encounters and their answer formations are authored from the primary
+    // route (`routeCenters[0]`). Optional routes can run much nearer a side
+    // answer while still being disconnected at this Y; measuring the nearest
+    // centre would then claim an answer is reachable from a lane the child is
+    // not on. Encounter contact already brings the player back to the primary
+    // resident, so widen from that same primary lane.
+    const routeDistance = Math.abs(x - routeCenters[0]);
+    const collisionRadius = Math.max(1, Number(choice?.radius) || 1);
+    const motionPadding = Math.max(0, Number(choice?.motionPadding) || 0);
+    const contactDepth = Math.max(1, collisionRadius - inset);
+    return Math.max(requiredRadius, routeDistance + motionPadding - contactDepth);
+  }, Math.max(0, Number(baseRadius) || 0));
+}
+
+export function questRouteBoundaryProfile({
+  gateApproach = false,
+  routeCount = 1,
+  authored = false,
+  pathWidth = 0,
+  forwardAssist = false,
+  choiceCorridorRadius = 0
+} = {}) {
+  let profile;
+  if (gateApproach) {
+    profile = { innerRadius: 18, outerRadius: 46, returnAcceleration: 1120 };
+  } else if (Math.max(1, Number(routeCount) || 1) > 1) {
+    profile = { innerRadius: 36, outerRadius: 52, returnAcceleration: 760 };
+  } else if (authored) {
+    const width = Math.max(0, Number(pathWidth) || 0);
+    profile = {
+      innerRadius: forwardAssist ? 10 : width + 16,
+      outerRadius: forwardAssist ? 28 : width + 38,
+      returnAcceleration: forwardAssist ? 1480 : 980
+    };
+  } else {
+    profile = { innerRadius: 92, outerRadius: 112, returnAcceleration: 760 };
+  }
+
+  // Keep the ordinary trail as authored. Only an on-screen answer can widen
+  // it, and the outer wall retains a pressure band rather than becoming a
+  // cliff at the edge of the collision circle.
+  const answerRadius = Math.max(0, Number(choiceCorridorRadius) || 0);
+  if (!answerRadius || gateApproach) return profile;
+  const innerRadius = Math.max(profile.innerRadius, answerRadius);
+  return {
+    ...profile,
+    innerRadius,
+    outerRadius: Math.max(profile.outerRadius, innerRadius + 22)
+  };
+}
+
 export function questRestoredMemoryPlacement(index = 0) {
   const side = Number(index) % 2 ? 1 : -1;
   const landmarkLateral = side * 136;

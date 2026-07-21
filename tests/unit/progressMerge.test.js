@@ -5,6 +5,7 @@ import {
   computeHydratedValue,
   mergeMonotonic,
   mergeStatusForward,
+  reconcileQuestSaveWithStored,
   sanitizeCloudProgressPayload
 } from "../../src/utils/progressMerge.js";
 
@@ -20,11 +21,23 @@ test("learn_games: cloud row keeps games earned on another device (no clobber)",
 
 test("phonics_quest cloud payloads never include assignment or telemetry", () => {
   const safe = sanitizeCloudProgressPayload("phonics_quest", {
+    resetEpoch: 3,
+    resetId: "reset-a",
+    resetHistory: ["legacy"],
+    resetPendingIds: ["reset-a"],
+    resetPending: true,
     trail: { stopsDone: ["s1"] },
     assignment: { targets: ["m"] },
     telemetry: { sessions: [{ id: "private-session" }] }
   });
-  assert.deepEqual(safe, { trail: { stopsDone: ["s1"] } });
+  assert.deepEqual(safe, {
+    resetEpoch: 3,
+    resetId: "reset-a",
+    resetHistory: ["legacy"],
+    resetPendingIds: ["reset-a"],
+    resetPending: true,
+    trail: { stopsDone: ["s1"] }
+  });
   assert.equal(sanitizeCloudProgressPayload("learn_games", { telemetry: true }).telemetry, true);
 });
 
@@ -134,6 +147,345 @@ test("daily_mission: a genuinely NEWER cloud day wins outright (legit resets pro
 // These fixtures mirror supabase/migrations/20260715090000_phonics_quest_merge.sql
 // exactly; if a rule changes here, change it there in the same commit.
 
+test("phonics_quest: a newer local reset rejects stale cloud journey resurrection", () => {
+  const localReset = {
+    resetEpoch: 2,
+    resetAt: "2026-07-21T09:00:00Z",
+    resetId: "reset-local",
+    resetHistory: ["legacy"],
+    resetPending: true,
+    hatched: false,
+    trail: { stopsDone: [], stars: {}, drops: {}, routeCursor: 1 },
+    mastery: {},
+    stones: [],
+    trickies: [],
+    ledger: { purchases: [] },
+    checkpoint: null,
+    settings: { highContrast: false },
+    settingsAt: "2026-07-20T10:00:00Z"
+  };
+  const staleCloud = {
+    resetEpoch: 1,
+    resetAt: "2026-07-20T09:00:00Z",
+    resetId: "legacy",
+    resetHistory: [],
+    resetPending: false,
+    hatched: true,
+    trail: { stopsDone: ["s1"], stars: { s1: 3 }, routeCursor: 2 },
+    mastery: { s: { seen: 8, correct: 8, state: "mastered" } },
+    stones: ["s"],
+    ledger: { purchases: [{ id: "leaf-cap", at: "2026-07-19T10:00:00Z" }] },
+    checkpoint: { stopId: "s2", beatIndex: 1 },
+    assignment: { targets: ["m"], assignedAt: "2026-07-21T08:00:00Z", by: "teacher" },
+    settings: { highContrast: true },
+    settingsAt: "2026-07-21T08:00:00Z"
+  };
+
+  const merged = computeHydratedValue("phonics_quest", "__all__", localReset, staleCloud);
+  assert.equal(merged.resetEpoch, 2);
+  assert.equal(merged.hatched, false);
+  assert.deepEqual(merged.trail.stopsDone, []);
+  assert.deepEqual(merged.mastery, {});
+  assert.deepEqual(merged.stones, []);
+  assert.deepEqual(merged.ledger.purchases, []);
+  assert.equal(merged.checkpoint, null);
+  assert.deepEqual(merged.assignment.targets, ["m"], "teacher-owned assignment still hydrates");
+  assert.equal(merged.settings.highContrast, true, "settings retain their independent LWW clock");
+});
+
+test("phonics_quest: a newer cloud reset clears an older tab without erasing local telemetry", () => {
+  const oldTab = {
+    resetEpoch: 4,
+    resetAt: "2026-07-20T08:00:00Z",
+    resetId: "reset-old-tab",
+    resetHistory: ["legacy"],
+    resetPending: false,
+    hatched: true,
+    trail: { stopsDone: ["s1", "s2"], stars: { s1: 3 }, routeCursor: 3 },
+    mastery: { s: { seen: 9, correct: 8 } },
+    stones: ["s"],
+    ledger: { purchases: [{ id: "leaf-cap" }] },
+    checkpoint: { stopId: "s3" },
+    telemetry: { sessions: [{ id: "device-session" }], current: null }
+  };
+  const newerReset = {
+    resetEpoch: 5,
+    resetAt: "2026-07-21T08:00:00Z",
+    resetId: "reset-cloud",
+    resetHistory: ["legacy", "reset-old-tab"],
+    resetPending: false,
+    hatched: false,
+    trail: { stopsDone: [], stars: {}, drops: {}, routeCursor: 1 },
+    mastery: {},
+    stones: [],
+    trickies: [],
+    ledger: { purchases: [] },
+    checkpoint: null
+  };
+
+  const merged = computeHydratedValue("phonics_quest", "__all__", oldTab, newerReset);
+  assert.equal(merged.resetEpoch, 5);
+  assert.equal(merged.hatched, false);
+  assert.deepEqual(merged.trail.stopsDone, []);
+  assert.deepEqual(merged.mastery, {});
+  assert.deepEqual(merged.ledger.purchases, []);
+  assert.equal(merged.checkpoint, null);
+  assert.deepEqual(merged.telemetry.sessions, [{ id: "device-session" }]);
+});
+
+test("phonics_quest: equal reset generations continue to merge earned progress forward", () => {
+  const local = { resetEpoch: 7, resetAt: "2026-07-21T09:00:00Z", resetId: "reset-shared", resetHistory: ["legacy"], trail: { stopsDone: ["s1"], routeCursor: 2 }, stones: ["s"] };
+  const cloud = { resetEpoch: 7, resetAt: "2026-07-21T09:00:00Z", resetId: "reset-shared", resetHistory: ["legacy"], trail: { stopsDone: ["s2"], routeCursor: 3 }, stones: ["m"] };
+  const merged = computeHydratedValue("phonics_quest", "__all__", local, cloud);
+  assert.equal(merged.resetEpoch, 7);
+  assert.deepEqual([...merged.trail.stopsDone].sort(), ["s1", "s2"]);
+  assert.deepEqual([...merged.stones].sort(), ["m", "s"]);
+});
+
+test("phonics_quest: a same-id server acknowledgement clears the pending reset set", () => {
+  const local = {
+    resetEpoch: 7,
+    resetAt: "2026-07-21T09:00:00Z",
+    resetId: "reset-shared",
+    resetHistory: ["legacy"],
+    resetPendingIds: ["reset-shared"],
+    resetPending: true,
+    trail: { stopsDone: ["s1"], routeCursor: 2 }
+  };
+  const cloud = {
+    ...local,
+    resetPendingIds: [],
+    resetPending: false,
+    trail: { stopsDone: ["s2"], routeCursor: 3 }
+  };
+  const merged = computeHydratedValue("phonics_quest", "__all__", local, cloud);
+  assert.deepEqual(merged.resetPendingIds, []);
+  assert.equal(merged.resetPending, false);
+  assert.deepEqual([...merged.trail.stopsDone].sort(), ["s1", "s2"]);
+});
+
+test("phonics_quest: unknown pending reset wins despite a same counter or backwards clock", () => {
+  const progressedAfterFirstReset = {
+    resetEpoch: 8,
+    resetAt: "2026-07-21T09:00:00Z",
+    resetId: "reset-device-a",
+    resetHistory: ["legacy"],
+    resetPending: false,
+    hatched: true,
+    trail: { stopsDone: ["s1"], routeCursor: 2 },
+    mastery: { s: { seen: 4, correct: 4 } },
+    stones: ["s"],
+    checkpoint: { stopId: "s2" }
+  };
+  const laterConcurrentReset = {
+    resetEpoch: 8,
+    resetAt: "2026-07-21T08:00:00Z",
+    resetId: "reset-device-b",
+    resetHistory: ["legacy"],
+    resetPending: true,
+    hatched: false,
+    trail: { stopsDone: [], stars: {}, drops: {}, routeCursor: 1 },
+    mastery: {},
+    stones: [],
+    trickies: [],
+    ledger: { purchases: [] },
+    checkpoint: null
+  };
+  const merged = computeHydratedValue(
+    "phonics_quest", "__all__", progressedAfterFirstReset, laterConcurrentReset
+  );
+  assert.equal(merged.resetEpoch, 8);
+  assert.equal(merged.resetAt, "2026-07-21T08:00:00Z");
+  assert.equal(merged.resetId, "reset-device-b");
+  assert.deepEqual(merged.resetHistory, ["legacy", "reset-device-a"]);
+  assert.equal(merged.hatched, false);
+  assert.deepEqual(merged.trail.stopsDone, []);
+  assert.deepEqual(merged.mastery, {});
+  assert.equal(merged.checkpoint, null);
+});
+
+test("phonics_quest: two unknown pending resets retain both operations and converge independently of orientation", () => {
+  const olderResetAfterProgress = {
+    resetEpoch: 100,
+    resetAt: "2026-07-21T09:00:00Z",
+    resetId: "reset-a-older",
+    resetHistory: ["legacy"],
+    resetPending: true,
+    hatched: true,
+    trail: { stopsDone: ["s1"], routeCursor: 2 },
+    mastery: { s: { seen: 4, correct: 4 } },
+    stones: ["s"],
+    checkpoint: { stopId: "s2" }
+  };
+  const newerFreshReset = {
+    resetEpoch: 200,
+    resetAt: "2026-07-21T10:00:00Z",
+    resetId: "reset-z-newer",
+    resetHistory: ["legacy"],
+    resetPending: true,
+    hatched: false,
+    trail: { stopsDone: [], stars: {}, drops: {}, routeCursor: 1 },
+    mastery: {},
+    stones: [],
+    ledger: { purchases: [] },
+    checkpoint: null
+  };
+
+  for (const [base, cloud] of [
+    [olderResetAfterProgress, newerFreshReset],
+    [newerFreshReset, olderResetAfterProgress]
+  ]) {
+    const merged = computeHydratedValue("phonics_quest", "__all__", base, cloud);
+    assert.equal(merged.resetId, "reset-z-newer");
+    assert.deepEqual(merged.resetPendingIds, ["reset-a-older", "reset-z-newer"]);
+    assert.deepEqual(merged.resetHistory, ["legacy"]);
+    assert.equal(merged.hatched, false);
+    assert.deepEqual(merged.trail.stopsDone, []);
+    assert.deepEqual(merged.mastery, {});
+    assert.equal(merged.checkpoint, null);
+  }
+});
+
+test("phonics_quest: pending reset sets converge across every three-way grouping", () => {
+  const resetA = {
+    resetEpoch: 9,
+    resetAt: "2026-07-21T09:00:00Z",
+    resetId: "reset-a",
+    resetHistory: ["legacy"],
+    resetPendingIds: ["reset-a"],
+    resetPending: true,
+    hatched: true,
+    trail: { stopsDone: ["s1"], routeCursor: 2 },
+    mastery: { s: { seen: 4, correct: 4 } },
+    stones: ["s"],
+    checkpoint: { stopId: "s2" }
+  };
+  const acknowledgedB = {
+    resetEpoch: 10,
+    resetAt: "2026-07-21T10:00:00Z",
+    resetId: "reset-b",
+    resetHistory: ["legacy", "reset-a"],
+    resetPendingIds: [],
+    resetPending: false,
+    hatched: true,
+    trail: { stopsDone: ["s1", "s2"], routeCursor: 3 },
+    mastery: { s: { seen: 8, correct: 8 } },
+    stones: ["s"],
+    checkpoint: { stopId: "s3" }
+  };
+  const resetC = {
+    resetEpoch: 7,
+    resetAt: "2026-07-21T07:00:00Z",
+    resetId: "reset-z-c",
+    resetHistory: ["legacy"],
+    resetPendingIds: ["reset-z-c"],
+    resetPending: true,
+    hatched: false,
+    trail: { stopsDone: [], stars: {}, drops: {}, routeCursor: 1 },
+    mastery: {},
+    stones: [],
+    ledger: { purchases: [] },
+    checkpoint: null
+  };
+  const merge = (left, right) => computeHydratedValue("phonics_quest", "__all__", left, right);
+  const results = [
+    merge(merge(resetA, resetC), acknowledgedB),
+    merge(merge(acknowledgedB, resetC), resetA),
+    merge(merge(resetA, acknowledgedB), resetC)
+  ];
+
+  for (const merged of results) {
+    assert.equal(merged.resetId, "reset-z-c");
+    assert.deepEqual(merged.resetPendingIds, ["reset-z-c"]);
+    assert.deepEqual(merged.resetHistory, ["legacy", "reset-a", "reset-b"]);
+    assert.equal(merged.hatched, false);
+    assert.deepEqual(merged.trail.stopsDone, []);
+    assert.deepEqual(merged.mastery, {});
+    assert.equal(merged.checkpoint, null);
+  }
+});
+
+test("phonics_quest: a stale tab cannot overwrite a descendant reset on disk", () => {
+  const staleWriter = {
+    resetId: "reset-a",
+    resetHistory: ["legacy"],
+    resetPending: false,
+    hatched: true,
+    trail: { stopsDone: ["s1"], routeCursor: 2 },
+    mastery: { s: { seen: 4, correct: 4 } },
+    stones: ["s"],
+    checkpoint: { stopId: "s2" }
+  };
+  const storedReset = {
+    resetId: "reset-b",
+    resetHistory: ["legacy", "reset-a"],
+    resetPending: false,
+    hatched: false,
+    trail: { stopsDone: [], stars: {}, drops: {}, routeCursor: 1 },
+    mastery: {},
+    stones: [],
+    ledger: { purchases: [] },
+    checkpoint: null
+  };
+  const protectedSave = reconcileQuestSaveWithStored(staleWriter, storedReset);
+  assert.equal(protectedSave.resetId, "reset-b");
+  assert.deepEqual(protectedSave.trail.stopsDone, []);
+  assert.deepEqual(protectedSave.mastery, {});
+  assert.equal(protectedSave.checkpoint, null);
+});
+
+test("phonics_quest: same-generation disk reconciliation never resurrects a cleared checkpoint", () => {
+  const writer = {
+    resetId: "reset-a",
+    resetHistory: ["legacy"],
+    resetPending: false,
+    trail: { stopsDone: ["s1"], routeCursor: 2 },
+    checkpoint: null
+  };
+  const stored = {
+    ...writer,
+    resetHistory: ["legacy", "older-concurrent-reset"],
+    checkpoint: { stopId: "s2", beatIndex: 1 }
+  };
+  const reconciled = reconcileQuestSaveWithStored(writer, stored);
+  assert.equal(reconciled.checkpoint, null);
+  assert.deepEqual(reconciled.resetHistory, ["legacy", "older-concurrent-reset"]);
+});
+
+test("phonics_quest: same-generation disk reconciliation keeps newer settings and teacher assignment", () => {
+  const staleWriter = {
+    resetId: "reset-a",
+    resetHistory: ["legacy"],
+    resetPending: false,
+    settings: { highContrast: false, reducedMotion: false },
+    settingsAt: "2026-07-20T09:00:00Z",
+    assignment: null,
+    trail: { stopsDone: ["s1"], routeCursor: 2 },
+    checkpoint: null
+  };
+  const stored = {
+    ...staleWriter,
+    settings: { highContrast: true, reducedMotion: true },
+    settingsAt: "2026-07-21T09:00:00Z",
+    assignment: {
+      targets: ["sh"],
+      note: "Friday practice",
+      assignedAt: "2026-07-21T08:00:00Z",
+      by: "teacher"
+    },
+    trail: { stopsDone: ["s1", "s2"], routeCursor: 3 },
+    checkpoint: { stopId: "s3", beatIndex: 1 }
+  };
+
+  const reconciled = reconcileQuestSaveWithStored(staleWriter, stored);
+  assert.equal(reconciled.settings.highContrast, true);
+  assert.equal(reconciled.settings.reducedMotion, true);
+  assert.equal(reconciled.settingsAt, "2026-07-21T09:00:00Z");
+  assert.deepEqual(reconciled.assignment, stored.assignment);
+  assert.deepEqual(reconciled.trail.stopsDone, ["s1", "s2"]);
+  assert.equal(reconciled.checkpoint, null, "the current writer still owns explicit checkpoint clearing");
+});
+
 test("phonics_quest: the ordered accuracy window is NEVER union-collapsed", () => {
   const local = { mastery: { s: { seen: 6, correct: 5, streak: 2, window: [1, 1, 0, 1], state: "learning", box: 2, shells: ["stones"], sessions: ["d1"], misses: 1, lastAt: "2026-07-14", lastStop: 3 } } };
   const cloud = { mastery: { s: { seen: 4, correct: 4, streak: 4, window: [1, 0], state: "learning", box: 2, shells: ["bridge"], sessions: ["d2"], misses: 0, lastAt: "2026-07-13", lastStop: 2 } } };
@@ -240,4 +592,42 @@ test("server merge mirrors demotion epochs, safe resume, daily missions, and Hol
   assert.match(migration, /when p_area = 'hollow' then public\.lp_merge_hollow/);
   assert.match(migration, /species_rank <= 8/);
   assert.match(migration, /'purchases'.*128/s);
+
+  const resetMigration = fs.readFileSync("supabase/migrations/20260721100000_sound_seekers_reset_epoch.sql", "utf8");
+  assert.match(resetMigration, /create or replace function public\.lp_quest_reset_id_set/);
+  assert.match(resetMigration, /create or replace function public\.lp_quest_pending_reset_ids/);
+  assert.match(resetMigration, /payload -> 'resetPendingIds'/);
+  assert.match(resetMigration, /payload ->> 'resetPending'[\s\S]*jsonb_build_array\(active_id\)/);
+  assert.match(resetMigration, /existing_reset_id <> incoming_reset_id/);
+  assert.match(resetMigration, /existing_reset_history \? incoming_reset_id/);
+  assert.match(resetMigration, /incoming_reset_history \? existing_reset_id/);
+  assert.match(resetMigration, /jsonb_array_length\(existing_pending_reset_ids\) = 0[\s\S]*jsonb_build_array\(existing_reset_id\)/);
+  assert.match(resetMigration, /settled_reset_ids := public\.lp_quest_reset_id_set\([\s\S]*combined_reset_history[\s\S]*acknowledged_reset_ids/);
+  assert.match(resetMigration, /pending_reset_ids := public\.lp_quest_reset_id_set\([\s\S]*settled_reset_ids/);
+  assert.match(resetMigration, /select value into winner_reset_id[\s\S]*jsonb_array_elements_text\(pending_reset_ids\)[\s\S]*order by value collate "C" desc/);
+  assert.match(resetMigration, /jsonb_agg\(to_jsonb\(n\.id\) order by n\.id collate "C"\)/);
+  assert.match(resetMigration, /winner_reset_id = incoming_reset_id[\s\S]*authoritative := incoming/);
+  assert.match(resetMigration, /winner_reset_id = existing_reset_id[\s\S]*authoritative := existing/);
+  assert.match(resetMigration, /else[\s\S]*authoritative := null[\s\S]*if authoritative is null/);
+  assert.match(resetMigration, /merged_reset_history := public\.lp_quest_reset_id_set\([\s\S]*pending_reset_ids[\s\S]*jsonb_build_array\(winner_reset_id\)/);
+  assert.match(resetMigration, /result := existing \|\| incoming/);
+  assert.match(resetMigration, /'resetId'[\s\S]*winner_reset_id/);
+  assert.match(resetMigration, /'resetHistory'[\s\S]*merged_reset_history/);
+  assert.match(resetMigration, /'resetPendingIds', '\[\]'::jsonb/);
+  assert.match(resetMigration, /'resetPending', false/);
+  assert.match(resetMigration, /'trail'[\s\S]*authoritative -> 'trail'/);
+  assert.match(resetMigration, /'checkpoint'[\s\S]*authoritative -> 'checkpoint'/);
+
+  const selftest = fs.readFileSync("supabase/verify/sound_seekers_audit_integrity_selftest.sql", "utf8");
+  assert.match(selftest, /old trail survived a newer reset/);
+  assert.match(selftest, /stale writer resurrected the old trail/);
+  assert.match(selftest, /backwards-clock pending reset was rejected/);
+  assert.match(selftest, /same-millisecond unique reset was rejected/);
+  assert.match(selftest, /older pending writer reversed a newer pending reset/);
+  assert.match(selftest, /A\/B\/C pending reset convergence depended on grouping/);
+  assert.match(selftest, /canonical carried pending id was not selected/);
+  assert.match(selftest, /acknowledging visible B suppressed hidden pending reset A/);
+  assert.match(selftest, /same pending reset acknowledgement discarded post-reset trail progress/);
+  assert.match(selftest, /stale update discarded a first-insert pending reset/);
+  assert.match(selftest, /teacher assignment was not delivered across reset generations/);
 });

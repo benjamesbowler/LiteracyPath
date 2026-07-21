@@ -18,7 +18,12 @@ import test from "node:test";
 import assert from "node:assert/strict";
 
 import { QUEST_DISPLAY_MODES, normalizeQuestSettings } from "../../src/utils/questPerformance.js";
-import { baseQuestState, availableSparks } from "../../src/utils/questProgress.js";
+import {
+  availableSparks,
+  baseQuestState,
+  normalizeQuestState,
+  restartQuestProgress
+} from "../../src/utils/questProgress.js";
 import { defaultCreature, normalizeCreature } from "../../src/data/creatureParts.js";
 
 test("the child is only ever offered the pixel world", () => {
@@ -66,6 +71,8 @@ test("sound defaults ON, because the sound IS the lesson", () => {
 
 test("a fresh save has nothing owed, nothing owned and nowhere resumed", () => {
   const fresh = baseQuestState();
+  assert.equal(fresh.resetEpoch, 0, "legacy/fresh journeys start at generation zero");
+  assert.equal(fresh.resetAt, "");
   assert.deepEqual(fresh.trail.stopsDone, []);
   assert.deepEqual(fresh.mastery, {});
   assert.deepEqual(fresh.stones, []);
@@ -73,6 +80,92 @@ test("a fresh save has nothing owed, nothing owned and nowhere resumed", () => {
   assert.equal(fresh.checkpoint, null, "a stale checkpoint would resume a stop that is no longer done");
   assert.equal(availableSparks(fresh), 0);
   assert.equal(fresh.hatched, false, "a reset child should meet the creature maker again");
+});
+
+test("starting the adventure again advances the reset generation and keeps comfort settings", () => {
+  const played = {
+    ...baseQuestState(),
+    resetEpoch: 4,
+    hatched: true,
+    trail: { stopsDone: ["s1"], stars: { s1: 3 }, drops: {}, routeCursor: 2 },
+    mastery: { s: { seen: 6, correct: 5 } },
+    stones: ["s"],
+    ledger: { purchases: [{ id: "leaf-cap", at: "2026-07-20T10:00:00Z" }] },
+    checkpoint: { stopId: "s2", beatIndex: 1 },
+    assignment: { targets: ["m"], note: "", assignedAt: "2026-07-20T10:30:00Z", by: "teacher" },
+    settings: { ...baseQuestState().settings, reducedMotion: true },
+    settingsAt: "2026-07-20T11:00:00Z"
+  };
+
+  const restarted = restartQuestProgress(played, {
+    at: "2026-07-21T09:00:00Z",
+    resetId: "reset-device-a-1"
+  });
+  assert.equal(restarted.resetEpoch, Date.parse("2026-07-21T09:00:00Z"));
+  assert.equal(restarted.resetAt, "2026-07-21T09:00:00Z");
+  assert.equal(restarted.resetId, "reset-device-a-1");
+  assert.deepEqual(restarted.resetHistory, ["legacy"]);
+  assert.deepEqual(restarted.resetPendingIds, ["reset-device-a-1"]);
+  assert.equal(restarted.resetPending, true);
+  assert.equal(restarted.hatched, false);
+  assert.deepEqual(restarted.trail.stopsDone, []);
+  assert.deepEqual(restarted.mastery, {});
+  assert.deepEqual(restarted.stones, []);
+  assert.deepEqual(restarted.ledger.purchases, []);
+  assert.equal(restarted.checkpoint, null);
+  assert.equal(restarted.settings.reducedMotion, true);
+  assert.equal(restarted.settingsAt, played.settingsAt);
+  assert.deepEqual(restarted.assignment, played.assignment, "teacher assignment survives child reset");
+  assert.equal(restarted.creatureAt, "2026-07-21T09:00:00Z");
+
+  assert.equal(normalizeQuestState({ resetEpoch: -10 }).resetEpoch, 0);
+  assert.equal(normalizeQuestState({ resetEpoch: 2.9 }).resetEpoch, 2);
+  assert.equal(normalizeQuestState({ resetEpoch: "not-a-number" }).resetEpoch, 0);
+});
+
+test("independent stale devices issue ordered reset generations instead of the same N+1", () => {
+  const staleSnapshot = { ...baseQuestState(), resetEpoch: 12 };
+  const first = restartQuestProgress(staleSnapshot, {
+    at: "2026-07-21T09:00:00.000Z",
+    resetId: "reset-a"
+  });
+  const later = restartQuestProgress(staleSnapshot, {
+    at: "2026-07-21T09:00:01.000Z",
+    resetId: "reset-b"
+  });
+  assert.ok(later.resetEpoch > first.resetEpoch);
+
+  const futureCounter = restartQuestProgress({
+    ...baseQuestState(),
+    resetEpoch: later.resetEpoch + 20
+  }, { at: "2026-07-21T08:00:00.000Z", resetId: "reset-c" });
+  assert.equal(futureCounter.resetEpoch, later.resetEpoch + 21, "a backwards device clock cannot lower the counter");
+});
+
+test("a second local reset causally settles every reset operation already observed", () => {
+  const first = restartQuestProgress(baseQuestState(), {
+    at: "2026-07-21T09:00:00.000Z",
+    resetId: "reset-first"
+  });
+  const concurrent = normalizeQuestState({
+    ...first,
+    resetPendingIds: ["reset-first", "reset-concurrent"],
+    resetPending: true
+  });
+  const second = restartQuestProgress(concurrent, {
+    at: "2026-07-21T09:01:00.000Z",
+    resetId: "reset-second"
+  });
+  assert.equal(second.resetId, "reset-second");
+  assert.deepEqual(second.resetPendingIds, ["reset-second"]);
+  assert.deepEqual(second.resetHistory, ["legacy", "reset-concurrent", "reset-first"]);
+
+  const bridgedLegacyPending = normalizeQuestState({
+    resetId: "old-client-reset",
+    resetHistory: ["legacy"],
+    resetPending: true
+  });
+  assert.deepEqual(bridgedLegacyPending.resetPendingIds, ["old-client-reset"]);
 });
 
 test("remaking a creature costs the child none of their learning", () => {

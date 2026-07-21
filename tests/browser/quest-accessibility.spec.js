@@ -912,6 +912,130 @@ test("two open tabs preserve each other's forward quest progress", async ({ page
   await sibling.close();
 });
 
+test("start again survives a stale cloud hydrate, close, reopen, and full reload", async ({ page }) => {
+  const scope = "reset-reentry-regression";
+  const storageKey = `lp-quest:${scope}`;
+  const url = `/quest-preview.html?scope=${scope}&sound=0`;
+
+  // Establish the preview origin, then seed a save with every class of state
+  // that the child-facing reset promises to clear.
+  await page.goto(`${PREVIEW}&view=den&display=2d`);
+  const played = await page.evaluate(async key => {
+    const { baseQuestState } = await import("/src/utils/questProgress.js");
+    const state = {
+      ...baseQuestState(),
+      hatched: true,
+      trail: {
+        stopsDone: ["s1", "s2"],
+        stars: { s1: 3, s2: 2 },
+        drops: { s1: 4 },
+        routeCursor: 3
+      },
+      mastery: { s: { seen: 8, correct: 7, state: "mastered" } },
+      stones: ["s"],
+      ledger: { purchases: [{ id: "leaf-cap", at: "2026-07-20T08:00:00Z" }] },
+      checkpoint: { stopId: "s3", beatIndex: 1 },
+      settings: { ...baseQuestState().settings, highContrast: true },
+      settingsAt: "2026-07-20T09:00:00Z"
+    };
+    localStorage.setItem(key, JSON.stringify(state));
+    return state;
+  }, storageKey);
+
+  await page.goto(url);
+  await expect(page.getByRole("heading", { name: "Your Den" })).toBeVisible();
+  await page.getByRole("button", { name: "Open settings" }).click();
+  await page.getByRole("button", { name: "Start the adventure again" }).click();
+  await page.getByRole("button", { name: "Yes, start again" }).click();
+  await expect(page.getByRole("heading", { name: "Make your creature" })).toBeVisible();
+
+  await expect.poll(() => page.evaluate(key => {
+    const state = JSON.parse(localStorage.getItem(key) || "null");
+    return {
+      resetEpoch: state?.resetEpoch,
+      resetAdvanced: Number(state?.resetEpoch) > 0,
+      pendingResetCount: state?.resetPendingIds?.length,
+      hatched: state?.hatched,
+      stopsDone: state?.trail?.stopsDone,
+      checkpoint: state?.checkpoint
+    };
+  }, storageKey)).toEqual({
+    resetEpoch: expect.any(Number),
+    resetAdvanced: true,
+    pendingResetCount: 1,
+    hatched: false,
+    stopsDone: [],
+    checkpoint: null
+  });
+
+  // Recreate the hydrator's storage write + event with the old cloud row. The
+  // mounted QuestRoot must neither resurrect it in memory nor save it on exit.
+  await page.evaluate(async ({ key, stale }) => {
+    const { computeHydratedValue } = await import("/src/utils/progressMerge.js");
+    const current = JSON.parse(localStorage.getItem(key) || "null");
+    localStorage.setItem(key, JSON.stringify(
+      computeHydratedValue("phonics_quest", "__all__", current, stale)
+    ));
+    window.dispatchEvent(new CustomEvent("lp-progress-hydrated", {
+      detail: { studentId: "reset-reentry-regression", rows: [{ area: "phonics_quest", key: "__all__", payload: stale }] }
+    }));
+  }, { key: storageKey, stale: played });
+
+  await expect.poll(() => page.evaluate(key => {
+    const state = JSON.parse(localStorage.getItem(key) || "null");
+    return {
+      resetEpoch: state?.resetEpoch,
+      hatched: state?.hatched,
+      stopsDone: state?.trail?.stopsDone,
+      mastery: state?.mastery,
+      purchases: state?.ledger?.purchases,
+      checkpoint: state?.checkpoint,
+      highContrast: state?.settings?.highContrast
+    };
+  }, storageKey)).toEqual({
+    resetEpoch: expect.any(Number),
+    hatched: false,
+    stopsDone: [],
+    mastery: {},
+    purchases: [],
+    checkpoint: null,
+    highContrast: true
+  });
+
+  // Model a suspended old tab that missed the storage event and writes its
+  // pre-reset state after the reset tab has already closed. The storage writer
+  // itself must reject that downgrade; relying on another live tab to repair
+  // localStorage leaves the exact exit/re-entry bug exposed.
+  await page.evaluate(async ({ scopeKey, stale }) => {
+    const { saveQuestProgress } = await import("/src/utils/questStore.js");
+    saveQuestProgress(scopeKey, stale, { syncCloud: false });
+  }, { scopeKey: scope, stale: played });
+  await expect.poll(() => page.evaluate(key => {
+    const state = JSON.parse(localStorage.getItem(key) || "null");
+    return {
+      resetIdChanged: state?.resetId !== "legacy",
+      hatched: state?.hatched,
+      stopsDone: state?.trail?.stopsDone,
+      checkpoint: state?.checkpoint
+    };
+  }, storageKey)).toEqual({
+    resetIdChanged: true,
+    hatched: false,
+    stopsDone: [],
+    checkpoint: null
+  });
+
+  await page.getByRole("button", { name: "Close Sound Seekers" }).click();
+  await expect(page.getByText("Closed. Your progress was saved.")).toBeVisible();
+  await page.getByRole("button", { name: "Open Sound Seekers" }).click();
+  await expect(page.getByRole("heading", { name: "Make your creature" })).toBeVisible();
+
+  await page.getByRole("button", { name: "Close Sound Seekers" }).click();
+  await expect(page.getByText("Closed. Your progress was saved.")).toBeVisible();
+  await page.reload();
+  await expect(page.getByRole("heading", { name: "Make your creature" })).toBeVisible();
+});
+
 test("simultaneous tabs keep both offline cloud-queue revisions", async ({ page, context }) => {
   const sibling = await context.newPage();
   const url = `${PREVIEW}&view=den&display=2d&sync=1`;

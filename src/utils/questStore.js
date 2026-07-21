@@ -11,7 +11,10 @@
 // isn't.
 
 import { queueProgressSave } from "./progressSync.js";
-import { sanitizeCloudProgressPayload } from "./progressMerge.js";
+import {
+  reconcileQuestSaveWithStored,
+  sanitizeCloudProgressPayload
+} from "./progressMerge.js";
 import { localProgressStorageKey } from "./progressKeys.js";
 import { baseQuestState, normalizeQuestState } from "./questProgress.js";
 import {
@@ -52,8 +55,16 @@ export function loadQuestProgress(scopeKey = DEFAULT_SCOPE) {
 }
 
 export function saveQuestProgress(scopeKey = DEFAULT_SCOPE, state, { syncCloud = true } = {}) {
-  const next = normalizeQuestState(state);
+  let next = normalizeQuestState(state);
   if (typeof window !== "undefined") {
+    try {
+      const stored = JSON.parse(
+        window.localStorage.getItem(questProgressStorageKey(scopeKey)) || "null"
+      );
+      if (stored && typeof stored === "object") {
+        next = reconcileQuestSaveWithStored(next, stored);
+      }
+    } catch { /* corrupt/private storage is handled by the recovery writer */ }
     const result = writeQuestStateWithRecovery(
       window.localStorage,
       questProgressStorageKey(scopeKey),

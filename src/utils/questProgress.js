@@ -14,8 +14,10 @@
 //      (docs/IMPROVEMENT_LOOPS.md rule #7.) A sync race can therefore never
 //      delete a child's gear, and a teacher reset wipes cleanly.
 //
-//   2. FORWARD-ONLY. A cloud merge can add; it can never take away. Mastery
-//      counters merge by max, arrays by union. See progressMerge.js.
+//   2. FORWARD-ONLY WITH ONE EXPLICIT EXCEPTION. Normal cloud merges can add;
+//      they can never take away. A whole-adventure reset issues a unique
+//      resetId with observed resetHistory so that deliberate wipe outranks
+//      older progress even across stale offline devices. See progressMerge.js.
 //
 //   3. THE CHECKPOINT IS NOT ACHIEVEMENT. It is resume state: a local checkpoint
 //      wins, while a fresh device may restore the cloud checkpoint only when it
@@ -52,6 +54,58 @@ const KNOWN_STOP_IDS = new Set(QUEST_STOPS.map(stop => stop.id));
 const ALL_HEART_WORDS = new Set(QUEST_STOPS.flatMap(stop => stop.heartWords || []));
 const STAR_MAX = 3;
 const DROP_MAX = 40;
+const MAX_RESET_EPOCH = Number.MAX_SAFE_INTEGER;
+export const LEGACY_QUEST_RESET_ID = "legacy";
+
+export function normalizeQuestResetId(value) {
+  const id = typeof value === "string" ? value.trim().slice(0, 160) : "";
+  return id || LEGACY_QUEST_RESET_ID;
+}
+
+export function normalizeQuestResetHistory(value, currentId = LEGACY_QUEST_RESET_ID) {
+  const activeId = normalizeQuestResetId(currentId);
+  const history = Array.isArray(value) ? value : [];
+  return [...new Set(history
+    .map(normalizeQuestResetId)
+    .filter(id => id && id !== activeId))]
+    .sort();
+}
+
+export function normalizeQuestPendingResetIds(
+  value,
+  currentId = LEGACY_QUEST_RESET_ID,
+  resetHistory = [],
+  legacyPending = false
+) {
+  const activeId = normalizeQuestResetId(currentId);
+  const settled = new Set(normalizeQuestResetHistory(resetHistory, activeId));
+  const raw = Array.isArray(value) ? [...value] : [];
+  if (legacyPending) raw.push(activeId);
+  return [...new Set(raw
+    .map(normalizeQuestResetId)
+    .filter(id => id && !settled.has(id)))]
+    .sort();
+}
+
+// Starting the whole adventure again is the one legitimate backwards move in
+// Sound Seekers. The scalar generation is useful metadata; unique reset ids,
+// observed ancestry and the pending-id set are the authority when stale
+// offline devices disagree. Legacy saves are generation zero under `legacy`.
+export function normalizeQuestResetEpoch(value) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric)) return 0;
+  return Math.max(0, Math.min(MAX_RESET_EPOCH, Math.floor(numeric)));
+}
+
+export function compareQuestResetVersions(left, right) {
+  const leftEpoch = normalizeQuestResetEpoch(left?.resetEpoch);
+  const rightEpoch = normalizeQuestResetEpoch(right?.resetEpoch);
+  if (leftEpoch !== rightEpoch) return leftEpoch > rightEpoch ? 1 : -1;
+  const leftAt = typeof left?.resetAt === "string" ? left.resetAt : "";
+  const rightAt = typeof right?.resetAt === "string" ? right.resetAt : "";
+  if (leftAt === rightAt) return 0;
+  return leftAt > rightAt ? 1 : -1;
+}
 
 // Whitelist an id→number map to known stop ids and clamp the values. The
 // derived economy trusts these numbers absolutely, so a tampered or corrupted
@@ -88,6 +142,12 @@ export const SPARKS_PER_DROP = 2;
 export function baseQuestState() {
   return {
     v: 1,
+    resetEpoch: 0,
+    resetAt: "",
+    resetId: LEGACY_QUEST_RESET_ID,
+    resetHistory: [],
+    resetPendingIds: [],
+    resetPending: false,
     creature: defaultCreature(),
     // Last-write-wins clocks for the two cloud-wins-without-a-clock fields:
     // a child who hatches on a fresh device in the first minute must not have
@@ -117,10 +177,24 @@ export function baseQuestState() {
 export function normalizeQuestState(raw) {
   const base = baseQuestState();
   const state = raw && typeof raw === "object" ? raw : {};
+  const resetId = normalizeQuestResetId(state.resetId);
+  const resetHistory = normalizeQuestResetHistory(state.resetHistory, resetId);
+  const resetPendingIds = normalizeQuestPendingResetIds(
+    state.resetPendingIds,
+    resetId,
+    resetHistory,
+    Boolean(state.resetPending)
+  );
   return {
     ...base,
     ...state,
     v: 1,
+    resetEpoch: normalizeQuestResetEpoch(state.resetEpoch),
+    resetAt: typeof state.resetAt === "string" ? state.resetAt : "",
+    resetId,
+    resetHistory,
+    resetPendingIds,
+    resetPending: resetPendingIds.length > 0,
     creature: normalizeCreature(state.creature),
     creatureAt: typeof state.creatureAt === "string" ? state.creatureAt : "",
     settingsAt: typeof state.settingsAt === "string" ? state.settingsAt : "",
@@ -147,6 +221,43 @@ export function normalizeQuestState(raw) {
     telemetry: normalizeQuestTelemetry(state.telemetry),
     lastEarnedGearStop: null,
     checkpoint: state.checkpoint && typeof state.checkpoint === "object" ? state.checkpoint : null
+  };
+}
+
+export function restartQuestProgress(raw, { at = "", resetId: requestedResetId = "" } = {}) {
+  const current = normalizeQuestState(raw);
+  const resetAt = typeof at === "string" ? at : "";
+  const issuedAt = Date.parse(resetAt);
+  const issuedEpoch = Number.isFinite(issuedAt)
+    ? normalizeQuestResetEpoch(issuedAt)
+    : 0;
+  const normalizedRequestedId = normalizeQuestResetId(requestedResetId);
+  const resetId = normalizedRequestedId !== LEGACY_QUEST_RESET_ID
+    && normalizedRequestedId !== current.resetId
+    ? normalizedRequestedId
+    : `reset-${issuedEpoch}-${Math.min(MAX_RESET_EPOCH, current.resetEpoch + 1)}`;
+  return {
+    ...baseQuestState(),
+    // A plain N+1 counter collides when two stale offline devices both reset.
+    // Wall-clock milliseconds make those independently issued generations
+    // comparable; current+1 keeps the value monotonic if the clock moves back.
+    resetEpoch: Math.min(MAX_RESET_EPOCH, Math.max(current.resetEpoch + 1, issuedEpoch)),
+    // Retain the issuing time as a deterministic tie-break for equal counters.
+    resetAt,
+    resetId,
+    resetHistory: normalizeQuestResetHistory(
+      [...current.resetHistory, current.resetId, ...current.resetPendingIds],
+      resetId
+    ),
+    resetPendingIds: [resetId],
+    // The server clears this after accepting the reset operation. Until then,
+    // an unknown reset id must beat a concurrent generation from a stale peer.
+    resetPending: true,
+    // Comfort settings belong to the child/device, not to one journey.
+    settings: current.settings,
+    settingsAt: current.settingsAt,
+    assignment: current.assignment,
+    creatureAt: resetAt
   };
 }
 

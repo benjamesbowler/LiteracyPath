@@ -35,7 +35,7 @@ import {
   ownedPieces,
   chapterRewardForStop,
   availableSparks,
-  baseQuestState
+  restartQuestProgress
 } from "../../utils/questProgress.js";
 import { isMastered } from "../../utils/questMastery.js";
 import { getStop, QUEST_STOPS } from "../../data/questSequence.js";
@@ -844,13 +844,17 @@ export default function QuestRoot({
   }, [commit]);
 
   // Starting the adventure over is the destructive one, and it goes through
-  // baseQuestState so a wipe can never leave a half-cleared save: no lingering
-  // checkpoint pointing at a stop that is no longer done, no orphaned mastery.
+  // restartQuestProgress so a wipe can never leave a half-cleared save: no
+  // lingering checkpoint pointing at a stop that is no longer done, no
+  // orphaned mastery, and a newer reset generation stale saves cannot undo.
   // Purchases go too — sparks are DERIVED from stars (questProgress rule #1),
   // so keeping a ledger against zero stars would leave the child in debt.
   const resetProgress = useCallback(() => {
     const current = stateRef.current;
-    const fresh = baseQuestState();
+    const at = new Date().toISOString();
+    const resetId = globalThis.crypto?.randomUUID?.()
+      || `reset-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    const fresh = restartQuestProgress(current, { at, resetId });
     latestCheckpointRef.current = null;
     setCeremony(null);
     setCeremonyOverlayVisible(false);
@@ -858,15 +862,7 @@ export default function QuestRoot({
     setActiveStop(null);
     setTrailNotice(null);
     setJourneyMode({ kind: "journey", targets: null });
-    // Settings are a property of the DEVICE and the child's comfort, not of
-    // their progress — a reset must not silently switch high contrast or
-    // reduced motion back off for a child who needs them.
-    commit({
-      ...fresh,
-      settings: current.settings,
-      settingsAt: current.settingsAt,
-      creatureAt: new Date().toISOString()
-    });
+    commit(fresh);
     logStudentActivity("phonics_quest", null, "reset_progress", {});
     setView(VIEW.CREATOR);
   }, [commit]);

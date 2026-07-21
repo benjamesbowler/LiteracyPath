@@ -2,12 +2,22 @@
 // Kept separate from progressSync.js so it can be unit-tested without pulling in
 // the Supabase client (which needs the browser/Vite env).
 //
-// THE RULE: a child's progress must only ever move FORWARD. When cloud and local
-// disagree, we keep whichever represents more progress - we never let an older or
-// emptier cloud row wipe out stars, completions, or words the child already earned
-// (the cause of "my stars disappeared when I reloaded").
+// THE RULE: a child's progress must only ever move FORWARD, except when an
+// explicit newer Sound Seekers reset generation deliberately starts the whole
+// journey over. Otherwise, when cloud and local disagree, we keep whichever
+// represents more progress - we never let an older or emptier cloud row wipe
+// out stars, completions, or words the child already earned (the cause of "my
+// stars disappeared when I reloaded").
 
 import { boundedHollowFeeds, boundedHollowPurchases, uniqueHollowRecords } from "./hollowLedgerPolicy.js";
+import {
+  compareQuestResetVersions,
+  normalizeQuestPendingResetIds,
+  normalizeQuestResetHistory,
+  normalizeQuestResetId,
+  normalizeQuestResetEpoch,
+  normalizeQuestState
+} from "./questProgress.js";
 
 // ── Scalar status (phonics letters, cvc) ─────────────────────────────────────
 const STATUS_RANK = { default: 0, locked: 1, inprogress: 2, completed: 3 };
@@ -185,6 +195,144 @@ export function sanitizeCloudProgressPayload(area, payload) {
   return safePayload;
 }
 
+function questResetMeta(raw) {
+  const value = normalizeQuestState(raw);
+  const resetId = normalizeQuestResetId(value.resetId);
+  const resetHistory = normalizeQuestResetHistory(value.resetHistory, resetId);
+  const resetPendingIds = normalizeQuestPendingResetIds(
+    value.resetPendingIds,
+    resetId,
+    resetHistory,
+    value.resetPending
+  );
+  return {
+    resetId,
+    resetEpoch: normalizeQuestResetEpoch(value.resetEpoch),
+    resetAt: typeof value.resetAt === "string" ? value.resetAt : "",
+    resetHistory,
+    resetPendingIds,
+    resetPending: resetPendingIds.length > 0
+  };
+}
+
+function unionQuestResetIds(values) {
+  return normalizeQuestResetHistory(values, "__reset-merge-sentinel__");
+}
+
+// Reset ids form a small observed ancestry graph plus an unacknowledged-op set.
+// This closes the case a scalar clock cannot: stale device B can reset while
+// unaware that device A already reset and progressed. Descendants settle their
+// ancestors; unrelated pending operations remain in the set until the server
+// acknowledges all of them, so merge order cannot silently drop a reset.
+export function resolveQuestResetConflict(base, cloud) {
+  const local = questResetMeta(base);
+  const remote = questResetMeta(cloud);
+  const combinedHistory = unionQuestResetIds([
+    ...local.resetHistory,
+    ...remote.resetHistory
+  ]);
+  const acknowledgedIds = [
+    ...(local.resetPendingIds.length ? [] : [local.resetId]),
+    ...(remote.resetPendingIds.length ? [] : [remote.resetId])
+  ];
+  const settledIds = new Set([...combinedHistory, ...acknowledgedIds]);
+  const resetPendingIds = [...new Set([
+    ...local.resetPendingIds,
+    ...remote.resetPendingIds
+  ])]
+    .filter(id => !settledIds.has(id))
+    .sort();
+
+  if (resetPendingIds.length) {
+    // Pending reset operations are an observed set, not a scalar winner. Keep
+    // every unrelated operation until the server acknowledges the whole set;
+    // selecting max(id) only chooses which reset snapshot is displayed now.
+    // Set union + filtering by settled ancestry is associative, so queue order
+    // cannot make a real reset disappear.
+    const resetId = resetPendingIds.at(-1);
+    const winner = local.resetId === resetId
+      ? "base"
+      : remote.resetId === resetId
+        ? "cloud"
+        : "fresh";
+    const owner = winner === "base" ? local : winner === "cloud" ? remote : null;
+    return {
+      same: local.resetId === remote.resetId && local.resetId === resetId,
+      winner,
+      resetEpoch: owner?.resetEpoch ?? Math.max(local.resetEpoch, remote.resetEpoch),
+      resetAt: owner?.resetAt ?? (local.resetAt > remote.resetAt ? local.resetAt : remote.resetAt),
+      resetId,
+      resetHistory: normalizeQuestResetHistory(
+        [...combinedHistory, ...acknowledgedIds],
+        resetId
+      ),
+      resetPendingIds,
+      resetPending: true
+    };
+  }
+
+  if (local.resetId === remote.resetId) {
+    return {
+      same: true,
+      winner: "base",
+      resetEpoch: Math.max(local.resetEpoch, remote.resetEpoch),
+      resetAt: local.resetAt > remote.resetAt ? local.resetAt : remote.resetAt,
+      resetId: local.resetId,
+      resetHistory: normalizeQuestResetHistory(combinedHistory, local.resetId),
+      resetPendingIds: [],
+      resetPending: false
+    };
+  }
+
+  const localDescends = local.resetHistory.includes(remote.resetId);
+  const remoteDescends = remote.resetHistory.includes(local.resetId);
+  let winner;
+  if (localDescends !== remoteDescends) {
+    winner = localDescends ? "base" : "cloud";
+  } else {
+    const versionOrder = compareQuestResetVersions(base, cloud);
+    if (versionOrder !== 0) winner = versionOrder > 0 ? "base" : "cloud";
+    else winner = local.resetId > remote.resetId ? "base" : "cloud";
+  }
+
+  const winnerMeta = winner === "base" ? local : remote;
+  const loserMeta = winner === "base" ? remote : local;
+  return {
+    same: false,
+    winner,
+    resetEpoch: winnerMeta.resetEpoch,
+    resetAt: winnerMeta.resetAt,
+    resetId: winnerMeta.resetId,
+    resetHistory: normalizeQuestResetHistory(
+      [...combinedHistory, loserMeta.resetId],
+      winnerMeta.resetId
+    ),
+    resetPendingIds: [],
+    resetPending: false
+  };
+}
+
+// Disk writes need reset protection and the ordinary same-generation forward
+// merge, but checkpoint state is not an achievement: an explicitly cleared
+// checkpoint from the current writer is meaningful and must remain cleared.
+export function reconcileQuestSaveWithStored(writer, stored) {
+  const local = normalizeQuestState(writer);
+  const remote = normalizeQuestState(stored);
+  const reset = resolveQuestResetConflict(local, remote);
+  if (!reset.same) {
+    return normalizeQuestState(
+      computeHydratedValue("phonics_quest", "__all__", local, remote)
+    );
+  }
+  // Same-generation writes still need the ordinary cross-tab forward merge:
+  // otherwise an old tab can erase a newer teacher assignment, accessibility
+  // setting, earned stop, or creature. Checkpoint is the one deliberate
+  // exception: it is resume state, and an exact `null` from the current writer
+  // must remain clear instead of being resurrected from disk.
+  const merged = computeHydratedValue("phonics_quest", "__all__", local, remote);
+  return normalizeQuestState({ ...merged, checkpoint: local.checkpoint });
+}
+
 // Decide the value to write to local storage for one hydrated cloud row.
 // `existing` is the current local value for that storage key. Pure + testable.
 export function computeHydratedValue(area, key, existing, payload) {
@@ -287,6 +435,53 @@ export function computeHydratedValue(area, key, existing, payload) {
     };
     const creaturePick = later(base.creatureAt, cloud.creatureAt, base.creature, cloud.creature);
     const settingsPick = later(base.settingsAt, cloud.settingsAt, base.settings, cloud.settings);
+    const baseResetEpoch = normalizeQuestResetEpoch(base.resetEpoch);
+    const cloudResetEpoch = normalizeQuestResetEpoch(cloud.resetEpoch);
+    const reset = resolveQuestResetConflict(base, cloud);
+
+    // A whole-adventure reset is intentionally destructive, so the normal
+    // forward-only rules cannot represent it. Across different reset ids, the
+    // ancestry/pending resolver chooses one owner for every resettable journey
+    // field. This blocks an older tab/cloud row/queue entry from unioning the
+    // pre-reset trail back in. Settings still use their own LWW clock,
+    // assignments remain teacher-owned, and telemetry stays on this device.
+    if (!reset.same) {
+      const authoritative = reset.winner === "fresh"
+        ? normalizeQuestState({
+            resetEpoch: reset.resetEpoch,
+            resetAt: reset.resetAt,
+            resetId: reset.resetId,
+            resetHistory: reset.resetHistory,
+            resetPendingIds: reset.resetPendingIds,
+            resetPending: reset.resetPending,
+            creatureAt: reset.resetAt
+          })
+        : normalizeQuestState(reset.winner === "base" ? base : cloud);
+      return {
+        ...base,
+        ...cloud,
+        v: authoritative.v,
+        resetEpoch: reset.resetEpoch,
+        resetAt: reset.resetAt,
+        resetId: reset.resetId,
+        resetHistory: reset.resetHistory,
+        resetPendingIds: reset.resetPendingIds,
+        resetPending: reset.resetPending,
+        creature: authoritative.creature,
+        creatureAt: authoritative.creatureAt,
+        hatched: authoritative.hatched,
+        trail: authoritative.trail,
+        mastery: authoritative.mastery,
+        stones: authoritative.stones,
+        trickies: authoritative.trickies,
+        ledger: authoritative.ledger,
+        settings: settingsPick.value || authoritative.settings,
+        settingsAt: settingsPick.at,
+        telemetry: base.telemetry || authoritative.telemetry,
+        lastEarnedGearStop: null,
+        checkpoint: authoritative.checkpoint
+      };
+    }
     const trail = mergeMonotonic(base.trail, cloud.trail) || {};
     // routeCursor is local journey position, not an achievement counter. A max
     // merge would pin a second circuit at stop 40 forever.
@@ -302,6 +497,14 @@ export function computeHydratedValue(area, key, existing, payload) {
     return {
       ...base,
       ...cloud,
+      resetEpoch: Math.max(baseResetEpoch, cloudResetEpoch),
+      resetAt: String(base.resetAt || "") > String(cloud.resetAt || "")
+        ? String(base.resetAt || "")
+        : String(cloud.resetAt || ""),
+      resetId: reset.resetId,
+      resetHistory: reset.resetHistory,
+      resetPendingIds: reset.resetPendingIds,
+      resetPending: reset.resetPending,
       creature: creaturePick.value || base.creature,
       creatureAt: creaturePick.at,
       hatched: Boolean(base.hatched) || Boolean(cloud.hatched),

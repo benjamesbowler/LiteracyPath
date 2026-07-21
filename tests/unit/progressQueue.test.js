@@ -70,6 +70,153 @@ test("sequential offline queue writes keep latest local route/checkpoint while u
   assert.deepEqual(merged.payload.checkpoint, { stopId: "s3", beatIndex: 0 });
 });
 
+test("an offline reset replaces older queued Sound Seekers progress", () => {
+  const storage = new MemoryStorage();
+  enqueueProgressQueueEntry(storage, questEntry("played", ["s1", "s2"], {
+    resetEpoch: 0,
+    resetAt: "",
+    resetId: "legacy",
+    resetHistory: [],
+    resetPending: false,
+    hatched: true,
+    mastery: { s: { seen: 8, correct: 8, state: "mastered" } },
+    stones: ["s"],
+    ledger: { purchases: [{ id: "leaf-cap" }] },
+    checkpoint: { stopId: "s3", beatIndex: 1 }
+  }), { revision: "played" });
+  enqueueProgressQueueEntry(storage, questEntry("reset", [], {
+    resetEpoch: 1,
+    resetAt: "2026-07-21T09:00:00Z",
+    resetId: "reset-a",
+    resetHistory: ["legacy"],
+    resetPending: true,
+    hatched: false,
+    trail: { stopsDone: [], stars: {}, drops: {}, routeCursor: 1 },
+    mastery: {},
+    stones: [],
+    trickies: [],
+    ledger: { purchases: [] },
+    checkpoint: null
+  }), { revision: "reset" });
+
+  const merged = mergeProgressQueueRecords(readProgressQueueRecords(storage));
+  assert.equal(merged.payload.resetEpoch, 1);
+  assert.equal(merged.payload.hatched, false);
+  assert.deepEqual(merged.payload.trail.stopsDone, []);
+  assert.deepEqual(merged.payload.mastery, {});
+  assert.deepEqual(merged.payload.stones, []);
+  assert.deepEqual(merged.payload.ledger.purchases, []);
+  assert.equal(merged.payload.checkpoint, null);
+});
+
+test("a later stale-tab queue write cannot resurrect a newer reset", () => {
+  const storage = new MemoryStorage();
+  enqueueProgressQueueEntry(storage, questEntry("reset", [], {
+    resetEpoch: 3,
+    resetAt: "2026-07-21T09:05:00Z",
+    resetId: "reset-b",
+    resetHistory: ["legacy", "reset-a"],
+    resetPending: true,
+    hatched: false,
+    trail: { stopsDone: [], stars: {}, drops: {}, routeCursor: 1 },
+    mastery: {},
+    stones: [],
+    ledger: { purchases: [] },
+    checkpoint: null
+  }), { revision: "reset" });
+  enqueueProgressQueueEntry(storage, questEntry("stale", ["s1"], {
+    resetEpoch: 3,
+    resetAt: "2026-07-21T09:00:00Z",
+    resetId: "reset-a",
+    resetHistory: ["legacy"],
+    resetPending: false,
+    hatched: true,
+    mastery: { s: { seen: 4, correct: 4 } },
+    stones: ["s"],
+    ledger: { purchases: [{ id: "leaf-cap" }] },
+    checkpoint: { stopId: "s2" }
+  }), { revision: "stale" });
+
+  const merged = mergeProgressQueueRecords(readProgressQueueRecords(storage));
+  assert.equal(merged.payload.resetEpoch, 3);
+  assert.equal(merged.payload.hatched, false);
+  assert.deepEqual(merged.payload.trail.stopsDone, []);
+  assert.deepEqual(merged.payload.mastery, {});
+  assert.equal(merged.payload.checkpoint, null);
+});
+
+test("a stale-device pending reset wins queue coalescing with a backwards clock", () => {
+  const storage = new MemoryStorage();
+  enqueueProgressQueueEntry(storage, questEntry("progressed-a", ["s1"], {
+    resetEpoch: 9000,
+    resetAt: "2026-07-21T09:00:00Z",
+    resetId: "reset-device-a",
+    resetHistory: ["legacy"],
+    resetPending: false,
+    hatched: true,
+    mastery: { s: { seen: 4, correct: 4 } },
+    stones: ["s"],
+    checkpoint: { stopId: "s2" }
+  }), { revision: "progressed-a" });
+  enqueueProgressQueueEntry(storage, questEntry("reset-b", [], {
+    resetEpoch: 8000,
+    resetAt: "2026-07-21T08:00:00Z",
+    resetId: "reset-device-b",
+    resetHistory: ["legacy"],
+    resetPending: true,
+    hatched: false,
+    trail: { stopsDone: [], stars: {}, drops: {}, routeCursor: 1 },
+    mastery: {},
+    stones: [],
+    ledger: { purchases: [] },
+    checkpoint: null
+  }), { revision: "reset-b" });
+
+  const merged = mergeProgressQueueRecords(readProgressQueueRecords(storage));
+  assert.equal(merged.payload.resetId, "reset-device-b");
+  assert.deepEqual(merged.payload.resetHistory, ["legacy", "reset-device-a"]);
+  assert.deepEqual(merged.payload.trail.stopsDone, []);
+  assert.deepEqual(merged.payload.mastery, {});
+  assert.equal(merged.payload.checkpoint, null);
+});
+
+test("an older pending tab save cannot reverse a newer pending reset in the queue", () => {
+  const storage = new MemoryStorage();
+  enqueueProgressQueueEntry(storage, questEntry("new-reset", [], {
+    resetEpoch: 200,
+    resetAt: "2026-07-21T10:00:00Z",
+    resetId: "reset-z-new",
+    resetHistory: ["legacy"],
+    resetPendingIds: ["reset-z-new"],
+    resetPending: true,
+    hatched: false,
+    trail: { stopsDone: [], stars: {}, drops: {}, routeCursor: 1 },
+    mastery: {},
+    stones: [],
+    ledger: { purchases: [] },
+    checkpoint: null
+  }), { revision: "new-reset" });
+  enqueueProgressQueueEntry(storage, questEntry("old-tab-save", ["s1"], {
+    resetEpoch: 100,
+    resetAt: "2026-07-21T09:00:00Z",
+    resetId: "reset-a-old",
+    resetHistory: ["legacy"],
+    resetPendingIds: ["reset-a-old"],
+    resetPending: true,
+    hatched: true,
+    mastery: { s: { seen: 4, correct: 4 } },
+    stones: ["s"],
+    checkpoint: { stopId: "s2" }
+  }), { revision: "old-tab-save" });
+
+  const merged = mergeProgressQueueRecords(readProgressQueueRecords(storage));
+  assert.equal(merged.payload.resetId, "reset-z-new");
+  assert.deepEqual(merged.payload.resetPendingIds, ["reset-a-old", "reset-z-new"]);
+  assert.deepEqual(merged.payload.trail.stopsDone, []);
+  assert.deepEqual(merged.payload.mastery, {});
+  assert.equal(merged.payload.checkpoint, null);
+});
+
 test("a flush removes only its snapshot while a concurrent revision survives", () => {
   const storage = new MemoryStorage();
   storage.setItem(`${PROGRESS_QUEUE_ENTRY_PREFIX}rev-a`, JSON.stringify(questEntry("rev-a", ["s1"])));
