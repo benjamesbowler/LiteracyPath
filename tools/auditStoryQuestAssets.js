@@ -110,7 +110,8 @@ function makeQuestRows(quest) {
       imagePath,
       imageExists: fileExists(imagePath),
       audioPath,
-      audioExists: fileExists(audioPath)
+      audioExists: fileExists(audioPath),
+      narrationNeedsRebuild: page.narrationNeedsRebuild === true
     };
   });
 }
@@ -141,6 +142,7 @@ function renderAudit() {
   const missingAudio = referencedAudio.filter(item => !fileExists(item));
   const unusedImages = allImageFiles.filter(item => !referencedImageSet.has(item));
   const unusedAudio = allAudioFiles.filter(item => !referencedAudioSet.has(item));
+  const narrationRebuildRows = pageRows.filter(row => row.narrationNeedsRebuild);
 
   const extensionMismatches = [];
   [...referencedImages, ...referencedAudio].forEach(assetPath => {
@@ -204,6 +206,7 @@ function renderAudit() {
   lines.push(`- Unused image files: ${unusedImages.length}`);
   lines.push(`- Unused audio files: ${unusedAudio.length}`);
   lines.push(`- Extension mismatch candidates: ${extensionMismatches.length}`);
+  lines.push(`- Narration files withheld pending rerecord: ${narrationRebuildRows.length}`);
   lines.push("");
 
   lines.push("## Missing Referenced Images");
@@ -217,6 +220,13 @@ function renderAudit() {
   lines.push("## Extension Mismatch Candidates");
   lines.push("");
   lines.push(renderList(extensionMismatches));
+  lines.push("");
+
+  lines.push("## Narration Pending Rerecord");
+  lines.push("");
+  lines.push("These pages keep their original asset paths for traceability, but the player withholds the stale audio until narration matches the revised story text.");
+  lines.push("");
+  lines.push(renderList(narrationRebuildRows.map(row => `\`${escapeMarkdown(row.questId)} / ${escapeMarkdown(row.pageId)}\` — \`public${escapeMarkdown(row.audioPath)}\``)));
   lines.push("");
 
   lines.push("## Quest Asset References");
@@ -287,7 +297,8 @@ function renderAudit() {
       missingAudio: missingAudio.length,
       unusedImages: unusedImages.length,
       unusedAudio: unusedAudio.length,
-      extensionMismatches: extensionMismatches.length
+      extensionMismatches: extensionMismatches.length,
+      narrationNeedsRebuild: narrationRebuildRows.length
     }
   };
 }

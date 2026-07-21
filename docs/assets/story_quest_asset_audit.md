@@ -1,6 +1,6 @@
 # Story Quest Asset Audit
 
-Generated: 2026-06-11T11:24:57.857Z
+Generated: 2026-07-21T23:17:26.230Z
 
 ## Summary Counts
 
@@ -13,6 +13,7 @@ Generated: 2026-06-11T11:24:57.857Z
 - Unused image files: 65
 - Unused audio files: 65
 - Extension mismatch candidates: 0
+- Narration files withheld pending rerecord: 148
 
 ## Missing Referenced Images
 
@@ -25,6 +26,159 @@ None found.
 ## Extension Mismatch Candidates
 
 None found.
+
+## Narration Pending Rerecord
+
+These pages keep their original asset paths for traceability, but the player withholds the stale audio until narration matches the revised story text.
+
+- `mw_ra_c_03_luna_burrow_star_shell_door / p07_wrong_shell` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p07_wrong_shell.mp3`
+- `mw_ra_c_03_luna_burrow_star_shell_door / p08_polite_door` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p08_polite_door.mp3`
+- `mw_ra_c_03_luna_burrow_star_shell_door / p09_door_answer` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p09_door_answer.mp3`
+- `mw_ra_c_03_luna_burrow_star_shell_door / p10_quiet_ending` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p10_quiet_ending.mp3`
+- `mw_ra_c_04_dewdrop_flint_lost_glow / p06_question_path` — `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p06_question_path.mp3`
+- `mw_ra_c_04_dewdrop_flint_lost_glow / p07_lantern_rolls` — `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_lantern_rolls.mp3`
+- `mw_ra_c_04_dewdrop_flint_lost_glow / p07_waiting_room` — `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_waiting_room.mp3`
+- `mw_ra_c_04_dewdrop_flint_lost_glow / p07_door_question` — `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_door_question.mp3`
+- `mw_ra_c_04_dewdrop_flint_lost_glow / p08_sorry_glow` — `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p08_sorry_glow.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p03_eat_berries` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p03_eat_berries.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p03_save_berries` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p03_save_berries.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p04_not_full` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p04_not_full.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p04_sunny_shares` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p04_sunny_shares.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p04_leaf_lunch` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p04_leaf_lunch.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p05_mud_face` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p05_mud_face.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p05_grumpy_tiny_smile` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p05_grumpy_tiny_smile.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p05_big_flat_rock` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p05_big_flat_rock.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p06_bouncy_lunch` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p06_bouncy_lunch.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p06_tummy_big` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p06_tummy_big.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p06_grumpy_full` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p06_grumpy_full.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p07_berry_rain` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p07_berry_rain.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p07_leaf_hat` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p07_leaf_hat.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p07_more_please` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p07_more_please.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p08_star_ending` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p08_star_ending.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p08_thank_you_ending` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p08_thank_you_ending.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p08_berry_mess_ending` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p08_berry_mess_ending.mp3`
+- `dp_ra_b_01_chompy_big_lunch_hunt / p08_leaf_hat_ending` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p08_leaf_hat_ending.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p01_start` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p01_start.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p02_grumpy` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p02_grumpy.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p02_dozy` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p02_dozy.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p03_dry_rock` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p03_dry_rock.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p03_cozy_cave` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p03_cozy_cave.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p03_puddle` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p03_puddle.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p04_splash` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p04_splash.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p04_wiggly_tail` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p04_wiggly_tail.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p05_grumpy_splash` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p05_grumpy_splash.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p05_dozy_splash` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p05_dozy_splash.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p05_tail_wave` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p05_tail_wave.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p06_grumpy_smile` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p06_grumpy_smile.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p06_sorry_grumpy` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p06_sorry_grumpy.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p06_dozy_again` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p06_dozy_again.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p06_grumpy_ears` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p06_grumpy_ears.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p07_leaf_boat` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p07_leaf_boat.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p07_everyone_puddle` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p07_everyone_puddle.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p08_rainbow_ending` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p08_rainbow_ending.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p08_grumpy_laugh_ending` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p08_grumpy_laugh_ending.mp3`
+- `dp_ra_b_02_sunnys_rainy_day_rescue / p08_quiet_ending` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p08_quiet_ending.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p01_start` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p01_start.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p05_chompy_delight` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p05_chompy_delight.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p03_berry_protest` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p03_berry_protest.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p04_berry_throw` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p04_berry_throw.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p03_list_making` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p03_list_making.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p01_start` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p01_start.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p02_berry_corner` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p02_berry_corner.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p03_help_chompy` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p03_help_chompy.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p04_big_bounce` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p04_big_bounce.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p05_berries_fly` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p05_berries_fly.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p06_chompy_catches` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p06_chompy_catches.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p07_grumpy_nose` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p07_grumpy_nose.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p04_careful_bounce` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p04_careful_bounce.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p05_legs_give_up` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p05_legs_give_up.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p06_everyone_sticky` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p06_everyone_sticky.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p07_grumpy_sticky` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p07_grumpy_sticky.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p03_too_fast` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p03_too_fast.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p04_bush_crash` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p04_bush_crash.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p05_fancy_bush_hit` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p05_fancy_bush_hit.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p06_fancy_dismay` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p06_fancy_dismay.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p07_bouncy_repairs` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p07_bouncy_repairs.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p04_puddle_bounce` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p04_puddle_bounce.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p05_mud_everywhere` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p05_mud_everywhere.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p06_fancy_mud_sail` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p06_fancy_mud_sail.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p07_new_bush` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p07_new_bush.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p02_cozy_cave` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p02_cozy_cave.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p03_tiptoe_out` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p03_tiptoe_out.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p04_nearly_there` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p04_nearly_there.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p05_launched_out` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p05_launched_out.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p06_over_stream` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p06_over_stream.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p07_grumpy_stream` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p07_grumpy_stream.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p04_pebble_trip` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p04_pebble_trip.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p05_cave_echo` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p05_cave_echo.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p06_dozy_wide_awake` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p06_dozy_wide_awake.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p07_dozy_advice` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p07_dozy_advice.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p03_bounce_inside` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p03_bounce_inside.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p04_cave_chaos` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p04_cave_chaos.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p05_wiggly_enters` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p05_wiggly_enters.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p06_bouncy_launched` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p06_bouncy_launched.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p07_big_flat_rock` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p07_big_flat_rock.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p08_berry_ending` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p08_berry_ending.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p08_fancy_ending` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p08_fancy_ending.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p08_stream_ending` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p08_stream_ending.mp3`
+- `dp_ra_b_04_bouncy_big_bounce / p08_rock_ending` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p08_rock_ending.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p08_barn_hug` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p08_barn_hug.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p08_tree_hug` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p08_tree_hug.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p09_almost_hug_ending` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p09_almost_hug_ending.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p01_start` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p01_start.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p03_barn_fast` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p03_barn_fast.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p03_pond` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p03_pond.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p04_map_caught` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p04_map_caught.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p04_map_splash` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p04_map_splash.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p04_splashy_help` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p04_splashy_help.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p04_too_fast` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p04_too_fast.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p05_grumpy_boot` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p05_grumpy_boot.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p05_bouncy_wet` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p05_bouncy_wet.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p05_grumpy_wet` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p05_grumpy_wet.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p05_speedy_waits` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p05_speedy_waits.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p05_big_tree` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p05_big_tree.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p06_speedy_muddy` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p06_speedy_muddy.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p06_lost_again` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p06_lost_again.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p07_tree_stop` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p07_tree_stop.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p08_tiny_snack` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p08_tiny_snack.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p09_race_ending` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p09_race_ending.mp3`
+- `mp_ra_a_03_bouncy_speedy_fast_map / p09_tiny_snack_ending` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p09_tiny_snack_ending.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p01_start` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p01_start.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p02_brave` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p02_brave.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p02_tiny` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p02_tiny.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p03_pot` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p03_pot.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p03_wall` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p03_wall.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p03_hat` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p03_hat.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p03_woolly` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p03_woolly.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p04_hat_in_pot` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p04_hat_in_pot.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p04_tiny_in_pot` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p04_tiny_in_pot.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p04_feather` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p04_feather.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p04_clucky_wall` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p04_clucky_wall.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p04_hat_on_wall` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p04_hat_on_wall.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p04_under_wool` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p04_under_wool.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p04_stream` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p04_stream.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p05_hat_found` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p05_hat_found.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p06_hat_on_brave` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p06_hat_on_brave.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p05_brave_stuck` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p05_brave_stuck.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p05_bell_found` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p05_bell_found.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p05_feather_brave` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p05_feather_brave.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p05_feather_back` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p05_feather_back.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p05_tiny_climbs` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p05_tiny_climbs.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p05_brave_climbs` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p05_brave_climbs.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p05_brave_in_wool` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p05_brave_in_wool.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p05_bell_stream` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p05_bell_stream.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p06_tiny_helps` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p06_tiny_helps.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p06_woolly_helps` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p06_woolly_helps.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p06_bell_ring` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p06_bell_ring.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p06_brave_boost` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p06_brave_boost.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p06_brave_slips` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p06_brave_slips.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p06_woolly_laughs` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p06_woolly_laughs.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p06_brave_stream` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p06_brave_stream.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p07_clucky_happy` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p07_clucky_happy.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p07_woolly_happy` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p07_woolly_happy.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p09_fancy_brave_ending` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p09_fancy_brave_ending.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p09_loud_bell_ending` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p09_loud_bell_ending.mp3`
+- `mp_ra_a_04_brave_tiny_big_little_rescue / p09_helpful_ending` — `public/audio/story-quests/meadow-pals/brave-tiny-rescue/p09_helpful_ending.mp3`
 
 ## Quest Asset References
 

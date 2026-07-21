@@ -32,6 +32,11 @@ function StoryQuestImage({ src, title }) {
   );
 }
 
+function getStoryQuestPageAudioUrl(page) {
+  if (!page || page.narrationNeedsRebuild) return "";
+  return page.audioUrl || "";
+}
+
 export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit, onProgress }) {
   const pageById = useMemo(() => {
     return new Map((quest?.pages || []).map(page => [page.id, page]));
@@ -53,6 +58,7 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
   const playerRef = useRef(null);
 
   const currentPage = pageById.get(currentPageId) || quest?.pages?.[0] || null;
+  const currentAudioUrl = getStoryQuestPageAudioUrl(currentPage);
   const currentPageNumber = quest?.pages?.findIndex(page => page.id === currentPage?.id) + 1 || 1;
   const totalPages = quest?.pages?.length || 0;
   const visitedPageIds = useMemo(() => new Set([...history, currentPageId].filter(Boolean)), [currentPageId, history]);
@@ -92,7 +98,7 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
 
   useEffect(() => {
     let cancelled = false;
-    const audioUrl = currentPage?.audioUrl || "";
+    const audioUrl = currentAudioUrl;
     setAudioAvailable(false);
     setAudioChecking(Boolean(audioUrl));
     setIsAudioPlaying(false);
@@ -130,7 +136,7 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
       cancelled = true;
       audio.pause();
     };
-  }, [currentPage?.audioUrl]);
+  }, [currentAudioUrl]);
 
   useEffect(() => {
     if (!currentPage) return;
@@ -140,9 +146,9 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
       .filter(Boolean);
     void preloadMediaSet({
       images: [currentPage.imageUrl, ...nextPages.map(page => page.imageUrl)],
-      audio: [currentPage.audioUrl, ...nextPages.map(page => page.audioUrl)]
+      audio: [currentAudioUrl, ...nextPages.map(getStoryQuestPageAudioUrl)]
     });
-  }, [currentPage, pageById]);
+  }, [currentAudioUrl, currentPage, pageById]);
 
   useEffect(() => {
     if (!isComplete) return;
@@ -150,7 +156,7 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
     if (!startPage) return;
     void preloadMediaSet({
       images: [startPage.imageUrl],
-      audio: [startPage.audioUrl]
+      audio: [getStoryQuestPageAudioUrl(startPage)]
     });
   }, [isComplete, pageById, quest]);
 
@@ -173,9 +179,9 @@ export function StoryQuestPlayer({ quest, initialPageId = "", onComplete, onExit
   }
 
   function replayAudio() {
-    if (!audioAvailable || !currentPage?.audioUrl) return;
+    if (!audioAvailable || !currentAudioUrl) return;
     stopAudio();
-    const audio = new Audio(currentPage.audioUrl);
+    const audio = new Audio(currentAudioUrl);
     audioRef.current = audio;
     audio.onended = () => {
       audioRef.current = null;

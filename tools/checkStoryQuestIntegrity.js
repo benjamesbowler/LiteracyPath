@@ -145,9 +145,27 @@ if (!Array.isArray(storyQuests) || storyQuests.length === 0) {
     if (typeof page.audioUrl !== "string" || !page.audioUrl.trim()) {
       addError(quest, `${page.id || `page ${index + 1}`} missing audioUrl`);
     }
+    if (typeof page.choicePrompt !== "string" || !page.choicePrompt.trim()) {
+      addError(quest, `${page.id || `page ${index + 1}`} missing choicePrompt`);
+    }
+    if (page.narrationNeedsRebuild !== undefined && typeof page.narrationNeedsRebuild !== "boolean") {
+      addError(quest, `${page.id || `page ${index + 1}`} narrationNeedsRebuild must be boolean`);
+    }
+    const joinedText = Array.isArray(page.text) ? page.text.join(" ") : "";
+    const inanimateFacePatterns = [
+      /(?:door|map|book|chair|lantern|sign)[^.]{0,60}(?:face|smil|frown|wink|eye|mouth)/i,
+      /chair[^.]{0,30}snor/i
+    ];
+    if (inanimateFacePatterns.some(pattern => pattern.test(joinedText))) {
+      addError(quest, `${page.id || `page ${index + 1}`} gives an inanimate object a face or facial action`);
+    }
     if (!Array.isArray(page.choices)) {
       addError(quest, `${page.id || `page ${index + 1}`} choices must be an array`);
     } else {
+      const normalizedLabels = page.choices.map(choice => String(choice?.label || "").trim().toLowerCase());
+      if (normalizedLabels.some((label, labelIndex) => label && normalizedLabels.indexOf(label) !== labelIndex)) {
+        addError(quest, `${page.id} has duplicate choice labels`);
+      }
       page.choices.forEach((choice, choiceIndex) => {
         if (!choice?.label) addError(quest, `${page.id} choice ${choiceIndex + 1} missing label`);
         if (!choice?.nextPageId) addError(quest, `${page.id} choice "${choice?.label || choiceIndex + 1}" missing nextPageId`);
