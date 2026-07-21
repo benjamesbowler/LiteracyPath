@@ -28,8 +28,10 @@ import { getGuidedReadingStorageKey } from "../appState/studentSessionHelpers.js
 import { buildClassReportModel } from "../data/reportingSystem.js";
 import {
   deleteSavedElAssessmentReport,
-  getSavedElAssessmentReports
+  getSavedElAssessmentReports,
+  hydrateElAssessmentReports
 } from "../data/elAssessmentReportStore.js";
+import { resolveElBenchmarkReportScope } from "../data/elFormalAssessmentReportBuilder.js";
 import {
   downloadElAssessmentReport,
   exportClassElAssessmentExcel,
@@ -545,6 +547,31 @@ function getReadinessStatusClass(status = "") {
   if (status === "action") return "action";
   if (status === "review") return "review";
   return "ready";
+}
+
+function getBenchmarkScopeKey(scope = {}) {
+  return `${scope.grade || ""}::${scope.benchmarkWindow || ""}`;
+}
+
+function ElBenchmarkScopeSelect({ activeScope = {}, onChange, options = [] }) {
+  return (
+    <label>
+      Benchmark grade and window (Excel)
+      <select
+        aria-label="Benchmark grade and assessment window"
+        disabled={options.length === 0}
+        onChange={event => onChange(event.target.value)}
+        value={options.length ? getBenchmarkScopeKey(activeScope) : ""}
+      >
+        {options.length === 0 && <option value="">No saved benchmark routes</option>}
+        {options.map((scope, index) => (
+          <option key={getBenchmarkScopeKey(scope)} value={getBenchmarkScopeKey(scope)}>
+            {scope.label} ({scope.attemptCount} {scope.attemptCount === 1 ? "attempt" : "attempts"}){index === 0 ? " - most recent" : ""}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
 }
 
 function buildReleaseReadinessModel({
@@ -1733,6 +1760,7 @@ export function AdminDashboardPage({
   assessmentHistory = [],
   dashboardMode = "admin",
   teacherId = "",
+  supabase = null,
   message,
   onLoadStudent,
   onSwitchStudent,
@@ -1759,6 +1787,7 @@ export function AdminDashboardPage({
   const [exportNotice, setExportNotice] = useState("");
   const [selectedElClassId, setSelectedElClassId] = useState("");
   const [selectedElStudentId, setSelectedElStudentId] = useState("");
+  const [selectedElBenchmarkScopeKey, setSelectedElBenchmarkScopeKey] = useState("");
   const [reportView, setReportView] = useState("class");
   const [savedElReports, setSavedElReports] = useState([]);
   const [showReviewedSignupAccounts, setShowReviewedSignupAccounts] = useState(false);
@@ -1781,14 +1810,24 @@ export function AdminDashboardPage({
   const selectedStudent = elClassStudents.find(student => student.id === selectedElStudentId) || elClassStudents[0] || students[0] || null;
   const activeReportView = isTeacherMode ? reportView : "class";
 
-  function refreshSavedElReports() {
+  async function refreshSavedElReports() {
     setSavedElReports(getSavedElAssessmentReports({ teacherId: teacherStorageId }));
+    const hydrated = await hydrateElAssessmentReports({ teacherId: teacherStorageId, supabase });
+    setSavedElReports(hydrated);
+    return hydrated;
   }
 
   useEffect(() => {
     resetRetiredMediaQaReviewStorage();
-    refreshSavedElReports();
-  }, [teacherStorageId]);
+    let cancelled = false;
+    setSavedElReports(getSavedElAssessmentReports({ teacherId: teacherStorageId }));
+    void hydrateElAssessmentReports({ teacherId: teacherStorageId, supabase }).then(hydrated => {
+      if (!cancelled) setSavedElReports(hydrated);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [supabase, teacherStorageId]);
 
   useEffect(() => {
     if (!selectedElClassId && classes[0]?.id) {
@@ -2007,6 +2046,13 @@ export function AdminDashboardPage({
     record.classId === selectedClassId ||
     record.class_id === selectedClassId
   );
+  const classBenchmarkScopeResolution = resolveElBenchmarkReportScope({
+    records: selectedClassAttempts
+  });
+  const elBenchmarkScopeOptions = classBenchmarkScopeResolution.availableRoutes || [];
+  const activeElBenchmarkScope = elBenchmarkScopeOptions.find(scope => (
+    getBenchmarkScopeKey(scope) === selectedElBenchmarkScopeKey
+  )) || elBenchmarkScopeOptions[0] || classBenchmarkScopeResolution;
   const reportReadinessRows = [
     {
       label: "Roster scope",
@@ -2037,7 +2083,12 @@ export function AdminDashboardPage({
     { key: "uppercaseName", label: "Uppercase letter name" },
     { key: "lowercaseName", label: "Lowercase letter name" },
     { key: "uppercaseSound", label: "Uppercase letter sound" },
-    { key: "lowercaseSound", label: "Lowercase letter sound" }
+    { key: "lowercaseSound", label: "Lowercase letter sound" },
+    { key: "phonologicalAwareness", label: "Sound-awareness strands" },
+    { key: "encoding", label: "Encoding: exact + plausible" },
+    { key: "decoding", label: "Decoding: accurate + automatic" },
+    { key: "oralReadingFluency", label: "Fluency: WCPM + accuracy + prosody" },
+    { key: "advancedPhonics", label: "Advanced Phonics (supplemental)" }
   ];
 
   function openAdminQaPage(page) {
@@ -2083,10 +2134,14 @@ export function AdminDashboardPage({
         classes,
         studentId: selectedStudent.id,
         classId: selectedClassId || selectedStudent.classId || selectedStudent.class_id || "",
-        teacherId: teacherStorageId
+        teacherId: teacherStorageId,
+        benchmarkScope: activeElBenchmarkScope,
+        supabase
       });
-      refreshSavedElReports();
-      setExportNotice(`Student EL assessment Excel exported for ${report.studentName}.`);
+      await refreshSavedElReports();
+      setExportNotice(report.persistence?.durable === false
+        ? `Student EL assessment Excel exported for ${report.studentName}, but its saved-report history could not be stored. Keep the downloaded file and try again when storage is available.`
+        : `Student EL assessment Excel exported for ${report.studentName}, ${report.benchmarkScope?.label || "selected benchmark route"}.`);
     } catch (error) {
       console.error("Student EL assessment Excel export failed.", error);
       setExportNotice("Could not export the student EL assessment Excel.");
@@ -2101,10 +2156,14 @@ export function AdminDashboardPage({
         students,
         classes,
         classId: selectedClassId,
-        teacherId: teacherStorageId
+        teacherId: teacherStorageId,
+        benchmarkScope: activeElBenchmarkScope,
+        supabase
       });
-      refreshSavedElReports();
-      setExportNotice(`Class EL assessment Excel exported for ${report.className}.`);
+      await refreshSavedElReports();
+      setExportNotice(report.persistence?.durable === false
+        ? `Class EL assessment Excel exported for ${report.className}, but its saved-report history could not be stored. Keep the downloaded file and try again when storage is available.`
+        : `Class EL assessment Excel exported for ${report.className}, ${report.benchmarkScope?.label || "selected benchmark route"}.`);
     } catch (error) {
       console.error("Class EL assessment Excel export failed.", error);
       setExportNotice("Could not export the class EL assessment Excel.");
@@ -2122,10 +2181,15 @@ export function AdminDashboardPage({
     }
   }
 
-  function handleDeleteSavedElReport(reportId) {
-    deleteSavedElAssessmentReport(reportId, { teacherId: teacherStorageId });
-    refreshSavedElReports();
-    setExportNotice("Saved EL report deleted from this browser.");
+  async function handleDeleteSavedElReport(reportId) {
+    try {
+      await deleteSavedElAssessmentReport(reportId, { teacherId: teacherStorageId, supabase });
+      await refreshSavedElReports();
+      setExportNotice(supabase ? "Saved EL report deleted from this browser and cloud history." : "Saved EL report deleted from this browser.");
+    } catch (error) {
+      console.error("Saved EL assessment report delete failed.", error);
+      setExportNotice("Could not delete the saved EL report from cloud history. It was kept locally to prevent it reappearing later.");
+    }
   }
 
   const pendingSignupAccounts = pendingAccounts.filter(isPendingTeacherAccount);
@@ -2409,6 +2473,7 @@ export function AdminDashboardPage({
                 onChange={event => {
                   setSelectedElClassId(event.target.value);
                   setSelectedElStudentId("");
+                  setSelectedElBenchmarkScopeKey("");
                 }}
                 value={selectedClassId}
               >
@@ -2419,6 +2484,11 @@ export function AdminDashboardPage({
                 ))}
               </select>
             </label>
+            <ElBenchmarkScopeSelect
+              activeScope={activeElBenchmarkScope}
+              onChange={setSelectedElBenchmarkScopeKey}
+              options={elBenchmarkScopeOptions}
+            />
             {activeReportView === "individual" && (
               <label>
                 Student
@@ -2484,7 +2554,7 @@ export function AdminDashboardPage({
                     <span>
                       {report.studentName || report.className || "Unknown"} · {report.generatedAt ? new Date(report.generatedAt).toLocaleDateString() : ""}
                     </span>
-                    <small>{report.summary?.totalAssessments || 0} assessments · {report.summary?.averageAccuracy || 0}% average</small>
+                    <small>{report.benchmarkScope?.label || "Benchmark route not recorded"} · {report.summary?.totalAssessments || 0} assessments · {report.summary?.averageAccuracy || 0}% average</small>
                   </div>
                   <div className="button-row">
                     <button className="report-button" onClick={() => handleDownloadSavedElReport(report)} type="button">
@@ -2515,8 +2585,8 @@ export function AdminDashboardPage({
           <section className="teacher-report-card">
             <div className="admin-section-heading">
               <div>
-                <h4>EL Formal Assessments</h4>
-                <p className="muted-text">Exports include separate letter-name and letter-sound evidence for uppercase and lowercase responses.</p>
+                <h4>EL Formal and Benchmark Assessments</h4>
+                <p className="muted-text">Exports include letter-name and sound evidence plus provisional sound-awareness, encoding, decoding, and oral-reading-fluency profiles. Advanced Phonics remains a separate supplemental diagnostic.</p>
               </div>
             </div>
 
@@ -2528,6 +2598,7 @@ export function AdminDashboardPage({
                   onChange={event => {
                     setSelectedElClassId(event.target.value);
                     setSelectedElStudentId("");
+                    setSelectedElBenchmarkScopeKey("");
                   }}
                   value={selectedClassId}
                 >
@@ -2538,6 +2609,11 @@ export function AdminDashboardPage({
                   ))}
                 </select>
               </label>
+              <ElBenchmarkScopeSelect
+                activeScope={activeElBenchmarkScope}
+                onChange={setSelectedElBenchmarkScopeKey}
+                options={elBenchmarkScopeOptions}
+              />
               <label>
                 Student
                 <select
@@ -2565,7 +2641,7 @@ export function AdminDashboardPage({
             <div className="el-assessment-export-row">
               <article className="el-report-control-column">
                 <h5>Class Package</h5>
-                <p className="muted-text">Class-level workbook with whole-class matrices, skill summaries, and pattern detail.</p>
+                <p className="muted-text">Class-level workbook with benchmark domain matrices, descriptive evidence summaries, skill results, and supplemental pattern detail.</p>
                 <button
                   className="lp-button lp-button-primary"
                   disabled={classes.length === 0}
@@ -2589,7 +2665,7 @@ export function AdminDashboardPage({
 
               <article className="el-report-control-column">
                 <h5>Student Package</h5>
-                <p className="muted-text">Individual workbook and finished-report handoff for the selected student.</p>
+                <p className="muted-text">Individual workbook and finished-report handoff with item-level benchmark evidence and provisional placement notes.</p>
                 <button
                   className="lp-button lp-button-primary"
                   disabled={!selectedStudent?.id}
@@ -2657,7 +2733,7 @@ export function AdminDashboardPage({
                     <span>
                       {report.studentName || report.className || "Unknown"} · {report.generatedAt ? new Date(report.generatedAt).toLocaleDateString() : ""}
                     </span>
-                    <small>{report.summary?.totalAssessments || 0} assessments · {report.summary?.averageAccuracy || 0}% average</small>
+                    <small>{report.benchmarkScope?.label || "Benchmark route not recorded"} · {report.summary?.totalAssessments || 0} assessments · {report.summary?.averageAccuracy || 0}% average</small>
                   </div>
                   <div className="button-row">
                     <button className="report-button" onClick={() => handleDownloadSavedElReport(report)} type="button">

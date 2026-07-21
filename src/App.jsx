@@ -101,12 +101,16 @@ import {
   buildAssessmentAttemptRecord,
   deleteAssessmentAttemptsForStudent,
   extractMasteryFromAssessmentAttempt,
+  hydrateAssessmentAttempts,
   loadAssessmentAttempts,
+  mergeAssessmentAttemptRecords,
   mergeAssessmentAttemptIntoItemMastery,
   saveAssessmentAttempt,
   summarizeAssessmentHistory
 } from "./data/assessmentHistoryStore";
-import { deleteSavedElAssessmentReportsForStudent } from "./data/elAssessmentReportStore.js";
+import { deleteSavedClassElAssessmentReportsForStudent } from "./data/elAssessmentReportStore.js";
+import { buildElBenchmarkAttempt } from "./data/elBenchmarkAssessments.js";
+import { createElBenchmarkSession } from "./data/elBenchmarkSession.js";
 import {
   isGenericInstructionAudioPath,
   normalizeAssessmentAudioRoles
@@ -121,6 +125,9 @@ import {
   shouldShowFooterUtilityActions
 } from "./appState/appViewHelpers.js";
 import {
+  deleteElBenchmarkDraft,
+  loadElBenchmarkDraft,
+  saveElBenchmarkDraft,
   getGuidedReadingStorageKey as getGuidedReadingStorageKeyForSession,
   getSelectedClassName,
   getTeacherProfileStorageKey
@@ -145,6 +152,7 @@ import {
   clearLocalProgressForStudent,
   RESET_AREA
 } from "./utils/progressSync.js";
+import { clearLocalElAssessmentDataForStudent } from "./utils/elAssessmentReset.js";
 import { insertWithRetry, startInsertQueueFlusher } from "./utils/insertQueue.js";
 
 // dynamic mastery system
@@ -186,6 +194,11 @@ const PresentPage = lazyWithRetry(() =>
 const AdminDashboardPage = lazyWithRetry(() =>
   import("@/components/AdminDashboardPage").then(module => ({
     default: module.AdminDashboardPage
+  }))
+);
+const ELBenchmarkAssessmentPage = lazyWithRetry(() =>
+  import("./components/assessment/ELBenchmarkAssessmentPage.jsx").then(module => ({
+    default: module.ELBenchmarkAssessmentPage
   }))
 );
 
@@ -1881,6 +1894,14 @@ export default function App() {
 
   const [patternAttempt, setPatternAttempt] =
     useState(0);
+
+  // One serializable session powers every EL-aligned benchmark runner. It is
+  // bound to a student id so a saved draft can never appear for the next child
+  // selected on a shared teacher device.
+  const [elBenchmarkSession, setElBenchmarkSession] =
+    useState(null);
+  const [elBenchmarkDraftSaveFailed, setElBenchmarkDraftSaveFailed] =
+    useState(false);
   const [answerHistory, setAnswerHistory] = useState([]);
   const [assessmentHistory, setAssessmentHistory] = useState([]);
   const [guidedReadingRecords, setGuidedReadingRecords] = useState({});
@@ -1895,7 +1916,10 @@ export default function App() {
   const [adminConfirm, setAdminConfirm] = useState(null);
   const [adminConfirmBusy, setAdminConfirmBusy] = useState(false);
   const [resettingProgress, setResettingProgress] = useState(false);
+  const assessmentResetAtByStudentRef = useRef(new Map());
   const answerInFlightRef = useRef(false);
+  const letterAssessmentArchivedRef = useRef(false);
+  const patternAssessmentArchivedRef = useRef(false);
   // Guards auto-advance setTimeout callbacks from firing after endAssessment is called.
   const assessmentActiveRef = useRef(false);
   const answerHistoryRef = useRef(answerHistory);
@@ -2182,8 +2206,80 @@ export default function App() {
   }, [authReady, teacherId, teacherAccountStatus, isAdmin]);
 
   useEffect(() => {
-    setAssessmentHistory(teacherId ? loadAssessmentAttempts({ teacherId }) : []);
+    if (!teacherId) {
+      setAssessmentHistory([]);
+      return undefined;
+    }
+
+    let cancelled = false;
+    setAssessmentHistory(loadAssessmentAttempts({ teacherId }));
+    void hydrateAssessmentAttempts({
+      teacherId,
+      supabase: isSupabaseConfigured ? supabase : null
+    }).then(hydratedRecords => {
+      if (cancelled) return;
+      const resetCutoffs = assessmentResetAtByStudentRef.current;
+      const currentRecords = hydratedRecords.filter(record => {
+        const resetAt = resetCutoffs.get(String(record?.studentId || ""));
+        if (!resetAt) return true;
+        const recordTime = new Date(
+          record.updatedAt || record.completedAt || record.startedAt || ""
+        ).getTime();
+        return Number.isFinite(recordTime) && recordTime > new Date(resetAt).getTime();
+      });
+      // A cloud history read may have started before another device wrote the
+      // tombstone. Remove any pre-reset rows that this stale response briefly
+      // merged back into the teacher-level browser cache before exposing it.
+      for (const [resetStudentId, resetAt] of resetCutoffs) {
+        deleteAssessmentAttemptsForStudent({
+          teacherId,
+          studentId: resetStudentId,
+          resetAtOrBefore: resetAt
+        });
+      }
+      // Use the complete cloud/local merge returned for this live session.
+      // Reloading localStorage here could collapse a large class to the
+      // quota-fallback cache even though the cloud query succeeded.
+      setAssessmentHistory(currentRecords);
+    });
+
+    return () => {
+      cancelled = true;
+    };
   }, [teacherId]);
+
+  // A reset can arrive while another signed-in device still has this learner
+  // open. The progress synchroniser clears durable browser caches first, then
+  // emits this event so React cannot retain and later re-save the stale draft
+  // or archived attempt list from memory.
+  useEffect(() => {
+    function handleRemoteProgressHydration(event) {
+      const resetStudentId = event.detail?.resetApplied
+        ? String(event.detail?.studentId || "")
+        : "";
+      if (!resetStudentId) return;
+      const resetAt = event.detail?.rows?.find(row => row.area === RESET_AREA)?.payload?.at || "";
+      if (resetAt) assessmentResetAtByStudentRef.current.set(resetStudentId, resetAt);
+
+      setAssessmentHistory(previous => previous.filter(record => (
+        String(record?.studentId || "") !== resetStudentId
+      )));
+      setElBenchmarkSession(previous => (
+        previous?.studentId === resetStudentId ? null : previous
+      ));
+
+      if (String(studentId || "") === resetStudentId) {
+        setElBenchmarkDraftSaveFailed(false);
+        if (appView === APP_VIEWS.EL_BENCHMARK) {
+          setAppView(APP_VIEWS.EL_ASSESSMENTS);
+        }
+        setMessage("This student's progress was reset on another device. Local assessment drafts and reports were cleared.");
+      }
+    }
+
+    window.addEventListener("lp-progress-hydrated", handleRemoteProgressHydration);
+    return () => window.removeEventListener("lp-progress-hydrated", handleRemoteProgressHydration);
+  }, [appView, studentId, setAppView]);
 
   useEffect(() => {
     roundItemKeysRef.current = roundItemKeys;
@@ -2206,6 +2302,12 @@ export default function App() {
 
   function applyStudentSession(session) {
     if (!session?.token || !session?.studentId) return;
+    setLetterIndex(0);
+    setLetterAssessment([]);
+    setPatternIndex(0);
+    setPatternAssessment([]);
+    setPatternAttempt(0);
+    setElBenchmarkSession(null);
     setSessionMode("student");
     setStudentSession(session);
     setStudentId(session.studentId);
@@ -2256,6 +2358,7 @@ export default function App() {
     setStudentSession(null);
     setStudentId(null);
     setStudentName("");
+    setElBenchmarkSession(null);
     setNameSaved(false);
     setSessionMode("teacher");
     setEntryMode("teacher");
@@ -2277,6 +2380,12 @@ export default function App() {
       setSelectedClassId(null);
       setNameSaved(false);
       setGuidedReadingRecords({});
+      setLetterIndex(0);
+      setLetterAssessment([]);
+      setPatternIndex(0);
+      setPatternAssessment([]);
+      setPatternAttempt(0);
+      setElBenchmarkSession(null);
       setAppView(teacherUser ? APP_VIEWS.TEACHER_DASHBOARD : APP_VIEWS.ENTRY);
       setEntryMode(teacherUser ? "teacher" : "entry");
     }
@@ -2363,6 +2472,8 @@ export default function App() {
     setLetterAssessment([]);
     setPatternIndex(0);
     setPatternAssessment([]);
+    setPatternAttempt(0);
+    setElBenchmarkSession(null);
     setAnswerHistory([]);
     setAssessmentHistory([]);
     setGuidedReadingRecords({});
@@ -2391,6 +2502,12 @@ export default function App() {
     setGuidedReadingRecords({});
     setItemSessionSeen({});
     setCheckpointDecision(null);
+    setLetterIndex(0);
+    setLetterAssessment([]);
+    setPatternIndex(0);
+    setPatternAssessment([]);
+    setPatternAttempt(0);
+    setElBenchmarkSession(null);
     resetInitialSoundRoundQueue();
     initialSoundRoundMetaRef.current = null;
     roundItemKeysRef.current = [];
@@ -2543,6 +2660,7 @@ export default function App() {
           setPatternIndex(0);
           setPatternAssessment([]);
           setPatternAttempt(0);
+          setElBenchmarkSession(null);
           setAnswerHistory([]);
           answerHistoryRef.current = [];
           setItemMastery({});
@@ -2560,7 +2678,24 @@ export default function App() {
         const restoredRoundAnswers = Array.isArray(data.roundAnswers) ? data.roundAnswers : [];
         const restoredStudentId = data.studentId || null;
         const restoredStudentName = data.studentName || "";
-        const restoredAppView = getRestoredAppView({ restoredStudentId, storedAppView: data.appView });
+        const legacyElBenchmarkSession =
+          restoredStudentId && data.elBenchmarkSession?.studentId === restoredStudentId
+            ? data.elBenchmarkSession
+            : null;
+        const restoredElBenchmarkSession = restoredStudentId
+          ? loadElBenchmarkDraft({ teacherId, studentId: restoredStudentId }) || legacyElBenchmarkSession
+          : null;
+        if (legacyElBenchmarkSession && restoredElBenchmarkSession === legacyElBenchmarkSession) {
+          saveElBenchmarkDraft({
+            teacherId,
+            studentId: restoredStudentId,
+            session: legacyElBenchmarkSession
+          });
+        }
+        const requestedRestoredAppView = getRestoredAppView({ restoredStudentId, storedAppView: data.appView });
+        const restoredAppView = requestedRestoredAppView === APP_VIEWS.EL_BENCHMARK && !restoredElBenchmarkSession
+          ? APP_VIEWS.EL_ASSESSMENTS
+          : requestedRestoredAppView;
 
         setStudentId(restoredStudentId);
         setStudentName(restoredStudentName);
@@ -2585,11 +2720,15 @@ export default function App() {
         setMastery(data.mastery || {});
         setTotalAnswered(data.totalAnswered || 0);
         setCorrectAnswered(data.correctAnswered || 0);
-        setLetterIndex(data.letterIndex || 0);
-        setLetterAssessment(data.letterAssessment || []);
-        setPatternIndex(data.patternIndex || 0);
-        setPatternAssessment(data.patternAssessment || []);
-        setPatternAttempt(data.patternAttempt || 0);
+        // Formal assessment state is student-scoped. Old profile payloads did
+        // not carry a session owner, so only restore their letter/pattern
+        // drafts when a student is actually selected.
+        setLetterIndex(restoredStudentId ? data.letterIndex || 0 : 0);
+        setLetterAssessment(restoredStudentId && Array.isArray(data.letterAssessment) ? data.letterAssessment : []);
+        setPatternIndex(restoredStudentId ? data.patternIndex || 0 : 0);
+        setPatternAssessment(restoredStudentId && Array.isArray(data.patternAssessment) ? data.patternAssessment : []);
+        setPatternAttempt(restoredStudentId ? data.patternAttempt || 0 : 0);
+        setElBenchmarkSession(restoredElBenchmarkSession);
         const restoredAnswerHistory = restoredStudentId && Array.isArray(data.answerHistory) ? data.answerHistory : [];
         setAnswerHistory(restoredAnswerHistory);
         answerHistoryRef.current = restoredAnswerHistory;
@@ -2647,8 +2786,8 @@ export default function App() {
         patternIndex,
         patternAssessment,
         patternAttempt,
-    answerHistory: studentId ? answerHistory : [],
-    itemMastery
+        answerHistory: studentId ? answerHistory : [],
+        itemMastery
       })
     );
   }, [
@@ -2675,6 +2814,21 @@ export default function App() {
     itemMastery,
     profileStorageKey
   ]);
+
+  // Benchmark drafts are stored independently for each learner. A teacher can
+  // switch learners or sign out without one child's draft being overwritten by
+  // the next profile save; explicit discard/completion/reset removes the key.
+  useEffect(() => {
+    if (
+      !profileLoaded ||
+      sessionMode !== "teacher" ||
+      !teacherId ||
+      !studentId ||
+      elBenchmarkSession?.studentId !== studentId
+    ) return;
+    const saved = saveElBenchmarkDraft({ teacherId, studentId, session: elBenchmarkSession });
+    setElBenchmarkDraftSaveFailed(!saved);
+  }, [profileLoaded, sessionMode, teacherId, studentId, elBenchmarkSession]);
 
 
   async function checkAdminStatus(userId = teacherId) {
@@ -3066,12 +3220,34 @@ export default function App() {
 
     const ids = [selectedStudentId];
     const errors = [];
+    const studentOwnerId = adminStudents.find(row => row.id === selectedStudentId)?.teacher_id || "";
+    const assessmentOwnerIds = [...new Set([studentOwnerId, teacherId].filter(Boolean))];
+
+    // Whole-class report rows have no relational student_id, so the ordinary
+    // child-row deletion below cannot find them. Remove snapshots containing
+    // this learner while the ownership row still exists and can be resolved.
+    try {
+      for (const assessmentTeacherId of assessmentOwnerIds) {
+        await deleteSavedClassElAssessmentReportsForStudent({
+          teacherId: assessmentTeacherId,
+          studentId: selectedStudentId,
+          studentName: selectedStudentName,
+          supabase
+        });
+      }
+    } catch (error) {
+      console.error("Admin delete student report cleanup error:", error);
+      setMessage("Could not delete the student's saved whole-class assessment reports.");
+      return;
+    }
 
     for (const [tableName, columnName] of [
       ["answers", "student_id"],
       ["mastery", "student_id"],
       ["item_mastery", "student_id"],
-      ["assessment_sessions", "student_id"]
+      ["assessment_sessions", "student_id"],
+      ["assessment_attempts", "student_id"],
+      ["el_assessment_reports", "student_id"]
     ]) {
       const error = await deleteOptionalTableRows(tableName, columnName, ids);
       if (error) errors.push(error);
@@ -3090,8 +3266,22 @@ export default function App() {
       return;
     }
 
+    let localCleanupFailed = false;
+    try {
+      await clearLocalElAssessmentDataForStudent({
+        teacherId: studentOwnerId || teacherId,
+        studentId: selectedStudentId,
+        studentName: selectedStudentName
+      });
+    } catch (error) {
+      localCleanupFailed = true;
+      console.warn("Deleted student, but local EL assessment cache cleanup failed.", error);
+    }
+
     await loadAdminDashboard();
-    setMessage(`Deleted ${selectedStudentName}.`);
+    setMessage(localCleanupFailed
+      ? `Deleted ${selectedStudentName}, but this browser could not clear all cached assessment evidence. Refresh and retry while browser storage is available.`
+      : `Deleted ${selectedStudentName}.`);
   }
 
   async function adminSetTeacherSchool(teacherUserId, schoolName) {
@@ -3135,7 +3325,7 @@ export default function App() {
 
     const { data: students, error: lookupError } = await supabase
       .from("students")
-      .select("id")
+      .select("id, name, teacher_id")
       .eq("class_id", classId);
 
     if (lookupError) {
@@ -3147,12 +3337,29 @@ export default function App() {
     const studentIds = (students || []).map(row => row.id);
     const errors = [];
 
+    try {
+      for (const student of students || []) {
+        await deleteSavedClassElAssessmentReportsForStudent({
+          teacherId: student.teacher_id || teacherId,
+          studentId: student.id,
+          studentName: student.name || "",
+          supabase
+        });
+      }
+    } catch (error) {
+      console.error("Admin delete class report cleanup error:", error);
+      setMessage("Could not delete the class's saved whole-class assessment reports.");
+      return;
+    }
+
     if (studentIds.length > 0) {
       for (const [tableName, columnName] of [
         ["answers", "student_id"],
         ["mastery", "student_id"],
         ["item_mastery", "student_id"],
-        ["assessment_sessions", "student_id"]
+        ["assessment_sessions", "student_id"],
+        ["assessment_attempts", "student_id"],
+        ["el_assessment_reports", "student_id"]
       ]) {
         const error = await deleteOptionalTableRows(tableName, columnName, studentIds);
         if (error) errors.push(error);
@@ -3179,8 +3386,24 @@ export default function App() {
       return;
     }
 
+    let localCleanupFailed = false;
+    for (const student of students || []) {
+      try {
+        await clearLocalElAssessmentDataForStudent({
+          teacherId: student.teacher_id || teacherId,
+          studentId: student.id,
+          studentName: student.name || ""
+        });
+      } catch (error) {
+        localCleanupFailed = true;
+        console.warn("Deleted class, but local EL assessment cache cleanup failed.", error);
+      }
+    }
+
     await loadAdminDashboard();
-    setMessage(`Deleted ${className}.`);
+    setMessage(localCleanupFailed
+      ? `Deleted ${className}, but this browser could not clear all cached assessment evidence. Refresh and retry while browser storage is available.`
+      : `Deleted ${className}.`);
   }
 
   async function updateTeacherAccountStatus(accountId, status) {
@@ -3866,13 +4089,20 @@ export default function App() {
       setPatternIndex(0);
       setPatternAssessment([]);
       setPatternAttempt(0);
+      setElBenchmarkSession(null);
     }
   }
 
-  function resetSelectedStudentLocalAssessmentArchives(selectedStudentId = studentId) {
+  async function resetSelectedStudentLocalAssessmentArchives(
+    selectedStudentId = studentId,
+    selectedStudentName = studentName
+  ) {
     if (!selectedStudentId) return;
-    deleteAssessmentAttemptsForStudent({ teacherId, studentId: selectedStudentId, studentName });
-    deleteSavedElAssessmentReportsForStudent({ teacherId, studentId: selectedStudentId, studentName });
+    await clearLocalElAssessmentDataForStudent({
+      teacherId,
+      studentId: selectedStudentId,
+      studentName: selectedStudentName
+    });
     setAssessmentHistory(loadAssessmentAttempts({ teacherId }));
   }
 
@@ -3896,6 +4126,22 @@ export default function App() {
 
     const errors = [];
 
+    // A whole-class snapshot is owned by the teacher/class and therefore has
+    // no relational student_id for the generic deletion loop to match.
+    try {
+      await deleteSavedClassElAssessmentReportsForStudent({
+        teacherId,
+        studentId,
+        studentName,
+        supabase
+      });
+    } catch (error) {
+      setResettingProgress(false);
+      console.error("Reset student whole-class report cleanup error:", error);
+      setMessage("Could not reset this student's saved whole-class assessment reports.");
+      return;
+    }
+
     for (const tableName of [
       "answers",
       "mastery",
@@ -3917,7 +4163,13 @@ export default function App() {
     }
 
     resetCurrentStudentLocalProgress({ clearFormalAssessments: true });
-    resetSelectedStudentLocalAssessmentArchives(studentId);
+    let resetWarning = "";
+    try {
+      await resetSelectedStudentLocalAssessmentArchives(studentId, studentName);
+    } catch (error) {
+      console.warn("Cloud progress was reset, but local EL assessment cache cleanup failed.", error);
+      resetWarning = "Progress was reset in the cloud, but this browser could not clear all cached assessment evidence. Refresh and retry while browser storage is available.";
+    }
     // Clear the gamified progress too (EL Quest, learn games, phonics, cvc,
     // story quests, guided reading, daily mission, profile) locally + queue, so
     // the now-deleted cloud rows can't forward-merge straight back on next load.
@@ -3934,7 +4186,7 @@ export default function App() {
       }, { onConflict: "student_id,area,key" });
     } catch (tombstoneError) {
       console.warn("Could not write reset tombstone (other devices may not auto-clear).", tombstoneError);
-      setMessage("Progress was reset on this device, but the reset could not sync to the cloud - other devices may still show old progress. Please retry the reset while online.");
+      resetWarning = "Progress was reset on this device, but the reset could not sync to the cloud - other devices may still show old progress. Please retry the reset while online.";
     }
     if (import.meta.env.DEV) {
       console.debug("[assessment-reset] Reset all progress for selected student", {
@@ -3944,7 +4196,7 @@ export default function App() {
     }
     setResetProgressDialogOpen(false);
     setAppView(APP_VIEWS.OVERVIEW);
-    setMessage(`Progress reset for ${studentName || "student"}.`);
+    setMessage(resetWarning || `Progress reset for ${studentName || "student"}.`);
 
     await loadStudents(selectedClassId);
     await loadClassDashboard(selectedClassId);
@@ -3953,6 +4205,17 @@ export default function App() {
 
   async function loadStudentProgress(selectedStudentId, selectedStudentName) {
     answerInFlightRef.current = false;
+    if (elBenchmarkSession?.studentId) {
+      saveElBenchmarkDraft({
+        teacherId,
+        studentId: elBenchmarkSession.studentId,
+        session: elBenchmarkSession
+      });
+    }
+    const restoredElBenchmarkSession = loadElBenchmarkDraft({
+      teacherId,
+      studentId: selectedStudentId
+    });
     // Synchronously hard-reset every piece of in-flight assessment state
     // BEFORE any await, so nothing from the previously selected student can
     // render against the new one while their data loads.
@@ -3970,6 +4233,12 @@ export default function App() {
     setItemMastery({});
     setAnswerHistory([]);
     answerHistoryRef.current = [];
+    setLetterIndex(0);
+    setLetterAssessment([]);
+    setPatternIndex(0);
+    setPatternAssessment([]);
+    setPatternAttempt(0);
+    setElBenchmarkSession(restoredElBenchmarkSession);
     const progressSyncSession = {
       mode: "teacher",
       studentId: selectedStudentId,
@@ -5445,18 +5714,34 @@ export default function App() {
     }));
   }
 
-  async function persistCompletedAssessmentAttempt(attemptRecord, { mergeIntoMastery = false } = {}) {
+  async function persistCompletedAssessmentAttempt(
+    attemptRecord,
+    { mergeIntoMastery = false, deriveMastery = true } = {}
+  ) {
     if (!attemptRecord?.studentId) return null;
 
-    const masterySnapshot = extractMasteryFromAssessmentAttempt(attemptRecord);
-    const enrichedAttempt = {
-      ...attemptRecord,
-      masteredItems: attemptRecord.masteredItems?.length
-        ? attemptRecord.masteredItems
-        : masterySnapshot.masteredItems.map(row => row.itemKey),
-      developingItems: masterySnapshot.developingItems.map(row => row.itemKey),
-      needsSupportItems: masterySnapshot.needsSupportItems.map(row => row.itemKey)
-    };
+    // Adaptive checkpoints use the app's mastery thresholds. The new
+    // EL-aligned benchmark suite is descriptive/provisional because the
+    // supplied overview does not include official cut scores; those attempts
+    // must never inherit the generic 80/60 mastery labels.
+    const masterySnapshot = deriveMastery
+      ? extractMasteryFromAssessmentAttempt(attemptRecord)
+      : null;
+    const enrichedAttempt = deriveMastery
+      ? {
+          ...attemptRecord,
+          masteredItems: attemptRecord.masteredItems?.length
+            ? attemptRecord.masteredItems
+            : masterySnapshot.masteredItems.map(row => row.itemKey),
+          developingItems: masterySnapshot.developingItems.map(row => row.itemKey),
+          needsSupportItems: masterySnapshot.needsSupportItems.map(row => row.itemKey)
+        }
+      : {
+          ...attemptRecord,
+          masteredItems: attemptRecord.masteredItems || [],
+          developingItems: attemptRecord.developingItems || [],
+          needsSupportItems: attemptRecord.needsSupportItems || []
+        };
 
     if (mergeIntoMastery) {
       setItemMastery(prev => mergeAssessmentAttemptIntoItemMastery(prev, enrichedAttempt));
@@ -5464,13 +5749,20 @@ export default function App() {
 
     try {
       const savePromise = saveAssessmentAttempt(enrichedAttempt, { teacherId, supabase });
-      setAssessmentHistory(loadAssessmentAttempts({ teacherId }));
-      const records = await savePromise;
-      setAssessmentHistory(records);
-      return enrichedAttempt;
+      setAssessmentHistory(previous => mergeAssessmentAttemptRecords(
+        previous,
+        loadAssessmentAttempts({ teacherId })
+      ));
+      const saveResult = await savePromise;
+      if (!saveResult.durable) {
+        console.warn("Assessment attempt was not durably saved to either local or cloud storage.", saveResult);
+        return null;
+      }
+      setAssessmentHistory(previous => mergeAssessmentAttemptRecords(previous, saveResult.records));
+      return { attempt: enrichedAttempt, saveResult };
     } catch (error) {
       console.warn("Assessment attempt archive save failed.", error);
-      return enrichedAttempt;
+      return null;
     }
   }
 
@@ -6580,15 +6872,196 @@ export default function App() {
     exampleWord: item.examples[(patternAttempt + index) % item.examples.length]
   }));
 
+  function startElBenchmarkAssessment(assessmentId, options = {}) {
+    if (!studentId) return;
+    if (elBenchmarkSession?.studentId === studentId) {
+      setMessage("Resume or discard the saved EL benchmark draft before starting another one.");
+      return;
+    }
+
+    try {
+      const startedAt = new Date().toISOString();
+      const sessionToken = globalThis.crypto?.randomUUID?.() ||
+        `${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+      const createdSession = createElBenchmarkSession({
+        assessmentHistory,
+        assessmentId,
+        grade: options.grade || "K",
+        window: options.window || "BOY",
+        requestedStart: options.startMicrophase || "",
+        ownership: {
+          studentId,
+          studentName,
+          classId: selectedClassId || "",
+          teacherId: teacherId || ""
+        },
+        startedAt,
+        sessionToken
+      });
+      const nextSession = {
+        ...createdSession,
+        prerequisiteReview: options.prerequisiteReview || null
+      };
+      const draftSaved = saveElBenchmarkDraft({ teacherId, studentId, session: nextSession });
+      setElBenchmarkDraftSaveFailed(!draftSaved);
+      setElBenchmarkSession(nextSession);
+      setMessage("");
+      setAppView(APP_VIEWS.EL_BENCHMARK);
+    } catch (error) {
+      console.warn("Could not start the EL benchmark assessment.", error);
+      setMessage(error instanceof Error ? error.message : "This assessment route could not be started.");
+    }
+  }
+
+  function updateElBenchmarkSession(nextSession) {
+    if (!nextSession || nextSession.studentId !== studentId) return;
+    const draftSaved = saveElBenchmarkDraft({ teacherId, studentId, session: nextSession });
+    setElBenchmarkDraftSaveFailed(!draftSaved);
+    setElBenchmarkSession(nextSession);
+  }
+
+  function resumeElBenchmarkAssessment() {
+    if (!elBenchmarkSession || elBenchmarkSession.studentId !== studentId) {
+      setElBenchmarkSession(null);
+      setMessage("That saved benchmark did not belong to the selected student.");
+      return;
+    }
+    setMessage("");
+    setAppView(APP_VIEWS.EL_BENCHMARK);
+  }
+
+  function discardElBenchmarkDraft() {
+    deleteElBenchmarkDraft({ teacherId, studentId });
+    setElBenchmarkDraftSaveFailed(false);
+    setElBenchmarkSession(null);
+    setMessage("");
+    if (appView === APP_VIEWS.EL_BENCHMARK) setAppView(APP_VIEWS.EL_ASSESSMENTS);
+  }
+
+  async function archiveElBenchmarkSession(nextSession) {
+    if (!nextSession || nextSession.studentId !== studentId) return null;
+    const administrationStatus = nextSession.administrationStatus || nextSession.status || "partial";
+    const snapshotAt = nextSession.completedAt || nextSession.discontinuedAt || nextSession.savedAt || new Date().toISOString();
+    const attempt = buildElBenchmarkAttempt({
+      ...nextSession,
+      status: administrationStatus,
+      administrationStatus,
+      completedAt: snapshotAt,
+      updatedAt: nextSession.updatedAt || snapshotAt
+    }, {
+      studentId,
+      studentName,
+      classId: selectedClassId || nextSession.classId || "",
+      teacherId: teacherId || nextSession.teacherId || "",
+      startedAt: nextSession.startedAt || snapshotAt,
+      completedAt: snapshotAt
+    });
+    const persistence = await persistCompletedAssessmentAttempt(attempt, { deriveMastery: false });
+    return persistence ? { attempt, persistence: persistence.saveResult } : null;
+  }
+
+  async function saveElBenchmarkPartialAndExit(nextSession) {
+    const partialSession = {
+      ...nextSession,
+      status: "partial",
+      administrationStatus: "partial"
+    };
+    const draftSaved = saveElBenchmarkDraft({ teacherId, studentId, session: partialSession });
+    setElBenchmarkDraftSaveFailed(!draftSaved);
+    setElBenchmarkSession(partialSession);
+    const archiveResult = await archiveElBenchmarkSession(partialSession);
+    if (!draftSaved && !archiveResult) {
+      setMessage("This evidence could not be saved on this device or to the secure archive. Keep this screen open and try Save partial & exit again.");
+      return;
+    }
+    setMessage(draftSaved
+      ? "Partial benchmark evidence saved. You can resume this draft from the assessment hub."
+      : "Partial evidence was archived, but this device could not keep a resumable draft.");
+    setAppView(APP_VIEWS.EL_ASSESSMENTS);
+  }
+
+  async function finishElBenchmarkAssessment(nextSession) {
+    const completedSession = {
+      ...nextSession,
+      status: "completed",
+      administrationStatus: "completed"
+    };
+    const archiveResult = await archiveElBenchmarkSession(completedSession);
+    const cloudArchiveRequired = isSupabaseConfigured && teacherId !== "local";
+    if (!archiveResult || (cloudArchiveRequired && !archiveResult.persistence.cloudSaved)) {
+      const recoverySession = {
+        ...completedSession,
+        status: "in_progress",
+        administrationStatus: "in_progress",
+        completedAt: "",
+        updatedAt: new Date().toISOString()
+      };
+      const recoverySaved = saveElBenchmarkDraft({ teacherId, studentId, session: recoverySession });
+      setElBenchmarkDraftSaveFailed(!recoverySaved);
+      setElBenchmarkSession(recoverySession);
+      setMessage(archiveResult
+        ? "The completed evidence is safe on this device, but cloud archiving was not confirmed. The draft has been retained; reconnect and try Complete assessment again."
+        : "The completed evidence could not be archived, so it has not been cleared. Keep this assessment open and try Complete assessment again.");
+      return;
+    }
+    deleteElBenchmarkDraft({ teacherId, studentId });
+    setElBenchmarkDraftSaveFailed(false);
+    setElBenchmarkSession(null);
+    setMessage("Benchmark evidence saved to this student's reports.");
+    setAppView(APP_VIEWS.EL_ASSESSMENTS);
+  }
+
+  async function discontinueElBenchmarkAssessment(nextSession) {
+    const discontinuedSession = {
+      ...nextSession,
+      status: "discontinued",
+      administrationStatus: "discontinued"
+    };
+    const archiveResult = await archiveElBenchmarkSession(discontinuedSession);
+    const cloudArchiveRequired = isSupabaseConfigured && teacherId !== "local";
+    if (!archiveResult || (cloudArchiveRequired && !archiveResult.persistence.cloudSaved)) {
+      const recoverySession = {
+        ...discontinuedSession,
+        status: "in_progress",
+        administrationStatus: "in_progress",
+        discontinuedAt: "",
+        updatedAt: new Date().toISOString()
+      };
+      const recoverySaved = saveElBenchmarkDraft({ teacherId, studentId, session: recoverySession });
+      setElBenchmarkDraftSaveFailed(!recoverySaved);
+      setElBenchmarkSession(recoverySession);
+      setMessage(archiveResult
+        ? "The discontinued evidence is safe on this device, but cloud archiving was not confirmed. The draft has been retained; reconnect and try Discontinue assessment again."
+        : "The discontinued evidence could not be archived, so it has not been cleared. Keep this assessment open and try Discontinue assessment again.");
+      return;
+    }
+    deleteElBenchmarkDraft({ teacherId, studentId });
+    setElBenchmarkDraftSaveFailed(false);
+    setElBenchmarkSession(null);
+    setMessage("Discontinued benchmark evidence saved without counting unadministered items as incorrect.");
+    setAppView(APP_VIEWS.EL_ASSESSMENTS);
+  }
+
+  function returnFromElBenchmarkAssessment() {
+    setMessage("Draft auto-saved on this device. Use Resume draft to continue.");
+    setAppView(APP_VIEWS.EL_ASSESSMENTS);
+  }
+
   function startAdvancedPhonicsAssessment() {
     setPatternIndex(0);
     setPatternAssessment([]);
     setPatternAttempt(attempt => attempt + 1);
+    patternAssessmentArchivedRef.current = false;
     setAppView(APP_VIEWS.ADVANCED_PHONICS);
   }
 
+  function startLetterAssessment() {
+    setAppView(APP_VIEWS.LETTERS);
+  }
+
   function archivePatternAssessment(nextAssessment) {
-    if (!studentId || nextAssessment.length < patternItems.length) return;
+    if (!studentId || nextAssessment.length < patternItems.length || patternAssessmentArchivedRef.current) return;
+    patternAssessmentArchivedRef.current = true;
     const completedAt = new Date().toISOString();
     const patternStats = nextAssessment.map(item => {
       const correct = Number(Boolean(item.soundCorrect)) + Number(Boolean(item.wordCorrect));
@@ -6698,19 +7171,19 @@ export default function App() {
       wordCorrect
     );
 
-    setPatternAssessment(prev => {
-      const nextAssessment = [
-        ...prev,
-        {
-          pattern: current.pattern,
-          exampleWord: current.exampleWord,
-          soundCorrect,
-          wordCorrect
-        }
-      ];
-      archivePatternAssessment(nextAssessment);
-      return nextAssessment;
-    });
+    // Keep persistence outside the React state updater. React may replay an
+    // updater in development; a network write inside it can archive twice.
+    const nextAssessment = [
+      ...patternAssessment,
+      {
+        pattern: current.pattern,
+        exampleWord: current.exampleWord,
+        soundCorrect,
+        wordCorrect
+      }
+    ];
+    setPatternAssessment(nextAssessment);
+    archivePatternAssessment(nextAssessment);
 
     setPatternIndex(prev => prev + 1);
   }
@@ -6719,6 +7192,7 @@ export default function App() {
     setPatternIndex(0);
     setPatternAssessment([]);
     setPatternAttempt(attempt => attempt + 1);
+    patternAssessmentArchivedRef.current = false;
   }
 
   function recordLetterResult(knowsName, knowsSound) {
@@ -6741,19 +7215,17 @@ export default function App() {
       knowsSound
     );
 
-    setLetterAssessment(prev => {
-      const nextAssessment = [
-        ...prev,
-        {
-          letter: current.display,
-          type: current.type,
-          knowsName,
-          knowsSound
-        }
-      ];
-      archiveLetterAssessment(nextAssessment);
-      return nextAssessment;
-    });
+    const nextAssessment = [
+      ...letterAssessment,
+      {
+        letter: current.display,
+        type: current.type,
+        knowsName,
+        knowsSound
+      }
+    ];
+    setLetterAssessment(nextAssessment);
+    archiveLetterAssessment(nextAssessment);
 
     setLetterIndex(prev => prev + 1);
   }
@@ -6761,10 +7233,12 @@ export default function App() {
   function resetLetterAssessment() {
     setLetterIndex(0);
     setLetterAssessment([]);
+    letterAssessmentArchivedRef.current = false;
   }
 
   function archiveLetterAssessment(nextAssessment) {
-    if (!studentId || nextAssessment.length < letterItems.length) return;
+    if (!studentId || nextAssessment.length < letterItems.length || letterAssessmentArchivedRef.current) return;
+    letterAssessmentArchivedRef.current = true;
     const completedAt = new Date().toISOString();
     const questionRecords = nextAssessment.flatMap((item, index) => {
       const letter = normalizeItemKey(item.letter);
@@ -7287,14 +7761,14 @@ export default function App() {
     downloadBlob(blob, `${safeName}_reading_data_${today}.csv`);
   }
 
-  async function exportStudentAssessmentWorkbook() {
+  async function exportStudentAssessmentWorkbook(benchmarkScope = null) {
     if (!studentId) {
       setMessage("Choose a student before exporting the student Excel report.");
       return;
     }
     try {
       const { exportStudentElAssessmentExcel } = await importWithRetry(() => import("./utils/exportElAssessmentExcel.js"));
-      await exportStudentElAssessmentExcel({
+      const report = await exportStudentElAssessmentExcel({
         assessmentHistory,
         students: [
           ...studentList,
@@ -7308,9 +7782,13 @@ export default function App() {
         studentId,
         classId: selectedClassId || "",
         teacherId: teacherId || "local",
-        guidedReadingRecords
+        guidedReadingRecords,
+        benchmarkScope,
+        supabase: isSupabaseConfigured ? supabase : null
       });
-      setMessage("Student Excel report exported.");
+      setMessage(report.persistence?.durable === false
+        ? "Student Excel report exported, but its saved-report history could not be stored. Keep the downloaded file and try again when storage is available."
+        : "Student Excel report exported.");
     } catch (error) {
       console.error("Student Excel report export failed:", error);
       setMessage("Could not export the student Excel report.");
@@ -7751,9 +8229,22 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
   }
 
   function switchStudent() {
+    if (elBenchmarkSession?.studentId) {
+      saveElBenchmarkDraft({
+        teacherId,
+        studentId: elBenchmarkSession.studentId,
+        session: elBenchmarkSession
+      });
+    }
     setNameSaved(false);
     setStudentId(null);
     setStudentName("");
+    setLetterIndex(0);
+    setLetterAssessment([]);
+    setPatternIndex(0);
+    setPatternAssessment([]);
+    setPatternAttempt(0);
+    setElBenchmarkSession(null);
     setGuidedReadingRecords({});
     setCurrentQuestion(null);
     setFeedback(null);
@@ -8344,6 +8835,7 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
               assessmentHistory={assessmentHistory}
               dashboardMode="admin"
               teacherId={teacherId}
+              supabase={isSupabaseConfigured ? supabase : null}
               message={message}
             />
           </Suspense>
@@ -8442,10 +8934,35 @@ Result: ${item.isCorrect ? "Correct" : "Incorrect"}`;
       {appView === APP_VIEWS.EL_ASSESSMENTS && nameSaved && (
         <PageBoundary resetKey={`el-assessments-${studentId}`}>
           <ELAssessmentsPage
+            studentId={studentId}
             studentName={studentName}
-            startLetterAssessment={() => setAppView(APP_VIEWS.LETTERS)}
+            startLetterAssessment={startLetterAssessment}
             startAdvancedPhonicsAssessment={startAdvancedPhonicsAssessment}
+            startElBenchmarkAssessment={startElBenchmarkAssessment}
+            resumeElBenchmarkAssessment={resumeElBenchmarkAssessment}
+            discardElBenchmarkDraft={discardElBenchmarkDraft}
+            elBenchmarkDraft={elBenchmarkSession?.studentId === studentId ? elBenchmarkSession : null}
+            assessmentHistory={assessmentHistory.filter(record => record.studentId === studentId)}
           />
+        </PageBoundary>
+      )}
+
+      {appView === APP_VIEWS.EL_BENCHMARK && nameSaved && elBenchmarkSession?.studentId === studentId && (
+        <PageBoundary resetKey={`el-benchmark-${studentId}-${elBenchmarkSession.sessionId}`}>
+          <Suspense fallback={<LazyPageFallback label="Loading EL benchmark..." />}>
+            <ELBenchmarkAssessmentPage
+              session={elBenchmarkSession}
+              draftSaveFailed={elBenchmarkDraftSaveFailed}
+              onSessionChange={updateElBenchmarkSession}
+              onComplete={finishElBenchmarkAssessment}
+              onSaveAndExit={nextSession => (
+                nextSession?.status === "discontinued"
+                  ? discontinueElBenchmarkAssessment(nextSession)
+                  : saveElBenchmarkPartialAndExit(nextSession)
+              )}
+              onCancel={returnFromElBenchmarkAssessment}
+            />
+          </Suspense>
         </PageBoundary>
       )}
 

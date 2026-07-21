@@ -28,6 +28,18 @@ import { addQuestionFlag } from "../data/questionFlagStore.js";
 import { AssessmentAudioButton } from "./assessment/AssessmentAudioButton.jsx";
 import { HfwLetterBuildPanel } from "./assessment/HfwLetterBuildPanel.jsx";
 import { importWithRetry, lazyWithRetry } from "../utils/lazyWithRetry.js";
+import {
+  EL_BENCHMARK_CATALOG,
+  EL_BENCHMARK_IDS,
+  EL_DECODING_MICROPHASES,
+  listElBenchmarkRoutes
+} from "../data/elBenchmarkAssessments.js";
+import {
+  findLatestElBenchmarkAttempt,
+  getElBenchmarkPrerequisiteStatus,
+  isCompletedElBenchmarkRouteEvidence
+} from "../data/elBenchmarkSession.js";
+import "../styles/el-assessment-hub.css";
 
 export { AuthPage } from "./AuthPage.jsx";
 
@@ -1486,25 +1498,421 @@ export function SkillsProgressPage({
   );
 }
 
+const EL_WINDOW_LABELS = Object.freeze({ BOY: "Beginning of year", MOY: "Middle of year", EOY: "End of year" });
+
+function formatBenchmarkMinutes(value, assessmentId = "", grade = "") {
+  if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) {
+    if (grade === "1") return "5–10 min";
+    if (grade === "2") return "1–5 min";
+    if (grade === "K") return "Optional in Kindergarten";
+  }
+  if (Number.isFinite(Number(value))) return `About ${Number(value)} min`;
+  const minimum = Number(value?.minimum);
+  const maximum = Number(value?.maximum);
+  if (Number.isFinite(minimum) && Number.isFinite(maximum)) {
+    return minimum === maximum ? `About ${minimum} min` : `${minimum}-${maximum} min`;
+  }
+  return "Teacher paced";
+}
+
+function getElPathGuidance(grade, windowName) {
+  if (grade === "K") {
+    if (windowName === "BOY") {
+      return "Letter Name & Sound → Sound Awareness. Encoding and Decoding are not routine at this window.";
+    }
+    return "Letter Name & Sound → Sound Awareness. Add Encoding → Decoding only when letter sounds are secure.";
+  }
+  return "Encoding → Decoding → Fluency → Sound Awareness. Use Letter Name & Sound when earlier evidence indicates it is needed.";
+}
+
+function getBenchmarkRecommendation(assessmentId, grade, windowName) {
+  if (assessmentId === EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS) {
+    return { label: "Recommended", tone: "recommended", detail: "One-to-one oral check at every benchmark window." };
+  }
+  if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY && grade === "K") {
+    return { label: "Optional in K", tone: "optional", detail: "Not on the routine Kindergarten path; use only when decoding evidence supports it." };
+  }
+  if ([EL_BENCHMARK_IDS.ENCODING, EL_BENCHMARK_IDS.DECODING].includes(assessmentId) && grade === "K") {
+    if (windowName === "BOY") {
+      return { label: "Not routine", tone: "as-needed", detail: "Begin with letter and oral sound evidence." };
+    }
+    return { label: "Prerequisite", tone: "optional", detail: "Use only after the student accurately demonstrates the taught letter sounds." };
+  }
+  if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) {
+    return { label: "After Decoding", tone: "recommended", detail: "Begin at the last decoding band read accurately and automatically." };
+  }
+  if (assessmentId === EL_BENCHMARK_IDS.DECODING) {
+    return { label: "After Encoding", tone: "recommended", detail: "Start at the encoding-indicated band and retain automaticity evidence." };
+  }
+  return { label: "Recommended", tone: "recommended", detail: "Use the selected grade and benchmark window route." };
+}
+
+function formatAttemptStatus(attempt) {
+  if (!attempt) return "Not assessed";
+  const status = attempt.administrationStatus || attempt.status || "recorded";
+  return status.replace(/_/g, " ").replace(/^\w/, letter => letter.toUpperCase());
+}
+
+function humanizeBenchmarkKey(value = "") {
+  return String(value || "").replace(/_/g, " ").replace(/\b\w/g, letter => letter.toUpperCase());
+}
+
 export function ELAssessmentsPage({
+  studentId,
   studentName,
   startLetterAssessment,
-  startAdvancedPhonicsAssessment
+  startAdvancedPhonicsAssessment,
+  startElBenchmarkAssessment,
+  resumeElBenchmarkAssessment,
+  discardElBenchmarkDraft,
+  elBenchmarkDraft = null,
+  assessmentHistory = []
 }) {
+  const [grade, setGrade] = useState(elBenchmarkDraft?.grade || "K");
+  const [windowName, setWindowName] = useState(elBenchmarkDraft?.window || "BOY");
+  const [pendingStart, setPendingStart] = useState(null);
+  const [prerequisiteReason, setPrerequisiteReason] = useState("");
+  const [prerequisiteConfirmed, setPrerequisiteConfirmed] = useState(false);
+  const routes = useMemo(() => listElBenchmarkRoutes(), []);
+  const selectedRoute = useMemo(() => routes.find(route => (
+    route.grade === grade && route.window === windowName
+  )), [grade, routes, windowName]);
+  const latestByAssessment = useMemo(() => Object.fromEntries(
+    EL_BENCHMARK_CATALOG.map(entry => [entry.id, findLatestElBenchmarkAttempt({
+      assessmentHistory,
+      studentId,
+      assessmentId: entry.id,
+      grade,
+      window: windowName
+    })])
+  ), [assessmentHistory, grade, studentId, windowName]);
+  const completedHistory = useMemo(() => (
+    assessmentHistory.filter(isCompletedElBenchmarkRouteEvidence)
+  ), [assessmentHistory]);
+  const latestCompletedByAssessment = useMemo(() => Object.fromEntries(
+    EL_BENCHMARK_CATALOG.map(entry => [entry.id, findLatestElBenchmarkAttempt({
+      assessmentHistory: completedHistory,
+      studentId,
+      assessmentId: entry.id,
+      grade,
+      window: windowName
+    })])
+  ), [completedHistory, grade, studentId, windowName]);
+  const draftCatalogEntry = elBenchmarkDraft
+    ? EL_BENCHMARK_CATALOG.find(entry => entry.id === elBenchmarkDraft.assessmentId)
+    : null;
+  const decodingBandOptions = useMemo(() => {
+    const startIndex = EL_DECODING_MICROPHASES.findIndex(row => row.id === selectedRoute?.rangeStart);
+    const endIndex = EL_DECODING_MICROPHASES.findIndex(row => row.id === selectedRoute?.rangeEnd);
+    if (startIndex < 0 || endIndex < startIndex) return [];
+    return EL_DECODING_MICROPHASES.slice(startIndex, endIndex + 1);
+  }, [selectedRoute]);
+  const latestEncoding = latestCompletedByAssessment[EL_BENCHMARK_IDS.ENCODING];
+  const confirmedEncodingIndication = latestEncoding?.confirmedPlacement?.candidateMicrophase ||
+    latestEncoding?.confirmedPlacement?.microphase || "";
+  const provisionalEncodingIndication = latestEncoding?.candidatePlacement?.candidateMicrophase ||
+    latestEncoding?.candidatePlacement?.microphase || "";
+  const encodingIndication = confirmedEncodingIndication || provisionalEncodingIndication;
+  const encodingIndicationSource = confirmedEncodingIndication
+    ? "confirmed_encoding_placement"
+    : provisionalEncodingIndication
+      ? "provisional_encoding_indication"
+      : "grade_window_anchor";
+  const latestDecoding = latestCompletedByAssessment[EL_BENCHMARK_IDS.DECODING];
+  const savedFluencyHandoff = latestDecoding?.metrics?.fluencyStartMicrophase ||
+    latestDecoding?.fluencyStartMicrophase ||
+    latestDecoding?.confirmedPlacement?.fluencyStartMicrophase ||
+    null;
+  const fluencyIndication = String(
+    typeof savedFluencyHandoff === "string"
+      ? savedFluencyHandoff
+      : savedFluencyHandoff?.microphase || savedFluencyHandoff?.id || ""
+  );
+  const allowedStartIds = new Set(decodingBandOptions.map(row => row.id));
+  const initialDecodingIndication = allowedStartIds.has(encodingIndication) ? encodingIndication : "";
+  const initialFluencyIndication = allowedStartIds.has(fluencyIndication) ? fluencyIndication : "";
+  const [decodingStart, setDecodingStart] = useState(
+    initialDecodingIndication || selectedRoute?.expectedMicrophase || decodingBandOptions[0]?.id || "middle_pre"
+  );
+  const [decodingStartSource, setDecodingStartSource] = useState(
+    initialDecodingIndication ? encodingIndicationSource : "grade_window_anchor"
+  );
+  const [fluencyStart, setFluencyStart] = useState(
+    initialFluencyIndication || selectedRoute?.expectedMicrophase || decodingBandOptions[0]?.id || "middle_pre"
+  );
+  const [fluencyStartSource, setFluencyStartSource] = useState(
+    initialFluencyIndication ? "decoding_fluency_handoff" : "grade_window_anchor"
+  );
+
+  useEffect(() => {
+    const allowed = new Set(decodingBandOptions.map(row => row.id));
+    const indicated = allowed.has(encodingIndication) ? encodingIndication : "";
+    setDecodingStart(indicated || selectedRoute?.expectedMicrophase || decodingBandOptions[0]?.id || "middle_pre");
+    setDecodingStartSource(indicated ? encodingIndicationSource : "grade_window_anchor");
+  }, [decodingBandOptions, encodingIndication, encodingIndicationSource, selectedRoute?.expectedMicrophase]);
+
+  useEffect(() => {
+    const allowed = new Set(decodingBandOptions.map(row => row.id));
+    const indicated = allowed.has(fluencyIndication) ? fluencyIndication : "";
+    setFluencyStart(indicated || selectedRoute?.expectedMicrophase || decodingBandOptions[0]?.id || "middle_pre");
+    setFluencyStartSource(indicated ? "decoding_fluency_handoff" : "grade_window_anchor");
+  }, [decodingBandOptions, fluencyIndication, selectedRoute?.expectedMicrophase]);
+
+  useEffect(() => {
+    setPendingStart(null);
+    setPrerequisiteReason("");
+    setPrerequisiteConfirmed(false);
+  }, [grade, windowName]);
+
+  const prerequisiteFor = assessmentId => {
+    const baseStatus = getElBenchmarkPrerequisiteStatus({
+      assessmentHistory,
+      studentId,
+      assessmentId,
+      grade,
+      window: windowName
+    });
+    if (assessmentId === EL_BENCHMARK_IDS.DECODING) {
+      const allowed = decodingBandOptions.some(row => row.id === confirmedEncodingIndication);
+      if (confirmedEncodingIndication && !allowed) {
+        return {
+          ...baseStatus,
+          state: "override",
+          code: "confirmed_encoding_outside_selected_route",
+          message: "The confirmed Encoding band is outside this grade/window route. Record why a different in-range start is appropriate."
+        };
+      }
+      if (
+        confirmedEncodingIndication &&
+        decodingStartSource === "teacher_selected" &&
+        decodingStart !== confirmedEncodingIndication
+      ) {
+        return {
+          ...baseStatus,
+          state: "override",
+          code: "teacher_changed_confirmed_encoding_start",
+          message: `Encoding indicated ${humanizeBenchmarkKey(confirmedEncodingIndication)}. Record why ${humanizeBenchmarkKey(decodingStart)} is the better Decoding start.`
+        };
+      }
+    }
+    if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) {
+      const allowed = decodingBandOptions.some(row => row.id === fluencyIndication);
+      if (fluencyIndication && !allowed) {
+        return {
+          ...baseStatus,
+          state: "override",
+          code: "decoding_fluency_handoff_outside_selected_route",
+          message: "The completed Decoding handoff is outside this grade/window route. Record why a different in-range Fluency start is appropriate."
+        };
+      }
+      if (
+        fluencyIndication &&
+        fluencyStartSource === "teacher_selected" &&
+        fluencyStart !== fluencyIndication
+      ) {
+        return {
+          ...baseStatus,
+          state: "override",
+          code: "teacher_changed_decoding_fluency_handoff",
+          message: `Decoding indicated ${humanizeBenchmarkKey(fluencyIndication)}. Record why ${humanizeBenchmarkKey(fluencyStart)} is the better Fluency start.`
+        };
+      }
+    }
+    return baseStatus;
+  };
+
+  const launchAssessment = (entry, prerequisite, reason = "") => {
+    const teacherReviewed = prerequisite.state !== "ready" && Boolean(reason.trim());
+    const useEncodingProvenance = entry.id === EL_BENCHMARK_IDS.DECODING &&
+      decodingStartSource === "confirmed_encoding_placement" &&
+      decodingStart === confirmedEncodingIndication;
+    const useFluencyProvenance = entry.id === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY &&
+      fluencyStartSource === "decoding_fluency_handoff" &&
+      fluencyStart === fluencyIndication;
+    const selectedStart = entry.id === EL_BENCHMARK_IDS.DECODING
+      ? (useEncodingProvenance ? "" : decodingStart)
+      : entry.id === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY
+        ? (useFluencyProvenance ? "" : fluencyStart)
+        : "";
+    startElBenchmarkAssessment?.(entry.id, {
+      grade,
+      window: windowName,
+      startMicrophase: selectedStart,
+      prerequisiteReview: {
+        state: prerequisite.state,
+        code: prerequisite.code,
+        evidenceAttemptId: prerequisite.evidenceAttemptId || "",
+        teacherConfirmed: teacherReviewed,
+        overrideReason: reason.trim(),
+        reviewedAt: teacherReviewed ? new Date().toISOString() : ""
+      }
+    });
+    setPendingStart(null);
+    setPrerequisiteReason("");
+    setPrerequisiteConfirmed(false);
+  };
+
+  const requestAssessmentStart = entry => {
+    const prerequisite = prerequisiteFor(entry.id);
+    if (prerequisite.state === "ready") {
+      launchAssessment(entry, prerequisite);
+      return;
+    }
+    setPendingStart({ entry, prerequisite });
+    setPrerequisiteReason("");
+    setPrerequisiteConfirmed(false);
+  };
+
   return (
-    <div className="teacher-product-page">
-      <section className="teacher-page-header">
+    <div className="teacher-product-page el-assessment-hub">
+      <section className="teacher-page-header el-assessment-hub-hero">
         <div>
-          <p className="panel-label">EL Assessments</p>
-          <h2>Formal Assessment Tools</h2>
-          <p>Formal EL assessments are separate from adaptive practice progress for {studentName || "this student"}.</p>
+          <p className="panel-label">EL-aligned benchmark suite</p>
+          <h2>Early literacy benchmark checks</h2>
+          <p>Keep the established first two assessments, then use the four new evidence checks for {studentName || "this student"} as Assessments 3–6.</p>
+        </div>
+        <span className="el-assessment-provisional-label">Original LiteracyPath forms · provisional routing</span>
+      </section>
+
+      <section className="el-assessment-route-panel" aria-labelledby="el-assessment-route-title">
+        <div>
+          <p className="panel-label">Benchmark route</p>
+          <h3 id="el-assessment-route-title">Choose grade and window</h3>
+          <p>{getElPathGuidance(grade, windowName)}</p>
+        </div>
+        <div className="el-assessment-route-controls">
+          <label>
+            Grade
+            <select onChange={event => setGrade(event.target.value)} value={grade}>
+              <option value="K">Kindergarten</option>
+              <option value="1">Grade 1</option>
+              <option value="2">Grade 2</option>
+            </select>
+          </label>
+          <label>
+            Window
+            <select onChange={event => setWindowName(event.target.value)} value={windowName}>
+              {Object.entries(EL_WINDOW_LABELS).map(([value, label]) => (
+                <option key={value} value={value}>{label} ({value})</option>
+              ))}
+            </select>
+          </label>
+          <label>
+            Decoding start
+            <select onChange={event => {
+              setDecodingStart(event.target.value);
+              setDecodingStartSource("teacher_selected");
+            }} value={decodingStart}>
+              {decodingBandOptions.map(band => (
+                <option key={band.id} value={band.id}>
+                  {band.label}{band.anchorCycle ? ` · Cycle ${band.anchorCycle}` : ""}
+                </option>
+              ))}
+            </select>
+            <small>
+              {confirmedEncodingIndication && decodingBandOptions.some(row => row.id === confirmedEncodingIndication)
+                ? "Preselected from the latest teacher-confirmed Encoding indication."
+                : provisionalEncodingIndication && decodingBandOptions.some(row => row.id === provisionalEncodingIndication)
+                  ? "Preselected from a provisional Encoding indication; review and justify this start before Decoding."
+                : "Confirm this starting band from Encoding evidence. No unpublished cut score is assumed."}
+            </small>
+          </label>
+          <label>
+            Fluency start
+            <select onChange={event => {
+              setFluencyStart(event.target.value);
+              setFluencyStartSource("teacher_selected");
+            }} value={fluencyStart}>
+              {decodingBandOptions.map(band => (
+                <option key={band.id} value={band.id}>
+                  {band.label}{band.anchorCycle ? ` · Cycle ${band.anchorCycle} anchor` : ""}
+                </option>
+              ))}
+            </select>
+            <small>
+              {fluencyIndication && decodingBandOptions.some(row => row.id === fluencyIndication)
+                ? "Preselected from the latest completed Decoding fluency handoff."
+                : "Choose and justify a starting band when no completed Decoding handoff is available."}
+            </small>
+          </label>
         </div>
       </section>
 
-      <section className="teacher-action-panel-grid">
-        <article className="teacher-action-panel">
+      {pendingStart && (
+        <section className="el-assessment-prerequisite-review" aria-labelledby="el-prerequisite-review-title">
+          <div>
+            <p className="panel-label">Sequence check</p>
+            <h3 id="el-prerequisite-review-title">Review before Assessment {EL_BENCHMARK_CATALOG.findIndex(row => row.id === pendingStart.entry.id) + 3}</h3>
+            <p>{pendingStart.prerequisite.message}</p>
+          </div>
+          <label className="el-assessment-confirm-check">
+            <input
+              checked={prerequisiteConfirmed}
+              onChange={event => setPrerequisiteConfirmed(event.target.checked)}
+              type="checkbox"
+            />
+            <span>I reviewed the ordered assessment evidence and confirm this exception or prerequisite.</span>
+          </label>
+          <label>
+            Short rationale
+            <textarea
+              onChange={event => setPrerequisiteReason(event.target.value)}
+              placeholder="Name the assessment, classroom evidence, accommodation, or reason for this decision."
+              rows={3}
+              value={prerequisiteReason}
+            />
+          </label>
+          <div className="teacher-action-list">
+            <button
+              className="lp-button lp-button-primary"
+              disabled={!prerequisiteConfirmed || !prerequisiteReason.trim()}
+              onClick={() => launchAssessment(
+                pendingStart.entry,
+                pendingStart.prerequisite,
+                prerequisiteReason
+              )}
+              type="button"
+            >
+              Confirm and start {pendingStart.entry.shortTitle || pendingStart.entry.title}
+            </button>
+            <button
+              className="lp-button lp-button-secondary"
+              onClick={() => {
+                setPendingStart(null);
+                setPrerequisiteReason("");
+                setPrerequisiteConfirmed(false);
+              }}
+              type="button"
+            >
+              Cancel
+            </button>
+          </div>
+        </section>
+      )}
+
+      {elBenchmarkDraft && draftCatalogEntry && (
+        <section className="el-assessment-draft-banner" aria-label="Saved benchmark draft">
+          <div>
+            <span>Saved draft</span>
+            <strong>{draftCatalogEntry.title}</strong>
+            <small>{elBenchmarkDraft.grade === "K" ? "Kindergarten" : `Grade ${elBenchmarkDraft.grade}`} · {EL_WINDOW_LABELS[elBenchmarkDraft.window] || elBenchmarkDraft.window} · {formatAttemptStatus(elBenchmarkDraft)}</small>
+          </div>
+          <div className="teacher-action-list">
+            <button className="lp-button lp-button-primary" onClick={resumeElBenchmarkAssessment} type="button">Resume draft</button>
+            <button className="lp-button lp-button-secondary" onClick={discardElBenchmarkDraft} type="button">Discard draft</button>
+          </div>
+        </section>
+      )}
+
+      <section className="el-assessment-domain-grid">
+        <article className="teacher-action-panel el-assessment-domain-card" data-domain="letters">
+          <div className="el-assessment-card-topline">
+            <span className="el-assessment-card-index">01</span>
+            <span className="el-assessment-recommendation recommended">Core evidence</span>
+          </div>
           <h3>Letter Name and Sound</h3>
-          <p>Run the formal letter identification assessment for the selected student.</p>
+          <p>Name and sound recognition for uppercase and lowercase letters.</p>
+          <small>Assessment 1 · existing assessment retained unchanged · Kindergarten routine · Grade 1/2 as needed</small>
           <div className="teacher-action-list">
             <button className="lp-button lp-button-secondary" onClick={startLetterAssessment}>
               Start Letter Assessment
@@ -1512,16 +1920,61 @@ export function ELAssessmentsPage({
           </div>
         </article>
 
-        <article className="teacher-action-panel">
+        <article className="teacher-action-panel el-assessment-domain-card supplemental" data-domain="advanced-phonics">
+          <div className="el-assessment-card-topline">
+            <span className="el-assessment-card-index">02</span>
+            <span className="el-assessment-recommendation supplemental">Established supplemental diagnostic</span>
+          </div>
           <h3>Advanced Phonics Patterns</h3>
-          <p>Run the formal advanced phonics pattern assessment for the selected student.</p>
+          <p>Assess the existing advanced phoneme and grapheme-pattern checks without changing its established runner or scoring.</p>
+          <small>Assessment 2 · existing assessment retained unchanged</small>
           <div className="teacher-action-list">
             <button className="lp-button lp-button-secondary" onClick={startAdvancedPhonicsAssessment}>
               Start Advanced Phonics
             </button>
           </div>
         </article>
+
+        {EL_BENCHMARK_CATALOG.map((entry, index) => {
+          const recommendation = getBenchmarkRecommendation(entry.id, grade, windowName);
+          const latest = latestByAssessment[entry.id];
+          const prerequisite = prerequisiteFor(entry.id);
+          return (
+            <article className="teacher-action-panel el-assessment-domain-card" data-domain={entry.id} key={entry.id}>
+              <div className="el-assessment-card-topline">
+                <span className="el-assessment-card-index">{String(index + 3).padStart(2, "0")}</span>
+                <span className={`el-assessment-recommendation ${recommendation.tone}`}>{recommendation.label}</span>
+              </div>
+              <h3>{entry.title}</h3>
+              <p>{entry.description}</p>
+              <small>{recommendation.detail} · {formatBenchmarkMinutes(entry.estimatedMinutes, entry.id, grade)}</small>
+              <div className="el-assessment-card-evidence">
+                <span>{formatAttemptStatus(latest)}</span>
+                {latest?.completedAt && <time dateTime={latest.completedAt}>{new Date(latest.completedAt).toLocaleDateString()}</time>}
+              </div>
+              {prerequisite.state !== "ready" && (
+                <p className="el-assessment-prerequisite-note">Sequence review required before starting.</p>
+              )}
+              <div className="teacher-action-list">
+                <button
+                  className="lp-button lp-button-secondary"
+                  disabled={Boolean(elBenchmarkDraft)}
+                  onClick={() => requestAssessmentStart(entry)}
+                  title={elBenchmarkDraft ? "Resume or discard the saved draft before starting another benchmark" : undefined}
+                  type="button"
+                >
+                  {prerequisite.state === "ready" ? "Start" : "Review & start"} {entry.shortTitle || entry.title}
+                </button>
+              </div>
+            </article>
+          );
+        })}
+
       </section>
+
+      <p className="el-assessment-validity-note">
+        These are original, versioned LiteracyPath instruments aligned to the supplied EL Skills Block overview. They are not official EL Education forms, nationally normed scores, or diagnostic tests for a disability.
+      </p>
     </div>
   );
 }

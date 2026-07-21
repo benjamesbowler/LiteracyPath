@@ -95,12 +95,56 @@ assert(
 assert(!elAssessmentsSource.includes("Export Letter Excel"), "EL Assessments page must not show Export Letter Excel");
 assert(!elAssessmentsSource.includes("Export Pattern Excel"), "EL Assessments page must not show Export Pattern Excel");
 assert(
-  elAssessmentsSource.includes("Run the formal letter identification assessment for the selected student."),
-  "letter assessment card copy must describe running the assessment only"
+  elAssessmentsSource.includes("Name and sound recognition for uppercase and lowercase letters."),
+  "letter assessment card must describe the evidence collected"
 );
 assert(
-  elAssessmentsSource.includes("Run the formal advanced phonics pattern assessment for the selected student."),
-  "advanced phonics card copy must describe running the assessment only"
+  elAssessmentsSource.includes("supplemental diagnostic"),
+  "advanced phonics must be labelled as supplemental rather than a replacement benchmark"
+);
+assert(
+  /function startLetterAssessment\(\)\s*\{\s*setAppView\(APP_VIEWS\.LETTERS\);\s*\}/.test(appSource),
+  "Assessment 1 hub entry must resume its established in-progress state rather than resetting it"
+);
+[
+  "startElBenchmarkAssessment",
+  "resumeElBenchmarkAssessment",
+  "discardElBenchmarkDraft",
+  "archiveElBenchmarkSession",
+  "buildElBenchmarkAttempt",
+  "deriveMastery: false"
+].forEach(token => {
+  assert(appSource.includes(token), `App EL benchmark lifecycle is missing ${token}`);
+});
+[
+  "EL_BENCHMARK_CATALOG",
+  "Decoding start",
+  "Fluency start",
+  "isCompletedElBenchmarkRouteEvidence",
+  "No unpublished cut score is assumed",
+  "elBenchmarkDraft"
+].forEach(token => {
+  assert(elAssessmentsSource.includes(token), `EL assessment hub is missing ${token}`);
+});
+assert(
+  storeSource.includes("CLOUD_HYDRATION_PAGE_SIZE") && storeSource.includes(".range(from,"),
+  "cloud assessment history hydration must paginate beyond the hosted row cap"
+);
+assert(
+  storeSource.includes("durable: localResult.saved || cloudSaved"),
+  "attempt persistence must explicitly report whether either durable target succeeded"
+);
+assert(
+  /setAssessmentHistory\(previous => mergeAssessmentAttemptRecords\(previous, saveResult\.records\)\)/.test(appSource),
+  "saving one attempt must merge into hydrated in-memory history instead of collapsing it to the bounded local cache"
+);
+assert(
+  /const archiveResult = await archiveElBenchmarkSession\(completedSession\);[\s\S]*?cloudArchiveRequired[\s\S]*?if \(!archiveResult \|\| \(cloudArchiveRequired && !archiveResult\.persistence\.cloudSaved\)\)[\s\S]*?return;[\s\S]*?deleteElBenchmarkDraft/.test(appSource),
+  "completion must retain the draft and in-memory session until durable attempt archiving succeeds"
+);
+assert(
+  /const archiveResult = await archiveElBenchmarkSession\(discontinuedSession\);[\s\S]*?cloudArchiveRequired[\s\S]*?if \(!archiveResult \|\| \(cloudArchiveRequired && !archiveResult\.persistence\.cloudSaved\)\)[\s\S]*?return;[\s\S]*?deleteElBenchmarkDraft/.test(appSource),
+  "discontinuation must retain the draft and in-memory session until durable attempt archiving succeeds"
 );
 assert(appSource.includes('assessmentType: "advanced_phonics_patterns"'), "Advanced Phonics completion must save the advanced_phonics_patterns assessment type");
 assert(appSource.includes('skillName: "Advanced Phonics Patterns"'), "Advanced Phonics completion must use the report-visible skill name");
@@ -253,8 +297,8 @@ assert(merged["final_sound::sh"]?.mastered === false, "missed final sound should
 const advancedMerged = store.mergeAssessmentAttemptIntoItemMastery({}, advancedAttempt);
 assert(advancedMerged["phonics_pattern::ai"]?.mastered, "Advanced Phonics pattern mastery should update cumulative item mastery");
 
-const savedRows = await store.saveAssessmentAttempt(sampleAttempt, { teacherId: "teacher-1" });
-assert(savedRows.length === 1, "saveAssessmentAttempt should append a local attempt");
+const savedResult = await store.saveAssessmentAttempt(sampleAttempt, { teacherId: "teacher-1" });
+assert(savedResult.durable && savedResult.records.length === 1, "saveAssessmentAttempt should durably append a local attempt");
 const loadedRows = store.loadAssessmentAttempts({ teacherId: "teacher-1", studentId: "student-1" });
 assert(loadedRows.length === 1, "loadAssessmentAttempts should find saved student attempt");
 const summary = store.summarizeAssessmentHistory(loadedRows);

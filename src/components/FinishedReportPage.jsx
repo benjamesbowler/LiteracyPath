@@ -7,6 +7,11 @@ import {
   getSkillArea
 } from "../data/reportingSystem.js";
 import { normalizeAssessmentAttempt } from "../data/assessmentHistoryStore.js";
+import {
+  buildIndividualElFormalAssessmentReport,
+  isReportableElBenchmarkCandidatePlacement,
+  resolveElBenchmarkReportScope
+} from "../data/elFormalAssessmentReportBuilder.js";
 import { itemUniverseCounts } from "../data/generated/itemUniverse.generated.js";
 import {
   loadStoryQuestProgress,
@@ -289,6 +294,547 @@ function ElAssessmentSection({ cards }) {
           </article>
         );
       })}
+    </div>
+  );
+}
+
+function formatEvidencePercent(value) {
+  if (value === undefined || value === null || value === "") return "Not scored";
+  return Number.isFinite(Number(value)) ? `${Math.round(Number(value))}%` : "Not scored";
+}
+
+function formatEvidenceNumber(value, fallback = "Not scored") {
+  if (value === undefined || value === null || value === "") return fallback;
+  return Number.isFinite(Number(value)) ? Number(value) : fallback;
+}
+
+function benchmarkScopeKey(scope = {}) {
+  return `${scope.grade || ""}::${scope.benchmarkWindow || ""}`;
+}
+
+function BenchmarkScopeControl({
+  activeScope = {},
+  exporting = false,
+  exportStudentExcel,
+  onChange,
+  options = []
+}) {
+  const hasRoutes = options.length > 0;
+  return (
+    <>
+      <p className="student-report-benchmark-scope-line">
+        Benchmark scope: <strong>{activeScope.label || "Grade not recorded · Window not recorded"}</strong>
+      </p>
+      <div className="student-report-benchmark-scope-control screen-only">
+        <div>
+          <label htmlFor="student-report-benchmark-scope">Grade and assessment window</label>
+          <small>
+            {hasRoutes
+              ? "The most recent saved route is selected first. Choose an earlier route to review or export it."
+              : "Complete a benchmark assessment to add a report route."}
+          </small>
+        </div>
+        <select
+          aria-label="Benchmark grade and assessment window"
+          disabled={!hasRoutes}
+          id="student-report-benchmark-scope"
+          onChange={event => onChange(event.target.value)}
+          value={hasRoutes ? benchmarkScopeKey(activeScope) : ""}
+        >
+          {!hasRoutes && <option value="">No saved benchmark routes</option>}
+          {options.map((scope, index) => (
+            <option key={benchmarkScopeKey(scope)} value={benchmarkScopeKey(scope)}>
+              {scope.label} ({scope.attemptCount} {scope.attemptCount === 1 ? "attempt" : "attempts"}){index === 0 ? " - most recent" : ""}
+            </option>
+          ))}
+        </select>
+        {exportStudentExcel && (
+          <button
+            className="report-button"
+            disabled={!hasRoutes || exporting}
+            onClick={() => exportStudentExcel({
+              grade: activeScope.grade,
+              benchmarkWindow: activeScope.benchmarkWindow
+            })}
+            type="button"
+          >
+            {exporting ? "Exporting..." : "Export This Route"}
+          </button>
+        )}
+      </div>
+    </>
+  );
+}
+
+function benchmarkMetricRows(profile = {}) {
+  const metrics = profile.metrics || {};
+  if (profile.domainKey === "phonologicalAwareness") {
+    return [
+      ["Oral-task accuracy", formatEvidencePercent(metrics.accuracyRate)],
+      ["Strands observed", metrics.strandsObserved ?? "Not available"]
+    ];
+  }
+  if (profile.domainKey === "encoding") {
+    return [
+      ["Exact spelling", formatEvidencePercent(metrics.exactSpellingRate)],
+      ["Sounds represented", formatEvidencePercent(metrics.phonologicallyRepresentedRate)],
+      ["No responses", metrics.noResponseCount ?? "Not available"]
+    ];
+  }
+  if (profile.domainKey === "decoding") {
+    return [
+      ["Word accuracy", formatEvidencePercent(metrics.accuracyRate)],
+      ["Automatic reading", formatEvidencePercent(metrics.automaticityRate)]
+    ];
+  }
+  return [
+    ["Correct words/min", formatEvidenceNumber(metrics.wcpm)],
+    ["Word accuracy", formatEvidencePercent(metrics.accuracyRate)],
+    ["Prosody (optional)", formatEvidenceNumber(metrics.prosodyAverage, null) === null
+      ? "Not scored"
+      : `${Number(metrics.prosodyAverage).toFixed(1)} / 4`]
+  ];
+}
+
+function benchmarkEvidenceArray(value) {
+  if (Array.isArray(value)) return value.filter(item => item !== undefined && item !== null && String(item).trim());
+  if (value === undefined || value === null || String(value).trim() === "") return [];
+  return [value];
+}
+
+function formatBenchmarkEvidenceCode(value, fallback = "Not recorded") {
+  if (value === undefined || value === null || String(value).trim() === "") return fallback;
+  return String(value)
+    .replace(/[_-]+/g, " ")
+    .replace(/\b\w/g, letter => letter.toUpperCase());
+}
+
+function formatExactBenchmarkResponse(value) {
+  if (value === undefined || value === null) return "No response recorded";
+  if (Array.isArray(value)) return value.length ? value.join(", ") : "No response recorded";
+  if (typeof value === "object") return JSON.stringify(value);
+  return String(value).trim() ? String(value) : "No response recorded";
+}
+
+function benchmarkItemLabel(item = {}, domainKey = "") {
+  const primary = domainKey === "oralReadingFluency"
+    ? item.passageTitle || item.prompt || item.passageId
+    : item.targetWord || item.prompt || item.targetPattern || item.itemKey || item.questionId;
+  const secondary = item.prompt && item.prompt !== primary ? item.prompt : "";
+  return {
+    primary: primary || "Item not labeled",
+    secondary,
+    itemId: item.questionId || item.itemKey || item.passageId || ""
+  };
+}
+
+function benchmarkItemStatus(item = {}) {
+  const rawStatus = item.responseStatus || (
+    item.isCorrect === true ? "correct" : item.isCorrect === false ? "incorrect" : "not_recorded"
+  );
+  const classKey = String(rawStatus).toLowerCase().replace(/[^a-z0-9_-]+/g, "-");
+  return {
+    className: `status-${classKey}`,
+    label: formatBenchmarkEvidenceCode(rawStatus)
+  };
+}
+
+function BenchmarkEvidenceLines({ lines = [] }) {
+  const visibleLines = lines.filter(([, value]) => value !== undefined && value !== null && value !== "");
+  if (!visibleLines.length) return <span>Not recorded</span>;
+  return (
+    <ul className="student-report-benchmark-cell-list">
+      {visibleLines.map(([label, value]) => (
+        <li key={label}><strong>{label}:</strong> {value}</li>
+      ))}
+    </ul>
+  );
+}
+
+function benchmarkItemEvidenceLines(domainKey = "", item = {}, performanceSuppressed = false) {
+  if (performanceSuppressed) {
+    const auditLines = [
+      ["Performance metrics", "Not scored for this administration"]
+    ];
+    if (domainKey === "phonologicalAwareness") {
+      return [
+        ...auditLines,
+        ["Strand", formatBenchmarkEvidenceCode(item.strand, "")],
+        ["Task", formatBenchmarkEvidenceCode(item.task, "")]
+      ];
+    }
+    if (domainKey === "decoding") {
+      return [
+        ...auditLines,
+        ["Band", item.microphase ? `Microphase ${item.microphase}` : formatBenchmarkEvidenceCode(item.bandId, "")]
+      ];
+    }
+    if (domainKey === "oralReadingFluency") {
+      return [
+        ...auditLines,
+        ["Elapsed seconds", item.elapsedSeconds ?? "Not recorded"],
+        ["Timer status", formatBenchmarkEvidenceCode(item.timerStatus, "")],
+        ["Timer interrupted", item.timerInterrupted === true ? "Yes" : item.timerInterrupted === false ? "No" : ""],
+        ["Interruption reason", formatBenchmarkEvidenceCode(item.interruptionReason, "")],
+        ["Route decision", formatBenchmarkNarrative(item.routeDecision)],
+        ["Informational notes", benchmarkEvidenceArray(item.informationalNotes).map(formatBenchmarkNarrative).filter(Boolean).join("; ")]
+      ];
+    }
+    return auditLines;
+  }
+  if (domainKey === "phonologicalAwareness") {
+    return [
+      ["Judgment", item.isCorrect === true ? "Correct" : item.isCorrect === false ? "Incorrect" : "Not scored"],
+      ["Strand", formatBenchmarkEvidenceCode(item.strand, "")],
+      ["Task", formatBenchmarkEvidenceCode(item.task, "")]
+    ];
+  }
+  if (domainKey === "encoding") {
+    const judgment = item.exact === true
+      ? "Exact spelling"
+      : item.plausible === true
+        ? "Phonologically plausible"
+        : item.notYet === true
+          ? "Not yet represented"
+          : "Not scored";
+    return [
+      ["Spelling judgment", judgment],
+      ["Scoring code", formatBenchmarkEvidenceCode(item.scoringCode, "")]
+    ];
+  }
+  if (domainKey === "decoding") {
+    return [
+      ["Accuracy", item.accurate === true ? "Accurate" : item.accurate === false ? "Not accurate" : "Not recorded"],
+      ["Automaticity", item.automatic === true ? "Automatic" : item.automatic === false ? "Not automatic" : "Not recorded"],
+      ["Self-correction", item.selfCorrected === true ? "Yes" : item.selfCorrected === false ? "No" : "Not recorded"],
+      ["Band", item.microphase ? `Microphase ${item.microphase}` : formatBenchmarkEvidenceCode(item.bandId, "")]
+    ];
+  }
+  const wordCount = item.wordsCorrect !== null && item.wordsCorrect !== undefined
+    ? `${item.wordsCorrect} of ${item.wordsAttempted ?? "not recorded"}`
+    : "Not recorded";
+  return [
+    ["Words correct", wordCount],
+    ["Errors", item.errors ?? "Not recorded"],
+    ["Self-corrections", item.selfCorrections ?? "Not recorded"],
+    ["Elapsed seconds", item.elapsedSeconds ?? "Not recorded"],
+    ["Timer status", formatBenchmarkEvidenceCode(item.timerStatus, "")],
+    ["Timer interrupted", item.timerInterrupted === true ? "Yes" : item.timerInterrupted === false ? "No" : ""],
+    ["Interruption reason", formatBenchmarkEvidenceCode(item.interruptionReason, "")],
+    ["Zero words reached", item.zeroWordsReached === true ? "Yes" : item.zeroWordsReached === false ? "No" : ""],
+    ["WCPM", item.wcpm ?? "Not recorded"],
+    ["Accuracy", item.accuracyRate === undefined || item.accuracyRate === null || item.accuracyRate === ""
+      ? "Not recorded"
+      : Number.isFinite(Number(item.accuracyRate))
+        ? `${Math.round(Number(item.accuracyRate))}%`
+        : "Not recorded"],
+    ["Teacher judgment", item.passageAccurate === true ? "Accurate" : item.passageAccurate === false ? "Not accurate" : "Not recorded"],
+    ["Route judgment usable", item.routeJudgmentUsable === true ? "Yes" : item.routeJudgmentUsable === false ? "No" : ""],
+    ["Route decision", formatBenchmarkNarrative(item.routeDecision)],
+    ["Accuracy judgment source", formatBenchmarkEvidenceCode(item.accuracyJudgmentSource, "")],
+    ["Accuracy judged at", item.accuracyJudgedAt || ""],
+    ["Informational notes", benchmarkEvidenceArray(item.informationalNotes).map(formatBenchmarkNarrative).filter(Boolean).join("; ")]
+  ];
+}
+
+function BenchmarkPrerequisiteReview({ detail = {} }) {
+  const evidence = detail && typeof detail === "object" ? detail : {};
+  const review = evidence.prerequisiteReview || evidence.metadata?.prerequisiteReview;
+  if (!review || typeof review !== "object") return null;
+  const state = String(review.state || "").trim().toLowerCase();
+  const source = review.source || review.evidenceSource || review.reviewSource || "";
+  const ruleCode = review.code || review.ruleCode || review.rule || "";
+  const rationale = review.rationale || review.overrideReason || review.reason || review.note || "";
+  const lines = [
+    ["Review state", formatBenchmarkEvidenceCode(review.state, "")],
+    ["Review source", formatBenchmarkEvidenceCode(source, "")],
+    ["Rule or code", formatBenchmarkEvidenceCode(ruleCode, "")],
+    ["Evidence attempt", review.evidenceAttemptId || review.sourceAttemptId || ""],
+    ["Teacher confirmed", typeof review.teacherConfirmed === "boolean" ? (review.teacherConfirmed ? "Yes" : "No") : ""]
+  ].filter(([, value]) => value !== undefined && value !== null && String(value).trim());
+  if (state === "override") {
+    lines.push(["Override applied", "Yes"]);
+    if (rationale) lines.push(["Override rationale", rationale]);
+  }
+  if (!lines.length) return null;
+  return (
+    <section className="student-report-benchmark-prerequisite" aria-label="Prerequisite review">
+      <h4>Prerequisite review</h4>
+      <dl>
+        {lines.map(([label, value]) => (
+          <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
+        ))}
+      </dl>
+    </section>
+  );
+}
+
+function formatBenchmarkNarrative(value) {
+  if (value === undefined || value === null || value === "") return "";
+  if (Array.isArray(value)) return value.map(formatBenchmarkNarrative).filter(Boolean).join(", ");
+  if (typeof value === "object") {
+    return Object.entries(value)
+      .map(([key, nestedValue]) => {
+        const text = formatBenchmarkNarrative(nestedValue);
+        return text ? `${formatBenchmarkEvidenceCode(key)}: ${text}` : "";
+      })
+      .filter(Boolean)
+      .join("; ");
+  }
+  return String(value);
+}
+
+function BenchmarkTeacherGuidance({ detail = {} }) {
+  const evidence = detail && typeof detail === "object" ? detail : {};
+  const recommendations = benchmarkEvidenceArray(evidence.recommendations).map(formatBenchmarkNarrative).filter(Boolean);
+  const observations = benchmarkEvidenceArray(evidence.observations).map(formatBenchmarkNarrative).filter(Boolean);
+  const validationIssues = benchmarkEvidenceArray(evidence.validationIssues)
+    .map(value => typeof value === "string" ? formatBenchmarkEvidenceCode(value) : formatBenchmarkNarrative(value))
+    .filter(Boolean);
+  if (!recommendations.length && !observations.length && !validationIssues.length) return null;
+  return (
+    <section className="student-report-benchmark-guidance" aria-label="Benchmark teacher guidance and observations">
+      {recommendations.length > 0 && (
+        <div>
+          <h4>Recommended follow-up</h4>
+          <ul>{recommendations.map((note, index) => <li key={`recommendation-${index + 1}`}>{note}</li>)}</ul>
+        </div>
+      )}
+      {observations.length > 0 && (
+        <div>
+          <h4>Recorded observations</h4>
+          <ul>{observations.map((note, index) => <li key={`observation-${index + 1}`}>{note}</li>)}</ul>
+        </div>
+      )}
+      {validationIssues.length > 0 && (
+        <div>
+          <h4>Assessment notices</h4>
+          <ul>{validationIssues.map((note, index) => <li key={`validation-${index + 1}`}>{note}</li>)}</ul>
+        </div>
+      )}
+    </section>
+  );
+}
+
+function BenchmarkProvenance({ domain = {} }) {
+  const rows = [
+    ["Form", domain.formVersion],
+    ["Content", domain.contentVersion],
+    ["Scoring", domain.scoringVersion],
+    ["Scoring rule", domain.scoringRuleVersion]
+  ].filter(([, value]) => value !== undefined && value !== null && String(value).trim());
+  if (!rows.length) return null;
+  return (
+    <p className="student-report-benchmark-provenance" aria-label="Benchmark version provenance">
+      {rows.map(([label, value]) => <span key={label}><strong>{label}:</strong> {value}</span>)}
+    </p>
+  );
+}
+
+function BenchmarkItemEvidenceTable({ detail = {} }) {
+  const evidence = detail && typeof detail === "object" ? detail : {};
+  const items = Array.isArray(evidence.itemDetails) ? evidence.itemDetails : [];
+  if (!items.length) {
+    return <p className="student-report-benchmark-empty-items">No item-level evidence was saved for this attempt.</p>;
+  }
+  const domainLabel = evidence.domainLabel || "Benchmark domain";
+  return (
+    <div
+      aria-label={`${domainLabel} item evidence table`}
+      className="student-report-benchmark-evidence-table-wrap"
+      role="region"
+      tabIndex="0"
+    >
+      <table className="student-report-benchmark-evidence-table">
+        <caption>{domainLabel} per-item evidence ({items.length} {items.length === 1 ? "item" : "items"})</caption>
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Exact response or transcription</th>
+            <th scope="col">Status</th>
+            <th scope="col">Domain evidence</th>
+            <th scope="col">Error tags</th>
+            <th scope="col">Validation issues</th>
+            <th scope="col">Not-scorable reason</th>
+            <th scope="col">Not-scorable note</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((item, index) => {
+            const label = benchmarkItemLabel(item, evidence.domainKey);
+            const status = benchmarkItemStatus(item);
+            const errorTags = benchmarkEvidenceArray(item.errorTags)
+              .map(tag => formatBenchmarkEvidenceCode(tag));
+            const validationIssues = benchmarkEvidenceArray(item.validationIssues)
+              .map(issue => formatBenchmarkEvidenceCode(issue));
+            return (
+              <tr key={item.questionId || item.itemKey || item.passageId || `${evidence.domainKey}-item-${index + 1}`}>
+                <th data-label="Item" scope="row">
+                  <strong>{label.primary}</strong>
+                  {label.secondary && <span>{label.secondary}</span>}
+                  {label.itemId && <small>Item ID: {label.itemId}</small>}
+                </th>
+                <td className="student-report-benchmark-exact-response" data-label="Exact response or transcription">
+                  {formatExactBenchmarkResponse(item.exactResponse)}
+                </td>
+                <td data-label="Status">
+                  <span className={`student-report-benchmark-item-status ${status.className}`}>{status.label}</span>
+                </td>
+                <td data-label="Domain evidence">
+                  <BenchmarkEvidenceLines lines={benchmarkItemEvidenceLines(
+                    evidence.domainKey,
+                    item,
+                    evidence.performanceSuppressed === true
+                  )} />
+                </td>
+                <td data-label="Error tags">{errorTags.length ? errorTags.join(", ") : "None recorded"}</td>
+                <td data-label="Validation issues">
+                  {validationIssues.length ? validationIssues.join(", ") : "None recorded"}
+                </td>
+                <td data-label="Not-scorable reason">
+                  {item.notScorableReason ? formatBenchmarkEvidenceCode(item.notScorableReason) : "Not applicable"}
+                </td>
+                <td className="student-report-benchmark-exact-note" data-label="Not-scorable note">
+                  {item.notScorableNote ? String(item.notScorableNote) : "None recorded"}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function benchmarkPlacementLabel(placement = null) {
+  if (!placement || typeof placement !== "object") return "";
+  if (placement.label) return placement.label;
+  const microphase = placement.candidateMicrophase ?? placement.microphase;
+  return microphase !== undefined && microphase !== null && String(microphase).trim()
+    ? `Microphase ${microphase}`
+    : "";
+}
+
+function BenchmarkDetail({ detail }) {
+  if (!detail) return null;
+  if (detail.performanceSuppressed) {
+    return (
+      <p className="student-report-benchmark-unscored-note">
+        Performance metrics are not scored because this administration is {formatBenchmarkEvidenceCode(detail.administrationStatus).toLowerCase()}.
+        Raw responses and audit notes remain available below.
+      </p>
+    );
+  }
+  if (detail.domainKey === "phonologicalAwareness") {
+    return (
+      <ul>
+        {(detail.strandRows || []).map(row => (
+          <li key={row.strand}>
+            <strong>{String(row.strandLabel || row.strand).replace(/\b\w/g, letter => letter.toUpperCase())}</strong>
+            {` · ${row.correctCount}/${row.administeredCount} correct · ${formatEvidencePercent(row.accuracyRate)}`}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+  if (detail.domainKey === "encoding") {
+    return (
+      <p>
+        {detail.exactSpellingCount} exact · {detail.plausibleSpellingCount} phonologically plausible · {detail.notYetCount} not yet represented · {detail.noResponseCount || 0} no response
+      </p>
+    );
+  }
+  if (detail.domainKey === "decoding") {
+    return (
+      <>
+        <ul>
+          {(detail.bandRows || []).map(row => (
+            <li key={row.bandId}>
+              <strong>{String(row.microphase || row.bandId).replace(/_/g, " ")}</strong>
+              {` · ${row.accurateCount}/${row.administeredCount} accurate · ${row.automaticCount}/${row.administeredCount} automatic`}
+            </li>
+          ))}
+        </ul>
+        {detail.stopEvidence?.reason && <p>Stopping evidence: {String(detail.stopEvidence.reason).replace(/_/g, " ")}.</p>}
+      </>
+    );
+  }
+  return (
+    <>
+      <ul>
+        {(detail.passageRows?.length ? detail.passageRows : [detail]).map((row, index) => (
+          <li key={row.passageId || `fluency-passage-${index + 1}`}>
+            <strong>{row.passageTitle || String(row.microphase || `Passage ${index + 1}`).replace(/_/g, " ")}</strong>
+            {` · ${row.wordsCorrect ?? "Not recorded"}/${row.wordsAttempted ?? "Not recorded"} correct`}
+            {row.wcpm !== null && row.wcpm !== undefined ? ` · ${row.wcpm} WCPM` : " · WCPM not reported"}
+            {row.passageAccurate === true ? " · teacher judged accurate" : row.passageAccurate === false ? " · teacher judged not accurate" : " · judgment not recorded"}
+          </li>
+        ))}
+      </ul>
+      {detail.stopEvidence?.reason && <p>Stopping evidence: {String(detail.stopEvidence.reason).replace(/_/g, " ")}.</p>}
+    </>
+  );
+}
+
+function ElBenchmarkEvidenceSection({ report }) {
+  const profile = report?.individualBenchmarkProfile || [];
+  const details = report?.individualBenchmarkDetails || [];
+  return (
+    <div className="student-report-benchmark-grid">
+      {profile.map(domain => {
+        const detail = details.find(row => row.attemptId === domain.latestAttemptId) || null;
+        const candidatePlacement = isReportableElBenchmarkCandidatePlacement(domain.candidatePlacement)
+          ? domain.candidatePlacement
+          : null;
+        const placement = domain.confirmedPlacement || candidatePlacement;
+        const placementLabel = benchmarkPlacementLabel(placement);
+        const descriptiveInterpretation = !candidatePlacement && domain.candidatePlacement
+          ? domain.candidatePlacement.reason || domain.candidatePlacement.interpretation || ""
+          : "";
+        return (
+          <article className={`student-report-benchmark-card ${domain.hasSavedEvidence ? "has-evidence" : "no-evidence"}`} key={domain.assessmentId}>
+            <div className="student-report-benchmark-heading">
+              <h3>{domain.domainLabel}</h3>
+              <span>{domain.administrationStatusLabel}</span>
+            </div>
+            {domain.hasSavedEvidence ? (
+              <>
+                <small>
+                  {domain.grade === "K" ? "Kindergarten" : domain.grade ? `Grade ${domain.grade}` : "Grade not recorded"}
+                  {domain.benchmarkWindow ? ` · ${domain.benchmarkWindow}` : ""}
+                  {domain.latestDate ? ` · ${new Date(domain.latestDate).toLocaleDateString()}` : ""}
+                </small>
+                <BenchmarkProvenance domain={domain} />
+                <dl>
+                  {benchmarkMetricRows(domain).map(([label, value]) => (
+                    <div key={label}><dt>{label}</dt><dd>{value}</dd></div>
+                  ))}
+                </dl>
+                {placementLabel && <p className="student-report-provisional-placement">{placementLabel}</p>}
+                {descriptiveInterpretation && (
+                  <p className="student-report-benchmark-interpretation">{descriptiveInterpretation}</p>
+                )}
+                <BenchmarkTeacherGuidance detail={detail} />
+                <details className="student-report-benchmark-details">
+                  <summary>
+                    View item evidence ({detail?.itemDetails?.length || 0})
+                  </summary>
+                  <div className="student-report-benchmark-detail-body">
+                    <BenchmarkPrerequisiteReview detail={detail} />
+                    <BenchmarkDetail detail={detail} />
+                    <BenchmarkItemEvidenceTable detail={detail} />
+                  </div>
+                </details>
+              </>
+            ) : (
+              <p>No saved evidence for this domain.</p>
+            )}
+          </article>
+        );
+      })}
+      <p className="student-report-benchmark-disclaimer">
+        LiteracyPath EL-aligned benchmark evidence is provisional and descriptive. No official EL Education or nationally normed mastery cut score is applied.
+      </p>
     </div>
   );
 }
@@ -1213,6 +1759,7 @@ export function FinishedReportPage({
   itemMastery = {},
   assessmentHistory = [],
   exportCSVData,
+  exportStudentExcel,
   letterAssessment = [],
   patternAssessment = [],
   guidedReadingRecords = {},
@@ -1223,6 +1770,8 @@ export function FinishedReportPage({
 }) {
   const [guidedReadingReportRows, setGuidedReadingReportRows] = useState([]);
   const [guidedReadingWordRows, setGuidedReadingWordRows] = useState([]);
+  const [benchmarkScopeSelection, setBenchmarkScopeSelection] = useState({ owner: "", key: "" });
+  const [benchmarkExporting, setBenchmarkExporting] = useState(false);
   const hasGuidedReadingRecords = Object.keys(guidedReadingRecords || {}).length > 0;
   const activeGuidedReadingReportRows = hasGuidedReadingRecords ? guidedReadingReportRows : EMPTY_REPORT_ROWS;
   const activeGuidedReadingWordRows = hasGuidedReadingRecords ? guidedReadingWordRows : EMPTY_REPORT_ROWS;
@@ -1300,6 +1849,33 @@ export function FinishedReportPage({
     letterAssessment,
     patternAssessment
   }), [letterAssessment, patternAssessment]);
+  const benchmarkScopeResolution = useMemo(() => resolveElBenchmarkReportScope({
+    records: assessmentHistory
+  }), [assessmentHistory]);
+  const benchmarkScopeOptions = benchmarkScopeResolution.availableRoutes || [];
+  const activeBenchmarkScope = benchmarkScopeOptions.find(scope => (
+    benchmarkScopeSelection.owner === progressScopeKey &&
+    benchmarkScopeKey(scope) === benchmarkScopeSelection.key
+  )) || benchmarkScopeOptions[0] || benchmarkScopeResolution;
+  const elBenchmarkReport = useMemo(() => buildIndividualElFormalAssessmentReport({
+    student: {
+      id: progressScopeKey || assessmentHistory[0]?.studentId || "",
+      name: studentName,
+      className
+    },
+    assessmentHistory,
+    benchmarkScope: activeBenchmarkScope
+  }), [activeBenchmarkScope, assessmentHistory, className, progressScopeKey, studentName]);
+
+  async function exportSelectedBenchmarkScope(scope) {
+    if (!exportStudentExcel || benchmarkExporting) return;
+    setBenchmarkExporting(true);
+    try {
+      await exportStudentExcel(scope);
+    } finally {
+      setBenchmarkExporting(false);
+    }
+  }
   const correctWordRows = activeGuidedReadingWordRows.filter(row => row.status === "Read Correctly");
   const generatedDate = new Date().toLocaleDateString(undefined, {
     month: "short",
@@ -1336,6 +1912,16 @@ export function FinishedReportPage({
 
         <SectionBand title="EL Assessments" subtitle="Formal early literacy assessment results" accent="#2563EB" />
         <ElAssessmentSection cards={elCards} />
+
+        <SectionBand title="EL Benchmark Domains" subtitle="Sound awareness, encoding, decoding, and oral reading fluency, reported as descriptive evidence" accent="#0F766E" />
+        <BenchmarkScopeControl
+          activeScope={activeBenchmarkScope}
+          exporting={benchmarkExporting}
+          exportStudentExcel={exportStudentExcel ? exportSelectedBenchmarkScope : null}
+          onChange={key => setBenchmarkScopeSelection({ owner: progressScopeKey, key })}
+          options={benchmarkScopeOptions}
+        />
+        <ElBenchmarkEvidenceSection report={elBenchmarkReport} />
 
         <SectionBand title="Skill-Set Assessments" subtitle="Checkpoint results across all assessed skill areas" />
         <SkillSetSection mastery={mastery} rows={model.skillMapRows} />

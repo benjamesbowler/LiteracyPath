@@ -1,0 +1,349 @@
+.el-assessment-hub {
+  --el-hub-ink: #17324d;
+  --el-hub-muted: #5a6b7c;
+  --el-hub-line: #d8e2ea;
+  --el-hub-soft: #f3f8f8;
+  --el-hub-teal: #0f766e;
+  --el-hub-blue: #2563eb;
+  display: grid;
+  gap: 20px;
+}
+
+.el-assessment-hub-hero {
+  align-items: flex-start;
+  border: 1px solid var(--el-hub-line);
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+.el-assessment-provisional-label {
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  border-radius: 999px;
+  color: #3730a3;
+  flex: 0 0 auto;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  padding: 8px 12px;
+  text-transform: uppercase;
+}
+
+.el-assessment-route-panel {
+  align-items: end;
+  background: linear-gradient(120deg, #eff8f6 0%, #f6f9fc 68%);
+  border: 1px solid #c9ddd9;
+  border-left: 5px solid var(--el-hub-teal);
+  border-radius: 18px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 22px 24px;
+}
+
+.el-assessment-route-panel h3,
+.el-assessment-route-panel p {
+  margin: 0;
+}
+
+.el-assessment-route-panel h3 {
+  color: var(--el-hub-ink);
+  font-size: 1.35rem;
+  margin-bottom: 7px;
+}
+
+.el-assessment-route-panel p:last-child {
+  color: var(--el-hub-muted);
+  line-height: 1.55;
+  max-width: 760px;
+}
+
+.el-assessment-route-controls {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+}
+
+.el-assessment-route-controls label {
+  color: var(--el-hub-ink);
+  display: grid;
+  font-size: 0.8rem;
+  font-weight: 800;
+  gap: 6px;
+  text-transform: uppercase;
+}
+
+.el-assessment-route-controls select {
+  background: #fff;
+  border: 1px solid #b8c9d5;
+  border-radius: 10px;
+  color: var(--el-hub-ink);
+  font: inherit;
+  min-height: 44px;
+  padding: 0 36px 0 12px;
+  text-transform: none;
+}
+
+.el-assessment-draft-banner {
+  align-items: center;
+  background: #fffbeb;
+  border: 1px solid #f4d889;
+  border-radius: 16px;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  padding: 18px 20px;
+}
+
+.el-assessment-draft-banner > div:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+.el-assessment-draft-banner span {
+  color: #92400e;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.el-assessment-draft-banner strong {
+  color: #472b12;
+  font-size: 1.05rem;
+}
+
+.el-assessment-draft-banner small {
+  color: #7c5b36;
+}
+
+.el-assessment-domain-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.el-assessment-domain-card {
+  border-color: var(--el-hub-line);
+  display: flex;
+  flex-direction: column;
+  min-height: 292px;
+  padding: 22px;
+  position: relative;
+}
+
+.el-assessment-domain-card::before {
+  background: var(--el-hub-blue);
+  content: "";
+  height: 4px;
+  inset: 0 0 auto;
+  position: absolute;
+}
+
+.el-assessment-domain-card[data-domain="letters"]::before,
+.el-assessment-domain-card[data-domain*="phonological"]::before {
+  background: var(--el-hub-teal);
+}
+
+.el-assessment-domain-card[data-domain*="encoding"]::before {
+  background: #7c3aed;
+}
+
+.el-assessment-domain-card[data-domain*="fluency"]::before {
+  background: #d97706;
+}
+
+.el-assessment-domain-card.supplemental::before {
+  background: #64748b;
+}
+
+.el-assessment-card-topline {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.el-assessment-card-index {
+  color: #94a3b8;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.el-assessment-recommendation {
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.045em;
+  padding: 6px 9px;
+  text-transform: uppercase;
+}
+
+.el-assessment-recommendation.recommended {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.el-assessment-recommendation.optional {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.el-assessment-recommendation.as-needed,
+.el-assessment-recommendation.supplemental {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.el-assessment-domain-card h3 {
+  color: var(--el-hub-ink);
+  font-size: 1.22rem;
+  margin: 0 0 9px;
+}
+
+.el-assessment-domain-card > p {
+  color: var(--el-hub-muted);
+  line-height: 1.52;
+  margin: 0 0 8px;
+}
+
+.el-assessment-domain-card > small {
+  color: #66788a;
+  display: block;
+  line-height: 1.45;
+}
+
+.el-assessment-card-evidence {
+  align-items: center;
+  border-top: 1px solid #edf1f4;
+  color: #64748b;
+  display: flex;
+  font-size: 0.76rem;
+  font-weight: 750;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 13px;
+}
+
+.el-assessment-domain-card > .teacher-action-list {
+  margin-top: 12px;
+}
+
+.el-assessment-domain-card .lp-button {
+  justify-content: center;
+  width: 100%;
+}
+
+.el-assessment-validity-note {
+  background: #f8fafc;
+  border: 1px solid var(--el-hub-line);
+  border-radius: 12px;
+  color: #58697a;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  margin: 0;
+  padding: 13px 16px;
+}
+
+.el-assessment-prerequisite-review {
+  background: #fffaf0;
+  border: 1px solid #e9c46a;
+  border-left: 5px solid #b7791f;
+  border-radius: 14px;
+  display: grid;
+  gap: 14px;
+  padding: 18px 20px;
+}
+
+.el-assessment-prerequisite-review h3,
+.el-assessment-prerequisite-review p {
+  margin: 0;
+}
+
+.el-assessment-prerequisite-review > label:not(.el-assessment-confirm-check) {
+  color: #4b5563;
+  display: grid;
+  font-size: 0.78rem;
+  font-weight: 800;
+  gap: 7px;
+}
+
+.el-assessment-prerequisite-review textarea {
+  background: #fff;
+  border: 1px solid #c9b887;
+  border-radius: 10px;
+  color: #243447;
+  font: inherit;
+  min-height: 76px;
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+.el-assessment-confirm-check {
+  align-items: flex-start;
+  color: #39485a;
+  display: flex;
+  font-size: 0.88rem;
+  font-weight: 700;
+  gap: 9px;
+}
+
+.el-assessment-confirm-check input {
+  margin-top: 3px;
+}
+
+.el-assessment-prerequisite-note {
+  background: #fff7dd;
+  border-radius: 8px;
+  color: #805b12 !important;
+  font-size: 0.78rem;
+  font-weight: 750;
+  margin-top: 10px !important;
+  padding: 8px 10px;
+}
+
+@media (max-width: 1080px) {
+  .el-assessment-domain-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .el-assessment-route-panel {
+    align-items: stretch;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .el-assessment-hub-hero,
+  .el-assessment-draft-banner {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .el-assessment-provisional-label {
+    align-self: flex-start;
+  }
+
+  .el-assessment-route-panel {
+    padding: 18px;
+  }
+
+  .el-assessment-route-controls,
+  .el-assessment-domain-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .el-assessment-domain-card {
+    min-height: 0;
+  }
+}
+
+@media print {
+  .el-assessment-route-controls,
+  .el-assessment-domain-card .teacher-action-list,
+  .el-assessment-draft-banner .teacher-action-list {
+    display: none;
+  }
+}

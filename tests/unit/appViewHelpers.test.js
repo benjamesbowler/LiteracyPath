@@ -72,7 +72,13 @@ test("teacher-only views are NOT on the student allowlist", () => {
 
 test("focused assessment views are recognised", () => {
   assert.equal(isFocusedAssessmentView(APP_VIEWS.ASSESSMENT), true);
+  assert.equal(isFocusedAssessmentView(APP_VIEWS.EL_BENCHMARK), true);
   assert.equal(isFocusedAssessmentView(APP_VIEWS.STUDENT_HOME), false);
+});
+
+test("EL benchmark runner is a real persisted teacher view", () => {
+  assert.equal(getPersistedAppView({ studentId: "s1", appView: APP_VIEWS.EL_BENCHMARK }), APP_VIEWS.EL_BENCHMARK);
+  assert.equal(isStudentAllowedView(APP_VIEWS.EL_BENCHMARK), false);
 });
 
 test("the footer stays out of the way on full-screen child surfaces", () => {

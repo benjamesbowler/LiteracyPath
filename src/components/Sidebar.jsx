@@ -104,7 +104,7 @@ const NAV_ITEMS = [
     id: "el",
     label: "EL Checks",
     icon: "el",
-    views: [APP_VIEWS.EL_ASSESSMENTS],
+    views: [APP_VIEWS.EL_ASSESSMENTS, APP_VIEWS.EL_BENCHMARK],
     requiresStudent: true,
   },
   {

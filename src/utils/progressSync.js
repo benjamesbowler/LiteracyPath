@@ -1,6 +1,7 @@
 import { supabase } from "../supabaseClient.js";
 import { computeHydratedValue, sanitizeCloudProgressPayload } from "./progressMerge.js";
 import { localProgressStorageKey, localProgressKeysForStudent, RESET_AREA, shouldApplyReset } from "./progressKeys.js";
+import { clearLocalElAssessmentDataForStudent } from "./elAssessmentReset.js";
 import {
   clearProgressQueueForStudent,
   enqueueProgressQueueEntry,
@@ -276,7 +277,8 @@ export async function fetchStudentCloudProgress(session) {
 // open surfaces to REPLACE their in-memory state instead of merging it back —
 // a forward-only merge applied across a reset resurrects everything the
 // teacher just deleted.
-function applyResetTombstone(studentId, rows) {
+async function applyResetTombstone(session, rows) {
+  const studentId = session?.studentId || "";
   if (!isBrowser() || !studentId) return false;
   const resetRow = rows.find(row => row.area === RESET_AREA);
   const cloudResetAt = resetRow?.payload?.at || "";
@@ -285,6 +287,12 @@ function applyResetTombstone(studentId, rows) {
   try { appliedAt = window.localStorage.getItem(markerKey) || ""; } catch { /* ignore */ }
   if (shouldApplyReset(cloudResetAt, appliedAt)) {
     clearLocalProgressForStudent(studentId);
+    await clearLocalElAssessmentDataForStudent({
+      teacherId: session.teacherId || "",
+      studentId,
+      studentName: session.studentName || "",
+      storage: window.localStorage
+    });
     try { window.localStorage.setItem(markerKey, cloudResetAt); } catch { /* ignore */ }
     return true;
   }
@@ -293,7 +301,7 @@ function applyResetTombstone(studentId, rows) {
 
 export async function hydrateCloudProgress(session) {
   const rows = await fetchStudentCloudProgress(session);
-  const resetApplied = applyResetTombstone(session.studentId, rows);
+  const resetApplied = await applyResetTombstone(session, rows);
   cacheCloudRows(session.studentId, rows);
   rows.forEach(row => {
     const storageKey = localProgressStorageKey(row.area, session.studentId);
@@ -306,7 +314,13 @@ export async function hydrateCloudProgress(session) {
   await flushQueuedProgressWrites(session);
   if (isBrowser()) {
     window.dispatchEvent(new CustomEvent("lp-progress-hydrated", {
-      detail: { studentId: session.studentId, rows, resetApplied }
+      detail: {
+        studentId: session.studentId,
+        studentName: session.studentName || "",
+        teacherId: session.teacherId || "",
+        rows,
+        resetApplied
+      }
     }));
   }
   return rows;

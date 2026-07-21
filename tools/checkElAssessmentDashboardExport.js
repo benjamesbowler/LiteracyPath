@@ -29,12 +29,12 @@ function sheetNames(workbook) {
 }
 
 const requiredDashboardText = [
-  "EL Assessment Snapshot",
-  "Export Student EL Assessment Excel",
-  "Export Class EL Assessment Excel",
+  "EL Formal and Benchmark Assessments",
+  "Export Student Excel",
+  "Export Class Excel",
   "Saved EL Reports",
-  "Download Again",
-  "Delete local copy"
+  "Download",
+  "Delete"
 ];
 
 requiredDashboardText.forEach(text => {
@@ -131,6 +131,8 @@ assert(studentReport.reportType === "individual", "Student report type is incorr
 assert(classReport.reportType === "whole_class", "Class report type is incorrect.");
 assert(Array.isArray(studentReport.skillRows), "Student report skillRows missing.");
 assert(Array.isArray(classReport.studentRows), "Class report studentRows missing.");
+assert(Array.isArray(studentReport.benchmarkProfile) && studentReport.benchmarkProfile.length === 4, "Student report must expose all four benchmark domains.");
+assert(Array.isArray(classReport.benchmarkDomainSummaries) && classReport.benchmarkDomainSummaries.length === 4, "Class report must expose all four benchmark domain summaries.");
 assert(compareElAssessmentReports(studentReport, null).note.includes("No previous report"), "Comparison does not handle no previous report.");
 
 const emptyStudent = buildStudentElAssessmentReportData({ students: [], classes: [], assessmentHistory: [] });
@@ -159,5 +161,4 @@ if (failures.length) {
 console.log("EL Assessment Dashboard Export check passed.");
 console.log(`Student sheets: ${studentSheets.join(", ")}`);
 console.log(`Class sheets: ${classSheets.join(", ")}`);
-console.log("No Supabase schema is required; reports can be stored locally and optionally upserted if el_assessment_reports exists.");
-
+console.log("Local report fallback and the managed Supabase assessment/report schema are both covered.");

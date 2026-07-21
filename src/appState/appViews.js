@@ -7,6 +7,7 @@ export const APP_VIEWS = {
   OVERVIEW: "overview",
   SKILLS: "skills",
   EL_ASSESSMENTS: "elAssessments",
+  EL_BENCHMARK: "elBenchmark",
   GUIDED_READING: "guidedReading",
   REPORTS: "reports",
   LEARN: "learn",

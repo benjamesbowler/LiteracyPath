@@ -7,6 +7,19 @@ const STATUS_LABELS = {
   not_started: "Not started"
 };
 
+const DESCRIPTIVE_EL_BENCHMARK_IDS = new Set([
+  "el_phonological_awareness",
+  "el_encoding",
+  "el_decoding",
+  "el_oral_reading_fluency"
+]);
+
+export function isDescriptiveElBenchmarkRecord(record = {}) {
+  return DESCRIPTIVE_EL_BENCHMARK_IDS.has(normalizeKey(
+    record.assessmentType || record.assessmentId || record.skillId
+  ));
+}
+
 const ITEM_TYPE_LABELS = {
   initial_sound: "Initial sound",
   final_sound: "Final sound",
@@ -19,6 +32,10 @@ const ITEM_TYPE_LABELS = {
   grammar_adjective: "Adjective",
   letter_name: "Letter name",
   letter_sound: "Letter sound",
+  phonological_awareness: "Phonological / phonemic awareness",
+  encoding_feature: "Encoding feature",
+  decoding_pattern: "Decoding pattern",
+  fluency_passage: "Oral reading fluency passage",
   skill_item: "Skill item"
 };
 
@@ -27,13 +44,19 @@ const SKILL_AREA_RULES = [
     id: "phonological",
     label: "Phonological Awareness",
     color: "#0f766e",
-    match: value => /initial|final|rhym/i.test(value)
+    match: value => /initial|final|rhym|phonological|phonemic|sound awareness/i.test(value)
+  },
+  {
+    id: "fluency",
+    label: "Oral Reading Fluency",
+    color: "#b45309",
+    match: value => /oral reading fluency|\bfluency\b|wcpm/i.test(value)
   },
   {
     id: "phonics",
-    label: "Phonics",
+    label: "Phonics / Encoding & Decoding",
     color: "#2563eb",
-    match: value => /cvc|short vowel|blend|digraph|long vowel|silent e|vowel team|controlled|phonics|pattern/i.test(value)
+    match: value => /cvc|short vowel|blend|digraph|long vowel|silent e|vowel team|controlled|phonics|pattern|encoding|decoding|spelling/i.test(value)
   },
   {
     id: "hfw",
@@ -50,6 +73,10 @@ const SKILL_AREA_RULES = [
 ];
 
 const CLASS_REPORT_SKILL_ORDER = [
+  "EL Phonological & Phonemic Awareness",
+  "EL Encoding",
+  "EL Decoding",
+  "EL Oral Reading Fluency",
   "Initial Sounds",
   "Final Sounds",
   "Rhyming",
@@ -65,6 +92,10 @@ const CLASS_REPORT_SKILL_ORDER = [
 ];
 
 const CLASS_REPORT_SKILL_ALIASES = [
+  { label: "EL: Phonological / Phonemic Awareness", canonical: "EL Phonological & Phonemic Awareness", match: value => /el.*phonological|phonemic awareness/.test(value) },
+  { label: "EL: Encoding", canonical: "EL Encoding", match: value => /\bel.*encoding\b|\bencoding assessment\b/.test(value) },
+  { label: "EL: Decoding", canonical: "EL Decoding", match: value => /\bel.*decoding\b|\bdecoding assessment\b/.test(value) },
+  { label: "EL: Oral Reading Fluency", canonical: "EL Oral Reading Fluency", match: value => /oral reading fluency|\bel.*fluency\b/.test(value) },
   { label: "Initial Sounds", match: value => /initial/.test(value) },
   { label: "Final Sounds", match: value => /final|ending/.test(value) },
   { label: "Rhyming", match: value => /rhym/.test(value) },
@@ -308,6 +339,7 @@ export function normalizeItemMasteryRows(itemMastery = {}, assessmentHistory = [
   const rowMap = new Map();
   const addRow = row => {
     if (!row?.itemType || !row?.itemKey) return;
+    if (DESCRIPTIVE_EL_BENCHMARK_IDS.has(normalizeKey(row.skillId || row.assessmentType))) return;
     const itemType = normalizeKey(row.itemType);
     const itemKey = normalizeKey(row.itemKey);
     const key = `${itemType}::${itemKey}`;
@@ -334,7 +366,7 @@ export function normalizeItemMasteryRows(itemMastery = {}, assessmentHistory = [
 
   Object.values(itemMastery || {}).forEach(addRow);
 
-  assessmentHistory.map(normalizeAssessmentAttempt).forEach(attempt => {
+  assessmentHistory.map(normalizeAssessmentAttempt).filter(attempt => !isDescriptiveElBenchmarkRecord(attempt)).forEach(attempt => {
     attempt.questionRecords.forEach(question => {
       const inferred = inferQuestionItem(question, attempt);
       if (!inferred) return;
@@ -375,7 +407,7 @@ export function normalizeItemMasteryRows(itemMastery = {}, assessmentHistory = [
 
 export function buildWeeklyAccuracy(records = []) {
   const weeks = new Map();
-  records.map(normalizeAssessmentAttempt).forEach(record => {
+  records.map(normalizeAssessmentAttempt).filter(record => !isDescriptiveElBenchmarkRecord(record)).forEach(record => {
     if (!record.completedAt) return;
     const date = new Date(record.completedAt);
     if (!Number.isFinite(date.getTime())) return;
@@ -477,7 +509,10 @@ export function buildRecommendations({
     .filter(row => !focusItems.some(item => `${item.itemType}::${item.itemKey}` === `${row.itemType}::${row.itemKey}`))
     .slice(0, 3)
     .map(row => `Almost there: ${row.label} (${row.correct}/${row.attempts} correct)`);
-  const normalizedHistory = assessmentHistory.map(normalizeAssessmentAttempt).sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
+  const normalizedHistory = assessmentHistory
+    .map(normalizeAssessmentAttempt)
+    .filter(record => !isDescriptiveElBenchmarkRecord(record))
+    .sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
   const sameSkillAttempts = currentSkillId ? normalizedHistory.filter(record => record.skillId === currentSkillId) : [];
   const latestAttempt = normalizedHistory.at(-1);
   const latestCoverageCounts = sameSkillAttempts.slice(-3).map(record => {
@@ -527,11 +562,14 @@ export function buildStudentReportModel({
   guidedReadingReportRows = [],
   storyQuestSummary = {}
 } = {}) {
-  const records = assessmentHistory.map(normalizeAssessmentAttempt).sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
+  const records = assessmentHistory
+    .map(normalizeAssessmentAttempt)
+    .filter(record => !isDescriptiveElBenchmarkRecord(record))
+    .sort((a, b) => new Date(a.completedAt) - new Date(b.completedAt));
   const answered = totalAnswered || records.reduce((sum, record) => sum + record.totalQuestions, 0);
   const correct = records.reduce((sum, record) => sum + record.correctCount, 0);
   const effectiveAccuracy = answered ? clampPercent(accuracy || (correct / answered) * 100) : 0;
-  const itemRows = normalizeItemMasteryRows(itemMastery, assessmentHistory);
+  const itemRows = normalizeItemMasteryRows(itemMastery, records);
   const latestAttempt = records.at(-1) || null;
   const sameSkillAttempts = currentStage?.id ? records.filter(record => record.skillId === currentStage.id) : [];
   const sameSkillDelta = sameSkillAttempts.length >= 2
@@ -589,7 +627,7 @@ export function buildStudentReportModel({
     mastery,
     coverageSnapshot,
     currentStageQuestions,
-    assessmentHistory
+    assessmentHistory: records
   });
 
   return {
@@ -637,6 +675,7 @@ export function buildClassReportModel({ students = [], classes = [], assessmentH
   const classStudentIds = new Set(classStudents.map(getClassStudentId).filter(Boolean));
   const records = assessmentHistory
     .map(normalizeAssessmentAttempt)
+    .filter(record => !isDescriptiveElBenchmarkRecord(record))
     .filter(record => {
       if (!classId) return true;
       if (record.classId === classId) return true;

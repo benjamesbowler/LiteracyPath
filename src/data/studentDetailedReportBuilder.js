@@ -377,7 +377,10 @@ export function buildIndividualStudentDetailedReport({
   guidedReadingRecords = null,
   teacherId = "",
   dateRange = {},
-  selectedSections = DEFAULT_REPORT_SECTIONS
+  selectedSections = DEFAULT_REPORT_SECTIONS,
+  benchmarkScope = null,
+  benchmarkGrade = "",
+  benchmarkWindow = ""
 } = {}) {
   const studentId = getStudentId(student);
   const classId = getClassId(student);
@@ -390,7 +393,10 @@ export function buildIndividualStudentDetailedReport({
   const recommendations = buildRecommendations(skillSections, guidedReading);
   const formalAssessments = buildIndividualElFormalAssessmentReport({
     student,
-    assessmentHistory: records
+    assessmentHistory: records,
+    benchmarkScope,
+    benchmarkGrade,
+    benchmarkWindow
   });
 
   return {
@@ -427,7 +433,10 @@ export function buildWholeClassDetailedReport({
   assessmentHistory = [],
   teacherId = "",
   classId = "",
-  dateRange = {}
+  dateRange = {},
+  benchmarkScope = null,
+  benchmarkGrade = "",
+  benchmarkWindow = ""
 } = {}) {
   const classStudents = students.filter(student => !classId || getClassId(student) === classId);
   const studentReports = classStudents.map(student =>
@@ -436,14 +445,20 @@ export function buildWholeClassDetailedReport({
       classes,
       assessmentHistory,
       teacherId,
-      dateRange
+      dateRange,
+      benchmarkScope,
+      benchmarkGrade,
+      benchmarkWindow
     })
   );
   const classRecords = filterRecords({ assessmentHistory, classId, dateRange });
   const formalAssessments = buildClassElFormalAssessmentReport({
     students: classStudents,
     assessmentHistory: classRecords,
-    classId
+    classId,
+    benchmarkScope,
+    benchmarkGrade,
+    benchmarkWindow
   });
   const sectionNames = new Set(studentReports.flatMap(report => report.skillSections.map(section => section.skillName)));
   const matrices = Array.from(sectionNames).map(sectionName => {

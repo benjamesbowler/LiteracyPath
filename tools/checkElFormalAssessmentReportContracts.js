@@ -6,7 +6,9 @@ import {
   buildIndividualElFormalAssessmentReport
 } from "../src/data/elFormalAssessmentReportBuilder.js";
 import {
+  EL_CLASS_BENCHMARK_SHEETS,
   EL_CLASS_REPORT_SHEETS,
+  EL_STUDENT_BENCHMARK_SHEETS,
   EL_STUDENT_REPORT_SHEETS
 } from "../src/utils/exportElAssessmentExcel.js";
 
@@ -94,21 +96,26 @@ if (!classOrRow || classOrRow.needsSupportStudents !== 1 || !classOrRow.students
 
 [
   "Letter Names & Sounds",
-  "Advanced Phonics Patterns"
+  "Advanced Phonics Patterns",
+  ...EL_STUDENT_BENCHMARK_SHEETS
 ].forEach(sheet => {
   if (!EL_STUDENT_REPORT_SHEETS.includes(sheet)) push(`Student Excel export missing ${sheet} sheet.`);
 });
 [
   "Letter Sound Class Matrix",
-  "Advanced Phonics Class Matrix"
+  "Advanced Phonics Class Matrix",
+  ...EL_CLASS_BENCHMARK_SHEETS
 ].forEach(sheet => {
   if (!EL_CLASS_REPORT_SHEETS.includes(sheet)) push(`Class Excel export missing ${sheet} sheet.`);
 });
 
 const adminSource = readFileSync(new URL("../src/components/AdminDashboardPage.jsx", import.meta.url), "utf8");
 [
-  "EL Formal Assessments",
-  "Letter Names &amp; Sounds",
+  "EL Formal and Benchmark Assessments",
+  "Sound-awareness strands",
+  "Encoding: exact + plausible",
+  "Decoding: accurate + automatic",
+  "Fluency: WCPM + accuracy + prosody",
   "formal-report-controls",
   "uppercaseName",
   "lowercaseSound"
@@ -122,7 +129,14 @@ const exportSource = readFileSync(new URL("../src/utils/exportElAssessmentExcel.
   "Uppercase name result",
   "Lowercase sound result",
   "Letter Sound Class Matrix",
-  "Advanced Phonics Class Matrix"
+  "Advanced Phonics Class Matrix",
+  "PA Strand Detail",
+  "Exact spelling rate",
+  "Attempt automaticity",
+  "Fluency prosody average",
+  "Benchmark Class Matrix",
+  "Benchmark Domain Summary",
+  "Benchmark Evidence Detail"
 ].forEach(token => {
   if (!exportSource.includes(token)) push(`EL Excel export is missing ${token}.`);
 });

@@ -1,5 +1,45 @@
 const STORAGE_PREFIX = "lpAssessmentHistory:v1";
 
+export const CURRENT_ASSESSMENT_ATTEMPT_SCHEMA_VERSION = 2;
+
+export const ASSESSMENT_RESPONSE_STATUSES = Object.freeze({
+  CORRECT: "correct",
+  INCORRECT: "incorrect",
+  SELF_CORRECTED: "self_corrected",
+  NO_RESPONSE: "no_response",
+  RECORDED: "recorded",
+  SKIPPED: "skipped",
+  NOT_ADMINISTERED: "not_administered",
+  DISCONTINUED: "discontinued",
+  NOT_SCORABLE: "not_scorable"
+});
+
+export const ASSESSMENT_ADMINISTRATION_STATUSES = Object.freeze({
+  IN_PROGRESS: "in_progress",
+  COMPLETED: "completed",
+  PARTIAL: "partial",
+  DISCONTINUED: "discontinued",
+  NOT_ADMINISTERED: "not_administered",
+  NOT_SCORABLE: "not_scorable"
+});
+
+const VALID_RESPONSE_STATUSES = new Set(Object.values(ASSESSMENT_RESPONSE_STATUSES));
+const VALID_ADMINISTRATION_STATUSES = new Set(Object.values(ASSESSMENT_ADMINISTRATION_STATUSES));
+const SCORED_RESPONSE_STATUSES = new Set([
+  ASSESSMENT_RESPONSE_STATUSES.CORRECT,
+  ASSESSMENT_RESPONSE_STATUSES.INCORRECT,
+  ASSESSMENT_RESPONSE_STATUSES.SELF_CORRECTED,
+  ASSESSMENT_RESPONSE_STATUSES.NO_RESPONSE,
+  ASSESSMENT_RESPONSE_STATUSES.SKIPPED
+]);
+
+const DESCRIPTIVE_EL_BENCHMARK_TYPES = new Set([
+  "el_phonological_awareness",
+  "el_encoding",
+  "el_decoding",
+  "el_oral_reading_fluency"
+]);
+
 const REQUIRED_ATTEMPT_FIELDS = [
   "attemptId",
   "studentId",
@@ -38,6 +78,270 @@ function normalizeDate(value) {
   if (!value) return "";
   const date = new Date(value);
   return Number.isNaN(date.getTime()) ? String(value) : date.toISOString();
+}
+
+function normalizeOptionalNumber(value, { minimum = -Infinity, maximum = Infinity } = {}) {
+  if (value === undefined || value === null || value === "") return null;
+  const number = Number(value);
+  if (!Number.isFinite(number)) return null;
+  return Math.min(maximum, Math.max(minimum, number));
+}
+
+function normalizeCount(value, fallback = 0) {
+  const number = normalizeOptionalNumber(value, { minimum: 0 });
+  return number === null ? fallback : Math.round(number);
+}
+
+function cloneJsonValue(value, fallback) {
+  if (value === undefined) return fallback;
+  try {
+    return JSON.parse(JSON.stringify(value));
+  } catch {
+    return fallback;
+  }
+}
+
+function normalizeResponseStatus(item = {}) {
+  const explicit = normalizeKey(
+    item.responseStatus ||
+    item.response_status ||
+    item.resultStatus ||
+    item.administrationStatus ||
+    item.administration_status ||
+    ""
+  );
+  const aliases = {
+    right: ASSESSMENT_RESPONSE_STATUSES.CORRECT,
+    passed: ASSESSMENT_RESPONSE_STATUSES.CORRECT,
+    wrong: ASSESSMENT_RESPONSE_STATUSES.INCORRECT,
+    failed: ASSESSMENT_RESPONSE_STATUSES.INCORRECT,
+    omitted: ASSESSMENT_RESPONSE_STATUSES.SKIPPED,
+    blank: ASSESSMENT_RESPONSE_STATUSES.SKIPPED,
+    no_response: ASSESSMENT_RESPONSE_STATUSES.NO_RESPONSE,
+    not_attempted: ASSESSMENT_RESPONSE_STATUSES.NOT_ADMINISTERED,
+    not_presented: ASSESSMENT_RESPONSE_STATUSES.NOT_ADMINISTERED,
+    unadministered: ASSESSMENT_RESPONSE_STATUSES.NOT_ADMINISTERED,
+    stopped: ASSESSMENT_RESPONSE_STATUSES.DISCONTINUED,
+    unscorable: ASSESSMENT_RESPONSE_STATUSES.NOT_SCORABLE,
+    invalid: ASSESSMENT_RESPONSE_STATUSES.NOT_SCORABLE
+  };
+  const resolved = aliases[explicit] || explicit;
+  if (VALID_RESPONSE_STATUSES.has(resolved)) return resolved;
+  if (item.notAdministered) return ASSESSMENT_RESPONSE_STATUSES.NOT_ADMINISTERED;
+  if (item.discontinued) return ASSESSMENT_RESPONSE_STATUSES.DISCONTINUED;
+  if (item.notScorable) return ASSESSMENT_RESPONSE_STATUSES.NOT_SCORABLE;
+  if (item.skipped) return ASSESSMENT_RESPONSE_STATUSES.SKIPPED;
+  // Historical records only supplied isCorrect. Treat a missing value as the
+  // old normalizer did (incorrect), while all new non-administered states must
+  // be explicit so they are never silently counted as misses.
+  return item.isCorrect === true
+    ? ASSESSMENT_RESPONSE_STATUSES.CORRECT
+    : ASSESSMENT_RESPONSE_STATUSES.INCORRECT;
+}
+
+function normalizeAdministrationStatus(value, fallback) {
+  const explicit = normalizeKey(value);
+  const aliases = {
+    complete: ASSESSMENT_ADMINISTRATION_STATUSES.COMPLETED,
+    stopped: ASSESSMENT_ADMINISTRATION_STATUSES.DISCONTINUED,
+    unadministered: ASSESSMENT_ADMINISTRATION_STATUSES.NOT_ADMINISTERED,
+    unscorable: ASSESSMENT_ADMINISTRATION_STATUSES.NOT_SCORABLE
+  };
+  const resolved = aliases[explicit] || explicit;
+  return VALID_ADMINISTRATION_STATUSES.has(resolved) ? resolved : fallback;
+}
+
+function isScoredQuestion(question = {}) {
+  return SCORED_RESPONSE_STATUSES.has(question.responseStatus);
+}
+
+function normalizeQuestionRecord(item = {}, index, record, completedAt) {
+  const responseStatus = normalizeResponseStatus(item);
+  const pointsPossible = normalizeOptionalNumber(item.pointsPossible ?? item.maxPoints, { minimum: 0 });
+  const defaultPointsEarned = pointsPossible === null
+    ? null
+    : responseStatus === ASSESSMENT_RESPONSE_STATUSES.CORRECT
+      ? pointsPossible
+      : 0;
+  const rawPointsEarned = normalizeOptionalNumber(item.pointsEarned ?? item.score, { minimum: 0 });
+  const pointsEarned = pointsPossible === null
+    ? rawPointsEarned
+    : Math.min(pointsPossible, rawPointsEarned ?? defaultPointsEarned);
+
+  const featureTags = Array.isArray(item.featureTags) ? cloneJsonValue(item.featureTags, []) : [];
+  const errorTags = Array.isArray(item.errorTags) ? cloneJsonValue(item.errorTags, []) : [];
+  const existingFeatures = cloneJsonValue(item.features, {});
+  const existingMetadata = cloneJsonValue(item.metadata, {});
+
+  return {
+    questionId: item.questionId || item.id || "",
+    title: item.title || item.passageTitle || "",
+    passageId: item.passageId || "",
+    passageTitle: item.passageTitle || item.title || "",
+    passageWordCount: normalizeOptionalNumber(item.passageWordCount, { minimum: 0 }),
+    subtestId: item.subtestId || "",
+    subtestName: item.subtestName || "",
+    prompt: item.prompt || item.question || "",
+    stimulus: cloneJsonValue(item.stimulus, item.stimulus ?? ""),
+    pattern: item.pattern || item.targetPattern || "",
+    targetWord: item.targetWord || item.diagnosticTarget || item.itemKey || "",
+    targetLetter: item.targetLetter || "",
+    targetSound: item.targetSound || "",
+    targetPattern: item.targetPattern || "",
+    itemKey: item.itemKey || "",
+    itemType: item.itemType || "",
+    correctAnswer: cloneJsonValue(item.correctAnswer ?? item.correct ?? "", ""),
+    expectedResponse: cloneJsonValue(item.expectedResponse, item.expectedResponse ?? ""),
+    selectedAnswer: cloneJsonValue(item.selectedAnswer ?? item.chosen ?? "", ""),
+    responseText: item.responseText ?? item.exactResponse ?? "",
+    responseCode: item.responseCode || "",
+    scoringCode: item.scoringCode || "",
+    responseStatus,
+    administrationStatus: item.administrationStatus || item.administration_status || "",
+    isCorrect: responseStatus === ASSESSMENT_RESPONSE_STATUSES.CORRECT || responseStatus === ASSESSMENT_RESPONSE_STATUSES.SELF_CORRECTED
+      ? true
+      : responseStatus === ASSESSMENT_RESPONSE_STATUSES.INCORRECT ||
+          responseStatus === ASSESSMENT_RESPONSE_STATUSES.SKIPPED ||
+          responseStatus === ASSESSMENT_RESPONSE_STATUSES.NO_RESPONSE
+        ? false
+        : null,
+    pointsEarned,
+    pointsPossible,
+    skillId: item.skillId || record.skillId || "",
+    templateType: item.templateType || item.formatType || "",
+    tags: Array.isArray(item.tags) ? cloneJsonValue(item.tags, []) : [],
+    level: Number(item.level ?? item.itemLevel ?? record.skillLevel ?? 1),
+    phase: Number(item.phase || item.itemPhase || record.skillPhase || 1),
+    durationMs: normalizeOptionalNumber(item.durationMs, { minimum: 0 }),
+    latencyMs: normalizeOptionalNumber(item.latencyMs, { minimum: 0 }),
+    automaticity: item.automaticity ?? item.automatic ?? null,
+    automatic: item.automatic ?? item.automaticity ?? null,
+    selfCorrected: item.selfCorrected ?? null,
+    transcription: item.transcription ?? item.responseText ?? "",
+    exact: item.exact ?? null,
+    plausible: item.plausible ?? null,
+    evaluation: item.evaluation || "",
+    featureTags,
+    errorTags,
+    strand: item.strand || "",
+    task: item.task || "",
+    microphase: item.microphase || "",
+    bandId: item.bandId || "",
+    anchorCycle: item.anchorCycle ?? null,
+    wordsAttempted: normalizeOptionalNumber(item.wordsAttempted, { minimum: 0 }),
+    errorCount: normalizeOptionalNumber(
+      Array.isArray(item.errors) ? item.errorCount : item.errors ?? item.errorCount,
+      { minimum: 0 }
+    ),
+    selfCorrections: normalizeOptionalNumber(item.selfCorrections, { minimum: 0 }),
+    elapsedSeconds: normalizeOptionalNumber(item.elapsedSeconds, { minimum: 0 }),
+    correctWords: normalizeOptionalNumber(item.correctWords, { minimum: 0 }),
+    wcpm: normalizeOptionalNumber(item.wcpm, { minimum: 0 }),
+    wordAccuracy: normalizeOptionalNumber(item.accuracy ?? item.wordAccuracy, { minimum: 0, maximum: 100 }),
+    prosody: cloneJsonValue(item.prosody, {}),
+    passageAccurate: item.passageAccurate ?? null,
+    lastWordIndex: normalizeOptionalNumber(item.lastWordIndex, { minimum: -1 }),
+    lastWord: item.lastWord || "",
+    timerStatus: item.timerStatus || "",
+    timerInterrupted: item.timerInterrupted ?? existingMetadata.timerInterrupted ?? null,
+    interruptionReason: item.interruptionReason || existingMetadata.interruptionReason || "",
+    timingRequiredSeconds: normalizeOptionalNumber(item.timingRequiredSeconds, { minimum: 0 }),
+    exactMinute: item.exactMinute ?? null,
+    finishedEarly: item.finishedEarly ?? null,
+    validFinishedEarly: item.validFinishedEarly ?? null,
+    zeroWordsReached: item.zeroWordsReached ?? existingMetadata.zeroWordsReached ?? null,
+    teacherAccuracyJudgment: item.teacherAccuracyJudgment ?? item.passageAccurate ?? null,
+    judgmentSource: item.judgmentSource || "",
+    accuracyJudgmentSource: item.accuracyJudgmentSource || existingMetadata.accuracyJudgmentSource || "",
+    accuracyJudgedAt: item.accuracyJudgedAt || existingMetadata.accuracyJudgedAt || "",
+    routeJudgmentUsable: item.routeJudgmentUsable ?? null,
+    routeDecision: cloneJsonValue(item.routeDecision, existingMetadata.routeDecision ?? null),
+    evidenceStatus: item.evidenceStatus || "",
+    informationalNotes: cloneJsonValue(item.informationalNotes, existingMetadata.informationalNotes ?? []),
+    routeSkipReason: item.routeSkipReason || "",
+    notAdministeredReason: item.notAdministeredReason || "",
+    retainedObservationAfterStop: cloneJsonValue(item.retainedObservationAfterStop, null),
+    validationIssues: Array.isArray(item.validationIssues) ? cloneJsonValue(item.validationIssues, []) : [],
+    errorType: cloneJsonValue(item.errorType, item.errorType ?? ""),
+    errors: Array.isArray(item.errors) ? cloneJsonValue(item.errors, []) : errorTags,
+    promptLevel: cloneJsonValue(item.promptLevel, item.promptLevel ?? ""),
+    prompted: item.prompted ?? null,
+    independent: item.independent ?? null,
+    notScorableReason: item.notScorableReason || "",
+    notScorableNote: item.notScorableNote || "",
+    notes: item.notes || "",
+    features: {
+      ...existingFeatures,
+      featureTags,
+      errorTags,
+      strand: item.strand || existingFeatures.strand || "",
+      task: item.task || existingFeatures.task || "",
+      microphase: item.microphase || existingFeatures.microphase || "",
+      bandId: item.bandId || existingFeatures.bandId || "",
+      anchorCycle: item.anchorCycle ?? existingFeatures.anchorCycle ?? null,
+      automatic: item.automatic ?? item.automaticity ?? existingFeatures.automatic ?? null,
+      plausible: item.plausible ?? existingFeatures.plausible ?? null,
+      exact: item.exact ?? existingFeatures.exact ?? null,
+      evaluation: item.evaluation || existingFeatures.evaluation || "",
+      plausibilitySource: item.plausibilitySource || existingFeatures.plausibilitySource || "",
+      notAdministeredReason: item.notAdministeredReason || existingFeatures.notAdministeredReason || ""
+    },
+    metadata: {
+      ...existingMetadata,
+      featureTags,
+      errorTags,
+      strand: item.strand || existingMetadata.strand || "",
+      task: item.task || existingMetadata.task || "",
+      microphase: item.microphase || existingMetadata.microphase || "",
+      bandId: item.bandId || existingMetadata.bandId || "",
+      anchorCycle: item.anchorCycle ?? existingMetadata.anchorCycle ?? null,
+      automatic: item.automatic ?? item.automaticity ?? existingMetadata.automatic ?? null,
+      plausible: item.plausible ?? existingMetadata.plausible ?? null,
+      exact: item.exact ?? existingMetadata.exact ?? null,
+      evaluation: item.evaluation || existingMetadata.evaluation || "",
+      evaluationSource: item.evaluationSource || existingMetadata.evaluationSource || "",
+      teacherOverride: cloneJsonValue(item.teacherOverride, existingMetadata.teacherOverride ?? null),
+      overrideReason: item.overrideReason || existingMetadata.overrideReason || "",
+      wordsAttempted: item.wordsAttempted ?? existingMetadata.wordsAttempted ?? null,
+      errors: Array.isArray(item.errors) ? existingMetadata.errors ?? null : item.errors ?? existingMetadata.errors ?? null,
+      selfCorrections: item.selfCorrections ?? existingMetadata.selfCorrections ?? null,
+      elapsedSeconds: item.elapsedSeconds ?? existingMetadata.elapsedSeconds ?? null,
+      correctWords: item.correctWords ?? existingMetadata.correctWords ?? null,
+      wcpm: item.wcpm ?? existingMetadata.wcpm ?? null,
+      accuracy: item.accuracy ?? existingMetadata.accuracy ?? null,
+      prosody: cloneJsonValue(item.prosody, existingMetadata.prosody ?? {}),
+      passageAccurate: item.passageAccurate ?? existingMetadata.passageAccurate ?? null,
+      lastWordIndex: item.lastWordIndex ?? existingMetadata.lastWordIndex ?? null,
+      lastWord: item.lastWord || existingMetadata.lastWord || "",
+      timerStatus: item.timerStatus || existingMetadata.timerStatus || "",
+      timerInterrupted: item.timerInterrupted ?? existingMetadata.timerInterrupted ?? null,
+      interruptionReason: item.interruptionReason || existingMetadata.interruptionReason || "",
+      passageId: item.passageId || existingMetadata.passageId || "",
+      passageTitle: item.passageTitle || item.title || existingMetadata.passageTitle || "",
+      passageWordCount: item.passageWordCount ?? existingMetadata.passageWordCount ?? null,
+      timingRequiredSeconds: item.timingRequiredSeconds ?? existingMetadata.timingRequiredSeconds ?? null,
+      exactMinute: item.exactMinute ?? existingMetadata.exactMinute ?? null,
+      finishedEarly: item.finishedEarly ?? existingMetadata.finishedEarly ?? null,
+      validFinishedEarly: item.validFinishedEarly ?? existingMetadata.validFinishedEarly ?? null,
+      zeroWordsReached: item.zeroWordsReached ?? existingMetadata.zeroWordsReached ?? null,
+      teacherAccuracyJudgment: item.teacherAccuracyJudgment ?? item.passageAccurate ?? existingMetadata.teacherAccuracyJudgment ?? null,
+      judgmentSource: item.judgmentSource || existingMetadata.judgmentSource || "",
+      accuracyJudgmentSource: item.accuracyJudgmentSource || existingMetadata.accuracyJudgmentSource || "",
+      accuracyJudgedAt: item.accuracyJudgedAt || existingMetadata.accuracyJudgedAt || "",
+      routeJudgmentUsable: item.routeJudgmentUsable ?? existingMetadata.routeJudgmentUsable ?? null,
+      routeDecision: cloneJsonValue(item.routeDecision, existingMetadata.routeDecision ?? null),
+      evidenceStatus: item.evidenceStatus || existingMetadata.evidenceStatus || "",
+      informationalNotes: cloneJsonValue(item.informationalNotes, existingMetadata.informationalNotes ?? []),
+      routeSkipReason: item.routeSkipReason || existingMetadata.routeSkipReason || "",
+      retainedObservationAfterStop: cloneJsonValue(
+        item.retainedObservationAfterStop,
+        existingMetadata.retainedObservationAfterStop ?? null
+      ),
+      validationIssues: cloneJsonValue(item.validationIssues, existingMetadata.validationIssues ?? [])
+    },
+    timestamp: normalizeDate(item.timestamp) || completedAt,
+    order: normalizeCount(item.order, index + 1)
+  };
 }
 
 function normalizeKey(value) {
@@ -184,13 +488,118 @@ function makeAttemptId(record = {}) {
 }
 
 export function normalizeAssessmentAttempt(record = {}) {
-  const questionRecords = Array.isArray(record.questionRecords) ? record.questionRecords : [];
-  const totalQuestions = Number(record.totalQuestions || questionRecords.length || 0);
-  const correctCount = Number(record.correctCount ?? questionRecords.filter(item => item.isCorrect).length);
-  const accuracy = totalQuestions ? Math.round((correctCount / totalQuestions) * 100) : 0;
+  const rawQuestionRecords = Array.isArray(record.questionRecords) ? record.questionRecords : [];
+  const isDescriptiveElBenchmark = DESCRIPTIVE_EL_BENCHMARK_TYPES.has(normalizeKey(
+    record.assessmentType || record.assessmentId || record.skillId
+  ));
   const completedAt = normalizeDate(record.completedAt) || nowIso();
-  const startedAt = normalizeDate(record.startedAt) || questionRecords[0]?.timestamp || completedAt;
-  const passed = Boolean(record.passed ?? record.mastered ?? accuracy >= 80);
+  const startedAt = normalizeDate(record.startedAt) || normalizeDate(rawQuestionRecords[0]?.timestamp) || completedAt;
+  const explicitAdministrationStatus = normalizeAdministrationStatus(record.administrationStatus, "");
+  const attemptIsUnscored = [
+    ASSESSMENT_ADMINISTRATION_STATUSES.NOT_ADMINISTERED,
+    ASSESSMENT_ADMINISTRATION_STATUSES.NOT_SCORABLE
+  ].includes(explicitAdministrationStatus);
+  const questionRecords = rawQuestionRecords.map((item, index) => {
+    const hasItemStatus = (
+      item.responseStatus !== undefined ||
+      item.response_status !== undefined ||
+      item.resultStatus !== undefined ||
+      item.administrationStatus !== undefined ||
+      item.administration_status !== undefined
+    );
+    const itemWithAttemptDefault = attemptIsUnscored && !hasItemStatus
+      ? { ...item, responseStatus: explicitAdministrationStatus }
+      : item;
+    return normalizeQuestionRecord(itemWithAttemptDefault, index, record, completedAt);
+  });
+  const hasExplicitResponseStates = rawQuestionRecords.some(item => (
+    item.responseStatus !== undefined ||
+    item.response_status !== undefined ||
+    item.administrationStatus !== undefined ||
+    item.administration_status !== undefined ||
+    item.notAdministered ||
+    item.discontinued ||
+    item.notScorable ||
+    item.skipped
+  ));
+  const scoredQuestions = questionRecords.filter(isScoredQuestion);
+  const inferredTotal = scoredQuestions.length;
+  const legacyTotal = normalizeCount(record.totalQuestions, inferredTotal);
+  const totalQuestions = attemptIsUnscored
+    ? 0
+    : isDescriptiveElBenchmark && record.totalQuestions !== undefined
+      ? normalizeCount(record.totalQuestions, inferredTotal)
+    : hasExplicitResponseStates
+      ? inferredTotal
+      : legacyTotal > 0 || inferredTotal === 0
+        ? legacyTotal
+        : inferredTotal;
+  const inferredCorrect = scoredQuestions.filter(item => item.responseStatus === ASSESSMENT_RESPONSE_STATUSES.CORRECT).length;
+  const correctCount = attemptIsUnscored
+    ? 0
+    : isDescriptiveElBenchmark && record.correctCount !== undefined
+      ? normalizeCount(record.correctCount, inferredCorrect)
+    : hasExplicitResponseStates
+      ? inferredCorrect
+      : normalizeCount(record.correctCount, inferredCorrect);
+  const skippedCount = questionRecords.filter(item => item.responseStatus === ASSESSMENT_RESPONSE_STATUSES.SKIPPED).length;
+  const notAdministeredCount = questionRecords.filter(item => item.responseStatus === ASSESSMENT_RESPONSE_STATUSES.NOT_ADMINISTERED).length;
+  const discontinuedItemCount = questionRecords.filter(item => item.responseStatus === ASSESSMENT_RESPONSE_STATUSES.DISCONTINUED).length;
+  const notScorableCount = questionRecords.filter(item => item.responseStatus === ASSESSMENT_RESPONSE_STATUSES.NOT_SCORABLE).length;
+  const plannedQuestionCount = normalizeCount(
+    record.plannedQuestionCount,
+    Math.max(rawQuestionRecords.length, legacyTotal, totalQuestions)
+  );
+  const questionsUsePointScoring = scoredQuestions.some(item => item.pointsPossible !== null);
+  const questionPointsPossible = scoredQuestions.reduce((sum, item) => sum + (item.pointsPossible ?? 0), 0);
+  const questionPointsEarned = scoredQuestions.reduce((sum, item) => sum + (item.pointsEarned ?? 0), 0);
+  const pointsPossible = attemptIsUnscored
+    ? 0
+    : questionsUsePointScoring
+      ? questionPointsPossible
+      : normalizeOptionalNumber(record.pointsPossible, { minimum: 0 }) ?? 0;
+  const pointsEarned = Math.min(
+    pointsPossible,
+    questionsUsePointScoring
+      ? questionPointsEarned
+      : normalizeOptionalNumber(record.pointsEarned, { minimum: 0 }) ?? 0
+  );
+  const usesPointScoring = pointsPossible > 0 && (
+    record.pointsPossible !== undefined ||
+    questionsUsePointScoring
+  );
+  const normalizedRecordedAccuracy = normalizeOptionalNumber(record.accuracy, { minimum: 0, maximum: 100 });
+  const explicitNullDescriptiveAccuracy = isDescriptiveElBenchmark &&
+    Object.prototype.hasOwnProperty.call(record, "accuracy") &&
+    (record.accuracy === null || record.accuracy === "");
+  const accuracy = isDescriptiveElBenchmark && (attemptIsUnscored || explicitNullDescriptiveAccuracy)
+    ? null
+    : isDescriptiveElBenchmark && normalizedRecordedAccuracy !== null
+      ? normalizedRecordedAccuracy
+      : usesPointScoring
+        ? Math.round((pointsEarned / pointsPossible) * 100)
+        : totalQuestions
+          ? Math.round((correctCount / totalQuestions) * 100)
+          : 0;
+  const inferredAdministrationStatus = record.discontinued || discontinuedItemCount > 0
+    ? ASSESSMENT_ADMINISTRATION_STATUSES.DISCONTINUED
+    : notAdministeredCount > 0 || notScorableCount > 0
+      ? ASSESSMENT_ADMINISTRATION_STATUSES.PARTIAL
+      : ASSESSMENT_ADMINISTRATION_STATUSES.COMPLETED;
+  const administrationStatus = explicitAdministrationStatus || inferredAdministrationStatus;
+  const discontinued = Boolean(record.discontinued || administrationStatus === ASSESSMENT_ADMINISTRATION_STATUSES.DISCONTINUED);
+  const passed = isDescriptiveElBenchmark
+    ? Boolean(record.passed ?? false)
+    : Boolean(record.passed ?? record.mastered ?? (!discontinued && accuracy >= 80));
+  const hasRichFields = hasExplicitResponseStates || [
+    "framework",
+    "formVersion",
+    "scoringRuleVersion",
+    "subtestScores",
+    "metrics",
+    "candidatePlacement",
+    "confirmedPlacement"
+  ].some(field => record[field] !== undefined);
 
   return {
     id: record.id || record.attemptId || "",
@@ -202,56 +611,124 @@ export function normalizeAssessmentAttempt(record = {}) {
     assessmentType: record.assessmentType || "skill_checkpoint",
     skillId: record.skillId || "",
     skillName: record.skillName || record.stage || "Assessment",
-    skillLevel: Number(record.skillLevel || 1),
+    skillLevel: Number(record.skillLevel ?? 1),
     skillPhase: Number(record.skillPhase || 1),
     startedAt,
     completedAt,
+    updatedAt: normalizeDate(record.updatedAt || record.updated_at) || completedAt,
+    administrationStatus,
+    scoreStatus: record.scoreStatus || "",
+    discontinued,
+    discontinueReason: record.discontinueReason || "",
     totalQuestions,
+    plannedQuestionCount,
+    administeredCount: attemptIsUnscored
+      ? 0
+      : normalizeCount(
+          record.administeredCount,
+          rawQuestionRecords.length
+            ? questionRecords.filter(item => item.responseStatus !== ASSESSMENT_RESPONSE_STATUSES.NOT_ADMINISTERED).length
+            : totalQuestions
+        ),
+    scoredCount: attemptIsUnscored
+      ? 0
+      : normalizeCount(record.scoredCount, rawQuestionRecords.length ? scoredQuestions.length : totalQuestions),
     correctCount,
     accuracy,
+    pointsEarned,
+    pointsPossible,
     passed,
-    status: record.status || (passed ? "mastered" : "needs_retry"),
+    status: record.status || (
+      [
+        ASSESSMENT_ADMINISTRATION_STATUSES.DISCONTINUED,
+        ASSESSMENT_ADMINISTRATION_STATUSES.NOT_ADMINISTERED,
+        ASSESSMENT_ADMINISTRATION_STATUSES.NOT_SCORABLE
+      ].includes(administrationStatus)
+        ? administrationStatus
+        : passed
+          ? "mastered"
+          : "needs_retry"
+    ),
     masteredItems: record.masteredItems || [],
     developingItems: record.developingItems || [],
     needsSupportItems: record.needsSupportItems || [],
-    incorrectCount: Number(record.incorrectCount ?? Math.max(0, totalQuestions - correctCount)),
+    incorrectCount: attemptIsUnscored
+      ? 0
+      : isDescriptiveElBenchmark && record.incorrectCount !== undefined
+        ? normalizeCount(record.incorrectCount, Math.max(0, totalQuestions - correctCount))
+      : hasExplicitResponseStates
+        ? Math.max(0, totalQuestions - correctCount)
+        : normalizeCount(record.incorrectCount, Math.max(0, totalQuestions - correctCount)),
+    skippedCount,
+    notAdministeredCount,
+    discontinuedItemCount,
+    notScorableCount,
     missedItems: record.missedItems || [],
     itemKeysCovered: record.itemKeysCovered || [],
-    contentCoverage: record.contentCoverage || {},
+    contentCoverage: cloneJsonValue(record.contentCoverage, {}),
     levelUnlocked: record.levelUnlocked || "",
-    patternStats: Array.isArray(record.patternStats) ? record.patternStats : [],
-    answers: Array.isArray(record.answers) ? record.answers : [],
-    questionRecords: questionRecords.map((item, index) => ({
-      questionId: item.questionId || "",
-      prompt: item.prompt || item.question || "",
-      pattern: item.pattern || item.targetPattern || "",
-      targetWord: item.targetWord || item.diagnosticTarget || item.itemKey || "",
-      targetLetter: item.targetLetter || "",
-      targetSound: item.targetSound || "",
-      targetPattern: item.targetPattern || "",
-      itemKey: item.itemKey || "",
-      itemType: item.itemType || "",
-      correctAnswer: item.correctAnswer ?? item.correct ?? "",
-      selectedAnswer: item.selectedAnswer ?? item.chosen ?? "",
-      isCorrect: Boolean(item.isCorrect),
-      skillId: item.skillId || record.skillId || "",
-      templateType: item.templateType || item.formatType || "",
-      tags: Array.isArray(item.tags) ? item.tags : [],
-      level: Number(item.level || item.itemLevel || record.skillLevel || 1),
-      phase: Number(item.phase || item.itemPhase || record.skillPhase || 1),
-      timestamp: normalizeDate(item.timestamp) || completedAt,
-      order: index + 1
-    })),
+    patternStats: Array.isArray(record.patternStats) ? cloneJsonValue(record.patternStats, []) : [],
+    answers: Array.isArray(record.answers) ? cloneJsonValue(record.answers, []) : [],
+    questionRecords,
+    framework: record.framework || "",
+    formVersion: record.formVersion || "",
+    scoringRuleVersion: record.scoringRuleVersion || "",
+    contentVersion: record.contentVersion || record.metadata?.contentVersion || "",
+    scoringVersion: record.scoringVersion || record.metadata?.scoringVersion || "",
+    grade: cloneJsonValue(record.grade, record.grade ?? ""),
+    gradePath: cloneJsonValue(record.gradePath, record.gradePath ?? ""),
+    benchmarkWindow: record.benchmarkWindow || "",
+    routeReason: record.routeReason || "",
+    routeSource: record.routeSource || record.metadata?.routeSource || "",
+    sourceAttemptId: record.sourceAttemptId || record.metadata?.sourceAttemptId || "",
+    prerequisiteReview: cloneJsonValue(
+      record.prerequisiteReview || record.metadata?.prerequisiteReview,
+      null
+    ),
+    startMicrophase: record.startMicrophase || "",
+    startCycle: record.startCycle || "",
+    cyclesAdministered: Array.isArray(record.cyclesAdministered) ? cloneJsonValue(record.cyclesAdministered, []) : [],
+    stopBand: record.stopBand || "",
+    stopCycle: record.stopCycle || "",
+    stopEvidence: cloneJsonValue(record.stopEvidence, record.stopEvidence ?? null),
+    reason: record.reason || "",
+    accommodations: Array.isArray(record.accommodations) ? cloneJsonValue(record.accommodations, []) : [],
+    candidatePlacement: cloneJsonValue(record.candidatePlacement, record.candidatePlacement ?? null),
+    confirmedPlacement: cloneJsonValue(record.confirmedPlacement, record.confirmedPlacement ?? null),
+    placementSource: record.placementSource || "",
+    teacherOverrideReason: record.teacherOverrideReason || "",
+    subtestScores: cloneJsonValue(record.subtestScores, {}),
+    metrics: cloneJsonValue(record.metrics, {}),
+    validationIssues: cloneJsonValue(record.validationIssues, []),
+    fluencyStartMicrophase: cloneJsonValue(record.fluencyStartMicrophase, record.fluencyStartMicrophase ?? null),
+    fluencySequence: cloneJsonValue(record.fluencySequence, record.fluencySequence ?? null),
+    recommendations: cloneJsonValue(record.recommendations, []),
+    observations: cloneJsonValue(record.observations, []),
+    note: record.note || record.notes || record.discontinueNote || "",
+    notes: record.notes || record.note || record.discontinueNote || "",
+    discontinueNote: record.discontinueNote || record.note || record.notes || "",
+    metadata: cloneJsonValue(record.metadata, {}),
+    completion: cloneJsonValue(record.completion, {}),
+    benchmark: cloneJsonValue(record.benchmark, record.benchmark ?? null),
+    durationMs: normalizeOptionalNumber(record.durationMs, { minimum: 0 }),
     appVersion: record.appVersion || "local",
-    schemaVersion: record.schemaVersion || 1
+    schemaVersion: normalizeCount(record.schemaVersion, hasRichFields ? CURRENT_ASSESSMENT_ATTEMPT_SCHEMA_VERSION : 1) || 1
   };
 }
 
 export function extractMasteryFromAssessmentAttempt(record = {}) {
   const attempt = normalizeAssessmentAttempt(record);
   const groups = new Map();
+  const attemptIsUnscored = [
+    ASSESSMENT_ADMINISTRATION_STATUSES.NOT_ADMINISTERED,
+    ASSESSMENT_ADMINISTRATION_STATUSES.NOT_SCORABLE
+  ].includes(attempt.administrationStatus);
 
   attempt.questionRecords.forEach(question => {
+    // A discontinued, not-administered, or otherwise unscorable item is not a
+    // wrong answer. Excluding it here prevents routing/mastery reports from
+    // manufacturing weaknesses the learner was never actually tested on.
+    if (attemptIsUnscored || !isScoredQuestion(question)) return;
     const masteryKey = inferQuestionMasteryKey(question, attempt);
     if (!masteryKey?.itemKey || !masteryKey?.itemType) return;
     const groupKey = `${masteryKey.itemType}::${masteryKey.itemKey}`;
@@ -371,56 +848,299 @@ export function loadAssessmentAttempts({ teacherId = "local", studentId = "", cl
 // Cap the locally retained history so months of attempts (each with full
 // question records) cannot exhaust the ~5MB localStorage quota.
 const MAX_LOCAL_ATTEMPTS = 400;
+const CLOUD_HYDRATION_PAGE_SIZE = 500;
 
-export function saveAssessmentAttemptLocal(record, { teacherId = record.teacherId || "local" } = {}) {
-  if (typeof localStorage === "undefined") return [normalizeAssessmentAttempt(record)];
-  const normalized = normalizeAssessmentAttempt({ ...record, teacherId: record.teacherId || teacherId });
-  const existing = loadAssessmentAttempts({ teacherId });
-  const withoutDuplicate = existing.filter(item => item.attemptId !== normalized.attemptId);
-  const next = [normalized, ...withoutDuplicate]
-    .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))
-    .slice(0, MAX_LOCAL_ATTEMPTS);
-  try {
-    localStorage.setItem(getStorageKey(teacherId), JSON.stringify(next));
-  } catch (error) {
-    // Quota exceeded: retry with a much smaller window rather than throwing —
-    // a failed local write must never take the cloud upsert down with it.
-    try {
-      localStorage.setItem(getStorageKey(teacherId), JSON.stringify(next.slice(0, 50)));
-    } catch {
-      console.warn("Assessment attempt could not be saved to localStorage (quota).", error);
-    }
-  }
-  return next;
+function sortAttemptsNewestFirst(records = []) {
+  return [...records].sort((a, b) => (
+    new Date(b.completedAt || b.updatedAt || 0).getTime() - new Date(a.completedAt || a.updatedAt || 0).getTime()
+  ));
 }
 
-export function deleteAssessmentAttemptsForStudent({ teacherId = "local", studentId = "", studentName = "" } = {}) {
+function pruneEmptyStorageValue(value) {
+  if (Array.isArray(value)) {
+    const rows = value.map(pruneEmptyStorageValue).filter(item => item !== undefined);
+    return rows.length ? rows : undefined;
+  }
+  if (value && typeof value === "object") {
+    const entries = Object.entries(value)
+      .map(([key, item]) => [key, pruneEmptyStorageValue(item)])
+      .filter(([, item]) => item !== undefined);
+    return entries.length ? Object.fromEntries(entries) : undefined;
+  }
+  if (value === undefined || value === null || value === "") return undefined;
+  return value;
+}
+
+function sameStorageValue(left, right) {
+  try {
+    return JSON.stringify(left) === JSON.stringify(right);
+  } catch {
+    return false;
+  }
+}
+
+function compactQuestionEvidenceForStorage(question = {}) {
+  const compact = pruneEmptyStorageValue(question) || {};
+  for (const bucketName of ["features", "metadata"]) {
+    const bucket = compact[bucketName];
+    if (!bucket || typeof bucket !== "object") continue;
+    for (const key of Object.keys(bucket)) {
+      if (Object.prototype.hasOwnProperty.call(compact, key) && sameStorageValue(bucket[key], compact[key])) {
+        delete bucket[key];
+      }
+    }
+    if (Object.keys(bucket).length === 0) delete compact[bucketName];
+  }
+  return compact;
+}
+
+export function compactAssessmentAttemptForStorage(record = {}) {
+  const normalized = normalizeAssessmentAttempt(record);
+  const compact = pruneEmptyStorageValue(normalized) || {};
+  compact.questionRecords = normalized.questionRecords.map(compactQuestionEvidenceForStorage);
+  if (!compact.questionRecords.length) delete compact.questionRecords;
+  if (compact.metadata && typeof compact.metadata === "object") {
+    for (const key of Object.keys(compact.metadata)) {
+      if (Object.prototype.hasOwnProperty.call(compact, key) && sameStorageValue(compact.metadata[key], compact[key])) {
+        delete compact.metadata[key];
+      }
+    }
+    if (Object.keys(compact.metadata).length === 0) delete compact.metadata;
+  }
+  return compact;
+}
+
+function saveAssessmentAttemptListLocal(records, { teacherId = "local", returnStatus = false } = {}) {
+  const normalized = sortAttemptsNewestFirst(mergeAssessmentAttemptRecords(records)).slice(0, MAX_LOCAL_ATTEMPTS);
+  if (typeof localStorage === "undefined") {
+    return returnStatus ? { records: normalized, saved: false, error: null } : normalized;
+  }
+  const compact = normalized.map(compactAssessmentAttemptForStorage);
+  let saved = false;
+  let saveError = null;
+  try {
+    localStorage.setItem(getStorageKey(teacherId), JSON.stringify(compact));
+    saved = true;
+  } catch (error) {
+    // Quota exceeded: retry with a much smaller window rather than throwing —
+    // a failed local write must never take the cloud operation down with it.
+    try {
+      localStorage.setItem(getStorageKey(teacherId), JSON.stringify(compact.slice(0, 50)));
+      saved = true;
+    } catch (fallbackError) {
+      saveError = fallbackError || error;
+      console.warn("Assessment attempts could not be saved to localStorage (quota).", error);
+    }
+  }
+  return returnStatus ? { records: normalized, saved, error: saveError } : normalized;
+}
+
+function attemptRichness(record = {}) {
+  try {
+    return JSON.stringify(record).length;
+  } catch {
+    return 0;
+  }
+}
+
+function shouldReplaceMergedAttempt(current, candidate) {
+  const currentUpdatedAt = new Date(current.updatedAt || current.completedAt || 0).getTime() || 0;
+  const candidateUpdatedAt = new Date(candidate.updatedAt || candidate.completedAt || 0).getTime() || 0;
+  if (candidateUpdatedAt !== currentUpdatedAt) return candidateUpdatedAt > currentUpdatedAt;
+  if (candidate.schemaVersion !== current.schemaVersion) return candidate.schemaVersion > current.schemaVersion;
+  return attemptRichness(candidate) >= attemptRichness(current);
+}
+
+export function mergeAssessmentAttemptRecords(...sources) {
+  const flattened = sources.flat(Infinity).filter(Boolean);
+  const byAttemptId = new Map();
+  flattened.map(normalizeAssessmentAttempt).forEach(candidate => {
+    const current = byAttemptId.get(candidate.attemptId);
+    if (!current || shouldReplaceMergedAttempt(current, candidate)) {
+      byAttemptId.set(candidate.attemptId, candidate);
+    }
+  });
+  return sortAttemptsNewestFirst(Array.from(byAttemptId.values()));
+}
+
+export function normalizeCloudAssessmentAttempt(row = {}) {
+  const payload = row.payload && typeof row.payload === "object" && !Array.isArray(row.payload)
+    ? row.payload
+    : {};
+  return normalizeAssessmentAttempt({
+    ...payload,
+    // Relational ownership, identity, and summary columns are authoritative;
+    // a stale or malformed JSON payload must never move evidence to another
+    // teacher/student or win over a newer cloud update.
+    attemptId: row.attempt_id || row.attemptId || payload.attemptId || "",
+    studentId: row.student_id || row.studentId || payload.studentId || "",
+    classId: row.class_id ?? row.classId ?? payload.classId ?? "",
+    teacherId: row.teacher_id || row.teacherId || payload.teacherId || "",
+    assessmentType: row.assessment_type || row.assessmentType || payload.assessmentType || "",
+    skillId: row.skill_id || row.skillId || payload.skillId || "",
+    skillName: row.skill_name || row.skillName || payload.skillName || "",
+    skillLevel: row.skill_level ?? row.skillLevel ?? payload.skillLevel,
+    skillPhase: row.skill_phase ?? row.skillPhase ?? payload.skillPhase,
+    startedAt: row.started_at || row.startedAt || payload.startedAt || "",
+    completedAt: row.completed_at || row.completedAt || payload.completedAt || "",
+    totalQuestions: row.total_questions ?? row.totalQuestions ?? payload.totalQuestions,
+    correctCount: row.correct_count ?? row.correctCount ?? payload.correctCount,
+    accuracy: row.accuracy ?? payload.accuracy,
+    status: row.status || payload.status,
+    administrationStatus: row.administration_status || row.administrationStatus || payload.administrationStatus || "",
+    updatedAt: row.updated_at || row.updatedAt || payload.updatedAt || payload.completedAt || row.completed_at || "",
+    schemaVersion: payload.schemaVersion ?? row.schema_version ?? row.schemaVersion
+  });
+}
+
+function cloudAssessmentAttemptRowIdentity(row = {}) {
+  const attemptId = row.attempt_id || row.attemptId || row.payload?.attemptId;
+  if (attemptId) return `attempt:${attemptId}`;
+  try {
+    return `row:${JSON.stringify(row)}`;
+  } catch {
+    return `row:${String(row)}`;
+  }
+}
+
+export async function hydrateAssessmentAttempts({
+  teacherId = "local",
+  studentId = "",
+  classId = "",
+  supabase = null
+} = {}) {
+  const localRecords = loadAssessmentAttempts({ teacherId });
+  const filterRequestedRows = records => records.filter(record => (
+    (!studentId || record.studentId === studentId) &&
+    (!classId || record.classId === classId)
+  ));
+
+  if (!supabase || !teacherId || teacherId === "local") {
+    return sortAttemptsNewestFirst(filterRequestedRows(localRecords));
+  }
+
+  try {
+    const buildOrderedQuery = () => {
+      let query = supabase
+        .from("assessment_attempts")
+        .select("*")
+        .eq("teacher_id", teacherId);
+      if (studentId) query = query.eq("student_id", studentId);
+      if (classId) query = query.eq("class_id", classId);
+      const ordered = query.order("completed_at", { ascending: false });
+      return typeof ordered?.order === "function"
+        ? ordered.order("attempt_id", { ascending: true })
+        : ordered;
+    };
+
+    const firstQuery = buildOrderedQuery();
+    let cloudRows = [];
+    if (typeof firstQuery?.range !== "function") {
+      // Keep compatibility with lightweight/offline Supabase adapters while
+      // real hosted clients use pagination below.
+      const { data, error } = await firstQuery;
+      if (error) throw error;
+      cloudRows = Array.isArray(data) ? data : [];
+    } else {
+      const seenCloudRows = new Set();
+      for (let from = 0; ; from += CLOUD_HYDRATION_PAGE_SIZE) {
+        const pageQuery = from === 0 ? firstQuery : buildOrderedQuery();
+        const { data, error } = await pageQuery.range(from, from + CLOUD_HYDRATION_PAGE_SIZE - 1);
+        if (error) throw error;
+        const page = Array.isArray(data) ? data : [];
+        if (!page.length) break;
+        const advancingRows = page.filter(row => {
+          const identity = cloudAssessmentAttemptRowIdentity(row);
+          if (seenCloudRows.has(identity)) return false;
+          seenCloudRows.add(identity);
+          return true;
+        });
+        // Some lightweight adapters ignore range offsets and return the same
+        // full page forever. Stop safely once a page contributes no new rows.
+        if (!advancingRows.length) break;
+        cloudRows.push(...advancingRows);
+        if (page.length < CLOUD_HYDRATION_PAGE_SIZE) break;
+      }
+    }
+
+    const cloudRecords = cloudRows.map(normalizeCloudAssessmentAttempt);
+    // Merge the requested cloud slice into the complete local teacher history;
+    // never overwrite unrelated student/class records during a filtered load.
+    const merged = mergeAssessmentAttemptRecords(localRecords, cloudRecords);
+    saveAssessmentAttemptListLocal(merged, { teacherId });
+    return sortAttemptsNewestFirst(filterRequestedRows(merged));
+  } catch (error) {
+    console.warn("Assessment attempt cloud hydration is unavailable; using local history.", error);
+    return sortAttemptsNewestFirst(filterRequestedRows(localRecords));
+  }
+}
+
+export function saveAssessmentAttemptLocal(record, {
+  teacherId = record.teacherId || "local",
+  returnStatus = false
+} = {}) {
+  const normalized = normalizeAssessmentAttempt({
+    ...record,
+    teacherId: record.teacherId || teacherId,
+    updatedAt: record.updatedAt || nowIso()
+  });
+  if (typeof localStorage === "undefined") {
+    return returnStatus ? { records: [normalized], saved: false, error: null } : [normalized];
+  }
+  const existing = loadAssessmentAttempts({ teacherId });
+  const withoutDuplicate = existing.filter(item => item.attemptId !== normalized.attemptId);
+  return saveAssessmentAttemptListLocal([normalized, ...withoutDuplicate], { teacherId, returnStatus });
+}
+
+export function deleteAssessmentAttemptsForStudent({
+  teacherId = "local",
+  studentId = "",
+  studentName = "",
+  resetAtOrBefore = ""
+} = {}) {
   if (typeof localStorage === "undefined") return [];
   const existing = loadAssessmentAttempts({ teacherId });
+  const normalizedStudentId = String(studentId || "").trim();
   const normalizedStudentName = String(studentName || "").trim().toLowerCase();
+  const resetCutoff = resetAtOrBefore ? new Date(resetAtOrBefore).getTime() : Number.NaN;
   const next = existing.filter(record => {
-    if (studentId && record.studentId === studentId) return false;
-    if (
-      normalizedStudentName &&
-      String(record.studentName || "").trim().toLowerCase() === normalizedStudentName
-    ) {
-      return false;
-    }
-    return true;
+    const recordStudentId = String(record.studentId || "").trim();
+    const belongsToStudent = (
+      Boolean(normalizedStudentId && recordStudentId === normalizedStudentId) ||
+      Boolean(
+        normalizedStudentName &&
+        !recordStudentId &&
+        String(record.studentName || "").trim().toLowerCase() === normalizedStudentName
+      )
+    );
+    if (!belongsToStudent) return true;
+    if (!Number.isFinite(resetCutoff)) return false;
+    const recordTime = new Date(
+      record.updatedAt || record.completedAt || record.startedAt || ""
+    ).getTime();
+    // Undated legacy evidence necessarily predates the synced tombstone.
+    return Number.isFinite(recordTime) && recordTime > resetCutoff;
   });
-  localStorage.setItem(getStorageKey(teacherId), JSON.stringify(next));
+  saveAssessmentAttemptListLocal(next, { teacherId });
   return next;
 }
 
 export async function saveAssessmentAttempt(record, { teacherId = record.teacherId || "local", supabase = null } = {}) {
-  const normalized = normalizeAssessmentAttempt({ ...record, teacherId: record.teacherId || teacherId });
-  let localRecords = [normalized];
+  const normalized = normalizeAssessmentAttempt({
+    ...record,
+    teacherId: record.teacherId || teacherId,
+    updatedAt: record.updatedAt || nowIso()
+  });
+  let localResult;
   try {
-    localRecords = saveAssessmentAttemptLocal(normalized, { teacherId });
+    localResult = saveAssessmentAttemptLocal(normalized, { teacherId, returnStatus: true });
   } catch (error) {
+    localResult = { records: [normalized], saved: false, error };
     console.warn("Local assessment attempt save failed; still attempting the cloud write.", error);
   }
 
+  let cloudSaved = false;
+  let cloudError = null;
   if (supabase) {
     try {
       const { error } = await supabase
@@ -434,24 +1154,40 @@ export async function saveAssessmentAttempt(record, { teacherId = record.teacher
           skill_name: normalized.skillName,
           skill_level: normalized.skillLevel,
           skill_phase: normalized.skillPhase,
+          assessment_type: normalized.assessmentType,
+          started_at: normalized.startedAt,
           completed_at: normalized.completedAt,
           total_questions: normalized.totalQuestions,
           correct_count: normalized.correctCount,
           accuracy: normalized.accuracy,
           status: normalized.status,
-          payload: normalized
+          administration_status: normalized.administrationStatus,
+          schema_version: normalized.schemaVersion,
+          updated_at: normalized.updatedAt,
+          payload: compactAssessmentAttemptForStorage(normalized)
         }, { onConflict: "attempt_id" });
       if (error) {
         // Supabase resolves with an error object (e.g. RLS rejection) instead
         // of throwing — surface it or the failure is invisible.
         console.warn("Supabase assessment_attempts upsert rejected; attempt only exists locally.", error);
+        cloudError = error;
+      } else {
+        cloudSaved = true;
       }
     } catch (error) {
+      cloudError = error;
       console.warn("Assessment attempt saved locally; Supabase assessment_attempts write is unavailable.", error);
     }
   }
 
-  return localRecords;
+  return {
+    records: localResult.records,
+    localSaved: localResult.saved,
+    cloudSaved,
+    durable: localResult.saved || cloudSaved,
+    localError: localResult.error,
+    cloudError
+  };
 }
 
 export function buildAssessmentAttemptRecord({
@@ -496,7 +1232,7 @@ export function buildAssessmentAttemptRecord({
     assessmentType,
     skillId: checkpoint?.skillId || stage?.id || normalizedQuestions[0]?.skillId || "",
     skillName: stage?.label || checkpoint?.skillLabel || "Assessment",
-    skillLevel: checkpoint?.pathStatus?.level || normalizedQuestions[0]?.level || 1,
+    skillLevel: checkpoint?.pathStatus?.level ?? normalizedQuestions[0]?.level ?? 1,
     skillPhase: checkpoint?.pathStatus?.phase || normalizedQuestions[0]?.phase || 1,
     completedAt: new Date().toISOString(),
     totalQuestions: normalizedQuestions.length,
@@ -530,15 +1266,34 @@ export function summarizeAssessmentHistory(records = [], { students = [], classe
   const studentMap = new Map();
   let correct = 0;
   let total = 0;
+  let descriptiveBenchmarkAttempts = 0;
 
   normalized.forEach(record => {
-    correct += record.correctCount;
-    total += record.totalQuestions;
-    const skill = skillMap.get(record.skillId) || { skillId: record.skillId, skillName: record.skillName, attempts: 0, correct: 0, total: 0, mastered: 0 };
+    const isDescriptiveBenchmark = DESCRIPTIVE_EL_BENCHMARK_TYPES.has(normalizeKey(
+      record.assessmentType || record.skillId
+    ));
+    if (isDescriptiveBenchmark) descriptiveBenchmarkAttempts += 1;
+    else {
+      correct += record.correctCount;
+      total += record.totalQuestions;
+    }
+    const skill = skillMap.get(record.skillId) || {
+      skillId: record.skillId,
+      skillName: record.skillName,
+      attempts: 0,
+      correct: 0,
+      total: 0,
+      mastered: 0,
+      descriptiveEvidence: 0,
+      isDescriptiveBenchmark
+    };
     skill.attempts += 1;
-    skill.correct += record.correctCount;
-    skill.total += record.totalQuestions;
-    if (record.passed) skill.mastered += 1;
+    if (isDescriptiveBenchmark) skill.descriptiveEvidence += 1;
+    else {
+      skill.correct += record.correctCount;
+      skill.total += record.totalQuestions;
+      if (record.passed) skill.mastered += 1;
+    }
     skillMap.set(record.skillId, skill);
 
     const student = studentMap.get(record.studentId) || {
@@ -548,23 +1303,40 @@ export function summarizeAssessmentHistory(records = [], { students = [], classe
       attempts: 0,
       correct: 0,
       total: 0,
+      descriptiveBenchmarkAttempts: 0,
       latest: null,
+      latestScored: null,
       masteredSkills: new Set(),
       supportSkills: new Set()
     };
     student.attempts += 1;
-    student.correct += record.correctCount;
-    student.total += record.totalQuestions;
     student.latest = !student.latest || new Date(record.completedAt) > new Date(student.latest.completedAt) ? record : student.latest;
-    if (record.passed) student.masteredSkills.add(record.skillName);
-    else student.supportSkills.add(record.skillName);
+    if (isDescriptiveBenchmark) {
+      student.descriptiveBenchmarkAttempts += 1;
+    } else {
+      student.correct += record.correctCount;
+      student.total += record.totalQuestions;
+      student.latestScored = !student.latestScored || new Date(record.completedAt) > new Date(student.latestScored.completedAt)
+        ? record
+        : student.latestScored;
+      if (record.passed) student.masteredSkills.add(record.skillName);
+      else student.supportSkills.add(record.skillName);
+    }
     studentMap.set(record.studentId, student);
   });
 
   const skills = Array.from(skillMap.values()).map(skill => ({
     ...skill,
     accuracy: skill.total ? Math.round((skill.correct / skill.total) * 100) : 0,
-    status: skill.total === 0 ? "not assessed" : skill.correct / skill.total >= 0.85 ? "on track" : skill.correct / skill.total >= 0.65 ? "developing" : "needs support"
+    status: skill.isDescriptiveBenchmark
+      ? skill.descriptiveEvidence > 0 ? "evidence recorded" : "not assessed"
+      : skill.total === 0
+        ? "not assessed"
+        : skill.correct / skill.total >= 0.85
+          ? "on track"
+          : skill.correct / skill.total >= 0.65
+            ? "developing"
+            : "needs support"
   }));
   const studentsSummary = Array.from(studentMap.values()).map(student => ({
     ...student,
@@ -575,17 +1347,28 @@ export function summarizeAssessmentHistory(records = [], { students = [], classe
 
   return {
     attempts: normalized.length,
+    descriptiveBenchmarkAttempts,
     totalQuestions: total,
     correctCount: correct,
     averageAccuracy: total ? Math.round((correct / total) * 100) : 0,
     latestAttempt: normalized[0] || null,
     skills,
     students: studentsSummary,
-    weeklyAccuracy: buildWeeklyAccuracySummary(normalized),
-    strongestSkills: [...skills].sort((a, b) => b.accuracy - a.accuracy).slice(0, 3),
-    weakestSkills: [...skills].filter(skill => skill.total > 0).sort((a, b) => a.accuracy - b.accuracy).slice(0, 5),
-    studentsNeedingSupport: studentsSummary.filter(student => student.accuracy < 70 || student.supportSkills.length > 0).slice(0, 8),
-    studentsReadyToLevelUp: studentsSummary.filter(student => student.latest?.passed).slice(0, 8)
+    weeklyAccuracy: buildWeeklyAccuracySummary(normalized.filter(record => !DESCRIPTIVE_EL_BENCHMARK_TYPES.has(normalizeKey(
+      record.assessmentType || record.skillId
+    )))),
+    strongestSkills: [...skills]
+      .filter(skill => !skill.isDescriptiveBenchmark && skill.total > 0)
+      .sort((a, b) => b.accuracy - a.accuracy)
+      .slice(0, 3),
+    weakestSkills: [...skills]
+      .filter(skill => !skill.isDescriptiveBenchmark && skill.total > 0)
+      .sort((a, b) => a.accuracy - b.accuracy)
+      .slice(0, 5),
+    studentsNeedingSupport: studentsSummary.filter(student => (
+      (student.total > 0 && student.accuracy < 70) || student.supportSkills.length > 0
+    )).slice(0, 8),
+    studentsReadyToLevelUp: studentsSummary.filter(student => student.latestScored?.passed).slice(0, 8)
   };
 }
 
