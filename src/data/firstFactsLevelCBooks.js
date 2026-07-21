@@ -3703,35 +3703,33 @@ export const firstFactsLevelCBooks = [
       "go",
       "all",
       "way",
-      "our",
-      "nearest",
-      "neighbour",
-      "in",
-      "space",
+      "earth's",
+      "natural",
+      "satellite",
       "does",
       "not",
       "make",
       "its",
       "own",
       "light",
-      "has",
-      "no",
-      "fire",
-      "or",
       "glow",
-      "inside",
+      "by",
+      "itself",
       "we",
       "see",
       "sunlight",
-      "bouncing",
-      "off",
+      "reflected",
+      "from",
       "moon's",
       "surface",
-      "looks",
-      "different",
-      "every",
+      "shape",
+      "seems",
+      "change",
+      "little",
       "night",
       "sometimes",
+      "looks",
+      "like",
       "full",
       "bright",
       "circle",
@@ -3743,13 +3741,15 @@ export const firstFactsLevelCBooks = [
       "called",
       "phases",
       "covered",
+      "in",
       "craters",
       "bowl-shaped",
-      "holes",
+      "dents",
       "made",
-      "by",
+      "when",
+      "space",
       "rocks",
-      "crashing",
+      "crashed",
       "into",
       "long",
       "ago",
@@ -3758,38 +3758,40 @@ export const firstFactsLevelCBooks = [
       "than",
       "cities",
       "1969",
+      "apollo",
+      "11",
       "astronauts",
       "travelled",
       "neil",
       "armstrong",
-      "was",
+      "became",
       "first",
-      "human",
-      "walk",
-      "on",
-      "that's",
-      "small",
+      "person",
       "step",
-      "for",
-      "man",
-      "he",
-      "said",
+      "onto",
+      "buzz",
+      "aldrin",
+      "walked",
+      "there",
+      "soon",
+      "after",
       "gravity",
-      "pulls",
-      "earth's",
-      "oceans",
-      "this",
-      "causes",
+      "main",
+      "force",
+      "behind",
       "tides",
-      "when",
+      "sun's",
+      "helps",
+      "too",
+      "at",
+      "high",
       "tide",
-      "comes",
       "sea",
       "rises",
       "up",
       "beach",
-      "goes",
-      "out",
+      "low",
+      "moves",
       "back",
       "brought",
       "scientists",
@@ -3797,40 +3799,38 @@ export const firstFactsLevelCBooks = [
       "studying",
       "them",
       "today",
-      "help",
+      "tell",
       "us",
-      "understand",
-      "how",
+      "past",
+      "and",
+      "early",
       "solar",
       "system",
-      "formed",
-      "from",
+      "small",
       "but",
       "very",
       "large",
       "quarter",
-      "size",
-      "whole",
+      "as",
+      "wide",
+      "four",
+      "moons",
+      "could",
+      "fit",
+      "across",
+      "our",
       "planet",
-      "if",
-      "were",
-      "basketball",
-      "would",
-      "be",
-      "tennis",
       "you",
       "can",
-      "most",
-      "nights",
+      "on",
+      "many",
       "clear",
+      "nights",
       "with",
       "telescope",
-      "clearly",
-      "look",
-      "tonight",
-      "—",
-      "always",
-      "there"
+      "even",
+      "cannot",
+      "travelling"
     ],
     "topicTags": [
       "space",
@@ -3845,10 +3845,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 1,
         "sourcePageNumber": 2,
-        "text": "The Moon is a huge ball of rock. It travels around the Earth. It takes about one month to go all the way around. The Moon is our nearest neighbour in space.",
+        "text": "The Moon is a huge ball of rock. It travels around Earth. It takes about one month to go all the way around. The Moon is Earth's natural satellite.",
         "image": "/guided-reading/nonfiction/level-c/book-04/page-001.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-04/audio/page-001.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-04/audio/page-001.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "The",
@@ -3893,10 +3894,6 @@ export const firstFactsLevelCBooks = [
           {
             "text": "around",
             "audioPath": "/guided-reading/audio/words/around.mp3"
-          },
-          {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "Earth",
@@ -3959,24 +3956,16 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
-            "text": "our",
-            "audioPath": "/guided-reading/audio/words/our.mp3"
+            "text": "Earth's",
+            "audioPath": "/guided-reading/audio/words/earths.mp3"
           },
           {
-            "text": "nearest",
-            "audioPath": "/guided-reading/audio/words/nearest.mp3"
+            "text": "natural",
+            "audioPath": "/guided-reading/audio/words/natural.mp3"
           },
           {
-            "text": "neighbour",
-            "audioPath": "/guided-reading/audio/words/neighbour.mp3"
-          },
-          {
-            "text": "in",
-            "audioPath": "/guided-reading/audio/words/in.mp3"
-          },
-          {
-            "text": "space",
-            "audioPath": "/guided-reading/audio/words/space.mp3"
+            "text": "satellite",
+            "audioPath": "/guided-reading/audio/words/satellite.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -3986,10 +3975,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 2,
         "sourcePageNumber": 3,
-        "text": "The Moon does not make its own light. It has no fire or glow inside. The light we see is sunlight bouncing off the Moon's surface.",
+        "text": "The Moon does not make its own light. It does not glow by itself. The light we see is sunlight reflected from the Moon's surface.",
         "image": "/guided-reading/nonfiction/level-c/book-04/page-002.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-04/audio/page-002.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-04/audio/page-002.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "The",
@@ -4028,28 +4018,24 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
-            "text": "has",
-            "audioPath": "/guided-reading/audio/words/has.mp3"
+            "text": "does",
+            "audioPath": "/guided-reading/audio/words/does.mp3"
           },
           {
-            "text": "no",
-            "audioPath": "/guided-reading/audio/words/no.mp3"
-          },
-          {
-            "text": "fire",
-            "audioPath": "/guided-reading/audio/words/fire.mp3"
-          },
-          {
-            "text": "or",
-            "audioPath": "/guided-reading/audio/words/or.mp3"
+            "text": "not",
+            "audioPath": "/guided-reading/audio/words/not.mp3"
           },
           {
             "text": "glow",
             "audioPath": "/guided-reading/audio/words/glow.mp3"
           },
           {
-            "text": "inside",
-            "audioPath": "/guided-reading/audio/words/inside.mp3"
+            "text": "by",
+            "audioPath": "/guided-reading/audio/words/by.mp3"
+          },
+          {
+            "text": "itself",
+            "audioPath": "/guided-reading/audio/words/itself.mp3"
           },
           {
             "text": "The",
@@ -4076,12 +4062,12 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/sunlight.mp3"
           },
           {
-            "text": "bouncing",
-            "audioPath": "/guided-reading/audio/words/bouncing.mp3"
+            "text": "reflected",
+            "audioPath": "/guided-reading/audio/words/reflected.mp3"
           },
           {
-            "text": "off",
-            "audioPath": "/guided-reading/audio/words/off.mp3"
+            "text": "from",
+            "audioPath": "/guided-reading/audio/words/from.mp3"
           },
           {
             "text": "the",
@@ -4103,30 +4089,55 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 3,
         "sourcePageNumber": 4,
-        "text": "The Moon looks different every night. Sometimes it is a full, bright circle. Sometimes it is a thin crescent. These different shapes are called the phases of the Moon.",
+        "text": "The Moon's shape seems to change a little from night to night. Sometimes it looks like a full, bright circle. Sometimes it looks like a thin crescent. These shapes are called the phases of the Moon.",
         "image": "/guided-reading/nonfiction/level-c/book-04/page-003.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-04/audio/page-003.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-04/audio/page-003.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "The",
             "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
-            "text": "Moon",
-            "audioPath": "/guided-reading/audio/words/moon.mp3"
+            "text": "Moon's",
+            "audioPath": "/guided-reading/audio/words/moons.mp3"
           },
           {
-            "text": "looks",
-            "audioPath": "/guided-reading/audio/words/looks.mp3"
+            "text": "shape",
+            "audioPath": "/guided-reading/audio/words/shape.mp3"
           },
           {
-            "text": "different",
-            "audioPath": "/guided-reading/audio/words/different.mp3"
+            "text": "seems",
+            "audioPath": "/guided-reading/audio/words/seems.mp3"
           },
           {
-            "text": "every",
-            "audioPath": "/guided-reading/audio/words/every.mp3"
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "change",
+            "audioPath": "/guided-reading/audio/words/change.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "little",
+            "audioPath": "/guided-reading/audio/words/little.mp3"
+          },
+          {
+            "text": "from",
+            "audioPath": "/guided-reading/audio/words/from.mp3"
+          },
+          {
+            "text": "night",
+            "audioPath": "/guided-reading/audio/words/night.mp3"
+          },
+          {
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
           },
           {
             "text": "night",
@@ -4141,8 +4152,12 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
-            "text": "is",
-            "audioPath": "/guided-reading/audio/words/is.mp3"
+            "text": "looks",
+            "audioPath": "/guided-reading/audio/words/looks.mp3"
+          },
+          {
+            "text": "like",
+            "audioPath": "/guided-reading/audio/words/like.mp3"
           },
           {
             "text": "a",
@@ -4169,8 +4184,12 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
-            "text": "is",
-            "audioPath": "/guided-reading/audio/words/is.mp3"
+            "text": "looks",
+            "audioPath": "/guided-reading/audio/words/looks.mp3"
+          },
+          {
+            "text": "like",
+            "audioPath": "/guided-reading/audio/words/like.mp3"
           },
           {
             "text": "a",
@@ -4187,10 +4206,6 @@ export const firstFactsLevelCBooks = [
           {
             "text": "These",
             "audioPath": "/guided-reading/audio/words/these.mp3"
-          },
-          {
-            "text": "different",
-            "audioPath": "/guided-reading/audio/words/different.mp3"
           },
           {
             "text": "shapes",
@@ -4232,10 +4247,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 4,
         "sourcePageNumber": 5,
-        "text": "The Moon's surface is covered in craters. Craters are bowl-shaped holes made by space rocks crashing into the Moon long ago. Some craters are bigger than cities.",
+        "text": "The Moon's surface is covered in craters. Craters are bowl-shaped dents made when space rocks crashed into the Moon long ago. Some craters are bigger than cities.",
         "image": "/guided-reading/nonfiction/level-c/book-04/page-004.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-04/audio/page-004.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-04/audio/page-004.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "The",
@@ -4278,16 +4294,16 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/bowl-shaped.mp3"
           },
           {
-            "text": "holes",
-            "audioPath": "/guided-reading/audio/words/holes.mp3"
+            "text": "dents",
+            "audioPath": "/guided-reading/audio/words/dents.mp3"
           },
           {
             "text": "made",
             "audioPath": "/guided-reading/audio/words/made.mp3"
           },
           {
-            "text": "by",
-            "audioPath": "/guided-reading/audio/words/by.mp3"
+            "text": "when",
+            "audioPath": "/guided-reading/audio/words/when.mp3"
           },
           {
             "text": "space",
@@ -4298,8 +4314,8 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/rocks.mp3"
           },
           {
-            "text": "crashing",
-            "audioPath": "/guided-reading/audio/words/crashing.mp3"
+            "text": "crashed",
+            "audioPath": "/guided-reading/audio/words/crashed.mp3"
           },
           {
             "text": "into",
@@ -4353,10 +4369,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 5,
         "sourcePageNumber": 6,
-        "text": "In 1969, astronauts travelled to the Moon. Neil Armstrong was the first human to walk on its surface. \"That's one small step for man,\" he said.",
+        "text": "In 1969, the Apollo 11 astronauts travelled to the Moon. Neil Armstrong became the first person to step onto its surface. Buzz Aldrin walked there soon after.",
         "image": "/guided-reading/nonfiction/level-c/book-04/page-005.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-04/audio/page-005.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-04/audio/page-005.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "In",
@@ -4365,6 +4382,18 @@ export const firstFactsLevelCBooks = [
           {
             "text": "1969",
             "audioPath": "/guided-reading/audio/words/1969.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "Apollo",
+            "audioPath": "/guided-reading/audio/words/apollo.mp3"
+          },
+          {
+            "text": "11",
+            "audioPath": "/guided-reading/audio/words/11.mp3"
           },
           {
             "text": "astronauts",
@@ -4395,8 +4424,8 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/armstrong.mp3"
           },
           {
-            "text": "was",
-            "audioPath": "/guided-reading/audio/words/was.mp3"
+            "text": "became",
+            "audioPath": "/guided-reading/audio/words/became.mp3"
           },
           {
             "text": "the",
@@ -4407,20 +4436,20 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/first.mp3"
           },
           {
-            "text": "human",
-            "audioPath": "/guided-reading/audio/words/human.mp3"
+            "text": "person",
+            "audioPath": "/guided-reading/audio/words/person.mp3"
           },
           {
             "text": "to",
             "audioPath": "/guided-reading/audio/words/to.mp3"
           },
           {
-            "text": "walk",
-            "audioPath": "/guided-reading/audio/words/walk.mp3"
+            "text": "step",
+            "audioPath": "/guided-reading/audio/words/step.mp3"
           },
           {
-            "text": "on",
-            "audioPath": "/guided-reading/audio/words/on.mp3"
+            "text": "onto",
+            "audioPath": "/guided-reading/audio/words/onto.mp3"
           },
           {
             "text": "its",
@@ -4431,36 +4460,28 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/surface.mp3"
           },
           {
-            "text": "That's",
-            "audioPath": "/guided-reading/audio/words/thats.mp3"
+            "text": "Buzz",
+            "audioPath": "/guided-reading/audio/words/buzz.mp3"
           },
           {
-            "text": "one",
-            "audioPath": "/guided-reading/audio/words/one.mp3"
+            "text": "Aldrin",
+            "audioPath": "/guided-reading/audio/words/aldrin.mp3"
           },
           {
-            "text": "small",
-            "audioPath": "/guided-reading/audio/words/small.mp3"
+            "text": "walked",
+            "audioPath": "/guided-reading/audio/words/walked.mp3"
           },
           {
-            "text": "step",
-            "audioPath": "/guided-reading/audio/words/step.mp3"
+            "text": "there",
+            "audioPath": "/guided-reading/audio/words/there.mp3"
           },
           {
-            "text": "for",
-            "audioPath": "/guided-reading/audio/words/for.mp3"
+            "text": "soon",
+            "audioPath": "/guided-reading/audio/words/soon.mp3"
           },
           {
-            "text": "man",
-            "audioPath": "/guided-reading/audio/words/man.mp3"
-          },
-          {
-            "text": "he",
-            "audioPath": "/guided-reading/audio/words/he.mp3"
-          },
-          {
-            "text": "said",
-            "audioPath": "/guided-reading/audio/words/said.mp3"
+            "text": "after",
+            "audioPath": "/guided-reading/audio/words/after.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4470,10 +4491,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 6,
         "sourcePageNumber": 7,
-        "text": "The Moon's gravity pulls on Earth's oceans. This causes the tides. When the tide comes in, the sea rises up the beach. When it goes out, it pulls back.",
+        "text": "The Moon's gravity is the main force behind Earth's tides. The Sun's gravity helps too. At high tide, the sea rises up the beach. At low tide, it moves back.",
         "image": "/guided-reading/nonfiction/level-c/book-04/page-006.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-04/audio/page-006.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-04/audio/page-006.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "The",
@@ -4488,56 +4510,64 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/gravity.mp3"
           },
           {
-            "text": "pulls",
-            "audioPath": "/guided-reading/audio/words/pulls.mp3"
+            "text": "is",
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
-            "text": "on",
-            "audioPath": "/guided-reading/audio/words/on.mp3"
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "main",
+            "audioPath": "/guided-reading/audio/words/main.mp3"
+          },
+          {
+            "text": "force",
+            "audioPath": "/guided-reading/audio/words/force.mp3"
+          },
+          {
+            "text": "behind",
+            "audioPath": "/guided-reading/audio/words/behind.mp3"
           },
           {
             "text": "Earth's",
             "audioPath": "/guided-reading/audio/words/earths.mp3"
           },
           {
-            "text": "oceans",
-            "audioPath": "/guided-reading/audio/words/oceans.mp3"
-          },
-          {
-            "text": "This",
-            "audioPath": "/guided-reading/audio/words/this.mp3"
-          },
-          {
-            "text": "causes",
-            "audioPath": "/guided-reading/audio/words/causes.mp3"
-          },
-          {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
             "text": "tides",
             "audioPath": "/guided-reading/audio/words/tides.mp3"
           },
           {
-            "text": "When",
-            "audioPath": "/guided-reading/audio/words/when.mp3"
+            "text": "The",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
+            "text": "Sun's",
+            "audioPath": "/guided-reading/audio/words/suns.mp3"
+          },
+          {
+            "text": "gravity",
+            "audioPath": "/guided-reading/audio/words/gravity.mp3"
+          },
+          {
+            "text": "helps",
+            "audioPath": "/guided-reading/audio/words/helps.mp3"
+          },
+          {
+            "text": "too",
+            "audioPath": "/guided-reading/audio/words/too.mp3"
+          },
+          {
+            "text": "At",
+            "audioPath": "/guided-reading/audio/words/at.mp3"
+          },
+          {
+            "text": "high",
+            "audioPath": "/guided-reading/audio/words/high.mp3"
           },
           {
             "text": "tide",
             "audioPath": "/guided-reading/audio/words/tide.mp3"
-          },
-          {
-            "text": "comes",
-            "audioPath": "/guided-reading/audio/words/comes.mp3"
-          },
-          {
-            "text": "in",
-            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
@@ -4564,28 +4594,24 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/beach.mp3"
           },
           {
-            "text": "When",
-            "audioPath": "/guided-reading/audio/words/when.mp3"
+            "text": "At",
+            "audioPath": "/guided-reading/audio/words/at.mp3"
+          },
+          {
+            "text": "low",
+            "audioPath": "/guided-reading/audio/words/low.mp3"
+          },
+          {
+            "text": "tide",
+            "audioPath": "/guided-reading/audio/words/tide.mp3"
           },
           {
             "text": "it",
             "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
-            "text": "goes",
-            "audioPath": "/guided-reading/audio/words/goes.mp3"
-          },
-          {
-            "text": "out",
-            "audioPath": "/guided-reading/audio/words/out.mp3"
-          },
-          {
-            "text": "it",
-            "audioPath": "/guided-reading/audio/words/it.mp3"
-          },
-          {
-            "text": "pulls",
-            "audioPath": "/guided-reading/audio/words/pulls.mp3"
+            "text": "moves",
+            "audioPath": "/guided-reading/audio/words/moves.mp3"
           },
           {
             "text": "back",
@@ -4599,17 +4625,14 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 7,
         "sourcePageNumber": 8,
-        "text": "The astronauts brought Moon rocks back to Earth. Scientists are still studying them today. Moon rocks help us understand how the Solar System was formed.",
+        "text": "Astronauts brought Moon rocks back to Earth. Scientists are still studying them today. The rocks tell us about the Moon's past and the early Solar System.",
         "image": "/guided-reading/nonfiction/level-c/book-04/page-007.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-04/audio/page-007.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-04/audio/page-007.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "The",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "astronauts",
+            "text": "Astronauts",
             "audioPath": "/guided-reading/audio/words/astronauts.mp3"
           },
           {
@@ -4661,32 +4684,48 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/today.mp3"
           },
           {
-            "text": "Moon",
-            "audioPath": "/guided-reading/audio/words/moon.mp3"
+            "text": "The",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
             "text": "rocks",
             "audioPath": "/guided-reading/audio/words/rocks.mp3"
           },
           {
-            "text": "help",
-            "audioPath": "/guided-reading/audio/words/help.mp3"
+            "text": "tell",
+            "audioPath": "/guided-reading/audio/words/tell.mp3"
           },
           {
             "text": "us",
             "audioPath": "/guided-reading/audio/words/us.mp3"
           },
           {
-            "text": "understand",
-            "audioPath": "/guided-reading/audio/words/understand.mp3"
-          },
-          {
-            "text": "how",
-            "audioPath": "/guided-reading/audio/words/how.mp3"
+            "text": "about",
+            "audioPath": "/guided-reading/audio/words/about.mp3"
           },
           {
             "text": "the",
             "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "Moon's",
+            "audioPath": "/guided-reading/audio/words/moons.mp3"
+          },
+          {
+            "text": "past",
+            "audioPath": "/guided-reading/audio/words/past.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "early",
+            "audioPath": "/guided-reading/audio/words/early.mp3"
           },
           {
             "text": "Solar",
@@ -4695,14 +4734,6 @@ export const firstFactsLevelCBooks = [
           {
             "text": "System",
             "audioPath": "/guided-reading/audio/words/system.mp3"
-          },
-          {
-            "text": "was",
-            "audioPath": "/guided-reading/audio/words/was.mp3"
-          },
-          {
-            "text": "formed",
-            "audioPath": "/guided-reading/audio/words/formed.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4712,10 +4743,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 8,
         "sourcePageNumber": 9,
-        "text": "The Moon looks small from Earth, but it is very large. It is about a quarter the size of our whole planet. If Earth were a basketball, the Moon would be a tennis ball.",
+        "text": "The Moon looks small from Earth, but it is very large. It is about one quarter as wide as Earth. About four Moons could fit across our planet.",
         "image": "/guided-reading/nonfiction/level-c/book-04/page-008.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-04/audio/page-008.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-04/audio/page-008.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "The",
@@ -4774,84 +4806,60 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/about.mp3"
           },
           {
-            "text": "a",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
+            "text": "one",
+            "audioPath": "/guided-reading/audio/words/one.mp3"
           },
           {
             "text": "quarter",
             "audioPath": "/guided-reading/audio/words/quarter.mp3"
           },
           {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
+            "text": "as",
+            "audioPath": "/guided-reading/audio/words/as.mp3"
           },
           {
-            "text": "size",
-            "audioPath": "/guided-reading/audio/words/size.mp3"
+            "text": "wide",
+            "audioPath": "/guided-reading/audio/words/wide.mp3"
           },
           {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
-          },
-          {
-            "text": "our",
-            "audioPath": "/guided-reading/audio/words/our.mp3"
-          },
-          {
-            "text": "whole",
-            "audioPath": "/guided-reading/audio/words/whole.mp3"
-          },
-          {
-            "text": "planet",
-            "audioPath": "/guided-reading/audio/words/planet.mp3"
-          },
-          {
-            "text": "If",
-            "audioPath": "/guided-reading/audio/words/if.mp3"
+            "text": "as",
+            "audioPath": "/guided-reading/audio/words/as.mp3"
           },
           {
             "text": "Earth",
             "audioPath": "/guided-reading/audio/words/earth.mp3"
           },
           {
-            "text": "were",
-            "audioPath": "/guided-reading/audio/words/were.mp3"
+            "text": "About",
+            "audioPath": "/guided-reading/audio/words/about.mp3"
           },
           {
-            "text": "a",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
+            "text": "four",
+            "audioPath": "/guided-reading/audio/words/four.mp3"
           },
           {
-            "text": "basketball",
-            "audioPath": "/guided-reading/audio/words/basketball.mp3"
+            "text": "Moons",
+            "audioPath": "/guided-reading/audio/words/moons.mp3"
           },
           {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
+            "text": "could",
+            "audioPath": "/guided-reading/audio/words/could.mp3"
           },
           {
-            "text": "Moon",
-            "audioPath": "/guided-reading/audio/words/moon.mp3"
+            "text": "fit",
+            "audioPath": "/guided-reading/audio/words/fit.mp3"
           },
           {
-            "text": "would",
-            "audioPath": "/guided-reading/audio/words/would.mp3"
+            "text": "across",
+            "audioPath": "/guided-reading/audio/words/across.mp3"
           },
           {
-            "text": "be",
-            "audioPath": "/guided-reading/audio/words/be.mp3"
+            "text": "our",
+            "audioPath": "/guided-reading/audio/words/our.mp3"
           },
           {
-            "text": "a",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
-          },
-          {
-            "text": "tennis",
-            "audioPath": "/guided-reading/audio/words/tennis.mp3"
-          },
-          {
-            "text": "ball",
-            "audioPath": "/guided-reading/audio/words/ball.mp3"
+            "text": "planet",
+            "audioPath": "/guided-reading/audio/words/planet.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -4861,10 +4869,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 9,
         "sourcePageNumber": 10,
-        "text": "You can see the Moon most nights. On a clear night with a telescope, you can see the craters clearly. Look up tonight — the Moon is always there.",
+        "text": "You can see the Moon on many clear nights. With a telescope, you can see some craters. Even when you cannot see it, the Moon is still travelling around Earth.",
         "image": "/guided-reading/nonfiction/level-c/book-04/page-009.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-04/audio/page-009.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-04/audio/page-009.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "You",
@@ -4887,31 +4896,23 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/moon.mp3"
           },
           {
-            "text": "most",
-            "audioPath": "/guided-reading/audio/words/most.mp3"
-          },
-          {
-            "text": "nights",
-            "audioPath": "/guided-reading/audio/words/nights.mp3"
-          },
-          {
-            "text": "On",
+            "text": "on",
             "audioPath": "/guided-reading/audio/words/on.mp3"
           },
           {
-            "text": "a",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
+            "text": "many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
           },
           {
             "text": "clear",
             "audioPath": "/guided-reading/audio/words/clear.mp3"
           },
           {
-            "text": "night",
-            "audioPath": "/guided-reading/audio/words/night.mp3"
+            "text": "nights",
+            "audioPath": "/guided-reading/audio/words/nights.mp3"
           },
           {
-            "text": "with",
+            "text": "With",
             "audioPath": "/guided-reading/audio/words/with.mp3"
           },
           {
@@ -4935,32 +4936,36 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/see.mp3"
           },
           {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
+            "text": "some",
+            "audioPath": "/guided-reading/audio/words/some.mp3"
           },
           {
             "text": "craters",
             "audioPath": "/guided-reading/audio/words/craters.mp3"
           },
           {
-            "text": "clearly",
-            "audioPath": "/guided-reading/audio/words/clearly.mp3"
+            "text": "Even",
+            "audioPath": "/guided-reading/audio/words/even.mp3"
           },
           {
-            "text": "Look",
-            "audioPath": "/guided-reading/audio/words/look.mp3"
+            "text": "when",
+            "audioPath": "/guided-reading/audio/words/when.mp3"
           },
           {
-            "text": "up",
-            "audioPath": "/guided-reading/audio/words/up.mp3"
+            "text": "you",
+            "audioPath": "/guided-reading/audio/words/you.mp3"
           },
           {
-            "text": "tonight",
-            "audioPath": "/guided-reading/audio/words/tonight.mp3"
+            "text": "cannot",
+            "audioPath": "/guided-reading/audio/words/cannot.mp3"
           },
           {
-            "text": "—",
-            "audioPath": "/guided-reading/audio/words/.mp3"
+            "text": "see",
+            "audioPath": "/guided-reading/audio/words/see.mp3"
+          },
+          {
+            "text": "it",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "the",
@@ -4975,12 +4980,20 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
-            "text": "always",
-            "audioPath": "/guided-reading/audio/words/always.mp3"
+            "text": "still",
+            "audioPath": "/guided-reading/audio/words/still.mp3"
           },
           {
-            "text": "there",
-            "audioPath": "/guided-reading/audio/words/there.mp3"
+            "text": "travelling",
+            "audioPath": "/guided-reading/audio/words/travelling.mp3"
+          },
+          {
+            "text": "around",
+            "audioPath": "/guided-reading/audio/words/around.mp3"
+          },
+          {
+            "text": "Earth",
+            "audioPath": "/guided-reading/audio/words/earth.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -5123,18 +5136,18 @@ export const firstFactsLevelCBooks = [
       "travel",
       "away",
       "parent",
+      "ways",
       "some",
       "fly",
       "on",
       "wind",
       "stick",
-      "animals'",
+      "animals",
       "fur",
-      "are",
-      "eaten",
       "birds",
-      "fall",
+      "eat",
       "far",
+      "other",
       "float",
       "you",
       "your",
@@ -5945,10 +5958,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 8,
         "sourcePageNumber": 9,
-        "text": "Seeds travel away from the parent plant. Some fly on the wind. Some stick to animals' fur. Some are eaten by birds and fall far away. Some float on water.",
+        "text": "Seeds travel away from the parent plant in different ways. Some fly on the wind. Some stick to animals' fur. Birds eat fruit and carry its seeds far away. Other seeds float on water.",
         "image": "/guided-reading/nonfiction/level-c/book-05/page-008.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-05/audio/page-008.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-05/audio/page-008.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Seeds",
@@ -5977,6 +5991,18 @@ export const firstFactsLevelCBooks = [
           {
             "text": "plant",
             "audioPath": "/guided-reading/audio/words/plant.mp3"
+          },
+          {
+            "text": "in",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
+          },
+          {
+            "text": "different",
+            "audioPath": "/guided-reading/audio/words/different.mp3"
+          },
+          {
+            "text": "ways",
+            "audioPath": "/guided-reading/audio/words/ways.mp3"
           },
           {
             "text": "Some",
@@ -6011,7 +6037,7 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/to.mp3"
           },
           {
-            "text": "animals'",
+            "text": "animals",
             "audioPath": "/guided-reading/audio/words/animals.mp3"
           },
           {
@@ -6019,32 +6045,32 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/fur.mp3"
           },
           {
-            "text": "Some",
-            "audioPath": "/guided-reading/audio/words/some.mp3"
-          },
-          {
-            "text": "are",
-            "audioPath": "/guided-reading/audio/words/are.mp3"
-          },
-          {
-            "text": "eaten",
-            "audioPath": "/guided-reading/audio/words/eaten.mp3"
-          },
-          {
-            "text": "by",
-            "audioPath": "/guided-reading/audio/words/by.mp3"
-          },
-          {
-            "text": "birds",
+            "text": "Birds",
             "audioPath": "/guided-reading/audio/words/birds.mp3"
+          },
+          {
+            "text": "eat",
+            "audioPath": "/guided-reading/audio/words/eat.mp3"
+          },
+          {
+            "text": "fruit",
+            "audioPath": "/guided-reading/audio/words/fruit.mp3"
           },
           {
             "text": "and",
             "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
-            "text": "fall",
-            "audioPath": "/guided-reading/audio/words/fall.mp3"
+            "text": "carry",
+            "audioPath": "/guided-reading/audio/words/carry.mp3"
+          },
+          {
+            "text": "its",
+            "audioPath": "/guided-reading/audio/words/its.mp3"
+          },
+          {
+            "text": "seeds",
+            "audioPath": "/guided-reading/audio/words/seeds.mp3"
           },
           {
             "text": "far",
@@ -6055,8 +6081,12 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/away.mp3"
           },
           {
-            "text": "Some",
-            "audioPath": "/guided-reading/audio/words/some.mp3"
+            "text": "Other",
+            "audioPath": "/guided-reading/audio/words/other.mp3"
+          },
+          {
+            "text": "seeds",
+            "audioPath": "/guided-reading/audio/words/seeds.mp3"
           },
           {
             "text": "float",
@@ -6225,143 +6255,144 @@ export const firstFactsLevelCBooks = [
       "have",
       "six",
       "legs",
+      "and",
+      "three",
+      "main",
+      "body",
+      "parts",
       "eight",
-      "they",
-      "belong",
-      "to",
-      "a",
-      "group",
-      "called",
+      "two",
       "arachnids",
-      "most",
-      "can",
+      "all",
       "make",
       "silk",
-      "the",
       "comes",
-      "out",
-      "of",
+      "from",
       "tiny",
       "organs",
+      "called",
       "spinnerets",
+      "at",
+      "the",
+      "back",
+      "of",
+      "a",
+      "spider's",
+      "for",
+      "its",
+      "weight",
       "spider",
-      "is",
-      "incredibly",
-      "strong",
-      "—",
+      "can",
+      "be",
       "stronger",
       "than",
       "steel",
-      "wire",
-      "same",
-      "thickness",
       "many",
-      "spin",
+      "build",
       "webs",
+      "to",
       "catch",
       "food",
+      "an",
       "orb",
-      "circular",
-      "with",
-      "spokes",
+      "web",
+      "looks",
       "like",
       "wheel",
-      "starts",
+      "first",
+      "makes",
+      "spokes",
       "then",
-      "spins",
+      "it",
+      "adds",
       "sticky",
       "spiral",
-      "between",
-      "them",
-      "all",
-      "look",
+      "kinds",
       "sheet",
+      "lie",
       "flat",
       "hammock",
-      "cobwebs",
+      "tangle",
+      "look",
+      "loose",
       "messy",
-      "tangles",
-      "every",
-      "type",
-      "makes",
-      "its",
-      "own",
-      "kind",
-      "web",
+      "threads",
+      "different",
+      "in",
+      "ways",
       "some",
       "do",
-      "use",
-      "at",
       "jumping",
+      "stalk",
       "leap",
       "onto",
+      "them",
       "their",
-      "big",
+      "large",
+      "front",
       "eyes",
-      "that",
-      "face",
-      "forward",
+      "help",
       "judge",
       "distance",
-      "20",
+      "they",
+      "jump",
       "times",
-      "body",
+      "own",
       "length",
+      "most",
       "but",
       "cannot",
       "see",
       "well",
-      "instead",
+      "web-building",
       "feel",
       "vibrations",
       "through",
-      "when",
-      "something",
-      "touches",
-      "feels",
-      "it",
-      "instantly",
-      "an",
+      "trapped",
       "insect",
+      "shake",
+      "knows",
+      "where",
+      "go",
+      "when",
+      "is",
       "caught",
-      "wraps",
-      "in",
-      "this",
-      "keeps",
-      "still",
-      "injects",
+      "garden",
+      "may",
+      "wrap",
+      "uses",
       "venom",
-      "begin",
-      "digesting",
+      "keep",
+      "still",
+      "feed",
+      "on",
       "meal",
       "female",
-      "lay",
+      "protect",
       "eggs",
       "sac",
-      "protects",
       "hatch",
       "spiderlings",
-      "emerge",
-      "mothers",
-      "carry",
-      "everywhere",
-      "harmless",
+      "come",
+      "out",
+      "mother",
+      "wolf",
+      "carries",
+      "her",
+      "egg",
+      "with",
+      "harm",
       "people",
       "eat",
+      "including",
+      "that",
       "damage",
-      "our",
       "plants",
-      "without",
       "gardens",
-      "and",
       "crops",
-      "would",
-      "be",
-      "full",
-      "pests",
-      "very",
-      "helpful",
-      "friends"
+      "healthy",
+      "useful",
+      "hunters"
     ],
     "topicTags": [
       "animals",
@@ -6376,10 +6407,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 1,
         "sourcePageNumber": 2,
-        "text": "Spiders are not insects. Insects have six legs. Spiders have eight legs. They belong to a group called arachnids.",
+        "text": "Spiders are not insects. Insects have six legs and three main body parts. Spiders have eight legs and two main body parts. Spiders are arachnids.",
         "image": "/guided-reading/nonfiction/level-c/book-06/page-001.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-06/audio/page-001.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-06/audio/page-001.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Spiders",
@@ -6414,6 +6446,26 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/legs.mp3"
           },
           {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "three",
+            "audioPath": "/guided-reading/audio/words/three.mp3"
+          },
+          {
+            "text": "main",
+            "audioPath": "/guided-reading/audio/words/main.mp3"
+          },
+          {
+            "text": "body",
+            "audioPath": "/guided-reading/audio/words/body.mp3"
+          },
+          {
+            "text": "parts",
+            "audioPath": "/guided-reading/audio/words/parts.mp3"
+          },
+          {
             "text": "Spiders",
             "audioPath": "/guided-reading/audio/words/spiders.mp3"
           },
@@ -6430,28 +6482,32 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/legs.mp3"
           },
           {
-            "text": "They",
-            "audioPath": "/guided-reading/audio/words/they.mp3"
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
-            "text": "belong",
-            "audioPath": "/guided-reading/audio/words/belong.mp3"
+            "text": "two",
+            "audioPath": "/guided-reading/audio/words/two.mp3"
           },
           {
-            "text": "to",
-            "audioPath": "/guided-reading/audio/words/to.mp3"
+            "text": "main",
+            "audioPath": "/guided-reading/audio/words/main.mp3"
           },
           {
-            "text": "a",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
+            "text": "body",
+            "audioPath": "/guided-reading/audio/words/body.mp3"
           },
           {
-            "text": "group",
-            "audioPath": "/guided-reading/audio/words/group.mp3"
+            "text": "parts",
+            "audioPath": "/guided-reading/audio/words/parts.mp3"
           },
           {
-            "text": "called",
-            "audioPath": "/guided-reading/audio/words/called.mp3"
+            "text": "Spiders",
+            "audioPath": "/guided-reading/audio/words/spiders.mp3"
+          },
+          {
+            "text": "are",
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
             "text": "arachnids",
@@ -6465,22 +6521,19 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 2,
         "sourcePageNumber": 3,
-        "text": "Most spiders can make silk. The silk comes out of tiny organs called spinnerets. Spider silk is incredibly strong — stronger than steel wire of the same thickness!",
+        "text": "All spiders make silk. Silk comes from tiny organs called spinnerets at the back of a spider's body. For its weight, spider silk can be stronger than steel.",
         "image": "/guided-reading/nonfiction/level-c/book-06/page-002.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-06/audio/page-002.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-06/audio/page-002.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "Most",
-            "audioPath": "/guided-reading/audio/words/most.mp3"
+            "text": "All",
+            "audioPath": "/guided-reading/audio/words/all.mp3"
           },
           {
             "text": "spiders",
             "audioPath": "/guided-reading/audio/words/spiders.mp3"
-          },
-          {
-            "text": "can",
-            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
             "text": "make",
@@ -6491,11 +6544,7 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/silk.mp3"
           },
           {
-            "text": "The",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "silk",
+            "text": "Silk",
             "audioPath": "/guided-reading/audio/words/silk.mp3"
           },
           {
@@ -6503,12 +6552,8 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/comes.mp3"
           },
           {
-            "text": "out",
-            "audioPath": "/guided-reading/audio/words/out.mp3"
-          },
-          {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
+            "text": "from",
+            "audioPath": "/guided-reading/audio/words/from.mp3"
           },
           {
             "text": "tiny",
@@ -6527,7 +6572,47 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/spinnerets.mp3"
           },
           {
-            "text": "Spider",
+            "text": "at",
+            "audioPath": "/guided-reading/audio/words/at.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "back",
+            "audioPath": "/guided-reading/audio/words/back.mp3"
+          },
+          {
+            "text": "of",
+            "audioPath": "/guided-reading/audio/words/of.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "spider's",
+            "audioPath": "/guided-reading/audio/words/spiders.mp3"
+          },
+          {
+            "text": "body",
+            "audioPath": "/guided-reading/audio/words/body.mp3"
+          },
+          {
+            "text": "For",
+            "audioPath": "/guided-reading/audio/words/for.mp3"
+          },
+          {
+            "text": "its",
+            "audioPath": "/guided-reading/audio/words/its.mp3"
+          },
+          {
+            "text": "weight",
+            "audioPath": "/guided-reading/audio/words/weight.mp3"
+          },
+          {
+            "text": "spider",
             "audioPath": "/guided-reading/audio/words/spider.mp3"
           },
           {
@@ -6535,20 +6620,12 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/silk.mp3"
           },
           {
-            "text": "is",
-            "audioPath": "/guided-reading/audio/words/is.mp3"
+            "text": "can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
-            "text": "incredibly",
-            "audioPath": "/guided-reading/audio/words/incredibly.mp3"
-          },
-          {
-            "text": "strong",
-            "audioPath": "/guided-reading/audio/words/strong.mp3"
-          },
-          {
-            "text": "—",
-            "audioPath": "/guided-reading/audio/words/.mp3"
+            "text": "be",
+            "audioPath": "/guided-reading/audio/words/be.mp3"
           },
           {
             "text": "stronger",
@@ -6561,26 +6638,6 @@ export const firstFactsLevelCBooks = [
           {
             "text": "steel",
             "audioPath": "/guided-reading/audio/words/steel.mp3"
-          },
-          {
-            "text": "wire",
-            "audioPath": "/guided-reading/audio/words/wire.mp3"
-          },
-          {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
-          },
-          {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "same",
-            "audioPath": "/guided-reading/audio/words/same.mp3"
-          },
-          {
-            "text": "thickness",
-            "audioPath": "/guided-reading/audio/words/thickness.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6590,10 +6647,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 3,
         "sourcePageNumber": 4,
-        "text": "Many spiders spin webs to catch food. Orb webs are circular with spokes like a wheel. The spider starts with the spokes, then spins a sticky spiral between them.",
+        "text": "Many spiders build webs to catch food. An orb web looks like a wheel. The spider first makes spokes. Then it adds a sticky spiral to catch insects.",
         "image": "/guided-reading/nonfiction/level-c/book-06/page-003.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-06/audio/page-003.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-06/audio/page-003.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Many",
@@ -6604,8 +6662,8 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/spiders.mp3"
           },
           {
-            "text": "spin",
-            "audioPath": "/guided-reading/audio/words/spin.mp3"
+            "text": "build",
+            "audioPath": "/guided-reading/audio/words/build.mp3"
           },
           {
             "text": "webs",
@@ -6624,28 +6682,20 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/food.mp3"
           },
           {
-            "text": "Orb",
+            "text": "An",
+            "audioPath": "/guided-reading/audio/words/an.mp3"
+          },
+          {
+            "text": "orb",
             "audioPath": "/guided-reading/audio/words/orb.mp3"
           },
           {
-            "text": "webs",
-            "audioPath": "/guided-reading/audio/words/webs.mp3"
+            "text": "web",
+            "audioPath": "/guided-reading/audio/words/web.mp3"
           },
           {
-            "text": "are",
-            "audioPath": "/guided-reading/audio/words/are.mp3"
-          },
-          {
-            "text": "circular",
-            "audioPath": "/guided-reading/audio/words/circular.mp3"
-          },
-          {
-            "text": "with",
-            "audioPath": "/guided-reading/audio/words/with.mp3"
-          },
-          {
-            "text": "spokes",
-            "audioPath": "/guided-reading/audio/words/spokes.mp3"
+            "text": "looks",
+            "audioPath": "/guided-reading/audio/words/looks.mp3"
           },
           {
             "text": "like",
@@ -6668,28 +6718,28 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/spider.mp3"
           },
           {
-            "text": "starts",
-            "audioPath": "/guided-reading/audio/words/starts.mp3"
+            "text": "first",
+            "audioPath": "/guided-reading/audio/words/first.mp3"
           },
           {
-            "text": "with",
-            "audioPath": "/guided-reading/audio/words/with.mp3"
-          },
-          {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
+            "text": "makes",
+            "audioPath": "/guided-reading/audio/words/makes.mp3"
           },
           {
             "text": "spokes",
             "audioPath": "/guided-reading/audio/words/spokes.mp3"
           },
           {
-            "text": "then",
+            "text": "Then",
             "audioPath": "/guided-reading/audio/words/then.mp3"
           },
           {
-            "text": "spins",
-            "audioPath": "/guided-reading/audio/words/spins.mp3"
+            "text": "it",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
+          },
+          {
+            "text": "adds",
+            "audioPath": "/guided-reading/audio/words/adds.mp3"
           },
           {
             "text": "a",
@@ -6704,12 +6754,16 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/spiral.mp3"
           },
           {
-            "text": "between",
-            "audioPath": "/guided-reading/audio/words/between.mp3"
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
           },
           {
-            "text": "them",
-            "audioPath": "/guided-reading/audio/words/them.mp3"
+            "text": "catch",
+            "audioPath": "/guided-reading/audio/words/catch.mp3"
+          },
+          {
+            "text": "insects",
+            "audioPath": "/guided-reading/audio/words/insects.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6719,34 +6773,35 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 4,
         "sourcePageNumber": 5,
-        "text": "Not all webs look the same. Sheet webs are flat like a hammock. Cobwebs are messy tangles. Every type of spider makes its own kind of web.",
+        "text": "Spiders build many kinds of webs. Sheet webs lie flat like a hammock. Tangle webs look like loose, messy threads. Different webs catch food in different ways.",
         "image": "/guided-reading/nonfiction/level-c/book-06/page-004.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-06/audio/page-004.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-06/audio/page-004.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "Not",
-            "audioPath": "/guided-reading/audio/words/not.mp3"
+            "text": "Spiders",
+            "audioPath": "/guided-reading/audio/words/spiders.mp3"
           },
           {
-            "text": "all",
-            "audioPath": "/guided-reading/audio/words/all.mp3"
+            "text": "build",
+            "audioPath": "/guided-reading/audio/words/build.mp3"
+          },
+          {
+            "text": "many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
+          },
+          {
+            "text": "kinds",
+            "audioPath": "/guided-reading/audio/words/kinds.mp3"
+          },
+          {
+            "text": "of",
+            "audioPath": "/guided-reading/audio/words/of.mp3"
           },
           {
             "text": "webs",
             "audioPath": "/guided-reading/audio/words/webs.mp3"
-          },
-          {
-            "text": "look",
-            "audioPath": "/guided-reading/audio/words/look.mp3"
-          },
-          {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "same",
-            "audioPath": "/guided-reading/audio/words/same.mp3"
           },
           {
             "text": "Sheet",
@@ -6757,8 +6812,8 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/webs.mp3"
           },
           {
-            "text": "are",
-            "audioPath": "/guided-reading/audio/words/are.mp3"
+            "text": "lie",
+            "audioPath": "/guided-reading/audio/words/lie.mp3"
           },
           {
             "text": "flat",
@@ -6777,60 +6832,60 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/hammock.mp3"
           },
           {
-            "text": "Cobwebs",
-            "audioPath": "/guided-reading/audio/words/cobwebs.mp3"
+            "text": "Tangle",
+            "audioPath": "/guided-reading/audio/words/tangle.mp3"
           },
           {
-            "text": "are",
-            "audioPath": "/guided-reading/audio/words/are.mp3"
+            "text": "webs",
+            "audioPath": "/guided-reading/audio/words/webs.mp3"
+          },
+          {
+            "text": "look",
+            "audioPath": "/guided-reading/audio/words/look.mp3"
+          },
+          {
+            "text": "like",
+            "audioPath": "/guided-reading/audio/words/like.mp3"
+          },
+          {
+            "text": "loose",
+            "audioPath": "/guided-reading/audio/words/loose.mp3"
           },
           {
             "text": "messy",
             "audioPath": "/guided-reading/audio/words/messy.mp3"
           },
           {
-            "text": "tangles",
-            "audioPath": "/guided-reading/audio/words/tangles.mp3"
+            "text": "threads",
+            "audioPath": "/guided-reading/audio/words/threads.mp3"
           },
           {
-            "text": "Every",
-            "audioPath": "/guided-reading/audio/words/every.mp3"
+            "text": "Different",
+            "audioPath": "/guided-reading/audio/words/different.mp3"
           },
           {
-            "text": "type",
-            "audioPath": "/guided-reading/audio/words/type.mp3"
+            "text": "webs",
+            "audioPath": "/guided-reading/audio/words/webs.mp3"
           },
           {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
+            "text": "catch",
+            "audioPath": "/guided-reading/audio/words/catch.mp3"
           },
           {
-            "text": "spider",
-            "audioPath": "/guided-reading/audio/words/spider.mp3"
+            "text": "food",
+            "audioPath": "/guided-reading/audio/words/food.mp3"
           },
           {
-            "text": "makes",
-            "audioPath": "/guided-reading/audio/words/makes.mp3"
+            "text": "in",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
-            "text": "its",
-            "audioPath": "/guided-reading/audio/words/its.mp3"
+            "text": "different",
+            "audioPath": "/guided-reading/audio/words/different.mp3"
           },
           {
-            "text": "own",
-            "audioPath": "/guided-reading/audio/words/own.mp3"
-          },
-          {
-            "text": "kind",
-            "audioPath": "/guided-reading/audio/words/kind.mp3"
-          },
-          {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
-          },
-          {
-            "text": "web",
-            "audioPath": "/guided-reading/audio/words/web.mp3"
+            "text": "ways",
+            "audioPath": "/guided-reading/audio/words/ways.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -6840,10 +6895,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 5,
         "sourcePageNumber": 6,
-        "text": "Some spiders do not use webs at all. Jumping spiders leap onto their food. They have big eyes that face forward to judge distance. A jumping spider can leap 20 times its own body length!",
+        "text": "Some spiders do not build webs to catch food. Jumping spiders stalk insects and leap onto them. Their large front eyes help them judge distance. They can jump many times their own body length.",
         "image": "/guided-reading/nonfiction/level-c/book-06/page-005.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-06/audio/page-005.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-06/audio/page-005.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Some",
@@ -6862,20 +6918,24 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/not.mp3"
           },
           {
-            "text": "use",
-            "audioPath": "/guided-reading/audio/words/use.mp3"
+            "text": "build",
+            "audioPath": "/guided-reading/audio/words/build.mp3"
           },
           {
             "text": "webs",
             "audioPath": "/guided-reading/audio/words/webs.mp3"
           },
           {
-            "text": "at",
-            "audioPath": "/guided-reading/audio/words/at.mp3"
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
           },
           {
-            "text": "all",
-            "audioPath": "/guided-reading/audio/words/all.mp3"
+            "text": "catch",
+            "audioPath": "/guided-reading/audio/words/catch.mp3"
+          },
+          {
+            "text": "food",
+            "audioPath": "/guided-reading/audio/words/food.mp3"
           },
           {
             "text": "Jumping",
@@ -6886,6 +6946,18 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/spiders.mp3"
           },
           {
+            "text": "stalk",
+            "audioPath": "/guided-reading/audio/words/stalk.mp3"
+          },
+          {
+            "text": "insects",
+            "audioPath": "/guided-reading/audio/words/insects.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
             "text": "leap",
             "audioPath": "/guided-reading/audio/words/leap.mp3"
           },
@@ -6894,44 +6966,32 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/onto.mp3"
           },
           {
-            "text": "their",
+            "text": "them",
+            "audioPath": "/guided-reading/audio/words/them.mp3"
+          },
+          {
+            "text": "Their",
             "audioPath": "/guided-reading/audio/words/their.mp3"
           },
           {
-            "text": "food",
-            "audioPath": "/guided-reading/audio/words/food.mp3"
+            "text": "large",
+            "audioPath": "/guided-reading/audio/words/large.mp3"
           },
           {
-            "text": "They",
-            "audioPath": "/guided-reading/audio/words/they.mp3"
-          },
-          {
-            "text": "have",
-            "audioPath": "/guided-reading/audio/words/have.mp3"
-          },
-          {
-            "text": "big",
-            "audioPath": "/guided-reading/audio/words/big.mp3"
+            "text": "front",
+            "audioPath": "/guided-reading/audio/words/front.mp3"
           },
           {
             "text": "eyes",
             "audioPath": "/guided-reading/audio/words/eyes.mp3"
           },
           {
-            "text": "that",
-            "audioPath": "/guided-reading/audio/words/that.mp3"
+            "text": "help",
+            "audioPath": "/guided-reading/audio/words/help.mp3"
           },
           {
-            "text": "face",
-            "audioPath": "/guided-reading/audio/words/face.mp3"
-          },
-          {
-            "text": "forward",
-            "audioPath": "/guided-reading/audio/words/forward.mp3"
-          },
-          {
-            "text": "to",
-            "audioPath": "/guided-reading/audio/words/to.mp3"
+            "text": "them",
+            "audioPath": "/guided-reading/audio/words/them.mp3"
           },
           {
             "text": "judge",
@@ -6942,36 +7002,28 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/distance.mp3"
           },
           {
-            "text": "A",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
-          },
-          {
-            "text": "jumping",
-            "audioPath": "/guided-reading/audio/words/jumping.mp3"
-          },
-          {
-            "text": "spider",
-            "audioPath": "/guided-reading/audio/words/spider.mp3"
+            "text": "They",
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "can",
             "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
-            "text": "leap",
-            "audioPath": "/guided-reading/audio/words/leap.mp3"
+            "text": "jump",
+            "audioPath": "/guided-reading/audio/words/jump.mp3"
           },
           {
-            "text": "20",
-            "audioPath": "/guided-reading/audio/words/20.mp3"
+            "text": "many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
           },
           {
             "text": "times",
             "audioPath": "/guided-reading/audio/words/times.mp3"
           },
           {
-            "text": "its",
-            "audioPath": "/guided-reading/audio/words/its.mp3"
+            "text": "their",
+            "audioPath": "/guided-reading/audio/words/their.mp3"
           },
           {
             "text": "own",
@@ -6993,13 +7045,18 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 6,
         "sourcePageNumber": 7,
-        "text": "Spiders have eight eyes, but many cannot see well. Instead, they feel vibrations through their legs. When something touches the web, the spider feels it instantly.",
+        "text": "Most spiders have eight eyes, but many cannot see well. Web-building spiders feel tiny vibrations through their legs. A trapped insect makes the silk shake, and the spider knows where to go.",
         "image": "/guided-reading/nonfiction/level-c/book-06/page-006.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-06/audio/page-006.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-06/audio/page-006.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "Spiders",
+            "text": "Most",
+            "audioPath": "/guided-reading/audio/words/most.mp3"
+          },
+          {
+            "text": "spiders",
             "audioPath": "/guided-reading/audio/words/spiders.mp3"
           },
           {
@@ -7035,16 +7092,20 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/well.mp3"
           },
           {
-            "text": "Instead",
-            "audioPath": "/guided-reading/audio/words/instead.mp3"
+            "text": "Web-building",
+            "audioPath": "/guided-reading/audio/words/web-building.mp3"
           },
           {
-            "text": "they",
-            "audioPath": "/guided-reading/audio/words/they.mp3"
+            "text": "spiders",
+            "audioPath": "/guided-reading/audio/words/spiders.mp3"
           },
           {
             "text": "feel",
             "audioPath": "/guided-reading/audio/words/feel.mp3"
+          },
+          {
+            "text": "tiny",
+            "audioPath": "/guided-reading/audio/words/tiny.mp3"
           },
           {
             "text": "vibrations",
@@ -7063,24 +7124,36 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/legs.mp3"
           },
           {
-            "text": "When",
-            "audioPath": "/guided-reading/audio/words/when.mp3"
+            "text": "A",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
-            "text": "something",
-            "audioPath": "/guided-reading/audio/words/something.mp3"
+            "text": "trapped",
+            "audioPath": "/guided-reading/audio/words/trapped.mp3"
           },
           {
-            "text": "touches",
-            "audioPath": "/guided-reading/audio/words/touches.mp3"
+            "text": "insect",
+            "audioPath": "/guided-reading/audio/words/insect.mp3"
+          },
+          {
+            "text": "makes",
+            "audioPath": "/guided-reading/audio/words/makes.mp3"
           },
           {
             "text": "the",
             "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
-            "text": "web",
-            "audioPath": "/guided-reading/audio/words/web.mp3"
+            "text": "silk",
+            "audioPath": "/guided-reading/audio/words/silk.mp3"
+          },
+          {
+            "text": "shake",
+            "audioPath": "/guided-reading/audio/words/shake.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "the",
@@ -7091,16 +7164,20 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/spider.mp3"
           },
           {
-            "text": "feels",
-            "audioPath": "/guided-reading/audio/words/feels.mp3"
+            "text": "knows",
+            "audioPath": "/guided-reading/audio/words/knows.mp3"
           },
           {
-            "text": "it",
-            "audioPath": "/guided-reading/audio/words/it.mp3"
+            "text": "where",
+            "audioPath": "/guided-reading/audio/words/where.mp3"
           },
           {
-            "text": "instantly",
-            "audioPath": "/guided-reading/audio/words/instantly.mp3"
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "go",
+            "audioPath": "/guided-reading/audio/words/go.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7110,10 +7187,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 7,
         "sourcePageNumber": 8,
-        "text": "When an insect is caught, the spider wraps it in silk. This keeps it still. Then the spider injects venom to begin digesting its meal.",
+        "text": "When an insect is caught, a garden spider may wrap it in silk. The spider uses venom to keep the insect still. Then the spider can feed on its meal.",
         "image": "/guided-reading/nonfiction/level-c/book-06/page-007.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-06/audio/page-007.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-06/audio/page-007.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "When",
@@ -7136,16 +7214,24 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/caught.mp3"
           },
           {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "garden",
+            "audioPath": "/guided-reading/audio/words/garden.mp3"
           },
           {
             "text": "spider",
             "audioPath": "/guided-reading/audio/words/spider.mp3"
           },
           {
-            "text": "wraps",
-            "audioPath": "/guided-reading/audio/words/wraps.mp3"
+            "text": "may",
+            "audioPath": "/guided-reading/audio/words/may.mp3"
+          },
+          {
+            "text": "wrap",
+            "audioPath": "/guided-reading/audio/words/wrap.mp3"
           },
           {
             "text": "it",
@@ -7160,16 +7246,36 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/silk.mp3"
           },
           {
-            "text": "This",
-            "audioPath": "/guided-reading/audio/words/this.mp3"
+            "text": "The",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
-            "text": "keeps",
-            "audioPath": "/guided-reading/audio/words/keeps.mp3"
+            "text": "spider",
+            "audioPath": "/guided-reading/audio/words/spider.mp3"
           },
           {
-            "text": "it",
-            "audioPath": "/guided-reading/audio/words/it.mp3"
+            "text": "uses",
+            "audioPath": "/guided-reading/audio/words/uses.mp3"
+          },
+          {
+            "text": "venom",
+            "audioPath": "/guided-reading/audio/words/venom.mp3"
+          },
+          {
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "keep",
+            "audioPath": "/guided-reading/audio/words/keep.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "insect",
+            "audioPath": "/guided-reading/audio/words/insect.mp3"
           },
           {
             "text": "still",
@@ -7188,24 +7294,16 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/spider.mp3"
           },
           {
-            "text": "injects",
-            "audioPath": "/guided-reading/audio/words/injects.mp3"
+            "text": "can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
-            "text": "venom",
-            "audioPath": "/guided-reading/audio/words/venom.mp3"
+            "text": "feed",
+            "audioPath": "/guided-reading/audio/words/feed.mp3"
           },
           {
-            "text": "to",
-            "audioPath": "/guided-reading/audio/words/to.mp3"
-          },
-          {
-            "text": "begin",
-            "audioPath": "/guided-reading/audio/words/begin.mp3"
-          },
-          {
-            "text": "digesting",
-            "audioPath": "/guided-reading/audio/words/digesting.mp3"
+            "text": "on",
+            "audioPath": "/guided-reading/audio/words/on.mp3"
           },
           {
             "text": "its",
@@ -7223,10 +7321,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 8,
         "sourcePageNumber": 9,
-        "text": "Female spiders lay eggs in a silk sac. The sac protects the eggs. When they hatch, tiny spiderlings emerge. Some mothers carry the sac everywhere.",
+        "text": "Female spiders protect their eggs in a silk sac. When the eggs hatch, tiny spiderlings come out. A mother wolf spider carries her egg sac with her.",
         "image": "/guided-reading/nonfiction/level-c/book-06/page-008.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-06/audio/page-008.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-06/audio/page-008.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Female",
@@ -7237,8 +7336,12 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/spiders.mp3"
           },
           {
-            "text": "lay",
-            "audioPath": "/guided-reading/audio/words/lay.mp3"
+            "text": "protect",
+            "audioPath": "/guided-reading/audio/words/protect.mp3"
+          },
+          {
+            "text": "their",
+            "audioPath": "/guided-reading/audio/words/their.mp3"
           },
           {
             "text": "eggs",
@@ -7261,16 +7364,8 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/sac.mp3"
           },
           {
-            "text": "The",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "sac",
-            "audioPath": "/guided-reading/audio/words/sac.mp3"
-          },
-          {
-            "text": "protects",
-            "audioPath": "/guided-reading/audio/words/protects.mp3"
+            "text": "When",
+            "audioPath": "/guided-reading/audio/words/when.mp3"
           },
           {
             "text": "the",
@@ -7279,14 +7374,6 @@ export const firstFactsLevelCBooks = [
           {
             "text": "eggs",
             "audioPath": "/guided-reading/audio/words/eggs.mp3"
-          },
-          {
-            "text": "When",
-            "audioPath": "/guided-reading/audio/words/when.mp3"
-          },
-          {
-            "text": "they",
-            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "hatch",
@@ -7301,32 +7388,52 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/spiderlings.mp3"
           },
           {
-            "text": "emerge",
-            "audioPath": "/guided-reading/audio/words/emerge.mp3"
+            "text": "come",
+            "audioPath": "/guided-reading/audio/words/come.mp3"
           },
           {
-            "text": "Some",
-            "audioPath": "/guided-reading/audio/words/some.mp3"
+            "text": "out",
+            "audioPath": "/guided-reading/audio/words/out.mp3"
           },
           {
-            "text": "mothers",
-            "audioPath": "/guided-reading/audio/words/mothers.mp3"
+            "text": "A",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
-            "text": "carry",
-            "audioPath": "/guided-reading/audio/words/carry.mp3"
+            "text": "mother",
+            "audioPath": "/guided-reading/audio/words/mother.mp3"
           },
           {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
+            "text": "wolf",
+            "audioPath": "/guided-reading/audio/words/wolf.mp3"
+          },
+          {
+            "text": "spider",
+            "audioPath": "/guided-reading/audio/words/spider.mp3"
+          },
+          {
+            "text": "carries",
+            "audioPath": "/guided-reading/audio/words/carries.mp3"
+          },
+          {
+            "text": "her",
+            "audioPath": "/guided-reading/audio/words/her.mp3"
+          },
+          {
+            "text": "egg",
+            "audioPath": "/guided-reading/audio/words/egg.mp3"
           },
           {
             "text": "sac",
             "audioPath": "/guided-reading/audio/words/sac.mp3"
           },
           {
-            "text": "everywhere",
-            "audioPath": "/guided-reading/audio/words/everywhere.mp3"
+            "text": "with",
+            "audioPath": "/guided-reading/audio/words/with.mp3"
+          },
+          {
+            "text": "her",
+            "audioPath": "/guided-reading/audio/words/her.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7336,10 +7443,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 9,
         "sourcePageNumber": 10,
-        "text": "Most spiders are harmless to people. They eat insects that damage our plants. Without spiders, our gardens and crops would be full of pests. Spiders are very helpful friends.",
+        "text": "Most spiders cannot harm people. They eat many insects, including some that damage plants. Spiders help to keep gardens and crops healthy. They are useful hunters.",
         "image": "/guided-reading/nonfiction/level-c/book-06/page-009.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-06/audio/page-009.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-06/audio/page-009.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Most",
@@ -7350,16 +7458,12 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/spiders.mp3"
           },
           {
-            "text": "are",
-            "audioPath": "/guided-reading/audio/words/are.mp3"
+            "text": "cannot",
+            "audioPath": "/guided-reading/audio/words/cannot.mp3"
           },
           {
-            "text": "harmless",
-            "audioPath": "/guided-reading/audio/words/harmless.mp3"
-          },
-          {
-            "text": "to",
-            "audioPath": "/guided-reading/audio/words/to.mp3"
+            "text": "harm",
+            "audioPath": "/guided-reading/audio/words/harm.mp3"
           },
           {
             "text": "people",
@@ -7374,8 +7478,20 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/eat.mp3"
           },
           {
+            "text": "many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
+          },
+          {
             "text": "insects",
             "audioPath": "/guided-reading/audio/words/insects.mp3"
+          },
+          {
+            "text": "including",
+            "audioPath": "/guided-reading/audio/words/including.mp3"
+          },
+          {
+            "text": "some",
+            "audioPath": "/guided-reading/audio/words/some.mp3"
           },
           {
             "text": "that",
@@ -7386,24 +7502,24 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/damage.mp3"
           },
           {
-            "text": "our",
-            "audioPath": "/guided-reading/audio/words/our.mp3"
-          },
-          {
             "text": "plants",
             "audioPath": "/guided-reading/audio/words/plants.mp3"
           },
           {
-            "text": "Without",
-            "audioPath": "/guided-reading/audio/words/without.mp3"
-          },
-          {
-            "text": "spiders",
+            "text": "Spiders",
             "audioPath": "/guided-reading/audio/words/spiders.mp3"
           },
           {
-            "text": "our",
-            "audioPath": "/guided-reading/audio/words/our.mp3"
+            "text": "help",
+            "audioPath": "/guided-reading/audio/words/help.mp3"
+          },
+          {
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "keep",
+            "audioPath": "/guided-reading/audio/words/keep.mp3"
           },
           {
             "text": "gardens",
@@ -7418,44 +7534,24 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/crops.mp3"
           },
           {
-            "text": "would",
-            "audioPath": "/guided-reading/audio/words/would.mp3"
+            "text": "healthy",
+            "audioPath": "/guided-reading/audio/words/healthy.mp3"
           },
           {
-            "text": "be",
-            "audioPath": "/guided-reading/audio/words/be.mp3"
-          },
-          {
-            "text": "full",
-            "audioPath": "/guided-reading/audio/words/full.mp3"
-          },
-          {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
-          },
-          {
-            "text": "pests",
-            "audioPath": "/guided-reading/audio/words/pests.mp3"
-          },
-          {
-            "text": "Spiders",
-            "audioPath": "/guided-reading/audio/words/spiders.mp3"
+            "text": "They",
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "are",
             "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
-            "text": "very",
-            "audioPath": "/guided-reading/audio/words/very.mp3"
+            "text": "useful",
+            "audioPath": "/guided-reading/audio/words/useful.mp3"
           },
           {
-            "text": "helpful",
-            "audioPath": "/guided-reading/audio/words/helpful.mp3"
-          },
-          {
-            "text": "friends",
-            "audioPath": "/guided-reading/audio/words/friends.mp3"
+            "text": "hunters",
+            "audioPath": "/guided-reading/audio/words/hunters.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -7533,6 +7629,7 @@ export const firstFactsLevelCBooks = [
       "reaches",
       "at",
       "all",
+      "sunlit",
       "top",
       "layer",
       "full",
@@ -7551,32 +7648,38 @@ export const firstFactsLevelCBooks = [
       "thousands",
       "kinds",
       "fish",
-      "animal",
+      "other",
+      "animals",
       "a",
       "reef",
       "like",
       "an",
       "underwater",
       "city",
-      "looks",
+      "may",
+      "look",
       "rock",
       "or",
       "plant",
       "but",
-      "each",
-      "piece",
-      "made",
-      "tiny",
-      "creatures",
-      "called",
       "polyps",
-      "take",
+      "tiny",
+      "many",
+      "live",
+      "together",
+      "colony",
+      "build",
+      "hard",
+      "skeletons",
+      "that",
+      "can",
+      "form",
+      "over",
       "years",
       "deep",
       "dark",
       "strange",
-      "live",
-      "many",
+      "creatures",
       "have",
       "enormous",
       "eyes",
@@ -7593,6 +7696,7 @@ export const firstFactsLevelCBooks = [
       "their",
       "own",
       "this",
+      "called",
       "bioluminescence",
       "anglerfish",
       "dangles",
@@ -7627,11 +7731,11 @@ export const firstFactsLevelCBooks = [
       "float",
       "use",
       "every",
-      "other",
       "breath",
+      "take",
       "came",
       "from",
-      "80%",
+      "80",
       "never",
       "been",
       "explored",
@@ -7899,14 +8003,19 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 3,
         "sourcePageNumber": 4,
-        "text": "The top layer is full of life. Coral reefs grow in warm, shallow water. They are home to thousands of kinds of fish and animal. A coral reef is like an underwater city.",
+        "text": "The sunlit top layer is full of life. Coral reefs grow in warm, shallow water. They are home to thousands of kinds of fish and other animals. A coral reef is like an underwater city.",
         "image": "/guided-reading/nonfiction/level-c/book-07/page-003.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-07/audio/page-003.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-07/audio/page-003.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "The",
             "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "sunlit",
+            "audioPath": "/guided-reading/audio/words/sunlit.mp3"
           },
           {
             "text": "top",
@@ -8001,8 +8110,12 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
-            "text": "animal",
-            "audioPath": "/guided-reading/audio/words/animal.mp3"
+            "text": "other",
+            "audioPath": "/guided-reading/audio/words/other.mp3"
+          },
+          {
+            "text": "animals",
+            "audioPath": "/guided-reading/audio/words/animals.mp3"
           },
           {
             "text": "A",
@@ -8044,18 +8157,23 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 4,
         "sourcePageNumber": 5,
-        "text": "Coral looks like rock or plant, but it is an animal. Each piece of coral is made of thousands of tiny creatures called polyps. Coral reefs take thousands of years to grow.",
+        "text": "Coral may look like rock or a plant, but coral polyps are tiny animals. Many polyps live together in a colony. They build hard skeletons that can form a reef over many years.",
         "image": "/guided-reading/nonfiction/level-c/book-07/page-004.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-07/audio/page-004.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-07/audio/page-004.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Coral",
             "audioPath": "/guided-reading/audio/words/coral.mp3"
           },
           {
-            "text": "looks",
-            "audioPath": "/guided-reading/audio/words/looks.mp3"
+            "text": "may",
+            "audioPath": "/guided-reading/audio/words/may.mp3"
+          },
+          {
+            "text": "look",
+            "audioPath": "/guided-reading/audio/words/look.mp3"
           },
           {
             "text": "like",
@@ -8070,6 +8188,10 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/or.mp3"
           },
           {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
             "text": "plant",
             "audioPath": "/guided-reading/audio/words/plant.mp3"
           },
@@ -8078,104 +8200,100 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/but.mp3"
           },
           {
-            "text": "it",
-            "audioPath": "/guided-reading/audio/words/it.mp3"
-          },
-          {
-            "text": "is",
-            "audioPath": "/guided-reading/audio/words/is.mp3"
-          },
-          {
-            "text": "an",
-            "audioPath": "/guided-reading/audio/words/an.mp3"
-          },
-          {
-            "text": "animal",
-            "audioPath": "/guided-reading/audio/words/animal.mp3"
-          },
-          {
-            "text": "Each",
-            "audioPath": "/guided-reading/audio/words/each.mp3"
-          },
-          {
-            "text": "piece",
-            "audioPath": "/guided-reading/audio/words/piece.mp3"
-          },
-          {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
-          },
-          {
             "text": "coral",
             "audioPath": "/guided-reading/audio/words/coral.mp3"
-          },
-          {
-            "text": "is",
-            "audioPath": "/guided-reading/audio/words/is.mp3"
-          },
-          {
-            "text": "made",
-            "audioPath": "/guided-reading/audio/words/made.mp3"
-          },
-          {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
-          },
-          {
-            "text": "thousands",
-            "audioPath": "/guided-reading/audio/words/thousands.mp3"
-          },
-          {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
-          },
-          {
-            "text": "tiny",
-            "audioPath": "/guided-reading/audio/words/tiny.mp3"
-          },
-          {
-            "text": "creatures",
-            "audioPath": "/guided-reading/audio/words/creatures.mp3"
-          },
-          {
-            "text": "called",
-            "audioPath": "/guided-reading/audio/words/called.mp3"
           },
           {
             "text": "polyps",
             "audioPath": "/guided-reading/audio/words/polyps.mp3"
           },
           {
-            "text": "Coral",
-            "audioPath": "/guided-reading/audio/words/coral.mp3"
+            "text": "are",
+            "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
-            "text": "reefs",
-            "audioPath": "/guided-reading/audio/words/reefs.mp3"
+            "text": "tiny",
+            "audioPath": "/guided-reading/audio/words/tiny.mp3"
           },
           {
-            "text": "take",
-            "audioPath": "/guided-reading/audio/words/take.mp3"
+            "text": "animals",
+            "audioPath": "/guided-reading/audio/words/animals.mp3"
           },
           {
-            "text": "thousands",
-            "audioPath": "/guided-reading/audio/words/thousands.mp3"
+            "text": "Many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
           },
           {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
+            "text": "polyps",
+            "audioPath": "/guided-reading/audio/words/polyps.mp3"
+          },
+          {
+            "text": "live",
+            "audioPath": "/guided-reading/audio/words/live.mp3"
+          },
+          {
+            "text": "together",
+            "audioPath": "/guided-reading/audio/words/together.mp3"
+          },
+          {
+            "text": "in",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "colony",
+            "audioPath": "/guided-reading/audio/words/colony.mp3"
+          },
+          {
+            "text": "They",
+            "audioPath": "/guided-reading/audio/words/they.mp3"
+          },
+          {
+            "text": "build",
+            "audioPath": "/guided-reading/audio/words/build.mp3"
+          },
+          {
+            "text": "hard",
+            "audioPath": "/guided-reading/audio/words/hard.mp3"
+          },
+          {
+            "text": "skeletons",
+            "audioPath": "/guided-reading/audio/words/skeletons.mp3"
+          },
+          {
+            "text": "that",
+            "audioPath": "/guided-reading/audio/words/that.mp3"
+          },
+          {
+            "text": "can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
+          },
+          {
+            "text": "form",
+            "audioPath": "/guided-reading/audio/words/form.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "reef",
+            "audioPath": "/guided-reading/audio/words/reef.mp3"
+          },
+          {
+            "text": "over",
+            "audioPath": "/guided-reading/audio/words/over.mp3"
+          },
+          {
+            "text": "many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
           },
           {
             "text": "years",
             "audioPath": "/guided-reading/audio/words/years.mp3"
-          },
-          {
-            "text": "to",
-            "audioPath": "/guided-reading/audio/words/to.mp3"
-          },
-          {
-            "text": "grow",
-            "audioPath": "/guided-reading/audio/words/grow.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -8905,114 +9023,115 @@ export const firstFactsLevelCBooks = [
       "this",
       "is",
       "called",
-      "lifecycle",
+      "cycle",
       "each",
       "stage",
       "looks",
-      "completely",
+      "very",
       "different",
       "from",
       "the",
       "one",
       "before",
+      "monarch",
       "butterfly",
       "lays",
       "tiny",
-      "eggs",
+      "egg",
       "on",
+      "milkweed",
       "leaf",
-      "very",
-      "small",
-      "—",
-      "some",
       "no",
       "bigger",
       "than",
       "pinhead",
+      "after",
+      "it",
+      "hatches",
+      "will",
+      "be",
       "food",
       "for",
       "caterpillar",
-      "inside",
-      "egg",
-      "hatches",
       "into",
-      "caterpillar's",
-      "only",
-      "job",
-      "to",
-      "eat",
-      "it",
       "eats",
       "grows",
-      "caterpillars",
-      "their",
+      "quickly",
+      "sheds",
+      "its",
+      "skin",
+      "several",
+      "times",
+      "new",
+      "may",
+      "eat",
       "own",
       "eggshell",
       "first",
-      "makes",
-      "hard",
-      "shell",
-      "around",
-      "itself",
-      "chrysalis",
-      "an",
-      "extraordinary",
-      "change",
-      "about",
-      "happen",
-      "breaks",
+      "hangs",
+      "upside",
       "down",
-      "its",
-      "rebuilds",
-      "as",
-      "amazing",
+      "last",
+      "time",
+      "revealing",
+      "green",
+      "chrysalis",
+      "inside",
+      "great",
+      "change",
+      "begins",
+      "caterpillar's",
+      "changes",
       "process",
       "metamorphosis",
+      "often",
       "takes",
+      "about",
       "weeks",
       "pushes",
       "out",
       "of",
-      "wet",
-      "crumpled",
-      "hangs",
       "still",
-      "waits",
-      "slowly",
-      "unfurl",
+      "pumps",
+      "fluid",
+      "soft",
+      "crumpled",
+      "spread",
       "dry",
+      "harden",
       "drink",
       "nectar",
-      "flowers",
-      "find",
-      "using",
+      "through",
+      "tube",
+      "proboscis",
+      "use",
+      "their",
       "eyes",
-      "sense",
-      "smell",
-      "but",
+      "to",
+      "find",
+      "flowers",
       "taste",
+      "plants",
       "with",
+      "sensors",
       "feet",
-      "standing",
-      "flower",
-      "tells",
-      "them",
-      "if",
-      "good",
-      "migrate",
+      "autumn",
+      "some",
+      "monarchs",
+      "fly",
       "thousands",
       "kilometres",
-      "monarch",
-      "flies",
-      "canada",
+      "south",
       "mexico",
-      "every",
-      "year",
+      "rest",
+      "winter",
+      "mountain",
+      "forests",
+      "spring",
+      "generations",
+      "make",
       "journey",
-      "4000",
-      "always",
-      "same",
-      "trees"
+      "north"
     ],
     "topicTags": [
       "animals",
@@ -9136,10 +9255,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 2,
         "sourcePageNumber": 3,
-        "text": "A butterfly's life has four stages. This is called a lifecycle. Each stage looks completely different from the one before.",
+        "text": "A butterfly's life has four stages. This is called a life cycle. Each stage looks very different from the one before.",
         "image": "/guided-reading/nonfiction/level-c/book-08/page-002.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-08/audio/page-002.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-08/audio/page-002.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "A",
@@ -9182,8 +9302,12 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
-            "text": "lifecycle",
-            "audioPath": "/guided-reading/audio/words/lifecycle.mp3"
+            "text": "life",
+            "audioPath": "/guided-reading/audio/words/life.mp3"
+          },
+          {
+            "text": "cycle",
+            "audioPath": "/guided-reading/audio/words/cycle.mp3"
           },
           {
             "text": "Each",
@@ -9198,8 +9322,8 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/looks.mp3"
           },
           {
-            "text": "completely",
-            "audioPath": "/guided-reading/audio/words/completely.mp3"
+            "text": "very",
+            "audioPath": "/guided-reading/audio/words/very.mp3"
           },
           {
             "text": "different",
@@ -9229,10 +9353,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 3,
         "sourcePageNumber": 4,
-        "text": "Stage one: the butterfly lays tiny eggs on a leaf. The eggs are very small — some are no bigger than a pinhead. The leaf is food for the caterpillar inside.",
+        "text": "Stage one: a monarch butterfly lays a tiny egg on a milkweed leaf. The egg is no bigger than a pinhead. After it hatches, the leaf will be food for the caterpillar.",
         "image": "/guided-reading/nonfiction/level-c/book-08/page-003.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-08/audio/page-003.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-08/audio/page-003.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Stage",
@@ -9243,8 +9368,12 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/one.mp3"
           },
           {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "monarch",
+            "audioPath": "/guided-reading/audio/words/monarch.mp3"
           },
           {
             "text": "butterfly",
@@ -9255,12 +9384,16 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/lays.mp3"
           },
           {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
             "text": "tiny",
             "audioPath": "/guided-reading/audio/words/tiny.mp3"
           },
           {
-            "text": "eggs",
-            "audioPath": "/guided-reading/audio/words/eggs.mp3"
+            "text": "egg",
+            "audioPath": "/guided-reading/audio/words/egg.mp3"
           },
           {
             "text": "on",
@@ -9271,6 +9404,10 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
+            "text": "milkweed",
+            "audioPath": "/guided-reading/audio/words/milkweed.mp3"
+          },
+          {
             "text": "leaf",
             "audioPath": "/guided-reading/audio/words/leaf.mp3"
           },
@@ -9279,32 +9416,12 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
-            "text": "eggs",
-            "audioPath": "/guided-reading/audio/words/eggs.mp3"
+            "text": "egg",
+            "audioPath": "/guided-reading/audio/words/egg.mp3"
           },
           {
-            "text": "are",
-            "audioPath": "/guided-reading/audio/words/are.mp3"
-          },
-          {
-            "text": "very",
-            "audioPath": "/guided-reading/audio/words/very.mp3"
-          },
-          {
-            "text": "small",
-            "audioPath": "/guided-reading/audio/words/small.mp3"
-          },
-          {
-            "text": "—",
-            "audioPath": "/guided-reading/audio/words/.mp3"
-          },
-          {
-            "text": "some",
-            "audioPath": "/guided-reading/audio/words/some.mp3"
-          },
-          {
-            "text": "are",
-            "audioPath": "/guided-reading/audio/words/are.mp3"
+            "text": "is",
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
             "text": "no",
@@ -9327,7 +9444,19 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/pinhead.mp3"
           },
           {
-            "text": "The",
+            "text": "After",
+            "audioPath": "/guided-reading/audio/words/after.mp3"
+          },
+          {
+            "text": "it",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
+          },
+          {
+            "text": "hatches",
+            "audioPath": "/guided-reading/audio/words/hatches.mp3"
+          },
+          {
+            "text": "the",
             "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
@@ -9335,8 +9464,12 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/leaf.mp3"
           },
           {
-            "text": "is",
-            "audioPath": "/guided-reading/audio/words/is.mp3"
+            "text": "will",
+            "audioPath": "/guided-reading/audio/words/will.mp3"
+          },
+          {
+            "text": "be",
+            "audioPath": "/guided-reading/audio/words/be.mp3"
           },
           {
             "text": "food",
@@ -9353,10 +9486,6 @@ export const firstFactsLevelCBooks = [
           {
             "text": "caterpillar",
             "audioPath": "/guided-reading/audio/words/caterpillar.mp3"
-          },
-          {
-            "text": "inside",
-            "audioPath": "/guided-reading/audio/words/inside.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -9366,10 +9495,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 4,
         "sourcePageNumber": 5,
-        "text": "Stage two: the egg hatches into a caterpillar. The caterpillar's only job is to eat. It eats and eats and grows and grows. Some caterpillars eat their own eggshell first!",
+        "text": "Stage two: the egg hatches into a caterpillar. It eats milkweed and grows quickly. It sheds its skin several times. A new caterpillar may eat its own eggshell first.",
         "image": "/guided-reading/nonfiction/level-c/book-08/page-004.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-08/audio/page-004.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-08/audio/page-004.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Stage",
@@ -9404,34 +9534,6 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/caterpillar.mp3"
           },
           {
-            "text": "The",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "caterpillar's",
-            "audioPath": "/guided-reading/audio/words/caterpillars.mp3"
-          },
-          {
-            "text": "only",
-            "audioPath": "/guided-reading/audio/words/only.mp3"
-          },
-          {
-            "text": "job",
-            "audioPath": "/guided-reading/audio/words/job.mp3"
-          },
-          {
-            "text": "is",
-            "audioPath": "/guided-reading/audio/words/is.mp3"
-          },
-          {
-            "text": "to",
-            "audioPath": "/guided-reading/audio/words/to.mp3"
-          },
-          {
-            "text": "eat",
-            "audioPath": "/guided-reading/audio/words/eat.mp3"
-          },
-          {
             "text": "It",
             "audioPath": "/guided-reading/audio/words/it.mp3"
           },
@@ -9440,12 +9542,8 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/eats.mp3"
           },
           {
-            "text": "and",
-            "audioPath": "/guided-reading/audio/words/and.mp3"
-          },
-          {
-            "text": "eats",
-            "audioPath": "/guided-reading/audio/words/eats.mp3"
+            "text": "milkweed",
+            "audioPath": "/guided-reading/audio/words/milkweed.mp3"
           },
           {
             "text": "and",
@@ -9456,28 +9554,56 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/grows.mp3"
           },
           {
-            "text": "and",
-            "audioPath": "/guided-reading/audio/words/and.mp3"
+            "text": "quickly",
+            "audioPath": "/guided-reading/audio/words/quickly.mp3"
           },
           {
-            "text": "grows",
-            "audioPath": "/guided-reading/audio/words/grows.mp3"
+            "text": "It",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
-            "text": "Some",
-            "audioPath": "/guided-reading/audio/words/some.mp3"
+            "text": "sheds",
+            "audioPath": "/guided-reading/audio/words/sheds.mp3"
           },
           {
-            "text": "caterpillars",
-            "audioPath": "/guided-reading/audio/words/caterpillars.mp3"
+            "text": "its",
+            "audioPath": "/guided-reading/audio/words/its.mp3"
+          },
+          {
+            "text": "skin",
+            "audioPath": "/guided-reading/audio/words/skin.mp3"
+          },
+          {
+            "text": "several",
+            "audioPath": "/guided-reading/audio/words/several.mp3"
+          },
+          {
+            "text": "times",
+            "audioPath": "/guided-reading/audio/words/times.mp3"
+          },
+          {
+            "text": "A",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "new",
+            "audioPath": "/guided-reading/audio/words/new.mp3"
+          },
+          {
+            "text": "caterpillar",
+            "audioPath": "/guided-reading/audio/words/caterpillar.mp3"
+          },
+          {
+            "text": "may",
+            "audioPath": "/guided-reading/audio/words/may.mp3"
           },
           {
             "text": "eat",
             "audioPath": "/guided-reading/audio/words/eat.mp3"
           },
           {
-            "text": "their",
-            "audioPath": "/guided-reading/audio/words/their.mp3"
+            "text": "its",
+            "audioPath": "/guided-reading/audio/words/its.mp3"
           },
           {
             "text": "own",
@@ -9499,10 +9625,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 5,
         "sourcePageNumber": 6,
-        "text": "Stage three: the caterpillar makes a hard shell around itself. This is called a chrysalis. Inside, an extraordinary change is about to happen.",
+        "text": "Stage three: the caterpillar hangs upside down. It sheds its skin one last time, revealing a green chrysalis. Inside, a great change begins.",
         "image": "/guided-reading/nonfiction/level-c/book-08/page-005.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-08/audio/page-005.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-08/audio/page-005.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Stage",
@@ -9521,44 +9648,56 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/caterpillar.mp3"
           },
           {
-            "text": "makes",
-            "audioPath": "/guided-reading/audio/words/makes.mp3"
+            "text": "hangs",
+            "audioPath": "/guided-reading/audio/words/hangs.mp3"
+          },
+          {
+            "text": "upside",
+            "audioPath": "/guided-reading/audio/words/upside.mp3"
+          },
+          {
+            "text": "down",
+            "audioPath": "/guided-reading/audio/words/down.mp3"
+          },
+          {
+            "text": "It",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
+          },
+          {
+            "text": "sheds",
+            "audioPath": "/guided-reading/audio/words/sheds.mp3"
+          },
+          {
+            "text": "its",
+            "audioPath": "/guided-reading/audio/words/its.mp3"
+          },
+          {
+            "text": "skin",
+            "audioPath": "/guided-reading/audio/words/skin.mp3"
+          },
+          {
+            "text": "one",
+            "audioPath": "/guided-reading/audio/words/one.mp3"
+          },
+          {
+            "text": "last",
+            "audioPath": "/guided-reading/audio/words/last.mp3"
+          },
+          {
+            "text": "time",
+            "audioPath": "/guided-reading/audio/words/time.mp3"
+          },
+          {
+            "text": "revealing",
+            "audioPath": "/guided-reading/audio/words/revealing.mp3"
           },
           {
             "text": "a",
             "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
-            "text": "hard",
-            "audioPath": "/guided-reading/audio/words/hard.mp3"
-          },
-          {
-            "text": "shell",
-            "audioPath": "/guided-reading/audio/words/shell.mp3"
-          },
-          {
-            "text": "around",
-            "audioPath": "/guided-reading/audio/words/around.mp3"
-          },
-          {
-            "text": "itself",
-            "audioPath": "/guided-reading/audio/words/itself.mp3"
-          },
-          {
-            "text": "This",
-            "audioPath": "/guided-reading/audio/words/this.mp3"
-          },
-          {
-            "text": "is",
-            "audioPath": "/guided-reading/audio/words/is.mp3"
-          },
-          {
-            "text": "called",
-            "audioPath": "/guided-reading/audio/words/called.mp3"
-          },
-          {
-            "text": "a",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
+            "text": "green",
+            "audioPath": "/guided-reading/audio/words/green.mp3"
           },
           {
             "text": "chrysalis",
@@ -9569,32 +9708,20 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/inside.mp3"
           },
           {
-            "text": "an",
-            "audioPath": "/guided-reading/audio/words/an.mp3"
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
-            "text": "extraordinary",
-            "audioPath": "/guided-reading/audio/words/extraordinary.mp3"
+            "text": "great",
+            "audioPath": "/guided-reading/audio/words/great.mp3"
           },
           {
             "text": "change",
             "audioPath": "/guided-reading/audio/words/change.mp3"
           },
           {
-            "text": "is",
-            "audioPath": "/guided-reading/audio/words/is.mp3"
-          },
-          {
-            "text": "about",
-            "audioPath": "/guided-reading/audio/words/about.mp3"
-          },
-          {
-            "text": "to",
-            "audioPath": "/guided-reading/audio/words/to.mp3"
-          },
-          {
-            "text": "happen",
-            "audioPath": "/guided-reading/audio/words/happen.mp3"
+            "text": "begins",
+            "audioPath": "/guided-reading/audio/words/begins.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -9604,10 +9731,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 6,
         "sourcePageNumber": 7,
-        "text": "Inside the chrysalis, the caterpillar breaks down completely. Its body rebuilds itself as a butterfly. This amazing process is called metamorphosis. It takes one to two weeks.",
+        "text": "Inside the chrysalis, the caterpillar's body changes into a butterfly. This process is called metamorphosis. For a monarch, it often takes about two weeks.",
         "image": "/guided-reading/nonfiction/level-c/book-08/page-006.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-08/audio/page-006.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-08/audio/page-006.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Inside",
@@ -9626,40 +9754,20 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
-            "text": "caterpillar",
-            "audioPath": "/guided-reading/audio/words/caterpillar.mp3"
-          },
-          {
-            "text": "breaks",
-            "audioPath": "/guided-reading/audio/words/breaks.mp3"
-          },
-          {
-            "text": "down",
-            "audioPath": "/guided-reading/audio/words/down.mp3"
-          },
-          {
-            "text": "completely",
-            "audioPath": "/guided-reading/audio/words/completely.mp3"
-          },
-          {
-            "text": "Its",
-            "audioPath": "/guided-reading/audio/words/its.mp3"
+            "text": "caterpillar's",
+            "audioPath": "/guided-reading/audio/words/caterpillars.mp3"
           },
           {
             "text": "body",
             "audioPath": "/guided-reading/audio/words/body.mp3"
           },
           {
-            "text": "rebuilds",
-            "audioPath": "/guided-reading/audio/words/rebuilds.mp3"
+            "text": "changes",
+            "audioPath": "/guided-reading/audio/words/changes.mp3"
           },
           {
-            "text": "itself",
-            "audioPath": "/guided-reading/audio/words/itself.mp3"
-          },
-          {
-            "text": "as",
-            "audioPath": "/guided-reading/audio/words/as.mp3"
+            "text": "into",
+            "audioPath": "/guided-reading/audio/words/into.mp3"
           },
           {
             "text": "a",
@@ -9672,10 +9780,6 @@ export const firstFactsLevelCBooks = [
           {
             "text": "This",
             "audioPath": "/guided-reading/audio/words/this.mp3"
-          },
-          {
-            "text": "amazing",
-            "audioPath": "/guided-reading/audio/words/amazing.mp3"
           },
           {
             "text": "process",
@@ -9694,20 +9798,32 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/metamorphosis.mp3"
           },
           {
-            "text": "It",
+            "text": "For",
+            "audioPath": "/guided-reading/audio/words/for.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "monarch",
+            "audioPath": "/guided-reading/audio/words/monarch.mp3"
+          },
+          {
+            "text": "it",
             "audioPath": "/guided-reading/audio/words/it.mp3"
+          },
+          {
+            "text": "often",
+            "audioPath": "/guided-reading/audio/words/often.mp3"
           },
           {
             "text": "takes",
             "audioPath": "/guided-reading/audio/words/takes.mp3"
           },
           {
-            "text": "one",
-            "audioPath": "/guided-reading/audio/words/one.mp3"
-          },
-          {
-            "text": "to",
-            "audioPath": "/guided-reading/audio/words/to.mp3"
+            "text": "about",
+            "audioPath": "/guided-reading/audio/words/about.mp3"
           },
           {
             "text": "two",
@@ -9725,10 +9841,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 7,
         "sourcePageNumber": 8,
-        "text": "Stage four: the butterfly pushes out of the chrysalis. Its wings are wet and crumpled. The butterfly hangs still and waits. Slowly, its wings unfurl and dry.",
+        "text": "Stage four: the butterfly pushes out of the chrysalis. It hangs still and pumps fluid into its soft, crumpled wings. The wings spread out, dry, and harden.",
         "image": "/guided-reading/nonfiction/level-c/book-08/page-007.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-08/audio/page-007.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-08/audio/page-007.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Stage",
@@ -9767,36 +9884,8 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/chrysalis.mp3"
           },
           {
-            "text": "Its",
-            "audioPath": "/guided-reading/audio/words/its.mp3"
-          },
-          {
-            "text": "wings",
-            "audioPath": "/guided-reading/audio/words/wings.mp3"
-          },
-          {
-            "text": "are",
-            "audioPath": "/guided-reading/audio/words/are.mp3"
-          },
-          {
-            "text": "wet",
-            "audioPath": "/guided-reading/audio/words/wet.mp3"
-          },
-          {
-            "text": "and",
-            "audioPath": "/guided-reading/audio/words/and.mp3"
-          },
-          {
-            "text": "crumpled",
-            "audioPath": "/guided-reading/audio/words/crumpled.mp3"
-          },
-          {
-            "text": "The",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "butterfly",
-            "audioPath": "/guided-reading/audio/words/butterfly.mp3"
+            "text": "It",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "hangs",
@@ -9811,32 +9900,60 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
-            "text": "waits",
-            "audioPath": "/guided-reading/audio/words/waits.mp3"
+            "text": "pumps",
+            "audioPath": "/guided-reading/audio/words/pumps.mp3"
           },
           {
-            "text": "Slowly",
-            "audioPath": "/guided-reading/audio/words/slowly.mp3"
+            "text": "fluid",
+            "audioPath": "/guided-reading/audio/words/fluid.mp3"
+          },
+          {
+            "text": "into",
+            "audioPath": "/guided-reading/audio/words/into.mp3"
           },
           {
             "text": "its",
             "audioPath": "/guided-reading/audio/words/its.mp3"
           },
           {
+            "text": "soft",
+            "audioPath": "/guided-reading/audio/words/soft.mp3"
+          },
+          {
+            "text": "crumpled",
+            "audioPath": "/guided-reading/audio/words/crumpled.mp3"
+          },
+          {
             "text": "wings",
             "audioPath": "/guided-reading/audio/words/wings.mp3"
           },
           {
-            "text": "unfurl",
-            "audioPath": "/guided-reading/audio/words/unfurl.mp3"
+            "text": "The",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "wings",
+            "audioPath": "/guided-reading/audio/words/wings.mp3"
+          },
+          {
+            "text": "spread",
+            "audioPath": "/guided-reading/audio/words/spread.mp3"
+          },
+          {
+            "text": "out",
+            "audioPath": "/guided-reading/audio/words/out.mp3"
+          },
+          {
+            "text": "dry",
+            "audioPath": "/guided-reading/audio/words/dry.mp3"
           },
           {
             "text": "and",
             "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
-            "text": "dry",
-            "audioPath": "/guided-reading/audio/words/dry.mp3"
+            "text": "harden",
+            "audioPath": "/guided-reading/audio/words/harden.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -9846,10 +9963,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 8,
         "sourcePageNumber": 9,
-        "text": "Butterflies drink nectar from flowers. They find flowers using their eyes and sense of smell. But they taste with their feet! Standing on a flower tells them if it is good to eat.",
+        "text": "Butterflies drink nectar through a long tube called a proboscis. They use their eyes and antennae to find flowers. They also taste plants with sensors on their feet.",
         "image": "/guided-reading/nonfiction/level-c/book-08/page-008.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-08/audio/page-008.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-08/audio/page-008.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Butterflies",
@@ -9864,28 +9982,40 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/nectar.mp3"
           },
           {
-            "text": "from",
-            "audioPath": "/guided-reading/audio/words/from.mp3"
+            "text": "through",
+            "audioPath": "/guided-reading/audio/words/through.mp3"
           },
           {
-            "text": "flowers",
-            "audioPath": "/guided-reading/audio/words/flowers.mp3"
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "long",
+            "audioPath": "/guided-reading/audio/words/long.mp3"
+          },
+          {
+            "text": "tube",
+            "audioPath": "/guided-reading/audio/words/tube.mp3"
+          },
+          {
+            "text": "called",
+            "audioPath": "/guided-reading/audio/words/called.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "proboscis",
+            "audioPath": "/guided-reading/audio/words/proboscis.mp3"
           },
           {
             "text": "They",
             "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
-            "text": "find",
-            "audioPath": "/guided-reading/audio/words/find.mp3"
-          },
-          {
-            "text": "flowers",
-            "audioPath": "/guided-reading/audio/words/flowers.mp3"
-          },
-          {
-            "text": "using",
-            "audioPath": "/guided-reading/audio/words/using.mp3"
+            "text": "use",
+            "audioPath": "/guided-reading/audio/words/use.mp3"
           },
           {
             "text": "their",
@@ -9900,32 +10030,48 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
-            "text": "sense",
-            "audioPath": "/guided-reading/audio/words/sense.mp3"
+            "text": "antennae",
+            "audioPath": "/guided-reading/audio/words/antennae.mp3"
           },
           {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
           },
           {
-            "text": "smell",
-            "audioPath": "/guided-reading/audio/words/smell.mp3"
+            "text": "find",
+            "audioPath": "/guided-reading/audio/words/find.mp3"
           },
           {
-            "text": "But",
-            "audioPath": "/guided-reading/audio/words/but.mp3"
+            "text": "flowers",
+            "audioPath": "/guided-reading/audio/words/flowers.mp3"
           },
           {
-            "text": "they",
+            "text": "They",
             "audioPath": "/guided-reading/audio/words/they.mp3"
+          },
+          {
+            "text": "also",
+            "audioPath": "/guided-reading/audio/words/also.mp3"
           },
           {
             "text": "taste",
             "audioPath": "/guided-reading/audio/words/taste.mp3"
           },
           {
+            "text": "plants",
+            "audioPath": "/guided-reading/audio/words/plants.mp3"
+          },
+          {
             "text": "with",
             "audioPath": "/guided-reading/audio/words/with.mp3"
+          },
+          {
+            "text": "sensors",
+            "audioPath": "/guided-reading/audio/words/sensors.mp3"
+          },
+          {
+            "text": "on",
+            "audioPath": "/guided-reading/audio/words/on.mp3"
           },
           {
             "text": "their",
@@ -9934,54 +10080,6 @@ export const firstFactsLevelCBooks = [
           {
             "text": "feet",
             "audioPath": "/guided-reading/audio/words/feet.mp3"
-          },
-          {
-            "text": "Standing",
-            "audioPath": "/guided-reading/audio/words/standing.mp3"
-          },
-          {
-            "text": "on",
-            "audioPath": "/guided-reading/audio/words/on.mp3"
-          },
-          {
-            "text": "a",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
-          },
-          {
-            "text": "flower",
-            "audioPath": "/guided-reading/audio/words/flower.mp3"
-          },
-          {
-            "text": "tells",
-            "audioPath": "/guided-reading/audio/words/tells.mp3"
-          },
-          {
-            "text": "them",
-            "audioPath": "/guided-reading/audio/words/them.mp3"
-          },
-          {
-            "text": "if",
-            "audioPath": "/guided-reading/audio/words/if.mp3"
-          },
-          {
-            "text": "it",
-            "audioPath": "/guided-reading/audio/words/it.mp3"
-          },
-          {
-            "text": "is",
-            "audioPath": "/guided-reading/audio/words/is.mp3"
-          },
-          {
-            "text": "good",
-            "audioPath": "/guided-reading/audio/words/good.mp3"
-          },
-          {
-            "text": "to",
-            "audioPath": "/guided-reading/audio/words/to.mp3"
-          },
-          {
-            "text": "eat",
-            "audioPath": "/guided-reading/audio/words/eat.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -9991,22 +10089,31 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 9,
         "sourcePageNumber": 10,
-        "text": "Some butterflies migrate thousands of kilometres. The monarch butterfly flies from Canada to Mexico every year — a journey of 4,000 kilometres. They always find the same trees.",
+        "text": "In autumn, some monarchs fly thousands of kilometres south to Mexico. They rest for winter in mountain forests. In spring, several new generations make the journey north.",
         "image": "/guided-reading/nonfiction/level-c/book-08/page-009.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-08/audio/page-009.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-08/audio/page-009.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "Some",
+            "text": "In",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
+          },
+          {
+            "text": "autumn",
+            "audioPath": "/guided-reading/audio/words/autumn.mp3"
+          },
+          {
+            "text": "some",
             "audioPath": "/guided-reading/audio/words/some.mp3"
           },
           {
-            "text": "butterflies",
-            "audioPath": "/guided-reading/audio/words/butterflies.mp3"
+            "text": "monarchs",
+            "audioPath": "/guided-reading/audio/words/monarchs.mp3"
           },
           {
-            "text": "migrate",
-            "audioPath": "/guided-reading/audio/words/migrate.mp3"
+            "text": "fly",
+            "audioPath": "/guided-reading/audio/words/fly.mp3"
           },
           {
             "text": "thousands",
@@ -10021,28 +10128,8 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/kilometres.mp3"
           },
           {
-            "text": "The",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "monarch",
-            "audioPath": "/guided-reading/audio/words/monarch.mp3"
-          },
-          {
-            "text": "butterfly",
-            "audioPath": "/guided-reading/audio/words/butterfly.mp3"
-          },
-          {
-            "text": "flies",
-            "audioPath": "/guided-reading/audio/words/flies.mp3"
-          },
-          {
-            "text": "from",
-            "audioPath": "/guided-reading/audio/words/from.mp3"
-          },
-          {
-            "text": "Canada",
-            "audioPath": "/guided-reading/audio/words/canada.mp3"
+            "text": "south",
+            "audioPath": "/guided-reading/audio/words/south.mp3"
           },
           {
             "text": "to",
@@ -10053,60 +10140,68 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/mexico.mp3"
           },
           {
-            "text": "every",
-            "audioPath": "/guided-reading/audio/words/every.mp3"
-          },
-          {
-            "text": "year",
-            "audioPath": "/guided-reading/audio/words/year.mp3"
-          },
-          {
-            "text": "—",
-            "audioPath": "/guided-reading/audio/words/.mp3"
-          },
-          {
-            "text": "a",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
-          },
-          {
-            "text": "journey",
-            "audioPath": "/guided-reading/audio/words/journey.mp3"
-          },
-          {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
-          },
-          {
-            "text": "4000",
-            "audioPath": "/guided-reading/audio/words/4000.mp3"
-          },
-          {
-            "text": "kilometres",
-            "audioPath": "/guided-reading/audio/words/kilometres.mp3"
-          },
-          {
             "text": "They",
             "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
-            "text": "always",
-            "audioPath": "/guided-reading/audio/words/always.mp3"
+            "text": "rest",
+            "audioPath": "/guided-reading/audio/words/rest.mp3"
           },
           {
-            "text": "find",
-            "audioPath": "/guided-reading/audio/words/find.mp3"
+            "text": "for",
+            "audioPath": "/guided-reading/audio/words/for.mp3"
+          },
+          {
+            "text": "winter",
+            "audioPath": "/guided-reading/audio/words/winter.mp3"
+          },
+          {
+            "text": "in",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
+          },
+          {
+            "text": "mountain",
+            "audioPath": "/guided-reading/audio/words/mountain.mp3"
+          },
+          {
+            "text": "forests",
+            "audioPath": "/guided-reading/audio/words/forests.mp3"
+          },
+          {
+            "text": "In",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
+          },
+          {
+            "text": "spring",
+            "audioPath": "/guided-reading/audio/words/spring.mp3"
+          },
+          {
+            "text": "several",
+            "audioPath": "/guided-reading/audio/words/several.mp3"
+          },
+          {
+            "text": "new",
+            "audioPath": "/guided-reading/audio/words/new.mp3"
+          },
+          {
+            "text": "generations",
+            "audioPath": "/guided-reading/audio/words/generations.mp3"
+          },
+          {
+            "text": "make",
+            "audioPath": "/guided-reading/audio/words/make.mp3"
           },
           {
             "text": "the",
             "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
-            "text": "same",
-            "audioPath": "/guided-reading/audio/words/same.mp3"
+            "text": "journey",
+            "audioPath": "/guided-reading/audio/words/journey.mp3"
           },
           {
-            "text": "trees",
-            "audioPath": "/guided-reading/audio/words/trees.mp3"
+            "text": "north",
+            "audioPath": "/guided-reading/audio/words/north.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -10154,34 +10249,39 @@ export const firstFactsLevelCBooks = [
       "they",
       "form",
       "in",
-      "many",
       "different",
       "ways",
-      "some",
-      "made",
-      "by",
       "water",
+      "makes",
+      "many",
+      "limestone",
       "sea",
       "waves",
-      "and",
-      "ancient",
+      "make",
       "flowing",
       "lava",
-      "most",
-      "when",
+      "can",
+      "leave",
+      "long",
+      "cave",
+      "tubes",
       "rainwater",
-      "seeps",
-      "into",
-      "limestone",
-      "rock",
-      "the",
-      "is",
+      "becomes",
       "slightly",
       "acidic",
+      "as",
       "it",
+      "moves",
+      "through",
+      "soil",
+      "seeps",
+      "into",
+      "cracks",
+      "and",
       "slowly",
       "dissolves",
-      "away",
+      "the",
+      "rock",
       "this",
       "takes",
       "thousands",
@@ -10191,110 +10291,103 @@ export const firstFactsLevelCBooks = [
       "time",
       "tunnels",
       "chambers",
-      "cave",
+      "some",
       "systems",
       "stretch",
       "for",
       "hundreds",
       "kilometres",
       "mammoth",
-      "system",
-      "america",
+      "united",
+      "states",
       "has",
       "more",
       "than",
       "650",
+      "mapped",
       "passages",
       "drips",
       "from",
       "ceilings",
-      "minerals",
-      "build",
-      "up",
-      "these",
+      "leaves",
+      "tiny",
+      "bits",
+      "mineral",
+      "behind",
+      "builds",
+      "a",
       "hanging",
       "stone",
-      "shapes",
+      "shape",
       "called",
-      "stalactites",
-      "one",
-      "tiny",
-      "drip",
-      "at",
-      "a",
-      "hit",
+      "stalactite",
+      "drops",
+      "also",
+      "fall",
+      "onto",
       "floor",
+      "minerals",
       "there",
       "too",
       "rising",
-      "stalagmites",
-      "grow",
-      "just",
-      "few",
-      "centimetres",
-      "every",
-      "hundred",
-      "stalactite",
       "stalagmite",
+      "begins",
+      "to",
+      "grow",
+      "down",
+      "while",
+      "grows",
+      "up",
+      "if",
       "meet",
       "column",
-      "can",
       "take",
-      "tens",
-      "to",
-      "each",
-      "unique",
       "home",
       "animals",
       "bats",
-      "sleep",
+      "rest",
       "upside",
-      "down",
+      "by",
       "day",
+      "at",
       "dusk",
       "fly",
       "out",
-      "together",
-      "feed",
-      "on",
+      "catch",
       "insects",
       "night",
       "air",
-      "creatures",
-      "live",
-      "only",
-      "never",
-      "come",
+      "spend",
+      "their",
+      "whole",
+      "lives",
+      "generations",
       "have",
-      "adapted",
+      "changed",
+      "live",
+      "dark",
       "fish",
-      "often",
       "pale",
-      "white",
-      "—",
-      "needed",
-      "colour",
-      "no",
       "eyes",
-      "all",
-      "long",
+      "no",
+      "working",
       "ago",
       "people",
-      "lived",
+      "sheltered",
       "painted",
       "pictures",
+      "on",
       "walls",
       "paintings",
-      "been",
-      "found",
-      "that",
-      "40000",
+      "40",
+      "000",
       "old",
-      "artists",
-      "were",
-      "humans",
-      "like",
-      "us"
+      "help",
+      "us",
+      "learn",
+      "about",
+      "who",
+      "lived"
     ],
     "topicTags": [
       "earth",
@@ -10309,10 +10402,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 1,
         "sourcePageNumber": 2,
-        "text": "Caves are hollow spaces underground or inside cliffs. They form in many different ways. Some are made by water, some by sea waves, and some by ancient flowing lava.",
+        "text": "Caves are hollow spaces underground or inside cliffs. They form in different ways. Water makes many limestone caves. Sea waves make caves in cliffs. Flowing lava can leave long cave tubes.",
         "image": "/guided-reading/nonfiction/level-c/book-09/page-001.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-09/audio/page-001.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-09/audio/page-001.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Caves",
@@ -10359,10 +10453,6 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
-            "text": "many",
-            "audioPath": "/guided-reading/audio/words/many.mp3"
-          },
-          {
             "text": "different",
             "audioPath": "/guided-reading/audio/words/different.mp3"
           },
@@ -10371,35 +10461,27 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/ways.mp3"
           },
           {
-            "text": "Some",
-            "audioPath": "/guided-reading/audio/words/some.mp3"
-          },
-          {
-            "text": "are",
-            "audioPath": "/guided-reading/audio/words/are.mp3"
-          },
-          {
-            "text": "made",
-            "audioPath": "/guided-reading/audio/words/made.mp3"
-          },
-          {
-            "text": "by",
-            "audioPath": "/guided-reading/audio/words/by.mp3"
-          },
-          {
-            "text": "water",
+            "text": "Water",
             "audioPath": "/guided-reading/audio/words/water.mp3"
           },
           {
-            "text": "some",
-            "audioPath": "/guided-reading/audio/words/some.mp3"
+            "text": "makes",
+            "audioPath": "/guided-reading/audio/words/makes.mp3"
           },
           {
-            "text": "by",
-            "audioPath": "/guided-reading/audio/words/by.mp3"
+            "text": "many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
           },
           {
-            "text": "sea",
+            "text": "limestone",
+            "audioPath": "/guided-reading/audio/words/limestone.mp3"
+          },
+          {
+            "text": "caves",
+            "audioPath": "/guided-reading/audio/words/caves.mp3"
+          },
+          {
+            "text": "Sea",
             "audioPath": "/guided-reading/audio/words/sea.mp3"
           },
           {
@@ -10407,28 +10489,48 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/waves.mp3"
           },
           {
-            "text": "and",
-            "audioPath": "/guided-reading/audio/words/and.mp3"
+            "text": "make",
+            "audioPath": "/guided-reading/audio/words/make.mp3"
           },
           {
-            "text": "some",
-            "audioPath": "/guided-reading/audio/words/some.mp3"
+            "text": "caves",
+            "audioPath": "/guided-reading/audio/words/caves.mp3"
           },
           {
-            "text": "by",
-            "audioPath": "/guided-reading/audio/words/by.mp3"
+            "text": "in",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
-            "text": "ancient",
-            "audioPath": "/guided-reading/audio/words/ancient.mp3"
+            "text": "cliffs",
+            "audioPath": "/guided-reading/audio/words/cliffs.mp3"
           },
           {
-            "text": "flowing",
+            "text": "Flowing",
             "audioPath": "/guided-reading/audio/words/flowing.mp3"
           },
           {
             "text": "lava",
             "audioPath": "/guided-reading/audio/words/lava.mp3"
+          },
+          {
+            "text": "can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
+          },
+          {
+            "text": "leave",
+            "audioPath": "/guided-reading/audio/words/leave.mp3"
+          },
+          {
+            "text": "long",
+            "audioPath": "/guided-reading/audio/words/long.mp3"
+          },
+          {
+            "text": "cave",
+            "audioPath": "/guided-reading/audio/words/cave.mp3"
+          },
+          {
+            "text": "tubes",
+            "audioPath": "/guided-reading/audio/words/tubes.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -10438,14 +10540,15 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 2,
         "sourcePageNumber": 3,
-        "text": "Most caves form when rainwater seeps into limestone rock. The water is slightly acidic. It slowly dissolves the rock away. This takes thousands and thousands of years.",
+        "text": "Many caves form in limestone. Rainwater becomes slightly acidic as it moves through soil. It seeps into cracks and slowly dissolves the rock. This takes many thousands of years.",
         "image": "/guided-reading/nonfiction/level-c/book-09/page-002.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-09/audio/page-002.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-09/audio/page-002.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "Most",
-            "audioPath": "/guided-reading/audio/words/most.mp3"
+            "text": "Many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
           },
           {
             "text": "caves",
@@ -10456,40 +10559,20 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/form.mp3"
           },
           {
-            "text": "when",
-            "audioPath": "/guided-reading/audio/words/when.mp3"
-          },
-          {
-            "text": "rainwater",
-            "audioPath": "/guided-reading/audio/words/rainwater.mp3"
-          },
-          {
-            "text": "seeps",
-            "audioPath": "/guided-reading/audio/words/seeps.mp3"
-          },
-          {
-            "text": "into",
-            "audioPath": "/guided-reading/audio/words/into.mp3"
+            "text": "in",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "limestone",
             "audioPath": "/guided-reading/audio/words/limestone.mp3"
           },
           {
-            "text": "rock",
-            "audioPath": "/guided-reading/audio/words/rock.mp3"
+            "text": "Rainwater",
+            "audioPath": "/guided-reading/audio/words/rainwater.mp3"
           },
           {
-            "text": "The",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "water",
-            "audioPath": "/guided-reading/audio/words/water.mp3"
-          },
-          {
-            "text": "is",
-            "audioPath": "/guided-reading/audio/words/is.mp3"
+            "text": "becomes",
+            "audioPath": "/guided-reading/audio/words/becomes.mp3"
           },
           {
             "text": "slightly",
@@ -10500,8 +10583,44 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/acidic.mp3"
           },
           {
+            "text": "as",
+            "audioPath": "/guided-reading/audio/words/as.mp3"
+          },
+          {
+            "text": "it",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
+          },
+          {
+            "text": "moves",
+            "audioPath": "/guided-reading/audio/words/moves.mp3"
+          },
+          {
+            "text": "through",
+            "audioPath": "/guided-reading/audio/words/through.mp3"
+          },
+          {
+            "text": "soil",
+            "audioPath": "/guided-reading/audio/words/soil.mp3"
+          },
+          {
             "text": "It",
             "audioPath": "/guided-reading/audio/words/it.mp3"
+          },
+          {
+            "text": "seeps",
+            "audioPath": "/guided-reading/audio/words/seeps.mp3"
+          },
+          {
+            "text": "into",
+            "audioPath": "/guided-reading/audio/words/into.mp3"
+          },
+          {
+            "text": "cracks",
+            "audioPath": "/guided-reading/audio/words/cracks.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "slowly",
@@ -10520,10 +10639,6 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/rock.mp3"
           },
           {
-            "text": "away",
-            "audioPath": "/guided-reading/audio/words/away.mp3"
-          },
-          {
             "text": "This",
             "audioPath": "/guided-reading/audio/words/this.mp3"
           },
@@ -10532,12 +10647,8 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/takes.mp3"
           },
           {
-            "text": "thousands",
-            "audioPath": "/guided-reading/audio/words/thousands.mp3"
-          },
-          {
-            "text": "and",
-            "audioPath": "/guided-reading/audio/words/and.mp3"
+            "text": "many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
           },
           {
             "text": "thousands",
@@ -10559,10 +10670,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 3,
         "sourcePageNumber": 4,
-        "text": "Over time, tunnels and chambers form underground. Some cave systems stretch for hundreds of kilometres. The Mammoth Cave system in America has more than 650 kilometres of passages.",
+        "text": "Over time, tunnels and chambers form underground. Some cave systems stretch for hundreds of kilometres. Mammoth Cave in the United States has more than 650 kilometres of mapped passages.",
         "image": "/guided-reading/nonfiction/level-c/book-09/page-003.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-09/audio/page-003.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-09/audio/page-003.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Over",
@@ -10625,10 +10737,6 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/kilometres.mp3"
           },
           {
-            "text": "The",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
             "text": "Mammoth",
             "audioPath": "/guided-reading/audio/words/mammoth.mp3"
           },
@@ -10637,16 +10745,20 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/cave.mp3"
           },
           {
-            "text": "system",
-            "audioPath": "/guided-reading/audio/words/system.mp3"
-          },
-          {
             "text": "in",
             "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
-            "text": "America",
-            "audioPath": "/guided-reading/audio/words/america.mp3"
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "United",
+            "audioPath": "/guided-reading/audio/words/united.mp3"
+          },
+          {
+            "text": "States",
+            "audioPath": "/guided-reading/audio/words/states.mp3"
           },
           {
             "text": "has",
@@ -10673,6 +10785,10 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/of.mp3"
           },
           {
+            "text": "mapped",
+            "audioPath": "/guided-reading/audio/words/mapped.mp3"
+          },
+          {
             "text": "passages",
             "audioPath": "/guided-reading/audio/words/passages.mp3"
           }
@@ -10684,10 +10800,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 4,
         "sourcePageNumber": 5,
-        "text": "Water drips from cave ceilings for thousands of years. The minerals in the water build up slowly. These hanging stone shapes are called stalactites. They form one tiny drip at a time.",
+        "text": "Water drips from cave ceilings. It leaves tiny bits of mineral behind. Over many years, the mineral builds a hanging stone shape called a stalactite.",
         "image": "/guided-reading/nonfiction/level-c/book-09/page-004.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-09/audio/page-004.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-09/audio/page-004.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Water",
@@ -10710,56 +10827,60 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/ceilings.mp3"
           },
           {
-            "text": "for",
-            "audioPath": "/guided-reading/audio/words/for.mp3"
+            "text": "It",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
-            "text": "thousands",
-            "audioPath": "/guided-reading/audio/words/thousands.mp3"
+            "text": "leaves",
+            "audioPath": "/guided-reading/audio/words/leaves.mp3"
+          },
+          {
+            "text": "tiny",
+            "audioPath": "/guided-reading/audio/words/tiny.mp3"
+          },
+          {
+            "text": "bits",
+            "audioPath": "/guided-reading/audio/words/bits.mp3"
           },
           {
             "text": "of",
             "audioPath": "/guided-reading/audio/words/of.mp3"
           },
           {
+            "text": "mineral",
+            "audioPath": "/guided-reading/audio/words/mineral.mp3"
+          },
+          {
+            "text": "behind",
+            "audioPath": "/guided-reading/audio/words/behind.mp3"
+          },
+          {
+            "text": "Over",
+            "audioPath": "/guided-reading/audio/words/over.mp3"
+          },
+          {
+            "text": "many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
+          },
+          {
             "text": "years",
             "audioPath": "/guided-reading/audio/words/years.mp3"
-          },
-          {
-            "text": "The",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "minerals",
-            "audioPath": "/guided-reading/audio/words/minerals.mp3"
-          },
-          {
-            "text": "in",
-            "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
             "text": "the",
             "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
-            "text": "water",
-            "audioPath": "/guided-reading/audio/words/water.mp3"
+            "text": "mineral",
+            "audioPath": "/guided-reading/audio/words/mineral.mp3"
           },
           {
-            "text": "build",
-            "audioPath": "/guided-reading/audio/words/build.mp3"
+            "text": "builds",
+            "audioPath": "/guided-reading/audio/words/builds.mp3"
           },
           {
-            "text": "up",
-            "audioPath": "/guided-reading/audio/words/up.mp3"
-          },
-          {
-            "text": "slowly",
-            "audioPath": "/guided-reading/audio/words/slowly.mp3"
-          },
-          {
-            "text": "These",
-            "audioPath": "/guided-reading/audio/words/these.mp3"
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "hanging",
@@ -10770,52 +10891,20 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/stone.mp3"
           },
           {
-            "text": "shapes",
-            "audioPath": "/guided-reading/audio/words/shapes.mp3"
-          },
-          {
-            "text": "are",
-            "audioPath": "/guided-reading/audio/words/are.mp3"
+            "text": "shape",
+            "audioPath": "/guided-reading/audio/words/shape.mp3"
           },
           {
             "text": "called",
             "audioPath": "/guided-reading/audio/words/called.mp3"
           },
           {
-            "text": "stalactites",
-            "audioPath": "/guided-reading/audio/words/stalactites.mp3"
-          },
-          {
-            "text": "They",
-            "audioPath": "/guided-reading/audio/words/they.mp3"
-          },
-          {
-            "text": "form",
-            "audioPath": "/guided-reading/audio/words/form.mp3"
-          },
-          {
-            "text": "one",
-            "audioPath": "/guided-reading/audio/words/one.mp3"
-          },
-          {
-            "text": "tiny",
-            "audioPath": "/guided-reading/audio/words/tiny.mp3"
-          },
-          {
-            "text": "drip",
-            "audioPath": "/guided-reading/audio/words/drip.mp3"
-          },
-          {
-            "text": "at",
-            "audioPath": "/guided-reading/audio/words/at.mp3"
-          },
-          {
             "text": "a",
             "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
-            "text": "time",
-            "audioPath": "/guided-reading/audio/words/time.mp3"
+            "text": "stalactite",
+            "audioPath": "/guided-reading/audio/words/stalactite.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -10825,22 +10914,27 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 5,
         "sourcePageNumber": 6,
-        "text": "When drips hit the cave floor, minerals build up there too. These rising stone shapes are called stalagmites. They grow just a few centimetres every hundred years.",
+        "text": "Drops also fall onto the cave floor. They leave minerals there too. Over many years, a rising stone shape called a stalagmite begins to grow.",
         "image": "/guided-reading/nonfiction/level-c/book-09/page-005.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-09/audio/page-005.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-09/audio/page-005.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "When",
-            "audioPath": "/guided-reading/audio/words/when.mp3"
+            "text": "Drops",
+            "audioPath": "/guided-reading/audio/words/drops.mp3"
           },
           {
-            "text": "drips",
-            "audioPath": "/guided-reading/audio/words/drips.mp3"
+            "text": "also",
+            "audioPath": "/guided-reading/audio/words/also.mp3"
           },
           {
-            "text": "hit",
-            "audioPath": "/guided-reading/audio/words/hit.mp3"
+            "text": "fall",
+            "audioPath": "/guided-reading/audio/words/fall.mp3"
+          },
+          {
+            "text": "onto",
+            "audioPath": "/guided-reading/audio/words/onto.mp3"
           },
           {
             "text": "the",
@@ -10855,16 +10949,16 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/floor.mp3"
           },
           {
+            "text": "They",
+            "audioPath": "/guided-reading/audio/words/they.mp3"
+          },
+          {
+            "text": "leave",
+            "audioPath": "/guided-reading/audio/words/leave.mp3"
+          },
+          {
             "text": "minerals",
             "audioPath": "/guided-reading/audio/words/minerals.mp3"
-          },
-          {
-            "text": "build",
-            "audioPath": "/guided-reading/audio/words/build.mp3"
-          },
-          {
-            "text": "up",
-            "audioPath": "/guided-reading/audio/words/up.mp3"
           },
           {
             "text": "there",
@@ -10875,8 +10969,20 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/too.mp3"
           },
           {
-            "text": "These",
-            "audioPath": "/guided-reading/audio/words/these.mp3"
+            "text": "Over",
+            "audioPath": "/guided-reading/audio/words/over.mp3"
+          },
+          {
+            "text": "many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
+          },
+          {
+            "text": "years",
+            "audioPath": "/guided-reading/audio/words/years.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "rising",
@@ -10887,56 +10993,32 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/stone.mp3"
           },
           {
-            "text": "shapes",
-            "audioPath": "/guided-reading/audio/words/shapes.mp3"
-          },
-          {
-            "text": "are",
-            "audioPath": "/guided-reading/audio/words/are.mp3"
+            "text": "shape",
+            "audioPath": "/guided-reading/audio/words/shape.mp3"
           },
           {
             "text": "called",
             "audioPath": "/guided-reading/audio/words/called.mp3"
           },
           {
-            "text": "stalagmites",
-            "audioPath": "/guided-reading/audio/words/stalagmites.mp3"
-          },
-          {
-            "text": "They",
-            "audioPath": "/guided-reading/audio/words/they.mp3"
-          },
-          {
-            "text": "grow",
-            "audioPath": "/guided-reading/audio/words/grow.mp3"
-          },
-          {
-            "text": "just",
-            "audioPath": "/guided-reading/audio/words/just.mp3"
-          },
-          {
             "text": "a",
             "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
-            "text": "few",
-            "audioPath": "/guided-reading/audio/words/few.mp3"
+            "text": "stalagmite",
+            "audioPath": "/guided-reading/audio/words/stalagmite.mp3"
           },
           {
-            "text": "centimetres",
-            "audioPath": "/guided-reading/audio/words/centimetres.mp3"
+            "text": "begins",
+            "audioPath": "/guided-reading/audio/words/begins.mp3"
           },
           {
-            "text": "every",
-            "audioPath": "/guided-reading/audio/words/every.mp3"
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
           },
           {
-            "text": "hundred",
-            "audioPath": "/guided-reading/audio/words/hundred.mp3"
-          },
-          {
-            "text": "years",
-            "audioPath": "/guided-reading/audio/words/years.mp3"
+            "text": "grow",
+            "audioPath": "/guided-reading/audio/words/grow.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -10946,17 +11028,14 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 6,
         "sourcePageNumber": 7,
-        "text": "When a stalactite and a stalagmite meet, they form a column. A cave column can take tens of thousands of years to grow. Each one is unique.",
+        "text": "A stalactite can grow down while a stalagmite grows up. If they meet, they form a stone column. A column can take thousands of years to grow.",
         "image": "/guided-reading/nonfiction/level-c/book-09/page-006.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-09/audio/page-006.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-09/audio/page-006.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "When",
-            "audioPath": "/guided-reading/audio/words/when.mp3"
-          },
-          {
-            "text": "a",
+            "text": "A",
             "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
@@ -10964,8 +11043,20 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/stalactite.mp3"
           },
           {
-            "text": "and",
-            "audioPath": "/guided-reading/audio/words/and.mp3"
+            "text": "can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
+          },
+          {
+            "text": "grow",
+            "audioPath": "/guided-reading/audio/words/grow.mp3"
+          },
+          {
+            "text": "down",
+            "audioPath": "/guided-reading/audio/words/down.mp3"
+          },
+          {
+            "text": "while",
+            "audioPath": "/guided-reading/audio/words/while.mp3"
           },
           {
             "text": "a",
@@ -10974,6 +11065,22 @@ export const firstFactsLevelCBooks = [
           {
             "text": "stalagmite",
             "audioPath": "/guided-reading/audio/words/stalagmite.mp3"
+          },
+          {
+            "text": "grows",
+            "audioPath": "/guided-reading/audio/words/grows.mp3"
+          },
+          {
+            "text": "up",
+            "audioPath": "/guided-reading/audio/words/up.mp3"
+          },
+          {
+            "text": "If",
+            "audioPath": "/guided-reading/audio/words/if.mp3"
+          },
+          {
+            "text": "they",
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "meet",
@@ -10992,16 +11099,16 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
+            "text": "stone",
+            "audioPath": "/guided-reading/audio/words/stone.mp3"
+          },
+          {
             "text": "column",
             "audioPath": "/guided-reading/audio/words/column.mp3"
           },
           {
             "text": "A",
             "audioPath": "/guided-reading/audio/words/a.mp3"
-          },
-          {
-            "text": "cave",
-            "audioPath": "/guided-reading/audio/words/cave.mp3"
           },
           {
             "text": "column",
@@ -11014,14 +11121,6 @@ export const firstFactsLevelCBooks = [
           {
             "text": "take",
             "audioPath": "/guided-reading/audio/words/take.mp3"
-          },
-          {
-            "text": "tens",
-            "audioPath": "/guided-reading/audio/words/tens.mp3"
-          },
-          {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
           },
           {
             "text": "thousands",
@@ -11042,22 +11141,6 @@ export const firstFactsLevelCBooks = [
           {
             "text": "grow",
             "audioPath": "/guided-reading/audio/words/grow.mp3"
-          },
-          {
-            "text": "Each",
-            "audioPath": "/guided-reading/audio/words/each.mp3"
-          },
-          {
-            "text": "one",
-            "audioPath": "/guided-reading/audio/words/one.mp3"
-          },
-          {
-            "text": "is",
-            "audioPath": "/guided-reading/audio/words/is.mp3"
-          },
-          {
-            "text": "unique",
-            "audioPath": "/guided-reading/audio/words/unique.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -11067,10 +11150,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 7,
         "sourcePageNumber": 8,
-        "text": "Caves are home to many animals. Bats sleep hanging upside down from cave ceilings by day. At dusk, thousands of bats fly out together to feed on insects in the night air.",
+        "text": "Caves are home to many animals. Some bats rest upside down from cave ceilings by day. At dusk, many bats fly out to catch insects in the night air.",
         "image": "/guided-reading/nonfiction/level-c/book-09/page-007.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-09/audio/page-007.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-09/audio/page-007.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Caves",
@@ -11097,16 +11181,16 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/animals.mp3"
           },
           {
-            "text": "Bats",
+            "text": "Some",
+            "audioPath": "/guided-reading/audio/words/some.mp3"
+          },
+          {
+            "text": "bats",
             "audioPath": "/guided-reading/audio/words/bats.mp3"
           },
           {
-            "text": "sleep",
-            "audioPath": "/guided-reading/audio/words/sleep.mp3"
-          },
-          {
-            "text": "hanging",
-            "audioPath": "/guided-reading/audio/words/hanging.mp3"
+            "text": "rest",
+            "audioPath": "/guided-reading/audio/words/rest.mp3"
           },
           {
             "text": "upside",
@@ -11145,12 +11229,8 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/dusk.mp3"
           },
           {
-            "text": "thousands",
-            "audioPath": "/guided-reading/audio/words/thousands.mp3"
-          },
-          {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
+            "text": "many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
           },
           {
             "text": "bats",
@@ -11165,20 +11245,12 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/out.mp3"
           },
           {
-            "text": "together",
-            "audioPath": "/guided-reading/audio/words/together.mp3"
-          },
-          {
             "text": "to",
             "audioPath": "/guided-reading/audio/words/to.mp3"
           },
           {
-            "text": "feed",
-            "audioPath": "/guided-reading/audio/words/feed.mp3"
-          },
-          {
-            "text": "on",
-            "audioPath": "/guided-reading/audio/words/on.mp3"
+            "text": "catch",
+            "audioPath": "/guided-reading/audio/words/catch.mp3"
           },
           {
             "text": "insects",
@@ -11208,26 +11280,35 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 8,
         "sourcePageNumber": 9,
-        "text": "Some creatures live only in caves and never come out. Over thousands of years, they have adapted. Cave fish are often pale or white — they have never needed colour. Many have no eyes at all.",
+        "text": "Some animals spend their whole lives in caves. Over many generations, they have changed to live in the dark. Some cave fish are pale and have tiny eyes or no working eyes.",
         "image": "/guided-reading/nonfiction/level-c/book-09/page-008.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-09/audio/page-008.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-09/audio/page-008.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Some",
             "audioPath": "/guided-reading/audio/words/some.mp3"
           },
           {
-            "text": "creatures",
-            "audioPath": "/guided-reading/audio/words/creatures.mp3"
+            "text": "animals",
+            "audioPath": "/guided-reading/audio/words/animals.mp3"
           },
           {
-            "text": "live",
-            "audioPath": "/guided-reading/audio/words/live.mp3"
+            "text": "spend",
+            "audioPath": "/guided-reading/audio/words/spend.mp3"
           },
           {
-            "text": "only",
-            "audioPath": "/guided-reading/audio/words/only.mp3"
+            "text": "their",
+            "audioPath": "/guided-reading/audio/words/their.mp3"
+          },
+          {
+            "text": "whole",
+            "audioPath": "/guided-reading/audio/words/whole.mp3"
+          },
+          {
+            "text": "lives",
+            "audioPath": "/guided-reading/audio/words/lives.mp3"
           },
           {
             "text": "in",
@@ -11238,36 +11319,16 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/caves.mp3"
           },
           {
-            "text": "and",
-            "audioPath": "/guided-reading/audio/words/and.mp3"
-          },
-          {
-            "text": "never",
-            "audioPath": "/guided-reading/audio/words/never.mp3"
-          },
-          {
-            "text": "come",
-            "audioPath": "/guided-reading/audio/words/come.mp3"
-          },
-          {
-            "text": "out",
-            "audioPath": "/guided-reading/audio/words/out.mp3"
-          },
-          {
             "text": "Over",
             "audioPath": "/guided-reading/audio/words/over.mp3"
           },
           {
-            "text": "thousands",
-            "audioPath": "/guided-reading/audio/words/thousands.mp3"
+            "text": "many",
+            "audioPath": "/guided-reading/audio/words/many.mp3"
           },
           {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
-          },
-          {
-            "text": "years",
-            "audioPath": "/guided-reading/audio/words/years.mp3"
+            "text": "generations",
+            "audioPath": "/guided-reading/audio/words/generations.mp3"
           },
           {
             "text": "they",
@@ -11278,11 +11339,35 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/have.mp3"
           },
           {
-            "text": "adapted",
-            "audioPath": "/guided-reading/audio/words/adapted.mp3"
+            "text": "changed",
+            "audioPath": "/guided-reading/audio/words/changed.mp3"
           },
           {
-            "text": "Cave",
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "live",
+            "audioPath": "/guided-reading/audio/words/live.mp3"
+          },
+          {
+            "text": "in",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "dark",
+            "audioPath": "/guided-reading/audio/words/dark.mp3"
+          },
+          {
+            "text": "Some",
+            "audioPath": "/guided-reading/audio/words/some.mp3"
+          },
+          {
+            "text": "cave",
             "audioPath": "/guided-reading/audio/words/cave.mp3"
           },
           {
@@ -11294,68 +11379,40 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/are.mp3"
           },
           {
-            "text": "often",
-            "audioPath": "/guided-reading/audio/words/often.mp3"
-          },
-          {
             "text": "pale",
             "audioPath": "/guided-reading/audio/words/pale.mp3"
           },
           {
-            "text": "or",
-            "audioPath": "/guided-reading/audio/words/or.mp3"
-          },
-          {
-            "text": "white",
-            "audioPath": "/guided-reading/audio/words/white.mp3"
-          },
-          {
-            "text": "—",
-            "audioPath": "/guided-reading/audio/words/.mp3"
-          },
-          {
-            "text": "they",
-            "audioPath": "/guided-reading/audio/words/they.mp3"
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "have",
             "audioPath": "/guided-reading/audio/words/have.mp3"
           },
           {
-            "text": "never",
-            "audioPath": "/guided-reading/audio/words/never.mp3"
-          },
-          {
-            "text": "needed",
-            "audioPath": "/guided-reading/audio/words/needed.mp3"
-          },
-          {
-            "text": "colour",
-            "audioPath": "/guided-reading/audio/words/colour.mp3"
-          },
-          {
-            "text": "Many",
-            "audioPath": "/guided-reading/audio/words/many.mp3"
-          },
-          {
-            "text": "have",
-            "audioPath": "/guided-reading/audio/words/have.mp3"
-          },
-          {
-            "text": "no",
-            "audioPath": "/guided-reading/audio/words/no.mp3"
+            "text": "tiny",
+            "audioPath": "/guided-reading/audio/words/tiny.mp3"
           },
           {
             "text": "eyes",
             "audioPath": "/guided-reading/audio/words/eyes.mp3"
           },
           {
-            "text": "at",
-            "audioPath": "/guided-reading/audio/words/at.mp3"
+            "text": "or",
+            "audioPath": "/guided-reading/audio/words/or.mp3"
           },
           {
-            "text": "all",
-            "audioPath": "/guided-reading/audio/words/all.mp3"
+            "text": "no",
+            "audioPath": "/guided-reading/audio/words/no.mp3"
+          },
+          {
+            "text": "working",
+            "audioPath": "/guided-reading/audio/words/working.mp3"
+          },
+          {
+            "text": "eyes",
+            "audioPath": "/guided-reading/audio/words/eyes.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -11365,10 +11422,11 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 9,
         "sourcePageNumber": 10,
-        "text": "Long ago, people lived in caves. They painted pictures on the cave walls. Cave paintings have been found that are more than 40,000 years old. The artists were humans just like us.",
+        "text": "Long ago, people sheltered in caves and painted pictures on the walls. Some cave paintings are more than 40,000 years old. They help us learn about people who lived long ago.",
         "image": "/guided-reading/nonfiction/level-c/book-09/page-009.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-09/audio/page-009.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-09/audio/page-009.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "Long",
@@ -11383,8 +11441,8 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/people.mp3"
           },
           {
-            "text": "lived",
-            "audioPath": "/guided-reading/audio/words/lived.mp3"
+            "text": "sheltered",
+            "audioPath": "/guided-reading/audio/words/sheltered.mp3"
           },
           {
             "text": "in",
@@ -11395,8 +11453,8 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/caves.mp3"
           },
           {
-            "text": "They",
-            "audioPath": "/guided-reading/audio/words/they.mp3"
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
             "text": "painted",
@@ -11415,36 +11473,20 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
-            "text": "cave",
-            "audioPath": "/guided-reading/audio/words/cave.mp3"
-          },
-          {
             "text": "walls",
             "audioPath": "/guided-reading/audio/words/walls.mp3"
           },
           {
-            "text": "Cave",
+            "text": "Some",
+            "audioPath": "/guided-reading/audio/words/some.mp3"
+          },
+          {
+            "text": "cave",
             "audioPath": "/guided-reading/audio/words/cave.mp3"
           },
           {
             "text": "paintings",
             "audioPath": "/guided-reading/audio/words/paintings.mp3"
-          },
-          {
-            "text": "have",
-            "audioPath": "/guided-reading/audio/words/have.mp3"
-          },
-          {
-            "text": "been",
-            "audioPath": "/guided-reading/audio/words/been.mp3"
-          },
-          {
-            "text": "found",
-            "audioPath": "/guided-reading/audio/words/found.mp3"
-          },
-          {
-            "text": "that",
-            "audioPath": "/guided-reading/audio/words/that.mp3"
           },
           {
             "text": "are",
@@ -11459,8 +11501,12 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/than.mp3"
           },
           {
-            "text": "40000",
-            "audioPath": "/guided-reading/audio/words/40000.mp3"
+            "text": "40",
+            "audioPath": "/guided-reading/audio/words/40.mp3"
+          },
+          {
+            "text": "000",
+            "audioPath": "/guided-reading/audio/words/000.mp3"
           },
           {
             "text": "years",
@@ -11471,32 +11517,44 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/old.mp3"
           },
           {
-            "text": "The",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
+            "text": "They",
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
-            "text": "artists",
-            "audioPath": "/guided-reading/audio/words/artists.mp3"
-          },
-          {
-            "text": "were",
-            "audioPath": "/guided-reading/audio/words/were.mp3"
-          },
-          {
-            "text": "humans",
-            "audioPath": "/guided-reading/audio/words/humans.mp3"
-          },
-          {
-            "text": "just",
-            "audioPath": "/guided-reading/audio/words/just.mp3"
-          },
-          {
-            "text": "like",
-            "audioPath": "/guided-reading/audio/words/like.mp3"
+            "text": "help",
+            "audioPath": "/guided-reading/audio/words/help.mp3"
           },
           {
             "text": "us",
             "audioPath": "/guided-reading/audio/words/us.mp3"
+          },
+          {
+            "text": "learn",
+            "audioPath": "/guided-reading/audio/words/learn.mp3"
+          },
+          {
+            "text": "about",
+            "audioPath": "/guided-reading/audio/words/about.mp3"
+          },
+          {
+            "text": "people",
+            "audioPath": "/guided-reading/audio/words/people.mp3"
+          },
+          {
+            "text": "who",
+            "audioPath": "/guided-reading/audio/words/who.mp3"
+          },
+          {
+            "text": "lived",
+            "audioPath": "/guided-reading/audio/words/lived.mp3"
+          },
+          {
+            "text": "long",
+            "audioPath": "/guided-reading/audio/words/long.mp3"
+          },
+          {
+            "text": "ago",
+            "audioPath": "/guided-reading/audio/words/ago.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -11533,144 +11591,129 @@ export const firstFactsLevelCBooks = [
     ],
     "sightWords": [],
     "vocabulary": [
+      "common",
       "frogs",
       "are",
       "amphibians",
+      "they",
+      "begin",
+      "life",
+      "in",
+      "fresh",
+      "water",
+      "as",
+      "adults",
       "can",
       "live",
-      "in",
-      "water",
       "and",
       "on",
+      "damp",
       "land",
-      "begin",
-      "their",
-      "life",
-      "later",
-      "move",
-      "onto",
-      "a",
+      "spring",
       "female",
-      "frog",
-      "lays",
-      "hundreds",
-      "of",
+      "lay",
       "eggs",
+      "ponds",
       "the",
+      "form",
+      "clumps",
       "called",
       "frogspawn",
-      "each",
-      "egg",
-      "is",
-      "surrounded",
-      "by",
       "clear",
       "jelly",
-      "that",
-      "protects",
-      "it",
-      "keeps",
-      "safe",
+      "surrounds",
+      "each",
+      "dark",
+      "egg",
       "after",
-      "few",
+      "two",
+      "to",
+      "four",
       "weeks",
       "tadpoles",
-      "wriggle",
-      "out",
+      "hatch",
       "have",
       "tails",
       "no",
       "legs",
-      "they",
-      "breathe",
-      "underwater",
-      "using",
+      "their",
       "gills",
-      "like",
-      "fish",
-      "slowly",
+      "help",
+      "them",
+      "get",
+      "oxygen",
+      "from",
+      "a",
       "tadpole",
-      "changes",
+      "grows",
       "back",
       "appear",
       "first",
-      "then",
       "front",
-      "tail",
-      "shrinks",
-      "away",
-      "about",
-      "twelve",
-      "young",
-      "climbs",
-      "now",
-      "air",
-      "through",
-      "its",
-      "lungs",
-      "also",
-      "whole",
-      "world",
-      "opens",
-      "up",
-      "expert",
-      "hunters",
-      "long",
-      "sticky",
-      "tongues",
-      "flip",
-      "tongue",
-      "less",
-      "time",
-      "than",
-      "blink",
-      "to",
-      "catch",
-      "an",
-      "insect",
-      "frog's",
-      "skin",
-      "always",
-      "damp",
-      "as",
-      "well",
-      "must",
-      "never",
-      "dry",
       "come",
-      "amazing",
-      "colours",
-      "bright",
-      "warning",
-      "i",
-      "am",
-      "poisonous",
-      "—",
-      "do",
-      "not",
-      "eat",
-      "me",
-      "more",
-      "colourful",
-      "often",
-      "dangerous",
-      "sing",
-      "find",
-      "mate",
-      "species",
+      "next",
+      "its",
+      "tail",
+      "slowly",
+      "becomes",
+      "shorter",
+      "this",
+      "change",
+      "is",
+      "metamorphosis",
+      "young",
+      "frog",
+      "froglet",
+      "it",
       "has",
-      "own",
-      "call",
-      "ribbit",
-      "tree",
-      "deep",
-      "croak",
-      "bullfrog",
+      "short",
+      "leaves",
+      "pond",
+      "but",
+      "stays",
+      "near",
+      "cover",
+      "eat",
+      "insects",
+      "worms",
+      "slugs",
+      "snails",
+      "snap",
+      "up",
+      "small",
+      "prey",
+      "with",
+      "sticky",
+      "tongue",
+      "smooth",
+      "moist",
+      "skin",
+      "take",
+      "through",
+      "also",
+      "breathes",
+      "lungs",
+      "be",
+      "brown",
+      "olive",
+      "grey",
+      "yellow",
+      "or",
+      "red",
+      "patches",
+      "blend",
+      "mud",
+      "plants",
+      "male",
+      "make",
+      "soft",
+      "croaking",
       "calls",
-      "fill",
-      "warm",
-      "evenings",
-      "around"
+      "females",
+      "find",
+      "species",
+      "own",
+      "call"
     ],
     "topicTags": [
       "animals",
@@ -11685,13 +11728,18 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 1,
         "sourcePageNumber": 2,
-        "text": "Frogs are amphibians. Amphibians can live in water and on land. Frogs begin their life in water and later move onto land.",
+        "text": "Common frogs are amphibians. They begin life in fresh water. As adults, they can live in water and on damp land.",
         "image": "/guided-reading/nonfiction/level-c/book-10/page-001.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-10/audio/page-001.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-10/audio/page-001.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "Frogs",
+            "text": "Common",
+            "audioPath": "/guided-reading/audio/words/common.mp3"
+          },
+          {
+            "text": "frogs",
             "audioPath": "/guided-reading/audio/words/frogs.mp3"
           },
           {
@@ -11703,8 +11751,40 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/amphibians.mp3"
           },
           {
-            "text": "Amphibians",
-            "audioPath": "/guided-reading/audio/words/amphibians.mp3"
+            "text": "They",
+            "audioPath": "/guided-reading/audio/words/they.mp3"
+          },
+          {
+            "text": "begin",
+            "audioPath": "/guided-reading/audio/words/begin.mp3"
+          },
+          {
+            "text": "life",
+            "audioPath": "/guided-reading/audio/words/life.mp3"
+          },
+          {
+            "text": "in",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
+          },
+          {
+            "text": "fresh",
+            "audioPath": "/guided-reading/audio/words/fresh.mp3"
+          },
+          {
+            "text": "water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "As",
+            "audioPath": "/guided-reading/audio/words/as.mp3"
+          },
+          {
+            "text": "adults",
+            "audioPath": "/guided-reading/audio/words/adults.mp3"
+          },
+          {
+            "text": "they",
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "can",
@@ -11731,48 +11811,8 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/on.mp3"
           },
           {
-            "text": "land",
-            "audioPath": "/guided-reading/audio/words/land.mp3"
-          },
-          {
-            "text": "Frogs",
-            "audioPath": "/guided-reading/audio/words/frogs.mp3"
-          },
-          {
-            "text": "begin",
-            "audioPath": "/guided-reading/audio/words/begin.mp3"
-          },
-          {
-            "text": "their",
-            "audioPath": "/guided-reading/audio/words/their.mp3"
-          },
-          {
-            "text": "life",
-            "audioPath": "/guided-reading/audio/words/life.mp3"
-          },
-          {
-            "text": "in",
-            "audioPath": "/guided-reading/audio/words/in.mp3"
-          },
-          {
-            "text": "water",
-            "audioPath": "/guided-reading/audio/words/water.mp3"
-          },
-          {
-            "text": "and",
-            "audioPath": "/guided-reading/audio/words/and.mp3"
-          },
-          {
-            "text": "later",
-            "audioPath": "/guided-reading/audio/words/later.mp3"
-          },
-          {
-            "text": "move",
-            "audioPath": "/guided-reading/audio/words/move.mp3"
-          },
-          {
-            "text": "onto",
-            "audioPath": "/guided-reading/audio/words/onto.mp3"
+            "text": "damp",
+            "audioPath": "/guided-reading/audio/words/damp.mp3"
           },
           {
             "text": "land",
@@ -11786,34 +11826,35 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 2,
         "sourcePageNumber": 3,
-        "text": "A female frog lays hundreds of eggs in water. The eggs are called frogspawn. Each egg is surrounded by clear jelly that protects it and keeps it safe.",
+        "text": "In spring, female common frogs lay eggs in ponds. The eggs form clumps called frogspawn. Clear jelly surrounds each dark egg.",
         "image": "/guided-reading/nonfiction/level-c/book-10/page-002.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-10/audio/page-002.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-10/audio/page-002.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "A",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
+            "text": "In",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
+          },
+          {
+            "text": "spring",
+            "audioPath": "/guided-reading/audio/words/spring.mp3"
           },
           {
             "text": "female",
             "audioPath": "/guided-reading/audio/words/female.mp3"
           },
           {
-            "text": "frog",
-            "audioPath": "/guided-reading/audio/words/frog.mp3"
+            "text": "common",
+            "audioPath": "/guided-reading/audio/words/common.mp3"
           },
           {
-            "text": "lays",
-            "audioPath": "/guided-reading/audio/words/lays.mp3"
+            "text": "frogs",
+            "audioPath": "/guided-reading/audio/words/frogs.mp3"
           },
           {
-            "text": "hundreds",
-            "audioPath": "/guided-reading/audio/words/hundreds.mp3"
-          },
-          {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
+            "text": "lay",
+            "audioPath": "/guided-reading/audio/words/lay.mp3"
           },
           {
             "text": "eggs",
@@ -11824,8 +11865,8 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
-            "text": "water",
-            "audioPath": "/guided-reading/audio/words/water.mp3"
+            "text": "ponds",
+            "audioPath": "/guided-reading/audio/words/ponds.mp3"
           },
           {
             "text": "The",
@@ -11836,8 +11877,12 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/eggs.mp3"
           },
           {
-            "text": "are",
-            "audioPath": "/guided-reading/audio/words/are.mp3"
+            "text": "form",
+            "audioPath": "/guided-reading/audio/words/form.mp3"
+          },
+          {
+            "text": "clumps",
+            "audioPath": "/guided-reading/audio/words/clumps.mp3"
           },
           {
             "text": "called",
@@ -11848,27 +11893,7 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/frogspawn.mp3"
           },
           {
-            "text": "Each",
-            "audioPath": "/guided-reading/audio/words/each.mp3"
-          },
-          {
-            "text": "egg",
-            "audioPath": "/guided-reading/audio/words/egg.mp3"
-          },
-          {
-            "text": "is",
-            "audioPath": "/guided-reading/audio/words/is.mp3"
-          },
-          {
-            "text": "surrounded",
-            "audioPath": "/guided-reading/audio/words/surrounded.mp3"
-          },
-          {
-            "text": "by",
-            "audioPath": "/guided-reading/audio/words/by.mp3"
-          },
-          {
-            "text": "clear",
+            "text": "Clear",
             "audioPath": "/guided-reading/audio/words/clear.mp3"
           },
           {
@@ -11876,32 +11901,20 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/jelly.mp3"
           },
           {
-            "text": "that",
-            "audioPath": "/guided-reading/audio/words/that.mp3"
+            "text": "surrounds",
+            "audioPath": "/guided-reading/audio/words/surrounds.mp3"
           },
           {
-            "text": "protects",
-            "audioPath": "/guided-reading/audio/words/protects.mp3"
+            "text": "each",
+            "audioPath": "/guided-reading/audio/words/each.mp3"
           },
           {
-            "text": "it",
-            "audioPath": "/guided-reading/audio/words/it.mp3"
+            "text": "dark",
+            "audioPath": "/guided-reading/audio/words/dark.mp3"
           },
           {
-            "text": "and",
-            "audioPath": "/guided-reading/audio/words/and.mp3"
-          },
-          {
-            "text": "keeps",
-            "audioPath": "/guided-reading/audio/words/keeps.mp3"
-          },
-          {
-            "text": "it",
-            "audioPath": "/guided-reading/audio/words/it.mp3"
-          },
-          {
-            "text": "safe",
-            "audioPath": "/guided-reading/audio/words/safe.mp3"
+            "text": "egg",
+            "audioPath": "/guided-reading/audio/words/egg.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -11911,22 +11924,27 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 3,
         "sourcePageNumber": 4,
-        "text": "After a few weeks, tadpoles wriggle out of the eggs. Tadpoles have tails and no legs. They breathe underwater using gills, like fish.",
+        "text": "After two to four weeks, tadpoles hatch. They have tails and no legs. Their gills help them get oxygen from the water.",
         "image": "/guided-reading/nonfiction/level-c/book-10/page-003.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-10/audio/page-003.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-10/audio/page-003.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "After",
             "audioPath": "/guided-reading/audio/words/after.mp3"
           },
           {
-            "text": "a",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
+            "text": "two",
+            "audioPath": "/guided-reading/audio/words/two.mp3"
           },
           {
-            "text": "few",
-            "audioPath": "/guided-reading/audio/words/few.mp3"
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "four",
+            "audioPath": "/guided-reading/audio/words/four.mp3"
           },
           {
             "text": "weeks",
@@ -11937,28 +11955,12 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/tadpoles.mp3"
           },
           {
-            "text": "wriggle",
-            "audioPath": "/guided-reading/audio/words/wriggle.mp3"
+            "text": "hatch",
+            "audioPath": "/guided-reading/audio/words/hatch.mp3"
           },
           {
-            "text": "out",
-            "audioPath": "/guided-reading/audio/words/out.mp3"
-          },
-          {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
-          },
-          {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "eggs",
-            "audioPath": "/guided-reading/audio/words/eggs.mp3"
-          },
-          {
-            "text": "Tadpoles",
-            "audioPath": "/guided-reading/audio/words/tadpoles.mp3"
+            "text": "They",
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
             "text": "have",
@@ -11981,32 +11983,40 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/legs.mp3"
           },
           {
-            "text": "They",
-            "audioPath": "/guided-reading/audio/words/they.mp3"
-          },
-          {
-            "text": "breathe",
-            "audioPath": "/guided-reading/audio/words/breathe.mp3"
-          },
-          {
-            "text": "underwater",
-            "audioPath": "/guided-reading/audio/words/underwater.mp3"
-          },
-          {
-            "text": "using",
-            "audioPath": "/guided-reading/audio/words/using.mp3"
+            "text": "Their",
+            "audioPath": "/guided-reading/audio/words/their.mp3"
           },
           {
             "text": "gills",
             "audioPath": "/guided-reading/audio/words/gills.mp3"
           },
           {
-            "text": "like",
-            "audioPath": "/guided-reading/audio/words/like.mp3"
+            "text": "help",
+            "audioPath": "/guided-reading/audio/words/help.mp3"
           },
           {
-            "text": "fish",
-            "audioPath": "/guided-reading/audio/words/fish.mp3"
+            "text": "them",
+            "audioPath": "/guided-reading/audio/words/them.mp3"
+          },
+          {
+            "text": "get",
+            "audioPath": "/guided-reading/audio/words/get.mp3"
+          },
+          {
+            "text": "oxygen",
+            "audioPath": "/guided-reading/audio/words/oxygen.mp3"
+          },
+          {
+            "text": "from",
+            "audioPath": "/guided-reading/audio/words/from.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -12016,29 +12026,30 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 4,
         "sourcePageNumber": 5,
-        "text": "Slowly, the tadpole changes. Back legs appear first. Then front legs. The tail shrinks away. After about twelve weeks, it is a frog!",
+        "text": "As a tadpole grows, back legs appear first. Front legs come next. Its tail slowly becomes shorter. This change is called metamorphosis.",
         "image": "/guided-reading/nonfiction/level-c/book-10/page-004.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-10/audio/page-004.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-10/audio/page-004.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "Slowly",
-            "audioPath": "/guided-reading/audio/words/slowly.mp3"
+            "text": "As",
+            "audioPath": "/guided-reading/audio/words/as.mp3"
           },
           {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "tadpole",
             "audioPath": "/guided-reading/audio/words/tadpole.mp3"
           },
           {
-            "text": "changes",
-            "audioPath": "/guided-reading/audio/words/changes.mp3"
+            "text": "grows",
+            "audioPath": "/guided-reading/audio/words/grows.mp3"
           },
           {
-            "text": "Back",
+            "text": "back",
             "audioPath": "/guided-reading/audio/words/back.mp3"
           },
           {
@@ -12054,11 +12065,7 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/first.mp3"
           },
           {
-            "text": "Then",
-            "audioPath": "/guided-reading/audio/words/then.mp3"
-          },
-          {
-            "text": "front",
+            "text": "Front",
             "audioPath": "/guided-reading/audio/words/front.mp3"
           },
           {
@@ -12066,52 +12073,52 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/legs.mp3"
           },
           {
-            "text": "The",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
+            "text": "come",
+            "audioPath": "/guided-reading/audio/words/come.mp3"
+          },
+          {
+            "text": "next",
+            "audioPath": "/guided-reading/audio/words/next.mp3"
+          },
+          {
+            "text": "Its",
+            "audioPath": "/guided-reading/audio/words/its.mp3"
           },
           {
             "text": "tail",
             "audioPath": "/guided-reading/audio/words/tail.mp3"
           },
           {
-            "text": "shrinks",
-            "audioPath": "/guided-reading/audio/words/shrinks.mp3"
+            "text": "slowly",
+            "audioPath": "/guided-reading/audio/words/slowly.mp3"
           },
           {
-            "text": "away",
-            "audioPath": "/guided-reading/audio/words/away.mp3"
+            "text": "becomes",
+            "audioPath": "/guided-reading/audio/words/becomes.mp3"
           },
           {
-            "text": "After",
-            "audioPath": "/guided-reading/audio/words/after.mp3"
+            "text": "shorter",
+            "audioPath": "/guided-reading/audio/words/shorter.mp3"
           },
           {
-            "text": "about",
-            "audioPath": "/guided-reading/audio/words/about.mp3"
+            "text": "This",
+            "audioPath": "/guided-reading/audio/words/this.mp3"
           },
           {
-            "text": "twelve",
-            "audioPath": "/guided-reading/audio/words/twelve.mp3"
-          },
-          {
-            "text": "weeks",
-            "audioPath": "/guided-reading/audio/words/weeks.mp3"
-          },
-          {
-            "text": "it",
-            "audioPath": "/guided-reading/audio/words/it.mp3"
+            "text": "change",
+            "audioPath": "/guided-reading/audio/words/change.mp3"
           },
           {
             "text": "is",
             "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
-            "text": "a",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
+            "text": "called",
+            "audioPath": "/guided-reading/audio/words/called.mp3"
           },
           {
-            "text": "frog",
-            "audioPath": "/guided-reading/audio/words/frog.mp3"
+            "text": "metamorphosis",
+            "audioPath": "/guided-reading/audio/words/metamorphosis.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -12121,14 +12128,15 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 5,
         "sourcePageNumber": 6,
-        "text": "The young frog climbs out of the water. It can now breathe air through its lungs. It can also live on land. The whole world opens up.",
+        "text": "A young frog is called a froglet. It has four legs and a short tail. It leaves the pond but stays near damp cover.",
         "image": "/guided-reading/nonfiction/level-c/book-10/page-005.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-10/audio/page-005.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-10/audio/page-005.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "The",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
+            "text": "A",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
             "text": "young",
@@ -12139,100 +12147,88 @@ export const firstFactsLevelCBooks = [
             "audioPath": "/guided-reading/audio/words/frog.mp3"
           },
           {
-            "text": "climbs",
-            "audioPath": "/guided-reading/audio/words/climbs.mp3"
+            "text": "is",
+            "audioPath": "/guided-reading/audio/words/is.mp3"
           },
           {
-            "text": "out",
-            "audioPath": "/guided-reading/audio/words/out.mp3"
+            "text": "called",
+            "audioPath": "/guided-reading/audio/words/called.mp3"
           },
           {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "froglet",
+            "audioPath": "/guided-reading/audio/words/froglet.mp3"
+          },
+          {
+            "text": "It",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
+          },
+          {
+            "text": "has",
+            "audioPath": "/guided-reading/audio/words/has.mp3"
+          },
+          {
+            "text": "four",
+            "audioPath": "/guided-reading/audio/words/four.mp3"
+          },
+          {
+            "text": "legs",
+            "audioPath": "/guided-reading/audio/words/legs.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "short",
+            "audioPath": "/guided-reading/audio/words/short.mp3"
+          },
+          {
+            "text": "tail",
+            "audioPath": "/guided-reading/audio/words/tail.mp3"
+          },
+          {
+            "text": "It",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
+          },
+          {
+            "text": "leaves",
+            "audioPath": "/guided-reading/audio/words/leaves.mp3"
           },
           {
             "text": "the",
             "audioPath": "/guided-reading/audio/words/the.mp3"
           },
           {
-            "text": "water",
-            "audioPath": "/guided-reading/audio/words/water.mp3"
+            "text": "pond",
+            "audioPath": "/guided-reading/audio/words/pond.mp3"
           },
           {
-            "text": "It",
-            "audioPath": "/guided-reading/audio/words/it.mp3"
+            "text": "but",
+            "audioPath": "/guided-reading/audio/words/but.mp3"
           },
           {
-            "text": "can",
-            "audioPath": "/guided-reading/audio/words/can.mp3"
+            "text": "stays",
+            "audioPath": "/guided-reading/audio/words/stays.mp3"
           },
           {
-            "text": "now",
-            "audioPath": "/guided-reading/audio/words/now.mp3"
+            "text": "near",
+            "audioPath": "/guided-reading/audio/words/near.mp3"
           },
           {
-            "text": "breathe",
-            "audioPath": "/guided-reading/audio/words/breathe.mp3"
+            "text": "damp",
+            "audioPath": "/guided-reading/audio/words/damp.mp3"
           },
           {
-            "text": "air",
-            "audioPath": "/guided-reading/audio/words/air.mp3"
-          },
-          {
-            "text": "through",
-            "audioPath": "/guided-reading/audio/words/through.mp3"
-          },
-          {
-            "text": "its",
-            "audioPath": "/guided-reading/audio/words/its.mp3"
-          },
-          {
-            "text": "lungs",
-            "audioPath": "/guided-reading/audio/words/lungs.mp3"
-          },
-          {
-            "text": "It",
-            "audioPath": "/guided-reading/audio/words/it.mp3"
-          },
-          {
-            "text": "can",
-            "audioPath": "/guided-reading/audio/words/can.mp3"
-          },
-          {
-            "text": "also",
-            "audioPath": "/guided-reading/audio/words/also.mp3"
-          },
-          {
-            "text": "live",
-            "audioPath": "/guided-reading/audio/words/live.mp3"
-          },
-          {
-            "text": "on",
-            "audioPath": "/guided-reading/audio/words/on.mp3"
-          },
-          {
-            "text": "land",
-            "audioPath": "/guided-reading/audio/words/land.mp3"
-          },
-          {
-            "text": "The",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "whole",
-            "audioPath": "/guided-reading/audio/words/whole.mp3"
-          },
-          {
-            "text": "world",
-            "audioPath": "/guided-reading/audio/words/world.mp3"
-          },
-          {
-            "text": "opens",
-            "audioPath": "/guided-reading/audio/words/opens.mp3"
-          },
-          {
-            "text": "up",
-            "audioPath": "/guided-reading/audio/words/up.mp3"
+            "text": "cover",
+            "audioPath": "/guided-reading/audio/words/cover.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -12242,122 +12238,83 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 6,
         "sourcePageNumber": 7,
-        "text": "Frogs are expert hunters. They have long, sticky tongues. A frog can flip its tongue out and back in less time than a blink to catch an insect.",
+        "text": "Common frogs eat insects, worms, slugs, and snails. They can snap up small prey with a sticky tongue.",
         "image": "/guided-reading/nonfiction/level-c/book-10/page-006.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-10/audio/page-006.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-10/audio/page-006.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "Frogs",
+            "text": "Common",
+            "audioPath": "/guided-reading/audio/words/common.mp3"
+          },
+          {
+            "text": "frogs",
             "audioPath": "/guided-reading/audio/words/frogs.mp3"
           },
           {
-            "text": "are",
-            "audioPath": "/guided-reading/audio/words/are.mp3"
+            "text": "eat",
+            "audioPath": "/guided-reading/audio/words/eat.mp3"
           },
           {
-            "text": "expert",
-            "audioPath": "/guided-reading/audio/words/expert.mp3"
+            "text": "insects",
+            "audioPath": "/guided-reading/audio/words/insects.mp3"
           },
           {
-            "text": "hunters",
-            "audioPath": "/guided-reading/audio/words/hunters.mp3"
+            "text": "worms",
+            "audioPath": "/guided-reading/audio/words/worms.mp3"
           },
           {
-            "text": "They",
-            "audioPath": "/guided-reading/audio/words/they.mp3"
-          },
-          {
-            "text": "have",
-            "audioPath": "/guided-reading/audio/words/have.mp3"
-          },
-          {
-            "text": "long",
-            "audioPath": "/guided-reading/audio/words/long.mp3"
-          },
-          {
-            "text": "sticky",
-            "audioPath": "/guided-reading/audio/words/sticky.mp3"
-          },
-          {
-            "text": "tongues",
-            "audioPath": "/guided-reading/audio/words/tongues.mp3"
-          },
-          {
-            "text": "A",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
-          },
-          {
-            "text": "frog",
-            "audioPath": "/guided-reading/audio/words/frog.mp3"
-          },
-          {
-            "text": "can",
-            "audioPath": "/guided-reading/audio/words/can.mp3"
-          },
-          {
-            "text": "flip",
-            "audioPath": "/guided-reading/audio/words/flip.mp3"
-          },
-          {
-            "text": "its",
-            "audioPath": "/guided-reading/audio/words/its.mp3"
-          },
-          {
-            "text": "tongue",
-            "audioPath": "/guided-reading/audio/words/tongue.mp3"
-          },
-          {
-            "text": "out",
-            "audioPath": "/guided-reading/audio/words/out.mp3"
+            "text": "slugs",
+            "audioPath": "/guided-reading/audio/words/slugs.mp3"
           },
           {
             "text": "and",
             "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
-            "text": "back",
-            "audioPath": "/guided-reading/audio/words/back.mp3"
+            "text": "snails",
+            "audioPath": "/guided-reading/audio/words/snails.mp3"
           },
           {
-            "text": "in",
-            "audioPath": "/guided-reading/audio/words/in.mp3"
+            "text": "They",
+            "audioPath": "/guided-reading/audio/words/they.mp3"
           },
           {
-            "text": "less",
-            "audioPath": "/guided-reading/audio/words/less.mp3"
+            "text": "can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
-            "text": "time",
-            "audioPath": "/guided-reading/audio/words/time.mp3"
+            "text": "snap",
+            "audioPath": "/guided-reading/audio/words/snap.mp3"
           },
           {
-            "text": "than",
-            "audioPath": "/guided-reading/audio/words/than.mp3"
+            "text": "up",
+            "audioPath": "/guided-reading/audio/words/up.mp3"
+          },
+          {
+            "text": "small",
+            "audioPath": "/guided-reading/audio/words/small.mp3"
+          },
+          {
+            "text": "prey",
+            "audioPath": "/guided-reading/audio/words/prey.mp3"
+          },
+          {
+            "text": "with",
+            "audioPath": "/guided-reading/audio/words/with.mp3"
           },
           {
             "text": "a",
             "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
-            "text": "blink",
-            "audioPath": "/guided-reading/audio/words/blink.mp3"
+            "text": "sticky",
+            "audioPath": "/guided-reading/audio/words/sticky.mp3"
           },
           {
-            "text": "to",
-            "audioPath": "/guided-reading/audio/words/to.mp3"
-          },
-          {
-            "text": "catch",
-            "audioPath": "/guided-reading/audio/words/catch.mp3"
-          },
-          {
-            "text": "an",
-            "audioPath": "/guided-reading/audio/words/an.mp3"
-          },
-          {
-            "text": "insect",
-            "audioPath": "/guided-reading/audio/words/insect.mp3"
+            "text": "tongue",
+            "audioPath": "/guided-reading/audio/words/tongue.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -12367,102 +12324,91 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 7,
         "sourcePageNumber": 8,
-        "text": "A frog's skin is always damp. Frogs can breathe through their skin as well as through their lungs. They must never dry out.",
+        "text": "A common frog has smooth, moist skin. It can take in oxygen through its skin. It also breathes with lungs.",
         "image": "/guided-reading/nonfiction/level-c/book-10/page-007.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-10/audio/page-007.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-10/audio/page-007.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
             "text": "A",
             "audioPath": "/guided-reading/audio/words/a.mp3"
           },
           {
-            "text": "frog's",
-            "audioPath": "/guided-reading/audio/words/frogs.mp3"
+            "text": "common",
+            "audioPath": "/guided-reading/audio/words/common.mp3"
+          },
+          {
+            "text": "frog",
+            "audioPath": "/guided-reading/audio/words/frog.mp3"
+          },
+          {
+            "text": "has",
+            "audioPath": "/guided-reading/audio/words/has.mp3"
+          },
+          {
+            "text": "smooth",
+            "audioPath": "/guided-reading/audio/words/smooth.mp3"
+          },
+          {
+            "text": "moist",
+            "audioPath": "/guided-reading/audio/words/moist.mp3"
           },
           {
             "text": "skin",
             "audioPath": "/guided-reading/audio/words/skin.mp3"
           },
           {
-            "text": "is",
-            "audioPath": "/guided-reading/audio/words/is.mp3"
-          },
-          {
-            "text": "always",
-            "audioPath": "/guided-reading/audio/words/always.mp3"
-          },
-          {
-            "text": "damp",
-            "audioPath": "/guided-reading/audio/words/damp.mp3"
-          },
-          {
-            "text": "Frogs",
-            "audioPath": "/guided-reading/audio/words/frogs.mp3"
+            "text": "It",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
             "text": "can",
             "audioPath": "/guided-reading/audio/words/can.mp3"
           },
           {
-            "text": "breathe",
-            "audioPath": "/guided-reading/audio/words/breathe.mp3"
+            "text": "take",
+            "audioPath": "/guided-reading/audio/words/take.mp3"
+          },
+          {
+            "text": "in",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
+          },
+          {
+            "text": "oxygen",
+            "audioPath": "/guided-reading/audio/words/oxygen.mp3"
           },
           {
             "text": "through",
             "audioPath": "/guided-reading/audio/words/through.mp3"
           },
           {
-            "text": "their",
-            "audioPath": "/guided-reading/audio/words/their.mp3"
+            "text": "its",
+            "audioPath": "/guided-reading/audio/words/its.mp3"
           },
           {
             "text": "skin",
             "audioPath": "/guided-reading/audio/words/skin.mp3"
           },
           {
-            "text": "as",
-            "audioPath": "/guided-reading/audio/words/as.mp3"
+            "text": "It",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
           },
           {
-            "text": "well",
-            "audioPath": "/guided-reading/audio/words/well.mp3"
+            "text": "also",
+            "audioPath": "/guided-reading/audio/words/also.mp3"
           },
           {
-            "text": "as",
-            "audioPath": "/guided-reading/audio/words/as.mp3"
+            "text": "breathes",
+            "audioPath": "/guided-reading/audio/words/breathes.mp3"
           },
           {
-            "text": "through",
-            "audioPath": "/guided-reading/audio/words/through.mp3"
-          },
-          {
-            "text": "their",
-            "audioPath": "/guided-reading/audio/words/their.mp3"
+            "text": "with",
+            "audioPath": "/guided-reading/audio/words/with.mp3"
           },
           {
             "text": "lungs",
             "audioPath": "/guided-reading/audio/words/lungs.mp3"
-          },
-          {
-            "text": "They",
-            "audioPath": "/guided-reading/audio/words/they.mp3"
-          },
-          {
-            "text": "must",
-            "audioPath": "/guided-reading/audio/words/must.mp3"
-          },
-          {
-            "text": "never",
-            "audioPath": "/guided-reading/audio/words/never.mp3"
-          },
-          {
-            "text": "dry",
-            "audioPath": "/guided-reading/audio/words/dry.mp3"
-          },
-          {
-            "text": "out",
-            "audioPath": "/guided-reading/audio/words/out.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -12472,126 +12418,91 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 8,
         "sourcePageNumber": 9,
-        "text": "Frogs come in amazing colours. Bright colours are a warning: I am poisonous — do not eat me! The more colourful the frog, often the more dangerous it is.",
+        "text": "Common frogs can be brown, olive, grey, yellow, or red. Dark patches help them blend in with mud and plants.",
         "image": "/guided-reading/nonfiction/level-c/book-10/page-008.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-10/audio/page-008.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-10/audio/page-008.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "Frogs",
+            "text": "Common",
+            "audioPath": "/guided-reading/audio/words/common.mp3"
+          },
+          {
+            "text": "frogs",
             "audioPath": "/guided-reading/audio/words/frogs.mp3"
           },
           {
-            "text": "come",
-            "audioPath": "/guided-reading/audio/words/come.mp3"
+            "text": "can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
+          },
+          {
+            "text": "be",
+            "audioPath": "/guided-reading/audio/words/be.mp3"
+          },
+          {
+            "text": "brown",
+            "audioPath": "/guided-reading/audio/words/brown.mp3"
+          },
+          {
+            "text": "olive",
+            "audioPath": "/guided-reading/audio/words/olive.mp3"
+          },
+          {
+            "text": "grey",
+            "audioPath": "/guided-reading/audio/words/grey.mp3"
+          },
+          {
+            "text": "yellow",
+            "audioPath": "/guided-reading/audio/words/yellow.mp3"
+          },
+          {
+            "text": "or",
+            "audioPath": "/guided-reading/audio/words/or.mp3"
+          },
+          {
+            "text": "red",
+            "audioPath": "/guided-reading/audio/words/red.mp3"
+          },
+          {
+            "text": "Dark",
+            "audioPath": "/guided-reading/audio/words/dark.mp3"
+          },
+          {
+            "text": "patches",
+            "audioPath": "/guided-reading/audio/words/patches.mp3"
+          },
+          {
+            "text": "help",
+            "audioPath": "/guided-reading/audio/words/help.mp3"
+          },
+          {
+            "text": "them",
+            "audioPath": "/guided-reading/audio/words/them.mp3"
+          },
+          {
+            "text": "blend",
+            "audioPath": "/guided-reading/audio/words/blend.mp3"
           },
           {
             "text": "in",
             "audioPath": "/guided-reading/audio/words/in.mp3"
           },
           {
-            "text": "amazing",
-            "audioPath": "/guided-reading/audio/words/amazing.mp3"
+            "text": "with",
+            "audioPath": "/guided-reading/audio/words/with.mp3"
           },
           {
-            "text": "colours",
-            "audioPath": "/guided-reading/audio/words/colours.mp3"
+            "text": "mud",
+            "audioPath": "/guided-reading/audio/words/mud.mp3"
           },
           {
-            "text": "Bright",
-            "audioPath": "/guided-reading/audio/words/bright.mp3"
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
           },
           {
-            "text": "colours",
-            "audioPath": "/guided-reading/audio/words/colours.mp3"
-          },
-          {
-            "text": "are",
-            "audioPath": "/guided-reading/audio/words/are.mp3"
-          },
-          {
-            "text": "a",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
-          },
-          {
-            "text": "warning",
-            "audioPath": "/guided-reading/audio/words/warning.mp3"
-          },
-          {
-            "text": "I",
-            "audioPath": "/guided-reading/audio/words/i.mp3"
-          },
-          {
-            "text": "am",
-            "audioPath": "/guided-reading/audio/words/am.mp3"
-          },
-          {
-            "text": "poisonous",
-            "audioPath": "/guided-reading/audio/words/poisonous.mp3"
-          },
-          {
-            "text": "—",
-            "audioPath": "/guided-reading/audio/words/.mp3"
-          },
-          {
-            "text": "do",
-            "audioPath": "/guided-reading/audio/words/do.mp3"
-          },
-          {
-            "text": "not",
-            "audioPath": "/guided-reading/audio/words/not.mp3"
-          },
-          {
-            "text": "eat",
-            "audioPath": "/guided-reading/audio/words/eat.mp3"
-          },
-          {
-            "text": "me",
-            "audioPath": "/guided-reading/audio/words/me.mp3"
-          },
-          {
-            "text": "The",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "more",
-            "audioPath": "/guided-reading/audio/words/more.mp3"
-          },
-          {
-            "text": "colourful",
-            "audioPath": "/guided-reading/audio/words/colourful.mp3"
-          },
-          {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "frog",
-            "audioPath": "/guided-reading/audio/words/frog.mp3"
-          },
-          {
-            "text": "often",
-            "audioPath": "/guided-reading/audio/words/often.mp3"
-          },
-          {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "more",
-            "audioPath": "/guided-reading/audio/words/more.mp3"
-          },
-          {
-            "text": "dangerous",
-            "audioPath": "/guided-reading/audio/words/dangerous.mp3"
-          },
-          {
-            "text": "it",
-            "audioPath": "/guided-reading/audio/words/it.mp3"
-          },
-          {
-            "text": "is",
-            "audioPath": "/guided-reading/audio/words/is.mp3"
+            "text": "plants",
+            "audioPath": "/guided-reading/audio/words/plants.mp3"
           }
         ],
         "qaStatus": "approved",
@@ -12601,38 +12512,91 @@ export const firstFactsLevelCBooks = [
       {
         "pageNumber": 9,
         "sourcePageNumber": 10,
-        "text": "Frogs sing to find a mate. Each species has its own call. The ribbit of a tree frog, the deep croak of a bullfrog — their calls fill warm evenings around the world.",
+        "text": "In spring, male common frogs make soft croaking calls near the pond. Their calls help females find them. Each frog species has its own call.",
         "image": "/guided-reading/nonfiction/level-c/book-10/page-009.webp",
         "audio": "/guided-reading/nonfiction/level-c/book-10/audio/page-009.mp3",
         "pageAudio": "/guided-reading/nonfiction/level-c/book-10/audio/page-009.mp3",
+        "narrationNeedsRebuild": true,
         "words": [
           {
-            "text": "Frogs",
+            "text": "In",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
+          },
+          {
+            "text": "spring",
+            "audioPath": "/guided-reading/audio/words/spring.mp3"
+          },
+          {
+            "text": "male",
+            "audioPath": "/guided-reading/audio/words/male.mp3"
+          },
+          {
+            "text": "common",
+            "audioPath": "/guided-reading/audio/words/common.mp3"
+          },
+          {
+            "text": "frogs",
             "audioPath": "/guided-reading/audio/words/frogs.mp3"
           },
           {
-            "text": "sing",
-            "audioPath": "/guided-reading/audio/words/sing.mp3"
+            "text": "make",
+            "audioPath": "/guided-reading/audio/words/make.mp3"
           },
           {
-            "text": "to",
-            "audioPath": "/guided-reading/audio/words/to.mp3"
+            "text": "soft",
+            "audioPath": "/guided-reading/audio/words/soft.mp3"
+          },
+          {
+            "text": "croaking",
+            "audioPath": "/guided-reading/audio/words/croaking.mp3"
+          },
+          {
+            "text": "calls",
+            "audioPath": "/guided-reading/audio/words/calls.mp3"
+          },
+          {
+            "text": "near",
+            "audioPath": "/guided-reading/audio/words/near.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "pond",
+            "audioPath": "/guided-reading/audio/words/pond.mp3"
+          },
+          {
+            "text": "Their",
+            "audioPath": "/guided-reading/audio/words/their.mp3"
+          },
+          {
+            "text": "calls",
+            "audioPath": "/guided-reading/audio/words/calls.mp3"
+          },
+          {
+            "text": "help",
+            "audioPath": "/guided-reading/audio/words/help.mp3"
+          },
+          {
+            "text": "females",
+            "audioPath": "/guided-reading/audio/words/females.mp3"
           },
           {
             "text": "find",
             "audioPath": "/guided-reading/audio/words/find.mp3"
           },
           {
-            "text": "a",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
-          },
-          {
-            "text": "mate",
-            "audioPath": "/guided-reading/audio/words/mate.mp3"
+            "text": "them",
+            "audioPath": "/guided-reading/audio/words/them.mp3"
           },
           {
             "text": "Each",
             "audioPath": "/guided-reading/audio/words/each.mp3"
+          },
+          {
+            "text": "frog",
+            "audioPath": "/guided-reading/audio/words/frog.mp3"
           },
           {
             "text": "species",
@@ -12653,90 +12617,6 @@ export const firstFactsLevelCBooks = [
           {
             "text": "call",
             "audioPath": "/guided-reading/audio/words/call.mp3"
-          },
-          {
-            "text": "The",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "ribbit",
-            "audioPath": "/guided-reading/audio/words/ribbit.mp3"
-          },
-          {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
-          },
-          {
-            "text": "a",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
-          },
-          {
-            "text": "tree",
-            "audioPath": "/guided-reading/audio/words/tree.mp3"
-          },
-          {
-            "text": "frog",
-            "audioPath": "/guided-reading/audio/words/frog.mp3"
-          },
-          {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "deep",
-            "audioPath": "/guided-reading/audio/words/deep.mp3"
-          },
-          {
-            "text": "croak",
-            "audioPath": "/guided-reading/audio/words/croak.mp3"
-          },
-          {
-            "text": "of",
-            "audioPath": "/guided-reading/audio/words/of.mp3"
-          },
-          {
-            "text": "a",
-            "audioPath": "/guided-reading/audio/words/a.mp3"
-          },
-          {
-            "text": "bullfrog",
-            "audioPath": "/guided-reading/audio/words/bullfrog.mp3"
-          },
-          {
-            "text": "—",
-            "audioPath": "/guided-reading/audio/words/.mp3"
-          },
-          {
-            "text": "their",
-            "audioPath": "/guided-reading/audio/words/their.mp3"
-          },
-          {
-            "text": "calls",
-            "audioPath": "/guided-reading/audio/words/calls.mp3"
-          },
-          {
-            "text": "fill",
-            "audioPath": "/guided-reading/audio/words/fill.mp3"
-          },
-          {
-            "text": "warm",
-            "audioPath": "/guided-reading/audio/words/warm.mp3"
-          },
-          {
-            "text": "evenings",
-            "audioPath": "/guided-reading/audio/words/evenings.mp3"
-          },
-          {
-            "text": "around",
-            "audioPath": "/guided-reading/audio/words/around.mp3"
-          },
-          {
-            "text": "the",
-            "audioPath": "/guided-reading/audio/words/the.mp3"
-          },
-          {
-            "text": "world",
-            "audioPath": "/guided-reading/audio/words/world.mp3"
           }
         ],
         "qaStatus": "approved",

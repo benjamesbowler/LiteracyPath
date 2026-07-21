@@ -1,6 +1,6 @@
 # Guided Reading Visibility Audit
 
-Generated: 2026-06-11T11:26:03.009Z
+Generated: 2026-07-21T09:55:45.025Z
 
 ## Current Policy
 
@@ -150,7 +150,7 @@ Visible nonfiction books: 76
 | meadow-pals-09-shy-comes-out-to-play | Shy Comes Out to Play | Fiction | A | approved | 8 | yes | none |
 | meadow-pals-10-giggly-has-the-hiccups | Giggly Has the Hiccups | Fiction | A | approved | 9 | yes | none |
 | meadow-pals-11-brave-climbs-the-hay-bale | Brave Climbs the Hay Bale | Fiction | A | approved | 10 | yes | none |
-| meadow-pals-12-hungry-eats-everything | Hungry Eats Everything | Fiction | A | approved | 7 | yes | none |
+| meadow-pals-12-hungry-eats-everything | Hungry Finds Lunch | Fiction | A | approved | 7 | yes | none |
 | meadow-pals-13-splashy-finds-a-puddle | Splashy Finds a Puddle | Fiction | A | approved | 9 | yes | none |
 | meadow-pals-14-speedy-slows-down | Speedy Slows Down | Fiction | A | approved | 10 | yes | none |
 | meadow-pals-15-cuddly-wants-a-hug | Cuddly Wants a Hug | Fiction | A | approved | 10 | yes | none |

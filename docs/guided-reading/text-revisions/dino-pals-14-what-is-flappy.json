@@ -1,0 +1,16 @@
+{
+  "bookId": "dino-pals-14-what-is-flappy",
+  "reviewedAt": "2026-07-21",
+  "readingLevel": "B",
+  "principles": [
+    "Keep the playful non-answer from Sunny while making the question and speaker sequence clear.",
+    "Preserve short clauses, repetition, and familiar dialogue vocabulary for Level B."
+  ],
+  "pages": [
+    {
+      "pageNumber": 4,
+      "reason": "The original introduced an unanswered action before the question and made the speaker sequence unnecessarily difficult to follow.",
+      "text": "Flappy went to ask Sunny. Am I a dinosaur or a bird? asked Flappy. You are wonderful just as you are! said Sunny. But what am I? asked Flappy. Wonderful! said Sunny. Flappy left, still confused."
+    }
+  ]
+}

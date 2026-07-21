@@ -1,0 +1,57 @@
+{
+  "bookId": "level-c-nonfiction-10-frogs",
+  "reviewedAt": "2026-07-21",
+  "readingLevel": "C",
+  "principles": [
+    "Use the common frog throughout so the life cycle, habitat, colour, and call form one coherent nonfiction sequence.",
+    "Replace fixed or overgeneralised claims with accurate wording supported by amphibian conservation and natural-history sources.",
+    "Keep sentences concrete and short enough for Level C readers while retaining useful scientific vocabulary."
+  ],
+  "pages": [
+    {
+      "pageNumber": 1,
+      "reason": "Narrows the subject to common frogs and accurately describes their freshwater and damp-land life.",
+      "text": "Common frogs are amphibians. They begin life in fresh water. As adults, they can live in water and on damp land."
+    },
+    {
+      "pageNumber": 2,
+      "reason": "Adds the spring breeding context and accurately describes common-frog spawn as clumps of jelly-coated eggs.",
+      "text": "In spring, female common frogs lay eggs in ponds. The eggs form clumps called frogspawn. Clear jelly surrounds each dark egg."
+    },
+    {
+      "pageNumber": 3,
+      "reason": "Uses the supported two-to-four-week hatching range and avoids comparing tadpoles loosely with fish.",
+      "text": "After two to four weeks, tadpoles hatch. They have tails and no legs. Their gills help them get oxygen from the water."
+    },
+    {
+      "pageNumber": 4,
+      "reason": "Keeps the correct order of limb growth and removes a misleading fixed twelve-week completion claim.",
+      "text": "As a tadpole grows, back legs appear first. Front legs come next. Its tail slowly becomes shorter. This change is called metamorphosis."
+    },
+    {
+      "pageNumber": 5,
+      "reason": "Names the froglet stage and accurately shows its short remaining tail and need for damp cover.",
+      "text": "A young frog is called a froglet. It has four legs and a short tail. It leaves the pond but stays near damp cover."
+    },
+    {
+      "pageNumber": 6,
+      "reason": "Describes common-frog feeding without the unsupported less-than-a-blink timing claim.",
+      "text": "Common frogs eat insects, worms, slugs, and snails. They can snap up small prey with a sticky tongue."
+    },
+    {
+      "pageNumber": 7,
+      "reason": "Explains moist permeable skin and breathing in concise, accurate language.",
+      "text": "A common frog has smooth, moist skin. It can take in oxygen through its skin. It also breathes with lungs."
+    },
+    {
+      "pageNumber": 8,
+      "reason": "Replaces a false general rule about bright poison colours with the real colour variation and camouflage of common frogs.",
+      "text": "Common frogs can be brown, olive, grey, yellow, or red. Dark patches help them blend in with mud and plants."
+    },
+    {
+      "pageNumber": 9,
+      "reason": "Uses the common frog's soft spring croak and explains the purpose of male calls without mixing unrelated species.",
+      "text": "In spring, male common frogs make soft croaking calls near the pond. Their calls help females find them. Each frog species has its own call."
+    }
+  ]
+}

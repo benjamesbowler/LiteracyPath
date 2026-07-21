@@ -225,12 +225,18 @@ const dinoCoverPath = bookNumber =>
 const dinoAudioPath = (bookNumber, pageNumber) =>
   `/guided-reading/series/dino-pals/book-${String(bookNumber).padStart(2, "0")}/audio/page-${String(pageNumber).padStart(3, "0")}.mp3`;
 
-const createDinoPage = ({ bookNumber, pageNumber, text }) => ({
+const createDinoPage = ({
+  bookNumber,
+  pageNumber,
+  text,
+  narrationNeedsRebuild = false
+}) => ({
   pageNumber,
   text: normalizeReadingText(text),
   image: dinoPagePath(bookNumber, pageNumber),
   audio: dinoAudioPath(bookNumber, pageNumber),
   pageAudio: dinoAudioPath(bookNumber, pageNumber),
+  ...(narrationNeedsRebuild ? { narrationNeedsRebuild: true } : {}),
   words: words(text),
   qaStatus: "approved",
   qaNotes: "Released for student Guided Reading.",
@@ -302,6 +308,7 @@ const createMeadowPage = ({
   bookNumber,
   pageNumber,
   text,
+  narrationNeedsRebuild = false,
   qaStatus = "approved",
   qaNotes = "Released for student Guided Reading.",
   active = true,
@@ -312,6 +319,7 @@ const createMeadowPage = ({
   image: meadowPagePath(bookNumber, pageNumber),
   audio: meadowAudioPath(bookNumber, pageNumber),
   pageAudio: meadowAudioPath(bookNumber, pageNumber),
+  ...(narrationNeedsRebuild ? { narrationNeedsRebuild: true } : {}),
   words: words(text),
   qaStatus,
   qaNotes,
@@ -364,7 +372,7 @@ const createMeadowPalsBook = ({
     shy: "Shy is a quiet Meadow Pals character who slowly joins the group.",
     giggly: "Giggly is a happy Meadow Pals character who laughs often.",
     brave: "Brave is a determined Meadow Pals character who keeps trying.",
-    hungry: "Hungry is a Meadow Pals character who likes to eat.",
+    hungry: "Hungry is a healthy young cream-and-chestnut cow with a white face blaze, small tan horns, dark hooves, warm brown eyes, and a green collar. Hungry learns to choose suitable food and stop when full.",
     splashy: "Splashy is a Meadow Pals character who loves puddles and water play.",
     speedy: "Speedy is a fast Meadow Pals character who learns to slow down.",
     cuddly: "Cuddly is a warm Meadow Pals character who likes hugs."
@@ -879,38 +887,45 @@ const meadowPalsBookData = [
   },
   {
     "id": "meadow-pals-12-hungry-eats-everything",
-    "title": "Hungry Eats Everything",
+    "title": "Hungry Finds Lunch",
     "bookNumber": 12,
-    "theme": "Hungry in Sunny Meadow",
+    "theme": "safe food choices and noticing fullness",
     "character": "Hungry",
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Hungry ate the grass."
+        "text": "Hungry ate some grass.",
+        "narrationNeedsRebuild": true
       },
       {
         "pageNumber": 2,
-        "text": "Hungry ate the flowers."
+        "text": "Hungry ate some hay.",
+        "narrationNeedsRebuild": true
       },
       {
         "pageNumber": 3,
-        "text": "Hungry ate the hat.\n\"My hat!\" said Clucky."
+        "text": "Hungry was still hungry.",
+        "narrationNeedsRebuild": true
       },
       {
         "pageNumber": 4,
-        "text": "Hungry ate the map.\n\"My map!\" said Tiny."
+        "text": "Hungry went to the farm gate.",
+        "narrationNeedsRebuild": true
       },
       {
         "pageNumber": 5,
-        "text": "Hungry ate the big cake.\n\"My cake!\" said Grumpy."
+        "text": "The farmer brought fresh hay.",
+        "narrationNeedsRebuild": true
       },
       {
         "pageNumber": 6,
-        "text": "Hungry was full."
+        "text": "Hungry ate, then drank some water.",
+        "narrationNeedsRebuild": true
       },
       {
         "pageNumber": 7,
-        "text": "Hungry ate one more bit of grass."
+        "text": "\"I am full now,\" said Hungry.",
+        "narrationNeedsRebuild": true
       }
     ]
   },
@@ -2243,12 +2258,12 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 2, text: `Betty was not worried at all. She had already packed her bag twice. "We're going to have proper lessons and proper homework," she said, bouncing on her toes. "Isn't that brilliant?" Aiden wasn't absolutely sure that it was.`, illustrationPrompt: "Betty excited in the hallway with her school bag while Aiden looks uncertain." },
       { pageNumber: 3, text: `Their new classroom was bright and busy, with bookshelves along every wall and a large window that looked out onto the playing field. Their teacher was called Miss Okafor. She had bright yellow glasses and smiled like she really meant it.`, illustrationPrompt: "Aiden and Betty entering a bright classroom with Miss Okafor greeting them." },
       { pageNumber: 4, text: `"In Grade 1," said Miss Okafor, "we will read chapter books, solve number puzzles and begin to understand how the world around us works." Aiden thought that sounded like an awful lot — but he found he was leaning forward slightly without meaning to.`, illustrationPrompt: "Miss Okafor addressing the class while Aiden leans forward with interest." },
-      { pageNumber: 5, text: `Everyone had their own desk with a name label. Aiden's said AIDEN in neat blue letters. He ran his finger over it slowly and felt, just slightly, like it might turn out to be all right.`, illustrationPrompt: "Close-up of Aiden tracing the name label on his desk." },
+      { pageNumber: 5, text: `Everyone had their own desk. Aiden found one beside Betty. He ran his finger across the smooth top and felt, just slightly, that it might turn out to be all right.`, illustrationPrompt: "Close-up of Aiden at his desk beside Betty.", narrationNeedsRebuild: true },
       { pageNumber: 6, text: `The first lesson was handwriting — joined-up letters, which were completely new and seemed designed to be tricky. Aiden's pen slipped and he made a large blot right across the middle of the page. He went very red.`, illustrationPrompt: "Aiden staring at a large ink blot on his handwriting page." },
       { pageNumber: 7, text: `Betty leaned over and showed him her page quietly. Her joined-up writing was also not her best work. "Mine looks like a wonky caterpillar," she whispered. Aiden laughed before he could stop himself, and his face stopped being red.`, illustrationPrompt: "Betty showing Aiden her wonky handwriting while he laughs with relief." },
       { pageNumber: 8, text: `At lunch, they sat together by the window. Aiden opened his lunchbox and found a small folded note from Mum tucked under his sandwich. It said: You've got this, star. He smiled all the way through his apple.`, illustrationPrompt: "Aiden reading Mum's note at lunch beside Betty." },
-      { pageNumber: 9, text: `After lunch came Maths. Miss Okafor wrote sums on the board, each one slightly harder than the last. Some of them made Aiden's brain feel stretched in an unfamiliar way. He was discovering that this was not entirely a bad feeling.`, illustrationPrompt: "Aiden concentrating hard during Maths while Miss Okafor writes sums." },
-      { pageNumber: 10, text: `Betty answered three questions out loud and got them all right. Aiden raised his hand once, very carefully, and he got his right too. Miss Okafor stuck a gold star beside both their names on the board. Aiden looked at his star for quite a long time.`, illustrationPrompt: "Miss Okafor placing gold stars beside Aiden and Betty's names." },
+      { pageNumber: 9, text: `After lunch came Maths. Miss Okafor gave them number puzzles with counters and shapes. Each one was a little harder than the last. Aiden's brain felt stretched in a new way. He discovered that this was not a bad feeling.`, illustrationPrompt: "Aiden concentrating on a Maths puzzle with counters and shapes.", narrationNeedsRebuild: true },
+      { pageNumber: 10, text: `Betty answered three questions out loud and got them all right. Aiden raised his hand once, very carefully, and his answer was right too. Miss Okafor gave them each a gold star. Aiden held onto that moment for the rest of the day.`, illustrationPrompt: "Miss Okafor giving a gold star sticker to Aiden and Betty.", narrationNeedsRebuild: true },
       { pageNumber: 11, text: `Then there was Science — real Science, with a magnifying glass and a tray of soil and seeds. Aiden forgot to be nervous. He was too busy looking at a woodlouse through the magnifying glass and writing down exactly what he saw.`, illustrationPrompt: "Aiden absorbed in a science activity with a magnifying glass and notebook." },
       { pageNumber: 12, text: `At home time, Mum was waiting at the gate. She crouched down with an expectant look. "Well?" she said. They both started talking at exactly the same moment and didn't stop for ten minutes.`, illustrationPrompt: "Mum at the school gate as Aiden and Betty talk over each other." },
       { pageNumber: 13, text: `"Grade 1 is brilliant," announced Betty, just before bed. "It's actually not that bad," said Aiden, which from Aiden meant exactly the same thing. He turned his light off, closed his eyes, and was asleep before he could think of anything to worry about.`, illustrationPrompt: "Aiden peacefully in bed at night after his first Grade 1 day." }
@@ -2264,8 +2279,8 @@ export const guidedReadingSeriesBooks = [
     pages: [
       { pageNumber: 1, text: `It was the first warm Saturday of spring, and Aiden and Betty stood in the middle of the playroom staring at something that had got entirely out of control. Toys, books, games and puzzles were piled up to the shelves. There was even a foam sword that neither of them remembered buying.`, illustrationPrompt: "Aiden and Betty in a playroom full of toys, books, games, and puzzles." },
       { pageNumber: 2, text: `"We should have a yard sale," said Betty. She said it the way she said all her best ideas — quickly and firmly, as though the idea had already made up its mind. "We could make actual money." Aiden wasn't certain at first, but when she said the word money, he started to listen.`, illustrationPrompt: "Betty announcing the yard sale idea while Aiden starts to listen." },
-      { pageNumber: 3, text: `They spent Friday evening sorting everything into three piles: SELL, KEEP and MAYBE. The MAYBE pile kept losing things to SELL, because, as Betty pointed out, they hadn't touched any of them in over a year. By nine o'clock, the MAYBE pile had completely disappeared.`, illustrationPrompt: "Aiden and Betty sorting toys into labelled piles." },
-      { pageNumber: 4, text: `Betty made neat round price stickers on square labels, writing each price in her best handwriting. Aiden made the sign for the front gate — YARD SALE: EVERYTHING MUST GO — in six colours, with three exclamation marks, then a fourth one, just to make sure.`, illustrationPrompt: "Betty writing price stickers while Aiden makes a colourful yard sale sign." },
+      { pageNumber: 3, text: `They spent Friday evening sorting everything into three piles. A red card meant sell. A blue card meant keep. A yellow card meant maybe. By nine o'clock, the maybe pile had disappeared.`, illustrationPrompt: "Aiden and Betty sorting toys into piles with red, blue, and yellow cards.", narrationNeedsRebuild: true },
+      { pageNumber: 4, text: `Betty made neat round price stickers. Aiden decorated a large sign board for the front gate with six colours and four big stars. Mum would add the words and prices later.`, illustrationPrompt: "Betty preparing round stickers while Aiden decorates a wordless sign board.", narrationNeedsRebuild: true },
       { pageNumber: 5, text: `On Saturday morning, they dragged two folding tables out to the front path and arranged everything carefully. The old teddies sat in a row at the back and looked slightly sorry for themselves. "They'll go to good homes," said Aiden, mostly to himself, as a form of reassurance.`, illustrationPrompt: "Aiden and Betty arranging yard sale tables on the front path." },
       { pageNumber: 6, text: `Their first customer was Mr Perkins from next door, who was very old and took a very long time about everything. He picked up every single item on the table, turned it over carefully, and put it back. After twenty minutes, he held up one small rubber duck. It cost twenty cents.`, illustrationPrompt: "Mr Perkins slowly examining items at the yard sale." },
       { pageNumber: 7, text: `Then things got busy. Children came from further up the street with their parents. A woman bought a whole crate of craft supplies without looking at any of them. A small boy bought four plastic dinosaurs and a jigsaw puzzle and carried them away in a tight proud bundle. Things were selling faster than Betty could write them down.`, illustrationPrompt: "A busy yard sale with children and parents buying things." },
@@ -2402,19 +2417,19 @@ export const guidedReadingSeriesBooks = [
     sightWords: ["the", "was", "said", "they", "with", "because", "always", "about"],
     targetPatterns: ["level-c", "social-emotional", "dialogue", "school-vocabulary"],
     pages: [
-      { pageNumber: 1, text: `There was a boy in Year 2 called Marcus who thought it was funny to call people names. He had decided, for reasons that made no sense at all, that Aiden's name was Lazy-den. He said it on Wednesday. Two children laughed, which made him say it again on Thursday.` },
-      { pageNumber: 2, text: `Aiden didn't say anything. He went home and sat on his bed and stared at the ceiling. He wasn't crying, but he wasn't fine either. He didn't really want to talk about it — which Betty noticed immediately.` },
-      { pageNumber: 3, text: `"What happened?" said Betty. Aiden told her in pieces, looking at the floor. Betty listened to all of it without saying anything. Then she said: "He's wrong. And being wrong loudly is still just being wrong." Aiden thought about that.` },
-      { pageNumber: 4, text: `That night, Aiden wrote in his notebook: When something is unfair, you have two choices — pretend it isn't happening, or decide what to do. He starred the second option. He didn't quite know yet what doing something looked like.` },
-      { pageNumber: 5, text: `On Friday, Marcus said it again in the lunch queue. Betty was right there. She looked at Marcus with exactly one raised eyebrow and said, clearly: "His name is Aiden. Which you know." Marcus looked surprised. He didn't say anything else.` },
-      { pageNumber: 6, text: `Aiden felt two things: grateful for Betty, and also frustrated, because he wanted to have done it himself. Betty, who had been watching him think, said: "Next time you'll do it. I was just practising with you."` },
-      { pageNumber: 7, text: `On Monday, Marcus said it one more time, in front of a small group. Aiden turned around. He looked at Marcus directly for a moment. Then he said, clearly: "My name is Aiden." That was all. He turned back.` },
-      { pageNumber: 8, text: `It was quiet. Nobody laughed. Marcus said something low, but nobody around him responded. Aiden walked on. His legs were slightly shaky — but he hadn't shown it, and he was extremely proud of himself.` },
-      { pageNumber: 9, text: `He wrote in his notebook that evening: Saying a true thing clearly is harder than it looks and better than it sounds. He underlined it twice.` },
-      { pageNumber: 10, text: `Betty read it over his shoulder. She didn't comment on it. She put her hand on his shoulder for a moment and went back to her own desk. That was enough.` },
-      { pageNumber: 11, text: `A week later, Marcus bumped into Aiden's tray at lunch — accidentally this time, genuinely. He said sorry, just once, with his eyes down. Aiden nodded. He didn't make a big thing of it. Some things, he thought, didn't need to become a story.` },
-      { pageNumber: 12, text: `Miss Okafor had noticed, in the way that good teachers always notice. She started a class discussion about what it means to be fair, and what you do when things aren't. Several children looked at the floor. Marcus looked at the window.` },
-      { pageNumber: 13, text: `"The point," said Miss Okafor, "is not that everyone will always be kind. The point is that you always have a choice about how to respond — and that choice is completely yours." Aiden wrote it down. It felt like something worth keeping.` }
+      { pageNumber: 1, text: `A boy in Year 2 was called Marcus. He kept calling Aiden a silly name. Aiden did not like it.`, narrationNeedsRebuild: true },
+      { pageNumber: 2, text: `Aiden went home feeling quiet and upset. He told Betty what had happened.`, narrationNeedsRebuild: true },
+      { pageNumber: 3, text: `"That is not okay," Betty said. "You can tell him to stop. Then we can tell a grown-up."`, narrationNeedsRebuild: true },
+      { pageNumber: 4, text: `That night, Aiden made a plan. He would speak clearly, walk away, and tell Miss Okafor. Socks sat beside him.`, narrationNeedsRebuild: true },
+      { pageNumber: 5, text: `On Friday, Marcus used the silly name again. Betty looked at him. "His name is Aiden. Please stop," she said.`, narrationNeedsRebuild: true },
+      { pageNumber: 6, text: `Aiden was glad Betty helped. He wanted to try the words himself next time. "I will stand with you," Betty said.`, narrationNeedsRebuild: true },
+      { pageNumber: 7, text: `On Monday, Marcus said it again. Aiden faced him. "My name is Aiden. Stop," he said in a clear voice.`, narrationNeedsRebuild: true },
+      { pageNumber: 8, text: `Aiden walked away with Betty. They told Miss Okafor what had happened. She listened and said she would help.`, narrationNeedsRebuild: true },
+      { pageNumber: 9, text: `That evening, Aiden felt proud. He had spoken clearly, walked away, and asked for help. Socks rested by his feet.`, narrationNeedsRebuild: true },
+      { pageNumber: 10, text: `Betty put a hand on Aiden's shoulder. "You did well," she said.`, narrationNeedsRebuild: true },
+      { pageNumber: 11, text: `A week later, Marcus bumped Aiden's tray by accident. "Sorry, Aiden," Marcus said. Aiden nodded.`, narrationNeedsRebuild: true },
+      { pageNumber: 12, text: `Miss Okafor talked with the class about bullying. "If someone keeps being unkind, tell them to stop and tell an adult," she said.`, narrationNeedsRebuild: true },
+      { pageNumber: 13, text: `"You can speak, move away, and ask for help," Miss Okafor said. "Bullying is never your fault." Aiden remembered her words.`, narrationNeedsRebuild: true }
     ]
   }),
   createAidenAndBettyBook({
@@ -2425,19 +2440,19 @@ export const guidedReadingSeriesBooks = [
     sightWords: ["the", "was", "said", "they", "with", "there", "because", "through"],
     targetPatterns: ["level-c", "body-vocabulary", "dialogue", "emotional-arc"],
     pages: [
-      { pageNumber: 1, text: `It started with a slight wobble. Aiden was eating an apple when he felt, for the first time in his life, that one of his front teeth was moving in a way that front teeth were definitely not supposed to move.` },
-      { pageNumber: 2, text: `He told Betty. Betty got the torch and studied it with great interest. "It's definitely loose," she said. "It'll fall out and a permanent one will grow. That's much better, actually." Aiden was not entirely sure that it was.` },
-      { pageNumber: 3, text: `That night, Aiden worried about the tooth. It felt wrong — like something was breaking. He wrote in his notebook: Things that are strange: losing a tooth. Also, why teeth? Socks sat on the desk and watched him with great curiosity.` },
-      { pageNumber: 4, text: `Mum said it was completely normal and that they had both lost teeth before when they were smaller — Aiden had even eaten one inside a peanut butter sandwich and not noticed for an hour. Aiden was not certain this was reassuring.` },
-      { pageNumber: 5, text: `Betty lost her first tooth the very next day, which nobody had seen coming. It came out at lunch, and she held it up and examined it with great interest before putting it in her pocket, as if this were a routine scientific procedure.` },
-      { pageNumber: 6, text: `"Does it hurt?" said Aiden. "Not really," said Betty. "It felt strange for a second. Then it was over." She looked at the gap in her mouth in a small mirror. "It's just a tooth," she said. "A very old, very small tooth."` },
-      { pageNumber: 7, text: `Aiden's tooth came out on a Thursday. Not dramatically — he was reading his book and he touched it and then it was just there in his fingers, which was very quick and very strange and did not hurt at all.` },
-      { pageNumber: 8, text: `He held it up for a long time. It was tiny. It was the smallest thing that had ever felt significant. He put it in the small envelope Mum left for him, and when he placed it under his pillow it felt ceremonial.` },
-      { pageNumber: 9, text: `In the morning, the tooth was gone and there was a coin in its place. Aiden knew, in the way children who read a lot know things, that it was Mum or Dad who had swapped it. He said nothing, because some things are better left as stories.` },
-      { pageNumber: 10, text: `Three weeks later, the new tooth began to come through. It was enormous relative to the gap — a proper square adult tooth in a mouth that had been full of small rounded baby ones. Aiden looked at himself in the mirror and felt extremely strange.` },
-      { pageNumber: 11, text: `"You don't look strange," said Betty. "You look older." She said it the way she said true things — simply, as though it were just a fact. Aiden looked in the mirror again. It was going to take some getting used to.` },
-      { pageNumber: 12, text: `Socks was fascinated by both of them through this whole period. He kept trying to look in their mouths. He seemed to find it deeply interesting, which Aiden added to the field notebook under: Primate-specific dental curiosity — possible.` },
-      { pageNumber: 13, text: `"I think he'll be disappointed when we stop changing," said Aiden. "He already has all the teeth he'll get," said Betty. Socks demonstrated this by grinning at them both from very close range, showing every single tooth.` }
+      { pageNumber: 1, text: `Aiden bit into an apple. One front tooth gave a little wobble. He touched it gently. "My tooth is loose!" he said.`, narrationNeedsRebuild: true },
+      { pageNumber: 2, text: `Betty looked with a small torch. "It is a baby tooth," she said. "It will fall out, and a new tooth will grow."`, narrationNeedsRebuild: true },
+      { pageNumber: 3, text: `That night, Aiden felt worried. Losing a tooth seemed strange. Socks sat by his desk while Aiden thought about it.`, narrationNeedsRebuild: true },
+      { pageNumber: 4, text: `Mum said loose teeth were normal. "Everyone loses baby teeth as they grow," she said. Aiden felt a little better.`, narrationNeedsRebuild: true },
+      { pageNumber: 5, text: `At lunch the next day, Betty lost a tooth too. She looked at the tiny tooth, then wrapped it in a clean tissue.`, narrationNeedsRebuild: true },
+      { pageNumber: 6, text: `"Did it hurt?" Aiden asked. "Only for a moment," Betty said. She smiled at the new gap in her teeth.`, narrationNeedsRebuild: true },
+      { pageNumber: 7, text: `On Thursday, Aiden's tooth came out while he was reading. It was quick, and it did not hurt.`, narrationNeedsRebuild: true },
+      { pageNumber: 8, text: `The tooth was tiny. Aiden put it in a small envelope. Then he tucked the envelope under his pillow.`, narrationNeedsRebuild: true },
+      { pageNumber: 9, text: `In the morning, the envelope was gone. A coin lay under the pillow. Aiden smiled. Mum smiled too.`, narrationNeedsRebuild: true },
+      { pageNumber: 10, text: `Three weeks later, a new tooth began to grow in the gap. It looked bigger than his baby teeth.`, narrationNeedsRebuild: true },
+      { pageNumber: 11, text: `"You do not look strange," Betty said. "You look a little older." Aiden looked in the mirror and smiled.`, narrationNeedsRebuild: true },
+      { pageNumber: 12, text: `Socks sniffed near Aiden's smile. Then he sniffed near Betty's. He was curious about their new tooth gaps.`, narrationNeedsRebuild: true },
+      { pageNumber: 13, text: `"Soon we will both have new teeth," Aiden said. Socks wagged his tail. The gaps did not bother him at all.`, narrationNeedsRebuild: true }
     ]
   }),
   createAidenAndBettyBook({
@@ -2448,19 +2463,19 @@ export const guidedReadingSeriesBooks = [
     sightWords: ["the", "was", "said", "they", "with", "there", "through", "before"],
     targetPatterns: ["level-c", "history-vocabulary", "dialogue", "reflection"],
     pages: [
-      { pageNumber: 1, text: `Dad had been talking about the castle trip since January. A proper medieval castle, forty minutes away — with a tower you could actually climb, a dungeon that was a real dungeon, and a great hall whose stone floor had been there for six hundred years. Betty had already read a book about it.` },
-      { pageNumber: 2, text: `They drove there on a bright Saturday in April. Aiden pressed his face to the car window when the castle appeared over the hill — grey stone towers above the treeline, impossibly old and very much still there. He felt something he didn't yet have a word for.` },
-      { pageNumber: 3, text: `The entrance was a proper drawbridge — working, over a real water-filled moat. It was smaller than he'd imagined and more real than he'd imagined. Aiden crossed it one step at a time, listening to the echo of his footsteps on old wood, thinking about every person who had crossed it before him.` },
-      { pageNumber: 4, text: `The great hall was vast and grey and cool. The stone floor was uneven and worn in paths where feet had walked for centuries. Aiden crouched and pressed his hand flat to the floor. Six hundred years of footsteps had passed here. He could not quite hold that thought all at once.` },
-      { pageNumber: 5, text: `Betty had the guide map. She navigated with precise efficiency — Great Hall, Armoury, North Tower, King's Chamber, Dungeon — the best order for minimum backtracking. Aiden followed behind her, reading every information board they passed, completely at home in a world of facts.` },
-      { pageNumber: 6, text: `In the armoury, there was a full suit of plate armour. It was smaller than Aiden expected. The guide told them that real knights were roughly the same size as Dad, which was very hard to imagine. Aiden tried on a gauntlet under supervision. His hand barely fit inside.` },
-      { pageNumber: 7, text: `The dungeon was underground and smelled of cold stone and old air. Betty read every board by torchlight. Aiden stood still in the near-dark for a moment and thought about how this exact place had been here through everything — and felt briefly, appropriately small.` },
-      { pageNumber: 8, text: `The North Tower had one hundred and twelve steps. They counted every one, out loud, all together. The staircase was so narrow they had to go single file. At the top: the whole landscape, the river, the town, a motorway miles away. The same view and entirely different.` },
-      { pageNumber: 9, text: `"Imagine standing here," said Betty quietly, "and not knowing what was coming." Aiden thought about that for a long time, looking out. There was something important in it he couldn't quite hold yet. He wrote it in his notebook anyway, to think about later.` },
-      { pageNumber: 10, text: `On the way down, Aiden stopped at a narrow slit window in the tower wall — an arrow loop. He looked through it. The angle was exact — a perfect line of sight across the approach. Everything in this building was designed for a specific purpose.` },
-      { pageNumber: 11, text: `In the castle shop, Betty bought a small accurate model of the castle as it looked in 1350, before a section of wall fell. Aiden bought a book on medieval building techniques. Dad bought a novelty ceramic goblet that Mum said, quietly but firmly, would not be coming into the kitchen.` },
-      { pageNumber: 12, text: `The drive home was quiet in the way that follows something large. "What are you thinking about?" said Mum. Aiden and Betty both answered at the same time, with completely different answers. "That," said Mum, "is exactly right."` },
-      { pageNumber: 13, text: `That evening, Aiden wrote in his field notebook for a long time — the drawbridge, the worn floor, the arrow loop, the view. At the bottom of the last page he wrote: Things were happening before we got here. They'll keep happening after. That's not sad. That's just how big it is. He underlined it.` }
+      { pageNumber: 1, text: `Dad showed Aiden and Betty a picture of a castle. "We can visit it on Saturday," he said. Betty found a book to take with them.`, narrationNeedsRebuild: true },
+      { pageNumber: 2, text: `On Saturday, Mum drove. Dad sat beside her. Aiden and Betty wore their seat belts in the back. Soon, the castle appeared on the hill.`, narrationNeedsRebuild: true },
+      { pageNumber: 3, text: `They crossed a wooden bridge over the moat. Aiden heard each step tap on the old boards. Betty checked the picture map.`, narrationNeedsRebuild: true },
+      { pageNumber: 4, text: `The great hall was tall, cool, and quiet. Some floor stones were smooth from many years of footsteps. Aiden bent down to look.`, narrationNeedsRebuild: true },
+      { pageNumber: 5, text: `Betty held the picture map. First came the great hall. Next came the armour room. Then they would climb the tower.`, narrationNeedsRebuild: true },
+      { pageNumber: 6, text: `In the armour room, a guide showed them a suit of plate armour. Aiden tried on one heavy glove while the guide watched.`, narrationNeedsRebuild: true },
+      { pageNumber: 7, text: `Stone steps led to a dark room below the castle. Soft wall lights showed the way. Betty studied a picture board while Dad stayed close.`, narrationNeedsRebuild: true },
+      { pageNumber: 8, text: `The tower had one hundred and twelve steps. They walked in one line. From the top, they could see the river, town, and fields.`, narrationNeedsRebuild: true },
+      { pageNumber: 9, text: `"People looked from this tower long ago," Betty said. Aiden drew the wide view in his notebook.`, narrationNeedsRebuild: true },
+      { pageNumber: 10, text: `On the way down, Aiden found a narrow slit in the wall. A guide explained that archers could see out while staying behind thick stone.`, narrationNeedsRebuild: true },
+      { pageNumber: 11, text: `In the shop, Betty chose a small castle model. Aiden chose a picture book. Dad held up a funny cup. Mum laughed.`, narrationNeedsRebuild: true },
+      { pageNumber: 12, text: `On the drive home, Mum asked what they liked best. Aiden chose the worn floor. Betty chose the view from the tower.`, narrationNeedsRebuild: true },
+      { pageNumber: 13, text: `That evening, Aiden drew four things: the bridge, the hall, the narrow slit, and the view. His page helped him remember the day.`, narrationNeedsRebuild: true }
     ]
   }),
   createDinoPalsBook({
@@ -2501,14 +2516,14 @@ export const guidedReadingSeriesBooks = [
     bookNumber: 3,
     theme: "waking sleepy Dozy",
     pages: [
-      { pageNumber: 1, text: "It was morning in Sunny Hollow. Everyone was up. Everyone except Dozy." },
-      { pageNumber: 2, text: "Wake up, Dozy! called Bouncy. Dozy did not wake up." },
-      { pageNumber: 3, text: "Wake up, Dozy! called Zippy. Dozy did not wake up." },
-      { pageNumber: 4, text: "WAKE UP, DOZY! called Honky. Dozy did not wake up." },
-      { pageNumber: 5, text: "We have a problem, said Bossy. We need Dozy for the picnic!" },
-      { pageNumber: 6, text: "Chompy had an idea. Chompy found the biggest, yummiest lunch in Sunny Hollow." },
-      { pageNumber: 7, text: "Dozy sniffed. Dozy opened one eye. Is that... lunch? said Dozy." },
-      { pageNumber: 8, text: "Dozy was up! I was just resting my eyes, said Dozy. Dozy's eyes were already closing again." }
+      { pageNumber: 1, text: `It was morning in Sunny Hollow. Everyone was up. Everyone except Dozy.`, narrationNeedsRebuild: true },
+      { pageNumber: 2, text: `"Wake up, Dozy!" called Bouncy. Dozy did not wake up.`, narrationNeedsRebuild: true },
+      { pageNumber: 3, text: `"Wake up, Dozy!" called Zippy. Dozy did not wake up.`, narrationNeedsRebuild: true },
+      { pageNumber: 4, text: `"Wake up, Dozy!" called Honky. Dozy did not wake up.`, narrationNeedsRebuild: true },
+      { pageNumber: 5, text: `"We have a problem," said Bossy. "We need Dozy for the picnic!"`, narrationNeedsRebuild: true },
+      { pageNumber: 6, text: `Chompy had an idea. Chompy found the biggest, yummiest lunch in Sunny Hollow.`, narrationNeedsRebuild: true },
+      { pageNumber: 7, text: `Dozy sniffed. He opened one eye. "Is that... lunch?" he asked.`, narrationNeedsRebuild: true },
+      { pageNumber: 8, text: `Dozy got up. "I was just resting my eyes," he said. His eyes were already closing again.`, narrationNeedsRebuild: true }
     ]
   }),
   createDinoPalsBook({
@@ -2517,14 +2532,14 @@ export const guidedReadingSeriesBooks = [
     bookNumber: 4,
     theme: "accepting help",
     pages: [
-      { pageNumber: 1, text: "Grumpy was stuck. Grumpy's tail was caught under a big rock." },
-      { pageNumber: 2, text: "I do NOT need help, said Grumpy." },
-      { pageNumber: 3, text: "Can I help? said Sunny. NO, said Grumpy." },
-      { pageNumber: 4, text: "Can I help? said Bouncy. NO, said Grumpy. Bouncy bounced anyway." },
-      { pageNumber: 5, text: "Can WE help? said all the Dino Pals. NO! said Grumpy." },
-      { pageNumber: 6, text: "Grumpy pulled and pulled. Grumpy was still stuck." },
-      { pageNumber: 7, text: "Oh, fine, said Grumpy quietly. All the Dino Pals helped together. POP!" },
-      { pageNumber: 8, text: "Thank you, said Grumpy. Not that I needed it. But Grumpy was smiling. Just a little." }
+      { pageNumber: 1, text: `Grumpy was stuck. His tail was caught under a big rock.`, narrationNeedsRebuild: true },
+      { pageNumber: 2, text: `"I do not need help," said Grumpy.`, narrationNeedsRebuild: true },
+      { pageNumber: 3, text: `"Can I help?" asked Sunny. "No," said Grumpy.`, narrationNeedsRebuild: true },
+      { pageNumber: 4, text: `"Can I help?" asked Bouncy. "No," said Grumpy. Bouncy stayed close.`, narrationNeedsRebuild: true },
+      { pageNumber: 5, text: `"Can we help?" asked all the Dino Pals. "No!" said Grumpy.`, narrationNeedsRebuild: true },
+      { pageNumber: 6, text: `Grumpy pulled and pulled. His tail was still stuck.`, narrationNeedsRebuild: true },
+      { pageNumber: 7, text: `"Oh, fine," Grumpy said quietly. The Dino Pals pushed together. His tail sprang free!`, narrationNeedsRebuild: true },
+      { pageNumber: 8, text: `"Thank you," said Grumpy. "I did need some help." He smiled a little.`, narrationNeedsRebuild: true }
     ]
   }),
   createDinoPalsBook({
@@ -2549,14 +2564,14 @@ export const guidedReadingSeriesBooks = [
     bookNumber: 6,
     theme: "self-control and movement",
     pages: [
-      { pageNumber: 1, text: "Bouncy woke up. Bouncy bounced straight into the cave wall. BONK!" },
-      { pageNumber: 2, text: "Bouncy bounced to the waterfall. Bouncy bumped into Fancy. BOING!" },
-      { pageNumber: 3, text: "MY SAIL! cried Fancy. Sorry! called Bouncy, already bouncing away." },
-      { pageNumber: 4, text: "Bouncy bumped into Wiggly. CRASH! Wiggly knocked over everything. Again." },
-      { pageNumber: 5, text: "Bouncy bumped into Sneezy. Sneezy took a HUGE breath in..." },
-      { pageNumber: 6, text: "AAAACHOOOO! Leaves, berries, and Bossy's clipboard all blew away." },
-      { pageNumber: 7, text: "All the Dino Pals looked at Bouncy. Sorry, said Bouncy, smiling." },
-      { pageNumber: 8, text: "Maybe I should bounce in the meadow, said Bouncy. BOING! BOING! BOING!" }
+      { pageNumber: 1, text: `Bouncy woke up and bounced into the cave wall. He stopped and rubbed his head.`, narrationNeedsRebuild: true },
+      { pageNumber: 2, text: `Bouncy bounced to the waterfall. He bumped into Fancy by mistake.`, narrationNeedsRebuild: true },
+      { pageNumber: 3, text: `"My sail!" cried Fancy. "I am sorry," said Bouncy. He stopped to check that she was all right.`, narrationNeedsRebuild: true },
+      { pageNumber: 4, text: `Next, Bouncy bumped into Wiggly. A basket of berries tipped over. They picked them up together.`, narrationNeedsRebuild: true },
+      { pageNumber: 5, text: `Then Bouncy bumped into Sneezy. Sneezy took a huge breath in.`, narrationNeedsRebuild: true },
+      { pageNumber: 6, text: `Sneezy sneezed. Leaves, berries, and Bossy's blank clipboard flew through the air.`, narrationNeedsRebuild: true },
+      { pageNumber: 7, text: `The Dino Pals looked at Bouncy. "I am sorry," he said. This time, he listened.`, narrationNeedsRebuild: true },
+      { pageNumber: 8, text: `"I need a safe place to bounce," said Bouncy. He went to the wide empty meadow and watched where he landed.`, narrationNeedsRebuild: true }
     ]
   }),
   createDinoPalsBook({
@@ -2565,14 +2580,14 @@ export const guidedReadingSeriesBooks = [
     bookNumber: 7,
     theme: "messy accidents and acceptance",
     pages: [
-      { pageNumber: 1, text: "Wiggly woke up carefully. Today, said Wiggly, I will not knock anything over." },
-      { pageNumber: 2, text: "Wiggly walked carefully. Wiggly's tail knocked over Chompy's breakfast. Sorry, Chompy!" },
-      { pageNumber: 3, text: "Wiggly walked very carefully. Wiggly's tail knocked Grumpy's favourite rock. Hmph! said Grumpy." },
-      { pageNumber: 4, text: "Wiggly walked SO carefully. Wiggly's tail knocked Fancy into the mud puddle. Oh no." },
-      { pageNumber: 5, text: "Wiggly sat very, very still. The tail still knocked over three berries and a leaf." },
-      { pageNumber: 6, text: "Wiggly felt sad. My tail has a mind of its own, said Wiggly." },
-      { pageNumber: 7, text: "I like your tail, said Dozy sleepily. It fans me while I nap. The Dino Pals all agreed." },
-      { pageNumber: 8, text: "Wiggly smiled. Current score, said Wiggly. Tail: twelve. Wiggly: also twelve." }
+      { pageNumber: 1, text: `Wiggly woke up carefully. "Today I will watch my long tail," he said.`, narrationNeedsRebuild: true },
+      { pageNumber: 2, text: `Wiggly walked carefully. His tail tipped Chompy's breakfast. "Sorry, Chompy!" he said. He helped clean it up.`, narrationNeedsRebuild: true },
+      { pageNumber: 3, text: `Wiggly walked even more carefully. His tail bumped Grumpy's favourite rock. "Hmph!" said Grumpy.`, narrationNeedsRebuild: true },
+      { pageNumber: 4, text: `Wiggly tried again. His tail splashed Fancy into a mud puddle. "Oh no!" said Wiggly.`, narrationNeedsRebuild: true },
+      { pageNumber: 5, text: `Wiggly sat very still. His tail rolled three berries and one leaf away.`, narrationNeedsRebuild: true },
+      { pageNumber: 6, text: `Wiggly felt sad. "My tail is hard to watch," he said.`, narrationNeedsRebuild: true },
+      { pageNumber: 7, text: `"Your tail can help too," Dozy said. "It makes a cool breeze when you move it slowly." The Pals smiled.`, narrationNeedsRebuild: true },
+      { pageNumber: 8, text: `Wiggly placed bright stones around his tail to show how much room it needed. "Now I can watch my space," he said.`, narrationNeedsRebuild: true }
     ]
   }),
   createDinoPalsBook({
@@ -2581,14 +2596,14 @@ export const guidedReadingSeriesBooks = [
     bookNumber: 8,
     theme: "slowing down to notice",
     pages: [
-      { pageNumber: 1, text: "Zippy ran to the waterfall. Zippy ran back. Zippy ran to the meadow. Zippy ran back." },
-      { pageNumber: 2, text: "Zippy! called Sunny. Where are you going? I DON'T KNOW! called Zippy, already gone." },
-      { pageNumber: 3, text: "Zippy ran so fast that Zippy ran right past the picnic. And the waterfall. And Sunny Hollow." },
-      { pageNumber: 4, text: "Zippy stopped. Where was Sunny Hollow? Zippy had never stopped before." },
-      { pageNumber: 5, text: "It was very quiet. Zippy looked around. There were flowers. There was a big blue sky." },
-      { pageNumber: 6, text: "Oh, said Zippy. This is... nice. Zippy sat down. Zippy had never sat down before." },
-      { pageNumber: 7, text: "Sunny found Zippy. I was looking at a flower, said Zippy. I went past it twelve times first." },
-      { pageNumber: 8, text: "Zippy walked home. Slowly. It took ages. Zippy loved it." }
+      { pageNumber: 1, text: `Zippy ran to the waterfall and back. Then he ran to the meadow and back.`, narrationNeedsRebuild: true },
+      { pageNumber: 2, text: `"Zippy!" called Sunny. "Where are you going?" "I do not know!" Zippy called as he ran past.`, narrationNeedsRebuild: true },
+      { pageNumber: 3, text: `Zippy ran past the picnic, the waterfall, and Sunny Hollow. He did not stop.`, narrationNeedsRebuild: true },
+      { pageNumber: 4, text: `At last, Zippy stopped. "Where am I?" he asked. He could not see Sunny Hollow.`, narrationNeedsRebuild: true },
+      { pageNumber: 5, text: `The valley was quiet. Zippy noticed small flowers under a wide blue sky.`, narrationNeedsRebuild: true },
+      { pageNumber: 6, text: `"This is nice," Zippy said. He sat beside the flowers and took a slow breath.`, narrationNeedsRebuild: true },
+      { pageNumber: 7, text: `Sunny found him. "I stopped to look at this flower," Zippy said. "I ran past it many times."`, narrationNeedsRebuild: true },
+      { pageNumber: 8, text: `Zippy walked home with Sunny. He went slowly enough to see the trees, clouds, and path.`, narrationNeedsRebuild: true }
     ]
   }),
   createDinoPalsBook({
@@ -2597,14 +2612,14 @@ export const guidedReadingSeriesBooks = [
     bookNumber: 9,
     theme: "voice volume and usefulness",
     pages: [
-      { pageNumber: 1, text: "GOOD MORNING SUNNY HOLLOW! called Honky. Every leaf fell off every tree." },
-      { pageNumber: 2, text: "Shh! said Grumpy. SORRY! said Honky. More leaves fell." },
-      { pageNumber: 3, text: "Honky, said Bossy, you need an inside voice. What is an inside voice? A quiet one. I do not have one of those." },
-      { pageNumber: 4, text: "Honky tried very hard to be quiet. Hello, whispered Honky. It still blew Chompy's bib sideways." },
-      { pageNumber: 5, text: "Honky felt sad. I am just too loud, said Honky. Sorry. TOOT." },
-      { pageNumber: 6, text: "Then a thunderstorm came. Dozy woke up frightened. All the Dino Pals hid." },
-      { pageNumber: 7, text: "IT IS OKAY! called Honky. Honky's voice was louder than the thunder. Dozy stopped shaking." },
-      { pageNumber: 8, text: "Maybe Honky's voice is very useful after all, said Bossy. THANK YOU! said Honky. Every leaf fell off again." }
+      { pageNumber: 1, text: `It was morning in Sunny Hollow. "Good morning!" called Honky. His big voice shook leaves from a tree.`, narrationNeedsRebuild: true },
+      { pageNumber: 2, text: `"That voice is too big for breakfast," said Grumpy. Honky tried again. "Good morning," he said more softly.`, narrationNeedsRebuild: true },
+      { pageNumber: 3, text: `"A voice can be big or small," said Bossy. "Use a small voice when friends are close."`, narrationNeedsRebuild: true },
+      { pageNumber: 4, text: `Honky took a slow breath. "Hello, Chompy," he said softly. Chompy's bib stayed still.`, narrationNeedsRebuild: true },
+      { pageNumber: 5, text: `"I did it!" Honky said. His voice grew big again. "I can try once more," he said.`, narrationNeedsRebuild: true },
+      { pageNumber: 6, text: `Dark clouds gathered. Thunder boomed. Dozy woke with a jump. Rain began to fall.`, narrationNeedsRebuild: true },
+      { pageNumber: 7, text: `"This way to the safe cave!" Honky called. His big voice helped every Dino Pal hear him.`, narrationNeedsRebuild: true },
+      { pageNumber: 8, text: `In the cave, Bossy smiled. "A small voice for talking. A big voice when we need it." Honky nodded. "I understand."`, narrationNeedsRebuild: true }
     ]
   }),
   createDinoPalsBook({
@@ -2613,14 +2628,14 @@ export const guidedReadingSeriesBooks = [
     bookNumber: 10,
     theme: "pranks and consequences",
     pages: [
-      { pageNumber: 1, text: "Cheeky had an idea. Cheeky always had ideas. Most of them were pranks." },
-      { pageNumber: 2, text: "Cheeky hid in the ferns. Cheeky tied Wiggly's tail to a tree. Hee hee, said Cheeky." },
-      { pageNumber: 3, text: "Wiggly walked off. BOING! Wiggly bounced back. My tail is stuck! HEE HEE HEE! said Cheeky." },
-      { pageNumber: 4, text: "Next: Cheeky put mud on Fancy's favourite rock. Fancy sat down. OH! cried Fancy." },
-      { pageNumber: 5, text: "Cheeky laughed and laughed. But then Cheeky slipped on the same mud. SPLAT!" },
-      { pageNumber: 6, text: "Now Cheeky was muddy. The Dino Pals looked at Cheeky. Cheeky looked at the Dino Pals." },
-      { pageNumber: 7, text: "Even Cheeky had to laugh. Okay, said Cheeky. That one was funny." },
-      { pageNumber: 8, text: "Cheeky helped clean Fancy's rock. Will you do any more pranks? asked Fancy. Maybe just one more, said Cheeky. And winked." }
+      { pageNumber: 1, text: `Cheeky wanted to make the Dino Pals laugh. "I need a funny surprise," he said.`, narrationNeedsRebuild: true },
+      { pageNumber: 2, text: `Cheeky hid beside the path. He put a soft leaf hat on a low branch for Wiggly to find.`, narrationNeedsRebuild: true },
+      { pageNumber: 3, text: `Wiggly found the hat. It fell over his eyes. Cheeky laughed, but Wiggly did not.`, narrationNeedsRebuild: true },
+      { pageNumber: 4, text: `Next, Cheeky spread mud on Fancy's favourite rock. Fancy sat down. "Oh!" cried Fancy.`, narrationNeedsRebuild: true },
+      { pageNumber: 5, text: `Cheeky laughed and stepped back. He slipped in the mud. Now he was muddy too.`, narrationNeedsRebuild: true },
+      { pageNumber: 6, text: `The Dino Pals helped Cheeky up. "My jokes hurt your feelings," he said. "I am sorry."`, narrationNeedsRebuild: true },
+      { pageNumber: 7, text: `Cheeky asked Wiggly and Fancy, "What makes you laugh?" They made silly faces together.`, narrationNeedsRebuild: true },
+      { pageNumber: 8, text: `Cheeky cleaned Fancy's rock. Then the friends planned a joke everyone could enjoy.`, narrationNeedsRebuild: true }
     ]
   }),
   createDinoPalsBook({
@@ -2629,18 +2644,18 @@ export const guidedReadingSeriesBooks = [
     bookNumber: 11,
     theme: "quiet kindness and friendship",
     pages: [
-      { pageNumber: 1, text: "Every morning, the Dino Pals found a small gift on the Big Flat Rock. Nobody knew who left them." },
-      { pageNumber: 2, text: "One day it was a smooth pebble for Grumpy. Someone knows I like pebbles, said Grumpy, suspicious but pleased." },
-      { pageNumber: 3, text: "One day it was a pile of extra berries for Chompy. Someone knows me very well, said Chompy, already eating them." },
-      { pageNumber: 4, text: "One day it was a leafy fan for Dozy. This is perfect, said Dozy, already asleep with it." },
-      { pageNumber: 5, text: "Who is leaving these gifts? said Bossy. I need to know. It is not on my clipboard." },
-      { pageNumber: 6, text: "Bouncy thought it was a ghost. Zippy ran everywhere looking, very fast. Honky called out asking. Every leaf fell off." },
-      { pageNumber: 7, text: "Cheeky had a plan. Cheeky would stay up all night to watch. Cheeky fell asleep at midnight." },
-      { pageNumber: 8, text: "One morning, Sunny stayed very still and very quiet behind a fern. Sunny waited." },
-      { pageNumber: 9, text: "Sunny saw two small eyes behind a rock. And two small pink paws placing a tiny woven grass bracelet on the rock." },
-      { pageNumber: 10, text: "Shy! said Sunny, softly. The gifts are from you, aren't they? Shy nodded, going very pink." },
-      { pageNumber: 11, text: "They were the best gifts we ever had, said Sunny. Will you come and sit with us? Shy came out. Just a little way. But it was something." },
-      { pageNumber: 12, text: "The next morning, eleven gifts were on the Big Flat Rock. One from each Dino Pal. A small pink paw reached out and took them, one by one." }
+      { pageNumber: 1, text: `Each morning, the Dino Pals found a small gift on the Big Flat Rock. No one knew who left it.`, narrationNeedsRebuild: true },
+      { pageNumber: 2, text: `One day, Grumpy found a smooth pebble. "Someone knows I like pebbles," he said.`, narrationNeedsRebuild: true },
+      { pageNumber: 3, text: `One day, Chompy found extra berries. "Someone knows me well!" he said, already eating.`, narrationNeedsRebuild: true },
+      { pageNumber: 4, text: `One day, Dozy found a leafy fan. "Perfect," he said, before falling asleep under it.`, narrationNeedsRebuild: true },
+      { pageNumber: 5, text: `"Who leaves the gifts?" asked Bossy. "We can watch quietly."`, narrationNeedsRebuild: true },
+      { pageNumber: 6, text: `Bouncy looked behind bushes. Zippy checked every path. Honky called out. They found no one.`, narrationNeedsRebuild: true },
+      { pageNumber: 7, text: `Cheeky kept watch after supper. He tried to stay awake, but soon he was asleep.`, narrationNeedsRebuild: true },
+      { pageNumber: 8, text: `The next morning, Sunny waited quietly behind a fern.`, narrationNeedsRebuild: true },
+      { pageNumber: 9, text: `She saw two small pink feet step from behind a rock. A tiny grass bracelet was placed on top.`, narrationNeedsRebuild: true },
+      { pageNumber: 10, text: `"Shy?" Sunny asked softly. Shy nodded and tucked behind the rock.`, narrationNeedsRebuild: true },
+      { pageNumber: 11, text: `"Your gifts are kind," said Sunny. "Would you like to sit with us?" Shy came out a little way.`, narrationNeedsRebuild: true },
+      { pageNumber: 12, text: `The next morning, eleven small gifts waited on the Big Flat Rock. The Pals had made one for Shy.`, narrationNeedsRebuild: true }
     ]
   }),
   createDinoPalsBook({
@@ -2692,7 +2707,7 @@ export const guidedReadingSeriesBooks = [
       { pageNumber: 1, text: "Flappy woke up and tried to fly. Flappy got three wing-flaps up. Then landed in the mud." },
       { pageNumber: 2, text: "I should be able to fly, said Flappy. I have wings. You are also a dinosaur, said Grumpy. Dinosaurs do not fly." },
       { pageNumber: 3, text: "Bossy flies, said Flappy. Bossy is a Pterodactyl. You are an Archaeopteryx. That is different. How is it different? said Flappy. Grumpy did not actually know." },
-      { pageNumber: 4, text: "Flappy asked Sunny. You are wonderful just as you are! said Sunny. But what AM I? said Flappy. Wonderful! said Sunny. Flappy went away still confused." },
+      { pageNumber: 4, text: "Flappy went to ask Sunny. Am I a dinosaur or a bird? asked Flappy. You are wonderful just as you are! said Sunny. But what am I? asked Flappy. Wonderful! said Sunny. Flappy left, still confused.", narrationNeedsRebuild: true },
       { pageNumber: 5, text: "Flappy tried roaring like the other dinosaurs. A small squawk came out. Some feathers drifted down." },
       { pageNumber: 6, text: "Flappy tried stomping. Flappy's feet were quite small. Nobody noticed." },
       { pageNumber: 7, text: "Flappy tried nesting in a tree. This part actually worked quite well. Flappy was surprised." },

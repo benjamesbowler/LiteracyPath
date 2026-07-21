@@ -54,10 +54,135 @@ export const moonwoodTalesBooks = [
     "coverImage": "/guided-reading/series/moonwood-tales/book-01/cover.webp",
     "fullBookAudio": "/guided-reading/series/moonwood-tales/book-01/audio/full-book.mp3",
     "targetSkills": [
-      "level-c",
-      "fiction",
-      "moonwood-tales",
-      "longer-story-pages"
+      "pip",
+      "was",
+      "walking",
+      "through",
+      "moonwood",
+      "when",
+      "his",
+      "foot",
+      "kicked",
+      "something",
+      "small",
+      "it",
+      "a",
+      "tiny",
+      "stone",
+      "glowed",
+      "with",
+      "soft",
+      "gold",
+      "light",
+      "what",
+      "is",
+      "this",
+      "said",
+      "he",
+      "picked",
+      "up",
+      "carefully",
+      "the",
+      "glow",
+      "made",
+      "fingers",
+      "feel",
+      "warm",
+      "burrow",
+      "appeared",
+      "from",
+      "nearby",
+      "tunnel",
+      "that",
+      "bravery",
+      "whoever",
+      "holds",
+      "will",
+      "brave",
+      "looked",
+      "at",
+      "but",
+      "i",
+      "don't",
+      "same",
+      "as",
+      "always",
+      "try",
+      "feels",
+      "hard",
+      "tumblerock",
+      "cliffs",
+      "chose",
+      "low",
+      "practice",
+      "wall",
+      "guide",
+      "placed",
+      "thick",
+      "mat",
+      "below",
+      "began",
+      "to",
+      "climb",
+      "pip's",
+      "legs",
+      "felt",
+      "wobbly",
+      "stood",
+      "close",
+      "and",
+      "cheered",
+      "path",
+      "used",
+      "strong",
+      "one",
+      "time",
+      "soon",
+      "reached",
+      "top",
+      "did",
+      "tucked",
+      "safely",
+      "into",
+      "pocket",
+      "then",
+      "walked",
+      "toward",
+      "fog",
+      "marsh",
+      "grey",
+      "rustled",
+      "in",
+      "reeds",
+      "kept",
+      "came",
+      "out",
+      "other",
+      "side",
+      "evening",
+      "sat",
+      "by",
+      "crystal",
+      "stream",
+      "had",
+      "gone",
+      "run",
+      "of",
+      "asked",
+      "smiled",
+      "doesn't",
+      "do",
+      "anything",
+      "wanted",
+      "see",
+      "you",
+      "would",
+      "were",
+      "for",
+      "long",
+      "i'll",
+      "keep",
+      "remember"
     ],
     "sightWords": [
       "the",
@@ -130,19 +255,243 @@ export const moonwoodTalesBooks = [
       },
       {
         "pageNumber": 5,
-        "text": "\"Try something scary,\" said Burrow. So Pip walked to the Tumblerock Cliffs. He found the high ledge and began to climb.",
+        "text": "\"Try something that feels hard,\" said Burrow. At Tumblerock Cliffs, Pip chose the low practice wall. A guide placed a thick mat below. Pip began to climb.",
         "image": "/guided-reading/series/moonwood-tales/book-01/page-005.webp",
         "audio": "/guided-reading/series/moonwood-tales/book-01/audio/page-005.mp3",
         "pageAudio": "/guided-reading/series/moonwood-tales/book-01/audio/page-005.mp3",
-        "words": []
+        "narrationNeedsRebuild": true,
+        "words": [
+          {
+            "text": "Try",
+            "audioPath": "/guided-reading/audio/words/try.mp3"
+          },
+          {
+            "text": "something",
+            "audioPath": "/guided-reading/audio/words/something.mp3"
+          },
+          {
+            "text": "that",
+            "audioPath": "/guided-reading/audio/words/that.mp3"
+          },
+          {
+            "text": "feels",
+            "audioPath": "/guided-reading/audio/words/feels.mp3"
+          },
+          {
+            "text": "hard",
+            "audioPath": "/guided-reading/audio/words/hard.mp3"
+          },
+          {
+            "text": "said",
+            "audioPath": "/guided-reading/audio/words/said.mp3"
+          },
+          {
+            "text": "Burrow",
+            "audioPath": "/guided-reading/audio/words/burrow.mp3"
+          },
+          {
+            "text": "At",
+            "audioPath": "/guided-reading/audio/words/at.mp3"
+          },
+          {
+            "text": "Tumblerock",
+            "audioPath": "/guided-reading/audio/words/tumblerock.mp3"
+          },
+          {
+            "text": "Cliffs",
+            "audioPath": "/guided-reading/audio/words/cliffs.mp3"
+          },
+          {
+            "text": "Pip",
+            "audioPath": "/guided-reading/audio/words/pip.mp3"
+          },
+          {
+            "text": "chose",
+            "audioPath": "/guided-reading/audio/words/chose.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "low",
+            "audioPath": "/guided-reading/audio/words/low.mp3"
+          },
+          {
+            "text": "practice",
+            "audioPath": "/guided-reading/audio/words/practice.mp3"
+          },
+          {
+            "text": "wall",
+            "audioPath": "/guided-reading/audio/words/wall.mp3"
+          },
+          {
+            "text": "A",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "guide",
+            "audioPath": "/guided-reading/audio/words/guide.mp3"
+          },
+          {
+            "text": "placed",
+            "audioPath": "/guided-reading/audio/words/placed.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "thick",
+            "audioPath": "/guided-reading/audio/words/thick.mp3"
+          },
+          {
+            "text": "mat",
+            "audioPath": "/guided-reading/audio/words/mat.mp3"
+          },
+          {
+            "text": "below",
+            "audioPath": "/guided-reading/audio/words/below.mp3"
+          },
+          {
+            "text": "Pip",
+            "audioPath": "/guided-reading/audio/words/pip.mp3"
+          },
+          {
+            "text": "began",
+            "audioPath": "/guided-reading/audio/words/began.mp3"
+          },
+          {
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "climb",
+            "audioPath": "/guided-reading/audio/words/climb.mp3"
+          }
+        ]
       },
       {
         "pageNumber": 6,
-        "text": "His legs felt wobbly. The ground was a long way below. But he did not stop. He reached the top.",
+        "text": "Pip's legs felt wobbly. The guide stood close, and Burrow cheered from the path. Pip used the strong holds one at a time. Soon he reached the top.",
         "image": "/guided-reading/series/moonwood-tales/book-01/page-006.webp",
         "audio": "/guided-reading/series/moonwood-tales/book-01/audio/page-006.mp3",
         "pageAudio": "/guided-reading/series/moonwood-tales/book-01/audio/page-006.mp3",
-        "words": []
+        "narrationNeedsRebuild": true,
+        "words": [
+          {
+            "text": "Pip's",
+            "audioPath": "/guided-reading/audio/words/pips.mp3"
+          },
+          {
+            "text": "legs",
+            "audioPath": "/guided-reading/audio/words/legs.mp3"
+          },
+          {
+            "text": "felt",
+            "audioPath": "/guided-reading/audio/words/felt.mp3"
+          },
+          {
+            "text": "wobbly",
+            "audioPath": "/guided-reading/audio/words/wobbly.mp3"
+          },
+          {
+            "text": "The",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "guide",
+            "audioPath": "/guided-reading/audio/words/guide.mp3"
+          },
+          {
+            "text": "stood",
+            "audioPath": "/guided-reading/audio/words/stood.mp3"
+          },
+          {
+            "text": "close",
+            "audioPath": "/guided-reading/audio/words/close.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "Burrow",
+            "audioPath": "/guided-reading/audio/words/burrow.mp3"
+          },
+          {
+            "text": "cheered",
+            "audioPath": "/guided-reading/audio/words/cheered.mp3"
+          },
+          {
+            "text": "from",
+            "audioPath": "/guided-reading/audio/words/from.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "path",
+            "audioPath": "/guided-reading/audio/words/path.mp3"
+          },
+          {
+            "text": "Pip",
+            "audioPath": "/guided-reading/audio/words/pip.mp3"
+          },
+          {
+            "text": "used",
+            "audioPath": "/guided-reading/audio/words/used.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "strong",
+            "audioPath": "/guided-reading/audio/words/strong.mp3"
+          },
+          {
+            "text": "holds",
+            "audioPath": "/guided-reading/audio/words/holds.mp3"
+          },
+          {
+            "text": "one",
+            "audioPath": "/guided-reading/audio/words/one.mp3"
+          },
+          {
+            "text": "at",
+            "audioPath": "/guided-reading/audio/words/at.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "time",
+            "audioPath": "/guided-reading/audio/words/time.mp3"
+          },
+          {
+            "text": "Soon",
+            "audioPath": "/guided-reading/audio/words/soon.mp3"
+          },
+          {
+            "text": "he",
+            "audioPath": "/guided-reading/audio/words/he.mp3"
+          },
+          {
+            "text": "reached",
+            "audioPath": "/guided-reading/audio/words/reached.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "top",
+            "audioPath": "/guided-reading/audio/words/top.mp3"
+          }
+        ]
       },
       {
         "pageNumber": 7,
@@ -4087,11 +4436,116 @@ export const moonwoodTalesBooks = [
       "readAloudAvailable": true,
       "readAloudMode": "human_audio",
       "targetSkills": [
-          "level-c",
-          "fiction",
-          "moonwood-tales",
-          "longer-story-pages"
-      ],
+      "everyone",
+      "came",
+      "to",
+      "the",
+      "hollow",
+      "oak",
+      "luna",
+      "had",
+      "made",
+      "a",
+      "safe",
+      "fire",
+      "circle",
+      "bucket",
+      "of",
+      "water",
+      "and",
+      "an",
+      "extinguisher",
+      "stood",
+      "nearby",
+      "they",
+      "sat",
+      "outside",
+      "glimmer",
+      "in",
+      "middle",
+      "ready",
+      "asked",
+      "nodded",
+      "breathed",
+      "then",
+      "out",
+      "tiny",
+      "orange",
+      "flame",
+      "appeared",
+      "small",
+      "steady",
+      "real",
+      "gasped",
+      "pip",
+      "covered",
+      "his",
+      "mouth",
+      "stone's",
+      "eyes",
+      "went",
+      "wide",
+      "watched",
+      "closely",
+      "may",
+      "i",
+      "try",
+      "again",
+      "longer",
+      "it",
+      "stayed",
+      "inside",
+      "stone",
+      "grew",
+      "excited",
+      "stopped",
+      "pause",
+      "said",
+      "waited",
+      "placed",
+      "magic",
+      "lantern",
+      "one",
+      "she",
+      "lit",
+      "carefully",
+      "sent",
+      "golden",
+      "spark",
+      "next",
+      "lamp",
+      "by",
+      "magical",
+      "light",
+      "travelled",
+      "along",
+      "paths",
+      "moonwood",
+      "glowed",
+      "with",
+      "gold",
+      "every",
+      "mushroom",
+      "glowing",
+      "forest",
+      "looked",
+      "beautiful",
+      "at",
+      "lights",
+      "did",
+      "do",
+      "that",
+      "smiled",
+      "you",
+      "careful",
+      "lanterns",
+      "carried",
+      "beamed",
+      "can",
+      "practise",
+      "another",
+      "day"
+    ],
       "sightWords": [
           "the",
           "said",
@@ -4131,111 +4585,959 @@ export const moonwoodTalesBooks = [
       "pages": [
           {
               "pageNumber": 1,
-              "text": "There was a sign on the Hollow Oak door.\nGLIMMER'S FIRE PERFORMANCE — TODAY.\nEveryone came.",
+              "text": "Everyone came to the Hollow Oak. Luna had made a safe fire circle. A bucket of water and an extinguisher stood nearby.",
               "image": "/guided-reading/series/moonwood-tales/book-24/page-001.webp",
               "audio": "/guided-reading/series/moonwood-tales/book-24/audio/page-001.mp3",
               "pageAudio": "/guided-reading/series/moonwood-tales/book-24/audio/page-001.mp3",
+        "narrationNeedsRebuild": true,
               "pageAudioText": "There was a sign on the Hollow Oak door.\nGLIMMER'S FIRE PERFORMANCE — TODAY.\nEveryone came.",
-              "words": []
+              "words": [
+          {
+            "text": "Everyone",
+            "audioPath": "/guided-reading/audio/words/everyone.mp3"
+          },
+          {
+            "text": "came",
+            "audioPath": "/guided-reading/audio/words/came.mp3"
+          },
+          {
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "Hollow",
+            "audioPath": "/guided-reading/audio/words/hollow.mp3"
+          },
+          {
+            "text": "Oak",
+            "audioPath": "/guided-reading/audio/words/oak.mp3"
+          },
+          {
+            "text": "Luna",
+            "audioPath": "/guided-reading/audio/words/luna.mp3"
+          },
+          {
+            "text": "had",
+            "audioPath": "/guided-reading/audio/words/had.mp3"
+          },
+          {
+            "text": "made",
+            "audioPath": "/guided-reading/audio/words/made.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "safe",
+            "audioPath": "/guided-reading/audio/words/safe.mp3"
+          },
+          {
+            "text": "fire",
+            "audioPath": "/guided-reading/audio/words/fire.mp3"
+          },
+          {
+            "text": "circle",
+            "audioPath": "/guided-reading/audio/words/circle.mp3"
+          },
+          {
+            "text": "A",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "bucket",
+            "audioPath": "/guided-reading/audio/words/bucket.mp3"
+          },
+          {
+            "text": "of",
+            "audioPath": "/guided-reading/audio/words/of.mp3"
+          },
+          {
+            "text": "water",
+            "audioPath": "/guided-reading/audio/words/water.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "an",
+            "audioPath": "/guided-reading/audio/words/an.mp3"
+          },
+          {
+            "text": "extinguisher",
+            "audioPath": "/guided-reading/audio/words/extinguisher.mp3"
+          },
+          {
+            "text": "stood",
+            "audioPath": "/guided-reading/audio/words/stood.mp3"
+          },
+          {
+            "text": "nearby",
+            "audioPath": "/guided-reading/audio/words/nearby.mp3"
+          }
+        ]
           },
           {
               "pageNumber": 2,
-              "text": "They all sat in the clearing.\nGlimmer stood at the front.\nIt was very quiet.\n\"Ready,\" said Glimmer.\nIt did not quite feel true.",
+              "text": "They sat outside the circle. Glimmer stood in the middle. \"Ready?\" asked Luna. Glimmer nodded.",
               "image": "/guided-reading/series/moonwood-tales/book-24/page-002.webp",
               "audio": "/guided-reading/series/moonwood-tales/book-24/audio/page-002.mp3",
               "pageAudio": "/guided-reading/series/moonwood-tales/book-24/audio/page-002.mp3",
+        "narrationNeedsRebuild": true,
               "pageAudioText": "They all sat in the clearing.\nGlimmer stood at the front.\nIt was very quiet.\n\"Ready,\" said Glimmer.\nIt did not quite feel true.",
-              "words": []
+              "words": [
+          {
+            "text": "They",
+            "audioPath": "/guided-reading/audio/words/they.mp3"
+          },
+          {
+            "text": "sat",
+            "audioPath": "/guided-reading/audio/words/sat.mp3"
+          },
+          {
+            "text": "outside",
+            "audioPath": "/guided-reading/audio/words/outside.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "circle",
+            "audioPath": "/guided-reading/audio/words/circle.mp3"
+          },
+          {
+            "text": "Glimmer",
+            "audioPath": "/guided-reading/audio/words/glimmer.mp3"
+          },
+          {
+            "text": "stood",
+            "audioPath": "/guided-reading/audio/words/stood.mp3"
+          },
+          {
+            "text": "in",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "middle",
+            "audioPath": "/guided-reading/audio/words/middle.mp3"
+          },
+          {
+            "text": "Ready",
+            "audioPath": "/guided-reading/audio/words/ready.mp3"
+          },
+          {
+            "text": "asked",
+            "audioPath": "/guided-reading/audio/words/asked.mp3"
+          },
+          {
+            "text": "Luna",
+            "audioPath": "/guided-reading/audio/words/luna.mp3"
+          },
+          {
+            "text": "Glimmer",
+            "audioPath": "/guided-reading/audio/words/glimmer.mp3"
+          },
+          {
+            "text": "nodded",
+            "audioPath": "/guided-reading/audio/words/nodded.mp3"
+          }
+        ]
           },
           {
               "pageNumber": 3,
-              "text": "Glimmer breathed in.\nDeeply.\nGlimmer breathed out.\nA jet of orange fire came out.\nSmall.\nPerfect.\nReal.",
+              "text": "Glimmer breathed in. Then Glimmer breathed out. A tiny orange flame appeared. Small. Steady. Real.",
               "image": "/guided-reading/series/moonwood-tales/book-24/page-003.webp",
               "audio": "/guided-reading/series/moonwood-tales/book-24/audio/page-003.mp3",
               "pageAudio": "/guided-reading/series/moonwood-tales/book-24/audio/page-003.mp3",
+        "narrationNeedsRebuild": true,
               "pageAudioText": "Glimmer breathed in.\nDeeply.\nGlimmer breathed out.\nA jet of orange fire came out.\nSmall.\nPerfect.\nReal.",
-              "words": []
+              "words": [
+          {
+            "text": "Glimmer",
+            "audioPath": "/guided-reading/audio/words/glimmer.mp3"
+          },
+          {
+            "text": "breathed",
+            "audioPath": "/guided-reading/audio/words/breathed.mp3"
+          },
+          {
+            "text": "in",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
+          },
+          {
+            "text": "Then",
+            "audioPath": "/guided-reading/audio/words/then.mp3"
+          },
+          {
+            "text": "Glimmer",
+            "audioPath": "/guided-reading/audio/words/glimmer.mp3"
+          },
+          {
+            "text": "breathed",
+            "audioPath": "/guided-reading/audio/words/breathed.mp3"
+          },
+          {
+            "text": "out",
+            "audioPath": "/guided-reading/audio/words/out.mp3"
+          },
+          {
+            "text": "A",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "tiny",
+            "audioPath": "/guided-reading/audio/words/tiny.mp3"
+          },
+          {
+            "text": "orange",
+            "audioPath": "/guided-reading/audio/words/orange.mp3"
+          },
+          {
+            "text": "flame",
+            "audioPath": "/guided-reading/audio/words/flame.mp3"
+          },
+          {
+            "text": "appeared",
+            "audioPath": "/guided-reading/audio/words/appeared.mp3"
+          },
+          {
+            "text": "Small",
+            "audioPath": "/guided-reading/audio/words/small.mp3"
+          },
+          {
+            "text": "Steady",
+            "audioPath": "/guided-reading/audio/words/steady.mp3"
+          },
+          {
+            "text": "Real",
+            "audioPath": "/guided-reading/audio/words/real.mp3"
+          }
+        ]
           },
           {
               "pageNumber": 4,
-              "text": "Everyone gasped.\nPip covered his mouth.\nStone's eyes went very wide.\nLuna took off her glasses and put them back on.\nIt was real.",
+              "text": "Everyone gasped. Pip covered his mouth. Stone's eyes went wide. Luna watched closely. The flame went out.",
               "image": "/guided-reading/series/moonwood-tales/book-24/page-004.webp",
               "audio": "/guided-reading/series/moonwood-tales/book-24/audio/page-004.mp3",
               "pageAudio": "/guided-reading/series/moonwood-tales/book-24/audio/page-004.mp3",
+        "narrationNeedsRebuild": true,
               "pageAudioText": "Everyone gasped.\nPip covered his mouth.\nStone's eyes went very wide.\nLuna took off her glasses and put them back on.\nIt was real.",
-              "words": []
+              "words": [
+          {
+            "text": "Everyone",
+            "audioPath": "/guided-reading/audio/words/everyone.mp3"
+          },
+          {
+            "text": "gasped",
+            "audioPath": "/guided-reading/audio/words/gasped.mp3"
+          },
+          {
+            "text": "Pip",
+            "audioPath": "/guided-reading/audio/words/pip.mp3"
+          },
+          {
+            "text": "covered",
+            "audioPath": "/guided-reading/audio/words/covered.mp3"
+          },
+          {
+            "text": "his",
+            "audioPath": "/guided-reading/audio/words/his.mp3"
+          },
+          {
+            "text": "mouth",
+            "audioPath": "/guided-reading/audio/words/mouth.mp3"
+          },
+          {
+            "text": "Stone's",
+            "audioPath": "/guided-reading/audio/words/stones.mp3"
+          },
+          {
+            "text": "eyes",
+            "audioPath": "/guided-reading/audio/words/eyes.mp3"
+          },
+          {
+            "text": "went",
+            "audioPath": "/guided-reading/audio/words/went.mp3"
+          },
+          {
+            "text": "wide",
+            "audioPath": "/guided-reading/audio/words/wide.mp3"
+          },
+          {
+            "text": "Luna",
+            "audioPath": "/guided-reading/audio/words/luna.mp3"
+          },
+          {
+            "text": "watched",
+            "audioPath": "/guided-reading/audio/words/watched.mp3"
+          },
+          {
+            "text": "closely",
+            "audioPath": "/guided-reading/audio/words/closely.mp3"
+          },
+          {
+            "text": "The",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "flame",
+            "audioPath": "/guided-reading/audio/words/flame.mp3"
+          },
+          {
+            "text": "went",
+            "audioPath": "/guided-reading/audio/words/went.mp3"
+          },
+          {
+            "text": "out",
+            "audioPath": "/guided-reading/audio/words/out.mp3"
+          }
+        ]
           },
           {
               "pageNumber": 5,
-              "text": "Glimmer did it again.\nLonger.\nThe fire was steady.\nIt was warm.\nGlimmer's scales caught the light.\nGlimmer had never looked so much like a dragon.",
+              "text": "\"May I try again?\" asked Glimmer. Luna nodded. Glimmer made a longer flame. It stayed inside the stone circle.",
               "image": "/guided-reading/series/moonwood-tales/book-24/page-005.webp",
               "audio": "/guided-reading/series/moonwood-tales/book-24/audio/page-005.mp3",
               "pageAudio": "/guided-reading/series/moonwood-tales/book-24/audio/page-005.mp3",
+        "narrationNeedsRebuild": true,
               "pageAudioText": "Glimmer did it again.\nLonger.\nThe fire was steady.\nIt was warm.\nGlimmer's scales caught the light.\nGlimmer had never looked so much like a dragon.",
-              "words": []
+              "words": [
+          {
+            "text": "May",
+            "audioPath": "/guided-reading/audio/words/may.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "try",
+            "audioPath": "/guided-reading/audio/words/try.mp3"
+          },
+          {
+            "text": "again",
+            "audioPath": "/guided-reading/audio/words/again.mp3"
+          },
+          {
+            "text": "asked",
+            "audioPath": "/guided-reading/audio/words/asked.mp3"
+          },
+          {
+            "text": "Glimmer",
+            "audioPath": "/guided-reading/audio/words/glimmer.mp3"
+          },
+          {
+            "text": "Luna",
+            "audioPath": "/guided-reading/audio/words/luna.mp3"
+          },
+          {
+            "text": "nodded",
+            "audioPath": "/guided-reading/audio/words/nodded.mp3"
+          },
+          {
+            "text": "Glimmer",
+            "audioPath": "/guided-reading/audio/words/glimmer.mp3"
+          },
+          {
+            "text": "made",
+            "audioPath": "/guided-reading/audio/words/made.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "longer",
+            "audioPath": "/guided-reading/audio/words/longer.mp3"
+          },
+          {
+            "text": "flame",
+            "audioPath": "/guided-reading/audio/words/flame.mp3"
+          },
+          {
+            "text": "It",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
+          },
+          {
+            "text": "stayed",
+            "audioPath": "/guided-reading/audio/words/stayed.mp3"
+          },
+          {
+            "text": "inside",
+            "audioPath": "/guided-reading/audio/words/inside.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "stone",
+            "audioPath": "/guided-reading/audio/words/stone.mp3"
+          },
+          {
+            "text": "circle",
+            "audioPath": "/guided-reading/audio/words/circle.mp3"
+          }
+        ]
           },
           {
               "pageNumber": 6,
-              "text": "Glimmer got excited.\nGlimmer breathed in very deeply.\nMuch more deeply than before.\nStone took a small step back.\n\"Glimmer,\" said Pip.\nGlimmer breathed out.",
+              "text": "Glimmer grew excited. The flame stopped. \"Pause,\" said Luna. Glimmer stopped and waited.",
               "image": "/guided-reading/series/moonwood-tales/book-24/page-006.webp",
               "audio": "/guided-reading/series/moonwood-tales/book-24/audio/page-006.mp3",
               "pageAudio": "/guided-reading/series/moonwood-tales/book-24/audio/page-006.mp3",
+        "narrationNeedsRebuild": true,
               "pageAudioText": "Glimmer got excited.\nGlimmer breathed in very deeply.\nMuch more deeply than before.\nStone took a small step back.\n\"Glimmer,\" said Pip.\nGlimmer breathed out.",
-              "words": []
+              "words": [
+          {
+            "text": "Glimmer",
+            "audioPath": "/guided-reading/audio/words/glimmer.mp3"
+          },
+          {
+            "text": "grew",
+            "audioPath": "/guided-reading/audio/words/grew.mp3"
+          },
+          {
+            "text": "excited",
+            "audioPath": "/guided-reading/audio/words/excited.mp3"
+          },
+          {
+            "text": "The",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "flame",
+            "audioPath": "/guided-reading/audio/words/flame.mp3"
+          },
+          {
+            "text": "stopped",
+            "audioPath": "/guided-reading/audio/words/stopped.mp3"
+          },
+          {
+            "text": "Pause",
+            "audioPath": "/guided-reading/audio/words/pause.mp3"
+          },
+          {
+            "text": "said",
+            "audioPath": "/guided-reading/audio/words/said.mp3"
+          },
+          {
+            "text": "Luna",
+            "audioPath": "/guided-reading/audio/words/luna.mp3"
+          },
+          {
+            "text": "Glimmer",
+            "audioPath": "/guided-reading/audio/words/glimmer.mp3"
+          },
+          {
+            "text": "stopped",
+            "audioPath": "/guided-reading/audio/words/stopped.mp3"
+          },
+          {
+            "text": "and",
+            "audioPath": "/guided-reading/audio/words/and.mp3"
+          },
+          {
+            "text": "waited",
+            "audioPath": "/guided-reading/audio/words/waited.mp3"
+          }
+        ]
           },
           {
               "pageNumber": 7,
-              "text": "The fire was very large.\nIt was taller than Glimmer.\nIt caught the torch on the Hollow Oak door.\nThe torch lit the first lamp.\nThe lamp lit a mushroom.",
+              "text": "Luna placed a magic lantern in the circle. \"One small flame,\" she said. Glimmer lit it carefully.",
               "image": "/guided-reading/series/moonwood-tales/book-24/page-007.webp",
               "audio": "/guided-reading/series/moonwood-tales/book-24/audio/page-007.mp3",
               "pageAudio": "/guided-reading/series/moonwood-tales/book-24/audio/page-007.mp3",
+        "narrationNeedsRebuild": true,
               "pageAudioText": "The fire was very large.\nIt was taller than Glimmer.\nIt caught the torch on the Hollow Oak door.\nThe torch lit the first lamp.\nThe lamp lit a mushroom.",
-              "words": []
+              "words": [
+          {
+            "text": "Luna",
+            "audioPath": "/guided-reading/audio/words/luna.mp3"
+          },
+          {
+            "text": "placed",
+            "audioPath": "/guided-reading/audio/words/placed.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "magic",
+            "audioPath": "/guided-reading/audio/words/magic.mp3"
+          },
+          {
+            "text": "lantern",
+            "audioPath": "/guided-reading/audio/words/lantern.mp3"
+          },
+          {
+            "text": "in",
+            "audioPath": "/guided-reading/audio/words/in.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "circle",
+            "audioPath": "/guided-reading/audio/words/circle.mp3"
+          },
+          {
+            "text": "One",
+            "audioPath": "/guided-reading/audio/words/one.mp3"
+          },
+          {
+            "text": "small",
+            "audioPath": "/guided-reading/audio/words/small.mp3"
+          },
+          {
+            "text": "flame",
+            "audioPath": "/guided-reading/audio/words/flame.mp3"
+          },
+          {
+            "text": "she",
+            "audioPath": "/guided-reading/audio/words/she.mp3"
+          },
+          {
+            "text": "said",
+            "audioPath": "/guided-reading/audio/words/said.mp3"
+          },
+          {
+            "text": "Glimmer",
+            "audioPath": "/guided-reading/audio/words/glimmer.mp3"
+          },
+          {
+            "text": "lit",
+            "audioPath": "/guided-reading/audio/words/lit.mp3"
+          },
+          {
+            "text": "it",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
+          },
+          {
+            "text": "carefully",
+            "audioPath": "/guided-reading/audio/words/carefully.mp3"
+          }
+        ]
           },
           {
               "pageNumber": 8,
-              "text": "The light spread.\nMushroom to mushroom.\nLamp to lamp.\nThrough every path.\nThrough every dark corner of Moonwood.\nAll of it lighting up.",
+              "text": "The lantern sent a golden spark to the next lamp. Lamp by lamp, safe magical light travelled along the paths.",
               "image": "/guided-reading/series/moonwood-tales/book-24/page-008.webp",
               "audio": "/guided-reading/series/moonwood-tales/book-24/audio/page-008.mp3",
               "pageAudio": "/guided-reading/series/moonwood-tales/book-24/audio/page-008.mp3",
+        "narrationNeedsRebuild": true,
               "pageAudioText": "The light spread.\nMushroom to mushroom.\nLamp to lamp.\nThrough every path.\nThrough every dark corner of Moonwood.\nAll of it lighting up.",
-              "words": []
+              "words": [
+          {
+            "text": "The",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "lantern",
+            "audioPath": "/guided-reading/audio/words/lantern.mp3"
+          },
+          {
+            "text": "sent",
+            "audioPath": "/guided-reading/audio/words/sent.mp3"
+          },
+          {
+            "text": "a",
+            "audioPath": "/guided-reading/audio/words/a.mp3"
+          },
+          {
+            "text": "golden",
+            "audioPath": "/guided-reading/audio/words/golden.mp3"
+          },
+          {
+            "text": "spark",
+            "audioPath": "/guided-reading/audio/words/spark.mp3"
+          },
+          {
+            "text": "to",
+            "audioPath": "/guided-reading/audio/words/to.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "next",
+            "audioPath": "/guided-reading/audio/words/next.mp3"
+          },
+          {
+            "text": "lamp",
+            "audioPath": "/guided-reading/audio/words/lamp.mp3"
+          },
+          {
+            "text": "Lamp",
+            "audioPath": "/guided-reading/audio/words/lamp.mp3"
+          },
+          {
+            "text": "by",
+            "audioPath": "/guided-reading/audio/words/by.mp3"
+          },
+          {
+            "text": "lamp",
+            "audioPath": "/guided-reading/audio/words/lamp.mp3"
+          },
+          {
+            "text": "safe",
+            "audioPath": "/guided-reading/audio/words/safe.mp3"
+          },
+          {
+            "text": "magical",
+            "audioPath": "/guided-reading/audio/words/magical.mp3"
+          },
+          {
+            "text": "light",
+            "audioPath": "/guided-reading/audio/words/light.mp3"
+          },
+          {
+            "text": "travelled",
+            "audioPath": "/guided-reading/audio/words/travelled.mp3"
+          },
+          {
+            "text": "along",
+            "audioPath": "/guided-reading/audio/words/along.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "paths",
+            "audioPath": "/guided-reading/audio/words/paths.mp3"
+          }
+        ]
           },
           {
               "pageNumber": 9,
-              "text": "Moonwood blazed with gold.\nEvery mushroom.\nEvery lamp.\nEvery glowing stone.\nThe forest was more beautiful than anyone had ever seen it.",
+              "text": "Moonwood glowed with gold. Every lamp. Every mushroom. Every glowing stone. The forest looked beautiful.",
               "image": "/guided-reading/series/moonwood-tales/book-24/page-009.webp",
               "audio": "/guided-reading/series/moonwood-tales/book-24/audio/page-009.mp3",
               "pageAudio": "/guided-reading/series/moonwood-tales/book-24/audio/page-009.mp3",
+        "narrationNeedsRebuild": true,
               "pageAudioText": "Moonwood blazed with gold.\nEvery mushroom.\nEvery lamp.\nEvery glowing stone.\nThe forest was more beautiful than anyone had ever seen it.",
-              "words": []
+              "words": [
+          {
+            "text": "Moonwood",
+            "audioPath": "/guided-reading/audio/words/moonwood.mp3"
+          },
+          {
+            "text": "glowed",
+            "audioPath": "/guided-reading/audio/words/glowed.mp3"
+          },
+          {
+            "text": "with",
+            "audioPath": "/guided-reading/audio/words/with.mp3"
+          },
+          {
+            "text": "gold",
+            "audioPath": "/guided-reading/audio/words/gold.mp3"
+          },
+          {
+            "text": "Every",
+            "audioPath": "/guided-reading/audio/words/every.mp3"
+          },
+          {
+            "text": "lamp",
+            "audioPath": "/guided-reading/audio/words/lamp.mp3"
+          },
+          {
+            "text": "Every",
+            "audioPath": "/guided-reading/audio/words/every.mp3"
+          },
+          {
+            "text": "mushroom",
+            "audioPath": "/guided-reading/audio/words/mushroom.mp3"
+          },
+          {
+            "text": "Every",
+            "audioPath": "/guided-reading/audio/words/every.mp3"
+          },
+          {
+            "text": "glowing",
+            "audioPath": "/guided-reading/audio/words/glowing.mp3"
+          },
+          {
+            "text": "stone",
+            "audioPath": "/guided-reading/audio/words/stone.mp3"
+          },
+          {
+            "text": "The",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "forest",
+            "audioPath": "/guided-reading/audio/words/forest.mp3"
+          },
+          {
+            "text": "looked",
+            "audioPath": "/guided-reading/audio/words/looked.mp3"
+          },
+          {
+            "text": "beautiful",
+            "audioPath": "/guided-reading/audio/words/beautiful.mp3"
+          }
+        ]
           },
           {
               "pageNumber": 10,
-              "text": "Everyone looked at the forest.\nThen everyone looked at Glimmer.\nGlimmer looked at the forest.\nGlimmer looked at their own mouth.\n\"Oh,\" said Glimmer.",
+              "text": "Everyone looked at the lights. Then everyone looked at Glimmer. \"Did I do that?\" asked Glimmer.",
               "image": "/guided-reading/series/moonwood-tales/book-24/page-010.webp",
               "audio": "/guided-reading/series/moonwood-tales/book-24/audio/page-010.mp3",
               "pageAudio": "/guided-reading/series/moonwood-tales/book-24/audio/page-010.mp3",
+        "narrationNeedsRebuild": true,
               "pageAudioText": "Everyone looked at the forest.\nThen everyone looked at Glimmer.\nGlimmer looked at the forest.\nGlimmer looked at their own mouth.\n\"Oh,\" said Glimmer.",
-              "words": []
+              "words": [
+          {
+            "text": "Everyone",
+            "audioPath": "/guided-reading/audio/words/everyone.mp3"
+          },
+          {
+            "text": "looked",
+            "audioPath": "/guided-reading/audio/words/looked.mp3"
+          },
+          {
+            "text": "at",
+            "audioPath": "/guided-reading/audio/words/at.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "lights",
+            "audioPath": "/guided-reading/audio/words/lights.mp3"
+          },
+          {
+            "text": "Then",
+            "audioPath": "/guided-reading/audio/words/then.mp3"
+          },
+          {
+            "text": "everyone",
+            "audioPath": "/guided-reading/audio/words/everyone.mp3"
+          },
+          {
+            "text": "looked",
+            "audioPath": "/guided-reading/audio/words/looked.mp3"
+          },
+          {
+            "text": "at",
+            "audioPath": "/guided-reading/audio/words/at.mp3"
+          },
+          {
+            "text": "Glimmer",
+            "audioPath": "/guided-reading/audio/words/glimmer.mp3"
+          },
+          {
+            "text": "Did",
+            "audioPath": "/guided-reading/audio/words/did.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "do",
+            "audioPath": "/guided-reading/audio/words/do.mp3"
+          },
+          {
+            "text": "that",
+            "audioPath": "/guided-reading/audio/words/that.mp3"
+          },
+          {
+            "text": "asked",
+            "audioPath": "/guided-reading/audio/words/asked.mp3"
+          },
+          {
+            "text": "Glimmer",
+            "audioPath": "/guided-reading/audio/words/glimmer.mp3"
+          }
+        ]
           },
           {
               "pageNumber": 11,
-              "text": "The fire faded slowly.\nMoonwood kept its glow.\nLuna looked at Glimmer over her glasses.\n\"Quite controlled,\" said Luna.\n\"Thank you,\" said Glimmer.",
+              "text": "Luna smiled. \"You made one careful flame,\" she said. \"The lanterns carried the light.\" Glimmer beamed.",
               "image": "/guided-reading/series/moonwood-tales/book-24/page-011.webp",
               "audio": "/guided-reading/series/moonwood-tales/book-24/audio/page-011.mp3",
               "pageAudio": "/guided-reading/series/moonwood-tales/book-24/audio/page-011.mp3",
+        "narrationNeedsRebuild": true,
               "pageAudioText": "The fire faded slowly.\nMoonwood kept its glow.\nLuna looked at Glimmer over her glasses.\n\"Quite controlled,\" said Luna.\n\"Thank you,\" said Glimmer.",
-              "words": []
+              "words": [
+          {
+            "text": "Luna",
+            "audioPath": "/guided-reading/audio/words/luna.mp3"
+          },
+          {
+            "text": "smiled",
+            "audioPath": "/guided-reading/audio/words/smiled.mp3"
+          },
+          {
+            "text": "You",
+            "audioPath": "/guided-reading/audio/words/you.mp3"
+          },
+          {
+            "text": "made",
+            "audioPath": "/guided-reading/audio/words/made.mp3"
+          },
+          {
+            "text": "one",
+            "audioPath": "/guided-reading/audio/words/one.mp3"
+          },
+          {
+            "text": "careful",
+            "audioPath": "/guided-reading/audio/words/careful.mp3"
+          },
+          {
+            "text": "flame",
+            "audioPath": "/guided-reading/audio/words/flame.mp3"
+          },
+          {
+            "text": "she",
+            "audioPath": "/guided-reading/audio/words/she.mp3"
+          },
+          {
+            "text": "said",
+            "audioPath": "/guided-reading/audio/words/said.mp3"
+          },
+          {
+            "text": "The",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "lanterns",
+            "audioPath": "/guided-reading/audio/words/lanterns.mp3"
+          },
+          {
+            "text": "carried",
+            "audioPath": "/guided-reading/audio/words/carried.mp3"
+          },
+          {
+            "text": "the",
+            "audioPath": "/guided-reading/audio/words/the.mp3"
+          },
+          {
+            "text": "light",
+            "audioPath": "/guided-reading/audio/words/light.mp3"
+          },
+          {
+            "text": "Glimmer",
+            "audioPath": "/guided-reading/audio/words/glimmer.mp3"
+          },
+          {
+            "text": "beamed",
+            "audioPath": "/guided-reading/audio/words/beamed.mp3"
+          }
+        ]
           },
           {
               "pageNumber": 12,
-              "text": "\"I did it,\" said Glimmer.\n\"You did,\" said Pip.\n\"I'd like to do it again,\" said Glimmer.\nEveryone who heard this took a small step back.\n\"We know,\" said everyone.",
+              "text": "\"I did it,\" said Glimmer. \"You did,\" said Pip. \"Can I practise again?\" \"Another day, with Luna,\" said Pip. Everyone smiled.",
               "image": "/guided-reading/series/moonwood-tales/book-24/page-012.webp",
               "audio": "/guided-reading/series/moonwood-tales/book-24/audio/page-012.mp3",
               "pageAudio": "/guided-reading/series/moonwood-tales/book-24/audio/page-012.mp3",
+        "narrationNeedsRebuild": true,
               "pageAudioText": "\"I did it,\" said Glimmer.\n\"You did,\" said Pip.\n\"I'd like to do it again,\" said Glimmer.\nEveryone who heard this took a small step back.\n\"We know,\" said everyone.",
-              "words": []
+              "words": [
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "did",
+            "audioPath": "/guided-reading/audio/words/did.mp3"
+          },
+          {
+            "text": "it",
+            "audioPath": "/guided-reading/audio/words/it.mp3"
+          },
+          {
+            "text": "said",
+            "audioPath": "/guided-reading/audio/words/said.mp3"
+          },
+          {
+            "text": "Glimmer",
+            "audioPath": "/guided-reading/audio/words/glimmer.mp3"
+          },
+          {
+            "text": "You",
+            "audioPath": "/guided-reading/audio/words/you.mp3"
+          },
+          {
+            "text": "did",
+            "audioPath": "/guided-reading/audio/words/did.mp3"
+          },
+          {
+            "text": "said",
+            "audioPath": "/guided-reading/audio/words/said.mp3"
+          },
+          {
+            "text": "Pip",
+            "audioPath": "/guided-reading/audio/words/pip.mp3"
+          },
+          {
+            "text": "Can",
+            "audioPath": "/guided-reading/audio/words/can.mp3"
+          },
+          {
+            "text": "I",
+            "audioPath": "/guided-reading/audio/words/i.mp3"
+          },
+          {
+            "text": "practise",
+            "audioPath": "/guided-reading/audio/words/practise.mp3"
+          },
+          {
+            "text": "again",
+            "audioPath": "/guided-reading/audio/words/again.mp3"
+          },
+          {
+            "text": "Another",
+            "audioPath": "/guided-reading/audio/words/another.mp3"
+          },
+          {
+            "text": "day",
+            "audioPath": "/guided-reading/audio/words/day.mp3"
+          },
+          {
+            "text": "with",
+            "audioPath": "/guided-reading/audio/words/with.mp3"
+          },
+          {
+            "text": "Luna",
+            "audioPath": "/guided-reading/audio/words/luna.mp3"
+          },
+          {
+            "text": "said",
+            "audioPath": "/guided-reading/audio/words/said.mp3"
+          },
+          {
+            "text": "Pip",
+            "audioPath": "/guided-reading/audio/words/pip.mp3"
+          },
+          {
+            "text": "Everyone",
+            "audioPath": "/guided-reading/audio/words/everyone.mp3"
+          },
+          {
+            "text": "smiled",
+            "audioPath": "/guided-reading/audio/words/smiled.mp3"
+          }
+        ]
           }
       ]
   },

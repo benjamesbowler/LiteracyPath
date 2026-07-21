@@ -1,6 +1,6 @@
 # Guided Reading Relevel Audit
 
-Date: 2026-07-20T13:12:57.056Z
+Date: 2026-07-21T09:55:44.980Z
 
 ## Current Policy
 
@@ -83,17 +83,17 @@ Guided Reading fiction books and fiction drafts were permanently removed. This a
 | first-facts-a-22-staying-healthy | Staying Healthy | B | B | 7 | 8.4 | Level remains appropriate for current text length. |
 | first-facts-a-23-my-body | My Body | B | B | 8 | 11.8 | Level remains appropriate for current text length. |
 | first-facts-a-24-rocks-and-pebbles | Rocks and Pebbles | B | B | 7 | 10.1 | Level remains appropriate for current text length. |
-| first-facts-a-25-water-everywhere | Water Everywhere | B | B | 9 | 8.3 | Level remains appropriate for current text length. |
+| first-facts-a-25-water-everywhere | Water Everywhere | B | B | 9 | 8.8 | Level remains appropriate for current text length. |
 | level-c-nonfiction-01-bees | Bees | C | C | 9 | 22.7 | Level remains appropriate for current text length. |
 | level-c-nonfiction-02-volcanoes | Volcanoes | C | C | 9 | 26.3 | Level remains appropriate for current text length. |
-| level-c-nonfiction-03-penguins | Penguins | C | C | 9 | 28 | Level remains appropriate for current text length. |
-| level-c-nonfiction-04-the-moon | The Moon | C | C | 9 | 28.6 | Level remains appropriate for current text length. |
-| level-c-nonfiction-05-how-seeds-grow | How Seeds Grow | C | C | 9 | 25.4 | Level remains appropriate for current text length. |
-| level-c-nonfiction-06-spiders | Spiders | C | C | 9 | 27 | Level remains appropriate for current text length. |
-| level-c-nonfiction-07-under-the-ocean | Under the Ocean | C | C | 9 | 29.9 | Level remains appropriate for current text length. |
-| level-c-nonfiction-08-butterflies | Butterflies | C | C | 9 | 27 | Level remains appropriate for current text length. |
-| level-c-nonfiction-09-caves | Caves | C | C | 9 | 30 | Level remains appropriate for current text length. |
-| level-c-nonfiction-10-frogs | Frogs | C | C | 9 | 26.2 | Level remains appropriate for current text length. |
+| level-c-nonfiction-03-penguins | Penguins | C | C | 9 | 27.9 | Level remains appropriate for current text length. |
+| level-c-nonfiction-04-the-moon | The Moon | C | C | 9 | 28.7 | Level remains appropriate for current text length. |
+| level-c-nonfiction-05-how-seeds-grow | How Seeds Grow | C | C | 9 | 25.9 | Level remains appropriate for current text length. |
+| level-c-nonfiction-06-spiders | Spiders | C | C | 9 | 28.6 | Level remains appropriate for current text length. |
+| level-c-nonfiction-07-under-the-ocean | Under the Ocean | C | C | 9 | 30.2 | Level remains appropriate for current text length. |
+| level-c-nonfiction-08-butterflies | Butterflies | C | C | 9 | 26.1 | Level remains appropriate for current text length. |
+| level-c-nonfiction-09-caves | Caves | C | C | 9 | 28.7 | Level remains appropriate for current text length. |
+| level-c-nonfiction-10-frogs | Frogs | C | C | 9 | 21.4 | Level remains appropriate for current text length. |
 | bob-and-nan-01 | Bob and Nan | A | A | 7 | 3.6 | Level remains appropriate for current text length. |
 | bob-and-nan-02-park | Bob and Nan go to the Park | A | A | 7 | 5.6 | Level remains appropriate for current text length. |
 | bob-and-nan-03-fluff | Bob, Nan and Fluff | A | A | 7 | 5 | Level remains appropriate for current text length. |
@@ -114,30 +114,30 @@ Guided Reading fiction books and fiction drafts were permanently removed. This a
 | ja-b-08 | Chips's Play Date | B | B | 12 | 19.3 | Level remains appropriate for current text length. |
 | ja-b-09 | James and Anna's New Bikes | B | B | 13 | 20.8 | Level remains appropriate for current text length. |
 | ja-b-10 | James, Anna and Chips go Camping | B | B | 14 | 21.8 | Level remains appropriate for current text length. |
-| ab-c-01 | Aiden and Betty Start Grade 1 | C | C | 13 | 39.2 | Level remains appropriate for current text length. |
-| ab-c-02 | Aiden and Betty have a Yard Sale | C | C | 13 | 49.3 | Level remains appropriate for current text length. |
+| ab-c-01 | Aiden and Betty Start Grade 1 | C | C | 13 | 38.5 | Level remains appropriate for current text length. |
+| ab-c-02 | Aiden and Betty have a Yard Sale | C | C | 13 | 47.2 | Level remains appropriate for current text length. |
 | ab-c-03 | Aiden and Betty go on Holiday | C | C | 13 | 49.2 | Level remains appropriate for current text length. |
 | ab-c-04 | Aiden and Betty and Socks | C | C | 14 | 48.5 | Level remains appropriate for current text length. |
 | ab-c-05 | Socks Goes Missing | C | C | 14 | 47.1 | Level remains appropriate for current text length. |
-| ab-c-06 | Aiden and Betty and the Science Fair | C | C | 13 | 35.9 | Level remains appropriate for current text length. |
-| ab-c-07 | Aiden, Betty and Socks's Big Adventure | C | C | 13 | 42.1 | Level remains appropriate for current text length. |
-| ab-c-08 | Aiden and Betty and the Bully | C | C | 13 | 38.9 | Level remains appropriate for current text length. |
-| ab-c-09 | Aiden and Betty: New Teeth | C | C | 13 | 42 | Level remains appropriate for current text length. |
-| ab-c-10 | Aiden and Betty and the Castle | C | C | 13 | 48.2 | Level remains appropriate for current text length. |
+| ab-c-06 | Aiden and Betty and the Science Fair | C | C | 13 | 36.7 | Level remains appropriate for current text length. |
+| ab-c-07 | Aiden, Betty and Socks's Big Adventure | C | C | 13 | 42.5 | Level remains appropriate for current text length. |
+| ab-c-08 | Aiden and Betty and the Bully | C | C | 13 | 18.6 | Level remains appropriate for current text length. |
+| ab-c-09 | Aiden and Betty: New Teeth | C | C | 13 | 20 | Level remains appropriate for current text length. |
+| ab-c-10 | Aiden and Betty and the Castle | C | C | 13 | 22.9 | Level remains appropriate for current text length. |
 | dino-pals-01-chompys-big-lunch | Chompy's Big Lunch | B | B | 8 | 10.4 | Level remains appropriate for current text length. |
 | dino-pals-02-sunnys-rainy-day | Sunny's Rainy Day | B | B | 8 | 9.1 | Level remains appropriate for current text length. |
 | dino-pals-03-dozy-wont-wake-up | Dozy Won't Wake Up | B | B | 8 | 11.9 | Level remains appropriate for current text length. |
 | dino-pals-04-grumpy-needs-help | Grumpy Needs Help | B | B | 8 | 10.5 | Level remains appropriate for current text length. |
 | dino-pals-05-bossy-makes-a-plan | Bossy Makes a Plan | B | B | 8 | 10.9 | Level remains appropriate for current text length. |
-| dino-pals-06-bouncy-bumps-into-everything | Bouncy Bumps Into Everything | B | B | 8 | 10.4 | Level remains appropriate for current text length. |
-| dino-pals-07-wigglys-messy-day | Wiggly's Messy Day | B | B | 8 | 13.5 | Level remains appropriate for current text length. |
-| dino-pals-08-zippy-slows-down | Zippy Slows Down | B | B | 8 | 14.6 | Level remains appropriate for current text length. |
-| dino-pals-09-honkys-inside-voice | Honky's Inside Voice | B | B | 8 | 14.9 | Level remains appropriate for current text length. |
+| dino-pals-06-bouncy-bumps-into-everything | Bouncy Bumps Into Everything | B | B | 8 | 14.9 | Level remains appropriate for current text length. |
+| dino-pals-07-wigglys-messy-day | Wiggly's Messy Day | B | B | 8 | 15.6 | Level remains appropriate for current text length. |
+| dino-pals-08-zippy-slows-down | Zippy Slows Down | B | B | 8 | 15.4 | Level remains appropriate for current text length. |
+| dino-pals-09-honkys-inside-voice | Honky's Inside Voice | B | B | 8 | 17 | Level remains appropriate for current text length. |
 | dino-pals-10-cheekys-prank-goes-wrong | Cheeky's Prank Goes Wrong | B | B | 8 | 15.1 | Level remains appropriate for current text length. |
-| dino-pals-11-shys-secret-gift | Shy's Secret Gift | B | B | 12 | 19.9 | Level remains appropriate for current text length. |
+| dino-pals-11-shys-secret-gift | Shy's Secret Gift | B | B | 12 | 15 | Level remains appropriate for current text length. |
 | dino-pals-12-fancys-bad-day | Fancy's Bad Day | B | B | 12 | 18.8 | Level remains appropriate for current text length. |
 | dino-pals-13-clumsy-to-the-rescue | Clumsy to the Rescue | B | B | 12 | 20.3 | Level remains appropriate for current text length. |
-| dino-pals-14-what-is-flappy | What is Flappy? | B | B | 12 | 21.3 | Level remains appropriate for current text length. |
+| dino-pals-14-what-is-flappy | What is Flappy? | B | B | 12 | 22.2 | Level remains appropriate for current text length. |
 | dino-pals-15-sneezy-and-the-waterfall | Sneezy and the Waterfall | B | B | 12 | 18.8 | Level remains appropriate for current text length. |
 | dino-pals-16-chompy-and-grumpys-day-out | Chompy and Grumpy's Day Out | B | B | 12 | 21.6 | Level remains appropriate for current text length. |
 | dino-pals-17-the-sunny-hollow-games | The Sunny Hollow Games | B | B | 12 | 27.4 | Level remains appropriate for current text length. |
@@ -155,7 +155,7 @@ Guided Reading fiction books and fiction drafts were permanently removed. This a
 | meadow-pals-09-shy-comes-out-to-play | Shy Comes Out to Play | A | A | 8 | 5.8 | Level remains appropriate for current text length. |
 | meadow-pals-10-giggly-has-the-hiccups | Giggly Has the Hiccups | A | A | 9 | 5.1 | Level remains appropriate for current text length. |
 | meadow-pals-11-brave-climbs-the-hay-bale | Brave Climbs the Hay Bale | A | A | 10 | 4.5 | Level remains appropriate for current text length. |
-| meadow-pals-12-hungry-eats-everything | Hungry Eats Everything | A | A | 7 | 6.1 | Level remains appropriate for current text length. |
+| meadow-pals-12-hungry-eats-everything | Hungry Finds Lunch | A | A | 7 | 5 | Level remains appropriate for current text length. |
 | meadow-pals-13-splashy-finds-a-puddle | Splashy Finds a Puddle | A | A | 9 | 5.2 | Level remains appropriate for current text length. |
 | meadow-pals-14-speedy-slows-down | Speedy Slows Down | A | A | 10 | 4.2 | Level remains appropriate for current text length. |
 | meadow-pals-15-cuddly-wants-a-hug | Cuddly Wants a Hug | A | A | 10 | 4.9 | Level remains appropriate for current text length. |
@@ -169,7 +169,7 @@ Guided Reading fiction books and fiction drafts were permanently removed. This a
 | meadow-pals-23-giggly-and-clucky-bake-a-cake | Giggly and Clucky Bake a Cake | A | A | 11 | 6 | Level remains appropriate for current text length. |
 | meadow-pals-24-grumpys-secret | Grumpy's Secret | A | A | 11 | 5.5 | Level remains appropriate for current text length. |
 | meadow-pals-25-the-big-farm-party | The Big Farm Party | A | A | 13 | 5.7 | Level remains appropriate for current text length. |
-| moonwood-tales-c-01 | Pip and the Bravery Stone | C | C | 12 | 18.6 | Level remains appropriate for current text length. |
+| moonwood-tales-c-01 | Pip and the Bravery Stone | C | C | 12 | 19.8 | Level remains appropriate for current text length. |
 | moonwood-tales-c-02 | Fern Grows Too Much | C | C | 12 | 18.3 | Level remains appropriate for current text length. |
 | moonwood-tales-c-03 | Stone Crosses the Bridge | C | C | 12 | 19.5 | Level remains appropriate for current text length. |
 | moonwood-tales-c-04 | Glimmer Tries and Tries | C | C | 12 | 20.8 | Level remains appropriate for current text length. |
@@ -192,7 +192,7 @@ Guided Reading fiction books and fiction drafts were permanently removed. This a
 | moonwood-tales-c-21 | Something Lives in the Hollow Oak | C | C | 12 | 25.3 | Level remains appropriate for current text length. |
 | moonwood-tales-c-22 | The Big Moonwood Race | C | C | 12 | 27 | Level remains appropriate for current text length. |
 | moonwood-tales-c-23 | The Fog Marsh Mystery | C | C | 12 | 27.9 | Level remains appropriate for current text length. |
-| moonwood-tales-c-24 | Glimmer Breathes Fire at Last | C | C | 12 | 23.7 | Level remains appropriate for current text length. |
+| moonwood-tales-c-24 | Glimmer Breathes Fire at Last | C | C | 12 | 17.2 | Level remains appropriate for current text length. |
 | moonwood-tales-c-25 | One Night in the Deep Dark | C | C | 12 | 26.9 | Level remains appropriate for current text length. |
 
 ## Status

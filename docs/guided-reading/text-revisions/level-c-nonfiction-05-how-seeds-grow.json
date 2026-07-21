@@ -1,0 +1,16 @@
+{
+  "bookId": "level-c-nonfiction-05-how-seeds-grow",
+  "reviewedAt": "2026-07-21",
+  "readingLevel": "C",
+  "principles": [
+    "Keep the four seed-dispersal ideas distinct and easy to picture.",
+    "Correct the suggestion that eaten seeds simply fall from a bird."
+  ],
+  "pages": [
+    {
+      "pageNumber": 8,
+      "reason": "Explains four dispersal methods accurately with short, parallel sentences suitable for Level C.",
+      "text": "Seeds travel away from the parent plant in different ways. Some fly on the wind. Some stick to animals' fur. Birds eat fruit and carry its seeds far away. Other seeds float on water."
+    }
+  ]
+}

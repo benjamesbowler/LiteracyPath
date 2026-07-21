@@ -1,0 +1,27 @@
+{
+  "bookId": "ab-c-01",
+  "reviewedAt": "2026-07-21",
+  "readingLevel": "C",
+  "principles": [
+    "Preserve Aiden's first-day emotional arc while removing story beats that depend on generated words inside illustrations.",
+    "Use concrete classroom actions that can be shown with picture-only displays, counters, shapes, and blank ruled marks.",
+    "Keep the established longer Level C sentence style but reduce unnecessary abstraction in the revised passages."
+  ],
+  "pages": [
+    {
+      "pageNumber": 5,
+      "reason": "Removes the requirement for a readable generated name label while preserving Aiden's growing sense of belonging.",
+      "text": "Everyone had their own desk. Aiden found one beside Betty. He ran his finger across the smooth top and felt, just slightly, that it might turn out to be all right."
+    },
+    {
+      "pageNumber": 9,
+      "reason": "Replaces generated board sums with concrete, picture-readable counters and shape puzzles.",
+      "text": "After lunch came Maths. Miss Okafor gave them number puzzles with counters and shapes. Each one was a little harder than the last. Aiden's brain felt stretched in a new way. He discovered that this was not a bad feeling."
+    },
+    {
+      "pageNumber": 10,
+      "reason": "Removes names and written rewards from the board while keeping both children's successful participation.",
+      "text": "Betty answered three questions out loud and got them all right. Aiden raised his hand once, very carefully, and his answer was right too. Miss Okafor gave them each a gold star. Aiden held onto that moment for the rest of the day."
+    }
+  ]
+}

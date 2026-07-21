@@ -1,0 +1,64 @@
+{
+  "bookId": "level-c-nonfiction-04-the-moon",
+  "reviewedAt": "2026-07-21",
+  "readingLevel": "C",
+  "principles": [
+    "Keep sentences short and concrete for readers aged 5 to 6.",
+    "Retain useful science vocabulary only when the surrounding sentence explains it.",
+    "Prefer factual clarity over catchy comparisons that can confuse the image sequence."
+  ],
+  "sources": [
+    "https://science.nasa.gov/moon/facts/",
+    "https://science.nasa.gov/moon/lunar-craters/",
+    "https://www.nasa.gov/history/apollo-11-mission-overview/",
+    "https://science.nasa.gov/science-research/planetary-science/astrobiology/nasas-apollo-samples-yield-new-information-about-the-moon/",
+    "https://oceanservice.noaa.gov/education/tutorial_tides/tides02_cause.html"
+  ],
+  "pages": [
+    {
+      "pageNumber": 1,
+      "reason": "Names the Moon's relationship to Earth accurately and removes the vague neighbour wording.",
+      "text": "The Moon is a huge ball of rock. It travels around Earth. It takes about one month to go all the way around. The Moon is Earth's natural satellite."
+    },
+    {
+      "pageNumber": 2,
+      "reason": "Explains reflected light directly without implying that the Moon has an inner glow.",
+      "text": "The Moon does not make its own light. It does not glow by itself. The light we see is sunlight reflected from the Moon's surface."
+    },
+    {
+      "pageNumber": 3,
+      "reason": "Makes clear that the apparent shape changes gradually and uses looks rather than saying the Moon itself changes shape.",
+      "text": "The Moon's shape seems to change a little from night to night. Sometimes it looks like a full, bright circle. Sometimes it looks like a thin crescent. These shapes are called the phases of the Moon."
+    },
+    {
+      "pageNumber": 4,
+      "reason": "Replaces the misleading word holes with the concrete, level-appropriate word dents.",
+      "text": "The Moon's surface is covered in craters. Craters are bowl-shaped dents made when space rocks crashed into the Moon long ago. Some craters are bigger than cities."
+    },
+    {
+      "pageNumber": 5,
+      "reason": "Removes a shortened disputed quotation and gives a clear, accurate Apollo 11 sequence.",
+      "text": "In 1969, the Apollo 11 astronauts travelled to the Moon. Neil Armstrong became the first person to step onto its surface. Buzz Aldrin walked there soon after."
+    },
+    {
+      "pageNumber": 6,
+      "reason": "Acknowledges the Sun's smaller tidal effect while keeping the explanation concrete.",
+      "text": "The Moon's gravity is the main force behind Earth's tides. The Sun's gravity helps too. At high tide, the sea rises up the beach. At low tide, it moves back."
+    },
+    {
+      "pageNumber": 7,
+      "reason": "States more precisely what lunar samples reveal while reducing sentence complexity.",
+      "text": "Astronauts brought Moon rocks back to Earth. Scientists are still studying them today. The rocks tell us about the Moon's past and the early Solar System."
+    },
+    {
+      "pageNumber": 8,
+      "reason": "Replaces the sports-ball analogy with a direct and visually coherent size comparison.",
+      "text": "The Moon looks small from Earth, but it is very large. It is about one quarter as wide as Earth. About four Moons could fit across our planet."
+    },
+    {
+      "pageNumber": 9,
+      "reason": "Avoids claiming that the Moon is visible most nights or always visible while ending with a reassuring recap.",
+      "text": "You can see the Moon on many clear nights. With a telescope, you can see some craters. Even when you cannot see it, the Moon is still travelling around Earth."
+    }
+  ]
+}

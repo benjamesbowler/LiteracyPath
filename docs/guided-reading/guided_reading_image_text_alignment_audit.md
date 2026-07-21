@@ -1,6 +1,6 @@
 # Guided Reading Image/Text Alignment Audit
 
-Generated: 2026-07-20T20:15:54.760Z
+Generated: 2026-07-21T04:11:45.685Z
 
 ## What This Check Proves
 
@@ -583,9 +583,9 @@ We are small. |
 | first-facts-a-25-water-everywhere | 3 | 2 | yes | yes | /guided-reading/nonfiction/first-facts/book-25/page-002.webp | Rain falls from the clouds. Drip, drip, drip. |
 | first-facts-a-25-water-everywhere | 4 | 3 | yes | yes | /guided-reading/nonfiction/first-facts/book-25/page-003.webp | Rain fills rivers and lakes. Animals drink the water. |
 | first-facts-a-25-water-everywhere | 5 | 4 | yes | yes | /guided-reading/nonfiction/first-facts/book-25/page-004.webp | We drink water every day. Water keeps us healthy. |
-| first-facts-a-25-water-everywhere | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts/book-25/page-005.webp | We wash in water. Water keeps us clean. |
+| first-facts-a-25-water-everywhere | 6 | 5 | yes | yes | /guided-reading/nonfiction/first-facts/book-25/page-005.webp | We wash with water. Water helps to keep us clean. |
 | first-facts-a-25-water-everywhere | 7 | 6 | yes | yes | /guided-reading/nonfiction/first-facts/book-25/page-006.webp | Plants and animals need water too. |
-| first-facts-a-25-water-everywhere | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts/book-25/page-007.webp | Water can be liquid, ice, or steam. Water changes! |
+| first-facts-a-25-water-everywhere | 8 | 7 | yes | yes | /guided-reading/nonfiction/first-facts/book-25/page-007.webp | Water can be liquid, solid ice, or water vapour. Water changes! |
 | first-facts-a-25-water-everywhere | 9 | 8 | yes | yes | /guided-reading/nonfiction/first-facts/book-25/page-008.webp | Water is precious. Let us look after it. |
 | first-facts-a-25-water-everywhere | 10 | 9 | yes | yes | /guided-reading/nonfiction/first-facts/book-25/page-009.webp | Water is everywhere! Our Earth is a water planet. |
 | level-c-nonfiction-01-bees | 2 | 1 | yes | yes | /guided-reading/nonfiction/level-c/book-01/page-001.webp | There are thousands of kinds of bees. The honeybee is one of the most helpful be |
@@ -607,23 +607,23 @@ We are small. |
 | level-c-nonfiction-02-volcanoes | 9 | 8 | yes | yes | /guided-reading/nonfiction/level-c/book-02/page-008.webp | Most volcanoes are quiet for a very long time. Scientists called volcanologists  |
 | level-c-nonfiction-02-volcanoes | 10 | 9 | yes | yes | /guided-reading/nonfiction/level-c/book-02/page-009.webp | Volcanoes can seem frightening. But they have helped shape our planet. They make |
 | level-c-nonfiction-03-penguins | 2 | 1 | yes | yes | /guided-reading/nonfiction/level-c/book-03/page-001.webp | Penguins are birds — but they cannot fly. Instead, they use their wings as flipp |
-| level-c-nonfiction-03-penguins | 3 | 2 | yes | yes | /guided-reading/nonfiction/level-c/book-03/page-002.webp | Most penguins live in cold places. Emperor penguins live in Antarctica, the cold |
+| level-c-nonfiction-03-penguins | 3 | 2 | yes | yes | /guided-reading/nonfiction/level-c/book-03/page-002.webp | Many penguins live in cold places. Emperor penguins live in Antarctica, the cold |
 | level-c-nonfiction-03-penguins | 4 | 3 | yes | yes | /guided-reading/nonfiction/level-c/book-03/page-003.webp | The female emperor penguin lays one egg. The father balances it on his feet and  |
 | level-c-nonfiction-03-penguins | 5 | 4 | yes | yes | /guided-reading/nonfiction/level-c/book-03/page-004.webp | The father does not eat for two months. He huddles with other fathers to stay wa |
-| level-c-nonfiction-03-penguins | 6 | 5 | yes | yes | /guided-reading/nonfiction/level-c/book-03/page-005.webp | When the egg hatches, a tiny chick comes out. The chick has thick grey fluffy fe |
-| level-c-nonfiction-03-penguins | 7 | 6 | yes | yes | /guided-reading/nonfiction/level-c/book-03/page-006.webp | Penguins are extraordinary swimmers. They can swim at 25 kilometres per hour. Th |
+| level-c-nonfiction-03-penguins | 6 | 5 | yes | yes | /guided-reading/nonfiction/level-c/book-03/page-005.webp | When the egg hatches, a tiny chick comes out. The chick has soft grey down. It s |
+| level-c-nonfiction-03-penguins | 7 | 6 | yes | yes | /guided-reading/nonfiction/level-c/book-03/page-006.webp | Emperor penguins are extraordinary swimmers. They can swim at up to 14 kilometre |
 | level-c-nonfiction-03-penguins | 8 | 7 | yes | yes | /guided-reading/nonfiction/level-c/book-03/page-007.webp | Penguins live in large groups called colonies. Some colonies have hundreds of th |
 | level-c-nonfiction-03-penguins | 9 | 8 | yes | yes | /guided-reading/nonfiction/level-c/book-03/page-008.webp | Penguins are black on top and white underneath. This is called countershading. F |
-| level-c-nonfiction-03-penguins | 10 | 9 | yes | yes | /guided-reading/nonfiction/level-c/book-03/page-009.webp | There are 18 species of penguin. Not all live in cold places. Little blue pengui |
-| level-c-nonfiction-04-the-moon | 2 | 1 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-001.webp | The Moon is a huge ball of rock. It travels around the Earth. It takes about one |
-| level-c-nonfiction-04-the-moon | 3 | 2 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-002.webp | The Moon does not make its own light. It has no fire or glow inside. The light w |
-| level-c-nonfiction-04-the-moon | 4 | 3 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-003.webp | The Moon looks different every night. Sometimes it is a full, bright circle. Som |
-| level-c-nonfiction-04-the-moon | 5 | 4 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-004.webp | The Moon's surface is covered in craters. Craters are bowl-shaped holes made by  |
-| level-c-nonfiction-04-the-moon | 6 | 5 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-005.webp | In 1969, astronauts travelled to the Moon. Neil Armstrong was the first human to |
-| level-c-nonfiction-04-the-moon | 7 | 6 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-006.webp | The Moon's gravity pulls on Earth's oceans. This causes the tides. When the tide |
-| level-c-nonfiction-04-the-moon | 8 | 7 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-007.webp | The astronauts brought Moon rocks back to Earth. Scientists are still studying t |
-| level-c-nonfiction-04-the-moon | 9 | 8 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-008.webp | The Moon looks small from Earth, but it is very large. It is about a quarter the |
-| level-c-nonfiction-04-the-moon | 10 | 9 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-009.webp | You can see the Moon most nights. On a clear night with a telescope, you can see |
+| level-c-nonfiction-03-penguins | 10 | 9 | yes | yes | /guided-reading/nonfiction/level-c/book-03/page-009.webp | There are 18 species of penguin. Not all live in cold places. African penguins l |
+| level-c-nonfiction-04-the-moon | 2 | 1 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-001.webp | The Moon is a huge ball of rock. It travels around Earth. It takes about one mon |
+| level-c-nonfiction-04-the-moon | 3 | 2 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-002.webp | The Moon does not make its own light. It does not glow by itself. The light we s |
+| level-c-nonfiction-04-the-moon | 4 | 3 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-003.webp | The Moon's shape seems to change a little from night to night. Sometimes it look |
+| level-c-nonfiction-04-the-moon | 5 | 4 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-004.webp | The Moon's surface is covered in craters. Craters are bowl-shaped dents made whe |
+| level-c-nonfiction-04-the-moon | 6 | 5 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-005.webp | In 1969, the Apollo 11 astronauts travelled to the Moon. Neil Armstrong became t |
+| level-c-nonfiction-04-the-moon | 7 | 6 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-006.webp | The Moon's gravity is the main force behind Earth's tides. The Sun's gravity hel |
+| level-c-nonfiction-04-the-moon | 8 | 7 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-007.webp | Astronauts brought Moon rocks back to Earth. Scientists are still studying them  |
+| level-c-nonfiction-04-the-moon | 9 | 8 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-008.webp | The Moon looks small from Earth, but it is very large. It is about one quarter a |
+| level-c-nonfiction-04-the-moon | 10 | 9 | yes | yes | /guided-reading/nonfiction/level-c/book-04/page-009.webp | You can see the Moon on many clear nights. With a telescope, you can see some cr |
 | level-c-nonfiction-05-how-seeds-grow | 2 | 1 | yes | yes | /guided-reading/nonfiction/level-c/book-05/page-001.webp | Almost every plant starts as a tiny seed. Seeds come in hundreds of different sh |
 | level-c-nonfiction-05-how-seeds-grow | 3 | 2 | yes | yes | /guided-reading/nonfiction/level-c/book-05/page-002.webp | A seed needs three things to start growing: water, warmth, and air. When it gets |
 | level-c-nonfiction-05-how-seeds-grow | 4 | 3 | yes | yes | /guided-reading/nonfiction/level-c/book-05/page-003.webp | First, a tiny root pushes down into the soil. Roots drink up water from the grou |
@@ -631,53 +631,53 @@ We are small. |
 | level-c-nonfiction-05-how-seeds-grow | 6 | 5 | yes | yes | /guided-reading/nonfiction/level-c/book-05/page-005.webp | Plants use sunlight, water, and air to make food. This is called photosynthesis. |
 | level-c-nonfiction-05-how-seeds-grow | 7 | 6 | yes | yes | /guided-reading/nonfiction/level-c/book-05/page-006.webp | As the plant grows bigger, it makes flowers. Flowers attract bees and butterflie |
 | level-c-nonfiction-05-how-seeds-grow | 8 | 7 | yes | yes | /guided-reading/nonfiction/level-c/book-05/page-007.webp | After pollination, the flower makes seeds. The seeds grow inside the plant prote |
-| level-c-nonfiction-05-how-seeds-grow | 9 | 8 | yes | yes | /guided-reading/nonfiction/level-c/book-05/page-008.webp | Seeds travel away from the parent plant. Some fly on the wind. Some stick to ani |
+| level-c-nonfiction-05-how-seeds-grow | 9 | 8 | yes | yes | /guided-reading/nonfiction/level-c/book-05/page-008.webp | Seeds travel away from the parent plant in different ways. Some fly on the wind. |
 | level-c-nonfiction-05-how-seeds-grow | 10 | 9 | yes | yes | /guided-reading/nonfiction/level-c/book-05/page-009.webp | You can grow your own plant. Put a seed in some soil. Add water. Put it in a sun |
-| level-c-nonfiction-06-spiders | 2 | 1 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-001.webp | Spiders are not insects. Insects have six legs. Spiders have eight legs. They be |
-| level-c-nonfiction-06-spiders | 3 | 2 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-002.webp | Most spiders can make silk. The silk comes out of tiny organs called spinnerets. |
-| level-c-nonfiction-06-spiders | 4 | 3 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-003.webp | Many spiders spin webs to catch food. Orb webs are circular with spokes like a w |
-| level-c-nonfiction-06-spiders | 5 | 4 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-004.webp | Not all webs look the same. Sheet webs are flat like a hammock. Cobwebs are mess |
-| level-c-nonfiction-06-spiders | 6 | 5 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-005.webp | Some spiders do not use webs at all. Jumping spiders leap onto their food. They  |
-| level-c-nonfiction-06-spiders | 7 | 6 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-006.webp | Spiders have eight eyes, but many cannot see well. Instead, they feel vibrations |
-| level-c-nonfiction-06-spiders | 8 | 7 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-007.webp | When an insect is caught, the spider wraps it in silk. This keeps it still. Then |
-| level-c-nonfiction-06-spiders | 9 | 8 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-008.webp | Female spiders lay eggs in a silk sac. The sac protects the eggs. When they hatc |
-| level-c-nonfiction-06-spiders | 10 | 9 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-009.webp | Most spiders are harmless to people. They eat insects that damage our plants. Wi |
+| level-c-nonfiction-06-spiders | 2 | 1 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-001.webp | Spiders are not insects. Insects have six legs and three main body parts. Spider |
+| level-c-nonfiction-06-spiders | 3 | 2 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-002.webp | All spiders make silk. Silk comes from tiny organs called spinnerets at the back |
+| level-c-nonfiction-06-spiders | 4 | 3 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-003.webp | Many spiders build webs to catch food. An orb web looks like a wheel. The spider |
+| level-c-nonfiction-06-spiders | 5 | 4 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-004.webp | Spiders build many kinds of webs. Sheet webs lie flat like a hammock. Tangle web |
+| level-c-nonfiction-06-spiders | 6 | 5 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-005.webp | Some spiders do not build webs to catch food. Jumping spiders stalk insects and  |
+| level-c-nonfiction-06-spiders | 7 | 6 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-006.webp | Most spiders have eight eyes, but many cannot see well. Web-building spiders fee |
+| level-c-nonfiction-06-spiders | 8 | 7 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-007.webp | When an insect is caught, a garden spider may wrap it in silk. The spider uses v |
+| level-c-nonfiction-06-spiders | 9 | 8 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-008.webp | Female spiders protect their eggs in a silk sac. When the eggs hatch, tiny spide |
+| level-c-nonfiction-06-spiders | 10 | 9 | yes | yes | /guided-reading/nonfiction/level-c/book-06/page-009.webp | Most spiders cannot harm people. They eat many insects, including some that dama |
 | level-c-nonfiction-07-under-the-ocean | 2 | 1 | yes | yes | /guided-reading/nonfiction/level-c/book-07/page-001.webp | The ocean covers more than two thirds of our planet. It is the largest habitat o |
 | level-c-nonfiction-07-under-the-ocean | 3 | 2 | yes | yes | /guided-reading/nonfiction/level-c/book-07/page-002.webp | The ocean has different layers. Near the surface, there is plenty of sunlight an |
-| level-c-nonfiction-07-under-the-ocean | 4 | 3 | yes | yes | /guided-reading/nonfiction/level-c/book-07/page-003.webp | The top layer is full of life. Coral reefs grow in warm, shallow water. They are |
-| level-c-nonfiction-07-under-the-ocean | 5 | 4 | yes | yes | /guided-reading/nonfiction/level-c/book-07/page-004.webp | Coral looks like rock or plant, but it is an animal. Each piece of coral is made |
+| level-c-nonfiction-07-under-the-ocean | 4 | 3 | yes | yes | /guided-reading/nonfiction/level-c/book-07/page-003.webp | The sunlit top layer is full of life. Coral reefs grow in warm, shallow water. T |
+| level-c-nonfiction-07-under-the-ocean | 5 | 4 | yes | yes | /guided-reading/nonfiction/level-c/book-07/page-004.webp | Coral may look like rock or a plant, but coral polyps are tiny animals. Many pol |
 | level-c-nonfiction-07-under-the-ocean | 6 | 5 | yes | yes | /guided-reading/nonfiction/level-c/book-07/page-005.webp | Further down, in the deep and dark, strange creatures live. Many have enormous e |
 | level-c-nonfiction-07-under-the-ocean | 7 | 6 | yes | yes | /guided-reading/nonfiction/level-c/book-07/page-006.webp | In the deepest, darkest water, some creatures make their own light. This is call |
 | level-c-nonfiction-07-under-the-ocean | 8 | 7 | yes | yes | /guided-reading/nonfiction/level-c/book-07/page-007.webp | The deepest part of the ocean is called the Mariana Trench. It is nearly 11 kilo |
 | level-c-nonfiction-07-under-the-ocean | 9 | 8 | yes | yes | /guided-reading/nonfiction/level-c/book-07/page-008.webp | The ocean makes more than half the oxygen we breathe. Tiny plants called phytopl |
 | level-c-nonfiction-07-under-the-ocean | 10 | 9 | yes | yes | /guided-reading/nonfiction/level-c/book-07/page-009.webp | More than 80% of the ocean has never been explored. We know more about the surfa |
 | level-c-nonfiction-08-butterflies | 2 | 1 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-001.webp | Butterflies are insects. Like all insects, they have six legs, four wings, and a |
-| level-c-nonfiction-08-butterflies | 3 | 2 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-002.webp | A butterfly's life has four stages. This is called a lifecycle. Each stage looks |
-| level-c-nonfiction-08-butterflies | 4 | 3 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-003.webp | Stage one: the butterfly lays tiny eggs on a leaf. The eggs are very small — som |
-| level-c-nonfiction-08-butterflies | 5 | 4 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-004.webp | Stage two: the egg hatches into a caterpillar. The caterpillar's only job is to  |
-| level-c-nonfiction-08-butterflies | 6 | 5 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-005.webp | Stage three: the caterpillar makes a hard shell around itself. This is called a  |
-| level-c-nonfiction-08-butterflies | 7 | 6 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-006.webp | Inside the chrysalis, the caterpillar breaks down completely. Its body rebuilds  |
-| level-c-nonfiction-08-butterflies | 8 | 7 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-007.webp | Stage four: the butterfly pushes out of the chrysalis. Its wings are wet and cru |
-| level-c-nonfiction-08-butterflies | 9 | 8 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-008.webp | Butterflies drink nectar from flowers. They find flowers using their eyes and se |
-| level-c-nonfiction-08-butterflies | 10 | 9 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-009.webp | Some butterflies migrate thousands of kilometres. The monarch butterfly flies fr |
-| level-c-nonfiction-09-caves | 2 | 1 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-001.webp | Caves are hollow spaces underground or inside cliffs. They form in many differen |
-| level-c-nonfiction-09-caves | 3 | 2 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-002.webp | Most caves form when rainwater seeps into limestone rock. The water is slightly  |
+| level-c-nonfiction-08-butterflies | 3 | 2 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-002.webp | A butterfly's life has four stages. This is called a life cycle. Each stage look |
+| level-c-nonfiction-08-butterflies | 4 | 3 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-003.webp | Stage one: a monarch butterfly lays a tiny egg on a milkweed leaf. The egg is no |
+| level-c-nonfiction-08-butterflies | 5 | 4 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-004.webp | Stage two: the egg hatches into a caterpillar. It eats milkweed and grows quickl |
+| level-c-nonfiction-08-butterflies | 6 | 5 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-005.webp | Stage three: the caterpillar hangs upside down. It sheds its skin one last time, |
+| level-c-nonfiction-08-butterflies | 7 | 6 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-006.webp | Inside the chrysalis, the caterpillar's body changes into a butterfly. This proc |
+| level-c-nonfiction-08-butterflies | 8 | 7 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-007.webp | Stage four: the butterfly pushes out of the chrysalis. It hangs still and pumps  |
+| level-c-nonfiction-08-butterflies | 9 | 8 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-008.webp | Butterflies drink nectar through a long tube called a proboscis. They use their  |
+| level-c-nonfiction-08-butterflies | 10 | 9 | yes | yes | /guided-reading/nonfiction/level-c/book-08/page-009.webp | In autumn, some monarchs fly thousands of kilometres south to Mexico. They rest  |
+| level-c-nonfiction-09-caves | 2 | 1 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-001.webp | Caves are hollow spaces underground or inside cliffs. They form in different way |
+| level-c-nonfiction-09-caves | 3 | 2 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-002.webp | Many caves form in limestone. Rainwater becomes slightly acidic as it moves thro |
 | level-c-nonfiction-09-caves | 4 | 3 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-003.webp | Over time, tunnels and chambers form underground. Some cave systems stretch for  |
-| level-c-nonfiction-09-caves | 5 | 4 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-004.webp | Water drips from cave ceilings for thousands of years. The minerals in the water |
-| level-c-nonfiction-09-caves | 6 | 5 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-005.webp | When drips hit the cave floor, minerals build up there too. These rising stone s |
-| level-c-nonfiction-09-caves | 7 | 6 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-006.webp | When a stalactite and a stalagmite meet, they form a column. A cave column can t |
-| level-c-nonfiction-09-caves | 8 | 7 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-007.webp | Caves are home to many animals. Bats sleep hanging upside down from cave ceiling |
-| level-c-nonfiction-09-caves | 9 | 8 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-008.webp | Some creatures live only in caves and never come out. Over thousands of years, t |
-| level-c-nonfiction-09-caves | 10 | 9 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-009.webp | Long ago, people lived in caves. They painted pictures on the cave walls. Cave p |
-| level-c-nonfiction-10-frogs | 2 | 1 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-001.webp | Frogs are amphibians. Amphibians can live in water and on land. Frogs begin thei |
-| level-c-nonfiction-10-frogs | 3 | 2 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-002.webp | A female frog lays hundreds of eggs in water. The eggs are called frogspawn. Eac |
-| level-c-nonfiction-10-frogs | 4 | 3 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-003.webp | After a few weeks, tadpoles wriggle out of the eggs. Tadpoles have tails and no  |
-| level-c-nonfiction-10-frogs | 5 | 4 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-004.webp | Slowly, the tadpole changes. Back legs appear first. Then front legs. The tail s |
-| level-c-nonfiction-10-frogs | 6 | 5 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-005.webp | The young frog climbs out of the water. It can now breathe air through its lungs |
-| level-c-nonfiction-10-frogs | 7 | 6 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-006.webp | Frogs are expert hunters. They have long, sticky tongues. A frog can flip its to |
-| level-c-nonfiction-10-frogs | 8 | 7 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-007.webp | A frog's skin is always damp. Frogs can breathe through their skin as well as th |
-| level-c-nonfiction-10-frogs | 9 | 8 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-008.webp | Frogs come in amazing colours. Bright colours are a warning: I am poisonous — do |
-| level-c-nonfiction-10-frogs | 10 | 9 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-009.webp | Frogs sing to find a mate. Each species has its own call. The ribbit of a tree f |
+| level-c-nonfiction-09-caves | 5 | 4 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-004.webp | Water drips from cave ceilings. It leaves tiny bits of mineral behind. Over many |
+| level-c-nonfiction-09-caves | 6 | 5 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-005.webp | Drops also fall onto the cave floor. They leave minerals there too. Over many ye |
+| level-c-nonfiction-09-caves | 7 | 6 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-006.webp | A stalactite can grow down while a stalagmite grows up. If they meet, they form  |
+| level-c-nonfiction-09-caves | 8 | 7 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-007.webp | Caves are home to many animals. Some bats rest upside down from cave ceilings by |
+| level-c-nonfiction-09-caves | 9 | 8 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-008.webp | Some animals spend their whole lives in caves. Over many generations, they have  |
+| level-c-nonfiction-09-caves | 10 | 9 | yes | yes | /guided-reading/nonfiction/level-c/book-09/page-009.webp | Long ago, people sheltered in caves and painted pictures on the walls. Some cave |
+| level-c-nonfiction-10-frogs | 2 | 1 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-001.webp | Common frogs are amphibians. They begin life in fresh water. As adults, they can |
+| level-c-nonfiction-10-frogs | 3 | 2 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-002.webp | In spring, female common frogs lay eggs in ponds. The eggs form clumps called fr |
+| level-c-nonfiction-10-frogs | 4 | 3 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-003.webp | After two to four weeks, tadpoles hatch. They have tails and no legs. Their gill |
+| level-c-nonfiction-10-frogs | 5 | 4 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-004.webp | As a tadpole grows, back legs appear first. Front legs come next. Its tail slowl |
+| level-c-nonfiction-10-frogs | 6 | 5 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-005.webp | A young frog is called a froglet. It has four legs and a short tail. It leaves t |
+| level-c-nonfiction-10-frogs | 7 | 6 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-006.webp | Common frogs eat insects, worms, slugs, and snails. They can snap up small prey  |
+| level-c-nonfiction-10-frogs | 8 | 7 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-007.webp | A common frog has smooth, moist skin. It can take in oxygen through its skin. It |
+| level-c-nonfiction-10-frogs | 9 | 8 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-008.webp | Common frogs can be brown, olive, grey, yellow, or red. Dark patches help them b |
+| level-c-nonfiction-10-frogs | 10 | 9 | yes | yes | /guided-reading/nonfiction/level-c/book-10/page-009.webp | In spring, male common frogs make soft croaking calls near the pond. Their calls |
 | bob-and-nan-01 | 2 | 1 | yes | yes | /guided-reading/series/bob-and-nan/book-01/page-001.webp | This is Bob. |
 | bob-and-nan-01 | 3 | 2 | yes | yes | /guided-reading/series/bob-and-nan/book-01/page-002.webp | Bob can run. |
 | bob-and-nan-01 | 4 | 3 | yes | yes | /guided-reading/series/bob-and-nan/book-01/page-003.webp | This is Nan. |
@@ -968,14 +968,14 @@ We are small. |
 | ab-c-07 | 4 | 3 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-003.webp | The reserve was layered with sounds — insects, birds, the river — all at once an |
 | ab-c-07 | 5 | 4 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-004.webp | Betty found the bird hide first — a long wooden structure with narrow slot windo |
 | ab-c-07 | 6 | 5 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-005.webp | Through the binoculars, Betty saw a kingfisher — a bright impossible dart of blu |
-| ab-c-07 | 7 | 6 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-006.webp | Socks had other interests. He had crossed a wide fallen tree over the river befo |
+| ab-c-07 | 7 | 6 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-006.webp | Socks had other interests. He reached the start of a wide wooden footbridge over |
 | ab-c-07 | 8 | 7 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-007.webp | The far bank was different — thicker trees, softer ground, a field of tall meado |
 | ab-c-07 | 9 | 8 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-008.webp | He led them to a shallow pool in a mossy clearing — fed by a spring, perfectly c |
-| ab-c-07 | 10 | 9 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-009.webp | Betty wrote down every species she could identify in the hide log book, which sh |
+| ab-c-07 | 10 | 9 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-009.webp | Back at the hide, Betty wrote down every species she could identify in the visit |
 | ab-c-07 | 11 | 10 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-010.webp | On the way back, the sun was low and the meadow was full of seed heads catching  |
 | ab-c-07 | 12 | 11 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-011.webp | Uncle Eddie left on Sunday evening. He stayed on the doorstep a long time, sayin |
 | ab-c-07 | 13 | 12 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-012.webp | Aiden had started a new notebook that evening — not the Socks field study, but a |
-| ab-c-07 | 14 | 13 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-013.webp | "Do you think he misses the rainforest?" Aiden asked one evening. Betty thought  |
+| ab-c-07 | 14 | 13 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-013.webp | "Do you think he misses travelling with Uncle Eddie?" Aiden asked one evening. B |
 | ab-c-08 | 2 | 1 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-001.webp | There was a boy in Year 2 called Marcus who thought it was funny to call people  |
 | ab-c-08 | 3 | 2 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-002.webp | Aiden didn't say anything. He went home and sat on his bed and stared at the cei |
 | ab-c-08 | 4 | 3 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-003.webp | "What happened?" said Betty. Aiden told her in pieces, looking at the floor. Bet |
@@ -1134,7 +1134,7 @@ We are small. |
 | dino-pals-14-what-is-flappy | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-14/page-001.webp | Flappy woke up and tried to fly. Flappy got three wing-flaps up. Then landed in  |
 | dino-pals-14-what-is-flappy | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-14/page-002.webp | I should be able to fly, said Flappy. I have wings. You are also a dinosaur, sai |
 | dino-pals-14-what-is-flappy | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-14/page-003.webp | Bossy flies, said Flappy. Bossy is a Pterodactyl. You are an Archaeopteryx. That |
-| dino-pals-14-what-is-flappy | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-14/page-004.webp | Flappy asked Sunny. You are wonderful just as you are! said Sunny. But what AM I |
+| dino-pals-14-what-is-flappy | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-14/page-004.webp | Flappy went to ask Sunny. Am I a dinosaur or a bird? asked Flappy. You are wonde |
 | dino-pals-14-what-is-flappy | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-14/page-005.webp | Flappy tried roaring like the other dinosaurs. A small squawk came out. Some fea |
 | dino-pals-14-what-is-flappy | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-14/page-006.webp | Flappy tried stomping. Flappy's feet were quite small. Nobody noticed. |
 | dino-pals-14-what-is-flappy | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-14/page-007.webp | Flappy tried nesting in a tree. This part actually worked quite well. Flappy was |
@@ -1328,16 +1328,13 @@ Hic! Hee! Hic! Hee! |
 | meadow-pals-11-brave-climbs-the-hay-bale | 9 | 8 | yes | yes | /guided-reading/series/meadow-pals/book-11/page-008.webp | Brave got up! |
 | meadow-pals-11-brave-climbs-the-hay-bale | 10 | 9 | yes | yes | /guided-reading/series/meadow-pals/book-11/page-009.webp | "I am up!" said Brave. |
 | meadow-pals-11-brave-climbs-the-hay-bale | 11 | 10 | yes | yes | /guided-reading/series/meadow-pals/book-11/page-010.webp | Then Brave fell off. |
-| meadow-pals-12-hungry-eats-everything | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-001.webp | Hungry ate the grass. |
-| meadow-pals-12-hungry-eats-everything | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-002.webp | Hungry ate the flowers. |
-| meadow-pals-12-hungry-eats-everything | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-003.webp | Hungry ate the hat.
-"My hat!" said Clucky. |
-| meadow-pals-12-hungry-eats-everything | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-004.webp | Hungry ate the map.
-"My map!" said Tiny. |
-| meadow-pals-12-hungry-eats-everything | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-005.webp | Hungry ate the big cake.
-"My cake!" said Grumpy. |
-| meadow-pals-12-hungry-eats-everything | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-006.webp | Hungry was full. |
-| meadow-pals-12-hungry-eats-everything | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-007.webp | Hungry ate one more bit of grass. |
+| meadow-pals-12-hungry-eats-everything | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-001.webp | Hungry ate some grass. |
+| meadow-pals-12-hungry-eats-everything | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-002.webp | Hungry ate some hay. |
+| meadow-pals-12-hungry-eats-everything | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-003.webp | Hungry was still hungry. |
+| meadow-pals-12-hungry-eats-everything | 5 | 4 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-004.webp | Hungry went to the farm gate. |
+| meadow-pals-12-hungry-eats-everything | 6 | 5 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-005.webp | The farmer brought fresh hay. |
+| meadow-pals-12-hungry-eats-everything | 7 | 6 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-006.webp | Hungry ate, then drank some water. |
+| meadow-pals-12-hungry-eats-everything | 8 | 7 | yes | yes | /guided-reading/series/meadow-pals/book-12/page-007.webp | "I am full now," said Hungry. |
 | meadow-pals-13-splashy-finds-a-puddle | 2 | 1 | yes | yes | /guided-reading/series/meadow-pals/book-13/page-001.webp | Splashy sees a puddle. |
 | meadow-pals-13-splashy-finds-a-puddle | 3 | 2 | yes | yes | /guided-reading/series/meadow-pals/book-13/page-002.webp | It is a small puddle. |
 | meadow-pals-13-splashy-finds-a-puddle | 4 | 3 | yes | yes | /guided-reading/series/meadow-pals/book-13/page-003.webp | Splashy jumps in. |
@@ -1472,8 +1469,8 @@ Very, very fast. |
 | moonwood-tales-c-01 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-01/page-002.webp | "What is this?" said Pip. He picked it up carefully. The glow made his fingers f |
 | moonwood-tales-c-01 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-01/page-003.webp | Burrow appeared from a nearby tunnel. "That is a Bravery Stone," said Burrow. "W |
 | moonwood-tales-c-01 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-01/page-004.webp | Pip looked at the stone. "But I don't feel brave," he said. "I feel the same as  |
-| moonwood-tales-c-01 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-01/page-005.webp | "Try something scary," said Burrow. So Pip walked to the Tumblerock Cliffs. He f |
-| moonwood-tales-c-01 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-01/page-006.webp | His legs felt wobbly. The ground was a long way below. But he did not stop. He r |
+| moonwood-tales-c-01 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-01/page-005.webp | "Try something that feels hard," said Burrow. At Tumblerock Cliffs, Pip chose th |
+| moonwood-tales-c-01 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-01/page-006.webp | Pip's legs felt wobbly. The guide stood close, and Burrow cheered from the path. |
 | moonwood-tales-c-01 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-01/page-007.webp | "The stone did that!" said Pip. He tucked it safely into his pocket. Then he wal |
 | moonwood-tales-c-01 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-01/page-008.webp | The fog was thick and grey. Something rustled in the reeds nearby. Pip kept walk |
 | moonwood-tales-c-01 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-01/page-009.webp | That evening, Pip sat by the Crystal Stream. He looked at the stone. The gold gl |
@@ -2110,51 +2107,18 @@ Everyone placed a stone.
 | moonwood-tales-c-23 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-23/page-012.webp | That evening, the fog stayed at the line.
 The mushrooms began to come back on.
 O |
-| moonwood-tales-c-24 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-001.webp | There was a sign on the Hollow Oak door.
-GLIMMER'S FIRE PERFORMANCE — TODAY.
-Eve |
-| moonwood-tales-c-24 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-002.webp | They all sat in the clearing.
-Glimmer stood at the front.
-It was very quiet.
-"Re |
-| moonwood-tales-c-24 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-003.webp | Glimmer breathed in.
-Deeply.
-Glimmer breathed out.
-A jet of orange fire came out |
-| moonwood-tales-c-24 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-004.webp | Everyone gasped.
-Pip covered his mouth.
-Stone's eyes went very wide.
-Luna took o |
-| moonwood-tales-c-24 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-005.webp | Glimmer did it again.
-Longer.
-The fire was steady.
-It was warm.
-Glimmer's scales |
-| moonwood-tales-c-24 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-006.webp | Glimmer got excited.
-Glimmer breathed in very deeply.
-Much more deeply than befo |
-| moonwood-tales-c-24 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-007.webp | The fire was very large.
-It was taller than Glimmer.
-It caught the torch on the  |
-| moonwood-tales-c-24 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-008.webp | The light spread.
-Mushroom to mushroom.
-Lamp to lamp.
-Through every path.
-Throug |
-| moonwood-tales-c-24 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-009.webp | Moonwood blazed with gold.
-Every mushroom.
-Every lamp.
-Every glowing stone.
-The  |
-| moonwood-tales-c-24 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-010.webp | Everyone looked at the forest.
-Then everyone looked at Glimmer.
-Glimmer looked a |
-| moonwood-tales-c-24 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-011.webp | The fire faded slowly.
-Moonwood kept its glow.
-Luna looked at Glimmer over her g |
-| moonwood-tales-c-24 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-012.webp | "I did it," said Glimmer.
-"You did," said Pip.
-"I'd like to do it again," said G |
+| moonwood-tales-c-24 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-001.webp | Everyone came to the Hollow Oak. Luna had made a safe fire circle. A bucket of w |
+| moonwood-tales-c-24 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-002.webp | They sat outside the circle. Glimmer stood in the middle. "Ready?" asked Luna. G |
+| moonwood-tales-c-24 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-003.webp | Glimmer breathed in. Then Glimmer breathed out. A tiny orange flame appeared. Sm |
+| moonwood-tales-c-24 | 5 | 4 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-004.webp | Everyone gasped. Pip covered his mouth. Stone's eyes went wide. Luna watched clo |
+| moonwood-tales-c-24 | 6 | 5 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-005.webp | "May I try again?" asked Glimmer. Luna nodded. Glimmer made a longer flame. It s |
+| moonwood-tales-c-24 | 7 | 6 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-006.webp | Glimmer grew excited. The flame stopped. "Pause," said Luna. Glimmer stopped and |
+| moonwood-tales-c-24 | 8 | 7 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-007.webp | Luna placed a magic lantern in the circle. "One small flame," she said. Glimmer  |
+| moonwood-tales-c-24 | 9 | 8 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-008.webp | The lantern sent a golden spark to the next lamp. Lamp by lamp, safe magical lig |
+| moonwood-tales-c-24 | 10 | 9 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-009.webp | Moonwood glowed with gold. Every lamp. Every mushroom. Every glowing stone. The  |
+| moonwood-tales-c-24 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-010.webp | Everyone looked at the lights. Then everyone looked at Glimmer. "Did I do that?" |
+| moonwood-tales-c-24 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-011.webp | Luna smiled. "You made one careful flame," she said. "The lanterns carried the l |
+| moonwood-tales-c-24 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-24/page-012.webp | "I did it," said Glimmer. "You did," said Pip. "Can I practise again?" "Another  |
 | moonwood-tales-c-25 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-25/page-001.webp | It was the deepest part of the night.
 Moonwood was very quiet.
 Then there was a  |

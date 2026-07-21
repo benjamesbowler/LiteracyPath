@@ -1,0 +1,64 @@
+{
+  "bookId": "level-c-nonfiction-06-spiders",
+  "reviewedAt": "2026-07-21",
+  "readingLevel": "C",
+  "principles": [
+    "Use short, direct sentences and repeat the words spider, silk, web, and insect.",
+    "Keep useful science words only when the sentence explains them.",
+    "Avoid absolute claims where spider species vary."
+  ],
+  "sources": [
+    "https://www.amnh.org/explore/ology/entomology/what-is-entomology",
+    "https://www.nhm.ac.uk/discover/what-are-spider-webs-made-of.html",
+    "https://www.nhm.ac.uk/discover/spider-webs.html",
+    "https://www.amnh.org/learn-teach/curriculum-collections/biodiversity-counts/arthropod-identification/arthropod-morphology/parts-of-a-spider-dorsal-view-of-a-male-spider",
+    "https://ipm.ucanr.edu/home-and-landscape/spiders/"
+  ],
+  "pages": [
+    {
+      "pageNumber": 1,
+      "reason": "Adds the clearest anatomical difference between insects and spiders while retaining the arachnid term.",
+      "text": "Spiders are not insects. Insects have six legs and three main body parts. Spiders have eight legs and two main body parts. Spiders are arachnids."
+    },
+    {
+      "pageNumber": 2,
+      "reason": "Corrects both the all-spiders silk fact and the misleading same-thickness steel comparison.",
+      "text": "All spiders make silk. Silk comes from tiny organs called spinnerets at the back of a spider's body. For its weight, spider silk can be stronger than steel."
+    },
+    {
+      "pageNumber": 3,
+      "reason": "Explains orb-web construction with shorter sentences and a clear purpose.",
+      "text": "Many spiders build webs to catch food. An orb web looks like a wheel. The spider first makes spokes. Then it adds a sticky spiral to catch insects."
+    },
+    {
+      "pageNumber": 4,
+      "reason": "Removes the absolute species claim and distinguishes two common web structures without labels.",
+      "text": "Spiders build many kinds of webs. Sheet webs lie flat like a hammock. Tangle webs look like loose, messy threads. Different webs catch food in different ways."
+    },
+    {
+      "pageNumber": 5,
+      "reason": "Replaces the unsupported fixed jump distance with a cautious, accurate comparison.",
+      "text": "Some spiders do not build webs to catch food. Jumping spiders stalk insects and leap onto them. Their large front eyes help them judge distance. They can jump many times their own body length."
+    },
+    {
+      "pageNumber": 6,
+      "reason": "Corrects the claim that every spider has eight eyes and explains web vibration concretely.",
+      "text": "Most spiders have eight eyes, but many cannot see well. Web-building spiders feel tiny vibrations through their legs. A trapped insect makes the silk shake, and the spider knows where to go."
+    },
+    {
+      "pageNumber": 7,
+      "reason": "Avoids implying that every spider wraps prey while keeping the feeding sequence factual and age appropriate.",
+      "text": "When an insect is caught, a garden spider may wrap it in silk. The spider uses venom to keep the insect still. Then the spider can feed on its meal."
+    },
+    {
+      "pageNumber": 8,
+      "reason": "Names the wolf spider that carries its egg sac and removes the vague all-species mothering claim.",
+      "text": "Female spiders protect their eggs in a silk sac. When the eggs hatch, tiny spiderlings come out. A mother wolf spider carries her egg sac with her."
+    },
+    {
+      "pageNumber": 9,
+      "reason": "Replaces personification and an ecological overclaim with a clear statement of spiders' useful role.",
+      "text": "Most spiders cannot harm people. They eat many insects, including some that damage plants. Spiders help to keep gardens and crops healthy. They are useful hunters."
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "bookId": "level-c-nonfiction-08-butterflies",
+  "reviewedAt": "2026-07-21",
+  "readingLevel": "C",
+  "principles": [
+    "Keep the four life-cycle stages explicit and sequential.",
+    "Use monarch-specific facts because one monarch and milkweed sequence is visually locked across the book.",
+    "Replace dramatic simplifications with concrete biological actions."
+  ],
+  "sources": [
+    "https://www.nps.gov/articles/000/milkweed-and-monarchs.htm",
+    "https://www.si.edu/stories/monarch-butterflies-make-most-smithsonians-gardens",
+    "https://naturalhistory.si.edu/education/teaching-resources/life-science/butterflies-and-beyond",
+    "https://www.nps.gov/subjects/pollinators/migratingmonarchs.htm",
+    "https://www.si.edu/object/silgoi_68308"
+  ],
+  "pages": [
+    {
+      "pageNumber": 2,
+      "reason": "Uses the standard two-word spelling life cycle and keeps the four-stage overview concise.",
+      "text": "A butterfly's life has four stages. This is called a life cycle. Each stage looks very different from the one before."
+    },
+    {
+      "pageNumber": 3,
+      "reason": "Corrects the suggestion that the caterpillar eats the leaf while still inside its egg and locks the host plant.",
+      "text": "Stage one: a monarch butterfly lays a tiny egg on a milkweed leaf. The egg is no bigger than a pinhead. After it hatches, the leaf will be food for the caterpillar."
+    },
+    {
+      "pageNumber": 4,
+      "reason": "Removes the personified only-job claim and adds the important growth action of shedding skin.",
+      "text": "Stage two: the egg hatches into a caterpillar. It eats milkweed and grows quickly. It sheds its skin several times. A new caterpillar may eat its own eggshell first."
+    },
+    {
+      "pageNumber": 5,
+      "reason": "Corrects the false implication that a monarch spins a hard shell around itself.",
+      "text": "Stage three: the caterpillar hangs upside down. It sheds its skin one last time, revealing a green chrysalis. Inside, a great change begins."
+    },
+    {
+      "pageNumber": 6,
+      "reason": "Replaces the misleading claim that the caterpillar breaks down completely and qualifies the development time.",
+      "text": "Inside the chrysalis, the caterpillar's body changes into a butterfly. This process is called metamorphosis. For a monarch, it often takes about two weeks."
+    },
+    {
+      "pageNumber": 7,
+      "reason": "Explains how newly emerged wings expand, dry, and harden more accurately.",
+      "text": "Stage four: the butterfly pushes out of the chrysalis. It hangs still and pumps fluid into its soft, crumpled wings. The wings spread out, dry, and harden."
+    },
+    {
+      "pageNumber": 8,
+      "reason": "Connects nectar feeding to the proboscis and describes foot taste sensors without implying that nectar is eaten.",
+      "text": "Butterflies drink nectar through a long tube called a proboscis. They use their eyes and antennae to find flowers. They also taste plants with sensors on their feet."
+    },
+    {
+      "pageNumber": 9,
+      "reason": "Distinguishes the one-generation southward flight from the multi-generation return north.",
+      "text": "In autumn, some monarchs fly thousands of kilometres south to Mexico. They rest for winter in mountain forests. In spring, several new generations make the journey north."
+    }
+  ]
+}

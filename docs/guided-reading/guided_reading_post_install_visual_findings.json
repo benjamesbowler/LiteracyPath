@@ -182,6 +182,118 @@
       5,
       7
     ],
+    "69": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "70": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "71": [
+      1,
+      8
+    ],
+    "72": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "73": [
+      3,
+      4
+    ],
+    "74": [
+      3,
+      7,
+      8
+    ],
+    "75": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "76": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "81": [
+      6
+    ],
+    "82": [
+      1,
+      8
+    ],
+    "85": [
+      1
+    ],
+    "89": [
+      2,
+      4,
+      10
+    ],
+    "90": [
+      12
+    ],
+    "91": [
+      4,
+      6
+    ],
+    "94": [
+      11
+    ],
+    "95": [
+      13
+    ],
+    "97": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11
+    ],
+    "98": [
+      3,
+      4,
+      9,
+      10
+    ],
     "100": [
       10
     ],
@@ -199,6 +311,115 @@
       3,
       9,
       10
+    ],
+    "104": [
+      4,
+      9,
+      13
+    ],
+    "105": [
+      1,
+      2,
+      3,
+      8,
+      12
+    ],
+    "106": [
+      1,
+      4,
+      7,
+      11,
+      13
+    ],
+    "109": [
+      3,
+      4,
+      7
+    ],
+    "110": [
+      7
+    ],
+    "112": [
+      1,
+      2,
+      3,
+      4,
+      6
+    ],
+    "113": [
+      3
+    ],
+    "114": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "115": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "116": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "117": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "120": [
+      4
+    ],
+    "138": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "151": [
+      7,
+      8,
+      12,
+      13
+    ],
+    "152": [
+      5,
+      6
+    ],
+    "154": [
+      2
+    ],
+    "175": [
+      1
     ]
   },
   "findings": [
@@ -921,13 +1142,14 @@
         6,
         7,
         9,
+        10,
         11
       ],
       "issues": [
         "text",
         "textMatch"
       ],
-      "finding": "The classroom sequence repeatedly contains generated alphabet strips, board writing, worksheets, name-label claims without a readable label, sums, and science-poster text. Rebuild these pages with clean picture-only classroom displays; when the story requires writing, show blank ruled marks or add verified typography outside the generated artwork."
+      "finding": "The classroom sequence repeatedly contains generated alphabet strips, board writing, worksheets, name-label claims without a readable label, sums, science-poster text, and a blank reward board that contradicts page 10. Rebuild these pages with clean picture-only classroom displays; when the story requires writing, show blank ruled marks or add verified typography outside the generated artwork."
     },
     {
       "bookNumber": 98,
@@ -1145,26 +1367,48 @@
       "bookId": "dino-pals-10-cheekys-prank-goes-wrong",
       "title": "Cheeky's Prank Goes Wrong",
       "pages": [
+        1,
+        2,
         3,
         4,
-        5
+        5,
+        6,
+        7,
+        8
       ],
       "issues": [
-        "text"
+        "text",
+        "continuity",
+        "tone",
+        "safety"
       ],
-      "finding": "The prank sequence embeds BOING, HEE HEE, OH, and SPLAT words. Preserve each cause-and-effect beat using elastic tail pose, mud splash, and character reactions without any lettering."
+      "finding": "The sequence embeds comic lettering, opens with a generic light-bulb icon, uses unsafe tail-tying, changes character designs, gives Fancy a rainbow-treated sail, and ends by rewarding another prank. Rebuild all eight pages around a harmless leaf-hat joke, clear reactions, apology, repair, and a shared joke."
     },
     {
       "bookNumber": 117,
       "bookId": "dino-pals-11-shys-secret-gift",
       "title": "Shy's Secret Gift",
       "pages": [
-        7
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
       ],
       "issues": [
-        "text"
+        "text",
+        "continuity",
+        "style",
+        "anatomy"
       ],
-      "finding": "Page 7 embeds Z sleep lettering in the night scene. Show Cheeky asleep through posture and closed eyes only."
+      "finding": "The 12-page sequence changes finish and character anatomy, uses rainbow horns, marked clipboard paper, Z sleep lettering, and an inconsistent pig-like Shy. Rebuild the whole sequence with locked Dino Pals designs, a clear pink dinosaur design for Shy, wordless props, and one continuous Big Flat Rock setting."
     },
     {
       "bookNumber": 118,

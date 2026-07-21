@@ -1,0 +1,66 @@
+{
+  "bookId": "level-c-nonfiction-09-caves",
+  "reviewedAt": "2026-07-21",
+  "readingLevel": "C",
+  "principles": [
+    "Use short, concrete explanations while preserving the causal sequence of cave formation.",
+    "Qualify claims that apply only to some caves, bats, or cave animals.",
+    "Describe adaptation across generations without suggesting that animals chose to change.",
+    "Present cave art as protected evidence of early people, not as a prompt for unsafe cave exploration."
+  ],
+  "sources": [
+    "https://home.nps.gov/maca/learn/nature/how-mammoth-cave-formed.htm",
+    "https://www.nps.gov/maca/learn/nature/stalactites-stalagmites-and-cave-formations.htm",
+    "https://www.nps.gov/places/elma-bat-cave-and-xenolith.htm",
+    "https://www.nps.gov/cave/learn/nature/bats.htm",
+    "https://www.nps.gov/maca/learn/nature/fish.htm",
+    "https://humanorigins.si.edu/research/whats-hot-human-origins/earliest-discovered-cave-painting"
+  ],
+  "pages": [
+    {
+      "pageNumber": 1,
+      "reason": "Names three important cave-forming processes without implying that every cave forms in the same way.",
+      "text": "Caves are hollow spaces underground or inside cliffs. They form in different ways. Water makes many limestone caves. Sea waves make caves in cliffs. Flowing lava can leave long cave tubes."
+    },
+    {
+      "pageNumber": 2,
+      "reason": "Qualifies the limestone claim and explains where the water's weak acidity comes from.",
+      "text": "Many caves form in limestone. Rainwater becomes slightly acidic as it moves through soil. It seeps into cracks and slowly dissolves the rock. This takes many thousands of years."
+    },
+    {
+      "pageNumber": 3,
+      "reason": "Uses the correct country name and keeps the conservative, child-readable Mammoth Cave distance fact.",
+      "text": "Over time, tunnels and chambers form underground. Some cave systems stretch for hundreds of kilometres. Mammoth Cave in the United States has more than 650 kilometres of mapped passages."
+    },
+    {
+      "pageNumber": 4,
+      "reason": "Explains stalactite growth through mineral deposits without implying a fixed formation time.",
+      "text": "Water drips from cave ceilings. It leaves tiny bits of mineral behind. Over many years, the mineral builds a hanging stone shape called a stalactite."
+    },
+    {
+      "pageNumber": 5,
+      "reason": "Removes the misleading universal growth rate and clearly contrasts floor growth with ceiling growth.",
+      "text": "Drops also fall onto the cave floor. They leave minerals there too. Over many years, a rising stone shape called a stalagmite begins to grow."
+    },
+    {
+      "pageNumber": 6,
+      "reason": "Shows the linked growth of stalactites and stalagmites and gives an appropriately cautious timescale.",
+      "text": "A stalactite can grow down while a stalagmite grows up. If they meet, they form a stone column. A column can take thousands of years to grow."
+    },
+    {
+      "pageNumber": 7,
+      "reason": "Avoids implying that all bats sleep all day or that every cave has a colony of thousands.",
+      "text": "Caves are home to many animals. Some bats rest upside down from cave ceilings by day. At dusk, many bats fly out to catch insects in the night air."
+    },
+    {
+      "pageNumber": 8,
+      "reason": "Replaces teleological wording with a simple description of inherited cave adaptations and avoids claiming every cave fish is fully eyeless.",
+      "text": "Some animals spend their whole lives in caves. Over many generations, they have changed to live in the dark. Some cave fish are pale and have tiny eyes or no working eyes."
+    },
+    {
+      "pageNumber": 9,
+      "reason": "Replaces the unsupported claim that people lived permanently in painted caves and connects ancient art to evidence about the past.",
+      "text": "Long ago, people sheltered in caves and painted pictures on the walls. Some cave paintings are more than 40,000 years old. They help us learn about people who lived long ago."
+    }
+  ]
+}
