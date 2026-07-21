@@ -43,6 +43,7 @@ import {
   sampleQuestFrameBudget
 } from "../../../utils/questPerformance.js";
 import { warmQuestOfflineAssets } from "../../../utils/offlineShell.js";
+import { QUEST_PIXEL_SFX_URLS } from "../../../utils/questActionAudio.js";
 import { clampQuestWorldResume } from "../../../utils/questWorldResume.js";
 
 // Touch devices get the big-answer strip PINNED: focus-within only ever
@@ -637,6 +638,13 @@ export default function QuestPixelWorld({
           const uniqueVisualAssetEntries = [...new Map(visualAssetEntries.map(entry => [entry.name, entry])).values()];
           const uniqueAudioAssetEntries = [...new Map(audioAssetEntries.map(entry => [entry.name, entry])).values()];
           const uniqueSceneAssetEntries = [...new Map(sceneAssetEntries.map(entry => [entry.name, entry])).values()];
+          const offlineAssetUrls = [
+            // The manifest, rather than the racy performance snapshot, owns
+            // the audio set. This also avoids caching the same URL once as an
+            // absolute resource entry and again as a root-relative manifest entry.
+            ...uniqueVisualAssetEntries.map(entry => entry.name),
+            ...QUEST_PIXEL_SFX_URLS
+          ];
           const assetRequests = uniqueVisualAssetEntries.length;
           const assetRequestAttempts = visualAssetEntries.length;
           const assetBytes = uniqueVisualAssetEntries.reduce((total, entry) => (
@@ -648,8 +656,8 @@ export default function QuestPixelWorld({
             total + Number(entry.encodedBodySize || entry.transferSize || entry.decodedBodySize || 0)
           ), 0);
           const totalAssetBytes = assetBytes + audioAssetBytes;
-          if (uniqueSceneAssetEntries.length) {
-            void warmQuestOfflineAssets(uniqueSceneAssetEntries.map(entry => entry.name), {
+          if (offlineAssetUrls.length) {
+            void warmQuestOfflineAssets(offlineAssetUrls, {
               chapterId: section.chapter?.id || ""
             });
           }

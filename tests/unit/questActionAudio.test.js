@@ -3,6 +3,9 @@ import assert from "node:assert/strict";
 import {
   QUEST_ACTION_SFX,
   QUEST_CHAPTER_MATERIAL_SFX,
+  QUEST_FEEDBACK_SFX,
+  QUEST_PIXEL_SFX_ENTRIES,
+  QUEST_PIXEL_SFX_URLS,
   questCeremonySfxSequence,
   questActionSfxEntry,
   questActionSfxId,
@@ -104,6 +107,18 @@ test("each chapter layers a distinct material identity under physical actions", 
     assert.match(entry.src, /^\/game-assets\/quest-pixel\/seedwake\/audio\/material-/);
   }
   assert.equal(questChapterMaterialSfxEntry("unknown"), null);
+});
+
+test("the offline media manifest covers every feedback, action, and chapter material sound", () => {
+  const expectedEntries = [
+    ...Object.values(QUEST_FEEDBACK_SFX),
+    ...Object.values(QUEST_ACTION_SFX),
+    ...Object.values(QUEST_CHAPTER_MATERIAL_SFX)
+  ];
+  assert.equal(QUEST_PIXEL_SFX_ENTRIES.length, 20);
+  assert.deepEqual(QUEST_PIXEL_SFX_ENTRIES, expectedEntries);
+  assert.deepEqual(QUEST_PIXEL_SFX_URLS, expectedEntries.map(entry => entry.src));
+  assert.equal(new Set(QUEST_PIXEL_SFX_URLS).size, 20);
 });
 
 test("chapter ceremonies score gathering, relic lift, material, and landing", () => {

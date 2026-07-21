@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { QUEST_PIXEL_SFX_URLS } from "../../src/utils/questActionAudio.js";
 
 const QUEST_URL = "/preview/quest.html?view=world&stop=s36&done=35&display=pixel&active=0&adapt=0";
 const EVIDENCE_URL = "/preview/quest-evidence.html";
@@ -47,6 +48,7 @@ test("the production shell cold-starts the saved chapter, accessible task, Den, 
   expect(cacheEvidence.shellEntries.some(path => path.includes("QuestRoot"))).toBe(true);
   expect(cacheEvidence.shellEntries.some(path => path.includes("QuestPixelWorld"))).toBe(true);
   expect(cacheEvidence.mediaEntries.length).toBeGreaterThanOrEqual(warmResult.completed);
+  expect(cacheEvidence.mediaEntries).toEqual(expect.arrayContaining(QUEST_PIXEL_SFX_URLS));
 
   await context.setOffline(true);
   await page.close();

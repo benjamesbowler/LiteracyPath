@@ -1,3 +1,10 @@
+export const QUEST_FEEDBACK_SFX = Object.freeze({
+  "seedwake-success": Object.freeze({ key: "seedwake-success", src: "/game-assets/quest-pixel/seedwake/audio/success.wav" }),
+  "seedwake-pickup": Object.freeze({ key: "seedwake-pickup", src: "/game-assets/quest-pixel/seedwake/audio/pickup.wav" }),
+  "seedwake-wrong": Object.freeze({ key: "seedwake-wrong", src: "/game-assets/quest-pixel/seedwake/audio/wrong.wav" }),
+  "seedwake-magic": Object.freeze({ key: "seedwake-magic", src: "/game-assets/quest-pixel/seedwake/audio/magic.wav" })
+});
+
 export const QUEST_ACTION_SFX = Object.freeze({
   discover: Object.freeze({ key: "quest-action-discover", src: "/game-assets/quest-pixel/seedwake/audio/action-discover.wav" }),
   hop: Object.freeze({ key: "quest-action-hop", src: "/game-assets/quest-pixel/seedwake/audio/action-hop.wav" }),
@@ -19,6 +26,19 @@ export const QUEST_CHAPTER_MATERIAL_SFX = Object.freeze({
   "lantern-forest": Object.freeze({ key: "quest-material-forest", src: "/game-assets/quest-pixel/seedwake/audio/material-forest.wav" }),
   "star-reach": Object.freeze({ key: "quest-material-star", src: "/game-assets/quest-pixel/seedwake/audio/material-star.wav" })
 });
+
+// The persistent quest-media cache warms this complete, deterministic set so
+// a later offline chapter transition never depends on which Audio requests
+// happened to finish before the scene-ready performance snapshot.
+export const QUEST_PIXEL_SFX_ENTRIES = Object.freeze([
+  ...Object.values(QUEST_FEEDBACK_SFX),
+  ...Object.values(QUEST_ACTION_SFX),
+  ...Object.values(QUEST_CHAPTER_MATERIAL_SFX)
+]);
+
+export const QUEST_PIXEL_SFX_URLS = Object.freeze(
+  QUEST_PIXEL_SFX_ENTRIES.map(entry => entry.src)
+);
 
 const PLACE_ACTION = /(deliver|dock|fit|place|lock|feed|restore|release|send|flash|tune|ring|strike|turn|wave|open)/;
 const LIFT_ACTION = /(lift|load|board|carry|pick|net|catch|brush|dig)/;

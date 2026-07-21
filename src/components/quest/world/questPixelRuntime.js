@@ -30,6 +30,7 @@ import {
 } from "../../../utils/questSliceSystems.js";
 import {
   QUEST_ACTION_SFX,
+  QUEST_FEEDBACK_SFX,
   questCeremonySfxSequence,
   questActionSfxEntry,
   questChapterMaterialSfxEntry,
@@ -59,12 +60,6 @@ export const PIXEL_WORLD = Object.freeze({ width: 640, height: 1120, tile: 16 })
 
 const PIXEL_ASSET_ROOT = "/game-assets/quest-pixel";
 const ASSET_ROOT = `${PIXEL_ASSET_ROOT}/seedwake`;
-const PIXEL_FEEDBACK_SFX = Object.freeze({
-  "seedwake-success": Object.freeze({ key: "seedwake-success", src: `${ASSET_ROOT}/audio/success.wav` }),
-  "seedwake-pickup": Object.freeze({ key: "seedwake-pickup", src: `${ASSET_ROOT}/audio/pickup.wav` }),
-  "seedwake-wrong": Object.freeze({ key: "seedwake-wrong", src: `${ASSET_ROOT}/audio/wrong.wav` }),
-  "seedwake-magic": Object.freeze({ key: "seedwake-magic", src: `${ASSET_ROOT}/audio/magic.wav` })
-});
 const PIXEL_ACTION_SFX_BY_KEY = Object.freeze(Object.fromEntries(
   Object.values(QUEST_ACTION_SFX).map(entry => [entry.key, entry])
 ));
@@ -1377,7 +1372,7 @@ class QuestPixelScene extends Phaser.Scene {
     }
     const materialSound = questChapterMaterialSfxEntry(this.model.section.chapter?.id);
     warmQuestSfxEntries([
-      ...Object.values(PIXEL_FEEDBACK_SFX),
+      ...Object.values(QUEST_FEEDBACK_SFX),
       ...Object.values(QUEST_ACTION_SFX),
       materialSound
     ]);
@@ -4786,7 +4781,7 @@ class QuestPixelScene extends Phaser.Scene {
 
   playSfx(key, volume = 0.28) {
     const material = questChapterMaterialSfxEntry(this.model?.section?.chapter?.id);
-    const entry = PIXEL_FEEDBACK_SFX[key]
+    const entry = QUEST_FEEDBACK_SFX[key]
       || PIXEL_ACTION_SFX_BY_KEY[key]
       || (material?.key === key ? material : null);
     playQuestSfxEntry(entry, { enabled: this.model?.soundEnabled, volume });
