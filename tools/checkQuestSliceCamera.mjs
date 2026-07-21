@@ -2,6 +2,7 @@
 
 import { spawn } from "node:child_process";
 import fs from "node:fs";
+import net from "node:net";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
@@ -12,7 +13,7 @@ import { buildPhysicalTask } from "../src/utils/questPhysicalMechanics.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = path.join(ROOT, "docs/previews/slice");
-const PORT = 5207;
+const PORT = await availableLoopbackPort();
 const BASE = `http://127.0.0.1:${PORT}`;
 const turnOnly = process.argv.includes("--turn-only");
 const journeyOnly = process.argv.includes("--journey-only");
@@ -25,18 +26,46 @@ const VIEWPORTS = Object.freeze({
 });
 const RENDER_TIMEOUT = 50_000;
 
+function availableLoopbackPort() {
+  return new Promise((resolve, reject) => {
+    const probe = net.createServer();
+    probe.unref();
+    probe.once("error", reject);
+    probe.listen(0, "127.0.0.1", () => {
+      const address = probe.address();
+      const port = typeof address === "object" && address ? address.port : 0;
+      probe.close(error => {
+        if (error) reject(error);
+        else if (!port) reject(new Error("Could not allocate a loopback port for the quest camera gate"));
+        else resolve(port);
+      });
+    });
+  });
+}
+
 function startServer() {
-  return spawn("npx", ["vite", "--host", "127.0.0.1", "--port", String(PORT), "--strictPort"], {
+  const server = spawn("npx", ["vite", "--host", "127.0.0.1", "--port", String(PORT), "--strictPort"], {
     cwd: ROOT,
     detached: true,
     stdio: ["ignore", "pipe", "pipe"],
     env: { ...process.env, BROWSER: "none" }
   });
+  let output = "";
+  const capture = chunk => {
+    output = `${output}${chunk}`.slice(-12_000);
+  };
+  server.stdout.on("data", capture);
+  server.stderr.on("data", capture);
+  server.getCapturedOutput = () => output;
+  return server;
 }
 
-async function waitForServer(timeout = 60_000) {
+async function waitForServer(server, timeout = 60_000) {
   const deadline = Date.now() + timeout;
   while (Date.now() < deadline) {
+    if (server.exitCode !== null || server.signalCode !== null) {
+      throw new Error(`Quest preview exited before it was ready:\n${server.getCapturedOutput()}`);
+    }
     try {
       const response = await fetch(BASE, { signal: AbortSignal.timeout(1500) });
       if (response.ok || response.status === 404) return;
@@ -456,7 +485,7 @@ const stopServer = () => {
 };
 
 try {
-  await waitForServer();
+  await waitForServer(server);
   browser = await launchBrowser();
   if (turnOnly) {
     await captureTurnPerformance(browser);

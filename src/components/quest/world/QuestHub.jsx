@@ -1679,6 +1679,9 @@ function buildFieldAvatar(spec, theme, { interactive = true } = {}) {
     child.castShadow = child.name !== "field-hit-proxy";
     if (interactive) child.userData.fieldChoice = spec;
   });
+  // Sightline protection follows the printed grapheme rather than the
+  // avatar's ground-level origin or its oversized collision proxy.
+  group.userData.sightlineTarget = group.getObjectByName("field-label") || null;
   return group;
 }
 
@@ -1778,6 +1781,11 @@ function sightlineMaterials(object) {
   return Array.isArray(object.material) ? object.material : object.material ? [object.material] : [];
 }
 
+function fieldChoiceSightlineTarget(item, target) {
+  const anchor = item?.userData?.sightlineTarget || item;
+  return anchor.getWorldPosition(target);
+}
+
 // Choices, characters, the ground and the labels are never occluders — they
 // are either the thing we are protecting or the surface it stands on.
 function sightlineCanFade(object) {
@@ -1835,7 +1843,7 @@ function updateSightline(camera, task, active, beatIndex, stageIndex, faded, dt,
     sightline.origin.copy(camera.position);
     for (const item of task.items) {
       if (!item.visible) continue;
-      item.getWorldPosition(sightline.target);
+      fieldChoiceSightlineTarget(item, sightline.target);
       sightline.direction.subVectors(sightline.target, sightline.origin);
       const distance = sightline.direction.length();
       if (distance < 0.001) continue;
@@ -3880,7 +3888,7 @@ export default function QuestHub({
       const itemEvidence = stageItems.map(item => {
         const box = new THREE.Box3().setFromObject(item);
         const rect = boxScreenRect(box);
-        const target = box.getCenter(new THREE.Vector3());
+        const target = fieldChoiceSightlineTarget(item, new THREE.Vector3());
         const direction = target.clone().sub(camera.position);
         const targetDistance = direction.length();
         raycaster.set(camera.position, direction.normalize());

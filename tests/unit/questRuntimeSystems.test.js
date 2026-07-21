@@ -990,6 +990,7 @@ test("QuestHub audit guards keep scoring beat-based and the encounter render pat
   assert.ok((hub.match(/recordsMastery: fieldStageRecordsMastery/g) || []).length >= 2, "muted or unavailable cues can still bank mastery");
   assert.match(sightline, /intersectObjects\(sightline\.occluders, false\)/, "sightline still recursively raycasts the whole scene");
   assert.doesNotMatch(sightline, /new THREE\.Raycaster/, "sightline allocates a raycaster in its per-frame function");
+  assert.ok((hub.match(/fieldChoiceSightlineTarget\(/g) || []).length >= 3, "runtime and proof do not share the printed-grapheme sightline target");
   assert.doesNotMatch(characterUpdates, /buildPhysicalTask\(/, "character animation rebuilds the active physical task every frame");
   assert.match(hub, /const liveTask = cachedPhysicalTask\(\)/, "late-frame rendering bypasses the physical-task cache");
   assert.match(hub, /activeTask: liveTask/, "character animation does not receive the cached physical task");
@@ -1002,6 +1003,14 @@ test("QuestHub audit guards keep scoring beat-based and the encounter render pat
   assert.match(hub, /encounters\.length === 0 \|\| isChapterGateOpen/, "an empty generated section can still strand the child");
   assert.match(hub, /if \(isSoundEnabled\) playStarChime\(\)/, "pickup rewards remain text-only");
   assert.match(hub, /if \(isSoundEnabled\) playWhoosh\(\)/, "gate and route transitions remain text-only");
+});
+
+test("the slice-camera gate owns an isolated server and observes early exits", () => {
+  const cameraGate = fs.readFileSync("tools/checkQuestSliceCamera.mjs", "utf8");
+  assert.match(cameraGate, /const PORT = await availableLoopbackPort\(\)/, "camera checks can collide on a fixed shared port");
+  assert.match(cameraGate, /server\.stdout\.on\("data", capture\)/, "camera gate can deadlock on an unread server pipe");
+  assert.match(cameraGate, /server\.exitCode !== null \|\| server\.signalCode !== null/, "camera gate can attach to another process after its own server exits");
+  assert.match(cameraGate, /await waitForServer\(server\)/, "server ownership is not verified before browser capture");
 });
 
 test("the pixel renderer keeps educational parity and debounces physical contacts", () => {
