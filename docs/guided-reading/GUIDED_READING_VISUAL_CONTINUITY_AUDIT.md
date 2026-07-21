@@ -10,9 +10,9 @@ Audit date: 20 July 2026
 - 1,616 active page images inspected at full contact-sheet size and against adjacent pages.
 - 2,005 physical guided-reading image files checked in total.
 - 389 inactive/legacy physical files separately inspected and quarantined.
-- 990 active images require replacement: 279 critical, 699 high, 12 moderate.
-- 909 replacements are approved and installed; 81 remain in the production queue.
-- 626 active images passed this visual audit.
+- 945 active images require replacement: 279 critical, 653 high, 13 moderate.
+- 945 replacements are approved and installed; 0 remain in the production queue.
+- 671 active images passed this visual audit.
 - Every individual result is recorded in guided_reading_visual_audit_coverage.json; every rejected active page has an exact prompt in guided_reading_visual_replacement_manifest.json.
 
 The covers intentionally reuse page 1 and are not a second physical image. They inherit page 1's pass/replacement result.
@@ -25,11 +25,11 @@ The live student reader was opened through the real picture-password flow and ch
 
 An image passes only when it accurately supports its page text, is coherent at full size, preserves recurring characters, props, quantities, geography, and chronology, contains no unintended writing or generation residue, and is appropriate for a child to imitate or learn from. A polished render fails when it teaches the wrong concept, introduces unsafe behaviour, or breaks sequence identity.
 
-Natural and inanimate objects must not be given decorative faces. Expression belongs on living story characters. All generated reader text, page numbers, signs, sound words, labels, prompt fragments, logos, palettes, and watermarks are disallowed inside the image; verified text must be rendered by the app.
+Humans, children, animals, and other living story characters who normally have faces must retain complete, expressive, anatomically appropriate faces. Only inanimate objects and non-character scenery must remain faceless. All generated reader text, page numbers, signs, sound words, labels, prompt fragments, logos, palettes, and watermarks are disallowed inside the image; verified text must be rendered by the app.
 
 ## Executive Finding
 
-The library is not uniformly poor. 13 books passed without a blocking visual defect. The main problem is concentrated in four production eras:
+The library is not uniformly poor. 15 books passed without a blocking visual defect. The main problem is concentrated in four production eras:
 
 1. Early nonfiction repeatedly uses smiling suns, moons, clouds, plants, food, shapes, and other babyfied objects, plus scientifically misleading diagrams.
 2. First-person nonfiction frequently changes the narrator, location, seed, plant, or animal between pages, so a supposed sequence reads as unrelated stock pictures.
@@ -50,7 +50,7 @@ Create one approved, orthographic reference sheet for every recurring cast and l
 
 ### Phase 3: Rebuild Whole Sequences
 
-Generate the 81 full-sequence books in page order, using the same references throughout. Do not approve individual attractive pages in isolation. Review each sequence as a strip for cast, direction of travel, object count, time of day, geography, and action chronology.
+Generate the 79 full-sequence books in page order, using the same references throughout. Do not approve individual attractive pages in isolation. Review each sequence as a strip for cast, direction of travel, object count, time of day, geography, and action chronology.
 
 ### Phase 4: Repair Localised Pages
 
@@ -185,49 +185,49 @@ For every regenerated book: inspect 100% of pages at full resolution, compare th
 | 115 | Honky's Inside Voice | partial replacement | high | 6, 8 | Generation instructions and character labels are visible. |
 | 116 | Cheeky's Prank Goes Wrong | partial replacement | high | 7, 8 | A heart volcano and over-stylised sparkle rock undermine the natural setting. |
 | 117 | Shy's Secret Gift | partial replacement | high | 6, 12 | Prompt/character labels are visible and a heart volcano returns. |
-| 118 | Fancy's Bad Day | partial replacement | high | 1, 7, 9, 11, 12 | The water-fetch action is unclear and Fancy's tail coils into an incoherent airplane-like shape. Post-install audit: Pages 1 and 11 use prominent rainbow waterfalls and page 7 reintroduces Honky's rainbow crest. Use natural pale-blue water and the locked coral-and-gold Honky design. |
-| 119 | Clumsy to the Rescue | partial replacement | high | 2, 3, 5, 7, 9, 10 | Prompt text is visible and ordinary water repeatedly becomes an unexplained rainbow waterfall. Post-install audit: Page 2 uses Zippy's rainbow speed trail and page 5 places a decorative rainbow in the waterfall landscape. Replace with dust motion and natural pale-blue falling water. |
+| 118 | Fancy's Bad Day | partial replacement | high | 9, 12 | The water-fetch action is unclear and Fancy's tail coils into an incoherent airplane-like shape. |
+| 119 | Clumsy to the Rescue | partial replacement | high | 3, 7, 9, 10 | Prompt text is visible and ordinary water repeatedly becomes an unexplained rainbow waterfall. |
 | 120 | What is Flappy? | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Archaeopteryx is rendered as a modern yellow chick and the sequence contains face-bearing scenery. |
-| 121 | Sneezy and the Waterfall | partial replacement | high | 1, 5, 10, 11 | Generation instructions are visible. Post-install audit: Pages 5, 10, and 11 embed CLONK/ACHOO lettering. Preserve the rock impact and enormous sneeze through action, flying dust, leaves, and rocks; retain the plot-required natural rainbow at the restored waterfall but no sound-effect text. |
+| 121 | Sneezy and the Waterfall | partial replacement | high | 1 | Generation instructions are visible. |
 | 122 | Chompy and Grumpy's Day Out | partial replacement | high | 8, 9 | Unrelated background dinosaurs and a tiny duplicate Chompy appear; the tail-rescue action is unclear. |
-| 123 | The Sunny Hollow Games | partial replacement | high | 1, 2, 3, 4, 5, 8, 10, 11, 12 | Prompt/character labels are visible and a heart volcano appears. Post-install audit: The games sequence embeds character-name labels, a cluttered generated event sheet, finish signs, score marks, and a 1st PLACE rosette; Honky's event also uses a decorative rainbow blast. Replace with picture-only staging, simple blank markers, consistent cast, and clean air/leaf motion. |
-| 124 | Dozy's Wonderful Dream | partial replacement | high | 1, 9 | A heart-emitting volcano appears in the dream. Post-install audit: Page 1 embeds Z sleep lettering. Show Dozy asleep through relaxed posture and closed eyes only. |
-| 125 | Zippy's Race | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Face-bearing Sun and heart volcano imagery recur. Post-install audit: Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion. |
-| 126 | The Big Storm | partial replacement | high | 2, 6, 8, 9, 11, 12 | Prompt/character labels are visible and clouds are shaped as hearts. Post-install audit: Page 2 contains tiny character-name labels, page 6 uses Honky's rainbow sound bands, and page 8 embeds COZY CAVE signage. Remove all lettering and show the call and safe cave location through pose, leaves, rock opening, and the established cast. |
+| 123 | The Sunny Hollow Games | partial replacement | high | 5, 6, 11, 12 | Several event pages used the wrong competitor, rainbow effects, face-bearing weather/thought bubbles, prompt labels or anthropomorphic scenery instead of the stated games action. |
+| 124 | Dozy's Wonderful Dream | partial replacement | high | 9 | A heart-emitting volcano appears in the dream. |
+| 125 | Zippy's Race | partial replacement | high | 3, 4, 6, 12 | Face-bearing Sun and heart volcano imagery recur. |
+| 126 | The Big Storm | partial replacement | high | 9, 11, 12 | Prompt/character labels are visible and clouds are shaped as hearts. |
 | 127 | Muddy Has a Bath | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | Muddy's spots, face, body proportions, and scale drift through one simple sequence. |
-| 128 | Woolly Can't Sleep | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts. Post-install audit: The text says Hungry moos, but the image shows Muddy the pig at the stall. Replace Muddy with the locked cow character Hungry outside Woolly's stall. |
+| 128 | Woolly Can't Sleep | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts. |
 | 129 | Clucky Lays an Egg | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8 | Clucky changes colour and anatomy across the egg-laying sequence and a Sun face appears. |
 | 130 | Bouncy Won't Stop | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7 | Bouncy alternates between normal legs and literal metal springs. |
 | 131 | Grumpy Gets a Surprise | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | Grumpy changes horns, clothes, and proportions; the cake has a face. |
 | 132 | Sleepy Can't Wake Up | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | Sleepy's sequence introduces spring-legged sheep and unrelated miniature animals. |
 | 133 | Noisy Tries to Be Quiet | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | Noisy shifts between rooster/hen and red/orange models; labels and an unexplained scarf appear. |
-| 134 | Tiny is Very Small | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame. Post-install audit: The final page adds an unexplained blue ball inside the log, distracting from the point that Tiny's small size lets Tiny fit. Remove the stray object and show the locked grey mouse comfortably inside the same hollow log. |
-| 135 | Shy Comes Out to Play | partial replacement | high | 3, 4, 7 | A spring-legged sheep appears and an embedded page number is visible. Post-install audit: Shy is the pale-grey rabbit on pages 2 and 8, but becomes a mouse on pages 3 and 7; page 4 also changes Tiny from the locked grey mouse into a brown mouse. Restore Shy as the same rabbit peeking/sitting beside Cuddly and Tiny as the same grey mouse. |
+| 134 | Tiny is Very Small | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame. |
+| 135 | Shy Comes Out to Play | partial replacement | high | 3, 7 | A spring-legged sheep appears and an embedded page number is visible. |
 | 136 | Giggly Has the Hiccups | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | Prompt text, page numbers, and giant speech-like lettering recur; Giggly changes appearance. |
 | 137 | Brave Climbs the Hay Bale | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | A rectangular bale becomes a round stack, Brave drifts, and a Sun face appears. |
-| 138 | Hungry Finds Lunch | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7 | Hungry is encouraged to eat a hat, map, and cake; prompt text and obesity caricature are present. |
+| 138 | Hungry Finds Lunch | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7 | The former sequence rendered Hungry as a pig and paired that species error with unsafe indiscriminate eating. The revised story and artwork require the established cow learning suitable food choices and noticing fullness. |
 | 139 | Splashy Finds a Puddle | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | Splashy changes size, a numbered diagram appears, and a small puddle becomes a lake. |
 | 140 | Speedy Slows Down | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | Speedy changes from puppy to adult breed and prompt text appears. |
 | 141 | Cuddly Wants a Hug | full sequence rebuild | moderate | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | Cuddly's markings, proportions, and companion scale drift across an otherwise coherent story. |
 | 142 | Muddy and Splashy Make a Mess | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | Prompt text appears and Muddy/Splashy/Grumpy drift late in the sequence. |
 | 143 | Bouncy and Speedy Have a Race | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | Spring-legged sheep, page numbers, and a final palette/prompt legend appear. |
 | 144 | Noisy Wakes Everyone Up | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | A random sleeping human appears among the animals and cast scale/identity needs locking. |
-| 145 | Tiny and Brave Go on an Adventure | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable. Post-install audit: The joke depends on Tiny wearing the supposedly lost tiny red hat all along, but it vanishes or migrates onto Tiny's back/ear between scenes. Keep the same small red hat visibly and consistently perched on Tiny's head through all six search pages. |
-| 146 | Shy and Cuddly Find Each Other | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale. Post-install audit: Every page replaces the established pale-grey rabbit Shy with a grey mouse, making Shy indistinguishable from Tiny. Rebuild the full sequence with the locked rabbit Shy and orange cat Cuddly; use a low sturdy branch for the tree scene. |
-| 147 | Woolly and Grumpy Are Stuck | partial replacement | high | 3, 6, 7, 8 | A huge detached wool mass appears while Woolly still has a full coat; later staging snags character silhouettes. Post-install audit: Pages 3 and 7 embed dialogue inside speech bubbles. Preserve pulling and mutual frustration through poses and expressions only; all words stay in the book's text layer. |
-| 148 | Sleepy's Big Dream | partial replacement | high | 1, 8 | Post-install audit: The opening and closing sleep scenes embed Z lettering and omit Sleepy's established red ear bow. Restore the same grey donkey with red bow and show sleep using posture/closed eyes only. |
+| 145 | Tiny and Brave Go on an Adventure | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable. |
+| 146 | Shy and Cuddly Find Each Other | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale. |
+| 147 | Woolly and Grumpy Are Stuck | partial replacement | high | 6, 8 | A huge detached wool mass appears while Woolly still has a full coat; later staging snags character silhouettes. |
+| 148 | Sleepy's Big Dream | pass | none | — | Pass: no blocking visual defect found. |
 | 149 | Giggly and Clucky Bake a Cake | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 | Prompt text, a possible duplicate hen, a hulking hen model, and a changing oven break the baking sequence. |
 | 150 | Grumpy's Secret | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 | Prompt text is visible, Grumpy drifts, and the ending contradicts the promise to keep a secret. |
 | 151 | The Big Farm Party | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 | Many pages expose prompt text, numbers, labels, and random dressed or duplicated animals. |
 | 152 | Pip and the Bravery Stone | partial replacement | critical | 5, 6, 7, 9, 11, 12 | Pip free-climbs without protection, characters sit in moving water, and the Bravery Stone changes size. |
-| 153 | Fern Grows Too Much | partial replacement | high | 6, 11 | Tiny generated LUNA lettering appears in the art. Post-install audit: Luna's open book contains generated pseudo-writing. Keep Luna behind the leaves with a closed or blank open book using only clean botanical diagrams. |
+| 153 | Fern Grows Too Much | partial replacement | moderate | 11 | Tiny generated LUNA lettering appears in the art. |
 | 154 | Stone Crosses the Bridge | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Stone crosses and re-crosses a visibly damaged bridge while carrying Burrow. |
 | 155 | Glimmer Tries and Tries | partial replacement | critical | 11 | Glimmer produces a large uncontrolled forest flame. |
-| 156 | Wren and the Backwards Spell | partial replacement | high | 1, 3, 5, 6, 10, 11, 12 | Garbled spell text appears and the mirror image is not clearly a reflection. Post-install audit: The spellbook repeatedly contains generated pseudo-writing. Preserve the required spellbook with clean repeatable non-letter sigils/diagrams only, and keep those marks consistent wherever the same spell is shown. |
+| 156 | Wren and the Backwards Spell | partial replacement | high | 5, 6, 10, 12 | Garbled spell text appears and the mirror image is not clearly a reflection. |
 | 157 | Flint Makes a Map | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | The visuals are polished but support a child walking alone for three days without rest or a check-in plan. |
 | 158 | Dewdrop and the Lying Fish | partial replacement | high | 10, 11 | A second blue-striped fish appears and Dewdrop then loses the defining stripe. |
 | 159 | Burrow Finds a Door | partial replacement | high | 6, 8, 12 | Prompt text and character labels are visible. |
-| 160 | Spark's Very Big Sneeze | partial replacement | high | 8, 12 | Post-install audit: Page 8 embeds ACHOO lettering in the magic burst, and page 12 changes Wren from her locked straight/tousled dark-haired design to a different curly-haired adult-like model. Use pure magic motion and restore the established young Wren. |
+| 160 | Spark's Very Big Sneeze | pass | none | — | Pass: no blocking visual defect found. |
 | 161 | What Luna Forgot | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 | Luna changes owl species and colour on nearly every page; quantities are not reliably countable. |
 | 162 | Pip and Stone and the Loud Thing | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Stone becomes a human, Pip changes model, and marsh creatures drift or fuse. |
 | 163 | Fern and Dewdrop Save the Stream | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Fern and Dewdrop are replaced by random human children on most pages and prompts are visible. |
@@ -235,7 +235,7 @@ For every regenerated book: inspect 100% of pages at full resolution, compare th
 | 165 | Wren and Flint Get Lost | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | A visually coherent story still normalises travelling lost and alone without a safety plan. |
 | 166 | Burrow and Luna and the Old Secret | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Burrow becomes a human, Luna changes species, and tunnel exploration lacks a safety structure. |
 | 167 | Pip and Glimmer and the Night Watch | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Pip, Glimmer, Burrow, and Stone drift; Stone is omitted early; Burrow is duplicated and prompt text appears. |
-| 168 | Fern and Wren and the Wrong Potion | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Wren is replaced on several pages and generated labels/books break the potion sequence. Post-install audit: The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return. |
+| 168 | Fern and Wren and the Wrong Potion | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Wren is replaced on several pages and generated labels/books break the potion sequence. |
 | 169 | Stone and Dewdrop and the Stuck Fish | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Inset/contact-sheet fragments, prompt text, and drifting models obscure the fish rescue. |
 | 170 | The Missing Magic Seeds | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Prompt text, labels, and random human children replace the established Moonwood cast. |
 | 171 | The Night the Stars Fell | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Babyfied face-star spirits and a night cliff route conflict with the series tone and safety standard. |
@@ -243,7 +243,7 @@ For every regenerated book: inspect 100% of pages at full resolution, compare th
 | 173 | The Big Moonwood Race | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Random cast substitutions, labels, and prompt text make the race incoherent. |
 | 174 | The Fog Marsh Mystery | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Random children replace Pip, Luna, Fern, Dewdrop, and the mist spirit. |
 | 175 | Glimmer Breathes Fire at Last | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | The cast is random, Glimmer changes colour, Luna becomes an elderly woman, prompts are visible, and wildfire is framed as celebration. |
-| 176 | One Night in the Deep Dark | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused. Post-install audit: The finale switches from the established painterly Moonwood storybook style to flatter outlined cartoon art, changes several locked cast designs, repeats near-identical group compositions, and page 5 contains two stacked versions of the same scene. Rebuild the full sequence as one coherent painterly book using the locked Moonwood cast, the same black silver-eyed creature throughout, distinct progressive scenes, and no multi-panel images. |
+| 176 | One Night in the Deep Dark | partial replacement | high | 4, 6, 11 | Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused. |
 
 ## Copy And Curriculum Changes Required Before Art
 
@@ -268,7 +268,6 @@ For every regenerated book: inspect 100% of pages at full resolution, compare th
 - **102. Aiden and Betty and the Science Fair:** Rewrite the experiment from copper sulphate to a school-approved alum or salt crystal activity with explicit adult supervision.
 - **103. Aiden, Betty and Socks's Big Adventure:** Carry the ethical domestic-pet rewrite through the full book.
 - **120. What is Flappy?:** Review every statement against current introductory Archaeopteryx science and avoid calling it simply a modern bird.
-- **138. Hungry Finds Lunch:** Rewrite the story around hunger cues, appropriate animal food, and asking a caregiver, not indiscriminate eating.
 - **150. Grumpy's Secret:** Revise the ending so the confidence is respected, or explicitly model asking permission before sharing.
 - **154. Stone Crosses the Bridge:** Rewrite the damaged-bridge sequence to model stopping, reporting, repair, and safe crossing.
 - **157. Flint Makes a Map:** Rewrite the journey to include a companion/adult plan, daylight route, rest, water, and check-ins.
@@ -283,11 +282,11 @@ Generate one candidate at a time for partial repairs and two candidates per page
 
 ## Current Validation Blockers
 
-- The visual-audit integrity check passes: all 2,005 physical files are partitioned exactly once, all 1,616 live paths exist, and all 990 rejected pages have a complete prompt and live replacement path.
+- The visual-audit integrity check passes: all 2,005 physical files are partitioned exactly once, all 1,616 live paths exist, and all 945 rejected pages have a complete prompt and live replacement path.
 - npm run validate:guided-reading is already failing across legacy books because imageAlt, pageDescription, and targetWords metadata are missing; it also reports existing noun/image-metadata conflicts. This audit does not modify those content records.
 - npm run validate:guided-reading-regen still expects /Users/benjaminbowler/Desktop/Kimi_Agent_LiteracyPath Regen Assets Pack, which no longer exists after the project migration. That path must be made configurable or pointed at the new pack location before regeneration-pack validation can run.
 - Both new audit builders pass ESLint and Node syntax checks.
 
 ## Definition Of Done
 
-The audit is resolved only when all 990 manifest items have status approved-and-installed, all 389 inactive files are outside the runtime allowlist, all book sequences pass full-size human review, no copy-change note remains open, and the guided-reading validators plus production build pass. Until then, the manifest is the source of truth for remaining work.
+The audit is resolved only when all 945 manifest items have status approved-and-installed, all 389 inactive files are outside the runtime allowlist, all book sequences pass full-size human review, no copy-change note remains open, and the guided-reading validators plus production build pass. Until then, the manifest is the source of truth for remaining work.

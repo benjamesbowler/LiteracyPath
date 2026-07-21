@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-21T01:25:28.712Z",
+  "generatedAt": "2026-07-21T14:41:19.587Z",
   "activeBooksScanned": 176,
   "totalPagesScanned": 1616,
-  "totalUniqueWords": 2937,
-  "uniqueWordsWithAudio": 2867,
-  "uniqueWordsMissingAudio": 70,
-  "totalMissingWordOccurrences": 90,
-  "booksWithMissingWordAudio": 9,
+  "totalUniqueWords": 2833,
+  "uniqueWordsWithAudio": 2668,
+  "uniqueWordsMissingAudio": 165,
+  "totalMissingWordOccurrences": 207,
+  "booksWithMissingWordAudio": 26,
   "invalidWordAudioPathCount": 0,
   "worstAffectedBooks": [
     {
@@ -22,46 +22,52 @@
       "missingOccurrences": 24
     },
     {
+      "bookId": "level-c-nonfiction-10-frogs",
+      "title": "Frogs",
+      "missingWordCount": 15,
+      "missingOccurrences": 20
+    },
+    {
+      "bookId": "level-c-nonfiction-06-spiders",
+      "title": "Spiders",
+      "missingWordCount": 12,
+      "missingOccurrences": 13
+    },
+    {
+      "bookId": "level-c-nonfiction-08-butterflies",
+      "title": "Butterflies",
+      "missingWordCount": 11,
+      "missingOccurrences": 13
+    },
+    {
+      "bookId": "ab-c-10",
+      "title": "Aiden and Betty and the Castle",
+      "missingWordCount": 8,
+      "missingOccurrences": 12
+    },
+    {
       "bookId": "level-c-nonfiction-04-the-moon",
       "title": "The Moon",
       "missingWordCount": 11,
       "missingOccurrences": 11
     },
     {
-      "bookId": "ab-c-06",
-      "title": "Aiden and Betty and the Science Fair",
-      "missingWordCount": 6,
-      "missingOccurrences": 7
+      "bookId": "ab-c-08",
+      "title": "Aiden and Betty and the Bully",
+      "missingWordCount": 9,
+      "missingOccurrences": 11
     },
     {
-      "bookId": "ab-c-07",
-      "title": "Aiden, Betty and Socks's Big Adventure",
-      "missingWordCount": 6,
-      "missingOccurrences": 6
+      "bookId": "level-c-nonfiction-09-caves",
+      "title": "Caves",
+      "missingWordCount": 9,
+      "missingOccurrences": 10
     },
     {
-      "bookId": "level-c-nonfiction-03-penguins",
-      "title": "Penguins",
-      "missingWordCount": 4,
-      "missingOccurrences": 4
-    },
-    {
-      "bookId": "moonwood-tales-c-12",
-      "title": "Fern and Dewdrop Save the Stream",
-      "missingWordCount": 1,
-      "missingOccurrences": 3
-    },
-    {
-      "bookId": "bob-and-nan-03-fluff",
-      "title": "Bob, Nan and Fluff",
-      "missingWordCount": 1,
-      "missingOccurrences": 2
-    },
-    {
-      "bookId": "first-facts-a-25-water-everywhere",
-      "title": "Water Everywhere",
-      "missingWordCount": 1,
-      "missingOccurrences": 1
+      "bookId": "moonwood-tales-c-24",
+      "title": "Glimmer Breathes Fire at Last",
+      "missingWordCount": 7,
+      "missingOccurrences": 8
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Guided Reading Image/Text Alignment Audit
 
-Generated: 2026-07-21T04:11:45.685Z
+Generated: 2026-07-21T14:41:19.835Z
 
 ## What This Check Proves
 
@@ -887,19 +887,19 @@ We are small. |
 | ab-c-01 | 3 | 2 | yes | yes | /guided-reading/series/aiden-and-betty/book-01/page-002.webp | Betty was not worried at all. She had already packed her bag twice. "We're going |
 | ab-c-01 | 4 | 3 | yes | yes | /guided-reading/series/aiden-and-betty/book-01/page-003.webp | Their new classroom was bright and busy, with bookshelves along every wall and a |
 | ab-c-01 | 5 | 4 | yes | yes | /guided-reading/series/aiden-and-betty/book-01/page-004.webp | "In Grade 1," said Miss Okafor, "we will read chapter books, solve number puzzle |
-| ab-c-01 | 6 | 5 | yes | yes | /guided-reading/series/aiden-and-betty/book-01/page-005.webp | Everyone had their own desk with a name label. Aiden's said AIDEN in neat blue l |
+| ab-c-01 | 6 | 5 | yes | yes | /guided-reading/series/aiden-and-betty/book-01/page-005.webp | Everyone had their own desk. Aiden found one beside Betty. He ran his finger acr |
 | ab-c-01 | 7 | 6 | yes | yes | /guided-reading/series/aiden-and-betty/book-01/page-006.webp | The first lesson was handwriting — joined-up letters, which were completely new  |
 | ab-c-01 | 8 | 7 | yes | yes | /guided-reading/series/aiden-and-betty/book-01/page-007.webp | Betty leaned over and showed him her page quietly. Her joined-up writing was als |
 | ab-c-01 | 9 | 8 | yes | yes | /guided-reading/series/aiden-and-betty/book-01/page-008.webp | At lunch, they sat together by the window. Aiden opened his lunchbox and found a |
-| ab-c-01 | 10 | 9 | yes | yes | /guided-reading/series/aiden-and-betty/book-01/page-009.webp | After lunch came Maths. Miss Okafor wrote sums on the board, each one slightly h |
+| ab-c-01 | 10 | 9 | yes | yes | /guided-reading/series/aiden-and-betty/book-01/page-009.webp | After lunch came Maths. Miss Okafor gave them number puzzles with counters and s |
 | ab-c-01 | 11 | 10 | yes | yes | /guided-reading/series/aiden-and-betty/book-01/page-010.webp | Betty answered three questions out loud and got them all right. Aiden raised his |
 | ab-c-01 | 12 | 11 | yes | yes | /guided-reading/series/aiden-and-betty/book-01/page-011.webp | Then there was Science — real Science, with a magnifying glass and a tray of soi |
 | ab-c-01 | 13 | 12 | yes | yes | /guided-reading/series/aiden-and-betty/book-01/page-012.webp | At home time, Mum was waiting at the gate. She crouched down with an expectant l |
 | ab-c-01 | 14 | 13 | yes | yes | /guided-reading/series/aiden-and-betty/book-01/page-013.webp | "Grade 1 is brilliant," announced Betty, just before bed. "It's actually not tha |
 | ab-c-02 | 2 | 1 | yes | yes | /guided-reading/series/aiden-and-betty/book-02/page-001.webp | It was the first warm Saturday of spring, and Aiden and Betty stood in the middl |
 | ab-c-02 | 3 | 2 | yes | yes | /guided-reading/series/aiden-and-betty/book-02/page-002.webp | "We should have a yard sale," said Betty. She said it the way she said all her b |
-| ab-c-02 | 4 | 3 | yes | yes | /guided-reading/series/aiden-and-betty/book-02/page-003.webp | They spent Friday evening sorting everything into three piles: SELL, KEEP and MA |
-| ab-c-02 | 5 | 4 | yes | yes | /guided-reading/series/aiden-and-betty/book-02/page-004.webp | Betty made neat round price stickers on square labels, writing each price in her |
+| ab-c-02 | 4 | 3 | yes | yes | /guided-reading/series/aiden-and-betty/book-02/page-003.webp | They spent Friday evening sorting everything into three piles. A red card meant  |
+| ab-c-02 | 5 | 4 | yes | yes | /guided-reading/series/aiden-and-betty/book-02/page-004.webp | Betty made neat round price stickers. Aiden decorated a large sign board for the |
 | ab-c-02 | 6 | 5 | yes | yes | /guided-reading/series/aiden-and-betty/book-02/page-005.webp | On Saturday morning, they dragged two folding tables out to the front path and a |
 | ab-c-02 | 7 | 6 | yes | yes | /guided-reading/series/aiden-and-betty/book-02/page-006.webp | Their first customer was Mr Perkins from next door, who was very old and took a  |
 | ab-c-02 | 8 | 7 | yes | yes | /guided-reading/series/aiden-and-betty/book-02/page-007.webp | Then things got busy. Children came from further up the street with their parent |
@@ -976,45 +976,45 @@ We are small. |
 | ab-c-07 | 12 | 11 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-011.webp | Uncle Eddie left on Sunday evening. He stayed on the doorstep a long time, sayin |
 | ab-c-07 | 13 | 12 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-012.webp | Aiden had started a new notebook that evening — not the Socks field study, but a |
 | ab-c-07 | 14 | 13 | yes | yes | /guided-reading/series/aiden-and-betty/book-07/page-013.webp | "Do you think he misses travelling with Uncle Eddie?" Aiden asked one evening. B |
-| ab-c-08 | 2 | 1 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-001.webp | There was a boy in Year 2 called Marcus who thought it was funny to call people  |
-| ab-c-08 | 3 | 2 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-002.webp | Aiden didn't say anything. He went home and sat on his bed and stared at the cei |
-| ab-c-08 | 4 | 3 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-003.webp | "What happened?" said Betty. Aiden told her in pieces, looking at the floor. Bet |
-| ab-c-08 | 5 | 4 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-004.webp | That night, Aiden wrote in his notebook: When something is unfair, you have two  |
-| ab-c-08 | 6 | 5 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-005.webp | On Friday, Marcus said it again in the lunch queue. Betty was right there. She l |
-| ab-c-08 | 7 | 6 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-006.webp | Aiden felt two things: grateful for Betty, and also frustrated, because he wante |
-| ab-c-08 | 8 | 7 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-007.webp | On Monday, Marcus said it one more time, in front of a small group. Aiden turned |
-| ab-c-08 | 9 | 8 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-008.webp | It was quiet. Nobody laughed. Marcus said something low, but nobody around him r |
-| ab-c-08 | 10 | 9 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-009.webp | He wrote in his notebook that evening: Saying a true thing clearly is harder tha |
-| ab-c-08 | 11 | 10 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-010.webp | Betty read it over his shoulder. She didn't comment on it. She put her hand on h |
-| ab-c-08 | 12 | 11 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-011.webp | A week later, Marcus bumped into Aiden's tray at lunch — accidentally this time, |
-| ab-c-08 | 13 | 12 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-012.webp | Miss Okafor had noticed, in the way that good teachers always notice. She starte |
-| ab-c-08 | 14 | 13 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-013.webp | "The point," said Miss Okafor, "is not that everyone will always be kind. The po |
-| ab-c-09 | 2 | 1 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-001.webp | It started with a slight wobble. Aiden was eating an apple when he felt, for the |
-| ab-c-09 | 3 | 2 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-002.webp | He told Betty. Betty got the torch and studied it with great interest. "It's def |
-| ab-c-09 | 4 | 3 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-003.webp | That night, Aiden worried about the tooth. It felt wrong — like something was br |
-| ab-c-09 | 5 | 4 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-004.webp | Mum said it was completely normal and that they had both lost teeth before when  |
-| ab-c-09 | 6 | 5 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-005.webp | Betty lost her first tooth the very next day, which nobody had seen coming. It c |
-| ab-c-09 | 7 | 6 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-006.webp | "Does it hurt?" said Aiden. "Not really," said Betty. "It felt strange for a sec |
-| ab-c-09 | 8 | 7 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-007.webp | Aiden's tooth came out on a Thursday. Not dramatically — he was reading his book |
-| ab-c-09 | 9 | 8 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-008.webp | He held it up for a long time. It was tiny. It was the smallest thing that had e |
-| ab-c-09 | 10 | 9 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-009.webp | In the morning, the tooth was gone and there was a coin in its place. Aiden knew |
-| ab-c-09 | 11 | 10 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-010.webp | Three weeks later, the new tooth began to come through. It was enormous relative |
-| ab-c-09 | 12 | 11 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-011.webp | "You don't look strange," said Betty. "You look older." She said it the way she  |
-| ab-c-09 | 13 | 12 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-012.webp | Socks was fascinated by both of them through this whole period. He kept trying t |
-| ab-c-09 | 14 | 13 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-013.webp | "I think he'll be disappointed when we stop changing," said Aiden. "He already h |
-| ab-c-10 | 2 | 1 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-001.webp | Dad had been talking about the castle trip since January. A proper medieval cast |
-| ab-c-10 | 3 | 2 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-002.webp | They drove there on a bright Saturday in April. Aiden pressed his face to the ca |
-| ab-c-10 | 4 | 3 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-003.webp | The entrance was a proper drawbridge — working, over a real water-filled moat. I |
-| ab-c-10 | 5 | 4 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-004.webp | The great hall was vast and grey and cool. The stone floor was uneven and worn i |
-| ab-c-10 | 6 | 5 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-005.webp | Betty had the guide map. She navigated with precise efficiency — Great Hall, Arm |
-| ab-c-10 | 7 | 6 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-006.webp | In the armoury, there was a full suit of plate armour. It was smaller than Aiden |
-| ab-c-10 | 8 | 7 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-007.webp | The dungeon was underground and smelled of cold stone and old air. Betty read ev |
-| ab-c-10 | 9 | 8 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-008.webp | The North Tower had one hundred and twelve steps. They counted every one, out lo |
-| ab-c-10 | 10 | 9 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-009.webp | "Imagine standing here," said Betty quietly, "and not knowing what was coming."  |
-| ab-c-10 | 11 | 10 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-010.webp | On the way down, Aiden stopped at a narrow slit window in the tower wall — an ar |
-| ab-c-10 | 12 | 11 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-011.webp | In the castle shop, Betty bought a small accurate model of the castle as it look |
-| ab-c-10 | 13 | 12 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-012.webp | The drive home was quiet in the way that follows something large. "What are you  |
-| ab-c-10 | 14 | 13 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-013.webp | That evening, Aiden wrote in his field notebook for a long time — the drawbridge |
+| ab-c-08 | 2 | 1 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-001.webp | A boy in Year 2 was called Marcus. He kept calling Aiden a silly name. Aiden did |
+| ab-c-08 | 3 | 2 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-002.webp | Aiden went home feeling quiet and upset. He told Betty what had happened. |
+| ab-c-08 | 4 | 3 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-003.webp | "That is not okay," Betty said. "You can tell him to stop. Then we can tell a gr |
+| ab-c-08 | 5 | 4 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-004.webp | That night, Aiden made a plan. He would speak clearly, walk away, and tell Miss  |
+| ab-c-08 | 6 | 5 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-005.webp | On Friday, Marcus used the silly name again. Betty looked at him. "His name is A |
+| ab-c-08 | 7 | 6 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-006.webp | Aiden was glad Betty helped. He wanted to try the words himself next time. "I wi |
+| ab-c-08 | 8 | 7 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-007.webp | On Monday, Marcus said it again. Aiden faced him. "My name is Aiden. Stop," he s |
+| ab-c-08 | 9 | 8 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-008.webp | Aiden walked away with Betty. They told Miss Okafor what had happened. She liste |
+| ab-c-08 | 10 | 9 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-009.webp | That evening, Aiden felt proud. He had spoken clearly, walked away, and asked fo |
+| ab-c-08 | 11 | 10 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-010.webp | Betty put a hand on Aiden's shoulder. "You did well," she said. |
+| ab-c-08 | 12 | 11 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-011.webp | A week later, Marcus bumped Aiden's tray by accident. "Sorry, Aiden," Marcus sai |
+| ab-c-08 | 13 | 12 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-012.webp | Miss Okafor talked with the class about bullying. "If someone keeps being unkind |
+| ab-c-08 | 14 | 13 | yes | yes | /guided-reading/series/aiden-and-betty/book-08/page-013.webp | "You can speak, move away, and ask for help," Miss Okafor said. "Bullying is nev |
+| ab-c-09 | 2 | 1 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-001.webp | Aiden bit into an apple. One front tooth gave a little wobble. He touched it gen |
+| ab-c-09 | 3 | 2 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-002.webp | Betty looked with a small torch. "It is a baby tooth," she said. "It will fall o |
+| ab-c-09 | 4 | 3 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-003.webp | That night, Aiden felt worried. Losing a tooth seemed strange. Socks sat by his  |
+| ab-c-09 | 5 | 4 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-004.webp | Mum said loose teeth were normal. "Everyone loses baby teeth as they grow," she  |
+| ab-c-09 | 6 | 5 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-005.webp | At lunch the next day, Betty lost a tooth too. She looked at the tiny tooth, the |
+| ab-c-09 | 7 | 6 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-006.webp | "Did it hurt?" Aiden asked. "Only for a moment," Betty said. She smiled at the n |
+| ab-c-09 | 8 | 7 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-007.webp | On Thursday, Aiden's tooth came out while he was reading. It was quick, and it d |
+| ab-c-09 | 9 | 8 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-008.webp | The tooth was tiny. Aiden put it in a small envelope. Then he tucked the envelop |
+| ab-c-09 | 10 | 9 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-009.webp | In the morning, the envelope was gone. A coin lay under the pillow. Aiden smiled |
+| ab-c-09 | 11 | 10 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-010.webp | Three weeks later, a new tooth began to grow in the gap. It looked bigger than h |
+| ab-c-09 | 12 | 11 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-011.webp | "You do not look strange," Betty said. "You look a little older." Aiden looked i |
+| ab-c-09 | 13 | 12 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-012.webp | Socks sniffed near Aiden's smile. Then he sniffed near Betty's. He was curious a |
+| ab-c-09 | 14 | 13 | yes | yes | /guided-reading/series/aiden-and-betty/book-09/page-013.webp | "Soon we will both have new teeth," Aiden said. Socks wagged his tail. The gaps  |
+| ab-c-10 | 2 | 1 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-001.webp | Dad showed Aiden and Betty a picture of a castle. "We can visit it on Saturday," |
+| ab-c-10 | 3 | 2 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-002.webp | On Saturday, Mum drove. Dad sat beside her. Aiden and Betty wore their seat belt |
+| ab-c-10 | 4 | 3 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-003.webp | They crossed a wooden bridge over the moat. Aiden heard each step tap on the old |
+| ab-c-10 | 5 | 4 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-004.webp | The great hall was tall, cool, and quiet. Some floor stones were smooth from man |
+| ab-c-10 | 6 | 5 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-005.webp | Betty held the picture map. First came the great hall. Next came the armour room |
+| ab-c-10 | 7 | 6 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-006.webp | In the armour room, a guide showed them a suit of plate armour. Aiden tried on o |
+| ab-c-10 | 8 | 7 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-007.webp | Stone steps led to a dark room below the castle. Soft wall lights showed the way |
+| ab-c-10 | 9 | 8 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-008.webp | The tower had one hundred and twelve steps. They walked in one line. From the to |
+| ab-c-10 | 10 | 9 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-009.webp | "People looked from this tower long ago," Betty said. Aiden drew the wide view i |
+| ab-c-10 | 11 | 10 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-010.webp | On the way down, Aiden found a narrow slit in the wall. A guide explained that a |
+| ab-c-10 | 12 | 11 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-011.webp | In the shop, Betty chose a small castle model. Aiden chose a picture book. Dad h |
+| ab-c-10 | 13 | 12 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-012.webp | On the drive home, Mum asked what they liked best. Aiden chose the worn floor. B |
+| ab-c-10 | 14 | 13 | yes | yes | /guided-reading/series/aiden-and-betty/book-10/page-013.webp | That evening, Aiden drew four things: the bridge, the hall, the narrow slit, and |
 | dino-pals-01-chompys-big-lunch | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-01/page-001.webp | Chompy woke up. I am hungry, said Chompy. |
 | dino-pals-01-chompys-big-lunch | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-01/page-002.webp | Chompy ate some berries. More, please! said Chompy. |
 | dino-pals-01-chompys-big-lunch | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-01/page-003.webp | Chompy found some leaves. I am still hungry, said Chompy. |
@@ -1032,21 +1032,21 @@ We are small. |
 | dino-pals-02-sunnys-rainy-day | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-02/page-007.webp | Hmph, said Grumpy. This is... not terrible. |
 | dino-pals-02-sunnys-rainy-day | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-02/page-008.webp | The sun came back out. See? said Sunny. Every day is a good day! |
 | dino-pals-03-dozy-wont-wake-up | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-03/page-001.webp | It was morning in Sunny Hollow. Everyone was up. Everyone except Dozy. |
-| dino-pals-03-dozy-wont-wake-up | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-03/page-002.webp | Wake up, Dozy! called Bouncy. Dozy did not wake up. |
-| dino-pals-03-dozy-wont-wake-up | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-03/page-003.webp | Wake up, Dozy! called Zippy. Dozy did not wake up. |
-| dino-pals-03-dozy-wont-wake-up | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-03/page-004.webp | WAKE UP, DOZY! called Honky. Dozy did not wake up. |
-| dino-pals-03-dozy-wont-wake-up | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-03/page-005.webp | We have a problem, said Bossy. We need Dozy for the picnic! |
+| dino-pals-03-dozy-wont-wake-up | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-03/page-002.webp | "Wake up, Dozy!" called Bouncy. Dozy did not wake up. |
+| dino-pals-03-dozy-wont-wake-up | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-03/page-003.webp | "Wake up, Dozy!" called Zippy. Dozy did not wake up. |
+| dino-pals-03-dozy-wont-wake-up | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-03/page-004.webp | "Wake up, Dozy!" called Honky. Dozy did not wake up. |
+| dino-pals-03-dozy-wont-wake-up | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-03/page-005.webp | "We have a problem," said Bossy. "We need Dozy for the picnic!" |
 | dino-pals-03-dozy-wont-wake-up | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-03/page-006.webp | Chompy had an idea. Chompy found the biggest, yummiest lunch in Sunny Hollow. |
-| dino-pals-03-dozy-wont-wake-up | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-03/page-007.webp | Dozy sniffed. Dozy opened one eye. Is that... lunch? said Dozy. |
-| dino-pals-03-dozy-wont-wake-up | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-03/page-008.webp | Dozy was up! I was just resting my eyes, said Dozy. Dozy's eyes were already clo |
-| dino-pals-04-grumpy-needs-help | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-04/page-001.webp | Grumpy was stuck. Grumpy's tail was caught under a big rock. |
-| dino-pals-04-grumpy-needs-help | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-04/page-002.webp | I do NOT need help, said Grumpy. |
-| dino-pals-04-grumpy-needs-help | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-04/page-003.webp | Can I help? said Sunny. NO, said Grumpy. |
-| dino-pals-04-grumpy-needs-help | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-04/page-004.webp | Can I help? said Bouncy. NO, said Grumpy. Bouncy bounced anyway. |
-| dino-pals-04-grumpy-needs-help | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-04/page-005.webp | Can WE help? said all the Dino Pals. NO! said Grumpy. |
-| dino-pals-04-grumpy-needs-help | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-04/page-006.webp | Grumpy pulled and pulled. Grumpy was still stuck. |
-| dino-pals-04-grumpy-needs-help | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-04/page-007.webp | Oh, fine, said Grumpy quietly. All the Dino Pals helped together. POP! |
-| dino-pals-04-grumpy-needs-help | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-04/page-008.webp | Thank you, said Grumpy. Not that I needed it. But Grumpy was smiling. Just a lit |
+| dino-pals-03-dozy-wont-wake-up | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-03/page-007.webp | Dozy sniffed. He opened one eye. "Is that... lunch?" he asked. |
+| dino-pals-03-dozy-wont-wake-up | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-03/page-008.webp | Dozy got up. "I was just resting my eyes," he said. His eyes were already closin |
+| dino-pals-04-grumpy-needs-help | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-04/page-001.webp | Grumpy was stuck. His tail was caught under a big rock. |
+| dino-pals-04-grumpy-needs-help | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-04/page-002.webp | "I do not need help," said Grumpy. |
+| dino-pals-04-grumpy-needs-help | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-04/page-003.webp | "Can I help?" asked Sunny. "No," said Grumpy. |
+| dino-pals-04-grumpy-needs-help | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-04/page-004.webp | "Can I help?" asked Bouncy. "No," said Grumpy. Bouncy stayed close. |
+| dino-pals-04-grumpy-needs-help | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-04/page-005.webp | "Can we help?" asked all the Dino Pals. "No!" said Grumpy. |
+| dino-pals-04-grumpy-needs-help | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-04/page-006.webp | Grumpy pulled and pulled. His tail was still stuck. |
+| dino-pals-04-grumpy-needs-help | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-04/page-007.webp | "Oh, fine," Grumpy said quietly. The Dino Pals pushed together. His tail sprang  |
+| dino-pals-04-grumpy-needs-help | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-04/page-008.webp | "Thank you," said Grumpy. "I did need some help." He smiled a little. |
 | dino-pals-05-bossy-makes-a-plan | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-05/page-001.webp | Listen up! called Bossy. I have a plan! |
 | dino-pals-05-bossy-makes-a-plan | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-05/page-002.webp | Chompy: get berries. Sunny: get leaves. Wiggly: carry things. Dozy: try to stay  |
 | dino-pals-05-bossy-makes-a-plan | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-05/page-003.webp | Everyone got to work. Chompy ate the berries. Chompy! said Bossy. |
@@ -1055,58 +1055,58 @@ We are small. |
 | dino-pals-05-bossy-makes-a-plan | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-05/page-006.webp | The plan was a mess. Nobody is doing it right! said Bossy. |
 | dino-pals-05-bossy-makes-a-plan | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-05/page-007.webp | Bossy, said Sunny, can we try YOUR way AND our way? They worked together. It wor |
 | dino-pals-05-bossy-makes-a-plan | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-05/page-008.webp | Hmm, said Bossy. Bossy wrote on the clipboard: New plan: ask nicely. |
-| dino-pals-06-bouncy-bumps-into-everything | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-06/page-001.webp | Bouncy woke up. Bouncy bounced straight into the cave wall. BONK! |
-| dino-pals-06-bouncy-bumps-into-everything | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-06/page-002.webp | Bouncy bounced to the waterfall. Bouncy bumped into Fancy. BOING! |
-| dino-pals-06-bouncy-bumps-into-everything | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-06/page-003.webp | MY SAIL! cried Fancy. Sorry! called Bouncy, already bouncing away. |
-| dino-pals-06-bouncy-bumps-into-everything | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-06/page-004.webp | Bouncy bumped into Wiggly. CRASH! Wiggly knocked over everything. Again. |
-| dino-pals-06-bouncy-bumps-into-everything | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-06/page-005.webp | Bouncy bumped into Sneezy. Sneezy took a HUGE breath in... |
-| dino-pals-06-bouncy-bumps-into-everything | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-06/page-006.webp | AAAACHOOOO! Leaves, berries, and Bossy's clipboard all blew away. |
-| dino-pals-06-bouncy-bumps-into-everything | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-06/page-007.webp | All the Dino Pals looked at Bouncy. Sorry, said Bouncy, smiling. |
-| dino-pals-06-bouncy-bumps-into-everything | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-06/page-008.webp | Maybe I should bounce in the meadow, said Bouncy. BOING! BOING! BOING! |
-| dino-pals-07-wigglys-messy-day | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-07/page-001.webp | Wiggly woke up carefully. Today, said Wiggly, I will not knock anything over. |
-| dino-pals-07-wigglys-messy-day | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-07/page-002.webp | Wiggly walked carefully. Wiggly's tail knocked over Chompy's breakfast. Sorry, C |
-| dino-pals-07-wigglys-messy-day | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-07/page-003.webp | Wiggly walked very carefully. Wiggly's tail knocked Grumpy's favourite rock. Hmp |
-| dino-pals-07-wigglys-messy-day | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-07/page-004.webp | Wiggly walked SO carefully. Wiggly's tail knocked Fancy into the mud puddle. Oh  |
-| dino-pals-07-wigglys-messy-day | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-07/page-005.webp | Wiggly sat very, very still. The tail still knocked over three berries and a lea |
-| dino-pals-07-wigglys-messy-day | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-07/page-006.webp | Wiggly felt sad. My tail has a mind of its own, said Wiggly. |
-| dino-pals-07-wigglys-messy-day | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-07/page-007.webp | I like your tail, said Dozy sleepily. It fans me while I nap. The Dino Pals all  |
-| dino-pals-07-wigglys-messy-day | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-07/page-008.webp | Wiggly smiled. Current score, said Wiggly. Tail: twelve. Wiggly: also twelve. |
-| dino-pals-08-zippy-slows-down | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-08/page-001.webp | Zippy ran to the waterfall. Zippy ran back. Zippy ran to the meadow. Zippy ran b |
-| dino-pals-08-zippy-slows-down | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-08/page-002.webp | Zippy! called Sunny. Where are you going? I DON'T KNOW! called Zippy, already go |
-| dino-pals-08-zippy-slows-down | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-08/page-003.webp | Zippy ran so fast that Zippy ran right past the picnic. And the waterfall. And S |
-| dino-pals-08-zippy-slows-down | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-08/page-004.webp | Zippy stopped. Where was Sunny Hollow? Zippy had never stopped before. |
-| dino-pals-08-zippy-slows-down | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-08/page-005.webp | It was very quiet. Zippy looked around. There were flowers. There was a big blue |
-| dino-pals-08-zippy-slows-down | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-08/page-006.webp | Oh, said Zippy. This is... nice. Zippy sat down. Zippy had never sat down before |
-| dino-pals-08-zippy-slows-down | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-08/page-007.webp | Sunny found Zippy. I was looking at a flower, said Zippy. I went past it twelve  |
-| dino-pals-08-zippy-slows-down | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-08/page-008.webp | Zippy walked home. Slowly. It took ages. Zippy loved it. |
-| dino-pals-09-honkys-inside-voice | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-09/page-001.webp | GOOD MORNING SUNNY HOLLOW! called Honky. Every leaf fell off every tree. |
-| dino-pals-09-honkys-inside-voice | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-09/page-002.webp | Shh! said Grumpy. SORRY! said Honky. More leaves fell. |
-| dino-pals-09-honkys-inside-voice | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-09/page-003.webp | Honky, said Bossy, you need an inside voice. What is an inside voice? A quiet on |
-| dino-pals-09-honkys-inside-voice | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-09/page-004.webp | Honky tried very hard to be quiet. Hello, whispered Honky. It still blew Chompy' |
-| dino-pals-09-honkys-inside-voice | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-09/page-005.webp | Honky felt sad. I am just too loud, said Honky. Sorry. TOOT. |
-| dino-pals-09-honkys-inside-voice | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-09/page-006.webp | Then a thunderstorm came. Dozy woke up frightened. All the Dino Pals hid. |
-| dino-pals-09-honkys-inside-voice | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-09/page-007.webp | IT IS OKAY! called Honky. Honky's voice was louder than the thunder. Dozy stoppe |
-| dino-pals-09-honkys-inside-voice | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-09/page-008.webp | Maybe Honky's voice is very useful after all, said Bossy. THANK YOU! said Honky. |
-| dino-pals-10-cheekys-prank-goes-wrong | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-10/page-001.webp | Cheeky had an idea. Cheeky always had ideas. Most of them were pranks. |
-| dino-pals-10-cheekys-prank-goes-wrong | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-10/page-002.webp | Cheeky hid in the ferns. Cheeky tied Wiggly's tail to a tree. Hee hee, said Chee |
-| dino-pals-10-cheekys-prank-goes-wrong | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-10/page-003.webp | Wiggly walked off. BOING! Wiggly bounced back. My tail is stuck! HEE HEE HEE! sa |
-| dino-pals-10-cheekys-prank-goes-wrong | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-10/page-004.webp | Next: Cheeky put mud on Fancy's favourite rock. Fancy sat down. OH! cried Fancy. |
-| dino-pals-10-cheekys-prank-goes-wrong | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-10/page-005.webp | Cheeky laughed and laughed. But then Cheeky slipped on the same mud. SPLAT! |
-| dino-pals-10-cheekys-prank-goes-wrong | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-10/page-006.webp | Now Cheeky was muddy. The Dino Pals looked at Cheeky. Cheeky looked at the Dino  |
-| dino-pals-10-cheekys-prank-goes-wrong | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-10/page-007.webp | Even Cheeky had to laugh. Okay, said Cheeky. That one was funny. |
-| dino-pals-10-cheekys-prank-goes-wrong | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-10/page-008.webp | Cheeky helped clean Fancy's rock. Will you do any more pranks? asked Fancy. Mayb |
-| dino-pals-11-shys-secret-gift | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-11/page-001.webp | Every morning, the Dino Pals found a small gift on the Big Flat Rock. Nobody kne |
-| dino-pals-11-shys-secret-gift | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-11/page-002.webp | One day it was a smooth pebble for Grumpy. Someone knows I like pebbles, said Gr |
-| dino-pals-11-shys-secret-gift | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-11/page-003.webp | One day it was a pile of extra berries for Chompy. Someone knows me very well, s |
-| dino-pals-11-shys-secret-gift | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-11/page-004.webp | One day it was a leafy fan for Dozy. This is perfect, said Dozy, already asleep  |
-| dino-pals-11-shys-secret-gift | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-11/page-005.webp | Who is leaving these gifts? said Bossy. I need to know. It is not on my clipboar |
-| dino-pals-11-shys-secret-gift | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-11/page-006.webp | Bouncy thought it was a ghost. Zippy ran everywhere looking, very fast. Honky ca |
-| dino-pals-11-shys-secret-gift | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-11/page-007.webp | Cheeky had a plan. Cheeky would stay up all night to watch. Cheeky fell asleep a |
-| dino-pals-11-shys-secret-gift | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-11/page-008.webp | One morning, Sunny stayed very still and very quiet behind a fern. Sunny waited. |
-| dino-pals-11-shys-secret-gift | 10 | 9 | yes | yes | /guided-reading/series/dino-pals/book-11/page-009.webp | Sunny saw two small eyes behind a rock. And two small pink paws placing a tiny w |
-| dino-pals-11-shys-secret-gift | 11 | 10 | yes | yes | /guided-reading/series/dino-pals/book-11/page-010.webp | Shy! said Sunny, softly. The gifts are from you, aren't they? Shy nodded, going  |
-| dino-pals-11-shys-secret-gift | 12 | 11 | yes | yes | /guided-reading/series/dino-pals/book-11/page-011.webp | They were the best gifts we ever had, said Sunny. Will you come and sit with us? |
-| dino-pals-11-shys-secret-gift | 13 | 12 | yes | yes | /guided-reading/series/dino-pals/book-11/page-012.webp | The next morning, eleven gifts were on the Big Flat Rock. One from each Dino Pal |
+| dino-pals-06-bouncy-bumps-into-everything | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-06/page-001.webp | Bouncy woke up and bounced into the cave wall. He stopped and rubbed his head. |
+| dino-pals-06-bouncy-bumps-into-everything | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-06/page-002.webp | Bouncy bounced to the waterfall. He bumped into Fancy by mistake. |
+| dino-pals-06-bouncy-bumps-into-everything | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-06/page-003.webp | "My sail!" cried Fancy. "I am sorry," said Bouncy. He stopped to check that she  |
+| dino-pals-06-bouncy-bumps-into-everything | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-06/page-004.webp | Next, Bouncy bumped into Wiggly. A basket of berries tipped over. They picked th |
+| dino-pals-06-bouncy-bumps-into-everything | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-06/page-005.webp | Then Bouncy bumped into Sneezy. Sneezy took a huge breath in. |
+| dino-pals-06-bouncy-bumps-into-everything | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-06/page-006.webp | Sneezy sneezed. Leaves, berries, and Bossy's planning clipboard flew through the |
+| dino-pals-06-bouncy-bumps-into-everything | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-06/page-007.webp | The Dino Pals looked at Bouncy. "I am sorry," he said. This time, he listened. |
+| dino-pals-06-bouncy-bumps-into-everything | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-06/page-008.webp | "I need a safe place to bounce," said Bouncy. He went to the wide empty meadow a |
+| dino-pals-07-wigglys-messy-day | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-07/page-001.webp | Wiggly woke up carefully. "Today I will watch my long tail," he said. |
+| dino-pals-07-wigglys-messy-day | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-07/page-002.webp | Wiggly walked carefully. His tail tipped Chompy's breakfast. "Sorry, Chompy!" he |
+| dino-pals-07-wigglys-messy-day | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-07/page-003.webp | Wiggly walked even more carefully. His tail bumped Grumpy's favourite rock. "Hmp |
+| dino-pals-07-wigglys-messy-day | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-07/page-004.webp | Wiggly tried again. His tail splashed Fancy into a mud puddle. "Oh no!" said Wig |
+| dino-pals-07-wigglys-messy-day | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-07/page-005.webp | Wiggly sat very still. His tail rolled three berries and one leaf away. |
+| dino-pals-07-wigglys-messy-day | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-07/page-006.webp | Wiggly felt sad. "My tail is hard to watch," he said. |
+| dino-pals-07-wigglys-messy-day | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-07/page-007.webp | "Your tail can help too," Dozy said. "It makes a cool breeze when you move it sl |
+| dino-pals-07-wigglys-messy-day | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-07/page-008.webp | Wiggly placed bright stones around his tail to show how much room it needed. "No |
+| dino-pals-08-zippy-slows-down | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-08/page-001.webp | Zippy ran to the waterfall and back. Then he ran to the meadow and back. |
+| dino-pals-08-zippy-slows-down | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-08/page-002.webp | "Zippy!" called Sunny. "Where are you going?" "I do not know!" Zippy called as h |
+| dino-pals-08-zippy-slows-down | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-08/page-003.webp | Zippy ran past the picnic, the waterfall, and Sunny Hollow. He did not stop. |
+| dino-pals-08-zippy-slows-down | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-08/page-004.webp | At last, Zippy stopped. "Where am I?" he asked. He could not see Sunny Hollow. |
+| dino-pals-08-zippy-slows-down | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-08/page-005.webp | The valley was quiet. Zippy noticed small flowers under a wide blue sky. |
+| dino-pals-08-zippy-slows-down | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-08/page-006.webp | "This is nice," Zippy said. He sat beside the flowers and took a slow breath. |
+| dino-pals-08-zippy-slows-down | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-08/page-007.webp | Sunny found him. "I stopped to look at this flower," Zippy said. "I ran past it  |
+| dino-pals-08-zippy-slows-down | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-08/page-008.webp | Zippy walked home with Sunny. He went slowly enough to see the trees, clouds, an |
+| dino-pals-09-honkys-inside-voice | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-09/page-001.webp | It was morning in Sunny Hollow. "Good morning!" called Honky. His big voice shoo |
+| dino-pals-09-honkys-inside-voice | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-09/page-002.webp | "That voice is too big for breakfast," said Grumpy. Honky tried again. "Good mor |
+| dino-pals-09-honkys-inside-voice | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-09/page-003.webp | "A voice can be big or small," said Bossy. "Use a small voice when friends are c |
+| dino-pals-09-honkys-inside-voice | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-09/page-004.webp | Honky took a slow breath. "Hello, Chompy," he said softly. Chompy's bib stayed s |
+| dino-pals-09-honkys-inside-voice | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-09/page-005.webp | "I did it!" Honky said. His voice grew big again. "I can try once more," he said |
+| dino-pals-09-honkys-inside-voice | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-09/page-006.webp | Dark clouds gathered. Thunder boomed. Dozy woke with a jump. Rain began to fall. |
+| dino-pals-09-honkys-inside-voice | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-09/page-007.webp | "This way to the safe cave!" Honky called. His big voice helped every Dino Pal h |
+| dino-pals-09-honkys-inside-voice | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-09/page-008.webp | In the cave, Bossy smiled. "A small voice for talking. A big voice when we need  |
+| dino-pals-10-cheekys-prank-goes-wrong | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-10/page-001.webp | Cheeky wanted to make the Dino Pals laugh. "I need a funny surprise," he said. |
+| dino-pals-10-cheekys-prank-goes-wrong | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-10/page-002.webp | Cheeky hid beside the path. He put a soft leaf hat on a low branch for Wiggly to |
+| dino-pals-10-cheekys-prank-goes-wrong | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-10/page-003.webp | Wiggly found the hat. It fell over his eyes. Cheeky laughed, but Wiggly did not. |
+| dino-pals-10-cheekys-prank-goes-wrong | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-10/page-004.webp | Next, Cheeky spread mud on Fancy's favourite rock. Fancy sat down. "Oh!" cried F |
+| dino-pals-10-cheekys-prank-goes-wrong | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-10/page-005.webp | Cheeky laughed and stepped back. He slipped in the mud. Now he was muddy too. |
+| dino-pals-10-cheekys-prank-goes-wrong | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-10/page-006.webp | The Dino Pals helped Cheeky up. "My jokes hurt your feelings," he said. "I am so |
+| dino-pals-10-cheekys-prank-goes-wrong | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-10/page-007.webp | Cheeky asked Wiggly and Fancy, "What makes you laugh?" They made silly faces tog |
+| dino-pals-10-cheekys-prank-goes-wrong | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-10/page-008.webp | Cheeky cleaned Fancy's rock. Then the friends planned a joke everyone could enjo |
+| dino-pals-11-shys-secret-gift | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-11/page-001.webp | Each morning, the Dino Pals found a small gift on the Big Flat Rock. No one knew |
+| dino-pals-11-shys-secret-gift | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-11/page-002.webp | One day, Grumpy found a smooth pebble. "Someone knows I like pebbles," he said. |
+| dino-pals-11-shys-secret-gift | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-11/page-003.webp | One day, Chompy found extra berries. "Someone knows me well!" he said, already e |
+| dino-pals-11-shys-secret-gift | 5 | 4 | yes | yes | /guided-reading/series/dino-pals/book-11/page-004.webp | One day, Dozy found a leafy fan. "Perfect," he said, before falling asleep under |
+| dino-pals-11-shys-secret-gift | 6 | 5 | yes | yes | /guided-reading/series/dino-pals/book-11/page-005.webp | "Who leaves the gifts?" asked Bossy. "We can watch quietly." |
+| dino-pals-11-shys-secret-gift | 7 | 6 | yes | yes | /guided-reading/series/dino-pals/book-11/page-006.webp | Bouncy looked behind bushes. Zippy checked every path. Honky called out. They fo |
+| dino-pals-11-shys-secret-gift | 8 | 7 | yes | yes | /guided-reading/series/dino-pals/book-11/page-007.webp | Cheeky kept watch after supper. He tried to stay awake, but soon he was asleep. |
+| dino-pals-11-shys-secret-gift | 9 | 8 | yes | yes | /guided-reading/series/dino-pals/book-11/page-008.webp | The next morning, Sunny waited quietly behind a fern. |
+| dino-pals-11-shys-secret-gift | 10 | 9 | yes | yes | /guided-reading/series/dino-pals/book-11/page-009.webp | She saw two small pink feet step from behind a rock. A tiny grass bracelet was p |
+| dino-pals-11-shys-secret-gift | 11 | 10 | yes | yes | /guided-reading/series/dino-pals/book-11/page-010.webp | "Shy?" Sunny asked softly. Shy nodded and tucked behind the rock. |
+| dino-pals-11-shys-secret-gift | 12 | 11 | yes | yes | /guided-reading/series/dino-pals/book-11/page-011.webp | "Your gifts are kind," said Sunny. "Would you like to sit with us?" Shy came out |
+| dino-pals-11-shys-secret-gift | 13 | 12 | yes | yes | /guided-reading/series/dino-pals/book-11/page-012.webp | The next morning, eleven small gifts waited on the Big Flat Rock. The Pals had m |
 | dino-pals-12-fancys-bad-day | 2 | 1 | yes | yes | /guided-reading/series/dino-pals/book-12/page-001.webp | Fancy woke up and found something terrible. Fancy's sail was bent. Not a little  |
 | dino-pals-12-fancys-bad-day | 3 | 2 | yes | yes | /guided-reading/series/dino-pals/book-12/page-002.webp | I cannot leave the cave, said Fancy. Not like this. Fancy sat very still and sta |
 | dino-pals-12-fancys-bad-day | 4 | 3 | yes | yes | /guided-reading/series/dino-pals/book-12/page-003.webp | Clumsy looked in from a great height. It looks fine to me, said Clumsy. You cann |
@@ -1561,7 +1561,7 @@ Very, very fast. |
 | moonwood-tales-c-08 | 11 | 10 | yes | yes | /guided-reading/series/moonwood-tales/book-08/page-010.webp | They walked along the walls slowly. There were drawings of things no one had see |
 | moonwood-tales-c-08 | 12 | 11 | yes | yes | /guided-reading/series/moonwood-tales/book-08/page-011.webp | The memory room, said Luna. That is what it was called. She touched the wall ver |
 | moonwood-tales-c-08 | 13 | 12 | yes | yes | /guided-reading/series/moonwood-tales/book-08/page-012.webp | They stayed for a long time. No one wanted to leave. The room was very quiet and |
-| moonwood-tales-c-08 | 14 | 13 | yes | yes | /guided-reading/series/moonwood-tales/book-08/page-013.webp | Burrow found a blank patch of wall. He picked up a small flat stone. Very carefu |
+| moonwood-tales-c-08 | 14 | 13 | yes | yes | /guided-reading/series/moonwood-tales/book-08/page-013.webp | Burrow found a clear patch of wall. He picked up a small flat stone. Very carefu |
 | moonwood-tales-c-09 | 2 | 1 | yes | yes | /guided-reading/series/moonwood-tales/book-09/page-001.webp | Spark had a cold. Usually a cold was nothing much. But Spark's magic crackled ar |
 | moonwood-tales-c-09 | 3 | 2 | yes | yes | /guided-reading/series/moonwood-tales/book-09/page-002.webp | He sneezed at breakfast. The porridge turned into a bird. The bird flew out of t |
 | moonwood-tales-c-09 | 4 | 3 | yes | yes | /guided-reading/series/moonwood-tales/book-09/page-003.webp | Don't sneeze again, said Wren. I will try not to, said Spark. His nose twitched. |

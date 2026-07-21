@@ -64,7 +64,7 @@ function buildTitlePage(book = {}, pages = []) {
 
   const title = String(book.title || "Untitled Book").trim();
   const { author, illustrator } = getGuidedReadingCredits(book);
-  const coverImage = pageImage(pages[0]) || book.coverImage || book.cover || "";
+  const coverImage = book.coverImage || book.cover || pageImage(pages[0]) || "";
 
   return {
     pageNumber: 1,
@@ -102,7 +102,7 @@ export function normalizeReadableBook(book = {}) {
     gradeBand: book.gradeBand || "",
     difficulty: book.difficulty || book.readingLevel || "",
     sourceUrl: book.sourceUrl || book.source || book.downloadPageUrl || "",
-    coverImage: pageImage(sourcePages[0]) || book.coverImage || book.cover || "",
+    coverImage: book.coverImage || book.cover || pageImage(sourcePages[0]) || "",
     pages,
     validForReader: pages.length > 0,
     missingFields: [

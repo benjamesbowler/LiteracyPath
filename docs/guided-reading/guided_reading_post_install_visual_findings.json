@@ -393,8 +393,65 @@
       11,
       12
     ],
+    "118": [
+      1,
+      7,
+      11
+    ],
+    "119": [
+      2,
+      5
+    ],
     "120": [
       4
+    ],
+    "121": [
+      5,
+      10,
+      11
+    ],
+    "123": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      10
+    ],
+    "124": [
+      1
+    ],
+    "125": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "126": [
+      2,
+      6,
+      8
+    ],
+    "128": [
+      6
+    ],
+    "134": [
+      9
+    ],
+    "135": [
+      3,
+      4,
+      7
     ],
     "138": [
       1,
@@ -404,6 +461,34 @@
       5,
       6,
       7
+    ],
+    "145": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "146": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "147": [
+      3,
+      7
+    ],
+    "148": [
+      1,
+      8
     ],
     "151": [
       7,
@@ -415,11 +500,46 @@
       5,
       6
     ],
+    "153": [
+      6
+    ],
     "154": [
       2
     ],
+    "156": [
+      1,
+      3,
+      5,
+      6,
+      11
+    ],
+    "160": [
+      8,
+      12
+    ],
+    "168": [
+      5,
+      7,
+      9,
+      10,
+      11
+    ],
     "175": [
       1
+    ],
+    "176": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
     ]
   },
   "findings": [
@@ -458,7 +578,7 @@
       "issues": [
         "text"
       ],
-      "finding": "Page 4's book cover contains decorative pseudo-writing. Replace with a clearly rectangular, blank-covered book with no symbols or lettering."
+      "finding": "Page 4's book cover contains malformed attempted writing. Replace with a clearly rectangular book using a purposeful geometric cover illustration and restrained deliberate page design, never an empty cover."
     },
     {
       "bookNumber": 12,
@@ -470,7 +590,7 @@
       "issues": [
         "text"
       ],
-      "finding": "Page 6 embeds clock numerals and other tiny wall details in a general shapes scene. Replace with a clean room scene using recognizable unlabeled shapes and a blank clock face, with no letters or numerals."
+      "finding": "Page 6 embeds malformed clock numerals and other tiny wall details in a general shapes scene. Replace with a clean room scene using recognizable unlabeled shapes and a functional clock using simple tick marks and hands, with no letters or malformed numerals."
     },
     {
       "bookNumber": 21,
@@ -1037,7 +1157,7 @@
       "issues": [
         "text"
       ],
-      "finding": "Page 6 fills the classroom wall with AI-generated alphabet/word posters, including malformed mixed lettering. Replace with the same Bob and Nan at the desk against a clean classroom wall using only pictures or blank coloured shapes."
+      "finding": "Page 6 fills the classroom wall with AI-generated alphabet/word posters, including malformed mixed lettering. Replace with the same Bob and Nan at the desk against a clean classroom wall using purposeful child-made pictures and coherent diagram displays rather than empty coloured shapes."
     },
     {
       "bookNumber": 82,
@@ -1064,7 +1184,7 @@
         "text",
         "textMatch"
       ],
-      "finding": "The red book cover contains unrelated generated title text ('Cattle') and a cat graphic. Replace with the same Nan reading a large plain red book; the book cover must be blank."
+      "finding": "The red book cover contains unrelated generated title text ('Cattle') and a cat graphic. Replace with the same Nan reading a large red book whose cover has a purposeful age-appropriate illustration and deliberate design, without malformed or unrelated title text."
     },
     {
       "bookNumber": 89,
@@ -1078,7 +1198,7 @@
       "issues": [
         "text"
       ],
-      "finding": "Pages 2 and 4 contain AI-generated pseudo-writing on shopping lists, and page 10 embeds a BAKERY sign. Replace with a clean pictogram/blank-line list and a sign-free bakery setting."
+      "finding": "Pages 2 and 4 contain malformed AI-generated writing on shopping lists, and page 10 embeds unreliable sign text. Replace with clean, purposeful lists using exact story items, coherent pictograms and restrained marks; any story-important bakery wording must be correctly spelled and legible."
     },
     {
       "bookNumber": 90,
@@ -1104,7 +1224,7 @@
       "issues": [
         "text"
       ],
-      "finding": "Page 4 contains generated writing on Dad's plan and page 6 embeds BANG/WHIRR words. Preserve the actions with a blank diagram sheet and visual motion cues only."
+      "finding": "Page 4 contains malformed generated writing on Dad's plan and page 6 embeds BANG/WHIRR words. Preserve the actions with a purposeful, coherent diagram sheet and visual motion cues; never substitute an empty plan."
     },
     {
       "bookNumber": 94,
@@ -1149,7 +1269,7 @@
         "text",
         "textMatch"
       ],
-      "finding": "The classroom sequence repeatedly contains generated alphabet strips, board writing, worksheets, name-label claims without a readable label, sums, science-poster text, and a blank reward board that contradicts page 10. Rebuild these pages with clean picture-only classroom displays; when the story requires writing, show blank ruled marks or add verified typography outside the generated artwork."
+      "finding": "The classroom sequence repeatedly contains malformed alphabet strips, board writing, worksheets, name-label claims without a readable label, sums, science-poster text, and an empty reward board that contradicts page 10. Rebuild these pages with purposeful classroom pictures and coherent diagrams; when the story requires writing, show exact verified wording or neat age-appropriate work that is clearly intentional and correctly oriented."
     },
     {
       "bookNumber": 98,
@@ -1164,7 +1284,7 @@
       "issues": [
         "text"
       ],
-      "finding": "Sorting labels, yard-sale signs, sale records, and the lemonade sign contain embedded/generated lettering. Preserve the sale actions with blank colour-coded cards and sign boards, leaving all readable wording to the page text layer."
+      "finding": "Sorting labels, yard-sale signs, sale records, and the lemonade sign contain malformed generated lettering. Preserve the sale actions with purposeful colour-coded cards and correctly spelled, legible story-important signs and records; never leave active sign boards empty."
     },
     {
       "bookNumber": 100,
@@ -1482,7 +1602,7 @@
         "text",
         "tone"
       ],
-      "finding": "The games sequence embeds character-name labels, a cluttered generated event sheet, finish signs, score marks, and a 1st PLACE rosette; Honky's event also uses a decorative rainbow blast. Replace with picture-only staging, simple blank markers, consistent cast, and clean air/leaf motion."
+      "finding": "The games sequence embeds malformed character-name labels, a cluttered generated event sheet, finish signs, score marks, and a 1st PLACE rosette; Honky's event also uses a decorative rainbow blast. Replace with consistent cast, purposeful non-text course markers, clean event diagrams and natural air/leaf motion; any required names or results must be exact and legible."
     },
     {
       "bookNumber": 124,
@@ -1519,7 +1639,7 @@
         "text",
         "tone"
       ],
-      "finding": "Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion."
+      "finding": "Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are unreliable, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, purposeful non-text ribbon markers, and natural dust/leaf motion."
     },
     {
       "bookNumber": 126,
@@ -1593,7 +1713,7 @@
         "continuity",
         "textMatch"
       ],
-      "finding": "Hungry is established as the cow who moos, but all seven pages depict a mud-spotted pig nearly identical to Muddy. Rebuild the full sequence with one locked, friendly cow character eating the same grass, flower, hat, map, and cake beats; Muddy must remain a separate pig."
+      "finding": "Hungry is established as the cow who moos, but all seven former pages depicted a mud-spotted pig nearly identical to Muddy. Rebuild the revised seven-page sequence with one locked cream-and-chestnut cow eating suitable grass and hay, seeking help at the farm gate, receiving fresh hay and water, and noticing fullness; Muddy must remain a separate pig."
     },
     {
       "bookNumber": 145,
@@ -1700,7 +1820,7 @@
       "issues": [
         "text"
       ],
-      "finding": "Luna's open book contains generated pseudo-writing. Keep Luna behind the leaves with a closed or blank open book using only clean botanical diagrams."
+      "finding": "Luna's open book contains malformed generated pseudo-writing. Keep Luna behind the leaves with an open book using clean botanical diagrams and a purposeful page layout; never leave the active book empty."
     },
     {
       "bookNumber": 154,
@@ -1759,7 +1879,7 @@
         "anthropomorphic",
         "continuity"
       ],
-      "finding": "The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return."
+      "finding": "The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same six locked plants must remain identifiable as they leave and return: one tall fern, one red flower, one yellow flower, one leafy herb, one curling vine and one tiny seedling."
     },
     {
       "bookNumber": 175,

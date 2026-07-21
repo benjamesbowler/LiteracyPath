@@ -1698,7 +1698,7 @@ export const moonwoodTalesBooks = [
       },
       {
         "pageNumber": 13,
-        "text": "Burrow found a blank patch of wall. He picked up a small flat stone. Very carefully, he drew the Hollow Oak. Now we are in it too, he said.",
+        "text": "Burrow found a clear patch of wall. He picked up a small flat stone. Very carefully, he drew the Hollow Oak. Now we are in it too, he said.",
         "image": "/guided-reading/series/moonwood-tales/book-08/page-013.webp",
         "audio": "/guided-reading/series/moonwood-tales/book-08/audio/page-013.mp3",
         "pageAudio": "/guided-reading/series/moonwood-tales/book-08/audio/page-013.mp3",

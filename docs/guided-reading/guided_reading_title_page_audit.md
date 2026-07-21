@@ -1,12 +1,12 @@
 # Guided Reading Title Page Audit
 
-Generated: 2026-05-28T07:49:48.312Z
+Generated: 2026-07-21T14:41:24.255Z
 
 ## Strategy
 
-Every remaining app-created Guided Reading book is normalized with reader page 1 as a title page. Fiction guided-reading is limited to approved Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, Dino Pals Level B books 1-20, Meadow Pals Level A books 1-25, and Moonwood Tales Level C books 1-10 in student public release. First Facts nonfiction books 1-25 are now Level B, the new First Facts Level A nonfiction books 1-20 are true Level A, and Level C nonfiction books 1-10 are included as public nonfiction.
+Every remaining app-created Guided Reading book is normalized with reader page 1 as a title page. Fiction guided-reading is limited to approved Bob and Nan Level A books 1-10, James and Anna Level B books 1-10, Aiden and Betty Level C books 1-10, Dino Pals Level B books 1-20, Meadow Pals Level A books 1-25, and Moonwood Tales Level C books 1-25 in student public release. First Facts nonfiction books 1-25 are now Level B, the new First Facts Level A nonfiction books 1-20 are true Level A, and Level C nonfiction books 1-10 are included as public nonfiction.
 
-Visible fiction books: 85
+Visible fiction books: 100
 Visible nonfiction books: 76
 
 ## Books Checked
@@ -147,10 +147,10 @@ Visible nonfiction books: 76
 | meadow-pals-06-sleepy-cant-wake-up | Sleepy Can't Wake Up | fiction | A | 9 | 10 | /guided-reading/series/meadow-pals/book-06/cover.webp | Sleepy Can't Wake Up / by Nora Bell / illustrated by Milo Reed |
 | meadow-pals-07-noisy-tries-to-be-quiet | Noisy Tries to Be Quiet | fiction | A | 10 | 11 | /guided-reading/series/meadow-pals/book-07/cover.webp | Noisy Tries to Be Quiet / by Nora Bell / illustrated by Milo Reed |
 | meadow-pals-08-tiny-is-very-small | Tiny is Very Small | fiction | A | 9 | 10 | /guided-reading/series/meadow-pals/book-08/cover.webp | Tiny is Very Small / by Nora Bell / illustrated by Milo Reed |
-| meadow-pals-09-shy-comes-out-to-play | Shy Comes Out to Play | fiction | A | 9 | 10 | /guided-reading/series/meadow-pals/book-09/cover.webp | Shy Comes Out to Play / by Nora Bell / illustrated by Milo Reed |
+| meadow-pals-09-shy-comes-out-to-play | Shy Comes Out to Play | fiction | A | 8 | 9 | /guided-reading/series/meadow-pals/book-09/cover.webp | Shy Comes Out to Play / by Nora Bell / illustrated by Milo Reed |
 | meadow-pals-10-giggly-has-the-hiccups | Giggly Has the Hiccups | fiction | A | 9 | 10 | /guided-reading/series/meadow-pals/book-10/cover.webp | Giggly Has the Hiccups / by Nora Bell / illustrated by Milo Reed |
 | meadow-pals-11-brave-climbs-the-hay-bale | Brave Climbs the Hay Bale | fiction | A | 10 | 11 | /guided-reading/series/meadow-pals/book-11/cover.webp | Brave Climbs the Hay Bale / by Nora Bell / illustrated by Milo Reed |
-| meadow-pals-12-hungry-eats-everything | Hungry Eats Everything | fiction | A | 7 | 8 | /guided-reading/series/meadow-pals/book-12/cover.webp | Hungry Eats Everything / by Nora Bell / illustrated by Milo Reed |
+| meadow-pals-12-hungry-eats-everything | Hungry Finds Lunch | fiction | A | 7 | 8 | /guided-reading/series/meadow-pals/book-12/cover.webp | Hungry Finds Lunch / by Nora Bell / illustrated by Milo Reed |
 | meadow-pals-13-splashy-finds-a-puddle | Splashy Finds a Puddle | fiction | A | 9 | 10 | /guided-reading/series/meadow-pals/book-13/cover.webp | Splashy Finds a Puddle / by Nora Bell / illustrated by Milo Reed |
 | meadow-pals-14-speedy-slows-down | Speedy Slows Down | fiction | A | 10 | 11 | /guided-reading/series/meadow-pals/book-14/cover.webp | Speedy Slows Down / by Nora Bell / illustrated by Milo Reed |
 | meadow-pals-15-cuddly-wants-a-hug | Cuddly Wants a Hug | fiction | A | 10 | 11 | /guided-reading/series/meadow-pals/book-15/cover.webp | Cuddly Wants a Hug / by Nora Bell / illustrated by Milo Reed |
@@ -174,6 +174,21 @@ Visible nonfiction books: 76
 | moonwood-tales-c-08 | Burrow Finds a Door | fiction | C | 13 | 14 | /guided-reading/series/moonwood-tales/book-08/cover.webp | Burrow Finds a Door / by Lina Moss / illustrated by Kimi |
 | moonwood-tales-c-09 | Spark's Very Big Sneeze | fiction | C | 14 | 15 | /guided-reading/series/moonwood-tales/book-09/cover.webp | Spark's Very Big Sneeze / by Lina Moss / illustrated by Kimi |
 | moonwood-tales-c-10 | What Luna Forgot | fiction | C | 14 | 15 | /guided-reading/series/moonwood-tales/book-10/cover.webp | What Luna Forgot / by Lina Moss / illustrated by Kimi |
+| moonwood-tales-c-11 | Pip and Stone and the Loud Thing | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-11/cover.webp | Pip and Stone and the Loud Thing / by Lina Moss / illustrated by Kimi |
+| moonwood-tales-c-12 | Fern and Dewdrop Save the Stream | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-12/cover.webp | Fern and Dewdrop Save the Stream / by Lina Moss / illustrated by Kimi |
+| moonwood-tales-c-13 | Glimmer and Spark Make a Deal | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-13/cover.webp | Glimmer and Spark Make a Deal / by Lina Moss / illustrated by Kimi |
+| moonwood-tales-c-14 | Wren and Flint Get Lost | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-14/cover.webp | Wren and Flint Get Lost / by Lina Moss / illustrated by Kimi |
+| moonwood-tales-c-15 | Burrow and Luna and the Old Secret | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-15/cover.webp | Burrow and Luna and the Old Secret / by Lina Moss / illustrated by Kimi |
+| moonwood-tales-c-16 | Pip and Glimmer and the Night Watch | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-16/cover.webp | Pip and Glimmer and the Night Watch / by Lina Moss / illustrated by Kimi |
+| moonwood-tales-c-17 | Fern and Wren and the Wrong Potion | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-17/cover.webp | Fern and Wren and the Wrong Potion / by Lina Moss / illustrated by Kimi |
+| moonwood-tales-c-18 | Stone and Dewdrop and the Stuck Fish | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-18/cover.webp | Stone and Dewdrop and the Stuck Fish / by Lina Moss / illustrated by Kimi |
+| moonwood-tales-c-19 | The Missing Magic Seeds | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-19/cover.webp | The Missing Magic Seeds / by Lina Moss / illustrated by Kimi |
+| moonwood-tales-c-20 | The Night the Stars Fell | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-20/cover.webp | The Night the Stars Fell / by Lina Moss / illustrated by Kimi |
+| moonwood-tales-c-21 | Something Lives in the Hollow Oak | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-21/cover.webp | Something Lives in the Hollow Oak / by Lina Moss / illustrated by Kimi |
+| moonwood-tales-c-22 | The Big Moonwood Race | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-22/cover.webp | The Big Moonwood Race / by Lina Moss / illustrated by Kimi |
+| moonwood-tales-c-23 | The Fog Marsh Mystery | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-23/cover.webp | The Fog Marsh Mystery / by Lina Moss / illustrated by Kimi |
+| moonwood-tales-c-24 | Glimmer Breathes Fire at Last | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-24/cover.webp | Glimmer Breathes Fire at Last / by Lina Moss / illustrated by Kimi |
+| moonwood-tales-c-25 | One Night in the Deep Dark | fiction | C | 12 | 13 | /guided-reading/series/moonwood-tales/book-25/cover.webp | One Night in the Deep Dark / by Lina Moss / illustrated by Kimi |
 
 ## Warnings
 

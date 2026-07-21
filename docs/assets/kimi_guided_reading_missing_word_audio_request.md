@@ -1,6 +1,6 @@
 # Kimi Guided Reading Missing Word Audio Request
 
-Generated: 2026-07-21T01:25:28.752Z
+Generated: 2026-07-21T14:41:19.639Z
 
 Generate only the exact single word for each item. These files support click-to-hear word audio in Guided Reading.
 
@@ -18,6 +18,16 @@ Generate only the exact single word for each item. These files support click-to-
 
 ## Missing Word Audio Items
 
+### common
+
+- normalized word: common
+- display variants: Common, common
+- occurrence count: 6
+- target audio path: public/audio/child-mode/clean-human/words/common.mp3
+- exact spoken script: common
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-10-frogs page 1; level-c-nonfiction-10-frogs page 2; level-c-nonfiction-10-frogs page 6; level-c-nonfiction-10-frogs page 7; level-c-nonfiction-10-frogs page 8; level-c-nonfiction-10-frogs page 9
+
 ### harness
 
 - normalized word: harness
@@ -28,6 +38,16 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-04 page 9; ab-c-04 page 11; ab-c-05 page 1; ab-c-05 page 2; ab-c-05 page 6; ab-c-05 page 11
 
+### picture
+
+- normalized word: picture
+- display variants: picture
+- occurrence count: 5
+- target audio path: public/audio/child-mode/clean-human/words/picture.mp3
+- exact spoken script: picture
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-10 page 1; ab-c-10 page 3; ab-c-10 page 5; ab-c-10 page 7; ab-c-10 page 11
+
 ### foster
 
 - normalized word: foster
@@ -37,6 +57,36 @@ Generate only the exact single word for each item. These files support click-to-
 - exact spoken script: foster
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-04 page 2; ab-c-04 page 6; ab-c-05 page 8; ab-c-05 page 14
+
+### card
+
+- normalized word: card
+- display variants: card
+- occurrence count: 3
+- target audio path: public/audio/child-mode/clean-human/words/card.mp3
+- exact spoken script: card
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-02 page 3; ab-c-02 page 3; ab-c-02 page 3
+
+### main
+
+- normalized word: main
+- display variants: main
+- occurrence count: 3
+- target audio path: public/audio/child-mode/clean-human/words/main.mp3
+- exact spoken script: main
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-04-the-moon page 6; level-c-nonfiction-06-spiders page 1; level-c-nonfiction-06-spiders page 1
+
+### rested
+
+- normalized word: rested
+- display variants: rested
+- occurrence count: 3
+- target audio path: public/audio/child-mode/clean-human/words/rested.mp3
+- exact spoken script: rested
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-04 page 5; ab-c-07 page 11; ab-c-08 page 9
 
 ### source
 
@@ -58,6 +108,16 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-05 page 4; ab-c-05 page 13
 
+### bullying
+
+- normalized word: bullying
+- display variants: Bullying, bullying
+- occurrence count: 2
+- target audio path: public/audio/child-mode/clean-human/words/bullying.mp3
+- exact spoken script: bullying
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-08 page 12; ab-c-08 page 13
+
 ### carrier
 
 - normalized word: carrier
@@ -78,6 +138,36 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-05 page 2; ab-c-07 page 6
 
+### gaps
+
+- normalized word: gaps
+- display variants: gaps
+- occurrence count: 2
+- target audio path: public/audio/child-mode/clean-human/words/gaps.mp3
+- exact spoken script: gaps
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-09 page 12; ab-c-09 page 13
+
+### generations
+
+- normalized word: generations
+- display variants: generations
+- occurrence count: 2
+- target audio path: public/audio/child-mode/clean-human/words/generations.mp3
+- exact spoken script: generations
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-08-butterflies page 9; level-c-nonfiction-09-caves page 8
+
+### lantern
+
+- normalized word: lantern
+- display variants: lantern
+- occurrence count: 2
+- target audio path: public/audio/child-mode/clean-human/words/lantern.mp3
+- exact spoken script: lantern
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: moonwood-tales-c-24 page 7; moonwood-tales-c-24 page 8
+
 ### latch
 
 - normalized word: latch
@@ -97,6 +187,26 @@ Generate only the exact single word for each item. These files support click-to-
 - exact spoken script: mark
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-06 page 4; ab-c-06 page 6
+
+### milkweed
+
+- normalized word: milkweed
+- display variants: milkweed
+- occurrence count: 2
+- target audio path: public/audio/child-mode/clean-human/words/milkweed.mp3
+- exact spoken script: milkweed
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-08-butterflies page 3; level-c-nonfiction-08-butterflies page 4
+
+### mineral
+
+- normalized word: mineral
+- display variants: mineral
+- occurrence count: 2
+- target audio path: public/audio/child-mode/clean-human/words/mineral.mp3
+- exact spoken script: mineral
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-09-caves page 4; level-c-nonfiction-09-caves page 4
 
 ### nudged
 
@@ -138,15 +248,35 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-04 page 2; ab-c-04 page 6
 
-### rested
+### sheds
 
-- normalized word: rested
-- display variants: rested
+- normalized word: sheds
+- display variants: sheds
 - occurrence count: 2
-- target audio path: public/audio/child-mode/clean-human/words/rested.mp3
-- exact spoken script: rested
+- target audio path: public/audio/child-mode/clean-human/words/sheds.mp3
+- exact spoken script: sheds
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
-- used in: ab-c-04 page 5; ab-c-07 page 11
+- used in: level-c-nonfiction-08-butterflies page 4; level-c-nonfiction-08-butterflies page 5
+
+### speak
+
+- normalized word: speak
+- display variants: speak
+- occurrence count: 2
+- target audio path: public/audio/child-mode/clean-human/words/speak.mp3
+- exact spoken script: speak
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-08 page 4; ab-c-08 page 13
+
+### 000
+
+- normalized word: 000
+- display variants: 000
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/000.mp3
+- exact spoken script: 000
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-09-caves page 9
 
 ### 14
 
@@ -157,6 +287,46 @@ Generate only the exact single word for each item. These files support click-to-
 - exact spoken script: 14
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: level-c-nonfiction-03-penguins page 6
+
+### 40
+
+- normalized word: 40
+- display variants: 40
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/40.mp3
+- exact spoken script: 40
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-09-caves page 9
+
+### accident
+
+- normalized word: accident
+- display variants: accident
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/accident.mp3
+- exact spoken script: accident
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-08 page 11
+
+### adds
+
+- normalized word: adds
+- display variants: adds
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/adds.mp3
+- exact spoken script: adds
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-06-spiders page 3
+
+### adults
+
+- normalized word: adults
+- display variants: adults
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/adults.mp3
+- exact spoken script: adults
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-10-frogs page 1
 
 ### africa
 
@@ -188,6 +358,26 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: level-c-nonfiction-04-the-moon page 5
 
+### archers
+
+- normalized word: archers
+- display variants: archers
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/archers.mp3
+- exact spoken script: archers
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-10 page 10
+
+### beamed
+
+- normalized word: beamed
+- display variants: beamed
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/beamed.mp3
+- exact spoken script: beamed
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: moonwood-tales-c-24 page 11
+
 ### became
 
 - normalized word: became
@@ -198,6 +388,16 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: level-c-nonfiction-04-the-moon page 5
 
+### belts
+
+- normalized word: belts
+- display variants: belts
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/belts.mp3
+- exact spoken script: belts
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-10 page 2
+
 ### blamed
 
 - normalized word: blamed
@@ -207,6 +407,76 @@ Generate only the exact single word for each item. These files support click-to-
 - exact spoken script: blamed
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-05 page 12
+
+### boards
+
+- normalized word: boards
+- display variants: boards
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/boards.mp3
+- exact spoken script: boards
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-10 page 3
+
+### boomed
+
+- normalized word: boomed
+- display variants: boomed
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/boomed.mp3
+- exact spoken script: boomed
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: dino-pals-09-honkys-inside-voice page 6
+
+### bother
+
+- normalized word: bother
+- display variants: bother
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/bother.mp3
+- exact spoken script: bother
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-09 page 13
+
+### breathes
+
+- normalized word: breathes
+- display variants: breathes
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/breathes.mp3
+- exact spoken script: breathes
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-10-frogs page 7
+
+### breeze
+
+- normalized word: breeze
+- display variants: breeze
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/breeze.mp3
+- exact spoken script: breeze
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: dino-pals-07-wigglys-messy-day page 7
+
+### bucket
+
+- normalized word: bucket
+- display variants: bucket
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/bucket.mp3
+- exact spoken script: bucket
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: moonwood-tales-c-24 page 1
+
+### carries
+
+- normalized word: carries
+- display variants: carries
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/carries.mp3
+- exact spoken script: carries
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-06-spiders page 8
 
 ### carrot
 
@@ -228,6 +498,26 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-04 page 2
 
+### cleaned
+
+- normalized word: cleaned
+- display variants: cleaned
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/cleaned.mp3
+- exact spoken script: cleaned
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: dino-pals-10-cheekys-prank-goes-wrong page 8
+
+### clumps
+
+- normalized word: clumps
+- display variants: clumps
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/clumps.mp3
+- exact spoken script: clumps
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-10-frogs page 2
+
 ### coasts
 
 - normalized word: coasts
@@ -238,6 +528,76 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: level-c-nonfiction-03-penguins page 9
 
+### colony
+
+- normalized word: colony
+- display variants: colony
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/colony.mp3
+- exact spoken script: colony
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-07-under-the-ocean page 4
+
+### counters
+
+- normalized word: counters
+- display variants: counters
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/counters.mp3
+- exact spoken script: counters
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-01 page 9
+
+### cover
+
+- normalized word: cover
+- display variants: cover
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/cover.mp3
+- exact spoken script: cover
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-10-frogs page 5
+
+### cracks
+
+- normalized word: cracks
+- display variants: cracks
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/cracks.mp3
+- exact spoken script: cracks
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-09-caves page 2
+
+### croaking
+
+- normalized word: croaking
+- display variants: croaking
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/croaking.mp3
+- exact spoken script: croaking
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-10-frogs page 9
+
+### curious
+
+- normalized word: curious
+- display variants: curious
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/curious.mp3
+- exact spoken script: curious
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-09 page 12
+
+### decorated
+
+- normalized word: decorated
+- display variants: decorated
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/decorated.mp3
+- exact spoken script: decorated
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-02 page 4
+
 ### dents
 
 - normalized word: dents
@@ -247,6 +607,16 @@ Generate only the exact single word for each item. These files support click-to-
 - exact spoken script: dents
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: level-c-nonfiction-04-the-moon page 4
+
+### discovered
+
+- normalized word: discovered
+- display variants: discovered
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/discovered.mp3
+- exact spoken script: discovered
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-01 page 9
 
 ### dog-safe
 
@@ -278,6 +648,16 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: level-c-nonfiction-04-the-moon page 7
 
+### enjoy
+
+- normalized word: enjoy
+- display variants: enjoy
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/enjoy.mp3
+- exact spoken script: enjoy
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: dino-pals-10-cheekys-prank-goes-wrong page 8
+
 ### entries
 
 - normalized word: entries
@@ -287,6 +667,86 @@ Generate only the exact single word for each item. These files support click-to-
 - exact spoken script: entries
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-07 page 9
+
+### extinguisher
+
+- normalized word: extinguisher
+- display variants: extinguisher
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/extinguisher.mp3
+- exact spoken script: extinguisher
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: moonwood-tales-c-24 page 1
+
+### faced
+
+- normalized word: faced
+- display variants: faced
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/faced.mp3
+- exact spoken script: faced
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-08 page 7
+
+### faces
+
+- normalized word: faces
+- display variants: faces
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/faces.mp3
+- exact spoken script: faces
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: dino-pals-10-cheekys-prank-goes-wrong page 7
+
+### farmer
+
+- normalized word: farmer
+- display variants: farmer
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/farmer.mp3
+- exact spoken script: farmer
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: meadow-pals-12-hungry-eats-everything page 5
+
+### fault
+
+- normalized word: fault
+- display variants: fault
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/fault.mp3
+- exact spoken script: fault
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-08 page 13
+
+### feelings
+
+- normalized word: feelings
+- display variants: feelings
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/feelings.mp3
+- exact spoken script: feelings
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: dino-pals-10-cheekys-prank-goes-wrong page 6
+
+### females
+
+- normalized word: females
+- display variants: females
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/females.mp3
+- exact spoken script: females
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-10-frogs page 9
+
+### fields
+
+- normalized word: fields
+- display variants: fields
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/fields.mp3
+- exact spoken script: fields
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-10 page 8
 
 ### fitted
 
@@ -307,6 +767,16 @@ Generate only the exact single word for each item. These files support click-to-
 - exact spoken script: fleece-lined
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-05 page 2
+
+### fluid
+
+- normalized word: fluid
+- display variants: fluid
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/fluid.mp3
+- exact spoken script: fluid
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-08-butterflies page 7
 
 ### footbridge
 
@@ -338,6 +808,26 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-04 page 4
 
+### froglet
+
+- normalized word: froglet
+- display variants: froglet
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/froglet.mp3
+- exact spoken script: froglet
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-10-frogs page 5
+
+### glove
+
+- normalized word: glove
+- display variants: glove
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/glove.mp3
+- exact spoken script: glove
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-10 page 6
+
 ### goggles
 
 - normalized word: goggles
@@ -357,6 +847,36 @@ Generate only the exact single word for each item. These files support click-to-
 - exact spoken script: graph
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-06 page 7
+
+### grown-up
+
+- normalized word: grown-up
+- display variants: grown-up
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/grown-up.mp3
+- exact spoken script: grown-up
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-08 page 3
+
+### harden
+
+- normalized word: harden
+- display variants: harden
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/harden.mp3
+- exact spoken script: harden
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-08-butterflies page 7
+
+### harm
+
+- normalized word: harm
+- display variants: harm
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/harm.mp3
+- exact spoken script: harm
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-06-spiders page 9
 
 ### helping
 
@@ -388,6 +908,36 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-04 page 6
 
+### joke
+
+- normalized word: joke
+- display variants: joke
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/joke.mp3
+- exact spoken script: joke
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: dino-pals-10-cheekys-prank-goes-wrong page 8
+
+### jokes
+
+- normalized word: jokes
+- display variants: jokes
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/jokes.mp3
+- exact spoken script: jokes
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: dino-pals-10-cheekys-prank-goes-wrong page 6
+
+### lanterns
+
+- normalized word: lanterns
+- display variants: lanterns
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/lanterns.mp3
+- exact spoken script: lanterns
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: moonwood-tales-c-24 page 11
+
 ### laundry
 
 - normalized word: laundry
@@ -408,6 +958,16 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-04 page 4
 
+### loses
+
+- normalized word: loses
+- display variants: loses
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/loses.mp3
+- exact spoken script: loses
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-09 page 4
+
 ### lying
 
 - normalized word: lying
@@ -418,15 +978,25 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-05 page 9
 
-### main
+### magical
 
-- normalized word: main
-- display variants: main
+- normalized word: magical
+- display variants: magical
 - occurrence count: 1
-- target audio path: public/audio/child-mode/clean-human/words/main.mp3
-- exact spoken script: main
+- target audio path: public/audio/child-mode/clean-human/words/magical.mp3
+- exact spoken script: magical
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
-- used in: level-c-nonfiction-04-the-moon page 6
+- used in: moonwood-tales-c-24 page 8
+
+### male
+
+- normalized word: male
+- display variants: male
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/male.mp3
+- exact spoken script: male
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-10-frogs page 9
 
 ### measuring
 
@@ -437,6 +1007,36 @@ Generate only the exact single word for each item. These files support click-to-
 - exact spoken script: measuring
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-04 page 13
+
+### mistake
+
+- normalized word: mistake
+- display variants: mistake
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/mistake.mp3
+- exact spoken script: mistake
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: dino-pals-06-bouncy-bumps-into-everything page 2
+
+### moist
+
+- normalized word: moist
+- display variants: moist
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/moist.mp3
+- exact spoken script: moist
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-10-frogs page 7
+
+### monarchs
+
+- normalized word: monarchs
+- display variants: monarchs
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/monarchs.mp3
+- exact spoken script: monarchs
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-08-butterflies page 9
 
 ### napkin
 
@@ -468,6 +1068,16 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-05 page 12
 
+### olive
+
+- normalized word: olive
+- display variants: olive
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/olive.mp3
+- exact spoken script: olive
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-10-frogs page 8
+
 ### overseas
 
 - normalized word: overseas
@@ -487,6 +1097,76 @@ Generate only the exact single word for each item. These files support click-to-
 - exact spoken script: pawprints
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-05 page 12
+
+### planning
+
+- normalized word: planning
+- display variants: planning
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/planning.mp3
+- exact spoken script: planning
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: dino-pals-06-bouncy-bumps-into-everything page 6
+
+### ponds
+
+- normalized word: ponds
+- display variants: ponds
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/ponds.mp3
+- exact spoken script: ponds
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-10-frogs page 2
+
+### practise
+
+- normalized word: practise
+- display variants: practise
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/practise.mp3
+- exact spoken script: practise
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: moonwood-tales-c-24 page 12
+
+### prices
+
+- normalized word: prices
+- display variants: prices
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/prices.mp3
+- exact spoken script: prices
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-02 page 4
+
+### proboscis
+
+- normalized word: proboscis
+- display variants: proboscis
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/proboscis.mp3
+- exact spoken script: proboscis
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-08-butterflies page 8
+
+### protect
+
+- normalized word: protect
+- display variants: protect
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/protect.mp3
+- exact spoken script: protect
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-06-spiders page 8
+
+### pumps
+
+- normalized word: pumps
+- display variants: pumps
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/pumps.mp3
+- exact spoken script: pumps
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-08-butterflies page 7
 
 ### recycling
 
@@ -518,6 +1198,16 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-05 page 14
 
+### revealing
+
+- normalized word: revealing
+- display variants: revealing
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/revealing.mp3
+- exact spoken script: revealing
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-08-butterflies page 5
+
 ### ribbon
 
 - normalized word: ribbon
@@ -527,6 +1217,16 @@ Generate only the exact single word for each item. These files support click-to-
 - exact spoken script: ribbon
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-04 page 12
+
+### rubbed
+
+- normalized word: rubbed
+- display variants: rubbed
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/rubbed.mp3
+- exact spoken script: rubbed
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: dino-pals-06-bouncy-bumps-into-everything page 1
 
 ### salts
 
@@ -568,6 +1268,66 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-04 page 1
 
+### seat
+
+- normalized word: seat
+- display variants: seat
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/seat.mp3
+- exact spoken script: seat
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-10 page 2
+
+### sensors
+
+- normalized word: sensors
+- display variants: sensors
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/sensors.mp3
+- exact spoken script: sensors
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-08-butterflies page 8
+
+### shake
+
+- normalized word: shake
+- display variants: shake
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/shake.mp3
+- exact spoken script: shake
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-06-spiders page 6
+
+### sheltered
+
+- normalized word: sheltered
+- display variants: sheltered
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/sheltered.mp3
+- exact spoken script: sheltered
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-09-caves page 9
+
+### shorter
+
+- normalized word: shorter
+- display variants: shorter
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/shorter.mp3
+- exact spoken script: shorter
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-10-frogs page 4
+
+### skeletons
+
+- normalized word: skeletons
+- display variants: skeletons
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/skeletons.mp3
+- exact spoken script: skeletons
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-07-under-the-ocean page 4
+
 ### slipper
 
 - normalized word: slipper
@@ -588,6 +1348,16 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-04 page 7
 
+### snails
+
+- normalized word: snails
+- display variants: snails
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/snails.mp3
+- exact spoken script: snails
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-10-frogs page 6
+
 ### southern
 
 - normalized word: southern
@@ -597,6 +1367,66 @@ Generate only the exact single word for each item. These files support click-to-
 - exact spoken script: southern
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: level-c-nonfiction-03-penguins page 9
+
+### splashed
+
+- normalized word: splashed
+- display variants: splashed
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/splashed.mp3
+- exact spoken script: splashed
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: dino-pals-07-wigglys-messy-day page 4
+
+### spoken
+
+- normalized word: spoken
+- display variants: spoken
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/spoken.mp3
+- exact spoken script: spoken
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-08 page 9
+
+### sprang
+
+- normalized word: sprang
+- display variants: sprang
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/sprang.mp3
+- exact spoken script: sprang
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: dino-pals-04-grumpy-needs-help page 7
+
+### stalk
+
+- normalized word: stalk
+- display variants: stalk
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/stalk.mp3
+- exact spoken script: stalk
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-06-spiders page 5
+
+### states
+
+- normalized word: states
+- display variants: States
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/states.mp3
+- exact spoken script: states
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-09-caves page 3
+
+### staying
+
+- normalized word: staying
+- display variants: staying
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/staying.mp3
+- exact spoken script: staying
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-10 page 10
 
 ### stores
 
@@ -638,6 +1468,36 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: level-c-nonfiction-04-the-moon page 6
 
+### sunlit
+
+- normalized word: sunlit
+- display variants: sunlit
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/sunlit.mp3
+- exact spoken script: sunlit
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-07-under-the-ocean page 3
+
+### surrounds
+
+- normalized word: surrounds
+- display variants: surrounds
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/surrounds.mp3
+- exact spoken script: surrounds
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-10-frogs page 2
+
+### tangle
+
+- normalized word: tangle
+- display variants: Tangle
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/tangle.mp3
+- exact spoken script: tangle
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-06-spiders page 4
+
 ### tested
 
 - normalized word: tested
@@ -647,6 +1507,26 @@ Generate only the exact single word for each item. These files support click-to-
 - exact spoken script: tested
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-04 page 7
+
+### threads
+
+- normalized word: threads
+- display variants: threads
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/threads.mp3
+- exact spoken script: threads
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-06-spiders page 4
+
+### tissue
+
+- normalized word: tissue
+- display variants: tissue
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/tissue.mp3
+- exact spoken script: tissue
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-09 page 5
 
 ### towards
 
@@ -658,6 +1538,16 @@ Generate only the exact single word for each item. These files support click-to-
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-07 page 3
 
+### trapped
+
+- normalized word: trapped
+- display variants: trapped
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/trapped.mp3
+- exact spoken script: trapped
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-06-spiders page 6
+
 ### trust
 
 - normalized word: trust
@@ -667,6 +1557,56 @@ Generate only the exact single word for each item. These files support click-to-
 - exact spoken script: trust
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-04 page 2
+
+### tube
+
+- normalized word: tube
+- display variants: tube
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/tube.mp3
+- exact spoken script: tube
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-08-butterflies page 8
+
+### tubes
+
+- normalized word: tubes
+- display variants: tubes
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/tubes.mp3
+- exact spoken script: tubes
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-09-caves page 1
+
+### united
+
+- normalized word: united
+- display variants: United
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/united.mp3
+- exact spoken script: united
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-09-caves page 3
+
+### unkind
+
+- normalized word: unkind
+- display variants: unkind
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/unkind.mp3
+- exact spoken script: unkind
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: ab-c-08 page 12
+
+### uses
+
+- normalized word: uses
+- display variants: uses
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/uses.mp3
+- exact spoken script: uses
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-06-spiders page 7
 
 ### vapour
 
@@ -707,6 +1647,16 @@ Generate only the exact single word for each item. These files support click-to-
 - exact spoken script: washed
 - pronunciation notes: Say the word naturally as a standalone Guided Reading word.
 - used in: ab-c-06 page 6
+
+### web-building
+
+- normalized word: web-building
+- display variants: Web-building
+- occurrence count: 1
+- target audio path: public/audio/child-mode/clean-human/words/web-building.mp3
+- exact spoken script: web-building
+- pronunciation notes: Say the word naturally as a standalone Guided Reading word.
+- used in: level-c-nonfiction-06-spiders page 6
 
 ### whenever
 

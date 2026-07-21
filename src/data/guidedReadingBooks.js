@@ -83,6 +83,32 @@ function useFirstPageAsGuidedReadingCover(book = {}) {
   };
 }
 
+function ensureGuidedReadingMetadata(book = {}) {
+  return {
+    ...book,
+    pages: (book.pages || []).map((page, index) => {
+      const pageNumber = page.pageNumber || index + 1;
+      const cleanText = normalizeReadingText(page.text);
+      const metadataGeneratedFromReadingText = !page.imageAlt && !page.pageDescription && !page.illustrationPrompt;
+      const sceneDescription = page.pageDescription
+        || page.illustrationPrompt
+        || `Illustration for page ${pageNumber} of ${book.title}, matching the reading text: ${cleanText}`;
+
+      return {
+        ...page,
+        imageAlt: page.imageAlt || sceneDescription,
+        pageDescription: sceneDescription,
+        embeddedImageText: page.embeddedImageText || "",
+        metadataGeneratedFromReadingText,
+        targetWords: Array.isArray(page.targetWords)
+          ? page.targetWords
+          : [...new Set(words(cleanText).map(word => word.text.toLowerCase()))],
+        decodableFocus: page.decodableFocus || book.targetSkills || []
+      };
+    })
+  };
+}
+
 const rawGuidedReadingBooks = [
   {
     "id": "gr-a-26",
@@ -3196,7 +3222,7 @@ export const guidedReadingSeriesBookDrafts = guidedReadingSeriesBooks;
 
 export const guidedReadingBooks = activeGuidedReadingBaseBooks
   .map(relevelGuidedReadingBook)
-  .map(useFirstPageAsGuidedReadingCover)
+  .map(ensureGuidedReadingMetadata)
   .filter(book => book.pages.length >= 4);
 
 export const enrichedGuidedReadingBooks = guidedReadingBooks.map(enrichGuidedReadingBook);

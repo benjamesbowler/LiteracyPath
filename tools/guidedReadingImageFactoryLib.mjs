@@ -659,17 +659,11 @@ export function lintScenePlan(plan) {
   for (const field of positiveFields) {
     const clauses = String(field).split(/[;.]/).map(value => value.trim()).filter(Boolean);
     for (const clause of clauses) {
-      const negativeTypography = /^(?:no|without|do not|never|avoid)\b/i.test(clause)
-        || /\b(?:blank|abstract|unlabelled|unlabeled|unreadable|illegible|non[-\u2010-\u2015 ]?readable|non[-\u2010-\u2015 ]?letter|no visible|no legible)\b/i.test(clause)
-        || /\bnot\s+(?:visibly\s+)?(?:labelled|labeled)\b/i.test(clause)
-        || /\b(?:no|without)\b.{0,80}\b(?:labels?|labelled|labeled|title|caption)\b/i.test(clause)
-        || /\bsubstitutes?\s+for\s+(?:a\s+)?(?:labelled|labeled)\b/i.test(clause)
-        || /\bno\s+(?:visible\s+)?(?:letters?|words?|text|writing)\b/i.test(clause);
-      const requestsTypography = /\blegible\b/i.test(clause)
-        || /\b(?:label(?:led|ed)?|title|caption)\b/i.test(clause);
-      const describesVisualIdentification = /\blabel(?:led|ed)?\b.{0,50}\bby (?:posture|position|appearance|context|action)\b/i.test(clause);
-      const requestsLabelShape = /\b(?:abstract|blank|non[-\u2010-\u2015 ]?readable)\s+label\s+shape\b/i.test(clause);
-      if ((requestsTypography && !negativeTypography && !describesVisualIdentification) || requestsLabelShape) issues.push(`visible typography requested: ${clause}`);
+      const mentionsWritingSurface = /\b(?:book|page|paper|notebook|worksheet|map|chart|clipboard|sign|board|card|poster|label|certificate|parchment|writing surface)\b/i.test(clause);
+      const requestsEmptySurface = /\b(?:blank|empty|bare|unmarked)\b/i.test(clause)
+        || /\b(?:hide|hidden|angle|angled|turn|turned)\b.{0,55}\b(?:surface|page|paper|map|book|notebook|clipboard|sign|board|card)\b/i.test(clause)
+        || /\b(?:surface|page|paper|map|book|notebook|clipboard|sign|board|card)\b.{0,55}\b(?:hide|hidden|angle|angled|turned away)\b/i.test(clause);
+      if (mentionsWritingSurface && requestsEmptySurface) issues.push(`empty or hidden writing surface requested: ${clause}`);
 
       const unsafeSocksAction = /\bSocks\b(?:\W+\w+){0,6}\W+(?:sits?|sitting|perches?|perching|stands?|standing|lies?|lying|is)(?:\W+\w+){0,4}\W+on\s+(?:a |an |the |his |her |Aiden['’]s )?(?:high |low )?(?:shoulder|shelf|table|counter|work surface)\b/i.test(clause)
         || /\bSocks\b(?:\W+\w+){0,8}\W+(?:hold(?:s|ing)?|carr(?:y|ies|ying)|touch(?:es|ing)?|nudg(?:es|ing)?)\b/i.test(clause);
@@ -772,11 +766,10 @@ export async function planBatch(db, batchId, options = {}) {
         "State exact character and object counts. Make absent, empty, missing, comparative, positional and safety-critical facts visually unambiguous.",
         "Use continuity requirements and production locks to safely adapt conflicting source actions while preserving the story meaning.",
         "Obey bookGuidance and characterLock exactly when supplied. They are authoritative book-specific resolutions for cast, story action, safety, props, and continuity, and override generic assumptions.",
-        "Never request visible words, letters, numerals, labels, title lettering, captions, signs, or readable writing, even when the source mentions a poster, notebook, chart, certificate, map, or display board. Do not mention or depict label shapes at all; a safe closed jar must be completely unlabelled. Use blank pages or abstract non-letter shapes instead.",
-        "Do not use the word legible in a plan. Describe permitted non-text symbols as large, clean and clearly visible instead.",
+        "Never turn the reader sentence into a caption and never invent malformed lettering. When a character is reading or writing, or a sign, result, name card, title, recipe or label matters to the story action, keep the surface visible and specify only the exact verified wording, cleanly spelled, legible and correctly oriented. When exact words have no story impact, use purposeful age-appropriate diagrams, drawings, page layout or restrained decorative pseudo-writing. Never hide, angle away or leave a book, page, paper, notebook, worksheet, map, chart, clipboard, sign, board, card, poster, label or certificate blank merely to avoid text generation. A closed safety jar may remain unbranded when its label has no story function.",
         "Treat Socks as a small domestic terrier. He must stay on the floor or ground, never on a person's shoulder, shelf, table, counter, or work surface, and he must never hold, carry, touch, or move a jar, chemical, tool, or unsafe prop. Depict a safe before/after moment when old source wording conflicts.",
         "Children and pets must not perform hazardous climbs, cross water on logs, run outdoors without shoes, or handle experimental materials without calm adult supervision and suitable protection.",
-        "Never add collage panels, duplicate characters, decorative faces, or unrequested subjects.",
+        "Every human, child, animal and other living story character who normally has a face must have one complete expressive anatomically appropriate face. Only inanimate objects and non-character scenery remain faceless. Never add collage panels, duplicate characters, faces on inanimate objects, or unrequested subjects.",
         "The output will become authoritative image-model staging, so be literal, spatially precise, and economical.",
       ].join(" "),
       input: JSON.stringify(payload),

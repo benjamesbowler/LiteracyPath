@@ -6,10 +6,10 @@
   "totals": {
     "books": 176,
     "activePageImages": 1616,
-    "activePasses": 464,
-    "activeReplacements": 990,
-    "installedReplacements": 909,
-    "pendingReplacements": 81,
+    "activePasses": 463,
+    "activeReplacements": 945,
+    "installedReplacements": 945,
+    "pendingReplacements": 0,
     "physicalImages": 2005,
     "inactivePhysicalImages": 389,
     "reviewedPhysicalImages": 2005
@@ -277,7 +277,7 @@
         1
       ],
       "finding": "The illustrated book contains unreadable generated writing.",
-      "continuity": "Keep the magnet demonstration but make all books, papers, and packaging blank and unbranded.",
+      "continuity": "Keep the magnet demonstration. Give visible books and papers purposeful, coherent diagrams or page design rather than empty surfaces; any story-relevant words must be exact and legible, while packaging stays unbranded.",
       "copyNote": ""
     },
     {
@@ -1551,7 +1551,7 @@
         5
       ],
       "finding": "Desk names are mirrored or incorrect (including AIDEN/BETTY variants).",
-      "continuity": "Show Aiden and Betty at their established desks with blank name-card areas; render names later in the app as verified text.",
+      "continuity": "Show Aiden and Betty at their established desks. If their name cards are visible, they must read exactly AIDEN and BETTY in clean, correctly oriented lettering; never substitute blank cards or invented names.",
       "copyNote": ""
     },
     {
@@ -1631,7 +1631,7 @@
         14
       ],
       "finding": "The wild-primate pet premise continues; Betty is duplicated and notebook writing is malformed.",
-      "continuity": "Use the rewritten domestic-pet Socks model and the established Aiden/Betty family. Show exactly one of each character, plausible search locations, blank papers, and no cutaway collage artefacts.",
+      "continuity": "Use the rewritten domestic-pet Socks model and the established Aiden/Betty family. Show exactly one of each character and plausible search locations. Visible papers must contain coherent drawings or clean, legible story-relevant writing rather than malformed text or empty filler; no cutaway collage artefacts.",
       "copyNote": "Carry the ethical Socks rewrite through this entire story."
     },
     {
@@ -1687,7 +1687,7 @@
         13
       ],
       "finding": "A thought-bubble treatment is tonally inconsistent and notebook writing is malformed.",
-      "continuity": "Use natural staging and facial expression rather than a thought bubble. Keep notebooks blank and let the app render all reading text.",
+      "continuity": "Use natural staging and facial expression rather than a thought bubble. A notebook being actively used must show neat, coherent schoolwork or an intentional drawing; if exact words matter to the story, render those verified words clearly and correctly. Never leave the active page blank.",
       "copyNote": ""
     },
     {
@@ -1887,14 +1887,11 @@
       "status": "partial replacement",
       "priority": "high",
       "replacementPages": [
-        1,
-        7,
         9,
-        11,
         12
       ],
-      "finding": "The water-fetch action is unclear and Fancy's tail coils into an incoherent airplane-like shape. Post-install audit: Pages 1 and 11 use prominent rainbow waterfalls and page 7 reintroduces Honky's rainbow crest. Use natural pale-blue water and the locked coral-and-gold Honky design.",
-      "continuity": "Use Fancy's exact anatomy and tail length. Show the water container, route, and action clearly; the tail remains a normal connected tail in every pose. Fresh repair requirements: Pages 1 and 11 use prominent rainbow waterfalls and page 7 reintroduces Honky's rainbow crest. Use natural pale-blue water and the locked coral-and-gold Honky design.",
+      "finding": "The water-fetch action is unclear and Fancy's tail coils into an incoherent airplane-like shape.",
+      "continuity": "Use Fancy's exact anatomy and tail length. Show the water container, route, and action clearly; the tail remains a normal connected tail in every pose.",
       "copyNote": ""
     },
     {
@@ -1904,15 +1901,13 @@
       "status": "partial replacement",
       "priority": "high",
       "replacementPages": [
-        2,
         3,
-        5,
         7,
         9,
         10
       ],
-      "finding": "Prompt text is visible and ordinary water repeatedly becomes an unexplained rainbow waterfall. Post-install audit: Page 2 uses Zippy's rainbow speed trail and page 5 places a decorative rainbow in the waterfall landscape. Replace with dust motion and natural pale-blue falling water.",
-      "continuity": "Lock Clumsy and companions. Use one natural clear-water waterfall with consistent rocks, pool, and direction; no rainbow-coloured water unless a subtle optical rainbow is physically plausible. Fresh repair requirements: Page 2 uses Zippy's rainbow speed trail and page 5 places a decorative rainbow in the waterfall landscape. Replace with dust motion and natural pale-blue falling water.",
+      "finding": "Prompt text is visible and ordinary water repeatedly becomes an unexplained rainbow waterfall.",
+      "continuity": "Lock Clumsy and companions. Use one natural clear-water waterfall with consistent rocks, pool, and direction; no rainbow-coloured water unless a subtle optical rainbow is physically plausible.",
       "copyNote": ""
     },
     {
@@ -1946,13 +1941,10 @@
       "status": "partial replacement",
       "priority": "high",
       "replacementPages": [
-        1,
-        5,
-        10,
-        11
+        1
       ],
-      "finding": "Generation instructions are visible. Post-install audit: Pages 5, 10, and 11 embed CLONK/ACHOO lettering. Preserve the rock impact and enormous sneeze through action, flying dust, leaves, and rocks; retain the plot-required natural rainbow at the restored waterfall but no sound-effect text.",
-      "continuity": "Keep Sneezy and the established waterfall; remove all prompt text, labels, page numbers, and decorative lettering. Fresh repair requirements: Pages 5, 10, and 11 embed CLONK/ACHOO lettering. Preserve the rock impact and enormous sneeze through action, flying dust, leaves, and rocks; retain the plot-required natural rainbow at the restored waterfall but no sound-effect text.",
+      "finding": "Generation instructions are visible.",
+      "continuity": "Keep Sneezy and the established waterfall; remove all prompt text, labels, page numbers, and decorative lettering.",
       "copyNote": ""
     },
     {
@@ -1976,18 +1968,13 @@
       "status": "partial replacement",
       "priority": "high",
       "replacementPages": [
-        1,
-        2,
-        3,
-        4,
         5,
-        8,
-        10,
+        6,
         11,
         12
       ],
-      "finding": "Prompt/character labels are visible and a heart volcano appears. Post-install audit: The games sequence embeds character-name labels, a cluttered generated event sheet, finish signs, score marks, and a 1st PLACE rosette; Honky's event also uses a decorative rainbow blast. Replace with picture-only staging, simple blank markers, consistent cast, and clean air/leaf motion.",
-      "continuity": "Lock the games cast and arena layout; no production text, character labels, or anthropomorphic landscape. Any score or finish marker must be added later as verified UI. Fresh repair requirements: The games sequence embeds character-name labels, a cluttered generated event sheet, finish signs, score marks, and a 1st PLACE rosette; Honky's event also uses a decorative rainbow blast. Replace with picture-only staging, simple blank markers, consistent cast, and clean air/leaf motion.",
+      "finding": "Several event pages used the wrong competitor, rainbow effects, face-bearing weather/thought bubbles, prompt labels or anthropomorphic scenery instead of the stated games action.",
+      "continuity": "Lock the games cast and meadow layout. Page 5 uses the established coral-orange Honky and natural airborne leaves; page 6 uses the established pale-blue Wiggly, one connected tail and clearly toppled tidying props. No production text, character labels, rainbows, thought bubbles or faces on scenery. Story-important writing must be exact and legible rather than hidden or blank.",
       "copyNote": ""
     },
     {
@@ -1997,35 +1984,26 @@
       "status": "partial replacement",
       "priority": "high",
       "replacementPages": [
-        1,
         9
       ],
-      "finding": "A heart-emitting volcano appears in the dream. Post-install audit: Page 1 embeds Z sleep lettering. Show Dozy asleep through relaxed posture and closed eyes only.",
-      "continuity": "Fantasy lighting is allowed, but the volcano remains a natural landform with ordinary mist/smoke and no face or heart symbols. Fresh repair requirements: Page 1 embeds Z sleep lettering. Show Dozy asleep through relaxed posture and closed eyes only.",
+      "finding": "A heart-emitting volcano appears in the dream.",
+      "continuity": "Fantasy lighting is allowed, but the volcano remains a natural landform with ordinary mist/smoke and no face or heart symbols.",
       "copyNote": ""
     },
     {
       "bookNumber": 125,
       "id": "dino-pals-19-zippys-race",
       "title": "Zippy's Race",
-      "status": "full sequence rebuild",
+      "status": "partial replacement",
       "priority": "high",
       "replacementPages": [
-        1,
-        2,
         3,
         4,
-        5,
         6,
-        7,
-        8,
-        9,
-        10,
-        11,
         12
       ],
-      "finding": "Face-bearing Sun and heart volcano imagery recur. Post-install audit: Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion.",
-      "continuity": "Keep Zippy and race course consistent; natural sky and volcano only, with no faces, hearts, icons, or emotional landscape features. Fresh repair requirements: Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion.",
+      "finding": "Face-bearing Sun and heart volcano imagery recur.",
+      "continuity": "Keep Zippy and race course consistent; natural sky and volcano only, with no faces, hearts, icons, or emotional landscape features.",
       "copyNote": ""
     },
     {
@@ -2035,15 +2013,12 @@
       "status": "partial replacement",
       "priority": "high",
       "replacementPages": [
-        2,
-        6,
-        8,
         9,
         11,
         12
       ],
-      "finding": "Prompt/character labels are visible and clouds are shaped as hearts. Post-install audit: Page 2 contains tiny character-name labels, page 6 uses Honky's rainbow sound bands, and page 8 embeds COZY CAVE signage. Remove all lettering and show the call and safe cave location through pose, leaves, rock opening, and the established cast.",
-      "continuity": "Lock the full storm cast, shelter, and valley; use meteorologically plausible clouds and no writing, labels, symbols, or face-like weather. Fresh repair requirements: Page 2 contains tiny character-name labels, page 6 uses Honky's rainbow sound bands, and page 8 embeds COZY CAVE signage. Remove all lettering and show the call and safe cave location through pose, leaves, rock opening, and the established cast.",
+      "finding": "Prompt/character labels are visible and clouds are shaped as hearts.",
+      "continuity": "Lock the full storm cast, shelter, and valley; use meteorologically plausible clouds and no writing, labels, symbols, or face-like weather.",
       "copyNote": ""
     },
     {
@@ -2084,8 +2059,8 @@
         8,
         9
       ],
-      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts. Post-install audit: The text says Hungry moos, but the image shows Muddy the pig at the stall. Replace Muddy with the locked cow character Hungry outside Woolly's stall.",
-      "continuity": "Lock Woolly as one recognisable sheep with stable fleece volume, face, ears, legs, and scale. Lock the same barn stall and supporting animal; never detach or inflate the fleece beyond plausible cartoon anatomy. Fresh repair requirements: The text says Hungry moos, but the image shows Muddy the pig at the stall. Replace Muddy with the locked cow character Hungry outside Woolly's stall.",
+      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts.",
+      "continuity": "Lock Woolly as one recognisable sheep with stable fleece volume, face, ears, legs, and scale. Lock the same barn stall and supporting animal; never detach or inflate the fleece beyond plausible cartoon anatomy.",
       "copyNote": ""
     },
     {
@@ -2209,8 +2184,8 @@
         8,
         9
       ],
-      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame. Post-install audit: The final page adds an unexplained blue ball inside the log, distracting from the point that Tiny's small size lets Tiny fit. Remove the stray object and show the locked grey mouse comfortably inside the same hollow log.",
-      "continuity": "Lock one small field mouse Tiny with no clothes unless present from page 1. Keep the same farm scale, remove all text, faces, labels, and book-within-book framing. Fresh repair requirements: The final page adds an unexplained blue ball inside the log, distracting from the point that Tiny's small size lets Tiny fit. Remove the stray object and show the locked grey mouse comfortably inside the same hollow log.",
+      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame.",
+      "continuity": "Lock one small field mouse Tiny with no clothes unless present from page 1. Keep the same farm scale, remove all text, faces, labels, and book-within-book framing.",
       "copyNote": ""
     },
     {
@@ -2221,11 +2196,10 @@
       "priority": "high",
       "replacementPages": [
         3,
-        4,
         7
       ],
-      "finding": "A spring-legged sheep appears and an embedded page number is visible. Post-install audit: Shy is the pale-grey rabbit on pages 2 and 8, but becomes a mouse on pages 3 and 7; page 4 also changes Tiny from the locked grey mouse into a brown mouse. Restore Shy as the same rabbit peeking/sitting beside Cuddly and Tiny as the same grey mouse.",
-      "continuity": "Keep Shy and companions anatomically consistent; use normal legs and no page numbers, captions, or labels. Fresh repair requirements: Shy is the pale-grey rabbit on pages 2 and 8, but becomes a mouse on pages 3 and 7; page 4 also changes Tiny from the locked grey mouse into a brown mouse. Restore Shy as the same rabbit peeking/sitting beside Cuddly and Tiny as the same grey mouse.",
+      "finding": "A spring-legged sheep appears and an embedded page number is visible.",
+      "continuity": "Keep Shy and companions anatomically consistent; use normal legs and no page numbers, captions, or labels.",
       "copyNote": ""
     },
     {
@@ -2286,9 +2260,9 @@
         6,
         7
       ],
-      "finding": "Hungry is encouraged to eat a hat, map, and cake; prompt text and obesity caricature are present.",
-      "continuity": "Rewrite Hungry as a stable cow learning appropriate food choices. Show hay, grass, and safe treats offered by a caregiver; do not show eating clothing, paper, maps, packaging, or whole celebration cakes. Avoid body-shaming caricature.",
-      "copyNote": "Rewrite the story around hunger cues, appropriate animal food, and asking a caregiver, not indiscriminate eating."
+      "finding": "The former sequence rendered Hungry as a pig and paired that species error with unsafe indiscriminate eating. The revised story and artwork require the established cow learning suitable food choices and noticing fullness.",
+      "continuity": "Lock Hungry as one healthy young cream-and-chestnut cow with a white face blaze, small tan horns, dark hooves, warm brown eyes and a green collar. Keep the revised grass, hay, farm-gate, farmer, water and fullness sequence continuous; Muddy remains a separate pink pig and must not appear.",
+      "copyNote": ""
     },
     {
       "bookNumber": 139,
@@ -2436,8 +2410,8 @@
         8,
         9
       ],
-      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable. Post-install audit: The joke depends on Tiny wearing the supposedly lost tiny red hat all along, but it vanishes or migrates onto Tiny's back/ear between scenes. Keep the same small red hat visibly and consistently perched on Tiny's head through all six search pages.",
-      "continuity": "Show exactly one Tiny and one Brave, using their locked models and one coherent route. No duck or extra cast unless named in text; no duplicate bodies or inset scenes. Fresh repair requirements: The joke depends on Tiny wearing the supposedly lost tiny red hat all along, but it vanishes or migrates onto Tiny's back/ear between scenes. Keep the same small red hat visibly and consistently perched on Tiny's head through all six search pages.",
+      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable.",
+      "continuity": "Show exactly one Tiny and one Brave, using their locked models and one coherent route. No duck or extra cast unless named in text; no duplicate bodies or inset scenes.",
       "copyNote": ""
     },
     {
@@ -2458,8 +2432,8 @@
         9,
         10
       ],
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale. Post-install audit: Every page replaces the established pale-grey rabbit Shy with a grey mouse, making Shy indistinguishable from Tiny. Rebuild the full sequence with the locked rabbit Shy and orange cat Cuddly; use a low sturdy branch for the tree scene.",
-      "continuity": "Lock Shy as one rabbit with fixed ear type, fur colour, facial markings, and size; lock Cuddly's coat and size. Preserve one hideaway and farm location. Fresh repair requirements: Every page replaces the established pale-grey rabbit Shy with a grey mouse, making Shy indistinguishable from Tiny. Rebuild the full sequence with the locked rabbit Shy and orange cat Cuddly; use a low sturdy branch for the tree scene.",
+      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale.",
+      "continuity": "Lock Shy as one rabbit with fixed ear type, fur colour, facial markings, and size; lock Cuddly's coat and size. Preserve one hideaway and farm location.",
       "copyNote": ""
     },
     {
@@ -2469,27 +2443,22 @@
       "status": "partial replacement",
       "priority": "high",
       "replacementPages": [
-        3,
         6,
-        7,
         8
       ],
-      "finding": "A huge detached wool mass appears while Woolly still has a full coat; later staging snags character silhouettes. Post-install audit: Pages 3 and 7 embed dialogue inside speech bubbles. Preserve pulling and mutual frustration through poses and expressions only; all words stay in the book's text layer.",
-      "continuity": "Keep Woolly's fleece connected and plausible. Show a small snagged tuft only, with Grumpy clearly separate and both bodies unobstructed. Fresh repair requirements: Pages 3 and 7 embed dialogue inside speech bubbles. Preserve pulling and mutual frustration through poses and expressions only; all words stay in the book's text layer.",
+      "finding": "A huge detached wool mass appears while Woolly still has a full coat; later staging snags character silhouettes.",
+      "continuity": "Keep Woolly's fleece connected and plausible. Show a small snagged tuft only, with Grumpy clearly separate and both bodies unobstructed.",
       "copyNote": ""
     },
     {
       "bookNumber": 148,
       "id": "meadow-pals-22-sleepys-big-dream",
       "title": "Sleepy's Big Dream",
-      "status": "partial replacement",
-      "priority": "high",
-      "replacementPages": [
-        1,
-        8
-      ],
-      "finding": "Post-install audit: The opening and closing sleep scenes embed Z lettering and omit Sleepy's established red ear bow. Restore the same grey donkey with red bow and show sleep using posture/closed eyes only.",
-      "continuity": "Match the established book and series exactly. Fresh repair requirements: The opening and closing sleep scenes embed Z lettering and omit Sleepy's established red ear bow. Restore the same grey donkey with red bow and show sleep using posture/closed eyes only.",
+      "status": "pass",
+      "priority": "none",
+      "replacementPages": [],
+      "finding": "Pass: no blocking visual defect found.",
+      "continuity": "Retain current active artwork.",
       "copyNote": ""
     },
     {
@@ -2586,13 +2555,12 @@
       "id": "moonwood-tales-c-02",
       "title": "Fern Grows Too Much",
       "status": "partial replacement",
-      "priority": "high",
+      "priority": "moderate",
       "replacementPages": [
-        6,
         11
       ],
-      "finding": "Tiny generated LUNA lettering appears in the art. Post-install audit: Luna's open book contains generated pseudo-writing. Keep Luna behind the leaves with a closed or blank open book using only clean botanical diagrams.",
-      "continuity": "Keep Fern, Luna, and the established greenhouse/garden; remove all embedded names and writing. Fresh repair requirements: Luna's open book contains generated pseudo-writing. Keep Luna behind the leaves with a closed or blank open book using only clean botanical diagrams.",
+      "finding": "Tiny generated LUNA lettering appears in the art.",
+      "continuity": "Keep Fern, Luna, and the established greenhouse/garden; remove all embedded names and writing.",
       "copyNote": ""
     },
     {
@@ -2639,16 +2607,13 @@
       "status": "partial replacement",
       "priority": "high",
       "replacementPages": [
-        1,
-        3,
         5,
         6,
         10,
-        11,
         12
       ],
-      "finding": "Garbled spell text appears and the mirror image is not clearly a reflection. Post-install audit: The spellbook repeatedly contains generated pseudo-writing. Preserve the required spellbook with clean repeatable non-letter sigils/diagrams only, and keep those marks consistent wherever the same spell is shown.",
-      "continuity": "Lock Wren, room, spellbook, and mirror. Keep books/pages blank; show Wren and an unmistakably mirrored reflection with reversed pose in one coherent room. Fresh repair requirements: The spellbook repeatedly contains generated pseudo-writing. Preserve the required spellbook with clean repeatable non-letter sigils/diagrams only, and keep those marks consistent wherever the same spell is shown.",
+      "finding": "Garbled spell text appears and the mirror image is not clearly a reflection.",
+      "continuity": "Lock Wren, room, spellbook, and mirror. Spellbook pages must contain purposeful botanical, geometric, or magical diagrams and an intentional page layout, never empty paper or alphabet-like slop; if Wren is reading specific words, those words must be exact and legible. Show Wren and an unmistakably mirrored reflection with reversed pose in one coherent room.",
       "copyNote": ""
     },
     {
@@ -2708,14 +2673,11 @@
       "bookNumber": 160,
       "id": "moonwood-tales-c-09",
       "title": "Spark's Very Big Sneeze",
-      "status": "partial replacement",
-      "priority": "high",
-      "replacementPages": [
-        8,
-        12
-      ],
-      "finding": "Post-install audit: Page 8 embeds ACHOO lettering in the magic burst, and page 12 changes Wren from her locked straight/tousled dark-haired design to a different curly-haired adult-like model. Use pure magic motion and restore the established young Wren.",
-      "continuity": "Match the established book and series exactly. Fresh repair requirements: Page 8 embeds ACHOO lettering in the magic burst, and page 12 changes Wren from her locked straight/tousled dark-haired design to a different curly-haired adult-like model. Use pure magic motion and restore the established young Wren.",
+      "status": "pass",
+      "priority": "none",
+      "replacementPages": [],
+      "finding": "Pass: no blocking visual defect found.",
+      "continuity": "Retain current active artwork.",
       "copyNote": ""
     },
     {
@@ -2908,8 +2870,8 @@
         11,
         12
       ],
-      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence. Post-install audit: The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return.",
-      "continuity": "Lock Fern and Wren, one supervised herb room, and one set of vessels. Use identifiable safe herbs by visual shape only; all bottles/books remain blank and no tasting occurs. Fresh repair requirements: The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return.",
+      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence.",
+      "continuity": "Lock Fern and Wren, one supervised herb room, and one set of vessels. Use identifiable safe herbs and clear botanical pictograms on vessels; open books show coherent illustrated recipe layouts rather than blank pages. Any wording essential to the potion action must be exact and legible; no malformed generated labels and no tasting occurs.",
       "copyNote": ""
     },
     {
@@ -3084,24 +3046,15 @@
       "bookNumber": 176,
       "id": "moonwood-tales-c-25",
       "title": "One Night in the Deep Dark",
-      "status": "full sequence rebuild",
+      "status": "partial replacement",
       "priority": "high",
       "replacementPages": [
-        1,
-        2,
-        3,
         4,
-        5,
         6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
+        11
       ],
-      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused. Post-install audit: The finale switches from the established painterly Moonwood storybook style to flatter outlined cartoon art, changes several locked cast designs, repeats near-identical group compositions, and page 5 contains two stacked versions of the same scene. Rebuild the full sequence as one coherent painterly book using the locked Moonwood cast, the same black silver-eyed creature throughout, distinct progressive scenes, and no multi-panel images.",
-      "continuity": "Keep the established Deep Dark cast and cave. Page 6 must show the group agreeing and preparing lanterns/route markers, distinct from page 4; page 11 must show each family creature as a separate readable body. Fresh repair requirements: The finale switches from the established painterly Moonwood storybook style to flatter outlined cartoon art, changes several locked cast designs, repeats near-identical group compositions, and page 5 contains two stacked versions of the same scene. Rebuild the full sequence as one coherent painterly book using the locked Moonwood cast, the same black silver-eyed creature throughout, distinct progressive scenes, and no multi-panel images.",
+      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused.",
+      "continuity": "Keep the established Deep Dark cast and cave. Page 6 must show the group agreeing and preparing lanterns/route markers, distinct from page 4; page 11 must show each family creature as a separate readable body.",
       "copyNote": ""
     }
   ],
@@ -16960,7 +16913,7 @@
       "level": "B",
       "type": "fiction",
       "pageNumber": 6,
-      "pageText": "Sneezy sneezed. Leaves, berries, and Bossy's blank clipboard flew through the air.",
+      "pageText": "Sneezy sneezed. Leaves, berries, and Bossy's planning clipboard flew through the air.",
       "imagePath": "/guided-reading/series/dino-pals/book-06/page-006.webp",
       "width": 1376,
       "height": 768,
@@ -17658,7 +17611,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 118,
       "bookId": "dino-pals-12-fancys-bad-day",
       "title": "Fancy's Bad Day",
@@ -17669,7 +17622,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-12/page-001.webp",
       "width": 1376,
       "height": 768,
-      "finding": "The water-fetch action is unclear and Fancy's tail coils into an incoherent airplane-like shape. Post-install audit: Pages 1 and 11 use prominent rainbow waterfalls and page 7 reintroduces Honky's rainbow crest. Use natural pale-blue water and the locked coral-and-gold Honky design."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -17748,7 +17701,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 118,
       "bookId": "dino-pals-12-fancys-bad-day",
       "title": "Fancy's Bad Day",
@@ -17759,7 +17712,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-12/page-007.webp",
       "width": 1376,
       "height": 768,
-      "finding": "The water-fetch action is unclear and Fancy's tail coils into an incoherent airplane-like shape. Post-install audit: Pages 1 and 11 use prominent rainbow waterfalls and page 7 reintroduces Honky's rainbow crest. Use natural pale-blue water and the locked coral-and-gold Honky design."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -17789,7 +17742,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-12/page-009.webp",
       "width": 1376,
       "height": 768,
-      "finding": "The water-fetch action is unclear and Fancy's tail coils into an incoherent airplane-like shape. Post-install audit: Pages 1 and 11 use prominent rainbow waterfalls and page 7 reintroduces Honky's rainbow crest. Use natural pale-blue water and the locked coral-and-gold Honky design."
+      "finding": "The water-fetch action is unclear and Fancy's tail coils into an incoherent airplane-like shape."
     },
     {
       "assetType": "active-page",
@@ -17808,7 +17761,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 118,
       "bookId": "dino-pals-12-fancys-bad-day",
       "title": "Fancy's Bad Day",
@@ -17819,7 +17772,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-12/page-011.webp",
       "width": 1376,
       "height": 768,
-      "finding": "The water-fetch action is unclear and Fancy's tail coils into an incoherent airplane-like shape. Post-install audit: Pages 1 and 11 use prominent rainbow waterfalls and page 7 reintroduces Honky's rainbow crest. Use natural pale-blue water and the locked coral-and-gold Honky design."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -17834,7 +17787,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-12/page-012.webp",
       "width": 1376,
       "height": 768,
-      "finding": "The water-fetch action is unclear and Fancy's tail coils into an incoherent airplane-like shape. Post-install audit: Pages 1 and 11 use prominent rainbow waterfalls and page 7 reintroduces Honky's rainbow crest. Use natural pale-blue water and the locked coral-and-gold Honky design."
+      "finding": "The water-fetch action is unclear and Fancy's tail coils into an incoherent airplane-like shape."
     },
     {
       "assetType": "active-page",
@@ -17853,7 +17806,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 119,
       "bookId": "dino-pals-13-clumsy-to-the-rescue",
       "title": "Clumsy to the Rescue",
@@ -17864,7 +17817,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-13/page-002.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt text is visible and ordinary water repeatedly becomes an unexplained rainbow waterfall. Post-install audit: Page 2 uses Zippy's rainbow speed trail and page 5 places a decorative rainbow in the waterfall landscape. Replace with dust motion and natural pale-blue falling water."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -17879,7 +17832,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-13/page-003.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt text is visible and ordinary water repeatedly becomes an unexplained rainbow waterfall. Post-install audit: Page 2 uses Zippy's rainbow speed trail and page 5 places a decorative rainbow in the waterfall landscape. Replace with dust motion and natural pale-blue falling water."
+      "finding": "Prompt text is visible and ordinary water repeatedly becomes an unexplained rainbow waterfall."
     },
     {
       "assetType": "active-page",
@@ -17898,7 +17851,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 119,
       "bookId": "dino-pals-13-clumsy-to-the-rescue",
       "title": "Clumsy to the Rescue",
@@ -17909,7 +17862,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-13/page-005.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt text is visible and ordinary water repeatedly becomes an unexplained rainbow waterfall. Post-install audit: Page 2 uses Zippy's rainbow speed trail and page 5 places a decorative rainbow in the waterfall landscape. Replace with dust motion and natural pale-blue falling water."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -17939,7 +17892,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-13/page-007.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt text is visible and ordinary water repeatedly becomes an unexplained rainbow waterfall. Post-install audit: Page 2 uses Zippy's rainbow speed trail and page 5 places a decorative rainbow in the waterfall landscape. Replace with dust motion and natural pale-blue falling water."
+      "finding": "Prompt text is visible and ordinary water repeatedly becomes an unexplained rainbow waterfall."
     },
     {
       "assetType": "active-page",
@@ -17969,7 +17922,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-13/page-009.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt text is visible and ordinary water repeatedly becomes an unexplained rainbow waterfall. Post-install audit: Page 2 uses Zippy's rainbow speed trail and page 5 places a decorative rainbow in the waterfall landscape. Replace with dust motion and natural pale-blue falling water."
+      "finding": "Prompt text is visible and ordinary water repeatedly becomes an unexplained rainbow waterfall."
     },
     {
       "assetType": "active-page",
@@ -17984,7 +17937,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-13/page-010.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt text is visible and ordinary water repeatedly becomes an unexplained rainbow waterfall. Post-install audit: Page 2 uses Zippy's rainbow speed trail and page 5 places a decorative rainbow in the waterfall landscape. Replace with dust motion and natural pale-blue falling water."
+      "finding": "Prompt text is visible and ordinary water repeatedly becomes an unexplained rainbow waterfall."
     },
     {
       "assetType": "active-page",
@@ -18209,7 +18162,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-15/page-001.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Generation instructions are visible. Post-install audit: Pages 5, 10, and 11 embed CLONK/ACHOO lettering. Preserve the rock impact and enormous sneeze through action, flying dust, leaves, and rocks; retain the plot-required natural rainbow at the restored waterfall but no sound-effect text."
+      "finding": "Generation instructions are visible."
     },
     {
       "assetType": "active-page",
@@ -18258,7 +18211,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 121,
       "bookId": "dino-pals-15-sneezy-and-the-waterfall",
       "title": "Sneezy and the Waterfall",
@@ -18269,7 +18222,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-15/page-005.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Generation instructions are visible. Post-install audit: Pages 5, 10, and 11 embed CLONK/ACHOO lettering. Preserve the rock impact and enormous sneeze through action, flying dust, leaves, and rocks; retain the plot-required natural rainbow at the restored waterfall but no sound-effect text."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -18333,7 +18286,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 121,
       "bookId": "dino-pals-15-sneezy-and-the-waterfall",
       "title": "Sneezy and the Waterfall",
@@ -18344,11 +18297,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-15/page-010.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Generation instructions are visible. Post-install audit: Pages 5, 10, and 11 embed CLONK/ACHOO lettering. Preserve the rock impact and enormous sneeze through action, flying dust, leaves, and rocks; retain the plot-required natural rainbow at the restored waterfall but no sound-effect text."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 121,
       "bookId": "dino-pals-15-sneezy-and-the-waterfall",
       "title": "Sneezy and the Waterfall",
@@ -18359,7 +18312,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-15/page-011.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Generation instructions are visible. Post-install audit: Pages 5, 10, and 11 embed CLONK/ACHOO lettering. Preserve the rock impact and enormous sneeze through action, flying dust, leaves, and rocks; retain the plot-required natural rainbow at the restored waterfall but no sound-effect text."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -18558,7 +18511,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 123,
       "bookId": "dino-pals-17-the-sunny-hollow-games",
       "title": "The Sunny Hollow Games",
@@ -18569,11 +18522,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-17/page-001.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt/character labels are visible and a heart volcano appears. Post-install audit: The games sequence embeds character-name labels, a cluttered generated event sheet, finish signs, score marks, and a 1st PLACE rosette; Honky's event also uses a decorative rainbow blast. Replace with picture-only staging, simple blank markers, consistent cast, and clean air/leaf motion."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 123,
       "bookId": "dino-pals-17-the-sunny-hollow-games",
       "title": "The Sunny Hollow Games",
@@ -18584,11 +18537,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-17/page-002.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt/character labels are visible and a heart volcano appears. Post-install audit: The games sequence embeds character-name labels, a cluttered generated event sheet, finish signs, score marks, and a 1st PLACE rosette; Honky's event also uses a decorative rainbow blast. Replace with picture-only staging, simple blank markers, consistent cast, and clean air/leaf motion."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 123,
       "bookId": "dino-pals-17-the-sunny-hollow-games",
       "title": "The Sunny Hollow Games",
@@ -18599,11 +18552,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-17/page-003.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt/character labels are visible and a heart volcano appears. Post-install audit: The games sequence embeds character-name labels, a cluttered generated event sheet, finish signs, score marks, and a 1st PLACE rosette; Honky's event also uses a decorative rainbow blast. Replace with picture-only staging, simple blank markers, consistent cast, and clean air/leaf motion."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 123,
       "bookId": "dino-pals-17-the-sunny-hollow-games",
       "title": "The Sunny Hollow Games",
@@ -18614,11 +18567,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-17/page-004.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt/character labels are visible and a heart volcano appears. Post-install audit: The games sequence embeds character-name labels, a cluttered generated event sheet, finish signs, score marks, and a 1st PLACE rosette; Honky's event also uses a decorative rainbow blast. Replace with picture-only staging, simple blank markers, consistent cast, and clean air/leaf motion."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 123,
       "bookId": "dino-pals-17-the-sunny-hollow-games",
       "title": "The Sunny Hollow Games",
@@ -18627,13 +18580,13 @@
       "pageNumber": 5,
       "pageText": "Honky won the loudness competition. Every leaf fell off every tree. We all knew that would happen, said Grumpy.",
       "imagePath": "/guided-reading/series/dino-pals/book-17/page-005.webp",
-      "width": 1376,
-      "height": 768,
-      "finding": "Prompt/character labels are visible and a heart volcano appears. Post-install audit: The games sequence embeds character-name labels, a cluttered generated event sheet, finish signs, score marks, and a 1st PLACE rosette; Honky's event also uses a decorative rainbow blast. Replace with picture-only staging, simple blank markers, consistent cast, and clean air/leaf motion."
+      "width": 1536,
+      "height": 864,
+      "finding": "Several event pages used the wrong competitor, rainbow effects, face-bearing weather/thought bubbles, prompt labels or anthropomorphic scenery instead of the stated games action."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "pass",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 123,
       "bookId": "dino-pals-17-the-sunny-hollow-games",
       "title": "The Sunny Hollow Games",
@@ -18642,9 +18595,9 @@
       "pageNumber": 6,
       "pageText": "Wiggly tried to win the tidiest corner. The tail knocked everything over while tidying. I am giving myself zero points, said Wiggly.",
       "imagePath": "/guided-reading/series/dino-pals/book-17/page-006.webp",
-      "width": 1376,
-      "height": 768,
-      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
+      "width": 1536,
+      "height": 864,
+      "finding": "Several event pages used the wrong competitor, rainbow effects, face-bearing weather/thought bubbles, prompt labels or anthropomorphic scenery instead of the stated games action."
     },
     {
       "assetType": "active-page",
@@ -18663,7 +18616,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 123,
       "bookId": "dino-pals-17-the-sunny-hollow-games",
       "title": "The Sunny Hollow Games",
@@ -18674,7 +18627,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-17/page-008.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt/character labels are visible and a heart volcano appears. Post-install audit: The games sequence embeds character-name labels, a cluttered generated event sheet, finish signs, score marks, and a 1st PLACE rosette; Honky's event also uses a decorative rainbow blast. Replace with picture-only staging, simple blank markers, consistent cast, and clean air/leaf motion."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -18693,7 +18646,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 123,
       "bookId": "dino-pals-17-the-sunny-hollow-games",
       "title": "The Sunny Hollow Games",
@@ -18704,7 +18657,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-17/page-010.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt/character labels are visible and a heart volcano appears. Post-install audit: The games sequence embeds character-name labels, a cluttered generated event sheet, finish signs, score marks, and a 1st PLACE rosette; Honky's event also uses a decorative rainbow blast. Replace with picture-only staging, simple blank markers, consistent cast, and clean air/leaf motion."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -18719,7 +18672,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-17/page-011.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt/character labels are visible and a heart volcano appears. Post-install audit: The games sequence embeds character-name labels, a cluttered generated event sheet, finish signs, score marks, and a 1st PLACE rosette; Honky's event also uses a decorative rainbow blast. Replace with picture-only staging, simple blank markers, consistent cast, and clean air/leaf motion."
+      "finding": "Several event pages used the wrong competitor, rainbow effects, face-bearing weather/thought bubbles, prompt labels or anthropomorphic scenery instead of the stated games action."
     },
     {
       "assetType": "active-page",
@@ -18734,11 +18687,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-17/page-012.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt/character labels are visible and a heart volcano appears. Post-install audit: The games sequence embeds character-name labels, a cluttered generated event sheet, finish signs, score marks, and a 1st PLACE rosette; Honky's event also uses a decorative rainbow blast. Replace with picture-only staging, simple blank markers, consistent cast, and clean air/leaf motion."
+      "finding": "Several event pages used the wrong competitor, rainbow effects, face-bearing weather/thought bubbles, prompt labels or anthropomorphic scenery instead of the stated games action."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 124,
       "bookId": "dino-pals-18-dozys-wonderful-dream",
       "title": "Dozy's Wonderful Dream",
@@ -18749,7 +18702,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-18/page-001.webp",
       "width": 1376,
       "height": 768,
-      "finding": "A heart-emitting volcano appears in the dream. Post-install audit: Page 1 embeds Z sleep lettering. Show Dozy asleep through relaxed posture and closed eyes only."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -18869,7 +18822,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-18/page-009.webp",
       "width": 1376,
       "height": 768,
-      "finding": "A heart-emitting volcano appears in the dream. Post-install audit: Page 1 embeds Z sleep lettering. Show Dozy asleep through relaxed posture and closed eyes only."
+      "finding": "A heart-emitting volcano appears in the dream."
     },
     {
       "assetType": "active-page",
@@ -18918,7 +18871,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 125,
       "bookId": "dino-pals-19-zippys-race",
       "title": "Zippy's Race",
@@ -18929,11 +18882,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-19/page-001.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Face-bearing Sun and heart volcano imagery recur. Post-install audit: Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 125,
       "bookId": "dino-pals-19-zippys-race",
       "title": "Zippy's Race",
@@ -18944,11 +18897,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-19/page-002.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Face-bearing Sun and heart volcano imagery recur. Post-install audit: Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 125,
       "bookId": "dino-pals-19-zippys-race",
       "title": "Zippy's Race",
@@ -18959,11 +18912,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-19/page-003.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Face-bearing Sun and heart volcano imagery recur. Post-install audit: Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion."
+      "finding": "Face-bearing Sun and heart volcano imagery recur."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 125,
       "bookId": "dino-pals-19-zippys-race",
       "title": "Zippy's Race",
@@ -18974,11 +18927,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-19/page-004.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Face-bearing Sun and heart volcano imagery recur. Post-install audit: Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion."
+      "finding": "Face-bearing Sun and heart volcano imagery recur."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 125,
       "bookId": "dino-pals-19-zippys-race",
       "title": "Zippy's Race",
@@ -18989,11 +18942,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-19/page-005.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Face-bearing Sun and heart volcano imagery recur. Post-install audit: Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 125,
       "bookId": "dino-pals-19-zippys-race",
       "title": "Zippy's Race",
@@ -19004,11 +18957,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-19/page-006.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Face-bearing Sun and heart volcano imagery recur. Post-install audit: Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion."
+      "finding": "Face-bearing Sun and heart volcano imagery recur."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 125,
       "bookId": "dino-pals-19-zippys-race",
       "title": "Zippy's Race",
@@ -19019,11 +18972,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-19/page-007.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Face-bearing Sun and heart volcano imagery recur. Post-install audit: Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 125,
       "bookId": "dino-pals-19-zippys-race",
       "title": "Zippy's Race",
@@ -19034,11 +18987,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-19/page-008.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Face-bearing Sun and heart volcano imagery recur. Post-install audit: Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 125,
       "bookId": "dino-pals-19-zippys-race",
       "title": "Zippy's Race",
@@ -19049,11 +19002,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-19/page-009.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Face-bearing Sun and heart volcano imagery recur. Post-install audit: Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 125,
       "bookId": "dino-pals-19-zippys-race",
       "title": "Zippy's Race",
@@ -19064,11 +19017,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-19/page-010.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Face-bearing Sun and heart volcano imagery recur. Post-install audit: Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 125,
       "bookId": "dino-pals-19-zippys-race",
       "title": "Zippy's Race",
@@ -19079,11 +19032,11 @@
       "imagePath": "/guided-reading/series/dino-pals/book-19/page-011.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Face-bearing Sun and heart volcano imagery recur. Post-install audit: Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 125,
       "bookId": "dino-pals-19-zippys-race",
       "title": "Zippy's Race",
@@ -19094,7 +19047,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-19/page-012.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Face-bearing Sun and heart volcano imagery recur. Post-install audit: Across the race, Zippy's scarf changes colours repeatedly, the rival changes from teal to purple, START/FINISH words are embedded, and rainbow speed/sound effects dominate later pages. Rebuild the full sequence with one locked red Zippy and simple two-colour scarf, one locked teal rival, blank race markers, and natural dust/leaf motion."
+      "finding": "Face-bearing Sun and heart volcano imagery recur."
     },
     {
       "assetType": "active-page",
@@ -19113,7 +19066,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 126,
       "bookId": "dino-pals-20-the-big-storm",
       "title": "The Big Storm",
@@ -19124,7 +19077,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-20/page-002.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt/character labels are visible and clouds are shaped as hearts. Post-install audit: Page 2 contains tiny character-name labels, page 6 uses Honky's rainbow sound bands, and page 8 embeds COZY CAVE signage. Remove all lettering and show the call and safe cave location through pose, leaves, rock opening, and the established cast."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -19173,7 +19126,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 126,
       "bookId": "dino-pals-20-the-big-storm",
       "title": "The Big Storm",
@@ -19184,7 +19137,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-20/page-006.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt/character labels are visible and clouds are shaped as hearts. Post-install audit: Page 2 contains tiny character-name labels, page 6 uses Honky's rainbow sound bands, and page 8 embeds COZY CAVE signage. Remove all lettering and show the call and safe cave location through pose, leaves, rock opening, and the established cast."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -19203,7 +19156,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 126,
       "bookId": "dino-pals-20-the-big-storm",
       "title": "The Big Storm",
@@ -19214,7 +19167,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-20/page-008.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt/character labels are visible and clouds are shaped as hearts. Post-install audit: Page 2 contains tiny character-name labels, page 6 uses Honky's rainbow sound bands, and page 8 embeds COZY CAVE signage. Remove all lettering and show the call and safe cave location through pose, leaves, rock opening, and the established cast."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -19229,7 +19182,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-20/page-009.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt/character labels are visible and clouds are shaped as hearts. Post-install audit: Page 2 contains tiny character-name labels, page 6 uses Honky's rainbow sound bands, and page 8 embeds COZY CAVE signage. Remove all lettering and show the call and safe cave location through pose, leaves, rock opening, and the established cast."
+      "finding": "Prompt/character labels are visible and clouds are shaped as hearts."
     },
     {
       "assetType": "active-page",
@@ -19259,7 +19212,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-20/page-011.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt/character labels are visible and clouds are shaped as hearts. Post-install audit: Page 2 contains tiny character-name labels, page 6 uses Honky's rainbow sound bands, and page 8 embeds COZY CAVE signage. Remove all lettering and show the call and safe cave location through pose, leaves, rock opening, and the established cast."
+      "finding": "Prompt/character labels are visible and clouds are shaped as hearts."
     },
     {
       "assetType": "active-page",
@@ -19274,7 +19227,7 @@
       "imagePath": "/guided-reading/series/dino-pals/book-20/page-012.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Prompt/character labels are visible and clouds are shaped as hearts. Post-install audit: Page 2 contains tiny character-name labels, page 6 uses Honky's rainbow sound bands, and page 8 embeds COZY CAVE signage. Remove all lettering and show the call and safe cave location through pose, leaves, rock opening, and the established cast."
+      "finding": "Prompt/character labels are visible and clouds are shaped as hearts."
     },
     {
       "assetType": "active-page",
@@ -19424,7 +19377,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-02/page-001.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts. Post-install audit: The text says Hungry moos, but the image shows Muddy the pig at the stall. Replace Muddy with the locked cow character Hungry outside Woolly's stall."
+      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts."
     },
     {
       "assetType": "active-page",
@@ -19439,7 +19392,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-02/page-002.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts. Post-install audit: The text says Hungry moos, but the image shows Muddy the pig at the stall. Replace Muddy with the locked cow character Hungry outside Woolly's stall."
+      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts."
     },
     {
       "assetType": "active-page",
@@ -19454,7 +19407,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-02/page-003.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts. Post-install audit: The text says Hungry moos, but the image shows Muddy the pig at the stall. Replace Muddy with the locked cow character Hungry outside Woolly's stall."
+      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts."
     },
     {
       "assetType": "active-page",
@@ -19469,7 +19422,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-02/page-004.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts. Post-install audit: The text says Hungry moos, but the image shows Muddy the pig at the stall. Replace Muddy with the locked cow character Hungry outside Woolly's stall."
+      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts."
     },
     {
       "assetType": "active-page",
@@ -19484,11 +19437,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-02/page-005.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts. Post-install audit: The text says Hungry moos, but the image shows Muddy the pig at the stall. Replace Muddy with the locked cow character Hungry outside Woolly's stall."
+      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 128,
       "bookId": "meadow-pals-02-woolly-cant-sleep",
       "title": "Woolly Can't Sleep",
@@ -19499,7 +19452,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-02/page-006.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts. Post-install audit: The text says Hungry moos, but the image shows Muddy the pig at the stall. Replace Muddy with the locked cow character Hungry outside Woolly's stall."
+      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts."
     },
     {
       "assetType": "active-page",
@@ -19514,7 +19467,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-02/page-007.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts. Post-install audit: The text says Hungry moos, but the image shows Muddy the pig at the stall. Replace Muddy with the locked cow character Hungry outside Woolly's stall."
+      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts."
     },
     {
       "assetType": "active-page",
@@ -19529,7 +19482,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-02/page-008.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts. Post-install audit: The text says Hungry moos, but the image shows Muddy the pig at the stall. Replace Muddy with the locked cow character Hungry outside Woolly's stall."
+      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts."
     },
     {
       "assetType": "active-page",
@@ -19544,7 +19497,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-02/page-009.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts. Post-install audit: The text says Hungry moos, but the image shows Muddy the pig at the stall. Replace Muddy with the locked cow character Hungry outside Woolly's stall."
+      "finding": "Woolly changes scale and anatomy, including an impossible ball-shaped sheep; companion identity also drifts."
     },
     {
       "assetType": "active-page",
@@ -20219,7 +20172,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-08/page-001.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame. Post-install audit: The final page adds an unexplained blue ball inside the log, distracting from the point that Tiny's small size lets Tiny fit. Remove the stray object and show the locked grey mouse comfortably inside the same hollow log."
+      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame."
     },
     {
       "assetType": "active-page",
@@ -20234,7 +20187,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-08/page-002.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame. Post-install audit: The final page adds an unexplained blue ball inside the log, distracting from the point that Tiny's small size lets Tiny fit. Remove the stray object and show the locked grey mouse comfortably inside the same hollow log."
+      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame."
     },
     {
       "assetType": "active-page",
@@ -20249,7 +20202,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-08/page-003.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame. Post-install audit: The final page adds an unexplained blue ball inside the log, distracting from the point that Tiny's small size lets Tiny fit. Remove the stray object and show the locked grey mouse comfortably inside the same hollow log."
+      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame."
     },
     {
       "assetType": "active-page",
@@ -20264,7 +20217,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-08/page-004.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame. Post-install audit: The final page adds an unexplained blue ball inside the log, distracting from the point that Tiny's small size lets Tiny fit. Remove the stray object and show the locked grey mouse comfortably inside the same hollow log."
+      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame."
     },
     {
       "assetType": "active-page",
@@ -20279,7 +20232,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-08/page-005.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame. Post-install audit: The final page adds an unexplained blue ball inside the log, distracting from the point that Tiny's small size lets Tiny fit. Remove the stray object and show the locked grey mouse comfortably inside the same hollow log."
+      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame."
     },
     {
       "assetType": "active-page",
@@ -20294,7 +20247,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-08/page-006.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame. Post-install audit: The final page adds an unexplained blue ball inside the log, distracting from the point that Tiny's small size lets Tiny fit. Remove the stray object and show the locked grey mouse comfortably inside the same hollow log."
+      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame."
     },
     {
       "assetType": "active-page",
@@ -20309,7 +20262,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-08/page-007.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame. Post-install audit: The final page adds an unexplained blue ball inside the log, distracting from the point that Tiny's small size lets Tiny fit. Remove the stray object and show the locked grey mouse comfortably inside the same hollow log."
+      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame."
     },
     {
       "assetType": "active-page",
@@ -20324,11 +20277,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-08/page-008.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame. Post-install audit: The final page adds an unexplained blue ball inside the log, distracting from the point that Tiny's small size lets Tiny fit. Remove the stray object and show the locked grey mouse comfortably inside the same hollow log."
+      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 134,
       "bookId": "meadow-pals-08-tiny-is-very-small",
       "title": "Tiny is Very Small",
@@ -20339,7 +20292,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-08/page-009.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame. Post-install audit: The final page adds an unexplained blue ball inside the log, distracting from the point that Tiny's small size lets Tiny fit. Remove the stray object and show the locked grey mouse comfortably inside the same hollow log."
+      "finding": "Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame."
     },
     {
       "assetType": "active-page",
@@ -20373,7 +20326,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 135,
       "bookId": "meadow-pals-09-shy-comes-out-to-play",
       "title": "Shy Comes Out to Play",
@@ -20384,11 +20337,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-09/page-003.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "A spring-legged sheep appears and an embedded page number is visible. Post-install audit: Shy is the pale-grey rabbit on pages 2 and 8, but becomes a mouse on pages 3 and 7; page 4 also changes Tiny from the locked grey mouse into a brown mouse. Restore Shy as the same rabbit peeking/sitting beside Cuddly and Tiny as the same grey mouse."
+      "finding": "A spring-legged sheep appears and an embedded page number is visible."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 135,
       "bookId": "meadow-pals-09-shy-comes-out-to-play",
       "title": "Shy Comes Out to Play",
@@ -20399,7 +20352,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-09/page-004.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "A spring-legged sheep appears and an embedded page number is visible. Post-install audit: Shy is the pale-grey rabbit on pages 2 and 8, but becomes a mouse on pages 3 and 7; page 4 also changes Tiny from the locked grey mouse into a brown mouse. Restore Shy as the same rabbit peeking/sitting beside Cuddly and Tiny as the same grey mouse."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -20433,7 +20386,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 135,
       "bookId": "meadow-pals-09-shy-comes-out-to-play",
       "title": "Shy Comes Out to Play",
@@ -20444,7 +20397,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-09/page-007.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "A spring-legged sheep appears and an embedded page number is visible. Post-install audit: Shy is the pale-grey rabbit on pages 2 and 8, but becomes a mouse on pages 3 and 7; page 4 also changes Tiny from the locked grey mouse into a brown mouse. Restore Shy as the same rabbit peeking/sitting beside Cuddly and Tiny as the same grey mouse."
+      "finding": "A spring-legged sheep appears and an embedded page number is visible."
     },
     {
       "assetType": "active-page",
@@ -20759,7 +20712,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-12/page-001.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Hungry is encouraged to eat a hat, map, and cake; prompt text and obesity caricature are present."
+      "finding": "The former sequence rendered Hungry as a pig and paired that species error with unsafe indiscriminate eating. The revised story and artwork require the established cow learning suitable food choices and noticing fullness."
     },
     {
       "assetType": "active-page",
@@ -20774,7 +20727,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-12/page-002.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Hungry is encouraged to eat a hat, map, and cake; prompt text and obesity caricature are present."
+      "finding": "The former sequence rendered Hungry as a pig and paired that species error with unsafe indiscriminate eating. The revised story and artwork require the established cow learning suitable food choices and noticing fullness."
     },
     {
       "assetType": "active-page",
@@ -20789,7 +20742,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-12/page-003.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Hungry is encouraged to eat a hat, map, and cake; prompt text and obesity caricature are present."
+      "finding": "The former sequence rendered Hungry as a pig and paired that species error with unsafe indiscriminate eating. The revised story and artwork require the established cow learning suitable food choices and noticing fullness."
     },
     {
       "assetType": "active-page",
@@ -20804,7 +20757,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-12/page-004.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Hungry is encouraged to eat a hat, map, and cake; prompt text and obesity caricature are present."
+      "finding": "The former sequence rendered Hungry as a pig and paired that species error with unsafe indiscriminate eating. The revised story and artwork require the established cow learning suitable food choices and noticing fullness."
     },
     {
       "assetType": "active-page",
@@ -20819,7 +20772,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-12/page-005.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Hungry is encouraged to eat a hat, map, and cake; prompt text and obesity caricature are present."
+      "finding": "The former sequence rendered Hungry as a pig and paired that species error with unsafe indiscriminate eating. The revised story and artwork require the established cow learning suitable food choices and noticing fullness."
     },
     {
       "assetType": "active-page",
@@ -20834,7 +20787,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-12/page-006.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Hungry is encouraged to eat a hat, map, and cake; prompt text and obesity caricature are present."
+      "finding": "The former sequence rendered Hungry as a pig and paired that species error with unsafe indiscriminate eating. The revised story and artwork require the established cow learning suitable food choices and noticing fullness."
     },
     {
       "assetType": "active-page",
@@ -20849,7 +20802,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-12/page-007.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Hungry is encouraged to eat a hat, map, and cake; prompt text and obesity caricature are present."
+      "finding": "The former sequence rendered Hungry as a pig and paired that species error with unsafe indiscriminate eating. The revised story and artwork require the established cow learning suitable food choices and noticing fullness."
     },
     {
       "assetType": "active-page",
@@ -21708,7 +21661,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 145,
       "bookId": "meadow-pals-19-tiny-and-brave-go-on-an-adventure",
       "title": "Tiny and Brave Go on an Adventure",
@@ -21719,11 +21672,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-19/page-001.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable. Post-install audit: The joke depends on Tiny wearing the supposedly lost tiny red hat all along, but it vanishes or migrates onto Tiny's back/ear between scenes. Keep the same small red hat visibly and consistently perched on Tiny's head through all six search pages."
+      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 145,
       "bookId": "meadow-pals-19-tiny-and-brave-go-on-an-adventure",
       "title": "Tiny and Brave Go on an Adventure",
@@ -21734,11 +21687,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-19/page-002.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable. Post-install audit: The joke depends on Tiny wearing the supposedly lost tiny red hat all along, but it vanishes or migrates onto Tiny's back/ear between scenes. Keep the same small red hat visibly and consistently perched on Tiny's head through all six search pages."
+      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 145,
       "bookId": "meadow-pals-19-tiny-and-brave-go-on-an-adventure",
       "title": "Tiny and Brave Go on an Adventure",
@@ -21749,11 +21702,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-19/page-003.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable. Post-install audit: The joke depends on Tiny wearing the supposedly lost tiny red hat all along, but it vanishes or migrates onto Tiny's back/ear between scenes. Keep the same small red hat visibly and consistently perched on Tiny's head through all six search pages."
+      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 145,
       "bookId": "meadow-pals-19-tiny-and-brave-go-on-an-adventure",
       "title": "Tiny and Brave Go on an Adventure",
@@ -21764,11 +21717,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-19/page-004.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable. Post-install audit: The joke depends on Tiny wearing the supposedly lost tiny red hat all along, but it vanishes or migrates onto Tiny's back/ear between scenes. Keep the same small red hat visibly and consistently perched on Tiny's head through all six search pages."
+      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 145,
       "bookId": "meadow-pals-19-tiny-and-brave-go-on-an-adventure",
       "title": "Tiny and Brave Go on an Adventure",
@@ -21779,11 +21732,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-19/page-005.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable. Post-install audit: The joke depends on Tiny wearing the supposedly lost tiny red hat all along, but it vanishes or migrates onto Tiny's back/ear between scenes. Keep the same small red hat visibly and consistently perched on Tiny's head through all six search pages."
+      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 145,
       "bookId": "meadow-pals-19-tiny-and-brave-go-on-an-adventure",
       "title": "Tiny and Brave Go on an Adventure",
@@ -21794,7 +21747,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-19/page-006.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable. Post-install audit: The joke depends on Tiny wearing the supposedly lost tiny red hat all along, but it vanishes or migrates onto Tiny's back/ear between scenes. Keep the same small red hat visibly and consistently perched on Tiny's head through all six search pages."
+      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable."
     },
     {
       "assetType": "active-page",
@@ -21809,7 +21762,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-19/page-007.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable. Post-install audit: The joke depends on Tiny wearing the supposedly lost tiny red hat all along, but it vanishes or migrates onto Tiny's back/ear between scenes. Keep the same small red hat visibly and consistently perched on Tiny's head through all six search pages."
+      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable."
     },
     {
       "assetType": "active-page",
@@ -21824,7 +21777,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-19/page-008.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable. Post-install audit: The joke depends on Tiny wearing the supposedly lost tiny red hat all along, but it vanishes or migrates onto Tiny's back/ear between scenes. Keep the same small red hat visibly and consistently perched on Tiny's head through all six search pages."
+      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable."
     },
     {
       "assetType": "active-page",
@@ -21839,11 +21792,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-19/page-009.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable. Post-install audit: The joke depends on Tiny wearing the supposedly lost tiny red hat all along, but it vanishes or migrates onto Tiny's back/ear between scenes. Keep the same small red hat visibly and consistently perched on Tiny's head through all six search pages."
+      "finding": "Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 146,
       "bookId": "meadow-pals-20-shy-and-cuddly-find-each-other",
       "title": "Shy and Cuddly Find Each Other",
@@ -21854,11 +21807,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-001.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale. Post-install audit: Every page replaces the established pale-grey rabbit Shy with a grey mouse, making Shy indistinguishable from Tiny. Rebuild the full sequence with the locked rabbit Shy and orange cat Cuddly; use a low sturdy branch for the tree scene."
+      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 146,
       "bookId": "meadow-pals-20-shy-and-cuddly-find-each-other",
       "title": "Shy and Cuddly Find Each Other",
@@ -21869,11 +21822,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-002.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale. Post-install audit: Every page replaces the established pale-grey rabbit Shy with a grey mouse, making Shy indistinguishable from Tiny. Rebuild the full sequence with the locked rabbit Shy and orange cat Cuddly; use a low sturdy branch for the tree scene."
+      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 146,
       "bookId": "meadow-pals-20-shy-and-cuddly-find-each-other",
       "title": "Shy and Cuddly Find Each Other",
@@ -21884,11 +21837,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-003.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale. Post-install audit: Every page replaces the established pale-grey rabbit Shy with a grey mouse, making Shy indistinguishable from Tiny. Rebuild the full sequence with the locked rabbit Shy and orange cat Cuddly; use a low sturdy branch for the tree scene."
+      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 146,
       "bookId": "meadow-pals-20-shy-and-cuddly-find-each-other",
       "title": "Shy and Cuddly Find Each Other",
@@ -21899,11 +21852,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-004.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale. Post-install audit: Every page replaces the established pale-grey rabbit Shy with a grey mouse, making Shy indistinguishable from Tiny. Rebuild the full sequence with the locked rabbit Shy and orange cat Cuddly; use a low sturdy branch for the tree scene."
+      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 146,
       "bookId": "meadow-pals-20-shy-and-cuddly-find-each-other",
       "title": "Shy and Cuddly Find Each Other",
@@ -21914,11 +21867,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-005.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale. Post-install audit: Every page replaces the established pale-grey rabbit Shy with a grey mouse, making Shy indistinguishable from Tiny. Rebuild the full sequence with the locked rabbit Shy and orange cat Cuddly; use a low sturdy branch for the tree scene."
+      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 146,
       "bookId": "meadow-pals-20-shy-and-cuddly-find-each-other",
       "title": "Shy and Cuddly Find Each Other",
@@ -21929,11 +21882,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-006.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale. Post-install audit: Every page replaces the established pale-grey rabbit Shy with a grey mouse, making Shy indistinguishable from Tiny. Rebuild the full sequence with the locked rabbit Shy and orange cat Cuddly; use a low sturdy branch for the tree scene."
+      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 146,
       "bookId": "meadow-pals-20-shy-and-cuddly-find-each-other",
       "title": "Shy and Cuddly Find Each Other",
@@ -21944,11 +21897,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-007.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale. Post-install audit: Every page replaces the established pale-grey rabbit Shy with a grey mouse, making Shy indistinguishable from Tiny. Rebuild the full sequence with the locked rabbit Shy and orange cat Cuddly; use a low sturdy branch for the tree scene."
+      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 146,
       "bookId": "meadow-pals-20-shy-and-cuddly-find-each-other",
       "title": "Shy and Cuddly Find Each Other",
@@ -21959,11 +21912,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-008.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale. Post-install audit: Every page replaces the established pale-grey rabbit Shy with a grey mouse, making Shy indistinguishable from Tiny. Rebuild the full sequence with the locked rabbit Shy and orange cat Cuddly; use a low sturdy branch for the tree scene."
+      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 146,
       "bookId": "meadow-pals-20-shy-and-cuddly-find-each-other",
       "title": "Shy and Cuddly Find Each Other",
@@ -21974,11 +21927,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-009.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale. Post-install audit: Every page replaces the established pale-grey rabbit Shy with a grey mouse, making Shy indistinguishable from Tiny. Rebuild the full sequence with the locked rabbit Shy and orange cat Cuddly; use a low sturdy branch for the tree scene."
+      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 146,
       "bookId": "meadow-pals-20-shy-and-cuddly-find-each-other",
       "title": "Shy and Cuddly Find Each Other",
@@ -21989,7 +21942,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-010.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale. Post-install audit: Every page replaces the established pale-grey rabbit Shy with a grey mouse, making Shy indistinguishable from Tiny. Rebuild the full sequence with the locked rabbit Shy and orange cat Cuddly; use a low sturdy branch for the tree scene."
+      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
     },
     {
       "assetType": "active-page",
@@ -22023,7 +21976,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 147,
       "bookId": "meadow-pals-21-woolly-and-grumpy-are-stuck",
       "title": "Woolly and Grumpy Are Stuck",
@@ -22034,7 +21987,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-21/page-003.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "A huge detached wool mass appears while Woolly still has a full coat; later staging snags character silhouettes. Post-install audit: Pages 3 and 7 embed dialogue inside speech bubbles. Preserve pulling and mutual frustration through poses and expressions only; all words stay in the book's text layer."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -22079,11 +22032,11 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-21/page-006.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "A huge detached wool mass appears while Woolly still has a full coat; later staging snags character silhouettes. Post-install audit: Pages 3 and 7 embed dialogue inside speech bubbles. Preserve pulling and mutual frustration through poses and expressions only; all words stay in the book's text layer."
+      "finding": "A huge detached wool mass appears while Woolly still has a full coat; later staging snags character silhouettes."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 147,
       "bookId": "meadow-pals-21-woolly-and-grumpy-are-stuck",
       "title": "Woolly and Grumpy Are Stuck",
@@ -22094,7 +22047,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-21/page-007.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "A huge detached wool mass appears while Woolly still has a full coat; later staging snags character silhouettes. Post-install audit: Pages 3 and 7 embed dialogue inside speech bubbles. Preserve pulling and mutual frustration through poses and expressions only; all words stay in the book's text layer."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -22109,7 +22062,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-21/page-008.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "A huge detached wool mass appears while Woolly still has a full coat; later staging snags character silhouettes. Post-install audit: Pages 3 and 7 embed dialogue inside speech bubbles. Preserve pulling and mutual frustration through poses and expressions only; all words stay in the book's text layer."
+      "finding": "A huge detached wool mass appears while Woolly still has a full coat; later staging snags character silhouettes."
     },
     {
       "assetType": "active-page",
@@ -22128,7 +22081,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 148,
       "bookId": "meadow-pals-22-sleepys-big-dream",
       "title": "Sleepy's Big Dream",
@@ -22139,7 +22092,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-22/page-001.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Post-install audit: The opening and closing sleep scenes embed Z lettering and omit Sleepy's established red ear bow. Restore the same grey donkey with red bow and show sleep using posture/closed eyes only."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -22233,7 +22186,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 148,
       "bookId": "meadow-pals-22-sleepys-big-dream",
       "title": "Sleepy's Big Dream",
@@ -22244,7 +22197,7 @@
       "imagePath": "/guided-reading/series/meadow-pals/book-22/page-008.webp",
       "width": 2752,
       "height": 1536,
-      "finding": "Post-install audit: The opening and closing sleep scenes embed Z lettering and omit Sleepy's established red ear bow. Restore the same grey donkey with red bow and show sleep using posture/closed eyes only."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -23028,7 +22981,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 153,
       "bookId": "moonwood-tales-c-02",
       "title": "Fern Grows Too Much",
@@ -23039,7 +22992,7 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-02/page-006.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Tiny generated LUNA lettering appears in the art. Post-install audit: Luna's open book contains generated pseudo-writing. Keep Luna behind the leaves with a closed or blank open book using only clean botanical diagrams."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -23114,7 +23067,7 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-02/page-011.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Tiny generated LUNA lettering appears in the art. Post-install audit: Luna's open book contains generated pseudo-writing. Keep Luna behind the leaves with a closed or blank open book using only clean botanical diagrams."
+      "finding": "Tiny generated LUNA lettering appears in the art."
     },
     {
       "assetType": "active-page",
@@ -23493,7 +23446,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 156,
       "bookId": "moonwood-tales-c-05",
       "title": "Wren and the Backwards Spell",
@@ -23504,7 +23457,7 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-05/page-001.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Garbled spell text appears and the mirror image is not clearly a reflection. Post-install audit: The spellbook repeatedly contains generated pseudo-writing. Preserve the required spellbook with clean repeatable non-letter sigils/diagrams only, and keep those marks consistent wherever the same spell is shown."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -23523,7 +23476,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 156,
       "bookId": "moonwood-tales-c-05",
       "title": "Wren and the Backwards Spell",
@@ -23534,7 +23487,7 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-05/page-003.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Garbled spell text appears and the mirror image is not clearly a reflection. Post-install audit: The spellbook repeatedly contains generated pseudo-writing. Preserve the required spellbook with clean repeatable non-letter sigils/diagrams only, and keep those marks consistent wherever the same spell is shown."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -23553,7 +23506,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 156,
       "bookId": "moonwood-tales-c-05",
       "title": "Wren and the Backwards Spell",
@@ -23564,11 +23517,11 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-05/page-005.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Garbled spell text appears and the mirror image is not clearly a reflection. Post-install audit: The spellbook repeatedly contains generated pseudo-writing. Preserve the required spellbook with clean repeatable non-letter sigils/diagrams only, and keep those marks consistent wherever the same spell is shown."
+      "finding": "Garbled spell text appears and the mirror image is not clearly a reflection."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 156,
       "bookId": "moonwood-tales-c-05",
       "title": "Wren and the Backwards Spell",
@@ -23579,7 +23532,7 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-05/page-006.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Garbled spell text appears and the mirror image is not clearly a reflection. Post-install audit: The spellbook repeatedly contains generated pseudo-writing. Preserve the required spellbook with clean repeatable non-letter sigils/diagrams only, and keep those marks consistent wherever the same spell is shown."
+      "finding": "Garbled spell text appears and the mirror image is not clearly a reflection."
     },
     {
       "assetType": "active-page",
@@ -23639,11 +23592,11 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-05/page-010.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Garbled spell text appears and the mirror image is not clearly a reflection. Post-install audit: The spellbook repeatedly contains generated pseudo-writing. Preserve the required spellbook with clean repeatable non-letter sigils/diagrams only, and keep those marks consistent wherever the same spell is shown."
+      "finding": "Garbled spell text appears and the mirror image is not clearly a reflection."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 156,
       "bookId": "moonwood-tales-c-05",
       "title": "Wren and the Backwards Spell",
@@ -23654,7 +23607,7 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-05/page-011.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Garbled spell text appears and the mirror image is not clearly a reflection. Post-install audit: The spellbook repeatedly contains generated pseudo-writing. Preserve the required spellbook with clean repeatable non-letter sigils/diagrams only, and keep those marks consistent wherever the same spell is shown."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -23669,7 +23622,7 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-05/page-012.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Garbled spell text appears and the mirror image is not clearly a reflection. Post-install audit: The spellbook repeatedly contains generated pseudo-writing. Preserve the required spellbook with clean repeatable non-letter sigils/diagrams only, and keep those marks consistent wherever the same spell is shown."
+      "finding": "Garbled spell text appears and the mirror image is not clearly a reflection."
     },
     {
       "assetType": "active-page",
@@ -24220,7 +24173,7 @@
       "level": "C",
       "type": "fiction",
       "pageNumber": 13,
-      "pageText": "Burrow found a blank patch of wall. He picked up a small flat stone. Very carefully, he drew the Hollow Oak. Now we are in it too, he said.",
+      "pageText": "Burrow found a clear patch of wall. He picked up a small flat stone. Very carefully, he drew the Hollow Oak. Now we are in it too, he said.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-08/page-013.webp",
       "width": 1376,
       "height": 768,
@@ -24333,7 +24286,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 160,
       "bookId": "moonwood-tales-c-09",
       "title": "Spark's Very Big Sneeze",
@@ -24344,7 +24297,7 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-09/page-008.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Post-install audit: Page 8 embeds ACHOO lettering in the magic burst, and page 12 changes Wren from her locked straight/tousled dark-haired design to a different curly-haired adult-like model. Use pure magic motion and restore the established young Wren."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -24393,7 +24346,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 160,
       "bookId": "moonwood-tales-c-09",
       "title": "Spark's Very Big Sneeze",
@@ -24404,7 +24357,7 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-09/page-012.webp",
       "width": 1376,
       "height": 768,
-      "finding": "Post-install audit: Page 8 embeds ACHOO lettering in the magic burst, and page 12 changes Wren from her locked straight/tousled dark-haired design to a different curly-haired adult-like model. Use pure magic motion and restore the established young Wren."
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
@@ -25739,7 +25692,7 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-17/page-001.webp",
       "width": 1536,
       "height": 864,
-      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence. Post-install audit: The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return."
+      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence."
     },
     {
       "assetType": "active-page",
@@ -25754,7 +25707,7 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-17/page-002.webp",
       "width": 1536,
       "height": 864,
-      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence. Post-install audit: The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return."
+      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence."
     },
     {
       "assetType": "active-page",
@@ -25769,7 +25722,7 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-17/page-003.webp",
       "width": 1536,
       "height": 864,
-      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence. Post-install audit: The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return."
+      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence."
     },
     {
       "assetType": "active-page",
@@ -25784,11 +25737,11 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-17/page-004.webp",
       "width": 1536,
       "height": 864,
-      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence. Post-install audit: The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return."
+      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 168,
       "bookId": "moonwood-tales-c-17",
       "title": "Fern and Wren and the Wrong Potion",
@@ -25799,7 +25752,7 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-17/page-005.webp",
       "width": 1536,
       "height": 864,
-      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence. Post-install audit: The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return."
+      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence."
     },
     {
       "assetType": "active-page",
@@ -25814,11 +25767,11 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-17/page-006.webp",
       "width": 1536,
       "height": 864,
-      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence. Post-install audit: The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return."
+      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 168,
       "bookId": "moonwood-tales-c-17",
       "title": "Fern and Wren and the Wrong Potion",
@@ -25829,7 +25782,7 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-17/page-007.webp",
       "width": 1536,
       "height": 864,
-      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence. Post-install audit: The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return."
+      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence."
     },
     {
       "assetType": "active-page",
@@ -25844,11 +25797,11 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-17/page-008.webp",
       "width": 1536,
       "height": 864,
-      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence. Post-install audit: The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return."
+      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 168,
       "bookId": "moonwood-tales-c-17",
       "title": "Fern and Wren and the Wrong Potion",
@@ -25859,11 +25812,11 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-17/page-009.webp",
       "width": 1536,
       "height": 864,
-      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence. Post-install audit: The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return."
+      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 168,
       "bookId": "moonwood-tales-c-17",
       "title": "Fern and Wren and the Wrong Potion",
@@ -25874,11 +25827,11 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-17/page-010.webp",
       "width": 1536,
       "height": 864,
-      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence. Post-install audit: The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return."
+      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 168,
       "bookId": "moonwood-tales-c-17",
       "title": "Fern and Wren and the Wrong Potion",
@@ -25889,7 +25842,7 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-17/page-011.webp",
       "width": 1536,
       "height": 864,
-      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence. Post-install audit: The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return."
+      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence."
     },
     {
       "assetType": "active-page",
@@ -25904,7 +25857,7 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-17/page-012.webp",
       "width": 1536,
       "height": 864,
-      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence. Post-install audit: The walking-plant sequence adds babyfied human faces and limbs to flowers. Preserve the magical walking through animated roots, bending stems, leaf gestures, and natural flower heads only; the same five plants must remain identifiable as they leave and return."
+      "finding": "Wren is replaced on several pages and generated labels/books break the potion sequence."
     },
     {
       "assetType": "active-page",
@@ -27168,7 +27121,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 176,
       "bookId": "moonwood-tales-c-25",
       "title": "One Night in the Deep Dark",
@@ -27177,13 +27130,13 @@
       "pageNumber": 1,
       "pageText": "It was the deepest part of the night.\nMoonwood was very quiet.\nThen there was a sound at the edge of the clearing.\nSomething small was there.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-25/page-001.webp",
-      "width": 848,
-      "height": 1264,
-      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused. Post-install audit: The finale switches from the established painterly Moonwood storybook style to flatter outlined cartoon art, changes several locked cast designs, repeats near-identical group compositions, and page 5 contains two stacked versions of the same scene. Rebuild the full sequence as one coherent painterly book using the locked Moonwood cast, the same black silver-eyed creature throughout, distinct progressive scenes, and no multi-panel images."
+      "width": 1536,
+      "height": 864,
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 176,
       "bookId": "moonwood-tales-c-25",
       "title": "One Night in the Deep Dark",
@@ -27192,13 +27145,13 @@
       "pageNumber": 2,
       "pageText": "Pip opened the door.\nA small creature was at the edge of the clearing.\nIt had very large silver eyes.\nIt was frightened.\nIt did not run.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-25/page-002.webp",
-      "width": 848,
-      "height": 1264,
-      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused. Post-install audit: The finale switches from the established painterly Moonwood storybook style to flatter outlined cartoon art, changes several locked cast designs, repeats near-identical group compositions, and page 5 contains two stacked versions of the same scene. Rebuild the full sequence as one coherent painterly book using the locked Moonwood cast, the same black silver-eyed creature throughout, distinct progressive scenes, and no multi-panel images."
+      "width": 1536,
+      "height": 864,
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 176,
       "bookId": "moonwood-tales-c-25",
       "title": "One Night in the Deep Dark",
@@ -27207,13 +27160,13 @@
       "pageNumber": 3,
       "pageText": "Pip knelt down.\nHe held still.\nThe creature came closer.\nOne step.\nThen another.\n\"Hello,\" said Pip, very quietly.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-25/page-003.webp",
-      "width": 848,
-      "height": 1264,
-      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused. Post-install audit: The finale switches from the established painterly Moonwood storybook style to flatter outlined cartoon art, changes several locked cast designs, repeats near-identical group compositions, and page 5 contains two stacked versions of the same scene. Rebuild the full sequence as one coherent painterly book using the locked Moonwood cast, the same black silver-eyed creature throughout, distinct progressive scenes, and no multi-panel images."
+      "width": 1536,
+      "height": 864,
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 176,
       "bookId": "moonwood-tales-c-25",
       "title": "One Night in the Deep Dark",
@@ -27224,11 +27177,11 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-25/page-004.webp",
       "width": 1536,
       "height": 864,
-      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused. Post-install audit: The finale switches from the established painterly Moonwood storybook style to flatter outlined cartoon art, changes several locked cast designs, repeats near-identical group compositions, and page 5 contains two stacked versions of the same scene. Rebuild the full sequence as one coherent painterly book using the locked Moonwood cast, the same black silver-eyed creature throughout, distinct progressive scenes, and no multi-panel images."
+      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 176,
       "bookId": "moonwood-tales-c-25",
       "title": "One Night in the Deep Dark",
@@ -27237,13 +27190,13 @@
       "pageNumber": 5,
       "pageText": "\"Where is your home?\" asked Burrow, gently.\nThe creature looked at its paws.\nThen at the window.\n\"Deep,\" it said.\n\"Deep dark.\"",
       "imagePath": "/guided-reading/series/moonwood-tales/book-25/page-005.webp",
-      "width": 848,
-      "height": 1264,
-      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused. Post-install audit: The finale switches from the established painterly Moonwood storybook style to flatter outlined cartoon art, changes several locked cast designs, repeats near-identical group compositions, and page 5 contains two stacked versions of the same scene. Rebuild the full sequence as one coherent painterly book using the locked Moonwood cast, the same black silver-eyed creature throughout, distinct progressive scenes, and no multi-panel images."
+      "width": 1536,
+      "height": 864,
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 176,
       "bookId": "moonwood-tales-c-25",
       "title": "One Night in the Deep Dark",
@@ -27254,11 +27207,11 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-25/page-006.webp",
       "width": 1536,
       "height": 864,
-      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused. Post-install audit: The finale switches from the established painterly Moonwood storybook style to flatter outlined cartoon art, changes several locked cast designs, repeats near-identical group compositions, and page 5 contains two stacked versions of the same scene. Rebuild the full sequence as one coherent painterly book using the locked Moonwood cast, the same black silver-eyed creature throughout, distinct progressive scenes, and no multi-panel images."
+      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 176,
       "bookId": "moonwood-tales-c-25",
       "title": "One Night in the Deep Dark",
@@ -27267,13 +27220,13 @@
       "pageNumber": 7,
       "pageText": "They all went together.\nLuna led — her eyes could see in any dark.\nGlimmer breathed a small flame for the path.\nThe creature walked between them.\nInto the deep.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-25/page-007.webp",
-      "width": 848,
-      "height": 1264,
-      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused. Post-install audit: The finale switches from the established painterly Moonwood storybook style to flatter outlined cartoon art, changes several locked cast designs, repeats near-identical group compositions, and page 5 contains two stacked versions of the same scene. Rebuild the full sequence as one coherent painterly book using the locked Moonwood cast, the same black silver-eyed creature throughout, distinct progressive scenes, and no multi-panel images."
+      "width": 1536,
+      "height": 864,
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 176,
       "bookId": "moonwood-tales-c-25",
       "title": "One Night in the Deep Dark",
@@ -27282,13 +27235,13 @@
       "pageNumber": 8,
       "pageText": "The Deep Dark was very dark.\nThe trees had no glow.\nThe light went only a little way ahead.\nThey walked close together.\nNo one was last.\nNo one was alone.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-25/page-008.webp",
-      "width": 848,
-      "height": 1264,
-      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused. Post-install audit: The finale switches from the established painterly Moonwood storybook style to flatter outlined cartoon art, changes several locked cast designs, repeats near-identical group compositions, and page 5 contains two stacked versions of the same scene. Rebuild the full sequence as one coherent painterly book using the locked Moonwood cast, the same black silver-eyed creature throughout, distinct progressive scenes, and no multi-panel images."
+      "width": 1536,
+      "height": 864,
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 176,
       "bookId": "moonwood-tales-c-25",
       "title": "One Night in the Deep Dark",
@@ -27297,13 +27250,13 @@
       "pageNumber": 9,
       "pageText": "Burrow found the underground path.\nHe could smell the way.\nThe creature stepped forward.\nIt knew this place.\n\"Here,\" it said.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-25/page-009.webp",
-      "width": 848,
-      "height": 1264,
-      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused. Post-install audit: The finale switches from the established painterly Moonwood storybook style to flatter outlined cartoon art, changes several locked cast designs, repeats near-identical group compositions, and page 5 contains two stacked versions of the same scene. Rebuild the full sequence as one coherent painterly book using the locked Moonwood cast, the same black silver-eyed creature throughout, distinct progressive scenes, and no multi-panel images."
+      "width": 1536,
+      "height": 864,
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 176,
       "bookId": "moonwood-tales-c-25",
       "title": "One Night in the Deep Dark",
@@ -27312,13 +27265,13 @@
       "pageNumber": 10,
       "pageText": "Beyond the roots, a small clearing.\nSilver moss lit the ground.\nIt was warm.\nOther creatures were there.\nThey looked up.\nThey had the same enormous silver eyes.",
       "imagePath": "/guided-reading/series/moonwood-tales/book-25/page-010.webp",
-      "width": 848,
-      "height": 1264,
-      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused. Post-install audit: The finale switches from the established painterly Moonwood storybook style to flatter outlined cartoon art, changes several locked cast designs, repeats near-identical group compositions, and page 5 contains two stacked versions of the same scene. Rebuild the full sequence as one coherent painterly book using the locked Moonwood cast, the same black silver-eyed creature throughout, distinct progressive scenes, and no multi-panel images."
+      "width": 1536,
+      "height": 864,
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 176,
       "bookId": "moonwood-tales-c-25",
       "title": "One Night in the Deep Dark",
@@ -27329,11 +27282,11 @@
       "imagePath": "/guided-reading/series/moonwood-tales/book-25/page-011.webp",
       "width": 1536,
       "height": 864,
-      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused. Post-install audit: The finale switches from the established painterly Moonwood storybook style to flatter outlined cartoon art, changes several locked cast designs, repeats near-identical group compositions, and page 5 contains two stacked versions of the same scene. Rebuild the full sequence as one coherent painterly book using the locked Moonwood cast, the same black silver-eyed creature throughout, distinct progressive scenes, and no multi-panel images."
+      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "replace",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 176,
       "bookId": "moonwood-tales-c-25",
       "title": "One Night in the Deep Dark",
@@ -27342,9 +27295,9 @@
       "pageNumber": 12,
       "pageText": "They walked back through the Dark.\nAt the edge, Pip looked back.\nOne silver light blinked twice.\n\"That was brave,\" said Glimmer.\nPip touched the stone in his pocket.\n\"Yes,\" he said. \"It ran home.\"\n\"That's the bravest kind.\"",
       "imagePath": "/guided-reading/series/moonwood-tales/book-25/page-012.webp",
-      "width": 848,
-      "height": 1264,
-      "finding": "Pages 4 and 6 are identical, so the decision beat is missing; later creatures appear visually fused. Post-install audit: The finale switches from the established painterly Moonwood storybook style to flatter outlined cartoon art, changes several locked cast designs, repeats near-identical group compositions, and page 5 contains two stacked versions of the same scene. Rebuild the full sequence as one coherent painterly book using the locked Moonwood cast, the same black silver-eyed creature throughout, distinct progressive scenes, and no multi-panel images."
+      "width": 1536,
+      "height": 864,
+      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
     }
   ],
   "inactiveImages": [

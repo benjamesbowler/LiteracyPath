@@ -1,6 +1,6 @@
 # James and Anna Level B Import Audit
 
-Generated: 2026-05-28T02:15:28.999Z
+Generated: 2026-07-21T14:41:24.065Z
 
 ## Source
 
@@ -14,7 +14,7 @@ Generated: 2026-05-28T02:15:28.999Z
 - Imported covers: 10/10
 - Imported story page images: 130
 - Missing story page images: 0
-- Nonfiction books kept: 56
+- Nonfiction books kept: 76
 - Old deleted fiction books restored: 0
 - Validation failures: 0
 

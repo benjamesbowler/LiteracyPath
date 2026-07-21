@@ -8,23 +8,11 @@ Estimated timing JSON lets Auto-advance avoid purely runtime guesses, but it is 
 
 | ID | Title | Type | Level | Pages | Audio path | Sync JSON path |
 | --- | --- | --- | --- | --- | --- | --- |
-| first-facts-a-01-look-at-the-colours | Look at the Colours! | Non-Fiction | B | 7 | /guided-reading/nonfiction/first-facts/book-01/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-01-look-at-the-colours.json |
-| first-facts-a-02-the-four-seasons | The Four Seasons | Non-Fiction | B | 9 | /guided-reading/nonfiction/first-facts/book-02/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-02-the-four-seasons.json |
-| first-facts-a-03-little-seeds-grow | Little Seeds Grow | Non-Fiction | B | 7 | /guided-reading/nonfiction/first-facts/book-03/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-03-little-seeds-grow.json |
-| first-facts-a-04-what-is-weather | What is Weather? | Non-Fiction | B | 8 | /guided-reading/nonfiction/first-facts/book-04/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-04-what-is-weather.json |
-| first-facts-a-05-flowers-and-trees | Flowers and Trees | Non-Fiction | B | 8 | /guided-reading/nonfiction/first-facts/book-05/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-05-flowers-and-trees.json |
 | first-facts-a-06-baby-animals | Baby Animals | Non-Fiction | B | 8 | /guided-reading/nonfiction/first-facts/book-06/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-06-baby-animals.json |
 | first-facts-a-07-animals-on-the-farm | Animals on the Farm | Non-Fiction | B | 8 | /guided-reading/nonfiction/first-facts/book-07/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-07-animals-on-the-farm.json |
 | first-facts-a-08-animals-in-the-ocean | Animals in the Ocean | Non-Fiction | B | 8 | /guided-reading/nonfiction/first-facts/book-08/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-08-animals-in-the-ocean.json |
 | first-facts-a-09-animals-at-night | Animals at Night | Non-Fiction | B | 6 | /guided-reading/nonfiction/first-facts/book-09/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-09-animals-at-night.json |
 | first-facts-a-10-bugs-all-around-us | Bugs All Around Us | Non-Fiction | B | 8 | /guided-reading/nonfiction/first-facts/book-10/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-10-bugs-all-around-us.json |
-| first-facts-a-11-pets-we-love | Pets We Love | Non-Fiction | B | 7 | /guided-reading/nonfiction/first-facts/book-11/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-11-pets-we-love.json |
-| first-facts-a-12-shapes-everywhere | Shapes Everywhere | Non-Fiction | B | 7 | /guided-reading/nonfiction/first-facts/book-12/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-12-shapes-everywhere.json |
-| first-facts-a-13-big-and-small | Big and Small | Non-Fiction | B | 6 | /guided-reading/nonfiction/first-facts/book-13/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-13-big-and-small.json |
-| first-facts-a-14-hot-and-cold | Hot and Cold | Non-Fiction | B | 7 | /guided-reading/nonfiction/first-facts/book-14/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-14-hot-and-cold.json |
-| first-facts-a-15-things-that-float-and-sink | Things That Float and Sink | Non-Fiction | B | 7 | /guided-reading/nonfiction/first-facts/book-15/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-15-things-that-float-and-sink.json |
-| first-facts-a-16-push-and-pull | Push and Pull | Non-Fiction | B | 7 | /guided-reading/nonfiction/first-facts/book-16/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-16-push-and-pull.json |
-| first-facts-a-17-hello-sun | Hello, Sun! | Non-Fiction | B | 7 | /guided-reading/nonfiction/first-facts/book-17/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-17-hello-sun.json |
 | first-facts-a-18-the-moon | The Moon | Non-Fiction | B | 7 | /guided-reading/nonfiction/first-facts/book-18/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-18-the-moon.json |
 | first-facts-a-19-day-and-night | Day and Night | Non-Fiction | B | 7 | /guided-reading/nonfiction/first-facts/book-19/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-19-day-and-night.json |
 | first-facts-a-20-my-five-senses | My Five Senses | Non-Fiction | B | 8 | /guided-reading/nonfiction/first-facts/book-20/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-20-my-five-senses.json |
@@ -32,18 +20,18 @@ Estimated timing JSON lets Auto-advance avoid purely runtime guesses, but it is 
 | first-facts-a-22-staying-healthy | Staying Healthy | Non-Fiction | B | 7 | /guided-reading/nonfiction/first-facts/book-22/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-22-staying-healthy.json |
 | first-facts-a-23-my-body | My Body | Non-Fiction | B | 8 | /guided-reading/nonfiction/first-facts/book-23/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-23-my-body.json |
 | first-facts-a-24-rocks-and-pebbles | Rocks and Pebbles | Non-Fiction | B | 7 | /guided-reading/nonfiction/first-facts/book-24/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-24-rocks-and-pebbles.json |
-| first-facts-a-25-water-everywhere | Water Everywhere | Non-Fiction | B | 9 | /guided-reading/nonfiction/first-facts/book-25/audio/full-book.mp3 | /guided-reading/sync/first-facts-a-25-water-everywhere.json |
+| first-facts-a-25-water-everywhere | Water Everywhere | Non-Fiction | B | 9 |  | /guided-reading/sync/first-facts-a-25-water-everywhere.json |
 | level-c-nonfiction-01-bees | Bees | Non-Fiction | C | 9 | /guided-reading/nonfiction/level-c/book-01/audio/full-book.mp3 | /guided-reading/sync/level-c-nonfiction-01-bees.json |
 | level-c-nonfiction-02-volcanoes | Volcanoes | Non-Fiction | C | 9 | /guided-reading/nonfiction/level-c/book-02/audio/full-book.mp3 | /guided-reading/sync/level-c-nonfiction-02-volcanoes.json |
-| level-c-nonfiction-03-penguins | Penguins | Non-Fiction | C | 9 | /guided-reading/nonfiction/level-c/book-03/audio/full-book.mp3 | /guided-reading/sync/level-c-nonfiction-03-penguins.json |
-| level-c-nonfiction-04-the-moon | The Moon | Non-Fiction | C | 9 | /guided-reading/nonfiction/level-c/book-04/audio/full-book.mp3 | /guided-reading/sync/level-c-nonfiction-04-the-moon.json |
-| level-c-nonfiction-05-how-seeds-grow | How Seeds Grow | Non-Fiction | C | 9 | /guided-reading/nonfiction/level-c/book-05/audio/full-book.mp3 | /guided-reading/sync/level-c-nonfiction-05-how-seeds-grow.json |
-| level-c-nonfiction-06-spiders | Spiders | Non-Fiction | C | 9 | /guided-reading/nonfiction/level-c/book-06/audio/full-book.mp3 | /guided-reading/sync/level-c-nonfiction-06-spiders.json |
-| level-c-nonfiction-07-under-the-ocean | Under the Ocean | Non-Fiction | C | 9 | /guided-reading/nonfiction/level-c/book-07/audio/full-book.mp3 | /guided-reading/sync/level-c-nonfiction-07-under-the-ocean.json |
-| level-c-nonfiction-08-butterflies | Butterflies | Non-Fiction | C | 9 | /guided-reading/nonfiction/level-c/book-08/audio/full-book.mp3 | /guided-reading/sync/level-c-nonfiction-08-butterflies.json |
-| level-c-nonfiction-09-caves | Caves | Non-Fiction | C | 9 | /guided-reading/nonfiction/level-c/book-09/audio/full-book.mp3 | /guided-reading/sync/level-c-nonfiction-09-caves.json |
-| level-c-nonfiction-10-frogs | Frogs | Non-Fiction | C | 9 | /guided-reading/nonfiction/level-c/book-10/audio/full-book.mp3 | /guided-reading/sync/level-c-nonfiction-10-frogs.json |
-| moonwood-tales-c-01 | Pip and the Bravery Stone | Fiction | C | 12 | /guided-reading/series/moonwood-tales/book-01/audio/full-book.mp3 | /guided-reading/sync/moonwood-tales-c-01.json |
+| level-c-nonfiction-03-penguins | Penguins | Non-Fiction | C | 9 |  | /guided-reading/sync/level-c-nonfiction-03-penguins.json |
+| level-c-nonfiction-04-the-moon | The Moon | Non-Fiction | C | 9 |  | /guided-reading/sync/level-c-nonfiction-04-the-moon.json |
+| level-c-nonfiction-05-how-seeds-grow | How Seeds Grow | Non-Fiction | C | 9 |  | /guided-reading/sync/level-c-nonfiction-05-how-seeds-grow.json |
+| level-c-nonfiction-06-spiders | Spiders | Non-Fiction | C | 9 |  | /guided-reading/sync/level-c-nonfiction-06-spiders.json |
+| level-c-nonfiction-07-under-the-ocean | Under the Ocean | Non-Fiction | C | 9 |  | /guided-reading/sync/level-c-nonfiction-07-under-the-ocean.json |
+| level-c-nonfiction-08-butterflies | Butterflies | Non-Fiction | C | 9 |  | /guided-reading/sync/level-c-nonfiction-08-butterflies.json |
+| level-c-nonfiction-09-caves | Caves | Non-Fiction | C | 9 |  | /guided-reading/sync/level-c-nonfiction-09-caves.json |
+| level-c-nonfiction-10-frogs | Frogs | Non-Fiction | C | 9 |  | /guided-reading/sync/level-c-nonfiction-10-frogs.json |
+| moonwood-tales-c-01 | Pip and the Bravery Stone | Fiction | C | 12 |  | /guided-reading/sync/moonwood-tales-c-01.json |
 | moonwood-tales-c-02 | Fern Grows Too Much | Fiction | C | 12 | /guided-reading/series/moonwood-tales/book-02/audio/full-book.mp3 | /guided-reading/sync/moonwood-tales-c-02.json |
 | moonwood-tales-c-03 | Stone Crosses the Bridge | Fiction | C | 12 | /guided-reading/series/moonwood-tales/book-03/audio/full-book.mp3 | /guided-reading/sync/moonwood-tales-c-03.json |
 | moonwood-tales-c-04 | Glimmer Tries and Tries | Fiction | C | 12 | /guided-reading/series/moonwood-tales/book-04/audio/full-book.mp3 | /guided-reading/sync/moonwood-tales-c-04.json |
@@ -66,7 +54,7 @@ Estimated timing JSON lets Auto-advance avoid purely runtime guesses, but it is 
 | moonwood-tales-c-21 | Something Lives in the Hollow Oak | Fiction | C | 12 | /guided-reading/series/moonwood-tales/book-21/audio/full-book.mp3 | /guided-reading/sync/moonwood-tales-c-21.json |
 | moonwood-tales-c-22 | The Big Moonwood Race | Fiction | C | 12 | /guided-reading/series/moonwood-tales/book-22/audio/full-book.mp3 | /guided-reading/sync/moonwood-tales-c-22.json |
 | moonwood-tales-c-23 | The Fog Marsh Mystery | Fiction | C | 12 | /guided-reading/series/moonwood-tales/book-23/audio/full-book.mp3 | /guided-reading/sync/moonwood-tales-c-23.json |
-| moonwood-tales-c-24 | Glimmer Breathes Fire at Last | Fiction | C | 12 | /guided-reading/series/moonwood-tales/book-24/audio/full-book.mp3 | /guided-reading/sync/moonwood-tales-c-24.json |
+| moonwood-tales-c-24 | Glimmer Breathes Fire at Last | Fiction | C | 12 |  | /guided-reading/sync/moonwood-tales-c-24.json |
 | moonwood-tales-c-25 | One Night in the Deep Dark | Fiction | C | 12 | /guided-reading/series/moonwood-tales/book-25/audio/full-book.mp3 | /guided-reading/sync/moonwood-tales-c-25.json |
 
 ## Missing Audio and Timing
@@ -174,10 +162,10 @@ These books cannot receive meaningful verified timing until their whole-book MP3
 | meadow-pals-06-sleepy-cant-wake-up | Sleepy Can't Wake Up | Fiction | A | 9 | /guided-reading/series/meadow-pals/book-06/audio/full-book.mp3 | /guided-reading/sync/meadow-pals-06-sleepy-cant-wake-up.json |
 | meadow-pals-07-noisy-tries-to-be-quiet | Noisy Tries to Be Quiet | Fiction | A | 10 | /guided-reading/series/meadow-pals/book-07/audio/full-book.mp3 | /guided-reading/sync/meadow-pals-07-noisy-tries-to-be-quiet.json |
 | meadow-pals-08-tiny-is-very-small | Tiny is Very Small | Fiction | A | 9 | /guided-reading/series/meadow-pals/book-08/audio/full-book.mp3 | /guided-reading/sync/meadow-pals-08-tiny-is-very-small.json |
-| meadow-pals-09-shy-comes-out-to-play | Shy Comes Out to Play | Fiction | A | 9 | /guided-reading/series/meadow-pals/book-09/audio/full-book.mp3 | /guided-reading/sync/meadow-pals-09-shy-comes-out-to-play.json |
+| meadow-pals-09-shy-comes-out-to-play | Shy Comes Out to Play | Fiction | A | 8 | /guided-reading/series/meadow-pals/book-09/audio/full-book.mp3 | /guided-reading/sync/meadow-pals-09-shy-comes-out-to-play.json |
 | meadow-pals-10-giggly-has-the-hiccups | Giggly Has the Hiccups | Fiction | A | 9 | /guided-reading/series/meadow-pals/book-10/audio/full-book.mp3 | /guided-reading/sync/meadow-pals-10-giggly-has-the-hiccups.json |
 | meadow-pals-11-brave-climbs-the-hay-bale | Brave Climbs the Hay Bale | Fiction | A | 10 | /guided-reading/series/meadow-pals/book-11/audio/full-book.mp3 | /guided-reading/sync/meadow-pals-11-brave-climbs-the-hay-bale.json |
-| meadow-pals-12-hungry-eats-everything | Hungry Eats Everything | Fiction | A | 7 | /guided-reading/series/meadow-pals/book-12/audio/full-book.mp3 | /guided-reading/sync/meadow-pals-12-hungry-eats-everything.json |
+| meadow-pals-12-hungry-eats-everything | Hungry Finds Lunch | Fiction | A | 7 | /guided-reading/series/meadow-pals/book-12/audio/full-book.mp3 | /guided-reading/sync/meadow-pals-12-hungry-eats-everything.json |
 | meadow-pals-13-splashy-finds-a-puddle | Splashy Finds a Puddle | Fiction | A | 9 | /guided-reading/series/meadow-pals/book-13/audio/full-book.mp3 | /guided-reading/sync/meadow-pals-13-splashy-finds-a-puddle.json |
 | meadow-pals-14-speedy-slows-down | Speedy Slows Down | Fiction | A | 10 | /guided-reading/series/meadow-pals/book-14/audio/full-book.mp3 | /guided-reading/sync/meadow-pals-14-speedy-slows-down.json |
 | meadow-pals-15-cuddly-wants-a-hug | Cuddly Wants a Hug | Fiction | A | 10 | /guided-reading/series/meadow-pals/book-15/audio/full-book.mp3 | /guided-reading/sync/meadow-pals-15-cuddly-wants-a-hug.json |

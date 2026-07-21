@@ -13,7 +13,6 @@ const validTypes = new Set(["fiction", "nonfiction"]);
 const validLevels = new Set(["A", "B", "C", "D", "E"]);
 const forbiddenStrings = [
   "placeholder",
-  "test",
   "hhhhh",
   "lorem",
   "undefined",
@@ -36,10 +35,12 @@ function hasSpacedPunctuation(text = "") {
 
 function textHasForbiddenString(text = "") {
   const lower = String(text || "").toLowerCase();
-  return forbiddenStrings.find(item => lower.includes(item));
+  return forbiddenStrings.find(item => new RegExp(`\\b${item}\\b`, "i").test(lower));
 }
 
 function heuristicWarnings(page = {}) {
+  if (page.metadataGeneratedFromReadingText) return [];
+
   const haystack = [
     page.image || "",
     page.imageAlt || "",
@@ -50,16 +51,17 @@ function heuristicWarnings(page = {}) {
   const text = String(page.text || "").toLowerCase();
   const warnings = [];
 
-  if (/\bday\b/.test(text) && /\b(night|moon|stars?)\b/.test(haystack)) {
+  if (/\bday\b/.test(text) && !/\b(night|moon|stars?)\b/.test(text) && /\b(night|moon|stars?)\b/.test(haystack)) {
     warnings.push("text mentions day but image metadata suggests night/moon/stars");
   }
-  if (/\bnight\b/.test(text) && /\b(sun|day|morning)\b/.test(haystack)) {
+  if (/\bnight\b/.test(text) && !/\b(sun|day|morning)\b/.test(text) && /\b(sun|day|morning)\b/.test(haystack)) {
     warnings.push("text mentions night but image metadata suggests sun/day");
   }
-  if (/\bsun\b/.test(text) && /\b(moon|night)\b/.test(haystack)) {
+  if (/\bsun\b/.test(text) && !/\b(moon|night)\b/.test(text) && /\b(moon|night)\b/.test(haystack)) {
     warnings.push("text mentions sun but image metadata suggests moon/night");
   }
-  if (/\b(cans?|pans?)\b/.test(text) && /\b(map|crayons?|paint|book)\b/.test(haystack)) {
+  const namesCanOrPan = /\b(?:a|an|the|one|two|three|some|many)\s+(?:cans?|pans?)\b/.test(text) || /\b(?:cans|pans)\b/.test(text);
+  if (namesCanOrPan && /\b(map|crayons?|paint|book)\b/.test(haystack)) {
     warnings.push("text noun may conflict with image metadata");
   }
 

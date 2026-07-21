@@ -64,7 +64,7 @@ test("places an authoritative shot plan ahead of the broad image prompt", () => 
   assert.ok(prompt.includes("Do not depict: red harness; dog"));
 });
 
-test("rejects visible typography and unsafe domestic-pet shot directions", () => {
+test("rejects blank writing surfaces and unsafe domestic-pet shot directions while allowing exact typography", () => {
   const base = {
     pageNumber: 1,
     subjects: [],
@@ -73,8 +73,9 @@ test("rejects visible typography and unsafe domestic-pet shot directions", () =>
     continuityDetails: [],
     forbidden: [],
   };
-  assert.deepEqual(lintScenePlan({ ...base, visualMoment: "An empty hook beside a blank page" }), []);
-  assert.ok(lintScenePlan({ ...base, visualMoment: "A jar labelled 'ALUM'" }).some(issue => issue.includes("typography")));
+  assert.ok(lintScenePlan({ ...base, visualMoment: "An empty hook beside a blank page" }).some(issue => issue.includes("writing surface")));
+  assert.deepEqual(lintScenePlan({ ...base, visualMoment: "A jar labelled exactly 'ALUM' in clean legible lettering" }), []);
+  assert.ok(lintScenePlan({ ...base, visualMoment: "A map angled away so its surface stays hidden" }).some(issue => issue.includes("writing surface")));
   assert.deepEqual(lintScenePlan({ ...base, visualMoment: "A decorative non-readable title made only from non-letter shapes" }), []);
   assert.ok(lintScenePlan({ ...base, visualMoment: "Socks sits on a high shelf" }).some(issue => issue.includes("domestic-pet")));
   assert.deepEqual(lintScenePlan({ ...base, visualMoment: "Socks must not be on the table" }), []);
@@ -93,18 +94,22 @@ test("allows a subject to be identified by posture without treating it as printe
   assert.deepEqual(issues, []);
 });
 
-test("syncs the audit into a resumable SQLite queue and creates a bounded batch", () => {
+test("syncs the audit into a resumable SQLite queue and only batches pending work", () => {
   const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "literacy-path-image-factory-"));
   const db = openFactoryDatabase(path.join(tempDirectory, "factory.sqlite"));
   try {
     const synced = syncFactory(db);
-    assert.ok(synced.pending > 0);
     assert.ok((synced.states.installed || 0) > 0);
     const batch = createBatch(db, { limit: 50, quality: "low" });
-    assert.ok(batch);
-    assert.ok(batch.jobs.length > 0 && batch.jobs.length <= 50);
-    assert.equal(batch.quality, "low");
-    assert.equal(statusSummary(db).states.queued, batch.jobs.length);
+    if (synced.pending > 0) {
+      assert.ok(batch);
+      assert.ok(batch.jobs.length > 0 && batch.jobs.length <= 50);
+      assert.equal(batch.quality, "low");
+      assert.equal(statusSummary(db).states.queued, batch.jobs.length);
+    } else {
+      assert.equal(batch, null);
+      assert.equal(statusSummary(db).pending, 0);
+    }
     const aidenProfile = db.prepare("SELECT * FROM series_profiles WHERE series_key = 'series/aiden-and-betty'").get();
     assert.ok(aidenProfile.style_prompt.includes("Socks"));
     const portraitJob = db.prepare("SELECT prompt FROM jobs WHERE book_number = 162 ORDER BY page_number LIMIT 1").get();

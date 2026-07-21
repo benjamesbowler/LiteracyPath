@@ -4,7 +4,7 @@ Generated: 2026-05-26
 
 ## Summary
 
-- Books analyzed: 161
+- Books analyzed: 176
 - Failures: 0
 - Warnings: 0
 - Recommendation results: 10
@@ -78,24 +78,24 @@ Generated: 2026-05-26
 | first-facts-a-22-staying-healthy | Staying Healthy | B | approved | 7 | 59 | 83% | digraphs-and-blends | bossy-r, complex-final-sound, initial-blend, other, vowel-team, cvc |
 | first-facts-a-23-my-body | My Body | B | approved | 8 | 94 | 85% | digraphs-and-blends | other, cvc, initial-blend, short-vowel-cvc, silent-e, vowel-team |
 | first-facts-a-24-rocks-and-pebbles | Rocks and Pebbles | B | approved | 7 | 71 | 80% | digraphs-and-blends | bossy-r, complex-final-sound, digraph-ck, other, silent-e, cvc |
-| first-facts-a-25-water-everywhere | Water Everywhere | B | approved | 9 | 75 | 68% | digraphs-and-blends | vowel-team, bossy-r, initial-blend, other, r-controlled-er, complex-final-sound |
+| first-facts-a-25-water-everywhere | Water Everywhere | B | approved | 9 | 79 | 66% | digraphs-and-blends | vowel-team, bossy-r, other, r-controlled-er, initial-blend, complex-final-sound |
 | level-c-nonfiction-01-bees | Bees | C | approved | 9 | 203 | 75% | digraphs-and-blends | bossy-r, other, silent-e, vowel-team, vowel-team-ee, complex-final-sound |
 | level-c-nonfiction-02-volcanoes | Volcanoes | C | approved | 9 | 236 | 75% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-digraph, other |
-| level-c-nonfiction-03-penguins | Penguins | C | approved | 9 | 248 | 80% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-blend, initial-digraph |
-| level-c-nonfiction-04-the-moon | The Moon | C | approved | 9 | 255 | 82% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-blend, initial-digraph |
-| level-c-nonfiction-05-how-seeds-grow | How Seeds Grow | C | approved | 9 | 229 | 79% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-blend, initial-digraph |
-| level-c-nonfiction-06-spiders | Spiders | C | approved | 9 | 241 | 71% | digraphs-and-blends | bossy-r, complex-final-sound, digraph-th, initial-blend, initial-blend-sp, initial-digraph |
-| level-c-nonfiction-07-under-the-ocean | Under the Ocean | C | approved | 9 | 266 | 79% | digraphs-and-blends | bossy-r, complex-final-sound, digraph-th, diphthong, initial-digraph, other |
-| level-c-nonfiction-08-butterflies | Butterflies | C | approved | 9 | 240 | 76% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-blend, initial-digraph |
-| level-c-nonfiction-09-caves | Caves | C | approved | 9 | 267 | 74% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, diphthong, initial-digraph |
-| level-c-nonfiction-10-frogs | Frogs | C | approved | 9 | 234 | 81% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-blend, initial-digraph |
+| level-c-nonfiction-03-penguins | Penguins | C | approved | 9 | 247 | 80% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-blend, initial-digraph |
+| level-c-nonfiction-04-the-moon | The Moon | C | approved | 9 | 256 | 80% | digraphs-and-blends | bossy-r, cvc, digraph-th, initial-blend, initial-digraph, other |
+| level-c-nonfiction-05-how-seeds-grow | How Seeds Grow | C | approved | 9 | 233 | 79% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-blend, initial-digraph |
+| level-c-nonfiction-06-spiders | Spiders | C | approved | 9 | 257 | 69% | digraphs-and-blends | bossy-r, complex-final-sound, digraph-th, initial-blend, initial-blend-sp, initial-digraph |
+| level-c-nonfiction-07-under-the-ocean | Under the Ocean | C | approved | 9 | 269 | 77% | digraphs-and-blends | bossy-r, complex-final-sound, digraph-th, initial-digraph, other, r-controlled-er |
+| level-c-nonfiction-08-butterflies | Butterflies | C | approved | 9 | 235 | 76% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-blend, initial-digraph |
+| level-c-nonfiction-09-caves | Caves | C | approved | 9 | 256 | 70% | digraphs-and-blends | bossy-r, digraph-th, initial-digraph, other, silent-e, complex-final-sound |
+| level-c-nonfiction-10-frogs | Frogs | C | approved | 9 | 193 | 76% | digraphs-and-blends | complex-final-sound, cvc, digraph-th, initial-blend, initial-blend-fr, initial-digraph |
 | bob-and-nan-01 | Bob and Nan | A | approved | 7 | 25 | 96% | digraphs-and-blends | cvc, short-vowel-cvc, short-a, other, short-o, complex-final-sound |
 | bob-and-nan-02-park | Bob and Nan go to the Park | A | approved | 7 | 39 | 95% | digraphs-and-blends | cvc, other, short-vowel-cvc, complex-final-sound, short-a, initial-digraph |
-| bob-and-nan-03-fluff | Bob, Nan and Fluff | A | approved | 7 | 35 | 97% | digraphs-and-blends | cvc, other, short-u, short-vowel-cvc, short-a, digraph-th |
+| bob-and-nan-03-fluff | Bob, Nan and Fluff | A | approved | 7 | 35 | 91% | digraphs-and-blends | cvc, other, short-u, short-vowel-cvc, digraph-th, initial-digraph |
 | bob-and-nan-04-beach | Bob and Nan go to the Beach | A | approved | 7 | 31 | 100% | digraphs-and-blends | cvc, short-vowel-cvc, short-o, short-a, digraph-th, initial-digraph |
 | bob-and-nan-05-school | Bob and Nan's First Day at School | A | approved | 7 | 33 | 100% | digraphs-and-blends | cvc, short-a, short-vowel-cvc, short-o, other, short-i |
 | bob-and-nan-06-zoo | Nan and Bob go to the Zoo | A | approved | 8 | 53 | 98% | digraphs-and-blends | cvc, other, short-vowel-cvc, short-a, short-o, vowel-team |
-| bob-and-nan-07-birthday | Nan and Bob: Bob's Birthday Party | A | approved | 8 | 49 | 94% | digraphs-and-blends | cvc, other, short-vowel-cvc, short-a, short-i, short-o |
+| bob-and-nan-07-birthday | Nan and Bob: Bob's Birthday Party | A | approved | 8 | 48 | 92% | digraphs-and-blends | cvc, other, short-vowel-cvc, short-a, short-i, short-o |
 | bob-and-nan-08-sick | Nan and Bob get Sick | A | approved | 8 | 52 | 92% | digraphs-and-blends | complex-final-sound, cvc, other, short-vowel-cvc, short-a, short-o |
 | bob-and-nan-09-read | Nan and Bob Learn to Read | A | approved | 8 | 52 | 90% | digraphs-and-blends | cvc, short-a, short-vowel-cvc, other, short-o, vowel-team |
 | bob-and-nan-10-vet | Fluff Visits the Vet | A | approved | 8 | 50 | 94% | digraphs-and-blends | cvc, other, short-vowel-cvc, complex-final-sound, initial-blend, initial-blend-fl |
@@ -109,30 +109,30 @@ Generated: 2026-05-26
 | ja-b-08 | Chips's Play Date | B | approved | 12 | 231 | 71% | digraphs-and-blends | bossy-r, cvc, digraph-th, initial-digraph, other, short-vowel-cvc |
 | ja-b-09 | James and Anna's New Bikes | B | approved | 13 | 267 | 79% | digraphs-and-blends | complex-final-sound, cvc, digraph-th, initial-digraph, other, vowel-team |
 | ja-b-10 | James, Anna and Chips go Camping | B | approved | 14 | 303 | 82% | digraphs-and-blends | complex-final-sound, cvc, initial-blend, initial-digraph, other, short-vowel-cvc |
-| ab-c-01 | Aiden and Betty Start Grade 1 | C | approved | 13 | 504 | 81% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, initial-blend, initial-digraph, other |
-| ab-c-02 | Aiden and Betty have a Yard Sale | C | approved | 13 | 634 | 79% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, diphthong, final-blend-nd |
+| ab-c-01 | Aiden and Betty Start Grade 1 | C | approved | 13 | 494 | 80% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, diphthong, final-blend-nd, initial-blend |
+| ab-c-02 | Aiden and Betty have a Yard Sale | C | approved | 13 | 608 | 79% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, diphthong, initial-blend |
 | ab-c-03 | Aiden and Betty go on Holiday | C | approved | 13 | 633 | 84% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, diphthong, initial-blend |
-| ab-c-04 | Aiden and Betty and Socks | C | approved | 14 | 697 | 79% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, diphthong, final-blend-nd, initial-blend |
-| ab-c-05 | Socks Goes Missing | C | approved | 14 | 685 | 81% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-digraph, other |
-| ab-c-06 | Aiden and Betty and the Science Fair | C | approved | 13 | 462 | 81% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-digraph, other |
-| ab-c-07 | Aiden, Betty and Socks's Big Adventure | C | approved | 13 | 538 | 84% | digraphs-and-blends | bossy-r, cvc, digraph-th, diphthong, initial-digraph, other |
-| ab-c-08 | Aiden and Betty and the Bully | C | approved | 13 | 500 | 84% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, diphthong, initial-digraph |
-| ab-c-09 | Aiden and Betty: New Teeth | C | approved | 13 | 540 | 84% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-blend, initial-digraph |
-| ab-c-10 | Aiden and Betty and the Castle | C | approved | 13 | 617 | 82% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, diphthong, initial-blend |
+| ab-c-04 | Aiden and Betty and Socks | C | approved | 14 | 677 | 75% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, initial-blend, initial-digraph, other |
+| ab-c-05 | Socks Goes Missing | C | approved | 14 | 659 | 81% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-digraph, other |
+| ab-c-06 | Aiden and Betty and the Science Fair | C | approved | 13 | 474 | 83% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-digraph, other |
+| ab-c-07 | Aiden, Betty and Socks's Big Adventure | C | approved | 13 | 544 | 84% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, diphthong, initial-blend |
+| ab-c-08 | Aiden and Betty and the Bully | C | approved | 13 | 241 | 75% | digraphs-and-blends | other, vowel-team, vowel-team-ai, cvc, short-vowel-cvc, bossy-r |
+| ab-c-09 | Aiden and Betty: New Teeth | C | approved | 13 | 260 | 85% | digraphs-and-blends | complex-final-sound, cvc, digraph-th, other, short-vowel-cvc, vowel-team |
+| ab-c-10 | Aiden and Betty and the Castle | C | approved | 13 | 298 | 84% | digraphs-and-blends | bossy-r, cvc, digraph-th, initial-digraph, other, short-vowel-cvc |
 | dino-pals-01-chompys-big-lunch | Chompy's Big Lunch | B | approved | 8 | 83 | 83% | digraphs-and-blends | digraph-ch, initial-digraph, other, vowel-team, vowel-team-ai, complex-final-sound |
 | dino-pals-02-sunnys-rainy-day | Sunny's Rainy Day | B | approved | 8 | 73 | 74% | digraphs-and-blends | cvc, other, short-vowel-cvc, vowel-team, vowel-team-ai, bossy-r |
-| dino-pals-03-dozy-wont-wake-up | Dozy Won't Wake Up | B | approved | 8 | 95 | 72% | digraphs-and-blends | cvc, other, short-vowel-cvc, silent-e, vowel-team, complex-final-sound |
-| dino-pals-04-grumpy-needs-help | Grumpy Needs Help | B | approved | 8 | 84 | 86% | digraphs-and-blends | cvc, initial-blend, initial-blend-gr, other, short-vowel-cvc, vowel-team |
+| dino-pals-03-dozy-wont-wake-up | Dozy Won't Wake Up | B | approved | 8 | 95 | 75% | digraphs-and-blends | cvc, other, short-vowel-cvc, silent-e, short-o, vowel-team |
+| dino-pals-04-grumpy-needs-help | Grumpy Needs Help | B | approved | 8 | 84 | 85% | digraphs-and-blends | cvc, initial-blend, initial-blend-gr, other, short-vowel-cvc, vowel-team |
 | dino-pals-05-bossy-makes-a-plan | Bossy Makes a Plan | B | approved | 8 | 87 | 64% | digraphs-and-blends | other, vowel-team, cvc, digraph-th, initial-digraph, short-vowel-cvc |
-| dino-pals-06-bouncy-bumps-into-everything | Bouncy Bumps Into Everything | B | approved | 8 | 83 | 77% | digraphs-and-blends | complex-final-sound, diphthong, other, vowel-team, vowel-team-ou, digraph-th |
-| dino-pals-07-wigglys-messy-day | Wiggly's Messy Day | B | approved | 8 | 108 | 63% | digraphs-and-blends | other, vowel-team, vowel-team-ai, bossy-r, complex-final-sound, initial-digraph |
-| dino-pals-08-zippy-slows-down | Zippy Slows Down | B | approved | 8 | 117 | 69% | digraphs-and-blends | diphthong, other, vowel-team, vowel-team-ow, bossy-r, cvc |
-| dino-pals-09-honkys-inside-voice | Honky's Inside Voice | B | approved | 8 | 119 | 67% | digraphs-and-blends | other, bossy-r, complex-final-sound, vowel-team, cvc, initial-digraph |
-| dino-pals-10-cheekys-prank-goes-wrong | Cheeky's Prank Goes Wrong | B | approved | 8 | 121 | 77% | digraphs-and-blends | digraph-ch, initial-digraph, other, vowel-team, vowel-team-ee, cvc |
-| dino-pals-11-shys-secret-gift | Shy's Secret Gift | B | approved | 12 | 239 | 79% | digraphs-and-blends | complex-final-sound, other, initial-digraph, vowel-team, bossy-r, cvc |
+| dino-pals-06-bouncy-bumps-into-everything | Bouncy Bumps Into Everything | B | approved | 8 | 119 | 78% | digraphs-and-blends | digraph-th, diphthong, initial-digraph, other, vowel-team, vowel-team-ou |
+| dino-pals-07-wigglys-messy-day | Wiggly's Messy Day | B | approved | 8 | 125 | 78% | digraphs-and-blends | cvc, other, short-vowel-cvc, vowel-team, vowel-team-ai, bossy-r |
+| dino-pals-08-zippy-slows-down | Zippy Slows Down | B | approved | 8 | 123 | 79% | digraphs-and-blends | complex-final-sound, diphthong, initial-digraph, other, vowel-team, vowel-team-ow |
+| dino-pals-09-honkys-inside-voice | Honky's Inside Voice | B | approved | 8 | 136 | 82% | digraphs-and-blends | diphthong, other, vowel-team, bossy-r, cvc, initial-blend |
+| dino-pals-10-cheekys-prank-goes-wrong | Cheeky's Prank Goes Wrong | B | approved | 8 | 121 | 74% | digraphs-and-blends | digraph-ch, diphthong, initial-digraph, other, vowel-team, vowel-team-ee |
+| dino-pals-11-shys-secret-gift | Shy's Secret Gift | B | approved | 12 | 180 | 81% | digraphs-and-blends | complex-final-sound, other, initial-digraph, vowel-team, cvc, final-blend-nd |
 | dino-pals-12-fancys-bad-day | Fancy's Bad Day | B | approved | 12 | 226 | 72% | digraphs-and-blends | bossy-r, other, vowel-team, cvc, short-vowel-cvc, vowel-team-ai |
 | dino-pals-13-clumsy-to-the-rescue | Clumsy to the Rescue | B | approved | 12 | 243 | 83% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, initial-digraph, other, vowel-team |
-| dino-pals-14-what-is-flappy | What is Flappy? | B | approved | 12 | 256 | 82% | digraphs-and-blends | initial-blend, initial-blend-fl, other, silent-e, vowel-team, bossy-r |
+| dino-pals-14-what-is-flappy | What is Flappy? | B | approved | 12 | 266 | 81% | digraphs-and-blends | initial-blend, initial-blend-fl, other, silent-e, vowel-team, bossy-r |
 | dino-pals-15-sneezy-and-the-waterfall | Sneezy and the Waterfall | B | approved | 12 | 226 | 81% | digraphs-and-blends | complex-final-sound, initial-blend, initial-digraph, other, vowel-team, bossy-r |
 | dino-pals-16-chompy-and-grumpys-day-out | Chompy and Grumpy's Day Out | B | approved | 12 | 259 | 90% | digraphs-and-blends | cvc, digraph-th, initial-digraph, other, short-vowel-cvc, bossy-r |
 | dino-pals-17-the-sunny-hollow-games | The Sunny Hollow Games | B | approved | 12 | 330 | 77% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-digraph, other |
@@ -147,10 +147,10 @@ Generated: 2026-05-26
 | meadow-pals-06-sleepy-cant-wake-up | Sleepy Can't Wake Up | A | approved | 9 | 43 | 100% | digraphs-and-blends | cvc, initial-blend, initial-blend-sl, short-vowel-cvc, vowel-team, vowel-team-ee |
 | meadow-pals-07-noisy-tries-to-be-quiet | Noisy Tries to Be Quiet | A | approved | 10 | 42 | 86% | digraphs-and-blends | vowel-team, other, bossy-r, diphthong, vowel-team-oi, cvc |
 | meadow-pals-08-tiny-is-very-small | Tiny is Very Small | A | approved | 9 | 46 | 67% | digraphs-and-blends | other, cvc, short-vowel-cvc, digraph-th, initial-digraph, complex-final-sound |
-| meadow-pals-09-shy-comes-out-to-play | Shy Comes Out to Play | A | approved | 9 | 49 | 82% | digraphs-and-blends | other, initial-digraph, cvc, digraph-sh, short-vowel-cvc, vowel-team |
+| meadow-pals-09-shy-comes-out-to-play | Shy Comes Out to Play | A | approved | 8 | 46 | 80% | digraphs-and-blends | other, initial-digraph, cvc, digraph-sh, short-vowel-cvc, vowel-team |
 | meadow-pals-10-giggly-has-the-hiccups | Giggly Has the Hiccups | A | approved | 9 | 46 | 83% | digraphs-and-blends | cvc, short-vowel-cvc, other, short-i, vowel-team, vowel-team-ee |
 | meadow-pals-11-brave-climbs-the-hay-bale | Brave Climbs the Hay Bale | A | approved | 10 | 45 | 82% | digraphs-and-blends | silent-e, initial-blend, initial-blend-br, other, cvc, short-vowel-cvc |
-| meadow-pals-12-hungry-eats-everything | Hungry Eats Everything | A | approved | 7 | 43 | 95% | digraphs-and-blends | digraph-ng, other, silent-e, cvc, digraph-th, initial-blend |
+| meadow-pals-12-hungry-eats-everything | Hungry Finds Lunch | A | approved | 7 | 35 | 89% | digraphs-and-blends | other, complex-final-sound, digraph-ng, cvc, initial-blend, silent-e |
 | meadow-pals-13-splashy-finds-a-puddle | Splashy Finds a Puddle | A | approved | 9 | 47 | 74% | digraphs-and-blends | other, initial-blend, cvc, short-vowel-cvc, digraph-sh, initial-blend-sp |
 | meadow-pals-14-speedy-slows-down | Speedy Slows Down | A | approved | 10 | 42 | 69% | digraphs-and-blends | vowel-team, initial-blend, initial-blend-sp, other, vowel-team-ee, initial-digraph |
 | meadow-pals-15-cuddly-wants-a-hug | Cuddly Wants a Hug | A | approved | 10 | 49 | 80% | digraphs-and-blends | other, vowel-team, cvc, short-vowel-cvc, vowel-team-ai, vowel-team-oo |
@@ -164,7 +164,7 @@ Generated: 2026-05-26
 | meadow-pals-23-giggly-and-clucky-bake-a-cake | Giggly and Clucky Bake a Cake | A | approved | 11 | 66 | 76% | digraphs-and-blends | other, cvc, short-vowel-cvc, digraph-th, initial-blend, initial-digraph |
 | meadow-pals-24-grumpys-secret | Grumpy's Secret | A | approved | 11 | 61 | 89% | digraphs-and-blends | other, vowel-team, cvc, initial-blend, short-vowel-cvc, bossy-r |
 | meadow-pals-25-the-big-farm-party | The Big Farm Party | A | approved | 13 | 74 | 85% | digraphs-and-blends | cvc, other, short-vowel-cvc, initial-blend, initial-digraph, silent-e |
-| moonwood-tales-c-01 | Pip and the Bravery Stone | C | approved | 12 | 223 | 89% | digraphs-and-blends | initial-blend, other, vowel-team, cvc, digraph-th, initial-digraph |
+| moonwood-tales-c-01 | Pip and the Bravery Stone | C | approved | 12 | 237 | 89% | digraphs-and-blends | initial-blend, other, silent-e, vowel-team, cvc, digraph-th |
 | moonwood-tales-c-02 | Fern Grows Too Much | C | approved | 12 | 219 | 84% | digraphs-and-blends | initial-blend, other, vowel-team, complex-final-sound, cvc, digraph-th |
 | moonwood-tales-c-03 | Stone Crosses the Bridge | C | approved | 12 | 234 | 91% | digraphs-and-blends | digraph-th, initial-blend, initial-blend-st, initial-digraph, other, silent-e |
 | moonwood-tales-c-04 | Glimmer Tries and Tries | C | approved | 12 | 249 | 90% | digraphs-and-blends | bossy-r, cvc, initial-blend, other, short-vowel-cvc, vowel-team |
@@ -174,37 +174,52 @@ Generated: 2026-05-26
 | moonwood-tales-c-08 | Burrow Finds a Door | C | approved | 13 | 311 | 82% | digraphs-and-blends | bossy-r, other, vowel-team, complex-final-sound, cvc, digraph-th |
 | moonwood-tales-c-09 | Spark's Very Big Sneeze | C | approved | 14 | 273 | 78% | digraphs-and-blends | bossy-r, initial-blend, initial-digraph, other, vowel-team, complex-final-sound |
 | moonwood-tales-c-10 | What Luna Forgot | C | approved | 14 | 330 | 80% | digraphs-and-blends | bossy-r, cvc, digraph-th, initial-digraph, other, short-vowel-cvc |
+| moonwood-tales-c-11 | Pip and Stone and the Loud Thing | C | approved | 12 | 282 | 87% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, diphthong, initial-blend, initial-digraph |
+| moonwood-tales-c-12 | Fern and Dewdrop Save the Stream | C | approved | 12 | 280 | 84% | digraphs-and-blends | bossy-r, complex-final-sound, digraph-th, initial-digraph, other, r-controlled-er |
+| moonwood-tales-c-13 | Glimmer and Spark Make a Deal | C | approved | 12 | 266 | 91% | digraphs-and-blends | bossy-r, complex-final-sound, digraph-th, initial-blend, initial-digraph, other |
+| moonwood-tales-c-14 | Wren and Flint Get Lost | C | approved | 12 | 306 | 85% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-blend, initial-digraph |
+| moonwood-tales-c-15 | Burrow and Luna and the Old Secret | C | approved | 12 | 289 | 79% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-digraph, other |
+| moonwood-tales-c-16 | Pip and Glimmer and the Night Watch | C | approved | 12 | 286 | 86% | digraphs-and-blends | bossy-r, cvc, other, r-controlled-er, short-vowel-cvc, vowel-team |
+| moonwood-tales-c-17 | Fern and Wren and the Wrong Potion | C | approved | 12 | 270 | 76% | digraphs-and-blends | bossy-r, cvc, initial-digraph, other, silent-e, vowel-team |
+| moonwood-tales-c-18 | Stone and Dewdrop and the Stuck Fish | C | approved | 12 | 276 | 84% | digraphs-and-blends | complex-final-sound, cvc, digraph-th, initial-blend, initial-digraph, other |
+| moonwood-tales-c-19 | The Missing Magic Seeds | C | approved | 12 | 298 | 86% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-digraph, other |
+| moonwood-tales-c-20 | The Night the Stars Fell | C | approved | 12 | 315 | 82% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, other, short-vowel-cvc, silent-e |
+| moonwood-tales-c-21 | Something Lives in the Hollow Oak | C | approved | 12 | 303 | 86% | digraphs-and-blends | bossy-r, cvc, digraph-th, initial-blend, initial-digraph, other |
+| moonwood-tales-c-22 | The Big Moonwood Race | C | approved | 12 | 324 | 87% | digraphs-and-blends | complex-final-sound, cvc, digraph-th, initial-blend, initial-digraph, other |
+| moonwood-tales-c-23 | The Fog Marsh Mystery | C | approved | 12 | 335 | 85% | digraphs-and-blends | bossy-r, complex-final-sound, cvc, digraph-th, initial-digraph, other |
+| moonwood-tales-c-24 | Glimmer Breathes Fire at Last | C | approved | 12 | 206 | 80% | digraphs-and-blends | bossy-r, digraph-th, initial-blend, other, r-controlled-er, silent-e |
+| moonwood-tales-c-25 | One Night in the Deep Dark | C | approved | 12 | 322 | 83% | digraphs-and-blends | bossy-r, cvc, digraph-th, initial-blend, initial-digraph, other |
 
 ## Dominant Patterns
 
 | Pattern | Book count |
 |---|---:|
-| other | 160 |
-| cvc | 158 |
-| short-vowel-cvc | 143 |
-| vowel-team | 136 |
-| complex-final-sound | 132 |
-| bossy-r | 123 |
-| initial-blend | 115 |
-| initial-digraph | 110 |
-| digraph-th | 106 |
-| diphthong | 65 |
-| silent-e | 59 |
-| short-a | 41 |
-| r-controlled-er | 28 |
+| other | 175 |
+| cvc | 172 |
+| short-vowel-cvc | 153 |
+| vowel-team | 150 |
+| complex-final-sound | 145 |
+| bossy-r | 140 |
+| initial-blend | 126 |
+| initial-digraph | 123 |
+| digraph-th | 119 |
+| silent-e | 72 |
+| diphthong | 67 |
+| short-a | 42 |
+| r-controlled-er | 32 |
+| r-controlled-ar | 18 |
 | short-o | 18 |
-| vowel-team-ee | 16 |
+| vowel-team-ee | 17 |
 | digraph-ng | 16 |
-| r-controlled-ar | 15 |
-| digraph-sh | 14 |
-| vowel-team-ai | 13 |
-| final-blend-nd | 12 |
+| digraph-sh | 15 |
+| vowel-team-ai | 14 |
+| short-i | 13 |
 
 ## Microphases
 
 | Microphase | Book count |
 |---|---:|
-| digraphs-and-blends | 160 |
+| digraphs-and-blends | 175 |
 | cvc-short-vowels | 1 |
 
 ## Recommendation Smoke Test
@@ -217,10 +232,10 @@ Generated: 2026-05-26
 | first-facts-level-a-06-animals-can | Animals Can! | 111 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 96% decodable/HFW words; QA approved |
 | bob-and-nan-01 | Bob and Nan | 111 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 96% decodable/HFW words; QA approved |
 | bob-and-nan-02-park | Bob and Nan go to the Park | 111 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 95% decodable/HFW words; QA approved |
-| bob-and-nan-03-fluff | Bob, Nan and Fluff | 111 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 97% decodable/HFW words; QA approved |
-| bob-and-nan-07-birthday | Nan and Bob: Bob's Birthday Party | 111 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 94% decodable/HFW words; QA approved |
+| bob-and-nan-03-fluff | Bob, Nan and Fluff | 110 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 91% decodable/HFW words; QA approved |
 | bob-and-nan-08-sick | Nan and Bob get Sick | 110 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 92% decodable/HFW words; QA approved |
 | bob-and-nan-09-read | Nan and Bob Learn to Read | 110 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 90% decodable/HFW words; QA approved |
+| bob-and-nan-07-birthday | Nan and Bob: Bob's Birthday Party | 110 | matches cvc; matches short-o; matches final-sounds; matches digraphs; not completed yet; 92% decodable/HFW words; QA approved |
 
 ## Warnings
 

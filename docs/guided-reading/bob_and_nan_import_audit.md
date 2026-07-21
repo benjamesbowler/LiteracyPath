@@ -1,6 +1,6 @@
 # Bob and Nan Level A Import Audit
 
-Generated: 2026-05-28T02:15:28.998Z
+Generated: 2026-07-21T14:41:24.064Z
 
 ## Source
 
@@ -11,7 +11,7 @@ Generated: 2026-05-28T02:15:28.998Z
 - Bob and Nan books imported: 10
 - Story page images expected: 75
 - Covers expected: 10
-- Nonfiction books kept: 56
+- Nonfiction books kept: 76
 - Old deleted fiction books restored: 0
 - Validation failures: 0
 

@@ -12,7 +12,7 @@ Delivery requirements:
 - Do not read page numbers, filenames, markdown, section labels, or production notes.
 - Preserve punctuation, dialogue, names, and British spellings where present.
 
-Books requested: 116
+Books requested: 127
 
 ## 1. Pets
 
@@ -1347,7 +1347,340 @@ Page 7:
 Space is very big!
 We are small.
 
-## 42. Bob and Nan
+## 42. Water Everywhere
+
+- Book ID: first-facts-a-25-water-everywhere
+- Type/level: Non-Fiction, Level B
+- Pages: 9
+- Required whole-book MP3 path: `/guided-reading/nonfiction/first-facts/book-25/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/first-facts-a-25-water-everywhere.json`
+
+Page text to narrate:
+
+Page 1:
+Water is all around us. Oceans, rivers, and rain.
+
+Page 2:
+Rain falls from the clouds. Drip, drip, drip.
+
+Page 3:
+Rain fills rivers and lakes. Animals drink the water.
+
+Page 4:
+We drink water every day. Water keeps us healthy.
+
+Page 5:
+We wash with water. Water helps to keep us clean.
+
+Page 6:
+Plants and animals need water too.
+
+Page 7:
+Water can be liquid, solid ice, or water vapour. Water changes!
+
+Page 8:
+Water is precious. Let us look after it.
+
+Page 9:
+Water is everywhere! Our Earth is a water planet.
+
+## 43. Penguins
+
+- Book ID: level-c-nonfiction-03-penguins
+- Type/level: Non-Fiction, Level C
+- Pages: 9
+- Required whole-book MP3 path: `/guided-reading/nonfiction/level-c/book-03/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/level-c-nonfiction-03-penguins.json`
+
+Page text to narrate:
+
+Page 1:
+Penguins are birds — but they cannot fly. Instead, they use their wings as flippers. They are brilliant swimmers.
+
+Page 2:
+Many penguins live in cold places. Emperor penguins live in Antarctica, the coldest and windiest place on Earth. Temperatures can drop below minus 60 degrees!
+
+Page 3:
+The female emperor penguin lays one egg. The father balances it on his feet and covers it with a warm flap of skin. He keeps it safe from the freezing cold.
+
+Page 4:
+The father does not eat for two months. He huddles with other fathers to stay warm. Meanwhile, the mother goes to the sea to find fish. She will bring food back when the egg hatches.
+
+Page 5:
+When the egg hatches, a tiny chick comes out. The chick has soft grey down. It stays close to its parent to stay warm.
+
+Page 6:
+Emperor penguins are extraordinary swimmers. They can swim at up to 14 kilometres per hour. They leap in and out of the water and can dive very deep to catch fish.
+
+Page 7:
+Penguins live in large groups called colonies. Some colonies have hundreds of thousands of penguins! Each penguin recognises its partner and its chick by their call.
+
+Page 8:
+Penguins are black on top and white underneath. This is called countershading. From above, their dark back blends with the deep water. From below, their white front looks like the bright surface.
+
+Page 9:
+There are 18 species of penguin. Not all live in cold places. African penguins live on warm, sunny coasts in southern Africa. Every kind of penguin is remarkable.
+
+## 44. The Moon
+
+- Book ID: level-c-nonfiction-04-the-moon
+- Type/level: Non-Fiction, Level C
+- Pages: 9
+- Required whole-book MP3 path: `/guided-reading/nonfiction/level-c/book-04/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/level-c-nonfiction-04-the-moon.json`
+
+Page text to narrate:
+
+Page 1:
+The Moon is a huge ball of rock. It travels around Earth. It takes about one month to go all the way around. The Moon is Earth's natural satellite.
+
+Page 2:
+The Moon does not make its own light. It does not glow by itself. The light we see is sunlight reflected from the Moon's surface.
+
+Page 3:
+The Moon's shape seems to change a little from night to night. Sometimes it looks like a full, bright circle. Sometimes it looks like a thin crescent. These shapes are called the phases of the Moon.
+
+Page 4:
+The Moon's surface is covered in craters. Craters are bowl-shaped dents made when space rocks crashed into the Moon long ago. Some craters are bigger than cities.
+
+Page 5:
+In 1969, the Apollo 11 astronauts travelled to the Moon. Neil Armstrong became the first person to step onto its surface. Buzz Aldrin walked there soon after.
+
+Page 6:
+The Moon's gravity is the main force behind Earth's tides. The Sun's gravity helps too. At high tide, the sea rises up the beach. At low tide, it moves back.
+
+Page 7:
+Astronauts brought Moon rocks back to Earth. Scientists are still studying them today. The rocks tell us about the Moon's past and the early Solar System.
+
+Page 8:
+The Moon looks small from Earth, but it is very large. It is about one quarter as wide as Earth. About four Moons could fit across our planet.
+
+Page 9:
+You can see the Moon on many clear nights. With a telescope, you can see some craters. Even when you cannot see it, the Moon is still travelling around Earth.
+
+## 45. How Seeds Grow
+
+- Book ID: level-c-nonfiction-05-how-seeds-grow
+- Type/level: Non-Fiction, Level C
+- Pages: 9
+- Required whole-book MP3 path: `/guided-reading/nonfiction/level-c/book-05/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/level-c-nonfiction-05-how-seeds-grow.json`
+
+Page text to narrate:
+
+Page 1:
+Almost every plant starts as a tiny seed. Seeds come in hundreds of different shapes and sizes. Each one holds everything a plant needs to begin life.
+
+Page 2:
+A seed needs three things to start growing: water, warmth, and air. When it gets all three, it wakes up and begins to grow.
+
+Page 3:
+First, a tiny root pushes down into the soil. Roots drink up water from the ground. Then a small shoot pushes up toward the light above.
+
+Page 4:
+The shoot breaks through the soil. It opens its first leaves toward the sun. Now the plant can begin to make its own food.
+
+Page 5:
+Plants use sunlight, water, and air to make food. This is called photosynthesis. It also makes the oxygen we breathe. Plants feed us and give us air!
+
+Page 6:
+As the plant grows bigger, it makes flowers. Flowers attract bees and butterflies. These visitors carry pollen from flower to flower. This is called pollination.
+
+Page 7:
+After pollination, the flower makes seeds. The seeds grow inside the plant protected by a pod, a fruit, or a shell.
+
+Page 8:
+Seeds travel away from the parent plant in different ways. Some fly on the wind. Some stick to animals' fur. Birds eat fruit and carry its seeds far away. Other seeds float on water.
+
+Page 9:
+You can grow your own plant. Put a seed in some soil. Add water. Put it in a sunny spot. Then watch the cycle begin.
+
+## 46. Spiders
+
+- Book ID: level-c-nonfiction-06-spiders
+- Type/level: Non-Fiction, Level C
+- Pages: 9
+- Required whole-book MP3 path: `/guided-reading/nonfiction/level-c/book-06/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/level-c-nonfiction-06-spiders.json`
+
+Page text to narrate:
+
+Page 1:
+Spiders are not insects. Insects have six legs and three main body parts. Spiders have eight legs and two main body parts. Spiders are arachnids.
+
+Page 2:
+All spiders make silk. Silk comes from tiny organs called spinnerets at the back of a spider's body. For its weight, spider silk can be stronger than steel.
+
+Page 3:
+Many spiders build webs to catch food. An orb web looks like a wheel. The spider first makes spokes. Then it adds a sticky spiral to catch insects.
+
+Page 4:
+Spiders build many kinds of webs. Sheet webs lie flat like a hammock. Tangle webs look like loose, messy threads. Different webs catch food in different ways.
+
+Page 5:
+Some spiders do not build webs to catch food. Jumping spiders stalk insects and leap onto them. Their large front eyes help them judge distance. They can jump many times their own body length.
+
+Page 6:
+Most spiders have eight eyes, but many cannot see well. Web-building spiders feel tiny vibrations through their legs. A trapped insect makes the silk shake, and the spider knows where to go.
+
+Page 7:
+When an insect is caught, a garden spider may wrap it in silk. The spider uses venom to keep the insect still. Then the spider can feed on its meal.
+
+Page 8:
+Female spiders protect their eggs in a silk sac. When the eggs hatch, tiny spiderlings come out. A mother wolf spider carries her egg sac with her.
+
+Page 9:
+Most spiders cannot harm people. They eat many insects, including some that damage plants. Spiders help to keep gardens and crops healthy. They are useful hunters.
+
+## 47. Under the Ocean
+
+- Book ID: level-c-nonfiction-07-under-the-ocean
+- Type/level: Non-Fiction, Level C
+- Pages: 9
+- Required whole-book MP3 path: `/guided-reading/nonfiction/level-c/book-07/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/level-c-nonfiction-07-under-the-ocean.json`
+
+Page text to narrate:
+
+Page 1:
+The ocean covers more than two thirds of our planet. It is the largest habitat on Earth. And most of it is still unexplored.
+
+Page 2:
+The ocean has different layers. Near the surface, there is plenty of sunlight and warmth. Further down, it grows colder and darker. Below 200 metres, no sunlight reaches at all.
+
+Page 3:
+The sunlit top layer is full of life. Coral reefs grow in warm, shallow water. They are home to thousands of kinds of fish and other animals. A coral reef is like an underwater city.
+
+Page 4:
+Coral may look like rock or a plant, but coral polyps are tiny animals. Many polyps live together in a colony. They build hard skeletons that can form a reef over many years.
+
+Page 5:
+Further down, in the deep and dark, strange creatures live. Many have enormous eyes to see in the dim light. Some are found nowhere else on Earth.
+
+Page 6:
+In the deepest, darkest water, some creatures make their own light. This is called bioluminescence. The anglerfish dangles a glowing lure to attract prey.
+
+Page 7:
+The deepest part of the ocean is called the Mariana Trench. It is nearly 11 kilometres deep. If you put the world's tallest mountain inside it, it would still be covered by water.
+
+Page 8:
+The ocean makes more than half the oxygen we breathe. Tiny plants called phytoplankton float near the surface. They use sunlight to make oxygen. Every other breath you take came from the ocean.
+
+Page 9:
+More than 80% of the ocean has never been explored. We know more about the surface of the Moon than we do about the deep ocean. There is so much left to discover.
+
+## 48. Butterflies
+
+- Book ID: level-c-nonfiction-08-butterflies
+- Type/level: Non-Fiction, Level C
+- Pages: 9
+- Required whole-book MP3 path: `/guided-reading/nonfiction/level-c/book-08/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/level-c-nonfiction-08-butterflies.json`
+
+Page text to narrate:
+
+Page 1:
+Butterflies are insects. Like all insects, they have six legs, four wings, and a body in three parts. They also have two long antennae.
+
+Page 2:
+A butterfly's life has four stages. This is called a life cycle. Each stage looks very different from the one before.
+
+Page 3:
+Stage one: a monarch butterfly lays a tiny egg on a milkweed leaf. The egg is no bigger than a pinhead. After it hatches, the leaf will be food for the caterpillar.
+
+Page 4:
+Stage two: the egg hatches into a caterpillar. It eats milkweed and grows quickly. It sheds its skin several times. A new caterpillar may eat its own eggshell first.
+
+Page 5:
+Stage three: the caterpillar hangs upside down. It sheds its skin one last time, revealing a green chrysalis. Inside, a great change begins.
+
+Page 6:
+Inside the chrysalis, the caterpillar's body changes into a butterfly. This process is called metamorphosis. For a monarch, it often takes about two weeks.
+
+Page 7:
+Stage four: the butterfly pushes out of the chrysalis. It hangs still and pumps fluid into its soft, crumpled wings. The wings spread out, dry, and harden.
+
+Page 8:
+Butterflies drink nectar through a long tube called a proboscis. They use their eyes and antennae to find flowers. They also taste plants with sensors on their feet.
+
+Page 9:
+In autumn, some monarchs fly thousands of kilometres south to Mexico. They rest for winter in mountain forests. In spring, several new generations make the journey north.
+
+## 49. Caves
+
+- Book ID: level-c-nonfiction-09-caves
+- Type/level: Non-Fiction, Level C
+- Pages: 9
+- Required whole-book MP3 path: `/guided-reading/nonfiction/level-c/book-09/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/level-c-nonfiction-09-caves.json`
+
+Page text to narrate:
+
+Page 1:
+Caves are hollow spaces underground or inside cliffs. They form in different ways. Water makes many limestone caves. Sea waves make caves in cliffs. Flowing lava can leave long cave tubes.
+
+Page 2:
+Many caves form in limestone. Rainwater becomes slightly acidic as it moves through soil. It seeps into cracks and slowly dissolves the rock. This takes many thousands of years.
+
+Page 3:
+Over time, tunnels and chambers form underground. Some cave systems stretch for hundreds of kilometres. Mammoth Cave in the United States has more than 650 kilometres of mapped passages.
+
+Page 4:
+Water drips from cave ceilings. It leaves tiny bits of mineral behind. Over many years, the mineral builds a hanging stone shape called a stalactite.
+
+Page 5:
+Drops also fall onto the cave floor. They leave minerals there too. Over many years, a rising stone shape called a stalagmite begins to grow.
+
+Page 6:
+A stalactite can grow down while a stalagmite grows up. If they meet, they form a stone column. A column can take thousands of years to grow.
+
+Page 7:
+Caves are home to many animals. Some bats rest upside down from cave ceilings by day. At dusk, many bats fly out to catch insects in the night air.
+
+Page 8:
+Some animals spend their whole lives in caves. Over many generations, they have changed to live in the dark. Some cave fish are pale and have tiny eyes or no working eyes.
+
+Page 9:
+Long ago, people sheltered in caves and painted pictures on the walls. Some cave paintings are more than 40,000 years old. They help us learn about people who lived long ago.
+
+## 50. Frogs
+
+- Book ID: level-c-nonfiction-10-frogs
+- Type/level: Non-Fiction, Level C
+- Pages: 9
+- Required whole-book MP3 path: `/guided-reading/nonfiction/level-c/book-10/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/level-c-nonfiction-10-frogs.json`
+
+Page text to narrate:
+
+Page 1:
+Common frogs are amphibians. They begin life in fresh water. As adults, they can live in water and on damp land.
+
+Page 2:
+In spring, female common frogs lay eggs in ponds. The eggs form clumps called frogspawn. Clear jelly surrounds each dark egg.
+
+Page 3:
+After two to four weeks, tadpoles hatch. They have tails and no legs. Their gills help them get oxygen from the water.
+
+Page 4:
+As a tadpole grows, back legs appear first. Front legs come next. Its tail slowly becomes shorter. This change is called metamorphosis.
+
+Page 5:
+A young frog is called a froglet. It has four legs and a short tail. It leaves the pond but stays near damp cover.
+
+Page 6:
+Common frogs eat insects, worms, slugs, and snails. They can snap up small prey with a sticky tongue.
+
+Page 7:
+A common frog has smooth, moist skin. It can take in oxygen through its skin. It also breathes with lungs.
+
+Page 8:
+Common frogs can be brown, olive, grey, yellow, or red. Dark patches help them blend in with mud and plants.
+
+Page 9:
+In spring, male common frogs make soft croaking calls near the pond. Their calls help females find them. Each frog species has its own call.
+
+## 51. Bob and Nan
 
 - Book ID: bob-and-nan-01
 - Type/level: Fiction, Level A
@@ -1378,7 +1711,7 @@ Bob and Nan sat.
 Page 7:
 Bob and Nan are pals!
 
-## 43. Bob and Nan go to the Park
+## 52. Bob and Nan go to the Park
 
 - Book ID: bob-and-nan-02-park
 - Type/level: Fiction, Level A
@@ -1409,7 +1742,7 @@ Bob and Nan ran up the big hill.
 Page 7:
 What a fun day!
 
-## 44. Bob, Nan and Fluff
+## 53. Bob, Nan and Fluff
 
 - Book ID: bob-and-nan-03-fluff
 - Type/level: Fiction, Level A
@@ -1429,10 +1762,10 @@ Page 3:
 The pup ran to Nan.
 
 Page 4:
-Nan pat the pup.
+Nan pats the pup.
 
 Page 5:
-Bob pat the pup.
+Bob pats the pup.
 
 Page 6:
 Bob and Nan call the pup Fluff.
@@ -1440,7 +1773,7 @@ Bob and Nan call the pup Fluff.
 Page 7:
 Fluff is our pup!
 
-## 45. Bob and Nan go to the Beach
+## 54. Bob and Nan go to the Beach
 
 - Book ID: bob-and-nan-04-beach
 - Type/level: Fiction, Level A
@@ -1471,7 +1804,7 @@ Nan got wet!
 Page 7:
 Bob and Nan had fun at the beach!
 
-## 46. Bob and Nan's First Day at School
+## 55. Bob and Nan's First Day at School
 
 - Book ID: bob-and-nan-05-school
 - Type/level: Fiction, Level A
@@ -1502,7 +1835,7 @@ Bob and Nan sit at a desk.
 Page 7:
 Bob and Nan had fun at school!
 
-## 47. Nan and Bob go to the Zoo
+## 56. Nan and Bob go to the Zoo
 
 - Book ID: bob-and-nan-06-zoo
 - Type/level: Fiction, Level A
@@ -1536,7 +1869,7 @@ The big ape ate a fig.
 Page 8:
 Nan and Bob had a lot of fun!
 
-## 48. Nan and Bob: Bob's Birthday Party
+## 57. Nan and Bob: Bob's Birthday Party
 
 - Book ID: bob-and-nan-07-birthday
 - Type/level: Fiction, Level A
@@ -1556,7 +1889,7 @@ Page 3:
 Bob rips it! It is a red bat!
 
 Page 4:
-Mum lit the big cake.
+Mum lit the candles.
 
 Page 5:
 Bob can see six big candles.
@@ -1570,7 +1903,7 @@ Nan and Bob run and hop!
 Page 8:
 It was the best day!
 
-## 49. Nan and Bob get Sick
+## 58. Nan and Bob get Sick
 
 - Book ID: bob-and-nan-08-sick
 - Type/level: Fiction, Level A
@@ -1604,7 +1937,7 @@ Bob is well! Nan is well!
 Page 8:
 Run, Bob! Run, Nan! Run, Fluff!
 
-## 50. Nan and Bob Learn to Read
+## 59. Nan and Bob Learn to Read
 
 - Book ID: bob-and-nan-09-read
 - Type/level: Fiction, Level A
@@ -1638,7 +1971,7 @@ Nan and Bob read all day.
 Page 8:
 Fluff had a nap. Good dog, Fluff!
 
-## 51. Fluff Visits the Vet
+## 60. Fluff Visits the Vet
 
 - Book ID: bob-and-nan-10-vet
 - Type/level: Fiction, Level A
@@ -1672,7 +2005,7 @@ Fluff is so good! What a pup!
 Page 8:
 Fluff is well! Run, Fluff, run!
 
-## 52. James and Anna go to Space
+## 61. James and Anna go to Space
 
 - Book ID: james-and-anna-01-space
 - Type/level: Fiction, Level B
@@ -1724,7 +2057,7 @@ Page 13:
 Page 14:
 BUMP! They were back in the garden. Mum had made cake. "Best trip EVER!" they said.
 
-## 53. James and Anna and Chips
+## 62. James and Anna and Chips
 
 - Book ID: james-and-anna-02-chips
 - Type/level: Fiction, Level B
@@ -1770,7 +2103,7 @@ CRUNCH! He ate the jumper.
 Page 12:
 "CHIPS!" they both said. But they could not stop smiling. Chips was naughty and cheeky and silly — and they loved him so much.
 
-## 54. James and Anna go Shopping
+## 63. James and Anna go Shopping
 
 - Book ID: james-and-anna-03-shopping
 - Type/level: Fiction, Level B
@@ -1819,7 +2152,7 @@ On the way home, the bread smelled so good. James started to reach into the bag.
 Page 13:
 At home, Mum made lunch. After, they had their cakes. Chips ate the paper bag. "CHIPS!" they said. But they were laughing too hard to be cross.
 
-## 55. James and Anna go to the Dentist
+## 64. James and Anna go to the Dentist
 
 - Book ID: james-and-anna-04-dentist
 - Type/level: Fiction, Level B
@@ -1868,7 +2201,7 @@ Page 12:
 Page 13:
 That night, they brushed their teeth for a very long time. Chips sat at the bathroom door and watched. "Good night, Chips," said Anna. Chips blinked.
 
-## 56. James and Anna build a Tree House
+## 65. James and Anna build a Tree House
 
 - Book ID: james-and-anna-05-tree-house
 - Type/level: Fiction, Level B
@@ -1920,7 +2253,7 @@ Mum sent up a tray of juice and biscuits on a rope. Dad waved from below. Chips 
 Page 14:
 That night, they got their sleeping bags and climbed up to sleep. Stars shone above them. "Best. Night. Ever," said James. Anna smiled. She agreed.
 
-## 57. James and Anna visit Grandma's Farm
+## 66. James and Anna visit Grandma's Farm
 
 - Book ID: ja-b-06
 - Type/level: Fiction, Level B
@@ -1966,7 +2299,7 @@ That evening, Grandma made soup from the garden and fried the eggs James had fou
 Page 12:
 They sat outside as the sun went down. Bess looked over her gate. Percy slept in the mud. Chips ate the fence post. It had been the best farm day ever.
 
-## 58. James and Anna and the School Play
+## 67. James and Anna and the School Play
 
 - Book ID: ja-b-07
 - Type/level: Fiction, Level B
@@ -2015,7 +2348,7 @@ At the very end, everyone stood and clapped. James and Anna walked to the front 
 Page 13:
 Mum and Dad clapped the loudest. Mum had tears. Dad said it was just the bright lights. James and Anna did not believe him.
 
-## 59. Chips's Play Date
+## 68. Chips's Play Date
 
 - Book ID: ja-b-08
 - Type/level: Fiction, Level B
@@ -2061,7 +2394,7 @@ Mum brought out two bowls — water for Bella, chopped apple for Chips. Bella dr
 Page 12:
 "CHIPS!" said James and Anna. Chips blinked. Bella wagged her tail. It had been the very best play date.
 
-## 60. James and Anna's New Bikes
+## 69. James and Anna's New Bikes
 
 - Book ID: ja-b-09
 - Type/level: Fiction, Level B
@@ -2110,7 +2443,7 @@ On the way home, James and Anna raced. They crossed the gate post at exactly the
 Page 13:
 That night their legs ached. But they were both smiling. "Same time tomorrow?" said James. Anna was already asleep.
 
-## 61. James, Anna and Chips go Camping
+## 70. James, Anna and Chips go Camping
 
 - Book ID: ja-b-10
 - Type/level: Fiction, Level B
@@ -2162,7 +2495,7 @@ Page 13:
 Page 14:
 "Next year," said James, "we camp in a real field." "Next year," said Mum from the doorway, "Chips stays home." Chips ate the tent door zip.
 
-## 62. Aiden and Betty Start Grade 1
+## 71. Aiden and Betty Start Grade 1
 
 - Book ID: ab-c-01
 - Type/level: Fiction, Level C
@@ -2185,7 +2518,7 @@ Page 4:
 "In Grade 1," said Miss Okafor, "we will read chapter books, solve number puzzles and begin to understand how the world around us works." Aiden thought that sounded like an awful lot — but he found he was leaning forward slightly without meaning to.
 
 Page 5:
-Everyone had their own desk with a name label. Aiden's said AIDEN in neat blue letters. He ran his finger over it slowly and felt, just slightly, like it might turn out to be all right.
+Everyone had their own desk. Aiden found one beside Betty. He ran his finger across the smooth top and felt, just slightly, that it might turn out to be all right.
 
 Page 6:
 The first lesson was handwriting — joined-up letters, which were completely new and seemed designed to be tricky. Aiden's pen slipped and he made a large blot right across the middle of the page. He went very red.
@@ -2197,10 +2530,10 @@ Page 8:
 At lunch, they sat together by the window. Aiden opened his lunchbox and found a small folded note from Mum tucked under his sandwich. It said: You've got this, star. He smiled all the way through his apple.
 
 Page 9:
-After lunch came Maths. Miss Okafor wrote sums on the board, each one slightly harder than the last. Some of them made Aiden's brain feel stretched in an unfamiliar way. He was discovering that this was not entirely a bad feeling.
+After lunch came Maths. Miss Okafor gave them number puzzles with counters and shapes. Each one was a little harder than the last. Aiden's brain felt stretched in a new way. He discovered that this was not a bad feeling.
 
 Page 10:
-Betty answered three questions out loud and got them all right. Aiden raised his hand once, very carefully, and he got his right too. Miss Okafor stuck a gold star beside both their names on the board. Aiden looked at his star for quite a long time.
+Betty answered three questions out loud and got them all right. Aiden raised his hand once, very carefully, and his answer was right too. Miss Okafor gave them each a gold star. Aiden held onto that moment for the rest of the day.
 
 Page 11:
 Then there was Science — real Science, with a magnifying glass and a tray of soil and seeds. Aiden forgot to be nervous. He was too busy looking at a woodlouse through the magnifying glass and writing down exactly what he saw.
@@ -2211,7 +2544,7 @@ At home time, Mum was waiting at the gate. She crouched down with an expectant l
 Page 13:
 "Grade 1 is brilliant," announced Betty, just before bed. "It's actually not that bad," said Aiden, which from Aiden meant exactly the same thing. He turned his light off, closed his eyes, and was asleep before he could think of anything to worry about.
 
-## 63. Aiden and Betty have a Yard Sale
+## 72. Aiden and Betty have a Yard Sale
 
 - Book ID: ab-c-02
 - Type/level: Fiction, Level C
@@ -2228,10 +2561,10 @@ Page 2:
 "We should have a yard sale," said Betty. She said it the way she said all her best ideas — quickly and firmly, as though the idea had already made up its mind. "We could make actual money." Aiden wasn't certain at first, but when she said the word money, he started to listen.
 
 Page 3:
-They spent Friday evening sorting everything into three piles: SELL, KEEP and MAYBE. The MAYBE pile kept losing things to SELL, because, as Betty pointed out, they hadn't touched any of them in over a year. By nine o'clock, the MAYBE pile had completely disappeared.
+They spent Friday evening sorting everything into three piles. A red card meant sell. A blue card meant keep. A yellow card meant maybe. By nine o'clock, the maybe pile had disappeared.
 
 Page 4:
-Betty made neat round price stickers on square labels, writing each price in her best handwriting. Aiden made the sign for the front gate — YARD SALE: EVERYTHING MUST GO — in six colours, with three exclamation marks, then a fourth one, just to make sure.
+Betty made neat round price stickers. Aiden decorated a large sign board for the front gate with six colours and four big stars. Mum would add the words and prices later.
 
 Page 5:
 On Saturday morning, they dragged two folding tables out to the front path and arranged everything carefully. The old teddies sat in a row at the back and looked slightly sorry for themselves. "They'll go to good homes," said Aiden, mostly to himself, as a form of reassurance.
@@ -2260,7 +2593,7 @@ They agreed on a proper tent for the garden — not a tiny pop-up one but a real
 Page 13:
 As Aiden folded up the last table, he found something wedged at the very back — his old stuffed elephant, Nelly, who he had completely forgotten was there. He held her for a long moment. Then he carried her inside and put her on the shelf above his desk. Some things, he decided, were not for selling.
 
-## 64. Aiden and Betty go on Holiday
+## 73. Aiden and Betty go on Holiday
 
 - Book ID: ab-c-03
 - Type/level: Fiction, Level C
@@ -2309,7 +2642,7 @@ Betty found a small smooth white pebble at the shoreline and turned it over and 
 Page 13:
 The drive home felt half as long as the drive there, which Aiden thought was mathematically impossible. When they turned into their street, the house looked completely the same as when they'd left it. Aiden noticed he felt, quietly, like he was a little bit different.
 
-## 65. Aiden and Betty and Socks
+## 74. Aiden and Betty and Socks
 
 - Book ID: ab-c-04
 - Type/level: Fiction, Level C
@@ -2320,48 +2653,48 @@ The drive home felt half as long as the drive there, which Aiden thought was mat
 Page text to narrate:
 
 Page 1:
-It was an ordinary Saturday in late August when Uncle Eddie arrived at the door with a travelling bag, a very wide smile, and something small and determined making a noise from inside his coat.
+It was an ordinary Saturday in late August when Uncle Eddie arrived at the door with a travelling bag, a very wide smile, and something small and determined scratching inside a sturdy pet carrier.
 
 Page 2:
-Uncle Eddie was Dad's younger brother, and he was a wildlife researcher who had spent the last two years living near a tropical rainforest, studying primates. He had, apparently, brought one with him.
+Uncle Eddie was Dad's younger brother and an animal behaviour researcher. He had spent the last two years helping rescue centres understand how frightened dogs learn to trust people. He had, apparently, brought one of his foster dogs with him.
 
 Page 3:
-Carefully, Uncle Eddie unzipped the carry-case. Inside, curled up like a small comma, was the most compact monkey Aiden had ever seen. He had cream-white fur on his face and chest, darker brown on his back, and small black hands and feet that looked, unmistakably, like he was wearing a pair of extremely neat little socks.
+Carefully, Uncle Eddie opened the carrier door. Inside, curled up like a small comma, was the most compact dog Aiden had ever seen. He had cream-white fur on his face and chest, darker brown on his back, and four neat black paws that looked, unmistakably, like he was wearing socks.
 
 Page 4:
-"His name is Socks," said Uncle Eddie. "He was orphaned when he was very small, and I've raised him from a baby. He understands a lot of what you say, he copies behaviour, and he is completely tame." He paused just a moment. "He is also, just occasionally, a little bit naughty."
+"His name is Socks," said Uncle Eddie. "He was found alone when he was very small, and I've fostered him ever since. He understands a lot of words, he learns quickly, and he likes people." He paused just a moment. "He is also, just occasionally, a little bit naughty."
 
 Page 5:
-Socks looked at Aiden. Then he looked at Betty. Then he reached out one small black hand, calmly removed Aiden's watch from Aiden's wrist, and put it on his own. He looked at it with great satisfaction. "Charming," said Mum. "Yes," said Uncle Eddie, completely unsurprised.
+Socks looked at Aiden. Then he looked at Betty. Aiden set his watch on the low table. Socks calmly picked it up by the strap, carried it to his blanket, and rested one black paw on it with great satisfaction. "Charming," said Mum. "Yes," said Uncle Eddie, completely unsurprised.
 
 Page 6:
-Uncle Eddie explained that he was returning to the rainforest for six months and couldn't bring Socks along this time. He looked at Dad with a hopeful expression. Dad said yes before Mum could say anything at all, which was exactly what Mum had expected him to do.
+Uncle Eddie explained that he was joining a rescue team overseas for six months and could not bring Socks. He looked at Dad with a hopeful expression. Dad agreed to foster him before Mum could say anything at all, which was exactly what Mum had expected him to do.
 
 Page 7:
-Socks explored the house in eleven minutes. He opened every drawer he could reach, rearranged the fruit bowl into a different order, sat briefly on each windowsill and posted three letters from the hall table into the back of the television. He seemed very pleased with his work.
+Socks explored the house in eleven minutes. He nudged open every low drawer he could reach, moved the slippers into a new order, tested each warm windowsill, and carried three letters from the hall table behind the television. He seemed very pleased with his work.
 
 Page 8:
-"He loves shiny objects," Uncle Eddie explained at dinner. "He adores warm spots — the airing cupboard is a particular risk. And if he gets bored, he will find a way to become interesting." Everyone filed this information away carefully.
+"He loves shiny objects," Uncle Eddie explained at dinner. "He adores warm spots, and the airing cupboard is a particular risk. If he gets bored, he will always find a way to become interesting." Everyone filed this information away carefully.
 
 Page 9:
-Socks sat at the table in a tiny red waistcoat that Uncle Eddie had stitched for him. He watched everyone use their fork with great attention. Then he picked up his own fork and used it correctly. Then he threw the fork across the room. "He does that every evening," said Uncle Eddie. "We've never understood why."
+Socks wore the little red harness that Uncle Eddie had fitted for him. He watched everyone at the table with great attention. When Dad dropped his napkin, Socks carried it neatly to his own mat. Then he fetched Uncle Eddie's slipper from the hall. "He does that every evening," said Uncle Eddie. "We've never understood why."
 
 Page 10:
-That night, Dad built Socks a cosy sleeping box — a wooden crate lined with a soft fleece blanket — and settled it in the warm corner of the kitchen. In the morning, Socks was not in it. He was curled up fast asleep at the foot of Aiden's bed, his small black hand curled around Aiden's pencil torch.
+That night, Dad made Socks a cosy sleeping box — a wooden crate lined with a soft fleece blanket — and settled it in a quiet corner of the kitchen. In the morning, Socks was not in it. He was curled up fast asleep at the foot of Aiden's bed, his nose resting beside Aiden's pencil torch.
 
 Page 11:
-Over the following weeks, Socks wove himself into the house. He had his own peg for his waistcoat. He met them at the door when they came home from school. He sat on Dad's shoulder while Dad read the newspaper and turned the pages for him, very seriously.
+Over the following weeks, Socks wove himself into the house. He had his own peg for his red harness. He met them at the door when they came home from school. He lay at Dad's feet while Dad read the newspaper and nudged the pages whenever Dad stopped too long.
 
 Page 12:
-He was also, as promised, occasionally naughty. He dropped a teaspoon into the toaster. He unravelled the entire roll of cling film in the kitchen drawer. He stole every single one of Betty's hair bobbles and lined them up on the windowsill in a precise order that nobody could explain.
+He was also, as promised, occasionally naughty. He carried three clean clothes pegs out of the laundry basket. He unravelled a whole roll of paper ribbon from the craft cupboard. He collected every one of Betty's hair bobbles and hid them carefully under his blanket.
 
 Page 13:
-"He is completely impossible," said Mum, as she did most evenings. But she had also started setting a small dish of whatever she was cooking on the corner of the counter every night, because Socks knew exactly where it appeared and waited there very patiently, and she had not been able to bring herself to stop.
+"He is completely impossible," said Mum, as she did most evenings. But she had also started measuring his proper dog food into a small dish beside his water bowl every night, because Socks knew exactly when it appeared and waited on his mat very patiently.
 
 Page 14:
-Aiden had been keeping a field notebook — just as Uncle Eddie had shown him. He had titled it: Socks: A Field Study. He had written things like: Prefers grapes to apple. Expresses disapproval by sitting with back turned. Unusually precise about the order of objects. He turned to a fresh page. It was going to take a very long time to fully understand Socks. He hoped, quietly, that he had the time.
+Aiden had been keeping a field notebook, just as Uncle Eddie had shown him. He had titled it Socks: A Field Study. He had written things like: Prefers carrot to apple. Expresses disapproval by sitting with his back turned. Stores interesting objects under blanket. He turned to a fresh page. It was going to take a long time to fully understand Socks. He hoped, quietly, that he had the time.
 
-## 66. Socks Goes Missing
+## 75. Socks Goes Missing
 
 - Book ID: ab-c-05
 - Type/level: Fiction, Level C
@@ -2372,48 +2705,48 @@ Aiden had been keeping a field notebook — just as Uncle Eddie had shown him. H
 Page text to narrate:
 
 Page 1:
-It started with the waistcoat hook being empty.
+It started with the red harness hook being empty.
 
 Page 2:
-Every morning, Socks sat on the kitchen counter and waited while Betty did up the buttons on his little red waistcoat, which always lived on its own peg beside the back door. But on a Tuesday in October, the peg was empty. And when Aiden went to check, Socks's sleeping box in the corner of his room was empty too.
+Every morning, Socks sat on his kitchen mat while Betty clipped on his little red harness, which always lived on its own peg beside the back door. But on a Tuesday in October, the peg was empty. When Aiden checked, Socks's fleece-lined sleeping crate was empty too.
 
 Page 3:
 They searched everywhere. Aiden checked under every sofa cushion and behind every bookshelf. Betty methodically looked in every high cupboard. Mum turned the garden upside down. Dad searched the garden again, more systematically, with a torch — even though it was daytime. Socks was not anywhere.
 
 Page 4:
-"He couldn't have got out," said Dad. "All the windows were shut last night." Then Mum remembered the bathroom window — the small one above the bath, left open just a crack for steam. She looked at Aiden and Aiden looked at Betty. A crack that was, they all realised at the same moment, almost exactly the width of a small monkey.
+"He couldn't have got out," said Dad. "All the doors were shut last night." Then Mum remembered the side gate. The latch had not dropped properly after the recycling went out. She looked at Aiden, and Aiden looked at Betty. The gap beneath it was, they all realised, just wide enough for a determined little dog.
 
 Page 5:
-They went out onto the pavement and called his name. "Socks! Socks!" The October wind moved through the trees and sent leaves skittering across the path. No small monkey appeared. Aiden put his hands in his pockets and tried not to feel too worried. It didn't work very well.
+They went out onto the pavement and called his name. "Socks! Socks!" The October wind moved through the trees and sent leaves skittering across the path. No small dog appeared. Aiden put his hands in his pockets and tried not to feel too worried. It did not work very well.
 
 Page 6:
-Betty designed a MISSING MONKEY poster on her tablet in under five minutes. It had a photograph of Socks in his waistcoat, a written description, and their phone number in large digits. She printed fourteen copies. They posted them through letter boxes up and down both sides of the street without stopping.
+Betty designed a MISSING DOG poster on her tablet in under five minutes. It had a photograph of Socks in his red harness, a clear description, and their phone number in large digits. She printed fourteen copies. They posted them through letter boxes up and down both sides of the street without stopping.
 
 Page 7:
 Aiden re-read his field notebook carefully, looking for anything useful. He had written: Drawn to shiny objects. Drawn to warm spots. Will follow interesting smells. Exceptionally good at getting into places he shouldn't. He stared at that last line for quite a long time. It did not narrow things down.
 
 Page 8:
-By three o'clock, the sky had gone grey and the wind had picked up. Aiden was sitting on the front step, not saying much. He kept thinking about what Uncle Eddie had said once: that animals raised by hand always know where home is. He held onto that thought very carefully.
+By three o'clock, the sky had gone grey and the wind had picked up. Aiden sat on the front step, not saying much. He kept thinking about what Uncle Eddie had said: foster dogs learn the voices and scents of people who make them feel safe. He held onto that thought very carefully.
 
 Page 9:
-Then the phone rang. It was their neighbour Mrs Obi, from number thirty-seven, three houses down. Her voice was very precise. "I believe," she said carefully, "that there may be a small monkey in my kitchen. He appears to be eating my shortbread."
+Then the phone rang. It was their neighbour Mrs Obi, from number thirty-seven, three houses down. Her voice was very precise. "I believe," she said carefully, "that your small dog is in my kitchen. He is lying on the mat beside my warm radiator."
 
 Page 10:
 They ran. All four of them, in their socks, without stopping to find shoes, down the pavement to number thirty-seven. They could hear, even from the gate, a small and very determined crunching sound coming from inside.
 
 Page 11:
-There was Socks, sitting on Mrs Obi's kitchen counter beside an open shortbread tin. He was wearing his waistcoat — which they had also assumed was missing — and had crumbs on his face and the expression of someone who sees absolutely no problem with any of this whatsoever.
+There was Socks, curled on Mrs Obi's kitchen mat beside the radiator. He was wearing his red harness, which they had also assumed was missing, and had a dog-safe biscuit between his black paws. He looked as if he saw absolutely no problem with any of this whatsoever.
 
 Page 12:
-"How on earth did he get in?" asked Dad. Mrs Obi pointed to the cat flap in her back door. Of course. Socks had worked out the cat flap. He had also — from the state of the shortbread tin — clearly been in before, which nobody had known and which explained certain things about Mrs Obi's biscuit situation.
+"How on earth did he get in?" asked Dad. Mrs Obi pointed to the cat flap in her back door. Of course. Socks had worked out the cat flap. She had found muddy little pawprints there once before, but had blamed the neighbour's cat. Certain things suddenly made much more sense.
 
 Page 13:
-Aiden picked him up and held him. Socks was warm and solid and smelled faintly of shortbread. He patted Aiden's cheek twice with one small black hand, the way he sometimes did when he felt like being kind, and then tucked his head under Aiden's chin. Aiden breathed out slowly.
+Aiden knelt and held him close. Socks was warm and solid and smelled faintly of Mrs Obi's lavender rug. He licked Aiden's cheek twice, the way he sometimes did when he felt like being kind, and then tucked his head beneath Aiden's chin. Aiden breathed out slowly.
 
 Page 14:
-On the way home, Betty said they needed a tracker collar. Aiden said they needed to block every cat flap on the street. Mum said they needed a more interesting biscuit tin. Dad said they should call Uncle Eddie and tell him what his monkey had been up to. They all laughed, and kept laughing, all the way home — and Socks rode on Aiden's shoulder the whole way, looking, as always, entirely pleased with himself.
+On the way home, Betty said they needed a tracker tag. Aiden said they needed a better latch on the side gate. Mum said they should check every cat flap on the street. Dad said they should call Uncle Eddie and report what his foster dog had been up to. They laughed all the way home, while Socks trotted between them on his lead, looking entirely pleased with himself.
 
-## 67. Aiden and Betty and the Science Fair
+## 76. Aiden and Betty and the Science Fair
 
 - Book ID: ab-c-06
 - Type/level: Fiction, Level C
@@ -2433,16 +2766,16 @@ Page 3:
 They decided to grow crystals. It was Betty's original idea and Aiden's second choice, which Betty said made it the obvious answer. They ordered the kit and spent four days watching for the post.
 
 Page 4:
-The crystal-growing worked perfectly. Blue copper sulphate crystals grew on a thread in a jam jar, getting bigger and more geometric every day. Aiden photographed them every morning. Betty kept a careful growth chart.
+The kit used safe crystal salts. Mum read the instructions with them. They put on goggles and set the closed jar in a tray. Aiden photographed the growing crystals each morning, while Betty added a mark to her chart.
 
 Page 5:
-Then Socks found the crystal jar. He did not eat it. He simply moved it from the windowsill to a high shelf, where he sat beside it with the expression of someone who had just acquired something important.
+They kept the closed jar on a high shelf where Socks could not reach it. Socks sat on the floor and looked up at the crystals. Mum made sure the jar stayed safe and still.
 
 Page 6:
-"Socks!" said Aiden and Betty. Socks examined the jar from every angle, turning it slowly. He handed it back eventually — and the crystals were, miraculously, completely intact.
+Each morning, Mum lifted down the closed jar. Aiden took a photograph and Betty added a mark to her chart. Then Mum put the jar back on the shelf, and everyone washed their hands.
 
 Page 7:
-They made their display board on a rainy Saturday — a bright blue background, a photograph of each day's crystal growth, Betty's data chart, and a title in Aiden's best six-colour lettering: HOW DO CRYSTALS GROW?
+On a rainy Saturday, they made their bright blue display board. They added one photograph from each day and Betty's colour graph. Aiden left a clear space at the top for the project title.
 
 Page 8:
 On the morning of the Science Fair, Betty packed the display board in a folder while Aiden carried the crystal jar carefully in both hands. Socks watched from the hallway with what Aiden's notebook called 'intense strategic interest.'
@@ -2457,12 +2790,12 @@ Page 11:
 Third place, with a commendation for experimental method, went to HOW DO CRYSTALS GROW? The commendation was on a proper certificate with a gold border. Betty read every word of it, twice.
 
 Page 12:
-That evening, Aiden added a new page to his field notebook: WHAT MAKES A GOOD EXPERIMENT. He had six points. Socks sat on the desk and watched him write, which Aiden had never seen him do before.
+That evening, Aiden added a new page to his field notebook. He wrote down six things that make an experiment fair and safe. Socks sat beside the desk and watched his pen move, which Aiden had never seen him do before.
 
 Page 13:
 "I think he might be learning," said Aiden carefully, watching Socks watch the pen. "Don't encourage him," said Betty, from the doorway. Socks blinked once, in a way that suggested he had already learned considerably more than anyone knew.
 
-## 68. Aiden, Betty and Socks's Big Adventure
+## 77. Aiden, Betty and Socks's Big Adventure
 
 - Book ID: ab-c-07
 - Type/level: Fiction, Level C
@@ -2479,7 +2812,7 @@ Page 2:
 Uncle Eddie told them about the nature reserve two miles from town — woodland, a river, meadows, a hide for watching birds. "Socks would understand it completely," he said. Mum said she wasn't certain that made it a good idea. They went anyway.
 
 Page 3:
-The reserve was layered with sounds — insects, birds, the river — all at once and all different. Socks sat on Aiden's shoulder and went completely still, his head turning slowly to track each sound. Aiden had never seen him so quiet.
+The reserve was layered with sounds — insects, birds, the river — all at once and all different. Socks stopped beside Aiden and went completely still. His ears turned towards each new sound. Aiden had never seen him so quiet.
 
 Page 4:
 Betty found the bird hide first — a long wooden structure with narrow slot windows over the reed bed. Inside: a log book, borrowed binoculars, and a board listing twelve species to find. She was immediately in her element.
@@ -2488,30 +2821,30 @@ Page 5:
 Through the binoculars, Betty saw a kingfisher — a bright impossible dart of blue-orange above the water, there and then gone. She had to put the binoculars down and close her eyes for a moment. She had seen it. She wrote it in the log book.
 
 Page 6:
-Socks had other interests. He had crossed a wide fallen tree over the river before anyone had finished the sentence. Aiden said they should follow. Uncle Eddie said absolutely not. Then Uncle Eddie looked at the tree. Then they crossed it.
+Socks had other interests. He reached the start of a wide wooden footbridge over the river before anyone had finished the sentence. Aiden wanted to follow. Uncle Eddie checked the map and clipped on Socks's lead. Then they crossed together.
 
 Page 7:
-The far bank was different — thicker trees, softer ground, a field of tall meadow grass beyond the treeline. Socks bounded ahead, turning back every few steps to make sure they were following.
+The far bank was different — thicker trees, softer ground, a field of tall meadow grass beyond the treeline. Socks trotted ahead on his long lead, turning back every few steps to make sure they were following.
 
 Page 8:
-He led them to a shallow pool in a mossy clearing — fed by a spring, perfectly clear and still. Two dragonflies skimmed the surface, electric blue. Aiden crouched at the edge and looked in. Small things moved in the shallows. He forgot to breathe.
+He led them to a shallow pool in a mossy clearing — fed by a spring, perfectly clear and still. Two dragonflies skimmed the surface, electric blue. Aiden crouched at the path's edge and looked in while Socks waited beside him. Small things moved in the shallows.
 
 Page 9:
-Betty wrote down every species she could identify in the hide log book, which she had technically borrowed without permission. Uncle Eddie said they'd bring it back. She wrote in neat columns: dragonflies, water boatmen, a great diving beetle.
+Back at the hide, Betty wrote down every species she could identify in the visitor log book. Uncle Eddie checked the names with her. She made neat entries for dragonflies, water boatmen and a great diving beetle.
 
 Page 10:
-On the way back, the sun was low and the meadow was full of seed heads catching the light. Socks rode on Uncle Eddie's shoulder, which he had always done but which now looked, here, like a kind of homecoming.
+On the way back, the sun was low and the meadow was full of seed heads catching the light. Socks walked beside Uncle Eddie on his red lead. Every few steps, he looked up at him. Here, it looked like a kind of homecoming.
 
 Page 11:
-Uncle Eddie left on Sunday evening. He stayed on the doorstep a long time, saying goodbye properly. When the car was gone, Socks sat on the hall windowsill and watched the empty road. Then he came inside and sat on Aiden's lap, which he had never done before. Aiden stayed very still.
+Uncle Eddie left on Sunday evening. He stayed on the doorstep a long time, saying goodbye properly. When the car was gone, Socks sat by the hall window and watched the empty road. Then he rested his head on Aiden's lap, which he had never done before. Aiden stayed very still.
 
 Page 12:
 Aiden had started a new notebook that evening — not the Socks field study, but a nature notebook. He had titled it with the date. Betty had started a matching one, without them discussing it. Both were already half a page in.
 
 Page 13:
-"Do you think he misses the rainforest?" Aiden asked one evening. Betty thought for a long time. "I think he's decided this is his rainforest," she said. Aiden looked at Socks on his shoulder. "Yeah," he said. "I think so too."
+"Do you think he misses travelling with Uncle Eddie?" Aiden asked one evening. Betty thought for a long time. "I think he's decided this is home," she said. Aiden looked at Socks curled at his feet. "Yeah," he said. "I think so too."
 
-## 69. Aiden and Betty and the Bully
+## 78. Aiden and Betty and the Bully
 
 - Book ID: ab-c-08
 - Type/level: Fiction, Level C
@@ -2522,45 +2855,45 @@ Page 13:
 Page text to narrate:
 
 Page 1:
-There was a boy in Year 2 called Marcus who thought it was funny to call people names. He had decided, for reasons that made no sense at all, that Aiden's name was Lazy-den. He said it on Wednesday. Two children laughed, which made him say it again on Thursday.
+A boy in Year 2 was called Marcus. He kept calling Aiden a silly name. Aiden did not like it.
 
 Page 2:
-Aiden didn't say anything. He went home and sat on his bed and stared at the ceiling. He wasn't crying, but he wasn't fine either. He didn't really want to talk about it — which Betty noticed immediately.
+Aiden went home feeling quiet and upset. He told Betty what had happened.
 
 Page 3:
-"What happened?" said Betty. Aiden told her in pieces, looking at the floor. Betty listened to all of it without saying anything. Then she said: "He's wrong. And being wrong loudly is still just being wrong." Aiden thought about that.
+"That is not okay," Betty said. "You can tell him to stop. Then we can tell a grown-up."
 
 Page 4:
-That night, Aiden wrote in his notebook: When something is unfair, you have two choices — pretend it isn't happening, or decide what to do. He starred the second option. He didn't quite know yet what doing something looked like.
+That night, Aiden made a plan. He would speak clearly, walk away, and tell Miss Okafor. Socks sat beside him.
 
 Page 5:
-On Friday, Marcus said it again in the lunch queue. Betty was right there. She looked at Marcus with exactly one raised eyebrow and said, clearly: "His name is Aiden. Which you know." Marcus looked surprised. He didn't say anything else.
+On Friday, Marcus used the silly name again. Betty looked at him. "His name is Aiden. Please stop," she said.
 
 Page 6:
-Aiden felt two things: grateful for Betty, and also frustrated, because he wanted to have done it himself. Betty, who had been watching him think, said: "Next time you'll do it. I was just practising with you."
+Aiden was glad Betty helped. He wanted to try the words himself next time. "I will stand with you," Betty said.
 
 Page 7:
-On Monday, Marcus said it one more time, in front of a small group. Aiden turned around. He looked at Marcus directly for a moment. Then he said, clearly: "My name is Aiden." That was all. He turned back.
+On Monday, Marcus said it again. Aiden faced him. "My name is Aiden. Stop," he said in a clear voice.
 
 Page 8:
-It was quiet. Nobody laughed. Marcus said something low, but nobody around him responded. Aiden walked on. His legs were slightly shaky — but he hadn't shown it, and he was extremely proud of himself.
+Aiden walked away with Betty. They told Miss Okafor what had happened. She listened and said she would help.
 
 Page 9:
-He wrote in his notebook that evening: Saying a true thing clearly is harder than it looks and better than it sounds. He underlined it twice.
+That evening, Aiden felt proud. He had spoken clearly, walked away, and asked for help. Socks rested by his feet.
 
 Page 10:
-Betty read it over his shoulder. She didn't comment on it. She put her hand on his shoulder for a moment and went back to her own desk. That was enough.
+Betty put a hand on Aiden's shoulder. "You did well," she said.
 
 Page 11:
-A week later, Marcus bumped into Aiden's tray at lunch — accidentally this time, genuinely. He said sorry, just once, with his eyes down. Aiden nodded. He didn't make a big thing of it. Some things, he thought, didn't need to become a story.
+A week later, Marcus bumped Aiden's tray by accident. "Sorry, Aiden," Marcus said. Aiden nodded.
 
 Page 12:
-Miss Okafor had noticed, in the way that good teachers always notice. She started a class discussion about what it means to be fair, and what you do when things aren't. Several children looked at the floor. Marcus looked at the window.
+Miss Okafor talked with the class about bullying. "If someone keeps being unkind, tell them to stop and tell an adult," she said.
 
 Page 13:
-"The point," said Miss Okafor, "is not that everyone will always be kind. The point is that you always have a choice about how to respond — and that choice is completely yours." Aiden wrote it down. It felt like something worth keeping.
+"You can speak, move away, and ask for help," Miss Okafor said. "Bullying is never your fault." Aiden remembered her words.
 
-## 70. Aiden and Betty: New Teeth
+## 79. Aiden and Betty: New Teeth
 
 - Book ID: ab-c-09
 - Type/level: Fiction, Level C
@@ -2571,45 +2904,45 @@ Page 13:
 Page text to narrate:
 
 Page 1:
-It started with a slight wobble. Aiden was eating an apple when he felt, for the first time in his life, that one of his front teeth was moving in a way that front teeth were definitely not supposed to move.
+Aiden bit into an apple. One front tooth gave a little wobble. He touched it gently. "My tooth is loose!" he said.
 
 Page 2:
-He told Betty. Betty got the torch and studied it with great interest. "It's definitely loose," she said. "It'll fall out and a permanent one will grow. That's much better, actually." Aiden was not entirely sure that it was.
+Betty looked with a small torch. "It is a baby tooth," she said. "It will fall out, and a new tooth will grow."
 
 Page 3:
-That night, Aiden worried about the tooth. It felt wrong — like something was breaking. He wrote in his notebook: Things that are strange: losing a tooth. Also, why teeth? Socks sat on the desk and watched him with great curiosity.
+That night, Aiden felt worried. Losing a tooth seemed strange. Socks sat by his desk while Aiden thought about it.
 
 Page 4:
-Mum said it was completely normal and that they had both lost teeth before when they were smaller — Aiden had even eaten one inside a peanut butter sandwich and not noticed for an hour. Aiden was not certain this was reassuring.
+Mum said loose teeth were normal. "Everyone loses baby teeth as they grow," she said. Aiden felt a little better.
 
 Page 5:
-Betty lost her first tooth the very next day, which nobody had seen coming. It came out at lunch, and she held it up and examined it with great interest before putting it in her pocket, as if this were a routine scientific procedure.
+At lunch the next day, Betty lost a tooth too. She looked at the tiny tooth, then wrapped it in a clean tissue.
 
 Page 6:
-"Does it hurt?" said Aiden. "Not really," said Betty. "It felt strange for a second. Then it was over." She looked at the gap in her mouth in a small mirror. "It's just a tooth," she said. "A very old, very small tooth."
+"Did it hurt?" Aiden asked. "Only for a moment," Betty said. She smiled at the new gap in her teeth.
 
 Page 7:
-Aiden's tooth came out on a Thursday. Not dramatically — he was reading his book and he touched it and then it was just there in his fingers, which was very quick and very strange and did not hurt at all.
+On Thursday, Aiden's tooth came out while he was reading. It was quick, and it did not hurt.
 
 Page 8:
-He held it up for a long time. It was tiny. It was the smallest thing that had ever felt significant. He put it in the small envelope Mum left for him, and when he placed it under his pillow it felt ceremonial.
+The tooth was tiny. Aiden put it in a small envelope. Then he tucked the envelope under his pillow.
 
 Page 9:
-In the morning, the tooth was gone and there was a coin in its place. Aiden knew, in the way children who read a lot know things, that it was Mum or Dad who had swapped it. He said nothing, because some things are better left as stories.
+In the morning, the envelope was gone. A coin lay under the pillow. Aiden smiled. Mum smiled too.
 
 Page 10:
-Three weeks later, the new tooth began to come through. It was enormous relative to the gap — a proper square adult tooth in a mouth that had been full of small rounded baby ones. Aiden looked at himself in the mirror and felt extremely strange.
+Three weeks later, a new tooth began to grow in the gap. It looked bigger than his baby teeth.
 
 Page 11:
-"You don't look strange," said Betty. "You look older." She said it the way she said true things — simply, as though it were just a fact. Aiden looked in the mirror again. It was going to take some getting used to.
+"You do not look strange," Betty said. "You look a little older." Aiden looked in the mirror and smiled.
 
 Page 12:
-Socks was fascinated by both of them through this whole period. He kept trying to look in their mouths. He seemed to find it deeply interesting, which Aiden added to the field notebook under: Primate-specific dental curiosity — possible.
+Socks sniffed near Aiden's smile. Then he sniffed near Betty's. He was curious about their new tooth gaps.
 
 Page 13:
-"I think he'll be disappointed when we stop changing," said Aiden. "He already has all the teeth he'll get," said Betty. Socks demonstrated this by grinning at them both from very close range, showing every single tooth.
+"Soon we will both have new teeth," Aiden said. Socks wagged his tail. The gaps did not bother him at all.
 
-## 71. Aiden and Betty and the Castle
+## 80. Aiden and Betty and the Castle
 
 - Book ID: ab-c-10
 - Type/level: Fiction, Level C
@@ -2620,45 +2953,45 @@ Page 13:
 Page text to narrate:
 
 Page 1:
-Dad had been talking about the castle trip since January. A proper medieval castle, forty minutes away — with a tower you could actually climb, a dungeon that was a real dungeon, and a great hall whose stone floor had been there for six hundred years. Betty had already read a book about it.
+Dad showed Aiden and Betty a picture of a castle. "We can visit it on Saturday," he said. Betty found a book to take with them.
 
 Page 2:
-They drove there on a bright Saturday in April. Aiden pressed his face to the car window when the castle appeared over the hill — grey stone towers above the treeline, impossibly old and very much still there. He felt something he didn't yet have a word for.
+On Saturday, Mum drove. Dad sat beside her. Aiden and Betty wore their seat belts in the back. Soon, the castle appeared on the hill.
 
 Page 3:
-The entrance was a proper drawbridge — working, over a real water-filled moat. It was smaller than he'd imagined and more real than he'd imagined. Aiden crossed it one step at a time, listening to the echo of his footsteps on old wood, thinking about every person who had crossed it before him.
+They crossed a wooden bridge over the moat. Aiden heard each step tap on the old boards. Betty checked the picture map.
 
 Page 4:
-The great hall was vast and grey and cool. The stone floor was uneven and worn in paths where feet had walked for centuries. Aiden crouched and pressed his hand flat to the floor. Six hundred years of footsteps had passed here. He could not quite hold that thought all at once.
+The great hall was tall, cool, and quiet. Some floor stones were smooth from many years of footsteps. Aiden bent down to look.
 
 Page 5:
-Betty had the guide map. She navigated with precise efficiency — Great Hall, Armoury, North Tower, King's Chamber, Dungeon — the best order for minimum backtracking. Aiden followed behind her, reading every information board they passed, completely at home in a world of facts.
+Betty held the picture map. First came the great hall. Next came the armour room. Then they would climb the tower.
 
 Page 6:
-In the armoury, there was a full suit of plate armour. It was smaller than Aiden expected. The guide told them that real knights were roughly the same size as Dad, which was very hard to imagine. Aiden tried on a gauntlet under supervision. His hand barely fit inside.
+In the armour room, a guide showed them a suit of plate armour. Aiden tried on one heavy glove while the guide watched.
 
 Page 7:
-The dungeon was underground and smelled of cold stone and old air. Betty read every board by torchlight. Aiden stood still in the near-dark for a moment and thought about how this exact place had been here through everything — and felt briefly, appropriately small.
+Stone steps led to a dark room below the castle. Soft wall lights showed the way. Betty studied a picture board while Dad stayed close.
 
 Page 8:
-The North Tower had one hundred and twelve steps. They counted every one, out loud, all together. The staircase was so narrow they had to go single file. At the top: the whole landscape, the river, the town, a motorway miles away. The same view and entirely different.
+The tower had one hundred and twelve steps. They walked in one line. From the top, they could see the river, town, and fields.
 
 Page 9:
-"Imagine standing here," said Betty quietly, "and not knowing what was coming." Aiden thought about that for a long time, looking out. There was something important in it he couldn't quite hold yet. He wrote it in his notebook anyway, to think about later.
+"People looked from this tower long ago," Betty said. Aiden drew the wide view in his notebook.
 
 Page 10:
-On the way down, Aiden stopped at a narrow slit window in the tower wall — an arrow loop. He looked through it. The angle was exact — a perfect line of sight across the approach. Everything in this building was designed for a specific purpose.
+On the way down, Aiden found a narrow slit in the wall. A guide explained that archers could see out while staying behind thick stone.
 
 Page 11:
-In the castle shop, Betty bought a small accurate model of the castle as it looked in 1350, before a section of wall fell. Aiden bought a book on medieval building techniques. Dad bought a novelty ceramic goblet that Mum said, quietly but firmly, would not be coming into the kitchen.
+In the shop, Betty chose a small castle model. Aiden chose a picture book. Dad held up a funny cup. Mum laughed.
 
 Page 12:
-The drive home was quiet in the way that follows something large. "What are you thinking about?" said Mum. Aiden and Betty both answered at the same time, with completely different answers. "That," said Mum, "is exactly right."
+On the drive home, Mum asked what they liked best. Aiden chose the worn floor. Betty chose the view from the tower.
 
 Page 13:
-That evening, Aiden wrote in his field notebook for a long time — the drawbridge, the worn floor, the arrow loop, the view. At the bottom of the last page he wrote: Things were happening before we got here. They'll keep happening after. That's not sad. That's just how big it is. He underlined it.
+That evening, Aiden drew four things: the bridge, the hall, the narrow slit, and the view. His page helped him remember the day.
 
-## 72. Chompy's Big Lunch
+## 81. Chompy's Big Lunch
 
 - Book ID: dino-pals-01-chompys-big-lunch
 - Type/level: Fiction, Level B
@@ -2692,7 +3025,7 @@ Oh, Chompy! laughed all the Dino Pals. Chompy laughed too.
 Page 8:
 That night, Chompy looked at the stars. I wonder what breakfast will be, said Chompy.
 
-## 73. Sunny's Rainy Day
+## 82. Sunny's Rainy Day
 
 - Book ID: dino-pals-02-sunnys-rainy-day
 - Type/level: Fiction, Level B
@@ -2726,7 +3059,7 @@ Hmph, said Grumpy. This is... not terrible.
 Page 8:
 The sun came back out. See? said Sunny. Every day is a good day!
 
-## 74. Dozy Won't Wake Up
+## 83. Dozy Won't Wake Up
 
 - Book ID: dino-pals-03-dozy-wont-wake-up
 - Type/level: Fiction, Level B
@@ -2740,27 +3073,27 @@ Page 1:
 It was morning in Sunny Hollow. Everyone was up. Everyone except Dozy.
 
 Page 2:
-Wake up, Dozy! called Bouncy. Dozy did not wake up.
+"Wake up, Dozy!" called Bouncy. Dozy did not wake up.
 
 Page 3:
-Wake up, Dozy! called Zippy. Dozy did not wake up.
+"Wake up, Dozy!" called Zippy. Dozy did not wake up.
 
 Page 4:
-WAKE UP, DOZY! called Honky. Dozy did not wake up.
+"Wake up, Dozy!" called Honky. Dozy did not wake up.
 
 Page 5:
-We have a problem, said Bossy. We need Dozy for the picnic!
+"We have a problem," said Bossy. "We need Dozy for the picnic!"
 
 Page 6:
 Chompy had an idea. Chompy found the biggest, yummiest lunch in Sunny Hollow.
 
 Page 7:
-Dozy sniffed. Dozy opened one eye. Is that... lunch? said Dozy.
+Dozy sniffed. He opened one eye. "Is that... lunch?" he asked.
 
 Page 8:
-Dozy was up! I was just resting my eyes, said Dozy. Dozy's eyes were already closing again.
+Dozy got up. "I was just resting my eyes," he said. His eyes were already closing again.
 
-## 75. Grumpy Needs Help
+## 84. Grumpy Needs Help
 
 - Book ID: dino-pals-04-grumpy-needs-help
 - Type/level: Fiction, Level B
@@ -2771,30 +3104,30 @@ Dozy was up! I was just resting my eyes, said Dozy. Dozy's eyes were already clo
 Page text to narrate:
 
 Page 1:
-Grumpy was stuck. Grumpy's tail was caught under a big rock.
+Grumpy was stuck. His tail was caught under a big rock.
 
 Page 2:
-I do NOT need help, said Grumpy.
+"I do not need help," said Grumpy.
 
 Page 3:
-Can I help? said Sunny. NO, said Grumpy.
+"Can I help?" asked Sunny. "No," said Grumpy.
 
 Page 4:
-Can I help? said Bouncy. NO, said Grumpy. Bouncy bounced anyway.
+"Can I help?" asked Bouncy. "No," said Grumpy. Bouncy stayed close.
 
 Page 5:
-Can WE help? said all the Dino Pals. NO! said Grumpy.
+"Can we help?" asked all the Dino Pals. "No!" said Grumpy.
 
 Page 6:
-Grumpy pulled and pulled. Grumpy was still stuck.
+Grumpy pulled and pulled. His tail was still stuck.
 
 Page 7:
-Oh, fine, said Grumpy quietly. All the Dino Pals helped together. POP!
+"Oh, fine," Grumpy said quietly. The Dino Pals pushed together. His tail sprang free!
 
 Page 8:
-Thank you, said Grumpy. Not that I needed it. But Grumpy was smiling. Just a little.
+"Thank you," said Grumpy. "I did need some help." He smiled a little.
 
-## 76. Bossy Makes a Plan
+## 85. Bossy Makes a Plan
 
 - Book ID: dino-pals-05-bossy-makes-a-plan
 - Type/level: Fiction, Level B
@@ -2828,7 +3161,7 @@ Bossy, said Sunny, can we try YOUR way AND our way? They worked together. It wor
 Page 8:
 Hmm, said Bossy. Bossy wrote on the clipboard: New plan: ask nicely.
 
-## 77. Bouncy Bumps Into Everything
+## 86. Bouncy Bumps Into Everything
 
 - Book ID: dino-pals-06-bouncy-bumps-into-everything
 - Type/level: Fiction, Level B
@@ -2839,30 +3172,30 @@ Hmm, said Bossy. Bossy wrote on the clipboard: New plan: ask nicely.
 Page text to narrate:
 
 Page 1:
-Bouncy woke up. Bouncy bounced straight into the cave wall. BONK!
+Bouncy woke up and bounced into the cave wall. He stopped and rubbed his head.
 
 Page 2:
-Bouncy bounced to the waterfall. Bouncy bumped into Fancy. BOING!
+Bouncy bounced to the waterfall. He bumped into Fancy by mistake.
 
 Page 3:
-MY SAIL! cried Fancy. Sorry! called Bouncy, already bouncing away.
+"My sail!" cried Fancy. "I am sorry," said Bouncy. He stopped to check that she was all right.
 
 Page 4:
-Bouncy bumped into Wiggly. CRASH! Wiggly knocked over everything. Again.
+Next, Bouncy bumped into Wiggly. A basket of berries tipped over. They picked them up together.
 
 Page 5:
-Bouncy bumped into Sneezy. Sneezy took a HUGE breath in...
+Then Bouncy bumped into Sneezy. Sneezy took a huge breath in.
 
 Page 6:
-AAAACHOOOO! Leaves, berries, and Bossy's clipboard all blew away.
+Sneezy sneezed. Leaves, berries, and Bossy's blank clipboard flew through the air.
 
 Page 7:
-All the Dino Pals looked at Bouncy. Sorry, said Bouncy, smiling.
+The Dino Pals looked at Bouncy. "I am sorry," he said. This time, he listened.
 
 Page 8:
-Maybe I should bounce in the meadow, said Bouncy. BOING! BOING! BOING!
+"I need a safe place to bounce," said Bouncy. He went to the wide empty meadow and watched where he landed.
 
-## 78. Wiggly's Messy Day
+## 87. Wiggly's Messy Day
 
 - Book ID: dino-pals-07-wigglys-messy-day
 - Type/level: Fiction, Level B
@@ -2873,30 +3206,30 @@ Maybe I should bounce in the meadow, said Bouncy. BOING! BOING! BOING!
 Page text to narrate:
 
 Page 1:
-Wiggly woke up carefully. Today, said Wiggly, I will not knock anything over.
+Wiggly woke up carefully. "Today I will watch my long tail," he said.
 
 Page 2:
-Wiggly walked carefully. Wiggly's tail knocked over Chompy's breakfast. Sorry, Chompy!
+Wiggly walked carefully. His tail tipped Chompy's breakfast. "Sorry, Chompy!" he said. He helped clean it up.
 
 Page 3:
-Wiggly walked very carefully. Wiggly's tail knocked Grumpy's favourite rock. Hmph! said Grumpy.
+Wiggly walked even more carefully. His tail bumped Grumpy's favourite rock. "Hmph!" said Grumpy.
 
 Page 4:
-Wiggly walked SO carefully. Wiggly's tail knocked Fancy into the mud puddle. Oh no.
+Wiggly tried again. His tail splashed Fancy into a mud puddle. "Oh no!" said Wiggly.
 
 Page 5:
-Wiggly sat very, very still. The tail still knocked over three berries and a leaf.
+Wiggly sat very still. His tail rolled three berries and one leaf away.
 
 Page 6:
-Wiggly felt sad. My tail has a mind of its own, said Wiggly.
+Wiggly felt sad. "My tail is hard to watch," he said.
 
 Page 7:
-I like your tail, said Dozy sleepily. It fans me while I nap. The Dino Pals all agreed.
+"Your tail can help too," Dozy said. "It makes a cool breeze when you move it slowly." The Pals smiled.
 
 Page 8:
-Wiggly smiled. Current score, said Wiggly. Tail: twelve. Wiggly: also twelve.
+Wiggly placed bright stones around his tail to show how much room it needed. "Now I can watch my space," he said.
 
-## 79. Zippy Slows Down
+## 88. Zippy Slows Down
 
 - Book ID: dino-pals-08-zippy-slows-down
 - Type/level: Fiction, Level B
@@ -2907,30 +3240,30 @@ Wiggly smiled. Current score, said Wiggly. Tail: twelve. Wiggly: also twelve.
 Page text to narrate:
 
 Page 1:
-Zippy ran to the waterfall. Zippy ran back. Zippy ran to the meadow. Zippy ran back.
+Zippy ran to the waterfall and back. Then he ran to the meadow and back.
 
 Page 2:
-Zippy! called Sunny. Where are you going? I DON'T KNOW! called Zippy, already gone.
+"Zippy!" called Sunny. "Where are you going?" "I do not know!" Zippy called as he ran past.
 
 Page 3:
-Zippy ran so fast that Zippy ran right past the picnic. And the waterfall. And Sunny Hollow.
+Zippy ran past the picnic, the waterfall, and Sunny Hollow. He did not stop.
 
 Page 4:
-Zippy stopped. Where was Sunny Hollow? Zippy had never stopped before.
+At last, Zippy stopped. "Where am I?" he asked. He could not see Sunny Hollow.
 
 Page 5:
-It was very quiet. Zippy looked around. There were flowers. There was a big blue sky.
+The valley was quiet. Zippy noticed small flowers under a wide blue sky.
 
 Page 6:
-Oh, said Zippy. This is... nice. Zippy sat down. Zippy had never sat down before.
+"This is nice," Zippy said. He sat beside the flowers and took a slow breath.
 
 Page 7:
-Sunny found Zippy. I was looking at a flower, said Zippy. I went past it twelve times first.
+Sunny found him. "I stopped to look at this flower," Zippy said. "I ran past it many times."
 
 Page 8:
-Zippy walked home. Slowly. It took ages. Zippy loved it.
+Zippy walked home with Sunny. He went slowly enough to see the trees, clouds, and path.
 
-## 80. Honky's Inside Voice
+## 89. Honky's Inside Voice
 
 - Book ID: dino-pals-09-honkys-inside-voice
 - Type/level: Fiction, Level B
@@ -2941,30 +3274,30 @@ Zippy walked home. Slowly. It took ages. Zippy loved it.
 Page text to narrate:
 
 Page 1:
-GOOD MORNING SUNNY HOLLOW! called Honky. Every leaf fell off every tree.
+It was morning in Sunny Hollow. "Good morning!" called Honky. His big voice shook leaves from a tree.
 
 Page 2:
-Shh! said Grumpy. SORRY! said Honky. More leaves fell.
+"That voice is too big for breakfast," said Grumpy. Honky tried again. "Good morning," he said more softly.
 
 Page 3:
-Honky, said Bossy, you need an inside voice. What is an inside voice? A quiet one. I do not have one of those.
+"A voice can be big or small," said Bossy. "Use a small voice when friends are close."
 
 Page 4:
-Honky tried very hard to be quiet. Hello, whispered Honky. It still blew Chompy's bib sideways.
+Honky took a slow breath. "Hello, Chompy," he said softly. Chompy's bib stayed still.
 
 Page 5:
-Honky felt sad. I am just too loud, said Honky. Sorry. TOOT.
+"I did it!" Honky said. His voice grew big again. "I can try once more," he said.
 
 Page 6:
-Then a thunderstorm came. Dozy woke up frightened. All the Dino Pals hid.
+Dark clouds gathered. Thunder boomed. Dozy woke with a jump. Rain began to fall.
 
 Page 7:
-IT IS OKAY! called Honky. Honky's voice was louder than the thunder. Dozy stopped shaking.
+"This way to the safe cave!" Honky called. His big voice helped every Dino Pal hear him.
 
 Page 8:
-Maybe Honky's voice is very useful after all, said Bossy. THANK YOU! said Honky. Every leaf fell off again.
+In the cave, Bossy smiled. "A small voice for talking. A big voice when we need it." Honky nodded. "I understand."
 
-## 81. Cheeky's Prank Goes Wrong
+## 90. Cheeky's Prank Goes Wrong
 
 - Book ID: dino-pals-10-cheekys-prank-goes-wrong
 - Type/level: Fiction, Level B
@@ -2975,30 +3308,30 @@ Maybe Honky's voice is very useful after all, said Bossy. THANK YOU! said Honky.
 Page text to narrate:
 
 Page 1:
-Cheeky had an idea. Cheeky always had ideas. Most of them were pranks.
+Cheeky wanted to make the Dino Pals laugh. "I need a funny surprise," he said.
 
 Page 2:
-Cheeky hid in the ferns. Cheeky tied Wiggly's tail to a tree. Hee hee, said Cheeky.
+Cheeky hid beside the path. He put a soft leaf hat on a low branch for Wiggly to find.
 
 Page 3:
-Wiggly walked off. BOING! Wiggly bounced back. My tail is stuck! HEE HEE HEE! said Cheeky.
+Wiggly found the hat. It fell over his eyes. Cheeky laughed, but Wiggly did not.
 
 Page 4:
-Next: Cheeky put mud on Fancy's favourite rock. Fancy sat down. OH! cried Fancy.
+Next, Cheeky spread mud on Fancy's favourite rock. Fancy sat down. "Oh!" cried Fancy.
 
 Page 5:
-Cheeky laughed and laughed. But then Cheeky slipped on the same mud. SPLAT!
+Cheeky laughed and stepped back. He slipped in the mud. Now he was muddy too.
 
 Page 6:
-Now Cheeky was muddy. The Dino Pals looked at Cheeky. Cheeky looked at the Dino Pals.
+The Dino Pals helped Cheeky up. "My jokes hurt your feelings," he said. "I am sorry."
 
 Page 7:
-Even Cheeky had to laugh. Okay, said Cheeky. That one was funny.
+Cheeky asked Wiggly and Fancy, "What makes you laugh?" They made silly faces together.
 
 Page 8:
-Cheeky helped clean Fancy's rock. Will you do any more pranks? asked Fancy. Maybe just one more, said Cheeky. And winked.
+Cheeky cleaned Fancy's rock. Then the friends planned a joke everyone could enjoy.
 
-## 82. Shy's Secret Gift
+## 91. Shy's Secret Gift
 
 - Book ID: dino-pals-11-shys-secret-gift
 - Type/level: Fiction, Level B
@@ -3009,42 +3342,42 @@ Cheeky helped clean Fancy's rock. Will you do any more pranks? asked Fancy. Mayb
 Page text to narrate:
 
 Page 1:
-Every morning, the Dino Pals found a small gift on the Big Flat Rock. Nobody knew who left them.
+Each morning, the Dino Pals found a small gift on the Big Flat Rock. No one knew who left it.
 
 Page 2:
-One day it was a smooth pebble for Grumpy. Someone knows I like pebbles, said Grumpy, suspicious but pleased.
+One day, Grumpy found a smooth pebble. "Someone knows I like pebbles," he said.
 
 Page 3:
-One day it was a pile of extra berries for Chompy. Someone knows me very well, said Chompy, already eating them.
+One day, Chompy found extra berries. "Someone knows me well!" he said, already eating.
 
 Page 4:
-One day it was a leafy fan for Dozy. This is perfect, said Dozy, already asleep with it.
+One day, Dozy found a leafy fan. "Perfect," he said, before falling asleep under it.
 
 Page 5:
-Who is leaving these gifts? said Bossy. I need to know. It is not on my clipboard.
+"Who leaves the gifts?" asked Bossy. "We can watch quietly."
 
 Page 6:
-Bouncy thought it was a ghost. Zippy ran everywhere looking, very fast. Honky called out asking. Every leaf fell off.
+Bouncy looked behind bushes. Zippy checked every path. Honky called out. They found no one.
 
 Page 7:
-Cheeky had a plan. Cheeky would stay up all night to watch. Cheeky fell asleep at midnight.
+Cheeky kept watch after supper. He tried to stay awake, but soon he was asleep.
 
 Page 8:
-One morning, Sunny stayed very still and very quiet behind a fern. Sunny waited.
+The next morning, Sunny waited quietly behind a fern.
 
 Page 9:
-Sunny saw two small eyes behind a rock. And two small pink paws placing a tiny woven grass bracelet on the rock.
+She saw two small pink feet step from behind a rock. A tiny grass bracelet was placed on top.
 
 Page 10:
-Shy! said Sunny, softly. The gifts are from you, aren't they? Shy nodded, going very pink.
+"Shy?" Sunny asked softly. Shy nodded and tucked behind the rock.
 
 Page 11:
-They were the best gifts we ever had, said Sunny. Will you come and sit with us? Shy came out. Just a little way. But it was something.
+"Your gifts are kind," said Sunny. "Would you like to sit with us?" Shy came out a little way.
 
 Page 12:
-The next morning, eleven gifts were on the Big Flat Rock. One from each Dino Pal. A small pink paw reached out and took them, one by one.
+The next morning, eleven small gifts waited on the Big Flat Rock. The Pals had made one for Shy.
 
-## 83. Fancy's Bad Day
+## 92. Fancy's Bad Day
 
 - Book ID: dino-pals-12-fancys-bad-day
 - Type/level: Fiction, Level B
@@ -3090,7 +3423,7 @@ Fancy looked in the pool. Oh, said Fancy. Oh, that is much better. Fancy looked 
 Page 12:
 The next morning, Fancy left a beautifully woven bracelet outside Wiggly's cave. Wiggly's tail knocked it away at once. Sorry! said Wiggly. It is fine, said Fancy. And meant it.
 
-## 84. Clumsy to the Rescue
+## 93. Clumsy to the Rescue
 
 - Book ID: dino-pals-13-clumsy-to-the-rescue
 - Type/level: Fiction, Level B
@@ -3136,7 +3469,7 @@ Dozy hugged the pillow. Thank you, said Dozy. Both of you. Then Dozy fell asleep
 Page 12:
 We make a good team, said Clumsy. You see the problem. I reach the problem. Exactly, said Clumsy, and accidentally knocked off Wiggly's hat. Sorry.
 
-## 85. What is Flappy?
+## 94. What is Flappy?
 
 - Book ID: dino-pals-14-what-is-flappy
 - Type/level: Fiction, Level B
@@ -3156,7 +3489,7 @@ Page 3:
 Bossy flies, said Flappy. Bossy is a Pterodactyl. You are an Archaeopteryx. That is different. How is it different? said Flappy. Grumpy did not actually know.
 
 Page 4:
-Flappy asked Sunny. You are wonderful just as you are! said Sunny. But what AM I? said Flappy. Wonderful! said Sunny. Flappy went away still confused.
+Flappy went to ask Sunny. Am I a dinosaur or a bird? asked Flappy. You are wonderful just as you are! said Sunny. But what am I? asked Flappy. Wonderful! said Sunny. Flappy left, still confused.
 
 Page 5:
 Flappy tried roaring like the other dinosaurs. A small squawk came out. Some feathers drifted down.
@@ -3182,7 +3515,7 @@ So I am something new? said Flappy. You are something Flappy, said Grumpy. Which
 Page 12:
 Flappy went back to the tree. Got three wing-flaps up. Landed neatly on a branch. Sat very high up and looked at all of Sunny Hollow below. Oh, said Flappy quietly. That is quite good actually.
 
-## 86. Sneezy and the Waterfall
+## 95. Sneezy and the Waterfall
 
 - Book ID: dino-pals-15-sneezy-and-the-waterfall
 - Type/level: Fiction, Level B
@@ -3228,7 +3561,7 @@ AAAAAAACHOOOOOO! The sneeze hit the rocks like a wave. Rocks scattered in every 
 Page 12:
 Sorry, said Sneezy, dabbing with the handkerchief. Every leaf had fallen off every tree. Do not apologise, said Grumpy. For once, Grumpy was actually smiling.
 
-## 87. Chompy and Grumpy's Day Out
+## 96. Chompy and Grumpy's Day Out
 
 - Book ID: dino-pals-16-chompy-and-grumpys-day-out
 - Type/level: Fiction, Level B
@@ -3274,7 +3607,7 @@ This is a good rock, said Chompy. Yes, said Grumpy. Is there anything to eat nea
 Page 12:
 Grumpy sat on the rock alone. It was peaceful. But after a while, Grumpy called: There is a good-looking bush to your left. Thanks, Grumpy! said Chompy. Grumpy said nothing. But the corner of the mouth went up. Just slightly.
 
-## 88. The Sunny Hollow Games
+## 97. The Sunny Hollow Games
 
 - Book ID: dino-pals-17-the-sunny-hollow-games
 - Type/level: Fiction, Level B
@@ -3320,7 +3653,7 @@ Sneezy entered the farthest-blast competition. Sneezy's sneeze sent the test lea
 Page 12:
 Who won the Games overall? said Chompy, having eaten most of the prize berries. Everyone won something, said Bossy. That is the point. Even me? said Chompy. Chompy wins: Most Enthusiastic Participant. That is because I ate all the prizes, said Chompy. Yes, said Bossy.
 
-## 89. Dozy's Wonderful Dream
+## 98. Dozy's Wonderful Dream
 
 - Book ID: dino-pals-18-dozys-wonderful-dream
 - Type/level: Fiction, Level B
@@ -3366,7 +3699,7 @@ Back in the meadow, Dozy's eyes opened. All the Dino Pals were sitting in a circ
 Page 12:
 It was exactly like this, said Dozy, looking at all of them, but cloudier. Dozy's eyes closed again. Wake me for supper.
 
-## 90. Zippy's Race
+## 99. Zippy's Race
 
 - Book ID: dino-pals-19-zippys-race
 - Type/level: Fiction, Level B
@@ -3412,7 +3745,7 @@ Zippy held the small winner's pebble and looked at it. Zippy, said Sunny, are yo
 Page 12:
 But you didn't, said Sunny. Zippy ran four more circuits of Sunny Hollow. I know, said Zippy, on the third lap. I just like to make sure.
 
-## 91. The Big Storm
+## 100. The Big Storm
 
 - Book ID: dino-pals-20-the-big-storm
 - Type/level: Fiction, Level B
@@ -3458,7 +3791,7 @@ The storm arrived. It was loud and wild. But inside Cozy Cave it was warm. Fifte
 Page 12:
 When it passed, Sunny Hollow sparkled. We did that, said Sunny. All of us. Not bad, said Grumpy. From Grumpy, that meant wonderful.
 
-## 92. Muddy Has a Bath
+## 101. Muddy Has a Bath
 
 - Book ID: meadow-pals-01-muddy-has-a-bath
 - Type/level: Fiction, Level A
@@ -3495,7 +3828,7 @@ Muddy is muddy again.
 Page 9:
 Muddy is happy.
 
-## 93. Woolly Can't Sleep
+## 102. Woolly Can't Sleep
 
 - Book ID: meadow-pals-02-woolly-cant-sleep
 - Type/level: Fiction, Level A
@@ -3532,7 +3865,7 @@ Then it was quiet.
 Page 9:
 Woolly went to sleep.
 
-## 94. Clucky Lays an Egg
+## 103. Clucky Lays an Egg
 
 - Book ID: meadow-pals-03-clucky-lays-an-egg
 - Type/level: Fiction, Level A
@@ -3570,7 +3903,7 @@ Oh! An egg!
 Page 8:
 "Not in the mud!" said Clucky.
 
-## 95. Bouncy Won't Stop
+## 104. Bouncy Won't Stop
 
 - Book ID: meadow-pals-04-bouncy-wont-stop
 - Type/level: Fiction, Level A
@@ -3604,7 +3937,7 @@ Bouncy stopped.
 Page 7:
 Then Bouncy hopped again.
 
-## 96. Grumpy Gets a Surprise
+## 105. Grumpy Gets a Surprise
 
 - Book ID: meadow-pals-05-grumpy-gets-a-surprise
 - Type/level: Fiction, Level A
@@ -3644,7 +3977,7 @@ Grumpy had a lot of cake.
 Page 10:
 "I like cake," said Grumpy.
 
-## 97. Sleepy Can't Wake Up
+## 106. Sleepy Can't Wake Up
 
 - Book ID: meadow-pals-06-sleepy-cant-wake-up
 - Type/level: Fiction, Level A
@@ -3681,7 +4014,7 @@ Sleepy got up.
 Page 9:
 Sleepy went back to bed.
 
-## 98. Noisy Tries to Be Quiet
+## 107. Noisy Tries to Be Quiet
 
 - Book ID: meadow-pals-07-noisy-tries-to-be-quiet
 - Type/level: Fiction, Level A
@@ -3721,7 +4054,7 @@ Page 9:
 Page 10:
 Noisy is not good at quiet.
 
-## 99. Tiny is Very Small
+## 108. Tiny is Very Small
 
 - Book ID: meadow-pals-08-tiny-is-very-small
 - Type/level: Fiction, Level A
@@ -3758,11 +4091,11 @@ Tiny can fit in the log.
 Page 9:
 Small is very, very good.
 
-## 100. Shy Comes Out to Play
+## 109. Shy Comes Out to Play
 
 - Book ID: meadow-pals-09-shy-comes-out-to-play
 - Type/level: Fiction, Level A
-- Pages: 9
+- Pages: 8
 - Required whole-book MP3 path: `/guided-reading/series/meadow-pals/book-09/audio/full-book.mp3`
 - Required sync JSON path: `/guided-reading/sync/meadow-pals-09-shy-comes-out-to-play.json`
 
@@ -3796,10 +4129,7 @@ Shy sat next to Cuddly.
 Page 8:
 Then Shy came out.
 
-Page 9:
-Shy is playing!
-
-## 101. Giggly Has the Hiccups
+## 110. Giggly Has the Hiccups
 
 - Book ID: meadow-pals-10-giggly-has-the-hiccups
 - Type/level: Fiction, Level A
@@ -3840,7 +4170,7 @@ Hic.
 Page 9:
 Oh no.
 
-## 102. Brave Climbs the Hay Bale
+## 111. Brave Climbs the Hay Bale
 
 - Book ID: meadow-pals-11-brave-climbs-the-hay-bale
 - Type/level: Fiction, Level A
@@ -3880,7 +4210,7 @@ Page 9:
 Page 10:
 Then Brave fell off.
 
-## 103. Hungry Eats Everything
+## 112. Hungry Finds Lunch
 
 - Book ID: meadow-pals-12-hungry-eats-everything
 - Type/level: Fiction, Level A
@@ -3891,30 +4221,27 @@ Then Brave fell off.
 Page text to narrate:
 
 Page 1:
-Hungry ate the grass.
+Hungry ate some grass.
 
 Page 2:
-Hungry ate the flowers.
+Hungry ate some hay.
 
 Page 3:
-Hungry ate the hat.
-"My hat!" said Clucky.
+Hungry was still hungry.
 
 Page 4:
-Hungry ate the map.
-"My map!" said Tiny.
+Hungry went to the farm gate.
 
 Page 5:
-Hungry ate the big cake.
-"My cake!" said Grumpy.
+The farmer brought fresh hay.
 
 Page 6:
-Hungry was full.
+Hungry ate, then drank some water.
 
 Page 7:
-Hungry ate one more bit of grass.
+"I am full now," said Hungry.
 
-## 104. Splashy Finds a Puddle
+## 113. Splashy Finds a Puddle
 
 - Book ID: meadow-pals-13-splashy-finds-a-puddle
 - Type/level: Fiction, Level A
@@ -3952,7 +4279,7 @@ Page 8:
 Page 9:
 Splashy is very happy.
 
-## 105. Speedy Slows Down
+## 114. Speedy Slows Down
 
 - Book ID: meadow-pals-14-speedy-slows-down
 - Type/level: Fiction, Level A
@@ -3993,7 +4320,7 @@ Page 9:
 Page 10:
 Speedy runs home.
 
-## 106. Cuddly Wants a Hug
+## 115. Cuddly Wants a Hug
 
 - Book ID: meadow-pals-15-cuddly-wants-a-hug
 - Type/level: Fiction, Level A
@@ -4033,7 +4360,7 @@ Page 9:
 Page 10:
 "No more hugs," said Woolly.
 
-## 107. Muddy and Splashy Make a Mess
+## 116. Muddy and Splashy Make a Mess
 
 - Book ID: meadow-pals-16-muddy-and-splashy-make-a-mess
 - Type/level: Fiction, Level A
@@ -4070,7 +4397,7 @@ Page 8:
 Page 9:
 Muddy likes mud. Splashy likes mud too.
 
-## 108. Bouncy and Speedy Have a Race
+## 117. Bouncy and Speedy Have a Race
 
 - Book ID: meadow-pals-17-bouncy-and-speedy-have-a-race
 - Type/level: Fiction, Level A
@@ -4110,7 +4437,7 @@ They did not stop.
 Page 10:
 They are still going.
 
-## 109. Noisy Wakes Everyone Up
+## 118. Noisy Wakes Everyone Up
 
 - Book ID: meadow-pals-18-noisy-wakes-everyone-up
 - Type/level: Fiction, Level A
@@ -4147,7 +4474,7 @@ It is still dark.
 Page 9:
 "NOISY!" said everyone.
 
-## 110. Tiny and Brave Go on an Adventure
+## 119. Tiny and Brave Go on an Adventure
 
 - Book ID: meadow-pals-19-tiny-and-brave-go-on-an-adventure
 - Type/level: Fiction, Level A
@@ -4184,7 +4511,7 @@ Page 8:
 Page 9:
 "Oh," said Tiny.
 
-## 111. Shy and Cuddly Find Each Other
+## 120. Shy and Cuddly Find Each Other
 
 - Book ID: meadow-pals-20-shy-and-cuddly-find-each-other
 - Type/level: Fiction, Level A
@@ -4224,7 +4551,7 @@ Shy got a hug too.
 Page 10:
 Both of them are happy.
 
-## 112. Woolly and Grumpy Are Stuck
+## 121. Woolly and Grumpy Are Stuck
 
 - Book ID: meadow-pals-21-woolly-and-grumpy-are-stuck
 - Type/level: Fiction, Level A
@@ -4261,7 +4588,7 @@ Tiny got the wool off.
 Page 9:
 Grumpy ran. Woolly ran. Not the same way.
 
-## 113. Sleepy's Big Dream
+## 122. Sleepy's Big Dream
 
 - Book ID: meadow-pals-22-sleepys-big-dream
 - Type/level: Fiction, Level A
@@ -4295,7 +4622,7 @@ Then Sleepy woke up.
 Page 8:
 Sleepy went back to sleep.
 
-## 114. Giggly and Clucky Bake a Cake
+## 123. Giggly and Clucky Bake a Cake
 
 - Book ID: meadow-pals-23-giggly-and-clucky-bake-a-cake
 - Type/level: Fiction, Level A
@@ -4338,7 +4665,7 @@ Giggly giggled at the cake.
 Page 11:
 Clucky had a bit. Then Clucky giggled too.
 
-## 115. Grumpy's Secret
+## 124. Grumpy's Secret
 
 - Book ID: meadow-pals-24-grumpys-secret
 - Type/level: Fiction, Level A
@@ -4381,7 +4708,7 @@ Page 10:
 Page 11:
 Tiny told everyone.
 
-## 116. The Big Farm Party
+## 125. The Big Farm Party
 
 - Book ID: meadow-pals-25-the-big-farm-party
 - Type/level: Fiction, Level A
@@ -4429,4 +4756,147 @@ Everyone is at the party.
 
 Page 13:
 Everyone is happy.
+
+## 126. Pip and the Bravery Stone
+
+- Book ID: moonwood-tales-c-01
+- Type/level: Fiction, Level C
+- Pages: 12
+- Required whole-book MP3 path: `/guided-reading/series/moonwood-tales/book-01/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/moonwood-tales-c-01.json`
+
+Page text to narrate:
+
+Page 1:
+Pip was walking through Moonwood when his foot kicked something small. It was a tiny stone. It glowed with a soft gold light.
+
+Page 2:
+"What is this?" said Pip. He picked it up carefully. The glow made his fingers feel warm.
+
+Page 3:
+Burrow appeared from a nearby tunnel. "That is a Bravery Stone," said Burrow. "Whoever holds it will feel brave."
+
+Page 4:
+Pip looked at the stone. "But I don't feel brave," he said. "I feel the same as always."
+
+Page 5:
+"Try something that feels hard," said Burrow. At Tumblerock Cliffs, Pip chose the low practice wall. A guide placed a thick mat below. Pip began to climb.
+
+Page 6:
+Pip's legs felt wobbly. The guide stood close, and Burrow cheered from the path. Pip used the strong holds one at a time. Soon he reached the top.
+
+Page 7:
+"The stone did that!" said Pip. He tucked it safely into his pocket. Then he walked toward the Fog Marsh.
+
+Page 8:
+The fog was thick and grey. Something rustled in the reeds nearby. Pip kept walking. He came out the other side.
+
+Page 9:
+That evening, Pip sat by the Crystal Stream. He looked at the stone. The gold glow had gone out.
+
+Page 10:
+"Did it run out of brave?" asked Pip.
+
+Page 11:
+Burrow smiled. "The stone doesn't do anything," he said. "I wanted to see what you would do. And you were brave."
+
+Page 12:
+Pip looked at the stone for a long time. "I'll keep it," he said. "To remember."
+
+## 127. Glimmer Breathes Fire at Last
+
+- Book ID: moonwood-tales-c-24
+- Type/level: Fiction, Level C
+- Pages: 12
+- Required whole-book MP3 path: `/guided-reading/series/moonwood-tales/book-24/audio/full-book.mp3`
+- Required sync JSON path: `/guided-reading/sync/moonwood-tales-c-24.json`
+
+Page text to narrate:
+
+Page 1:
+There was a sign on the Hollow Oak door.
+GLIMMER'S FIRE PERFORMANCE — TODAY.
+Everyone came.
+
+Page 2:
+They all sat in the clearing.
+Glimmer stood at the front.
+It was very quiet.
+"Ready," said Glimmer.
+It did not quite feel true.
+
+Page 3:
+Glimmer breathed in.
+Deeply.
+Glimmer breathed out.
+A jet of orange fire came out.
+Small.
+Perfect.
+Real.
+
+Page 4:
+Everyone gasped.
+Pip covered his mouth.
+Stone's eyes went very wide.
+Luna took off her glasses and put them back on.
+It was real.
+
+Page 5:
+Glimmer did it again.
+Longer.
+The fire was steady.
+It was warm.
+Glimmer's scales caught the light.
+Glimmer had never looked so much like a dragon.
+
+Page 6:
+Glimmer got excited.
+Glimmer breathed in very deeply.
+Much more deeply than before.
+Stone took a small step back.
+"Glimmer," said Pip.
+Glimmer breathed out.
+
+Page 7:
+The fire was very large.
+It was taller than Glimmer.
+It caught the torch on the Hollow Oak door.
+The torch lit the first lamp.
+The lamp lit a mushroom.
+
+Page 8:
+The light spread.
+Mushroom to mushroom.
+Lamp to lamp.
+Through every path.
+Through every dark corner of Moonwood.
+All of it lighting up.
+
+Page 9:
+Moonwood blazed with gold.
+Every mushroom.
+Every lamp.
+Every glowing stone.
+The forest was more beautiful than anyone had ever seen it.
+
+Page 10:
+Everyone looked at the forest.
+Then everyone looked at Glimmer.
+Glimmer looked at the forest.
+Glimmer looked at their own mouth.
+"Oh," said Glimmer.
+
+Page 11:
+The fire faded slowly.
+Moonwood kept its glow.
+Luna looked at Glimmer over her glasses.
+"Quite controlled," said Luna.
+"Thank you," said Glimmer.
+
+Page 12:
+"I did it," said Glimmer.
+"You did," said Pip.
+"I'd like to do it again," said Glimmer.
+Everyone who heard this took a small step back.
+"We know," said everyone.
 

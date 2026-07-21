@@ -7,10 +7,12 @@ export const guidedReadingReadAloudPolicy = {
 };
 
 export function getGuidedReadingPageAudioPath(page = {}) {
+  if (page.narrationNeedsRebuild) return "";
   return page.pageAudioPath || page.pageAudio || page.audio || "";
 }
 
 export function getGuidedReadingBookAudioPath(book = {}) {
+  if ((book.pages || []).some(page => page.narrationNeedsRebuild)) return "";
   return book.bookAudioPath || book.fullBookAudio || book.audio?.fullBook || "";
 }
 

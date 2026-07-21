@@ -1,6 +1,6 @@
 # Meadow Pals Level A Import Audit
 
-Generated: 2026-05-28T06:57:02.548Z
+Generated: 2026-07-21T14:41:24.065Z
 
 ## Source
 
@@ -24,9 +24,9 @@ Asset pack: `Meadow Pals Asset Pack/Meadow_Pals_Level_A_Assets`.
 - Imported story page audio files: 234
 - Missing story page images: 0
 - Full-book audio files found: 0
-- Final fiction book count: 85
+- Final fiction book count: 100
 - Final nonfiction book count: 76
-- Final total guided reading count: 161
+- Final total guided reading count: 176
 - Validation failures: 0
 
 ## Imported Books
@@ -44,7 +44,7 @@ Asset pack: `Meadow Pals Asset Pack/Meadow_Pals_Level_A_Assets`.
 | meadow-pals-09-shy-comes-out-to-play | Shy Comes Out to Play | A | 9 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | none | delivered cover used | approved | no |
 | meadow-pals-10-giggly-has-the-hiccups | Giggly Has the Hiccups | A | 9 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | none | delivered cover used | approved | no |
 | meadow-pals-11-brave-climbs-the-hay-bale | Brave Climbs the Hay Bale | A | 10 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | none | delivered cover used | approved | no |
-| meadow-pals-12-hungry-eats-everything | Hungry Eats Everything | A | 7 | 1, 2, 3, 4, 5, 6, 7 | 1, 2, 3, 4, 5, 6, 7 | none | delivered cover used | approved | no |
+| meadow-pals-12-hungry-eats-everything | Hungry Finds Lunch | A | 7 | 1, 2, 3, 4, 5, 6, 7 | 1, 2, 3, 4, 5, 6, 7 | none | delivered cover used | approved | no |
 | meadow-pals-13-splashy-finds-a-puddle | Splashy Finds a Puddle | A | 9 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | none | delivered cover used | approved | no |
 | meadow-pals-14-speedy-slows-down | Speedy Slows Down | A | 10 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | none | delivered cover used | approved | no |
 | meadow-pals-15-cuddly-wants-a-hug | Cuddly Wants a Hug | A | 10 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | none | delivered cover used | approved | no |

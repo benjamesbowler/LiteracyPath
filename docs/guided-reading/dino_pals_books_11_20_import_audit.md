@@ -1,6 +1,6 @@
 # Dino Pals Level B Books 11-20 Import Audit
 
-Generated: 2026-05-28T02:15:28.999Z
+Generated: 2026-07-21T14:41:24.065Z
 
 ## Source
 
@@ -22,7 +22,7 @@ Media archive: organised Dino Pals Books 11-20 source pack with WebP page images
 - Imported story page images for Books 11-20: 120
 - Imported story page audio files for Books 11-20: 120
 - Missing story page images for Books 11-20: 0
-- Nonfiction books kept: 56
+- Nonfiction books kept: 76
 - Old deleted fiction books restored: 0
 - Validation failures: 0
 

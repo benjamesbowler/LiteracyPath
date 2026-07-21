@@ -1,6 +1,6 @@
 # Guided Reading Image Text Artifact Contact Sheet
 
-Generated: 2026-05-30T03:31:49.904Z
+Generated: 2026-07-21T14:41:20.068Z
 
 Review these images first. Markdown image previews use the current public asset path.
 
@@ -235,388 +235,1268 @@ Review these images first. Markdown image previews use the current public asset 
 - Intended text: Our Five Senses
 - Notes: Cover should match the book title and avoid extra text.
 
-## Bees · cover
+## Colors · page 1
 
-![Bees cover](/guided-reading/nonfiction/level-c/book-01/cover.webp)
+![Colors page](/guided-reading/nonfiction/first-facts-level-a/book-01/page-001.webp)
 
-- Book ID: level-c-nonfiction-01-bees
-- Review key: level-c-nonfiction-01-bees:cover:cover
+- Book ID: first-facts-level-a-01-colors
+- Review key: first-facts-level-a-01-colors:page:1
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Bees
-- Notes: Released for student Guided Reading after Level C source text and media sequence validation.
+- Issues: text_not_matching_page
+- Intended text: A red ball.
+A red hat.
+- Notes: Illustration for page 1 of Colors, matching the reading text: A red ball.
+A red hat.
 
-## Volcanoes · cover
+## Colors · page 2
 
-![Volcanoes cover](/guided-reading/nonfiction/level-c/book-02/cover.webp)
+![Colors page](/guided-reading/nonfiction/first-facts-level-a/book-01/page-002.webp)
 
-- Book ID: level-c-nonfiction-02-volcanoes
-- Review key: level-c-nonfiction-02-volcanoes:cover:cover
+- Book ID: first-facts-level-a-01-colors
+- Review key: first-facts-level-a-01-colors:page:2
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Volcanoes
-- Notes: Released for student Guided Reading after Level C source text and media sequence validation.
+- Issues: text_not_matching_page
+- Intended text: A blue cup.
+A blue bag.
+- Notes: Illustration for page 2 of Colors, matching the reading text: A blue cup.
+A blue bag.
 
-## Penguins · cover
+## Colors · page 3
 
-![Penguins cover](/guided-reading/nonfiction/level-c/book-03/cover.webp)
+![Colors page](/guided-reading/nonfiction/first-facts-level-a/book-01/page-003.webp)
 
-- Book ID: level-c-nonfiction-03-penguins
-- Review key: level-c-nonfiction-03-penguins:cover:cover
+- Book ID: first-facts-level-a-01-colors
+- Review key: first-facts-level-a-01-colors:page:3
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Penguins
-- Notes: Released for student Guided Reading after Level C source text and media sequence validation.
+- Issues: text_not_matching_page
+- Intended text: A big sun.
+It is yellow.
+- Notes: Illustration for page 3 of Colors, matching the reading text: A big sun.
+It is yellow.
 
-## The Moon · cover
+## Colors · page 4
 
-![The Moon cover](/guided-reading/nonfiction/level-c/book-04/cover.webp)
+![Colors page](/guided-reading/nonfiction/first-facts-level-a/book-01/page-004.webp)
 
-- Book ID: level-c-nonfiction-04-the-moon
-- Review key: level-c-nonfiction-04-the-moon:cover:cover
+- Book ID: first-facts-level-a-01-colors
+- Review key: first-facts-level-a-01-colors:page:4
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: The Moon
-- Notes: Released for student Guided Reading after Level C source text and media sequence validation.
+- Issues: text_not_matching_page
+- Intended text: A green frog.
+It is green.
+- Notes: Illustration for page 4 of Colors, matching the reading text: A green frog.
+It is green.
 
-## How Seeds Grow · cover
+## Colors · page 5
 
-![How Seeds Grow cover](/guided-reading/nonfiction/level-c/book-05/cover.webp)
+![Colors page](/guided-reading/nonfiction/first-facts-level-a/book-01/page-005.webp)
 
-- Book ID: level-c-nonfiction-05-how-seeds-grow
-- Review key: level-c-nonfiction-05-how-seeds-grow:cover:cover
+- Book ID: first-facts-level-a-01-colors
+- Review key: first-facts-level-a-01-colors:page:5
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: How Seeds Grow
-- Notes: Released for student Guided Reading after Level C source text and media sequence validation.
+- Issues: text_not_matching_page
+- Intended text: A black cat.
+A black bat.
+- Notes: Illustration for page 5 of Colors, matching the reading text: A black cat.
+A black bat.
 
-## Spiders · cover
+## Colors · page 6
 
-![Spiders cover](/guided-reading/nonfiction/level-c/book-06/cover.webp)
+![Colors page](/guided-reading/nonfiction/first-facts-level-a/book-01/page-006.webp)
 
-- Book ID: level-c-nonfiction-06-spiders
-- Review key: level-c-nonfiction-06-spiders:cover:cover
+- Book ID: first-facts-level-a-01-colors
+- Review key: first-facts-level-a-01-colors:page:6
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Spiders
-- Notes: Released for student Guided Reading after Level C source text and media sequence validation.
+- Issues: text_not_matching_page
+- Intended text: A pink pig.
+A pink flower.
+- Notes: Illustration for page 6 of Colors, matching the reading text: A pink pig.
+A pink flower.
 
-## Under the Ocean · cover
+## Colors · page 7
 
-![Under the Ocean cover](/guided-reading/nonfiction/level-c/book-07/cover.webp)
+![Colors page](/guided-reading/nonfiction/first-facts-level-a/book-01/page-007.webp)
 
-- Book ID: level-c-nonfiction-07-under-the-ocean
-- Review key: level-c-nonfiction-07-under-the-ocean:cover:cover
+- Book ID: first-facts-level-a-01-colors
+- Review key: first-facts-level-a-01-colors:page:7
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Under the Ocean
-- Notes: Released for student Guided Reading after Level C source text and media sequence validation.
+- Issues: text_not_matching_page
+- Intended text: Red and blue.
+Yellow and green.
+So many colors!
+- Notes: Illustration for page 7 of Colors, matching the reading text: Red and blue.
+Yellow and green.
+So many colors!
 
-## Butterflies · cover
+## Farm Animals · page 1
 
-![Butterflies cover](/guided-reading/nonfiction/level-c/book-08/cover.webp)
+![Farm Animals page](/guided-reading/nonfiction/first-facts-level-a/book-02/page-001.webp)
 
-- Book ID: level-c-nonfiction-08-butterflies
-- Review key: level-c-nonfiction-08-butterflies:cover:cover
+- Book ID: first-facts-level-a-02-farm-animals
+- Review key: first-facts-level-a-02-farm-animals:page:1
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Butterflies
-- Notes: Released for student Guided Reading after Level C source text and media sequence validation.
+- Issues: text_not_matching_page
+- Intended text: This is a pig.
+Oink, oink!
+- Notes: Illustration for page 1 of Farm Animals, matching the reading text: This is a pig.
+Oink, oink!
 
-## Caves · cover
+## Farm Animals · page 2
 
-![Caves cover](/guided-reading/nonfiction/level-c/book-09/cover.webp)
+![Farm Animals page](/guided-reading/nonfiction/first-facts-level-a/book-02/page-002.webp)
 
-- Book ID: level-c-nonfiction-09-caves
-- Review key: level-c-nonfiction-09-caves:cover:cover
+- Book ID: first-facts-level-a-02-farm-animals
+- Review key: first-facts-level-a-02-farm-animals:page:2
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Caves
-- Notes: Released for student Guided Reading after Level C source text and media sequence validation.
+- Issues: text_not_matching_page
+- Intended text: This is a hen.
+Cluck, cluck!
+- Notes: Illustration for page 2 of Farm Animals, matching the reading text: This is a hen.
+Cluck, cluck!
 
-## Frogs · cover
+## Farm Animals · page 3
 
-![Frogs cover](/guided-reading/nonfiction/level-c/book-10/cover.webp)
+![Farm Animals page](/guided-reading/nonfiction/first-facts-level-a/book-02/page-003.webp)
 
-- Book ID: level-c-nonfiction-10-frogs
-- Review key: level-c-nonfiction-10-frogs:cover:cover
+- Book ID: first-facts-level-a-02-farm-animals
+- Review key: first-facts-level-a-02-farm-animals:page:3
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Frogs
-- Notes: Released for student Guided Reading after Level C source text and media sequence validation.
+- Issues: text_not_matching_page
+- Intended text: This is a big cow.
+Moo, moo!
+- Notes: Illustration for page 3 of Farm Animals, matching the reading text: This is a big cow.
+Moo, moo!
 
-## Muddy Has a Bath · cover
+## Farm Animals · page 4
 
-![Muddy Has a Bath cover](/guided-reading/series/meadow-pals/book-01/cover.webp)
+![Farm Animals page](/guided-reading/nonfiction/first-facts-level-a/book-02/page-004.webp)
 
-- Book ID: meadow-pals-01-muddy-has-a-bath
-- Review key: meadow-pals-01-muddy-has-a-bath:cover:cover
+- Book ID: first-facts-level-a-02-farm-animals
+- Review key: first-facts-level-a-02-farm-animals:page:4
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Muddy Has a Bath
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: This is a dog.
+Woof, woof!
+- Notes: Illustration for page 4 of Farm Animals, matching the reading text: This is a dog.
+Woof, woof!
 
-## Woolly Can't Sleep · cover
+## Farm Animals · page 5
 
-![Woolly Can't Sleep cover](/guided-reading/series/meadow-pals/book-02/cover.webp)
+![Farm Animals page](/guided-reading/nonfiction/first-facts-level-a/book-02/page-005.webp)
 
-- Book ID: meadow-pals-02-woolly-cant-sleep
-- Review key: meadow-pals-02-woolly-cant-sleep:cover:cover
+- Book ID: first-facts-level-a-02-farm-animals
+- Review key: first-facts-level-a-02-farm-animals:page:5
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Woolly Can't Sleep
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: This is a duck.
+Quack, quack!
+- Notes: Illustration for page 5 of Farm Animals, matching the reading text: This is a duck.
+Quack, quack!
 
-## Clucky Lays an Egg · cover
+## Farm Animals · page 6
 
-![Clucky Lays an Egg cover](/guided-reading/series/meadow-pals/book-03/cover.webp)
+![Farm Animals page](/guided-reading/nonfiction/first-facts-level-a/book-02/page-006.webp)
 
-- Book ID: meadow-pals-03-clucky-lays-an-egg
-- Review key: meadow-pals-03-clucky-lays-an-egg:cover:cover
+- Book ID: first-facts-level-a-02-farm-animals
+- Review key: first-facts-level-a-02-farm-animals:page:6
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Clucky Lays an Egg
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: This is a cat.
+Meow!
+- Notes: Illustration for page 6 of Farm Animals, matching the reading text: This is a cat.
+Meow!
 
-## Bouncy Won't Stop · cover
+## Farm Animals · page 7
 
-![Bouncy Won't Stop cover](/guided-reading/series/meadow-pals/book-04/cover.webp)
+![Farm Animals page](/guided-reading/nonfiction/first-facts-level-a/book-02/page-007.webp)
 
-- Book ID: meadow-pals-04-bouncy-wont-stop
-- Review key: meadow-pals-04-bouncy-wont-stop:cover:cover
+- Book ID: first-facts-level-a-02-farm-animals
+- Review key: first-facts-level-a-02-farm-animals:page:7
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Bouncy Won't Stop
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: This is a farm!
+So many animals.
+- Notes: Illustration for page 7 of Farm Animals, matching the reading text: This is a farm!
+So many animals.
 
-## Grumpy Gets a Surprise · cover
+## Big and Little · page 1
 
-![Grumpy Gets a Surprise cover](/guided-reading/series/meadow-pals/book-05/cover.webp)
+![Big and Little page](/guided-reading/nonfiction/first-facts-level-a/book-03/page-001.webp)
 
-- Book ID: meadow-pals-05-grumpy-gets-a-surprise
-- Review key: meadow-pals-05-grumpy-gets-a-surprise:cover:cover
+- Book ID: first-facts-level-a-03-big-and-little
+- Review key: first-facts-level-a-03-big-and-little:page:1
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Grumpy Gets a Surprise
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: A big dog.
+A little bug.
+- Notes: Illustration for page 1 of Big and Little, matching the reading text: A big dog.
+A little bug.
 
-## Sleepy Can't Wake Up · cover
+## Big and Little · page 2
 
-![Sleepy Can't Wake Up cover](/guided-reading/series/meadow-pals/book-06/cover.webp)
+![Big and Little page](/guided-reading/nonfiction/first-facts-level-a/book-03/page-002.webp)
 
-- Book ID: meadow-pals-06-sleepy-cant-wake-up
-- Review key: meadow-pals-06-sleepy-cant-wake-up:cover:cover
+- Book ID: first-facts-level-a-03-big-and-little
+- Review key: first-facts-level-a-03-big-and-little:page:2
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Sleepy Can't Wake Up
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: A big fish.
+A little crab.
+- Notes: Illustration for page 2 of Big and Little, matching the reading text: A big fish.
+A little crab.
 
-## Noisy Tries to Be Quiet · cover
+## Big and Little · page 3
 
-![Noisy Tries to Be Quiet cover](/guided-reading/series/meadow-pals/book-07/cover.webp)
+![Big and Little page](/guided-reading/nonfiction/first-facts-level-a/book-03/page-003.webp)
 
-- Book ID: meadow-pals-07-noisy-tries-to-be-quiet
-- Review key: meadow-pals-07-noisy-tries-to-be-quiet:cover:cover
+- Book ID: first-facts-level-a-03-big-and-little
+- Review key: first-facts-level-a-03-big-and-little:page:3
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Noisy Tries to Be Quiet
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: A big bus.
+A little car.
+- Notes: Illustration for page 3 of Big and Little, matching the reading text: A big bus.
+A little car.
 
-## Tiny is Very Small · cover
+## Big and Little · page 4
 
-![Tiny is Very Small cover](/guided-reading/series/meadow-pals/book-08/cover.webp)
+![Big and Little page](/guided-reading/nonfiction/first-facts-level-a/book-03/page-004.webp)
 
-- Book ID: meadow-pals-08-tiny-is-very-small
-- Review key: meadow-pals-08-tiny-is-very-small:cover:cover
+- Book ID: first-facts-level-a-03-big-and-little
+- Review key: first-facts-level-a-03-big-and-little:page:4
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Tiny is Very Small
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: A big tree.
+A little seed.
+- Notes: Illustration for page 4 of Big and Little, matching the reading text: A big tree.
+A little seed.
 
-## Shy Comes Out to Play · cover
+## Big and Little · page 5
 
-![Shy Comes Out to Play cover](/guided-reading/series/meadow-pals/book-09/cover.webp)
+![Big and Little page](/guided-reading/nonfiction/first-facts-level-a/book-03/page-005.webp)
 
-- Book ID: meadow-pals-09-shy-comes-out-to-play
-- Review key: meadow-pals-09-shy-comes-out-to-play:cover:cover
+- Book ID: first-facts-level-a-03-big-and-little
+- Review key: first-facts-level-a-03-big-and-little:page:5
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Shy Comes Out to Play
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: A big sun.
+A little moon.
+- Notes: Illustration for page 5 of Big and Little, matching the reading text: A big sun.
+A little moon.
 
-## Giggly Has the Hiccups · cover
+## Big and Little · page 6
 
-![Giggly Has the Hiccups cover](/guided-reading/series/meadow-pals/book-10/cover.webp)
+![Big and Little page](/guided-reading/nonfiction/first-facts-level-a/book-03/page-006.webp)
 
-- Book ID: meadow-pals-10-giggly-has-the-hiccups
-- Review key: meadow-pals-10-giggly-has-the-hiccups:cover:cover
+- Book ID: first-facts-level-a-03-big-and-little
+- Review key: first-facts-level-a-03-big-and-little:page:6
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Giggly Has the Hiccups
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: A big hat.
+A little cap.
+- Notes: Illustration for page 6 of Big and Little, matching the reading text: A big hat.
+A little cap.
 
-## Brave Climbs the Hay Bale · cover
+## Big and Little · page 7
 
-![Brave Climbs the Hay Bale cover](/guided-reading/series/meadow-pals/book-11/cover.webp)
+![Big and Little page](/guided-reading/nonfiction/first-facts-level-a/book-03/page-007.webp)
 
-- Book ID: meadow-pals-11-brave-climbs-the-hay-bale
-- Review key: meadow-pals-11-brave-climbs-the-hay-bale:cover:cover
+- Book ID: first-facts-level-a-03-big-and-little
+- Review key: first-facts-level-a-03-big-and-little:page:7
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Brave Climbs the Hay Bale
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: Big and little.
+Little and big!
+- Notes: Illustration for page 7 of Big and Little, matching the reading text: Big and little.
+Little and big!
 
-## Hungry Eats Everything · cover
+## Water · page 1
 
-![Hungry Eats Everything cover](/guided-reading/series/meadow-pals/book-12/cover.webp)
+![Water page](/guided-reading/nonfiction/first-facts-level-a/book-04/page-001.webp)
 
-- Book ID: meadow-pals-12-hungry-eats-everything
-- Review key: meadow-pals-12-hungry-eats-everything:cover:cover
+- Book ID: first-facts-level-a-04-water
+- Review key: first-facts-level-a-04-water:page:1
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Hungry Eats Everything
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: We drink water.
+- Notes: Illustration for page 1 of Water, matching the reading text: We drink water.
 
-## Splashy Finds a Puddle · cover
+## Water · page 2
 
-![Splashy Finds a Puddle cover](/guided-reading/series/meadow-pals/book-13/cover.webp)
+![Water page](/guided-reading/nonfiction/first-facts-level-a/book-04/page-002.webp)
 
-- Book ID: meadow-pals-13-splashy-finds-a-puddle
-- Review key: meadow-pals-13-splashy-finds-a-puddle:cover:cover
+- Book ID: first-facts-level-a-04-water
+- Review key: first-facts-level-a-04-water:page:2
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Splashy Finds a Puddle
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: We play in water.
+- Notes: Illustration for page 2 of Water, matching the reading text: We play in water.
 
-## Speedy Slows Down · cover
+## Water · page 3
 
-![Speedy Slows Down cover](/guided-reading/series/meadow-pals/book-14/cover.webp)
+![Water page](/guided-reading/nonfiction/first-facts-level-a/book-04/page-003.webp)
 
-- Book ID: meadow-pals-14-speedy-slows-down
-- Review key: meadow-pals-14-speedy-slows-down:cover:cover
+- Book ID: first-facts-level-a-04-water
+- Review key: first-facts-level-a-04-water:page:3
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Speedy Slows Down
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: We wash in water.
+- Notes: Illustration for page 3 of Water, matching the reading text: We wash in water.
 
-## Cuddly Wants a Hug · cover
+## Water · page 4
 
-![Cuddly Wants a Hug cover](/guided-reading/series/meadow-pals/book-15/cover.webp)
+![Water page](/guided-reading/nonfiction/first-facts-level-a/book-04/page-004.webp)
 
-- Book ID: meadow-pals-15-cuddly-wants-a-hug
-- Review key: meadow-pals-15-cuddly-wants-a-hug:cover:cover
+- Book ID: first-facts-level-a-04-water
+- Review key: first-facts-level-a-04-water:page:4
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Cuddly Wants a Hug
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: Fish swim in water.
+- Notes: Illustration for page 4 of Water, matching the reading text: Fish swim in water.
 
-## Muddy and Splashy Make a Mess · cover
+## Water · page 5
 
-![Muddy and Splashy Make a Mess cover](/guided-reading/series/meadow-pals/book-16/cover.webp)
+![Water page](/guided-reading/nonfiction/first-facts-level-a/book-04/page-005.webp)
 
-- Book ID: meadow-pals-16-muddy-and-splashy-make-a-mess
-- Review key: meadow-pals-16-muddy-and-splashy-make-a-mess:cover:cover
+- Book ID: first-facts-level-a-04-water
+- Review key: first-facts-level-a-04-water:page:5
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Muddy and Splashy Make a Mess
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: Ducks swim in water.
+- Notes: Illustration for page 5 of Water, matching the reading text: Ducks swim in water.
 
-## Bouncy and Speedy Have a Race · cover
+## Water · page 6
 
-![Bouncy and Speedy Have a Race cover](/guided-reading/series/meadow-pals/book-17/cover.webp)
+![Water page](/guided-reading/nonfiction/first-facts-level-a/book-04/page-006.webp)
 
-- Book ID: meadow-pals-17-bouncy-and-speedy-have-a-race
-- Review key: meadow-pals-17-bouncy-and-speedy-have-a-race:cover:cover
+- Book ID: first-facts-level-a-04-water
+- Review key: first-facts-level-a-04-water:page:6
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Bouncy and Speedy Have a Race
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: Frogs hop in water.
+- Notes: Illustration for page 6 of Water, matching the reading text: Frogs hop in water.
 
-## Noisy Wakes Everyone Up · cover
+## Water · page 7
 
-![Noisy Wakes Everyone Up cover](/guided-reading/series/meadow-pals/book-18/cover.webp)
+![Water page](/guided-reading/nonfiction/first-facts-level-a/book-04/page-007.webp)
 
-- Book ID: meadow-pals-18-noisy-wakes-everyone-up
-- Review key: meadow-pals-18-noisy-wakes-everyone-up:cover:cover
+- Book ID: first-facts-level-a-04-water
+- Review key: first-facts-level-a-04-water:page:7
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Noisy Wakes Everyone Up
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: Water is all around!
+We need water.
+- Notes: Illustration for page 7 of Water, matching the reading text: Water is all around!
+We need water.
 
-## Tiny and Brave Go on an Adventure · cover
+## The Sky · page 1
 
-![Tiny and Brave Go on an Adventure cover](/guided-reading/series/meadow-pals/book-19/cover.webp)
+![The Sky page](/guided-reading/nonfiction/first-facts-level-a/book-05/page-001.webp)
 
-- Book ID: meadow-pals-19-tiny-and-brave-go-on-an-adventure
-- Review key: meadow-pals-19-tiny-and-brave-go-on-an-adventure:cover:cover
+- Book ID: first-facts-level-a-05-the-sky
+- Review key: first-facts-level-a-05-the-sky:page:1
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Tiny and Brave Go on an Adventure
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: The sun is up.
+It is hot.
+- Notes: Illustration for page 1 of The Sky, matching the reading text: The sun is up.
+It is hot.
 
-## Shy and Cuddly Find Each Other · cover
+## The Sky · page 2
 
-![Shy and Cuddly Find Each Other cover](/guided-reading/series/meadow-pals/book-20/cover.webp)
+![The Sky page](/guided-reading/nonfiction/first-facts-level-a/book-05/page-002.webp)
 
-- Book ID: meadow-pals-20-shy-and-cuddly-find-each-other
-- Review key: meadow-pals-20-shy-and-cuddly-find-each-other:cover:cover
+- Book ID: first-facts-level-a-05-the-sky
+- Review key: first-facts-level-a-05-the-sky:page:2
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Shy and Cuddly Find Each Other
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: The moon is up.
+It glows.
+- Notes: Illustration for page 2 of The Sky, matching the reading text: The moon is up.
+It glows.
 
-## Woolly and Grumpy Are Stuck · cover
+## The Sky · page 3
 
-![Woolly and Grumpy Are Stuck cover](/guided-reading/series/meadow-pals/book-21/cover.webp)
+![The Sky page](/guided-reading/nonfiction/first-facts-level-a/book-05/page-003.webp)
 
-- Book ID: meadow-pals-21-woolly-and-grumpy-are-stuck
-- Review key: meadow-pals-21-woolly-and-grumpy-are-stuck:cover:cover
+- Book ID: first-facts-level-a-05-the-sky
+- Review key: first-facts-level-a-05-the-sky:page:3
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Woolly and Grumpy Are Stuck
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: The stars are up.
+They shine.
+- Notes: Illustration for page 3 of The Sky, matching the reading text: The stars are up.
+They shine.
 
-## Sleepy's Big Dream · cover
+## The Sky · page 4
 
-![Sleepy's Big Dream cover](/guided-reading/series/meadow-pals/book-22/cover.webp)
+![The Sky page](/guided-reading/nonfiction/first-facts-level-a/book-05/page-004.webp)
 
-- Book ID: meadow-pals-22-sleepys-big-dream
-- Review key: meadow-pals-22-sleepys-big-dream:cover:cover
+- Book ID: first-facts-level-a-05-the-sky
+- Review key: first-facts-level-a-05-the-sky:page:4
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Sleepy's Big Dream
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: A bird is up.
+It can fly.
+- Notes: Illustration for page 4 of The Sky, matching the reading text: A bird is up.
+It can fly.
 
-## Giggly and Clucky Bake a Cake · cover
+## The Sky · page 5
 
-![Giggly and Clucky Bake a Cake cover](/guided-reading/series/meadow-pals/book-23/cover.webp)
+![The Sky page](/guided-reading/nonfiction/first-facts-level-a/book-05/page-005.webp)
 
-- Book ID: meadow-pals-23-giggly-and-clucky-bake-a-cake
-- Review key: meadow-pals-23-giggly-and-clucky-bake-a-cake:cover:cover
+- Book ID: first-facts-level-a-05-the-sky
+- Review key: first-facts-level-a-05-the-sky:page:5
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Giggly and Clucky Bake a Cake
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: A cloud is up.
+It is white.
+- Notes: Illustration for page 5 of The Sky, matching the reading text: A cloud is up.
+It is white.
 
-## Grumpy's Secret · cover
+## The Sky · page 6
 
-![Grumpy's Secret cover](/guided-reading/series/meadow-pals/book-24/cover.webp)
+![The Sky page](/guided-reading/nonfiction/first-facts-level-a/book-05/page-006.webp)
 
-- Book ID: meadow-pals-24-grumpys-secret
-- Review key: meadow-pals-24-grumpys-secret:cover:cover
+- Book ID: first-facts-level-a-05-the-sky
+- Review key: first-facts-level-a-05-the-sky:page:6
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: Grumpy's Secret
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: A jet is up.
+It is fast.
+- Notes: Illustration for page 6 of The Sky, matching the reading text: A jet is up.
+It is fast.
 
-## The Big Farm Party · cover
+## The Sky · page 7
 
-![The Big Farm Party cover](/guided-reading/series/meadow-pals/book-25/cover.webp)
+![The Sky page](/guided-reading/nonfiction/first-facts-level-a/book-05/page-007.webp)
 
-- Book ID: meadow-pals-25-the-big-farm-party
-- Review key: meadow-pals-25-the-big-farm-party:cover:cover
+- Book ID: first-facts-level-a-05-the-sky
+- Review key: first-facts-level-a-05-the-sky:page:7
 - Status: NEEDS_HUMAN_REVIEW
-- Issues: cover_title_mismatch
-- Intended text: The Big Farm Party
-- Notes: Released for student Guided Reading after source page text, images, and page audio matched.
+- Issues: text_not_matching_page
+- Intended text: Look up!
+The sky is big.
+- Notes: Illustration for page 7 of The Sky, matching the reading text: Look up!
+The sky is big.
+
+## Animals Can! · page 1
+
+![Animals Can! page](/guided-reading/nonfiction/first-facts-level-a/book-06/page-001.webp)
+
+- Book ID: first-facts-level-a-06-animals-can
+- Review key: first-facts-level-a-06-animals-can:page:1
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A dog can run.
+Run, run!
+- Notes: Illustration for page 1 of Animals Can!, matching the reading text: A dog can run.
+Run, run!
+
+## Animals Can! · page 2
+
+![Animals Can! page](/guided-reading/nonfiction/first-facts-level-a/book-06/page-002.webp)
+
+- Book ID: first-facts-level-a-06-animals-can
+- Review key: first-facts-level-a-06-animals-can:page:2
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A cat can jump.
+Jump, jump!
+- Notes: Illustration for page 2 of Animals Can!, matching the reading text: A cat can jump.
+Jump, jump!
+
+## Animals Can! · page 3
+
+![Animals Can! page](/guided-reading/nonfiction/first-facts-level-a/book-06/page-003.webp)
+
+- Book ID: first-facts-level-a-06-animals-can
+- Review key: first-facts-level-a-06-animals-can:page:3
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A fish can swim.
+Swim, swim!
+- Notes: Illustration for page 3 of Animals Can!, matching the reading text: A fish can swim.
+Swim, swim!
+
+## Animals Can! · page 4
+
+![Animals Can! page](/guided-reading/nonfiction/first-facts-level-a/book-06/page-004.webp)
+
+- Book ID: first-facts-level-a-06-animals-can
+- Review key: first-facts-level-a-06-animals-can:page:4
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A bird can fly.
+Fly, fly!
+- Notes: Illustration for page 4 of Animals Can!, matching the reading text: A bird can fly.
+Fly, fly!
+
+## Animals Can! · page 5
+
+![Animals Can! page](/guided-reading/nonfiction/first-facts-level-a/book-06/page-005.webp)
+
+- Book ID: first-facts-level-a-06-animals-can
+- Review key: first-facts-level-a-06-animals-can:page:5
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A frog can hop.
+Hop, hop!
+- Notes: Illustration for page 5 of Animals Can!, matching the reading text: A frog can hop.
+Hop, hop!
+
+## Animals Can! · page 6
+
+![Animals Can! page](/guided-reading/nonfiction/first-facts-level-a/book-06/page-006.webp)
+
+- Book ID: first-facts-level-a-06-animals-can
+- Review key: first-facts-level-a-06-animals-can:page:6
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A worm can dig.
+Dig, dig!
+- Notes: Illustration for page 6 of Animals Can!, matching the reading text: A worm can dig.
+Dig, dig!
+
+## Animals Can! · page 7
+
+![Animals Can! page](/guided-reading/nonfiction/first-facts-level-a/book-06/page-007.webp)
+
+- Book ID: first-facts-level-a-06-animals-can
+- Review key: first-facts-level-a-06-animals-can:page:7
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: I can run!
+I can jump!
+I can swim!
+- Notes: Illustration for page 7 of Animals Can!, matching the reading text: I can run!
+I can jump!
+I can swim!
+
+## Bugs · page 1
+
+![Bugs page](/guided-reading/nonfiction/first-facts-level-a/book-07/page-001.webp)
+
+- Book ID: first-facts-level-a-07-bugs
+- Review key: first-facts-level-a-07-bugs:page:1
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A bug is little.
+It can fly.
+- Notes: Illustration for page 1 of Bugs, matching the reading text: A bug is little.
+It can fly.
+
+## Bugs · page 2
+
+![Bugs page](/guided-reading/nonfiction/first-facts-level-a/book-07/page-002.webp)
+
+- Book ID: first-facts-level-a-07-bugs
+- Review key: first-facts-level-a-07-bugs:page:2
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A bee is yellow.
+It can sting.
+- Notes: Illustration for page 2 of Bugs, matching the reading text: A bee is yellow.
+It can sting.
+
+## Bugs · page 3
+
+![Bugs page](/guided-reading/nonfiction/first-facts-level-a/book-07/page-003.webp)
+
+- Book ID: first-facts-level-a-07-bugs
+- Review key: first-facts-level-a-07-bugs:page:3
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: An ant is red.
+It can dig.
+- Notes: Illustration for page 3 of Bugs, matching the reading text: An ant is red.
+It can dig.
+
+## Bugs · page 4
+
+![Bugs page](/guided-reading/nonfiction/first-facts-level-a/book-07/page-004.webp)
+
+- Book ID: first-facts-level-a-07-bugs
+- Review key: first-facts-level-a-07-bugs:page:4
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A worm is pink.
+It can dig.
+- Notes: Illustration for page 4 of Bugs, matching the reading text: A worm is pink.
+It can dig.
+
+## Bugs · page 5
+
+![Bugs page](/guided-reading/nonfiction/first-facts-level-a/book-07/page-005.webp)
+
+- Book ID: first-facts-level-a-07-bugs
+- Review key: first-facts-level-a-07-bugs:page:5
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A bug can hide.
+Can you see it?
+- Notes: Illustration for page 5 of Bugs, matching the reading text: A bug can hide.
+Can you see it?
+
+## Bugs · page 6
+
+![Bugs page](/guided-reading/nonfiction/first-facts-level-a/book-07/page-006.webp)
+
+- Book ID: first-facts-level-a-07-bugs
+- Review key: first-facts-level-a-07-bugs:page:6
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A bug can crawl.
+It is fast!
+- Notes: Illustration for page 6 of Bugs, matching the reading text: A bug can crawl.
+It is fast!
+
+## Bugs · page 7
+
+![Bugs page](/guided-reading/nonfiction/first-facts-level-a/book-07/page-007.webp)
+
+- Book ID: first-facts-level-a-07-bugs
+- Review key: first-facts-level-a-07-bugs:page:7
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: Bugs are all around!
+They are little.
+- Notes: Illustration for page 7 of Bugs, matching the reading text: Bugs are all around!
+They are little.
+
+## My Pet · page 1
+
+![My Pet page](/guided-reading/nonfiction/first-facts-level-a/book-08/page-001.webp)
+
+- Book ID: first-facts-level-a-08-my-pet
+- Review key: first-facts-level-a-08-my-pet:page:1
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: My dog has a bed.
+It is soft.
+- Notes: Illustration for page 1 of My Pet, matching the reading text: My dog has a bed.
+It is soft.
+
+## My Pet · page 2
+
+![My Pet page](/guided-reading/nonfiction/first-facts-level-a/book-08/page-002.webp)
+
+- Book ID: first-facts-level-a-08-my-pet
+- Review key: first-facts-level-a-08-my-pet:page:2
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: My cat has a mat.
+It is warm.
+- Notes: Illustration for page 2 of My Pet, matching the reading text: My cat has a mat.
+It is warm.
+
+## My Pet · page 3
+
+![My Pet page](/guided-reading/nonfiction/first-facts-level-a/book-08/page-003.webp)
+
+- Book ID: first-facts-level-a-08-my-pet
+- Review key: first-facts-level-a-08-my-pet:page:3
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: My fish has a tank.
+It is wet.
+- Notes: Illustration for page 3 of My Pet, matching the reading text: My fish has a tank.
+It is wet.
+
+## My Pet · page 4
+
+![My Pet page](/guided-reading/nonfiction/first-facts-level-a/book-08/page-004.webp)
+
+- Book ID: first-facts-level-a-08-my-pet
+- Review key: first-facts-level-a-08-my-pet:page:4
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: My bird has a cage.
+It can sing.
+- Notes: Illustration for page 4 of My Pet, matching the reading text: My bird has a cage.
+It can sing.
+
+## My Pet · page 5
+
+![My Pet page](/guided-reading/nonfiction/first-facts-level-a/book-08/page-005.webp)
+
+- Book ID: first-facts-level-a-08-my-pet
+- Review key: first-facts-level-a-08-my-pet:page:5
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: My rabbit has fur.
+It is soft.
+- Notes: Illustration for page 5 of My Pet, matching the reading text: My rabbit has fur.
+It is soft.
+
+## My Pet · page 6
+
+![My Pet page](/guided-reading/nonfiction/first-facts-level-a/book-08/page-006.webp)
+
+- Book ID: first-facts-level-a-08-my-pet
+- Review key: first-facts-level-a-08-my-pet:page:6
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: My pet has a name.
+I love my pet.
+- Notes: Illustration for page 6 of My Pet, matching the reading text: My pet has a name.
+I love my pet.
+
+## My Pet · page 7
+
+![My Pet page](/guided-reading/nonfiction/first-facts-level-a/book-08/page-007.webp)
+
+- Book ID: first-facts-level-a-08-my-pet
+- Review key: first-facts-level-a-08-my-pet:page:7
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: My pet is my friend!
+- Notes: Illustration for page 7 of My Pet, matching the reading text: My pet is my friend!
+
+## Hot and Cold · page 1
+
+![Hot and Cold page](/guided-reading/nonfiction/first-facts-level-a/book-09/page-001.webp)
+
+- Book ID: first-facts-level-a-09-hot-and-cold
+- Review key: first-facts-level-a-09-hot-and-cold:page:1
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: The sun is hot.
+It is very hot.
+- Notes: Illustration for page 1 of Hot and Cold, matching the reading text: The sun is hot.
+It is very hot.
+
+## Hot and Cold · page 2
+
+![Hot and Cold page](/guided-reading/nonfiction/first-facts-level-a/book-09/page-002.webp)
+
+- Book ID: first-facts-level-a-09-hot-and-cold
+- Review key: first-facts-level-a-09-hot-and-cold:page:2
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: Ice is cold.
+It is very cold.
+- Notes: Illustration for page 2 of Hot and Cold, matching the reading text: Ice is cold.
+It is very cold.
+
+## Hot and Cold · page 3
+
+![Hot and Cold page](/guided-reading/nonfiction/first-facts-level-a/book-09/page-003.webp)
+
+- Book ID: first-facts-level-a-09-hot-and-cold
+- Review key: first-facts-level-a-09-hot-and-cold:page:3
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: Fire is hot.
+It is red.
+- Notes: Illustration for page 3 of Hot and Cold, matching the reading text: Fire is hot.
+It is red.
+
+## Hot and Cold · page 4
+
+![Hot and Cold page](/guided-reading/nonfiction/first-facts-level-a/book-09/page-004.webp)
+
+- Book ID: first-facts-level-a-09-hot-and-cold
+- Review key: first-facts-level-a-09-hot-and-cold:page:4
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: Snow is cold.
+It is white.
+- Notes: Illustration for page 4 of Hot and Cold, matching the reading text: Snow is cold.
+It is white.
+
+## Hot and Cold · page 5
+
+![Hot and Cold page](/guided-reading/nonfiction/first-facts-level-a/book-09/page-005.webp)
+
+- Book ID: first-facts-level-a-09-hot-and-cold
+- Review key: first-facts-level-a-09-hot-and-cold:page:5
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: Hot soup!
+It is hot. Mmm!
+- Notes: Illustration for page 5 of Hot and Cold, matching the reading text: Hot soup!
+It is hot. Mmm!
+
+## Hot and Cold · page 6
+
+![Hot and Cold page](/guided-reading/nonfiction/first-facts-level-a/book-09/page-006.webp)
+
+- Book ID: first-facts-level-a-09-hot-and-cold
+- Review key: first-facts-level-a-09-hot-and-cold:page:6
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: Cold milk!
+It is cold. Yum!
+- Notes: Illustration for page 6 of Hot and Cold, matching the reading text: Cold milk!
+It is cold. Yum!
+
+## Hot and Cold · page 7
+
+![Hot and Cold page](/guided-reading/nonfiction/first-facts-level-a/book-09/page-007.webp)
+
+- Book ID: first-facts-level-a-09-hot-and-cold
+- Review key: first-facts-level-a-09-hot-and-cold:page:7
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: Hot and cold.
+Cold and hot.
+- Notes: Illustration for page 7 of Hot and Cold, matching the reading text: Hot and cold.
+Cold and hot.
+
+## Shapes · page 1
+
+![Shapes page](/guided-reading/nonfiction/first-facts-level-a/book-10/page-001.webp)
+
+- Book ID: first-facts-level-a-10-shapes
+- Review key: first-facts-level-a-10-shapes:page:1
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A ball is round.
+It is a circle.
+- Notes: Illustration for page 1 of Shapes, matching the reading text: A ball is round.
+It is a circle.
+
+## Shapes · page 2
+
+![Shapes page](/guided-reading/nonfiction/first-facts-level-a/book-10/page-002.webp)
+
+- Book ID: first-facts-level-a-10-shapes
+- Review key: first-facts-level-a-10-shapes:page:2
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A box is flat.
+It is a square.
+- Notes: Illustration for page 2 of Shapes, matching the reading text: A box is flat.
+It is a square.
+
+## Shapes · page 3
+
+![Shapes page](/guided-reading/nonfiction/first-facts-level-a/book-10/page-003.webp)
+
+- Book ID: first-facts-level-a-10-shapes
+- Review key: first-facts-level-a-10-shapes:page:3
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A door is tall.
+It is a rectangle.
+- Notes: Illustration for page 3 of Shapes, matching the reading text: A door is tall.
+It is a rectangle.
+
+## Shapes · page 4
+
+![Shapes page](/guided-reading/nonfiction/first-facts-level-a/book-10/page-004.webp)
+
+- Book ID: first-facts-level-a-10-shapes
+- Review key: first-facts-level-a-10-shapes:page:4
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A slice of pie.
+It is a triangle.
+- Notes: Illustration for page 4 of Shapes, matching the reading text: A slice of pie.
+It is a triangle.
+
+## Shapes · page 5
+
+![Shapes page](/guided-reading/nonfiction/first-facts-level-a/book-10/page-005.webp)
+
+- Book ID: first-facts-level-a-10-shapes
+- Review key: first-facts-level-a-10-shapes:page:5
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: I see shapes!
+Shapes are all around.
+- Notes: Illustration for page 5 of Shapes, matching the reading text: I see shapes!
+Shapes are all around.
+
+## Shapes · page 6
+
+![Shapes page](/guided-reading/nonfiction/first-facts-level-a/book-10/page-006.webp)
+
+- Book ID: first-facts-level-a-10-shapes
+- Review key: first-facts-level-a-10-shapes:page:6
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A wheel is a circle.
+A kite is a triangle.
+- Notes: Illustration for page 6 of Shapes, matching the reading text: A wheel is a circle.
+A kite is a triangle.
+
+## Shapes · page 7
+
+![Shapes page](/guided-reading/nonfiction/first-facts-level-a/book-10/page-007.webp)
+
+- Book ID: first-facts-level-a-10-shapes
+- Review key: first-facts-level-a-10-shapes:page:7
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: What shape is it?
+Can you find it?
+- Notes: Illustration for page 7 of Shapes, matching the reading text: What shape is it?
+Can you find it?
+
+## At the Farm · page 1
+
+![At the Farm page](/guided-reading/nonfiction/first-facts-level-a/book-11/page-001.webp)
+
+- Book ID: first-facts-level-a-11-at-the-farm
+- Review key: first-facts-level-a-11-at-the-farm:page:1
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: I see a big red barn.
+- Notes: Illustration for page 1 of At the Farm, matching the reading text: I see a big red barn.
+
+## At the Farm · page 2
+
+![At the Farm page](/guided-reading/nonfiction/first-facts-level-a/book-11/page-002.webp)
+
+- Book ID: first-facts-level-a-11-at-the-farm
+- Review key: first-facts-level-a-11-at-the-farm:page:2
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: I see a fat pig.
+Oink!
+- Notes: Illustration for page 2 of At the Farm, matching the reading text: I see a fat pig.
+Oink!
+
+## At the Farm · page 3
+
+![At the Farm page](/guided-reading/nonfiction/first-facts-level-a/book-11/page-003.webp)
+
+- Book ID: first-facts-level-a-11-at-the-farm
+- Review key: first-facts-level-a-11-at-the-farm:page:3
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: I see a little chick.
+Peep!
+- Notes: Illustration for page 3 of At the Farm, matching the reading text: I see a little chick.
+Peep!
+
+## At the Farm · page 4
+
+![At the Farm page](/guided-reading/nonfiction/first-facts-level-a/book-11/page-004.webp)
+
+- Book ID: first-facts-level-a-11-at-the-farm
+- Review key: first-facts-level-a-11-at-the-farm:page:4
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: I see a big cow.
+Moo!
+- Notes: Illustration for page 4 of At the Farm, matching the reading text: I see a big cow.
+Moo!
+
+## At the Farm · page 5
+
+![At the Farm page](/guided-reading/nonfiction/first-facts-level-a/book-11/page-005.webp)
+
+- Book ID: first-facts-level-a-11-at-the-farm
+- Review key: first-facts-level-a-11-at-the-farm:page:5
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: I see green grass.
+I see hay.
+- Notes: Illustration for page 5 of At the Farm, matching the reading text: I see green grass.
+I see hay.
+
+## At the Farm · page 6
+
+![At the Farm page](/guided-reading/nonfiction/first-facts-level-a/book-11/page-006.webp)
+
+- Book ID: first-facts-level-a-11-at-the-farm
+- Review key: first-facts-level-a-11-at-the-farm:page:6
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: I see a big dog.
+It runs fast.
+- Notes: Illustration for page 6 of At the Farm, matching the reading text: I see a big dog.
+It runs fast.
+
+## At the Farm · page 7
+
+![At the Farm page](/guided-reading/nonfiction/first-facts-level-a/book-11/page-007.webp)
+
+- Book ID: first-facts-level-a-11-at-the-farm
+- Review key: first-facts-level-a-11-at-the-farm:page:7
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: I love the farm!
+I can see so much.
+- Notes: Illustration for page 7 of At the Farm, matching the reading text: I love the farm!
+I can see so much.
+
+## In the Sea · page 1
+
+![In the Sea page](/guided-reading/nonfiction/first-facts-level-a/book-12/page-001.webp)
+
+- Book ID: first-facts-level-a-12-in-the-sea
+- Review key: first-facts-level-a-12-in-the-sea:page:1
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A fish can swim.
+Swish!
+- Notes: Illustration for page 1 of In the Sea, matching the reading text: A fish can swim.
+Swish!
+
+## In the Sea · page 2
+
+![In the Sea page](/guided-reading/nonfiction/first-facts-level-a/book-12/page-002.webp)
+
+- Book ID: first-facts-level-a-12-in-the-sea
+- Review key: first-facts-level-a-12-in-the-sea:page:2
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A big shark can swim fast.
+- Notes: Illustration for page 2 of In the Sea, matching the reading text: A big shark can swim fast.
+
+## In the Sea · page 3
+
+![In the Sea page](/guided-reading/nonfiction/first-facts-level-a/book-12/page-003.webp)
+
+- Book ID: first-facts-level-a-12-in-the-sea
+- Review key: first-facts-level-a-12-in-the-sea:page:3
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A crab can crawl.
+Snip, snip!
+- Notes: Illustration for page 3 of In the Sea, matching the reading text: A crab can crawl.
+Snip, snip!
+
+## In the Sea · page 4
+
+![In the Sea page](/guided-reading/nonfiction/first-facts-level-a/book-12/page-004.webp)
+
+- Book ID: first-facts-level-a-12-in-the-sea
+- Review key: first-facts-level-a-12-in-the-sea:page:4
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A whale can swim far.
+It is huge.
+- Notes: Illustration for page 4 of In the Sea, matching the reading text: A whale can swim far.
+It is huge.
+
+## In the Sea · page 5
+
+![In the Sea page](/guided-reading/nonfiction/first-facts-level-a/book-12/page-005.webp)
+
+- Book ID: first-facts-level-a-12-in-the-sea
+- Review key: first-facts-level-a-12-in-the-sea:page:5
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A seal can swim and dive.
+- Notes: Illustration for page 5 of In the Sea, matching the reading text: A seal can swim and dive.
+
+## In the Sea · page 6
+
+![In the Sea page](/guided-reading/nonfiction/first-facts-level-a/book-12/page-006.webp)
+
+- Book ID: first-facts-level-a-12-in-the-sea
+- Review key: first-facts-level-a-12-in-the-sea:page:6
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A turtle can swim slow.
+Slow and sure.
+- Notes: Illustration for page 6 of In the Sea, matching the reading text: A turtle can swim slow.
+Slow and sure.
+
+## In the Sea · page 7
+
+![In the Sea page](/guided-reading/nonfiction/first-facts-level-a/book-12/page-007.webp)
+
+- Book ID: first-facts-level-a-12-in-the-sea
+- Review key: first-facts-level-a-12-in-the-sea:page:7
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: I can swim too!
+Splash!
+- Notes: Illustration for page 7 of In the Sea, matching the reading text: I can swim too!
+Splash!
+
+## Fruit · page 1
+
+![Fruit page](/guided-reading/nonfiction/first-facts-level-a/book-13/page-001.webp)
+
+- Book ID: first-facts-level-a-13-fruit
+- Review key: first-facts-level-a-13-fruit:page:1
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: An apple is red.
+It is sweet.
+- Notes: Illustration for page 1 of Fruit, matching the reading text: An apple is red.
+It is sweet.
+
+## Fruit · page 2
+
+![Fruit page](/guided-reading/nonfiction/first-facts-level-a/book-13/page-002.webp)
+
+- Book ID: first-facts-level-a-13-fruit
+- Review key: first-facts-level-a-13-fruit:page:2
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A banana is yellow.
+It is soft.
+- Notes: Illustration for page 2 of Fruit, matching the reading text: A banana is yellow.
+It is soft.
+
+## Fruit · page 3
+
+![Fruit page](/guided-reading/nonfiction/first-facts-level-a/book-13/page-003.webp)
+
+- Book ID: first-facts-level-a-13-fruit
+- Review key: first-facts-level-a-13-fruit:page:3
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A plum is purple.
+It is little.
+- Notes: Illustration for page 3 of Fruit, matching the reading text: A plum is purple.
+It is little.
+
+## Fruit · page 4
+
+![Fruit page](/guided-reading/nonfiction/first-facts-level-a/book-13/page-004.webp)
+
+- Book ID: first-facts-level-a-13-fruit
+- Review key: first-facts-level-a-13-fruit:page:4
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: An orange is round.
+It is bright.
+- Notes: Illustration for page 4 of Fruit, matching the reading text: An orange is round.
+It is bright.
+
+## Fruit · page 5
+
+![Fruit page](/guided-reading/nonfiction/first-facts-level-a/book-13/page-005.webp)
+
+- Book ID: first-facts-level-a-13-fruit
+- Review key: first-facts-level-a-13-fruit:page:5
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A grape is small.
+It is round.
+- Notes: Illustration for page 5 of Fruit, matching the reading text: A grape is small.
+It is round.
+
+## Fruit · page 6
+
+![Fruit page](/guided-reading/nonfiction/first-facts-level-a/book-13/page-006.webp)
+
+- Book ID: first-facts-level-a-13-fruit
+- Review key: first-facts-level-a-13-fruit:page:6
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: Fruit is good to eat!
+Yum, yum!
+- Notes: Illustration for page 6 of Fruit, matching the reading text: Fruit is good to eat!
+Yum, yum!
+
+## Fruit · page 7
+
+![Fruit page](/guided-reading/nonfiction/first-facts-level-a/book-13/page-007.webp)
+
+- Book ID: first-facts-level-a-13-fruit
+- Review key: first-facts-level-a-13-fruit:page:7
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: It is red! It is yellow!
+I love fruit!
+- Notes: Illustration for page 7 of Fruit, matching the reading text: It is red! It is yellow!
+I love fruit!
+
+## The Tree · page 1
+
+![The Tree page](/guided-reading/nonfiction/first-facts-level-a/book-14/page-001.webp)
+
+- Book ID: first-facts-level-a-14-the-tree
+- Review key: first-facts-level-a-14-the-tree:page:1
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: The tree is big.
+It is tall.
+- Notes: Illustration for page 1 of The Tree, matching the reading text: The tree is big.
+It is tall.
+
+## The Tree · page 2
+
+![The Tree page](/guided-reading/nonfiction/first-facts-level-a/book-14/page-002.webp)
+
+- Book ID: first-facts-level-a-14-the-tree
+- Review key: first-facts-level-a-14-the-tree:page:2
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: The tree has roots.
+They go down.
+- Notes: Illustration for page 2 of The Tree, matching the reading text: The tree has roots.
+They go down.
+
+## The Tree · page 3
+
+![The Tree page](/guided-reading/nonfiction/first-facts-level-a/book-14/page-003.webp)
+
+- Book ID: first-facts-level-a-14-the-tree
+- Review key: first-facts-level-a-14-the-tree:page:3
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: The tree has a thick trunk.
+- Notes: Illustration for page 3 of The Tree, matching the reading text: The tree has a thick trunk.
+
+## The Tree · page 4
+
+![The Tree page](/guided-reading/nonfiction/first-facts-level-a/book-14/page-004.webp)
+
+- Book ID: first-facts-level-a-14-the-tree
+- Review key: first-facts-level-a-14-the-tree:page:4
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: The tree has branches.
+They reach up.
+- Notes: Illustration for page 4 of The Tree, matching the reading text: The tree has branches.
+They reach up.
+
+## The Tree · page 5
+
+![The Tree page](/guided-reading/nonfiction/first-facts-level-a/book-14/page-005.webp)
+
+- Book ID: first-facts-level-a-14-the-tree
+- Review key: first-facts-level-a-14-the-tree:page:5
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: The tree has green leaves.
+- Notes: Illustration for page 5 of The Tree, matching the reading text: The tree has green leaves.
+
+## The Tree · page 6
+
+![The Tree page](/guided-reading/nonfiction/first-facts-level-a/book-14/page-006.webp)
+
+- Book ID: first-facts-level-a-14-the-tree
+- Review key: first-facts-level-a-14-the-tree:page:6
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: The tree has red apples.
+I can pick one.
+- Notes: Illustration for page 6 of The Tree, matching the reading text: The tree has red apples.
+I can pick one.
+
+## The Tree · page 7
+
+![The Tree page](/guided-reading/nonfiction/first-facts-level-a/book-14/page-007.webp)
+
+- Book ID: first-facts-level-a-14-the-tree
+- Review key: first-facts-level-a-14-the-tree:page:7
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: I love the big tree!
+- Notes: Illustration for page 7 of The Tree, matching the reading text: I love the big tree!
+
+## Baby Animals · page 1
+
+![Baby Animals page](/guided-reading/nonfiction/first-facts-level-a/book-15/page-001.webp)
+
+- Book ID: first-facts-level-a-15-baby-animals
+- Review key: first-facts-level-a-15-baby-animals:page:1
+- Status: NEEDS_HUMAN_REVIEW
+- Issues: text_not_matching_page
+- Intended text: A little chick.
+It is yellow.
+- Notes: Illustration for page 1 of Baby Animals, matching the reading text: A little chick.
+It is yellow.
 

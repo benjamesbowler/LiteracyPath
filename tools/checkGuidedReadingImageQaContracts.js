@@ -18,7 +18,7 @@ function includes(source, needle, message) {
   if (!source.includes(needle)) failures.push(message);
 }
 
-const learnSource = read("src/components/LearnAreaPage.jsx");
+const readerSource = read("src/components/guided-reading/GuidedReadingPage.jsx");
 const dataSource = read("src/data/elSkillsBlockCycles.js");
 const adminSource = read("src/components/AdminDashboardPage.jsx");
 
@@ -57,15 +57,14 @@ elSkillsBlockCycles.forEach(cycle => {
 ].forEach(needle => includes(dataSource, needle, `Cycle data is missing Guided Reading recommendation contract: ${needle}.`));
 
 [
-  "Guided Reading This Week",
-  "Read This Week",
-  "learn-guided-reading-week",
-  "learn-guided-book-card",
-  "Fiction Book",
-  "Non-Fiction Book",
+  "Reading Library",
+  "guided-shelf-card",
+  "guided-book-card",
   "Open Book",
-  "onOpenGuidedReadingBook"
-].forEach(needle => includes(learnSource, needle, `LearnAreaPage is missing Guided Reading recommendation UI: ${needle}.`));
+  "Back to Library",
+  "getRuntimeGuidedReadingBooks",
+  "changeBook"
+].forEach(needle => includes(readerSource, needle, `GuidedReadingPage is missing the active reading-library contract: ${needle}.`));
 
 [
   "tools/auditGuidedReadingImageTextArtifacts.js",
@@ -114,8 +113,8 @@ if (exists("docs/guided-reading/guided_reading_image_text_artifact_audit.json"))
   }
 }
 
-if (/img\s+[^>]*src=["']https?:\/\//.test(learnSource)) {
-  failures.push("Learn Guided Reading recommendation cards should not hotlink external images.");
+if (/img\s+[^>]*src=["']https?:\/\//.test(readerSource)) {
+  failures.push("Guided Reading library cards should not hotlink external images.");
 }
 
 if (failures.length) {
