@@ -3,6 +3,7 @@
 **Audit source:** `docs/SOUND_SEEKERS_COMPLETE_AUDIT_2026-07-20.md`
 **Evidence snapshot:** 2026-07-21
 **Scope:** the current `comic-redesign-audit-fixes` working tree. The source audit is unchanged.
+**Verified code commit:** `3f6b105c` (later evidence/graph-only commits do not alter runtime code).
 
 ## How to read this ledger
 
@@ -22,6 +23,8 @@
 | RA-01 · Correct letter physically unreachable | Closed (software); physical-device acceptance remains pending | `src/utils/questSliceSystems.js`; `src/components/quest/world/questPixelRuntime.js` — some resident-relative answer formations lay outside the authored movement wall, so the correct object could be visible yet never enter collision range. An active answer stage now derives the required corridor from the actual rendered answer circles relative to the primary authored route, including moving-answer padding; keyboard/pointer travel widens only while those answers are active. | `tests/unit/questChoiceReachability.test.js` — **“all forty stops expand the active movement corridor to every rendered answer layout”** and the exact Hollow Tree dead-answer fixture. The catalogue scan covers 40 stops, 183 tasks, and 403 physical stages. `tests/browser/quest-input-collision.spec.js` — the real Phaser player physically collides with and advances from the correct `a` at s1, `c` at s5, and `a` at optional-route s16 without invoking a semantic answer button. Focused result: 31/31 movement units and 9/9 live input/collision browser checks. |
 | RA-02 · Directional controls appear dead | Closed (software); exact physical-device pairing remains pending | The tested keyboard mapping already handled all four axes. The reproduced software failure was coarse-pointer hit-target occlusion: the pinned semantic answer panel could overlap the D-pad, so covered directions appeared inert depending on viewport/layout. `src/styles/quest.css` now reserves portrait separation, places answers in the opposite landscape safe area, and honors left/right/bottom safe-area insets. | `tests/browser/quest-input-collision.spec.js` — **“all four keyboard arrows move the Beastie on their matching axis”**; **“coarse-pointer answer controls leave every D-pad arrow usable and moving”**; and prompt/answer/D-pad separation at 568×320, 432×320, 424×320, and 360×320. Whole-file result: 9/9. |
 | RA-03 · Reset returns old journey after exit/re-entry | Closed locally; Supabase deployment/self-test pending | `src/components/quest/QuestRoot.jsx`; `src/utils/questProgress.js`; `src/utils/progressMerge.js`; `src/utils/questStore.js`; `src/utils/progressQueue.js` — reset previously created a fresh local object, but forward-only cloud/queue merging and a stale tab’s direct write could union the old trail, mastery, purchases, and checkpoint back in. Each reset now carries an independently issued reset ID, observed reset history, and a pending-reset ID set. Stale local, hydrate, and queue generations cannot restore reset journey fields; concurrent pending resets converge without relying on device clocks; server acknowledgement settles pending IDs. Comfort settings and teacher assignment survive while the journey, creature, rewards, mastery, and checkpoint reset. | `tests/unit/questSettingsAndReset.test.js`, `tests/unit/progressMerge.test.js`, and `tests/unit/progressQueue.test.js` cover restart shape, legacy payloads, clock skew, same-ID acknowledgement, unrelated concurrent resets, three-way grouping, stale-tab disk writes, queue coalescing, checkpoint clearing, and assignment/settings retention. Focused result: 52/52. `tests/browser/quest-accessibility.spec.js` — **“start again survives a stale cloud hydrate, close, reopen, and full reload”**, including a simulated suspended stale-tab save: 1/1. `supabase/migrations/20260721100000_sound_seekers_reset_epoch.sql` and the expanded SQL self-test mirror the client rules, but deployed PL/pgSQL behavior is not yet proven. |
+| RA-04 · Clean checkout and offline install omitted runtime cues | Closed (software) | The repository-wide `*.wav` ignore rule had hidden all 20 referenced Seedwake cues, so the dirty developer checkout worked while a clean clone failed. `.gitignore` now has a narrow Sound Seekers exception and all 20 WAVs are tracked. `src/utils/questActionAudio.js` owns one deterministic 20-URL manifest; `src/components/quest/world/QuestPixelWorld.jsx` warms that complete set into the persistent quest-media cache rather than relying on a timing-sensitive resource snapshot. The build-versioned executable cache remains media-free. | Git and disk now contain the same 411 quest-pixel files; `npm run check:quest-sfx` validates 8 action and 8 material cues, and `npm run check:quest-pixel` validates 373 curated assets. `tests/unit/questActionAudio.test.js` proves the manifest is complete and unique. `npm run test:quest-offline` passes 2/2, including all 20 cached cues; an additional six-run race repeat passed 6/6. |
+| RA-05 · Camera evidence could report false failures | Closed (verification integrity) | `src/components/quest/world/QuestHub.jsx` now protects and measures the printed grapheme itself, rather than the answer object's ground-level origin or bounding-box centre that an animated resident could cross. `tools/checkQuestSliceCamera.mjs` allocates an isolated loopback port, drains server output, and fails if its own server exits instead of silently attaching to another checker. | `tests/unit/questRuntimeSystems.test.js` guards the shared printed-letter target and server ownership. `npm run check:quest-slice-camera` passes all 20 phone/iPad encounter views with every choice inside the safe area and ray-clear. |
 
 ## Confirmed findings traceability (SS-01 through SS-71)
 
@@ -137,6 +140,8 @@ npm run check:quest-pixel
 npm run check:quest-pixel-bundle
 npm run check:quest-pacing
 npm run check:quest-offline
+npm run check:quest-sfx
+npm run check:quest-music
 npm run check:quest-gate
 npm run check:quest-route-visual
 npm run check:quest-slice-camera
@@ -155,16 +160,16 @@ git diff --check
 
 ### Recorded verification state at this snapshot
 
-- **PASS:** `npm test` — 680/680 unit tests.
+- **PASS:** `npm test` — 701/701 unit tests.
 - **PASS:** `npm run build`; `npm run lint` has 0 errors (19 existing repository warnings outside this remediation gate).
-- **PASS:** `npm run check:quest-pixel-bundle` — 844.20 KB minified / 227.80 KB gzip / 987 modules, below the unchanged 870 KB budget.
+- **PASS:** `npm run check:quest-pixel-bundle` — 844.34 KB minified / 227.83 KB gzip / 987 modules, below the unchanged 870 KB budget.
 - **PASS:** quest integrity, pixel, pacing, learn-games, music, SFX, gate handoff, three route/topology checks, and all 20 slice-camera viewport/encounter checks.
 - **PASS:** Initial Sounds architecture (500 complete pairs), progression (25/25 letters at both levels), and runtime depth (404 selectable image+audio-backed items).
-- **PASS:** `npm run test:quest-offline` — 2/2 production offline checks.
+- **PASS:** `npm run test:quest-offline` — 2/2 production offline checks; all 20 Sound Seekers cues are present in the persistent media cache before cold start. The focused race repeat also passed 6/6.
 - **PASS:** `npm run test:quest-update` — 1/1 installed-update/offline-resume check.
-- **PASS (smoke harness only):** `npm run test:quest-soak-smoke` — 1/1 live pixel soak smoke check (36.6 seconds). This is not a substitute for any minimum-20-minute physical-device record.
-- **PASS:** `npm run test:quest-browser` — 54/54 complete browser checks, including keyboard/switch tracing, non-native dialog fallback, multi-tab/offline persistence, authored routes, mobile containment, asset budgets, focus, and reduced motion.
-- **PASS (focused accessibility spot-check):** 4/4 focused Playwright checks and 53/53 focused unit checks covering recorded StepTracer cues, the semantic keyboard/switch tracing path, and the settings-dialog fallback. The exact regression names are cited in A-05, A-12, and A-15.
+- **PASS (smoke harness only):** `npm run test:quest-soak-smoke` — 1/1 live pixel soak smoke check (35.5 seconds). This is not a substitute for any minimum-20-minute physical-device record.
+- **PASS:** `npm run test:quest-browser` — 64/64 complete browser checks, including four-axis keyboard and D-pad movement, real answer collision/progression, reset/re-entry, keyboard/switch tracing, non-native dialog fallback, multi-tab/offline persistence, authored routes, mobile containment, asset budgets, focus, and reduced motion.
+- **PASS:** the full 701-unit and 64-browser runs include the recorded StepTracer cues, semantic keyboard/switch tracing path, settings-dialog fallback, field-reset regression, physical collision cases, and clean-checkout/offline audio guards cited above.
 - **EXPECTED FAIL, external evidence absent:** strict device acceptance is 0/6; strict human acceptance has 0 records; source-media validation reports 500 complete imported/runtime pairs but no separate Desktop source pack.
 
 ## External release blocker checklist
