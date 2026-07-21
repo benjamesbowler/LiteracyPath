@@ -61,6 +61,7 @@ LP Assets/
 docs/audio-recording/incoming/
 docs/audio-recording/staged/
 *.wav
+!public/game-assets/quest-pixel/seedwake/audio/*.wav
 
 # stray duplicate build output — do not commit
 dist 2/
