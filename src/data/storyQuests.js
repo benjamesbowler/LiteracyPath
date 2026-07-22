@@ -22,7 +22,7 @@ function meadowPalsPage(folder, id, text, choicePrompt, choices, skillTags = [],
     choicePrompt,
     choices,
     skillTags,
-    ...(folder === "muddy-splashy-hat" ? { narrationNeedsRebuild: true } : {}),
+    ...(["muddy-splashy-hat", "shy-cuddly-quiet"].includes(folder) ? { narrationNeedsRebuild: true } : {}),
     ...options
   };
 }
@@ -1828,131 +1828,131 @@ export const storyQuests = [
     coverImageUrl: meadowPalsImagePath(shyCuddlyFolder, "p01_start"),
     startPageId: "p01_start",
     pages: [
-      meadowPalsPage(shyCuddlyFolder, "p01_start", ["Shy is by the barn.", "Cuddly is in the yard."], "Who do you want to help?", [
+      meadowPalsPage(shyCuddlyFolder, "p01_start", ["Shy wants to join the fun.", "Cuddly wants to find a quiet friend."], "Who do you want to help?", [
         { label: "Help Shy", nextPageId: "p02_shy" },
         { label: "Help Cuddly", nextPageId: "p02_cuddly" }
       ], ["shy", "cuddly", "barn"]),
-      meadowPalsPage(shyCuddlyFolder, "p02_shy", ["You are with Shy.", "Shy wants to play."], "What should Shy do?", [
+      meadowPalsPage(shyCuddlyFolder, "p02_shy", ["Shy waits behind the barn.", "A first step can be little."], "What should Shy try?", [
         { label: "Peek out", nextPageId: "p03_peek" },
-        { label: "Stay still", nextPageId: "p03_stay_still" }
+        { label: "Listen quietly", nextPageId: "p03_stay_still" }
       ], ["shy", "play"]),
-      meadowPalsPage(shyCuddlyFolder, "p02_cuddly", ["You are with Cuddly.", "Cuddly wants a friend."], "Where should Cuddly look?", [
+      meadowPalsPage(shyCuddlyFolder, "p02_cuddly", ["Cuddly looks for Shy.", "She wants to offer a quiet game."], "Where should Cuddly look?", [
         { label: "Look by the barn", nextPageId: "p03_barn_look" },
         { label: "Look by the tree", nextPageId: "p03_tree_look" }
       ], ["cuddly", "barn", "tree"]),
-      meadowPalsPage(shyCuddlyFolder, "p03_peek", ["Shy peeks out.", "Bouncy hops by."], "What does Shy do?", [
-        { label: "Hide again", nextPageId: "p04_hide_again" },
+      meadowPalsPage(shyCuddlyFolder, "p03_peek", ["Shy peeks around the barn.", "Bouncy springs past, then slows down."], "What does Shy do?", [
+        { label: "Step back", nextPageId: "p04_hide_again" },
         { label: "Wave a little", nextPageId: "p04_little_wave" }
       ], ["shy", "little"]),
-      meadowPalsPage(shyCuddlyFolder, "p03_stay_still", ["Shy stays still.", "A little mouse comes by."], "What does Shy do?", [
+      meadowPalsPage(shyCuddlyFolder, "p03_stay_still", ["Shy listens by the barn.", "Tiny's soft footsteps come near."], "What does Shy do?", [
         { label: "Say hi", nextPageId: "p04_say_hi_tiny" },
-        { label: "Stay quiet", nextPageId: "p04_quiet_tiny" }
+        { label: "Share the quiet", nextPageId: "p04_quiet_tiny" }
       ], ["shy", "little"]),
-      meadowPalsPage(shyCuddlyFolder, "p03_barn_look", ["Cuddly went to the barn.", "Cuddly sat down."], "What should Cuddly do?", [
+      meadowPalsPage(shyCuddlyFolder, "p03_barn_look", ["Cuddly sees one round ear by the barn.", "She stops several steps away."], "What should Cuddly do?", [
         { label: "Wait quietly", nextPageId: "p04_wait_quietly" },
-        { label: "Call to Shy", nextPageId: "p04_call_shy" }
+        { label: "Call gently", nextPageId: "p04_call_shy" }
       ], ["cuddly", "barn"]),
-      meadowPalsPage(shyCuddlyFolder, "p03_tree_look", ["Cuddly went to the tree.", "The tree was big."], "What should Cuddly do?", [
+      meadowPalsPage(shyCuddlyFolder, "p03_tree_look", ["Cuddly goes to the big tree.", "Its lowest branch is broad and low."], "What should Cuddly do?", [
         { label: "Sit under it", nextPageId: "p04_tree_sit" },
         { label: "Look up", nextPageId: "p04_tree_look_up" }
       ], ["cuddly", "tree", "big", "sit"]),
-      meadowPalsPage(shyCuddlyFolder, "p04_hide_again", ["Shy hid again.", "Bouncy hopped away."], "Who comes next?", [
-        { label: "Tiny", nextPageId: "p03_stay_still" },
-        { label: "Cuddly", nextPageId: "p05_cuddly_arrives" }
+      meadowPalsPage(shyCuddlyFolder, "p04_hide_again", ["Shy steps back.", "Bouncy gives space and rolls one daisy toward the barn."], "Who can wait quietly with Shy?", [
+        { label: "Tiny can", nextPageId: "p03_stay_still" },
+        { label: "Cuddly can", nextPageId: "p05_cuddly_arrives" }
       ], ["shy"]),
-      meadowPalsPage(shyCuddlyFolder, "p04_little_wave", ["Shy gave a little wave.", "Bouncy waved back."], "Is Shy ready?", [
-        { label: "Not yet", nextPageId: "p05_cuddly_arrives" },
-        { label: "Yes", nextPageId: "p06_go_to_tree" }
+      meadowPalsPage(shyCuddlyFolder, "p04_little_wave", ["Shy gives a little wave.", "Bouncy waves back without coming closer."], "Where will Shy meet Cuddly?", [
+        { label: "By the barn", nextPageId: "p05_cuddly_arrives" },
+        { label: "By the tree", nextPageId: "p06_go_to_tree" }
       ], ["shy", "little"]),
-      meadowPalsPage(shyCuddlyFolder, "p04_say_hi_tiny", ["\"Hi,\" said Shy.", "\"Hi,\" said Tiny."], "Where should they go?", [
+      meadowPalsPage(shyCuddlyFolder, "p04_say_hi_tiny", ["\"Hi,\" says Shy.", "Tiny tells Shy about a quiet game."], "Where should they go?", [
         { label: "To the tree", nextPageId: "p06_go_to_tree" },
         { label: "To Cuddly", nextPageId: "p05_cuddly_arrives" }
       ], ["shy", "tree"]),
-      meadowPalsPage(shyCuddlyFolder, "p04_quiet_tiny", ["Tiny sat down.", "Shy sat too."], "Who joins them?", [
+      meadowPalsPage(shyCuddlyFolder, "p04_quiet_tiny", ["Tiny sits nearby without talking.", "Shy relaxes and sits too."], "Who should join the quiet circle?", [
         { label: "Cuddly", nextPageId: "p05_cuddly_arrives" },
         { label: "Bouncy", nextPageId: "p04_little_wave" }
       ], ["shy", "sit"]),
-      meadowPalsPage(shyCuddlyFolder, "p04_wait_quietly", ["Cuddly did not rush.", "Cuddly just sat."], "What does Shy do?", [
+      meadowPalsPage(shyCuddlyFolder, "p04_wait_quietly", ["Cuddly sits at a kind distance.", "Shy peeks out and smiles."], "What does Shy choose?", [
         { label: "Sit by Cuddly", nextPageId: "p05_sit_together" },
-        { label: "Go to the tree", nextPageId: "p06_go_to_tree" }
+        { label: "Meet at the tree", nextPageId: "p06_go_to_tree" }
       ], ["cuddly", "shy", "sit", "tree"]),
-      meadowPalsPage(shyCuddlyFolder, "p04_call_shy", ["\"Come out,\" said Cuddly.", "Shy did not come out."], "What helps?", [
+      meadowPalsPage(shyCuddlyFolder, "p04_call_shy", ["Cuddly calls a little too loudly.", "Shy startles, so Cuddly says sorry."], "What helps now?", [
         { label: "Wait quietly", nextPageId: "p04_wait_quietly" },
-        { label: "Go to the tree", nextPageId: "p06_go_to_tree" }
+        { label: "Offer the tree game", nextPageId: "p06_go_to_tree" }
       ], ["cuddly", "shy", "tree"]),
-      meadowPalsPage(shyCuddlyFolder, "p04_tree_sit", ["Cuddly sat by the tree.", "It was quiet."], "Who is in the tree?", [
-        { label: "Shy", nextPageId: "p06_tree_find_shy" },
-        { label: "A bird", nextPageId: "p05_bird" }
+      meadowPalsPage(shyCuddlyFolder, "p04_tree_sit", ["Cuddly sits under the tree.", "She hears a bird and a tiny rustle."], "What should Cuddly notice first?", [
+        { label: "The rustle", nextPageId: "p06_tree_find_shy" },
+        { label: "The bird", nextPageId: "p05_bird" }
       ], ["cuddly", "tree", "sit"]),
-      meadowPalsPage(shyCuddlyFolder, "p04_tree_look_up", ["Cuddly looked up.", "Two ears looked down."], "Who is it?", [
-        { label: "Shy", nextPageId: "p06_tree_find_shy" },
-        { label: "Tiny", nextPageId: "p05_tiny_tree" }
+      meadowPalsPage(shyCuddlyFolder, "p04_tree_look_up", ["Cuddly looks up.", "Round grey ears peek from the low leaves."], "Who can help Cuddly greet Shy?", [
+        { label: "Cuddly can", nextPageId: "p06_tree_find_shy" },
+        { label: "Tiny can", nextPageId: "p05_tiny_tree" }
       ], ["cuddly", "shy", "tree"]),
-      meadowPalsPage(shyCuddlyFolder, "p05_cuddly_arrives", ["Cuddly came by.", "Cuddly sat down."], "What does Shy do?", [
+      meadowPalsPage(shyCuddlyFolder, "p05_cuddly_arrives", ["Cuddly comes to the barn.", "\"Would you like quiet company?\" she asks."], "What does Shy choose?", [
         { label: "Sit by Cuddly", nextPageId: "p05_sit_together" },
-        { label: "Go to the tree", nextPageId: "p06_go_to_tree" }
+        { label: "Meet at the tree", nextPageId: "p06_go_to_tree" }
       ], ["cuddly", "shy", "sit", "tree"]),
-      meadowPalsPage(shyCuddlyFolder, "p05_sit_together", ["Shy sat by Cuddly.", "Cuddly purred."], "Where next?", [
+      meadowPalsPage(shyCuddlyFolder, "p05_sit_together", ["Shy sits beside Cuddly.", "Cuddly purrs softly and lets Shy choose."], "What sounds good?", [
         { label: "To the tree", nextPageId: "p06_go_to_tree" },
         { label: "Stay by the barn", nextPageId: "p08_barn_hug" }
       ], ["shy", "cuddly", "sit", "tree", "barn"]),
-      meadowPalsPage(shyCuddlyFolder, "p05_bird", ["A bird sat in the tree.", "But Shy was there too."], "Look again?", [
-        { label: "Look again", nextPageId: "p06_tree_find_shy" },
-        { label: "Sit down", nextPageId: "p04_tree_sit" }
+      meadowPalsPage(shyCuddlyFolder, "p05_bird", ["A little bird sings on a high twig.", "Below it, Shy sits on the broad low branch."], "What should Cuddly do?", [
+        { label: "Greet Shy", nextPageId: "p06_tree_find_shy" },
+        { label: "Listen first", nextPageId: "p04_tree_sit" }
       ], ["shy", "tree", "sit"]),
-      meadowPalsPage(shyCuddlyFolder, "p05_tiny_tree", ["Tiny was under the tree.", "Shy was in the tree."], "What now?", [
-        { label: "Help Cuddly look", nextPageId: "p06_tree_find_shy" },
+      meadowPalsPage(shyCuddlyFolder, "p05_tiny_tree", ["Tiny is under the tree.", "He points to Shy on the broad low branch."], "What now?", [
+        { label: "Help Cuddly greet Shy", nextPageId: "p06_tree_find_shy" },
         { label: "Sit with Tiny", nextPageId: "p07_tiny_waits" }
       ], ["shy", "tree", "sit"]),
-      meadowPalsPage(shyCuddlyFolder, "p06_go_to_tree", ["They went to the tree.", "The tree was big."], "Where should they sit?", [
+      meadowPalsPage(shyCuddlyFolder, "p06_go_to_tree", ["The friends meet at the big tree.", "Its lowest branch is broad and safe."], "Where should they sit?", [
         { label: "Under the tree", nextPageId: "p07_tree_under" },
-        { label: "In the tree", nextPageId: "p07_tree_up" }
+        { label: "On the low branch", nextPageId: "p07_tree_up" }
       ], ["tree", "big", "sit"]),
-      meadowPalsPage(shyCuddlyFolder, "p06_tree_find_shy", ["Shy is in the tree!", "Cuddly found Shy."], "What does Cuddly do?", [
-        { label: "Climb up", nextPageId: "p07_tree_up" },
-        { label: "Sit below", nextPageId: "p07_tree_under" }
+      meadowPalsPage(shyCuddlyFolder, "p06_tree_find_shy", ["Cuddly spots Shy on the low branch.", "\"May I join you?\" Cuddly asks."], "What does Cuddly do?", [
+        { label: "Join after yes", nextPageId: "p07_tree_up" },
+        { label: "Wait below", nextPageId: "p07_tree_under" }
       ], ["shy", "cuddly", "tree", "sit"]),
-      meadowPalsPage(shyCuddlyFolder, "p07_tiny_waits", ["Tiny sat.", "Cuddly sat.", "Shy came down."], "What next?", [
+      meadowPalsPage(shyCuddlyFolder, "p07_tiny_waits", ["Tiny and Cuddly wait below.", "Shy comes down when ready."], "What next?", [
         { label: "Sit together", nextPageId: "p07_tree_under" },
-        { label: "Climb up", nextPageId: "p07_tree_up" }
+        { label: "Try the low branch", nextPageId: "p07_tree_up" }
       ], ["shy", "cuddly", "sit"]),
-      meadowPalsPage(shyCuddlyFolder, "p07_tree_under", ["They sat under the tree.", "It was quiet."], "What does Cuddly do?", [
+      meadowPalsPage(shyCuddlyFolder, "p07_tree_under", ["Shy and Cuddly sit under the tree.", "\"Close or a little space?\" Cuddly asks."], "What does Shy choose?", [
         { label: "Ask to sit close", nextPageId: "p08_tree_hug" },
-        { label: "Purr softly", nextPageId: "p08_tree_purr" }
+        { label: "A little space", nextPageId: "p08_tree_purr" }
       ], ["shy", "cuddly", "tree", "sit"]),
-      meadowPalsPage(shyCuddlyFolder, "p07_tree_up", ["They sat in the tree.", "They could see the farm."], "What does Shy do?", [
+      meadowPalsPage(shyCuddlyFolder, "p07_tree_up", ["They sit on the broad low branch.", "The meadow glows around them."], "What does Shy offer?", [
         { label: "Ask for a hug", nextPageId: "p08_tree_hug" },
         { label: "Wave", nextPageId: "p08_wave_from_tree" }
       ], ["shy", "tree", "sit"]),
-      meadowPalsPage(shyCuddlyFolder, "p08_barn_hug", ["Cuddly asked first.", "Shy leaned in."], "Is it a hug?", [
-        { label: "Yes", nextPageId: "p09_soft_hug_ending" },
-        { label: "Almost", nextPageId: "p09_almost_hug_ending" }
+      meadowPalsPage(shyCuddlyFolder, "p08_barn_hug", ["\"Would you like a hug?\" Cuddly asks.", "Shy stops to think."], "What does Shy say?", [
+        { label: "Yes, please", nextPageId: "p09_soft_hug_ending" },
+        { label: "Not yet", nextPageId: "p09_almost_hug_ending" }
       ], ["shy", "cuddly", "hug", "barn"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(shyCuddlyFolder, "p08_tree_hug", ["They chose a hug.", "Both friends smiled."], "How do they feel?", [
+      meadowPalsPage(shyCuddlyFolder, "p08_tree_hug", ["Shy asks, and Cuddly says yes.", "They share one gentle hug."], "What next?", [
         { label: "Happy", nextPageId: "p09_tree_happy_ending" },
-        { label: "Quiet", nextPageId: "p09_quiet_ending" }
+        { label: "Rest quietly", nextPageId: "p09_quiet_ending" }
       ], ["shy", "cuddly", "hug", "tree"], { narrationNeedsRebuild: true }),
-      meadowPalsPage(shyCuddlyFolder, "p08_tree_purr", ["Cuddly purred.", "Shy smiled."], "What now?", [
+      meadowPalsPage(shyCuddlyFolder, "p08_tree_purr", ["Cuddly purrs softly from a little way off.", "Shy smiles and relaxes."], "What now?", [
         { label: "Ask for a hug", nextPageId: "p08_tree_hug" },
-        { label: "Rest", nextPageId: "p09_quiet_ending" }
+        { label: "Keep resting", nextPageId: "p09_quiet_ending" }
       ], ["shy", "cuddly", "hug"]),
-      meadowPalsPage(shyCuddlyFolder, "p08_wave_from_tree", ["Shy waved from the tree.", "Tiny waved back."], "What next?", [
+      meadowPalsPage(shyCuddlyFolder, "p08_wave_from_tree", ["Shy and Cuddly wave from the low branch.", "Tiny and Bouncy wave back below."], "What next?", [
         { label: "Come down", nextPageId: "p09_tree_happy_ending" },
-        { label: "Stay quiet", nextPageId: "p09_quiet_ending" }
+        { label: "Stay and watch", nextPageId: "p09_quiet_ending" }
       ], ["shy", "tree"]),
-      meadowPalsPage(shyCuddlyFolder, "p09_soft_hug_ending", ["It was a soft hug.", "Shy liked it."], "Read again?", [
+      meadowPalsPage(shyCuddlyFolder, "p09_soft_hug_ending", ["Shy says yes.", "The soft hug feels just right."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["shy", "hug"]),
-      meadowPalsPage(shyCuddlyFolder, "p09_tree_happy_ending", ["Shy is happy.", "Cuddly is happy.", "They are friends."], "Read again?", [
+      meadowPalsPage(shyCuddlyFolder, "p09_tree_happy_ending", ["Shy and Cuddly come down together.", "They found a quiet way to be friends."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["shy", "cuddly", "tree"]),
-      meadowPalsPage(shyCuddlyFolder, "p09_quiet_ending", ["They did not run.", "They did not shout.", "They sat together."], "Read again?", [
+      meadowPalsPage(shyCuddlyFolder, "p09_quiet_ending", ["No running. No shouting.", "The friends watch the meadow together."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["sit"]),
-      meadowPalsPage(shyCuddlyFolder, "p09_almost_hug_ending", ["They sat close instead.", "That was good too."], "Read again?", [
+      meadowPalsPage(shyCuddlyFolder, "p09_almost_hug_ending", ["\"Not yet,\" says Shy.", "Cuddly smiles, and they sit nearby instead."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["hug"], { narrationNeedsRebuild: true })

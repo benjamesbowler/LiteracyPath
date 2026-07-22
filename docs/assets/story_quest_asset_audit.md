@@ -1,6 +1,6 @@
 # Story Quest Asset Audit
 
-Generated: 2026-07-22T03:16:17.442Z
+Generated: 2026-07-22T05:28:07.309Z
 
 ## Summary Counts
 
@@ -13,7 +13,7 @@ Generated: 2026-07-22T03:16:17.442Z
 - Unused image files: 65
 - Unused audio files: 65
 - Extension mismatch candidates: 0
-- Narration files withheld pending rerecord: 216
+- Narration files withheld pending rerecord: 245
 
 ## Missing Referenced Images
 
@@ -190,8 +190,37 @@ These pages keep their original asset paths for traceability, but the player wit
 - `mp_ra_a_01_muddy_splashy_missing_hat / p09_mud_ending` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p09_mud_ending.mp3`
 - `mp_ra_a_01_muddy_splashy_missing_hat / p09_pond_ending` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p09_pond_ending.mp3`
 - `mp_ra_a_01_muddy_splashy_missing_hat / p09_fancy_muddy_ending` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p09_fancy_muddy_ending.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p01_start` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p01_start.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p02_shy` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p02_shy.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p02_cuddly` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p02_cuddly.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p03_peek` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p03_peek.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p03_stay_still` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p03_stay_still.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p03_barn_look` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p03_barn_look.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p03_tree_look` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p03_tree_look.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p04_hide_again` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p04_hide_again.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p04_little_wave` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p04_little_wave.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p04_say_hi_tiny` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p04_say_hi_tiny.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p04_quiet_tiny` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p04_quiet_tiny.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p04_wait_quietly` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p04_wait_quietly.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p04_call_shy` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p04_call_shy.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p04_tree_sit` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p04_tree_sit.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p04_tree_look_up` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p04_tree_look_up.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p05_cuddly_arrives` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p05_cuddly_arrives.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p05_sit_together` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p05_sit_together.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p05_bird` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p05_bird.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p05_tiny_tree` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p05_tiny_tree.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p06_go_to_tree` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p06_go_to_tree.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p06_tree_find_shy` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p06_tree_find_shy.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p07_tiny_waits` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p07_tiny_waits.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p07_tree_under` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p07_tree_under.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p07_tree_up` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p07_tree_up.mp3`
 - `mp_ra_a_02_shy_cuddly_quiet_adventure / p08_barn_hug` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p08_barn_hug.mp3`
 - `mp_ra_a_02_shy_cuddly_quiet_adventure / p08_tree_hug` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p08_tree_hug.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p08_tree_purr` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p08_tree_purr.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p08_wave_from_tree` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p08_wave_from_tree.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p09_soft_hug_ending` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p09_soft_hug_ending.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p09_tree_happy_ending` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p09_tree_happy_ending.mp3`
+- `mp_ra_a_02_shy_cuddly_quiet_adventure / p09_quiet_ending` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p09_quiet_ending.mp3`
 - `mp_ra_a_02_shy_cuddly_quiet_adventure / p09_almost_hug_ending` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p09_almost_hug_ending.mp3`
 - `mp_ra_a_03_bouncy_speedy_fast_map / p01_start` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p01_start.mp3`
 - `mp_ra_a_03_bouncy_speedy_fast_map / p03_barn_fast` — `public/audio/story-quests/meadow-pals/bouncy-speedy-map/p03_barn_fast.mp3`
