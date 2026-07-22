@@ -1,6 +1,6 @@
 # Story Quest Asset Audit
 
-Generated: 2026-07-21T23:17:26.230Z
+Generated: 2026-07-22T00:47:42.313Z
 
 ## Summary Counts
 
@@ -13,7 +13,7 @@ Generated: 2026-07-21T23:17:26.230Z
 - Unused image files: 65
 - Unused audio files: 65
 - Extension mismatch candidates: 0
-- Narration files withheld pending rerecord: 148
+- Narration files withheld pending rerecord: 178
 
 ## Missing Referenced Images
 
@@ -79,10 +79,40 @@ These pages keep their original asset paths for traceability, but the player wit
 - `dp_ra_b_02_sunnys_rainy_day_rescue / p08_grumpy_laugh_ending` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p08_grumpy_laugh_ending.mp3`
 - `dp_ra_b_02_sunnys_rainy_day_rescue / p08_quiet_ending` — `public/audio/story-quests/dino-pals/sunny-rainy-rescue/p08_quiet_ending.mp3`
 - `dp_ra_b_03_grumpy_almost_good_day / p01_start` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p01_start.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p02_stream` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p02_stream.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p03_chompy_finds` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p03_chompy_finds.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p04_splash_chompy` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p04_splash_chompy.mp3`
 - `dp_ra_b_03_grumpy_almost_good_day / p05_chompy_delight` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p05_chompy_delight.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p06_wiggly_splash` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p06_wiggly_splash.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p07_all_soaked` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p07_all_soaked.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p04_ignore_chompy` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p04_ignore_chompy.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p05_quiet_stream` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p05_quiet_stream.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p06_fish_jumps` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p06_fish_jumps.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p07_peaceful_stream` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p07_peaceful_stream.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p03_stones_fall` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p03_stones_fall.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p04_look_at_stones` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p04_look_at_stones.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p05_fancy_stones` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p05_fancy_stones.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p06_rebuild_stones` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p06_rebuild_stones.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p07_tower_rebuilt` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p07_tower_rebuilt.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p02_bush` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p02_bush.mp3`
 - `dp_ra_b_03_grumpy_almost_good_day / p03_berry_protest` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p03_berry_protest.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p04_eat_secretly` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p04_eat_secretly.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p05_dozy_finds` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p05_dozy_finds.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p06_warm_sun` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p06_warm_sun.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p07_grumpy_naps` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p07_grumpy_naps.mp3`
 - `dp_ra_b_03_grumpy_almost_good_day / p04_berry_throw` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p04_berry_throw.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p05_bouncy_berries` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p05_bouncy_berries.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p06_berry_chaos` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p06_berry_chaos.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p07_berry_everywhere` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p07_berry_everywhere.mp3`
 - `dp_ra_b_03_grumpy_almost_good_day / p03_list_making` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p03_list_making.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p04_tell_sunny` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p04_tell_sunny.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p05_sunny_helps` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p05_sunny_helps.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p06_twig_fixed` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p06_twig_fixed.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p07_one_thing_done` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p07_one_thing_done.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p08_soaked_ending` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p08_soaked_ending.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p08_stone_ending` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p08_stone_ending.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p08_nap_ending` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p08_nap_ending.mp3`
+- `dp_ra_b_03_grumpy_almost_good_day / p08_almost_ending` — `public/audio/story-quests/dino-pals/grumpy-almost-good-day/p08_almost_ending.mp3`
 - `dp_ra_b_04_bouncy_big_bounce / p01_start` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p01_start.mp3`
 - `dp_ra_b_04_bouncy_big_bounce / p02_berry_corner` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p02_berry_corner.mp3`
 - `dp_ra_b_04_bouncy_big_bounce / p03_help_chompy` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p03_help_chompy.mp3`
