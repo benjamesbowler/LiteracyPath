@@ -1175,14 +1175,14 @@ const moonwoodStoryQuests = [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], lunaBurrowStarShellDoorTargetWords),
-      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p10_wren_ending", ["Wren wrote the whole adventure in one book.", "Then in three books.", "Then Fern took two books away."], "Read again?", [
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p10_wren_ending", ["Wren wrote the whole adventure in one book.", "Then she started two books of extra notes.", "Fern kept the story and quietly shelved the notes."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
-      ], lunaBurrowStarShellDoorTargetWords),
-      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p10_funny_ending", ["Burrow told everyone about the lunch-box key.", "For three days, Pip checked every fish for pockets."], "Read again?", [
+      ], lunaBurrowStarShellDoorTargetWords, { narrationNeedsRebuild: true }),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p10_funny_ending", ["Burrow told everyone about the lunch-box key.", "For three days, Pip watched from the bank and asked every fish if it had pockets.", "The fish thought this was hilarious."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
-      ], lunaBurrowStarShellDoorTargetWords),
+      ], lunaBurrowStarShellDoorTargetWords, { narrationNeedsRebuild: true }),
       moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p10_quiet_ending", ["Luna and Burrow sat outside Hollow Oak.", "The star shell was quiet now.", "But one tiny arrow on the map flashed."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
