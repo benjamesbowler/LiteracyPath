@@ -83,9 +83,20 @@ test("the hub derives Decoding and Fluency starts from completed evidence, never
 
   assert.equal(selectedValueForLabel(html, "Decoding start"), "late_partial");
   assert.equal(selectedValueForLabel(html, "Fluency start"), "early_full");
-  assert.match(html, /Preselected from the latest completed Decoding fluency handoff/);
+  assert.match(html, /Set from the latest completed Decoding result/);
   assert.doesNotMatch(html, /value="middle_full" selected/);
   assert.doesNotMatch(html, /value="late_full" selected/);
+
+  const defaultRouteControls = html.match(/<div class="el-assessment-route-controls">[\s\S]*?<\/div>/)?.[0] || "";
+  assert.match(defaultRouteControls, />Grade<select/);
+  assert.match(defaultRouteControls, />Time of year<select/);
+  assert.doesNotMatch(defaultRouteControls, /Decoding start|Fluency start/);
+  assert.match(html, /<details class="el-assessment-advanced-starts"><summary>[\s\S]*?Advanced starting points/);
+  assert.doesNotMatch(html, /<details class="el-assessment-advanced-starts" open/);
+  assert.match(html, /<h3>Letter Name and Sound<\/h3>[\s\S]*?Name and sound recognition for uppercase and lowercase letters/);
+  assert.match(html, />Start Letter Assessment<\/button>/);
+  assert.match(html, /<h3>Advanced Phonics Patterns<\/h3>[\s\S]*?without changing its established runner or scoring/);
+  assert.match(html, />Start Advanced Phonics<\/button>/);
 });
 
 test("a candidate-only Encoding indication is visibly provisional and is never treated as confirmed provenance", () => {
@@ -111,12 +122,15 @@ test("a candidate-only Encoding indication is visibly provisional and is never t
   }));
 
   assert.equal(selectedValueForLabel(html, "Decoding start"), "late_partial");
-  assert.match(html, /Preselected from a provisional Encoding indication; review and justify this start before Decoding/);
-  assert.match(html, /Sequence review required before starting/);
+  assert.match(html, /Set from a provisional Encoding result; review before starting Decoding/);
+  assert.match(html, /Quick evidence check needed before starting/);
 
   const componentSource = ELAssessmentsPage.toString();
   assert.match(componentSource, /decodingStartSource === "confirmed_encoding_placement"/);
   assert.match(componentSource, /decodingStart === confirmedEncodingIndication/);
   assert.match(componentSource, /teacherConfirmed: teacherReviewed/);
   assert.match(componentSource, /reviewedAt: teacherReviewed \?/);
+  assert.match(componentSource, /EL_PREREQUISITE_REASON_OPTIONS\.map/);
+  assert.match(componentSource, /prerequisiteReasonText/);
+  assert.doesNotMatch(componentSource, /prerequisiteConfirmed/);
 });

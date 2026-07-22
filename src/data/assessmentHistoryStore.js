@@ -196,6 +196,11 @@ function normalizeQuestionRecord(item = {}, index, record, completedAt) {
     responseText: item.responseText ?? item.exactResponse ?? "",
     responseCode: item.responseCode || "",
     scoringCode: item.scoringCode || "",
+    responseCaptureMode: item.responseCaptureMode || existingMetadata.responseCaptureMode || "legacy_unspecified",
+    responseDetailCaptured: item.responseDetailCaptured ?? existingMetadata.responseDetailCaptured ?? Boolean(
+      String(item.responseText ?? item.exactResponse ?? item.transcription ?? item.studentSpelling ?? item.selectedAnswer ?? "").trim()
+    ),
+    outcomeRecordedAt: item.outcomeRecordedAt || existingMetadata.outcomeRecordedAt || "",
     responseStatus,
     administrationStatus: item.administrationStatus || item.administration_status || "",
     isCorrect: responseStatus === ASSESSMENT_RESPONSE_STATUSES.CORRECT || responseStatus === ASSESSMENT_RESPONSE_STATUSES.SELF_CORRECTED
@@ -283,6 +288,7 @@ function normalizeQuestionRecord(item = {}, index, record, completedAt) {
       plausible: item.plausible ?? existingFeatures.plausible ?? null,
       exact: item.exact ?? existingFeatures.exact ?? null,
       evaluation: item.evaluation || existingFeatures.evaluation || "",
+      responseCaptureMode: item.responseCaptureMode || existingFeatures.responseCaptureMode || "legacy_unspecified",
       plausibilitySource: item.plausibilitySource || existingFeatures.plausibilitySource || "",
       notAdministeredReason: item.notAdministeredReason || existingFeatures.notAdministeredReason || ""
     },
@@ -299,6 +305,11 @@ function normalizeQuestionRecord(item = {}, index, record, completedAt) {
       plausible: item.plausible ?? existingMetadata.plausible ?? null,
       exact: item.exact ?? existingMetadata.exact ?? null,
       evaluation: item.evaluation || existingMetadata.evaluation || "",
+      responseCaptureMode: item.responseCaptureMode || existingMetadata.responseCaptureMode || "legacy_unspecified",
+      responseDetailCaptured: item.responseDetailCaptured ?? existingMetadata.responseDetailCaptured ?? Boolean(
+        String(item.responseText ?? item.exactResponse ?? item.transcription ?? item.studentSpelling ?? item.selectedAnswer ?? "").trim()
+      ),
+      outcomeRecordedAt: item.outcomeRecordedAt || existingMetadata.outcomeRecordedAt || "",
       evaluationSource: item.evaluationSource || existingMetadata.evaluationSource || "",
       teacherOverride: cloneJsonValue(item.teacherOverride, existingMetadata.teacherOverride ?? null),
       overrideReason: item.overrideReason || existingMetadata.overrideReason || "",
@@ -675,6 +686,11 @@ export function normalizeAssessmentAttempt(record = {}) {
     scoringRuleVersion: record.scoringRuleVersion || "",
     contentVersion: record.contentVersion || record.metadata?.contentVersion || "",
     scoringVersion: record.scoringVersion || record.metadata?.scoringVersion || "",
+    administrationVersion: record.administrationVersion || record.metadata?.administrationVersion || "legacy_unspecified",
+    responseSchemaVersion: normalizeCount(
+      record.responseSchemaVersion ?? record.metadata?.responseSchemaVersion,
+      1
+    ) || 1,
     grade: cloneJsonValue(record.grade, record.grade ?? ""),
     gradePath: cloneJsonValue(record.gradePath, record.gradePath ?? ""),
     benchmarkWindow: record.benchmarkWindow || "",

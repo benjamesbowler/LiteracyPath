@@ -376,6 +376,102 @@ test("individual benchmark reporting preserves domain-specific evidence without 
   }), /Mastered|Developing|Needs Support/);
 });
 
+test("quick scores stay explicitly untranscribed through persistence, reporting, and export", async () => {
+  const outcomeRecordedAt = "2026-07-22T03:04:05.000Z";
+  const encodingPlan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.ENCODING,
+    grade: "1",
+    window: "BOY"
+  });
+  const rawAttempt = buildElBenchmarkAttempt({
+    assessmentId: EL_BENCHMARK_IDS.ENCODING,
+    grade: "1",
+    window: "BOY",
+    administrationStatus: "completed",
+    administrationVersion: "2026.07.22-quick-v1",
+    responseSchemaVersion: 2,
+    startedAt: "2026-07-22T03:00:00.000Z",
+    completedAt: "2026-07-22T03:10:00.000Z",
+    responses: Object.fromEntries(encodingPlan.items.map((item, index) => [item.id, {
+      status: index === 0 ? "correct" : "incorrect",
+      isCorrect: index === 0,
+      exact: index === 0,
+      plausible: index < 2,
+      evaluation: index === 0 ? "exact" : index === 1 ? "plausible" : "implausible",
+      responseCaptureMode: "quick_teacher_judgment",
+      outcomeRecordedAt
+    }]))
+  }, {
+    studentId: student.id,
+    studentName: student.name,
+    classId: student.classId,
+    teacherId: "teacher-1"
+  });
+  const attempt = normalizeAssessmentAttempt(
+    JSON.parse(JSON.stringify(compactAssessmentAttemptForStorage(rawAttempt)))
+  );
+
+  assert.equal(attempt.administrationVersion, "2026.07.22-quick-v1");
+  assert.equal(attempt.responseSchemaVersion, 2);
+  assert.ok(attempt.questionRecords.every(item => item.responseText === ""));
+  assert.ok(attempt.questionRecords.every(item => item.transcription === ""));
+  assert.ok(attempt.questionRecords.every(item => item.responseCaptureMode === "quick_teacher_judgment"));
+  assert.ok(attempt.questionRecords.every(item => item.responseDetailCaptured === false));
+  assert.ok(attempt.questionRecords.every(item => item.outcomeRecordedAt === outcomeRecordedAt));
+
+  const formal = buildIndividualElFormalAssessmentReport({
+    student,
+    assessmentHistory: [attempt],
+    benchmarkScope: { grade: "1", benchmarkWindow: "BOY" }
+  });
+  const encoding = formal.individualBenchmarkDetails.find(detail => detail.domainKey === "encoding");
+  const firstItem = encoding.itemDetails.find(item => item.questionId === encodingPlan.items[0].id);
+  assert.equal(encoding.administrationStatus, "completed");
+  assert.equal(encoding.administrationVersion, "2026.07.22-quick-v1");
+  assert.equal(encoding.responseSchemaVersion, 2);
+  assert.equal(encoding.exactSpellingCount, 1);
+  assert.equal(firstItem.exactResponse, "", "the report must not replace an omitted transcription with the target word");
+  assert.equal(firstItem.studentSpelling, "");
+  assert.equal(firstItem.responseCaptureMode, "quick_teacher_judgment");
+  assert.equal(firstItem.responseDetailCaptured, false);
+  assert.equal(firstItem.outcomeRecordedAt, outcomeRecordedAt);
+
+  const report = buildStudentElAssessmentReportData({
+    assessmentHistory: [attempt],
+    students: [student],
+    classes: [{ id: student.classId, name: "Class One" }],
+    studentId: student.id,
+    classId: student.classId,
+    teacherId: "teacher-1",
+    benchmarkScope: { grade: "1", benchmarkWindow: "BOY" }
+  });
+  const workbook = await createStudentElAssessmentWorkbook(report);
+  const rows = worksheetRows(workbook.getWorksheet("Encoding Detail"));
+  const exportedItem = rows.find(row => row["Item ID"] === encodingPlan.items[0].id);
+  assert.ok(exportedItem);
+  assert.equal(exportedItem["Student spelling"], "");
+  assert.equal(exportedItem["Response capture"], "Quick score - not transcribed");
+  assert.equal(exportedItem["Administration interface"], "2026.07.22-quick-v1");
+  assert.equal(exportedItem["Response schema"], 2);
+
+  const classReport = buildClassElAssessmentReportData({
+    assessmentHistory: [attempt],
+    students: [student],
+    classes: [{ id: student.classId, name: "Class One" }],
+    classId: student.classId,
+    teacherId: "teacher-1",
+    benchmarkScope: { grade: "1", benchmarkWindow: "BOY" }
+  });
+  const classWorkbook = await createClassElAssessmentWorkbook(classReport);
+  const classRows = worksheetRows(classWorkbook.getWorksheet("Benchmark Evidence Detail"));
+  const classItem = classRows.find(row => row["Item ID"] === encodingPlan.items[0].id);
+  assert.ok(classItem);
+  assert.equal(classItem["Student response"], "");
+  assert.equal(classItem["Response capture"], "Quick score - not transcribed");
+  assert.equal(classItem["Administration interface"], "2026.07.22-quick-v1");
+  assert.equal(classItem["Response schema"], 2);
+});
+
 test("class benchmark matrix and domain summaries remain descriptive", () => {
   const report = buildClassElFormalAssessmentReport({
     students: [student, classmate],
@@ -1158,6 +1254,7 @@ test("an interrupted ORF attempt stays unscored through persistence, reporting, 
   assert.equal(attempt.metrics.wcpm, null);
   assert.equal(attempt.questionRecords[0].routeJudgmentUsable, false);
   assert.equal(attempt.questionRecords[0].timerInterrupted, true);
+  assert.equal(attempt.questionRecords[0].responseCaptureMode, "timed_reading_observation");
 
   const restored = normalizeAssessmentAttempt(JSON.parse(JSON.stringify(attempt)));
   assert.equal(restored.questionRecords[0].timerInterrupted, true);
@@ -1196,6 +1293,7 @@ test("an interrupted ORF attempt stays unscored through persistence, reporting, 
   const exported = worksheetRows(workbook.getWorksheet("Fluency Detail"))[0];
   assert.equal(exported["Timer interrupted"], "Yes");
   assert.equal(exported["Interruption reason"], "timer_session_restored_while_running");
+  assert.equal(exported["Response capture"], "Timed reading observation");
   assert.equal(exported.WCPM, "");
 });
 

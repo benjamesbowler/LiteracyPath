@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   ASSESSMENT_ADMINISTRATION_STATUSES,
   ASSESSMENT_RESPONSE_STATUSES,
+  compactAssessmentAttemptForStorage,
   deleteAssessmentAttemptsForStudent,
   extractMasteryFromAssessmentAttempt,
   hydrateAssessmentAttempts,
@@ -186,6 +187,63 @@ test("rich attempts round-trip exact evidence and distinguish every administrati
     [true, false, false, null, null, null]
   );
   assert.deepEqual(normalizeAssessmentAttempt(normalized), normalized);
+});
+
+test("quick-score provenance survives normalization and compact storage without inventing a transcription", () => {
+  const outcomeRecordedAt = "2026-07-22T03:04:05.000Z";
+  const normalized = normalizeAssessmentAttempt(baseAttempt({
+    administrationVersion: "2026.07.22-quick-v1",
+    responseSchemaVersion: 2,
+    questionRecords: [{
+      questionId: "encoding-quick-1",
+      itemKey: "ship",
+      itemType: "encoding_feature",
+      targetWord: "ship",
+      responseStatus: "correct",
+      isCorrect: true,
+      exact: true,
+      plausible: true,
+      responseText: "",
+      transcription: "",
+      responseCaptureMode: "quick_teacher_judgment",
+      responseDetailCaptured: false,
+      outcomeRecordedAt
+    }]
+  }));
+  const question = normalized.questionRecords[0];
+
+  assert.equal(normalized.administrationVersion, "2026.07.22-quick-v1");
+  assert.equal(normalized.responseSchemaVersion, 2);
+  assert.equal(question.responseCaptureMode, "quick_teacher_judgment");
+  assert.equal(question.responseDetailCaptured, false);
+  assert.equal(question.outcomeRecordedAt, outcomeRecordedAt);
+  assert.equal(question.responseText, "");
+  assert.equal(question.transcription, "");
+  assert.equal(question.metadata.responseCaptureMode, "quick_teacher_judgment");
+  assert.equal(question.metadata.responseDetailCaptured, false);
+  assert.equal(question.metadata.outcomeRecordedAt, outcomeRecordedAt);
+
+  const compact = compactAssessmentAttemptForStorage(normalized);
+  const rehydrated = normalizeAssessmentAttempt(JSON.parse(JSON.stringify(compact)));
+  assert.equal(rehydrated.administrationVersion, "2026.07.22-quick-v1");
+  assert.equal(rehydrated.responseSchemaVersion, 2);
+  assert.equal(rehydrated.questionRecords[0].responseCaptureMode, "quick_teacher_judgment");
+  assert.equal(rehydrated.questionRecords[0].responseDetailCaptured, false);
+  assert.equal(rehydrated.questionRecords[0].outcomeRecordedAt, outcomeRecordedAt);
+  assert.equal(rehydrated.questionRecords[0].responseText, "");
+  assert.equal(rehydrated.questionRecords[0].transcription, "");
+
+  const legacyBlank = normalizeAssessmentAttempt(baseAttempt({
+    attemptId: "legacy-blank-response",
+    questionRecords: [{
+      questionId: "encoding-legacy-blank",
+      responseStatus: "correct",
+      responseText: ""
+    }]
+  })).questionRecords[0];
+  assert.equal(legacyBlank.responseCaptureMode, "legacy_unspecified");
+  assert.equal(legacyBlank.responseDetailCaptured, false);
+  assert.equal(legacyBlank.responseText, "");
 });
 
 test("interrupted ORF timing audit survives normalization and rehydration", () => {

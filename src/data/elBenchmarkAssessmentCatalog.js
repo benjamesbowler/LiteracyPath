@@ -706,9 +706,10 @@ const INSTRUCTIONS = Object.freeze({
   }),
   [EL_BENCHMARK_IDS.ENCODING]: Object.freeze({
     teacher: [
+      "Give the student a pencil and lined paper before beginning.",
       "Say the target word, read its sentence, then repeat the target word.",
       "Do not show the word or name its spelling pattern.",
-      "Record the student's transcription exactly before judging it.",
+      "Use the quick outcome buttons for every item. Transcribe the student's spelling only when that added detail will help instruction.",
       "Mark phonologically plausible only when every heard phoneme has a reasonable representation for the student's dialect; exact spelling is scored separately."
     ],
     studentPrompt: "Write each word as carefully as you can. If you are unsure, write the sounds you hear.",
@@ -726,7 +727,7 @@ const INSTRUCTIONS = Object.freeze({
   }),
   [EL_BENCHMARK_IDS.ORAL_READING_FLUENCY]: Object.freeze({
     teacher: [
-      "Give the student the clean passage and keep the scoring copy yourself.",
+      "Let the student read the passage directly from the screen. A printable clean copy is available in Optional details when needed.",
       "Start timing on the first spoken word. At 60 seconds, mark the last word attempted; let the student finish only if useful for instruction.",
       "Count an uncorrected substitution, omission, insertion, or supplied word as an error. Record self-corrections separately rather than as errors.",
       "After exactly one minute, explicitly judge whether the passage was read accurately; do not replace this teacher judgement with a percentage cutoff.",

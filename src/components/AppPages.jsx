@@ -1518,11 +1518,11 @@ function formatBenchmarkMinutes(value, assessmentId = "", grade = "") {
 function getElPathGuidance(grade, windowName) {
   if (grade === "K") {
     if (windowName === "BOY") {
-      return "Letter Name & Sound → Sound Awareness. Encoding and Decoding are not routine at this window.";
+      return "Start with Letter Name and Sound, then Sound Awareness. Add spelling or word reading later if needed.";
     }
-    return "Letter Name & Sound → Sound Awareness. Add Encoding → Decoding only when letter sounds are secure.";
+    return "Start with Letter Name and Sound and Sound Awareness. Add spelling and word reading when letter sounds are secure.";
   }
-  return "Encoding → Decoding → Fluency → Sound Awareness. Use Letter Name & Sound when earlier evidence indicates it is needed.";
+  return "A useful order is Spelling, Word Reading, Reading Fluency, then Sound Awareness. Use Letter Name and Sound when earlier evidence suggests it.";
 }
 
 function getBenchmarkRecommendation(assessmentId, grade, windowName) {
@@ -1557,6 +1557,70 @@ function humanizeBenchmarkKey(value = "") {
   return String(value || "").replace(/_/g, " ").replace(/\b\w/g, letter => letter.toUpperCase());
 }
 
+const EL_PREREQUISITE_REASON_OPTIONS = Object.freeze([
+  {
+    id: "recent_classroom_evidence",
+    label: "Recent classroom work",
+    detail: "Current work shows the student is ready.",
+    reason: "Recent classroom evidence shows the student is ready for this assessment."
+  },
+  {
+    id: "equivalent_assessment_evidence",
+    label: "Equivalent check completed",
+    detail: "I have comparable assessment evidence.",
+    reason: "The teacher reviewed equivalent assessment evidence showing the student is ready for this assessment."
+  },
+  {
+    id: "student_support_decision",
+    label: "Student support decision",
+    detail: "This start matches an agreed support or accommodation.",
+    reason: "This starting decision follows the student's agreed support or accommodation."
+  },
+  {
+    id: "other",
+    label: "Other reason",
+    detail: "Add a short explanation.",
+    reason: ""
+  }
+]);
+
+function getPrerequisiteReasonText(reasonId = "", otherReason = "") {
+  if (reasonId === "other") return String(otherReason || "").trim();
+  return EL_PREREQUISITE_REASON_OPTIONS.find(option => option.id === reasonId)?.reason || "";
+}
+
+function getBenchmarkCardDescription(assessmentId, fallback = "") {
+  if (assessmentId === EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS) {
+    return "Listen to short sound tasks and tap the student's response.";
+  }
+  if (assessmentId === EL_BENCHMARK_IDS.ENCODING) {
+    return "The student writes each word on paper; you tap the closest result.";
+  }
+  if (assessmentId === EL_BENCHMARK_IDS.DECODING) {
+    return "The student reads words from the screen; you tap how they read each one.";
+  }
+  if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) {
+    return "The student reads on screen while the built-in timer guides the check.";
+  }
+  return fallback;
+}
+
+function getBenchmarkCardNote(assessmentId) {
+  if (assessmentId === EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS) return "Teacher-led · spoken responses";
+  if (assessmentId === EL_BENCHMARK_IDS.ENCODING) return "Paper and pencil";
+  if (assessmentId === EL_BENCHMARK_IDS.DECODING) return "Student reads on screen";
+  if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) return "Built-in one-minute timer";
+  return "Teacher paced";
+}
+
+function getBenchmarkStartLabel(assessmentId) {
+  if (assessmentId === EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS) return "sound awareness";
+  if (assessmentId === EL_BENCHMARK_IDS.ENCODING) return "spelling";
+  if (assessmentId === EL_BENCHMARK_IDS.DECODING) return "word reading";
+  if (assessmentId === EL_BENCHMARK_IDS.ORAL_READING_FLUENCY) return "reading fluency";
+  return "assessment";
+}
+
 export function ELAssessmentsPage({
   studentId,
   studentName,
@@ -1572,7 +1636,8 @@ export function ELAssessmentsPage({
   const [windowName, setWindowName] = useState(elBenchmarkDraft?.window || "BOY");
   const [pendingStart, setPendingStart] = useState(null);
   const [prerequisiteReason, setPrerequisiteReason] = useState("");
-  const [prerequisiteConfirmed, setPrerequisiteConfirmed] = useState(false);
+  const [prerequisiteOtherReason, setPrerequisiteOtherReason] = useState("");
+  const prerequisiteReviewRef = useRef(null);
   const routes = useMemo(() => listElBenchmarkRoutes(), []);
   const selectedRoute = useMemo(() => routes.find(route => (
     route.grade === grade && route.window === windowName
@@ -1661,8 +1726,14 @@ export function ELAssessmentsPage({
   useEffect(() => {
     setPendingStart(null);
     setPrerequisiteReason("");
-    setPrerequisiteConfirmed(false);
+    setPrerequisiteOtherReason("");
   }, [grade, windowName]);
+
+  useEffect(() => {
+    if (!pendingStart || !prerequisiteReviewRef.current) return;
+    prerequisiteReviewRef.current.focus({ preventScroll: true });
+    prerequisiteReviewRef.current.scrollIntoView({ block: "center" });
+  }, [pendingStart]);
 
   const prerequisiteFor = assessmentId => {
     const baseStatus = getElBenchmarkPrerequisiteStatus({
@@ -1749,7 +1820,7 @@ export function ELAssessmentsPage({
     });
     setPendingStart(null);
     setPrerequisiteReason("");
-    setPrerequisiteConfirmed(false);
+    setPrerequisiteOtherReason("");
   };
 
   const requestAssessmentStart = entry => {
@@ -1760,24 +1831,29 @@ export function ELAssessmentsPage({
     }
     setPendingStart({ entry, prerequisite });
     setPrerequisiteReason("");
-    setPrerequisiteConfirmed(false);
+    setPrerequisiteOtherReason("");
   };
+
+  const prerequisiteReasonText = getPrerequisiteReasonText(
+    prerequisiteReason,
+    prerequisiteOtherReason
+  );
 
   return (
     <div className="teacher-product-page el-assessment-hub">
       <section className="teacher-page-header el-assessment-hub-hero">
         <div>
           <p className="panel-label">EL-aligned benchmark suite</p>
-          <h2>Early literacy benchmark checks</h2>
-          <p>Keep the established first two assessments, then use the four new evidence checks for {studentName || "this student"} as Assessments 3–6.</p>
+          <h2>Choose an assessment for {studentName || "this student"}</h2>
+          <p>Set the grade and time of year once, then start the check you need.</p>
         </div>
-        <span className="el-assessment-provisional-label">Original LiteracyPath forms · provisional routing</span>
+        <span className="el-assessment-provisional-label">Six early literacy checks</span>
       </section>
 
       <section className="el-assessment-route-panel" aria-labelledby="el-assessment-route-title">
-        <div>
-          <p className="panel-label">Benchmark route</p>
-          <h3 id="el-assessment-route-title">Choose grade and window</h3>
+        <div className="el-assessment-route-copy">
+          <p className="panel-label">Student level</p>
+          <h3 id="el-assessment-route-title">Grade and time of year</h3>
           <p>{getElPathGuidance(grade, windowName)}</p>
         </div>
         <div className="el-assessment-route-controls">
@@ -1790,97 +1866,128 @@ export function ELAssessmentsPage({
             </select>
           </label>
           <label>
-            Window
+            Time of year
             <select onChange={event => setWindowName(event.target.value)} value={windowName}>
               {Object.entries(EL_WINDOW_LABELS).map(([value, label]) => (
-                <option key={value} value={value}>{label} ({value})</option>
+                <option key={value} value={value}>{label}</option>
               ))}
             </select>
-          </label>
-          <label>
-            Decoding start
-            <select onChange={event => {
-              setDecodingStart(event.target.value);
-              setDecodingStartSource("teacher_selected");
-            }} value={decodingStart}>
-              {decodingBandOptions.map(band => (
-                <option key={band.id} value={band.id}>
-                  {band.label}{band.anchorCycle ? ` · Cycle ${band.anchorCycle}` : ""}
-                </option>
-              ))}
-            </select>
-            <small>
-              {confirmedEncodingIndication && decodingBandOptions.some(row => row.id === confirmedEncodingIndication)
-                ? "Preselected from the latest teacher-confirmed Encoding indication."
-                : provisionalEncodingIndication && decodingBandOptions.some(row => row.id === provisionalEncodingIndication)
-                  ? "Preselected from a provisional Encoding indication; review and justify this start before Decoding."
-                : "Confirm this starting band from Encoding evidence. No unpublished cut score is assumed."}
-            </small>
-          </label>
-          <label>
-            Fluency start
-            <select onChange={event => {
-              setFluencyStart(event.target.value);
-              setFluencyStartSource("teacher_selected");
-            }} value={fluencyStart}>
-              {decodingBandOptions.map(band => (
-                <option key={band.id} value={band.id}>
-                  {band.label}{band.anchorCycle ? ` · Cycle ${band.anchorCycle} anchor` : ""}
-                </option>
-              ))}
-            </select>
-            <small>
-              {fluencyIndication && decodingBandOptions.some(row => row.id === fluencyIndication)
-                ? "Preselected from the latest completed Decoding fluency handoff."
-                : "Choose and justify a starting band when no completed Decoding handoff is available."}
-            </small>
           </label>
         </div>
+
+        <details className="el-assessment-advanced-starts">
+          <summary>
+            <span>Advanced starting points</span>
+            <small>Optional · change only when earlier evidence supports a different start</small>
+          </summary>
+          <div className="el-assessment-advanced-start-grid">
+            <label>
+              Decoding start
+              <select onChange={event => {
+                setDecodingStart(event.target.value);
+                setDecodingStartSource("teacher_selected");
+              }} value={decodingStart}>
+                {decodingBandOptions.map(band => (
+                  <option key={band.id} value={band.id}>
+                    {band.label}{band.anchorCycle ? ` · Cycle ${band.anchorCycle}` : ""}
+                  </option>
+                ))}
+              </select>
+              <small>
+                {confirmedEncodingIndication && decodingBandOptions.some(row => row.id === confirmedEncodingIndication)
+                  ? "Set from the latest teacher-confirmed Encoding result."
+                  : provisionalEncodingIndication && decodingBandOptions.some(row => row.id === provisionalEncodingIndication)
+                    ? "Set from a provisional Encoding result; review before starting Decoding."
+                    : "The usual grade and window starting point is selected."}
+              </small>
+            </label>
+            <label>
+              Fluency start
+              <select onChange={event => {
+                setFluencyStart(event.target.value);
+                setFluencyStartSource("teacher_selected");
+              }} value={fluencyStart}>
+                {decodingBandOptions.map(band => (
+                  <option key={band.id} value={band.id}>
+                    {band.label}{band.anchorCycle ? ` · Cycle ${band.anchorCycle} anchor` : ""}
+                  </option>
+                ))}
+              </select>
+              <small>
+                {fluencyIndication && decodingBandOptions.some(row => row.id === fluencyIndication)
+                  ? "Set from the latest completed Decoding result."
+                  : "The usual grade and window starting point is selected."}
+              </small>
+            </label>
+          </div>
+          <p className="el-assessment-advanced-note">
+            Results are descriptive. No unpublished cut score is assumed.
+          </p>
+        </details>
       </section>
 
       {pendingStart && (
-        <section className="el-assessment-prerequisite-review" aria-labelledby="el-prerequisite-review-title">
+        <section
+          aria-labelledby="el-prerequisite-review-title"
+          className="el-assessment-prerequisite-review"
+          ref={prerequisiteReviewRef}
+          tabIndex="-1"
+        >
           <div>
             <p className="panel-label">Sequence check</p>
-            <h3 id="el-prerequisite-review-title">Review before Assessment {EL_BENCHMARK_CATALOG.findIndex(row => row.id === pendingStart.entry.id) + 3}</h3>
+            <h3 id="el-prerequisite-review-title">One quick check before starting</h3>
             <p>{pendingStart.prerequisite.message}</p>
           </div>
-          <label className="el-assessment-confirm-check">
-            <input
-              checked={prerequisiteConfirmed}
-              onChange={event => setPrerequisiteConfirmed(event.target.checked)}
-              type="checkbox"
-            />
-            <span>I reviewed the ordered assessment evidence and confirm this exception or prerequisite.</span>
-          </label>
-          <label>
-            Short rationale
-            <textarea
-              onChange={event => setPrerequisiteReason(event.target.value)}
-              placeholder="Name the assessment, classroom evidence, accommodation, or reason for this decision."
-              rows={3}
-              value={prerequisiteReason}
-            />
-          </label>
+          <fieldset className="el-assessment-reason-fieldset">
+            <legend>Why are you starting here?</legend>
+            <div className="el-assessment-reason-options">
+              {EL_PREREQUISITE_REASON_OPTIONS.map(option => (
+                <button
+                  aria-pressed={prerequisiteReason === option.id}
+                  key={option.id}
+                  onClick={() => {
+                    setPrerequisiteReason(option.id);
+                    if (option.id !== "other") setPrerequisiteOtherReason("");
+                  }}
+                  type="button"
+                >
+                  <strong>{option.label}</strong>
+                  <small>{option.detail}</small>
+                </button>
+              ))}
+            </div>
+          </fieldset>
+          {prerequisiteReason === "other" && (
+            <label className="el-assessment-other-reason">
+              Short explanation
+              <textarea
+                autoFocus
+                onChange={event => setPrerequisiteOtherReason(event.target.value)}
+                placeholder="Briefly note the evidence or reason."
+                rows={2}
+                value={prerequisiteOtherReason}
+              />
+            </label>
+          )}
           <div className="teacher-action-list">
             <button
               className="lp-button lp-button-primary"
-              disabled={!prerequisiteConfirmed || !prerequisiteReason.trim()}
+              disabled={!prerequisiteReasonText}
               onClick={() => launchAssessment(
                 pendingStart.entry,
                 pendingStart.prerequisite,
-                prerequisiteReason
+                prerequisiteReasonText
               )}
               type="button"
             >
-              Confirm and start {pendingStart.entry.shortTitle || pendingStart.entry.title}
+              Start {pendingStart.entry.shortTitle || pendingStart.entry.title}
             </button>
             <button
               className="lp-button lp-button-secondary"
               onClick={() => {
                 setPendingStart(null);
                 setPrerequisiteReason("");
-                setPrerequisiteConfirmed(false);
+                setPrerequisiteOtherReason("");
               }}
               type="button"
             >
@@ -1903,6 +2010,14 @@ export function ELAssessmentsPage({
           </div>
         </section>
       )}
+
+      <div className="el-assessment-list-heading">
+        <div>
+          <p className="panel-label">Assessments</p>
+          <h3>Choose one check</h3>
+        </div>
+        <p>Each assessment saves its own results. You can come back for another when you are ready.</p>
+      </div>
 
       <section className="el-assessment-domain-grid">
         <article className="teacher-action-panel el-assessment-domain-card" data-domain="letters">
@@ -1946,14 +2061,14 @@ export function ELAssessmentsPage({
                 <span className={`el-assessment-recommendation ${recommendation.tone}`}>{recommendation.label}</span>
               </div>
               <h3>{entry.title}</h3>
-              <p>{entry.description}</p>
-              <small>{recommendation.detail} · {formatBenchmarkMinutes(entry.estimatedMinutes, entry.id, grade)}</small>
+              <p>{getBenchmarkCardDescription(entry.id, entry.description)}</p>
+              <small>{getBenchmarkCardNote(entry.id)} · {formatBenchmarkMinutes(entry.estimatedMinutes, entry.id, grade)}</small>
               <div className="el-assessment-card-evidence">
                 <span>{formatAttemptStatus(latest)}</span>
                 {latest?.completedAt && <time dateTime={latest.completedAt}>{new Date(latest.completedAt).toLocaleDateString()}</time>}
               </div>
               {prerequisite.state !== "ready" && (
-                <p className="el-assessment-prerequisite-note">Sequence review required before starting.</p>
+                <p className="el-assessment-prerequisite-note">Quick evidence check needed before starting.</p>
               )}
               <div className="teacher-action-list">
                 <button
@@ -1963,7 +2078,7 @@ export function ELAssessmentsPage({
                   title={elBenchmarkDraft ? "Resume or discard the saved draft before starting another benchmark" : undefined}
                   type="button"
                 >
-                  {prerequisite.state === "ready" ? "Start" : "Review & start"} {entry.shortTitle || entry.title}
+                  {prerequisite.state === "ready" ? "Start" : "Check & start"} {getBenchmarkStartLabel(entry.id)}
                 </button>
               </div>
             </article>

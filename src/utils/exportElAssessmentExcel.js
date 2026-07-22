@@ -380,6 +380,19 @@ function evidenceText(value) {
   return String(value);
 }
 
+function responseCaptureText(item = {}) {
+  const mode = String(item?.responseCaptureMode || "legacy_unspecified");
+  if (mode === "quick_teacher_judgment") {
+    return item?.responseDetailCaptured
+      ? "Quick score with optional transcription"
+      : "Quick score - not transcribed";
+  }
+  if (mode === "direct_choice") return "Direct response choice";
+  if (mode === "exact_transcription") return "Exact response transcribed";
+  if (mode === "timed_reading_observation") return "Timed reading observation";
+  return "Legacy capture - detail unspecified";
+}
+
 function evidenceBoolean(value, emptyLabel = "Not scored") {
   if (value === true) return "Yes";
   if (value === false) return "No";
@@ -468,6 +481,8 @@ function addStudentBenchmarkProfileSheet(workbook, report = {}) {
     "Content version",
     "Scoring version",
     "Scoring rule version",
+    "Administration interface",
+    "Response schema",
     "PA accuracy",
     "PA strands observed",
     "Encoding exact spelling",
@@ -516,6 +531,8 @@ function addStudentBenchmarkProfileSheet(workbook, report = {}) {
         "Content version": profile.contentVersion || "",
         "Scoring version": profile.scoringVersion || "",
         "Scoring rule version": profile.scoringRuleVersion || "",
+        "Administration interface": profile.administrationVersion || "",
+        "Response schema": numericValue(profile.responseSchemaVersion),
         "PA accuracy": percentageValue(profile.domainKey === "phonologicalAwareness" ? metrics.accuracyRate : null),
         "PA strands observed": profile.domainKey === "phonologicalAwareness" ? numericValue(metrics.strandsObserved) : "",
         "Encoding exact spelling": percentageValue(profile.domainKey === "encoding" ? metrics.exactSpellingRate : null),
@@ -551,6 +568,8 @@ function addStudentPaDetailSheet(workbook, report = {}) {
     "Content version",
     "Scoring version",
     "Scoring rule version",
+    "Administration interface",
+    "Response schema",
     "Administration status",
     "Prerequisite review",
     "Assessment validation issues",
@@ -561,6 +580,7 @@ function addStudentPaDetailSheet(workbook, report = {}) {
     "Task",
     "Prompt",
     "Student response",
+    "Response capture",
     "Response status",
     "Not-scorable reason",
     "Not-scorable note",
@@ -579,6 +599,7 @@ function addStudentPaDetailSheet(workbook, report = {}) {
     "Observations",
     "Prompt",
     "Student response",
+    "Response capture",
     "Error tags",
     "Validation issues",
     "Feature tags"
@@ -600,6 +621,8 @@ function addStudentPaDetailSheet(workbook, report = {}) {
           "Content version": detail.contentVersion || "",
           "Scoring version": detail.scoringVersion || "",
           "Scoring rule version": detail.scoringRuleVersion || "",
+          "Administration interface": detail.administrationVersion || "",
+          "Response schema": numericValue(detail.responseSchemaVersion),
           "Administration status": detail.administrationStatusLabel || humanizeKey(detail.administrationStatus),
           "Prerequisite review": evidenceText(detail.prerequisiteReview),
           "Assessment validation issues": evidenceText(detail.validationIssues),
@@ -610,6 +633,7 @@ function addStudentPaDetailSheet(workbook, report = {}) {
           "Task": humanizeKey(item?.task),
           "Prompt": item?.prompt || "",
           "Student response": evidenceText(item?.exactResponse),
+          "Response capture": responseCaptureText(item),
           "Response status": humanizeKey(item?.responseStatus),
           "Not-scorable reason": item?.notScorableReason || "",
           "Not-scorable note": item?.notScorableNote || "",
@@ -646,6 +670,8 @@ function addStudentEncodingDetailSheet(workbook, report = {}) {
     "Content version",
     "Scoring version",
     "Scoring rule version",
+    "Administration interface",
+    "Response schema",
     "Administration status",
     "Prerequisite review",
     "Assessment validation issues",
@@ -654,6 +680,7 @@ function addStudentEncodingDetailSheet(workbook, report = {}) {
     "Item ID",
     "Target spelling",
     "Student spelling",
+    "Response capture",
     "Response status",
     "Not-scorable reason",
     "Not-scorable note",
@@ -675,6 +702,7 @@ function addStudentEncodingDetailSheet(workbook, report = {}) {
     "Observations",
     "Target spelling",
     "Student spelling",
+    "Response capture",
     "Error tags",
     "Validation issues",
     "Feature tags"
@@ -695,6 +723,8 @@ function addStudentEncodingDetailSheet(workbook, report = {}) {
         "Content version": detail.contentVersion || "",
         "Scoring version": detail.scoringVersion || "",
         "Scoring rule version": detail.scoringRuleVersion || "",
+        "Administration interface": detail.administrationVersion || "",
+        "Response schema": numericValue(detail.responseSchemaVersion),
         "Administration status": detail.administrationStatusLabel || humanizeKey(detail.administrationStatus),
         "Prerequisite review": evidenceText(detail.prerequisiteReview),
         "Assessment validation issues": evidenceText(detail.validationIssues),
@@ -703,6 +733,7 @@ function addStudentEncodingDetailSheet(workbook, report = {}) {
         "Item ID": item?.questionId || item?.itemKey || "",
         "Target spelling": item?.targetSpelling || item?.targetWord || "",
         "Student spelling": evidenceText(item?.studentSpelling ?? item?.exactResponse),
+        "Response capture": responseCaptureText(item),
         "Response status": humanizeKey(item?.responseStatus),
         "Not-scorable reason": item?.notScorableReason || "",
         "Not-scorable note": item?.notScorableNote || "",
@@ -748,6 +779,8 @@ function addStudentDecodingDetailSheet(workbook, report = {}) {
     "Content version",
     "Scoring version",
     "Scoring rule version",
+    "Administration interface",
+    "Response schema",
     "Administration status",
     "Prerequisite review",
     "Assessment validation issues",
@@ -759,6 +792,7 @@ function addStudentDecodingDetailSheet(workbook, report = {}) {
     "Target word",
     "Target pattern",
     "Student response",
+    "Response capture",
     "Response status",
     "Not-scorable reason",
     "Not-scorable note",
@@ -786,6 +820,7 @@ function addStudentDecodingDetailSheet(workbook, report = {}) {
   ], [
     "Target word",
     "Student response",
+    "Response capture",
     "Stop reason",
     "Stop rule",
     "Candidate placement",
@@ -816,6 +851,8 @@ function addStudentDecodingDetailSheet(workbook, report = {}) {
         "Content version": detail.contentVersion || "",
         "Scoring version": detail.scoringVersion || "",
         "Scoring rule version": detail.scoringRuleVersion || "",
+        "Administration interface": detail.administrationVersion || "",
+        "Response schema": numericValue(detail.responseSchemaVersion),
         "Administration status": detail.administrationStatusLabel || humanizeKey(detail.administrationStatus),
         "Prerequisite review": evidenceText(detail.prerequisiteReview),
         "Assessment validation issues": evidenceText(detail.validationIssues),
@@ -827,6 +864,7 @@ function addStudentDecodingDetailSheet(workbook, report = {}) {
         "Target word": item?.targetWord || "",
         "Target pattern": item?.targetPattern || "",
         "Student response": evidenceText(item?.exactResponse),
+        "Response capture": responseCaptureText(item),
         "Response status": humanizeKey(item?.responseStatus),
         "Not-scorable reason": item?.notScorableReason || "",
         "Not-scorable note": item?.notScorableNote || "",
@@ -877,6 +915,8 @@ function addStudentFluencyDetailSheet(workbook, report = {}) {
     "Content version",
     "Scoring version",
     "Scoring rule version",
+    "Administration interface",
+    "Response schema",
     "Administration status",
     "Prerequisite review",
     "Assessment validation issues",
@@ -888,6 +928,7 @@ function addStudentFluencyDetailSheet(workbook, report = {}) {
     "Evidence status",
     "Passage judgment",
     "Student transcription",
+    "Response capture",
     "Not-scorable reason",
     "Not-scorable note",
     "Validation issues",
@@ -921,6 +962,7 @@ function addStudentFluencyDetailSheet(workbook, report = {}) {
     "Observations",
     "Passage title",
     "Student transcription",
+    "Response capture",
     "Validation issues",
     "Interruption reason",
     "Route decision",
@@ -952,6 +994,8 @@ function addStudentFluencyDetailSheet(workbook, report = {}) {
           "Content version": detail.contentVersion || "",
           "Scoring version": detail.scoringVersion || "",
           "Scoring rule version": detail.scoringRuleVersion || "",
+          "Administration interface": detail.administrationVersion || "",
+          "Response schema": numericValue(detail.responseSchemaVersion),
           "Administration status": detail.administrationStatusLabel || humanizeKey(detail.administrationStatus),
           "Prerequisite review": evidenceText(detail.prerequisiteReview),
           "Assessment validation issues": evidenceText(detail.validationIssues),
@@ -969,6 +1013,7 @@ function addStudentFluencyDetailSheet(workbook, report = {}) {
                 ? "Not accurate"
                 : "Not recorded",
           "Student transcription": evidenceText(passage.exactResponse),
+          "Response capture": responseCaptureText(passage),
           "Not-scorable reason": passage.notScorableReason || "",
           "Not-scorable note": passage.notScorableNote || "",
           "Validation issues": evidenceText(passage.validationIssues),
@@ -1289,6 +1334,8 @@ function addClassBenchmarkEvidenceDetailSheet(workbook, report = {}) {
     "Content version",
     "Scoring version",
     "Scoring rule version",
+    "Administration interface",
+    "Response schema",
     "Administration status",
     "Prerequisite review",
     "Assessment validation issues",
@@ -1300,6 +1347,7 @@ function addClassBenchmarkEvidenceDetailSheet(workbook, report = {}) {
     "Item ID",
     "Target / prompt",
     "Student response",
+    "Response capture",
     "Response status",
     "Not-scorable reason",
     "Not-scorable note",
@@ -1344,6 +1392,7 @@ function addClassBenchmarkEvidenceDetailSheet(workbook, report = {}) {
     "Domain",
     "Target / prompt",
     "Student response",
+    "Response capture",
     "Prosody ratings",
     "Fluency interruption reason",
     "Fluency route decision",
@@ -1382,6 +1431,8 @@ function addClassBenchmarkEvidenceDetailSheet(workbook, report = {}) {
         "Content version": detail.contentVersion || "",
         "Scoring version": detail.scoringVersion || "",
         "Scoring rule version": detail.scoringRuleVersion || "",
+        "Administration interface": detail.administrationVersion || "",
+        "Response schema": numericValue(detail.responseSchemaVersion),
         "Administration status": detail.administrationStatusLabel || humanizeKey(detail.administrationStatus),
         "Prerequisite review": evidenceText(detail.prerequisiteReview),
         "Assessment validation issues": evidenceText(detail.validationIssues),
@@ -1393,6 +1444,7 @@ function addClassBenchmarkEvidenceDetailSheet(workbook, report = {}) {
         "Item ID": item?.questionId || item?.itemKey || detail.passageId || "",
         "Target / prompt": target,
         "Student response": evidenceText(item?.exactResponse || item?.studentSpelling),
+        "Response capture": responseCaptureText(item),
         "Response status": humanizeKey(item?.responseStatus),
         "Not-scorable reason": item?.notScorableReason || "",
         "Not-scorable note": item?.notScorableNote || "",

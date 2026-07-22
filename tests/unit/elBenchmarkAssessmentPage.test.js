@@ -19,6 +19,10 @@ const assessmentPageSource = readFileSync(
   new URL("../../src/components/assessment/ELBenchmarkAssessmentPage.jsx", import.meta.url),
   "utf8"
 );
+const assessmentPageStyles = readFileSync(
+  new URL("../../src/components/assessment/el-benchmark-assessment.css", import.meta.url),
+  "utf8"
+);
 
 test.before(async () => {
   vite = await createServer({
@@ -70,14 +74,18 @@ function buttonOpeningTag(html, label) {
   return match[1];
 }
 
-function completedFirstDecodingBand(plan) {
+function countText(html, text) {
+  return html.split(text).length - 1;
+}
+
+function completedFirstDecodingBand(plan, automaticCount = 5) {
   return Object.fromEntries(plan.items.slice(0, 8).map((item, index) => [item.id, {
     assessmentId: plan.assessmentId,
-    automatic: index < 5,
-    evaluation: index < 5 ? "automatic_accurate" : "accurate_after_sounding",
+    automatic: index < automaticCount,
+    evaluation: index < automaticCount ? "automatic_accurate" : "accurate_after_sounding",
     isCorrect: true,
     itemId: item.id,
-    responseText: item.targetWord,
+    responseCaptureMode: "quick_teacher_judgment",
     status: "correct"
   }]));
 }
@@ -86,12 +94,12 @@ function completedEncodingResponses(plan) {
   return Object.fromEntries(plan.items.map(item => [item.id, {
     assessmentId: plan.assessmentId,
     evaluation: "exact",
+    exact: true,
     isCorrect: true,
     itemId: item.id,
-    plausible: false,
-    responseText: item.targetWord,
-    status: "correct",
-    transcription: item.targetWord
+    plausible: true,
+    responseCaptureMode: "quick_teacher_judgment",
+    status: "correct"
   }]));
 }
 
@@ -129,20 +137,43 @@ function completedZeroWordsFluencyResponse(item, overrides = {}) {
   };
 }
 
-function teacherConfirmedPlacement(microphase = "middle_partial", overrides = {}) {
+function teacherConfirmedPlacement(microphase, overrides = {}) {
+  const label = microphase
+    .split("_")
+    .map(word => `${word.charAt(0).toUpperCase()}${word.slice(1)}`)
+    .join(" ");
   return {
-    anchorCycle: 25,
+    anchorCycle: null,
     candidateMicrophase: microphase,
-    confirmedAt: "2026-07-21T12:00:00.000Z",
+    confirmedAt: "2026-07-22T12:00:00.000Z",
     framework: "LiteracyPath provisional",
     isProvisional: true,
-    label: "Middle Partial",
+    label,
     microphase,
     ...overrides
   };
 }
 
-test("a failed device draft save stays visible and blocks the unsafe plain return", () => {
+function progressLabel(html, resolved, planned) {
+  return html.includes(`aria-label="${resolved} of ${planned} items resolved"`);
+}
+
+test("the simplified shell has one safe exit, one collapsed review drawer, and no Next button", () => {
+  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS, {
+    grade: "K",
+    startMicrophase: undefined,
+    window: "BOY"
+  }));
+
+  assert.equal(countText(html, "Save &amp; exit"), 1);
+  assert.match(html, /<details class="el-benchmark-review-drawer"><summary>Review answers or instructions<\/summary>/);
+  assert.equal(countText(html, "Next item"), 0);
+  assert.match(buttonOpeningTag(html, "↶ Change previous answer"), /disabled/);
+  assert.match(html, /Choose one answer above — it saves and moves on/);
+  assert.doesNotMatch(html, /Return to assessments|Save partial &amp; exit/);
+});
+
+test("a device-save failure stays prominent without reintroducing competing exit controls", () => {
   const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS, {
     grade: "K",
     startMicrophase: undefined,
@@ -150,88 +181,12 @@ test("a failed device draft save stays visible and blocks the unsafe plain retur
   }), { draftSaveFailed: true });
 
   assert.match(html, /role="alert">Draft could not be saved on this device\. Keep this page open and free storage before leaving\./);
-  assert.doesNotMatch(html, /Changes save to this draft automatically/);
-  assert.match(buttonOpeningTag(html, "Return to assessments"), /disabled/);
-  assert.doesNotMatch(buttonOpeningTag(html, "Save partial &amp; exit"), /disabled/);
+  assert.doesNotMatch(html, /Saved automatically/);
+  assert.equal(countText(html, "Save &amp; exit"), 1);
+  assert.equal(countText(html, "Return to assessments"), 0);
 });
 
-test("decoding blocks every silent cross-band jump until the completed band is reviewed", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.DECODING,
-    formId: "form-a-v2",
-    grade: "K",
-    startMicrophase: "middle_partial",
-    window: "EOY"
-  });
-  const responses = completedFirstDecodingBand(plan);
-  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.DECODING, {
-    currentItemIndex: 7,
-    responses
-  }));
-
-  assert.match(html, /Stopping threshold reached/);
-  assert.match(html, /Confirm stop after this band/);
-  assert.match(html, /Continue with teacher override/);
-  assert.match(buttonOpeningTag(html, "Next item"), /disabled/);
-  assert.match(html, /aria-label="Item 9, unadministered, locked until the current decoding band is reviewed"[^>]*disabled/);
-});
-
-test("a recorded decoding override unlocks the next band and preserves its reason", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.DECODING,
-    formId: "form-a-v2",
-    grade: "K",
-    startMicrophase: "middle_partial",
-    window: "EOY"
-  });
-  const firstBandId = plan.items[0].bandId;
-  const responses = completedFirstDecodingBand(plan);
-  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.DECODING, {
-    currentItemIndex: 7,
-    decodingBandDecisions: {
-      [firstBandId]: {
-        action: "continue",
-        automaticCount: 5,
-        bandId: firstBandId,
-        denominator: 8,
-        overrideReason: "A fire alarm interrupted this band.",
-        reason: "teacher_override_below_threshold"
-      }
-    },
-    responses
-  }));
-
-  assert.match(html, /Continue decision saved/);
-  assert.match(html, /Teacher override: A fire alarm interrupted this band\./);
-  assert.doesNotMatch(buttonOpeningTag(html, "Next item"), /disabled/);
-  assert.doesNotMatch(html, /aria-label="Item 9, unadministered, locked/);
-});
-
-test("a self-correction remains accurate but is excluded from the automatic count", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.DECODING,
-    formId: "form-a-v2",
-    grade: "K",
-    startMicrophase: "middle_partial",
-    window: "EOY"
-  });
-  const responses = completedFirstDecodingBand(plan);
-  responses[plan.items[0].id] = {
-    ...responses[plan.items[0].id],
-    automatic: false,
-    selfCorrected: true,
-    status: "self_corrected"
-  };
-  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.DECODING, {
-    currentItemIndex: 7,
-    responses
-  }));
-
-  assert.match(html, /4 of 8 automatic/);
-  assert.match(html, /Stopping threshold reached/);
-});
-
-test("PA records no response separately from an attempted incorrect response", () => {
+test("rhyme recognition is a teacher-only two-word cue with large Yes, No, and Other controls", () => {
   const plan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
     formId: "form-a-v2",
@@ -243,18 +198,40 @@ test("PA records no response separately from an attempted incorrect response", (
     currentItemIndex: 0,
     grade: "K",
     startMicrophase: undefined,
-    window: "BOY",
-    responses: {
-      [item.id]: { evaluation: "no_response", isCorrect: false, itemId: item.id, status: "no_response" }
-    }
+    window: "BOY"
   }));
 
-  assert.match(html, /<button aria-pressed="true"[^>]*><span>No response<\/span>/);
-  assert.match(html, /<button aria-pressed="false"[^>]*><span>Not yet<\/span><small>An attempted response was incorrect<\/small>/);
+  assert.match(html, /class="el-benchmark-rhyme-pair" aria-label="Teacher words: moon and spoon"/);
+  assert.match(html, /<span>moon<\/span><small>and<\/small><span>spoon<\/span>/);
+  assert.match(html, /Teacher screen — say both words aloud\. Do not show the print to the student\./);
+  assert.match(html, /class="el-benchmark-quick-grid choices-3"/);
+  assert.match(html, /class="el-benchmark-quick-button tone-positive"[^>]*>[\s\S]*?<span>Yes<\/span>/);
+  assert.match(html, /class="el-benchmark-quick-button tone-negative"[^>]*>[\s\S]*?<span>No<\/span>/);
+  assert.match(html, /class="el-benchmark-quick-button tone-neutral"[^>]*>[\s\S]*?<span>Other<\/span>/);
+  assert.match(html, /<details class="el-benchmark-optional-detail"><summary>Other, no response, or add what they said<\/summary>/);
+  assert.match(html, /<button class="el-benchmark-button secondary" type="button">No response<\/button>/);
+  assert.doesNotMatch(html, /aria-label="Teacher prompt"/);
+  assert.equal(countText(html, item.teacherSay), 0, "the full rhyme prompt must not be duplicated above the pair");
+});
+
+test("open PA tasks keep normal scoring to three choices and place No response under Other", () => {
+  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS, {
+    currentItemIndex: 0,
+    grade: "K",
+    startMicrophase: undefined,
+    window: "MOY"
+  }));
+
+  assert.match(html, /Was the oral response correct\?/);
+  assert.match(html, /<span>Correct<\/span>/);
+  assert.match(html, /<span>Not yet<\/span>/);
+  assert.match(html, /<span>Other<\/span>/);
+  assert.match(html, /<details class="el-benchmark-optional-detail"><summary>Other, no response, or add what they said<\/summary>/);
+  assert.match(html, />No response<\/button>/);
   assert.doesNotMatch(html, /Incorrect or no response/);
 });
 
-test("Encoding records no response separately from Not yet", () => {
+test("Encoding always shows the paper-and-pencil setup and only three quick outcomes", () => {
   const plan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.ENCODING,
     formId: "form-a-v2",
@@ -266,17 +243,22 @@ test("Encoding records no response separately from Not yet", () => {
     currentItemIndex: 0,
     grade: "K",
     startMicrophase: undefined,
-    window: "BOY",
-    responses: {
-      [item.id]: { evaluation: "no_response", isCorrect: false, itemId: item.id, status: "no_response" }
-    }
+    window: "BOY"
   }));
 
-  assert.match(html, /<button aria-pressed="true"[^>]*><span>No response<\/span><small>Student wrote nothing<\/small>/);
-  assert.match(html, /<button aria-pressed="false"[^>]*><span>Not yet<\/span>/);
+  assert.match(html, /Give the student a pencil and lined paper\. Keep this screen facing you\./);
+  assert.match(html, /<span>Say exactly<\/span>/);
+  assert.ok(html.includes(item.teacherSay));
+  assert.match(html, /How close was the spelling\?/);
+  assert.match(html, /<span>Correct spelling<\/span>/);
+  assert.match(html, /<span>Sounds right<\/span>/);
+  assert.match(html, /<span>Not yet<\/span>/);
+  assert.match(html, /<details class="el-benchmark-optional-detail"><summary>Other or add spelling detail<\/summary>/);
+  assert.match(html, /Student&#x27;s spelling \(optional\)/);
+  assert.match(html, />No response<\/button>/);
 });
 
-test("Decoding records no response separately from an attempted incorrect word", () => {
+test("Decoding puts the word on screen with three immediate teacher judgments", () => {
   const plan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.DECODING,
     formId: "form-a-v2",
@@ -286,121 +268,105 @@ test("Decoding records no response separately from an attempted incorrect word",
   });
   const item = plan.items[0];
   const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.DECODING, {
-    currentItemIndex: 0,
-    responses: {
-      [item.id]: {
-        automatic: false,
-        errorTags: ["no_response"],
-        evaluation: "no_response",
-        isCorrect: false,
-        itemId: item.id,
-        selfCorrected: false,
-        status: "no_response"
-      }
-    }
+    currentItemIndex: 0
   }));
 
-  assert.match(html, /<button aria-pressed="true"[^>]*><span>No response<\/span><small>Student gave no spoken response<\/small>/);
-  assert.match(html, /<button aria-pressed="false"[^>]*><span>Incorrect<\/span><small>An attempted word was incorrect<\/small>/);
-  assert.doesNotMatch(html, /Incorrect word or no response/);
+  assert.match(html, new RegExp(`class="el-benchmark-word-display" aria-label="Word to read: ${item.targetWord}">${item.targetWord}<`));
+  assert.match(html, /How did the student read the word\?/);
+  assert.match(html, /<span>Straight away<\/span>/);
+  assert.match(html, /<span>Worked it out<\/span>/);
+  assert.match(html, /<span>Not correct<\/span>/);
+  assert.match(html, /<details class="el-benchmark-optional-detail"><summary>Other or add reading detail<\/summary>/);
+  assert.match(html, />No response<\/button>/);
 });
 
-test("Decoding accuracy cannot contradict the exact recorded spoken word", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.DECODING,
-    formId: "form-a-v2",
-    grade: "K",
-    startMicrophase: "middle_partial",
-    window: "EOY"
-  });
-  const item = plan.items[0];
-  const mismatchedAccurate = renderAssessment(makeSession(EL_BENCHMARK_IDS.DECODING, {
-    currentItemIndex: 0,
-    responses: {
-      [item.id]: {
-        automatic: true,
-        evaluation: "automatic_accurate",
-        isCorrect: true,
-        itemId: item.id,
-        responseText: `${item.targetWord}-different`,
-        selfCorrected: false,
-        status: "correct"
-      }
+test("blank detail is complete only when it carries a coherent quick teacher judgment", () => {
+  const cases = [
+    {
+      assessmentId: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
+      planOptions: { grade: "K", window: "BOY" },
+      sessionOptions: { grade: "K", startMicrophase: undefined, window: "BOY" },
+      response: { status: "correct", isCorrect: true, evaluation: "correct" }
+    },
+    {
+      assessmentId: EL_BENCHMARK_IDS.ENCODING,
+      planOptions: { grade: "K", window: "BOY" },
+      sessionOptions: { grade: "K", startMicrophase: undefined, window: "BOY" },
+      response: { status: "incorrect", isCorrect: false, exact: false, plausible: true, evaluation: "plausible" }
+    },
+    {
+      assessmentId: EL_BENCHMARK_IDS.DECODING,
+      planOptions: { grade: "K", startMicrophase: "middle_partial", window: "EOY" },
+      sessionOptions: { grade: "K", startMicrophase: "middle_partial", window: "EOY" },
+      response: { status: "correct", isCorrect: true, automatic: true, selfCorrected: false, evaluation: "automatic_accurate" }
     }
-  }));
-  assert.match(mismatchedAccurate, /This transcription does not match the displayed word/);
-  assert.match(buttonOpeningTag(mismatchedAccurate, "Next item"), /disabled/);
+  ];
 
-  const matchingIncorrect = renderAssessment(makeSession(EL_BENCHMARK_IDS.DECODING, {
-    currentItemIndex: 0,
-    responses: {
-      [item.id]: {
-        automatic: false,
-        evaluation: "incorrect",
-        isCorrect: false,
-        itemId: item.id,
-        responseText: item.targetWord,
-        selfCorrected: false,
-        status: "incorrect"
+  for (const { assessmentId, planOptions, sessionOptions, response } of cases) {
+    const plan = getElBenchmarkPlan({ assessmentId, formId: "form-a-v2", ...planOptions });
+    const item = plan.items[0];
+    const legacyHtml = renderAssessment(makeSession(assessmentId, {
+      currentItemIndex: 0,
+      ...sessionOptions,
+      responses: { [item.id]: { ...response, responseText: "", transcription: "" } }
+    }));
+    assert.ok(progressLabel(legacyHtml, 0, plan.items.length), `${assessmentId} legacy blank remains incomplete`);
+    assert.match(legacyHtml, /More detail is needed here/);
+
+    const quickHtml = renderAssessment(makeSession(assessmentId, {
+      currentItemIndex: 0,
+      ...sessionOptions,
+      responses: {
+        [item.id]: {
+          ...response,
+          responseText: "",
+          transcription: "",
+          responseCaptureMode: "quick_teacher_judgment"
+        }
       }
-    }
-  }));
-  assert.match(matchingIncorrect, /This transcription matches the displayed word/);
-  assert.match(buttonOpeningTag(matchingIncorrect, "Next item"), /disabled/);
+    }));
+    assert.ok(progressLabel(quickHtml, 1, plan.items.length), `${assessmentId} coherent quick blank is complete`);
+    assert.match(quickHtml, /Answer saved/);
+  }
 });
 
-test("attempted PA, Encoding, and Decoding outcomes require an exact nonblank response", () => {
-  const paPlan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
-    formId: "form-a-v2",
-    grade: "K",
-    window: "BOY"
-  });
-  const paItem = paPlan.items[0];
-  const paHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS, {
-    currentItemIndex: 0,
-    grade: "K",
-    startMicrophase: undefined,
-    window: "BOY",
-    responses: {
-      [paItem.id]: {
-        evaluation: "correct",
-        isCorrect: true,
-        itemId: paItem.id,
-        responseText: "   ",
-        status: "correct"
-      }
-    }
-  }));
-  assert.match(paHtml, /Enter the exact oral response before this item can be recorded/);
-  assert.match(buttonOpeningTag(paHtml, "Next item"), /disabled/);
+test("quick outcomes auto-advance only after the resulting item is complete", () => {
+  assert.match(assessmentPageSource, /onQuickScore=\{patch => updateCurrentResponse\(patch, \{ advance: true \}\)\}/);
+  assert.match(assessmentPageSource, /const nextIndex = options\.advance &&\s+isResponseComplete\(kind, nextResponse, currentItem\)/);
+  assert.match(assessmentPageSource, /kind !== ASSESSMENT_KINDS\.FLUENCY/);
+  assert.match(assessmentPageSource, /currentBand\?\.indexes\.includes\(currentIndex \+ 1\)/);
+  assert.doesNotMatch(assessmentPageSource, />\s*Next item\s*</);
+});
 
+test("typed Encoding and Decoding contradictions remain unresolved instead of auto-advancing", () => {
   const encodingPlan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.ENCODING,
     formId: "form-a-v2",
-    grade: "K",
+    grade: "1",
     window: "BOY"
   });
   const encodingItem = encodingPlan.items[0];
   const encodingHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ENCODING, {
     currentItemIndex: 0,
-    grade: "K",
+    grade: "1",
     startMicrophase: undefined,
     window: "BOY",
     responses: {
       [encodingItem.id]: {
-        evaluation: "plausible",
-        isCorrect: false,
-        itemId: encodingItem.id,
+        evaluation: "exact",
+        exact: true,
+        isCorrect: true,
         plausible: true,
-        responseText: "legacy-value-must-not-mask-blank-transcription",
-        status: "incorrect",
-        transcription: "   "
+        responseCaptureMode: "exact_transcription",
+        responseText: "not-the-target",
+        status: "correct",
+        transcription: "not-the-target"
       }
     }
   }));
-  assert.match(encodingHtml, /Transcribe the student&#x27;s written response before this item can be recorded/);
-  assert.match(buttonOpeningTag(encodingHtml, "Next item"), /disabled/);
+  assert.match(encodingHtml, /The typed spelling does not match the correct spelling/);
+  assert.ok(progressLabel(encodingHtml, 0, encodingPlan.items.length));
+  assert.match(encodingHtml, /More detail is needed here/);
 
   const decodingPlan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.DECODING,
@@ -417,25 +383,26 @@ test("attempted PA, Encoding, and Decoding outcomes require an exact nonblank re
         automatic: true,
         evaluation: "automatic_accurate",
         isCorrect: true,
-        itemId: decodingItem.id,
-        responseText: " ",
+        responseCaptureMode: "exact_transcription",
+        responseText: `${decodingItem.targetWord}-different`,
         selfCorrected: false,
         status: "correct"
       }
     }
   }));
-  assert.match(decodingHtml, /Enter the exact spoken response before this item can be recorded/);
-  assert.match(buttonOpeningTag(decodingHtml, "Next item"), /disabled/);
+  assert.match(decodingHtml, /The typed response does not match the displayed word/);
+  assert.ok(progressLabel(decodingHtml, 0, decodingPlan.items.length));
+  assert.match(decodingHtml, /More detail is needed here/);
 });
 
-test("a restored Encoding override that conflicts with the selected evaluation stays incomplete", () => {
-  const encodingPlan = getElBenchmarkPlan({
+test("a restored Encoding override that contradicts the selected outcome stays unresolved", () => {
+  const plan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.ENCODING,
     formId: "form-a-v2",
     grade: "1",
     window: "BOY"
   });
-  const item = encodingPlan.items[0];
+  const item = plan.items[0];
   const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ENCODING, {
     currentItemIndex: 0,
     grade: "1",
@@ -444,8 +411,10 @@ test("a restored Encoding override that conflicts with the selected evaluation s
     responses: {
       [item.id]: {
         evaluation: "exact",
+        exact: true,
         isCorrect: true,
-        itemId: item.id,
+        plausible: true,
+        responseCaptureMode: "exact_transcription",
         responseText: "not-the-target",
         status: "correct",
         transcription: "not-the-target",
@@ -459,11 +428,11 @@ test("a restored Encoding override that conflicts with the selected evaluation s
     }
   }));
 
-  assert.match(html, /restored exact-spelling override conflicts with the selected evaluation/i);
-  assert.match(buttonOpeningTag(html, "Next item"), /disabled/);
+  assert.match(html, /The restored spelling override conflicts with this outcome/);
+  assert.match(html, /More detail is needed here/);
 });
 
-test("decoding evaluation transitions clear contradictory response state", () => {
+test("decoding outcome transitions clear contradictory response state", () => {
   const fromNoResponse = {
     automatic: false,
     errorTags: ["no_response"],
@@ -509,7 +478,7 @@ test("decoding evaluation transitions clear contradictory response state", () =>
   assert.equal(notScorable.notScorableNote, "Hallway announcement");
 });
 
-test("contradictory decoding self-correction state is disabled and remains unresolved", () => {
+test("revisiting a self-corrected Decoding item and choosing Straight away clears the old self-correction", () => {
   const plan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.DECODING,
     formId: "form-a-v2",
@@ -518,28 +487,38 @@ test("contradictory decoding self-correction state is disabled and remains unres
     window: "EOY"
   });
   const item = plan.items[0];
+  const selfCorrected = {
+    automatic: false,
+    errorTags: ["substitution"],
+    evaluation: "accurate_after_sounding",
+    isCorrect: true,
+    responseCaptureMode: "exact_transcription",
+    responseText: item.targetWord,
+    selfCorrected: true,
+    status: "self_corrected"
+  };
+  const revised = {
+    ...selfCorrected,
+    ...getDecodingEvaluationPatch("automatic_accurate", selfCorrected)
+  };
+
+  assert.equal(revised.status, "correct");
+  assert.equal(revised.isCorrect, true);
+  assert.equal(revised.automatic, true);
+  assert.equal(revised.selfCorrected, false);
+  assert.deepEqual(revised.errorTags, []);
+  assert.equal(revised.evaluation, "automatic_accurate");
+
   const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.DECODING, {
     currentItemIndex: 0,
-    responses: {
-      [item.id]: {
-        automatic: true,
-        errorTags: ["substitution"],
-        evaluation: "incorrect",
-        isCorrect: false,
-        itemId: item.id,
-        responseText: "mop",
-        selfCorrected: true,
-        status: "incorrect"
-      }
-    }
+    responses: { [item.id]: revised }
   }));
-
-  assert.match(html, /<input disabled="" type="checkbox"\/>/);
-  assert.match(html, /This item is partially recorded/);
-  assert.match(buttonOpeningTag(html, "Next item"), /disabled/);
+  assert.match(html, /<button aria-pressed="true" class="el-benchmark-quick-button tone-positive"[^>]*>[\s\S]*?<span>Straight away<\/span>/);
+  assert.match(html, /Answer saved/);
+  assert.doesNotMatch(html, /<details class="el-benchmark-optional-detail" open/);
 });
 
-test("every not-scorable outcome requires auditable reason evidence", () => {
+test("every Couldn't assess outcome still requires auditable reason evidence", () => {
   const cases = [
     {
       assessmentId: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
@@ -602,124 +581,124 @@ test("every not-scorable outcome requires auditable reason evidence", () => {
   });
 });
 
-test("encoding keeps the answer and dictation sentence out of the initial render", () => {
+test("a completed Decoding word set offers one-tap Finish or Continue with override details hidden", () => {
   const plan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.DECODING,
+    formId: "form-a-v2",
+    grade: "K",
+    startMicrophase: "middle_partial",
+    window: "EOY"
+  });
+  const stoppingHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.DECODING, {
+    currentItemIndex: 7,
+    responses: completedFirstDecodingBand(plan, 5)
+  }));
+
+  assert.match(stoppingHtml, /This is a good place to finish/);
+  assert.doesNotMatch(buttonOpeningTag(stoppingHtml, "Finish here"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(stoppingHtml, "Keep going instead"), /disabled/);
+  assert.match(stoppingHtml, /<details class="el-benchmark-decision-detail"><summary>Why is finishing suggested\?<\/summary>/);
+  assert.match(stoppingHtml, /aria-label="Item 9, unadministered, locked until the current decoding band is reviewed"[^>]*disabled/);
+  assert.equal(countText(stoppingHtml, "Next item"), 0);
+  assert.match(assessmentPageSource, /Why will another word set help\?/);
+  assert.match(assessmentPageSource, /Save reason and continue/);
+  assert.match(assessmentPageSource, /disabled=\{!overrideReason\.trim\(\)\}/);
+
+  const continuingHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.DECODING, {
+    currentItemIndex: 7,
+    responses: completedFirstDecodingBand(plan, 6)
+  }));
+  assert.match(continuingHtml, /The student is ready for the next word set/);
+  assert.doesNotMatch(buttonOpeningTag(continuingHtml, "Continue reading"), /disabled/);
+  assert.doesNotMatch(continuingHtml, /Finish here<\/button>/);
+});
+
+test("a self-correction remains accurate but is excluded from the automatic count", () => {
+  const plan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.DECODING,
+    formId: "form-a-v2",
+    grade: "K",
+    startMicrophase: "middle_partial",
+    window: "EOY"
+  });
+  const responses = completedFirstDecodingBand(plan, 5);
+  responses[plan.items[0].id] = {
+    ...responses[plan.items[0].id],
+    automatic: false,
+    selfCorrected: true,
+    status: "self_corrected"
+  };
+  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.DECODING, {
+    currentItemIndex: 7,
+    responses
+  }));
+
+  assert.match(html, /4 of 8 read straight away/);
+  assert.match(html, /This is a good place to finish/);
+});
+
+test("Encoding accepts the suggested starting point in one tap and asks for rationale only on deviation", () => {
+  const defaultPlan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.ENCODING,
     formId: "form-a-v2",
     grade: "K",
     window: "BOY"
   });
-  const item = plan.items[0];
-  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ENCODING, {
-    currentItemIndex: 0,
-    grade: "K",
-    startMicrophase: undefined,
-    window: "BOY"
-  }));
-
-  assert.match(html, /Answer hidden/);
-  assert.match(html, /Reveal answer/);
-  assert.match(html, /Reveal teacher script/);
-  assert.doesNotMatch(html, new RegExp(`>${item.targetWord}<`, "i"));
-  assert.equal(html.includes(item.sentence), false);
-  assert.equal(html.includes(item.teacherSay), false);
-});
-
-test("phonological awareness keeps the scoring reference hidden until requested", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
-    formId: "form-a-v2",
-    grade: "1",
-    window: "BOY"
-  });
-  const item = plan.items[0];
-  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS, {
-    currentItemIndex: 0,
-    grade: "1",
-    startMicrophase: undefined,
-    window: "BOY"
-  }));
-
-  assert.match(html, /Answer hidden/);
-  assert.match(html, /Reveal scoring reference/);
-  item.expectedAnswers.forEach(answer => {
-    assert.equal(html.includes(`>${answer}<`), false);
-  });
-});
-
-test("completed Encoding requires a teacher-selected Decoding start because no conversion table exists", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.ENCODING,
-    formId: "form-a-v2",
-    grade: "K",
-    window: "BOY"
-  });
-  const baseSession = makeSession(EL_BENCHMARK_IDS.ENCODING, {
-    currentItemIndex: plan.items.length - 1,
+  const defaultSession = makeSession(EL_BENCHMARK_IDS.ENCODING, {
+    currentItemIndex: defaultPlan.items.length - 1,
     grade: "K",
     startMicrophase: undefined,
     window: "BOY",
-    responses: completedEncodingResponses(plan)
+    responses: completedEncodingResponses(defaultPlan)
   });
-  const unconfirmedHtml = renderAssessment(baseSession);
+  const suggestedHtml = renderAssessment(defaultSession);
+  assert.match(suggestedHtml, /Suggested starting point/);
+  assert.match(suggestedHtml, /Based on the student’s grade and this assessment window/);
+  assert.doesNotMatch(buttonOpeningTag(suggestedHtml, "Use this starting point"), /disabled/);
+  assert.match(suggestedHtml, /Choose a different starting point/);
+  assert.doesNotMatch(suggestedHtml, /Why are you choosing a different starting point\?/);
+  assert.match(buttonOpeningTag(suggestedHtml, "Finish assessment"), /disabled/);
 
-  assert.match(unconfirmedHtml, /Confirm the Decoding start band/);
-  assert.match(unconfirmedHtml, /No automatic Encoding conversion/);
-  assert.match(unconfirmedHtml, /no validated spelling-to-microphase conversion table/);
-  assert.match(unconfirmedHtml, /Preview score status: Scored/);
-  assert.match(unconfirmedHtml, /Teacher rationale for this Encoding-to-Decoding route/);
-  assert.match(unconfirmedHtml, /Grade and window administration range/);
-  assert.doesNotMatch(unconfirmedHtml, /Outside normal range/);
-  assert.match(buttonOpeningTag(unconfirmedHtml, "Complete assessment"), /disabled/);
-
-  const confirmedHtml = renderAssessment({
-    ...baseSession,
-    confirmedPlacement: teacherConfirmedPlacement("middle_pre", {
-      anchorCycle: 1,
-      label: "Middle Pre"
-    }),
+  const acceptedHtml = renderAssessment({
+    ...defaultSession,
+    confirmedPlacement: teacherConfirmedPlacement("middle_pre"),
     placementSource: "teacher_confirmation"
   });
-  assert.match(confirmedHtml, /Middle Pre/);
-  assert.match(confirmedHtml, /saved route needs a teacher rationale/);
-  assert.match(buttonOpeningTag(confirmedHtml, "Complete assessment"), /disabled/);
+  assert.match(acceptedHtml, /Starting point saved/);
+  assert.match(acceptedHtml, /Middle Pre/);
+  assert.doesNotMatch(buttonOpeningTag(acceptedHtml, "Finish assessment"), /disabled/);
 
-  const reasonedConfirmedHtml = renderAssessment({
-    ...baseSession,
-    confirmedPlacement: teacherConfirmedPlacement("middle_pre", {
-      anchorCycle: 1,
-      label: "Middle Pre",
-      overrideReason: "The spelling record and classroom blending evidence support this starting band."
-    }),
-    placementSource: "teacher_confirmation"
+  const deviationPlan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.ENCODING,
+    formId: "form-a-v2",
+    grade: "1",
+    window: "BOY"
   });
-  assert.match(reasonedConfirmedHtml, /Teacher rationale: The spelling record and classroom blending evidence support this starting band\./);
-  assert.doesNotMatch(buttonOpeningTag(reasonedConfirmedHtml, "Complete assessment"), /disabled/);
+  const deviationSession = makeSession(EL_BENCHMARK_IDS.ENCODING, {
+    confirmedPlacement: teacherConfirmedPlacement("middle_partial"),
+    currentItemIndex: deviationPlan.items.length - 1,
+    grade: "1",
+    placementSource: "teacher_confirmation",
+    startMicrophase: undefined,
+    window: "BOY",
+    responses: completedEncodingResponses(deviationPlan)
+  });
+  const unreasonedHtml = renderAssessment(deviationSession);
+  assert.match(unreasonedHtml, /Why are you choosing a different starting point\?/);
+  assert.match(buttonOpeningTag(unreasonedHtml, "Save starting point"), /disabled/);
+  assert.match(buttonOpeningTag(unreasonedHtml, "Finish assessment"), /disabled/);
 
-  const invalidOutOfRangeHtml = renderAssessment({
-    ...baseSession,
-    confirmedPlacement: teacherConfirmedPlacement("early_partial", {
-      anchorCycle: 15,
-      label: "Early Partial"
-    }),
-    placementSource: "teacher_confirmation"
+  const reasonedHtml = renderAssessment({
+    ...deviationSession,
+    confirmedPlacement: teacherConfirmedPlacement("middle_partial", {
+      overrideReason: "Recent classroom reading shows this is a better fit."
+    })
   });
-  assert.match(buttonOpeningTag(invalidOutOfRangeHtml, "Complete assessment"), /disabled/);
-
-  const reasonedOutOfRangeHtml = renderAssessment({
-    ...baseSession,
-    confirmedPlacement: teacherConfirmedPlacement("early_partial", {
-      anchorCycle: 15,
-      label: "Early Partial",
-      overrideReason: "Current classroom blending evidence supports the higher starting band."
-    }),
-    placementSource: "teacher_confirmation"
-  });
-  assert.match(reasonedOutOfRangeHtml, /previously saved band is outside this grade and window route/);
-  assert.match(buttonOpeningTag(reasonedOutOfRangeHtml, "Complete assessment"), /disabled/);
+  assert.match(reasonedHtml, /Reason: Recent classroom reading shows this is a better fit\./);
+  assert.doesNotMatch(buttonOpeningTag(reasonedHtml, "Finish assessment"), /disabled/);
 });
 
-test("decoding cannot hand off a zero-evidence placement without a teacher rationale", () => {
+test("zero-scorable Decoding evidence can use the safe default without fabricating a scorer candidate", () => {
   const plan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.DECODING,
     formId: "form-a-v2",
@@ -728,7 +707,6 @@ test("decoding cannot hand off a zero-evidence placement without a teacher ratio
     window: "EOY"
   });
   const responses = Object.fromEntries(plan.items.map(item => [item.id, {
-    assessmentId: plan.assessmentId,
     automatic: null,
     evaluation: "not_scorable",
     isCorrect: null,
@@ -739,30 +717,26 @@ test("decoding cannot hand off a zero-evidence placement without a teacher ratio
     status: "not_scorable"
   }]));
   const baseSession = makeSession(EL_BENCHMARK_IDS.DECODING, {
-    confirmedPlacement: teacherConfirmedPlacement("middle_partial"),
     currentItemIndex: plan.items.length - 1,
-    placementSource: "teacher_confirmation",
     responses
   });
-  const unreasonedHtml = renderAssessment(baseSession);
+  const suggestedHtml = renderAssessment(baseSession);
 
-  assert.match(unreasonedHtml, /No candidate available/);
-  assert.match(unreasonedHtml, /Preview score status: Partial · 0 scorable items/);
-  assert.match(unreasonedHtml, /Reason for selecting a route without a scorer candidate/);
-  assert.match(unreasonedHtml, /saved route needs a teacher rationale/);
-  assert.match(buttonOpeningTag(unreasonedHtml, "Complete assessment"), /disabled/);
+  assert.match(suggestedHtml, /Suggested starting point/);
+  assert.match(suggestedHtml, /Evidence status: Partial · 0 scored items/);
+  assert.doesNotMatch(buttonOpeningTag(suggestedHtml, "Use this starting point"), /disabled/);
+  assert.doesNotMatch(suggestedHtml, /Why are you choosing a different starting point\?/);
 
-  const reasonedHtml = renderAssessment({
+  const acceptedHtml = renderAssessment({
     ...baseSession,
-    confirmedPlacement: teacherConfirmedPlacement("middle_partial", {
-      overrideReason: "Use the classroom decoding record until this assessment can be readministered."
-    })
+    confirmedPlacement: teacherConfirmedPlacement("middle_partial"),
+    placementSource: "teacher_confirmation"
   });
-  assert.match(reasonedHtml, /Teacher rationale: Use the classroom decoding record until this assessment can be readministered\./);
-  assert.doesNotMatch(buttonOpeningTag(reasonedHtml, "Complete assessment"), /disabled/);
+  assert.match(acceptedHtml, /Starting point saved/);
+  assert.doesNotMatch(buttonOpeningTag(acceptedHtml, "Finish assessment"), /disabled/);
 });
 
-test("decoding allows only the scorer's exact adjacent ceiling proposal beyond the normal range", () => {
+test("Decoding permits the exact adjacent ceiling suggestion but rejects unrelated out-of-range placement", () => {
   const plan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.DECODING,
     formId: "form-a-v2",
@@ -770,14 +744,12 @@ test("decoding allows only the scorer's exact adjacent ceiling proposal beyond t
     startMicrophase: "late_partial",
     window: "BOY"
   });
-  assert.equal(plan.items.length, 8);
   const responses = Object.fromEntries(plan.items.map(item => [item.id, {
-    assessmentId: plan.assessmentId,
     automatic: true,
     evaluation: "automatic_accurate",
     isCorrect: true,
     itemId: item.id,
-    responseText: item.targetWord,
+    responseCaptureMode: "quick_teacher_judgment",
     selfCorrected: false,
     status: "correct"
   }]));
@@ -789,291 +761,30 @@ test("decoding allows only the scorer's exact adjacent ceiling proposal beyond t
     responses
   });
   const proposedHtml = renderAssessment(baseSession);
+  assert.match(proposedHtml, /Suggested starting point<\/span><strong>Early Full/);
+  assert.doesNotMatch(buttonOpeningTag(proposedHtml, "Use this starting point"), /disabled/);
 
-  assert.match(proposedHtml, /Scorer proposal<\/span><strong>Early Full/);
-  assert.match(proposedHtml, /Exact adjacent scorer ceiling proposal/);
-  assert.match(proposedHtml, /No other out-of-range band can be confirmed/);
-
-  const ceilingConfirmedHtml = renderAssessment({
+  const acceptedHtml = renderAssessment({
     ...baseSession,
-    confirmedPlacement: teacherConfirmedPlacement("early_full", {
-      anchorCycle: 49,
-      label: "Early Full"
-    }),
+    confirmedPlacement: teacherConfirmedPlacement("early_full", { anchorCycle: 49 }),
     placementSource: "teacher_confirmation"
   });
-  assert.match(ceilingConfirmedHtml, /Teacher confirmation saved/);
-  assert.match(ceilingConfirmedHtml, /Early Full/);
-  assert.doesNotMatch(buttonOpeningTag(ceilingConfirmedHtml, "Complete assessment"), /disabled/);
+  assert.match(acceptedHtml, /Starting point saved/);
+  assert.doesNotMatch(buttonOpeningTag(acceptedHtml, "Finish assessment"), /disabled/);
 
-  const disallowedBandHtml = renderAssessment({
+  const invalidHtml = renderAssessment({
     ...baseSession,
     confirmedPlacement: teacherConfirmedPlacement("middle_full", {
       anchorCycle: 50,
-      label: "Middle Full",
       overrideReason: "A higher band was considered."
     }),
     placementSource: "teacher_confirmation"
   });
-  assert.match(disallowedBandHtml, /previously saved band is outside this grade and window route/);
-  assert.match(buttonOpeningTag(disallowedBandHtml, "Complete assessment"), /disabled/);
+  assert.match(invalidHtml, /saved starting point is outside this assessment route/i);
+  assert.match(buttonOpeningTag(invalidHtml, "Finish assessment"), /disabled/);
 });
 
-test("ORF completes after a reliable minute without requiring optional prosody", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
-    formId: "form-a-v2",
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY"
-  });
-  const item = plan.items[0];
-  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
-    currentItemIndex: 0,
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY",
-    responses: {
-      [item.id]: completedFluencyResponse(item)
-    }
-  }));
-
-  assert.match(html, /Prosody ratings \(optional\)/);
-  assert.match(html, /<span>Uncorrected errors<\/span>/);
-  assert.match(html, /Do not count self-corrections here\./);
-  assert.match(html, /Full minute recorded/);
-  assert.match(html, /00:00/);
-  assert.doesNotMatch(buttonOpeningTag(html, "Complete assessment"), /disabled/);
-});
-
-test("ORF completion stays locked unless the timer itself records a valid completion state", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
-    formId: "form-a-v2",
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY"
-  });
-  const item = plan.items[0];
-  for (const timerStatus of ["", "running", "interrupted"]) {
-    const response = completedFluencyResponse(item, { accurate: false });
-    response.timerStatus = timerStatus;
-    const stopEvidence = {
-      accurate: false,
-      confirmed: true,
-      passageId: item.id,
-      passageIndex: 0,
-      reason: "teacher_judgment_not_accurate"
-    };
-    const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
-      currentItemIndex: 0,
-      fluencyStop: stopEvidence,
-      fluencyStopEvidence: stopEvidence,
-      grade: "1",
-      startMicrophase: "late_consolidated",
-      window: "MOY",
-      responses: { [item.id]: response }
-    }));
-
-    assert.match(buttonOpeningTag(html, "Complete assessment"), /disabled/, timerStatus || "missing");
-    assert.match(html, /Record exactly 60 seconds/, timerStatus || "missing");
-  }
-});
-
-test("ORF exposes an explicit audited zero-word outcome and keeps accuracy N/A", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
-    formId: "form-a-v2",
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY"
-  });
-  const item = plan.items[0];
-  const response = completedZeroWordsFluencyResponse(item);
-  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
-    currentItemIndex: 0,
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY",
-    responses: { [item.id]: response }
-  }));
-
-  assert.match(html, /aria-pressed="true"[^>]*><strong>No words reached \(0\)<\/strong>/);
-  assert.match(html, /No words reached recorded \(0 words attempted\)/);
-  assert.match(html, /<strong>Accuracy: N\/A<\/strong>No words were read/);
-  assert.match(html, /0 WCPM · Accuracy N\/A/);
-  assert.match(html, /Confirm no-words route stop/);
-  assert.doesNotMatch(html, /<legend>Teacher accuracy judgment<\/legend>/);
-  assert.match(html, /<input inputMode="numeric" max="[^"]+" min="0" disabled=""[^>]*value="0"\/>/);
-  assert.match(buttonOpeningTag(html, "Complete assessment"), /disabled/);
-
-  const stopEvidence = {
-    accurate: null,
-    confirmed: true,
-    criterion: "zero_words_reached",
-    judgmentSource: "audited_zero_words",
-    passageAccurate: null,
-    passageId: item.id,
-    passageIndex: 0,
-    reason: "zero_words_full_minute",
-    threshold: null,
-    zeroWordsReached: true
-  };
-  const completedHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
-    currentItemIndex: 0,
-    fluencyStop: stopEvidence,
-    fluencyStopEvidence: stopEvidence,
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY",
-    responses: { [item.id]: response }
-  }));
-  assert.match(completedHtml, /Fluency stop evidence saved/);
-  assert.doesNotMatch(buttonOpeningTag(completedHtml, "Complete assessment"), /disabled/);
-});
-
-test("ORF zero-word completion requires explicit zero counts and N/A accuracy", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
-    formId: "form-a-v2",
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY"
-  });
-  const item = plan.items[0];
-  const invalidCountsHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
-    currentItemIndex: 0,
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY",
-    responses: {
-      [item.id]: completedZeroWordsFluencyResponse(item, { errors: 1 })
-    }
-  }));
-  assert.match(invalidCountsHtml, /For No words reached \(0\), errors and self-corrections must both be 0/);
-  assert.match(buttonOpeningTag(invalidCountsHtml, "Complete assessment"), /disabled/);
-
-  const invalidAccuracyHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
-    currentItemIndex: 0,
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY",
-    responses: {
-      [item.id]: completedZeroWordsFluencyResponse(item, { accurate: false, passageAccurate: false })
-    }
-  }));
-  assert.match(invalidAccuracyHtml, /Accuracy must remain N\/A when no words were reached/);
-  assert.match(buttonOpeningTag(invalidAccuracyHtml, "Complete assessment"), /disabled/);
-
-  const undeclaredZeroHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
-    currentItemIndex: 0,
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY",
-    responses: {
-      [item.id]: completedZeroWordsFluencyResponse(item, { zeroWordsReached: false })
-    }
-  }));
-  assert.match(undeclaredZeroHtml, /Choose a last word reached, or explicitly record No words reached \(0\)/);
-  assert.match(buttonOpeningTag(undeclaredZeroHtml, "Complete assessment"), /disabled/);
-});
-
-test("ORF remains incomplete before 60 seconds even when all count fields are present", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
-    formId: "form-a-v2",
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY"
-  });
-  const item = plan.items[0];
-  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
-    currentItemIndex: 0,
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY",
-    responses: {
-      [item.id]: completedFluencyResponse(item, { elapsedSeconds: 59 })
-    }
-  }));
-
-  assert.match(html, /Record exactly 60 seconds/);
-  assert.match(html, /00:01/);
-  assert.match(buttonOpeningTag(html, "Complete assessment"), /disabled/);
-});
-
-test("ORF requires an explicit teacher accuracy judgment at 60 seconds", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
-    formId: "form-a-v2",
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY"
-  });
-  const item = plan.items[0];
-  const response = completedFluencyResponse(item);
-  delete response.accurate;
-  delete response.passageAccurate;
-  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
-    currentItemIndex: 0,
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY",
-    responses: { [item.id]: response }
-  }));
-
-  assert.match(html, /Record the teacher accuracy judgment before reviewing the passage route/);
-  assert.match(buttonOpeningTag(html, "Complete assessment"), /disabled/);
-});
-
-test("ORF requires explicit zero count entries instead of coercing blank counts to zero", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
-    formId: "form-a-v2",
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY"
-  });
-  const item = plan.items[0];
-  const response = completedFluencyResponse(item);
-  response.errors = null;
-  response.selfCorrections = null;
-  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
-    currentItemIndex: 0,
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY",
-    responses: { [item.id]: response }
-  }));
-
-  assert.match(html, /Errors and self-corrections must be whole numbers from zero through words attempted/);
-  assert.match(buttonOpeningTag(html, "Complete assessment"), /disabled/);
-});
-
-test("ORF rejects a legacy 90-second value instead of treating it as a valid minute", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
-    formId: "form-a-v2",
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY"
-  });
-  const item = plan.items[0];
-  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
-    currentItemIndex: 0,
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY",
-    responses: { [item.id]: completedFluencyResponse(item, { elapsedSeconds: 90 }) }
-  }));
-
-  assert.match(html, /Recorded time needs correction/);
-  assert.match(html, /Record exactly 60 seconds/);
-  assert.doesNotMatch(html, /Full minute recorded/);
-  assert.match(buttonOpeningTag(html, "Complete assessment"), /disabled/);
-});
-
-test("the explicit early-finish action is reachable and locks navigation while timing is active", () => {
+test("ORF error and self-correction counters start at zero and remain live during timing", () => {
   const plan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
     formId: "form-a-v2",
@@ -1090,23 +801,292 @@ test("the explicit early-finish action is reachable and locks navigation while t
     responses: {
       [item.id]: {
         elapsedSeconds: 10,
+        errors: 0,
         itemId: item.id,
+        selfCorrections: 0,
         status: "not_administered",
         timerStatus: "running"
       }
     }
   }));
 
-  assert.match(html, /Finished passage before 60 seconds/);
-  assert.match(html, /Stop due to interruption/);
-  assert.doesNotMatch(html, /Resume timer/);
-  assert.match(buttonOpeningTag(html, "Print clean passage"), /disabled/);
-  assert.doesNotMatch(html, /<legend>Teacher accuracy judgment<\/legend>/);
-  assert.match(buttonOpeningTag(html, "Save partial &amp; exit"), /disabled/);
-  assert.match(buttonOpeningTag(html, "Return to assessments"), /disabled/);
+  assert.match(html, /<output aria-label="Errors: 0">0<\/output>/);
+  assert.match(html, /<output aria-label="Self-corrections: 0">0<\/output>/);
+  assert.match(html, /<button aria-label="Add one errors"(?![^>]*disabled)[^>]*>/);
+  assert.match(html, /<button aria-label="Add one self-corrections"(?![^>]*disabled)[^>]*>/);
+  assert.doesNotMatch(html, /<h3>2\. Was this read accurate enough\?<\/h3>/);
+  assert.match(assessmentPageSource, /saveElapsed\(elapsedSeconds, "running", \{\s+\.\.\.getFluencyTimerResetPatch\(\),\s+errors: 0,\s+selfCorrections: 0/);
 });
 
-test("an interrupted timer cannot be resumed and requires a clean reset", () => {
+test("tablet ORF keeps live counters with the on-screen passage", () => {
+  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+    currentItemIndex: 0,
+    grade: "1",
+    startMicrophase: "middle_partial",
+    window: "MOY"
+  }));
+
+  assert.equal(countText(html, "el-benchmark-tablet-counters"), 1);
+  assert.equal(countText(html, "el-benchmark-desktop-counters"), 1);
+  assert.match(html, /class="el-benchmark-tablet-counters" aria-label="Live reading counters"/);
+
+  const tabletStart = assessmentPageStyles.indexOf("@media (max-width: 900px)");
+  const tabletEnd = assessmentPageStyles.indexOf("@media (max-width: 820px)", tabletStart);
+  const tabletStyles = assessmentPageStyles.slice(tabletStart, tabletEnd);
+  assert.ok(tabletStart >= 0 && tabletEnd > tabletStart, "tablet breakpoint must remain defined");
+  assert.match(tabletStyles, /\.el-benchmark-desktop-counters\s*\{\s*display: none;/);
+  assert.match(tabletStyles, /\.el-benchmark-tablet-counters\s*\{[\s\S]*?position: sticky;[\s\S]*?display: grid;/);
+  assert.match(tabletStyles, /grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
+});
+
+test("ORF optional detail stays collapsed and does not compete with the timed passage", () => {
+  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+    currentItemIndex: 0,
+    grade: "1",
+    startMicrophase: "late_consolidated",
+    window: "MOY"
+  }));
+
+  assert.match(html, /Start the timer, then let the student read directly from this screen/);
+  assert.match(html, /<details class="el-benchmark-optional-detail"><summary>Optional notes, printable copy, or couldn’t assess<\/summary>/);
+  assert.match(html, /<details class="el-benchmark-clean-passage"><summary>Printable clean passage<\/summary>/);
+  assert.doesNotMatch(html, /<details class="el-benchmark-optional-detail" open/);
+  assert.doesNotMatch(html, /<details class="el-benchmark-clean-passage" open/);
+});
+
+test("a valid minute exposes atomic Yes-continue and Not-yet-stop choices", () => {
+  const plan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
+    formId: "form-a-v2",
+    grade: "1",
+    startMicrophase: "middle_partial",
+    window: "MOY"
+  });
+  const item = plan.items[0];
+  const response = completedFluencyResponse(item);
+  delete response.accurate;
+  delete response.passageAccurate;
+  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+    currentItemIndex: 0,
+    grade: "1",
+    startMicrophase: "middle_partial",
+    window: "MOY",
+    responses: { [item.id]: response }
+  }));
+
+  assert.match(html, /2\. Was this read accurate enough\?/);
+  assert.match(html, /<span>Yes — continue<\/span>/);
+  assert.match(html, /<span>Not yet — finish here<\/span>/);
+  assert.match(html, /Record the teacher accuracy judgment before reviewing the passage route/);
+  assert.match(buttonOpeningTag(html, "Finish assessment"), /disabled/);
+
+  const atomicStart = assessmentPageSource.indexOf("const recordFluencyAccuracyAndRoute");
+  const atomicEnd = assessmentPageSource.indexOf("const continueFluency", atomicStart);
+  const atomicSource = assessmentPageSource.slice(atomicStart, atomicEnd);
+  assert.ok(atomicStart >= 0 && atomicEnd > atomicStart);
+  assert.match(atomicSource, /if \(accurate\)[\s\S]*currentItemIndex: currentIndex \+ 1[\s\S]*fluencyPassageDecisions/);
+  assert.match(atomicSource, /routeSkipReason: "fluency_stop_teacher_judgment"/);
+  assert.match(atomicSource, /fluencyStop: stopEvidence,[\s\S]*fluencyStopEvidence: stopEvidence/);
+  assert.match(assessmentPageSource, /onAccuracyDecision=\{recordFluencyAccuracyAndRoute\}/);
+});
+
+test("ORF completes after a reliable minute without requiring optional expression ratings", () => {
+  const plan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
+    formId: "form-a-v2",
+    grade: "1",
+    startMicrophase: "late_consolidated",
+    window: "MOY"
+  });
+  const item = plan.items[0];
+  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+    currentItemIndex: 0,
+    grade: "1",
+    startMicrophase: "late_consolidated",
+    window: "MOY",
+    responses: { [item.id]: completedFluencyResponse(item) }
+  }));
+
+  assert.match(html, /Full minute recorded/);
+  assert.match(html, /<output aria-label="Errors: 0">0<\/output>/);
+  assert.match(html, /Reading expression \(optional\)/);
+  assert.match(html, /All planned passages are complete/);
+  assert.doesNotMatch(buttonOpeningTag(html, "Finish assessment"), /disabled/);
+});
+
+test("ORF completion requires a verified timer state, not just an elapsed number", () => {
+  const plan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
+    formId: "form-a-v2",
+    grade: "1",
+    startMicrophase: "late_consolidated",
+    window: "MOY"
+  });
+  const item = plan.items[0];
+  const invalid = completedFluencyResponse(item);
+  invalid.timerStatus = "not_started";
+  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+    currentItemIndex: 0,
+    grade: "1",
+    startMicrophase: "late_consolidated",
+    window: "MOY",
+    responses: { [item.id]: invalid }
+  }));
+
+  assert.match(html, /Record exactly 60 seconds/);
+  assert.match(buttonOpeningTag(html, "Finish assessment"), /disabled/);
+});
+
+test("ORF zero-word evidence is explicit, keeps accuracy N/A, and requires zero counts", () => {
+  const plan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
+    formId: "form-a-v2",
+    grade: "1",
+    startMicrophase: "late_consolidated",
+    window: "MOY"
+  });
+  const item = plan.items[0];
+  const validHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+    currentItemIndex: 0,
+    grade: "1",
+    startMicrophase: "late_consolidated",
+    window: "MOY",
+    responses: { [item.id]: completedZeroWordsFluencyResponse(item) }
+  }));
+  assert.match(validHtml, /No words reached recorded \(0 words attempted\)/);
+  assert.match(validHtml, /<strong>Accuracy: N\/A<\/strong>/);
+  assert.match(validHtml, /0 WCPM · Accuracy N\/A/);
+  assert.doesNotMatch(validHtml, /2\. Was this read accurate enough\?/);
+  assert.doesNotMatch(buttonOpeningTag(validHtml, "Finish here"), /disabled/);
+  assert.match(buttonOpeningTag(validHtml, "Finish assessment"), /disabled/);
+
+  const invalidCountsHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+    currentItemIndex: 0,
+    grade: "1",
+    startMicrophase: "late_consolidated",
+    window: "MOY",
+    responses: {
+      [item.id]: completedZeroWordsFluencyResponse(item, { errors: null, selfCorrections: null })
+    }
+  }));
+  assert.match(invalidCountsHtml, /For No words reached \(0\), errors and self-corrections must both be 0/);
+  assert.match(buttonOpeningTag(invalidCountsHtml, "Finish assessment"), /disabled/);
+
+  const invalidAccuracyHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+    currentItemIndex: 0,
+    grade: "1",
+    startMicrophase: "late_consolidated",
+    window: "MOY",
+    responses: {
+      [item.id]: completedZeroWordsFluencyResponse(item, { accurate: false, passageAccurate: false })
+    }
+  }));
+  assert.match(invalidAccuracyHtml, /Accuracy must remain N\/A when no words were reached/);
+  assert.match(buttonOpeningTag(invalidAccuracyHtml, "Finish assessment"), /disabled/);
+});
+
+test("ORF rejects short or legacy overlong timing instead of estimating a minute", () => {
+  const plan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
+    formId: "form-a-v2",
+    grade: "1",
+    startMicrophase: "late_consolidated",
+    window: "MOY"
+  });
+  const item = plan.items[0];
+  const shortHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+    currentItemIndex: 0,
+    grade: "1",
+    startMicrophase: "late_consolidated",
+    window: "MOY",
+    responses: { [item.id]: completedFluencyResponse(item, { elapsedSeconds: 59 }) }
+  }));
+  assert.match(shortHtml, /Record exactly 60 seconds/);
+  assert.match(shortHtml, /00:01/);
+  assert.match(buttonOpeningTag(shortHtml, "Finish assessment"), /disabled/);
+
+  const overlongHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+    currentItemIndex: 0,
+    grade: "1",
+    startMicrophase: "late_consolidated",
+    window: "MOY",
+    responses: { [item.id]: completedFluencyResponse(item, { elapsedSeconds: 90 }) }
+  }));
+  assert.match(overlongHtml, /Recorded time needs correction/);
+  assert.match(overlongHtml, /Record exactly 60 seconds/);
+  assert.match(buttonOpeningTag(overlongHtml, "Finish assessment"), /disabled/);
+});
+
+test("a valid full-passage early finish retains routing but never estimates WCPM", () => {
+  const plan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
+    formId: "form-a-v2",
+    grade: "1",
+    startMicrophase: "late_consolidated",
+    window: "MOY"
+  });
+  const item = plan.items[0];
+  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+    currentItemIndex: 0,
+    grade: "1",
+    startMicrophase: "late_consolidated",
+    window: "MOY",
+    responses: {
+      [item.id]: {
+        ...completedFluencyResponse(item, { elapsedSeconds: 59 }),
+        finishedEarly: true,
+        lastWord: item.text.trim().split(/\s+/).at(-1),
+        lastWordIndex: item.wordCount - 1,
+        passageWordCount: item.wordCount,
+        status: "recorded",
+        timerStatus: "finished_early",
+        wordsAttempted: item.wordCount
+      }
+    }
+  }));
+
+  assert.match(html, /Finished early at 59 seconds/);
+  assert.match(html, /Finished in 59 seconds\. The accuracy result is saved, but a per-minute score is not estimated/);
+  assert.match(html, /The accuracy result is saved; a per-minute score is not estimated/);
+  assert.doesNotMatch(buttonOpeningTag(html, "Finish assessment"), /disabled/);
+});
+
+test("active timing keeps counters available but locks exits, printing, and accuracy choices", () => {
+  const plan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
+    formId: "form-a-v2",
+    grade: "1",
+    startMicrophase: "late_consolidated",
+    window: "MOY"
+  });
+  const item = plan.items[0];
+  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+    currentItemIndex: 0,
+    grade: "1",
+    startMicrophase: "late_consolidated",
+    window: "MOY",
+    responses: {
+      [item.id]: {
+        elapsedSeconds: 10,
+        errors: 0,
+        itemId: item.id,
+        selfCorrections: 0,
+        status: "not_administered",
+        timerStatus: "running"
+      }
+    }
+  }));
+
+  assert.match(html, /Stop — something interrupted us/);
+  assert.match(html, /Student finished the whole passage/);
+  assert.doesNotMatch(html, /Resume timer/);
+  assert.match(buttonOpeningTag(html, "Save &amp; exit"), /disabled/);
+  assert.match(buttonOpeningTag(html, "Print passage"), /disabled/);
+  assert.match(buttonOpeningTag(html, "Finish assessment"), /disabled/);
+  assert.doesNotMatch(html, /Yes — continue|Not yet — finish here/);
+});
+
+test("an interrupted timer cannot resume and must be reset before scoring", () => {
   const plan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
     formId: "form-a-v2",
@@ -1133,13 +1113,12 @@ test("an interrupted timer cannot be resumed and requires a clean reset", () => 
 
   assert.match(html, /Timer interrupted — reset before reading again/);
   assert.match(html, /Interrupted timing cannot produce WCPM/);
-  assert.match(html, /Reset timer/);
-  assert.doesNotMatch(html, /Resume timer/);
-  assert.doesNotMatch(html, />Start timer</);
-  assert.match(buttonOpeningTag(html, "Complete assessment"), /disabled/);
+  assert.match(buttonOpeningTag(html, "Reset"), /type="button"/);
+  assert.doesNotMatch(html, /Resume timer|>Start 1-minute read</);
+  assert.match(buttonOpeningTag(html, "Finish assessment"), /disabled/);
 });
 
-test("resetting the fluency timer clears every abandoned-trial score and provenance field", () => {
+test("resetting the fluency timer clears every abandoned score and provenance field", () => {
   assert.deepEqual(getFluencyTimerResetPatch(), {
     accurate: null,
     accurateInOneMinute: null,
@@ -1170,7 +1149,7 @@ test("resetting the fluency timer clears every abandoned-trial score and provena
   });
 });
 
-test("fluency interruptions clear judgment provenance and background clock jumps cannot score", () => {
+test("backgrounding, printing, or a clock jump invalidates continuous ORF timing", () => {
   assert.deepEqual(getFluencyTimerInterruptionPatch("page_hidden_during_timing"), {
     accurate: null,
     accurateInOneMinute: null,
@@ -1185,16 +1164,11 @@ test("fluency interruptions clear judgment provenance and background clock jumps
   assert.match(assessmentPageSource, /addEventListener\("pagehide"/);
   assert.match(assessmentPageSource, /addEventListener\("beforeprint"/);
   assert.match(assessmentPageSource, /tickAt - lastTimerTickAtRef\.current > 1500/);
-  assert.match(assessmentPageSource, /if \(!timingEvidenceReady \|\| zeroWordsReached\) return;/);
+  assert.match(assessmentPageSource, /timer_session_restored_while_running/);
+  assert.match(assessmentPageSource, /if \(!timingEvidenceReady \|\| zeroWordsReached\) return/);
 });
 
-test("the discontinue form requires a note when Other is selected", () => {
-  assert.equal(isDiscontinueEvidenceComplete("student_fatigue", ""), true);
-  assert.equal(isDiscontinueEvidenceComplete("other", ""), false);
-  assert.equal(isDiscontinueEvidenceComplete("other", "Documented context"), true);
-});
-
-test("a valid full-text finish at 59 seconds retains accuracy routing but withholds WCPM", () => {
+test("ORF refuses impossible count combinations", () => {
   const plan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
     formId: "form-a-v2",
@@ -1203,130 +1177,32 @@ test("a valid full-text finish at 59 seconds retains accuracy routing but withho
     window: "MOY"
   });
   const item = plan.items[0];
-  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+  const outOfRangeHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
     currentItemIndex: 0,
     grade: "1",
     startMicrophase: "late_consolidated",
     window: "MOY",
     responses: {
-      [item.id]: {
-        ...completedFluencyResponse(item, { elapsedSeconds: 59 }),
-        finishedEarly: true,
-        lastWord: item.text.trim().split(/\s+/).at(-1),
-        lastWordIndex: item.wordCount - 1,
-        passageWordCount: item.wordCount,
-        status: "recorded",
-        timerStatus: "finished_early",
-        wordsAttempted: item.wordCount
-      }
+      [item.id]: { ...completedFluencyResponse(item), errors: 2, selfCorrections: 2, wordsAttempted: 1 }
     }
   }));
+  assert.match(outOfRangeHtml, /Errors and self-corrections must be whole numbers from zero through words attempted/);
+  assert.match(buttonOpeningTag(outOfRangeHtml, "Finish assessment"), /disabled/);
 
-  assert.match(html, /Completed passage before 60 seconds/);
-  assert.match(html, /Full passage finished in 59 seconds/);
-  assert.match(html, /WCPM is withheld and never extrapolated/);
-  assert.match(html, /WCPM is unavailable for this early finish/);
-  assert.doesNotMatch(buttonOpeningTag(html, "Complete assessment"), /disabled/);
-});
-
-test("ORF refuses impossible count combinations even with valid timing and judgment", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
-    formId: "form-a-v2",
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY"
-  });
-  const item = plan.items[0];
-  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+  const combinedHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
     currentItemIndex: 0,
     grade: "1",
     startMicrophase: "late_consolidated",
     window: "MOY",
     responses: {
-      [item.id]: {
-        ...completedFluencyResponse(item),
-        errors: 2,
-        selfCorrections: 2,
-        wordsAttempted: 1
-      }
+      [item.id]: { ...completedFluencyResponse(item), errors: 1, selfCorrections: 1, wordsAttempted: 1 }
     }
   }));
-
-  assert.match(html, /Errors and self-corrections must be whole numbers from zero through words attempted/);
-  assert.match(buttonOpeningTag(html, "Complete assessment"), /disabled/);
+  assert.match(combinedHtml, /Errors plus self-corrections cannot exceed the number of words attempted/);
+  assert.match(buttonOpeningTag(combinedHtml, "Finish assessment"), /disabled/);
 });
 
-test("ORF rejects individually valid counts whose combined total exceeds words attempted", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
-    formId: "form-a-v2",
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY"
-  });
-  const item = plan.items[0];
-  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
-    currentItemIndex: 0,
-    grade: "1",
-    startMicrophase: "late_consolidated",
-    window: "MOY",
-    responses: {
-      [item.id]: {
-        ...completedFluencyResponse(item),
-        errors: 1,
-        selfCorrections: 1,
-        wordsAttempted: 1
-      }
-    }
-  }));
-
-  assert.match(html, /Errors plus self-corrections cannot exceed the number of words attempted/);
-  assert.match(buttonOpeningTag(html, "Complete assessment"), /disabled/);
-});
-
-test("an accurate ORF passage cannot be bypassed until the teacher explicitly continues", () => {
-  const plan = getElBenchmarkPlan({
-    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
-    formId: "form-a-v2",
-    grade: "1",
-    startMicrophase: "middle_partial",
-    window: "MOY"
-  });
-  assert.ok(plan.items.length > 1, "multi-passage ORF route is required for this test");
-  const first = plan.items[0];
-  const baseSession = makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
-    currentItemIndex: 0,
-    grade: "1",
-    startMicrophase: "middle_partial",
-    window: "MOY",
-    responses: { [first.id]: completedFluencyResponse(first) }
-  });
-  const lockedHtml = renderAssessment(baseSession);
-
-  assert.match(lockedHtml, /Accurate passage recorded/);
-  assert.match(lockedHtml, /Explicitly continue to administer the next planned microphase passage/);
-  assert.match(buttonOpeningTag(lockedHtml, "Next item"), /disabled/);
-  assert.match(lockedHtml, /aria-label="Item 2, unadministered, locked until the current passage route is reviewed"[^>]*disabled/);
-
-  const unlockedHtml = renderAssessment({
-    ...baseSession,
-    fluencyPassageDecisions: {
-      [first.id]: {
-        action: "continue",
-        accurate: true,
-        passageAccurate: true,
-        passageId: first.id,
-        reason: "teacher_judgment_accurate"
-      }
-    }
-  });
-  assert.match(unlockedHtml, /Continue decision saved/);
-  assert.doesNotMatch(buttonOpeningTag(unlockedHtml, "Next item"), /disabled/);
-  assert.doesNotMatch(unlockedHtml, /aria-label="Item 2, unadministered, locked/);
-});
-
-test("ORF renders the current passage item rather than leaking the legacy first passage", () => {
+test("ORF renders the routed current passage, never the legacy first passage", () => {
   const plan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
     formId: "form-a-v2",
@@ -1352,7 +1228,7 @@ test("ORF renders the current passage item rather than leaking the legacy first 
   assert.match(html, /aria-label="Mark Nash as the last word reached, word 1"/);
 });
 
-test("ORF exposes a clean printable student passage with no scoring controls in the sheet", () => {
+test("ORF retains a clean printable student passage without scoring controls inside it", () => {
   const plan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
     formId: "form-a-v2",
@@ -1369,19 +1245,16 @@ test("ORF exposes a clean printable student passage with no scoring controls in 
   }));
   const sheet = html.match(/<article class="el-benchmark-clean-passage-sheet">([\s\S]*?)<\/article>/)?.[1] || "";
 
-  assert.match(html, /Open clean student passage/);
-  assert.match(html, /Print clean passage/);
-  assert.doesNotMatch(html, /<legend>Teacher accuracy judgment<\/legend>/);
-  assert.match(html, /Accuracy choices unlock only after a continuous full minute/);
+  assert.match(html, /Printable clean passage/);
+  assert.match(html, /Print passage/);
   assert.match(sheet, /LiteracyPath EL-aligned provisional form/);
   assert.match(sheet, /not an official EL Education benchmark/);
   assert.match(sheet, new RegExp(`<h1>${item.title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}<\\/h1><p>`));
-  assert.match(sheet, /<\/p><footer class="el-benchmark-clean-passage-disclaimer">Teacher note — not part of the timed passage\./);
-  assert.match(sheet, /<\/footer>$/);
+  assert.match(sheet, /Teacher note — not part of the timed passage/);
   assert.doesNotMatch(sheet, /Errors|Self-corrections|Timer|button|input|select/);
 });
 
-test("the first not-accurate ORF passage requires stop confirmation and never scores later passages wrong", () => {
+test("a saved accurate ORF choice has already advanced to the next passage", () => {
   const plan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
     formId: "form-a-v2",
@@ -1390,22 +1263,39 @@ test("the first not-accurate ORF passage requires stop confirmation and never sc
     window: "MOY"
   });
   const first = plan.items[0];
-  const firstResponse = completedFluencyResponse(first, { accurate: false });
-  const baseSession = makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
-    currentItemIndex: 0,
+  const second = plan.items[1];
+  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+    currentItemIndex: 1,
+    fluencyPassageDecisions: {
+      [first.id]: {
+        action: "continue",
+        accurate: true,
+        passageAccurate: true,
+        passageId: first.id,
+        reason: "teacher_judgment_accurate"
+      }
+    },
     grade: "1",
     startMicrophase: "middle_partial",
     window: "MOY",
-    responses: { [first.id]: firstResponse }
-  });
-  const pendingHtml = renderAssessment(baseSession);
-  assert.match(pendingHtml, /Teacher judgment indicates a route stop/);
-  assert.match(pendingHtml, /Confirm teacher-judgment stop/);
-  assert.doesNotMatch(pendingHtml, /Fluency stop evidence saved/);
-  assert.doesNotMatch(assessmentPageSource, /stopPatch\.fluencyStop = evidence/);
-  assert.match(buttonOpeningTag(pendingHtml, "Complete assessment"), /disabled/);
+    responses: { [first.id]: completedFluencyResponse(first) }
+  }));
 
-  const responses = { [first.id]: firstResponse };
+  assert.match(html, new RegExp(second.title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  assert.doesNotMatch(html, /Accurate passage recorded|Explicitly continue/);
+  assert.equal(countText(html, "Next item"), 0);
+});
+
+test("a saved Not-yet ORF choice atomically stops and marks later passages unadministered", () => {
+  const plan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
+    formId: "form-a-v2",
+    grade: "1",
+    startMicrophase: "middle_partial",
+    window: "MOY"
+  });
+  const first = plan.items[0];
+  const responses = { [first.id]: completedFluencyResponse(first, { accurate: false }) };
   plan.items.slice(1).forEach(item => {
     responses[item.id] = {
       accurate: null,
@@ -1428,22 +1318,119 @@ test("the first not-accurate ORF passage requires stop confirmation and never sc
     reason: "teacher_judgment_not_accurate",
     threshold: null
   };
-  const stoppedHtml = renderAssessment({
-    ...baseSession,
+  const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+    currentItemIndex: 0,
     fluencyStop: stopEvidence,
     fluencyStopEvidence: stopEvidence,
+    grade: "1",
+    startMicrophase: "middle_partial",
+    window: "MOY",
     responses
-  });
+  }));
 
-  assert.match(stoppedHtml, /Fluency stop evidence saved/);
-  assert.match(stoppedHtml, /Undo fluency stop/);
-  assert.match(stoppedHtml, new RegExp(`<dt>Unadministered<\\/dt><dd>${plan.items.length - 1}<\\/dd>`));
-  assert.match(stoppedHtml, /aria-label="Item 2, not administered, locked after the confirmed fluency stop/);
-  assert.doesNotMatch(stoppedHtml, /Item 2, incorrect/);
-  assert.doesNotMatch(buttonOpeningTag(stoppedHtml, "Complete assessment"), /disabled/);
+  assert.match(html, /Finished here/);
+  assert.match(html, /Later passages will not count as incorrect/);
+  assert.match(html, new RegExp(`<dt>Unadministered<\\/dt><dd>${plan.items.length - 1}<\\/dd>`));
+  assert.match(html, /aria-label="Item 2, not administered, locked after the confirmed fluency stop/);
+  assert.doesNotMatch(html, /Item 2, incorrect|Confirm teacher-judgment stop/);
+  assert.doesNotMatch(buttonOpeningTag(html, "Finish assessment"), /disabled/);
 });
 
-test("decoding stop outcomes show later items explicitly as not administered, never wrong", () => {
+test("changing an earlier ORF passage to Not yet preserves later evidence and provides a review path", () => {
+  const plan = getElBenchmarkPlan({
+    assessmentId: EL_BENCHMARK_IDS.ORAL_READING_FLUENCY,
+    formId: "form-a-v2",
+    grade: "1",
+    startMicrophase: "middle_partial",
+    window: "MOY"
+  });
+  const first = plan.items[0];
+  const second = plan.items[1];
+  const firstResponse = completedFluencyResponse(first, { accurate: false });
+  const laterResponse = {
+    ...completedFluencyResponse(second),
+    errors: 1,
+    notes: "Retain this later observation exactly.",
+    outcomeRecordedAt: "2026-07-22T13:05:00.000Z",
+    wordsAttempted: 4
+  };
+  const responses = {
+    [first.id]: firstResponse,
+    [second.id]: laterResponse
+  };
+  const stopEvidence = {
+    accurate: false,
+    confirmed: true,
+    criterion: "explicit_false",
+    judgmentSource: "teacher",
+    laterEvidencePreserved: true,
+    passageAccurate: false,
+    passageId: first.id,
+    passageIndex: 0,
+    reason: "teacher_judgment_not_accurate",
+    retainedLaterPassageIds: [second.id],
+    threshold: null
+  };
+  const stoppedHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+    currentItemIndex: 0,
+    fluencyStop: stopEvidence,
+    fluencyStopEvidence: stopEvidence,
+    grade: "1",
+    startMicrophase: "middle_partial",
+    window: "MOY",
+    responses
+  }));
+
+  assert.match(stoppedHtml, /Finished here/);
+  assert.match(stoppedHtml, /Later reading stays saved as extra evidence, but it will not change this stopping point or count toward placement/);
+  assert.doesNotMatch(buttonOpeningTag(stoppedHtml, "Undo and review later reading"), /disabled/);
+  assert.match(stoppedHtml, /aria-label="Item 2, recorded, locked after the confirmed fluency stop"/);
+  assert.doesNotMatch(stoppedHtml, /Item 2, not administered|Item 2, incorrect/);
+
+  const reviewDecision = {
+    action: "review_later_evidence",
+    accurate: false,
+    passageAccurate: false,
+    passageId: first.id,
+    passageIndex: 0,
+    reason: "review_later_evidence"
+  };
+  const reviewHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.ORAL_READING_FLUENCY, {
+    currentItemIndex: 0,
+    fluencyPassageDecisions: { [first.id]: reviewDecision },
+    grade: "1",
+    startMicrophase: "middle_partial",
+    window: "MOY",
+    responses
+  }));
+  const itemTwoTag = reviewHtml.match(/<button([^>]*) aria-label="Item 2, recorded"([^>]*)>/);
+  assert.ok(itemTwoTag, "later recorded evidence remains available in the review drawer");
+  assert.doesNotMatch(`${itemTwoTag[1]} ${itemTwoTag[2]}`, /disabled/);
+  assert.match(reviewHtml, /Later reading is already saved/);
+  assert.doesNotMatch(reviewHtml, /Item 2, not administered|Item 2, incorrect/);
+
+  const atomicStart = assessmentPageSource.indexOf("const recordFluencyAccuracyAndRoute");
+  const atomicEnd = assessmentPageSource.indexOf("const continueFluency", atomicStart);
+  const atomicSource = assessmentPageSource.slice(atomicStart, atomicEnd);
+  assert.match(atomicSource, /const retainedLaterPassageIds = laterIndexes/);
+  assert.match(atomicSource, /if \(retainedLaterPassageIds\.includes\(itemId\)\) return/);
+  assert.match(atomicSource, /action: "review_later_evidence"/);
+  assert.match(atomicSource, /laterEvidencePreserved: fluencyLaterHasEvidence/);
+  assert.match(atomicSource, /retainedLaterPassageIds/);
+  assert.match(atomicSource, /responses: nextResponses/);
+  assert.match(atomicSource, /fluencyStop: stopEvidence/);
+
+  const undoStart = assessmentPageSource.indexOf("const undoFluencyStop");
+  const undoEnd = assessmentPageSource.indexOf("const continueDecoding", undoStart);
+  const undoSource = assessmentPageSource.slice(undoStart, undoEnd);
+  assert.match(undoSource, /response\?\.routeSkipReason !== "fluency_stop_teacher_judgment"/);
+  assert.match(undoSource, /responses: nextResponses/);
+  assert.doesNotMatch(undoSource, /fluencyPassageDecisions:\s*(?:\{\}|null)/, "undo must not clear the saved review-later route decision");
+  assert.match(assessmentPageSource, /\["continue", "review_later_evidence"\]\.includes/);
+  assert.deepEqual(responses[second.id], laterResponse, "rendering/review state must not alter the saved later observation");
+});
+
+test("a confirmed Decoding finish marks later items unadministered, never wrong", () => {
   const plan = getElBenchmarkPlan({
     assessmentId: EL_BENCHMARK_IDS.DECODING,
     formId: "form-a-v2",
@@ -1452,7 +1439,7 @@ test("decoding stop outcomes show later items explicitly as not administered, ne
     window: "EOY"
   });
   const firstBandId = plan.items[0].bandId;
-  const responses = completedFirstDecodingBand(plan);
+  const responses = completedFirstDecodingBand(plan, 5);
   plan.items.slice(8).forEach(item => {
     responses[item.id] = {
       automatic: null,
@@ -1463,7 +1450,6 @@ test("decoding stop outcomes show later items explicitly as not administered, ne
       stopBandId: firstBandId
     };
   });
-
   const stopEvidence = {
     automaticCount: 5,
     bandId: firstBandId,
@@ -1478,10 +1464,9 @@ test("decoding stop outcomes show later items explicitly as not administered, ne
     responses,
     stopEvidence
   }));
-  assert.match(unconfirmedHtml, /Confirm the Decoding start band/);
-  assert.match(unconfirmedHtml, /Scorer proposal/);
-  assert.match(unconfirmedHtml, /Middle Partial/);
-  assert.match(buttonOpeningTag(unconfirmedHtml, "Complete assessment"), /disabled/);
+  assert.match(unconfirmedHtml, /Suggested starting point/);
+  assert.doesNotMatch(buttonOpeningTag(unconfirmedHtml, "Use this starting point"), /disabled/);
+  assert.match(buttonOpeningTag(unconfirmedHtml, "Finish assessment"), /disabled/);
 
   const html = renderAssessment(makeSession(EL_BENCHMARK_IDS.DECODING, {
     confirmedPlacement: teacherConfirmedPlacement(firstBandId),
@@ -1491,38 +1476,15 @@ test("decoding stop outcomes show later items explicitly as not administered, ne
     responses,
     stopEvidence
   }));
-
-  assert.match(html, /Stopping evidence saved/);
+  assert.match(html, /Finished here/);
   assert.match(html, new RegExp(`<dt>Unadministered<\\/dt><dd>${plan.items.length - 8}<\\/dd>`));
   assert.match(html, /aria-label="Item 9, not administered/);
   assert.doesNotMatch(html, /Item 9, incorrect/);
-  assert.doesNotMatch(buttonOpeningTag(html, "Complete assessment"), /disabled/);
+  assert.doesNotMatch(buttonOpeningTag(html, "Finish assessment"), /disabled/);
+});
 
-  const invalidAlternativeHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.DECODING, {
-    confirmedPlacement: teacherConfirmedPlacement("late_partial", {
-      anchorCycle: 26,
-      label: "Late Partial"
-    }),
-    currentItemIndex: 7,
-    decodingStop: stopEvidence,
-    placementSource: "teacher_confirmation",
-    responses,
-    stopEvidence
-  }));
-  assert.match(buttonOpeningTag(invalidAlternativeHtml, "Complete assessment"), /disabled/);
-
-  const reasonedAlternativeHtml = renderAssessment(makeSession(EL_BENCHMARK_IDS.DECODING, {
-    confirmedPlacement: teacherConfirmedPlacement("late_partial", {
-      anchorCycle: 26,
-      label: "Late Partial",
-      overrideReason: "Classroom evidence shows secure Middle Partial reading."
-    }),
-    currentItemIndex: 7,
-    decodingStop: stopEvidence,
-    placementSource: "teacher_confirmation",
-    responses,
-    stopEvidence
-  }));
-  assert.match(reasonedAlternativeHtml, /Teacher rationale: Classroom evidence shows secure Middle Partial reading\./);
-  assert.doesNotMatch(buttonOpeningTag(reasonedAlternativeHtml, "Complete assessment"), /disabled/);
+test("the discontinue form still requires a note only when Other is selected", () => {
+  assert.equal(isDiscontinueEvidenceComplete("student_fatigue", ""), true);
+  assert.equal(isDiscontinueEvidenceComplete("other", ""), false);
+  assert.equal(isDiscontinueEvidenceComplete("other", "Documented context"), true);
 });

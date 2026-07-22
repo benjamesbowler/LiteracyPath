@@ -337,7 +337,7 @@ test("PA scoring preserves partial and not-scorable item evidence while computin
   assert.ok(score.subtestScores.strands.some(row => row.strand === "phoneme_isolation"));
 });
 
-test("attempted PA, Encoding, and Decoding items require recorded response evidence", () => {
+test("legacy attempted PA, Encoding, and Decoding items still require recorded response evidence", () => {
   const paPlan = plan(EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS, "1", "BOY");
   const pa = scoreElBenchmarkSession({
     assessmentId: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
@@ -351,6 +351,8 @@ test("attempted PA, Encoding, and Decoding items require recorded response evide
   });
   assert.equal(pa.scoreStatus, "partial");
   assert.equal(pa.questionRecords[0].isCorrect, null);
+  assert.equal(pa.questionRecords[0].selectedAnswer, "");
+  assert.equal(pa.questionRecords[0].responseCaptureMode, "legacy_unspecified");
   assert.ok(pa.questionRecords[0].validationIssues.includes("response_transcription_required"));
 
   const encodingPlan = plan(EL_BENCHMARK_IDS.ENCODING, "1", "MOY");
@@ -368,6 +370,8 @@ test("attempted PA, Encoding, and Decoding items require recorded response evide
   });
   assert.equal(encoding.scoreStatus, "partial");
   assert.equal(encoding.questionRecords[0].exact, null);
+  assert.equal(encoding.questionRecords[0].transcription, "");
+  assert.equal(encoding.questionRecords[0].responseCaptureMode, "legacy_unspecified");
   assert.ok(encoding.questionRecords[0].validationIssues.includes("response_transcription_required"));
 
   const decodingPlan = plan(EL_BENCHMARK_IDS.DECODING, "1", "MOY");
@@ -386,7 +390,144 @@ test("attempted PA, Encoding, and Decoding items require recorded response evide
   assert.equal(decoding.scoreStatus, "partial");
   assert.equal(decoding.questionRecords[0].isCorrect, null);
   assert.equal(decoding.questionRecords[0].automatic, null);
+  assert.equal(decoding.questionRecords[0].selectedAnswer, "");
+  assert.equal(decoding.questionRecords[0].responseCaptureMode, "legacy_unspecified");
   assert.ok(decoding.questionRecords[0].validationIssues.includes("response_transcription_required"));
+});
+
+test("blank response detail is scorable only with a coherent quick teacher judgment", () => {
+  const paPlan = plan(EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS, "K", "BOY");
+  const first = paPlan.items[0];
+  const quickOutcomeAt = "2026-07-22T01:02:03.000Z";
+  const validQuickResponse = {
+    status: "correct",
+    isCorrect: true,
+    responseCaptureMode: "quick_teacher_judgment",
+    outcomeRecordedAt: quickOutcomeAt
+  };
+
+  for (const [label, invalidFirstResponse] of [
+    ["legacy capture", { status: "correct", isCorrect: true }],
+    ["blank direct choice", { status: "correct", isCorrect: true, responseCaptureMode: "direct_choice" }],
+    ["blank exact transcription", { status: "correct", isCorrect: true, responseCaptureMode: "exact_transcription" }],
+    ["quick mode without a boolean judgment", { status: "correct", responseCaptureMode: "quick_teacher_judgment" }]
+  ]) {
+    const score = scoreElBenchmarkSession({
+      assessmentId: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
+      grade: "K",
+      window: "BOY",
+      administrationStatus: "completed",
+      responses: Object.fromEntries(paPlan.items.map(item => [
+        item.id,
+        item.id === first.id ? invalidFirstResponse : validQuickResponse
+      ]))
+    });
+    assert.equal(score.scoreStatus, "partial", label);
+    assert.equal(score.questionRecords[0].isCorrect, null, label);
+    assert.equal(score.questionRecords[0].selectedAnswer, "", label);
+    assert.ok(score.questionRecords[0].validationIssues.includes("response_transcription_required"), label);
+  }
+
+  const valid = scoreElBenchmarkSession({
+    assessmentId: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
+    grade: "K",
+    window: "BOY",
+    administrationStatus: "completed",
+    responses: Object.fromEntries(paPlan.items.map(item => [item.id, validQuickResponse]))
+  });
+  assert.equal(valid.scoreStatus, "scored");
+  assert.equal(valid.scoredCount, paPlan.items.length);
+  assert.ok(valid.questionRecords.every(record => record.validationIssues.length === 0));
+  assert.ok(valid.questionRecords.every(record => record.responseCaptureMode === "quick_teacher_judgment"));
+  assert.ok(valid.questionRecords.every(record => record.responseDetailCaptured === false));
+  assert.ok(valid.questionRecords.every(record => record.selectedAnswer === ""));
+  assert.ok(valid.questionRecords.every(record => record.outcomeRecordedAt === quickOutcomeAt));
+});
+
+test("rhyme recognition scores the child's direct Yes or No choice without teacher transcription", () => {
+  const paPlan = plan(EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS, "K", "BOY");
+  const recognitionItems = paPlan.items.filter(item => item.strand === "rhyme" && item.task === "recognition");
+  assert.deepEqual(recognitionItems.map(item => item.expectedAnswers[0]), ["yes", "no"]);
+
+  const quickFallback = {
+    status: "correct",
+    isCorrect: true,
+    responseCaptureMode: "quick_teacher_judgment"
+  };
+  const responses = Object.fromEntries(paPlan.items.map(item => [item.id, quickFallback]));
+  for (const item of recognitionItems) {
+    responses[item.id] = {
+      status: "recorded",
+      responseText: item.expectedAnswers[0],
+      responseCaptureMode: "direct_choice",
+      outcomeRecordedAt: "2026-07-22T02:00:00.000Z"
+    };
+  }
+
+  const score = scoreElBenchmarkSession({
+    assessmentId: EL_BENCHMARK_IDS.PHONOLOGICAL_AWARENESS,
+    grade: "K",
+    window: "BOY",
+    administrationStatus: "completed",
+    responses
+  });
+  const scoredRecognition = score.questionRecords.filter(record => recognitionItems.some(item => item.id === record.questionId));
+  assert.equal(score.scoreStatus, "scored");
+  assert.ok(scoredRecognition.every(record => record.isCorrect === true));
+  assert.deepEqual(scoredRecognition.map(record => record.selectedAnswer), ["yes", "no"]);
+  assert.ok(scoredRecognition.every(record => record.responseCaptureMode === "direct_choice"));
+  assert.ok(scoredRecognition.every(record => record.responseDetailCaptured === true));
+  assert.ok(scoredRecognition.every(record => record.evaluationSource === "authored_answer_key"));
+});
+
+test("quick Encoding and Decoding outcomes score without fabricating an exact response", () => {
+  const outcomeRecordedAt = "2026-07-22T03:04:05.000Z";
+  const encodingPlan = plan(EL_BENCHMARK_IDS.ENCODING, "1", "MOY");
+  const encoding = scoreElBenchmarkSession({
+    assessmentId: EL_BENCHMARK_IDS.ENCODING,
+    grade: "1",
+    window: "MOY",
+    administrationStatus: "completed",
+    responses: Object.fromEntries(encodingPlan.items.map((item, index) => [item.id, {
+      status: index === 0 ? "correct" : "incorrect",
+      isCorrect: index === 0,
+      exact: index === 0,
+      plausible: index < 2,
+      evaluation: index === 0 ? "exact" : index === 1 ? "plausible" : "implausible",
+      responseCaptureMode: "quick_teacher_judgment",
+      outcomeRecordedAt
+    }]))
+  });
+  assert.equal(encoding.scoreStatus, "scored");
+  assert.equal(encoding.metrics.exactCount, 1);
+  assert.equal(encoding.metrics.plausibleCount, 2);
+  assert.ok(encoding.questionRecords.every(record => record.transcription === ""));
+  assert.ok(encoding.questionRecords.every(record => record.selectedAnswer === ""));
+  assert.ok(encoding.questionRecords.every(record => record.responseDetailCaptured === false));
+  assert.ok(encoding.questionRecords.every(record => record.evaluationSource === "quick_teacher_judgment"));
+
+  const decodingPlan = plan(EL_BENCHMARK_IDS.DECODING, "1", "MOY");
+  const decoding = scoreElBenchmarkSession({
+    assessmentId: EL_BENCHMARK_IDS.DECODING,
+    grade: "1",
+    window: "MOY",
+    administrationStatus: "completed",
+    responses: Object.fromEntries(decodingPlan.items.map((item, index) => [item.id, {
+      status: index < 7 ? "correct" : "incorrect",
+      isCorrect: index < 7,
+      automatic: index < 6,
+      selfCorrected: false,
+      responseCaptureMode: "quick_teacher_judgment",
+      outcomeRecordedAt
+    }]))
+  });
+  assert.equal(decoding.scoreStatus, "scored");
+  assert.equal(decoding.correctCount, 7);
+  assert.equal(decoding.metrics.automaticCount, 6);
+  assert.ok(decoding.questionRecords.every(record => record.selectedAnswer === ""));
+  assert.ok(decoding.questionRecords.every(record => record.responseDetailCaptured === false));
+  assert.ok(decoding.questionRecords.every(record => record.outcomeRecordedAt === outcomeRecordedAt));
+  assert.ok(decoding.questionRecords.every(record => record.validationIssues.length === 0));
 });
 
 test("pure Decoding scoring rejects accuracy judgments that contradict the exact transcription", () => {
@@ -1673,9 +1814,9 @@ test("persistence builder projects rich evidence and adds no generic mastery ver
   assert.equal(first.benchmarkWindow, "BOY");
   assert.equal(first.note, "Quiet one-to-one administration");
   assert.equal(first.metadata.contentVersion, first.contentVersion);
-  assert.equal(first.schemaVersion, 2);
+  assert.equal(first.schemaVersion, 3);
   assert.equal(first.benchmark.schemaVersion, 1);
-  assert.equal(first.metadata.attemptSchemaVersion, 2);
+  assert.equal(first.metadata.attemptSchemaVersion, 3);
   assert.equal(first.metadata.benchmarkSchemaVersion, 1);
   assert.deepEqual(first.confirmedPlacement, session.confirmedPlacement);
   assert.deepEqual(first.metadata.confirmedPlacement, session.confirmedPlacement);

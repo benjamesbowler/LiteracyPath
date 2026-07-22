@@ -409,11 +409,30 @@ function formatBenchmarkEvidenceCode(value, fallback = "Not recorded") {
     .replace(/\b\w/g, letter => letter.toUpperCase());
 }
 
-function formatExactBenchmarkResponse(value) {
+function formatExactBenchmarkResponse(value, item = {}) {
+  const detailMissing = value === undefined || value === null || (
+    !Array.isArray(value) && typeof value !== "object" && String(value).trim() === ""
+  );
+  if (detailMissing && item.responseCaptureMode === "quick_teacher_judgment") {
+    return "Not transcribed (quick score)";
+  }
   if (value === undefined || value === null) return "No response recorded";
   if (Array.isArray(value)) return value.length ? value.join(", ") : "No response recorded";
   if (typeof value === "object") return JSON.stringify(value);
   return String(value).trim() ? String(value) : "No response recorded";
+}
+
+function formatBenchmarkResponseCapture(item = {}) {
+  const mode = String(item.responseCaptureMode || "legacy_unspecified");
+  if (mode === "quick_teacher_judgment") {
+    return item.responseDetailCaptured
+      ? "Quick score with optional transcription"
+      : "Quick score — not transcribed";
+  }
+  if (mode === "direct_choice") return "Direct response choice";
+  if (mode === "exact_transcription") return "Exact response transcribed";
+  if (mode === "timed_reading_observation") return "Timed reading observation";
+  return "Legacy capture — detail unspecified";
 }
 
 function benchmarkItemLabel(item = {}, domainKey = "") {
@@ -621,7 +640,9 @@ function BenchmarkProvenance({ domain = {} }) {
     ["Form", domain.formVersion],
     ["Content", domain.contentVersion],
     ["Scoring", domain.scoringVersion],
-    ["Scoring rule", domain.scoringRuleVersion]
+    ["Scoring rule", domain.scoringRuleVersion],
+    ["Administration interface", domain.administrationVersion],
+    ["Response schema", domain.responseSchemaVersion]
   ].filter(([, value]) => value !== undefined && value !== null && String(value).trim());
   if (!rows.length) return null;
   return (
@@ -651,6 +672,7 @@ function BenchmarkItemEvidenceTable({ detail = {} }) {
           <tr>
             <th scope="col">Item</th>
             <th scope="col">Exact response or transcription</th>
+            <th scope="col">Response capture</th>
             <th scope="col">Status</th>
             <th scope="col">Domain evidence</th>
             <th scope="col">Error tags</th>
@@ -675,8 +697,9 @@ function BenchmarkItemEvidenceTable({ detail = {} }) {
                   {label.itemId && <small>Item ID: {label.itemId}</small>}
                 </th>
                 <td className="student-report-benchmark-exact-response" data-label="Exact response or transcription">
-                  {formatExactBenchmarkResponse(item.exactResponse)}
+                  {formatExactBenchmarkResponse(item.exactResponse, item)}
                 </td>
+                <td data-label="Response capture">{formatBenchmarkResponseCapture(item)}</td>
                 <td data-label="Status">
                   <span className={`student-report-benchmark-item-status ${status.className}`}>{status.label}</span>
                 </td>

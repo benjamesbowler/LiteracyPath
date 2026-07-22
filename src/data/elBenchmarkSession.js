@@ -3,6 +3,9 @@ import {
   getElBenchmarkPlan
 } from "./elBenchmarkAssessments.js";
 
+export const EL_BENCHMARK_QUICK_ADMINISTRATION_VERSION = "2026.07.22-quick-v1";
+export const EL_BENCHMARK_RESPONSE_SCHEMA_VERSION = 2;
+
 function recordGrade(record = {}) {
   return String(
     record.grade ?? record.gradePath?.grade ?? record.gradePath ?? record.metadata?.grade ?? ""
@@ -293,6 +296,8 @@ export function createElBenchmarkSession({
     formId: plan.formId,
     planId: plan.planId,
     contentVersion: plan.contentVersion,
+    administrationVersion: EL_BENCHMARK_QUICK_ADMINISTRATION_VERSION,
+    responseSchemaVersion: EL_BENCHMARK_RESPONSE_SCHEMA_VERSION,
     startMicrophase: plan.route?.selectedStartMicrophase || route.startMicrophase || "",
     startCycle: plan.route?.selectedStartCycle ?? null,
     routeSource: route.routeSource,

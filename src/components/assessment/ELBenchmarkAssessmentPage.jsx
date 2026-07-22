@@ -14,6 +14,14 @@ const ASSESSMENT_KINDS = Object.freeze({
   FLUENCY: "fluency"
 });
 
+const RESPONSE_CAPTURE_MODES = Object.freeze({
+  DIRECT_CHOICE: "direct_choice",
+  EXACT_TRANSCRIPTION: "exact_transcription",
+  QUICK_JUDGMENT: "quick_teacher_judgment"
+});
+
+const QUICK_ADMINISTRATION_VERSION = "2026.07.22-quick-v1";
+
 const DISCONTINUE_REASONS = Object.freeze([
   { value: "frustration", label: "Student showed frustration" },
   { value: "independent_level_clear", label: "Independent level was clear" },
@@ -184,6 +192,15 @@ function getExactStudentResponse(kind, response = {}) {
   return String(response.responseText || "").trim();
 }
 
+function hasQuickTeacherJudgment(response = {}) {
+  return response.responseCaptureMode === RESPONSE_CAPTURE_MODES.QUICK_JUDGMENT &&
+    typeof response.isCorrect === "boolean";
+}
+
+function hasAttemptEvidence(kind, response = {}) {
+  return Boolean(getExactStudentResponse(kind, response)) || hasQuickTeacherJudgment(response);
+}
+
 function normalizeEncodingEntry(value) {
   return String(value || "").trim().toLowerCase().replace(/\s+/g, " ");
 }
@@ -347,7 +364,7 @@ function isResponseComplete(kind, response = {}, item = {}) {
   }
 
   if (!["correct", "incorrect", "self_corrected"].includes(response.status)) return false;
-  if (!getExactStudentResponse(kind, response)) return false;
+  if (!hasAttemptEvidence(kind, response)) return false;
 
   if (kind === ASSESSMENT_KINDS.DECODING) {
     return isDecodingResponseStateValid(response, item);
@@ -451,11 +468,16 @@ function isExactAdjacentCeilingProposal(kind, route, proposedMicrophase, selecte
     proposedMicrophase === getAdjacentCeilingMicrophase(route);
 }
 
-function placementRequiresRationale(kind, preview, selectedMicrophase, proposedMicrophase) {
-  if (kind === ASSESSMENT_KINDS.ENCODING) return true;
-  if (!proposedMicrophase) return true;
-  if (preview?.scoreStatus !== "scored" || Number(preview?.scoredCount || 0) <= 0) return true;
-  return selectedMicrophase !== proposedMicrophase;
+function placementRequiresRationale(
+  kind,
+  preview,
+  selectedMicrophase,
+  proposedMicrophase,
+  defaultMicrophase = ""
+) {
+  const recommendedMicrophase = defaultMicrophase || proposedMicrophase;
+  if (!recommendedMicrophase) return true;
+  return selectedMicrophase !== recommendedMicrophase;
 }
 
 function getErrorTagOptions(kind, item = {}) {
@@ -564,25 +586,46 @@ function tokenizePassage(passage = {}) {
   });
 }
 
-function AssessmentStatusButtons({ legend, options, value, onChange }) {
+function QuickOutcomeButtons({ legend, options, value, onChoose }) {
   return (
-    <fieldset className="el-benchmark-fieldset">
+    <fieldset className="el-benchmark-quick-fieldset">
       <legend>{legend}</legend>
-      <div className="el-benchmark-status-grid">
+      <div className={`el-benchmark-quick-grid choices-${Math.min(options.length, 3)}`}>
         {options.map(option => (
           <button
             aria-pressed={value === option.value}
-            className={`el-benchmark-status-button tone-${option.tone || "neutral"}`}
+            className={`el-benchmark-quick-button tone-${option.tone || "neutral"}`}
             key={option.value}
-            onClick={() => onChange(option.value)}
+            onClick={() => onChoose(option.value)}
             type="button"
           >
+            <span aria-hidden="true" className="el-benchmark-quick-symbol">{option.symbol || "•"}</span>
             <span>{option.label}</span>
-            {option.help && <small>{option.help}</small>}
           </button>
         ))}
       </div>
     </fieldset>
+  );
+}
+
+function getRhymeRecognitionPair(item = {}) {
+  const prompt = String(item.teacherSay || item.prompt || "").trim();
+  const match = prompt.match(/^Do\s+(.+?)\s+and\s+(.+?)\s+rhyme\??$/i);
+  return match ? [match[1].trim(), match[2].trim()] : [];
+}
+
+function OptionalDetail({ children, label = "Other or add detail", open = false }) {
+  const [userOpen, setUserOpen] = useState(false);
+
+  return (
+    <details
+      className="el-benchmark-optional-detail"
+      onToggle={event => setUserOpen(event.currentTarget.open)}
+      open={open || userOpen}
+    >
+      <summary>{label}</summary>
+      <div>{children}</div>
+    </details>
   );
 }
 
@@ -661,114 +704,177 @@ function ExactResponseField({ value = "", onChange, label = "Exact student respo
   );
 }
 
-function PhonologicalAwarenessPanel({ item, response, onResponseChange }) {
-  const [revealedAnswerItemId, setRevealedAnswerItemId] = useState("");
+function PhonologicalAwarenessPanel({ item, response, onResponseChange, onQuickScore }) {
   const [showNotScorableReason, setShowNotScorableReason] = useState(
     isNotScorable(response) && !hasNotScorableReason(response)
   );
-  const expectedAnswers = toArray(item.expectedAnswers || item.acceptedAnswers);
-  const attemptedResponseSelected = ["correct", "not_yet"].includes(
-    response.evaluation || (response.status === "correct" ? "correct" : response.status === "incorrect" ? "not_yet" : "")
+  const [showOther, setShowOther] = useState(
+    response.status === "no_response" || response.status === "not_scorable"
   );
-  const answerVisible = revealedAnswerItemId === item.id;
+  const [otherResponse, setOtherResponse] = useState(response.responseText || "");
+  const expectedAnswers = toArray(item.expectedAnswers || item.acceptedAnswers);
+  const normalizedExpected = expectedAnswers.map(normalizeEncodingEntry);
+  const rhymePair = item.strand === "rhyme" && item.task === "recognition"
+    ? getRhymeRecognitionPair(item)
+    : [];
+  const isRhymeRecognition = rhymePair.length === 2;
+  const currentValue = response.status === "not_scorable"
+    ? "other"
+    : response.status === "no_response"
+      ? "other"
+      : isRhymeRecognition && ["yes", "no"].includes(normalizeEncodingEntry(response.responseText))
+        ? normalizeEncodingEntry(response.responseText)
+        : response.isCorrect === true
+          ? "correct"
+          : response.isCorrect === false ? "incorrect" : "";
+  const auditReset = { notScorableReason: "", notScorableNote: "", teacherOverride: null };
 
-  const setEvaluation = value => {
-    if (value === "not_scorable") {
-      setShowNotScorableReason(true);
-      return;
-    }
+  const recordRhymeChoice = choice => {
+    const isCorrect = normalizedExpected.includes(choice);
+    onQuickScore({
+      ...auditReset,
+      status: isCorrect ? "correct" : "incorrect",
+      isCorrect,
+      evaluation: isCorrect ? "correct" : "not_yet",
+      responseText: choice,
+      responseCaptureMode: RESPONSE_CAPTURE_MODES.DIRECT_CHOICE
+    });
+  };
 
-    setShowNotScorableReason(false);
-    const auditReset = { notScorableReason: "", notScorableNote: "", teacherOverride: null };
-    if (value === "correct") {
-      onResponseChange({ ...auditReset, status: "correct", isCorrect: true, evaluation: value });
-    } else if (value === "no_response") {
-      onResponseChange({ ...auditReset, status: "no_response", isCorrect: false, evaluation: value, responseText: "" });
-    } else {
-      onResponseChange({ ...auditReset, status: "incorrect", isCorrect: false, evaluation: "not_yet" });
-    }
+  const recordJudgment = (isCorrect, responseText = "") => {
+    const exactResponse = String(responseText || "").trim();
+    onQuickScore({
+      ...auditReset,
+      status: isCorrect ? "correct" : "incorrect",
+      isCorrect,
+      evaluation: isCorrect ? "correct" : "not_yet",
+      responseText: exactResponse,
+      responseCaptureMode: exactResponse
+        ? RESPONSE_CAPTURE_MODES.EXACT_TRANSCRIPTION
+        : RESPONSE_CAPTURE_MODES.QUICK_JUDGMENT
+    });
   };
 
   return (
-    <div className="el-benchmark-response-stack">
-      {expectedAnswers.length > 0 && (
-        <aside className="el-benchmark-scoring-reference" aria-label="Scoring reference">
-          <span>Expected response</span>
-          <strong>{answerVisible ? expectedAnswers.join(" or ") : "Answer hidden"}</strong>
+    <div className="el-benchmark-response-stack el-benchmark-simple-response">
+      {isRhymeRecognition && (
+        <div className="el-benchmark-rhyme-pair" aria-label={`Teacher words: ${rhymePair.join(" and ")}`}>
+          <span>{rhymePair[0]}</span>
+          <small>and</small>
+          <span>{rhymePair[1]}</span>
+          <p>Teacher screen — say both words aloud. Do not show the print to the student.</p>
+        </div>
+      )}
+
+      <QuickOutcomeButtons
+        legend={isRhymeRecognition ? "What did the student answer?" : "Was the oral response correct?"}
+        onChoose={value => {
+          if (value === "other") {
+            setShowOther(true);
+            return;
+          }
+          if (isRhymeRecognition) recordRhymeChoice(value);
+          else recordJudgment(value === "correct");
+        }}
+        options={isRhymeRecognition ? [
+          { value: "yes", label: "Yes", symbol: "✓", tone: "positive" },
+          { value: "no", label: "No", symbol: "×", tone: "negative" },
+          { value: "other", label: "Other", symbol: "…", tone: "neutral" }
+        ] : [
+          { value: "correct", label: "Correct", symbol: "✓", tone: "positive" },
+          { value: "incorrect", label: "Not yet", symbol: "×", tone: "negative" },
+          { value: "other", label: "Other", symbol: "…", tone: "neutral" }
+        ]}
+        value={currentValue}
+      />
+
+      <OptionalDetail label="Other, no response, or add what they said" open={showOther || showNotScorableReason}>
+        <aside className="el-benchmark-scoring-reference" aria-label="Teacher scoring reference">
+          <span>Teacher answer guide</span>
+          <strong>{expectedAnswers.join(" or ") || "Use teacher judgment"}</strong>
+        </aside>
+        <ExactResponseField
+          help="Optional. Add this only when the exact response will help instruction."
+          onChange={value => {
+            setOtherResponse(value);
+            onResponseChange({
+              responseText: value,
+              responseCaptureMode: value.trim()
+                ? RESPONSE_CAPTURE_MODES.EXACT_TRANSCRIPTION
+                : RESPONSE_CAPTURE_MODES.QUICK_JUDGMENT
+            });
+          }}
+          value={otherResponse}
+        />
+        <div className="el-benchmark-button-row">
           <button
-            aria-expanded={answerVisible}
-            className="el-benchmark-button secondary compact"
-            onClick={() => setRevealedAnswerItemId(answerVisible ? "" : item.id)}
+            className="el-benchmark-button primary"
+            disabled={!otherResponse.trim()}
+            onClick={() => recordJudgment(true, otherResponse)}
             type="button"
           >
-            {answerVisible ? "Hide scoring reference" : "Reveal scoring reference"}
+            Record as correct
           </button>
-        </aside>
-      )}
-
-      <ExactResponseField
-        onChange={responseText => onResponseChange({
-          responseText,
-          ...(response.status === "no_response" && responseText.trim()
-            ? { status: "not_administered", isCorrect: null, evaluation: "" }
-            : {})
-        })}
-        value={response.responseText || ""}
-      />
-
-      <AssessmentStatusButtons
-        legend="Score this oral response"
-        onChange={setEvaluation}
-        options={[
-          { value: "correct", label: "Correct", help: "Independent correct response", tone: "positive" },
-          { value: "not_yet", label: "Not yet", help: "An attempted response was incorrect", tone: "warning" },
-          { value: "no_response", label: "No response", help: "Student gave no oral response", tone: "neutral" },
-          { value: "not_scorable", label: "Not scorable", help: "Do not count in the score", tone: "neutral" }
-        ]}
-        value={response.evaluation || (response.status === "not_scorable"
-          ? "not_scorable"
-          : response.status === "no_response"
-            ? "no_response"
-            : "")}
-      />
-
-      {attemptedResponseSelected && !getExactStudentResponse(ASSESSMENT_KINDS.PHONOLOGICAL_AWARENESS, response) && (
-        <p className="el-benchmark-inline-note">Enter the exact oral response before this item can be recorded.</p>
-      )}
-
-      <NotScorableSummary response={response} />
-      {showNotScorableReason && (
-        <NotScorableReasonPanel
-          onCancel={() => setShowNotScorableReason(false)}
-          onClear={() => {
-            setShowNotScorableReason(false);
-            onResponseChange({
-              status: "not_administered",
-              isCorrect: null,
-              evaluation: "",
-              notScorableReason: "",
-              notScorableNote: ""
-            });
-          }}
-          onConfirm={(reason, note) => {
-            setShowNotScorableReason(false);
-            onResponseChange({
-              status: "not_scorable",
-              isCorrect: null,
-              evaluation: "not_scorable",
-              notScorableReason: reason,
-              notScorableNote: note
-            });
-          }}
-          response={response}
-        />
-      )}
+          <button
+            className="el-benchmark-button secondary"
+            onClick={() => recordJudgment(false, otherResponse)}
+            type="button"
+          >
+            Record as not yet
+          </button>
+          <button
+            className="el-benchmark-button secondary"
+            onClick={() => onQuickScore({
+              ...auditReset,
+              status: "no_response",
+              isCorrect: false,
+              evaluation: "no_response",
+              responseText: "",
+              responseCaptureMode: RESPONSE_CAPTURE_MODES.DIRECT_CHOICE
+            })}
+            type="button"
+          >
+            No response
+          </button>
+          <button className="el-benchmark-button ghost" onClick={() => setShowNotScorableReason(true)} type="button">
+            Couldn&apos;t assess
+          </button>
+        </div>
+        <NotScorableSummary response={response} />
+        {showNotScorableReason && (
+          <NotScorableReasonPanel
+            onCancel={() => setShowNotScorableReason(false)}
+            onClear={() => {
+              setShowNotScorableReason(false);
+              onResponseChange({
+                status: "not_administered",
+                isCorrect: null,
+                evaluation: "",
+                notScorableReason: "",
+                notScorableNote: ""
+              });
+            }}
+            onConfirm={(reason, note) => {
+              setShowNotScorableReason(false);
+              onQuickScore({
+                status: "not_scorable",
+                isCorrect: null,
+                evaluation: "not_scorable",
+                notScorableReason: reason,
+                notScorableNote: note,
+                responseText: "",
+                responseCaptureMode: RESPONSE_CAPTURE_MODES.DIRECT_CHOICE
+              });
+            }}
+            response={response}
+          />
+        )}
+      </OptionalDetail>
     </div>
   );
 }
 
-function EncodingPanel({ item, response, onResponseChange }) {
-  const [answerVisible, setAnswerVisible] = useState(false);
+function EncodingPanel({ item, response, onResponseChange, onQuickScore }) {
   const [showNotScorableReason, setShowNotScorableReason] = useState(
     isNotScorable(response) && !hasNotScorableReason(response)
   );
@@ -776,34 +882,29 @@ function EncodingPanel({ item, response, onResponseChange }) {
   const plausibleSpellings = toArray(item.plausibleSpellings);
   const errorTags = getErrorTagOptions(ASSESSMENT_KINDS.ENCODING, item);
   const selectedTags = new Set(toArray(response.errorTags));
-  const attemptedResponseSelected = ["exact", "plausible", "not_yet"].includes(response.evaluation);
   const evaluationIssue = getEncodingEvaluationIssue(item, response);
+  const currentTranscription = response.transcription !== undefined
+    ? response.transcription
+    : response.responseText || "";
+  const currentValue = ["exact", "plausible", "not_yet"].includes(response.evaluation)
+    ? response.evaluation
+    : "";
+  const auditReset = { notScorableReason: "", notScorableNote: "", teacherOverride: null };
 
-  const setEvaluation = value => {
-    if (value === "not_scorable") {
-      setShowNotScorableReason(true);
-      return;
-    }
-
-    setShowNotScorableReason(false);
-    const auditReset = { notScorableReason: "", notScorableNote: "" };
+  const recordEvaluation = value => {
+    const hasTranscription = Boolean(String(currentTranscription || "").trim());
+    const common = {
+      ...auditReset,
+      responseCaptureMode: hasTranscription
+        ? RESPONSE_CAPTURE_MODES.EXACT_TRANSCRIPTION
+        : RESPONSE_CAPTURE_MODES.QUICK_JUDGMENT
+    };
     if (value === "exact") {
-      onResponseChange({ ...auditReset, status: "correct", isCorrect: true, plausible: false, evaluation: value, errorTags: [] });
+      onQuickScore({ ...common, status: "correct", isCorrect: true, exact: true, plausible: true, evaluation: value, errorTags: [] });
     } else if (value === "plausible") {
-      onResponseChange({ ...auditReset, status: "incorrect", isCorrect: false, plausible: true, evaluation: value });
-    } else if (value === "no_response") {
-      onResponseChange({
-        ...auditReset,
-        status: "no_response",
-        isCorrect: false,
-        plausible: false,
-        evaluation: value,
-        transcription: "",
-        responseText: "",
-        errorTags: []
-      });
+      onQuickScore({ ...common, status: "incorrect", isCorrect: false, exact: false, plausible: true, evaluation: value });
     } else {
-      onResponseChange({ ...auditReset, status: "incorrect", isCorrect: false, plausible: false, evaluation: "not_yet" });
+      onQuickScore({ ...common, status: "incorrect", isCorrect: false, exact: false, plausible: false, evaluation: "not_yet" });
     }
   };
 
@@ -815,144 +916,151 @@ function EncodingPanel({ item, response, onResponseChange }) {
   };
 
   return (
-    <div className="el-benchmark-response-stack">
-      <section className="el-benchmark-answer-guide" aria-label="Encoding scoring guide">
-        <div>
-          <span>Scoring answer</span>
-          {answerVisible ? (
-            <strong>{acceptedSpellings.join(" or ") || "No answer supplied"}</strong>
-          ) : (
-            <strong aria-label="Answer hidden">Answer hidden</strong>
-          )}
-        </div>
-        <button
-          aria-expanded={answerVisible}
-          className="el-benchmark-button secondary compact"
-          onClick={() => setAnswerVisible(visible => !visible)}
-          type="button"
-        >
-          {answerVisible ? "Hide answer" : "Reveal answer"}
-        </button>
-        {answerVisible && plausibleSpellings.length > 0 && (
-          <p>Plausible forms in this provisional bank: {plausibleSpellings.join(", ")}</p>
-        )}
-      </section>
-
-      <label className="el-benchmark-control">
-        <span>Student&apos;s written response</span>
-        <input
-          autoComplete="off"
-          onChange={event => onResponseChange({
-            transcription: event.target.value,
-            responseText: event.target.value,
-            teacherOverride: null,
-            ...(response.status === "no_response" && event.target.value.trim()
-              ? { status: "not_administered", isCorrect: null, plausible: null, evaluation: "" }
-              : {})
-          })}
-          placeholder="Transcribe the spelling exactly"
-          spellCheck="false"
-          type="text"
-          value={response.transcription !== undefined ? response.transcription : response.responseText || ""}
-        />
-        <small>Preserve omissions, additions, and reversals in the transcription.</small>
-      </label>
-
-      <AssessmentStatusButtons
-        legend="Evaluate the spelling"
-        onChange={setEvaluation}
+    <div className="el-benchmark-response-stack el-benchmark-simple-response">
+      <QuickOutcomeButtons
+        legend="How close was the spelling?"
+        onChoose={recordEvaluation}
         options={[
-          { value: "exact", label: "Exact", help: "Matches an accepted spelling", tone: "positive" },
-          { value: "plausible", label: "Plausible", help: "Represents sounds but is not exact", tone: "info" },
-          { value: "not_yet", label: "Not yet", help: "Does not yet represent the target", tone: "warning" },
-          { value: "no_response", label: "No response", help: "Student wrote nothing", tone: "neutral" },
-          { value: "not_scorable", label: "Not scorable", help: "Do not count in the score", tone: "neutral" }
+          { value: "exact", label: "Correct spelling", symbol: "✓", tone: "positive" },
+          { value: "plausible", label: "Sounds right", symbol: "≈", tone: "warning" },
+          { value: "not_yet", label: "Not yet", symbol: "×", tone: "negative" }
         ]}
-        value={response.evaluation || (response.status === "not_scorable"
-          ? "not_scorable"
-          : response.status === "no_response"
-            ? "no_response"
-            : "")}
+        value={currentValue}
       />
 
-      {attemptedResponseSelected && !getExactStudentResponse(ASSESSMENT_KINDS.ENCODING, response) && (
-        <p className="el-benchmark-inline-note">Transcribe the student&apos;s written response before this item can be recorded.</p>
-      )}
-      {evaluationIssue === "exact_mismatch" && (
-        <p className="el-benchmark-inline-note">This transcription does not match an accepted exact spelling. Reveal the answer and correct the evaluation.</p>
-      )}
-      {evaluationIssue === "exact_match_marked_nonexact" && (
-        <p className="el-benchmark-inline-note">This transcription matches an accepted spelling. Record it as Exact.</p>
-      )}
-      {evaluationIssue === "exact_override_conflicts_with_evaluation" && (
-        <p className="el-benchmark-inline-note">The restored exact-spelling override conflicts with the selected evaluation. Re-enter the evaluation to clear the stale override.</p>
-      )}
-
-      <NotScorableSummary response={response} />
-      {showNotScorableReason && (
-        <NotScorableReasonPanel
-          onCancel={() => setShowNotScorableReason(false)}
-          onClear={() => {
-            setShowNotScorableReason(false);
-            onResponseChange({
-              status: "not_administered",
-              isCorrect: null,
-              plausible: null,
-              evaluation: "",
-              notScorableReason: "",
-              notScorableNote: "",
-              errorTags: []
-            });
-          }}
-          onConfirm={(reason, note) => {
-            setShowNotScorableReason(false);
-            onResponseChange({
-              status: "not_scorable",
-              isCorrect: null,
-              plausible: null,
-              evaluation: "not_scorable",
-              notScorableReason: reason,
-              notScorableNote: note,
-              errorTags: []
-            });
-          }}
-          response={response}
-        />
-      )}
-
-      <fieldset className="el-benchmark-fieldset">
-        <legend>Error features observed</legend>
-        <p className="el-benchmark-field-help">Optional. Select every feature that will help plan instruction.</p>
-        <div className="el-benchmark-tag-grid">
-          {errorTags.map(tag => (
-            <button
-              aria-pressed={selectedTags.has(tag.value)}
-              key={tag.value}
-              onClick={() => toggleTag(tag.value)}
-              type="button"
-            >
-              {tag.label}
-            </button>
-          ))}
+      <OptionalDetail label="Other or add spelling detail" open={showNotScorableReason || response.status === "no_response"}>
+        <div className="el-benchmark-answer-guide" aria-label="Teacher spelling guide">
+          <div>
+            <span>Correct spelling</span>
+            <strong>{acceptedSpellings.join(" or ") || item.targetWord}</strong>
+          </div>
+          {plausibleSpellings.length > 0 && <p>Examples that may sound right: {plausibleSpellings.join(", ")}</p>}
         </div>
-      </fieldset>
+
+        <label className="el-benchmark-control">
+          <span>Student&apos;s spelling (optional)</span>
+          <input
+            autoComplete="off"
+            onChange={event => onResponseChange({
+              transcription: event.target.value,
+              responseText: event.target.value,
+              responseCaptureMode: event.target.value.trim()
+                ? RESPONSE_CAPTURE_MODES.EXACT_TRANSCRIPTION
+                : RESPONSE_CAPTURE_MODES.QUICK_JUDGMENT,
+              teacherOverride: null,
+              ...(response.status === "no_response" && event.target.value.trim()
+                ? { status: "not_administered", isCorrect: null, plausible: null, evaluation: "" }
+                : {})
+            })}
+            placeholder="Type it only if it will help instruction"
+            spellCheck="false"
+            type="text"
+            value={currentTranscription}
+          />
+          <small>Optional detail is kept in the report. If it conflicts with the score, correct one before moving on.</small>
+        </label>
+
+        {evaluationIssue === "exact_mismatch" && (
+          <p className="el-benchmark-inline-note">The typed spelling does not match the correct spelling. Change the outcome or correct the transcription.</p>
+        )}
+        {evaluationIssue === "exact_match_marked_nonexact" && (
+          <p className="el-benchmark-inline-note">The typed spelling matches the answer. Record Correct spelling.</p>
+        )}
+        {evaluationIssue === "exact_override_conflicts_with_evaluation" && (
+          <p className="el-benchmark-inline-note">The restored spelling override conflicts with this outcome. Choose the outcome again to clear it.</p>
+        )}
+
+        <div className="el-benchmark-button-row">
+          <button
+            className="el-benchmark-button secondary"
+            onClick={() => onQuickScore({
+              ...auditReset,
+              status: "no_response",
+              isCorrect: false,
+              exact: false,
+              plausible: false,
+              evaluation: "no_response",
+              transcription: "",
+              responseText: "",
+              responseCaptureMode: RESPONSE_CAPTURE_MODES.DIRECT_CHOICE,
+              errorTags: []
+            })}
+            type="button"
+          >
+            No response
+          </button>
+          <button className="el-benchmark-button ghost" onClick={() => setShowNotScorableReason(true)} type="button">
+            Couldn&apos;t assess
+          </button>
+        </div>
+
+        {currentValue && currentValue !== "exact" && (
+          <fieldset className="el-benchmark-fieldset">
+            <legend>Error feature (optional)</legend>
+            <div className="el-benchmark-tag-grid">
+              {errorTags.map(tag => (
+                <button
+                  aria-pressed={selectedTags.has(tag.value)}
+                  key={tag.value}
+                  onClick={() => toggleTag(tag.value)}
+                  type="button"
+                >
+                  {tag.label}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+        )}
+
+        <NotScorableSummary response={response} />
+        {showNotScorableReason && (
+          <NotScorableReasonPanel
+            onCancel={() => setShowNotScorableReason(false)}
+            onClear={() => {
+              setShowNotScorableReason(false);
+              onResponseChange({
+                status: "not_administered",
+                isCorrect: null,
+                plausible: null,
+                evaluation: "",
+                notScorableReason: "",
+                notScorableNote: "",
+                errorTags: []
+              });
+            }}
+            onConfirm={(reason, note) => {
+              setShowNotScorableReason(false);
+              onQuickScore({
+                status: "not_scorable",
+                isCorrect: null,
+                plausible: null,
+                exact: null,
+                evaluation: "not_scorable",
+                notScorableReason: reason,
+                notScorableNote: note,
+                responseCaptureMode: RESPONSE_CAPTURE_MODES.DIRECT_CHOICE,
+                errorTags: []
+              });
+            }}
+            response={response}
+          />
+        )}
+      </OptionalDetail>
     </div>
   );
 }
 
 function getDecodingEvaluationPatch(value, response = {}, notScorableEvidence = {}) {
   const auditReset = { notScorableReason: "", notScorableNote: "" };
-  const priorEvaluationWasAccurate = ["automatic_accurate", "accurate_after_sounding"].includes(response.evaluation);
-  const selfCorrected = priorEvaluationWasAccurate && response.selfCorrected === true;
 
   if (value === "automatic_accurate") {
     return {
       ...auditReset,
-      status: selfCorrected ? "self_corrected" : "correct",
+      status: "correct",
       isCorrect: true,
-      automatic: !selfCorrected,
-      selfCorrected,
-      errorTags: selfCorrected ? toArray(response.errorTags).filter(tag => tag !== "no_response") : [],
+      automatic: true,
+      selfCorrected: false,
+      errorTags: [],
       evaluation: value
     };
   }
@@ -960,11 +1068,11 @@ function getDecodingEvaluationPatch(value, response = {}, notScorableEvidence = 
   if (value === "accurate_after_sounding") {
     return {
       ...auditReset,
-      status: selfCorrected ? "self_corrected" : "correct",
+      status: "correct",
       isCorrect: true,
       automatic: false,
-      selfCorrected,
-      errorTags: selfCorrected ? toArray(response.errorTags).filter(tag => tag !== "no_response") : [],
+      selfCorrected: false,
+      errorTags: [],
       evaluation: value
     };
   }
@@ -1006,7 +1114,7 @@ function getDecodingEvaluationPatch(value, response = {}, notScorableEvidence = 
   };
 }
 
-function DecodingPanel({ item, response, onResponseChange }) {
+function DecodingPanel({ item, response, onResponseChange, onQuickScore }) {
   const [showNotScorableReason, setShowNotScorableReason] = useState(
     isNotScorable(response) && !hasNotScorableReason(response)
   );
@@ -1017,121 +1125,98 @@ function DecodingPanel({ item, response, onResponseChange }) {
       ? "no_response"
       : response.status === "incorrect"
         ? "incorrect"
-        : response.status === "self_corrected" || response.status === "correct"
-          ? response.automatic === true ? "automatic_accurate" : "accurate_after_sounding"
-      : "");
-  const accurateEvaluation = ["automatic_accurate", "accurate_after_sounding"].includes(evaluation);
-  const attemptedResponseSelected = accurateEvaluation || evaluation === "incorrect";
-  const errorTypeEnabled = evaluation === "incorrect" || (accurateEvaluation && response.selfCorrected === true);
+        : response.status === "self_corrected"
+          ? "self_corrected"
+          : response.status === "correct"
+            ? response.automatic === true ? "automatic_accurate" : "accurate_after_sounding"
+            : "");
   const evaluationIssue = getDecodingEvaluationIssue(item, response);
+  const hasTranscription = Boolean(String(response.responseText || "").trim());
 
-  const setEvaluation = value => {
-    if (value === "not_scorable") {
-      setShowNotScorableReason(true);
-      return;
-    }
-    setShowNotScorableReason(false);
-    onResponseChange(getDecodingEvaluationPatch(value, response));
-  };
-
-  const setSelfCorrected = selfCorrected => {
-    if (!accurateEvaluation) return;
-    onResponseChange({
-      selfCorrected,
-      automatic: !selfCorrected && evaluation === "automatic_accurate",
-      status: selfCorrected
-        ? "self_corrected"
-        : "correct",
-      errorTags: selfCorrected ? toArray(response.errorTags).filter(tag => tag !== "no_response") : []
+  const recordEvaluation = value => {
+    const patch = value === "self_corrected"
+      ? {
+          ...getDecodingEvaluationPatch("accurate_after_sounding", response),
+          status: "self_corrected",
+          automatic: false,
+          selfCorrected: true,
+          errorTags: toArray(response.errorTags).filter(tag => tag !== "no_response"),
+          evaluation: "self_corrected"
+        }
+      : getDecodingEvaluationPatch(value, response);
+    onQuickScore({
+      ...patch,
+      responseCaptureMode: hasTranscription
+        ? RESPONSE_CAPTURE_MODES.EXACT_TRANSCRIPTION
+        : RESPONSE_CAPTURE_MODES.QUICK_JUDGMENT
     });
   };
 
   return (
-    <div className="el-benchmark-response-stack">
-      <ExactResponseField
-        help="Record the spoken word exactly. Leave this blank only when no response was given."
-        onChange={responseText => onResponseChange({
-          responseText,
-          ...(response.status === "no_response" && responseText.trim()
-            ? {
-                status: "not_administered",
-                isCorrect: null,
-                automatic: null,
-                selfCorrected: false,
-                errorTags: [],
-                evaluation: ""
-              }
-            : {})
-        })}
-        value={response.responseText || ""}
-      />
-
-      <AssessmentStatusButtons
-        legend="Evaluate the word reading"
-        onChange={setEvaluation}
+    <div className="el-benchmark-response-stack el-benchmark-simple-response">
+      <QuickOutcomeButtons
+        legend="How did the student read the word?"
+        onChoose={recordEvaluation}
         options={[
-          { value: "automatic_accurate", label: "Automatic + accurate", help: "Read correctly without sounding out", tone: "positive" },
-          { value: "accurate_after_sounding", label: "Accurate after sounding", help: "Correct, but not automatic", tone: "info" },
-          { value: "incorrect", label: "Incorrect", help: "An attempted word was incorrect", tone: "warning" },
-          { value: "no_response", label: "No response", help: "Student gave no spoken response", tone: "neutral" },
-          { value: "not_scorable", label: "Not scorable", help: "Do not count in the score", tone: "neutral" }
+          { value: "automatic_accurate", label: "Straight away", symbol: "✓", tone: "positive" },
+          { value: "accurate_after_sounding", label: "Worked it out", symbol: "≈", tone: "warning" },
+          { value: "incorrect", label: "Not correct", symbol: "×", tone: "negative" }
         ]}
         value={evaluation}
       />
 
-      {attemptedResponseSelected && !getExactStudentResponse(ASSESSMENT_KINDS.DECODING, response) && (
-        <p className="el-benchmark-inline-note">Enter the exact spoken response before this item can be recorded.</p>
-      )}
-      {evaluationIssue === "accurate_response_mismatch" && (
-        <p className="el-benchmark-inline-note">This transcription does not match the displayed word. Mark the response Incorrect, or correct the transcription.</p>
-      )}
-      {evaluationIssue === "incorrect_response_matches_target" && (
-        <p className="el-benchmark-inline-note">This transcription matches the displayed word. Choose an accurate outcome, or correct the transcription.</p>
-      )}
-
-      <NotScorableSummary response={response} />
-      {showNotScorableReason && (
-        <NotScorableReasonPanel
-          onCancel={() => setShowNotScorableReason(false)}
-          onClear={() => {
-            setShowNotScorableReason(false);
-            onResponseChange({
-              status: "not_administered",
-              isCorrect: null,
-              automatic: null,
-              selfCorrected: false,
-              errorTags: [],
-              evaluation: "",
-              notScorableReason: "",
-              notScorableNote: ""
-            });
-          }}
-          onConfirm={(reason, note) => {
-            setShowNotScorableReason(false);
-            onResponseChange(getDecodingEvaluationPatch("not_scorable", response, { reason, note }));
-          }}
-          response={response}
-        />
-      )}
-
-      <div className="el-benchmark-detail-grid">
-        <label className="el-benchmark-check-control">
-          <input
-            checked={accurateEvaluation && Boolean(response.selfCorrected)}
-            disabled={!accurateEvaluation}
-            onChange={event => setSelfCorrected(event.target.checked)}
-            type="checkbox"
-          />
-          <span>
+      <OptionalDetail label="Other or add reading detail" open={showNotScorableReason || ["self_corrected", "no_response", "not_scorable"].includes(evaluation)}>
+        <div className="el-benchmark-button-row el-benchmark-other-outcomes">
+          <button className="el-benchmark-button secondary" onClick={() => recordEvaluation("self_corrected")} type="button">
             Self-corrected
-            <small>Student changed the response without a teacher prompt.</small>
-          </span>
-        </label>
+          </button>
+          <button
+            className="el-benchmark-button secondary"
+            onClick={() => onQuickScore({
+              ...getDecodingEvaluationPatch("no_response", response),
+              responseCaptureMode: RESPONSE_CAPTURE_MODES.DIRECT_CHOICE
+            })}
+            type="button"
+          >
+            No response
+          </button>
+          <button className="el-benchmark-button ghost" onClick={() => setShowNotScorableReason(true)} type="button">
+            Couldn&apos;t assess
+          </button>
+        </div>
+
+        <ExactResponseField
+          help="Optional. Add the spoken answer only when it will help instruction."
+          label="What the student said (optional)"
+          onChange={responseText => onResponseChange({
+            responseText,
+            responseCaptureMode: responseText.trim()
+              ? RESPONSE_CAPTURE_MODES.EXACT_TRANSCRIPTION
+              : RESPONSE_CAPTURE_MODES.QUICK_JUDGMENT,
+            ...(response.status === "no_response" && responseText.trim()
+              ? {
+                  status: "not_administered",
+                  isCorrect: null,
+                  automatic: null,
+                  selfCorrected: false,
+                  errorTags: [],
+                  evaluation: ""
+                }
+              : {})
+          })}
+          value={response.responseText || ""}
+        />
+
+        {evaluationIssue === "accurate_response_mismatch" && (
+          <p className="el-benchmark-inline-note">The typed response does not match the displayed word. Choose Not correct, or correct the optional detail.</p>
+        )}
+        {evaluationIssue === "incorrect_response_matches_target" && (
+          <p className="el-benchmark-inline-note">The typed response matches the displayed word. Choose an accurate outcome, or correct the optional detail.</p>
+        )}
 
         <label className="el-benchmark-control">
-          <span>Error type</span>
+          <span>Error type (optional)</span>
           <select
-            disabled={!errorTypeEnabled}
             onChange={event => onResponseChange({
               errorTags: event.target.value && event.target.value !== "none" ? [event.target.value] : []
             })}
@@ -1141,37 +1226,51 @@ function DecodingPanel({ item, response, onResponseChange }) {
               <option key={option.value} value={option.value}>{option.label}</option>
             ))}
           </select>
-          <small>Choose the most useful instructional description.</small>
         </label>
-      </div>
+
+        <NotScorableSummary response={response} />
+        {showNotScorableReason && (
+          <NotScorableReasonPanel
+            onCancel={() => setShowNotScorableReason(false)}
+            onClear={() => {
+              setShowNotScorableReason(false);
+              onResponseChange({
+                status: "not_administered",
+                isCorrect: null,
+                automatic: null,
+                selfCorrected: false,
+                errorTags: [],
+                evaluation: "",
+                notScorableReason: "",
+                notScorableNote: ""
+              });
+            }}
+            onConfirm={(reason, note) => {
+              setShowNotScorableReason(false);
+              onQuickScore({
+                ...getDecodingEvaluationPatch("not_scorable", response, { reason, note }),
+                responseCaptureMode: RESPONSE_CAPTURE_MODES.DIRECT_CHOICE
+              });
+            }}
+            response={response}
+          />
+        )}
+      </OptionalDetail>
     </div>
   );
 }
 
 function ProtectedEncodingPrompt({ item }) {
-  const [scriptVisible, setScriptVisible] = useState(false);
-
   return (
     <section className="el-benchmark-prompt-panel el-benchmark-protected-prompt" aria-label="Protected teacher prompt">
-      <div>
-        <span>Teacher-only dictation script</span>
-        <strong>Keep this part of the screen out of the student&apos;s sight.</strong>
+      <div className="el-benchmark-encoding-setup">
+        <strong>Student setup</strong>
+        <span>Give the student a pencil and lined paper. Keep this screen facing you.</span>
       </div>
-      <p>{item.prompt || "Ask the student to write the word they hear."}</p>
-      <button
-        aria-expanded={scriptVisible}
-        className="el-benchmark-button secondary compact"
-        onClick={() => setScriptVisible(visible => !visible)}
-        type="button"
-      >
-        {scriptVisible ? "Hide teacher script" : "Reveal teacher script"}
-      </button>
-      {scriptVisible && (
-        <div className="el-benchmark-protected-script">
-          <span>Say exactly</span>
-          <p>{item.teacherSay || item.sentence || "No dictation script supplied."}</p>
-        </div>
-      )}
+      <div className="el-benchmark-protected-script">
+        <span>Say exactly</span>
+        <p>{item.teacherSay || item.sentence || "Ask the student to write the word they hear."}</p>
+      </div>
     </section>
   );
 }
@@ -1339,7 +1438,11 @@ function FluencyTimer({ response, onFinishEarly, onResponseChange }) {
     startedAtRef.current = Date.now();
     lastTimerTickAtRef.current = startedAtRef.current;
     setRunning(true);
-    saveElapsed(elapsedSeconds, "running", getFluencyTimerResetPatch());
+    saveElapsed(elapsedSeconds, "running", {
+      ...getFluencyTimerResetPatch(),
+      errors: 0,
+      selfCorrections: 0
+    });
   };
 
   const stopTimer = () => {
@@ -1435,7 +1538,7 @@ function FluencyTimer({ response, onFinishEarly, onResponseChange }) {
               onClick={startTimer}
               type="button"
             >
-              Start timer
+              Start 1-minute read
             </button>
           ) : response.timerInterrupted === true ? (
             <span className="el-benchmark-timer-complete-note">Interrupted timing cannot produce WCPM</span>
@@ -1445,7 +1548,7 @@ function FluencyTimer({ response, onFinishEarly, onResponseChange }) {
         ) : timerDisplayRunning ? (
           <>
             <button className="el-benchmark-button warning" onClick={stopTimer} type="button">
-              Stop due to interruption
+              Stop — something interrupted us
             </button>
             <button
               className="el-benchmark-button secondary"
@@ -1453,21 +1556,51 @@ function FluencyTimer({ response, onFinishEarly, onResponseChange }) {
               onClick={finishPassageEarly}
               type="button"
             >
-              Finished passage before 60 seconds
+              Student finished the whole passage
             </button>
           </>
         ) : (
           <span className="el-benchmark-timer-complete-note">Full passage finish recorded</span>
         )}
         <button className="el-benchmark-button secondary" onClick={resetTimer} type="button">
-          Reset timer
+          Reset
         </button>
       </div>
     </section>
   );
 }
 
-function FluencyPanel({ plan, item, response, onResponseChange }) {
+function FluencyCountStepper({ disabled, label, max, onChange, value }) {
+  const numericValue = Number.isInteger(Number(value)) ? Number(value) : 0;
+  const upperLimit = Math.max(0, Number(max) || 0);
+
+  return (
+    <div className="el-benchmark-count-stepper">
+      <span>{label}</span>
+      <div>
+        <button
+          aria-label={`Remove one ${label.toLowerCase()}`}
+          disabled={disabled || numericValue <= 0}
+          onClick={() => onChange(Math.max(0, numericValue - 1))}
+          type="button"
+        >
+          −
+        </button>
+        <output aria-label={`${label}: ${numericValue}`}>{numericValue}</output>
+        <button
+          aria-label={`Add one ${label.toLowerCase()}`}
+          disabled={disabled || numericValue >= upperLimit}
+          onClick={() => onChange(Math.min(upperLimit, numericValue + 1))}
+          type="button"
+        >
+          +
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function FluencyPanel({ plan, item, response, onAccuracyDecision, onResponseChange }) {
   const [showNotScorableReason, setShowNotScorableReason] = useState(
     isNotScorable(response) && !hasNotScorableReason(response)
   );
@@ -1494,12 +1627,22 @@ function FluencyPanel({ plan, item, response, onResponseChange }) {
     finishEarlyTimingValid || standardTimingValid
   );
   const countValidation = getFluencyCountValidation(response, passage);
+  const wordsAttempted = Math.max(0, Number(response.wordsAttempted) || 0);
+  const errorCount = Math.max(0, Number(response.errors) || 0);
+  const selfCorrectionCount = Math.max(0, Number(response.selfCorrections) || 0);
+  const timerActivelyRunning = response.timerStatus === "running" && response.timerInterrupted !== true;
+  const countUpperLimit = timerActivelyRunning ? passageWordCount : wordsAttempted;
+  const countControlsDisabled = zeroWordsReached || (
+    !timerActivelyRunning && (!timingEvidenceReady || !countValidation.wordsAttemptedValid)
+  );
 
   const setLastWord = token => {
     if (!standardTimingValid || response.timerInterrupted === true) return;
     onResponseChange({
+      errors: Number.isInteger(Number(response.errors)) ? Number(response.errors) : 0,
       lastWordIndex: token.wordIndex,
       lastWord: token.text,
+      selfCorrections: Number.isInteger(Number(response.selfCorrections)) ? Number(response.selfCorrections) : 0,
       wordsAttempted: token.wordIndex + 1,
       zeroWordsReached: false
     });
@@ -1541,12 +1684,7 @@ function FluencyPanel({ plan, item, response, onResponseChange }) {
   const setAccuracyJudgment = value => {
     if (!timingEvidenceReady || zeroWordsReached) return;
     const accurate = value === "accurate";
-    onResponseChange({
-      accurate,
-      passageAccurate: accurate,
-      accuracyJudgmentSource: "teacher",
-      accuracyJudgedAt: new Date().toISOString()
-    });
+    onAccuracyDecision?.(accurate);
   };
 
   return (
@@ -1554,44 +1692,23 @@ function FluencyPanel({ plan, item, response, onResponseChange }) {
       <section className="el-benchmark-passage-panel" aria-labelledby="el-benchmark-passage-title">
         <div className="el-benchmark-passage-header">
           <div>
-            <span>Connected-text reading</span>
+            <span>Student reads this aloud</span>
             <h3 id="el-benchmark-passage-title">{passage.title || "Fluency passage"}</h3>
           </div>
           <strong>{passage.wordCount || wordTokens.length} words</strong>
         </div>
-
-        <details className="el-benchmark-clean-passage">
-          <summary>Open clean student passage</summary>
-          <div className="el-benchmark-clean-passage-actions">
-            <span>Student-facing copy</span>
-            <button
-              className="el-benchmark-button secondary compact"
-              disabled={response.timerStatus === "running"}
-              onClick={() => window.print()}
-              title={response.timerStatus === "running" ? "Finish or interrupt timing before printing." : undefined}
-              type="button"
-            >
-              Print clean passage
-            </button>
-          </div>
-          <article className="el-benchmark-clean-passage-sheet">
-            <h1>{passage.title || "Fluency passage"}</h1>
-            <p>{passage.text || passage.passage || ""}</p>
-            <footer className="el-benchmark-clean-passage-disclaimer">
-              Teacher note — not part of the timed passage. LiteracyPath EL-aligned provisional form · not an official EL Education benchmark.
-            </footer>
-          </article>
-        </details>
 
         <FluencyTimer
           onFinishEarly={actualElapsedSeconds => {
             const finalToken = wordTokens.at(-1);
             onResponseChange({
               elapsedSeconds: actualElapsedSeconds,
+              errors: Number.isInteger(Number(response.errors)) ? Number(response.errors) : 0,
               finishedEarly: true,
               lastWord: finalToken?.text || "",
               lastWordIndex: finalToken?.wordIndex ?? passageWordCount - 1,
               passageWordCount,
+              selfCorrections: Number.isInteger(Number(response.selfCorrections)) ? Number(response.selfCorrections) : 0,
               timerStatus: "finished_early",
               timerInterrupted: false,
               interruptionReason: "",
@@ -1603,8 +1720,29 @@ function FluencyPanel({ plan, item, response, onResponseChange }) {
           response={response}
         />
 
+        <div className="el-benchmark-tablet-counters" aria-label="Live reading counters">
+          <FluencyCountStepper
+            disabled={countControlsDisabled}
+            label="Errors"
+            max={Math.max(0, countUpperLimit - selfCorrectionCount)}
+            onChange={errors => onResponseChange({ errors })}
+            value={response.errors}
+          />
+          <FluencyCountStepper
+            disabled={countControlsDisabled}
+            label="Self-corrections"
+            max={Math.max(0, countUpperLimit - errorCount)}
+            onChange={selfCorrections => onResponseChange({ selfCorrections })}
+            value={response.selfCorrections}
+          />
+        </div>
+
         <p className="el-benchmark-passage-help" id="el-benchmark-token-help">
-          Select the last word reached when the timer ends. Words through that point will be marked as attempted.
+          {standardTimingValid
+            ? "Time is up. Tap the last word the student reached."
+            : timingEvidenceReady
+              ? "The full passage finish is recorded."
+              : "Start the timer, then let the student read directly from this screen."}
         </p>
         <button
           aria-pressed={zeroWordsReached}
@@ -1644,60 +1782,56 @@ function FluencyPanel({ plan, item, response, onResponseChange }) {
       </section>
 
       <section className="el-benchmark-fluency-scoring" aria-label="Fluency scoring">
-        <div className="el-benchmark-number-grid">
-          <label className="el-benchmark-control">
-            <span>Uncorrected errors</span>
-            <input
-              inputMode="numeric"
-              max={response.wordsAttempted || passageWordCount}
-              min="0"
-              disabled={!timingEvidenceReady || zeroWordsReached}
-              onChange={event => onResponseChange({
-                errors: event.target.value === "" ? null : Math.max(0, Number(event.target.value))
-              })}
-              type="number"
-              step="1"
-              value={response.errors ?? ""}
+        <div className="el-benchmark-scoring-step el-benchmark-desktop-counters">
+          <h3>1. Count anything that needs recording</h3>
+          <div className="el-benchmark-number-grid">
+            <FluencyCountStepper
+              disabled={countControlsDisabled}
+              label="Errors"
+              max={Math.max(0, countUpperLimit - selfCorrectionCount)}
+              onChange={errors => onResponseChange({ errors })}
+              value={response.errors}
             />
-            <small>Do not count self-corrections here.</small>
-          </label>
-          <label className="el-benchmark-control">
-            <span>Self-corrections</span>
-            <input
-              inputMode="numeric"
-              max={response.wordsAttempted || passageWordCount}
-              min="0"
-              disabled={!timingEvidenceReady || zeroWordsReached}
-              onChange={event => onResponseChange({
-                selfCorrections: event.target.value === "" ? null : Math.max(0, Number(event.target.value))
-              })}
-              type="number"
-              step="1"
-              value={response.selfCorrections ?? ""}
+            <FluencyCountStepper
+              disabled={countControlsDisabled}
+              label="Self-corrections"
+              max={Math.max(0, countUpperLimit - errorCount)}
+              onChange={selfCorrections => onResponseChange({ selfCorrections })}
+              value={response.selfCorrections}
             />
-          </label>
+          </div>
+          <small>Leave both at 0 when there were none. Self-corrections are not errors.</small>
         </div>
 
-        {response.status !== "not_scorable" && timingEvidenceReady && !zeroWordsReached && (
-          <AssessmentStatusButtons
-            legend="Teacher accuracy judgment"
-            onChange={setAccuracyJudgment}
+        {response.status !== "not_scorable" &&
+          timingEvidenceReady &&
+          !zeroWordsReached &&
+          countValidation.wordsAttemptedValid &&
+          countValidation.errorsValid &&
+          countValidation.selfCorrectionsValid &&
+          countValidation.combinedCountsValid && (
+          <div className="el-benchmark-scoring-step">
+            <h3>2. Was this read accurate enough?</h3>
+            <QuickOutcomeButtons
+            legend="Choose one"
+            onChoose={setAccuracyJudgment}
             options={[
               {
                 value: "accurate",
-                label: "Accurate for this route",
-                help: "Continue when the timed read gives adequate evidence",
+                label: "Yes — continue",
+                symbol: "✓",
                 tone: "positive"
               },
               {
                 value: "not_accurate",
-                label: "Not accurate yet",
-                help: "Stop after this passage when the timed read is not yet adequate",
-                tone: "warning"
+                label: "Not yet — finish here",
+                symbol: "×",
+                tone: "negative"
               }
             ]}
             value={accuracyJudgment === true ? "accurate" : accuracyJudgment === false ? "not_accurate" : ""}
-          />
+            />
+          </div>
         )}
 
         {response.status !== "not_scorable" && zeroWordsReached && (
@@ -1707,79 +1841,98 @@ function FluencyPanel({ plan, item, response, onResponseChange }) {
           </p>
         )}
 
-        <p className="el-benchmark-judgment-note">
-          {timingEvidenceReady
-            ? "Use teacher judgment from this one-minute read. LiteracyPath does not apply an invented accuracy percentage threshold."
-            : "Accuracy choices unlock only after a continuous full minute or a recorded full-passage early finish."}
-        </p>
-
         {finishEarlyTimingValid && (
           <p className="el-benchmark-finish-early-note">
-            Full passage finished in {elapsedSeconds} seconds. Accuracy evidence is retained, but WCPM is withheld and never extrapolated.
+            Finished in {elapsedSeconds} seconds. The accuracy result is saved, but a per-minute score is not estimated.
           </p>
         )}
 
-        <fieldset className="el-benchmark-fieldset el-benchmark-prosody">
-          <legend>Prosody ratings (optional)</legend>
-          <p className="el-benchmark-field-help">Supplement the timed score with any useful 1-4 observations.</p>
-          <div className="el-benchmark-prosody-grid">
-            {PROSODY_DIMENSIONS.map(dimension => (
-              <label className="el-benchmark-control" key={dimension.key}>
-                <span>{dimension.label}</span>
-                <select
-                  disabled={!timingEvidenceReady}
-                  onChange={event => updateProsody(dimension.key, event.target.value)}
-                  value={prosody[dimension.key] || ""}
-                >
-                  <option value="">Choose 1-4</option>
-                  {[1, 2, 3, 4].map(rating => (
-                    <option key={rating} value={rating}>{rating} - {PROSODY_LABELS[rating]}</option>
-                  ))}
-                </select>
-              </label>
-            ))}
-          </div>
-        </fieldset>
+        <OptionalDetail label="Optional notes, printable copy, or couldn’t assess" open={showNotScorableReason}>
+          <details className="el-benchmark-clean-passage">
+            <summary>Printable clean passage</summary>
+            <div className="el-benchmark-clean-passage-actions">
+              <span>Student-facing copy</span>
+              <button
+                className="el-benchmark-button secondary compact"
+                disabled={response.timerStatus === "running"}
+                onClick={() => window.print()}
+                title={response.timerStatus === "running" ? "Finish or interrupt timing before printing." : undefined}
+                type="button"
+              >
+                Print passage
+              </button>
+            </div>
+            <article className="el-benchmark-clean-passage-sheet">
+              <h1>{passage.title || "Fluency passage"}</h1>
+              <p>{passage.text || passage.passage || ""}</p>
+              <footer className="el-benchmark-clean-passage-disclaimer">
+                Teacher note — not part of the timed passage. LiteracyPath EL-aligned provisional form · not an official EL Education benchmark.
+              </footer>
+            </article>
+          </details>
 
-        <button
-          aria-pressed={response.status === "not_scorable"}
-          className="el-benchmark-not-scorable-toggle"
-          disabled={response.timerStatus === "running"}
-          onClick={() => setShowNotScorableReason(true)}
-          type="button"
-        >
-          {response.status === "not_scorable" ? "Review not-scorable reason" : "Mark passage not scorable"}
-        </button>
+          <fieldset className="el-benchmark-fieldset el-benchmark-prosody">
+            <legend>Reading expression (optional)</legend>
+            <p className="el-benchmark-field-help">Add these only when they will help instruction.</p>
+            <div className="el-benchmark-prosody-grid">
+              {PROSODY_DIMENSIONS.map(dimension => (
+                <label className="el-benchmark-control" key={dimension.key}>
+                  <span>{dimension.label}</span>
+                  <select
+                    disabled={!timingEvidenceReady}
+                    onChange={event => updateProsody(dimension.key, event.target.value)}
+                    value={prosody[dimension.key] || ""}
+                  >
+                    <option value="">Choose 1-4</option>
+                    {[1, 2, 3, 4].map(rating => (
+                      <option key={rating} value={rating}>{rating} - {PROSODY_LABELS[rating]}</option>
+                    ))}
+                  </select>
+                </label>
+              ))}
+            </div>
+          </fieldset>
 
-        <NotScorableSummary response={response} />
-        {showNotScorableReason && (
-          <NotScorableReasonPanel
-            onCancel={() => setShowNotScorableReason(false)}
-            onClear={() => {
-              setShowNotScorableReason(false);
-              onResponseChange({
-                status: "not_administered",
-                isCorrect: null,
-                accurate: null,
-                passageAccurate: null,
-                notScorableReason: "",
-                notScorableNote: ""
-              });
-            }}
-            onConfirm={(reason, note) => {
-              setShowNotScorableReason(false);
-              onResponseChange({
-                status: "not_scorable",
-                isCorrect: null,
-                accurate: null,
-                passageAccurate: null,
-                notScorableReason: reason,
-                notScorableNote: note
-              });
-            }}
-            response={response}
-          />
-        )}
+          <button
+            aria-pressed={response.status === "not_scorable"}
+            className="el-benchmark-not-scorable-toggle"
+            disabled={response.timerStatus === "running"}
+            onClick={() => setShowNotScorableReason(true)}
+            type="button"
+          >
+            {response.status === "not_scorable" ? "Review why this couldn’t be assessed" : "Couldn’t assess this passage"}
+          </button>
+
+          <NotScorableSummary response={response} />
+          {showNotScorableReason && (
+            <NotScorableReasonPanel
+              onCancel={() => setShowNotScorableReason(false)}
+              onClear={() => {
+                setShowNotScorableReason(false);
+                onResponseChange({
+                  status: "not_administered",
+                  isCorrect: null,
+                  accurate: null,
+                  passageAccurate: null,
+                  notScorableReason: "",
+                  notScorableNote: ""
+                });
+              }}
+              onConfirm={(reason, note) => {
+                setShowNotScorableReason(false);
+                onResponseChange({
+                  status: "not_scorable",
+                  isCorrect: null,
+                  accurate: null,
+                  passageAccurate: null,
+                  notScorableReason: reason,
+                  notScorableNote: note
+                });
+              }}
+              response={response}
+            />
+          )}
+        </OptionalDetail>
 
         {response.status !== "not_scorable" && !timingEvidenceReady && (
           <p className="el-benchmark-inline-note">
@@ -1808,16 +1961,28 @@ function FluencyPanel({ plan, item, response, onResponseChange }) {
   );
 }
 
-function ItemPanel({ kind, plan, item, itemNumber, itemCount, response, onResponseChange }) {
+function ItemPanel({
+  kind,
+  plan,
+  item,
+  itemNumber,
+  itemCount,
+  response,
+  onAccuracyDecision,
+  onResponseChange,
+  onQuickScore
+}) {
   const headingRef = useRef(null);
 
   useEffect(() => {
     headingRef.current?.focus();
   }, [item.id]);
 
-  const label = item.strand || item.task || item.bandId || getMicrophaseLabel(plan, item);
+  const label = item.strand || item.task || item.microphaseLabel || getMicrophaseLabel(plan, item);
   const decodingWord = item.displayWord || item.targetWord || item.word || "";
   const isFluency = kind === ASSESSMENT_KINDS.FLUENCY;
+  const isRhymeRecognition = kind === ASSESSMENT_KINDS.PHONOLOGICAL_AWARENESS &&
+    item.strand === "rhyme" && item.task === "recognition";
 
   return (
     <article className="el-benchmark-item-card">
@@ -1828,10 +1993,9 @@ function ItemPanel({ kind, plan, item, itemNumber, itemCount, response, onRespon
             {isFluency ? "Record the one-minute read" : `Item ${itemNumber} of ${itemCount}`}
           </h2>
         </div>
-        <span className="el-benchmark-route-label">{getMicrophaseLabel(plan, item)}</span>
       </header>
 
-      {!isFluency && kind !== ASSESSMENT_KINDS.ENCODING && (
+      {!isFluency && kind !== ASSESSMENT_KINDS.ENCODING && !isRhymeRecognition && (
         <section className="el-benchmark-prompt-panel" aria-label="Teacher prompt">
           <span>Teacher prompt</span>
           <p>{getPrompt(item)}</p>
@@ -1851,6 +2015,7 @@ function ItemPanel({ kind, plan, item, itemNumber, itemCount, response, onRespon
         <PhonologicalAwarenessPanel
           item={item}
           onResponseChange={onResponseChange}
+          onQuickScore={onQuickScore}
           response={response}
         />
       )}
@@ -1858,6 +2023,7 @@ function ItemPanel({ kind, plan, item, itemNumber, itemCount, response, onRespon
         <EncodingPanel
           item={item}
           onResponseChange={onResponseChange}
+          onQuickScore={onQuickScore}
           response={response}
         />
       )}
@@ -1865,12 +2031,14 @@ function ItemPanel({ kind, plan, item, itemNumber, itemCount, response, onRespon
         <DecodingPanel
           item={item}
           onResponseChange={onResponseChange}
+          onQuickScore={onQuickScore}
           response={response}
         />
       )}
       {kind === ASSESSMENT_KINDS.FLUENCY && (
         <FluencyPanel
           item={item}
+          onAccuracyDecision={onAccuracyDecision}
           onResponseChange={onResponseChange}
           plan={plan}
           response={response}
@@ -1921,41 +2089,45 @@ function DecodingBandDecision({
   return (
     <section className="el-benchmark-band-decision" aria-labelledby="el-benchmark-band-decision-title">
       <div className="el-benchmark-band-result">
-        <span>Completed decoding band</span>
-        <h3 id="el-benchmark-band-decision-title">{band.label}</h3>
-        <strong>{automaticCount} of {denominator} automatic</strong>
-        <small>Automaticity is a teacher observation. No seconds-based cutoff is applied.</small>
+        <span>Word set complete</span>
+        <h3 id="el-benchmark-band-decision-title">What should happen next?</h3>
+        <p>{band.label}</p>
+        <details>
+          <summary>See the result</summary>
+          <strong>{automaticCount} of {denominator} read straight away</strong>
+          <small>The assessment uses your observation of automatic reading, not a seconds-based cutoff.</small>
+        </details>
       </div>
 
       {isConfirmedBand ? (
         <div className="el-benchmark-band-message stop-confirmed">
-          <strong>Stopping evidence saved</strong>
-          <p>Later planned words are marked not administered and are not counted as incorrect.</p>
+          <strong>Finished here</strong>
+          <p>The remaining word sets will not count as incorrect.</p>
           <button className="el-benchmark-button secondary compact" onClick={onUndoStop} type="button">
-            Undo stop and continue
+            Undo and keep reading
           </button>
         </div>
       ) : hasContinueDecision ? (
         <div className="el-benchmark-band-message continue">
-          <strong>Continue decision saved</strong>
+          <strong>Ready for the next word set</strong>
           <p>
             {continueEvidence.reason === "teacher_override_below_threshold"
-              ? `Teacher override: ${continueEvidence.overrideReason}`
-              : "The completed band has been reviewed and the route may continue."}
+              ? `You chose to keep going: ${continueEvidence.overrideReason}`
+              : "This decision is saved."}
           </p>
           {nextBand && (
             <button className="el-benchmark-button primary compact" onClick={() => onContinue(nextBand.indexes[0])} type="button">
-              Start {nextBand.label}
+              Continue reading
             </button>
           )}
         </div>
       ) : notScorableCount > 0 ? (
         <div className="el-benchmark-band-message caution">
-          <strong>Stopping rule cannot be confirmed</strong>
-          <p>{notScorableCount} word{notScorableCount === 1 ? " is" : "s are"} not scorable, so this is not a complete eight-word automaticity result.</p>
+          <strong>Keep reading for a clearer result</strong>
+          <p>{notScorableCount} word{notScorableCount === 1 ? " could" : "s could"} not be scored in this set.</p>
           {nextBand && (
             <button
-              className="el-benchmark-button primary compact"
+              className="el-benchmark-button primary"
               onClick={() => onContinue(nextBand.indexes[0], {
                 automaticCount,
                 denominator,
@@ -1964,26 +2136,26 @@ function DecodingBandDecision({
               })}
               type="button"
             >
-              Continue to next band
+              Continue reading
             </button>
           )}
         </div>
       ) : stopRuleMet ? (
         <div className="el-benchmark-band-message stopping">
-          <strong>Stopping threshold reached</strong>
-          <p>{threshold} or fewer automatic words is stopping evidence for this completed band.</p>
+          <strong>This is a good place to finish</strong>
+          <p>The student has shown enough for the report to choose a useful next step.</p>
           {laterHasEvidence ? (
-            <p className="el-benchmark-band-warning">Later items already contain evidence, so confirming a stop would risk erasing real responses. Record an override to retain that evidence and continue.</p>
+            <p className="el-benchmark-band-warning">Later answers are already saved. Keep reading to preserve them.</p>
           ) : nextBand ? (
-            <button className="el-benchmark-button warning compact" onClick={() => onConfirmStop({ automaticCount, denominator })} type="button">
-              Confirm stop after this band
+            <button className="el-benchmark-button primary el-benchmark-decision-primary" onClick={() => onConfirmStop({ automaticCount, denominator })} type="button">
+              Finish here
             </button>
           ) : (
-            <p>This is the final planned band. No later items need to be marked unadministered.</p>
+            <p>All planned word sets are complete.</p>
           )}
           {nextBand && !showOverride && (
-            <button className="el-benchmark-button secondary compact" onClick={() => setShowOverride(true)} type="button">
-              Continue with teacher override
+            <button className="el-benchmark-button ghost compact" onClick={() => setShowOverride(true)} type="button">
+              Keep going instead
             </button>
           )}
           {nextBand && showOverride && (
@@ -2003,10 +2175,10 @@ function DecodingBandDecision({
               }}
             >
               <label className="el-benchmark-control">
-                <span>Reason for continuing</span>
+                <span>Why will another word set help?</span>
                 <textarea
                   onChange={event => setOverrideReason(event.target.value)}
-                  placeholder="Record why more diagnostic evidence is needed"
+                  placeholder="For example: the student was distracted and needs another chance"
                   required
                   rows="2"
                   value={overrideReason}
@@ -2014,22 +2186,26 @@ function DecodingBandDecision({
               </label>
               <div className="el-benchmark-button-row">
                 <button className="el-benchmark-button primary compact" disabled={!overrideReason.trim()} type="submit">
-                  Save override and continue
+                  Save reason and continue
                 </button>
                 <button className="el-benchmark-button ghost compact" onClick={() => setShowOverride(false)} type="button">
-                  Cancel override
+                  Cancel
                 </button>
               </div>
             </form>
           )}
+          <details className="el-benchmark-decision-detail">
+            <summary>Why is finishing suggested?</summary>
+            <p>{automaticCount} of {denominator} words were read straight away. The route suggests finishing at {threshold} or fewer.</p>
+          </details>
         </div>
       ) : (
         <div className="el-benchmark-band-message continue">
-          <strong>{nextBand ? "Continue to the next band" : "Highest planned band complete"}</strong>
-          <p>{automaticCount} automatic words is above the stopping threshold for this band.</p>
+          <strong>{nextBand ? "The student is ready for the next word set" : "All planned word sets are complete"}</strong>
+          <p>{nextBand ? "Continue while the student is reading comfortably." : "No more word sets are needed."}</p>
           {nextBand && (
             <button
-              className="el-benchmark-button primary compact"
+              className="el-benchmark-button primary el-benchmark-decision-primary"
               onClick={() => onContinue(nextBand.indexes[0], {
                 automaticCount,
                 denominator,
@@ -2038,9 +2214,13 @@ function DecodingBandDecision({
               })}
               type="button"
             >
-              Start {nextBand.label}
+              Continue reading
             </button>
           )}
+          <details className="el-benchmark-decision-detail">
+            <summary>See the result</summary>
+            <p>{automaticCount} of {denominator} words were read straight away.</p>
+          </details>
         </div>
       )}
     </section>
@@ -2063,18 +2243,19 @@ function FluencyPassageDecision({
 
   const itemId = getItemId(item, index, ASSESSMENT_KINDS.FLUENCY);
   const nextItem = items[index + 1] || null;
-  const nextLabel = nextItem?.microphaseLabel || humanize(nextItem?.microphase || nextItem?.bandId) || "next passage";
   const passageLabel = item.microphaseLabel || humanize(item.microphase || item.bandId) || `Passage ${index + 1}`;
   const accuracyJudgment = getPassageAccuracyJudgment(response);
   const zeroWordsReached = response.zeroWordsReached === true;
   const isConfirmedStop = Boolean(stopEvidence?.confirmed && stopEvidence.passageId === itemId);
   const hasContinueDecision = continueEvidence?.action === "continue";
+  const hasLaterEvidenceReview = continueEvidence?.action === "review_later_evidence";
 
   return (
     <section className="el-benchmark-band-decision el-benchmark-fluency-decision" aria-labelledby="el-benchmark-fluency-decision-title">
       <div className="el-benchmark-band-result">
-        <span>{response.finishedEarly ? "Completed passage before 60 seconds" : "Completed passage"}</span>
-        <h3 id="el-benchmark-fluency-decision-title">{passageLabel}</h3>
+        <span>Reading complete</span>
+        <h3 id="el-benchmark-fluency-decision-title">What should happen next?</h3>
+        <p>{passageLabel}</p>
         <strong>
           {response.status === "not_scorable"
             ? "Not scorable"
@@ -2085,66 +2266,77 @@ function FluencyPassageDecision({
               : "Not accurate yet"}
         </strong>
         <small>{zeroWordsReached
-          ? "No words were reached during the completed full minute."
+          ? "No words were reached during the full minute."
           : response.finishedEarly
-          ? "Full-text accuracy evidence is retained, but WCPM is unavailable for this early finish."
-          : "Route decisions use explicit teacher judgment, not an accuracy percentage cutoff."}</small>
+          ? "The accuracy result is saved; a per-minute score is not estimated."
+          : "This result uses the teacher’s accuracy choice."}</small>
       </div>
 
       {isConfirmedStop ? (
         <div className="el-benchmark-band-message stop-confirmed">
-          <strong>Fluency stop evidence saved</strong>
-          <p>Later passages are marked not administered and are not counted as incorrect.</p>
+          <strong>Finished here</strong>
+          <p>{stopEvidence?.laterEvidencePreserved
+            ? "Later reading stays saved as extra evidence, but it will not change this stopping point or count toward placement."
+            : "Later passages will not count as incorrect."}</p>
           <button className="el-benchmark-button secondary compact" onClick={onUndoStop} type="button">
-            Undo fluency stop
+            {stopEvidence?.laterEvidencePreserved ? "Undo and review later reading" : "Undo and keep reading"}
           </button>
         </div>
       ) : accuracyJudgment === false || zeroWordsReached ? (
         <div className="el-benchmark-band-message stopping">
-          <strong>{zeroWordsReached ? "No words reached indicates a route stop" : "Teacher judgment indicates a route stop"}</strong>
+          <strong>This is a good place to finish</strong>
           <p>{zeroWordsReached
-            ? "Confirm the audited 0-word full-minute result as the stopping point. Accuracy remains N/A."
-            : "Confirm this first not-accurate passage as the stopping point."}</p>
+            ? "The full-minute 0-word result is saved."
+            : "The student’s first not-yet-accurate passage gives a useful stopping point."}</p>
           {laterHasEvidence && (
-            <p className="el-benchmark-band-warning">Later passages already contain administered evidence. Review that evidence before changing this earlier route decision.</p>
+            <>
+              <p className="el-benchmark-band-warning">
+                Later reading is already saved and has not been deleted. Review it, then return here if this answer needs changing.
+              </p>
+              {hasLaterEvidenceReview && nextItem && (
+                <button className="el-benchmark-button secondary" onClick={() => onContinue(index + 1)} type="button">
+                  Review next saved passage
+                </button>
+              )}
+            </>
           )}
           <button
-            className="el-benchmark-button warning compact"
+            className="el-benchmark-button primary el-benchmark-decision-primary"
             disabled={laterHasEvidence}
             onClick={onConfirmStop}
             type="button"
           >
-            {zeroWordsReached ? "Confirm no-words route stop" : "Confirm teacher-judgment stop"}
+            Finish here
           </button>
         </div>
       ) : hasContinueDecision ? (
         <div className="el-benchmark-band-message continue">
-          <strong>Continue decision saved</strong>
-          <p>{continueEvidence.reason === "passage_not_scorable" ? "The not-scorable passage was reviewed." : "The accurate passage was reviewed."}</p>
+          <strong>Ready for the next passage</strong>
+          <p>{continueEvidence.reason === "passage_not_scorable" ? "The passage that could not be assessed was reviewed." : "This decision is saved."}</p>
           {nextItem && (
             <button className="el-benchmark-button primary compact" onClick={() => onContinue(index + 1)} type="button">
-              Start {nextLabel}
+              Continue reading
             </button>
           )}
         </div>
       ) : nextItem ? (
         <div className={`el-benchmark-band-message ${response.status === "not_scorable" ? "caution" : "continue"}`}>
-          <strong>{response.status === "not_scorable" ? "Review before continuing" : "Accurate passage recorded"}</strong>
+          <strong>{response.status === "not_scorable" ? "Try another passage for a clearer result" : "The student is ready for the next passage"}</strong>
           <p>{response.status === "not_scorable"
-            ? "This passage does not provide an accuracy judgment. Continue only when another passage is appropriate."
-            : "Explicitly continue to administer the next planned microphase passage."}</p>
+            ? "This passage did not provide an accuracy result."
+            : "Continue while the student is reading comfortably."}</p>
           <button
-            className="el-benchmark-button primary compact"
+            className="el-benchmark-button primary el-benchmark-decision-primary"
             onClick={() => onContinue(index + 1, response.status === "not_scorable" ? "passage_not_scorable" : "teacher_judgment_accurate")}
             type="button"
           >
-            Continue to {nextLabel}
+            Continue reading
           </button>
         </div>
       ) : (
         <div className="el-benchmark-band-message continue">
-          <strong>Highest planned passage complete</strong>
-          <p>The final passage in this provisional route has been reviewed.</p>
+          <strong>All planned passages are complete</strong>
+          <p>No more reading passages are needed.</p>
         </div>
       )}
     </section>
@@ -2272,6 +2464,7 @@ function PlacementConfirmationPanel({
   allowedMicrophases,
   assessmentKind,
   confirmedPlacement,
+  defaultMicrophase,
   normalRangeMicrophases,
   onConfirm,
   preview
@@ -2283,145 +2476,165 @@ function PlacementConfirmationPanel({
   const normalRangeSet = new Set(normalRangeMicrophases || allowedMicrophases);
   const confirmedMicrophaseAllowed = Boolean(confirmedMicrophase && allowedSet.has(confirmedMicrophase));
   const proposedMicrophaseAllowed = Boolean(proposedMicrophase && allowedSet.has(proposedMicrophase));
+  const defaultMicrophaseAllowed = Boolean(defaultMicrophase && allowedSet.has(defaultMicrophase));
+  const recommendedMicrophase = proposedMicrophaseAllowed
+    ? proposedMicrophase
+    : defaultMicrophaseAllowed
+      ? defaultMicrophase
+      : (normalRangeMicrophases || allowedMicrophases).find(microphase => allowedSet.has(microphase)) || "";
   const confirmedRationaleRequired = placementRequiresRationale(
     assessmentKind,
     preview,
     confirmedMicrophase,
-    proposedMicrophase
+    proposedMicrophase,
+    recommendedMicrophase
   );
   const confirmedPlacementReady = confirmedMicrophaseAllowed && (
     !confirmedRationaleRequired || Boolean(String(confirmedPlacement?.overrideReason || "").trim())
   );
   const [selectedMicrophase, setSelectedMicrophase] = useState(
-    confirmedMicrophaseAllowed ? confirmedMicrophase : proposedMicrophaseAllowed ? proposedMicrophase : ""
+    confirmedMicrophaseAllowed ? confirmedMicrophase : recommendedMicrophase
   );
   const [reason, setReason] = useState(confirmedPlacement?.overrideReason || "");
-  const [showEditor, setShowEditor] = useState(!confirmedPlacementReady);
+  const [showEditor, setShowEditor] = useState(Boolean(confirmedMicrophase && !confirmedPlacementReady) || !recommendedMicrophase);
 
   const selectedOption = EL_DECODING_MICROPHASES.find(row => row.id === selectedMicrophase) || null;
-  const proposedOption = EL_DECODING_MICROPHASES.find(row => row.id === proposedMicrophase) || null;
+  const recommendedOption = EL_DECODING_MICROPHASES.find(row => row.id === recommendedMicrophase) || null;
   const inRangeOptions = EL_DECODING_MICROPHASES.filter(option => normalRangeSet.has(option.id));
   const ceilingOptions = EL_DECODING_MICROPHASES.filter(option => allowedSet.has(option.id) && !normalRangeSet.has(option.id));
-  const reasonRequired = placementRequiresRationale(assessmentKind, preview, selectedMicrophase, proposedMicrophase);
+  const reasonRequired = placementRequiresRationale(
+    assessmentKind,
+    preview,
+    selectedMicrophase,
+    proposedMicrophase,
+    recommendedMicrophase
+  );
   const confirmationReady = Boolean(selectedOption && allowedSet.has(selectedOption.id)) && (!reasonRequired || reason.trim());
   const isEncoding = assessmentKind === ASSESSMENT_KINDS.ENCODING;
   const scoreStatus = humanize(preview?.scoreStatus || "unavailable");
   const scoredCount = Number(preview?.scoredCount || 0);
-  const reasonLabel = isEncoding
-    ? "Teacher rationale for this Encoding-to-Decoding route"
-    : !proposedMicrophase
-      ? "Reason for selecting a route without a scorer candidate"
-      : preview?.scoreStatus !== "scored" || scoredCount <= 0
-        ? "Reason for routing from incomplete or unscored evidence"
-        : "Reason for changing the scorer proposal";
 
   return (
     <section className="el-benchmark-placement" aria-labelledby="el-benchmark-placement-title">
       <div className="el-benchmark-placement-heading">
-        <span>Required route review</span>
-        <h2 id="el-benchmark-placement-title">Confirm the Decoding start band</h2>
-        <p>
-          This is teacher-confirmed LiteracyPath provisional routing. It is not an official EL Education score or a nationally normed placement.
-        </p>
-      </div>
-
-      <div className="el-benchmark-placement-evidence">
-        <span>{isEncoding ? "Scoring limitation" : "Scorer proposal"}</span>
-        <strong>{isEncoding
-          ? "No automatic Encoding conversion"
-          : proposedOption?.label || "No candidate available"}</strong>
-        <p>{isEncoding
-          ? "The overview supplies no validated spelling-to-microphase conversion table, so the teacher must select the next Decoding start."
-          : proposedPlacement.reason || "Review the recorded decoding evidence and choose the most defensible named band."}</p>
-        <small>Preview score status: {scoreStatus} · {scoredCount} scorable item{scoredCount === 1 ? "" : "s"}</small>
-        {administrationRange?.label && <small>Normal range: {administrationRange.label}</small>}
+        <span>Final step</span>
+        <h2 id="el-benchmark-placement-title">Choose where to start next</h2>
+        <p>Use the suggestion, or choose a different starting point if your classroom evidence says otherwise.</p>
       </div>
 
       {confirmedPlacementReady && !showEditor ? (
         <div className="el-benchmark-placement-confirmed" aria-live="polite">
-          <span>Teacher confirmation saved</span>
+          <span>Starting point saved</span>
           <strong>{EL_DECODING_MICROPHASES.find(row => row.id === confirmedMicrophase)?.label || humanize(confirmedMicrophase)}</strong>
-          {confirmedPlacement?.overrideReason && <p>Teacher rationale: {confirmedPlacement.overrideReason}</p>}
+          {confirmedPlacement?.overrideReason && <p>Reason: {confirmedPlacement.overrideReason}</p>}
           <button className="el-benchmark-button secondary compact" onClick={() => setShowEditor(true)} type="button">
-            Review or change confirmation
+            Change starting point
           </button>
         </div>
       ) : (
-        <form
-          className="el-benchmark-placement-form"
-          onSubmit={event => {
-            event.preventDefault();
-            if (!confirmationReady) return;
-            onConfirm({
-              selectedMicrophase,
-              proposedMicrophase,
-              reason: reasonRequired ? reason.trim() : ""
-            });
-          }}
-        >
-          {confirmedMicrophase && !confirmedMicrophaseAllowed && (
-            <p className="el-benchmark-band-warning">
-              The previously saved band is outside this grade and window route. Choose a band from the supported range before completing.
-            </p>
-          )}
-          {confirmedMicrophaseAllowed && confirmedRationaleRequired && !String(confirmedPlacement?.overrideReason || "").trim() && (
-            <p className="el-benchmark-band-warning">
-              This saved route needs a teacher rationale before the assessment can be completed.
-            </p>
-          )}
-          <label className="el-benchmark-control">
-            <span>Teacher-confirmed start band</span>
-            <select onChange={event => setSelectedMicrophase(event.target.value)} value={selectedMicrophase}>
-              <option value="">Choose a named microphase</option>
-              <optgroup label="Grade and window administration range">
-                {inRangeOptions.map(option => (
-                  <option key={option.id} value={option.id}>
-                    {option.label}{Number.isInteger(option.anchorCycle) ? ` (Cycle ${option.anchorCycle} anchor)` : ""}
-                  </option>
-                ))}
-              </optgroup>
-              {ceilingOptions.length > 0 && (
-                <optgroup label="Exact adjacent scorer ceiling proposal">
-                  {ceilingOptions.map(option => (
-                    <option key={option.id} value={option.id}>
-                      {option.label}{Number.isInteger(option.anchorCycle) ? ` (Cycle ${option.anchorCycle} anchor)` : ""}
-                    </option>
-                  ))}
-                </optgroup>
-              )}
-            </select>
-          </label>
-
-          {ceilingOptions.length > 0 && (
-            <p className="el-benchmark-inline-note">
-              The scorer&apos;s exact adjacent ceiling proposal is available because every planned band exceeded the automaticity threshold. No other out-of-range band can be confirmed.
-            </p>
-          )}
-
-          {reasonRequired && (
-            <label className="el-benchmark-control">
-              <span>{reasonLabel}</span>
-              <textarea
-                onChange={event => setReason(event.target.value)}
-                placeholder="Record the evidence supporting this alternative"
-                required
-                rows="2"
-                value={reason}
-              />
-            </label>
-          )}
-
-          <div className="el-benchmark-button-row">
-            <button className="el-benchmark-button primary" disabled={!confirmationReady} type="submit">
-              Confirm provisional route
-            </button>
-            {confirmedPlacementReady && (
-              <button className="el-benchmark-button ghost" onClick={() => setShowEditor(false)} type="button">
-                Keep saved confirmation
+        <div className="el-benchmark-placement-choice">
+          {recommendedOption && (
+            <div className="el-benchmark-placement-evidence">
+              <span>Suggested starting point</span>
+              <strong>{recommendedOption.label}</strong>
+              <p>{isEncoding
+                ? "Based on the student’s grade and this assessment window."
+                : "Based on the word-reading results just recorded."}</p>
+              <button
+                className="el-benchmark-button primary el-benchmark-placement-accept"
+                onClick={() => onConfirm({
+                  selectedMicrophase: recommendedMicrophase,
+                  proposedMicrophase,
+                  reason: ""
+                })}
+                type="button"
+              >
+                Use this starting point
               </button>
-            )}
-          </div>
-        </form>
+              <details className="el-benchmark-placement-why">
+                <summary>Why is this suggested?</summary>
+                <p>{proposedPlacement.reason || (isEncoding
+                  ? "Encoding does not use an automatic spelling-to-reading conversion. The grade and assessment window provide a safe default that the teacher can change."
+                  : "The suggestion uses the completed word-reading evidence and the assessment’s supported route.")}</p>
+                <small>Evidence status: {scoreStatus} · {scoredCount} scored item{scoredCount === 1 ? "" : "s"}</small>
+                {administrationRange?.label && <small>Expected range: {administrationRange.label}</small>}
+              </details>
+            </div>
+          )}
+
+          {!showEditor && (
+            <button className="el-benchmark-button ghost" onClick={() => setShowEditor(true)} type="button">
+              Choose a different starting point
+            </button>
+          )}
+
+          {showEditor && (
+            <form
+              className="el-benchmark-placement-form"
+              onSubmit={event => {
+                event.preventDefault();
+                if (!confirmationReady) return;
+                onConfirm({
+                  selectedMicrophase,
+                  proposedMicrophase,
+                  reason: reasonRequired ? reason.trim() : ""
+                });
+              }}
+            >
+              {confirmedMicrophase && !confirmedMicrophaseAllowed && (
+                <p className="el-benchmark-band-warning">
+                  The saved starting point is outside this assessment route. Choose one of the available options.
+                </p>
+              )}
+              <label className="el-benchmark-control">
+                <span>Different starting point</span>
+                <select onChange={event => setSelectedMicrophase(event.target.value)} value={selectedMicrophase}>
+                  <option value="">Choose a starting point</option>
+                  <optgroup label="Expected range">
+                    {inRangeOptions.map(option => (
+                      <option key={option.id} value={option.id}>
+                        {option.label}{Number.isInteger(option.anchorCycle) ? ` (Cycle ${option.anchorCycle})` : ""}
+                      </option>
+                    ))}
+                  </optgroup>
+                  {ceilingOptions.length > 0 && (
+                    <optgroup label="Next supported level">
+                      {ceilingOptions.map(option => (
+                        <option key={option.id} value={option.id}>
+                          {option.label}{Number.isInteger(option.anchorCycle) ? ` (Cycle ${option.anchorCycle})` : ""}
+                        </option>
+                      ))}
+                    </optgroup>
+                  )}
+                </select>
+              </label>
+
+              {reasonRequired && (
+                <label className="el-benchmark-control">
+                  <span>Why are you choosing a different starting point?</span>
+                  <textarea
+                    onChange={event => setReason(event.target.value)}
+                    placeholder="For example: recent classroom reading shows this is a better fit"
+                    required
+                    rows="2"
+                    value={reason}
+                  />
+                </label>
+              )}
+
+              <div className="el-benchmark-button-row">
+                <button className="el-benchmark-button primary" disabled={!confirmationReady} type="submit">
+                  Save starting point
+                </button>
+                {recommendedOption && (
+                  <button className="el-benchmark-button ghost" onClick={() => setShowEditor(false)} type="button">
+                    Cancel change
+                  </button>
+                )}
+              </div>
+            </form>
+          )}
+        </div>
       )}
     </section>
   );
@@ -2535,7 +2748,13 @@ export function ELBenchmarkAssessmentPage({
     const itemId = getItemId(item, index, kind);
     return isItemResolved(kind, responses[itemId], item);
   });
+  const fluencyStopIndex = kind === ASSESSMENT_KINDS.FLUENCY && fluencyStopEvidence?.confirmed
+    ? items.findIndex((item, index) => (
+        getItemId(item, index, ASSESSMENT_KINDS.FLUENCY) === fluencyStopEvidence.passageId
+      ))
+    : -1;
   const fluencyRouteReviewed = kind !== ASSESSMENT_KINDS.FLUENCY || items.every((item, index) => {
+    if (fluencyStopIndex >= 0 && index > fluencyStopIndex) return true;
     const itemId = getItemId(item, index, ASSESSMENT_KINDS.FLUENCY);
     const response = responses[itemId] || {};
     if (response.status === "not_administered" && response.routeSkipReason === "fluency_stop_teacher_judgment") {
@@ -2573,6 +2792,12 @@ export function ELBenchmarkAssessmentPage({
   const confirmedPlacementMicrophase = getPlacementMicrophase(session.confirmedPlacement);
   const proposedPlacementMicrophase = getPlacementMicrophase(placementPreview?.candidatePlacement);
   const placementRangeMicrophases = getAdministrationRangeMicrophases(plan?.route || {});
+  const defaultPlacementMicrophase = [
+    plan?.route?.expectedMicrophase,
+    plan?.route?.defaultStartMicrophase,
+    plan?.route?.selectedStartMicrophase,
+    placementRangeMicrophases[0]
+  ].find(microphase => placementRangeMicrophases.includes(microphase)) || placementRangeMicrophases[0] || "";
   const adjacentCeilingProposalAvailable = placementPreview?.scoreStatus === "scored" &&
     Number(placementPreview?.scoredCount || 0) > 0 &&
     isExactAdjacentCeilingProposal(
@@ -2583,6 +2808,9 @@ export function ELBenchmarkAssessmentPage({
   const placementAllowedMicrophases = adjacentCeilingProposalAvailable
     ? Array.from(new Set([...placementRangeMicrophases, proposedPlacementMicrophase]))
     : placementRangeMicrophases;
+  const recommendedPlacementMicrophase = placementAllowedMicrophases.includes(proposedPlacementMicrophase)
+    ? proposedPlacementMicrophase
+    : defaultPlacementMicrophase;
   const confirmedPlacementAllowed = Boolean(
     confirmedPlacementMicrophase && placementAllowedMicrophases.includes(confirmedPlacementMicrophase)
   );
@@ -2593,7 +2821,8 @@ export function ELBenchmarkAssessmentPage({
     kind,
     placementPreview,
     confirmedPlacementMicrophase,
-    proposedPlacementMicrophase
+    proposedPlacementMicrophase,
+    recommendedPlacementMicrophase
   );
   const placementConfirmed = !requiresPlacementConfirmation || Boolean(
     confirmedPlacementMicrophase &&
@@ -2625,7 +2854,7 @@ export function ELBenchmarkAssessmentPage({
     return nextSession;
   }, [onSessionChange]);
 
-  const updateCurrentResponse = useCallback((patch) => {
+  const updateCurrentResponse = useCallback((patch, options = {}) => {
     if (!currentItemId) return;
     const now = new Date().toISOString();
     const rawPrevious = responses[currentItemId] || {};
@@ -2693,6 +2922,7 @@ export function ELBenchmarkAssessmentPage({
       assessmentId: session.assessmentId || plan?.assessmentId || "",
       administeredAt: previous.administeredAt || now,
       ...patch,
+      ...(options.advance ? { outcomeRecordedAt: now } : {}),
       updatedAt: now
     };
 
@@ -2705,17 +2935,32 @@ export function ELBenchmarkAssessmentPage({
       };
     }
 
+    const nextIndex = options.advance &&
+      isResponseComplete(kind, nextResponse, currentItem) &&
+      kind !== ASSESSMENT_KINDS.FLUENCY &&
+      currentIndex < items.length - 1 &&
+      (
+        kind !== ASSESSMENT_KINDS.DECODING ||
+        currentBand?.indexes.includes(currentIndex + 1)
+      )
+      ? currentIndex + 1
+      : currentIndex;
+
     emitSession(makeSessionSnapshot({
       status: ["completed", "discontinued"].includes(session.status) ? session.status : "in_progress",
       startedAt: session.startedAt || now,
       updatedAt: now,
+      administrationVersion: session.administrationVersion || QUICK_ADMINISTRATION_VERSION,
+      responseSchemaVersion: Math.max(2, Number(session.responseSchemaVersion) || 0),
+      currentItemIndex: nextIndex,
+      itemIndex: nextIndex,
       ...stopPatch,
       responses: {
         ...nextResponses,
         [currentItemId]: nextResponse
       }
     }));
-  }, [currentBandIndex, currentIndex, currentItem, currentItemId, decodingBandDecisions, decodingBands, emitSession, fluencyPassageDecisions, fluencyStopEvidence?.confirmed, items, kind, makeSessionSnapshot, plan, responses, session.assessmentId, session.confirmedPlacement, session.decodingStop?.confirmed, session.startedAt, session.status]);
+  }, [currentBand, currentBandIndex, currentIndex, currentItem, currentItemId, decodingBandDecisions, decodingBands, emitSession, fluencyPassageDecisions, fluencyStopEvidence?.confirmed, items, kind, makeSessionSnapshot, plan, responses, session.administrationVersion, session.assessmentId, session.confirmedPlacement, session.decodingStop?.confirmed, session.responseSchemaVersion, session.startedAt, session.status]);
 
   const isItemNavigationAllowed = useCallback((targetIndex) => {
     if (kind === ASSESSMENT_KINDS.FLUENCY) {
@@ -2723,7 +2968,7 @@ export function ELBenchmarkAssessmentPage({
       for (let passageIndex = currentIndex; passageIndex < targetIndex; passageIndex += 1) {
         const passageId = getItemId(items[passageIndex], passageIndex, ASSESSMENT_KINDS.FLUENCY);
         if (fluencyStopEvidence?.confirmed && fluencyStopEvidence.passageId === passageId) return false;
-        if (fluencyPassageDecisions[passageId]?.action !== "continue") return false;
+        if (!["continue", "review_later_evidence"].includes(fluencyPassageDecisions[passageId]?.action)) return false;
       }
       return true;
     }
@@ -2797,7 +3042,8 @@ export function ELBenchmarkAssessmentPage({
       kind,
       placementPreview,
       selectedMicrophase,
-      proposedMicrophase
+      proposedMicrophase,
+      recommendedPlacementMicrophase
     );
     const overrideReason = reasonRequired ? String(reason || "").trim() : "";
     if (reasonRequired && !overrideReason) return;
@@ -2845,6 +3091,154 @@ export function ELBenchmarkAssessmentPage({
       updatedAt: now
     }));
     if (typeof onComplete === "function") onComplete(nextSession);
+  };
+
+  const recordFluencyAccuracyAndRoute = (accurate) => {
+    if (kind !== ASSESSMENT_KINDS.FLUENCY || typeof accurate !== "boolean" || timerIsRunning) return;
+
+    const now = new Date().toISOString();
+    const accuracyPatch = {
+      accurate,
+      passageAccurate: accurate,
+      accuracyJudgmentSource: "teacher",
+      accuracyJudgedAt: now
+    };
+    const nextResponse = {
+      ...currentResponse,
+      ...accuracyPatch,
+      itemId: currentItemId,
+      assessmentId: session.assessmentId || plan.assessmentId,
+      administeredAt: currentResponse.administeredAt || now,
+      outcomeRecordedAt: now,
+      updatedAt: now
+    };
+    nextResponse.status = isResponseComplete(ASSESSMENT_KINDS.FLUENCY, nextResponse, currentItem)
+      ? "recorded"
+      : "not_administered";
+
+    if (!isResponseComplete(ASSESSMENT_KINDS.FLUENCY, nextResponse, currentItem)) {
+      updateCurrentResponse(accuracyPatch);
+      return;
+    }
+
+    const retainedDecisions = Object.fromEntries(Object.entries(fluencyPassageDecisions).filter(([passageId]) => {
+      const passageIndex = items.findIndex((item, index) => (
+        getItemId(item, index, ASSESSMENT_KINDS.FLUENCY) === passageId
+      ));
+      return passageIndex >= 0 && passageIndex < currentIndex;
+    }));
+    const retainedResponses = Object.fromEntries(Object.entries(responses).filter(([, savedResponse]) => (
+      savedResponse?.routeSkipReason !== "fluency_stop_teacher_judgment"
+    )));
+    const nextResponses = {
+      ...retainedResponses,
+      [currentItemId]: nextResponse
+    };
+    const commonSnapshot = {
+      status: "in_progress",
+      startedAt: session.startedAt || now,
+      updatedAt: now,
+      responses: nextResponses,
+      fluencyPassageDecisions: retainedDecisions,
+      fluencyStop: null,
+      fluencyStopEvidence: null,
+      fluencyStopReason: ""
+    };
+
+    if (accurate) {
+      const nextItem = items[currentIndex + 1] || null;
+      const evidence = nextItem ? {
+        action: "continue",
+        passageId: currentItemId,
+        passageIndex: currentIndex,
+        microphase: currentItem.microphase || currentItem.bandId || "",
+        microphaseLabel: currentItem.microphaseLabel || "",
+        accurate: true,
+        passageAccurate: true,
+        reason: "teacher_judgment_accurate",
+        judgmentSource: "teacher",
+        decidedAt: now
+      } : null;
+
+      emitSession(makeSessionSnapshot({
+        ...commonSnapshot,
+        ...(nextItem ? {
+          currentItemIndex: currentIndex + 1,
+          itemIndex: currentIndex + 1,
+          fluencyPassageDecisions: {
+            ...retainedDecisions,
+            [currentItemId]: evidence
+          }
+        } : {})
+      }));
+      return;
+    }
+
+    const laterIndexes = items.slice(currentIndex + 1).map((_, offset) => currentIndex + offset + 1);
+    const retainedLaterPassageIds = laterIndexes.map(index => (
+      getItemId(items[index], index, ASSESSMENT_KINDS.FLUENCY)
+    )).filter(itemId => (
+      hasResponseContent(nextResponses[itemId]) &&
+      nextResponses[itemId]?.routeSkipReason !== "fluency_stop_teacher_judgment"
+    ));
+    laterIndexes.forEach(index => {
+      const itemId = getItemId(items[index], index, ASSESSMENT_KINDS.FLUENCY);
+      if (retainedLaterPassageIds.includes(itemId)) return;
+      nextResponses[itemId] = {
+        itemId,
+        assessmentId: session.assessmentId || plan.assessmentId,
+        status: "not_administered",
+        isCorrect: null,
+        accurate: null,
+        passageAccurate: null,
+        routeSkipReason: "fluency_stop_teacher_judgment",
+        stopPassageId: currentItemId,
+        updatedAt: now
+      };
+    });
+    const laterReviewEvidence = fluencyLaterHasEvidence ? {
+      action: "review_later_evidence",
+      passageId: currentItemId,
+      passageIndex: currentIndex,
+      microphase: currentItem.microphase || currentItem.bandId || "",
+      microphaseLabel: currentItem.microphaseLabel || "",
+      accurate: false,
+      passageAccurate: false,
+      reason: "later_administered_evidence_preserved_after_changed_judgment",
+      judgmentSource: "teacher",
+      decidedAt: now
+    } : null;
+    const stopEvidence = {
+      confirmed: true,
+      passageId: currentItemId,
+      passageIndex: currentIndex,
+      microphase: currentItem.microphase || currentItem.bandId || "",
+      microphaseLabel: currentItem.microphaseLabel || "",
+      anchorCycle: currentItem.anchorCycle ?? null,
+      accurate: false,
+      passageAccurate: false,
+      zeroWordsReached: false,
+      criterion: "explicit_false",
+      metric: plan.administration?.stopRule?.metric || "teacher_accuracy_judgment",
+      threshold: null,
+      reason: "teacher_judgment_not_accurate",
+      judgmentSource: "teacher",
+      laterEvidencePreserved: fluencyLaterHasEvidence,
+      retainedLaterPassageIds,
+      confirmedAt: now
+    };
+
+    emitSession(makeSessionSnapshot({
+      ...commonSnapshot,
+      responses: nextResponses,
+      fluencyPassageDecisions: fluencyLaterHasEvidence ? {
+        ...fluencyPassageDecisions,
+        [currentItemId]: laterReviewEvidence
+      } : retainedDecisions,
+      fluencyStop: stopEvidence,
+      fluencyStopEvidence: stopEvidence,
+      fluencyStopReason: "teacher_judgment_not_accurate"
+    }));
   };
 
   const continueFluency = (targetIndex, reason = null) => {
@@ -3097,17 +3491,15 @@ export function ELBenchmarkAssessmentPage({
     <main className="el-benchmark-shell" aria-labelledby="el-benchmark-page-title">
       <header className="el-benchmark-topbar">
         <div className="el-benchmark-title-block">
-          <span className="el-benchmark-framework-label">LiteracyPath EL-aligned</span>
           <div>
             <h1 id="el-benchmark-page-title">{plan.title || "EL-aligned benchmark"}</h1>
-            <span className="el-benchmark-provisional-badge">Provisional content and routing</span>
           </div>
-          <p>{getStudentName(session)} | {formatGrade(session.grade)} | {formatWindow(session.window)}</p>
+          <p>{getStudentName(session)} · {formatGrade(session.grade)} · {formatWindow(session.window)}</p>
         </div>
 
         <div className="el-benchmark-header-progress">
           <div>
-            <span>Resolved</span>
+            <span>Progress</span>
             <strong>{resolvedItems.length} of {items.length}</strong>
           </div>
           <progress aria-label={`${resolvedItems.length} of ${items.length} items resolved`} max="100" value={progressPercent} />
@@ -3119,7 +3511,7 @@ export function ELBenchmarkAssessmentPage({
               Draft could not be saved on this device. Keep this page open and free storage before leaving.
             </span>
           ) : (
-            <span className="el-benchmark-autosave-note">Changes save to this draft automatically.</span>
+            <span className="el-benchmark-autosave-note">Saved automatically</span>
           )}
           <button
             className="el-benchmark-button secondary"
@@ -3128,37 +3520,27 @@ export function ELBenchmarkAssessmentPage({
             title={timerIsRunning ? "Stop the timer before saving" : undefined}
             type="button"
           >
-            Save partial &amp; exit
-          </button>
-          <button
-            className="el-benchmark-button ghost"
-            disabled={timerIsRunning || draftSaveFailed}
-            onClick={() => onCancel?.()}
-            title={timerIsRunning
-              ? "Stop the timer before returning"
-              : draftSaveFailed
-                ? "Free storage or use Save partial & exit before leaving"
-                : "Return while keeping this auto-saved draft"}
-            type="button"
-          >
-            Return to assessments
+            Save &amp; exit
           </button>
         </div>
       </header>
 
       <div className="el-benchmark-workspace">
-        <RouteSummary
-          currentIndex={currentIndex}
-          isItemNavigationAllowed={isItemNavigationAllowed}
-          items={items}
-          kind={kind}
-          navigationLocked={timerIsRunning}
-          navigationLockMessage={routeNavigationLockMessage}
-          onSelectItem={selectItem}
-          plan={plan}
-          responses={responses}
-          session={session}
-        />
+        <details className="el-benchmark-review-drawer">
+          <summary>Review answers or instructions</summary>
+          <RouteSummary
+            currentIndex={currentIndex}
+            isItemNavigationAllowed={isItemNavigationAllowed}
+            items={items}
+            kind={kind}
+            navigationLocked={timerIsRunning}
+            navigationLockMessage={routeNavigationLockMessage}
+            onSelectItem={selectItem}
+            plan={plan}
+            responses={responses}
+            session={session}
+          />
+        </details>
 
         <section className="el-benchmark-work-area">
           <ItemPanel
@@ -3167,7 +3549,9 @@ export function ELBenchmarkAssessmentPage({
             itemNumber={currentIndex + 1}
             key={currentItemId}
             kind={kind}
+            onAccuracyDecision={recordFluencyAccuracyAndRoute}
             onResponseChange={updateCurrentResponse}
+            onQuickScore={patch => updateCurrentResponse(patch, { advance: true })}
             plan={plan}
             response={currentResponse}
           />
@@ -3211,24 +3595,17 @@ export function ELBenchmarkAssessmentPage({
               onClick={() => selectItem(currentIndex - 1)}
               type="button"
             >
-              Previous item
+              ↶ Change previous answer
             </button>
             <p aria-live="polite">
               {isResponseComplete(kind, currentResponse, currentItem)
-                ? "This item is recorded."
+                ? "Answer saved."
                 : hasResponseContent(currentResponse)
-                  ? "This item is partially recorded."
-                  : "This item is unadministered."}
+                  ? "More detail is needed here."
+                  : kind === ASSESSMENT_KINDS.FLUENCY
+                    ? "Complete the read above."
+                    : "Choose one answer above — it saves and moves on."}
             </p>
-            <button
-              className="el-benchmark-button primary"
-              disabled={timerIsRunning || currentIndex === items.length - 1 || !isResponseComplete(kind, currentResponse, currentItem) || !isItemNavigationAllowed(currentIndex + 1)}
-              onClick={() => selectItem(currentIndex + 1)}
-              title={!isItemNavigationAllowed(currentIndex + 1) ? routeNavigationLockMessage : undefined}
-              type="button"
-            >
-              Next item
-            </button>
           </nav>
 
           {requiresPlacementConfirmation && allItemsComplete && (
@@ -3237,6 +3614,7 @@ export function ELBenchmarkAssessmentPage({
               allowedMicrophases={placementAllowedMicrophases}
               assessmentKind={kind}
               confirmedPlacement={session.confirmedPlacement}
+              defaultMicrophase={defaultPlacementMicrophase}
               key={`${kind}-${placementPreview?.candidatePlacement?.candidateMicrophase || "teacher-select"}-${confirmedPlacementMicrophase || "unconfirmed"}-${session.confirmedPlacement?.confirmedAt || "new"}`}
               onConfirm={confirmPlacement}
               normalRangeMicrophases={placementRangeMicrophases}
@@ -3254,22 +3632,25 @@ export function ELBenchmarkAssessmentPage({
       )}
 
       <footer className="el-benchmark-footer">
-        <button
-          className="el-benchmark-button ghost danger-text"
-          disabled={timerIsRunning}
-          onClick={() => setShowDiscontinue(show => !show)}
-          type="button"
-        >
-          {showDiscontinue ? "Close discontinue panel" : "Discontinue assessment"}
-        </button>
+        <details className="el-benchmark-footer-more">
+          <summary>More options</summary>
+          <button
+            className="el-benchmark-button ghost danger-text"
+            disabled={timerIsRunning}
+            onClick={() => setShowDiscontinue(show => !show)}
+            type="button"
+          >
+            {showDiscontinue ? "Close stop-early panel" : "Stop assessment early"}
+          </button>
+        </details>
         <p>
           {canCompleteAssessment
-            ? "Every planned item is resolved. Review recorded, not-scorable, and stop-rule outcomes before completing."
+            ? "Everything is ready to save."
             : allItemsComplete && requiresPlacementConfirmation
-              ? "Assessment evidence is complete. Confirm the provisional Decoding start band before finishing."
+              ? "Choose the student’s next starting point above."
             : resolvedItems.length === items.length
-              ? "Every item is recorded. Complete the required route or placement review before finishing."
-              : `${items.length - resolvedItems.length} item${items.length - resolvedItems.length === 1 ? "" : "s"} remain unadministered or partial.`}
+              ? "Review the suggested next step above."
+              : `${items.length - resolvedItems.length} item${items.length - resolvedItems.length === 1 ? "" : "s"} left.`}
         </p>
         <button
           className="el-benchmark-button primary"
@@ -3277,7 +3658,7 @@ export function ELBenchmarkAssessmentPage({
           onClick={completeAssessment}
           type="button"
         >
-          Complete assessment
+          Finish assessment
         </button>
       </footer>
     </main>

@@ -8,8 +8,8 @@ import {
   getElBenchmarkPlan
 } from "../data/elBenchmarkAssessmentCatalog.js";
 
-export const EL_BENCHMARK_SCORING_VERSION = "2026.07.21-v1";
-export const EL_BENCHMARK_ATTEMPT_SCHEMA_VERSION = 2;
+export const EL_BENCHMARK_SCORING_VERSION = "2026.07.22-v2";
+export const EL_BENCHMARK_ATTEMPT_SCHEMA_VERSION = 3;
 
 const ADMINISTRATION_STATUS_SET = new Set(Object.values(EL_ADMINISTRATION_STATUSES));
 const ITEM_STATUS_SET = new Set(Object.values(EL_ITEM_RESPONSE_STATUSES));
@@ -116,8 +116,13 @@ function hasRecordedResponseText(response) {
   ).trim().length > 0;
 }
 
-function requiresRecordedResponseText(status) {
-  return ![
+function hasQuickTeacherJudgment(response = {}) {
+  return response?.responseCaptureMode === "quick_teacher_judgment" &&
+    typeof (response.isCorrect ?? response.correct) === "boolean";
+}
+
+function requiresRecordedResponseText(status, response = {}) {
+  return !hasQuickTeacherJudgment(response) && ![
     EL_ITEM_RESPONSE_STATUSES.NO_RESPONSE,
     EL_ITEM_RESPONSE_STATUSES.NOT_ADMINISTERED,
     EL_ITEM_RESPONSE_STATUSES.NOT_SCORABLE
@@ -186,6 +191,8 @@ function auditTrail(response, computed = {}) {
   return {
     evaluationSource: teacherOverride
       ? "teacher_override"
+      : response?.responseCaptureMode === "quick_teacher_judgment"
+        ? "quick_teacher_judgment"
       : explicitCorrect
         ? "teacher_judgment"
         : computed.evaluationSource || "scoring_rule",
@@ -231,6 +238,11 @@ function baseQuestionRecord(item, response, result = {}) {
     bandId: item.bandId || "",
     anchorCycle: item.anchorCycle ?? null,
     responseTimeMs: asFiniteNumber(response?.elapsedMs),
+    responseCaptureMode: String(response?.responseCaptureMode || (
+      item.kind === "fluency_passage" ? "timed_reading_observation" : "legacy_unspecified"
+    )),
+    responseDetailCaptured: hasRecordedResponseText(response),
+    outcomeRecordedAt: response?.outcomeRecordedAt || "",
     automatic: result.automatic ?? null,
     selfCorrected: Boolean(response?.selfCorrected || status === EL_ITEM_RESPONSE_STATUSES.SELF_CORRECTED),
     notes: response?.notes || "",
@@ -291,7 +303,7 @@ function scorePhonologicalAwareness(plan, responses, administrationStatus) {
     const status = responseStatus(response);
     let isCorrect = isExplicitlyCorrect(response, status);
     let evaluationSource = "teacher_judgment";
-    const responseTextMissing = requiresRecordedResponseText(status) && !hasRecordedResponseText(response);
+    const responseTextMissing = requiresRecordedResponseText(status, response) && !hasRecordedResponseText(response);
     const stateIssues = responseStateValidationIssues(response, status);
     if (isCorrect === null && status === EL_ITEM_RESPONSE_STATUSES.RECORDED) {
       isCorrect = compareExpected(item, response);
@@ -388,7 +400,7 @@ function scoreEncoding(plan, responses, administrationStatus, session) {
     const response = responseFor(responses, item.id);
     const status = responseStatus(response);
     const transcription = normalizeSpelling(response?.transcription ?? response?.responseText ?? "");
-    const responseTextMissing = requiresRecordedResponseText(status) && !transcription;
+    const responseTextMissing = requiresRecordedResponseText(status, response) && !transcription;
     const accepted = (item.acceptedSpellings || []).map(normalizeSpelling);
     const authoredPlausible = (item.plausibleSpellings || []).map(normalizeSpelling);
     const stateIssues = responseStateValidationIssues(response, status);
@@ -396,6 +408,7 @@ function scoreEncoding(plan, responses, administrationStatus, session) {
     const explicitExact = typeof response?.exact === "boolean"
       ? response.exact
       : isExplicitlyCorrect(response, status);
+    const quickJudgment = hasQuickTeacherJudgment(response);
     const exactContradiction = Boolean(transcription) &&
       typeof explicitExact === "boolean" &&
       explicitExact !== computedExact;
@@ -419,7 +432,11 @@ function scoreEncoding(plan, responses, administrationStatus, session) {
       }
     }
 
-    let exact = transcription ? computedExact : null;
+    let exact = transcription
+      ? computedExact
+      : quickJudgment && typeof explicitExact === "boolean"
+        ? explicitExact
+        : null;
     if (exactOverrideValid) exact = explicitExact;
     if (status === EL_ITEM_RESPONSE_STATUSES.NO_RESPONSE) exact = false;
     if (status === EL_ITEM_RESPONSE_STATUSES.NOT_SCORABLE || status === EL_ITEM_RESPONSE_STATUSES.NOT_ADMINISTERED) exact = null;
@@ -460,7 +477,11 @@ function scoreEncoding(plan, responses, administrationStatus, session) {
       status,
       isCorrect: exact,
       validationIssues,
-      evaluationSource: exactOverrideValid ? "teacher_override" : "exact_spelling_rule"
+      evaluationSource: exactOverrideValid
+        ? "teacher_override"
+        : quickJudgment
+          ? "quick_teacher_judgment"
+          : "exact_spelling_rule"
     });
     return {
       ...record,
@@ -653,7 +674,7 @@ function scoreDecoding(plan, responses, administrationStatus, session) {
     const response = responseFor(responses, item.id);
     const status = responseStatus(response);
     let isCorrect = isExplicitlyCorrect(response, status);
-    const responseTextMissing = requiresRecordedResponseText(status) && !hasRecordedResponseText(response);
+    const responseTextMissing = requiresRecordedResponseText(status, response) && !hasRecordedResponseText(response);
     const stateIssues = decodingResponseStateValidationIssues(response, status, item);
     if (status === EL_ITEM_RESPONSE_STATUSES.NOT_SCORABLE || status === EL_ITEM_RESPONSE_STATUSES.NOT_ADMINISTERED) {
       isCorrect = null;
@@ -1455,6 +1476,8 @@ export function scoreElBenchmarkSession(session = {}) {
     contentVersion: plan.contentVersion,
     scoringVersion: EL_BENCHMARK_SCORING_VERSION,
     scoringRuleVersion: EL_BENCHMARK_SCORING_VERSION,
+    administrationVersion: session.administrationVersion || "legacy_unspecified",
+    responseSchemaVersion: Math.max(1, Number(session.responseSchemaVersion) || 1),
     assessmentId: plan.assessmentId,
     skillId: plan.assessmentId,
     skillName: plan.title,
@@ -1556,6 +1579,8 @@ export function buildElBenchmarkAttempt(session = {}, ownership = {}) {
     framework: score.framework,
     formVersion: score.formVersion,
     scoringRuleVersion: score.scoringRuleVersion,
+    administrationVersion: score.administrationVersion,
+    responseSchemaVersion: score.responseSchemaVersion,
     gradePath: score.gradePath,
     grade: score.grade,
     benchmarkWindow: score.benchmarkWindow,
@@ -1628,6 +1653,8 @@ export function buildElBenchmarkAttempt(session = {}, ownership = {}) {
       contentVersion: score.contentVersion,
       scoringVersion: score.scoringVersion,
       scoringRuleVersion: score.scoringRuleVersion,
+      administrationVersion: score.administrationVersion,
+      responseSchemaVersion: score.responseSchemaVersion,
       grade: score.grade,
       window: score.window,
       framework: score.framework.label,
