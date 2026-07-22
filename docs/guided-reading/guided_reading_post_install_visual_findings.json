@@ -449,9 +449,14 @@
       9
     ],
     "135": [
+      1,
+      2,
       3,
       4,
-      7
+      5,
+      6,
+      7,
+      8
     ],
     "138": [
       1,
@@ -1694,7 +1699,7 @@
       "issues": [
         "continuity"
       ],
-      "finding": "Shy is the pale-grey rabbit on pages 2 and 8, but becomes a mouse on pages 3 and 7; page 4 also changes Tiny from the locked grey mouse into a brown mouse. Restore Shy as the same rabbit peeking/sitting beside Cuddly and Tiny as the same grey mouse."
+      "finding": "The full sequence drifted canonical Shy into a pale-grey rabbit, and page 4 also changed Tiny's model. Rebuild all active pages with Shy as the same larger pale-grey mouse, Tiny as the distinctly smaller blue-grey mouse, Bouncy as the established spring-legged yellow sheep and Cuddly as the orange tabby. The repaired final beats show Shy come out before sitting beside Cuddly."
     },
     {
       "bookNumber": 138,
@@ -1752,7 +1757,7 @@
       "issues": [
         "continuity"
       ],
-      "finding": "Every page replaces the established pale-grey rabbit Shy with a grey mouse, making Shy indistinguishable from Tiny. Rebuild the full sequence with the locked rabbit Shy and orange cat Cuddly; use a low sturdy branch for the tree scene."
+      "finding": "Every page uses the rabbit-drift version of Shy. Rebuild the full sequence with canonical Shy as the larger pale-grey mouse and Cuddly as the orange tabby; keep Shy distinct from smaller blue-grey Tiny, use a broad low sturdy branch, and show Cuddly asking before their mutual hug."
     },
     {
       "bookNumber": 147,
@@ -1795,7 +1800,7 @@
         "continuity",
         "textMatch"
       ],
-      "finding": "Pages 7-8 make Shy a mouse, while pages 12-13 show a second mouse and omit much of the cast despite saying everyone is present. Restore Shy as the pale-grey rabbit, retain Tiny as the only mouse, and stage the complete locked Meadow Pals cast in both finale images."
+      "finding": "Pages 7-8 still use the rabbit-drift version of Shy, while pages 12-13 add that rabbit and uncontrolled extra animals instead of the named cast. Restore Shy as the larger pale-grey mouse, keep Tiny as the distinctly smaller blue-grey mouse, and stage exactly the eight named Meadow Pals once each in both finale images."
     },
     {
       "bookNumber": 152,

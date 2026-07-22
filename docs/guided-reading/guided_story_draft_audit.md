@@ -14,4 +14,3 @@ Guided story fiction drafts were removed on 2026-05-26. New fiction will be rebu
 ## Status
 
 PASS
-

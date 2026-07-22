@@ -775,11 +775,11 @@ const meadowPalsBookData = [
       },
       {
         "pageNumber": 7,
-        "text": "Shy sat next to Cuddly."
+        "text": "Then Shy came out."
       },
       {
         "pageNumber": 8,
-        "text": "Then Shy came out."
+        "text": "Shy sat next to Cuddly."
       },
       {
         "pageNumber": 9,
@@ -1265,7 +1265,7 @@ const meadowPalsBookData = [
     "pages": [
       {
         "pageNumber": 1,
-        "text": "Cuddly wants a hug. Cuddly looks and looks."
+        "text": "Cuddly wants a friend. Cuddly looks and looks."
       },
       {
         "pageNumber": 2,
@@ -1285,7 +1285,7 @@ const meadowPalsBookData = [
       },
       {
         "pageNumber": 6,
-        "text": "\"Oh!\" said Cuddly."
+        "text": "\"Hi, Shy,\" said Cuddly."
       },
       {
         "pageNumber": 7,
@@ -1293,11 +1293,11 @@ const meadowPalsBookData = [
       },
       {
         "pageNumber": 8,
-        "text": "Cuddly got a hug."
+        "text": "\"Can I hug you?\" said Cuddly."
       },
       {
         "pageNumber": 9,
-        "text": "Shy got a hug too."
+        "text": "\"Yes,\" said Shy. They had a hug."
       },
       {
         "pageNumber": 10,

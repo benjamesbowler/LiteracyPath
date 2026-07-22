@@ -667,22 +667,22 @@
       "label": "Shy and Cuddly Find Each Other",
       "useBookCover": false,
       "maxReferences": 2,
-      "anchorPaths": ["/guided-reading/series/meadow-pals/book-09/page-007.webp", "/guided-reading/series/meadow-pals/book-09/page-003.webp"],
-      "characterLock": "Shy is always exactly one small pale-grey rabbit with two long rabbit ears, pink inner ears, a white muzzle and belly, one small pink nose, large black eyes, four small paws and one short round tail. Shy is never a mouse and never has round mouse ears or a long thin mouse tail. Cuddly is always exactly one compact orange tabby cat with darker orange forehead, back, leg and tail stripes, bright green eyes, cream muzzle and belly, triangular ears and no clothes.",
-      "plannerGuidance": "Use one continuous sunny farmyard centred on the same enormous old shade tree with one broad low stable branch no higher than Cuddly can comfortably climb. Page 1 shows Cuddly alone looking around for a friend to hug. Page 2 shows Shy alone partly hidden among leaves beside the trunk or on the low branch, with the long rabbit ears clearly visible. Page 3 shows Cuddly walking past the tree while Shy is subtly visible above. Page 4 reveals Shy safely on the broad low branch as Cuddly looks up from below. Page 5 is a close view of Shy surprised but calm on the branch. Page 6 is a distinct low-angle close view of Cuddly surprised and looking upward, with no text. Page 7 shows exactly Shy and Cuddly seated side by side on the same wide low branch. Page 8 shows Shy initiating one clear gentle hug around Cuddly. Page 9 reverses the embrace so Cuddly initiates a clear gentle hug around Shy. Page 10 is a wider ending of both sitting happily together on that low branch with the barn and farm visible beyond. Keep bodies separate and readable, paws anatomically coherent, and the branch visibly broad and safe.",
+      "anchorPaths": ["/guided-reading/series/meadow-pals/book-09/cover.webp", "/guided-reading/series/meadow-pals/book-15/cover.webp"],
+      "characterLock": "Shy is always exactly one larger pale-grey mouse with oversized round mouse ears, pink inner ears, a white muzzle and belly, one small pink nose, large black eyes, four small paws and one long thin grey mouse tail. Shy is never a rabbit and never has long rabbit ears or a short round rabbit tail. Cuddly is always exactly one compact orange tabby cat with darker orange forehead, back, leg and curved ringed-tail stripes, bright green eyes, cream muzzle and belly, triangular ears and no clothes.",
+      "plannerGuidance": "Use one continuous sunny farmyard centred on the same enormous old shade tree with one broad low stable branch no higher than Cuddly can comfortably climb. Page 1 shows Cuddly alone looking around for a friend, not demanding a hug. Page 2 shows Shy alone partly hidden among leaves beside the trunk or on the low branch, with oversized round mouse ears and the thin mouse tail clearly visible. Page 3 shows Cuddly walking past the tree while Shy is subtly visible above. Page 4 reveals Shy safely on the broad low branch as Cuddly looks up from below. Page 5 is a close view of Shy surprised but calm on the branch. Page 6 is a distinct low-angle close view of Cuddly greeting Shy and looking upward, with no text. Page 7 shows exactly Shy and Cuddly seated side by side on the same wide low branch. Page 8 shows Cuddly politely asking for a hug through an open, hopeful pose while leaving comfortable space; no touching yet. Page 9 shows one clearly mutual gentle hug after Shy has agreed. Page 10 is a wider ending of both sitting happily together on that low branch with the barn and farm visible beyond. Keep bodies separate and readable outside the page 9 embrace, paws anatomically coherent, Shy's tail visible, and the branch visibly broad and safe.",
       "pageAnchorPaths": {
-        "1": ["/guided-reading/series/meadow-pals/book-09/page-007.webp"],
-        "2": ["/guided-reading/series/meadow-pals/book-09/page-003.webp"],
-        "3": ["/guided-reading/series/meadow-pals/book-09/page-003.webp", "/guided-reading/series/meadow-pals/book-09/page-007.webp"],
-        "4": ["/guided-reading/series/meadow-pals/book-09/page-003.webp", "/guided-reading/series/meadow-pals/book-09/page-007.webp"],
-        "5": ["/guided-reading/series/meadow-pals/book-09/page-003.webp"],
-        "6": ["/guided-reading/series/meadow-pals/book-09/page-007.webp"],
-        "7": ["/guided-reading/series/meadow-pals/book-09/page-007.webp"],
-        "8": ["/guided-reading/series/meadow-pals/book-09/page-007.webp"],
-        "9": ["/guided-reading/series/meadow-pals/book-09/page-007.webp"],
-        "10": ["/guided-reading/series/meadow-pals/book-09/page-007.webp"]
+        "1": ["/guided-reading/series/meadow-pals/book-15/cover.webp"],
+        "2": ["/guided-reading/series/meadow-pals/book-09/cover.webp"],
+        "3": ["/guided-reading/series/meadow-pals/book-09/cover.webp", "/guided-reading/series/meadow-pals/book-15/cover.webp"],
+        "4": ["/guided-reading/series/meadow-pals/book-09/cover.webp", "/guided-reading/series/meadow-pals/book-15/cover.webp"],
+        "5": ["/guided-reading/series/meadow-pals/book-09/cover.webp"],
+        "6": ["/guided-reading/series/meadow-pals/book-15/cover.webp"],
+        "7": ["/guided-reading/series/meadow-pals/book-09/cover.webp", "/guided-reading/series/meadow-pals/book-15/cover.webp"],
+        "8": ["/guided-reading/series/meadow-pals/book-09/cover.webp", "/guided-reading/series/meadow-pals/book-15/cover.webp"],
+        "9": ["/guided-reading/series/meadow-pals/book-09/cover.webp", "/guided-reading/series/meadow-pals/book-15/cover.webp"],
+        "10": ["/guided-reading/series/meadow-pals/book-09/cover.webp", "/guided-reading/series/meadow-pals/book-15/cover.webp"]
       },
-      "generationExclusions": "No mouse substitution for Shy, round mouse ears, long thin mouse tail, second rabbit, second cat, duplicate animal, fused bodies, extra limbs, high dangerous branch, falling, fear, other farm animal, readable word, speech bubble, Oh lettering, title, page number, face on Sun or cloud, border or photorealism."
+      "generationExclusions": "No rabbit substitution for Shy, long rabbit ears, short rabbit tail, second mouse, second cat, duplicate animal, fused bodies, extra limbs, forced or uninvited embrace, high dangerous branch, falling, fear, other farm animal, readable word, speech bubble, lettering, title, page number, face on Sun or cloud, border or photorealism."
     },
     "149": {
       "label": "Giggly and Clucky Bake a Cake",
@@ -836,12 +836,18 @@
       "useBookCover": false,
       "maxReferences": 2,
       "characterLock": "Shy is always one larger pale-grey mouse with oversized round ears, pink inner ears, white muzzle and belly, small pink nose, large black eyes and a thin grey tail. Shy is never a rabbit. Bouncy is the bright-yellow sheep with peach ears, red neck ribbon and exactly four visible metal coil-spring legs ending in small dark hooves. Cuddly is the orange tabby cat with darker orange stripes, green eyes and cream muzzle and belly.",
-      "plannerGuidance": "Page 3 shows exactly Bouncy spring-legged sheep passing cheerfully on the farm path while Shy, the pale-grey mouse, hides partly but visibly behind the red barn corner; no stars, page number or text. Page 7 shows exactly Shy pale-grey mouse sitting calmly beside Cuddly orange tabby in the same warm barn-side grass, with separate readable bodies and a quiet friendly expression. Never turn Shy into the rabbit seen in the drifted legacy page.",
+      "plannerGuidance": "Use one continuous sunny farm meadow around the same red barn. Page 1 shows Shy, the larger pale-grey mouse, wanting to join distant play but lingering at the barn edge. Page 2 shows Shy alone behind the barn, peeking out. Page 3 shows exactly Bouncy spring-legged sheep passing cheerfully on the farm path while Shy hides partly but visibly behind the barn corner. Page 4 shows exactly Tiny, visibly much smaller and blue-grey, passing while Shy hides. Page 5 shows Cuddly orange tabby sitting calmly by the barn while Shy peeks from behind the corner. Page 6 shows Cuddly still waiting peacefully in the same spot while Shy watches. Page 7 shows Shy taking the brave small step of coming fully out from behind the barn while Cuddly remains seated and gives space. Page 8 shows Shy sitting calmly beside Cuddly in the same warm barn-side grass. Never turn Shy into a rabbit, and keep Shy larger and paler than Tiny.",
       "pageAnchorPaths": {
+        "1": ["/guided-reading/series/meadow-pals/book-09/cover.webp"],
+        "2": ["/guided-reading/series/meadow-pals/book-09/cover.webp"],
         "3": ["/guided-reading/series/meadow-pals/book-09/cover.webp", "/guided-reading/series/meadow-pals/book-04/cover.webp"],
-        "7": ["/guided-reading/series/meadow-pals/book-09/cover.webp", "/guided-reading/series/meadow-pals/book-15/cover.webp"]
+        "4": ["/guided-reading/series/meadow-pals/book-09/cover.webp", "/guided-reading/series/meadow-pals/book-08/cover.webp"],
+        "5": ["/guided-reading/series/meadow-pals/book-09/cover.webp", "/guided-reading/series/meadow-pals/book-15/cover.webp"],
+        "6": ["/guided-reading/series/meadow-pals/book-09/cover.webp", "/guided-reading/series/meadow-pals/book-15/cover.webp"],
+        "7": ["/guided-reading/series/meadow-pals/book-09/cover.webp", "/guided-reading/series/meadow-pals/book-15/cover.webp"],
+        "8": ["/guided-reading/series/meadow-pals/book-09/cover.webp", "/guided-reading/series/meadow-pals/book-15/cover.webp"]
       },
-      "generationExclusions": "No rabbit, extra sheep, missing spring, page number, stars, icon, text, border, face on scenery, rainbow, duplicate animal or photorealism."
+      "generationExclusions": "No rabbit, long rabbit ears, short rabbit tail, extra sheep, missing spring, brown Tiny, Shy at Tiny's scale, page number, stars, icon, text, border, face on scenery, rainbow, duplicate animal or photorealism."
     },
     "147": {
       "label": "Woolly and Grumpy Are Stuck",

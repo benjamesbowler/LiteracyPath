@@ -10,9 +10,9 @@ Audit date: 20 July 2026
 - 1,616 active page images inspected at full contact-sheet size and against adjacent pages.
 - 2,005 physical guided-reading image files checked in total.
 - 389 inactive/legacy physical files separately inspected and quarantined.
-- 945 active images require replacement: 279 critical, 653 high, 13 moderate.
-- 945 replacements are approved and installed; 0 remain in the production queue.
-- 671 active images passed this visual audit.
+- 951 active images require replacement: 279 critical, 659 high, 13 moderate.
+- 951 replacements are approved and installed; 0 remain in the production queue.
+- 665 active images passed this visual audit.
 - Every individual result is recorded in guided_reading_visual_audit_coverage.json; every rejected active page has an exact prompt in guided_reading_visual_replacement_manifest.json.
 
 The covers intentionally reuse page 1 and are not a second physical image. They inherit page 1's pass/replacement result.
@@ -50,11 +50,11 @@ Create one approved, orthographic reference sheet for every recurring cast and l
 
 ### Phase 3: Rebuild Whole Sequences
 
-Generate the 79 full-sequence books in page order, using the same references throughout. Do not approve individual attractive pages in isolation. Review each sequence as a strip for cast, direction of travel, object count, time of day, geography, and action chronology.
+Generate the 80 full-sequence books in page order, using the same references throughout. Do not approve individual attractive pages in isolation. Review each sequence as a strip for cast, direction of travel, object count, time of day, geography, and action chronology.
 
 ### Phase 4: Repair Localised Pages
 
-Generate the 82 partial-replacement books after their adjacent pages have been supplied as references. A local replacement passes only if it looks native beside the retained images. If that cannot be achieved after two attempts, promote the book to a full-sequence rebuild.
+Generate the 81 partial-replacement books after their adjacent pages have been supplied as references. A local replacement passes only if it looks native beside the retained images. If that cannot be achieved after two attempts, promote the book to a full-sequence rebuild.
 
 ### Phase 5: Retire Legacy Assets
 
@@ -202,7 +202,7 @@ For every regenerated book: inspect 100% of pages at full resolution, compare th
 | 132 | Sleepy Can't Wake Up | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | Sleepy's sequence introduces spring-legged sheep and unrelated miniature animals. |
 | 133 | Noisy Tries to Be Quiet | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | Noisy shifts between rooster/hen and red/orange models; labels and an unexplained scarf appear. |
 | 134 | Tiny is Very Small | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | Tiny's overalls appear once, weather has faces, and later pages contain text and a meta-book frame. |
-| 135 | Shy Comes Out to Play | partial replacement | high | 3, 7 | A spring-legged sheep appears and an embedded page number is visible. |
+| 135 | Shy Comes Out to Play | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8 | The pages drifted Shy from the canonical larger pale-grey mouse into a rabbit and reversed the final two story beats. |
 | 136 | Giggly Has the Hiccups | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | Prompt text, page numbers, and giant speech-like lettering recur; Giggly changes appearance. |
 | 137 | Brave Climbs the Hay Bale | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | A rectangular bale becomes a round stack, Brave drifts, and a Sun face appears. |
 | 138 | Hungry Finds Lunch | full sequence rebuild | critical | 1, 2, 3, 4, 5, 6, 7 | The former sequence rendered Hungry as a pig and paired that species error with unsafe indiscriminate eating. The revised story and artwork require the established cow learning suitable food choices and noticing fullness. |
@@ -213,7 +213,7 @@ For every regenerated book: inspect 100% of pages at full resolution, compare th
 | 143 | Bouncy and Speedy Have a Race | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | Spring-legged sheep, page numbers, and a final palette/prompt legend appear. |
 | 144 | Noisy Wakes Everyone Up | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | A random sleeping human appears among the animals and cast scale/identity needs locking. |
 | 145 | Tiny and Brave Go on an Adventure | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9 | Random animals appear and Tiny/Brave are duplicated, so the two-character adventure is not readable. |
-| 146 | Shy and Cuddly Find Each Other | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale. |
+| 146 | Shy and Cuddly Find Each Other | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | The sequence drifted canonical Shy into a rabbit and treated a hug as automatic rather than invited. |
 | 147 | Woolly and Grumpy Are Stuck | partial replacement | high | 6, 8 | A huge detached wool mass appears while Woolly still has a full coat; later staging snags character silhouettes. |
 | 148 | Sleepy's Big Dream | pass | none | — | Pass: no blocking visual defect found. |
 | 149 | Giggly and Clucky Bake a Cake | full sequence rebuild | high | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 | Prompt text, a possible duplicate hen, a hulking hen model, and a changing oven break the baking sequence. |
@@ -282,11 +282,11 @@ Generate one candidate at a time for partial repairs and two candidates per page
 
 ## Current Validation Blockers
 
-- The visual-audit integrity check passes: all 2,005 physical files are partitioned exactly once, all 1,616 live paths exist, and all 945 rejected pages have a complete prompt and live replacement path.
+- The visual-audit integrity check passes: all 2,005 physical files are partitioned exactly once, all 1,616 live paths exist, and all 951 rejected pages have a complete prompt and live replacement path.
 - npm run validate:guided-reading is already failing across legacy books because imageAlt, pageDescription, and targetWords metadata are missing; it also reports existing noun/image-metadata conflicts. This audit does not modify those content records.
 - npm run validate:guided-reading-regen still expects /Users/benjaminbowler/Desktop/Kimi_Agent_LiteracyPath Regen Assets Pack, which no longer exists after the project migration. That path must be made configurable or pointed at the new pack location before regeneration-pack validation can run.
 - Both new audit builders pass ESLint and Node syntax checks.
 
 ## Definition Of Done
 
-The audit is resolved only when all 945 manifest items have status approved-and-installed, all 389 inactive files are outside the runtime allowlist, all book sequences pass full-size human review, no copy-change note remains open, and the guided-reading validators plus production build pass. Until then, the manifest is the source of truth for remaining work.
+The audit is resolved only when all 951 manifest items have status approved-and-installed, all 389 inactive files are outside the runtime allowlist, all book sequences pass full-size human review, no copy-change note remains open, and the guided-reading validators plus production build pass. Until then, the manifest is the source of truth for remaining work.

@@ -1,6 +1,6 @@
 # Guided Reading Relevel Audit
 
-Date: 2026-07-21T14:41:23.552Z
+Date: 2026-07-22T04:21:20.937Z
 
 ## Current Policy
 
@@ -163,7 +163,7 @@ Guided Reading fiction books and fiction drafts were permanently removed. This a
 | meadow-pals-17-bouncy-and-speedy-have-a-race | Bouncy and Speedy Have a Race | A | A | 10 | 4.8 | Level remains appropriate for current text length. |
 | meadow-pals-18-noisy-wakes-everyone-up | Noisy Wakes Everyone Up | A | A | 9 | 3.9 | Level remains appropriate for current text length. |
 | meadow-pals-19-tiny-and-brave-go-on-an-adventure | Tiny and Brave Go on an Adventure | A | A | 9 | 5.2 | Level remains appropriate for current text length. |
-| meadow-pals-20-shy-and-cuddly-find-each-other | Shy and Cuddly Find Each Other | A | A | 10 | 4.9 | Level remains appropriate for current text length. |
+| meadow-pals-20-shy-and-cuddly-find-each-other | Shy and Cuddly Find Each Other | A | A | 10 | 5.4 | Level remains appropriate for current text length. |
 | meadow-pals-21-woolly-and-grumpy-are-stuck | Woolly and Grumpy Are Stuck | A | A | 9 | 7.3 | Level remains appropriate for current text length. |
 | meadow-pals-22-sleepys-big-dream | Sleepy's Big Dream | A | A | 8 | 6.1 | Level remains appropriate for current text length. |
 | meadow-pals-23-giggly-and-clucky-bake-a-cake | Giggly and Clucky Bake a Cake | A | A | 11 | 6 | Level remains appropriate for current text length. |

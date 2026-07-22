@@ -6,9 +6,9 @@
   "totals": {
     "books": 176,
     "activePageImages": 1616,
-    "activePasses": 463,
-    "activeReplacements": 945,
-    "installedReplacements": 945,
+    "activePasses": 458,
+    "activeReplacements": 951,
+    "installedReplacements": 951,
     "pendingReplacements": 0,
     "physicalImages": 2005,
     "inactivePhysicalImages": 389,
@@ -2192,14 +2192,20 @@
       "bookNumber": 135,
       "id": "meadow-pals-09-shy-comes-out-to-play",
       "title": "Shy Comes Out to Play",
-      "status": "partial replacement",
+      "status": "full sequence rebuild",
       "priority": "high",
       "replacementPages": [
+        1,
+        2,
         3,
-        7
+        4,
+        5,
+        6,
+        7,
+        8
       ],
-      "finding": "A spring-legged sheep appears and an embedded page number is visible.",
-      "continuity": "Keep Shy and companions anatomically consistent; use normal legs and no page numbers, captions, or labels.",
+      "finding": "The pages drifted Shy from the canonical larger pale-grey mouse into a rabbit and reversed the final two story beats.",
+      "continuity": "Lock Shy as one larger pale-grey mouse with oversized round ears, a white muzzle and belly, pink nose and one thin grey tail. Preserve Bouncy's established four coil-spring legs, Tiny's smaller blue-grey mouse model and Cuddly's orange tabby model. The repaired sequence has Shy come out before sitting beside Cuddly; no rabbit or embedded text.",
       "copyNote": ""
     },
     {
@@ -2432,8 +2438,8 @@
         9,
         10
       ],
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale.",
-      "continuity": "Lock Shy as one rabbit with fixed ear type, fur colour, facial markings, and size; lock Cuddly's coat and size. Preserve one hideaway and farm location.",
+      "finding": "The sequence drifted canonical Shy into a rabbit and treated a hug as automatic rather than invited.",
+      "continuity": "Lock Shy as one larger pale-grey mouse with oversized round ears, white muzzle and belly, pink nose and one thin grey tail; lock Cuddly as one compact orange tabby. Preserve one broad low safe branch. Cuddly asks before the mutual hug, and Shy clearly agrees; no rabbit or embedded text.",
       "copyNote": ""
     },
     {
@@ -20296,7 +20302,7 @@
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "pass",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 135,
       "bookId": "meadow-pals-09-shy-comes-out-to-play",
       "title": "Shy Comes Out to Play",
@@ -20305,13 +20311,13 @@
       "pageNumber": 1,
       "pageText": "Shy wants to play.",
       "imagePath": "/guided-reading/series/meadow-pals/book-09/page-001.webp",
-      "width": 1376,
-      "height": 768,
-      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
+      "width": 1536,
+      "height": 864,
+      "finding": "The pages drifted Shy from the canonical larger pale-grey mouse into a rabbit and reversed the final two story beats."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "pass",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 135,
       "bookId": "meadow-pals-09-shy-comes-out-to-play",
       "title": "Shy Comes Out to Play",
@@ -20320,9 +20326,9 @@
       "pageNumber": 2,
       "pageText": "But Shy is behind the barn.",
       "imagePath": "/guided-reading/series/meadow-pals/book-09/page-002.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
+      "width": 1536,
+      "height": 864,
+      "finding": "The pages drifted Shy from the canonical larger pale-grey mouse into a rabbit and reversed the final two story beats."
     },
     {
       "assetType": "active-page",
@@ -20335,9 +20341,9 @@
       "pageNumber": 3,
       "pageText": "Bouncy went past.\n\"Come and play!\"\nShy hid.",
       "imagePath": "/guided-reading/series/meadow-pals/book-09/page-003.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "A spring-legged sheep appears and an embedded page number is visible."
+      "width": 1536,
+      "height": 864,
+      "finding": "The pages drifted Shy from the canonical larger pale-grey mouse into a rabbit and reversed the final two story beats."
     },
     {
       "assetType": "active-page",
@@ -20350,13 +20356,13 @@
       "pageNumber": 4,
       "pageText": "Tiny went past.\n\"Come and play!\"\nShy hid.",
       "imagePath": "/guided-reading/series/meadow-pals/book-09/page-004.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
+      "width": 1536,
+      "height": 864,
+      "finding": "The pages drifted Shy from the canonical larger pale-grey mouse into a rabbit and reversed the final two story beats."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "pass",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 135,
       "bookId": "meadow-pals-09-shy-comes-out-to-play",
       "title": "Shy Comes Out to Play",
@@ -20365,13 +20371,13 @@
       "pageNumber": 5,
       "pageText": "Cuddly sat down by the barn.",
       "imagePath": "/guided-reading/series/meadow-pals/book-09/page-005.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
+      "width": 1536,
+      "height": 864,
+      "finding": "The pages drifted Shy from the canonical larger pale-grey mouse into a rabbit and reversed the final two story beats."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "pass",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 135,
       "bookId": "meadow-pals-09-shy-comes-out-to-play",
       "title": "Shy Comes Out to Play",
@@ -20380,9 +20386,9 @@
       "pageNumber": 6,
       "pageText": "Cuddly did not go away.",
       "imagePath": "/guided-reading/series/meadow-pals/book-09/page-006.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
+      "width": 1536,
+      "height": 864,
+      "finding": "The pages drifted Shy from the canonical larger pale-grey mouse into a rabbit and reversed the final two story beats."
     },
     {
       "assetType": "active-page",
@@ -20393,26 +20399,26 @@
       "level": "A",
       "type": "fiction",
       "pageNumber": 7,
-      "pageText": "Shy sat next to Cuddly.",
+      "pageText": "Then Shy came out.",
       "imagePath": "/guided-reading/series/meadow-pals/book-09/page-007.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "A spring-legged sheep appears and an embedded page number is visible."
+      "width": 1536,
+      "height": 864,
+      "finding": "The pages drifted Shy from the canonical larger pale-grey mouse into a rabbit and reversed the final two story beats."
     },
     {
       "assetType": "active-page",
-      "reviewStatus": "pass",
+      "reviewStatus": "installed-replacement",
       "bookNumber": 135,
       "bookId": "meadow-pals-09-shy-comes-out-to-play",
       "title": "Shy Comes Out to Play",
       "level": "A",
       "type": "fiction",
       "pageNumber": 8,
-      "pageText": "Then Shy came out.",
+      "pageText": "Shy sat next to Cuddly.",
       "imagePath": "/guided-reading/series/meadow-pals/book-09/page-008.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "No blocking visual continuity, AI-slop, text-image alignment, anatomy, embedded-text, age-suitability, or safety defect found in sequence review."
+      "width": 1536,
+      "height": 864,
+      "finding": "The pages drifted Shy from the canonical larger pale-grey mouse into a rabbit and reversed the final two story beats."
     },
     {
       "assetType": "active-page",
@@ -21803,11 +21809,11 @@
       "level": "A",
       "type": "fiction",
       "pageNumber": 1,
-      "pageText": "Cuddly wants a hug. Cuddly looks and looks.",
+      "pageText": "Cuddly wants a friend. Cuddly looks and looks.",
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-001.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
+      "width": 1536,
+      "height": 864,
+      "finding": "The sequence drifted canonical Shy into a rabbit and treated a hug as automatic rather than invited."
     },
     {
       "assetType": "active-page",
@@ -21820,9 +21826,9 @@
       "pageNumber": 2,
       "pageText": "Shy is hiding.",
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-002.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
+      "width": 1536,
+      "height": 864,
+      "finding": "The sequence drifted canonical Shy into a rabbit and treated a hug as automatic rather than invited."
     },
     {
       "assetType": "active-page",
@@ -21835,9 +21841,9 @@
       "pageNumber": 3,
       "pageText": "Cuddly went past the big tree.",
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-003.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
+      "width": 1536,
+      "height": 864,
+      "finding": "The sequence drifted canonical Shy into a rabbit and treated a hug as automatic rather than invited."
     },
     {
       "assetType": "active-page",
@@ -21850,9 +21856,9 @@
       "pageNumber": 4,
       "pageText": "Shy is in the big tree!",
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-004.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
+      "width": 1536,
+      "height": 864,
+      "finding": "The sequence drifted canonical Shy into a rabbit and treated a hug as automatic rather than invited."
     },
     {
       "assetType": "active-page",
@@ -21865,9 +21871,9 @@
       "pageNumber": 5,
       "pageText": "\"Oh!\" said Shy.",
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-005.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
+      "width": 1536,
+      "height": 864,
+      "finding": "The sequence drifted canonical Shy into a rabbit and treated a hug as automatic rather than invited."
     },
     {
       "assetType": "active-page",
@@ -21878,11 +21884,11 @@
       "level": "A",
       "type": "fiction",
       "pageNumber": 6,
-      "pageText": "\"Oh!\" said Cuddly.",
+      "pageText": "\"Hi, Shy,\" said Cuddly.",
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-006.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
+      "width": 1536,
+      "height": 864,
+      "finding": "The sequence drifted canonical Shy into a rabbit and treated a hug as automatic rather than invited."
     },
     {
       "assetType": "active-page",
@@ -21895,9 +21901,9 @@
       "pageNumber": 7,
       "pageText": "They sat in the big tree.",
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-007.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
+      "width": 1536,
+      "height": 864,
+      "finding": "The sequence drifted canonical Shy into a rabbit and treated a hug as automatic rather than invited."
     },
     {
       "assetType": "active-page",
@@ -21908,11 +21914,11 @@
       "level": "A",
       "type": "fiction",
       "pageNumber": 8,
-      "pageText": "Cuddly got a hug.",
+      "pageText": "\"Can I hug you?\" said Cuddly.",
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-008.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
+      "width": 1536,
+      "height": 864,
+      "finding": "The sequence drifted canonical Shy into a rabbit and treated a hug as automatic rather than invited."
     },
     {
       "assetType": "active-page",
@@ -21923,11 +21929,11 @@
       "level": "A",
       "type": "fiction",
       "pageNumber": 9,
-      "pageText": "Shy got a hug too.",
+      "pageText": "\"Yes,\" said Shy. They had a hug.",
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-009.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
+      "width": 1536,
+      "height": 864,
+      "finding": "The sequence drifted canonical Shy into a rabbit and treated a hug as automatic rather than invited."
     },
     {
       "assetType": "active-page",
@@ -21940,9 +21946,9 @@
       "pageNumber": 10,
       "pageText": "Both of them are happy.",
       "imagePath": "/guided-reading/series/meadow-pals/book-20/page-010.webp",
-      "width": 2752,
-      "height": 1536,
-      "finding": "Shy changes from lop-eared to upright-eared rabbit and Cuddly changes scale."
+      "width": 1536,
+      "height": 864,
+      "finding": "The sequence drifted canonical Shy into a rabbit and treated a hug as automatic rather than invited."
     },
     {
       "assetType": "active-page",
@@ -22630,8 +22636,8 @@
       "pageNumber": 7,
       "pageText": "Shy hid behind the barn.",
       "imagePath": "/guided-reading/series/meadow-pals/book-25/page-007.webp",
-      "width": 2752,
-      "height": 1536,
+      "width": 1536,
+      "height": 864,
       "finding": "Many pages expose prompt text, numbers, labels, and random dressed or duplicated animals."
     },
     {
@@ -22645,8 +22651,8 @@
       "pageNumber": 8,
       "pageText": "\"Come in, Shy!\" said Cuddly. Shy came in.",
       "imagePath": "/guided-reading/series/meadow-pals/book-25/page-008.webp",
-      "width": 2752,
-      "height": 1536,
+      "width": 1536,
+      "height": 864,
       "finding": "Many pages expose prompt text, numbers, labels, and random dressed or duplicated animals."
     },
     {
@@ -22705,8 +22711,8 @@
       "pageNumber": 12,
       "pageText": "Everyone is at the party.",
       "imagePath": "/guided-reading/series/meadow-pals/book-25/page-012.webp",
-      "width": 2752,
-      "height": 1536,
+      "width": 1536,
+      "height": 864,
       "finding": "Many pages expose prompt text, numbers, labels, and random dressed or duplicated animals."
     },
     {
@@ -22720,8 +22726,8 @@
       "pageNumber": 13,
       "pageText": "Everyone is happy.",
       "imagePath": "/guided-reading/series/meadow-pals/book-25/page-013.webp",
-      "width": 2752,
-      "height": 1536,
+      "width": 1536,
+      "height": 864,
       "finding": "Many pages expose prompt text, numbers, labels, and random dressed or duplicated animals."
     },
     {
