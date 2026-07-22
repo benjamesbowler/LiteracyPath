@@ -836,10 +836,10 @@ const moonwoodStoryQuests = [
         { label: "Look at the potion", nextPageId: "p02_recipe" },
         { label: "Let Wren try it", nextPageId: "p03_pour_potion" }
       ], ["fern", "wren", "garden", "potion"]),
-      moonwoodPage(fernWrenFolder, "p02_recipe", ["Fern looked at the recipe.", "\"Are you sure?\" she asked.", "\"Completely,\" said Wren.", "Mostly."], "What should Fern do?", [
+      moonwoodPage(fernWrenFolder, "p02_recipe", ["Fern read the page.", "GROWING POTION. GREEN. ONE DROP. STIR SLOWLY.", "Wren's potion was purple."], "What should Fern do?", [
         { label: "Trust Wren", nextPageId: "p03_pour_potion" },
         { label: "Check the book again", nextPageId: "p03_wrong_colour" }
-      ], ["fern", "wren", "book"]),
+      ], ["fern", "wren", "book"], { narrationNeedsRebuild: true }),
       moonwoodPage(fernWrenFolder, "p03_wrong_colour", ["The potion was meant to be green.", "It was more purple.", "Wren did not notice."], "What should happen?", [
         { label: "Fern warns Wren", nextPageId: "p04_fern_warns" },
         { label: "Wren pours it anyway", nextPageId: "p03_pour_potion" }
@@ -872,18 +872,18 @@ const moonwoodStoryQuests = [
         { label: "Check the books", nextPageId: "p06_wrong_book" },
         { label: "Sing to the plants", nextPageId: "p07_sing_softly" }
       ], ["fern", "wren", "plants", "walking", "calm", "book", "sing"]),
-      moonwoodPage(fernWrenFolder, "p05_wren_panic", ["Wren opened one book.", "Then another.", "Then another.", "None of them were the right book."], "What should Wren do?", [
+      moonwoodPage(fernWrenFolder, "p05_wren_panic", ["Wren opened MOON SPELLS.", "Then RAIN SPELLS. Then ROOT SPELLS.", "None was the potion book."], "What should Wren do?", [
         { label: "Ask Fern for help", nextPageId: "p05_fern_calm" },
         { label: "Try a fast spell", nextPageId: "p06_fast_spell" }
-      ], ["wren", "book", "fern"]),
+      ], ["wren", "book", "fern"], { narrationNeedsRebuild: true }),
       moonwoodPage(fernWrenFolder, "p05_garden_empty", ["The garden was almost empty.", "A flowerpot waddled down the path.", "A vine waved politely."], "What should they do?", [
         { label: "Follow the vine", nextPageId: "p06_crystal_stream" },
         { label: "Find the recipe", nextPageId: "p06_wrong_book" }
       ], ["garden", "book"]),
-      moonwoodPage(fernWrenFolder, "p06_wrong_book", ["Wren found the problem.", "\"This is the motion recipe,\" she said.", "\"Not the growing recipe.\"", "Fern was very quiet."], "What should they use?", [
+      moonwoodPage(fernWrenFolder, "p06_wrong_book", ["Wren found the problem.", "The open page said MOTION POTION.", "She needed GROWING POTION.", "Fern was very quiet."], "What should they use?", [
         { label: "Use the right book", nextPageId: "p07_book_fix" },
         { label: "Use Fern's song", nextPageId: "p07_sing_softly" }
-      ], ["wren", "book", "wrong", "fern", "quiet"]),
+      ], ["wren", "book", "wrong", "fern", "quiet"], { narrationNeedsRebuild: true }),
       moonwoodPage(fernWrenFolder, "p06_plants_everywhere", ["Plants walked into the Hollow Oak.", "Some went toward the Crystal Stream.", "One sat on a mushroom."], "How can they bring them back?", [
         { label: "Call them home", nextPageId: "p07_sing_softly" },
         { label: "Try Wren's spell", nextPageId: "p07_book_fix" }
@@ -900,10 +900,10 @@ const moonwoodStoryQuests = [
         { label: "Bring it home", nextPageId: "p08_return_home" },
         { label: "Call all plants", nextPageId: "p07_sing_softly" }
       ], ["walking", "home", "plants"]),
-      moonwoodPage(fernWrenFolder, "p07_book_fix", ["Wren found the right page.", "She read very carefully.", "The spell made one plant sneeze."], "What should Wren do?", [
+      moonwoodPage(fernWrenFolder, "p07_book_fix", ["Wren found GROWING POTION.", "She read every step carefully.", "Her first try made one plant sneeze."], "What should Wren do?", [
         { label: "Try again", nextPageId: "p08_almost_fixed" },
         { label: "Let Fern try", nextPageId: "p07_sing_softly" }
-      ], ["wren", "book", "plants"]),
+      ], ["wren", "book", "plants"], { narrationNeedsRebuild: true }),
       moonwoodPage(fernWrenFolder, "p07_sing_softly", ["Fern stood in the clearing.", "She closed her eyes.", "She sang very softly."], "What happens?", [
         { label: "The plants listen", nextPageId: "p08_return_home" },
         { label: "The smallest plant dances", nextPageId: "p08_tiny_dance" }

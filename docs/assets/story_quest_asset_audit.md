@@ -1,6 +1,6 @@
 # Story Quest Asset Audit
 
-Generated: 2026-07-22T05:28:07.309Z
+Generated: 2026-07-22T05:58:52.305Z
 
 ## Summary Counts
 
@@ -13,7 +13,7 @@ Generated: 2026-07-22T05:28:07.309Z
 - Unused image files: 65
 - Unused audio files: 65
 - Extension mismatch candidates: 0
-- Narration files withheld pending rerecord: 245
+- Narration files withheld pending rerecord: 249
 
 ## Missing Referenced Images
 
@@ -31,6 +31,10 @@ None found.
 
 These pages keep their original asset paths for traceability, but the player withholds the stale audio until narration matches the revised story text.
 
+- `mw_ra_c_02_fern_wren_walking_garden / p02_recipe` — `public/audio/story-quests/moonwood/fern-wren-walking-garden/p02_recipe.mp3`
+- `mw_ra_c_02_fern_wren_walking_garden / p05_wren_panic` — `public/audio/story-quests/moonwood/fern-wren-walking-garden/p05_wren_panic.mp3`
+- `mw_ra_c_02_fern_wren_walking_garden / p06_wrong_book` — `public/audio/story-quests/moonwood/fern-wren-walking-garden/p06_wrong_book.mp3`
+- `mw_ra_c_02_fern_wren_walking_garden / p07_book_fix` — `public/audio/story-quests/moonwood/fern-wren-walking-garden/p07_book_fix.mp3`
 - `mw_ra_c_03_luna_burrow_star_shell_door / p07_wrong_shell` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p07_wrong_shell.mp3`
 - `mw_ra_c_03_luna_burrow_star_shell_door / p08_polite_door` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p08_polite_door.mp3`
 - `mw_ra_c_03_luna_burrow_star_shell_door / p09_door_answer` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p09_door_answer.mp3`
