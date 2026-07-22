@@ -1079,10 +1079,10 @@ const moonwoodStoryQuests = [
         { label: "Return the shell", nextPageId: "p05_kind_choice" },
         { label: "Ask Luna for help", nextPageId: "p07_luna_fixes" }
       ], lunaBurrowStarShellDoorTargetWords, { narrationNeedsRebuild: true }),
-      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_luna_fixes", ["Luna took one slow breath.", "\"We must give back what we borrow,\" she said.", "Burrow nodded."], "What should they do?", [
-        { label: "Return the shell", nextPageId: "p05_kind_choice" },
-        { label: "Say sorry to the map", nextPageId: "p08_sorry_path" }
-      ], lunaBurrowStarShellDoorTargetWords),
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_luna_fixes", ["Luna took one slow breath.", "\"We must return what is not ours,\" she said.", "Burrow nodded and held the cracked shell carefully."], "How should they make it right?", [
+        { label: "Return it now", nextPageId: "p05_kind_choice" },
+        { label: "Return it together", nextPageId: "p08_sorry_path" }
+      ], lunaBurrowStarShellDoorTargetWords, { narrationNeedsRebuild: true }),
       moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_moss_laughs", ["The moss laughed louder.", "Pip laughed too.", "The hidden door opened just a crack."], "What should they do?", [
         { label: "Peek inside", nextPageId: "p08_star_room" },
         { label: "Wait for Luna", nextPageId: "p07_door_opens" }
@@ -1095,10 +1095,10 @@ const moonwoodStoryQuests = [
         { label: "Follow the star fish", nextPageId: "p08_star_room" },
         { label: "Ask why there is a key", nextPageId: "p08_key_joke" }
       ], lunaBurrowStarShellDoorTargetWords),
-      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_stone_too_big", ["Stone tried to fit through the door.", "Only one eye fit.", "\"I will guard outside,\" said Stone."], "What should they do?", [
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_stone_too_big", ["Stone knelt beside the tiny door.", "His shoulders were far too wide.", "\"I will guard outside,\" said Stone."], "What should they do?", [
         { label: "Go inside with Luna", nextPageId: "p08_star_room" },
         { label: "Ask Stone to watch the map", nextPageId: "p08_stone_guard" }
-      ], lunaBurrowStarShellDoorTargetWords),
+      ], lunaBurrowStarShellDoorTargetWords, { narrationNeedsRebuild: true }),
       moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_knock_reply", ["Burrow knocked three times.", "The door knocked back.", "Burrow jumped behind Luna."], "What should Burrow do?", [
         { label: "Knock again politely", nextPageId: "p08_polite_door" },
         { label: "Use the star shell", nextPageId: "p07_door_opens" }
@@ -1107,10 +1107,10 @@ const moonwoodStoryQuests = [
         { label: "Step inside", nextPageId: "p08_star_room" },
         { label: "Send the map in first", nextPageId: "p08_map_inside" }
       ], lunaBurrowStarShellDoorTargetWords),
-      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p08_sorry_path", ["Burrow said sorry to the map.", "The map stopped being upside down.", "A tiny arrow pointed home."], "What should they do?", [
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p08_sorry_path", ["Luna and Burrow carried the cracked shell back to the bridge.", "Burrow put it exactly where he had found it.", "The map glowed with one arrow home and one arrow to the true door."], "Which honest path should they choose?", [
         { label: "Follow it home", nextPageId: "p10_quiet_ending" },
-        { label: "Try the true shell again", nextPageId: "p07_door_opens" }
-      ], lunaBurrowStarShellDoorTargetWords),
+        { label: "Return to the true door", nextPageId: "p07_door_opens" }
+      ], lunaBurrowStarShellDoorTargetWords, { narrationNeedsRebuild: true }),
       moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p08_key_joke", ["\"The key is for my lunch box,\" said the star fish.", "Burrow laughed so hard he sat down."], "What should they do?", [
         { label: "Follow the star fish", nextPageId: "p08_star_room" },
         { label: "Tell Luna the joke", nextPageId: "p09_luna_laughs" }
