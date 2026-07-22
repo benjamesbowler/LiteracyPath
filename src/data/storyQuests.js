@@ -1087,10 +1087,10 @@ const moonwoodStoryQuests = [
         { label: "Peek inside", nextPageId: "p08_star_room" },
         { label: "Wait for Luna", nextPageId: "p07_door_opens" }
       ], lunaBurrowStarShellDoorTargetWords),
-      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_wren_checks", ["Wren read the smallest book.", "\"It says the door likes kind hands,\" she said.", "Then she dropped the book on her foot."], "What should they do?", [
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_wren_checks", ["Wren opened the smallest book.", "The page said KIND HANDS OPEN THIS DOOR.", "Then she dropped the book on her foot."], "What should they do?", [
         { label: "Use kind hands", nextPageId: "p07_door_opens" },
         { label: "Ask the door nicely", nextPageId: "p07_knock_reply" }
-      ], lunaBurrowStarShellDoorTargetWords),
+      ], lunaBurrowStarShellDoorTargetWords, { narrationNeedsRebuild: true }),
       moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p07_star_fish", ["Tiny star fish swam through the crystal gate.", "One carried a golden key.", "But the door had no lock."], "What should they do?", [
         { label: "Follow the star fish", nextPageId: "p08_star_room" },
         { label: "Ask why there is a key", nextPageId: "p08_key_joke" }
@@ -1230,10 +1230,10 @@ const moonwoodStoryQuests = [
         { label: "Ask Pip to help", nextPageId: "p04_pip_glows" },
         { label: "Take the spark back", nextPageId: "p04_spark_jar" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p03_wren_arrives", ["Wren arrived with a spell book.", "Then another spell book.", "Then a book about not dropping books."], "What should Wren do?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p03_wren_arrives", ["Wren arrived with WATER SPELLS.", "Then LIGHT SPELLS.", "Then HOW NOT TO DROP BOOKS."], "What should Wren do?", [
         { label: "Try a careful spell", nextPageId: "p04_wren_spell" },
         { label: "Skip the spell and listen", nextPageId: "p03_water_whisper" }
-      ], dewdropFlintLostGlowTargetWords),
+      ], dewdropFlintLostGlowTargetWords, { narrationNeedsRebuild: true }),
       moonwoodTargetPage(dewdropFlintLostGlowFolder, "p04_upstream_dark", ["Upstream, the crystals were dull.", "A tiny fish blinked in the dark.", "\"This way,\" it bubbled."], "What should they do?", [
         { label: "Follow the fish", nextPageId: "p05_fish_tunnel" },
         { label: "Ask the fish a question", nextPageId: "p05_fish_answer" }
@@ -1494,10 +1494,10 @@ const moonwoodStoryQuests = [
         { label: "Walk softly home", nextPageId: "p10_gentle_ending" },
         { label: "Tell Wren the rule", nextPageId: "p09_wren_rule" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p09_wren_rule", ["Wren wrote, \"No stomping near shy glows.\"", "Then she wrote four more pages.", "Fern took the pen."], "What should happen next?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p09_wren_rule", ["Wren wrote one clear rule.", "WALK SOFTLY BY THE STREAM.", "Then she added four pages of notes.", "Fern took the pen."], "What should happen next?", [
         { label: "Fern makes it shorter", nextPageId: "p10_wren_ending" },
         { label: "Return to the stream", nextPageId: "p09_stream_returns" }
-      ], dewdropFlintLostGlowTargetWords),
+      ], dewdropFlintLostGlowTargetWords, { narrationNeedsRebuild: true }),
       moonwoodTargetPage(dewdropFlintLostGlowFolder, "p09_stream_returns", ["The Crystal Stream glowed again.", "Dewdrop floated above it.", "Flint's lantern shone softly, not loudly."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
@@ -1514,10 +1514,10 @@ const moonwoodStoryQuests = [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], dewdropFlintLostGlowTargetWords),
-      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_wren_ending", ["Wren's rule became one sentence.", "She sighed.", "\"Fine,\" she said.", "Then she made a tiny rule book."], "Read again?", [
+      moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_wren_ending", ["Fern circled the first sentence.", "\"This is all we need.\"", "Wren sighed.", "Then she made a tiny rule book."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
-      ], dewdropFlintLostGlowTargetWords),
+      ], dewdropFlintLostGlowTargetWords, { narrationNeedsRebuild: true }),
       moonwoodTargetPage(dewdropFlintLostGlowFolder, "p10_lantern_ending", ["Flint's lantern glowed gently.", "He did not shake it.", "Not even once."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }

@@ -1,6 +1,6 @@
 # Story Quest Asset Audit
 
-Generated: 2026-07-22T05:58:52.305Z
+Generated: 2026-07-22T06:16:48.016Z
 
 ## Summary Counts
 
@@ -13,7 +13,7 @@ Generated: 2026-07-22T05:58:52.305Z
 - Unused image files: 65
 - Unused audio files: 65
 - Extension mismatch candidates: 0
-- Narration files withheld pending rerecord: 249
+- Narration files withheld pending rerecord: 253
 
 ## Missing Referenced Images
 
@@ -36,14 +36,18 @@ These pages keep their original asset paths for traceability, but the player wit
 - `mw_ra_c_02_fern_wren_walking_garden / p06_wrong_book` — `public/audio/story-quests/moonwood/fern-wren-walking-garden/p06_wrong_book.mp3`
 - `mw_ra_c_02_fern_wren_walking_garden / p07_book_fix` — `public/audio/story-quests/moonwood/fern-wren-walking-garden/p07_book_fix.mp3`
 - `mw_ra_c_03_luna_burrow_star_shell_door / p07_wrong_shell` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p07_wrong_shell.mp3`
+- `mw_ra_c_03_luna_burrow_star_shell_door / p07_wren_checks` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p07_wren_checks.mp3`
 - `mw_ra_c_03_luna_burrow_star_shell_door / p08_polite_door` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p08_polite_door.mp3`
 - `mw_ra_c_03_luna_burrow_star_shell_door / p09_door_answer` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p09_door_answer.mp3`
 - `mw_ra_c_03_luna_burrow_star_shell_door / p10_quiet_ending` — `public/audio/story-quests/moonwood/luna-burrow-star-shell-door/p10_quiet_ending.mp3`
+- `mw_ra_c_04_dewdrop_flint_lost_glow / p03_wren_arrives` — `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p03_wren_arrives.mp3`
 - `mw_ra_c_04_dewdrop_flint_lost_glow / p06_question_path` — `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p06_question_path.mp3`
 - `mw_ra_c_04_dewdrop_flint_lost_glow / p07_lantern_rolls` — `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_lantern_rolls.mp3`
 - `mw_ra_c_04_dewdrop_flint_lost_glow / p07_waiting_room` — `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_waiting_room.mp3`
 - `mw_ra_c_04_dewdrop_flint_lost_glow / p07_door_question` — `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p07_door_question.mp3`
 - `mw_ra_c_04_dewdrop_flint_lost_glow / p08_sorry_glow` — `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p08_sorry_glow.mp3`
+- `mw_ra_c_04_dewdrop_flint_lost_glow / p09_wren_rule` — `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p09_wren_rule.mp3`
+- `mw_ra_c_04_dewdrop_flint_lost_glow / p10_wren_ending` — `public/audio/story-quests/moonwood/dewdrop-flint-lost-glow/p10_wren_ending.mp3`
 - `dp_ra_b_01_chompy_big_lunch_hunt / p03_eat_berries` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p03_eat_berries.mp3`
 - `dp_ra_b_01_chompy_big_lunch_hunt / p03_save_berries` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p03_save_berries.mp3`
 - `dp_ra_b_01_chompy_big_lunch_hunt / p04_not_full` — `public/audio/story-quests/dino-pals/chompy-lunch-hunt/p04_not_full.mp3`
