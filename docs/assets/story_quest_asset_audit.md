@@ -1,6 +1,6 @@
 # Story Quest Asset Audit
 
-Generated: 2026-07-22T01:39:58.896Z
+Generated: 2026-07-22T03:16:17.442Z
 
 ## Summary Counts
 
@@ -13,7 +13,7 @@ Generated: 2026-07-22T01:39:58.896Z
 - Unused image files: 65
 - Unused audio files: 65
 - Extension mismatch candidates: 0
-- Narration files withheld pending rerecord: 188
+- Narration files withheld pending rerecord: 216
 
 ## Missing Referenced Images
 
@@ -162,6 +162,34 @@ These pages keep their original asset paths for traceability, but the player wit
 - `story_quest_short_a_sam_pam_01 / page-08` — `public/audio/story-quests/sam-pam/page-08.mp3`
 - `story_quest_short_a_sam_pam_01 / page-09` — `public/audio/story-quests/sam-pam/page-09.mp3`
 - `story_quest_short_a_sam_pam_01 / page-10` — `public/audio/story-quests/sam-pam/page-10.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p01_start` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p01_start.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p02_muddy` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p02_muddy.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p02_splashy` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p02_splashy.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p03_mud_pat` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p03_mud_pat.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p04_hat_found_early` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p04_hat_found_early.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p03_water_splash` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p03_water_splash.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p03_meet_splashy` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p03_meet_splashy.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p04_stick` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p04_stick.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p04_leaf` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p04_leaf.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p04_mud_search` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p04_mud_search.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p04_pond_search` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p04_pond_search.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p05_boot` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p05_boot.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p05_frog` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p05_frog.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p05_grumpy_boot` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p05_grumpy_boot.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p05_frog_ask` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p05_frog_ask.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p06_hat_muddy` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p06_hat_muddy.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p06_hat_wet` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p06_hat_wet.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p06_big_splash` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p06_big_splash.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p07_wash_hat` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p07_wash_hat.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p07_dry_hat` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p07_dry_hat.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p07_clucky_muddy_hat` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p07_clucky_muddy_hat.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p07_clucky_wet_hat` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p07_clucky_wet_hat.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p08_hat_on_clucky` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p08_hat_on_clucky.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p08_hat_on_muddy` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p08_hat_on_muddy.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p08_clucky_grumpy` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p08_clucky_grumpy.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p09_mud_ending` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p09_mud_ending.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p09_pond_ending` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p09_pond_ending.mp3`
+- `mp_ra_a_01_muddy_splashy_missing_hat / p09_fancy_muddy_ending` — `public/audio/story-quests/meadow-pals/muddy-splashy-hat/p09_fancy_muddy_ending.mp3`
 - `mp_ra_a_02_shy_cuddly_quiet_adventure / p08_barn_hug` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p08_barn_hug.mp3`
 - `mp_ra_a_02_shy_cuddly_quiet_adventure / p08_tree_hug` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p08_tree_hug.mp3`
 - `mp_ra_a_02_shy_cuddly_quiet_adventure / p09_almost_hug_ending` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p09_almost_hug_ending.mp3`

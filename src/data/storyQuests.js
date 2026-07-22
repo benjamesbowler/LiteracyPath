@@ -22,6 +22,7 @@ function meadowPalsPage(folder, id, text, choicePrompt, choices, skillTags = [],
     choicePrompt,
     choices,
     skillTags,
+    ...(folder === "muddy-splashy-hat" ? { narrationNeedsRebuild: true } : {}),
     ...options
   };
 }
@@ -1698,115 +1699,115 @@ export const storyQuests = [
     coverImageUrl: meadowPalsImagePath(muddySplashyFolder, "p01_start"),
     startPageId: "p01_start",
     pages: [
-      meadowPalsPage(muddySplashyFolder, "p01_start", ["Muddy is in the mud.", "Splashy is in the pond."], "Who do you want to help?", [
-        { label: "Help Muddy", nextPageId: "p02_muddy" },
-        { label: "Help Splashy", nextPageId: "p02_splashy" }
+      meadowPalsPage(muddySplashyFolder, "p01_start", ["Clucky has lost her red hat.", "Muddy is by the mud.", "Splashy is by the pond."], "Where should they search first?", [
+        { label: "Search with Muddy", nextPageId: "p02_muddy" },
+        { label: "Search with Splashy", nextPageId: "p02_splashy" }
       ], ["muddy", "splashy", "mud", "pond"]),
-      meadowPalsPage(muddySplashyFolder, "p02_muddy", ["You are with Muddy.", "Muddy has mud."], "What does Muddy do?", [
-        { label: "Pat the mud", nextPageId: "p03_mud_pat" },
-        { label: "Run to Splashy", nextPageId: "p03_meet_splashy" }
+      meadowPalsPage(muddySplashyFolder, "p02_muddy", ["Muddy looks in the pigpen.", "A red shape peeks from the mud."], "What should Muddy do?", [
+        { label: "Check the red shape", nextPageId: "p03_mud_pat" },
+        { label: "Ask Splashy to help", nextPageId: "p03_meet_splashy" }
       ], ["muddy", "mud"]),
-      meadowPalsPage(muddySplashyFolder, "p02_splashy", ["You are with Splashy.", "Splashy has water."], "What does Splashy do?", [
-        { label: "Splash the water", nextPageId: "p03_water_splash" },
-        { label: "Run to Muddy", nextPageId: "p03_meet_splashy" }
+      meadowPalsPage(muddySplashyFolder, "p02_splashy", ["Splashy looks across the pond.", "A red shape bobs by the reeds."], "What should Splashy do?", [
+        { label: "Paddle closer", nextPageId: "p03_water_splash" },
+        { label: "Ask Muddy to help", nextPageId: "p03_meet_splashy" }
       ], ["splashy"]),
-      meadowPalsPage(muddySplashyFolder, "p03_mud_pat", ["Pat, pat, pat.", "The mud is soft."], "What is in the mud?", [
-        { label: "A stick", nextPageId: "p04_stick" },
-        { label: "A red hat", nextPageId: "p04_hat_found_early" }
+      meadowPalsPage(muddySplashyFolder, "p03_mud_pat", ["Muddy pats the soft mud.", "The red shape starts to come free."], "What did Muddy find?", [
+        { label: "A red-painted stick", nextPageId: "p04_stick" },
+        { label: "Clucky's red hat", nextPageId: "p04_hat_found_early" }
       ], ["mud"]),
-      meadowPalsPage(muddySplashyFolder, "p04_hat_found_early", ["It is the hat!", "The hat is not lost now."], "What should they do?", [
+      meadowPalsPage(muddySplashyFolder, "p04_hat_found_early", ["It is Clucky's hat!", "The hat is muddy and no longer lost."], "What should they do?", [
         { label: "Wash the hat", nextPageId: "p07_wash_hat" },
-        { label: "Take it to Clucky", nextPageId: "p07_clucky_muddy_hat" }
+        { label: "Show Clucky what they found", nextPageId: "p07_clucky_muddy_hat" }
       ], ["hat"]),
-      meadowPalsPage(muddySplashyFolder, "p03_water_splash", ["Splash, splash, splash.", "The water is wet."], "What floats by?", [
+      meadowPalsPage(muddySplashyFolder, "p03_water_splash", ["Splashy paddles closer.", "The red shape floats past."], "What is floating?", [
         { label: "A leaf", nextPageId: "p04_leaf" },
-        { label: "A red hat", nextPageId: "p04_hat_found_early" }
+        { label: "Clucky's red hat", nextPageId: "p04_hat_found_early" }
       ], ["wet", "hat"]),
-      meadowPalsPage(muddySplashyFolder, "p03_meet_splashy", ["Muddy ran.", "Splashy ran.", "They met by the barn."], "Where should they look?", [
+      meadowPalsPage(muddySplashyFolder, "p03_meet_splashy", ["Muddy and Splashy meet by the barn.", "They agree to search together."], "Where should they look?", [
         { label: "Look in the mud", nextPageId: "p04_mud_search" },
         { label: "Look by the pond", nextPageId: "p04_pond_search" }
       ], ["muddy", "splashy", "mud", "pond"]),
-      meadowPalsPage(muddySplashyFolder, "p04_stick", ["It is not a hat.", "It is a stick."], "Where now?", [
+      meadowPalsPage(muddySplashyFolder, "p04_stick", ["It is not the hat.", "It is a red-painted stick."], "Where should Muddy search next?", [
         { label: "Go to the pond", nextPageId: "p04_pond_search" },
         { label: "Call Splashy", nextPageId: "p03_meet_splashy" }
       ], ["hat", "pond"]),
-      meadowPalsPage(muddySplashyFolder, "p04_leaf", ["It is not a hat.", "It is a leaf."], "Where now?", [
+      meadowPalsPage(muddySplashyFolder, "p04_leaf", ["It is not the hat.", "It is a bright red leaf."], "Where should Splashy search next?", [
         { label: "Go to the mud", nextPageId: "p04_mud_search" },
         { label: "Call Muddy", nextPageId: "p03_meet_splashy" }
       ], ["hat", "mud"]),
-      meadowPalsPage(muddySplashyFolder, "p04_mud_search", ["They look in the mud.", "The mud is very big."], "What do they pull?", [
+      meadowPalsPage(muddySplashyFolder, "p04_mud_search", ["They search the big muddy pigpen.", "Something is stuck under the mud."], "What do they pull free?", [
         { label: "Pull a boot", nextPageId: "p05_boot" },
         { label: "Pull the hat", nextPageId: "p06_hat_muddy" }
       ], ["mud", "big", "hat"]),
-      meadowPalsPage(muddySplashyFolder, "p04_pond_search", ["They look in the pond.", "The pond is very wet."], "What do they see?", [
+      meadowPalsPage(muddySplashyFolder, "p04_pond_search", ["They search beside the pond reeds.", "Something moves near a lily pad."], "What do they see?", [
         { label: "A frog", nextPageId: "p05_frog" },
         { label: "The hat", nextPageId: "p06_hat_wet" }
       ], ["pond", "wet", "hat"]),
-      meadowPalsPage(muddySplashyFolder, "p05_boot", ["It is a boot.", "It is not the hat."], "What next?", [
+      meadowPalsPage(muddySplashyFolder, "p05_boot", ["It is Grumpy's old boot.", "It is not Clucky's hat."], "What next?", [
         { label: "Look again", nextPageId: "p06_hat_muddy" },
         { label: "Take the boot to Grumpy", nextPageId: "p05_grumpy_boot" }
       ], ["hat"]),
-      meadowPalsPage(muddySplashyFolder, "p05_frog", ["It is a frog.", "It is not the hat."], "What next?", [
+      meadowPalsPage(muddySplashyFolder, "p05_frog", ["It is a little green frog.", "It is not Clucky's hat."], "What next?", [
         { label: "Look again", nextPageId: "p06_hat_wet" },
         { label: "Ask the frog", nextPageId: "p05_frog_ask" }
       ], ["hat"]),
-      meadowPalsPage(muddySplashyFolder, "p05_grumpy_boot", ["Grumpy sees the boot.", "\"No,\" said Grumpy."], "Where is the hat?", [
-        { label: "In the mud", nextPageId: "p06_hat_muddy" },
-        { label: "In the pond", nextPageId: "p06_hat_wet" }
+      meadowPalsPage(muddySplashyFolder, "p05_grumpy_boot", ["\"My boot!\" says Grumpy.", "He saw a red hat bob toward the pond."], "Follow Grumpy's clue?", [
+        { label: "Check the mud once more", nextPageId: "p06_hat_muddy" },
+        { label: "Go to the pond", nextPageId: "p06_hat_wet" }
       ], ["mud", "pond", "hat"]),
-      meadowPalsPage(muddySplashyFolder, "p05_frog_ask", ["The frog hops.", "The hat bobs."], "Get the hat?", [
-        { label: "Yes", nextPageId: "p06_hat_wet" },
-        { label: "Splash first", nextPageId: "p06_big_splash" }
+      meadowPalsPage(muddySplashyFolder, "p05_frog_ask", ["The frog hops toward the reeds.", "Clucky's red hat bobs behind them."], "How should Splashy get it?", [
+        { label: "Paddle over gently", nextPageId: "p06_hat_wet" },
+        { label: "Make one careful wave", nextPageId: "p06_big_splash" }
       ], ["hat"]),
-      meadowPalsPage(muddySplashyFolder, "p06_hat_muddy", ["They find the hat.", "The hat is muddy."], "What should they do?", [
+      meadowPalsPage(muddySplashyFolder, "p06_hat_muddy", ["They find Clucky's hat.", "The red hat is muddy."], "What should they do?", [
         { label: "Wash the hat", nextPageId: "p07_wash_hat" },
-        { label: "Take it to Clucky", nextPageId: "p07_clucky_muddy_hat" }
+        { label: "Show Clucky first", nextPageId: "p07_clucky_muddy_hat" }
       ], ["hat", "mud"]),
-      meadowPalsPage(muddySplashyFolder, "p06_hat_wet", ["They find the hat.", "The hat is wet."], "What should they do?", [
+      meadowPalsPage(muddySplashyFolder, "p06_hat_wet", ["They find Clucky's hat.", "The red hat is dripping wet."], "What should they do?", [
         { label: "Dry the hat", nextPageId: "p07_dry_hat" },
-        { label: "Take it to Clucky", nextPageId: "p07_clucky_wet_hat" }
+        { label: "Show Clucky first", nextPageId: "p07_clucky_wet_hat" }
       ], ["hat", "wet"]),
-      meadowPalsPage(muddySplashyFolder, "p06_big_splash", ["Splashy jumps.", "The hat flies up!"], "Where did it go?", [
-        { label: "To the mud", nextPageId: "p06_hat_muddy" },
-        { label: "To Clucky", nextPageId: "p08_hat_on_clucky" }
+      meadowPalsPage(muddySplashyFolder, "p06_big_splash", ["Splashy makes one careful wave.", "The hat floats toward the bank."], "Who catches it?", [
+        { label: "Muddy catches it by the mud", nextPageId: "p06_hat_muddy" },
+        { label: "Clucky catches it by the path", nextPageId: "p07_clucky_wet_hat" }
       ], ["splashy", "hat", "mud"]),
-      meadowPalsPage(muddySplashyFolder, "p07_wash_hat", ["Splashy washed the hat.", "Now the hat is wet."], "Now what?", [
+      meadowPalsPage(muddySplashyFolder, "p07_wash_hat", ["Splashy rinses the mud from the hat.", "The hat is clean but wet."], "Now what?", [
         { label: "Dry it", nextPageId: "p07_dry_hat" },
-        { label: "Give it back", nextPageId: "p07_clucky_wet_hat" }
+        { label: "Show Clucky the clean hat", nextPageId: "p07_clucky_wet_hat" }
       ], ["splashy", "hat", "wet"]),
-      meadowPalsPage(muddySplashyFolder, "p07_dry_hat", ["Muddy shook the hat.", "Splashy shook too."], "Is the hat dry?", [
-        { label: "Yes", nextPageId: "p08_hat_on_clucky" },
-        { label: "No", nextPageId: "p08_hat_on_muddy" }
+      meadowPalsPage(muddySplashyFolder, "p07_dry_hat", ["Muddy sets the hat in the warm sun.", "Splashy fans it with both wings."], "What happens next?", [
+        { label: "The hat dries", nextPageId: "p08_hat_on_clucky" },
+        { label: "A breeze lifts the hat", nextPageId: "p08_hat_on_muddy" }
       ], ["muddy", "splashy", "hat"]),
-      meadowPalsPage(muddySplashyFolder, "p07_clucky_muddy_hat", ["Clucky sees the hat.", "\"It is muddy!\""], "Fix it?", [
+      meadowPalsPage(muddySplashyFolder, "p07_clucky_muddy_hat", ["Clucky sees her red hat.", "\"Thank you! It needs a wash,\" she says."], "What should they do?", [
         { label: "Wash it", nextPageId: "p07_wash_hat" },
-        { label: "Wear it", nextPageId: "p08_clucky_grumpy" }
+        { label: "Try it before washing", nextPageId: "p08_clucky_grumpy" }
       ], ["hat", "mud"]),
-      meadowPalsPage(muddySplashyFolder, "p07_clucky_wet_hat", ["Clucky sees the hat.", "\"It is wet!\""], "Fix it?", [
+      meadowPalsPage(muddySplashyFolder, "p07_clucky_wet_hat", ["Clucky sees her red hat.", "\"Thank you! It needs to dry,\" she says."], "What should they do?", [
         { label: "Dry it", nextPageId: "p07_dry_hat" },
-        { label: "Wear it", nextPageId: "p08_clucky_grumpy" }
+        { label: "Try it while wet", nextPageId: "p08_clucky_grumpy" }
       ], ["hat", "wet"]),
-      meadowPalsPage(muddySplashyFolder, "p08_hat_on_clucky", ["The hat is back.", "Clucky is happy."], "What do Muddy and Splashy do?", [
-        { label: "Jump in mud", nextPageId: "p09_mud_ending" },
-        { label: "Jump in pond", nextPageId: "p09_pond_ending" }
+      meadowPalsPage(muddySplashyFolder, "p08_hat_on_clucky", ["The clean, dry hat is back on Clucky.", "Clucky beams at her friends."], "How should they celebrate?", [
+        { label: "Muddy jumps in the mud", nextPageId: "p09_mud_ending" },
+        { label: "Splashy jumps in the pond", nextPageId: "p09_pond_ending" }
       ], ["hat", "muddy", "splashy"]),
-      meadowPalsPage(muddySplashyFolder, "p08_hat_on_muddy", ["The hat lands on Muddy.", "Muddy looks fancy."], "Who gets the hat?", [
-        { label: "Clucky", nextPageId: "p08_hat_on_clucky" },
-        { label: "Muddy", nextPageId: "p09_fancy_muddy_ending" }
+      meadowPalsPage(muddySplashyFolder, "p08_hat_on_muddy", ["A breeze lands the hat on Muddy.", "Muddy looks very fancy."], "What should Muddy do?", [
+        { label: "Give it straight to Clucky", nextPageId: "p08_hat_on_clucky" },
+        { label: "Model it once, then give it back", nextPageId: "p09_fancy_muddy_ending" }
       ], ["hat", "muddy"]),
-      meadowPalsPage(muddySplashyFolder, "p08_clucky_grumpy", ["Clucky put on the hat.", "Clucky did not smile."], "What helps?", [
-        { label: "A little splash", nextPageId: "p09_pond_ending" },
-        { label: "A little mud", nextPageId: "p09_mud_ending" }
+      meadowPalsPage(muddySplashyFolder, "p08_clucky_grumpy", ["Clucky tries the hat too soon.", "A drip and a blob of mud make her frown."], "What will fix it?", [
+        { label: "Wash the mud away", nextPageId: "p07_wash_hat" },
+        { label: "Dry the clean hat", nextPageId: "p07_dry_hat" }
       ], ["hat", "little", "mud"]),
-      meadowPalsPage(muddySplashyFolder, "p09_mud_ending", ["Muddy jumps in mud.", "Splashy jumps too.", "Clucky steps back."], "Read again?", [
+      meadowPalsPage(muddySplashyFolder, "p09_mud_ending", ["Muddy jumps in the mud.", "Splashy flaps and laughs.", "Clucky waves from the dry path in her hat."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["muddy", "splashy", "mud"]),
-      meadowPalsPage(muddySplashyFolder, "p09_pond_ending", ["Splashy jumps in the pond.", "Muddy jumps too.", "Clucky steps back."], "Read again?", [
+      meadowPalsPage(muddySplashyFolder, "p09_pond_ending", ["Splashy jumps in the pond.", "Muddy cheers from the bank.", "Clucky waves from the dry path in her hat."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["splashy", "muddy", "pond"]),
-      meadowPalsPage(muddySplashyFolder, "p09_fancy_muddy_ending", ["Muddy has the hat.", "Clucky has no hat.", "Oh, Muddy!"], "Read again?", [
+      meadowPalsPage(muddySplashyFolder, "p09_fancy_muddy_ending", ["Muddy models the fancy red hat once.", "Clucky and Splashy laugh.", "Then Muddy gives the hat back to Clucky."], "Read again?", [
         { label: "Read again", nextPageId: "p01_start" },
         { label: "Finish", nextPageId: "end" }
       ], ["muddy", "hat"])
