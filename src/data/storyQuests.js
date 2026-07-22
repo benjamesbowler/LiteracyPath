@@ -1123,10 +1123,10 @@ const moonwoodStoryQuests = [
         { label: "Go inside", nextPageId: "p08_star_room" },
         { label: "Ask the star moth why", nextPageId: "p09_door_answer" }
       ], lunaBurrowStarShellDoorTargetWords, { narrationNeedsRebuild: true }),
-      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p08_map_inside", ["The map flew into the room.", "It landed on a little star table.", "Three paths lit up around it."], "Which path should they choose?", [
+      moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p08_map_inside", ["The map flew into the room.", "It landed on a little star table.", "Two paths lit up around it: one blue and one gold."], "Which path should they choose?", [
         { label: "Choose the blue path", nextPageId: "p09_blue_path" },
         { label: "Choose the gold path", nextPageId: "p09_gold_path" }
-      ], lunaBurrowStarShellDoorTargetWords),
+      ], lunaBurrowStarShellDoorTargetWords, { narrationNeedsRebuild: true }),
       moonwoodTargetPage(lunaBurrowStarShellDoorFolder, "p08_star_room", ["The room was bigger inside than outside.", "Stars floated like bubbles.", "At the centre was a sleeping moon seed."], "What should they do?", [
         { label: "Wake the moon seed", nextPageId: "p09_star_choice" },
         { label: "Let it sleep", nextPageId: "p09_kind_sleep" }
