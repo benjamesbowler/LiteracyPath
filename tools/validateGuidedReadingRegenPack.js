@@ -8,7 +8,14 @@ import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const defaultPackRoot = "/Users/benjaminbowler/Desktop/Kimi_Agent_LiteracyPath Regen Assets Pack";
+const defaultPackName = "Kimi_Agent_LiteracyPath Regen Assets Pack";
+const defaultPackCandidates = [
+  path.join(os.homedir(), "Desktop", defaultPackName),
+  path.join(os.homedir(), "Desktop", "public", "Literacy Path Past Assets", defaultPackName)
+];
+const defaultPackRoot = process.env.GUIDED_READING_REGEN_PACK_ROOT
+  || defaultPackCandidates.find(candidate => fs.existsSync(candidate))
+  || defaultPackCandidates[0];
 const mergedRoot = path.join(os.tmpdir(), "lp-guided-regen-validate");
 const packSubdir = "guided-reading-regeneration-pack";
 const reportPath = path.join(rootDir, "docs", "guided-reading", "guided_reading_regen_import_audit.md");
