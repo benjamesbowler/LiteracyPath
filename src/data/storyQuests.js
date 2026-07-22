@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars -- LEGACY-LINT: pre-strict-rules file; new code must not add violations. */
 import { dinoPalsV2StoryQuests } from "./generated/dinoPalsV2StoryQuests.generated.js";
 
-const samPamMediaVersion = "sam-pam-alf-replacement-20260602";
+const samPamMediaVersion = "sam-pam-picnic-rebuild-20260721";
 const samPamImagePath = page => `/images/story-quests/sam-pam/page-${String(page).padStart(2, "0")}.webp?v=${samPamMediaVersion}`;
 const samPamAudioPath = page => `/audio/story-quests/sam-pam/page-${String(page).padStart(2, "0")}.mp3?v=${samPamMediaVersion}`;
 const samPamWordImagePath = word => `/images/story-quests/sam-pam/words/word-${word}.webp`;
@@ -1553,117 +1553,127 @@ export const storyQuests = [
     pages: [
       {
         id: "page-01",
-        text: ["I am Sam.", "I see Pam.", "We can go out."],
+        text: ["I am Sam.", "I see Pam.", "We can plan a picnic."],
         imageUrl: samPamImagePath(1),
         audioUrl: samPamAudioPath(1),
-        choicePrompt: "Where should they go first?",
+        narrationNeedsRebuild: true,
+        choicePrompt: "What should they check first?",
         skillTags: ["short_a", "hfw_1_25", "sam", "pam"],
         choices: [
-          { label: "Go to the van", nextPageId: "page-02" },
+          { label: "Check the map", nextPageId: "page-02" },
           { label: "See the cat", nextPageId: "page-03" }
         ]
       },
       {
         id: "page-02",
-        text: ["Sam and Pam go to the van.", "Sam has a map."],
+        text: ["The van is parked.", "Dad has the map.", "Sam can help plan."],
         imageUrl: samPamImagePath(2),
         audioUrl: samPamAudioPath(2),
-        choicePrompt: "What should they look at?",
+        narrationNeedsRebuild: true,
+        choicePrompt: "What should they do next?",
         skillTags: ["short_a", "van", "map"],
         choices: [
-          { label: "Get the bag", nextPageId: "page-04" },
-          { label: "See the map", nextPageId: "page-05" }
+          { label: "Pack the bag", nextPageId: "page-04" },
+          { label: "Trace the path", nextPageId: "page-05" }
         ]
       },
       {
         id: "page-03",
-        text: ["Pam can see a cat.", "The cat is on a mat."],
+        text: ["Pam can see the cat.", "The cat sits on the mat by the bag.", "Pam lets the cat sniff her hand."],
         imageUrl: samPamImagePath(3),
         audioUrl: samPamAudioPath(3),
+        narrationNeedsRebuild: true,
         choicePrompt: "What should Pam do?",
         skillTags: ["short_a", "cat", "mat"],
         choices: [
-          { label: "Pat the cat", nextPageId: "page-05" },
-          { label: "Get the bag", nextPageId: "page-04" }
+          { label: "Pat the cat gently", nextPageId: "page-05" },
+          { label: "Check the bag", nextPageId: "page-04" }
         ]
       },
       {
         id: "page-04",
-        text: ["Sam has the bag.", "Pam can see jam in the bag."],
+        text: ["Sam has the bag.", "Pam puts a sealed jar of jam in the bag."],
         imageUrl: samPamImagePath(4),
         audioUrl: samPamAudioPath(4),
-        choicePrompt: "Where should they go?",
+        narrationNeedsRebuild: true,
+        choicePrompt: "What should they pack next?",
         skillTags: ["short_a", "bag", "jam"],
         choices: [
-          { label: "Go to the mat", nextPageId: "page-06" },
-          { label: "Go to the van", nextPageId: "page-06" }
+          { label: "Add the cat snack", nextPageId: "page-07" },
+          { label: "Take the bag to the mat", nextPageId: "page-06" }
         ]
       },
       {
         id: "page-05",
-        text: ["Pam has the map.", "Sam can see the cat on the map."],
+        text: ["Pam has the map.", "The cat pats the park on the map.", "Sam laughs."],
         imageUrl: samPamImagePath(5),
         audioUrl: samPamAudioPath(5),
-        choicePrompt: "Who should lead?",
+        narrationNeedsRebuild: true,
+        choicePrompt: "What should they do?",
         skillTags: ["short_a", "map", "cat"],
         choices: [
-          { label: "Go with Pam", nextPageId: "page-06" },
-          { label: "Go with Sam", nextPageId: "page-06" }
+          { label: "Check that park", nextPageId: "page-06" },
+          { label: "Pack the food", nextPageId: "page-04" }
         ]
       },
       {
         id: "page-06",
-        text: ["We go to the mat.", "The cat sat by Sam and Pam."],
+        text: ["Sam and Pam set the map on the mat.", "The cat sits beside them.", "A red star marks the park."],
         imageUrl: samPamImagePath(6),
         audioUrl: samPamAudioPath(6),
-        choicePrompt: "What should they see?",
+        narrationNeedsRebuild: true,
+        choicePrompt: "What should they check?",
         skillTags: ["short_a", "mat", "cat"],
         choices: [
-          { label: "See the jam", nextPageId: "page-07" },
-          { label: "See the map", nextPageId: "page-08" }
+          { label: "Pack jam and a cat snack", nextPageId: "page-07" },
+          { label: "Check the path with Dad", nextPageId: "page-08" }
         ]
       },
       {
         id: "page-07",
-        text: ["Sam can see jam.", "Pam can see the cat."],
+        text: ["Sam can see the jam.", "Pam packs a cat snack too.", "The jam jar is shut tight."],
         imageUrl: samPamImagePath(7),
         audioUrl: samPamAudioPath(7),
+        narrationNeedsRebuild: true,
         choicePrompt: "What should they do next?",
         skillTags: ["short_a", "jam", "cat"],
         choices: [
-          { label: "Pack the bag", nextPageId: "page-09" },
-          { label: "Go to the van", nextPageId: "page-09" }
+          { label: "Zip the bag", nextPageId: "page-09" },
+          { label: "Check the map", nextPageId: "page-08" }
         ]
       },
       {
         id: "page-08",
-        text: ["Pam can see the map.", "Sam can see the van."],
+        text: ["Pam can see the map.", "Sam can see the van.", "Dad checks the path to the park."],
         imageUrl: samPamImagePath(8),
         audioUrl: samPamAudioPath(8),
+        narrationNeedsRebuild: true,
         choicePrompt: "What should they do next?",
         skillTags: ["short_a", "map", "van"],
         choices: [
-          { label: "Pack the bag", nextPageId: "page-09" },
+          { label: "Pack the bag", nextPageId: "page-07" },
           { label: "Go to the van", nextPageId: "page-09" }
         ]
       },
       {
         id: "page-09",
-        text: ["Sam and Pam go to the van.", "The cat can go too."],
+        text: ["Sam and Pam go to the van.", "Dad clips the cat carrier in place."],
         imageUrl: samPamImagePath(9),
         audioUrl: samPamAudioPath(9),
-        choicePrompt: "Where should they go now?",
+        narrationNeedsRebuild: true,
+        choicePrompt: "What should they do before Dad drives?",
         skillTags: ["short_a", "van", "cat"],
         choices: [
-          { label: "Go home", nextPageId: "page-10" },
-          { label: "See the map", nextPageId: "page-10" }
+          { label: "Buckle up", nextPageId: "page-10" },
+          { label: "Check the map once more", nextPageId: "page-08" }
         ]
       },
       {
         id: "page-10",
-        text: ["Sam, Pam, and the cat go in the van.", "We can go out again."],
+        text: ["Dad drives the van.", "Sam and Pam sit buckled up.", "The cat is safe in its carrier.", "We can go to the park!"],
         imageUrl: samPamImagePath(10),
         audioUrl: samPamAudioPath(10),
+        narrationNeedsRebuild: true,
         choicePrompt: "Read again?",
         skillTags: ["short_a", "sam", "pam", "cat", "van"],
         choices: [

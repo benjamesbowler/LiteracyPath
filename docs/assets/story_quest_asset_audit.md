@@ -1,6 +1,6 @@
 # Story Quest Asset Audit
 
-Generated: 2026-07-22T00:47:42.313Z
+Generated: 2026-07-22T01:39:58.896Z
 
 ## Summary Counts
 
@@ -13,7 +13,7 @@ Generated: 2026-07-22T00:47:42.313Z
 - Unused image files: 65
 - Unused audio files: 65
 - Extension mismatch candidates: 0
-- Narration files withheld pending rerecord: 178
+- Narration files withheld pending rerecord: 188
 
 ## Missing Referenced Images
 
@@ -152,6 +152,16 @@ These pages keep their original asset paths for traceability, but the player wit
 - `dp_ra_b_04_bouncy_big_bounce / p08_fancy_ending` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p08_fancy_ending.mp3`
 - `dp_ra_b_04_bouncy_big_bounce / p08_stream_ending` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p08_stream_ending.mp3`
 - `dp_ra_b_04_bouncy_big_bounce / p08_rock_ending` — `public/audio/story-quests/dino-pals/bouncy-big-bounce/p08_rock_ending.mp3`
+- `story_quest_short_a_sam_pam_01 / page-01` — `public/audio/story-quests/sam-pam/page-01.mp3`
+- `story_quest_short_a_sam_pam_01 / page-02` — `public/audio/story-quests/sam-pam/page-02.mp3`
+- `story_quest_short_a_sam_pam_01 / page-03` — `public/audio/story-quests/sam-pam/page-03.mp3`
+- `story_quest_short_a_sam_pam_01 / page-04` — `public/audio/story-quests/sam-pam/page-04.mp3`
+- `story_quest_short_a_sam_pam_01 / page-05` — `public/audio/story-quests/sam-pam/page-05.mp3`
+- `story_quest_short_a_sam_pam_01 / page-06` — `public/audio/story-quests/sam-pam/page-06.mp3`
+- `story_quest_short_a_sam_pam_01 / page-07` — `public/audio/story-quests/sam-pam/page-07.mp3`
+- `story_quest_short_a_sam_pam_01 / page-08` — `public/audio/story-quests/sam-pam/page-08.mp3`
+- `story_quest_short_a_sam_pam_01 / page-09` — `public/audio/story-quests/sam-pam/page-09.mp3`
+- `story_quest_short_a_sam_pam_01 / page-10` — `public/audio/story-quests/sam-pam/page-10.mp3`
 - `mp_ra_a_02_shy_cuddly_quiet_adventure / p08_barn_hug` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p08_barn_hug.mp3`
 - `mp_ra_a_02_shy_cuddly_quiet_adventure / p08_tree_hug` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p08_tree_hug.mp3`
 - `mp_ra_a_02_shy_cuddly_quiet_adventure / p09_almost_hug_ending` — `public/audio/story-quests/meadow-pals/shy-cuddly-quiet/p09_almost_hug_ending.mp3`
